@@ -3,15 +3,16 @@ title: Korzystanie z Akka strumieni dla Apache Kafka platformy Azure Event Hubs 
 description: Ten artykuł zawiera informacje dotyczące sposobu łączenia strumieni Akka z centrum zdarzeń platformy Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: ae3cc44d854aa0996a6a567e56ff4e70afe0492d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fbbeef37c4cbdd52d2127c5242474ac46e42d25
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320211"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061703"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Używanie programu Akka Streams z usługą Event Hubs dla platformy Apache Kafka
-W tym samouczku pokazano, jak połączyć strumienie Akka z centrum zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Event Hubs platformy Azure dla usługi Kafka obsługuje [Apache Kafka w wersji 1,0.](https://kafka.apache.org/10/documentation.html)
+
+W tym samouczku pokazano, jak połączyć strumienie Akka za pomocą obsługi Event Hubs Apache Kafka bez konieczności zmiany klientów protokołu lub uruchamiania własnych klastrów. 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
@@ -34,7 +35,7 @@ Aby ukończyć ten samouczek, upewnij się, że masz następujące wymagania wst
     * Upewnij się, że zmienna środowiskowa JAVA_HOME wskazuje folder, w którym zainstalowano zestaw JDK.
 * [Pobieranie](https://maven.apache.org/download.cgi) i [Instalowanie](https://maven.apache.org/install.html) archiwum binarnego Maven
     * W systemie Ubuntu możesz uruchomić polecenie `apt-get install maven`, aby zainstalować narzędzie Maven.
-* [Git](https://www.git-scm.com/downloads)
+* [Narzędzia](https://www.git-scm.com/downloads)
     * W systemie Ubuntu możesz uruchomić polecenie `sudo apt-get install git`, aby zainstalować usługę Git.
 
 ## <a name="create-an-event-hubs-namespace"></a>Tworzenie przestrzeni nazw usługi Event Hubs

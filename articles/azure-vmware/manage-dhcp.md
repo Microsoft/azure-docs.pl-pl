@@ -3,12 +3,12 @@ title: Jak utworzyć serwer DHCP i zarządzać nim
 description: W tym artykule opisano sposób zarządzania serwerem DHCP w rozwiązaniu VMware platformy Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 3fc3de228179925afdf1b7c1015c577fd9c4c924
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ba7c3983f55ed729c77d2f24d3ef311a00522148
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752158"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069564"
 ---
 # <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Tworzenie i zarządzanie serwerem DHCP w rozwiązaniu VMWare platformy Azure
 
@@ -56,7 +56,7 @@ Po utworzeniu serwera DHCP należy dodać do niego segmenty sieci.
 
 ## <a name="create-dhcp-relay-service"></a>Tworzenie usługi przekaźnika DHCP
 
-1. W oknie NXT-T wybierz kartę **Sieć** , a następnie w obszarze **Zarządzanie IP**wybierz pozycję **DHCP**. Wybierz pozycję **Dodaj serwer**. W polu **Typ serwera** wybierz opcję przekaźnik DHCP, a następnie wprowadź nazwę serwera i adres IP serwera przekazywania. Wybierz przycisk **Zapisz**, aby zapisać zmiany.
+1. W oknie NSX-T wybierz kartę **Sieć** , a następnie w obszarze **Zarządzanie IP**wybierz pozycję **DHCP**. Wybierz pozycję **Dodaj serwer**. W polu **Typ serwera** wybierz opcję przekaźnik DHCP, a następnie wprowadź nazwę serwera i adres IP serwera przekazywania. Wybierz przycisk **Zapisz**, aby zapisać zmiany.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Utwórz serwer przekazywania DHCP" border="true":::
 

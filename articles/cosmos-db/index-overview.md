@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 7417515d6f3c293368868e380ac53f0c524b872d
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760876"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068391"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indeksowanie w usłudze Azure Cosmos DB — omówienie
 
@@ -108,13 +108,13 @@ Indeks **zakresu** jest oparty na uporządkowanej strukturze podobnej do drzewa.
    SELECT * FROM c WHERE STRINGEQUALS(c.property, "value")
    ```
 
-- `ORDER BY`wybiera
+- `ORDER BY` wybiera
 
    ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
-- `JOIN`wybiera
+- `JOIN` wybiera
 
    ```sql
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
@@ -135,7 +135,7 @@ Indeksy **przestrzenne** umożliwiają wydajne zapytania dotyczące obiektów ge
 - Geoprzestrzenne w ramach zapytań:
 
    ```sql
-   SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
+   SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] })
    ```
 
 - Zapytania z przecięciem geograficznym:
@@ -150,7 +150,7 @@ Indeksów przestrzennych można używać w poprawnie sformatowanych obiektach [G
 
 Indeksy **złożone** zwiększają wydajność podczas wykonywania operacji na wielu polach. Typ indeksu złożonego jest używany dla:
 
-- `ORDER BY`zapytania dotyczące wielu właściwości:
+- `ORDER BY` zapytania dotyczące wielu właściwości:
 
 ```sql
  SELECT * FROM container c ORDER BY c.property1, c.property2
@@ -168,7 +168,7 @@ Indeksy **złożone** zwiększają wydajność podczas wykonywania operacji na w
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-Tak długo, jak jeden predykat filtru używa jednego z rodzajów indeksu, aparat zapytań obliczy to przed skanowaniem reszty. Na przykład jeśli masz zapytanie SQL, takie jak`SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+Tak długo, jak jeden predykat filtru używa jednego z rodzajów indeksu, aparat zapytań obliczy to przed skanowaniem reszty. Na przykład jeśli masz zapytanie SQL, takie jak `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * Powyższe zapytanie najpierw filtruje wpisy, w których firstName = "Andrew" przy użyciu indeksu. Następnie przekazuje wszystkie wpisy firstName = "Andrew" przy użyciu kolejnego potoku, aby obliczyć predykat zawierający filtr.
 

@@ -6,12 +6,12 @@ ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 140eb73cdf6d5bb701c08b0dd8d5f85b6f137df6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 124df19287062a7fc8a6b9cf8b9d32eb3863b581
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497481"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069241"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM
 
@@ -35,7 +35,7 @@ Szablony są plikami JSON. Do tworzenia szablonów potrzebny jest dobry Edytor J
 
 Do wdrożenia szablonu wymagane są również Azure PowerShell lub interfejs wiersza polecenia platformy Azure. Jeśli używasz interfejsu wiersza polecenia platformy Azure, musisz mieć najnowszą wersję. Instrukcje instalacji znajdują się w temacie:
 
-- [Zainstaluj Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Linux](/cli/azure/install-azure-cli-linux)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie macOS](/cli/azure/install-azure-cli-macos)
@@ -80,7 +80,7 @@ Teraz możesz zacząć uczenie się o szablonach.
 
 Gratulacje, utworzono pierwszy szablon.
 
-## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Aby rozpocząć pracę z interfejsem wiersza polecenia Azure PowerShell/Azure, zaloguj się przy użyciu poświadczeń platformy Azure.
 
@@ -167,7 +167,7 @@ az deployment group create \
 
 Polecenie wdrożenia zwraca wyniki. Wyszukaj `ProvisioningState` , aby sprawdzić, czy wdrożenie zakończyło się pomyślnie.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ![Stan aprowizacji wdrożenia programu PowerShell](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
 
@@ -178,7 +178,7 @@ Polecenie wdrożenia zwraca wyniki. Wyszukaj `ProvisioningState` , aby sprawdzi�
 ---
 
 > [!NOTE]
-> Jeśli wdrożenie nie powiodło się, użyj przełącznika **debugowania** z poleceniem wdrożenia, aby wyświetlić dzienniki debugowania.  Aby wyświetlić pełne dzienniki debugowania, można również użyć przełącznika **verbose** .
+> Jeśli wdrożenie nie powiodło się, użyj **pełnego** przełącznika, aby uzyskać informacje o tworzonych zasobach. Użyj przełącznika **debugowania** , aby uzyskać więcej informacji na potrzeby debugowania.
 
 ## <a name="verify-deployment"></a>Weryfikowanie wdrożenia
 

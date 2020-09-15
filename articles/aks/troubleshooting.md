@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzyst
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 4a28ebd047e4d5e610ea0c895063eb87ce051d45
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460324"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068833"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -225,7 +225,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 |--|:--:|
 | 1.10 | 1.10.2 lub nowszy |
 | 1,11 | 1.11.0 lub nowszy |
-| 1,12 i nowsze | Nie dotyczy |
+| 1,12 i nowsze | Brak |
 
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Niepowodzenie podczas ustawiania identyfikatorów UID i GID w mountOptions dla dysku platformy Azure
@@ -282,7 +282,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1.12 | 1.12.9 lub nowszy |
 | 1.13 | 1.13.6 lub nowszy |
 | 1,14 | 1.14.2 lub nowszy |
-| 1,15 i nowsze | Nie dotyczy |
+| 1,15 i nowsze | Brak |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a Twój węzeł ma przestarzałą listę dysków, możesz rozwiązać problem, odłączając wszystkie nieistniejące dyski z maszyny wirtualnej jako operację zbiorczą. **Pojedyncze odłączenie nieistniejących dysków może zakończyć się niepowodzeniem.**
 
@@ -301,7 +301,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1.12 | 1.12.10 lub nowszy |
 | 1.13 | 1.13.8 lub nowszy |
 | 1,14 | 1.14.4 lub nowszy |
-| 1,15 i nowsze | Nie dotyczy |
+| 1,15 i nowsze | Brak |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a stan węzła jest w stanie niepowodzenia, możesz rozwiązać problem, ręcznie aktualizując status maszyny wirtualnej przy użyciu jednego z poniższych elementów:
 
@@ -410,7 +410,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 lub nowszy |
 | 1.13 | 1.13.4 lub nowszy |
-| 1,14 i nowsze | Nie dotyczy |
+| 1,14 i nowsze | Brak |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Instalacja Azure Files nie powiodła się z powodu zmiany klucza konta magazynu
 
@@ -450,3 +450,15 @@ W wersji Kubernetes **starszej niż 1.15.0**może zostać wyświetlony błąd, t
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
+
+### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Dlaczego uaktualnienia do Kubernetes 1,16 nie powiodły się podczas używania etykiet węzłów z prefiksem kubernetes.io
+
+Od Kubernetes [1,16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [tylko zdefiniowany podzestaw etykiet z prefiksem Kubernetes.IO](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) może być stosowany przez kubelet do węzłów. AKS nie może usunąć aktywnych etykiet w Twoim imieniu bez zgody, ponieważ może to spowodować przestoje związane z obciążeniami.
+
+W związku z tym, aby uniknąć tego problemu, możesz:
+
+1. Uaktualnij płaszczyznę kontroli klastra do wersji 1,16 lub nowszej
+2. Dodaj nową nodepoool na 1,16 lub wyższej bez nieobsługiwanych etykiet kubernetes.io
+3. Usuń starszą nodepool
+
+AKS bada zdolność do mutacji aktywnych etykiet na nodepool w celu usprawnienia tego ograniczenia.

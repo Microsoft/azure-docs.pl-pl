@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: 627b020ce618a2a1f2646a95e143947876bd6a15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83754842eeb4b5d609596045c11451e898960b9a
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82072641"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90064855"
 ---
 ### <a name="general-query-limits"></a>Ogólne limity zapytania
 
@@ -30,8 +30,8 @@ Azure Monitor ma kilka ograniczeń ograniczania ochrony przed użytkownikami wys
 | Measure | Ogranicz na użytkownika | Opis |
 |:---|:---|:---|
 | Zapytania współbieżne | 5 | Jeśli dla użytkownika jest już 5 zapytań, wszystkie nowe zapytania są umieszczane w kolejce współbieżności dla poszczególnych użytkowników. Po zakończeniu jednego z uruchomionych zapytań następne zapytanie zostanie pobrane z kolejki i rozpoczęte. Nie obejmuje to zapytań z reguł alertów.
-| Czas w kolejce współbieżności | 2,5 minut | Jeśli zapytanie znajduje się w kolejce przez ponad 2,5 minut bez uruchomienia, zostanie zakończone z odpowiedzią na błąd HTTP z kodem 429. |
-| Łączna liczba zapytań w kolejce współbieżności | 40 | Gdy liczba zapytań w kolejce osiągnie 40, wszelkie dodatkowe zapytania zostaną odrzucone z kodem błędu HTTP 429. Ta liczba jest uzupełnieniem 5 zapytań, które mogą być uruchamiane jednocześnie. |
+| Czas w kolejce współbieżności | 3 minuty | Jeśli zapytanie znajduje się w kolejce przez więcej niż 3 minuty bez uruchomienia, zostanie zakończone z odpowiedzią na błąd HTTP z kodem 429. |
+| Łączna liczba zapytań w kolejce współbieżności | 200 | Gdy liczba zapytań w kolejce osiągnie 200, wszelkie dodatkowe zapytania zostaną odrzucone z kodem błędu HTTP 429. Ta liczba jest uzupełnieniem 5 zapytań, które mogą być uruchamiane jednocześnie. |
 | Częstotliwość zapytań | 200 zapytań na 30 sekund | Jest to ogólna szybkość, z jaką zapytania mogą być przesyłane przez jednego użytkownika do wszystkich obszarów roboczych.  Ten limit dotyczy zapytań programistycznych lub zapytań inicjowanych przez części wizualizacji, takich jak pulpity nawigacyjne platformy Azure i strona podsumowania obszaru roboczego Log Analytics. |
 
 - Zoptymalizuj zapytania zgodnie z opisem w temacie [Optymalizacja zapytań dzienników w Azure monitor](../articles/azure-monitor/log-query/query-optimization.md).

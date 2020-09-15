@@ -4,14 +4,14 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 09/14/2020
 ms.subservice: alerts
-ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: b0e39982b3d62e0ef722a139024b499efc254f5f
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190663"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068766"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
 
@@ -234,7 +234,7 @@ Należy wziąć pod uwagę następujące ograniczenia dotyczące nazw reguł ale
 - Nie można zmienić nazwy reguły alertu metryki (zmieniono ich nazwę) po utworzeniu
 - Nazwy reguł alertów metryk muszą być unikatowe w obrębie grupy zasobów
 - Nazwy reguł alertów metryk nie mogą zawierać następujących znaków: * # & +:  < > ? @ % { } \ / 
-- Nazwy reguł alertów metryk nie mogą kończyć się znakiem:.
+- Nazwy reguł alertów metryk nie mogą kończyć się spacją ani kropką
 
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Ograniczenia w przypadku używania wymiarów w regule alertu metryki z wieloma warunkami

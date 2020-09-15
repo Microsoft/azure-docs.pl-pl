@@ -3,18 +3,18 @@ title: Włącz przyspieszone sieci na potrzeby odzyskiwania po awarii maszyny wi
 description: Opisuje sposób włączania przyspieszonej sieci przy użyciu Azure Site Recovery na potrzeby odzyskiwania po awarii maszyny wirtualnej platformy Azure
 services: site-recovery
 documentationcenter: ''
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: mayg
-ms.openlocfilehash: baa15b656f061d812b29ded99d55da13294f9800
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.author: harshacs
+ms.openlocfilehash: 1d2d3b3aacc00428c96cde0f8230421a98151ae2
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835854"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068017"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Przyspieszona sieć z odzyskiwaniem po awarii maszyny wirtualnej platformy Azure
 

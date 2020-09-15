@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: d77922d5957a0f6602e00621ebbabeaa3f3ac8f9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 50881071380bbe5d245ed458d162e62bfabd108a
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322470"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061499"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurowanie i używanie linku Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)
 
@@ -48,16 +48,15 @@ Wykonaj następujące kroki, aby uruchomić zapytania analityczne za pomocą lin
 
 1. Twoje konto ma teraz włączoną funkcję linku Synapse. Następnie zobacz jak utworzyć kontenery obsługujące magazyn analityczny, aby automatycznie rozpocząć replikację danych operacyjnych z magazynu transakcyjnego do magazynu analitycznego.
 
-### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
-
-[Szablon Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) tworzy link Synapse z włączonym kontem usługi Azure Cosmos dla interfejsu API SQL. Ten szablon służy do tworzenia konta interfejsu API programu Core (SQL) w jednym regionie z kontenerem skonfigurowanym z włączoną funkcją analizy czasu wygaśnięcia (TTL) i opcją używania przepustowości ręcznej lub skalowania automatycznego. Aby wdrożyć ten szablon, kliknij pozycję **Wdróż na platformie Azure** na stronie Readme.
+> [!NOTE]
+> Włączenie linku Synapse nie powoduje automatycznego włączenia magazynu analitycznego. Po włączeniu linku Synapse na koncie Cosmos DB Włącz magazyn analityczny w kontenerach podczas ich tworzenia, aby rozpocząć replikację danych operacji do magazynu analitycznego. 
 
 ## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a> Tworzenie kontenera usługi Azure Cosmos z magazynem analitycznym
 
 Możesz włączyć magazyn analityczny w kontenerze usługi Azure Cosmos podczas tworzenia kontenera. Można użyć Azure Portal lub skonfigurować `analyticalTTL` Właściwość podczas tworzenia kontenera przy użyciu zestawów sdk Azure Cosmos DB.
 
 > [!NOTE]
-> Obecnie można włączyć magazyn analityczny dla **nowych** kontenerów (zarówno w ramach nowych, jak i istniejących kont).
+> Obecnie można włączyć magazyn analityczny dla **nowych** kontenerów (zarówno w ramach nowych, jak i istniejących kont). Dane z kontenerów istniejącego można migrować do nowych kontenerów za pomocą [narzędzi do migracji Azure Cosmos DB.](cosmosdb-migrationchoices.md)
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -211,6 +210,10 @@ Skorzystaj z instrukcji w temacie [Connect to Azure Synapse link](../synapse-ana
 ## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a> Zapytanie przy użyciu Synapse Spark
 
 Skorzystaj z instrukcji w temacie [zapytania Azure Cosmos DB ze sklepu analitycznego](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) , aby dowiedzieć się, jak wykonywać zapytania o Synapse Spark. W tym artykule przedstawiono kilka przykładów, na których można korzystać z magazynu analitycznego z gestów Synapse. Te gesty są widoczne po kliknięciu prawym przyciskiem myszy kontenera. Za pomocą gestów można szybko wygenerować kod i dostosować go do własnych potrzeb. Są one również idealne do odnajdywania danych za pomocą jednego kliknięcia.
+
+## <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
+
+[Szablon Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) tworzy link Synapse z włączonym kontem usługi Azure Cosmos dla interfejsu API SQL. Ten szablon służy do tworzenia konta interfejsu API programu Core (SQL) w jednym regionie z kontenerem skonfigurowanym z włączoną funkcją analizy czasu wygaśnięcia (TTL) i opcją używania przepustowości ręcznej lub skalowania automatycznego. Aby wdrożyć ten szablon, kliknij pozycję **Wdróż na platformie Azure** na stronie Readme.
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Wprowadzenie do usługi Azure Synpase link — przykłady
 

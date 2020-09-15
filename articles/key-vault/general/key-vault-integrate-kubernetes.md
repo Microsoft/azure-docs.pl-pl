@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/25/2020
-ms.openlocfilehash: c3813210808138f02f664a5445ef6faefc9591dc
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031963"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061805"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów tajnych w systemie Kubernetes
 
@@ -70,7 +70,7 @@ Wypełnij sekcje "Tworzenie grupy zasobów", "Tworzenie klastra AKS" i "łączen
     ```azurecli
     kubectl version
     ```
-1. Upewnij się, że wersja Kubernetes to 1.16.0 lub nowsza. Następujące polecenie uaktualnia zarówno klaster Kubernetes, jak i pulę węzłów. Wykonanie polecenia może potrwać kilka minut. W tym przykładzie grupa zasobów to *contosoResourceGroup*, a klaster Kubernetes to *contosoAKSCluster*.
+1. Upewnij się, że wersja Kubernetes to 1.16.0 lub nowsza. W przypadku klastrów systemu Windows upewnij się, że wersja Kubernetes to 1.18.0 lub nowsza. Następujące polecenie uaktualnia zarówno klaster Kubernetes, jak i pulę węzłów. Wykonanie polecenia może potrwać kilka minut. W tym przykładzie grupa zasobów to *contosoResourceGroup*, a klaster Kubernetes to *contosoAKSCluster*.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
@@ -110,18 +110,20 @@ Aby utworzyć własny magazyn kluczy i ustawić wpisy tajne, postępuj zgodnie z
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Utwórz własny obiekt SecretProviderClass
 
-Aby utworzyć własny niestandardowy obiekt SecretProviderClass z parametrami specyficznymi dla dostawcy dla sterownika CSI magazynu Secret, [Użyj tego szablonu](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/test/bats/tests/azure_v1alpha1_secretproviderclass.yaml). Ten obiekt zapewni dostęp tożsamości do magazynu kluczy.
+Aby utworzyć własny niestandardowy obiekt SecretProviderClass z parametrami specyficznymi dla dostawcy dla sterownika CSI magazynu Secret, [Użyj tego szablonu](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass_service_principal.yaml). Ten obiekt zapewni dostęp tożsamości do magazynu kluczy.
 
 W przykładowym pliku SecretProviderClass YAML wprowadź brakujące parametry. Wymagane są następujące parametry:
 
-* **userAssignedIdentityID**: identyfikator klienta jednostki usługi
+* **userAssignedIdentityID**: # [wymagane] Jeśli używasz nazwy głównej usługi, użyj identyfikatora klienta, aby określić, która zarządzana tożsamość użytkownika ma być używana. Jeśli używasz tożsamości przypisanej przez użytkownika jako tożsamości zarządzanej maszyny wirtualnej, określ identyfikator klienta tożsamości. Jeśli wartość jest pusta, domyślnie zostanie użyta tożsamość przypisana do systemu na maszynie wirtualnej 
 * **servicenamename: nazwa magazynu kluczy**
 * **obiekty**: kontener dla całej zawartości tajnej, którą chcesz zainstalować
     * **ObjectName**: Nazwa tajnej zawartości
     * **ObjectType**: typ obiektu (klucz tajny, klucz, certyfikat)
-* Grupa **zasobów: Nazwa**grupy zasobu
-* **subskrypcji**: Identyfikator subskrypcji magazynu kluczy
+* Grupa **zasobów: Nazwa**grupy zasobu # [wymagana dla wersji < 0.0.4] grupy zasobów magazynu kluczy
+* **subskrypcji**: Identyfikator subskrypcji magazynu kluczy # [wymagany dla wersji < 0.0.4] Identyfikator subskrypcji magazynu klucza
 * **tenantID**: Identyfikator dzierżawy lub identyfikator katalogu magazynu kluczy
+
+Dokumentacja wszystkich wymaganych pól jest dostępna tutaj: [link](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 Zaktualizowany szablon jest przedstawiony w poniższym kodzie. Pobierz go jako plik YAML i Wypełnij wymagane pola. W tym przykładzie Magazyn kluczy jest **contosoKeyVault5**. Ma dwa wpisy tajne, **secret1** i **secret2**.
 
@@ -210,6 +212,11 @@ Jeśli używasz tożsamości zarządzanych, Przypisz określone role do utworzon
 1. Aby utworzyć, wyświetlić lub odczytać tożsamość zarządzaną przypisaną przez użytkownika, do klastra AKS należy przypisać rolę [operatora tożsamości zarządzanej](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Upewnij się, że **$clientId** jest ClientId klastra Kubernetes. Zakres będzie objęty usługą subskrypcji platformy Azure, w odniesieniu do grupy zasobów węzła, która została utworzona podczas tworzenia klastra AKS. Ten zakres zapewni, że tylko zasoby w tej grupie mają wpływ role przypisane poniżej. 
 
     ```azurecli
+    RESOURCE_GROUP=contosoResourceGroup
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+    
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP

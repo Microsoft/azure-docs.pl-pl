@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: fdd564618232ce7fde5a76fb9c37937113f179b2
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 315ea9b683ccd583f5c29c7527013f0d924336f4
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670620"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061884"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Przenoszenie maszyn wirtualnych platformy Azure do strefy dostępności w innym regionie
 
@@ -71,8 +71,7 @@ Wybierz zasoby, które chcesz przenieść.
     ![Przycisk, aby rozpocząć](./media/move-region-availability-zone/get-started.png)
 
 3. W obszarze **Przenieś zasoby**  >  **Źródło + miejsce docelowe**wybierz źródłową subskrypcję i region.
-4. W obszarze **Lokalizacja docelowa**wybierz region, do którego chcesz przenieść maszyny wirtualne. 
-5. W **obszarze obszar metadanych**wybierz miejsce, w którym chcesz przechowywać metadane dotyczące przenoszonych zasobów. Grupa zasobów jest tworzona specjalnie do tego celu. Następnie kliknij przycisk **Dalej**.
+4. W obszarze **Lokalizacja docelowa**wybierz region, do którego chcesz przenieść maszyny wirtualne. Następnie kliknij przycisk **Dalej**.
 
      ![Strona do wypełnienia dla źródłowej i docelowej subskrypcji/regionu](./media/move-region-availability-zone/source-target.png)
 

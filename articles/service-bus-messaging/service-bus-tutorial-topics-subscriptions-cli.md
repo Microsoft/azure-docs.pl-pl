@@ -5,12 +5,12 @@ ms.date: 06/23/2020
 ms.topic: quickstart
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 3a6535a13ab00c4e22ac4cd8c2de5a5bbb02d0a8
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 080b089efa276779420f6d9bc8e76272f1e65788
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189807"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069700"
 ---
 # <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć temat Service Bus i subskrypcje w temacie
 W tym przewodniku szybki start utworzysz temat Service Bus przy użyciu interfejsu wiersza polecenia platformy Azure, a następnie utworzysz subskrypcje w tym temacie. 
@@ -32,7 +32,7 @@ W tym przewodniku szybki start użyjesz Azure Cloud Shell, które można uruchom
 ## <a name="create-a-service-bus-topic-and-subscriptions"></a>Tworzenie tematu i subskrypcji usługi Service Bus
 Każda [subskrypcja tematu](service-bus-messaging-overview.md#topics) może otrzymywać kopie wszystkich komunikatów. Tematy są w pełni protokołowane i semantycznie zgodne z kolejkami usługi Service Bus. Tematy usługi Service Bus obsługują najróżniejsze reguły wyboru z warunkami filtru, z użyciem opcjonalnych akcji, które ustawiają lub modyfikują właściwości komunikatów. Za każdym razem, gdy reguła pasuje, generuje komunikat. Aby dowiedzieć się więcej o regułach, filtrach i akcjach, kliknij ten [link](topic-filters.md).
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Uruchom Azure Cloud Shell, wybierając ikonę pokazaną na poniższej ilustracji. Przełącz się do trybu **bash** , jeśli Cloud Shell jest w trybie **programu PowerShell** . 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Cloud Shell uruchamiania":::
@@ -80,7 +80,7 @@ Każda [subskrypcja tematu](service-bus-messaging-overview.md#topics) może otrz
 9. Utwórz filtr dla trzeciej subskrypcji z filtrem przy użyciu właściwości klienta ( `StoreId` nie w `Store1` ,, `Store2` `Store3` lub `Store4` ).
 
     ```azurecli-interactive
-    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3', 'Store4')"     
+    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId NOT IN ('Store1','Store2','Store3', 'Store4')"     
     ```
 10. Uruchom następujące polecenie, aby pobrać podstawowe parametry połączenia dla przestrzeni nazw. Te parametry połączenia służą do nawiązywania połączenia z kolejką i wysyłania i odbierania komunikatów. 
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 6a5ec4644eaed8d525c278c4fc464b4dbc683596
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023843"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068816"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
 
@@ -156,7 +156,7 @@ W Stany Zjednoczone, jeśli nie skonfigurowano identyfikatora obiektu wywołują
 * *+ 1 (877) 668 6536*
 
 > [!NOTE]
-> Gdy wywołania usługi Azure Multi-Factor Authentication są umieszczane za pośrednictwem publicznej sieci telefonicznej, czasami są kierowane przez przewoźnika, który nie obsługuje identyfikatora rozmówcy. W związku z tym identyfikator wywołującego nie jest gwarantowany, mimo że usługa Azure Multi-Factor Authentication zawsze go wysyła.
+> Gdy wywołania usługi Azure Multi-Factor Authentication są umieszczane za pośrednictwem publicznej sieci telefonicznej, czasami wywołania są kierowane przez operatora, który nie obsługuje identyfikatora rozmówcy. W związku z tym identyfikator wywołującego nie jest gwarantowany, mimo że usługa Azure Multi-Factor Authentication zawsze ją wysyła. Dotyczy to zarówno połączeń telefonicznych, jak i komunikatów tekstowych udostępnianych przez usługę Azure Multi-Factor Authentication. Jeśli musisz sprawdzić, czy wiadomość tekstowa pochodzi z usługi Azure Multi-Factor Authentication, zobacz [krótkie kody programu SMS służące do wysyłania wiadomości?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Aby skonfigurować własny numer ID procesu wywołującego, wykonaj następujące czynności:
 
@@ -268,7 +268,7 @@ Za pomocą reguł dostępu warunkowego można definiować nazwane lokalizacje, w
 1. Wprowadź nazwę lokalizacji.
 1. Wybierz pozycję **Oznacz jako zaufaną lokalizację**.
 1. Wprowadź zakres adresów IP w notacji CIDR dla danego środowiska, na przykład *40.77.182.32/27*.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Włączanie funkcji Zaufane adresy IP przy użyciu dostępu warunkowego
 

@@ -3,18 +3,18 @@ title: Apache Kafka Przewodnik dla deweloperów Event Hubs
 description: Ten artykuł zawiera linki do artykułów opisujących sposób integrowania aplikacji Kafka z usługą Azure Event Hubs.
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bbd173a7f81042c0839cec81838172b21f80d5cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 757db4faf2a933e366bc818d5cf6aab04d0b08ba
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314241"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061737"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Przewodnik dla deweloperów Apache Kafka dla platformy Azure Event Hubs
 Ten artykuł zawiera linki do artykułów opisujących sposób integrowania aplikacji Apache Kafka z usługą Azure Event Hubs. 
 
 ## <a name="overview"></a>Omówienie
-Event Hubs udostępnia punkt końcowy Kafka, który może być używany przez istniejące aplikacje oparte na Kafka jako alternatywę dla uruchamiania własnego klastra Kafka. Event Hubs obsługuje protokół Apache Kafka 1,0 i nowsze i współpracuje z istniejącymi aplikacjami Kafka, w tym narzędzia MirrorMaker. Aby uzyskać więcej informacji, zobacz [Event Hubs dla Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+Event Hubs udostępnia punkt końcowy Kafka, który może być używany przez istniejące aplikacje oparte na Kafka jako alternatywę dla uruchamiania własnego klastra Kafka. Event Hubs współpracuje z wieloma istniejącymi aplikacjami Kafka. Aby uzyskać więcej informacji, zobacz [Event Hubs dla Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 ## <a name="quickstarts"></a>Przewodniki Szybki start
 Przewodniki Szybki Start można znaleźć w usłudze GitHub i w tym zestawie zawartości, co pozwala szybko uzyskać dostęp do Event Hubs Kafka.
@@ -69,7 +69,7 @@ Zapoznaj się z następującymi przewodnikami:
 | [Łączenie platformy Apache Spark z centrum zdarzeń](event-hubs-kafka-spark-tutorial.md) | Przeprowadzi Cię przez połączenie aplikacji Spark w celu Event Hubs na potrzeby przesyłania strumieniowego w czasie rzeczywistym. |
 | [Łączenie platformy Apache Flink z centrum zdarzeń](event-hubs-kafka-flink-tutorial.md) | Pokazuje, jak połączyć Apache Flink z centrum zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów. |
 | [Integrowanie Apache Kafka nawiązywanie połączenia z centrum zdarzeń (wersja zapoznawcza)](event-hubs-kafka-connect-tutorial.md) | Przeprowadzi Cię przez integrację Kafka z centrum zdarzeń i wdrażanie podstawowych łączników FileStreamSource i FileStreamSink. |
-| [Łączenie strumieni Akka z centrum zdarzeń](event-hubs-kafka-akka-streams-tutorial.md) | Pokazuje, jak połączyć strumienie Akka z centrum zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów. |
+| [Łączenie usługi Akka Streams z centrum zdarzeń](event-hubs-kafka-akka-streams-tutorial.md) | Pokazuje, jak połączyć strumienie Akka z centrum zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów. |
 | [Korzystanie z programu sprężynowego rozruchu Starter dla Apache Kafka z platformą Azure Event Hubs](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub) | Pokazuje, w jaki sposób skonfigurować spinacz oparty na języku Java, który został utworzony za pomocą inicjatora rozruchu sprężynowego, aby użyć Apache Kafka z usługą Azure Event Hubs. |
 
 ## <a name="next-steps"></a>Następne kroki

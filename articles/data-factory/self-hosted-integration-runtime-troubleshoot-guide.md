@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: abnarain
-ms.openlocfilehash: a6a0a62bd857dff575e17f47f1e2394375b08c45
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033663"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069479"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
@@ -46,63 +46,63 @@ W przypadku działań zakończonych niepowodzeniem w przypadku samodzielnego śr
 > Przeglądanie dzienników i przekazywanie żądań zostanie wykonane we wszystkich wystąpieniach samoobsługowego środowiska IR w trybie online. Upewnij się, że wszystkie własne wystąpienia środowiska IR są w trybie online w przypadku brakujących dzienników. 
 
 
-## <a name="self-hosted-ir-general-failure-or-error"></a>Ogólny błąd lub problem z samoobsługowym środowisku IR
+## <a name="self-hosted-ir-general-failure-or-error"></a>Ogólny błąd lub awaria własnego środowiska IR
 
-### <a name="tlsssl-certificate-issue"></a>Problem z certyfikatem TLS/SSL
+### <a name="tlsssl-certificate-issue"></a>Problem z certyfikatem TLS/SSL:
 
 #### <a name="symptoms"></a>Objawy
 
-Podczas próby włączenia certyfikatu TLS/SSL (zaawansowanego) z sieci intranet z **obsługą samodzielnego Configuration Manager**  ->  **dostępu zdalnego**, po wybraniu certyfikatu TLS/SSL poniżej pojawia się następujący komunikat o błędzie:
+Podczas próby włączenia certyfikatu TLS/SSL (zaawansowane) z poziomu ekranu **Menedżer konfiguracji własnego środowiska IR** -> **Dostęp zdalny z intranetu** po wybraniu certyfikatu TLS/SSL jest wyświetlany poniższy komunikat o błędzie:
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
-W powyższym przypadku użytkownik używa certyfikatu z "microsoft.com" jako ostatniego elementu.
+W powyższym przypadku użytkownik korzysta z certyfikatu, w którym ostatni element to „microsoft.com”.
 
 #### <a name="cause"></a>Przyczyna
 
-Jest to znany problem w programie WCF: sprawdzanie poprawności TLS/SSL usługi WCF sprawdza tylko ostatnie DNSName w sieci SAN. 
+Jest to znany problem w usłudze WCF: Podczas walidacji certyfikatu TLS/SSL w usłudze WCF sprawdzana jest tylko ostatnia nazwa DNSName w sieci SAN. 
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Certyfikat z symbolami wieloznacznymi jest obsługiwany w przypadku samodzielnego środowiska IR Azure Data Factory v2. Ten problem występuje zwykle z powodu nieprawidłowego certyfikatu SSL. Ostatni DNSName w sieci SAN powinien być prawidłowy. Wykonaj poniższe czynności, aby je sprawdzić. 
+Własne środowisko IR usługi Azure Data Factory v2 obsługuje certyfikat z symbolami wieloznacznymi. Ten problem występuje zwykle z powodu nieprawidłowego certyfikatu SSL. Ostatnia nazwa DNSName w sieci SAN powinna być prawidłowa. Wykonaj poniższe czynności, aby to sprawdzić. 
 1.  Otwórz konsolę zarządzania, dokładnie sprawdź *podmiot* i *alternatywną nazwę podmiotu* w szczegółach certyfikatu. W powyższym przypadku na przykład ostatni element w *alternatywnej nazwie podmiotu*, czyli "DNS name = Microsoft.com.com", nie jest prawidłowy.
 2.  Skontaktuj się z firmą wystawienia certyfikatu w celu usunięcia nieprawidłowej nazwy DNS.
 
-### <a name="concurrent-jobs-limit-issue"></a>Problem z limitem liczby zadań współbieżnych
+### <a name="concurrent-jobs-limit-issue"></a>Problem z limitem zadań współbieżnych
 
 #### <a name="symptoms"></a>Objawy
 
-Próbując zwiększyć limit współbieżnych zadań z interfejsu użytkownika Azure Data Factory, zawiesza się tak samo, jak *Aktualizacja* .
-Maksymalna wartość współbieżnych zadań została ustawiona na 24 i chcesz zwiększyć liczbę, aby umożliwić szybsze uruchamianie zadań. Minimalna wartość, którą można wprowadzić, to 3, a maksymalna wartość, którą można wprowadzić to 32. Zwiększono wartość z 24 do 32 i trafisz na przycisk *aktualizacji* w interfejsie użytkownika, który został zablokowany podczas *aktualizowania* , jak widać poniżej. Po odświeżeniu klient nadal będzie miał wartość 24 i nigdy nie został zaktualizowany do 32.
+Przy próbie zwiększenia limitu zadań współbieżnych z poziomu interfejsu użytkownika usługi Azure Data Factory stan zawiesza się na wartości *trwa aktualizacja*.
+Maksymalna wartość zadań współbieżnych została ustawiona na 24 i chcesz zwiększyć tę liczbę, aby umożliwić szybsze uruchamianie zadań. Minimalna wartość, którą można wprowadzić, to 3, a maksymalna wartość to 32. Zwiększono wartość z 24 do 32 i trafisz na przycisk *aktualizacji* w interfejsie użytkownika, który został zablokowany podczas *aktualizowania* , jak widać poniżej. Po odświeżeniu klient nadal widzi wartość 24, która nigdy nie została zaktualizowana do 32.
 
 ![Aktualizowanie stanu](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
 
 #### <a name="cause"></a>Przyczyna
 
-Istnieje ograniczenie dla ustawienia, ponieważ wartość zależy od logicCore komputera i pamięci, można po prostu dostosować ją do mniejszej wartości, takiej jak 24, i zobaczyć wynik.
+To ustawienie jest ograniczone, ponieważ jego wartość zależy od rdzenia logicznego i pamięci komputera. Można ustawić mniejszą wartość, na przykład 24, i sprawdzić, jaki będzie wynik.
 
 > [!TIP] 
 > - Aby uzyskać szczegółowe informacje o tym, co to jest liczba rdzeni dla logiki, i jak znaleźć podstawową liczbę logiki maszyn, zobacz [ten artykuł](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
 > - Aby uzyskać szczegółowe informacje na temat sposobu obliczania zapisu Math. log, zobacz [ten artykuł](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
-### <a name="self-hosted-ir-ha-ssl-certificate-issue"></a>Problem z własnym hostowanym certyfikatem SSL HA środowiska IR
+### <a name="self-hosted-ir-ha-ssl-certificate-issue"></a>Problem z certyfikatem HA SSL własnego środowiska IR
 
 #### <a name="symptoms"></a>Objawy
 
-Samodzielny węzeł roboczy środowiska IR zgłosił błąd poniżej:
+Węzeł roboczy własnego środowiska IR zgłosił poniższy błąd:
 
 `Failed to pull shared states from primary node net.tcp://abc.cloud.corp.Microsoft.com:8060/ExternalService.svc/. Activity ID: XXXXX The X.509 certificate CN=abc.cloud.corp.Microsoft.com, OU=test, O=Microsoft chain building failed. The certificate that was used has a trust chain that cannot be verified. Replace the certificate or change the certificateValidationMode. The revocation function was unable to check revocation because the revocation server was offline.`
 
 #### <a name="cause"></a>Przyczyna
 
-W przypadku obsługi przypadków związanych z uzgadnianiem SSL/TLS mogą wystąpić pewne problemy związane z weryfikacją łańcucha certyfikatu. 
+Podczas obsługi przypadków związanych z uzgadnianiem certyfikatów SSL/TLS mogą wystąpić pewne problemy związane z weryfikacją łańcucha certyfikatów. 
 
 #### <a name="resolution"></a>Rozwiązanie
 
 - Oto szybki i intuicyjny sposób rozwiązywania problemów z kompilacją łańcucha certyfikatów X. 509.
  
-    1. Wyeksportuj certyfikat, który musi zostać zweryfikowany. Przejdź do pozycji Zarządzaj certyfikatem komputera i Znajdź certyfikat, który chcesz sprawdzić, a następnie kliknij prawym przyciskiem myszy pozycję **wszystkie zadania**  ->  **Eksportuj**.
+    1. Wyeksportuj certyfikat, który ma zostać zweryfikowany. Przejdź do zarządzania certyfikatem komputera i znajdź certyfikat, który chcesz sprawdzić, a następnie kliknij prawym przyciskiem myszy pozycję **Wszystkie zadania** -> **Eksportuj**.
     
         ![Eksportuj zadania](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -118,7 +118,7 @@ W przypadku obsługi przypadków związanych z uzgadnianiem SSL/TLS mogą wystą
         ```
         Certutil -verify -urlfetch c:\users\test\desktop\servercert02.cer > c:\users\test\desktop\Certinfo.txt
         ```
-    4. Sprawdź, czy w wyjściowym pliku txt występuje błąd. Podsumowanie błędu można znaleźć na końcu pliku txt.
+    4. Sprawdź, czy w wyjściowym pliku txt znajduje się jakikolwiek błąd. Podsumowanie błędów można znaleźć na końcu pliku txt.
 
         Na przykład: 
 
@@ -138,13 +138,13 @@ W przypadku obsługi przypadków związanych z uzgadnianiem SSL/TLS mogą wystą
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Następnie zostanie otwarte **Narzędzie pobierania adresu URL** . Aby sprawdzić certyfikaty z AIA, CDP i OCSP, kliknij przycisk **Pobierz** .
+    1. Następnie zostanie otwarte **narzędzie do pobierania adresu URL**. Aby sprawdzić certyfikaty z protokołów AIA, CDP i OCSP, kliknij przycisk **Pobierz**.
 
         ![Przycisk pobierania](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
-        Łańcuch certyfikatów można skompilować pomyślnie, jeśli certyfikat z AIA ma wartość "zweryfikowano", a certyfikat z listy CDP lub protokołu OCSP jest "zweryfikowany".
+        Łańcuch certyfikatów może zostać pomyślnie utworzony, jeśli certyfikat z protokołu AIA ma wartość „Zweryfikowano” i certyfikat z protokołu CDP lub OCSP ma wartość „Zweryfikowano”.
 
-        Jeśli wystąpi błąd podczas pobierania AIA, CDP, Pracuj z zespołem sieci, aby przygotować komputer kliencki do łączenia się z docelowym adresem URL. Wystarczy, że ścieżka http lub ścieżka LDAP będzie można zweryfikować.
+        Jeśli wystąpi błąd podczas pobierania protokołu AIA lub CDP, skontaktuj się z zespołem ds. sieci, aby przygotować komputer kliencki do nawiązania połączenia z docelowym adresem URL. Wystarczy, że będzie można zweryfikować ścieżkę http lub ldap.
 
 ### <a name="self-hosted-ir-could-not-load-file-or-assembly"></a>Własne środowisko IR nie może załadować pliku lub zestawu
 
@@ -165,7 +165,7 @@ Jeśli monitor zostanie przetworzony, zobaczysz następujący wynik:
 > [!TIP] 
 > Można ustawić filtr, jak pokazano na poniższym zrzucie ekranu.
 > Informuje nas, że biblioteka DLL **System. ValueTuple** nie znajduje się w folderze związanym z pamięcią GAC lub w folderze *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway*, lub w *katalogu c:\Program Files\Microsoft Integration Runtime\4.0\Shared* .
-> W zasadzie usługa najpierw załaduje bibliotekę DLL z folderu *GAC* , a następnie z folderu *udostępnione* i wreszcie z katalogu *bramy* . W związku z tym, można umieścić bibliotekę DLL do dowolnej ścieżki, która może być przydatna.
+> Zasadniczo załaduje on bibliotekę dll najpierw z folderu pamięci *GAC*, następnie z folderu *Shared* (Udostępnione), a na końcu z folderu *Gateway* (Brama). W związku z tym możesz umieścić bibliotekę dll w dowolnej ścieżce, która może być przydatna.
 
 ![Skonfiguruj filtry](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -173,7 +173,7 @@ Jeśli monitor zostanie przetworzony, zobaczysz następujący wynik:
 
 Można sprawdzić, czy **System.ValueTuple.dll** znajduje się w folderze *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway\DataScan* . Aby rozwiązać ten problem, skopiuj **System.ValueTuple.dll** do folderu *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* .
 
-Tej samej metody można użyć do rozwiązywania brakujących problemów z innym plikiem lub zestawem.
+Tej samej metody można użyć do rozwiązywania problemów z innymi brakującymi plikami lub zestawami.
 
 #### <a name="more-information"></a>Więcej informacji
 
@@ -186,66 +186,66 @@ Na poniższym błędzie można jasno zobaczyć zestaw *System. ValueTuple* nie i
 Aby uzyskać więcej informacji na temat GAC, zobacz [ten artykuł](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
 
 
-### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Jak przeprowadzić inspekcję braku własnego klucza IR
+### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Jak przeprowadzić inspekcję braku klucza własnego środowiska IR
 
 #### <a name="symptoms"></a>Objawy
 
-Samodzielne środowisko Integration Runtime jest nieoczekiwane w trybie offline bez klucza, poniżej zostanie wyświetlony komunikat o błędzie w dzienniku zdarzeń: `Authentication Key is not assigned yet`
+Własne środowisko Integration Runtime nagle przechodzi do trybu offline bez klucza. W dzienniku zdarzeń widoczny jest poniższy błąd: `Authentication Key is not assigned yet`
 
 ![Brak klucza uwierzytelniania](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
 
 #### <a name="cause"></a>Przyczyna
 
-- Samodzielny węzeł IR lub logiczny samoobsługowy środowisko IR w portalu jest usuwany.
-- Trwa czysta Dezinstalacja.
+- Usunięto węzeł własnego środowiska IR lub logiczne własne środowisko IR w portalu.
+- Wykonywana jest czysta dezinstalacja.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Jeśli żaden z powyższych przyczyn nie ma zastosowania, możesz przejść do folderu: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway*i sprawdzić, czy plik o nazwie **Configurations** został usunięty. Jeśli została usunięta, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://www.netwrix.com/how_to_detect_who_deleted_file.html) , aby przeprowadzić inspekcję, kto usunął plik.
+Jeśli żaden z powyższych przyczyn nie ma zastosowania, możesz przejść do folderu: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway*i sprawdzić, czy plik o nazwie **Configurations** został usunięty. Jeśli został on usunięty, postępuj zgodnie z instrukcjami dostępnymi [tutaj](https://www.netwrix.com/how_to_detect_who_deleted_file.html), aby sprawdzić, kto usunął plik.
 
 ![Sprawdź plik konfiguracji](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
 
-### <a name="cannot-use-self-hosted-ir-to-bridge-two-on-premises-data-stores"></a>Nie można używać samodzielnego środowiska IR do mostkowania dwóch lokalnych magazynów danych
+### <a name="cannot-use-self-hosted-ir-to-bridge-two-on-premises-data-stores"></a>Nie można użyć własnego środowiska IR w celu połączenia dwóch lokalnych magazynów danych
 
 #### <a name="symptoms"></a>Objawy
 
-Po utworzeniu autonomicznego urzędu skarbowego dla źródłowych i docelowych magazynów danych, aby zakończyć kopię, należy połączyć dwa urzędy skarbowe. Jeśli magazyny danych są skonfigurowane w różnych sieci wirtualnychach lub nie mogą zrozumieć mechanizmu bramy, wystąpią błędy, takie jak: *nie można znaleźć sterownika źródła w docelowym środowisku IR*; *nie można uzyskać dostępu do źródła za pomocą docelowego środowiska IR*.
+Po utworzeniu własnych środowisk IR dla źródłowego i docelowego magazynu danych, chcesz połączyć te dwa środowiska IR, aby zakończyć kopię. Jeśli magazyny danych są skonfigurowane w różnych sieci wirtualnychach lub nie mogą zrozumieć mechanizmu bramy, wystąpią błędy, takie jak: *nie można znaleźć sterownika źródła w docelowym środowisku IR*; *nie można uzyskać dostępu do źródła za pomocą docelowego środowiska IR*.
  
 #### <a name="cause"></a>Przyczyna
 
-Własne środowisko IR jest zaprojektowana jako centralny węzeł działania kopiowania, a nie agenta klienta, który należy zainstalować dla każdego magazynu danych.
+Własne środowisko IR działa jako centralny węzeł akcji kopiowania, a nie agent klienta, który musi zostać zainstalowany dla każdego magazynu danych.
  
-W powyższym przypadku połączona usługa dla każdego magazynu danych powinna zostać utworzona przy użyciu tego samego środowiska IR, a środowisko IR powinno mieć dostęp do obu magazynów danych za pomocą sieci. Niezależnie od tego, czy środowisko IR jest zainstalowane z magazynem danych źródłowych, docelowym magazynem danych, czy też na trzeciej maszynie, jeśli dwie połączone usługi są tworzone z innym urzędem skarbowym, ale używane w tym samym działaniu kopiowania, zostanie użyty docelowy port IR, a sterowniki obu magazynów danych muszą być zainstalowane na docelowym komputerze podczerwieni.
+W powyższym przypadku usługa połączona dla każdego magazynu danych powinna zostać utworzona przy użyciu tego samego środowiska IR, a środowisko IR powinno mieć dostęp do obydwu magazynów danych za pośrednictwem sieci. Niezależnie od tego, czy środowisko IR zostało zainstalowane ze źródłowym magazynem danych, docelowym magazynem danych, czy na oddzielnej maszynie, jeśli dwie usługi połączone zostały utworzone za pomocą innych środowisk IR, ale są używane w tej samej akcji kopiowania, zostanie użyte docelowe środowisko IR i na maszynie docelowego środowiska IR należy zainstalować sterowniki dla obydwu magazynów danych.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Zainstaluj sterowniki dla źródła i miejsca docelowego w docelowym środowisku IR i upewnij się, że ma on dostęp do źródłowego magazynu danych.
+Zainstaluj sterowniki dla źródłowego i docelowego magazynu na maszynie docelowego środowiska IR i upewnij się, że ma ona dostęp do źródłowego magazynu danych.
  
-Jeśli ruch nie może przechodzić przez sieć między dwoma magazynami danych (na przykład są one konfigurowane w dwóch sieci wirtualnych), nie można ukończyć kopiowania w jednym działaniu, nawet z zainstalowaną funkcją podczerwieni. W takim przypadku można utworzyć dwa działania kopiowania z dwoma urzędami skarbowymi, każdy w oddziałach: 1 IR do kopiowania z magazynu danych 1 do platformy Azure Blob Storage, drugi do skopiowania z usługi Azure Blob Storage do magazynu danych 2. Może to spowodować zasymulowanie wymagania dotyczącego użycia środowiska IR do utworzenia mostka, który łączy dwa rozłączone magazyny danych.
+Jeśli ruch nie może przejść przez sieć między dwoma magazynami danych (na przykład zostały one skonfigurowane w dwóch sieciach wirtualnych), nie można ukończyć kopiowania w jednej akcji, nawet z zainstalowanym środowiskiem IR. W takim przypadku można utworzyć dwie akcje kopiowania z dwoma środowiskami IR, z których każde znajduje się w sieci wirtualnej: Pierwsze środowisko IR w celu skopiowania z magazynu danych 1 do usługi Azure Blob Storage, drugie w celu skopiowania z usługi Azure Blob Storage do magazynu danych 2. Można w ten sposób symulować wymaganie użycia środowiska IR w celu utworzenia mostu, który łączy dwa odrębne magazyny danych.
 
 
 ### <a name="credential-sync-issue-causes-credential-lost-from-ha"></a>Problem z synchronizacją poświadczeń powoduje utratę poświadczeń z HA
 
 #### <a name="symptoms"></a>Objawy
 
-Poświadczenie źródła danych "XXXXXXXXXX" zostało usunięte z bieżącego węzła Integration Runtime z ładunkiem "po usunięciu usługi linku na Azure Portal lub zadaniu ma zły ładunek, ponownie utwórz nową usługę linku z poświadczeniem.
+Poświadczenia źródła danych „XXXXXXXXXX” zostały usunięte z bieżącego węzła środowiska Integration Runtime z ładunkiem „po usunięciu połączonej usługi w witrynie Azure Portal lub ładunek zadania jest nieprawidłowy. Utwórz nową połączoną usługę przy użyciu swoich poświadczeń”.
 
 #### <a name="cause"></a>Przyczyna
 
-Własne środowisko IR jest zbudowane w trybie HA z dwoma węzłami, ale nie są w stanie synchronizacji poświadczeń, co oznacza, że poświadczenia przechowywane w węźle dyspozytora nie są synchronizowane z innymi węzłami procesu roboczego. Jeśli dojdzie do trybu failover z węzła dyspozytora do węzła procesu roboczego, ale poświadczenia istniały tylko w poprzednim węźle dyspozytora, zadanie zakończy się niepowodzeniem podczas próby uzyskania dostępu do poświadczeń i zostanie osiągnięty powyższy błąd.
+Twoje własne środowisko IR jest zbudowane w trybie HA z dwoma węzłami, ale nie są one w stanie synchronizacji poświadczeń, co oznacza, że poświadczenia przechowywane w węźle dyspozytora nie są synchronizowane z innymi węzłami procesu roboczego. Jeśli dojdzie do przejścia w tryb failover z węzła dyspozytora do węzła procesu roboczego, ale poświadczenia istniały tylko w poprzednim węźle dyspozytora, zadanie zakończy się niepowodzeniem podczas próby uzyskania dostępu do poświadczeń i wystąpi powyższy błąd.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Jedynym sposobem uniknięcia tego problemu jest upewnienie się, że dwa węzły są w stanie synchronizacji poświadczeń. W przeciwnym razie musisz wprowadzić poświadczenia dla nowego dyspozytora.
+Jedynym sposobem na uniknięcie tego problemu jest upewnienie się, że obydwa węzły są w stanie synchronizacji poświadczeń. W przeciwnym razie należy wprowadzić poświadczenia dla nowego dyspozytora.
 
 
 ### <a name="cannot-choose-the-certificate-due-to-private-key-missing"></a>Nie można wybrać certyfikatu z powodu braku klucza prywatnego
 
 #### <a name="symptoms"></a>Objawy
 
-1.  Zaimportuj plik PFX do magazynu certyfikatów.
-2.  Podczas wybierania certyfikatu za pomocą interfejsu użytkownika Configuration Manager IR wystąpił następujący błąd:
+1.  Importowanie pliku PFX do magazynu certyfikatów.
+2.  Podczas wybierania certyfikatu za pomocą interfejsu użytkownika menedżera konfiguracji środowiska IR występuje następujący błąd:
 
     ![Brak klucza prywatnego](media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png)
 
@@ -256,7 +256,7 @@ Jedynym sposobem uniknięcia tego problemu jest upewnienie się, że dwa węzły
 
 #### <a name="resolution"></a>Rozwiązanie
 
-1.  Użyj konta uprzywilejowanego, które ma dostęp do klucza prywatnego do obsługi interfejsu użytkownika.
+1.  Użyj konta z uprawnieniami, które może uzyskać dostęp do klucza prywatnego w celu obsługi interfejsu użytkownika.
 2.  Uruchom następujące polecenie, aby zaimportować certyfikat:
     
     ```
@@ -574,50 +574,6 @@ Wykonaj śledzenie netmon i Przeanalizuj je ponownie.
     ![CZAS WYGAŚNIĘCIA 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
     W związku z tym należy skontaktować się z zespołem sieci, aby sprawdzić, co czwarty przeskok pochodzi z samodzielnego środowiska IR. Jeśli jest to Zapora jako system Linux, sprawdź wszystkie dzienniki, dlaczego urządzenie resetuje pakiet po uzgodnieniu protokołu TCP 3. Jednakże jeśli nie masz pewności, gdzie należy przeprowadzić badanie, spróbuj uzyskać ślad netmon z własnego środowiska IR i zapory w czasie, aby ustalić, które urządzenie może zresetować ten pakiet i spowodować odłączenie. W takim przypadku należy również skontaktować się z zespołem sieci, aby przejść do przodu.
-
-### <a name="how-to-collect-netmon-trace"></a>Jak zbierać ślady netmon
-
-1.  Pobierz narzędzia netmon z [tej witryny sieci Web](https://cnet-downloads.com/network-monitor)i zainstaluj je na komputerze serwera (dowolnego serwera z problemem) i klienta (takiego jak samoobsługowe środowisko IR).
-
-2.  Utwórz folder, na przykład w następującej ścieżce: *D:\netmon*. Upewnij się, że ma wystarczająco dużo miejsca, aby zapisać dziennik.
-
-3.  Przechwyć informacje o adresie IP i porcie. 
-    1. Uruchom wiersz polecenia.
-    2. Wybierz pozycję Uruchom jako administrator i uruchom następujące polecenie:
-       
-        ```
-        Ipconfig /all >D:\netmon\IP.txt
-        netstat -abno > D:\netmon\ServerNetstat.txt
-        ```
-
-4.  Przechwyć śledzenie netmon (pakiet sieciowy).
-    1. Uruchom wiersz polecenia.
-    2. Wybierz pozycję Uruchom jako administrator i uruchom następujące polecenie:
-        
-        ```
-        cd C:\Program Files\Microsoft Network Monitor 3
-        ```
-    3. Aby przechwycić stronę sieciową, można użyć trzech różnych poleceń:
-        - Opcja A: RoundRobin File Command (spowoduje to przechwycenie tylko jednego pliku i zastąpienie starych dzienników).
-
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
-            ```         
-        - Opcja B: plik łańcucha polecenie (spowoduje to utworzenie nowego pliku w przypadku osiągnięcia 200 MB).
-        
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
-            ```          
-        - Opcja C: zaplanowana plik polecenia.
-
-            ```
-            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
-            ```  
-
-5.  Naciśnij **klawisze CTRL + C** , aby zatrzymać przechwytywanie śladu netmon.
- 
-> [!NOTE]
-> Jeśli śledzenie netmon można zbierać na komputerze klienckim, należy uzyskać adres IP serwera, aby ułatwić analizowanie śledzenia.
 
 ### <a name="how-to-analyze-netmon-trace"></a>Jak analizować śledzenie netmon
 

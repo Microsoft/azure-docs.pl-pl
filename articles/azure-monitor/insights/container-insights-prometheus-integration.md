@@ -3,14 +3,14 @@ title: Konfigurowanie Azure Monitor do integracji kontenerów Prometheus | Micro
 description: W tym artykule opisano sposób konfigurowania Azure Monitor dla agenta kontenerów w celu odpadków metryk od Prometheus z klastrem Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: f7a43f00ce160829cc8e6ed3b6272ab14aaace66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c83d962a31150b31f5883150a2f7bd8d4b49183
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800464"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069428"
 ---
-# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Konfigurowanie wycinków metryk Prometheus za pomocą Azure Monitor dla kontenerów
+# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Konfigurowanie zbierania metryk systemu Prometheus za pomocą usługi Azure Monitor dla kontenerów
 
 [Prometheus](https://prometheus.io/) to popularne rozwiązanie do monitorowania metryk typu "open source" i jest częścią [natywnej platformy obliczeniowej w chmurze](https://www.cncf.io/). Azure Monitor dla kontenerów to bezproblemowe środowisko dołączania do zbierania metryk Prometheus. Zazwyczaj w celu korzystania z Prometheus należy skonfigurować serwer Prometheus i zarządzać nim za pomocą magazynu. Przez integrację z Azure Monitor serwer Prometheus nie jest wymagany. Wystarczy uwidocznić punkt końcowy metryk Prometheus przez eksporterów lub punkty (aplikację), a agent kontenerowy dla Azure Monitor kontenerów może wyrównać te metryki. 
 
@@ -36,7 +36,7 @@ Aktywne odróżnienie metryk z Prometheus jest wykonywane z jednej z dwóch pers
 * Adres URL protokołu HTTP w całym klastrze i odnajdywanie obiektów docelowych z listy punktów końcowych usługi. Na przykład usługi k8s Services, takie jak polecenia-DNS i polecenia-State-Metrics oraz adnotacje specyficzne dla aplikacji. Metryki zebrane w tym kontekście zostaną zdefiniowane w sekcji ConfigMap *[Prometheus data_collection_settings. cluster]*.
 * Adres URL protokołu HTTP w całym węźle i odnajdywanie obiektów docelowych z listy punktów końcowych usługi. Metryki zebrane w tym kontekście zostaną zdefiniowane w sekcji ConfigMap *[Prometheus_data_collection_settings. Node]*.
 
-| Endpoint | Zakres | Przykład |
+| Punkt końcowy | Zakres | Przykład |
 |----------|-------|---------|
 | Pod adnotacją | Cały klaster | adnotacj <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Usługa Kubernetes | Cały klaster | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -47,17 +47,17 @@ W przypadku określenia adresu URL Azure Monitor dla kontenerów odnosi się tyl
 |Zakres | Klucz | Typ danych | Wartość | Opis |
 |------|-----|-----------|-------|-------------|
 | Cały klaster | | | | Określ jedną z następujących trzech metod, aby wypróbować punkty końcowe dla metryk. |
-| | `urls` | String | Tablica rozdzielona przecinkami | Punkt końcowy HTTP (podano adres IP lub prawidłową ścieżkę URL). Na przykład: `urls=[$NODE_IP/metrics]`. ($NODE _IP jest określonym Azure Monitor dla parametru Containers i można go użyć zamiast adresu IP węzła. Musi zawierać wielkie litery). |
-| | `kubernetes_services` | String | Tablica rozdzielona przecinkami | Tablica usług Kubernetes Services do odporności metryk z metryk polecenia-State-Metrics. Na przykład `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | true lub false | Po ustawieniu na wartość `true` w ustawieniach całego klastra, Azure monitor dla agenta kontenerów będą odporne na Kubernetesy w całym klastrze dla następujących adnotacji Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | true lub false | Włącza odpadków pod. `monitor_kubernetes_pods`musi być ustawiony na `true` . |
-| | `prometheus.io/scheme` | String | http lub https | Wartość domyślna to złomowanie za pośrednictwem protokołu HTTP. W razie potrzeby ustaw wartość `https` . | 
-| | `prometheus.io/path` | String | Tablica rozdzielona przecinkami | Ścieżka zasobu HTTP, z której mają zostać pobrane metryki. Jeśli ścieżka metryk nie jest `/metrics` zdefiniowana, zdefiniuj ją z tą adnotacją. |
-| | `prometheus.io/port` | String | 9102 | Określ port, z którego mają zostać wycinki. Jeśli port nie jest ustawiony, wartość domyślna to 9102. |
-| | `monitor_kubernetes_pods_namespaces` | String | Tablica rozdzielona przecinkami | Lista dozwolonych przestrzeni nazw do wypadków metryk z Kubernetesowych.<br> Na przykład: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| Cały węzeł | `urls` | String | Tablica rozdzielona przecinkami | Punkt końcowy HTTP (podano adres IP lub prawidłową ścieżkę URL). Na przykład: `urls=[$NODE_IP/metrics]`. ($NODE _IP jest określonym Azure Monitor dla parametru Containers i można go użyć zamiast adresu IP węzła. Musi zawierać wielkie litery). |
-| Cały węzeł lub cały klaster | `interval` | String | 60 s | Interwał kolekcji jest wartością domyślną 1 minuty (60 sekund). Kolekcję można modyfikować w przypadku wartości *[prometheus_data_collection_settings. Node]* i/lub *[prometheus_data_collection_settings. cluster]* do jednostek czasu, takich jak s, m, h. |
-| Cały węzeł lub cały klaster | `fieldpass`<br> `fielddrop`| String | Tablica rozdzielona przecinkami | Można określić, które metryki mają być zbierane lub nie z punktu końcowego przez ustawienie listy Zezwalaj ( `fieldpass` ) i nie zezwalaj ( `fielddrop` ). Należy najpierw ustawić listę dozwolonych. |
+| | `urls` | Ciąg | Tablica rozdzielona przecinkami | Punkt końcowy HTTP (podano adres IP lub prawidłową ścieżkę URL). Na przykład: `urls=[$NODE_IP/metrics]`. ($NODE _IP jest określonym Azure Monitor dla parametru Containers i można go użyć zamiast adresu IP węzła. Musi zawierać wielkie litery). |
+| | `kubernetes_services` | Ciąg | Tablica rozdzielona przecinkami | Tablica usług Kubernetes Services do odporności metryk z metryk polecenia-State-Metrics. Na przykład `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | Wartość logiczna | true lub false | Po ustawieniu na wartość `true` w ustawieniach całego klastra, Azure monitor dla agenta kontenerów będą odporne na Kubernetesy w całym klastrze dla następujących adnotacji Prometheus:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Wartość logiczna | true lub false | Włącza odpadków pod. `monitor_kubernetes_pods` musi być ustawiony na `true` . |
+| | `prometheus.io/scheme` | Ciąg | http lub https | Wartość domyślna to złomowanie za pośrednictwem protokołu HTTP. W razie potrzeby ustaw wartość `https` . | 
+| | `prometheus.io/path` | Ciąg | Tablica rozdzielona przecinkami | Ścieżka zasobu HTTP, z której mają zostać pobrane metryki. Jeśli ścieżka metryk nie jest `/metrics` zdefiniowana, zdefiniuj ją z tą adnotacją. |
+| | `prometheus.io/port` | Ciąg | 9102 | Określ port, z którego mają zostać wycinki. Jeśli port nie jest ustawiony, wartość domyślna to 9102. |
+| | `monitor_kubernetes_pods_namespaces` | Ciąg | Tablica rozdzielona przecinkami | Lista dozwolonych przestrzeni nazw do wypadków metryk z Kubernetesowych.<br> Na przykład `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| Cały węzeł | `urls` | Ciąg | Tablica rozdzielona przecinkami | Punkt końcowy HTTP (podano adres IP lub prawidłową ścieżkę URL). Na przykład: `urls=[$NODE_IP/metrics]`. ($NODE _IP jest określonym Azure Monitor dla parametru Containers i można go użyć zamiast adresu IP węzła. Musi zawierać wielkie litery). |
+| Cały węzeł lub cały klaster | `interval` | Ciąg | 60 s | Interwał kolekcji jest wartością domyślną 1 minuty (60 sekund). Kolekcję można modyfikować w przypadku wartości *[prometheus_data_collection_settings. Node]* i/lub *[prometheus_data_collection_settings. cluster]* do jednostek czasu, takich jak s, m, h. |
+| Cały węzeł lub cały klaster | `fieldpass`<br> `fielddrop`| Ciąg | Tablica rozdzielona przecinkami | Można określić, które metryki mają być zbierane lub nie z punktu końcowego przez ustawienie listy Zezwalaj ( `fieldpass` ) i nie zezwalaj ( `fielddrop` ). Należy najpierw ustawić listę dozwolonych. |
 
 ConfigMaps jest globalną listą, a do agenta może być zastosowany tylko jeden ConfigMap. Nie można ConfigMaps kolekcji.
 
@@ -142,12 +142,12 @@ Wykonaj następujące kroki, aby skonfigurować plik konfiguracji ConfigMap dla 
 
            ```
            - prometheus.io/scrape:"true" #Enable scraping for this pod 
-           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+           - prometheus.io/scheme:"http" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
            - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Jeśli chcesz ograniczyć monitorowanie do określonych obszarów nazw dla kart nazwanych, które mają adnotacje, na przykład Uwzględnij tylko zasobniki dedykowane dla obciążeń produkcyjnych, ustaw wartość na `monitor_kubernetes_pod` `true` w ConfigMap i Dodaj filtr przestrzeni nazw `monitor_kubernetes_pods_namespaces` określający przestrzenie nazw, z których mają być oddzielone. Na przykład: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Jeśli chcesz ograniczyć monitorowanie do określonych obszarów nazw dla kart nazwanych, które mają adnotacje, na przykład Uwzględnij tylko zasobniki dedykowane dla obciążeń produkcyjnych, ustaw wartość na `monitor_kubernetes_pod` `true` w ConfigMap i Dodaj filtr przestrzeni nazw `monitor_kubernetes_pods_namespaces` określający przestrzenie nazw, z których mają być oddzielone. Na przykład `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 3. Uruchom następujące polecenie polecenia kubectl: `kubectl apply -f <configmap_yaml_file.yaml>` .
     
@@ -259,12 +259,12 @@ Wykonaj następujące kroki, aby skonfigurować plik konfiguracyjny ConfigMap dl
 
            ```
            - prometheus.io/scrape:"true" #Enable scraping for this pod 
-           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+           - prometheus.io/scheme:"http" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
            - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Jeśli chcesz ograniczyć monitorowanie do określonych obszarów nazw dla kart nazwanych, które mają adnotacje, na przykład Uwzględnij tylko zasobniki dedykowane dla obciążeń produkcyjnych, ustaw wartość na `monitor_kubernetes_pod` `true` w ConfigMap i Dodaj filtr przestrzeni nazw `monitor_kubernetes_pods_namespaces` określający przestrzenie nazw, z których mają być oddzielone. Na przykład: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Jeśli chcesz ograniczyć monitorowanie do określonych obszarów nazw dla kart nazwanych, które mają adnotacje, na przykład Uwzględnij tylko zasobniki dedykowane dla obciążeń produkcyjnych, ustaw wartość na `monitor_kubernetes_pod` `true` w ConfigMap i Dodaj filtr przestrzeni nazw `monitor_kubernetes_pods_namespaces` określający przestrzenie nazw, z których mają być oddzielone. Na przykład `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 2. Zapisz zmiany w edytorze.
 

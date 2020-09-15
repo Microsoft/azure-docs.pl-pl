@@ -967,6 +967,8 @@
         - name: Korzystanie z szablonów usługi Resource Manager
           href: manage-sql-with-resource-manager.md
           displayName: ARM
+        - name: Przenoszenie między regionami
+          href: how-to-move-regions.md
     - name: Dystrybucja globalna
       items:
         - name: Konfigurowanie wielowzorcowości

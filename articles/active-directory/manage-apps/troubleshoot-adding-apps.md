@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie typowych problemów z dodawaniem aplikacji do Azure Active Directory
-description: Rozwiązywanie typowych problemów występujących podczas dodawania aplikacji do Azure Active Directory.
+title: Rozwiązywanie typowych problemów z dodawaniem lub usuwaniem aplikacji do Azure Active Directory
+description: Rozwiązywanie typowych problemów występujących podczas dodawania lub usuwania aplikacji do Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 1502c97e625d3af128772451be8db4dd6187e3a7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89410448"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068034"
 ---
-# <a name="troubleshoot-common-problem-adding-an-application-to-azure-active-directory"></a>Rozwiązywanie typowych problemów z dodawaniem aplikacji do Azure Active Directory
-Ten artykuł ułatwia zapoznanie się z typowymi problemami występującymi podczas dodawania aplikacji do Azure Active Directory.
+# <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Rozwiązywanie typowych problemów z dodawaniem lub usuwaniem aplikacji do Azure Active Directory
+Ten artykuł ułatwia zapoznanie się z typowymi problemami występującymi podczas dodawania lub usuwania aplikacji do Azure Active Directory.
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Po kliknięciu przycisku "Dodaj", gdy aplikacja trwała długo
 W pewnych okolicznościach może upłynąć nawet 1-2 minut (i czasami dłużej), aby aplikacja była wyświetlana po dodaniu jej do katalogu. Chociaż nie jest to normalne oczekiwana wydajność, można zobaczyć, że dodawanie aplikacji jest w toku, klikając ikonę **powiadomienia** (dzwonka) w prawym górnym rogu [Azure Portal](https://portal.azure.com/) i szukając **w toku** lub **ukończonego** powiadomienia z etykietą **Dodawanie aplikacji.**
@@ -34,6 +34,16 @@ Jeśli wystąpi błąd podczas klikania przycisku **Dodaj** , zobaczysz **powiad
 Jeśli potrzebujesz pomocy dotyczącej uczenia się dotyczącej aplikacji, warto zacząć od [listy samouczków dotyczących integrowania aplikacji SaaS z](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artykułem Azure Active Directory.
 
 Oprócz tego [Biblioteka dokumentów aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) pomaga dowiedzieć się więcej na temat logowania jednokrotnego w usłudze Azure AD oraz o sposobie jego działania.
+
+## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Chcę usunąć aplikację, ale przycisk Usuń jest wyłączony
+
+Przycisk Usuń zostanie wyłączony w następujących scenariuszach:
+
+- W przypadku aplikacji w przedsiębiorstwie, jeśli nie masz jednej z następujących ról: Administrator globalny, administrator aplikacji w chmurze, administrator aplikacji lub właściciel jednostki usługi.
+
+- W przypadku aplikacji firmy Microsoft nie będzie można usuwać ich z interfejsu użytkownika niezależnie od roli.
+
+- Dla obiektów serviceprincipal, które odpowiadają tożsamości zarządzanej. Nie można usunąć podmiotów usługi zarządzanych tożsamości w bloku aplikacje dla przedsiębiorstw. Musisz przejść do zasobu platformy Azure, aby nim zarządzać. Wyczyść więcej informacji o [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Jak wyświetlić szczegóły powiadomienia portalu
 Szczegóły dowolnego powiadomienia portalu można wyświetlić, wykonując poniższe kroki:

@@ -4,15 +4,15 @@ description: Rozwiązywanie problemów z Azure Files w systemie Windows. Zobacz 
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/31/2019
+ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: eed9109416f434e2492d621f60b7ad6bf6e188e8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: f167ffb652054b64098994d334eea6e1db6d2d14
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437381"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061210"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
 
@@ -366,6 +366,18 @@ Ten błąd może wystąpić, Jeśli kontroler domeny z rolą FSMO głównego ide
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Błąd: „Nie można powiązać parametrów pozycyjnych, ponieważ nie podano nazw”
 
 Ten błąd jest najprawdopodobniej wyzwalany przez błąd składniowy w poleceniu Join-AzStorageAccountforAuth.  Sprawdź polecenie w poszukiwaniu błędów pisowni lub składni i sprawdź, czy Najnowsza wersja modułu AzFilesHybrid ( https://github.com/Azure-Samples/azure-files-samples/releases) jest zainstalowana).  
+
+## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>Azure Files obsługę lokalnego uwierzytelniania AD DS szyfrowania AES 256 Kerberos
+
+Wprowadzono obsługę szyfrowania AES 256 Kerberos dla Azure Files uwierzytelniania przy użyciu usługi AzFilesHybrid w systemie Premium AD DS [0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Jeśli włączono uwierzytelnianie AD DS przy użyciu modułu w wersji niższej niż v 0.2.2, konieczne będzie pobranie najnowszego modułu AzFilesHybrid (v 0.2.2 +) i uruchomienie programu PowerShell poniżej. Jeśli nie włączono jeszcze AD DS uwierzytelniania na koncie magazynu, możesz wykonać te [wskazówki](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) dotyczące włączania. Nie trzeba ponownie uruchamiać programu PowerShell, jeśli została włączona funkcja włączania przy użyciu modułu AzFilesHybrid module v 0.2.2 lub nowszego. 
+
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
+```
+
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 Jeśli nadal potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , aby szybko rozwiązać problem.

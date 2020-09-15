@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: 520c2d4fd258bfab5a5a1e0abf890d58bb98fbdc
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83191fd29e0cda4bc398f6a46a0d2ebf9631665
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653181"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068051"
 ---
 # <a name="common-questions"></a>Często zadawane pytania
 
@@ -24,7 +24,13 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 Przeniesienie zasobów jest obecnie dostępne w publicznej wersji zapoznawczej. Obciążenia produkcyjne są obsługiwane.
 
-## <a name="region-move"></a>Przeniesienie regionu
+
+
+## <a name="moving-across-regions"></a>Przechodzenie między regionami
+
+### <a name="can-i-move-resources-across-any-regions"></a>Czy mogę przenieść zasoby w dowolnym regionie?
+
+Obecnie można przenosić zasoby z dowolnego źródłowego regionu publicznego do dowolnego docelowego regionu publicznego, w zależności od [typów zasobów dostępnych w tym regionie](https://azure.microsoft.com/global-infrastructure/services/). Przeniesienie zasobów w regionach Azure Government nie jest obecnie obsługiwane.
 
 ### <a name="what-resources-can-i-move-across-regions-using-resource-mover"></a>Jakie zasoby można przenosić między regionami przy użyciu funkcji przenoszenia zasobów?
 
@@ -34,13 +40,19 @@ Korzystając z funkcji przenoszenia zasobów, można obecnie przenosić następu
 - Karty interfejsów sieciowych
 - Zestawy dostępności 
 - Sieci wirtualne platformy Azure 
-- Publiczne adresy IP sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)
+- Publiczne adresy IP
+- Sieciowe grupy zabezpieczeń
 - Wewnętrzne i publiczne usługi równoważenia obciążenia 
 - Bazy danych SQL Azure i pule elastyczne
 
+
+### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Czy mogę przenosić zasoby między subskrypcjami, gdy przechodzą je między regionami?
+
+Możesz zmienić subskrypcję po przeniesieniu zasobów do regionu docelowego. [Dowiedz się więcej](../azure-resource-manager/management/move-resource-group-and-subscription.md) o przenoszeniu zasobów do innej subskrypcji. 
+
 ### <a name="where-is-the-metadata-about-a-region-move-stored"></a>Gdzie są przechowywane metadane dotyczące przenoszenia regionu?
 
-Jest on przechowywany w bazie danych [usługi Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) , a w [usłudze Azure Blob Storage](../storage/common/storage-service-encryption.md)w ramach subskrypcji firmy Microsoft.
+Jest on przechowywany w bazie danych [usługi Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) , a w [usłudze Azure Blob Storage](../storage/common/storage-service-encryption.md)w ramach subskrypcji firmy Microsoft. Obecnie metadane są przechowywane w regionach Wschodnie stany USA 2 i Europa Północna. To pokrycie zostanie rozszerzone na inne regiony. Nie pozwala to na przeniesienie zasobów między wszystkimi regionami publicznymi.
 
 ### <a name="is-the-collected-metadata-encrypted"></a>Czy zebrane metadane są szyfrowane?
 

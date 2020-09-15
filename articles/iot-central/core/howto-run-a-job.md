@@ -7,12 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 09/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 82a370bcda2d762abb36e6e43ab755c45348e4c5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020003"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060819"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Tworzenie i uruchamianie zadania w aplikacji IoT Central platformy Azure
 
@@ -38,7 +38,7 @@ Poniższy przykład pokazuje, jak utworzyć i uruchomić zadanie w celu ustawien
 
     Wybierz pozycję **Zapisz i wyjdź** , aby dodać zadanie do listy zapisanych zadań na stronie **zadania** . Później możesz powrócić do zadania z listy zapisanych zadań.
 
-    Wybierz pozycję **dalej** , aby przejść do strony **Przegląd** . Na stronie * * Przegląd * * * * są wyświetlane szczegóły konfiguracji zadania. Wybierz pozycję **Uruchom** , aby przesłać zadanie.
+    Wybierz pozycję **dalej** , aby przejść do strony **Przegląd** . Na stronie **Przegląd** są wyświetlane szczegóły konfiguracji zadania. Wybierz pozycję **Uruchom** , aby przesłać zadanie.
 
     :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Zrzut ekranu przedstawiający stronę przeglądu Kreatora zadań":::
 

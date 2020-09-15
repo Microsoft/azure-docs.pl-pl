@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0718151039d88ffb76a07ce082c08fb011dab88b
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653443"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061612"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Samouczek: przenoszenie zasobów Azure SQL Database do innego regionu
 
@@ -77,7 +77,6 @@ Wybierz zasoby, które chcesz przenieść.
 
 3. W obszarze **Przenieś zasoby**  >  **Źródło + miejsce docelowe**wybierz źródłową subskrypcję i region.
 4. W obszarze **Lokalizacja docelowa**wybierz region, do którego chcesz przenieść zasoby. Następnie kliknij przycisk **Dalej**.
-5. W **obszarze obszar metadanych**wybierz miejsce, w którym chcesz przechowywać metadane dotyczące przenoszonych zasobów. Grupa zasobów jest tworzona specjalnie do tego celu. Następnie kliknij przycisk **Dalej**.
 
     ![Strona umożliwiająca wybranie regionu źródłowego i docelowego](./media/tutorial-move-region-sql/source-target.png)
 

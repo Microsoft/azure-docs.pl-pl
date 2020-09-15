@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 612584a71aa6be54d726ccdd74d9368ba9cddbc9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ce6325abf34813a9ca397f5bcbe2e774af3442d4
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535080"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061482"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Część 1: Włączanie uwierzytelniania AD DS dla udziałów plików platformy Azure 
 
@@ -28,7 +28,7 @@ Polecenia cmdlet w module AzFilesHybrid PowerShell wprowadzają niezbędne modyf
 
 ### <a name="download-azfileshybrid-module"></a>Pobierz moduł AzFilesHybrid
 
-- [Pobierz i rozpakuj moduł AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases) (ga module: v 0.2.0 +)
+- [Pobierz i rozpakuj moduł AzFilesHybrid (ga module: v 0.2.0 +)](https://github.com/Azure-Samples/azure-files-samples/releases) Należy pamiętać, że szyfrowanie AES 256 Kerberos jest obsługiwane w programie v 0.2.2 lub nowszym. Jeśli włączono funkcję z wersją AzFilesHybrid na 0.2.2 v i chcesz ją zaktualizować w celu obsługi szyfrowania AES 256 Kerberos, zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems). 
 - Zainstaluj i wykonaj moduł w urządzeniu przyłączonym do lokalnego AD DS z poświadczeniami AD DS, które mają uprawnienia do tworzenia konta logowania do usługi lub konta komputera w docelowej usłudze AD.
 -  Uruchom skrypt przy użyciu lokalnego poświadczenia AD DS, które jest synchronizowane z usługą Azure AD. Poświadczenia lokalnego AD DS muszą mieć właściciela konta magazynu lub uprawnienia roli współautor platformy Azure.
 

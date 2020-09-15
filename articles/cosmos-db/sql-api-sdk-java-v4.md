@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: f88004d219989b06d4bc7e75e76aca1ce1e894fe
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: aabd52d47bfc59de7a1d79bbe5ffbdda90d099bf
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536404"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060700"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) łączy asynchroniczny interfejs API 
 
 ## <a name="helpful-content"></a>Przydatna zawartość
 
-| Zawartość | Link |
+| Zawartość | Łącze |
 |---|---|
 |**Pobieranie zestawu SDK**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
 |**Dokumentacja interfejsu API** | [Dokumentacja interfejsu API języka Java](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
@@ -68,27 +68,14 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) łączy asynchroniczny interfejs API 
 
 ## <a name="release-history"></a>Historia wersji
 
-### <a name="440-beta2-unreleased"></a>4.4.0 — wersja beta. 2 (nieopublikowana)
-#### <a name="key-bug-fixes"></a>Poprawki klucza
-* Stała RequestTimeoutException podczas włączania tcnative.
+### <a name="450-beta1-unreleased"></a>4.5.0 — wersja beta. 1 (nieopublikowana)
 
-### <a name="440-beta1-2020-08-27"></a>4.4.0 — beta. 1 (2020-08-27)
-#### <a name="new-features"></a>Nowe funkcje
-* Dodano nowy interfejs API służący do wydajnego ładowania wielu dokumentów (poprzez listę par PK/ID lub wszystkie dokumenty dla zestawu wartości klucza podstawowego).
-* Dodano nowy `deleteItem` interfejs API.
-* Domyślnie włączone metryki zapytań.
+### <a name="440-2020-09-12"></a>4.4.0 (2020-09-12)
 #### <a name="key-bug-fixes"></a>Poprawki klucza
-* Stała NPE w `GatewayAddressCache` .
-* Naprawianie problemu metryki zapytania dla odpowiedzi zero elementu.
-* Zwiększona wydajność (zmniejszone użycie procesora) na potrzeby analizowania adresów i uwierzytelniania klucza głównego.
-
-### <a name="432-beta2-2020-08-17"></a>4.3.2 — beta. 2 (2020-08-17)
-#### <a name="key-bug-fixes"></a>Poprawki klucza
-* Nie wprowadzono żadnych zmian w poprzedniej wersji, zwalniających dla problemów ze zgodnością z modułami danych wiosennych.
-
-### <a name="432-beta1-2020-08-14"></a>4.3.2 — beta. 1 (2020-08-14)
-#### <a name="key-bug-fixes"></a>Poprawki klucza
-* Rozwiązano problem w programie RntbdServiceEndpoint, aby uniknąć wczesnego zamykania nieużywanego połączenia TCP.
+* Naprawiono RequestTimeoutException podczas włączania `netty-tcnative-boringssl` zależności.
+* Rozwiązano problem przecieku pamięci w `Delete` operacjach w `GATEWAY` trybie.
+* Naprawiono przeciek w `CosmosClient` tworzeniu wystąpienia, gdy identyfikator URI punktu końcowego jest nieprawidłowy.
+* Ulepszona `CPU History` Diagnostyka.
 
 ### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
 #### <a name="key-bug-fixes"></a>Poprawki klucza

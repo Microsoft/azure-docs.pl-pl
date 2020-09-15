@@ -1,20 +1,20 @@
 ---
 title: Sieciowe grupy zabezpieczeń z Azure Site Recovery | Microsoft Docs
 description: Opisuje sposób używania sieciowych grup zabezpieczeń z Azure Site Recovery na potrzeby odzyskiwania po awarii i migracji
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: mayg
-ms.openlocfilehash: eb5ba99133f5726c44164b0ba45b7ab5d94e292f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: harshacs
+ms.openlocfilehash: 904bc63ed2a135cdcadad75e96acd6fe3ca39039
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80292358"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069683"
 ---
-# <a name="network-security-groups-with-azure-site-recovery"></a>Sieciowe grupy zabezpieczeń z Azure Site Recovery
+# <a name="network-security-groups-with-azure-site-recovery"></a>Sieciowe grupy zabezpieczeń z usługą Azure Site Recovery
 
 Sieciowe grupy zabezpieczeń służą do ograniczania ruchu sieciowego do zasobów w sieci wirtualnej. [Sieciową grupę zabezpieczeń (sieciowej grupy zabezpieczeń)](../virtual-network/security-overview.md#network-security-groups) zawiera listę reguł zabezpieczeń, które zezwalają na ruch przychodzący lub zablokowany ruchu sieciowego w sieci lub na podstawie źródłowego lub docelowego adresu IP, portu i protokołu.
 

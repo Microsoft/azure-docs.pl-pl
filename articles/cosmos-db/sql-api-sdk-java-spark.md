@@ -1,5 +1,5 @@
 ---
-title: Łącznik Azure Cosmos DB Apache Spark dla informacji o wersji i zasobów interfejsu API SQL
+title: Łącznik Cosmos DB Apache Spark dla informacji o wersji i zasobów interfejsu API SQL
 description: Dowiedz się więcej na temat łącznika Azure Cosmos DB Apache Spark dla interfejsu API SQL, w tym dat wydania, dat wycofania i zmian wprowadzonych między poszczególnymi wersjami Azure Cosmos DB usługi SQL Async Java SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 46ddbd18051ffa44232468704ce189d4171b50e7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 05f81e4d93244db854bf8d0ec254ee647f81d9cc
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590013"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069173"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Apache Spark łącznik dla programu Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -36,25 +36,25 @@ ms.locfileid: "88590013"
 > * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
 
-Przyspieszenie analizy danych Big Data za pomocą łącznika Azure Cosmos DB Apache Spark for Core (SQL). Łącznik platformy Spark umożliwia uruchamianie zadań [platformy Spark ](https://spark.apache.org/) na danych przechowywanych w Azure Cosmos DB. Przetwarzanie wsadowe i przesyłanie strumieniowe są obsługiwane.
+Można przyspieszyć analizę danych Big Data, korzystając z łącznika Azure Cosmos DB Apache Spark for Core (SQL). Łącznik platformy Spark umożliwia uruchamianie zadań [platformy Spark](https://spark.apache.org/) na danych przechowywanych w Azure Cosmos DB. Przetwarzanie wsadowe i przesyłanie strumieniowe są obsługiwane.
 
-Możesz użyć łącznika z usługą [Azure Databricks](https://azure.microsoft.com/services/databricks) lub [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), która udostępnia zarządzane klastry platformy Spark na platformie Azure. W poniższej tabeli przedstawiono obsługiwane wersje platformy Spark.
+Możesz użyć łącznika z usługą [Azure Databricks](https://azure.microsoft.com/services/databricks) lub [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), która udostępnia zarządzane klastry platformy Spark na platformie Azure. W poniższej tabeli przedstawiono obsługiwane wersje:
 
 | Składnik | Wersja |
 |---------|-------|
-| Apache Spark | 2.4. x, 2.3. x, 2.2. x i 2.1. x |
+| Apache Spark | 2,4.*x*, 2,3. *x*, 2,2. *x*i 2,1. *x* |
 | Scala | 2,11 |
-| Wersja środowiska uruchomieniowego Azure Databricks | > 3,4 |
+| Azure Databricks (wersja środowiska uruchomieniowego) | Później niż 3,4 |
 
 > [!WARNING]
 > Ten łącznik obsługuje podstawowy interfejs API (SQL) Azure Cosmos DB.
-> Aby uzyskać Cosmos DB dla interfejsu API MongoDB, użyj [łącznika MongoDB Spark](https://docs.mongodb.com/spark-connector/master/).
-> Aby uzyskać Cosmos DB interfejs API Cassandra, użyj [łącznika Cassandra Spark](https://github.com/datastax/spark-cassandra-connector).
+> Dla Cosmos DB API for MongoDB Użyj [łącznika MongoDB dla platformy Spark](https://docs.mongodb.com/spark-connector/master/).
+> Dla interfejs API Cassandra Cosmos DB Użyj [łącznika Cassandra Spark](https://github.com/datastax/spark-cassandra-connector).
 >
 
-## <a name="helpful-content"></a>Przydatna zawartość
+## <a name="resources"></a>Zasoby
 
-| Zawartość | Łącze |
+| Zasób | Łącze |
 |---|---|
 | **Pobieranie zestawu SDK** | [Pobierz z Apache Spark](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) |
 |**Dokumentacja interfejsu API** | [Odwołanie do łącznika Spark]() |
@@ -64,67 +64,56 @@ Możesz użyć łącznika z usługą [Azure Databricks](https://azure.microsoft.
 ## <a name="release-history"></a>Historia wersji
 
 ### <a name="311"></a>3.1.1
-#### <a name="new-features"></a>Nowe funkcje
 #### <a name="key-bug-fixes"></a>Poprawki klucza
-* Rozwiązuje przypadek graniczny punktu kontrolnego przesyłania strumieniowego, gdzie w "ID" znajduje się znak "|" z zastosowanym konfiguracją "ChangeFeedMaxPagesPerBatch"
+* Rozwiązuje przypadek graniczny punktu kontrolnego przesyłania strumieniowego, w którym `ID` znajduje się znak potoku (|) z `ChangeFeedMaxPagesPerBatch` zastosowanym konfiguracją.
 
 ### <a name="310"></a>3.1.0
 #### <a name="new-features"></a>Nowe funkcje
-* Dodaje obsługę aktualizacji zbiorczych podczas korzystania z zagnieżdżonych kluczy partycji
-* Dodaje obsługę typów danych dziesiętnych i zmiennoprzecinkowych podczas zapisu do Cosmos DB.
-* Dodaje obsługę typów sygnatur czasowych, gdy jako wartość jest używana długa (Epoka systemu UNIX)
-#### <a name="key-bug-fixes"></a>Poprawki klucza
+* Dodaje obsługę aktualizacji zbiorczych w przypadku używania kluczy partycji zagnieżdżonej.
+* Dodaje obsługę typów danych dziesiętnych i zmiennoprzecinkowych podczas zapisu do Azure Cosmos DB.
+* Dodaje obsługę typów sygnatur czasowych, jeśli jako wartość jest używana długa (Epoka systemu UNIX).
 
 ### <a name="308"></a>3.0.8
-#### <a name="new-features"></a>Nowe funkcje
 #### <a name="key-bug-fixes"></a>Poprawki klucza
-* Naprawia wyjątek rzutowania typu podczas korzystania z konfiguracji "WriteThroughputBudget".
+* Naprawia wyjątek rzutowanie, który występuje, gdy `WriteThroughputBudget` Konfiguracja jest używana.
 
 ### <a name="307"></a>3.0.7
 #### <a name="new-features"></a>Nowe funkcje
 * Dodaje informacje o błędzie dla błędów zbiorczych do wyjątku i dziennika.
-#### <a name="key-bug-fixes"></a>Poprawki klucza
 
 ### <a name="306"></a>3.0.6
-#### <a name="new-features"></a>Nowe funkcje
 #### <a name="key-bug-fixes"></a>Poprawki klucza
 * Rozwiązuje problemy z punktem kontrolnym przesyłania strumieniowego.
 
 ### <a name="305"></a>3.0.5
-#### <a name="new-features"></a>Nowe funkcje
 #### <a name="key-bug-fixes"></a>Poprawki klucza
-* Poprawianie poziomu dziennika wiadomości pozostawionej przypadkowo z BŁĘDem poziomu w celu zmniejszenia szumu
+* Aby zmniejszyć szum, poprawki poziomu dziennika wiadomości pozostawione przypadkowo z powodu błędu poziomu.
 
 ### <a name="304"></a>3.0.4
-#### <a name="new-features"></a>Nowe funkcje
 #### <a name="key-bug-fixes"></a>Poprawki klucza
-* Naprawia usterkę w przypadku przesyłania strumieniowego ze strukturą podczas dzielenia partycji — prawdopodobnie w wyniku braku niektórych rekordów źródła zmian lub zobaczenie wyjątków o wartości null dla operacji zapisywania punktów kontrolnych
+* Naprawia usterkę w przypadku przesyłania strumieniowego ze strukturą podczas dzielenia partycji. Usterka może spowodować brak niektórych rekordów kanału informacyjnego zmian lub wyjątków o wartości null dla operacji zapisu punktów kontrolnych.
 
 ### <a name="303"></a>3.0.3
-#### <a name="new-features"></a>Nowe funkcje
 #### <a name="key-bug-fixes"></a>Poprawki klucza
-* Naprawia usterkę, gdy niestandardowy schemat dostarczony dla readStream jest ignorowany
+* Naprawia usterkę, która powoduje ignorowanie niestandardowego schematu dostarczonego dla readStream.
 
 ### <a name="302"></a>3.0.2
-#### <a name="new-features"></a>Nowe funkcje
 #### <a name="key-bug-fixes"></a>Poprawki klucza
-* Poprawki regresji (odcienie JAR zawierają wszystkie zacienione zależności), które zwiększyły czas kompilacji o 50%
+* Poprawki regresji (odcienie JAR zawiera wszystkie zacieniowane zależności), które zwiększają czas kompilacji o 50 procent.
 
 ### <a name="301"></a>3.0.1
-#### <a name="new-features"></a>Nowe funkcje
 #### <a name="key-bug-fixes"></a>Poprawki klucza
-* Rozwiązuje problem zależności powodujący bezpośredni transport przez TCP, aby zakończyć się niepowodzeniem z RequestTimeoutException
+* Rozwiązuje problem zależności, który powoduje, że bezpośredni transport za pośrednictwem protokołu TCP kończy się niepowodzeniem z RequestTimeoutException.
 
 ### <a name="300"></a>3.0.0
 #### <a name="new-features"></a>Nowe funkcje
-* Usprawnia zarządzanie połączeniami i pule połączeń, aby zmniejszyć liczbę wywołań metadanych
-#### <a name="key-bug-fixes"></a>Poprawki klucza
+* Usprawnia zarządzanie połączeniami i pule połączeń, aby zmniejszyć liczbę wywołań metadanych.
 
 ## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) .
+Dowiedz się więcej o [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-Aby dowiedzieć się więcej na temat Apache Spark, zobacz [stronę główną](https://spark.apache.org/).
+Dowiedz się więcej o platformie [Apache Spark](https://spark.apache.org/).

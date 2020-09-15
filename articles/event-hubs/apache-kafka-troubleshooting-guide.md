@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z usługą Azure Event Hubs dla Apache Kafka
 description: W tym artykule opisano sposób rozwiązywania problemów z usługą Azure Event Hubs dla Apache Kafka
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 034541aa6ea683c0e294ca8790b02f0dc60b5440
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e32e02947b9f004755381d562fd3f3c897b70674
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090573"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061431"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Apache Kafka Przewodnik rozwiązywania problemów dla Event Hubs
 W tym artykule przedstawiono wskazówki dotyczące rozwiązywania problemów, które mogą wystąpić podczas korzystania z Event Hubs dla Apache Kafka. 
@@ -55,11 +55,11 @@ Sprawdź następujące elementy, jeśli podczas korzystania z programu Kafka na 
 - **Uwierzytelnianie SASL** — Przygotowanie struktury do współpracy z protokołem uwierzytelniania SASL wymaganym przez Event Hubs może być trudniejsze. Sprawdź, czy możesz rozwiązywać problemy z konfiguracją, korzystając z zasobów platformy przy uwierzytelnianiu SASL. 
 
 ## <a name="limits"></a>Limity
-Apache Kafka a Event Hubs Kafka. W większości przypadków Event Hubs Kafka ma takie same wartości domyślne, właściwości, kody błędów i ogólne zachowanie, które Apache Kafka wykonuje. Wystąpienia, które te dwie jawnie różnią się (lub gdzie Event Hubs nakładają limit, który nie jest Kafka) są wymienione poniżej:
+Apache Kafka a Event Hubs Kafka. W większości przypadków interfejs Kafka platformy Azure Event Hubs ma takie same wartości domyślne, właściwości, kody błędów i ogólne zachowanie, które Apache Kafka wykonuje. Wystąpienia, które te dwie jawnie różnią się (lub gdzie Event Hubs nakładają limit, który nie jest Kafka) są wymienione poniżej:
 
 - Maksymalna długość `group.id` Właściwości to 256 znaków
 - Maksymalny rozmiar `offset.metadata.max.bytes` to 1024 bajtów
-- Zatwierdzenia przesunięcia są ograniczone o 4 wywołania/sekundę na partycję z maksymalnym rozmiarem dziennika wewnętrznego wynoszącym 1 MB
+- Zatwierdzenia przesunięcia są ograniczone do 4 wywołań/sekundę na partycję z maksymalnym rozmiarem dziennika wewnętrznego wynoszącym 1 MB
 
 
 ## <a name="next-steps"></a>Następne kroki

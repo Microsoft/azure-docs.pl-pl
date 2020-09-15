@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/14/2020
-ms.openlocfilehash: 902fa34be149f0b876729409c530186e34c706e5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 09/14/2020
+ms.openlocfilehash: 3c9389e6063279e214e3650f6364dc25ff773db5
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587314"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069598"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -80,7 +80,7 @@ Wystąpienie zarządzane SQL ma dwie warstwy usług: [ogólnego przeznaczenia](.
 | Limit przepływności zapisu dziennika (na wystąpienie) | 3 MB/s na rdzeń wirtualny<br/>Maks. 22 MB/s | 4 MB/s na rdzeń wirtualny<br/>Maks 48 MB/s |
 | Przepływność danych (przybliżona) | 100 – 250 MB/s na plik<br/>\*[Zwiększ rozmiar pliku, aby uzyskać lepszą wydajność we/wy](#file-io-characteristics-in-general-purpose-tier) | Nieograniczone. |
 | Opóźnienie operacji we/wy magazynu (w przybliżeniu) | 5-10 ms | 1-2 MS |
-| Przetwarzanie OLTP w pamięci | Nieobsługiwane | Dostępne, [rozmiar zależy od liczby rdzeń wirtualny](#in-memory-oltp-available-space) |
+| Przetwarzanie OLTP danych w pamięci | Nieobsługiwane | Dostępne, [rozmiar zależy od liczby rdzeń wirtualny](#in-memory-oltp-available-space) |
 | Maksymalna liczba sesji | 30000 | 30000 |
 | Maksymalna liczba współbieżnych procesów roboczych (żądań) | Obliczenia: 210 * liczba rdzeni wirtualnych + 800<br>5 rdzeń: 105 * liczba rdzeni wirtualnych + 800 | Obliczenia: 210 * liczba rdzeń wirtualny + 800<br>5 rdzeń: 105 * liczba rdzeń wirtualny + 800 |
 | [Repliki tylko do odczytu](../database/read-scale-out.md) | 0 | 1 (wliczone w cenę) |
@@ -99,12 +99,12 @@ Więcej informacji na temat [limitów zasobów w pulach wystąpień zarządzanyc
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>Charakterystyka we/wy pliku w warstwie Ogólnego przeznaczenia
 
-W warstwie usług Ogólnego przeznaczenia każdy plik bazy danych uzyskuje dedykowane operacje we/wy na sekundę, które zależą od rozmiaru pliku. Większe pliki danych uzyskują większą liczbę IOPS i przepływność. Właściwości we/wy plików bazy danych przedstawiono w poniższej tabeli:
+W warstwie usług Ogólnego przeznaczenia każdy plik bazy danych uzyskuje dedykowane operacje we/wy na sekundę, które zależą od rozmiaru pliku. Większe pliki zwiększają liczbę operacji we/wy i przepływność. W poniższej tabeli przedstawiono charakterystykę we/wy plików bazy danych:
 
-| Rozmiar pliku | >= 0 i <= 128 GiB | >128 i <= 256 GiB | >256 i <= 512 GiB | >0,5 i <= 1 TiB    | >1 i <= 2 TiB    | >2 i <= 4 TiB | >4 i <= 8 TiB |
+| Rozmiar pliku | >= 0 i <= 128 GiB | >128 i <= 512 GiB | >0,5 i <= 1 TiB    | >1 i <= 2 TiB    | >2 i <= 4 TiB | >4 i <= 8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Liczba operacji we/wy na plik       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12 500   |
-| Przepływność na plik | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+| Liczba operacji we/wy na plik       | 500   | 2300              | 5000              | 7500              | 7500              | 12 500   |
+| Przepływność na plik | 100 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
 
 Jeśli zauważysz wysokie opóźnienia we/wy dla niektórych plików bazy danych lub widzisz, że liczba IOPS/przepływność osiąga limit, można zwiększyć wydajność, [zwiększając rozmiar pliku](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 

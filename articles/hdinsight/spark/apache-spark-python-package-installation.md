@@ -8,18 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 59de3eb2370029ab9edcb609298c7b1fdf5f8ff8
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 09d1063f704c37eb31546be08765f2b5b6fb8632
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873759"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060751"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Bezpieczne zarządzanie środowiskiem Python w usłudze Azure HDInsight za pomocą akcji skryptu
-
-> [!div class="op_single_selector"]
-> * [Korzystanie z komórki Magic](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [Używanie akcji skryptu](apache-spark-python-package-installation.md)
 
 Usługa HDInsight ma dwie wbudowane instalacje języka Python w klastrze Spark, Anaconda Python 2,7 i Python 3,5. Klienci mogą wymagać dostosowania środowiska Python. Takie jak instalowanie zewnętrznych pakietów języka Python lub innej wersji języka Python. Poniżej przedstawiono najlepsze rozwiązanie bezpiecznego zarządzania środowiskami języka Python dla klastrów Apache Spark w usłudze HDInsight.
 
@@ -60,9 +56,9 @@ Klaster usługi HDInsight zależy od wbudowanego środowiska języka Python, zar
 
 1. Utwórz środowisko wirtualne języka Python za pomocą Conda. Środowisko wirtualne zapewnia izolowane miejsce dla projektów bez przerywania pracy. Podczas tworzenia środowiska wirtualnego języka Python można określić wersję języka Python, która ma być używana. Nadal musisz utworzyć środowisko wirtualne, mimo że chcesz użyć języka Python 2,7 i 3,5. Jest to wymagane, aby upewnić się, że środowisko domyślne klastra nie zostanie zerwane. Uruchom akcje skryptu w klastrze dla wszystkich węzłów z poniższym skryptem, aby utworzyć środowisko wirtualne języka Python.
 
-    -   `--prefix`Określa ścieżkę, w której przebywa środowisko wirtualne Conda. Istnieje kilka konfiguracji, które należy zmienić na podstawie określonej tutaj ścieżki. W tym przykładzie używamy py35new, ponieważ klaster ma już istniejące środowisko wirtualne o nazwie py35.
-    -   `python=`Określa wersję języka Python dla środowiska wirtualnego. W tym przykładzie używamy wersji 3,5, która jest taka sama jak w przypadku klastra skompilowanego w jednym z nich. Do utworzenia środowiska wirtualnego można także użyć innych wersji języka Python.
-    -   `anaconda`Określa package_spec do instalowania pakietów Anaconda w środowisku wirtualnym.
+    -   `--prefix` Określa ścieżkę, w której przebywa środowisko wirtualne Conda. Istnieje kilka konfiguracji, które należy zmienić na podstawie określonej tutaj ścieżki. W tym przykładzie używamy py35new, ponieważ klaster ma już istniejące środowisko wirtualne o nazwie py35.
+    -   `python=` Określa wersję języka Python dla środowiska wirtualnego. W tym przykładzie używamy wersji 3,5, która jest taka sama jak w przypadku klastra skompilowanego w jednym z nich. Do utworzenia środowiska wirtualnego można także użyć innych wersji języka Python.
+    -   `anaconda` Określa package_spec do instalowania pakietów Anaconda w środowisku wirtualnym.
     
     ```bash
     sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda --yes
@@ -76,8 +72,8 @@ Klaster usługi HDInsight zależy od wbudowanego środowiska języka Python, zar
 
     - Użyj kanału Conda:
 
-        -   `seaborn`to nazwa pakietu, który chcesz zainstalować.
-        -   `-n py35new`Określ nazwę środowiska wirtualnego, która właśnie została utworzona. Należy koniecznie zmienić nazwę odpowiadającą tworzeniu środowiska wirtualnego.
+        -   `seaborn` to nazwa pakietu, który chcesz zainstalować.
+        -   `-n py35new` Określ nazwę środowiska wirtualnego, która właśnie została utworzona. Należy koniecznie zmienić nazwę odpowiadającą tworzeniu środowiska wirtualnego.
 
         ```bash
         sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
@@ -92,8 +88,8 @@ Klaster usługi HDInsight zależy od wbudowanego środowiska języka Python, zar
 
     - Użyj kanału Conda:
 
-        -   `numpy=1.16.1`to nazwa pakietu i wersja, które chcesz zainstalować.
-        -   `-n py35new`Określ nazwę środowiska wirtualnego, która właśnie została utworzona. Należy koniecznie zmienić nazwę odpowiadającą tworzeniu środowiska wirtualnego.
+        -   `numpy=1.16.1` to nazwa pakietu i wersja, które chcesz zainstalować.
+        -   `-n py35new` Określ nazwę środowiska wirtualnego, która właśnie została utworzona. Należy koniecznie zmienić nazwę odpowiadającą tworzeniu środowiska wirtualnego.
 
         ```bash
         sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
@@ -132,7 +128,7 @@ Klaster usługi HDInsight zależy od wbudowanego środowiska języka Python, zar
 
     4. Zapisz zmiany i ponownie uruchom usługi, których to dotyczy. Te zmiany wymagają ponownego uruchomienia usługi Spark2. Interfejs użytkownika Ambari wyświetli monit o wymagane przypomnienie ponownego uruchomienia, kliknij przycisk Uruchom ponownie, aby ponownie uruchomić wszystkie usługi, których to dotyczy.
 
-        ![Zmień konfigurację platformy Spark za poorednictwem Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        ![Ponowne uruchamianie usług](./media/apache-spark-python-package-installation/ambari-restart-services.png)
 
 4. Jeśli chcesz użyć nowego utworzonego środowiska wirtualnego w Jupyter. Zmień konfiguracje Jupyter i uruchom ponownie Jupyter. Uruchom akcje skryptu na wszystkich węzłach nagłówka z instrukcją poniżej, aby wskazać Jupyter nowe środowisko wirtualne. Należy zmienić ścieżkę na prefiks określony dla środowiska wirtualnego. Po uruchomieniu tej akcji skryptu należy ponownie uruchomić usługę Jupyter za pomocą interfejsu użytkownika Ambari w celu udostępnienia tej zmiany.
 

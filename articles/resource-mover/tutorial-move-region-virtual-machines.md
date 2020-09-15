@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 49b7a3700bf497ad868b7c4ab1f0802564b61bf3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d00557e2279d236ff96a73c3a090097fbe6e5f1b
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653436"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061782"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Samouczek: przenoszenie maszyn wirtualnych platformy Azure między regionami
 
@@ -80,7 +80,6 @@ Wybierz zasoby, które chcesz przenieść.
 
 3. W obszarze **Przenieś zasoby**  >  **Źródło + miejsce docelowe**wybierz źródłową subskrypcję i region.
 4. W obszarze **Lokalizacja docelowa**wybierz region, do którego chcesz przenieść maszyny wirtualne. Następnie kliknij przycisk **Dalej**.
-5. W **obszarze obszar metadanych**wybierz miejsce, w którym chcesz przechowywać metadane dotyczące przenoszonych zasobów. Grupa zasobów jest tworzona specjalnie do tego celu. Następnie kliknij przycisk **Dalej**.
 
     ![Strona umożliwiająca wybranie regionu źródłowego i docelowego](./media/tutorial-move-region-virtual-machines/source-target.png)
 

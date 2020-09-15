@@ -1,16 +1,16 @@
 ---
 title: Integrowanie Apache Kafka nawiązywanie połączenia z usługą Azure Event Hubs (wersja zapoznawcza) z usługą Debezium na potrzeby przechwytywania zmian danych
-description: W tym artykule opisano, jak korzystać z platformy Apache Spark z usługą Azure Event Hubs dla platformy Kafka.
+description: Ten artykuł zawiera informacje dotyczące korzystania z programu Debezium z usługą Azure Event Hubs dla Kafka.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: a11ec882a50d051a34758562ac84dcef5b799f5f
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: cac04bed797bb9956125bc1a38fdfa5c8285050e
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136892"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061686"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrowanie usługi Apache Kafka Connect Support w usłudze Azure Event Hubs (wersja zapoznawcza) z usługą Debezium na potrzeby przechwytywania zmian danych
 
@@ -51,7 +51,7 @@ Ta sekcja będzie obejmować następujące tematy:
 ### <a name="download-and-setup-debezium-connector"></a>Pobierz i skonfiguruj łącznik Debezium
 Aby pobrać i skonfigurować łącznik, postępuj zgodnie z najnowszymi instrukcjami w [dokumentacji Debezium](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-deploying-a-connector) .
 
-- Pobierz archiwum wtyczek łącznika. Na przykład aby pobrać wersję `1.2.0` łącznika, użyj tego linku —https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.2.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz
+- Pobierz archiwum wtyczek łącznika. Na przykład aby pobrać wersję `1.2.0` łącznika, użyj tego linku — https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.2.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz
 - Wyodrębnij pliki JAR i skopiuj je do [Kafka Connect plugin. Path](https://kafka.apache.org/documentation/#connectconfigs).
 
 
@@ -133,7 +133,7 @@ Utwórz plik konfiguracji ( `pg-source-connector.json` ) dla łącznika źródł
 ```
 
 > [!TIP]
-> `database.server.name`atrybut jest logiczną nazwą, która identyfikuje i udostępnia przestrzeń nazw dla monitorowanego serwera bazy danych PostgreSQL lub klastra. Aby uzyskać szczegółowe informacje, zobacz [dokumentację usługi Debezium](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-property-database-server-name)
+> `database.server.name` atrybut jest logiczną nazwą, która identyfikuje i udostępnia przestrzeń nazw dla monitorowanego serwera bazy danych PostgreSQL lub klastra. Aby uzyskać szczegółowe informacje, zobacz [dokumentację usługi Debezium](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-property-database-server-name)
 
 Aby utworzyć wystąpienie łącznika, użyj punktu końcowego interfejsu API REST Kafka Connect:
 

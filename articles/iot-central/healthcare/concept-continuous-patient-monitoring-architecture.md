@@ -3,50 +3,48 @@ title: Architektura monitorowania ciągłego pacjenta na platformie Azure IoT Ce
 description: Poznaj architekturę rozwiązania ciągłego monitorowania pacjenta.
 author: philmea
 ms.author: philmea
-ms.date: 7/23/2020
+ms.date: 09/14/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 0032f341330ad394241806a4fe61add530253f09
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: bd0d2f3368f6a2c39b3a9e95c577d85dfe0d87d7
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116857"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068079"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Architektura ciągłego monitorowania pacjenta
 
+W tym artykule opisano architekturę rozwiązania skompilowanego na podstawie szablonu **ciągłej kontroli nad pacjentem** :
 
-
-Rozwiązania do monitorowania ciągłego pacjenta można skompilować przy użyciu dostarczonego szablonu aplikacji i korzystając z architektury przedstawionej poniżej jako wskazówki.
-
->[!div class="mx-imgBorder"] 
->![Architektura CPM](media/cpm-architecture.png)
-
-1. Urządzenia medyczne komunikują się za pomocą technologii Bluetooth Low Energy (beli)
-1. Brama telefonu komórkowego otrzymuje dane z beli i wysyła do IoT Central
-1. Ciągły eksport danych o kondycji pacjenta do interfejsu API platformy Azure dla usługi FHIR&reg;
-1. Uczenie maszynowe na podstawie danych międzyoperacyjnych
-1. Pulpit nawigacyjny zespołu opiekowego oparty na danych FHIR
+:::image type="content" source="media/cpm-architecture.png" alt-text="Architektura ciągłego monitorowania pacjenta":::
 
 ## <a name="details"></a>Szczegóły
-W tej sekcji opisano szczegółowo każdą część diagramu architektury.
 
-### <a name="ble-medical-devices"></a>Urządzenia medyczne dotyczące przebeli
-Wiele noszenia medycznych używanych w obszarze IoT opieki zdrowotnej to urządzenia o niskiej energii Bluetooth. Nie są one w stanie mówić bezpośrednio do chmury i będą musiały zostać przekazane przez bramę. Ta architektura sugeruje użycie aplikacji dla telefonów komórkowych jako tej bramy. 
+W tej sekcji opisano szczegółowo poszczególne części diagramu architektury:
+
+### <a name="bluetooth-low-energy-ble-medical-devices"></a>Urządzenia medyczne o niskim poziomie energii Bluetooth
+
+Wiele noszenia medycznych używanych w ramach rozwiązań do ochrony zdrowia IoT to urządzenia z beli. Te urządzenia nie mogą komunikować się bezpośrednio z chmurą i muszą używać bramy do wymiany danych z rozwiązaniem w chmurze. Ta architektura używa aplikacji dla telefonów komórkowych jako bramy.
 
 ### <a name="mobile-phone-gateway"></a>Brama telefonu komórkowego
-Główną funkcją aplikacji telefonii mobilnej jest pozyskiwanie danych z urządzeń medycznych i przekazywanie ich do IoT Central platformy Azure. Ponadto aplikacja może pomóc w zapełnieniu pacjentów za pomocą konfiguracji urządzenia i przepływu aprowizacji, a także ułatwić im wyświetlanie danych osobistych dotyczących kondycji. Inne rozwiązania mogą korzystać z bramy typu tablet lub bramy statycznej, jeśli znajduje się w pokoju szpitalnym do osiągnięcia tego samego przepływu komunikacji. Utworzyliśmy przykładową aplikację mobilną typu open source dostępną dla systemów Android i iOS, której można użyć jako punktu wyjścia do szybkiego uruchamiania działań związanych z tworzeniem aplikacji. Aby uzyskać więcej informacji na temat IoT Central przykład ciągłego monitorowania aplikacji mobilnej, zobacz [przykłady dla platformy Azure](https://docs.microsoft.com/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
+
+Podstawowa funkcja aplikacji telefonu komórkowego polega na zbieraniu danych z urządzeń medycznych i przekazywaniu ich do IoT Central. Aplikacja poprowadzi także przez proces konfiguracji urządzeń i pozwala na wyświetlanie ich osobistych danych o kondycji. Inne rozwiązania mogą korzystać z bramy typu tablet lub bramy statycznej w pokoju szpitala. Przykładowa aplikacja mobilna typu "open source" jest dostępna dla systemów Android i iOS do użycia jako punkt wyjścia do tworzenia aplikacji. Aby dowiedzieć się więcej, zobacz [IoT Central ciągłe monitorowanie aplikacji mobilnej](https://docs.microsoft.com/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Eksportuj do interfejsu API platformy Azure dla usługi FHIR&reg;
-Usługa Azure IoT Central jest zgodna z certyfikatem HIPAA i HITRUST &reg; , ale możesz również wysyłać dane dotyczące kondycji pacjenta do interfejsu API platformy Azure dla FHIR. [Usługa Azure API for FHIR](../../healthcare-apis/overview.md) to w pełni zarządzany, oparty na standardach interfejs API służący do klinicznych danych dotyczących kondycji, które umożliwiają tworzenie nowych systemów zaangażowania przy użyciu danych dotyczących kondycji. Umożliwia szybką wymianę danych za pomocą interfejsów API FHIR, które są obsługiwane przez zarządzaną ofertę platformy jako usługi (PaaS) w chmurze. Korzystając z funkcji ciągłego eksportowania danych IoT Central, można wysyłać dane do interfejsu API platformy Azure dla usługi FHIR za pośrednictwem [łącznika usługi Azure IoT dla FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-fhir-portal-quickstart).
+
+Usługa Azure IoT Central jest zgodna z certyfikatami HIPAA i HITRUST &reg; . Dane kondycji pacjenta można także wysyłać do innych usług przy użyciu [interfejsu API platformy Azure dla usługi FHIR](../../healthcare-apis/overview.md). Azure API for FHIR to oparty na standardach interfejs API służący do danych klinicznych kondycji. [Łącznik usługi Azure IoT dla programu FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-fhir-portal-quickstart) umożliwia korzystanie z interfejsu API platformy Azure dla FHIR jako stałego miejsca docelowego eksportu danych z IoT Central.
 
 ### <a name="machine-learning"></a>Uczenie maszynowe
-Po agregowaniu danych i przeprowadzeniu ich translacji do formatu FHIR można kompilować modele uczenia maszynowego, które mogą wzbogacać szczegółowe informacje i umożliwiają inteligentniejsze podejmowanie decyzji dla Twojego zespołu opieki. Istnieją różne rodzaje usług, których można użyć do kompilowania, uczenia i wdrażania modeli uczenia maszynowego. Więcej informacji o sposobach korzystania z ofert uczenia maszynowego na platformie Azure znajduje się w naszej [dokumentacji usługi Machine Learning](../../machine-learning/index.yml).
+
+Używaj modeli uczenia maszynowego z danymi FHIR, aby generować szczegółowe informacje i wspierać decyzje podejmowane przez zespół opieki. Aby dowiedzieć się więcej, zobacz [dokumentację usługi Azure Machine Learning](../../machine-learning/index.yml).
 
 ### <a name="provider-dashboard"></a>Pulpit nawigacyjny dostawcy
-Dane znajdujące się w interfejsie API platformy Azure dla FHIR mogą służyć do tworzenia pulpitu nawigacyjnego usługi pacjenta Insights lub mogą być bezpośrednio zintegrowane z EMR, aby pomóc zespołom w pomyślnym wizualizowaniu stanu pacjenta. Zespoły opieki mogą korzystać z tego pulpitu nawigacyjnego, aby zadbać o to, aby uzyskać pomoc, oraz szybko ostrzegać o pogorszeniu. Aby dowiedzieć się, jak utworzyć pulpit nawigacyjny dostawcy Power BI w czasie rzeczywistym, postępuj zgodnie z naszym [przewodnikiem](howto-health-data-triage.md).
+
+Użyj interfejsu API platformy Azure do FHIR danych, aby utworzyć pulpit nawigacyjny usługi pacjenta Insights lub zintegrować go bezpośrednio z elektronicznym rejestrem medycyny używanym przez zespoły opieki. Zespoły opieki mogą korzystać z pulpitu nawigacyjnego, aby pomóc pacjentom i identyfikować wczesne ostrzeżenia o pogorszeniu. Aby dowiedzieć się więcej, zobacz Samouczek dotyczący [tworzenia pulpitu nawigacyjnego dostawcy Power BI](howto-health-data-triage.md) .
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się, jak wdrożyć szablon aplikacji do monitorowania ciągłego pacjenta](tutorial-continuous-patient-monitoring.md)
+
+Sugerowany następny krok to [Dowiedz się, jak wdrożyć szablon aplikacji do monitorowania ciągłego pacjenta](tutorial-continuous-patient-monitoring.md).
