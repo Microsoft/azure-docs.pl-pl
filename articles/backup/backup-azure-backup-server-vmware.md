@@ -3,16 +3,16 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure B
 description: W tym artykule dowiesz się, jak używać Azure Backup Server do tworzenia kopii zapasowych maszyn wirtualnych VMware działających na serwerze VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: e18b5c51446446103a91ef7d6a00277c2b41db77
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017570"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069836"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure Backup Server
 
-W tym artykule wyjaśniono, jak utworzyć kopię zapasową maszyn wirtualnych VMware działających na VMware ESXi hostach/vCenter Server na platformie Azure przy użyciu Azure Backup Server.
+W tym artykule wyjaśniono, jak utworzyć kopię zapasową maszyn wirtualnych VMware działających na VMware ESXi hostach/vCenter Server na platformie Azure przy użyciu programu Azure Backup Server (serwera usługi MAB).
 
 W tym artykule wyjaśniono, jak:
 
@@ -21,6 +21,31 @@ W tym artykule wyjaśniono, jak:
 - Dodaj poświadczenia konta do Azure Backup.
 - Dodaj serwer vCenter lub ESXi do Azure Backup Server.
 - Skonfiguruj grupę ochrony zawierającą maszyny wirtualne VMware, dla których chcesz utworzyć kopię zapasową, określ ustawienia kopii zapasowej i Zaplanuj kopię zapasową.
+
+## <a name="supported-vmware-features"></a>Obsługiwane funkcje oprogramowania VMware
+
+SERWERA usługi MAB udostępnia następujące funkcje podczas tworzenia kopii zapasowych maszyn wirtualnych VMware:
+
+- Tworzenie kopii zapasowej bez agentów: serwera usługi MAB nie wymaga zainstalowania agenta na serwerze vCenter lub ESXi, aby utworzyć kopię zapasową maszyny wirtualnej. Zamiast tego wystarczy podać adres IP lub w pełni kwalifikowaną nazwę domeny (FQDN) oraz poświadczenia logowania używane do uwierzytelniania serwera VMware za pomocą serwera usługi MAB.
+- Zintegrowana kopia zapasowa w chmurze: serwera usługi MAB chroni obciążenia dyskami i chmurą. Przepływ pracy tworzenia kopii zapasowych i odzyskiwania w programie serwera usługi MAB ułatwia zarządzanie przechowywaniem długoterminowym oraz tworzeniem kopii zapasowych poza siedzibą firmy.
+- Wykrywanie i ochrona maszyn wirtualnych zarządzanych przez program vCenter: serwera usługi MAB wykrywa i chroni maszyny wirtualne wdrożone na serwerze VMware (serwer vCenter lub ESXi). W miarę wzrostu rozmiaru wdrożenia Użyj programu vCenter do zarządzania środowiskiem programu VMware. SERWERA usługi MAB wykrywa również maszyny wirtualne zarządzane przez program vCenter, co pozwala chronić duże wdrożenia.
+- Funkcja autoochrony na poziomie folderów: program vCenter umożliwia organizowanie maszyn wirtualnych w folderach maszyn wirtualnych. SERWERA usługi MAB wykrywa te foldery i umożliwia ochronę maszyn wirtualnych na poziomie folderu i zawiera wszystkie podfoldery. W przypadku ochrony folderów serwera usługi MAB nie tylko chroni maszyny wirtualne znajdujące się w tym folderze, ale również chroni maszyny wirtualne dodane później. SERWERA usługi MAB wykrywa nowe maszyny wirtualne codziennie i chroni je automatycznie. Podczas organizowania maszyn wirtualnych w folderach cyklicznych serwera usługi MAB automatycznie wykrywa i chroni nowe maszyny wirtualne wdrożone w folderach cyklicznych.
+- SERWERA usługi MAB chroni maszyny wirtualne przechowywane na dysku lokalnym, w systemie plików NFS lub w magazynie klastra.
+- SERWERA usługi MAB chroni maszyny wirtualne migrowane pod kątem równoważenia obciążenia: w miarę migrowania maszyn wirtualnych do równoważenia obciążenia usługa serwera usługi MAB automatycznie wykrywa i kontynuuje ochronę maszyny wirtualnej.
+- SERWERA usługi MAB może odzyskiwać pliki/foldery z maszyny wirtualnej z systemem Windows bez odzyskiwania całej maszyny wirtualnej, co ułatwia szybkie odzyskiwanie potrzebnych plików.
+
+## <a name="prerequisites-and-limitations"></a>Wymagania wstępne i ograniczenia
+
+Przed rozpoczęciem tworzenia kopii zapasowej maszyny wirtualnej VMware zapoznaj się z poniższą listą ograniczeń i wymagań wstępnych.
+
+- Jeśli używasz serwera usługi MAB do ochrony serwera vCenter (działającego w systemie Windows) jako serwera z systemem Windows przy użyciu nazwy FQDN serwera, nie możesz chronić tego serwera vCenter jako serwera VMware przy użyciu nazwy FQDN serwera.
+  - Możesz użyć statycznego adresu IP vCenter Server jako obejście.
+  - Jeśli chcesz użyć nazwy FQDN, Zatrzymaj ochronę jako serwer systemu Windows, Usuń agenta ochrony, a następnie Dodaj jako serwer VMware przy użyciu nazwy FQDN.
+- Jeśli używasz programu vCenter do zarządzania serwerami ESXi w środowisku, Dodaj program vCenter (a nie ESXi) do grupy ochrony serwera usługi MAB.
+- Nie można utworzyć kopii zapasowej migawek użytkownika przed pierwszą serwera usługi MAB kopii zapasowej. Gdy serwera usługi MAB wykonuje pierwszą kopię zapasową, można utworzyć kopię zapasową migawek użytkownika.
+- SERWERA usługi MAB nie może chronić maszyn wirtualnych VMware przy użyciu dysków pass-through i mapowań fizycznych urządzeń nieprzetworzonych (pRDM).
+- SERWERA usługi MAB nie może wykryć ani chronić programu VMware oprogramowania vApps.
+- SERWERA usługi MAB nie może chronić maszyn wirtualnych VMware przy użyciu istniejących migawek.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
@@ -392,7 +417,7 @@ Liczbę zadań można zmodyfikować przy użyciu klucza rejestru, jak pokazano p
 
 Aby utworzyć kopię zapasową vSphere 6,7, wykonaj następujące czynności:
 
-- Włącz protokół TLS 1,2 na serwerze DPM
+- Włącz protokół TLS 1,2 na serwerze serwera usługi MAB
 
 >[!NOTE]
 >W przypadku oprogramowania VMWare 6,7 włączono protokół TLS.
@@ -539,6 +564,6 @@ Aby usunąć dysk z wykluczenia, uruchom następujące polecenie:
 C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Informacje dotyczące rozwiązywania problemów podczas konfigurowania kopii zapasowych znajdują się w [przewodniku rozwiązywania problemów Azure Backup Server](./backup-azure-mabs-troubleshoot.md).

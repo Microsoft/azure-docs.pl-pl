@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 299bbfa31584b260f85dfa7bafddea268084f876
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 7cbb67a215d44759b2b503929c37cb50ea94709c
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235166"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069768"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>An internal error occurs when you try to connect to an Azure VM through Remote Desktop (Podczas próby połączenia z maszyną wirtualną platformy Azure za pośrednictwem pulpitu zdalnego występuje błąd wewnętrzny)
 
@@ -26,7 +26,7 @@ W tym artykule opisano błąd, który może wystąpić podczas próby nawiązani
 
 ## <a name="symptoms"></a>Objawy
 
-Nie można nawiązać połączenia z maszyną wirtualną platformy Azure przy użyciu protokołu Remote Desktop Protocol (RDP). Połączenie zostanie zablokowane w sekcji "Konfigurowanie zdalnego" lub zostanie wyświetlony następujący komunikat o błędzie:
+Nie można nawiązać połączenia z maszyną wirtualną platformy Azure przy użyciu protokołu Remote Desktop Protocol (RDP). Połączenie zostanie zablokowane w sekcji **Konfigurowanie zdalne** lub zostanie wyświetlony następujący komunikat o błędzie:
 
 - Wewnętrzny błąd protokołu RDP
 - Wystąpił błąd wewnętrzny
@@ -37,20 +37,24 @@ Nie można nawiązać połączenia z maszyną wirtualną platformy Azure przy u�
 
 Ten problem może wystąpić z następujących powodów:
 
+- Być może zaatakowano maszynę wirtualną.
 - Nie można uzyskać dostępu do lokalnych kluczy szyfrowania RSA.
 - Protokół TLS jest wyłączony.
 - Certyfikat jest uszkodzony lub wygasł.
 
 ## <a name="solution"></a>Rozwiązanie
 
-Przed wykonaniem tych kroków należy wykonać migawkę dysku systemu operacyjnego, którego dotyczy dana maszyna wirtualna, jako kopii zapasowej. Aby uzyskać więcej informacji, zobacz [migawka dysku](../windows/snapshot-copy-managed-disk.md).
+Aby rozwiązać ten problem, wykonaj kroki opisane w poniższych sekcjach. Przed rozpoczęciem Utwórz migawkę dysku systemu operacyjnego z zaatakowaną maszyną wirtualną jako kopię zapasową. Aby uzyskać więcej informacji, zobacz [migawka dysku](../windows/snapshot-copy-managed-disk.md).
 
-Aby rozwiązać ten problem, należy użyć konsoli szeregowej lub [naprawić maszynę wirtualną w trybie offline](#repair-the-vm-offline) , dołączając dysk systemu operacyjnego maszyny wirtualnej do maszyny wirtualnej odzyskiwania.
+### <a name="check-rdp-security"></a>Sprawdź zabezpieczenia protokołu RDP
 
+Najpierw sprawdź, czy sieciowa Grupa zabezpieczeń dla portu RDP 3389 jest niezabezpieczona (Otwórz). Jeśli jest ona niezabezpieczona i jest wyświetlana \* jako źródłowy adres IP dla ruchu przychodzącego, Ogranicz port RDP do adresu IP specifc użytkownika, a następnie przetestuj dostęp do protokołu RDP. Jeśli to się nie powiedzie, wykonaj kroki opisane w następnej sekcji.
 
 ### <a name="use-serial-control"></a>Użyj kontrolki szeregowej
 
-Połącz się z [konsolą szeregową i Otwórz wystąpienie programu PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+Użyj konsoli szeregowej lub [napraw maszynę wirtualną w trybie offline](#repair-the-vm-offline) , dołączając dysk systemu operacyjnego maszyny wirtualnej do maszyny wirtualnej odzyskiwania.
+
+Aby rozpocząć, nawiąż połączenie z [konsolą szeregową i Otwórz wystąpienie programu PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Jeśli konsola szeregowa nie jest włączona na maszynie wirtualnej, przejdź do sekcji [Naprawa maszyny wirtualnej w trybie offline](#repair-the-vm-offline) .
 
 #### <a name="step-1-check-the-rdp-port"></a>Krok: 1 Sprawdź port RDP

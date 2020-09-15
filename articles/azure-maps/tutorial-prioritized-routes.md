@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: a7b6b658590d0c764435bc28baa6d21197984e10
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: a5b8dba920db0227c400e62ef7ddaf718d27c78a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007166"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085063"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Samouczek: Znajdowanie i wyświetlanie tras dla różnych trybów podróży przy użyciu Azure Maps
 
@@ -219,7 +219,7 @@ W tej sekcji pokazano, jak za pomocą usługi Azure Maps Route uzyskać wskazów
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential`Tworzy `SubscriptionKeyCredentialPolicy` do uwierzytelniania żądania HTTP do Azure Maps przy użyciu klucza subskrypcji. `atlas.service.MapsURL.newPipeline()`Przyjmuje `SubscriptionKeyCredential` zasady i tworzy wystąpienie [potoku](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest&preserve-view=false) . `routeURL`Reprezentuje adres URL służący do Azure Maps operacji [routingu](https://docs.microsoft.com/rest/api/maps/route) .
+   `SubscriptionKeyCredential`Tworzy `SubscriptionKeyCredentialPolicy` do uwierzytelniania żądania HTTP do Azure Maps przy użyciu klucza subskrypcji. `atlas.service.MapsURL.newPipeline()`Przyjmuje `SubscriptionKeyCredential` zasady i tworzy wystąpienie [potoku](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) . `routeURL`Reprezentuje adres URL służący do Azure Maps operacji [routingu](https://docs.microsoft.com/rest/api/maps/route) .
 
 2. Po skonfigurowaniu poświadczeń i adresu URL Dodaj następujący kod JavaScript, aby utworzyć trasę trasy ciężarówki od początku do punktu końcowego. Ta trasa jest tworzona i wyświetlana dla wózka przewożącego ruch z `USHazmatClass2` klasą.
 
@@ -248,7 +248,7 @@ W tej sekcji pokazano, jak za pomocą usługi Azure Maps Route uzyskać wskazów
     });
     ```
 
-    Powyższy kod wysyła zapytania do usługi Route Azure Maps za pomocą [interfejsu API wskazówek dotyczących trasy Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-&preserve-view=false). Linia trasy jest następnie wyodrębniana z kolekcji funkcji GEOJSON z odpowiedzi wyodrębnionej przy użyciu `geojson.getFeatures()` metody. Na koniec linia trasy jest dodawana do źródła danych. Dodajemy ją pod indeksem 0, aby upewnić się, że trasa ciężarówki jest renderowana przed wszystkimi innymi wierszami w źródle danych, ponieważ obliczenie trasy ciężarówki będzie często wolniejsze niż Obliczanie trasy samochodu. Jeśli linia trasa ciężarówki zostanie dodana do źródła danych po tej trasie samochodu, zostanie ona wyrenderowana powyżej. Do linii trasy ciężarówki są dodawane dwie właściwości: kolor niebieskiego obrysu i szerokość obrysu dziewięciu pikseli.
+    Powyższy kod wysyła zapytania do usługi Route Azure Maps za pomocą [interfejsu API wskazówek dotyczących trasy Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-). Linia trasy jest następnie wyodrębniana z kolekcji funkcji GEOJSON z odpowiedzi wyodrębnionej przy użyciu `geojson.getFeatures()` metody. Na koniec linia trasy jest dodawana do źródła danych. Dodajemy ją pod indeksem 0, aby upewnić się, że trasa ciężarówki jest renderowana przed wszystkimi innymi wierszami w źródle danych, ponieważ obliczenie trasy ciężarówki będzie często wolniejsze niż Obliczanie trasy samochodu. Jeśli linia trasa ciężarówki zostanie dodana do źródła danych po tej trasie samochodu, zostanie ona wyrenderowana powyżej. Do linii trasy ciężarówki są dodawane dwie właściwości: kolor niebieskiego obrysu i szerokość obrysu dziewięciu pikseli.
 
     >[!TIP]
     > Aby wyświetlić wszystkie możliwe opcje i wartości dla interfejsu API wskazówek dotyczących trasy Azure Maps, zobacz [Parametry identyfikatora URI dla wskazówek dotyczących trasy](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#uri-parameters).
@@ -271,7 +271,7 @@ W tej sekcji pokazano, jak za pomocą usługi Azure Maps Route uzyskać wskazów
     });
     ```
 
-    Powyższy kod wysyła zapytania do usługi routingu Azure Maps za pomocą metody  [interfejsu API wskazówek dotyczących trasy Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-&preserve-view=false) . Linia trasy jest następnie wyodrębniana z kolekcji funkcji GEOJSON z odpowiedzi wyodrębnionej przy użyciu `geojson.getFeatures()` metody. Na koniec linia trasy jest dodawana do źródła danych. Do linii trasy ciężarówki są dodawane dwie właściwości: purpurowy kolor pociągnięcia oraz szerokość pociągnięcia równą pięć pikseli.
+    Powyższy kod wysyła zapytania do usługi routingu Azure Maps za pomocą metody  [interfejsu API wskazówek dotyczących trasy Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-) . Linia trasy jest następnie wyodrębniana z kolekcji funkcji GEOJSON z odpowiedzi wyodrębnionej przy użyciu `geojson.getFeatures()` metody. Na koniec linia trasy jest dodawana do źródła danych. Do linii trasy ciężarówki są dodawane dwie właściwości: purpurowy kolor pociągnięcia oraz szerokość pociągnięcia równą pięć pikseli.
 
 4. Zapisz plik **TruckRoute.html** i Odśwież przeglądarkę sieci Web. Mapa powinna teraz wyświetlać trasy ciężarówki i samochodu.
 

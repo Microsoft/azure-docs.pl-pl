@@ -1,16 +1,16 @@
 ---
 title: Konfigurowanie materiałów PBR w programie 3ds Max
 description: Wyjaśniono, jak skonfigurować fizyczne materiały renderowania w formacie 3ds Max i wyeksportować je do formatu FBX.
-author: muxanickms
-ms.author: misams
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: ac0f4ee8f06982126d2ae30bed01716b287e8993
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e77379be863f4527081eeec6a0ee1f426d526527
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078035"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084468"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Samouczek: Konfigurowanie materiałów renderowania fizycznie opartych na protokole 3ds Max
 
@@ -223,7 +223,7 @@ Teraz, gdy wprowadziliśmy ścieżki tekstury względem, możemy przejść do FB
 
 1. Wybierz **przycisk OK** , aby zakończyć proces i zamknąć okno.
 
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 Ogólnie rzecz biorąc, ten typ materiału wygląda bardziej realistycznie, ponieważ jest oparty na rzeczywistej fizyki ziemskiej. Tworzy dodatkowy efekt immersyjny, aby sceny pojawiły się w świecie rzeczywistym.
 

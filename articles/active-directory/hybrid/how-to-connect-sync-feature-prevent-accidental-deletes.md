@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55270889c8c284335d5aa7b545718da419ba8d84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16d48cda87b8226ebc3bbab179c1034abf0a486f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357362"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084613"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronizacja programu Azure AD Connect: zapobieganie przypadkowemu usuwaniu
 W tym temacie opisano funkcję zapobiegania przypadkowym usunięciem (zapobieganie przypadkowemu usuwaniu) w Azure AD Connect.
@@ -65,7 +65,7 @@ Jeśli wszystkie usunięcia są odpowiednie, wykonaj następujące czynności:
 
 1. Aby pobrać bieżący próg usunięcia, uruchom polecenie cmdlet programu PowerShell `Get-ADSyncExportDeletionThreshold` . Podaj konto i hasło administratora globalnego usługi Azure AD. Wartość domyślna to 500.
 2. Aby tymczasowo wyłączyć tę ochronę i zezwolić na ich usunięcie, uruchom polecenie cmdlet programu PowerShell: `Disable-ADSyncExportDeletionThreshold` . Podaj konto i hasło administratora globalnego usługi Azure AD.
-   ![Poświadczenia](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
+   ![Zrzut ekranu przedstawia okno dialogowe umożliwiające wprowadzenie nazwy użytkownika i hasła administratora globalnego usługi Azure AD.](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
 3. Po wybraniu łącznika Azure Active Directory wybierz akcję **Uruchom** i wybierz pozycję **Eksportuj**.
 4. Aby ponownie włączyć ochronę, uruchom polecenie cmdlet programu PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500` . Zastąp 500 wartością zauważoną podczas pobierania bieżącego progu usuwania. Podaj konto i hasło administratora globalnego usługi Azure AD.
 

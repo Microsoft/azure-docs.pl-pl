@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 0edb50fd72622d3d7d628e0e02ef2c3737f8713a
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 0c4178513c5a6027b3261d6d7975d4ec7cc55c6a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500423"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085794"
 ---
 # <a name="monitoring-azure-storage"></a>Monitorowanie usługi Azure Storage
 
@@ -74,9 +74,13 @@ Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do 
 
 Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych danych, zobacz [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz [format dziennika magazynu](monitor-storage-reference.md).
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. Aby proces tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. 
+
+Aby utworzyć ustawienie diagnostyczne przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md). 
+
+Aby wyświetlić szablon Azure Resource Manager, który tworzy ustawienie diagnostyczne, zobacz [ustawienie diagnostyczne dla usługi Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 Podczas tworzenia ustawienia diagnostycznego wybierz typ magazynu, dla którego chcesz włączyć dzienniki, takie jak obiekt BLOB, kolejka, tabela lub plik. Data Lake Storage Gen2 nie jest wyświetlana jako typ magazynu. Jest to spowodowane tym, że Data Lake Storage Gen2 jest zestawem funkcji dostępnych dla magazynu obiektów BLOB. 
 
@@ -124,7 +128,7 @@ Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, w tym u
 
 #### <a name="list-the-metric-definition"></a>Lista definicji metryk
 
-Można wyświetlić listę definicji metryk konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia cmdlet [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition?view=azps-3.3.0) .
+Można wyświetlić listę definicji metryk konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia cmdlet [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition) .
 
 W tym przykładzie Zastąp `<resource-ID>` symbol zastępczy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu pojedynczej usługi magazynu, takim jak obiekt BLOB, plik, tabela lub usługa kolejki. Te identyfikatory zasobów można znaleźć na stronach **Właściwości** konta magazynu w Azure Portal.
 
@@ -135,7 +139,7 @@ W tym przykładzie Zastąp `<resource-ID>` symbol zastępczy identyfikatorem zas
 
 #### <a name="reading-metric-values"></a>Odczytywanie wartości metryk
 
-Można odczytywać wartości metryk na poziomie konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia cmdlet [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0) .
+Można odczytywać wartości metryk na poziomie konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia cmdlet [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) .
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -146,7 +150,7 @@ Można odczytywać wartości metryk na poziomie konta magazynu lub poszczególny
 
 #### <a name="list-the-account-level-metric-definition"></a>Utwórz listę definicji metryk na poziomie konta
 
-Można wyświetlić listę definicji metryk konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia [AZ monitor Metric list-](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list-definitions) Definitions.
+Można wyświetlić listę definicji metryk konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia [AZ monitor Metric list-](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) Definitions.
  
 W tym przykładzie Zastąp `<resource-ID>` symbol zastępczy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu pojedynczej usługi magazynu, takim jak obiekt BLOB, plik, tabela lub usługa kolejki. Te identyfikatory zasobów można znaleźć na stronach **Właściwości** konta magazynu w Azure Portal.
 
@@ -156,7 +160,7 @@ W tym przykładzie Zastąp `<resource-ID>` symbol zastępczy identyfikatorem zas
 
 #### <a name="read-account-level-metric-values"></a>Odczytaj wartości metryk na poziomie konta
 
-Można odczytać wartości metryk konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia [AZ monitor Metric list](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) .
+Można odczytać wartości metryk konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia [AZ monitor Metric list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list) .
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H

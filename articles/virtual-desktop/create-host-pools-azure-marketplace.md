@@ -3,15 +3,15 @@ title: Pula hostów usług pulpitu wirtualnego systemu Windows Azure Portal — 
 description: Jak utworzyć pulę hostów pulpitu wirtualnego systemu Windows przy użyciu Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322589"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084366"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
@@ -188,6 +188,13 @@ Aby zarejestrować grupę aplikacji klasycznych w obszarze roboczym:
      - Link do pobierania dla szablonu usługi Azure Resource Management na podstawie konfiguracji.
 
 Wszystko gotowe!
+
+## <a name="run-the-azure-resource-manager-template-to-provision-a-new-host-pool"></a>Uruchom szablon Azure Resource Manager, aby zainicjować obsługę nowej puli hostów
+
+Jeśli wolisz korzystać z zautomatyzowanego procesu, [Pobierz szablon Azure Resource Manager](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) , aby zamiast tego zainicjować obsługę nowej puli hostów.
+
+>[!NOTE]
+>Jeśli używasz zautomatyzowanego procesu do kompilowania środowiska, potrzebujesz najnowszej wersji pliku JSON konfiguracji. Plik JSON można znaleźć [tutaj](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list).
 
 ## <a name="next-steps"></a>Następne kroki
 

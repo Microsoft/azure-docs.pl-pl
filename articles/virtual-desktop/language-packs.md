@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: de495d18220500e5aa5653e89776c2634d5b1c85
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: fbc2aba21212a83bd73d5664f4fe288017954c0d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719153"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084213"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Dodawanie pakietów językowych do obrazu wielosesyjnego systemu Windows 10
 
@@ -30,7 +30,7 @@ Aby dostosować obrazy wielosesyjne dla systemu Windows 10 Enterprise, należy w
 
 - Maszyna wirtualna platformy Azure z obsługą wielu sesji systemu Windows 10 Enterprise, wersja 1903 lub nowsza
 
-- Język ISO i funkcja na żądanie (FDZ) dysk 1 wersji systemu operacyjnego używanego przez obraz. Można je pobrać tutaj:
+- Język ISO, funkcja na żądanie (FDZ) dysk 1 i aplikacje skrzynki odbiorczej ISO wersji systemu operacyjnego używanego przez obraz. Można je pobrać tutaj:
      
      - Język ISO:
         - [Windows 10, wersja 1903 lub 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
@@ -39,6 +39,10 @@ Aby dostosować obrazy wielosesyjne dla systemu Windows 10 Enterprise, należy w
      - Dysk FDZ 1 ISO:
         - [Windows 10, wersja 1903 lub 1909 FDZ Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         - [Windows 10, wersja 2004 FDZ Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        
+     - Plik ISO aplikacji skrzynki odbiorczej:
+        - [Windows 10, wersja 1903 lub 1909 — aplikacje skrzynki odbiorczej — ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
+        - [Windows 10, wersja 2004 — aplikacje skrzynki odbiorczej — ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
 
 - Udział Azure Files lub udział plików na maszynie wirtualnej serwera plików z systemem Windows
 
@@ -47,15 +51,16 @@ Aby dostosować obrazy wielosesyjne dla systemu Windows 10 Enterprise, należy w
 
 ## <a name="create-a-content-repository-for-language-packages-and-features-on-demand"></a>Tworzenie repozytorium zawartości dla pakietów językowych i funkcji na żądanie
 
-Aby utworzyć repozytorium zawartości dla pakietów językowych i FODs:
+Aby utworzyć repozytorium zawartości dla pakietów językowych i FODs oraz repozytorium dla pakietów aplikacji skrzynki odbiorczej:
 
-1. Na maszynie wirtualnej platformy Azure Pobierz wiele języków ISO i FODs dla systemu Windows 10 Enterprise, w wersji 1903, 1909 i 2004, z linków w sekcji [wymagania wstępne](#prerequisites).
+1. Na maszynie wirtualnej platformy Azure Pobierz dla systemu Windows 10 wielojęzyczne aplikacje ISO, FODs i Skrzynka odbiorcza dla systemu Windows 10 Enterprise, wersje 1903/1909 i 2004 obrazów z linków w sekcji [wymagania wstępne](#prerequisites).
 
 2. Otwórz i zainstaluj pliki ISO na maszynie wirtualnej.
 
 3. Przejdź do pakietu językowego ISO i skopiuj zawartość z folderów **LocalExperiencePacks** i **x64 \\ Langpacks** , a następnie wklej zawartość do udziału plików.
 
 4. Przejdź do **pliku ISO FDZ**, Skopiuj całą jego zawartość, a następnie wklej go do udziału plików.
+5. Przejdź do folderu **amd64fre** w pliku ISO aplikacji skrzynki odbiorczej i skopiuj zawartość repozytorium dla aplikacji skrzynki odbiorczej, które zostały przygotowane.
 
      >[!NOTE]
      > Jeśli pracujesz z ograniczoną ilością pamięci masowej, skopiuj tylko te pliki, które są potrzebne użytkownikom. Pliki można wyróżnić, przeglądając kod języka w nazwach plików. Na przykład plik francuski zawiera kod "fr-FR" w nazwie. Aby uzyskać pełną listę kodów języków dla wszystkich dostępnych języków, zobacz [dostępne pakiety językowe dla systemu Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
@@ -66,7 +71,7 @@ Aby utworzyć repozytorium zawartości dla pakietów językowych i FODs:
      > [!div class="mx-imgBorder"]
      > ![Przykład pakietów języka japońskiego ze znacznikiem języka "Jpan" w nazwach plików.](media/language-pack-example.png)
 
-5. Ustaw uprawnienia dla udziału repozytorium zawartości języka, aby mieć dostęp do odczytu z maszyny wirtualnej, która będzie używana do tworzenia obrazu niestandardowego.
+6. Ustaw uprawnienia dla udziału repozytorium zawartości języka, aby mieć dostęp do odczytu z maszyny wirtualnej, która będzie używana do tworzenia obrazu niestandardowego.
 
 ## <a name="create-a-custom-windows-10-enterprise-multi-session-image-manually"></a>Ręczne tworzenie niestandardowego obrazu dla wielu sesji systemu Windows 10 Enterprise
 
@@ -75,7 +80,7 @@ Aby ręcznie utworzyć niestandardowy obraz wielosesyjny dla systemu Windows 10 
 1. Wdróż maszynę wirtualną platformy Azure, przejdź do galerii platformy Azure i wybierz bieżącą wersję wielosesyjnej sesji systemu Windows 10.
 2. Po wdrożeniu maszyny wirtualnej Połącz się z nią przy użyciu protokołu RDP jako administrator lokalny.
 3. Upewnij się, że maszyna wirtualna ma wszystkie najnowsze aktualizacje systemu Windows. Pobierz aktualizacje i ponownie uruchom maszynę wirtualną, jeśli to konieczne.
-4. Nawiąż połączenie z pakietem językowym i repozytorium udziałów plików FDZ i zainstaluj je na literę dysku (na przykład dysk E).
+4. Połącz się z repozytorium udziałów plików pakietu językowego, FDZ i skrzynki odbiorczej i zainstaluj je na literę dysku (na przykład dysk E).
 
 ## <a name="create-a-custom-windows-10-enterprise-multi-session-image-automatically"></a>Automatyczne tworzenie niestandardowego obrazu wielosesyjnego dla systemu Windows 10 Enterprise
 
@@ -161,6 +166,56 @@ Skrypt może zająć trochę czasu w zależności od liczby języków, które na
 
 Po zakończeniu działania skryptu upewnij się, że poprawnie zainstalowano pakiety językowe, przechodząc do opcji **Rozpocznij**  >  **Ustawienia**  >  **czas &**  >  **Język**. Jeśli w tym miejscu znajdują się pliki języka, wszystko jest gotowe.
 
+Po dodaniu dodatkowych języków do obrazu systemu Windows, aplikacje skrzynki odbiorczej również muszą zostać zaktualizowane w celu obsługi dodanych języków. Można to zrobić przez odświeżenie wstępnie zainstalowanych aplikacji przy użyciu zawartości z pliku ISO aplikacji skrzynki odbiorczej. Aby przeprowadzić to odświeżanie w odłączonym środowisku (bez dostępu do Internetu z maszyny wirtualnej), można zautomatyzować proces za pomocą następującego przykładowego skryptu programu PowerShell.
+
+```powershell
+#########################################
+## Update Inbox Apps for Multi Language##
+#########################################
+##Set Inbox App Package Content Stores##
+[string]$InboxApps = "F:\"
+##Update Inbox Store Apps##
+$AllAppx = Get-Item $inboxapps\*.appx | Select-Object name
+$AllAppxBundles = Get-Item $inboxapps\*.appxbundle | Select-Object name
+$allAppxXML = Get-Item $inboxapps\*.xml | Select-Object name
+foreach ($Appx in $AllAppx) {
+    $appname = $appx.name.substring(0,$Appx.name.length-5)
+    $appnamexml = $appname + ".xml"
+    $pathappx = $InboxApps + "\" + $appx.Name
+    $pathxml = $InboxApps + "\" + $appnamexml
+    
+    if($allAppxXML.name.Contains($appnamexml)){
+    
+    Write-Host "Handeling with xml $appname"  
+  
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
+    } else {
+      
+      Write-Host "Handeling without xml $appname"
+      
+      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+    }
+}
+foreach ($Appx in $AllAppxBundles) {
+    $appname = $appx.name.substring(0,$Appx.name.length-11)
+    $appnamexml = $appname + ".xml"
+    $pathappx = $InboxApps + "\" + $appx.Name
+    $pathxml = $InboxApps + "\" + $appnamexml
+    
+    if($allAppxXML.name.Contains($appnamexml)){
+    Write-Host "Handeling with xml $appname"
+    
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
+    } else {
+       Write-Host "Handeling without xml $appname"
+      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+    }
+}
+```
+
+>[!IMPORTANT]
+>Aplikacje skrzynki odbiorczej zawarte w pliku ISO nie są najnowszymi wersjami wstępnie zainstalowanych aplikacji systemu Windows. Aby uzyskać najnowszą wersję wszystkich aplikacji, należy zaktualizować aplikacje przy użyciu aplikacji ze sklepu Windows i przeprowadzić ręczne wyszukiwanie aktualizacji po zainstalowaniu dodatkowych języków.
+
 Gdy wszystko będzie gotowe, pamiętaj o rozłączeniu udziału.
 
 ## <a name="finish-customizing-your-image"></a>Zakończenie dostosowywania obrazu
@@ -177,15 +232,15 @@ Aby uruchomić program Sysprep:
      C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
      ```
 
-2. Zamknij maszynę wirtualną, a następnie Przechwyć ją w zarządzanym obrazie, postępując zgodnie z instrukcjami w temacie [Tworzenie zarządzanego obrazu maszyny wirtualnej w systemie Azure](../virtual-machines/windows/capture-image-resource.md).
+2. Zatrzymaj maszynę wirtualną, a następnie Przechwyć ją w zarządzanym obrazie, postępując zgodnie z instrukcjami w temacie [Tworzenie zarządzanego obrazu maszyny wirtualnej na platformie Azure](../virtual-machines/windows/capture-image-resource.md).
 
 3. Możesz teraz użyć niestandardowego obrazu do wdrożenia puli hostów pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak wdrożyć pulę hostów, zobacz [Samouczek: Tworzenie puli hostów przy użyciu Azure Portal](create-host-pools-azure-marketplace.md).
 
 ## <a name="enable-languages-in-windows-settings-app"></a>Włącz Języki w aplikacji Ustawienia systemu Windows
 
-Na koniec należy dodać język do listy języków każdego użytkownika, aby można było wybrać preferowany język w menu Ustawienia.
+Po wdrożeniu puli hostów należy dodać język do listy języków każdego użytkownika, aby można było wybrać preferowany język w menu Ustawienia.
 
-Aby upewnić się, że użytkownicy będą mogli wybrać zainstalowane Języki, zaloguj się jako użytkownik, a następnie uruchom następujące polecenie cmdlet programu PowerShell w celu dodania zainstalowanych pakietów językowych do menu Języki. Ten skrypt można również skonfigurować jako zadanie automatyczne uaktywniane, gdy użytkownik zaloguje się do sesji.
+Aby upewnić się, że użytkownicy będą mogli wybrać zainstalowane Języki, zaloguj się jako użytkownik, a następnie uruchom następujące polecenie cmdlet programu PowerShell w celu dodania zainstalowanych pakietów językowych do menu Języki. Możesz również skonfigurować ten skrypt jako zautomatyzowany skrypt zadania lub logowania, który uaktywnia się, gdy użytkownik zaloguje się do sesji.
 
 ```powershell
 $LanguageList = Get-WinUserLanguageList

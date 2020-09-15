@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6fee96354760e448de132f88918e9839c6220af3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254495"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084315"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Zalecenia i najlepsze rozwiązania dotyczące Azure Active Directory B2C
 
@@ -56,7 +56,6 @@ W fazie wdrażania należy wziąć pod uwagę następujące zalecenia.
 | Dowiedz się, jak rozwiązywać problemy Azure AD B2C | Dowiedz się, jak [rozwiązywać problemy z zasadami niestandardowymi](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) podczas projektowania. Dowiedz się, jak wygląda normalny przepływ uwierzytelniania i korzystaj z narzędzi do wykrywania anomalii i błędów. Na przykład użyj [Application Insights](troubleshoot-with-application-insights.md) , aby przejrzeć dzienniki wyjściowe podróży użytkownika. |
 | Skorzystaj z naszej biblioteki sprawdzonych wzorców zasad niestandardowych | Znajdź [przykłady](https://github.com/azure-ad-b2c/samples) kilku ulepszonych Azure AD B2C użytkowników zarządzania tożsamościami i dostępem klientów (CIAM). |
 
-
 ## <a name="testing"></a>Testowanie
 
 Przetestuj i automatyzuj implementację Azure AD B2C.
@@ -69,7 +68,7 @@ Przetestuj i automatyzuj implementację Azure AD B2C.
 | Testowanie A/B | Przed przeprowadzeniem całego wypełniania, aby przetworzyć nowe funkcje przy użyciu małego, losowego zestawu użytkowników. Dzięki włączeniu języka JavaScript w Azure AD B2C można zintegrować z narzędziami do testowania/B, takimi jak optymalizacja, przejrzystość i inne. |
 | Testowanie obciążeniowe | Azure AD B2C można skalować, ale aplikacja może skalować się tylko wtedy, gdy wszystkie jej zależności można skalować. Przetestuj testowanie interfejsów API i sieci CDN. |
 | Ograniczanie przepływności |  Azure AD B2C ogranicza ruch, jeśli zbyt wiele żądań jest wysyłanych z tego samego źródła w krótkim czasie. Używaj kilku źródeł ruchu podczas testowania obciążenia i `AADB2C90229` łagodnie Obsługuj kod błędu w aplikacjach. |
-| Automation | Korzystaj z potoków ciągłej integracji i dostarczania (CI/CD), aby zautomatyzować testowanie i wdrożenia, na przykład [Azure DevOps](deploy-custom-policies-devops.md). |
+| Automatyzacja | Korzystaj z potoków ciągłej integracji i dostarczania (CI/CD), aby zautomatyzować testowanie i wdrożenia, na przykład [Azure DevOps](deploy-custom-policies-devops.md). |
 
 ## <a name="operations"></a>Operacje
 
@@ -79,11 +78,10 @@ Zarządzaj środowiskiem Azure AD B2C.
 |--|--|
 | Tworzenie wielu środowisk | Aby ułatwić wykonywanie operacji i wdrażania, Utwórz osobne środowiska na potrzeby opracowywania, testowania, przedprodukcyjnego i produkcyjnego. Utwórz Azure AD B2C dzierżawców dla każdej z nich. |
 | Używanie kontroli wersji dla zasad niestandardowych | Należy rozważyć użycie usługi GitHub, Azure Repos lub innego systemu kontroli wersji opartej na chmurze dla zasad niestandardowych Azure AD B2C. |
-| Użyj interfejsu API Microsoft Graph, aby zautomatyzować zarządzanie dzierżawcami usługi B2C | Interfejsy API Microsoft Graph:<br/>Zarządzanie [platformą obsługi tożsamości](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (zasady niestandardowe)<br/>[Klucze](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[Przepływy użytkownika](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Użyj interfejsu API Microsoft Graph, aby zautomatyzować zarządzanie dzierżawcami usługi B2C | Interfejsy API Microsoft Graph:<br/>Zarządzanie [platformą obsługi tożsamości](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (zasady niestandardowe)<br/>[Klucze](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Przepływy użytkowników](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Integracja z usługą Azure DevOps | [Potok](deploy-custom-policies-devops.md) ciągłej integracji i ciągłego wdrażania umożliwia łatwe i szybkie przemieszczanie kodu między różnymi środowiskami.   |
 | Integracja z usługą Azure Monitor | [Zdarzenia dziennika inspekcji](view-audit-logs.md) są przechowywane tylko przez siedem dni. [Integracja z usługą Azure monitor](azure-monitor.md) w celu przechowywania dzienników do długoterminowego użytku lub integracji z narzędziami do zarządzania informacjami i zdarzeniami zabezpieczeń innych firm (Siem) w celu uzyskania szczegółowych informacji o środowisku. |
 | Skonfiguruj aktywne alerty i monitorowanie | [Śledź zachowanie użytkowników](active-directory-b2c-custom-guide-eventlogger-appins.md) w Azure AD B2C przy użyciu Application Insights. |
-
 
 ## <a name="support-and-status-updates"></a>Aktualizacje pomocy technicznej i stanu
 

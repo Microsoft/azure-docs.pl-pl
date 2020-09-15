@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 1d996e62fe60606c3eb93a638d229028ee0471e6
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030604"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085097"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapowanie trybu debugowania przepływu danych
 
@@ -32,6 +32,11 @@ Po włączeniu suwaka zostanie wyświetlony monit z pytaniem o wybór konfigurac
 Gdy tryb debugowania jest włączony, będziesz interaktywnie kompilować przepływ danych przy użyciu aktywnego klastra Spark. Sesja zostanie zamknięta po wyłączeniu debugowania w Azure Data Factory. Należy zwrócić uwagę na opłaty godzinowe naliczane przez Azure Databricks w czasie, gdy sesja debugowania jest włączona.
 
 W większości przypadków dobrym sposobem jest skompilowanie przepływów danych w trybie debugowania, aby można było zweryfikować logikę biznesową i wyświetlić przekształcenia danych przed opublikowaniem pracy w Azure Data Factory. Użyj przycisku "Debuguj" w panelu potoku, aby przetestować przepływ danych w potoku.
+
+![Wyświetl sesje debugowania przepływu danych](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+> [!NOTE]
+> Każda sesja debugowania uruchamiana przez użytkownika z poziomu interfejsu użytkownika przeglądarki ADF jest nową sesją z własnym klastrem Spark. Możesz użyć widoku monitorowanie dla sesji debugowania powyżej, aby wyświetlić sesje debugowania na fabrykę i zarządzać nimi.
 
 ## <a name="cluster-status"></a>Stan klastra
 

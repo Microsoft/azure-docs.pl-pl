@@ -11,30 +11,30 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 144198a708b8e3cfcb5b3c6936d7fc51cadf4a13
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226679"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084332"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opcje uwierzytelniania bezhasło dla Azure Active Directory
 
 Funkcje, takie jak uwierzytelnianie wieloskładnikowe (MFA), to doskonały sposób na zabezpieczenie organizacji, ale użytkownicy często uzyskują sfrustrowani z dodatkową warstwą zabezpieczeń na potrzeby zapamiętywania haseł. Metody uwierzytelniania bez hasła są wygodniejsze, ponieważ hasło jest usuwane i zastępowane przez użytkownika
 
-| Uwierzytelnianie  | Coś, czego masz | Coś lub wiesz |
+| Authentication  | Coś, czego masz | Coś lub wiesz |
 | --- | --- | --- |
 | Logowanie bez hasła | Urządzenia, numery telefonów lub klucze zabezpieczeń systemu Windows 10 | Biometryczna lub PIN |
 
 Każda organizacja ma inne potrzeby związane z uwierzytelnianiem. Firma Microsoft oferuje następujące trzy opcje uwierzytelniania bez hasła, które integrują się z usługą Azure Active Directory (Azure AD):
 
-- Windows Hello for Business
+- Windows Hello dla firm
 - Aplikacja Microsoft Authenticator
 - FIDO2 klucze zabezpieczeń
 
 ![Uwierzytelnianie: zabezpieczenia i wygoda](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello for Business
+## <a name="windows-hello-for-business"></a>Windows Hello dla firm
 
 Funkcja Windows Hello dla firm jest idealna w przypadku pracowników przetwarzających informacje, którzy mają własne Wyznaczeni komputery z systemem Windows. Poświadczenia biometryczne i numery PIN są bezpośrednio powiązane z komputerem użytkownika, co uniemożliwia dostęp od nikogo innego niż właściciel. Dzięki integracji infrastruktury kluczy publicznych (PKI) i wbudowanej obsłudze logowania jednokrotnego (SSO) usługa Windows Hello dla firm zapewnia wygodną metodę bezproblemowego uzyskiwania dostępu do zasobów firmy lokalnie i w chmurze.
 
@@ -45,7 +45,7 @@ Poniższe kroki pokazują, jak proces logowania współdziała z usługą Azure 
 ![Diagram przedstawiający kroki związane z logowaniem użytkownika przy użyciu usługi Windows Hello dla firm](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
 1. Użytkownik loguje się do systemu Windows za pomocą gestu biometrycznego lub numeru PIN. Gest odblokowuje klucz prywatny usługi Windows Hello dla firm i jest wysyłany do dostawcy obsługi zabezpieczeń uwierzytelniania w chmurze, zwanego *dostawcą AP usługi Cloud*.
-1. Dostawca AP usług w chmurze żąda identyfikatora jednorazowego z usługi Azure AD.
+1. Dostawca AP czeka w chmurze żąda identyfikatora jednorazowego (losowo dowolnej liczby, która może być używana tylko raz) z usługi Azure AD.
 1. Usługa Azure AD zwraca identyfikator jednorazowy ważny przez 5 minut.
 1. Dostawca AP w chmurze podpisuje identyfikator jednorazowy przy użyciu klucza prywatnego użytkownika i zwraca podpisany identyfikator jednorazowy do usługi Azure AD.
 1. Usługa Azure AD weryfikuje podpisany identyfikator jednorazowy przy użyciu bezpiecznie zarejestrowanego klucza publicznego użytkownika w odniesieniu do sygnatury jednorazowej. Po sprawdzeniu podpisu usługa Azure AD następnie weryfikuje zwrócony podpisany identyfikator jednorazowy. Po sprawdzeniu poprawności identyfikatora jednorazowego usługa Azure AD tworzy podstawowy token odświeżania (PRT) z kluczem sesji zaszyfrowanym do klucza transportu urządzenia i zwraca go do dostawcy usługi AP.
@@ -159,9 +159,9 @@ Wybór między tymi trzema opcjami bezhaseł zależy od zabezpieczeń, platformy
 
 Oto kilka czynników, które należy wziąć pod uwagę podczas wybierania technologii bezhasło Microsoft:
 
-||**Windows Hello for Business**|**Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator**|**FIDO2 klucze zabezpieczeń**|
+||**Windows Hello dla firm**|**Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator**|**FIDO2 klucze zabezpieczeń**|
 |:-|:-|:-|:-|
-|**Wymagania wstępne**| Windows 10, wersja 1809 lub nowsza<br>Usługa Azure Active Directory| Aplikacja Microsoft Authenticator<br>Telefon (urządzenia z systemem iOS i Android z systemem Android 6,0 lub nowszym)|Windows 10, wersja 1809 lub nowsza<br>Usługa Azure Active Directory|
+|**Wymagania wstępne**| Windows 10, wersja 1809 lub nowsza<br>Azure Active Directory| Aplikacja Microsoft Authenticator<br>Telefon (urządzenia z systemem iOS i Android z systemem Android 6,0 lub nowszym)|Windows 10, wersja 1809 lub nowsza<br>Azure Active Directory|
 |**Tryb**|Platforma|Oprogramowanie|Sprzęt|
 |**Systemy i urządzenia**|KOMPUTER z wbudowaną moduł TPM (TPM)<br>Rozpoznawanie kodu PIN i biometrii |Rozpoznawanie kodu PIN i biometrii na telefonie|FIDO2 urządzenia zabezpieczające zgodne z firmą Microsoft|
 |**Środowisko użytkownika**|Zaloguj się przy użyciu kodu PIN lub rozpoznawania biometrycznego (twarzy, Iris lub odcisku palca) z urządzeniami z systemem Windows.<br>Uwierzytelnianie przy użyciu systemu Windows Hello jest powiązane z urządzeniem; Aby uzyskać dostęp do zasobów firmy, użytkownik potrzebuje zarówno urządzenia, jak i składnika logowania, takiego jak kod PIN lub czynnik biometryczny.|Zaloguj się przy użyciu telefonu komórkowego z funkcją skanowania odcisków palców, rozpoznawania twarzy lub tęczówki lub numeru PIN.<br>Użytkownicy logują się do konta służbowego lub osobistego z komputera lub telefonu komórkowego.|Zaloguj się przy użyciu urządzenia zabezpieczeń FIDO2 (biometrii, kod PIN i NFC)<br>Użytkownik może uzyskać dostęp do urządzenia w oparciu o kontrolki organizacji i uwierzytelniać się na podstawie kodu PIN, biometrii przy użyciu urządzeń, takich jak klucze zabezpieczeń USB i karty inteligentne obsługujące NFC, klucze lub noszenia.|

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e3b0f92770b48ef5163846e67940efe80fb669a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662505"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085352"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorowanie urządzeń Surface Hub przy użyciu Azure Monitor do śledzenia ich kondycji
 
@@ -60,7 +60,7 @@ Jeśli nie korzystasz z usługi Intune do zarządzania środowiskiem, możesz za
 3. Kliknij **to urządzenie**, a następnie w obszarze **monitorowanie**kliknij pozycję **Konfiguruj log Analytics ustawienia**.
 4. Wybierz pozycję **Włącz monitorowanie**.
 5. W oknie dialogowym Ustawienia Log Analytics wpisz Log Analytics **Identyfikator obszaru roboczego** i wpisz **klucz obszaru roboczego**.  
-   ![Ustawienia](./media/surface-hubs/settings.png)
+   ![Zrzut ekranu przedstawia ustawienia zestawu Microsoft Operations Manager z opcją Włącz monitorowanie i pola tekstowe dla identyfikatora obszaru roboczego i klucza obszaru roboczego.](./media/surface-hubs/settings.png)
 6. Kliknij przycisk **OK** , aby zakończyć konfigurację.
 
 Zostanie wyświetlone potwierdzenie, że konfiguracja została pomyślnie zastosowana na urządzeniu. Jeśli tak, zostanie wyświetlony komunikat z informacją, że Agent pomyślnie nawiązał połączenie z Azure Monitor. Następnie urządzenie rozpocznie wysyłanie danych do Azure Monitor, w którym można je wyświetlić i wykonać na nim działania.

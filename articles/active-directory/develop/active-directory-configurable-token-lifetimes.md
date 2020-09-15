@@ -13,12 +13,12 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: e50b4aa300c74ed5fff9a345f83d41fdda5a1054
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bbe4328d797f740e124d4944aee889d471393200
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115870"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085607"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
@@ -90,8 +90,8 @@ Zasada okresu istnienia tokenu jest typem obiektu zasad, który zawiera reguły 
 | Maksymalny czas nieaktywności tokenu odświeżania |MaxInactiveTime |Odśwież tokeny |90 dni |10 minut |90 dni |
 | Maksymalny wiek tokenu odświeżania pojedynczego czynnika |MaxAgeSingleFactor |Odśwież tokeny (dla wszystkich użytkowników) |Do odwołania |10 minut |Do odwołania<sup>1</sup> |
 | Maksymalny wiek tokenu wieloskładnikowego odświeżania |MaxAgeMultiFactor |Odśwież tokeny (dla wszystkich użytkowników) |Do odwołania |10 minut |Do odwołania<sup>1</sup> |
-| Maksymalny wiek tokenu sesji pojedynczego czynnika |MaxAgeSessionSingleFactor |Tokeny sesji (trwałe i nietrwałe) |Do odwołania |10 minut |Do odwołania<sup>1</sup> |
-| Maksymalny wiek tokenu sesji wieloskładnikowe |MaxAgeSessionMultiFactor |Tokeny sesji (trwałe i nietrwałe) |Do odwołania |10 minut |Do odwołania<sup>1</sup> |
+| Maksymalny wiek tokenu sesji pojedynczego czynnika |MaxAgeSessionSingleFactor |Tokeny sesji (trwałe i nietrwałe) |Do odwołania |10 minut |180 dni<sup>1</sup> |
+| Maksymalny wiek tokenu sesji wieloskładnikowe |MaxAgeSessionMultiFactor |Tokeny sesji (trwałe i nietrwałe) |Do odwołania |10 minut |180 dni<sup>1</sup> |
 
 * <sup>1</sup>365 dni to maksymalna jawna długość, którą można ustawić dla tych atrybutów.
 * <sup>2</sup> Aby zapewnić działanie klienta sieci Web Microsoft Teams, zaleca się pozostawienie AccessTokenLifetime do ponad 15 minut dla Microsoft Teams.
@@ -99,7 +99,7 @@ Zasada okresu istnienia tokenu jest typem obiektu zasad, który zawiera reguły 
 ### <a name="exceptions"></a>Wyjątki
 | Właściwość | Mową | Domyślny |
 | --- | --- | --- |
-| Maksymalny wiek tokenu odświeżania (wystawiony dla użytkowników federacyjnych, którzy mają niewystarczające informacje o odwołaniu<sup>1</sup>) |Odśwież tokeny (wystawione dla użytkowników federacyjnych, którzy mają niewystarczające informacje o odwołaniu<sup>1</sup>) |12 godz. |
+| Maksymalny wiek tokenu odświeżania (wystawiony dla użytkowników federacyjnych, którzy mają niewystarczające informacje o odwołaniu<sup>1</sup>) |Odśwież tokeny (wystawione dla użytkowników federacyjnych, którzy mają niewystarczające informacje o odwołaniu<sup>1</sup>) |12 godzin |
 | Maksymalny czas nieaktywności tokenu odświeżania (wystawiony dla klientów poufnych) |Odśwież tokeny (wystawione dla klientów poufnych) |90 dni |
 | Maksymalny wiek tokenu odświeżania (wystawiony dla klientów poufnych) |Odśwież tokeny (wystawione dla klientów poufnych) |Do odwołania |
 
@@ -400,7 +400,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |Ciąg nazwy zasad. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |W przypadku wartości true ustawia zasady jako domyślne zasady organizacji. W przypadku wartości false nic nie robi. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |Typ zasad. W przypadku okresów istnienia tokenu zawsze używaj "TokenLifetimePolicy". | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>Obowiązkowe |Ustawia identyfikator alternatywny dla zasad. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> Obowiązkowe |Ustawia identyfikator alternatywny dla zasad. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -413,7 +413,7 @@ Get-AzureADPolicy
 
 | Parametry | Opis | Przykład |
 | --- | --- | --- |
-| <code>&#8209;Id</code>Obowiązkowe |**Objectid (ID)** żądanych zasad. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> Obowiązkowe |**Objectid (ID)** żądanych zasad. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -441,10 +441,10 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**Objectid (ID)** żądanych zasad. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Ciąg nazwy zasad. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>Obowiązkowe |Tablica JSON skonwertowanej, która zawiera wszystkie reguły zasad. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>Obowiązkowe |W przypadku wartości true ustawia zasady jako domyślne zasady organizacji. W przypadku wartości false nic nie robi. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>Obowiązkowe |Typ zasad. W przypadku okresów istnienia tokenu zawsze używaj "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>Obowiązkowe |Ustawia identyfikator alternatywny dla zasad. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> Obowiązkowe |Tablica JSON skonwertowanej, która zawiera wszystkie reguły zasad. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> Obowiązkowe |W przypadku wartości true ustawia zasady jako domyślne zasady organizacji. W przypadku wartości false nic nie robi. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> Obowiązkowe |Typ zasad. W przypadku okresów istnienia tokenu zawsze używaj "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> Obowiązkowe |Ustawia identyfikator alternatywny dla zasad. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 

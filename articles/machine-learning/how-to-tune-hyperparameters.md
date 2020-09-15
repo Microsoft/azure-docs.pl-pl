@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 84262427c6d5183fb803f3fc16d2e7b8021e9d5e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 52e419e970173ddaf3d4d6176f2dd26a1e8194e2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651797"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084673"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Dostrajanie parametrów dla modelu za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -151,11 +151,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Próbkowanie bayesowskie nie obsługuje żadnych zasad wczesnego zakończenia (zobacz [Określanie zasad wczesnego zakończenia](#specify-early-termination-policy)). W przypadku korzystania z próbkowania parametru bayesowskie, ustawiania `early_termination_policy = None` lub pozostawiania `early_termination_policy` parametru.
+> Próbkowanie bayesowskie nie obsługuje żadnych zasad wczesnego zakończenia (zobacz [Określanie zasad wczesnego zakończenia](#early-termination)). W przypadku korzystania z próbkowania parametru bayesowskie, ustawiania `early_termination_policy = None` lub pozostawiania `early_termination_policy` parametru.
 
-<a name='specify-primary-metric-to-optimize'/>
-
-## <a name="specify-primary-metric"></a>Określ metrykę podstawową
+## <a name="specify-primary-metric"></a><a name="specify-primary-metric-to-optimize"></a> Określ metrykę podstawową
 
 Określ [metrykę podstawową](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py&preserve-view=true) , która ma zostać zoptymalizowana przez dostrajanie parametrów. Poszczególne przebiegi szkoleniowe są oceniane dla metryki podstawowej. Niewłaściwie wykonywane przebiegi (gdy Metryka podstawowa nie spełnia kryteriów ustawionych przez zasady wczesnego zakończenia) zostanie zakończona. Oprócz nazwy metryki głównej należy również określić cel optymalizacji — czy można zmaksymalizować lub zminimalizować podstawową metrykę.
 
@@ -169,9 +167,7 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Zoptymalizuj przebiegi w celu zmaksymalizowania "dokładności".  Upewnij się, że ta wartość jest zarejestrowana w skrypcie szkoleniowym.
 
-<a name='log-metrics-for-hyperparameter-tuning'/>
-
-### <a name="log-metrics-for-hyperparameter-tuning"></a>Metryki dzienników dla strojenia parametru
+### <a name="specify-primary-metric"></a><a name="log-metrics-for-hyperparameter-tuning"></a> Określ metrykę podstawową
 
 Skrypt szkoleniowy dla Twojego modelu musi rejestrować odpowiednie metryki podczas uczenia modelu. Podczas konfigurowania dostrajania parametru należy określić metrykę główną, która będzie używana do oceny wydajności uruchamiania. (Zobacz [Określ metrykę podstawową do optymalizacji](#specify-primary-metric-to-optimize)).  W skrypcie szkoleniowym należy zarejestrować tę metrykę, aby była dostępna dla procesu strojenia parametru.
 
@@ -184,8 +180,6 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 Skrypt szkoleniowy oblicza `val_accuracy` i rejestruje ją jako "dokładność", która jest używana jako Metryka podstawowa. Za każdym razem, gdy Metryka jest rejestrowana, jest odbierana przez usługę strojenia parametru. Aby określić częstotliwość raportowania tej metryki, należy do dewelopera modelu.
-
-<a name='specify-early-termination-policy'/>
 
 ## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> Określ zasady wczesnego zakończenia
 

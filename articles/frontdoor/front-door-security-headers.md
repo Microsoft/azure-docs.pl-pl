@@ -1,5 +1,5 @@
 ---
-title: Dodawanie nagłówków zabezpieczeń z aparatem reguł — drzwi platformy Azure
+title: 'Samouczek: Dodawanie nagłówków zabezpieczeń z aparatem reguł — drzwi platformy Azure'
 description: W tym artykule przedstawiono sposób konfigurowania nagłówka zabezpieczeń za pośrednictwem aparatu reguł na platformie Azure front-drzwi
 services: frontdoor
 documentationcenter: ''
@@ -7,47 +7,57 @@ author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 6/22/2020
+ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: ad1e8a8a2162ece69af9904d76a394d4bad5de23
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 204a7676fd03466929fc67a0879ff28e0318d21d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399144"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085244"
 ---
-# <a name="add-security-headers-with-rules-engine"></a>Dodawanie nagłówków zabezpieczeń za pomocą aparatu reguł
+# <a name="tutorial-add-security-headers-with-rules-engine"></a>Samouczek: Dodawanie nagłówków zabezpieczeń z aparatem reguł
 
-Zaimplementuj nagłówki zabezpieczeń, aby zapobiec występowaniu luk w zabezpieczeniach opartych na przeglądarce, takich jak HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy lub X-Frame-Options. Atrybuty oparte na zabezpieczeniach można także definiować za pomocą plików cookie.
+W tym samouczku pokazano, jak wdrożyć nagłówki zabezpieczeń, aby zapobiec występowaniu luk w zabezpieczeniach przeglądarki, takich jak HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy lub X-Frame-Options. Atrybuty oparte na zabezpieczeniach można także definiować za pomocą plików cookie.
 
 Poniższy przykład pokazuje, jak dodać nagłówek Content-Security-Policy do wszystkich żądań przychodzących, które pasują do ścieżki zdefiniowanej w marszrucie konfiguracji aparatu reguł. W tym miejscu zezwolimy tylko na skrypty z naszej zaufanej witryny **https://apiphany.portal.azure-api.net** do uruchamiania w naszej aplikacji.
 
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+> [!div class="checklist"]
+> - Skonfiguruj zasady Content-Security-Policy w aparacie reguł.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Przed wykonaniem kroków opisanych w tym samouczku należy utworzyć usługę Front Door. Aby uzyskać więcej informacji, zobacz temat [Quickstart: Create a Front Door for a highly available global web application](quickstart-create-front-door.md) (Szybki start: tworzenie usługi Front Door na potrzeby łatwo dostępnej globalnej aplikacji internetowej).
+* Jeśli korzystasz z funkcji aparat reguł, zobacz jak [skonfigurować aparat reguł](front-door-tutorial-rules-engine.md).
+
 ## <a name="add-a-content-security-policy-header-in-azure-portal"></a>Dodawanie nagłówka Content-Security-Policy w Azure Portal
 
-1. Przed utworzeniem tej konkretnej reguły zapoznaj się z tematem jak [utworzyć drzwi tylne](quickstart-create-front-door.md) lub jak [utworzyć aparat reguł](front-door-tutorial-rules-engine.md) , jeśli jest to pierwsze użycie AFD lub funkcji aparatu reguł.
+1. Kliknij pozycję **Dodaj**, aby dodać nową regułę. Podaj nazwę reguły, a następnie kliknij pozycję **Dodaj**  >  **Nagłówek odpowiedzi**akcji.
 
-2. Kliknij pozycję **Dodaj**, aby dodać nową regułę. Podaj nazwę reguły, a następnie kliknij pozycję **Dodaj**  >  **Nagłówek odpowiedzi**akcji.
+1. Ustaw operator do **dołączenia** , aby dodać ten nagłówek jako odpowiedź do wszystkich żądań przychodzących do tej trasy.
 
-3. Ustaw operator do **dołączenia** , aby dodać ten nagłówek jako odpowiedź do wszystkich żądań przychodzących do tej trasy.
+1. Dodaj nazwę nagłówka: **Content-Security-Policy** i Zdefiniuj wartości, które ten nagłówek powinien zaakceptować. W tym scenariuszu wybieramy *"sam" skrypt-src " https://apiphany.portal.azure-api.net .*
 
-4. Dodaj nazwę nagłówka: **Content-Security-Policy** i Zdefiniuj wartości, które ten nagłówek powinien zaakceptować. W tym scenariuszu wybieramy *"sam" skrypt-src " https://apiphany.portal.azure-api.net .*
-
-5. Po dodaniu wszystkich reguł, które chcesz skonfigurować, nie zapomnij przejść do preferowanej trasy i skojarz konfigurację aparatu reguł z regułą trasy. Ten krok jest wymagany, aby umożliwić działanie reguły. 
+1. Po dodaniu wszystkich reguł, które chcesz skonfigurować, nie zapomnij przejść do preferowanej trasy i skojarz konfigurację aparatu reguł z regułą trasy. Ten krok jest wymagany, aby umożliwić działanie reguły. 
 
 ![przykład portalu](./media/front-door-rules-engine/rules-engine-security-header-example.png)
 
 > [!NOTE]
-> W tym scenariuszu nie dodano [warunków dopasowania](front-door-rules-engine-match-conditions.md) do reguły. Ta reguła będzie miała zastosowanie wszystkie żądania przychodzące zgodne ze ścieżką zdefiniowaną w regule trasy. Jeśli chcesz, aby dotyczyły tylko podzbioru tych żądań, pamiętaj, aby dodać do tej reguły określone warunki dopasowania.
+> W tym scenariuszu nie dodano [warunków dopasowania](front-door-rules-engine-match-conditions.md) do reguły. Ta reguła będzie miała zastosowanie wszystkie żądania przychodzące zgodne ze ścieżką zdefiniowaną w regule trasy. Jeśli chcesz, aby dotyczyły tylko podzbioru tych żądań, pamiętaj, aby dodać do tej reguły określone **warunki dopasowania** .
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+W poprzednich krokach zostały skonfigurowane nagłówki zabezpieczeń z aparatem reguł. Jeśli chcesz, aby reguła nie była już potrzebna, możesz ją usunąć, klikając pozycję Usuń regułę.
+
+:::image type="content" source="./media/front-door-rules-engine/rules-engine-delete-rule.png" alt-text="Usuwanie reguły":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [aparacie reguł AFD](front-door-rules-engine.md). 
-- Dowiedz się, jak [utworzyć usługę Front Door](quickstart-create-front-door.md).
-- Dowiedz się, [jak działa usługa Front Door](front-door-routing-architecture.md).
-- Dowiedz się więcej na temat [warunków dopasowania](front-door-rules-engine-match-conditions.md) aparatu
-- Więcej informacji znajduje się w [dokumentacji interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest)aparatu AFD. 
-- Zapoznaj się z informacjami w temacie AFD Rules Engine [PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.8.0). 
+Aby dowiedzieć się, jak skonfigurować zaporę aplikacji sieci Web dla drzwi z przodu, przejdź do następnego samouczka.
+
+> [!div class="nextstepaction"]
+> [Zapora aplikacji internetowej i usługa Front Door](front-door-waf.md)

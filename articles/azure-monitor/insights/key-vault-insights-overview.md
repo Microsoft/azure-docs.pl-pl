@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531263"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069802"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorowanie usługi magazynu kluczy za pomocą Azure Monitor dla Key Vault (wersja zapoznawcza)
 Azure Monitor dla Key Vault (wersja zapoznawcza) zapewnia kompleksowe monitorowanie magazynów kluczy, udostępniając ujednolicony widok żądań Key Vault, wydajności, błędów i opóźnień.
@@ -76,16 +76,6 @@ Istnieje warunkowe kodowanie kolorami lub map cieplnych dla kolumn w skoroszycie
 W tym skoroszycie są wyświetlane sukcesy (kody stanu 2xx), błędy uwierzytelniania (kody stanu 401/403), ograniczanie (kody stanu 429) i inne błędy (kody stanu 4xx).
 
 Aby lepiej zrozumieć, co reprezentuje każdy kod stanu, zalecamy zapoznanie się z dokumentacją dotyczącą [Azure Key Vault stanu i kodów odpowiedzi](../../key-vault/general/authentication-requests-and-responses.md).
-
-## <a name="operations--latency-workbook"></a>Skoroszyt opóźnienia & operacji
-
-Wybierz pozycję **operacje & opóźnienie** w górnej części strony, a następnie zostanie otwarta karta **czas oczekiwania & operacji** . Na tej karcie można dołączyć magazyny kluczy do monitorowania. Aby uzyskać bardziej szczegółowe instrukcje, zobacz sekcję [Konfigurowanie magazynów kluczy do monitorowania](#configuring-your-key-vaults-for-monitoring) .
-
-Możesz zobaczyć, ile magazynów kluczy jest włączonych do rejestrowania. Jeśli co najmniej jeden magazyn został skonfigurowany prawidłowo, zobaczysz tabele, w których są wyświetlane kody operacji i stanu dla każdego z Twoich magazynów kluczy. Aby uzyskać dodatkowe informacje na temat poszczególnych operacji, można kliknąć sekcję Szczegóły dla wiersza.
-
-![Zrzut ekranu przedstawiający operacje i wykresy opóźnień](./media/key-vaults-insights-overview/logs.png)
-
-Jeśli nie widzisz żadnych danych dla tej sekcji, zapoznaj się z górną sekcją dotyczącą włączania dzienników dla Azure Key Vault lub Sprawdź poniższą sekcję rozwiązywania problemów.
 
 ## <a name="view-from-a-key-vault-resource"></a>Wyświetl z zasobu Key Vault
 
@@ -191,16 +181,6 @@ Wykorzystujemy ziarno czasu "Auto", dlatego zależy od tego, jaki zakres czasu j
 ### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Jaki jest zakres czasu, gdy dowolna część skoroszytu jest przypięta
 
 Zakres czasu zależy od ustawień pulpitu nawigacyjnego.
-
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Dlaczego nie widzę żadnych danych dla Key Vault w sekcji opóźnienia & operacji
-
-Aby wyświetlić dane oparte na dziennikach, należy włączyć dzienniki dla każdego z magazynów kluczy, które mają być monitorowane. Można to zrobić w ustawieniach diagnostycznych dla każdego magazynu kluczy. Konieczne będzie wysłanie danych do określonego obszaru roboczego Log Analytics.
-
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Mam już włączone dzienniki dla mojego Key Vault, dlaczego nadal nie mogę zobaczyć moich danych w obszarze opóźnienia & operacji
-
-Obecnie dzienniki diagnostyczne nie działają z mocą wsteczną, więc dane zostaną uruchomione dopiero po wykonaniu akcji związanych z magazynami kluczy. W związku z tym może upłynąć trochę czasu od godzin do dnia, w zależności od aktywnego magazynu kluczy.
-
-Ponadto jeśli masz wybraną dużą liczbę magazynów kluczy i subskrypcji, możesz nie być w stanie wyświetlać danych z powodu ograniczeń zapytania. Aby można było wyświetlić dane, może być konieczne zmniejszenie liczby wybranych subskrypcji lub magazynów kluczy. 
 
 ### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>Co zrobić, jeśli chcę zobaczyć inne dane lub utworzyć własne wizualizacje? Jak mogę wprowadzić zmiany w usłudze Key Vault Insights
 

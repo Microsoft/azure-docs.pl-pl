@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 704cb43a31ff1dfcaf287f9af467f7d6e7d6c50d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e79135ccf672fa057d9e88fc91fa72b7826ba71e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282810"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085199"
 ---
 # <a name="add-a-simple-data-layer"></a>Dodawanie prostej warstwy danych
 
@@ -57,7 +57,7 @@ Poniższy kod renderuje funkcję powyższych punktów przy użyciu prostej warst
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Korzystanie z prostej warstwy danych" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true"> Zobacz, jak <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>korzystać z prostej warstwy danych</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Korzystanie z prostej warstwy danych" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Zobacz, jak <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>korzystać z prostej warstwy danych</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Rzeczywista moc prostej warstwy danych to:
@@ -70,7 +70,7 @@ Na przykład podczas analizowania strumieniowych źródeł danych XML nie można
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Proste Opcje warstwy danych" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>opcjami proste warstwy danych</a> piórem Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height="700" style="width: 100%;" scrolling="no" title="Proste Opcje warstwy danych" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> Zapoznaj się z <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>opcjami proste warstwy danych</a> piórem Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -102,7 +102,7 @@ Jeśli funkcja jest lub a `Point` `MultiPoint` , a funkcja nie ma `image` właś
 | `radius` | `size`<sup>1</sup>, `marker-size` <sup>2</sup>, `scale` <sup>1</sup> | `8` |
 | `strokeColor` | `strokeColor`, `stroke` | `'#FFFFFF'` |
 
-\[1 \] `size` wartości i `scale` są uznawane za wartości skalarne i zostaną pomnożone przez`8`
+\[1 \] `size` wartości i `scale` są uznawane za wartości skalarne i zostaną pomnożone przez `8`
 
 \[2 \] Jeśli opcja GitHub `marker-size` jest określona, dla usługi RADIUS będą używane następujące wartości.
 
@@ -114,11 +114,11 @@ Jeśli funkcja jest lub a `Point` `MultiPoint` , a funkcja nie ma `image` właś
 
 Klastry są również renderowane przy użyciu warstwy bąbelki. Domyślnie promień klastra jest ustawiony na `16` . Kolor klastra różni się w zależności od liczby punktów w klastrze, zgodnie z definicją poniżej:
 
-| Liczba punktów | Kolor    |
+| Liczba punktów | Color (Kolor)    |
 |-------------|----------|
 | &gt;= 100   | `red`    |
 | &gt;= 10    | `yellow` |
-| &lt;dziesięć     | `green`  |
+| &lt; dziesięć     | `green`  |
 
 ### <a name="symbol-style-properties"></a>Właściwości stylu symbolu
 

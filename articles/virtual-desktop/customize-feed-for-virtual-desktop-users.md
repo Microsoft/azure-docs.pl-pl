@@ -3,15 +3,15 @@ title: Dostosowywanie kanału informacyjnego dla użytkowników pulpitu wirtualn
 description: Jak dostosować źródło danych dla użytkowników pulpitu wirtualnego systemu Windows za pomocą poleceń cmdlet programu PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 09/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1f1779ac27c7e46aa3e608b33e3c006902df8c27
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e47486f29537cb948aaae7cf17e97bae14b60700
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009124"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084298"
 ---
 # <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Dostosowywanie kanału informacyjnego dla użytkowników pulpitu wirtualnego systemu Windows
 
@@ -107,7 +107,7 @@ Można zmienić nazwę wyświetlaną opublikowanego pulpitu zdalnego, ustawiają
 
 3. W obszarze usługi wybierz pozycję **pulpit wirtualny systemu Windows**.
 
-4. Na stronie pulpit wirtualny systemu Windows wybierz pozycję **grupy aplikacji** po lewej stronie ekranu, a następnie wybierz nazwę grupy aplikacji, którą chcesz edytować.
+4. Na stronie pulpit wirtualny systemu Windows wybierz pozycję **grupy aplikacji** po lewej stronie ekranu, a następnie wybierz nazwę grupy aplikacji, którą chcesz edytować. (Na przykład jeśli chcesz edytować nazwę wyświetlaną grupy aplikacji klasycznych, wybierz grupę aplikacji o nazwie **Desktop**).
 
 5. Wybierz pozycję **aplikacje** w menu po lewej stronie ekranu.
 

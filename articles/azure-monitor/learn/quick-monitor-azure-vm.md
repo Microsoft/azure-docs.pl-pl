@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 40c7b9e5a8b7c38c9468d54e69ca7a73c5f2d46b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 11475de159cf3d59923d6f2129aa46ddf0ef8f2c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516400"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084434"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Szybki Start: monitorowanie maszyny wirtualnej platformy Azure za pomocą Azure Monitor
 [Azure monitor](../overview.md) uruchamia zbieranie danych z maszyn wirtualnych platformy Azure w momencie ich tworzenia. W tym przewodniku szybki start zawarto krótkie wskazówki dotyczące danych, które są automatycznie zbierane dla maszyny wirtualnej platformy Azure oraz jak wyświetlać ją w Azure Portal. Następnie włączysz [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) dla maszyny wirtualnej, która umożliwi agentom na maszynie wirtualnej zbieranie i analizowanie danych z systemu operacyjnego gościa, w tym procesów i ich zależności.
@@ -85,15 +85,15 @@ Podczas tworzenia nowego obszaru roboczego Log Analytics należy go skonfigurowa
 
 7. Kliknij maszynę wirtualną, a następnie wybierz kartę **wydajność** , która znajduje się na kafelku **monitorowanie** **szczegółowe** dane. Spowoduje to wyświetlenie grupy liczników wydajności zebranych z systemu operacyjnego gościa maszyny wirtualnej. Przewiń w dół, aby wyświetlić więcej liczników, i przesuń wskaźnik myszy na wykres, aby wyświetlić średnią i percentyly w różnych godzinach.
 
-    ![Wydajność](media/quick-monitor-azure-vm/performance.png)
+    ![Zrzut ekranu przedstawia okienko wydajności.](media/quick-monitor-azure-vm/performance.png)
 
 9. Wybierz pozycję **Mapuj** , aby otworzyć funkcję Maps, która pokazuje procesy działające na maszynie wirtualnej i ich zależności. Wybierz pozycję **Właściwości** , aby otworzyć okienko właściwości, jeśli nie jest jeszcze otwarte.
 
-    ![Mapa](media/quick-monitor-azure-vm/map.png)
+    ![Zrzut ekranu przedstawia okienko mapa.](media/quick-monitor-azure-vm/map.png)
 
 11. Rozwiń procesy dla maszyny wirtualnej. Wybierz jeden z procesów, aby wyświetlić jego szczegóły i wyróżnić jego zależności.
 
-    ![Procesy](media/quick-monitor-azure-vm/processes.png)
+    ![Zrzut ekranu przedstawia okienko mapa z rozwiniętymi procesami dla maszyny wirtualnej.](media/quick-monitor-azure-vm/processes.png)
 
 12. Ponownie wybierz maszynę wirtualną, a następnie wybierz pozycję **zdarzenia dziennika**. 
 

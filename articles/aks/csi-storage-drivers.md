@@ -1,29 +1,29 @@
 ---
 title: Włączanie sterowników interfejsu magazynu kontenerów (CSI) w usłudze Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak włączyć sterowniki interfejsu magazynu kontenerów (CSI) dla dysku platformy Azure i Azure Files w klastrze usługi Azure Kubernetes Service (AKS).
+description: Dowiedz się, jak włączyć sterowniki interfejsu magazynu kontenerów (CSI) dla dysków platformy Azure i Azure Files w klastrze usługi Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: bd5706d20496e1ff00843f761443d183cf7fcae3
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 54764b16ba63d5656f61152cfe40ef50475192a5
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89422072"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085670"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks-preview"></a>Włącz sterowniki interfejsu magazynu kontenerów (CSI) dla dysków platformy Azure i Azure Files w usłudze Azure Kubernetes Service (wersja zapoznawcza)
 
-Interfejs magazynu kontenerów (CSI) jest standardem do udostępniania dowolnych systemów blokowych i magazynów plików do obciążeń zwirtualizowanych w systemie Kubernetes. Przyjmując i korzystając z CSI, usługa Azure Kubernetes Service (AKS) może zapisywać, wdrażać i iterować wtyczki uwidaczniające nowe lub ulepszające istniejące systemy magazynowania w Kubernetes bez konieczności dotykania podstawowego kodu Kubernetes i oczekiwania na jego cykle wydania.
+Interfejs magazynu kontenerów (CSI) jest standardem do udostępniania dowolnych systemów blokowych i magazynów plików do obciążeń zwirtualizowanych w systemie Kubernetes. Przyjmując i korzystając z CSI, usługa Azure Kubernetes Service (AKS) może pisać, wdrażać i iterować wtyczki, aby ujawniać nowe lub ulepszać istniejące systemy magazynowania w Kubernetes bez konieczności dotykania podstawowego kodu Kubernetes i oczekiwania na jego cykle wydania.
 
-Obsługa sterowników magazynu CSI w systemie AKS umożliwia natywne wykorzystanie:
-- [*Azure disks*](azure-disk-csi.md) — można użyć do utworzenia zasobu Kubernetes *Datadisk* . Dyski mogą korzystać z usługi Azure Premium Storage, obsługiwanej przez dysków SSD o wysokiej wydajności lub na platformie Azure w warstwie Standardowa, za pomocą zwykłego HDD lub standardowej dysków SSD. W przypadku większości obciążeń produkcyjnych i programistycznych należy użyć usługi Premium Storage. Dyski platformy Azure są instalowane jako *ReadWriteOnce*, więc są dostępne tylko dla jednego pod. W przypadku woluminów magazynu, do których można uzyskać dostęp jednocześnie przez wiele zasobników, użyj Azure Files.
-- [*Azure Files*](azure-files-csi.md) można użyć do zainstalowania udziału SMB 3,0 obsługiwanego przez konto usługi Azure Storage w ramach platformy. Pliki umożliwiają udostępnianie danych między wieloma węzłami i zasobnikami. Pliki mogą korzystać z usługi Azure Storage w warstwie Standardowa w ramach regularnego HDD lub Azure Premium Storage, które są obsługiwane przez dysków SSD o wysokiej wydajności.
+Obsługa sterowników magazynu CSI w systemie AKS umożliwia natywne używanie:
+- [*Dyski platformy Azure*](azure-disk-csi.md), których można użyć do utworzenia zasobu Kubernetes *Datadisk* . Dyski mogą korzystać z usługi Azure Premium Storage, obsługiwanej przez dysków SSD o wysokiej wydajności lub na platformie Azure w warstwie Standardowa, za pomocą regularnego HDD lub standardowego dysków SSD. W przypadku większości obciążeń produkcyjnych i programistycznych należy użyć Premium Storage. Dyski platformy Azure są instalowane jako *ReadWriteOnce*, więc są dostępne tylko dla jednego pod. W przypadku woluminów magazynu, do których można uzyskać dostęp jednocześnie przez wiele zasobników, użyj Azure Files.
+- [*Azure Files*](azure-files-csi.md), którego można użyć do zainstalowania udziału SMB 3,0 obsługiwanego przez konto usługi Azure Storage w ramach platformy. Za pomocą Azure Files można udostępniać dane między wieloma węzłami i zasobnikami. Azure Files mogą korzystać z usługi Azure Standard Storage, która jest obsługiwana przez zwykłe HDD lub Premium Storage platformy Azure za pomocą dysków SSD o wysokiej wydajności.
 
 > [!IMPORTANT]
-> Począwszy od Kubernetes w wersji 1,21, Kubernetes będzie używać tylko sterowników CSI i domyślnie. Jest to przyszłość obsługi magazynu w programie Kubernetes.
+> Począwszy od Kubernetes w wersji 1,21, Kubernetes będzie używać tylko sterowników CSI i domyślnie. Te sterowniki to przyszłość obsługi magazynu w programie Kubernetes.
 >
-> *"Sterowniki w drzewie"* oznaczają bieżące sterowniki magazynu, które są częścią podstawowego kodu Kubernetes a nowe sterowniki CSI, które są wtyczkami.
+> *Sterowniki w drzewie* odnoszą się do bieżących sterowników magazynu, które są częścią podstawowego kodu Kubernetes, a nowe sterowniki CSI, które są wtyczkami.
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -36,7 +36,7 @@ Obsługa sterowników magazynu CSI w systemie AKS umożliwia natywne wykorzystan
 
 ### <a name="register-the-enableazurediskfilecsidriver-preview-feature"></a>Rejestrowanie `EnableAzureDiskFileCSIDriver` funkcji w wersji zapoznawczej
 
-Aby utworzyć klaster AKS, który może korzystać ze sterowników CSI dla dysków platformy Azure i Azure Files, musisz włączyć `EnableAzureDiskFileCSIDriver` flagę funkcji w ramach subskrypcji.
+Aby utworzyć klaster AKS, który może używać sterowników CSI dla dysków platformy Azure i Azure Files, należy włączyć `EnableAzureDiskFileCSIDriver` flagę funkcji w ramach subskrypcji.
 
 Zarejestruj `EnableAzureDiskFileCSIDriver` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
 
@@ -60,7 +60,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia aks-preview
 
-Aby utworzyć klaster AKS lub pulę węzłów, która może korzystać ze sterowników magazynu CSI, potrzebne jest najnowsze rozszerzenie interfejsu wiersza polecenia *AKS-Preview* . Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej* przy użyciu poleceń [AZ Extension Add][az-extension-add] lub zainstaluj wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] .
+Aby utworzyć klaster AKS lub pulę węzłów, która może korzystać ze sterowników magazynu CSI, potrzebne jest najnowsze rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej AKS* . Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej AKS* , używając polecenie [AZ Extension Add][az-extension-add] . Lub zainstalować wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] .
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -73,7 +73,7 @@ az extension update --name aks-preview
 
 ## <a name="create-a-new-cluster-that-can-use-csi-storage-drivers"></a>Utwórz nowy klaster, który może korzystać ze sterowników magazynu CSI
 
-Utwórz nowy klaster, który może korzystać ze sterowników magazynu CSI dla dysków platformy Azure i Azure Files przy użyciu następujących poleceń interfejsu wiersza polecenia. Użyj `--aks-custom-headers` flagi, aby ustawić `EnableAzureDiskFileCSIDriver` funkcję.
+Utwórz nowy klaster, który może używać sterowników magazynu CSI dla dysków platformy Azure i Azure Files przy użyciu następujących poleceń interfejsu wiersza polecenia. Użyj `--aks-custom-headers` flagi, aby ustawić `EnableAzureDiskFileCSIDriver` funkcję.
 
 Utwórz grupę zasobów platformy Azure:
 
@@ -82,14 +82,14 @@ Utwórz grupę zasobów platformy Azure:
 az group create --name myResourceGroup --location canadacentral
 ```
 
-Utwórz klaster AKS z obsługą sterowników magazynu CSI.
+Utwórz klaster AKS z obsługą sterowników magazynu CSI:
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
 az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure -k 1.17.9 --aks-custom-headers EnableAzureDiskFileCSIDriver=true
 ```
 
-Jeśli chcesz utworzyć klastry magazynu w drzewie zamiast sterowników magazynu CSI, możesz to zrobić, pomijając `--aks-custom-headers` parametr niestandardowy.
+Jeśli chcesz utworzyć klastry w ramach sterowników magazynu drzewa zamiast sterowników magazynu CSI, możesz to zrobić, pomijając `--aks-custom-headers` parametr niestandardowy.
 
 
 Sprawdź, ile woluminów opartych na dyskach Azure można dołączyć do tego węzła, uruchamiając:
@@ -106,9 +106,9 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Użyj dysku CSI dla dysków platformy Azure, zobacz [Korzystanie z dysku platformy Azure z sterownikami CSI](azure-disk-csi.md).
-- Użyj dysku CSI dla usługi Azure Files, zobacz [Korzystanie z usługi Azure Files z sterownikami CSI](azure-files-csi.md).
-- Aby uzyskać więcej informacji o najlepszych rozwiązaniach dotyczących magazynu, zobacz [najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w usłudze Azure Kubernetes Service (AKS).][operator-best-practices-storage]
+- Aby korzystać z dysku CSI dla dysków platformy Azure, zobacz [Korzystanie z dysków platformy Azure z sterownikami CSI](azure-disk-csi.md).
+- Aby użyć dysku CSI dla Azure Files, zobacz [używanie Azure Files z sterownikami CSI](azure-files-csi.md).
+- Aby uzyskać więcej informacji o najlepszych rozwiązaniach dotyczących magazynu, zobacz [najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w usłudze Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
@@ -132,8 +132,8 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true

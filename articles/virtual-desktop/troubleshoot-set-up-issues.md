@@ -3,15 +3,15 @@ title: Tworzenie puli hostów środowiska pulpitu wirtualnego systemu Windows �
 description: Rozwiązywanie problemów i rozwiązywanie problemów z pulą dzierżaw i hostów podczas instalacji środowiska pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121378"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084417"
 ---
 # <a name="host-pool-creation"></a>Tworzenie puli hostów
 
@@ -46,6 +46,12 @@ Jeśli operacja przekracza limit przydziału, można wykonać jedną z następuj
 - Utwórz nową pulę hostów z takimi samymi parametrami, ale mniejszą liczbę rdzeni maszyn wirtualnych i maszyn wirtualnych.
 
 - Otwórz link widoczny w polu statusMessage w przeglądarce, aby przesłać żądanie zwiększenia przydziału subskrypcji platformy Azure dla określonej jednostki SKU maszyny wirtualnej.
+
+### <a name="error-cant-see-user-assignments-in-app-groups"></a>Błąd: nie można wyświetlić przypisań użytkowników w grupach aplikacji.
+
+Przyczyna: ten błąd występuje zwykle po przeniesieniu subskrypcji z 1 Azure Active Directory (AD) dzierżawy do innej. Jeśli stare przypisania są nadal powiązane ze starą dzierżawą usługi Azure AD, Azure Portal utraci ich śledzenie.
+
+Poprawka: należy ponownie przypisać użytkowników do grup aplikacji.
 
 ## <a name="azure-resource-manager-template-errors"></a>Błędy szablonu Azure Resource Manager
 
@@ -88,7 +94,7 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 3. Menu serwery DNS powinno pojawić się po prawej stronie ekranu. W tym menu wybierz pozycję **niestandardowy**.
 4. Upewnij się, że serwery DNS wymienione w obszarze niestandardowe są zgodne z kontrolerem domeny lub Active Directory domeny. Jeśli nie widzisz serwera DNS, możesz go dodać, wprowadzając jego wartość w polu **Dodaj serwer DNS** .
 
-### <a name="error-your-deployment-failedunauthorized"></a>Błąd: wdrożenie nie powiodło się. ..\Unauthorized
+### <a name="error-your-deployment-failedunauthorized"></a>Błąd: Wdrożenie nie powiodło się...\Unauthorized
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
@@ -109,7 +115,7 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 
 **Poprawka:** Potwierdź, że środowisko pulpitu wirtualnego systemu Windows jest w dobrej kondycji, logując się przy użyciu programu PowerShell. Ręcznie Zakończ rejestrację maszyny wirtualnej w obszarze [Tworzenie puli hostów przy użyciu programu PowerShell](create-host-pools-powershell.md).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Błąd: określona nazwa użytkownika administratora jest niedozwolona
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Błąd: Określona nazwa użytkownika administratora jest niedozwolona
 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu wdrożenia nie powiódł się, gdy określony administrator nie jest dozwolony.](media/failure-username.png)
@@ -127,7 +133,7 @@ Przykład nieprzetworzonego błędu:
 
 **Poprawka:** Zaktualizuj nazwę użytkownika lub Użyj różnych użytkowników.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Błąd: maszyna wirtualna zgłosiła błąd podczas przetwarzania rozszerzenia
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Błąd: Maszyna wirtualna zgłosiła błąd podczas przetwarzania rozszerzenia
 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający operację zasobu zakończony ze stanem inicjowania obsługi terminalu we wdrożeniu nie powiódł się.](media/failure-processing.png)

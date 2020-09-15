@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c539fd37116f8c55f336aecf1e8979355a40d61c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662550"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084842"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronizacja programu Azure AD Connect: konfigurowanie filtrowania
 Korzystając z funkcji filtrowania, można kontrolować, które obiekty są wyświetlane w Azure Active Directory (Azure AD) z katalogu lokalnego. Konfiguracja domyślna pobiera wszystkie obiekty we wszystkich domenach w skonfigurowanych lasach. Ogólnie rzecz biorąc jest to zalecana konfiguracja. Użytkownicy korzystający z obciążeń Microsoft 365, takich jak Exchange Online i Skype dla firm, korzystają z kompletnej globalnej listy adresów, aby mogli wysyłać wiadomości e-mail i wywoływać wszystkich użytkowników. W przypadku konfiguracji domyślnej mogą one korzystać z tego samego środowiska z lokalną implementacją programu Exchange lub Lync.
@@ -217,7 +217,7 @@ Filtrowanie przychodzące używa konfiguracji domyślnej, w której obiekty prze
 W przypadku filtrowania przychodzącego można użyć możliwości **zakresu** , aby określić, które obiekty mają być synchronizowane lub niezsynchronizowane. Jest to miejsce, w którym wprowadzane są zmiany spełniające wymagania organizacji. Moduł zakresu ma **grupę** i **klauzulę** , aby określić, kiedy reguła synchronizacji znajduje się w zakresie. Grupa zawiera jedną lub wiele klauzul. Istnieje koniunkcja logiczna "i" między wieloma klauzulami, a logiczna "OR" między wieloma grupami.
 
 Poczekaj na przykład:  
-![Zrzut ekranu przedstawiający przykład dodawania filtrów określania zakresu](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![Zrzut ekranu przedstawiający przykład dodawania filtrów zakresu.](./media/how-to-connect-sync-configure-filtering/scope.png)  
 Powinno to być odczytane jako **(dział = IT) lub (Department = Sales i c = US)**.
 
 W poniższych przykładach i krokach użyto obiektu użytkownika, ale można go użyć dla wszystkich typów obiektów.
@@ -275,7 +275,7 @@ W tym przykładzie zmienisz filtrowanie tak, aby były synchronizowane tylko uż
 1. Zaloguj się na serwerze z uruchomioną Azure AD Connect synchronizacji przy użyciu konta, które jest członkiem grupy zabezpieczeń **ADSyncAdmins** .
 2. Uruchom **Edytor reguł synchronizacji** z menu **Start** .
 3. W obszarze **Typ zasad**kliknij pozycję **wychodzące**.
-4. W zależności od używanej wersji programu Connect można znaleźć regułę o nazwie do usługi **AAD — przyłączanie użytkownika** lub **do zewnątrz do usługi AAD-User Join SOAInAD**, a następnie kliknąć pozycję **Edytuj**.
+4. W zależności od używanej wersji programu Connect można znaleźć regułę o nazwie do usługi **Azure AD — przyłączanie do użytkownika** lub **do zewnątrz do usługi Azure AD — dołączanie użytkownika do SOAInAD**, a następnie kliknij przycisk **Edytuj**.
 5. W oknie podręcznym odpowiedź **tak** , aby utworzyć kopię reguły.
 6. Na stronie **Opis** Zmień **pierwszeństwo** na nieużywaną wartość, na przykład 50.
 7. Kliknij pozycję **Filtr zakresu** w obszarze nawigacji po lewej stronie, a następnie kliknij pozycję **Dodaj klauzulę**. W polu **atrybut**wybierz opcję **poczta**. W **operatorze**wybierz pozycję **ENDSWITH**. W **wartość**, wpisz ** \@ contoso.com**, a następnie kliknij przycisk **Dodaj klauzulę**. W polu **atrybut**wybierz element **userPrincipalName**. W **operatorze**wybierz pozycję **ENDSWITH**. W polu **wartość**wpisz ** \@ contoso.com**.
@@ -300,7 +300,7 @@ Po synchronizacji wszystkie zmiany zostaną przygotowane do wyeksportowania. Prz
 
 1. Uruchom wiersz polecenia i przejdź do `%ProgramFiles%\Microsoft Azure AD Sync\bin` .
 2. Uruchom polecenie `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   Nazwa łącznika znajduje się w usłudze synchronizacji. Ma nazwę podobną do "contoso.com — AAD" dla usługi Azure AD.
+   Nazwa łącznika znajduje się w usłudze synchronizacji. Ma nazwę podobną do "contoso.com – Azure AD" dla usługi Azure AD.
 3. Uruchom polecenie `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. Masz teraz plik w katalogu% Temp% o nazwie export.csv, który można sprawdzić w programie Microsoft Excel. Ten plik zawiera wszystkie zmiany, które mają zostać wyeksportowane.
 5. Wprowadź niezbędne zmiany w danych lub konfiguracji, a następnie ponownie wykonaj te kroki (zaimportuj, zsynchronizuj i sprawdź), aż zmiany, które mają zostać wyeksportowane, są oczekiwane.

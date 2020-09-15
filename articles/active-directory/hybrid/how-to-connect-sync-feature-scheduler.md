@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ad7b0039602add7f4cd3cdd300bd829c4f148a79
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053052"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084740"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronizacja programu Azure AD Connect: Harmonogram
 W tym temacie opisano wbudowany harmonogram w programie Azure AD Connect Sync (aparat synchronizacji).
@@ -79,7 +79,7 @@ We wcześniejszych kompilacjach Azure AD Connect **isStagingModeEnabled** zosta�
 Konfiguracja harmonogramu jest przechowywana w usłudze Azure AD. W przypadku serwera przejściowego jakakolwiek zmiana na serwerze podstawowym ma wpływ na serwer przejściowy (z wyjątkiem IsStagingModeEnabled).
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
-Obowiązuje`Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
+Obowiązuje `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d-dni, GG godziny, mm-min, SS-s
 
 Przykład: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
@@ -160,12 +160,15 @@ Przykład: w przypadku wprowadzenia zmian w regułach synchronizacji łącznika 
 ## <a name="stop-the-scheduler"></a>Zatrzymaj harmonogram
 Jeśli harmonogram jest aktualnie uruchomiony w cyklu synchronizacji, może być konieczne jego zatrzymanie. Na przykład jeśli uruchomisz kreatora instalacji i wystąpi ten błąd:
 
-![SyncCycleRunningError](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
+![Zrzut ekranu pokazujący nie można zmienić komunikatu o błędzie konfiguracji.](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
 
 Gdy cykl synchronizacji jest uruchomiony, nie można wprowadzać zmian w konfiguracji. Możesz poczekać, aż harmonogram zakończy proces, ale możesz również zatrzymać go, aby można było natychmiast wprowadzić zmiany. Zatrzymywanie bieżącego cyklu nie jest szkodliwe i oczekujące zmiany są przetwarzane z następnym uruchomieniem.
 
 1. Zacznij od poinformowania harmonogramu, aby zatrzymał bieżący cykl przy użyciu polecenia cmdlet programu PowerShell `Stop-ADSyncSyncCycle` .
-2. Jeśli używasz kompilacji przed 1.1.281, zatrzymanie harmonogramu nie zatrzyma bieżącego łącznika z jego bieżącego zadania. Aby wymusić zatrzymanie łącznika, wykonaj następujące czynności: ![ StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Jeśli używasz kompilacji przed 1.1.281, zatrzymanie harmonogramu nie zatrzyma bieżącego łącznika z jego bieżącego zadania. Aby wymusić zatrzymanie łącznika, wykonaj następujące czynności:
+
+   ![Zrzut ekranu pokazuje Synchronization Service Manager z wybranymi łącznikami i uruchomionym łącznikiem z wybraną akcją Zatrzymaj.](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+
    * Uruchom **usługę synchronizacji** z menu Start. Przejdź do **łączników**, podświetl łącznik z **uruchomionym**stanem i wybierz pozycję **Zatrzymaj** w akcjach.
 
 Harmonogram jest nadal aktywny i zostanie uruchomiony ponownie przy następnej okazji.

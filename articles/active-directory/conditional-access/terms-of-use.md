@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 09/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948930"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085913"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
 
@@ -129,7 +129,7 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
     Niestandardowe zasady dostępu warunkowego umożliwiają szczegółowe warunki użytkowania, w dół do określonej aplikacji w chmurze lub grupy użytkowników. Aby uzyskać więcej informacji, zobacz [Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze](require-tou.md).
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
    W przypadku wybrania niestandardowego szablonu dostępu warunkowego zostanie wyświetlony nowy ekran, który umożliwia utworzenie niestandardowych zasad dostępu warunkowego.
 
@@ -255,16 +255,16 @@ Poniżej znajduje się lista obsługiwanych platform i oprogramowania.
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | Inne |
 > | --- | --- | --- | --- | --- |
-> | **Aplikacja natywna** | Tak | Tak | Tak |  |
-> | **Microsoft Edge** | Tak | Tak | Tak |  |
-> | **Internet Explorer** | Tak | Tak | Tak |  |
-> | **Chrome (z rozszerzeniem)** | Tak | Tak | Tak |  |
+> | **Aplikacja natywna** | Yes | Yes | Yes |  |
+> | **Microsoft Edge** | Yes | Yes | Yes |  |
+> | **Internet Explorer** | Yes | Yes | Yes |  |
+> | **Chrome (z rozszerzeniem)** | Yes | Yes | Yes |  |
 
 Warunki użytkowania poszczególnych urządzeń mają następujące ograniczenia:
 
 - Urządzenie może być przyłączone tylko do jednej dzierżawy.
 - Użytkownik musi mieć uprawnienia do przyłączania urządzenia.
-- Aplikacja do rejestracji w usłudze Intune nie jest obsługiwana.
+- Aplikacja do rejestracji w usłudze Intune nie jest obsługiwana. Upewnij się, że jest ona wykluczona z zasad dostępu warunkowego, które wymagają warunków użytkowania.
 - Użytkownicy B2B usługi Azure AD nie są obsługiwani.
 
 Jeśli urządzenie użytkownika nie jest przyłączone, otrzyma komunikat informujący o konieczności przyłączenia urządzenia. Ich środowisko jest zależne od platformy i oprogramowania.
@@ -389,7 +389,7 @@ Odp.: w przypadku skonfigurowania warunków użytkowania usługi Azure AD i waru
 **P: jakie punkty końcowe są używane przez usługę do uwierzytelniania?**<br />
 Odp.: Warunki użytkowania wykorzystuje następujące punkty końcowe do uwierzytelniania: https://tokenprovider.termsofuse.identitygovernance.azure.com i https://account.activedirectory.windowsazure.com . Jeśli Twoja organizacja ma listę adresów URL do rejestracji, konieczne będzie dodanie tych punktów końcowych do listy dozwolonych oraz punktów końcowych usługi Azure AD w celu zalogowania.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze](require-tou.md)
 - [Najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory](best-practices.md)
