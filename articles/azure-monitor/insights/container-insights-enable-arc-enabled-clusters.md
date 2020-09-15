@@ -3,12 +3,12 @@ title: Konfigurowanie klastra Kubernetes z obsługą usługi Azure ARC przy uży
 description: W tym artykule opisano sposób konfigurowania monitorowania za pomocą Azure Monitor dla kontenerów w klastrach Kubernetes z obsługą usługi Azure Arc.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54a8fea6ddb46dc00fff29ad83a2a348d9218380
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092885"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090622"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Włącz monitorowanie klastra Kubernetes z obsługą usługi Azure Arc
 
@@ -124,7 +124,7 @@ Aby włączyć monitorowanie klastra przy użyciu pobranego wcześniej skryptu P
 4. Jeśli chcesz użyć istniejącego obszaru roboczego Log Analytics Azure Monitor, skonfiguruj zmienną `$logAnalyticsWorkspaceResourceId` z odpowiadającą jej wartością reprezentującą identyfikator zasobu obszaru roboczego. W przeciwnym razie Ustaw zmienną na, `""` a skrypt utworzy domyślny obszar roboczy w domyślnej grupie zasobów subskrypcji klastra, jeśli jeszcze nie istnieje w regionie. Utworzony domyślny obszar roboczy jest podobny do formatu *DefaultWorkspace- \<SubscriptionID> - \<Region> *.
 
     ```powershell
-    $logAnalyticsWorkspaceResourceId = “/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. Jeśli klaster Kubernetes z obsługą Arc komunikuje się za pomocą serwera proxy, należy skonfigurować zmienną `$proxyEndpoint` przy użyciu adresu URL serwera proxy. Jeśli klaster nie komunikuje się za pomocą serwera proxy, można ustawić wartość na `""` .  Aby uzyskać więcej informacji, zobacz [konfigurowanie punktu końcowego serwera proxy](#configure-proxy-endpoint) w dalszej części tego artykułu.
@@ -199,7 +199,7 @@ Po włączeniu monitorowania może upłynąć około 15 minut, zanim będzie mo�
 
 Za pomocą agenta kontenerowego dla Azure Monitor kontenerów można skonfigurować punkt końcowy serwera proxy, aby umożliwić mu komunikowanie się za pomocą serwera proxy. Komunikacja między agentem kontenera a Azure Monitor może być serwerem proxy HTTP lub HTTPS, a uwierzytelnianiem anonimowym i podstawowym (nazwa użytkownika/hasło) są obsługiwane.
 
-Wartość konfiguracji serwera proxy ma następującą składnię:`[protocol://][user:password@]proxyhost[:port]`
+Wartość konfiguracji serwera proxy ma następującą składnię: `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >Jeśli serwer proxy nie wymaga uwierzytelniania, nadal trzeba określić nazwę użytkownika/hasło psuedo. Może to być dowolna nazwa użytkownika lub hasło.

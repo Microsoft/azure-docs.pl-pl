@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
-ms.openlocfilehash: 18e1ff05d76937f8809408da0ed25f55120e456a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/15/2020
+ms.openlocfilehash: ff56ef55066fd0f56b5b8dc7507bfb63b8b8baa0
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440579"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090605"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Dostosuj konfigurację dla Azure-SSIS Integration Runtime
 
@@ -40,7 +40,7 @@ Można zainstalować zarówno bezpłatne (nielicencjonowane) i płatne (licencjo
 
 Następujące ograniczenia mają zastosowanie tylko do standardowych konfiguracji niestandardowych:
 
-- Jeśli chcesz użyć *gacutil.exe* w skrypcie do zainstalowania zestawów w globalnej pamięci podręcznej zestawów (GAC), musisz podać *gacutil.exe* w ramach konfiguracji niestandardowej. Możesz też użyć kopii podanej w naszym kontenerze *publicznej wersji zapoznawczej* , omówionej dalej w sekcji "instrukcje".
+- Jeśli chcesz użyć *gacutil.exe* w skrypcie do zainstalowania zestawów w globalnej pamięci podręcznej zestawów (GAC), musisz podać *gacutil.exe* w ramach konfiguracji niestandardowej. Możesz też użyć kopii podanej w *przykładowym* folderze naszego publicznego kontenera w *wersji zapoznawczej* , aby zapoznać się z sekcją **standardowe przykłady instalacji niestandardowej** poniżej.
 
 - Jeśli chcesz odwołać się do podfolderu w skrypcie, *msiexec.exe* nie obsługuje `.\` notacji, aby odwołać się do folderu głównego. Użyj polecenia, takiego jak `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` zamiast `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...` .
 

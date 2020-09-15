@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6025e1c257ad7b94586ceb4f89c02c3a44c59c3e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462177"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090316"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Samouczek: wdrażanie aplikacji na maszynach wirtualnych z systemem Linux na platformie Azure przy użyciu Azure DevOps Services i Azure Pipelines
 
@@ -147,6 +147,7 @@ Będziesz potrzebować potoku kompilacji ciągłej integracji (CI), który publi
 Wybierz szablon **startowy** i Skopiuj poniższy fragment kodu YAML, który kompiluje projekt Java i uruchamia testy za pomocą platformy Apache Maven:
 
 ```YAML
+jobs:
 - job: Build
   displayName: Build Maven Project
   steps:
@@ -209,7 +210,7 @@ Aby uzyskać więcej wskazówek, postępuj zgodnie z instrukcjami w sekcji [Komp
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definiowanie kroków z dysku CD do wdrożenia na maszynie wirtualnej z systemem Linux
 
-1. Edytuj powyższy potok i Dołącz [zadanie wdrażania](/azure/devops/pipelines/process/deployment-jobs) , odwołując się do środowiska i zasobów maszyny wirtualnej, które zostały wcześniej przy użyciu składni YAML poniżej:
+1. Zmień plik YAML dla powyższego potoku, aby uwzględnić [zadanie wdrażania](/azure/devops/pipelines/process/deployment-jobs) , odwołując się do środowiska i zasobów maszyny wirtualnej, których wcześniej używasz składni YAML poniżej:
 
    ```YAML
    jobs:  
@@ -218,8 +219,7 @@ Aby uzyskać więcej wskazówek, postępuj zgodnie z instrukcjami w sekcji [Komp
      environment:
        name:  <environment name>
        resourceType: VirtualMachine
-       tags: web1
-     strategy:
+       tags: web
    ```
 2. Można wybrać określone zestawy maszyn wirtualnych ze środowiska w celu uzyskania wdrożenia, określając **Tagi** zdefiniowane dla każdej maszyny wirtualnej w środowisku.
 [Oto](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) kompletny schemat YAML dla zadania wdrażania.

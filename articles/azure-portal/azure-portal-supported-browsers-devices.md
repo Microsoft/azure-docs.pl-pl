@@ -15,25 +15,25 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: 63bfb7c92e77c4059a46a83b76b3818fcb6d63be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82a6cfc817cefb78c3239349d9ad7ff839a1ecbd
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80754189"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090214"
 ---
 # <a name="supported-devices"></a>Obsługiwane urządzenia
 
 [Azure Portal](https://portal.azure.com) jest konsolą opartą na sieci Web i działa w przeglądarce wszystkich nowoczesnych komputerów stacjonarnych i urządzeń typu Tablet. Aby móc korzystać z portalu, musisz mieć włączoną obsługę języka JavaScript w przeglądarce.
 
-Jeśli musisz zarządzać zasobami platformy Azure z poziomu urządzenia przenośnego, wypróbuj [aplikacja mobilna platformy Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/). Jest ona dostępna dla systemów iOS i Android.
+Jeśli musisz zarządzać zasobami platformy Azure z poziomu urządzenia przenośnego, wypróbuj  [aplikacja mobilna platformy Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/). Jest ona dostępna dla systemów iOS i Android.
 
 ## <a name="recommended-browsers"></a>Zalecane przeglądarki
 
 Zalecamy używanie najnowszej przeglądarki zgodnej z systemem operacyjnym. Obsługiwane są następujące przeglądarki:
 
 * Microsoft Edge (najnowsza wersja)
-* Internet Explorer 11
+* Internet Explorer 11 (koniec pomocy technicznej 17, 2021 — więcej informacji znajduje się w naszym [wpisie w blogu](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666) )
 * Safari (najnowsza wersja, tylko Mac)
 * Chrome (najnowsza wersja)
 * Firefox (najnowsza wersja)

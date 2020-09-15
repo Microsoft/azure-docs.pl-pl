@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0e79efc9de43fc0a3044e9ae1e3959f63bb6e69f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078633"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090270"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Nie można uzyskać pulpitu zdalnego z maszyną wirtualną, ponieważ interfejs sieciowy jest wyłączony
 
@@ -28,6 +28,11 @@ W tym artykule wyjaśniono, jak rozwiązać problem polegający na tym, że nie 
 
 Nie można nawiązać połączenia RDP ani innego typu połączenia z innymi portami z maszyną wirtualną na platformie Azure, ponieważ interfejs sieciowy w maszynie wirtualnej jest wyłączony.
 
+![Zrzut ekranu pokazujący maszynę wirtualną, w której interfejs sieciowy jest odłączony.](./media/troubleshoot-rdp-nic-disabled/disconnected.png)
+
+![Zrzut ekranu pokazujący maszynę wirtualną, w której interfejs sieciowy jest wyłączony.](./media/troubleshoot-rdp-nic-disabled/disabled.png)
+
+
 ## <a name="solution"></a>Rozwiązanie
 
 Przed wykonaniem tych kroków należy wykonać migawkę dysku systemu operacyjnego, którego dotyczy dana maszyna wirtualna, jako kopii zapasowej. Aby uzyskać więcej informacji, zobacz [migawka dysku](../windows/snapshot-copy-managed-disk.md).
@@ -36,8 +41,7 @@ Aby włączyć interfejs dla maszyny wirtualnej, użyj kontrolki szeregowej lub 
 
 ### <a name="use-serial-control"></a>Użyj kontrolki szeregowej
 
-1. Połącz się z [konsolą szeregową i Otwórz wystąpienie programu Cmd](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Jeśli konsola szeregowa nie jest włączona na maszynie wirtualnej, zobacz [Resetowanie interfejsu sieciowego](#reset-network-interface).
+1. Połącz się z [konsolą szeregową i Otwórz wystąpienie programu Cmd](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Jeśli konsola szeregowa nie jest włączona na maszynie wirtualnej, zobacz [Resetowanie interfejsu sieciowego](#reset-network-interface).
 2. Sprawdź stan interfejsu sieciowego:
 
     ```console

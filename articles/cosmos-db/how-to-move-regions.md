@@ -1,72 +1,81 @@
 ---
-title: Dowiedz się, jak przenieść konto Azure Cosmos DB do innego regionu
-description: Dowiedz się, jak przenieść konto Azure Cosmos DB do innego regionu
+title: Przenoszenie konta Azure Cosmos DB do innego regionu
+description: Dowiedz się, jak przenieść konto Azure Cosmos DB do innego regionu.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 60c28a96008355491c058cd08dbbb3a1cbffad98
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: b34bc81f48b806b1016fbbd19d3ebc8bfef908c2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059366"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090537"
 ---
-# <a name="how-to-move-an-azure-cosmos-db-account-to-another-region"></a>Jak przenieść konto Azure Cosmos DB do innego regionu
+# <a name="move-an-azure-cosmos-db-account-to-another-region"></a>Przenoszenie konta Azure Cosmos DB do innego regionu
 
-W tym artykule opisano, jak przenieść region, w którym dane są replikowane w Azure Cosmos DB lub jak przeprowadzić migrację metadanych konta (Azure Resource Manager), a także dane z jednego regionu do innego.
+W tym artykule opisano, jak:
+
+- Przenieś region, w którym dane są replikowane w Azure Cosmos DB.
+- Migrowanie metadanych konta (Azure Resource Manager) i danych z jednego regionu do innego.
 
 ## <a name="move-data-from-one-region-to-another"></a>Przenoszenie danych z jednego regionu do innego
 
-Azure Cosmos DB obsługuje natywną replikację danych, więc przeniesienie danych z jednego regionu do innego jest proste i może być realizowane przy użyciu Azure Portal, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure i obejmuje następujące kroki:
+Azure Cosmos DB obsługuje natywną replikację danych, więc przeniesienie danych z jednego regionu do innego jest proste. Można to zrobić za pomocą Azure Portal, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Obejmuje następujące kroki:
 
-1. Dodawanie nowego regionu do konta
+1. Dodaj nowy region do konta.
 
-    Aby dodać nowy region do konta Azure Cosmos DB Zobacz, [Dodaj/Usuń regiony do konta Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+    Aby dodać nowy region do konta Azure Cosmos DB, zobacz [Dodawanie/usuwanie regionów do konta Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account).
 
-1. Wykonaj ręczną pracę awaryjną w nowym regionie
+1. Wykonaj ręczną pracę awaryjną w nowym regionie.
 
-    W sytuacjach, w których usuwany region jest obecnie regionem zapisu dla konta, konieczne będzie zainicjowanie przejścia w tryb failover do nowego regionu dodanego powyżej. To jest operacja bez przestojów. Jeśli przenosisz region odczytu na koncie wieloregionowym, możesz pominąć ten krok. Aby zainicjować pracę w trybie failover, zobacz Ręczne przełączenie [w tryb failover na koncie usługi Azure Cosmos](how-to-manage-database-account.md#manual-failover)
+    Gdy usuwany region jest obecnie regionem zapisu dla konta, należy uruchomić tryb failover w nowym regionie dodanym w poprzednim kroku. Jest to operacja bez przestojów. Jeśli przenosisz region odczytu w ramach konta wieloregionowego, możesz pominąć ten krok. 
+    
+    Aby rozpocząć pracę w trybie failover, zobacz Ręczne przełączenie [w tryb failover na koncie usługi Azure Cosmos](how-to-manage-database-account.md#manual-failover).
 
-1. Usuń pierwotny region
+1. Usuń pierwotny region.
 
-    Aby usunąć region z konta Azure Cosmos DB, zobacz [Dodaj/Usuń regiony do konta Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+    Aby usunąć region z konta Azure Cosmos DB, zobacz [Dodawanie/usuwanie regionów z konta Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account).
 
-## <a name="migrate-azure-cosmos-db-account-meta-data"></a>Migrowanie metadanych konta Azure Cosmos DB
+## <a name="migrate-azure-cosmos-db-account-metadata"></a>Migrowanie metadanych konta Azure Cosmos DB
 
-Azure Cosmos DB nie obsługuje natywnie migrowania metadanych konta z jednego regionu do innego. Aby przeprowadzić migrację zarówno danych metadanych konta, jak i danych klienta z jednego regionu do innego, należy utworzyć nowe konto w żądanym regionie, a następnie ręcznie skopiować dane. Migracja z niemal zerowym przestojem interfejsu API SQL wymaga użycia [ChangeFeed](change-feed.md) lub narzędzia, które go wykorzystuje. W przypadku migrowania interfejsu API MongoDB, Cassandra lub innego interfejsu API lub aby dowiedzieć się więcej na temat opcji migrowania danych między kontami, zobacz [Opcje migracji danych lokalnych lub w chmurze do Azure Cosmos DB](cosmosdb-migrationchoices.md). Poniższe kroki przedstawiają sposób migrowania konta Azure Cosmos DB dla interfejsu API SQL i jego danych z jednego regionu do innego:
+Azure Cosmos DB nie obsługuje natywnie migracji metadanych konta z jednego regionu do innego. Aby przeprowadzić migrację zarówno metadanych konta, jak i danych klienta z jednego regionu do innego, należy utworzyć nowe konto w żądanym regionie, a następnie ręcznie skopiować dane. 
 
-1. Utwórz nowe konto Azure Cosmos DB w żądanym regionie
+Migracja typu "Near-zero" dla interfejsu API SQL wymaga użycia [źródła zmian](change-feed.md) lub narzędzia, które go używa. Jeśli migrujesz interfejs API MongoDB, interfejs API Cassandra lub inny interfejs API lub aby dowiedzieć się więcej o opcjach migrowania danych między kontami, zobacz [Opcje migracji danych lokalnych lub w chmurze do Azure Cosmos DB](cosmosdb-migrationchoices.md). 
 
-    Aby utworzyć nowe konto za pośrednictwem Azure Portal, programu PowerShell lub interfejsu wiersza polecenia, [Utwórz konto Azure Cosmos DB](how-to-manage-database-account.md#create-an-account).
+W poniższych krokach pokazano, jak migrować konto Azure Cosmos DB dla interfejsu API SQL i jego danych z jednego regionu do innego:
 
-1. Tworzenie nowej bazy danych i kontenera
+1. Utwórz nowe konto Azure Cosmos DB w żądanym regionie.
 
-    Aby utworzyć nową bazę danych i kontener, zobacz [Tworzenie kontenera usługi Azure Cosmos](how-to-create-container.md)
+    Aby utworzyć nowe konto za pośrednictwem Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure, zobacz [Tworzenie konta Azure Cosmos DB](how-to-manage-database-account.md#create-an-account).
 
-1. Migrowanie danych za pomocą narzędzia Migrator danych na żywo Azure Cosmos DB
+1. Utwórz nową bazę danych i kontener.
 
-    Aby przeprowadzić migrację danych z niemal zerowym przestojem, zobacz [Azure Cosmos DB narzędzie Migrator danych dynamicznych](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator)
+    Aby utworzyć nową bazę danych i kontener, zobacz [Tworzenie kontenera usługi Azure Cosmos](how-to-create-container.md).
 
-1. Zaktualizuj parametry połączenia aplikacji
+1. Migrowanie danych za pomocą narzędzia Azure Cosmos DB na żywo usługi.
 
-    Po uruchomieniu narzędzia Migrator na żywo należy zaktualizować informacje o połączeniu w nowym wdrożeniu aplikacji. Punkty końcowe i klucze aplikacji można pobrać z Azure Portal.
+    Aby przeprowadzić migrację danych z niemal zerowym przestojem, zobacz [Azure Cosmos DB narzędzia Migrator na żywo](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator).
 
-    :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Kontrola dostępu (IAM) w Azure Portal-demonstrowanie zabezpieczeń bazy danych NoSQL":::
+1. Zaktualizuj parametry połączenia aplikacji.
 
-1. Przekieruj żądania do nowej aplikacji
+    Gdy nadal działa narzędzie Data Migrator, należy zaktualizować informacje o połączeniu w nowym wdrożeniu aplikacji. Możesz pobrać punkty końcowe i klucze aplikacji z Azure Portal.
+
+    :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Kontrola dostępu w Azure Portal wykazujące zabezpieczenia bazy danych NoSQL.":::
+
+1. Przekieruj żądania do nowej aplikacji.
 
     Po powiązaniu nowej aplikacji z Azure Cosmos DB można przekierować żądania klientów do nowego wdrożenia.
 
-1. Usuń wszystkie zasoby, które nie są już potrzebne
+1. Usuń wszystkie zasoby, które nie są już potrzebne.
 
-    W przypadku żądań, które są teraz w pełni przekierowywane do nowego wystąpienia, można następnie usunąć stare konto Azure Cosmos DB i narzędzie Migrator danych na żywo.
+    W przypadku żądań, które są teraz w pełni przekierowywane do nowego wystąpienia, można usunąć stare konto Azure Cosmos DB i narzędzie Migrator danych na żywo.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji i zapoznać się z przykładami dotyczącymi zarządzania kontem usługi Azure Cosmos oraz bazą danych i kontenerami, przeczytaj następujące artykuły:
+Aby uzyskać więcej informacji i zapoznać się z przykładami dotyczącymi zarządzania kontem usługi Azure Cosmos oraz bazami danych i kontenerami, przeczytaj następujące artykuły:
 
 * [Zarządzanie kontem usługi Azure Cosmos](how-to-manage-database-account.md)
 * [Źródło zmian w Azure Cosmos DB](change-feed.md)

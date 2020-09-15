@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 6dfcd8d56232f893f881f310b33f3f849e2364a7
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 73322cdee151969e6e765690284bbffc1c871f4e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85475955"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090197"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Dokumentacja zestawu SDK języka JavaScript czytnika immersyjny (v 1.1)
 
@@ -31,6 +31,8 @@ Zestaw SDK udostępnia funkcje:
 
 - [`ImmersiveReader.renderButtons(options)`](#renderbuttons)
 
+<br>
+
 ## <a name="launchasync"></a>launchAsync
 
 Uruchamia czytnik immersyjny w `iframe` aplikacji sieci Web. Należy pamiętać, że rozmiar zawartości jest ograniczony do maksymalnie 50 MB.
@@ -39,22 +41,24 @@ Uruchamia czytnik immersyjny w `iframe` aplikacji sieci Web. Należy pamiętać,
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
 ```
 
-### <a name="parameters"></a>Parametry
+#### <a name="launchasync-parameters"></a>Parametry launchAsync
 
 | Nazwa | Typ | Opis |
 | ---- | ---- |------------ |
-| `token` | ciąg | Token uwierzytelniania usługi Azure AD. |
-| `subdomain` | ciąg | Niestandardowa poddomena zasobu czytnika immersyjny na platformie Azure. |
+| `token` | ciąg | Token uwierzytelniania usługi Azure AD. Aby uzyskać więcej informacji [, zobacz jak utworzyć zasób czytnika immersyjny](./how-to-create-immersive-reader.md) . |
+| `subdomain` | ciąg | Niestandardowa poddomena zasobu czytnika immersyjny na platformie Azure. Aby uzyskać więcej informacji [, zobacz jak utworzyć zasób czytnika immersyjny](./how-to-create-immersive-reader.md) . |
 | `content` | [Zawartość](#content) | Obiekt zawierający zawartość, która ma zostać pokazana w czytniku immersyjny. |
 | `options` | [Opcje](#options) | Opcje konfigurowania niektórych zachowań czytnika immersyjny. Opcjonalny. |
 
-### <a name="returns"></a>Zwraca
+#### <a name="returns"></a>Zwraca
 
 Zwraca obiekt `Promise<LaunchResponse>` , który jest rozpoznawany, gdy czytnik immersyjny jest ładowany. Jest to `Promise` rozwiązanie rozpoznawane jako [`LaunchResponse`](#launchresponse) obiekt.
 
-### <a name="exceptions"></a>Wyjątki
+#### <a name="exceptions"></a>Wyjątki
 
 Zwracana wartość `Promise` zostanie odrzucona z [`Error`](#error) obiektem, jeśli czytnik immersyjny nie zostanie załadowany. Aby uzyskać więcej informacji, zobacz [kody błędów](#error-codes).
+
+<br>
 
 ## <a name="close"></a>close
 
@@ -66,23 +70,125 @@ Przykładowy przypadek użycia tej funkcji to jeśli przycisk Zakończ jest ukry
 close(): void;
 ```
 
+<br>
+
+## <a name="immersive-reader-launch-button"></a>Przycisk uruchamiania czytnika immersyjny
+
+Zestaw SDK zawiera domyślne style dla przycisku umożliwiającego uruchomienie czytnika immersyjny. Użyj `immersive-reader-button` atrybutu Class, aby włączyć ten styl. Aby uzyskać więcej informacji [, zobacz Jak dostosować przycisk czytnika immersyjny](./how-to-customize-launch-button.md) .
+
+```html
+<div class='immersive-reader-button'></div>
+```
+
+#### <a name="optional-attributes"></a>Atrybuty opcjonalne
+
+Użyj następujących atrybutów, aby skonfigurować wygląd i działanie przycisku.
+
+| Atrybut | Opis |
+| --------- | ----------- |
+| `data-button-style` | Ustawia styl przycisku. Może być `icon` , `text` lub `iconAndText` . Wartość domyślna to `icon` . |
+| `data-locale` | Ustawia ustawienia regionalne. Na przykład: `en-US` lub `fr-FR`. Domyślnie jest używany język angielski `en` . |
+| `data-icon-px-size` | Ustawia rozmiar ikony w pikselach. Wartość domyślna to 20px. |
+
+<br>
+
 ## <a name="renderbuttons"></a>renderButtons
 
-Ta funkcja stylów i aktualizuje elementy przycisku czytnika immersyjny dokumentu. Jeśli ```options.elements``` jest podany, ta funkcja będzie renderować przyciski w ```options.elements``` . W przeciwnym razie przyciski będą renderowane w obrębie elementów dokumentu, które mają klasę ```immersive-reader-button``` .
+```renderButtons```Funkcja nie jest konieczna, jeśli używasz wskazówki dotyczącej [dostosowywania dla czytnika](./how-to-customize-launch-button.md) .
 
-Ta funkcja jest automatycznie wywoływana przez zestaw SDK podczas ładowania okna.
+Ta funkcja stylów i aktualizuje elementy przycisku czytnika immersyjny dokumentu. Jeśli ```options.elements``` jest podany, przyciski będą renderowane w obrębie każdego elementu dostarczonego w ```options.elements``` . Użycie ```options.elements``` parametru jest przydatne, gdy w dokumencie znajduje się wiele sekcji, na których można uruchomić czytnik immersyjny, i chcesz uproszczony sposób renderowania wielu przycisków przy użyciu tego samego stylu lub aby renderować przyciski przy użyciu prostego i spójnego wzorca projektowego. Aby użyć tej funkcji z parametrem [renderButtons Options](#renderbuttons-options) , wywołaj metodę ```ImmersiveReader.renderButtons(options: RenderButtonsOptions);``` ładowania strony, jak pokazano w poniższym fragmencie kodu. W przeciwnym razie przyciski będą renderowane w obrębie elementów dokumentu, które zawierają klasy ```immersive-reader-button``` , jak pokazano w temacie [jak dostosować przycisk czytnika immersyjny](./how-to-customize-launch-button.md) .
 
-Zobacz [atrybuty opcjonalne](#optional-attributes) , aby uzyskać więcej opcji renderowania.
+```typescript
+// This snippet assumes there are two empty div elements in
+// the page HTML, button1 and button2.
+const btn1: HTMLDivElement = document.getElementById('button1');
+const btn2: HTMLDivElement = document.getElementById('button2');
+const btns: HTMLDivElement[] = [btn1, btn2];
+ImmersiveReader.renderButtons({elements: btns});
+```
+
+Więcej opcji renderowania można znaleźć w powyższych [opcjonalnych atrybutach](#optional-attributes) . Aby użyć tych opcji, Dodaj dowolny z atrybutów opcji do każdego ```HTMLDivElement``` na stronie HTML.
 
 ```typescript
 renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-### <a name="parameters"></a>Parametry
+#### <a name="renderbuttons-parameters"></a>Parametry renderButtons
 
 | Nazwa | Typ | Opis |
 | ---- | ---- |------------ |
-| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opcje konfigurowania niektórych zachowań funkcji renderButtons. Opcjonalny. |
+| `options` | [Opcje renderButtons](#renderbuttons-options) | Opcje konfigurowania niektórych zachowań funkcji renderButtons. Opcjonalny. |
+
+### <a name="renderbuttons-options"></a>Opcje renderButtons
+
+Opcje renderowania przycisków czytnika szczegółowego.
+
+```typescript
+{
+    elements: HTMLDivElement[];
+}
+```
+
+#### <a name="renderbuttons-options-parameters"></a>Parametry opcji renderButtons
+
+| Ustawienie | Typ | Opis |
+| ------- | ---- | ----------- |
+| elementy | HTMLDivElement[] | Elementy do renderowania przycisków czytnika immersyjny w. |
+
+##### `-elements`
+```Parameters
+Type: HTMLDivElement[]
+Required: false
+```
+
+<br>
+
+## <a name="launchresponse"></a>LaunchResponse
+
+Zawiera odpowiedź z wywołania do `ImmersiveReader.launchAsync` . Należy zauważyć, że odwołanie do programu zawierającego `iframe` czytnik immersyjny jest dostępne za pośrednictwem `container.firstChild` .
+
+```typescript
+{
+    container: HTMLDivElement;
+    sessionId: string;
+}
+```
+
+#### <a name="launchresponse-parameters"></a>Parametry LaunchResponse
+
+| Ustawienie | Typ | Opis |
+| ------- | ---- | ----------- |
+| kontener | HTMLDivElement | Element HTML, który zawiera obiekt iframe czytnika immersyjny. |
+| sessionId | Ciąg | Unikatowy identyfikator globalny dla tej sesji używany do debugowania. |
+ 
+## <a name="error"></a>Błąd
+
+Zawiera informacje o błędzie.
+
+```typescript
+{
+    code: string;
+    message: string;
+}
+```
+
+#### <a name="error-parameters"></a>Parametry błędu
+
+| Ustawienie | Typ | Opis |
+| ------- | ---- | ----------- |
+| kod | Ciąg | Jeden z zestawów kodów błędów. Zobacz [Kody błędów](#error-codes). |
+| message | Ciąg | Czytelna dla człowieka Reprezentacja błędu. |
+
+#### <a name="error-codes"></a>Kody błędów
+
+| Kod | Opis |
+| ---- | ----------- |
+| BadArgument | Podany argument jest nieprawidłowy, patrz `message` parametr [błędu](#error). |
+| Limit czasu | Nie można załadować czytnika immersyjny w określonym limicie czasu. |
+| TokenExpired | Podany token wygasł. |
+| Ograniczone | Przekroczono limit liczby wywołań. |
+
+<br>
 
 ## <a name="types"></a>Typy
 
@@ -92,10 +198,33 @@ Zawiera zawartość, która ma zostać pokazana w czytniku immersyjny.
 
 ```typescript
 {
-    title?: string;    // Title text shown at the top of the Immersive Reader (optional)
-    chunks: Chunk[];   // Array of chunks
+    title?: string;
+    chunks: Chunk[];
 }
 ```
+
+#### <a name="content-parameters"></a>Parametry zawartości
+
+| Nazwa | Typ | Opis |
+| ---- | ---- |------------ |
+| title | Ciąg | Tekst tytułu wyświetlany u góry czytnika immersyjny (opcjonalnie) |
+| fragmenty | [Fragment []](#chunk) | Tablica fragmentów |
+
+##### `-title`
+```Parameters
+Type: String
+Required: false
+Default value: "Immersive Reader" 
+```
+
+##### `-chunks`
+```Parameters
+Type: Chunk[]
+Required: true
+Default value: null 
+```
+
+<br>
 
 ### <a name="chunk"></a>Fragment
 
@@ -103,10 +232,39 @@ Pojedynczy fragment danych, który zostanie przesłany do zawartości czytnika i
 
 ```typescript
 {
-    content: string;        // Plain text string
-    lang?: string;          // Language of the text, e.g. en, es-ES (optional). Language will be detected automatically if not specified.
-    mimeType?: string;      // MIME type of the content (optional). Currently 'text/plain', 'application/mathml+xml', and 'text/html' are supported. Defaults to 'text/plain' if not specified.
+    content: string;
+    lang?: string;
+    mimeType?: string;
 }
+```
+
+#### <a name="chunk-parameters"></a>Parametry fragmentu
+
+| Nazwa | Typ | Opis |
+| ---- | ---- |------------ |
+| zawartość | Ciąg | Ciąg, który zawiera zawartość wysłaną do czytnika immersyjny. |
+| bibliografi | Ciąg | Język tekstu, wartość jest w formacie języka IETF BCP 47, np. en, es-ES. Język zostanie wykryty automatycznie, jeśli nie zostanie określony. Zobacz [Obsługiwane języki](#supported-languages). |
+| mimeType | ciąg | Obsługiwane są formaty w formacie zwykłego tekstu, MathML, HTML & Word. Aby uzyskać więcej informacji, zobacz [obsługiwane typy MIME](#supported-mime-types) . |
+
+##### `-content`
+```Parameters
+Type: String
+Required: true
+Default value: null 
+```
+
+##### `-lang`
+```Parameters
+Type: String
+Required: false
+Default value: Automatically detected 
+```
+
+##### `-mimeType`
+```Parameters
+Type: String
+Required: false
+Default value: "text/plain"
 ```
 
 #### <a name="supported-mime-types"></a>Obsługiwane typy MIME
@@ -118,121 +276,251 @@ Pojedynczy fragment danych, który zostanie przesłany do zawartości czytnika i
 | Application/MathML + XML | Język matematycznych znaczników (MathML). [Dowiedz się więcej](./how-to/display-math.md).
 | ument aplikacji/vnd.openxmlformats-officedocument.wordprocessingml.doc | Dokument formatu programu Microsoft Word. docx.
 
-### <a name="options"></a>Opcje
+
+<br>
+
+## <a name="options"></a>Opcje
 
 Zawiera właściwości, które konfigurują pewne zachowania czytnika immersyjny.
 
 ```typescript
 {
-    uiLang?: string;           // Language of the UI, e.g. en, es-ES (optional). Defaults to browser language if not specified.
-    timeout?: number;          // Duration (in milliseconds) before launchAsync fails with a timeout error (default is 15000 ms).
-    uiZIndex?: number;         // Z-index of the iframe that will be created (default is 1000).
-    useWebview?: boolean;      // Use a webview tag instead of an iframe, for compatibility with Chrome Apps (default is false).
-    onExit?: () => any;        // Executes when the Immersive Reader exits.
-    customDomain?: string;     // Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null).
-    allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
-    hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
-    cookiePolicy?: CookiePolicy; // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
-    disableFirstRun?: boolean; // Disable the first run experience.
-    readAloudOptions?: ReadAloudOptions; // Options to configure Read Aloud.
-    translationOptions?: TranslationOptions; // Options to configure translation.
-    displayOptions?: DisplayOptions; // Options to configure text size, font, etc.
-    preferences?: string; // String returned from onPreferencesChanged representing the user's preferences in the Immersive Reader.
-    onPreferencesChanged?: (value: string) => any; // Executes when the user's preferences have changed.
+    uiLang?: string;
+    timeout?: number;
+    uiZIndex?: number;
+    useWebview?: boolean;
+    onExit?: () => any;
+    allowFullscreen?: boolean;
+    hideExitButton?: boolean;
+    cookiePolicy?: CookiePolicy;
+    disableFirstRun?: boolean;
+    readAloudOptions?: ReadAloudOptions;
+    translationOptions?: TranslationOptions;
+    displayOptions?: DisplayOptions;
+    preferences?: string;
+    onPreferencesChanged?: (value: string) => any;
+    customDomain?: string;
 }
 ```
 
-```typescript
-enum CookiePolicy { Disable, Enable }
+#### <a name="options-parameters"></a>Parametry opcji
+
+| Nazwa | Typ | Opis |
+| ---- | ---- |------------ |
+| uiLang | Ciąg | Język interfejsu użytkownika — wartość to format znacznika języka IETF BCP 47, np. en, es-ES. Jeśli nie zostanie określony, domyślnie jest używany język przeglądarki. |
+| timeout | Liczba | Czas trwania (w milisekundach) przed [launchAsync](#launchasync) kończy się niepowodzeniem z błędem przekroczenia limitu czasu (wartość domyślna to 15000 MS). Ten limit czasu ma zastosowanie tylko do początkowego uruchomienia strony czytnika, gdzie powodzenie jest zaobserwowane, gdy zostanie otwarta strona czytelnik i rozpocznie się pokrętło. Dostosowanie limitu czasu nie powinno być konieczne. |
+| uiZIndex | Liczba | Indeks z elementu iframe, który zostanie utworzony (wartość domyślna to 1000). |
+| useWebview | Wartość logiczna| Użyj tagu WebView zamiast elementu iframe, aby zapewnić zgodność z aplikacjami programu Chrome (wartość domyślna to false). |
+| Zakończ | Funkcja | Wykonuje się, gdy czytnik immersyjny zostanie zakończony. |
+| allowFullscreen | Wartość logiczna | Możliwość przełączania trybu pełnoekranowego (wartość domyślna to true). |
+| hideExitButton | Wartość logiczna | Określa, czy ukryć strzałkę przycisku zakończenia czytnika immersyjny (wartość domyślna to false). Powinno to być spełnione tylko w przypadku, gdy istnieje alternatywny mechanizm do zamykania czytnika immersyjny (np. strzałka wstecz na pasku narzędzi dla urządzeń przenośnych). |
+| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Ustawienie użycia pliku cookie czytnika immersyjny (wartość domyślna to *CookiePolicy. Disable*). Aplikacja hosta jest odpowiedzialna za uzyskanie wszelkich niezbędnych wyrazów zgody użytkownika zgodnie z zasadami zgodności plików cookie UE. Zobacz [Opcje zasad dotyczących plików cookie](#cookiepolicy-options). |
+| disableFirstRun | Wartość logiczna | Wyłącz środowisko pierwszego uruchomienia. |
+| readAloudOptions | [ReadAloudOptions](#readaloudoptions) | Opcje konfigurowania odczytywania na głos. |
+| translationOptions | [TranslationOptions](#translationoptions) | Opcje konfigurowania tłumaczenia. |
+| displayOptions | [DisplayOptions](#displayoptions) | Opcje konfigurowania rozmiaru tekstu, czcionki itp. |
+| Preferencje | Ciąg | Ciąg zwrócony z onPreferencesChanged reprezentujący preferencje użytkownika w czytniku immersyjny. Aby uzyskać więcej informacji, zobacz [parametry ustawień](#settings-parameters) i [sposób przechowywania preferencji użytkownika](./how-to-store-user-preferences.md) . |
+| onPreferencesChanged | Funkcja | Wykonuje się, gdy zmienią się preferencje użytkownika. Aby uzyskać więcej informacji [, zobacz jak zachować preferencje użytkownika](./how-to-store-user-preferences.md) . |
+| Że element customdomain | Ciąg | Zarezerwowane do użytku wewnętrznego. Domena niestandardowa, w której jest hostowany webapp czytnika immersyjny (domyślnie ma wartość null). |
+
+##### `-uiLang`
+```Parameters
+Type: String
+Required: false
+Default value: User's browser language 
 ```
+
+##### `-timeout`
+```Parameters
+Type: Number
+Required: false
+Default value: 15000
+```
+
+##### `-uiZIndex`
+```Parameters
+Type: Number
+Required: false
+Default value: 1000
+```
+
+##### `-onExit`
+```Parameters
+Type: Function
+Required: false
+Default value: null
+```
+
+##### `-preferences`
+
+> [!CAUTION]
+> **Ważne** Nie należy podejmować próby programistycznej zmiany wartości `-preferences` ciągu wysyłanego do i z aplikacji czytnika immersyjny, ponieważ może to spowodować nieoczekiwane zachowanie w przypadku użytkowników.
+
+```Parameters
+Type: String
+Required: false
+Default value: null
+```
+
+##### `-onPreferencesChanged`
+```Parameters
+Type: Function
+Required: false
+Default value: null
+```
+
+##### `-customDomain`
+```Parameters
+Type: String
+Required: false
+Default value: null
+```
+
+<br>
+
+## <a name="readaloudoptions"></a>ReadAloudOptions
 
 ```typescript
 type ReadAloudOptions = {
-    voice?: string;      // Voice, either 'male' or 'female'. Note that not all languages support both genders.
-    speed?: number;      // Playback speed, must be between 0.5 and 2.5, inclusive.
-    autoplay?: boolean;  // Automatically start Read Aloud when the Immersive Reader loads.
+    voice?: string;
+    speed?: number;
+    autoplay?: boolean;
 };
+```
+
+#### <a name="readaloudoptions-parameters"></a>Parametry ReadAloudOptions
+
+| Nazwa | Typ | Opis |
+| ---- | ---- |------------ |
+| głos | Ciąg | Głos, "kobieta" lub "męski". Należy pamiętać, że nie wszystkie języki obsługują obie płci. |
+| szybkość | Liczba | Szybkość odtwarzania musi mieścić się w przedziale od 0,5 do 2,5 włącznie. |
+| Autoodtwarzania | Wartość logiczna | Automatycznie Rozpocznij odczytywanie po załadowaniu czytnika immersyjny. |
+
+##### `-voice`
+```Parameters
+Type: String
+Required: false
+Default value: "Female" or "Male" (determined by language) 
+Values available: "Female", "Male"
+```
+
+##### `-speed`
+```Parameters
+Type: Number
+Required: false
+Default value: 1
+Values available: 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5
 ```
 
 > [!NOTE]
 > Ze względu na ograniczenia przeglądarki funkcja autoodtwarzania nie jest obsługiwana w przeglądarce Safari.
 
+<br>
+
+## <a name="translationoptions"></a>TranslationOptions
+
 ```typescript
 type TranslationOptions = {
-    language: string;                         // Set the translation language, e.g. fr-FR, es-MX, zh-Hans-CN. Required to automatically enable word or document translation.
-    autoEnableDocumentTranslation?: boolean;  // Automatically translate the entire document.
-    autoEnableWordTranslation?: boolean;      // Automatically enable word translation.
+    language: string;
+    autoEnableDocumentTranslation?: boolean;
+    autoEnableWordTranslation?: boolean;
 };
 ```
+
+#### <a name="translationoptions-parameters"></a>Parametry TranslationOptions
+
+| Nazwa | Typ | Opis |
+| ---- | ---- |------------ |
+| language | Ciąg | Ustawia język tłumaczenia, wartość jest w formacie języka IETF BCP 47, np. fr-FR, es-MX, zh-Hans-CN. Wymagane, aby automatycznie włączyć tłumaczenie wyrazu lub dokumentu. |
+| autoEnableDocumentTranslation | Wartość logiczna | Automatycznie Przetłumacz cały dokument. |
+| autoEnableWordTranslation | Wartość logiczna | Automatyczne włączenie tłumaczenia wyrazów. |
+
+##### `-language`
+```Parameters
+Type: String
+Required: true
+Default value: null 
+Values available: See the Supported Languages section
+```
+
+<br>
+
+## <a name="displayoptions"></a>DisplayOptions
 
 ```typescript
 type DisplayOptions = {
-    textSize?: number;          // Valid values are 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96.
-    increaseSpacing?: boolean;  // Set whether increased spacing is enabled.
-    fontFamily?: string;        // Valid values are 'Calibri', 'ComicSans', and 'Sitka'.
+    textSize?: number;
+    increaseSpacing?: boolean;
+    fontFamily?: string;
 };
 ```
 
-### <a name="launchresponse"></a>LaunchResponse
+#### <a name="displayoptions-parameters"></a>Parametry DisplayOptions
 
-Zawiera odpowiedź z wywołania do `ImmersiveReader.launchAsync` . Należy zauważyć, że odwołanie do programu zawierającego `iframe` czytnik immersyjny jest dostępne za pośrednictwem `container.firstChild` .
+| Nazwa | Typ | Opis |
+| ---- | ---- |------------ |
+| Wartość parametru TEXTSIZE | Liczba | Ustawia wybrany rozmiar tekstu. |
+| increaseSpacing | Wartość logiczna | Określa, czy odstępy tekstu mają być włączane czy wyłączane. |
+| fontFamily | Ciąg | Ustawia wybraną czcionkę ("Calibri", "ComicSans" lub "Sitka"). |
+
+##### `-textSize`
+```Parameters
+Type: Number
+Required: false
+Default value: 20, 36 or 42 (Determined by screen size)
+Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
+```
+
+##### `-fontFamily`
+```Parameters
+Type: String
+Required: false
+Default value: "Calibri"
+Values available: "Calibri", "Sitka", "ComicSans"
+```
+
+<br>
+
+## <a name="cookiepolicy-options"></a>Opcje CookiePolicy
 
 ```typescript
-{
-    container: HTMLDivElement;    // HTML element which contains the Immersive Reader iframe
-    sessionId: string;            // Globally unique identifier for this session, used for debugging
-}
-```
- 
-### <a name="error"></a>Błąd
-
-Zawiera informacje o błędzie.
-
-```typescript
-{
-    code: string;    // One of a set of error codes
-    message: string; // Human-readable representation of the error
-}
+enum CookiePolicy { Disable, Enable }
 ```
 
-#### <a name="error-codes"></a>Kody błędów
+**Ustawienia wymienione poniżej służą wyłącznie do celów informacyjnych**. Czytnik immersyjny przechowuje jego ustawienia lub Preferencje użytkownika w plikach cookie. Ta opcja *cookiePolicy* domyślnie **wyłącza** korzystanie z plików cookie w celu zachowania zgodności z przepisami w zakresie plików cookie UE. Jeśli chcesz ponownie włączyć pliki cookie i przywrócić domyślną funkcję preferencji użytkownika dla czytnika, musisz upewnić się, że witryna sieci Web lub aplikacja uzyskuje odpowiednią zgodę od użytkownika w celu włączenia plików cookie. Następnie, aby ponownie włączyć pliki cookie w czytniku immersyjny, należy jawnie ustawić opcję *cookiePolicy* na *cookiePolicy. Enable* podczas uruchamiania czytnika immersyjny. W poniższej tabeli opisano ustawienia, które są przechowywane w pliku cookie przez czytniki immersyjny po włączeniu opcji *cookiePolicy* .
 
-| Kod | Opis |
-| ---- | ----------- |
-| BadArgument | Podany argument jest nieprawidłowy `message` . Aby uzyskać szczegółowe informacje, zobacz. |
-| Limit czasu | Nie można załadować czytnika immersyjny w określonym limicie czasu. |
-| TokenExpired | Podany token wygasł. |
-| Ograniczone | Przekroczono limit liczby wywołań. |
+#### <a name="settings-parameters"></a>Parametry ustawień
 
-### <a name="renderbuttonsoptions"></a>RenderButtonsOptions
+| Ustawienie | Typ | Opis |
+| ------- | ---- | ----------- |
+| Wartość parametru TEXTSIZE | Liczba | Ustawia wybrany rozmiar tekstu. |
+| fontFamily | Ciąg | Ustawia wybraną czcionkę ("Calibri", "ComicSans" lub "Sitka"). |
+| textodstępy | Liczba | Określa, czy odstępy tekstu mają być włączane czy wyłączane. |
+| formattingEnabled | Wartość logiczna | Określa, czy formatowanie HTML ma być włączone czy wyłączone. |
+| tematów | Ciąg | Ustawia wybrany motyw (na przykład "lekki", "ciemny"...). |
+| syllabificationEnabled | Wartość logiczna | Określa, czy syllabification jest włączony czy wyłączony. |
+| nounHighlightingEnabled | Wartość logiczna | Określa, czy wyróżnianie rzeczowników jest włączane czy wyłączane. |
+| nounHighlightingColor | Ciąg | Ustawia wybrany kolor wyróżniania rzeczowników. |
+| verbHighlightingEnabled | Wartość logiczna | Określa, czy wyróżnianie zleceń jest włączane, czy wyłączane. |
+| verbHighlightingColor | Ciąg | Ustawia wybrany kolor podświetlania zlecenia. |
+| adjectiveHighlightingEnabled | Wartość logiczna | Określa, czy wyróżnianie przymiotnika jest włączone, czy wyłączone. |
+| adjectiveHighlightingColor | Ciąg | Ustawia wybrany kolor podświetlania przymiotników. |
+| adverbHighlightingEnabled | Wartość logiczna | Określa, czy wyróżnianie parametrów jest włączone, czy wyłączone. |
+| adverbHighlightingColor | Ciąg | Ustawia wybrany kolor wyróżniania parametrów. |
+| pictureDictionaryEnabled | Wartość logiczna | Określa, czy słownik obrazu ma być włączony, czy wyłączony. |
+| posLabelsEnabled | Wartość logiczna | Określa, czy etykieta tekstu indeksu górnego każdej wyróżnionej części mowy jest włączana, czy wyłączona.  |
 
-Opcje renderowania przycisków czytnika szczegółowego.
+<br>
 
-```typescript
-{
-    elements: HTMLDivElement[];    // Elements to render the Immersive Reader buttons in
-}
-```
+## <a name="supported-languages"></a>Obsługiwane języki
 
-## <a name="launching-the-immersive-reader"></a>Uruchamianie czytnika immersyjny
+Funkcja tłumaczenia w czytniku immersyjny obsługuje wiele języków. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://www.onenote.com/learningtools/languagesupport) .
 
-Zestaw SDK zawiera domyślne style dla przycisku umożliwiającego uruchomienie czytnika immersyjny. Użyj `immersive-reader-button` atrybutu Class, aby włączyć ten styl. Aby uzyskać więcej informacji, zobacz [ten artykuł](./how-to-customize-launch-button.md) .
-
-```html
-<div class='immersive-reader-button'></div>
-```
-
-### <a name="optional-attributes"></a>Atrybuty opcjonalne
-
-Użyj następujących atrybutów, aby skonfigurować wygląd i działanie przycisku.
-
-| Atrybut | Opis |
-| --------- | ----------- |
-| `data-button-style` | Ustawia styl przycisku. Może być `icon` , `text` lub `iconAndText` . Wartość domyślna to `icon` . |
-| `data-locale` | Ustawia ustawienia regionalne. Na przykład: `en-US` lub `fr-FR`. Domyślnie jest używany język angielski `en` . |
-| `data-icon-px-size` | Ustawia rozmiar ikony w pikselach. Wartość domyślna to 20px. |
+<br>
 
 ## <a name="html-support"></a>Obsługa HTML
+
+Po włączeniu formatowania następująca zawartość będzie renderowana jako HTML w czytniku immersyjny.
 
 | HTML | Obsługiwana zawartość |
 | --------- | ----------- |
@@ -241,6 +529,8 @@ Użyj następujących atrybutów, aby skonfigurować wygląd i działanie przyci
 | Uporządkowane listy | Dziesiętny, górny, Dolny, niższy niż alfa, wielkie litery, małe litery |
 
 Nieobsługiwane Tagi będą renderowane w sposób porównywalny. Obrazy i tabele nie są obecnie obsługiwane.
+
+<br>
 
 ## <a name="browser-support"></a>Obsługa przeglądarki
 
@@ -251,6 +541,8 @@ Najnowsze wersje następujących przeglądarek są używane w celu uzyskania naj
 * Google Chrome
 * Mozilla Firefox
 * Apple Safari
+
+<br>
 
 ## <a name="next-steps"></a>Następne kroki
 

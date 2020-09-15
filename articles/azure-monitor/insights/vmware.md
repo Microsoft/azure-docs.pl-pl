@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322911"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090180"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Rozwiązanie VMware Monitoring (przestarzałe) w Azure Monitor
 
@@ -66,7 +66,7 @@ Utwórz maszynę wirtualną z systemem operacyjnym Linux, aby otrzymywać wszyst
 
 1. W Azure Portal wykonaj zapytanie dziennika dla `VMware_CL` . Gdy Azure Monitor zbiera dane dziennika systemu, zachowuje format dziennika systemowego. W portalu są przechwytywane określone pola, takie jak *Nazwa hosta* i *procesname*.  
 
-    ![typ](./media/vmware/type.png)  
+    ![Zrzut ekranu przedstawia zapytanie dziennika dla typu = VMware_CL z wynikiem sygnatury czasowej.](./media/vmware/type.png)  
 
     Jeśli wyniki przeszukiwania dzienników widoku są podobne do powyższego obrazu, można użyć pulpitu nawigacyjnego rozwiązania VMware Monitoring.  
 
@@ -75,13 +75,13 @@ Rozwiązanie VMware Monitoring zbiera różne metryki wydajności i dane dzienni
 
 W poniższej tabeli przedstawiono metody zbierania danych oraz inne szczegóły dotyczące sposobu zbierania danych.
 
-| platforma | Agent Log Analytics dla systemu Linux | Agent SCOM | Azure Storage | Czy SCOM jest wymagany? | Dane agenta SCOM wysyłane przez grupę zarządzania | częstotliwość zbierania |
+| platforma | Agent Log Analytics dla systemu Linux | Agent System Center Operations Manager | Azure Storage | Operations Manager jest wymagane? | Dane agenta Operations Manager wysyłane przez grupę zarządzania | częstotliwość zbierania |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |co 3 minuty |
 
 W poniższej tabeli przedstawiono przykłady pól danych zbieranych przez rozwiązanie VMware Monitoring:
 
-| Nazwa pola | description (opis) |
+| Nazwa pola | description |
 | --- | --- |
 | Device_s |Urządzenia magazynujące VMware |
 | ESXIFailure_s |typy błędów |
@@ -105,7 +105,7 @@ W poniższej tabeli przedstawiono przykłady pól danych zbieranych przez rozwi�
 ## <a name="vmware-monitoring-solution-overview"></a>Przegląd rozwiązania VMware Monitoring
 Kafelek VMware zostanie wyświetlony w obszarze roboczym Log Analytics. Zapewnia ogólny widok wszelkich błędów. Po kliknięciu kafelka przejdziesz do widoku pulpitu nawigacyjnego.
 
-![kafelek](./media/vmware/tile.png)
+![Zrzut ekranu przedstawia kafelek VMware, który wyświetla dziewięć błędów.](./media/vmware/tile.png)
 
 #### <a name="navigate-the-dashboard-view"></a>Nawigowanie w widoku pulpitu nawigacyjnego
 W widoku pulpitu nawigacyjnego **VMware** bloki są zorganizowane według:
@@ -147,13 +147,13 @@ Jeśli chcesz zobaczyć dodatkowe dane dotyczące tworzenia maszyny wirtualnej h
 #### <a name="common-log-queries"></a>Typowe zapytania dzienników
 Rozwiązanie obejmuje inne przydatne zapytania, które mogą ułatwić Zarządzanie hostami ESXi, takimi jak duże miejsce do magazynowania, opóźnienie magazynu i awaria ścieżki.
 
-![wybiera](./media/vmware/queries.png)
+![Zrzut ekranu przedstawia zalecane wyszukiwania, które są przydatne do przechowywania zapytań.](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Zapisywanie zapytań
 Zapisywanie zapytań dzienników jest standardową funkcją w Azure Monitor i ułatwia zachowanie wszelkich zapytań, które okazały się przydatne. Po utworzeniu kwerendy, która jest przydatna, Zapisz ją, klikając przycisk **Ulubione**. Zapisane zapytanie pozwala z łatwością użyć go później na stronie [mój pulpit nawigacyjny](../learn/tutorial-logs-dashboards.md) , na której można tworzyć własne niestandardowe pulpity nawigacyjne.
 
-![DockerDashboardView](./media/vmware/dockerdashboardview.png)
+![Zrzut ekranu przedstawia część niestandardowego pulpitu nawigacyjnego z etykietą wyszukiwanie w dzienniku z ikonami Cofnij, Eksportuj, alert, Save, Ulubione i History.](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Tworzenie alertów z zapytań
 Po utworzeniu zapytań możesz chcieć użyć zapytań w celu wygenerowania alertów w przypadku wystąpienia określonych zdarzeń. Aby uzyskać informacje o sposobach tworzenia alertów, zobacz [alerty w log Analytics](../platform/alerts-overview.md) . Przykłady zapytań dotyczących alertów i innych przykładów zapytań można znaleźć w blogu [monitorowanie oprogramowania VMware przy użyciu log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) .
@@ -179,20 +179,20 @@ Może istnieć wiele przyczyn:
 
 * Host ESXi nie wypychanie danych do maszyny wirtualnej z systemem omsagent. Aby przetestować, wykonaj następujące czynności:
 
-  1. Aby potwierdzić, zaloguj się do hosta ESXi przy użyciu protokołu SSH i uruchom następujące polecenie:`nc -z ipaddressofVM 1514`
+  1. Aby potwierdzić, zaloguj się do hosta ESXi przy użyciu protokołu SSH i uruchom następujące polecenie: `nc -z ipaddressofVM 1514`
 
       Jeśli to się nie powiedzie, ustawienia vSphere w zaawansowanej konfiguracji prawdopodobnie nie są poprawne. Zobacz [Konfigurowanie kolekcji dziennika](#configure-syslog-collection) systemowego, aby uzyskać informacje na temat sposobu konfigurowania hosta ESXi na potrzeby przesyłania dalej dziennika systemowego.
-  1. Jeśli połączenie z portem dziennika systemowego zakończyło się pomyślnie, ale nie widzisz żadnych danych, następnie ponownie załaduj dziennik systemowy na hoście ESXi przy użyciu protokołu SSH, aby uruchomić następujące polecenie:`esxcli system syslog reload`
+  1. Jeśli połączenie z portem dziennika systemowego zakończyło się pomyślnie, ale nie widzisz żadnych danych, następnie ponownie załaduj dziennik systemowy na hoście ESXi przy użyciu protokołu SSH, aby uruchomić następujące polecenie: `esxcli system syslog reload`
 * Maszyna wirtualna z agentem Log Analytics nie jest ustawiona poprawnie. Aby to przetestować, wykonaj następujące czynności:
 
-  1. Log Analytics nasłuchuje na porcie 1514. Aby sprawdzić, czy jest otwarty, uruchom następujące polecenie:`netstat -a | grep 1514`
+  1. Log Analytics nasłuchuje na porcie 1514. Aby sprawdzić, czy jest otwarty, uruchom następujące polecenie: `netstat -a | grep 1514`
   1. Powinien być widoczny `1514/tcp` otwarty port. Jeśli nie, sprawdź, czy omsagent jest prawidłowo zainstalowany. Jeśli nie widzisz informacji o porcie, wówczas port dziennika systemu nie jest otwarty na maszynie wirtualnej.
 
-    a. Sprawdź, czy Agent Log Analytics jest uruchomiony przy użyciu programu `ps -ef | grep oms` . Jeśli nie jest uruchomiona, uruchom proces, uruchamiając polecenie`sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Sprawdź, czy Agent Log Analytics jest uruchomiony przy użyciu programu `ps -ef | grep oms` . Jeśli nie jest uruchomiona, uruchom proces, uruchamiając polecenie `sudo /opt/microsoft/omsagent/bin/service_control start`
 
      b. Otwórz plik `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
-     c. Sprawdź, czy odpowiednie ustawienie użytkownika i grupy są prawidłowe, podobnie jak w przypadku:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     c. Sprawdź, czy odpowiednie ustawienie użytkownika i grupy są prawidłowe, podobnie jak w przypadku: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
      d. Jeśli plik nie istnieje lub ustawienia użytkownika i grupy są błędne, wykonaj działania naprawcze, [przygotowując serwer z systemem Linux](#prepare-a-linux-server).
 

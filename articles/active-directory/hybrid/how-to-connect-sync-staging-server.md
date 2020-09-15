@@ -16,12 +16,12 @@ ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18c982b09aa8a28d520c709c9b8db2c9be4c7bb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48584fa4042cf53fa1084e519dca0e64f530ca59
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356954"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090129"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: przemieszczanie serwera i odzyskiwania po awarii
 Gdy serwer jest w trybie przejściowym, można wprowadzić zmiany w konfiguracji i wyświetlić podgląd zmian przed rozpoczęciem aktywności serwera. Umożliwia również uruchomienie pełnego importu i pełnej synchronizacji w celu sprawdzenia, czy wszystkie zmiany są oczekiwane przed wprowadzeniem zmian w środowisku produkcyjnym.
@@ -49,18 +49,18 @@ W przypadku osób z wiedzą na temat starszych technologii synchronizacji tryb p
 ### <a name="verify-the-configuration-of-a-server"></a>Weryfikowanie konfiguracji serwera
 Aby zastosować tę metodę, wykonaj następujące kroki:
 
-1. [Przygotowanie](#prepare)
+1. [Przygotowywanie](#prepare)
 2. [Konfiguracja](#configuration)
 3. [Importowanie i synchronizacja](#import-and-synchronize)
 4. [Sprawdź](#verify)
 5. [Przełącz aktywny serwer](#switch-active-server)
 
-#### <a name="prepare"></a>Przygotowanie
+#### <a name="prepare"></a>Przygotowywanie
 1. Zainstaluj Azure AD Connect, wybierz **tryb przejściowy**i usuń zaznaczenie opcji **Rozpocznij synchronizację** na ostatniej stronie Kreatora instalacji. Ten tryb umożliwia ręczne uruchomienie aparatu synchronizacji.
-   ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
+   ![Zrzut ekranu przedstawia stronę gotowy do konfiguracji w oknie dialogowym Azure AD Connect.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Wyloguj się/Zaloguj się i z menu Start wybierz pozycję **usługa synchronizacji**.
 
-#### <a name="configuration"></a>Konfigurowanie
+#### <a name="configuration"></a>Konfiguracja
 Jeśli wprowadzono niestandardowe zmiany na serwerze podstawowym i chcesz porównać konfigurację z serwerem przemieszczania, użyj [Azure AD Connect documention Configuration](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Importowanie i synchronizacja
@@ -71,9 +71,9 @@ Jeśli wprowadzono niestandardowe zmiany na serwerze podstawowym i chcesz porów
 
 Teraz przygotowano zmiany w usłudze Azure AD i lokalnej usłudze AD (Jeśli korzystasz z wdrażania hybrydowego programu Exchange). Następne kroki umożliwiają sprawdzenie, co się zmieniło przed faktycznym rozpoczęciem eksportowania do katalogów.
 
-#### <a name="verify"></a>Weryfikuj
-1. Uruchom wiersz polecenia cmd i przejdź do`%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Uruchom: `csexport "Name of Connector" %temp%\export.xml /f:x` nazwę łącznika można znaleźć w usłudze synchronizacji. Ma nazwę podobną do "contoso.com — AAD" dla usługi Azure AD.
+#### <a name="verify"></a>Weryfikacja
+1. Uruchom wiersz polecenia cmd i przejdź do `%ProgramFiles%\Microsoft Azure AD Sync\bin`
+2. Uruchom: `csexport "Name of Connector" %temp%\export.xml /f:x` nazwę łącznika można znaleźć w usłudze synchronizacji. Ma nazwę podobną do "contoso.com – Azure AD" dla usługi Azure AD.
 3. Uruchom: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` masz plik w katalogu% Temp% o nazwie export.csv, który można sprawdzić w programie Microsoft Excel. Ten plik zawiera wszystkie zmiany, które mają zostać wyeksportowane.
 4. Wprowadź niezbędne zmiany w danych lub konfiguracji, a następnie ponownie wykonaj te kroki (Zaimportuj i zsynchronizuj), dopóki nie zostaną oczekiwane zmiany, które mają zostać wyeksportowane.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 934a7546464cf552c355ee6b4e278b79a0f9ff90
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8cc16e611002748dad2716a1c8dc914f297da9f1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83747500"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090554"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migruj usługę sieci Web z usługi Google Maps
 
@@ -474,7 +474,7 @@ Te biblioteki klienckie typu "open source" są przeznaczone dla innych języków
 
 - .NET Standard 2,0 — [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [pakiet NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/) projektu GitHub
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Poniżej znajdują się dodatkowe dokumenty i zasoby dotyczące Azure Maps usług REST.
 
@@ -495,6 +495,9 @@ Dowiedz się więcej na temat Azure Maps usług REST.
 
 > [!div class="nextstepaction"]
 > [Jak używać modułu usług (Web SDK)](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Dokumentacja interfejsu API usługi REST Azure Maps](https://docs.microsoft.com/rest/api/maps/)
 
 > [!div class="nextstepaction"]
 > [Przykłady kodu](https://docs.microsoft.com/samples/browse/?products=azure-maps)

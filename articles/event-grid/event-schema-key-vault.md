@@ -3,16 +3,16 @@ title: Azure Key Vault jako źródło Event Grid
 description: Opisuje właściwości i schemat udostępnione dla zdarzeń Azure Key Vault z Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1f9cbe85de9423484343e4054be8d2d58c6c5e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f6e2bdfb2000f3a4c4a8f91eee23348d9cc9c766
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109437"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090401"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault jako źródło Event Grid
 
-Ten artykuł zawiera właściwości i schemat zdarzeń w [Azure Key Vault](../key-vault/index.yml), obecnie w wersji zapoznawczej. Aby zapoznać się z wprowadzeniem do schematów zdarzeń, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md).
+Ten artykuł zawiera właściwości i schemat zdarzeń w [Azure Key Vault](../key-vault/index.yml). Aby zapoznać się z wprowadzeniem do schematów zdarzeń, zobacz [Azure Event Grid schemacie zdarzeń](event-schema.md).
 
 ## <a name="event-grid-event-schema"></a>Schemat zdarzeń usługi Event Grid
 
@@ -31,6 +31,7 @@ Konto Azure Key Vault generuje następujące typy zdarzeń:
 | Microsoft. SecretNewVersionCreated — magazyn. | Utworzono wpis tajny nowej wersji | Wyzwalane, gdy zostanie utworzona nowa wartość tajna lub Nowa wersja wpisu tajnego. |
 | Microsoft. SecretNearExpiry — magazyn. | Wpis tajny blisko wygaśnięcia | Wyzwalane, gdy bieżąca wersja wpisu tajnego wkrótce wygaśnie. (Zdarzenie jest wyzwalane przez 30 dni przed datą wygaśnięcia). |
 | Microsoft. SecretExpired — magazyn. | Klucz tajny wygasł | Wyzwalane po wygaśnięciu wpisu tajnego. |
+| Microsoft. VaultAccessPolicyChanged — magazyn. | Zmieniono zasady dostępu do magazynu | Wyzwalane, gdy zmieniono zasady dostępu Key Vault. Zawiera scenariusz, gdy Key Vault model uprawnień zostanie zmieniony na/z usługi Azure RBAC  |
 
 ### <a name="event-examples"></a>Przykłady zdarzeń
 
@@ -84,10 +85,10 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 * Aby zapoznać się z wprowadzeniem do Azure Event Grid, zobacz [co to jest Event Grid?](overview.md).
 * Aby uzyskać więcej informacji na temat tworzenia subskrypcji Azure Event Grid, zobacz [Event Grid schematu subskrypcji](subscription-creation-schema.md).
-* Aby dowiedzieć się więcej na temat integracji Key Vault z usługą Event Grid, zobacz [monitorowanie Key Vault z Azure Event Grid (wersja zapoznawcza)](../key-vault/general/event-grid-overview.md).
-* Aby zapoznać się z samouczkiem dotyczącym Key Vault integracji z Event Grid, zobacz [Odbieranie i reagowanie na powiadomienia magazynu kluczy za pomocą Azure Event Grid (wersja zapoznawcza)](../key-vault/general/event-grid-tutorial.md).
+* Aby dowiedzieć się więcej na temat integracji Key Vault z usługą Event Grid, zobacz [monitorowanie Key Vault z Azure Event Grid](../key-vault/general/event-grid-overview.md).
+* Aby zapoznać się z samouczkiem dotyczącym Key Vault integracji z Event Grid, zobacz [Odbieranie i reagowanie na powiadomienia magazynu kluczy za pomocą Azure Event Grid](../key-vault/general/event-grid-tutorial.md).
 * Aby uzyskać dodatkowe wskazówki dotyczące Key Vault i Azure Automation, zobacz:
     - [Co to jest usługa Azure Key Vault?](../key-vault/general/overview.md)
-    - [Key Vault monitorowania z Azure Event Grid (wersja zapoznawcza)](../key-vault/general/event-grid-overview.md)
-    - [Odbieraj powiadomienia dotyczące magazynu kluczy i odpowiadaj na nie Azure Event Grid (wersja zapoznawcza)](../key-vault/general/event-grid-tutorial.md)
+    - [Key Vault monitorowania z Azure Event Grid](../key-vault/general/event-grid-overview.md)
+    - [Odbieraj powiadomienia magazynu kluczy i odpowiadaj na nie za pomocą Azure Event Grid](../key-vault/general/event-grid-tutorial.md)
     - [Przegląd Azure Automation](../automation/index.yml)

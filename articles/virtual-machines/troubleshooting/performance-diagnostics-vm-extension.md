@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028553"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090656"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla systemu Windows
 
@@ -29,7 +29,15 @@ Rozszerzenie maszyny wirtualnej diagnostyki wydajności Azure ułatwia zbieranie
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-To rozszerzenie można zainstalować w systemie Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 i Windows Server 2016. Można go również zainstalować w systemach Windows 8.1 i Windows 10.
+To rozszerzenie można zainstalować na
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 z dodatkiem R2
+* Windows Server 2012
+* Windows Server 2008 z dodatkiem R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej diagnostyki wydajności Azure. To rozszerzenie wymaga nazwy i klucza konta magazynu do przechowywania danych wyjściowych i raportów diagnostycznych. Te wartości są poufne. Klucz konta magazynu powinien być przechowywany w konfiguracji chronionego ustawienia. Dane ustawienia chronionego rozszerzenia maszyny wirtualnej platformy Azure są szyfrowane i są odszyfrowywane tylko na docelowej maszynie wirtualnej. Należy pamiętać, że w **storageAccountName** i **storageAccountKey** jest rozróżniana wielkość liter. Inne wymagane parametry są wymienione w poniższej sekcji.
@@ -71,7 +79,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej diagnosty
 |apiVersion|2015-06-15|Wersja interfejsu API.
 |publisher|Microsoft. Azure. Performance. Diagnostics|Przestrzeń nazw wydawcy dla rozszerzenia.
 |typ|AzurePerformanceDiagnostics|Typ rozszerzenia maszyny wirtualnej.
-|typeHandlerVersion|1.0|Wersja procedury obsługi rozszerzenia.
+|typeHandlerVersion|1,0|Wersja procedury obsługi rozszerzenia.
 |performanceScenario|prosty|Scenariusz wydajności, dla którego mają zostać przechwycone dane. Prawidłowe wartości to: **Basic**, **vmslow**, **migracji pamięci**i **Custom**.
 |traceDurationInSeconds|300|Czas trwania śledzenia, jeśli wybrano dowolną z opcji śledzenia.
 |perfCounterTrace|p|Opcja włączenia śledzenia licznika wydajności. Prawidłowe wartości to **p** lub wartość pusta. Jeśli nie chcesz przechwytywać tego śledzenia, pozostaw wartość pustą.
@@ -208,7 +216,7 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szab
 }
 ```
 
-## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
+## <a name="powershell-deployment"></a>Wdrażanie przy użyciu programu PowerShell
 Za pomocą `Set-AzVMExtension` polecenia można wdrożyć rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla istniejącej maszyny wirtualnej.
 
 PowerShell

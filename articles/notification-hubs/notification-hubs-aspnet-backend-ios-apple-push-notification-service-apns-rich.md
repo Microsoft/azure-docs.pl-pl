@@ -5,58 +5,57 @@ documentationcenter: ios
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 590304df-c0a4-46c5-8ef5-6a6486bb3340
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d47974554534a0614eb98b473c1e5539ff4d9aa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 33626b7aee615d07ef88dd9fbca46e6512e2cafc
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018012"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090367"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs rozbudowane wypychanie
 
 ## <a name="overview"></a>Omówienie
 
-Aby można było zaangażować użytkowników z błyskawiczną zawartością, aplikacja może chcieć przeprowadzić wypychanie poza zwykły tekst. Te powiadomienia promują interakcje użytkowników oraz zawartość taką jak adresy URL, dźwięki, obrazy/współdziałania i inne. Ten samouczek kompiluje się w temacie [Powiadamianie użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) i pokazuje, jak wysyłać powiadomienia wypychane, które zawierają ładunki (na przykład obraz).
+Aby można było zaangażować użytkowników z błyskawiczną zawartością, aplikacja może chcieć przeprowadzić wypychanie poza zwykły tekst. Te powiadomienia promują interakcje użytkowników oraz zawartość taką jak adresy URL, dźwięki, obrazy/współdziałania i inne. Ten samouczek kompiluje się w samouczku [Powiadamianie użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) i pokazuje, jak wysyłać powiadomienia wypychane zawierające ładunki (na przykład obrazy).
 
-Ten samouczek jest zgodny z systemem iOS 7 & 8.
+Ten samouczek jest zgodny z systemem iOS 7 i 8.
 
   ![Trzy zrzuty ekranu: ekran aplikacji z przyciskiem Wyślij wypychanie, ekran startowy na urządzeniu i logo systemu Windows z przyciskiem wstecz.][IOS1]
 
 Na wysokim poziomie:
 
 1. Zaplecze aplikacji:
-   * Przechowuje rozbudowany ładunek (w tym przypadku obraz) w bazie danych zaplecza/magazynu lokalnego
-   * Wysyła identyfikator tego rozbudowanego powiadomienia do urządzenia
+   * Przechowuje rozbudowany ładunek (w tym przypadku obraz) w bazie danych zaplecza/magazyn lokalny.
+   * Wysyła identyfikator tego rozbudowanego powiadomienia do urządzenia.
 2. Aplikacja na urządzeniu:
-   * Kontaktuje się z zaplecem żądającym obszernego ładunku z IDENTYFIKATORem, który odbiera
-   * Wysyła do użytkowników powiadomienia na urządzeniu po zakończeniu pobierania danych, a następnie wyświetla ładunek natychmiast po naciśnięciu przez użytkowników, aby dowiedzieć się więcej
+   * Kontaktuje się z zaplecem żądającym obszernego ładunku z IDENTYFIKATORem, który odbiera.
+   * Wysyła do użytkowników powiadomienia na urządzeniu po zakończeniu pobierania danych i pokazuje ładunek natychmiast po naciśnięciu przez użytkowników, aby dowiedzieć się więcej.
 
 ## <a name="webapi-project"></a>Projekt WebAPI
 
 1. W programie Visual Studio Otwórz projekt **AppBackend** , który został utworzony w samouczku [Powiadamianie użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
 2. Uzyskaj obraz, z którym chcesz powiadomić użytkowników, i umieść go w folderze **IMG** w katalogu projektu.
 3. Kliknij przycisk **Pokaż wszystkie pliki** w Eksplorator rozwiązań i kliknij prawym przyciskiem myszy folder do **uwzględnienia w projekcie**.
-4. Po wybraniu obrazu zmień jego akcję kompilacji w okno Właściwości na **zasób osadzony**.
+4. Po wybraniu obrazu zmień jego **akcję kompilacji** w oknie **Właściwości** na **zasób osadzony**.
 
     ![Zrzut ekranu przedstawiający Eksplorator rozwiązań. Plik obrazu jest zaznaczony, a w okienku właściwości osadzony zasób jest wyświetlany jako akcja kompilacji.][IOS2]
-5. W pliku `Notifications.cs` dodaj następującą instrukcję using:
+5. W programie `Notifications.cs` Dodaj następującą `using` instrukcję:
 
     ```csharp
     using System.Reflection;
     ```
-6. Zaktualizuj całą `Notifications` klasę przy użyciu następującego kodu. Pamiętaj, aby zastąpić symbole zastępcze poświadczeniami centrum powiadomień i nazwą pliku obrazu.
+
+6. Zastąp `Notifications` klasę poniższym kodem. Pamiętaj, aby zastąpić symbole zastępcze poświadczeniami centrum powiadomień i nazwą pliku obrazu:
 
     ```csharp
     public class Notification {
@@ -103,10 +102,7 @@ Na wysokim poziomie:
     }
     ```
 
-   > [!NOTE]
-   > obowiązkowe Aby uzyskać więcej informacji na temat dodawania i uzyskiwania zasobów projektu, zobacz [temat jak osadzić i uzyskać dostęp do zasobów za pomocą języka Visual C#](https://support.microsoft.com/kb/319292) .
-
-7. W programie `NotificationsController.cs` ponownie zdefiniuj polecenie "NotificationsController z poniższymi fragmentami kodu. Spowoduje to wysłanie początkowego, dyskretnego identyfikatora powiadomienia do urządzenia i umożliwia pobieranie obrazu po stronie klienta:
+7. W programie `NotificationsController.cs` ponownie Przedefiniuj `NotificationsController` następujący kod. Spowoduje to wysłanie początkowego, dyskretnego identyfikatora powiadomienia do urządzenia i umożliwia pobieranie obrazu po stronie klienta:
 
     ```csharp
     // Return http response with image binary
@@ -137,42 +133,46 @@ Na wysokim poziomie:
         return Request.CreateResponse(HttpStatusCode.OK);
     }
     ```
-8. Teraz będziemy ponownie wdrażać tę aplikację w witrynie sieci Web platformy Azure w celu udostępnienia jej ze wszystkich urządzeń. Kliknij prawym przyciskiem myszy projekt **AppBackend** i wybierz polecenie **Publikuj**.
-9. Wybierz witrynę sieci Web platformy Azure jako element docelowy publikowania. Zaloguj się przy użyciu konta platformy Azure i wybierz istniejącą lub nową witrynę sieci Web, a następnie zanotuj Właściwość **docelowa adresu URL** na karcie **połączenie** . W dalszej części tego samouczka będziemy odwoływać się do tego adresu URL jako *punktu końcowego zaplecza* . Kliknij przycisk **Opublikuj**.
+
+8. Teraz ponownie Wdróż tę aplikację w witrynie sieci Web platformy Azure, aby umożliwić jej dostęp ze wszystkich urządzeń. Kliknij prawym przyciskiem myszy projekt **AppBackend** i wybierz polecenie **Publikuj**.
+9. Wybierz **witrynę sieci Web platformy Azure** jako element docelowy publikowania. Zaloguj się przy użyciu konta platformy Azure i wybierz istniejącą lub nową witrynę sieci Web i zanotuj Właściwość **docelowa adresu URL** na karcie **połączenie** . Ten adres URL jest określany jako *punkt końcowy zaplecza* w dalszej części tego samouczka. Kliknij pozycję **Opublikuj**.
 
 ## <a name="modify-the-ios-project"></a>Modyfikowanie projektu systemu iOS
 
-Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* powiadomienia należy zmienić aplikację dla systemu iOS, aby obsługiwała ten identyfikator, i pobrać zaawansowaną wiadomość z zaplecza.
+Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* powiadomienia Zmień aplikację dla systemu iOS, aby obsługiwała ten identyfikator, i Pobierz rozbudowany komunikat z zaplecza:
 
 1. Otwórz projekt systemu iOS i Włącz zdalne powiadomienia, przechodząc do głównego obiektu docelowego aplikacji w sekcji **targets** .
-2. Kliknij pozycję **możliwości**, Włącz **tryb tła**i zaznacz pole wyboru **powiadomienia zdalne** .
+2. Wybierz pozycję **funkcje**, Włącz **tryb tła**i zaznacz pole wyboru **powiadomienia zdalne** .
 
     ![Zrzut ekranu przedstawiający projekt systemu iOS z ekranem możliwości. Tryby tła są włączone, a pole wyboru powiadomienia zdalne jest zaznaczone.][IOS3]
-3. Otwórz `Main.storyboard` program i upewnij się, że masz kontroler widoku (nazywany kontrolerem widoku głównego w tym samouczku) z samouczka [Powiadamiaj użytkownika](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
-4. Dodaj **kontroler nawigacyjny** do scenorysu i przeciągnij go do kontrolera widoku głównego, aby był **widokiem głównym** nawigacji. Upewnij się, że jest wybrana wartość **kontroler widoku początkowego** w Inspektorze atrybutów tylko dla kontrolera nawigacji.
+3. Otwórz `Main.storyboard` i upewnij się, że masz kontroler widoku (nazywany kontrolerem widoku głównego w tym samouczku) z samouczka [Powiadom użytkownika](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
+4. Dodaj **kontroler nawigacji** do scenorysu i przeciągnij kontrolkę kontroler widoku głównego, aby uczynić go **głównym widokiem** nawigacji. Upewnij się, że jest wybrana wartość **kontroler widoku początkowego** w Inspektorze atrybutów tylko dla kontrolera nawigacji.
 5. Dodaj **kontroler widoku** do scenorysu i Dodaj **widok obrazu**. Ta strona zostanie wyświetlona, gdy zdecydują się, aby dowiedzieć się więcej, klikając powiadomienie. Scenorys powinien wyglądać następująco:
 
     ![Zrzut ekranu scenorysu. Widoczne są trzy ekrany aplikacji: Widok nawigacji, widok główny i widok obrazu.][IOS4]
 6. Kliknij **kontroler widoku głównego** w scenorysie i upewnij się, że **HomeViewController** jako jego **Klasa niestandardowa** i **Identyfikator scenorysu** w Inspektorze tożsamości.
 7. Wykonaj te same czynności dla kontrolera widoku obrazu jako **imageViewController**.
-8. Następnie utwórz nową klasę kontrolera widoku zatytułowaną **imageViewController** , aby obsługiwać interfejs użytkownika, który właśnie został utworzony.
-9. W **imageViewController. h**Dodaj następujący do deklaracji interfejsu kontrolera. Upewnij się, że kontrolka przeciągnie się z widoku obrazu scenorysu do tych właściwości, aby połączyć dwa:
+8. Następnie utwórz nową klasę kontrolera widoku o nazwie **imageViewController** , aby obsługiwać interfejs użytkownika, który właśnie został utworzony.
+9. W **imageViewController. h**Dodaj następujący kod do deklaracji interfejsu kontrolera. Upewnij się, że kontrolka przeciągnie się z widoku obrazu scenorysu do tych właściwości, aby połączyć dwa:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UIImageView *myImage;
     @property (strong) UIImage* imagePayload;
     ```
+
 10. W programie `imageViewController.m` Dodaj następujące elementy na końcu `viewDidload` :
 
     ```objc
     // Display the UI Image in UI Image View
     [self.myImage setImage:self.imagePayload];
     ```
+
 11. W programie `AppDelegate.m` Zaimportuj utworzony kontroler obrazu:
 
     ```objc
     #import "imageViewController.h"
     ```
+
 12. Dodaj sekcję interfejsu z następującą deklaracją:
 
     ```objc
@@ -190,6 +190,7 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
 
     @end
     ```
+
 13. W programie upewnij `AppDelegate` się, że aplikacja rejestruje się w celu otrzymywania powiadomień dyskretnych w programie `application: didFinishLaunchingWithOptions` :
 
     ```objc
@@ -234,7 +235,7 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
     return YES;
     ```
 
-14. Przed wprowadzeniem `application:didRegisterForRemoteNotificationsWithDeviceToken` zmian w interfejsie użytkownika scenorysu Zastąp w następującej implementacji:
+14. Przed wprowadzeniem zmian w `application:didRegisterForRemoteNotificationsWithDeviceToken` interfejsie użytkownika scenorysu Zastąp następujące wdrożenie:
 
     ```objc
     // Access navigation controller which is at the root of window
@@ -243,6 +244,7 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
     homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
     hvc.deviceToken = deviceToken;
     ```
+
 15. Następnie Dodaj następujące metody do `AppDelegate.m` pobrania obrazu z punktu końcowego i Wyślij powiadomienie lokalne po zakończeniu pobierania. Upewnij się, że symbol zastępczy został zastąpiony przez `{backend endpoint}` punkt końcowy zaplecza:
 
     ```objc
@@ -324,7 +326,8 @@ Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* pow
         // Add "else if" here to handle more types of rich content such as url, sound files, etc.
     }
     ```
-16. Aby obsłużyć powiadomienie lokalne powyżej, otwierając kontroler widoku obrazu w `AppDelegate.m` następujących metodach:
+
+16. Obsłuż poprzednie lokalne powiadomienie, otwierając kontroler widoku obrazu przy `AppDelegate.m` użyciu następujących metod:
 
     ```objc
     // Helper: redirect users to image view controller

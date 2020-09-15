@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 063fbd2ad4f2f5d427fd2cb39b8ce9b231eba374
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: cd59bb411a598603ccef215cd9a56b7619115e72
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036429"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090571"
 ---
 # <a name="show-traffic-on-the-map"></a>Pokaż ruch na mapie
 
@@ -22,9 +22,9 @@ Istnieją dwa typy danych ruchu dostępne w Azure Maps:
 
 - Dane zdarzenia — składa się z punktów i danych opartych na wierszu dla elementów, takich jak konstrukcja, zamknięcie dróg i awarie.
 - Dane przepływu — dostarcza metryki przepływu ruchu na drogach. Często dane przepływu ruchu są używane do kolorowania dróg. Kolory są zależne od tego, jaki ruch zmniejsza przepływ w stosunku do limitu szybkości lub innej metryki. Dane przepływu ruchu w Azure Maps mają trzy różne metryki pomiaru:
-    - `relative`-jest względem prędkości swobodnego przepływu drogi.
-    - `absolute`-jest bezwzględną szybkością wszystkich pojazdów w podróży.
-    - `relative-delay`-Wyświetla obszary, które są wolniejsze niż średnie oczekiwane opóźnienie.
+    - `relative` -jest względem prędkości swobodnego przepływu drogi.
+    - `absolute` -jest bezwzględną szybkością wszystkich pojazdów w podróży.
+    - `relative-delay` -Wyświetla obszary, które są wolniejsze niż średnie oczekiwane opóźnienie.
 
 Poniższy kod przedstawia sposób wyświetlania danych o ruchu na mapie.
 
@@ -40,7 +40,7 @@ Poniżej znajduje się kompletny przykładowy kod wykonywany z powyższymi funkc
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Pokaż ruch na mapie' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz pióro <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Pokaż ruch na mapie</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Pokaż ruch na mapie' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz pióro <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Pokaż ruch na mapie</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="traffic-overlay-options"></a>Opcje nakładki ruchu
@@ -49,9 +49,31 @@ Poniższe narzędzie umożliwia przełączenie między różnymi ustawieniami na
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Opcje nakładki ruchu" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="700" style="width: 100%;" scrolling="no" title="Opcje nakładki ruchu" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Zobacz <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>opcje nakładki ruchu</a> piórem według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w witrynie <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+
+## <a name="add-traffic-controls"></a>Dodawanie kontrolek ruchu
+
+Istnieją dwie różne kontrolki ruchu, które można dodać do mapy. Pierwszy formant, `TrafficControl` , dodaje przycisk przełączania, który może służyć do włączania i wyłączania ruchu. Opcje tej kontrolki umożliwiają określenie, kiedy ustawienia ruchu mają być używane podczas wyświetlania ruchu. Domyślnie ta kontrolka będzie wyświetlać względny przepływ ruchu i dane zdarzenia, ale można to zmienić tak, aby pokazywać bezwzględny przepływ ruchu i żadne zdarzenia w razie potrzeby. Druga kontrolka, `TrafficLegendControl` dodaje do mapy legendę przepływu ruchu, która pomaga użytkownikom zrozumieć, co oznacza kolor kodu drogi. Ta kontrolka będzie wyświetlana tylko na mapie, gdy dane przepływu ruchu są wyświetlane na mapie i będą ukryte w innym czasie.
+
+Poniższy kod pokazuje, jak dodać kontrolki ruchu do mapy.
+
+```JavaScript
+//Att the traffic control toogle button to the top right corner of the map.
+map.controls.add(new atlas.control.TrafficControl(), { position: 'top-right' });
+
+//Att the traffic legend control to the bottom left corner of the map.
+map.controls.add(new atlas.control.TrafficLegendControl(), { position: 'bottom-left' });
+```
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Kontrolki ruchu" src="https://codepen.io/azuremaps/embed/ZEWaeLJ?height500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
+Zobacz <a href='https://codepen.io/azuremaps/pen/ZEWaeLJ'>kontrolki ruchu</a> pióra przez Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 
 ## <a name="next-steps"></a>Następne kroki
 

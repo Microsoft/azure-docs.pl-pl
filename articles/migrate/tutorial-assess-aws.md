@@ -1,22 +1,21 @@
 ---
-title: Ocenianie serwerów fizycznych na potrzeby migracji na platformę Azure za pomocą oceny serwera Azure Migrate
-description: Opisuje, jak oceniać lokalne serwery fizyczne do migracji na platformę Azure przy użyciu oceny serwera Azure Migrate.
+title: Oceniaj wystąpienia AWS na potrzeby migracji na platformę Azure za pomocą oceny serwera Azure Migrate
+description: Opisuje sposób oceny wystąpień AWS na potrzeby migracji na platformę Azure przy użyciu oceny serwera Azure Migrate.
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 3669658100681d08e754c19377b82faff5bce1ea
+ms.openlocfilehash: 14928c8a3249cca172ad088f290b54a22a125ae7
 ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090484"
+ms.locfileid: "90108902"
 ---
-# <a name="tutorial-assess-physical-servers-for-migration-to-azure"></a>Samouczek: Ocena serwerów fizycznych do migracji na platformę Azure
+# <a name="tutorial-assess-aws-instances-for-migration-to-azure"></a>Samouczek: Ocena wystąpień AWS na potrzeby migracji na platformę Azure
 
 W ramach kursu migracji do platformy Azure oceniasz swoje obciążenia lokalne, aby mierzyć gotowość do chmury, identyfikować zagrożenia i oceniać koszty i złożoność.
 
-W tym artykule opisano sposób oceny lokalnych serwerów fizycznych na potrzeby migracji na platformę Azure przy użyciu narzędzia do oceny serwera Azure Migrate:.
-
+W tym artykule opisano sposób oceny wystąpień Amazon Web Services (AWS) na potrzeby migracji na platformę Azure przy użyciu narzędzia do oceny serwera Azure Migrate:.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
@@ -31,10 +30,8 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Zanim skorzystasz z tego samouczka, aby ocenić maszyny do migracji do maszyn wirtualnych platformy Azure, upewnij się, że wykryto maszyny, które chcesz ocenić:
-    - Aby odnaleźć maszyny korzystające z urządzenia Azure Migrate, [postępuj zgodnie z tym samouczkiem](tutorial-discover-physical.md). 
-    - Aby odnajdywać maszyny przy użyciu zaimportowanego pliku CSV, [postępuj zgodnie z tym samouczkiem](tutorial-discover-import.md).
-- Upewnij się, że maszyny fizyczne, które chcesz ocenić, nie są uruchomione w systemie Windows Server 2003 lub SUSE Linux. Ocena nie jest obsługiwana dla tych maszyn.
+- Przed wykonaniem kroków opisanych w tym samouczku Ukończ pierwszy samouczek z tej serii, aby [odnaleźć spis lokalny](tutorial-discover-aws.md). 
+- Upewnij się, że wystąpienia AWS nie działają w systemie Windows Server 2003 lub SUSE Linux. Ocena nie jest obsługiwana dla tych maszyn.
 
 
 ## <a name="decide-which-assessment-to-run"></a>Wybór oceny do uruchomienia
@@ -53,22 +50,21 @@ Uruchom ocenę w następujący sposób:
 
 1. Na stronie **serwery** > **serwery z systemami Windows i Linux**kliknij pozycję **Oceń i Przeprowadź migrację serwerów**.
 
-   ![Przycisk lokalizacji oceny i migracji serwerów](./media/tutorial-assess-physical/assess.png)
+   ![Przycisk lokalizacji oceny i migracji serwerów](./media/tutorial-assess-aws/assess.png)
 
-2. W **Azure Migrate: Ocena serwera**, kliknij przycisk **Oceń**.
+2. W programie * * Azure Migrate: Ocena serwera, kliknij przycisk **Oceń**.
 
-    ![Lokalizacja przycisku oceny](./media/tutorial-assess-physical/assess-servers.png)
+    ![Lokalizacja przycisku oceny](./media/tutorial-assess-aws/assess-servers.png)
 
 3. W obszarze **ocenianie serwerów**  >  **Typ oceny**wybierz **maszynę wirtualną platformy Azure**.
 4. W **źródle odnajdywania**:
 
     - W przypadku wykrycia maszyn przy użyciu urządzenia wybierz pozycję **maszyny odnalezione z urządzenia Azure Migrate**.
     - W przypadku wykrycia maszyn przy użyciu zaimportowanego pliku CSV wybierz pozycję **zaimportowane maszyny**. 
-    
 5. Określ nazwę oceny. 
 6. Kliknij pozycję **Wyświetl wszystko**, aby sprawdzić właściwości oceny.
 
-    ![Lokalizacja przycisku Wyświetl wszystko, aby przejrzeć właściwości oceny](./media/tutorial-assess-physical/assessment-name.png)
+    ![Lokalizacja przycisku Wyświetl wszystko, aby przejrzeć właściwości oceny](./media/tutorial-assess-aws/assessment-name.png)
 
 7. We **Assessment properties**właściwościach  >  **elementu docelowego**właściwości oceny:
     - W polu **Lokalizacja docelowa**Określ region platformy Azure, do którego chcesz przeprowadzić migrację.
@@ -88,7 +84,7 @@ Uruchom ocenę w następujący sposób:
     - W obszarze **Seria maszyn wirtualnych**Określ serię maszyn wirtualnych platformy Azure, którą chcesz uwzględnić.
         - Jeśli używasz oceny wydajności, Azure Migrate sugeruje wartość.
         - Dostrajanie ustawień zgodnie z wymaganiami. Na przykład jeśli nie masz środowiska produkcyjnego wymagającego maszyn wirtualnych serii A na platformie Azure, możesz wykluczyć serię z listy serii.
-    - W polu **czynnik komfortu**wskaż bufor, który ma być używany podczas oceny. Te konta dotyczące problemów, takich jak sezonowe użycie, krótka historia wydajności i prawdopodobnie wzrastają w przyszłości. Na przykład, jeśli używasz współczynnika komfortu równym 2 **Component**:  |  **wykorzystanie efektywnego**składnika  |  **Dodawanie współczynnika komfortu (2,0)** rdzeni | 2 | 4 pamięć | 8 GB | 16 GB    
+    - W polu **czynnik komfortu**wskaż bufor, który ma być używany podczas oceny. Te konta dotyczące problemów, takich jak sezonowe użycie, krótka historia wydajności i prawdopodobnie wzrastają w przyszłości. Na przykład jeśli używasz współczynnika komfortu dwóch: szczegóły użycia **Details**  |  **Utilization**  |  **Dodaj współczynnik komfortu (2,0)** odczyt IOPS | 100 | 200 operacji zapisu IOPS | 100 | 200 przepływność odczytu | 100 MB/s | 200 przepustowość zapisu | 100 MB/s
    
 9. W **cenniku**:
     - W obszarze **Oferta**Określ [ofertę platformy Azure](https://azure.microsoft.com/support/legal/offer-details/) , Jeśli zarejestrowano. Ocena serwera szacuje koszt dla tej oferty.
@@ -104,7 +100,7 @@ Uruchom ocenę w następujący sposób:
 
 10. Jeśli wprowadzisz zmiany, kliknij przycisk **Zapisz** .
 
-    ![Właściwości oceny](./media/tutorial-assess-physical/assessment-properties.png)
+    ![Właściwości oceny](./media/tutorial-assess-aws/assessment-properties.png)
 
 11. W obszarze **ocenianie serwerów**kliknij przycisk **dalej**.
 12. W obszarze **Wybieranie maszyn do oceny**wybierz pozycję **Utwórz nową**, a następnie określ nazwę grupy. 
@@ -128,7 +124,7 @@ Aby wyświetlić ocenę:
 1. W obszarze **serwery**  >  **Azure Migrate: Ocena serwera**, kliknij liczbę obok pozycji **oceny**.
 2. W obszarze **oceny**Wybierz ocenę, aby ją otworzyć. Przykładowo (oszacowania i koszty tylko na przykład): 
 
-    ![Podsumowanie oceny](./media/tutorial-assess-physical/assessment-summary.png)
+    ![Podsumowanie oceny](./media/tutorial-assess-aws/assessment-summary.png)
 
 3. Przejrzyj podsumowanie oceny. Możesz również edytować właściwości oceny lub ponownie obliczyć ocenę.
  
@@ -161,12 +157,13 @@ Podsumowanie oceny przedstawia szacowany koszt obliczeń i magazynu dla uruchomi
 
 Ocena serwera przypisuje ocenę zaufania do ocen opartych na wydajności. Klasyfikacja jest z jednej gwiazdki (najniższej) do pięciu gwiazdek (najwyższa).
 
-![Ocena zaufania](./media/tutorial-assess-physical/confidence-rating.png)
+![Ocena zaufania](./media/tutorial-assess-aws/confidence-rating.png)
 
 Ocena zaufania pomaga oszacować niezawodność zaleceń dotyczących rozmiaru w ocenie. Klasyfikacja jest oparta na dostępności punktów danych potrzebnych do obliczenia oceny.
 
 > [!NOTE]
 > Klasyfikacje zaufania nie są przypisywane w przypadku tworzenia oceny opartej na pliku CSV.
+
 
 Klasyfikacje zaufania są następujące.
 
