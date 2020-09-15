@@ -13,12 +13,12 @@ metadata:
   ms.author: jmartens
   ms.date: 09/17/2020
   ms.custom: contperfq1
-  ms.openlocfilehash: 19aba3cd915ac980f2f21e2457365fb6768d10c2
-  ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+  ms.openlocfilehash: c103b04fff2cc0b1d5b804c16f98e63fd1aa3e87
+  ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 09/10/2020
-  ms.locfileid: "89668810"
+  ms.lasthandoff: 09/14/2020
+  ms.locfileid: "90068289"
 landingContent:
 - title: 'Wprowadzenie: Najpierw kod'
   linkLists:
@@ -42,9 +42,9 @@ landingContent:
       url: concept-designer.md
   - linkListType: tutorial
     links:
-    - text: Rozpoczynanie pracy z usługą AutoML
+    - text: Wprowadzenie (AutoML)
       url: tutorial-first-experiment-automated-ml.md
-    - text: Wprowadzenie do projektanta
+    - text: Wprowadzenie (projektant)
       url: tutorial-designer-automobile-price-train-score.md
   - linkListType: reference
     links:
@@ -58,7 +58,7 @@ landingContent:
       url: how-to-deploy-existing-model.md
     - text: Śledzenie i wdrażanie modeli platformy MLflow
       url: how-to-use-mlflow.md
-- title: 'MLOps: Wdrażanie modeli i zarządzanie nimi'
+- title: Wdrażanie modeli i zarządzanie nimi (MLOps)
   linkLists:
   - linkListType: how-to-guide
     links:

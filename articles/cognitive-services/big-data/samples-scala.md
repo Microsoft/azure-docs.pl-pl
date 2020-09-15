@@ -1,6 +1,6 @@
 ---
 title: Cognitive Services przykładów Scala danych Big Data
-description: Wypróbuj Cognitive Services przykłady w języku Python, aby Azure Databricks do uruchamiania potoku MMLSpark na potrzeby danych Big Data.
+description: Użyj Cognitive Services, aby Azure Databricks do uruchamiania potoku MMLSpark na potrzeby danych Big Data.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 098b59b8de0d0d7e5c3929ce084276350c04810a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4546ef03c82f19d188a71a86f6964ca87c0f834e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86189818"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524967"
 ---
 # <a name="quick-examples"></a>Szybkie przykłady
 
@@ -237,7 +237,7 @@ display(anamolyDetector.transform(df).select("timestamp", "value", "anomalies.is
 
 ### <a name="expected-result"></a>Oczekiwany wynik
 
-| sygnatura czasowa            |   wartość | isanomalia   |
+| sygnatura czasowa            |   Wartość | isanomalia   |
 |:---------------------|--------:|:------------|
 | 1972 R-01-01T00:00:00Z |     826 | Fałsz       |
 | 1972 — 02-01T00:00:00Z |     799 | Fałsz       |

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 2c6d1873aadbbf19f1b7650f9b432b3b6bed2841
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068374"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527381"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informacje o sieci w usłudze odzyskiwania po awarii maszyny wirtualnej platformy Azure
 
@@ -35,7 +35,7 @@ Jeśli używasz usługi Azure ExpressRoute lub połączenia sieci VPN z sieci lo
 
 ![Klient-środowisko](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Zwykle sieci są chronione za pomocą zapór i sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń). Zapory korzystają z adresów URL lub listy dozwolonych opartych na protokole IP w celu kontrolowania łączności sieciowej. Sieciowych grup zabezpieczeń zapewniają reguły korzystające z zakresów adresów IP w celu kontrolowania łączności sieciowej.
+Zwykle sieci są chronione za pomocą zapór i sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń). Do kontrolowania łączności sieciowej należy używać tagów usługi. Sieciowych grup zabezpieczeń powinna zezwalać na wiele tagów usługi do kontrolowania łączności wychodzącej.
 
 >[!IMPORTANT]
 > Używanie uwierzytelnionego serwera proxy do sterowania łącznością sieciową nie jest obsługiwane przez Site Recovery i nie można włączyć replikacji.
@@ -45,6 +45,8 @@ Zwykle sieci są chronione za pomocą zapór i sieciowych grup zabezpieczeń (si
 
 Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowania łączności wychodzącej, Zezwól na następujące adresy URL Site Recovery:
 
+>[!NOTE]
+> W celu kontrolowania łączności wychodzącej nie należy wykonywać listy dozwolonych opartych na adresie IP.
 
 **Adres URL** | **Szczegóły**
 --- | ---
@@ -63,9 +65,9 @@ Jeśli używasz sieciowej grupy zabezpieczeń do kontrolowania łączności wych
     - Utwórz opartą na [znaczniku usługi magazynu](../virtual-network/security-overview.md#service-tags) regułę sieciowej grupy zabezpieczeń dla regionu źródłowego.
     - Zezwalaj na te adresy, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej z poziomu maszyny wirtualnej.
 - Utwórz opartą na [usłudze Azure Active Directory regułę sieciowej grupy zabezpieczeń (AAD)](../virtual-network/security-overview.md#service-tags) , aby umożliwić dostęp do wszystkich adresów IP odpowiadających usłudze AAD
-- Utwórz regułę sieciowej grupy zabezpieczeń opartą na tagu usługi EventsHub dla regionu docelowego, umożliwiając dostęp do monitorowania Site Recovery.
+- Utwórz regułę sieciowej grupy zabezpieczeń opartą na znacznikach usługi EventsHub dla regionu docelowego, umożliwiając dostęp do monitorowania Site Recovery.
 - Utwórz regułę sieciowej grupy zabezpieczeń opartą na znacznikach usługi AzureSiteRecovery, aby umożliwić dostęp do usługi Site Recovery w dowolnym regionie.
-- Utwórz regułę sieciowej grupy zabezpieczeń opartą na tagu usługi AzureKeyVault. Jest to wymagane tylko w przypadku włączania replikacji maszyn wirtualnych z obsługą ADE za pośrednictwem portalu.
+- Utwórz regułę sieciowej grupy zabezpieczeń opartą na znacznikach usługi AzureKeyVault. Jest to wymagane tylko w przypadku włączania replikacji maszyn wirtualnych z obsługą ADE za pośrednictwem portalu.
 - Utwórz regułę sieciowej grupy zabezpieczeń opartą na znacznikach usługi GuestAndHybridManagement. Jest to wymagane tylko do włączenia autouaktualnienia agenta mobilności dla zreplikowanego elementu za pośrednictwem portalu.
 - Zalecamy utworzenie wymaganych reguł sieciowej grupy zabezpieczeń na testowym sieciowej grupy zabezpieczeń i sprawdzenie, czy nie ma żadnych problemów przed utworzeniem reguł na sieciowej grupy zabezpieczeń produkcyjnej.
 
@@ -98,7 +100,7 @@ Te reguły są wymagane, aby można było włączyć replikację z regionu docel
 
 2. Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "usługi azureactivedirectory" w sieciowej grupy zabezpieczeń.
 
-3. Podobnie jak powyżej reguły zabezpieczeń, Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "EventHub. Wschód" w sieciowej grupy zabezpieczeń, który odpowiada lokalizacji źródłowej. Pozwala to na dostęp do monitorowania Site Recovery.
+3. Podobnie jak w przypadku powyższych reguł zabezpieczeń, Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "EventHub. Wschód" w sieciowej grupy zabezpieczeń, który odpowiada lokalizacji źródłowej. Pozwala to na dostęp do monitorowania Site Recovery.
 
 4. Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "AzureSiteRecovery" w sieciowej grupy zabezpieczeń. Pozwala to na dostęp do usługi Site Recovery w dowolnym regionie.
 

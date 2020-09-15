@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 09/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f17a634a9bc3b410eec8ed6e868d454dc9ecee6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e523f8cc3aa9ab2f42d2d28909c9dec2dad30b43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116601"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526956"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Włącz logowanie przy użyciu klucza zabezpieczeń bezhasło (wersja zapoznawcza)
 
@@ -32,15 +32,15 @@ Ten dokument koncentruje się na włączaniu uwierzytelniania bezhaseł opartego
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Włącz [Podgląd rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md)
 - Zgodne [FIDO2 klucze zabezpieczeń](concept-authentication-passwordless.md#fido2-security-keys)
-- WebAuthN wymaga systemu Windows 10 w wersji 1809 lub nowszej * *
+- WebAuthN wymaga systemu Windows 10 w wersji 1903 lub nowszej * *
 
 Aby używać kluczy zabezpieczeń do logowania się do usługi Web Apps i usług, musisz mieć przeglądarkę obsługującą protokół WebAuthN. Obejmują one programy Microsoft Edge, Chrome, Firefox i Safari.
 
 ## <a name="prepare-devices-for-preview"></a>Przygotuj urządzenia do wersji zapoznawczej
 
-Urządzenia przyłączone do usługi Azure AD, które są pilotażowe, muszą korzystać z systemu Windows 10 w wersji 1809 lub nowszej. Najlepszym rozwiązaniem jest system Windows 10 w wersji 1903 lub nowszej.
+Urządzenia przyłączone do usługi Azure AD, które są pilotażowe, muszą korzystać z systemu Windows 10 w wersji 1909 lub nowszej. Najlepszym rozwiązaniem jest system Windows 10 w wersji 1903 lub nowszej.
 
-Hybrydowe urządzenia dołączone do usługi Azure AD muszą uruchamiać kompilację niejawnego programu testów systemu Windows 10 18945 lub nowszą.
+Urządzenia dołączone do hybrydowej usługi Azure AD muszą mieć uruchomiony system Windows 10 w wersji 2004 lub nowszej.
 
 ## <a name="enable-passwordless-authentication-method"></a>Włącz metodę uwierzytelniania bezhasła
 
@@ -73,7 +73,7 @@ Funkcje rejestracji dla metod uwierzytelniania bezhaseł polegają na funkcji re
 
 ## <a name="sign-in-with-passwordless-credential"></a>Zaloguj się przy użyciu poświadczeń bez hasła
 
-W przykładzie poniżej Użytkownik zainicjowano już swój klucz zabezpieczeń FIDO2. Użytkownik może zdecydować się na zalogowanie się w sieci Web przy użyciu klucza zabezpieczeń FIDO2 w obsługiwanej przeglądarce w systemie Windows 10 w wersji 1809 lub nowszej.
+W przykładzie poniżej Użytkownik zainicjowano już swój klucz zabezpieczeń FIDO2. Użytkownik może zdecydować się na zalogowanie się w sieci Web przy użyciu klucza zabezpieczeń FIDO2 w obsługiwanej przeglądarce w systemie Windows 10 w wersji 1903 lub nowszej.
 
 ![Logowanie do klucza zabezpieczeń w przeglądarce Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068816"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526888"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
 
@@ -31,7 +31,7 @@ Następujące ustawienia usługi Azure Multi-Factor Authentication są dostępne
 | [Blokuj/Odblokuj użytkowników](#block-and-unblock-users) | Zablokuj określonym użytkownikom możliwość otrzymywania żądań Multi-Factor Authentication platformy Azure. Wszystkie próby uwierzytelnienia dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają Zablokowani przez 90 dni od momentu ich zablokowania lub ręcznie odblokowany. |
 | [Alert dotyczący wykrycia oszustwa](#fraud-alert) | Skonfiguruj ustawienia, które umożliwiają użytkownikom zgłaszanie fałszywych żądań weryfikacji. |
 | [Powiadomienia](#notifications) | Włącz powiadomienia zdarzeń z serwera MFA. |
-| [Tokeny OATH](concept-authentication-methods.md#oath-tokens) | Używany w środowiskach Azure MFA opartych na chmurze do zarządzania tokenami OATH dla użytkowników. |
+| [Tokeny OATH](concept-authentication-oath-tokens.md) | Używany w środowiskach Azure MFA opartych na chmurze do zarządzania tokenami OATH dla użytkowników. |
 | [Ustawienia połączenia telefonicznego](#phone-call-settings) | Konfigurowanie ustawień związanych z połączeniami telefonicznymi i powitami w środowiskach chmurowych i lokalnych. |
 | Dostawcy | Spowoduje to wyświetlenie wszystkich istniejących dostawców uwierzytelniania, które mogły zostać skojarzone z Twoim kontem. Nie można utworzyć nowych dostawców uwierzytelniania od 1 września 2018 |
 

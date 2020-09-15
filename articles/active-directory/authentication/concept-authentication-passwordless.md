@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 144198a708b8e3cfcb5b3c6936d7fc51cadf4a13
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084332"
+ms.locfileid: "90527024"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opcje uwierzytelniania bezhasło dla Azure Active Directory
 
@@ -82,11 +82,15 @@ Aby rozpocząć logowanie bez hasła, wykonaj następujące czynności:
 
 ## <a name="fido2-security-keys"></a>FIDO2 klucze zabezpieczeń
 
+FIDO (Fast IDentity online) Alliance pomaga wspierać otwarte standardy uwierzytelniania i zmniejszać użytkowników haseł jako formy uwierzytelniania. FIDO2 to najnowszy standard, który obejmuje Standard Uwierzytelnianie sieci Web (WebAuthn).
+
 Klucze zabezpieczeń FIDO2 to metoda uwierzytelniania bez hasła oparta na standardach, która może mieć dowolny współczynnik form. Szybka tożsamość w trybie online (FIDO) to otwarty standard uwierzytelniania bezhaseł. FIDO umożliwia użytkownikom i organizacjom korzystanie ze standardu do logowania się do swoich zasobów bez użycia nazwy użytkownika ani hasła przy użyciu zewnętrznego klucza zabezpieczeń lub klucza platformy wbudowanego w urządzenie.
 
-Pracownicy mogą korzystać z kluczy zabezpieczeń, aby zalogować się do usługi Azure AD lub hybrydowych urządzeń z systemem Windows 10 dołączonych do usługi Azure AD i uzyskać Logowanie jednokrotne do swoich zasobów w chmurze i lokalnych. Użytkownicy mogą również zalogować się w obsługiwanych przeglądarkach. Klucze zabezpieczeń FIDO2 są świetną opcją dla przedsiębiorstw, które mają bardzo duże znaczenie dla bezpieczeństwa lub mają scenariusze lub pracowników, którzy nie chcą korzystać z telefonu jako drugiego czynnika.
+Użytkownicy mogą rejestrować i wybierać klucz zabezpieczeń FIDO2 w interfejsie logowania jako główny sposób uwierzytelniania. Te klucze zabezpieczeń FIDO2 są zazwyczaj urządzeniami USB, ale mogą również korzystać z połączenia Bluetooth lub NFC. W przypadku urządzenia sprzętowego, które obsługuje uwierzytelnianie, zabezpieczenia konta są zwiększane, ponieważ nie ma hasła, które może być ujawnione lub odgadnąć.
 
-Logowanie przy użyciu kluczy zabezpieczeń FIDO2 w usłudze Azure AD jest obecnie w wersji zapoznawczej.
+Klucze zabezpieczeń FIDO2 mogą służyć do logowania się do usługi Azure AD lub hybrydowych urządzeń z systemem Windows 10 przyłączonych do usługi Azure AD i uzyskiwania rejestracji jednokrotnej w swoich zasobach w chmurze i lokalnych. Użytkownicy mogą również zalogować się w obsługiwanych przeglądarkach. Klucze zabezpieczeń FIDO2 są świetną opcją dla przedsiębiorstw, które mają bardzo duże znaczenie dla bezpieczeństwa lub mają scenariusze lub pracowników, którzy nie chcą korzystać z telefonu jako drugiego czynnika.
+
+Logowanie przy użyciu kluczy zabezpieczeń FIDO2 w usłudze Azure AD jest obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 ![Zaloguj się do przeglądarki Microsoft Edge przy użyciu klucza zabezpieczeń](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -141,7 +145,6 @@ Aby rozpocząć pracę z kluczami zabezpieczeń FIDO2, wykonaj następujące czy
 > [!div class="nextstepaction"]
 > [Włączanie podpisywania bezhasła przy użyciu kluczy zabezpieczeń FIDO2](howto-authentication-passwordless-security-key.md)
 
-
 ## <a name="what-scenarios-work-with-the-preview"></a>Jakie scenariusze pracują z podglądem?
 
 Funkcje logowania bezhasła usługi Azure AD są obecnie dostępne w wersji zapoznawczej. Obowiązują następujące zastrzeżenia:
@@ -161,7 +164,7 @@ Oto kilka czynników, które należy wziąć pod uwagę podczas wybierania techn
 
 ||**Windows Hello dla firm**|**Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator**|**FIDO2 klucze zabezpieczeń**|
 |:-|:-|:-|:-|
-|**Wymagania wstępne**| Windows 10, wersja 1809 lub nowsza<br>Azure Active Directory| Aplikacja Microsoft Authenticator<br>Telefon (urządzenia z systemem iOS i Android z systemem Android 6,0 lub nowszym)|Windows 10, wersja 1809 lub nowsza<br>Azure Active Directory|
+|**Wymagania wstępne**| Windows 10, wersja 1809 lub nowsza<br>Azure Active Directory| Aplikacja Microsoft Authenticator<br>Telefon (urządzenia z systemem iOS i Android z systemem Android 6,0 lub nowszym)|Windows 10, wersja 1903 lub nowsza<br>Azure Active Directory|
 |**Tryb**|Platforma|Oprogramowanie|Sprzęt|
 |**Systemy i urządzenia**|KOMPUTER z wbudowaną moduł TPM (TPM)<br>Rozpoznawanie kodu PIN i biometrii |Rozpoznawanie kodu PIN i biometrii na telefonie|FIDO2 urządzenia zabezpieczające zgodne z firmą Microsoft|
 |**Środowisko użytkownika**|Zaloguj się przy użyciu kodu PIN lub rozpoznawania biometrycznego (twarzy, Iris lub odcisku palca) z urządzeniami z systemem Windows.<br>Uwierzytelnianie przy użyciu systemu Windows Hello jest powiązane z urządzeniem; Aby uzyskać dostęp do zasobów firmy, użytkownik potrzebuje zarówno urządzenia, jak i składnika logowania, takiego jak kod PIN lub czynnik biometryczny.|Zaloguj się przy użyciu telefonu komórkowego z funkcją skanowania odcisków palców, rozpoznawania twarzy lub tęczówki lub numeru PIN.<br>Użytkownicy logują się do konta służbowego lub osobistego z komputera lub telefonu komórkowego.|Zaloguj się przy użyciu urządzenia zabezpieczeń FIDO2 (biometrii, kod PIN i NFC)<br>Użytkownik może uzyskać dostęp do urządzenia w oparciu o kontrolki organizacji i uwierzytelniać się na podstawie kodu PIN, biometrii przy użyciu urządzeń, takich jak klucze zabezpieczeń USB i karty inteligentne obsługujące NFC, klucze lub noszenia.|

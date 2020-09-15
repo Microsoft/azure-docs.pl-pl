@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: 3854f353e4ea0b78c0162681e0b89d37419105d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80529522"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527211"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Praktyki dotyczące zabezpieczeń dla producentów urządzeń usługi Azure IoT
 Ponieważ większa producenci wydają urządzenia IoT, warto zidentyfikować wskazówki dotyczące typowych praktyk. W tym artykule przedstawiono podsumowanie zalecanych zasad zabezpieczeń, które należy wziąć pod uwagę podczas produkcji urządzeń do użycia z usługą Azure IoT Device Provisioning Service (DPS).  
@@ -182,7 +182,7 @@ Urządzenie może należeć do magazynu przez 6-12 miesięcy przed wdrożeniem.
 #### <a name="step-5-device-is-installed-into-the-location"></a>Krok 5. urządzenie jest zainstalowane w lokalizacji
 Po odebraniu urządzenia w jego końcowej lokalizacji odbywa się to przez automatyczne Inicjowanie obsługi przy użyciu funkcji DPS.
 
-Aby uzyskać więcej informacji, zobacz [pojęcia dotyczące](concepts-auto-provisioning.md) aprowizacji i [zaświadczania modułu TPM](concepts-tpm-attestation.md). 
+Aby uzyskać więcej informacji, zobacz [Inicjowanie obsługi administracyjnej](about-iot-dps.md#provisioning-process) i [zaświadczanie modułu TPM](concepts-tpm-attestation.md). 
 
 ## <a name="resources"></a>Zasoby
 

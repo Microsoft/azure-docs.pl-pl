@@ -3,17 +3,17 @@ title: Korzystanie z pulpitu nawigacyjnego dla laboratorium zajęć w Azure Lab 
 description: Dowiedz się, jak używać pulpitu nawigacyjnego dla laboratorium zajęć w Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4e59917aa385a344d79a62441e208df970f42285
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 607a3e7faaae65adb67afc0ab0ffd5698adf4655
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444322"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528265"
 ---
 # <a name="dashboard-for-classroom-labs"></a>Pulpit nawigacyjny dla laboratoriów zajęć
 W tym artykule opisano widok pulpitu nawigacyjnego laboratorium zajęć w Azure Lab Services. 
 
-![Pulpit nawigacyjny](./media/use-dashboard/dashboard.png)
+![Capature ekranu przedstawia widok pulpitu nawigacyjnego laboratorium zajęć w Azure Lab Services.](./media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>Kafelek kosztów i rozliczeń
 Ten kafelek zawiera następujące szczegóły oszacowania kosztów:

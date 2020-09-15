@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: 50b61ce7e2ef2a551d41dcb82d7127071005c34e
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 1a75c083015d1f10a3ed3dba15480430747756eb
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020502"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90525020"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Samouczek: Tworzenie aplikacji czatu serwera Blazor
 
@@ -28,6 +28,8 @@ W tym samouczku pokazano, jak utworzyć i zmodyfikować aplikację serwera Blazo
 * Zainstaluj [zestaw SDK platformy .NET Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0) (wersja >= 3.0.100)
 * Zainstaluj [program Visual Studio 2019](https://visualstudio.microsoft.com/vs/) (wersja >= 16,3)
 > Wersja zapoznawcza programu Visual Studio 2019 jest również dostępna przy użyciu najnowszego szablonu aplikacji Blazor Server, który ma nowszą wersję .Net Core.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsblazor)
 
 ## <a name="build-a-local-chat-room-in-blazor-server-app"></a>Tworzenie lokalnego pokoju rozmów w aplikacji serwera Blazor
 
@@ -354,6 +356,8 @@ W programie Visual Studio 2019 w wersji 16.2.0 usługa Azure Signal Service to k
 1. Kliknij przycisk <kbd>F5</kbd> , aby uruchomić aplikację. Będziesz w stanie rozmawiać jak poniżej.
 
    [![blazor — rozmowa ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat.gif#lightbox)
+   
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsblazor)
 
 ## <a name="publish-to-azure"></a>Publikowanie na platformie Azure
 
@@ -397,6 +401,8 @@ W programie Visual Studio 2019 w wersji 16.2.0 usługa Azure Signal Service to k
    > Oprócz tego można użyć trybu debugera przeglądarki z <kbd>klawiszem F12</kbd> , aby sprawdzić, czy ruch został już przekierowany do usługi Azure signaler.
 
    [![blazor — czat — Azure ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png)](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-azure.png#lightbox)
+   
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsblazor)
 
 ## <a name="further-topic-enable-azure-signalr-service-in-local-development"></a>Dodatkowy temat: Włączanie usługi Azure Signal Service w programowaniu lokalnym
 
@@ -441,6 +447,8 @@ W programie Visual Studio 2019 w wersji 16.2.0 usługa Azure Signal Service to k
 >      }
 >    ```
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsblazor)
+
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby wyczyścić zasoby utworzone w tym samouczku, usuń grupę zasobów za pomocą witryny Azure Portal.
@@ -460,6 +468,6 @@ Dowiedz się więcej o wysokiej dostępności.
 > [!div class="nextstepaction"]
 > [Odporność i odzyskiwanie po awarii](signalr-concept-disaster-recovery.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [ASP.NET Core Blazor](https://docs.microsoft.com/aspnet/core/blazor)

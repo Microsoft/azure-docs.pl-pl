@@ -4,12 +4,12 @@ description: Napisz aplikację konsolową w środowisku Node.js do obsługi obie
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8dc52c93d4b5cd6d50b66338350a41cf0e24daa0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cf660d7a776c0dfa48b6c023fa0fa3516a3a0ea5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386303"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527415"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Wprowadzenie do obiektów WebSocket połączeń hybrydowych usługi Relay w środowisku Node.js
 
@@ -52,7 +52,7 @@ Aby wysyłać komunikaty do usługi Relay, napisz aplikację konsolową Node.js.
 2. Uruchom aplikację klienta: w wiersza polecenia Node.js wpisz `node sender.js`, a następnie wpisz dowolny tekst.
 3. Upewnij się, że w konsoli aplikacji serwera pojawia się tekst wprowadzony w aplikacji klienta.
 
-    ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+    ![Okna konsoli przetestuje zarówno aplikacje serwera, jak i klienta.](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 Gratulacje! Aplikacja typu end-to-end do obsługi połączeń hybrydowych korzystająca ze środowiska Node.js jest gotowa.
 

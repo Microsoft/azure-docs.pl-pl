@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d70fe8a1fbaee285843bfd76ad2a8076df96b49b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 66283e4965aea9e24da6041133e2d88e95df6755
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717969"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526990"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła na urządzeniach z systemem Windows 10 z Azure Active Directory (wersja zapoznawcza)
 
@@ -32,8 +32,8 @@ Ten dokument koncentruje się na włączaniu uwierzytelniania bezhaseł opartego
 | [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Wersja zapoznawcza rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md) | X | X |
 | Zgodne [FIDO2 klucze zabezpieczeń](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
-| WebAuthN wymaga systemu Windows 10 w wersji 1809 lub nowszej | X | X |
-| [Urządzenia przyłączone do usługi Azure AD](../devices/concept-azure-ad-join.md) wymagają systemu Windows 10 w wersji 1903 lub nowszej | X |   |
+| WebAuthN wymaga systemu Windows 10 w wersji 1903 lub nowszej | X | X |
+| [Urządzenia przyłączone do usługi Azure AD](../devices/concept-azure-ad-join.md) wymagają systemu Windows 10 w wersji 1909 lub nowszej | X |   |
 | [Urządzenia dołączone do hybrydowej usługi Azure AD](../devices/concept-azure-ad-join-hybrid.md) wymagają systemu Windows 10 w wersji 2004 lub nowszej |   | X |
 | W pełni poprawione kontrolery domeny systemu Windows Server 2016/2019. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) w wersji 1.4.32.0 lub nowszej |   | X |
@@ -56,7 +56,7 @@ Następujące scenariusze nie są obsługiwane:
 
 ## <a name="prepare-devices-for-preview"></a>Przygotuj urządzenia do wersji zapoznawczej
 
-Urządzenia przyłączone do usługi Azure AD, które są uruchamiane w wersji zapoznawczej funkcji, muszą mieć system Windows 10 w wersji 1809 lub nowszej. Najlepszym rozwiązaniem jest system Windows 10 w wersji 1903 lub nowszej.
+Urządzenia przyłączone do usługi Azure AD, które są uruchamiane w wersji zapoznawczej funkcji, muszą mieć system Windows 10 w wersji 1909 lub nowszej.
 
 Urządzenia dołączone do hybrydowej usługi Azure AD muszą mieć uruchomiony system Windows 10 w wersji 2004 lub nowszej.
 
@@ -125,7 +125,7 @@ W przypadku urządzeń, które nie są zarządzane przez usługę Intune, można
 1. Aby zastosować utworzony pakiet aprowizacji, zobacz [stosowanie pakietu aprowizacji](/windows/configuration/provisioning-packages/provisioning-apply-package).
 
 > [!NOTE]
-> W przypadku urządzeń z systemem Windows 10 w wersji 1809 należy również włączyć tryb Shared PC (*EnableSharedPCMode*). Aby uzyskać więcej informacji na temat włączania tej funkcji, zobacz [Konfigurowanie komputera udostępnionego lub gościa w systemie Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
+> W przypadku urządzeń z systemem Windows 10 w wersji 1903 należy również włączyć tryb Shared PC (*EnableSharedPCMode*). Aby uzyskać więcej informacji na temat włączania tej funkcji, zobacz [Konfigurowanie komputera udostępnionego lub gościa w systemie Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
 
 ### <a name="enable-with-group-policy"></a>Włącz z zasady grupy
 

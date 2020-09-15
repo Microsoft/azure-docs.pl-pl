@@ -1,6 +1,6 @@
 ---
 title: Samouczek — Tworzenie wystąpienia IoT Edge analizy wideo na platformie Azure IoT Central (maszyna wirtualna z systemem Linux)
-description: W tym samouczku pokazano, jak utworzyć wystąpienie IoT Edge analizy wideo do użycia z szablonem aplikacji analiza filmów wideo — obiekt i ruch.
+description: W tym samouczku pokazano, jak utworzyć wystąpienie IoT Edge analizy wideo na maszynie wirtualnej z systemem Linux do użycia z szablonem aplikacji analiza filmów wideo — obiekty i ruch.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 69e5b757036a2d68fa779e3fc232cc42a034e33c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0b39ec9c8cb70adac1474b2647ac1c9591b9d5cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038433"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526395"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (maszyna wirtualna z systemem Linux)
 
@@ -64,7 +64,7 @@ Skorzystaj z informacji podanych w poniższej tabeli, aby ukończyć formularz *
 | Ubuntu wersja systemu operacyjnego | *18,04 – LTS* |
 | Lokalizacja | *[resourceing (). Location]* |
 
-Wybierz pozycję **Przegląd + utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Ukończenie wdrożenia zazwyczaj trwa około trzy minuty. Po zakończeniu wdrażania przejdź do grupy zasobów **LVA-RG** w Azure Portal.
+Wybierz pozycję **Przeglądanie + tworzenie**. Po zakończeniu walidacji wybierz pozycję **Utwórz**. Ukończenie wdrożenia zazwyczaj trwa około trzy minuty. Po zakończeniu wdrażania przejdź do grupy zasobów **LVA-RG** w Azure Portal.
 
 ## <a name="ensure-the-iot-edge-runtime-loads-the-modules"></a>Upewnij się, że środowisko uruchomieniowe IoT Edge ładuje moduły
 

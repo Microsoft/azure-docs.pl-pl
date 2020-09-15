@@ -1,7 +1,7 @@
 ---
 title: 'Szybki Start: używanie Node.js do wywoływania interfejsu API REST analiza tekstu'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start pokazano, jak uzyskać informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejs API analizy tekstu na platformie Azure Cognitive Services.
+description: W tym przewodniku szybki start pokazano, jak używać Node.js, aby uzyskać informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejs API analizy tekstu na platformie Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: fe9877649d850796b03e9f1c3554a1b9aa7344c3
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ecab49ce61e17853f6f8b48d68391798a37da0fd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407748"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527279"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-text-analytics-cognitive-service"></a>Szybki Start: używanie Node.js do wywoływania usługi analiza tekstu poznawczej  
 <a name="HOLTop"></a>
@@ -464,7 +464,7 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [!div class="nextstepaction"]
 > [analiza tekstu z Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Zobacz też 
+## <a name="see-also"></a>Zobacz także 
 
  [Przegląd analizy tekstu](../overview.md)  
  [Często zadawane pytania](../text-analytics-resource-faq.md)

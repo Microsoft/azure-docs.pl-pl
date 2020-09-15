@@ -1,7 +1,7 @@
 ---
 title: 'Szybki start: wywoływanie interfejsu API analizy tekstu przy użyciu języka Ruby'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start pokazano, jak uzyskać informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejs API analizy tekstu na platformie Azure Cognitive Services.
+description: W tym przewodniku szybki start pokazano, jak uzyskać informacje i przykłady kodu przy użyciu języka Ruby, aby szybko rozpocząć korzystanie z interfejs API analizy tekstu w usłudze Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
-ms.openlocfilehash: 92a80dc69afbda76d57a09e01efc9b91ecb286ba
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 076276068b62ed1b7b30864e9a4227cd449c680e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027913"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527228"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Szybki start: wywoływanie analizy tekstu usługi Cognitive Service przy użyciu języka Ruby
 <a name="HOLTop"></a>
@@ -37,7 +37,7 @@ Interfejs API wykrywania języka wykrywa język dokumentu tekstowego przy użyci
 1. Utwórz nowy projekt Ruby w ulubionym środowisku IDE.
 1. Dodaj kod przedstawiony poniżej.
 1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu. 
-1. Uruchom program.
+1. Uruchomisz program.
 
 ```ruby
 # encoding: UTF-8
@@ -121,7 +121,7 @@ Interfejs API analizy tonacji wykrywa tonację zestawu rekordów tekstowych przy
 1. Utwórz nowy projekt Ruby w ulubionym środowisku IDE.
 1. Dodaj kod przedstawiony poniżej.
 1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu. 
-1. Uruchom program.
+1. Uruchomisz program.
 
 ```ruby
 # encoding: UTF-8
@@ -224,7 +224,7 @@ Interfejs API wyodrębniania kluczowych fraz wyodrębnia kluczowe frazy w dokume
 1. Utwórz nowy projekt Ruby w ulubionym środowisku IDE.
 1. Dodaj kod przedstawiony poniżej.
 1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu.
-1. Uruchom program.
+1. Uruchomisz program.
 
 
 ```ruby
@@ -313,7 +313,7 @@ Interfejs API jednostek wyodrębnia jednostki w dokumencie tekstowym przy użyci
 1. Utwórz nowy projekt Ruby w ulubionym środowisku IDE.
 1. Dodaj kod przedstawiony poniżej.
 1. Skopiuj klucz analiza tekstu i punkt końcowy do kodu.
-1. Uruchom program.
+1. Uruchomisz program.
 
 ```ruby
 # encoding: UTF-8
@@ -387,5 +387,5 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 
 ## <a name="see-also"></a>Zobacz także 
 
- [Przegląd analiza tekstu](../overview.md)  
+ [Przegląd analizy tekstu](../overview.md)  
  [Często zadawane pytania](../text-analytics-resource-faq.md)

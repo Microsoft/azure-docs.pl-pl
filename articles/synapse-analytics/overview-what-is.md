@@ -6,15 +6,15 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 04/15/2020
+ms.date: 09/12/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: b93814c69a08dd757a390232804a00b2777bc20e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c4338152579170bf809577262992f0db9a1a95ff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90051999"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524950"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Co to jest usługa Azure Synapse Analytics (obszary robocze w wersji zapoznawczej)?
 
@@ -22,13 +22,7 @@ ms.locfileid: "90051999"
 
 Analiza przedsiębiorstwa musi zapewniać ogromną skalę w przypadku dowolnego rodzaju danych, zarówno nieprzetworzony, rafinowany, jak i wysoce nadzorowany. Te przedsiębiorstwa wymagane do łączenia się z technologiami danych Big Data i magazynowania danych, takimi jak Spark i SQL, są rozbudowanymi potokami danych, które działają w przypadku danych w magazynach relacyjnych i jeziorach danych. Takie rozwiązania są trudne do kompilowania, zabezpieczania i konserwowania. Złożoność Opóźnianie dostarczania potrzeb Enteprises szczegółowych informacji.
 
-**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas uzyskiwania wglądu w dane między magazynami danych i systemami analizy danych Big Data. Na tej samej platformie usługa Azure Synapse udostępnia zalety technologii **SQL** , które są używane w przypadku magazynowania danych w przedsiębiorstwie, technologii **Spark** używanych w przypadku danych Big Data oraz **potoków** do integracji danych i ETL/ELT.
-
-Usługa Azure Synapse zapewnia oparte na sieci Web środowisko programu **Studio** , które oferuje jedno miejsce do zarządzania, monitorowania, kodowania i zabezpieczenia.
-
-Usługa Azure Synapse zapewnia najprostszą i najszybszą metodę zbierania szczegółowych informacji na temat wszystkich danych w dowolnym rozmiarze przy użyciu analizy, z którą są najczęściej znane. Integruje się to z **Power BI** umożliwienia inżynierom danych tworzenia rozwiązań analitycznych, które działają kompleksowo w celu zapewnienia analizy biznesowej.
-
-Ponadto usługa Azure Synapse ułatwia tworzenie modeli predykcyjnych i zaawansowaną analizę przy użyciu uczenia maszynowego za pośrednictwem wbudowanej obsługi platformy **Azure**.
+**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas uzyskiwania wglądu w dane między magazynami danych i systemami analizy danych Big Data. Na swoim rdzeńu usługa Azure Synapse udostępnia zalety technologii **SQL** , które są używane w magazynach danych w przedsiębiorstwie, technologii **Spark** używanych w przypadku danych Big Data oraz **potoków** do integracji danych i ETL/ELT. Synapse ma oparty na sieci Web program **Studio** , który oferuje jedno miejsce do zarządzania, monitorowania, kodowania i zabezpieczenia. Synapse funkcje głębokiej integracji z innymi usługami platformy Azure, takimi jak **PowerBI**, **CosmosDB**i **Azure**.
 
 ## <a name="key-features--benefits"></a>Najważniejsze funkcje & korzyści
 

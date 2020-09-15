@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: 676d287969933d4815260f040b164753ec5803e1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: f66eaaa3be0b300f6a0aa68bd43a2c336f4b4d23
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88754875"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526633"
 ---
 # <a name="what-is-azure-hdinsight"></a>Co to jest usługa Azure HDInsight?
 
@@ -27,7 +27,7 @@ Aby wyświetlić dostępne składniki stosu technologii Hadoop w usłudze HDInsi
 
 ## <a name="what-is-big-data"></a>Co to są dane big data?
 
-Dane big data są gromadzone szybciej, w większych ilościach i bardziej różnorodnych formatach niż kiedykolwiek wcześniej. Dzielą się one na historyczne (przechowywane) lub dostępne w czasie rzeczywistym (przesyłane strumieniowo ze źródła). Zobacz [Scenariusze użycia usługi HDInsight](#scenarios-for-using-hdinsight), aby zapoznać się z najpopularniejszymi przypadkami użycia danych big data.
+Dane big data są gromadzone szybciej, w większych ilościach i bardziej różnorodnych formatach niż kiedykolwiek wcześniej. Mogą to być dane historyczne (czyli przechowywane) lub dane czasu rzeczywistego (przesyłane strumieniowo ze źródła). Zobacz [Scenariusze użycia usługi HDInsight](#scenarios-for-using-hdinsight), aby zapoznać się z najpopularniejszymi przypadkami użycia danych big data.
 
 ## <a name="why-should-i-use-azure-hdinsight"></a>Dlaczego warto używać usługi Azure HDInsight?
 
@@ -128,6 +128,16 @@ Znane narzędzia do analizy biznesowej (BI, business intelligence) pobierają, a
 * [Łączenie programu Excel z usługą Apache Hadoop za pomocą funkcji Power Query](./hadoop/apache-hadoop-connect-excel-power-query.md) (wymaga systemu Windows)
 
 * [Łączenie programu Excel z usługą Apache Hadoop przy użyciu sterownika Microsoft Hive ODBC](./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md) (wymaga systemu Windows)
+
+
+## <a name="in-region-data-residency"></a>Zamieszkania danych w regionie 
+
+Platformy Spark, Hadoop, LLAP, burze i MLService nie przechowują danych klienta, dlatego te usługi automatycznie spełniają wymagania dotyczące miejsca zamieszkania danych w regionie, w tym te określone w [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/). 
+
+Kafka i HBase przechowują dane klienta. Te dane są automatycznie przechowywane przez Kafka i HBase w jednym regionie, więc ta usługa spełnia wymagania dotyczące miejsca zamieszkania danych w regionie, w tym te określone w [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/). 
+
+
+Znane narzędzia analizy biznesowej pobierają, analizują i raportują dane zintegrowane z usługą HDInsight przy użyciu dodatku Power Query lub Sterownik Microsoft Hive ODBC.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,12 +3,12 @@ title: Tworzenie alertów dziennika aktywności dla laboratoriów w Azure DevTes
 description: Ten artykuł zawiera instrukcje tworzenia alertów dziennika aktywności dla laboratorium w Azure DevTest Labs.
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 6c859e70ab8a101c533e16f9cb118e26727baa52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d5886ea26ddbeb07efc23d61d3197860620eebf3
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098949"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526361"
 ---
 # <a name="create-activity-log-alerts-for-labs-in-azure-devtest-labs"></a>Tworzenie alertów dziennika aktywności dla laboratoriów w Azure DevTest Labs
 W tym artykule wyjaśniono, jak utworzyć alerty dziennika aktywności dla laboratoriów w Azure DevTest Labs (na przykład: Kiedy maszyna wirtualna jest tworzona lub po usunięciu maszyny wirtualnej).
@@ -64,7 +64,7 @@ W tym przykładzie utworzysz alert dla wszystkich operacji administracyjnych w l
 ## <a name="view-alerts"></a>Wyświetlanie alertów 
 1. Zostaną wyświetlone alerty dotyczące **alertów** dla wszystkich operacji administracyjnych (w tym przykładzie). Wyświetlanie alertów może potrwać trochę czasu. 
 
-    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Alerty":::
+    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Przechwytywanie ekranu wyświetla alerty na pulpicie nawigacyjnym.":::
 1. Jeśli wybierzesz pozycję liczba w kolumnie (na przykład: **całkowita liczba alertów**), zobaczysz zgłoszone alerty. 
 
     :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="Wszystkie alerty":::
@@ -77,6 +77,6 @@ W tym przykładzie utworzysz alert dla wszystkich operacji administracyjnych w l
 
 ## <a name="next-steps"></a>Następne kroki
 - Aby dowiedzieć się więcej na temat tworzenia grup akcji przy użyciu różnych typów akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi w Azure Portal](../azure-monitor/platform/action-groups.md).
-- Aby dowiedzieć się więcej o dziennikach aktywności, zobacz [Dziennik aktywności platformy Azure](../azure-monitor/platform/activity-log.md).
+- Aby dowiedzieć się więcej o dziennikach aktywności, zobacz  [Dziennik aktywności platformy Azure](../azure-monitor/platform/activity-log.md).
 - Aby dowiedzieć się więcej na temat ustawiania alertów dotyczących dzienników aktywności, zobacz [alerty dotyczące dziennika aktywności](../azure-monitor/platform/activity-log-alerts.md).
 

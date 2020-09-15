@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 882d62c088fa51153ca496231beccd4bfd5af0cb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6cd606a8373e8abd4c58151cdb0b5f1f2b689535
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190365"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526684"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Szybki start: aprowizowanie symulowanego urządzenia X.509 za pomocą zestawu SDK języka C usługi Azure IoT
 
@@ -21,7 +21,7 @@ ms.locfileid: "82190365"
 
 Z tego przewodnika Szybki start dowiesz się, jak utworzyć i uruchomić symulator urządzenia X.509 na maszynie deweloperskiej z systemem Windows. To symulowane urządzenie skonfigurujesz tak, aby przypisać je do centrum IoT Hub za pomocą rejestracji w wystąpieniu usługi Device Provisioning Service. W celu symulowania sekwencji uruchamiania dla tego urządzenia będzie używany przykładowy kod z [zestawu SDK języka C usługi Azure IoT](https://github.com/Azure/azure-iot-sdk-c). Urządzenie zostanie rozpoznane na podstawie rejestracji w usłudze Provisioning Service i przypisane do centrum IoT Hub.
 
-Jeśli nie znasz procesu autozastrzegania, zapoznaj się z tematami [dotyczącymi inicjowania obsługi](concepts-auto-provisioning.md). Pamiętaj również, aby przed rozpoczęciem pracy z tym przewodnikiem Szybki start wykonać kroki przedstawione w części [Konfigurowanie usługi IoT Hub Device Provisioning za pomocą witryny Azure Portal](quick-setup-auto-provision.md). 
+Jeśli nie znasz procesu autozastrzegania, zapoznaj się z omówieniem [aprowizacji](about-iot-dps.md#provisioning-process) . Pamiętaj również, aby przed rozpoczęciem pracy z tym przewodnikiem Szybki start wykonać kroki przedstawione w części [Konfigurowanie usługi IoT Hub Device Provisioning za pomocą witryny Azure Portal](quick-setup-auto-provision.md). 
 
 Usługa Azure IoT Device Provisioning obsługuje dwa typy rejestracji:
 
@@ -36,7 +36,7 @@ W tym artykule przedstawiono rejestracje indywidualne.
 
 Poniższe wymagania wstępne dotyczą środowiska projektowego systemu Windows. W systemie Linux lub macOS zapoznaj się z odpowiednią sekcją w sekcji [Przygotowywanie środowiska deweloperskiego](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) w dokumentacji zestawu SDK.
 
-* [Program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) . Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
+* [Program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) . Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
 
 * Zainstalowana najnowsza wersja usługi[Git](https://git-scm.com/download/).
 
@@ -67,7 +67,7 @@ W tej sekcji zostanie przygotowane środowisko programistyczne służące do two
     cd cmake
     ```
 
-5. Przykładowy kod używa certyfikatu X.509 w celu dostarczenia poświadczeń za pośrednictwem uwierzytelniania X.509. Uruchom następujące polecenie, aby skompilować wersję zestawu SDK specyficzną dla platformy deweloperskiej, która zawiera klienta aprowizacji urządzeń. W `cmake` katalogu zostanie wygenerowane rozwiązanie programu Visual Studio dla symulowanego urządzenia.
+5. Przykładowy kod używa certyfikatu X.509 w celu dostarczenia poświadczeń za pośrednictwem uwierzytelniania X.509. Uruchom następujące polecenie, aby skompilować wersję zestawu SDK specyficzną dla platformy deweloperskiej, która zawiera klienta aprowizacji urządzeń. W katalogu zostanie wygenerowane rozwiązanie programu Visual Studio dla symulowanego urządzenia `cmake` .
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
@@ -101,11 +101,11 @@ Przykładowy kod z zestawu SDK języka C platformy usługi Azure IoT zostanie u�
 
 1. Uruchom program Visual Studio i otwórz nowy plik rozwiązania o nazwie `azure_iot_sdks.sln`. Ten plik rozwiązania znajduje się w folderze `cmake` utworzonym wcześniej w katalogu głównym repozytorium Git azure-iot-sdk-c.
 
-2. W menu programu Visual Studio wybierz pozycję **Kompiluj** > **kompilację rozwiązania** , aby skompilować wszystkie projekty w rozwiązaniu.
+2. W menu programu Visual Studio wybierz pozycję **Kompiluj**  >  **kompilację rozwiązania** , aby skompilować wszystkie projekty w rozwiązaniu.
 
 3. W oknie programu Visual Studio *Eksplorator rozwiązań* przejdź do folderu **Provision\_Tools**. Kliknij prawym przyciskiem myszy projekt **dice\_device\_enrollment** i wybierz pozycję **Ustaw jako projekt startowy**.
 
-4. W menu programu Visual Studio wybierz kolejno opcje **Debuguj** > **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W oknie danych wyjściowych po wyświetleniu monitu wprowadź wartość **i**, aby przeprowadzić rejestrację indywidualną.
+4. W menu programu Visual Studio wybierz kolejno opcje **Debuguj**  >  **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W oknie danych wyjściowych po wyświetleniu monitu wprowadź wartość **i**, aby przeprowadzić rejestrację indywidualną.
 
     W oknie danych wyjściowych zostanie wyświetlony lokalnie wygenerowany certyfikat X.509 z podpisem własnym dla symulowanego urządzenia. Skopiuj do schowka dane wyjściowe od wiersza **-----BEGIN CERTIFICATE-----** do pierwszego wiersza **-----END CERTIFICATE-----**, włącznie z tymi wierszami. Będziesz potrzebować tylko pierwszego certyfikatu z okna danych wyjściowych.
 
@@ -153,7 +153,7 @@ W tej sekcji zaktualizujesz kod przykładowy w celu wysłania sekwencji uruchami
 
 5. Kliknij prawym przyciskiem myszy projekt **prov\_dev\_client\_sample**, a następnie wybierz pozycję **Ustaw jako projekt startowy**.
 
-6. W menu programu Visual Studio wybierz kolejno opcje **Debuguj** > **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W wierszu polecenia, aby ponownie skompilować projekt, wybierz opcję **tak** , aby ponownie skompilować projekt przed uruchomieniem.
+6. W menu programu Visual Studio wybierz kolejno opcje **Debuguj**  >  **Uruchom bez debugowania** , aby uruchomić rozwiązanie. W wierszu polecenia, aby ponownie skompilować projekt, wybierz opcję **tak** , aby ponownie skompilować projekt przed uruchomieniem.
 
     Następujące dane wyjściowe to przykład pomyślnego uruchomienia aprowizowanego urządzenia klienta i połączenia z wystąpieniem usługi Provisioning Service w celu uzyskania informacji na temat centrum IoT Hub oraz rejestracji:
 
@@ -174,12 +174,12 @@ W tej sekcji zaktualizujesz kod przykładowy w celu wysłania sekwencji uruchami
 
     ![Urządzenie jest rejestrowane w centrum IoT](./media/quick-create-simulated-device-x509/hub-registration.png) 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz kontynuować pracę i eksplorowanie przykładowego klienta urządzenia, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start.
 
 1. Zamknij okno danych wyjściowych przykładu klienta urządzenia na swojej maszynie.
-1. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wybierz usługę Device Provisioning. Otwórz przystawkę **Zarządzanie rejestracjami** dla usługi, a następnie wybierz kartę **indywidualne rejestracje** . Zaznacz pole wyboru obok *identyfikatora rejestracji* urządzenia zarejestrowanego w tym przewodniku Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka. 
+1. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wybierz usługę Device Provisioning. Otwórz pozycję **Zarządzanie rejestracjami** dla usługi, a następnie wybierz kartę **rejestracje indywidualne** . Zaznacz pole wyboru obok *identyfikatora rejestracji* urządzenia zarejestrowanego w ramach tego przewodnika Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka. 
 1. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wybierz swoje centrum IoT Hub. Otwórz **urządzenia IoT** dla swojego centrum, zaznacz pole wyboru obok *identyfikatora urządzenia* urządzenia zarejestrowanego w tym przewodniku Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka.
 
 ## <a name="next-steps"></a>Następne kroki

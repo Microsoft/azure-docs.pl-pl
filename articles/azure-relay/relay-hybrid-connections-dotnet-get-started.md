@@ -4,12 +4,12 @@ description: Napisz aplikację konsolową w języku C# dla Azure Relay Połącze
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: eb204a7bf18ed1c88a6d359cc521130fa19a1c82
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bf22b8b11dc386644803b43ee4e3a51d04b70419
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934263"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527432"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Wprowadzenie do obiektów WebSocket połączeń hybrydowych usługi Relay na platformie .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -52,7 +52,7 @@ W programie Visual Studio napisz aplikację konsoli w języku C#, aby wysyłać 
 2. Uruchom aplikację klienta i wprowadź jakiś tekst.
 3. Upewnij się, że w konsoli aplikacji serwera jest wyświetlany tekst wprowadzony w aplikacji klienta.
 
-    ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
+    ![Okna konsoli przetestuje zarówno aplikacje serwera, jak i klienta.](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
 Gratulacje, utworzono kompletną aplikację Połączenia hybrydowe.
 

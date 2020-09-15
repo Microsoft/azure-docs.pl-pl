@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717153"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527007"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planowanie wdrożenia uwierzytelniania bezhaseł w Azure Active Directory
 
@@ -160,7 +160,7 @@ Należy włączyć **zgodne klucze zabezpieczeń FIDO2**. Firma Microsoft ogłos
 -    System Windows 10 w wersji 1809 obsługuje logowanie za pomocą usługi FIDO2 i może wymagać wdrożenia oprogramowania od producenta klucza FIDO2. Zalecamy użycie wersji 1903 lub nowszej. 
 
 **Dla urządzeń przyłączonych do domeny hybrydowej Azure Active Directory**: 
--    Kompilacja niejawnego programu testów systemu Windows 10 18945 lub nowsza
+-    Windows 10 w wersji 2004 lub nowszej
 -    W pełni zainstalowane serwery domeny z systemem Windows Server 2016 lub 2019.
 -    Najnowsza wersja Azure AD Connect
 

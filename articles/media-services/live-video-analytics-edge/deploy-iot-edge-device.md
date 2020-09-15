@@ -3,12 +3,12 @@ title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azu
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eecc17e36f35e7552c0be83f7ecc38f2d644f18d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 30a3bda4069bb8c07d7c9be3fd8a3a2b1171eba2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89439626"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526327"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
@@ -107,7 +107,7 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
     * **Nazwa modułu IoT Edge**: lvaEdge
     * **Identyfikator URI obrazu**: MCR.Microsoft.com/Media/Live-Video-Analytics:1.0    
     
-    ![Dodaj](./media/deploy-iot-edge-device/add.png)
+    ![Zrzut ekranu przedstawia kartę Ustawienia modułu.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
     > Nie zaznaczaj opcji **Dodaj** , dopóki nie zostaną określone wartości na kartach **Ustawienia modułu**, **Opcje tworzenia kontenera**i **Ustawienia sznurka modułu** , zgodnie z opisem w tej procedurze.
@@ -217,7 +217,7 @@ Po utworzeniu wdrożenia powrócisz do IoT Edge stronie Centrum IoT Hub.
 Uruchomienie modułu na urządzeniu może potrwać kilka minut, a następnie zgłoszone z powrotem do IoT Hub. Odśwież stronę, aby zobaczyć zaktualizowany stan.
 Kod stanu: 200 — wartość OK oznacza, że [środowisko uruchomieniowe IoT Edge jest w](../../iot-edge/iot-edge-runtime.md) dobrej kondycji i działa prawidłowo.
 
-![Stan](./media/deploy-iot-edge-device/status.png)
+![Zrzut ekranu przedstawia wartość stanu środowiska uruchomieniowego IoT Edge.](./media/deploy-iot-edge-device/status.png)
 
 #### <a name="invoke-a-direct-method"></a>Wywoływanie metody bezpośredniej
 
@@ -225,7 +225,7 @@ Następnie umożliwia przetestowanie próbki przez wywołanie metody bezpośredn
 
 1. Kliknięcie utworzonego modułu brzegowego spowoduje przejście do strony konfiguracji.  
 
-    ![Moduły](./media/deploy-iot-edge-device/modules.png)
+    ![Zrzut ekranu przedstawia stronę konfiguracji modułu krawędzi.](./media/deploy-iot-edge-device/modules.png)
 1. Kliknij opcję Opcje w menu Metoda bezpośrednia.
 
     > [!NOTE] 

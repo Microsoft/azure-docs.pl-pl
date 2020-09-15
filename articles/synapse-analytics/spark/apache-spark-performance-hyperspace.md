@@ -10,12 +10,12 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: e87ecc14907c6e0618de47ffdbd334d8ba03ec99
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 3d65a7771ff2bd8807a5f02278b0455ee103dbd6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500629"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526344"
 ---
 # <a name="hyperspace---an-indexing-subsystem-for-apache-spark"></a>Hiperprzestrzeni — podsystem indeksowania dla Apache Spark
 
@@ -392,7 +392,8 @@ Ramka Dataframe, która odwołuje się do danych, które mają być indeksowane.
 Obiekt konfiguracji indeksu: IndexConfig, który określa nazwę indeksu, indeksowane i uwzględnione kolumny indeksu.
 Zacznij od tworzenia trzech indeksów hiperprzestrzeni na naszych przykładowych danych: dwa indeksy w zestawie danych działu o nazwie "deptIndex1" i "deptIndex2" oraz jeden indeks w zestawie danych pracownika o nazwie "empIndex". Dla każdego indeksu potrzebna jest odpowiednia IndexConfig do przechwycenia nazwy wraz z listami kolumn dla indeksowanych i uwzględnionych kolumn. Uruchomienie poniższej komórki powoduje utworzenie tych indexConfigs i ich danych wyjściowych.
 
-Uwaga: kolumna index to kolumna, która pojawia się w filtrach lub w warunkach sprzężenia. Kolumna uwzględniona jest kolumną wyświetlaną w ramach wyboru/projektu.
+> [!Note]
+> Kolumna indeksu to kolumna, która pojawia się w filtrach lub w warunkach sprzężenia. Kolumna uwzględniona jest kolumną wyświetlaną w ramach wyboru/projektu.
 
 Na przykład, w następującym zapytaniu:
 
@@ -508,8 +509,9 @@ Poniższy kod pokazuje, jak można wyświetlić listę wszystkich dostępnych in
 
 W komórce poniżej zostanie użyta akcja "Pokaż" ramki danych w celu pełnego wydrukowania wierszy i wyświetlenia szczegółów naszych indeksów w formie tabelarycznej. Dla każdego indeksu można zobaczyć wszystkie miejsca, w których zapisano wszystkie informacje w metadanych. Natychmiast Zwróć uwagę na następujące kwestie:
 
-"config. IndexName", "config. indexedColumns", "config. includedColumns" i "status. status" to pola, do których użytkownik zwykle się odwołuje.
-"dfSignature" jest generowany automatycznie przez hiperprzestrzeni i jest unikatowy dla każdego indeksu. Hiperprzestrzeni używa tej sygnatury wewnętrznie, aby zachować indeks i wykorzystać go w czasie wykonywania zapytania.
+* "config. IndexName", "config. indexedColumns", "config. includedColumns" i "status. status" to pola, do których użytkownik zwykle się odwołuje.
+* "dfSignature" jest generowany automatycznie przez hiperprzestrzeni i jest unikatowy dla każdego indeksu. Hiperprzestrzeni używa tej sygnatury wewnętrznie, aby zachować indeks i wykorzystać go w czasie wykonywania zapytania.
+
 W danych wyjściowych, wszystkie trzy indeksy powinny mieć wartość "aktywny" jako stan i ich nazwę, kolumny indeksowane i uwzględnione kolumny powinny być zgodne z ustawieniami zdefiniowanymi w powyższych konfiguracjach indeksu.
 
 :::zone pivot = "programming-language-scala"
@@ -839,7 +841,7 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 | 7876|  ADAMS|    20|
 ```
 
-&nbsp;&nbsp;wyświetlane są tylko pięć pierwszych wierszy &nbsp;&nbsp;
+&nbsp;&nbsp;Spowoduje to wyświetlenie tylko 5 pierwszych wierszy &nbsp;&nbsp;
 
 ```console
 |deptId|  deptName|location|
@@ -1369,8 +1371,8 @@ Jeśli oryginalne dane, na których utworzono indeks, zostały zmienione, indeks
 
 W poniższych dwóch komórkach pokazano przykład dla tego scenariusza:
 
-Pierwsza komórka dodaje do danych pierwotnych działów dwa więcej działów. Odczytuje i drukuje listę działów, aby sprawdzić, czy nowe działy są prawidłowo dodawane. Dane wyjściowe przedstawiają sześć wydziałów łącznie: cztery stare i dwa nowe. Wywoływanie "refreshIndex" aktualizuje "deptIndex1", co spowoduje, że indeks przechwytuje nowe działy.
-W drugiej komórce jest uruchamiany nasz przykład zapytania wyboru zakresu. Wyniki powinny teraz zawierać cztery działy: dwa są tymi, które są widoczne przed uruchomieniem zapytania powyżej, i dwa to nowo dodane przez nas nowe działy.
+* Pierwsza komórka dodaje do danych pierwotnych działów dwa więcej działów. Odczytuje i drukuje listę działów, aby sprawdzić, czy nowe działy są prawidłowo dodawane. Dane wyjściowe przedstawiają sześć wydziałów łącznie: cztery stare i dwa nowe. Wywoływanie "refreshIndex" aktualizuje "deptIndex1", co spowoduje, że indeks przechwytuje nowe działy.
+* W drugiej komórce jest uruchamiany nasz przykład zapytania wyboru zakresu. Wyniki powinny teraz zawierać cztery działy: dwa są tymi, które są widoczne przed uruchomieniem zapytania powyżej, i dwa to nowo dodane przez nas nowe działy.
 
 ### <a name="specific-index-refresh"></a>Odświeżenie indeksu
 

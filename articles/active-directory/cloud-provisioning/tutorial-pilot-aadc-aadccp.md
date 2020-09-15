@@ -1,6 +1,6 @@
 ---
 title: Samouczek — pilotaż Azure AD Connect aprowizacji w chmurze dla istniejącego synchronizowanego lasu usługi AD
-description: Ręczny.
+description: Dowiedz się, jak przeprowadzić pilotażową obsługę chmury dla Active Directoryego lasu testowego, który jest już zsynchronizowany przy użyciu funkcji synchronizacji połączenia Azure Active Directory (Azure AD).
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 43edb9ba6cdd73ce195a8b4eb60071b6831b7223
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86146809"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526939"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Pilotażowa aprowizacja w chmurze dla istniejącego zsynchronizowanego lasu usługi AD 
 
@@ -141,7 +141,7 @@ Weryfikacja agenta odbywa się w Azure Portal i na serwerze lokalnym, na którym
 ### <a name="azure-portal-agent-verification"></a>Weryfikacja agenta Azure Portal
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następujące kroki:
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do Portalu Azure.
 2. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 

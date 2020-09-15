@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: b74fd1ad5c3783b2e456fa5f3c24fb8bc7875d4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 49ab515c265b4b4444e7d4ca5b93c4e898e4cf54
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551326"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527313"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Projektowanie wdrożenia dzienników usługi Azure Monitor
 
-Azure Monitor przechowuje dane [dzienników](data-platform-logs.md) w obszarze roboczym log Analytics, który jest zasobem platformy Azure i kontenerem, w którym zbierane są dane, agregowane i obsługiwane jako granica administracyjna. Chociaż można wdrożyć co najmniej jeden obszar roboczy w ramach subskrypcji platformy Azure, istnieje kilka kwestii, które należy zrozumieć w celu zagwarantowania, że początkowe wdrożenie jest zgodne z naszymi wskazówkami, aby zapewnić ekonomiczne i skalowalne wdrożenie spełniające potrzeby organizacji.
+Azure Monitor przechowuje dane [dzienników](data-platform-logs.md) w obszarze roboczym log Analytics, który jest zasobem platformy Azure i kontenerem, w którym zbierane są dane, agregowane i obsługiwane jako granica administracyjna. Chociaż można wdrożyć co najmniej jeden obszar roboczy w ramach subskrypcji platformy Azure, istnieje kilka kwestii, które należy zrozumieć w celu zagwarantowania, że początkowe wdrożenie jest zgodne z naszymi wskazówkami, aby zapewnić ekonomiczne, łatwo zarządzane i skalowalne wdrożenie spełniające potrzeby organizacji.
 
 Dane w obszarze roboczym są zorganizowane w tabele, z których każdy przechowuje różne rodzaje danych i ma własny unikatowy zestaw właściwości na podstawie zasobów generujących dane. Większość źródeł danych będzie zapisywać w własnych tabelach w obszarze roboczym Log Analytics.
 
@@ -131,7 +131,7 @@ Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klie
 
 W przypadku wysyłania danych do obszaru roboczego o współczynniku ilościowym wyższym niż 80% wartości progowej skonfigurowanej w obszarze roboczym, zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. Gdy ilość pozyskiwanych woluminów jest wyższa niż wartość progowa, niektóre dane są porzucane, a zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. W przypadku przekroczenia progu przez okres pozyskiwania lub oczekujesz, że zostanie on wkrótce osiągnięty, możesz poprosić o zwiększenie go, otwierając żądanie pomocy technicznej. 
 
-Aby otrzymywać powiadomienia o approching lub osiągnięciu limitu liczby wolumenów pozyskiwania w Twoim obszarze roboczym, Utwórz [regułę alertu dziennika](alerts-log.md) przy użyciu następującego zapytania z podstawą logiki alertu na liczbie wyników w ciągu 5 minut i częstotliwości 5 minut.
+Aby otrzymywać powiadomienia o approching lub osiągnięciu limitu ilości woluminu pozyskiwania w obszarze roboczym, należy utworzyć [regułę alertu dziennika](alerts-log.md) przy użyciu następującego zapytania z podstawą logiki alertu na liczbę wyników większą niż zero, okres próbny wynoszący 5 minut i częstotliwość 5 minut.
 
 Współczynnik wolumenu pozyskiwania osiągnął 80% wartości progowej:
 ```Kusto
@@ -152,7 +152,7 @@ Operation
 
 ![Przykład projektu kontekstu zasobów](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 
-W tym scenariuszu zawarto projekt jednego obszaru roboczego w ramach subskrypcji organizacji IT, który nie jest ograniczony przez niezależność danych ani zgodność z przepisami lub musi być mapowany na regiony, w których są wdrażane zasoby. Umożliwia ona organizacjom bezpieczeństwo i administratorom IT skorzystanie z udoskonalonej integracji z usługą Azure Access Management i bardziej bezpieczną kontrolą dostępu.
+Ten scenariusz dotyczy pojedynczego projektu obszaru roboczego w ramach subskrypcji organizacji IT, który nie jest ograniczony przez niezależność danych ani zgodność z przepisami, lub musi być mapowany na regiony, w których są wdrażane zasoby. Dzięki temu firma i administrator IT zespołu mogą wykorzystać ulepszoną integrację z usługą Azure Access Management i bardziej bezpieczną kontrolę dostępu.
 
 Wszystkie zasoby, rozwiązania monitorowania i szczegółowe informacje, takie jak Application Insights i Azure Monitor dla maszyn wirtualnych, obsługujące infrastrukturę i aplikacje obsługiwane przez różne zespoły są skonfigurowane do przekazywania zebranych danych dzienników do scentralizowanego udostępnionego obszaru roboczego organizacji IT. Użytkownicy poszczególnych zespołów otrzymują dostęp do dzienników dla zasobów, do których miał dostęp.
 

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226433"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526754"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub HTTPS z usługi Azure Logic Apps
 
@@ -168,6 +168,14 @@ Poniżej znajduje się ten sam przykład pokazujący definicję JSON akcji HTTP 
 }
 ```
 
+## <a name="content-with-applicationx-www-form-urlencoded-type"></a>Zawartość z typem application/x-www-form-urlencoded
+
+Aby dostarczyć dane form-urlencoded w treści dla żądania HTTP, należy określić, że dane mają `application/x-www-form-urlencoded` Typ zawartości. W wyzwalaczu HTTP lub akcji Dodaj `content-type` nagłówek. Ustaw wartość nagłówka na `application/x-www-form-urlencoded` .
+
+Załóżmy na przykład, że masz aplikację logiki, która wysyła żądanie HTTP POST do witryny sieci Web, która obsługuje `application/x-www-form-urlencoded` Typ. Oto, jak ta akcja może wyglądać następująco:
+
+![Zrzut ekranu pokazujący żądanie HTTP z nagłówkiem "Content-Type" ustawionym na wartość "application/x-www-form-urlencoded"](./media/connectors-native-http/http-action-urlencoded.png)
+
 <a name="asynchronous-pattern"></a>
 
 ## <a name="asynchronous-request-response-behavior"></a>Asynchroniczne zachowanie żądania — odpowiedź
@@ -263,4 +271,3 @@ Aby uzyskać więcej informacji na temat wyzwalaczy i parametrów akcji, zobacz 
 
 * [Bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
 * [Łączniki dla usługi Logic Apps](../connectors/apis-list.md)
-

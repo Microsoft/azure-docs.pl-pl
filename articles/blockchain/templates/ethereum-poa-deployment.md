@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f0b7d056d37ffb11945a5c50e2705b5d74402007
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8ce343045f7ff124f5faf86b13210bfb5b3b5519
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386116"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527160"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 
@@ -99,9 +99,9 @@ Typ uwierzytelniania | Metoda do uwierzytelnienia na maszynie wirtualnej. | Has�
 Hasło | Hasło dla konta administratora dla każdej wdrożonej maszyny wirtualnej. Wszystkie maszyny wirtualne mają początkowo to samo hasło. Hasło można zmienić po zainicjowaniu obsługi administracyjnej. | 12-72 znaków 
 Subskrypcja | Subskrypcja, do której ma zostać wdrożona sieć konsorcjum |
 Grupa zasobów| Grupa zasobów, w której ma zostać wdrożona sieć konsorcjum. | myResourceGroup
-Location | Region świadczenia usługi Azure dla grupy zasobów. | Zachodnie stany USA 2
+Lokalizacja | Region świadczenia usługi Azure dla grupy zasobów. | Zachodnie stany USA 2
 
-Wybierz przycisk **OK**.
+Wybierz pozycję **OK**.
 
 ### <a name="deployment-regions"></a>Regiony wdrożenia
 
@@ -115,7 +115,7 @@ Liczba regionów|Liczba regionów do wdrożenia sieci konsorcjum| 2
 Pierwszy region | Pierwszy region wdrożenia sieci konsorcjum | Zachodnie stany USA 2
 Drugi region | Drugi region do wdrożenia sieci konsorcjum. Dodatkowe regiony są widoczne, gdy liczba regionów jest równa co najmniej dwa. | Wschodnie stany USA 2
 
-Wybierz przycisk **OK**.
+Wybierz pozycję **OK**.
 
 ### <a name="network-size-and-performance"></a>Rozmiar i wydajność sieci
 
@@ -137,7 +137,7 @@ F1|Dysk SSD w warstwie Standardowa|małą|małą|wysoka
 D2_v3|Dysk SSD w warstwie Standardowa|średni|średni|średni
 F16s|Dysk SSD w warstwie Premium|wysoka|wysoka|małą
 
-Wybierz przycisk **OK**.
+Wybierz pozycję **OK**.
 
 ### <a name="ethereum-settings"></a>Ustawienia Ethereum
 
@@ -156,7 +156,7 @@ Limit blokowania gazu | Limit wychodzący z bloków wyjściowych sieci. | 500000
 Okres ponownego pieczętowania bloku (s) | Częstotliwość tworzenia pustych bloków, gdy nie ma żadnych transakcji w sieci. Wyższa częstotliwość będzie miała szybszy wzrost, ale zwiększy się koszty magazynowania. | 15
 Kontrakt uprawnień transakcji | Kod bajtowy dla kontraktu uprawniającego do transakcji. Ogranicza wdrożenie i wykonywanie kontraktu inteligentnego do listy dozwolonych kont Ethereum. |
 
-Wybierz przycisk **OK**.
+Wybierz pozycję **OK**.
 
 ### <a name="monitoring"></a>Monitorowanie
 
@@ -168,11 +168,11 @@ Parametr | Opis | Przykładowa wartość
 ----------|-------------|--------------
 Monitorowanie | Opcja włączania monitorowania | Włącz
 Nawiązywanie połączenia z istniejącymi dziennikami Azure Monitor | Opcja tworzenia nowego wystąpienia dzienników Azure Monitor lub łączenia istniejącego wystąpienia | Tworzenie nowego elementu
-Location | Region, w którym jest wdrożone nowe wystąpienie | East US
+Lokalizacja | Region, w którym jest wdrożone nowe wystąpienie | East US
 Istniejący identyfikator obszaru roboczego usługi log Analytics (Połącz z istniejącymi dziennikami Azure Monitor = Dołącz istniejący)|Identyfikator obszaru roboczego istniejącego wystąpienia dzienników Azure Monitor||Nie dotyczy
 Istniejący klucz podstawowy usługi log Analytics (łączenie z istniejącymi dziennikami Azure Monitor = Połącz istniejące)|Klucz podstawowy używany do nawiązywania połączenia z istniejącym wystąpieniem dzienników Azure Monitor||Nie dotyczy
 
-Wybierz przycisk **OK**.
+Wybierz pozycję **OK**.
 
 ### <a name="summary"></a>Podsumowanie
 
@@ -279,7 +279,7 @@ W portalu będzie najpierw wyświetlana statystyka sieci wysokiego poziomu i Om�
 
 ![Kategorie monitora](./media/ethereum-poa-deployment/monitor-categories.png)
 
-Wybór **węzła przegląd** przedstawia statystykę infrastruktury na węzeł.
+Wybór **węzła przegląd**  przedstawia statystykę infrastruktury na węzeł.
 
 ![Statystyka węzła](./media/ethereum-poa-deployment/node-stats.png)
 
@@ -325,7 +325,7 @@ Ze względów bezpieczeństwa dostęp do portu SSH jest domyślnie odrzucony prz
 
 1. Wybierz regułę **zezwalania na używanie protokołu SSH** .
 
-    ![SSH — Zezwalaj](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![Przechwytywanie ekranu zawiera okno przegląd z wybraną obsługą protokołu SSH.](./media/ethereum-poa-deployment/ssh-allow.png)
 
 1. Zmień **akcję** na **Zezwalaj**
 

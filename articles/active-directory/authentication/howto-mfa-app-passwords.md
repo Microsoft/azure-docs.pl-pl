@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 12be5109f339223c11970041922ed2172f67382b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224921"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526905"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Włączanie i używanie usługi Azure Multi-Factor Authentication ze starszymi aplikacjami przy użyciu haseł aplikacji
 
-Niektóre aplikacje, takie jak Office 2010 lub wcześniejsza i Apple mail przed iOS 11, nie obsługują uwierzytelniania wieloskładnikowego. Aplikacje nie są skonfigurowane do akceptowania dodatkowej formy uwierzytelniania lub monitu. Aby korzystać z tych aplikacji w bezpieczny sposób przy użyciu usługi Azure Multi-Factor Authentication włączonej dla kont użytkowników, można użyć haseł aplikacji. Te hasła aplikacji zastąpiły tradycyjne hasło, aby umożliwić aplikacji ominięcie uwierzytelniania wieloskładnikowego i poprawne działanie.
+Niektóre starsze aplikacje nie korzystające z przeglądarki, takie jak Office 2010 lub starsze i Apple mail przed systemem iOS 11, nie rozumieją przerw lub przerw w procesie uwierzytelniania. Jeśli użytkownik jest włączony dla platformy Azure Multi-Factor Authentication i spróbuje użyć jednej z tych starszych aplikacji niekorzystających z przeglądarki, nie będzie mógł się uwierzytelnić. Aby korzystać z tych aplikacji w bezpieczny sposób przy użyciu usługi Azure Multi-Factor Authentication włączonej dla kont użytkowników, można użyć haseł aplikacji. Te hasła aplikacji zastąpiły tradycyjne hasło, aby umożliwić aplikacji ominięcie uwierzytelniania wieloskładnikowego i poprawne działanie.
 
 Nowoczesne uwierzytelnianie jest obsługiwane przez klientów Microsoft Office 2013 i nowszych. Klienci korzystający z pakietu Office 2013, w tym Outlook, obsługują nowoczesne protokoły uwierzytelniania i mogą być włączeni do pracy z weryfikacją dwuetapową. Po włączeniu klienta hasła aplikacji nie są wymagane dla klienta.
 

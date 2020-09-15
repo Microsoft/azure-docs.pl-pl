@@ -3,12 +3,12 @@ title: Utwórz niestandardową rolę Azure Resource Manager i przypisz ją do je
 description: Ten artykuł zawiera wskazówki dotyczące tworzenia niestandardowej roli Azure Resource Manager i przypisywania jej do jednostki usługi na potrzeby analizy filmów wideo na żywo na IoT Edge przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043169"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526582"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Utwórz niestandardową rolę Azure Resource Manager i przypisz ją do nazwy głównej usługi
 
@@ -43,7 +43,7 @@ Jeśli nie masz konta usługi multimediów, wykonaj następujące kroki, aby go 
 1. Przejdź do [Cloud Shell](https://shell.azure.com/).
 1. Wybierz pozycję "bash" jako środowisko na liście rozwijanej po lewej stronie okna powłoki
 
-    ![Bash](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
+    ![Capturs ekranu wyświetla bash wybrane z okna powłoki.](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
 1. Ustaw subskrypcję platformy Azure jako konto domyślne przy użyciu następującego szablonu polecenia:
     
     ```
@@ -163,7 +163,7 @@ az ad sp show --id "<appId>" | Select-String "objectId"
 ```
 
 > [!NOTE]
-> `<appId>`można pobrać z danych wyjściowych kroku [Create Service Principal](#create-service-principal) .
+> `<appId>` można pobrać z danych wyjściowych kroku [Create Service Principal](#create-service-principal) .
 
 Powyższe polecenie spowoduje wydrukowanie identyfikatora obiektu nazwy głównej usługi. 
 

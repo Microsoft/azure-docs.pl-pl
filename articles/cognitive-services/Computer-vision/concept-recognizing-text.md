@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 24be20d7eac48024b73e88f8ac8500928f0fb840
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: cbcfddcd02a3998b3b35b01d386816735c59ae7e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594231"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526412"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
@@ -24,7 +24,7 @@ Interfejs API przetwarzania obrazów platformy Azure obejmuje funkcje optycznego
 
 ## <a name="read-api"></a>Odczytaj interfejs API 
 
-[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) przetwarzanie obrazów to najnowsza technologia OCR platformy Azure ([Dowiedz się, co nowego](./whats-new.md#read-api-v31-public-preview-adds-simplified-chinese-support)), która wyodrębnia drukowany tekst (w kilku językach), tekst odręczny (tylko w języku angielskim), cyfry i symbole walutowe z obrazów i wielostronicowych dokumentów PDF. Jest zoptymalizowany pod kątem wyodrębniania tekstu z obrazów z obrazami i wielostronicowych dokumentów PDF z wielojęzycznymi językami. Obsługuje ona wykrywanie wydrukowanych i odręcznych tekstu w tym samym obrazie lub dokumencie.
+[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) przetwarzanie obrazów to najnowsza technologia OCR platformy Azure ([Dowiedz się, co nowego](./whats-new.md)), która wyodrębnia drukowany tekst (w kilku językach), tekst odręczny (tylko w języku angielskim), cyfry i symbole walutowe z obrazów i wielostronicowych dokumentów PDF. Jest zoptymalizowany pod kątem wyodrębniania tekstu z obrazów z obrazami i wielostronicowych dokumentów PDF z wielojęzycznymi językami. Obsługuje ona wykrywanie wydrukowanych i odręcznych tekstu w tym samym obrazie lub dokumencie.
 
 ![Jak OCR konwertuje obrazy i dokumenty na strukturalne dane wyjściowe z wyodrębnionym tekstem](./Images/how-ocr-works.svg)
 
@@ -35,6 +35,9 @@ Wywołanie **odczytu** pobiera obrazy i dokumenty jako dane wejściowe. Mają on
 * W przypadku plików PDF i TIFF, do 2000 stron (tylko pierwsze dwie strony dla warstwy Bezpłatna) są przetwarzane.
 * Rozmiar pliku musi być mniejszy niż 50 MB (4 MB dla warstwy Bezpłatna) i wymiary co najmniej 50 x 50 pikseli i maksymalnie 10000 x 10000 pikseli. 
 * Wymiary PDF muszą mieć co najwyżej 17 x 17 cali, odpowiadające rozmiarowi papieru legalnego lub A3 i mniejszym.
+
+### <a name="read-31-preview-allows-selecting-pages"></a>Wersja zapoznawcza 3,1 umożliwia wybieranie stron
+Za pomocą [interfejsu API programu Read 3,1 Preview](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)dla dużych dokumentów wielostronicowych można podać określone numery stron lub zakresy stron jako parametr wejściowy, aby wyodrębnić tekst z tylko tych stron. Jest to nowy parametr wejściowy oprócz opcjonalnego parametru języka.
 
 > [!NOTE]
 > **Dane wejściowe języka** 
@@ -125,14 +128,24 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON:
   }
 }
 ```
+### <a name="read-31-preview-adds-text-line-style-latin-languages-only"></a>Odczyt 3,1 w wersji zapoznawczej dodaje styl linii tekstu (tylko języki łacińskie)
+[Interfejs API odczytu 3,1 w wersji zapoznawczej](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) wyświetla obiekt **wyglądu** klasyfikowanie niezależnie od tego, czy każdy wiersz tekstu jest stylem drukowania, czy też z wynikiem ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
+
+```json
+  "appearance": {
+              "style": "handwriting",
+              "styleConfidence": 0.836
+            }
+```
 Rozpocznij pracę z [zestawem SDK przetwarzanie obrazów OCR — szybki](./quickstarts-sdk/client-library.md) Start i [interfejs API REST do odczytu — Przewodnik Szybki](./QuickStarts/CSharp-hand-text.md) Start, aby rozpocząć integrację funkcji OCR z aplikacjami.
 
 ## <a name="supported-languages-for-print-text"></a>Obsługiwane języki na potrzeby drukowania tekstu
-[Interfejs API odczytu 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim. 
-
-W [publicznej wersji zapoznawczej interfejsu API Read 3,1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) dodano obsługę języka chińskiego uproszczonego. Jeśli scenariusz wymaga obsługi większej liczby języków, zobacz sekcję dotyczącą [interfejsu API OCR](#ocr-api) . 
+[Interfejs API odczytu 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim.
 
 Pełną listę języków obsługiwanych przez OCR można znaleźć w [obsługiwanych językach](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) .
+
+### <a name="read-31-preview-adds-simplified-chinese-and-japanese"></a>Read 3,1 Preview dodaje uproszczony chiński i japoński
+W [publicznej wersji zapoznawczej interfejsu API Read 3,1](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) dodano obsługę języka chińskiego uproszczonego i japońskiego. Jeśli scenariusz wymaga obsługi większej liczby języków, zobacz sekcję dotyczącą [interfejsu API OCR](#ocr-api) . 
 
 ## <a name="supported-languages-for-handwritten-text"></a>Obsługiwane języki dla tekstu odręcznego
 Operacja odczytu obsługuje obecnie Wyodrębnianie tekstu odręcznego wyłącznie w języku angielskim.
@@ -191,4 +204,4 @@ Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystając
 - Rozpocznij pracę z [Przetwarzanie obrazów Przeczytaj zestaw SDK 3,0 dla przewodników szybki start](./quickstarts-sdk/client-library.md) w językach C#, Java, JavaScript i Python.
 - Aby dowiedzieć się, jak używać interfejsów API REST, Skorzystaj z [przewodnika Szybki start 3,0 interfejsu API REST](./QuickStarts/CSharp-hand-text.md) w językach C#, Java, JavaScript i Python.
 - Dowiedz się więcej o [interfejsie API REST do odczytu 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
-- Dowiedz się więcej o [interfejsie API REST do odczytu 3,1 publicznej wersji zapoznawczej](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) z obsługą języka chińskiego uproszczonego.
+- Dowiedz się więcej o [interfejsie API REST usługi Read 3,1 Public Preview](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) z dodaną obsługą języka chińskiego uproszczonego i japońskiego.

@@ -1,7 +1,7 @@
 ---
 title: 'Szybki start: wywoływanie interfejsu API analizy tekstu przy użyciu języka Python'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start pokazano, jak uzyskać informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejs API analizy tekstu na platformie Azure Cognitive Services.
+description: W tym przewodniku szybki start pokazano, jak za pomocą języka Python uzyskać informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejs API analizy tekstu na platformie Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 34d1b62ed97b966c000ff81e8f7676c30338b6a1
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 0ef870b6b2d3b88b13c16c8c2acbfcee7ed551c1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876771"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527245"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Szybki Start: korzystanie z interfejsu API REST języka Python w celu wywołania usługi analiza tekstu poznawczej 
 <a name="HOLTop"></a>

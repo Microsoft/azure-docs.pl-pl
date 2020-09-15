@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 0354010297942c3b9e18dc6f556cb0afa075ff5f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649098"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528132"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Tryb udostępnionego urządzenia dla urządzeń z systemem iOS
 
@@ -60,9 +60,18 @@ Urządzenie musi być skonfigurowane do obsługi trybu udostępnionego urządzen
 
     - **Typ**: redirect
     - **Identyfikator rozszerzenia**: com. Microsoft. azureauthenticator. ssoextension
-    - **Identyfikator zespołu**: SGGM6D27TK
-    - **Adresy URL**: https://login.microsoftonline.com
-    - Dodatkowe dane do skonfigurowania:
+    - **Identyfikator zespołu**: (to pole nie jest wymagane w przypadku systemu iOS)
+    - **Adresy URL**:   
+        - `https://login.microsoftonline.com`
+        - `https://login.microsoft.com`
+        - `https://sts.windows.net`
+        - `https://login.partner.microsoftonline.cn`
+        - `https://login.chinacloudapi.cn`
+        - `https://login.microsoftonline.de`
+        - `https://login.microsoftonline.us`
+        - `https://login.usgovcloudapi.net`
+        - `https://login-us.microsoftonline.com`
+    - **Dodatkowe dane do skonfigurowania**:
       - Klucz: sharedDeviceMode
       - Typ: wartość logiczna
       - Wartość: prawda
@@ -108,7 +117,7 @@ application.getDeviceInformation(with: nil, completionBlock: { (deviceInformatio
 })
 ```
 
-#### <a name="objective-c"></a>Obiektowy C
+#### <a name="objective-c"></a>Objective-C
 
 ```objective-c
 [application getDeviceInformationWithParameters:nil
@@ -143,7 +152,7 @@ application.getCurrentAccount(with: msalParameters, completionBlock: { (currentA
 })
 ```
 
-#### <a name="objective-c"></a>Obiektowy C
+#### <a name="objective-c"></a>Objective-C
 
 ```objective-c
 MSALParameters *parameters = [MSALParameters new];
@@ -161,7 +170,7 @@ parameters.completionBlockQueue = dispatch_get_main_queue();
 
 Gdy urządzenie jest skonfigurowane jako urządzenie udostępnione, aplikacja może wywołać `acquireTokenWithParameters:completionBlock:` interfejs API w celu zalogowania się do konta. Konto będzie dostępne globalnie dla wszystkich kwalifikujących się aplikacji na urządzeniu po napisaniu pierwszej aplikacji na koncie.
 
-#### <a name="objective-c"></a>Obiektowy C
+#### <a name="objective-c"></a>Objective-C
 
 ```objective-c
 MSALInteractiveTokenParameters *parameters = [[MSALInteractiveTokenParameters alloc] initWithScopes:@[@"api://myapi/scope"] webviewParameters:[self msalTestWebViewParameters]];
@@ -201,7 +210,7 @@ application.signout(with: account, signoutParameters: signoutParameters, complet
 })
 ```
 
-#### <a name="objective-c"></a>Obiektowy C
+#### <a name="objective-c"></a>Objective-C
 
 ```objective-c
 MSALAccount *account = ... /* account retrieved above */;

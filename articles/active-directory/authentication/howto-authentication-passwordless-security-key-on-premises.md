@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f20da2d2ecb4426c0deb1c01591ead5933090f6
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 45e1e516986c32e203837f79c83290cc99049e7a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717000"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526973"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła do zasobów lokalnych przy użyciu Azure Active Directory (wersja zapoznawcza)
 
@@ -46,7 +46,7 @@ Przed wykonaniem kroków opisanych w tym artykule organizacje muszą wykonać kr
 
 Organizacje muszą również spełniać następujące wymagania dotyczące oprogramowania.
 
-- Na urządzeniach musi być uruchomiona kompilacja systemu Windows 10 w wersji 18945 lub nowszej.
+- Na urządzeniach musi działać system Windows 10 w wersji 2004 lub nowszej.
 - Musisz mieć wersję 1.4.32.0 lub nowszą [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - Aby uzyskać więcej informacji na temat dostępnych opcji uwierzytelniania hybrydowego usługi Azure AD, zobacz [Wybieranie odpowiedniej metody uwierzytelniania dla Azure Active Directory rozwiązanie do tworzenia tożsamości hybrydowej](../hybrid/choose-ad-authn.md) i [Wybierz typ instalacji, który ma być używany przez Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Na kontrolerach domeny systemu Windows Server muszą być zainstalowane następujące poprawki:
@@ -111,7 +111,7 @@ To polecenie wyświetla właściwości serwera Kerberos usługi Azure AD. Możes
 
 | Właściwość | Opis |
 | --- | --- |
-| ID | Unikatowy identyfikator obiektu kontrolera domeny AD DS. Ten identyfikator jest czasami określany jako "gniazdo" lub "Identyfikator rozgałęzienia". |
+| ID (Identyfikator) | Unikatowy identyfikator obiektu kontrolera domeny AD DS. Ten identyfikator jest czasami określany jako "gniazdo" lub "Identyfikator rozgałęzienia". |
 | DomainDnsName | Nazwa domeny DNS domena usługi Active Directory. |
 | ComputerAccount | Obiekt konta komputera serwera usługi Azure AD Kerberos (kontroler domeny). |
 | UserAccount | Obiekt wyłączonego konta użytkownika, który zawiera klucz szyfrowania TGT serwera Kerberos usługi Azure AD. Nazwa wyróżniająca tego konta to `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |

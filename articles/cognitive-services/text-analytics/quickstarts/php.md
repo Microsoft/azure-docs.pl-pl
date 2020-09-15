@@ -1,7 +1,7 @@
 ---
 title: 'Szybki start: wywoływanie interfejsu API analizy tekstu przy użyciu języka PHP'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start pokazano, jak uzyskać informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejs API analizy tekstu na platformie Azure Cognitive Services.
+description: W tym przewodniku szybki start pokazano, jak używać języka PHP do uzyskiwania informacji i przykładów kodu, aby ułatwić szybkie rozpoczęcie korzystania z interfejs API analizy tekstu na platformie Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: aahi
-ms.openlocfilehash: 4627cc83de70f596ae4917d0449f785a33bf720f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09901c514a1f2b94edc3e4108ec46051a284a6db
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261361"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527262"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Szybki start: wywoływanie analizy tekstu usługi Cognitive Service przy użyciu języka PHP
 <a name="HOLTop"></a>

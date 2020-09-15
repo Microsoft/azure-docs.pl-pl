@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a6013ed47196e2300f56f0066c634da2a64fdee8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717357"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526871"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Włącz Azure Active Directory samoobsługowego resetowania hasła na ekranie logowania systemu Windows
 
@@ -40,7 +40,7 @@ Następujące ograniczenia dotyczą korzystania z programu SSPR z ekranu logowan
 - Hybrydowe maszyny przyłączone do usługi Azure AD muszą mieć linię łączności sieciowej z kontrolerem domeny, aby użyć nowego hasła i zaktualizować buforowane poświadczenia. Oznacza to, że urządzenia muszą znajdować się w sieci wewnętrznej organizacji lub w sieci VPN z dostępem do sieci do lokalnego kontrolera domeny.
 - Jeśli używasz obrazu, przed uruchomieniem narzędzia Sysprep upewnij się, że pamięć podręczna sieci Web jest wyczyszczona dla wbudowanego administratora przed wykonaniem kroku CopyProfile. Więcej informacji na temat tego kroku można znaleźć w artykule dotyczącym pomocy technicznej [niska w przypadku używania niestandardowego domyślnego profilu użytkownika](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Następujące ustawienia są znane, aby zakłócać możliwość używania i resetowania haseł na urządzeniach z systemem Windows 10:
-    - Jeśli kombinacja klawiszy Ctrl + Alt + Del jest wymagana przez zasady w wersjach systemu Windows 10 przed v1809, **Resetowanie hasła** nie będzie działało.
+    - Jeśli kombinacja klawiszy Ctrl + Alt + Del jest wymagana przez zasady w wersjach systemu Windows 10 przed v1909, **Resetowanie hasła** nie będzie działało.
     - Jeśli powiadomienia ekranu blokady są wyłączone, **Resetowanie hasła** nie będzie działało.
     - *HideFastUserSwitching* jest ustawiona na wartość Enabled lub 1
     - *DontDisplayLastUserName* jest ustawiona na wartość Enabled lub 1

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 68b81fa8cf110b47581e482e7e546821d40aef62
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435154"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526531"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Wymiana komunikatów w chmurze przy użyciu Azure Logic Apps i Azure Service Bus
 
@@ -79,7 +79,7 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
    Niektóre wyzwalacze, takie jak **po nadejściu co najmniej jednego komunikatu w kolejce (AutoComplete)** , mogą zwrócić jeden lub więcej komunikatów. Kiedy te wyzwalacze są wyzwalane, zwracają między jedną i liczbę komunikatów, które są określone przez wartość właściwości **Maksymalna liczba komunikatów** wyzwalacza.
 
     > [!NOTE]
-    > Wyzwalacz autouzupełniania automatycznie kończy komunikat, ale uzupełnianie odbywa się tylko przy następnym uruchomieniu wyzwalacza. Takie zachowanie może mieć wpływ na projekt aplikacji logiki. Na przykład, jeśli ustawisz wyzwalacz autouzupełniania, aby sprawdzał komunikaty co minutę, ale czas trwania blokady jest ustawiony na 30 sekund po stronie Service Bus, wynikiem jest niepowodzenie "blokada wygasła", które występuje podczas kończenia komunikatu. Musisz ustawić czas trwania blokady na wartość, która jest dłuższa niż interwał sondowania.
+    > Wyzwalacz autouzupełniania automatycznie kończy komunikat, ale uzupełnianie odbywa się tylko przy następnym uruchomieniu wyzwalacza. Takie zachowanie może mieć wpływ na projekt aplikacji logiki. Na przykład Unikaj zmiany współbieżności w wyzwalaczu autouzupełniania, ponieważ ta zmiana może spowodować zduplikowane komunikaty, jeśli aplikacja logiki przejdzie do stanu ograniczenia. Zmiana kontroli współbieżności powoduje utworzenie następujących warunków: wyzwalacze ograniczające są pomijane przy użyciu `WorkflowRunInProgress` kodu, operacja ukończenia nie zostanie wykonana, a następne uruchomienie wyzwalacza następuje po interwale sondowania. Musisz ustawić czas trwania blokady usługi Service Bus na wartość dłuższą niż interwał sondowania. Jednak pomimo tego ustawienia komunikat nadal może nie zostać ukończony, jeśli aplikacja logiki pozostanie w stanie ograniczenia w kolejnym interwale sondowania.
 
 1. Jeśli wyzwalacz nawiązuje połączenie z przestrzenią nazw Service Bus po raz pierwszy, wykonaj następujące kroki, gdy projektant aplikacji logiki monituje o informacje o połączeniu.
 

@@ -1,6 +1,6 @@
 ---
 title: Skrypt interfejsu wiersza polecenia — zmiana parametrów serwera — Azure Database for MariaDB
-description: Ten przykładowy skrypt interfejsu wiersza polecenia zwraca listę wszystkich dostępnych konfiguracji serwera i aktualizuje wartość opcji innodb_lock_wait_timeout.
+description: Ten przykładowy skrypt interfejsu wiersza polecenia zawiera listę wszystkich dostępnych konfiguracji serwera i aktualizacji Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 1425ee7b91ea1b357939c8953fdedc09df7864c6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ce27dc3008803faf548c10f4fc2ab3b579af2ba0
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502243"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90525035"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Uzyskiwanie listy i aktualizowanie konfiguracji serwera usługi Azure Database for MariaDB za pomocą interfejsu wiersza polecenia platformy Azure
 Ten przykładowy skrypt interfejsu wiersza polecenia zwraca listę wszystkich dostępnych parametrów konfiguracji oraz ich dopuszczalnych wartości dla serwera usługi Azure Database for MariaDB, a także ustawia parametr *innodb_lock_wait_timeout* na wartość inną niż domyślna.

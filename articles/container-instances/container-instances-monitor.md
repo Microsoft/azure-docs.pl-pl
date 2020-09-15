@@ -3,12 +3,12 @@ title: Monitorowanie wystąpień kontenerów
 description: Jak monitorować użycie zasobów obliczeniowych, takich jak procesor CPU i pamięć, w Azure Container Instances.
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116371"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526701"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorowanie zasobów kontenerów w usłudze Azure Container Instances
 
@@ -44,7 +44,7 @@ W grupie kontenerów zawierającej wiele kontenerów Użyj [wymiaru][monitor-dim
 1. Na stronie **Przegląd** wybierz jeden z wykresów metryk, takich jak **procesor CPU**. 
 1. Wybierz przycisk **Zastosuj podział** , a następnie wybierz pozycję **nazwa kontenera**.
 
-![wymiar][dimension]
+![Przechwytywanie ekranu pokazuje metryki wystąpienia kontenera z wybraną opcją Zastosuj podział i nazwę kontenera.][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Pobieranie metryk — interfejs wiersza polecenia platformy Azure
 
