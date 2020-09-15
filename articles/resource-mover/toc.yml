@@ -18,9 +18,9 @@
   items:
     - name: Omówienie przenoszenia
       href: about-move-process.md
-    - name: Macierz obsługi przenoszenia maszyn wirtualnych platformy Azure między regionami
+    - name: Pomoc techniczna — przenoszenie maszyn wirtualnych platformy Azure między regionami
       href: support-matrix-move-region-azure-vm.md
-    - name: Macierz obsługi przenoszenia zasobów Azure SQL między regionami
+    - name: Pomoc techniczna — przenoszenie usługi Azure SQL między regionami
       href: support-matrix-move-region-sql.md
 - name: Przewodniki z instrukcjami
   items:
@@ -34,11 +34,11 @@
           href: move-region-within-resource-group.md
     - name: Zarządzanie przenoszeniami między regionami
       items:
-        - name: Modyfikowanie ustawień docelowych dla przenoszenia regionu
+        - name: Modyfikowanie ustawień lokalizacji docelowej
           href: modify-target-settings.md
-        - name: Usuwanie zasobów z kolekcji przenoszenia regionów
+        - name: Usuwanie zasobów z kolekcji przenoszenia
           href: remove-move-resources.md
-        - name: Zarządzanie zasobami utworzonymi przez proces przenoszenia regionów
+        - name: Zarządzanie zasobami utworzonymi podczas przenoszenia
           href: manage-resources-created-move-process.md
 - name: Zasoby
   items:

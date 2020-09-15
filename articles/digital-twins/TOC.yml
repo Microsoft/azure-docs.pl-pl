@@ -160,6 +160,8 @@
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
             - name: JavaScript SDK — npm
               href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
+            - name: JavaScript SDK — dokumentacja
+              href: 'https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true'
     - name: Interfejs wiersza polecenia usługi Digital Twins
       items:
         - name: Dokumentacja interfejsu wiersza polecenia usługi Digital Twins

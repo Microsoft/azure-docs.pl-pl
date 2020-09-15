@@ -479,7 +479,7 @@
                   items:
                     - name: Z maszyny wirtualnej
                       href: ../image-version-vm-cli.md
-                    - name: Z dysku VHD lub migawki
+                    - name: Z dysku zarządzanego lub migawki
                       href: ../image-version-snapshot-cli.md
                     - name: Migrowanie z obrazu zarządzanego
                       href: ../image-version-managed-image-cli.md
@@ -501,7 +501,7 @@
                   items:
                     - name: Z maszyny wirtualnej
                       href: ../image-version-vm-powershell.md
-                    - name: Z dysku VHD lub migawki
+                    - name: Z dysku zarządzanego lub migawki
                       href: ../image-version-snapshot-powershell.md
                     - name: Migrowanie z obrazu zarządzanego
                       href: ../image-version-managed-image-powershell.md
@@ -542,14 +542,16 @@
               href: image-builder-overview.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: image-builder.md
-            - name: Tworzenie maszyny wirtualnej przy użyciu sieci wirtualnej — interfejs wiersza polecenia
+            - name: Korzystanie z sieci wirtualnej — interfejs wiersza polecenia
               href: image-builder-vnet.md
-            - name: Konfigurowanie uprawnień — interfejs wiersza polecenia
-              href: image-builder-permissions-cli.md
-            - name: Konfigurowanie uprawnień — PowerShell
-              href: image-builder-permissions-powershell.md
             - name: Opcje sieci
               href: image-builder-networking.md
+            - name: Konfigurowanie uprawnień
+              items:
+                - name: Interfejs wiersza polecenia
+                  href: image-builder-permissions-cli.md
+                - name: PowerShell
+                  href: image-builder-permissions-powershell.md
             - name: Zadanie metodyki DevOps
               href: image-builder-devops-task.md
             - name: Dokumentacja szablonu usługi Resource Manager

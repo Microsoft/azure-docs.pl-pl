@@ -18,12 +18,32 @@
           href: common-questions-server-migration.md
 - name: Samouczki
   items:
-    - name: Ocena i migrowanie maszyn wirtualnych VMware
+    - name: Odnajdywanie
       items:
-        - name: Przygotowywanie środowiska VMware do oceny i migracji
-          href: tutorial-prepare-vmware.md
-        - name: Ocena maszyn wirtualnych VMware do migracji
-          href: tutorial-assess-vmware.md
+        - name: Odnajdywanie maszyn wirtualnych VMware
+          href: tutorial-discover-vmware.md
+        - name: Odnajdywanie maszyn wirtualnych Hyper-V
+          href: tutorial-discover-hyper-v.md
+        - name: Odnajdywanie serwerów fizycznych
+          href: tutorial-discover-physical.md
+        - name: Odnajdywanie wystąpień platformy AWS
+          href: tutorial-discover-aws.md
+        - name: Odnajdywanie zaimportowanych serwerów
+          href: tutorial-discover-import.md
+    - name: Ocena
+      items:
+        - name: Ocena maszyn wirtualnych VMware pod kątem migracji do maszyn wirtualnych platformy Azure
+          href: tutorial-assess-vmware-azure-vm.md
+        - name: Ocena maszyn wirtualnych VMware pod kątem migracji do usługi AVS
+          href: tutorial-assess-vmware-azure-vmware-solution.md
+        - name: Ocena maszyn wirtualnych funkcji Hyper-V do migracji na platformę Azure
+          href: tutorial-assess-hyper-v.md
+        - name: Ocena serwerów fizycznych pod kątem migracji na platformę Azure
+          href: tutorial-assess-physical.md
+        - name: Ocena wystąpień platformy AWS pod kątem migracji na platformę Azure
+          href: tutorial-assess-aws.md
+    - name: Migrate
+      items:
         - name: Migrowanie maszyn wirtualnych VMware
           items:
             - name: Opcje migracji maszyn wirtualnych VMware — informacje
@@ -32,30 +52,12 @@
               href: tutorial-migrate-vmware.md
             - name: Migrowanie maszyn wirtualnych VMware za pomocą migracji z użyciem agentów
               href: tutorial-migrate-vmware-agent.md
-    - name: Ocena i migrowanie maszyn wirtualnych funkcji Hyper-V
-      items:
-        - name: Przygotowywanie środowiska funkcji Hyper-V do oceny i migracji
-          href: tutorial-prepare-hyper-v.md
-        - name: Ocena maszyn wirtualnych funkcji Hyper-V do migracji
-          href: tutorial-assess-hyper-v.md
         - name: Migrowanie maszyn wirtualnych funkcji Hyper-V
           href: tutorial-migrate-hyper-v.md
-    - name: Ocena i migrowanie serwerów fizycznych
-      items:
-        - name: Przygotowywanie serwerów fizycznych do oceny i migracji
-          href: tutorial-prepare-physical.md
-        - name: Ocena serwerów fizycznych
-          href: tutorial-assess-physical.md
         - name: Migrowanie serwerów fizycznych
           href: tutorial-migrate-physical-virtual-machines.md
-    - name: Ocenianie i migrowanie maszyn wirtualnych usługi AWS
-      items:
-        - name: 'Odnajdywanie, ocenianie i migrowanie maszyn wirtualnych usługi Amazon Web Services (AWS) na platformę Azure'
+        - name: Migrowanie wystąpień platformy AWS
           href: tutorial-migrate-aws-virtual-machines.md
-    - name: Ocena zaimportowanych serwerów pod kątem migracji
-      items:
-        - name: Ocena zaimportowanych serwerów pod kątem migracji
-          href: tutorial-assess-import.md
 - name: Pojęcia
   items:
     - name: Tworzenie planu migracji za pomocą usługi Azure Migrate
