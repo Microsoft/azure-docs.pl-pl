@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 01fb176ad6dc2ce097beddf03b724628ba3e1032
-  ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+  ms.openlocfilehash: e37bc2c9a6f6ad48695ce5fe346ef2402f3c6a6c
+  ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/18/2020
-  ms.locfileid: "88509930"
+  ms.lasthandoff: 09/15/2020
+  ms.locfileid: "90086270"
 landingContent:
 - title: Azure Maps — informacje
   linkLists:
@@ -121,13 +121,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: Kontrolka mapy
-      url: https://docs.microsoft.com/javascript/api/azure-maps-control/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-control/
     - text: Moduł narzędzi do rysowania
-      url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/
     - text: Moduł usługi
-      url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-rest/
     - text: Moduł operacji we/wy danych przestrzennych
-      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/
 - title: Programowanie przy użyciu zestawu Android SDK
   linkLists:
   - linkListType: how-to-guide
