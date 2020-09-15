@@ -17,6 +17,8 @@
       href: get-started-create-service-instance.md
     - name: Tworzenie wystąpienia — PowerShell
       href: powershell-create-service-instance.md
+    - name: Tworzenie wystąpienia — Visual Studio Code
+      href: vscode-create-service-instance.md
 - name: Samouczki
   items:
     - name: 1 — Importowanie pierwszego interfejsu API

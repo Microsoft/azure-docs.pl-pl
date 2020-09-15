@@ -2,11 +2,37 @@
   href: index.yml
 - name: Wprowadzenie
   href: introduction.md
-- name: Mechanizmy zabezpieczeń
+- name: Mechanizmy zabezpieczeń (wersja 2)
   expanded: true
   items:
     - name: Omówienie mechanizmów zabezpieczeń platformy Azure
       href: overview.md
+    - name: Bezpieczeństwo sieci
+      href: security-controls-v2-network-security.md
+    - name: Zarządzanie tożsamościami
+      href: security-controls-v2-identity-management.md
+    - name: Dostęp uprzywilejowany
+      href: security-controls-v2-privileged-access.md
+    - name: Ochrona danych
+      href: security-controls-v2-data-protection.md
+    - name: Zarządzanie zasobami
+      href: security-controls-v2-asset-management.md
+    - name: Rejestrowanie i wykrywanie zagrożeń
+      href: security-controls-v2-logging-threat-detection.md
+    - name: Reagowanie na zdarzenia
+      href: security-controls-v2-incident-response.md
+    - name: Zarządzanie lukami w zabezpieczeniach i stanem
+      href: security-controls-v2-posture-vulnerability-management.md
+    - name: Zabezpieczenia punktu końcowego
+      href: security-controls-v2-endpoint-security.md
+    - name: Tworzenie i przywracanie kopii zapasowych
+      href: security-controls-v2-backup-recovery.md
+    - name: Ład i strategia
+      href: security-controls-v2-governance-strategy.md
+- name: Mechanizmy zabezpieczeń (wersja 1)
+  items:
+    - name: Omówienie mechanizmów zabezpieczeń platformy Azure (wersja 1)
+      href: overview-v1.md
     - name: Bezpieczeństwo sieci
       href: security-control-network-security.md
     - name: Rejestrowanie i monitorowanie

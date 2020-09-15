@@ -44,7 +44,7 @@ Poniżej znajduje się lista projektów typu "open source", które zwiększają 
 | [Moduł mapy synchronizacji Azure Maps](https://github.com/Azure-Samples/azure-maps-sync-maps) | Azure Maps moduł SDK sieci Web, który synchronizuje kamery co najmniej dwóch map. |
 | [Moduł interfejsu użytkownika usług Azure Maps Services](https://github.com/Azure-Samples/azure-maps-services-ui) | Zestaw formantów interfejsu użytkownika sieci Web, które zawijają Azure Maps usługi REST. |
 
-**Przykłady**
+**Samples**
 
 | Nazwa projektu | Opis |
 |-|-|

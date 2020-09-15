@@ -17,7 +17,7 @@ ms.locfileid: "90086644"
 
 W tym artykule przedstawiono informacje o wersji emulatora usługi Azure Cosmos z listą aktualizacji funkcji, które zostały wprowadzone w poszczególnych wersjach. Znajduje się w nim również Najnowsza wersja emulatora do pobrania i użycia.
 
-## <a name="download"></a>Pobierz
+## <a name="download"></a>Pobieranie
 
 | | |
 |---------|---------|
