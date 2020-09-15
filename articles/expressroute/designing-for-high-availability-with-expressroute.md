@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: projektowanie pod kątem wysokiej dostępności'
 description: Ta strona zawiera zalecenia dotyczące architektury w celu zapewnienia wysokiej dostępności podczas korzystania z usługi Azure ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 06/28/2019
-ms.author: rambala
-ms.openlocfilehash: da90bbbce485616afdac5997576da99ac4d62c6f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: d6e63ad5781b0b8d6f46aee1cb88373721bb9dfc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521908"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397903"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Projektowanie pod kątem wysokiej dostępności dzięki ExpressRoute
 

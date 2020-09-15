@@ -17,15 +17,15 @@ ms.locfileid: "80875053"
 ---
 ## <a name="gathering-required-parameters"></a>Zbieranie wymaganych parametrów
 
-Istnieją trzy podstawowe parametry dla wszystkich kontenerów Cognitive Services, które są wymagane. Umowa licencyjna użytkownika oprogramowania (EULA) musi być obecna z wartością `accept`. Ponadto wymagany jest adres URL punktu końcowego i klucz interfejsu API.
+Istnieją trzy podstawowe parametry dla wszystkich kontenerów Cognitive Services, które są wymagane. Umowa licencyjna użytkownika oprogramowania (EULA) musi być obecna z wartością `accept` . Ponadto wymagany jest adres URL punktu końcowego i klucz interfejsu API.
 
-### <a name="endpoint-uri-endpoint_uri"></a>Identyfikator URI punktu końcowego`{ENDPOINT_URI}`
+### <a name="endpoint-uri-endpoint_uri"></a>Identyfikator URI punktu końcowego `{ENDPOINT_URI}`
 
 Wartość identyfikatora URI **punktu końcowego** jest dostępna na stronie *Przegląd* Azure Portal odpowiedniego zasobu usługi poznawczej. Przejdź do strony *Przegląd* , umieść kursor nad punktem końcowym, a `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> zostanie wyświetlona ikona. Kopiowanie i używanie tam, gdzie jest to zbędne.
 
 ![Zbierz identyfikator URI punktu końcowego do późniejszego użycia](../media/overview-endpoint-uri.png)
 
-### <a name="keys-api_key"></a>Ponownie`{API_KEY}`
+### <a name="keys-api_key"></a>Ponownie `{API_KEY}`
 
 Ten klucz jest używany do uruchamiania kontenera i jest dostępny na stronie klucze Azure Portal odpowiedniego zasobu usługi poznawczej. Przejdź do strony *klucze* i kliknij `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ikonę.
 

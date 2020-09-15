@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Dokumentacja testów porównawczych zabezpieczeń platformy Azure
+title: Dokumentacja testu porównawczego zabezpieczeń platformy Azure
 summary: Dowiedz się, jak zabezpieczyć rozwiązania w chmurze na platformie Azure, korzystając z naszych najlepszych rozwiązań i wskazówek.
 metadata:
-  title: Testy porównawcze zabezpieczeń platformy Azure
+  title: Test porównawczy zabezpieczeń platformy Azure
   description: Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia, które pomogą Ci w poprawie stanu zabezpieczeń Twoich aplikacji i danych na platformie Azure.
   services: security
   ms.service: security
@@ -13,12 +13,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: 705757e3021ff7421dd88e3a2661b1b51f3f927a
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: addc6aab30d23ab1aaca691e5d1ee1f0b9d12c39
+  ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88213560"
+  ms.lasthandoff: 09/13/2020
+  ms.locfileid: "90058669"
 landingContent:
 - title: Informacje o teście porównawczym zabezpieczeń platformy Azure
   linkLists:
@@ -34,22 +34,22 @@ landingContent:
       url: ../../security-center/index.yml
     - text: Podstawy zabezpieczeń platformy Azure
       url: ../fundamentals/index.yml
-- title: Kontrolki testu porównawczego zabezpieczeń platformy Azure
+- title: Mechanizmy kontrolne testu porównawczego zabezpieczeń platformy Azure w wersji 2
   linkLists:
   - linkListType: overview
     links:
     - text: Bezpieczeństwo sieci
-      url: security-control-network-security.md
-    - text: Rejestrowanie i monitorowanie
-      url: security-control-logging-monitoring.md
-    - text: Tożsamość i kontrola dostępu
-      url: security-control-identity-access-control.md
+      url: security-controls-v2-network-security.md
+    - text: Zarządzanie tożsamościami
+      url: security-controls-v2-identity-management.md
+    - text: Dostęp uprzywilejowany
+      url: security-controls-v2-privileged-access.md
     - text: Ochrona danych
-      url: security-control-data-protection.md
-    - text: Zarządzanie lukami w zabezpieczeniach
-      url: security-control-vulnerability-management.md
+      url: security-controls-v2-data-protection.md
+    - text: Zarządzanie zasobami
+      url: security-controls-v2-asset-management.md
     - text: Zobacz więcej
-      url: security-control-inventory-asset-management.md
+      url: security-controls-v2-logging-threat-detection.md
 - title: Obliczanie punktów odniesienia zabezpieczeń
   linkLists:
   - linkListType: overview

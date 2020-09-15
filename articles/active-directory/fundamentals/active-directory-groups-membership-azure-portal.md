@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfc532ea859c78b72a15dc85e0d3fc740ffe19a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6f3918016e35029ea6cc1b60d407ad475b35895b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797546"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565468"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Dodawanie lub usuwanie grupy z innej grupy przy użyciu Azure Active Directory
 Ten artykuł pomaga w dodawaniu i usuwaniu grupy z innej grupy przy użyciu Azure Active Directory.
@@ -30,7 +30,7 @@ Ten artykuł pomaga w dodawaniu i usuwaniu grupy z innej grupy przy użyciu Azur
 Istniejącą grupę zabezpieczeń można dodać do innej istniejącej grupy zabezpieczeń (znanej również jako grupy zagnieżdżone), tworząc grupę członkowską (podgrupę) i grupę nadrzędną. Grupa członkowska dziedziczy atrybuty i właściwości grupy nadrzędnej, oszczędzając czas konfiguracji.
 
 >[!Important]
->Obecnie nie obsługujemy:<ul><li>Dodawanie grup do grupy synchronizowanej z Active Directoryami lokalnymi.</li><li>Dodawanie grup zabezpieczeń do grup pakietu Office 365.</li><li>Dodawanie grup pakietu Office 365 do grup zabezpieczeń lub innych grup pakietu Office 365.</li><li>Przypisywanie aplikacji do grup zagnieżdżonych.</li><li>Stosowanie licencji do grup zagnieżdżonych.</li><li>Dodawanie grup dystrybucyjnych w scenariuszach zagnieżdżania.</li></ul>
+>Obecnie nie obsługujemy:<ul><li>Dodawanie grup do grupy synchronizowanej z Active Directoryami lokalnymi.</li><li>Dodawanie grup zabezpieczeń do grup Microsoft 365.</li><li>Dodawanie grup Microsoft 365 do grup zabezpieczeń lub innych grup Microsoft 365.</li><li>Przypisywanie aplikacji do grup zagnieżdżonych.</li><li>Stosowanie licencji do grup zagnieżdżonych.</li><li>Dodawanie grup dystrybucyjnych w scenariuszach zagnieżdżania.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Aby dodać grupę jako element członkowski innej grupy
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 94a0c0af5071397ee4deb859f8f58f2ed1c73a77
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519358"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277667"
 ---
 # <a name="working-with-security-policies"></a>Praca z zasadami zabezpieczeń
 
@@ -40,7 +40,7 @@ Security Center oferuje następujące opcje pracy z zasadami zabezpieczeń:
 * **Dodaj zasady zgodności z przepisami** — pulpit nawigacyjny zgodności z przepisami Security Center przedstawia stan wszystkich ocen w danym środowisku w kontekście określonego standardu lub rozporządzenia (na przykład Azure CIS, NIST SP 800-53 R4, Swift CSP CSCF-V2020). Aby uzyskać więcej informacji, zobacz [poprawianie zgodności z przepisami](security-center-compliance-dashboard.md).
 
 
-## <a name="managing-your-security-policies"></a>Zarządzanie zasadami zabezpieczeń
+## <a name="manage-your-security-policies"></a>Zarządzanie zasadami zabezpieczeń
 
 Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
 
@@ -54,7 +54,7 @@ Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
 
 1. Zostanie wyświetlona strona zasady zabezpieczeń dla tej subskrypcji lub grupy zarządzania. Są w nim wyświetlane zasady dostępne i przypisane.
 
-   ![ekran zasad](./media/tutorial-security-policy/security-policy-page.png)
+   ![Strona zasad](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
     > Jeśli istnieje etykieta "MG odziedziczona" wraz z zasadami domyślnymi, oznacza to, że zasady zostały przypisane do grupy zarządzania i są dziedziczone przez przeglądaną subskrypcję.
@@ -111,11 +111,11 @@ Aby uzyskać więcej informacji na temat zaleceń, zobacz [Zarządzanie zaleceni
 
 1. Wybierz pozycję **Wyświetl czynne zasady**.
 
-   ![Wyłącz zasady](./media/tutorial-security-policy/view-effective-policy.png)
+   ![Wyświetl zasady](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Wybierz przypisane zasady.
 
-   ![Wyłącz zasady](./media/tutorial-security-policy/security-policy.png)
+   ![Wybieranie zasad](./media/tutorial-security-policy/security-policy.png)
 
 1. W sekcji **Parametry** Wyszukaj zasady wywołujące zalecenie, które chcesz wyłączyć, a następnie z listy rozwijanej wybierz pozycję **wyłączone** .
 

@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7730efd29e24f99bce3937a9ce5cc2caf4e1400f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d61a3dd995efd1f433c2e862c4b7a59d31f79a3
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359504"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660860"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Program Azure AD Connect a federacja
 Program Azure Active Directory (Azure AD) Connect umożliwia skonfigurowanie Federacji przy użyciu lokalnych Active Directory Federation Services (AD FS) i usługi Azure AD. Za pomocą logowania federacyjnego można umożliwić użytkownikom logowanie się do usług opartych na usłudze Azure AD przy użyciu haseł lokalnych — i, w sieci firmowej, bez konieczności ponownego wprowadzania haseł. Za pomocą opcji federacyjnej z AD FS można wdrożyć nową instalację AD FS lub można określić istniejącą instalację w farmie systemu Windows Server 2012 R2.
@@ -38,12 +38,12 @@ Ten temat zawiera informacje dotyczące funkcji związanych z federacyjnym Azure
 | [Konfigurowanie farmy AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Zainstaluj nową farmę AD FS przy użyciu Azure AD Connect. |
 | [Sfederować z usługą Azure AD przy użyciu alternatywnego identyfikatora logowania](how-to-connect-fed-management.md#alternateid) | Konfigurowanie Federacji przy użyciu alternatywnego identyfikatora logowania  |
 | **Modyfikowanie konfiguracji AD FS** | |
-| [Napraw zaufanie](how-to-connect-fed-management.md#repairthetrust) |Napraw bieżące zaufanie między lokalnym AD FS i Office 365/Azure. |
+| [Napraw zaufanie](how-to-connect-fed-management.md#repairthetrust) |Napraw bieżące zaufanie między lokalnym AD FS i Microsoft 365/Azure. |
 | [Dodaj nowy serwer AD FS](how-to-connect-fed-management.md#addadfsserver) |Po instalacji początkowej rozwiń AD FS farmę z dodatkowym serwerem AD FS. |
 | [Dodawanie nowego AD FS serwera WAP](how-to-connect-fed-management.md#addwapserver) |Po instalacji początkowej rozwiń AD FS farmę z dodatkowym serwerem proxy aplikacji sieci Web (WAP). |
 | [Dodawanie nowej domeny federacyjnej](how-to-connect-fed-management.md#addfeddomain) |Dodaj kolejną domenę, która ma być federacyjnym z usługą Azure AD. |
 | [Aktualizowanie certyfikatu TLS/SSL](how-to-connect-fed-ssl-update.md)| Zaktualizuj certyfikat TLS/SSL dla farmy AD FS. |
-| [Odnawianie certyfikatów Federacji dla pakietu Office 365 i usługi Azure AD](how-to-connect-fed-o365-certs.md)|Odnów certyfikat usługi O365 w usłudze Azure AD.|
+| [Odnawianie certyfikatów Federacji dla Microsoft 365 i usługi Azure AD](how-to-connect-fed-o365-certs.md)|Odnów certyfikat usługi O365 w usłudze Azure AD.|
 | **Inna konfiguracja federacji** | |
 | [Federowanie wielu wystąpień usługi Azure AD przy użyciu jednego wystąpienia usługi AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md) | Sfederować wiele usług Azure AD za pomocą pojedynczej farmy AD FS| 
 | [Dodaj niestandardowe logo/ilustrację firmy](how-to-connect-fed-management.md#customlogo) |Zmodyfikuj środowisko logowania, określając niestandardowe logo, które jest wyświetlane na stronie logowania AD FS. |
@@ -53,5 +53,5 @@ Ten temat zawiera informacje dotyczące funkcji związanych z federacyjnym Azure
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 * [Federowanie dwie usługi Azure AD z pojedynczym AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md)
-* [Wdrożenie usług AD FS na platformie Azure](how-to-connect-fed-azure-adfs.md)
-* [Wielogeograficzne wdrożenie AD FS na platformie Azure z platformą Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+* [Wdrożenie usług AD FS na platformie Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+* [Wielogeograficzne wdrożenie AD FS na platformie Azure z platformą Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)

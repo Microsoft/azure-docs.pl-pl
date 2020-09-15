@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cd163b4c7514507d2a0563f1254c83dd22a3af2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3405f28d5f306e8370bae72eb5f3f3c406235c3d
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268197"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322028"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Włącz usługę Azure Arc w klastrze Kubernetes na urządzeniu z systemem Azure Stack Edge
 
@@ -59,7 +59,7 @@ Przed włączeniem usługi Azure Arc w klastrze Kubernetes upewnij się, że zos
 
 ## <a name="register-kubernetes-resource-providers"></a>Zarejestruj dostawców zasobów Kubernetes
 
-Przed skonfigurowaniem klastra Kubernetes za pośrednictwem usługi Azure Arc należy włączyć i zarejestrować `Microsoft.Kubernetes` `Microsoft.KubernetesConfiguration` swoją subskrypcję. 
+Przed włączeniem usługi Azure Arc w klastrze Kubernetes należy włączyć i zarejestrować `Microsoft.Kubernetes` `Microsoft.KubernetesConfiguration` swoją subskrypcję. 
 
 1. Aby włączyć dostawcę zasobów, w Azure Portal przejdź do subskrypcji, której planujesz użyć do wdrożenia. Przejdź do pozycji **dostawcy zasobów**. 
 1. W okienku po prawej stronie Wyszukaj dostawców, których chcesz dodać. W tym przykładzie `Microsoft.Kubernetes` i `Microsoft.KubernetesConfiguration` .
@@ -88,7 +88,7 @@ Dostawców zasobów można rejestrować również za pośrednictwem `az cli` . A
 
 1. Aby utworzyć jednostkę usługi, użyj następującego polecenia za pośrednictwem `az cli` .
 
-    `az as sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
 
     Aby uzyskać informacje dotyczące sposobu logowania się do programu `az cli` , [Uruchom Cloud Shell w Azure Portal](../cloud-shell/quickstart-powershell.md?view=azure-cli-latest#start-cloud-shell)
 
@@ -142,12 +142,12 @@ Wykonaj następujące kroki, aby skonfigurować klaster Kubernetes na potrzeby z
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    Aby wdrożyć usługę Azure Arc na Azure Stack urządzeniu brzegowym, upewnij się, że korzystasz z [obsługiwanego regionu usługi Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). Usługa Azure Arc jest obecnie dostępna w wersji zapoznawczej. 
+    Aby wdrożyć usługę Azure Arc na Azure Stack urządzeniu brzegowym, upewnij się, że korzystasz z [obsługiwanego regionu usługi Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). Usługa Azure Arc jest obecnie dostępna w wersji zapoznawczej. Możesz również ustalić dokładną nazwę regionu do przekazania do polecenia cmdlet przy użyciu `az account list-locations` polecenia.
     
     Oto przykład:
    
     ```powershell
-    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "WestEurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
+    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
         [10.128.44.240]: PS>
     ```
     

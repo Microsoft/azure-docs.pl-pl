@@ -16,6 +16,6 @@ ms.locfileid: "82583876"
 | Regiony | System operacyjny | CPU (maksymalnie) | Maksymalna ilość pamięci (GB) | Magazyn (GB) |
 | -------- | :---: | :---: | :-----------: | :---: |
 | Australia Wschodnia, Kanada środkowa, środkowe stany USA, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Europa Zachodnia, zachodnie stany USA 2 | Linux | 4 | 16 | 50 |
-| Japonia Wschodnia | Linux | 2 | 8 | 50 |
+| Japan East | Linux | 2 | 8 | 50 |
 | Północno-środkowe stany USA, Indie Południowe, zachodnie stany USA | Linux | 2 | 3,5 | 50 |
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 314f6a45bf688125e79f0b8ce0099a8326b339dc
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 2af6749565a7fefd2892b82bcd5dff203eccdedc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958154"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661213"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Używanie prywatnych pakietów języka Python z Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,12 +31,12 @@ Pakiety prywatne są używane przez klasę [środowiska](https://docs.microsoft.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
- * [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+ * [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
  * [Obszar roboczy Azure Machine Learning](how-to-manage-workspace.md)
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>Korzystanie z niewielkiej liczby pakietów na potrzeby programowania i testowania
 
-W przypadku niewielkiej liczby pakietów prywatnych dla jednego obszaru roboczego Użyj metody statycznej [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) . Takie podejście umożliwia szybkie dodanie pakietu prywatnego do obszaru roboczego i jest odpowiednie dla celów deweloperskich i testowych.
+W przypadku niewielkiej liczby pakietów prywatnych dla jednego obszaru roboczego Użyj metody statycznej [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) . Takie podejście umożliwia szybkie dodanie pakietu prywatnego do obszaru roboczego i jest odpowiednie dla celów deweloperskich i testowych.
 
 Wskaż wartość argumentu ścieżka do pliku koła lokalnego i uruchom ```add_private_pip_wheel``` polecenie. Polecenie zwraca adres URL służący do śledzenia lokalizacji pakietu w obszarze roboczym. Przechwyć adres URL magazynu i przekaż go do `add_pip_package()` metody.
 
@@ -58,7 +58,7 @@ To podejście używa osobistego tokenu dostępu do uwierzytelniania w repozytori
 
  1. [Utwórz osobisty token dostępu](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) dla wystąpienia usługi Azure DevOps. Ustaw zakres tokenu do __spakowania > odczytać__. 
 
- 2. Dodaj adres URL i DevOps platformy Azure jako właściwości obszaru roboczego przy użyciu metody [Workspace. set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-) .
+ 2. Dodaj adres URL i DevOps platformy Azure jako właściwości obszaru roboczego przy użyciu metody [Workspace. set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
 
      ```python
     from azureml.core import Workspace
@@ -91,19 +91,13 @@ To podejście używa osobistego tokenu dostępu do uwierzytelniania w repozytori
 
 Możesz korzystać z pakietów z konta usługi Azure Storage w ramach zapory w organizacji. Konto magazynu może zawierać nadzorowany zestaw pakietów lub wewnętrzny duplikat pakietów dostępnych publicznie.
 
-Aby skonfigurować taki magazyn prywatny:
+Aby skonfigurować taki magazyn prywatny, zobacz temat [Zabezpieczanie obszaru roboczego Azure Machine Learning i skojarzonych zasobów](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). Należy również [umieścić Azure Container Registry (ACR) za siecią wirtualną](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
-1. [Umieść obszar roboczy w sieci wirtualnej (VNET)](how-to-enable-virtual-network.md).
-1. Utwórz konto magazynu i nie [Zezwalaj na dostęp publiczny](https://docs.microsoft.com/azure/storage/common/storage-network-security).
-1. Umieść pakiety języka Python, które mają być używane w kontenerze na koncie magazynu 
-1. [Zezwalaj na dostęp do konta magazynu z sieci wirtualnej obszaru roboczego](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network)
-1. [Umieść Azure Container Registry (ACR) dla obszaru roboczego za siecią wirtualną](how-to-enable-virtual-network.md#azure-container-registry).
-
-    > [!IMPORTANT]
-    > Należy wykonać ten krok, aby móc nauczyć lub wdrożyć modele przy użyciu repozytorium pakietu prywatnego.
+> [!IMPORTANT]
+> Należy wykonać ten krok, aby móc nauczyć lub wdrożyć modele przy użyciu repozytorium pakietu prywatnego.
 
 Po zakończeniu tych konfiguracji można odwoływać się do pakietów w definicji środowiska Azure Machine Learning za pomocą pełnego adresu URL w usłudze Azure Blob Storage.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
  * Dowiedz się więcej o [zabezpieczeniach korporacyjnych w Azure Machine Learning](concept-enterprise-security.md)

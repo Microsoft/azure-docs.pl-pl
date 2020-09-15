@@ -1,7 +1,7 @@
 ---
 title: Azure AD Connect — AD FS zarządzania i dostosowywania | Microsoft Docs
 description: AD FS zarządzanie przy użyciu Azure AD Connect i dostosowania środowiska logowania AD FS użytkowników przy użyciu Azure AD Connect i programu PowerShell.
-keywords: AD FS, ADFS, zarządzanie AD FS, łączenie z usługą AAD, nawiązywanie połączenia, logowanie, AD FS dostosowanie, naprawa zaufania, O365, Federacja i Jednostka uzależniona
+keywords: AD FS, ADFS, zarządzanie AD FS, łączenie z usługą AAD, nawiązywanie połączenia, logowanie, AD FS dostosowanie, naprawa zaufania, M365, Federacja, Jednostka uzależniona
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58bc154f4ffb234df52faf3c02b5ed7ecaf77c2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dadffd6fe3e6b438b21900f957f0d4ef71bb23cb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830931"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661267"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Zarządzanie Active Directory Federation Servicesami i dostosowywanie ich przy użyciu Azure AD Connect
 W tym artykule opisano sposób zarządzania i dostosowywania Active Directory Federation Services (AD FS) przy użyciu programu Azure Active Directory Connect (Azure AD). Zawiera również inne typowe zadania AD FS, które mogą być konieczne do pełnej konfiguracji farmy AD FSowej.
@@ -31,7 +31,7 @@ W tym artykule opisano sposób zarządzania i dostosowywania Active Directory Fe
 | Temat | Co obejmuje |
 |:--- |:--- |
 | **Zarządzaj AD FS** | |
-| [Napraw zaufanie](#repairthetrust) |Jak naprawić relację zaufania federacji z pakietem Office 365. |
+| [Napraw zaufanie](#repairthetrust) |Jak naprawić relację zaufania federacji z Microsoft 365. |
 | [Sfederować z usługą Azure AD przy użyciu alternatywnego identyfikatora logowania](#alternateid) | Konfigurowanie Federacji przy użyciu alternatywnego identyfikatora logowania  |
 | [Dodaj serwer AD FS](#addadfsserver) |Jak rozwinąć farmę AD FS z dodatkowym serwerem AD FS. |
 | [Dodawanie serwera proxy aplikacji sieci Web AD FS](#addwapserver) |Jak rozwinąć farmę AD FS przy użyciu dodatkowego serwera proxy aplikacji sieci Web (WAP). |
@@ -85,7 +85,7 @@ Konfigurowanie alternatywnego identyfikatora logowania dla AD FS składa się z 
     Aby skorygować konfigurację w przypadku braku bazy wiedzy, Zainstaluj wymagane [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) , a następnie napraw zaufanie przy użyciu polecenia [napraw AAD i AD FS zaufania](#repairthetrust).
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat alternateID i kroków ręcznego konfigurowania, Przeczytaj [Konfigurowanie alternatywnego identyfikatora logowania](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
+> Aby uzyskać więcej informacji na temat alternateID i kroków ręcznego konfigurowania, Przeczytaj [Konfigurowanie alternatywnego identyfikatora logowania](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 
 ## <a name="add-an-ad-fs-server"></a><a name="addadfsserver"></a>Dodaj serwer AD FS 
 
@@ -174,7 +174,7 @@ Można łatwo dodać domenę do Federacji z usługą Azure AD przy użyciu Azure
 
    ![Domena usługi Azure AD](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
-    Po wybraniu domeny Kreator udostępnia odpowiednie informacje o dalszych akcjach podejmowanych przez kreatora oraz o wpływie konfiguracji. W niektórych przypadkach w przypadku wybrania domeny, która nie została jeszcze zweryfikowana w usłudze Azure AD, Kreator zawiera informacje ułatwiające zweryfikowanie domeny. Aby uzyskać więcej informacji [, zobacz Dodawanie niestandardowej nazwy domeny do Azure Active Directory](../active-directory-domains-add-azure-portal.md) .
+    Po wybraniu domeny Kreator udostępnia odpowiednie informacje o dalszych akcjach podejmowanych przez kreatora oraz o wpływie konfiguracji. W niektórych przypadkach w przypadku wybrania domeny, która nie została jeszcze zweryfikowana w usłudze Azure AD, Kreator zawiera informacje ułatwiające zweryfikowanie domeny. Aby uzyskać więcej informacji [, zobacz Dodawanie niestandardowej nazwy domeny do Azure Active Directory](../fundamentals/add-custom-domain.md) .
 
 5. Kliknij przycisk **Dalej**. Na stronie **gotowy do konfiguracji** zostanie wyświetlona lista akcji, które zostaną wykonane Azure AD Connect. Kliknij przycisk **Instaluj** , aby zakończyć konfigurację.
 
@@ -207,7 +207,7 @@ Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requi
 ```
 
 ## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>Modyfikuj reguły AD FSch roszczeń 
-AD FS obsługuje bogaty język, którego można użyć do tworzenia niestandardowych reguł dla roszczeń. Aby uzyskać więcej informacji, zobacz [Rola języka reguł dotyczących roszczeń](https://technet.microsoft.com/library/dd807118.aspx).
+AD FS obsługuje bogaty język, którego można użyć do tworzenia niestandardowych reguł dla roszczeń. Aby uzyskać więcej informacji, zobacz [Rola języka reguł dotyczących roszczeń](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807118(v=ws.11)).
 
 W poniższych sekcjach opisano, jak można napisać niestandardowe reguły dla niektórych scenariuszy, które odnoszą się do usługi Azure AD i Federacji AD FS.
 

@@ -20,6 +20,8 @@
       href: set-up-service-alerts.md
 - name: Porady
   items:
+    - name: Migracja ręczna
+      href: manual-migration.md
     - name: Łączenie się z zasobami usługi Windows Virtual Desktop
       items:
         - name: Łączenie się z klientem klasycznym systemu Windows

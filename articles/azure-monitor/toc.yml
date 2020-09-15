@@ -224,12 +224,10 @@
               href: log-query/get-started-queries.md
         - name: Dane dziennika
           items:
-            - name: Struktura danych dziennika
-              href: log-query/logs-structure.md
             - name: Zakres zapytania
               href: log-query/scope.md
-            - name: Właściwości standardowe
-              href: platform/log-standard-properties.md
+            - name: Kolumny standardowe
+              href: platform/log-standard-columns.md
             - name: Grupy komputerów
               href: platform/computer-groups.md
         - name: Język zapytań

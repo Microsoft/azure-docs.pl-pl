@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: monitorowanie, metryki i alerty'
 description: Dowiedz się więcej o monitorowaniu, metrykach i alertach usługi Azure ExpressRoute, korzystając z Azure Monitor, z którego korzysta ten punkt zatrzymania dla wszystkich metryk, alertów, dzienników diagnostycznych na platformie Azure.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
-ms.author: cherylmc
-ms.openlocfilehash: 6f3bd5392457f05caa8704e7e1de5b4155b28794
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.author: duau
+ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871353"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395438"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorowanie, metryki i alerty usługi ExpressRoute
 
@@ -40,10 +40,10 @@ Po wybraniu metryki zostanie zastosowana domyślna agregacja. Opcjonalnie można
 |Liczba pakietów na sekundę|Wydajność| <ui><li>Wystąpienie</ui></li>|ExpressRoute Virtual Network Gateway|
 |GlobalReachBitsInPerSecond|Ruch|<ui><li>Skey obwodu równorzędnego (klucz usługi)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|Ruch|<ui><li>Skey obwodu równorzędnego (klucz usługi)</ui></li>|Global Reach|
-|AdminState|Łączność fizyczna|Łącze|Usługa ExpressRoute Direct|
-|LineProtocol|Łączność fizyczna|Łącze|Usługa ExpressRoute Direct|
-|RxLightLevel|Łączność fizyczna|<ui><li>Łącze</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
-|TxLightLevel|Łączność fizyczna|<ui><li>Łącze</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
+|AdminState|Łączność fizyczna|Link|Usługa ExpressRoute Direct|
+|LineProtocol|Łączność fizyczna|Link|Usługa ExpressRoute Direct|
+|RxLightLevel|Łączność fizyczna|<ui><li>Powiązań</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
+|TxLightLevel|Łączność fizyczna|<ui><li>Powiązań</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
 >[!NOTE]
 >Użycie *GlobalGlobalReachBitsInPerSecond* i *GlobalGlobalReachBitsOutPerSecond* będzie widoczne tylko wtedy, gdy zostanie nawiązane co najmniej jedno połączenie Global REACH.
 >

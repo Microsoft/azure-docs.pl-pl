@@ -61,6 +61,8 @@
       href: ../../azure-databricks/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure DNS
       href: ../../dns/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure DevTest Labs
+      href: ../../devtest-labs/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Firewall
       href: ../../firewall/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Functions
@@ -73,8 +75,14 @@
       href: ../../machine-learning/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Policy
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Private Link
+      href: ../../private-link/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń publicznych adresów IP platformy Azure
+      href: ../../virtual-network/public-ip-security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Resource Graph
       href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Sentinel
+      href: ../../sentinel/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure SQL Database
       href: ../../sql-database/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Storage

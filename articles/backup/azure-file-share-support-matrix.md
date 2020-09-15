@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6381170df93fdf52c2d0dc7059ad47bbff734025
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289497"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378036"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
@@ -25,7 +25,7 @@ Kopie zapasowe udziałów plików platformy Azure są dostępne we wszystkich re
 
 | Szczegóły konta magazynu | Pomoc techniczna                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Rodzaj konta            | Azure Backup obsługuje udziały plików platformy Azure obecne w ogólnego przeznaczenia w wersji 1, w wersji 2 i w przypadku typów magazynu plików |
+| Rodzaj konta            | Azure Backup obsługuje udziały plików platformy Azure obecne w ogólnego przeznaczenia w wersji 1, ogólnego przeznaczenia w wersji 2 i w magazynie plików |
 | Wydajność              | Azure Backup obsługuje udziały plików zarówno na kontach standardowych, jak i Premium Storage |
 | Replikacja              | Obsługiwane są udziały plików platformy Azure w ramach kont magazynu z dowolnym typem replikacji |
 | Zapora włączona         | Obsługiwane są udziały plików platformy Azure w ramach kont magazynu z regułami zapory zezwalających na dostęp do konta magazynu przez usługi Microsoft Azure Services|
@@ -34,7 +34,7 @@ Kopie zapasowe udziałów plików platformy Azure są dostępne we wszystkich re
 
 | Typ udziału plików                                   | Pomoc techniczna   |
 | -------------------------------------------------- | --------- |
-| Standard                                           | Obsługiwane |
+| Standardowa                                           | Obsługiwane |
 | Duża                                              | Obsługiwane |
 | Premium                                            | Obsługiwane |
 | Udziały plików połączone z usługą Azure File Sync | Obsługiwane |

@@ -78,7 +78,7 @@ Po wdrożeniu aplikacji funkcji można ją znaleźć między **App Services** Az
 3. Wybierz **ogólny element webhook — C#**.
 4. Nadaj nazwę elementowi webhook i naciśnij pozycję **Utwórz**.
 
-### <a name="files"></a>Pliki
+### <a name="files"></a>Files
 
 Funkcja platformy Azure jest skojarzona z plikami kodu i innymi plikami opisanymi w tej sekcji. Domyślnie funkcja jest skojarzona z plikami **function.json** i **Run. CSX** (C#). Musisz dodać **project.js** do pliku. W pozostałej części tej sekcji przedstawiono definicje tych plików.
 
@@ -525,5 +525,5 @@ W tej sekcji zostanie wyświetlony kod, który dodaje powiadomienie elementu web
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -7,8 +7,10 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Tworzenie usługi Front Door
+    - name: Tworzenie usługi Front Door — portal
       href: quickstart-create-front-door.md
+    - name: Tworzenie usługi Front Door — szablon usługi ARM
+      href: quickstart-create-front-door-template.md
 - name: Samouczki
   items:
     - name: Dodawanie do usługi Front Door domeny niestandardowej

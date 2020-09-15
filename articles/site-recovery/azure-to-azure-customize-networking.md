@@ -2,18 +2,18 @@
 title: Dostosowywanie konfiguracji sieci dla maszyny wirtualnej trybu failover | Microsoft Docs
 description: Zawiera omówienie dostosowywania konfiguracji sieci dla maszyny wirtualnej trybu failover w replikacji maszyn wirtualnych platformy Azure przy użyciu Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
+author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
-ms.author: rajanaki
-ms.openlocfilehash: 848234417099c0a31bd0c9e84722b6221aec3aa9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: sideeksh
+ms.openlocfilehash: 599ad76f38833e06cc458fd0687921e6975e190b
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135830"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426371"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Dostosowywanie konfiguracji sieci dla docelowej maszyny wirtualnej platformy Azure
 
@@ -49,7 +49,7 @@ Podczas replikowania maszyn wirtualnych platformy Azure można dostarczyć nast�
 
     ![Edytowanie konfiguracji karty sieciowej](media/azure-to-azure-customize-networking/nic-drilldown.png) 
 
-6. Kliknij przycisk **OK**.
+6. Wybierz przycisk **OK**.
 
 Site Recovery będzie teraz przestrzegać tych ustawień i upewnić się, że maszyna wirtualna w trybie failover jest połączona z wybranym zasobem za pośrednictwem odpowiedniej karty sieciowej.
 
@@ -77,7 +77,7 @@ Publiczny adres IP:
 - Subskrypcja i region publicznego adresu IP i docelowej maszyny wirtualnej powinny być takie same.
 - Jednostka SKU publicznego adresu IP maszyny wirtualnej i jednostka SKU wewnętrznego modułu równoważenia obciążenia muszą być takie same.
 
-Sieciowa grupa zabezpieczeń:
+Sieciowa Grupa zabezpieczeń:
 - Subskrypcja i region sieciowej grupy zabezpieczeń i docelowej maszyny wirtualnej powinny być takie same.
 
 

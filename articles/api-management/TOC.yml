@@ -11,6 +11,8 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
+    - name: Tworzenie wystąpienia — interfejs wiersza polecenia
+      href: get-started-create-service-instance-cli.md
     - name: Tworzenie wystąpienia — portal
       href: get-started-create-service-instance.md
     - name: Tworzenie wystąpienia — PowerShell

@@ -2,20 +2,20 @@
 title: Platformy Azure — obsługa drzwi z symbolami wieloznacznymi
 description: Ten artykuł pomaga zrozumieć, w jaki sposób platforma Azure front-drzwi obsługuje mapowanie i Zarządzanie domenami wieloznacznymi na liście domen niestandardowych.
 services: frontdoor
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2020
-ms.author: sharadag
-ms.openlocfilehash: 6d8a6d6f0b05b9b7fd0144959c82b6a2c9e659a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 349c00b312ba7c3f18bab04fb059199732b4f1b3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81768307"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398753"
 ---
 # <a name="wildcard-domains"></a>Domeny wieloznaczne
 

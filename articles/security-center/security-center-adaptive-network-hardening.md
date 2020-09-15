@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: d12df01fe1506f7f5ade9cce60ae7af0412e3010
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f69fe027772dc2d008a567723a5b3c04f3ee51b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080815"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378206"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Adaptacyjne Zabezpieczanie sieci w Azure Security Center
 Dowiedz się, jak konfigurować adaptacyjną ochronę sieci w Azure Security Center.
@@ -35,6 +35,17 @@ Załóżmy na przykład, że istniejąca reguła sieciowej grupy zabezpieczeń m
 
 
 ![Widok ograniczania funkcjonalności sieci](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+
+
+## <a name="availability"></a>Dostępność
+
+|Aspekt|Szczegóły|
+|----|:----|
+|Stan wydania:|Ogólna dostępność|
+|Wpisaną|Warstwa Standardowa|
+|Wymagane role i uprawnienia:|Uprawnienia do zapisu na sieciowych grup zabezpieczeń komputera|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|||
 
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Wyświetl alerty i reguły ograniczania przepustowości sieci

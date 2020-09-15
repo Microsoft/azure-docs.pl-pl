@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 8f3e4762b0c0286a47b407595cf73b66bef8d750
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682845"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487355"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Łączenie identyfikatora partnera z kontami platformy Azure
 
@@ -133,10 +133,11 @@ Tak. Połączony identyfikator partnera można zmienić, dodać lub usunąć.
 
 Połączenie między identyfikatorem partnera i kontem jest wykonywane dla każdej dzierżawy klienta. Połącz identyfikator partnera w każdej dzierżawie klienta.
 
+Jeśli jednak zarządzasz zasobami klienta za pomocą usługi Azure Lighthouse, musisz utworzyć link w dzierżawie dostawcy usług za pomocą konta z dostępem do zasobów klienta. Aby uzyskać więcej informacji, zobacz [Łączenie identyfikatora partnera w celu włączenia środków uzyskanych przez partnerów w przypadku delegowanych zasobów](../../lighthouse/how-to/partner-earned-credit.md).
+
 **Czy inni partnerzy lub klienci mogą edytować lub usunąć hiperlink do identyfikatora partnera?**
 
 Hiperlink jest skojarzony na poziomie konta użytkownika. Tylko Ty możesz edytować lub usunąć hiperlink do identyfikatora partnera. Klient i inni partnerzy nie mogą zmienić hiperlinku do identyfikatora partnera.
-
 
 **Którego identyfikatora MPN należy użyć, jeśli moja firma ma ich wiele?**
 
@@ -158,10 +159,11 @@ Klient może być niewidoczny w raportach z następujących powodów:
 
 Tak. Identyfikator partnera można połączyć z usługą Azure Stack.
 
-**Jak mogę połączyć swój identyfikator partnera, jeśli moja firma używa rozwiązania [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) w celu uzyskania dostępu do zasobów klienta?**
+**Jak mogę połączyć swój identyfikator partnera, jeśli moja firma używa rozwiązania [Azure Lighthouse](../../lighthouse/overview.md) w celu uzyskania dostępu do zasobów klienta?**
 
-Jeśli dołączasz klientów do zarządzania zasobami delegowanymi na platformie Azure przez [opublikowanie oferty usług zarządzanych w witrynie Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), Twój identyfikator MPN zostanie automatycznie skojarzony. Jeśli [dołączasz klientów przez wdrożenie szablonów usługi Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), musisz skojarzyć swój identyfikator Microsoft Partner Network (MPN) z co najmniej jednym kontem użytkownika, które ma dostęp do każdej z dołączonych subskrypcji. Musisz pamiętać, że należy to zrobić w dzierżawie dostawcy usług. Dla uproszczenia zalecamy utworzenie konta jednostki usługi w dzierżawie, które będzie skojarzone z identyfikatorem MPN, i przyznanie mu dostępu czytelnika do każdego dołączonego klienta. W tym przykładzie jest używana rola czytelnika kontroli opartej na rolach i jest to jedna z ról, które nie kwalifikują się do środków uzyskanych przez partnerów. Aby uzyskać więcej informacji na temat ról, zobacz [Role i uprawnienia dotyczące środków uzyskanych przez partnerów](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+Jeśli dołączasz klientów do zarządzania zasobami delegowanymi na platformie Azure przez [opublikowanie oferty usług zarządzanych w witrynie Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), Twój identyfikator MPN zostanie automatycznie skojarzony.
 
+Jeśli [dołączasz klientów przez wdrożenie szablonów usługi Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), musisz skojarzyć swój identyfikator MPN z co najmniej jednym kontem użytkownika, które ma dostęp do każdej z dołączonych subskrypcji. Musisz pamiętać, że należy to zrobić w dzierżawie dostawcy usług, a nie u każdego klienta. Dla uproszczenia zalecamy utworzenie konta jednostki usługi w dzierżawie, które będzie skojarzone z identyfikatorem MPN, i przyznanie mu dostępu do każdego dołączonego klienta za pomocą [wbudowanej roli platformy Azure, która kwalifikuje się do otrzymania środków uzyskanych przez partnerów](/partner-center/azure-roles-perms-pec). Aby uzyskać więcej informacji, zobacz [Łączenie identyfikatora partnera w celu włączenia środków uzyskanych przez partnerów w przypadku delegowanych zasobów](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Jak mogę wyjaśnić link administratora partnera mojemu klientowi?**
 
@@ -173,4 +175,4 @@ Skojarzenie linku administratora partnera z istniejącymi poświadczeniami nie u
 
 **Czy ma to wpływ na bezpieczeństwo środowiska platformy Azure klienta?**
 
-Skojarzenie linku administratora partnera dodaje tylko identyfikator MPN partnera do już ustanowionych poświadczeń i nie zmienia żadnych uprawnień (roli na platformie Azure) ani nie udostępnia dodatkowych danych usługi platformy Azure partnerowi lub firmie Microsoft. 
+Skojarzenie linku administratora partnera dodaje tylko identyfikator MPN partnera do już ustanowionych poświadczeń i nie zmienia żadnych uprawnień (roli na platformie Azure) ani nie udostępnia dodatkowych danych usługi platformy Azure partnerowi lub firmie Microsoft.

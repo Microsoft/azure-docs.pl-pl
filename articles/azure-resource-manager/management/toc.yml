@@ -14,6 +14,8 @@
       href: deployment-models.md
     - name: Dostawcy zasobów według usługi
       href: azure-services-resource-providers.md
+    - name: Płaszczyzna sterowania i płaszczyzna danych
+      href: control-plane-and-data-plane.md
     - name: Typy zasobów rozszerzenia
       href: extension-resource-types.md
     - name: Limit wystąpień zasobów

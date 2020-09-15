@@ -3,19 +3,19 @@ title: Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes S
 description: Informacje na temat zasad obsługi wersji Kubernetes i cyklu życia klastrów w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 45c60069c27a2bb9b34cc53eb394bd44a04bd0ba
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: fb5b9c446ea5574970b14c683fac258c17199fef
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144621"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565379"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
 
-Społeczność Kubernetes zwalnia drobne wersje co trzy miesiące. Te wersje obejmują nowe funkcje i ulepszenia. Wersje poprawek są częstsze (czasami cotygodniowo) i są przeznaczone tylko dla krytycznych poprawek błędów w wersji pomocniczej. Te wersje poprawek obejmują poprawki dotyczące luk w zabezpieczeniach lub poważnych usterek.
+Społeczność Kubernetes zwalnia drobne wersje co trzy miesiące. Ostatnio społeczność Kubernetes [zwiększyła poziom wsparcia dla każdej wersji z 9 miesięcy do 12 miesięcy](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), zaczynając od wersji 1,19. Te wersje obejmują nowe funkcje i ulepszenia. Wersje poprawek są częstsze (czasami cotygodniowo) i są przeznaczone dla krytycznych poprawek błędów w wersji pomocniczej. Te wersje poprawek obejmują poprawki dotyczące luk w zabezpieczeniach lub poważnych usterek.
 
 ## <a name="kubernetes-versions"></a>Wersje Kubernetes
 
@@ -41,8 +41,8 @@ Użytkownicy powinni korzystać z najnowszej wersji poprawki wersji pomocniczej,
 
 AKS definiuje ogólnie dostępną wersję, jako wersję włączoną we wszystkich pomiarach SLO lub SLA oraz kiedy są dostępne we wszystkich regionach. AKS obsługuje trzy drobne wersje pomocnicze Kubernetes:
 
-* Najnowsza wersja pomocnicza systemu, wydawana w AKS (którą będziemy odnosić jako N). 
-* Dwie wcześniejsze wersje pomocnicze. 
+* Najnowsza wersja pomocnicza systemu, wydawana w AKS (którą będziemy odnosić jako N).
+* Dwie wcześniejsze wersje pomocnicze.
 * Każda obsługiwana wersja pomocnicza obsługuje również maksymalnie dwa (2) stabilne poprawki.
 * AKS mogą również obsługiwać wersje w wersji zapoznawczej, które są jawnie oznaczone etykietami i podlegają zapewnieniu warunków [i postanowień][preview-terms].
 
@@ -144,9 +144,13 @@ Aby uzyskać historię wcześniejszych wersji, zobacz [tutaj](https://en.wikiped
 
 ## <a name="faq"></a>Często zadawane pytania
 
+**Jak często należy oczekiwać, aby uaktualnienie wersji Kubernetes było pozostawać w pomocy technicznej?**
+
+W przypadku Kubernetes 1,19 [Pomoc techniczna typu "open source" została rozszerzona o 1 rok](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS zatwierdza, aby włączyć poprawki i obsłużyć zgodność z zobowiązaniami nadrzędnymi. Oznacza to, że począwszy od AKS klastrów na 1,19, będzie można przeprowadzić uaktualnienie co najmniej raz na rok, aby zachować dostęp do obsługiwanej wersji. W przypadku wersji 1,18 lub niższych okno pomocy technicznej pozostaje w ciągu 9 miesięcy, co wymaga uaktualnienia co 9 miesięcy, aby zachować dostęp do obsługiwanej wersji. Zdecydowanie zaleca się regularne testowanie nowych wersji i przygotowanie się do uaktualnienia do nowszych wersji w celu przechwycenia najnowszych stabilnych ulepszeń w programie Kubernetes.
+
 **Co się stanie, gdy użytkownik uaktualnia klaster Kubernetes z nieobsługiwaną wersją pomocniczą?**
 
-Jeśli korzystasz z wersji *n-3* lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji n-3 do n-2 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Przykład:
+Jeśli korzystasz z wersji *n-3* lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji n-3 do n-2 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Na przykład:
 
 - Jeśli najstarsza obsługiwana wersja AKS to *1.15. a* i jesteś w wersji *1.14. b* lub starszej, jesteś poza pomocą techniczną.
 - Gdy uaktualnienie z wersji *1.14. b* do *1.15. a* lub nowsze, nastąpi powrót do naszych zasad pomocy technicznej.

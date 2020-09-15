@@ -9,28 +9,26 @@ ms.subservice: ''
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fdf3dc56575a45ad0c9e716054184ba2691133ba
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 51422bd47b5bd2d7d5103c154e90eaa910396024
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831706"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661022"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analizowanie złożonych typów danych w usłudze Azure Synapse Analytics
 
-Ten artykuł dotyczy Parquet plików i kontenerów w [linku Synapse w celu Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). Wyjaśniono, jak użytkownicy mogą używać platformy Spark lub SQL do odczytywania lub przekształcania danych za pomocą złożonych schematów, takich jak tablice lub zagnieżdżone struktury. Poniższy przykład jest zakończony pojedynczym dokumentem, ale można łatwo skalować do miliardów dokumentów przy użyciu platformy Spark lub SQL. Kod zawarty w tym artykule używa PySpark (Python).
+Ten artykuł dotyczy plików Parquet i kontenerów w [usłudze Azure Synapse Link Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). Platformy Spark lub SQL można używać do odczytywania lub przekształcania danych za pomocą złożonych schematów, takich jak tablice lub struktury zagnieżdżone. Poniższy przykład jest zakończony przy użyciu jednego dokumentu, ale można łatwo skalować do miliardów dokumentów za pomocą platformy Spark lub SQL. Kod zawarty w tym artykule używa PySpark (Python).
 
 ## <a name="use-case"></a>Przypadek użycia
 
-Złożone typy danych są coraz częściej popularne i stanowią wyzwanie dla inżynierów danych jako analiza zagnieżdżonego schematu i tablic w celu uwzględnienia czasochłonnych i złożonych zapytań SQL. Ponadto może być trudne zmiana nazwy lub rzutowanie typu danych kolumn zagnieżdżonych. Ponadto podczas pracy z głęboko zagnieżdżonymi obiektami powstają problemy z wydajnością.
+Złożone typy danych są coraz częściej popularne i stanowią wyzwanie dla inżynierów danych. Analizowanie zagnieżdżonych schematów i tablic może dotyczyć czasochłonnych i złożonych zapytań SQL. Ponadto może być trudne zmiana nazwy lub rzutowanie typu danych kolumn zagnieżdżonych. Ponadto podczas pracy z głęboko zagnieżdżonymi obiektami można napotkać problemy z wydajnością.
 
-Inżynierowie danych muszą zrozumieć, jak efektywnie przetwarzać złożone typy danych i łatwo uzyskiwać dostęp do wszystkich użytkowników.
-
-W poniższym przykładzie Synapse Spark jest używany do odczytywania i przekształcania obiektów w płaską strukturę za pomocą ramek danych. Synapse programu SQL Server jest używany do wykonywania zapytań dotyczących takich obiektów bezpośrednio i zwracają te wyniki w postaci zwykłej tabeli.
+Inżynierowie danych muszą zrozumieć, jak efektywnie przetwarzać złożone typy danych i łatwo uzyskiwać dostęp do wszystkich użytkowników. W poniższym przykładzie używasz platformy Spark w usłudze Azure Synapse Analytics do odczytywania i przekształcania obiektów w płaską strukturę za pomocą ramek danych. Używasz bezserwerowego modelu SQL w usłudze Azure Synapse Analytics do wykonywania zapytań dotyczących takich obiektów bezpośrednio i zwracają te wyniki w postaci zwykłej tabeli.
 
 ## <a name="what-are-arrays-and-nested-structures"></a>Co to są tablice i zagnieżdżone struktury?
 
-Poniższy obiekt pochodzi z usługi [App Insight](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). W tym obiekcie istnieją zagnieżdżone struktury i tablice zawierające zagnieżdżone struktury.
+Poniższy obiekt pochodzi z [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). W tym obiekcie istnieją zagnieżdżone struktury i tablice zawierające zagnieżdżone struktury.
 
 ```json
 {
@@ -70,24 +68,26 @@ Poniższy obiekt pochodzi z usługi [App Insight](https://docs.microsoft.com/azu
 ```
 
 ### <a name="schema-example-of-arrays-and-nested-structures"></a>Przykład schematu dla tablic i zagnieżdżonych struktur
-Podczas drukowania schematu ramki danych obiektu (o nazwie **DF**) przy użyciu polecenia zostanie `df.printschema` wyświetlona następująca reprezentacja:
+Podczas drukowania schematu ramki danych obiektu (o nazwie **DF**) przy użyciu polecenia `df.printschema` zostanie wyświetlona następująca reprezentacja:
 
-* Żółty kolor reprezentuje strukturę zagnieżdżoną
-* Zielony kolor reprezentuje tablicę z dwoma elementami
+* Żółty reprezentuje zagnieżdżone struktury.
+* Zielony reprezentuje tablicę z dwoma elementami.
 
-[![Źródło schematu](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
+[![Kod z wyróżnieniem żółtym i zielonym, Pokazywanie pochodzenia schematu](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
 
-**_rid**, **_ts**i **_etag** zostały dodane do systemu, ponieważ dokument został pozyskany w Azure Cosmos DB magazynie transakcyjnym.
+`_rid`, `_ts` i zostały `_etag` dodane do systemu, ponieważ dokument został pozyskany do magazynu transakcyjnego Azure Cosmos DB.
 
-Ramka danych powyżej liczy się tylko dla 5 kolumn i 1 wiersz. Po przekształceniu, nadzorowana ramka danych będzie zawierać 13 kolumn i 2 wiersze w formacie tabelarycznym.
+Poprzednia ramka danych liczy się tylko dla 5 kolumn i 1 wiersz. Po przekształceniu, nadzorowana ramka danych będzie zawierać 13 kolumn i 2 wiersze w formacie tabelarycznym.
 
-## <a name="flatten-nested-structures-and-explode-arrays-with-apache-spark"></a>Spłaszczanie zagnieżdżonych struktur i rozłożenie tablic za pomocą Apache Spark
+## <a name="flatten-nested-structures-and-explode-arrays"></a>Spłaszczanie zagnieżdżonych struktur i rozłożenie tablic
 
-Dzięki Synapse Spark można łatwo przekształcać zagnieżdżone struktury w kolumny i elementy tablicy w wiele wierszy. Poniższe kroki mogą służyć do implementacji.
+Dzięki platformie Spark w usłudze Azure Synapse Analytics można łatwo przekształcić zagnieżdżone struktury w kolumny i elementy tablicy w wiele wierszy. Wykonaj następujące kroki, aby uzyskać implementację programu.
 
-[![Kroki transformacji Spark](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
+[![Schemat blokowy przedstawiający kroki dla transformacji Spark](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
 
-**Krok 1**. zdefiniowano funkcję, aby spłaszczyć zagnieżdżony schemat. Ta funkcja może być używana bez zmian. Utwórz komórkę w [notesie PySpark](quickstart-apache-spark-notebook.md) z następującą funkcją:
+### <a name="define-a-function-to-flatten-the-nested-schema"></a>Zdefiniuj funkcję, aby spłaszczyć zagnieżdżony schemat
+
+Tej funkcji można użyć bez zmiany. Utwórz komórkę w [notesie PySpark](quickstart-apache-spark-notebook.md) z następującą funkcją:
 
 ```python
 from pyspark.sql.functions import col
@@ -120,7 +120,9 @@ def flatten_df(nested_df):
     return nested_df.select(columns)
 ```
 
-**Krok 2**. Użyj funkcji, aby spłaszczyć zagnieżdżony schemat ramki danych (**DF**) do nowej ramki danych `df_flat` :
+### <a name="use-the-function-to-flatten-the-nested-schema"></a>Użyj funkcji, aby spłaszczyć zagnieżdżony schemat
+
+W tym kroku zostanie spłaszczony zagnieżdżony schemat ramki danych (**DF**) do nowej ramki danych ( `df_flat` ):
 
 ```python
 from pyspark.sql.types import StringType, StructField, StructType
@@ -130,7 +132,9 @@ display(df_flat.limit(10))
 
 Funkcja Display powinna zwracać 10 kolumn i 1 wiersz. Tablica i jej zagnieżdżone elementy nadal istnieją.
 
-**Krok 3**. Przekształć tablicę `context_custom_dimensions` w ramce danych `df_flat` w nową ramkę Dataframe `df_flat_explode` . W poniższym kodzie definiujemy również, którą kolumnę wybrać:
+### <a name="transform-the-array"></a>Przekształć tablicę
+
+W tym miejscu możesz przekształcić tablicę, `context_custom_dimensions` w ramce danych `df_flat` do nowej ramki danych `df_flat_explode` . W poniższym kodzie definiuje się również kolumnę do wybrania:
 
 ```python
 from pyspark.sql.functions import explode
@@ -144,7 +148,9 @@ display(df_flat_explode.limit(10))
 
 Funkcja Display powinna zwracać 10 kolumn i 2 wiersze. Następnym krokiem jest spłaszczenie zagnieżdżonych schematów przy użyciu funkcji zdefiniowanej w kroku 1.
 
-**Krok 4**. Użyj funkcji, aby spłaszczyć zagnieżdżony schemat ramki danych `df_flat_explode` do nowej ramki danych `df_flat_explode_flat` :
+### <a name="use-the-function-to-flatten-the-nested-schema"></a>Użyj funkcji, aby spłaszczyć zagnieżdżony schemat
+
+Na koniec użyj funkcji, aby spłaszczyć zagnieżdżony schemat ramki danych `df_flat_explode` do nowej ramki danych `df_flat_explode_flat` :
 ```python
 df_flat_explode_flat = flatten_df(df_flat_explode)
 display(df_flat_explode_flat.limit(10))
@@ -154,26 +160,23 @@ Funkcja Display powinna zawierać 13 kolumn i 2 wiersze.
 
 Funkcja `printSchema` ramki danych `df_flat_explode_flat` zwraca następujący wynik:
 
-[![Schemat końcowy](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
+[![Kod pokazujący końcowy schemat](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
 
-## <a name="read-arrays-and-nested-structures-directly-with-sql-serverless"></a>Odczytaj tablice i zagnieżdżone struktury bezpośrednio przy użyciu programu SQL Server
+## <a name="read-arrays-and-nested-structures-directly"></a>Bezpośrednie odczytywanie tablic i struktur zagnieżdżonych
 
-Wykonywanie zapytań i Tworzenie widoków i tabel za pośrednictwem takich obiektów jest możliwe bez programu SQL Server.
+Dzięki modelowi bez użycia serwera SQL można wykonywać zapytania i tworzyć widoki i tabele za pośrednictwem takich obiektów.
 
-Po pierwsze, w zależności od tego, jak przechowywane są dane, użytkownicy powinni używać następującej taksonomii. Wszystkie elementy prezentowane w Wielkiej litery są specyficzne dla Twojego przypadku użycia:
+Po pierwsze, w zależności od tego, jak przechowywane są dane, użytkownicy powinni używać następującej taksonomii. Wszystko, co jest pisane wielkimi literami, jest specyficzne dla Twojego przypadku użycia:
 
-| GROMADZON              | FORMAT |
-| -------------------- | --- |
+| Zbiorcze | Format |
+| ------ | ------ |
 | 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet' |"Parquet" (ADLSg2)|
-| N'endpoint = https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/ ; Account = AccountName; Database = DatabaseName; kolekcja = CollectionName; region = REGIONTOQUERY ', Secret = ' YOURSECRET ' |"CosmosDB" (link Synapse)|
+| N'endpoint = https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/ ; Account = AccountName; Database = DatabaseName; kolekcja = CollectionName; region = REGIONTOQUERY ', Secret = ' YOURSECRET ' |"CosmosDB" (link Azure Synapse)|
 
-
-> [!NOTE]
-> Program SQL Server nie będzie obsługiwał linku połączonej usługi dla Synapse na potrzeby przekazywania na platformie Azure Cosmos i AAD. Ta funkcja jest obecnie objęta bramą w wersji zapoznawczej dla linku Synapse.
 
 Zastąp każde pole w następujący sposób:
-* "Twoje dane ZBIORCZe powyżej" = parametry połączenia ze źródłem danych, z którym się łączysz
-* "Typ powyżej" = format używany do nawiązywania połączenia ze źródłem
+* "Powyższe dane ZBIORCZe" to parametry połączenia źródła danych, z którym się łączysz.
+* "Typ powyżej" jest formatem używanym do nawiązywania połączenia ze źródłem.
 
 ```sql
 select *
@@ -200,22 +203,22 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
 
 Istnieją dwa różne typy operacji:
 
-Pierwszy typ operacji jest wskazany w następującym wierszu kodu, który definiuje kolumnę o nazwie `contextdataeventTime` odwołującą się do zagnieżdżonego elementu: Context. Data. eventTime 
-```sql
-contextdataeventTime varchar(50) '$.context.data.eventTime'
-```
+- Pierwszy typ operacji jest wskazany w następującym wierszu kodu, który definiuje kolumnę o nazwie, `contextdataeventTime` która odwołuje się do zagnieżdżonego elementu, `Context.Data.eventTime` . 
+  ```sql
+  contextdataeventTime varchar(50) '$.context.data.eventTime'
+  ```
 
-Ten wiersz definiuje kolumnę o nazwie contextdataeventTime, która odwołuje się do elementu Nest: Context>Data>eventTime
+  Ten wiersz definiuje kolumnę o nazwie `contextdataeventTime` odwołującą się do elementu zagnieżdżonego `Context>Data>eventTime` .
 
-Drugi typ operacji używa `cross apply` do tworzenia nowych wierszy dla każdego elementu w tablicy, a następnie z definiuje każdy zagnieżdżony obiekt podobny do pierwszego punktu punktora: 
-```sql
-cross apply openjson (contextcustomdimensions) 
-with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
-```
+- Drugi typ operacji używa `cross apply` do tworzenia nowych wierszy dla każdego elementu w tablicy. Następnie definiuje każdy zagnieżdżony obiekt. 
+  ```sql
+  cross apply openjson (contextcustomdimensions) 
+  with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
+  ```
 
-Jeśli tablica ma 5 elementów z 4 zagnieżdżonymi strukturami, bezserwerowa SQL zwróci 5 wierszy i 4 kolumny. Program SQL Server może wykonywać zapytania w miejscu, mapować tablicę w dwóch wierszach i wyświetlać wszystkie zagnieżdżone struktury w kolumnach.
+  Jeśli tablica ma 5 elementów z 4 zagnieżdżonymi strukturami, model bezserwerowy SQL zwraca 5 wierszy i 4 kolumny. Model bezserwerowy SQL może wykonywać zapytania na miejscu, mapować tablicę w dwóch wierszach i wyświetlać wszystkie zagnieżdżone struktury w kolumnach.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się, jak wysyłać zapytania Synapse do Azure Cosmos DB za pomocą platformy Spark](./synapse-link/how-to-query-analytical-store-spark.md)
-* [Typy zagnieżdżone zapytania Parquet](./sql/query-parquet-nested-types.md) 
+* [Wykonywanie zapytań względem typów zagnieżdżonych Parquet](./sql/query-parquet-nested-types.md) 

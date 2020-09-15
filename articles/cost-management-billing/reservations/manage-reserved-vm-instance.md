@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f67cbb70d7064b894b9042bba42f48e4fb6a6b5e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684783"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400130"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Zarządzanie rezerwacjami zasobów platformy Azure
 
@@ -73,7 +73,7 @@ Aby delegować zarządzanie dostępem do rezerwacji:
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dzielenie pojedynczej rezerwacji na dwie rezerwacje
 
- Po zakupieniu więcej niż jednego wystąpienia zasobu w ramach rezerwacji możesz zdecydować się na przypisanie wystąpień w ramach tej rezerwacji do różnych subskrypcji. Domyślnie wszystkie wystąpienia mają jeden zakres — subskrypcję pojedynczą lub udostępnioną. Na przykład zakupiono 10 wystąpień rezerwacji i określono zakres jako subskrypcję A. Możesz teraz zmienić zakres dla siedmiu rezerwacji na subskrypcję A i dla trzech pozostałych — na subskrypcję B. Dzielenie rezerwacji pozwala na dystrybuowanie wystąpień do szczegółowego zarządzania zakresem. Możesz uprościć alokację do subskrypcji, wybierając zakres udostępniony. Natomiast dla celów związanych z zarządzaniem kosztami lub budżetowaniem można przydzielić ilości do określonych subskrypcji.
+ Po zakupieniu więcej niż jednego wystąpienia zasobu w ramach rezerwacji możesz zdecydować się na przypisanie wystąpień w ramach tej rezerwacji do różnych subskrypcji. Domyślnie wszystkie wystąpienia mają jeden zakres — pojedynczą subskrypcję, grupę zasobów lub subskrypcję udostępnioną. Załóżmy, że zakupiono rezerwację dla 10 wystąpień maszyn wirtualnych i określono zakres jako subskrypcję A. Teraz chcesz zmienić zakres, tak aby obejmował siedem wystąpień maszyn wirtualnych w subskrypcji A i trzy w subskrypcji B. Można to zrobić dzięki funkcji dzielenia rezerwacji. Po rozdzieleniu rezerwacji oryginalny identyfikator rezerwacji jest anulowany i tworzone są dwie nowe rezerwacje. Ten podział nie ma wpływu na zamówienie rezerwacji — nie ma żadnej nowej podzielonej transakcji komercyjnej, a nowe rezerwacje mają tę samą datę zakończenia co rozdzielona rezerwacja.
 
  Rezerwację można podzielić na dwie rezerwacje za pomocą programu PowerShell, interfejsu wiersza polecenia lub interfejsu API.
 

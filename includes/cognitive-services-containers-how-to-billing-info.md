@@ -11,7 +11,7 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "77474129"
 ---
-Zapytania do kontenera są rozliczane w warstwie cenowej zasobu platformy Azure, który jest używany przez `ApiKey`.
+Zapytania do kontenera są rozliczane w warstwie cenowej zasobu platformy Azure, który jest używany przez `ApiKey` .
 
 Kontenery usługi Azure Cognitive Services nie są licencjonowane do uruchamiania bez połączenia z punktem końcowym pomiaru/rozliczeń. Należy włączyć kontenery do przekazywania informacji rozliczeniowych za pomocą punktu końcowego rozliczeń. Kontenery Cognitive Services nie wysyłają danych klienta, takich jak obraz lub tekst, który jest analizowany, do firmy Microsoft.
 
@@ -21,10 +21,10 @@ Kontener wymaga wartości argumentu rozliczenia do uruchomienia. Te wartości um
 
 ### <a name="billing-arguments"></a>Argumenty rozliczeń
 
-<a href="https://docs.docker.com/engine/reference/commandline/run/" target="_blank"> `docker run` Polecenie spowoduje uruchomienie kontenera, gdy wszystkie trzy z poniższych opcji zostaną dostarczone z prawidłowymi <span class="docon docon-navigate-external x-hidden-focus"></span> </a> wartościami:
+Polecenie spowoduje uruchomienie kontenera, gdy wszystkie trzy z poniższych opcji zostaną dostarczone z prawidłowymi wartościami: <a href="https://docs.docker.com/engine/reference/commandline/run/" target="_blank"> `docker run` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 
 | Opcja | Opis |
 |--------|-------------|
-| `ApiKey` | Klucz interfejsu API zasobu Cognitive Services, który służy do śledzenia informacji dotyczących rozliczeń.<br/>Wartość tej opcji musi być ustawiona na klucz interfejsu API dla zasobu aprowizacji określonego w `Billing`. |
+| `ApiKey` | Klucz interfejsu API zasobu Cognitive Services, który służy do śledzenia informacji dotyczących rozliczeń.<br/>Wartość tej opcji musi być ustawiona na klucz interfejsu API dla zasobu aprowizacji określonego w `Billing` . |
 | `Billing` | Punkt końcowy zasobu Cognitive Services, który służy do śledzenia informacji dotyczących rozliczeń.<br/>Wartość tej opcji musi być ustawiona na identyfikator URI punktu końcowego zainicjowanego zasobu platformy Azure.|
 | `Eula` | Oznacza zaakceptowanie licencji dla kontenera.<br/>Wartość tej opcji musi być ustawiona na **Zaakceptuj**. |

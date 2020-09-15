@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 1a10d61c5dc35a19a8b02769a517d9f1c7aac601
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c6a35d9ba2d2f1c762f44b3792792401565c4804
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119229"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421088"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MySQL przy użyciu Azure Portal
 
@@ -72,6 +72,12 @@ Poniższe kroki umożliwiają przywrócenie przykładowego serwera do punktu w c
 5. Po zakończeniu przywracania Znajdź nowy serwer, który został utworzony w celu zweryfikowania, że dane zostały przywrócone zgodnie z oczekiwaniami.
 
 Nowy serwer utworzony przez Przywracanie do punktu w czasie ma taką samą nazwę logowania administratora serwera i hasło, które były prawidłowe dla istniejącego serwera w wybranym momencie. Hasło można zmienić na stronie **Przegląd** nowego serwera.
+
+Ponadto po zakończeniu operacji przywracania istnieją dwa parametry serwera, które są resetowane do wartości domyślnych (i nie są kopiowane z serwera podstawowego) po operacji przywracania
+*   time_zone — ta wartość jest ustawiana na domyślny **system** wartości
+*   event_scheduler — event_scheduler jest **wyłączona** na przywróconym serwerze
+
+Należy skopiować wartość z serwera podstawowego i ustawić ją na przywróconym serwerze przez ponowne skonfigurowanie [parametru serwera](howto-server-parameters.md)
 
 Nowy serwer utworzony podczas przywracania nie ma punktów końcowych usługi sieci wirtualnej, które istniały na oryginalnym serwerze. Te reguły należy skonfigurować oddzielnie dla tego nowego serwera. Przywrócono reguły zapory z oryginalnego serwera.
 

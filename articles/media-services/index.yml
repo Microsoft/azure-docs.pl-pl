@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Dokumentacja usługi Azure Media Services
-summary: Azure Media Services to bazująca na chmurze platforma do obsługi przepływów pracy dotyczących multimediów. Pozwala tworzyć rozwiązania wymagające kodowania, tworzenia pakietów, ochrony zawartości i transmitowania wydarzeń na żywo.
+summary: Azure Media Services to kolekcja usług do obsługi przepływów pracy związanych z multimediami w chmurze i na urządzeniach brzegowych, które umożliwiają tworzenie rozwiązań wymagających analizy wideo na żywo i w trybie wsadowym, transkodowania, usług dostarczania na wiele urządzeń, ochrony zawartości i transmisji wydarzeń na żywo w dużej skali.
 brand: azure
 metadata:
   title: Dokumentacja usługi Azure Media Services
-  description: Azure Media Services to bazująca na chmurze platforma do obsługi przepływów pracy dotyczących multimediów. Pozwala tworzyć rozwiązania wymagające kodowania, tworzenia pakietów, ochrony zawartości i transmitowania wydarzeń na żywo.
+  description: Azure Media Services to kolekcja usług do obsługi przepływów pracy związanych z multimediami w chmurze i na urządzeniach brzegowych, które umożliwiają tworzenie rozwiązań wymagających analizy wideo na żywo i w trybie wsadowym, transkodowania, usług dostarczania na wiele urządzeń, ochrony zawartości i transmisji wydarzeń na żywo w dużej skali.
   services: media-services
   ms.service: media-services
   ms.subservice: 
@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: d6f78b4494a16a0522f93658b063d157819c519e
-  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+  ms.openlocfilehash: fb258b634ff5511a9e795e8c0990a62bf2d0d22d
+  ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/06/2020
-  ms.locfileid: "87826147"
+  ms.lasthandoff: 09/13/2020
+  ms.locfileid: "90056537"
 highlightedContent:
   items:
   - title: Informacje o usłudze Azure Media Services w wersji 3

@@ -3,20 +3,20 @@ title: Moje drzwi na platformie Azure — ponowne zapisywanie adresów URL | Mic
 description: Ten artykuł pomaga zrozumieć, w jaki sposób usługa Azure Front drzwiczki ponownie zapisuje adresy URL dla tras, jeśli są skonfigurowane.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 8f4a6283f762d9792f50651b9caee17795df6d55
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471476"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398941"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Ponowne zapisywanie adresów URL (niestandardowa ścieżka przesyłania dalej)
 Funkcja Azure Front Drzwiczks obsługuje ponowne zapisywanie adresów URL, umożliwiając Konfigurowanie opcjonalnej **niestandardowej ścieżki przekazywania** , która będzie używana podczas konstruowania żądania do przesyłania dalej do zaplecza. Domyślnie jeśli nie ma określonej niestandardowej ścieżki przesyłania dalej, usługa Front Door kopiuje przychodzącą ścieżkę adresu URL do adresu URL użytego w przesłanym dalej żądaniu. Nagłówek Host użyty w przesłanym dalej żądaniu jest skonfigurowany dla wybranego zaplecza. Odczytaj [nagłówek hosta zaplecza](front-door-backend-pool.md#hostheader) , aby dowiedzieć się, co robi i jak można go skonfigurować.

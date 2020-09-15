@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway

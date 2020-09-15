@@ -6,7 +6,7 @@
       href: overview-iot-central.md
     - name: Przewodnik po interfejsie użytkownika
       href: overview-iot-central-tour.md
-    - name: Opracowywanie urządzeń
+    - name: Łączenie i tworzenie urządzeń
       href: overview-iot-central-developer.md
     - name: Najnowsze aktualizacje
       items:
@@ -39,7 +39,7 @@
       href: quick-monitor-devices.md
 - name: Samouczki
   items:
-    - name: Łączenie się
+    - name: Łączenie i tworzenie urządzeń
       items:
         - name: Łączenie urządzenia (Node.js)
           href: tutorial-connect-device-nodejs.md
@@ -75,7 +75,7 @@
       href: concepts-iot-edge.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Łączenie się
+    - name: Łączenie i tworzenie urządzeń
       items:
         - name: Konfigurowanie szablonu urządzenia
           href: howto-set-up-template.md

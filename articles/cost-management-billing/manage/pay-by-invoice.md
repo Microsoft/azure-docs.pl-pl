@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d55916539f64fc70560565bd5caf6254aac5a908
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 30fa6e0489c1f2c33e02286280e7508239c1c1d2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684868"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567915"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Płatność za subskrypcje platformy Azure przy użyciu faktury
 
@@ -67,7 +67,7 @@ Jeśli przełączysz się na płatność na podstawie faktury, konieczne będzie
      Określony region i serie subskrypcji:<br>
 
     - Informacje w polach **Nazwa firmy** i **Adres firmy** powinny być zgodne z informacjami podanymi dla konta platformy Azure. Aby wyświetlić lub zaktualizować informacje, zobacz [Zmiana informacji o profilu konta platformy Azure](change-azure-account-profile.md).
-    - Przed zatwierdzeniem limitu kredytowego dodaj informacje kontaktowe dotyczące rozliczeń w witrynie Azure Portal. Szczegóły kontaktu powinny być powiązane z księgowością lub działem finansów firmy. Aby zaktualizować informacje kontaktowe dotyczące rozliczeń, przejdź do [Centrum konta platformy Azure](https://account.azure.com/Profile).
+    - Przed zatwierdzeniem limitu kredytowego dodaj informacje kontaktowe dotyczące rozliczeń w witrynie Azure Portal. Szczegóły kontaktu powinny być powiązane z księgowością lub działem finansów firmy. Aby zaktualizować informacje kontaktowe dotyczące rozliczeń, przejdź do witryny [Azure Portal](https://portal.azure.com).
 
 6. Zweryfikuj informacje kontaktowe i preferowaną metodę kontaktu, a następnie wybierz pozycję **Utwórz**.
 

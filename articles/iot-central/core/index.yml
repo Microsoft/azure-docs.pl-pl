@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 02/18/2020
-  ms.openlocfilehash: 6f8cabab3b2feaa219c52c4ed8c53d1cccb4b658
-  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+  ms.date: 06/21/2020
+  ms.openlocfilehash: 870895980c90262a20cfd5ea95a4fdb01b39b4a3
+  ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87337198"
+  ms.lasthandoff: 09/11/2020
+  ms.locfileid: "90015878"
 landingContent:
 - title: Informacje o usłudze Azure IoT Central
   linkLists:
@@ -25,8 +25,6 @@ landingContent:
       url: overview-iot-central.md
     - text: Przewodnik po interfejsie użytkownika
       url: overview-iot-central-tour.md
-    - text: Programowanie dla urządzeń
-      url: overview-iot-central-developer.md
     - text: Najnowsze aktualizacje
       url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
   - linkListType: architecture
@@ -39,18 +37,34 @@ landingContent:
     links:
     - text: Tworzenie nowej aplikacji
       url: quick-deploy-iot-central.md
-- title: Łączenie się
+- title: Łączenie i tworzenie urządzeń
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Przegląd dla deweloperów urządzeń
+      url: overview-iot-central-developer.md
   - linkListType: tutorial
     links:
-    - text: Łączenie urządzenia
-      url: tutorial-connect-device.md
+    - text: Łączenie urządzenia (Node.js)
+      url: tutorial-connect-device-nodejs.md
+    - text: Łączenie urządzenia (Python)
+      url: tutorial-connect-device-python.md
+  - linkListType: concept
+    links:
+    - text: Łączność urządzeń
+      url: concepts-get-connected.md
+    - text: Szablony urządzeń
+      url: concepts-device-templates.md
+    - text: Ładunki komunikatów
+      url: concepts-telemetry-properties-commands.md
   - linkListType: how-to-guide
     links:
-    - text: Konfigurowanie szablonu urządzenia
+    - text: Konfigurowanie szablonu
       url: howto-set-up-template.md
-    - text: Łączenie innych chmur IoT
-      url: howto-build-iotc-device-bridge.md
+    - text: Łączenie urządzenia usługi Azure Sphere
+      url: howto-connect-sphere.md
+    - text: Rozwiązywanie problemów z łącznością urządzeń
+      url: troubleshoot-connection.md
 - title: Zachowanie łączności
   linkLists:
   - linkListType: tutorial

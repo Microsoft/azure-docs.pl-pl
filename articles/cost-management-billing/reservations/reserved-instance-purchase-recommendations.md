@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: 813cf91195a43a2fc68236febe114c67eb5a3378
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/02/2020
+ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684613"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398430"
 ---
 # <a name="reservation-recommendations"></a>Rekomendacje dotyczące rezerwacji
 
@@ -25,6 +25,7 @@ Poniższe kroki definiują sposób obliczania zaleceń:
 2. W oparciu o dane użycia aparat symuluje koszty z rezerwacjami i bez nich.
 3. Koszty są symulowane dla różnych ilości i zalecana jest ilość, która maksymalizuje oszczędności.
 4. Jeśli Twoje zasoby są regularnie zamykane, symulacja nie znajdzie żadnych oszczędności i nie poda żadnych zaleceń dotyczących zakupu.
+5. W wyliczeniach zaleceń uwzględniane są wszelkie rabaty specjalne, które mogą mieć zastosowanie do Twoich stawek użycia na żądanie.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Zalecenia w witrynie Azure Portal
 
@@ -52,11 +53,11 @@ Aby zmaksymalizować oszczędności na rezerwacjach, staraj się kupować rezerw
 
 Zalecenia dotyczące zakupu rezerwacji są dostępne w usłudze Azure Advisor. Należy pamiętać o następujących kwestiach:
 
-- Usługa Advisor zapewnia zalecenia wyłącznie w zakresie jednej subskrypcji.
-- Zalecenia są obliczane z uwzględnieniem trendu użycia z ostatnich 30 dni.
+- Usługa Advisor zapewnia zalecenia wyłącznie w zakresie jednej subskrypcji. Jeśli chcesz zapoznać się z rekomendacjami dla całego zakresu rozliczeniowego (konta rozliczeniowego lub profilu rozliczeniowego), przejdź do witryny Azure Portal, wybierz kolejno pozycje Rezerwacje > Dodaj i wybierz typ, dla którego chcesz wyświetlić rekomendacje.
+- Zalecenia dostępne w usłudze Advisor uwzględniają trend użycia z ostatnich 30 dni.
 - Zalecana ilość i oszczędności dotyczą 3-letniej rezerwacji (tam, gdzie jest dostępna). Jeśli 3-letnia rezerwacja nie jest sprzedawana dla danej usługi, zalecenie jest obliczane przy użyciu ceny rezerwacji 1-rocznej.
-- W zaleceniach uwzględniane są wszelkie rabaty specjalne, które mogą mieć zastosowanie do Twoich stawek użycia na żądanie.
-- W przypadku zakupienia rezerwacji dotyczącej zakresu współdzielonego może minąć do 30 dni, zanim zalecenia zakupu rezerwacji usługi Advisor przestaną być wyświetlane.
+- W wyliczeniach zaleceń uwzględniane są wszelkie rabaty specjalne, które mogą mieć zastosowanie do Twoich stawek użycia na żądanie.
+- W przypadku zakupienia rezerwacji dotyczącej zakresu współdzielonego może minąć do 5 dni, zanim zalecenia zakupu rezerwacji usługi Advisor przestaną być wyświetlane.
 
 ## <a name="other-expected-api-behavior"></a>Inne oczekiwane zachowanie interfejsu API
 

@@ -68,7 +68,7 @@ Jeśli pliki szkoleniowe nie znajdują się w repozytorium Git w środowisku dew
 
 Informacje dotyczące usługi git są przechowywane we właściwościach przebiegu szkoleniowego. Te informacje można wyświetlić przy użyciu Azure Portal, zestawu Python SDK i interfejsu wiersza polecenia. 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 1. Na [Azure Portal](https://portal.azure.com)wybierz swój obszar roboczy.
 1. Wybierz pozycję __eksperymenty__, a następnie wybierz jedno z eksperymentów.

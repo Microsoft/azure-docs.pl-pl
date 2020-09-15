@@ -3,20 +3,20 @@ title: Architektura routingu z przodu platformy Azure | Microsoft Docs
 description: Ten artykuł ułatwia zrozumienie elementu widoku globalnego architektury drzwi przednich.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b36852e27f6aa3a909dd645c19a12c55e082b761
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80879296"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399331"
 ---
 # <a name="routing-architecture-overview"></a>Omówienie architektury routingu
 

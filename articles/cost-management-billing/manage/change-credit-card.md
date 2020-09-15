@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: e5adf007294ea4be0f5716a4614e0639f840fa75
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c7622c4916b186a39aad9dafb54a1e2404458794
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684936"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569360"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Dodawanie, aktualizowanie lub usuwanie karty kredytowej dla platformy Azure
 
@@ -190,7 +190,7 @@ W przypadku [płatności przy użyciu faktury](pay-by-invoice.md) wyślij płatn
 
 ### <a name="how-do-i-change-the-tax-id"></a>Jak mogę zmienić numer NIP?
 
-Aby dodać lub zaktualizować numer NIP, zaktualizuj swój profil w [Centrum konta platformy Azure](https://account.azure.com/Profile), a następnie wybierz pozycję **Rejestr podatkowy**. Numer NIP jest używany do obliczenia kwoty zwolnienia z podatku i pojawia się na fakturze.
+Aby dodać lub zaktualizować numer NIP, zaktualizuj swój profil w [witrynie Azure Portal](https://portal.azure.com), a następnie wybierz pozycję **Rejestr podatkowy**. Numer NIP jest używany do obliczenia kwoty zwolnienia z podatku i pojawia się na fakturze.
 
 ## <a name="check-the-type-of-your-account"></a>Sprawdzanie typu konta
 

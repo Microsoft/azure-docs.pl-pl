@@ -101,6 +101,8 @@
           href: unresponsive-vm-apply-windows-update.md
         - name: Maszyna wirtualna nie odpowiada podczas stosowania zasad konfiguracji inspekcji
           href: vm-unresponsive-applying-audit-configuration-policy.md
+        - name: Maszyna wirtualna nie odpowiada podczas stosowania domyślnych zasad kontrolerów domeny
+          href: vm-unresponsive-domain-controllers-policy.md
         - name: Maszyna wirtualna nie odpowiada podczas stosowania zasad grupy
           href: unresponsive-vm-apply-group-policy.md
         - name: Maszyna wirtualna nie odpowiada podczas stosowania zasad zabezpieczeń

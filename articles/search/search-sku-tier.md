@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: ac08f2cee19b2d8860323c48d89205d5ca939157
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c09c5b33f7960ffebfdfc8005537e75a249b8d99
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922807"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661098"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
@@ -25,7 +25,7 @@ Większość klientów zaczyna się od warstwy Bezpłatna, aby umożliwić jej o
 
 W poniższej tabeli opisano ograniczenia funkcji związanych z warstwą.
 
-| Cecha | Ograniczenia |
+| Cechy | Ograniczenia |
 |---------|-------------|
 | [indeksatorów](search-indexer-overview.md) | Indeksatory nie są dostępne w systemie S3 HD. |
 | [Wzbogacanie sztucznej inteligencji](search-security-manage-encryption-keys.md) | Działa w warstwie Bezpłatna, ale nie jest zalecana. |
@@ -39,7 +39,7 @@ Większość funkcji jest dostępnych w każdej warstwie, w tym bezpłatna, ale 
 
 Warstwy są zróżnicowane według:
 
-+ Liczba indeksów i indeksatorów, które można utworzyć
++ Liczba indeksów i indeksatorów (maksymalne limity)
 + Rozmiar i szybkość partycji (magazyn fizyczny)
 
 Wybrana warstwa określa stawkę naliczaną. Poniższy zrzut ekranu z Azure Portal zawiera dostępne warstwy, minus ceny (które można znaleźć w portalu i na [stronie cennika](https://azure.microsoft.com/pricing/details/search/)). Warstwy **bezpłatna**, **podstawowa**i **standardowa** są najczęściej spotykane.

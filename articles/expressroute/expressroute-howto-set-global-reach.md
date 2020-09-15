@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Konfigurowanie Global Reach'
 description: Ten artykuł ułatwia łączenie obwodów usługi ExpressRoute w celu zapewnienia sieci prywatnej między sieciami lokalnymi i włączania Global Reach.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: jaredro
-ms.openlocfilehash: ddf4625b8e638f7cb13999136ec5aa1afc99418a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: dd4c6f0b9d518acf06f7d018a65cc2b9b92db33d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738417"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395455"
 ---
 # <a name="configure-expressroute-global-reach"></a>Konfigurowanie usługi ExpressRoute Global Reach
 
@@ -101,7 +101,7 @@ Jeśli dwa obwody nie znajdują się w tej samej subskrypcji platformy Azure, mu
 
 Po zakończeniu poprzedniej operacji będziesz mieć łączność między sieciami lokalnymi po obu stronach przez dwa obwody usługi ExpressRoute.
 
-## <a name="verify-the-configuration"></a>Sprawdzanie konfiguracji
+## <a name="verify-the-configuration"></a>Weryfikowanie konfiguracji
 
 Użyj poniższego polecenia, aby zweryfikować konfigurację obwodu, w którym została wprowadzona konfiguracja (na przykład obwód 1 w poprzednim przykładzie).
 ```azurepowershell-interactive

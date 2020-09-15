@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: d4ad11d156fd3a672e93b5e039c82d16b2aebdc3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 17783662ba91f227a7b0bf69203bf21dd8342277
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321738"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489548"
 ---
 # <a name="create-external-stream-transact-sql"></a>Utwórz strumień zewnętrzny (Transact-SQL)
 
@@ -26,7 +26,7 @@ Usługa Azure SQL Edge obecnie obsługuje tylko następujące źródła danych j
 
 | Typ źródła danych | Dane wejściowe | Dane wyjściowe | Opis |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge Hub | Y | Y | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Azure IoT Edge Hub | T | T | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
 | Baza danych SQL | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
 | Kafka | T | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Obsługa Kafka jest niedostępna dla wersji ARM64 usługi Azure SQL Edge.|
 
@@ -141,7 +141,7 @@ WITH  ( <with_options> )
   - MAXIMUM_BATCH_COUNT:  
     Maksymalna liczba zdarzeń wysyłanych do funkcji dla wywołania funkcji platformy Azure — wartość domyślna to 100. W przypadku SQL Database oznacza to maksymalną liczbę rekordów wysłanych z każdą zbiorczą transakcją wstawiania — wartość domyślna to 10 000. 
     - Dotyczy wszystkich danych wyjściowych opartych na języku SQL 
-  - STAGING_AREA: obiekt zewnętrznego źródła danych do Blob Storage obszaru przejściowego na potrzeby pozyskiwania danych o wysokiej przepływności w SQL Data Warehouse 
+  - STAGING_AREA: obiekt zewnętrznego źródła danych do Blob Storage obszaru przejściowego na potrzeby pozyskiwania danych o wysokiej przepływności w usłudze Azure Synapse Analytics 
     - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge.
 
 

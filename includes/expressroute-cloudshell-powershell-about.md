@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: expressroute
 author: cherylmc
 ms.service: expressroute
