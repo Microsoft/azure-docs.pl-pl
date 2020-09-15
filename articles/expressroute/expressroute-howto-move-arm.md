@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b88fb32fd4bc07bbaaaf8834646e8d585491dc6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 460ea446fc6dfc43e81a1a57bbba032a61f3a72d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395693"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532549"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Przenoszenie obwodów usługi ExpressRoute z klasycznego do Menedżer zasobów modelu wdrażania przy użyciu programu PowerShell
 
@@ -95,14 +95,14 @@ Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Locati
 W trybie klasycznym obwód ExpressRoute nie ma koncepcji powiązanej z regionem. Jednak w Menedżer zasobów każdy zasób należy zamapować do regionu platformy Azure. Region określony w poleceniu cmdlet Move-AzExpressRouteCircuit może być w dowolnym regionie. W celach organizacyjnych warto wybrać region, który dokładnie reprezentuje lokalizację komunikacji równorzędnej.
 
 > [!NOTE]
-> Po zakończeniu przenoszenia Nowa nazwa wymieniona w poprzednim poleceniu cmdlet zostanie użyta do zaadresowania zasobu. Zmiana nazwy obwodu zostanie zmieniona.
-> 
+> * Po przeniesieniu klasycznego obwodu usługi ExpressRoute do modelu wdrażania Menedżer zasobów będzie on miał domyślnie dostęp do modeli wdrożenia klasycznych i Menedżer zasobów.
+> * Nowa nazwa wymieniona w poprzednim poleceniu cmdlet zostanie użyta do zaadresowania zasobu. Zmiana nazwy obwodu zostanie zmieniona.
 
 ## <a name="modify-circuit-access"></a>Modyfikuj dostęp do obwodu
 
 ### <a name="to-enable-expressroute-circuit-access-for-both-deployment-models"></a>Aby włączyć dostęp do obwodu usługi ExpressRoute dla obu modeli wdrażania
 
-Po przeniesieniu klasycznego obwodu usługi ExpressRoute do modelu wdrażania Menedżer zasobów można włączyć dostęp do obu modeli wdrażania. Uruchom następujące polecenia cmdlet, aby umożliwić dostęp do obu modeli wdrażania:
+Dostęp do klasycznego modelu wdrażania można włączyć dla obwodów usługi ExpressRoute, które zostały utworzone w ramach modelu wdrażania Menedżer zasobów. Uruchom następujące polecenia cmdlet, aby umożliwić dostęp do obu modeli wdrażania:
 
 1. Pobierz szczegóły obwodu.
 

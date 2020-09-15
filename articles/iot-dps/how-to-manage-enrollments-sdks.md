@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 4a5e8b6f430f6af49ab79ca0f8cb2253bd0f2049
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1dc97f92e6139475d0d5ac5ea1201d6ff6b8d470
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520660"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532328"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Jak zarządzać rejestracjami urządzeń za pomocą zestawów SDK usługi Azure Device Provisioning
 *Rejestracja urządzenia* powoduje utworzenie rekordu jednego urządzenia lub grupy urządzeń, które mogą zostać zarejestrowane w ramach usługi Device Provisioning. Rekord rejestracji zawiera początkową wymaganą konfigurację dla urządzeń w ramach rejestracji, łącznie z żądanym Centrum IoT Hub. W tym artykule opisano sposób programowego zarządzania rejestracjami urządzeń dla usługi aprowizacji przy użyciu zestawów SDK usługi aprowizacji Azure IoT.  Zestawy SDK są dostępne w witrynie GitHub w tym samym repozytorium co zestawy SDK usługi Azure IoT.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Uzyskaj parametry połączenia z wystąpienia usługi Device Provisioning.
-* Uzyskaj artefakty zabezpieczeń urządzenia dla używanego [mechanizmu zaświadczania](concepts-security.md#attestation-mechanism) :
+* Uzyskaj artefakty zabezpieczeń urządzenia dla używanego [mechanizmu zaświadczania](concepts-service.md#attestation-mechanism) :
     * [**Moduł TPM (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Rejestracja indywidualna: Identyfikator rejestracji i klucz poręczenia modułu TPM z urządzenia fizycznego lub symulatora modułu TPM.
         * Grupa rejestracji nie ma zastosowania do zaświadczania modułu TPM.

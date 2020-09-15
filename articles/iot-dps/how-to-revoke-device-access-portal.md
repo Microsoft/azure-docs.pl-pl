@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: abc625c27617c27a79fe284393cdf7b281973bc4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299264"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532345"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Jak wyrejestrować urządzenie z usługi Azure IoT Hub Device Provisioning Service
 
 Prawidłowe zarządzanie poświadczeniami urządzeń jest kluczowe w przypadku systemów z wysokim profilem, takich jak rozwiązania IoT. Najlepszym rozwiązaniem dla takich systemów jest jasne zaplanowanie sposobu odwołania dostępu do urządzeń w przypadku ich poświadczeń, niezależnie od tego, czy token sygnatur dostępu współdzielonego (SAS) czy certyfikat X. 509 może zostać naruszony. 
 
-Rejestracja w usłudze Device Provisioning umożliwia [Automatyczne Inicjowanie obsługi](concepts-auto-provisioning.md)urządzenia. Zainicjowane urządzenie jest takie, które zostało zarejestrowane w IoT Hub, co umożliwia mu otrzymanie jego początkowego stanu [dwuosiowego urządzenia](~/articles/iot-hub/iot-hub-devguide-device-twins.md) i rozpoczęcie raportowania danych telemetrycznych. W tym artykule opisano, jak wyrejestrować urządzenie z wystąpienia usługi aprowizacji, uniemożliwiając ponowne zainicjowanie obsługi administracyjnej w przyszłości.
+Rejestracja w usłudze Device Provisioning umożliwia [zainicjowanie obsługi](about-iot-dps.md#provisioning-process)urządzenia. Zainicjowane urządzenie jest takie, które zostało zarejestrowane w IoT Hub, co umożliwia mu otrzymanie jego początkowego stanu [dwuosiowego urządzenia](~/articles/iot-hub/iot-hub-devguide-device-twins.md) i rozpoczęcie raportowania danych telemetrycznych. W tym artykule opisano, jak wyrejestrować urządzenie z wystąpienia usługi aprowizacji, uniemożliwiając ponowne zainicjowanie obsługi administracyjnej w przyszłości.
 
 > [!NOTE] 
 > Należy pamiętać o zasadach ponawiania prób dla urządzeń, do których odwołuje się dostęp. Na przykład urządzenie, które ma nieograniczone zasady ponawiania prób, może stale próbować zarejestrować się w usłudze aprowizacji. Ta sytuacja zużywa zasoby usługi i prawdopodobnie ma wpływ na wydajność.

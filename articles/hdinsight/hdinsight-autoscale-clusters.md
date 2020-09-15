@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
-ms.date: 08/21/2020
-ms.openlocfilehash: 7ce4580b366b57e2a1d4904b6ab63bf1834bdb65
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/14/2020
+ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090112"
+ms.locfileid: "90532192"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
 
@@ -68,7 +68,7 @@ W przypadku skalowania w dół automatyczne skalowanie wystawia żądanie usuni�
 > [!Important]
 > Funkcja automatycznego skalowania usługi Azure HDInsight została ogólnie udostępniona 7 listopada 2019 r. dla klastrów Spark i Hadoop. Zawiera ona ulepszenia niedostępne w wersji zapoznawczej tej funkcji. Jeśli chcesz korzystać z funkcji automatycznego skalowania w klastrze Spark utworzonym przed 7 listopada 2019 r., zalecaną ścieżką jest utworzenie nowego klastra i włączenie automatycznego skalowania w nowym klastrze.
 >
-> Funkcja automatycznego skalowania dla klastrów Interactive Query (LLAP) i HBase jest nadal w wersji zapoznawczej. Skalowanie automatyczne jest dostępne tylko w klastrach Spark, Hadoop, Interactive Query i HBase.
+> Funkcja automatycznego skalowania dla zapytania interaktywnego (LLAP) została udostępniona do ogólnej dostępności na 2020 sierpnia 27. Klastry HBase są nadal w wersji zapoznawczej. Skalowanie automatyczne jest dostępne tylko w klastrach Spark, Hadoop, Interactive Query i HBase.
 
 W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją skalowania automatycznego.
 
@@ -81,7 +81,7 @@ W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją 
 
 \* Klastry HBase można konfigurować tylko dla skalowania opartego na harmonogramie, a nie na podstawie obciążenia.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Tworzenie klastra z automatycznym skalowaniem na podstawie obciążenia
 

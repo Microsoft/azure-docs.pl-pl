@@ -4,12 +4,12 @@ description: Dowiedz się, jak załadować i wyświetlać dane bazy danych SQL D
 ms.date: 04/22/2020
 ms.topic: how-to
 ms.reviewer: sunri
-ms.openlocfilehash: 2a5e67a8416c57c1a0cb039733a93608a8919be6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e0e585ce45616c2402972c725b502f4b704d1cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214234"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532379"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Korzystanie z danych usługi Azure Blockchain Workbench w usłudze Microsoft Power BI
 
@@ -24,12 +24,12 @@ Ten artykuł zawiera przewodnik krok po kroku, w którym przedstawiono instrukcj
 ## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Łączenie Power BI z danymi w usłudze Azure łańcucha bloków Workbench
 
 1.  Otwórz program Power BI Desktop.
-2.  Wybierz pozycję **Pobieranie danych**.
+2.  Wybierz pozycję **Pobierz dane**.
 
-    ![Pobierz dane](./media/data-powerbi/get-data.png)
+    ![Pobieranie danych](./media/data-powerbi/get-data.png)
 3.  Wybierz pozycję **SQL Server** z listy typów źródeł danych.
 
-4.  Podaj nazwę serwera i bazy danych w oknie dialogowym. Określ, czy chcesz importować dane lub wykonać zapytanie w trybie **DirectQuery**. Wybierz przycisk **OK**.
+4.  Podaj nazwę serwera i bazy danych w oknie dialogowym. Określ, czy chcesz importować dane lub wykonać zapytanie w trybie **DirectQuery**. Wybierz pozycję **OK**.
 
     ![Wybieranie pozycji SQL Server](./media/data-powerbi/select-sql.png)
 
@@ -41,7 +41,7 @@ Ten artykuł zawiera przewodnik krok po kroku, w którym przedstawiono instrukcj
 
 6.  Po połączeniu z bazą danych w oknie dialogowym **Nawigator** są wyświetlane tabele i widoki dostępne w bazie danych. Widoki są przeznaczone do celów raportowania i wszystkie mają prefiks **vw**.
 
-    ![Nawigator](./media/data-powerbi/navigator.png)
+    ![Przechwytywanie ekranu Power BI pulpicie przy użyciu okna dialogowego Nawigator z wybranym vwContractAction.](./media/data-powerbi/navigator.png)
 
 7.  Wybierz widoki, które mają zostać uwzględnione. W celach demonstracyjnych zawieramy **vwContractAction**, który zawiera szczegółowe informacje o akcjach, które zostały wykonane w ramach kontraktu.
 

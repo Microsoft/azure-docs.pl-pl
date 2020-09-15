@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e6ee8ce065361ac27bba0e80349eb5e1d1877526
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394758"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532294"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -24,7 +24,7 @@ Key Vault pozwala bezpiecznie uzyskać dostęp do poufnych informacji z aplikacj
 - Aplikacja może korzystać z kluczy do podpisywania i szyfrowania, a jednocześnie zarządzaniem kluczami zewnętrznymi z poziomu aplikacji, dzięki czemu rozwiązanie może być odpowiednie jako aplikacji rozproszonej geograficznie.
 - Zarządzanie certyfikatami Key Vault. Aby uzyskać więcej informacji, zobacz [Certyfikaty](../certificates/about-certificates.md)
 
-Aby uzyskać więcej ogólnych informacji na temat Azure Key Vault, zobacz [co to jest Key Vault](overview.md)).
+Aby uzyskać więcej ogólnych informacji na temat Azure Key Vault, zobacz [co to jest Key Vault](overview.md).
 
 ## <a name="public-previews"></a>Publiczne podglądy
 
@@ -140,7 +140,7 @@ W tych artykułach przedstawiono inne scenariusze i usługi, które korzystają 
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault przeglądy i koncepcje
 
-- [Key Vault zachowanie podczas usuwania nietrwałego](soft-delete-overview.md)) opisuje funkcję, która umożliwia Odzyskiwanie usuniętych obiektów, czy usunięcie było przypadkowe lub zamierzone.
+- [Key Vault zachowanie usuwania nietrwałego](soft-delete-overview.md) opisuje funkcję, która umożliwia Odzyskiwanie usuniętych obiektów, niezależnie od tego, czy usunięcie było przypadkowe czy celowe.
 - [Key Vault ograniczanie klientów](overview-throttling.md) ukierunkowane na podstawowe koncepcje ograniczania i oferuje podejście do aplikacji.
 - [Key Vault światy zabezpieczeń](overview-security-worlds.md) opisuje relacje między regionami i obszarami zabezpieczeń.
 

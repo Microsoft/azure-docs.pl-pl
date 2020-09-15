@@ -1,7 +1,7 @@
 ---
 title: 'Szybki Start: używanie języka Java do wywoływania interfejsu API REST analiza tekstu'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start pokazano, jak uzyskać informacje i przykłady kodu, aby szybko rozpocząć korzystanie z interfejs API analizy tekstu na platformie Azure Cognitive Services.
+description: Ten przewodnik Szybki Start przedstawia sposób używania języka Java do uzyskiwania informacji i przykładów kodu, które ułatwiają szybkie rozpoczęcie korzystania z interfejs API analizy tekstu w usłudze Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019, devx-track-java
-ms.openlocfilehash: f8f9d76e5f1584ce54897950d7e35e2b22ba958e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6c3c613f8733c8f786d121ab33b09afab244b09e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319783"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532277"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Szybki Start: używanie języka Java do wywoływania usługi poznawczej platformy Azure analiza tekstu
 <a name="HOLTop"></a>

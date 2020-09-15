@@ -1,6 +1,6 @@
 ---
 title: Samouczek umożliwiający nawiązanie połączenia z usługą, skonfigurowanie, aktywowanie Azure Stack urządzenia brzegowego za pomocą procesora GPU w Azure Portal | Microsoft Docs
-description: Samouczek wdrażania Azure Stack Edge procesora GPU powoduje nawiązanie połączenia, skonfigurowanie i aktywowanie urządzenia fizycznego.
+description: Dowiedz się, w jaki sposób można nawiązać połączenie z urządzeniem z Azure Stack Edge przy użyciu interfejsu GPU w sieci lokalnej.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3b500a7d93d19bcc0cd9c23d64ad079f0abfd353
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: ac3ba2583e0f9a42b7f139538eee04de8980b492
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421360"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532260"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-with-gpu"></a>Samouczek: łączenie się z Azure Stack Edge z procesorem GPU
 
@@ -48,10 +48,10 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack Edge z proceso
     Plan przedplanu urządzenia może wyglądać nieco inaczej w zależności od modelu, który otrzymasz. Aby uzyskać więcej informacji, zobacz [kabel urządzenia](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
 
 
-3. Otwórz okno przeglądarki i uzyskaj dostęp do lokalnego interfejsu użytkownika sieci Web urządzenia pod adresem `https://192.168.100.10` .  
+3. Otwórz okno przeglądarki i uzyskaj dostęp do lokalnego internetowego interfejsu użytkownika urządzenia pod adresem `https://192.168.100.10`.  
     Ta akcja może potrwać kilka minut po włączeniu urządzenia.
 
-    Zostanie wyświetlony komunikat o błędzie lub ostrzeżenie wskazujący, że wystąpił problem z certyfikatem zabezpieczeń witryny sieci Web. 
+    Zostanie wyświetlony komunikat o błędzie lub ostrzeżenie informujące o problemie z certyfikatem zabezpieczeń witryny internetowej. 
    
     ![Komunikat o błędzie dotyczący certyfikatu zabezpieczeń witryny sieci Web](./media/azure-stack-edge-deploy-connect-setup-activate/image2.png)
 

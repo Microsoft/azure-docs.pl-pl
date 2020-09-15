@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 06fccd410f3edf5dbd63fa9959aad2d65a626a0d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e74b48ca526d977da33dcdccae84491213856079
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86503793"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90533360"
 ---
-<Token>**dotyczy:** ![ tak ](../media/applies-to/yes.png) SQL Server na maszynie wirtualnej platformy Azure </Token> 
+<Token>**dotyczy:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: SQL Server na maszynie wirtualnej platformy Azure </Token> 
 

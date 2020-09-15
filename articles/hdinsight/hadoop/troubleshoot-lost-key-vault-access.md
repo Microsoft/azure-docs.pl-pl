@@ -1,18 +1,18 @@
 ---
 title: Klastry usługi Azure HDInsight z szyfrowaniem dysków tracą dostęp Key Vault
-description: Kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas pracy z klastrami usługi Azure HDInsight.
+description: Kroki rozwiązywania problemów i możliwe rozwiązania Key Vault problemów z dostępem w przypadku korzystania z klastrów usługi Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e34c1002be3dffb719490fee01e481e8df45901
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461535"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532566"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scenariusz: klastry usługi Azure HDInsight z szyfrowaniem dysków tracą dostęp Key Vault
 
@@ -32,7 +32,7 @@ Przejdź do interfejsu użytkownika Apache Ambari, aby uzyskać więcej informac
 
 ### <a name="kvaad-outage"></a>Awaria KV/AAD
 
-Zapoznaj się z informacjami na [Azure Key Vault dostępności i nadmiarowości](../../key-vault/general/disaster-recovery-guidance.md) oraz na stronie stanu platformy Azure, aby uzyskać więcej szczegółówhttps://status.azure.com/
+Zapoznaj się z informacjami na [Azure Key Vault dostępności i nadmiarowości](../../key-vault/general/disaster-recovery-guidance.md) oraz na stronie stanu platformy Azure, aby uzyskać więcej szczegółów https://status.azure.com/
 
 ### <a name="kv-accidental-deletion"></a>Przypadkowe usunięcie
 

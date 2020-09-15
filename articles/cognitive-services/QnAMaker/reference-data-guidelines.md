@@ -1,14 +1,14 @@
 ---
 title: Importuj i Eksportuj odwołanie do danych — QnA Maker
-description: Dowiedz się, jak typy adresów URL są używane do importowania i tworzenia par QnA.
+description: Użyj tego odwołania importu i eksportu, aby uzyskać najlepsze wyniki tworzenia kopii zapasowej, magazynu i wymiany bazy wiedzy.
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: e4a423ef9478cd39181c6440801f9fe954dc896c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c77f51263206c3cc0d4b546e1728963211a186c6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804247"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532158"
 ---
 # <a name="import-and-export-data-reference"></a>Importuj i Eksportuj odwołania do danych
 

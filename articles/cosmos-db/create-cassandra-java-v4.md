@@ -1,6 +1,6 @@
 ---
 title: Aplikacja Java z Azure Cosmos DB interfejs API Cassandra przy użyciu zestawu Java 4,0 SDK
-description: W tym przewodniku Szybki start przedstawiono używanie interfejsu API bazy danych Cassandra w usłudze Azure Cosmos DB do tworzenia aplikacji profilów przy użyciu witryny Azure Portal i języka Java
+description: W tym przewodniku szybki start pokazano, jak za pomocą interfejs API Cassandra Azure Cosmos DB utworzyć aplikację profilu za pomocą zestawu SDK Azure Portal i Java 4,0.
 ms.service: cosmos-db
 author: TheovanKraay
 ms.author: thvankra
@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4411c2d3b540423c1086fe8b45bd343870a72f5b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 076cb892740b99971400fbc34f60dc1083554555
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319205"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532209"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v4-driver"></a>Szybki Start: Tworzenie aplikacji Java do zarządzania danymi interfejs API Cassandra Azure Cosmos DB (sterownik v4)
 
@@ -66,7 +66,7 @@ Teraz przejdźmy do pracy z kodem. Sklonujemy aplikację bazy danych Cassandra z
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten krok jest opcjonalny. Jeśli chcesz dowiedzieć się, jak kod tworzy zasoby bazy danych, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-string). Wszystkie te fragmenty kodu pochodzą z pliku *src/Main/Java/com/Azure/cosmosdb/Cassandra/util/CassandraUtils. Java* .  
+Ta czynność jest opcjonalna. Jeśli chcesz dowiedzieć się, jak kod tworzy zasoby bazy danych, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-string). Wszystkie te fragmenty kodu pochodzą z pliku *src/Main/Java/com/Azure/cosmosdb/Cassandra/util/CassandraUtils. Java* .  
 
 * `CqlSession`Program łączy się z Azure Cosmos DB interfejs API Cassandra i zwraca sesję dostępu ( `Cluster` obiekt z sterownika V3 jest już przestarzały). Host Cassandra, port, nazwa użytkownika i hasło są ustawiane za pomocą strony parametrów połączenia w Azure Portal.
 
@@ -221,7 +221,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
