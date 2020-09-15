@@ -7,18 +7,21 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a01d9e90e87d1c23b9aefc5f2d9ba3ba84d0f59f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e4aa0cb2cc3ff623929222d83a560f66198f13c0
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904925"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564274"
 ---
-# <a name="troubleshoot-azure-files-problems-in-linux"></a>Rozwiązywanie problemów z Azure Files w systemie Linux
+# <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Linux (SMB)
 
 W tym artykule wymieniono typowe problemy dotyczące Azure Files podczas łączenia się z klientami z systemem Linux. Zapewnia również możliwe przyczyny i rozwiązania tych problemów. 
 
 Oprócz kroków opisanych w tym artykule można użyć programu [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) , aby upewnić się, że klient systemu Linux ma odpowiednie wymagania wstępne. AzFileDiagnostics automatyzuje wykrywanie większości objawów wymienionych w tym artykule. Pomaga skonfigurować środowisko w celu uzyskania optymalnej wydajności. Te informacje można również znaleźć w oknie [Rozwiązywanie problemów z udziałami Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). Narzędzie do rozwiązywania problemów zawiera kroki ułatwiające problemy z łączeniem, mapowaniem i instalowaniem udziałów Azure Files.
+
+> [!IMPORTANT]
+> Zawartość tego artykułu dotyczy tylko udziałów SMB.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Nie można nawiązać połączenia z udziałem plików platformy Azure lub instalować go
 
@@ -80,7 +83,7 @@ Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na 
 
 W systemie Linux pojawia się komunikat o błędzie podobny do następującego:
 
-**\<filename>[odmowa uprawnień] Przekroczono limit przydziału dysku**
+**\<filename> [odmowa uprawnień] Przekroczono limit przydziału dysku**
 
 ### <a name="cause"></a>Przyczyna
 
@@ -107,7 +110,7 @@ Aby zamknąć otwarte uchwyty dla udziału plików, katalogu lub pliku, należy 
     - Użyj [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) do dowolnego transferu między dwoma udziałami plików.
     - Użycie opcji CP lub DD z równoległością może zwiększyć szybkość kopiowania, a liczba wątków zależy od przypadku użycia i obciążenia. W poniższych przykładach użyto sześciu: 
     - przykład CP (CP użyje domyślnego rozmiaru bloku systemu plików jako rozmiaru fragmentu): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
-    - DD przykład (to polecenie jawnie ustawia rozmiar fragmentu na 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - DD przykład (to polecenie jawnie ustawia rozmiar fragmentu na 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Narzędzia firm trzecich typu open source, takie jak:
         - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) — sortuje pliki i pakuje je na partycje.
@@ -115,7 +118,7 @@ Aby zamknąć otwarte uchwyty dla udziału plików, katalogu lub pliku, należy 
         - [Wiele](https://github.com/pkolano/mutil) wielowątkowych CP i md5sum opartych na GNU Coreutils.
 - Ustawienie rozmiaru pliku z wyprzedzeniem, zamiast każdorazowego zapisu rozszerzającego zapis, pomaga zwiększyć szybkość kopiowania w scenariuszach, w których rozmiar pliku jest znany. Jeśli należy unikać rozszerzania zapisów, można ustawić docelowy rozmiar pliku za pomocą `truncate - size <size><file>` polecenia. Następnie `dd if=<source> of=<target> bs=1M conv=notrunc` polecenie skopiuje plik źródłowy bez konieczności wielokrotnego aktualizowania rozmiaru pliku docelowego. Na przykład można ustawić rozmiar pliku docelowego dla każdego pliku, który ma zostać skopiowany (Załóżmy, że udział jest zainstalowany w ramach/mnt/Share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - a następnie skopiuj pliki bez rozszerzania zapisów równolegle:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - a następnie skopiuj pliki bez rozszerzania zapisów równolegle: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Błąd instalacji (115): operacja jest teraz w toku" podczas instalowania Azure Files przy użyciu protokołu SMB 3,0
@@ -183,7 +186,7 @@ W niektórych scenariuszach opcja instalacji **serverino** może spowodować, ż
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Możesz również sprawdzić, czy poprawne opcje są używane, uruchamiając polecenie **sudo Mount | grep CIFS** i sprawdzając jego dane wyjściowe. Poniżej przedstawiono przykładowe dane wyjściowe:
+Możesz również sprawdzić, czy poprawne opcje są używane, uruchamiając polecenie  **sudo Mount | grep CIFS** i sprawdzając jego dane wyjściowe. Poniżej przedstawiono przykładowe dane wyjściowe:
 
 ```
 //azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)

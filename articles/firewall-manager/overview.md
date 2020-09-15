@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 09/15/2020
 ms.author: victorh
-ms.openlocfilehash: ae220a1b70be7178c4c2fea01103991c8729ae79
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 6dc22086ed97a301e225518465482e9cd7300e11
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855052"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563832"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Co to jest usługa Azure Firewall Manager?
 
@@ -87,6 +87,7 @@ Menedżer zapory platformy Azure ma następujące znane problemy:
 |Wszystkie zabezpieczone centra wirtualne współużytkujące tę samą wirtualną sieć WAN muszą znajdować się w tej samej grupie zasobów.|To zachowanie jest wyrównane z koncentratorami wirtualnych sieci WAN już dziś.|Utwórz wiele wirtualnych sieci WAN, aby umożliwić tworzenie zabezpieczonych koncentratorów wirtualnych w różnych grupach zasobów.|
 |Dodanie zbiorczego adresu IP nie powiodło się|W przypadku dodawania wielu publicznych adresów IP Zapora bezpiecznego centrum przechodzi w stan niepowodzenia.|Dodaj mniejsze wartości zwiększające publiczny adres IP. Na przykład Dodaj 10 naraz.|
 |Reguły aplikacji nie działają w bezpiecznym centrum z skonfigurowanym niestandardowym systemem DNS (wersja zapoznawcza).|Niestandardowy system DNS (wersja zapoznawcza) nie działa w ramach bezpiecznych wdrożeń centrum i wdrożeń sieci wirtualnych centrum, w których włączono tunelowanie wymuszone.|Rozwiązywanie problemu.|
+|Standard DDoS Protection nie jest obsługiwany z bezpiecznymi centrami wirtualnymi|Standard DDoS Protection nie jest zintegrowany z vWANs.|Badanie
 
 ## <a name="next-steps"></a>Następne kroki
 

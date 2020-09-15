@@ -4,12 +4,12 @@ description: Z tego samouczka dowiesz się, jak skonfigurować ciągłą integra
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 992d720d86fc2e7fedd8e7fd4b559220ff3c0512
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 302ad1dcfaa93564d70fab739726787ef09c79df
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260351"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563934"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Samouczek: wdrażanie aplikacji przy użyciu ciągłej integracji/ciągłego wdrażania w klastrze usługi Service Fabric
 
@@ -139,7 +139,7 @@ Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja została uruc
 
 Aby upewnić się, że potok ciągłej integracji działa prawidłowo, zaewidencjonuj zmiany kodu w usłudze Azure DevOps.
 
-Podczas pisania kodu zmiany są automatycznie śledzone przez program Visual Studio. Zatwierdź zmiany w lokalnym repozytorium Git, wybierając ikonę oczekujących zmian (![Oczekiwanie][pending]) na pasku stanu w prawym dolnym rogu.
+Podczas pisania kodu zmiany są automatycznie śledzone przez program Visual Studio. Zatwierdź zmiany w lokalnym repozytorium Git, wybierając ikonę oczekujących zmian (![Ikona oczekujących zmian zawiera ołówek i numer.][pending]) na pasku stanu w prawym dolnym rogu.
 
 W widoku **Zmiany** programu Team Explorer dodaj komunikat opisujący aktualizację i zatwierdź wprowadzone zmiany.
 

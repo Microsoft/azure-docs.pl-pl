@@ -4,14 +4,14 @@ description: Zasady przechowywania i zasad zachowania poufności informacji
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f6fa42d6cc20c4d26caa7f571f13bb3917b2c7c5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a2440379c001c0213145c1c5972cfed8799f4966
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929333"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562795"
 ---
-# <a name="data-collection-retention-and-storage-in-application-insights"></a>Zbieranie, przechowywanie i magazynowanie danych w Application Insights
+# <a name="data-collection-retention-and-storage-in-application-insights"></a>Zbieranie, przechowywanie i magazynowanie danych w usłudze Application Insights
 
 Po zainstalowaniu zestawu [Azure Application Insights][start] SDK w aplikacji wysyła ona dane telemetryczne dotyczące aplikacji do chmury. W naturalny sposób zainteresowani deweloperzy chcą dokładnie wiedzieć, jakie dane są wysyłane, co się dzieje z danymi i jak mogą one zachować kontrolę nad nimi. W szczególności mogą być wysyłane poufne dane, gdzie są przechowywane i jak są bezpieczne? 
 
@@ -83,7 +83,7 @@ Zagregowane dane (czyli liczniki, średnie i inne dane statystyczne widoczne w E
 
 [Migawki debugowania](./snapshot-debugger.md) są przechowywane przez 15 dni. Te zasady przechowywania są ustawiane dla poszczególnych aplikacji. Jeśli musisz zwiększyć tę wartość, możesz poprosić o zwiększenie, otwierając przypadek pomocy technicznej w Azure Portal.
 
-## <a name="who-can-access-the-data"></a>Kto ma dostęp do danych?
+## <a name="who-can-access-the-data"></a>Kto może uzyskać dostęp do danych?
 Dane są widoczne dla Ciebie i, jeśli masz konto organizacji, członków zespołu. 
 
 Mogą być eksportowane przez Ciebie i członków zespołu i mogą być kopiowane do innych lokalizacji i przesyłane do innych osób.
@@ -128,7 +128,7 @@ Jeśli klient musi skonfigurować ten katalog z określonymi wymaganiami dotycz�
 
 `C:\Users\username\AppData\Local\Temp` służy do utrwalania danych. Ta lokalizacja nie jest konfigurowalna z katalogu konfiguracji, a uprawnienia dostępu do tego folderu są ograniczone do określonego użytkownika z wymaganymi poświadczeniami. (Aby uzyskać więcej informacji, zobacz [implementacja](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72)).
 
-###  <a name="net"></a>.Net
+###  <a name="net"></a>.NET
 
 Domyślnie `ServerTelemetryChannel` używa folderu danych lokalnej aplikacji `%localAppData%\Microsoft\ApplicationInsights` lub folderu tymczasowego bieżącego użytkownika `%TMP%` . (Zobacz tutaj [implementację](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) ).
 
@@ -153,7 +153,16 @@ Za pośrednictwem kodu:
 
 ### <a name="netcore"></a>NetCore
 
-Domyślnie `ServerTelemetryChannel` używa folderu danych lokalnej aplikacji `%localAppData%\Microsoft\ApplicationInsights` lub folderu tymczasowego bieżącego użytkownika `%TMP%` . (Zobacz tutaj [implementację](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) ). W środowisku systemu Linux magazyn lokalny zostanie wyłączony, chyba że zostanie określony folder magazynu.
+Domyślnie `ServerTelemetryChannel` używa folderu danych lokalnej aplikacji `%localAppData%\Microsoft\ApplicationInsights` lub folderu tymczasowego bieżącego użytkownika `%TMP%` . (Zobacz tutaj [implementację](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) ). 
+
+W środowisku systemu Linux magazyn lokalny zostanie wyłączony, chyba że zostanie określony folder magazynu.
+
+> [!NOTE]
+> W przypadku wersji 2.15.0-beta3 i nowszej magazyn lokalny jest teraz automatycznie tworzony dla systemów Linux, Mac i Windows. W przypadku systemów innych niż Windows zestaw SDK automatycznie utworzy lokalny folder magazynu na podstawie następującej logiki:
+> - `${TMPDIR}` -Jeśli `${TMPDIR}` zmienna środowiskowa jest ustawiona, Ta lokalizacja jest używana.
+> - `/var/tmp` — Jeśli poprzednia lokalizacja nie istnieje, spróbuj ponownie `/var/tmp` .
+> - `/tmp` — Jeśli obie poprzednie lokalizacje nie istnieją, spróbujmy `tmp` . 
+> - Jeśli żadna z tych lokalizacji nie istnieje, Magazyn lokalny nie jest tworzony, a Konfiguracja ręczna jest nadal wymagana. [Aby uzyskać pełne szczegóły implementacji](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860).
 
 Poniższy fragment kodu pokazuje, jak ustawić `ServerTelemetryChannel.StorageFolder` w `ConfigureServices()` metodzie `Startup.cs` klasy:
 
@@ -211,7 +220,7 @@ Firma Microsoft nie zaleca jawnie ustawienia aplikacji do używania protokołu T
 | Windows Server 2012 — 2016 | Obsługiwane i domyślnie włączone. | Aby potwierdzić, że nadal używasz [ustawień domyślnych](/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 | Obsługiwane, ale nie włączone domyślnie. | Aby uzyskać szczegółowe informacje na temat włączania, zobacz stronę [Ustawienia rejestru Transport Layer Security (TLS)](/windows-server/security/tls/tls-registry-settings) .  |
 | Windows Server 2008 SP2 | Obsługa protokołu TLS 1,2 wymaga aktualizacji. | Zobacz [Aktualizacja, aby dodać obsługę protokołu TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) w systemie Windows Server 2008 z dodatkiem SP2. |
-|Windows Vista | Nieobsługiwane. | Nie dotyczy
+|Windows Vista | Nieobsługiwane. | Brak
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Sprawdź wersję OpenSSL, w której działa dystrybucja systemu Linux
 
@@ -253,7 +262,7 @@ Zestawy SDK różnią się między platformami i istnieje kilka składników, kt
 | [TrackMetric wywołań][api] |Wartości liczbowe<br/>**Właściwości** |
 | [Śledzenie wywołań *][api] |Nazwa zdarzenia<br/>**Właściwości** |
 | [Wywołanie metody Trackexception][api] |**Wyjątki**<br/>Zrzut stosu<br/>**Właściwości** |
-| Zestaw SDK nie może zbierać danych. Przykład: <br/> -nie można uzyskać dostępu do liczników wydajności<br/> -wyjątek w inicjatorze telemetrii |Diagnostyka zestawu SDK |
+| Zestaw SDK nie może zbierać danych. Na przykład: <br/> -nie można uzyskać dostępu do liczników wydajności<br/> -wyjątek w inicjatorze telemetrii |Diagnostyka zestawu SDK |
 
 W przypadku [zestawów SDK dla innych platform][platforms]Zobacz dokumenty.
 

@@ -6,12 +6,12 @@ author: azooinmyluggage
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: d4f8a41df64c3bcbbd85438e4d340d44d5f16351
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7743a3a8d6e77affd6229b648ab79b5b2f07a0af
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255221"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564104"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Akcje GitHub dotyczące wdrażania w usłudze Kubernetes Service
 
@@ -23,7 +23,7 @@ Dla przepływu pracy AKS, plik ma trzy sekcje:
 
 |Sekcja  |Zadania  |
 |---------|---------|
-|**Uwierzytelnianie** | Zaloguj się do prywatnego rejestru kontenerów (ACR) |
+|**Authentication** | Zaloguj się do prywatnego rejestru kontenerów (ACR) |
 |**Kompilacja** | Kompilowanie & wypychanie obrazu kontenera  |
 |**Wdrażanie** | 1. Ustaw docelowy klaster AKS |
 | |2. tworzenie wpisu tajnego rejestru ogólnego/Docker w klastrze Kubernetes  |
@@ -56,7 +56,7 @@ Postępuj zgodnie z instrukcjami, aby skonfigurować wpisy tajne:
 
 1. W witrynie [GitHub](https://github.com/)przejdź do repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło**.
 
-    ![wpisy tajne](media/kubernetes-action/secrets.png)
+    ![Zrzut ekranu przedstawia link Dodaj nowy wpis tajny dla repozytorium.](media/kubernetes-action/secrets.png)
 
 2. Wklej zawartość powyższego `az cli` polecenia jako wartość zmiennej tajnej. Na przykład `AZURE_CREDENTIALS`.
 
@@ -67,7 +67,7 @@ Postępuj zgodnie z instrukcjami, aby skonfigurować wpisy tajne:
 
 4. Zostaną wyświetlone wpisy tajne, jak pokazano poniżej.
 
-    ![Kubernetes — wpisy tajne](media/kubernetes-action/kubernetes-secrets.png)
+    ![Zrzut ekranu przedstawia istniejące wpisy tajne dla repozytorium.](media/kubernetes-action/kubernetes-secrets.png)
 
 ##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Tworzenie obrazu kontenera i wdrażanie go w klastrze usługi Azure Kubernetes Service
 

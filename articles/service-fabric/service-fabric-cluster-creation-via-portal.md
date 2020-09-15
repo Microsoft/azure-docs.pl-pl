@@ -3,12 +3,12 @@ title: Tworzenie klastra usługi Service Fabric w witrynie Azure Portal
 description: Dowiedz się, jak skonfigurować bezpieczny klaster Service Fabric na platformie Azure przy użyciu Azure Portal i Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c679a804db09b1034f31e9d8da1f7d2ad206f684
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259310"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563730"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Tworzenie klastra Service Fabric na platformie Azure przy użyciu Azure Portal
 > [!div class="op_single_selector"]
@@ -128,42 +128,42 @@ Postępuj zgodnie z ekranami, aby dodać lub użyć istniejącego magazynu klucz
 
 Odporne na Temptation z ekranu do momentu ukończenia poprzedniego procesu.
 
-![CreateKeyVault]
+![Zrzut ekranu przedstawia stronę zabezpieczenia z wybraną opcją podstawowa z panelem Magazyn kluczy i utworzeniem okienka Magazyn kluczy.][CreateKeyVault]
 
 Po utworzeniu magazynu kluczy Edytuj zasady dostępu dla magazynu kluczy. 
 
-![CreateKeyVault2]
+![Zrzut ekranu przedstawia okienko Utwórz klaster Service Fabric z wybraną opcją 3 zabezpieczenia i wyjaśnienie, że magazyn kluczy nie jest włączony.][CreateKeyVault2]
 
 Kliknij pozycję **Edytuj zasady dostępu**, a następnie **Pokaż zaawansowane zasady dostępu** i Włącz dostęp do usługi Azure Virtual Machines na potrzeby wdrożenia. Zalecane jest również włączenie wdrożenia szablonu. Po dokonaniu wyboru nie zapomnij kliknąć przycisk **Zapisz** i zamknąć okno **zasady dostępu** .
 
-![CreateKeyVault3]
+![Zrzut ekranu przedstawia okienko Utwórz klaster Service Fabric z otwartym okienkiem zabezpieczeń i otwartym okienkiem zasady dostępu.][CreateKeyVault3]
 
 Wprowadź nazwę certyfikatu, a następnie kliknij przycisk **OK**.
 
-![CreateKeyVault4]
+![Zrzut ekranu przedstawia okienko Utwórz klaster Service Fabric z zabezpieczeniami wybranymi jak wcześniej, ale bez wyjaśnienia, że magazyn kluczy nie jest włączony.][CreateKeyVault4]
 
 #### <a name="custom-option"></a>Opcja niestandardowa
 Pomiń tę sekcję, jeśli wykonano już kroki z opcji **podstawowa** .
 
-![SecurityCustomOption]
+![Zrzut ekranu przedstawia okno dialogowe Konfiguracja zabezpieczeń klastra ustawienia zabezpieczeń.][SecurityCustomOption]
 
 Do ukończenia strony zabezpieczenia potrzebny jest źródłowy Magazyn kluczy, adres URL certyfikatu i informacje o odcisku palca certyfikatu. Jeśli go nie masz, Otwórz inne okno przeglądarki i w Azure Portal wykonaj następujące czynności
 
 1. Przejdź do usługi magazynu kluczy.
 2. Wybierz kartę "właściwości" i skopiuj "Identyfikator zasobu" do "Magazyn kluczy źródłowych" w innym oknie przeglądarki 
 
-    ![CertInfo0]
+    ![Zrzut ekranu przedstawia okno Właściwości magazynu kluczy.][CertInfo0]
 
 3. Teraz wybierz kartę "certyfikaty".
 4. Kliknij pozycję odcisk palca certyfikatu, co spowoduje przejście do strony wersje.
 5. Kliknij identyfikatory GUID widoczne w bieżącej wersji.
 
-    ![CertInfo1]
+    ![Zrzut ekranu przedstawia okno certyfikatu dla magazynu kluczy][CertInfo1]
 
 6. Teraz powinieneś znajdować się na ekranie poniżej. Skopiuj wartość szesnastkowego odcisku palca SHA-1 do "odcisk palca certyfikatu" w innym oknie przeglądarki
 7. Skopiuj wartość "Identyfikator wpisu tajnego" do "adresu URL certyfikatu" w innym oknie przeglądarki.
 
-    ![CertInfo2]
+    ![Zrzut ekranu przedstawia okno dialogowe wersja certyfikatu z opcją kopiowania identyfikatora certyfikatu.][CertInfo2]
 
 Zaznacz pole **Konfiguruj ustawienia zaawansowane** , aby wprowadzić certyfikaty klienta dla **klienta administratora** i **klienta tylko do odczytu**. W tych polach Wprowadź odcisk palca certyfikatu klienta administratora i odcisk palca certyfikatu klienta użytkownika tylko do odczytu, jeśli ma to zastosowanie. Gdy administratorzy podejmują próbę nawiązania połączenia z klastrem, uzyskują dostęp tylko wtedy, gdy mają certyfikat z odciskiem palca, który odpowiada wartościom odcisku palca wprowadzonym w tym miejscu.  
 
@@ -173,7 +173,7 @@ Teraz możesz przystąpić do wdrożenia klastra. Przed wykonaniem tych czynnoś
 
 Aby ukończyć tworzenie klastra, kliknij przycisk **Utwórz**. Opcjonalnie możesz pobrać szablon.
 
-![Podsumowanie]
+![Zrzut ekranu przedstawia stronę tworzenia podsumowania klastra Service Fabric z linkiem umożliwiającym wyświetlanie i pobieranie certyfikatu.][Summary]
 
 Możesz zobaczyć postępy tworzenia w powiadomieniach. (Kliknij ikonę "dzwonka" obok paska stanu w prawym górnym rogu ekranu). Jeśli kliknięto opcję **Przypnij do tablicy startowej** podczas tworzenia klastra, zobaczysz **wdrożenie Service Fabric klaster** przypięty do tablicy **startowej** . Ten proces zajmie trochę czasu. 
 
@@ -230,7 +230,7 @@ W tym momencie istnieje bezpieczny klaster używający certyfikatów do uwierzyt
 [CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
 [SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
 [DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
-[Podsumowanie]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
+[Summary]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png

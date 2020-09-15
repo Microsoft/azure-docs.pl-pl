@@ -4,12 +4,12 @@ description: Utwórz swoją pierwszą aplikację kontenera systemu Linux w usłu
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 35e96f1039dc71427a1a3d2745245eff5d012aaf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847537"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563713"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Linux
 > [!div class="op_single_selector"]
@@ -215,7 +215,7 @@ Począwszy od najnowszej wersji odświeżania programu v 6.4, można określić,
 
 Instrukcja **HEALTHCHECK** wskazująca rzeczywisty test wykonywany w celu monitorowania kondycji kontenera musi występować w pliku Dockerfile używanym podczas generowania obrazu kontenera.
 
-![HealthCheckHealthy][1]
+![Zrzut ekranu przedstawia szczegóły wdrożonego pakietu usługi NodeServicePackage.][1]
 
 ![HealthCheckUnhealthyApp][2]
 

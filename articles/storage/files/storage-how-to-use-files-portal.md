@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f68d9f620b686ab20e93584bdd7c024d8a943577
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 7e703137b7954dd152f976069770a0c8c4a0f34c
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036542"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564172"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Szybki start: tworzenie udziałów plików platformy Azure i zarządzanie nimi za pomocą witryny Azure Portal 
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w systemach Windows, Linux i macOS. W tym przewodniku przedstawiono podstawowe informacje dotyczące pracy z udziałami plików platformy Azure przy użyciu witryny [Azure Portal](https://portal.azure.com/).
@@ -36,7 +36,7 @@ Aby utworzyć udział plików platformy Azure, wykonaj następujące czynności:
 Nazwy udziałów muszą składać się z małych liter, cyfr i pojedynczych łączników, ale nie mogą zaczynać się od łącznika. Szczegółowe informacje o nazwach plików i udziałów plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
 
 ## <a name="use-your-azure-file-share"></a>Korzystanie z udziału plików platformy Azure
-Usługa Azure Files oferuje dwie metody pracy z plikami i folderami w obrębie udziału plików platformy Azure: zgodny ze standardem branżowym [protokół Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) i [protokół REST usługi Files](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+Azure Files oferuje trzy metody pracy z plikami i folderami w udziale plików platformy Azure: standardowy branżowy [protokół SMB (Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)), protokół sieciowy systemu plików (NFS) i [Protokół REST](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
 
 Aby zainstalować udział plików za pomocą protokołu SMB, zobacz następujący dokument zgodny z używanym systemem operacyjnym:
 - [Windows](storage-how-to-use-files-windows.md)

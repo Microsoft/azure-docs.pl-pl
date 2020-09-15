@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17f6fd881243d91428c6025fd63469a38afa0f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268812"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563900"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planowanie wdrożenia urządzenia Azure Active Directory
 
@@ -105,24 +105,24 @@ urządzenia z systemami iOS i Android mogą być zarejestrowane wyłącznie w us
 | Kwestie do rozważenia | Zarejestrowane w usłudze Azure AD| Dołączenie do usługi Azure AD| Dołączenie hybrydowe do usługi Azure AD |
 | - | - | - | - |
 | **Klienckie systemy operacyjne**| | |  |
-| Urządzenia z systemem Windows 10| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
-| Urządzenia niskiego poziomu systemu Windows (Windows 8.1 lub Windows 7)| | | ![zaznaczone](./media/plan-device-deployment/check.png) |
+| Urządzenia z systemem Windows 10| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
+| Urządzenia niskiego poziomu systemu Windows (Windows 8.1 lub Windows 7)| | | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
 |**Opcje logowania**| | |  |
-| Poświadczenia lokalne użytkownika końcowego| ![zaznaczone](./media/plan-device-deployment/check.png)| |  |
-| Hasło| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
-| Numer PIN urządzenia| ![zaznaczone](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello| ![zaznaczone](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello for Business| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
-| Klucze zabezpieczeń FIDO 2,0| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
-| Aplikacja Microsoft Authenticator (bezhaseł)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
+| Poświadczenia lokalne użytkownika końcowego| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| |  |
+| Hasło| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
+| Numer PIN urządzenia| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello dla firm| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
+| Klucze zabezpieczeń FIDO 2,0| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
+| Aplikacja Microsoft Authenticator (bezhaseł)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
 |**Najważniejsze możliwości**| | |  |
-| Logowanie jednokrotne do zasobów w chmurze| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
-| Logowanie jednokrotne do zasobów lokalnych| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
-| Dostęp warunkowy <br> (Wymagaj, aby urządzenia były oznaczone jako zgodne) <br> (Musi być zarządzany przez MDM)| ![zaznaczone](./media/plan-device-deployment/check.png) | ![zaznaczone](./media/plan-device-deployment/check.png)|![zaznaczone](./media/plan-device-deployment/check.png) |
-Dostęp warunkowy <br>(Wymagaj hybrydowych urządzeń przyłączonych do usługi Azure AD)| | | ![zaznaczone](./media/plan-device-deployment/check.png)
-| Samoobsługowe resetowanie haseł z ekranu logowania systemu Windows| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
-| Resetowanie numeru PIN systemu Windows Hello| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
-| Roaming stanu przedsiębiorstwa między urządzeniami| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
+| Logowanie jednokrotne do zasobów w chmurze| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
+| Logowanie jednokrotne do zasobów lokalnych| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
+| Dostęp warunkowy <br> (Wymagaj, aby urządzenia były oznaczone jako zgodne) <br> (Musi być zarządzany przez MDM)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)|![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
+Dostęp warunkowy <br>(Wymagaj hybrydowych urządzeń przyłączonych do usługi Azure AD)| | | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)
+| Samoobsługowe resetowanie haseł z ekranu logowania systemu Windows| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
+| Resetowanie numeru PIN systemu Windows Hello| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
+| Roaming stanu przedsiębiorstwa między urządzeniami| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
 
 
 ## <a name="azure-ad-registration"></a>Rejestracja w usłudze Azure AD 
@@ -239,9 +239,9 @@ Przejrzyj obsługiwane i nieobsługiwane platformy dla urządzeń zintegrowanych
 
 | Narzędzia do zarządzania urządzeniami| Zarejestrowane w usłudze Azure AD| Dołączenie do usługi Azure AD| Dołączenie hybrydowe do usługi Azure AD|
 | - | - | - | - |
-| [Zarządzanie urządzeniami przenośnymi (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Przykład: Microsoft Intune| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)|  |
-| [Zarządzanie przy użyciu Microsoft Intune i Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(System Windows 10 i nowsze)| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)|  |
-| [Zasady grupy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Tylko system Windows)| | | ![zaznaczone](./media/plan-device-deployment/check.png)|  |
+| [Zarządzanie urządzeniami przenośnymi (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Przykład: Microsoft Intune| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)|  |
+| [Zarządzanie przy użyciu Microsoft Intune i Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(System Windows 10 i nowsze)| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)|  |
+| [Zasady grupy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Tylko system Windows)| | | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)|  |
 
 
 

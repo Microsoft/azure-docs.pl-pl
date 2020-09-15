@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261111"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561894"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Typy węzłów usługi Azure Service Fabric i zestawy skalowania maszyn wirtualnych
 
@@ -32,7 +32,7 @@ Podczas skalowania w poziomie zestawu skalowania jest tworzone nowe wystąpienie
 
 Jeśli klaster został wdrożony w Azure Portal lub użyto przykładowego szablonu Azure Resource Manager, zostanie wyświetlona lista wszystkich zasobów w grupie zasobów. Moduły równoważenia obciążenia są widoczne dla każdego zestawu skalowania lub typu węzła. Nazwa usługi równoważenia obciążenia używa następującego formatu: ** &lt; &gt; Nazwa typu węzła lb**. Przykładem jest LB-sfcluster4doc-0, jak pokazano na poniższym rysunku:
 
-![Zasoby][Resources]
+![Zrzut ekranu przedstawia grupę zasobów z wyróżnionymi dwoma usługami równoważenia obciążenia.][Resources]
 
 ## <a name="service-fabric-virtual-machine-extension"></a>Service Fabric rozszerzenie maszyny wirtualnej
 
@@ -85,7 +85,7 @@ Poniżej przedstawiono opisy właściwości:
 | nicPrefixOverride | ciąg | Prefiks podsieci, taki jak "10.0.0.0/24" |
 | commonNames | ciąg [] | Typowe nazwy zainstalowanych certyfikatów klastra |
 | x509StoreName | ciąg | Nazwa magazynu, w którym znajduje się zainstalowany certyfikat klastra |
-| typeHandlerVersion | 1.1 | Wersja rozszerzenia. 1,0 klasycznej wersji rozszerzenia zaleca się uaktualnienie do 1,1 |
+| typeHandlerVersion | 1,1 | Wersja rozszerzenia. 1,0 klasycznej wersji rozszerzenia zaleca się uaktualnienie do 1,1 |
 | Ścieżka datapath | ciąg | Ścieżka do dysku używanego do zapisywania stanu Service Fabric usług systemowych i danych aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki

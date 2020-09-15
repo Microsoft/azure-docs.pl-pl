@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 870aded1a7b00cbfbe96aff4997561b15be4141c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: c6c5c9b00ec3309638a7c5618e5995c8c5f07b11
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290104"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564375"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integracja usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Time Series Insights
 
@@ -46,21 +46,21 @@ Samouczek Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie
 
 1. Najpierw utwórz przestrzeń nazw centrum zdarzeń, która będzie odbierać zdarzenia z wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Możesz użyć poniższych instrukcji interfejsu wiersza polecenia platformy Azure lub użyć Azure Portal: [*Szybki Start: tworzenie centrum zdarzeń przy użyciu Azure Portal*](../event-hubs/event-hubs-create.md).
 
-    ```azurecli-interactive
+    ```azurecli
     # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
     az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region, for example: East US>
     ```
 
 2. Utwórz centrum zdarzeń w przestrzeni nazw.
 
-    ```azurecli-interactive
+    ```azurecli
     # Create an event hub to receive twin change events. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
 3. Utwórz [regułę autoryzacji](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) z uprawnieniami do wysyłania i odbierania.
 
-    ```azurecli-interactive
+    ```azurecli
     # Create an authorization rule. Specify a name for the rule.
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
@@ -153,12 +153,12 @@ Aby utworzyć drugie centrum zdarzeń, możesz użyć poniższych instrukcji int
 1. Przygotuj *Event Hubs przestrzeń nazw* i nazwę *grupy zasobów* z wcześniejszej części tego artykułu
 
 2. Utwórz nowe centrum zdarzeń
-    ```azurecli-interactive
+    ```azurecli
     # Create an event hub. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
 3. Tworzenie [reguły autoryzacji](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) z uprawnieniami do wysyłania i odbierania
-    ```azurecli-interactive
+    ```azurecli
     # Create an authorization rule. Specify a name for the rule.
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
     ```
@@ -171,13 +171,13 @@ Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześnie
 
 1. Pobierz [Parametry połączenia centrum zdarzeń](../event-hubs/event-hubs-get-connection-string.md)bliźniaczych reprezentacji, używając reguł autoryzacji utworzonych powyżej dla centrum bliźniaczych reprezentacji.
 
-    ```azurecli-interactive
+    ```azurecli
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name from earlier> --name <Twins auth rule from earlier>
     ```
 
 2. Użyj parametrów połączenia, które otrzymujesz w wyniku, aby utworzyć ustawienie aplikacji w aplikacji funkcji, która zawiera parametry połączenia:
 
-    ```azurecli-interactive
+    ```azurecli
     az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string> -g <resource group> -n <your App Service (function app) name>"
     ```
 
@@ -185,13 +185,13 @@ Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześnie
 
 1. Pobierz [Parametry połączenia centrum zdarzeń](../event-hubs/event-hubs-get-connection-string.md)TSI przy użyciu reguł autoryzacji utworzonych powyżej dla centrum Time Series Insights:
 
-    ```azurecli-interactive
+    ```azurecli
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
     ```
 
 2. W aplikacji funkcji Utwórz ustawienie aplikacji zawierające parametry połączenia:
 
-    ```azurecli-interactive
+    ```azurecli
     az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string> -g <resource group> -n <your App Service (function app) name>"
     ```
 

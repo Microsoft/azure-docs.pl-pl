@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 65d7845763b60a66f396d9081f3c9c6e1d04c1bc
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447240"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561827"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Azure Files Omówienie opcji uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -78,6 +78,7 @@ Poniższa tabela zawiera podsumowanie obsługiwanych scenariuszy uwierzytelniani
 - Usługa Azure AD DS i lokalne uwierzytelnianie AD DS nie obsługują uwierzytelniania dla kont komputerów. Zamiast tego możesz rozważyć użycie konta logowania do usługi.
 - W przypadku urządzeń przyłączonych do usługi Azure AD lub urządzeń zarejestrowanych w usłudze Azure AD nie jest obsługiwane uwierzytelnianie AD DS platformy Azure ani uwierzytelnianie lokalne AD DS.
 - Udziały plików platformy Azure obsługują tylko uwierzytelnianie oparte na tożsamościach dla jednej z następujących usług domeny: [Azure Active Directory Domain Services (AD DS platformy Azure)](#azure-ad-ds) lub [Active Directory Domain Services lokalnych (AD DS)](#ad-ds).
+- Żadna metoda uwierzytelniania oparta na tożsamości nie jest obsługiwana w systemie plików NFS, który jest w wersji zapoznawczej.
 
 ## <a name="advantages-of-identity-based-authentication"></a>Zalety uwierzytelniania opartego na tożsamościach
 Uwierzytelnianie oparte na tożsamościach dla Azure Files oferuje kilka korzyści z używania uwierzytelniania klucza współużytkowanego:

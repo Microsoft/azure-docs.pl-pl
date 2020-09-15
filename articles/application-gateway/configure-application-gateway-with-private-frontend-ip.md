@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: c7a0022c5cff405a993f30cdf2ab5900485c84a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64dfe284772faf2a345b7959f1a1bd6f474cd1bf
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808124"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562489"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Konfigurowanie bramy aplikacji za pomocą punktu końcowego wewnętrznego modułu równoważenia obciążenia (ILB)
 
@@ -74,7 +74,7 @@ Do komunikacji między tworzonymi zasobami platforma Azure potrzebuje sieci wirt
 25. Zaakceptuj pozostałe wartości domyślne i wybierz pozycję **Dodaj**.
 26. Na stronie **Dodawanie reguły routingu** wybierz pozycję **Dodaj**.
 27. Wybierz pozycję **Dalej: Tagi**.
-28. Wybierz pozycję **Dalej: przegląd + Utwórz**.
+28. Wybierz pozycję **Dalej: Przeglądanie i tworzenie**.
 29. Przejrzyj ustawienia na stronie Podsumowanie, a następnie wybierz pozycję **Utwórz** , aby utworzyć zasoby sieciowe i bramę aplikacji. Tworzenie bramy aplikacji może potrwać kilka minut. Zaczekaj na pomyślne zakończenie wdrożenia, zanim przejdziesz do kolejnej sekcji.
 
 ## <a name="add-backend-pool"></a>Dodawanie puli zaplecza
@@ -110,7 +110,7 @@ W tym celu:
 ### <a name="install-iis"></a>Instalowanie usług IIS
 
 1. Otwórz Cloud Shell i upewnij się, że jest ustawiony na program **PowerShell**.
-    ![Private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![Zrzut ekranu przedstawia otwarte okno konsoli Azure Cloud Shell, w którym jest używane środowisko PowerShell.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Uruchom następujące polecenie, aby zainstalować usługi IIS na maszynie wirtualnej:
 
    ```azurepowershell
@@ -142,15 +142,15 @@ W tym celu:
 
 1. Wybierz pozycję **Wszystkie zasoby**, a następnie wybierz pozycję **myAppGateway**.
 2. Wybierz pozycję **Pule zaplecza**. Wybierz pozycję **appGatewayBackendPool**.
-3. W obszarze **Typ docelowy** wybierz pozycję **maszyna wirtualna** i w obszarze **cel**wybierz pozycję wirtualnej karty sieciowej skojarzona z myVM.
+3. W obszarze **Typ docelowy** wybierz pozycję **maszyna wirtualna**  i w obszarze **cel**wybierz pozycję wirtualnej karty sieciowej skojarzona z myVM.
 4. Powtarzaj, aby dodać MyVM2.
-   ![Private-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
+   ![Zrzut ekranu pokazuje okienko Edycja puli zaplecza z wyróżnionymi typami docelowymi i obiektami docelowymi.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 5. Wybierz pozycję **Zapisz.**
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
 1. Sprawdź adres IP frontonu, który został przypisany przez kliknięcie strony **konfiguracje adresów IP frontonu** w portalu.
-    ![Private-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+    ![Zrzut ekranu przedstawia okienko konfiguracje adresów IP frontonu z wyróżnionym typem prywatnym.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Skopiuj prywatny adres IP, a następnie wklej go na pasku adresu przeglądarki na maszynie wirtualnej w tej samej sieci wirtualnej lub lokalnie, która ma łączność z tą siecią wirtualną, a następnie spróbuj uzyskać dostęp do Application Gateway.
 
 ## <a name="next-steps"></a>Następne kroki

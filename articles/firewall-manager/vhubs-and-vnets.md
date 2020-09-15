@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 7a06111fbe38f167ddf3512fdb312d7de754a738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71ff23e749139087f24da406474403167dcc1c0d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563579"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563152"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Jakie są opcje architektury Menedżera zapory platformy Azure?
 
@@ -44,6 +44,7 @@ W poniższej tabeli porównano te dwie opcje architektury i można ułatwić dec
 |**Obsługa wielu dostawców zabezpieczeń**|Obsługiwane przez ręczne konfigurowanie wymuszonego tunelowania dla zapór innych firm|Automatyczna obsługa dwóch dostawców zabezpieczeń: Zapora platformy Azure na potrzeby filtrowania ruchu prywatnego i innej firmy na potrzeby filtrowania internetowego|
 |**Zapora aplikacji internetowej w usłudze Application Gateway** |Obsługiwane w Virtual Network|Obecnie obsługiwane w sieci szprychy|
 |**Sieciowe urządzenie wirtualne**|Obsługiwane w Virtual Network|Obecnie obsługiwane w sieci szprychy|
+|**Azure DDoS Protection wsparcia standardowego**|Yes|Nie|
 
 ## <a name="next-steps"></a>Następne kroki
 

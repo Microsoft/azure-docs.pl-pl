@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d8dc4a3efb034c9428de32f0f975869e1044327
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613897"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561877"
 ---
 # <a name="graphics-binding"></a>Powiązanie grafiki
 
@@ -137,11 +137,23 @@ wmrBinding->BlitRemoteFrame();
 ### <a name="simulation"></a>Symulacja
 
 `GraphicsApiType.SimD3D11` jest powiązaniem symulacji i jeśli wybrane, tworzy `GraphicsBindingSimD3d11` powiązanie grafiki. Ten interfejs służy do symulowania przenoszenia głowy, na przykład w aplikacji klasycznej i renderowania obrazu monoscopic.
+
+Aby zaimplementować powiązanie symulacji, ważne jest, aby zrozumieć różnicę między aparatem lokalnym i ramką zdalną, zgodnie z opisem na stronie [aparat](../overview/features/camera.md) .
+
+Potrzeba dwóch kamer:
+
+* **Aparat lokalny**: ten aparat reprezentuje bieżące położenie kamery, która jest obsługiwana przez logikę aplikacji.
+* **Aparat proxy**: ten aparat jest zgodny z bieżącą *ramką zdalną* , która została wysłana przez serwer. Ponieważ istnieje opóźnienie między klientem żądającym ramki i jej przybyciem, *zdalna ramka* jest zawsze bitem pod względem ruchu aparatu lokalnego.
+
+Podstawowa metoda polega na tym, że obraz zdalny i zawartość lokalna są renderowane w miejscu docelowym poza ekranem przy użyciu aparatu proxy. Obraz serwera proxy jest następnie przemieszczony w lokalnym obszarze aparatu fotograficznego, co jest dokładniej wyjaśnione w [późnym rozmieszczeniu](../overview/features/late-stage-reprojection.md).
+
 Konfiguracja jest nieco większa i działa w następujący sposób:
 
 #### <a name="create-proxy-render-target"></a>Utwórz obiekt docelowy renderowania serwera proxy
 
-Zawartość zdalna i lokalna muszą być renderowane do elementu docelowego renderowania koloru/głębokości, zwanego "serwerem proxy" przy użyciu danych z aparatu proxy dostarczonych przez `GraphicsBindingSimD3d11.Update` funkcję. Serwer proxy musi być zgodny z rozdzielczością buforu zapasowego. Gdy sesja będzie gotowa, należy `GraphicsBindingSimD3d11.InitSimulation` wywołać ją przed nawiązaniem połączenia:
+Zawartość zdalna i lokalna muszą być renderowane do elementu docelowego renderowania koloru/głębokości, zwanego "serwerem proxy" przy użyciu danych z aparatu proxy dostarczonych przez `GraphicsBindingSimD3d11.Update` funkcję.
+
+Serwer proxy musi być zgodny z rozdzielczością buforu zapasowego i powinien być w formacie int *DXGI_FORMAT_R8G8B8A8_UNORM* lub *DXGI_FORMAT_B8G8R8A8_UNORM* . Gdy sesja będzie gotowa, należy `GraphicsBindingSimD3d11.InitSimulation` wywołać ją przed nawiązaniem połączenia:
 
 ```cs
 AzureSession currentSession = ...;
@@ -244,4 +256,6 @@ else
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Aparat fotograficzny](../overview/features/camera.md)
+* [Reprojekcja na późnym etapie](../overview/features/late-stage-reprojection.md)
 * [Samouczek: Wyświetlanie modeli renderowanych zdalnie](../tutorials/unity/view-remote-models/view-remote-models.md)

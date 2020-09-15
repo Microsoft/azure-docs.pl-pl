@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd2e4f5c81427413e3f3f3eceaa0cc41a3b9e318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510379"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563509"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrowanie z systemu Linux do wdrożenia chmury hybrydowej za pomocą Azure File Sync
 
-Azure File Sync działa w wystąpieniach systemu Windows Server z bezpośrednio dołączonym magazynem (DAS). Nie obsługuje synchronizacji z i z systemu Linux ani zdalnego udziału bloku komunikatów serwera (SMB).
+Azure File Sync działa w wystąpieniach systemu Windows Server z bezpośrednio dołączonym magazynem (DAS). Nie obsługuje synchronizacji z i od klientów systemu Linux ani udziałów zdalnego bloku komunikatów serwera (SMB) ani udziału sieciowego systemu plików (NFS).
 
 W związku z tym przekształcenia usług plików w wdrożenie hybrydowe powodują konieczność migracji do systemu Windows Server. W tym artykule opisano planowanie i wykonywanie takich migracji.
 
@@ -201,7 +201,7 @@ Zakończono Migrowanie udziału lub grupy udziałów do wspólnego katalogu gł�
 Można spróbować uruchomić kilka z tych kopii równolegle. Zalecamy przetwarzanie zakresu jednego udziału plików platformy Azure w danym momencie.
 
 > [!WARNING]
-> Po przeniesieniu wszystkich danych z serwera z systemem Linux Samba do wystąpienia systemu Windows Server, a migracja zostanie zakończona, Wróć do *wszystkich* grup synchronizacji w Azure Portal. Dostosuj wartość procentową wolnego miejsca dla woluminu warstwowego chmury do lepszego dopasowania do użycia pamięci podręcznej, na przykład 20 procent. 
+> Po przeniesieniu wszystkich danych z serwera z systemem Linux Samba do wystąpienia systemu Windows Server, a migracja zostanie zakończona, Wróć do *wszystkich*  grup synchronizacji w Azure Portal. Dostosuj wartość procentową wolnego miejsca dla woluminu warstwowego chmury do lepszego dopasowania do użycia pamięci podręcznej, na przykład 20 procent. 
 
 Zasady wolnego miejsca w woluminie warstwowym w chmurze działają na poziomie woluminu z potencjalnie wieloma punktami końcowymi serwera. Jeśli zapomnisz o dostosowaniu wolnego miejsca w nawet jednym punkcie końcowym serwera, synchronizacja będzie nadal stosowała najbardziej restrykcyjną regułę i podejmie próbę utrzymania wolnego miejsca na dysku o 99%. Lokalna pamięć podręczna może nie działać zgodnie z oczekiwaniami. Wydajność może być akceptowalna, jeśli celem jest posiadanie przestrzeni nazw dla woluminu, który zawiera tylko rzadko używane dane archiwalne, i zachowuje resztę miejsca do magazynowania w innym scenariuszu.
 

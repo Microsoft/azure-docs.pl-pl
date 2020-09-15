@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 827afbf811042acb2bf01f3e863408d5a6e9732f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 500bfff4afaebc345d344566b02fe945edb05795
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441922"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562608"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Konfigurowanie logowania jednokrotnego opartego na języku SAML
 
@@ -27,7 +27,7 @@ W [serii szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacja
 
 Korzystanie z usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) i Konfigurowanie logowania jednokrotnego (SSO) może być proste lub złożone w zależności od używanej aplikacji. Niektóre aplikacje można skonfigurować za pomocą zaledwie kilku akcji. Inne wymagają konfiguracji szczegółowej. Aby szybko uzyskać szczegółowe instrukcje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Jeśli dodawana aplikacja jest prosta, prawdopodobnie nie musisz czytać tego artykułu. Jeśli dodawana aplikacja wymaga konfiguracji niestandardowej dla logowania jednokrotnego opartego na protokole SAML, ten artykuł jest dla Ciebie.
 
-W [serii szybkiego startu](view-applications-portal.md)znajduje się artykuł dotyczący konfigurowania logowania jednokrotnego. W tym temacie dowiesz się, jak uzyskać dostęp do strony konfiguracji protokołu SAML dla aplikacji. Strona konfiguracja protokołu SAML zawiera pięć sekcji. Te sekcje zostały szczegółowo omówione w tym artykule.
+W [serii szybkiego startu](add-application-portal-setup-sso.md)znajduje się artykuł dotyczący konfigurowania logowania jednokrotnego. W tym temacie dowiesz się, jak uzyskać dostęp do strony konfiguracji protokołu SAML dla aplikacji. Strona konfiguracja protokołu SAML zawiera pięć sekcji. Te sekcje zostały szczegółowo omówione w tym artykule.
 
 > [!IMPORTANT] 
 > Istnieją sytuacje, w których opcja **logowania** jednokrotnego nie będzie obecna w nawigacji dla aplikacji w aplikacjach dla **przedsiębiorstw**. 
@@ -42,7 +42,7 @@ W [serii szybkiego startu](view-applications-portal.md)znajduje się artykuł do
 Należy uzyskać wartości od dostawcy aplikacji. Można ręcznie wprowadzić wartości lub przekazać plik metadanych w celu wyodrębnienia wartości pól.
 
 > [!TIP]
-> Wiele aplikacji jest już wstępnie skonfigurowanych do pracy z usługą Azure AD. Te aplikacje są wymienione w galerii aplikacji, które można przeglądać po dodaniu aplikacji do dzierżawy usługi Azure AD. [Seria szybkiego startu](view-applications-portal.md) przeprowadzi Cię przez proces. Aby uzyskać szczegółowe informacje na temat aplikacji w galerii, należy skonfigurować instrukcje krok po kroku. Aby uzyskać dostęp do tych czynności, możesz kliknąć link na stronie Konfiguracja protokołu SAML dla aplikacji zgodnie z opisem w serii szybkiego startu lub przejrzeć listę wszystkich samouczków konfiguracji aplikacji w [samouczkach konfiguracji aplikacji SaaS](../saas-apps/tutorial-list.md).
+> Wiele aplikacji jest już wstępnie skonfigurowanych do pracy z usługą Azure AD. Te aplikacje są wymienione w galerii aplikacji, które można przeglądać po dodaniu aplikacji do dzierżawy usługi Azure AD. [Seria szybkiego startu](add-application-portal-setup-sso.md) przeprowadzi Cię przez proces. Aby uzyskać szczegółowe informacje na temat aplikacji w galerii, należy skonfigurować instrukcje krok po kroku. Aby uzyskać dostęp do tych czynności, możesz kliknąć link na stronie Konfiguracja protokołu SAML dla aplikacji zgodnie z opisem w serii szybkiego startu lub przejrzeć listę wszystkich samouczków konfiguracji aplikacji w [samouczkach konfiguracji aplikacji SaaS](../saas-apps/tutorial-list.md).
 
 | Podstawowe ustawienia konfiguracji SAML | Zainicjowane przez dostawcę usługi | Zainicjowane przez dostawcę tożsamości | Opis |
 |:--|:--|:--|:--|
@@ -57,7 +57,7 @@ Należy uzyskać wartości od dostawcy aplikacji. Można ręcznie wprowadzić wa
 Gdy użytkownik uwierzytelnia się w aplikacji, usługa Azure AD wystawia aplikację tokenem SAML z informacjami (lub oświadczeniami) dotyczącymi użytkownika, który jednoznacznie identyfikuje je. Domyślnie te informacje obejmują nazwę użytkownika, adres e-mail, imię i nazwisko. Może być konieczne dostosowanie tych oświadczeń, jeśli na przykład aplikacja wymaga określonych wartości oświadczenia lub formatu **nazwy** innej niż nazwa użytkownika. 
 
 > [!IMPORTANT]
-> Wiele aplikacji jest już wstępnie skonfigurowanych i nie trzeba martwić się o Ustawianie oświadczeń użytkowników i grup. [Seria szybkiego startu](view-applications-portal.md) przeprowadzi Cię przez proces dodawania i konfigurowania aplikacji.
+> Wiele aplikacji jest już wstępnie skonfigurowanych i nie trzeba martwić się o Ustawianie oświadczeń użytkowników i grup. [Seria szybkiego startu](add-application-portal.md) przeprowadzi Cię przez proces dodawania i konfigurowania aplikacji.
 
 
 **Unikatowy identyfikator użytkownika (identyfikator nazwy)** to wymagane żądanie i jest ważne. Wartość domyślna to *User. userPrincipalName*. Identyfikator użytkownika jednoznacznie identyfikuje każdego użytkownika w aplikacji. Jeśli na przykład adresem e-mail jest zarówno nazwa użytkownika, jak i unikatowy identyfikator, ustaw wartość *user.mail*.
@@ -79,7 +79,7 @@ Możesz dodać nowe oświadczenia, aby uzyskać szczegółowe informacje, zobacz
 Usługa Azure AD używa certyfikatu do podpisywania tokenów SAML wysyłanych do aplikacji. Ten certyfikat jest wymagany do skonfigurowania relacji zaufania między usługą Azure AD a aplikacją. Aby uzyskać szczegółowe informacje na temat formatu certyfikatu, zobacz dokumentację SAML aplikacji. Aby uzyskać więcej informacji, zobacz [Zarządzanie certyfikatami dla federacyjnego logowania](manage-certificates-for-federated-single-sign-on.md) jednokrotnego i [Zaawansowane opcje podpisywania certyfikatu w tokenie SAML](certificate-signing-options.md).
 
 > [!IMPORTANT]
-> Wiele aplikacji jest już wstępnie skonfigurowanych i znajduje się w galerii aplikacji i nie ma potrzeby szczegółowe do certyfikatów. [Seria szybkiego startu](view-applications-portal.md) przeprowadzi Cię przez proces dodawania i konfigurowania aplikacji.
+> Wiele aplikacji jest już wstępnie skonfigurowanych i znajduje się w galerii aplikacji i nie ma potrzeby szczegółowe do certyfikatów. [Seria szybkiego startu](add-application-portal.md) przeprowadzi Cię przez proces dodawania i konfigurowania aplikacji.
 
 W usłudze Azure AD można pobrać aktywny certyfikat w formacie base64 lub RAW bezpośrednio z głównego konfigurowania logowania jednokrotnego **za pomocą strony SAML** . Ponadto można uzyskać aktywny certyfikat przez pobranie pliku XML metadanych aplikacji lub użycie adresu URL metadanych federacji aplikacji. Aby wyświetlić, utworzyć lub pobrać certyfikaty (aktywne lub nieaktywne), wykonaj następujące kroki.
 

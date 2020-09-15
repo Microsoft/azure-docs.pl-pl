@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6792fdc405d539a662c8dc20c04b2891fd036704
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1aa0eb0988474a21fbf77ea08ce14a5fa9fb21bc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421913"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564121"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Program PowerShell dla ról usługi Azure AD w Privileged Identity Management
 
@@ -30,7 +30,7 @@ Ten artykuł zawiera instrukcje dotyczące korzystania z poleceń cmdlet program
 > [!Note]
 > Nasze oficjalne środowisko PowerShell jest obsługiwane tylko w przypadku, gdy korzystasz z nowej wersji Azure AD Privileged Identity Management. Przejdź do Privileged Identity Management i upewnij się, że masz Poniższy transparent w bloku Szybki Start.
 > [![Sprawdź wersję Privileged Identity Management masz](media/pim-how-to-add-role-to-user/pim-new-version.png "Wybierz > usługi Azure AD Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) Jeśli nie masz tego transparentu, zaczekaj, aż trwa proces wdrażania tego zaktualizowanego środowiska w ciągu najbliższych kilku tygodni.
-> Polecenia cmdlet programu PowerShell Privileged Identity Management są obsługiwane za pomocą modułu Azure AD Preview. Jeśli używasz innego modułu i ten moduł zwróci komunikat o błędzie, zacznij korzystać z tego nowego modułu. Jeśli masz jakiekolwiek systemy produkcyjne utworzone w oparciu o inny moduł, skontaktuj się zpim_preview@microsoft.com
+> Polecenia cmdlet programu PowerShell Privileged Identity Management są obsługiwane za pomocą modułu Azure AD Preview. Jeśli używasz innego modułu i ten moduł zwróci komunikat o błędzie, zacznij korzystać z tego nowego modułu. Jeśli masz jakiekolwiek systemy produkcyjne utworzone w oparciu o inny moduł, skontaktuj się z Tobą [pim_preview@microsoft.com](mailto:pim_preview@microsoft.com) .
 
 ## <a name="installation-and-setup"></a>Instalacja i konfiguracja
 
@@ -54,7 +54,7 @@ Ten artykuł zawiera instrukcje dotyczące korzystania z poleceń cmdlet program
     ![Znajdź identyfikator organizacji we właściwościach organizacji usługi Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> Poniższe sekcje stanowią proste przykłady, które mogą pomóc Ci w rozpoczęciu pracy. Więcej szczegółowej dokumentacji dotyczącej następujących poleceń cmdlet można znaleźć pod adresem https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management . Należy jednak zamienić ciąg "azureResources" w parametrze identyfikatorem na wartość "aadRoles". Należy również pamiętać, aby użyć identyfikatora organizacji dla organizacji usługi Azure AD jako parametru resourceId.
+> Poniższe sekcje stanowią proste przykłady, które mogą pomóc Ci w rozpoczęciu pracy. Więcej szczegółowej dokumentacji dotyczącej następujących poleceń cmdlet można znaleźć pod adresem [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . Należy jednak zamienić ciąg "azureResources" w parametrze identyfikatorem na wartość "aadRoles". Należy również pamiętać, aby użyć identyfikatora dzierżawy dla organizacji usługi Azure AD jako parametru resourceId.
 
 ## <a name="retrieving-role-definitions"></a>Pobieranie definicji ról
 
@@ -135,7 +135,7 @@ To polecenie cmdlet jest niemal identyczne z poleceniem cmdlet do tworzenia przy
 Użyj poniższego polecenia cmdlet, aby pobrać wszystkie ustawienia roli w organizacji usługi Azure AD.
 
 ```powershell
-Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'" 
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'"
 ```
 
 Ustawienie obejmuje cztery główne obiekty. Tylko trzy z tych obiektów są obecnie używane przez program PIM. UserMemberSettings to ustawienia aktywacji, AdminEligibleSettings to ustawienia przypisywania dla kwalifikujących się przypisań, a AdminmemberSettings to ustawienia przypisywania dla aktywnych przypisań.
@@ -145,8 +145,10 @@ Ustawienie obejmuje cztery główne obiekty. Tylko trzy z tych obiektów są obe
 Aby zaktualizować ustawienie roli, należy uzyskać istniejący obiekt ustawień dla określonej roli i wprowadzić w nim zmiany:
 
 ```powershell
-$setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
-$setting.UserMemberSetting.justificationRule = '{"required":false}'
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq 'tenant id' and RoleDefinitionId eq 'role id'"
+$settinga = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedRuleSetting
+$settinga.RuleIdentifier = "JustificationRule"
+$settinga.Setting = '{"required":false}'
 ```
 
 Następnie można zastosować ustawienie do jednego z obiektów dla określonej roli, jak pokazano poniżej. Ten identyfikator jest IDENTYFIKATORem ustawienia roli, który można pobrać z wyniku polecenia cmdlet listy ustawień roli.

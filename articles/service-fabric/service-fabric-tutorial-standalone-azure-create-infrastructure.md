@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak skonfigurować infrastrukturę ma
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: e9f62f944fff331bcf2dad1b380161e563614219
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75614013"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561844"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Samouczek: tworzenie infrastruktury maszyny wirtualnej platformy Azure na potrzeby hostowania klastra Service Fabric
 
@@ -49,7 +49,7 @@ Do wykonania kroków tego samouczka potrzebna jest subskrypcja platformy Azure. 
 
 8. Następnie ustaw wartość Advanced **Network Security Group** (karta **Advanced**sieciowa). Utwórz nową grupę zabezpieczeń, zwracając nazwę i Utwórz następujące reguły, aby zezwolić na ruch TCP z dowolnego źródła:
 
-   ![SF — przychodzące][sf-inbound]
+   ![Zrzut ekranu przedstawia tworzenie reguł zezwalających na ruch przychodzący TCP.][sf-inbound]
 
    * Port `3389` , protokół RDP i ICMP (łączność podstawowa).
    * Porty `19000-19003` dla Service Fabric.
@@ -61,7 +61,7 @@ Do wykonania kroków tego samouczka potrzebna jest subskrypcja platformy Azure. 
 
 9. Dodaj kolejną regułę. Ustaw tag źródło jako **Usługa** i ustaw tag usługi źródłowej na **VirtualNetwork**. Service Fabric wymaga otwarcia następujących portów do komunikacji w klastrze: 135137-139, 445, 20001-20031, 20606-20861.
 
-   ![Sieć wirtualna — ruch przychodzący][vnet-inbound]
+   ![Zrzut ekranu przedstawia tworzenie reguł zezwalających na ruch TCP dla klastra.][vnet-inbound]
 
 10. Pozostałe opcje są akceptowane w stanie domyślnym. Przejrzyj je, jeśli chcesz, a następnie uruchom maszynę wirtualną.
 

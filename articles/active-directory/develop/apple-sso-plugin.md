@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/31/2020
+ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6afbdb6bcb067bdcb570c366f4604ea77ec4f490
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526820"
+ms.locfileid: "90561350"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Wtyczka Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)
 
@@ -125,7 +125,7 @@ Jeśli tworzysz aplikację dla scenariuszy roboczych teraźniejszości, zobacz [
 
 ## <a name="how-the-sso-plug-in-works"></a>Jak działa wtyczka Logowanie jednokrotne
 
-Wtyczka Microsoft Enterprise SSO jest oparta na platformie logowania jednokrotnego w [przedsiębiorstwie firmy Apple](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Dostawcy tożsamości dołączenia do struktury mogą przechwycić ruch sieciowy dla swoich domen i zwiększyć lub zmienić sposób obsługi tych żądań. Na przykład wtyczka logowania jednokrotnego może wyświetlać dodatkowy interfejs użytkownika, aby bezpiecznie zbierać poświadczenia użytkownika końcowego, wymagać uwierzytelniania wieloskładnikowego lub dyskretnie dostarczać tokeny do aplikacji.
+Wtyczka Microsoft Enterprise SSO jest oparta na platformie logowania jednokrotnego w [przedsiębiorstwie firmy Apple](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Dostawcy tożsamości dołączenia do struktury mogą przechwycić ruch sieciowy dla swoich domen i zwiększyć lub zmienić sposób obsługi tych żądań. Na przykład wtyczka logowania jednokrotnego może wyświetlać dodatkowy interfejs użytkownika, aby bezpiecznie zbierać poświadczenia użytkownika końcowego, wymagać uwierzytelniania wieloskładnikowego lub w trybie dyskretnym.
 
 Natywne aplikacje mogą również implementować operacje niestandardowe i komunikować się bezpośrednio z wtyczką logowania jednokrotnego.
 Więcej informacji na temat platformy rejestracji jednokrotnej można znaleźć w tym [2019 WWDC wideo od firmy Apple](https://developer.apple.com/videos/play/tech-talks/301/)
@@ -148,11 +148,11 @@ W tych aplikacjach nie trzeba zmieniać kodu, dopóki są spełnione następują
 - Aplikacja korzysta z protokołów standardowych do komunikowania się z usługą Azure AD (na przykład OAuth2, SAML, WS-Federation)
 - Aplikacja nie zbiera nazwy użytkownika i hasła w natywnym interfejsie użytkownika
 
-W takim przypadku Logowanie jednokrotne jest udostępniane w momencie, gdy aplikacja tworzy żądanie sieciowe i otwiera przeglądarkę internetową w celu podpisania użytkownika w programie. Gdy użytkownik zostanie przekierowany do adresu URL logowania usługi Azure AD, wtyczka logowania jednokrotnego weryfikuje adres URL i sprawdza, czy dla tego adresu URL jest dostępne poświadczenie logowania jednokrotnego. Jeśli istnieje, wtyczka logowania jednokrotnego przekazuje poświadczenia logowania jednokrotnego do usługi Azure AD, która autoryzuje aplikację do ukończenia żądania sieciowego bez monitowania użytkownika końcowego o wprowadzenie poświadczeń. Ponadto jeśli urządzenie jest znane w usłudze Azure AD, wtyczka logowania jednokrotnego również przekaże certyfikat urządzenia, aby spełnić sprawdzanie dostępu warunkowego opartego na urządzeniach. 
+W takim przypadku Logowanie jednokrotne jest udostępniane, gdy aplikacja tworzy żądanie sieciowe i otwiera przeglądarkę internetową w celu podpisania użytkownika w programie. Gdy użytkownik zostanie przekierowany do adresu URL logowania usługi Azure AD, wtyczka logowania jednokrotnego weryfikuje adres URL i sprawdza, czy dla tego adresu URL jest dostępne poświadczenie logowania jednokrotnego. Jeśli istnieje, wtyczka logowania jednokrotnego przekazuje poświadczenia logowania jednokrotnego do usługi Azure AD, która autoryzuje aplikację do ukończenia żądania sieciowego bez monitowania użytkownika o wprowadzenie poświadczeń. Ponadto jeśli urządzenie jest znane w usłudze Azure AD, wtyczka logowania jednokrotnego również przekaże certyfikat urządzenia, aby spełnić sprawdzanie dostępu warunkowego opartego na urządzeniach. 
 
-Aby można było obsługiwać Logowanie jednokrotne dla aplikacji innych niż MSAL, wtyczka Logowanie jednokrotne implementuje podobny protokół do wtyczki przeglądarki systemu Windows opisanej w artykule [co to jest podstawowy token odświeżania?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
+Aby można było obsługiwać Logowanie jednokrotne dla aplikacji innych niż MSAL, wtyczka Logowanie jednokrotne implementuje protokół podobny do wtyczki przeglądarki systemu Windows opisanej w artykule [co to jest podstawowy token odświeżania?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
 
-W porównaniu z aplikacjami opartymi na MSAL, wtyczka logowania jednokrotnego działa w sposób bardziej niewidoczny dla aplikacji innych niż MSAL przez integrację z istniejącym interfejsem logowania w przeglądarce udostępnianym przez aplikacje. Użytkownik końcowy zobaczy znane doświadczenie z korzyścią, że nie będzie konieczne zalogowanie się w poszczególnych aplikacjach. Na przykład zamiast wyświetlania natywnego selektora kont, wtyczka logowania jednokrotnego dodaje sesje logowania jednokrotnego do środowiska selektora konta opartego na sieci Web. 
+W porównaniu z aplikacjami opartymi na MSAL, wtyczka logowania jednokrotnego działa w sposób bardziej niewidoczny dla aplikacji innych niż MSAL przez integrację z istniejącym interfejsem logowania w przeglądarce udostępnianym przez aplikacje. Użytkownik końcowy zobaczy znane środowisko, z korzyścią, że nie trzeba wykonywać dodatkowych logowań w poszczególnych aplikacjach. Na przykład zamiast wyświetlania selektora konta natywnego, wtyczka logowania jednokrotnego dodaje sesje logowania jednokrotnego do środowiska selektora konta opartego na sieci Web. 
 
 ## <a name="next-steps"></a>Następne kroki
 

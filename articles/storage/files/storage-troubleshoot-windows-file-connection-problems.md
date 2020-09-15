@@ -1,22 +1,25 @@
 ---
-title: Rozwiązywanie problemów z Azure Files w systemie Windows | Microsoft Docs
-description: Rozwiązywanie problemów z Azure Files w systemie Windows. Zobacz typowe problemy związane z Azure Files podczas łączenia się z klientami z systemem Windows i zobaczenie możliwych rozwiązań.
+title: Rozwiązywanie problemów z usługą Azure Files w systemie Windows
+description: Rozwiązywanie problemów z Azure Files w systemie Windows. Zobacz typowe problemy związane z Azure Files podczas łączenia się z klientami z systemem Windows i zobaczenie możliwych rozwiązań. Tylko dla udziałów SMB
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 549f9b03272accbe107c432f4929c5de250a6f6b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 16491e36e0196bc3dabee17daf905d9a5204f8cd
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532396"
+ms.locfileid: "90564257"
 ---
-# <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
+# <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Windows (SMB)
 
 W tym artykule wymieniono typowe problemy związane z Microsoft Azure plikami w przypadku łączenia się z klientami systemu Windows. Zapewnia również możliwe przyczyny i rozwiązania tych problemów. Oprócz kroków opisanych w tym artykule można także użyć programu [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows),   Aby upewnić się, że środowisko klienta systemu Windows ma odpowiednie wymagania wstępne. AzFileDiagnostics automatyzuje wykrywanie większości objawów wymienionych w tym artykule i ułatwia skonfigurowanie środowiska w celu uzyskania optymalnej wydajności. Te informacje można również znaleźć w obszarze [Rozwiązywanie problemów z udziałami Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) , które udostępniają kroki ułatwiające rozwiązywanie problemów z połączeniem/mapowaniem/instalowaniem udziałów Azure Files.
+
+> [!IMPORTANT]
+> Zawartość tego artykułu dotyczy tylko udziałów SMB.
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Błąd 5 podczas instalowania udziału plików platformy Azure
@@ -54,7 +57,7 @@ Sprawdź, czy uprawnienia zostały prawidłowo skonfigurowane:
 
 - **Active Directory (AD)** zobacz [przypisywanie uprawnień na poziomie udziału do tożsamości](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
 
-    Przypisania uprawnień na poziomie udziału są obsługiwane dla grup i użytkowników, które zostały zsynchronizowane z Active Directory (AD) do Azure Active Directory (AAD) przy użyciu Azure AD Connect.  Upewnij się, że grupy i użytkownicy, którym przypisano uprawnienia na poziomie udziału, nie są obsługiwane grupy "tylko w chmurze".
+    Przypisania uprawnień na poziomie udziału są obsługiwane dla grup i użytkowników, które zostały zsynchronizowane z Active Directory (AD) do Azure Active Directory (Azure AD) przy użyciu Azure AD Connect.  Upewnij się, że grupy i użytkownicy, którym przypisano uprawnienia na poziomie udziału, nie są obsługiwane grupy "tylko w chmurze".
 - **Azure Active Directory Domain Services (AD DS platformy Azure)** zobacz [przypisywanie uprawnień dostępu do tożsamości](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>

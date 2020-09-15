@@ -3,12 +3,12 @@ title: Replikowanie Azure Stack maszyn wirtualnych na platformę Azure przy uży
 description: Dowiedz się, jak skonfigurować odzyskiwanie po awarii na platformie Azure dla maszyn wirtualnych Azure Stack przy użyciu usługi Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131608"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564313"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikowanie maszyn wirtualnych usługi Azure Stack na platformie Azure
 
@@ -36,7 +36,7 @@ Po wykonaniu tych kroków można uruchomić pełną pracę w trybie failover na 
 
 ## <a name="architecture"></a>Architektura
 
-![Architektura](./media/azure-stack-site-recovery/architecture.png)
+![Diagram przedstawia Recovery Services magazynów dla dwóch dzierżawców w chmurach skojarzonych z subskrypcjami dzierżawców zarówno w przypadku wspólnej infrastruktury Azure Stack.](./media/azure-stack-site-recovery/architecture.png)
 
 **Lokalizacja** | **Składnik** |**Szczegóły**
 --- | --- | ---
@@ -62,7 +62,7 @@ Oto co należy zrobić, aby skonfigurować ten scenariusz.
 
 **Wymaganie** | **Szczegóły**
 --- | ---
-**Konto subskrypcji platformy Azure** | Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
+**Konto subskrypcji platformy Azure** | Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 **Uprawnienia konta platformy Azure** | Używane konto platformy Azure wymaga uprawnień do:<br/><br/> -Utwórz magazyn usługi Recovery Service<br/><br/> -Utworzyć maszynę wirtualną w grupie zasobów i sieci wirtualnej używanej w tym scenariuszu<br/><br/> -Zapisz na określonym koncie magazynu<br/><br/> Należy pamiętać, że:<br/><br/> — Jeśli utworzysz konto, jesteś administratorem subskrypcji i możesz wykonać wszystkie akcje.<br/><br/> — Jeśli używasz istniejącej subskrypcji i nie jesteś administratorem, musisz skontaktować się z administratorem, aby przypisać uprawnienia właściciela lub współautora.<br/><br/> — Jeśli potrzebujesz bardziej szczegółowych uprawnień, zapoznaj się z [tym artykułem](site-recovery-role-based-linked-access-control.md).
 **Azure Stack maszynę wirtualną** | W ramach subskrypcji dzierżawy jest potrzebna Azure Stack maszyna wirtualna, która zostanie wdrożona jako serwer konfiguracji Site Recovery.
 
@@ -153,7 +153,7 @@ Znajdź adres IP dla każdej maszyny, która ma zostać zreplikowana:
 2. W obszarze **Wprowadzenie** wybierz pozycję Site Recovery. Następnie wybierz pozycję **Przygotowywanie infrastruktury**.
 3. W obszarze **cel ochrony**, gdzie znajdują się  >  **maszyny**, wybierz pozycję **lokalna**.
 4. W obszarze **Gdzie chcesz zreplikować maszyny** wybierz pozycję **Na platformę Azure**.
-5. W obszarze **czy maszyny są zwirtualizowane**, wybierz pozycję **niezwirtualizowane/inne**. Następnie wybierz pozycję **OK**.
+5. W obszarze **czy maszyny są zwirtualizowane**, wybierz pozycję **niezwirtualizowane/inne**. Następnie wybierz przycisk **OK**.
 
     ![Cel ochrony](./media/azure-stack-site-recovery/protection-goal.png)
 

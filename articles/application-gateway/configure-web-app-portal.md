@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: daf4c4ab56e23a212256c2629b7d0ae52a09e7c4
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: dbaad0f6639d65d88da6847886d3aa3d39b93e82
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595714"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563757"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Konfigurowanie App Service przy użyciu Application Gateway
 
@@ -67,9 +67,9 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 5. Kliknij przycisk **OK** , aby utworzyć ustawienie http.
 
-   ![HTTP-Setting1](./media/configure-web-app-portal/http-setting1.png)
+   ![Zrzut ekranu pokazuje okienko ustawień Dodaj H T P z opcją Użyj dla usługi App Service i OK.](./media/configure-web-app-portal/http-setting1.png)
 
-   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
+   ![Zrzut ekranu przedstawia sondę kondycji o nazwie nazwa hosta formularz wybrane ustawienia protokołu HTTP zaplecza.](./media/configure-web-app-portal/http-setting2.png)
 
 
 
@@ -85,7 +85,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 5. Kliknij przycisk **OK** , aby zapisać tę regułę.
 
-   ![Reguła](./media/configure-web-app-portal/rule.png)
+   ![Zrzut ekranu przedstawia okienko Dodaj podstawową regułę z wyróżnionym ustawieniem odbiornik, Pula zaplecza i H t T P.](./media/configure-web-app-portal/rule.png)
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Dodatkowa konfiguracja w przypadku przekierowania do ścieżki względnej usługi App Service
 

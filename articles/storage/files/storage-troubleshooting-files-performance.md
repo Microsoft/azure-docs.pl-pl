@@ -7,14 +7,17 @@ ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: cffac114cacd05e04e149af96d1678b536db7fec
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782374"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564240"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Rozwiązywanie problemów z wydajnością Azure Files
+# <a name="troubleshoot-azure-files-performance-issues-smb"></a>Rozwiązywanie problemów z wydajnością Azure Files (SMB)
+
+> [!IMPORTANT]
+> Zawartość tego artykułu dotyczy tylko udziałów SMB.
 
 W tym artykule wymieniono niektóre typowe problemy związane z udziałami plików platformy Azure. Zapewnia potencjalne przyczyny i obejścia w przypadku napotkania tych problemów.
 
@@ -203,7 +206,37 @@ Większe niż oczekiwane opóźnienie dostępu Azure Files do obciążeń intens
 
 Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-towards-being-throttled"></a>Tworzenie alertów, jeśli udział plików w warstwie Premium jest trendem w celu ograniczenia przepustowości
+
+1. Przejdź do swojego **konta magazynu** w **Azure Portal**.
+2. W sekcji monitorowanie kliknij pozycję **alerty** , a następnie kliknij pozycję **+ Nowa reguła alertów**.
+3. Kliknij pozycję **Edytuj zasób**, wybierz **Typ zasobu pliku** dla konta magazynu, a następnie kliknij pozycję **gotowe**. Jeśli na przykład nazwa konta magazynu to contoso, wybierz zasób contoso/File.
+4. Kliknij pozycję **Wybierz warunek** , aby dodać warunek.
+5. Zostanie wyświetlona lista sygnałów obsługiwanych przez konto magazynu, wybierz metrykę **ruchu** wychodzącego.
+
+  > [!NOTE]
+  > Należy utworzyć 3 oddzielne alerty, aby otrzymywać alerty w przypadku, gdy wartości przychodzące, wychodzące lub transakcje przekroczą ustawioną wartość progową. Wynika to z faktu, że alert jest uruchamiany tylko wtedy, gdy wszystkie warunki są spełnione. Dlatego jeśli wszystkie warunki zostaną umieszczone w jednym alercie, zostanie wykorzystana tylko alert, jeśli ruch przychodzący, wychodzący i transakcje przekroczyły ich wartości progowe.
+
+6. Przewiń w dół. Kliknij listę rozwijaną **Nazwa wymiaru** i wybierz pozycję **udział plików**.
+7. Kliknij listę rozwijaną **wartości wymiaru** i wybierz udziały plików, dla których chcesz utworzyć alert.
+8. Zdefiniuj **Parametry alertu** (wartość progowa, operator, stopień szczegółowości agregacji i częstotliwość oceny), a następnie kliknij pozycję **gotowe**.
+
+  > [!NOTE]
+  > Metryki ruch wychodzący, ruch przychodzący i transakcje są na minutę, chociaż są obsługiwane ruch wychodzący, ruch przychodzący i liczby operacji we/wy na sekundę. (Porozmawiaj o szczegółowości agregacji — > na minutę = więcej szumów, a następnie wybierz pozycję diff jeden) W związku z tym na przykład, jeśli przychodzący ruch wychodzący jest 90 MiB/sekundę i chcesz, aby próg miał 80% zainicjowanych danych wychodzących, należy wybrać następujące parametry alertu: 75497472 dla **wartości progowej**, większe niż lub równe **operatorowi**for oraz średnia dla **typu agregacji**. W zależności od tego, jak zakłócenia ma być Twój alert, możesz wybrać wartości, które zostaną wybrane do podsumowania oraz częstotliwość obliczania. Na przykład jeśli chcę, aby mój alert wyszukał średnią informację w okresie czasu o godzinie i chcę, aby moja reguła alertów była uruchamiana co godzinę, wybieram wartość 1 godzinę dla **stopnia szczegółowości agregacji** i 1 godzinę w przypadku **częstotliwości oceny**.
+
+9. Kliknij pozycję **Wybierz grupę akcji** , aby dodać do alertu **grupę akcji** (wiadomości e-mail, wiadomości SMS itp.), wybierając istniejącą grupę akcji lub tworząc nową grupę akcji.
+10. Wypełnij **szczegóły alertu** , takie jak nazwa, **Opis** i **ważność** **reguły alertu**.
+11. Kliknij przycisk **Utwórz regułę alertu** , aby utworzyć alert.
+
+  > [!NOTE]
+  > Aby otrzymywać powiadomienia, jeśli udział plików w warstwie Premium jest bliski ograniczenia z powodu zainicjowanej obsługi administracyjnej, wykonaj te same czynności, z wyjątkiem kroku 5, **zamiast tego wybierz metrykę** transferu danych przychodzących.
+
+  > [!NOTE]
+  > Aby otrzymywać powiadomienia, jeśli udział plików w warstwie Premium jest bliski ograniczania z powodu aprowizacji operacji we/wy na sekundę, trzeba będzie wprowadzić kilka zmian. W kroku 5 Wybierz metrykę **transakcji** . Ponadto dla kroku 10 jedyną opcją dla opcji **typ agregacji** jest suma. W związku z tym wartość progowa będzie zależna od wybranego stopnia szczegółowości agregacji. Na przykład jeśli chcesz, aby wartość progowa była równa 80% liczby operacji we/wy na sekundę, a wybrano 1 godzinę dla **stopnia szczegółowości agregacji**, **wartość progowa** będzie liczba operacji we/wy na sekundę (w bajtach) x 0,8 x 3600. Poza tymi zmianami wykonaj te same kroki, które wymieniono powyżej. 
+
+Aby dowiedzieć się więcej o konfigurowaniu alertów w Azure Monitor, zobacz [Omówienie alertów w Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="see-also"></a>Zobacz także
 * [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Często zadawane pytania dotyczące usługi Azure Files](storage-files-faq.md)

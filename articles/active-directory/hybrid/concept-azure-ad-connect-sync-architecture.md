@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b27055ce84bbb073045b69b942fd13f4fde4e3b3
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689218"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563866"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronizacja Azure AD Connect: zrozumienie architektury
 W tym temacie omówiono podstawową architekturę synchronizacji Azure AD Connect. W wielu aspektach jest podobny do jego poprzedników MIIS 2003, ILM 2007 i FIM 2010. Azure AD Connect synchronizacja jest ewolucją tych technologii. Jeśli znasz już każdą z tych wcześniejszych technologii, zawartość tego tematu będzie również znana. Jeśli dopiero zaczynasz synchronizację, ten temat jest dla Ciebie. Nie jest jednak wymagane, aby poznać szczegóły tego tematu, aby można było pomyślnie dostosowywać Azure AD Connect synchronizacji (nazywany aparatem synchronizacji w tym temacie).
@@ -36,7 +36,7 @@ Aparat synchronizacji hermetyzuje interakcje z połączonym źródłem danych w 
 
 Łączniki tworzą wywołania interfejsu API do wymiany informacji o tożsamości (zarówno do odczytu i zapisu) z połączonym źródłem danych. Istnieje również możliwość dodania łącznika niestandardowego za pomocą rozszerzalnej struktury łączności. Na poniższej ilustracji pokazano, jak łącznik nawiązuje połączenie z połączonym źródłem danych z aparatem synchronizacji.
 
-![Arch1](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
+![Diagram przedstawia połączone źródło danych oraz aparat synchronizacji skojarzony z wierszem o nazwie łącznik.](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
 
 Dane mogą przepływać w dowolnym kierunku, ale nie mogą przepływać jednocześnie w obu kierunkach. Innymi słowy, łącznik można skonfigurować w taki sposób, aby dane mogły być przesyłane z połączonego źródła danych do aparatu synchronizacji lub z aparatu synchronizacji do połączonego źródła danych, ale tylko jedna z tych operacji może wystąpić w jednym czasie dla jednego obiektu i atrybutu. Kierunek może być różny dla różnych obiektów i dla różnych atrybutów.
 
@@ -62,7 +62,7 @@ Ponadto aparat synchronizacji przechowuje informacje o stanie wszystkich obiekt�
 
 Na poniższej ilustracji przedstawiono przestrzeń nazw obszaru łącznika i przestrzeń nazw Metaverse w aparacie synchronizacji.
 
-![Arch2](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
+![Diagram przedstawia połączone źródło danych i aparat synchronizacji, który jest rozdzielony na przestrzeń łącznika i przestrzenie nazw Metaverse, skojarzone z wierszem o nazwie łącznik.](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
 
 ## <a name="sync-engine-identity-objects"></a>Obiekty tożsamości aparatu synchronizacji
 Obiekty w aparacie synchronizacji są reprezentacją obu obiektów w połączonym źródle danych lub widoku zintegrowanego, który aparat synchronizacji ma dla tych obiektów. Każdy obiekt aparatu synchronizacji musi mieć unikatowy identyfikator globalny (GUID). Identyfikatory GUID zapewniają integralność danych i bezpośrednie relacje między obiektami.
@@ -97,13 +97,13 @@ Obiekt przemieszczania może być obiektem importu lub obiektem eksportu. Aparat
 
 Na poniższej ilustracji przedstawiono obiekt importu, który reprezentuje obiekt w połączonym źródle danych.
 
-![Arch3](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
+![Na diagramie przedstawiono obiekt importu przeniesiony z połączonego źródła danych do przestrzeni nazw obszaru łącznika w aparacie synchronizacji.](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
 
 Aparat synchronizacji tworzy obiekt eksportu przy użyciu informacji o obiekcie w magazynie Metaverse. Eksportuj obiekty do połączonego źródła danych podczas następnej sesji komunikacji. Z perspektywy aparatu synchronizacji obiekty eksportu nie istnieją jeszcze w połączonym źródle danych. W związku z tym atrybut kotwicy dla obiektu eksportu nie jest dostępny. Po odebraniu obiektu z aparatu synchronizacji połączone źródło danych tworzy unikatową wartość dla atrybutu zakotwiczenia obiektu.
 
 Na poniższej ilustracji przedstawiono sposób tworzenia obiektu eksportu przy użyciu informacji o tożsamości w obiekcie Metaverse.
 
-![Arch4](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
+![Na diagramie przedstawiono obiekt eksportu przeniesiony z elementu Metaverse do przestrzeni nazw łącznika, a następnie do połączonego źródła danych.](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
 
 Aparat synchronizacji potwierdza eksport obiektu przez ponowne zaimportowanie obiektu z połączonego źródła danych. Eksportowanie obiektów staje się obiektami importu, gdy aparat synchronizacji otrzymuje je podczas następnego importowania z tego połączonego źródła danych.
 
@@ -132,7 +132,7 @@ Gdy obiekt przemieszczania stanie się obiektem przyłączonym podczas synchroni
 
 Pojedynczy obiekt przestrzeni łącznika można połączyć tylko z jednym obiektem Metaverse. Jednak każdy obiekt Metaverse może być połączony z wieloma obiektami przestrzeni łącznika w tym samym lub w różnych miejscach łączników, jak pokazano na poniższej ilustracji.
 
-![Arch5](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
+![Diagram przedstawia dwa połączone obiekty danych skojarzone przez łączniki z aparatem synchronizacji, który ma przyłączone obiekty i odłączony obiekt.](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
 
 Połączona relacja między obiektem przemieszczania i obiektem Metaverse jest trwała i może zostać usunięta tylko przez określone zasady.
 
@@ -145,7 +145,7 @@ Obiekt importu jest tworzony jako odłączony obiekt. Obiekt eksportu musi być 
 ## <a name="sync-engine-identity-management-process"></a>Proces zarządzania tożsamościami aparatu synchronizacji
 Proces zarządzania tożsamościami kontroluje sposób aktualizowania informacji o tożsamości między różnymi połączonymi źródłami danych. Zarządzanie tożsamościami odbywa się w trzech procesach:
 
-* Importuj
+* Import
 * Synchronizacja
 * Eksportowanie
 
@@ -157,7 +157,7 @@ W trakcie procesu eksportowania aparat synchronizacji wypychanie zmian, które s
 
 Na poniższej ilustracji przedstawiono, gdzie każdy proces występuje, gdy informacje o tożsamości są przesyłane z jednego połączonego źródła danych do innego.
 
-![Arch6](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
+![Diagram przedstawia przepływ informacji o tożsamości z połączonych danych do obszaru łącznika (import) do magazynu Metaverse do przestrzeni łącznika (synchronizację) na połączone dane (eksport).](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
 
 ### <a name="import-process"></a>Importuj proces
 Podczas procesu importowania aparat synchronizacji szacuje aktualizacje informacji o tożsamości. Aparat synchronizacji porównuje informacje o tożsamości otrzymane z połączonego źródła danych z informacjami o tożsamości dla obiektu przemieszczania i określa, czy obiekt przemieszczania wymaga aktualizacji. Jeśli konieczne jest zaktualizowanie obiektu przemieszczania przy użyciu nowych danych, obiekt przemieszczania jest oflagowany jako oczekujące na import.
@@ -252,7 +252,7 @@ Na przykład proces w połączonym źródle danych może zmienić atrybuty obiek
 
 Aparat synchronizacji przechowuje informacje o stanie eksportu i importu dotyczące każdego obiektu przemieszczania. Jeśli wartości atrybutów, które są określone na liście dołączania atrybutów od ostatniego eksportu, magazyn importu i eksportu umożliwiają aparatowi synchronizacji odpowiednio reagować. Aparat synchronizacji używa procesu importowania do potwierdzania wartości atrybutów, które zostały wyeksportowane do połączonego źródła danych. Porównanie zaimportowanych i eksportowanych informacji, jak pokazano na poniższej ilustracji, umożliwia aparatowi synchronizacji ustalenie, czy eksport zakończył się powodzeniem, czy też musi być powtórzony.
 
-![Arch7](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
+![Diagram przedstawia synchronizację obiektu między miejscem łącznika i połączonymi danymi za pośrednictwem łącznika.](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
 
 Na przykład jeśli aparat synchronizacji eksportuje atrybut C, który ma wartość 5, do połączonego źródła danych, przechowuje C = 5 w pamięci stanu eksportu. Każdy dodatkowy eksport tego obiektu spowoduje ponowne wypróbowanie eksportu C = 5 do połączonego źródła danych, ponieważ aparat synchronizacji zakłada, że ta wartość nie została trwale zastosowana do obiektu (to jest, chyba że inna wartość została ostatnio zaimportowana z połączonego źródła danych). Pamięć eksportu jest czyszczona po odebraniu C = 5 podczas operacji importowania obiektu.
 

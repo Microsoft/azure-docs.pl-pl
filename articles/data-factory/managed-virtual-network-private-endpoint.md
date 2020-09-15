@@ -9,14 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom:
+- seo-lt-2019
+- references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594360"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564002"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Managed Virtual Network (wersja zapoznawcza)
 
@@ -88,7 +90,7 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
 
-### <a name="supported-regions"></a>Obsługiwane regiony
+### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Azure Data Factory zarządzane Virtual Network jest dostępny w następujących regionach platformy Azure:
 - East US
 - Wschodnie stany USA 2
 - Zachodnio-środkowe stany USA
@@ -104,6 +106,10 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Komunikacja wychodząca za pośrednictwem publicznego punktu końcowego z zarządzanych Virtual Network APD
 - Tylko port 443 jest otwarty dla komunikacji wychodzącej.
 - Usługi Azure Storage i Azure Data Lake Gen2 nie są obsługiwane przez publiczny punkt końcowy z Virtual Network zarządzanych przez usługę ADF.
+
+### <a name="linked-service-creation-of-azure-key-vault"></a>Tworzenie połączonej usługi Azure Key Vault 
+- Podczas tworzenia połączonej usługi dla Azure Key Vault nie ma Azure Integration Runtime odwołanie. Nie można więc utworzyć prywatnego punktu końcowego podczas tworzenia połączonej usługi Azure Key Vault. Jednak podczas tworzenia połączonej usługi dla magazynów danych, które odwołują się do Azure Key Vault połączonej usługi, a ta połączona usługa odwołuje się Azure Integration Runtime z włączonym Virtual Network zarządzanym, można utworzyć prywatny punkt końcowy dla Azure Key Vault połączonej usługi podczas tworzenia. 
+- Operacja **Test connection** dla połączonej usługi Azure Key Vault tylko weryfikuje format adresu URL, ale nie wykonuje żadnych operacji sieciowych.
 
 ## <a name="next-steps"></a>Następne kroki
 

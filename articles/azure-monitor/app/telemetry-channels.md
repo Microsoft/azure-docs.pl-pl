@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41d2feefc5af1e795520d9b3d90809e625502fa6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fec7bfc16e2cc36d19c84b93b5b93c3c1365b166
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918404"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564019"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Kanały telemetrii w Application Insights
 
@@ -153,13 +153,25 @@ Krótka odpowiedź polega na tym, że żaden z wbudowanych kanałów nie oferuje
 
 Chociaż nazwa pakietu i przestrzeni nazw zawiera "WindowsServer", ten kanał jest obsługiwany w systemach innych niż Windows, z wyjątkiem. W systemach innych niż Windows kanał nie domyślnie tworzy lokalnego folderu magazynu. Należy utworzyć lokalny folder magazynu i skonfigurować kanał do korzystania z niego. Po skonfigurowaniu magazynu lokalnego kanał działa tak samo jak w przypadku wszystkich systemów.
 
+> [!NOTE]
+> W przypadku wersji 2.15.0-beta3 i nowszej magazyn lokalny jest teraz automatycznie tworzony dla systemów Linux, Mac i Windows. W przypadku systemów innych niż Windows zestaw SDK automatycznie utworzy lokalny folder magazynu na podstawie następującej logiki:
+> - `${TMPDIR}` -Jeśli `${TMPDIR}` zmienna środowiskowa jest ustawiona, Ta lokalizacja jest używana.
+> - `/var/tmp` — Jeśli poprzednia lokalizacja nie istnieje, spróbuj ponownie `/var/tmp` .
+> - `/tmp` — Jeśli obie poprzednie lokalizacje nie istnieją, spróbujmy `tmp` . 
+> - Jeśli żadna z tych lokalizacji nie istnieje, Magazyn lokalny nie jest tworzony, a Konfiguracja ręczna jest nadal wymagana. [Aby uzyskać pełne szczegóły implementacji](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860).
+
 ### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>Czy zestaw SDK tworzy tymczasowy magazyn lokalny? Czy dane są szyfrowane w magazynie?
 
 Zestaw SDK przechowuje elementy telemetrii w lokalnym magazynie podczas rozwiązywania problemów z siecią lub podczas ograniczania. Te dane nie są szyfrowane lokalnie.
 
 W przypadku systemów Windows zestaw SDK automatycznie tworzy tymczasowy folder lokalny w katalogu% TEMP% lub% LOCALAPPDATA% i ogranicza dostęp do administratorów i tylko do bieżącego użytkownika.
 
-W przypadku systemów innych niż Windows żaden magazyn lokalny nie jest tworzony automatycznie przez zestaw SDK i dlatego żadne dane nie są domyślnie przechowywane lokalnie. Możesz samodzielnie utworzyć katalog magazynu i skonfigurować kanał, aby go używać. W takim przypadku użytkownik jest odpowiedzialny za zapewnienie, że katalog jest zabezpieczony.
+W przypadku systemów innych niż Windows żaden magazyn lokalny nie jest tworzony automatycznie przez zestaw SDK i dlatego żadne dane nie są domyślnie przechowywane lokalnie.
+
+> [!NOTE]
+> W przypadku wersji 2.15.0-beta3 i nowszej magazyn lokalny jest teraz automatycznie tworzony dla systemów Linux, Mac i Windows. 
+
+ Możesz samodzielnie utworzyć katalog magazynu i skonfigurować kanał, aby go używać. W takim przypadku użytkownik jest odpowiedzialny za zapewnienie, że katalog jest zabezpieczony.
 Przeczytaj więcej na temat [ochrony i prywatności danych](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
 ## <a name="open-source-sdk"></a>Zestaw SDK open source

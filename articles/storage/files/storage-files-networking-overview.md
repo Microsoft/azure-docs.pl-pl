@@ -7,17 +7,17 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84464814"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563339"
 ---
 # <a name="azure-files-networking-considerations"></a>Zagadnienia dotyczące sieci Azure Files 
 Możesz połączyć się z udziałem plików platformy Azure na dwa sposoby:
 
-- Uzyskiwanie dostępu do udziału bezpośrednio za pośrednictwem protokołów SMB lub FileREST. Ten wzorzec dostępu jest używany przede wszystkim wtedy, gdy można wyeliminować dowolną liczbę serwerów lokalnych.
+- Uzyskiwanie dostępu do udziału bezpośrednio za pośrednictwem protokołu SMB (Server Message Block), sieciowego systemu plików (NFS) lub protokołów FileREST. Ten wzorzec dostępu jest używany przede wszystkim wtedy, gdy można wyeliminować dowolną liczbę serwerów lokalnych.
 - Tworzenie pamięci podręcznej udziału plików platformy Azure na serwerze lokalnym (lub na maszynie wirtualnej platformy Azure) przy użyciu Azure File Sync i uzyskiwanie dostępu do danych udziału plików z serwera lokalnego przy użyciu wybranego przez Ciebie protokołu (SMB, NFS, FTPS itp.). Ten wzorzec dostępu jest przydatny, ponieważ łączy się z najlepszą z nich zarówno w przypadku lokalnego, jak i skalowalnych usług, takich jak Azure Backup.
 
 W tym artykule opisano sposób konfigurowania sieci w przypadku, gdy przypadek użycia wywołuje bezpośrednio dostęp do udziału plików platformy Azure, a nie za pomocą Azure File Sync. Aby uzyskać więcej informacji dotyczących zagadnień sieciowych dotyczących wdrażania Azure File Sync, zobacz [Azure File Sync zagadnienia dotyczące sieci](storage-sync-files-networking-overview.md).
@@ -29,17 +29,17 @@ Zalecamy zapoznanie się z [planowaniem wdrożenia Azure Files](storage-files-pl
 ## <a name="accessing-your-azure-file-shares"></a>Uzyskiwanie dostępu do udziałów plików platformy Azure
 Gdy wdrażasz udział plików platformy Azure w ramach konta magazynu, udział plików jest natychmiast dostępny za pośrednictwem publicznego punktu końcowego konta magazynu. Oznacza to, że uwierzytelnione żądania, takie jak żądania autoryzowane przez tożsamość logowania użytkownika, mogą bezpiecznie pochodziły z platformy Azure lub spoza niej. 
 
-W wielu środowiskach klienta początkowa instalacja udziału plików platformy Azure na lokalnej stacji roboczej zakończy się niepowodzeniem, nawet jeśli instalacje z maszyn wirtualnych platformy Azure powiodą się. Przyczyną tego jest to, że wiele organizacji i usługodawców internetowych (ISP) blokują port wykorzystywany przez protokół SMB do komunikacji, port 445. To rozwiązanie pochodzi z wskazówek dotyczących zabezpieczeń dotyczących starszych i przestarzałych wersji protokołu SMB. Mimo że protokół SMB 3,0 jest bezpiecznym protokołem internetowym, starsze wersje protokołu SMB, szczególnie SMB 1,0, nie są. Do udziałów plików platformy Azure można uzyskać dostęp tylko zewnętrznie za pośrednictwem protokołu SMB 3,0 i protokół FileREST (który jest również bezpiecznym protokołem internetowym) za pośrednictwem publicznego punktu końcowego.
+W wielu środowiskach klienta początkowa instalacja udziału plików platformy Azure na lokalnej stacji roboczej zakończy się niepowodzeniem, nawet jeśli instalacje z maszyn wirtualnych platformy Azure powiodą się. Przyczyną tego jest to, że wiele organizacji i usługodawców internetowych (ISP) blokują port wykorzystywany przez protokół SMB do komunikacji, port 445. Udziały NFS nie mają tego problemu. To rozwiązanie pochodzi z wskazówek dotyczących zabezpieczeń dotyczących starszych i przestarzałych wersji protokołu SMB. Mimo że protokół SMB 3,0 jest bezpiecznym protokołem internetowym, starsze wersje protokołu SMB, szczególnie SMB 1,0, nie są. Do udziałów plików platformy Azure można uzyskać dostęp tylko zewnętrznie za pośrednictwem protokołu SMB 3,0 i protokół FileREST (który jest również bezpiecznym protokołem internetowym) za pośrednictwem publicznego punktu końcowego.
 
-Ze względu na to, że Najprostszym sposobem uzyskania dostępu do udziału plików platformy Azure ze środowiska lokalnego jest otwarcie sieci lokalnej w porcie 445, firma Microsoft zaleca wykonanie następujących kroków w celu usunięcia protokołu SMB 1,0 z danego programu:
+Ze względu na to, że Najprostszym sposobem uzyskania dostępu do udziału plików SMB platformy Azure ze środowiska lokalnego jest otworzenie sieci lokalnej do portu 445, firma Microsoft zaleca wykonanie następujących kroków w celu usunięcia protokołu SMB 1,0 z danego programu:
 
 1. Upewnij się, że protokół SMB 1,0 jest usuwany lub wyłączony na urządzeniach organizacji. Wszystkie obecnie obsługiwane wersje systemu Windows i systemu Windows Server obsługują usunięcie lub wyłączenie protokołu SMB 1,0 i począwszy od systemu Windows 10, wersja 1709, protokół SMB 1,0 nie jest domyślnie zainstalowany w systemie Windows. Aby dowiedzieć się więcej o tym, jak wyłączyć protokół SMB 1,0, zobacz nasze strony specyficzne dla systemu operacyjnego:
     - [Zabezpieczanie systemu Windows lub Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
     - [Zabezpieczanie systemu Linux](storage-how-to-use-files-linux.md#securing-linux)
-2. Upewnij się, że żadne produkty w organizacji nie wymagają protokołu SMB 1,0 i usuń te, które to zrobią. Utrzymujemy pakiet wydawania [produktów SMB1](https://aka.ms/stillneedssmb1), który zawiera wszystkie produkty pierwszej i innej firmy znane firmie Microsoft w celu wymagania protokołu SMB 1,0. 
-3. Obowiązkowe Użyj zapory innej firmy z siecią lokalną w organizacji, aby zapobiec wyjściu z granicy organizacyjnej przez ruch SMB 1,0.
+1. Upewnij się, że żadne produkty w organizacji nie wymagają protokołu SMB 1,0 i usuń te, które to zrobią. Utrzymujemy pakiet wydawania [produktów SMB1](https://aka.ms/stillneedssmb1), który zawiera wszystkie produkty pierwszej i innej firmy znane firmie Microsoft w celu wymagania protokołu SMB 1,0. 
+1. Obowiązkowe Użyj zapory innej firmy z siecią lokalną w organizacji, aby zapobiec wyjściu z granicy organizacyjnej przez ruch SMB 1,0.
 
-Jeśli Twoja organizacja wymaga, aby port 445 został zablokowany zgodnie z zasadami lub rozporządzeniem, lub organizacja wymaga, aby ruch do platformy Azure był zgodny ze deterministyczną ścieżką, możesz użyć platformy Azure VPN Gateway lub ExpressRoute do tunelowania ruchu do udziałów plików platformy Azure.
+Jeśli Twoja organizacja wymaga, aby port 445 został zablokowany zgodnie z zasadami lub rozporządzeniem, lub organizacja wymaga, aby ruch do platformy Azure był zgodny ze deterministyczną ścieżką, możesz użyć platformy Azure VPN Gateway lub ExpressRoute do tunelowania ruchu do udziałów plików platformy Azure. Udziały NFS nie wymagają żadnego z tych elementów, ponieważ nie potrzebują portu 445.
 
 > [!Important]  
 > Nawet jeśli zdecydujesz się na uzyskanie dostępu do udziałów plików platformy Azure przy użyciu alternatywnej metody, firma Microsoft zaleca usunięcie protokołu SMB 1,0 ze środowiska.
@@ -47,7 +47,7 @@ Jeśli Twoja organizacja wymaga, aby port 445 został zablokowany zgodnie z zasa
 ### <a name="tunneling-traffic-over-a-virtual-private-network-or-expressroute"></a>Tunelowanie ruchu przez wirtualną sieć prywatną lub ExpressRoute
 Po ustanowieniu tunelu sieciowego między siecią lokalną i platformą Azure jest to Komunikacja równorzędna sieci lokalnej z co najmniej jedną siecią wirtualną na platformie Azure. [Sieć wirtualna](../../virtual-network/virtual-networks-overview.md)lub wirtualna jest podobna do tradycyjnej sieci, która działa lokalnie. Podobnie jak konto usługi Azure Storage lub maszyna wirtualna platformy Azure, Sieć wirtualna jest zasobem platformy Azure wdrożonym w grupie zasobów. 
 
-Azure Files obsługuje następujące mechanizmy do tunelowania ruchu między lokalnymi stacjami roboczymi i serwerami i platformą Azure:
+Azure Files obsługuje następujące mechanizmy do tunelowania ruchu między lokalnymi stacjami roboczymi i serwerami oraz udziałami plików SMB/NFS platformy Azure:
 
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): Brama sieci VPN jest określonym typem bramy usługi Virtual Network, która jest używana do wysyłania zaszyfrowanego ruchu między siecią wirtualną platformy Azure a alternatywną lokalizacją (na przykład lokalnie) przez Internet. VPN Gateway platformy Azure to zasób platformy Azure, który można wdrożyć w grupie zasobów obok konta magazynu lub innych zasobów platformy Azure. Bramy sieci VPN uwidaczniają dwa różne typy połączeń:
     - Połączenia bramy [sieci VPN typu punkt-lokacja (P2S)](../../vpn-gateway/point-to-site-about.md) , które są połączeniami sieci VPN między platformą Azure i pojedynczym klientem. To rozwiązanie jest szczególnie przydatne w przypadku urządzeń, które nie są częścią sieci lokalnej w organizacji, takiej jak Telepracownicy, którzy chcą móc instalować udział plików platformy Azure z domu, kawiarnia lub hotelu w podróży. Aby można było użyć połączenia sieci VPN P2S z Azure Files, należy skonfigurować połączenie sieci VPN P2S dla każdego klienta, który chce nawiązać połączenie. Aby uprościć wdrażanie połączenia sieci VPN P2S, zobacz [Konfigurowanie sieci VPN typu punkt-lokacja (P2S) w systemie Windows do użycia z programem Azure Files](storage-files-configure-p2s-vpn-windows.md) i [Konfigurowanie sieci VPN typu punkt-lokacja (P2S) w systemie Linux do użycia z Azure Files](storage-files-configure-p2s-vpn-linux.md).
@@ -109,7 +109,7 @@ TimeToExpiration       : 2419200
 DefaultTTL             : 300
 ```
 
-Jeśli uruchomisz to samo polecenie z lokalnego, zobaczysz, że ta sama nazwa konta magazynu jest rozpoznawana jako publiczny adres IP konta magazynu; `storageaccount.file.core.windows.net`jest rekordem CNAME dla `storageaccount.privatelink.file.core.windows.net` , który z kolei jest rekordem CNAME dla klastra usługi Azure Storage obsługującego konto magazynu:
+Jeśli uruchomisz to samo polecenie z lokalnego, zobaczysz, że ta sama nazwa konta magazynu jest rozpoznawana jako publiczny adres IP konta magazynu; `storageaccount.file.core.windows.net` jest rekordem CNAME dla `storageaccount.privatelink.file.core.windows.net` , który z kolei jest rekordem CNAME dla klastra usługi Azure Storage obsługującego konto magazynu:
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -139,9 +139,16 @@ Istnieją dwa podejścia do ograniczania dostępu do konta magazynu w sieci wirt
 - Utwórz co najmniej jeden prywatny punkt końcowy dla konta magazynu i Ogranicz dostęp do publicznego punktu końcowego. Dzięki temu tylko ruch pochodzący z żądanych sieci wirtualnych może uzyskiwać dostęp do udziałów plików platformy Azure w ramach konta magazynu.
 - Ogranicz publiczny punkt końcowy do co najmniej jednej sieci wirtualnej. Działa to przy użyciu możliwości sieci wirtualnej o nazwie *punkty końcowe usługi*. W przypadku ograniczenia ruchu do konta magazynu za pośrednictwem punktu końcowego usługi nadal uzyskuje się dostęp do konta magazynu za pośrednictwem publicznego adresu IP.
 
+> [!NOTE]
+> Udziały NFS nie mogą uzyskać dostępu do publicznego punktu końcowego konta magazynu za pośrednictwem publicznego adresu IP, ale mogą uzyskać dostęp do publicznego punktu końcowego konta magazynu przy użyciu sieci wirtualnych. Udziały NFS mogą również uzyskiwać dostęp do konta magazynu przy użyciu prywatnych punktów końcowych.
+
 Aby dowiedzieć się więcej o konfigurowaniu zapory konta magazynu, zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnych](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
+
+> [!IMPORTANT]
+> Ta sekcja zawiera szczegółowe informacje dotyczące szyfrowania dla udziałów SMB. Aby uzyskać szczegółowe informacje dotyczące szyfrowania podczas przesyłania z udziałami NFS, zobacz [zabezpieczenia](storage-files-compare-protocols.md#security).
+
 Domyślnie wszystkie konta usługi Azure Storage mają włączone szyfrowanie podczas przesyłania. Oznacza to, że podczas instalowania udziału plików przez protokół SMB lub uzyskiwania dostępu do niego za pośrednictwem protokołu FileREST (na przykład za pośrednictwem Azure Portal, PowerShell/interfejsu wiersza polecenia lub zestawów SDK platformy Azure), Azure Files będzie zezwalać tylko na połączenie, jeśli zostało wykonane przy użyciu protokołu SMB 3.0 + z szyfrowaniem lub HTTPS. Klienci, którzy nie obsługują protokołu SMB 3,0 ani klientów obsługujących protokół SMB 3,0, ale nie szyfrowania SMB, nie będą mogli zainstalować udziału plików platformy Azure, jeśli szyfrowanie jest włączone. Więcej informacji o tym, które systemy operacyjne obsługują protokół SMB 3,0 z szyfrowaniem, można znaleźć w naszej szczegółowej dokumentacji dotyczącej [systemów Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md)i [Linux](storage-how-to-use-files-linux.md). Wszystkie bieżące wersje programu PowerShell, interfejsu wiersza polecenia i zestawów SDK obsługują protokół HTTPS.  
 
 Można wyłączyć szyfrowanie podczas przesyłania dla konta usługi Azure Storage. Gdy szyfrowanie jest wyłączone, Azure Files również zezwala na SMB 2,1, SMB 3,0 bez szyfrowania i nieszyfrowane wywołania interfejsu API FileREST za pośrednictwem protokołu HTTP. Podstawowym powodem wyłączenia szyfrowania podczas przesyłania jest obsługa starszej aplikacji, która musi być uruchomiona w starszym systemie operacyjnym, takim jak Windows Server 2008 R2 lub starsza dystrybucja systemu Linux. Azure Files zezwala tylko na połączenia SMB 2,1 w tym samym regionie świadczenia usługi Azure co udział plików platformy Azure; klient SMB 2,1 spoza regionu platformy Azure udziału plików platformy Azure, na przykład lokalnie lub w innym regionie świadczenia usługi Azure, nie będzie mógł uzyskać dostępu do udziału plików.
@@ -150,4 +157,4 @@ Aby uzyskać więcej informacji na temat szyfrowania podczas przesyłania, zobac
 
 ## <a name="see-also"></a>Zobacz także
 - [Omówienie usługi Azure Files](storage-files-introduction.md)
-- [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
+- [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)

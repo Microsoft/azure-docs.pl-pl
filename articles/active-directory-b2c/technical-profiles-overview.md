@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 16fdc38d6235ddd0f72c7a35a3d71973ce01a4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203218"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562880"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informacje o profilach technicznych w Azure Active Directory B2C zasadach niestandardowych
 
@@ -32,6 +32,7 @@ Profil techniczny umożliwia realizację następujących typów scenariuszy:
 - [Azure Active Directory](active-directory-technical-profile.md) — zapewnia obsługę Azure Active Directory B2C zarządzania użytkownikami.
 - [Multi-Factor Authentication platformy Azure](multi-factor-auth-technical-profile.md) — zapewnia obsługę weryfikowania numeru telefonu przy użyciu usługi Azure Multi-Factor Authentication (MFA). 
 - [Przekształcanie oświadczeń](claims-transformation-technical-profile.md) — Wywołaj przekształcenia oświadczeń wyjściowych na potrzeby manipulowania wartościami oświadczeń, Weryfikuj oświadczenia lub ustaw wartości domyślne dla zestawu oświadczeń wyjściowych.
+- [Wskazówka tokenu identyfikatora](id-token-hint.md) — sprawdza poprawność `id_token_hint` podpisu tokenu JWT, nazwy wystawcy i odbiorcy tokenu oraz wyodrębnia z tokenu przychodzącego.
 - [Wystawca tokenu JWT](jwt-issuer-technical-profile.md) — emituje token JWT, który jest zwracany z powrotem do aplikacji jednostki uzależnionej.
 - [OAuth1](oauth1-technical-profile.md) -Federacja z dowolnym dostawcą tożsamości protokołu OAuth 1,0.
 - [OAuth2](oauth2-technical-profile.md) -Federacja z dowolnym dostawcą tożsamości protokołu OAuth 2,0.
@@ -53,7 +54,7 @@ Wszystkie typy profilów technicznych mają takie same koncepcje. Wysyłasz ośw
 1. **Zarządzanie sesjami logowania** jednokrotnego — przywraca stan sesji profilu technicznego przy użyciu funkcji [zarządzania sesjami logowania jednokrotnego](custom-policy-reference-sso.md).
 1. **Przekształcanie oświadczeń wejściowych** — oświadczenia wejściowe dla każdej [transformacji oświadczeń](claimstransformations.md) wejściowych są pobierane z zbioru oświadczeń.  Oświadczenia wyjściowe przekształcenia oświadczeń wejściowych mogą być oświadczeniami wejściowymi kolejnych transformacji oświadczeń wejściowych.
 1. **Oświadczenia wejściowe** — oświadczenia są pobierane z zbioru oświadczeń i są używane w profilu technicznym. Na przykład [samodzielnie potwierdzony profil techniczny](self-asserted-technical-profile.md) używa oświadczeń wejściowych do wstępnego wypełniania oświadczeń wyjściowych dostarczanych przez użytkownika. Profil techniczny interfejsu API REST używa oświadczeń wejściowych do wysyłania parametrów wejściowych do punktu końcowego interfejsu API REST. Azure Active Directory używa jako unikatowego identyfikatora do odczytywania, aktualizowania lub usuwania konta.
-1. **Wykonywanie profilu technicznego** — profil techniczny wymienia oświadczenia ze skonfigurowaną stroną. Przykład:
+1. **Wykonywanie profilu technicznego** — profil techniczny wymienia oświadczenia ze skonfigurowaną stroną. Na przykład:
     - Przekieruj użytkownika do dostawcy tożsamości, aby zakończyć logowanie. Po pomyślnym zalogowaniu użytkownik wraca do tyłu, a wykonywanie profilu technicznego będzie kontynuowane.
     - Wywołaj interfejs API REST podczas wysyłania parametrów jako InputClaims i pobierania informacji z powrotem jako OutputClaims.
     - Utwórz lub zaktualizuj konto użytkownika.
@@ -103,7 +104,7 @@ W przypadku usługi **AAD-UserReadUsingAlternativeSecurityId** uwzględniono `AA
 </TechnicalProfile>
 ```
 
-W przypadku usługi **AAD-UserReadUsingAlternativeSecurityId-NOERROR** i **AAD-UserReadUsingAlternativeSecurityId** nie określono wymaganego elementu **Protocol** , ponieważ jest on określony w profilu technicznym usługi **AAD-Common** .
+W przypadku usługi **AAD-UserReadUsingAlternativeSecurityId-NOERROR** i  **AAD-UserReadUsingAlternativeSecurityId** nie określono wymaganego elementu **Protocol** , ponieważ jest on określony w profilu technicznym usługi **AAD-Common** .
 
 ```xml
 <TechnicalProfile Id="AAD-Common">

@@ -4,12 +4,12 @@ description: Utwórz pierwszą aplikację kontenera systemu Windows w usłudze A
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 6303e37eaa8fa7ad45677d551b89337d20b1b604
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e8c3a0d60e10b1cf1f8a827cec8fcc25f3d33b05
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844443"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564325"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Windows
 
@@ -290,7 +290,7 @@ Począwszy od najnowszej wersji odświeżania programu v 6.4, można określić,
 
 Instrukcja **HEALTHCHECK** wskazująca rzeczywisty test wykonywany w celu monitorowania kondycji kontenera musi występować w pliku Dockerfile używanym podczas generowania obrazu kontenera.
 
-![HealthCheckHealthy][3]
+![Zrzut ekranu przedstawia szczegóły wdrożonego pakietu usługi NodeServicePackage.][3]
 
 ![HealthCheckUnhealthyApp][4]
 

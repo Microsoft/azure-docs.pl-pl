@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: e85937103e94a0fbb8dd8be92bb22ee5078df70a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d91ae0f3db9ad3637043f9eb7472539d8aba2c8d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087324"
+ms.locfileid: "90563041"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -102,13 +102,13 @@ Naciśnij przycisk *Zaloguj* w górnej części okna, aby skonfigurować Eksplor
 Wprowadź ważne informacje zebrane wcześniej w sekcji [wymagania wstępne](#prerequisites) :
 * Identyfikator aplikacji (klienta)
 * Identyfikator katalogu (dzierżawcy)
-* ADT adres URL w formacie *https://{Nazwa hosta wystąpienia}*
+* Adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji w formacie *https://{Nazwa hosta wystąpienia}*
 
 >[!NOTE]
 > Możesz odwiedzać/edytować te informacje w dowolnym momencie, wybierając tę samą ikonę, aby ponownie pobrać pole logowania. Dane zostaną zachowane.
 
 > [!TIP]
-> Jeśli podczas nawiązywania połączenia zostanie wyświetlony komunikat o błędzie SignalRService. Subskrybuj, upewnij się, że adres URL ADT jest poprzedzony *https://*.
+> Jeśli `SignalRService.subscribe` podczas nawiązywania połączenia zostanie wyświetlony komunikat o błędzie, upewnij się, że adres URL usługi Azure Digital bliźniaczych reprezentacji zaczyna się od *https://*.
 
 Jeśli zobaczysz *wymagane uprawnienia* do okna podręcznego od firmy Microsoft, przyznaj zgodę na tę aplikację i zaakceptuj ją, aby kontynuować.
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 88160d82cb7cc0a012d63445f101a1f2a3740da0
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569287"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563091"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla Azure Functions 
 
@@ -213,7 +213,7 @@ public void keepAlive(
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `TimerTrigger` atrybutu.
 
@@ -250,6 +250,7 @@ Po wywołaniu funkcji wyzwalacza czasomierza obiekt Timer jest przenoszona do fu
 
 `IsPastDue`Właściwość jest, `true` gdy bieżące wywołanie funkcji jest późniejsze niż zaplanowana. Na przykład ponowne uruchomienie aplikacji funkcji może spowodować utratę wywołania.
 
+
 ## <a name="ncrontab-expressions"></a>Wyrażenia NCRONTAB 
 
 Azure Functions rozpoznaje wyrażenia NCRONTAB przy użyciu biblioteki [NCronTab](https://github.com/atifaziz/NCrontab) . Wyrażenie NCRONTAB jest podobne do wyrażenia CRONUS, z tą różnicą, że zawiera dodatkowe szóste pole na początku do użycia dla dokładności czasu w sekundach:
@@ -282,6 +283,8 @@ Poniżej przedstawiono kilka przykładów wyrażeń NCRONTAB, których można u�
 |`"0 30 9 * * 1-5"`|at 9:30 AM każdego dnia tygodnia|
 |`"0 30 9 * Jan Mon"`|o godzinie 9:30, co poniedziałek w styczniu|
 
+> [!NOTE]
+> Wyrażenie NCRONTAB wymaga **sześciu pól** format. Na platformie Azure nie są obsługiwane pięć wyrażeń firmy CRONUS w polu.
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB strefy czasowe
 

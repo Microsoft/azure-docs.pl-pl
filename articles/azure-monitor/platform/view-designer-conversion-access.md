@@ -6,12 +6,12 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7614dd1d60bad5c124269ae2af02d30a5aacfe3e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658850"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564036"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Wyświetl podsumowanie konwersji i dostęp do programu Designer
 [Projektant widoków](view-designer.md) jest funkcją Azure monitor, która umożliwia tworzenie niestandardowych widoków, które ułatwiają wizualizację danych w obszarze roboczym log Analytics, z wykresami, listami i osiami czasu. Są one wycofywane i zastępowane skoroszytami, które zapewniają dodatkową funkcjonalność. W tym artykule szczegółowo opisano sposób tworzenia podsumowania przeglądu i uprawnień wymaganych do uzyskiwania dostępu do skoroszytów.
@@ -21,7 +21,7 @@ Użytkownicy projektanta widoków mogą znać, że masz kafelek przegląd do rep
 
 Można korzystać z funkcji dostosowywania dostępnych w pulpitach nawigacyjnych platformy Azure, które umożliwiają automatyczne odświeżanie, przesuwanie, Określanie rozmiarów i dodatkowe filtrowanie dla przypiętych elementów i wizualizacji. 
 
-![Pulpit nawigacyjny](media/view-designer-conversion-access/dashboard.png)
+![Zrzut ekranu przedstawia niestandardowe podsumowanie obszaru pulpit nawigacyjny platformy Azure.](media/view-designer-conversion-access/dashboard.png)
 
 Utwórz nowy pulpit nawigacyjny platformy Azure lub wybierz istniejący pulpit nawigacyjny, aby rozpocząć Przypinanie elementów z skoroszytów.
 

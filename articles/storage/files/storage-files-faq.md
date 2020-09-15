@@ -7,15 +7,15 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: eca9596666b318b71bb1deec64e3a7d037e8fa0d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654331"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563696"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
-[Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
+[Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) i [protokołu sieciowego systemu plików (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (wersja zapoznawcza). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
 
 W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące Azure Files funkcji i funkcji, w tym używania Azure File Sync z Azure Files. Jeśli nie widzisz odpowiedzi na pytanie, możesz skontaktować się z nami za pomocą następujących kanałów (w kolejności eskalacji):
 
@@ -31,7 +31,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * <a id="file-access-options"></a>
   **Jakie są różne sposoby uzyskiwania dostępu do plików w Azure Files?**  
-    Udział plików na komputerze lokalnym można zainstalować przy użyciu protokołu SMB 3,0 lub użyć narzędzi takich jak [Eksplorator usługi Storage](https://storageexplorer.com/) , aby uzyskać dostęp do plików w udziale plików. Z poziomu aplikacji możesz użyć bibliotek klienta magazynu, interfejsów API REST, programu PowerShell lub interfejsu wiersza polecenia platformy Azure, aby uzyskać dostęp do plików w udziale plików platformy Azure.
+    Udziały plików SMB można instalować na komputerze lokalnym przy użyciu protokołu SMB 3,0 lub użyć narzędzi takich jak [Eksplorator usługi Storage](https://storageexplorer.com/) , aby uzyskać dostęp do plików w udziale plików. Udziały plików NFS można instalować na komputerze lokalnym przez kopiowanie/wklejanie skryptu dostarczonego przez Azure Portal. Z poziomu aplikacji możesz użyć bibliotek klienta magazynu, interfejsów API REST, programu PowerShell lub interfejsu wiersza polecenia platformy Azure, aby uzyskać dostęp do plików w udziale plików platformy Azure.
 
 * <a id="what-is-afs"></a>
   **Co to jest Azure File Sync?**  
@@ -43,12 +43,12 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
     
     Usługa Azure Blob Storage jest przydatna w przypadku dużych skalowalnych aplikacji w chmurze, które muszą przechowywać dane niestrukturalne. W celu zmaksymalizowania wydajności i skalowania usługa Azure Blob Storage jest prostszym abstrakcją pamięci masowej niż prawdziwy system plików. Dostęp do usługi Azure Blob Storage można uzyskać tylko za pośrednictwem bibliotek klienckich opartych na interfejsie REST (lub bezpośrednio za pośrednictwem protokołu REST).
 
-    Azure Files to system plików. Azure Files ma wszystkie znane streszczenia plików i miłość od lat pracy z lokalnymi systemami operacyjnymi. Podobnie jak w przypadku usługi Azure Blob Storage, Azure Files oferuje Interfejs REST i biblioteki klienckie oparte na protokole REST. W przeciwieństwie do usługi Azure Blob Storage, Azure Files oferuje dostęp SMB do udziałów plików platformy Azure. Korzystając z protokołu SMB, można zainstalować udział plików platformy Azure bezpośrednio w systemie Windows, Linux lub macOS, lokalnie lub na maszynach wirtualnych w chmurze, bez konieczności pisania kodu lub dołączania specjalnych sterowników do systemu plików. Możesz również buforować udziały plików platformy Azure na lokalnych serwerach plików przy użyciu Azure File Sync, aby uzyskać szybki dostęp, a w pobliżu miejsca, w którym są używane dane. 
+    Azure Files to system plików. Azure Files ma wszystkie znane streszczenia plików i miłość od lat pracy z lokalnymi systemami operacyjnymi. Podobnie jak w przypadku usługi Azure Blob Storage, Azure Files oferuje Interfejs REST i biblioteki klienckie oparte na protokole REST. W przeciwieństwie do usługi Azure Blob Storage, Azure Files oferuje dostęp SMB lub NFS do udziałów plików platformy Azure. Udziały plików można instalować bezpośrednio w systemie Windows, Linux lub macOS, lokalnie lub na maszynach wirtualnych w chmurze, bez konieczności pisania kodu lub dołączania specjalnych sterowników do systemu plików. Można również buforować udziały plików SMB platformy Azure na lokalnych serwerach plików przy użyciu Azure File Sync, aby uzyskać szybki dostęp, w pobliżu miejsca, w którym są używane dane. 
    
     Aby zapoznać się z bardziej szczegółowym opisem różnic między Azure Files i magazynem obiektów blob platformy Azure, zobacz [wprowadzenie do podstawowych usług Azure Storage](../common/storage-introduction.md). Aby dowiedzieć się więcej o usłudze Azure Blob Storage, zobacz [wprowadzenie do usługi BLOB Storage](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Dlaczego mam korzystać z udziału plików platformy Azure, a nie z usługi Azure disks?**  
-    Dysk w usłudze Azure disks jest po prostu dyskiem. Aby uzyskać wartość z dysków platformy Azure, należy dołączyć dysk do maszyny wirtualnej działającej na platformie Azure. Dysków platformy Azure można używać dla wszystkich elementów, z których można korzystać na serwerze lokalnym. Można go użyć jako dysku systemu operacyjnego, jako obszaru wymiany dla systemu operacyjnego lub jako dedykowanego magazynu dla aplikacji. Interesujące użycie usługi Azure disks polega na utworzeniu serwera plików w chmurze, który będzie używany w tych samych miejscach, w których może być używany udział plików platformy Azure. Wdrożenie serwera plików na platformie Azure Virtual Machines jest wysoce wydajnym sposobem na uzyskanie magazynu plików na platformie Azure, gdy wymagane są opcje wdrażania, które nie są obecnie obsługiwane przez Azure Files (takie jak obsługa protokołu NFS lub Premium Storage). 
+    Dysk w usłudze Azure disks jest po prostu dyskiem. Aby uzyskać wartość z dysków platformy Azure, należy dołączyć dysk do maszyny wirtualnej działającej na platformie Azure. Dysków platformy Azure można używać dla wszystkich elementów, z których można korzystać na serwerze lokalnym. Można go użyć jako dysku systemu operacyjnego, jako obszaru wymiany dla systemu operacyjnego lub jako dedykowanego magazynu dla aplikacji. Interesujące użycie usługi Azure disks polega na utworzeniu serwera plików w chmurze, który będzie używany w tych samych miejscach, w których może być używany udział plików platformy Azure. Wdrożenie serwera plików na platformie Azure Virtual Machines jest wysoce wydajnym sposobem uzyskiwania magazynu plików na platformie Azure, gdy wymagane są opcje wdrażania, które nie są obecnie obsługiwane przez Azure Files. 
 
     Jednak uruchomienie serwera plików z dyskami platformy Azure jako magazynu zaplecza zwykle jest znacznie droższe niż korzystanie z udziału plików platformy Azure z kilku powodów. Po pierwsze, oprócz płacenia za magazyn na dyskach, należy również płacić za wydatki związane z uruchamianiem co najmniej jednej maszyny wirtualnej platformy Azure. Po drugie należy również zarządzać maszynami wirtualnymi używanymi do uruchamiania serwera plików. Na przykład użytkownik jest odpowiedzialny za uaktualnienia systemu operacyjnego. Na koniec w przypadku założenia, że dane mają być buforowane lokalnie, można skonfigurować technologie replikacji, takie jak rozproszony system plików Replication (DFSR), i zarządzać nimi.
 
@@ -58,17 +58,18 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * <a id="get-started"></a>
   **Jak mogę rozpocząć korzystanie z Azure Files?**  
-   Wprowadzenie do Azure Files jest proste. Najpierw [Utwórz udział plików](storage-how-to-create-file-share.md), a następnie zainstaluj go w preferowanym systemie operacyjnym: 
+   Wprowadzenie do Azure Files jest proste. Najpierw [Utwórz udział plików SMB](storage-how-to-create-file-share.md) lub [sposób tworzenia udziału NFS](storage-files-how-to-create-nfs-shares.md), a następnie zainstaluj go w preferowanym systemie operacyjnym: 
 
-  * [Instalowanie w systemie Windows](storage-how-to-use-files-windows.md)
-  * [Instalowanie w systemie Linux](storage-how-to-use-files-linux.md)
-  * [Zainstaluj w macOS](storage-how-to-use-files-mac.md)
+  * [Instalowanie udziału SMB w systemie Windows](storage-how-to-use-files-windows.md)
+  * [Instalowanie udziału SMB w systemie Linux](storage-how-to-use-files-linux.md)
+  * [Instalowanie udziału SMB w macOS](storage-how-to-use-files-mac.md)
+  * [Instalowanie udziału plików NFS](storage-files-how-to-mount-nfs-shares.md)
 
     Aby zapoznać się z bardziej szczegółowym przewodnikiem wdrażania udziału plików platformy Azure w celu zastąpienia produkcyjnych udziałów plików w organizacji, zobacz [Planowanie wdrożenia Azure Files](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>
   **Jakie opcje nadmiarowości magazynu są obsługiwane przez Azure Files?**  
-    Obecnie Azure Files obsługuje Magazyn lokalnie nadmiarowy (LRS), magazyn strefowo nadmiarowy (ZRS), magazyn Geograficznie nadmiarowy (GRS) i magazyn Geograficznie nadmiarowy (GZRS). Firma Microsoft planuje obsługę magazynu geograficznie nadmiarowego do odczytu (RA-GRS) w przyszłości, ale nie mamy już do udostępnienia osi czasu.
+    Obecnie Azure Files obsługuje Magazyn lokalnie nadmiarowy (LRS), magazyn strefowo nadmiarowy (ZRS), magazyn Geograficznie nadmiarowy (GRS) i magazyn Geograficznie nadmiarowy (GZRS). Azure Files warstwa Premium obecnie obsługuje tylko LRS i ZRS.
 
 * <a id="tier-options"></a>
   **Jakie warstwy magazynowania są obsługiwane w Azure Files?**  
@@ -282,6 +283,23 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Czy istnieją interfejsy API REST obsługujące pobieranie/Ustawianie/kopiowanie katalogów/list ACL systemu Windows?**
 
     Tak. Obsługujemy interfejsy API REST, które pobierają, ustawiają lub kopiują listy ACL systemu plików NTFS dla katalogów lub plików w przypadku korzystania z interfejsu API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (lub nowszego). Obsługujemy również utrwalanie list ACL systemu Windows w narzędziach opartych na platformie REST: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
+
+## <a name="network-file-system"></a>Sieciowy system plików
+
+* <a id="when-to-use-nfs"></a>
+**Kiedy należy używać Azure Files NFS?**
+
+    Zobacz [udziały NFS (wersja zapoznawcza)](storage-files-compare-protocols.md#nfs-shares-preview).
+
+* <a id="backup-nfs-data"></a>
+**Jak mogę dane kopii zapasowej przechowywane w udziałach NFS?**
+
+    Tworzenie kopii zapasowych danych w udziałach NFS można organizować przy użyciu znanych narzędzi, takich jak rsync lub produkty z jednego z naszych partnerów tworzenia kopii zapasowych innych firm. Wielu partnerów kopii zapasowych, w tym [CommVault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438)i [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) , były częścią naszego początkowej wersji zapoznawczej i przeprowadzono rozszerzone rozwiązania do pracy z protokołami SMB 3,0 i NFS 4,1 dla Azure Files.
+
+* <a id="migrate-nfs-data"></a>
+**Czy można migrować istniejące dane do udziału NFS?**
+
+    W ramach regionu można przenieść dane za pomocą standardowych narzędzi, takich jak SCP, rsync lub SSHFS. Ponieważ do Azure Files NFS można uzyskać dostęp z wielu wystąpień obliczeniowych jednocześnie, można zwiększyć szybkość kopiowania przy użyciu równoległych operacji przekazywania. Jeśli chcesz przenieść dane spoza regionu, Użyj sieci VPN lub ExpressRoute do zainstalowania w systemie plików z lokalnego centrum danych.
 
 ## <a name="on-premises-access"></a>Dostęp lokalny
 

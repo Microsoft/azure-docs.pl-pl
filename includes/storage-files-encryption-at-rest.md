@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ed061234da27716bfcdaf1cc065568908108f90a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 814bf085ca910ef07a13df779eef25e0e6510e57
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77597865"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563458"
 ---
-Wszystkie dane przechowywane w Azure Files są szyfrowane przy użyciu funkcji szyfrowania usługi Azure Storage (SSE). Szyfrowanie usługi Storage działa podobnie do funkcji BitLocker w systemie Windows: dane są szyfrowane poniżej poziomu systemu plików. Ponieważ dane są szyfrowane pod systemem plików udziału plików platformy Azure, ponieważ są one zakodowane na dysk, nie trzeba mieć dostępu do klucza bazowego na kliencie w celu odczytu lub zapisu w udziale plików platformy Azure.
+Wszystkie dane przechowywane w Azure Files są szyfrowane przy użyciu funkcji szyfrowania usługi Azure Storage (SSE). Szyfrowanie usługi Storage działa podobnie do funkcji BitLocker w systemie Windows: dane są szyfrowane poniżej poziomu systemu plików. Ponieważ dane są szyfrowane pod systemem plików udziału plików platformy Azure, ponieważ są one zakodowane na dysk, nie trzeba mieć dostępu do klucza bazowego na kliencie w celu odczytu lub zapisu w udziale plików platformy Azure. Szyfrowanie w spoczynku dotyczy protokołów SMB i NFS.
 
 Domyślnie dane przechowywane w Azure Files są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. W przypadku kluczy zarządzanych przez firmę Microsoft Firma Microsoft przechowuje klucze służące do szyfrowania/odszyfrowywania danych i jest odpowiedzialna za ich regularne obracanie. Możesz również zarządzać własnymi kluczami, co zapewnia kontrolę nad procesem obrotu. Jeśli zdecydujesz się na zaszyfrowanie udziałów plików za pomocą kluczy zarządzanych przez klienta, Azure Files będzie autoryzowany do uzyskiwania dostępu do kluczy w celu spełnienia żądań odczytu i zapisu od klientów. W przypadku kluczy zarządzanych przez klienta można odwołać tę autoryzację w dowolnym momencie, ale oznacza to, że udział plików platformy Azure nie będzie już dostępny za pośrednictwem protokołu SMB lub interfejsu API FileREST.
 

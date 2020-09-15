@@ -4,14 +4,14 @@ description: Jak przenieść maszyny wirtualne/serwery fizyczne do trybu failove
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309972"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563985"
 ---
-# <a name="run-a-failover-from-on-premises-to-azure"></a>Uruchamianie trybu failover w środowisku lokalnym na platformie Azure
+# <a name="run-a-failover-from-on-premises-to-azure"></a>Przechodzenie w tryb failover z lokacji lokalnej do platformy Azure
 
 W tym artykule opisano sposób awaryjnego przełączania maszyn lokalnych na platformę Azure w programie [Azure Site Recovery](site-recovery-overview.md)
 
@@ -46,7 +46,7 @@ Uruchom tryb failover planu odzyskiwania w następujący sposób:
 1. W magazynie Site Recovery wybierz pozycję **plany odzyskiwania**  >  *recoveryplan_name*.
 2. Kliknij pozycję **tryb failover**.
 
-    ![Tryb failover](./media/site-recovery-failover/Failover.png)
+    ![Zrzut ekranu przedstawia okienko ADRP z trybem failover wybranym z menu więcej.](./media/site-recovery-failover/Failover.png)
 
 3. W polu kierunek pracy awaryjnej **trybu**failover  >  **Failover direction**pozostaw wartość domyślną, jeśli wykonujesz replikację do platformy Azure.
 4. W obszarze **tryb failover**wybierz **punkt odzyskiwania** , do którego ma zostać przełączona praca awaryjna.

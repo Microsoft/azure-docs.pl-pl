@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803736"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562523"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Wdrażanie rozwiązania równoważenia obciążenia dostępnego z Internetu za pomocą protokołu IPv6 przy użyciu szablonu
 
@@ -38,7 +38,7 @@ Usługa Azure Load Balancer to moduł równoważenia obciążenia w warstwie 4 (
 
 Na poniższym diagramie przedstawiono wdrożone rozwiązanie równoważenia obciążenia przy użyciu przykładowego szablonu opisanego w tym artykule.
 
-![Scenariusz modułu równoważenia obciążenia](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
+![Diagram przedstawia przykładowy scenariusz używany w tym artykule wraz z klientem stacji roboczej podłączonym do Azure Load Balancer za pośrednictwem Internetu, podłączonym z kolei do dwóch maszyn wirtualnych.](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
 
 W tym scenariuszu utworzysz następujące zasoby platformy Azure:
 
@@ -55,43 +55,43 @@ Ten artykuł zawiera odwołania do szablonu opublikowanego w galerii [szablonów
 1. Otwórz Azure Portal i zaloguj się przy użyciu konta z uprawnieniami do tworzenia maszyn wirtualnych i zasobów sieciowych w ramach subskrypcji platformy Azure. Ponadto, jeśli nie korzystasz z istniejących zasobów, konto musi mieć uprawnienia do tworzenia grupy zasobów i konta magazynu.
 2. Kliknij pozycję "+ nowy" w menu, a następnie w polu wyszukiwania wpisz ciąg "template". Wybierz pozycję "Template deployment" z wyników wyszukiwania.
 
-    ![LB-IPv6-Portal — step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![Zrzut ekranu przedstawia Azure Portal z wybranymi nowymi i Template deployment.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. W bloku wszystkiego kliknij pozycję "Template deployment".
 
-    ![LB-IPv6-Portal — step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![Zrzut ekranu przedstawia Template deployment w portalu Marketplace.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. Kliknij pozycję "Utwórz".
 
-    ![LB-IPv6-Portal — Step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
+    ![Zrzut ekranu przedstawia opis Template deployment w portalu Marketplace.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
 5. Kliknij pozycję "Edytuj szablon". Usuń istniejącą zawartość i skopiuj/wklej zawartość do całej zawartości pliku szablonu (aby dołączyć początek i koniec {}), a następnie kliknij pozycję "Zapisz".
 
     > [!NOTE]
     > W przypadku korzystania z programu Microsoft Internet Explorer po wklejeniu zostanie wyświetlone okno dialogowe z prośbą o zezwolenie na dostęp do Schowka systemu Windows. Kliknij pozycję "Zezwalaj na dostęp".
 
-    ![LB-IPv6-Portal — Step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
+    ![Zrzut ekranu przedstawia krok gaśnicy wdrożenia niestandardowego, który jest szablonem edycji.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
 6. Kliknij pozycję "Edytuj parametry". W bloku parametry Określ wartości zgodnie ze wskazówkami w sekcji Parametry szablonu, a następnie kliknij przycisk "Zapisz", aby zamknąć Blok parametrów. W bloku wdrożenie niestandardowe wybierz swoją subskrypcję, istniejącą grupę zasobów lub utwórz ją. W przypadku tworzenia grupy zasobów wybierz lokalizację grupy zasobów. Następnie kliknij pozycję **postanowienia prawne**, a następnie kliknij pozycję **Kup** w przypadku postanowień prawnych. Platforma Azure rozpocznie wdrażanie zasobów. Wdrożenie wszystkich zasobów trwa kilka minut.
 
-    ![LB-IPv6-Portal — Step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
+    ![Zrzut ekranu przedstawia kroki związane z wdrożeniem niestandardowym, rozpoczynając od wprowadzenia wartości parametrów szablonu.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
     Aby uzyskać więcej informacji na temat tych parametrów, zobacz sekcję [Parametry szablonu i zmienne](#template-parameters-and-variables) w dalszej części tego artykułu.
 
 7. Aby wyświetlić zasoby utworzone przez szablon, kliknij przycisk Przeglądaj, przewiń w dół listę do momentu wyświetlenia okna "grupy zasobów", a następnie kliknij je.
 
-    ![LB-IPv6-Portal — STEP7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
+    ![Zrzut ekranu przedstawia Azure Portal z wybranymi przyciskami Przeglądaj i grupy zasobów.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
 8. W bloku grupy zasobów kliknij nazwę grupy zasobów, która została określona w kroku 6. Zostanie wyświetlona lista wszystkich wdrożonych zasobów. Jeśli wszystko zostało wykonane prawidłowo, powinien powiedzieć "powodzenie" w "ostatnim wdrożeniu". Jeśli nie, upewnij się, że konto, którego używasz, ma uprawnienia do tworzenia niezbędnych zasobów.
 
-    ![LB-IPv6-Portal — step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
+    ![Zrzut ekranu przedstawia stan ostatniego wdrożenia grupy zasobów, w tym przykładzie powiodło się.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
     > W przypadku przeglądania grup zasobów natychmiast po wykonaniu kroku 6 "ostatnie wdrożenie" spowoduje wyświetlenie stanu "wdrażanie" podczas wdrażania zasobów.
 
 9. Na liście zasobów kliknij pozycję "myIPv6PublicIP". Zobaczysz, że ma on adres IPv6 w obszarze adres IP i że jego nazwa DNS jest wartością określoną dla parametru dnsNameforIPv6LbIP w kroku 6. Ten zasób to publiczny adres IPv6 i nazwa hosta, które są dostępne dla klientów internetowych.
 
-    ![LB-IPv6-Portal — step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
+    ![Zrzut ekranu przedstawia publiczny adres IPv6.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
 

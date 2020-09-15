@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: cc98a0703cf408194c4c3740938399b57a36d468
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fe1cdf738162fe5c4492ff0585f057256153a838
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835616"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561418"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Sieci wirtualne i maszyny wirtualne na platformie Azure 
 
@@ -147,7 +147,7 @@ Poniższa tabela zawiera listę metod, których można użyć do utworzenia wewn
 | Azure Portal | [W Azure Portal można zrównoważyć obciążenie ruchem wewnętrznym przy użyciu modułu równoważenia obciążenia](../load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [Azure PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Aby podać prywatny adres IP w podsieci sieciowej, użyj polecenie [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) z parametrem **-PrivateIpAddress** . Użyj [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) , aby utworzyć konfigurację puli adresów zaplecza. Użyj [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) , aby utworzyć reguły NAT dla ruchu przychodzącego skojarzone z utworzoną konfiguracją adresów IP frontonu. Użyj [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) , aby utworzyć sondy, które są potrzebne. Użyj [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) , aby utworzyć konfigurację modułu równoważenia obciążenia. Użyj [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) , aby utworzyć moduł równoważenia obciążenia.|
 | [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Użyj polecenia [az network lb create](/cli/azure/network/lb), aby utworzyć początkową konfigurację modułu równoważenia obciążenia. Użyj polecenia [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) z parametrem **--private-ip-address**, aby zdefiniować prywatny adres IP. Użyj polecenia [az network lb address-pool create](/cli/azure/network/lb/address-pool), aby dodać konfigurację puli adresów zaplecza. Użyj polecenia [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule), aby dodać reguły NAT. Użyj polecenia [az network lb rule create](/cli/azure/network/lb/rule), aby dodać reguły modułu równoważenia obciążenia. Użyj polecenia [az network lb probe create](/cli/azure/network/lb/probe), aby dodać sondy.|
-| [Szablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Przewodnik [Moduł równoważenia obciążenia z dwiema maszynami wirtualnymi oraz konfiguracja reguł NAT w module równoważenia obciążenia](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) ułatwia wdrożenie modułu równoważenia obciążenia przy użyciu szablonu. |
+| [Szablon](../load-balancer/quickstart-load-balancer-standard-internal-template.md) | Przewodnik [Moduł równoważenia obciążenia z dwiema maszynami wirtualnymi oraz konfiguracja reguł NAT w module równoważenia obciążenia](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) ułatwia wdrożenie modułu równoważenia obciążenia przy użyciu szablonu. |
 
 ### <a name="virtual-machine-scale-sets"></a>Zestawy skalowania maszyn wirtualnych
 

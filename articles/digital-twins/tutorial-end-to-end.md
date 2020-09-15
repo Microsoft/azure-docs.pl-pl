@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0b7e277518337072659bf5ccddd3436c05ff5201
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401779"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563815"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -162,13 +162,13 @@ Aby umożliwić aplikacji funkcji dostęp do usługi Azure Digital bliźniaczych
 
 W Azure Cloud Shell Użyj następującego polecenia, aby ustawić ustawienie aplikacji, które będzie używane przez aplikację funkcji do odwoływania się do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Użyj następującego polecenia, aby utworzyć tożsamość zarządzaną przez system. Zwróć uwagę na pole *principalId* w danych wyjściowych.
 
-```azurecli-interactive
+```azurecli
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
@@ -203,7 +203,7 @@ Usługa Azure Digital bliźniaczych reprezentacji została zaprojektowana tak, a
 
 W Azure Cloud Shell Użyj tego polecenia, aby utworzyć nowe centrum IoT Hub:
 
-```azurecli-interactive
+```azurecli
 az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
 ```
 
@@ -242,7 +242,7 @@ Ta sekcja tworzy reprezentację urządzenia w IoT Hub z IDENTYFIKATORem *thermos
 
 W Azure Cloud Shell Utwórz urządzenie w IoT Hub za pomocą następującego polecenia:
 
-```azurecli-interactive
+```azurecli
 az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
 ```
 
@@ -330,7 +330,7 @@ W tej sekcji utworzysz temat usługi Event Grid, a następnie utworzysz punkt ko
 
 W Azure Cloud Shell Uruchom następujące polecenie, aby utworzyć temat siatki zdarzeń:
 
-```azurecli-interactive
+```azurecli
 az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
 ```
 
@@ -441,7 +441,7 @@ Za pomocą [Azure Cloud Shell](https://shell.azure.com)można usunąć wszystkie
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 

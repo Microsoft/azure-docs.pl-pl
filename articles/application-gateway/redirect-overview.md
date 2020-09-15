@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 8c2bac1bee5a2301a29589f15d72d0f69b4a05b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb01d5a4923410f693b682d66be8d5d09f9019d0
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253855"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561582"
 ---
 # <a name="application-gateway-redirect-overview"></a>Omówienie przekierowania Application Gateway
 
@@ -37,7 +37,7 @@ Obsługa przekierowania dla usługi Application Gateway oferuje następujące mo
    Ten typ przekierowania umożliwia przekierowywanie protokołu HTTP do protokołu HTTPS tylko w określonym obszarze witryny, na przykład w przypadku obszaru koszyka notowanego przez/Cart/*.
 - **Przekieruj do zewnętrznej lokacji**
 
-![przekierowania](./media/redirect-overview/redirect.png)
+![Na diagramie przedstawiono użytkowników i bramę aplikacji oraz połączenia między nimi, w tym niedozwoloną czerwoną strzałką H w P t, a nie dopuszczalną czerwoną strzałką 301.](./media/redirect-overview/redirect.png)
 
 W przypadku tej zmiany klienci muszą utworzyć nowy obiekt konfiguracji przekierowania, który określa docelowy odbiornik lub zewnętrzną lokację, do której jest wymagane przekierowanie. Element konfiguracji obsługuje również opcje umożliwiające dołączenie ścieżki URI i ciągu zapytania do przekierowanego adresu URL. Możesz również wybrać typ przekierowania. Po utworzeniu ta konfiguracja przekierowania jest dołączona do odbiornika źródłowego za pośrednictwem nowej reguły. W przypadku korzystania z reguły podstawowej konfiguracja przekierowania jest skojarzona z odbiornikiem źródła i jest globalnym przekierowaniem. Gdy używana jest reguła oparta na ścieżce, konfiguracja przekierowania jest definiowana na mapie ścieżki URL. W związku z tym dotyczy tylko określonego obszaru ścieżki w lokacji.
 

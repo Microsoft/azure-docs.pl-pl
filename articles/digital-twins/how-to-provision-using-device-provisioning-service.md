@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1a7ab90cccd78c3b005487938432a0f955d50738
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: efc507cb69b3368a2102b6de0b905657d5806ef2
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380865"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561435"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Autozarządzanie urządzeniami w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu usługi Device Provisioning Service (DPS)
 
@@ -40,7 +40,7 @@ Symulator urządzeń jest oparty na **Node.js**, w wersji 10.0. x lub nowszej. [
 
 Na poniższym obrazie przedstawiono architekturę tego rozwiązania przy użyciu narzędzia Azure Digital bliźniaczych reprezentacji z usługą Device Provisioning. Pokazuje zarówno proces aprowizacji, jak i wycofywania urządzenia.
 
-:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie Allocation. Dane z ręcznej akcji Usuń urządzenie są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
+:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie "Allocation". Dane z ręcznej akcji "Usuń urządzenie" są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
 
 Ten artykuł jest podzielony na dwie sekcje:
 * [*Inicjowanie obsługi administracyjnej urządzenia przy użyciu usługi Device Provisioning*](#auto-provision-device-using-device-provisioning-service)
@@ -52,7 +52,7 @@ Aby uzyskać dokładniejsze wyjaśnienia poszczególnych kroków architektury, z
 
 W tej sekcji zostanie dołączana usługa Device Provisioning do usługi Azure Digital bliźniaczych reprezentacji w celu samodzielnego udostępnienia urządzeń za pomocą poniższej ścieżki. Jest to fragment ze wszystkich pokazanych [wcześniej](#solution-architecture)architektury.
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Zainicjuj obsługę przepływu — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Dane są przepływane między urządzeniem termostatu a działem DPS (1 w przypadku urządzenia > DPS i 5 dla usługi DPS > urządzeniu). Dane są również przepływane z usługi DPS do IoT Hub (4) oraz do programu Azure Digital bliźniaczych reprezentacji (3) za pośrednictwem funkcji platformy Azure o nazwie Allocation (2).":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Zainicjuj obsługę przepływu — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Dane są przepływane między urządzeniem termostatu a działem DPS (1 w przypadku urządzenia > DPS i 5 dla usługi DPS > urządzeniu). Dane są również przepływane z usługi DPS do IoT Hub (4) oraz do programu Azure Digital bliźniaczych reprezentacji (3) za pośrednictwem funkcji platformy Azure o nazwie "Allocation" (2).":::
 
 Oto opis przepływu procesu:
 1. Urządzenie kontaktuje się z punktem końcowym DPS, przekazując informacje identyfikacyjne w celu potwierdzenia tożsamości.
@@ -71,7 +71,7 @@ Utwórz wystąpienie usługi Device Provisioning, które będzie używane do udo
 
 Następujące polecenie interfejsu wiersza polecenia platformy Azure utworzy usługę Device Provisioning. Należy określić nazwę, grupę zasobów i region. Polecenie można uruchomić w [Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)interfejs wiersza polecenia platformy Azure.
 
-```azurecli-interactive
+```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
 ```
 
@@ -237,7 +237,7 @@ Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześnie
 
 Dodaj ustawienie za pomocą tego polecenia platformy Azure:
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -246,7 +246,7 @@ Upewnij się, że uprawnienia i zarządzane przypisanie roli tożsamości są po
 <!-- 
 * Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
 ``` -->
 
@@ -293,7 +293,7 @@ Powinno zostać wyświetlone urządzenie zarejestrowane i połączone z IoT Hub,
 
 W wyniku przepływu, który został skonfigurowany w tym artykule, urządzenie zostanie automatycznie zarejestrowane w usłudze Azure Digital bliźniaczych reprezentacji. Aby znaleźć sznurki urządzenia w utworzonym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, użyj następującego polecenia [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md) .
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -304,7 +304,7 @@ Powinny być widoczne sznurki urządzenia znajdujące się w wystąpieniu usług
 
 W tej sekcji nastąpi dołączenie IoT Hub zdarzeń cyklu życia do usługi Azure Digital bliźniaczych reprezentacji w celu wycofania urządzeń za pomocą poniższej ścieżki. Jest to fragment ze wszystkich pokazanych [wcześniej](#solution-architecture)architektury.
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Wycofywanie przepływu urządzenia — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Urządzenie termostatu jest wyświetlane bez połączeń z usługami platformy Azure na diagramie. Dane z ręcznej akcji Usuń urządzenie są przesyłane za pośrednictwem IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digital bliźniaczych reprezentacji (3).":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Wycofywanie przepływu urządzenia — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Urządzenie termostatu jest wyświetlane bez połączeń z usługami platformy Azure na diagramie. Dane z ręcznej akcji "Usuń urządzenie" są przesyłane za pośrednictwem IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digital bliźniaczych reprezentacji (3).":::
 
 Oto opis przepływu procesu:
 1. Proces zewnętrzny lub ręczny wyzwala Usuwanie urządzenia w IoT Hub.
@@ -449,13 +449,13 @@ Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześnie
 
 Dodaj ustawienie za pomocą tego polecenia platformy Azure. Polecenie można uruchomić w [Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)interfejs wiersza polecenia platformy Azure.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
 Następnie należy skonfigurować zmienną środowiskową funkcji do nawiązywania połączenia z nowo utworzonym centrum zdarzeń.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -486,7 +486,7 @@ Urządzenie zostanie automatycznie usunięte z usługi Azure Digital bliźniaczy
 
 Aby sprawdzić, czy usunięto dwuosiową urządzenie w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, użyj następującego polecenia [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md) .
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -502,7 +502,7 @@ Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia plat
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 <!-- 

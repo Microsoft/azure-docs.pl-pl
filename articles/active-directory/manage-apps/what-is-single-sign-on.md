@@ -12,18 +12,18 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
-ms.openlocfilehash: b1f23d52b96e708a16adbbf6098de4b7ab0423e4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 1eaef57f46bf6373fdd2a73575bb028904ef108b
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052107"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561654"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Co to jest logowanie jednokrotne?
 
 Logowanie jednokrotne oznacza, że użytkownik nie musi logować się do każdej używanej aplikacji. Użytkownik loguje się raz, a poświadczenia są również używane dla innych aplikacji.
 
-Jeśli jesteś użytkownikiem końcowym, możesz nie zadbać o szczegóły dotyczące rejestracji jednokrotnej. Warto tylko korzystać z aplikacji, które zwiększają produktywność, bez konieczności pisania hasła. Aplikacje można znaleźć pod adresem: https://myapplications.microsoft.com .
+Jeśli jesteś użytkownikiem końcowym, możesz nie zadbać o szczegóły dotyczące rejestracji jednokrotnej. Warto tylko korzystać z aplikacji, które zwiększają produktywność, bez konieczności pisania hasła. Aplikacje można znaleźć pod adresem: https://myapps.microsoft.com .
  
 Jeśli jesteś administratorem lub informatykiem, przeczytaj artykuł, aby dowiedzieć się więcej o rejestracji jednokrotnej i sposobie jej implementacji na platformie Azure.
 
@@ -53,7 +53,7 @@ Sposób implementacji logowania jednokrotnego zależy od lokalizacji, w której 
 > [!TIP]
 > Aplikacje hostowane w chmurze są nazywane również aplikacjami typu oprogramowanie jako usługa (SaaS). 
 
-Logowanie jednokrotne dla aplikacji hostowanych w chmurze jest proste. Poinformujemy dostawcę tożsamości o tym, że jest on używany w aplikacji. Następnie skonfigurujesz aplikację do zaufania dostawcy tożsamości. Aby dowiedzieć się, jak używać usługi Azure AD jako dostawcy tożsamości dla aplikacji, zapoznaj się z [serią szybkiego startu w zarządzaniu aplikacjami](view-applications-portal.md).
+Logowanie jednokrotne dla aplikacji hostowanych w chmurze jest proste. Poinformujemy dostawcę tożsamości o tym, że jest on używany w aplikacji. Następnie skonfigurujesz aplikację do zaufania dostawcy tożsamości. Aby dowiedzieć się, jak używać usługi Azure AD jako dostawcy tożsamości dla aplikacji, zapoznaj się z [serią szybkiego startu w zarządzaniu aplikacjami](add-application-portal.md).
 
 > [!TIP]
 > Terminy w chmurze i Internecie są często używane zamiennie. Przyczyną tego problemu musi być diagramy sieciowe. Często należy zauważyć, że duże sieci komputerowe mają kształt chmury na diagramie, ponieważ nie jest to możliwe do rysowania każdy składnik. Internet to najbardziej dobrze znana sieć, dzięki czemu można łatwo korzystać z terminów zamiennie. Jednak każda sieć komputerowa może być wykorzystana z chmury.

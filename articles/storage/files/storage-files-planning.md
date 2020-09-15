@@ -4,25 +4,32 @@ description: Opis planowania wdrożenia Azure Files. Można bezpośrednio zainst
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: db7ae0bd33bc52f80788db4994dcf2a3ca4d909a
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bf982b313c99034065aad5f246a69caf665a2657
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705915"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563476"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
 
-- **Bezpośrednia instalacja udziału plików platformy Azure**: ponieważ Azure Files zapewnia dostęp do protokołu SMB, można instalować udziały plików platformy Azure lokalnie lub w chmurze przy użyciu standardowego klienta protokołu SMB dostępnego w systemach Windows, MacOS i Linux. Ponieważ udziały plików platformy Azure są bezserwerowe, wdrażanie w scenariuszach produkcyjnych nie wymaga zarządzania serwerem plików ani urządzeniem NAS. Oznacza to, że nie trzeba stosować poprawek oprogramowania ani wymieniać dysków fizycznych. 
+- **Bezpośrednia instalacja udziału plików platformy Azure**: ponieważ Azure Files zapewnia dostęp do bloku komunikatów serwera (SMB) lub sieciowy system plików (NFS), można instalować udziały plików platformy Azure lokalnie lub w chmurze przy użyciu standardowych klientów SMB lub NFS dostępnych w systemie operacyjnym. Ponieważ udziały plików platformy Azure są bezserwerowe, wdrażanie w scenariuszach produkcyjnych nie wymaga zarządzania serwerem plików ani urządzeniem NAS. Oznacza to, że nie trzeba stosować poprawek oprogramowania ani wymieniać dysków fizycznych. 
 
-- **Buforowanie udziałów plików platformy Azure w środowisku lokalnym za pomocą Azure File Sync**: Azure File Sync pozwala na scentralizowanie udziały plików w organizacji w Azure Files, przy zachowaniu elastyczności, wydajności i zgodności lokalnego serwera plików. Azure File Sync przekształca lokalnego (lub w chmurze) systemu Windows Server w szybką pamięć podręczną udziału plików platformy Azure. 
+- **Buforowanie udziałów plików platformy Azure w środowisku lokalnym za pomocą Azure File Sync**: Azure File Sync pozwala na scentralizowanie udziały plików w organizacji w Azure Files, przy zachowaniu elastyczności, wydajności i zgodności lokalnego serwera plików. Azure File Sync przekształca lokalnego (lub w chmurze) systemu Windows Server w szybką pamięć podręczną udziału plików SMB platformy Azure. 
 
 Ten artykuł dotyczy głównie zagadnień związanych z wdrażaniem udziału plików platformy Azure, który ma być bezpośrednio instalowany przez klienta lokalnego lub w chmurze. Aby zaplanować wdrożenie Azure File Sync, zapoznaj się z tematem [Planowanie wdrożenia Azure File Sync](storage-sync-files-planning.md).
+
+## <a name="available-protocols"></a>Dostępne protokoły
+
+Azure Files oferuje dwa protokoły, które mogą być używane podczas instalowania udziałów plików, SMB i sieciowego systemu plików (NFS). Aby uzyskać szczegółowe informacje na temat tych protokołów, zobacz [Protokoły udziałów plików platformy Azure](storage-files-compare-protocols.md).
+
+> [!IMPORTANT]
+> Większość zawartości tego artykułu dotyczy tylko udziałów SMB. Wszystkie elementy, które mają zastosowanie do udziałów NFS, zostaną w tym samym stanie.
 
 ## <a name="management-concepts"></a>Pojęcia związane z zarządzaniem
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
@@ -54,7 +61,7 @@ Aby odblokować dostęp do udziału plików platformy Azure, masz dwie opcje gł
 
 - Dostęp do udziałów plików platformy Azure za pośrednictwem połączenia ExpressRoute lub sieci VPN. Gdy uzyskujesz dostęp do udziału plików platformy Azure za pośrednictwem tunelu sieciowego, możesz zainstalować udział plików platformy Azure, taki jak lokalny udział plików, ponieważ ruch SMB nie przechodzi przez granicę organizacyjną.   
 
-Chociaż z perspektywy technicznej znacznie łatwiej jest instalować udziały plików platformy Azure za pośrednictwem publicznego punktu końcowego, oczekuje się, że większość klientów będzie instalować udziały plików platformy Azure za pośrednictwem połączenia ExpressRoute lub sieci VPN. W tym celu należy skonfigurować następujące elementy dla danego środowiska:  
+Chociaż z perspektywy technicznej znacznie łatwiej jest instalować udziały plików platformy Azure za pośrednictwem publicznego punktu końcowego, oczekuje się, że większość klientów będzie instalować udziały plików platformy Azure za pośrednictwem połączenia ExpressRoute lub sieci VPN. Instalowanie z tymi opcjami jest możliwe zarówno w przypadku udziałów SMB, jak i NFS. W tym celu należy skonfigurować następujące elementy dla danego środowiska:  
 
 - **Tunelowanie sieciowe przy użyciu ExpressRoute, lokacja-lokacja lub sieci VPN typu punkt-lokacja**: tunelowanie do sieci wirtualnej umożliwia dostęp do udziałów plików platformy Azure z lokalnego, nawet jeśli port 445 jest zablokowany.
 - **Prywatne punkty końcowe**: prywatne punkty końcowe zapewniają konto magazynu dedykowany adres IP z przestrzeni adresowej sieci wirtualnej. Umożliwia to tunelowanie sieciowe bez konieczności otwierania sieci lokalnych do wszystkich zakresów adresów IP należących do klastrów usługi Azure Storage. 
@@ -65,7 +72,11 @@ Aby zaplanować sieć skojarzoną z wdrażaniem udziału plików platformy Azure
 ## <a name="encryption"></a>Szyfrowanie
 Azure Files obsługuje dwa różne typy szyfrowania: szyfrowanie podczas przesyłania, które odnosi się do szyfrowania używanego podczas instalowania/uzyskiwania dostępu do udziału plików platformy Azure oraz szyfrowania w spoczynku, które odnosi się do sposobu szyfrowania danych przechowywanych na dysku. 
 
-### <a name="encryption-in-transit"></a>Szyfrowanie danych przesyłanych
+### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
+
+> [!IMPORTANT]
+> Ta sekcja zawiera szczegółowe informacje dotyczące szyfrowania dla udziałów SMB. Aby uzyskać szczegółowe informacje dotyczące szyfrowania podczas przesyłania z udziałami NFS, zobacz [zabezpieczenia](storage-files-compare-protocols.md#security).
+
 Domyślnie wszystkie konta usługi Azure Storage mają włączone szyfrowanie podczas przesyłania. Oznacza to, że podczas instalowania udziału plików przez protokół SMB lub uzyskiwania dostępu do niego za pośrednictwem protokołu FileREST (na przykład za pośrednictwem Azure Portal, PowerShell/interfejsu wiersza polecenia lub zestawów SDK platformy Azure), Azure Files będzie zezwalać tylko na połączenie, jeśli zostało wykonane przy użyciu protokołu SMB 3.0 + z szyfrowaniem lub HTTPS. Klienci, którzy nie obsługują protokołu SMB 3,0 ani klientów obsługujących protokół SMB 3,0, ale nie szyfrowania SMB, nie będą mogli zainstalować udziału plików platformy Azure, jeśli szyfrowanie jest włączone. Więcej informacji o tym, które systemy operacyjne obsługują protokół SMB 3,0 z szyfrowaniem, można znaleźć w naszej szczegółowej dokumentacji dotyczącej [systemów Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md)i [Linux](storage-how-to-use-files-linux.md). Wszystkie bieżące wersje programu PowerShell, interfejsu wiersza polecenia i zestawów SDK obsługują protokół HTTPS.  
 
 Można wyłączyć szyfrowanie podczas przesyłania dla konta usługi Azure Storage. Gdy szyfrowanie jest wyłączone, Azure Files również zezwala na SMB 2,1, SMB 3,0 bez szyfrowania i niezaszyfrowane wywołania interfejsu API FileREST za pośrednictwem protokołu HTTP. Podstawowym powodem wyłączenia szyfrowania podczas przesyłania jest obsługa starszej aplikacji, która musi być uruchomiona w starszym systemie operacyjnym, takim jak Windows Server 2008 R2 lub starsza dystrybucja systemu Linux. Azure Files zezwala tylko na połączenia SMB 2,1 w tym samym regionie świadczenia usługi Azure co udział plików platformy Azure; klient SMB 2,1 spoza regionu platformy Azure udziału plików platformy Azure, na przykład lokalnie lub w innym regionie świadczenia usługi Azure, nie będzie mógł uzyskać dostępu do udziału plików.

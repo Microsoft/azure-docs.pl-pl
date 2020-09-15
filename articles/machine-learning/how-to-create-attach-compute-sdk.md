@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: af912838e99e7b36cb29695758108f0a9efeb8ea
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662540"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561639"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Utwórz cele obliczeniowe dla szkolenia i wdrażania modelu w języku Python SDK
 
@@ -36,7 +36,11 @@ W tym artykule Użyj zestawu SDK języka Python Azure Machine Learning, aby utwo
 
 ## <a name="limitations"></a>Ograniczenia
 
-Niektóre scenariusze wymienione w tym dokumencie są oznaczone jako __wersja zapoznawcza__. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* **Nie należy tworzyć wielu jednoczesnych załączników do tego samego obliczenia** w obszarze roboczym. Można na przykład dołączyć jeden klaster usługi Azure Kubernetes do obszaru roboczego przy użyciu dwóch różnych nazw. Każdy nowy załącznik spowoduje przerwanie poprzednich istniejących załączników.
+
+    Jeśli chcesz ponownie dołączyć obiekt docelowy obliczeń, na przykład aby zmienić ustawienia konfiguracji TLS lub innego klastra, musisz najpierw usunąć istniejący załącznik.
+
+* Niektóre scenariusze wymienione w tym dokumencie są oznaczone jako __wersja zapoznawcza__. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>Co to jest obiekt docelowy obliczeń?
 
@@ -269,6 +273,9 @@ W tym scenariuszu Użyj usługi Azure Data Science Virtual Machine (DSVM) jako m
 
    Możesz też dołączyć DSVM do obszaru roboczego [za pomocą programu Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#attached-compute).
 
+    > [!WARNING]
+    > Nie należy tworzyć wielu jednoczesnych załączników do tego samego DSVM z obszaru roboczego. Każdy nowy załącznik spowoduje przerwanie poprzednich istniejących załączników.
+
 1. **Konfiguracja**: Utwórz konfigurację uruchomieniową dla elementu docelowego obliczeń DSVM. Platformy Docker i Conda są używane do tworzenia i konfigurowania środowiska szkoleniowego na DSVM.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
@@ -313,6 +320,9 @@ Usługa Azure HDInsight to popularna platforma do analizy danych Big Data. Platf
    ```
 
    Możesz też dołączyć klaster usługi HDInsight do obszaru roboczego [za pomocą programu Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#attached-compute).
+
+    > [!WARNING]
+    > Nie należy tworzyć wielu jednoczesnych załączników do tej samej usługi HDInsight z obszaru roboczego. Każdy nowy załącznik spowoduje przerwanie poprzednich istniejących załączników.
 
 1. **Konfiguracja**: Utwórz konfigurację uruchomieniową dla elementu docelowego obliczeń HDI. 
 
@@ -360,6 +370,9 @@ except ComputeTargetException:
 
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
+
+> [!WARNING]
+> Nie należy tworzyć wielu jednoczesnych załączników do tego samego Azure Batch z obszaru roboczego. Każdy nowy załącznik spowoduje przerwanie poprzednich istniejących załączników.
 
 ### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
@@ -414,6 +427,9 @@ except ComputeTargetException:
 
 Aby zapoznać się z bardziej szczegółowym przykładem, zobacz [przykładowy Notes](https://aka.ms/pl-databricks) w witrynie GitHub.
 
+> [!WARNING]
+> Nie należy tworzyć wielu jednoczesnych załączników do tego samego Azure Databricks z obszaru roboczego. Każdy nowy załącznik spowoduje przerwanie poprzednich istniejących załączników.
+
 ### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics to platforma analizy danych Big Data w chmurze platformy Azure. Może służyć jako obiekt docelowy obliczeń z potokiem Azure Machine Learning.
@@ -463,6 +479,9 @@ except ComputeTargetException:
 ```
 
 Aby zapoznać się z bardziej szczegółowym przykładem, zobacz [przykładowy Notes](https://aka.ms/pl-adla) w witrynie GitHub.
+
+> [!WARNING]
+> Nie należy tworzyć wielu jednoczesnych załączników do tego samego ADLA z obszaru roboczego. Każdy nowy załącznik spowoduje przerwanie poprzednich istniejących załączników.
 
 > [!TIP]
 > Potoki Azure Machine Learning mogą korzystać tylko z danych przechowywanych w domyślnym magazynie danych konta Data Lake Analytics. Jeśli dane, które mają być używane, należą do magazynu innego niż domyślny, można użyć programu [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) do skopiowania danych przed szkoleniem.

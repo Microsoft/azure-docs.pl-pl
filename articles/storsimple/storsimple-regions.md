@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5efb87ad674474b2e21b86b5cdc48785753a51dc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76275106"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564155"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Dostępne regiony dla StorSimple
 
@@ -39,7 +39,7 @@ Zdefiniuj region lub lokalizację podczas pierwszego tworzenia usługi StorSimpl
 
 Poniżej znajduje się lista regionów, w których Usługa StorSimple Menedżer urządzeń jest dostępna dla chmury publicznej platformy Azure i można ją wdrożyć.
 
-![StorSimple-Device-Manager-Service-regiony](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![Zrzut ekranu przedstawia StorSimple Menedżer urządzeń z wyróżnioną listą lokalizacji.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 W przypadku chmury Azure Government Usługa StorSimple Menedżer urządzeń jest dostępna w US Gov Iowa i US Gov Wirginia centrach danych.
 
