@@ -4,12 +4,12 @@ description: Nawiązywanie połączenia z siecią usługi Azure łańcucha blok�
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: abb2479b81d4811b311d27fb0be9900f2827e939
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 4a45e02a861ff20a4dc774668a4e008f9b42aeea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920587"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530441"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Szybki Start: używanie maskowania do łączenia i wdrażania kontraktu inteligentnego
 
@@ -41,7 +41,7 @@ Do nawiązania połączenia z siecią łańcucha bloków potrzebny jest adres pu
 ## <a name="connect-metamask"></a>Łączenie z maską
 
 1. Otwórz rozszerzenie przeglądarki dbmask i zaloguj się.
-1. Z listy rozwijanej sieć wybierz pozycję **niestandardowe wywołanie RPC**.
+1. Z listy rozwijanej sieć wybierz pozycję  **niestandardowe wywołanie RPC**.
 
     ![Niestandardowe wywołanie RPC](./media/connect-metamask/custom-rpc.png)
 
@@ -63,7 +63,7 @@ Remix to środowisko programistyczne oparte na przeglądarce. Korzystając z fun
 
     ![Utwórz plik](./media/connect-metamask/create-file.png)
 
-    Wybierz przycisk **OK**.
+    Wybierz pozycję **OK**.
 1. W edytorze Remix wklej następujący **prosty kod kontraktu inteligentnego** .
 
     ```solidity
@@ -87,9 +87,9 @@ Remix to środowisko programistyczne oparte na przeglądarce. Korzystając z fun
     ```
 
     **Prosta umowa** deklaruje zmienną stanu o nazwie **Saldo**. Zdefiniowano dwie funkcje. Funkcja **Dodaj** dodaje liczbę do **zrównoważenia**. Funkcja **Get** zwraca wartość **Saldo**.
-1. Aby skompilować kontrakt, najpierw wybierz okienko kompilatora o pełnej trwałość, a następnie wybierz opcję **Kompiluj Simple. peruwiański**.
+1. Aby skompilować kontrakt, najpierw wybierz okienko kompilatora o pełnej trwałość, a następnie wybierz opcję  **Kompiluj Simple. peruwiański**.
 
-    ![Opracowania](./media/connect-metamask/compile.png)
+    ![Przechwytywanie ekranu pokazuje kompilowany kontrakt.](./media/connect-metamask/compile.png)
 
 1. Wybierz okienko **wdróż & przebiegu** , a następnie ustaw **środowisko** na **Web3** , aby nawiązać połączenie za pomocą elementu sqlmasking z członkiem łańcucha bloków.
 
@@ -97,7 +97,7 @@ Remix to środowisko programistyczne oparte na przeglądarce. Korzystając z fun
 
 1. Wybierz **prosty** kontrakt, a następnie **Wdróż**.
 
-    ![Wdróż](./media/connect-metamask/deploy.png)
+    ![Przechwytywanie ekranu pokazuje wdrażanie i uruchamianie transakcji z wybranym kontraktem i wdrażanie wybranych.](./media/connect-metamask/deploy.png)
 
 
 1. Powiadomienie o niewystarczającej masce pozwala wykonać transakcję.

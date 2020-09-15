@@ -3,12 +3,13 @@ title: Opcje sieciowe usługi Azure Functions
 description: Przegląd wszystkich opcji sieciowych dostępnych w Azure Functions.
 ms.topic: conceptual
 ms.date: 4/11/2019
-ms.openlocfilehash: 60258ef4aa3bbbbab69acd4f5106c774caa6f46f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385946"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530096"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -86,7 +87,7 @@ Obecnie można używać funkcji wyzwalacza innego niż HTTP z poziomu sieci wirt
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plan Premium z wyzwalaczami sieci wirtualnej
 
-Po uruchomieniu planu Premium można połączyć funkcje wyzwalacza inne niż HTTP z usługami, które działają w sieci wirtualnej. W tym celu należy włączyć obsługę wyzwalacza sieci wirtualnej dla aplikacji funkcji. Ustawienie **obsługi wyzwalacza sieci wirtualnej** znajduje się w [Azure Portal](https://portal.azure.com) w obszarze **Configuration**  >  **Ustawienia środowiska uruchomieniowego funkcji**konfiguracji.
+Po uruchomieniu planu Premium można połączyć funkcje wyzwalacza inne niż HTTP z usługami, które działają w sieci wirtualnej. W tym celu należy włączyć obsługę wyzwalacza sieci wirtualnej dla aplikacji funkcji. Ustawienie **monitorowania skali środowiska uruchomieniowego** znajduje się w [Azure Portal](https://portal.azure.com) w **Configuration**obszarze  >  **Ustawienia środowiska uruchomieniowego funkcji**konfiguracji.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -98,7 +99,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Wyzwalacze sieci wirtualnej są obsługiwane w wersji 2. x i powyżej środowiska uruchomieniowego funkcji. Obsługiwane są następujące typy wyzwalaczy inne niż HTTP.
 
-| Rozszerzenie | Minimalna wersja |
+| Wewnętrzny | Minimalna wersja |
 |-----------|---------| 
 |[Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 lub nowszy |
 |[Microsoft. Azure. WebJobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 lub nowszy|
@@ -132,7 +133,7 @@ Ograniczenia wychodzącego adresu IP są dostępne w planie Premium, planie App 
 
 W przypadku integrowania aplikacji funkcji w planie Premium lub planu App Service z siecią wirtualną aplikacja nadal może domyślnie nawiązywać połączenia wychodzące do Internetu. Po dodaniu ustawienia aplikacji `WEBSITE_VNET_ROUTE_ALL=1` wymusisz, aby cały ruch wychodzący był wysyłany do sieci wirtualnej, w którym można używać zasad grupy zabezpieczeń sieci do ograniczania ruchu.
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatyzacja
 Poniższe interfejsy API umożliwiają programowe zarządzanie integracją regionalnej sieci wirtualnej:
 
 + **Interfejs wiersza polecenia platformy Azure**: Użyj [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) poleceń do dodawania, wyświetlania lub usuwania integracji regionalnej sieci wirtualnej.  

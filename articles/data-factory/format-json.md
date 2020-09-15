@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 08052b255854ac9637d4f9a65dd10b63b26ba38d
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 7c1a2cf4b9b476a8f31f38fea45b2e1ef3fe4307
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061176"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531789"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON w Azure Data Factory
 
@@ -30,11 +30,11 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 | Właściwość         | Opis                                                  | Wymagane |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **JSON**. | Tak      |
-| location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . **Zobacz szczegóły w sekcji łącznik — > właściwości zestawu danych**. | Tak      |
+| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **JSON**. | Yes      |
+| location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . **Zobacz szczegóły w sekcji łącznik — > właściwości zestawu danych**. | Yes      |
 | encodingName     | Typ kodowania używany do odczytu/zapisu plików testowych. <br>Dozwolone wartości są następujące: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Nie       |
 | kompresja | Grupa właściwości do konfigurowania kompresji plików. Skonfiguruj tę sekcję, jeśli chcesz przeprowadzić kompresję/dekompresowanie podczas wykonywania działania. | Nie |
-| typ<br/>(*w `compression` obszarze *) | Koder-dekoder kompresji używany do odczytu/zapisu plików JSON. <br>Dozwolone wartości to **bzip2**, **gzip**, **Wklęśnięcie**, **ZipDeflate**, **TarGzip**, **przyciąganie**lub **lz4**. Wartość domyślna nie jest skompresowana.<br>Działanie kopiowania w **tej chwili nie** obsługuje "przyciągania" & "lz4", a przepływ danych mapowania nie obsługuje "ZipDeflate".<br>**Uwaga** w przypadku używania działania kopiowania do dekompresowania plików **ZipDeflate** / **TarGzip** i zapisywania w magazynie danych ujścia opartych na plikach, domyślnie pliki są wyodrębniane do folderu: `<path specified in dataset>/<folder named as source compressed file>/` , użyj `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` w [źródle działania Copy](#json-as-source) , aby określić, czy zachować nazwę pliku zip jako strukturę folderów. | Nie.  |
+| typ<br/>(*w `compression` obszarze *) | Koder-dekoder kompresji używany do odczytu/zapisu plików JSON. <br>Dozwolone wartości to **bzip2**, **gzip**, **Wklęśnięcie**, **ZipDeflate**, **TarGzip**, **przyciąganie**lub **lz4**. Wartość domyślna nie jest skompresowana.<br>Działanie kopiowania w **tej chwili nie** obsługuje "przyciągania" & "lz4", a przepływ danych mapowania nie obsługuje "ZipDeflate".<br>**Uwaga** w przypadku używania działania kopiowania do dekompresowania plików **ZipDeflate** / **TarGzip** i zapisywania w magazynie danych ujścia opartych na plikach, domyślnie pliki są wyodrębniane do folderu: `<path specified in dataset>/<folder named as source compressed file>/` , użyj `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` w [źródle działania Copy](#json-as-source) , aby określić, czy należy zachować nazwę skompresowanych plików jako strukturę folderów.| Nie.  |
 | poziom<br/>(*w `compression` obszarze *) | Współczynnik kompresji. <br>Dozwolone wartości to **optymalne** lub **najszybszy**.<br>- **Najszybsze:** Operacja kompresji powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli plik nie jest optymalnie kompresowany.<br>- **Optymalnie**: operacja kompresji powinna być optymalnie skompresowana, nawet jeśli operacja trwa dłużej. Aby uzyskać więcej informacji, zobacz temat [poziom kompresji](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nie       |
 
 Poniżej znajduje się przykład zestawu danych JSON w usłudze Azure Blob Storage:
@@ -75,7 +75,7 @@ W sekcji *** \* Źródło \* *** działania kopiowania są obsługiwane następu
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **JSONSource**. | Tak      |
+| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **JSONSource**. | Yes      |
 | formatSettings | Grupa właściwości. Zapoznaj się z tabelą **ustawień odczytu JSON** poniżej. | Nie       |
 | storeSettings | Grupa właściwości do odczytywania danych z magazynu danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia odczytu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
 
@@ -83,7 +83,7 @@ Obsługiwane **Ustawienia odczytu JSON** w obszarze `formatSettings` :
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ formatSettings musi być ustawiony na **JsonReadSettings**. | Tak      |
+| typ          | Typ formatSettings musi być ustawiony na **JsonReadSettings**. | Yes      |
 | compressionProperties | Grupa właściwości na temat sposobu dekompresowania danych dla danego kodera kompresji. | Nie       |
 | preserveZipFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `ZipDeflateReadSettings` *)  | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **ZipDeflate** . Wskazuje, czy podczas kopiowania zachować nazwę źródłowego pliku zip jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje niespakowane pliki do `<path specified in dataset>/<folder named as source zip file>/` .<br>-Po ustawieniu na **wartość false**Data Factory zapisuje niespakowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych źródłowych plikach ZIP, aby uniknąć wyścigów lub nieoczekiwanych zachowań.  | Nie |
 | preserveCompressionFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `TarGZipReadSettings` *) | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **TarGzip** . Wskazuje, czy podczas kopiowania zachować źródłową nazwę pliku skompresowanego jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje zdekompresować pliki do `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Po ustawieniu na **wartość false**Data Factory zapisuje dekompresowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych plikach źródłowych, aby uniknąć wyścigów lub nieoczekiwanych zachowań. | Nie |
@@ -94,7 +94,7 @@ W sekcji *** \* ujścia \* *** działania kopiowania są obsługiwane następuj�
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **JSONSink**. | Tak      |
+| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **JSONSink**. | Yes      |
 | formatSettings | Grupa właściwości. Zapoznaj się z tabelą **ustawień zapisu JSON** poniżej. | Nie       |
 | storeSettings | Grupa właściwości do zapisywania danych w magazynie danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia zapisu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
 
@@ -102,7 +102,7 @@ Obsługiwane **Ustawienia zapisu** w formacie JSON w obszarze `formatSettings` :
 
 | Właściwość      | Opis                                                  | Wymagane                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Typ formatSettings musi być ustawiony na **JsonWriteSettings**. | Tak                                                   |
+| typ          | Typ formatSettings musi być ustawiony na **JsonWriteSettings**. | Yes                                                   |
 | filePattern |Wskazuje wzorzec danych przechowywanych w każdym pliku JSON. Dozwolone wartości to: **setOfObjects** (linie JSON) i **arrayOfObjects**. Wartością **domyślną** jest **setOfObjects**. Aby uzyskać szczegółowe informacje o tych wzorcach, zobacz sekcję [Wzorce plików JSON](#json-file-patterns). |Nie |
 
 ### <a name="json-file-patterns"></a>Wzorce plików JSON
@@ -312,11 +312,11 @@ Do przepływu danych można dodać kolumnę złożoną za pośrednictwem konstru
 
 W okienku po stronie schematu danych wyjściowych Umieść kursor nad kolumną i kliknij ikonę znaku plus. Wybierz pozycję **Dodaj podkolumnę** , aby utworzyć kolumnę typu złożonego.
 
-![Dodaj podkolumnę](media/data-flow/addsubcolumn.png "Dodaj podkolumnę")
+![Dodaj podkolumnę](media/data-flow/derive-add-subcolumn.png "Dodaj podkolumnę")
 
 W ten sam sposób można dodać dodatkowe kolumny i podkolumny. W przypadku każdego niezłożonej pola wyrażenie może być dodane w edytorze wyrażeń z prawej strony.
 
-![Kolumna złożona](media/data-flow/complexcolumn.png "Kolumna złożona")
+![Dodawanie złożonej kolumny](media/data-flow/derive-complex-column.png "Dodawanie kolumn")
 
 #### <a name="entering-the-json-structure-manually"></a>Ręczne wprowadzanie struktury JSON
 

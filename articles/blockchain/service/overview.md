@@ -4,12 +4,12 @@ description: Omówienie usługi Azure łańcucha bloków Service
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: 2a28baeb6de3c8ca1e8ad89e11d45b492f33588c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8364f4b8f063611df08275ba4cbb3acb4be5d196
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076960"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530033"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Co to jest usługa Azure Blockchain Service?
 
@@ -45,7 +45,7 @@ Jako usługa zarządzana usługa Azure łańcucha bloków gwarantuje, że węzł
 
 Ponadto usługa Azure łańcucha bloków zapewnia zaawansowane metryki za pomocą usługi Azure Monitor, która zapewnia wgląd w dane użycia procesora CPU, pamięci i magazynu.  Azure Monitor zapewnia również przydatny wgląd w działanie sieci łańcucha bloków, takie jak Transactions i Blocks analizowane pod, Głębokość kolejki transakcji i aktywne połączenia.  Metryki można dostosować w celu udostępnienia widoków szczegółowych informacji, które są ważne dla aplikacji łańcucha bloków.  Ponadto progi można definiować za pomocą alertów umożliwiających użytkownikom wyzwalanie akcji, takich jak wysyłanie wiadomości e-mail lub SMS, uruchamianie aplikacji logiki, funkcja platformy Azure lub wysyłanie do niestandardowego elementu webhook.
 
-![Metryki](./media/overview/metrics.png)
+![Przechwytywanie ekranu pokazuje monitorowanie, z wartościami bloków, transakcji, oczekujących transakcji i obsłużonych żądań.](./media/overview/metrics.png)
 
 Za pomocą usługi Azure Log Analytics użytkownicy mogą wyświetlać dzienniki związane z księgą kworum lub innymi ważnymi informacjami, takimi jak próby połączeń z węzłami transakcji.
 

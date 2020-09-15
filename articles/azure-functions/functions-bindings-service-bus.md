@@ -6,12 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 46660a0c8d20ab82c994a62b1c781108ea1070c1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 5e15dfec049197fa056cbd55fd839b3eb93be77c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111205"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530373"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus powiązania Azure Functions
 
@@ -23,6 +24,9 @@ Azure Functions integruje się z [Azure Service Bus](https://azure.microsoft.com
 | Wysyłanie komunikatów Azure Service Bus |[Powiązanie danych wyjściowych](./functions-bindings-service-bus-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Dodawanie do aplikacji funkcji
+
+> [!NOTE]
+> Powiązanie Service Bus nie obsługuje obecnie uwierzytelniania przy użyciu tożsamości zarządzanej. Zamiast tego należy użyć [Service Bus sygnatury dostępu współdzielonego](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature).
 
 ### <a name="functions-2x-and-higher"></a>Funkcje w wersji 2.x i nowszych
 

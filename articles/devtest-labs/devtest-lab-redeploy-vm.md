@@ -3,12 +3,12 @@ title: Ponowne wdrażanie maszyny wirtualnej w laboratorium w Azure DevTest Labs
 description: Dowiedz się, jak ponownie wdrożyć maszynę wirtualną (przechodź z jednego węzła platformy Azure do innego) w Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: da0edf13adaa0d7ecd84ee2c190f376c19b398db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a38b112165b893d877733b967c21bb62b20ca2f6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480239"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530322"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Ponowne wdrażanie maszyny wirtualnej w laboratorium w Azure DevTest Labs
 Jeśli nie można nawiązać połączenia z maszyną wirtualną w środowisku laboratoryjnym za pośrednictwem połączenia pulpitu zdalnego, wdróż ponownie MASZYNę wirtualną i ponów próbę nawiązania połączenia z nią. Po ponownym wdrożeniu maszyny wirtualnej DevTest Labs przeniesie maszynę wirtualną z węzła, na którym jest uruchomiona, do nowego węzła w ramach infrastruktury platformy Azure. Następnie uruchamia maszynę wirtualną przy zachowaniu wszystkich opcji konfiguracji i skojarzonych zasobów. Ta funkcja umożliwia zaoszczędzenie czasu poświęcanego na rozwiązywanie problemów z połączeniem pulpitu zdalnego lub dostępem aplikacji do maszyn wirtualnych opartych na systemie Windows w laboratorium. 
@@ -23,7 +23,7 @@ Aby ponownie wdrożyć maszynę wirtualną w laboratorium w Azure DevTest Labs, 
 5. Z listy maszyn wirtualnych wybierz maszynę wirtualną.
 6. Na stronie maszyna wirtualna dla maszyny wirtualnej wybierz pozycję **Wdróż** ponownie w obszarze **operacje** w menu po lewej stronie.
 
-    ![Ponowne wdrożenie](media/devtest-lab-redeploy-vm/redeploy.png)
+    ![Przechwytywanie ekranu pokazuje stronę maszyny wirtualnej z wybranym ponownie wdrożeniem.](media/devtest-lab-redeploy-vm/redeploy.png)
 7. Zapoznaj się z informacjami na stronie i wybierz przycisk **Wdróż** ponownie. 9. Sprawdź stan operacji ponownego wdrażania w oknie **powiadomienia** .
 
     ![Stan ponownego wdrożenia](media/devtest-lab-redeploy-vm/redeploy-status.png)

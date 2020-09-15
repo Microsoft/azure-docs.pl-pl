@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4a017f4b71a91f580a5281468a3f2bcbf7ba31b1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84687128"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531529"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Samouczek: Konfigurowanie urządzenia do aprowizacji przy użyciu usługi Azure IoT Hub Device Provisioning Service
 
-W poprzednim samouczku przedstawiono sposób konfigurowania usługi Azure IoT Hub Device Provisioning w celu automatycznej aprowizacji urządzeń w centrum IoT. W tym samouczku pokazano, jak skonfigurować urządzenie w procesie jego produkcji, aby mogło być automatycznie aprowizowane w usłudze IoT Hub. Urządzenie jest aprowizowane w oparciu o jego [mechanizm zaświadczania](concepts-device.md#attestation-mechanism) po pierwszym uruchomieniu i nawiązaniu połączenia z usługą aprowizowania. Ten samouczek obejmuje następujące zadania:
+W poprzednim samouczku przedstawiono sposób konfigurowania usługi Azure IoT Hub Device Provisioning w celu automatycznej aprowizacji urządzeń w centrum IoT. W tym samouczku pokazano, jak skonfigurować urządzenie w procesie jego produkcji, aby mogło być automatycznie aprowizowane w usłudze IoT Hub. Urządzenie jest aprowizowane w oparciu o jego [mechanizm zaświadczania](concepts-service.md#attestation-mechanism) po pierwszym uruchomieniu i nawiązaniu połączenia z usługą aprowizowania. Ten samouczek obejmuje następujące zadania:
 
 > [!div class="checklist"]
 > * Kompilowanie specyficznego dla platformy zestawu SDK klienta usługi Device Provisioning
@@ -29,7 +29,7 @@ W tym samouczku przyjęto założenie, że utworzono już wystąpienie usługi D
 
 W tym samouczku używane jest [repozytorium zestawów Azure IoT SDK i bibliotek dla języka C](https://github.com/Azure/azure-iot-sdk-c), które zawiera zestaw SDK klienta usługi Device Provisioning dla języka C. Ten zestaw SDK aktualnie obsługuje implementacje systemów Windows i Ubuntu na urządzeniach z modułami TPM i X.509. Ten samouczek jest oparty na użyciu systemu Windows, który ma również podstawową biegłość w programie Visual Studio. 
 
-Jeśli nie znasz procesu automatycznego aprowizowania, przed kontynuowaniem zapoznaj się z tematem [Auto-provisioning concepts](concepts-auto-provisioning.md) (Pojęcia związane z automatycznym aprowizowaniem). 
+Jeśli nie znasz procesu inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z omówieniem [aprowizacji](about-iot-dps.md#provisioning-process) . 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -38,7 +38,7 @@ Jeśli nie znasz procesu automatycznego aprowizowania, przed kontynuowaniem zapo
 
 Poniższe wymagania wstępne dotyczą środowiska projektowego systemu Windows. W systemie Linux lub macOS zapoznaj się z odpowiednią sekcją w sekcji [Przygotowywanie środowiska deweloperskiego](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) w dokumentacji zestawu SDK.
 
-* [Program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) . Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
+* [Program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) . Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
 
 * Zainstalowana najnowsza wersja usługi[Git](https://git-scm.com/download/).
 
@@ -100,9 +100,9 @@ W zależności od tego, czy kompilowany zestaw SDK ma być używany na potrzeby 
 
 - W przypadku urządzenia X.509 należy uzyskać certyfikaty wystawione dla tego urządzenia. Usługa aprowizowania udostępnia dwa rodzaje wpisów rejestracji, które sterują dostępem do urządzeń przy użyciu mechanizmu zaświadczania X.509. Wymagane certyfikaty zależą od używanych typów rejestracji.
 
-    - Rejestracje indywidualne: rejestracji dla pojedynczego określonego urządzenia. Ten typ wpisu rejestracji wymaga [certyfikatów jednostki końcowej „liścia”](concepts-security.md#end-entity-leaf-certificate).
+    - Rejestracje indywidualne: rejestracji dla pojedynczego określonego urządzenia. Ten typ wpisu rejestracji wymaga [certyfikatów jednostki końcowej „liścia”](concepts-x509-attestation.md#end-entity-leaf-certificate).
     
-    - Grupy rejestracji: ten typ wpisu rejestracji wymaga certyfikatów pośrednich lub certyfikatów głównych. Aby dowiedzieć się więcej, zobacz [Sterowanie dostępem urządzenia do usługi aprowizacji za pomocą certyfikatów X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Grupy rejestracji: ten typ wpisu rejestracji wymaga certyfikatów pośrednich lub certyfikatów głównych. Aby dowiedzieć się więcej, zobacz [Sterowanie dostępem urządzenia do usługi aprowizacji za pomocą certyfikatów X.509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Urządzenia symulowane
 
@@ -198,7 +198,7 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 
 Jeśli zajdzie potrzeba dostrojenia aplikacji do rejestracji klienta usługi Device Provisioning, można najpierw użyć urządzenia symulowanego i testowej konfiguracji usługi. Jeśli aplikacja będzie działać w środowisku testowym, można ją skompilować na potrzeby konkretnego urządzenia i skopiować plik wykonywalny do obrazu urządzenia. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Na tym etapie w portalu prawdopodobnie działają usługi Device Provisioning i IoT Hub. Jeśli nie potrzebujesz konfiguracji aprowizacji urządzeń i/lub chcesz później ukończyć tę serię samouczków, zalecamy ich zamknięcie, aby uniknąć ponoszenia niepotrzebnych kosztów.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 46ffb5bfe52fe4f398594a1dfed76a6ea6c0fd81
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400028"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530798"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenariusz: kierowanie ruchu przez urządzenie WUS
 
@@ -112,6 +112,8 @@ Aby skonfigurować Routing za pośrednictwem urządzenie WUS, poniżej przedstaw
    * Od sieci VNet 7 i sieci VNet 8 do sieci VNet 4 urządzenie WUS IP 
    
    Nie jest konieczne bezpośrednie łączenie sieci wirtualnych 5, 6, 7, 8 z centrami wirtualnymi. Upewnij się, że sieciowych grup zabezpieczeń w sieci wirtualnych 5, 6, 7, 8 zezwala na ruch dla gałęzi (VPN/ER/P2S) lub sieci wirtualnych połączony ze swoimi zdalnymi sieci wirtualnych. Na przykład sieci wirtualnych 5, 6 muszą zapewnić sieciowych grup zabezpieczeń Zezwalanie na ruch dla prefiksów adresów lokalnych i sieci wirtualnych 7, które są połączone z koncentratorem zdalnym 2.
+
+Wirtualna sieć WAN nie obsługuje scenariusza, w którym sieci wirtualnych 5, 6 nawiązuje połączenie z koncentratorem wirtualnym i komunikuje się za pośrednictwem sieci VNet 2 urządzenie WUS IP; w związku z tym należy podłączyć sieci wirtualnych 5, 6 do VNet2 i podobnej sieci wirtualnej 7, 8 do sieci VNet 4.
 
 2. Dodaj zagregowany wpis trasy statycznej dla sieci wirtualnych 2, 5, 6 do domyślnej tabeli tras centrum 1.
 

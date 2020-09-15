@@ -12,13 +12,13 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-python
-ms.date: 01/09/2020
-ms.openlocfilehash: 6a93410b40926904a8429b70522eb01ab02f80a7
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.date: 09/14/2020
+ms.openlocfilehash: d5ee18895eeac6c7444e11c3714855bd038b07ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876465"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530475"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Szybki start: kontrolowanie urządzenia podłączonego do centrum IoT (Python)
 
@@ -48,7 +48,7 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 Jeśli ukończono poprzedni przewodnik [Szybki start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT](quickstart-send-telemetry-python.md), możesz pominąć ten krok.
 
@@ -157,7 +157,7 @@ Aplikacja zaplecza łączy się z punktem końcowym po stronie usługi w usłudz
 
     ![Zmiana w kliencie symulowanym](./media/quickstart-control-device-python/simulated-device-2.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

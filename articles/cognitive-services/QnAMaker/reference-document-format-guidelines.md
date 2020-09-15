@@ -1,14 +1,14 @@
 ---
 title: Wytyczne dotyczące formatu dokumentu importowania — QnA Maker
-description: Dowiedz się, jak typy adresów URL są używane do importowania i tworzenia par QnA.
+description: Skorzystaj z tych wytycznych dotyczących importowania dokumentów, aby uzyskać najlepsze wyniki dla zawartości.
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b94c8b3fd4d4c082e0bc49c6bd42d3b37e963988
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804337"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530781"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Wskazówki dotyczące formatu dla zaimportowanych dokumentów i adresów URL
 
@@ -16,7 +16,7 @@ Zapoznaj się z tymi wskazówkami dotyczącymi formatowania, aby uzyskać najlep
 
 ## <a name="formatting-considerations"></a>Zagadnienia dotyczące formatowania
 
-Po zaimportowaniu pliku lub adresu URL QnA Maker konwertuje i zapisuje zawartość w [formacie promocji](https://en.wikipedia.org/wiki/Markdown). Proces konwersji dodaje do tekstu nowe wiersze, takie jak `\n\n`. Wiedza o formacie promocji pozwala zrozumieć przekonwertowaną zawartość i zarządzać zawartością bazy wiedzy.
+Po zaimportowaniu pliku lub adresu URL QnA Maker konwertuje i zapisuje zawartość w [formacie promocji](https://en.wikipedia.org/wiki/Markdown). Proces konwersji dodaje do tekstu nowe wiersze, takie jak `\n\n` . Wiedza o formacie promocji pozwala zrozumieć przekonwertowaną zawartość i zarządzać zawartością bazy wiedzy.
 
 Jeśli dodasz lub edytujesz zawartość bezpośrednio w bazie wiedzy, użyj **formatowania promocji** w celu utworzenia zawartości tekstu sformatowanego lub zmiany zawartości formatu promocji, która jest już w odpowiedzi. QnA Maker obsługuje duży format promocji, aby zapewnić możliwość wprowadzenia tekstu sformatowanego do zawartości. Jednak aplikacja kliencka, taka jak rozmowa bot, może nie obsługiwać tego samego zestawu formatów promocji. Ważne jest, aby przetestować wyświetlanie odpowiedzi aplikacji klienta.
 
@@ -110,7 +110,7 @@ Importowanie bazy wiedzy zastępuje zawartość istniejącej bazy wiedzy. Import
 
 * Użyj nagłówków i nagłówków podrzędnych do określenia hierarchii. Na przykład można H1 do określenia elementu Parent QnA i H2, aby zauważyć QnA, które należy wykonać jako monit. Użyj małego rozmiaru nagłówka, aby zauważyć dalszą hierarchię. Nie używaj stylu, koloru ani innego mechanizmu, aby oznaczać strukturę w dokumencie, QnA Maker nie Wyodrębnij wyświetlonych przez siebie wierszy.
 * Pierwszy znak nagłówka musi być wielkimi literami.
-* Nie kończyj nagłówka ze znakiem zapytania `?`.
+* Nie kończyj nagłówka ze znakiem zapytania `?` .
 
 **Przykładowe dokumenty**:<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Korzyści firmy Contoso (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Zalety firmy Contoso (PDF)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 

@@ -4,12 +4,12 @@ description: Jak skonfigurować węzły transakcji usługi Azure łańcucha blok
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212568"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530390"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurowanie węzłów transakcji usługi Azure łańcucha bloków Service
 
@@ -40,7 +40,7 @@ Aby dodać węzeł transakcji:
     | Nazwa | Nazwa węzła transakcji. Nazwa służy do tworzenia adresu DNS dla punktu końcowego węzła transakcji. Na przykład `newnode-myblockchainmember.blockchain.azure.com`. Nazwy węzła nie można zmienić po jego utworzeniu. |
     | Hasło | Ustaw silne hasło. Użyj hasła, aby uzyskać dostęp do punktu końcowego węzła transakcji z uwierzytelnianiem podstawowym.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     Inicjowanie obsługi nowego węzła transakcji trwa około 10 minut. Dodatkowe węzły transakcji wiążą się z kosztami. Aby uzyskać więcej informacji o kosztach, zobacz [Cennik platformy Azure](https://aka.ms/ABSPricing).
 
@@ -52,7 +52,7 @@ Aby wyświetlić szczegóły punktu końcowego węzła transakcji:
 
 1. W Azure Portal przejdź do jednego z węzłów transakcji członków usługi Azure łańcucha bloków, a następnie wybierz pozycję **Przegląd**.
 
-    ![Punkty końcowe](./media/configure-transaction-nodes/endpoints.png)
+    ![Przechwytywanie ekranu pokazuje przegląd węzłów transakcji dla elementu członkowskiego łańcucha bloków.](./media/configure-transaction-nodes/endpoints.png)
 
 Punkty końcowe węzła transakcji są bezpieczne i wymagają uwierzytelniania. Można nawiązać połączenie z punktem końcowym transakcji przy użyciu uwierzytelniania usługi Azure AD, uwierzytelniania podstawowego HTTPS i przy użyciu klucza dostępu za pośrednictwem protokołu HTTPS lub protokołu WebSocket przez protokół TLS.
 

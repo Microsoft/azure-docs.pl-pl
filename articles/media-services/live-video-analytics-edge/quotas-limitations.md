@@ -1,14 +1,14 @@
 ---
-title: Analiza filmów wideo na żywo na IoT Edge przydziałów — Azure
+title: Analiza filmów wideo na żywo na IoT Edge przydziałów i ograniczeń — platforma Azure
 description: W tym artykule opisano przydziały i ograniczenia dotyczące usługi wideo na żywo w IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: df1978de4ee1bbbe15d0df3b02a70fb51491e9d2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750225"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529234"
 ---
 # <a name="quotas-and-limitations"></a>Limity przydziału i ograniczenia
 
@@ -65,6 +65,10 @@ W momencie wydania wersji zapoznawczej analiza filmów wideo na żywo na IoT Edg
 * Możliwość migrowania konta usługi multimediów z jednej subskrypcji do innej bez przerw w działaniu.
 * Możliwość korzystania z więcej niż jednego konta magazynu z kontem usługi Media.
 * Możliwość dynamicznego zmieniania informacji o jednostce usługi w odpowiednich właściwościach modułu bez ponownego uruchomienia.
+
+Można używać tylko kamer IP obsługujących protokół RTSP. Kamery IP obsługujące protokół RTSP można znaleźć na stronie [ONVIF zgodne produkty](https://www.onvif.org/conformant-products) . Wyszukaj urządzenia zgodne z profilami G, S lub T.
+
+Ponadto należy skonfigurować te aparaty do korzystania z wideo H. 264 i audio AAC. Inne kodery-dekoder nie są obecnie obsługiwane. 
 
 ## <a name="next-steps"></a>Następne kroki
 

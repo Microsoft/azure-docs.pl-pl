@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/15/2019
-ms.openlocfilehash: 38ec2d4619f47bf9fc4d1815cb6e9990cef72dcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: 2e90a8779322cf8967ca9a194c6cc760f7c8b8f5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606499"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532026"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformacja kolumn pochodnych w mapowaniu przepływu danych
 
@@ -20,25 +20,49 @@ ms.locfileid: "81606499"
 
 Użyj przekształcenia kolumn pochodnych, aby wygenerować nowe kolumny w przepływie danych lub zmodyfikować istniejące pola.
 
-## <a name="derived-column-settings"></a>Ustawienia kolumn pochodnych
+## <a name="create-and-update-columns"></a>Tworzenie i aktualizowanie kolumn
 
-Aby zastąpić istniejącą kolumnę, wybierz ją za pomocą listy rozwijanej kolumny. W przeciwnym razie użyj pola wybór kolumny jako pola tekstowego i wpisz nazwę nowej kolumny. Aby utworzyć wyrażenie kolumny pochodnej, kliknij pole "wprowadź wyrażenie", aby otworzyć [konstruktora wyrażeń przepływu danych](concepts-data-flow-expression-builder.md).
+Podczas tworzenia kolumny pochodnej można wygenerować nową kolumnę lub zaktualizować istniejącą. W **kolumnie** pole tekstowe wpisz w tworzonej kolumnie. Aby zastąpić istniejącą kolumnę w schemacie, można użyć listy rozwijanej kolumny. Aby utworzyć wyrażenie kolumny pochodnej, kliknij pole tekstowe **wprowadź wyrażenie** . Możesz rozpocząć wpisywanie wyrażenia lub otworzyć Konstruktora wyrażeń, aby utworzyć logikę.
 
-![Ustawienia kolumn pochodnych](media/data-flow/dc1.png "Ustawienia kolumn pochodnych")
+![Ustawienia kolumn pochodnych](media/data-flow/create-derive-column.png "Ustawienia kolumn pochodnych")
 
-Aby dodać dodatkowe kolumny pochodne, umieść kursor na istniejącej kolumnie pochodnej i kliknij ikonę znaku plus. Wybierz opcję **Dodaj kolumnę** lub **Dodaj wzorzec kolumny**. Wzorce kolumn mogą być przydatne, jeśli nazwy kolumn są zmienne ze źródeł. Aby uzyskać więcej informacji, zobacz [wzorce kolumn](concepts-data-flow-column-pattern.md).
+Aby dodać więcej kolumn pochodnych, kliknij pozycję **Dodaj** powyżej listy kolumn lub ikonę znaku plus obok istniejącej kolumny pochodnej. Wybierz opcję **Dodaj kolumnę** lub **Dodaj wzorzec kolumny**.
 
-![Nowy wybór kolumny pochodnej](media/data-flow/columnpattern.png "Nowy wybór kolumny pochodnej")
+![Nowy wybór kolumny pochodnej](media/data-flow/add-derived-column.png "Nowy wybór kolumny pochodnej")
 
-## <a name="build-schemas-in-output-schema-pane"></a>Kompiluj schematy w okienku schematu danych wyjściowych
+### <a name="column-patterns"></a>Wzorce kolumn
 
-Kolumny modyfikowane i dodawane do schematu są wyświetlane w okienku schematu danych wyjściowych. W tym miejscu możesz interaktywnie kompilować proste i złożone struktury danych. Aby dodać dodatkowe pola, wybierz pozycję **Dodaj kolumnę**. Aby utworzyć hierarchie, wybierz pozycję **Dodaj podkolumnę**.
+W przypadkach, gdy schemat nie jest jawnie zdefiniowany lub chcesz zaktualizować zestaw kolumn zbiorczo, należy utworzyć kolumnę patters. Wzorce kolumn umożliwiają dopasowywanie kolumn przy użyciu reguł opartych na metadanych kolumn i tworzenie kolumn pochodnych dla każdej dopasowanej kolumny. Aby uzyskać więcej informacji, zapoznaj się [z informacjami na temat tworzenia wzorców kolumn](concepts-data-flow-column-pattern.md#column-patterns-in-derived-column-and-aggregate) w transformację kolumn pochodnych.
 
-![Dodaj podkolumnę](media/data-flow/addsubcolumn.png "Dodaj podkolumnę")
+![Wzorce kolumn](media/data-flow/column-pattern-derive.png "Wzorce kolumn")
+
+## <a name="building-schemas-using-the-expression-builder"></a>Kompilowanie schematów przy użyciu Konstruktora wyrażeń
+
+Podczas korzystania z [konstruktora wyrażeń](concepts-data-flow-expression-builder.md)przepływu danych mapowania można tworzyć, edytować i zarządzać kolumnami pochodnymi w sekcji **kolumny pochodne** . Zostanie wyświetlona lista wszystkich kolumn utworzonych lub zmienionych w transformacji. Interaktywnie wybierz kolumnę lub wzorzec, który edytujesz, klikając nazwę kolumny. Aby dodać dodatkową kolumnę, wybierz pozycję **Utwórz nową** , a następnie wybierz, czy chcesz dodać pojedynczą kolumnę, czy wzorzec.
+
+![Utwórz nową kolumnę](media/data-flow/derive-add-column.png "Utwórz nową kolumnę")
+
+Podczas pracy z złożonymi kolumnami można tworzyć podkolumny. Aby to zrobić, kliknij ikonę plus obok dowolnej kolumny i wybierz pozycję **Dodaj podkolumnę**. Aby uzyskać więcej informacji na temat obsługi typów złożonych w przepływie danych, zobacz [Obsługa JSON w mapowaniu przepływu danych](format-json.md#mapping-data-flow-properties).
+
+![Dodaj podkolumnę](media/data-flow/derive-add-subcolumn.png "Dodaj podkolumnę")
 
 Aby uzyskać więcej informacji na temat obsługi typów złożonych w przepływie danych, zobacz [Obsługa JSON w mapowaniu przepływu danych](format-json.md#mapping-data-flow-properties).
 
-![Dodawanie złożonej kolumny](media/data-flow/complexcolumn.png "Dodawanie kolumn")
+![Dodawanie złożonej kolumny](media/data-flow/derive-complex-column.png "Dodawanie kolumn")
+
+### <a name="locals"></a>Zmienne lokalne
+
+Jeśli udostępniasz logikę w wielu kolumnach lub chcesz compartmentalize logikę, możesz utworzyć lokalną w ramach przekształcenia kolumn pochodnych. Local to zestaw logiki, który nie jest propagowany do następującej transformacji. Elementy lokalne można tworzyć w ramach konstruktora wyrażeń, przechodząc do **elementów Expression** i wybierając pozycję **locale**. Utwórz nowy element, wybierając pozycję **Utwórz nowy**.
+
+![Utwórz lokalne](media/data-flow/create-local.png "Utwórz lokalne")
+
+Elementy lokalne mogą odwoływać się do dowolnego elementu wyrażenia w kolumnie pochodnej, w tym funkcji, schematu wejściowego, parametrów i innych zmiennych lokalnych. W przypadku odwoływania się do innych elementów lokalnych kolejność jest określana jako "powyżej" jako "powyżej".
+
+![Utwórz lokalne 2](media/data-flow/create-local-2.png "Utwórz lokalne 2")
+
+Aby odwołać się do lokalnego w kolumnie pochodnej, kliknij element lokalny w widoku **elementów wyrażenia** lub odwołuje się do niego dwukropek przed jego nazwą. Na przykład w przypadku lokalnego o nazwie local1 będzie przywoływany `:local1` . Aby edytować definicję lokalną, umieść kursor nad nim w widoku elementy wyrażenia i kliknij ikonę ołówka.
+
+![Używanie zmiennych lokalnych](media/data-flow/using-locals.png "Używanie zmiennych lokalnych")
 
 ## <a name="data-flow-script"></a>Skrypt przepływu danych
 
@@ -63,7 +87,7 @@ Poniższy przykład jest kolumną pochodną o nazwie `CleanData` , która przyjm
 
 W Data Factory środowisku użytkownika Ta transformacja wygląda jak na poniższym obrazie:
 
-![Utwórz przykład](media/data-flow/derive-script1.png "Utwórz przykład")
+![Utwórz przykład](media/data-flow/derive-script.png "Utwórz przykład")
 
 Skrypt przepływu danych dla tego przekształcenia znajduje się w poniższym fragmencie kodu:
 

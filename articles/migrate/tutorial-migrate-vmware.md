@@ -4,12 +4,12 @@ description: Dowiedz się, jak uruchomić migrację maszyn wirtualnych VMware be
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: c9a7e76496c2851b90c8fd1d164645c46d02609b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 37181246a20044f16414735e2247fa90fc36433b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376041"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530526"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (bez wykorzystania agentów)
 
@@ -121,7 +121,7 @@ Aby włączyć replikację:
 
 11. W obszarze **Dyski** określ, czy dyski maszyn wirtualnych mają być replikowane na platformę Azure, a następnie wybierz typ dysku (standardowe dyski SSD/dyski twarde lub dyski zarządzane w warstwie Premium) na platformie Azure. Następnie kliknij przycisk **Dalej**.
    
-    ![Dyski](./media/tutorial-migrate-vmware/disks.png)
+    ![Zrzut ekranu przedstawia kartę dyski okna dialogowego replikacja.](./media/tutorial-migrate-vmware/disks.png)
 
 12. W obszarze **Przegląd i rozpoczynanie replikacji** sprawdź ustawienia, a następnie kliknij pozycję **Replikuj**, aby uruchomić replikację początkową dla serwerów.
 

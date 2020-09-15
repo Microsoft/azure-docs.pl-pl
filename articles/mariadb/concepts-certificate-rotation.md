@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: ba5a1a0eb61ca086c3cd1ea66acddc18e950871d
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3c91da6a9bfc7bfa23255dbc1c0c76d2f59818f1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057248"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530560"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dotyczące Azure Database for MariaDB
 
@@ -87,7 +87,7 @@ Jeśli nie używasz protokołu SSL/TLS, akcje nie są wymagane.
 Nie, nie trzeba ponownie uruchamiać serwera bazy danych, aby rozpocząć korzystanie z nowego certyfikatu. Jest to zmiana po stronie klienta, a połączenia klientów przychodzących muszą używać nowego certyfikatu, aby upewnić się, że mogą łączyć się z serwerem bazy danych.
 
 ### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. co się stanie, jeśli nie zaktualizuję certyfikatu głównego przed 26 października 2020 (10/26/2020)?
-Jeśli certyfikat główny nie zostanie zaktualizowany do 30 listopada 2020, aplikacje, które łączą się za pośrednictwem protokołu SSL/TLS i sprawdzają, czy certyfikat główny nie będą mogły komunikować się z serwerem bazy danych MariaDB, a aplikacja będzie powodować problemy z łącznością z serwerem bazy danych MariaDB.
+Jeśli certyfikat główny nie zostanie zaktualizowany do 26 października 2020, aplikacje łączące się za pośrednictwem protokołu SSL/TLS i weryfikacja certyfikatu głównego nie będą mogły komunikować się z serwerem bazy danych MariaDB, a aplikacja będzie mieć problemy z łącznością z serwerem bazy danych MariaDB.
 
 ### <a name="4-do-i-need-to-plan-a-maintenance-downtime-for-this-changebr"></a>4. Czy muszę zaplanować przestoje związane z konserwacją tej zmiany?<BR>
 Nie. Ze względu na to, że zmiana ta jest dostępna tylko po stronie klienta, aby połączyć się z serwerem bazy danych, w tym przypadku nie jest wymagane przestoje związane z konserwacją.
@@ -95,7 +95,7 @@ Nie. Ze względu na to, że zmiana ta jest dostępna tylko po stronie klienta, a
 ### <a name="5--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>5. co zrobić, jeśli nie mogę uzyskać zaplanowanego przestoju dla tej zmiany przed 26 października 2020 (10/26/2020)?
 Ponieważ klienci używani do łączenia się z serwerem muszą zaktualizować informacje o certyfikacie zgodnie z opisem w sekcji poprawka [tutaj](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), w tym przypadku nie ma potrzeby przestoju serwera.
 
-###  <a name="6-if-i-create-a-new-server-after-nov-30th-will-i-be-impacted"></a>6. Jeśli Tworzę nowy serwer po lis 30, wpłynie to na to, czego dotyczy problem?
+###  <a name="6-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>6. Jeśli po 26 października 2020 zostanie utworzony nowy serwer, wpłynie to na to, co będzie miało wpływ?
 W przypadku serwerów utworzonych po 26 października 2020 (10/26/2020) można użyć nowo wystawionego certyfikatu dla aplikacji w celu nawiązania połączenia przy użyciu protokołu SSL.
 
 ### <a name="7-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>7. jak często firma Microsoft aktualizuje swoje certyfikaty lub jakie są zasady wygasania?

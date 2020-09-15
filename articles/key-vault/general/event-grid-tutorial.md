@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 034bdce96d88deb31a071682a3c02200a64699dd
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d7bb697879f40b45c886cd90bbb1e34906d35f66
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087576"
+ms.locfileid: "90530509"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Odbieraj powiadomienia magazynu kluczy i odpowiadaj na nie za pomocą Azure Event Grid
 
@@ -197,6 +197,6 @@ Więcej informacji:
 - Przegląd: [monitorowanie Key Vault z Azure Event Grid](event-grid-overview.md)
 - Instrukcje: [otrzymywanie wiadomości e-mail po zmianie wpisu tajnego magazynu kluczy](event-grid-logicapps.md)
 - [Schemat zdarzeń Azure Event Grid dla Azure Key Vault](../../event-grid/event-schema-key-vault.md)
-- [Przegląd Azure Key Vault](overview.md))
+- [Przegląd Azure Key Vault](overview.md)
 - [Omówienie usługi Azure Event Grid](../../event-grid/overview.md)
 - [Przegląd Azure Automation](../../automation/index.yml)

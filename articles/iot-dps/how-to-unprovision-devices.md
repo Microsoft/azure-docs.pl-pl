@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294394"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531393"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Jak anulować obsługę administracyjną urządzeń, które były wcześniej inicjowane samoobsługowo 
 
@@ -43,7 +43,7 @@ Aby anulować obsługę administracyjną urządzenia, które ma rejestrację ind
 
 
 ## <a name="enrollment-groups"></a>Grupy rejestracji
-Za pomocą zaświadczania X. 509 urządzenia mogą być również obsługiwane za pomocą grupy rejestracji. Grupy rejestracji są konfigurowane przy użyciu certyfikatu podpisywania, certyfikatu pośredniego lub głównego urzędu certyfikacji i kontroli dostępu do usługi aprowizacji dla urządzeń z tym certyfikatem w łańcuchu certyfikatów. Aby dowiedzieć się więcej o grupach rejestracji i certyfikatach X. 509 z usługą aprowizacji, zobacz [certyfikaty x. 509](concepts-security.md#x509-certificates). 
+Za pomocą zaświadczania X. 509 urządzenia mogą być również obsługiwane za pomocą grupy rejestracji. Grupy rejestracji są konfigurowane przy użyciu certyfikatu podpisywania, certyfikatu pośredniego lub głównego urzędu certyfikacji i kontroli dostępu do usługi aprowizacji dla urządzeń z tym certyfikatem w łańcuchu certyfikatów. Aby dowiedzieć się więcej o grupach rejestracji i certyfikatach X. 509 z usługą aprowizacji, zobacz [zaświadczenie certyfikatu x. 509](concepts-x509-attestation.md). 
 
 Aby wyświetlić listę urządzeń, które zostały zainicjowane za pomocą grupy rejestracji, można wyświetlić szczegóły grupy rejestracji. Jest to prosty sposób na zrozumienie, które Centrum IoT Hub zostało zainicjowane dla każdego urządzenia. Aby wyświetlić listę urządzeń: 
 

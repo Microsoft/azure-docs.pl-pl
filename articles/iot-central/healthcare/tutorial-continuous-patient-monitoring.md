@@ -1,6 +1,6 @@
 ---
-title: Tworzenie ciągłej aplikacji do monitorowania pacjenta przy użyciu usługi Azure IoT Central | Microsoft Docs
-description: Dowiedz się, jak utworzyć aplikację do monitorowania ciągłego pacjenta przy użyciu szablonów aplikacji IoT Central platformy Azure.
+title: Samouczek — Tworzenie ciągłej aplikacji do monitorowania pacjenta przy użyciu usługi Azure IoT Central | Microsoft Docs
+description: W ramach tego samouczka nauczysz się tworzyć ciągłe aplikacje do monitorowania pacjenta przy użyciu szablonów aplikacji platformy Azure IoT Central.
 author: philmea
 ms.author: philmea
 ms.date: 09/24/2019
@@ -8,18 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 704c56745ad89e9ed2f79e8a863f1d0bc9845bf9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001829"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531274"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Samouczek: wdrażanie i Instruktaż szablonu aplikacji do monitorowania ciągłego pacjenta
 
-
-
-W tym samouczku pokazano, jak uzyskać Konstruktor rozwiązań, jak rozpocząć pracę, wdrażając szablon aplikacji do monitorowania ciągłego pacjenta IoT Central. Dowiesz się, jak wdrożyć szablon, co jest dołączone do pola i co możesz zrobić dalej.
+W tym samouczku pokazano, jak uzyskać Konstruktor rozwiązań, jak rozpocząć pracę, wdrażając szablon aplikacji do monitorowania ciągłego pacjenta IoT Central. Dowiesz się, jak wdrożyć szablon i korzystać z niego.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -29,12 +27,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="create-an-application-template"></a>Tworzenie szablonu aplikacji
 
-Przejdź do [witryny sieci Web programu Azure IoT Central Application Manager](https://apps.azureiotcentral.com/). Wybierz pozycję **kompilacja** na pasku nawigacyjnym po lewej stronie, a następnie kliknij kartę **opieka medyczna** . 
+Przejdź do [witryny sieci Web programu Azure IoT Central Application Manager](https://apps.azureiotcentral.com/). Wybierz pozycję **kompilacja** na pasku nawigacyjnym po lewej stronie, a następnie wybierz kartę **opieka medyczna** .
 
->[!div class="mx-imgBorder"] 
->![Opieka zdrowotna programu App Manager](media/app-manager-health.png)
+:::image type="content" source="media/app-manager-health.png" alt-text="Szablon aplikacji Healthcre":::
 
-Kliknij przycisk **Utwórz aplikację** , aby rozpocząć tworzenie aplikacji, a następnie zaloguj się przy użyciu konta osobistego, służbowego lub szkolnego firmy Microsoft. Spowoduje to przejście do strony **nowej aplikacji** .
+Wybierz przycisk **Utwórz aplikację** , aby rozpocząć tworzenie aplikacji, a następnie zaloguj się przy użyciu konta osobistego, służbowego lub szkolnego firmy Microsoft. Spowoduje to przejście do strony **nowej aplikacji** .
 
 ![Tworzenie opieki zdrowotnej aplikacji](media/app-manager-health-create.png)
 
@@ -52,7 +49,7 @@ Aby utworzyć aplikację:
 
 ### <a name="dashboards"></a>Pulpity nawigacyjne
 
-Po wdrożeniu szablonu aplikacji należy najpierw **obstawić pulpit nawigacyjny monitorowania Lamna**. Lamna opieka medyczna to fikcyjny system szpitaly, który zawiera dwie szpitale: Szpital szpital i Burkville. Na tym pulpicie nawigacyjnym operatora dla szpitala Woodgrove zobaczysz informacje i dane telemetryczne dotyczące urządzeń w tym szablonie wraz z zestawem poleceń, zadań i akcji, które można wykonać. Na pulpicie nawigacyjnym możesz:
+Po wdrożeniu szablonu aplikacji należy najpierw **obstawić pulpit nawigacyjny monitorowania Lamna**. Lamna opieka medyczna to fikcyjny system szpitaly, który zawiera dwie szpitale: Szpital szpital i Burkville. Na pulpicie nawigacyjnym operatora szpitala Woodgrove można:
 
 * Zobacz dane telemetryczne i właściwości urządzenia, takie jak **poziom baterii** urządzenia lub stan **łączności** .
 
@@ -64,75 +61,69 @@ Po wdrożeniu szablonu aplikacji należy najpierw **obstawić pulpit nawigacyjny
 
 * Zmień **stan pacjenta** urządzenia, aby wskazać, czy urządzenie jest używane dla pacjenta lub zdalnego scenariusza.
 
->[!div class="mx-imgBorder"] 
->![Lamna](media/lamna-in-patient.png)
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Stan w pacjentów":::
 
-Możesz również kliknąć przycisk **Przejdź do pulpitu nawigacyjnego zdalnego pacjenta** , aby zobaczyć drugi pulpit nawigacyjny operatora używany na potrzeby szpitala Burkville. Ten pulpit nawigacyjny zawiera podobny zestaw akcji, telemetrii i informacji. Ponadto można zobaczyć wiele używanych urządzeń i mieć możliwość **aktualizowania oprogramowania układowego** na każdym z nich.
+Możesz również wybrać pozycję **Przejdź do pulpitu nawigacyjnego zdalnego pacjenta** , aby wyświetlić pulpit nawigacyjny operatora Burkville szpital. Ten pulpit nawigacyjny zawiera podobny zestaw akcji, telemetrii i informacji. Można także zobaczyć wiele urządzeń w użyciu i wybrać **aktualizację oprogramowania układowego** na każdym z nich.
 
->[!div class="mx-imgBorder"] 
->![Lamna zdalnego](media/lamna-remote.png)
-
-Na obu pulpitach nawigacyjnych zawsze możesz połączyć się z tą dokumentacją.
+:::image type="content" source="media/lamna-remote.png" alt-text="Pulpit nawigacyjny operatora zdalnego":::
 
 ### <a name="device-templates"></a>Szablony urządzeń
 
-Po kliknięciu karty **Szablony urządzeń** zobaczysz, że istnieją dwa różne typy urządzeń, które są częścią szablonu:
+Jeśli wybierzesz pozycję **Szablony urządzeń**, zobaczysz dwa typy urządzeń w szablonie:
 
-* **Poprawka inteligentnych elementów istotnych**: to urządzenie reprezentuje poprawkę, która mierzy różne typy znaków istotnych. Może służyć do monitorowania pacjentów w i poza szpitalem. Jeśli klikniesz szablon, zobaczysz, że oprócz wysyłania danych urządzenia, takich jak poziom baterii i temperatura urządzenia, Poprawka również wysyła dane dotyczące kondycji pacjenta, takie jak szybkość układu oddechowego i nacisk krwi.
+* **Poprawka inteligentnych elementów istotnych**: to urządzenie reprezentuje poprawkę, która mierzy różne istotne oznaki. Służy do monitorowania pacjentów w i poza szpitalem. Jeśli wybierzesz szablon, zobaczysz, że poprawka wysyła zarówno dane dotyczące urządzenia, jak i temperatury baterii oraz dane dotyczące kondycji pacjenta, takie jak szybkość oddechu i nacisk krwi.
 
-* **Inteligentny nawiasy klamrowe**: to urządzenie reprezentuje nawiasy klamrowe, które mogą być używane podczas odzyskiwania z chirurgu do zastępowania kolan. Po kliknięciu tego szablonu zobaczysz możliwości, takie jak zakres ruchu i przyspieszanie, oprócz danych urządzenia.
+* **Inteligentne nawiasy klamrowe**: to urządzenie reprezentuje nawiasy klamrowe używane podczas odzyskiwania z chirurgu do zastępowania kolan. Jeśli wybierzesz ten szablon, zobaczysz możliwości, takie jak dane urządzenia, zakres ruchu i przyspieszenie.
 
->[!div class="mx-imgBorder"] 
->![Szablon urządzenia z poprawkami inteligentnymi](media/smart-vitals-device-template.png)
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Szablon poprawki inteligentnej":::
 
-### <a name="device-groups"></a>Grupy urządzeń 
-Grupy urządzeń umożliwiają logiczne grupowanie zestawu urządzeń, a następnie wykonywanie zapytań zbiorczych lub operacji nad nimi. 
+### <a name="device-groups"></a>Grupy urządzeń
 
-Po kliknięciu karty grupy urządzeń zobaczymy, że dla każdego z szablonów urządzeń w aplikacji zostały utworzone domyślne grupy urządzeń. Zauważymy, że utworzono również dwie dodatkowe przykładowe grupy urządzeń o nazwie "Inicjowanie urządzeń" i "urządzenia z nieaktualnym oprogramowaniem układowym". Te przykładowe grupy urządzeń będą używane jako dane wejściowe do uruchamiania niektórych [zadań](#jobs).
+Grupy urządzeń służą do logicznego grupowania zestawu urządzeń, a następnie uruchamiania zapytań zbiorczych lub operacji na nich.
+
+W przypadku wybrania karty grupy urządzeń zostanie wyświetlona domyślna grupa urządzeń dla każdego szablonu urządzenia w aplikacji. Utworzono również dwie dodatkowe przykładowe grupy urządzeń o nazwie **Inicjowanie urządzeń** i **urządzeń z nieaktualnym oprogramowaniem układowym**. Tych przykładowych grup urządzeń można użyć jako danych wejściowych do uruchamiania niektórych [zadań](#jobs) w aplikacji.
 
 ### <a name="rules"></a>Reguły
 
-Gdy przejdziesz do karty reguły, zobaczysz trzy reguły, które istnieją w szablonie aplikacji:
+Jeśli wybierzesz pozycję **reguły**, zobaczysz trzy reguły w szablonie:
 
-* **Temperatura nawiasu klamrowego**: Ta reguła jest wyzwalana, gdy temperatura urządzenia w nawiasach klamrowych jest większa niż 95 &deg; F w przypadku 5-minutowego okna. Ta reguła może być używana do powiadamiania pacjenta i zespołu opieki i zdalnego urządzenia.
+* **Temperatura nawiasu klamrowego wysoka**: Ta zasada wyzwala, gdy temperatura urządzenia w nawiasach klamrowych jest większa niż 95 &deg; F w przypadku 5-minutowego okna. Ta reguła umożliwia wygenerowanie alertów dla pacjenta i zespołu opieki oraz zdalne chłodzenie urządzenia.
 
-* **Wykryto spadek**: Ta reguła jest wyzwalana w przypadku wykrycia pacjenta. Za pomocą tej reguły można skonfigurować akcję do wdrożenia zespołu operacyjnego, aby pomóc pacjenta, który spadł.
+* **Wykryto spadek**: Ta reguła jest wyzwalana w przypadku wykrycia pacjenta. Ta reguła służy do konfigurowania akcji do wdrożenia zespołu operacyjnego w celu ułatwienia pacjentowi, który spadł.
 
-* **Niski poziom baterii poprawek**: Ta reguła jest wyzwalana, gdy poziom baterii urządzenia spadnie poniżej 10%. Możesz użyć tej reguły, aby wyzwolić powiadomienie dla pacjenta, aby obciążać swoje urządzenie.
+* **Niski poziom baterii poprawek**: Ta reguła jest wyzwalana, gdy poziom baterii urządzenia spadnie poniżej 10%. Użyj tej reguły, aby wyzwolić powiadomienie dla pacjenta o naliczeniu urządzenia.
 
->[!div class="mx-imgBorder"] 
->![Wysoka reguła temperatury nawiasów klamrowych](media/brace-temp-rule.png)
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Przepisy":::
 
 ### <a name="jobs"></a>Stanowiska
 
-Zadania umożliwiają uruchamianie operacji zbiorczych na zestawie urządzeń przy użyciu [grup urządzeń](#device-groups) jako danych wejściowych. Szablon aplikacji został rozsiany dwoma przykładowymi zadaniami, które mogą być konieczne do uruchomienia operatora rozwiązania w pewnym momencie cyklu życia urządzeń:
-* **Aktualizowanie oprogramowania układowego w nawiasach klamrowych**: to zadanie spowoduje znalezienie urządzeń w grupie urządzeń z nieaktualnym oprogramowaniem układowym i uruchomienie polecenia w celu zaktualizowania tych urządzeń do najnowszej wersji oprogramowania układowego w nawiasach kolanowych. W tym przykładowym zadaniu założono, że urządzenia mają możliwość otrzymywania polecenia "Update" i bezpośredniego pobierania plików oprogramowania układowego z chmury.  
+Zadania umożliwiają uruchamianie operacji zbiorczych na zestawie urządzeń przy użyciu [grup urządzeń](#device-groups) jako danych wejściowych. Szablon aplikacji zawiera dwa przykładowe zadania, które mogą być uruchamiane przez operatora:
 
-* **Ponowne Inicjowanie obsługi administracyjnej urządzeń**: Jeśli masz zestaw urządzeń, które zostały ostatnio zwrócone do szpitala i trzeba będzie ponownie zainicjować obsługę dla następnego zestawu pacjentów, możesz uruchomić to zadanie, aby zaktualizować zbiorczo urządzenia. W takim przypadku pobieramy wszystkie urządzenia z grupy urządzeń o nazwie "Inicjowanie urządzeń" i wykonujemy polecenie, aby udostępnić je. 
+* **Aktualizowanie oprogramowania układowego w nawiasach klamrowych**: to zadanie umożliwia znalezienie urządzeń w grupie urządzeń **z nieaktualnym oprogramowaniem układowym** i uruchomienie polecenia w celu zaktualizowania tych urządzeń do najnowszej wersji oprogramowania układowego. W tym przykładowym zadaniu założono, że urządzenia mogą obsługiwać polecenie **Update** , a następnie pobierać pliki oprogramowania układowego z chmury.  
 
-### <a name="devices"></a>Urządzenia
+* **Ponowne Inicjowanie obsługi administracyjnej urządzeń**: masz zestaw urządzeń, które zostały ostatnio zwrócone do szpitala. To zadanie umożliwia odnalezienie urządzeń w **grupie urządzeń** i uruchomienie polecenia, aby ponownie zainicjować obsługę administracyjną dla następnego zestawu pacjentów.
 
-Kliknij kartę **urządzenia** , a następnie wybierz wystąpienie **inteligentnego nawiasu kolanowego**. Zobaczysz, że istnieją trzy widoki umożliwiające Eksplorowanie informacji o konkretnym wybranym urządzeniu. Te widoki są tworzone i publikowane podczas kompilowania szablonu urządzenia dla urządzenia, co oznacza, że będą one spójne na wszystkich urządzeniach, które są połączone lub symulowane.
+### <a name="devices"></a>Devices
 
-Widok **pulpitu nawigacyjnego** zawiera przegląd danych telemetrycznych i właściwości, które pochodzą z urządzenia, które są zorientowane na operator.
+Wybierz kartę **urządzenia** , a następnie wybierz wystąpienie **inteligentnego nawiasu kolanowego**. Istnieją trzy widoki umożliwiające Eksplorowanie informacji o konkretnym wybranym urządzeniu. Te widoki są tworzone i publikowane podczas kompilowania szablonu urządzenia dla urządzenia. w związku z tym te widoki są spójne na wszystkich urządzeniach, które są połączone lub symulowane.
 
-Karta **Właściwości** umożliwia edytowanie właściwości chmury oraz właściwości urządzeń do odczytu i zapisu.
+Widok **pulpitu nawigacyjnego** zawiera przegląd danych telemetrycznych i właściwości związanych z operatorem z urządzenia.
 
-Karta **polecenia** umożliwia uruchamianie poleceń, które zostały modelowane jako część szablonu urządzenia.
+Karta **Właściwości** umożliwia edytowanie właściwości chmury i właściwości urządzenia do odczytu i zapisu.
 
->[!div class="mx-imgBorder"] 
->![Widoki w nawiasach klamrowych](media/knee-brace-dashboard.png)
+Karta **polecenia** umożliwia uruchamianie poleceń na urządzeniu.
+
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Pulpit nawigacyjny kolana":::
 
 ### <a name="data-export"></a>Eksportowanie danych
 
-Eksport danych umożliwia ciągłe eksportowanie danych z urządzenia IoT Central do innych usług platformy Azure, w tym [interfejsu API platformy Azure dla FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
+Eksport danych umożliwia ciągłe eksportowanie danych urządzenia do innych usług platformy Azure, w tym [interfejsu API platformy Azure dla usługi FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń aplikację, odwiedzając pozycję **administracja > ustawienia aplikacji** , a następnie kliknij przycisk **Usuń**.
 
->[!div class="mx-imgBorder"] 
->![Usuń aplikację](media/admin-delete.png)
+:::image type="content" source="media/admin-delete.png" alt-text="Zasoby uporządkowanego":::
 
 ## <a name="next-steps"></a>Następne kroki
 

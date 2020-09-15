@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: a83191fd29e0cda4bc398f6a46a0d2ebf9631665
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 18de210d817ee309ac4970ecea6b62f6ef03ef02
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068051"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530407"
 ---
 # <a name="common-questions"></a>Często zadawane pytania
 
@@ -50,7 +50,7 @@ Korzystając z funkcji przenoszenia zasobów, można obecnie przenosić następu
 
 Możesz zmienić subskrypcję po przeniesieniu zasobów do regionu docelowego. [Dowiedz się więcej](../azure-resource-manager/management/move-resource-group-and-subscription.md) o przenoszeniu zasobów do innej subskrypcji. 
 
-### <a name="where-is-the-metadata-about-a-region-move-stored"></a>Gdzie są przechowywane metadane dotyczące przenoszenia regionu?
+### <a name="where-is-the-metadata-for-moving-across-regions-stored"></a>Gdzie znajdują się metadane przenoszone między regionami?
 
 Jest on przechowywany w bazie danych [usługi Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) , a w [usłudze Azure Blob Storage](../storage/common/storage-service-encryption.md)w ramach subskrypcji firmy Microsoft. Obecnie metadane są przechowywane w regionach Wschodnie stany USA 2 i Europa Północna. To pokrycie zostanie rozszerzone na inne regiony. Nie pozwala to na przeniesienie zasobów między wszystkimi regionami publicznymi.
 

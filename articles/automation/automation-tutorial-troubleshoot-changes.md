@@ -7,12 +7,12 @@ keywords: zmiany, śledzenie, śledzenie zmian, spis, Automatyzacja
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05b99c7f010ad307956b70890ee45f649111b373
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185810"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530543"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej platformy Azure
 
@@ -99,7 +99,7 @@ Funkcja śledzenia zmian umożliwia wybranie plików i kluczy rejestru do zbiera
     |---------|---------|
     |Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
     |Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
-    |Grupa     | Nazwa grupy do logicznego grupowania plików        |
+    |Group (Grupa)     | Nazwa grupy do logicznego grupowania plików        |
     |Klucz rejestru systemu Windows   | Ścieżka do sprawdzania pliku, na przykład: „HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
 
 ### <a name="add-a-windows-file"></a>Dodawanie pliku systemu Windows
@@ -112,7 +112,7 @@ Funkcja śledzenia zmian umożliwia wybranie plików i kluczy rejestru do zbiera
     |---------|---------|
     |Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
     |Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
-    |Grupa     | Nazwa grupy do logicznego grupowania plików        |
+    |Group (Grupa)     | Nazwa grupy do logicznego grupowania plików        |
     |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład: „c:\temp\\\*.txt”<br>Możesz użyć również zmiennych środowiskowych, takich jak „%winDir%\System32\\\*.*”         |
     |Rekursja     | Określa, czy podczas wyszukiwania elementu, który ma być śledzony, ma być używana rekursja.        |
     |Przekaż zawartość pliku dla wszystkich ustawień| Włącza lub wyłącza przekazywanie zawartości pliku dla śledzonych zmian. Dostępne opcje: **True** lub **False**.|
@@ -127,7 +127,7 @@ Funkcja śledzenia zmian umożliwia wybranie plików i kluczy rejestru do zbiera
     |---------|---------|
     |Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
     |Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
-    |Grupa     | Nazwa grupy do logicznego grupowania plików        |
+    |Group (Grupa)     | Nazwa grupy do logicznego grupowania plików        |
     |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład: „/etc/*.conf”       |
     |Typ ścieżki     | Typ elementu, który ma być monitorowany; możliwe wartości to Plik i Katalog        |
     |Rekursja     | Określa, czy podczas wyszukiwania elementu, który ma być śledzony, ma być używana rekursja.        |
@@ -218,9 +218,9 @@ Wyświetlanie zmian wprowadzonych w witrynie Azure Portal może być przydatne, 
 
 18. Aby dostosować temat wiadomości e-mail dotyczącej alertu, wybierz pozycję **Dostosuj akcje**. 
 
-19. W obszarze **Utwórz regułę**wybierz pozycję **temat wiadomości e-mail**, a następnie wybierz pozycję **Utwórz regułę alertu**. Alert informuje użytkownika o pomyślnym wdrożeniu aktualizacji oraz o maszynach będących elementami danego uruchomienia wdrożenia aktualizacji. Poniższa ilustracja przedstawia przykładową wiadomość e-mail odebraną po zatrzymaniu usługi W3SVC.
+19. W obszarze **Utwórz regułę**wybierz pozycję **temat wiadomości e-mail**, a następnie wybierz pozycję **Utwórz regułę alertu**. Alert informuje użytkownika o pomyślnym wdrożeniu aktualizacji oraz o maszynach będących elementami danego uruchomienia wdrożenia aktualizacji. Poniższa ilustracja przedstawia przykład wiadomości e-mail otrzymanej po zatrzymaniu usługi W3SVC.
 
-    ![poczta e-mail](./media/automation-tutorial-troubleshoot-changes/email.png)
+    ![Przechwytywanie ekranu pokazuje powiadomienie e-mail odebrane, gdy usługi W wersji 3 S V są zatrzymane.](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 82bd284ede23e8880f79c614f4a6e2f588a4293c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b2648382fb19fafcfc342379aa9da974f6f8d1ff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74976999"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528423"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Szybki Start: Tworzenie i Inicjowanie symulowanego urządzenia TPM za pomocą zestawu SDK języka C# dla IoT Hub Device Provisioning Service
 
@@ -23,7 +23,7 @@ Te kroki pokazują, jak symulować urządzenie TPM na maszynie deweloperskiej z 
 
 Przykład kodu używa symulatora modułu Windows TPM jako [sprzętowego modułu zabezpieczeń (HSM, hardware security module)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) urządzenia. 
 
-Jeśli nie znasz procesu autoaprowizacji, pamiętaj również o zapoznaniu się z tematami [autouzupełniania](concepts-auto-provisioning.md). Pamiętaj również, aby wcześniej wykonać kroki przedstawione w części [Konfigurowanie usługi IoT Hub Device Provisioning za pomocą witryny Azure Portal](./quick-setup-auto-provision.md). 
+Jeśli nie znasz procesu autozastrzegania, zapoznaj się z omówieniem [aprowizacji](about-iot-dps.md#provisioning-process) . Pamiętaj również, aby wcześniej wykonać kroki przedstawione w części [Konfigurowanie usługi IoT Hub Device Provisioning za pomocą witryny Azure Portal](./quick-setup-auto-provision.md). 
 
 Usługa Azure IoT Device Provisioning obsługuje dwa typy rejestracji:
 
@@ -49,7 +49,7 @@ W tym artykule przedstawiono rejestracje indywidualne.
 
 ## <a name="provision-the-simulated-device"></a>Aprowizowanie urządzenia symulowanego
 
-1. Zaloguj się do witryny Azure Portal. Wybierz przycisk **wszystkie zasoby** w menu po lewej stronie i Otwórz swoją usługę Device Provisioning. W bloku **Przegląd** Zwróć uwagę na wartość **_Identyfikator zakresu_** .
+1. Zaloguj się do Portalu Azure. Wybierz przycisk **wszystkie zasoby** w menu po lewej stronie i Otwórz swoją usługę Device Provisioning. W bloku **Przegląd** Zwróć uwagę na wartość **_Identyfikator zakresu_** .
 
     ![Skopiuj identyfikator zakresu usługi aprowizacji z bloku portalu](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
 
@@ -65,7 +65,7 @@ W tym artykule przedstawiono rejestracje indywidualne.
     dotnet run <IDScope>
     ```
 
-    To polecenie spowoduje uruchomienie symulatora mikroukładu urządzenia TPM w osobnym wierszu polecenia. W systemie Windows może wystąpić alert zabezpieczeń systemu Windows z pytaniem, czy chcesz zezwolić programowi symulator. exe na komunikowanie się z sieciami publicznymi. Na potrzeby tego przykładu można anulować żądanie.
+    To polecenie spowoduje uruchomienie symulatora mikroukładu urządzenia TPM w osobnym wierszu polecenia. W systemie Windows może wystąpić alert zabezpieczeń systemu Windows z pytaniem, czy chcesz zezwolić Simulator.exe na komunikowanie się z sieciami publicznymi. Na potrzeby tego przykładu można anulować żądanie.
 
 1. Oryginalne okno polecenia wyświetla **_Klucz poręczenia_**, **_Identyfikator rejestracji_** i sugerowany **_Identyfikator urządzenia_** wymagany do rejestracji urządzeń. Zanotuj te wartości. Użyjesz tych wartości do utworzenia rejestracji indywidualnej w wystąpieniu usługi Device Provisioning. 
    > [!NOTE]
@@ -96,7 +96,7 @@ W tym artykule przedstawiono rejestracje indywidualne.
 
     Jeśli zmienisz wartość w polu *Początkowy stan bliźniaczej reprezentacji urządzenia* z domyślnej na inną we wpisie rejestracji dla Twojego urządzenia, może to spowodować pobranie z centrum żądanego stanu reprezentacji bliźniaczej i odpowiednie do niego działanie. Aby uzyskać więcej informacji, zobacz [Opis bliźniaczej reprezentacji urządzenia w usłudze IoT Hub oraz sposoby jej używania](../iot-hub/iot-hub-devguide-device-twins.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz kontynuować pracę i eksplorowanie przykładowego klienta urządzenia, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start.
 

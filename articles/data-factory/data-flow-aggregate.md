@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: 71f5488b1f689e8892155b013730bcbb3c8e0e35
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606530"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531931"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Agregowanie transformacji w strumieniu danych mapowania
 
@@ -29,17 +29,18 @@ Wybierz istniejącą kolumnę lub Utwórz nową kolumnę obliczaną, która ma b
 
 Klauzula GROUP by jest opcjonalna w transformacji agregowanej.
 
-## <a name="aggregate-column"></a>Kolumna agregująca 
+## <a name="aggregate-columns"></a>Kolumny agregacji
 
-Przejdź do karty **agregaty** , aby skompilować wyrażenia agregacji. Można zastąpić istniejącą kolumnę agregacją lub utworzyć nowe pole z nową nazwą. Wyrażenie agregacji jest wprowadzane w polu po prawej stronie obok selektora nazw kolumn. Aby edytować wyrażenie, kliknij pole tekstowe, aby otworzyć program Expression Builder. Aby dodać dodatkowe agregacje, umieść kursor na istniejącym wyrażeniu i kliknij ikonę Plus, aby utworzyć nową kolumnę agregacji lub [wzorzec kolumny](concepts-data-flow-column-pattern.md).
+Przejdź do karty **agregaty** , aby skompilować wyrażenia agregacji. Można zastąpić istniejącą kolumnę agregacją lub utworzyć nowe pole z nową nazwą. Wyrażenie agregacji jest wprowadzane w polu po prawej stronie obok selektora nazw kolumn. Aby edytować wyrażenie, kliknij pole tekstowe i Otwórz konstruktora wyrażeń. Aby dodać więcej kolumn agregujących, kliknij przycisk **Dodaj** powyżej listy kolumn lub ikonę znaku plus obok istniejącej kolumny agregującej. Wybierz opcję **Dodaj kolumnę** lub **Dodaj wzorzec kolumny**. Każde wyrażenie agregacji musi zawierać co najmniej jedną funkcję agregującą.
 
-Każde wyrażenie agregacji musi zawierać co najmniej jedną funkcję agregującą.
-
-![Zagregowane ustawienia agregacji transformacji](media/data-flow/agg2.png "Zagregowane ustawienia agregacji transformacji")
-
+![Ustawienia agregacji](media/data-flow/aggregate-columns.png "Ustawienia agregacji")
 
 > [!NOTE]
 > W trybie debugowania Konstruktor wyrażeń nie może tworzyć podglądów danych za pomocą funkcji agregujących. Aby wyświetlić podglądy danych dla przekształceń agregowanych, należy zamknąć konstruktora wyrażeń i wyświetlić dane za pomocą karty "Podgląd danych".
+
+### <a name="column-patterns"></a>Wzorce kolumn
+
+Użyj [wzorców kolumn](concepts-data-flow-column-pattern.md) , aby zastosować tę samą agregację do zestawu kolumn. Jest to przydatne, jeśli chcesz zachować wiele kolumn z schematu wejściowego, ponieważ są one domyślnie upuszczane. Użyj algorytmu heurystycznego, takiego jak `first()` Aby utrwalać kolumny wejściowe przy użyciu agregacji.
 
 ## <a name="reconnect-rows-and-columns"></a>Połącz ponownie wiersze i kolumny
 

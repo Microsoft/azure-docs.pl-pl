@@ -1,16 +1,16 @@
 ---
 title: Opis konfiguracji okresowej kopii zapasowej
-description: Użyj funkcji okresowej kopii zapasowej i przywracania Service Fabric, aby umożliwić okresowe wykonywanie kopii zapasowych danych aplikacji.
+description: Użyj funkcji okresowej kopii zapasowej i przywracania Service Fabric, aby skonfigurować okresową kopię zapasową wiarygodnych usług stanowych lub Reliable Actors.
 author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: c77f069d93e368652c30cd100b0f99ca55341882
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 53f63f341fe614f2287a09f37fafd2eedc614be7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261232"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530917"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informacje o konfiguracji okresowej kopii zapasowej na platformie Azure Service Fabric
 
@@ -119,7 +119,7 @@ Zasady tworzenia kopii zapasowych składają się z następujących konfiguracji
 >
 
 * **Zasady przechowywania**: określa zasady zachowywania kopii zapasowych w skonfigurowanym magazynie. Obsługiwane są tylko podstawowe zasady przechowywania.
-    1. **Podstawowe zasady przechowywania**: te zasady przechowywania umożliwiają zapewnienie optymalnego wykorzystania magazynu przez usunięcie plików kopii zapasowej, które nie są już wymagane. `RetentionDuration`można określić, aby ustawić przedział czasu, dla którego kopie zapasowe muszą być przechowywane w magazynie. `MinimumNumberOfBackups`jest opcjonalnym parametrem, który może być określony w celu upewnienia się, że określona liczba kopii zapasowych jest zawsze zachowywana niezależnie od `RetentionDuration` . Poniższy przykład ilustruje konfigurację, aby zachować kopie zapasowe przez _10_ dni i nie zezwalać na przekroczenie liczby kopii zapasowych poniżej _20_.
+    1. **Podstawowe zasady przechowywania**: te zasady przechowywania umożliwiają zapewnienie optymalnego wykorzystania magazynu przez usunięcie plików kopii zapasowej, które nie są już wymagane. `RetentionDuration` można określić, aby ustawić przedział czasu, dla którego kopie zapasowe muszą być przechowywane w magazynie. `MinimumNumberOfBackups` jest opcjonalnym parametrem, który może być określony w celu upewnienia się, że określona liczba kopii zapasowych jest zawsze zachowywana niezależnie od `RetentionDuration` . Poniższy przykład ilustruje konfigurację, aby zachować kopie zapasowe przez _10_ dni i nie zezwalać na przekroczenie liczby kopii zapasowych poniżej _20_.
 
         ```json
         {

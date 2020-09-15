@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c46195572fc4495b35f5ec44421440975ab9ffc
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047093"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531359"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Samouczek: używanie Video Indexer z aplikacją logiki i automatyzacją
 
@@ -58,13 +58,13 @@ Aby skonfigurować pierwszy przepływ, należy podać klucz interfejsu API Video
 
 Po nawiązaniu połączenia z usługą Azure Storage i kontami Video Indexer przejdź do wyzwalacza "gdy obiekt BLOB zostanie dodany lub zmodyfikowany" i wybierz kontener, w którym zostaną umieszczone pliki wideo. 
 
-![Kontener](./media/logic-apps-connector-tutorial/container.png)
+![Kontener magazynu](./media/logic-apps-connector-tutorial/container.png)
 
 Następnie przejdź do akcji "Tworzenie identyfikatora URI SAS według ścieżki" i wybierz pozycję Lista ścieżek plików z opcji zawartości dynamicznej.  
 
 ![Identyfikator URI SYGNATURy dostępu współdzielonego według ścieżki](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Podaj [lokalizację i identyfikator konta,](./video-indexer-use-apis.md#account-id)   Aby uzyskać token konta Video Indexer.
+Wypełnij [lokalizację konta](regions.md) i [Identyfikator konta](./video-indexer-use-apis.md#account-id),   Aby uzyskać token konta Video Indexer.
 
 ![Uzyskiwanie tokenu dostępu do konta](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -90,7 +90,7 @@ Aby skonfigurować ten przepływ, należy ponownie podać klucz interfejsu API V
 
 W przypadku wyzwalacza zostanie wyświetlone pole adres URL HTTP POST. Adres URL nie zostanie wygenerowany do momentu zapisania przepływu; Jednak adres URL będzie potrzebny w końcu. Powrócimy do tego. 
 
-Podaj [lokalizację i identyfikator konta,](./video-indexer-use-apis.md#account-id)   Aby uzyskać token konta Video Indexer.  
+Wypełnij [lokalizację konta](regions.md) i [Identyfikator konta](./video-indexer-use-apis.md#account-id),   Aby uzyskać token konta Video Indexer.  
 
 Przejdź do akcji "Pobierz indeks wideo" i Wypełnij wymagane parametry. Dla identyfikatora wideo wpisz następujące wyrażenie: triggerOutputs () ["zapytania"] ["ID"] 
 

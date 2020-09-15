@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b008c4ebc83200043d51fc8ef367f1983c549949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50e8dfd2998b50bfff7341e49ac4d0770c115166
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74973445"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530866"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Jak przeprowadzić potwierdzenie dla certyfikatów urzędu certyfikacji X. 509 za pomocą usługi Device Provisioning
 
@@ -23,7 +23,7 @@ Dowód posiadania obejmuje następujące kroki:
 2. Utwórz certyfikat weryfikacji X. 509 z kodem weryfikacyjnym jako podmiot i podpisz certyfikat z kluczem prywatnym skojarzonym z certyfikatem urzędu certyfikacji X. 509.
 3. Przekaż podpisany certyfikat weryfikacji do usługi. Usługa sprawdza poprawność certyfikatu weryfikacji przy użyciu publicznej części certyfikatu urzędu certyfikacji do zweryfikowania, co oznacza, że dysponujesz kluczem prywatnym certyfikatu urzędu certyfikacji.
 
-Zweryfikowane certyfikaty odgrywają ważną rolę podczas korzystania z grup rejestracji. Sprawdzenie, czy własność certyfikatu zapewnia dodatkową warstwę zabezpieczeń, upewniając się, że obiektu przekazującego certyfikatu jest posiadania klucza prywatnego certyfikatu. Weryfikacja uniemożliwia złośliwemu aktorowi wykrywanie ruchu przed wyodrębnieniem certyfikatu pośredniego i użycie tego certyfikatu do utworzenia grupy rejestracji w ramach własnej usługi aprowizacji, skutecznie przejmowanie urządzeń. Przez udowodnienie własności certyfikatu głównego lub pośredniego w łańcuchu certyfikatów potwierdzasz, że masz uprawnienia do generowania certyfikatów liści dla urządzeń, które będą się rejestrować w ramach tej grupy rejestracji. Z tego powodu certyfikat główny lub pośredni skonfigurowany w grupie rejestracji musi być zweryfikowanym certyfikatem lub musi zostać wycofany do zweryfikowanego certyfikatu w łańcuchu certyfikatów, gdy urządzenie jest wyświetlane podczas uwierzytelniania w usłudze. Aby dowiedzieć się więcej o grupach rejestracji, zobacz temat [certyfikaty x. 509](concepts-security.md#x509-certificates) i [Kontrola dostępu urządzenia do usługi aprowizacji za pomocą certyfikatów x. 509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+Zweryfikowane certyfikaty odgrywają ważną rolę podczas korzystania z grup rejestracji. Sprawdzenie, czy własność certyfikatu zapewnia dodatkową warstwę zabezpieczeń, upewniając się, że obiektu przekazującego certyfikatu jest posiadania klucza prywatnego certyfikatu. Weryfikacja uniemożliwia złośliwemu aktorowi wykrywanie ruchu przed wyodrębnieniem certyfikatu pośredniego i użycie tego certyfikatu do utworzenia grupy rejestracji w ramach własnej usługi aprowizacji, skutecznie przejmowanie urządzeń. Przez udowodnienie własności certyfikatu głównego lub pośredniego w łańcuchu certyfikatów potwierdzasz, że masz uprawnienia do generowania certyfikatów liści dla urządzeń, które będą się rejestrować w ramach tej grupy rejestracji. Z tego powodu certyfikat główny lub pośredni skonfigurowany w grupie rejestracji musi być zweryfikowanym certyfikatem lub musi zostać wycofany do zweryfikowanego certyfikatu w łańcuchu certyfikatów, gdy urządzenie jest wyświetlane podczas uwierzytelniania w usłudze. Aby dowiedzieć się więcej o zaświadczeniu certyfikatu X. 509, zobacz artykuł [x. 509 certyfikaty](concepts-x509-attestation.md) i [Kontrola dostępu urządzenia do usługi aprowizacji za pomocą certyfikatów x. 509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ## <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>Rejestrowanie publicznej części certyfikatu X. 509 i uzyskiwanie kodu weryfikacyjnego
 
@@ -63,7 +63,7 @@ Skrypty programu PowerShell i bash dostępne w dokumentacji i zestawach SDK są 
 
 ## <a name="upload-the-signed-verification-certificate"></a>Przekaż podpisany certyfikat weryfikacji
 
-1. Przekaż otrzymany podpis jako certyfikat weryfikacji do usługi aprowizacji w portalu. W obszarze **Szczegóły certyfikatu** na Azure Portal Użyj ikony _Eksploratora plików_ obok pola **plik PEM lub CER certyfikatu weryfikacji** , aby przekazać podpisany certyfikat weryfikacyjny z systemu.
+1. Przekaż otrzymany podpis jako certyfikat weryfikacji do usługi aprowizacji w portalu. W obszarze **Szczegóły certyfikatu** na Azure Portal Użyj ikony  _Eksploratora plików_ obok pola **plik PEM lub CER certyfikatu weryfikacji** , aby przekazać podpisany certyfikat weryfikacyjny z systemu.
 
 2. Po pomyślnym przekazaniu certyfikatu kliknij przycisk **Weryfikuj**. **Stan** certyfikatu zmieni się na **_zweryfikowany_** na liście **Eksplorator certyfikatów** . Kliknij przycisk **Odśwież** , jeśli nie zostanie automatycznie zaktualizowany.
 

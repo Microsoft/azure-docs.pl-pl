@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: e65fecb70b7e3adf009396c0daa00fc50b81b519
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: d921bddf90c415cb244e2cc9ad98354392a537ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604527"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530152"
 ---
 # <a name="manage-the-mobility-agent"></a>Zarządzanie agentem mobilności 
 
@@ -26,7 +26,7 @@ Agenta mobilności konfiguruje się na serwerze, korzystając z Azure Site Recov
 ## <a name="update-mobility-service-from-azure-portal"></a>Aktualizuj usługę mobilności z Azure Portal
 
 1. Przed rozpoczęciem upewnij się, że serwer konfiguracji, serwery przetwarzania skalowalnego w poziomie i wszystkie główne serwery docelowe, które są częścią wdrożenia, są aktualizowane przed aktualizacją usługi mobilności na chronionych maszynach.
-    1. Począwszy od [wersji 9,36](https://support.microsoft.com/help/4578241/) , dla SUSE Linux Enterprise Server 11 SP4 upewnij się, że na [serwerze konfiguracji i skalowalnym w poziomie serwerze przetwarzania jest dostępny](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server)najnowszy Instalator.
+    1. Począwszy od wersji 9,36, w przypadku SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5, Debian 7 upewnij się, że [na serwerze konfiguracji i skalowalnym w poziomie serwerze przetwarzania jest dostępny](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server)najnowszy Instalator.
 1. W portalu otwórz magazyn > **zreplikowanych elementów**.
 1. Jeśli jest to Najnowsza wersja serwera konfiguracji, zobaczysz powiadomienie z informacją, że dostępna jest nowa aktualizacja agenta replikacji Site Recovery. Kliknij, aby zainstalować ".
 

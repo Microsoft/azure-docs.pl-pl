@@ -3,12 +3,12 @@ title: Analiza użycia za pomocą usługi Azure Application Insights | Dokumenta
 description: Zapoznaj się z użytkownikami i Dowiedz się, co robią z Twoją aplikacją.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4ace90b0893eed24227cadcb9a5b9fae7d502ff8
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800215"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532107"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analiza użycia za pomocą usługi Application Insights
 
@@ -54,7 +54,7 @@ Dowiedz się, w jaki sposób użytkownicy korzystają z Twojej aplikacji, jakie 
 
 Raporty Użytkownicy i sesje filtrują dane według stron lub zdarzeń niestandardowych i segmentują je według właściwości, takich jak lokalizacja, środowisko i strona. Możesz również dodać własne filtry.
 
-![Użytkownicy](./media/usage-overview/users.png)  
+![Przechwytywanie ekranu pokazuje stronę przegląd użytkowników dla fikcyjnej firmy.](./media/usage-overview/users.png)  
 
 Szczegółowe informacje o interesujących wzorcach z prawej strony zestawu danych.  
 
@@ -71,7 +71,7 @@ Przechowywanie ułatwia zrozumienie, jak często użytkownicy zwracają się do 
 - Formy poformowania w oparciu o prawdziwe dane użytkownika 
 - Określanie, czy przechowywanie jest problemem w produkcie 
 
-![Przechowywanie](./media/usage-overview/retention.png) 
+![Przechwytywanie ekranu zawiera stronę przegląd przechowywania, która zawiera informacje o tym, jak często użytkownicy zwracają się do korzystania z aplikacji.](./media/usage-overview/retention.png) 
 
 Kontrolki przechowywania na górze umożliwiają zdefiniowanie określonych zdarzeń i zakresu czasu w celu obliczenia okresu przechowywania. Wykres w środku daje wizualną reprezentację ogólnej wartości procentowej przechowywania według określonego zakresu czasu. Wykres na dole reprezentuje indywidualne przechowywanie w danym okresie czasu. Ten poziom szczegółowości pozwala zrozumieć, co robią Użytkownicy, i co może wpłynąć na zwracanie użytkowników w celu uzyskania bardziej szczegółowego stopnia szczegółowości.  
 
@@ -110,7 +110,7 @@ Dowiedz się więcej na temat [niestandardowych zdarzeń](./api-custom-events-me
 ### <a name="slice-and-dice-events"></a>Zdarzenia wycinków i indeksów
 
 W narzędziach użytkownicy, sesje i zdarzenia można wydzielić zdarzenia niestandardowe i indeksy według użytkownika, nazwy zdarzenia i właściwości.
-![Użytkownicy](./media/usage-overview/users.png)  
+![Przechwytywanie ekranu pokazuje stronę przegląd użytkowników dla fikcyjnej firmy.](./media/usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>Zaprojektuj telemetrię przy użyciu aplikacji
 
@@ -176,7 +176,7 @@ Wszystkie nowe TelemetryClients automatycznie dodają określoną wartość wła
    - [Użytkownicy, sesje, zdarzenia](usage-segmentation.md)
    - [Lejki](usage-funnels.md)
    - [Przechowywanie](usage-retention.md)
-   - [Przepływy użytkownika](usage-flows.md)
+   - [Przepływy użytkowników](usage-flows.md)
    - [Skoroszyty](../platform/workbooks-overview.md)
    - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
 

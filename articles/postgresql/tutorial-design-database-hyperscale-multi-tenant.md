@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: projektowanie wielodostępnej bazy danych (Citus) — Azure Database for PostgreSQL'
-description: W tym samouczku przedstawiono sposób tworzenia, wypełniania i wykonywania zapytań dotyczących tabel rozproszonych w Azure Database for PostgreSQL funkcji Citus.
+description: W tym samouczku pokazano, jak zaprojektować bazę danych z wieloma dzierżawami przy użyciu Azure Database for PostgreSQL Citus.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: bc7891e157bbffa386396a352fd1d48e4559ecdc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b28307783957af2613152c2a8305f3650aa352ac
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386400"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530730"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Samouczek: Projektowanie bazy danych z wieloma dzierżawami przy użyciu Azure Database for PostgreSQL — Citus
 
@@ -267,7 +267,7 @@ SELECT id
    AND company_id = 5;
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W poprzednich krokach zostały utworzone zasoby platformy Azure w grupie serwerów. Jeśli nie chcesz potrzebować tych zasobów w przyszłości, Usuń grupę serwerów. Naciśnij przycisk *Usuń* na stronie *Przegląd* dla swojej grupy serwerów. Po wyświetleniu monitu na stronie podręcznej Potwierdź nazwę grupy serwerów, a następnie kliknij przycisk *Usuń* końcowego.
 

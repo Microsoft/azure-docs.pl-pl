@@ -3,12 +3,12 @@ title: Azure Event Hubs — przetwarzanie zdarzeń Apache Kafka
 description: 'Samouczek: w tym artykule przedstawiono sposób przetwarzania zdarzeń Kafka, które są pozyskiwane za pośrednictwem centrów zdarzeń przy użyciu Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f0c7bf40b721a3f35fcf68c71cb38a4302a56f6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074908"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531291"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Samouczek: proces Apache Kafka dla zdarzeń Event Hubs za pomocą usługi Stream Analytics 
 W tym artykule pokazano, jak przesłać strumieniowo dane do Event Hubs i przetworzyć je z Azure Stream Analytics. Przeprowadzi Cię przez następujące kroki: 
@@ -63,7 +63,7 @@ Podczas tworzenia warstwy **standardowa** Event Hubs przestrzeń nazw, punkt ko�
     ```
 
     Ten kod wysyła dane zdarzenia w formacie **JSON** . Podczas konfigurowania danych wejściowych dla zadania Stream Analytics należy określić kod JSON jako format danych wejściowych. 
-7. **Uruchom producenta** i Prześlij strumieniowo do Event Hubs. Na komputerze z systemem Windows w przypadku korzystania z **wiersza poleceniaNode.js**przejdź do `azure-event-hubs-for-kafka/quickstart/java/producer` folderu przed uruchomieniem tych poleceń. 
+7. **Uruchom producenta** i Prześlij strumieniowo do Event Hubs. Na komputerze z systemem Windows w przypadku korzystania z ** wiersza poleceniaNode.js**przejdź do `azure-event-hubs-for-kafka/quickstart/java/producer` folderu przed uruchomieniem tych poleceń. 
    
     ```shell
     mvn clean package
@@ -136,7 +136,7 @@ Po skonfigurowaniu zadania usługi Stream Analytics do odczytu przychodzącego s
 3. Zamień na `[YourInputAlias]` utworzony wcześniej alias wejściowy. 
 4. Wybierz pozycję **Zapisz** na pasku narzędzi. 
 
-    ![Zapytanie](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Przechwytywanie ekranu pokazuje okno zapytania z wartościami dla zmiennych wejściowych i wyjściowych.](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics

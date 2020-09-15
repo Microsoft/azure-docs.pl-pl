@@ -1,8 +1,8 @@
 ---
 title: Korzystanie z różnych mechanizmów zaświadczania za pomocą zestawu SDK klienta IoT Hub Device Provisioning Service platformy Azure
 description: Instrukcje dotyczące platformy Azure — jak korzystać z różnych mechanizmów zaświadczania z zestawem SDK klienta usługi Device Provisioning Service (DPS) na platformie Azure
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
@@ -10,16 +10,16 @@ services: iot-dps
 ms.custom:
 - mvc
 - amqp
-ms.openlocfilehash: c110e90f26f595bcbf181b72e13f12a6de2fa8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a32e2f055b2914fa0008e043e80092ac2da0814
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687207"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531512"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Instrukcje dotyczące korzystania z różnych mechanizmów zaświadczania za pomocą zestawu SDK klienta usługi Device Provisioning Service dla języka C
 
-W tym artykule przedstawiono sposób korzystania z różnych [mechanizmów zaświadczania](concepts-security.md#attestation-mechanism) przy użyciu zestawu SDK klienta usługi Device Provisioning Service dla języka C. Istnieje możliwość użycia urządzenia fizycznego lub symulatora. Usługa aprowizowania obsługuje uwierzytelnianie dwóch typów mechanizmów zaświadczania: X.509 i modułu TPM.
+W tym artykule przedstawiono sposób korzystania z różnych [mechanizmów zaświadczania](concepts-service.md#attestation-mechanism) przy użyciu zestawu SDK klienta usługi Device Provisioning Service dla języka C. Istnieje możliwość użycia urządzenia fizycznego lub symulatora. Usługa aprowizowania obsługuje uwierzytelnianie dwóch typów mechanizmów zaświadczania: X.509 i modułu TPM.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,11 +29,11 @@ Przygotuj środowisko deweloperskie zgodnie z sekcją „Prepare the development
 
 Jako producent urządzenia musisz najpierw wybrać mechanizm zaświadczania oparty na jednym z obsługiwanych typów. Aktualnie [zestaw SDK klienta usługi Device Provisioning Service dla języka C](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) oferuje obsługę następujących mechanizmów zaświadczania: 
 
-- [Moduł TPM](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM to standard ustanowiony dla większości platform urządzeń z systemem Windows, a także dla kilku urządzeń z systemem Linux/Ubuntu. Jako producent urządzenia możesz wybrać ten mechanizm zaświadczania, jeśli na Twoich urządzeniach działa jeden z tych systemów operacyjnych i szukasz sprawdzonego standardu. Używając mikroukładów modułów TPM, możesz tylko rejestrować każde urządzenie indywidualnie w usłudze Device Provisioning. Do celów programistycznych można użyć symulatora modułu TPM na maszynie deweloperskiej z systemem Windows lub Linux.
+- [Moduł TPM](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM to standard ustanowiony dla większości platform urządzeń z systemem Windows, a także dla kilku urządzeń z systemem Linux/Ubuntu. Jako producent urządzenia możesz wybrać ten mechanizm zaświadczania, jeśli na urządzeniach jest uruchomiony jeden z tych systemów operacyjnych i szukasz ustalonego standardu. Używając mikroukładów modułów TPM, możesz tylko rejestrować każde urządzenie indywidualnie w usłudze Device Provisioning. Do celów programistycznych można użyć symulatora modułu TPM na maszynie deweloperskiej z systemem Windows lub Linux.
 
-- [X.509](https://cryptography.io/en/latest/x509/): certyfikaty X.509 można przechowywać w stosunkowo nowszych mikroukładach nazywanych [sprzętowymi modułami zabezpieczeń (HSM)](concepts-security.md#hardware-security-module). W firmie Microsoft trwa również praca nad mikroukładami RIoT i DICE, które implementują certyfikaty X.509. W przypadku mikroukładów X.509 można przeprowadzić zbiorczą rejestrację w portalu. Obsługuje ona również niektóre systemy operacyjne inne niż Windows, takie jak embedOS. Dla celów programistycznych zestaw SDK klienta usługi Device Provisioning obsługuje symulator urządzeń X.509. 
+- [X.509](https://cryptography.io/en/latest/x509/): certyfikaty X.509 można przechowywać w stosunkowo nowszych mikroukładach nazywanych [sprzętowymi modułami zabezpieczeń (HSM)](concepts-service.md#hardware-security-module). W firmie Microsoft trwa również praca nad mikroukładami RIoT i DICE, które implementują certyfikaty X.509. W przypadku mikroukładów X.509 można przeprowadzić zbiorczą rejestrację w portalu. Obsługuje ona również niektóre systemy operacyjne inne niż Windows, takie jak embedOS. Dla celów programistycznych zestaw SDK klienta usługi Device Provisioning obsługuje symulator urządzeń X.509. 
 
-Aby uzyskać więcej informacji, zobacz [pojęcia związane z zabezpieczeniami](concepts-security.md) i [pojęcia związane z automatyczną aprowizacją](/azure/iot-dps/concepts-auto-provisioning) dotyczące usługi IoT Hub Device Provisioning Service.
+Aby uzyskać więcej informacji, zobacz IoT Hub Device Provisioning Service [mechanizmów zaświadczania](concepts-service.md#attestation-mechanism).
 
 ## <a name="enable-authentication-for-supported-attestation-mechanisms"></a>Włączanie uwierzytelniania dla obsługiwanych mechanizmów zaświadczania
 

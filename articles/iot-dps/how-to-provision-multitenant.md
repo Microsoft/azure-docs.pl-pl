@@ -7,16 +7,16 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434751"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531427"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Jak zapewnić obsługę wielodostępności 
 
-Zasady alokacji zdefiniowane przez usługę aprowizacji obsługują różne scenariusze alokacji. Dwa typowe scenariusze:
+W tym artykule pokazano, jak bezpiecznie zainicjować obsługę wielu urządzeń z kluczami symetrycznymi w grupie centrów IoT przy użyciu [zasad alokacji](concepts-service.md#allocation-policy). Zasady alokacji zdefiniowane przez usługę aprowizacji obsługują różne scenariusze alokacji. Dwa typowe scenariusze:
 
 * **Geolokalizacja/geoopóźnienie**: w miarę przemieszczania się urządzenia między lokalizacjami opóźnienie sieci jest zwiększane, ponieważ urządzenie jest obsługiwane do centrum IoT najbliżej każdej lokalizacji. W tym scenariuszu grupa centrów IoT, obejmująca wiele regionów, jest wybierana do rejestracji. Dla tych rejestracji są wybrane zasady alokacji **najniższych opóźnień** . Te zasady powodują, że usługa Device Provisioning może oszacować opóźnienie urządzenia i ustalić Centrum IoT z grupy centrów IoT. 
 
@@ -83,7 +83,7 @@ W tej sekcji użyjesz Azure Cloud Shell, aby utworzyć dwa nowe regionalne centr
 
 W tej sekcji utworzysz nową grupę rejestracji dla urządzeń dzierżawców.  
 
-Dla uproszczenia w tym artykule jest stosowane [zaświadczenie klucza symetrycznego](concepts-symmetric-key-attestation.md) z rejestracją. Aby lepiej zabezpieczyć rozwiązanie, należy rozważyć użycie [zaświadczania certyfikatu X. 509](concepts-security.md#x509-certificates) z łańcuchem zaufania.
+Dla uproszczenia w tym artykule jest stosowane [zaświadczenie klucza symetrycznego](concepts-symmetric-key-attestation.md) z rejestracją. Aby lepiej zabezpieczyć rozwiązanie, należy rozważyć użycie [zaświadczania certyfikatu X. 509](concepts-x509-attestation.md) z łańcuchem zaufania.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com)i Otwórz wystąpienie usługi Device Provisioning Service.
 

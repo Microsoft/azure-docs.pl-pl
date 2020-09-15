@@ -6,29 +6,29 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 08/10/2020
-ms.openlocfilehash: f522812f762b55ec61794101e6cd1ec15fb171ca
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/14/2020
+ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212097"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531055"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Tworzenie wyrażeń w mapowaniu przepływu danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W mapowaniu przepływu danych wiele właściwości transformacji jest wprowadzanych jako wyrażenia. Te wyrażenia składają się z wartości kolumn, parametrów, funkcji, operatorów i literałów, które są obliczane do typu danych Spark w czasie wykonywania.
+W mapowaniu przepływu danych wiele właściwości transformacji jest wprowadzanych jako wyrażenia. Te wyrażenia składają się z wartości kolumn, parametrów, funkcji, operatorów i literałów, które są obliczane do typu danych Spark w czasie wykonywania. Mapowanie przepływów danych ma dedykowane środowisko w celu ułatwienia tworzenia tych wyrażeń nazywanych **konstruktorem wyrażeń**. Przy użyciu uzupełniania kodu  [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) do wyróżniania, sprawdzania składni i automatycznego uzupełniania, Konstruktor wyrażeń służy do łatwego tworzenia przepływów danych. W tym artykule wyjaśniono, jak efektywnie kompilować logikę biznesową za pomocą Konstruktora wyrażeń.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tkur]
+![Konstruktor wyrażeń](media/data-flow/expresion-builder.png "Konstruktor wyrażeń")
 
 ## <a name="open-expression-builder"></a>Otwórz konstruktora wyrażeń
 
-Interfejs edytowania wyrażeń w środowisku użytkownika Azure Data Factory jest znany jako Konstruktor wyrażeń. Podczas wprowadzania logiki wyrażeń, Data Factory używa uzupełniania kodu [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) do wyróżniania, sprawdzania składni i automatycznego uzupełniania.
+Istnieje wiele punktów wejścia do otwarcia konstruktora wyrażeń. Są one zależne od określonego kontekstu transformacji przepływu danych. Najczęstszym przypadkiem użycia jest w transformacjach, takich jak [kolumna pochodna](data-flow-derived-column.md) i [agregowanie](data-flow-aggregate.md) , gdzie użytkownicy tworzą lub aktualizują kolumny przy użyciu języka wyrażeń przepływu danych. Konstruktora wyrażeń można otworzyć, wybierając pozycję **Otwórz Konstruktor wyrażeń** powyżej listy kolumn. Możesz również kliknąć kontekst kolumny i otworzyć Konstruktora wyrażeń bezpośrednio do tego wyrażenia.
 
-![Konstruktor wyrażeń](media/data-flow/xpb1.png "Konstruktor wyrażeń")
+![Otwórz Konstruktor wyrażeń pochodnych](media/data-flow/open-expression-builder-derive.png "Otwórz Konstruktor wyrażeń pochodnych")
 
-W transformacjach, takich jak kolumna pochodna i filtr, gdzie wyrażenia są obowiązkowe, Otwórz program Expression Builder, zaznaczając niebieskie pole wyrażenia.
+W przypadku niektórych przekształceń, takich jak [Filter](data-flow-filter.md), kliknięcie pola tekstowego wyrażenie niebieskie spowoduje otwarcie konstruktora wyrażeń. 
 
 ![Niebieskie pole wyrażenia](media/data-flow/expressionbox.png "Konstruktor wyrażeń")
 
@@ -40,29 +40,52 @@ W przypadkach, gdy wyrażenie lub wartość literału są prawidłowymi danymi w
 
 ![Dodaj opcję zawartości dynamicznej](media/data-flow/add-dynamic-content.png "Konstruktor wyrażeń")
 
-## <a name="expression-language-reference"></a>Dokumentacja języka wyrażeń
+## <a name="expression-elements"></a>Elementy wyrażenia
 
-Mapowanie przepływów danych ma wbudowane funkcje i operatory, których można używać w wyrażeniach. Aby uzyskać listę dostępnych funkcji, zobacz [funkcje wyrażeń w przepływie danych mapowania](data-flow-expression-functions.md).
+W mapowaniu przepływów danych wyrażenia mogą składać się z wartości kolumn, parametrów, funkcji, zmiennych lokalnych, operatorów i literałów. Te wyrażenia muszą być oceniane na typ danych Spark, takie jak String, Boolean lub Integer.
 
-## <a name="column-names-with-special-characters"></a>Nazwy kolumn zawierające znaki specjalne
+![Elementy wyrażenia](media/data-flow/expression-elements.png "Elementy wyrażenia")
+
+### <a name="functions"></a>Funkcje
+
+Mapowanie przepływów danych ma wbudowane funkcje i operatory, których można używać w wyrażeniach. Listę dostępnych funkcji można znaleźć w [dokumentacji dotyczącej mapowania języka przepływu danych](data-flow-expression-functions.md).
+
+#### <a name="address-array-indexes"></a>Indeksy tablicy adresów
+
+W przypadku kolumn lub funkcji zwracających typy tablicowe, użyj nawiasów kwadratowych ([]), aby uzyskać dostęp do określonego elementu. Jeśli indeks nie istnieje, wyrażenie zwróci wartość NULL.
+
+![Tablica konstruktora wyrażeń](media/data-flow/expression-array.png "Podgląd danych wyrażeń")
+
+> [!IMPORTANT]
+> W mapowaniu przepływów danych tablice są oparte na jednym, co oznacza, że pierwszy element jest przywoływany przez indeks jeden. Na przykład, obiekt webarray [1] będzie miał dostęp do pierwszego elementu tablicy o nazwie "Moja Array".
+
+### <a name="input-schema"></a>Schemat wejściowy
+
+Jeśli przepływ danych używa zdefiniowanego schematu w dowolnym ze źródeł, można odwoływać się do kolumny według nazwy w wielu wyrażeniach. Jeśli używasz dryfowania schematu, możesz odwoływać się do kolumn jawnie przy użyciu `byName()` `byNames()` wzorców lub funkcji lub dopasowania przy użyciu kolumn.
+
+#### <a name="column-names-with-special-characters"></a>Nazwy kolumn zawierające znaki specjalne
 
 Jeśli masz nazwy kolumn, które zawierają znaki specjalne lub spacje, umieść je w nawiasach klamrowych, aby odwoływać się do nich w wyrażeniu.
 
 ```{[dbo].this_is my complex name$$$}```
 
+### <a name="parameters"></a>Parametry
+
+Parametry są wartościami, które są przekazane do przepływu danych w czasie wykonywania z potoku. Aby odwołać się do parametru, należy kliknąć parametr w widoku **elementów wyrażenia** lub odwołać się do niego przy użyciu znaku dolara przed jego nazwą. Na przykład parametr o nazwie parametr1 będzie przywoływany przez `$parameter1` . Aby dowiedzieć się więcej, zobacz [parametryzacjaing](parameters-data-flow.md)Flow Flows.
+
+### <a name="locals"></a>Zmienne lokalne
+
+Jeśli udostępniasz logikę w wielu kolumnach lub chcesz compartmentalize logikę, możesz utworzyć lokalną w ramach pochodnego column\. Aby odwołać się do lokalnego, należy kliknąć element lokalny w widoku **elementów wyrażenia** lub odwołać się do niego za pomocą dwukropka przed jego nazwą. Na przykład w przypadku lokalnego o nazwie local1 będzie przywoływany `:local1` . Dowiedz się więcej o ustawieniach lokalnych w [dokumentacji kolumny pochodnej](data-flow-derived-column.md#locals).
+
 ## <a name="preview-expression-results"></a>Podgląd wyników wyrażenia
 
-Jeśli [tryb debugowania](concepts-data-flow-debug-mode.md) jest włączony, można użyć klastra Spark na żywo, aby zobaczyć w toku podgląd tego, co daje wyrażenie. Podczas kompilowania logiki można debugować wyrażenie w czasie rzeczywistym. 
+Jeśli [tryb debugowania](concepts-data-flow-debug-mode.md) jest włączony, można interaktywnie używać klastra debugowania do wyświetlania podglądu, do czego służy wyrażenie. Wybierz pozycję **Odśwież** obok pozycji Podgląd danych, aby zaktualizować wyniki wersji zapoznawczej danych. Możesz zobaczyć dane wyjściowe każdego wiersza z kolumnami wejściowymi.
 
-![Podgląd w toku](media/data-flow/exp4b.png "Podgląd danych wyrażeń")
-
-Wybierz pozycję **Odśwież** , aby zaktualizować wyniki wyrażenia do próbki na żywo źródłowej.
-
-![Przycisk Odśwież](media/data-flow/exp5.png "Podgląd danych wyrażeń")
+![Podgląd w toku](media/data-flow/preview-expression.png "Podgląd danych wyrażeń")
 
 ## <a name="string-interpolation"></a>Interpolacja ciągów
 
-Użyj znaków cudzysłowu, aby ująć tekst ciągu literału razem z wyrażeniami. Można uwzględnić funkcje wyrażenia, kolumny i parametry. Interpolacja ciągów jest przydatna, aby uniknąć rozległego użycia łączenia ciągów, gdy parametry są zawarte w ciągach zapytań. Aby użyć składni wyrażenia, należy ująć ją w nawiasy klamrowe,
+Podczas tworzenia długich ciągów, które używają elementów wyrażenia, użyj interpolacji ciągów, aby łatwo utworzyć złożoną logikę ciągów. Interpolacja ciągów pozwala uniknąć intensywnego użycia łączenia ciągów, gdy parametry są zawarte w ciągach zapytań. Użyj podwójnych cudzysłowów, aby ująć tekst ciągu literału z wyrażeniami. Można uwzględnić funkcje wyrażenia, kolumny i parametry. Aby użyć składni wyrażenia, należy ująć ją w nawiasy klamrowe,
 
 Przykłady interpolacji ciągów:
 
@@ -72,7 +95,9 @@ Przykłady interpolacji ciągów:
 
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
-## <a name="comment-expressions"></a>Wyrażenia komentarzy
+* ```"{:playerName} is a {:playerRating} player"```
+
+## <a name="commenting-expressions"></a>Komentowanie wyrażeń
 
 Dodaj komentarze do wyrażeń, używając składni komentarzy jednowierszowych i w wielu wierszach.
 
@@ -81,11 +106,11 @@ Następujące przykłady są prawidłowymi komentarzami:
 * ```/* This is my comment */```
 
 * ```/* This is a```
-*   ```multi-line comment */```
+* ```multi-line comment */```
 
 Jeśli umieścisz komentarz w górnej części wyrażenia, pojawi się w polu tekstowym przekształcanie, aby udokumentować wyrażenia transformacji.
 
-![Komentarz w polu tekstowym przekształcenia](media/data-flow/comments2.png "Komentarze")
+![Komentarz w polu tekstowym przekształcenia](media/data-flow/comment-expression.png "Komentarze")
 
 ## <a name="regular-expressions"></a>Wyrażenia regularne
 
@@ -103,13 +128,9 @@ Przykład, który używa podwójnych ukośników:
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="address-array-indexes"></a>Indeksy tablicy adresów
-
-Za pomocą funkcji wyrażeń, które zwracają tablice, użyj nawiasów ([]) do adresowania określonych indeksów wewnątrz tych obiektów tablicy zwracanej. Tablica jest oparta na tych.
-
-![Tablica konstruktora wyrażeń](media/data-flow/expb2.png "Podgląd danych wyrażeń")
-
 ## <a name="keyboard-shortcuts"></a>Skróty klawiaturowe
+
+Poniżej znajduje się lista skrótów dostępnych w Konstruktorze wyrażeń. Większość skrótów IntelliSense jest dostępnych podczas tworzenia wyrażeń.
 
 * CTRL + K Ctrl + C: komentarz cały wiersz.
 * CTRL + K Ctrl + U: Usuń komentarz.
@@ -118,7 +139,9 @@ Za pomocą funkcji wyrażeń, które zwracają tablice, użyj nawiasów ([]) do 
 * Alt + Strzałka w górę: Przenieś w górę bieżący wiersz.
 * Ctrl + spacja: Pokaż Pomoc kontekstową.
 
-## <a name="convert-to-dates-or-timestamps"></a>Konwertuj na daty lub sygnatury czasowe
+## <a name="commonly-used-expressions"></a>Powszechnie używane wyrażenia
+
+### <a name="convert-to-dates-or-timestamps"></a>Konwertuj na daty lub sygnatury czasowe
 
 Aby uwzględnić literały ciągu w danych wyjściowych znacznika czasu, zawiń konwersję w ```toString()``` .
 
@@ -130,7 +153,7 @@ Aby skonwertować milisekundy z epoki do daty lub sygnatury czasowej, użyj `toT
 
 Końcowe "l" na końcu poprzedniego wyrażenia oznacza konwersję do typu Long jako składnię wbudowaną.
 
-## <a name="find-time-from-epoch-or-unix-time"></a>Znajdź czas od epoki lub czasu systemu UNIX
+### <a name="find-time-from-epoch-or-unix-time"></a>Znajdź czas od epoki lub czasu systemu UNIX
 
 toLong (currentTimestamp ()-toTimestamp ("1970-01-01 00:00:00.000", "RRRR-MM-DD GG: mm: SS". SSS ")) * 1000
 

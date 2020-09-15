@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 3621d0c22aa6f35fc845f449d07bce8dcf0ba1fa
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461888"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531223"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -305,7 +305,7 @@ Oto przykład tego, jak może wyglądać szablon parametryzacja:
 ```
 Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu, podzielonego na typ zasobu.
 
-#### <a name="pipelines"></a>Pipelines
+#### <a name="pipelines"></a>Potoki
     
 * Wszystkie właściwości w ścieżce `activities/typeProperties/waitTimeInSeconds` są sparametryzowane. Wszystkie działania w potoku, który ma właściwość poziomu kodu o nazwie `waitTimeInSeconds` (na przykład `Wait` działanie), są sparametryzowane jako liczba z nazwą domyślną. Ale nie będzie on miał wartości domyślnej w szablonie Menedżer zasobów. Będzie to obowiązkowe wejście podczas wdrażania Menedżer zasobów.
 * Podobnie właściwość o nazwie `headers` (na przykład w `Web` działaniu) ma wartość sparametryzowane z typem `object` (JObject). Ma wartość domyślną, która jest taka sama jak wartość dla fabryki źródłowej.
@@ -639,7 +639,7 @@ Jeśli korzystasz z integracji narzędzia Git z fabryką danych i masz potok ci�
 
 -   **Key Vault**. W przypadku korzystania z połączonych usług, których informacje o połączeniu są przechowywane w Azure Key Vault, zaleca się przechowywanie oddzielnych magazynów kluczy dla różnych środowisk. Możesz również skonfigurować osobne poziomy uprawnień dla każdego magazynu kluczy. Na przykład użytkownik może nie chcieć, aby członkowie zespołu mieli uprawnienia do wpisów tajnych produkcji. W przypadku przestrzegania tego podejścia zalecamy, aby zachować te same nazwy tajnych na wszystkich etapach. Jeśli zachowasz te same nazwy tajnych, nie musisz Sparametryzuj każdego z parametrów połączenia w środowiskach ciągłej integracji/ciągłego wdrażania, ponieważ jedyną przyczyną zmiany jest nazwa magazynu kluczy, który jest osobnym parametrem.
 
--  **Nazewnictwo zasobów** Do ograniczenia szablonu ARM mogą wystąpić problemy z wdrożeniem, jeśli Twoje zasoby zawierają spacje w nazwie. Zespół Azure Data Factory zaleca używanie znaków "_" lub "-" zamiast spacji w przypadku zasobów. Na przykład "Pipeline_1" byłoby preferowaną nazwą dla "potok 1".
+-  **Nazewnictwo zasobów** Ze względu na ograniczenia dotyczące szablonów ARM mogą wystąpić problemy z wdrożeniem, jeśli Twoje zasoby zawierają spacje w nazwie. Zespół Azure Data Factory zaleca używanie znaków "_" lub "-" zamiast spacji w przypadku zasobów. Na przykład "Pipeline_1" byłoby preferowaną nazwą dla "potok 1".
 
 ## <a name="unsupported-features"></a>Nieobsługiwane funkcje
 

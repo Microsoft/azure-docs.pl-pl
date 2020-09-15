@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba4f67f924455b911d76426231cc71b661faf4a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020341"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531563"
 ---
 # <a name="symmetric-key-attestation"></a>Zaświadczanie klucza symetrycznego
 
 W tym artykule opisano proces zaświadczania tożsamości w przypadku używania kluczy symetrycznych z usługą Device Provisioning. 
 
-Zaświadczenie klucza symetrycznego to proste podejście do uwierzytelniania urządzenia za pomocą wystąpienia usługi Device Provisioning. Ta metoda zaświadczania reprezentuje środowisko "Hello World" dla deweloperów, którzy są nowym sposobem aprowizacji urządzeń lub nie mają rygorystycznych wymagań dotyczących zabezpieczeń. Zaświadczenie urządzenia przy użyciu [modułu TPM](concepts-tpm-attestation.md) lub [certyfikatu X. 509](concepts-security.md#x509-certificates) jest bezpieczniejsze i powinno być używane do bardziej rygorystycznych wymagań w zakresie bezpieczeństwa.
+Zaświadczenie klucza symetrycznego to proste podejście do uwierzytelniania urządzenia za pomocą wystąpienia usługi Device Provisioning. Ta metoda zaświadczania reprezentuje środowisko "Hello World" dla deweloperów, którzy są nowym sposobem aprowizacji urządzeń lub nie mają rygorystycznych wymagań dotyczących zabezpieczeń. Zaświadczenie urządzenia przy użyciu [modułu TPM](concepts-tpm-attestation.md) lub [certyfikatu X. 509](concepts-x509-attestation.md) jest bezpieczniejsze i powinno być używane do bardziej rygorystycznych wymagań w zakresie bezpieczeństwa.
 
 Rejestracje klucza symetrycznego zapewniają również doskonały sposób na starszych urządzeniach z ograniczoną funkcjonalnością zabezpieczeń do ładowania początkowego do chmury za pośrednictwem usługi Azure IoT. Aby uzyskać więcej informacji na temat zaświadczania klucza symetrycznego ze starszymi urządzeniami, zobacz [jak używać kluczy symetrycznych ze starszymi urządzeniami](how-to-legacy-device-symm-key.md).
 
@@ -109,12 +109,12 @@ Rozważmy poniższy diagram, który pokazuje tabelę kluczy urządzeń generowan
 
 Tożsamość każdego urządzenia jest reprezentowana przez identyfikator rejestracji i pochodny klucz urządzenia, który jest instalowany w fabryce. Klucz urządzenia nigdy nie jest kopiowany do innej lokalizacji, a klucz grupy nigdy nie jest przechowywany na urządzeniu.
 
-Jeśli klucze urządzeń nie są zainstalowane w fabryce, w celu bezpiecznego przechowywania tożsamości urządzenia należy używać [sprzętowego modułu HSM](concepts-security.md#hardware-security-module) .
+Jeśli klucze urządzeń nie są zainstalowane w fabryce, w celu bezpiecznego przechowywania tożsamości urządzenia należy używać [sprzętowego modułu HSM](concepts-service.md#hardware-security-module) .
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, gdy znasz już zaświadczenie klucza symetrycznego, zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej:
 
 * [Szybki start: aprowizowanie urządzenia symulowanego przy użyciu kluczy symetrycznych](quick-create-simulated-device-symm-key.md)
-* [Informacje na temat pojęć związanych z obsługą administracyjną](./concepts-auto-provisioning.md)
+* [Informacje o pojęciach dotyczących aprowizacji](about-iot-dps.md#provisioning-process)
 * [Wprowadzenie do korzystania z funkcji autoaprowizacji](./quick-setup-auto-provision.md) 

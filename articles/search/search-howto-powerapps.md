@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd74bfca73323209012dfd1fda61bbaada84092f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918047"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530696"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Samouczek: wykonywanie zapytania dotyczącego indeksu Wyszukiwanie poznawcze z poziomu aplikacji zaawansowanych
 
 Skorzystaj z szybkiego środowiska tworzenia aplikacji dla aplikacji zaawansowanych, aby utworzyć niestandardową aplikację do przeszukiwanej zawartości w usłudze Azure Wyszukiwanie poznawcze.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Nawiązywanie połączenia z usługą Azure Wyszukiwanie poznawcze
@@ -31,7 +31,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Konto aplikacji zaawansowanych](http://make.powerapps.com)
+* [Konto aplikacji zaawansowanych](https://make.powerapps.com)
 
 * [Hotele — przykładowy indeks](search-get-started-portal.md)
 
@@ -41,7 +41,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
 Łącznik w usłudze aplikacje zaawansowane to połączenie ze źródłem danych. W tym kroku utworzysz łącznik niestandardowy w celu nawiązania połączenia z indeksem wyszukiwania w chmurze.
 
-1. [Zaloguj](http://make.powerapps.com) się do aplikacji zaawansowanych.
+1. [Zaloguj](https://make.powerapps.com) się do aplikacji zaawansowanych.
 
 1. Po lewej stronie rozwiń węzeł **Data**  >  **Łączniki niestandardowe**danych.
  
@@ -250,7 +250,7 @@ W tym kroku utworzysz aplikację, korzystając z pola wyszukiwania, przycisku wy
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

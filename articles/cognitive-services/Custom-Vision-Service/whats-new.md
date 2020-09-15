@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: a87769e1b67187a15daf3a256a2c1f4c79e10040
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 6ed8e1deba7b3b2df03fa517a922721bcb8f8ad1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055524"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531240"
 ---
 # <a name="whats-new-in-custom-vision"></a>Co nowego w Custom Vision
 
@@ -25,7 +25,19 @@ Dowiedz się, co nowego w usłudze. Te elementy mogą być informacjami o wersji
 
 ### <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
-Custom Vision obsługuje kontrolę dostępu opartą na rolach (Azure RBAC) na platformie Azure, system autoryzacji służący do zarządzania indywidualnym dostępem do zasobów platformy Azure. Aby dowiedzieć się, jak zarządzać dostępem do projektów Custom Vision, zobacz [Kontrola dostępu oparta na rolach](./role-based-access-control.md).
+* Custom Vision obsługuje kontrolę dostępu opartą na rolach (Azure RBAC) na platformie Azure, system autoryzacji służący do zarządzania indywidualnym dostępem do zasobów platformy Azure. Aby dowiedzieć się, jak zarządzać dostępem do projektów Custom Vision, zobacz [Kontrola dostępu oparta na rolach](./role-based-access-control.md).
+
+### <a name="subset-training"></a>Szkolenie dotyczące podzbioru
+
+* Podczas uczenia projektu wykrywania obiektów można opcjonalnie nauczyć się tylko podzestawu zastosowanych tagów. Możesz to zrobić, jeśli jeszcze nie zastosowano wystarczającej liczby niektórych tagów, ale masz wystarczającą ilość innych. Aby dowiedzieć się więcej, postępuj zgodnie z [biblioteką klienta szybki start](./quickstarts/object-detection.md) dla języka C# lub Python.
+
+### <a name="azure-storage-notifications"></a>Powiadomienia usługi Azure Storage
+
+* Projekt Custom Vision można zintegrować z kolejką usługi Azure Blob Storage w celu uzyskania powiadomień wypychanych dotyczących działania szkolenia i eksportowania projektu oraz kopii zapasowych opublikowanych modeli. Ta funkcja jest przydatna, aby uniknąć ciągłego sondowania usługi pod kątem wyników, gdy długotrwałe operacje są uruchomione. Zamiast tego można zintegrować powiadomienia kolejki magazynu z przepływem pracy. Zobacz przewodnik po [integracji magazynu](./storage-integration.md) , aby dowiedzieć się więcej.
+
+### <a name="copy-and-move-projects"></a>Kopiowanie i przenoszenie projektów
+
+* Teraz można kopiować projekty z jednego konta Custom Vision do innych. Możesz chcieć przenieść projekt z programowania do środowiska produkcyjnego lub utworzyć kopię zapasową projektu na koncie w innym regionie świadczenia usługi Azure, aby zwiększyć bezpieczeństwo danych. Aby dowiedzieć się więcej, zobacz Przewodnik [kopiowania i przenoszenia projektów](./copy-move-projects.md) .
 
 ## <a name="september-2019"></a>Wrzesień 2019 r.
 

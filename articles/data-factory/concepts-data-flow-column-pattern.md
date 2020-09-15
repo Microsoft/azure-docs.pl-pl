@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/21/2019
-ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: c6a2d38644d844cb1231a24465478b7f70a85111
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606134"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531160"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Używanie wzorców kolumn w mapowaniu przepływu danych
 
@@ -27,17 +27,17 @@ Wzorce kolumn są obecnie dostępne w transformacje kolumn pochodnych, agregacji
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Wzorce kolumn w kolumnie pochodnej i agregowanie
 
-Aby dodać wzorzec kolumny w kolumnie pochodnej lub karcie agregowania transformacji agregowanej, kliknij ikonę znaku plus z prawej strony istniejącej kolumny. Wybierz pozycję **Dodaj wzorzec kolumny**. 
+Aby dodać wzorzec kolumny do przekształcenia kolumn pochodnych, agregacji lub okna, kliknij przycisk **Dodaj** powyżej listy kolumn lub ikonę znaku plus obok istniejącej kolumny pochodnej. Wybierz pozycję **Dodaj wzorzec kolumny**.
 
-![wzorce kolumn](media/data-flow/columnpattern.png "Wzorce kolumn")
+![wzorce kolumn](media/data-flow/add-column-pattern.png "Wzorce kolumn")
 
 Użyj [konstruktora wyrażeń](concepts-data-flow-expression-builder.md) , aby wprowadzić warunek dopasowania. Utwórz wyrażenie logiczne, które pasuje do kolumn na podstawie `name` `type` kolumny,, `stream` i `position` . Wzorzec będzie miał wpływ na wszystkie kolumny, przenoszące lub zdefiniowane, gdzie warunek zwraca wartość true.
 
 Dwa pola wyrażenia poniżej warunku Match określają nowe nazwy i wartości kolumn, których dotyczy problem. Służy `$$` do odwoływania się do istniejącej wartości dopasowanego pola. Pole wyrażenia Left definiuje nazwę i prawo pole wyrażenia definiuje wartość.
 
-![wzorce kolumn](media/data-flow/columnpattern2.png "Wzorce kolumn")
+![wzorce kolumn](media/data-flow/edit-column-pattern.png "Wzorce kolumn")
 
-Powyższy wzorzec kolumny jest zgodny z każdą kolumną typu Double i tworzy jedną kolumnę agregującą dla dopasowania. Nazwa nowej kolumny jest dopasowaną nazwą kolumny połączonej z "_total". Wartość nowej kolumny to zaokrąglona, zagregowana suma istniejącej wartości podwójnej precyzji.
+Powyższy wzorzec kolumny jest zgodny z każdą kolumną typu Double i tworzy jedną kolumnę pochodną dla dopasowania. Podając `$$` jako pole Nazwa kolumny, każda dopasowana kolumna jest aktualizowana o tej samej nazwie. Wartość każdej kolumny to istniejąca wartość zaokrąglona do dwóch punktów dziesiętnych.
 
 Aby sprawdzić, czy odpowiedni warunek jest poprawny, można sprawdzić poprawność schematu wyjściowego zdefiniowanych kolumn na karcie **Inspekcja** lub uzyskać migawkę danych na karcie **Podgląd danych** . 
 
@@ -73,15 +73,15 @@ Jeśli zdefiniowana projekcja ma hierarchię, można użyć mapowania opartego n
 
 ![Mapowanie oparte na regułach](media/data-flow/rule-based-hierarchy.png "Mapowanie oparte na regułach")
 
-Powyższy przykład dopasowuje wszystkie podkolumny złożonej kolumny `a` . `a`zawiera dwie podkolumny `b` i `c` . Schemat danych wyjściowych będzie zawierać dwie kolumny `b` , a `c` jako warunek "name as" `$$` .
+Powyższy przykład dopasowuje wszystkie podkolumny złożonej kolumny `a` . `a` zawiera dwie podkolumny `b` i `c` . Schemat danych wyjściowych będzie zawierać dwie kolumny `b` , a `c` jako warunek "name as" `$$` .
 
 ## <a name="pattern-matching-expression-values"></a>Wartości wyrażeń dopasowania do wzorca.
 
-* `$$`tłumaczy na nazwę lub wartość każdego dopasowania w czasie wykonywania
-* `name`reprezentuje nazwę każdej kolumny przychodzącej
-* `type`reprezentuje typ danych każdej kolumny przychodzącej
-* `stream`reprezentuje nazwę skojarzoną z każdym strumieniem lub transformację w przepływie
-* `position`jest pozycją porządkową kolumn w przepływie danych
+* `$$` tłumaczy na nazwę lub wartość każdego dopasowania w czasie wykonywania
+* `name` reprezentuje nazwę każdej kolumny przychodzącej
+* `type` reprezentuje typ danych każdej kolumny przychodzącej
+* `stream` reprezentuje nazwę skojarzoną z każdym strumieniem lub transformację w przepływie
+* `position` jest pozycją porządkową kolumn w przepływie danych
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [języku wyrażeń](data-flow-expression-functions.md) przepływu danych mapowania dla transformacji danych

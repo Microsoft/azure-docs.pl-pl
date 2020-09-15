@@ -10,20 +10,35 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 0b432a224aa32edf762f6610990027451abe9acc
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: b8741d17c55a786d7a90d1c311039f2855adf43b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759210"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530662"
 ---
 # <a name="whats-new-in-computer-vision"></a>Co nowego w przetwarzanie obrazów
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą być informacjami o wersji, klipami wideo, wpisami w blogu i innymi rodzajami informacji. Oznacz Tę stronę zakładką, aby zachować aktualność za pomocą usługi.
 
+## <a name="september-2020"></a>Wrzesień 2020
+
+### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>Read API v 3.1 Public Preview dodaje OCR dla języka japońskiego
+W publicznej wersji zapoznawczej interfejsu API w przetwarzanie obrazów v 3.1 dodano następujące funkcje:
+* OCR dla języka japońskiego
+* Dla każdego wiersza tekstu wskaż, czy wygląd jest stylem pisma ręcznego, czy drukowania, wraz z oceną pewności (tylko języki łacińskie).
+* Dla dokumentu wielostronicowego Wyodrębnij tekst tylko dla wybranych stron lub zakresu stron.
+
+* Ta wersja zapoznawcza interfejsu API odczytu obsługuje język angielski, holenderski, francuski, niemiecki, włoski, japoński, portugalski, chiński (uproszczony) i hiszpański.
+
+Zobacz [Omówienie interfejsu API odczytu](concept-recognizing-text.md) , aby dowiedzieć się więcej.
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej o funkcji Read API v 3.1 w publicznej wersji zapoznawczej 2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
+
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
-### <a name="read-api-v31-public-preview-adds-simplified-chinese-support"></a>Read API v 3.1 Public Preview dodaje uproszczoną obsługę języka chińskiego
+### <a name="read-api-v31-public-preview-with-ocr-for-simplified-chinese"></a>Przeczytaj publiczną wersję zapoznawczą interfejsu API v 3.1 z OCR for chiński uproszczony
 W publicznej wersji zapoznawczej interfejsu API usługi przetwarzanie obrazów Read 3.1 Dodano obsługę języka chińskiego uproszczonego.
 
 * Ta wersja zapoznawcza interfejsu API odczytu obsługuje język angielski, holenderski, francuski, niemiecki, włoski, portugalski, chiński (uproszczony) i hiszpański.
@@ -31,7 +46,7 @@ W publicznej wersji zapoznawczej interfejsu API usługi przetwarzanie obrazów R
 Zobacz [Omówienie interfejsu API odczytu](concept-recognizing-text.md) , aby dowiedzieć się więcej.
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o funkcji odczytu wersji zapoznawczej interfejsu API v 3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [Dowiedz się więcej o wersji Read API v 3.1 Public Preview 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maj 2020 r.
 W interfejs API przetwarzania obrazów v 3.0 wprowadzono ogólną dostępność z aktualizacjami [interfejsu API odczytu](concept-recognizing-text.md):

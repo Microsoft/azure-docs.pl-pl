@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: b0992c4d18fdb9cb5201ab3ef52fba8ee3feb7a2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bb4e3be621e83ed66748e3eba683b983dbac98d7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964383"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528543"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Szybki start: Tworzenie, wdrażanie i używanie niestandardowego modelu tłumaczenia
 
@@ -24,23 +24,23 @@ Ten artykuł zawiera szczegółowe instrukcje tworzenia systemu tłumaczenia za 
 
 1. Aby używać portalu [Custom Translator](https://portal.customtranslator.azure.ai), musisz zalogować się na [konto Microsoft](https://signup.live.com) lub [konto usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (konto organizacji hostowane na platformie Azure).
 
-2. Subskrypcja usługi Translator za pośrednictwem Azure Portal. Do skojarzenia z obszarem roboczym w usłudze translator niestandardowy potrzebny będzie klucz subskrypcji usługi Translator. Zobacz [, jak zarejestrować się w usłudze translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Subskrypcja interfejsu API tłumaczenia tekstu w usłudze Translator — w witrynie Azure Portal. Klucz subskrypcji interfejsu API tłumaczenia tekstu w usłudze Translator musisz skojarzyć z obszarem roboczym w rozszerzeniu Custom Translator. Zobacz instrukcje dotyczące [tworzenia konta umożliwiającego korzystanie z interfejsu API tłumaczenia tekstu w usłudze Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
-3. Jeśli masz oba powyższe funkcje, zaloguj się do portalu usługi [Custom translator](https://portal.customtranslator.azure.ai) , aby utworzyć obszary robocze, projekty, przekazać pliki i utworzyć/wdrożyć modele.
+3. Jeśli masz oba powyższe funkcje, zaloguj się do portalu usługi  [Custom translator](https://portal.customtranslator.azure.ai) , aby utworzyć obszary robocze, projekty, przekazać pliki i utworzyć/wdrożyć modele.
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
-Jeśli użytkownik jest użytkownikiem po raz pierwszy, zostanie poproszony o zgodę na warunki użytkowania usługi, utworzenie obszaru roboczego i skojarzenie obszaru roboczego z subskrypcją usługi Translator.
+Jeśli użytkownik jest użytkownikiem po raz pierwszy, zostanie poproszony o zgodę na warunki korzystania z usługi, utworzenie obszaru roboczego i skojarzenie obszaru roboczego z subskrypcją Microsoft interfejs API tłumaczenia tekstu w usłudze Translator.
 
-![Utwórz obszar roboczy Tworzenie obszaru roboczego Tworzenie obszaru roboczego Tworzenie obszaru roboczego Utwórz obszar roboczy ](media/quickstart/terms-of-service.png)
- ![ ](media/quickstart/create-workspace-1.png)
- ![ ](media/quickstart/create-workspace-2.png)
- ![ ](media/quickstart/create-workspace-3.png)
- ![ ](media/quickstart/create-workspace-4.png)
- ![ ](media/quickstart/create-workspace-5.png)
- ![](media/quickstart/create-workspace-6.png)
+![Utwórz obszar roboczy ](media/quickstart/terms-of-service.png)
+ ![ Utwórz obraz obszaru roboczego 1 ](media/quickstart/create-workspace-1.png)
+ ![ Utwórz obszar roboczy obraz 2 ](media/quickstart/create-workspace-2.png)
+ ![ Utwórz obszar roboczy obraz 3 ](media/quickstart/create-workspace-3.png)
+ ![ Tworzenie obrazu obszaru roboczego 4 ](media/quickstart/create-workspace-4.png)
+ ![ Tworzenie obrazu obszaru roboczego 5 ](media/quickstart/create-workspace-5.png)
+ ![ Tworzenie obszaru roboczego obraz 6](media/quickstart/create-workspace-6.png)
 
-W kolejnych odwiedzinach w portalu usługi tłumaczenia niestandardowego przejdź do strony Ustawienia, na której możesz zarządzać obszarem roboczym, utworzyć więcej obszarów roboczych, skojarzyć klucz subskrypcji usługi Translator z obszarami roboczymi, dodać współwłaściciele i zmienić klucz subskrypcji.
+W kolejnych odwiedzinach w portalu usługi tłumaczenia niestandardowego przejdź do strony Ustawienia, na której możesz zarządzać obszarem roboczym, utworzyć więcej obszarów roboczych, skojarzyć klucz subskrypcji Microsoft interfejs API tłumaczenia tekstu w usłudze Translator z obszarami roboczymi, dodać współwłaściciele i zmienić klucz subskrypcji.
 
 ## <a name="create-a-project"></a>Tworzenie projektu
 
@@ -81,9 +81,15 @@ Gdy wszystko jest gotowe do wdrożenia przeszkolonego modelu, kliknij przycisk �
 
 ![Wdrażanie przeszkolonego modelu](media/quickstart/ct-how-to-deploy.png)
 
+## <a name="swap-deployed-model"></a>Zamień wdrożony model
+
+Aby zamienić wdrożony model na inny w ramach projektu, kliknij przycisk "swap" wyświetlany obok żądanego modelu. W trakcie procesu wymiany wdrożony model będzie nadal dostępny do udostępniania żądań tłumaczenia. 
+
+![Zamień wdrożony model](media/quickstart/ct-how-to-swap-model.png)
+
 ## <a name="use-a-deployed-model"></a>Korzystanie z wdrożonego modelu
 
-Do wdrożonych modeli można uzyskać dostęp za pośrednictwem translatora, określając IDKategorii] ( https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) . Więcej informacji o usłudze translator można znaleźć na stronie sieci Web [odwołań API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
+Dostęp do wdrożonych modeli można uzyskać za pośrednictwem [interfejsu API tłumaczenia tekstu w usłudze Microsoft Translator w wersji 3, podając identyfikator kategorii](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Więcej informacji na temat interfejsu API tłumaczenia tekstu w usłudze Translator można znaleźć na stronie internetowej z [dokumentacją interfejsu API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="next-steps"></a>Następne kroki
 

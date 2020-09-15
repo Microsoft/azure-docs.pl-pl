@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e6b6cebfd146ffe23bdc21751f86c71d14ea875e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002253"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531308"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planowanie i skalowanie pojemności dla Service Fabric platformy Azure
 
@@ -36,6 +36,9 @@ Używanie skalowania automatycznego za pośrednictwem zestawów skalowania maszy
 
 > [!NOTE]
 > Service Fabric stanowa Usługa Service Fabric:/system/InfastructureService/<NODE_TYPE_NAME> działa na każdym typie węzła, którego trwałość to Silver lub wyższa. Jest to jedyna usługa systemowa, która jest obsługiwana na platformie Azure dla dowolnego typu węzła klastra.
+
+> [!IMPORTANT]
+> Service Fabric Skalowanie automatyczne obsługuje konfiguracje skalowania `Default` `NewestVM` maszyn [scale-in configurations](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md)wirtualnych z zestawem skalowania.
 
 ## <a name="vertical-scaling-considerations"></a>Zagadnienia dotyczące skalowania w pionie
 
@@ -167,8 +170,8 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> W przypadku skalowania w klastrze zobaczysz usunięte wystąpienie węzła/maszyny wirtualnej wyświetlone w złej kondycji w Service Fabric Explorer. Aby uzyskać wyjaśnienie tego zachowania, zobacz [zachowania, które można obserwować w Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Dostępne możliwości:
-> * Wywołaj [polecenie Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) z odpowiednią nazwą węzła.
+> W przypadku skalowania w klastrze zobaczysz usunięte wystąpienie węzła/maszyny wirtualnej wyświetlone w złej kondycji w Service Fabric Explorer. Aby uzyskać wyjaśnienie tego zachowania, zobacz [zachowania, które można obserwować w Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Można:
+> * Wywołaj [polecenie Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) z odpowiednią nazwą węzła.
 > * Wdróż [aplikację pomocnika automatycznego skalowania Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) w klastrze. Ta aplikacja zapewnia, że węzły skalowane w dół są wyczyszczone z Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Poziomy niezawodności
@@ -225,7 +228,7 @@ Inny zasób znajduje się `nodeTypes` w obszarze [zasobów Microsoft. servicefab
 ]
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Windows Server: [Service Fabric tworzenia klastra dla systemu Windows Server](service-fabric-cluster-creation-for-windows-server.md).
 * Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Linux: [Tworzenie klastra systemu Linux](service-fabric-cluster-creation-via-portal.md).

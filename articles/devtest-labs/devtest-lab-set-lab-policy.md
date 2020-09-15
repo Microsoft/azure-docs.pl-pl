@@ -3,12 +3,12 @@ title: Zarządzanie zasadami laboratorium w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak definiować zasady laboratorium, takie jak rozmiary maszyn wirtualnych, Maksymalna liczba maszyn wirtualnych na użytkownika i Automatyzacja zamknięcia.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ab2e2b1905a515d3a85339099f02d93d8e5c0424
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a7ada980b2a251b8164f2e1a20f65da54c89ba72
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290419"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530356"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Zarządzaj wszystkimi zasadami dla laboratorium w Azure DevTest Labs
 
@@ -105,7 +105,7 @@ Zasady autostartu umożliwiają określenie czasu uruchamiania maszyn wirtualnyc
 
 1. W okienku **Konfiguracja i zasady** laboratorium wybierz pozycję **Autostart**.
    
-    ![Uruchom ponownie](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![Funkcja przechwytywania ekranu pokazuje opcje automatycznego uruchamiania dla maszyny wirtualnej.](./media/devtest-lab-set-lab-policy/auto-start.png)
 
 2. Wybierz **opcję Włącz,** aby włączyć tę zasadę i **wyłączyć** ją.
 

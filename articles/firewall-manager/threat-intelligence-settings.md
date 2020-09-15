@@ -1,22 +1,22 @@
 ---
 title: Konfiguracja analizy zagrożeń zapory platformy Azure
-description: Filtrowanie na podstawie analizy zagrożeń może być włączone, aby zapora mogła zgłaszać i odrzucać ruch z/do znanych złośliwych adresów IP i domen.
+description: Dowiedz się, jak skonfigurować filtrowanie na podstawie analizy zagrożeń dla zasad zapory platformy Azure w celu wygenerowania alertów i odmowy ruchu z i do znanych złośliwych adresów IP i domen.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 136ceeb271bec29bdbfc4572626936ee67f05556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a663c5f3bcf3492c4a9bc74fe93c6ed6a86137ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568736"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530645"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Konfiguracja analizy zagrożeń zapory platformy Azure
 
-Filtrowanie na podstawie analizy zagrożeń można skonfigurować dla zasad zapory platformy Azure w celu zgłaszania alertów i odmowy ruchu z i do znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą ze źródła analizy zagrożeń firmy Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) zapewnia program Microsoft Threat Intelligence i jest używany przez wiele usług, w tym Azure Security Center.<br>
+Filtrowanie na podstawie analizy zagrożeń można skonfigurować dla zasad zapory platformy Azure w celu zgłaszania alertów i odmowy ruchu z i do znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą z kanału informacyjnego analizy zagrożeń firmy Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) zapewnia program Microsoft Threat Intelligence i jest używany przez wiele usług, w tym Azure Security Center.<br>
 
 W przypadku skonfigurowania filtrowania opartego na analizie zagrożeń skojarzone reguły są przetwarzane przed dowolnymi regułami NAT, regułami sieciowymi lub regułami aplikacji.
 

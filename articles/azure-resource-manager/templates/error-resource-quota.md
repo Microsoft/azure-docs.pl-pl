@@ -3,12 +3,12 @@ title: Błędy przydziału
 description: Opisuje sposób rozwiązywania problemów z przydziałami zasobów podczas wdrażania zasobów przy użyciu Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75e8abf31d035a1e3a106bc0c6561624762db5d5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007797"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530424"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolve errors for resource quotas (Rozwiązywanie błędów z limitami przydziałów zasobów)
 
@@ -95,7 +95,7 @@ Aby zażądać zwiększenia limitu przydziału, przejdź do portalu i zapoznaj s
 
 1. Wybierz pozycję **Subskrypcje**.
 
-   ![Subskrypcje](./media/error-resource-quota/subscriptions.png)
+   ![Przechwytywanie ekranu pokazuje menu witryny Azure Portal z wybranymi subskrypcjami.](./media/error-resource-quota/subscriptions.png)
 
 2. Wybierz subskrypcję, która wymaga zwiększenia limitu przydziału.
 

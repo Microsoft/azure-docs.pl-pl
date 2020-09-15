@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956376"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530832"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Wiele frontonów dla Azure Load Balancer
 
@@ -163,6 +163,7 @@ Typ reguły zmiennoprzecinkowy adres IP jest podstawą kilku wzorców konfigurac
 
 * Wiele konfiguracji frontonu jest obsługiwanych tylko z maszynami wirtualnymi IaaS.
 * W przypadku reguły zmiennoprzecinkowych adresów IP aplikacja musi używać podstawowej konfiguracji protokołu IP dla przepływów ruchu wychodzącego. Jeśli aplikacja jest powiązana z adresem IP frontonu skonfigurowanym w interfejsie sprzężenia zwrotnego w systemie operacyjnym gościa, ruch wychodzący z platformy Azure nie jest dostępny do ponownego zapisania przepływu wychodzącego i przepływ kończy się niepowodzeniem.  Przejrzyj [scenariusze wychodzące](load-balancer-outbound-connections.md).
+* Zmienny adres IP nie jest obecnie obsługiwany w konfiguracjach pomocniczych adresów IP dla wewnętrznych scenariuszy równoważenia obciążenia.
 * Publiczne adresy IP mają wpływ na rozliczenia. Aby uzyskać więcej informacji, zobacz [cennik adresów IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Obowiązują limity subskrypcji. Aby uzyskać więcej informacji, zobacz [limity usług](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) w celu uzyskania szczegółów.
 

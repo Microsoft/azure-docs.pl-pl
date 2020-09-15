@@ -1,21 +1,21 @@
 ---
 title: Korzystanie z narzędzi Azure IoT Hub Device Provisioning Service SDK
 description: Ten dokument zawiera przegląd narzędzi dostępnych w zestawach SDK usługi Azure IoT Hub Device Provisioning Service (DPS) na potrzeby programowania
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28d682a9ca698afb72d08b4d111562c725d46996
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691632"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530849"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Jak korzystać z narzędzi dostępnych w zestawach SDK, aby uprościć programowanie do obsługi administracyjnej
-IoT Hub Device Provisioning Service upraszcza proces aprowizacji bez dotknięcia, samoobsługowego [udostępniania](concepts-auto-provisioning.md) just in Time w bezpieczny i skalowalny sposób.  Zaświadczanie zabezpieczeń w postaci certyfikatu X. 509 lub moduł TPM (TPM) jest wymagane.  Firma Microsoft współpracuje również z [innymi partnerami sprzętu zabezpieczeń](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) w celu poprawy zaufania wdrożenia IoT. Zrozumienie wymagania dotyczącego zabezpieczeń sprzętu może być dla deweloperów bardzo trudne. Dostępne są zestawy SDK usługi Azure IoT Provisioning, dzięki którym deweloperzy mogą korzystać z wygodnej warstwy do pisania klientów, którzy komunikują się z usługą aprowizacji. Zestawy SDK udostępniają również przykłady dla typowych scenariuszy, a także zestaw narzędzi do uproszczenia zaświadczania o zabezpieczeniach w trakcie opracowywania.
+IoT Hub Device Provisioning Service upraszcza proces aprowizacji bez dotknięcia, w bezpieczny i skalowalny [sposób w trybie](about-iot-dps.md#provisioning-process) online.  Zaświadczanie zabezpieczeń w postaci certyfikatu X. 509 lub moduł TPM (TPM) jest wymagane.  Firma Microsoft współpracuje również z [innymi partnerami sprzętu zabezpieczeń](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) w celu poprawy zaufania wdrożenia IoT. Zrozumienie wymagania dotyczącego zabezpieczeń sprzętu może być dla deweloperów bardzo trudne. Dostępne są zestawy SDK usługi Azure IoT Provisioning, dzięki którym deweloperzy mogą korzystać z wygodnej warstwy do pisania klientów, którzy komunikują się z usługą aprowizacji. Zestawy SDK udostępniają również przykłady dla typowych scenariuszy, a także zestaw narzędzi do uproszczenia zaświadczania o zabezpieczeniach w trakcie opracowywania.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>Moduł TPM (TPM) symulator
 [Moduł TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) może odwoływać się do standardu w celu bezpiecznego przechowywania kluczy w celu uwierzytelniania platformy lub może odwoływać się do interfejsu we/wy używanego do korzystania z modułów implementujących Standard. Moduły TPM może istnieć jako sprzęt dyskretny, zintegrowany sprzęt, oprogramowanie układowe lub oprogramowanie.  W środowisku produkcyjnym moduł TPM znajduje się na urządzeniu jako dyskretny sprzęt, zintegrowany sprzęt lub oprogramowanie układowe. W fazie testowania do deweloperów jest dostarczany oprogramowanie symulatora modułu TPM.  Ten symulator jest dostępny tylko do programowania na platformie Windows.
@@ -52,7 +52,7 @@ Aby wygenerować certyfikat X. 509 przy użyciu tego generatora:
 2. Zmień katalog główny na Azure-IoT-SDK-Java.
 3. Uruchom, ```mvn install -DskipTests=true``` Aby pobrać wszystkie wymagane pakiety i skompilować zestaw SDK
 4. Przejdź do katalogu głównego dla generatora certyfikatów X. 509 w temacie ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator``` .
-5. Kompiluj z```mvn clean install```
+5. Kompiluj z ```mvn clean install```
 6. Uruchom narzędzie przy użyciu następujących poleceń:
    ```
    cd target

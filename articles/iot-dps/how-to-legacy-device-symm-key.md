@@ -1,25 +1,27 @@
 ---
-title: Udostępnianie starszych urządzeń przy użyciu kluczy symetrycznych — platforma Azure IoT Hub Device Provisioning Service
-description: Jak używać kluczy symetrycznych do udostępniania starszych urządzeń za pomocą wystąpienia usługi Device Provisioning Service (DPS)
+title: Inicjowanie obsługi administracyjnej urządzeń przy użyciu kluczy symetrycznych — platforma Azure IoT Hub Device Provisioning Service
+description: Jak używać kluczy symetrycznych do udostępniania urządzeń za pomocą wystąpienia usługi Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: eliotga
+ms.openlocfilehash: f67ed44fffe6bd690d6bd76fcefa19d9ee23e52b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434717"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529404"
 ---
-# <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Jak udostępnić starsze urządzenia przy użyciu kluczy symetrycznych
+# <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Jak udostępnić urządzenia przy użyciu grup rejestracji kluczy symetrycznych
 
-Typowy problem z wieloma starszymi urządzeniami polega na tym, że często mają tożsamość składającą się z jednego fragmentu informacji. Informacje o tożsamości są zwykle adresami MAC lub numerami seryjnymi. Starsze urządzenia mogą nie mieć certyfikatu, modułu TPM ani żadnej innej funkcji zabezpieczeń, której można użyć do bezpiecznego zidentyfikowania urządzenia. Usługa Device Provisioning dla usługi IoT Hub obejmuje zaświadczenie klucza symetrycznego. Zaświadczenie klucza symetrycznego może służyć do identyfikowania urządzenia na podstawie informacji, takich jak adres MAC lub numer seryjny.
+W tym artykule pokazano, jak bezpiecznie zainicjować obsługę wielu urządzeń z kluczami symetrycznymi w jednym IoT Hub przy użyciu grupy rejestracji.
 
-Jeśli można łatwo zainstalować [sprzętowy moduł zabezpieczeń (HSM)](concepts-security.md#hardware-security-module) i certyfikat, to może być lepszym rozwiązaniem do identyfikowania i aprowizacji urządzeń. Ponieważ takie podejście może pozwolić na obejście aktualizacji kodu wdrożonego na wszystkich urządzeniach, a w obrazie urządzenia nie zostanie osadzony klucz tajny.
+Niektóre urządzenia mogą nie mieć certyfikatu, modułu TPM ani żadnej innej funkcji zabezpieczeń, której można użyć do bezpiecznego zidentyfikowania urządzenia. Usługa Device Provisioning obejmuje [zaświadczenie klucza symetrycznego](concepts-symmetric-key-attestation.md). Zaświadczenie klucza symetrycznego może służyć do identyfikowania urządzenia na podstawie unikatowych informacji, takich jak adres MAC lub numer seryjny.
+
+Jeśli można łatwo zainstalować [sprzętowy moduł zabezpieczeń (HSM)](concepts-service.md#hardware-security-module) i certyfikat, to może być lepszym rozwiązaniem do identyfikowania i aprowizacji urządzeń. Ponieważ takie podejście może pozwolić na obejście aktualizacji kodu wdrożonego na wszystkich urządzeniach, a w obrazie urządzenia nie zostanie osadzony klucz tajny.
 
 W tym artykule założono, że żaden moduł HSM lub certyfikat nie jest wykonalną opcją. Jednak zakłada się, że masz pewną metodę aktualizowania kodu urządzenia, aby używać usługi Device Provisioning do udostępniania tych urządzeń. 
 
@@ -47,7 +49,7 @@ Kod urządzenia opisany w tym artykule będzie postępować zgodnie z tym samym 
 
 Poniższe wymagania wstępne dotyczą środowiska projektowego systemu Windows. W systemie Linux lub macOS zapoznaj się z odpowiednią sekcją w sekcji [Przygotowywanie środowiska deweloperskiego](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) w dokumentacji zestawu SDK.
 
-* [Program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) . Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
+* [Program Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) . Obsługiwane są również programy Visual Studio 2015 i Visual Studio 2017.
 
 * Zainstalowana najnowsza wersja usługi[Git](https://git-scm.com/download/).
 
@@ -73,7 +75,7 @@ Zestaw SDK zawiera przykładowy kod dla symulowanego urządzenia. To urządzenie
 
     Należy się spodziewać, że ukończenie operacji potrwa kilka minut.
 
-4. Utwórz podkatalog `cmake` w katalogu głównym repozytorium Git, a następnie przejdź do tego folderu. Uruchom następujące polecenia z `azure-iot-sdk-c` katalogu:
+4. Utwórz `cmake` podkatalog w katalogu głównym repozytorium git i przejdź do tego folderu. Uruchom następujące polecenia z `azure-iot-sdk-c` katalogu:
 
     ```cmd/sh
     mkdir cmake
@@ -147,7 +149,8 @@ Utwórz unikatowy identyfikator rejestracji dla urządzenia. Prawidłowe znaki t
 
 Aby wygenerować klucz urządzenia, użyj klucza głównego grupy do obliczenia [algorytmu HMAC-SHA256](https://wikipedia.org/wiki/HMAC) unikatowego identyfikatora rejestracji dla urządzenia i Przekształć wynik w formacie base64.
 
-Nie dodawaj klucza głównego grupy do kodu urządzenia.
+> [!WARNING]
+> Kod urządzenia powinien zawierać tylko pochodny klucz urządzenia dla poszczególnych urządzeń. Nie dodawaj klucza głównego grupy do kodu urządzenia. Złamany klucz główny ma możliwość naruszenia zabezpieczeń wszystkich uwierzytelnianych urządzeń.
 
 
 #### <a name="linux-workstations"></a>Stacje robocze systemu Linux

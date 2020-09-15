@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: Tworzenie usługi Azure front-drzwi przy użyciu szablonu Azure Resource Manager (szablon ARM)'
-description: Dowiedz się, jak utworzyć usługę Azure front-drzwi przy użyciu szablonu Azure Resource Manager (szablon ARM).
+description: W tym przewodniku szybki start opisano sposób tworzenia usługi Azure front-drzwi przy użyciu szablonu Azure Resource Manager (szablon ARM).
 services: front-door
 documentationcenter: ''
 author: duongau
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 21bcad2c4fe65a60d2f8b3d2b04db5553db48a19
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 41ad240b7232895a83839777f9942011edfaf5f4
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020542"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529391"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Szybki Start: Tworzenie drzwi z przodu przy użyciu szablonu ARM
 

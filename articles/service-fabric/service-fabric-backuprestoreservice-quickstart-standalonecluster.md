@@ -1,16 +1,16 @@
 ---
 title: Okresowe tworzenie kopii zapasowej/przywracanie w autonomicznej Service Fabric platformy Azure
-description: Użyj funkcji okresowej kopii zapasowej i przywracania Service Fabric, aby umożliwić okresowe wykonywanie kopii zapasowych danych aplikacji.
+description: Funkcja okresowa i przywracanie kopii zapasowej autonomicznej Service Fabric umożliwia okresowe wykonywanie kopii zapasowych danych aplikacji.
 author: hrushib
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 07a6260c176165af5ced5ce275b9e4b365707d77
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dd91b8eb120de24d752073fd80157e9d2a663594
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261241"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531325"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Okresowe tworzenie kopii zapasowych i przywracanie w autonomicznej Service Fabric
 > [!div class="op_single_selector"]

@@ -3,12 +3,12 @@ title: Urządzenie replikacji w usłudze Azure Migrate
 description: Dowiedz się więcej o urządzeniu replikacji Azure Migrate na potrzeby migracji oprogramowania VMWare opartego na agentach.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8149613effc4519638cc9b80f7894874ef3eafe3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122102"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532124"
 ---
 # <a name="replication-appliance"></a>Urządzenie replikacji
 
@@ -59,7 +59,7 @@ MySQL | Baza danych MySQL powinna być zainstalowana na urządzeniu.<br/> Należ
 Inne aplikacje | Nie uruchamiaj innych aplikacji na urządzeniu replikacji.
 Role systemu Windows Server | Nie należy włączać tych ról: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Zasady grupy | Nie włączaj tych zasad grupy: <br> -Zapobiegaj dostępowi do wiersza polecenia. <br> — Uniemożliwia dostęp do narzędzi do edytowania rejestru. <br> — Logika zaufania dla plików załączników. <br> — Włącz wykonywanie skryptu. <br> [Dowiedz się więcej](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
-IIS | -Brak istniejącej domyślnej witryny sieci Web <br> — Żadna istniejąca witryna sieci Web/aplikacja nasłuchu na porcie 443 <br>-Włącz [uwierzytelnianie anonimowe](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> -Włącz ustawienie [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))
+IIS | -Brak istniejącej domyślnej witryny sieci Web <br> — Żadna istniejąca witryna sieci Web/aplikacja nasłuchu na porcie 443 <br>-Włącz  [uwierzytelnianie anonimowe](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> -Włącz ustawienie [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))
 **Ustawienia sieciowe** |
 Typ adresu IP | Static
 Porty | 443 (organizowanie kanału sterowania)<br>9443 (transport danych)
@@ -129,7 +129,7 @@ Serwer przetwarzania | Serwer przetwarzania odbiera dane replikacji, optymalizuj
     - Serwer przetwarzania odbiera dane replikacji, optymalizuje je i szyfruje oraz wysyła do usługi Azure Storage przez port 443 wychodzące.
 5. Dane replikacji są najpierw przechowywane na koncie magazynu pamięci podręcznej na platformie Azure. Te dzienniki są przetwarzane, a dane są przechowywane na dysku zarządzanym platformy Azure.
 
-![Architektura](./media/migrate-replication-appliance/architecture.png)
+![Diagram przedstawia architekturę procesu replikacji.](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>Uaktualnienia urządzeń
 

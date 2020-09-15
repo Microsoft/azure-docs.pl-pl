@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12860629d78391ed271306daba29a51aeb326c1d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975282"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531597"
 ---
 # <a name="tpm-attestation"></a>Poświadczanie za pomocą modułu TPM
 
 IoT Hub Device Provisioning Service to usługa pomocnika dla IoT Hub, która służy do konfigurowania aprowizacji urządzeń bez dotyku do określonego Centrum IoT Hub. Za pomocą usługi Device Provisioning można w bezpieczny sposób udostępnić miliony urządzeń.
 
-W tym artykule opisano proces zaświadczania tożsamości podczas korzystania z [modułu TPM](./concepts-device.md). Moduł TPM ma moduł TPM i jest typem sprzętowego modułu zabezpieczeń (HSM). W tym artykule przyjęto założenie, że używasz dyskretnego, oprogramowania układowego lub zintegrowanego modułu TPM. Emulowane moduły TPM oprogramowania są dobrze dopasowane do prototypowania lub testowania, ale nie zapewniają tego samego poziomu zabezpieczeń, takiego jak dyskretny, oprogramowanie układowe lub zintegrowane moduły TPM do. Nie zalecamy korzystania z moduły TPM oprogramowania w środowisku produkcyjnym. Aby uzyskać więcej informacji na temat typów moduły TPM, zobacz [krótkie wprowadzenie do modułu TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+W tym artykule opisano proces zaświadczania tożsamości podczas korzystania z moduł TPM (TPM). Moduł TPM jest typem sprzętowego modułu zabezpieczeń (HSM). W tym artykule przyjęto założenie, że używasz dyskretnego, oprogramowania układowego lub zintegrowanego modułu TPM. Emulowane moduły TPM oprogramowania są dobrze dopasowane do prototypowania lub testowania, ale nie zapewniają tego samego poziomu zabezpieczeń, takiego jak dyskretny, oprogramowanie układowe lub zintegrowane moduły TPM do. Nie zalecamy korzystania z moduły TPM oprogramowania w środowisku produkcyjnym. Aby uzyskać więcej informacji na temat typów moduły TPM, zobacz [krótkie wprowadzenie do modułu TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 Ten artykuł dotyczy tylko urządzeń korzystających z modułu TPM 2,0 z obsługą klucza HMAC oraz ich kluczy poręczenia. Nie dotyczy to urządzeń korzystających z certyfikatów X. 509 na potrzeby uwierzytelniania. Moduł TPM jest standardem ISO opartym na całej branży, a na podstawie Trusted Computing Group można dowiedzieć się więcej na temat modułu TPM i uzyskać [pełną specyfikację modułu tpm 2,0](https://trustedcomputinggroup.org/tpm-library-specification/) lub [specyfikację ISO/IEC 11889](https://www.iso.org/standard/66510.html). W tym artykule założono również, że znasz pary kluczy publicznych i prywatnych oraz jak są one używane do szyfrowania.
 
@@ -67,5 +67,5 @@ Urządzenie może następnie podpisać token sygnatury dostępu współdzieloneg
 
 Teraz urządzenie nawiązuje połączenie z usługą IoT Hub i zatrzymasz bezpieczeństwo w wiedzy, że klucze urządzeń są bezpiecznie przechowywane. Teraz, gdy już wiesz, jak usługa Device Provisioning bezpiecznie weryfikuje tożsamość urządzenia przy użyciu modułu TPM, zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej:
 
-* [Dowiedz się więcej na temat wszystkich koncepcji związanych z obsługą administracyjną](./concepts-auto-provisioning.md)
+* [Informacje o pojęciach dotyczących aprowizacji](about-iot-dps.md#provisioning-process)
 * Rozpocznij [pracę z obsługą automatyczne](./quick-setup-auto-provision.md) przy użyciu zestawów SDK, aby zachować ostrożność przepływu.

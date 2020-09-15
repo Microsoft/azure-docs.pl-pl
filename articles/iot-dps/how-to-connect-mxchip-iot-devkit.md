@@ -1,23 +1,23 @@
 ---
 title: Korzystanie z usługi Azure IoT Hub Device Provisioning Service autoaprowizacji w celu zarejestrowania zestawu deweloperskiego IoT DevKit z IoT Hub | Microsoft Docs
 description: Jak korzystać z samoobsługowego udostępniania usługi Azure IoT Hub Device Provisioning Service (DPS), aby zarejestrować zestawu deweloperskiego IoT DevKit z IoT Hub.
-author: liydu
-ms.author: liydu
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: jeffya
-ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: eliotgra
+ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975656"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528657"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Zarejestrowanie zestawu deweloperskiego IoT DevKit przy użyciu usługi Azure IoT Hub Device Provisioning Service IoT Hub
 
-W tym artykule opisano sposób korzystania z usługi Azure IoT Hub Device Provisioning Service [autoaprowizacji](concepts-auto-provisioning.md)w celu zarejestrowania DevKit IoT zestawu deweloperskiego w usłudze Azure IoT Hub. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym artykule opisano sposób korzystania z usługi Azure IoT Hub Device Provisioning Service do [aprowizacji](about-iot-dps.md#provisioning-process) usługi zestawu deweloperskiego IoT DevKit w usłudze Azure IoT Hub. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 * Skonfiguruj globalny punkt końcowy usługi Device Provisioning na urządzeniu.
 * Aby wygenerować certyfikat X. 509, należy użyć unikatowego klucza tajnego urządzenia.
@@ -45,7 +45,7 @@ Aby wykonać kroki opisane w tym samouczku, najpierw wykonaj następujące zadan
 
 ## <a name="save-a-unique-device-secret-on-device-security-storage"></a>Zapisz unikatowy klucz tajny urządzenia w magazynie zabezpieczeń urządzenia
 
-Funkcja autoaprowizacji można skonfigurować na urządzeniu na podstawie [mechanizmu zaświadczania](concepts-security.md#attestation-mechanism)urządzenia. Zestawu deweloperskiego IoT DevKit używa [aparatu kompozycji tożsamości urządzenia](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) z [Trusted Computing Group](https://trustedcomputinggroup.org). Do wygenerowania unikatowego [certyfikatu X. 509](concepts-security.md#x509-certificates)urządzenia zapisywany jest **unikatowy klucz tajny urządzenia** (STSAFE Security[STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) na DevKit. Certyfikat jest używany później do procesu rejestracji w usłudze Device Provisioning i podczas rejestracji w czasie wykonywania.
+Funkcja autoaprowizacji można skonfigurować na urządzeniu na podstawie [mechanizmu zaświadczania](concepts-service.md#attestation-mechanism)urządzenia. Zestawu deweloperskiego IoT DevKit używa [aparatu kompozycji tożsamości urządzenia](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) z [Trusted Computing Group](https://trustedcomputinggroup.org). Do wygenerowania unikatowego [certyfikatu X. 509](concepts-x509-attestation.md)urządzenia zapisywany jest **unikatowy klucz tajny urządzenia** (STSAFE Security[STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) na DevKit. Certyfikat jest używany później do procesu rejestracji w usłudze Device Provisioning i podczas rejestracji w czasie wykonywania.
 
 Typowym wyciągiem jest 64-znakowego ciągu, jak pokazano w poniższym przykładzie:
 
