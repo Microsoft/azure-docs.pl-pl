@@ -1,6 +1,6 @@
 ---
 title: Problemy z logowaniem do aplikacji firmy Microsoft | Microsoft Docs
-description: Rozwiązywanie typowych problemów występujących podczas logowania się do aplikacji firmy Microsoft korzystających z usługi Azure AD (np. Office 365)
+description: Rozwiązywanie typowych problemów występujących podczas logowania się do aplikacji firmy Microsoft korzystających z usługi Azure AD (np. Microsoft 365).
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,20 +16,20 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759287"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707955"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemy z logowaniem do aplikacji firmy Microsoft
 
-Aplikacje firmy Microsoft (takie jak Office 365 Exchange, SharePoint, Yammer itp.) są przypisywane i zarządzane nieco inaczej niż aplikacje SaaS innej firmy lub inne aplikacje, które integrują się z usługą Azure AD w celu logowania jednokrotnego.
+Aplikacje firmy Microsoft (takie jak Exchange, SharePoint, Yammer itp.) są przypisywane i zarządzane nieco inaczej niż aplikacje SaaS innej firmy lub inne aplikacje, które integrują się z usługą Azure AD w celu logowania jednokrotnego.
 
 Istnieją trzy główne metody uzyskiwania dostępu do aplikacji opublikowanej przez firmę Microsoft.
 
--   W przypadku aplikacji pakietu Office 365 lub innych płatnych pakietów użytkownicy uzyskują dostęp za pośrednictwem **przypisania licencji** bezpośrednio do swojego konta użytkownika lub za pośrednictwem grupy przy użyciu naszej możliwości przypisania licencji opartej na grupach.
+-   W przypadku aplikacji w Microsoft 365 lub innych płatnych pakietów użytkownicy uzyskują dostęp za pośrednictwem **przypisania licencji** bezpośrednio do konta użytkownika lub za pośrednictwem grupy przy użyciu naszej możliwości przypisania licencji opartej na grupach.
 
 -   W przypadku aplikacji, które firma Microsoft lub osoba trzecia bezpłatnie publikuje dla każdego z nich, użytkownicy mogą uzyskać dostęp za pomocą **zgody użytkownika**. Oznacza to, że logują się do aplikacji przy użyciu konta służbowego usługi Azure AD i zezwalają na dostęp do pewnego ograniczonego zestawu danych na swoim koncie.
 

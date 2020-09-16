@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: bdd0530aa580f8f1a1cfdffb81d070827a714115
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8548e7449056ecb1f211d5dd026544bf7e1375cc
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686075"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708193"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Samouczek: integracja chmury Atlassian z usługą Azure Active Directory
 
@@ -163,7 +163,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![image (obraz)](./media/atlassian-cloud-tutorial/default-attributes.png)
    
-   1. Mapowanie atrybutu dla dzierżawy usługi Azure AD z licencją pakietu Office 365
+   1. Mapowanie atrybutu dla dzierżawy usługi Azure AD z licencją Microsoft 365
       
       a. Kliknij pozycję **unikatowy identyfikator użytkownika (identyfikator nazwy)**
 
@@ -177,13 +177,13 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
       ![image (obraz)](common/default-attributes.png)
       
-   1. Mapowanie atrybutu dla dzierżawy usługi Azure AD bez licencji pakietu Office 365 
+   1. Mapowanie atrybutu dla dzierżawy usługi Azure AD bez licencji Microsoft 365 
 
       a. Kliknij tę pozycję `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` .
 
       ![image (obraz)](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Mimo że platforma Azure nie wypełnia atrybutu **User. mail** dla użytkowników utworzonych w dzierżawach usługi Azure AD bez licencji pakietu Office 365 i przechowuje wiadomości e-mail dla takich użytkowników w atrybucie **userPrincipalName** . Chmura Atlassian oczekuje, że **NameIdentifier** (**unikatowy identyfikator użytkownika**) będzie mapowany do wiadomości e-mail użytkownika (**User. userPrincipalName**).  Edytuj **atrybut Source**  i zmień go na **User. userPrincipalName**. Zapisz zmiany w poroście.
+      b. Podczas gdy platforma Azure nie wypełnia atrybutu **User. mail** dla użytkowników utworzonych w dzierżawach usługi Azure AD bez licencji Microsoft 365 i przechowuje wiadomość e-mail dla takich użytkowników w atrybucie **userPrincipalName** . Chmura Atlassian oczekuje, że **NameIdentifier** (**unikatowy identyfikator użytkownika**) będzie mapowany do wiadomości e-mail użytkownika (**User. userPrincipalName**).  Edytuj **atrybut Source**  i zmień go na **User. userPrincipalName**. Zapisz zmiany w poroście.
 
       ![image (obraz)](./media/atlassian-cloud-tutorial/set-email.png)
          
@@ -201,7 +201,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

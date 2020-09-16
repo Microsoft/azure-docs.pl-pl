@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 90d51d7eb5425530ebad0fc9ac66ba2c95776076
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564973"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708142"
 ---
 # <a name="azure-file-share-protocols"></a>Protokoły udziałów plików platformy Azure
 
@@ -55,7 +55,7 @@ Instalowanie udziałów plików platformy Azure w systemie plików NFS 4,1 jest 
 System plików NFS z Azure Files jest idealnym rozwiązaniem dla:
 
 - Obciążenia wymagające udziałów plików zgodnych ze standardem POSIX, czułość wielkości liter lub uprawnienia do stylu systemu UNIX (UID/GID).
-- Obciążenia skoncentrowane na systemie Linux, które nie wymagają dostępu do protokołu SMB.
+- Obciążenia skoncentrowane na systemie Linux, które nie wymagają dostępu do systemu Windows.
 
 ### <a name="security"></a>Zabezpieczenia
 

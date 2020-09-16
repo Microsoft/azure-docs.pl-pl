@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: ea66f044664082b547d1b012d7253cd6443e8610
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: bb8eef01e2673c3f84b1678a93b4bd168f1faf63
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052787"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708125"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą sprytne
 
@@ -105,7 +105,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -134,7 +134,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     ![Natychmiastowe logowanie](./media/clever-tutorial/ic798984.png "Natychmiastowe logowanie")
 
     > [!NOTE]
-    > Przed przetestowaniem logowania jednokrotnego należy skontaktować się z [zespołem obsługi klienta aplikacji Clever](https://clever.com/about/contact/) w celu włączenia funkcji logowania jednokrotnego usługi Office 365 w zapleczu.
+    > Aby można było przetestować Logowanie jednokrotne, należy skontaktować się z [zespołem pomocy technicznej sprytne Client](https://clever.com/about/contact/) , aby Microsoft 365 włączyć logowanie jednokrotne w zapleczu.
 
 1. Na stronie **Instant Login (Błyskawiczne logowanie)** wykonaj następujące kroki:
  
@@ -166,7 +166,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Clever w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Clever, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

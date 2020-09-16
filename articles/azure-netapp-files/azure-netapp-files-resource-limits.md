@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 9/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 60d3c9df270561c94b8eb162595e4fe01713c0b5
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 870863cc0b1a98aa0efe671da4a8f6a5bb7f53aa
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536483"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708108"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limity zasobów dla usługi Azure NetApp Files
 
@@ -31,10 +31,10 @@ W poniższej tabeli opisano limity zasobów dla Azure NetApp Files:
 
 |  Zasób  |  Limit domyślny  |  Regulowane przez żądanie pomocy technicznej  |
 |----------------|---------------------|--------------------------------------|
-|  Liczba kont NetApp na region platformy Azure   |  10    |  Tak   |
-|  Liczba pul pojemności na konto NetApp   |    25     |   Tak   |
-|  Liczba woluminów na subskrypcję   |    500     |   Tak   |
-|  Liczba woluminów na pulę pojemności     |    500   |    Tak     |
+|  Liczba kont NetApp na region platformy Azure   |  10    |  Yes   |
+|  Liczba pul pojemności na konto NetApp   |    25     |   Yes   |
+|  Liczba woluminów na subskrypcję   |    500     |   Yes   |
+|  Liczba woluminów na pulę pojemności     |    500   |    Yes     |
 |  Liczba migawek na wolumin       |    255     |    Nie        |
 |  Liczba podsieci delegowanych do Azure NetApp Files (Microsoft. NetApp/Volumes) na platformie Azure Virtual Network    |   1   |    Nie    |
 |  Liczba używanych adresów IP w sieci wirtualnej (w tym natychmiastowo sieci wirtualnych komunikacji równorzędnej) z Azure NetApp Files   |    1000   |    Nie   |
@@ -44,7 +44,8 @@ W poniższej tabeli opisano limity zasobów dla Azure NetApp Files:
 |  Maksymalny rozmiar pojedynczego woluminu     |    100 TiB    |    Nie    |
 |  Maksymalny rozmiar pojedynczego pliku     |    16 TiB    |    Nie    |    
 |  Maksymalny rozmiar metadanych katalogu w jednym katalogu      |    320 MB    |    Nie    |    
-|  Maksymalna liczba plików ([maxfiles](#maxfiles)) na wolumin     |    100 000 000    |    Tak    |    
+|  Maksymalna liczba plików ([maxfiles](#maxfiles)) na wolumin     |    100 000 000    |    Yes    |   
+|  Liczba woluminów ochrony danych replikacji między regionami (woluminy docelowe)     |    5    |    Yes    |     
 
 Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące zarządzania pojemnością](azure-netapp-files-faqs.md#capacity-management-faqs).
 
@@ -83,9 +84,10 @@ Ze płaszczyzny nawigacyjnej Azure Portal:
         |  Zasób  |    Zasoby nadrzędne      |    Żądane nowe limity     |    Przyczyna zwiększenia limitu przydziału       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Konto |  *Identyfikator subskrypcji*   |  *Żądany nowy maksymalny numer **konta***    |  *Jakiego scenariusza lub przypadku użycia monituje o żądanie?*  |
-        |  Pula    |  *Identyfikator subskrypcji, identyfikator URI konta*  |  *Żądany nowy numer **puli***   |  *Jakiego scenariusza lub przypadku użycia monituje o żądanie?*  |
-        |  Wolumin  |  *Identyfikator subskrypcji, identyfikator URI konta, identyfikator URI puli*   |  *Żądany nowy maksymalny numer **woluminu***     |  *Jakiego scenariusza lub przypadku użycia monituje o żądanie?*  |
-        |  Maxfiles  |  *Identyfikator subskrypcji, identyfikator URI konta, identyfikator URI puli, identyfikator URI woluminu*   |  *Żądany nowy maksymalny numer **maxfiles***     |  *Jakiego scenariusza lub przypadku użycia monituje o żądanie?*  |    
+        |  Pula    |  *Identyfikator subskrypcji, identyfikator URI konta NetApp*  |  *Żądany nowy numer **puli***   |  *Jakiego scenariusza lub przypadku użycia monituje o żądanie?*  |
+        |  Wolumin  |  *Identyfikator subskrypcji, identyfikator URI konta NetApp, identyfikator URI puli pojemności*   |  *Żądany nowy maksymalny numer **woluminu***     |  *Jakiego scenariusza lub przypadku użycia monituje o żądanie?*  |
+        |  Maxfiles  |  *Identyfikator subskrypcji, identyfikator URI konta NetApp, identyfikator URI puli pojemności, identyfikator URI woluminu*   |  *Żądany nowy maksymalny numer **maxfiles***     |  *Jakiego scenariusza lub przypadku użycia monituje o żądanie?*  |    
+        |  Woluminy ochrony danych replikacji między regionami  |  *Identyfikator subskrypcji, identyfikator URI docelowego konta NetApp, identyfikator URI docelowej puli pojemności, identyfikator URI źródła NetApp konta, identyfikator URI puli pojemności źródła, identyfikator URI woluminu źródłowego*   |  *Zażądano nowej maksymalnej liczby **woluminów ochrony danych replikacji między regionami (woluminy docelowe)***     |  *Jakiego scenariusza lub przypadku użycia monituje o żądanie?*  |    
 
     2. Określ odpowiednią metodę obsługi i podaj informacje o kontrakcie.
 

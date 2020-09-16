@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449519"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708006"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące przepływności dotyczącej automatycznego skalowania w Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Zasoby, które zostały utworzone przy użyciu poprzedniego modelu warstwy, są 
 
 Na przykład jeśli wcześniej wybrano warstwę, która jest skalowana w zakresie od 400 do 4000 RU/s, baza danych lub kontener będzie teraz wyświetlana jako maksymalna wartość RU/s z 4000 RU/s, która skaluje się między 400 do 4000 RU/s. W tym miejscu możesz zmienić wartość maksymalną RU/s na niestandardową, aby dopasować ją do obciążenia. 
 
-### <a name="how-quickly-will-autoscale-scale-up-and-down-based-on-spikes-in-traffic"></a>Jak szybko skalowanie skalowania w górę i w dół w zależności od szczytów ruchu?
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>Jak szybko skalowanie skalowania w górę na podstawie skoków ruchu?
 Dzięki funkcji automatycznego skalowania system skaluje przepływność (RU/s) `T` w górę lub w dół w ramach `0.1 * Tmax` `Tmax` zakresu i, w zależności od ruchu przychodzącego. Ponieważ skalowanie jest automatyczne i natychmiastowe, w dowolnym momencie można wykorzystać do zainicjowania obsługi `Tmax` bez opóźnień. 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>Jak mogę określić, do czego system jest obecnie skalowany?
@@ -135,7 +135,7 @@ Jeśli całkowity zużyty RU/s przekracza maksymalną wartość RU/s bazy danych
 > [!NOTE]
 > Zestawy SDK klienta Azure Cosmos DB i narzędzia importu danych (Azure Data Factory, biblioteka modułu wykonawczego zbiorczego) automatycznie ponawiają próbę 429s, więc sporadyczne 429s są bardzo precyzyjne. Trwała duża liczba 429s może wskazywać konieczność zwiększenia maksymalnego RU/s lub zapoznania się z strategią partycjonowania dla [partycji gorąca](#autoscale-rate-limiting).
 
-### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a>Czy wciąż można zobaczyć 429s (ograniczanie przepustowości/ograniczanie szybkości), gdy automatyczne skalowanie jest włączone? 
+### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a> Czy wciąż można zobaczyć 429s (ograniczanie przepustowości/ograniczanie szybkości), gdy automatyczne skalowanie jest włączone? 
 Tak. Kody 429 mogą pojawiać się w dwóch scenariuszach. Po pierwsze, gdy całkowity zużyty RU/s przekroczy maksymalną wartość RU/s bazy danych lub kontenera, usługa będzie odpowiednio ograniczać żądania. 
 
 Druga, jeśli istnieje partycja gorąca, czyli wartość klucza logicznej partycji, która ma nieproporcjonalnie wyższą liczbę żądań w porównaniu do innych wartości kluczy partycji, istnieje możliwość przekroczenia przez podstawową partycję RU/s budżetu. Najlepszym rozwiązaniem, aby uniknąć gorących partycji, jest [wybranie właściwego klucza partycji](partitioning-overview.md#choose-partitionkey), który zapewni równomierny rozkład magazynowania i przepływności. 

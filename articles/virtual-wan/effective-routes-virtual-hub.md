@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0f5481531d23eeb579dcabe80e028ed7b482b09f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 6592b1a934e732888ef949071d95075d0af61bf6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762270"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708074"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Wyświetlanie obowiązujących tras koncentratora wirtualnego
 
@@ -50,6 +50,8 @@ Użyj paska przewijania u dołu tabeli, aby wyświetlić ścieżkę "AS".
 * W przypadku edycji połączenia sieci wirtualnej, połączenia sieci VPN lub połączenia ExpressRoute pojawia się pole **Propaguj trasę domyślną** . To pole wskazuje flagę **enableInternetSecurity** , która jest zawsze domyślnie "false" dla połączeń EXPRESSROUTE i VPN, ale "true" dla połączeń sieci wirtualnej.
 
 * Przy przeglądaniu efektywnych tras na karcie sieciowej maszyny wirtualnej, jeśli następnym przeskokiem jest "Virtual Network Gateway", który implikuje router koncentratora wirtualnego, gdy maszyna wirtualna jest połączona z koncentratorem wirtualnej sieci WAN.
+
+* Rzeczywiste trasy dla tabeli tras koncentratora wirtualnego są wypełniane tylko wtedy, gdy koncentrator wirtualny ma podłączoną co najmniej jeden typ połączenia (VPN/ER/Sieć wirtualna).
 
 ## <a name="next-steps"></a>Następne kroki
 

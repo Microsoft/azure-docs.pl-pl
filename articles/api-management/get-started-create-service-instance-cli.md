@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 763a4f5555e9ea6cdb7e78840251fda5d6861f16
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 8e41e20752e4203bf9916813b86cd901f4f75c09
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90042558"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708227"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>Szybki Start: Tworzenie nowego wystąpienia usługi Azure API Management przy użyciu interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
 
@@ -51,7 +51,7 @@ az apim create --name myapim --resource-group myResourceGroup \
 Domyślnie polecenie tworzy wystąpienie w warstwie Deweloper, która jest ekonomiczną opcją oszacowania API Management platformy Azure. Ta warstwa nie jest używana do użycia w środowisku produkcyjnym. Aby uzyskać więcej informacji na temat skalowania warstw usługi API Management, zobacz [Upgrade and scale](upgrade-and-scale.md) (Uaktualnianie i skalowanie). 
 
 > [!TIP]
-> Tworzenie i aktywowanie usługi API Management w tej warstwie zazwyczaj trwa od 20 do 30 minut. Poprzednie polecenie używa tej `--no-wait` opcji, aby polecenie zwracało się natychmiast podczas tworzenia usługi.
+> Utworzenie i aktywowanie usługi API Management w tej warstwie może potrwać od 30 do 40 minut. Poprzednie polecenie używa tej `--no-wait` opcji, aby polecenie zwracało się natychmiast podczas tworzenia usługi.
 
 Sprawdź stan wdrożenia, uruchamiając polecenie [AZ APIM show](/cli/azure/apim#az-apim-show) :
 

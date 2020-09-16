@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 89de144ab3d0ac4d8b68749e8c836ea1cf328dae
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: f35a43e9cbffb2613f7a98e02b03840c774e5999
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601062"
+ms.locfileid: "90708159"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dotyczące Azure Database for MariaDB
 
@@ -29,10 +29,9 @@ Nowy certyfikat zostanie użyty od 26 października 2020 (10/26/2020). Jeśli po
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Jak mogę dowiedzieć się, czy na mojej bazie danych ma być to naruszone?
 
 Wszystkie aplikacje korzystające z protokołu SSL/TLS i sprawdź, czy certyfikat główny musi zaktualizować certyfikat główny. Możesz określić, czy Twoje połączenia weryfikują certyfikat główny, przeglądając parametry połączenia.
--   Jeśli parametry połączenia obejmują `sslmode=verify-ca` lub ""
--   Jeśli parametry połączenia obejmują `sslmode=disable` , nie trzeba aktualizować certyfikatów.
--   Jeśli parametry połączenia obejmują `sslmode=allow` , `sslmode=prefer` , lub `sslmode=require` , nie trzeba aktualizować certyfikatów. 
--   Jeśli parametry połączenia nie są określone w sslmode, nie trzeba aktualizować certyfikatów.
+-   Jeśli parametry połączenia obejmują `sslmode=verify-ca` lub `sslmode=verify-full` , należy zaktualizować certyfikat.
+-   Jeśli parametry połączenia obejmują `sslmode=disable` , `sslmode=allow` , `sslmode=prefer` , lub `sslmode=require` , nie trzeba aktualizować certyfikatów. 
+-   Jeśli parametry połączenia nie określają sslmode, nie trzeba aktualizować certyfikatów.
 
 Jeśli używasz klienta, który dzieli parametry połączenia, przejrzyj dokumentację klienta, aby dowiedzieć się, czy weryfikuje certyfikaty.
 Aby zrozumieć Azure Database for MariaDB sslmode, przejrzyj [opisy trybu SSL](concepts-ssl-connection-security.md#default-settings).
