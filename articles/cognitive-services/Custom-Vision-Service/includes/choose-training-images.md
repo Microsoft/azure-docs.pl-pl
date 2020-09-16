@@ -21,7 +21,7 @@ Aby efektywnie szkolić model, użyj obrazów z odmianą wizualną. Wybierz obra
 * styl wizualizacji
 * osoby/zgrupowane elementy
 * size
-* type
+* typ
 
 Ponadto upewnij się, że wszystkie obrazy szkoleniowe spełniają następujące kryteria:
 * Format jpg, PNG, BMP lub gif
