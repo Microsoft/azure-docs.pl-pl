@@ -48,7 +48,7 @@ Poniżej znajduje się fragment z procesu *SELECT Condition* pokazujący typy sy
 
 Po wybraniu sygnału zostanie wyświetlony monit o skonfigurowanie logiki alertu. Można filtrować według wymiaru, ustawiać wartość progową dla alertu i ustawić częstotliwość sprawdzania dla warunku. Poniżej znajduje się przykład konfigurowania alertu w przypadku, gdy Metryka dotycząca średniego współczynnika błędów routingu spadnie powyżej 5%.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Zrzut ekranu przedstawiający stronę drugiej konfiguracji logiki sygnałów. Na stronie zostanie wyświetlona historia metryk, która ma obszar do filtrowania według wymiaru, takiego jak Event Grid operacje, a sekcja definiowania logiki alertu, taka jak "średnia jest większa niż 5"":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Zrzut ekranu przedstawiający stronę drugiej konfiguracji logiki sygnałów. Na stronie zostanie wyświetlona historia metryk, która ma obszar do filtrowania według wymiaru, takiego jak Event Grid operacje, a sekcja definiowania logiki alertu, taka jak średnia jest większa niż 5":::
 
 ### <a name="verify-success"></a>Weryfikowanie sukcesu
 
