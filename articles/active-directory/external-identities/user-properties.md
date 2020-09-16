@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a61a298b3b1d9e129b0ef3bbfff12f34d0ba09a8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: b68a4d0c9c33f6a7eb1a2300955e9185bd52d8fb
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89668967"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705473"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Właściwości Azure Active Directory użytkownika współpracy B2B
 
@@ -104,7 +104,7 @@ Istnieje możliwość wyłączenia ograniczeń domyślnych, aby użytkownik-Goś
 ![Zrzut ekranu przedstawiający opcję użytkowników zewnętrznych w ustawieniach użytkownika](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Czy można sprawić, aby użytkownicy-Goście widoczni na globalnej liście adresów programu Exchange?
-Tak. Domyślnie obiekty gościa nie są widoczne na globalnej liście adresowej organizacji, ale można użyć programu Azure Active Directory PowerShell, aby je wyświetlić. Aby uzyskać szczegółowe informacje, zobacz temat **czy obiekty gościa są widoczne na globalnej liście adresów?** w obszarze [Zarządzanie dostępem gościa w grupach pakietu Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
+Tak. Domyślnie obiekty gościa nie są widoczne na globalnej liście adresowej organizacji, ale można użyć programu Azure Active Directory PowerShell, aby je wyświetlić. Aby uzyskać szczegółowe informacje, zobacz temat **czy obiekty gościa są widoczne na globalnej liście adresów?** w obszarze [Zarządzanie dostępem gościa w grupach Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Czy mogę zaktualizować adres e-mail użytkownika-gościa?
 

@@ -1,6 +1,6 @@
 ---
-title: Udostępnianie zewnętrzne pakietu Office 365 i współpraca B2B — Azure AD
-description: W tym artykule omówiono współużytkowanie zasobów z partnerami zewnętrznymi przy użyciu usługi O365 i Azure Active Directory współpracy B2B.
+title: Microsoft 365 udostępniania zewnętrznego i współpracy B2B — Azure AD
+description: W tym artykule omówiono udostępnianie zasobów partnerom zewnętrznym przy użyciu Microsoft 365 i Azure Active Directory współpracy B2B.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcb407735cff5a0c43d3a584ff37a0eabc178381
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 563d925aa3e0d6922756ab037226f5a86534b19f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909235"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705439"
 ---
-# <a name="office-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Udostępnianie zewnętrzne pakietu Office 365 i usługa Azure Active Directory (Azure AD) Współpraca B2B
+# <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Microsoft 365 udostępnianie zewnętrzne i Azure Active Directory (Azure AD) Współpraca B2B
 
-Zarówno w przypadku współpracy B2B usługi Azure AD, jak i pakietu Office 365 w ramach udostępniania zewnętrznego (OneDrive, SharePoint Online, ujednoliconych grup itp.) użytkownicy zewnętrzni są uwierzytelniani przy użyciu usługi Azure AD B2B.
+Zarówno w przypadku współpracy B2B usługi Azure AD, jak i Microsoft 365 udostępniania zewnętrznego (OneDrive, SharePoint Online, ujednoliconych grup itp.) użytkownicy zewnętrzni są uwierzytelniani przy użyciu usługi Azure AD B2B.
 
 ## <a name="how-does-azure-ad-b2b-differ-from-external-sharing-in-sharepoint-online"></a>Jak usługa Azure AD B2B różni się od udostępniania zewnętrznego w usłudze SharePoint Online?
 
@@ -37,7 +37,7 @@ Usługa OneDrive/SharePoint Online ma osobny Menedżer zaproszeń. Obsługa udos
 Aby zarządzać udostępnianiem zewnętrznym w usłudze OneDrive/SharePoint Online przy użyciu funkcji współpracy B2B usługi Azure AD, ustaw ustawienie Udostępnianie zewnętrzne w usłudze OneDrive/SharePoint Online, aby **zezwolić na udostępnianie tylko użytkownikom zewnętrznym, który już istnieje w katalogu organizacji**. Użytkownicy mogą przechodzić do witryn udostępnionych zewnętrznie i wybierać z zewnętrznych współpracowników, które zostały dodane przez administratora. Administrator może dodać zewnętrznych współpracowników za pośrednictwem interfejsów API zaproszeń współpracy B2B.
 
 
-![Ustawienie udostępniania zewnętrznego usługi OneDrive/SharePoint Online](media/o365-external-user/odsp-sharing-setting.png)
+![Ustawienia udostępniania zewnętrznego w usłudze OneDrive/SharePoint](media/o365-external-user/odsp-sharing-setting.png)
 
 Po włączeniu udostępniania zewnętrznego możliwość wyszukiwania istniejących użytkowników-Gości w selektorze osób usługi SharePoint Online (SPO) jest domyślnie wyłączona, aby dopasować starsze zachowanie.
 

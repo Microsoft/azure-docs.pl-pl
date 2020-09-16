@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38f3a6d9cea1aa1ebcb76f61882dcf2615dc4832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13bb7782f6396466200fbb3e2df77158bb75d8a4
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554642"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705405"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Omówienie Multi-Factor Authentication platformy Azure dla Twojej organizacji
 
@@ -34,18 +34,18 @@ Klienci korzystający z bezpłatnych korzyści płynących z usługi Azure AD mo
 
 ## <a name="microsoft-365-business-e3-or-e5"></a>Microsoft 365 Business, E3 lub E5
 
-W przypadku klientów z pakietem Office 365 dostępne są dwie opcje:
+W przypadku klientów z Microsoft 365 są dostępne dwie opcje:
 
 * Usługa Azure Multi-Factor Authentication jest włączona lub wyłączona dla wszystkich użytkowników w przypadku wszystkich zdarzeń związanych z logowaniem. Nie ma możliwości włączania uwierzytelniania wieloskładnikowego tylko dla podzbioru użytkowników lub tylko w określonych scenariuszach. Zarządzanie odbywa się za pomocą portalu pakietu Office 365. 
-* Aby ulepszyć środowisko użytkownika, należy przeprowadzić uaktualnienie do Azure AD — wersja Premium P1 lub P2 i korzystać z dostępu warunkowego. Aby uzyskać więcej informacji, zobacz Zabezpieczanie zasobów pakietu Office 365 przy użyciu usługi uwierzytelniania wieloskładnikowego.
+* Aby ulepszyć środowisko użytkownika, należy przeprowadzić uaktualnienie do Azure AD — wersja Premium P1 lub P2 i korzystać z dostępu warunkowego. Aby uzyskać więcej informacji, zobacz Zabezpieczanie zasobów Microsoft 365 przy użyciu usługi uwierzytelniania wieloskładnikowego.
 
-## <a name="azure-ad-premium-p1"></a>Usługa Azure AD — warstwa Premium P1
+## <a name="azure-ad-premium-p1"></a>Usługa Azure AD — wersja Premium P1
 
 W przypadku klientów mających Azure AD — wersja Premium P1 lub podobne licencje zawierające te funkcje, takie jak Enterprise Mobility + Security E3, Microsoft 365 F1 lub Microsoft 365 E3: 
 
 Korzystanie z [dostępu warunkowego usługi Azure AD](../authentication/tutorial-enable-azure-mfa.md) w celu monitowania użytkowników o uwierzytelnianie wieloskładnikowe w określonych scenariuszach lub zdarzeniach spełniających wymagania biznesowe.
 
-## <a name="azure-ad-premium-p2"></a>Usługa Azure AD — warstwa Premium P2
+## <a name="azure-ad-premium-p2"></a>Usługa Azure AD — wersja Premium P2
 
 W przypadku klientów mających Azure AD — wersja Premium P2 lub podobne licencje zawierające te funkcje, takie jak Enterprise Mobility + Security E5 lub Microsoft 365 E5: 
 

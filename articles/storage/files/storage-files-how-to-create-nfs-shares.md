@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: c265f404b2e2e2796baf0febb93997ef099f0844
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2a848cb77336fc89172d55a6204d66b9e5be5976
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564952"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705235"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Jak utworzyć udział NFS
 
@@ -96,7 +96,7 @@ Po utworzeniu konta FileStorage i skonfigurowaniu sieci można utworzyć udział
     - Brak elementu głównego squash-Remote administratora (root) odbiera dostęp jako główny.
     - Wszystkie squash — dostęp wszystkich użytkowników jest mapowany na UID (65534) i GID (65534).
     
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Zrzut ekranu bloku tworzenia udziału plików":::
 
@@ -163,3 +163,5 @@ az storage share-rm create \
 ## <a name="next-steps"></a>Następne kroki
 
 Po utworzeniu udziału NFS należy go zainstalować na komputerze klienckim z systemem Linux. Aby uzyskać szczegółowe informacje, zobacz [jak zainstalować udział NFS](storage-files-how-to-mount-nfs-shares.md).
+
+Jeśli występują jakieś problemy, zobacz [Rozwiązywanie problemów z udziałami plików NFS systemu Azure](storage-troubleshooting-files-nfs.md).

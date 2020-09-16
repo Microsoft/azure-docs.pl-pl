@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320651"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705490"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Co to jest wskaźnik bezpieczeństwa tożsamości w usłudze Azure Active Directory?
 
@@ -102,13 +102,13 @@ Punkty otrzymujesz za skonfigurowanie rekomendowanych funkcji zabezpieczeń lub 
 
 Aby wyświetlić historię oceny, przejdź do [Centrum zabezpieczeń Microsoft 365](https://security.microsoft.com/) i zapoznaj się z ogólnymi wynikami firmy Microsoft. Zmiany w ogólnym łącznym wyniku można przejrzeć, klikając pozycję Wyświetl historię. Wybierz konkretną datę, aby zobaczyć, które kontrole były włączone w tym dniu i jakie punkty zostały Ci przyznane za każdą z nich.
 
-### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Jaki jest związek między wskaźnikiem bezpieczeństwa tożsamości a wskaźnikiem bezpieczeństwa usługi Office 365?
+### <a name="how-does-the-identity-secure-score-relate-to-the-microsoft-365-secure-score"></a>W jaki sposób bezpieczny wskaźnik tożsamości odnosi się do Microsoft 365 zabezpieczenia?
 
 [Microsoft Secure Score](/office365/securitycompliance/microsoft-secure-score) zawiera pięć odrębnych kategorii kontrolek i oceny:
 
 - Tożsamość
 - Dane
-- Urządzenia
+- Devices
 - Infrastruktura
 - Aplikacje
 

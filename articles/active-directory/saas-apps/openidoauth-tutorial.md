@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1934b6256ecf4f35c54bbc2ac497c331b2c5ee89
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543928"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705626"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurowanie aplikacji uwierzytelniania OpenID/OAuth z galerii aplikacji usługi Azure AD
 
@@ -76,13 +76,13 @@ Domyślnie usługa Azure AD promuje aplikacje wielodostępne. Łatwo jest uzyska
 ## <a name="consent-framework"></a>Platforma wyrażania zgody
 
 Struktura wyrażania zgody w usłudze Azure AD umożliwia opracowywanie wielodostępnych aplikacji internetowych i natywnych aplikacji klienckich. Te aplikacje umożliwiają logowanie za pomocą kont użytkownika z dzierżawy usługi Azure AD innej niż dzierżawa, w której aplikacja jest zarejestrowana. Mogą ona także potrzebować dostępu do internetowych interfejsów API, takich jak:
-- Interfejs API programu Microsoft Graph — na potrzeby dostępu do usług Azure AD, Intune i usług w ramach platformy Office 365.
+- Interfejs API Microsoft Graph umożliwia dostęp do usług Azure AD, Intune i Services w programie Microsoft 365.
 - Inne interfejsy API usług firmy Microsoft.
 - Twoje własne internetowe interfejsy API.
 
 Struktura opiera się na zgodzie wyrażanej przez użytkownika lub administratora w odpowiedzi na żądanie zarejestrowania w katalogu kierowane przez aplikację. Rejestracja może obejmować uzyskiwanie dostępu do danych katalogu. Po wyrażeniu zgody aplikacja kliencka może wywoływać interfejs API programu Microsoft Graph w imieniu użytkownika i używać informacji zgodnie z potrzebami.
 
-[Interfejs API programu Microsoft Graph](https://developer.microsoft.com/graph/) zapewnia dostęp do danych w usłudze Office 365, takich jak:
+[Interfejs API Microsoft Graph](https://developer.microsoft.com/graph/) zapewnia dostęp do danych w Microsoft 365, takich jak:
 
 - Kalendarze i komunikaty z programu Exchange
 - Witryny i listy z programu SharePoint
@@ -121,7 +121,7 @@ Poniższe kroki pokazują, jak środowisko wyrażania zgody działa dla dewelope
 
 3. Jeśli użytkownik nie jest jeszcze uwierzytelniony, punkt końcowy autoryzacji / usługa Azure AD wyświetli monit logowania.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![Zrzut ekranu przedstawiający monit logowania dla konta](./media/openidoauth-tutorial/authentication.png)
 
 4. Gdy użytkownik jest już zalogowany, usługa Azure AD określa, czy należy mu pokazać stronę wyrażenia zgody. To ustalenie zależy od tego, czy użytkownik (lub administrator organizacji) już udzielił zgody aplikacji.
 
