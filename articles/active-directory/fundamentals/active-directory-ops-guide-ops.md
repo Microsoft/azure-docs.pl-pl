@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: edb35986fcfc0e8855fa712b519ee7a8ca2f0ed8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321960"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601315"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Dokumentacja podręcznika obsługi ogólnej Azure Active Directory
 
@@ -125,9 +125,9 @@ Jeśli w danej organizacji nie ma obecnie żadnego programu do monitorowania zmi
 
 ### <a name="notifications"></a>Powiadomienia
 
-Firma Microsoft wysyła wiadomości e-mail do administratorów w celu powiadomienia różnych zmian w usłudze, wymaganych aktualizacji konfiguracji i błędów wymagających interwencji administratora. Należy pamiętać, że klienci ustawiają adresy e-mail powiadomień, aby powiadomienia były wysyłane do odpowiednich członków zespołu, którzy będą mogli potwierdzić i korzystać ze wszystkich powiadomień. Zalecamy dodanie wielu odbiorców do [centrum wiadomości pakietu Office 365](/office365/admin/manage/message-center) i zażądanie, aby powiadomienia (w tym powiadomienia o Azure AD Connect Healthach) były wysyłane do listy dystrybucyjnej lub udostępnionej skrzynki pocztowej. Jeśli masz tylko jedno konto administratora globalnego z adresem e-mail, pamiętaj, aby skonfigurować co najmniej dwa konta z obsługą poczty e-mail.
+Firma Microsoft wysyła wiadomości e-mail do administratorów w celu powiadomienia różnych zmian w usłudze, wymaganych aktualizacji konfiguracji i błędów wymagających interwencji administratora. Należy pamiętać, że klienci ustawiają adresy e-mail powiadomień, aby powiadomienia były wysyłane do odpowiednich członków zespołu, którzy będą mogli potwierdzić i korzystać ze wszystkich powiadomień. Zalecamy dodanie wielu odbiorców do [centrum wiadomości](/office365/admin/manage/message-center) i zażądanie powiadomienia (w tym powiadomienia o Azure AD Connect Healthach) do listy dystrybucyjnej lub udostępnionej skrzynki pocztowej. Jeśli masz tylko jedno konto administratora globalnego z adresem e-mail, pamiętaj, aby skonfigurować co najmniej dwa konta z obsługą poczty e-mail.
 
-Istnieją dwa adresy "od" używane przez usługę Azure AD: <o365mc@email2.microsoft.com> , które wysyła powiadomienia centrum komunikatów pakietu Office 365, a <azure-noreply@microsoft.com> następnie wysyłające powiadomienia powiązane z:
+Istnieją dwa adresy "od" używane przez usługę Azure AD: <o365mc@email2.microsoft.com> , które wysyła powiadomienia centrum komunikatów, i <azure-noreply@microsoft.com> , które wysyła powiadomienia dotyczące:
 
 - [Przeglądy dostępu w usłudze Azure AD](../governance/access-reviews-overview.md)
 - [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
@@ -141,14 +141,14 @@ Zapoznaj się z poniższą tabelą, aby uzyskać informacje o typie wysyłanych 
 | Źródło powiadomienia | Co jest wysyłane | Gdzie można sprawdzić |
 |:-|:-|:-|
 | Kontakt techniczny | Błędy synchronizacji | Azure Portal — blok właściwości |
-| Centrum wiadomości usługi Office 365 | Powiadomienia o zdarzeniach i obniżeniu wydajności usług Identity Services i usług zaplecza usługi O365 | Portal Office |
+| Centrum wiadomości | Powiadomienia o zdarzeniach i obniżeniu wydajności usług Identity Services oraz Microsoft 365 usług zaplecza | Portal Office |
 | Cotygodniowe podsumowanie ochrony tożsamości | Podsumowanie programu Identity Protection | Azure AD Identity Protection blok |
 | Azure AD Connect Health | Powiadomienia o alertach | Blok Azure Portal — Azure AD Connect Health |
 | Powiadomienia o aplikacjach dla przedsiębiorstw | Powiadomienia, gdy certyfikaty wkrótce wygasną i błędy aprowizacji | Azure Portal — blok aplikacji dla przedsiębiorstw (każda aplikacja ma własne ustawienie adresu e-mail) |
 
 #### <a name="notifications-recommended-reading"></a>Zalecane odczyty
 
-- [Zmień adres organizacji, kontakt techniczny i inne — Office 365](/office365/admin/manage/change-address-contact-and-more)
+- [Zmień adres organizacji, kontakt techniczny i inne](/office365/admin/manage/change-address-contact-and-more)
 
 ## <a name="operational-surface-area"></a>Obszar operacyjnej powierzchni
 

@@ -1,6 +1,6 @@
 ---
 title: Co to jest urządzenie przyłączone do usługi Azure AD?
-description: Dowiedz się, jak zarządzanie tożsamościami urządzeń może ułatwić zarządzanie urządzeniami, które uzyskują dostęp do zasobów w danym środowisku.
+description: Informacje o urządzeniach przyłączonych do usługi Azure AD oraz sposobie zarządzania tożsamościami urządzeń ułatwiają zarządzanie urządzeniami, które uzyskują dostęp do zasobów w danym środowisku.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923734"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601456"
 ---
 # <a name="azure-ad-joined-devices"></a>Urządzenia dołączone do usługi Azure AD
 
@@ -58,7 +58,7 @@ Chociaż dołączanie do usługi Azure AD jest przeznaczone głównie dla organi
 
 - Chcesz przenieść zasoby do infrastruktury opartej na chmurze przy użyciu usługi Azure AD oraz funkcji zarządzania urządzeniami przenośnymi, np. usługi Intune.
 - Nie możesz zastosować dołączania do domeny lokalnej, np. jeśli potrzebujesz kontrolować urządzenia przenośne, takie jak tablety i telefony.
-- Użytkownicy przede wszystkim potrzebują dostępu do usługi Office 365 lub innych aplikacji SaaS zintegrowanych z usługą Azure AD.
+- Użytkownicy muszą głównie uzyskać dostęp do Microsoft 365 lub innych aplikacji SaaS zintegrowanych z usługą Azure AD.
 - Chcesz zarządzać grupą użytkowników w usłudze Azure AD zamiast w usłudze Active Directory. Ten scenariusz może dotyczyć na przykład pracowników sezonowych, wykonawców lub studentów.
 - Chcesz zapewnić możliwość dołączania pracownikom w odległych oddziałach z ograniczoną infrastrukturą lokalną.
 

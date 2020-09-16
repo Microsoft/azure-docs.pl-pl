@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3626a29bb828c9fbc353b11858d42fecd4bb129d
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 82ab9bc0159528446a9de95769f1e433f03acb56
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641028"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601949"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Instrukcje: wymaganie zasad ochrony aplikacji oraz zatwierdzonej aplikacji klienckiej do uzyskiwania dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego
 
 Osoby regularnie korzystają z urządzeń przenośnych zarówno do zadań osobistych, jak i służbowych. Mimo że pracownicy mogą pracować wydajnie, organizacje chcą również zapobiec utracie danych z potencjalnie niezabezpieczonych aplikacji. W przypadku dostępu warunkowego organizacje mogą ograniczyć dostęp do zatwierdzonych aplikacji klienckich (nowoczesnego uwierzytelniania) przy użyciu zasad ochrony aplikacji usługi Intune.
 
-W tym artykule przedstawiono trzy scenariusze konfigurowania zasad dostępu warunkowego dla zasobów, takich jak Office 365, Exchange Online i SharePoint Online.
+W tym artykule przedstawiono trzy scenariusze konfigurowania zasad dostępu warunkowego dla zasobów, takich jak Microsoft 365, Exchange Online i SharePoint.
 
-- [Scenariusz 1: aplikacje pakietu Office 365 wymagają zatwierdzonych aplikacji przy użyciu zasad ochrony aplikacji](#scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies)
+- [Scenariusz 1: aplikacje Microsoft 365 wymagają zatwierdzonych aplikacji przy użyciu zasad ochrony aplikacji](#scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies)
 - [Scenariusz 2: aplikacje przeglądarki wymagają zatwierdzonych aplikacji z zasadami ochrony aplikacji](#scenario-2-browser-apps-require-approved-apps-with-app-protection-policies)
-- [Scenariusz 3: usługi Exchange Online i SharePoint Online wymagają zatwierdzonej aplikacji klienckiej i zasad ochrony aplikacji](#scenario-3-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy)
+- [Scenariusz 3: usługi Exchange Online i SharePoint wymagają zatwierdzonej aplikacji klienckiej i zasad ochrony aplikacji](#scenario-3-exchange-online-and-sharepoint-require-an-approved-client-app-and-app-protection-policy)
 
 W przypadku dostępu warunkowego te aplikacje klienckie są nazywane ochroną za pomocą zasad ochrony aplikacji. Więcej informacji na temat zasad ochrony aplikacji można znaleźć w artykule [Omówienie zasad ochrony aplikacji](/intune/apps/app-protection-policy)
 
@@ -36,13 +36,13 @@ W przypadku dostępu warunkowego te aplikacje klienckie są nazywane ochroną za
 > [!NOTE]
 > "Wymagaj jednej z wybranych kontrolek" w obszarze kontrolki dotacji jest taka sama jak klauzula OR. Ta wartość jest używana w ramach zasad, aby umożliwić użytkownikom korzystanie z aplikacji, które obsługują kontrolki **Wymagaj ochrony aplikacji** lub **wymagają zatwierdzonej aplikacji klienckiej** . **Wymagania zasad ochrony aplikacji** są wymuszane, jeśli aplikacja jest obsługiwana w ramach obu zasad. Aby uzyskać więcej informacji o tym, które aplikacje obsługują kontrolę przydzielenia **zasad ochrony aplikacji** , zobacz [wymagania dotyczące zasad ochrony aplikacji](concept-conditional-access-grant.md#require-app-protection-policy).
 
-## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenariusz 1: aplikacje pakietu Office 365 wymagają zatwierdzonych aplikacji przy użyciu zasad ochrony aplikacji
+## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenariusz 1: aplikacje Microsoft 365 wymagają zatwierdzonych aplikacji przy użyciu zasad ochrony aplikacji
 
-W tym scenariuszu firma Contoso zdecydowała się, że wszystkie dostępy mobilne do zasobów pakietu Office 365 muszą używać zatwierdzonych aplikacji klienckich, takich jak Outlook Mobile i OneDrive, chronione przez zasady ochrony aplikacji przed uzyskaniem dostępu. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
+W tym scenariuszu firma Contoso zdecydowała się, że wszystkie dostępy mobilne do zasobów Microsoft 365 muszą używać zatwierdzonych aplikacji klienckich, takich jak Outlook Mobile i OneDrive, chronione przez zasady ochrony aplikacji przed uzyskaniem dostępu. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
 
 Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przenośnych, organizacje muszą wykonać następujące czynności.
 
-**Krok 1. Konfigurowanie zasad dostępu warunkowego usługi Azure AD dla pakietu Office 365**
+**Krok 1. Konfigurowanie zasad dostępu warunkowego usługi Azure AD dla Microsoft 365**
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
 1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
@@ -50,7 +50,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Kliknij **Gotowe**.
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Office 365 (wersja zapoznawcza)**.
 1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
@@ -74,7 +74,7 @@ W przypadku zasad dostępu warunkowego w tym kroku skonfiguruj następujące sk�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Kliknij **Gotowe**.
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365 Exchange Online**.
 1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**:
    1. Ustaw **wartość** **tak**.
@@ -89,11 +89,11 @@ Zapoznaj się z artykułem [jak utworzyć i przypisać zasady ochrony aplikacji]
 
 ## <a name="scenario-2-browser-apps-require-approved-apps-with-app-protection-policies"></a>Scenariusz 2: aplikacje przeglądarki wymagają zatwierdzonych aplikacji z zasadami ochrony aplikacji
 
-W tym scenariuszu firma Contoso zdecydowała się, że wszyscy dostęp do Internetu w sieci Web do zasobów pakietu Office 365 musi używać zatwierdzonej aplikacji klienckiej, takiej jak Edge dla systemów iOS i Android, chronionej przez zasady ochrony aplikacji przed uzyskaniem dostępu. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
+W tym scenariuszu firma Contoso zdecydowała się, że wszystkie dostępy do sieci Web dla urządzeń przenośnych do zasobów Microsoft 365 muszą używać zatwierdzonej aplikacji klienckiej, takiej jak Edge dla systemów iOS i Android, chronione przez zasady ochrony aplikacji przed uzyskaniem dostępu. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
 
 Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przenośnych, organizacje muszą wykonać następujące czynności.
 
-**Krok 1. Konfigurowanie zasad dostępu warunkowego usługi Azure AD dla pakietu Office 365**
+**Krok 1. Konfigurowanie zasad dostępu warunkowego usługi Azure AD dla Microsoft 365**
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
 1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
@@ -101,7 +101,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Kliknij **Gotowe**.
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Office 365 (wersja zapoznawcza)**.
 1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
@@ -120,13 +120,13 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 
 Zapoznaj się z artykułem [jak utworzyć i przypisać zasady ochrony aplikacji](/intune/apps/app-protection-policies), aby zapoznać się z procedurą tworzenia zasad ochrony aplikacji dla systemów Android i iOS. 
 
-## <a name="scenario-3-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy"></a>Scenariusz 3: usługi Exchange Online i SharePoint Online wymagają zatwierdzonej aplikacji klienckiej i zasad ochrony aplikacji
+## <a name="scenario-3-exchange-online-and-sharepoint-require-an-approved-client-app-and-app-protection-policy"></a>Scenariusz 3: usługi Exchange Online i SharePoint wymagają zatwierdzonej aplikacji klienckiej i zasad ochrony aplikacji
 
 W tym scenariuszu firma Contoso zdecydowała się, że użytkownicy mogą uzyskiwać dostęp tylko do danych poczty e-mail i programu SharePoint na urządzeniach przenośnych, o ile korzystają z zatwierdzonej aplikacji klienckiej, takiej jak Outlook Mobile chroniona przez zasady ochrony aplikacji przed uzyskaniem dostępu. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
 
 Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przenośnych i klientach programu Exchange ActiveSync, organizacje muszą wykonać następujące trzy kroki.
 
-**Krok 1. zasady dla klientów korzystających z nowoczesnego uwierzytelniania systemu Android i iOS wymagające użycia zatwierdzonej aplikacji klienckiej i zasad ochrony aplikacji podczas uzyskiwania dostępu do usługi Exchange Online i SharePoint Online.**
+**Krok 1. zasady dla klientów korzystających z nowoczesnego uwierzytelniania systemu Android i iOS wymagające użycia zatwierdzonej aplikacji klienckiej i zasad ochrony aplikacji podczas uzyskiwania dostępu do usługi Exchange Online i programu SharePoint.**
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
 1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
@@ -134,7 +134,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Kliknij **Gotowe**.
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365 Exchange Online** i **Office 365 SharePoint Online**.
 1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
@@ -156,7 +156,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Kliknij **Gotowe**.
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365 Exchange Online**.
 1. W obszarze **warunki**wybierz pozycję **aplikacje klienckie**:
    1. Ustaw **wartość** **tak**.

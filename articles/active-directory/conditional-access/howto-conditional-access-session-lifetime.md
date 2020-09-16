@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28516482cf154c81912de0f8e3f35b9e54ef2f69
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948270"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601677"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Skonfiguruj zarządzanie sesją uwierzytelniania z użyciem dostępu warunkowego
 
@@ -44,7 +44,7 @@ Ustawienie częstotliwości logowania działa z aplikacjami, które mają wdroż
 - Word, Excel, PowerPoint Online
 - OneNote online
 - Office.com
-- Portal administracyjny usługi O365
+- Portal administracyjny Microsoft 365
 - Exchange Online
 - Program SharePoint i usługa OneDrive
 - Klient sieci Web dla zespołów
@@ -134,7 +134,7 @@ Za pomocą narzędzia do wykonywania symulacji Zasymuluj Logowanie użytkownika 
 
 Aby upewnić się, że zasady działają zgodnie z oczekiwaniami, zalecanym najlepszym rozwiązaniem jest przetestowanie go przed wycofaniem do produkcji. Najlepiej użyć dzierżawy testowej, aby sprawdzić, czy nowe zasady działają zgodnie z oczekiwaniami. Aby uzyskać więcej informacji, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi dostępu warunkowego w Azure Active Directory](best-practices.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się, jak skonfigurować zasady dostępu warunkowego, zapoznaj się z artykułem [Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji, Azure Active Directory dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md).
 * Aby skonfigurować zasady dostępu warunkowego dla środowiska, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi dostępu warunkowego w Azure Active Directory](best-practices.md).

@@ -5,20 +5,20 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/10/2020
+ms.date: 09/15/2020
 ms.author: victorh
-ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7c7ea5297276ed9a1d1f2ca8f4190997dcab57c3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "79475845"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602221"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Samouczek: Tworzenie zasad zapory aplikacji sieci Web na platformie Azure front-drzwi przy użyciu Azure Portal
 
 W tym samouczku pokazano, jak utworzyć podstawowe zasady zapory aplikacji sieci Web (WAF) platformy Azure i zastosować je do hosta frontonu na platformie Azure.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie zasad WAF
@@ -68,7 +68,7 @@ Aby wyświetlić WAF w działaniu, można zmienić ustawienia trybu z **wykrywan
 
 Regułę niestandardową można utworzyć, wybierając pozycję **Dodaj regułę niestandardową** w sekcji **reguły niestandardowe** . Spowoduje to uruchomienie strony Konfiguracja reguły niestandardowej. Poniżej znajduje się przykład konfigurowania reguły niestandardowej do blokowania żądania, jeśli ciąg zapytania zawiera **blockme**.
 
-![Zmień tryb zasad WAF](../media/waf-front-door-create-portal/customquerystring2.png)
+![Reguły niestandardowe](../media/waf-front-door-create-portal/customquerystring2.png)
 
 ### <a name="default-rule-set-drs"></a>Domyślny zestaw reguł (DRS)
 
@@ -76,8 +76,11 @@ Domyślny zestaw reguł zarządzany przez platformę Azure jest domyślnie włą
 
  ![Zmień zestaw reguł WAF](../media/waf-front-door-create-portal/managed2.png)
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je.
+
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o zaporze](../overview.md) 
->  aplikacji sieci Web platformy Azure [Dowiedz się więcej o drzwiach frontonu platformy Azure](../../frontdoor/front-door-overview.md)
+> [Dowiedz się więcej o drzwiach frontonu platformy Azure](../../frontdoor/front-door-overview.md)

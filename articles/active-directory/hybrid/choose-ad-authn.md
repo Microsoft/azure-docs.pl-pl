@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: beabe9440c37d16ca4a81efdbc9588739f4c7473
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279350"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602374"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Wybierz właściwą metodę uwierzytelniania dla Azure Active Directory rozwiązanie do tworzenia tożsamości hybrydowej
 
@@ -86,7 +86,7 @@ Szczegółowe informacje na temat decyzji:
 
 ### <a name="cloud-authentication-password-hash-synchronization"></a>Uwierzytelnianie w chmurze: synchronizacja skrótów haseł
 
-* **Nakład pracy**. Synchronizacja skrótów haseł wymaga najmniej wysiłku związanego z wdrażaniem, konserwacją i infrastrukturą.  Ten poziom nakładu pracy dotyczy zazwyczaj organizacji, które wymagają, aby użytkownicy mogli logować się do pakietu Office 365, aplikacji SaaS i innych zasobów opartych na usłudze Azure AD. Po włączeniu synchronizacja skrótów haseł jest częścią procesu synchronizacji Azure AD Connect i jest uruchamiana co dwie minuty.
+* **Nakład pracy**. Synchronizacja skrótów haseł wymaga najmniej wysiłku związanego z wdrażaniem, konserwacją i infrastrukturą.  Ten poziom nakładu pracy dotyczy zazwyczaj organizacji, które wymagają, aby użytkownicy mogli logować się do aplikacji Microsoft 365, SaaS i innych zasobów opartych na usłudze Azure AD. Po włączeniu synchronizacja skrótów haseł jest częścią procesu synchronizacji Azure AD Connect i jest uruchamiana co dwie minuty.
 
 * **Środowisko użytkownika**. Aby ulepszyć środowisko logowania użytkowników, wdróż bezproblemową rejestrację jednokrotną przy użyciu synchronizacji skrótów haseł. Bezproblemowe logowanie jednokrotne eliminuje zbędne monity, gdy użytkownicy są zalogowani.
 
@@ -177,9 +177,9 @@ Na poniższym diagramie przedstawiono składniki architektury wysokiego poziomu 
 |Gdzie jest wykonywane uwierzytelnianie?|W chmurze|W chmurze po bezpiecznej weryfikacji hasła przy użyciu lokalnego agenta uwierzytelniania|Środowiska lokalne|
 |Jakie są wymagania dotyczące serwera lokalnego poza systemem aprowizacji: Azure AD Connect?|Brak|Jeden serwer dla każdego dodatkowego agenta uwierzytelniania|Co najmniej dwa serwery AD FS<br><br>Dwa lub więcej serwerów WAP w sieci obwodowej/strefy DMZ|
 |Jakie są wymagania dotyczące lokalnego Internetu i sieci poza systemem aprowizacji?|Brak|[Wychodzący dostęp do Internetu](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) z serwerów z uruchomionymi agentami uwierzytelniania|[Przychodzący dostęp do Internetu](/windows-server/identity/ad-fs/overview/ad-fs-requirements) do serwerów WAP na obrzeżu<br><br>Dostęp do sieci przychodzącej do serwerów AD FS z serwerów WAP na obrzeżu<br><br>Równoważenie obciążenia sieciowego|
-|Czy istnieje wymagania dotyczące certyfikatu TLS/SSL?|Nie|Nie|Tak|
+|Czy istnieje wymagania dotyczące certyfikatu TLS/SSL?|Nie|Nie|Yes|
 |Czy istnieje rozwiązanie do monitorowania kondycji?|Niewymagane|Stan agenta udostępniany przez [Centrum administracyjne Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
-|Czy użytkownicy uzyskują Logowanie jednokrotne do zasobów w chmurze z urządzeń przyłączonych do domeny w sieci firmowej?|Tak, aby [bezproblemowe logowanie jednokrotne](../../active-directory/hybrid/how-to-connect-sso.md)|Tak, aby [bezproblemowe logowanie jednokrotne](../../active-directory/hybrid/how-to-connect-sso.md)|Tak|
+|Czy użytkownicy uzyskują Logowanie jednokrotne do zasobów w chmurze z urządzeń przyłączonych do domeny w sieci firmowej?|Tak, aby [bezproblemowe logowanie jednokrotne](../../active-directory/hybrid/how-to-connect-sso.md)|Tak, aby [bezproblemowe logowanie jednokrotne](../../active-directory/hybrid/how-to-connect-sso.md)|Yes|
 |Jakie typy logowania są obsługiwane?|UserPrincipalName + hasło<br><br>Uwierzytelnianie zintegrowane z systemem Windows za pomocą [bezproblemowego logowania jednokrotnego](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternatywny identyfikator logowania](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + hasło<br><br>Uwierzytelnianie zintegrowane z systemem Windows za pomocą [bezproblemowego logowania jednokrotnego](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternatywny identyfikator logowania](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + hasło<br><br>sAMAccountName + hasło<br><br>Uwierzytelnianie zintegrowane systemu Windows<br><br>[Certyfikat i uwierzytelnianie karty inteligentnej](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternatywny identyfikator logowania](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Czy funkcja Windows Hello dla firm jest obsługiwana?|[Model zaufania kluczy](/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Model zaufania kluczy](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Wymaga poziomu funkcjonalności domeny systemu Windows Server 2016*|[Model zaufania kluczy](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Model zaufania certyfikatów](/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Jakie są opcje uwierzytelniania wieloskładnikowego?|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Formanty niestandardowe z dostępem warunkowym *](../../active-directory/conditional-access/controls.md)|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Formanty niestandardowe z dostępem warunkowym *](../../active-directory/conditional-access/controls.md)|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Serwer usługi Azure MFA](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[Uwierzytelnianie wieloskładnikowe innej firmy](/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Formanty niestandardowe z dostępem warunkowym *](../../active-directory/conditional-access/controls.md)|
@@ -203,7 +203,7 @@ Użyj lub Włącz synchronizację skrótów haseł dla wybranej metody uwierzyte
 
 2. **Lokalne przeżycia awarii**.  Konsekwencje awarii lokalnej wynikające z ataku cybernetycznymiego lub awarii mogą być znaczne, od nieupoważnionej marki do organizacji Paralyzed, której nie można zaradzić. Niedawno wiele organizacji było ofiar ataków złośliwego oprogramowania, w tym przeznaczonych dla nich programów wymuszającego okup, które spowodowały, że serwery lokalne przechodzą w dół. Gdy firma Microsoft pomaga klientom w rozproszeniu tego rodzaju ataków, widzi dwie kategorie organizacji:
 
-   * Organizacje, które wcześniej włączyły funkcję synchronizacji skrótów haseł na serwerze federacyjnym lub uwierzytelnianiu przekazującym, zmieniły podstawową metodę uwierzytelniania w taki sposób, aby używały synchronizacji skrótów haseł. Są one z powrotem w trybie online w ciągu kilku godzin. Dzięki dostępowi do poczty e-mail za pośrednictwem pakietu Office 365 działały one w celu rozwiązywania problemów i uzyskiwania dostępu do innych obciążeń opartych na chmurze.
+   * Organizacje, które wcześniej włączyły funkcję synchronizacji skrótów haseł na serwerze federacyjnym lub uwierzytelnianiu przekazującym, zmieniły podstawową metodę uwierzytelniania w taki sposób, aby używały synchronizacji skrótów haseł. Są one z powrotem w trybie online w ciągu kilku godzin. Dzięki dostępowi do poczty e-mail za pośrednictwem Microsoft 365 działały one w celu rozwiązywania problemów i uzyskiwania dostępu do innych obciążeń opartych na chmurze.
 
    * Organizacje, które wcześniej nie włączyły synchronizacji skrótów haseł, musiały korzystać z niezaufanych zewnętrznych systemów poczty e-mail, aby umożliwić komunikację w celu rozwiązywania problemów. W takich przypadkach przeprowadzono te tygodnie do przywrócenia lokalnej infrastruktury tożsamości, zanim użytkownicy będą mogli ponownie zalogować się do aplikacji opartych na chmurze.
 

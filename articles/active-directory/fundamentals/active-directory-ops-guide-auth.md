@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: b45a0608d78330eafd6afc3656f8a4addbdffd3b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321722"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601368"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Przewodnik dotyczący operacji zarządzania uwierzytelnianiem Azure Active Directory
 
@@ -95,7 +95,7 @@ Hasła nie są wystarczająco bezpieczne, aby zapobiec uzyskiwaniu dostępu do �
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Odporność uwierzytelniania w przypadku awarii lokalnej
 
-Oprócz korzyści z uproszczenia i włączenia wykrywania nieujawnionych poświadczeń, synchronizacja skrótów haseł w usłudze Azure AD (PHS) i usługa Azure MFA umożliwiają użytkownikom dostęp do aplikacji SaaS i pakietu Office 365 w przypadku awarii w środowisku lokalnym z powodu cyberattacks, takich jak [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Możliwe jest również włączenie PHS w połączeniu z Federacją. Włączenie PHS umożliwia rezerwowe uwierzytelnianie, gdy usługi federacyjne nie są dostępne.
+Oprócz korzyści płynących z uproszczenia i włączenia wykrywania nieujawnionych poświadczeń, synchronizacja skrótów haseł w usłudze Azure AD (PHS) i usługa Azure MFA umożliwiają użytkownikom dostęp do aplikacji SaaS i Microsoft 365 w przypadku awarii w środowisku lokalnym z powodu cyberattacks, takich jak [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Możliwe jest również włączenie PHS w połączeniu z Federacją. Włączenie PHS umożliwia rezerwowe uwierzytelnianie, gdy usługi federacyjne nie są dostępne.
 
 Jeśli Twoja organizacja lokalna nie ma strategii odporności na awarie lub ma taką, która nie jest zintegrowana z usługą Azure AD, należy wdrożyć usługę Azure AD PHS i zdefiniować plan odzyskiwania po awarii, który obejmuje PHS. Włączenie usługi Azure AD PHS umożliwi użytkownikom uwierzytelnianie w usłudze Azure AD, jeśli lokalne Active Directory będą niedostępne.
 
@@ -249,7 +249,7 @@ Dostęp warunkowy jest ważnym narzędziem do ulepszania stan zabezpieczeń orga
 - Mają niewielki zestaw podstawowych zasad, które mogą być stosowane do wielu aplikacji
 - Zdefiniuj puste grupy wyjątków i Dodaj je do zasad, aby uzyskać strategię wyjątku
 - Planowanie kont [szkła z podziałem](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) bez kontroli MFA
-- Zapewnij spójne środowisko aplikacji klienckich pakietu Office 365, na przykład zespoły, OneDrive dla firm, Outlook itd.) przez implementację tego samego zestawu formantów dla usług, takich jak Exchange Online i SharePoint Online
+- Zapewnianie spójnego środowiska Microsoft 365 aplikacji klienckich, na przykład zespołów, OneDrive, Outlook itp.) przez implementację tego samego zestawu formantów dla usług, takich jak Exchange Online i SharePoint Online
 - Przypisanie do zasad powinno być implementowane za poorednictwem grup, a nie użytkowników
 - Wykonaj regularne przeglądy grup wyjątków używanych w zasadach, aby ograniczyć czas, w którym użytkownicy znajdują się w stan zabezpieczeń. Jeśli jesteś właocicielem usługi Azure AD P2, możesz użyć przeglądów dostępu do zautomatyzowania procesu
 
@@ -302,7 +302,7 @@ Poniżej znajduje się lista aplikacji z uprawnieniami, które mogą być Scruti
 
 | Zasób | Uprawnienie |
 | :- | :- |
-| Pakiet Office 365 Exchange Online | Posiada. AccessAsUser. All |
+| Exchange Online | Posiada. AccessAsUser. All |
 | | Interfejs. AccessAsUser. All |
 | | Poczta. Przeczytaj |
 | Microsoft Graph API | Poczta. Przeczytaj |
@@ -339,7 +339,7 @@ Poniżej znajdują się ustawienia użytkownika i grupy, które można zablokowa
 
 #### <a name="group-settings"></a>Ustawienia grupy
 
-**Samoobsługowe zarządzanie grupami/użytkownicy mogą tworzyć grupy zabezpieczeń/grupy usługi O365.** Jeśli nie ma żadnej obecnej inicjatywy samoobsługowej dla grup w chmurze, klienci mogą zdecydować się na jej wyłączenie do momentu, gdy nie będą gotowi do korzystania z tej funkcji.
+**Samoobsługowe zarządzanie grupami/użytkownicy mogą tworzyć grupy zabezpieczeń/Microsoft 365 grupy.** Jeśli nie ma żadnej obecnej inicjatywy samoobsługowej dla grup w chmurze, klienci mogą zdecydować się na jej wyłączenie do momentu, gdy nie będą gotowi do korzystania z tej funkcji.
 
 #### <a name="groups-recommended-reading"></a>Zalecane odczytywanie grup
 

@@ -8,26 +8,28 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/15/2020
-ms.openlocfilehash: f042c171c120b7b5dd9b011bca2c2243be664767
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e4cee699bf18b340d0bb1cbe783bdedcca537db6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530628"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602952"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Co to jest wyszukiwanie poznawcze na platformie Azure?
 
-Wyszukiwanie poznawcze platformy Azure ([dawniej znana jako "Azure Search"](whats-new.md#new-service-name)) to usługa wyszukiwania w chmurze, która zapewnia deweloperom interfejsy API i narzędzia umożliwiające dodawanie bogatego środowiska wyszukiwania przez prywatną, niejednorodną zawartość w aplikacjach sieci Web, mobilnych i firmowych.
+Wyszukiwanie poznawcze platformy Azure ([dawniej znana jako "Azure Search"](whats-new.md#new-service-name)) to usługa wyszukiwania w chmurze, która zapewnia deweloperom interfejsy API i narzędzia do tworzenia bogatego środowiska wyszukiwania za pośrednictwem prywatnej, niejednorodnej zawartości w aplikacjach sieci Web, mobilnych i firmowych.
 
-Wyszukiwanie poznawcze udostępnia aparat indeksowania i aparatu zapytań oraz trwały magazyn indeksów wyszukiwania. Mieści się między zewnętrznymi magazynami danych, które tworzą zawartość, a aplikacją kliencką, która wysyła żądania zapytań i obsługuje odpowiedzi. Dwa podstawowe obciążenia usługi wyszukiwania obejmują *indeksowanie* i *wykonywanie zapytań*.
+Podczas tworzenia usługi Wyszukiwanie poznawcze jest uzyskiwany aparat indeksowania i zapytań, trwały magazyn indeksów wyszukiwania, które tworzysz i którymi zarządzasz, oraz język zapytań umożliwiający tworzenie prostych i złożonych zapytań. Usługa wyszukiwania integruje się z innymi usługami platformy Azure w postaci *indeksatorów* , które automatyzują pozyskiwanie/pobieranie danych ze źródeł danych platformy Azure, i *umiejętności* , które dodają przetwarzanie AI z Cognitive Services, takie jak analiza obrazów i tekstu.
 
 ![Architektura usługi Azure Wyszukiwanie poznawcze](media/search-what-is-azure-search/azure-search-diagram.svg "Architektura usługi Azure Wyszukiwanie poznawcze")
 
-Indeksowanie polega na tym, że kod lub narzędzie definiują schemat indeksu i ładuje dane do usługi wyszukiwania. Opcjonalnie możesz dodać umiejętności poznawcze podczas indeksowania, aby zastosować procesy AI. Dzięki temu można tworzyć nowe informacje i struktury, które są przydatne w scenariuszach wyszukiwania i poszukiwania wiedzy.
+W sposób architektoniczny usługa wyszukiwania znajduje się między zewnętrznymi magazynami danych, które zawierają dane, a aplikacją kliencką, która wysyła żądania zapytań i obsługuje odpowiedzi. Dwa podstawowe obciążenia usługi wyszukiwania to *indeksowanie* i *wykonywanie zapytań*.
 
-Gdy indeks już istnieje, aplikacja kliencka wysyła żądania do usługi wyszukiwania i obsługuje odpowiedzi. Środowisko wyszukiwania jest zdefiniowane w kliencie przy użyciu interfejsów API z usługi Azure Wyszukiwanie poznawcze, z wykonywaniem zapytań w odniesieniu do tworzonego, własnego i przechowywanego w usłudze usługi.
+Indeksowanie dodaje zawartość do usługi wyszukiwania i umożliwia przeszukiwanie. Wewnętrznie tekst przychodzący jest przetwarzany do tokenów i przechowywany w odwróconych indeksach w celu szybkiego dopasowania. Schemat indeksu określa strukturę zawartości z możliwością wyszukiwania. Podczas indeksowania istnieje możliwość dodawania *umiejętności poznawczych*, wstępnie zdefiniowanych z firmy Microsoft lub niestandardowych umiejętności, które tworzysz. Wyniki analizy i przekształcenia mogą tworzyć nowe informacje i struktury, które wcześniej nie istniały, co zapewnia duże narzędzia do wielu scenariuszy wyszukiwania i poszukiwania wiedzy.
 
-Funkcje są uwidaczniane za pośrednictwem prostego [interfejsu API REST](/rest/api/searchservice/) lub [zestawu SDK platformy .NET](search-howto-dotnet-sdk.md), które pozwalają zamaskować złożoność związaną z używaniem pobierania informacji. Za pomocą narzędzi do tworzenia prototypów i wykonywania zapytań dotyczących indeksów można także używać Azure Portal do administrowania usługą i zarządzania zawartością. Ponieważ usługa ta działa w chmurze, zarządzaniem infrastrukturą i dostępnością zajmuje się firma Microsoft.
+Gdy indeks zostanie wypełniony danymi z możliwością wyszukiwania, aplikacja kliencka wysyła żądania zapytań do usługi Search i obsługuje odpowiedzi. Środowisko wyszukiwania jest zdefiniowane w kliencie przy użyciu interfejsów API z platformy Azure Wyszukiwanie poznawcze i może obejmować dostrajanie istotności, Autouzupełnianie, dopasowywanie synonimów, dopasowywanie rozmyte, dopasowywanie do wzorców, filtrowanie i sortowanie.
+
+Funkcje są uwidaczniane za pośrednictwem prostego [interfejsu API REST](/rest/api/searchservice/) lub [zestawu SDK platformy .NET](search-howto-dotnet-sdk.md), które pozwalają zamaskować złożoność związaną z używaniem pobierania informacji. Za pomocą narzędzi do tworzenia prototypów i wykonywania zapytań dotyczących indeksów i umiejętności można także używać Azure Portal do administrowania usługą i zarządzania zawartością. Ponieważ usługa ta działa w chmurze, zarządzaniem infrastrukturą i dostępnością zajmuje się firma Microsoft.
 
 ## <a name="when-to-use-cognitive-search"></a>Kiedy używać Wyszukiwanie poznawcze
 
@@ -37,7 +39,7 @@ Wyszukiwanie poznawcze platformy Azure są odpowiednie dla następujących scena
 
 + Łatwa implementacja funkcji związanych z wyszukiwaniem. Interfejsy API wyszukiwania upraszczają konstruowanie zapytań, nawigację aspektową, filtry (w tym wyszukiwanie geoprzestrzenne), mapowanie synonimów, Autouzupełnianie i dostrajanie istotności. Korzystając z wbudowanych funkcji, można zaspokoić oczekiwania użytkowników końcowych w przypadku wyszukiwania podobnego do komercyjnych aparatów wyszukiwania w sieci Web.
 
-+ Nieprzetworzona zawartość to duże, nierozróżniane pliki tekstowe lub graficzne lub pliki aplikacji przechowywane w usłudze Azure Blob Storage lub Cosmos DB. Podczas indeksowania można stosować [umiejętności poznawcze](cognitive-search-concept-intro.md) w celu wyodrębnienia tekstu, tworzenia struktury lub tworzenia nowych informacji, takich jak przetłumaczony tekst lub jednostki.
++ Nieprzetworzona zawartość to duże, nierozróżniane pliki tekstowe lub graficzne lub pliki aplikacji przechowywane w usłudze Azure Blob Storage lub Cosmos DB. Podczas indeksowania można stosować [umiejętności poznawcze](cognitive-search-concept-intro.md) w celu identyfikowania i wyodrębniania tekstu, tworzenia struktury lub tworzenia nowych informacji, takich jak przetłumaczony tekst lub jednostki.
 
 + Zawartość wymaga analizy językowej lub niestandardowej. Jeśli masz zawartość w wersji innej niż angielska, platforma Azure Wyszukiwanie poznawcze obsługuje zarówno analizatory Lucene, jak i Microsoft Natural Language. Można również skonfigurować analizatory do osiągnięcia wyspecjalizowanego przetwarzania nieprzetworzonej zawartości, takiej jak filtrowanie znaków diakrytycznych lub rozpoznawanie i zachowywanie wzorców w ciągach.
 

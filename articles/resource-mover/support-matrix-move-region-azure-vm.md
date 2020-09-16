@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: ddb1c68ab417390987ac4873a16b89757ec24789
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058737"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602289"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Obsługa przemieszczania maszyn wirtualnych platformy Azure między regionami platformy Azure
 
@@ -115,6 +115,10 @@ Rozszerzenia | Nieobsługiwane | Rozszerzenia nie są kopiowane do maszyny wirtu
 
 Ta tabela zawiera podsumowanie obsługi dysku systemu operacyjnego Azure VM, dysku danych i dysku tymczasowego. Ważne jest, aby obserwować limity dysku maszyny wirtualnej i elementy docelowe dla maszyn wirtualnych z systemami [Linux](../virtual-machines/linux/disk-scalability-targets.md) i [Windows](../virtual-machines/windows/disk-scalability-targets.md) , aby uniknąć problemów z wydajnością.
 
+> [!NOTE]
+> Docelowy rozmiar maszyny wirtualnej powinien być równy lub większy niż źródłowa maszyna wirtualna. Parametry używane do walidacji: liczba dysków danych, liczba kart sieciowych, dostępne procesory CPU, pamięć w GB. Jeśli nie, zostanie wystawiony błąd.
+
+
 **Składnik** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
 Maksymalny rozmiar dysku systemu operacyjnego | 2048 GB | [Dowiedz się więcej](../virtual-machines/windows/managed-disks-overview.md) o dyskach maszyn wirtualnych.
@@ -169,7 +173,7 @@ Maszyny wirtualne platformy Azure, które chcesz przenieść, wymagają dostępu
 **Nazwa** | **Chmura publiczna Azure** | **Szczegóły** 
 --- | --- | --- 
 Magazyn | `*.blob.core.windows.net`  | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. 
-Usługa Azure Active Directory | `login.microsoftonline.com`  | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. 
+Azure Active Directory | `login.microsoftonline.com`  | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. 
 Replikacja | `*.hypervrecoverymanager.windowsazure.com` | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. 
 Service Bus | `*.servicebus.windows.net` | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. 
 

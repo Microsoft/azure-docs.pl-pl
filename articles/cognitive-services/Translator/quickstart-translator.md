@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, usługa translator, tłumaczenie tekstu, zatransliteracja tekstu, wykrywanie języka
-ms.openlocfilehash: 1cffe99389b3e3e782c53aeae8c29fbc8f55b6a0
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 65f16c9689984a493e3fed041545557688fbc279
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530679"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602255"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Szybki Start: Rozpoczynanie pracy z usługą translator
 
@@ -120,6 +120,10 @@ Podczas wywoływania usługi translatora za pośrednictwem protokołu REST nale�
     <td><em>Opcjonalne</em>.<br/>Wygenerowany przez klienta identyfikator GUID służący do unikatowej identyfikacji żądania. Możesz pominąć ten nagłówek, jeśli dołączysz identyfikator śledzenia w ciągu zapytania przy użyciu parametru zapytania o nazwie <code>ClientTraceId</code> .</td>
   </tr>
 </table> 
+
+## <a name="keys-and-endpoints"></a>Keys and endpoints (Klucze i punkty końcowe)
+
+Przykłady na tej stronie używają zakodowanych kluczy i punktów końcowych dla uproszczenia. Pamiętaj, aby **usunąć klucz z kodu, gdy**skończysz, i **nigdy nie Publikuj go publicznie**. W przypadku produkcji należy rozważyć użycie bezpiecznego sposobu przechowywania poświadczeń i uzyskiwania do nich dostępu. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [zabezpieczeń](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) Cognitive Services.
 
 ## <a name="translate-text"></a>Tłumaczenie tekstu 
 

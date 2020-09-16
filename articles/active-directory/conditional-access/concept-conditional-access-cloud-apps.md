@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948406"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602068"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Dostęp warunkowy: aplikacje lub akcje w chmurze
 
@@ -55,9 +55,9 @@ Administratorzy mogą przypisywać zasady dostępu warunkowego do następującyc
 - Microsoft StaffHub
 - Usługa Microsoft Stream
 - Microsoft Teams
-- Pakiet Office 365 Exchange Online
-- Pakiet Office 365 SharePoint Online
-- Usługa Yammer pakietu Office 365
+- Exchange Online
+- SharePoint
+- Yammer
 - Office Delve
 - Pakiet Office Sway
 - Outlook Groups
@@ -69,7 +69,7 @@ Administratorzy mogą przypisywać zasady dostępu warunkowego do następującyc
 
 ### <a name="office-365-preview"></a>Office 365 (wersja zapoznawcza)
 
-Pakiet Office 365 zapewnia oparte na chmurze usługi do pracy i współpracy, takie jak Exchange, SharePoint i Microsoft Teams. Usługi w chmurze pakietu Office 365 są głęboko zintegrowane w celu zapewnienia bezproblemowego i wspólnego środowiska. Ta integracja może spowodować pomyłkę podczas tworzenia zasad, ponieważ niektóre aplikacje, takie jak Microsoft Teams, mają zależności od innych, takich jak SharePoint lub Exchange.
+Microsoft 365 zapewnia oparte na chmurze usługi do pracy i współpracy, takie jak Exchange, SharePoint i Microsoft Teams. Usługi w chmurze Microsoft 365 są głęboko zintegrowane w celu zapewnienia bezproblemowego i wspólnego środowiska. Ta integracja może spowodować pomyłkę podczas tworzenia zasad, ponieważ niektóre aplikacje, takie jak Microsoft Teams, mają zależności od innych, takich jak SharePoint lub Exchange.
 
 Aplikacja pakietu Office 365 (wersja zapoznawcza) umożliwia wszystkim wszystkim kierowanie tych usług jednocześnie. Zalecamy używanie nowej aplikacji pakietu Office 365 (wersja zapoznawcza), a nie kierowanie poszczególnych aplikacji w chmurze w celu uniknięcia problemów z [zależnościami usług](service-dependencies.md). Kierowanie do tej grupy aplikacji pozwala uniknąć problemów, które mogą wystąpić z powodu niespójnych zasad i zależności.
 
@@ -82,10 +82,10 @@ Najważniejsze aplikacje, które są zawarte w aplikacji klienckiej pakietu Offi
    - Usługa Microsoft Stream
    - Microsoft To-Do
    - Microsoft Teams
-   - Pakiet Office 365 Exchange Online
-   - Pakiet Office 365 SharePoint Online
-   - Search Service pakietu Office 365
-   - Usługa Yammer pakietu Office 365
+   - Exchange Online
+   - SharePoint Online
+   - Microsoft 365 Search Service
+   - Yammer
    - Office Delve
    - Office Online
    - Office.com
@@ -127,7 +127,7 @@ Oprócz aplikacji firmy Microsoft Administratorzy mogą dodać do zasad dostępu
 
 Akcje użytkownika to zadania, które mogą być wykonywane przez użytkownika. Jedyną obsługiwaną akcją jest **Rejestrowanie informacji o zabezpieczeniach**, co umożliwia stosowanie zasad dostępu warunkowego, gdy użytkownicy, którzy są włączeni do łączenia się ze sobą, zarejestrują swoje informacje zabezpieczające. Więcej informacji można znaleźć w artykule [dotyczącej rejestracji informacji o zabezpieczeniach](../authentication/concept-registration-mfa-sspr-combined.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Dostęp warunkowy: warunki](concept-conditional-access-conditions.md)
 

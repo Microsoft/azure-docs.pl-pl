@@ -6,16 +6,20 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 464bf650cbcaa99e947a21f5a87a5872f7b11178
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0583af05ae7d8e365b50610bfb812ac7764f223
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326923"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602469"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Szybki Start: Rozpoczynanie pracy z Application Insights w projekcie sieci Web w języku Java
 
-W tym przewodniku szybki start użyjesz Application Insights do automatycznego przypisywania żądań, śledzenia zależności i zbierania liczników wydajności, diagnozowania problemów z wydajnością i wyjątków oraz pisania kodu w celu śledzenia użytkowników, którzy korzystają z aplikacji.
+
+> [!IMPORTANT]
+> Zalecanym podejściem do monitorowania aplikacji Java jest użycie autoinstrumentacji bez zmiany kodu. Postępuj zgodnie z wytycznymi dla [Application Insights Java 3,0 Agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+
+W tym przewodniku szybki start użyjesz zestawu SDK Application Insights, aby instrumentować żądania, śledzić zależności i zbierać liczniki wydajności, diagnozować problemy z wydajnością i wyjątki, a także pisać kod w celu śledzenia użytkowników, którzy korzystają z aplikacji.
 
 Application Insights jest rozszerzalną usługą analizy dla deweloperów sieci Web, która ułatwia zrozumienie wydajności i użycia aktywnej aplikacji. Usługa Application Insights obsługuje aplikacje w języku Java działające w systemach Linux, Unix lub Windows.
 
@@ -77,9 +81,9 @@ Pobierz [najnowszą wersję](https://github.com/Microsoft/ApplicationInsights-Ja
 
 ### <a name="questions"></a>Pytania
 * *Jaka jest relacja między `-web-auto` `-web` `-core` składnikami i?*
-  * `applicationinsights-web-auto`Program udostępnia metryki do śledzenia liczby żądań i czasów odpowiedzi HTTP serwletu przez automatyczne zarejestrowanie filtru Application Insights serwletu w czasie wykonywania.
-  * `applicationinsights-web`zapewnia również metryki, które śledzą liczby żądań HTTP serwletu i czasy odpowiedzi, ale wymagają ręcznej rejestracji filtru Application Insights serwletu w aplikacji.
-  * `applicationinsights-core`zapewnia tylko bezobsługowy interfejs API, na przykład jeśli aplikacja nie jest oparta na serwletu.
+  * `applicationinsights-web-auto` Program udostępnia metryki do śledzenia liczby żądań i czasów odpowiedzi HTTP serwletu przez automatyczne zarejestrowanie filtru Application Insights serwletu w czasie wykonywania.
+  * `applicationinsights-web` zapewnia również metryki, które śledzą liczby żądań HTTP serwletu i czasy odpowiedzi, ale wymagają ręcznej rejestracji filtru Application Insights serwletu w aplikacji.
+  * `applicationinsights-core` zapewnia tylko bezobsługowy interfejs API, na przykład jeśli aplikacja nie jest oparta na serwletu.
   
 * *Jak zaktualizować zestaw SDK do najnowszej wersji?*
   * Jeśli używasz Gradle lub Maven...
@@ -193,22 +197,10 @@ Teraz opublikuj aplikację na serwerze, pozwól z niej korzystać innym osobom, 
 
     Ten składnik umożliwia działanie liczników wydajności.
 
-## <a name="azure-app-service-config-spring-boot"></a>Konfiguracja Azure App Service (sprężynowy rozruch)
+## <a name="azure-app-service-aks-vms-config"></a>Azure App Service, AKS, konfiguracja maszyn wirtualnych
 
-Aplikacje ze sprężyną rozruchu działające w systemie Windows wymagają dodatkowej konfiguracji do uruchomienia na platformie Azure App Services. Zmodyfikuj **web.config** i Dodaj następującą konfigurację:
+Najlepszym i najłatwiejszym podejściem do monitorowania aplikacji uruchomionych na dowolnym dostawcy zasobów platformy Azure jest użycie Application Insights autoinstrumentation za pośrednictwem programu [Java 3,0 Agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <system.webServer>
-        <handlers>
-            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
-        </handlers>
-        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
-        </httpPlatform>
-    </system.webServer>
-</configuration>
-```
 
 ## <a name="exceptions-and-request-failures"></a>Wyjątki i błędy żądań
 Nieobsłużone wyjątki i niepowodzenia żądań są automatycznie zbierane przez Application Insights filtr sieci Web.
@@ -259,7 +251,7 @@ Możesz określić dodatkowe liczniki wydajności do zbierania danych.
 * `displayName` — nazwa wyświetlana w portalu Application Insights.
 * `objectName` — nazwa obiektu JMX.
 * `attribute` — atrybut nazwy obiektu JMX do pobrania.
-* `type`(opcjonalnie) — typ atrybutu obiektu JMX:
+* `type` (opcjonalnie) — typ atrybutu obiektu JMX:
   * wartość domyślna: typ prosty, np. int lub long.
   * `composite`: dane licznika wydajności są w formacie „Atrybut.Dane”
   * `tabular`: dane licznika wydajności są w formacie wiersza tabeli
@@ -309,7 +301,7 @@ Usługa Application Insights może służyć do testowania witryny sieci Web w r
 * [Monitorowanie liczników wydajności sytemu Unix](java-collectd.md)
 * Dodawanie [monitorowania do stron sieci Web](javascript.md) w celu monitorowania czasów ładowania stron, wywołań AJAX i wyjątków przeglądarki
 * Zapisywanie [niestandardowych danych telemetrycznych](./api-custom-events-metrics.md) w celu śledzenia użycia w przeglądarce lub na serwerze.
-* Korzystanie z [analizy](../log-query/log-query-overview.md) na potrzeby zaawansowanych zapytań dotyczących telemetrii z aplikacji
+* Korzystanie z  [analizy](../log-query/log-query-overview.md) na potrzeby zaawansowanych zapytań dotyczących telemetrii z aplikacji
 * Aby uzyskać więcej informacji, odwiedź stronę [Azure dla deweloperów języka Java](/java/azure).
 
 <!--Link references-->

@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c9449a996929eb20acf35897a100dfbb722e82
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229926"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603514"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące inspekcji w portalu usługi Azure Active Directory 
 
@@ -39,7 +39,7 @@ Architektura raportowania składa się z następujących składników:
 
 Ten artykuł zawiera omówienie raportu inspekcji.
  
-## <a name="who-can-access-the-data"></a>Kto ma dostęp do danych?
+## <a name="who-can-access-the-data"></a>Kto może uzyskać dostęp do danych?
 
 * Użytkownicy z **uprawnieniami administrator zabezpieczeń**, **czytelnik zabezpieczeń**, **czytelnik raportu** , **czytelnik globalny** lub role **administratora globalnego**
 
@@ -114,7 +114,7 @@ Filtr **Kategoria** umożliwia wybranie jednego z następujących filtrów:
 - Wszystko
 - AdministrativeUnit
 - ApplicationManagement
-- Uwierzytelnianie
+- Authentication
 - Autoryzacja
 - Kontakt
 - Urządzenie
@@ -208,11 +208,11 @@ Jeśli chcesz przejrzeć dane inspekcji powiązane z aplikacjami, możesz znale�
 
 ![Dzienniki inspekcji](./media/concept-audit-logs/enterpriseapplications.png "Dzienniki inspekcji")
 
-## <a name="office-365-activity-logs"></a>Dzienniki aktywności pakietu Office 365
+## <a name="microsoft-365-activity-logs"></a>Microsoft 365 dzienników aktywności
 
-Dzienniki aktywności pakietu Office 365 można wyświetlić w [centrum administracyjnym Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Mimo że działania pakietu Office 365 i dzienniki aktywności usługi Azure AD współdzielą wiele zasobów katalogu, tylko Microsoft 365 centrum administracyjnym zapewnia pełny wgląd w dzienniki aktywności pakietu Office 365. 
+Microsoft 365 dzienników aktywności można wyświetlić w [centrum administracyjnym Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Mimo że Microsoft 365 działania i dzienniki aktywności usługi Azure AD dzielą wiele zasobów katalogu, tylko centrum administracyjne Microsoft 365 zapewnia pełny wgląd w Microsoft 365 dzienników aktywności. 
 
-Możesz również programowo uzyskać dostęp do dzienników aktywności pakietu Office 365 przy użyciu [interfejsów API zarządzania pakietu office 365](/office/office-365-management-api/office-365-management-apis-overview).
+Możesz również uzyskać dostęp do dzienników aktywności Microsoft 365 programowo przy użyciu [interfejsów API zarządzania pakietu Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Następne kroki
 

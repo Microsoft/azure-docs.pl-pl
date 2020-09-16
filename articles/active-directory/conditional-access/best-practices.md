@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5536c3c427e5b6225d81d649722d8af48c23091
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 161b02ec962df5c5e1c8dee7e124ef78b3ca4db3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948457"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601983"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory
 
@@ -97,13 +97,13 @@ Dla każdego logowania Azure Active Directory oblicza wszystkie zasady i gwarant
 
 Tak, można użyć programu Exchange ActiveSync w zasadach dostępu warunkowego.
 
-Niektóre aplikacje w chmurze, takie jak SharePoint Online i Exchange Online, obsługują również starsze protokoły uwierzytelniania. Gdy aplikacja kliencka może korzystać z starszego protokołu uwierzytelniania w celu uzyskania dostępu do aplikacji w chmurze, usługa Azure AD nie może wymusić zasady dostępu warunkowego dla tej próby dostępu. Aby uniemożliwić aplikacji klienta pomijanie wymuszania zasad, należy sprawdzić, czy można włączyć tylko nowoczesne uwierzytelnianie w aplikacjach w chmurze, których to dotyczy.
+Niektóre aplikacje w chmurze, takie jak SharePoint i Exchange Online, obsługują również starsze protokoły uwierzytelniania. Gdy aplikacja kliencka może korzystać z starszego protokołu uwierzytelniania w celu uzyskania dostępu do aplikacji w chmurze, usługa Azure AD nie może wymusić zasady dostępu warunkowego dla tej próby dostępu. Aby uniemożliwić aplikacji klienta pomijanie wymuszania zasad, należy sprawdzić, czy można włączyć tylko nowoczesne uwierzytelnianie w aplikacjach w chmurze, których to dotyczy.
 
-### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Jak należy skonfigurować dostęp warunkowy przy użyciu aplikacji pakietu Office 365?
+### <a name="how-should-you-configure-conditional-access-with-microsoft-365-apps"></a>Jak skonfigurować dostęp warunkowy przy użyciu aplikacji Microsoft 365?
 
-Ze względu na to, że aplikacje pakietu Office 365 są połączone, zalecamy przypisanie często używanych aplikacji podczas tworzenia zasad.
+Ze względu na to, że Microsoft 365 aplikacje są połączone, zalecamy przypisanie często używanych aplikacji podczas tworzenia zasad.
 
-Często połączone aplikacje obejmują Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online i Office 365 Yammer.
+Często połączone aplikacje obejmują Microsoft Flow, Microsoft Planner, Microsoft Teams, Exchange Online, SharePoint i Yammer.
 
 Jest to ważne w przypadku zasad wymagających interakcji użytkownika, takich jak uwierzytelnianie wieloskładnikowe, gdy dostęp jest kontrolowany na początku sesji lub zadania. W przeciwnym razie użytkownicy nie będą mogli wykonywać niektórych zadań w ramach aplikacji. Na przykład, jeśli wymagane jest uwierzytelnianie wieloskładnikowe na urządzeniach niezarządzanych w celu uzyskania dostępu do programu SharePoint, ale nie do poczty e-mail, użytkownicy pracujący w ich wiadomości e-mail nie będą mogli dołączać plików programu SharePoint do wiadomości. Więcej informacji można znaleźć w artykule [co to są zależności usługi w Azure Active Directory dostęp warunkowy?](service-dependencies.md).
 
@@ -150,7 +150,7 @@ Rozważ Migrowanie zasad, które nie zostały utworzone w Azure Portal, poniewa�
 
 Aby uzyskać więcej informacji, zobacz artykuł [Migrate classic policies in the Azure portal (Migrowanie zasad klasycznych w witrynie Azure Portal)](policy-migration.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Jeśli chcesz poznać następujące informacje:
 

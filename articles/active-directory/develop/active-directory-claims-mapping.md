@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: e1c931b37cbe155d62aaffe47e36d84afa547638
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4fca84c8e5aa562572792968d0438a61be5ab91b
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068647"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601473"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)
 
@@ -40,7 +40,7 @@ W usłudze Azure AD obiekt **zasad** reprezentuje zestaw reguł wymuszanych w po
 
 Zasady mapowania oświadczeń to typ obiektu **zasad** , który modyfikuje oświadczenia emitowane w tokenach wystawionych dla określonych aplikacji.
 
-## <a name="claim-sets"></a>Zestawy roszczeń
+## <a name="claim-sets"></a>Zestawy oświadczeń
 
 Istnieją pewne zestawy oświadczeń, które określają, jak i kiedy są używane w tokenach.
 
@@ -285,7 +285,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: prawidłowe wartości identyfikatorów na Źródło
 
-| Element źródłowy | ID | Opis |
+| Element źródłowy | ID (Identyfikator) | Opis |
 |-----|-----|-----|
 | Użytkownik | surname | Nazwa rodziny |
 | Użytkownik | givenname | Imię |
@@ -301,7 +301,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 | Użytkownik | CompanyName| Nazwa organizacji |
 | Użytkownik | streetaddress | Ulica i numer |
 | Użytkownik | pocztowy | Postal Code |
-| Użytkownik | preferredlanguange | Preferowany język |
+| Użytkownik | preferredlanguage | Preferowany język |
 | Użytkownik | onpremisesuserprincipalname | Lokalna nazwa UPN |*
 | Użytkownik | mailNickname | Pseudonim poczty |
 | Użytkownik | extensionattribute1 | Atrybut rozszerzenia 1 |
@@ -388,7 +388,7 @@ W oparciu o wybraną metodę jest oczekiwany zestaw danych wejściowych i wyjśc
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: atrybuty dozwolone jako źródło danych dla elementu SAML NameID
 
-|Element źródłowy|ID|Opis|
+|Element źródłowy|ID (Identyfikator)|Opis|
 |-----|-----|-----|
 | Użytkownik | mail (poczta)|Adres e-mail|
 | Użytkownik | userPrincipalName|Nazwa główna użytkownika|
@@ -531,7 +531,7 @@ W tym przykładzie utworzysz zasady, które emitują niestandardową wartość "
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - Aby dowiedzieć się, jak dostosować oświadczenia wystawione w tokenie SAML za pomocą Azure Portal, zobacz [How to: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](active-directory-saml-claims-customization.md)
 - Aby dowiedzieć się więcej na temat atrybutów rozszerzenia, zobacz [Używanie atrybutów rozszerzenia schematu katalogu w oświadczeniach](active-directory-schema-extensions.md).

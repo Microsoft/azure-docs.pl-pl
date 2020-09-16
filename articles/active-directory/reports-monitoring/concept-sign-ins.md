@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228770"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603598"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące logowań w portalu Azure Active Directory
 
@@ -39,7 +39,7 @@ Ten artykuł zawiera omówienie raportu logowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-### <a name="who-can-access-the-data"></a>Kto ma dostęp do danych?
+### <a name="who-can-access-the-data"></a>Kto może uzyskać dostęp do danych?
 
 * Użytkownicy w roli administrator zabezpieczeń, czytelnik zabezpieczeń, czytelnik globalny i role czytelnika raportu
 * Administratorzy globalni
@@ -59,7 +59,7 @@ Raport logowania użytkownika zawiera odpowiedzi na następujące pytania:
 
 W menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory**lub wyszukaj i wybierz pozycję **Azure Active Directory** z dowolnej strony.
 
-![Wybierz Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Usługa Azure Active Directory")
+![Wybierz Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
 W obszarze **monitorowanie**wybierz pozycję **logowania** , aby otworzyć [raport logowania](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
@@ -147,13 +147,13 @@ Najpierw Zawężanie danych raportowanych do poziomu, który się do Ciebie spra
 |Uwierzytelniony protokół SMTP| |Używany przez POP i klienta IMAP do wysyłania wiadomości e-mail.|
 |Automatyczne| |Używane przez klientów programu Outlook i EAS do znajdowania skrzynek pocztowych w usłudze Exchange Online i łączenia się z nimi.|
 |Exchange ActiveSync| |Ten filtr przedstawia wszystkie próby logowania, w przypadku których podjęto próbę wykonania protokołu EAS.|
-|Przeglądarka|![Zaznacz](./media/concept-sign-ins/check.png)|Pokazuje wszystkie próby logowania od użytkowników przy użyciu przeglądarek sieci Web|
-|Exchange ActiveSync| | Pokazuje wszystkie próby logowania użytkowników z aplikacjami klienckimi przy użyciu programu Exchange ActiceSync w celu nawiązania połączenia z usługą Exchange Online|
+|Przeglądarka|![Znacznik wyboru](./media/concept-sign-ins/check.png)|Pokazuje wszystkie próby logowania od użytkowników przy użyciu przeglądarek sieci Web|
+|Exchange ActiveSync| | Pokazuje wszystkie próby logowania użytkowników z aplikacjami klienckimi przy użyciu programu Exchange ActiveSync w celu nawiązania połączenia z usługą Exchange Online|
 |Exchange Online PowerShell| |Służy do nawiązywania połączenia z usługą Exchange Online przy użyciu zdalnego programu PowerShell. Jeśli zablokujesz uwierzytelnianie podstawowe dla programu Exchange Online PowerShell, musisz użyć modułu programu PowerShell w usłudze Exchange Online, aby nawiązać połączenie. Aby uzyskać instrukcje, zobacz [nawiązywanie połączenia z programem Exchange Online PowerShell przy użyciu uwierzytelniania wieloskładnikowego](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Exchange Web Services| |Interfejs programowania używany przez program Outlook, program Outlook dla komputerów Mac i aplikacje innych firm.|
 |PROTOKOŁÓW| |Starsza wersja klienta poczty używającej protokołu IMAP do pobierania poczty e-mail.|
 |Interfejs MAPI przez HTTP| |Używany przez program Outlook 2010 i nowsze.|
-|Aplikacje mobilne i klienci stacjonarni|![Zaznacz](./media/concept-sign-ins/check.png)|Pokazuje wszystkie próby logowania użytkowników korzystających z aplikacji mobilnych i klientów stacjonarnych.|
+|Aplikacje mobilne i klienci stacjonarni|![Niebieski znacznik wyboru](./media/concept-sign-ins/check.png)|Pokazuje wszystkie próby logowania użytkowników korzystających z aplikacji mobilnych i klientów stacjonarnych.|
 |Książka adresowa w trybie offline| |Kopia kolekcji listy adresów, które są pobierane i używane przez program Outlook.|
 |Outlook w dowolnym miejscu (RPC przez HTTP)| |Używane w programie Outlook 2016 i jego wcześniejszych wersjach.|
 |Usługa programu Outlook| |Używany przez aplikację poczty i kalendarza dla systemu Windows 10.|
@@ -194,7 +194,7 @@ Najpierw Zawężanie danych raportowanych do poziomu, który się do Ciebie spra
 
 Kliknij opcję **Pobierz** , aby utworzyć plik CSV lub kod JSON z najnowszych rekordów 250 000. Rozpocznij od [pobrania danych logowania,](quickstart-download-sign-in-report.md) Jeśli chcesz korzystać z nich poza Azure Portal.  
 
-![Pobieranie](./media/concept-sign-ins/71.png "Pobierz")
+![Pobieranie](./media/concept-sign-ins/71.png "Pobieranie")
 
 > [!IMPORTANT]
 > Liczba rekordów, które można pobrać, jest ograniczona przez [zasady przechowywania raportów Azure Active Directory](reference-reports-data-retention.md).  
@@ -234,7 +234,7 @@ Klikając pozycję, można uzyskać więcej szczegółowych informacji na temat 
 - Klient
 - Lokalizacja
 - Adres IP
-- Date
+- Data
 - Wymagane uwierzytelnianie wieloskładnikowe
 - Stan logowania
 
@@ -269,11 +269,11 @@ Po kliknięciu dnia na wykresie użycia aplikacji zostanie wyświetlona szczegó
 
 Opcja **Logowania** umożliwia pełny przegląd zdarzeń logowania do aplikacji.
 
-## <a name="office-365-activity-logs"></a>Dzienniki aktywności pakietu Office 365
+## <a name="microsoft-365-activity-logs"></a>Microsoft 365 dzienników aktywności
 
-Dzienniki aktywności pakietu Office 365 można wyświetlić w [centrum administracyjnym Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Należy wziąć pod uwagę, że usługa Office 365 i dzienniki aktywności usługi Azure AD dzielą znaczną liczbę zasobów katalogu. Tylko Microsoft 365 centrum administracyjnego zapewnia pełny wgląd w dzienniki aktywności pakietu Office 365. 
+Microsoft 365 dzienników aktywności można wyświetlić w [centrum administracyjnym Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Należy wziąć pod uwagę, że Microsoft 365 aktywność i dzienniki aktywności usługi Azure AD dzielą znaczną liczbę zasobów katalogu. Tylko Microsoft 365 centrum administracyjnego zapewnia pełny wgląd w Microsoft 365 dzienników aktywności. 
 
-Możesz również programowo uzyskać dostęp do dzienników aktywności pakietu Office 365 przy użyciu [interfejsów API zarządzania pakietu office 365](/office/office-365-management-api/office-365-management-apis-overview).
+Możesz również uzyskać dostęp do dzienników aktywności Microsoft 365 programowo przy użyciu [interfejsów API zarządzania pakietu Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Następne kroki
 

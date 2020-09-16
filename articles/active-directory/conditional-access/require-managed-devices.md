@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3fbb06355772794fbe3fab5cdf3c8622c2baf4
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 7cb62d3b7ebe3ba6f4551602c7867575e74dca70
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948831"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601524"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrukcje: wymaganie zarządzanych urządzeń dla dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego
 
@@ -98,7 +98,7 @@ W przypadku urządzenia oznaczonego jako zgodnego można założyć, że:
 
 ### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>Scenariusz: wymaganie rejestracji urządzenia dla urządzeń z systemami iOS i Android
 
-W tym scenariuszu firma Contoso zdecydowała się, że wszystkie dostępy mobilne do zasobów pakietu Office 365 muszą używać zarejestrowanego urządzenia. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
+W tym scenariuszu firma Contoso zdecydowała się, że wszystkie dostępy mobilne do zasobów Microsoft 365 muszą używać zarejestrowanego urządzenia. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
 
 Aby wymagać korzystania z zarejestrowanego urządzenia przenośnego, organizacje muszą wykonać następujące czynności.
 
@@ -108,7 +108,7 @@ Aby wymagać korzystania z zarejestrowanego urządzenia przenośnego, organizacj
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Kliknij **Gotowe**.
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Office 365 (wersja zapoznawcza)**.
 1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
@@ -124,6 +124,6 @@ W przypadku korzystania z [przepływu OAuth przy użyciu kodu urządzenia](../de
 
 W systemach Windows 7, iOS, Android, macOS i niektórych przeglądarkach sieci Web innych firm usługa Azure AD identyfikuje urządzenie przy użyciu certyfikatu klienta, który jest inicjowany, gdy urządzenie jest zarejestrowane w usłudze Azure AD. Gdy użytkownik po raz pierwszy zaloguje się za pomocą przeglądarki, użytkownik jest monitowany o wybranie certyfikatu. Użytkownik końcowy musi wybrać ten certyfikat, zanim będzie mógł kontynuować korzystanie z przeglądarki.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Przed skonfigurowaniem zasad dostępu warunkowego opartego na urządzeniach w środowisku należy zapoznać się z [najlepszymi rozwiązaniami dotyczącymi dostępu warunkowego w Azure Active Directory](best-practices.md).

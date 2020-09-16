@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c9cd790edcb186ed2f80d467076512cd558ca40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a3cdb851ca00300d995bcf2075252a360242197
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253396"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601966"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Instrukcje: wymaganie zatwierdzonych aplikacji klienckich do uzyskiwania dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego
 
 Osoby regularnie korzystają z urządzeń przenośnych zarówno do zadań osobistych, jak i służbowych. Mimo że pracownicy mogą pracować wydajnie, organizacje chcą również zapobiec utracie danych z potencjalnie niezabezpieczonych aplikacji. W przypadku dostępu warunkowego organizacje mogą ograniczyć dostęp do zatwierdzonych aplikacji klienckich (z możliwością nowoczesnego uwierzytelniania).
 
-W tym artykule przedstawiono dwa scenariusze konfigurowania zasad dostępu warunkowego dla zasobów, takich jak Office 365, Exchange Online i SharePoint Online.
+W tym artykule przedstawiono dwa scenariusze konfigurowania zasad dostępu warunkowego dla zasobów, takich jak Microsoft 365, Exchange Online i SharePoint Online.
 
-- [Scenariusz 1: aplikacje pakietu Office 365 wymagają zatwierdzonej aplikacji klienckiej](#scenario-1-office-365-apps-require-an-approved-client-app)
+- [Scenariusz 1: aplikacje Microsoft 365 wymagają zatwierdzonej aplikacji klienckiej](#scenario-1-microsoft-365-apps-require-an-approved-client-app)
 - [Scenariusz 2: usługi Exchange Online i SharePoint Online wymagają zatwierdzonej aplikacji klienckiej](#scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app)
 
 W przypadku dostępu warunkowego ta funkcja jest znana jako wymagająca zatwierdzonej aplikacji klienckiej. Aby uzyskać listę zatwierdzonych aplikacji klienckich, zobacz [wymagania dotyczące zatwierdzonej aplikacji klienckiej](concept-conditional-access-grant.md#require-approved-client-app).
@@ -32,9 +32,9 @@ W przypadku dostępu warunkowego ta funkcja jest znana jako wymagająca zatwierd
 > [!NOTE]
 > Aby wymagać zatwierdzonych aplikacji klienckich dla urządzeń z systemem iOS lub Android, należy najpierw zarejestrować te urządzenia w usłudze Azure AD.
 
-## <a name="scenario-1-office-365-apps-require-an-approved-client-app"></a>Scenariusz 1: aplikacje pakietu Office 365 wymagają zatwierdzonej aplikacji klienckiej
+## <a name="scenario-1-microsoft-365-apps-require-an-approved-client-app"></a>Scenariusz 1: aplikacje Microsoft 365 wymagają zatwierdzonej aplikacji klienckiej
 
-W tym scenariuszu firma Contoso zdecydowała się, że użytkownicy korzystający z urządzeń przenośnych mogą uzyskać dostęp do wszystkich usług pakietu Office 365, o ile korzystają z zatwierdzonych aplikacji klienckich, takich jak Outlook Mobile, OneDrive i Microsoft Teams. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
+W tym scenariuszu firma Contoso zdecydowała się, że użytkownicy korzystający z urządzeń przenośnych mogą uzyskać dostęp do wszystkich usług Microsoft 365, o ile korzystają z zatwierdzonych aplikacji klienckich, takich jak Outlook Mobile, OneDrive i Microsoft Teams. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
 
 Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przenośnych, organizacje muszą wykonać następujące trzy czynności.
 

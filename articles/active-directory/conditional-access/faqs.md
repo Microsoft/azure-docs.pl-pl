@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed6beec63114f1f157bb24354d77e50ecdaa8255
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253243"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601641"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory często zadawane pytania dotyczące dostępu warunkowego
 
@@ -59,7 +59,7 @@ Aby uzyskać więcej informacji, zobacz artykuł, [zależności usługi dostępu
 
 Po włączeniu niektórych zasad dostępu warunkowego w dzierżawie w usłudze Microsoft Teams niektóre karty mogą przestać działać na komputerze klienckim zgodnie z oczekiwaniami. Jednak na kartach, których dotyczy ta funkcja, jest używany klient sieci Web Microsoft Teams. Takie karty mogą obejmować Power BI, formularze, VSTS, PowerApps i listę programu SharePoint.
 
-Aby wyświetlić karty, których to dotyczy, należy użyć klienta sieci Web programu Teams w programie Edge, Internet Explorer lub Chrome z zainstalowanym rozszerzeniem konta systemu Windows 10. Niektóre karty są zależne od uwierzytelniania w sieci Web, które nie działa w programie Microsoft Teams Client, gdy jest włączony dostęp warunkowy. Firma Microsoft współpracuje z partnerami, aby umożliwić korzystanie z tych scenariuszy. Na bieżąco włączono scenrarios obejmujący Planistę, program OneNote i strumień.
+Aby wyświetlić karty, których to dotyczy, należy użyć klienta sieci Web programu Teams w programie Edge, Internet Explorer lub Chrome z zainstalowanym rozszerzeniem konta systemu Windows 10. Niektóre karty są zależne od uwierzytelniania w sieci Web, które nie działa w programie Microsoft Teams Client, gdy jest włączony dostęp warunkowy. Firma Microsoft współpracuje z partnerami, aby umożliwić korzystanie z tych scenariuszy. Do dnia zostały włączone scenariusze obejmujące Planistę, program OneNote i strumień.
 
 ## <a name="next-steps"></a>Następne kroki
 

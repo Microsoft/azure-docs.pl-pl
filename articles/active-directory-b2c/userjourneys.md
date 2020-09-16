@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d705c7fbdb744082b402f4dd598551107563ed2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 296f396f3c2aacdfe32ea2ee800190d0a91d353f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203172"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602170"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -37,7 +37,7 @@ Element **UserJourney** zawiera następujący atrybut:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator podróży użytkownika, który może służyć do odwoływania się do niego z innych elementów w zasadach. Element **DefaultUserJourney** [zasad jednostki uzależnionej](relyingparty.md) wskazuje na ten atrybut. |
+| Id | Yes | Identyfikator podróży użytkownika, który może służyć do odwoływania się do niego z innych elementów w zasadach. Element **DefaultUserJourney** [zasad jednostki uzależnionej](relyingparty.md) wskazuje na ten atrybut. |
 
 Element **UserJourney** zawiera następujące elementy:
 
@@ -64,10 +64,9 @@ Element **OrchestrationStep** zawiera następujące atrybuty:
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | `Order` | Tak | Kolejność kroków aranżacji. |
-| `Type` | Tak | Typ kroku aranżacji. Możliwe wartości: <ul><li>**ClaimsProviderSelection** — wskazuje, że krok aranżacji przedstawia różne dostawcy oświadczeń dla użytkownika w celu wybrania jednego z nich.</li><li>**CombinedSignInAndSignUp** — wskazuje, że krok aranżacji przedstawia łączną stronę logowania dostawcy społecznego i konta lokalnego.</li><li>**ClaimsExchange** — wskazuje, że krok aranżacji wymienia oświadczenia z dostawcą oświadczeń.</li><li>**Getclaims** — określa, że krok aranżacji powinien przetwarzać dane oświadczeń wysyłane do Azure AD B2C od jednostki uzależnionej za pośrednictwem jej `InputClaims` konfiguracji.</li><li>**SendClaims** — wskazuje, że krok aranżacji wysyła oświadczenia do jednostki uzależnionej przy użyciu tokenu wystawionego przez wystawcę oświadczeń.</li></ul> |
-| ContentDefinitionReferenceId | Nie | Identyfikator [definicji zawartości](contentdefinitions.md) skojarzonej z tym krokiem aranżacji. Zazwyczaj identyfikator odwołania definicji zawartości jest zdefiniowany w profilu technicznym z własnym potwierdzeniem. Ale istnieją sytuacje, w których Azure AD B2C muszą wyświetlać coś bez profilu technicznego. Istnieją dwa przykłady — jeśli jest to jeden z następujących typów kroku aranżacji: `ClaimsProviderSelection` lub `CombinedSignInAndSignUp` , Azure AD B2C musi wyświetlić wybór dostawcy tożsamości bez profilu technicznego. |
+| `Type` | Yes | Typ kroku aranżacji. Możliwe wartości: <ul><li>**ClaimsProviderSelection** — wskazuje, że krok aranżacji przedstawia różne dostawcy oświadczeń dla użytkownika w celu wybrania jednego z nich.</li><li>**CombinedSignInAndSignUp** — wskazuje, że krok aranżacji przedstawia łączną stronę logowania dostawcy społecznego i konta lokalnego.</li><li>**ClaimsExchange** — wskazuje, że krok aranżacji wymienia oświadczenia z dostawcą oświadczeń.</li><li>**Getclaims** — określa, że krok aranżacji powinien przetwarzać dane oświadczeń wysyłane do Azure AD B2C od jednostki uzależnionej za pośrednictwem jej `InputClaims` konfiguracji.</li><li>**InvokeSubJourney** — wskazuje, że krok aranżacji wymienia oświadczenia z podróżą podrzędną (w publicznej wersji zapoznawczej).</li><li>**SendClaims** — wskazuje, że krok aranżacji wysyła oświadczenia do jednostki uzależnionej przy użyciu tokenu wystawionego przez wystawcę oświadczeń.</li></ul> |
+| ContentDefinitionReferenceId | Nie | Identyfikator [definicji zawartości](contentdefinitions.md) skojarzonej z tym krokiem aranżacji. Zazwyczaj identyfikator odwołania definicji zawartości jest zdefiniowany w profilu technicznym z własnym potwierdzeniem. Ale istnieją sytuacje, w których Azure AD B2C muszą wyświetlać coś bez profilu technicznego. Istnieją dwa przykłady — jeśli jest to jeden z następujących typów kroku aranżacji: `ClaimsProviderSelection` lub  `CombinedSignInAndSignUp` , Azure AD B2C musi wyświetlić wybór dostawcy tożsamości bez profilu technicznego. |
 | CpimIssuerTechnicalProfileReferenceId | Nie | Typ kroku aranżacji to `SendClaims` . Ta właściwość określa identyfikator profilu technicznego dostawcy oświadczeń, który wystawia token dla jednostki uzależnionej.  Jeśli nie istnieje, nie zostanie utworzony token jednostki uzależnionej. |
-
 
 Element **OrchestrationStep** może zawierać następujące elementy:
 
@@ -76,6 +75,7 @@ Element **OrchestrationStep** może zawierać następujące elementy:
 | Warunki wstępne | 0: n | Lista warunków wstępnych, które muszą być spełnione, aby krok aranżacji został wykonany. |
 | ClaimsProviderSelections | 0: n | Lista wybranych dostawców oświadczeń dla kroku aranżacji. |
 | ClaimsExchanges | 0: n | Lista wymian oświadczeń dla kroku aranżacji. |
+| JourneyList | 0:1 | Lista kandydatów podjazdu na krok aranżacji. |
 
 ### <a name="preconditions"></a>Warunki wstępne
 
@@ -93,7 +93,7 @@ Element **Conditional** zawiera następujące atrybuty:
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | `Type` | Tak | Typ sprawdzenia lub zapytania, które ma zostać wykonane dla tego warunku wstępnego. Wartość może być **ClaimsExist**, która określa, że akcje należy wykonać, jeśli określone oświadczenia istnieją w bieżącym zestawie oświadczeń użytkownika lub **ClaimEquals**, które określa, że akcje należy wykonać, jeśli istnieje określone oświadczenie, a jego wartość jest równa określonej wartości. |
-| `ExecuteActionsIf` | Tak | Użyj testu "prawda" lub "fałsz", aby określić, czy akcje w warunku wstępnym mają być wykonywane. |
+| `ExecuteActionsIf` | Yes | Użyj testu "prawda" lub "fałsz", aby określić, czy akcje w warunku wstępnym mają być wykonywane. |
 
 Elementy **warunku wstępnego** zawierają następujące elementy:
 
@@ -230,5 +230,21 @@ Element **ClaimsExchange** zawiera następujące atrybuty:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator kroku wymiany oświadczeń. Identyfikator jest używany do odwoływania się do wymiany oświadczeń z poziomu dostawcy oświadczeń w ramach zasad. |
-| TechnicalProfileReferenceId | Tak | Identyfikator profilu technicznego, który ma zostać wykonany. |
+| Id | Yes | Identyfikator kroku wymiany oświadczeń. Identyfikator jest używany do odwoływania się do wymiany oświadczeń z poziomu dostawcy oświadczeń w ramach zasad. |
+| TechnicalProfileReferenceId | Yes | Identyfikator profilu technicznego, który ma zostać wykonany. |
+
+## <a name="journeylist"></a>JourneyList
+
+Element **JourneyList** zawiera następujący element:
+
+| Element | Wystąpień | Opis |
+| ------- | ----------- | ----------- |
+| Osoba | 1:1 | Odwołanie do podpodróży, która ma zostać wywołana. |
+
+### <a name="candidate"></a>Osoba
+
+Element **kandydujący** zawiera następujące atrybuty:
+
+| Atrybut | Wymagane | Opis |
+| --------- | -------- | ----------- |
+| SubJourneyReferenceId | Yes | Identyfikator podpodróży, która ma zostać wykonana. |

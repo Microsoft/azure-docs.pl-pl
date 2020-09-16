@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 313dfe930dec5233f96b89fdebf978a41fdcdf80
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 64250863e5bab4776c129935e56db190e5bd36ee
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497668"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602680"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Szybki Start: Konfigurowanie IoT Hub Device Provisioning Service przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -43,7 +43,7 @@ az group create --name my-sample-resource-group --location westus
 >
 >
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 Utwórz centrum IoT za pomocą polecenia [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create).
 
@@ -84,7 +84,11 @@ echo $hubConnectionString
 ```
 
 > [!NOTE]
-> Te dwa polecenia są prawidłowe dla hosta z powłoką Bash. Jeśli używasz lokalnej powłoki systemu Windows/CMD lub hosta programu PowerShell, musisz zmodyfikować te polecenia, aby stosować prawidłową składnię dla tego środowiska.
+> Te dwa polecenia są prawidłowe dla hosta z powłoką Bash.
+> 
+> Jeśli używasz lokalnej powłoki Windows/CMD lub hosta programu PowerShell, zmodyfikuj polecenia, aby użyć poprawnej składni dla tego środowiska.
+>
+> Jeśli używasz Azure Cloud Shell, sprawdź, czy na liście rozwijanej środowisko po lewej stronie okna powłoki widnieją **bash**.
 >
 
 ## <a name="link-the-iot-hub-and-the-provisioning-service"></a>Łączenie centrum IoT z usługą aprowizowania
@@ -112,7 +116,7 @@ Połączone centrum IoT jest wyświetlane w kolekcji *properties.iotHubs*.
 
 ![Weryfikowanie usługi aprowizacji](./media/quick-setup-auto-provision-cli/verify-provisioning-service.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start lub samouczkami, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuacji, możesz użyć następujących poleceń, aby usunąć usługę aprowizowania, centrum IoT lub grupę zasobów i wszystkie jej zasoby. Zastąp nazwy zamieszczonych poniżej zasobów nazwami własnych zasobów.
 

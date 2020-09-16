@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642388"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603343"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planowanie wdrożenia logowania jednokrotnego
 
@@ -28,7 +28,7 @@ Logowanie jednokrotne (SSO) oznacza uzyskiwanie dostępu do wszystkich aplikacji
 
 Logowanie jednokrotne (SSO) zwiększa bezpieczeństwo i wygodę, gdy użytkownicy logują się do aplikacji w Azure Active Directory (Azure AD). 
 
-Wiele organizacji korzysta z aplikacji SaaS (Software as a Service), takich jak Office 365, Box i Salesforce, w celu zwiększenia produktywności użytkowników końcowych. W przeszłości pracownicy działu IT musieli indywidualnie utworzyć i zaktualizować konta użytkowników w każdej aplikacji SaaS, a użytkownicy musieli zapamiętać hasło dla każdego z nich.
+Wiele organizacji korzysta z aplikacji SaaS (Software as a Service), takich jak Microsoft 365, Box i Salesforce, w celu zwiększenia produktywności użytkowników końcowych. W przeszłości pracownicy działu IT musieli indywidualnie utworzyć i zaktualizować konta użytkowników w każdej aplikacji SaaS, a użytkownicy musieli zapamiętać hasło dla każdego z nich.
 
 Portal Azure Marketplace obejmuje ponad 3000 aplikacji z wstępnie zintegrowanymi połączeniami SSO, co ułatwia ich integrację z dzierżawą.
 
@@ -118,7 +118,7 @@ Niektóre z najważniejszych tematów do zaplanowania podczas konfigurowania prz
 
 Usługa Azure AD udostępnia [raporty zawierające informacje techniczne i biznesowe](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). 
 
-Dostępne są zarówno raporty dotyczące zabezpieczeń, jak i działania. Raporty o zabezpieczeniach przedstawiają użytkowników oflagowanych w celu ryzyka oraz ryzykowne logowania. raporty działań pomagają zrozumieć zachowanie użytkowników w organizacji, wyświetlając szczegóły działania związanego z logowaniem i dostarczając wszystkie identyfikatory logowania. Raporty umożliwiają zarządzanie ryzykiem, zwiększanie produktywności i monitorowanie zgodności.
+Dostępne są zarówno raporty dotyczące zabezpieczeń, jak i działania. Raporty zabezpieczeń przedstawiają użytkowników oflagowanych w celu ryzyka oraz ryzykowne logowania. Raporty dotyczące działań pomagają zrozumieć zachowanie użytkowników w organizacji, wyświetlając szczegóły działania związanego z logowaniem i dostarczając wszystkie identyfikatory logowania. Raporty umożliwiają zarządzanie ryzykiem, zwiększanie produktywności i monitorowanie zgodności.
 
 | Typ raportu | Przegląd dostępu | Raporty dotyczące zabezpieczeń | Raport logowania |
 |-------------|---------------|------------------|----------------|
@@ -285,7 +285,7 @@ Poniższe linki prowadzą do rozwiązywania problemów. Możesz chcieć utworzy�
 
 - [Problemy z logowaniem się z portalu niestandardowego](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [Problemy z logowaniem się z aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problemy podczas logowania się z poziomu sekcji Moje aplikacje](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [Błąd na stronie logowania aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 

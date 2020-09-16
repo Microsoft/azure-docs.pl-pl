@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231167"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600504"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Rozwiązywanie problemów dotyczących użytkowników oflagowanych w związku z ryzykiem w portalu usługi Azure Active Directory
 
@@ -42,9 +42,9 @@ Raport dotyczący użytkowników oflagowanych w ramach ryzyka można wykonać na
 
 Aby uzyskać więcej informacji, zobacz Raport dotyczący [użytkowników oflagowanych w celu zabezpieczenia](../identity-protection/overview-identity-protection.md).
 
-### <a name="azure-ad-subscription-for-office-365-customers"></a>Subskrypcja usługi Azure AD dla klientów usługi Office 365
+### <a name="azure-ad-subscription-for-microsoft-365-customers"></a>Subskrypcja usługi Azure AD dla klientów Microsoft 365
 
-Do uzyskania dostępu do **Centrum administracyjnego platformy Azure**można również użyć poświadczeń pakietu Office 365. Po uaktywnieniu dostępu do usługi Azure AD nastąpi przekierowanie do portalu usługi Azure AD. Na poziomie subskrypcji podstawowej ilość szczegółów udostępnianych w raportach jest ograniczona. Dodatkowe dane i analizy będą dostępne dla subskrybentów platformy Azure w wersji Premium.
+Możesz również użyć poświadczeń Microsoft 365, aby uzyskać dostęp do **Centrum administracyjnego platformy Azure**. Po uaktywnieniu dostępu do usługi Azure AD nastąpi przekierowanie do portalu usługi Azure AD. Na poziomie subskrypcji podstawowej ilość szczegółów udostępnianych w raportach jest ograniczona. Dodatkowe dane i analizy będą dostępne dla subskrybentów platformy Azure w wersji Premium.
 
 Aby uzyskać dostęp do raportów o **użytkowniku oflagowane w celu** zgłaszania ryzyka, w centrum administracyjnym Microsoft 365:
 
@@ -79,7 +79,7 @@ Wykonaj następujące akcje, aby pomóc usunąć zagrożenie z kont i zabezpiecz
 
     h. Utworzenie dziennika inspekcji do przejrzenia przez administratora.
 
-4. Zbadaj dzierżawę usługi Office 365 i pozostałą infrastrukturę IT, łącznie z przeglądem wszystkich ustawień dzierżawy, kont użytkowników i ustawień konfiguracji poszczególnych użytkowników pod kątem ewentualnych modyfikacji. Sprawdź, czy wskaźniki metod trwałości oraz wskaźniki intruza mogą korzystać z początkowego stopnia w celu uzyskania poświadczeń sieci VPN lub dostępu do innych zasobów organizacji. 
+4. Zbadaj dzierżawę Microsoft 365 i inną infrastrukturę IT, w tym przegląd wszystkich ustawień dzierżawy, kont użytkowników i ustawień konfiguracji poszczególnych użytkowników w celu ewentualnej modyfikacji. Sprawdź, czy wskaźniki metod trwałości oraz wskaźniki intruza mogą korzystać z początkowego stopnia w celu uzyskania poświadczeń sieci VPN lub dostępu do innych zasobów organizacji. 
 
 5.  W ramach badania należy wziąć pod uwagę, czy należy powiadomić władze rządowe, w tym przepisy prawne.
 

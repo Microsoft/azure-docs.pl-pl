@@ -2,14 +2,14 @@
 title: Przenoszenie zasobów do nowej subskrypcji lub grupy zasobów
 description: Użyj Azure Resource Manager, aby przenieść zasoby do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2b278dae956ec0bd17773badbeaa880b7bf901a5
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 43b5cd8c9fa5947ff8f345bd0cd3ad26d9e61923
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056671"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603156"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
 
@@ -172,7 +172,7 @@ Podczas wyświetlania grupy zasobów opcja Move jest wyłączona.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="Opcja przenoszenia wyłączona":::
 
-Aby włączyć opcję Przenieś, wybierz zasoby, które chcesz przenieść. Aby zaznaczyć wszystkie zasoby, zaznacz pole wyboru znajdujące się u góry listy. Lub zaznacz opcję zasoby pojedynczo.
+Aby włączyć opcję Przenieś, wybierz zasoby, które chcesz przenieść. Aby zaznaczyć wszystkie zasoby, zaznacz pole wyboru znajdujące się u góry listy. Lub zaznacz opcję zasoby pojedynczo. Po wybraniu zasobów opcja Move jest włączona.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Wybieranie zasobów":::
 

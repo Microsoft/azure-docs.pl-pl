@@ -1,6 +1,6 @@
 ---
 title: Ukrywanie aplikacji przedsiębiorstwa ze środowiska użytkownika w usłudze Azure AD
-description: Sposób ukrycia aplikacji Enterprise ze środowiska użytkownika w Azure Active Directory panele dostępu lub uruchamiania pakietu Office 365.
+description: Sposób ukrycia aplikacji przedsiębiorstwa ze środowiska użytkownika w Azure Active Directory panelach dostępu lub Microsoft 365.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,26 +12,26 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21ba14fba24c9b8e0b460e56b93d0e5212bfb27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367703"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601143"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Ukryj aplikacje dla przedsiębiorstw od użytkowników końcowych w Azure Active Directory
 
-Instrukcje dotyczące sposobu ukrywania aplikacji z poziomu panelu Moje aplikacje użytkowników końcowych lub uruchamiania pakietu Office 365. Gdy aplikacja jest ukryta, użytkownicy nadal mają uprawnienia do aplikacji. 
+Instrukcje dotyczące sposobu ukrywania aplikacji z poziomu panelu Moje aplikacje użytkowników końcowych lub uruchamiania Microsoft 365. Gdy aplikacja jest ukryta, użytkownicy nadal mają uprawnienia do aplikacji. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Uprawnienia administratora aplikacji są wymagane do ukrycia aplikacji z poziomu panelu Moje aplikacje i uruchamiania pakietu Office 365.
+Uprawnienia administratora aplikacji są wymagane do ukrycia aplikacji z poziomu panelu Moje aplikacje i uruchamiania Microsoft 365.
 
-Aby ukryć wszystkie aplikacje pakietu Office 365, wymagane są uprawnienia administratora globalnego.
+Aby ukryć wszystkie aplikacje Microsoft 365, wymagane są uprawnienia administratora globalnego.
 
 
 ## <a name="hide-an-application-from-the-end-user"></a>Ukrywanie aplikacji od użytkownika końcowego
-Wykonaj następujące kroki, aby ukryć aplikację z poziomu panelu aplikacje i uruchamiania aplikacji pakietu Office 365.
+Wykonaj następujące kroki, aby ukryć aplikację z poziomu panelu Moje aplikacje i Microsoft 365 uruchamiania aplikacji.
 
 1.  Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny katalogu.
 2.  Wybierz pozycję **Azure Active Directory**.
@@ -59,9 +59,9 @@ $tags += "HideApp"
 Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
 ```
 
-## <a name="hide-office-365-applications-from-the-myapps-panel"></a>Ukrywanie aplikacji pakietu Office 365 z poziomu panelu Moje aplikacje
+## <a name="hide-microsoft-365-applications-from-the-myapps-panel"></a>Ukrywanie aplikacji Microsoft 365 z poziomu panelu Moje aplikacje
 
-Wykonaj następujące kroki, aby ukryć wszystkie aplikacje pakietu Office 365 z poziomu panelu Moje aplikacje. Aplikacje są nadal widoczne w portalu pakietu Office 365.
+Wykonaj następujące kroki, aby ukryć wszystkie Microsoft 365 aplikacje z poziomu panelu Moje aplikacje. Aplikacje są nadal widoczne w portalu pakietu Office 365.
 
 1.  Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny katalogu.
 2.  Wybierz pozycję **Azure Active Directory**.

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/06/2020
+ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8598e77940bd2b33a9d8ba2c5a56348be841f7b
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505103"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602935"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Tworzenie przeglądu dostępu do grup i aplikacji w przeglądach dostępu usługi Azure AD
 
@@ -111,6 +111,8 @@ Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencji](access-r
     - **Zatwierdzanie dostępu** — zatwierdzanie dostępu użytkownika
     - Zapoznaj się z **zaleceniami** — zapoznaj się z zaleceniami systemu dotyczącymi odmowy lub zatwierdzenia ciągłego dostępu użytkownika
 
+    ![Tworzenie przeglądu dostępu — Ustawienia zaawansowane](./media/create-access-review/advanced-settings-preview-new.png)
+
 4. Przeglądania Użyj akcji, aby zastosować do niedozwolonych użytkowników, aby określić, co się dzieje z użytkownikami-Gośćmi, jeśli są odrzucane.
     - **Opcja 1** spowoduje usunięcie odmowy dostępu użytkownika do przeglądanej grupy lub aplikacji. nadal będzie można zalogować się do dzierżawy. 
     - **Opcja 2** zablokuje zalogowanych użytkowników do dzierżawy bez względu na to, czy mają dostęp do innych zasobów. Jeśli wystąpił błąd lub jeśli administrator zdecyduje się ponownie włączyć dostęp, może to zrobić w ciągu 30 dni od wyłączenia użytkownika. Jeśli nie wykonano żadnych akcji dla wyłączonych użytkowników, zostaną one usunięte z dzierżawy.
@@ -123,8 +125,6 @@ Aby dowiedzieć się więcej o najlepszych rozwiązaniach dotyczących usuwania 
 ### <a name="advanced-settings"></a>Ustawienia zaawansowane
 
 1. Aby określić dodatkowe ustawienia, rozwiń sekcję **Ustawienia zaawansowane** .
-
-    ![Tworzenie przeglądu dostępu — Ustawienia zaawansowane](./media/create-access-review/advanced-settings-preview-new.png)
 
 1. Ustaw opcję **Pokaż zalecenia** do **włączenia** , aby wyświetlić recenzentów zalecenia systemowe na podstawie informacji o dostępie użytkownika.
 

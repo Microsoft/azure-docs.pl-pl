@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 2a322c26df0f4fc388ded394f5a65de51f01ca45
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5a71476db6f57841a0057de5b8c95f07ef5d90ad
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665146"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603088"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Zabezpiecz środowisko szkoleniowe Azure Machine Learning z sieciami wirtualnymi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -180,6 +180,9 @@ Można to zrobić na dwa sposoby:
     Po dodaniu UDR, zdefiniuj trasę dla każdego powiązanego prefiksu adresu IP partii i ustaw __Typ następnego przeskoku__ na __Internet__. Na poniższej ilustracji przedstawiono przykład tego UDR w Azure Portal:
 
     ![Przykład UDR dla prefiksu adresu](./media/how-to-enable-virtual-network/user-defined-route.png)
+
+    > [!IMPORTANT]
+    > Adresy IP mogą ulec zmianie z upływem czasu.
 
     Oprócz wszelkich zdefiniowanych UDR ruch wychodzący do usługi Azure Storage musi być dozwolony za pomocą lokalnego urządzenia sieciowego. W odniesieniu do adresów URL tego ruchu znajdują się następujące formy: `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` , i `<account>.blob.core.windows.net` . 
 

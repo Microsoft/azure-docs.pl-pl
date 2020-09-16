@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b7e394c4227be9ead491fe77457b466b1f62468
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279333"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600801"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cztery kroki do silnej wersji programu Identity Foundation z Azure Active Directory
 
@@ -46,7 +46,7 @@ Usługa Azure AD umożliwia administratorom [Dodawanie aplikacji](../manage-apps
 Po dodaniu aplikacji do galerii usługi Azure AD użytkownicy będą mogli wyświetlać przypisane do nich aplikacje oraz wyszukiwać i żądać innych aplikacji zgodnie z wymaganiami. Usługa Azure AD udostępnia [kilka metod](../manage-apps/end-user-experiences.md) uzyskiwania dostępu do aplikacji przez użytkowników:
 
 * Panel dostępu/moje aplikacje
-* Uruchamianie aplikacji usługi Office 365
+* Uruchamianie aplikacji usługi Microsoft 365
 * Bezpośrednie logowanie do aplikacji federacyjnych
 * Linki bezpośrednie logowania
 
@@ -115,7 +115,7 @@ Organizacje z Active Directoryami lokalnymi powinny rozciągnąć swój katalog 
 
 Najprostszą i zalecaną metodą włączenia uwierzytelniania w chmurze dla obiektów katalogu lokalnego w usłudze Azure AD jest włączenie [synchronizacji skrótów haseł](./how-to-connect-password-hash-synchronization.md) (PHS). Alternatywnie niektóre organizacje mogą rozważyć włączenie [uwierzytelniania przekazywanego](./how-to-connect-pta-quick-start.md) (PTA).
 
-Bez względu na to, czy wybierzesz PHS, czy PTA, nie zapomnij włączyć [bezproblemowego logowania jednokrotnego](./how-to-connect-sso.md) , aby umożliwić użytkownikom uzyskiwanie dostępu do aplikacji w chmurze, a w sieci firmowej przy użyciu urządzeń z systemami Windows 7 i 8. Bez logowania jednokrotnego użytkownicy muszą pamiętać hasła specyficzne dla aplikacji i zalogować się do każdej aplikacji. Podobnie pracownicy działu IT muszą utworzyć i zaktualizować konta użytkowników dla każdej aplikacji, takiej jak Office 365, Box i Salesforce. Użytkownicy muszą pamiętać swoje hasła, a także poświęcać czas na zalogowanie się do każdej aplikacji. Zapewnienie standardowego mechanizmu logowania jednokrotnego do całego przedsiębiorstwa ma kluczowe znaczenie dla najlepszego środowiska użytkownika, zmniejszenia ryzyka, możliwości zgłaszania i zarządzania.
+Bez względu na to, czy wybierzesz PHS, czy PTA, nie zapomnij włączyć [bezproblemowego logowania jednokrotnego](./how-to-connect-sso.md) , aby umożliwić użytkownikom uzyskiwanie dostępu do aplikacji w chmurze, a w sieci firmowej przy użyciu urządzeń z systemami Windows 7 i 8. Bez logowania jednokrotnego użytkownicy muszą pamiętać hasła specyficzne dla aplikacji i zalogować się do każdej aplikacji. Podobnie pracownicy działu IT muszą utworzyć i zaktualizować konta użytkowników dla każdej aplikacji, takiej jak Microsoft 365, Box i Salesforce. Użytkownicy muszą pamiętać swoje hasła, a także poświęcać czas na zalogowanie się do każdej aplikacji. Zapewnienie standardowego mechanizmu logowania jednokrotnego do całego przedsiębiorstwa ma kluczowe znaczenie dla najlepszego środowiska użytkownika, zmniejszenia ryzyka, możliwości zgłaszania i zarządzania.
 
 W przypadku organizacji, które już używają AD FS lub innego dostawcy uwierzytelniania lokalnego, przeniesienie do usługi Azure AD, ponieważ dostawca tożsamości może zmniejszyć złożoność i zwiększyć dostępność. Jeśli nie masz określonych przypadków użycia dla Federacji, zalecamy Migrowanie z uwierzytelniania federacyjnego do PHS i bezproblemowego logowania jednokrotnego lub PTA i bezproblemowe logowanie jednokrotne, aby korzystać z zalet zredukowanego miejsca lokalnego oraz elastyczności chmury dzięki udoskonalonym środowiskom użytkownika. Aby uzyskać więcej informacji, zobacz [Migrowanie z usługi federacyjnej do synchronizacji skrótów haseł dla Azure Active Directory](./plan-migrate-adfs-password-hash-sync.md).
 
@@ -156,7 +156,7 @@ Przypisywanie użytkowników do aplikacji jest najlepszym mapowaniem w przypadku
 * Oparte na atrybutach z przynależnością do grupy dynamicznej
 * Delegowanie do właścicieli aplikacji
 
-Usługa Azure AD umożliwia zarządzanie dostępem do zasobów przy użyciu grup zabezpieczeń i grup pakietu Office 365. Tymi grupami można zarządzać za pomocą właściciela grupy, który może zatwierdzać lub odrzucać żądania członkostwa oraz delegować kontrolę członkostwa w grupie. Ta funkcja jest określana jako [Samoobsługowe zarządzanie grupami](../users-groups-roles/groups-self-service-management.md), dzięki czemu właściciele grup nie mają przypisanej roli administracyjnej do tworzenia grup i zarządzania nimi bez konieczności polegania na administratorach do obsługi ich żądań.
+Usługa Azure AD umożliwia zarządzanie dostępem do zasobów przy użyciu grup zabezpieczeń i grup Microsoft 365. Tymi grupami można zarządzać za pomocą właściciela grupy, który może zatwierdzać lub odrzucać żądania członkostwa oraz delegować kontrolę członkostwa w grupie. Ta funkcja jest określana jako [Samoobsługowe zarządzanie grupami](../users-groups-roles/groups-self-service-management.md), dzięki czemu właściciele grup nie mają przypisanej roli administracyjnej do tworzenia grup i zarządzania nimi bez konieczności polegania na administratorach do obsługi ich żądań.
 
 ## <a name="step-4---operationalize-your-insights"></a>Krok 4 — operacjonalizować się ze szczegółowymi informacjami
 

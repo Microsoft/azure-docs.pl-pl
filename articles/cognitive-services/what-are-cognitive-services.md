@@ -5,23 +5,31 @@ description: Usługa Azure Cognitive Services to usługi w chmurze z interfejsam
 services: cognitive-services
 author: nitinme
 manager: nitinme
-keywords: usługi poznawcze, analiza poznawczych, usługi poznawcze, AI jako usługa, rozwiązania poznawcze, niesztuczna inteligencja, poznawcze oprogramowanie, usługi AI, poznawcze informacje o poznawczej dostępności
+keywords: usługi poznawcze, analiza poznawcze, rozwiązania poznawcze, usługi AI, zrozumienie poznawcze i funkcje poznawcze
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
 ms.date: 08/28/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 3d7f5926991239786d9b37dffecc05cd8983bf3f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 6490b3cf2d3813a2740c548f778e65f1df6e7b01
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89379287"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603662"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Co to jest platforma Azure Cognitive Services?
 
-Usługa Azure Cognitive Services to usługi w chmurze z interfejsami API REST, a także dostępne zestawy SDK dla deweloperów, które ułatwiają deweloperom tworzenie inteligentnych aplikacji, bez konieczności bezpośredniego sztucznej analizy lub znajomości informacji lub wiedzy. Dzięki platformie Azure Cognitive Services deweloperzy mogą łatwo dodawać funkcje poznawcze do swoich aplikacji. Celem Cognitive Services platformy Azure jest ułatwienie deweloperom tworzenia aplikacji, które mogą wyświetlać, słyszeć, mówić i rozumieć, a nawet zacząć z przyczyn. Katalog usług w ramach platformy Azure Cognitive Services można podzielić na pięć głównych filarów, mowy, języka, wyszukiwanie w sieci Web i decyzji.
+Usługa Azure Cognitive Services to usługi w chmurze z interfejsami API REST, a także dostępne zestawy SDK dla deweloperów, które ułatwiają deweloperom tworzenie analiz poznawczych w aplikacjach, bez konieczności bezpośredniego sztucznej analizy danych lub wiedzy. Dzięki platformie Azure Cognitive Services deweloperzy mogą łatwo dodawać funkcje poznawcze do swoich aplikacji przy użyciu rozwiązań poznawczych, które widzą, słyszą, mówią, wiedzą, a nawet z przyczyn.
+
+Katalog usług AI, który zapewnia zrozumienie wiedzy, jest podzielony na pięć głównych filarów:
+
+* Wizja
+* Mowa
+* Język
+* Wyszukiwanie w Internecie
+* Decyzja
 
 Bieżąca lista nowych dokumentów jest dostępna na stronie [nowości w Cognitive Services](whats-new-docs.md)dokumentach.
 
@@ -65,7 +73,7 @@ Bieżąca lista nowych dokumentów jest dostępna na stronie [nowości w Cogniti
 |:-----------|:------------------|
 |[Wyszukiwanie wiadomości (Bing)](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "Wyszukiwanie wiadomości (Bing)")|Wyszukiwanie wiadomości Bing zwraca listę artykułów z wiadomościami ustalonych jako istotne dla zapytania użytkownika.|
 |[Wyszukiwanie klipów wideo w usłudze Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search/ "Wyszukiwanie klipów wideo w usłudze Bing")|Wyszukiwanie wideo Bing zwraca listę filmów wideo, które zostały określone jako istotne dla zapytania użytkownika.|
-|[wyszukiwanie w sieci Web Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/ "Wyszukiwanie w sieci Web (Bing)")|Wyszukiwanie w sieci Web Bing zwraca listę wyników wyszukiwania, które zostały uznane za istotne dla zapytania użytkownika.|
+|[Wyszukiwanie w sieci Web (Bing)](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/ "Wyszukiwanie w sieci Web (Bing)")|Wyszukiwanie w sieci Web Bing zwraca listę wyników wyszukiwania, które zostały uznane za istotne dla zapytania użytkownika.|
 |[Automatyczne sugerowanie Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest "Automatyczne sugerowanie Bing")|Automatyczne sugerowanie Bing umożliwia wysłanie terminu zapytania wyszukiwania częściowego do usługi Bing i odwracanie listy sugerowanych zapytań.|
 |[Wyszukiwanie niestandardowe Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search "Wyszukiwanie niestandardowe Bing")|Wyszukiwanie niestandardowe Bing umożliwia tworzenie dostosowanych środowisk wyszukiwania dla tematów, które Cię interesują.|
 |[Wyszukiwanie jednostek Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "Wyszukiwanie jednostek Bing")|Wyszukiwanie jednostek Bing zwraca informacje o jednostkach, które są określane przez usługę Bing, w odniesieniu do zapytania użytkownika.|
@@ -81,6 +89,15 @@ Bieżąca lista nowych dokumentów jest dostępna na stronie [nowości w Cogniti
 |[Detektor anomalii](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Narzędzie do wykrywania anomalii") (wersja zapoznawcza)|Detektor anomalii umożliwia monitorowanie i wykrywanie nieprawidłowych danych szeregów czasowych.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator zapewnia monitorowanie dla możliwej obraźliwej, niepożądanej i ryzykownej zawartości.|
 |[Personalizacja](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizacja")|Personalizowanie umożliwia wybranie najlepszego środowiska do wyświetlania użytkownikom, uczenie się od ich zachowania w czasie rzeczywistym.|
+
+## <a name="learn-with-the-quickstarts"></a>Zapoznaj się z przewodnikami Szybki Start
+
+Dowiedz się więcej na temat tworzenia zasobów Cognitive Services za pomocą praktycznych przewodników Szybki Start, korzystając z:
+
+* [Witryna Azure Portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure Portal")
+* [Interfejs wiersza polecenia platformy Azure](cognitive-services-apis-create-account-cli.md?tabs=windows "Interfejs wiersza polecenia platformy Azure")
+* [Biblioteki klienckie zestawu Azure SDK](cognitive-services-apis-create-account-cli.md?tabs=windows "poznawcze-Services-API-Create-Account-Client-Library? pivots = programowanie-Language-CSharp")
+* [Szablony usługi Azure Resource Manager (ARM)](resource-manager-template.md?tabs=portal "Szablony usługi Azure Resource Manager (ARM)")
 
 ## <a name="subscription-management"></a>Zarządzanie subskrypcjami
 
@@ -118,7 +135,10 @@ Aby poznać prywatność i zarządzanie danymi, przejdź do [Centrum zaufania](h
 
 ## <a name="support"></a>Pomoc techniczna
 
-Cognitive Services udostępnić kilka [opcji pomocy technicznej](cognitive-services-support-options.md "Opcje pomocy technicznej").
+Cognitive Services oferuje kilka [opcji pomocy technicznej](cognitive-services-support-options.md "Opcje pomocy technicznej").
+
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

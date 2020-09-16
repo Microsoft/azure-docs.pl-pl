@@ -5,14 +5,14 @@ description: Dowiedz się, jak utworzyć niestandardowy profil usługi Intune, a
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5a754a14cada1547a83e29d474e9b77aed7a2728
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: fba8433a7964b10901527894eee98722ece970ec
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024353"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602197"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Tworzenie profilu usługi Intune w celu wdrożenia profilów klienta sieci VPN
 
@@ -54,17 +54,7 @@ Aby poznać inne obsługiwane opcje, zapoznaj się z artykułem [Obsługa sieci 
     </VPNProfile>
    ```
 1. Zmodyfikuj wpis między ```<ServerUrlList>``` i ```</ServerUrlList>``` wraz z pozycją pobranego profilu (azurevpnconfig.xml). Zmień nazwę FQDN "TrustedNetworkDetection" tak, aby była zgodna z Twoim środowiskiem.
-1. Otwórz profil pobrany przez platformę Azure (azurevpnconfig.xml) i skopiuj zawartość do schowka, wyróżnij tekst i naciśnij klawisze <ctrl> + C. Skopiuj wszystko między następującymi wierszami AzVpnProfile, ale nie Kopiuj samych wierszy AzVpnProfile:
-
-   ```
-   <AzVpnProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
-     <any xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Xml"
-       i:nil="true" />
-
-   For example - copy the text in your xml that is located here.
-
-   </AzVpnProfile>
-   ```
+1. Otwórz profil pobrany na platformie Azure (azurevpnconfig.xml) i Skopiuj całą zawartość do schowka, zaznaczając tekst i naciskając klawisz (Ctrl) + C. 
 1. Wklej skopiowany tekst z poprzedniego kroku do pliku utworzonego w kroku 2 między ```<CustomConfiguration>  </CustomConfiguration>``` tagami. Zapisz plik z rozszerzeniem XML.
 1. Zapisz wartość w ```<name>  </name>``` znacznikach. To jest nazwa profilu. Ta nazwa będzie potrzebna podczas tworzenia profilu w usłudze Intune. Zamknij plik i Zapamiętaj lokalizację, w której został zapisany.
 
@@ -87,7 +77,7 @@ W tej sekcji utworzysz profil Microsoft Intune z ustawieniami niestandardowymi.
    Wybierz ikonę folderu i wybierz plik zapisany w kroku 6 w krokach [XML](#xml) . Wybierz pozycję **Dodaj**.
 
    :::image type="content" source="./media/create-profile-intune/configuration-settings.png" alt-text="Ustawienia konfiguracji" lightbox="./media/create-profile-intune/configuration-settings.png":::
-1. Wybierz pozycję **Next** (Dalej).
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **przypisania**wybierz grupę, do której chcesz wypchnąć konfigurację. Następnie wybierz pozycję **Dalej**.
 1. Reguły zastosowania są opcjonalne. W razie konieczności Zdefiniuj reguły, a następnie wybierz przycisk **dalej**.
 1. Na stronie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: dcbfd05df84e32423df425f3bdd231a26e4f3bca
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: d4b44deda1bd17e65c3e2c2a9c46dddccd411996
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527052"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602045"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w usłudze Azure Active Directory?
 
@@ -36,21 +36,18 @@ W przypadku wdrażania funkcji takich jak Azure Multi-Factor Authentication w or
 
 W poniższej tabeli przedstawiono zagadnienia dotyczące zabezpieczeń dostępnych metod uwierzytelniania. Dostępność to wskazanie, że użytkownik może korzystać z metody uwierzytelniania, a nie dostępności usługi w usłudze Azure AD:
 
-| Metoda uwierzytelniania       | Zabezpieczenia | Łatwość obsługi | Phisable? | Gniazdo w kanale? | Dostępność |
-|-----------------------------|:--------:|:---------:|:---------:|:-----------------:|:------------:|
-| Klucz zabezpieczeń FIDO2          | Wysoki     | Wysoki      | Nie        | Nie                | Wysoki         |
-| Aplikacja Microsoft Authenticator | Wysoki     | Wysoki      | Yes       | Nie <sup>1</sup>   | Wysoki         |
-| Windows Hello dla firm  | Wysoki     | Wysoki      | Nie        | Nie                | Wysoki         |
-| Sprzętowe tokeny OATH        | Średnia   | Średnia    | Yes       | Nie                | Wysoki         |
-| Tokeny OATH oprogramowania        | Średnia   | Średnia    | Yes       | Nr <sup>2</sup>   | Wysoki         |
-| SMS                         | Średniaa   | Wysoki      | Yes       | Yes               | Średniaa       |
-| Połączenia głosowe                       | Średnia   | Średnia    | Yes       | Yes               | Średniaa       |
-| Hasło                    | Nis.      | Wys.      | Yes       | Yes               | Wysoki         |
+| Metoda uwierzytelniania          | Zabezpieczenia | Łatwość obsługi | Dostępność |
+|--------------------------------|:--------:|:---------:|:------------:|
+| Windows Hello dla firm     | Wysoki     | Wysoki      | Wysoki         |
+| Aplikacja Microsoft Authenticator    | Wysoki     | Wysoki      | Wysoki         |
+| Klucz zabezpieczeń FIDO2 (wersja zapoznawcza)   | Wysoki     | Wysoki      | Wysoki         |
+| Tokeny sprzętowe OATH (wersja zapoznawcza) | Średnia   | Średnia    | Wysoki         |
+| Tokeny oprogramowania OATH           | Średnia   | Średnia    | Wysoki         |
+| SMS                            | Średniaa   | Wys.      | Śred.       |
+| Połączenia głosowe                          | Średnia   | Średnia    | Średnia       |
+| Hasło                       | Nis.      | Wys.      | Wysoki         |
 
-<sup>1</sup> w trybie bezhasła, gdy aplikacja jest zarejestrowana na określonym urządzeniu<br />
-<sup>2</sup> przy założeniu, że aplikacja wymaga odblokowania urządzenia
-
-Aby uzyskać więcej informacji na temat luk w zabezpieczeniach i wektorów ataków, zobacz [Informacje o wygnieździe kanału i phishingu](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)w czasie rzeczywistym.
+Aby uzyskać więcej informacji na temat zabezpieczeń, zobacz luki w zabezpieczeniach [i wektory ataków](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124).
 
 > [!TIP]
 > Aby zapewnić elastyczność i użyteczność, zalecamy korzystanie z aplikacji Microsoft Authenticator. Ta metoda uwierzytelniania zapewnia najlepsze środowisko użytkownika i wiele trybów, takich jak bezhasło, powiadomienia push usługi MFA i kody OATH.
@@ -63,9 +60,9 @@ Poniższa tabela przedstawia, kiedy Metoda uwierzytelniania może być używana 
 
 | Metoda                         | Uwierzytelnianie podstawowe | Uwierzytelnianie pomocnicze  |
 |--------------------------------|:----------------------:|:-------------------------:|
-| Klucze zabezpieczeń FIDO2 (wersja zapoznawcza)  | Yes                    | Funkcja                       |
-| Aplikacja Microsoft Authenticator    | Tak (wersja zapoznawcza)          | Uwierzytelnianie MFA i SSPR              |
 | Windows Hello dla firm     | Yes                    | Funkcja                       |
+| Aplikacja Microsoft Authenticator    | Tak (wersja zapoznawcza)          | Uwierzytelnianie MFA i SSPR              |
+| Klucz zabezpieczeń FIDO2 (wersja zapoznawcza)   | Yes                    | Funkcja                       |
 | Tokeny sprzętowe OATH (wersja zapoznawcza) | Nie                     | Funkcja                       |
 | Tokeny oprogramowania OATH           | Nie                     | Funkcja                       |
 | SMS                            | Tak (wersja zapoznawcza)          | Uwierzytelnianie MFA i SSPR              |
@@ -76,11 +73,11 @@ Wszystkie te metody uwierzytelniania można skonfigurować w Azure Portal i w co
 
 Aby dowiedzieć się więcej o tym, jak działa każda metoda uwierzytelniania, zobacz następujące oddzielne artykuły koncepcyjne:
 
-* [Klucze zabezpieczeń FIDO2 (wersja zapoznawcza)](concept-authentication-passwordless.md#fido2-security-keys)
-* [Aplikacja Microsoft Authenticator](concept-authentication-authenticator-app.md)
 * [Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-overview)
-* [Tokeny oprogramowania OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
+* [Aplikacja Microsoft Authenticator](concept-authentication-authenticator-app.md)
+* [Klucz zabezpieczeń FIDO2 (wersja zapoznawcza)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Tokeny sprzętowe OATH (wersja zapoznawcza)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
+* [Tokeny oprogramowania OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
 * Logowanie za pomocą programu SMS [(wersja zapoznawcza)](howto-authentication-sms-signin.md) i [weryfikacja](concept-authentication-phone-options.md#mobile-phone-verification)
 * [Weryfikacja połączenia głosowego](concept-authentication-phone-options.md)
 * Hasło

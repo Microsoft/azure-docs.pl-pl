@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d0ea9259e701e2ad9a4026401f5aef39c0ecfa51
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042483"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601830"
 ---
 # <a name="conditional-access-conditions"></a>Dostęp warunkowy: warunki
 
@@ -149,27 +149,27 @@ To ustawienie ma wpływ na próby dostępu wykonane z następujących aplikacji 
 | Aplikacje klienckie | Usługa docelowa | Platforma |
 | --- | --- | --- |
 | Aplikacja Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS i Android |
-| Aplikacja poczty/kalendarza/osoby, Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania)| Pakiet Office 365 Exchange Online | Windows 10 |
+| Aplikacja poczty/kalendarza/osoby, Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania)| Exchange Online | Windows 10 |
 | Zasady usługi MFA i lokalizacji dla aplikacji. Zasady oparte na urządzeniach nie są obsługiwane.| Wszystkie aplikacje my App Service | Systemy Android i iOS |
 | Usługi Microsoft Teams — kontroluje wszystkie usługi obsługujące Microsoft Teams i wszystkie jej aplikacje klienckie — Windows Desktop, iOS, Android, WP i klient sieci Web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android i macOS |
-| Aplikacje pakietu Office 2016, pakiet Office 2013 (z nowoczesnego uwierzytelniania), [klient synchronizacji usługi OneDrive](/onedrive/enable-conditional-access) | Pakiet Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| Aplikacje pakietu Office 2016, uniwersalne aplikacje biurowe, Office 2013 (z nowoczesnego uwierzytelniania), [klient synchronizacji usługi OneDrive](/onedrive/enable-conditional-access) | Pakiet Office 365 SharePoint Online | Windows 10 |
-| Office 2016 (Word, Excel, PowerPoint, tylko OneNote). | Pakiet Office 365 SharePoint Online | macOS |
-| Pakiet Office 2019| Pakiet Office 365 SharePoint Online | Windows 10, macOS |
-| Aplikacje mobilne pakietu Office | Pakiet Office 365 SharePoint Online | Android, iOS |
-| Aplikacja Yammera pakietu Office | Usługa Yammer pakietu Office 365 | Windows 10, iOS, Android |
-| Outlook 2019 | Pakiet Office 365 SharePoint Online | Windows 10, macOS |
-| Outlook 2016 (Office for macOS) | Pakiet Office 365 Exchange Online | macOS |
-| Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania), Skype dla firm (z nowoczesnego uwierzytelniania) | Pakiet Office 365 Exchange Online | Windows 8.1, Windows 7 |
-| Aplikacja mobilna Outlook | Pakiet Office 365 Exchange Online | Android, iOS |
+| Aplikacje pakietu Office 2016, pakiet Office 2013 (z nowoczesnego uwierzytelniania), [klient synchronizacji usługi OneDrive](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
+| Aplikacje pakietu Office 2016, uniwersalne aplikacje biurowe, Office 2013 (z nowoczesnego uwierzytelniania), [klient synchronizacji usługi OneDrive](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
+| Office 2016 (Word, Excel, PowerPoint, tylko OneNote). | SharePoint | macOS |
+| Pakiet Office 2019| SharePoint | Windows 10, macOS |
+| Aplikacje mobilne pakietu Office | SharePoint | Android, iOS |
+| Aplikacja Yammera pakietu Office | Yammer | Windows 10, iOS, Android |
+| Outlook 2019 | SharePoint | Windows 10, macOS |
+| Outlook 2016 (Office for macOS) | Exchange Online | macOS |
+| Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania), Skype dla firm (z nowoczesnego uwierzytelniania) | Exchange Online | Windows 8.1, Windows 7 |
+| Aplikacja mobilna Outlook | Exchange Online | Android, iOS |
 | Aplikacja Power BI | Usługa Power BI | Windows 10, Windows 8.1, Windows 7, Android i iOS |
-| Skype dla firm | Pakiet Office 365 Exchange Online| Android, iOS |
+| Skype dla firm | Exchange Online| Android, iOS |
 | Aplikacja Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS i Android |
 
 ### <a name="exchange-activesync-clients"></a>Klienci programu Exchange ActiveSync
 
 - W przypadku przypisywania zasad do użytkowników lub grup organizacje mogą wybierać tylko klienci programu Exchange ActiveSync. Po wybraniu opcji **Wszyscy użytkownicy**, wszyscy użytkownicy z **użytkownikami zewnętrznymi**lub **rolami katalogu** spowodują, że wszyscy użytkownicy staną się Zablokowani.
-- Podczas tworzenia zasad przypisanych do klientów programu Exchange ActiveSync usługa **Office 365 Exchange Online** powinna być jedyną aplikacją w chmurze przypisaną do zasad. 
+- Podczas tworzenia zasad przypisanych do klientów programu Exchange ActiveSync usługa **Exchange Online** powinna być jedyną aplikacją w chmurze przypisaną do zasad. 
 - Organizacje mogą zawęzić zakres tych zasad do określonych platform przy użyciu warunku **platformy urządzeń** .
 
 Jeśli funkcja kontroli dostępu przypisanej do zasad **wymaga zatwierdzonej aplikacji klienckiej**, użytkownik jest kierowany do instalacji i używania klienta mobilnego Outlook. W przypadku, gdy wymagane jest **uwierzytelnianie wieloskładnikowe** , których użytkownicy są Zablokowani, ponieważ uwierzytelnianie podstawowe nie obsługuje uwierzytelniania wieloskładnikowego.

@@ -1,29 +1,29 @@
 ---
 title: Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB
 description: Dowiedz się więcej o obsłudze funkcji bazy danych Apache Cassandra w interfejsie API Cassandra usługi Azure Cosmos DB
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
-ms.date: 09/24/2018
-ms.openlocfilehash: e7384237f91bf3af8ccad1a97b27fb62a1845a88
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.date: 09/14/2020
+ms.openlocfilehash: 9fe149fb026aabcb50a595061d3ba57df7812563
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118988"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602816"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB 
 
-Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Możesz komunikować się z interfejsem API Cassandra usługi Azure Cosmos DB przy użyciu [protokołu przewodowego](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) języka Cassandra Query Language (CQL) w wersji 4 zgodnego ze [sterownikami](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) klienta Cassandra typu open source. 
+Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Można komunikować się z Azure Cosmos DB interfejs API Cassandra za pomocą [sterowników](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)klienta CQL "open source" [w protokole](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) binarnym protokołu Cassandra. 
 
-Dzięki interfejsowi API Cassandra usługi Azure Cosmos DB możesz korzystać z interfejsów API Apache Cassandra, a także możliwości klasy przedsiębiorstwa zapewnianymi przez usługę Azure Cosmos DB. Możliwości klasy przedsiębiorstwa obejmują [globalną dystrybucję](distribute-data-globally.md), [automatyczne skalowanie partycjonowania w poziomie](partition-data.md), gwarancje dostępności i opóźnień, szyfrowanie nieużywanych danych, kopie zapasowe i wiele więcej.
+Dzięki interfejsowi API Cassandra usługi Azure Cosmos DB możesz korzystać z interfejsów API Apache Cassandra, a także możliwości klasy przedsiębiorstwa zapewnianymi przez usługę Azure Cosmos DB. Możliwości klasy przedsiębiorstwa obejmują [globalną dystrybucję](distribute-data-globally.md), [automatyczne skalowanie partycjonowania w poziomie](cassandra-partitioning.md), gwarancje dostępności i opóźnień, szyfrowanie nieużywanych danych, kopie zapasowe i wiele więcej.
 
 ## <a name="cassandra-protocol"></a>Protokół Cassandra 
 
-Interfejs API Cassandra usługi Azure Cosmos DB jest zgodny z językiem CQL **w wersji 4**. Obsługiwane polecenia CQL, narzędzia, ograniczenia i wyjątki są wymienione poniżej. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API Cassandra usługi Azure Cosmos DB.
+Interfejs API Cassandra Azure Cosmos DB jest zgodna z interfejsem API Cassandra Query Language (CQL) v 3.11 (Wstecz-Compatible z wersją 2. x). Obsługiwane polecenia CQL, narzędzia, ograniczenia i wyjątki są wymienione poniżej. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API Cassandra usługi Azure Cosmos DB.
 
 ## <a name="cassandra-driver"></a>Sterownik Cassandra
 
@@ -37,68 +37,156 @@ Następujące wersje sterowników Cassandra są obsługiwane przez interfejs API
 * [PHP 1.3](https://github.com/datastax/php-driver)  
 * [Gocql](https://github.com/gocql/gocql)  
  
+
 ## <a name="cql-data-types"></a>Typy danych CQL 
 
 Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące typy danych języka CQL:
 
-* ascii  
-* bigint  
-* blob  
-* wartość logiczna  
-* counter  
-* date  
-* decimal  
-* double  
-* float  
-* frozen  
-* inet  
-* int  
-* list  
-* set  
-* smallint  
-* tekst  
-* time  
-* sygnatura czasowa  
-* timeuuid  
-* tinyint  
-* tuple  
-* uuid  
-* varchar  
-* varint  
-* tuples  
-* udts  
-* map (mapa)  
+|Polecenie  |Obsługiwane |
+|---------|---------|
+| ascii  | Yes |
+| bigint  | Yes |
+| blob  | Yes |
+| boolean  | Yes |
+| counter  | Yes |
+| data  | Yes |
+| decimal  | Yes |
+| double  | Yes |
+| float  | Yes |
+| frozen  | Yes |
+| inet  | Yes |
+| int  | Yes |
+| list  | Yes |
+| set  | Yes |
+| smallint  | Yes |
+| tekst  | Yes |
+| time  | Yes |
+| sygnatura czasowa  | Yes |
+| timeuuid  | Yes |
+| tinyint  | Yes |
+| tuple  | Yes |
+| uuid  | Yes |
+| varchar  | Yes |
+| varint  | Yes |
+| tuples | Yes | 
+| udts  | Yes |
+| map (mapa) | Yes |
 
 ## <a name="cql-functions"></a>Funkcje języka CQL
 
 Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące funkcje języka CQL:
 
-* Token  
-* Funkcje agregujące
-  * min, Max, AVG, Count
-* Funkcje konwersji dużych obiektów binarnych 
-  * typeAsBlob(value)  
-  * blobAsType(value)
-* Funkcje identyfikatorów UUID i timeuuid 
-  * dateOf()  
-  * now()  
-  * minTimeuuid()  
-  * unixTimestampOf()  
-  * toDate(timeuuid)  
-  * toTimestamp(timeuuid)  
-  * toUnixTimestamp(timeuuid)  
-  * toDate(timeuuid)  
-  * toUnixTimestamp(timestamp)  
-  * toTimestamp(date)  
-  * toUnixTimestamp(date) 
+|Polecenie  |Obsługiwane |
+|---------|---------|
+| Klucza | Yes |
+| czas wygaśnięcia | Yes |
+| writetime | Yes |
+| rzutowanie | Nie |
+
+\* Interfejs API Cassandra obsługuje token jako projekcję/selektor i zezwala tylko na token (PK) po lewej stronie klauzuli WHERE. Na przykład `WHERE token(pk) > 1024` jest obsługiwany, ale `WHERE token(pk) > token(100)` nie jest obsługiwany.
+
+
+Funkcje agregujące:
+
+|Polecenie  |Obsługiwane |
+|---------|---------|
+| min | Yes |
+| max | Yes |
+| śr | Yes |
+| count | Yes |
+
+Funkcje konwersji obiektów blob:
+ 
+|Polecenie  |Obsługiwane |
+|---------|---------|
+| typeAsBlob(value)   | Yes |
+| blobAsType(value) | Yes |
+
+
+Funkcje UUID i timeuuid:
+ 
+|Polecenie  |Obsługiwane |
+|---------|---------|
+| dateOf()  | Yes |
+| now()  | Yes |
+| minTimeuuid()  | Yes |
+| unixTimestampOf()  | Yes |
+| toDate(timeuuid)  | Yes |
+| toTimestamp(timeuuid)  | Yes |
+| toUnixTimestamp(timeuuid)  | Yes |
+| toDate(timeuuid)  | Yes |
+| toUnixTimestamp(timestamp)  | Yes |
+| toTimestamp(date)  | Yes |
+| toUnixTimestamp(date) | Yes |
+
+
   
+## <a name="cql-commands"></a>Polecenie języka CQL
+
+Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontach interfejsu API Cassandra.
+
+|Polecenie  |Obsługiwane |
+|---------|---------|
+| ZEZWALAJ NA FILTROWANIE | Yes |
+| ZMIEŃ PRZESTRZEŃ KLUCZY | Nie dotyczy (usługa PaaS, zarządzane wewnętrznie replikację)|
+| ZMIEŃ WIDOK Z MATERIAŁAMI | Nie |
+| ZMIEŃ ROLĘ | Nie |
+| ALTER TABLE | Yes |
+| ZMIEŃ TYP | Nie |
+| ZMIEŃ UŻYTKOWNIKA | Nie |
+| Sekwencja | Tak (tylko nierejestrowana partia)|
+| MAGAZYN KOMPAKTOWY | Nie dotyczy (usługa PaaS) |
+| UTWÓRZ AGREGACJĘ | Nie | 
+| UTWÓRZ INDEKS NIESTANDARDOWY (SASI) | Nie |
+| CREATE INDEX | Tak (bez [określania nazwy indeksu](cassandra-secondary-index.md)i indeksy w kluczach klastrowania lub pełna zamrożona kolekcja nie jest obsługiwana) |
+| UTWÓRZ FUNKCJĘ | Nie |
+| Utwórz miejsce na dysku (zignorowano ustawienia replikacji) | Yes |
+| UTWÓRZ WIDOK Z MATERIAŁAMI | Nie |
+| CREATE TABLE | Yes |
+| UTWÓRZ WYZWALACZ | Nie |
+| UTWÓRZ TYP | Yes |
+| UTWÓRZ ROLĘ | Nie |
+| Utwórz użytkownika (przestarzałe w natywnym programie Apache Cassandra) | Nie |
+| DELETE | Yes |
+| Usuń (lekkie transakcje z WARUNKIem IF)| Yes |
+| UPUŚĆ WARTOŚĆ ZAGREGOWANĄ | Nie |
+| DROP — FUNKCJA | Nie |
+| DROP INDEX | Yes |
+| PORZUĆ MIEJSCE NA DYSKU | Yes |
+| UPUŚĆ WIDOK Z MATERIAŁAMI | Nie |
+| USUŃ ROLĘ | Nie |
+| USUŃ TABELĘ | Yes |
+| PORZUĆ WYZWALACZ | Nie | 
+| TYP USUWANIA | Yes |
+| UPUŚĆ użytkownika (przestarzałe w natywnym programie Apache Cassandra) | Nie |
+| DAWAĆ | Nie |
+| INSERT | Yes |
+| Wstaw (lekkie transakcje z WARUNKIem IF)| Yes |
+| WYŚWIETL UPRAWNIENIA | Nie |
+| ROLE LIST | Nie |
+| Lista użytkowników (przestarzałe w natywnym programie Apache Cassandra) | Nie |
+| ODWOŁANIA | Nie |
+| SELECT | Yes |
+| SELECT (lekkie transakcje z WARUNKIem IF)| Nie |
+| UPDATE | Yes |
+| Aktualizuj (uproszczone transakcje z WARUNKIem IF)| Nie |
+| OBCIĄĆ | Nie |
+| USE | Yes |
+
+## <a name="json-support"></a>Obsługa JSON
+|Polecenie  |Obsługiwane |
+|---------|---------|
+| WYBIERZ KOD JSON | Yes |
+| WSTAW KOD JSON | Yes |
+| fromJson() | Nie |
+| toJson () | Nie |
 
 
 ## <a name="cassandra-api-limits"></a>Ograniczenia interfejsu API Cassandra
 
 Interfejs API Cassandra usługi Azure Cosmos DB nie ma żadnych ograniczeń dotyczących rozmiaru danych przechowywanych w tabeli. Można przechowywać setki terabajtów lub petabajtów danych przy zapewnieniu uznania limitów klucza partycji. Podobnie każdy odpowiednik jednostki lub wiersza nie ma żadnych limitów liczby kolumn. Jednak łączny rozmiar jednostki nie powinien przekraczać 2 MB. Dane na klucz partycji nie mogą przekroczyć 20 GB, tak jak w przypadku wszystkich innych interfejsów API.
 
-## <a name="tools"></a>narzędzia 
+## <a name="tools"></a>Narzędzia 
 
 Interfejs API Cassandra usługi Azure Cosmos DB to platforma usług zarządzanych. Nie wymaga żadnego narzutu związanego z zarządzaniem ani narzędzi, takich jak moduł odzyskiwania pamięci, wirtualna maszyna Java (JVM) i narzędzie nodetool do zarządzania klastrem. Obsługuje narzędzia, takie jak cqlsh, korzystające ze zgodności binarnej z językiem CQL w wersji 4. 
 
@@ -108,9 +196,12 @@ Interfejs API Cassandra usługi Azure Cosmos DB to platforma usług zarządzanyc
 
 Hostowaną natywną powłokę Cassandra (CQLSH v 5.0.1) można otworzyć bezpośrednio z Eksplorator danych w [Azure Portal](data-explorer.md) lub w [Eksploratorze Cosmos platformy Azure](https://cosmos.azure.com/). Przed włączeniem powłoki CQL należy [włączyć funkcję notesów](enable-notebooks.md) na koncie (jeśli nie została jeszcze włączona, zostanie wyświetlony monit po kliknięciu `Open Cassandra Shell` ). Zapoznaj się z wyróżnioną uwagą w temacie [Włączanie notesów dla kont Azure Cosmos DB](enable-notebooks.md) dla obsługiwanych regionów świadczenia usługi Azure.
 
-:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="CQLSH":::
+:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Otwórz CQLSH":::
 
 Możesz również nawiązać połączenie z interfejs API Cassandra w Azure Cosmos DB przy użyciu CQLSH zainstalowanego na komputerze lokalnym. Jest on dostarczany z Apache Cassandra 3.1.1 i działa poza ramką przez ustawienie zmiennych środowiskowych. Poniższe sekcje zawierają instrukcje dotyczące instalowania, konfigurowania i nawiązywania połączeń interfejs API Cassandra w programie Azure Cosmos DB w systemie Windows lub Linux przy użyciu CQLSH.
+
+> [!NOTE]
+> Połączenia z usługą Azure Cosmos DB interfejs API Cassandra nie będą działały z wersjami CQLSH firmy DataStax Enterprise (DSE). Upewnij się, że podczas nawiązywania połączenia z usługą interfejs API Cassandra używasz tylko wersji CQLSH typu open source systemu Apache Cassandra. 
 
 **Systemy**
 
@@ -142,22 +233,6 @@ export SSL_VALIDATE=false
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
 
 ```
-
-## <a name="cql-commands"></a>Polecenie języka CQL
-
-Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontach interfejsu API Cassandra.
-
-* Utwórz miejsce na dysku (ustawienia replikacji dla tego polecenia są ignorowane)
-* CREATE TABLE 
-* Utwórz indeks (bez określania nazwy indeksu i pełne zablokowane indeksy nie są jeszcze obsługiwane)
-* ZEZWALAJ NA FILTROWANIE
-* ALTER TABLE 
-* USE 
-* INSERT 
-* SELECT 
-* UPDATE 
-* BATCH — obsługiwane są tylko polecenia nierejestrowane 
-* DELETE
 
 Wszystkie operacje CRUD, które są wykonywane za pomocą zestawu SDK zgodnego z CQL v4, zwracają dodatkowe informacje na temat liczby użytych jednostek błędu i żądania. Polecenia DELETE i UPDATE powinny być obsługiwane przez zarządzanie zasobami, które są brane pod uwagę w celu zapewnienia najbardziej wydajnego wykorzystania alokowanej przepływności.
 

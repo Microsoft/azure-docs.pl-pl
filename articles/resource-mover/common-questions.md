@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: 18de210d817ee309ac4970ecea6b62f6ef03ef02
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530407"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600657"
 ---
 # <a name="common-questions"></a>Często zadawane pytania
 
@@ -90,6 +90,9 @@ Tożsamość zarządzana przenoszenia zasobów nie ma wymaganej roli. | Dodaj ro
 Tożsamość zarządzana przenoszenia zasobów została zresetowana do wartości *Brak*. | Ponownie włącz tożsamość przypisaną przez system w kolekcji Move > **Identity**. Alternatywnie Dodaj zasób ponownie w obszarze **Dodaj zasoby**, co oznacza, że to samo.  
 Subskrypcja została przeniesiona do innej dzierżawy. | Wyłącz, a następnie Włącz tożsamość zarządzaną dla kolekcji Move.
 
+### <a name="how-can-i-do-multiple-moves-together"></a>Jak można przenieść wiele jednocześnie?
+
+Zmień kombinacje źródłowe/docelowe stosownie do potrzeb, używając opcji Zmień w portalu.
 
 ## <a name="next-steps"></a>Następne kroki
 

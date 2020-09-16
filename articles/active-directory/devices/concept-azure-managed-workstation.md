@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672657"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601388"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Informacje na temat bezpiecznych stacji roboczych zarządzanych przez platformę Azure
 
@@ -64,7 +64,7 @@ Wszyscy użytkownicy i operatorzy korzystają z bezpiecznej stacji roboczej. Oso
 * Wysoce wrażliwa stacja robocza, na przykład w przypadku terminalu płatności SWIFT
 * Obsługa tajemnic handlowych dla stacji roboczej
 
-Aby zmniejszyć ryzyko, należy zaimplementować podwyższone poziomu zabezpieczeń dla uprzywilejowanych stacji roboczych, które korzystają z tych kont. Aby uzyskać więcej informacji, zobacz [Przewodnik wdrażania funkcji Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), [plan pakietu Office 365](https://aka.ms/o365secroadmap)i [Zabezpieczanie planu uprzywilejowanego dostępu](https://aka.ms/sparoadmap).
+Aby zmniejszyć ryzyko, należy zaimplementować podwyższone poziomu zabezpieczeń dla uprzywilejowanych stacji roboczych, które korzystają z tych kont. Aby uzyskać więcej informacji, zobacz [Przewodnik wdrażania funkcji Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 plan](https://aka.ms/o365secroadmap)i [Zabezpieczanie planu dostępu uprzywilejowanego](https://aka.ms/sparoadmap)).
 
 ## <a name="why-use-dedicated-workstations"></a>Dlaczego warto korzystać z dedykowanych stacji roboczych?
 
@@ -73,7 +73,7 @@ Chociaż istnieje możliwość dodania zabezpieczeń do istniejącego urządzeni
 Rosnąca liczba wektorów ataków za pośrednictwem poczty e-mail i przeglądania sieci Web sprawia, że urządzenie może być zaufane. W tym przewodniku przyjęto założenie, że dedykowana stacja robocza jest izolowana od standardowej wydajności, przeglądania i poczty e-mail. Usunięcie wydajności, przeglądania sieci Web i poczty e-mail z urządzenia może mieć negatywny wpływ na wydajność. Jednak takie zabezpieczenia są zwykle akceptowalne w scenariuszach, w których zadania nie wymagają ich jawnie, a ryzyko związane z bezpieczeństwem jest wysokie.
 
 > [!NOTE]
-> Przeglądanie sieci Web w tym miejscu odnosi się do ogólnego dostępu do dowolnych witryn sieci Web, które mogą być działaniem wysokiego ryzyka. Takie przeglądanie różni się od używania przeglądarki sieci Web w celu uzyskania dostępu do małej liczby dobrze znanych administracyjnych witryn sieci Web dla usług takich jak Azure, Office 365, innych dostawców chmury i aplikacji SaaS.
+> Przeglądanie sieci Web w tym miejscu odnosi się do ogólnego dostępu do dowolnych witryn sieci Web, które mogą być działaniem wysokiego ryzyka. Takie przeglądanie różni się od używania przeglądarki sieci Web w celu uzyskania dostępu do niewielkiej liczby dobrze znanych administracyjnych witryn sieci Web dla usług takich jak platforma Azure, Microsoft 365, inni dostawcy chmury i aplikacje SaaS.
 
 Strategie zawiera zwiększają bezpieczeństwo przez zwiększenie liczby i typu kontrolek, które pomogą intruzom w uzyskaniu dostępu do poufnych zasobów. Model opisany w tym artykule używa projektowania uprawnień warstwowych i ogranicza uprawnienia administracyjne do określonych urządzeń.
 

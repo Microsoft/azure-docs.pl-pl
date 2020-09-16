@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea8bf2407fb533870495dc501a2d740bff9ee968
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567354"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600725"
 ---
 # <a name="start-using-privileged-identity-management"></a>Rozpoczęcie korzystania z usługi Privileged Identity Management
 
@@ -35,6 +35,14 @@ Aby korzystać z Privileged Identity Management, musisz mieć jedną z następuj
 - Enterprise Mobility + Security (EMS) E5
 
 Aby uzyskać więcej informacji, zobacz [wymagania licencyjne do używania Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+> Gdy użytkownik, który jest aktywny w roli uprzywilejowanej w organizacji usługi Azure AD z licencją premium P2, przechodzi do **ról i administratorów** w usłudze Azure AD i wybiera rolę (a nawet po prostu odwiedza Privileged Identity Management):
+>
+> - Automatycznie włączamy usługę PIM dla organizacji
+> - Ich środowisko pracy polega na tym, że mogą oni przypisywać "zwykłe" przypisanie roli lub przypisanie roli kwalifikującej się
+>
+> Gdy jest włączony program PIM, nie ma żadnego innego wpływu na Twoją organizację, z którą trzeba się martwić. Zapewnia dodatkowe opcje przypisywania, takie jak aktywne a kwalifikujące się do czasu rozpoczęcia i zakończenia. Program PIM umożliwia także Definiowanie zakresu przypisań ról przy użyciu jednostek administracyjnych i ról niestandardowych. Jeśli jesteś administratorem globalnym lub administratorem roli uprzywilejowanej, możesz zacząć otrzymywać kilka dodatkowych wiadomości e-mail, takich jak PIM tygodniowe podsumowanie. Nazwa główna usługi MS-PIM może być również widoczna w dzienniku inspekcji związanym z przypisaniem roli. Jest to oczekiwana zmiana, która nie powinna mieć wpływu na przepływ pracy.
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Przygotowywanie usługi PIM dla ról usługi Azure AD
 

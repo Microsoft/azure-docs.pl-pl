@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 0ba8e34c1fb219d86086e73203acf65c2351c340
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 654924d25a567ed6c63405d27444eb6ff96d480d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708352"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603649"
 ---
 # <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Dodawanie protokołu IPv6 do aplikacji IPv4 w usłudze Azure Virtual Network — interfejs wiersza polecenia platformy Azure
 
 W tym artykule pokazano, jak dodać adresy IPv6 do aplikacji, która korzysta z publicznego adresu IP protokołu IPv4 w sieci wirtualnej platformy Azure dla usługa Load Balancer w warstwie Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure. Uaktualnienie w miejscu obejmuje sieć wirtualną i podsieć, usługa Load Balancer w warstwie Standardowa z konfiguracjami frontonu IPv4 + IPV6, maszynami wirtualnymi z konfiguracjami IPv4 + IPv6, sieciową grupą zabezpieczeń i publicznymi adresami IP.
-
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -37,8 +36,7 @@ W tym artykule przyjęto założenie, że wdrożono usługa Load Balancer w wars
 
 Utwórz publiczny adres IPv6 przy użyciu [AZ Network Public-IP Create](/cli/azure/network/public-ip) dla usługa Load Balancer w warstwie Standardowa. Poniższy przykład tworzy publiczny adres IP IPv6 o nazwie *PublicIP_v6* w grupie zasobów *myResourceGroupSLB* :
 
-```azurecli
-  
+```azurecli-interactive
 az network public-ip create \
 --name PublicIP_v6 \
 --resource-group MyResourceGroupSLB \
@@ -52,7 +50,7 @@ az network public-ip create \
 
 Skonfiguruj moduł równoważenia obciążenia za pomocą nowego adresu IP IPv6 za pomocą polecenia [AZ Network lb fronton-IP Create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) w następujący sposób:
 
-```azurecli
+```azurecli-interactive
 az network lb frontend-ip create \
 --lb-name myLoadBalancer \
 --name dsLbFrontEnd_v6 \
@@ -64,7 +62,7 @@ az network lb frontend-ip create \
 
 Utwórz pulę zaplecza dla kart sieciowych z adresami IPv6 przy użyciu polecenia [AZ Network lb Address-Pool Create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) w następujący sposób:
 
-```azurecli
+```azurecli-interactive
 az network lb address-pool create \
 --lb-name myLoadBalancer \
 --name dsLbBackEndPool_v6 \
@@ -75,7 +73,7 @@ az network lb address-pool create \
 
 Utwórz reguły modułu równoważenia obciążenia IPv6 za pomocą [AZ Network lb Rule Create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create).
 
-```azurecli
+```azurecli-interactive
 az network lb rule create \
 --lb-name myLoadBalancer \
 --name dsLBrule_v6 \
@@ -91,9 +89,9 @@ az network lb rule create \
 
 Dodaj zakresy adresów IPv6 do sieci wirtualnej i podsieci obsługujących moduł równoważenia obciążenia w następujący sposób:
 
-```azurecli
+```azurecli-interactive
 az network vnet update \
---name myVnet  `
+--name myVnet  \
 --resource-group MyResourceGroupSLB \
 --address-prefixes  "10.0.0.0/16"  "ace:cab:deca::/48"
 
@@ -108,7 +106,7 @@ az network vnet subnet update \
 
 Skonfiguruj karty sieciowe maszyn wirtualnych z adresem IPv6 za pomocą polecenia [AZ Network nic IP-config Create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) w następujący sposób:
 
-```azurecli
+```azurecli-interactive
 az network nic ip-config create \
 --name dsIp6Config_NIC1 \
 --nic-name myNicVM1 \
@@ -138,10 +136,10 @@ az network nic ip-config create \
 --private-ip-address-version IPv6 \
 --lb-address-pools dsLbBackEndPool_v6 \
 --lb-name myLoadBalancer
-
 ```
 
 ## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Wyświetlanie sieci wirtualnej podwójnego stosu IPv6 w Azure Portal
+
 Sieć wirtualną o podwójnym stosie IPv6 można wyświetlić w Azure Portal w następujący sposób:
 1. Na pasku wyszukiwania portalu wprowadź *myVnet*.
 2. Gdy **myVnet** pojawia się w wynikach wyszukiwania, wybierz ją. Spowoduje to uruchomienie strony **Przegląd** sieci wirtualnej o podwójnym stosie o nazwie *myVNet*. Sieć wirtualna o podwójnym stosie pokazuje trzy karty sieciowe z konfiguracją protokołów IPv4 i IPv6 znajdującą się w podsieci o podwójnym stosie o nazwie Moja *podsieć*.
@@ -153,8 +151,8 @@ Sieć wirtualną o podwójnym stosie IPv6 można wyświetlić w Azure Portal w n
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name MyAzureResourceGroupSLB
+```azurecli-interactive
+az group delete --name MyAzureResourceGroupSLB
 ```
 
 ## <a name="next-steps"></a>Następne kroki

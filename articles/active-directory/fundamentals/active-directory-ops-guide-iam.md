@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: ab4e9f7410954292290b6acf0895197ff013b1d8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321671"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601314"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Przewodnik dotyczący operacji zarządzania tożsamościami i dostępem Azure Active Directory
 
@@ -35,8 +35,8 @@ Zarządzanie Azure Active Directory wymaga ciągłego wykonywania kluczowych zad
 | :- | :- |
 | Definiowanie procesu tworzenia subskrypcji platformy Azure | Różni się w zależności od organizacji |
 | Zdecyduj, kto otrzymuje Enterprise Mobility + Security licencje | Zespół operacji IAM |
-| Zdecyduj, kto otrzymuje Licencje pakietu Office 365 | Zespół produktywności |
-| Zdecyduj, kto otrzymuje inne licencje, na przykład Dynamics, VSO | Właściciel aplikacji |
+| Zdecyduj, kto otrzymuje Microsoft 365 licencje | Zespół produktywności |
+| Zdecyduj, kto otrzymuje inne licencje, na przykład Dynamics, Visual Studio Codespaces | Właściciel aplikacji |
 | Przypisywanie licencji | Zespół operacji IAM |
 | Rozwiązywanie problemów i korygowanie błędów przypisywania licencji | Zespół operacji IAM |
 | Inicjowanie obsługi tożsamości dla aplikacji w usłudze Azure AD | Zespół operacji IAM |
@@ -140,7 +140,7 @@ Przykłady nieużywanych reguł niestandardowych obejmują:
 
 Azure Active Directory usprawnia zarządzanie licencjami za pośrednictwem [licencjonowania opartego na grupach](./active-directory-licensing-whatis-azure-portal.md) dla usług w chmurze firmy Microsoft. W ten sposób IAM udostępnia infrastrukturę grupową i delegowane zarządzanie tymi grupami do właściwych zespołów w organizacji. Istnieje wiele sposobów konfigurowania członkostwa w grupach w usłudze Azure AD, w tym:
 
-- **Zsynchronizowane z grup lokalnych** mogą pochodzić z katalogów lokalnych, co może być przydatne w przypadku organizacji, które ustanowiły procesy zarządzania grupami, które można rozszerzyć w celu przypisywania licencji w pakiecie Office 365.
+- **Zsynchronizowane z grup lokalnych** mogą pochodzić z katalogów lokalnych, co może być przydatne w przypadku organizacji, które ustanowiły procesy zarządzania grupami, które można rozszerzyć w celu przypisywania licencji w Microsoft 365.
 
 - Grupy **oparte na atrybutach i dynamiczne** można tworzyć w chmurze na podstawie wyrażenia na podstawie atrybutów użytkownika, na przykład działem równym "Sales". Usługa Azure AD utrzymuje członków grupy, zachowując spójność ze zdefiniowanym wyrażeniem. Użycie tego rodzaju grupy do przypisania licencji umożliwia przypisanie licencji oparte na atrybutach, co jest dobrym założenia w przypadku organizacji, które mają wysoką jakość danych w swoich katalogach.
 
@@ -188,7 +188,7 @@ Ważne jest, aby zrozumieć ilość zmian w organizacji i upewnić się, że nie
 
 #### <a name="azure-ad-connect-troubleshooting-recommended-reading"></a>Azure AD Connect Rozwiązywanie problemów zalecanych
 
-- [Przygotowanie atrybutów katalogu do synchronizacji z pakietem Office 365 przy użyciu narzędzia IdFix — Office 365](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
+- [Przygotowanie atrybutów katalogu do synchronizacji z Microsoft 365 przy użyciu narzędzia IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
 - [Azure AD Connect: Rozwiązywanie problemów z błędami podczas synchronizacji](../hybrid/tshoot-connect-sync-errors.md)
 
 ## <a name="summary"></a>Podsumowanie

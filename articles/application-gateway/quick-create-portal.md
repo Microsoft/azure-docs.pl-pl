@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4929836b7fb617884008fafea50a10e0212fbd58
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7c144ddac255087ae48ff2f1c5406ad66d670562
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961962"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601354"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Szybki start: bezpośredni ruch internetowy w usłudze Azure Application Gateway — Azure Portal
 
@@ -25,8 +25,6 @@ Aplikacja Application Gateway kieruje ruch sieci Web aplikacji do określonych z
 Możesz również ukończyć ten przewodnik Szybki Start przy użyciu [Azure PowerShell](quick-create-powershell.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -171,7 +169,7 @@ W tym przykładzie należy zainstalować usługi IIS tylko na maszynach wirtualn
 
 2. Uruchom następujące polecenie, aby zainstalować usługi IIS na maszynie wirtualnej. W razie potrzeby zmień parametr *Location* : 
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
@@ -196,7 +194,6 @@ W tym przykładzie należy zainstalować usługi IIS tylko na maszynach wirtualn
 4. W obszarze **obiekty docelowe zaplecza** **Wybierz**pozycję **maszyna wirtualna** z listy rozwijanej.
 
 5. W obszarze **cel**Wybierz Maszyny wirtualne **myVM** i **myVM2** oraz skojarzone z nimi interfejsy sieciowe z list rozwijanych.
-
 
    > [!div class="mx-imgBorder"]
    > ![Dodawanie serwerów zaplecza](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
@@ -228,7 +225,7 @@ Aby usunąć grupę zasobów:
 3. Na **stronie grupy zasobów** wybierz pozycję **Usuń grupę zasobów**.
 4. Wprowadź ciąg *myResourceGroupAG* w polu **WPISZ NAZWĘ GRUPY ZASOBÓW**, a następnie wybierz pozycję **Usuń**
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Samouczek: Konfigurowanie bramy aplikacji z zakończeniem protokołu TLS przy użyciu Azure Portal](create-ssl-portal.md)

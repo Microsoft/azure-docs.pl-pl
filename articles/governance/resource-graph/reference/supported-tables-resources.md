@@ -1,15 +1,15 @@
 ---
 title: Obsługiwane Azure Resource Manager typy zasobów
 description: Podaj listę typów zasobów Azure Resource Manager obsługiwanych przez usługę Azure Resource Graph i historię zmian.
-ms.date: 09/04/2020
+ms.date: 09/15/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: b81ffcdde074978a9a72c5ab651ec2c5556870bd
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a52378422c6ee740f30f155cdfb0839a3f281abe
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488324"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600606"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
 
@@ -63,6 +63,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. aadiam/azureadmetrics
 - Microsoft. aadiam/privatelinkforazuread
 - Microsoft. aadiam/dzierżawcy
+- Microsoft. agfoodplatform/farmbeats
 - Microsoft. aisupercomputer/konta
 - Microsoft. aisupercomputer/accounts/jobgroups
 - Microsoft. aisupercomputer/accounts/jobgroups/Jobs
@@ -80,6 +81,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Automation/automationaccounts
 - Microsoft. Automation/automationaccounts/konfiguracje
 - Microsoft. Automation/automationaccounts/elementy Runbook
+- Microsoft. autonomousdevelopmentplatform/konta
 - Microsoft. autonomoussystems/obszary robocze
 - Microsoft. Automatyczna synchronizacja/privateclouds
 - Microsoft. azconfig/configurationstores
@@ -94,6 +96,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. azuredata/sqlserverinstances
 - Microsoft. azuredata/SqlServerRegistrations
 - Microsoft. azurestack/edgesubscriptions
+- Microsoft. azurestack/linkedsubscriptions
 - Microsoft. azurestack/rejestracje
 - Microsoft. azurestackhci/klastry
 - Microsoft. baremetal/consoleconnections
@@ -168,6 +171,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. containerservice/containerservices
 - Microsoft. containerservice/managedclusters
 - Microsoft. containerservice/openshiftmanagedclusters
+- Microsoft. contoso/klastry
 - Microsoft. contoso/pracownicy
 - Microsoft. costmanagement/łączniki
 - Microsoft. customproviders/resourceproviders
@@ -250,6 +254,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. hybridnetwork/urządzenia
 - Microsoft. hybridnetwork/virtualnetworkfunctions
 - Microsoft. importexport/zadania
+- Microsoft. industrydatalifecycle/basemodels
 - Microsoft. industrydatalifecycle/custodiancollaboratives
 - Microsoft. industrydatalifecycle/derivedmodels
 - Microsoft. industrydatalifecycle/membercollaboratives
@@ -265,6 +270,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Insights/notificationgroups
 - Microsoft. Insights/notificationrules
 - Microsoft. Insights/privatelinkscopes
+- Microsoft. Insights/querypacks
 - Microsoft. Insights/scheduledqueryrules
 - Microsoft. Insights/webtests
 - Microsoft. Insights/skoroszyty
@@ -414,6 +420,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. resources/templatespecs/wersje
 - Microsoft. SaaS/aplikacje
 - Microsoft. Scheduler/jobcollections
+- Microsoft. SCVMM/vmmservers
 - Microsoft. Search/searchservices
 - Microsoft. Security/automations
 - Microsoft. Security/iotsecuritysolutions
@@ -523,6 +530,8 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - wandisco. Fusion/fusiongroups/managedonpremzones
 - wandisco. Fusion/fusiongroups/onpremzones
 - wandisco. Fusion/fusiongroups/replicationrules
+- wandisco. Fusion/migrators
+- wandisco. Fusion/migrators/targets
 
 ## <a name="securityresources"></a>securityresources
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1811d5b9ae4d3e34b48e1cdc156438f2bad98d1
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77185907"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601660"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migracja zasad dostępu warunkowego do klasycznej zasady
 
@@ -73,9 +73,9 @@ Następujące aspekty są istotne w kontekście konsolidacji zasad:
    - W razie potrzeby należy połączyć wiele warunków w danym scenariuszu. 
    - Wybierz kilka wymagań dotyczących dotacji jako kontroli dostępu i połącz je z logicznym *lub* (wymaga jednego z wybranych kontrolek) lub z logicznym *i* (Wymagaj wszystkich zaznaczonych kontrolek).
 
-### <a name="office-365-exchange-online"></a>Pakiet Office 365 Exchange Online
+### <a name="exchange-online"></a>Exchange Online
 
-Jeśli chcesz przeprowadzić migrację klasycznych zasad dla **pakietu Office 365 Exchange Online** , który zawiera **Exchange Active Sync** jako warunek aplikacji klienckich, możesz nie być w stanie skonsolidować ich w jednej nowej zasadzie. 
+Jeśli chcesz migrować klasyczne zasady dla **usługi Exchange Online** , które zawierają **Exchange Active Sync** jako warunek aplikacji klienckich, możesz nie być w stanie skonsolidować ich w jednej nowej zasadzie. 
 
 Dotyczy to na przykład sytuacji, w której chcesz obsługiwać wszystkie typy aplikacji klienta. W nowych zasadach, które mają **Exchange Active Sync** jako warunek aplikacji klienckich, nie można wybrać innych aplikacji klienckich.
 
@@ -89,7 +89,7 @@ Jeśli masz nowe zasady, dla których skonfigurowano warunek aplikacji klienta *
 
 ![Warunki dostępu warunkowego](./media/policy-migration/16.png)
  
-Klasyczne zasady oparte na aplikacji dla pakietu Office 365 Exchange Online, które zawierają **Exchange Active Sync** jako warunek aplikacji klienckich Zezwalaj na **obsługiwane** i **nieobsługiwane** platformy urządzeń. Chociaż nie można skonfigurować poszczególnych platform urządzeń w odniesieniu do pokrewnych nowych zasad, można ograniczyć obsługę tylko do [obsługiwanych platform urządzeń](concept-conditional-access-conditions.md#device-platforms) . 
+Klasyczne zasady oparte na aplikacji dla usługi Exchange Online, które zawierają **Exchange Active Sync** jako warunek aplikacji klienckich zezwalają na **obsługiwane** i **nieobsługiwane** platformy urządzeń. Chociaż nie można skonfigurować poszczególnych platform urządzeń w odniesieniu do pokrewnych nowych zasad, można ograniczyć obsługę tylko do [obsługiwanych platform urządzeń](concept-conditional-access-conditions.md#device-platforms) . 
 
 ![Dostęp warunkowy wybierz pozycję Exchange ActiveSync](./media/policy-migration/65.png)
 

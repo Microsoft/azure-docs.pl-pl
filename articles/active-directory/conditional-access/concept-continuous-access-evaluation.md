@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437245"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601762"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -48,26 +48,26 @@ Ciągła ocena dostępu jest implementowana przez włączenie usług, takich jak
 - Administrator jawnie odwołuje wszystkie tokeny odświeżania dla użytkownika
 - Wykryto podwyższone ryzyko użytkownika Azure AD Identity Protection
 
-Ten proces umożliwia scenariuszowi, w którym użytkownicy tracą dostęp do organizacyjnych plików usługi SharePoint Online, wiadomości e-mail, kalendarza lub zadań oraz zespołów z aplikacji klienckich usługi O365 w ciągu minut od jednego z tych zdarzeń krytycznych. 
+Ten proces umożliwia scenariuszowi, w którym użytkownicy tracą dostęp do organizacyjnych plików usługi SharePoint Online, wiadomości e-mail, kalendarza lub zadań, a także zespoły z Microsoft 365 aplikacji klienckich w ciągu minut od jednego z tych zdarzeń krytycznych. 
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Ocena zasad dostępu warunkowego (wersja zapoznawcza)
 
 Programy Exchange i SharePoint mogą synchronizować kluczowe zasady dostępu warunkowego, aby mogły być oceniane w ramach samej usługi.
 
-Ten proces umożliwia scenariuszowi, w którym użytkownicy tracą dostęp do plików organizacji, wiadomości e-mail, kalendarza lub zadań z aplikacji klienckich usługi O365 lub usługi SharePoint Online natychmiast po zmianie lokalizacji sieciowej.
+Ten proces umożliwia scenariuszowi, w którym użytkownicy tracą dostęp do plików organizacji, wiadomości e-mail, kalendarza lub zadań z Microsoft 365 aplikacji klienckich lub usługi SharePoint Online bezpośrednio po zmianie lokalizacji sieciowej.
 
 > [!NOTE]
 > Nie wszystkie kombinacje aplikacji i dostawcy zasobów są obsługiwane. Zobacz poniższą tabelę. Pakiet Office odwołuje się do programów Word, Excel i PowerPoint
 
 | | Sieć Web programu Outlook | Program Outlook Win32 | Outlook iOS | Program Outlook Android | Komputer Mac z programem Outlook |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Obsługiwane | Obsługiwane | Nieobsługiwane | Nieobsługiwane | Obsługiwane |
-| Exchange Online | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
+| **SharePoint Online** | Obsługiwane | Obsługiwane | Nieobsługiwane | Nieobsługiwane | Obsługiwane |
+| **Exchange Online** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 
 | | Aplikacje sieci Web pakietu Office | Aplikacje pakietu Office Win32 | Pakiet Office dla systemu iOS | Pakiet Office dla systemu Android | Pakiet Office dla komputerów Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Obsługiwane | Obsługiwane | Nieobsługiwane | Obsługiwane | Obsługiwane |
-| Exchange Online | Obsługiwane | Obsługiwane | Nieobsługiwane | Obsługiwane | Obsługiwane |
+| **SharePoint Online** | Obsługiwane | Obsługiwane | Nieobsługiwane | Obsługiwane | Obsługiwane |
+| **Exchange Online** | Obsługiwane | Obsługiwane | Nieobsługiwane | Obsługiwane | Obsługiwane |
 
 ### <a name="client-side-claim-challenge"></a>Wyzwanie dla żądania po stronie klienta
 

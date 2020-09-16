@@ -8,12 +8,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: b1d559d82cb22d8a787785c6d8c6a5101d89793a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: cbcfedc091fd111bceffe775cb337c118a87c767
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586634"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601082"
 ---
 # <a name="point-in-time-snapshot"></a>Migawka punktu w czasie
 
@@ -23,31 +23,29 @@ Konfiguracja aplikacji platformy Azure zachowuje rejestr zmian wprowadzonych w w
 
 Za pomocą Azure Portal lub interfejsu wiersza polecenia można pobrać przeszłe wartości klucza. W interfejsie wiersza polecenia platformy Azure Użyj `az appconfig revision list` , dodając odpowiednie parametry, aby pobrać wymagane wartości.  Określ wystąpienie konfiguracji aplikacji platformy Azure, podając nazwę magazynu ( `--name <app-config-store-name>` ) lub korzystając z parametrów połączenia ( `--connection-string <your-connection-string>` ). Ogranicz dane wyjściowe, określając określony punkt w czasie ( `--datetime` ) i określając maksymalną liczbę elementów do zwrócenia ( `--top` ).
 
-Jeśli nie masz zainstalowanego lokalnie interfejsu wiersza polecenia platformy Azure, możesz użyć Azure Cloud Shell.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Jeśli nie masz zainstalowanego lokalnie interfejsu wiersza polecenia platformy Azure, możesz użyć [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 Pobierz wszystkie zapisane zmiany wartości kluczy.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name>.
 ```
 
 Pobierz wszystkie zarejestrowane zmiany klucza `environment` oraz etykiet `test` i `prod` .
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment --label test,prod
 ```
 
 Pobierz wszystkie zarejestrowane zmiany w hierarchicznym obszarze klucza `environment:prod` .
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment:prod:* 
 ```
 
 Pobierz wszystkie zarejestrowane zmiany klucza `color` w określonym punkcie w czasie.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --connection-string <your-app-config-connection-string> --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 

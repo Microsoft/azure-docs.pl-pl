@@ -3,12 +3,12 @@ title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 67111ecb215f4976dd8d3bbe0b901e68c3ef10ec
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564070"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602391"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -48,13 +48,13 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 
 [Łuk systemu Azure](../../azure-arc/index.yml):
 
-- Zarządzanie serwerami hybrydowymi w skali — [usługa Azure ARC dla serwerów (wersja zapoznawcza)](../../azure-arc/servers/overview.md):
-  - [Łączenie maszyn z systemem Windows Server lub Linux poza platformą Azure](../../azure-arc/servers/onboard-portal.md) z delegowanymi subskrypcjami i/lub grupami zasobów na platformie Azure
+- Zarządzanie serwerami hybrydowymi w skali — [serwery z obsługą usługi Azure ARC (wersja zapoznawcza)](../../azure-arc/servers/overview.md):
+  - [Zarządzanie maszynami z systemem Windows Server lub Linux poza platformą Azure, które są połączone](../../azure-arc/servers/onboard-portal.md) z delegowanymi subskrypcjami i/lub grupami zasobów na platformie Azure
   - Zarządzanie połączonymi maszynami przy użyciu konstrukcji platformy Azure, takich jak Azure Policy i tagowanie
   - Upewnij się, że ten sam zestaw zasad jest stosowany w środowiskach hybrydowych klientów
   - Używanie Azure Security Center do monitorowania zgodności między środowiskami hybrydowymi klientów
 - Zarządzanie klastrami hybrydowymi Kubernetes w skali — [Kubernetes z włączoną funkcją Azure ARC (wersja zapoznawcza)](../../azure-arc/kubernetes/overview.md):
-  - [Łączenie klastra Kubernetes z usługą Azure Arc](../../azure-arc/kubernetes/connect-cluster.md) do delegowanych subskrypcji i/lub grup zasobów na platformie Azure
+  - [Zarządzanie klastrami Kubernetes połączonymi](../../azure-arc/kubernetes/connect-cluster.md) z delegowanymi subskrypcjami i/lub grupami zasobów na platformie Azure
   - [Użyj GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) dla połączonych klastrów
   - Wymuś zasady w połączonych klastrach
 

@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d2f295394d89432f3c6dd99585cc4363d4ff74
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 3b8a40449d7a2b17adddd55120ab232a5cd3f459
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641368"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600949"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Przeniesienie uwierzytelniania aplikacji z Active Directory Federation Services do Azure Active Directory
 
@@ -35,7 +35,7 @@ Jeśli masz katalog lokalny, który zawiera konta użytkowników, możesz mieć 
 
 Użytkownicy mogą także uwierzytelniać się bezpośrednio w Active Directory lokalnym. Active Directory Federation Services (AD FS) jest standardem opartym na lokalnej usłudze tożsamości. AD FS rozszerza możliwość korzystania z funkcji logowania jednokrotnego między zaufanymi partnerami biznesowymi bez konieczności logowania się do poszczególnych aplikacji. Jest to znane jako Federacja.
 
-Wiele organizacji korzysta z oprogramowania jako usługi (SaaS) lub niestandardowych aplikacji biznesowych, które są federacyjne bezpośrednio do AD FS, wraz z pakietem Office 365 i aplikacjami opartymi na usłudze Azure AD. 
+Wiele organizacji korzysta z oprogramowania jako usługi (SaaS) lub niestandardowych aplikacji biznesowych (LOB) federacyjnych bezpośrednio do AD FS, obok Microsoft 365 i aplikacji opartych na usłudze Azure AD. 
 
 ![Aplikacje połączone bezpośrednio lokalnie](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 
@@ -199,13 +199,13 @@ W poniższej tabeli opisano niektóre typowe mapowania ustawień między AD FS z
 
 | Ustawienie konfiguracji| AD FS| Jak skonfigurować usługę Azure AD| Token SAML |
 | - | - | - | - |
-| **Adres URL logowania do aplikacji** <p>Adres URL użytkownika służącego do logowania się do aplikacji w ramach przepływu SAML zainicjowanego przez dostawcę usług (SP).| Nie dotyczy| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Nie dotyczy |
+| **Adres URL logowania do aplikacji** <p>Adres URL użytkownika służącego do logowania się do aplikacji w ramach przepływu SAML zainicjowanego przez dostawcę usług (SP).| Brak| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Brak |
 | **Adres URL odpowiedzi aplikacji** <p>Adres URL aplikacji z perspektywy dostawcy tożsamości (dostawcy tożsamości). Dostawcy tożsamości wysyła użytkownika i token tutaj po zalogowaniu się użytkownika do dostawcy tożsamości.  Jest to również znany jako **punkt końcowy odbiorcy potwierdzenia SAML**.| Wybierz kartę **punkty końcowe**| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Element docelowy w tokenie SAML. Przykładowa wartość: `https://contoso.my.salesforce.com` |
-| **Adres URL wylogowania aplikacji** <p>Jest to adres URL, do którego są wysyłane żądania "Czyszczenie wylogowania", gdy użytkownik wyloguje się z aplikacji. Dostawcy tożsamości wysyła żądanie wylogowania użytkownika ze wszystkich innych aplikacji.| Wybierz kartę **punkty końcowe**| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Nie dotyczy |
+| **Adres URL wylogowania aplikacji** <p>Jest to adres URL, do którego są wysyłane żądania "Czyszczenie wylogowania", gdy użytkownik wyloguje się z aplikacji. Dostawcy tożsamości wysyła żądanie wylogowania użytkownika ze wszystkich innych aplikacji.| Wybierz kartę **punkty końcowe**| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Brak |
 | **Identyfikator aplikacji** <p>To jest identyfikator aplikacji z perspektywy dostawcy tożsamości. Wartość adresu URL logowania jest często używana dla identyfikatora (ale nie zawsze).  Czasami aplikacja wywołuje ten identyfikator jednostki.| Wybierz kartę **identyfikatory**|Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Mapuje do elementu **odbiorców** w tokenie SAML. |
-| **Metadane federacji aplikacji** <p>Jest to lokalizacja metadanych federacji aplikacji. Używana przez dostawcę tożsamości do automatycznego aktualizowania określonych ustawień konfiguracji, takich jak punkty końcowe lub certyfikaty szyfrowania.| Wybierz kartę **monitorowanie**| Nie dotyczy. Usługa Azure AD nie obsługuje bezpośredniego korzystania z metadanych federacji aplikacji. Można ręcznie zaimportować metadane federacji.| Nie dotyczy |
+| **Metadane federacji aplikacji** <p>Jest to lokalizacja metadanych federacji aplikacji. Używana przez dostawcę tożsamości do automatycznego aktualizowania określonych ustawień konfiguracji, takich jak punkty końcowe lub certyfikaty szyfrowania.| Wybierz kartę **monitorowanie**| Nie dotyczy. Usługa Azure AD nie obsługuje bezpośredniego korzystania z metadanych federacji aplikacji. Można ręcznie zaimportować metadane federacji.| Brak |
 | **Identyfikator/nazwa użytkownika** <p>Atrybut używany do jednoznacznego wskazywania tożsamości użytkownika z usług Azure AD lub AD FS do aplikacji.  Ten atrybut jest zazwyczaj nazwą UPN lub adresem e-mail użytkownika.| Reguły dotyczące roszczeń. W większości przypadków reguła dotycząca roszczeń wystawia zgłoszenie z typem kończącym się na NameIdentifier.| Identyfikator można znaleźć pod nagłówkiem **atrybuty użytkownika i oświadczenia**. Domyślnie używana jest nazwa UPN| Mapuje do elementu **NameID** w tokenie języka SAML. |
-| **Inne oświadczenia** <p>Przykłady innych informacji o zgłoszeniach, które są często wysyłane z dostawcy tożsamości do aplikacji, obejmują imię, nazwisko, adres E-mail i członkostwo w grupie.| W usługach AD FS są to inne reguły oświadczenia powiązane z jednostką uzależnioną.| Identyfikator można znaleźć w obszarze **atrybuty użytkownika nagłówka & oświadczenia**. Wybierz pozycję **Wyświetl** i edytuj wszystkie inne atrybuty użytkownika.| Nie dotyczy |
+| **Inne oświadczenia** <p>Przykłady innych informacji o zgłoszeniach, które są często wysyłane z dostawcy tożsamości do aplikacji, obejmują imię, nazwisko, adres E-mail i członkostwo w grupie.| W usługach AD FS są to inne reguły oświadczenia powiązane z jednostką uzależnioną.| Identyfikator można znaleźć w obszarze **atrybuty użytkownika nagłówka & oświadczenia**. Wybierz pozycję **Wyświetl** i edytuj wszystkie inne atrybuty użytkownika.| Brak |
 
 
 ### <a name="map-identity-provider-idp-settings"></a>Ustawienia dostawcy tożsamości (dostawcy tożsamości)
@@ -406,7 +406,7 @@ W tej tabeli wymieniono niektóre użyteczne zezwolenia i opcje, z wyjątkiem op
 | Z określonymi oświadczeniami w żądaniu| Nie można migrować tego ustawienia| Nie można migrować tego ustawienia |
 
 
-Przykład sposobu konfigurowania opcji wykluczania dla zaufanych lokalizacji w witrynie Azure Portal:
+Przykład sposobu konfigurowania opcji Exclude dla zaufanych lokalizacji w Azure Portal:
 
 ![Zrzut ekranu mapowania zasad kontroli dostępu](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-3.png)
 

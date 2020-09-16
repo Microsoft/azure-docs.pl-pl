@@ -1,25 +1,25 @@
 ---
 title: Przewodnik Szybki Start dotyczący tworzenia detektora obiektów — Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start dowiesz się, jak utworzyć model klasyfikacji obrazów przy użyciu witryny sieci Web Custom Vision.
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć model czujnika obiektów przy użyciu witryny sieci Web Custom Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 57fb91e9ead98f6c52fd3f659f4aa12692816297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 234c80e84e11579a66737c3e5efedfda34182ac5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549551"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602867"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Szybki Start: jak utworzyć detektor obiektów przy użyciu Custom Vision
 
-W tym przewodniku szybki start dowiesz się, jak utworzyć detektor obiektów za pomocą witryny sieci Web Custom Vision. Po skompilowaniu modelu wykrywania można użyć usługi Custom Vision do wykrywania obiektów.
+W tym przewodniku szybki start dowiesz się, jak utworzyć detektor obiektów za pomocą witryny sieci Web Custom Vision. Po skompilowaniu modelu można testować za pomocą nowych obrazów i po pewnym czasie zintegrować go z własnym oprogramowaniem do rozpoznawania obrazu.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -27,7 +27,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 - Zestaw obrazów, za pomocą których można szkolić model detektora. Możesz użyć zestawu [przykładowych obrazów](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) w serwisie GitHub. Możesz też wybrać własne obrazy, korzystając z poniższych wskazówek.
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Utwórz zasoby Custom Vision w Azure Portal
+## <a name="create-custom-vision-resources"></a>Tworzenie zasobów Custom Vision
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -45,7 +45,7 @@ W przeglądarce internetowej przejdź do [strony sieci web Custom Vision](https:
 1. Wprowadź nazwę i opis projektu. Następnie wybierz grupę zasobów. Jeśli Twoje konto zalogowane jest skojarzone z kontem platformy Azure, na liście rozwijanej Grupa zasobów zostaną wyświetlone wszystkie grupy zasobów platformy Azure zawierające zasób Custom Vision Service. 
 
    > [!NOTE]
-   > Jeśli grupa zasobów nie jest dostępna, upewnij się, że zalogowano się do [customvision.AI](https://customvision.ai) przy użyciu tego samego konta, które zostało użyte do zalogowania się do [Azure Portal](https://portal.azure.com/). Upewnij się również, że wybrano taki sam katalog w portalu Custom Vision jak katalog w Azure Portal, w którym znajdują się zasoby Custom Vision. W obu lokacjach możesz wybrać katalog z menu rozwijanego konto w prawym górnym rogu ekranu. 
+   > Jeśli grupa zasobów nie jest dostępna, upewnij się, że zalogowano się do [customvision.AI](https://customvision.ai) przy użyciu tego samego konta, które zostało użyte do zalogowania się do [Azure Portal](https://portal.azure.com/). Upewnij się również, że wybrano ten sam katalog w witrynie sieci Web Custom Vision, co katalog w Azure Portal, w którym znajdują się zasoby Custom Vision. W obu lokacjach możesz wybrać katalog z menu rozwijanego konto w prawym górnym rogu ekranu. 
 
 1. Wybierz pozycję __wykrywanie obiektów__ w obszarze __typy projektów__.
 
@@ -118,3 +118,4 @@ W tym przewodniku szybki start przedstawiono sposób tworzenia i uczenia modelu 
 > [!div class="nextstepaction"]
 > [Testowanie i ponowne szkolenie modelu](test-your-model.md)
 
+* [Co to jest usługa Custom Vision?](./overview.md)

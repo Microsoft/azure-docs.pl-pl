@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 67632301b534f91c36de837bbfa12f9ec16ed58f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 44d5a4ae800e87404e5a207727c22a75f0fb75c8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551356"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602799"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Szybki Start: jak utworzyć klasyfikator przy użyciu Custom Vision
 
-W tym przewodniku szybki start dowiesz się, jak utworzyć klasyfikator za pomocą witryny sieci Web Custom Vision. Po utworzeniu modelu klasyfikatora można użyć usługi Custom Vision do klasyfikacji obrazów.
+W tym przewodniku szybki start dowiesz się, jak utworzyć klasyfikator obrazu za pomocą witryny sieci Web Custom Vision. Po skompilowaniu modelu można testować za pomocą nowych obrazów i po pewnym czasie zintegrować go z własnym oprogramowaniem do rozpoznawania obrazu.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -27,7 +27,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 - Zestaw obrazów, za pomocą których można szkolić klasyfikatora. Poniżej znajdują się porady dotyczące wybierania obrazów.
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Utwórz zasoby Custom Vision w Azure Portal
+## <a name="create-custom-vision-resources"></a>Tworzenie zasobów Custom Vision
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -45,7 +45,7 @@ W przeglądarce internetowej przejdź do [strony sieci web Custom Vision](https:
 1. Wprowadź nazwę i opis projektu. Następnie wybierz grupę zasobów. Jeśli Twoje konto zalogowane jest skojarzone z kontem platformy Azure, na liście rozwijanej Grupa zasobów zostaną wyświetlone wszystkie grupy zasobów platformy Azure zawierające zasób Custom Vision Service. 
 
    > [!NOTE]
-   > Jeśli grupa zasobów nie jest dostępna, upewnij się, że zalogowano się do [customvision.AI](https://customvision.ai) przy użyciu tego samego konta, które zostało użyte do zalogowania się do [Azure Portal](https://portal.azure.com/). Upewnij się również, że wybrano taki sam katalog w portalu Custom Vision jak katalog w Azure Portal, w którym znajdują się zasoby Custom Vision. W obu lokacjach możesz wybrać katalog z menu rozwijanego konto w prawym górnym rogu ekranu. 
+   > Jeśli grupa zasobów nie jest dostępna, upewnij się, że zalogowano się do [customvision.AI](https://customvision.ai) przy użyciu tego samego konta, które zostało użyte do zalogowania się do [Azure Portal](https://portal.azure.com/). Upewnij się również, że wybrano ten sam katalog w witrynie sieci Web Custom Vision, co katalog w Azure Portal, w którym znajdują się zasoby Custom Vision. W obu lokacjach możesz wybrać katalog z menu rozwijanego konto w prawym górnym rogu ekranu. 
 
 1. Wybierz pozycję __Klasyfikacja__ w obszarze __typy projektów__. Następnie w obszarze __typy klasyfikacji__wybierz pozycję **wieloetykietowe** lub **wieloklasowe**, w zależności od przypadku użycia. Klasyfikacja wieloetykietowa stosuje dowolną liczbę tagów do obrazu (zero lub więcej), podczas gdy klasyfikacja wieloklasowa sortuje obrazy w pojedynczej kategorii (Każdy przesłany przez Ciebie obraz zostanie posortowany do najbardziej dopasowanego tagu). Jeśli chcesz, możesz później zmienić typ klasyfikacji.
 
@@ -120,3 +120,4 @@ W tym przewodniku szybki start przedstawiono sposób tworzenia i uczenia modelu 
 > [!div class="nextstepaction"]
 > [Testowanie i ponowne szkolenie modelu](test-your-model.md)
 
+* [Co to jest usługa Custom Vision?](./overview.md)

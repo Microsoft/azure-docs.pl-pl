@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 04a3499da15bc226fe2cada2283d7a115036a48c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318299"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602673"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Funkcja Transparent Data Encryption usługi Azure SQL przy użyciu klucza zarządzanego przez klienta
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -93,6 +93,10 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 - Klucz musi być w stanie *włączony* .
 
 - W przypadku importowania istniejącego klucza do magazynu kluczy upewnij się, że jest on udostępniany w obsługiwanych formatach plików (PFX,. BYOK lub. Backup).
+
+> [!NOTE]
+> Usługa Azure SQL obsługuje teraz użycie klucza RSA przechowywanego w zarządzanym module HSM jako funkcji ochrony TDE. Ta funkcja jest dostępna w **publicznej wersji zapoznawczej**. Azure Key Vault zarządzanym modułem HSM jest w pełni zarządzana usługa w chmurze o wysokiej dostępności, która jest zgodna ze standardami, która pozwala chronić klucze kryptograficzne dla aplikacji w chmurze przy użyciu zweryfikowanych sprzętowych modułów zabezpieczeń poziomu 3 w trybie FIPS 140-2. Dowiedz się więcej o [zarządzanym sprzętowych modułów zabezpieczeń](https://aka.ms/mhsm).
+
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Zalecenia dotyczące konfigurowania TDE zarządzanych przez klienta
 
