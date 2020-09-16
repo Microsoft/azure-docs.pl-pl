@@ -318,33 +318,16 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Referencyjny projekt z wieloma systemami DRM
               href: media-services-cenc-with-multidrm-access-control.md
-    - name: Analiza
-      href: media-services-analytics-overview.md
-      items:
-        - name: Analizowanie multimediów za pomocą witryny Azure Portal
-          href: media-services-portal-analyze.md
-        - name: Przetwarzanie za pomocą indeksatora w wersji 2
-          href: media-services-process-content-with-indexer2.md
         - name: Przetwarzanie za pomocą indeksatora
           href: media-services-index-content.md
           items:
             - name: Ustawienie wstępne zadania
               href: indexer-task-preset.md
-        - name: Przetwarzanie za pomocą wykrywania twarzy
-          href: media-services-face-and-emotion-detection.md
-        - name: Przetwarzanie za pomocą wykrywania ruchu
-          href: media-services-motion-detection.md
         - name: Przetwarzanie za pomocą usługi Face Redactor
           href: media-services-face-redaction.md
           items:
             - name: Przewodnik po usłudze Face Redactor
               href: media-services-redactor-walkthrough.md
-        - name: Przetwarzanie za pomocą miniatur wideo
-          href: media-services-video-summarization.md
-        - name: Przetwarzanie za pomocą oprogramowania OCR
-          href: media-services-video-optical-character-recognition.md
-        - name: Przetwarzanie za pomocą pakietu Content Moderator
-          href: media-services-content-moderation.md
     - name: Konfigurowanie telemetrii
       href: media-services-telemetry-overview.md
       items:

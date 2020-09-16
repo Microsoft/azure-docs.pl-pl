@@ -2,19 +2,21 @@
 title: Usunięcia historii wdrażania
 description: Opisuje, w jaki sposób Azure Resource Manager automatycznie usuwać wdrożenia z historii wdrażania. Wdrożenia są usuwane, gdy historia zbliża się do przekroczenia limitu 800.
 ms.topic: conceptual
-ms.date: 08/07/2020
-ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.date: 09/15/2020
+ms.openlocfilehash: 1d4f49fe6b90e672b65aa97971426186384da02f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986512"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605213"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatyczne usuwanie z historii wdrożenia
 
 Przy każdym wdrożeniu szablonu informacje o wdrożeniu są zapisywane w historii wdrażania. Każda grupa zasobów jest ograniczona do 800 wdrożeń w swojej historii wdrażania.
 
-Azure Resource Manager automatycznie usuwa wdrożenia z historii, jak zbliżasz się do limitu. Automatyczne usuwanie to zmiana w stosunku do wcześniejszego zachowania. Wcześniej trzeba było ręcznie usunąć wdrożenia z historii wdrożenia, aby uniknąć błędów. **Ta zmiana została wprowadzona w dniu 6 sierpnia 2020.**
+Azure Resource Manager automatycznie usuwa wdrożenia z historii, jak zbliżasz się do limitu. Automatyczne usuwanie to zmiana w stosunku do wcześniejszego zachowania. Wcześniej trzeba było ręcznie usunąć wdrożenia z historii wdrożenia, aby uniknąć błędów. Ta zmiana została wprowadzona w dniu 6 sierpnia 2020.
+
+**Automatyczne operacje usuwania są obsługiwane w przypadku wdrożeń grup zasobów. Obecnie wdrożenia w historii wdrożenia dla [subskrypcji](deploy-to-subscription.md), [grupy zarządzania](deploy-to-management-group.md)i wdrożeń [dzierżawców](deploy-to-tenant.md) nie są usuwane.**
 
 > [!NOTE]
 > Usunięcie wdrożenia z historii nie ma wpływu na żadne wdrożone zasoby.

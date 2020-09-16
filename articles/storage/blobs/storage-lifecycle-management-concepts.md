@@ -3,18 +3,18 @@ title: Zarządzanie cyklem życia usługi Azure Storage
 description: Dowiedz się, jak utworzyć reguły zasad cyklu życia, aby przenieść dane przedawniania z warstwy gorąca do chłodna i archiwum.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 09/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b1bf8fbfb6d2c141a2b18c3599631f6383883908
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell, references_regions
+ms.openlocfilehash: be5d86fe690d60f687622243a2f1d7771b8af7d0
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074427"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604023"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Zarządzanie cyklem życia magazynu usługi Azure Blob Storage
 
@@ -33,7 +33,7 @@ Rozważmy scenariusz, w którym dane są często dostępne podczas wczesnych eta
 
 ## <a name="availability-and-pricing"></a>Dostępność i Cennik
 
-Funkcja zarządzania cyklem życia jest dostępna we wszystkich regionach platformy Azure dla kont Ogólnego przeznaczenia v2 (GPv2), kont usługi BLOB Storage i bloków Premium BLOB Storage. W Azure Portal można uaktualnić istniejące konto Ogólnego przeznaczenia (GPv1) do konta GPv2. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md).  
+Funkcja zarządzania cyklem życia jest dostępna we wszystkich regionach platformy Azure dla kont Ogólnego przeznaczenia v2 (GPv2), kont usługi BLOB Storage i bloków Premium BLOB Storage. W Azure Portal można uaktualnić istniejące konto Ogólnego przeznaczenia (GPv1) do konta GPv2. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md).
 
 Funkcja zarządzania cyklem życia jest bezpłatna. Klienci są obciążani kosztami zwykłych operacji dla wywołań interfejsu API [zestawu warstwy obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) . Operacja usuwania jest bezpłatna. Aby uzyskać więcej informacji na temat cen, zobacz temat [Block BLOB — Cennik](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -51,7 +51,7 @@ Zasady mogą być odczytywane lub zapisywane w całości. Aktualizacje częścio
 > [!NOTE]
 > Jeśli włączysz reguły zapory dla konta magazynu, żądania zarządzania cyklem życia mogą zostać zablokowane. Można odblokować te żądania, dostarczając wyjątki dla zaufanych usług firmy Microsoft. Aby uzyskać więcej informacji, zobacz sekcję wyjątki w artykule [Konfigurowanie zapór i sieci wirtualnych](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-W tym artykule pokazano, jak zarządzać zasadami przy użyciu portalu i metod programu PowerShell.  
+W tym artykule pokazano, jak zarządzać zasadami przy użyciu portalu i metod programu PowerShell.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -64,54 +64,68 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W Azure Portal Wyszukaj i wybierz konto magazynu. 
+1. W Azure Portal Wyszukaj i wybierz konto magazynu. 
 
-3. W obszarze **BLOB Service**wybierz pozycję **Zarządzanie cyklem życia** , aby wyświetlić lub zmienić reguły.
+1. W obszarze **BLOB Service**wybierz pozycję **Zarządzanie cyklem życia** , aby wyświetlić lub zmienić reguły.
 
-4. Wybierz kartę **Widok listy** .
+1. Wybierz kartę **Widok listy** .
 
-5. Wybierz pozycję **Dodaj regułę** , a następnie wypełnij pola formularza **zestawu akcji** . W poniższym przykładzie obiekty blob są przenoszone do magazynu chłodnego, jeśli nie zostały zmodyfikowane przez 30 dni.
+1. Wybierz pozycję **Dodaj regułę** i nadaj jej nazwę w formularzu **szczegóły** . Można również ustawić **Zakres reguły**, **Typ obiektu BLOB**i wartości **podtypu obiektu BLOB** . W poniższym przykładzie ustawiono zakres filtrowania obiektów BLOB. Powoduje to dodanie karty **zestawu filtrów** .
 
-   ![Strona zestawu akcji zarządzania cyklem życia w Azure Portal](media/storage-lifecycle-management-concepts/lifecycle-management-action-set.png)
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Zarządzanie cyklem życia Dodawanie strony szczegółów reguły w Azure Portal":::
 
-6. Wybierz pozycję **Filtr zestaw** , aby dodać opcjonalny filtr. Następnie wybierz pozycję **Przeglądaj** , aby określić kontener i folder, według którego ma zostać przefiltrowany.
+1. Wybierz **podstawowe obiekty blob** , aby ustawić warunki dla reguły. W poniższym przykładzie obiekty blob są przenoszone do magazynu chłodnego, jeśli nie zostały zmodyfikowane przez 30 dni.
 
-   ![Strona zestawu filtru zarządzania cyklem życia w Azure Portal](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set-browse.png)
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Strona podstawowe obiekty blob zarządzania cyklem życia w Azure Portal":::
 
-8. Wybierz pozycję **Przegląd + Dodaj** , aby przejrzeć ustawienia zasad.
+   **Ostatnia** dostępna opcja jest dostępna w wersji zapoznawczej w następujących regionach:
 
-9. Wybierz pozycję **Dodaj** , aby dodać nowe zasady.
+    - Francja Środkowa
+    - Kanada Wschodnia
+    - Kanada Środkowa
+
+   > [!IMPORTANT]
+   > Ostatnia wersja zapoznawcza śledzenia czasu dostępu jest używana tylko w przypadku nieprodukcji. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.
+   
+   Aby uzyskać więcej informacji na temat **ostatnio używanej** opcji, zobacz [przenoszenie danych na podstawie daty ostatniego dostępu (wersja zapoznawcza)](#move-data-based-on-last-accessed-date-preview).
+
+1. W przypadku wybrania opcji **Ogranicz obiekty blob z filtrami** na stronie **szczegółów** wybierz opcję **Filtr zestaw** , aby dodać opcjonalny filtr. Poniższy przykład filtruje obiekty blob w kontenerze *mylifecyclecontainer* , który rozpoczyna się od "log".
+
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Strona zestawu filtru zarządzania cyklem życia w Azure Portal":::
+
+1. Wybierz pozycję **Dodaj** , aby dodać nowe zasady.
 
 #### <a name="azure-portal-code-view"></a>Widok kodu Azure Portal
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W Azure Portal Wyszukaj i wybierz konto magazynu.
+1. W Azure Portal Wyszukaj i wybierz konto magazynu.
 
-3. W obszarze **BLOB Service**wybierz pozycję **Zarządzanie cyklem życia** , aby wyświetlić lub zmienić zasady.
+1. W obszarze **BLOB Service**wybierz pozycję **Zarządzanie cyklem życia** , aby wyświetlić lub zmienić zasady.
 
-4. Poniższy kod JSON jest przykładem zasad, które można wkleić do karty **Widok kodu** .
+1. Poniższy kod JSON jest przykładem zasad, które można wkleić do karty **Widok kodu** .
 
    ```json
    {
      "rules": [
        {
-         "name": "ruleFoo",
          "enabled": true,
+         "name": "move-to-cool",
          "type": "Lifecycle",
          "definition": {
-           "filters": {
-             "blobTypes": [ "blockBlob" ],
-             "prefixMatch": [ "container1/foo" ]
-           },
            "actions": {
              "baseBlob": {
-               "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-               "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-               "delete": { "daysAfterModificationGreaterThan": 2555 }
-             },
-             "snapshot": {
-               "delete": { "daysAfterCreationGreaterThan": 90 }
+               "tierToCool": {
+                 "daysAfterModificationGreaterThan": 30
+               }
              }
+           },
+           "filters": {
+             "blobTypes": [
+               "blockBlob"
+             ],
+             "prefixMatch": [
+               "mylifecyclecontainer/log"
+             ]
            }
          }
        }
@@ -119,9 +133,9 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
    }
    ```
 
-5. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
-6. Aby uzyskać więcej informacji na temat tego przykładu JSON, zobacz sekcję [zasad](#policy) i [reguł](#rules) .
+1. Aby uzyskać więcej informacji na temat tego przykładu JSON, zobacz sekcję [zasad](#policy) i [reguł](#rules) .
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -229,7 +243,7 @@ Każda reguła w ramach zasad ma kilka parametrów:
 
 | Nazwa parametru | Typ parametru | Uwagi | Wymagane |
 |----------------|----------------|-------|----------|
-| `name`         | Ciąg |Nazwa reguły może zawierać do 256 znaków alfanumerycznych. W nazwie reguły jest rozróżniana wielkość liter.  Musi być unikatowa w ramach zasad. | Prawda |
+| `name`         | Ciąg |Nazwa reguły może zawierać do 256 znaków alfanumerycznych. W nazwie reguły jest rozróżniana wielkość liter. Musi być unikatowa w ramach zasad. | Prawda |
 | `enabled`      | Wartość logiczna | Opcjonalna wartość logiczna zezwalająca na tymczasowe wyłączenie reguły. Wartość domyślna to true, jeśli nie została ustawiona. | Fałsz | 
 | `type`         | Wartość wyliczenia | Bieżący prawidłowy typ to `Lifecycle` . | Prawda |
 | `definition`   | Obiekt, który definiuje regułę cyklu życia | Każda definicja składa się z zestawu filtrów i zestawu akcji. | Prawda |
@@ -240,10 +254,10 @@ Każda definicja reguły zawiera zestaw filtrów i ustawioną akcję. [Ustawieni
 
 ### <a name="sample-rule"></a>Przykładowa reguła
 
-Następująca przykładowa reguła filtruje konto, aby uruchomić akcje na obiektach, które istnieją w `container1` programie, i zacznij od `foo` .  
+Następująca przykładowa reguła filtruje konto, aby uruchomić akcje na obiektach, które istnieją w `container1` programie, i zacznij od `foo` .
 
 >[!NOTE]
->- Zarządzanie cyklem życia obsługuje tylko typ bloku obiektów BLOB.<br>
+>- Zarządzanie cyklem życia obsługuje blokowe obiekty blob i dołączanie typów obiektów BLOB.<br>
 >- Zarządzanie cyklem życia nie wpływa na kontenery systemowe, takie jak $logs i $web.
 
 - Warstwa BLOB warstwy do warstwy chłodna 30 dni po ostatniej modyfikacji
@@ -287,8 +301,8 @@ Dostępne są następujące filtry:
 
 | Nazwa filtru | Typ filtru | Uwagi | Jest wymagana |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Tablica wstępnie zdefiniowanych wartości wyliczeniowych. | Bieżąca wersja obsługuje `blockBlob` . | Yes |
-| prefixMatch | Tablica ciągów dla prefiksów, które mają zostać dopasowane. Każda reguła może definiować do 10 prefiksów. Ciąg prefiksu musi rozpoczynać się od nazwy kontenera. Na przykład jeśli chcesz dopasować wszystkie obiekty blob w ramach `https://myaccount.blob.core.windows.net/container1/foo/...` reguły, prefixMatch jest `container1/foo` . | Jeśli nie zdefiniujesz prefixMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu.  | Nie |
+| blobTypes   | Tablica wstępnie zdefiniowanych wartości wyliczeniowych. | Bieżąca wersja obsługuje `blockBlob` i `appendBlob` . Tylko usuwanie jest obsługiwane dla programu `appendBlob` , warstwa zestawu nie jest obsługiwana. | Yes |
+| prefixMatch | Tablica ciągów dla prefiksów, które mają zostać dopasowane. Każda reguła może definiować do 10 prefiksów. Ciąg prefiksu musi rozpoczynać się od nazwy kontenera. Na przykład jeśli chcesz dopasować wszystkie obiekty blob w ramach `https://myaccount.blob.core.windows.net/container1/foo/...` reguły, prefixMatch jest `container1/foo` . | Jeśli nie zdefiniujesz prefixMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
 | blobIndexMatch | Tablica wartości słownika składająca się z klucza znacznika indeksu obiektów blob i warunków wartości do dopasowania. Każda reguła może definiować do 10 warunek tagu indeksu obiektów BLOB. Na przykład, jeśli chcesz dopasować wszystkie obiekty blob w `Project = Contoso` ramach `https://myaccount.blob.core.windows.net/` reguły, blobIndexMatch to `{"name": "Project","op": "==","value": "Contoso"}` . | Jeśli nie zdefiniujesz blobIndexMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
 
 > [!NOTE]
@@ -300,21 +314,23 @@ Akcje są stosowane do filtrowanych obiektów blob, gdy spełniony jest warunek 
 
 Zarządzanie cyklem życia obsługuje warstwowe i usuwanie obiektów blob oraz usuwanie migawek obiektów BLOB. Zdefiniuj co najmniej jedną akcję dla każdej reguły dla obiektów blob lub migawek obiektów BLOB.
 
-| Akcja        | Podstawowy obiekt BLOB                                   | Snapshot      |
-|---------------|---------------------------------------------|---------------|
-| tierToCool    | Obsługa obiektów BLOB obecnie w warstwie gorąca         | Nieobsługiwane |
-| tierToArchive | Obsługa obiektów BLOB obecnie w warstwie gorąca lub chłodna | Nieobsługiwane |
-| delete        | Obsługiwane                                   | Obsługiwane     |
+| Akcja                      | Podstawowy obiekt BLOB                                   | Snapshot      |
+|-----------------------------|---------------------------------------------|---------------|
+| tierToCool                  | Obsługa obiektów BLOB obecnie w warstwie gorąca         | Nieobsługiwane |
+| enableAutoTierToHotFromCool | Obsługa obiektów BLOB obecnie w warstwie chłodna        | Nieobsługiwane |
+| tierToArchive               | Obsługa obiektów BLOB obecnie w warstwie gorąca lub chłodna | Nieobsługiwane |
+| delete                      | Obsługiwane przez `blockBlob` i `appendBlob`  | Obsługiwane     |
 
 >[!NOTE]
 >W przypadku zdefiniowania więcej niż jednej akcji w tym samym obiekcie blob Zarządzanie cyklem życia stosuje najtańszą akcję do obiektu BLOB. Na przykład akcja `delete` jest tańsza niż Akcja `tierToArchive` . Akcja `tierToArchive` jest tańsza niż Akcja `tierToCool` .
 
 Warunki uruchamiania są oparte na wieku. Podstawowe obiekty blob używają czasu ostatniej modyfikacji do śledzenia wieku, a migawki obiektów BLOB używają czasu utworzenia migawki do śledzenia wieku.
 
-| Warunek uruchomienia akcji             | Wartość warunku                          | Opis                             |
-|----------------------------------|------------------------------------------|-----------------------------------------|
-| daysAfterModificationGreaterThan | Wartość całkowita wskazująca wiek w dniach | Warunek dla podstawowych akcji obiektu BLOB     |
-| daysAfterCreationGreaterThan     | Wartość całkowita wskazująca wiek w dniach | Warunek akcji migawek obiektów BLOB |
+| Warunek uruchomienia akcji               | Wartość warunku                          | Opis                                                                      |
+|------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
+| daysAfterModificationGreaterThan   | Wartość całkowita wskazująca wiek w dniach | Warunek dla podstawowych akcji obiektu BLOB                                              |
+| daysAfterCreationGreaterThan       | Wartość całkowita wskazująca wiek w dniach | Warunek akcji migawek obiektów BLOB                                          |
+| daysAfterLastAccessTimeGreaterThan | Wartość całkowita wskazująca wiek w dniach | przeglądania Warunek dla akcji podstawowego obiektu BLOB, gdy czas ostatniego dostępu jest włączony |
 
 ## <a name="examples"></a>Przykłady
 
@@ -347,6 +363,69 @@ Ten przykład pokazuje, jak przejść blokowe obiekty blob poprzedzone prefiksem
   ]
 }
 ```
+
+### <a name="move-data-based-on-last-accessed-date-preview"></a>Przenieś dane na podstawie daty ostatniego dostępu (wersja zapoznawcza)
+
+Możesz włączyć śledzenie czasu ostatniego dostępu, aby zachować rekord, kiedy obiekt BLOB jest ostatnio odczytywany lub zapisywana. Aby zarządzać warstwami i przechowywaniem danych obiektów blob, można użyć czasu ostatniego dostępu jako filtru.
+
+**Ostatnia** dostępna opcja jest dostępna w wersji zapoznawczej w następujących regionach:
+
+ - Francja Środkowa
+ - Kanada Wschodnia
+ - Kanada Środkowa
+
+> [!IMPORTANT]
+> Ostatnia wersja zapoznawcza śledzenia czasu dostępu jest używana tylko w przypadku nieprodukcji. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.
+
+#### <a name="how-last-access-time-tracking-works"></a>Jak działa śledzenie czasu ostatniego dostępu
+
+Gdy włączone jest śledzenie czasu ostatniego dostępu, wywoływana właściwość obiektu BLOB `LastAccessTime` jest aktualizowana, gdy obiekt BLOB jest odczytywany lub zapisywana. Operacja [pobierania obiektu BLOB](/rest/api/storageservices/get-blob) jest uznawana za operację dostępu. [Pobieranie właściwości obiektów BLOB](/rest/api/storageservices/get-blob-properties), [Pobieranie metadanych obiektów BLOB](/rest/api/storageservices/get-blob-metadata)i [pobieranie tagów obiektów BLOB](/rest/api/storageservices/get-blob-tags) nie ma dostępu i w związku z tym nie należy aktualizować czasu ostatniego dostępu.
+
+Aby zminimalizować wpływ na opóźnienie dostępu do odczytu, tylko pierwszy odczyt ostatnich 24 godzin aktualizuje czas ostatniego dostępu. Kolejne odczyty w tym samym okresie 24-godzinnym nie aktualizują czasu ostatniego dostępu. Jeśli obiekt BLOB jest modyfikowany między operacjami odczytu, czas ostatniego dostępu jest większy od dwóch wartości.
+
+W poniższym przykładzie obiekty blob są przenoszone do magazynu chłodnego, jeśli nie były dostępne przez 30 dni. `enableAutoTierToHotFromCool`Właściwość jest wartością logiczną, która wskazuje, czy obiekt BLOB powinien być automatycznie warstwowy od ochłodzenia z powrotem do gorącego, jeśli jest dostępny ponownie po warstwach.
+
+```json
+{
+  "enabled": true,
+  "name": "last-accessed-thirty-days-ago",
+  "type": "Lifecycle",
+  "definition": {
+    "actions": {
+      "baseBlob": {
+        "enableAutoTierToHotFromCool": true,
+        "tierToCool": {
+          "daysAfterLastAccessTimeGreaterThan": 30
+        }
+      }
+    },
+    "filters": {
+      "blobTypes": [
+        "blockBlob"
+      ],
+      "prefixMatch": [
+        "mylifecyclecontainer/log"
+      ]
+    }
+  }
+}
+```
+
+#### <a name="storage-account-support"></a>Obsługa kont magazynu
+
+Funkcja śledzenia czasu ostatniego dostępu jest dostępna dla następujących typów kont magazynu:
+
+ - Konta magazynu ogólnego przeznaczenia w wersji 2
+ - Blokuj konta magazynu obiektów BLOB
+ - Konta usługi Blob Storage
+
+Jeśli konto magazynu jest kontem ogólnego przeznaczenia w wersji 1, użyj Azure Portal, aby przeprowadzić uaktualnienie do konta ogólnego przeznaczenia w wersji 2.
+
+Konta magazynu z hierarchiczną przestrzenią nazw włączone do użycia z Azure Data Lake Storage Gen2 nie są jeszcze obsługiwane.
+
+#### <a name="pricing-and-billing"></a>Cennik i rozliczenia
+
+Każda aktualizacja czasu ostatniego dostępu jest traktowana jako [inna operacja](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ### <a name="archive-data-after-ingest"></a>Archiwizuj dane po pozyskaniu
 
@@ -468,15 +547,18 @@ W przypadku danych, które są regularnie modyfikowane i dostępne przez cały o
 }
 ```
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
-**Po utworzeniu nowych zasad nie są one uruchamiane natychmiast?**  
-Na platformie są uruchamiane zasady cyklu życia raz dziennie. Po skonfigurowaniu zasad może upłynąć nawet 24 godziny, aby niektóre akcje działały po raz pierwszy.  
+**Po utworzeniu nowych zasad nie są one uruchamiane natychmiast?**
 
-**Kiedy aktualizujesz istniejące zasady, jak długo trwa wykonywanie akcji?**  
-Zastosowanie zaktualizowanych zasad może zająć do 24 godzin. Gdy zasady będą obowiązywać, wykonanie akcji może potrwać do 24 godzin. W związku z tym akcje zasad mogą potrwać do 48 godzin.   
+Na platformie są uruchamiane zasady cyklu życia raz dziennie. Po skonfigurowaniu zasad może upłynąć nawet 24 godziny, aby niektóre akcje działały po raz pierwszy.
 
-**Ręcznie ponownie odwodniono zarchiwizowany obiekt BLOB, jak zapobiegać przenoszeniu go z powrotem do warstwy Archiwum?**  
+**Kiedy aktualizujesz istniejące zasady, jak długo trwa wykonywanie akcji?**
+
+Zastosowanie zaktualizowanych zasad może zająć do 24 godzin. Gdy zasady będą obowiązywać, wykonanie akcji może potrwać do 24 godzin. W związku z tym akcje zasad mogą potrwać do 48 godzin.
+
+**Ręcznie ponownie odwodniono zarchiwizowany obiekt BLOB, jak zapobiegać przenoszeniu go z powrotem do warstwy Archiwum?**
+
 Gdy obiekt BLOB jest przenoszony z jednej warstwy dostępu do innej, jego Ostatnia modyfikacja nie zmienia się. W przypadku ręcznego ponownego przełączenia zarchiwizowanego obiektu BLOB do warstwy gorąca można go przenieść z powrotem do warstwy archiwum przez aparat zarządzania cyklem życia. Wyłącz regułę, która ma wpływ na ten obiekt BLOB tymczasowo, aby uniemożliwić jego ponowne zarchiwizowanie. Włącz ponownie regułę, gdy obiekt BLOB będzie można bezpiecznie przenieść z powrotem do warstwy archiwum. Możesz również skopiować obiekt BLOB do innej lokalizacji, jeśli musi on pozostać w warstwie gorąca lub chłodna.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bc94f31887526f387413f78fe3270784a4e3bd88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba69b94514a0c1b59001011a64a4fb28e5e4a827
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525180"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606824"
 ---
 1. Na stronie portalu wirtualnej sieci WAN w sekcji **połączenie** wybierz pozycję **Lokacje sieci VPN** , aby otworzyć stronę witryny sieci VPN.
 2. Na stronie **Lokacje sieci VPN** kliknij pozycję **+Utwórz lokację**.
 
-   ![Podstawy](./media/virtual-wan-tutorial-site-include/basics.png "Podstawy")
+   ![Zrzut ekranu przedstawia okno lokacja V P N do lokacji z otwartym okienkiem Utwórz witrynę sieci VPN.](./media/virtual-wan-tutorial-site-include/basics.png "Podstawy")
 3. Na stronie **Tworzenie witryny sieci VPN** na karcie **podstawowe** wykonaj następujące pola:
 
     * **Region** — wcześniej nazywany lokalizacją. Jest to lokalizacja, w której chcesz utworzyć zasób lokacji.
@@ -29,7 +29,7 @@ ms.locfileid: "86525180"
     * **Hubs — centrum** , z którym chcesz połączyć się z lokacją. Lokację można podłączyć tylko do centrów, które mają VPN Gateway. Jeśli nie widzisz centrum, najpierw utwórz bramę sieci VPN w tym centrum.
 4. Wybierz **linki** , aby dodać informacje o fizycznych linkach w gałęzi. Jeśli masz urządzenie z wirtualnym partnerem sieci WAN CPE, skontaktuj się z nimi, aby sprawdzić, czy te informacje są wymieniane z platformą Azure w ramach przekazywania informacji o gałęziach skonfigurowanych na podstawie ich systemów.
 
-   ![linki](./media/virtual-wan-tutorial-site-include/links.png "Linki")
+   ![Zrzut ekranu przedstawia okienko Utwórz witrynę P N z wybraną kartą łącza.](./media/virtual-wan-tutorial-site-include/links.png "Linki")
 
     * **Nazwa łącza** — nazwa, która ma zostać połączona z łączem fizycznym w witrynie sieci VPN. Przykład: Mylink1.
     * **Nazwa dostawcy** — nazwa fizycznego linku w witrynie sieci VPN. Przykład: ATT, Verizon.

@@ -2,15 +2,18 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: 21ee22e7a493a6bbc8b5934e353db7c59b4aa17d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/15/2020
+ms.openlocfilehash: 16fbffa31563920e28538a961e621c894d105173
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90533355"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604909"
 ---
-W tym artykule pokazano, jak rozpocząć korzystanie z biblioteki klienta Custom Vision przy użyciu języka Python w celu utworzenia modelu wykrywania obiektów. Po jego utworzeniu można dodać otagowane regiony, przekazać obrazy, przeszkolić projekt, uzyskać opublikowany adres URL punktu końcowego przewidywania projektu i użyć punktu końcowego do programistycznego testowania obrazu. Użyj tego przykładu jako szablonu do utworzenia własnej aplikacji języka Python.
+Ten przewodnik zawiera instrukcje i przykładowy kod ułatwiający rozpoczęcie pracy przy użyciu biblioteki klienta Custom Vision dla języka Python w celu utworzenia modelu wykrywania obiektów. Utworzysz projekt, dodasz Tagi, nauczysz projekt, a następnie użyjesz w adresie URL punktu końcowego przewidywania projektu do programistycznego testowania. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.
+
+> [!NOTE]
+> Jeśli chcesz skompilować i przeszkolić model wykrywania obiektów _bez_ pisania kodu, zamiast tego zapoznaj się ze [wskazówkami w przeglądarce](../../get-started-build-detector.md) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -20,7 +23,7 @@ W tym artykule pokazano, jak rozpocząć korzystanie z biblioteki klienta Custom
 
 ## <a name="install-the-custom-vision-client-library"></a>Zainstaluj bibliotekę kliencką Custom Vision
 
-Aby zainstalować bibliotekę klienta usługi Custom Vision dla języka Python, uruchom następujące polecenie w programie PowerShell:
+Aby napisać aplikację do analizy obrazów przy użyciu Custom Vision dla języka Python, potrzebna będzie Custom Vision Biblioteka kliencka. Uruchom następujące polecenie w programie PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
@@ -36,7 +39,7 @@ Obrazy można pobrać razem z [przykładami w języku Python](https://github.com
 
 Utwórz nowy plik o nazwie *sample.py* w preferowanym katalogu projektu.
 
-### <a name="create-the-custom-vision-service-project"></a>Tworzenie projektu Custom Vision Service
+## <a name="create-the-custom-vision-project"></a>Tworzenie projektu Custom Vision
 
 Dodaj następujący kod do skryptu, aby utworzyć nowy projekt Custom Vision Service. Wstaw klucze subskrypcji w odpowiednich definicjach. Ponadto Pobierz adres URL punktu końcowego ze strony Ustawienia w witrynie sieci Web Custom Vision.
 
@@ -67,7 +70,7 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-### <a name="create-tags-in-the-project"></a>Tworzenie tagów w projekcie
+## <a name="create-tags-in-the-project"></a>Tworzenie tagów w projekcie
 
 Aby utworzyć Tagi obiektów w projekcie, Dodaj następujący kod na końcu *Sample.py*:
 
@@ -77,7 +80,7 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-### <a name="upload-and-tag-images"></a>Przekazywanie i Tagi obrazów
+## <a name="upload-and-tag-images"></a>Przekazywanie i Tagi obrazów
 
 Po oznaczeniu obrazów w projektach wykrywania obiektów należy określić region każdego z otagowanych obiektów przy użyciu znormalizowanych współrzędnych.
 
@@ -170,7 +173,7 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### <a name="train-the-project-and-publish"></a>Uczenie projektu i publikowanie
+## <a name="train-and-publish-the-project"></a>Uczenie i publikowanie projektu
 
 Ten kod tworzy pierwszą iterację modelu predykcyjnego, a następnie publikuje tę iterację w punkcie końcowym przewidywania. Nazwa nadana do publikowanej iteracji może służyć do wysyłania żądań przewidywania. Iteracja nie jest dostępna w punkcie końcowym przewidywania do momentu opublikowania.
 
@@ -194,7 +197,7 @@ print ("Done!")
 >
 > Opcjonalnie możesz nauczyć tylko podzestaw zastosowanych tagów. Możesz to zrobić, jeśli jeszcze nie zastosowano wystarczającej liczby niektórych tagów, ale masz wystarczającą ilość innych. W wywołaniu **[train_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** Ustaw opcjonalny parametr *selected_tags* na listę ciągów identyfikatorów tagów, których chcesz użyć. Model będzie szkolić, aby rozpoznawał tylko Tagi na tej liście.
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Pobieranie i używanie opublikowanej iteracji w punkcie końcowym przewidywania
+## <a name="use-the-prediction-endpoint"></a>Korzystanie z punktu końcowego przewidywania
 
 Aby wysłać obraz do punktu końcowego przewidywania i uzyskać przewidywanie, dodaj na końcu pliku następujący kod:
 
@@ -229,7 +232,10 @@ Dane wyjściowe aplikacji powinny pojawić się w konsoli. Możesz następnie sp
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz dowiesz się, jak każdy krok procesu wykrywania obiektów można wykonać w kodzie. Ten przykład wykonuje pojedynczą iterację szkoleniową, ale często należy przeprowadzić uczenie i testowanie modelu wiele razy, aby zwiększyć jego dokładność. Poniższe Przewodniki szkoleniowe zajmuje się klasyfikacją obrazu, ale jego zasady są podobne do wykrywania obiektów.
+Teraz każdy krok procesu wykrywania obiektów można wykonać w kodzie. Ten przykład wykonuje pojedynczą iterację szkoleniową, ale często należy przeprowadzić uczenie i testowanie modelu wiele razy, aby zwiększyć jego dokładność. Następny przewodnik dotyczy klasyfikacji obrazów. Jej zasady są podobne do wykrywania obiektów.
 
 > [!div class="nextstepaction"]
 > [Testowanie i ponowne szkolenie modelu](../../test-your-model.md)
+
+* [Co to jest usługa Custom Vision?](../../overview.md)
+* [Dokumentacja referencyjna zestawu SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

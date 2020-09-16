@@ -13,6 +13,8 @@
       href: invite-users.md
 - name: Samouczki
   items:
+    - name: Nawiązywanie połączenia z usługą Azure
+      href: connect-to-azure.md
     - name: Korzystanie z interfejsu API usługi Video Indexer
       href: video-indexer-use-apis.md
     - name: Łącznik usługi Logic Apps

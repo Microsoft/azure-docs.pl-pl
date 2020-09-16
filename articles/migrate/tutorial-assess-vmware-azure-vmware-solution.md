@@ -4,12 +4,12 @@ description: Dowiedz się, jak ocenić maszyny wirtualne VMware pod kątem migra
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 7bd0a4c6d4c447e0d872c2d40ad1f1990289fe84
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 29f7f824d96aedd80e490ba84c390be4d9493683
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108795"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604244"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Samouczek: Ocena maszyn wirtualnych VMware pod kątem migracji do wersji zaautomatycznej
 
@@ -113,28 +113,37 @@ Uruchom ocenę w następujący sposób:
 
 ## <a name="review-an-assessment"></a>Przegląd oceny
 
-Ocena zawiera opis:
+W ramach oceny automatycznej wersji zamieszczono następujące informacje:
 
-- **Gotowe do automatycznej synchronizacji**: można migrować maszynę do wersji zastosowanej do automatycznej synchronizacji z platformą Azure bez wprowadzania żadnych zmian. Na maszynie rozpocznie się automatyczna synchronizacja z pełną obsługą wersji zaautomatycznej.
-- **Gotowe warunki**: komputer może mieć problemy ze zgodnością z bieżącą wersją vSphere. Może być wymagane zainstalowanie narzędzi VMware lub innych ustawień, zanim będzie mieć pełną funkcję w wersji zaautomatycznej.
-- **Nie jest gotowe do automatycznej synchronizacji**: maszyna wirtualna nie rozpocznie się w trakcie automatycznej synchronizacji. Jeśli na przykład lokalna maszyna wirtualna VMware ma dołączone urządzenie zewnętrzne (takie jak dysk CD-ROM) i używasz VMware VMotion, operacja VMotion kończy się niepowodzeniem.
-- **Nieznane gotowość**: Azure Migrate nie może określić gotowości maszyny z powodu niewystarczających metadanych zebranych ze środowiska lokalnego.
+- Gotowość do automatycznej synchronizacji: czy lokalne maszyny wirtualne są odpowiednie do migracji do rozwiązania Azure VMware (Automatyczna synchronizacja).
+- Liczba węzłów automatycznej synchronizacji: Szacowana liczba węzłów synchronizacji wymaganych do uruchomienia maszyn wirtualnych.
+- Wykorzystanie w węzłach automatycznej synchronizacji: przewidywany procesor CPU, pamięć i wykorzystanie magazynu we wszystkich węzłach.
+- Oszacowanie kosztów miesięcznych: szacowane miesięczne koszty wszystkich węzłów platformy Azure VMware (Automatyczna synchronizacja) z uruchomionymi lokalnymi maszynami wirtualnymi.
+
+## <a name="view-an-assessment"></a>Wyświetlanie oceny
 
 Aby wyświetlić ocenę:
 
 1. W obszarze **serwery**  >  **Azure Migrate: Ocena serwera**, kliknij liczbę obok pozycji **oceny**.
-2. W obszarze **oceny**Wybierz ocenę, aby ją otworzyć. Przykładowo (oszacowania i koszty tylko na przykład): 
-
-    ![Podsumowanie oceny](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
-
+2. W obszarze **oceny**Wybierz ocenę, aby ją otworzyć. 
 3. Przejrzyj podsumowanie oceny. Możesz również edytować właściwości oceny lub ponownie obliczyć ocenę.
  
- 
+
 ### <a name="review-readiness"></a>Przegląd gotowości
 
 1. Kliknij pozycję **gotowość platformy Azure**.
 2. W obszarze **gotowość do platformy Azure**Przejrzyj stan maszyny wirtualnej.
-3. Wybierz stan **gotowości platformy Azure** . Możesz wyświetlić szczegóły gotowości maszyn wirtualnych. Możesz również przejść do szczegółów, aby wyświetlić szczegóły dotyczące maszyn wirtualnych, w tym ustawienia obliczeń, magazynu i sieci.
+
+    - **Gotowe do automatycznej synchronizacji**: można migrować maszynę do wersji zastosowanej do automatycznej synchronizacji z platformą Azure bez wprowadzania żadnych zmian. Na maszynie rozpocznie się automatyczna synchronizacja z pełną obsługą wersji zaautomatycznej.
+    - **Gotowe warunki**: komputer może mieć problemy ze zgodnością z bieżącą wersją vSphere. Może być wymagane zainstalowanie narzędzi VMware lub innych ustawień, zanim będzie mieć pełną funkcję w wersji zaautomatycznej.
+    - **Nie jest gotowe do automatycznej synchronizacji**: maszyna wirtualna nie rozpocznie się w trakcie automatycznej synchronizacji. Jeśli na przykład lokalna maszyna wirtualna VMware ma dołączone urządzenie zewnętrzne (takie jak dysk CD-ROM) i używasz VMware VMotion, operacja VMotion kończy się niepowodzeniem.
+ - **Nieznane gotowość**: Azure Migrate nie może określić gotowości maszyny z powodu niewystarczających metadanych zebranych ze środowiska lokalnego.
+
+3. Przejrzyj sugerowane narzędzie.
+
+    - VMware HCX lub Enterprise: w przypadku maszyn VMware, rozwiązanie hybrydowe w chmurze VMWare (HCX) to sugerowane narzędzie do migracji, które umożliwia migrowanie lokalnego obciążenia do chmury prywatnej platformy Azure VMware (Automatyczna synchronizacja). Dowiedz się więcej.
+    - Nieznane: w przypadku maszyn zaimportowanych za pośrednictwem pliku CSV domyślne narzędzie do migracji jest nieznane. Mimo że w przypadku maszyn VMware zaleca się użycie rozwiązania hybrydowego chmury VMware (HCX).
+4. Kliknij stan gotowości do automatycznej synchronizacji. Możesz wyświetlić szczegóły gotowości maszyn wirtualnych i przejść do szczegółów, aby wyświetlić szczegóły dotyczące maszyn wirtualnych, w tym ustawienia obliczeń, magazynu i sieci.
 
 ### <a name="review-cost-estimates"></a>Przegląd szacowanych kosztów
 
@@ -142,11 +151,11 @@ Podsumowanie oceny przedstawia szacowany koszt obliczeń i magazynu dla uruchomi
 
 1. Zapoznaj się z miesięczną sumą kosztów. Koszty są agregowane dla wszystkich maszyn wirtualnych w ocenianej grupie.
 
-    - Oszacowania kosztów są oparte na zaleceniach dotyczących rozmiaru maszyny, jej dysków i właściwości.
-    - Wyświetlane są szacowane miesięczne koszty obliczeń i magazynu.
-    - Oszacowanie kosztów służy do uruchamiania lokalnych maszyn wirtualnych na maszynach wirtualnych platformy Azure. Oszacowanie nie uwzględnia kosztów PaaS ani SaaS.
+    - Oszacowania kosztów są uzależnione od liczby węzłów synchronizacji wymaganych do uwzględnienia wymagań dotyczących zasobów wszystkich maszyn wirtualnych.
+    - W ramach cennika automatycznej synchronizacji na węzeł łączny koszt nie ma kosztu obliczeniowego i dystrybucji kosztów magazynu.
+    - Oszacowanie kosztów dotyczy uruchamiania lokalnych maszyn wirtualnych w wersji zaautomatycznej. Ocena serwera Azure Migrate nie uwzględnia kosztów PaaS ani SaaS.
 
-2. Zapoznaj się z miesięcznymi kosztami magazynowania. Widok przedstawia zagregowane koszty magazynu dla ocenianej grupy, podzielone na różne typy dysków magazynu. 
+2. Przejrzyj miesięczne oszacowania magazynu. Widok przedstawia zagregowane koszty magazynu dla ocenianej grupy, podzielone na różne typy dysków magazynu. 
 3. Możesz przejść do szczegółów, aby wyświetlić szczegóły kosztów dla określonych maszyn wirtualnych.
 
 ### <a name="review-confidence-rating"></a>Przegląd oceny zaufania

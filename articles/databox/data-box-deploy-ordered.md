@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 2ab74b87b287296c4ff975d5af75714c89001004
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055720"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604312"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -217,7 +217,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
    ![Wybierz Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
    ![Wybierz Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
@@ -268,6 +268,8 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
     ![Kolejność urządzenie Data Box dla dysku zarządzanego](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     Konto magazynu określone dla dysków zarządzanych jest używane jako przejściowe konto magazynu. Usługa Data Box przekazuje wirtualne dyski twarde jako stronicowe obiekty blob do przejściowego konta magazynu przed przekonwertowaniem ich na dyski zarządzane i przeniesieniem do grup zasobów. Aby uzyskać więcej informacji, zobacz [Weryfikowanie przekazania danych na platformę Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+   > [!NOTE]
+   > Jeśli obiekt BLOB stronicowania nie zostanie pomyślnie przekonwertowany na dysk zarządzany, pozostaje na koncie magazynu i zostanie naliczona opłata za magazyn.
 
     Wybierz pozycję **Dalej: zabezpieczenia** , aby kontynuować.
 

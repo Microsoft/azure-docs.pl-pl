@@ -1,6 +1,6 @@
 ---
 title: Prywatny link do usługi Azure Azure Data Factory
-description: Dowiedz się więcej o usłudze Azure Private link działa w Azure Data Factory.
+description: Dowiedz się, jak działa łącze prywatne platformy Azure w Azure Data Factory.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -11,75 +11,82 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 164a1005d9382711874b644e14b23d2154d613a0
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 48ab83db3dcbcf5c99b640ccab205ed1f0ee7ca1
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596026"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604380"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Prywatny link do usługi Azure Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Link prywatny umożliwia nawiązanie połączenia z różnymi usługami PaaS na platformie Azure za pośrednictwem prywatnego punktu końcowego. Aby zapoznać się z listą usług PaaS Services, które obsługują funkcję link prywatny, przejdź do [strony z dokumentacją linku prywatnego](https://docs.microsoft.com/azure/private-link/). Prywatny punkt końcowy to prywatny adres IP w ramach określonej sieci wirtualnej i podsieci.
+Za pomocą linku prywatnego platformy Azure można nawiązać połączenie z różnymi wdrożeniami platformy jako usługi (PaaS) na platformie Azure za pośrednictwem prywatnego punktu końcowego. Prywatny punkt końcowy to prywatny adres IP w ramach określonej sieci wirtualnej i podsieci. Aby zapoznać się z listą wdrożeń PaaS, które obsługują funkcję łączy prywatnych, zobacz [dokumentację linku prywatnego](https://docs.microsoft.com/azure/private-link/). 
 
-## <a name="secure-communication-between-customer-network-and-azure-data-factory-service"></a>Bezpieczna komunikacja między siecią klienta a usługą Azure Data Factory
-Aby chronić zasoby platformy Azure przed atakami w sieci publicznej lub umożliwić ich bezpieczną komunikację ze sobą, możesz skonfigurować platformę Azure Virtual Network jako logiczną reprezentację sieci w chmurze. Sieć lokalną można także połączyć z siecią wirtualną przez skonfigurowanie protokołu IPSec VPN (lokacja-lokacja) lub ExpressRoute (prywatna Komunikacja równorzędna). Samoobsługowe Integration Runtime można zainstalować na maszynie lokalnej lub maszynie wirtualnej w programie Virtual Network, aby uruchamiać działania kopiowania między magazynem danych w chmurze i magazynem danych w sieci prywatnej lub wysyłać działania transformacji do zasobów obliczeniowych w sieci lokalnej lub w sieci wirtualnej platformy Azure. 
+## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Bezpieczna komunikacja między sieciami klientów i Azure Data Factory 
+Sieć wirtualną platformy Azure można skonfigurować jako logiczną reprezentację sieci w chmurze. Zapewnia to następujące korzyści:
+* Możesz chronić zasoby platformy Azure przed atakami w sieciach publicznych.
+* Umożliwia to sieci i Data Factory bezpieczne komunikowanie się ze sobą. 
 
-Istnieje kilka kanałów komunikacji wymaganych między Data Factory i sieci wirtualnej klienta.
+Możesz również połączyć sieć lokalną z siecią wirtualną, konfigurując połączenie sieci VPN zabezpieczeń protokołu internetowego (IPsec) (lokacja-lokacja) lub połączenie usługi Azure ExpressRoute (prywatna Komunikacja równorzędna). 
 
+Możesz również zainstalować własne środowisko Integration Runtime na maszynie lokalnej lub maszynie wirtualnej w sieci wirtualnej. Dzięki temu można:
+* Uruchom działania kopiowania między magazynem danych w chmurze i magazynem danych w sieci prywatnej.
+* Wysyłaj działania przekształcania na zasoby obliczeniowe w sieci lokalnej lub w sieci wirtualnej platformy Azure. 
 
-| **Domeny** | **Port** | **Opis** |
+Między Azure Data Factory i siecią wirtualną klienta są wymagane kilka kanałów komunikacyjnych, jak pokazano w poniższej tabeli:
+
+| Domena | Port | Opis |
 | ---------- | -------- | --------------- |
-| `adf.azure.com` | 443 | Płaszczyzna kontroli. Wymagane przez Data Factory tworzenia i monitorowania. |
-| `*.{region}.datafactory.azure.net` | 443 | Wymagane przez samoobsługowe Integration Runtime do nawiązywania połączenia z usługą Data Factory. |
-| `*.servicebus.windows.net` | 443 | Wymagane przez samodzielną Integration Runtime do tworzenia interaktywnego. |
-| `download.microsoft.com` | 443 | Wymagane przez samodzielną Integration Runtime do pobierania aktualizacji. |
+| `pe-adf.azure.com` | 443 | Płaszczyzna kontroli wymagana przez Data Factory tworzenia i monitorowania. |
+| `*.{region}.datafactory.azure.net` | 443 | Wymagane przez własne środowisko Integration Runtime do nawiązywania połączenia z usługą Data Factory. |
+| `*.servicebus.windows.net` | 443 | Wymagane przez własne środowisko Integration Runtime do interaktywnego tworzenia. |
+| `download.microsoft.com` | 443 | Wymagane przez własne środowisko Integration Runtime do pobierania aktualizacji. |
 
+Dzięki obsłudze prywatnego linku do Azure Data Factory można:
+* Utwórz prywatny punkt końcowy w sieci wirtualnej.
+* Włącz połączenie prywatne z określonym wystąpieniem usługi Data Factory. 
 
-Dzięki obsłudze prywatnego linku platformy Azure dla Azure Data Factory można utworzyć prywatny punkt końcowy (PE) w sieci wirtualnej i włączyć połączenie prywatne z konkretnym Azure Data Factory. Komunikacja do Azure Data Factory usługi odbywa się za pośrednictwem prywatnego linku platformy Azure, który zapewnia bezpieczną łączność prywatną. Nie trzeba konfigurować powyższych domen i portów w sieci wirtualnej ani firmowej zapory, która zapewnia bezpieczniejszy sposób ochrony zasobów.  
+Komunikacja do Azure Data Factory usługi odbywa się za pośrednictwem prywatnego linku i pomaga zapewnić bezpieczną łączność prywatną. Nie musisz konfigurować poprzedniej domeny i portu w sieci wirtualnej ani firmowej zapory, aby zapewnić bezpieczniejszy sposób ochrony zasobów.  
 
-![Azure Data Factory architektura linku prywatnego](./media/data-factory-private-link/private-link-architecture.png)
+![Diagram prywatnego linku dla architektury Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
 
-Poniżej przedstawiono korzyści wynikające z włączenia usługi link prywatny dla każdego z kanałów komunikacyjnych przedstawionych powyżej:
-- Obsługiwał Istnieje możliwość tworzenia i monitorowania Azure Data Factory w sieci wirtualnej, nawet w przypadku zablokowania całej komunikacji wychodzącej.
-- Obsługiwał Komunikacja między samoobsługowym Integration Runtime i usługą Azure Data Factory można przeprowadzić bezpiecznie w środowisku sieci prywatnej. Ruch między samoobsługowym Integration Runtime i Azure Data Factory usługą odbywa się za pomocą prywatnego linku. 
-- (Obecnie nie jest to obsługiwane) Interaktywny proces tworzenia przy użyciu samodzielnego Integration Runtime przechodzenia przez prywatny link, na przykład połączenie testowe, przeglądanie listy folderów i listy tabel, uzyskiwanie schematu i Podgląd danych.
-- (Obecnie nie jest to obsługiwane) Nową wersję Integration Runtime samoobsługowego można automatycznie pobrać z centrum pobierania w przypadku włączenia automatycznej aktualizacji.
+Włączenie usługi link prywatny dla każdego z powyższych kanałów komunikacji oferuje następujące funkcje:
+- **Obsługiwane**:
+   - Możesz tworzyć i monitorować fabrykę danych w sieci wirtualnej, nawet jeśli zablokujesz całą komunikację wychodzącą.
+   - Komunikacja między własnym środowiskiem Integration Runtime i usługą Azure Data Factory można przeprowadzić bezpiecznie w środowisku sieci prywatnej. Ruch między własnym hostowanym środowiskiem Integration Runtime i usługą Azure Data Factory odbywa się za pomocą linku prywatnego. 
+- **Nie jest obecnie obsługiwane**:
+   - Interaktywne tworzenie, które korzysta z własnego środowiska Integration Runtime, takiego jak połączenie testowe, przeglądanie listy folderów i listy tabel, Pobieranie schematu i Podgląd danych, odbywa się za pośrednictwem prywatnego linku.
+   - Nową wersję środowiska Integration Runtime (własne) można automatycznie pobrać z centrum pobierania firmy Microsoft w przypadku włączenia funkcji Aktualizacje automatyczne.
 
-> [!NOTE]
-> W przypadku funkcji, które nie są obecnie obsługiwane, nadal trzeba skonfigurować powyższą domenę i port w sieci wirtualnej lub zaporze firmowej. 
+   > [!NOTE]
+   > W przypadku funkcji, które nie są obecnie obsługiwane, nadal trzeba skonfigurować wcześniej wymienioną domenę i port w sieci wirtualnej lub zaporze firmowej. 
 
 > [!WARNING]
-> Podczas tworzenia połączonej usługi upewnij się, że poświadczenie jest przechowywane w Azure Key Vault. W przeciwnym razie nie działa po włączeniu usługi link prywatny w Azure Data Factory.
+> Podczas tworzenia połączonej usługi upewnij się, że Twoje poświadczenia są przechowywane w magazynie kluczy platformy Azure. W przeciwnym razie poświadczenia nie będą działały po włączeniu prywatnego linku w Azure Data Factory.
 
-## <a name="how-to-set-up-private-link-for-azure-data-factory"></a>Jak skonfigurować link prywatny dla Azure Data Factory
-Prywatne punkty końcowe można tworzyć przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure:
+## <a name="set-up-private-link-for-azure-data-factory"></a>Skonfiguruj prywatny link do Azure Data Factory
+Prywatne punkty końcowe można utworzyć przy użyciu [Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal), programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-[Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+Możesz również przejść do usługi Azure Data Factory w Azure Portal i utworzyć prywatny punkt końcowy, jak pokazano poniżej:
 
-
-Możesz również przejść do Azure Data Factory w Azure Portal i utworzyć prywatny punkt końcowy (PE):
-
-![Tworzenie prywatnego punktu końcowego](./media/data-factory-private-link/create-private-endpoint.png)
+![Zrzut ekranu przedstawiający okienko "połączenia prywatne punktu końcowego" służące do tworzenia prywatnego punktu końcowego.](./media/data-factory-private-link/create-private-endpoint.png)
 
 
-Jeśli chcesz zablokować publiczny dostęp do tego Azure Data Factory i zezwalać na dostęp tylko za poorednictwem linku prywatnego, możesz wyłączyć dostęp do sieci Azure Data Factory w Azure Portal:
+Jeśli chcesz zablokować publiczny dostęp do usługi Azure Data Factory i zezwolić na dostęp tylko za pomocą linku prywatnego, wyłącz dostęp sieciowy do Azure Data Factory w Azure Portal, jak pokazano poniżej:
 
-![Tworzenie prywatnego punktu końcowego](./media/data-factory-private-link/disable-network-access.png)
+![Zrzut ekranu przedstawiający okienko "dostęp sieciowy" służące do tworzenia prywatnego punktu końcowego.](./media/data-factory-private-link/disable-network-access.png)
 
 > [!NOTE]
-> Wyłączenie dostępu do sieci publicznej dotyczy wyłącznie samodzielnych Integration Runtime, a nie Azure Integration Runtime i SSIS Integration Runtime.
+> Wyłączenie dostępu do sieci publicznej dotyczy tylko samodzielnego środowiska Integration Runtime, a nie do Azure Integration Runtime i SQL Server Integration Services (SSIS) Integration Runtime.
 
 > [!NOTE]
-> Po wyłączeniu dostępu do sieci publicznej użytkownicy nadal mogą uzyskać dostęp do portalu Azure Data Factory za poorednictwem sieci publicznej.
+> Po wyłączeniu dostępu do sieci publicznej nadal można uzyskać dostęp do portalu Azure Data Factory za pomocą sieci publicznej.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie fabryki danych przy użyciu interfejsu użytkownika Azure Data Factory](quickstart-create-data-factory-portal.md)
-
 - [Wprowadzenie do usługi Azure Data Factory](introduction.md)
-
 - [Tworzenie wizualne w Azure Data Factory](author-visually.md)
 

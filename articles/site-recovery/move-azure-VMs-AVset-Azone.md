@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: 7957c6a3fdc8cb798292d03092ee1442b2c0a6bc
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004514"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605111"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Przenoszenie maszyn wirtualnych platformy Azure do stref dostępności
 
@@ -28,7 +28,7 @@ W scenariuszu, w którym maszyny wirtualne są wdrażane jako *pojedyncze wystą
 - Przenoszenie maszyn wirtualnych w zestawie dostępności do Strefy dostępności w regionie docelowym
 
 > [!IMPORTANT]
-> Aby przenieść maszyny wirtualne platformy Azure do strefy dostępności w innym regionie regionu, zalecamy teraz korzystanie z funkcji [przenoszenia zasobów platformy Azure](../resource-mover/move-region-availability-zone.md). Program przenoszenia zasobów jest w publicznej wersji zapoznawczej i oferuje następujące informacje:
+> Aby przenieść maszyny wirtualne platformy Azure do strefy dostępności w innym regionie, zalecamy teraz korzystanie z funkcji [przenoszenia zasobów platformy Azure](../resource-mover/move-region-availability-zone.md). Program przenoszenia zasobów jest w publicznej wersji zapoznawczej i oferuje następujące informacje:
 > - Jedno centrum do przemieszczania zasobów między regionami.
 > - Krótszy czas przenoszenia i złożoność. Wszystko, czego potrzebujesz, znajduje się w jednej lokalizacji.
 > - Proste i spójne środowisko do przemieszczania różnych typów zasobów platformy Azure.

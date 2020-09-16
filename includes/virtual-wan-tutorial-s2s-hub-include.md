@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 64470b42efeea49b7c778d6dffd88465b8445e36
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84977908"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606459"
 ---
 1. Zlokalizuj utworzoną wirtualną sieć WAN. Na stronie wirtualna sieć WAN w obszarze **łączność** wybierz pozycję **centra**.
 2. Na stronie centra wybierz pozycję **+ nowe centrum** , aby otworzyć stronę **Tworzenie wirtualnego centrum** .
 
-    ![Podstawy](./media/virtual-wan-tutorial-hub-include/basics.png "Podstawy")
+    ![Zrzut ekranu przedstawia okienko tworzenie koncentratora wirtualnego z wybraną kartą podstawowe.](./media/virtual-wan-tutorial-hub-include/basics.png "Podstawy")
 3. Na karcie Tworzenie **podstawy** strony **wirtualnego centrum** wykonaj następujące pola:
 
     **Szczegóły projektu**
@@ -28,7 +28,7 @@ ms.locfileid: "84977908"
    * Prywatna przestrzeń adresowa centrum. Minimalną przestrzenią adresową jest/24, aby utworzyć centrum, co oznacza, że każdy zakres od/25 do/32 spowoduje wystąpienie błędu podczas tworzenia. Wirtualna sieć WAN platformy Azure będąca usługą zarządzaną przez firmę Microsoft tworzy odpowiednie podsieci w koncentratorze wirtualnym dla różnych bram/usług (np. bram sieci VPN, bram ExpressRoute, sieci VPN użytkownika/połączeń punkt-lokacja, zapory, routingu itp.). Nie ma potrzeby, aby użytkownik jawnie zaplanował przestrzeń adresową podsieci dla usług w koncentratorze wirtualnym, ponieważ firma Microsoft robi to jako część usługi.
 4. Wybierz pozycję **Dalej: lokacja-lokacja**.
 
-    ![Lokacja-lokacja](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Lokacja-lokacja")
+    ![Zrzut ekranu przedstawia okienko tworzenie wirtualnego centrum z wybraną lokacją lokacja.](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Lokacja-lokacja")
 
 5. Na karcie **lokacja-lokacja** wykonaj następujące pola:
 

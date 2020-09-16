@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 443649826e821014e0e9918526a363a944b5eceb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660013"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604414"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą dla Azure Machine Learning
 
@@ -33,6 +33,10 @@ Na zaporze Utwórz _regułę aplikacji_ zezwalającą na ruch do i z adresów w 
 >
 > Aby uzyskać więcej informacji na temat konfigurowania zapory platformy Azure, zobacz [wdrażanie i Konfigurowanie zapory platformy Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
+## <a name="routes"></a>Trasy
+
+Podczas konfigurowania trasy wychodzącej dla podsieci zawierającej zasoby Azure Machine Learning należy skorzystać ze wskazówek w sekcji [Wymuszone tunelowanie](how-to-secure-training-vnet.md#forced-tunneling) , aby zabezpieczyć środowisko szkoleniowe.
+
 ## <a name="microsoft-hosts"></a>Hosty firmy Microsoft
 
 Jeśli nie skonfigurowano go prawidłowo, Zapora może spowodować problemy z używaniem obszaru roboczego. Istnieją różne nazwy hostów, które są używane w obszarze roboczym Azure Machine Learning.
@@ -41,6 +45,8 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 
 | **Nazwa hosta** | **Cel** |
 | ---- | ---- |
+| **login.microsoftonline.com** | Authentication |
+| **management.azure.com** | Służy do uzyskiwania informacji o obszarze roboczym |
 | **\*. batchai.core.windows.net** | Klastry szkoleniowe |
 | **ml.azure.com** | Studio uczenia maszynowego Azure |
 | **default.exp-tas.com** | Używane przez Azure Machine Learning Studio |
@@ -59,13 +65,16 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | **\*. notebooks.azure.net** | Wymagany przez notesy w programie Azure Machine Learning Studio. |
 | **graph.windows.net** | Potrzeba dla notesów |
 
+> [!TIP]
+> Jeśli planujesz korzystanie z tożsamości federacyjnych, postępuj zgodnie z [najlepszymi rozwiązaniami dotyczącymi zabezpieczania Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) artykułu.
+
 ## <a name="python-hosts"></a>Hosty języka Python
 
 Hosty w tej sekcji służą do instalowania pakietów języka Python. Są one wymagane podczas opracowywania, uczenia i wdrażania. 
 
 | **Nazwa hosta** | **Cel** |
 | ---- | ---- |
-| **anaconda.com** | Służy do instalowania pakietów domyślnych. |
+| **anaconda.com**</br>**\*. anaconda.com** | Służy do instalowania pakietów domyślnych. |
 | **\*. anaconda.org** | Służy do pobierania danych repozytorium. |
 | **pypi.org** | Służy do wyświetlania listy zależności od domyślnego indeksu (jeśli istnieje), a indeks nie jest zastępowany przez ustawienia użytkownika. Jeśli indeks jest zastępowany, należy również zezwolić na ** \* . pythonhosted.org**. |
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 66335548381a6f7e3ebf93c97eb212255639644c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434797"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604091"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web w Azure Portal
 
@@ -65,7 +65,7 @@ Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytoriu
     # <a name="no-framework"></a>[Brak struktury](#tab/vanilla-javascript)
 
     1. Wybierz pozycję **niestandardowe** z listy rozwijanej _Ustawienia wstępne kompilacji_
-    1. Wyczyść wartość domyślną w polu _Lokalizacja aplikacji_
+    1. Zachowaj wartość domyślną w polu _Lokalizacja aplikacji_
     1. Wyczyść wartość domyślną w polu _Lokalizacja interfejsu API_
     1. Pozostaw puste pole _lokalizacji artefaktu aplikacji_
 
@@ -92,14 +92,14 @@ Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytoriu
 
     ---
 
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
     :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Przycisk tworzenia przeglądu":::
 
     > [!NOTE]
     > [Plik przepływu pracy](github-actions-workflow.md) można edytować, aby zmienić te wartości po utworzeniu aplikacji.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Przycisk Utwórz":::
 

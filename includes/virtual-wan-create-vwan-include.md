@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/09/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 56f79bf38b627f80d73b59dbbfbb73dddd809458
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c9c8fa8099848eec09e689bf9491f71f378e9e3
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525182"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606693"
 ---
 Przejdź w przeglądarce do witryny Azure Portal i zaloguj się przy użyciu konta platformy Azure.
 
@@ -21,7 +21,7 @@ Przejdź w przeglądarce do witryny Azure Portal i zaloguj się przy użyciu kon
 1. Z wyników wybierz pozycję **wirtualna sieć WAN** . Na stronie wirtualna sieć WAN kliknij przycisk **Utwórz** , aby otworzyć stronę tworzenie sieci WAN.
 1. Na stronie **Tworzenie sieci WAN** na karcie **podstawowe** wypełnij następujące pola:
 
-   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Podstawy":::
+   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Zrzut ekranu przedstawia okienko tworzenie sieci WAN z wybraną kartą podstawowe.":::
 
    * **Subskrypcja** — wybierz subskrypcję, która ma być używana.
    * **Grupa zasobów** — Utwórz nową lub Użyj istniejącej.

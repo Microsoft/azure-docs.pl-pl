@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/31/2020
 ms.author: baanders
-ms.openlocfilehash: 984739a728f6ac5e28eeb561e0d7b6ec0485ca13
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7e43ab6d419d6a08973864838c66aef0941d74f5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496869"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90606397"
 ---
 Najpierw uruchom to polecenie, aby wyświetlić listę wszystkich zainstalowanych już rozszerzeń.
 
-```azurecli-interactive
+```azurecli
 az extension list
 ```
 
@@ -23,18 +23,18 @@ Wyjście jest tablicą wszystkich aktualnie posiadanych rozszerzeń. Wyszukaj `"
 Użyj danych wyjściowych, aby określić, które z poniższych poleceń mają być uruchamiane dla instalacji rozszerzenia (można uruchomić więcej niż jeden).
 * Jeśli lista zawiera `azure-iot` : masz już rozszerzenie. Uruchom to polecenie, aby upewnić się, że masz najnowszą aktualizację i nie ma więcej dostępnych aktualizacji:
 
-   ```azurecli-interactive
+   ```azurecli
    az extension update --name azure-iot
    ```
 
 * Jeśli lista **nie zawiera** : należy `azure-iot` zainstalować rozszerzenie. Użyj następującego polecenia:
 
-    ```azurecli-interactive
+    ```azurecli
     az extension add --name azure-iot
     ```
 
 * Jeśli lista zawiera `azure-iot-cli-ext` : jest to starsza wersja rozszerzenia. W danej chwili należy zainstalować tylko jedną wersję rozszerzenia, dlatego należy odinstalować starsze rozszerzenie. Użyj następującego polecenia:
 
-   ```azurecli-interactive
+   ```azurecli
    az extension remove --name azure-cli-iot-ext
    ```

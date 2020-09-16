@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: de6cd4ee2c9800757399b7e32b59d903b817c657
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053579"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604397"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -42,17 +42,21 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-BH` | Arabski (Bahrajn), nowoczesny Standard | Model językowy                                    |
 | `ar-EG` | Arabski (Egipt)                    | Model językowy                                    |
 | `ar-IL` | Arabski (Izrael)                   | Nie                                                |
+| `ar-IQ` | Arabski (Irak)                     | Nie                                                |
 | `ar-JO` | Arabski (Jordania)                   | Nie                                                |
 | `ar-KW` | Arabski (Kuwejt)                   | Nie                                                |
 | `ar-LB` | Arabski (Liban)                  | Nie                                                |
+| `ar-OM` | Arabski (Oman)                     | Nie                                                |
 | `ar-PS` | Arabski (palestyński)                | Nie                                                |
 | `ar-QA` | Arabski (katar)                    | Nie                                                |
 | `ar-SA` | Arabski (Arabia Saudyjska)             | Nie                                                |
 | `ar-SY` | Arabski (Syria)                    | Model językowy                                    |
-| `ca-ES` | Kataloński                           | Model językowy                                    |
+| `bg-BG` | Bułgarski (Bułgaria)              | Model językowy                                    |
+| `ca-ES` | Kataloński                   | Model językowy                                    |
 | `cs-CZ` | Czeski (Czechy)            | Model języka                                    | 
 | `da-DK` | Duński (Dania)                  | Model językowy                                    |
 | `de-DE` | Niemiecki (Niemcy)                  | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `el-GR` | Grecki (Grecja)                    | Model językowy                                    |
 | `en-AU` | Angielski (Australia)               | Model akustyczny<br>Model językowy                  |
 | `en-CA` | Angielski (Kanada)                  | Model akustyczny<br>Model językowy                  |
 | `en-GB` | Angielski (Zjednoczone Królestwo)          | Model akustyczny<br>Model językowy<br>Fonetyczn |
@@ -84,23 +88,32 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `es-SV` | Hiszpański (Salwador)             | Model języka                                    | 
 | `es-US` | Hiszpański (USA)                     | Model języka                                    | 
 | `es-UY` | Hiszpański (Urugwaj)                 | Model języka                                    | 
-| `es-VE` | Hiszpański (Wenezuela)               | Model języka                                    | 
+| `es-VE` | Hiszpański (Wenezuela)               | Model języka                                    |
+| `et-EE` | Estoński (Estonia)                 | Model języka                                    | 
 | `fi-FI` | Fiński (Finlandia)                 | Model językowy                                    |
 | `fr-CA` | francuski (Kanada)                   | Model akustyczny<br>Model językowy                  |
 | `fr-FR` | Francuski (Francja)                   | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `ga-IE` | Irlandzki (Irlandia)                    | Model językowy                                    |
 | `gu-IN` | Gudżarati (Indyjski)                 | Model językowy                                    |
 | `hi-IN` | Hindi (Indie)                     | Model akustyczny<br>Model językowy                  |
+| `hr-HR` | Chorwacki (Chorwacja)                | Model językowy                                    |
 | `hu-HU` | Węgierski (Węgry)               | Model języka                                    | 
 | `it-IT` | Włoski (Włochy)                   | Model akustyczny<br>Model językowy<br>Fonetyczn |
 | `ja-JP` | Japoński (Japonia)                  | Model językowy                                    |
 | `ko-KR` | Koreański (Korea)                    | Model językowy                                    |
+| `lt-LT` | Litewski (Litwa)            | Model językowy                                    |
+| `lv-LV` | Łotewski (Łotwa)                  | Model językowy                                    |
 | `mr-IN` | Marathi (Indie)                   | Model językowy                                    |
+| `mt-MT` | Maltański (Malta)                    | Model językowy                                    |
 | `nb-NO` | Norweski (bokmål) (Norwegia)       | Model językowy                                    |
 | `nl-NL` | Niderlandzki (Holandia)               | Model językowy                                    |
 | `pl-PL` | Polski (Polska)                   | Model językowy                                    |
 | `pt-BR` | Portugalski (Brazylia)               | Model akustyczny<br>Model językowy<br>Fonetyczn |
 | `pt-PT` | Portugalski (Portugalia)             | Model językowy                                    |
+| `ro-RO` | Rumuński (Rumunia)                | Model językowy                                    |
 | `ru-RU` | Rosyjski (Rosja)                  | Model akustyczny<br>Model językowy                  |
+| `sk-SK` | Słowacki (Słowacja)                 | Model językowy                                    |
+| `sl-SI` | Słoweński (Słowenia)              | Model językowy                                    |
 | `sv-SE` | Szwedzki (Szwecja)                  | Model językowy                                    |
 | `ta-IN` | Tamilski (Indie)                     | Model językowy                                    |
 | `te-IN` | Telugu (Indie)                    | Model językowy                                    |
@@ -146,8 +159,8 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 | `fr-FR` | Francuski (Francja)                 | Kobiety | `fr-FR-DeniseNeural`     | Ogólne |
 | `hi-IN` | Hindi (Indie)                   | Kobiety | `hi-IN-SwaraNeural`      | Ogólne |
 | `it-IT` | Włoski (Włochy)                 | Kobiety | `it-IT-ElsaNeural`       | Ogólne |
-| `ja-JP` | Japoński                        | Kobiety | `ja-JP-NanamiNeural`     | Ogólne |
-| `ko-KR` | Koreański                          | Kobiety | `ko-KR-SunHiNeural`      | Ogólne |
+| `ja-JP` | japoński                        | Kobiety | `ja-JP-NanamiNeural`     | Ogólne |
+| `ko-KR` | koreański                          | Kobiety | `ko-KR-SunHiNeural`      | Ogólne |
 | `nb-NO` | Norweski                       | Kobiety | `nb-NO-IselinNeural`     | Ogólne |
 | `nl-NL` | Holenderski (Netherland)              | Kobiety | `nl-NL-ColetteNeural`    | Ogólne |
 | `pl-PL` | Polski (Polska)                 | Kobiety | `pl-PL-ZofiaNeural`      | Ogólne |
@@ -226,10 +239,10 @@ Ponad 75 standardowych głosów jest dostępnych w ponad 45 językach i ustawien
 | `id-ID` | Indonezyjski | Mężczyźni | "ID-ID-andika" |
 | `it-IT` | Włoski | Mężczyźni |  "IT-Cosimo-Apollo" |
 |  |  | Kobiety |  "IT-LuciaRUS" |
-| `ja-JP` | Japoński | Kobiety |  "ja-JP-Ayumi-Apollo" |
+| `ja-JP` | japoński | Kobiety |  "ja-JP-Ayumi-Apollo" |
 |  |  | Mężczyźni | "ja-JP-Ichiro-Apollo" |
 |  |  | Kobiety |  "ja-JP-HarukaRUS" |
-| `ko-KR` | Koreański | Kobiety | "ko-KR-HeamiRUS" |
+| `ko-KR` | koreański | Kobiety | "ko-KR-HeamiRUS" |
 | `ms-MY` | Malajski | Mężczyźni |  "MS-MY-Rizwan" |
 | `nb-NO` | Norweski | Kobiety |  "NB-NO-HuldaRUS" |
 | `nl-NL` | Niderlandzki | Kobiety |  "NL-NL-HannaRUS" |
@@ -312,12 +325,12 @@ Interfejs API **tłumaczenia mowy** obsługuje różne języki dla tłumaczenia 
 | Indonezyjski              | `id`          |
 | Irlandzki                   | `ga`          |
 | Włoski                 | `it`          |
-| Japoński                | `ja`          |
+| japoński                | `ja`          |
 | Kannada                 | `kn`          |
 | Kiswahili               | `sw`          |
 | Klingon                 | `tlh-Latn`    |
 | Klingon (plqaD)         | `tlh-Piqd`    |
-| Koreański                  | `ko`          |
+| koreański                  | `ko`          |
 | Łotewski                 | `lv`          |
 | Litewski              | `lt`          |
 | Madagaskaru                | `mg`          |
@@ -371,7 +384,7 @@ Zapoznaj się z poniższą tabelą dla obsługiwanych języków dla różnych ro
 |it-IT    |Włoski|    nie dotyczy    |tak|    tak|
 |es-ES|    hiszpański (Hiszpania)    |nie dotyczy    |tak|    tak|
 |es — MX    |Hiszpański (Meksyk)    |nie dotyczy|    tak|    tak|
-|ja-JP|    Japoński    |nie dotyczy    |tak    |tak|
+|ja-JP|    japoński    |nie dotyczy    |tak    |tak|
 |pt-BR|    Portugalski (Brazylia)|    nie dotyczy|    tak|    tak|
 
 ## <a name="next-steps"></a>Następne kroki

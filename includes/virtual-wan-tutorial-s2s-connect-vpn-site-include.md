@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "75450834"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606307"
 ---
 1. Wybierz pozycję **Połącz Lokacje sieci VPN** , aby otworzyć stronę **łączenie witryn** .
 
-    ![łączone](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "nawiązywania połączenia")
+    ![Zrzut ekranu przedstawia okienko połączone Lokacje dla KONCENTRATORa wirtualnego gotowego do Klucz wstępny i skojarzonych ustawień.](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "nawiązywania połączenia")
 
    Wypełnij następujące pola:
 
@@ -28,7 +28,7 @@ ms.locfileid: "75450834"
 2. Wybierz pozycję **Połącz**.
 3. W ciągu kilku minut lokacja będzie zawierać stan połączenia i łączności.
 
-   ![Stany](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![Zrzut ekranu przedstawia stan połączenia lokacji i łączności z lokacją V P N.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
    **Stan połączenia:** Jest to stan zasobu platformy Azure służący do nawiązywania połączenia, które łączy lokację sieci VPN z bramą sieci VPN centrum platformy Azure. Po pomyślnym zakończeniu tej operacji płaszczyzny kontroli usługa Azure VPN Gateway i lokalne urządzenie sieci VPN przejdzie do ustanowienia łączności.
 

@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130154"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604686"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalowanie głównego serwera docelowego z systemem Linux na potrzeby powrotu po awarii
 Po przełączeniu maszyn wirtualnych w tryb failover na platformę Azure można wrócić do trybu failover maszyn wirtualnych w lokacji lokalnej. Aby powrócić po awarii, należy ponownie włączyć ochronę maszyny wirtualnej z platformy Azure do lokacji lokalnej. W przypadku tego procesu wymagany jest lokalny główny serwer docelowy do odbierania ruchu. 
@@ -48,16 +48,7 @@ Utwórz główny obiekt docelowy zgodnie z następującymi wskazówkami dotyczą
 - **Rozmiar dysku systemu operacyjnego**: 100 GB lub więcej (aby zainstalować system operacyjny)
 - **Dodatkowy rozmiar dysku dla dysku przechowywania**: 1 TB
 - **Rdzenie procesora CPU**: 4 rdzenie lub więcej
-
-Obsługiwane są następujące jądra Ubuntu.
-
-
-|Seria jądra  |Obsługa do  |
-|---------|---------|
-|4.4      |4.4.0-81-Generic         |
-|4,8      |4.8.0-56-generyczny         |
-|4,10     |4.10.0-24 — ogólne        |
-
+- **Jądro**: 4,16. *
 
 ## <a name="deploy-the-master-target-server"></a>Wdróż główny serwer docelowy
 

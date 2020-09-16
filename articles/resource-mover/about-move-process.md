@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
-ms.openlocfilehash: c397f0b6a203c39961bc2f6299eefc7e003df8c6
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 4d520f51717aa11dba55697d63852b17e0ba9cf0
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653584"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604499"
 ---
 # <a name="about-the-move-process"></a>Informacje o procesie przenoszenia
 
@@ -66,7 +66,7 @@ W trakcie procesu przenoszenia może pojawić się monit o zweryfikowanie zależ
 
 ### <a name="remove-resources"></a>Usuwanie zasobów
 
-Jeśli nie chcesz przenosić zasobu, możesz go usunąć z kolekcji Przenieś. Ogólnie rzecz biorąc, zasób jest usuwany z kolekcji wraz ze wszystkimi skojarzonymi akcjami lub obiektami, takimi jak replikacja lub przechowywane szablony. Dokładnie to, co się dzieje po usunięciu zasobu, zależy od typu zasobu i stanu zasobu po jego usunięciu.  
+Jeśli nie chcesz przenosić zasobu, możesz go usunąć z kolekcji Przenieś. Ogólnie rzecz biorąc, zasób jest usuwany z kolekcji wraz ze wszystkimi skojarzonymi akcjami lub obiektami, takimi jak replikacja lub przechowywane szablony. Dokładnie to, co się dzieje po usunięciu zasobu, zależy od typu zasobu i stanu zasobu po jego usunięciu. [Dowiedz się więcej](remove-move-resources.md).
 
 ## <a name="move-impact"></a>Wpływ przenoszenia
 

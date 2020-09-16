@@ -2,16 +2,19 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 2a8937debc38dab4b2d38b56d1c6a9c3edcbe2a7
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8356acbf2e048ba62676f296be2ac14add445df2
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508577"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605022"
 ---
-W tym artykule pokazano, jak rozpocząć pracę przy użyciu Custom Visionj biblioteki klienta z Node.js, aby skompilować model klasyfikacji obrazów. Po jego utworzeniu można dodawać Tagi, przekazywać obrazy, uczenie projektu, uzyskać opublikowany adres punktu końcowego prognozowanego projektu i używać punktu końcowego do programistycznego testowania obrazu. Użyj tego przykładu jako szablonu do utworzenia własnej aplikacji Node.js. Jeśli chcesz przejść przez proces tworzenia i używania modelu klasyfikacji _bez_ kodu, zobacz zamiast tego [wskazówki dotyczące przeglądarki](../../getting-started-build-a-classifier.md).
+Ten przewodnik zawiera instrukcje i przykładowy kod ułatwiający rozpoczęcie pracy przy użyciu Custom Visionj biblioteki klienta Node.js do tworzenia modelu klasyfikacji obrazów. Utworzysz projekt, dodasz Tagi, nauczysz projekt, a następnie użyjesz w adresie URL punktu końcowego przewidywania projektu do programistycznego testowania. Użyj tego przykładu jako szablonu do tworzenia własnej aplikacji rozpoznawania obrazu.
+
+> [!NOTE]
+> Jeśli chcesz skompilować i przeszkolić model klasyfikacji _bez_ pisania kodu, zamiast tego zapoznaj się ze [wskazówkami w przeglądarce](../../getting-started-build-a-classifier.md) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -21,7 +24,7 @@ W tym artykule pokazano, jak rozpocząć pracę przy użyciu Custom Visionj bibl
 
 ## <a name="install-the-custom-vision-client-library"></a>Zainstaluj bibliotekę kliencką Custom Vision
 
-Aby zainstalować bibliotekę klienta usługi Custom Vision dla Node.js, uruchom następujące polecenie w programie PowerShell:
+Aby napisać aplikację do analizy obrazów przy użyciu Custom Vision dla Node.js, potrzebne są pakiety Custom Vision NPM. Aby je zainstalować, uruchom następujące polecenie w programie PowerShell:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
@@ -36,7 +39,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 Utwórz nowy plik o nazwie *sample.js* w preferowanym katalogu projektu.
 
-### <a name="create-the-custom-vision-service-project"></a>Tworzenie projektu Custom Vision Service
+## <a name="create-the-custom-vision-project"></a>Tworzenie projektu Custom Vision
 
 Dodaj następujący kod do skryptu, aby utworzyć nowy projekt Custom Vision Service. Wstaw klucze subskrypcji do odpowiednich definicji i ustaw wartość ścieżki sampleDataRoot na ścieżkę folderu obrazu. Upewnij się, że wartość punktu końcowego jest zgodna z punktami końcowymi szkoleń i prognoz utworzonych w witrynie [Customvision.AI](https://www.customvision.ai/). Należy zauważyć, że różnica między tworzeniem wykrywania obiektów a projektem klasyfikacji obrazu jest domeną określoną **w wywołaniu elementu** .
 
@@ -66,7 +69,7 @@ const trainer = new TrainingApi.TrainingAPIClient(credentials, endPoint);
     const sampleProject = await trainer.createProject("Sample Project");
 ```
 
-### <a name="create-tags-in-the-project"></a>Tworzenie tagów w projekcie
+## <a name="create-tags-in-the-project"></a>Tworzenie tagów w projekcie
 
 Aby utworzyć tagi klasyfikacji dla projektu, dodaj następujący kod na końcu pliku *sample.js*:
 
@@ -75,7 +78,7 @@ Aby utworzyć tagi klasyfikacji dla projektu, dodaj następujący kod na końcu 
     const cherryTag = await trainer.createTag(sampleProject.id, "Japanese Cherry");
 ```
 
-### <a name="upload-and-tag-images"></a>Przekazywanie i Tagi obrazów
+## <a name="upload-and-tag-images"></a>Przekazywanie i Tagi obrazów
 
 Aby dodać przykładowe obrazy do projektu, po utworzeniu tagów wstaw następujący kod. Ten kod przekazuje każdy obraz z odpowiednim tagiem. Można przekazać do 64 obrazów w pojedynczej partii.
 
@@ -101,7 +104,7 @@ Aby dodać przykładowe obrazy do projektu, po utworzeniu tagów wstaw następuj
     await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-classifier-and-publish"></a>Uczenie klasyfikatora i publikowanie
+## <a name="train-and-publish-the-classifier"></a>Uczenie i publikowanie klasyfikatora
 
 Ten kod tworzy pierwszą iterację modelu predykcyjnego, a następnie publikuje tę iterację w punkcie końcowym przewidywania. Nazwa nadana do publikowanej iteracji może służyć do wysyłania żądań przewidywania. Iteracja nie jest dostępna w punkcie końcowym przewidywania do momentu opublikowania.
 
@@ -122,7 +125,7 @@ Ten kod tworzy pierwszą iterację modelu predykcyjnego, a następnie publikuje 
     await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Pobieranie i używanie opublikowanej iteracji w punkcie końcowym przewidywania
+## <a name="use-the-prediction-endpoint"></a>Korzystanie z punktu końcowego przewidywania
 
 Aby wysłać obraz do punktu końcowego przewidywania i uzyskać przewidywanie, dodaj na końcu pliku następujący kod:
 
@@ -175,3 +178,7 @@ Teraz dowiesz się, jak każdy krok procesu wykrywania obiektów można wykonać
 
 > [!div class="nextstepaction"]
 > [Testowanie i ponowne szkolenie modelu](../../test-your-model.md)
+
+* [Co to jest usługa Custom Vision?](../../overview.md)
+* [Dokumentacja referencyjna zestawu SDK (szkolenie)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
+* [Dokumentacja referencyjna zestawu SDK (przewidywania)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)

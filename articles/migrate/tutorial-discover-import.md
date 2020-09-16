@@ -1,34 +1,38 @@
 ---
-title: Odnajdywanie serwerów lokalnych przy użyciu zaimportowanego pliku CSV z oceną serwera Azure Migrate
+title: Ocenianie serwerów lokalnych przy użyciu zaimportowanego pliku CSV z oceną serwera Azure Migrate
 description: Opisuje sposób odnajdywania serwerów lokalnych na potrzeby migracji na platformę Azure przy użyciu zaimportowanego pliku CSV w ramach oceny serwera Azure Migrate
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 6526961df225e4f347216428141e8217043161df
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 743f18ce72e3f14fe54e0bbadff254ea03fc6278
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90064401"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604227"
 ---
-# <a name="tutorial-discover-servers-using-an-imported-csv-file"></a>Samouczek: odnajdywanie serwerów przy użyciu zaimportowanego pliku CSV
+# <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Samouczek: ocenianie serwerów przy użyciu zaimportowanego pliku CSV
 
 W ramach kursu migracji na platformę Azure można wykryć spisy i obciążenia lokalne. 
 
-W tym samouczku przedstawiono sposób odnajdywania lokalnych maszyn wirtualnych VMware za pomocą narzędzia do oceny serwera Azure Migrate:, przy użyciu zaimportowanego pliku wartości rozdzielanych przecinkami (CSV). 
+W tym samouczku pokazano, jak ocenić maszyny lokalne za pomocą narzędzia do oceny serwera Azure Migrate:, używając zaimportowanego pliku wartości rozdzielanych przecinkami (CSV). 
 
-W przypadku korzystania z pliku CSV nie trzeba konfigurować urządzenia Azure Migrate w celu odnajdywania serwerów. Możesz kontrolować dane, które udostępniasz w pliku, a większość danych jest opcjonalna. Ta metoda jest przydatna, jeśli:
+W przypadku korzystania z pliku CSV nie trzeba konfigurować urządzenia Azure Migrate w celu odnajdywania i oceniania serwerów. Możesz kontrolować dane, które udostępniasz w pliku, a większość danych jest opcjonalna. Ta metoda jest przydatna, jeśli:
 
 - Przed wdrożeniem urządzenia należy utworzyć szybką, początkową ocenę.
 - Nie można wdrożyć urządzenia Azure Migrate w organizacji.
 - Nie można udostępniać poświadczeń zezwalających na dostęp do serwerów lokalnych.
 - Ograniczenia zabezpieczeń uniemożliwiają zbieranie i wysyłanie danych zebranych przez urządzenie na platformę Azure.
 
+> [!NOTE]
+> Nie można migrować serwerów zaimportowanych przy użyciu pliku CSV.
+
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Skonfiguruj konto platformy Azure
-> * Skonfiguruj projekt Azure Migrate.
+> * Konfigurowanie projektu Azure Migrate
 > * Przygotuj plik CSV
-> * Zaimportuj plik.
+> * Zaimportuj plik
+> * Ocenianie serwerów
 
 > [!NOTE]
 > Samouczki przedstawiają najszybszą ścieżkę w celu wypróbowania scenariusza i używają opcji domyślnych, tam gdzie to możliwe. 
@@ -43,7 +47,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prepare-an-azure-user-account"></a>Przygotowywanie konta użytkownika platformy Azure
 
-Aby utworzyć projekt Azure Migrate i zarejestrować urządzenie Azure Migrate, musisz mieć konto z:
+Aby utworzyć projekt Azure Migrate, musisz mieć konto z:
 - Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure.
 - Uprawnienia do rejestrowania aplikacji Azure Active Directory.
 
@@ -73,7 +77,7 @@ Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicie
 
 ## <a name="set-up-a-project"></a>Konfigurowanie projektu
 
-Skonfiguruj nowy projekt Azure Migrate.
+Skonfiguruj nowy projekt Azure Migrate, jeśli go nie masz.
 
 1. W witrynie Azure Portal > **Wszystkie usługi** znajdź pozycję **Azure Migrate**.
 2. W obszarze **Usługi** wybierz pozycję **Azure Migrate**.
@@ -113,11 +117,11 @@ Poniższa tabela zawiera podsumowanie pól plików do wypełnienia:
 
 **Nazwa pola** | **Wypełnione** | **Szczegóły**
 --- | --- | ---
-**Nazwa serwera** | Tak | Zalecamy określenie w pełni kwalifikowanej nazwy domeny (FQDN).
+**Nazwa serwera** | Yes | Zalecamy określenie w pełni kwalifikowanej nazwy domeny (FQDN).
 **Adres IP** | Nie | Adres serwera.
-**Rdzenie** | Tak | Liczba rdzeni procesora przypisanych do serwera.
-**Pamięć** | Tak | Całkowita ilość pamięci RAM w MB przypisana do serwera.
-**Nazwa systemu operacyjnego** | Tak | System operacyjny serwera. <br/> Nazwy systemu operacyjnego, które pasują lub zawierają nazwy na [tej](#supported-operating-system-names) liście, są rozpoznawane przez ocenę.
+**Rdzenie** | Yes | Liczba rdzeni procesora przypisanych do serwera.
+**Pamięć** | Yes | Całkowita ilość pamięci RAM w MB przypisana do serwera.
+**Nazwa systemu operacyjnego** | Yes | System operacyjny serwera. <br/> Nazwy systemu operacyjnego, które pasują lub zawierają nazwy na [tej](#supported-operating-system-names) liście, są rozpoznawane przez ocenę.
 **Wersja systemu operacyjnego** | Nie | Wersja systemu operacyjnego serwera.
 **Architektura systemu operacyjnego** | Nie | Architektura systemu operacyjnego serwera <br/> Prawidłowe wartości to: x64, x86, amd64, 32-bitowa lub 64-bitowy
 **Liczba dysków** | Nie | Niepotrzebna, jeśli podano szczegółowe szczegóły dysku.
@@ -157,7 +161,7 @@ Na przykład aby określić wszystkie pola dla drugiego dysku, Dodaj następują
 
 ## <a name="import-the-server-information"></a>Importuj informacje o serwerze
 
-Po dodaniu informacji do szablonu CSV zaimportuj serwery do oceny serwera.
+Po dodaniu informacji do szablonu CSV Zaimportuj plik CSV do oceny serwera.
 
 1. W Azure Migrate w obszarze **odnajdywanie maszyn**przejdź do ukończonego szablonu.
 2. Wybierz pozycję **Importuj**.
@@ -169,7 +173,7 @@ Po dodaniu informacji do szablonu CSV zaimportuj serwery do oceny serwera.
         1. Pobierz plik CSV, który zawiera teraz szczegóły błędu.
         1. Przejrzyj błędy i Rozwiąż je w razie potrzeby. 
         1. Ponownie Przekaż zmodyfikowany plik.
-4. Po **zakończeniu**stanu importu informacje o serwerze zostały zaimportowane.
+4. Po **zakończeniu**stanu importu informacje o serwerze zostały zaimportowane. Odśwież, jeśli proces importowania nie zostanie ukończony.
 
 ## <a name="update-server-information"></a>Aktualizowanie informacji o serwerze
 

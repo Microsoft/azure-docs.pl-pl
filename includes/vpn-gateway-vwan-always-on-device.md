@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 594ad352d5fd8431ffaf6d681c891c967cf9d32a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371766"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606893"
 ---
 Aby można było pomyślnie ustanowić tunel urządzenia, muszą zostać spełnione następujące wymagania:
 
@@ -123,18 +123,18 @@ Po skonfigurowaniu bramy sieci wirtualnej i zainstalowaniu certyfikatu klienta w
    PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
+   ![Zrzut ekranu przedstawia okno wiersza polecenia z poleceniem umożliwiającym uruchomienie 64-bitowej wersji programu PowerShell.](./media/vpn-gateway-vwan-always-on-device/powershell.png)
 1. W programie PowerShell przejdź do folderu, w którym znajdują się **devicecert.ps1** i **VPNProfile.xml** , i uruchom następujące polecenie:
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+   ![Zrzut ekranu przedstawia okno programu PowerShell z uruchomioną MachineCertTest za pomocą skryptu devicesert.](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
 1. Uruchom **Rasphone**.
 
-   ![pliku](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+   ![Zrzut ekranu przedstawia okno dialogowe uruchamiania z wybranym programem Rasphone.](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
 1. Wyszukaj wpis **MachineCertTest** , a następnie kliknij przycisk **Połącz**.
 
-   ![Połącz](./media/vpn-gateway-vwan-always-on-device/connect.png)
+   ![Zrzut ekranu przedstawia okno dialogowe połączenia sieciowe z wybranym MachineCertTest i przycisk Połącz.](./media/vpn-gateway-vwan-always-on-device/connect.png)
 1. Jeśli połączenie zakończy się pomyślnie, należy ponownie uruchomić komputer. Tunel zostanie automatycznie nawiązane.

@@ -12,22 +12,22 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1cce42cdb63fcfcb9a5841f2f2199daf2bb92304
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285904"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604176"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
 
-Duże organizacje, które podkreślają zabezpieczenia, chcą przejść do usług w chmurze, takich jak Office 365, ale muszą wiedzieć, że ich użytkownicy mają dostęp tylko do zatwierdzonych zasobów. Tradycyjnie firmy ograniczają nazwy domen lub adresy IP, gdy chcą zarządzać dostępem. Takie podejście kończy się niepowodzeniem na świecie, w którym aplikacje SaaS (Software as a Service) są hostowane w chmurze publicznej, działające na nazwach udostępnionych domen, takich jak [Outlook.Office.com](https://outlook.office.com/) i [login.microsoftonline.com](https://login.microsoftonline.com/). Zablokowanie tych adresów uniemożliwi użytkownikom uzyskiwanie dostępu do programu Outlook w sieci Web, a nie tylko ograniczanie ich do zatwierdzonych tożsamości i zasobów.
+Duże organizacje, które podkreślają zabezpieczenia, chcą przejść do usług w chmurze, takich jak Microsoft 365, ale muszą mieć pewność, że użytkownicy mają dostęp tylko do zatwierdzonych zasobów. Tradycyjnie firmy ograniczają nazwy domen lub adresy IP, gdy chcą zarządzać dostępem. Takie podejście kończy się niepowodzeniem na świecie, w którym aplikacje SaaS (Software as a Service) są hostowane w chmurze publicznej, działające na nazwach udostępnionych domen, takich jak [Outlook.Office.com](https://outlook.office.com/) i [login.microsoftonline.com](https://login.microsoftonline.com/). Zablokowanie tych adresów uniemożliwi użytkownikom uzyskiwanie dostępu do programu Outlook w sieci Web, a nie tylko ograniczanie ich do zatwierdzonych tożsamości i zasobów.
 
-Rozwiązanie Azure Active Directory (Azure AD) do tego wezwania jest funkcją z ograniczeniami dzierżawy. Ograniczenia dotyczące dzierżawców pozwalają organizacjom kontrolować dostęp do aplikacji w chmurze SaaS w oparciu o dzierżawę usługi Azure AD, której aplikacje używają do logowania jednokrotnego. Na przykład możesz chcieć zezwolić na dostęp do aplikacji pakietu Office 365 w organizacji, jednocześnie uniemożliwiając dostęp do wystąpień innych organizacji tych samych aplikacji.  
+Rozwiązanie Azure Active Directory (Azure AD) do tego wezwania jest funkcją z ograniczeniami dzierżawy. Ograniczenia dotyczące dzierżawców pozwalają organizacjom kontrolować dostęp do aplikacji w chmurze SaaS w oparciu o dzierżawę usługi Azure AD, której aplikacje używają do logowania jednokrotnego. Na przykład możesz chcieć zezwolić na dostęp do Microsoft 365 aplikacji w organizacji, jednocześnie uniemożliwiając dostęp do wystąpień innych organizacji tych samych aplikacji.  
 
 W przypadku ograniczeń dzierżawy organizacje mogą określić listę dzierżawców, do których użytkownicy mają prawo dostępu. Usługa Azure AD udziela dostępu tylko do tych dozwolonych dzierżawców.
 
-Ten artykuł koncentruje się na ograniczeniach dzierżawy dla pakietu Office 365, ale ta funkcja powinna współpracować z dowolną aplikacją SaaS w chmurze, która korzysta z nowoczesnego protokołu uwierzytelniania z usługą Azure AD w celu logowania jednokrotnego. Jeśli używasz aplikacji SaaS z inną dzierżawą usługi Azure AD z dzierżawy używanej przez pakiet Office 365, upewnij się, że wszystkie wymagane dzierżawy są dozwolone. Aby uzyskać więcej informacji na temat aplikacji w chmurze SaaS, zobacz Portal [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
+Ten artykuł koncentruje się na ograniczeniach dzierżawy dla Microsoft 365, ale funkcja powinna współpracować z dowolną aplikacją w chmurze SaaS, która korzysta z nowoczesnego protokołu uwierzytelniania z usługą Azure AD w celu logowania jednokrotnego. Jeśli używasz aplikacji SaaS z inną dzierżawą usługi Azure AD z dzierżawy używanej przez Microsoft 365, upewnij się, że wszystkie wymagane dzierżawy są dozwolone. Aby uzyskać więcej informacji na temat aplikacji w chmurze SaaS, zobacz Portal [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -37,11 +37,11 @@ Ogólne rozwiązanie składa się z następujących składników:
 
 2. **Infrastruktura lokalnego serwera proxy**: ta infrastruktura jest urządzeniem serwera proxy z możliwością inspekcji Transport Layer Security (TLS). Musisz skonfigurować serwer proxy, aby wstawić nagłówek zawierający listę dozwolonych dzierżawców do ruchu przeznaczonego dla usługi Azure AD.
 
-3. **Oprogramowanie klienckie**: aby obsługiwać ograniczenia dzierżawy, oprogramowanie klienckie musi żądać tokenów bezpośrednio z usługi Azure AD, dzięki czemu infrastruktura serwera proxy może przechwytywać ruch. Aplikacje pakietu Office 365 oparte na przeglądarce obsługują obecnie ograniczenia dzierżawy, ponieważ klienci pakietu Office korzystający z nowoczesnego uwierzytelniania (na przykład OAuth 2,0).
+3. **Oprogramowanie klienckie**: aby obsługiwać ograniczenia dzierżawy, oprogramowanie klienckie musi żądać tokenów bezpośrednio z usługi Azure AD, dzięki czemu infrastruktura serwera proxy może przechwytywać ruch. Microsoft 365 aplikacje oparte na przeglądarce obecnie obsługują ograniczenia dzierżawy, ponieważ klienci pakietu Office korzystający z nowoczesnego uwierzytelniania (na przykład OAuth 2,0).
 
-4. **Nowoczesne uwierzytelnianie**: usługi w chmurze muszą używać nowoczesnego uwierzytelniania, aby używać ograniczeń dzierżawy i blokować dostęp do wszystkich niedozwolonych dzierżawców. Aby domyślnie używać nowoczesnych protokołów uwierzytelniania, należy skonfigurować usługi w chmurze pakietu Office 365. Aby uzyskać najnowsze informacje na temat obsługi nowoczesnego uwierzytelniania w pakiecie Office 365, Przeczytaj [zaktualizowany nowoczesne uwierzytelnianie pakietu Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Nowoczesne uwierzytelnianie**: usługi w chmurze muszą używać nowoczesnego uwierzytelniania, aby używać ograniczeń dzierżawy i blokować dostęp do wszystkich niedozwolonych dzierżawców. Aby korzystać z nowoczesnych protokołów uwierzytelniania, należy skonfigurować usługi Microsoft 365 w chmurze. Aby uzyskać najnowsze informacje na temat Microsoft 365 obsługi nowoczesnego uwierzytelniania, Przeczytaj [zaktualizowany nowoczesne uwierzytelnianie pakietu Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-Na poniższym diagramie przedstawiono przepływ ruchu wysokiego poziomu. Ograniczenia dzierżawy wymagają inspekcji protokołu TLS tylko w ruchu do usługi Azure AD, a nie do usług w chmurze pakietu Office 365. Ta różnica jest ważna, ponieważ ilość ruchu sieciowego do uwierzytelniania w usłudze Azure AD jest zwykle znacznie mniejsza niż ilość ruchu sieciowego do SaaS aplikacji, takich jak Exchange Online i SharePoint Online.
+Na poniższym diagramie przedstawiono przepływ ruchu wysokiego poziomu. Ograniczenia dzierżawy wymagają inspekcji protokołu TLS tylko w ruchu do usługi Azure AD, a nie do usług w chmurze Microsoft 365. Ta różnica jest ważna, ponieważ ilość ruchu sieciowego do uwierzytelniania w usłudze Azure AD jest zwykle znacznie mniejsza niż ilość ruchu sieciowego do SaaS aplikacji, takich jak Exchange Online i SharePoint Online.
 
 ![Przepływ ruchu związany z ograniczeniami dzierżawy — diagram](./media/tenant-restrictions/traffic-flow.png)
 
@@ -63,9 +63,9 @@ Aby włączyć ograniczenia dzierżawy za pomocą infrastruktury serwera proxy, 
 
 - Klienci muszą ufać łańcuchowi certyfikatów przedstawionym przez serwer proxy do komunikacji TLS. Na przykład jeśli używane są certyfikaty z wewnętrznej [infrastruktury kluczy publicznych (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) , certyfikat wewnętrznego wystawiania certyfikatu głównego urzędu certyfikacji musi być zaufany.
 
-- Ta funkcja jest uwzględniona w subskrypcjach pakietu Office 365, ale jeśli chcesz użyć ograniczeń dzierżawy do kontrolowania dostępu do innych aplikacji SaaS, wówczas wymagane są Azure AD — wersja Premium 1 licencji.
+- Ta funkcja jest uwzględniona w subskrypcjach Microsoft 365, ale jeśli chcesz użyć ograniczeń dzierżawy do kontrolowania dostępu do innych aplikacji SaaS, wówczas Azure AD — wersja Premium 1 licencje są wymagane.
 
-#### <a name="configuration"></a>Konfigurowanie
+#### <a name="configuration"></a>Konfiguracja
 
 Dla każdego żądania przychodzącego do login.microsoftonline.com, login.microsoft.com i login.windows.net, Wstaw dwa nagłówki HTTP: *ograniczanie dostępu do dzierżawców* i *ograniczanie dostępu do kontekstu*.
 
@@ -118,7 +118,7 @@ Podobnie jak w przypadku innych raportów w Azure Portal, można użyć filtrów
 - **Użytkownik**
 - **Aplikacja**
 - **Stan**
-- **Date**
+- **Data**
 - **Data (UTC)** (gdzie UTC jest uniwersalnym czasem koordynowanym)
 - **Metoda auth uwierzytelniania MFA (metoda uwierzytelniania wieloskładnikowego** )
 - **Szczegóły uwierzytelniania MFA (szczegóły uwierzytelniania wieloskładnikowego** )
@@ -129,16 +129,16 @@ Podobnie jak w przypadku innych raportów w Azure Portal, można użyć filtrów
 - **Lokalizacja**
 - **Identyfikator dzierżawy docelowej**
 
-## <a name="office-365-support"></a>Obsługa pakietu Office 365
+## <a name="microsoft-365-support"></a>Pomoc techniczna platformy Microsoft 365
 
-Aplikacje pakietu Office 365 muszą spełniać dwa kryteria, aby w pełni obsługiwać ograniczenia dzierżawy:
+Aplikacje Microsoft 365 muszą spełniać dwa kryteria, aby w pełni obsługiwać ograniczenia dzierżawy:
 
 1. Używany klient obsługuje nowoczesne uwierzytelnianie.
 2. Nowoczesne uwierzytelnianie jest włączone jako domyślny protokół uwierzytelniania dla usługi w chmurze.
 
 Zapoznaj się z [zaktualizowanym nowoczesnego uwierzytelniania pakietu office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) , aby uzyskać najnowsze informacje na temat tego, którzy klienci pakietu Office obecnie obsługują nowoczesne uwierzytelnianie. Ta strona zawiera również linki do instrukcji dotyczących włączania nowoczesnego uwierzytelniania dla konkretnych dzierżaw usługi Exchange Online i Skype dla firm Online. Usługi SharePoint online już domyślnie umożliwiają nowoczesne uwierzytelnianie.
 
-Aplikacje oparte na przeglądarce pakietu Office 365 (Portal Office, Yammer, witryny programu SharePoint, program Outlook w sieci Web i inne) obsługują obecnie ograniczenia dzierżawy. Klienci o szerokim zakresie (Outlook, Skype dla firm, Word, Excel, PowerPoint i innych) mogą wymuszać ograniczenia dzierżawy tylko w przypadku korzystania z nowoczesnego uwierzytelniania.  
+Microsoft 365 aplikacje oparte na przeglądarce (Portal Office, Yammer, witryny programu SharePoint, program Outlook w sieci Web i inne) obsługują obecnie ograniczenia dzierżawy. Klienci o szerokim zakresie (Outlook, Skype dla firm, Word, Excel, PowerPoint i innych) mogą wymuszać ograniczenia dzierżawy tylko w przypadku korzystania z nowoczesnego uwierzytelniania.  
 
 Klienci programu Outlook i Skype dla firm obsługujący nowoczesne uwierzytelnianie mogą nadal używać starszych protokołów wobec dzierżawców, w których nowoczesne uwierzytelnianie nie jest włączone, co skutecznie pomija ograniczenia dzierżawy. Ograniczenia dzierżawy mogą blokować aplikacje korzystające ze starszych protokołów, jeśli kontaktuje się z login.microsoftonline.com, login.microsoft.com lub login.windows.net podczas uwierzytelniania.
 

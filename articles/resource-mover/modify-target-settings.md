@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: c58fdd38c4221c03778b2c769620bf7911aaded8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670524"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604482"
 ---
 # <a name="modify-target-settings"></a>Modyfikowanie ustawień docelowych
 
@@ -42,10 +42,10 @@ Ustawienia konfiguracji, które można modyfikować, są zestawione w tabeli.
 **Zasoby sieciowe** | Opcje sieci wirtualnych (sieci wirtualnych)/Network grupy zabezpieczeń/interfejsy sieciowe:<br/><br/> — Utwórz nowy zasób o tej samej nazwie w regionie docelowym.<br/><br/> — Utwórz nowy zasób o innej nazwie w regionie docelowym.<br/><br/> — Użyj istniejącego zasobu sieciowego w regionie docelowym.<br/><br/> W przypadku utworzenia nowego zasobu docelowego, z wyjątkiem modyfikowanych ustawień, przypisane są te same ustawienia co zasób źródłowy.
 **Nazwa publicznego adresu IP** | Określ nazwę.
 **Jednostka SKU publicznego adresu IP** | Określ [jednostkę SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Strefa publicznego adresu IP** | Określ [strefę](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) dla standardowych publicznych adresów IP.<br/><br/> Jeśli chcesz, aby ta strefa była nadmiarowa, wprowadź ją jako **regionalną**.
+**Strefa publicznego adresu IP** | Określ [strefę](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) dla standardowych publicznych adresów IP.<br/><br/> Jeśli chcesz, aby ta strefa była nadmiarowa, wprowadź ją jako **nadmiarową strefę**.
 **Nazwa modułu równoważenia obciążenia** | Określ nazwę.
 **Jednostka SKU modułu równoważenia obciążenia** | Podstawowa lub standardowa. Zalecamy używanie standardu.
-**Strefa modułu równoważenia obciążenia** | Określ strefę modułu równoważenia obciążenia. <br/><br/> Jeśli chcesz, aby ta strefa była nadmiarowa, wprowadź ją jako **regionalną**.
+**Strefa modułu równoważenia obciążenia** | Określ strefę modułu równoważenia obciążenia. <br/><br/> Jeśli chcesz, aby ta strefa była nadmiarowa, wprowadź ją jako **nadmiarową strefę**.
 **Zależności zasobów** | Opcje dla każdej zależności:<br/><br/>-Zasób używa źródłowych zasobów zależnych, które zostaną przeniesione do regionu docelowego.<br/><br/> -Zasób używa różnych zasobów zależnych znajdujących się w regionie docelowym. W takim przypadku można wybrać spośród podobnych zasobów w regionie docelowym.
 
 ### <a name="edit-vm-target-settings"></a>Edytuj ustawienia elementu docelowego maszyny wirtualnej

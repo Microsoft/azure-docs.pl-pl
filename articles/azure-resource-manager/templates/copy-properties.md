@@ -2,17 +2,19 @@
 title: Definiowanie wielu wystąpień właściwości
 description: Użyj operacji kopiowania w szablonie Azure Resource Manager, aby wykonać iterację wielokrotnie podczas tworzenia właściwości w zasobie.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 61122b01889da832a73f729833ab0af676904d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/15/2020
+ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678464"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605247"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteracja właściwości w szablonach ARM
 
-W tym artykule pokazano, jak utworzyć więcej niż jedno wystąpienie właściwości w szablonie Azure Resource Manager (ARM). Dodając element **copy** do sekcji Właściwości zasobu w szablonie, można dynamicznie ustawić liczbę elementów dla właściwości podczas wdrażania. Należy również unikać powtarzania składni szablonu.
+W tym artykule pokazano, jak utworzyć więcej niż jedno wystąpienie właściwości w szablonie Azure Resource Manager (szablon ARM). Dodając element **copy** do sekcji Właściwości zasobu w szablonie, można dynamicznie ustawić liczbę elementów dla właściwości podczas wdrażania. Należy również unikać powtarzania składni szablonu.
+
+Można używać tylko kopiowania z zasobami najwyższego poziomu, nawet w przypadku stosowania kopiowania do właściwości. Aby dowiedzieć się więcej na temat zmiany zasobu podrzędnego z zasobem najwyższego poziomu, zobacz [iteracja zasobu podrzędnego](copy-resources.md#iteration-for-a-child-resource).
 
 Możesz również używać kopiowania z [zasobami](copy-resources.md), [zmiennymi](copy-variables.md)i [wyjściami](copy-outputs.md).
 

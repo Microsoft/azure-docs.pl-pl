@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2c309340155bc626d4da94d74aee9be51bde510
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75928231"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606646"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Tworzenie przestrzeni nazw w witrynie Azure Portal
 Aby rozpocząć korzystanie z obsługi wiadomości usługi Service Bus na platformie Azure, musisz najpierw utworzyć przestrzeń nazw o nazwie, która jest unikatowa w obrębie platformy Azure. Przestrzeń nazw zapewnia kontener zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
 
 Aby utworzyć przestrzeń nazw:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 2. W lewym okienku nawigacyjnym portalu wybierz pozycję **+ Utwórz zasób**, a następnie wybierz pozycje **Integracja** i **Service Bus**.
 
     ![Utwórz zasób -> Integracja -> Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
@@ -33,7 +33,7 @@ Aby utworzyć przestrzeń nazw:
     4. W polu **Subskrypcja** wybierz subskrypcję platformy Azure, w której ma zostać utworzona przestrzeń nazw.
     5. W polu **Grupa zasobów** wybierz istniejącą grupę zasobów, w której znajdzie się przestrzeń nazw, lub utwórz nową.      
     6. W polu **Lokalizacja** wybierz region, w którym powinna być hostowana przestrzeń nazw.
-    7. Wybierz pozycję **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces inicjowania obsługi administracyjnej zasobów dla konta w systemie może potrwać kilka minut.
+    7. Wybierz przycisk **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces inicjowania obsługi administracyjnej zasobów dla konta w systemie może potrwać kilka minut.
    
         ![Create namespace](./media/service-bus-create-namespace-portal/create-namespace.png)
 4. Upewnij się, że przestrzeń nazw usługi Service Bus została pomyślnie wdrożona. Aby wyświetlić powiadomienia, wybierz **ikonę dzwonka (Alerty)** na pasku narzędzi. Wybierz **nazwę grupy zasobów** w powiadomieniu, jak pokazano na ilustracji. Zostanie wyświetlona grupa zasobów, która zawiera przestrzeń nazw usługi Service Bus.
@@ -53,10 +53,10 @@ Utworzenie nowej przestrzeni nazw powoduje automatyczne wygenerowanie początkow
 2. W oknie przestrzeni nazw kliknij pozycję **Zasady dostępu współdzielonego**.
 3. Na ekranie **Zasady dostępu współdzielonego** kliknij pozycję **RootManageSharedAccessKey**.
    
-    ![połączenia — informacje](./media/service-bus-create-namespace-portal/connection-info.png)
+    ![Zrzut ekranu przedstawia okno zasady dostępu współdzielonego z wyróżnionymi zasadami.](./media/service-bus-create-namespace-portal/connection-info.png)
 4. W oknie **Zasady: RootManageSharedAccessKey** kliknij przycisk kopiowania obok pozycji **Podstawowe parametry połączenia**, aby skopiować parametry połączenia do schowka w celu późniejszego użycia. Wklej tę wartość do Notatnika lub innej tymczasowej lokalizacji.
    
-    ![połączenie — parametry](./media/service-bus-create-namespace-portal/connection-string.png)
+    ![Zrzut ekranu przedstawia zasadę S A S o nazwie RootManageSharedAccessKey, która obejmuje klucze i parametry połączenia.](./media/service-bus-create-namespace-portal/connection-string.png)
 5. Powtórz poprzedni krok, kopiując i wklejając wartość pozycji **Klucz podstawowy** w lokalizacji tymczasowej do późniejszego użycia.
 
 <!--Image references-->

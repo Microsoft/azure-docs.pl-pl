@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 15b129db56a9c6854bc3c1f2814a8776ec39adc6
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1e88aac4209f7960b2589cf43f59ead4bd129134
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961571"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605077"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Obsługa stref dostępności dla środowisk App Service
 
@@ -29,11 +29,15 @@ O ile nie są stosowane kroki opisane w tym artykule, ILB środowisk ASE nie są
 
 Strefę środowisk ASE ILB można utworzyć w jednym z następujących regionów:
 
+- Australia Wschodnia
+- Brazil South
+- Kanada Środkowa
 - Central US
 - East US
 - Wschodnie stany USA 2
 - Wschodnie stany USA 2 (— EUAP)
 - Francja Środkowa 
+- Niemcy Środkowo-Zachodnie
 - Japan East
 - Europa Północna
 - West Europe

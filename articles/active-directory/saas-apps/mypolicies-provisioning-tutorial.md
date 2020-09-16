@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ea9a0e52ce424459b6c402eb136d06dd370bab7d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe85dfb39a9787376221cb9beeea11bec35293f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548049"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604465"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zasad dla automatycznego aprowizacji użytkowników
 
@@ -101,7 +101,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 4. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Karta aprowizacji](common/provisioning-automatic.png)
+    ![Karta aprowizacji automatyczna](common/provisioning-automatic.png)
 
 5. W sekcji **poświadczenia administratora** wprowadź `https://<myPoliciesCustomDomain>.mypolicies.com/scim` **adres URL dzierżawy** , gdzie `<myPoliciesCustomDomain>` jest domeną niestandardową dla zasad. Możesz pobrać domenę klienta moje zasady z adresu URL.
 Przykład: `<demo0-qa>` . mypolicies.com.
@@ -122,7 +122,18 @@ Przykład: `<demo0-qa>` . mypolicies.com.
 
 10. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do zasad moje zasady w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w zasadach moje zasady dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Mapowania użytkowników dla zasad](media/mypolicies-provisioning-tutorial/userattribute.png)
+   |Atrybut|Typ|
+   |---|---|
+   |userName|Ciąg|
+   |aktywne|Wartość logiczna|
+   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |Nazwa. imię|Ciąg|
+   |Nazwa. rodzina|Ciąg|
+   |Nazwa. sformatowana|Ciąg|
+   |externalId|Ciąg|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Tematy pomocy|
+
 
 11. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -147,7 +158,11 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 * moje zasady zawsze wymagają **nazwy użytkownika**, **adresu e-mail** i **externalid**.
 * moje zasady nie obsługują stałych usunięć dla atrybutów użytkownika.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="change-log"></a>Dziennik zmian
+
+* 09/15/2020 — dodano obsługę atrybutu "Country" dla użytkowników.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

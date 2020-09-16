@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 5582056f1bae2dbeb69a7d05044f055ff1394bd5
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244673"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604295"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Samouczek: używanie Custom Vision z urządzeniem IoT do zgłaszania Stanów wizualnych
 
@@ -52,7 +52,7 @@ Aplikacja alertów wizualnych IoT działa w pętli ciągłej, przełączając si
 * **Oczekiwanie na model szkolony**: w tym stanie aplikacja wywołuje interfejs API Custom Vision co sekundę, aby sprawdzić, czy projekt docelowy zawiera przeszkolone iteracje. Gdy go znajdzie, pobiera odpowiedni model ONNX do pliku lokalnego i przełącza do stanu **oceniania** .
 * **Ocenianie**: w tym stanie aplikacja używa systemu Windows ml do oceny pojedynczej ramki z kamery względem lokalnego modelu ONNX. Klasyfikacja obrazu z wynikiem jest wyświetlana na ekranie i wysyłana jako komunikat do IoT Hub. Aplikacja zostanie przechodzenia do trybu uśpienia dla jednej sekundy przed rozpoczęciem tworzenia nowego obrazu.
 
-## <a name="understand-the-code-structure"></a>Zrozumienie struktury kodu
+## <a name="examine-the-code-structure"></a>Badanie struktury kodu
 
 Poniższe pliki obsługują najważniejsze funkcje aplikacji.
 
@@ -98,13 +98,13 @@ Gdy aplikacja przechwytuje obrazy, należy uwidocznić kamerę w typach Stanów 
 
 ## <a name="train-the-custom-vision-model"></a>Uczenie modelu Custom Vision
 
-Po zakończeniu przechwytywania obrazów przez aplikację zostanie ona przekazana, a następnie przejdzie do stanu **oczekiwanie na przeszkolony model** . Na tym etapie należy przejść do [portalu Custom Vision](https://www.customvision.ai/) i skompilować model na podstawie nowych obrazów szkoleniowych. Poniższe animacje przedstawiają przykład tego procesu.
+Po zakończeniu przechwytywania obrazów przez aplikację zostanie ona przekazana, a następnie przejdzie do stanu **oczekiwanie na przeszkolony model** . Na tym etapie należy przejść do [witryny sieci web Custom Vision](https://www.customvision.ai/) i skompilować model na podstawie nowych obrazów szkoleniowych. Poniższe animacje przedstawiają przykład tego procesu.
 
 ![Animacja: tagowanie wielu obrazów bananów](./media/iot-visual-alerts-tutorial/labeling.gif)
 
 Aby powtórzyć ten proces z własnym scenariuszem:
 
-1. Zaloguj się do [portalu Custom Vision](http://customvision.ai).
+1. Zaloguj się do [witryny sieci web Custom Vision](http://customvision.ai).
 1. Znajdź projekt docelowy, który powinien teraz zawierać wszystkie obrazy szkoleniowe przekazane przez aplikację.
 1. Dla każdego stanu wizualizacji, który ma być identyfikowany, wybierz odpowiednie obrazy i ręcznie Zastosuj tag.
     * Na przykład jeśli chcesz rozróżnić puste pomieszczenie i pomieszczenie z innymi osobami, zalecamy tagowanie pięciu lub większej liczby obrazów osobom jako nowej klasy, **ludzi**i tagowania pięciu lub większej liczby obrazów bez osób jako znacznika **negatywnego** . Pomoże to rozróżnić model między dwoma stanami.
@@ -128,7 +128,7 @@ W dowolnym momencie można powtórzyć krok przekazywania obrazów szkoleniowych
 
 Jeśli aplikacja jest uruchamiana na urządzeniu i należy ponownie pobrać adres IP (w celu nawiązania połączenia zdalnego za pomocą [zdalnego klienta usługi Windows IoT](https://www.microsoft.com/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab)), można wywołać `GetIpAddress` metodę za pomocą IoT Hub.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń projekt Custom Vision, jeśli nie chcesz już go obsługiwać. W [witrynie sieci web Custom Vision](https://customvision.ai)przejdź do pozycji **projekty** i wybierz Kosz, który można obsłużyć w nowym projekcie.
 

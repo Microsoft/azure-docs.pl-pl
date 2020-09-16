@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e871d2c8e0fe00fa7db3144a787447163c82e62d
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: d4da9a819d7aa96992259112c75154b1651341ac
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629041"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604770"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspekcja danych usługi Custom Speech
 
@@ -24,9 +24,7 @@ ms.locfileid: "84629041"
 
 Custom Speech udostępnia narzędzia umożliwiające wizualne badanie jakości rozpoznawania modelu przez porównanie danych audio z odpowiednim wynikiem rozpoznawania. Z poziomu [portalu Custom Speech](https://speech.microsoft.com/customspeech)można odtworzyć załadowane audio i określić, czy podany wynik rozpoznawania jest poprawny. To narzędzie ułatwia sprawdzenie jakości modelu zamiany mowy na tekst linii bazowej firmy Microsoft, sprawdzenie przeszkolonego modelu niestandardowego lub porównanie transkrypcji przez dwa modele.
 
-W tym dokumencie dowiesz się, jak wizualnie zbadać jakość modelu przy użyciu przekazanych wcześniej danych szkoleniowych.
-
-Na tej stronie dowiesz się, jak wizualnie zbadać jakość linii bazowej tekstu i/lub modelu, który został przeszkolony przez firmę Microsoft. Do testowania zostaną użyte przekazane dane do karty **dane** .
+W tym dokumencie dowiesz się, jak wizualnie zbadać jakość linii bazowej tekstu i/lub modeli niestandardowych, które zostały przeszkolone. Dowiesz się również, jak za pomocą edytora transkrypcji online tworzyć i udoskonalać zestawy danych audio z etykietami.
 
 ## <a name="create-a-test"></a>Tworzenie testu
 
@@ -37,7 +35,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć test:
 3. Kliknij przycisk **Dodaj test**.
 4. Wybierz pozycję **Inspekcja jakości (dane audio)**. Nadaj testowi nazwę, opis i wybierz zestaw danych audio.
 5. Wybierz maksymalnie dwa modele, które chcesz przetestować.
-6. Kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **Utwórz**.
 
 Po pomyślnym utworzeniu testu można zobaczyć, jak model przekształca określony zestaw danych audio, lub Porównaj wyniki z dwóch modeli obok siebie.
 
@@ -51,13 +49,57 @@ Aby pomóc w sprawdzeniu porównania obok siebie, można przełączać różne t
 
 Testowanie modelu side-by-Side jest przydatne do sprawdzania, który model rozpoznawania mowy jest najlepszy dla aplikacji. Aby określić obiektywną miarę dokładności wymagającą uzyskanego audio, postępuj zgodnie z instrukcjami znajdującymi się w [ocenie dokładności](how-to-custom-speech-evaluate-data.md).
 
+## <a name="online-transcription-editor"></a>Edytor transkrypcji online
+
+Edytor transkrypcji online pozwala łatwo korzystać z transkrypcji audio w Custom Speech. Główne przypadki użycia edytora są następujące: 
+
+* Masz tylko dane audio, ale chcesz utworzyć dokładne zestawy danych audio + z oznaczeniem od nowa, aby użyć ich w szkoleniu modeli.
+* Masz już zestawy danych audio + z etykietami ludzkimi, ale występują błędy lub wady w transkrypcji. Edytor umożliwia szybkie modyfikowanie transkrypcji w celu uzyskania najlepszej dokładności szkolenia.
+
+Jedynym wymaganiem do korzystania z edytora transkrypcji jest przekazanie danych audio (tylko audio lub transkrypcja).
+
+### <a name="import-datasets-to-editor"></a>Importuj zestawy danych do edytora
+
+Aby zaimportować dane do edytora, najpierw przejdź do **Custom Speech > [Twój projekt] > Edytor**.
+
+![Karta edytora](media/custom-speech/custom-speech-editor-detail.png)
+
+Następnie wykonaj następujące kroki, aby zaimportować dane.
+
+1. Kliknij pozycję **Importuj dane**
+1. Utwórz nowe zestawy danych i nadaj im opis
+1. Wybierz pozycję zestawy danych. Obsługiwane jest wiele zaznaczeń i można wybrać tylko dane audio, a także dane audio + z etykietami personalnymi.
+1. W przypadku danych tylko audio można opcjonalnie użyć domyślnych modeli, aby automatycznie generować transkrypcję maszyn po zaimportowaniu do edytora
+1. Kliknij pozycję **Importuj**
+
+Po pomyślnym zaimportowaniu danych możesz kliknąć w zestawach i rozpocząć edycję.
+
+> [!TIP]
+> Możesz również zaimportować zestawy danych do edytora bezpośrednio, wybierając pozycję zestawy danych i klikając pozycję **Eksportuj do edytora** .
+
+### <a name="edit-transcription-by-listening-to-audio"></a>Edytuj transkrypcję, nasłuchiwanie na dźwięk
+
+Po pomyślnym przekazaniu danych kliknij każdą nazwę elementu, aby wyświetlić szczegóły danych. Na stronie szczegółów są wyświetlane wszystkie pliki w zestawie danych, a następnie można kliknąć w żądanym wypowiedź. Dla każdego wypowiedźu można odtworzyć dźwięk i sprawdzić transkrypcje oraz edytować transkrypcje, jeśli znajdziesz jakiekolwiek błędy wstawiania, usuwania lub podstawiania. Zapoznaj się z informacjami na [temat oceny danych](how-to-custom-speech-evaluate-data.md) , aby uzyskać więcej szczegółów na temat typów błędów.
+
+![Strona edytora](media/custom-speech/custom-speech-editor.png)
+
+Jeśli plik audio jest długi, zostanie automatycznie podzielony na mniejsze części. Można je edytować jeden z nich przy użyciu funkcji **poprzednie** i **obok pozycji** przechodzenie między stronami. Po dokonaniu edycji kliknij przycisk **Zapisz** .
+
+### <a name="export-datasets-from-the-editor"></a>Eksportowanie zestawów danych z edytora
+
+Aby wyeksportować zestawy danych z powrotem do karty **dane** , przejdź do strony Szczegóły danych, a następnie kliknij przycisk **Eksportuj** , aby wyeksportować wszystkie pliki jako nowy zestaw danych. Można również filtrować pliki według czasu ostatniego edytowania, czasów trwania audio itp., aby częściowo wybierać żądane pliki. 
+
+![Wyeksportowanie danych](media/custom-speech/custom-speech-editor-export.png)
+
+Pliki eksportowane do danych będą używane jako zestaw danych marki i nie wpłyną na żadne istniejące dane/szkolenia/jednostki testowe.
+
 ## <a name="next-steps"></a>Następne kroki
 
 - [Oceń dane](how-to-custom-speech-evaluate-data.md)
-- [Trenowanie modelu](how-to-custom-speech-train-model.md)
+- [Szkolenie modelu](how-to-custom-speech-train-model.md)
 - [Ulepszanie modelu](how-to-custom-speech-improve-accuracy.md)
 - [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Przygotuj dane testowe dla Custom Speech](how-to-custom-speech-test-data.md)

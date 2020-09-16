@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d662689d44bcdbd468c882de0679fd60c9ab4f4
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6b24bd190eac9cb6c29ceab6eb597d8d1c48f2ff
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640450"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605094"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Opracowywanie aplikacji biznesowych dla Azure Active Directory
-Ten przewodnik zawiera omówienie opracowywania aplikacji biznesowych (LoB) dla Azure Active Directory (AD). Zaznaczeni odbiorcy to Active Directory/Administratorzy globalni Office 365.
+Ten przewodnik zawiera omówienie opracowywania aplikacji biznesowych (LoB) dla Azure Active Directory (AD). Zaznaczeni odbiorcy to Active Directory/Microsoft 365 Administratorzy globalni.
 
 ## <a name="overview"></a>Omówienie
-Tworzenie aplikacji zintegrowanych z usługą Azure AD zapewnia użytkownikom w organizacji Logowanie jednokrotne za pomocą pakietu Office 365. Aplikacja w usłudze Azure AD zapewnia kontrolę nad zasadami uwierzytelniania aplikacji. Aby dowiedzieć się więcej o dostępie warunkowym i sposobach ochrony aplikacji za pomocą uwierzytelniania wieloskładnikowego (MFA), zobacz [Konfigurowanie reguł dostępu](../conditional-access/app-based-mfa.md).
+Tworzenie aplikacji zintegrowanych z usługą Azure AD zapewnia użytkownikom w organizacji Logowanie jednokrotne przy użyciu Microsoft 365. Aplikacja w usłudze Azure AD zapewnia kontrolę nad zasadami uwierzytelniania aplikacji. Aby dowiedzieć się więcej o dostępie warunkowym i sposobach ochrony aplikacji za pomocą uwierzytelniania wieloskładnikowego (MFA), zobacz [Konfigurowanie reguł dostępu](../conditional-access/app-based-mfa.md).
 
 Zarejestruj swoją aplikację, aby użyć Azure Active Directory. Zarejestrowanie aplikacji oznacza, że deweloperzy mogą używać usługi Azure AD do uwierzytelniania użytkowników i żądania dostępu do zasobów użytkowników, takich jak poczta e-mail, kalendarz i dokumenty.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: ce159bc61a1f21c52b8d182c1248ba1d436462da
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: dbfe18c84217c741f8dd64481901747d068fcdd3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640518"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604142"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Publikowanie aplikacji lokalnych dla użytkowników zdalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -29,7 +29,7 @@ Możliwość bezpiecznego dostępu do wewnętrznych aplikacji spoza sieci stało
 
 Wiele organizacji uważa, że są one w kontroli i są chronione, gdy zasoby znajdują się w granicach ich sieci firmowych. Jednak w dzisiejszej cyfrowej przestrzeni dyskowej ta granica została rozszerzona o zarządzane urządzenia przenośne i zasoby i usługi w chmurze. Teraz musisz zarządzać złożonością ochrony tożsamości użytkowników i danych przechowywanych na ich urządzeniach i aplikacjach.
 
-Być może korzystasz już z usługi Azure AD do zarządzania użytkownikami w chmurze, którzy muszą mieć dostęp do pakietu Office 365 i innych aplikacji SaaS, a także aplikacji sieci Web hostowanych lokalnie. Jeśli masz już usługę Azure AD, możesz użyć jej jako jednej płaszczyzny kontroli, aby zapewnić bezproblemowy i bezpieczny dostęp do aplikacji lokalnych. Może być też możliwe zamierzają przenoszenie do chmury. Jeśli tak, możesz rozpocząć podróż do chmury, implementując serwer proxy aplikacji i wykonując pierwszy krok w kierunku tworzenia silnej usługi Identity Foundation.
+Być może korzystasz już z usługi Azure AD do zarządzania użytkownikami w chmurze, którzy muszą mieć dostęp do Microsoft 365 i innych aplikacji SaaS, a także aplikacji sieci Web hostowanych lokalnie. Jeśli masz już usługę Azure AD, możesz użyć jej jako jednej płaszczyzny kontroli, aby zapewnić bezproblemowy i bezpieczny dostęp do aplikacji lokalnych. Może być też możliwe zamierzają przenoszenie do chmury. Jeśli tak, możesz rozpocząć podróż do chmury, implementując serwer proxy aplikacji i wykonując pierwszy krok w kierunku tworzenia silnej usługi Identity Foundation.
 
 Na poniższej liście przedstawiono niektóre elementy, które można włączyć przez zaimplementowanie serwera proxy aplikacji w scenariuszu hybrydowego współistnienia:
 
@@ -53,7 +53,7 @@ Wcześniej płaszczyzna kontroli służąca do ochrony zasobów wewnętrznych pr
 * Uwierzytelnianie użytkowników na serwerach sieci Web w sieci obwodowej
 * Obsługa dostępu do sieci VPN dla użytkowników zdalnych z dystrybucją i konfiguracją oprogramowania klienckiego sieci VPN. Ponadto Obsługa serwerów przyłączonych do domeny w strefie DMZ, które mogą być podatne na ataki zewnętrzne.
 
-W świecie współczesnym w chmurze usługa Azure AD najlepiej nadaje się do kontrolowania, kto i co to jest w Twojej sieci. Platforma Azure serwer proxy aplikacji usługi Azure AD integruje się z nowoczesnymi uwierzytelnianiem i opartymi na chmurze technologiami, takimi jak aplikacje SaaS i dostawcy tożsamości. Ta Integracja umożliwia użytkownikom dostęp do aplikacji z dowolnego miejsca. Serwer proxy aplikacji jest bardziej odpowiedni dla dzisiejszych, cyfrowych miejsc pracy, jest bardziej bezpieczny niż w przypadku rozwiązań VPN i zwrotnego serwera proxy i łatwiejszy do wdrożenia. Użytkownicy zdalni mogą uzyskiwać dostęp do aplikacji lokalnych w taki sam sposób, w jaki uzyskują dostęp do usługi O365 i innych aplikacji SaaS zintegrowanych z usługą Azure AD. Nie trzeba zmieniać ani aktualizować aplikacji, aby móc pracować z serwerem proxy aplikacji. Ponadto serwer proxy aplikacji nie wymaga otwierania połączeń przychodzących przez zaporę. Za pomocą serwera proxy aplikacji po prostu ustaw go i zapomnij.
+W świecie współczesnym w chmurze usługa Azure AD najlepiej nadaje się do kontrolowania, kto i co to jest w Twojej sieci. Platforma Azure serwer proxy aplikacji usługi Azure AD integruje się z nowoczesnymi uwierzytelnianiem i opartymi na chmurze technologiami, takimi jak aplikacje SaaS i dostawcy tożsamości. Ta Integracja umożliwia użytkownikom dostęp do aplikacji z dowolnego miejsca. Serwer proxy aplikacji jest bardziej odpowiedni dla dzisiejszych, cyfrowych miejsc pracy, jest bardziej bezpieczny niż w przypadku rozwiązań VPN i zwrotnego serwera proxy i łatwiejszy do wdrożenia. Użytkownicy zdalni mogą uzyskiwać dostęp do aplikacji lokalnych w taki sam sposób, w jaki uzyskują dostęp do firmy Microsoft i innych aplikacji SaaS zintegrowanych z usługą Azure AD. Nie trzeba zmieniać ani aktualizować aplikacji, aby móc pracować z serwerem proxy aplikacji. Ponadto serwer proxy aplikacji nie wymaga otwierania połączeń przychodzących przez zaporę. Za pomocą serwera proxy aplikacji po prostu ustaw go i zapomnij.
 
 ## <a name="the-future-of-remote-access"></a>Przyszłość dostępu zdalnego
 
@@ -72,7 +72,7 @@ Dzięki serwerowi proxy aplikacji usługa Azure AD śledzi użytkowników, któr
 
 ### <a name="an-overview-of-how-app-proxy-works"></a>Omówienie sposobu działania serwera proxy aplikacji
 
-Serwer proxy aplikacji jest usługą usługi Azure AD, którą konfigurujesz w Azure Portal. Umożliwia opublikowanie zewnętrznego publicznego adresu URL protokołu HTTP/HTTPS w chmurze platformy Azure, który łączy się z adresem URL wewnętrznego serwera aplikacji w organizacji. Te lokalne aplikacje sieci Web można zintegrować z usługą Azure AD w celu obsługi logowania jednokrotnego. Użytkownicy końcowi mogą następnie uzyskiwać dostęp do lokalnych aplikacji sieci Web w taki sam sposób, w jaki uzyskują dostęp do pakietu Office 365 i innych aplikacji SaaS.
+Serwer proxy aplikacji jest usługą usługi Azure AD, którą konfigurujesz w Azure Portal. Umożliwia opublikowanie zewnętrznego publicznego adresu URL protokołu HTTP/HTTPS w chmurze platformy Azure, który łączy się z adresem URL wewnętrznego serwera aplikacji w organizacji. Te lokalne aplikacje sieci Web można zintegrować z usługą Azure AD w celu obsługi logowania jednokrotnego. Użytkownicy końcowi mogą następnie uzyskiwać dostęp do lokalnych aplikacji sieci Web w taki sam sposób, w jaki uzyskują dostęp do Microsoft 365 i innych aplikacji SaaS.
 
 Składniki tej funkcji obejmują usługę serwera proxy aplikacji, która działa w chmurze, łącznik serwera proxy aplikacji, który jest lekkim agentem działającym na serwerze lokalnym i usługą Azure AD, który jest dostawcą tożsamości. Wszystkie trzy składniki współpracują ze sobą, aby zapewnić użytkownikowi możliwość logowania jednokrotnego w celu uzyskania dostępu do lokalnych aplikacji sieci Web.
 
@@ -179,7 +179,7 @@ Aby uzyskać więcej informacji na temat wybierania miejsca instalacji łącznik
 
 ## <a name="other-use-cases"></a>Inne przypadki użycia
 
-Do tego momentu firma Microsoft koncentruje się na używaniu serwera proxy aplikacji do publikowania aplikacji lokalnych na zewnątrz podczas włączania logowania jednokrotnego do wszystkich aplikacji w chmurze i lokalnych. Istnieją jednak inne przypadki użycia dla serwera proxy aplikacji, który jest cenny. Dostępne są następujące ustawienia:
+Do tego momentu firma Microsoft koncentruje się na używaniu serwera proxy aplikacji do publikowania aplikacji lokalnych na zewnątrz podczas włączania logowania jednokrotnego do wszystkich aplikacji w chmurze i lokalnych. Istnieją jednak inne przypadki użycia dla serwera proxy aplikacji, który jest cenny. Obejmują one:
 
 * **Bezpieczne publikowanie interfejsów API REST**. Jeśli masz logikę biznesową lub interfejsy API działające lokalnie lub hostowane na maszynach wirtualnych w chmurze, serwer proxy aplikacji udostępnia publiczny punkt końcowy do uzyskiwania dostępu do interfejsu API. Dostęp do punktu końcowego interfejsu API umożliwia sterowanie uwierzytelnianiem i autoryzacją bez konieczności używania portów przychodzących. Zapewnia ona dodatkowe zabezpieczenia za pośrednictwem funkcji Azure AD — wersja Premium, takich jak uwierzytelnianie wieloskładnikowe i dostęp warunkowy oparty na urządzeniach dla komputerów stacjonarnych, urządzeń z systemem iOS, MAC i Android przy użyciu usługi Intune. Aby dowiedzieć się więcej, zobacz [jak włączyć natywne aplikacje klienckie do współdziałania z aplikacjami proxy](application-proxy-configure-native-client-application.md) i [chronić interfejs API przy użyciu protokołu OAuth 2,0 z Azure Active Directory i API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad).
 * **Usługi pulpitu zdalnego** **(RDS)**. Standardowe wdrożenia usług RDS wymagają otwartych połączeń przychodzących. Jednak [wdrożenie usług pulpitu zdalnego z serwerem proxy aplikacji](application-proxy-integrate-with-remote-desktop-services.md) ma trwałe połączenie wychodzące z serwera, na którym działa usługa łącznika. W ten sposób możesz zaoferować więcej aplikacji użytkownikom końcowym, publikując aplikacje lokalne za pomocą Usługi pulpitu zdalnego. Możesz również zmniejszyć powierzchnię ataku wdrożenia z ograniczonym zestawem weryfikacji dwuetapowej i kontroli dostępu warunkowego do usług pulpitu zdalnego.
@@ -195,8 +195,8 @@ Bez względu na to, czy obecnie korzystasz z usługi Azure AD do zarządzania u�
 Organizacje powinny zacząć korzystać z serwera proxy aplikacji już dziś, aby skorzystać z następujących korzyści:
 
 * Publikowanie aplikacji lokalnych zewnętrznie bez narzutu związanego z utrzymywaniem tradycyjnej sieci VPN lub innych rozwiązań do publikowania w sieci Web i podejścia strefy DMZ
-* Logowanie jednokrotne do wszystkich aplikacji, należy do pakietu Office 365 lub innych aplikacji SaaS i w tym aplikacji lokalnych
-* Zabezpieczenia w skali chmury, w których usługa Azure AD wykorzystuje dane telemetryczne pakietu Office 365
+* Logowanie jednokrotne do wszystkich aplikacji, ich Microsoft 365 lub innych aplikacji SaaS, w tym aplikacji lokalnych
+* Zabezpieczenia w skali chmury, w których usługa Azure AD wykorzystuje Microsoft 365 telemetrii, aby zapobiec nieautoryzowanemu dostępowi
 * Integracja usługi Intune w celu zagwarantowania, że ruch firmowy jest uwierzytelniany
 * Scentralizowanie zarządzania kontami użytkowników
 * Aktualizacje automatyczne, aby upewnić się, że masz najnowsze poprawki zabezpieczeń

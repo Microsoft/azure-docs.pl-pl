@@ -108,6 +108,8 @@
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/ext/mixed-reality/spatial-anchors-account
+    - name: Azure PowerShell
+      href: /powershell/module/az.mixedreality
 - name: Zasoby
   items:
     - name: Informacje o wersji

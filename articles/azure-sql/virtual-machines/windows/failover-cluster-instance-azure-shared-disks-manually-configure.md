@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 8333de5b0139323b352d43a9259bde9d3b514fbe
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ddd6e08d9be36035b2db02ec5feb3ae4e957ec49
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611800"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604448"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu dysków udostępnionych platformy Azure (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,13 +33,13 @@ Aby dowiedzieć się więcej, zobacz Omówienie [FCI z SQL Server na maszynach w
 Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać następujące czynności:
 
 - Subskrypcja platformy Azure. Zacznij korzystać [bezpłatnie](https://azure.microsoft.com/free/). 
-- [Co najmniej dwie zachodnie środkowe stany USA maszyny wirtualne z systemem Windows Azure](failover-cluster-instance-prepare-vm.md) w tym samym [zestawie dostępności](../../../virtual-machines/linux/tutorial-availability-sets.md) i w [grupie umieszczania bliskości](../../../virtual-machines/windows/co-location.md#proximity-placement-groups)z zestawem dostępności utworzonym z domeną błędów i domeną aktualizacji o wartości **1**. 
+- [Co najmniej dwie maszyny wirtualne z systemem Windows Azure](failover-cluster-instance-prepare-vm.md). [Zestawy dostępności](../../../virtual-machines/windows/tutorial-availability-sets.md) i [grupy położenia zbliżeniowe](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) są obsługiwane. Jeśli używasz PPG, wszystkie węzły muszą istnieć w tej samej grupie.
 - Konto, które ma uprawnienia do tworzenia obiektów zarówno na maszynach wirtualnych platformy Azure, jak i w Active Directory.
 - Najnowsza wersja programu [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
 ## <a name="add-azure-shared-disk"></a>Dodaj dysk udostępniony platformy Azure
-Wdróż zarządzany dysk SSD w warstwie Premium z włączoną funkcją dysku udostępnionego. Ustaw `maxShares` wartość **2** , aby umożliwić udostępnianie dysku w obu węzłach FCI. 
+Wdróż zarządzany dysk SSD w warstwie Premium z włączoną funkcją dysku udostępnionego. Ustaw, `maxShares` Aby **wyrównać liczbę węzłów klastra** w celu udostępnienia dysku we wszystkich węzłach FCI. 
 
 Dodaj dysk udostępniony platformy Azure, wykonując następujące czynności: 
 
@@ -153,10 +153,10 @@ Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykona
 
 1. W obszarze **Menedżer serwera**wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
 1. W obszarze **Menedżer klastra trybu failover**wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
-1. Wybierz pozycję **Next** (Dalej).
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **Wybierz serwery lub klaster**wprowadź nazwy obu maszyn wirtualnych.
 1. W obszarze **opcje testowania**wybierz opcję **Uruchom tylko wybrane testy**. 
-1. Wybierz pozycję **Next** (Dalej).
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **wybór testu**zaznacz wszystkie testy *poza* **magazynem**
 
 ## <a name="test-cluster-failover"></a>Testowanie trybu failover klastra
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Konfigurowanie łączności 
 
-Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Można utworzyć [moduł równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 i systemu Windows Server 2016 (lub nowszego), zamiast tego można wyświetlić podgląd funkcji [nazwy sieci rozproszonej](hadr-distributed-network-name-dnn-configure.md) . 
+Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Można utworzyć [moduł równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 zastosujesz pakietu CU2 + i systemu Windows Server 2016 (lub nowszego), zamiast tego można wyświetlić podgląd funkcji [nazwy sieci rozproszonej](hadr-distributed-network-name-dnn-configure.md) . 
 
 ## <a name="limitations"></a>Ograniczenia
 

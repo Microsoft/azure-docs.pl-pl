@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d00557e2279d236ff96a73c3a090097fbe6e5f1b
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061782"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603972"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Samouczek: przenoszenie maszyn wirtualnych platformy Azure między regionami
 
@@ -68,6 +68,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 Wybierz zasoby, które chcesz przenieść.
 
 - Zostaną wyświetlone wszystkie obsługiwane typy zasobów w grupach zasobów w wybranym regionie źródłowym.
+- Zasoby, które zostały już dodane do przeniesienia między regionami, nie są wyświetlane.
 - Przenoszenie zasobów do regionu docelowego w tej samej subskrypcji co region źródłowy. Jeśli chcesz zmienić subskrypcję, możesz to zrobić po przeniesieniu zasobów.
 
 1. W Azure Portal Wyszukaj pozycję *przeniesienie zasobów*. Następnie w obszarze **usługi**wybierz pozycję **Azure Resource**przenosząca.
@@ -89,7 +90,7 @@ Wybierz zasoby, które chcesz przenieść.
     ![Strona umożliwiająca wybranie maszyn wirtualnych do przeniesienia](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  W obszarze **zasoby do przeniesienia**kliknij przycisk **dalej**.
-9. W obszarze **Recenzja + Dodawanie**Sprawdź ustawienia źródłowe i docelowe. Upewnij się, że rozumiesz, że metadane dotyczące przeniesienia będą przechowywane w grupie zasobów utworzonej w tym celu w regionie metadanych.
+9. W obszarze **Recenzja + Dodawanie**Sprawdź ustawienia źródłowe i docelowe. 
 
     ![Strona umożliwiająca przejrzenie ustawień i przejście do przenoszenia](./media/tutorial-move-region-virtual-machines/review.png)
 10. Kliknij przycisk " **Zastosuj**", aby rozpocząć dodawanie zasobów.
@@ -234,7 +235,8 @@ Jeśli chcesz zakończyć proces przenoszenia, Zatwierdź przeniesienie.
 
 ## <a name="configure-settings-after-the-move"></a>Skonfiguruj ustawienia po przeniesieniu
 
-Usługa mobilności nie została automatycznie odinstalowana z maszyn wirtualnych. Odinstaluj je ręcznie lub pozostaw to pole, jeśli planujesz ponownie przenieść serwer.
+- Usługa mobilności nie została automatycznie odinstalowana z maszyn wirtualnych. Odinstaluj je ręcznie lub pozostaw to pole, jeśli planujesz ponownie przenieść serwer.
+- Modyfikuj reguły kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure po przeniesieniu.
 
 ## <a name="delete-source-resources-after-commit"></a>Usuń zasoby źródłowe po zatwierdzeniu
 

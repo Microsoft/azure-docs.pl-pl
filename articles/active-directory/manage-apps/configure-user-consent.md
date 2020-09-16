@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0c9844d5e3f65dba5e51170367cfd16715a08883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 433ff5498baeb4c31473e43fc4a5d24f4ba9fd1c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763469"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605162"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje
 
@@ -32,7 +32,7 @@ Aby kontrolować, jakie przypadki użytkownicy mogą wyrazić zgodę na aplikacj
 
 * **Wyłącz wyrażanie zgody użytkownika** — użytkownicy nie mogą przyznawać uprawnień do aplikacji. Użytkownicy mogą nadal logować się do aplikacji, które wcześniej wyraziły zgodę lub które są do nich wysyłane przez administratorów w ich imieniu, ale nie będą mogli wyrazić zgody na nowe uprawnienia lub do nowych aplikacji. Tylko użytkownicy, którym przypisano rolę katalogu, która obejmuje uprawnienie do udzielania zgody, będą mogli wyrazić zgodę na nowe uprawnienia lub nowe aplikacje.
 
-* **Użytkownicy mogą wyrazić zgodę na aplikacje od zweryfikowanych wydawców, ale tylko dla wybranych uprawnień (wersja zapoznawcza)** — wszyscy użytkownicy mogą wyrazić zgodę tylko na aplikacje, które zostały opublikowane przez [zweryfikowanego wydawcę](../develop/publisher-verification-overview.md) i aplikacje zarejestrowane w dzierżawie. Użytkownicy mogą wyrazić zgodę tylko na uprawnienia, które zostały sklasyfikowane jako "niski wpływ".
+* **Użytkownicy mogą wyrazić zgodę na aplikacje od zweryfikowanych wydawców, ale tylko dla wybranych uprawnień (wersja zapoznawcza)** — wszyscy użytkownicy mogą wyrazić zgodę tylko na aplikacje, które zostały opublikowane przez [zweryfikowanego wydawcę](../develop/publisher-verification-overview.md) i aplikacje zarejestrowane w dzierżawie. Użytkownicy mogą tylko wyrazić zgodę na uprawnienia sklasyfikowane jako "niski wpływ", nazywane również "niskim ryzykiem". Co jest uznawane za niskie ryzyko dla jednej organizacji, takiej jak aplikacja wyświetlająca adres e-mail użytkowników, może być uznawane za wysokie ryzyko dla innej organizacji. Z tego powodu uprawnienia "niskiego ryzyka" są ustawiane przez administratora dzierżawy.
 
   Należy pamiętać o [klasyfikowaniu uprawnień](#configure-permission-classifications-preview) w celu wybrania uprawnień, które użytkownicy mogą wyrazić zgodę.
 
@@ -56,7 +56,7 @@ Aby skonfigurować ustawienia zgody użytkowników za pomocą Azure Portal:
 
 ### <a name="configure-user-consent-settings-using-powershell"></a>Konfigurowanie ustawień zgody użytkowników przy użyciu programu PowerShell
 
-Możesz użyć najnowszego modułu programu Azure AD PowerShell w wersji zapoznawczej, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), aby określić, które zasady zgody decydują o zgodę użytkownika na aplikacje.
+Możesz użyć najnowszego modułu programu Azure AD PowerShell w wersji zapoznawczej, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), aby określić, które zasady zgody decydują o zgodę użytkownika na aplikacje.
 
 * **Wyłącz zgodę użytkownika** — aby wyłączyć wyrażanie zgody użytkownika, ustaw zasady zgody, które regulują zgodę użytkownika na wartość pustą:
 
@@ -109,7 +109,7 @@ W tym przykładzie został sklasyfikowany minimalny zestaw uprawnień wymaganych
 
 ### <a name="classify-permissions-using-powershell"></a>Klasyfikowanie uprawnień przy użyciu programu PowerShell
 
-Aby sklasyfikować uprawnienia, można użyć najnowszego modułu programu Azure AD PowerShell w wersji zapoznawczej ( [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)). Klasyfikacje uprawnień są konfigurowane w obiekcie **Serviceprincipal** interfejsu API, który publikuje uprawnienia.
+Aby sklasyfikować uprawnienia, można użyć najnowszego modułu programu Azure AD PowerShell w wersji zapoznawczej ( [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)). Klasyfikacje uprawnień są konfigurowane w obiekcie **Serviceprincipal** interfejsu API, który publikuje uprawnienia.
 
 #### <a name="to-read-the-current-permission-classifications-for-an-api"></a>Aby odczytać bieżące klasyfikacje uprawnień dla interfejsu API:
 
@@ -196,9 +196,9 @@ W tym przykładzie wszyscy właściciele grupy mogą wyrazić zgodę na aplikacj
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>Konfigurowanie zgody właściciela grupy przy użyciu programu PowerShell
 
-Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), aby włączyć lub wyłączyć możliwość wyrażania zgody na dostęp do danych organizacji przez właścicieli grup.
+Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), aby włączyć lub wyłączyć możliwość wyrażania zgody na dostęp do danych organizacji przez właścicieli grup.
 
-1. Upewnij się, że używasz modułu [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview) . Ten krok jest ważny, jeśli zainstalowano moduł [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) i moduł [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview) .
+1. Upewnij się, że używasz modułu [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) . Ten krok jest ważny, jeśli zainstalowano moduł [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) i moduł [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) .
 
     ```powershell
     Remove-Module AzureAD
@@ -230,7 +230,7 @@ Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, [AzureADPrevie
 
     | Ustawienie       | Typ         | Opis  |
     | ------------- | ------------ | ------------ |
-    | _EnableGroupSpecificConsent_   | Boolean | Flaga oznaczająca, czy właściciele grup mogą udzielać uprawnień specyficznych dla grupy. |
+    | _EnableGroupSpecificConsent_   | Wartość logiczna | Flaga oznaczająca, czy właściciele grup mogą udzielać uprawnień specyficznych dla grupy. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid (identyfikator GUID) | Jeśli _EnableGroupSpecificConsent_ jest ustawiona na wartość "true", a ta wartość jest ustawiona na identyfikator obiektu grupy, członkowie wskazanej grupy będą uprawnieni do przyznawania uprawnień specyficznych dla grupy do grup, których są właścicielami. |
 
 1. Zaktualizuj wartości ustawień dla żądanej konfiguracji:
@@ -280,7 +280,7 @@ W takim przypadku zdarzenie inspekcji zostanie również zarejestrowane z katego
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Wyłączenie lub ponowne włączenie zgody na ryzyko krok po kroku przy użyciu programu PowerShell
 
-Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, aby wyłączyć krok do zgody administratora wymagany w [przypadkach, w](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)których firma Microsoft wykryje ryzyko lub ponownie je włączać, jeśli wcześniej została wyłączona.
+Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, aby wyłączyć krok do zgody administratora wymagany w [przypadkach, w](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)których firma Microsoft wykryje ryzyko lub ponownie je włączać, jeśli wcześniej została wyłączona.
 
 Można to zrobić przy użyciu tych samych kroków, jak pokazano powyżej, aby [skonfigurować zgodę właściciela grupy przy użyciu programu PowerShell](#configure-group-owner-consent-using-powershell), ale zastąpić inną wartość ustawienia. Istnieją trzy różnice w krokach: 
 
@@ -288,7 +288,7 @@ Można to zrobić przy użyciu tych samych kroków, jak pokazano powyżej, aby [
 
     | Ustawienie       | Typ         | Opis  |
     | ------------- | ------------ | ------------ |
-    | _BlockUserConsentForRiskyApps_   | Boolean |  Flaga oznaczająca, czy zgoda użytkownika zostanie zablokowana w przypadku wykrycia ryzykownego żądania. |
+    | _BlockUserConsentForRiskyApps_   | Wartość logiczna |  Flaga oznaczająca, czy zgoda użytkownika zostanie zablokowana w przypadku wykrycia ryzykownego żądania. |
 
 1. Zastąp następującą wartość w kroku 3:
 

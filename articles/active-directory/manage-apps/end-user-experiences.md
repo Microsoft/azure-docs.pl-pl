@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: d3b7dbbb9aab29e083795025ad5bf7381a4fa0ee
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 8968fd54968f3115641d2315a534ba61a247a06d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231218"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605128"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Środowisko użytkownika końcowego dla aplikacji w Azure Active Directory
 
 Azure Active Directory (Azure AD) oferuje kilka dostosowywalnych metod wdrażania aplikacji dla użytkowników końcowych w organizacji:
 
 * Moje aplikacje w usłudze Azure AD
-* Uruchamianie aplikacji pakietu Office 365
+* Microsoft 365 uruchamiania aplikacji
 * Bezpośrednie logowanie do aplikacji federacyjnych
 * Linki bezpośrednie do federacyjnych, opartych na hasłach lub istniejących aplikacjach
 
@@ -35,13 +35,13 @@ Moje aplikacje w https://myapps.microsoft.com programie to portal oparty na siec
 
 Domyślnie wszystkie aplikacje są wyświetlane na jednej stronie. Można jednak użyć kolekcji, aby zgrupować powiązane aplikacje i przedstawić je na osobnej karcie, co ułatwia ich znalezienie. Można na przykład użyć kolekcji do tworzenia logicznych grup aplikacji dla określonych ról zadań, zadań, projektów i tak dalej. Aby uzyskać więcej informacji, zobacz [Tworzenie kolekcji w portalu My Apps](access-panel-collections.md). 
 
-Moje aplikacje są oddzielone od Azure Portal i nie wymagają od użytkowników posiadania subskrypcji platformy Azure ani subskrypcji pakietu Office 365.
+Moje aplikacje są oddzielone od Azure Portal i nie wymagają, aby użytkownicy mieli subskrypcję platformy Azure ani subskrypcję Microsoft 365.
 
 Aby uzyskać więcej informacji o usłudze Azure AD moje aplikacje, zobacz [wprowadzenie do moich aplikacji](../user-help/active-directory-saas-access-panel-introduction.md).
 
-## <a name="office-365-application-launcher"></a>Uruchamianie aplikacji pakietu Office 365
+## <a name="microsoft-365-application-launcher"></a>Microsoft 365 uruchamiania aplikacji
 
-W przypadku organizacji z wdrożonym pakietem Office 365 aplikacje przypisane do użytkowników za pomocą usługi Azure AD będą również widoczne w portalu pakietu Office 365 pod adresem [https://portal.office.com/myapps](https://portal.office.com/myapps) . Dzięki temu użytkownicy w organizacji mogą korzystać z aplikacji bez konieczności korzystania z drugiego portalu i są zalecanym rozwiązaniem do uruchamiania aplikacji dla organizacji korzystających z pakietu Office 365.
+W przypadku organizacji, które mają wdrożone Microsoft 365 aplikacje przypisane do użytkowników za pomocą usługi Azure AD również będą wyświetlane w portalu pakietu Office 365 pod adresem [https://portal.office.com/myapps](https://portal.office.com/myapps) . Dzięki temu użytkownicy w organizacji mogą korzystać z aplikacji bez konieczności korzystania z drugiego portalu i są zalecanym rozwiązaniem do uruchamiania aplikacji dla organizacji korzystających z Microsoft 365.
 
 Aby uzyskać więcej informacji na temat uruchamiania aplikacji pakietu Office 365, zobacz temat Wyświetlanie [aplikacji w programie uruchamiania aplikacji pakietu office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
@@ -53,7 +53,7 @@ Większość aplikacji federacyjnych, które obsługują protokół SAML 2,0, WS
 
 Usługa Azure AD obsługuje także bezpośrednie łącza do poszczególnych aplikacji, które obsługują Logowanie jednokrotne oparte na hasłach, połączone Logowanie jednokrotne i dowolną formę federacyjnego logowania jednokrotnego.
 
-Te linki są specjalnie spreparowanymi adresami URL, które wysyłają użytkownika przez proces logowania do usługi Azure AD dla określonej aplikacji bez konieczności uruchamiania ich z usługi Azure AD moje aplikacje lub pakietu Office 365. Te **adresy URL dostępu użytkowników** można znaleźć w obszarze właściwości dostępnych aplikacji dla przedsiębiorstw. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**. Wybierz aplikację, a następnie wybierz pozycję **Właściwości**.
+Te linki są specjalnie spreparowanymi adresami URL, które wysyłają użytkownika za pośrednictwem procesu logowania usługi Azure AD dla określonej aplikacji bez konieczności uruchamiania ich przez użytkownika z usługi Azure AD moje aplikacje lub Microsoft 365. Te **adresy URL dostępu użytkowników** można znaleźć w obszarze właściwości dostępnych aplikacji dla przedsiębiorstw. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**. Wybierz aplikację, a następnie wybierz pozycję **Właściwości**.
 
 ![Przykład adresu URL dostępu użytkownika we właściwościach usługi Twitter](media/end-user-experiences/direct-sign-on-link.png)
 
@@ -67,7 +67,7 @@ Podobnie jak w przypadku adresów URL specyficznych dla organizacji dla aplikacj
 
 Gdy autoryzowany użytkownik kliknie jedno z tych linków specyficznych dla aplikacji, po raz pierwszy zobaczy swoją organizacyjną stronę logowania (przy założeniu, że nie są jeszcze zarejestrowani), a po zalogowaniu się do swojej aplikacji nie należy najpierw zatrzymywać aplikacji. Jeśli użytkownik nie ma wymagań wstępnych, aby uzyskać dostęp do aplikacji, na przykład rozszerzenie przeglądarki jednokrotnego podpisywania opartego na hasłach, wówczas zostanie wyświetlony monit o zainstalowanie brakującego rozszerzenia. Adres URL linku pozostaje również stały, jeśli konfiguracja logowania jednokrotnego dla aplikacji zostanie zmieniona.
 
-Te linki korzystają z tych samych mechanizmów kontroli dostępu jak moje aplikacje i pakiet Office 365, a tylko Ci użytkownicy lub grupy, którzy zostali przypisani do aplikacji w Azure Portal będą mogli pomyślnie uwierzytelnić się. Jednak każdy użytkownik, który nie ma autoryzacji, zobaczy komunikat z informacją, że nie udzielono dostępu i ma link umożliwiający załadowanie aplikacji w celu wyświetlenia dostępnych aplikacji, do których mają dostęp.
+Te linki używają tych samych mechanizmów kontroli dostępu jak moje aplikacje i Microsoft 365, a tylko Ci użytkownicy lub grupy, którzy zostali przypisani do aplikacji w Azure Portal, będą mogli pomyślnie uwierzytelnić się. Jednak każdy użytkownik, który nie ma autoryzacji, zobaczy komunikat z informacją, że nie udzielono dostępu i ma link umożliwiający załadowanie aplikacji w celu wyświetlenia dostępnych aplikacji, do których mają dostęp.
 
 ## <a name="next-steps"></a>Następne kroki
 
