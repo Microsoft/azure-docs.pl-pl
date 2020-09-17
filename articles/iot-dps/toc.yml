@@ -15,40 +15,52 @@
           href: quick-setup-auto-provision-cli.md
         - name: Szablon usługi Azure RM
           href: quick-setup-auto-provision-rm.md
-    - name: Aprowizowanie jednego urządzenia
+    - name: Aprowizowanie urządzenia z kluczem symetrycznym
       items:
-        - name: Zaświadczanie klucza symetrycznego
-          items:
-            - name: C
-              href: quick-create-simulated-device-symm-key.md
-            - name: Java
-              href: quick-create-simulated-device-symmetric-key-java.md
-            - name: Python
-              href: quick-create-device-symmetric-key-python.md
-        - name: Zaświadczanie certyfikatu X.509
-          items:
-            - name: C
-              href: quick-create-simulated-device-x509.md
-            - name: Java
-              href: quick-create-simulated-device-x509-java.md
-            - name: C#
-              href: quick-create-simulated-device-x509-csharp.md
-            - name: Node.js
-              href: quick-create-simulated-device-x509-node.md
-            - name: Python
-              href: quick-create-simulated-device-x509-python.md
-        - name: Zaświadczanie symulowanego urządzenia z modułem TPM
-          items:
-            - name: C
-              href: quick-create-simulated-device.md
-            - name: Java
-              href: quick-create-simulated-device-tpm-java.md
-            - name: C#
-              href: quick-create-simulated-device-tpm-csharp.md
-            - name: Node.js
-              href: quick-create-simulated-device-tpm-node.md
-            - name: Python
-              href: quick-create-simulated-device-tpm-python.md
+        - name: C
+          href: quick-create-simulated-device-symm-key.md
+        - name: Java
+          href: quick-create-simulated-device-symmetric-key-java.md
+        - name: Python
+          href: quick-create-device-symmetric-key-python.md
+    - name: Aprowizowanie urządzenia z certyfikatem X.509
+      items:
+        - name: C
+          href: quick-create-simulated-device-x509.md
+        - name: Java
+          href: quick-create-simulated-device-x509-java.md
+        - name: C#
+          href: quick-create-simulated-device-x509-csharp.md
+        - name: Node.js
+          href: quick-create-simulated-device-x509-node.md
+        - name: Python
+          href: quick-create-simulated-device-x509-python.md
+- name: Samouczki
+  items:
+    - name: 1 — Aprowizowanie zestawów urządzeń za pomocą grup rejestracji
+      href: how-to-legacy-device-symm-key.md
+    - name: 2 — Aprowizowanie urządzeń w wielu centrach
+      items:
+        - name: Łączenie wielu centrów z usługą DPS
+          href: tutorial-provision-multiple-hubs.md
+        - name: Aprowizowanie pod kątem wielu dzierżaw
+          href: how-to-provision-multitenant.md
+        - name: Korzystanie z niestandardowych zasad alokacji
+          href: how-to-use-custom-allocation-policies.md
+- name: Przykłady
+  items:
+    - name: Przykład Zaświadczanie symulowanego urządzenia z modułem TPM
+      items:
+        - name: C
+          href: quick-create-simulated-device.md
+        - name: Java
+          href: quick-create-simulated-device-tpm-java.md
+        - name: C#
+          href: quick-create-simulated-device-tpm-csharp.md
+        - name: Node.js
+          href: quick-create-simulated-device-tpm-node.md
+        - name: Python
+          href: quick-create-simulated-device-tpm-python.md
     - name: Tworzenie rejestracji urządzeń za pomocą interfejsów API usługi DPS
       items:
         - name: Rejestracja grupowa przy użyciu zaświadczania certyfikatu X.509
@@ -71,51 +83,33 @@
               href: quick-enroll-device-tpm-node.md
             - name: Python
               href: quick-enroll-device-tpm-python.md
-- name: Samouczki
-  items:
-    - name: 1 — Konfigurowanie zasobów w chmurze
-      href: tutorial-set-up-cloud.md
-    - name: 2 — Konfigurowanie urządzenia
-      href: tutorial-set-up-device.md
-    - name: 3 — Aprowizowanie urządzenia w centrum IoT
-      items:
-        - name: C
-          href: tutorial-provision-device-to-hub.md
-        - name: C#
-          href: tutorial-net-provision-device-to-hub.md
-    - name: 4 — Aprowizowanie urządzeń w wielu centrach
-      href: tutorial-provision-multiple-hubs.md
-    - name: 5 — Konfigurowanie rejestracji grup
-      href: tutorial-group-enrollments.md
 - name: Pojęcia
   items:
-    - name: Automatyczne aprowizowanie
-      href: concepts-auto-provisioning.md
-    - name: Ponowne aprowizowanie
-      href: concepts-device-reprovision.md
-    - name: Urządzenia
-      href: concepts-device.md
-    - name: Zabezpieczenia
-      href: concepts-security.md
-    - name: Obsługa protokołu TLS
-      href: tls-support.md
-    - name: Obsługa sieci wirtualnych
-      href: virtual-network-support.md
-    - name: Usługa
+    - name: Terminologia usługi DPS
       href: concepts-service.md
-    - name: Informacje o adresach IP programu DPS
-      href: iot-dps-understand-ip-address.md
-    - name: Poświadczanie za pomocą modułu TPM
-      href: concepts-tpm-attestation.md
     - name: Zaświadczanie klucza symetrycznego
       href: concepts-symmetric-key-attestation.md
+    - name: Zaświadczanie certyfikatu X.509
+      href: concepts-x509-attestation.md
+    - name: Poświadczanie za pomocą modułu TPM
+      href: concepts-tpm-attestation.md
+    - name: Role i operacje
+      href: concepts-roles-operations.md
+    - name: Obsługa sieci wirtualnych
+      href: virtual-network-support.md
+    - name: Ponowne aprowizowanie
+      href: concepts-device-reprovision.md
+    - name: Informacje o adresach IP programu DPS
+      href: iot-dps-understand-ip-address.md
+    - name: Obsługa protokołu TLS
+      href: tls-support.md
     - name: Praktyki dotyczące zabezpieczeń dla producentów urządzeń
       href: concepts-device-oem-security-practices.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Łączenie zestawu deweloperskiego IoT MXChip z usługą IoT Hub
       href: how-to-connect-mxchip-iot-devkit.md
-    - name: Zarządzanie konfiguracją usługi Device Provisioning Service
+    - name: Zarządzanie usługą Device Provisioning Service
       items:
         - name: Zarządzanie rejestracjami — Portal
           href: how-to-manage-enrollments.md
@@ -131,14 +125,12 @@
           href: how-to-revoke-device-access-portal.md
         - name: Zarządzanie anulowaniem aprowizacji
           href: how-to-unprovision-devices.md
-    - name: Zarządzanie usługą Device Provisioning Service
-      items:
-        - name: Konfigurowanie usługi Device Provisioning Service przy użyciu interfejsu wiersza polecenia platformy Azure
-          href: how-to-manage-dps-with-cli.md
         - name: Kontrola dostępu do interfejsów API usługi Provisioning Service
           href: how-to-control-access.md
         - name: Konfigurowanie filtrowania adresów IP
           href: iot-dps-ip-filtering.md
+        - name: Konfigurowanie usługi Device Provisioning Service przy użyciu interfejsu wiersza polecenia platformy Azure
+          href: how-to-manage-dps-with-cli.md
     - name: Aprowizowanie urządzeń usługi IoT Edge
       items:
         - name: Linux
@@ -149,12 +141,6 @@
           maintainContext: true
     - name: Korzystanie z mechanizmów zaświadczania za pomocą zestawu SDK
       href: use-hsm-with-sdk.md
-    - name: Aprowizowanie pod kątem wielu dzierżaw
-      href: how-to-provision-multitenant.md
-    - name: Korzystanie z niestandardowych zasad alokacji
-      href: how-to-use-custom-allocation-policies.md
-    - name: Korzystanie z kluczy symetrycznych na starszych urządzeniach
-      href: how-to-legacy-device-symm-key.md
     - name: Korzystanie z narzędzi zestawu SDK do programowania
       href: how-to-use-sdk-tools.md
     - name: Jak wysyłać dodatkowe dane z urządzeń

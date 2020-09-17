@@ -1,14 +1,14 @@
 ---
 title: Omówienie przykładu strategii strefy docelowej migracji w przewodniku CAF
 description: Omówienie i architektura strategii Cloud Adoption Framework (CAF) dla strefy docelowej usługi Azure Migration z przykładem.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 6deb671070a742448560309b1b1a3572f5aa082d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b8e3484690d263a43d3824c054b28344ea07fb1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852314"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531682"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Omówienie przykładowej strategii strefy docelowej w przewodniku Microsoft Cloud Adoption Framework dla migracji na platformę Azure
 
@@ -20,7 +20,9 @@ Przykład strategii [CAF Foundation](../caf-foundation/index.md) stanowi rozszer
 
 Przykład strategii strefy docelowej migracji w przewodniku CAF służy do wdrażania na platformie Azure podstawowych zasobów infrastruktury, które mogą być używane przez organizacje do przygotowywania subskrypcji do migrowania do nich maszyn wirtualnych. Pomaga on również we wdrożeniu kontroli ładu niezbędnych do zarządzania ich zasobami w chmurze. Ten przykład służy do wdrażania i wymuszania zasobów, zasad i szablonów, dzięki którym organizacja będzie mogła zacząć korzystać z platformy Azure w zaufany sposób.
 
-:::image type="content" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Strefa docelowa migracji w przewodniku CAF — obraz przedstawia, jakie elementy są instalowane w ramach wytycznych przewodnika CAF w początkowej strefie docelowej" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Strefa docelowa migracji w przewodniku CAF — obraz przedstawia, jakie elementy są instalowane w ramach wytycznych przewodnika CAF w początkowej strefie docelowej." border="false":::
+   Opisuje architekturę platformy Azure, która jest osiągana poprzez wdrożenie strategii migracji w przewodniku CAF.  Ma zastosowanie w przypadku subskrypcji z grupami zasobów, która składa się z sieci wirtualnej platformy Azure, konta magazynu do przechowywania dzienników i usługi Log Analytics skonfigurowanej do przechowywania na koncie magazynu.  Przedstawia również skonfigurowaną usługę Azure Key Vault oraz utworzoną konfigurację początkową usługi Azure Migrate.  Dostęp do wszystkich tych kluczowych infrastruktur jest możliwy za pomocą usługi Azure Active Directory.     
+:::image-end:::
 
 To środowisko składa się z kilku usług platformy Azure, które udostępniają bezpieczny, w pełni monitorowany ład możliwy do zastosowania w przedsiębiorstwach. To środowisko zawiera następujące składniki:
 

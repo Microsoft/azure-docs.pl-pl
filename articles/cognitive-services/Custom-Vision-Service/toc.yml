@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Co to jest usługa Custom Vision?
-      href: home.md
+      href: overview.md
     - name: Co nowego
       href: whats-new.md
 - name: Przewodniki Szybki start
@@ -49,7 +49,11 @@
           href: custom-vision-onnx-windows-ml.md
         - name: Uruchamianie modelu TensorFlow w języku Python
           href: export-model-python.md
-    - name: Eksportowanie i usuwanie danych konta
+    - name: Integrowanie powiadomień magazynu
+      href: storage-integration.md
+    - name: Kopiowanie i przenoszenie projektów
+      href: copy-move-projects.md
+    - name: Wyświetlanie lub usuwanie danych konta
       href: ./export-delete-data.md
     - name: Aktualizacja aplikacji do interfejsu API 3.0
       href: ./update-application-to-3.0-sdk.md

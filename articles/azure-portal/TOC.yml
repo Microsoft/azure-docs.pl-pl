@@ -31,6 +31,8 @@
       href: set-preferences.md
     - name: 'Dodawanie, usuwanie i sortowanie ulubionych'
       href: azure-portal-add-remove-sort-favorites.md
+    - name: Wyświetlanie i filtrowanie informacji o zasobach
+      href: manage-filter-resource-views.md
     - name: Tworzenie pulpitów nawigacyjnych platformy Azure
       items:
         - name: Tworzenie i udostępnianie pulpitów nawigacyjnych platformy Azure

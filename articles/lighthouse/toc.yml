@@ -53,6 +53,9 @@
     - name: Usuwanie dostępu do delegacji
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
+    - name: Integracja z usługą Azure Arc
+      displayName: 'server, kubernetes, hybrid, infrastructure'
+      href: ./how-to/manage-hybrid-infrastructure-arc.md
     - name: Integracja z usługą Azure Monitor
       items:
         - name: Używanie dzienników usługi Azure Monitor na dużą skalę

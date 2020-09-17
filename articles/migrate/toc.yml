@@ -28,8 +28,6 @@
           href: tutorial-discover-physical.md
         - name: Odnajdywanie wystąpień platformy AWS
           href: tutorial-discover-aws.md
-        - name: Odnajdywanie zaimportowanych serwerów
-          href: tutorial-discover-import.md
     - name: Ocena
       items:
         - name: Ocena maszyn wirtualnych VMware pod kątem migracji do maszyn wirtualnych platformy Azure
@@ -42,6 +40,8 @@
           href: tutorial-assess-physical.md
         - name: Ocena wystąpień platformy AWS pod kątem migracji na platformę Azure
           href: tutorial-assess-aws.md
+        - name: Ocena zaimportowanych serwerów
+          href: tutorial-discover-import.md
     - name: Migrate
       items:
         - name: Migrowanie maszyn wirtualnych VMware

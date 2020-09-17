@@ -1,14 +1,14 @@
 ---
 title: Indeks przykładów strategii
 description: Indeks przykładów dotyczących zgodności i przykładów standardowych dotyczących wdrażania środowisk, zasad i podstaw struktury Cloud Adoptions Framework za pomocą usługi Azure Blueprints.
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 7ac95dee88cb244ecb4b60738daae26bb0d8831a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: def5e51a3db7e0733e0d7e1ef5c6895aedb7128d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031878"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530985"
 ---
 # <a name="azure-blueprints-samples"></a>Przykłady usługi Azure Blueprints
 
@@ -42,7 +42,8 @@ Poniższa tabela zawiera linki do przykładów dla usługi Azure Blueprints. Ka�
 
 ## <a name="samples-strategy"></a>Strategia dotycząca przykładów
 
-:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Strategia dotycząca przykładowych strategii" border="false":::
+:::image type="complex" source="../media/blueprint-samples-strategy.png" alt-text="Diagram pokazujący miejsce przykładów strategii w odniesieniu do złożoności architektury i wymagań związanych ze zgodnością." border="false":::
+   Opisuje układ współrzędnych, w których złożoność architektury jest na osi X, a wymagania dotyczące zgodności są na osi Y.  W miarę zwiększania złożoności architektury i wymagań dotyczących zgodności należy dostosować standardowe próbki strategii z portalu w regionie E. W przypadku klientów rozpoczynających pracę z platformą Azure należy wykorzystać strategie Foundation i Landing Zone oparte na strukturze Cloud Adoption Framework, oznaczone jako region A i B. Pozostały obszar jest przypisany do niestandardowych strategii utworzonych przez klientów i partnerów dla regionów C, D i F. :::image-end:::
 
 Strategie CAF Foundation i strefy docelowej migracji w przewodniku CAF zakładają, że klient przygotowuje istniejącą czystą pojedynczą subskrypcję do migracji lokalnych zasobów i obciążeń na platformę Azure.
 (Region A i B na rysunku).  

@@ -12,122 +12,134 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: fe0fc7f20a81d9b887a61ca382dafcb69fc420d2
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 34cb40d385b007f8a41a6700448a1591b714c096
+  ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78187716"
+  ms.lasthandoff: 09/15/2020
+  ms.locfileid: "90562761"
 landingContent:
-- title: Poznaj podstawy
+- title: Azure AD B2C
   linkLists:
   - linkListType: overview
     links:
     - text: Co to jest Azure AD B2C?
       url: overview.md
+    - text: Porównanie rozwiązań dla tożsamości zewnętrznych
+      url: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: Rozpocznij pracę z usługą Azure AD B2C
+      url: tutorial-create-tenant.md
     - text: Informacje techniczne i omówienie funkcji
       url: technical-overview.md
-  - linkListType: get-started
-    links:
-    - text: Tworzenie dzierżawy usługi Azure AD B2C
-      url: tutorial-create-tenant.md
-    - text: Rejestrowanie aplikacji
-      url: tutorial-register-applications.md
-    - text: Konfigurowanie przepływów użytkowników
-      url: tutorial-create-user-flows.md
-  - linkListType: video
-    links:
-    - text: Co to jest Azure AD B2C? (9:35)
-      url: https://www.youtube.com/watch?v=GmBKlXED9Ug
-- title: Dodawanie tożsamości do aplikacji ASP.NET
+    - text: Cennik
+      url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
+- title: Podstawy
   linkLists:
-  - linkListType: quickstart
+  - linkListType: learn
     links:
-    - text: Konfigurowanie logowania
-      url: quickstart-web-app-dotnet.md
-  - linkListType: tutorial
-    links:
-    - text: Uwierzytelnianie użytkowników w aplikacji internetowej platformy .NET
-      url: tutorial-web-app-dotnet.md
-    - text: Udzielanie dostępu do interfejsu API dla aplikacji internetowej platformy .NET
-      url: tutorial-web-api-dotnet.md
-    - text: Włączanie logowania w przedsiębiorstwie i logowania za pomocą danych z serwisów społecznościowych
-      url: tutorial-add-identity-providers.md
-  - linkListType: download
-    links:
-    - text: Przykłady kodu dla aplikacji internetowych i interfejsów API
-      url: code-samples.md#web-apps-and-apis
-- title: Dodawanie tożsamości do aplikacji jednostronicowych
+    - text: Uwierzytelnianie i autoryzacja
+      url: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: Tokeny
+      url: https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: Protokoły
+      url: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: Biblioteka uwierzytelniania
+      url: https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: 'Tworzenie witryny internetowej: HTML, CSS, JavaScript'
+      url: https://docs.microsoft.com/learn/modules/build-simple-website/
+- title: Typowe przypadki użycia
   linkLists:
-  - linkListType: quickstart
+  - linkListType: how-to-guide
     links:
-    - text: Konfigurowanie logowania
-      url: quickstart-single-page-app.md
-  - linkListType: tutorial
-    links:
-    - text: Uwierzytelnianie użytkowników w aplikacji jednostronicowej
-      url: tutorial-single-page-app.md
-    - text: Udzielanie dostępu do interfejsu API dla aplikacji jednostronicowej
-      url: tutorial-single-page-app-webapi.md
-    - text: Włączanie logowania w przedsiębiorstwie i logowania za pomocą danych z serwisów społecznościowych
-      url: tutorial-add-identity-providers.md
-  - linkListType: download
-    links:
-    - text: Przykłady kodu dla aplikacji jednostronicowych
-      url: code-samples.md#single-page-apps
-- title: Dodawanie tożsamości do aplikacji klasycznych
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Konfigurowanie logowania
-      url: quickstart-native-app-desktop.md
-  - linkListType: tutorial
-    links:
-    - text: Uwierzytelnianie użytkowników w klientach natywnych
-      url: tutorial-desktop-app.md
-    - text: Udzielanie dostępu do interfejsu API dla klientów natywnych
-      url: tutorial-desktop-app-webapi.md
-    - text: Włączanie logowania w przedsiębiorstwie i logowania za pomocą danych z serwisów społecznościowych
-      url: tutorial-add-identity-providers.md
-  - linkListType: download
-    links:
-    - text: Przykłady kodu dla aplikacji mobilnych i klasycznych
-      url: code-samples.md
-- title: Konfigurowanie typowych scenariuszy tożsamości
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Wprowadzenie do przepływów użytkowników
+    - text: Włączanie logowanie samoobsługowego
       url: user-flow-overview.md
+    - text: 'Dodawanie tożsamości społecznościowej i służbowej: OIDC/OAuth2/SAML'
+      url: tutorial-add-identity-providers.md
+    - text: Włączanie logowania jednokrotnego
+      url: session-overview.md
+    - text: Dostosowywanie interfejsu użytkownika/środowiska użytkownika
+      url: customize-ui-overview.md
+    - text: Migracja użytkowników i aplikacji
+      url: user-migration.md
+- title: Dodawanie logowania do aplikacji
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: 'Szybki start: Aplikacja internetowa'
+      url: quickstart-web-app-dotnet.md
+    - text: Aplikacja natywna/mobilna
+      url: code-samples.md#mobile-and-desktop-apps
+    - text: Aplikacja jednostronicowa
+      url: code-samples.md#single-page-apps
+    - text: Aplikacja internetowa
+      url: code-samples.md#web-apps-and-apis
+- title: 'Autoryzacja: Wywoływanie i zabezpieczanie interfejsów API'
+  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Rejestrowanie i logowanie użytkowników
-      url: tutorial-create-user-flows.md
-    - text: Dostosowywanie interfejsu użytkownika
-      url: customize-ui-overview.md
-    - text: Włączanie logowania za pomocą usługi Facebook
-      url: identity-provider-facebook.md
-  - linkListType: video
-    links:
-    - text: Jak skonfigurować podstawowe zasady (9:41)
-      url: https://www.youtube.com/watch?v=nWJ3m82536A
-- title: Tworzenie zaawansowanych scenariuszy związanych z tożsamościami
+    - text: Żądanie tokenu dostępu
+      url: access-tokens.md
+    - text: Rejestrowanie i zabezpieczanie interfejsu API
+      url: tutorial-web-api-dotnet.md
+    - text: 'Przykłady: Aplikacje internetowe i interfejsy API'
+      url: code-samples.md#web-apps-and-apis
+    - text: Integracja z bramą interfejsu API
+      url: secure-api-management.md?tabs=app-reg-ga
+- title: Zabezpieczenia, prywatność i zgodność
   linkLists:
   - linkListType: concept
     links:
-    - text: Wprowadzenie do zasad niestandardowych
-      url: custom-policy-overview.md
+    - text: Zarządzanie zagrożeniami
+      url: threat-management.md
+    - text: Dowiedz się, gdzie przechowywane są dane użytkownika
+      url: data-residency.md
+    - text: Przepisy
+      url: overview.md
+    - text: Dostęp użytkownika i warunki użytkowania
+      url: manage-user-access.md
+- title: Operacje
+  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Rejestrowanie i logowanie użytkowników
-      url: custom-policy-get-started.md
-    - text: Dostosowywanie interfejsu użytkownika
-      url: custom-policy-ui-customization.md
-    - text: Włączanie logowania przy użyciu środowiska wielodostępnego usługi Azure AD
-      url: identity-provider-azure-ad-multi-tenant-custom.md
-    - text: Dodawanie własnej logiki biznesowej za pomocą interfejsów API REST
-      url: custom-policy-rest-api-claims-validation.md
-  - linkListType: video
+    - text: Potok ciągłej integracji/ciągłego dostarczania
+      url: deploy-custom-policies-devops.md
+    - text: Monitorowanie
+      url: azure-monitor.md
+    - text: Dostęp oparty na rolach dla administratorów
+      url: overview.md
+    - text: Zarządzanie użytkownikami
+      url: manage-user-accounts-graph-api.md
+    - text: Rozwiązywanie problemów
+      url: troubleshoot-custom-policies.md?tabs-app-reg-ga
+    - text: Najlepsze rozwiązania
+      url: best-practices.md
+- title: Resources
+  linkLists:
+  - linkListType: overview
     links:
-    - text: Zaawansowane przypadki użycia usługi Azure AD B2C (4:54)
-      url: https://www.youtube.com/watch?v=-ZmPBuMZY-Y
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
+    - text: GitHub
+      url: https://github.com/azure-ad-b2c/samples
+    - text: YouTube
+      url: https://www.youtube.com/results?search_query=azure+ad+b2c
+    - text: Szkolenie
+      url: solution-articles.md
+    - text: Aktualizacje usług
+      url: https://azure.microsoft.com/updates/?product=active-directory-b2c
+    - text: Często zadawane pytania
+      url: faq.md
+    - text: Pomoc techniczna firmy Microsoft
+      url: support-options.md
+- title: Typowe integracje
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 'Azure Monitor: przechowywanie i analizowanie dzienników'
+      url: azure-monitor.md
+    - text: 'Usługi Azure DevOps: tworzenie potoku ciągłej integracji/ciągłego dostarczania'
+      url: deploy-custom-policies-devops.md
+    - text: 'Application Insights: rozwiązywanie problemów i uzyskiwanie kluczowych informacji dotyczących użytkowników'
+      url: troubleshoot-with-application-insights.md
+    - text: Integracja z partnerami technologicznymi
+      url: partner-gallery.md

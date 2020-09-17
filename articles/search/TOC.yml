@@ -3,9 +3,11 @@
 - name: Omówienie
   expanded: true
   items:
-    - name: Co to jest wyszukiwanie poznawcze na platformie Azure?
+    - name: Co to jest Cognitive Search?
       href: search-what-is-azure-search.md
-    - name: Co nowego
+    - name: Funkcje usługi Cognitive Search
+      href: search-features-list.md
+    - name: Co nowego w usłudze Cognitive Search
       href: whats-new.md
 - name: Przewodniki Szybki start
   items:
@@ -413,25 +415,27 @@
     - name: .NET
       items:
         - name: Interfejs API wyszukiwania
-          href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search.documents-readme
         - name: Interfejs API zarządzania
-          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search/management
     - name: Java
       items:
+        - name: Interfejs API wyszukiwania
+          href: /java/api/overview/azure/search-documents-readme
         - name: Interfejs API zarządzania
-          href: /java/api/overview/azure/search/management?view=azure-java-stable
+          href: /java/api/overview/azure/search/management
     - name: JavaScript
       items:
         - name: Interfejs API wyszukiwania
-          href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+          href: /javascript/api/overview/azure/search-documents-readme
         - name: Interfejs API zarządzania
-          href: /javascript/api/overview/azure/search/management?view=azure-node-latest
+          href: /javascript/api/overview/azure/search/management
     - name: Python
       items:
         - name: Interfejs API wyszukiwania
-          href: /python/api/overview/azure/search-documents-readme?view=azure-python
+          href: /python/api/overview/azure/search-documents-readme
         - name: Interfejs API zarządzania
-          href: /python/api/overview/azure/search/management?view=azure-python
+          href: /python/api/overview/azure/search/management
     - name: Dokumentacja języka OData
       items:
         - name: Omówienie

@@ -20,19 +20,11 @@
       href: quickstart-load-balancer-standard-internal-powershell.md
     - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
       href: quickstart-load-balancer-standard-internal-cli.md
+    - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — szablon usługi ARM
+      href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Samouczki
   items:
-    - name: Wewnętrzny moduł równoważenia obciążenia
-      items:
-        - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — portal
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — program Azure PowerShell
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — szablon usługi ARM
-          href: load-balancer-get-started-ilb-arm-template.md
     - name: Równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Równoważenie obciążenia maszyny wirtualnej w określonej strefie dostępności
