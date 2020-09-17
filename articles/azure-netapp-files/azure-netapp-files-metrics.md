@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 09/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 7e6ab90010d4379c1640f73a8deeba874e601daf
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 1690a844ff700a2975be8e972fd90ba71eeb937c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513812"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707785"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Metryki dla usługi Azure NetApp Files
 
@@ -27,20 +27,18 @@ Azure NetApp Files udostępnia metryki przydziału magazynu, rzeczywistego użyc
 
 ## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>Metryki użycia dla pul pojemności
 
-<!-- 
-- *Pool Provisioned Size*  
-    The logical space (GiB) the capacity pool is provisioned with.  
-    This size is the size you selected during capacity pool creation. 
---> 
+- *Rozmiar przydzielony puli*   
+    Rozmiar aprowizacji puli.
+
 - *Pula przydzielono do rozmiaru woluminu*  
     Całkowita liczba przydziałów woluminu (GiB) w danej puli pojemności (czyli całkowita liczba przydziałów woluminów w puli pojemności).  
     Ten rozmiar to rozmiar wybrany podczas tworzenia woluminu.  
+
 - *Rozmiar zużytego puli*  
     Całkowita ilość przestrzeni logicznej (GiB) używana między woluminami w puli pojemności.  
-<!-- 
-- *Pool Consumed Snapshot Size*  
-    The total of logical space (GiB) used by snapshots across all volumes in a capacity pool. 
--->
+
+- *Łączny rozmiar migawki puli*    
+    Suma rozmiaru migawki wszystkich woluminów w puli.
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Metryki użycia dla woluminów
 
@@ -57,14 +55,37 @@ Azure NetApp Files udostępnia metryki przydziału magazynu, rzeczywistego użyc
 
 ## <a name="performance-metrics-for-volumes"></a>Metryki wydajności dla woluminów
 
-- *AverageReadLatency*   
+- *Średnie opóźnienie odczytu*   
     Średni czas odczytu z woluminu (w milisekundach).
-- *AverageWriteLatency*   
+- *Średnie opóźnienie zapisu*   
     Średni czas zapisu z woluminu w milisekundach.
-- *ReadIops*   
+- *Odczyt operacji we/wy*   
     Liczba odczytów do woluminu na sekundę.
-- *WriteIops*   
+- *Zapisz operacje we/wy*   
     Liczba zapisów w woluminie na sekundę.
+
+## <a name="volume-replication-metrics"></a><a name="replication"></a>Metryki replikacji woluminów
+
+- *Kondycja stanu replikacji woluminu*   
+    Warunek relacji replikacji. 
+
+- *Czy transfer replikacji woluminu*    
+    Czy stan replikacji woluminu to "Transfer". 
+ 
+- *Czas zwłoki replikacji woluminu*   
+    Czas (w sekundach), przez który dane na duplikacie spowolnienia za źródłem. 
+
+- *Czas trwania ostatniego transferu replikacji woluminu*   
+    Czas (w sekundach) oczekiwania na ukończenie ostatniego transferu. 
+
+- *Rozmiar ostatniego transferu replikacji woluminu*    
+    Całkowita liczba bajtów przetransferowanych w ramach ostatniego transferu. 
+
+- *Postęp replikacji woluminu*    
+    Całkowita ilość danych transferowanych dla bieżącej operacji transferu. 
+
+- *Łączny transfer replikacji woluminów*   
+    Skumulowane bajty transferowane dla relacji. 
 
 ## <a name="next-steps"></a>Następne kroki
 
