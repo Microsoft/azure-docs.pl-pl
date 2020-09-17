@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178828"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706000"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Słownik oprogramowania Microsoft Identity platform dla deweloperów
 
@@ -154,7 +154,7 @@ Zgodnie z definicją w [ramach platformy autoryzacji OAuth2][OAuth2-Role-Def]jed
 
 Zgodnie z definicją w [strukturze autoryzacji OAuth2][OAuth2-Role-Def]serwer, który hostuje chronione zasoby, może akceptować i odpowiadać na żądania zasobów chronionych przez [aplikacje klienckie](#client-application) , które składają [token dostępu](#access-token). Znany również jako chroniony serwer zasobów lub aplikacja zasobów.
 
-Serwer zasobów udostępnia interfejsy API i wymusza dostęp do zasobów chronionych przez [zakresy](#scopes) i [role](#roles)przy użyciu platformy autoryzacji OAuth 2,0. Przykłady obejmują [interfejs api Microsoft Graph][Microsoft-Graph] , który zapewnia dostęp do danych dzierżawy usługi Azure AD, oraz interfejsy API pakietu Office 365 zapewniające dostęp do danych, takich jak poczta i kalendarz.
+Serwer zasobów udostępnia interfejsy API i wymusza dostęp do zasobów chronionych przez [zakresy](#scopes) i [role](#roles)przy użyciu platformy autoryzacji OAuth 2,0. Przykłady obejmują [interfejs api Microsoft Graph][Microsoft-Graph] , który zapewnia dostęp do danych dzierżawy usługi Azure AD, oraz interfejsy API Microsoft 365, które zapewniają dostęp do danych, takich jak poczta i kalendarz.
 
 Podobnie jak aplikacja kliencka, Konfiguracja tożsamości aplikacji zasobów jest ustanawiana za pośrednictwem [rejestracji](#application-registration) w dzierżawie usługi Azure AD, dostarczając zarówno obiekt główny aplikacji, jak i obiektu usługi. Niektóre interfejsy API udostępniane przez firmę Microsoft, takie jak interfejs API Microsoft Graph, mają wstępnie zarejestrowane jednostki usługi udostępniane we wszystkich dzierżawcach podczas aprowizacji.
 
@@ -172,7 +172,7 @@ Podobnie jak w przypadku [ról](#roles), zakresy zapewniają sposób, aby [serwe
 
 Zakresy są ciągami zdefiniowanymi przez zasób (na przykład "mail. Read", "Directory. ReadWrite. All"), które są zarządzane w [Azure Portal][AZURE-portal] za pośrednictwem [manifestu aplikacji](#application-manifest)zasobu i przechowywane we [Właściwości oauth2Permissions][Graph-Sp-Resource]zasobu. Azure Portal jest również używany do konfigurowania [uprawnień delegowanych](#permissions) aplikacji klienckich w celu uzyskania dostępu do zakresu.
 
-Najlepszym rozwiązaniem konwencji nazewnictwa jest użycie formatu "Resource. Operation. Constraint". Aby uzyskać szczegółowe omówienie zakresów udostępnianych przez interfejs Microsoft Graph API, zobacz [interfejs API programu Graph zakresów uprawnień][Graph-Perm-Scopes]. W przypadku zakresów udostępnianych przez usługi Office 365 zapoznaj się z tematem [Dokumentacja dotycząca uprawnień interfejsu API pakietu office 365][O365-Perm-Ref].
+Najlepszym rozwiązaniem konwencji nazewnictwa jest użycie formatu "Resource. Operation. Constraint". Aby uzyskać szczegółowe omówienie zakresów udostępnianych przez interfejs Microsoft Graph API, zobacz [interfejs API programu Graph zakresów uprawnień][Graph-Perm-Scopes]. W przypadku zakresów udostępnianych przez Microsoft 365 usług zapoznaj się z tematem [Microsoft 365 informacje o uprawnieniach interfejsu API][O365-Perm-Ref].
 
 ## <a name="security-token"></a>token zabezpieczający
 
@@ -202,7 +202,7 @@ Wystąpienie katalogu usługi Azure AD nazywa się dzierżawą usługi Azure AD.
 * uwierzytelnianie kont użytkowników i zarejestrowanych aplikacji
 * Punkty końcowe REST są wymagane do obsługi różnych protokołów, w tym OAuth2 i SAML, w tym [punkt końcowy autoryzacji](#authorization-endpoint), [punkt końcowy tokenu](#token-endpoint) i punkt końcowy "Common" używany przez [aplikacje](#multi-tenant-application)wielodostępne.
 
-Dzierżawy usługi Azure AD są tworzone/skojarzone z subskrypcjami platformy Azure i pakietu Office 365 podczas tworzenia konta, zapewniając & funkcje zarządzania dostępem dla subskrypcji. Administratorzy subskrypcji platformy Azure mogą również tworzyć dodatkowe dzierżawy usługi Azure AD za pośrednictwem Azure Portal. Zobacz, [jak uzyskać dzierżawę Azure Active Directory][AAD-How-To-Tenant] , aby uzyskać szczegółowe informacje na temat różnych sposobów uzyskiwania dostępu do dzierżawy. Aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami i dzierżawą usługi Azure AD, zobacz [kojarzenie lub Dodawanie subskrypcji platformy Azure do dzierżawy Azure Active Directory][AAD-How-Subscriptions-Assoc] . Aby uzyskać instrukcje dotyczące kojarzenia lub dodawania subskrypcji do dzierżawy usługi Azure AD.
+Dzierżawy usługi Azure AD są tworzone/skojarzone z platformą Azure oraz Microsoft 365 subskrypcje podczas tworzenia konta, zapewniając funkcje zarządzania dostępem & do subskrypcji. Administratorzy subskrypcji platformy Azure mogą również tworzyć dodatkowe dzierżawy usługi Azure AD za pośrednictwem Azure Portal. Zobacz, [jak uzyskać dzierżawę Azure Active Directory][AAD-How-To-Tenant] , aby uzyskać szczegółowe informacje na temat różnych sposobów uzyskiwania dostępu do dzierżawy. Aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami i dzierżawą usługi Azure AD, zobacz [kojarzenie lub Dodawanie subskrypcji platformy Azure do dzierżawy Azure Active Directory][AAD-How-Subscriptions-Assoc] . Aby uzyskać instrukcje dotyczące kojarzenia lub dodawania subskrypcji do dzierżawy usługi Azure AD.
 
 ## <a name="token-endpoint"></a>punkt końcowy tokenu
 

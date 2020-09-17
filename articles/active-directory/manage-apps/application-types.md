@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 955efe45be27fa2f4e738066bb3b69b3604be33a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5229b123986149903d562bc0b3d6902c0136f647
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400725"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707887"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Wyświetlanie aplikacji przy użyciu dzierżawy usługi Azure AD na potrzeby zarządzania tożsamościami
 [Seria szybkiego startu w zarządzaniu aplikacjami](view-applications-portal.md) zawiera podstawowe informacje. W tym temacie dowiesz się, jak wyświetlać wszystkie aplikacje korzystające z dzierżawy usługi Azure AD na potrzeby zarządzania tożsamościami. W tym artykule omówieniach się nieco bardziej szczegółowe informacje o typach aplikacji, które znajdziesz.
@@ -27,7 +27,7 @@ Po przefiltrowaniu do **wszystkich aplikacji**na **liście** **wszystkie aplikac
    - **Azure AD — rejestracje aplikacji** — aplikacje dodane do dzierżawy przy użyciu opcji **rejestracje aplikacji** w portalu usługi Azure AD. Zazwyczaj niestandardowe aplikacje opracowane przy użyciu funkcji Open ID Connect i uwierzytelniania OAuth.
    - **Aplikacje serwera proxy aplikacji** — aplikacja działająca w środowisku lokalnym, w której chcesz zapewnić bezpieczne logowanie jednokrotne na zewnątrz
 - Podczas rejestrowania się w programie lub zalogowania się do programu aplikacja innej firmy jest zintegrowana z Azure Active Directory. Przykładem jest [Narzędzia Smartsheet](https://app.smartsheet.com/b/home) lub [Docusign](https://www.docusign.net/member/MemberLogin.aspx).
-- Aplikacje firmy Microsoft, takie jak Microsoft 365 lub Office 365.
+- Aplikacje firmy Microsoft, takie jak Microsoft 365.
 - Po dodaniu nowej rejestracji aplikacji, tworząc aplikację niestandardową przy użyciu [rejestru aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 - Po dodaniu nowej rejestracji aplikacji przez utworzenie niestandardowej aplikacji za pomocą [portalu rejestracji aplikacji w wersji 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 - Gdy dodajesz aplikację, opracowujesz przy użyciu [metod uwierzytelniania ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) lub [usług połączonych](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/) programu Visual Studio

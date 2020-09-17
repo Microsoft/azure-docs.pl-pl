@@ -4,20 +4,17 @@ description: Rozwiązywanie znanych problemów z wydajnością przy użyciu udzi
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: cffac114cacd05e04e149af96d1678b536db7fec
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 7afaa057ecc94cf67d4fd5b041d95210fcf26717
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564240"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707598"
 ---
-# <a name="troubleshoot-azure-files-performance-issues-smb"></a>Rozwiązywanie problemów z wydajnością Azure Files (SMB)
-
-> [!IMPORTANT]
-> Zawartość tego artykułu dotyczy tylko udziałów SMB.
+# <a name="troubleshoot-azure-files-performance-issues"></a>Rozwiązywanie problemów z wydajnością Azure Files
 
 W tym artykule wymieniono niektóre typowe problemy związane z udziałami plików platformy Azure. Zapewnia potencjalne przyczyny i obejścia w przypadku napotkania tych problemów.
 

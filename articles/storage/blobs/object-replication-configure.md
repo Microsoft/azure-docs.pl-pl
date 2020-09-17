@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4fb616860cb1e85c6249329f3679de0d29b72e61
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018836"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707921"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Konfiguruj replikację obiektów dla blokowych obiektów BLOB
 
@@ -150,9 +150,11 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 Aby utworzyć zasady replikacji przy użyciu interfejsu wiersza polecenia platformy Azure, najpierw zainstaluj interfejs wiersza polecenia platformy Azure w wersji 2.11.1 lub nowszej. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli).
 
-Następnie Włącz obsługę wersji obiektów BLOB na kontach magazynu źródłowego i docelowego, a następnie Włącz źródło zmian na koncie źródłowym. Pamiętaj, aby zamienić wartości w nawiasy kątowe własnymi wartościami:
+Następnie Włącz obsługę wersji obiektów BLOB na kontach magazynu źródłowego i docelowego i Włącz źródło zmian na koncie źródłowym, wywołując polecenie [AZ Storage account BLOB-Service-Properties Update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) . Pamiętaj, aby zamienić wartości w nawiasy kątowe własnymi wartościami:
 
 ```azurecli
+az login
+
 az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
@@ -174,24 +176,24 @@ Utwórz kontenery źródłowe i docelowe na odpowiednich kontach magazynu.
 ```azurecli
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container3 \
+    --name source-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container4 \
+    --name source-container-2 \
     --auth-mode login
 
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container3 \
+    --name dest-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container4 \
+    --name dest-container-1 \
     --auth-mode login
 ```
 
-Utwórz nowe zasady replikacji i skojarzone reguły na koncie docelowym.
+Utwórz nowe zasady replikacji i skojarzoną regułę na koncie docelowym, wywołując metodę [AZ Storage account lub-Policy Create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create).
 
 ```azurecli
 az storage account or-policy create \
@@ -199,21 +201,26 @@ az storage account or-policy create \
     --resource-group <resource-group> \
     --source-account <source-storage-account> \
     --destination-account <dest-storage-account> \
-    --source-container source-container3 \
-    --destination-container dest-container3 \
-    --min-creation-time '2020-05-10T00:00:00Z' \
+    --source-container source-container-1 \
+    --destination-container dest-container-1 \
+    --min-creation-time '2020-09-10T00:00:00Z' \
     --prefix-match a
 
+```
+
+Usługa Azure Storage ustawia identyfikator zasad dla nowych zasad podczas jego tworzenia. Aby dodać do zasad dodatkowe reguły, wywołaj polecenie [AZ Storage account lub-Policy Rule Add](/cli/azure/storage/account/or-policy/rule#az_storage_account_or_policy_rule_add) i podaj identyfikator zasad.
+
+```azurecli
 az storage account or-policy rule add \
     --account-name <dest-storage-account> \
-    --destination-container dest-container4 \
-    --policy-id <policy-id> \
     --resource-group <resource-group> \
-    --source-container source-container4 \
+    --source-container source-container-2 \
+    --destination-container dest-container-2 \
+    --policy-id <policy-id> \
     --prefix-match b
 ```
 
-Utwórz zasady na koncie źródłowym przy użyciu identyfikatora zasad.
+Następnie utwórz zasady na koncie źródłowym przy użyciu identyfikatora zasad.
 
 ```azurecli
 az storage account or-policy show \
@@ -229,16 +236,16 @@ az storage account or-policy show \
 
 ### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>Skonfiguruj replikację obiektów, gdy masz dostęp tylko do konta docelowego
 
-Jeśli nie masz uprawnień do źródłowego konta magazynu, możesz skonfigurować replikację obiektów na koncie docelowym i udostępnić plik JSON zawierający definicję zasad innemu użytkownikowi, aby utworzyć te same zasady na koncie źródłowym. Na przykład, jeśli konto źródłowe znajduje się w innej dzierżawie usługi Azure AD z konta docelowego, Użyj tej metody, aby skonfigurować replikację obiektów. 
+Jeśli nie masz uprawnień do źródłowego konta magazynu, możesz skonfigurować replikację obiektów na koncie docelowym i udostępnić plik JSON zawierający definicję zasad innemu użytkownikowi, aby utworzyć te same zasady na koncie źródłowym. Na przykład, jeśli konto źródłowe znajduje się w innej dzierżawie usługi Azure AD z konta docelowego, można użyć tej metody w celu skonfigurowania replikacji obiektów.
 
 Pamiętaj, że musisz mieć przypisaną rolę **Współautora** Azure Resource Manager zakresem do poziomu docelowego konta magazynu lub wyższą, aby utworzyć zasady. Aby uzyskać więcej informacji, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md) w dokumentacji Access Control opartej na rolach na platformie Azure.
 
-Poniższa tabela zawiera podsumowanie wartości, które mają być używane dla identyfikatora zasad w pliku JSON w każdym scenariuszu.
+Poniższa tabela zawiera podsumowanie wartości, które mają być używane dla identyfikatora zasad i identyfikatorów reguł w pliku JSON w każdym scenariuszu.
 
-| Podczas tworzenia pliku JSON dla tego konta... | Ustaw identyfikator zasad na tę wartość... |
+| Podczas tworzenia pliku JSON dla tego konta... | Ustaw identyfikator zasad i identyfikatory reguł na tę wartość... |
 |-|-|
-| Konto docelowe | Wartość *Domyślna*wartości ciągu. Usługa Azure Storage utworzy identyfikator zasad. |
-| Konto źródłowe | Identyfikator zasad zwracany podczas pobierania pliku JSON zawierającego reguły zdefiniowane na koncie docelowym. |
+| Konto docelowe | Wartość *Domyślna*wartości ciągu. Usługa Azure Storage utworzy identyfikator zasad i identyfikatory reguł. |
+| Konto źródłowe | Wartości identyfikatora zasad i identyfikatorów reguł zwracanych podczas pobierania zasad zdefiniowanych na koncie docelowym jako plik JSON. |
 
 Poniższy przykład definiuje zasady replikacji na koncie docelowym z pojedynczą regułą zgodną z prefiksem *b* i ustawia minimalny czas tworzenia dla obiektów blob, które mają być replikowane. Pamiętaj, aby zamienić wartości w nawiasy kątowe własnymi wartościami:
 
@@ -307,7 +314,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Aby użyć pliku JSON do zdefiniowania zasad replikacji na koncie źródłowym przy użyciu programu PowerShell, Pobierz plik lokalny i Konwertuj z formatu JSON na obiekt. Następnie Wywołaj polecenie [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) , aby skonfigurować zasady na koncie źródłowym, jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości w nawiasach kątowych i ścieżkę pliku własnymi wartościami:
+Aby użyć pliku JSON w celu skonfigurowania zasad replikacji na koncie źródłowym przy użyciu programu PowerShell, Pobierz plik lokalny i przekonwertuj z formatu JSON na obiekt. Następnie Wywołaj polecenie [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) , aby skonfigurować zasady na koncie źródłowym, jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości w nawiasach kątowych i ścieżkę pliku własnymi wartościami:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -321,7 +328,24 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Nie dotyczy
+Aby zapisać definicję zasad replikacji dla konta docelowego w pliku JSON z interfejsu wiersza polecenia platformy Azure, wywołaj polecenie [AZ Storage account lub-Policy show](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_show) i Output to File.
+
+Poniższy przykład zapisuje definicję zasad do pliku JSON o nazwie *policy.jsna*. Pamiętaj, aby zastąpić wartości w nawiasach kątowych i ścieżkę pliku własnymi wartościami:
+
+```azurecli
+az storage account or-policy show \
+    --account-name <dest-account-name> \
+    --policy-id  <policy-id> > policy.json
+```
+
+Aby użyć pliku JSON w celu skonfigurowania zasad replikacji na koncie źródłowym przy użyciu interfejsu wiersza polecenia platformy Azure, wywołaj polecenie [AZ Storage account lub-Policy Create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create) , a następnie odwołują się do *policy.js* pliku. Pamiętaj, aby zastąpić wartości w nawiasach kątowych i ścieżkę pliku własnymi wartościami:
+
+```azurecli
+az storage account or-policy create \
+    -resource-group <resource-group> \
+    --source-account <source-account-name> \
+    --policy @policy.json
+```
 
 ---
 
@@ -360,12 +384,12 @@ Aby usunąć zasady replikacji, Usuń zasady z konta źródłowego i docelowego.
 
 ```azurecli
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <source-storage-account> \
     --resource-group <resource-group>
 
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <dest-storage-account> \
     --resource-group <resource-group>
 ```

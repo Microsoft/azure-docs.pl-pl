@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: de6cd4ee2c9800757399b7e32b59d903b817c657
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 9a1745aa0e78dafca70ea90d4a5ac92f340312b3
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604397"
+ms.locfileid: "90706926"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -38,18 +38,18 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Regionalne  | Język                          | Dostosowania                                    |
 |---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | Arabski (Zjednoczone Emiraty Arabskie)                      | Nie                                                |
+| `ar-AE` | Arabski (Zjednoczone Emiraty Arabskie)     | Model językowy                                    |
 | `ar-BH` | Arabski (Bahrajn), nowoczesny Standard | Model językowy                                    |
 | `ar-EG` | Arabski (Egipt)                    | Model językowy                                    |
 | `ar-IL` | Arabski (Izrael)                   | Nie                                                |
-| `ar-IQ` | Arabski (Irak)                     | Nie                                                |
-| `ar-JO` | Arabski (Jordania)                   | Nie                                                |
-| `ar-KW` | Arabski (Kuwejt)                   | Nie                                                |
-| `ar-LB` | Arabski (Liban)                  | Nie                                                |
-| `ar-OM` | Arabski (Oman)                     | Nie                                                |
-| `ar-PS` | Arabski (palestyński)                | Nie                                                |
-| `ar-QA` | Arabski (katar)                    | Nie                                                |
-| `ar-SA` | Arabski (Arabia Saudyjska)             | Nie                                                |
+| `ar-IQ` | Arabski (Irak)                     | Model językowy                                    |
+| `ar-JO` | Arabski (Jordania)                   | Model językowy                                    |
+| `ar-KW` | Arabski (Kuwejt)                   | Model językowy                                    |
+| `ar-LB` | Arabski (Liban)                  | Model językowy                                    |
+| `ar-OM` | Arabski (Oman)                     | Model językowy                                    |
+| `ar-PS` | Arabski (stan Palestyny)       | Nie                                                |
+| `ar-QA` | Arabski (katar)                    | Model językowy                                    |
+| `ar-SA` | Arabski (Arabia Saudyjska)             | Model językowy                                    |
 | `ar-SY` | Arabski (Syria)                    | Model językowy                                    |
 | `bg-BG` | Bułgarski (Bułgaria)              | Model językowy                                    |
 | `ca-ES` | Kataloński                   | Model językowy                                    |
@@ -117,7 +117,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `sv-SE` | Szwedzki (Szwecja)                  | Model językowy                                    |
 | `ta-IN` | Tamilski (Indie)                     | Model językowy                                    |
 | `te-IN` | Telugu (Indie)                    | Model językowy                                    |
-| `th-TH` | Tajski (Tajlandia)                   | Nie                                                |
+| `th-TH` | Tajski (Tajlandia)                   | Model językowy                                    |
 | `tr-TR` | Turecki (Turcja)                  | Model językowy                                    |
 | `zh-CN` | Chiński (mandarynki, uproszczony)    | Model akustyczny<br>Model językowy                  |
 | `zh-HK` | Chiński (kantoński, tradycyjny)  | Model językowy                                    |

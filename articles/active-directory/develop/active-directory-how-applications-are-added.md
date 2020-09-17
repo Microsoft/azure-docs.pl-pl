@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: d89f0d08fec0b0f341094d422b1091de5a61055e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115768"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706187"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Jak i dlaczego aplikacje są dodawane do usługi Azure AD
 
@@ -70,9 +70,9 @@ Podobnie jak obiekty aplikacji, jednostki usługi mogą być również tworzone 
 
 * Gdy użytkownicy logują się do aplikacji innej firmy zintegrowanej z usługą Azure AD
   * Podczas logowania użytkownicy są proszeni o przyznanie uprawnień aplikacji w celu uzyskania dostępu do ich profilu i innych uprawnień. Pierwsza osoba, która wyraża zgodę, powoduje, że jednostka usługi reprezentuje aplikację, która ma zostać dodana do katalogu.
-* Gdy użytkownicy logują się do firmy Microsoft Usługi online, takiej jak [Office 365](https://products.office.com/)
-  * Po zasubskrybowaniu pakietu Office 365 lub rozpoczęcia okresu próbnego w katalogu zostanie utworzona co najmniej jedna jednostka usługi, która reprezentuje różne usługi, które są używane do dostarczania wszystkich funkcji skojarzonych z pakietem Office 365.
-  * Niektóre usługi pakietu Office 365, takie jak program SharePoint, regularnie tworzą jednostki usługi, aby umożliwić bezpieczną komunikację między składnikami, w tym przepływami pracy.
+* Gdy użytkownicy logują się do Usługi online firmy Microsoft, takich jak [Microsoft 365](https://products.office.com/)
+  * Gdy subskrybujesz Microsoft 365 lub Rozpocznij okres próbny, w katalogu zostanie utworzona co najmniej jedna jednostka usługi, która reprezentuje różne usługi, które są używane do dostarczania wszystkich funkcji skojarzonych z Microsoft 365.
+  * Niektóre Microsoft 365 usługi, takie jak program SharePoint, regularnie tworzą jednostki usługi, aby umożliwić bezpieczną komunikację między składnikami, w tym przepływami pracy.
 * Gdy administrator dodaje aplikację z galerii aplikacji (spowoduje to również utworzenie bazowego obiektu aplikacji)
 * Dodawanie aplikacji do korzystania z [usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy.md)
 * Łączenie aplikacji do logowania jednokrotnego przy użyciu protokołu SAML lub hasła logowania jednokrotnego (SSO)
@@ -116,7 +116,7 @@ Aplikacje są dodawane do usługi Azure AD, aby można było korzystać z co naj
 * Logowanie jednokrotne przy użyciu Federacji lub hasła
 * Inicjowanie obsługi i synchronizacja użytkowników
 * Kontrola dostępu oparta na rolach — użyj katalogu do definiowania ról aplikacji do wykonywania kontroli autoryzacji opartej na rolach w aplikacji
-* Usługi autoryzacji OAuth — używane przez pakiet Office 365 i inne aplikacje firmy Microsoft do autoryzacji dostępu do interfejsów API/zasobów
+* Usługi autoryzacji OAuth — używane przez Microsoft 365 i inne aplikacje firmy Microsoft do autoryzacji dostępu do interfejsów API/zasobów
 * Publikowanie aplikacji i serwer proxy — publikowanie aplikacji z sieci prywatnej w Internecie
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Kto ma uprawnienia do dodawania aplikacji do mojego wystąpienia usługi Azure AD?

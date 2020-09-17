@@ -1,6 +1,6 @@
 ---
 title: Zakresy, uprawnienia i zgody platformy tożsamości firmy Microsoft
-description: Opis autoryzacji w punkcie końcowym platformy tożsamości firmy Microsoft, w tym zakresów, uprawnień i zgody.
+description: Dowiedz się więcej na temat autoryzacji w punkcie końcowym platformy tożsamości firmy Microsoft, w tym zakresów, uprawnień i zgody.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d513dbd8449dad1d34117e06970f0c0881462aa3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263231"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705694"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 
@@ -27,12 +27,12 @@ Aplikacje integrowane z platformą tożsamości firmy Microsoft są zgodne z mod
 
 Platforma tożsamości firmy Microsoft implementuje protokół autoryzacji [OAuth 2,0](active-directory-v2-protocols.md) . OAuth 2,0 to metoda, za pomocą której aplikacja innej firmy może uzyskać dostęp do zasobów hostowanych w sieci Web w imieniu użytkownika. Wszystkie zasoby hostowane w sieci Web, które integrują się z platformą tożsamości firmy Microsoft, mają identyfikator zasobu lub identyfikator *URI aplikacji*. Na przykład niektóre z zasobów internetowych firmy Microsoft obejmują:
 
-* Microsoft Graph:`https://graph.microsoft.com`
-* Interfejs API poczty pakietu Office 365:`https://outlook.office.com`
-* Azure Key Vault:`https://vault.azure.net`
+* Microsoft Graph: `https://graph.microsoft.com`
+* Interfejs API poczty Microsoft 365: `https://outlook.office.com`
+* Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
-> Zdecydowanie zalecamy używanie Microsoft Graph zamiast interfejsu API poczty pakietu Office 365 itd.
+> Zdecydowanie zalecamy używanie Microsoft Graph zamiast interfejsu API poczty Microsoft 365, itp.
 
 Ta sama wartość dotyczy wszystkich zasobów innych firm, które zostały zintegrowane z platformą tożsamości firmy Microsoft. Dowolny z tych zasobów może również definiować zestaw uprawnień, które mogą służyć do dzielenia funkcjonalności tego zasobu na mniejsze fragmenty. Na przykład [Microsoft Graph](https://graph.microsoft.com) ma zdefiniowane uprawnienia do wykonywania następujących zadań, między innymi:
 
@@ -44,9 +44,9 @@ Definiując te typy uprawnień, zasób ma szczegółową kontrolę nad swoimi da
 
 W przypadku uwierzytelniania OAuth 2,0 te typy uprawnień są nazywane *zakresami*. Są one również często określane jako *uprawnienia*. Uprawnienie jest reprezentowane na platformie tożsamości firmy Microsoft jako wartość ciągu. Kontynuując Microsoft Graph przykład, wartość ciągu dla każdego uprawnienia to:
 
-* Odczytaj kalendarz użytkownika przy użyciu`Calendars.Read`
-* Zapisywanie w kalendarzu użytkownika przy użyciu`Calendars.ReadWrite`
-* Wyślij wiadomość jako użytkownika używaną przez`Mail.Send`
+* Odczytaj kalendarz użytkownika przy użyciu `Calendars.Read`
+* Zapisywanie w kalendarzu użytkownika przy użyciu `Calendars.ReadWrite`
+* Wyślij wiadomość jako użytkownika używaną przez `Mail.Send`
 
 Aplikacja najczęściej żąda tych uprawnień, określając zakresy w żądaniach do autoryzowanego punktu końcowego platformy tożsamości firmy Microsoft. Jednak pewne uprawnienia o wysokim poziomie uprawnień mogą być udzielane tylko przez zgodę administratora i wymagane/udzielone za pomocą [punktu końcowego zgody administratora](v2-permissions-and-consent.md#admin-restricted-permissions). Przeczytaj, aby dowiedzieć się więcej.
 
@@ -134,9 +134,9 @@ Ponadto aplikacje muszą używać punktu końcowego zgody administratora, aby za
 
 Niektóre uprawnienia o wysokim poziomie uprawnień w ekosystemie firmy Microsoft można ustawić na wartość z *ograniczeniami administratora*. Przykłady tych rodzajów uprawnień obejmują następujące elementy:
 
-* Odczytuj pełne profile wszystkich użytkowników za pomocą`User.Read.All`
-* Zapisywanie danych w katalogu organizacji przy użyciu`Directory.ReadWrite.All`
-* Odczytuj wszystkie grupy w katalogu organizacji przy użyciu`Groups.Read.All`
+* Odczytuj pełne profile wszystkich użytkowników za pomocą `User.Read.All`
+* Zapisywanie danych w katalogu organizacji przy użyciu `Directory.ReadWrite.All`
+* Odczytuj wszystkie grupy w katalogu organizacji przy użyciu `Groups.Read.All`
 
 Mimo że użytkownik może udzielić aplikacji dostępu do tego rodzaju danych, użytkownicy w organizacji nie mogą udzielać dostępu do tego samego zestawu poufnych danych firmowych. Jeśli aplikacja zażąda dostępu do jednego z tych uprawnień od użytkownika w organizacji, zostanie wyświetlony komunikat o błędzie informujący, że nie są uprawnieni do wyrażania zgody na uprawnienia aplikacji.
 
@@ -283,7 +283,7 @@ W tym przykładzie nie istnieje zgoda dla użytkownika między klientem a Micros
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Przykład 3: użytkownik wyraził zgodę, a klient żąda dodatkowych zakresów
 
-W tym przykładzie użytkownik wyraził już zgodę na `mail.read` klienta. Klient został zarejestrowany dla `contacts.read` zakresu w jego rejestracji. Gdy klient wysyła żądanie dotyczące tokenu przy użyciu `scope=https://graph.microsoft.com/.default` i żąda zgody za pośrednictwem `prompt=consent` , zobaczy ekran zgody dla wszystkich (i tylko) uprawnień zarejestrowanych przez aplikację. `contacts.read`będzie obecny na ekranie wyrażania zgody, ale `mail.read` nie będzie. Zwrócony token będzie dla Microsoft Graph i będzie zawierać `mail.read` i `contacts.read` .
+W tym przykładzie użytkownik wyraził już zgodę na `mail.read` klienta. Klient został zarejestrowany dla `contacts.read` zakresu w jego rejestracji. Gdy klient wysyła żądanie dotyczące tokenu przy użyciu `scope=https://graph.microsoft.com/.default` i żąda zgody za pośrednictwem `prompt=consent` , zobaczy ekran zgody dla wszystkich (i tylko) uprawnień zarejestrowanych przez aplikację. `contacts.read` będzie obecny na ekranie wyrażania zgody, ale `mail.read` nie będzie. Zwrócony token będzie dla Microsoft Graph i będzie zawierać `mail.read` i `contacts.read` .
 
 ### <a name="using-the-default-scope-with-the-client"></a>Używanie zakresu/.default z klientem
 

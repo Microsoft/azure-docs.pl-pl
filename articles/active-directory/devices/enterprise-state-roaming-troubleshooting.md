@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267245"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705728"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Rozwiązywanie problemów Enterprise State Roaming ustawień w Azure Active Directory
 
@@ -78,9 +78,9 @@ Enterprise State Roaming wymaga zarejestrowania urządzenia w usłudze Azure AD.
 
 W pewnych warunkach Enterprise State Roaming nie mogą synchronizować danych w przypadku skonfigurowania usługi Azure Multi-Factor Authentication. Aby uzyskać więcej informacji na temat tych objawów, zobacz dokument pomocy technicznej [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Potencjalny problem**: Jeśli na urządzeniu skonfigurowano wymaganie Multi-Factor Authentication w portalu Azure Active Directory, nie można zsynchronizować ustawień podczas logowania się do urządzenia z systemem Windows 10 przy użyciu hasła. Ten typ konfiguracji Multi-Factor Authentication jest przeznaczony do ochrony konta administratora platformy Azure. Użytkownicy administracyjni mogą nadal synchronizować się, logując się na urządzeniach z systemem Windows 10 przy użyciu numeru PIN Microsoft Passport for Work lub wykonując Multi-Factor Authentication podczas uzyskiwania dostępu do innych usług platformy Azure, takich jak Office 365.
+**Potencjalny problem**: Jeśli na urządzeniu skonfigurowano wymaganie Multi-Factor Authentication w portalu Azure Active Directory, nie można zsynchronizować ustawień podczas logowania się do urządzenia z systemem Windows 10 przy użyciu hasła. Ten typ konfiguracji Multi-Factor Authentication jest przeznaczony do ochrony konta administratora platformy Azure. Użytkownicy administracyjni mogą nadal synchronizować się, logując się na urządzeniach z systemem Windows 10 przy użyciu numeru PIN Microsoft Passport for Work lub wykonując Multi-Factor Authentication podczas uzyskiwania dostępu do innych usług platformy Azure, takich jak Microsoft 365.
 
-**Potencjalny problem**: Synchronizacja może zakończyć się niepowodzeniem, jeśli administrator skonfiguruje Active Directory Federation Services Multi-Factor Authentication zasady dostępu warunkowego, a token dostępu w urządzeniu wygaśnie. Upewnij się, że logujesz się i wylogujesz się przy użyciu numeru PIN Microsoft Passport for Work lub Ukończ Multi-Factor Authentication podczas uzyskiwania dostępu do innych usług platformy Azure, takich jak Office 365.
+**Potencjalny problem**: Synchronizacja może zakończyć się niepowodzeniem, jeśli administrator skonfiguruje Active Directory Federation Services Multi-Factor Authentication zasady dostępu warunkowego, a token dostępu w urządzeniu wygaśnie. Upewnij się, że logujesz się i wylogujesz się przy użyciu numeru PIN Microsoft Passport for Work lub Ukończ Multi-Factor Authentication podczas uzyskiwania dostępu do innych usług platformy Azure, takich jak Microsoft 365.
 
 ### <a name="event-viewer"></a>Podgląd zdarzeń
 

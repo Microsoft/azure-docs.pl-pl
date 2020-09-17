@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0e0ad9086a7945201b1752126253f12eb751bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320039"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705371"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Szybkie reagowanie na bezpieczne tożsamości za pomocą usługi Azure AD
 
@@ -42,16 +42,15 @@ W tym przewodniku przyjęto założenie, że w usłudze Azure AD już istnieją 
 
 Istnieje wiele aspektów bezpiecznej infrastruktury tożsamości, ale ta lista kontrolna koncentruje się na bezpiecznej i bezpiecznej infrastrukturze tożsamości umożliwiającej użytkownikom zdalne działanie. Zabezpieczanie tożsamości jest tylko częścią scenariusza zabezpieczeń, dlatego Ochrona danych, aplikacji i urządzeń powinna być uwzględniana.
 
-### <a name="guidance-for-azure-ad-free-or-office-365-customers"></a>Wskazówki dotyczące Azure AD — wersja Bezpłatna lub klientów korzystających z pakietu Office 365.
+### <a name="guidance-for-azure-ad-free-office-365-or-microsoft-365-customers"></a>Wskazówki dotyczące Azure AD — wersja Bezpłatna, Office 365 lub Microsoft 365 klientów.
 
-Istnieje wiele zaleceń, które klienci Azure AD — wersja Bezpłatna lub aplikacje pakietu Office 365 powinni wykonać w celu ochrony tożsamości użytkowników, w poniższej tabeli zawarto podkreślić kluczowe akcje dla następujących subskrypcji licencji:
+Istnieją pewne zalecenia, które Azure AD — wersja Bezpłatna, klienci pakietu Office 365 lub aplikacje Microsoft 365 powinni podjąć działania w celu ochrony tożsamości użytkowników. w poniższej tabeli zawarto podkreślić kluczowe akcje dla następujących subskrypcji licencji:
 
-- Office 365 (O365 E1, E3, E5, F1, a1, A3, A5)
-- Office 365 Business (Essentials, Business, Business Premium)
-- Microsoft 365 (M365 Business, a1)
+- Office 365 (Office 365 E1, E3, E5, F1, a1, A3, A5)
+- Microsoft 365 (Business Basic, aplikacje dla firm, Business Standard, Business Premium, a1)
 - Azure AD — wersja Bezpłatna (dołączone do platformy Azure, Dynamics 365, Intune i platformę energetyczną)
 
-| Zalecana akcja | Szczegół |
+| Zalecana akcja | Szczegóły |
 | --- | --- |
 | [Włącz ustawienia domyślne zabezpieczeń](concept-fundamentals-security-defaults.md) | Ochrona wszystkich tożsamości i aplikacji użytkowników przez włączenie usługi MFA i blokowanie starszego uwierzytelniania |
 | [Włącz synchronizację skrótów haseł](../hybrid/how-to-connect-password-hash-synchronization.md) (jeśli są używane tożsamości hybrydowe) | Zapewniaj nadmiarowość uwierzytelniania i zwiększaj bezpieczeństwo (w tym blokadę inteligentną, blokadę adresów IP oraz możliwość odnajdywania przecieków poświadczeń). |
@@ -74,7 +73,7 @@ Poniższa tabela służy do wyróżniania kluczowych akcji dla następujących s
 - Enterprise Mobility + Security (EMS E3)
 - Microsoft 365 (M365 E3, A3, F1, F3)
 
-| Zalecana akcja | Szczegół |
+| Zalecana akcja | Szczegóły |
 | --- | --- |
 | [Włącz połączone środowisko rejestracji usługi Azure MFA i SSPR, aby uprościć rejestrację użytkowników](../authentication/howto-registration-mfa-sspr-combined.md) | Zezwól użytkownikom na rejestrację z jednego typowego środowiska dla usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła. |
 | [Konfigurowanie ustawień usługi MFA dla organizacji](../authentication/howto-mfa-getstarted.md) | Upewnij się, że konta są chronione przed naruszeniem zabezpieczeń za pomocą uwierzytelniania wieloskładnikowego |
@@ -104,7 +103,7 @@ Poniższa tabela służy do wyróżniania kluczowych akcji dla następujących s
 - Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (M365 E5, A5)
 
-| Zalecana akcja | Szczegół |
+| Zalecana akcja | Szczegóły |
 | --- | --- |
 | [Włącz połączone środowisko rejestracji usługi Azure MFA i SSPR, aby uprościć rejestrację użytkowników](../authentication/howto-registration-mfa-sspr-combined.md) | Zezwól użytkownikom na rejestrację z jednego typowego środowiska dla usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła. |
 | [Konfigurowanie ustawień usługi MFA dla organizacji](../authentication/howto-mfa-getstarted.md) | Upewnij się, że konta są chronione przed naruszeniem zabezpieczeń za pomocą uwierzytelniania wieloskładnikowego |

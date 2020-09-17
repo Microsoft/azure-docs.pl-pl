@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 363068b74bf7639460da4fa80f0e661f3b8a88b9
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5d585ac57a369c994df9871bf731157de7b23212
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568816"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707632"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Jakie są domyślne uprawnienia użytkownika w Azure Active Directory?
 W usłudze Azure Active Directory (Azure AD) wszystkim użytkownikom jest udzielany zestaw uprawnień domyślnych. Dostęp użytkownika składa się z typu użytkownika, ich [przypisań ról](active-directory-users-assign-role-azure-portal.md)i ich własności do poszczególnych obiektów. W tym artykule opisano te uprawnienia domyślne oraz zawarto porównanie uprawnień domyślnych członka i użytkownika gościa. Domyślne uprawnienia użytkownika można zmienić tylko w ustawieniach użytkownika w usłudze Azure AD.
@@ -35,10 +35,10 @@ Zestaw odebranych uprawnień domyślnych zależy od tego, czy użytkownik jest n
 Użytkownicy i kontakty | <ul><li>Odczytywanie wszystkich publicznych właściwości użytkowników i kontaktów</li><li>Zapraszanie gości<li>Zmiana własnego hasła<li>Zarządzanie własnym numerem telefonu komórkowego<li>Zarządzanie własnym zdjęciem<li>Unieważnianie własnych tokenów odświeżania</li></ul> | <ul><li>Odczytywanie własnych właściwości<li>Odczytaj wyświetlaną nazwę, adres e-mail, nazwę logowania, Zdjęcie, główną nazwę użytkownika i właściwości typu użytkownika innych użytkowników i kontaktów<li>Zmiana własnego hasła<li>Wyszukaj innego użytkownika według nazwy wyświetlanej, nazwy głównej użytkownika lub identyfikatora obiektu (jeśli jest to dozwolone)<li>Menedżer odczytu i bezpośredni raport informacje dla innych użytkowników</li></ul> | <ul><li>Odczytywanie własnych właściwości<li>Zmiana własnego hasła</li></ul>
 Grupy | <ul><li>Tworzenie grup zabezpieczeń<li>Tworzenie grup Microsoft 365<li>Odczytywanie wszystkich właściwości grup<li>Odczytywanie nieukrytych członkostw w grupach<li>Odczytaj ukryte członkostwa w grupach Microsoft 365 dla grupy sprzężonej<li>Zarządzanie właściwościami, własnością i członkostwem w grupach, do których należy użytkownik<li>Dodawanie gości do posiadanych grup<li>Zarządzanie dynamicznymi ustawieniami członkostwa<li>Usuwanie posiadanych grup<li>Przywróć należące do Microsoft 365 grupy</li></ul> | <ul><li>Odczytaj właściwości wszystkich nieukrytych grup, w tym członkostwo i prawa własności (nawet grupy Niesprzężone)<li>Odczytaj ukryte członkostwa w grupach Microsoft 365 dla grup sprzężonych<li>Wyszukaj grupy według nazwy wyświetlanej lub identyfikatora obiektu (jeśli jest to dozwolone)</li></ul> | Brak uprawnień
 Aplikacje | <ul><li>Rejestrowanie (tworzenie) nowej aplikacji<li>Odczytywanie właściwości zarejestrowanych aplikacji i aplikacji dla przedsiębiorstw<li>Zarządzanie właściwościami, przydziałami i poświadczeniami posiadanych aplikacji<li>Tworzenie i usuwanie hasła aplikacji dla użytkownika<li>Usuwanie posiadanych aplikacji<li>Przywracanie posiadanych aplikacji</li></ul> | <ul><li>Odczytywanie właściwości zarejestrowanych aplikacji i aplikacji dla przedsiębiorstw</li></ul> | <ul><li>Odczytywanie właściwości zarejestrowanych aplikacji i aplikacji dla przedsiębiorstw
-Urządzenia</li></ul> | <ul><li>Odczytywanie wszystkich właściwości urządzenia<li>Zarządzanie wszystkimi właściwościami posiadanych urządzeń</li></ul> | Brak uprawnień | Brak uprawnień
-Katalog | <ul><li>Odczytywanie wszystkich informacji o firmie<li>Odczytywanie wszystkich domen<li>Odczytywanie wszystkich kontraktów partnera</li></ul> | <ul><li>Odczytywanie nazwy wyświetlanej i zweryfikowanych domen</li></ul> | <ul><li>Odczytywanie nazwy wyświetlanej i zweryfikowanych domen</li></ul>
+Devices</li></ul> | <ul><li>Odczytywanie wszystkich właściwości urządzenia<li>Zarządzanie wszystkimi właściwościami posiadanych urządzeń</li></ul> | Brak uprawnień | Brak uprawnień
+Katalog | <ul><li>Odczytywanie wszystkich informacji o firmie<li>Odczytywanie wszystkich domen<li>Odczytywanie wszystkich kontraktów partnera</li></ul> | <ul><li>Odczytaj nazwę wyświetlaną firmy<li>Odczytywanie wszystkich domen</li></ul> | <ul><li>Odczytaj nazwę wyświetlaną firmy<li>Odczytywanie wszystkich domen</li></ul>
 Role i zakresy | <ul><li>Odczytywanie wszystkich ról administracyjnych i członkostw<li>Odczytywanie wszystkich właściwości i członkostw jednostek administracyjnych</li></ul> | Brak uprawnień | Brak uprawnień
-Subscriptions | <ul><li>Odczytywanie wszystkich subskrypcji<li>Włączanie członka planu usługi</li></ul> | Brak uprawnień | Brak uprawnień
+Subskrypcje | <ul><li>Odczytywanie wszystkich subskrypcji<li>Włączanie członka planu usługi</li></ul> | Brak uprawnień | Brak uprawnień
 Zasady | <ul><li>Odczytywanie wszystkich właściwości zasad<li>Zarządzanie wszystkimi właściwościami posiadanych zasad</li></ul> | Brak uprawnień | Brak uprawnień
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>Ograniczanie uprawnień domyślnych użytkowników będących członkami

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 82e984b629c8d838ba179b25a78262eccf078a04
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 65e1b1b5e84c3344a082b73b7768935d788a3394
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377866"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707411"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Dostęp zdalny do aplikacji lokalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -24,7 +24,7 @@ Serwer proxy aplikacji Azure Active Directory zapewnia bezpieczny dostęp zdalny
 
 Serwer proxy aplikacji usługi Azure AD charakteryzuje się następującymi cechami:
 
-- **Prosta do użycia**. Użytkownicy mogą uzyskiwać dostęp do aplikacji lokalnych w taki sam sposób, w jaki uzyskują dostęp do usługi O365 i innych aplikacji SaaS zintegrowanych z usługą Azure AD. Nie trzeba zmieniać ani aktualizować aplikacji, aby móc pracować z serwerem proxy aplikacji.
+- **Prosta do użycia**. Użytkownicy mogą uzyskiwać dostęp do aplikacji lokalnych w taki sam sposób, w jaki uzyskują dostęp do Microsoft 365 i innych aplikacji SaaS zintegrowanych z usługą Azure AD. Nie trzeba zmieniać ani aktualizować aplikacji, aby móc pracować z serwerem proxy aplikacji.
 
 - **Zabezpiecz**. Aplikacje lokalne mogą korzystać z kontroli autoryzacji platformy Azure i analizy zabezpieczeń. Na przykład aplikacje lokalne mogą korzystać z dostępu warunkowego i weryfikacji dwuetapowej. Serwer proxy aplikacji nie wymaga otwierania połączeń przychodzących przez zaporę.
 

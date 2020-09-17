@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 23465c76fa62ed65583b97b0c9406dc791a4327f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 530ae82720e6b4eb6a3e4d1021c0b37b9f4dbf5c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564932"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707445"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>Jak zainstalować udział plików NFS
 
@@ -61,4 +61,5 @@ Udział w systemie plików NFS został zainstalowany.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat Azure Files z naszym artykułem [Planowanie wdrożenia Azure Files](storage-files-planning.md).
+- Dowiedz się więcej na temat Azure Files z naszym artykułem [Planowanie wdrożenia Azure Files](storage-files-planning.md).
+- Jeśli występują jakieś problemy, zobacz [Rozwiązywanie problemów z udziałami plików NFS systemu Azure](storage-troubleshooting-files-nfs.md).

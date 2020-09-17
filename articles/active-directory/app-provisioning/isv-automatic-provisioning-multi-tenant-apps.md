@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 617128640c4f4ae4ce5ac32803e459a9a3eb448f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235642"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706464"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Włącz automatyczne Inicjowanie obsługi administracyjnej użytkowników dla aplikacji wielodostępnej
 
@@ -64,7 +64,7 @@ Aby ułatwić określenie opcji integracji, która ma być używana dla aplikacj
 |---|---|---|---|
 | Zarządzanie użytkownikami i grupami w usłudze Azure AD| √| √| Tylko użytkownik |
 | Zarządzanie użytkownikami i grupami synchronizowanymi z poziomu lokalnego Active Directory| √*| √*| Tylko użytkownik * |
-| Dostęp do danych poza użytkownikami i grupami podczas aprowizacji dostępu do danych usługi O365 (zespoły, SharePoint, Poczta E-mail, kalendarz, dokumenty itp.)| X +| √| X |
+| Dostęp do danych poza użytkownikami i grupami podczas aprowizacji dostępu do Microsoft 365 danych (zespoły, SharePoint, Poczta E-mail, kalendarz, dokumenty itp.)| X +| √| X |
 | Tworzenie, odczytywanie i aktualizowanie użytkowników na podstawie reguł firmy| √| √| √ |
 | Usuwanie użytkowników na podstawie reguł firmy| √| √| X |
 | Zarządzanie automatyczną obsługą użytkowników dla wszystkich aplikacji z Azure Portal| √| X| √ |
@@ -91,7 +91,7 @@ Aby uzyskać więcej informacji o tym, jak użytkownicy usługi Azure AD Provisi
 
 W przypadku korzystania z Microsoft Graph do inicjowania obsługi administracyjnej masz dostęp do wszystkich bogatych danych użytkownika dostępnych w grafie. Oprócz szczegółów dotyczących użytkowników i grup można także pobrać dodatkowe informacje, takie jak role użytkownika, Menedżer i raporty bezpośrednie, należące do Ciebie i zarejestrowane urządzenia oraz setki innych danych dostępnych w [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
-Ponad 15 000 000 organizacji i 90% listy Fortune 500 firmy korzystają z usługi Azure AD podczas subskrybowania usług w chmurze firmy Microsoft, takich jak Office 365, Microsoft Azure, Enterprise Mobility Suite lub Microsoft 365. Za pomocą Microsoft Graph można zintegrować swoją aplikację z administracyjnymi przepływami pracy, takimi jak dołączanie pracownika (i zakończenie), konserwacja profilu i wiele więcej. 
+Ponad 15 000 000 organizacji i 90% listy Fortune 500 firmy korzystają z usługi Azure AD podczas subskrybowania usług w chmurze firmy Microsoft, takich jak Microsoft 365, Microsoft Azure lub Enterprise Mobility Suite. Za pomocą Microsoft Graph można zintegrować swoją aplikację z administracyjnymi przepływami pracy, takimi jak dołączanie pracownika (i zakończenie), konserwacja profilu i wiele więcej. 
 
 Dowiedz się więcej o korzystaniu z Microsoft Graph do aprowizacji:
 

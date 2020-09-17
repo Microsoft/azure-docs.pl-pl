@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184945"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705541"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrukcje: Zarządzanie nieodświeżonymi urządzeniami w usłudze Azure AD
 
@@ -175,9 +175,9 @@ Aby dowiedzieć się więcej na temat różnych typów, zobacz [omówienie zarz�
 
 Każde uwierzytelnianie z użyciem urządzenia w usłudze Azure AD jest odrzucane. Typowe przykłady:
 
-- **Hybrydowe urządzenie dołączone do usługi Azure AD** — użytkownicy mogą korzystać z urządzenia, aby zalogować się do domeny lokalnej. Nie mogą jednak uzyskać dostępu do zasobów usługi Azure AD, takich jak usługa Office 365.
+- **Hybrydowe urządzenie dołączone do usługi Azure AD** — użytkownicy mogą korzystać z urządzenia, aby zalogować się do domeny lokalnej. Nie mogą jednak uzyskać dostępu do zasobów usługi Azure AD, takich jak Microsoft 365.
 - **Urządzenia dołączone do usługi Azure AD** — użytkownicy nie mogą używać urządzenia do logowania. 
-- **Urządzenia przenośne** — użytkownicy nie mogą uzyskać dostępu do zasobów usługi Azure AD, takich jak usługa Office 365. 
+- **Urządzenia przenośne** — użytkownik nie może uzyskać dostępu do zasobów usługi Azure AD, takich jak Microsoft 365. 
 
 ## <a name="next-steps"></a>Następne kroki
 

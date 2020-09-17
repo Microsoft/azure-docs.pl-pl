@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b94bcd1cfbbf215ed912d506d27311aae502656b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 554e5a022dcb49cd861ad7198a2c375634db6d10
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115071"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705749"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifest aplikacji usługi Azure Active Directory
 
@@ -82,7 +82,7 @@ Przykład:
 | :--- | :--- |
 | addIns | Kolekcja |
 
-Definiuje niestandardowe zachowanie używane przez usługę do wywoływania aplikacji w określonych kontekstach. Na przykład aplikacje, które mogą renderować strumienie plików, mogą ustawiać `addIns` Właściwość dla swojej funkcji "FileHandler". Ten parametr umożliwia usługom, takim jak pakiet Office 365, wywoływanie aplikacji w kontekście dokumentu, nad którym pracuje użytkownik.
+Definiuje niestandardowe zachowanie używane przez usługę do wywoływania aplikacji w określonych kontekstach. Na przykład aplikacje, które mogą renderować strumienie plików, mogą ustawiać `addIns` Właściwość dla swojej funkcji "FileHandler". Ten parametr umożliwia usługom, takim jak Microsoft 365 wywoływanie aplikacji w kontekście dokumentu, nad którym pracuje użytkownik.
 
 Przykład:
 
@@ -193,8 +193,8 @@ Ich.
 Konfiguruje `groups` w tokenie dostępu użytkownika lub OAuth 2,0, który oczekuje aplikacja. Aby ustawić ten atrybut, należy użyć jednej z następujących prawidłowych wartości ciągu:
 
 - `"None"`
-- `"SecurityGroup"`(w przypadku grup zabezpieczeń i ról usługi Azure AD)
-- `"All"`(spowoduje to wyświetlenie wszystkich grup zabezpieczeń, grup dystrybucyjnych i ról katalogu usługi Azure AD, do których należy użytkownik zalogowany).
+- `"SecurityGroup"` (w przypadku grup zabezpieczeń i ról usługi Azure AD)
+- `"All"` (spowoduje to wyświetlenie wszystkich grup zabezpieczeń, grup dystrybucyjnych i ról katalogu usługi Azure AD, do których należy użytkownik zalogowany).
 
 Przykład:
 
@@ -433,8 +433,8 @@ Przykład:
 | :--- | :--- |
 | parentalControlSettings | Ciąg |
 
-- `countriesBlockedForMinors`Określa kraje/regiony, w których aplikacja jest zablokowana dla małoletnich.
-- `legalAgeGroupRule`Określa regułę grupy wieku prawnego, która ma zastosowanie do użytkowników aplikacji. Można ustawić na `Allow` , `RequireConsentForPrivacyServices` ,, `RequireConsentForMinors` `RequireConsentForKids` lub `BlockMinors` .
+- `countriesBlockedForMinors` Określa kraje/regiony, w których aplikacja jest zablokowana dla małoletnich.
+- `legalAgeGroupRule` Określa regułę grupy wieku prawnego, która ma zastosowanie do użytkowników aplikacji. Można ustawić na `Allow` , `RequireConsentForPrivacyServices` ,, `RequireConsentForMinors` `RequireConsentForKids` lub `BlockMinors` .
 
 Przykład:
 
@@ -555,8 +555,8 @@ Przykład:
 
 Dzięki dynamicznej zgody można korzystać `requiredResourceAccess` z funkcji zgody administratora oraz w przypadku użytkowników, którzy używają zgody statycznej. Jednak ten parametr nie ma wpływu na środowisko zgody użytkownika na potrzeby ogólnego przypadku.
 
-- `resourceAppId`jest unikatowym identyfikatorem zasobu, do którego aplikacja wymaga dostępu. Ta wartość powinna być taka sama jak identyfikator appId zadeklarowany w docelowej aplikacji zasobów.
-- `resourceAccess`jest tablicą zawierającą zakresy uprawnień OAuth 2.0 i role aplikacji wymagane przez aplikację od określonego zasobu. Zawiera `id` wartości i `type` określonych zasobów.
+- `resourceAppId` jest unikatowym identyfikatorem zasobu, do którego aplikacja wymaga dostępu. Ta wartość powinna być taka sama jak identyfikator appId zadeklarowany w docelowej aplikacji zasobów.
+- `resourceAccess` jest tablicą zawierającą zakresy uprawnień OAuth 2.0 i role aplikacji wymagane przez aplikację od określonego zasobu. Zawiera `id` wartości i `type` określonych zasobów.
 
 Przykład:
 
@@ -609,10 +609,10 @@ Przykład:
 | signInAudience | Ciąg |
 
 Określa, jakie konta Microsoft są obsługiwane przez bieżącą aplikację. Obsługiwane są następujące wartości:
-- `AzureADMyOrg`-Użytkownicy z kontem służbowym firmy Microsoft w dzierżawie usługi Azure AD w organizacji (na przykład z jedną dzierżawą)
-- `AzureADMultipleOrgs`-Użytkownicy z kontem służbowym firmy Microsoft w dzierżawie usługi Azure AD w organizacji (na przykład z wieloma dzierżawcami)
-- `AzureADandPersonalMicrosoftAccount`— Użytkownicy z konto Microsoft osobistym lub kontem służbowym w ramach dzierżawy usługi Azure AD w organizacji
-- `PersonalMicrosoftAccount`— Konta osobiste, które są używane do logowania się do usług, takich jak Xbox i Skype.
+- `AzureADMyOrg` -Użytkownicy z kontem służbowym firmy Microsoft w dzierżawie usługi Azure AD w organizacji (na przykład z jedną dzierżawą)
+- `AzureADMultipleOrgs` -Użytkownicy z kontem służbowym firmy Microsoft w dzierżawie usługi Azure AD w organizacji (na przykład z wieloma dzierżawcami)
+- `AzureADandPersonalMicrosoftAccount` — Użytkownicy z konto Microsoft osobistym lub kontem służbowym w ramach dzierżawy usługi Azure AD w organizacji
+- `PersonalMicrosoftAccount` — Konta osobiste, które są używane do logowania się do usług, takich jak Xbox i Skype.
 
 Przykład:
 

@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: be5d86fe690d60f687622243a2f1d7771b8af7d0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d47b9b5882b25ee030ca813abbaf77805b2df0f5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604023"
+ms.locfileid: "90707768"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Zarządzanie cyklem życia magazynu usługi Azure Blob Storage
 
@@ -87,7 +87,7 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
    > [!IMPORTANT]
    > Ostatnia wersja zapoznawcza śledzenia czasu dostępu jest używana tylko w przypadku nieprodukcji. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.
    
-   Aby uzyskać więcej informacji na temat **ostatnio używanej** opcji, zobacz [przenoszenie danych na podstawie daty ostatniego dostępu (wersja zapoznawcza)](#move-data-based-on-last-accessed-date-preview).
+   Aby można było użyć **ostatnio używanej** opcji, wybierz opcję **Śledzenie dostępu włączone** na stronie **zarządzania cyklem życia** w Azure Portal. Aby uzyskać więcej informacji na temat **ostatnio używanej** opcji, zobacz [przenoszenie danych na podstawie daty ostatniego dostępu (wersja zapoznawcza)](#move-data-based-on-last-accessed-date-preview).
 
 1. W przypadku wybrania opcji **Ogranicz obiekty blob z filtrami** na stronie **szczegółów** wybierz opcję **Filtr zestaw** , aby dodać opcjonalny filtr. Poniższy przykład filtruje obiekty blob w kontenerze *mylifecyclecontainer* , który rozpoczyna się od "log".
 
@@ -301,7 +301,7 @@ Dostępne są następujące filtry:
 
 | Nazwa filtru | Typ filtru | Uwagi | Jest wymagana |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Tablica wstępnie zdefiniowanych wartości wyliczeniowych. | Bieżąca wersja obsługuje `blockBlob` i `appendBlob` . Tylko usuwanie jest obsługiwane dla programu `appendBlob` , warstwa zestawu nie jest obsługiwana. | Yes |
+| blobTypes   | Tablica wstępnie zdefiniowanych wartości wyliczeniowych. | Bieżąca wersja obsługuje `blockBlob` i `appendBlob` . Tylko usuwanie jest obsługiwane dla programu `appendBlob` , warstwa zestawu nie jest obsługiwana. | Tak |
 | prefixMatch | Tablica ciągów dla prefiksów, które mają zostać dopasowane. Każda reguła może definiować do 10 prefiksów. Ciąg prefiksu musi rozpoczynać się od nazwy kontenera. Na przykład jeśli chcesz dopasować wszystkie obiekty blob w ramach `https://myaccount.blob.core.windows.net/container1/foo/...` reguły, prefixMatch jest `container1/foo` . | Jeśli nie zdefiniujesz prefixMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
 | blobIndexMatch | Tablica wartości słownika składająca się z klucza znacznika indeksu obiektów blob i warunków wartości do dopasowania. Każda reguła może definiować do 10 warunek tagu indeksu obiektów BLOB. Na przykład, jeśli chcesz dopasować wszystkie obiekty blob w `Project = Contoso` ramach `https://myaccount.blob.core.windows.net/` reguły, blobIndexMatch to `{"name": "Project","op": "==","value": "Contoso"}` . | Jeśli nie zdefiniujesz blobIndexMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
 
@@ -376,6 +376,8 @@ Możesz włączyć śledzenie czasu ostatniego dostępu, aby zachować rekord, k
 
 > [!IMPORTANT]
 > Ostatnia wersja zapoznawcza śledzenia czasu dostępu jest używana tylko w przypadku nieprodukcji. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.
+
+Aby można było użyć **ostatnio używanej** opcji, wybierz opcję **Śledzenie dostępu włączone** na stronie **zarządzania cyklem życia** w Azure Portal.
 
 #### <a name="how-last-access-time-tracking-works"></a>Jak działa śledzenie czasu ostatniego dostępu
 
@@ -547,7 +549,7 @@ W przypadku danych, które są regularnie modyfikowane i dostępne przez cały o
 }
 ```
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Po utworzeniu nowych zasad nie są one uruchamiane natychmiast?**
 

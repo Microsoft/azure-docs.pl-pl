@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 16a28ee01606fa9067c279183ca6c02b2857bcd7
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: fbd86b34bd6f7da8c9f49e212e397d003b71fab5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563849"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707938"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Samouczek: używanie Video Indexer z aplikacją logiki i automatyzacją
 
@@ -21,12 +21,15 @@ ms.locfileid: "90563849"
 
 Aby ułatwić integrację, obsługujemy łączniki [Logic Apps](https://azure.microsoft.com/services/logic-apps/)   i [automatyzacji](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/),   które są zgodne z naszym interfejsem API. Łączników można użyć do skonfigurowania niestandardowych przepływów pracy w celu efektywnego indeksowania i wyodrębnienia szczegółowych informacji z dużej ilości plików wideo i audio, bez konieczności pisania jednego wiersza kodu. Ponadto przy użyciu łączników integracji zapewnia lepszy wgląd w kondycję przepływu pracy oraz łatwą możliwość jego debugowania.  
 
-Aby pomóc szybko rozpocząć pracę z łącznikami Video Indexer, zajmiemy się przykładową aplikacją logiki i rozwiązaniem automatyzacji, które można skonfigurować. 
+Aby pomóc szybko rozpocząć pracę z łącznikami Video Indexer, zajmiemy się przykładową aplikacją logiki i rozwiązaniem automatyzacji, które można skonfigurować. W tym samouczku pokazano, jak skonfigurować przepływy przy użyciu Logic Apps.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Scenariusz "Przekaż i Indeksuj wideo automatycznie", który został omówiony w tym samouczku, składa się z dwóch różnych przepływów, które współpracują ze sobą. 
+* Pierwszy przepływ jest wyzwalany po dodaniu lub zmodyfikowaniu obiektu BLOB na koncie usługi Azure Storage. Przekazuje nowy plik do Video Indexer przy użyciu adresu URL wywołania zwrotnego, aby wysłać powiadomienie po zakończeniu operacji indeksowania. 
+* Drugi przepływ jest wyzwalany na podstawie adresu URL wywołania zwrotnego i zapisuje wyodrębnione informacje z powrotem do pliku JSON w usłudze Azure Storage. To dwa podejście przepływu służy do obsługi asynchronicznego przesyłania i indeksowania większych plików. 
+
+Ten samouczek korzysta z aplikacji logiki, aby pokazać, jak:
 
 > [!div class="checklist"]
-> * Automatyczne przekazywanie i indeksowanie wideo
 > * Konfigurowanie przepływu przekazywania plików
 > * Konfigurowanie przepływu wyodrębniania JSON
 
@@ -34,19 +37,13 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby zacząć korzystać z programu, konieczne będzie również konto Video Indexer i dostęp do interfejsów API za pomocą klucza interfejsu API. 
+* Aby rozpocząć pracę z usługą, musisz mieć konto Video Indexer oraz [uzyskać dostęp do interfejsów API za pomocą klucza interfejsu API](video-indexer-use-apis.md). 
+* Konieczne będzie również konto usługi Azure Storage. Zanotuj klucz dostępu do konta magazynu. Utwórz dwa kontenery — jeden do przechowywania filmów wideo w usłudze i jeden do przechowywania szczegółowych danych generowanych przez Video Indexer w programie.  
+* Następnie konieczne będzie otwarcie dwóch oddzielnych przepływów na Logic Apps lub w trybie automatyzowania (w zależności od tego, które są używane). 
 
-Konieczne będzie również konto usługi Azure Storage. Zanotuj klucz dostępu do konta magazynu. Utwórz dwa kontenery — jeden do przechowywania filmów wideo w usłudze i jeden do przechowywania szczegółowych danych generowanych przez Video Indexer w programie.  
+## <a name="set-up-the-first-flow---file-upload"></a>Skonfiguruj przekazywanie pierwszego pliku przepływu   
 
-Następnie konieczne będzie otwarcie dwóch oddzielnych przepływów na Logic Apps lub w trybie automatyzowania (w zależności od tego, które są używane).  
-
-## <a name="upload-and-index-your-video-automatically"></a>Automatyczne przekazywanie i indeksowanie wideo 
-
-Ten scenariusz składa się z dwóch różnych przepływów, które współpracują ze sobą. Pierwszy przepływ jest wyzwalany po dodaniu lub zmodyfikowaniu obiektu BLOB na koncie usługi Azure Storage. Przekazuje nowy plik do Video Indexer przy użyciu adresu URL wywołania zwrotnego, aby wysłać powiadomienie po zakończeniu operacji indeksowania. Drugi przepływ jest wyzwalany na podstawie adresu URL wywołania zwrotnego i zapisuje wyodrębnione informacje z powrotem do pliku JSON w usłudze Azure Storage. To dwa podejście przepływu służy do obsługi asynchronicznego przesyłania i indeksowania większych plików. 
-
-### <a name="set-up-the-file-upload-flow"></a>Konfigurowanie przepływu przekazywania plików 
-
-Pierwszy przepływ jest wyzwalany za każdym razem, gdy obiekt BLOB zostanie dodany do kontenera usługi Azure Storage. Po wyzwoleniu zostanie utworzony identyfikator URI sygnatury dostępu współdzielonego, który służy do przekazywania i indeksowania wideo w Video Indexer. Zacznij od utworzenia następującego przepływu. 
+Pierwszy przepływ jest wyzwalany za każdym razem, gdy obiekt BLOB zostanie dodany do kontenera usługi Azure Storage. Po wyzwoleniu zostanie utworzony identyfikator URI sygnatury dostępu współdzielonego, który służy do przekazywania i indeksowania wideo w Video Indexer. W tej sekcji utworzysz następujący przepływ. 
 
 ![Przepływ przekazywania plików](./media/logic-apps-connector-tutorial/file-upload-flow.png)
 
@@ -56,11 +53,13 @@ Aby skonfigurować pierwszy przepływ, należy podać klucz interfejsu API Video
 
 ![Nazwa połączenia i klucz interfejsu API](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-Po nawiązaniu połączenia z usługą Azure Storage i kontami Video Indexer przejdź do wyzwalacza "gdy obiekt BLOB zostanie dodany lub zmodyfikowany" i wybierz kontener, w którym zostaną umieszczone pliki wideo. 
+Po nawiązaniu połączenia z usługą Azure Storage i kontami Video Indexer można znaleźć i wybrać wyzwalacz "gdy obiekt BLOB zostanie dodany lub zmodyfikowany" w **projektancie Logic Apps**. Wybierz kontener, w którym zostaną umieszczone pliki wideo. 
 
 ![Zrzut ekranu przedstawia okno dialogowe gdy obiekt BLOB jest dodawany lub modyfikowany, w którym można wybrać kontener.](./media/logic-apps-connector-tutorial/container.png)
 
-Następnie przejdź do akcji "Tworzenie identyfikatora URI SAS według ścieżki" i wybierz pozycję Lista ścieżek plików z opcji zawartości dynamicznej.  
+Następnie Znajdź i wybierz akcję "Utwórz identyfikator URI SAS według ścieżki". W oknie dialogowym akcji wybierz pozycję Lista plików ścieżka z opcji zawartość dynamiczna.  
+
+Ponadto Dodaj nowy parametr "Protokół dostępu współdzielonego". Wybierz HttpsOnly dla wartości parametru.
 
 ![Identyfikator URI SYGNATURy dostępu współdzielonego według ścieżki](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
@@ -78,7 +77,7 @@ Można użyć wartości domyślnej dla innych parametrów lub ustawić je zgodni
 
 Kliknij przycisk "Zapisz" i przejdźmy, aby skonfigurować drugi przepływ, aby wyodrębnić szczegółowe informacje po zakończeniu przekazywania i indeksowania. 
 
-## <a name="set-up-the-json-extraction-flow"></a>Konfigurowanie przepływu wyodrębniania JSON 
+## <a name="set-up-the-second-flow---json-extraction"></a>Konfigurowanie drugiego wyciągania przepływu — JSON  
 
 Zakończenie przekazywania i indeksowania z pierwszego przepływu spowoduje wysłanie żądania HTTP z poprawnym adresem URL wywołania zwrotnego w celu wyzwolenia drugiego przepływu. Spowoduje to pobranie szczegółowych informacji generowanych przez Video Indexer. W tym przykładzie dane wyjściowe zadania indeksowania będą przechowywane w usłudze Azure Storage.  Jednak można to zrobić z danymi wyjściowymi.  
 
@@ -104,7 +103,7 @@ Przejdź do akcji "Utwórz obiekt BLOB" i wybierz ścieżkę do folderu, w któr
 
 To wyrażenie pobiera dane wyjściowe akcji "Pobierz indeks wideo" z tego przepływu. 
 
-Kliknij pozycję "Zapisz przepływ". 
+Kliknij pozycję **Zapisz przepływ**. 
 
 Po zapisaniu przepływu w wyzwalaczu zostanie utworzony adres URL POST protokołu HTTP. Skopiuj adres URL z wyzwalacza. 
 

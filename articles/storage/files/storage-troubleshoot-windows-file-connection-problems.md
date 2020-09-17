@@ -7,19 +7,19 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 16491e36e0196bc3dabee17daf905d9a5204f8cd
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: a899927166d7e1294ad89d48e5c646e6abb5ed76
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564257"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707615"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Windows (SMB)
 
 W tym artykule wymieniono typowe problemy związane z Microsoft Azure plikami w przypadku łączenia się z klientami systemu Windows. Zapewnia również możliwe przyczyny i rozwiązania tych problemów. Oprócz kroków opisanych w tym artykule można także użyć programu [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows),   Aby upewnić się, że środowisko klienta systemu Windows ma odpowiednie wymagania wstępne. AzFileDiagnostics automatyzuje wykrywanie większości objawów wymienionych w tym artykule i ułatwia skonfigurowanie środowiska w celu uzyskania optymalnej wydajności. Te informacje można również znaleźć w obszarze [Rozwiązywanie problemów z udziałami Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) , które udostępniają kroki ułatwiające rozwiązywanie problemów z połączeniem/mapowaniem/instalowaniem udziałów Azure Files.
 
 > [!IMPORTANT]
-> Zawartość tego artykułu dotyczy tylko udziałów SMB.
+> Zawartość tego artykułu dotyczy tylko udziałów SMB. Aby uzyskać szczegółowe informacje o udziałach NFS, zobacz [Rozwiązywanie problemów z udziałami plików NFS systemu Azure](storage-troubleshooting-files-nfs.md).
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Błąd 5 podczas instalowania udziału plików platformy Azure

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ec1aa165b8fa5d3a249cb525887acf2990136bd3
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 21498f9117ac25356c9381d632644bbaa4d5a74b
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049874"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706698"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C partnerów niezależnych dostawców oprogramowania
 
@@ -37,6 +37,7 @@ Nasza sieć partnera niezależnego dostawcy oprogramowania rozszerza możliwośc
 | ![znaku](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) to usługa weryfikacji identyfikatora, która umożliwia automatyczne weryfikację identyfikatora w czasie rzeczywistym, chroniąc dane klientów. |
 | ![znaku](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) jest dostawcą profilowania i weryfikacji tożsamości, który weryfikuje tożsamość użytkownika i zapewnia kompleksową ocenę ryzyka opartą na urządzeniu użytkownika. |
 | ![znaku](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) to identyfikator dokumentu oraz rozwiązanie do weryfikacji twarzy biometryczne, które umożliwia firmom zaspokajanie wymagań *klienta* i tożsamości w czasie rzeczywistym.  |
+| ![znaku](./media/partner-gallery/saviynt-logo.png) | Platforma [Saviynt](./partner-saviynt.md) w chmurze używa inteligentnej analizy i zapewnia integrację między aplikacjami, aby usprawnić modernizację i wspierać lepsze zabezpieczenia, nadzór i zgodność. Modernizacja firmy zmienia sposób, w jaki firmy przeglądają żądania dostępu, przeprowadzają przeglądy dostępu, analizy raportów i usprawniają kampanie certyfikacyjne.  |
 | ![znaku](./media/partner-gallery/trusona-logo.png) | Integracja [Trusona](./partner-trusona.md) pomaga w bezpiecznym logowaniu i umożliwia uwierzytelnianie bez hasła, uwierzytelnianie wieloskładnikowe i skanowanie licencji cyfrowych.|
 | ![znaku](./media/partner-gallery/twilio-logo.png) | [Twilio Sprawdź, czy aplikacja](./partner-twilio.md) udostępnia wiele rozwiązań umożliwiających uwierzytelnianie wieloskładnikowe (MFA) za pośrednictwem hasła jednorazowego (OTP) usługi SMS, oparte na czasie hasło jednorazowe (TOTP) i powiadomienia wypychane oraz zgodność z wymaganiami SCA dla dyrektywy usług płatniczych 2 (PSD2).|
 | ![znaku](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) to weryfikacja tożsamości i dostawca weryfikacji na podstawie wzorca wpisywania przez użytkownika, zapewnia rozwiązania do weryfikacji identyfikatorów, które wymuszają uwierzytelnianie wieloskładnikowe i pomagają zachować zgodność z wymaganiami SCAymi dotyczącymi usług płatniczych 2 (PSD2). |

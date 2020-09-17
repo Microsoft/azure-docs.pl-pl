@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79a631ba82d0b4a420ef27684e5a62571ddf85a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e58a98f8503c271eec113298a7e7a0cab5e0003e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034580"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707496"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Samouczek: Tworzenie pierwszego pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -41,6 +41,8 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 Aby zapoznać się z krok po kroku procesu wdrażania Azure Active Directory Zarządzanie prawami, w tym tworzenia pierwszego pakietu dostępu, zobacz następujące wideo:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
+
+Możesz również programowo utworzyć pakiet dostępu przy użyciu Microsoft Graph. Samouczek pokazujący sposób programowego tworzenia pakietu dostępu można znaleźć w temacie [interfejs API zarządzania uprawnieniami](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -106,7 +108,7 @@ Katalog zasobów zawiera co najmniej jeden zasób do udostępnienia. W tym kroku
 
 9. W okienku wybierz grupy Znajdź i wybierz utworzoną wcześniej grupę **zasobów marketingowych** .
 
-    Domyślnie widoczne są grupy wewnątrz i na zewnątrz wykazu **ogólnego** . Po wybraniu grupy poza katalogiem **ogólnym** zostanie ona dodana do wykazu **ogólnego** .
+     Domyślnie są wyświetlane grupy w katalogu ogólnym. Po wybraniu grupy poza katalogiem ogólnym, którą można zobaczyć po zaznaczeniu pola wyboru **Zobacz wszystkie** , zostanie ono dodane do wykazu ogólnego.
 
     ![Nowy pakiet dostępu — karta role zasobów](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4e09637a7d990e1555b5443b9931cf8ff8c271b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 57325363909664bb527c2e2101505641858c4285
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718870"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706272"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication
 
@@ -102,7 +102,7 @@ Opłaty są naliczane na podstawie liczby użytkowników skonfigurowanych do kor
 
 Podczas tworzenia dostawcy usługi MFA dla użytkownika lub uwierzytelniania w ramach subskrypcji platformy Azure w organizacji jest naliczana miesięczna stawka na podstawie użycia. Ten model rozliczeń jest podobny do tego, jak na platformie Azure są naliczane opłaty za użycie maszyn wirtualnych i Web Apps.
 
-W przypadku zakupienia subskrypcji usługi Azure Multi-Factor Authentication organizacja płaci tylko roczną opłatę za licencję dla każdego użytkownika. Licencje usługi MFA i pakiety Office 365, Azure AD — wersja Premium lub Enterprise Mobility + Security są rozliczane w ten sposób.
+W przypadku zakupienia subskrypcji usługi Azure Multi-Factor Authentication organizacja płaci tylko roczną opłatę za licencję dla każdego użytkownika. W ten sposób rozliczane są opłaty za licencje usługi MFA oraz Microsoft 365, Azure AD — wersja Premium lub Enterprise Mobility + Security.
 
 Aby uzyskać więcej informacji, zobacz [jak uzyskać Multi-Factor Authentication platformy Azure](concept-mfa-licensing.md).
 
@@ -190,7 +190,7 @@ W niektórych przypadkach tak.
 
 W przypadku jednokierunkowego SMS z usługą Azure MFA Server w wersji 7.0 lub nowszej można skonfigurować ustawienie limitu czasu, ustawiając klucz rejestru. Po wysłaniu wiadomości tekstowej przez usługę MFA w chmurze kod weryfikacyjny (lub jednorazowy kod dostępu) jest zwracany do serwera usługi MFA. Serwer MFA domyślnie przechowuje kod w pamięci przez 300 sekund. Jeśli użytkownik nie wprowadzi kodu przed upływem 300 sekund, jego uwierzytelnienie zostanie odrzucone. Wykonaj następujące kroki, aby zmienić domyślne ustawienie limitu czasu:
 
-1. Przejdź do adresu `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
+1. Przejdź do witryny `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
 2. Utwórz klucz rejestru **typu DWORD** o nazwie *pfsvc_pendingSmsTimeoutSeconds* i Ustaw czas w sekundach, w ciągu którego serwer usługi Azure MFA ma przechowywać kody dostępu jednorazowego.
 
 >[!TIP]

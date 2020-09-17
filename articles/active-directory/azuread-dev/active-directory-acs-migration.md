@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 75c3b325b29e6738a61728d53b85464bb61655f8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117791"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706255"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Instrukcje: Migrowanie z usługi Azure Access Control Service
 
@@ -99,9 +99,9 @@ Postępuj zgodnie z instrukcjami w tej sekcji, aby dowiedzieć się, które apli
 
 ### <a name="check-which-applications-will-be-impacted"></a>Sprawdź, które aplikacje mają wpływ
 
-1. Użyj przestrzeni nazw z poprzedniego kroku i przejdź do`https://<namespace>.accesscontrol.windows.net`
+1. Użyj przestrzeni nazw z poprzedniego kroku i przejdź do `https://<namespace>.accesscontrol.windows.net`
 
-    Na przykład jeśli jedna z przestrzeni nazw jest contoso-test, przejdź do`https://contoso-test.accesscontrol.windows.net`
+    Na przykład jeśli jedna z przestrzeni nazw jest contoso-test, przejdź do `https://contoso-test.accesscontrol.windows.net`
 
 2. W obszarze **relacje zaufania**wybierz pozycję **aplikacje jednostki uzależnionej** , aby wyświetlić listę aplikacji, na które WPŁYNIE wycofanie usługi ACS.
 3. Powtórz kroki 1-2 dla wszystkich innych przestrzeni nazw ACS, które posiadasz.
@@ -129,7 +129,7 @@ Każda usługa w chmurze firmy Microsoft, która akceptuje tokeny wystawiane prz
 
 | Usługa | Wskazówki |
 | ------- | -------- |
-| Usługa Azure Service Bus | [Migrowanie do sygnatur dostępu współdzielonego](../../service-bus-messaging/service-bus-migrate-acs-sas.md) |
+| Azure Service Bus | [Migrowanie do sygnatur dostępu współdzielonego](../../service-bus-messaging/service-bus-migrate-acs-sas.md) |
 | Przekaźnik Azure Service Bus | [Migrowanie do sygnatur dostępu współdzielonego](../../azure-relay/relay-migrate-acs-sas.md) |
 | Zarządzana pamięć podręczna Azure | [Migrowanie do usługi Azure Cache for Redis](../../azure-cache-for-redis/cache-faq.md) |
 | Azure DataMarket | [Migrowanie do interfejsy API usług Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) |
@@ -173,7 +173,7 @@ Niestety, nie ma żadnej usługi oferującej wszystkie te funkcje równoważne. 
 
 #### <a name="migrate-to-azure-active-directory"></a>Migruj do Azure Active Directory
 
-Ścieżka do rozważenia polega na integrowaniu aplikacji i usług bezpośrednio z usługą Azure AD. Usługa Azure AD to dostawca tożsamości oparty na chmurze dla kont służbowych firmy Microsoft. Usługa Azure AD jest dostawcą tożsamości dla pakietu Office 365, platformy Azure i wielu innych. Zapewnia ona podobne możliwości uwierzytelniania federacyjnego do Access Control, ale nie obsługuje wszystkich Access Control funkcji. 
+Ścieżka do rozważenia polega na integrowaniu aplikacji i usług bezpośrednio z usługą Azure AD. Usługa Azure AD to dostawca tożsamości oparty na chmurze dla kont służbowych firmy Microsoft. Usługa Azure AD jest dostawcą tożsamości dla Microsoft 365, platformy Azure i wielu innych. Zapewnia ona podobne możliwości uwierzytelniania federacyjnego do Access Control, ale nie obsługuje wszystkich Access Control funkcji. 
 
 Podstawowym przykładem jest Federacja z dostawcami tożsamości społecznościowych, takimi jak Facebook, Google i Yahoo. Jeśli użytkownicy logują się przy użyciu tych typów poświadczeń, usługa Azure AD nie jest rozwiązaniem dla Ciebie. 
 
@@ -316,7 +316,7 @@ Tożsamości usług w Access Control są zwykle używane do implementowania uwie
 
 #### <a name="migrate-to-azure-active-directory"></a>Migruj do Azure Active Directory
 
-Nasze rekomendacje dotyczące tego typu przepływu uwierzytelniania są migrowane do [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Usługa Azure AD to dostawca tożsamości oparty na chmurze dla kont służbowych firmy Microsoft. Usługa Azure AD jest dostawcą tożsamości dla pakietu Office 365, platformy Azure i wielu innych. 
+Nasze rekomendacje dotyczące tego typu przepływu uwierzytelniania są migrowane do [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Usługa Azure AD to dostawca tożsamości oparty na chmurze dla kont służbowych firmy Microsoft. Usługa Azure AD jest dostawcą tożsamości dla Microsoft 365, platformy Azure i wielu innych. 
 
 Możesz również użyć usługi Azure AD do uwierzytelniania serwer-serwer przy użyciu wdrożenia usługi Azure AD w celu przyznania poświadczeń klienta OAuth. W poniższej tabeli porównano możliwości Access Control w ramach uwierzytelniania serwer-serwer z tymi, które są dostępne w usłudze Azure AD.
 

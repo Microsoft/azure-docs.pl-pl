@@ -2,17 +2,17 @@
 title: Rozwiązywanie problemów z usługą Azure Application Insights Snapshot Debugger
 description: W tym artykule przedstawiono kroki rozwiązywania problemów oraz informacje pomocne w przypadku deweloperów, którzy mają problemy z włączaniem lub używaniem Snapshot Debugger Application Insights.
 ms.topic: conceptual
-author: brahmnes
+author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 485f35ed249ab7f6bbb987d8c79afe20287cd25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671413"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707836"
 ---
-# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a>Rozwiązywanie problemów z włączaniem Application Insights Snapshot Debugger lub wyświetlania migawek
+# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Rozwiązywanie problemów z włączaniem Application Insights Snapshot Debugger lub wyświetlania migawek
 Jeśli włączono Application Insights Snapshot Debugger dla aplikacji, ale nie widzisz migawek dla wyjątków, możesz użyć tych instrukcji do rozwiązywania problemów. Może istnieć wiele różnych powodów, dla których migawki nie są generowane. Możesz uruchomić kontrolę kondycji migawek, aby zidentyfikować niektóre z możliwych częstych przyczyn.
 
 ## <a name="use-the-snapshot-health-check"></a>Korzystanie z kontroli kondycji migawek
@@ -32,13 +32,37 @@ Jeśli to nie rozwiąże problemu, zapoznaj się z poniższymi krokami ręcznego
 
 Upewnij się, że używasz poprawnego klucza Instrumentacji w opublikowanej aplikacji. Zazwyczaj klucz Instrumentacji jest odczytywany z pliku ApplicationInsights.config. Sprawdź, czy wartość jest taka sama jak klucz Instrumentacji dla zasobu Application Insights widocznego w portalu.
 
+## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Sprawdź ustawienia klienta SSL (ASP.NET)
+
+Jeśli masz aplikację ASP.NET hostowaną w Azure App Service lub w usługach IIS na maszynie wirtualnej, aplikacja nie może nawiązać połączenia z usługą Snapshot Debugger z powodu braku protokołu zabezpieczeń SSL.
+[Punkt końcowy Snapshot Debugger wymaga protokołu TLS w wersji 1,2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). Zestaw protokołów zabezpieczeń protokołu SSL jest jednym z osobliwości włączonych przez wartość httpRuntime targetFramework w sekcji System. Web web.config. Jeśli httpRuntime targetFramework ma wartość 4.5.2 lub Lower, wówczas protokół TLS 1,2 nie jest domyślnie włączony.
+
+> [!NOTE]
+> Wartość httpRuntime targetFramework jest niezależna od platformy docelowej używanej podczas kompilowania aplikacji.
+
+Aby sprawdzić to ustawienie, Otwórz plik web.config i Znajdź sekcję system. Web. Upewnij się, że wartość `targetFramework` dla `httpRuntime` jest ustawiona na 4,6 lub wyższą.
+
+   ```xml
+   <system.web>
+      ...
+      <httpRuntime targetFramework="4.7.2" />
+      ...
+   </system.web>
+   ```
+
+> [!NOTE]
+> Modyfikacja wartości targetFramework httpRuntime powoduje zmianę osobliwości środowiska uruchomieniowego zastosowanego do aplikacji, co może spowodować inne, subtelne zmiany zachowań. Pamiętaj, aby dokładnie przetestować swoją aplikację po wprowadzeniu tej zmiany. Aby uzyskać pełną listę zmian zgodności, zobacz https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+
+> [!NOTE]
+> Jeśli targetFramework ma wartość 4,7 lub wyższą, system Windows określi dostępne protokoły. W Azure App Service jest dostępny protokół TLS 1,2. Jeśli jednak korzystasz z własnej maszyny wirtualnej, może być konieczne włączenie protokołu TLS 1,2 w systemie operacyjnym.
+
 ## <a name="preview-versions-of-net-core"></a>Wersje zapoznawcze programu .NET Core
 Jeśli aplikacja korzysta z wersji zapoznawczej programu .NET Core, a Snapshot Debugger została włączona za pośrednictwem [okienka Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) w portalu, Snapshot Debugger mogą nie zostać uruchomione. Postępuj zgodnie z instrukcjami w temacie [Enable Snapshot Debugger w innych środowiskach](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) , aby w pierwszej kolejności uwzględnić pakiet NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) z aplikacją, która jest ***również włączona w*** [okienku Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Uaktualnij do najnowszej wersji pakietu NuGet
 
-Jeśli Snapshot Debugger został włączony [w okienku Application Insights w portalu](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), aplikacja powinna mieć już uruchomiony najnowszy pakiet NuGet. Jeśli Snapshot Debugger został włączony przez dołączenie pakietu NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) , użyj Menedżera pakietów NuGet programu Visual Studio, aby upewnić się, że używasz najnowszej wersji Microsoft. ApplicationInsights. SnapshotCollector. Informacje o wersji można znaleźć pod adresemhttps://github.com/Microsoft/ApplicationInsights-Home/issues/167
+Jeśli Snapshot Debugger został włączony [w okienku Application Insights w portalu](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), aplikacja powinna mieć już uruchomiony najnowszy pakiet NuGet. Jeśli Snapshot Debugger został włączony przez dołączenie pakietu NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) , użyj Menedżera pakietów NuGet programu Visual Studio, aby upewnić się, że używasz najnowszej wersji Microsoft. ApplicationInsights. SnapshotCollector. Informacje o wersji można znaleźć pod adresem https://github.com/Microsoft/ApplicationInsights-Home/issues/167
 
 ## <a name="check-the-uploader-logs"></a>Sprawdź dzienniki obiektu przekazującego
 
@@ -84,7 +108,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 W poprzednim przykładzie klucz Instrumentacji to `c12a605e73c44346a984e00000000000` . Ta wartość powinna być zgodna z kluczem Instrumentacji aplikacji.
 Minizrzutu jest skojarzony z migawką o IDENTYFIKATORze `139e411a23934dc0b9ea08a626db16c5` . Tego identyfikatora można użyć później, aby zlokalizować skojarzoną telemetrię wyjątku w Application Insights analizie.
 
-Obiektu przekazującego skanuje nowe plików PDB co 15 minut. Przykład:
+Obiektu przekazującego skanuje nowe plików PDB co 15 minut. Oto przykład:
 
 ```
 SnapshotUploader.exe Information: 0 : PDB rescan requested.
@@ -140,7 +164,7 @@ Wykonaj następujące kroki, aby skonfigurować rolę usługi w chmurze za pomoc
    }
    ```
 
-3. Zaktualizuj plik ApplicationInsights.config roli, aby zastąpić tymczasową lokalizację folderu używaną przez`SnapshotCollector`
+3. Zaktualizuj plik ApplicationInsights.config roli, aby zastąpić tymczasową lokalizację folderu używaną przez `SnapshotCollector`
    ```xml
    <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">

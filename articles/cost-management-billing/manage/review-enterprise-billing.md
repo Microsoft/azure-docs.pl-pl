@@ -7,12 +7,12 @@ ms.subservice: enterprise
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 979ed8c759676911a11cc62d7a00ad53361e19e0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 652348d5feb7e382287c91536f1479f9aec126e1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684770"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031810"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Przeglądanie rozliczeń rejestracji dla przedsiębiorstw przy użyciu interfejsów API REST
 
@@ -134,7 +134,7 @@ Ten przykład jest skrócony. Aby uzyskać pełny opis każdego pola odpowiedzi 
 Można pobrać szczegóły użycia zagregowane dla konta rejestracji.
 
 ```http
-GET GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
+GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
 Content-Type: application/json   
 Authorization: Bearer
 ```

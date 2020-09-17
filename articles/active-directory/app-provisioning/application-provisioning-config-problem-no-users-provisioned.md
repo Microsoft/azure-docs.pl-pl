@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d07450b61558814a99bf85668c55899c8cf9d389
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 21f16a0b9c8b3b603735520d5dcdbf61601e1480
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234792"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706498"
 ---
 # <a name="no-users-are-being-provisioned"></a>Żadni użytkownicy nie są aprowizowani 
 >[!NOTE]
@@ -24,7 +24,7 @@ ms.locfileid: "88234792"
 >
 Po skonfigurowaniu automatycznej aprowizacji dla aplikacji (w tym sprawdzić, czy poświadczenia aplikacji podane w usłudze Azure AD w celu nawiązania połączenia z aplikacją są prawidłowe), użytkownicy i/lub grupy są udostępniane aplikacji. Obsługa administracyjna jest określana na podstawie następujących elementów:
 
--   Użytkowników i grup **przypisanych** do aplikacji. Należy pamiętać, że grupy zagnieżdżone lub grupy pakietu Office 365 nie są obsługiwane. Aby uzyskać więcej informacji na temat przypisywania, zobacz [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw w Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
+-   Użytkowników i grup **przypisanych** do aplikacji. Należy zauważyć, że alokacja zagnieżdżonych grup lub grup Microsoft 365 nie jest obsługiwana. Aby uzyskać więcej informacji na temat przypisywania, zobacz [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw w Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
 -   Określa, czy **mapowania atrybutów** są włączone i skonfigurowane do synchronizowania prawidłowych atrybutów z usługi Azure AD z aplikacją. Aby uzyskać więcej informacji na temat mapowań atrybutów, zobacz [Dostosowywanie mapowań atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory](customize-application-attributes.md).
 -   Czy istnieje **Filtr zakresu** , który umożliwia filtrowanie użytkowników na podstawie określonych wartości atrybutów. Aby uzyskać więcej informacji na temat określania zakresu filtrów, zobacz Tworzenie [aplikacji opartych na atrybutach przy użyciu filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
   

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235700"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706350"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników
 
@@ -50,7 +50,7 @@ Integracja aplikacji w chmurze z obsługą administracyjną użytkowników w us�
 - Wymagaj bezpośredniej aprowizacji użytkowników z aplikacji w chmurze w celu Active Directory lub Azure AD.
 - Wymaganie, aby użytkownicy mieli możliwość aprowizacji przy użyciu danych uzyskanych z aplikacji KADRowej w chmurze.
 - Wymagaj synchronizacji, przeniesienia i opuszczenia użytkowników do co najmniej jednego Active Directory lasów, domen i jednostek organizacyjnych na podstawie informacji o zmianach wykrytych w aplikacji w chmurze.
-- Użyj pakietu Office 365 do obsługi poczty e-mail.
+- Użyj Microsoft 365 do poczty e-mail.
 
 ## <a name="learn"></a>Learn
 
@@ -61,14 +61,14 @@ Inicjowanie obsługi użytkowników tworzy podstawę do ciągłego zarządzania 
 W tym artykule są stosowane następujące warunki:
 
 - **System źródłowy**: repozytorium użytkowników, z których pochodzą postanowienia usługi Azure AD. Przykładem jest aplikacja usługi Cloud kadr, taka jak Workday lub SuccessFactors.
-- **System docelowy**: repozytorium użytkowników, do których mają prawa usługi Azure AD. Przykłady to Active Directory, Azure AD, Office 365 i inne aplikacje SaaS.
+- **System docelowy**: repozytorium użytkowników, do których mają prawa usługi Azure AD. Przykładami są Active Directory, Azure AD, Microsoft 365 lub inne aplikacje SaaS.
 - **Przyłączanie — proces opuszczania firmy przeprowadzki**: termin używany do nowych zatrudniania, transferów i kończenia pracy przy użyciu aplikacji kadrowej w chmurze jako systemu rekordów. Proces kończy się po pomyślnym zainicjowaniu przez usługę niezbędnych atrybutów do systemu docelowego.
 
 ### <a name="key-benefits"></a>Najważniejsze korzyści
 
 Ta funkcja aprowizacji IT oparta na usłudze kadr oferuje następujące korzyści biznesowe:
 
-- **Zwiększ produktywność:** Teraz można zautomatyzować przypisanie kont użytkowników i licencji pakietu Office 365 i zapewnić dostęp do grup kluczy. Automatyzacja przypisań pozwala nowym zatrudniać natychmiastowy dostęp do swoich narzędzi do zadań i zwiększa produktywność.
+- **Zwiększ produktywność:** Teraz można zautomatyzować przypisanie kont użytkowników i Microsoft 365 licencji oraz zapewnić dostęp do grup kluczy. Automatyzacja przypisań pozwala nowym zatrudniać natychmiastowy dostęp do swoich narzędzi do zadań i zwiększa produktywność.
 - **Zarządzanie ryzykiem:** Aby zwiększyć bezpieczeństwo, można zautomatyzować zmiany w zależności od stanu pracownika lub członkostwa w grupach przy użyciu danych przepływających z aplikacji w chmurze. Automatyzacja zmian gwarantuje, że tożsamości użytkowników i dostęp do najważniejszych aplikacji są aktualizowane automatycznie, gdy użytkownicy przechodzą lub opuściją organizację.
 - **Zgodność i zarządzanie adresami:** Usługa Azure AD obsługuje natywne dzienniki inspekcji dla żądań aprowizacji użytkowników wykonywanych przez aplikacje obu systemów źródłowych i docelowych. Za pomocą inspekcji można śledzić, kto ma dostęp do aplikacji z jednego ekranu.
 - **Zarządzaj kosztami:** Automatyczne Inicjowanie obsługi zmniejsza koszty, unikając nieefektywności i błędu ludzkiego związanego z obsługą ręczną. Pozwala to ograniczyć potrzebę tworzenia niestandardowo rozbudowanych rozwiązań użytkowników w czasie z użyciem starszych i nieaktualnych platform.
@@ -178,7 +178,7 @@ Na podstawie decyzji wybierz jeden z scenariuszy wdrażania:
 
 Zalecamy zastosowanie następującej konfiguracji produkcyjnej:
 
-|Wymaganie|Rekomendacja|
+|Wymaganie|Zalecenie|
 |:-|:-|
 |Liczba Azure AD Connect agentów aprowizacji do wdrożenia|Dwa (w przypadku wysokiej dostępności i trybu failover)
 |Liczba aplikacji łącznika aprowizacji do skonfigurowania|Jedna aplikacja na domenę podrzędną|
@@ -192,7 +192,7 @@ Ten scenariusz obejmuje Inicjowanie obsługi użytkowników z aplikacji w chmurz
 
 Zalecamy zastosowanie następującej konfiguracji produkcyjnej:
 
-|Wymaganie|Rekomendacja|
+|Wymaganie|Zalecenie|
 |:-|:-|
 |Liczba Azure AD Connect agentów aprowizacji do wdrożenia w środowisku lokalnym|Dwa na odłączony Las Active Directory|
 |Liczba aplikacji łącznika aprowizacji do skonfigurowania|Jedna aplikacja na domenę podrzędną|

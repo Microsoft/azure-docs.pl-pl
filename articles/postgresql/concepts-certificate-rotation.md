@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: ce1ef0257f2003c3af01d71b7da3924ebd9ed44f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5b46dc0197022aa72b6ca4c206d1da4369234167
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603921"
+ms.locfileid: "90707683"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dla Azure Database for PostgreSQL pojedynczego serwera
 
@@ -28,10 +28,9 @@ Nowy certyfikat zostanie użyty od 26 października 2020 (10/26/2020). W przypad
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Jak mogę dowiedzieć się, czy na mojej bazie danych ma być to naruszone?
 
 Wszystkie aplikacje korzystające z protokołu SSL/TLS i sprawdź, czy certyfikat główny musi zaktualizować certyfikat główny. Możesz określić, czy Twoje połączenia weryfikują certyfikat główny, przeglądając parametry połączenia.
--   Jeśli parametry połączenia obejmują `sslmode=verify-ca` lub ""
--   Jeśli parametry połączenia obejmują `sslmode=disable` , nie trzeba aktualizować certyfikatów.
--   Jeśli parametry połączenia obejmują `sslmode=allow` , `sslmode=prefer` , lub `sslmode=require` , nie trzeba aktualizować certyfikatów. 
--   Jeśli parametry połączenia nie są określone w sslmode, nie trzeba aktualizować certyfikatów.
+-   Jeśli parametry połączenia obejmują `sslmode=verify-ca` lub `sslmode=verify-full` , należy zaktualizować certyfikat.
+-   Jeśli parametry połączenia obejmują `sslmode=disable` , `sslmode=allow` , `sslmode=prefer` , lub `sslmode=require` , nie trzeba aktualizować certyfikatów. 
+-   Jeśli parametry połączenia nie określają sslmode, nie trzeba aktualizować certyfikatów.
 
 Jeśli używasz klienta, który dzieli parametry połączenia, przejrzyj dokumentację klienta, aby dowiedzieć się, czy weryfikuje certyfikaty.
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a80dafda39c0b37b1a7477b93d7f649fa1beeade
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 0126c5348a2acaebea0400a94ca0a1d14a1bf6ff
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783641"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707547"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Utwórz nowy pakiet dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -99,7 +99,7 @@ Na karcie **role zasobów** Wybierz zasoby do uwzględnienia w pakiecie dostępu
 
     Jeśli tworzysz pakiet dostępu w istniejącym wykazie, możesz wybrać dowolny zasób, który znajduje się już w katalogu bez jego właściciela.
 
-    Jeśli jesteś administratorem globalnym, administratorem użytkowników lub właścicielem katalogu, masz dodatkową możliwość wyboru zasobów, których jesteś właścicielem, które nie znajdują się jeszcze w wykazie. W przypadku wybrania zasobów, które nie są obecnie w wybranym wykazie, te zasoby zostaną również dodane do wykazu dla innych administratorów wykazu do tworzenia pakietów dostępu za pomocą programu. Jeśli chcesz tylko wybrać zasoby, które znajdują się obecnie w wybranym wykazie, zaznacz pole wyboru **Zobacz tylko** w górnej części okienka wybieranie.
+    Jeśli jesteś administratorem globalnym, administratorem użytkowników lub właścicielem katalogu, masz dodatkową możliwość wyboru zasobów, których jesteś właścicielem, które nie znajdują się jeszcze w wykazie. W przypadku wybrania zasobów, które nie są obecnie w wybranym wykazie, te zasoby zostaną również dodane do wykazu dla innych administratorów wykazu do tworzenia pakietów dostępu za pomocą programu. Aby wyświetlić wszystkie zasoby, które można dodać do wykazu, zaznacz pole wyboru **Zobacz wszystkie** w górnej części okienka wybieranie. Jeśli chcesz tylko wybrać zasoby, które znajdują się obecnie w wybranym wykazie, pozostaw pole wyboru **Zobacz wszystkie** niezaznaczone (stan domyślny).
 
 1. Po wybraniu zasobów na liście **rola** wybierz rolę, do której użytkownicy mają być przypisani.
 
@@ -135,11 +135,11 @@ Na karcie **Przegląd i tworzenie** możesz przejrzeć ustawienia i sprawdzić, 
 
 Możesz również utworzyć pakiet dostępu przy użyciu Microsoft Graph.  Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane uprawnienie, `EntitlementManagement.ReadWrite.All` może wywołać interfejs API, aby
 
-1. [Wyświetl listę accessPackageResources w wykazie](/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) i [Utwórz accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) dla wszystkich zasobów, które nie znajdują się jeszcze w wykazie.
-1. [Wyświetl listę accessPackageResourceRoles](/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) każdego AccessPackageResource w accessPackageCatalog. Ta lista ról będzie następnie używana do wybierania roli podczas tworzenia accessPackageResourceRoleScope.
-1. [Utwórz element accessPackage](/graph/api/accesspackage-post?view=graph-rest-beta).
-1. [Utwórz element accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
-1. [Utwórz accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) dla każdej roli zasobu wymaganej w pakiecie dostępu.
+1. [Wyświetl listę accessPackageResources w wykazie](https://docs.microsoft.com/graph/api/accesspackagecatalog-list?view=graph-rest-beta&tabs=http) i [Utwórz accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&tabs=http) dla wszystkich zasobów, które nie znajdują się jeszcze w wykazie.
+1. [Wyświetl listę accessPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackage-list-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http) każdego AccessPackageResource w accessPackageCatalog. Ta lista ról będzie następnie używana do wybierania roli podczas tworzenia accessPackageResourceRoleScope.
+1. [Utwórz element accessPackage](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
+1. [Utwórz element accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta&tabs=http).
+1. [Utwórz accessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http) dla każdej roli zasobu wymaganej w pakiecie dostępu.
 
 ## <a name="next-steps"></a>Następne kroki
 

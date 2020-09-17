@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7e6b4524523d0659126bcd6cbe1294d700e79ed9
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017541"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707819"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu łącznika usługi Google Cloud (G Suite)
 
@@ -72,9 +72,9 @@ Aby przetestować czynności opisane w tym samouczku, należy postępować zgodn
 
     Atrybut adresu e-mail jest wypełniany automatycznie dla każdego użytkownika z ważną licencją programu Exchange. Jeśli dla użytkownika nie włączono poczty e-mail, ten błąd będzie występował, ponieważ aplikacja musi pobrać ten atrybut w celu udzielenia dostępu.
 
-    Możesz przejść do witryny portal.office.com, korzystając z konta administratora, w obszarze centrum administracyjnego kliknąć pozycję Rozliczenia, kliknąć pozycję Subskrypcje, wybrać subskrypcję usługi Office 365, kliknąć pozycję Przypisz do użytkowników, wybrać użytkowników, dla których chcesz sprawdzić subskrypcje, a następnie w okienku po prawej stronie kliknąć pozycję Edytuj licencje.
+    Możesz przejść do portal.office.com przy użyciu konta administratora, a następnie kliknąć w centrum administracyjnym, rozliczeń, subskrypcji, wybrać subskrypcję usługi Microsoft 365, a następnie kliknąć pozycję Przypisz do użytkowników, wybrać użytkowników, którzy chcą sprawdzić swoją subskrypcję, a następnie w okienku po prawej stronie kliknąć pozycję Edytuj licencje.
 
-    Po przypisaniu licencji usługi O365 może upłynąć kilka minut, zanim odniesie to skutek. Po tym czasie atrybut user.mail będzie automatycznie wypełniany, co powinno spowodować rozwiązanie problemu.
+    Po przypisaniu licencji Microsoft 365 może upłynąć kilka minut. Po tym czasie atrybut user.mail będzie automatycznie wypełniany, co powinno spowodować rozwiązanie problemu.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -185,7 +185,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -240,7 +240,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Utwórz użytkownika testowego łącznika usługi Google Cloud (G Suite)
 
-Celem tej sekcji jest [utworzenie użytkownika w łączniku Google Cloud (G Suite)](https://support.google.com/a/answer/33310?hl=en) o nazwie B. Simon. Po ręcznym utworzeniu użytkownika w łączniku usługi Google Cloud (G Suite) użytkownik będzie mógł zalogować się przy użyciu poświadczeń logowania do pakietu Office 365.
+Celem tej sekcji jest [utworzenie użytkownika w łączniku Google Cloud (G Suite)](https://support.google.com/a/answer/33310?hl=en) o nazwie B. Simon. Po ręcznym utworzeniu użytkownika w łączniku usługi Google Cloud (G Suite) użytkownik będzie mógł zalogować się przy użyciu poświadczeń logowania Microsoft 365.
 
 Łącznik Google Cloud (G Suite) obsługuje również automatyczne Inicjowanie obsługi użytkowników. Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników, należy najpierw [skonfigurować łącznik usługi Google Cloud (G Suite) do automatycznego aprowizacji użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 
@@ -256,7 +256,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka łącznika Google Cloud (G Suite) w panelu dostępu należy automatycznie zalogować się do łącznika Google Cloud (G Suite), dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

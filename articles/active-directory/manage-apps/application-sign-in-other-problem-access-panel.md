@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5201d0e31eb6d3b06316b74463dc2b68b33008c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563917"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707972"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Rozwiązywanie problemów z logowaniem do aplikacji z usługi Azure AD moje aplikacje
 
@@ -27,7 +27,7 @@ Aby dowiedzieć się więcej o korzystaniu z usługi Azure AD jako dostawcy toż
 Te aplikacje są konfigurowane w imieniu użytkownika w portalu usługi Azure AD. Aplikacja musi być poprawnie skonfigurowana i przypisana do użytkownika lub grupy, do której należy użytkownik, aby wyświetlić aplikację w obszarze Moje aplikacje. 
 
 Typ aplikacji widocznych dla użytkownika można podzielić na następujące kategorie:
--   Microsoft 365 i aplikacje pakietu Office 365
+-   Microsoft 365 aplikacji
 -   Aplikacje firmy Microsoft i innych firm skonfigurowane z logowaniem jednokrotnym opartym na Federacji
 -   Aplikacje logowania jednokrotnego oparte na hasłach
 -   Aplikacje z istniejącymi rozwiązaniami logowania jednokrotnego
@@ -163,7 +163,7 @@ Aby przypisać licencję do użytkownika, wykonaj następujące kroki:
 11. Wybierz przycisk **Przypisz** , aby przypisać te licencje temu użytkownikowi.
 
 ## <a name="troubleshooting-deep-links"></a>Rozwiązywanie problemów z linkami bezpośrednimi
-Linki głębokie lub adresy URL dostępu użytkowników to linki, których użytkownicy mogą używać w celu uzyskania dostępu do aplikacji logowania jednokrotnego w przeglądarce. Przechodzenie do tego linku powoduje automatyczne zalogowanie użytkowników do aplikacji bez konieczności wcześniejszego przechodzenia do moich aplikacji. Link jest tym samym, którego użytkownicy używają do uzyskiwania dostępu do tych aplikacji z poziomu uruchamiania aplikacji pakietu Office 365.
+Linki głębokie lub adresy URL dostępu użytkowników to linki, których użytkownicy mogą używać w celu uzyskania dostępu do aplikacji logowania jednokrotnego w przeglądarce. Przechodzenie do tego linku powoduje automatyczne zalogowanie użytkowników do aplikacji bez konieczności wcześniejszego przechodzenia do moich aplikacji. Link jest tym samym, przy użyciu którego użytkownicy uzyskują dostęp do tych aplikacji z poziomu uruchamiania aplikacji Microsoft 365.
 
 ### <a name="checking-the-deep-link"></a>Sprawdzanie linku głębokiego
 

@@ -13,12 +13,12 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 5e62472fdccd2ee71a0ef725f34a75492d1b8ffa
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226645"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706204"
 ---
 # <a name="branding-guidelines-for-applications"></a>Wytyczne dotyczące oznaczania aplikacji marką
 
@@ -36,7 +36,7 @@ W tym artykule opisano następujące czynności:
 Firma Microsoft zarządza dwoma rodzajami kont użytkowników:
 
 - **Konta osobiste** (wcześniej konta Windows Live ID). Te konta reprezentują relację między *poszczególnymi* użytkownikami i firmą Microsoft oraz umożliwiają uzyskiwanie dostępu do urządzeń klientów i usług firmy Microsoft. Te konta są przeznaczone do użytku osobistego.
-- **Konta służbowe.** Te konta są zarządzane przez firmę Microsoft w imieniu organizacji, która używa usługi Azure Active Directory. Te konta umożliwiają logowanie się do usługi Office 365 i innych usług biznesowych firmy Microsoft.
+- **Konta służbowe.** Te konta są zarządzane przez firmę Microsoft w imieniu organizacji, która używa usługi Azure Active Directory. Te konta są używane do logowania się do Microsoft 365 i innych usług firmowych firmy Microsoft.
 
 Konta służbowe firmy Microsoft zwykle są przypisane do użytkowników końcowych (pracowników, uczniów, studentów, pracowników federalnych) przez ich organizacje (firmy, szkoły, agencje rządowe). Te konta są główne bezpośrednio w chmurze (na platformie Azure AD) lub zsynchronizowane z usługą Azure AD z katalogu lokalnego, takiego jak Windows Server Active Directory. Firma Microsoft jest *nadzorcą* kont służbowych, ale należą one do organizacji i są przez nią kontrolowane.
 
@@ -49,7 +49,7 @@ Firma Microsoft nie pokazuje użytkownikom końcowym nazw marek platformy Azure 
 
 ## <a name="user-account-pictogram"></a>Piktogram konta użytkownika
 
-We wcześniejszej wersji tych wytycznych zalecamy używanie piktogramu niebieskiej odznaki. Na podstawie opinii użytkowników i deweloperów teraz zalecamy używanie logo firmy Microsoft zamiast tego. Logo firmy Microsoft wskazuje, że użytkownicy mogą zalogować się do aplikacji za pomocą konta używanego w usłudze Office 365 lub innych usługach biznesowych firmy Microsoft.
+We wcześniejszej wersji tych wytycznych zalecamy używanie piktogramu niebieskiej odznaki. Na podstawie opinii użytkowników i deweloperów teraz zalecamy używanie logo firmy Microsoft zamiast tego. Logo firmy Microsoft pomoże użytkownikom zrozumieć, że mogą oni ponownie używać konta, które są używane przez usługi Microsoft 365 lub innych usług firmy Microsoft do logowania się do aplikacji.
 
 ## <a name="signing-up-and-signing-in-with-azure-ad"></a>Tworzenie konta i logowanie się za pomocą usługi Azure AD
 
@@ -63,13 +63,13 @@ Aplikacja może mieć różne procedury tworzenia konta i logowania. W poniższy
 
 Użycie linku „Pobierz aplikację” musi powodować przekierowanie użytkownika do strony udzielania dostępu (autoryzacji) usługi Azure AD, aby umożliwić administratorowi organizacji autoryzowanie aplikacji na potrzeby dostępu do danych organizacji hostowanych przez firmę Microsoft. Szczegółowe informacje dotyczące żądania dostępu przedstawiono w artykule [Integrating Applications with Azure Active Directory (Integrowanie aplikacji w usłudze Azure Active Directory)](./quickstart-register-app.md).
 
-Po udzieleniu przez administratorów zgody na Twoją aplikację może ona zdecydować się na dodanie jej do środowiska uruchamiania aplikacji Office 365 dla użytkowników (dostępnego w Gofr i z [https://portal.office.com/myapps](https://portal.office.com/myapps) ). Aby informować o tej możliwości, można użyć takich terminów jak „Dodaj tę aplikację do organizacji” i wyświetlić przycisk, jak w poniższym przykładzie:
+Po udzieleniu przez administratorów zgody na Twoją aplikację może ona zdecydować się na dodanie jej do Microsoft 365 środowiska uruchamiania aplikacji (dostępnego w Gofr i z [https://portal.office.com/myapps](https://portal.office.com/myapps) ). Aby informować o tej możliwości, można użyć takich terminów jak „Dodaj tę aplikację do organizacji” i wyświetlić przycisk, jak w poniższym przykładzie:
 
 ![Przycisk pokazujący logo firmy Microsoft i tekst "Dodaj do mojej organizacji"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 Jednak zalecamy napisanie tekstu objaśnienia, aby nie trzeba było używać tylko przycisków. Na przykład:
 
-> *Jeśli korzystasz już z pakietu Office 365 lub innej usługi biznesowej firmy Microsoft, możesz przyznać <your_app_name> dostęp do danych organizacji. Dzięki temu użytkownicy będą mogli uzyskiwać dostęp do <your_app_name> z istniejącymi kontami służbowymi.*
+> *Jeśli firma Microsoft korzysta już z usług Microsoft 365 lub innych firm, można udzielić <your_app_name> dostępu do danych organizacji. Dzięki temu użytkownicy będą mogli uzyskiwać dostęp do <your_app_name> z istniejącymi kontami służbowymi.*
 
 Aby pobrać oficjalne logo firmy Microsoft do użycia w aplikacji, kliknij prawym przyciskiem myszy logo, którego chcesz użyć, a następnie zapisz je w komputerze.
 
@@ -102,7 +102,7 @@ Aby pobrać oficjalne obrazy do użycia w aplikacji, kliknij prawym przyciskiem 
 
 **NALEŻY** używać konta służbowego w połączeniu z przyciskiem „Zaloguj się przy użyciu konta Microsoft” w celu dodatkowego wyjaśnienia, aby pomóc użytkownikom końcowym określić, czy mogą użyć konta. **NIE NALEŻY** używać innych zwrotów, takich jak „konto przedsiębiorstwa”, „konto biznesowe” lub „konto firmowe”.
 
-**NIE NALEŻY** używać zwrotu „Identyfikator usługi Office 365” lub „Identyfikator platformy Azure”. Office 365 jest również nazwą oferty firmy Microsoft dla użytkowników indywidualnych, która nie korzysta z usługi Azure AD na potrzeby uwierzytelniania.
+**Nie** używaj "Microsoft 365 identyfikator" lub "identyfikator platformy Azure". Microsoft 365 jest również nazwą oferty odbiorcy od firmy Microsoft, która nie korzysta z usługi Azure AD do uwierzytelniania.
 
 **NIE NALEŻY** zmieniać logo firmy Microsoft.
 

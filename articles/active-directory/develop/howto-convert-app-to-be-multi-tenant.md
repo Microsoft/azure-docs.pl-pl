@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 966149cf1a4f40ccc565b22e9d5afdd599997b4e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141368"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705898"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Instrukcje: Logowanie się dowolnego użytkownika usługi Azure Active Directory za pomocą wzorca aplikacji wielodostępnych
 
@@ -53,7 +53,7 @@ Domyślnie aplikacje utworzone za pośrednictwem Azure Portal mają globalnie un
 
 W jednej aplikacji dzierżawcy żądania logowania są wysyłane do punktu końcowego logowania dzierżawcy. Na przykład dla contoso.onmicrosoft.com punkt końcowy będzie: `https://login.microsoftonline.com/contoso.onmicrosoft.com` . Żądania wysyłane do punktu końcowego dzierżawy mogą logować użytkowników (lub Gości) w tej dzierżawie do aplikacji w tej dzierżawie.
 
-W przypadku aplikacji z wieloma dzierżawcami aplikacja nie wie, z której dzierżawą pochodzi użytkownik, i nie może wysyłać żądań do punktu końcowego dzierżawy. Zamiast tego żądania są wysyłane do punktu końcowego, który ma wszystkie dzierżawy usługi Azure AD:`https://login.microsoftonline.com/common`
+W przypadku aplikacji z wieloma dzierżawcami aplikacja nie wie, z której dzierżawą pochodzi użytkownik, i nie może wysyłać żądań do punktu końcowego dzierżawy. Zamiast tego żądania są wysyłane do punktu końcowego, który ma wszystkie dzierżawy usługi Azure AD: `https://login.microsoftonline.com/common`
 
 Gdy platforma tożsamości firmy Microsoft odbiera żądanie w punkcie końcowym/typowe, podpisuje użytkownika w i, w związku z tym, wykrywa dzierżawę, z której pochodzi użytkownik. Punkt końcowy/typowe współpracuje ze wszystkimi protokołami uwierzytelniania obsługiwanymi przez usługę Azure AD: OpenID Connect Connect, OAuth 2,0, SAML 2,0 i WS-Federation.
 
@@ -153,7 +153,7 @@ Jest to zademonstrowane w ramach wielowarstwowego, natywnego wywołania interfej
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>Wiele warstw w wielu dzierżawcach
 
-Podobny przypadek ma miejsce, jeśli różne warstwy aplikacji są zarejestrowane w różnych dzierżawach. Rozważmy na przykład przypadek tworzenia natywnej aplikacji klienckiej, która wywołuje interfejs API usługi Exchange 365 Office Online. Aby opracować aplikację natywną, a później w celu uruchomienia aplikacji natywnej w dzierżawie klienta musi być obecna nazwa główna usługi Exchange Online. W takim przypadku deweloper i klient muszą zakupić usługę Exchange Online w celu utworzenia jednostki usługi w swoich dzierżawach.
+Podobny przypadek ma miejsce, jeśli różne warstwy aplikacji są zarejestrowane w różnych dzierżawach. Rozważmy na przykład przypadek tworzenia natywnej aplikacji klienckiej, która wywołuje interfejs API usługi Exchange Online. Aby opracować aplikację natywną, a później w celu uruchomienia aplikacji natywnej w dzierżawie klienta musi być obecna nazwa główna usługi Exchange Online. W takim przypadku deweloper i klient muszą zakupić usługę Exchange Online w celu utworzenia jednostki usługi w swoich dzierżawach.
 
 Jeśli jest to interfejs API zbudowany przez organizację inną niż Microsoft, deweloper interfejsu API musi zapewnić klientom zgodę na stosowanie aplikacji do dzierżawców klientów. Zalecany projekt jest przeznaczony dla deweloperów innych firm do kompilowania interfejsu API w taki sposób, że może on również działać jako klient sieci Web w celu zaimplementowania rejestracji. W tym celu:
 
@@ -181,7 +181,7 @@ Aplikacje z wieloma dzierżawcami mogą również uzyskać tokeny dostępu do wy
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób tworzenia aplikacji, która może zalogować użytkownika z dowolnej dzierżawy usługi Azure AD. Po włączeniu logowania jednokrotnego między aplikacją i usługą Azure AD możesz także zaktualizować aplikację, aby uzyskać dostęp do interfejsów API udostępnianych przez zasoby firmy Microsoft, takie jak pakiet Office 365. Dzięki temu możesz oferować spersonalizowany interfejs w aplikacji, taki jak wyświetlanie informacji kontekstowych dla użytkowników, takich jak ich zdjęcie profilu lub termin następnego kalendarza. Aby dowiedzieć się więcej na temat tworzenia wywołań interfejsu API dla usług Azure AD i Office 365, takich jak Exchange, SharePoint, OneDrive, OneNote i innych, odwiedź witrynę [Microsoft Graph API][MSFT-Graph-overview].
+W tym artykule przedstawiono sposób tworzenia aplikacji, która może zalogować użytkownika z dowolnej dzierżawy usługi Azure AD. Po włączeniu logowania jednokrotnego między aplikacją i usługą Azure AD możesz także zaktualizować aplikację, aby uzyskać dostęp do interfejsów API udostępnianych przez zasoby firmy Microsoft, takie jak Microsoft 365. Dzięki temu możesz oferować spersonalizowany interfejs w aplikacji, taki jak wyświetlanie informacji kontekstowych dla użytkowników, takich jak ich zdjęcie profilu lub termin następnego kalendarza. Aby dowiedzieć się więcej na temat tworzenia wywołań interfejsu API w usłudze Azure AD i Microsoft 365 usług takich jak Exchange, SharePoint, OneDrive, OneNote i inne, odwiedź stronę [Microsoft Graph API][MSFT-Graph-overview].
 
 ## <a name="related-content"></a>Zawartość pokrewna
 

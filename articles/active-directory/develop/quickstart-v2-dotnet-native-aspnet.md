@@ -1,6 +1,6 @@
 ---
-title: Wywoływanie ASP.NET internetowego interfejsu API chronionego przez platformę tożsamości firmy Microsoft
-description: W tym przewodniku szybki start dowiesz się, jak wywoływać interfejs API sieci Web ASP.NET chroniony przez platformę tożsamości firmy Microsoft z aplikacji klasycznej systemu Windows. Klient WPF uwierzytelnia użytkownika, żąda tokenu dostępu i wywołuje internetowy interfejs API.
+title: Wywoływanie interfejsu API sieci Web ASP.NET chronionego przez platformę tożsamości firmy Microsoft
+description: W tym przewodniku szybki start dowiesz się, jak wywołać interfejs API sieci Web ASP.NET chroniony przez platformę tożsamości firmy Microsoft z poziomu aplikacji klasycznej systemu Windows (WPF).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,164 +11,178 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 0fc31fd397f8206f7c6f0509dd03495631dde609
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e3b666ca7418a11bba3091a5ae8191e9c7b33411
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165638"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705813"
 ---
-# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Szybki Start: wywoływanie interfejsu API sieci Web ASP.NET chronionego przez platformę tożsamości firmy Microsoft
+# <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Szybki Start: wywoływanie interfejsu API sieci Web ASP.NET chronionego przez platformę tożsamości firmy Microsoft
 
-W tym przewodniku szybki start uwidaczniasz internetowy interfejs API i zabezpieczesz go tak, aby tylko uwierzytelniony użytkownik mógł uzyskać do niego dostęp. Ten przykład pokazuje, jak uwidocznić internetowy interfejs API ASP.NET, aby mógł akceptować tokeny wystawione przez konta osobiste (w tym outlook.com, live.com i inne), a także konta służbowe z dowolnej firmy lub organizacji zintegrowanej z platformą tożsamości firmy Microsoft.
+W tym przewodniku szybki start uwidaczniasz internetowy interfejs API i zabezpieczesz go tak, aby tylko uwierzytelnieni użytkownicy mieli do niego dostęp. W tym artykule pokazano, jak uwidocznić internetowy interfejs API ASP.NET, aby mógł akceptować tokeny wystawiane przez konta osobiste, takie jak outlook.com lub live.com, oraz konta służbowe z dowolnej firmy lub organizacji zintegrowanej z platformą tożsamości firmy Microsoft.
 
-Przykład zawiera również klienta aplikacji klasycznych systemu Windows (WPF), który pokazuje, jak można zażądać tokenu dostępu w celu uzyskania dostępu do internetowego interfejsu API.
+W tym artykule jest również stosowana aplikacja Windows Presentation Foundation (WPF) do zademonstrowania, w jaki sposób można zażądać tokenu dostępu w celu uzyskania dostępu do internetowego interfejsu API.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do uruchomienia tego przykładu potrzebne są następujące elementy:
+Aby uruchomić przykładowy kod w tym artykule, potrzebne są:
 
 * Program Visual Studio 2017 lub 2019.  Pobierz [bezpłatnie program Visual Studio](https://www.visualstudio.com/downloads/).
+* [Konto Microsoft](https://www.outlook.com) lub [Microsoft 365 programu dla deweloperów](/office/developer-program/office-365-developer-program).
 
-* [Konto Microsoft](https://www.outlook.com) lub [Microsoft 365 programu dla deweloperów](/office/developer-program/office-365-developer-program)
+## <a name="clone-or-download-the-sample"></a>Klonowanie lub pobieranie przykładu
 
-## <a name="download-or-clone-this-sample"></a>Pobierz lub Sklonuj ten przykład
+Możesz uzyskać przykład na jeden z dwóch sposobów:  
 
-Można sklonować ten przykład z powłoki lub wiersza polecenia:
+* Klonuj ją z poziomu powłoki lub wiersza polecenia:
+   ```console
+   git clone https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
+   ```  
+* [Pobierz go jako plik zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
-  ```console
-  git clone https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
-  ```
+## <a name="register-your-web-api"></a>Rejestrowanie internetowego interfejsu API
 
-Możesz też [pobrać przykład jako plik zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
+W tej sekcji rejestrujesz internetowy interfejs API w portalu **rejestracje aplikacji** .
 
-## <a name="register-your-web-api-in-the-application-registration-portal"></a>Rejestrowanie internetowego interfejsu API w portalu rejestracji aplikacji
+### <a name="choose-your-azure-ad-tenant"></a>Wybieranie dzierżawy usługi Azure AD
 
-### <a name="choose-the-azure-ad-tenant-where-you-want-to-create-your-applications"></a>Wybierz dzierżawę usługi Azure AD, w której chcesz utworzyć aplikacje
+Aby ręcznie zarejestrować aplikacje, wybierz dzierżawę usługi Azure Active Directory (Azure AD), w której chcesz utworzyć aplikacje.
 
-Jeśli chcesz zarejestrować aplikacje ręcznie, musisz najpierw przeprowadzić następujące czynności:
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) za pomocą konta służbowego lub konto Microsoft prywatnego.
 
-1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu służbowego lub osobistego konta Microsoft.
-1. Jeśli Twoje konto jest obecne w więcej niż jednej dzierżawie usługi Azure AD, wybierz swój profil w prawym górnym rogu menu w górnej części strony, a następnie **Przełącz katalog**.
-   Zmień sesję portalu na żądaną dzierżawę usługi Azure AD.
+1. Jeśli Twoje konto jest obecne w więcej niż jednej dzierżawie usługi Azure AD, wybierz swój profil w prawym górnym rogu, a następnie wybierz pozycję **Przełącz katalog**.
+1. Zmień sesję portalu na dzierżawę usługi Azure AD, której chcesz użyć.
 
-### <a name="register-the-service-app-todolistservice"></a>Rejestrowanie aplikacji usługi (TodoListService)
+### <a name="register-the-todolistservice-app"></a>Rejestrowanie aplikacji TodoListService
 
-1. Przejdź do strony Microsoft Identity Platform for Developers [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
+1. Przejdź do platformy tożsamości firmy Microsoft dla deweloperów [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) portalu.
 1. Wybierz pozycję **Nowa rejestracja**.
-1. Gdy zostanie wyświetlona **Strona Zarejestruj aplikację** , wprowadź informacje o rejestracji aplikacji:
-   - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `AppModelv2-NativeClient-DotNet-TodoListService`.
-   - Zmień **obsługiwane typy kont** na **konta w dowolnym katalogu organizacyjnym**.
-   - Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
+1. Po otwarciu **strony Zarejestruj aplikację** wprowadź informacje o rejestracji aplikacji:
 
-1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją jako nowszą. Będzie to konieczne, aby skonfigurować plik konfiguracyjny programu Visual Studio dla tego projektu ( `ClientId` w programie `TodoListService\Web.config` ).
-1. Wybierz sekcję **Uwidacznianie interfejsu API** i:
-   - Wybierz pozycję **Dodaj zakres**
-   - Zaakceptuj proponowany identyfikator URI aplikacji (API://{clientId}), wybierając pozycję **Zapisz i Kontynuuj** .
-   - Wprowadź następujące parametry:
-     - Aby użyć **nazwy zakresu**`access_as_user`
-     - Upewnij się, że wybrano opcję **Administratorzy i użytkownicy** , dla **kogo można wyrazić zgodę**
-     - w polu **Nazwa wyświetlana nazwy wyświetlanej zgody administratora**`Access TodoListService as a user`
-     - w polu **Opis zgody administratora**`Accesses the TodoListService web API as a user`
-     - w polu **Nazwa wyświetlana nazwy wyświetlanej zgody użytkownika**`Access TodoListService as a user`
-     - w polu **Opis wyrażania zgody użytkownika**`Accesses the TodoListService web API as a user`
-     - Zachowaj **stan** jako **włączony**
-     - Wybierz pozycję **Dodaj zakres**
+   a. W sekcji **Nazwa** wprowadź zrozumiałą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji. Na przykład wprowadź **AppModelv2-NativeClient-dotnet-TodoListService**.  
+   b. W przypadku **obsługiwanych typów kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym**.  
+   c. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 
-### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Skonfiguruj projekt usługi tak, aby był zgodny z zarejestrowanym interfejsem API sieci Web
+1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** , a następnie zarejestruj ją w celu późniejszego użycia. Będzie to konieczne, aby skonfigurować plik konfiguracyjny programu Visual Studio dla tego projektu (czyli `ClientId` w pliku *TodoListService\Web.config* ).
+1. W sekcji **Uwidacznianie interfejsu API** wybierz pozycję **Dodaj zakres**, zaakceptuj proponowany identyfikator URI aplikacji (API://{clientId}), wybierając pozycję **Zapisz i Kontynuuj**, a następnie wprowadź następujące informacje:
+ 
+   a. W obszarze **Nazwa zakresu**wprowadź **access_as_user**.  
+   b. Dla **osób, które mogą wyrazić zgodę**, upewnij się, że wybrano opcję **Administratorzy i użytkownicy** .  
+   c. W polu **Nazwa wyświetlana zgody administratora** wpisz **dostęp TodoListService jako użytkownik**.  
+   d. W polu **Opis zgody administratora** wpisz dostęp do **internetowego interfejsu API TodoListService jako użytkownik**.  
+   e. W polu **Nazwa wyświetlana zgody użytkownika** wpisz **dostęp TodoListService jako użytkownik**.  
+   f. W polu **Opis zgody użytkownika** wpisz dostęp do **internetowego interfejsu API TodoListService jako użytkownik**.  
+   przykład W przypadku **stanu**pozostaw **włączone**.  
+   h. Wybierz pozycję **Dodaj zakres**.
 
-1. Otwórz rozwiązanie w programie Visual Studio, a następnie otwórz plik **Web.config** w katalogu głównym projektu **TodoListService** .
-1. Zastąp wartość `ida:ClientId` PARAMETRU **identyfikatorem klienta (Identyfikator aplikacji)** z aplikacji, która została właśnie zarejestrowana w portalu rejestracji aplikacji.
+### <a name="configure-the-service-project"></a>Konfigurowanie projektu usługi
 
-### <a name="add-the-new-scope-to-the-todolistclients-appconfig"></a>Dodaj nowy zakres do app.config *TodoListClient*
+Skonfiguruj projekt usługi tak, aby był zgodny z zarejestrowanym interfejsem API sieci Web, wykonując następujące czynności:
 
-* Otwórz plik **app.config** znajdujący się w folderze głównym projektu **TodoListClient** , a następnie wklej **Identyfikator aplikacji** z aplikacji, która została właśnie zarejestrowana dla *TodoListService* w obszarze `TodoListServiceScope` parametru, zastępując ciąg `{Enter the Application ID of your TodoListService from the app registration portal}` .
+1. Otwórz rozwiązanie w programie Visual Studio, a następnie otwórz plik *Web.config* w obszarze głównym projektu TodoListService.
+
+1. Zastąp wartość `ida:ClientId` parametru wartością identyfikator klienta (Identyfikator aplikacji) z aplikacji właśnie zarejestrowanej w portalu **rejestracje aplikacji** .
+
+### <a name="add-the-new-scope-to-the-appconfig-file"></a>Dodaj nowy zakres do pliku app.config
+
+Aby dodać nowy zakres do pliku TodoListClient *app.config* , wykonaj następujące czynności:
+
+1. W folderze głównym projektu TodoListClient Otwórz plik *app.config* .
+
+1. Wklej identyfikator aplikacji z aplikacji, która została właśnie zarejestrowana dla projektu TodoListService w `TodoListServiceScope` parametrze, zastępując `{Enter the Application ID of your TodoListService from the app registration portal}` ciąg.
 
   > [!NOTE]
-  > Upewnij się, że używa następującego formatu:
-  >
-  > `api://{TodoListService-Application-ID}/access_as_user`
-  >
-  >(gdzie {TodoListService-Application-ID} jest identyfikatorem GUID reprezentującym identyfikator aplikacji dla TodoListService).
+  > Upewnij się, że identyfikator aplikacji używa następującego formatu: `api://{TodoListService-Application-ID}/access_as_user` (gdzie `{TodoListService-Application-ID}` to identyfikator GUID reprezentujący identyfikator aplikacji dla aplikacji TodoListService).
 
-## <a name="register-the-client-app-todolistclient"></a>Rejestrowanie aplikacji klienckiej (TodoListClient)
+## <a name="register-the-todolistclient-client-app"></a>Rejestrowanie aplikacji klienckiej TodoListClient
 
-W tym kroku skonfigurujesz projekt *TodoListClient* , rejestrując nową aplikację w portalu rejestracji aplikacji. W przypadkach, gdy klient i serwer są uważane za *tę samą aplikację* , możesz również po prostu ponownie użyć tej samej aplikacji zarejestrowanej w kroku 2. Jeśli chcesz, aby użytkownicy mogli logować się za pomocą kont osobistych firmy Microsoft, jest potrzebna ta sama aplikacja
+W tej sekcji zarejestrujesz aplikację TodoListClient w **rejestracje aplikacji** w Azure Portal, a następnie skonfigurujesz kod w projekcie TodoListClient. Jeśli klient i serwer są uważane za tę *samą aplikację*, można ponownie użyć aplikacji zarejestrowanej w kroku 2. Użyj tej samej aplikacji, jeśli chcesz, aby użytkownicy mogli logować się za pomocą konta osobistego firmy Microsoft.
 
-### <a name="register-the-todolistclient-application-in-the-application-registration-portal"></a>Rejestrowanie aplikacji *TodoListClient* w *portalu rejestracji aplikacji*
+### <a name="register-the-app"></a>Rejestrowanie aplikacji
 
-1. Przejdź do strony Microsoft Identity Platform for Developers [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
+Aby zarejestrować aplikację TodoListClient, wykonaj następujące czynności:
+
+1. Przejdź do platformy tożsamości firmy Microsoft dla deweloperów [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) portalu.
 1. Wybierz pozycję **Nowa rejestracja**.
-1. Gdy zostanie wyświetlona **Strona Zarejestruj aplikację** , wprowadź informacje o rejestracji aplikacji:
-   - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `NativeClient-DotNet-TodoListClient`.
-   - Zmień **obsługiwane typy kont** na **konta w dowolnym katalogu organizacyjnym**.
-   - Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
+1. Po otwarciu **strony Zarejestruj aplikację** wprowadź informacje o rejestracji aplikacji:
+
+   a. W sekcji **Nazwa** wprowadź zrozumiałą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji (na przykład **NativeClient-dotnet-TodoListClient**).  
+   b. W przypadku **obsługiwanych typów kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym**.  
+   c. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
    
    > [!NOTE]
-   > W **app.config**projektu *TodoListClient* wartość domyślna `ida:Tenant` to `common` .
-   >
-   > `common` oznacza to, że możesz zalogować się za pomocą konta służbowego lub konta osobistego firmy Microsoft (ponieważ wybrano **konta w dowolnym katalogu organizacyjnym**).
-   >
-   > `organizations` oznacza to, że możesz zalogować się przy użyciu konta służbowego.
-   >
-   > `consumers` oznacza, że możesz zalogować się tylko przy użyciu konta osobistego firmy Microsoft.
+   > W pliku *app.config* projektu TodoListClient wartość domyślna `ida:Tenant` to `common` . Możliwe wartości są następujące:
+   > - `common`: Możesz zalogować się przy użyciu konta służbowego lub konta osobistego firmy Microsoft (ponieważ w kroku 3B zostały wybrane **konta w dowolnym katalogu organizacyjnym** ).
+   > - `organizations`: Możesz zalogować się przy użyciu konta służbowego.
+   > - `consumers`: Możesz zalogować się tylko przy użyciu konta osobistego firmy Microsoft.
    >
    
-1. Na stronie Przegląd aplikacji wybierz sekcję **uwierzytelnianie** .
-   1. W obszarze **Konfiguracja platformy**wybierz przycisk **Dodaj platformę** .
-   1. W przypadku **aplikacji mobilnych i klasycznych**wybierz **aplikacje mobilne i klasyczne**.
-   1. W obszarze **identyfikatory URI przekierowania**zaznacz **https://login.microsoftonline.com/common/oauth2/nativeclient** pole wyboru.
-   1. Wybierz pozycję **Konfiguruj**.   
-1. Wybierz sekcję **uprawnienia interfejsu API**
-   1. Wybierz przycisk **Dodaj uprawnienia**.
-   1. Wybierz kartę **Moje interfejsy API** .
-   1. Na liście interfejsów API wybierz `AppModelv2-NativeClient-DotNet-TodoListService API` lub nazwę wprowadzoną dla internetowego interfejsu API.
-   1. Zaznacz uprawnienie **access_as_user** , jeśli nie zostało jeszcze zaznaczone. W razie potrzeby użyj pola wyszukiwania.
-   1. Wybierz przycisk **Dodaj uprawnienia** .
+1. Na stronie **Przegląd** aplikacji wybierz pozycję **uwierzytelnianie**, a następnie wykonaj następujące czynności:
 
-### <a name="configure-your-todolistclient-project"></a>Konfigurowanie projektu *TodoListClient*
+   a. W obszarze **Konfiguracja platformy**wybierz przycisk **Dodaj platformę** .  
+   b. W przypadku **aplikacji mobilnych i klasycznych**wybierz **aplikacje mobilne i klasyczne**.  
+   c. W obszarze **identyfikatory URI przekierowania**zaznacz **https://login.microsoftonline.com/common/oauth2/nativeclient** pole wyboru.  
+   d. Wybierz pozycję **Konfiguruj**.   
+1. Wybierz pozycję **uprawnienia interfejsu API**, a następnie wykonaj następujące czynności:
 
-1. W *portalu rejestracji aplikacji*na stronie **Przegląd** skopiuj wartość **Identyfikator aplikacji (klienta).**
-1. Otwórz plik **app.config** znajdujący się w folderze głównym projektu **TodoListClient** , a następnie wklej wartość w polu `ida:ClientId` wartość parametru.
+   a. Wybierz przycisk **Dodaj uprawnienia**.  
+   b. Wybierz kartę **Moje interfejsy API** .  
+   c. Na liście interfejsów API wybierz pozycję **AppModelv2-NativeClient-dotnet-TODOLISTSERVICE API** lub nazwę wprowadzoną dla internetowego interfejsu API.  
+   d. Zaznacz pole wyboru **access_as_user** uprawnienie, jeśli nie zostało jeszcze wybrane. W razie potrzeby użyj pola wyszukiwania.  
+   e. Wybierz przycisk **Dodaj uprawnienia** .
 
-## <a name="run-your-project"></a>Uruchamianie projektu
+### <a name="configure-your-project"></a>Konfigurowanie projektu
 
-1. Naciśnij klawisz `<F5>` , aby uruchomić projekt. Należy otworzyć *TodoListClient* .
-1. Wybierz pozycję **Zaloguj się** w prawym górnym rogu i zaloguj się przy użyciu tego samego użytkownika, który został użyty do zarejestrowania aplikacji lub użytkownika w tym samym katalogu.
-1. W tym momencie, jeśli logujesz się po raz pierwszy, może zostać wyświetlony monit o zgodę na *TodoListService* internetowego interfejsu API.
-1. Logowanie żąda również tokenu dostępu do zakresu *access_as_user* , aby uzyskać dostęp do *TodoListService* internetowego interfejsu API i manipulowania listą *czynności do wykonania* .
+Aby skonfigurować projekt TodoListClient, wykonaj następujące czynności:
+
+1. Na stronie **Przegląd** w portalu **rejestracje aplikacji** skopiuj wartość **Identyfikator aplikacji (klienta)**.
+
+1. W folderze głównym projektu TodoListClient Otwórz plik *app.config* , a następnie wklej wartość Identyfikator aplikacji w `ida:ClientId` parametrze.
+
+## <a name="run-your-todolistclient-project"></a>Uruchamianie projektu TodoListClient
+
+Aby uruchomić projekt TodoListClient, wykonaj następujące czynności:
+
+1. Naciśnij klawisz F5, aby otworzyć projekt TodoListClient. Strona projektu powinna zostać otwarta.
+
+1. W prawym górnym rogu wybierz pozycję **Zaloguj**, a następnie zaloguj się przy użyciu tych samych poświadczeń, które zostały użyte do zarejestrowania aplikacji, lub Zaloguj się jako użytkownik w tym samym katalogu.
+
+   Jeśli logujesz się po raz pierwszy, może zostać wyświetlony monit o zgodę na interfejs API sieci Web TodoListService.
+
+   Aby ułatwić dostęp do interfejsu API sieci Web TodoListService i manipulowania listą *czynności do wykonania* , logowanie również żąda tokenu dostępu do zakresu *access_as_user* .
 
 ## <a name="pre-authorize-your-client-application"></a>Wstępna Autoryzacja aplikacji klienckiej
 
-Jednym ze sposobów zezwalania użytkownikom z innych katalogów na dostęp do internetowego interfejsu API jest *wstępne autoryzowanie* aplikacji klienckich w celu uzyskania dostępu do internetowego interfejsu API przez dodanie identyfikatorów aplikacji z aplikacji klienckich na liście *wstępnie autoryzowanych* aplikacji dla internetowego interfejsu API. Przez dodanie wstępnie autoryzowanego klienta nie jest wymagane, aby użytkownik wyraził zgodę na korzystanie z internetowego interfejsu API. Wykonaj poniższe kroki, aby wstępnie autoryzować aplikację sieci Web::
+Jednym ze sposobów zezwalania użytkownikom z innych katalogów na dostęp do internetowego interfejsu API jest wstępne autoryzowanie aplikacji klienckiej w celu uzyskania dostępu do internetowego interfejsu API. W tym celu należy dodać identyfikator aplikacji z aplikacji klienckiej do listy wstępnie autoryzowanych aplikacji dla internetowego interfejsu API. Dodając wstępnie autoryzowanego klienta, zezwolisz użytkownikom na dostęp do internetowego interfejsu API bez konieczności udzielania zgody. Aby wstępnie autoryzować aplikację kliencką, wykonaj następujące czynności:
 
-1. Wróć do *portalu rejestracji aplikacji* i Otwórz właściwości **TodoListService**.
-1. W sekcji **Uwidacznianie interfejsu API** kliknij pozycję **Dodaj aplikację kliencką** w sekcji *autoryzowane aplikacje klienckie* .
-1. W polu *Identyfikator klienta* wklej identyfikator aplikacji `TodoListClient` aplikacji.
-1. W sekcji *autoryzowane zakresy* wybierz zakres dla tego internetowego interfejsu API `api://<Application ID>/access_as_user` .
-1. Naciśnij przycisk **Dodaj aplikację** w dolnej części strony.
+1. W portalu **rejestracje aplikacji** Otwórz właściwości aplikacji TodoListService.
+1. W sekcji **Uwidacznianie interfejsu API** w obszarze **autoryzowane aplikacje klienckie**wybierz pozycję **Dodaj aplikację kliencką**.
+1. W polu **Identyfikator klienta** wklej identyfikator aplikacji aplikacji TodoListClient.
+1. W sekcji **autoryzowane zakresy** wybierz zakres dla internetowego `api://<Application ID>/access_as_user` interfejsu API.
+1. Wybierz pozycję **Dodaj aplikację**.
 
 ## <a name="run-your-project"></a>Uruchamianie projektu
 
-1. Naciśnij klawisz `<F5>` , aby uruchomić projekt. Należy otworzyć *TodoListClient* .
-1. Wybierz pozycję **Zaloguj się** w prawym górnym rogu (lub wyczyść pamięć podręczną/Zaloguj się), a następnie zaloguj się przy użyciu osobistego konto Microsoft (live.com lub hotmail.com) lub konta służbowego.
+1. Naciśnij klawisz F5, aby uruchomić projekt. Aplikacja TodoListClient powinna zostać otwarta.
+1. W prawym górnym rogu wybierz pozycję **Zaloguj**, a następnie zaloguj się przy użyciu osobistego konto Microsoft, takiego jak live.com lub hotmail.com, lub konta służbowego.
 
-## <a name="optional-restrict-sign-in-access-to-your-application"></a>Opcjonalne: Ogranicz dostęp do logowania do aplikacji
+## <a name="optional-limit-sign-in-access-to-certain-users"></a>Opcjonalne: Ogranicz dostęp do logowania do określonych użytkowników
 
-Domyślnie podczas pobierania tego przykładu kodu i konfigurowania aplikacji do korzystania z punktu końcowego Azure Active Directory v2 po powyższych krokach konta osobiste, takie jak outlook.com, live.com i inne, a także konta służbowe z dowolnej organizacji zintegrowanej z usługą Azure AD mogą żądać tokenów i uzyskiwać dostęp do internetowego interfejsu API.
+Domyślnie po wykonaniu powyższych kroków wszystkie konta osobiste, takie jak outlook.com lub live.com, lub konta służbowe z organizacji zintegrowanych z usługą Azure AD mogą żądać tokenów i uzyskiwać dostęp do internetowego interfejsu API.
 
-Aby ograniczyć liczbę użytkowników, którzy mogą zalogować się do aplikacji, użyj jednej z opcji:
+Aby określić, kto może logować się do aplikacji, użyj jednej z następujących opcji:
 
-### <a name="option-1-restrict-access-to-a-single-organization-single-tenant"></a>Opcja 1: ograniczanie dostępu do jednej organizacji (pojedynczej dzierżawy)
+### <a name="option-1-limit-access-to-a-single-organization-single-tenant"></a>Opcja 1. ograniczanie dostępu do jednej organizacji (pojedynczej dzierżawy)
 
-Dostęp do logowania do aplikacji można ograniczyć tylko do kont użytkowników należących do pojedynczej dzierżawy usługi Azure AD — w tym *kont Gości* tej dzierżawy. Ten scenariusz jest typowy dla *aplikacji biznesowych*:
+Możesz ograniczyć dostęp logowania do aplikacji do kont użytkowników należących do pojedynczej dzierżawy usługi Azure AD, w tym *kont Gości* tej dzierżawy. Ten scenariusz jest typowy dla *aplikacji biznesowych*.
 
-1. Otwórz plik **App_Start \Startup.auth** i zmień wartość punktu końcowego metadanych, który jest przesyłany do programu `OpenIdConnectSecurityTokenProvider` `"https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration"` (można również użyć nazwy dzierżawcy, takiej jak `contoso.onmicrosoft.com` ).
-2. W tym samym pliku Ustaw `ValidIssuer` Właściwość na, `TokenValidationParameters` `"https://sts.windows.net/{Tenant ID}/"` a `ValidateIssuer` argument na `true` .
+1. Otwórz plik *App_Start \Startup.auth* , a następnie zmień wartość punktu końcowego metadanych, który jest przesyłany do `OpenIdConnectSecurityTokenProvider` `"https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration"` . Możesz również użyć nazwy dzierżawcy, takiej jak `contoso.onmicrosoft.com` .
+2. W tym samym pliku Ustaw `ValidIssuer` Właściwość na `TokenValidationParameters` `"https://sts.windows.net/{Tenant ID}/"` , a następnie ustaw `ValidateIssuer` argument na `true` .
 
 ### <a name="option-2-use-a-custom-method-to-validate-issuers"></a>Opcja 2: Użyj niestandardowej metody do walidacji wystawców
 
-Można zaimplementować metodę niestandardową w celu weryfikacji wystawców przy użyciu parametru **IssuerValidator** . Aby uzyskać więcej informacji o tym, jak używać tego parametru, Przeczytaj o [klasie TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet).
+Można zaimplementować metodę niestandardową w celu weryfikacji wystawców przy użyciu `IssuerValidator` parametru. Aby uzyskać więcej informacji o tym parametrze, zobacz [Klasa TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet&preserve-view=true).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: c193742527cf69526d69549d3c10f5591f0d2f93
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bdeb27f9e761fefc52c9c97b28d15770e22221f4
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115700"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706170"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Integracja z platformą tożsamości firmy Microsoft
 
@@ -31,7 +31,7 @@ Istnieje kilka sposobów integracji aplikacji z platformą tożsamości firmy Mi
 
 ### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Obsługa platformy tożsamości firmy Microsoft w celu zalogowania się do aplikacji
 
-**Zmniejsz liczbę logowań i zmniejsz koszty pomocy technicznej.** Aby zalogować się do aplikacji przy użyciu platformy tożsamości firmy Microsoft, użytkownicy nie będą musieli pamiętać żadnej nazwy i hasła. Jako deweloper będziesz mieć co najmniej jedno hasło do przechowywania i ochrony. Nie trzeba obsługiwać resetowania zapomnianych haseł. Platforma tożsamości firmy Microsoft umożliwia zalogowanie się do niektórych najpopularniejszych aplikacji w chmurze, w tym pakietów Office 365 i Microsoft Azure. Setki milionów użytkowników z milionów organizacji prawdopodobnie użytkownik jest już zalogowany na platformie tożsamości firmy Microsoft. Dowiedz się więcej o [dodawaniu obsługi usługi Microsoft Identity platform](./authentication-vs-authorization.md).
+**Zmniejsz liczbę logowań i zmniejsz koszty pomocy technicznej.** Aby zalogować się do aplikacji przy użyciu platformy tożsamości firmy Microsoft, użytkownicy nie będą musieli pamiętać żadnej nazwy i hasła. Jako deweloper będziesz mieć co najmniej jedno hasło do przechowywania i ochrony. Nie trzeba obsługiwać resetowania zapomnianych haseł. Platforma tożsamości firmy Microsoft umożliwia logowanie się w przypadku niektórych najpopularniejszych aplikacji w chmurze, w tym Microsoft 365 i Microsoft Azure. Setki milionów użytkowników z milionów organizacji prawdopodobnie użytkownik jest już zalogowany na platformie tożsamości firmy Microsoft. Dowiedz się więcej o [dodawaniu obsługi usługi Microsoft Identity platform](./authentication-vs-authorization.md).
 
 **Uprość rejestrowanie się w aplikacji.**  Podczas tworzenia konta w aplikacji platforma Microsoft Identity platform może wysyłać podstawowe informacje o użytkowniku, aby można było wstępnie wypełnić formularz tworzenia konta lub całkowicie wyeliminować. Użytkownicy mogą zarejestrować się w celu korzystania z aplikacji przy użyciu konta usługi Azure AD za pomocą dobrze znanego środowiska, podobnego do tych znajdujących się w multimediach społecznościowych i aplikacjach mobilnych. Każdy użytkownik może utworzyć konto i zalogować się do aplikacji zintegrowanej z platformą tożsamości firmy Microsoft bez konieczności jej zaangażowania. Dowiedz się więcej o [rejestrowaniu aplikacji na potrzeby logowania do konta usługi Azure AD](../../app-service/configure-authentication-provider-aad.md).
 
@@ -47,13 +47,13 @@ Istnieje kilka sposobów integracji aplikacji z platformą tożsamości firmy Mi
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Uzyskiwanie dostępu do profilu, kalendarza, poczty e-mail, kontaktów, plików i innych użytkowników
 
-**Platforma tożsamości firmy Microsoft to serwer autoryzacji dla pakietu Office 365 i innych usług firmy Microsoft.**  Jeśli obsługujesz platformę tożsamości firmy Microsoft w celu logowania się do aplikacji lub obsłużenia połączenia bieżących kont użytkowników z kontami użytkowników usługi Azure AD przy użyciu protokołu OAuth 2,0, możesz poprosić o dostęp do odczytu i zapisu do profilu użytkownika, kalendarza, wiadomości e-mail, kontaktów, plików i innych informacji. Możesz bezproblemowo pisać zdarzenia do kalendarza użytkownika i odczytywać i zapisywać pliki w swojej usłudze OneDrive. Dowiedz się więcej o [uzyskiwaniu dostępu do interfejsów API pakietu Office 365](/previous-versions/office/office-365-api/).
+**Platforma tożsamości firmy Microsoft to serwer autoryzacji dla Microsoft 365 i innych usług firmy Microsoft.**  Jeśli obsługujesz platformę tożsamości firmy Microsoft w celu logowania się do aplikacji lub obsłużenia połączenia bieżących kont użytkowników z kontami użytkowników usługi Azure AD przy użyciu protokołu OAuth 2,0, możesz poprosić o dostęp do odczytu i zapisu do profilu użytkownika, kalendarza, wiadomości e-mail, kontaktów, plików i innych informacji. Możesz bezproblemowo pisać zdarzenia do kalendarza użytkownika i odczytywać i zapisywać pliki w swojej usłudze OneDrive. Dowiedz się więcej o [uzyskiwaniu dostępu do interfejsów api Microsoft 365](/previous-versions/office/office-365-api/).
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promuj swoją aplikację w portalu Azure i witrynie Office 365 Marketplace
+### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Promuj swoją aplikację na platformie Azure i Microsoft 365 Marketplace
 
 **Promuj swoją aplikację do milionów organizacji, którzy już korzystają z usługi Azure AD.**  Użytkownicy, którzy przeszukują i przeglądają te rynki Marketplace, korzystają już z jednej lub kilku usług w chmurze, dzięki czemu są wykwalifikowanymi klientami usług w chmurze. Dowiedz się więcej na temat promowania aplikacji w [portalu Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**Gdy użytkownicy logują się do aplikacji, zostanie ona wyświetlona w panelu dostępu usługi Azure AD i uruchamiania aplikacji pakietu Office 365.**  Użytkownicy będą mogli szybko i łatwo wrócić do swojej aplikacji, ulepszając zaangażowanie użytkowników. Dowiedz się więcej o [panelu dostępu usługi Azure AD](../user-help/my-apps-portal-end-user-access.md).
+**Gdy użytkownicy logują się do aplikacji, będzie ona wyświetlana w panelu dostępu usługi Azure AD i Microsoft 365 uruchamiania aplikacji.**  Użytkownicy będą mogli szybko i łatwo wrócić do swojej aplikacji, ulepszając zaangażowanie użytkowników. Dowiedz się więcej o [panelu dostępu usługi Azure AD](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Zabezpieczanie komunikacji między urządzeniami i usługami
 
@@ -85,7 +85,7 @@ Integracja z platformą tożsamości firmy Microsoft obejmuje korzyści, które 
 
 ### <a name="worldwide-presence-and-high-availability"></a>Ogólnoświatowa obecność i wysoka dostępność
 
-**Usługa Azure AD jest wdrażana w centrach danych na całym świecie i jest zarządzana i monitorowana wokół zegara.**  Usługa Azure AD to system zarządzania tożsamościami dla Microsoft Azure i pakietu Office 365 i jest wdrażany w 28 centrach danych na całym świecie. Dane katalogu mają być replikowane do co najmniej trzech centrów danych. Globalne moduły równoważenia obciążenia zapewniają użytkownikom dostęp do najbliższej kopii usługi Azure AD zawierającej swoje dane i automatycznie ponownie kierują żądania do innych centrów danych w przypadku wykrycia problemu.
+**Usługa Azure AD jest wdrażana w centrach danych na całym świecie i jest zarządzana i monitorowana wokół zegara.**  Usługa Azure AD jest systemem zarządzania tożsamościami dla Microsoft Azure i Microsoft 365 i jest wdrażany w 28 centrach danych na całym świecie. Dane katalogu mają być replikowane do co najmniej trzech centrów danych. Globalne moduły równoważenia obciążenia zapewniają użytkownikom dostęp do najbliższej kopii usługi Azure AD zawierającej swoje dane i automatycznie ponownie kierują żądania do innych centrów danych w przypadku wykrycia problemu.
 
 ## <a name="next-steps"></a>Następne kroki
 

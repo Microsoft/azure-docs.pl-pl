@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z usługą Samanage | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i usługą Samanage.
+title: 'Samouczek: integracja Azure Active Directory z obsługą techniczną SolarWinds (wcześniej Samanage) | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i SolarWinds Service Desk (wcześniej Samanage).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,20 +11,20 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 56018ff0be07a48cf9448b9b92de5694ebac18bc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8d4c19e1ce10ed618cda167cd6fa7efedf4111d0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543537"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707581"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Samouczek: integracja Azure Active Directory z usługą Samanage
+# <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>Samouczek: integracja Azure Active Directory z obsługą techniczną SolarWinds (wcześniej Samanage)
 
-Z tego samouczka dowiesz się, jak zintegrować usługę Samanage z usługą Azure Active Directory (Azure AD).
-Zintegrowanie usługi Samanage z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę SolarWinds z usługą Azure Active Directory (Azure AD).
+Integracja SolarWinds z usługą Azure AD zapewnia następujące korzyści:
 
-* Możesz kontrolować w usłudze Azure AD, kto ma dostęp do usługi Samanage.
-* Możesz zezwolić użytkownikom na automatyczne logowanie się do usługi Samanage (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi SolarWinds.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do SolarWinds (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z usługą Samanage, potrzebujesz następujących elementów:
+Aby skonfigurować integrację usługi Azure AD z usługą SolarWinds Service Desk (wcześniej Samanage), potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
 * Subskrypcja usługi Samanage z obsługą logowania jednokrotnego
@@ -41,15 +41,15 @@ Aby skonfigurować integrację usługi Azure AD z usługą Samanage, potrzebujes
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Usługa Samanage obsługuje logowanie jednokrotne inicjowane przez **dostawcę usług**
+* SolarWinds obsługuje logowanie jednokrotne w usłudze **SP**
 
-## <a name="adding-samanage-from-the-gallery"></a>Dodawanie usługi Samanage z galerii
+## <a name="adding-solarwinds-from-the-gallery"></a>Dodawanie SolarWinds z galerii
 
-Aby skonfigurować integrację usługi Samanage z usługą Azure AD, musisz dodać usługę Samanage z galerii do swojej listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu SolarWinds z usługą Azure AD, musisz dodać SolarWinds z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać usługę Samanage z galerii, wykonaj następujące kroki:**
+**Aby dodać SolarWinds z galerii, wykonaj następujące czynności:**
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
+1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory** ikona.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
@@ -61,31 +61,31 @@ Aby skonfigurować integrację usługi Samanage z usługą Azure AD, musisz doda
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Samanage**, wybierz pozycję **Samanage** z panelu wyników, a następnie kliknij przycisk **Dodaj**, aby dodać aplikację.
+4. W polu wyszukiwania wpisz **SolarWinds**, wybierz pozycję **SolarWinds** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![Samanage na liście wyników](common/search-new-app.png)
+     ![SolarWinds na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD z usługą Samanage, korzystając z danych użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację połączenia między użytkownikiem usługi Azure AD i powiązanym użytkownikiem usługi Samanage.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą SolarWinds na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w SolarWinds.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD w usłudze Samanage, należy ukończyć poniższe bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi SolarWinds, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie logowania jednokrotnego w usłudze Samanage](#configure-samanage-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. Skonfiguruj Logowanie jednokrotne w **[usłudze SolarWinds Service](#configure-solarwinds-single-sign-on)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Tworzenie użytkownika testowego usługi Samanage](#create-samanage-test-user)** — aby mieć w usłudze Samanage odpowiednik użytkownika Britta Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
+5. **[Utwórz użytkownika testowego usługi SolarWinds Service](#create-solarwinds-test-user)** , aby uzyskać odpowiednik Britta Simon w SolarWinds Service Desk, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD w usłudze Samanage, wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą SolarWinds, wykonaj następujące czynności:
 
-1. W witrynie [Azure Portal](https://portal.azure.com/) na stronie integracji oprogramowania **Samanage** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **SolarWinds** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -112,7 +112,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w usłudze Samanage, w
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-6. W sekcji **Konfigurowanie usługi Samanage** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W sekcji **Konfigurowanie SolarWinds** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -122,9 +122,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w usłudze Samanage, w
 
     c. Adres URL wylogowywania
 
-### <a name="configure-samanage-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze Samanage
+<a name="configure-solarwinds-single-sign-on"></a>
 
-1. W innym oknie przeglądarki internetowej zaloguj się do swojej firmowej witryny usługi Samanage jako administrator.
+### <a name="configure-solarwinds-service-desk-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze SolarWinds Service
+
+1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny SolarWinds jako administrator.
 
 2. Kliknij pozycję **Dashboard** (Pulpit nawigacyjny) i wybierz pozycję **Setup** (Konfigurowanie) w lewym okienku nawigacji.
    
@@ -150,7 +152,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w usłudze Samanage, w
  
     f. Otwórz w Notatniku certyfikat zakodowany w formacie Base-64 pobrany z witryny Azure Portal, skopiuj zawartość do Schowka, a następnie wklej ją w polu tekstowym **Paste your Identity Provider x.509 Certificate below** (Wklej poniżej swój certyfikat x.509 dostawcy tożsamości).
  
-    przykład Kliknij pole wyboru **Create users if they do not exist in Samanage** (Utwórz użytkowników, jeśli nie istnieją w usłudze Samanage).
+    przykład Kliknij pozycję **Utwórz użytkowników, jeśli nie istnieją w SolarWinds**.
  
     h. Kliknij przycisk **Update** (Aktualizuj).
 
@@ -177,19 +179,17 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji udostępnisz użytkownikowi Britta Simon możliwość korzystania z logowania jednokrotnego platformy Azure, udzielając dostępu do usługi Samanage.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi SolarWinds.
 
-1. W witrynie Azure Portal wybierz pozycję **Aplikacje dla przedsiębiorstw** i **Wszystkie aplikacje**, a następnie wybierz pozycję **Samanage**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **SolarWinds**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **Samanage**.
-
-    ![Link usługi Samanage na liście aplikacji](common/all-applications.png)
+2. Na liście Aplikacje wybierz pozycję **SolarWinds**.
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -205,14 +205,14 @@ W tej sekcji udostępnisz użytkownikowi Britta Simon możliwość korzystania z
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-samanage-test-user"></a>Tworzenie użytkownika testowego usługi Samanage
+### <a name="create-solarwinds-test-user"></a>Utwórz użytkownika testowego SolarWinds
 
-Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Samanage, muszą być oni aprowizowaniu w usłudze Samanage.  
-W przypadku usługi Samanage aprowizowanie jest zadaniem ręcznym.
+Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze SolarWinds, muszą one być obsługiwane w usłudze SolarWinds.  
+W przypadku SolarWinds, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym.
 
 **Aby aprowizować konto użytkownika, wykonaj następujące czynności:**
 
-1. Zaloguj się do swojej firmowej witryny usługi Samanage jako administrator.
+1. Zaloguj się do firmowej witryny SolarWinds jako administrator.
 
 2. Kliknij pozycję **Dashboard** (Pulpit nawigacyjny) i wybierz pozycję **Setup** (Konfigurowanie) w lewym okienku nawigacji.
    
@@ -231,13 +231,13 @@ W przypadku usługi Samanage aprowizowanie jest zadaniem ręcznym.
     ![Utwórz użytkownika](./media/samanage-tutorial/tutorial_samanage_008.png "Utwórz użytkownika")
    
    >[!NOTE]
-   >Właściciel konta usługi Azure Active Directory otrzyma wiadomość e-mail z linkiem, którego użyje w celu potwierdzenia konta, zanim stanie się ono aktywne. Do aprowizowania kont użytkowników usługi Azure Active Directory możesz użyć dowolnych innych interfejsów API lub narzędzi do tworzenia kont użytkowników usługi Samanage oferowanych przez tę usługę.
+   >Właściciel konta usługi Azure Active Directory otrzyma wiadomość e-mail z linkiem, którego użyje w celu potwierdzenia konta, zanim stanie się ono aktywne. Do aprowizacji Azure Active Directory kontami użytkowników można używać innych narzędzi do tworzenia kont użytkowników lub interfejsów API udostępnionych przez program SolarWinds.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Samanage na panelu dostępu powinno nastąpić automatyczne zalogowanie do usługi Samanage, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka SolarWinds w panelu dostępu należy automatycznie zalogować się do SolarWinds, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 8bae89e68e5a016dbdc10c763f1ea2daedece3c8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c357720c937a5b63944b7fc598eaff428f85bfb6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605320"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706810"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Wysoka dostępność w usłudze Azure Cosmos DB
 
@@ -62,7 +62,7 @@ W rzadkich przypadkach regionalnych awarii Azure Cosmos DB gwarantuje, że baza 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Konta wieloregionowe z regionem jednokrotnego zapisu (awaria regionu odczytu)
 
 - Podczas awarii regionu odczytu konta usługi Azure Cosmos korzystające z dowolnego poziomu spójności lub silnej spójności z co najmniej trzema regionami odczytu pozostaną wysoce dostępne do odczytu i zapisu.
-- Konta usługi Azure Cosmos z silną spójnością w przypadku dwóch lub mniej regionów odczytu (w tym regionu zapisu & odczytu) utracą dostępność zapisu podczas awarii regionu odczytu, ale będą mieć dostęp do odczytu dla pozostałych regionów.
+- Konta usługi Azure Cosmos z silną spójnością w przypadku dwóch lub mniej regionów odczytu (w tym regionu zapisu & odczytu) utracą dostępność zapisu podczas awarii regionu odczytu.
 - Region, którego dotyczy problem, jest automatycznie rozłączany i zostanie oznaczony jako w trybie offline. [Zestawy sdk Azure Cosmos DB](sql-api-sdk-dotnet.md) będą przekierowywać wywołania odczytu do następnego dostępnego regionu na liście preferowanych regionów.
 - Jeśli żaden z regionów na liście preferowanych regionów nie jest dostępny, wywołania automatycznie wracają do bieżącego regionu zapisu.
 - W kodzie aplikacji nie są wymagane żadne zmiany w celu obsługi awarii regionu odczytu. Gdy region odczytu, którego dotyczy problem, zostanie przywrócony do trybu online, zostanie automatycznie zsynchronizowany z bieżącym regionem zapisu i będzie ponownie dostępny do obsłużynia żądań odczytu.
@@ -144,5 +144,5 @@ Następnie możesz zapoznać się z następującymi artykułami:
 - [Wady dostępności i wydajności dla różnych poziomów spójności](consistency-levels-tradeoffs.md)
 - [Globalne skalowanie aprowizowanej przepływności](scaling-throughput.md)
 - [Dystrybucja globalna — szczegóły działania](global-dist-under-the-hood.md)
-- [Poziomy spójności w Azure Cosmos DB](consistency-levels.md)
+- [Poziomy spójności w usłudze Azure Cosmos DB](consistency-levels.md)
 - [Jak skonfigurować konto Cosmos z wieloma regionami zapisu](how-to-multi-master.md)

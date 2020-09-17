@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9d396c0787798c783b44748dc2461c073334cc7e
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 5a0a158f91695bb0aba07aa412f5ba234906d493
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322504"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707700"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Szybki Start: przypisywanie użytkowników do aplikacji używającej usługi Azure AD jako dostawcy tożsamości
 
@@ -38,7 +38,7 @@ Aby przypisać użytkowników do aplikacji dodanej do dzierżawy usługi Azure A
 1. W portalu usługi Azure AD wybierz pozycję **aplikacje dla przedsiębiorstw**. Następnie Znajdź i wybierz aplikację, którą chcesz skonfigurować.
 2. W menu nawigacji po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
    > [!NOTE]
-   > Niektóre aplikacje Microsoft 365 i Office 365 wymagają użycia programu PowerShell. 
+   > Niektóre aplikacje Microsoft 365 wymagają użycia programu PowerShell. 
 3. Wybierz przycisk **Dodaj użytkownika** .
 4. W okienku **Dodaj przypisanie** wybierz pozycję **Użytkownicy i grupy**.
 5. Wybierz użytkownika lub grupę, która ma zostać przypisana do aplikacji. Możesz również rozpocząć wpisywanie nazwy użytkownika lub grupy w polu wyszukiwania. Możesz wybrać wielu użytkowników i grupy, a wybrane opcje będą widoczne w obszarze **wybrane elementy**.
@@ -46,7 +46,7 @@ Aby przypisać użytkowników do aplikacji dodanej do dzierżawy usługi Azure A
     > Po przypisaniu grupy do aplikacji tylko użytkownicy w grupie będą mieli dostęp. Przypisanie nie jest kaskadowe do grup zagnieżdżonych.
 
     > [!NOTE]
-    > Przypisanie oparte na grupach wymaga Azure Active Directory — wersja Premium wersji P1 lub P2. Przypisanie oparte na grupach jest obsługiwane tylko dla grup zabezpieczeń. Członkostwa w grupach zagnieżdżonych i grupy Office 365 nie są obecnie obsługiwane. Aby uzyskać więcej informacji o wymaganiach dotyczących licencjonowania funkcji omówionych w tym artykule, zobacz [stronę z cennikiem Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
+    > Przypisanie oparte na grupach wymaga Azure Active Directory — wersja Premium wersji P1 lub P2. Przypisanie oparte na grupach jest obsługiwane tylko dla grup zabezpieczeń. Członkostwa w grupach zagnieżdżonych i grup Microsoft 365 nie są obecnie obsługiwane. Aby uzyskać więcej informacji o wymaganiach dotyczących licencjonowania funkcji omówionych w tym artykule, zobacz [stronę z cennikiem Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
 6. Po zakończeniu wybierz **pozycję Wybierz**.
    ![Przypisywanie użytkownika lub grupy do aplikacji](./media/assign-user-or-group-access-portal/assign-users.png)
 7. W okienku **Użytkownicy i grupy** wybierz co najmniej jednego użytkownika lub grupę z listy, a następnie wybierz przycisk **Wybierz** w dolnej części okienka.

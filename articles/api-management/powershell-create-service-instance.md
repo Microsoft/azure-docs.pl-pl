@@ -1,46 +1,40 @@
 ---
-title: Tworzenie wystąpienia usługi Azure API Management przy użyciu programu PowerShell | Microsoft Docs
-description: Wykonaj kroki tego samouczka, aby utworzyć nowe wystąpienie usługi Azure API Management.
+title: Szybki Start — Tworzenie wystąpienia usługi Azure API Management przy użyciu programu PowerShell | Microsoft Docs
+description: Utwórz nowe wystąpienie usługi Azure API Management przy użyciu Azure PowerShell.
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: cflower
-editor: ''
 ms.service: api-management
-ms.workload: integration
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/15/2017
+ms.date: 09/14/2020
 ms.author: apimpm
-ms.openlocfilehash: f42a68d066898869574cb6ccf5099ccdd451e5fe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eb2c42d26a85a07518a018ba5b8817f13d3cd17f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506931"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707062"
 ---
-# <a name="create-a-new-azure-api-management-service-instance-by-using-powershell"></a>Tworzenie nowego wystąpienia usługi Azure API Management przy użyciu programu PowerShell
+# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-powershell"></a>Szybki Start: Tworzenie nowego wystąpienia usługi Azure API Management przy użyciu programu PowerShell
 
-Usługa Azure API Management (APIM) pomaga organizacjom publikować interfejsy API dla deweloperów zewnętrznych, partnerskich i wewnętrznych, aby w pełni wykorzystać potencjał danych i usług. Usługa API Management zapewnia podstawowe możliwości, które pozwalają na pomyślne programowanie interfejsów API przez zaangażowanych deweloperów, a także udostępnia wgląd w kwestie biznesowe, analizy, zabezpieczenia i ochronę. Usługa APIM pozwala tworzyć nowoczesne bramy interfejsów API dla istniejących usług zaplecza hostowanych w dowolnym miejscu oraz zarządzać tymi bramami. Aby uzyskać więcej informacji, zobacz temat [Omówienie](api-management-key-concepts.md).
+Usługa Azure API Management (APIM) pomaga organizacjom publikować interfejsy API dla deweloperów zewnętrznych, partnerskich i wewnętrznych, aby w pełni wykorzystać potencjał danych i usług. Usługa API Management zapewnia podstawowe możliwości, które pozwalają na pomyślne programowanie interfejsów API przez zaangażowanych deweloperów, a także udostępnia wgląd w kwestie biznesowe, analizy, zabezpieczenia i ochronę. Usługa APIM pozwala tworzyć nowoczesne bramy interfejsów API dla istniejących usług zaplecza hostowanych w dowolnym miejscu oraz zarządzać tymi bramami. Aby uzyskać więcej informacji, zapoznaj się z [omówieniem](api-management-key-concepts.md).
 
-W tym przewodniku Szybki start opisano procedurę tworzenia nowego wystąpienia usługi API Management za pomocą skryptów programu PowerShell. Przedstawiono korzystanie z usługi **Azure Cloud Shell**, którą można uruchamiać z witryny Azure Portal.
+W tym przewodniku szybki start opisano procedurę tworzenia nowego wystąpienia API Management przy użyciu Azure PowerShell poleceń cmdlet.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
-
-Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten samouczek będzie wymagał modułu programu Azure PowerShell w wersji 1.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
-
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
 
 Utwórz grupę zasobów platformy Azure za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+
+Następujące polecenie tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji zachodnie stany USA:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location WestUS
@@ -48,11 +42,65 @@ New-AzResourceGroup -Name myResourceGroup -Location WestUS
 
 ## <a name="create-an-api-management-service"></a>Tworzenie usługi API Management
 
-Jest to długotrwała operacja, która może potrwać do 15 minut.
+Teraz, gdy masz grupę zasobów, możesz utworzyć wystąpienie usługi API Management. Utwórz je za pomocą polecenia [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) i podaj nazwę usługi oraz szczegóły wydawcy. Nazwa usługi musi być unikatowa w ramach platformy Azure.
+
+W poniższym przykładzie nazwa usługi jest *myapim* . Zaktualizuj nazwę na unikatową wartość. Należy również zaktualizować nazwę organizacji wydawcy interfejsu API i adres e-mail administratora, aby otrzymywać powiadomienia.
+
+Domyślnie polecenie tworzy wystąpienie w warstwie Deweloper, która jest ekonomiczną opcją oszacowania API Management platformy Azure. Ta warstwa nie jest używana do użycia w środowisku produkcyjnym. Aby uzyskać więcej informacji na temat skalowania warstw usługi API Management, zobacz [Upgrade and scale](upgrade-and-scale.md) (Uaktualnianie i skalowanie).
+
+> [!NOTE]
+> Jest to długotrwała operacja. Utworzenie i aktywowanie usługi API Management w tej warstwie może potrwać od 30 do 40 minut.
 
 ```azurepowershell-interactive
-New-AzApiManagement -ResourceGroupName "myResourceGroup" -Location "West US" -Name "apim-name" -Organization "myOrganization" -AdminEmail "myEmail" -Sku "Developer"
+New-AzApiManagement -Name "myapim" -ResourceGroupName "myResourceGroup" `
+  -Location "West US" -Organization "Contoso" -AdminEmail "admin@contoso.com" 
 ```
+
+Po powrocie polecenia Uruchom polecenie [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) , aby wyświetlić właściwości usługi Azure API Management. Po aktywacji stan aprowizacji zostanie zakończony pomyślnie, a wystąpienie usługi zawiera kilka skojarzonych adresów URL. Na przykład:
+
+```azurepowershell-interactive
+Get-AzApiManagement -Name "myapim" -ResourceGroupName "myResourceGroup" 
+```
+
+Przykładowe dane wyjściowe:
+
+```console
+PublicIPAddresses                     : {203.0.113.1}
+PrivateIPAddresses                    :
+Id                                    : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.ApiManagement/service/myapim
+Name                                  : myapim
+Location                              : West US
+Sku                                   : Developer
+Capacity                              : 1
+CreatedTimeUtc                        : 9/9/2020 9:07:43 PM
+ProvisioningState                     : Succeeded
+RuntimeUrl                            : https://myapim.azure-api.net
+RuntimeRegionalUrl                    : https://myapi-westus-01.regional.azure-api.net
+PortalUrl                             : https://myapim.portal.azure-api.net
+DeveloperPortalUrl                    : https://myapim.developer.azure-api.net
+ManagementApiUrl                      : https://myapim.management.azure-api.net
+ScmUrl                                : https://myapim.scm.azure-api.net
+PublisherEmail                        : admin@contoso.com
+OrganizationName                      : Contoso
+NotificationSenderEmail               : apimgmt-noreply@mail.windowsazure.com
+VirtualNetwork                        :
+VpnType                               : None
+PortalCustomHostnameConfiguration     :
+ProxyCustomHostnameConfiguration      : {myapim.azure-api.net}
+ManagementCustomHostnameConfiguration :
+ScmCustomHostnameConfiguration        :
+DeveloperPortalHostnameConfiguration  :
+SystemCertificates                    :
+Tags                                  : {}
+AdditionalRegions                     : {}
+SslSetting                            : Microsoft.Azure.Commands.ApiManagement.Models.PsApiManagementSslSetting
+Identity                              :
+EnableClientCertificate               :
+ResourceGroupName                     : myResourceGroup
+
+```
+
+Po wdrożeniu wystąpienia usługi API Management jest gotowe do użycia. Zacznij od samouczka, aby [zaimportować i opublikować pierwszy interfejs API](import-and-publish.md).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
