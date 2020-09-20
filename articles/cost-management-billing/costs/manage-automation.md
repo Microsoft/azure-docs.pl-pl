@@ -3,17 +3,17 @@ title: Zarządzanie kosztami platformy Azure przy użyciu automatyzacji
 description: W tym artykule wyjaśniono, jak zarządzać kosztami platformy Azure za pomocą automatyzacji.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/19/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
-ms.openlocfilehash: a5ab84794884cc0c87bd766be7a0fa2fe4c52aa9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.reviewer: matrive
+ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684409"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526650"
 ---
 # <a name="manage-costs-with-automation"></a>Zarządzanie kosztami przy użyciu automatyzacji
 
@@ -161,6 +161,70 @@ Wywołanie GET do interfejsu API budżetów nie zwróci bieżących kosztów wy�
 ### <a name="automate-budget-creation"></a>Automatyzowanie tworzenia budżetu
 
 Tworzenie budżetu można zautomatyzować za pomocą [interfejsu API budżetów](/rest/api/consumption/budgets). Można również utworzyć budżet za pomocą [szablonu budżetu](quick-create-budget-template.md). Szablony to łatwy sposób na ustandaryzowanie wdrożeń platformy Azure z zapewnieniem prawidłowej konfiguracji i wymuszania kontroli kosztów.
+
+#### <a name="supported-locales-for-budget-alert-emails"></a>Ustawienia regionalne obsługiwane w przypadku wiadomości e-mail z alertami budżetowymi
+
+W przypadku budżetów otrzymasz alert, gdy koszty przekroczą ustawiony próg. Możesz skonfigurować maksymalnie pięciu adresatów wiadomości e-mail na budżet. Adresaci będą otrzymywać alerty e-mail w ciągu 24 godzin od przekroczenia progu budżetu. Może być jednak konieczne wysłanie do adresata wiadomości e-mail w innym języku. W interfejsie API budżetów można używać następujących kodów kultur języków. Ustaw kod kultury przy użyciu parametru `locale` podobnie jak w poniższym przykładzie.
+
+```json
+{
+  "eTag": "\"1d681a8fc67f77a\"",
+  "properties": {
+    "timePeriod": {
+      "startDate": "2020-07-24T00:00:00Z",
+      "endDate": "2022-07-23T00:00:00Z"
+    },
+    "timeGrain": "BillingMonth",
+    "amount": 1,
+    "currentSpend": {
+      "amount": 0,
+      "unit": "USD"
+    },
+    "category": "Cost",
+    "notifications": {
+      "actual_GreaterThan_10_Percent": {
+        "enabled": true,
+        "operator": "GreaterThan",
+        "threshold": 20,
+        "locale": "en-us",
+        "contactEmails": [
+          "user@contoso.com"
+        ],
+        "contactRoles": [],
+        "contactGroups": [],
+        "thresholdType": "Actual"
+      }
+    }
+  }
+}
+
+```
+
+Języki obsługiwane przez kod kultury:
+
+| Kod kultury| Język |
+| --- | --- |
+| en-us | Angielski (Stany Zjednoczone) |
+| ja-jp | Japoński (Japonia) |
+| zh-cn | Chiński (uproszczony, Chiny) |
+| de-de | Niemiecki (Niemcy) |
+| es-es | Hiszpański (Hiszpania — międzynarodowy) |
+| fr-fr | Francuski (Francja) |
+| it-it | Włoski (Włochy) |
+| ko-kr | Koreański (Korea) |
+| pt-br | Portugalski (Brazylia) |
+| ru-ru | Rosyjski (Rosja) |
+| zh-tw | Chiński (tradycyjny, Tajwan) |
+| cs-cz | Czeski (Czechy) |
+| pl-pl | Polski (Polska) |
+| tr-tr | Turecki (Turcja) |
+| da-dk | Duński (Dania) |
+| en-gb | Angielski (Zjednoczone Królestwo) |
+| hu-hu | Węgierski (Węgry) |
+| nb-bo | Norweski, Bokmal (Norwegia) |
+| nl-nl | Niderlandzki (Holandia) |
+| pt-pt | Portugalski (Portugalia) |
+| sv-se | Szwedzki (Szwecja) |
 
 #### <a name="common-budgets-api-configurations"></a>Typowe konfiguracje interfejsu API budżetów
 

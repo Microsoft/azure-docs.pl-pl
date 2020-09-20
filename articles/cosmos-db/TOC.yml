@@ -1072,6 +1072,8 @@
               href: troubleshoot-not-found.md
             - name: Rozwiązywanie problemów z brakiem autoryzacji
               href: troubleshoot-unauthorized.md
+            - name: Dostępność zestawu SDK w środowiskach z wieloma regionami
+              href: troubleshoot-sdk-availability.md
         - name: .NET
           items:
             - name: Ogólne wskazówki dotyczące rozwiązywania problemów z zestawem .NET SDK

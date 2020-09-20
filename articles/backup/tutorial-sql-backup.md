@@ -1,31 +1,31 @@
 ---
-title: Samouczek — Tworzenie kopii zapasowych baz danych SQL Server na platformie Azure
-description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową bazy danych SQL Server działającej na maszynie wirtualnej platformy Azure z magazynem Azure Backup Recovery Services.
+title: Samouczek — Tworzenie kopii zapasowych baz danych programu SQL Server na platformie Azure
+description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową bazy danych programu SQL Server uruchomionej na maszynie wirtualnej platformy Azure do magazynu usługi Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.openlocfilehash: 17a8472da2595c08cb198baaf853faf110a619fa
 ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/19/2020
 ms.locfileid: "88612456"
 ---
-# <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Tworzenie kopii zapasowej bazy danych SQL Server na maszynie wirtualnej platformy Azure
+# <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Tworzenie kopii zapasowej bazy danych programu SQL Server na maszynie wirtualnej platformy Azure
 
-W tym samouczku pokazano, jak utworzyć kopię zapasową bazy danych SQL Server działającej na maszynie wirtualnej platformy Azure z magazynem Azure Backup Recovery Services. W tym artykule omówiono sposób wykonywania następujących zadań:
+W tym samouczku pokazano, jak utworzyć kopię zapasową bazy danych programu SQL Server uruchomionej na maszynie wirtualnej platformy Azure do magazynu usługi Azure Backup Recovery Services. W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
 >
 > * Tworzenie i konfigurowanie magazynu.
 > * Odnajdywanie baz danych i konfigurowanie kopii zapasowych.
 > * Konfigurowanie ochrony automatycznej dla baz danych.
-> * Uruchom kopię zapasową na żądanie.
+> * Uruchamianie tworzenia kopii zapasowej na żądanie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed utworzeniem kopii zapasowej bazy danych programu SQL Server sprawdź następujące warunki:
 
-1. Zidentyfikuj lub [Utwórz](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) magazyn Recovery Services w tym samym regionie lub ustawieniach regionalnych co maszyna wirtualna hostującym wystąpienie SQL Server.
+1. Zidentyfikuj lub [utwórz](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) magazyn usługi Recovery Services w obrębie tego samego regionu lub ustawień regionalnych co maszyna wirtualna, która hostuje wystąpienie programu SQL Server.
 2. [Sprawdź uprawnienia maszyny wirtualnej](backup-azure-sql-database.md#set-vm-permissions) potrzebne do tworzenia kopii zapasowych baz danych SQL.
 3. Sprawdź, czy maszyna wirtualna ma [połączenie sieciowe](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 4. Sprawdź, czy bazy danych programu SQL Server są nazwane zgodnie ze [wskazówkami dotyczącymi nazewnictwa](#verify-database-naming-guidelines-for-azure-backup) dla usługi Azure Backup.
@@ -33,10 +33,10 @@ Przed utworzeniem kopii zapasowej bazy danych programu SQL Server sprawdź nast�
 
 ### <a name="establish-network-connectivity"></a>Ustawianie łączności sieciowej
 
-Podczas wszystkich operacji maszyna wirtualna programu SQL Server musi mieć łączność z publicznymi adresami IP platformy Azure. Operacje maszyny wirtualnej (Odnajdywanie bazy danych, konfigurowanie kopii zapasowych, Planowanie kopii zapasowych, przywracanie punktów odzyskiwania itd.) kończą się niepowodzeniem bez łączności z publicznymi adresami IP. Ustanów łączność, używając jednej z następujących opcji:
+Podczas wszystkich operacji maszyna wirtualna programu SQL Server musi mieć łączność z publicznymi adresami IP platformy Azure. Operacje maszyny wirtualnej (odnajdywanie baz danych, konfigurowanie kopii zapasowych, planowanie tworzenia kopii zapasowych, przywracanie punktów odzyskiwania itd.) nie powiodą się w przypadku braku łączności z publicznymi adresami IP. Ustanów łączność, używając jednej z następujących opcji:
 
-* **Zezwalaj na zakresy adresów IP centrum danych platformy Azure**: Zezwól na pobieranie [zakresów adresów IP](https://www.microsoft.com/download/details.aspx?id=41653) . Aby uzyskać dostęp do sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń), użyj polecenia cmdlet **Set-AzureNetworkSecurityRule** .
-* **Wdróż serwer proxy HTTP, aby kierować ruchem**: podczas tworzenia kopii zapasowej bazy danych SQL Server na maszynie wirtualnej platformy Azure rozszerzenie kopii zapasowej na maszynie wirtualnej używa interfejsów API HTTPS do wysyłania poleceń zarządzania do Azure Backup i danych do usługi Azure Storage. Rozszerzenie kopii zapasowej również używa usługi Azure Active Directory (Azure AD) do uwierzytelniania. Ruch rozszerzenia kopii zapasowej dla tych trzech usług należy kierować za pośrednictwem serwera proxy HTTP. Rozszerzenia są jedynym składnikiem skonfigurowanym do uzyskiwania dostępu do publicznego Internetu.
+* **Zezwolenie na zakresy adresów IP centrum danych platformy Azure**: Zezwól na [zakresy adresów IP](https://www.microsoft.com/download/details.aspx?id=41653) dla pobierania. Aby uzyskać dostęp do grupy zabezpieczeń sieci, użyj polecenia cmdlet **Set-AzureNetworkSecurityRule**.
+* **Wdrożenie serwera proxy HTTP na potrzeby kierowania ruchu**: Gdy tworzysz kopię zapasową bazy danych programu SQL Server na maszynie wirtualnej platformy Azure, rozszerzenie kopii zapasowej na maszynie wirtualnej używa interfejsów API protokołu HTTPS do wysyłania poleceń zarządzania do usługi Azure Backup i danych do usługi Azure Storage. Rozszerzenie kopii zapasowej również używa usługi Azure Active Directory (Azure AD) do uwierzytelniania. Ruch rozszerzenia kopii zapasowej dla tych trzech usług należy kierować za pośrednictwem serwera proxy HTTP. Rozszerzenia to jedyny składnik skonfigurowany do uzyskiwania dostępu do publicznego Internetu.
 
 Każda opcja ma zalety i wady
 
@@ -53,7 +53,7 @@ Usługa Azure Backup wykonuje różne operacje podczas konfigurowania kopii zapa
 * Aby odnaleźć bazy danych na maszynie wirtualnej, usługa Azure Backup tworzy konto **NT SERVICE\AzureWLBackupPluginSvc**. To konto służy do tworzenia kopii zapasowych i przywracania oraz wymaga uprawnień administratora systemu SQL.
 * Usługa Azure Backup korzysta z konta **NT AUTHORITY\SYSTEM** na potrzeby odnajdywania/zapytań dotyczących bazy danych, dlatego to konto musi być publicznym logowaniem w środowisku SQL.
 
-Jeśli maszyna wirtualna SQL Server nie została utworzona z poziomu portalu Azure Marketplace, może zostać wyświetlony komunikat o błędzie **UserErrorSQLNoSysadminMembership**. W takim przypadku [wykonaj te instrukcje](backup-azure-sql-database.md#set-vm-permissions).
+Jeśli nie utworzono maszyny wirtualnej programu SQL Server z witryny Azure Marketplace, może wystąpić błąd **UserErrorSQLNoSysadminMembership**. W takim przypadku [wykonaj te instrukcje](backup-azure-sql-database.md#set-vm-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Wskazówki dotyczące weryfikowania nazewnictwa baz danych dla usługi Azure Backup
 
@@ -62,7 +62,7 @@ Unikaj następujących elementów w nazwach baz danych:
 * Spacje końcowe/początkowe
 * Końcowy znak „!”
 * Zamykający nawias kwadratowy „]”
-* Nazwy baz danych zaczynające się od "F:\"
+* Nazwy baz danych zaczynające się od „F:\”
 
 Oferujemy aliasy nieobsługiwanych znaków tabel platformy Azure, ale zalecamy ich unikanie. [Dowiedz się więcej](/rest/api/storageservices/understanding-the-table-service-data-model).
 
@@ -84,7 +84,7 @@ Odnajdź bazy danych uruchomione na maszynie wirtualnej.
 
     ![Wybieranie programu SQL Server na maszynie wirtualnej platformy Azure na potrzeby tworzenia kopii zapasowej](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-5. W obszarze maszyny wirtualne odnajdywanie **celu wykonywania kopii zapasowych**  >  **Discover DBs in VMs**wybierz pozycję **Rozpocznij odnajdywanie** w celu wyszukania niechronionych maszyn wirtualnych w subskrypcji. Może to trochę potrwać, zależnie od liczby niechronionych maszyn wirtualnych w subskrypcji.
+5. W obszarze **Cel kopii zapasowej** > **Odnajdywanie baz danych na maszynach wirtualnych** wybierz pozycję **Uruchom odnajdywanie**, aby wyszukać niechronione maszyny wirtualne w subskrypcji. Może to trochę potrwać, zależnie od liczby niechronionych maszyn wirtualnych w subskrypcji.
 
    * Niechronione maszyny wirtualne powinny zostać wyświetlone na liście po odnalezieniu, uporządkowane według nazwy i grupy zasobów.
    * Jeśli którakolwiek maszyna wirtualna nie jest wyświetlana zgodnie z oczekiwaniami, sprawdź, czy jej kopie zapasowe są już tworzone w magazynie.
@@ -98,14 +98,14 @@ Odnajdź bazy danych uruchomione na maszynie wirtualnej.
 
     ![Komunikat o powodzeniu wdrożenia](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Usługa Azure Backup odnajduje wszystkie bazy danych programu SQL Server na maszynie wirtualnej. Podczas odnajdywania w tle występują następujące sytuacje:
+8. Usługa Azure Backup odnajduje wszystkie bazy danych programu SQL Server na maszynie wirtualnej. Podczas odnajdywania są wykonywane następujące operacje w tle:
 
     * Usługa Azure Backup rejestruje maszynę wirtualną w magazynie na potrzeby kopii zapasowych obciążenia. Dla wszystkich baz danych na zarejestrowanej maszynie wirtualnej można tworzyć kopie zapasowe tylko w tym magazynie.
     * Usługa Azure Backup instaluje rozszerzenie **AzureBackupWindowsWorkload** na maszynie wirtualnej. Żaden agent nie jest instalowany w bazie danych SQL.
     * Usługa Azure Backup tworzy konto usługi **NT Service\AzureWLBackupPluginSvc** na maszynie wirtualnej.
       * Wszystkie operacje tworzenia kopii zapasowych i przywracania korzystają z konta usługi.
-      * Usługa **NT Service\AzureWLBackupPluginSvc** musi mieć uprawnienia administratora systemu SQL. Wszystkie SQL Server maszyny wirtualne utworzone w witrynie Azure Marketplace pochodzą z zainstalowanym **SqlIaaSExtension** . Rozszerzenie **AzureBackupWindowsWorkload** używa rozszerzenia **SQLIaaSExtension** w celu automatycznego uzyskania wymaganych uprawnień.
-    * Jeśli nie utworzono maszyny wirtualnej z witryny Marketplace, maszyna wirtualna nie ma zainstalowanego rozszerzenia **SqlIaaSExtension**, a operacja odnajdywania kończy się niepowodzeniem z komunikatem o błędzie **UserErrorSQLNoSysAdminMembership**. Postępuj zgodnie z [instrukcjami](backup-azure-sql-database.md#set-vm-permissions) , aby rozwiązać ten problem.
+      * Usługa **NT Service\AzureWLBackupPluginSvc** musi mieć uprawnienia administratora systemu SQL. Wszystkie maszyny wirtualne programu SQL Server utworzone w witrynie Azure Marketplace mają zainstalowane rozszerzenie **SqlIaaSExtension**. Rozszerzenie **AzureBackupWindowsWorkload** używa rozszerzenia **SQLIaaSExtension** w celu automatycznego uzyskania wymaganych uprawnień.
+    * Jeśli nie utworzono maszyny wirtualnej z witryny Marketplace, maszyna wirtualna nie ma zainstalowanego rozszerzenia **SqlIaaSExtension**, a operacja odnajdywania kończy się niepowodzeniem z komunikatem o błędzie **UserErrorSQLNoSysAdminMembership**. Aby rozwiązać ten problem, wykonaj [instrukcje](backup-azure-sql-database.md#set-vm-permissions).
 
         ![Wybieranie maszyny wirtualnej i bazy danych](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -113,11 +113,11 @@ Odnajdź bazy danych uruchomione na maszynie wirtualnej.
 
 Skonfiguruj tworzenie kopii zapasowych w następujący sposób:
 
-1. W obszarze **cel kopii zapasowej**wybierz pozycję **Konfiguruj kopię zapasową**.
+1. W obszarze **Cel kopii zapasowej** wybierz pozycję **Konfiguruj kopię zapasową**.
 
    ![Wybieranie pozycji Konfiguruj kopię zapasową](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. Wybierz pozycję **Konfiguruj kopię zapasową**. zostanie wyświetlone okienko **Wybierz elementy do utworzenia kopii zapasowej** . Spowoduje to wyświetlenie listy wszystkich zarejestrowanych grup dostępności i autonomicznych serwerów SQL. Rozwiń cudzysłów ostrokątny z lewej strony wiersza, aby wyświetlić wszystkie niechronione bazy danych w tym wystąpieniu lub zawsze w usłudze AG.  
+2. Wybierz pozycję **Konfiguruj kopię zapasową**. Zostanie wyświetlone okienko **Wybierz elementy dla kopii zapasowej**. Spowoduje to wyświetlenie listy wszystkich zarejestrowanych grup dostępności i autonomicznych serwerów SQL. Rozwiń cudzysłów ostrokątny z lewej strony wiersza, aby wyświetlić wszystkie niechronione bazy danych w tym wystąpieniu lub zawsze włączone grupy dostępności.  
 
     ![Wyświetlanie wszystkich wystąpień programu SQL Server z autonomicznymi bazami danych](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -129,19 +129,19 @@ Skonfiguruj tworzenie kopii zapasowych w następujący sposób:
 
      * Możesz również włączyć automatyczną ochronę całego wystąpienia lub zawsze włączonej grupy dostępności, wybierając opcję **WŁ.** na odpowiedniej liście rozwijanej w kolumnie **AUTOMATYCZNA OCHRONA**. Funkcja automatycznej ochrony nie tylko równocześnie włącza ochronę wszystkich istniejących baz danych, ale również automatycznie chroni wszystkie nowe bazy danych, które w przyszłości zostaną dodane do wystąpienia lub grupy dostępności.  
 
-4. Wybierz **przycisk OK** , aby otworzyć okienko **zasady tworzenia kopii zapasowych** .
+4. Wybierz pozycję **OK**, aby otworzyć okienko **Zasad kopii zapasowych**.
 
     ![Włączanie automatycznej ochrony zawsze włączonej grupy dostępności](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. W obszarze **Wybieranie zasad tworzenia kopii zapasowej**wybierz zasady, a następnie wybierz przycisk **OK**.
+5. Wybierz zasady w obszarze **Wybierz zasady tworzenia kopii zapasowej**, a następnie wybierz pozycję **OK**.
 
-   * Wybierz zasady domyślne: HourlyLogBackup.
+   * Wybrać zasady domyślne: HourlyLogBackup.
    * Wybrać istniejące zasady kopii zapasowych utworzone wcześniej dla środowiska SQL.
    * Zdefiniować nowe zasady oparte na własnym celu punktu odzyskiwania i zakresie przechowywania.
 
      ![Wybieranie pozycji Zasady kopii zapasowych](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. W menu **kopia zapasowa** wybierz pozycję **Włącz kopię zapasową**.
+6. W menu **Kopia zapasowa** wybierz pozycję **Włącz kopię zapasową**.
 
     ![Włączanie wybranych zasad kopii zapasowych](./media/backup-azure-sql-database/enable-backup-button.png)
 
@@ -161,8 +161,8 @@ Zasady kopii zapasowych określają, kiedy są tworzone kopie zapasowe i jak dł
 
 Aby utworzyć nowe zasady kopii zapasowych:
 
-1. W magazynie wybierz pozycję **zasady tworzenia kopii zapasowych**  >  **Dodaj**.
-2. W menu **Dodaj** wybierz pozycję **SQL Server na maszynie wirtualnej platformy Azure** , aby zdefiniować typ zasad.
+1. W magazynie wybierz pozycję **Zasady kopii zapasowych** > **Dodaj**.
+2. W menu **Dodaj** wybierz pozycję **Program SQL Server na maszynie wirtualnej platformy Azure**, aby zdefiniować typ zasad.
 
    ![Wybieranie typu nowych zasad kopii zapasowych](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -170,8 +170,8 @@ Aby utworzyć nowe zasady kopii zapasowych:
 4. W obszarze **Zasady pełnej kopii zapasowej** wybierz opcję **Częstotliwość tworzenia kopii zapasowej** (**Codziennie** lub **Co tydzień**).
 
    * W przypadku opcji **Codziennie** wybierz godzinę i strefę czasową rozpoczęcia zadania tworzenia kopii zapasowej.
-   * Należy uruchomić pełną kopię zapasową, ponieważ nie można wyłączyć opcji **pełnej kopii zapasowej** .
-   * Wybierz pozycję **pełna kopia zapasowa** , aby wyświetlić zasady.
+   * Należy tworzyć pełną kopię zapasową, ponieważ nie można wyłączyć opcji **Pełna kopia zapasowa**.
+   * Wybierz pozycję **Pełna kopia zapasowa**, aby wyświetlić zasady.
    * Nie można tworzyć różnicowych kopii zapasowych w przypadku codziennego tworzenia pełnych kopii zapasowych.
    * W przypadku opcji **Co tydzień** wybierz dzień tygodnia, godzinę i strefę czasową rozpoczęcia zadania tworzenia kopii zapasowej.
 
@@ -179,7 +179,7 @@ Aby utworzyć nowe zasady kopii zapasowych:
 
 5. Domyślnie wszystkie opcje **Zakres przechowywania** są wybrane. Wyczyść wszelkie ograniczenia zakresu przechowywania, których nie chcesz używać, oraz ustaw interwały do użycia.
 
-    * Minimalny okres przechowywania dla dowolnego typu kopii zapasowej (pełny/różnicowa/log) to siedem dni.
+    * Minimalny okres przechowywania dla dowolnego typu kopii zapasowej (Pełna/Różnicowa/Dziennik) wynosi siedem dni.
     * Punkty odzyskiwania są oznaczone do przechowywania na podstawie ich zakresu przechowywania. Jeśli na przykład wybierzesz codzienne tworzenie pełnej kopii zapasowej, każdego dnia będzie wyzwalana tylko jedna pełna kopia zapasowa.
     * Kopia zapasowa dla określonego dnia jest oznaczana i przechowywana w oparciu o tygodniowy zakres przechowywania oraz ustawienie przechowywania co tydzień.
     * Miesięczne i roczne zakresy przechowywania zachowują się w podobny sposób.
@@ -211,14 +211,14 @@ Aby utworzyć nowe zasady kopii zapasowych:
 
 14. Po zakończeniu edycji zasad kopii zapasowych wybierz pozycję **OK**.
 
-## <a name="run-an-on-demand-backup"></a>Uruchamianie kopii zapasowej na żądanie
+## <a name="run-an-on-demand-backup"></a>Uruchamianie tworzenia kopii zapasowej na żądanie
 
-1. W magazynie Recovery Services wybierz pozycję elementy kopii zapasowej.
-2. Wybierz pozycję "SQL na maszynie wirtualnej platformy Azure".
-3. Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz polecenie "Utwórz kopię zapasową teraz".
-4. Wybierz typ kopii zapasowej (pełna/różnicowa/log/Copy Full) i kompresja (Włącz/Wyłącz)
-5. Wybierz przycisk OK, aby rozpocząć tworzenie kopii zapasowej.
-6. Monitoruj zadanie tworzenia kopii zapasowej, przechodząc do magazynu Recovery Services i wybierając pozycję "zadania tworzenia kopii zapasowej".
+1. W magazynie usługi Recovery Services wybierz pozycję Elementy kopii zapasowej.
+2. Wybierz pozycję „Program SQL na maszynie wirtualnej platformy Azure”.
+3. Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz pozycję „Utwórz kopię zapasową teraz”.
+4. Wybierz typ kopii zapasowej (Pełna/Różnicowa/Dziennik/Kopiuj tylko pełne) i kompresję (Włącz/Wyłącz)
+5. Wybierz pozycję OK, aby rozpocząć tworzenie kopii zapasowej.
+6. Monitoruj zadanie tworzenia kopii zapasowej, przechodząc do magazynu usługi Recovery Services i wybierając pozycję „Zadania tworzenia kopii zapasowej”.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -229,9 +229,9 @@ Podczas pracy z tym samouczkiem wykonano następujące czynności przy użyciu w
 > * Tworzenie i konfigurowanie magazynu.
 > * Odnajdywanie baz danych i konfigurowanie kopii zapasowych.
 > * Konfigurowanie ochrony automatycznej dla baz danych.
-> * Uruchom kopię zapasową na żądanie.
+> * Uruchamianie tworzenia kopii zapasowej na żądanie.
 
 Przejdź do następnego samouczka, aby przywrócić maszynę wirtualną platformy Azure z dysku.
 
 > [!div class="nextstepaction"]
-> [Przywracanie SQL Server baz danych na maszynach wirtualnych platformy Azure](./restore-sql-database-azure-vm.md)
+> [Przywracanie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure](./restore-sql-database-azure-vm.md)

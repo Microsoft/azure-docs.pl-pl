@@ -27,6 +27,8 @@
       items:
         - name: Planowanie wdrażania usługi Pliki Azure
           href: storage-files-planning.md
+        - name: Dostępne protokoły udziałów plików
+          href: storage-files-compare-protocols.md
         - name: Uwierzytelnianie i autoryzacja oparte na tożsamości
           href: storage-files-active-directory-overview.md
         - name: Zagadnienia dotyczące pracy w sieci na potrzeby dostępu bezpośredniego
@@ -79,12 +81,14 @@
   items:
     - name: Przycisk Utwórz
       items:
-        - name: Tworzenie udziału plików
+        - name: Tworzenie udziału plików SMB
           href: storage-how-to-create-file-share.md
         - name: Włączanie obsługi dużych udziałów plików
           href: storage-files-how-to-create-large-file-share.md
         - name: Tworzenie udziału plików w warstwie Premium
           href: storage-how-to-create-premium-fileshare.md
+        - name: Tworzenie udziału NFS
+          href: storage-files-how-to-create-nfs-shares.md
     - name: Wdrażanie
       items:
         - name: Wdrażanie usługi Pliki Azure
@@ -95,11 +99,13 @@
           href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Instalacja
       items:
-        - name: Używanie usługi Azure Files z systemem Windows
+        - name: Instalowanie udziału plików SMB w systemie Windows
           href: storage-how-to-use-files-windows.md
-        - name: Używanie usługi Azure Files z systemem Linux
+        - name: Instalowanie udziału plików SMB w systemie Linux
           href: storage-how-to-use-files-linux.md
-        - name: Używanie usługi Azure Files z systemem macOS
+        - name: Instalowanie udziału plików NFS w systemie Linux
+          href: storage-files-how-to-mount-nfs-shares.md
+        - name: Instalowanie udziału plików SMB w systemie macOS
           href: storage-how-to-use-files-mac.md
     - name: Sieć
       items:
@@ -269,12 +275,14 @@
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Rozwiązywanie problemów
       items:
-        - name: Rozwiązywanie problemów z usługą Azure Files w systemie Windows
+        - name: Rozwiązywanie problemów z usługą Azure Files w systemie Windows (SMB)
           href: storage-troubleshoot-windows-file-connection-problems.md
-        - name: Rozwiązywanie problemów z usługą Azure Files w systemie Linux
+        - name: Rozwiązywanie problemów z usługą Azure Files w systemie Linux (SMB)
           href: storage-troubleshoot-linux-file-connection-problems.md
         - name: Rozwiązywanie problemów z wydajnością usługi Azure Files
           href: storage-troubleshooting-files-performance.md
+        - name: Rozwiązywanie problemów z usługą Azure Files w systemie Linux (NFS)
+          href: storage-troubleshooting-files-nfs.md
         - name: Rozwiązywanie problemów z usługą Azure File Sync
           href: storage-sync-files-troubleshoot.md
         - name: Rozwiązywanie problemów z usuwaniem w usłudze Azure Files

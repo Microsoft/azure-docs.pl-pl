@@ -17,7 +17,7 @@
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
     - name: Wdrażanie wystąpienia kontenera — interfejs wiersza polecenia platformy Docker
-      href: container-instances-quickstart-docker-cli.md
+      href: quickstart-docker-cli.md
 - name: Samouczki
   items:
     - name: Tworzenie i wdrażanie obrazu kontenera
@@ -34,6 +34,8 @@
           href: container-instances-multi-container-yaml.md
         - name: Wdrażanie grupy kontenerów — Resource Manager
           href: container-instances-multi-container-group.md
+        - name: Wdrażanie grupy kontenerów — Docker Compose
+          href: tutorial-docker-compose.md
     - name: Integracja z usługami platformy Azure
       items:
         - name: Wyzwalanie za pomocą usługi Azure Functions

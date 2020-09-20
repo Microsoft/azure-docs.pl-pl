@@ -1,0 +1,167 @@
+---
+title: 'Samouczek: Konfigurowanie programu Apple Business Manager do automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD w programie Apple Business Manager.
+services: active-directory
+documentationcenter: ''
+author: Zhchia
+writer: Zhchia
+manager: beatrizd
+ms.assetid: 4ad30031-9904-4ac3-a4d2-e8c28d44f319
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2020
+ms.author: Zhchia
+ms.openlocfilehash: c4ac4a17e577ea69f4359e1e9b321e5fcc839697
+ms.sourcegitcommit: 4ce82b6df65ebd81157b6168d3aa4e7323355022
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90761539"
+---
+# <a name="tutorial-configure-apple-business-manager-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu Apple Business Manager do automatycznej aprowizacji użytkowników
+
+
+
+W tym samouczku opisano kroki, które należy wykonać w programie Apple Business Manager i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje i cofa obsługę administracyjną użytkowników w programie [Apple Business Manager](https://business.apple.com/) przy użyciu usługi Azure AD Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../manage-apps/user-provisioning.md). 
+
+## <a name="capabilities-supported"></a>Obsługiwane możliwości
+> [!div class="checklist"]
+> * Tworzenie użytkowników w programie Apple Business Manager
+> * Usuń użytkowników w programie Apple Business Manager, gdy nie wymagają już dostępu
+> * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD i programem Apple Business Manager
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
+
+* [Dzierżawa usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji (na przykład administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny).
+* Konto programu Apple Business Manager z rolą administratora lub Menedżera osób.
+
+> [!NOTE]
+> Transfer tokenu do usługi Azure AD i ustanawianie pomyślnego połączenia należy wykonać w 4 dniach kalendarzowych lub należy ponownie uruchomić proces.
+
+## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
+1. Dowiedz się [, jak działa usługa aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Określ, kto będzie [objęty zakresem aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Określ, które dane mają być [mapowane między usługami Azure AD i Apple Business Manager](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+
+## <a name="step-2-configure-apple-business-manager-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie programu Apple Business Manager do obsługi aprowizacji za pomocą usługi Azure AD
+
+1. W programie Apple Business Manager Zaloguj się przy użyciu konta z rolą administratora lub Menedżera osób.
+2. Kliknij pozycję Ustawienia u dołu paska bocznego, kliknij pozycję źródło danych poniżej ustawienia organizacji, a następnie kliknij pozycję Połącz ze źródłem danych.
+3. Kliknij przycisk Połącz obok pozycji Standard scim, uważnie przeczytaj ostrzeżenie, kliknij przycisk Kopiuj, a następnie kliknij przycisk Zamknij.
+[Okno łączenia z usługą Standard scim, w którym znajduje się token i przycisk kopiowania.] Pozostaw to okno otwarte, aby skopiować adres URL dzierżawy z programu Apple Business Manager do usługi Azure AD: https://federation.apple.com/feeds/business/scim
+
+    ![Apple Business Manager](media/applebusinessmanager-provisioning-tutorial/scim-token.png)
+
+> [!NOTE]
+> Tokenu tajnego nie należy udostępniać innym osobom niż administrator usługi Azure AD.
+
+## <a name="step-3-add-apple-business-manager-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie programu Apple Business Manager z galerii aplikacji usługi Azure AD
+
+Dodaj firmę Apple Business Manager z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie obsługą administracyjną w programie Apple Business Manager. Jeśli wcześniej skonfigurowano program Apple Business Manager na potrzeby logowania jednokrotnego, możesz użyć tej samej aplikacji. Jednak zaleca się utworzenie osobnej aplikacji podczas wstępnego testowania integracji. Dowiedz się więcej o dodawaniu aplikacji z galerii [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Zdefiniuj, kto będzie w zakresie aprowizacji 
+
+Usługa Azure AD Provisioning umożliwia określenie zakresu użytkowników, którzy będą obsługiwani w oparciu o przypisanie do aplikacji i lub na podstawie atrybutów użytkownika/grupy. Jeśli wybierzesz zakres, który zostanie zainicjowany do aplikacji na podstawie przypisania, możesz wykonać następujące [kroki](../manage-apps/assign-user-or-group-access-portal.md) , aby przypisać użytkowników i grupy do aplikacji. Jeśli zdecydujesz się na określenie zakresu, który zostanie zainicjowany na podstawie atrybutów użytkownika lub grupy, możesz użyć filtru określania zakresu, zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+
+* Podczas przypisywania użytkowników do programu Apple Business Manager należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji i zostaną oznaczeni jako nieskutecznie uprawnieni do dzienników aprowizacji. Jeśli jedyną rolą dostępną w aplikacji jest domyślna rola dostępu, można [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) , aby dodać dodatkowe role. 
+
+* Zacznij od małych. Przetestuj przy użyciu małego zestawu użytkowników i grup przed przekazaniem ich do wszystkich osób. W przypadku wybrania dla zakresu aprowizacji przypisanych użytkowników i grup można kontrolować ten sposób, przypisując do aplikacji jednego lub dwóch użytkowników lub grupy. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [Filtr określania zakresu na podstawie atrybutu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+
+## <a name="step-5-configure-automatic-user-provisioning-to-apple-business-manager"></a>Krok 5. Konfigurowanie automatycznej aprowizacji użytkowników w programie Apple Business Manager
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+
+    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+
+2. Na liście Aplikacje wybierz pozycję **Apple Business Manager**.
+
+    ![Programu Apple Business Manager na liście aplikacji](common/all-applications.png)
+
+3. Wybierz kartę **aprowizacji** .
+
+    ![Karta aprowizacji](common/provisioning.png)
+
+4. Ustaw **tryb aprowizacji** na **automatyczny**.
+
+    ![Automatyczne Inicjowanie obsługi kart](common/provisioning-automatic.png)
+
+5. W sekcji **poświadczenia administratora** wprowadź odpowiednie wartości w polach adres **URL i token dostępu Standard scim 2,0** , które są pobierane z programu Apple Business Manager w **adresie URL dzierżawy** i w **tokenie tajnym** . Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z programem Apple Business Manager. Jeśli połączenie nie powiedzie się, upewnij się, że konto programu Apple Business Manager ma uprawnienia administratora, a następnie spróbuj ponownie.
+
+    ![Token](common/provisioning-testconnection-tenanturltoken.png)
+
+> [!NOTE]
+>W przypadku pomyślnego nawiązania połączenia usługa Apple Business Manager wyświetli połączenie Standard scim jako aktywne. Ten proces może potrwać do 60 sekund w celu odzwierciedlenia najnowszego stanu połączenia w programie Apple Business Manager.
+
+6. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
+
+    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
+
+7. Kliknij pozycję **Zapisz**.
+
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do programu Apple Business Manager**.
+
+9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do programu Apple Business Manager, w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane w celu dopasowania do kont użytkowników w programie Apple Business Manager dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
+
+   |Atrybut|Typ|
+   |---|---|
+   |aktywne|Wartość logiczna|
+   |userName|Ciąg|
+   |Nazwa. imię|Ciąg|
+   |Nazwa. rodzina|Ciąg|
+   |Nazwa. imię|Ciąg|
+   |externalId|Ciąg|
+   |locale|Ciąg|
+   |TimeZone|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+
+10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+11. Aby włączyć usługę Azure AD Provisioning dla programu Apple Business Manager, Zmień **stan aprowizacji** na **włączone** w sekcji Ustawienia.
+
+    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
+
+12. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić do programu Apple Business Manager, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
+
+    ![Zakres aprowizacji](common/provisioning-scope.png)
+
+13. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
+
+    ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
+
+Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona.
+
+## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
+Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
+
+1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+
+## <a name="additional-resources"></a>Zasoby dodatkowe
+
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Przejrzyj wymagania standard scim dla programu Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdd88331cd6)
+* [Jak identyfikator osoby jest używany w programie Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd69e1e48e9)
+* [Importowanie użytkowników do programu Apple Business Manager za pomocą Standard scim](URL=https://support.apple.com/guide/apple-business-manager/apd3ec7b95ad)
+* [Rozwiązywanie konfliktów kont użytkowników Standard scim w programie Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd313013d12)
+* [Usuwanie kont usługi Azure AD, które są wyświetlane w programie Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdaa5798fbe)
+* [Wyświetlanie działania Standard scim w programie Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd1bfd8dfde)
+* [Zarządzanie istniejącym tokenem Standard scim i połączeniami w programie Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a823611)
+* [Rozłącz połączenie usługi Standard scim w programie Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd609be3a61) *  [Zarządzanie istniejącym tokenem Standard scim i połączeniami w programie Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
+* [Rozwiązywanie problemów z połączeniem Standard scim w programie Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd403a0f3bd)
+
+## <a name="next-steps"></a>Następne kroki
+
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../manage-apps/check-status-user-account-provisioning.md)
+
