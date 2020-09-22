@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: c098dc6b1d3b41a41246857f8a353dd4f5dfcef1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024404"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884182"
 ---
 # <a name="hierarchical-state-override"></a>Hierarchiczne zastępowanie stanu
 
@@ -45,6 +45,10 @@ Stały zestaw Stanów, które mogą zostać zastąpione, to:
   ![Opcja konspektu używana do wyróżnienia wybranej części](./media/selection-outline.png)
 
 * **`DisableCollision`**: Geometria jest wykluczona z [zapytań przestrzennych](spatial-queries.md). **`Hidden`** Flaga nie ma wpływu na flagę stanu kolizji, dlatego te dwie flagi są często ustawiane razem.
+
+* **`UseCutPlaneFilterMask`**: Użyj pojedynczej maski bitów filtru, aby kontrolować zaznaczenie opcji wycinania. Ta flaga określa, czy dana maska filtru powinna być używana, czy dziedziczona od jej elementu nadrzędnego. Sama maska bitów filtru jest ustawiana za pośrednictwem `CutPlaneFilterMask` właściwości. Aby uzyskać szczegółowe informacje na temat sposobu działania filtrowania, zapoznaj się z [akapitem selektywne wycinanie płaszczyzn](cut-planes.md#selective-cut-planes).
+![Selektywne wycinanie płaszczyzn](./media/selective-cut-planes.png)
+
 
 > [!TIP]
 > Alternatywnie, aby wyłączyć widoczność i przestrzenne zapytania dla pełnego wykresu podrzędnego, `enabled` stan obiektu gry można przełączać. Jeśli hierarchia jest wyłączona, ma preferencję nad dowolnym `HierarchicalStateOverrideComponent` .

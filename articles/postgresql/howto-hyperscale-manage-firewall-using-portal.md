@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
-ms.openlocfilehash: 35d5b101f4ad5fe4498c0566227c5f0a9d102b60
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: d369614357bd62dc13073f650fbe5ce358d6dc6e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032574"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884318"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Zarządzanie regułami zapory dla Azure Database for PostgreSQL-ze skalowaniem (Citus)
 Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do węzła koordynatora ze skalowaniem (Citus) z określonego adresu IP lub zakresu adresów IP.
@@ -24,23 +24,24 @@ Aby krokowo poprowadzić ten przewodnik, musisz:
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Tworzenie reguły zapory na poziomie serwera w witrynie Azure Portal
 
 > [!NOTE]
-> Te ustawienia są również dostępne podczas tworzenia grupy serwerów Azure Database for PostgreSQL-Citus. Na karcie **Sieć** kliknij pozycję **dostęp publiczny**.
-> ![Azure Portal — karta sieciowa](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
+> Te ustawienia są również dostępne podczas tworzenia grupy serwerów Azure Database for PostgreSQL-Citus. Na karcie **Sieć** kliknij pozycję **publiczny punkt końcowy**.
+
+> :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png" alt-text="Azure Portal — karta sieciowa":::
 
 1. Na stronie Grupa serwerów PostgreSQL w obszarze nagłówek zabezpieczeń kliknij pozycję **Sieć** , aby otworzyć reguły zapory.
 
-   ![Azure Portal — kliknij pozycję Sieć](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure Portal — kliknij pozycję Sieć":::
 
 2. Kliknij przycisk **Dodaj bieżący adres IP klienta** , aby utworzyć regułę zapory z publicznym adresem IP komputera, jak zostało to postrzegane przez system Azure.
 
-   ![Azure Portal kliknij pozycję Dodaj adres IP klienta](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Azure Portal kliknij pozycję Dodaj adres IP klienta":::
 
 Alternatywnie, kliknięcie **+ Dodaj 0.0.0.0-255.255.255.255** (z prawej strony opcji B) umożliwia nie tylko adres IP, ale cały Internet umożliwia dostęp do portu 5432 węzła koordynatora. W takiej sytuacji klienci nadal muszą zalogować się przy użyciu prawidłowej nazwy użytkownika i hasła w celu korzystania z klastra. Niemniej jednak zalecamy zezwolenie na dostęp na całym świecie tylko dla krótkich okresów i tylko dla baz danych nieprodukcyjnych.
 
 3. Sprawdź swój adres IP przed zapisaniem konfiguracji. W niektórych sytuacjach adres IP zaobserwowany przez Azure Portal różni się od adresu IP używanego podczas uzyskiwania dostępu do Internetu i serwerów platformy Azure. W związku z tym może zajść potrzeba zmiany początkowego adresu IP i końcowego adresu IP, aby zapewnić działanie reguły zgodnie z oczekiwaniami.
    Użyj wyszukiwarki lub innego narzędzia online do sprawdzenia własnego adresu IP. Na przykład wyszukaj ciąg "co to jest mój adres IP".
 
-   ![Wyszukiwanie w usłudze Bing — mój adres IP](./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png)
+   :::image type="content" source="./media/howto-hyperscale-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Wyszukiwanie w usłudze Bing — mój adres IP":::
 
 4. Dodaj dodatkowe zakresy adresów. W regułach zapory można określić pojedynczy adres IP lub zakres adresów. Jeśli chcesz ograniczyć regułę do pojedynczego adresu IP, wpisz ten sam adres w polu dla początkowy adres IP i końcowy adres IP. Otwarcie zapory umożliwia administratorom, użytkownikom i aplikacjom dostęp do węzła koordynatora na porcie 5432.
 

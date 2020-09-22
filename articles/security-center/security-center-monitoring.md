@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: d18258d62267c931a39947611dda038ff6e65205
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 893b2eefc2c4c81e66bf86a1c999a3c4198a3c71
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718703"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883835"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Zwiększanie poziomu bezpieczeństwa za pomocą usługi Azure Security Center
 Ten artykuł pomoże Ci wzmocnić stan zabezpieczeń. Skorzystaj z możliwości monitorowania w Azure Security Center, aby upewnić się, że zabezpieczenia zasobów są tak ścisłe, jak to możliwe, i monitoruj zgodność z zasadami.
@@ -28,24 +28,12 @@ Monitorowanie jest często postrzegane jako obserwowanie i oczekiwanie na wystą
 
 Po włączeniu [zasad zabezpieczeń](tutorial-security-policy.md) dla zasobów subskrypcji usługa Security Center analizuje zabezpieczenia zasobów, aby zidentyfikować potencjalne luki. Informacje o konfiguracji sieci są dostępne natychmiast. W zależności od liczby maszyn wirtualnych i komputerów z zainstalowanym agentem, zebranie informacji o konfiguracji maszyn wirtualnych i komputerów, takich jak stan aktualizacji zabezpieczeń i konfiguracja systemu operacyjnego, może potrwać godzinę lub więcej, zanim zostaną one udostępnione. Można wyświetlić pełną listę problemów i sposobów zwiększania funkcjonalności sieci i korygowania ryzyka na kafelku **zalecenia** .
 
-Możesz wyświetlić stan zabezpieczeń zasobów i wszelkie problemy dotyczące poszczególnych typów zasobów:
-
-- Aby monitorować kondycję zasobów komputera i aplikacji oraz uzyskać zalecenia dotyczące poprawy ich zabezpieczeń, zobacz [Ochrona maszyn i aplikacji w Azure Security Center](security-center-virtual-machine-protection.md)
-- Aby monitorować zasoby sieciowe, takie jak maszyny wirtualne, sieciowe grupy zabezpieczeń i punkty końcowe, i uzyskać zalecenia dotyczące poprawy ich zabezpieczeń, zobacz [Ochrona sieci w Azure Security Center](security-center-network-recommendations.md) , aby uzyskać więcej informacji. 
-- Aby monitorować zasoby danych i magazynu, takie jak serwery SQL i konta magazynu, i uzyskać zalecenia dotyczące poprawy ich zabezpieczeń, zobacz [Ochrona usługi Azure SQL i danych w Azure Security Center](security-center-sql-service-recommendations.md) , aby uzyskać więcej informacji. 
-- Aby monitorować swoje tożsamości i uzyskiwać dostęp do zasobów, w tym uwierzytelnianie MFA i uprawnienia kont, a także uzyskać zalecenia dotyczące poprawy ich zabezpieczeń, zobacz temat [monitorowanie tożsamości i dostępu w Azure Security Center](security-center-identity-access.md) , aby uzyskać więcej informacji. 
-- Aby monitorować dostęp just in Time do zasobów, zobacz [Zarządzanie dostępem do maszyn wirtualnych za pomocą just in Time](security-center-just-in-time.md) , aby uzyskać więcej informacji.
-
+Stan zabezpieczeń zasobów i wszelkie problemy dotyczące poszczególnych typów zasobów można wyświetlić ze [strony spisu zasobów i zarządzanie nimi](asset-inventory.md).
 
 Więcej informacji dotyczących stosowania zaleceń można znaleźć w temacie [Wdrażanie zaleceń dotyczących zabezpieczeń w usłudze Azure Security Center](security-center-recommendations.md).
 
 
-
-![Kafelek Kondycja zabezpieczeń zasobów](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
-
-
-
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Następne kroki
 W tym artykule przedstawiono sposób korzystania z funkcji monitorowania w usłudze Azure Security Center. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
 
 * [Ustawianie zasad zabezpieczeń w usłudze Azure Security Center](tutorial-security-policy.md) — informacje na temat konfigurowania ustawień zabezpieczeń w usłudze Azure Security Center.

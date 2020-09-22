@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 8ca4d3d2d52e79dbcaaa15eba5794a4d2d28366a
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 623b9c1eccefe5d7e6027ddbed61c89720d98e9a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274547"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884473"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for PostgreSQL-pojedynczym serwerze z Azure Portal
 
@@ -41,20 +41,20 @@ Po zmianie tego parametru należy ponownie uruchomić serwer. Wewnętrznie, ten 
 
 3. Jeśli Obsługa replikacji platformy Azure nie jest ustawiona na co najmniej **replikę**, ustaw ją. Wybierz pozycję **Zapisz**.
 
-   ![Azure Database for PostgreSQL — replikacja zestawu i zapisywanie](./media/howto-read-replicas-portal/set-replica-save.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/set-replica-save.png" alt-text="Azure Database for PostgreSQL — replikacja zestawu i zapisywanie":::
 
 4. Uruchom ponownie serwer, aby zastosować zmiany, wybierając opcję **tak**.
 
-   ![Azure Database for PostgreSQL — Potwierdź ponowne uruchomienie](./media/howto-read-replicas-portal/confirm-restart.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-restart.png" alt-text="Azure Database for PostgreSQL — Potwierdź ponowne uruchomienie":::
 
 5. Po zakończeniu operacji otrzymasz dwie Azure Portal powiadomienia. Istnieje jedno powiadomienie dotyczące aktualizowania parametru serwera. Istnieje inne powiadomienie dotyczące ponownego uruchomienia serwera, które następuje natychmiast.
 
-   ![Powiadomienia o powodzeniu](./media/howto-read-replicas-portal/success-notifications.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/success-notifications.png" alt-text="Powiadomienia o powodzeniu":::
 
 6. Odśwież stronę Azure Portal, aby zaktualizować pasek narzędzi replikacji. Teraz można tworzyć repliki odczytu dla tego serwera.
    
 
-## <a name="create-a-read-replica"></a>Tworzenie repliki odczytu
+## <a name="create-a-read-replica"></a>Tworzenie repliki do odczytu
 Aby utworzyć replikę odczytu, wykonaj następujące kroki:
 
 1. Wybierz istniejący serwer Azure Database for PostgreSQL, który ma być używany jako serwer główny. 
@@ -63,15 +63,15 @@ Aby utworzyć replikę odczytu, wykonaj następujące kroki:
 
 3. Wybierz pozycję **Dodaj replikę**.
 
-   ![Dodaj replikę](./media/howto-read-replicas-portal/add-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/add-replica.png" alt-text="Dodaj replikę":::
 
 4. Wprowadź nazwę repliki do odczytu. 
 
-    ![Nazwij replikę](./media/howto-read-replicas-portal/name-replica.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/name-replica.png" alt-text="Nazwij replikę":::
 
 5. Wybierz lokalizację dla repliki. Lokalizacja domyślna jest taka sama jak w przypadku serwera głównego.
 
-    ![Wybieranie lokalizacji](./media/howto-read-replicas-portal/location-replica.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Wybierz lokalizację":::
 
    > [!NOTE]
    > Aby dowiedzieć się więcej na temat regionów, w których można utworzyć replikę, zapoznaj się z [artykułem dotyczącym pojęć dotyczących repliki](concepts-read-replicas.md). 
@@ -80,7 +80,7 @@ Aby utworzyć replikę odczytu, wykonaj następujące kroki:
 
 Po utworzeniu repliki odczytu można ją wyświetlić w oknie **replikacja** :
 
-![Wyświetl nową replikę w oknie replikacji](./media/howto-read-replicas-portal/list-replica.png)
+:::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="Wyświetl nową replikę w oknie replikacji":::
  
 
 > [!IMPORTANT]
@@ -102,15 +102,15 @@ Aby zatrzymać replikację między serwerem głównym i repliką odczytu z Azure
 
 3. Wybierz serwer repliki, dla którego ma zostać zatrzymana replikacja.
 
-   ![Wybierz replikę](./media/howto-read-replicas-portal/select-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Wybierz replikę":::
  
 4. Wybierz pozycję **Zatrzymaj replikację**.
 
-   ![Wybieranie opcji Zatrzymaj replikację](./media/howto-read-replicas-portal/select-stop-replication.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-stop-replication.png" alt-text="Wybieranie opcji Zatrzymaj replikację":::
  
 5. Wybierz **przycisk OK** , aby zatrzymać replikację.
 
-   ![Potwierdź zatrzymanie replikacji](./media/howto-read-replicas-portal/confirm-stop-replication.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="Potwierdź zatrzymanie replikacji":::
  
 
 ## <a name="delete-a-master-server"></a>Usuwanie serwera głównego
@@ -125,11 +125,11 @@ Aby usunąć serwer z Azure Portal, wykonaj następujące kroki:
 
 2. Otwórz stronę **Przegląd** dla serwera. Wybierz pozycję **Usuń**.
 
-   ![Na stronie Przegląd serwera wybierz opcję usunięcia serwera głównego.](./media/howto-read-replicas-portal/delete-server.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-server.png" alt-text="Na stronie Przegląd serwera wybierz opcję usunięcia serwera głównego.":::
  
 3. Wprowadź nazwę serwera głównego do usunięcia. Wybierz pozycję **Usuń** , aby potwierdzić usunięcie serwera głównego.
 
-   ![Potwierdź, aby usunąć serwer główny](./media/howto-read-replicas-portal/confirm-delete.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete.png" alt-text="Potwierdź, aby usunąć serwer główny":::
  
 
 ## <a name="delete-a-replica"></a>Usuwanie repliki
@@ -137,7 +137,7 @@ Replikę odczytu można usunąć podobnie jak w przypadku usuwania serwera głó
 
 - W Azure Portal Otwórz stronę **Przegląd** repliki odczytu. Wybierz pozycję **Usuń**.
 
-   ![Na stronie Przegląd repliki wybierz opcję usunięcia repliki](./media/howto-read-replicas-portal/delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-replica.png" alt-text="Na stronie Przegląd repliki wybierz opcję usunięcia repliki":::
  
 Możesz również usunąć replikę odczytu z okna **replikacji** , wykonując następujące czynności:
 
@@ -147,15 +147,15 @@ Możesz również usunąć replikę odczytu z okna **replikacji** , wykonując n
 
 3. Wybierz replikę do odczytania do usunięcia.
 
-   ![Wybierz replikę do usunięcia](./media/howto-read-replicas-portal/select-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Wybierz replikę do usunięcia":::
  
 4. Wybierz pozycję **Usuń replikę**.
 
-   ![Wybierz pozycję Usuń replikę](./media/howto-read-replicas-portal/select-delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-delete-replica.png" alt-text="Wybierz pozycję Usuń replikę":::
  
 5. Wprowadź nazwę repliki do usunięcia. Wybierz pozycję **Usuń** , aby potwierdzić usunięcie repliki.
 
-   ![Potwierdź, aby usunąć replikę](./media/howto-read-replicas-portal/confirm-delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete-replica.png" alt-text="Potwierdź, aby usunąć replikę":::
  
 
 ## <a name="monitor-a-replica"></a>Monitorowanie repliki
@@ -168,7 +168,7 @@ Metryka **maks. opóźnienie między replikami** pokazuje opóźnienie w bajtach
 
 2.  Wybierz pozycję **Metryki**. W oknie **metryki** wybierz pozycję **maks. opóźnienie między replikami**.
 
-    ![Monitoruj maksymalne opóźnienie między replikami](./media/howto-read-replicas-portal/select-max-lag.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="Monitoruj maksymalne opóźnienie między replikami":::
  
 3.  Dla **agregacji**wybierz **wartość Max**.
 
@@ -180,7 +180,7 @@ Metryka **opóźnienia repliki** przedstawia czas od ostatniego odtworzenia tran
 
 2. Wybierz pozycję **Metryki**. W oknie **metryki** wybierz pozycję **opóźnienie repliki**.
 
-   ![Monitorowanie opóźnienia repliki](./media/howto-read-replicas-portal/select-replica-lag.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="Monitorowanie opóźnienia repliki":::
  
 3. Dla **agregacji**wybierz **wartość Max**. 
  

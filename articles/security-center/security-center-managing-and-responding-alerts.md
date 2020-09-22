@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2551a3c860dbdf27e7c9473e88c3a3293f575faa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769787"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883948"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Zarządzanie alertami zabezpieczeń i reagowanie na nie w usłudze Azure Security Center
 
@@ -28,7 +28,7 @@ W tym temacie pokazano, jak wyświetlać i przetwarzać alerty otrzymane w celu 
 * Aby zapoznać się z omówieniem Security Center generowania alertów, zobacz [jak Azure Security Center wykrywać zagrożenia i reagować na](security-center-alerts-overview.md)nie.
 
 > [!NOTE]
-> Aby włączyć wykrywanie zaawansowane, przeprowadź uaktualnienie usługi Azure Security Center do wersji Standard. Dostępna jest bezpłatna wersja próbna. W celu uaktualnienia wybierz pozycję warstwa cenowa w obszarze [zasady zabezpieczeń](tutorial-security-policy.md). Aby dowiedzieć się więcej, zobacz [cennik usługi Azure Security Center](security-center-pricing.md).
+> Aby włączyć zaawansowane wykrywania, Włącz usługę Azure Defender. Dostępna jest bezpłatna wersja próbna. W celu uaktualnienia wybierz pozycję warstwa cenowa w obszarze [zasady zabezpieczeń](tutorial-security-policy.md). Aby dowiedzieć się więcej, zobacz [cennik usługi Azure Security Center](security-center-pricing.md).
 
 ## <a name="what-are-security-alerts"></a>Czym są alerty zabezpieczeń?
 Usługa Security Center automatycznie gromadzi, analizuje i integruje dane dzienników z zasobów platformy Azure, sieci oraz połączonych rozwiązań partnerskich, takich jak rozwiązania zapory i ochrony punktów końcowych, aby wykrywać prawdziwe zagrożenia i redukować liczbę fałszywych alarmów. W usłudze Security Center jest wyświetlana lista alertów zabezpieczeń uporządkowanych według priorytetu oraz informacje potrzebne do szybkiego analizowania problemu i zalecenia dotyczące postępowania w razie ataku.
@@ -38,7 +38,7 @@ Usługa Security Center automatycznie gromadzi, analizuje i integruje dane dzien
 
 ## <a name="manage-your-security-alerts"></a>Zarządzanie alertami zabezpieczeń
 
-1. Na pulpicie nawigacyjnym Security Center zapoznaj się z kafelkiem **Ochrona przed zagrożeniami** , aby wyświetlić i zapoznać się z alertami.
+1. Na pulpicie nawigacyjnym Security Center zapoznaj się z kafelkiem  **Ochrona przed zagrożeniami** , aby wyświetlić i zapoznać się z alertami.
 
     ![Kafelek Alerty zabezpieczeń w usłudze Security Center](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
 
@@ -64,7 +64,7 @@ Usługa Security Center automatycznie gromadzi, analizuje i integruje dane dzien
      
     ![Sugestie dotyczące czynności, które należy wykonać, aby uzyskać informacje o alertach zabezpieczeń](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    Również w prawym okienku jest karta **podjęcie akcji** . Użyj tej karty, aby wykonać dalsze działania dotyczące alertu zabezpieczeń. Akcje, takie jak:
+    Również w okienku po prawej stronie znajduje się karta **podjęcie akcji** . Za pomocą tej karty można podejmować dalsze działania dotyczące alertu zabezpieczeń. Akcje, takie jak:
     - *Eliminowanie zagrożeń* — zawiera ręczne kroki korygowania dla tego alertu zabezpieczeń
     - *Zapobiegaj atakom w przyszłości* — zawiera zalecenia dotyczące zabezpieczeń, które pomagają w zmniejszeniu podatności na ataki, zwiększyć bezpieczeństwo stan i w ten sposób zapobiec atakom w przyszłości
     - *Wyzwalanie automatycznej odpowiedzi* — udostępnia opcję wyzwalania aplikacji logiki jako odpowiedzi na ten alert zabezpieczeń
@@ -75,7 +75,7 @@ Usługa Security Center automatycznie gromadzi, analizuje i integruje dane dzien
 
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 W tym dokumencie przedstawiono sposób wyświetlania alertów zabezpieczeń. Pokrewnych materiałów można znaleźć na następujących stronach:
 
