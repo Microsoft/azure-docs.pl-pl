@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a81b3016f86c6fd7de646ccbdbf533685471ac3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77430945"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894805"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Konfigurowanie zasad zabezpieczeń w Azure Policy przy użyciu interfejsu API REST
 
@@ -115,7 +115,7 @@ Ten przykład pokazuje, jak usunąć przypisanie:
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
  ```
 
-## <a name="policy-names-reference"></a>Odwołania do nazw zasad<a name="policy-names"></a>
+## <a name="policy-names-reference"></a>Odwołania do nazw zasad <a name="policy-names"></a>
 
 |Nazwa zasad w Security Center|Nazwa zasad wyświetlana w Azure Policy |Nazwa parametru efektu zasad|
 |----|----|----|
@@ -124,7 +124,7 @@ Ten przykład pokazuje, jak usunąć przypisanie:
 |Aktualizacje systemu |Monitoruj brakujące aktualizacje systemu w Azure Security Center |systemUpdatesMonitoringEffect|
 |Szyfrowanie w usłudze Storage |Należy wykonać inspekcję pod kątem braku szyfrowania obiektów blob dla kont magazynu |storageEncryptionMonitoringEffect|
 |Dostęp do sieci JIT |Monitoruj możliwy dostęp do sieci just-in-Time (JIT) w Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Funkcje adaptacyjnego sterowania aplikacjami |Monitoruj możliwe listy dozwolonych aplikacji w Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Funkcje adaptacyjnego sterowania aplikacjami |Monitorowanie dostępnych list dozwolonych aplikacji w Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
 |Grupy zabezpieczeń sieci |Monitoruj dostęp do sieci w Azure Security Center |networkSecurityGroupsMonitoringEffect| 
 |Konfiguracje zabezpieczeń |Monitoruj luki w zabezpieczeniach systemu operacyjnego w Azure Security Center |systemConfigurationsMonitoringEffect| 
 |Program Endpoint Protection |Monitoruj brakujące Endpoint Protection w Azure Security Center |endpointProtectionMonitoringEffect |

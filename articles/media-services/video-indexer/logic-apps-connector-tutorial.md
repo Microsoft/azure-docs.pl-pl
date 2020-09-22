@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: fbd86b34bd6f7da8c9f49e212e397d003b71fab5
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 2d89782b836db0daaf75c0337ad3b7f475824177
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707938"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882878"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Samouczek: używanie Video Indexer z aplikacją logiki i automatyzacją
 
@@ -115,7 +115,7 @@ Upewnij się, że oba przepływy są zapisane i że wszystko jest gotowe!
 
 Wypróbuj nowo utworzoną aplikację logiki lub rozwiązanie do automatyzowania, dodając wideo do kontenera obiektów blob platformy Azure i wróć kilka minut później, aby zobaczyć, że szczegółowe dane pojawiają się w folderze docelowym. 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po zakończeniu pracy z tym samouczkiem możesz korzystać z tej aplikacji logiki lub rozwiązania do automatyzowania i działania w razie potrzeby. Jeśli jednak nie chcesz zachować tego działania i nie chcesz otrzymywać opłat, Wyłącz oba przepływy, jeśli używasz automatyzacji. Wyłącz oba przepływy, jeśli używasz Logic Apps. 
 

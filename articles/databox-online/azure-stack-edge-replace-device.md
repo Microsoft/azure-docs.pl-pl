@@ -1,6 +1,6 @@
 ---
-title: Zastąp urządzenie Azure Stack Edge | Microsoft Docs
-description: Opisuje sposób pobierania zamiennika Azure Stack urządzenia brzegowego.
+title: Zastąp urządzenie Azure Stack EDGE Pro | Microsoft Docs
+description: Zawiera opis sposobu pobierania zastępczego urządzenia Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 5d5e8cc3a959c7800019107d2c682e144449b46c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec16a2b42b818e96399b8fdbad4a0951f84ef825
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098750"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893891"
 ---
-# <a name="replace-your-azure-stack-edge-device"></a>Zastąp urządzenie Azure Stack Edge
+# <a name="replace-your-azure-stack-edge-pro-device"></a>Zastąp swoje urządzenie Azure Stack EDGE Pro
 
-W tym artykule opisano sposób pobierania zamiennika Azure Stack urządzenia brzegowego. Urządzenie zamienne jest wymagane, gdy istniejące urządzenie ma awarię sprzętową lub wymaga uaktualnienia. 
+W tym artykule opisano, jak uzyskać zastępowanie Azure Stack Edge na urządzeniu. Urządzenie zamienne jest wymagane, gdy istniejące urządzenie ma awarię sprzętową lub wymaga uaktualnienia. 
 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
@@ -31,9 +31,9 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="open-a-support-ticket"></a>Otwórz bilet pomocy technicznej
 
-Jeśli istniejące urządzenie ma awarię sprzętową, Otwórz bilet pomocy technicznej. Pomoc techniczna firmy Microsoft ustali, że jednostka zamienna pola (FRU) nie jest dostępna dla tego wystąpienia lub urządzenie wymaga uaktualnienia sprzętowego. W obu przypadkach pomoc techniczna będzie zamawiać urządzenie zamienne.
+Jeśli istniejące urządzenie ma awarię sprzętową, Otwórz bilet pomocy technicznej. Pomoc techniczna firmy Microsoft ustali, że jednostka wymiany w terenie (FRU) nie jest dostępna dla tego wystąpienia lub urządzenie wymaga uaktualnienia sprzętowego. W obu przypadkach pomoc techniczna będzie zamawiać urządzenie zamienne.
 
-1. Otwórz bilet pomocy technicznej z pomoc techniczna firmy Microsoft wskazujący, że chcesz zwrócić urządzenie. Wybierz typ problemu jako **urządzenie Azure Stack Edge**.
+1. Otwórz bilet pomocy technicznej z pomoc techniczna firmy Microsoft wskazujący, że chcesz zwrócić urządzenie. Wybierz typ problemu jako **urządzenie Azure Stack EDGE Pro**.
 
     ![Otwieranie biletu pomocy technicznej](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
@@ -47,7 +47,7 @@ Wykonaj następujące kroki, aby utworzyć zasób.
 
 1. Wykonaj kroki opisane w temacie [Tworzenie nowego zasobu](azure-stack-edge-deploy-prep.md#create-a-new-resource) , aby utworzyć zasób dla urządzenia zastępczego. 
 
-2. Upewnij się, że pole wyboru jest zaznaczone z **urządzeniem Azure Stack Edge**. 
+2. Upewnij się, że pole wyboru jest zaznaczone, aby **było dostępne urządzenie Azure Stack EDGE Pro**. 
 
     ![Zasób urządzenia do zastępowania](media/azure-stack-edge-replace-device/replace-resource-1.png)  
 
@@ -71,4 +71,4 @@ Wykonaj wszystkie kroki, aby zwrócić oryginalne urządzenie:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [zwrócić Azure Stack Urządzenie brzegowe](azure-stack-edge-return-device.md).
+- Dowiedz się, w jaki sposób [zwrócić urządzenie Azure Stack Edge](azure-stack-edge-return-device.md).

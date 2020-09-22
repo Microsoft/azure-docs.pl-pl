@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0bcf81e0c762dd2a8e63ae242fec77d30f5b2c3d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011858"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894820"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące zbierania danych, agentów i obszarów roboczych
 
@@ -29,9 +29,9 @@ Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skal
 
 Nie. Obszary robocze utworzone przez Security Center, podczas gdy skonfigurowano do rozliczania Azure Monitor dzienników na węzeł, nie są naliczane opłaty za dzienniki Azure Monitor. Rozliczanie Security Center jest zawsze uzależnione od zasad zabezpieczeń Security Center i rozwiązań zainstalowanych w obszarze roboczym:
 
-- **Warstwa Bezpłatna** — Security Center włącza rozwiązanie "SecurityCenterFree" w domyślnym obszarze roboczym. Nie zostanie naliczona opłata za warstwę bezpłatna.
+- **Usługa Azure Defender wyłączona** — Security Center włącza rozwiązanie "SecurityCenterFree" w domyślnym obszarze roboczym. Nie zostanie naliczona opłata, jeśli usługa Azure Defender jest wyłączona.
 
-- **Warstwa standardowa** — Security Center włącza rozwiązanie "zabezpieczenia" w domyślnym obszarze roboczym.
+- **Usługa Azure Defender on** — Security Center włącza rozwiązanie "zabezpieczenia" w domyślnym obszarze roboczym.
 
 Aby uzyskać więcej informacji na temat cen, zobacz [Cennik usługi Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -164,7 +164,7 @@ Jeśli usuniesz rozszerzenie Microsoft Monitoring, Security Center nie będzie w
 
 Automatyczne Inicjowanie obsługi dla subskrypcji w zasadach zabezpieczeń można wyłączyć, ale nie jest to zalecane. Wyłączenie automatycznych limitów aprowizacji Security Center zaleceń i alertów. Aby wyłączyć automatyczne Inicjowanie obsługi:
 
-1. Jeśli subskrypcja jest skonfigurowana dla warstwy Standardowa, Otwórz zasady zabezpieczeń dla tej subskrypcji i wybierz warstwę **bezpłatna** .
+1. Jeśli subskrypcja ma włączoną usługę Azure Defender, Otwórz zasady zabezpieczeń dla tej subskrypcji i wybierz pozycję **Azure Defender off**.
 
    ![Warstwa cenowa][1]
 

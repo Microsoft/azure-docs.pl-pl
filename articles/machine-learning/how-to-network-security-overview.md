@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 57746b833e238bbd0cc99ba103f710a9239ee5ba
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665163"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893177"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -63,22 +63,6 @@ W następnych pięciu sekcjach pokazano, jak zabezpieczyć scenariusz sieci opis
 1. Zabezpiecz [**środowisko inferencing**](#secure-the-inferencing-environment).
 1. Opcjonalnie: [**Włącz funkcje programu Studio**](#optional-enable-studio-functionality).
 1. Konfigurowanie [ **ustawień zapory**](#configure-firewall-settings)
-
-> [!TIP]
->  Niektóre kombinacje sieci wirtualnych i usług platformy Azure wymagają obszaru roboczego wersja Enterprise. Skorzystaj z poniższej tabeli, aby zrozumieć, jakie scenariusze wymagają wydania Enterprise Edition:
->
-> | Scenariusz | Enterprise</br>bitowych | Podstawowe</br>bitowych |
-> | ----- |:-----:|:-----:| 
-> | Brak sieci wirtualnej lub prywatnego linku | ✔ | ✔ |
-> | Obszar roboczy bez linku prywatnego. Inne zasoby (z wyjątkiem Azure Container Registry) w sieci wirtualnej | ✔ | ✔ |
-> | Obszar roboczy bez linku prywatnego. Inne zasoby z linkiem prywatnym | ✔ | |
-> | Obszar roboczy z linkiem prywatnym. Inne zasoby (z wyjątkiem Azure Container Registry) w sieci wirtualnej | ✔ | ✔ |
-> | Obszar roboczy i wszystkie inne zasoby z linkiem prywatnym | ✔ | |
-> | Obszar roboczy z linkiem prywatnym. Inne zasoby bez linku prywatnego lub sieci wirtualnej | ✔ | ✔ |
-> | Azure Container Registry w sieci wirtualnej | ✔ | |
-> | Klucze zarządzane przez klienta dla obszaru roboczego | ✔ | |
->
-
 
 ## <a name="secure-the-workspace-and-associated-resources"></a>Zabezpieczanie obszaru roboczego i skojarzonych zasobów
 

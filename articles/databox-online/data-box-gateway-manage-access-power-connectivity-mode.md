@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 98431e7a451aa54dfdee2126d4ce94b8b0b0fb84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1035b0afee9821020673acbc813b31cba3e2fd90
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339216"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893950"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Zarządzanie dostępem, możliwością i trybem łączności dla Azure Data Box Gateway
 
@@ -57,16 +57,16 @@ Resetowanie przepływu pracy nie wymaga od użytkownika odwoływania starego has
 
 ## <a name="manage-resource-access"></a>Zarządzenie dostępem do zasobów
 
-Aby utworzyć Azure Stack krawędź/Data Box Gateway, IoT Hub i zasób usługi Azure Storage, musisz mieć uprawnienia jako współautor lub wyższe na poziomie grupy zasobów. Wymagane są także odpowiednie dostawcy zasobów do zarejestrowania. W przypadku wszelkich operacji, które obejmują klucz aktywacji i poświadczenia, wymagane są również uprawnienia do Azure Active Directory interfejs API programu Graph. Opisano je w poniższych sekcjach.
+Aby utworzyć Azure Stack EDGE Pro/Data Box Gateway, IoT Hub i zasób usługi Azure Storage, musisz mieć uprawnienia jako współautor lub wyższy na poziomie grupy zasobów. Wymagane są także odpowiednie dostawcy zasobów do zarejestrowania. W przypadku wszelkich operacji, które obejmują klucz aktywacji i poświadczenia, wymagane są również uprawnienia do Azure Active Directory interfejs API programu Graph. Opisano je w poniższych sekcjach.
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Zarządzanie uprawnieniami interfejsu API Microsoft Graph
 
-Podczas generowania klucza aktywacji dla urządzenia brzegowego Azure Stack lub wykonywania wszelkich operacji wymagających poświadczeń wymagane są uprawnienia do Microsoft Graph interfejsu API. Operacje, które wymagają poświadczeń, mogą być następujące:
+Podczas generowania klucza aktywacji dla urządzenia z systemem Azure Stack EDGE Pro lub wykonywania operacji wymagających poświadczeń wymagane są uprawnienia do Microsoft Graph interfejsu API. Operacje, które wymagają poświadczeń, mogą być następujące:
 
 -  Tworzenie udziału ze skojarzonym kontem magazynu.
 -  Tworzenie użytkownika, który może uzyskiwać dostęp do udziałów na urządzeniu.
 
-Musisz mieć dostęp do `User` Active Directory dzierżawy, ponieważ musisz mieć możliwość `Read all directory objects` . Nie możesz być użytkownikiem-gościem, ponieważ nie ma uprawnień do programu `Read all directory objects` . Jeśli jesteś gościem, operacje takie jak generacja klucza aktywacji, utworzenie udziału na urządzeniu Azure Stack Edge spowoduje niepowodzenie tworzenia użytkownika.
+Musisz mieć dostęp do `User` Active Directory dzierżawy, ponieważ musisz mieć możliwość `Read all directory objects` . Nie możesz być użytkownikiem-gościem, ponieważ nie ma uprawnień do programu `Read all directory objects` . Jeśli jesteś gościem, operacje takie jak generowanie klucza aktywacji, utworzenie udziału na urządzeniu z systemem Azure Stack Edge, utworzenie użytkownika zakończy się niepowodzeniem.
 
 Aby uzyskać więcej informacji na temat zapewniania dostępu użytkownikom do Microsoft Graph interfejsu API, zobacz [Microsoft Graph informacje o uprawnieniach](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -89,7 +89,7 @@ Aby uzyskać listę zarejestrowanych dostawców zasobów w bieżącej subskrypcj
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-W przypadku Azure Stack urządzenia brzegowego `Microsoft.DataBoxEdge` należy zarejestrować. Aby zarejestrować się `Microsoft.DataBoxEdge` , administrator subskrypcji powinien uruchomić następujące polecenie:
+W przypadku urządzenia z Azure Stack Edge `Microsoft.DataBoxEdge` należy zarejestrować. Aby zarejestrować się `Microsoft.DataBoxEdge` , administrator subskrypcji powinien uruchomić następujące polecenie:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
@@ -123,7 +123,7 @@ Aby zmienić tryb urządzenia, wykonaj następujące kroki:
 
 ## <a name="manage-power"></a>Zarządzanie mocą
 
-Możesz zamknąć lub ponownie uruchomić urządzenie wirtualne przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na hoście, a następnie na urządzeniu. Ta akcja minimalizuje wszelką możliwość uszkodzenia danych.
+Możesz zamknąć lub ponownie uruchomić urządzenie wirtualne przy użyciu lokalnego interfejsu użytkownika sieci Web. Zaleca się, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na hoście, a następnie na urządzeniu. Minimalizuje to ryzyko uszkodzenia danych.
 
 1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja > ustawienia zarządzania**.
 2. Kliknij przycisk **Zamknij** lub **Uruchom ponownie** w zależności od tego, co chcesz zrobić.

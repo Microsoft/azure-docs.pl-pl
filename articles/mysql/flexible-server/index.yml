@@ -1,0 +1,103 @@
+### YamlMime:Landing
+title: Dokumentacja serwera elastycznego
+summary: Azure Database for MySQL — serwer elastyczny to w pełni zarządzana baza danych MySQL oferowana jako usługa, która może obsługiwać obciążenia o znaczeniu krytycznym z przewidywalną wydajnością i dynamiczną skalowalnością. Twórz aplikacje za pomocą usługi Azure Database dla MySQL, korzystając z narzędzi open source i wybranej platformy. Dowiedz się, jak używać usługi Azure Database dla MySQL, korzystając z przewodników Szybki Start, samouczków i przykładów.
+metadata:
+  description: Azure Database for MySQL — serwer elastyczny jest usługą relacyjnej bazy danych w chmurze firmy Microsoft utworzoną dla deweloperów i obsługiwaną przez program MySQL Community Edition.
+  author: mksuni
+  ms.author: sumuth
+  ms.date: 09/21/2020
+  ms.service: mysql
+  ms.topic: landing-page
+  ms.openlocfilehash: 09086af6cee517f9e30657802934d0f7fb1b14a9
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928908"
+landingContent:
+- title: Informacje o serwerze elastycznym (wersja zapoznawcza)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest serwer elastyczny?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie serwera elastycznego
+      url: quickstart-create-server-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Tworzenie aplikacji w języku PHP przy użyciu serwera elastycznego
+      url: tutorial-php-database-app.md
+  - linkListType: whats-new
+    links:
+    - text: Zapoznaj się z naszym blogiem
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+- title: Zarządzanie
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Opcje obliczeń i magazynu
+      url: concepts-compute-storage.md
+    - text: Wersje programu MySQL
+      url: concepts-supported-versions.md
+    - text: Networking
+      url: concepts-networking.md
+    - text: Monitorowanie
+      url: concepts-monitoring.md
+    - text: Dzienniki inspekcji
+      url: concepts-audit-logs.md
+  - linkListType: how-to-guide
+    links:
+    - text: Zarządzanie serwerem
+      url: how-to-manage-server-portal.md
+    - text: Zatrzymywanie/uruchamianie serwera
+      url: how-to-stop-start-server-portal.md
+    - text: Konfigurowanie dzienników i uzyskiwanie do nich dostępu
+      url: how-to-configure-slow-query-logs-portal.md
+    - text: Planowanie konserwacji
+      url: how-to-maintenance-portal.md
+- title: Ciągłość działalności biznesowej
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Omówienie ciągłości działania
+      url: concepts-business-continuity.md
+    - text: Wysoka dostępność
+      url: concepts-high-availability.md
+    - text: Tworzenie kopii zapasowej i przywracanie
+      url: concepts-backup-restore.md
+  - linkListType: how-to-guide
+    links:
+    - text: Przywracanie serwera
+      url: how-to-restore-server-portal.md
+- title: Connect
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Łączenie przy użyciu języka PHP
+      url: connect-php.md
+    - text: Łączenie przy użyciu programu MySQL Workbench
+      url: connect-workbench.md
+    - text: Łączenie przy użyciu języka Python
+      url: connect-python.md
+  - linkListType: tutorial
+    links:
+    - text: Łączenie aplikacji internetowej w sieci wirtualnej
+      url: tutorial-webapp-server-vnet.md
+- title: Migrate (Migracja)
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Migrowanie w trybie online
+      url: ../howto-migrate-online.md
+- title: Dokumentacja
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Dokumentacja programistyczna interfejsu wiersza polecenia platformy Azure
+      url: /cli/azure/mysql
+    - text: Dokumentacja programistyczna interfejsu API REST
+      url: /rest/api/mysql/
+    - text: Szablony usługi Azure Resource Manager
+      url: /azure/templates/microsoft.dbformysql/allversions

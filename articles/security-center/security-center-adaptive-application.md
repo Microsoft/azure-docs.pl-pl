@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276766"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894736"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -50,8 +50,8 @@ Przez Definiowanie list znanych bezpiecznych aplikacji oraz generowanie alertów
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Ogólna dostępność|
-|Wpisaną|Warstwa Standardowa|
+|Stan wydania:|Ogólnie dostępna (GA)|
+|Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
 |Obsługiwane maszyny:|![Tak na ](./media/icons/yes-icon.png) platformie Azure i na maszynach spoza platformy Azure z systemem Windows i Linux<br>![Tak — ](./media/icons/yes-icon.png) maszyny [usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/)|
 |Wymagane role i uprawnienia:|Role czytnika i **czytnika** **zabezpieczeń** mogą wyświetlać grupy i listy znanych bezpiecznych aplikacji<br>Role administratora **współautora** i **zabezpieczeń** mogą edytować grupy i listy znanych bezpiecznych aplikacji|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
@@ -65,7 +65,9 @@ Jeśli Security Center zidentyfikował grupy maszyn w Twoich subskrypcjach, któ
 
 Wybierz zalecenie lub Otwórz stronę adaptacyjne kontrolki aplikacji, aby wyświetlić listę sugerowanych, znanych, bezpiecznych aplikacji i grup maszyn.
 
-1. Z menu Security Center wybierz pozycję **adaptacyjne kontrolki aplikacji**.
+1. Otwórz pulpit nawigacyjny usługi Azure Defender i w obszarze Ochrona zaawansowana wybierz pozycję **adaptacyjne kontrolki aplikacji**.
+
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Otwieranie adaptacyjnych kontrolek aplikacji z poziomu pulpitu nawigacyjnego platformy Azure" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     Zostanie otwarta strona **adaptacyjne kontrolki aplikacji** z maszynami wirtualnymi pogrupowanymi na następujące karty:
 
@@ -86,7 +88,7 @@ Wybierz zalecenie lub Otwórz stronę adaptacyjne kontrolki aplikacji, aby wyśw
       - Jest to maszyna z systemem Windows z wcześniej istniejącymi zasadami [funkcji AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) , które są włączone przez obiekt zasad grupy lub zasady zabezpieczeń lokalnych.
 
       > [!TIP]
-      > Security Center potrzebuje co najmniej dwóch tygodni danych do zdefiniowania unikatowych zaleceń dla każdej grupy maszyn. Ostatnio utworzone maszyny lub należące do subskrypcji, które były niedawno włączone przy użyciu warstwy Standardowa, będą wyświetlane na karcie **bez rekomendacji** .
+      > Security Center potrzebuje co najmniej dwóch tygodni danych do zdefiniowania unikatowych zaleceń dla każdej grupy maszyn. Ostatnio utworzone maszyny lub należące do subskrypcji, które były niedawno włączone w usłudze Azure Defender, będą wyświetlane na karcie **bez rekomendacji** .
 
 
 1. Otwórz kartę **zalecane** . Zostanie wyświetlona Grupa komputerów z zalecanymi listami dozwolonych.
@@ -121,7 +123,7 @@ Możesz zdecydować się na edycję listy dozwolonych dla grupy komputerów ze w
 
 Aby edytować reguły dla grupy komputerów:
 
-1. Z menu Security Center wybierz pozycję **adaptacyjne kontrolki aplikacji**.
+1. Otwórz pulpit nawigacyjny usługi Azure Defender i w obszarze Ochrona zaawansowana wybierz pozycję **adaptacyjne kontrolki aplikacji**.
 
 1. Na **skonfigurowanej** karcie Wybierz grupę z regułą, którą chcesz edytować.
 
@@ -169,7 +171,7 @@ Aby skorygować problemy:
 
 ## <a name="audit-alerts-and-violations"></a>Inspekcja alertów i naruszeń
 
-1. Z menu Security Center wybierz pozycję **adaptacyjne kontrolki aplikacji**.
+1. Otwórz pulpit nawigacyjny usługi Azure Defender i w obszarze Ochrona zaawansowana wybierz pozycję **adaptacyjne kontrolki aplikacji**.
 
 1. Aby wyświetlić grupy z maszynami, które mają Ostatnie alerty, przejrzyj grupy wymienione na karcie **skonfigurowane** .
 
@@ -184,6 +186,8 @@ Aby skorygować problemy:
 ## <a name="move-a-machine-from-one-group-to-another"></a>Przenoszenie maszyny z jednej grupy do innej
 
 Po przeniesieniu maszyny z jednej grupy do innej zasady kontroli aplikacji zastosowane do niej zmieniają ustawienia grupy, do której została przeniesiona. Możesz również przenieść maszynę ze skonfigurowanej grupy do grupy, która nie jest skonfigurowana. spowoduje to usunięcie wszystkich reguł kontroli aplikacji, które zostały zastosowane do maszyny.
+
+1. Otwórz pulpit nawigacyjny usługi Azure Defender i w obszarze Ochrona zaawansowana wybierz pozycję **adaptacyjne kontrolki aplikacji**.
 
 1. Na stronie **adaptacyjne kontrolki aplikacji** na **skonfigurowanej** karcie Wybierz grupę zawierającą maszynę, która ma zostać przeniesiona.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 6d9d9f2d7363217ef4e9b13b44d3665af33cb8ef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: bd77af133b88e1ba93054dbb7e0f896d8d418f89
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661799"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893550"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integracja z usługą git dla Azure Machine Learning
 
@@ -68,14 +68,12 @@ Jeśli pliki szkoleniowe nie znajdują się w repozytorium Git w środowisku dew
 
 Informacje dotyczące usługi git są przechowywane we właściwościach przebiegu szkoleniowego. Te informacje można wyświetlić przy użyciu Azure Portal, zestawu Python SDK i interfejsu wiersza polecenia. 
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
-1. Na [Azure Portal](https://portal.azure.com)wybierz swój obszar roboczy.
+1. W [portalu Studio](https://ml.azure.com)wybierz swój obszar roboczy.
 1. Wybierz pozycję __eksperymenty__, a następnie wybierz jedno z eksperymentów.
 1. Wybierz jeden z przebiegów z kolumny __numer uruchomienia__ .
-1. Wybierz pozycję __dzienniki__, a następnie rozwiń pozycje __dzienniki__ i __Azure__ . Wybierz łącze zaczynające się od __ ### \_ platformy Azure__.
-
-    ![Wpis # # #_azure w portalu](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
+1. Wybierz pozycję dane __wyjściowe + dzienniki__, a następnie rozwiń pozycję __dzienniki__ i wpisy w usłudze __Azure__ . Wybierz łącze zaczynające się od __ ### \_ platformy Azure__.
 
 Zarejestrowane informacje zawierają tekst podobny do następującego:
 

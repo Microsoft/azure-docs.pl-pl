@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: a8a5914b51b56fbe8b4b7b7ba331f58ec451f975
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86933b324d7216a6097102cf237d0402d9f63234
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82731887"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882684"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Przedpłata za Azure Database for MySQL zasoby obliczeniowe z zarezerwowaną pojemnością
 
@@ -43,7 +43,7 @@ Załóżmy na przykład, że korzystasz z jednej bazy danych 5 rdzeń – 32 rdz
 4. Wypełnij pola wymagane. Istniejące lub nowe bazy danych zgodne z wybranymi atrybutami kwalifikują się do uzyskania rabatu zarezerwowanej pojemności. Rzeczywista liczba serwerów Azure Database for MySQL, które pobierają rabat, zależą od wybranego zakresu i ilości.
 
 
-![Przegląd cen zarezerwowanych](media/concepts-reserved-pricing/mysql-reserved-price.png)
+:::image type="content" source="media/concepts-reserved-pricing/mysql-reserved-price.png" alt-text="Przegląd cen zarezerwowanych":::
 
 
 W poniższej tabeli opisano wymagane pola.
@@ -56,7 +56,7 @@ W poniższej tabeli opisano wymagane pola.
 | Typ wdrożenia | Typ zasobu Azure Database for MySQL, dla którego chcesz kupić rezerwację.
 | Warstwa wydajności | Warstwa usług dla serwerów Azure Database for MySQL.
 | Termin | Jeden rok
-| Liczba | Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji Azure Database for MySQL zarezerwowanej. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania programu lub planowania uruchamiania serwerów Azure Database for MySQL z łączną pojemnością obliczeniową 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich serwerów.
+| Ilość | Ilość zasobów obliczeniowych zakupionych w ramach rezerwacji Azure Database for MySQL zarezerwowanej. Ilość to liczba rdzeni wirtualnych w wybranym regionie i warstwie wydajności platformy Azure, które są zarezerwowane i pobierają rabat rozliczeń. Na przykład w przypadku uruchamiania programu lub planowania uruchamiania serwerów Azure Database for MySQL z łączną pojemnością obliczeniową 5 rdzeń 16 rdzeni wirtualnych w regionie Wschodnie stany USA należy określić liczbę jako 16, aby zmaksymalizować korzyść dla wszystkich serwerów.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 

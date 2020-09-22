@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: f03b5e93e4ed5155f6a713c152fbcf34dc873674
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 64be7f01cc9cc7ae77af5386be7a11cd16785dd1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065883"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882401"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architektura łączności w Azure Database for PostgreSQL
 W tym artykule opisano architekturę Azure Database for PostgreSQL łączności oraz sposób kierowania ruchu do wystąpienia bazy danych Azure Database for PostgreSQL z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -19,7 +19,7 @@ W tym artykule opisano architekturę Azure Database for PostgreSQL łączności 
 ## <a name="connectivity-architecture"></a>Architektura łączności
 Połączenie z Azure Database for PostgreSQL jest nawiązywane za pomocą bramy, która jest odpowiedzialna za kierowanie połączeń przychodzących do lokalizacji fizycznej serwera w naszych klastrach. Na poniższym diagramie przedstawiono przepływ ruchu.
 
-![Przegląd architektury łączności](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+:::image type="content" source="./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png" alt-text="Przegląd architektury łączności":::
 
 Gdy klient nawiązuje połączenie z bazą danych, otrzymują parametry połączenia, które łączą się z bramą. Ta brama ma publiczny adres IP, który nasłuchuje na porcie 5432. Wewnątrz ruchu klastra bazy danych jest przekazywany do odpowiednich Azure Database for PostgreSQL. W związku z tym, aby nawiązać połączenie z serwerem, na przykład z sieci firmowej, należy otworzyć Zaporę po stronie klienta, aby zezwolić na ruch wychodzący z naszych bram. Poniżej znajdziesz pełną listę adresów IP używanych przez nasze bramy na region.
 
@@ -35,7 +35,7 @@ W poniższej tabeli wymieniono podstawowe i pomocnicze adresy IP bramy Azure Dat
 | Brazil South | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
 | Kanada Środkowa |40.85.224.249  |
 | Kanada Wschodnia | 40.86.226.166    |
-| Central US | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     |
+| Środkowe stany USA | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     |
 | Chiny Wschodnie | 139.219.130.35    |
 | Chiny Wschodnie 2 | 40.73.82.1  |
 | Chiny Północne | 139.219.15.17    |

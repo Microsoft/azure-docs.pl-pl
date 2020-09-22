@@ -1,6 +1,6 @@
 ---
-title: Samouczek umożliwiający nawiązanie połączenia z usługą, skonfigurowanie, aktywację Azure Stack urządzeniu brzegowym w Azure Portal | Microsoft Docs
-description: Samouczek wdrażania Azure Stack Edge powoduje nawiązanie połączenia, skonfigurowanie i aktywowanie urządzenia fizycznego.
+title: Samouczek dotyczący nawiązywania połączenia z usługą, konfigurowania, aktywowania Azure Stack EDGE Pro w Azure Portal | Microsoft Docs
+description: Samouczek wdrażania Azure Stack EDGE Pro powoduje nawiązanie połączenia, skonfigurowanie i aktywowanie urządzenia fizycznego.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e0a0d9415cc55c24bb4dc0690c73d9f79fc0ce0e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: 5a89125edf6082bbbcbaf139a648c9edc2debf81
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84608438"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894249"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-stack-edge"></a>Samouczek: łączenie, Konfigurowanie i aktywowanie Azure Stack Edge 
+# <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Samouczek: łączenie, Konfigurowanie i aktywowanie Azure Stack EDGE Pro 
 
-W tym samouczku opisano sposób nawiązywania połączenia z usługą, konfigurowania i aktywowania urządzenia brzegowego Azure Stack przy użyciu lokalnego interfejsu użytkownika sieci Web.
+W tym samouczku opisano sposób nawiązywania połączenia z usługą, konfigurowania i aktywowania urządzenia Azure Stack EDGE Pro przy użyciu lokalnego interfejsu użytkownika sieci Web.
 
 Proces instalacji i aktywacji może potrwać około 20 minut.
 
@@ -31,23 +31,23 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack Edge upewnij się, że:
+Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack EDGE Pro upewnij się, że:
 
-* Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w temacie [Install Azure Stack Edge](azure-stack-edge-deploy-install.md).
-* Masz klucz aktywacji z usługi Azure Stack Edge, która została utworzona w celu zarządzania Azure Stack urządzeniem brzegowym. Aby uzyskać więcej informacji, przejdź do [przygotowania do wdrożenia Azure Stack Edge](azure-stack-edge-deploy-prep.md).
+* Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w temacie [Install Azure Stack EDGE Pro](azure-stack-edge-deploy-install.md).
+* Masz klucz aktywacji z usługi Azure Stack Edge, która została utworzona w celu zarządzania urządzeniem Azure Stack EDGE Pro. Aby uzyskać więcej informacji, przejdź do pozycji [przygotowanie do wdrożenia Azure Stack EDGE Pro](azure-stack-edge-deploy-prep.md).
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Nawiązywanie połączenia z konfiguracją lokalnego interfejsu użytkownika sieci Web
 
-1. Skonfiguruj kartę Ethernet na komputerze, aby nawiązać połączenie z urządzeniem Azure Stack Edge ze statycznym adresem IP 192.168.100.5 i podsiecią 255.255.255.0.
+1. Skonfiguruj kartę Ethernet na komputerze, aby nawiązać połączenie z urządzeniem Azure Stack EDGE Pro ze statycznym adresem IP 192.168.100.5 i podsiecią 255.255.255.0.
 
 2. Podłącz komputer do portu 1 na urządzeniu. Użyj poniższej ilustracji, aby zidentyfikować PORT 1 na urządzeniu.
 
     ![Płyta montażowa okablowanego urządzenia](./media/azure-stack-edge-deploy-install/backplane-cabled.png)
 
-3. Otwórz okno przeglądarki i uzyskaj dostęp do lokalnego interfejsu użytkownika sieci Web urządzenia pod adresem `https://192.168.100.10` .  
+3. Otwórz okno przeglądarki i uzyskaj dostęp do lokalnego internetowego interfejsu użytkownika urządzenia pod adresem `https://192.168.100.10`.  
     Ta akcja może potrwać kilka minut po włączeniu urządzenia.
 
-    Zostanie wyświetlony komunikat o błędzie lub ostrzeżenie wskazujący, że wystąpił problem z certyfikatem zabezpieczeń witryny sieci Web.
+    Zostanie wyświetlony komunikat o błędzie lub ostrzeżenie informujące o problemie z certyfikatem zabezpieczeń witryny internetowej.
    
     ![Komunikat o błędzie dotyczący certyfikatu zabezpieczeń witryny sieci Web](./media/azure-stack-edge-deploy-connect-setup-activate/image2.png)
 
@@ -56,7 +56,7 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack Edge upewnij s
 
 5. Zaloguj się do internetowego interfejsu użytkownika urządzenia. Domyślne hasło to *Password1*. 
    
-    ![Strona logowania do urządzenia brzegowego Azure Stack](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
+    ![Strona logowania do urządzenia z systemem Azure Stack Edge](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. W wierszu polecenia Zmień hasło administratora urządzenia.  
     Nowe hasło musi zawierać od 8 do 16 znaków. Musi zawierać trzy z następujących znaków: wielkie litery, małe litery, cyfry i znaki specjalne.
@@ -75,18 +75,18 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
     ![Strona "nazwa urządzenia" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. Obowiązkowe W okienku po lewej stronie wybierz pozycję **Ustawienia sieci** , a następnie skonfiguruj ustawienia.  
-    Na urządzeniu fizycznym istnieje sześć interfejsów sieciowych. PORT 1 i 2 są interfejsami sieciowymi z 1 GB/s. PORT 3, port 4, PORT 5 i PORT 6 to wszystkie 25 GB/s interfejsów sieciowych, które mogą również działać jako interfejsy sieciowe 10 GB/s. PORT 1 jest automatycznie konfigurowany jako port tylko do zarządzania, a PORT 2 do portu 6 to wszystkie porty danych. Zostanie wyświetlona strona **Ustawienia sieci** .
+    Na urządzeniu fizycznym znajduje się sześć interfejsów sieciowych. PORT 1 i PORT 2 są interfejsami sieciowymi 1 GB/s. PORT 3, port 4, PORT 5 i PORT 6 to wszystkie 25 GB/s interfejsów sieciowych, które mogą również działać jako interfejsy sieciowe 10 GB/s. PORT 1 jest automatycznie konfigurowany jako port tylko do zarządzania, a PORT 2 do portu 6 to wszystkie porty danych. Zostanie wyświetlona strona **Ustawienia sieci** .
     
     ![Strona ustawień sieciowych lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
     Podczas konfigurowania ustawień sieci należy pamiętać o następujących kwestiach:
 
-   - Jeżeli w Twoim środowisku włączony jest protokół DHCP, interfejsy sieciowe są automatycznie konfigurowane. Adres IP, podsieć, Brama i DNS są przypisywane automatycznie.
+   - Jeżeli w Twoim środowisku włączony jest protokół DHCP, interfejsy sieciowe są automatycznie konfigurowane. Adres IP, podsieć, brama i DNS są przypisywane automatycznie.
    - Jeśli usługa DHCP nie jest włączona, w razie konieczności można przypisywać statyczne adresy IP.
    - Interfejs sieciowy można skonfigurować jako adres IPv4.
 
      >[!NOTE] 
-     > Zaleca się, aby nie przełączać lokalnego adresu IP interfejsu sieciowego ze statycznej do protokół DHCP;, chyba że masz inny adres IP, aby połączyć się z urządzeniem. W przypadku korzystania z jednego interfejsu sieciowego i przełączania do usługi DHCP nie byłoby możliwe określenie adresu DHCP. Jeśli chcesz zmienić adres DHCP, zaczekaj, aż urządzenie zostanie zarejestrowane w usłudze, a następnie Zmień. Następnie można wyświetlić adresy IP wszystkich kart we **właściwościach urządzenia** w Azure Portal dla usługi.
+     > Zaleca się, aby nie przełączać lokalnego adresu IP interfejsu sieciowego ze statycznego na protokół DHCP, chyba że dostępny jest inny adres IP, aby połączyć się z urządzeniem. W przypadku korzystania z jednego interfejsu sieciowego i przełączenia na protokół DHCP nie będzie możliwości określenia adresu DHCP. Jeśli chcesz zmienić na adres DHCP, zaczekaj, aż urządzenie zostanie zarejestrowane w usłudze, a następnie dokonaj zmiany. Następnie można wyświetlić adresy IP wszystkich kart we **właściwościach urządzenia** w Azure Portal dla usługi.
 
 3. Obowiązkowe W okienku po lewej stronie wybierz pozycję **Ustawienia serwera proxy sieci Web**, a następnie skonfiguruj serwer proxy sieci Web. Mimo że konfiguracja serwera proxy sieci Web jest opcjonalna, jeśli używasz serwera proxy sieci Web, możesz go skonfigurować tylko na tej stronie.
    
@@ -96,7 +96,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
    
    a. W polu **adres URL serwera proxy sieci Web** wprowadź adres URL w tym formacie: `http://host-IP address or FQDN:Port number` . Adresy URL HTTPS nie są obsługiwane.
 
-   b. W obszarze **uwierzytelnianie**wybierz opcję **Brak** lub **NTLM**. W przypadku włączenia modułu obliczeniowego i używania IoT Edge na urządzeniu brzegowym Azure Stack, zalecamy ustawienie uwierzytelniania serwera proxy sieci Web na **Brak**. **Uwierzytelnianie NTLM** nie jest obsługiwane.
+   b. W obszarze **uwierzytelnianie**wybierz opcję **Brak** lub **NTLM**. W przypadku włączenia modułu obliczeniowego i używania IoT Edge na urządzeniu z systemem Azure Stack EDGE Pro zalecamy ustawienie uwierzytelniania serwera proxy sieci Web na **Brak**. **Uwierzytelnianie NTLM** nie jest obsługiwane.
 
    c. Jeśli używasz uwierzytelniania, wprowadź nazwę użytkownika i hasło.
 
@@ -104,8 +104,8 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
 
    > [!NOTE]
    > Pliki proxy-autoconfig (PAC) nie są obsługiwane. Plik PAC definiuje, w jaki sposób przeglądarki sieci Web i inni agenci użytkowników mogą automatycznie wybierać odpowiedni serwer proxy (metoda dostępu) do pobierania danego adresu URL.
-   > Serwery proxy próbujące przechwycić i odczytać cały ruch (a następnie ponownie podpisać wszystko z własnym certyfikatem) nie są zgodne, ponieważ certyfikat serwera proxy nie jest zaufany.
-   > Zazwyczaj przezroczyste serwery proxy działają dobrze z Azure Stack Edge.
+   > Serwery proxy próbujące przechwycić i odczytać cały ruch (a następnie ponownie podpisać wszystko własnym certyfikatem) nie są zgodne, ponieważ certyfikat serwera proxy nie jest zaufany.
+   > Zazwyczaj przezroczyste serwery proxy działają dobrze w przypadku Azure Stack krawędzi Pro.
 
 4. Obowiązkowe W okienku po lewej stronie wybierz pozycję **Ustawienia czasu**, a następnie skonfiguruj strefę czasową i serwery NTP w podstawowym i pomocniczym urządzeniu.  
     Serwery NTP są wymagane, ponieważ urządzenie musi synchronizować czas, aby można było uwierzytelnić się z dostawcami usług w chmurze.
@@ -133,7 +133,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
 
 6. W lewym okienku wybierz pozycję **Ustawienia chmury**, a następnie aktywuj urządzenie przy użyciu usługi Azure Stack Edge w Azure Portal.
     
-    1. W polu **klucz aktywacji** wprowadź klucz aktywacji uzyskany w polu [Pobierz klucz aktywacji](azure-stack-edge-deploy-prep.md#get-the-activation-key) dla Azure Stack Edge.
+    1. W polu **klucz aktywacji** wprowadź klucz aktywacji uzyskany w ramach elementu [Pobierz klucz aktywacji](azure-stack-edge-deploy-prep.md#get-the-activation-key) dla Azure Stack brzeg Pro.
     2. Wybierz przycisk **Zastosuj**.
        
         ![Strona lokalnego interfejsu użytkownika sieci Web "Ustawienia chmury"](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-6.png)
@@ -158,7 +158,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Nawiązywanie połączenia z urządzeniem fizycznym
 > * Konfigurowanie i aktywowanie urządzenia fizycznego
 
-Aby dowiedzieć się, jak przesyłać dane przy użyciu urządzenia z Azure Stack Edge, zobacz:
+Aby dowiedzieć się, jak przesyłać dane przy użyciu urządzenia z Azure Stack EDGE Pro, zobacz:
 
 > [!div class="nextstepaction"]
-> [Przenieś dane przy użyciu Azure Stack Edge](./azure-stack-edge-deploy-add-shares.md).
+> [Transferuj dane przy użyciu Azure Stack Edge](./azure-stack-edge-deploy-add-shares.md).

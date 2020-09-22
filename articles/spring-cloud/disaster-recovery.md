@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6af23f566e8768dd1213095402b7af029d494476
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19e022073f43548a91fad76cb380a75205237bbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076038"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892547"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Odzyskiwanie po awarii w chmurze z platformy Azure
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
 W tym artykule opisano niektóre strategie, których można użyć do ochrony Twoich aplikacji w chmurze platformy Azure przed wykorzystaniem przestojów.  W każdym regionie lub centrum danych może wystąpić przestój spowodowany przez regionalne awarie, ale staranne planowanie może ograniczyć wpływ na klientów.
 
@@ -41,7 +43,7 @@ W dwóch różnych regionach (Wschodnie stany USA i Europa Zachodnia) będą pot
 
 **Dwie informacje o wystąpieniach usługi:**
 
-| Nazwa usługi | Lokalizacja | Aplikacja |
+| Nazwa usługi | Location | Aplikacja |
 |--|--|--|
 | Service — przykład-a | East US | Brama/uwierzytelnianie-usługa/konto — usługa |
 | Service-Sample-b | West Europe | Brama/uwierzytelnianie-usługa/konto — usługa |
@@ -51,7 +53,7 @@ W dwóch różnych regionach (Wschodnie stany USA i Europa Zachodnia) będą pot
 3. Utwórz Menedżera ruchu i dwa punkty końcowe: [Utwórz profil Traffic Manager przy użyciu Azure Portal](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
 
 Oto profil Menedżera ruchu:
-* Traffic Manager nazwę DNS:`http://asc-bcdr.trafficmanager.net`
+* Traffic Manager nazwę DNS: `http://asc-bcdr.trafficmanager.net`
 * Profile punktów końcowych: 
 
 | Profil | Typ | Cel | Priorytet | Niestandardowe ustawienia nagłówka |
@@ -62,3 +64,8 @@ Oto profil Menedżera ruchu:
 4. Utwórz rekord CNAME w strefie DNS: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
 
 5. Środowisko jest teraz całkowicie skonfigurowane. Klienci powinni mieć dostęp do aplikacji za pośrednictwem: bcdr-test.contoso.com
+
+## <a name="next-steps"></a>Następne kroki
+
+* [Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny](spring-cloud-quickstart.md)
+ 

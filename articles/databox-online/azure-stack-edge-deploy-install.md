@@ -1,6 +1,6 @@
 ---
-title: Samouczek dotyczący instalowania-rozpakowywania, stojaka, Azure Stack urządzenia fizycznego Microsoft Docs
-description: Drugi samouczek dotyczący instalowania Azure Stack Edge polega na rozpakowaniu, stojaku i połączeniu urządzenia fizycznego.
+title: Samouczek dotyczący instalowania-rozpakowywania, stojaka, kabla Azure Stack Edge urządzenie fizyczne Pro | Microsoft Docs
+description: Drugi samouczek dotyczący instalowania programu Azure Stack EDGE Pro obejmuje sposób rozpakowywania, stojaka i podłączenia do urządzenia fizycznego.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/17/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 429fe0c4db4a7825a6a98aa5d2cd6af609a34a61
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
+ms.openlocfilehash: 9aa02521d91d41380b1bdac3efe50ab3d196a856
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82571000"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894196"
 ---
-# <a name="tutorial-install-azure-stack-edge"></a>Samouczek: Instalowanie Azure Stack Edge
+# <a name="tutorial-install-azure-stack-edge-pro"></a>Samouczek: Instalowanie Azure Stack EDGE Pro
 
-W tym samouczku opisano sposób instalowania urządzenia fizycznego Azure Stack Edge. Procedura instalacji obejmuje rozpakowywanie, montowanie na stojaku i podłączanie kabli urządzenia. 
+W tym samouczku opisano sposób instalowania urządzenia fizycznego w programie Azure Stack Edge. Procedura instalacji obejmuje rozpakowywanie, montowanie na stojaku i podłączanie kabli urządzenia. 
 
 Instalacja może potrwać około dwóch godzin.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Rozpakowywanie urządzenia
@@ -37,12 +37,12 @@ Wymagania wstępne dotyczące instalacji urządzenia fizycznego są następując
 
 Przed rozpoczęciem upewnij się, że:
 
-* Wykonano wszystkie kroki z sekcji [przygotowanie do wdrożenia Azure Stack Edge](azure-stack-edge-deploy-prep.md).
+* Wykonano wszystkie kroki z sekcji [przygotowanie do wdrożenia Azure Stack EDGE Pro](azure-stack-edge-deploy-prep.md).
     * Utworzono zasób Azure Stack Edge, aby wdrożyć urządzenie.
     * Klucz aktywacji został wygenerowany w celu aktywowania urządzenia przy użyciu zasobu brzegowego Azure Stack.
 
  
-### <a name="for-the-azure-stack-edge-physical-device"></a>Na urządzeniu fizycznym Azure Stack Edge
+### <a name="for-the-azure-stack-edge-pro-physical-device"></a>Na urządzeniu fizycznym programu Azure Stack EDGE Pro
 
 Przed wdrożeniem urządzenia:
 
@@ -58,7 +58,7 @@ Przed wdrożeniem urządzenia:
 
 Przed rozpoczęciem:
 
-- Zapoznaj się z wymaganiami dotyczącymi sieci w celu wdrożenia Azure Stack Edge i skonfigurowania sieci centrum danych zgodnie z wymaganiami. Aby uzyskać więcej informacji, zobacz [Azure Stack Edge wymagania dotyczące sieci](azure-stack-edge-system-requirements.md#networking-port-requirements).
+- Zapoznaj się z wymaganiami dotyczącymi sieci dotyczącymi wdrażania Azure Stack EDGE Pro i skonfiguruj sieć centrum danych zgodnie z wymaganiami. Aby uzyskać więcej informacji, zobacz [Azure Stack EDGE Pro wymagania dotyczące sieci](azure-stack-edge-system-requirements.md#networking-port-requirements).
 
 - Aby umożliwić optymalne działanie urządzenia, przepustowość połączenia internetowego musi wynosić co najmniej 20 Mb/s.
 
@@ -70,12 +70,12 @@ To urządzenie jest dostarczane w jednym pudełku. Aby rozpakować urządzenie, 
 1. Umieść pudełko na płaskiej, poziomej powierzchni.
 2. Sprawdź, czy na pudełku i na piance opakowaniowej znajdują się naderwania, zarysowania, przecięcia, uszkodzenia od wody lub inne widoczne uszkodzenia. Jeśli pudełko lub opakowanie jest poważnie uszkodzone, nie należy go otwierać. Skontaktuj się z pomocą techniczną firmy Microsoft, która pomoże Ci ustalić, czy urządzenie znajduje się w dobrym stanie umożliwiającym prawidłowe działanie.
 3. Rozpakuj zawartość pudełka. Po rozpakowaniu upewnij się, że masz:
-    - Jedna obudowa Azure Stack Urządzenie brzegowe
+    - Jedna obudowa Azure Stacką urządzenia z krawędzią Pro
     - dwa przewody zasilania,
     - Jeden zestaw szyn
     - Książeczka bezpieczeństwa, środowiska i informacji prawnych
 
-Jeśli wszystkie elementy wymienione w tym miejscu nie zostały odebrane, skontaktuj się z pomocą techniczną Azure Stack Edge. Następnym krokiem jest zamontowanie urządzenia na stojaku.
+Jeśli wszystkie elementy wymienione w tym miejscu nie zostały odebrane, skontaktuj się z pomocą techniczną Azure Stack EDGE Pro. Następnym krokiem jest zamontowanie urządzenia na stojaku.
 
 
 ## <a name="rack-the-device"></a>Montowanie urządzenia na stojaku
@@ -83,7 +83,7 @@ Jeśli wszystkie elementy wymienione w tym miejscu nie zostały odebrane, skonta
 Urządzenie należy zainstalować na standardowym, 19-calowym stojaku. Użyj poniższej procedury, aby zainstalować urządzenie w standardowym stojaku z 19 cala.
 
 > [!IMPORTANT]
-> Urządzenia brzegowe Azure Stack muszą być zainstalowane w stojaku w celu zapewnienia odpowiedniej operacji.
+> Aby poprawna operacja była zamocowana w stojaku, Azure Stack urządzenia z systemem Edge.
 
 
 ### <a name="prerequisites"></a>Wymagania wstępne
@@ -157,11 +157,11 @@ Znajdź składniki służące do instalowania zestawu szyny:
 
 ## <a name="cable-the-device"></a>Podłączanie kabli urządzenia
 
-Roześlij kable, a następnie podłącz urządzenie. Poniższe procedury wyjaśniają, jak podłączyć urządzenie do usługi Azure Stack Edge w celu podłączenia do sieci.
+Roześlij kable, a następnie podłącz urządzenie. W poniższych procedurach wyjaśniono, jak podłączyć urządzenie do usługi Azure Stack Edge w sieci na potrzeby połączeń z usługą Power BI.
 
 Aby można było rozpocząć podłączanie kabli urządzenia, potrzebne są następujące elementy:
 
-- Urządzenie fizyczne, rozpakowane i zamontowane w stojaku Azure Stack.
+- Twoje urządzenie fizyczne w Azure Stack Edge, rozpakowane i stelaże.
 - Dwa kable zasilające.
 - Co najmniej jeden kabel sieciowy 1-GbE RJ-45 służący do łączenia z interfejsem zarządzania. Istnieją dwa interfejsy sieciowe 1-GbE: jeden do zarządzania i drugi stanowiący interfejs danych w urządzeniu.
 - Jeden miedziany kabel 25-GbE SFP+ dla każdego interfejsu sieciowego danych do skonfigurowania. Co najmniej jeden sieciowy interfejs danych — PORT 2, PORT 3, PORT 4, PORT 5 lub PORT 6 — musi być połączony z Internetem (umożliwiając łączność z platformą Azure).  
@@ -170,9 +170,9 @@ Aby można było rozpocząć podłączanie kabli urządzenia, potrzebne są nast
 > [!NOTE]
 > - Jeśli łączysz tylko jeden interfejs sieciowy danych, zalecamy użycie interfejsu sieciowego 25/10 GbE, takiego jak PORT 3, PORT 4, PORT 5 lub PORT 6 do wysyłania danych do platformy Azure. 
 > - Aby uzyskiwać najlepszą wydajność i obsługiwać duże ilości danych, rozważ połączenie wszystkich portów danych.
-> - Urządzenie brzegowe Azure Stack powinno być połączone z siecią centrum danych, aby można było pozyskać dane z serwerów źródłowych.
+> - Urządzenie Azure Stack EDGE Pro powinno być połączone z siecią centrum danych, aby można było pozyskać dane z serwerów źródłowych.
 
-Na urządzeniu Azure Stack Edge:
+Na urządzeniu Azure Stack EDGE Pro:
 
 - Panel przedni ma stacje dysków i przycisk potęgi.
 
@@ -213,7 +213,7 @@ Wykonaj poniższe kroki, aby podłączyć kable urządzenia do sieci i zasilania
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono informacje dotyczące Azure Stack krawędzi, takich jak:
+W tym samouczku przedstawiono informacje na temat Azure Stack krawędzi programu Edge Pro, takich jak:
 
 > [!div class="checklist"]
 > * Rozpakowywanie urządzenia
@@ -223,4 +223,4 @@ W tym samouczku przedstawiono informacje dotyczące Azure Stack krawędzi, takic
 Przejdź do następnego samouczka, aby dowiedzieć się, jak nawiązać połączenie z urządzeniem oraz je skonfigurować i aktywować.
 
 > [!div class="nextstepaction"]
-> [Łączenie i Konfigurowanie Azure Stack Edge](./azure-stack-edge-deploy-connect-setup-activate.md)
+> [Łączenie i Konfigurowanie Azure Stack EDGE Pro](./azure-stack-edge-deploy-connect-setup-activate.md)

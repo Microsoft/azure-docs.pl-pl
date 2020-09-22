@@ -1,0 +1,39 @@
+---
+title: Azure Database for MySQL — elastyczny serwer (wersja zapoznawcza) — Planowana konserwacja — Azure Portal
+description: Dowiedz się, jak skonfigurować ustawienia zaplanowanej konserwacji dla Azure Database for MySQL serwera z Azure Portal.
+author: niklarin
+ms.author: nlarin
+ms.service: mysql
+ms.topic: how-to
+ms.date: 9/21/2020
+ms.openlocfilehash: 6c3ad5fff6958bce72f876e3ff4701cf081abe60
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90940483"
+---
+# <a name="manage-scheduled-maintenance-settings-for-azure-database-for-mysql--flexible-server"></a>Zarządzanie ustawieniami zaplanowanej konserwacji dla Azure Database for MySQL — elastyczny serwer
+ 
+Możesz określić opcje konserwacji dla każdego elastycznego serwera w ramach subskrypcji platformy Azure. Opcje obejmują harmonogram konserwacji i ustawienia powiadomień dla nadchodzących i zakończonych zdarzeń konserwacji.
+
+> [!IMPORTANT]
+> Azure Database for MySQL — serwer elastyczny jest w wersji zapoznawczej.
+ 
+## <a name="prerequisites"></a>Wymagania wstępne
+Aby ukończyć ten przewodnik, musisz:
+- [Serwer elastyczny Azure Database for MySQL](quickstart-create-server-portal.md)
+ 
+## <a name="specify-maintenance-schedule-options"></a>Określ opcje harmonogramu konserwacji
+ 
+1. Na stronie serwer MySQL w polu Nagłówek **ustawień** wybierz pozycję **konserwacja** , aby otworzyć Opcje zaplanowanej konserwacji.
+2. Domyślny harmonogram (zarządzany przez system) to losowy dzień tygodnia, a 60-minutowa godzina rozpoczęcia konserwacji między 23:00 i 7am lokalnym serwerem. Jeśli chcesz dostosować ten harmonogram, wybierz pozycję **harmonogram niestandardowy**. Następnie można wybrać preferowany dzień tygodnia oraz okno 60-minutowy czasu rozpoczęcia konserwacji.
+ 
+## <a name="notifications-about-scheduled-maintenance-events"></a>Powiadomienia o zdarzeniach zaplanowanej konserwacji
+ 
+Za pomocą Azure Service Health można [wyświetlać powiadomienia](/azure/service-health/service-notifications.md) o nadchodzącej i zaplanowanej konserwacji na serwerze elastycznym. Możesz również [skonfigurować](/azure/service-health/resource-health-alert-monitor-guide.md) alerty w Azure Service Health, aby otrzymywać powiadomienia o zdarzeniach konserwacji.
+ 
+## <a name="next-steps"></a>Następne kroki  
+ 
+* Informacje o [zaplanowanej konserwacji w Azure Database for MySQL — elastyczny serwer](concepts-maintenance.md)
+* Pochylenie o [Azure Service Health](/azure/service-health/overview.md)

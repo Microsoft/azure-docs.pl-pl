@@ -3,12 +3,12 @@ title: Analizowanie wideo na żywo bez żadnego rejestrowania — Azure
 description: Graf multimedialny może służyć do zaledwie wyodrębnienia analizy z strumienia wideo na żywo bez konieczności rejestrowania go na krawędzi lub w chmurze. W tym artykule omówiono tę koncepcję.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: d59e2e9e309f0ed6a65e001557dcd9dd8af90da2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5dda18b68cb19d29623f2120fe07d7cc617f0c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566758"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893025"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>Analizowanie wideo na żywo bez rejestrowania
 
@@ -40,7 +40,7 @@ W tym grafie multimedialnym węzeł procesora filtru współczynnika klatek obni
 Udoskonaleniem tego przykładu jest użycie procesora wykrywania ruchu przed węzłem procesora filtru szybkości klatek. Spowoduje to zmniejszenie obciążenia usługi wnioskowania, ponieważ jest ona używana tylko wtedy, gdy w filmie wideo znajduje się aktywność ruchu.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/custom-model.png" alt-text="Analiza wideo na żywo oparta na wykrytych klatkach za pośrednictwem zewnętrznego modułu inferencing":::
+> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="Analiza wideo na żywo oparta na wykrytych klatkach za pośrednictwem zewnętrznego modułu inferencing":::
 
 ## <a name="next-steps"></a>Następne kroki
 

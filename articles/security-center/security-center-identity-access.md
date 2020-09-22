@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2020
 ms.author: memildin
-ms.openlocfilehash: 313f10c77da499f4c405134028b975900d2d2a9e
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 042780c313c444062fd512ab0d9f38aaeb6cf170
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590238"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894564"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorowanie tożsamość i dostępu
 
@@ -66,6 +66,4 @@ Włączenie usługi MFA wymaga [uprawnień dzierżawy Azure Active Directory (AD
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej o zaleceniach dotyczących innych typów zasobów platformy Azure, zobacz następujące artykuły:
 
-- [Ochrona maszyn i aplikacji w usłudze Azure Security Center](security-center-virtual-machine-protection.md)
 - [Ochrona sieci w usłudze Azure Security Center](security-center-network-recommendations.md)
-- [Ochrona usługi Azure SQL i danych w Azure Security Center](security-center-sql-service-recommendations.md)
