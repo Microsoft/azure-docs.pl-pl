@@ -109,7 +109,7 @@
           href: howto-run-a-job.md
     - name: Przekształcanie
       items:
-        - name: Eksportowanie danych do miejsc docelowych w chmurze (wersja zapoznawcza)
+        - name: Eksportowanie danych do lokalizacji docelowych w chmurze
           href: howto-export-data.md
         - name: Eksportowanie danych do lokalizacji docelowych w chmurze (starsza wersja)
           href: howto-export-data-legacy.md

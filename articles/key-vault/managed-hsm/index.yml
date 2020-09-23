@@ -1,0 +1,84 @@
+### YamlMime:Landing
+title: Dokumentacja zarządzanego modułu HSM usługi Azure Key Vault
+summary: Dowiedz się, jak za pomocą zarządzanego modułu HSM tworzyć i obsługiwać klucze, które umożliwiają uzyskiwanie dostępu do zasobów, aplikacji i rozwiązań przechowywanych w chmurze oraz ich szyfrowanie. Samouczki, dokumentacja interfejsu API i inne materiały.
+metadata:
+  title: Dokumentacja zarządzanego modułu HSM platformy Azure
+  description: Dowiedz się, jak tworzyć i obsługiwać klucze, które umożliwiają uzyskiwanie dostępu do zasobów, aplikacji i rozwiązań przechowywanych w chmurze oraz ich szyfrowanie. Samouczki, dokumentacja interfejsu API i inne materiały.
+  services: key-vault
+  ms.service: key-vault
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 09/15/2020
+  ms.openlocfilehash: d17d119528c04b270e9dffe5b824bafcc89472dc
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90992012"
+landingContent:
+- title: Informacje o zarządzanym module HSM usługi Azure Key Vault (wersja zapoznawcza)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest zarządzany moduł HSM usługi Azure Key Vault?
+      url: overview.md
+    - text: Omówienie interfejsu API REST
+      url: ../general/about-keys-secrets-certificates.md
+    - text: Obsługiwane klucze i algorytmy
+      url: ../keys/about-keys.md
+- title: Pojęcie
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Najlepsze rozwiązania dotyczące zarządzanego modułu HSM
+      url: best-practices.md
+    - text: Kontrola dostępu zarządzanego modułu HSM
+      url: access-control.md
+    - text: Domena zabezpieczeń
+      url: security-domain.md
+    - text: Role wbudowane lokalnej kontroli dostępu opartej na rolach
+      url: built-in-roles.md
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Interfejs wiersza polecenia platformy Azure
+      url: quick-create-cli.md
+    - text: Azure Resource Manager
+      url: quick-create-template.md
+- title: Przewodniki z instrukcjami
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
+      url: key-management.md
+    - text: Zarządzanie rolami zarządzanego modułu HSM
+      url: role-management.md
+    - text: Bezpieczny dostęp do zarządzanego modułu HSM
+      url: secure-your-managed-hsm.md
+- title: Samouczki
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Tworzenie kopii zapasowej i przywracanie
+      url: backup-restore.md
+    - text: Odzyskiwanie po awarii
+      url: disaster-recovery-guide.md
+    - text: Importowanie kluczy chronionych przez moduł HSM (omówienie)
+      url: hsm-protected-keys-byok.md
+    - text: Konfigurowanie rejestrowania dla zarządzanych modułów HSM
+      url: logging.md
+- title: Więcej informacji o usłudze Key Vault
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Omówienie usługi Key Vault
+      url: ../general/overview.md
+    - text: Podstawowe pojęcia dotyczące magazynu kluczy
+      url: ../general/basic-concepts.md
+    - text: Omówienie usuwania nietrwałego
+      url: ../general/soft-delete-overview.md
+    - text: Omówienie zabezpieczeń
+      url: ../general/overview-security.md

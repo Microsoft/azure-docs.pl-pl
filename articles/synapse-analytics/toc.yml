@@ -10,24 +10,34 @@
       items:
         - name: Wprowadzenie
           href: get-started.md
+          displayName: 'get, started'
         - name: 1. Tworzenie obszaru roboczego usługi Synapse
           href: get-started-create-workspace.md
+          displayName: 'get, started'
         - name: 2. Analizowanie przy użyciu puli SQL
           href: get-started-analyze-sql-pool.md
+          displayName: 'get, started'
         - name: 3. Analizowanie przy użyciu platformy Spark
           href: get-started-analyze-spark.md
+          displayName: 'get, started'
         - name: 4. Analizowanie przy użyciu usługi SQL na żądanie
           href: get-started-analyze-sql-on-demand.md
+          displayName: 'get, started'
         - name: 5. Analizowanie danych na koncie magazynu
           href: get-started-analyze-storage.md
+          displayName: 'get, started'
         - name: 6. Orkiestracja przy użyciu potoków
           href: get-started-pipelines.md
+          displayName: 'get, started'
         - name: 7. Wizualizowanie przy użyciu usługi Power BI
           href: get-started-visualize-power-bi.md
+          displayName: 'get, started'
         - name: 8. Monitorowanie
           href: get-started-monitor.md
+          displayName: 'get, started'
         - name: 9. Eksplorowanie Centrum wiedzy
           href: get-started-knowledge-center.md
+          displayName: 'get, started'
     - name: Ściągawka
       href: overview-cheat-sheet.md
     - name: Często zadawane pytania
@@ -48,16 +58,16 @@
       href: quickstart-power-bi.md
     - name: Tworzenie pul
       items:
-        - name: Tworzenie notesu platformy Apache Spark przy użyciu narzędzi internetowych
-          href: quickstart-apache-spark-notebook.md
-        - name: Tworzenie puli platformy Apache Spark przy użyciu witryny Azure Portal
-          href: quickstart-create-apache-spark-pool-portal.md
-        - name: Tworzenie puli platformy Apache Spark za pomocą programu Synapse Studio
-          href: quickstart-create-apache-spark-pool-studio.md
-        - name: Tworzenie puli SQL przy użyciu witryny Azure Portal
-          href: quickstart-create-sql-pool-portal.md
         - name: Tworzenie puli SQL przy użyciu programu Synapse Studio
           href: quickstart-create-sql-pool-studio.md
+        - name: Tworzenie puli SQL przy użyciu witryny Azure Portal
+          href: quickstart-create-sql-pool-portal.md
+        - name: Tworzenie notesu
+          href: quickstart-apache-spark-notebook.md
+        - name: Tworzenie puli zadań platformy Spark za pomocą witryny Azure Portal
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Tworzenie puli zadań platformy Spark za pomocą programu Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
     - name: Ładowanie danych przy użyciu pul SQL
       items:
         - name: Instrukcja COPY

@@ -1,0 +1,115 @@
+### YamlMime:Landing
+title: Dokumentacja poufnego przetwarzania na platformie Azure
+summary: Poufne przetwarzanie na platformie Azure oferuje rozwiązania umożliwiające izolowanie danych poufnych podczas ich przetwarzania w chmurze. Dowiedz się, jak tworzyć i wdrażać aplikacje oparte na infrastrukturze poufnego przetwarzania, czytając pojęcia, realizując samouczki i pracując z przykładami kodu. Korzystaj z produktów firmy Microsoft opartych na poufnym przetwarzaniu, aby zapewnić możliwie jak największe bezpieczeństwo obciążeń.
+metadata:
+  title: Poufne przetwarzanie na platformie Azure
+  description: Dowiedz się więcej o sposobie, w jaki dane w użyciu są chronione przez poufne przetwarzanie na platformie Azure i poznaj sposoby tworzenia poufnych obciążeń w chmurze.
+  ms.service: virtual-machines
+  ms.subservice: workloads
+  ms.topic: landing-page
+  author: JBCook
+  ms.author: jencook
+  ms.date: 09/22/2020
+  ms.openlocfilehash: abe5104ff5425103baaca72efdc960a34ffc6a73
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90992026"
+landingContent:
+- title: Informacje o poufnym przetwarzaniu na platformie Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest poufne przetwarzanie na platformie Azure?
+      url: overview.md
+    - text: Scenariusze
+      url: use-cases-scenarios.md
+  - linkListType: concept
+    links:
+    - text: Maszyny wirtualne
+      url: confidential-computing-enclaves.md
+    - text: Przetwarzanie kontenera w usłudze AKS
+      url: confidential-containers.md
+    - text: Projektowanie aplikacji
+      url: application-development.md
+    - text: Zaświadczanie
+      url: attestation.md
+  - linkListType: reference
+    links:
+    - text: Maszyny wirtualne Intel SGX
+      url: ../virtual-machines/dcv2-series.md
+- title: Maszyny wirtualne
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Maszyny wirtualne Intel SGX
+      url: confidential-computing-enclaves.md
+  - linkListType: concept
+    links:
+    - text: Rozwiązania na maszynach wirtualnych
+      url: virtual-machine-solutions.md
+  - linkListType: quickstart
+    links:
+    - text: Wdrażanie w witrynie Azure Portal
+      url: quick-create-portal.md
+    - text: Wdrażanie w witrynie Azure Marketplace
+      url: quick-create-marketplace.md
+  - linkListType: reference
+    links:
+    - text: Maszyny wirtualne poufnego przetwarzania — często zadawane pytania
+      url: faq.md
+    - text: Cennik
+      url: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
+    - text: Dostępność
+      url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
+- title: Zasoby obliczeniowe kontenera
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Węzły poufnego przetwarzania usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
+      url: confidential-nodes-aks-overview.md
+  - linkListType: concept
+    links:
+    - text: Kontenery poufne
+      url: confidential-containers.md
+    - text: Kontenery z obsługą enklawy
+      url: enclave-aware-containers.md
+    - text: Zaświadczanie o zakończeniu przetwarzania
+      url: confidential-nodes-out-of-proc-attestation.md
+  - linkListType: quickstart
+    links:
+    - text: Prosta aplikacja kontenera enklawy w usłudze AKS
+      url: confidential-nodes-aks-get-started.md
+  - linkListType: sample
+    links:
+    - text: Próbki kontenera poufnego (niezmodyfikowane kontenery w SGX)
+      url: https://github.com/Azure-Samples/confidential-container-samples
+    - text: Przykłady kontenerów z obsługą enklawy
+      url: https://github.com/Azure-Samples/enclave-aware-container-samples
+  - linkListType: reference
+    links:
+    - text: Węzły poufne w usłudze AKS — często zadawane pytania
+      url: confidential-nodes-aks-overview.md
+    - text: Informacje o usłudze Azure Kubernetes Service (AKS)
+      url: ../aks/intro-kubernetes.md
+- title: Poufne usługi w chmurze
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Usługa Microsoft Azure Attestation
+      url: ../attestation/overview.md
+    - text: Środowisko uruchomieniowe poufnego wnioskowania ONNX
+      url: https://aka.ms/confidentialinference
+- title: Kompilowanie przy użyciu poufnego przetwarzania
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Pokaz poufnych informacji opieki zdrowotnej w usłudze AKS
+      url: https://github.com/Azure-Samples/confidential-container-samples
+    - text: Zaświadczenia wzajemnego protokołu TLS z otwartą enklawą w usłudze AKS
+      url: https://github.com/Azure-Samples/enclave-aware-container-samples
+  - linkListType: reference
+    links:
+    - text: Zestaw SDK otwartej enklawy (OE)
+      url: https://aka.ms/oesdkGitHubRepo

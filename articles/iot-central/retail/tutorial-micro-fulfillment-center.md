@@ -5,14 +5,14 @@ author: avneet723
 ms.author: avneets
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 74deb4253a21445e21f7ef04f53f3bfe3f1fe0d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 880d8ee0e6e2b3984f6bea4b994642724085d512
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000539"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980536"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji Centrum programu Micro-zrealizować
 
@@ -62,11 +62,11 @@ Z poziomu pulpitu nawigacyjnego można:
    * Zapoznaj się z planem pomieszczeń i lokalizacją przewoźników zautomatyzowanych w ramach struktury realizacji.
    * Wyzwalaj polecenia, takie jak resetowanie systemu kontroli, aktualizowanie oprogramowania układowego operatora i ponowne konfigurowanie sieci.
 
-     ![Zrzut ekranu przedstawiający pulpit nawigacyjny centrum danych Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Zrzut ekranu przedstawiający górną połowę pulpitu nawigacyjnego centrum danych Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * Zapoznaj się z przykładem pulpitu nawigacyjnego, którego operator może użyć do monitorowania warunków w centrum realizacji. 
    * Monitoruj kondycję ładunków, które są uruchomione na urządzeniu bramy w centrum realizacji.    
 
-     ![Zrzut ekranu przedstawiający pulpit nawigacyjny centrum danych Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Zrzut ekranu przedstawiający połowę bottonu na pulpicie nawigacyjnym centrum danych Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Szablon urządzenia
 W przypadku wybrania karty szablony urządzeń widoczne są dwa różne typy urządzeń, które są częścią szablonu: 
@@ -86,11 +86,14 @@ Użyj przykładowej reguły jako inspiracji, aby zdefiniować reguły, które s�
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji. Przejdź do pozycji **Administracja** > **Ustawienia aplikacji**, a następnie wybierz pozycję **Usuń**.
+Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji. Przejdź do pozycji **Administracja**  >  **Ustawienia aplikacji**, a następnie wybierz pozycję **Usuń**.
 
 ![Zrzut ekranu przedstawiający stronę ustawień aplikacji Centrum programu Micro-zrealizować](./media/tutorial-micro-fulfillment-center-app/delete.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [architekturze rozwiązania Micro-zrealizować centrum](./architecture-micro-fulfillment-center.md).
-* Dowiedz się więcej na temat innych [szablonów detalicznych usługi Azure IoT Central](./overview-iot-central-retail.md).
-* Zapoznaj się z [omówieniem IoT Central platformy Azure](../preview/overview-iot-central.md).
+
+Dowiedz się więcej o
+> [!div class="nextstepaction"]
+> [Architektura rozwiązania Centrum rozwiązań](./architecture-micro-fulfillment-center.md)
+* Dowiedz się więcej na temat [szablonów detalicznych usługi Azure IoT Central](./overview-iot-central-retail.md)
+* Dowiedz się więcej o innych [omówieniach usługi Azure IoT Central](../preview/overview-iot-central.md)

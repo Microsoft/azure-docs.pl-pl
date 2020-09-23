@@ -11,6 +11,8 @@
           href: get-started-netcore-visualstudio.md
     - name: Pojęcia
       items:
+        - name: Migrowanie do Mostka na platformę Kubernetes
+          href: migrate-to-bridge-to-kubernetes.md
         - name: Jak działa usługa Dev Spaces
           items:
             - name: Omówienie

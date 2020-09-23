@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: c8aaef9c98e1fe44c73d4bd464bb1e52122e7a57
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: c01d1bcb682a5f711dcba3cc7b32ef69b2642ef6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90709680"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900762"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Poznaj centrum wiedzy Synapse
 
@@ -45,7 +45,7 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 1. Przewiń do pierwszego zapytania (wiersze 28 do 32) i wybierz tekst zapytania
 1. Kliknij przycisk Uruchom. Zostanie uruchomiony wybrany tekst.
 
-## <a name="loading-the-more-nyc-taxi-data"></a>Ładowanie większej ilości danych z NYC taksówki
+## <a name="loading-more-nyc-taxi-data"></a>Ładowanie większej ilości danych NYC taksówki
 
 1. **Centrum wiedzy**, kliknij przycisk **Przeglądaj dostępne przykłady** 
 1. Wybierz kartę **skrypty SQL** u góry

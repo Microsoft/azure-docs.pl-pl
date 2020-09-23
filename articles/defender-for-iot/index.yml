@@ -1,0 +1,114 @@
+### YamlMime:Landing
+title: Dokumentacja usługi Azure Defender dla IoT
+summary: Azure Defender dla IoT to usługa zabezpieczeń w chmurze oparta na platformie Azure, która zapewnia kompleksową ochronę urządzenia IoT przed zagrożeniami.
+metadata:
+  title: Dokumentacja usługi Azure Defender dla IoT
+  description: Dowiedz się, jak Azure Defender dla IoT, usługa zabezpieczeń w chmurze oparta na platformie Azure, zapewnia kompleksową ochronę urządzenia IoT przed zagrożeniami.
+  services: service
+  ms.service: defender-for-iot
+  ms.topic: landing-page
+  ms.collection: M365-security-compliance
+  author: mlottner
+  ms.author: mlottner
+  ms.date: 09/07/2020
+  ms.openlocfilehash: 1f7728334b456eb292c33c18d15f01ccbaa199e8
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90929093"
+landingContent:
+- title: Informacje o usłudze Azure Defender dla IoT
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest usługa Azure Defender dla IoT?
+      url: overview.md
+    - text: Moduł zabezpieczeń dla usługi Azure RTOS
+      url: iot-security-azure-rtos.md
+    - text: Planowanie rozwiązania
+      url: service-prerequisites.md
+  - linkListType: architecture
+    links:
+    - text: Informacje o architekturze usługi Azure Defender dla IoT
+      url: architecture.md
+    - text: Agenci usługi Azure Defender dla IoT
+      url: security-agent-architecture.md
+    - text: Moduł zabezpieczeń usługi Edge
+      url: security-edge-architecture.md
+- title: Dołączanie usługi Azure Defender dla IoT w usłudze IoT Hub
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Rozpoczynanie pracy z usługą Azure Defender dla IoT
+      url: getting-started.md
+    - text: Usługa IoT Hub
+      url: iot-hub-integration.md
+    - text: Rozpoczynanie pracy z modułem zabezpieczeń dla usługi Azure RTOS
+      url: concept-rtos-security-module.md
+    - text: Agenci zabezpieczeń
+      url: security-agents.md
+- title: Konfigurowanie rozwiązania
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Włączanie usługi Azure Defender dla IoT w usłudze IoT Hub
+      url: quickstart-onboard-iot-hub.md
+    - text: Konfigurowanie rozwiązania zabezpieczeń IoT
+      url: quickstart-configure-your-solution.md
+    - text: Konfigurowanie modułu zabezpieczeń dla usługi Azure RTOS
+      url: quickstart-azure-rtos-security-module.md
+    - text: Tworzenie bliźniaczej reprezentacji modułu usługi Azure Defender dla IoT
+      url: quickstart-create-security-twin.md
+    - text: Tworzenie niestandardowych alertów zabezpieczeń
+      url: quickstart-create-custom-alerts.md
+    - text: Badanie alertów zabezpieczeń
+      url: quickstart-investigate-security-alerts.md
+- title: Dostosowywanie rozwiązania
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Dostosowywanie modułu zabezpieczeń dla usługi Azure RTOS
+      url: how-to-azure-rtos-security-module.md
+    - text: Wybieranie agenta
+      url: how-to-deploy-agent.md
+    - text: Wdrażanie agenta zabezpieczeń usługi Azure Defender dla IoT opartego na języku C# dla systemu Windows
+      url: how-to-deploy-windows-cs.md
+    - text: Wdrażanie agenta zabezpieczeń usługi Azure Defender dla IoT opartego na języku C# dla systemu Linux
+      url: how-to-deploy-linux-cs.md
+    - text: Wdrażanie agenta zabezpieczeń usługi Azure Defender dla IoT opartego na języku C dla systemu Linux
+      url: how-to-deploy-linux-c.md
+    - text: Wdrażanie modułu zabezpieczeń usługi Edge
+      url: how-to-deploy-edge.md
+    - text: Konfigurowanie alertów zabezpieczeń
+      url: how-to-agent-configuration.md
+    - text: Wysyłanie własnych komunikatów dotyczących zabezpieczeń
+      url: how-to-send-security-messages.md
+    - text: Dostęp do nieprzetworzonych danych zabezpieczeń
+      url: how-to-security-data-access.md
+    - text: Badanie urządzenia
+      url: how-to-investigate-device.md
+- title: Rozwiązywanie problemów z agentem zabezpieczeń
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Przewodnik rozwiązywania problemów z agentem zabezpieczeń (Linux)
+      url: troubleshoot-agent.md
+    - text: Omówienie pliku LocalConfiguration.json — agent oparty na języku C
+      url: azure-iot-security-local-configuration-c.md
+    - text: Omówienie lokalnego pliku konfiguracji — agent oparty na języku C#
+      url: azure-iot-security-local-configuration-csharp.md
+- title: Zasoby rozwiązań usługi Azure Defender dla IoT
+  linkLists:
+  - linkListType: video
+    links:
+    - text: Co to jest usługa Azure Defender dla IoT?
+      url: https://youtu.be/pq5uSp9u_x0
+    - text: Omówienie usługi Azure Defender dla IoT
+      url: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
+  - linkListType: reference
+    links:
+    - text: Często zadawane pytania
+      url: resources-frequently-asked-questions.md
+    - text: Cennik i powiązane koszty
+      url: concept-pricing.md

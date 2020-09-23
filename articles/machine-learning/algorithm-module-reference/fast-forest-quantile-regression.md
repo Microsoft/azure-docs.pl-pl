@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 5f00164e90d625c5343103290e9272f15d164cd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099149"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907959"
 ---
-# <a name="fast-forest-quantile-regression"></a>Szybkie regresja quantile lasów
+# <a name="fast-forest-quantile-regression"></a>Szybka regresja kwantylowa lasu decyzyjnego
 
-W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Użyj tego modułu, aby utworzyć szybki model regresji quantile w potoku. Szybkie regresja quantilei lasów jest przydatne, jeśli chcesz zrozumieć więcej o dystrybucji przewidywanej wartości, zamiast pobierać jedną średnią wartość przewidywania. Ta metoda ma wiele aplikacji, w tym:  
   
@@ -32,7 +32,7 @@ Ten algorytm regresji jest metodą uczenia **nadzorowanego** , co oznacza, że w
 
 ## <a name="more-about-quantile-regression"></a>Więcej informacji o regresji quantile
 
-Istnieje wiele różnych typów regresji. W najbardziej podstawowym sensie regresja oznacza dopasowanie modelu do obiektu docelowego wyrażonego jako wektor liczbowy. Jednak statystykówy opracowują coraz bardziej zaawansowane metody regresji.
+Istnieje wiele różnych typów regresji. Po prostu, regresja oznacza dopasowanie modelu do obiektu docelowego wyrażonego jako wektor liczbowy. Jednak statystykówy opracowują coraz bardziej zaawansowane metody regresji.
 
 Najprostsza definicja *quantile* jest wartością, która dzieli zestaw danych na grupy o równym rozmiarze; w ten sposób wartości quantile oznaczają granice między grupami. Statystycznie mówiąc, quantiles są wartościami pobieranymi w regularnych odstępach czasu z odwrotności funkcji rozkładu skumulowanego (CDF) zmiennej losowej.
 

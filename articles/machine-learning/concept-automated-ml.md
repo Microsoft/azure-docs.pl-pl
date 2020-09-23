@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: eef8abebde2578ac549b2facfc1317a90ecc7fb5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658564"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886388"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -78,8 +78,6 @@ Korzystając z **Azure Machine Learning**, można projektować i uruchamiać zau
 
    * W przypadku programu z ograniczeniami lub bez kodu Wypróbuj środowisko internetowe Azure Machine Learning Studio pod adresem [https://ml.azure.com](https://ml.azure.com/)  
    * W przypadku deweloperów języka Python zapoznaj się z [zestawem SDK języka python Azure Machine Learning](how-to-configure-auto-train.md) . 
-
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
     
 1. **Określ źródło i format etykiet danych szkoleniowych**: Numpy Arrays lub Pandas Dataframe
 
@@ -172,25 +170,25 @@ Należy wziąć pod uwagę te zalety i wady, gdy wybierzesz opcję używania lok
 
 ### <a name="feature-availability"></a>Dostępność funkcji 
 
- Więcej funkcji jest dostępnych w przypadku korzystania ze zdalnych obliczeń, jak pokazano w poniższej tabeli. Niektóre z tych funkcji są dostępne tylko w obszarze roboczym przedsiębiorstwa.
+ Więcej funkcji jest dostępnych w przypadku korzystania ze zdalnych obliczeń, jak pokazano w poniższej tabeli. 
 
-| Cechy                                                    | Zdalne | Lokalne | KONIECZN <br>Obszar roboczy przedsiębiorstwa |
-|------------------------------------------------------------|--------|-------|-------------------------------|
-| Przesyłanie strumieniowe danych (obsługa dużej ilości danych, do 100 GB)          | ✓      |       | ✓                             |
-| DNN BERT tekstu cechowania i szkolenia             | ✓      |       | ✓                             |
-| Wbudowana obsługa procesora GPU (szkolenia i wnioskowanie)        | ✓      |       | ✓                             |
-| Obsługa klasyfikacji i etykietowania obrazów                  | ✓      |       | ✓                             |
-| Modele autoARIMA, Prophet i ForecastTCN do prognozowania | ✓      |       | ✓                             |
-| Wiele przebiegów/iteracji równolegle                       | ✓      |       | ✓                             |
-| Tworzenie modeli z możliwością interpretacji w interfejsie użytkownika środowiska Web AutoML Studio      | ✓      |       | ✓                             |
-| Dostosowywanie inżynierii funkcji w interfejsie użytkownika programu Studio Web Experience                        | ✓      |       | ✓                              |
-| Dostrajanie parametru do usługi Azure ML                             | ✓      |       |                               |
-| Obsługa przepływu pracy potoku usługi Azure ML                         | ✓      |       |                               |
-| Kontynuuj przebieg                                             | ✓      |       |                               |
-| Prognozowanie                                                | ✓      | ✓     | ✓                             |
-| Twórz i uruchamiaj eksperymenty w notesach                    | ✓      | ✓     |                               |
-| Zarejestruj i Wizualizuj informacje i metryki eksperymentu w interfejsie użytkownika | ✓      | ✓     |                               |
-| Guardrails danych                                            | ✓      | ✓     |                               |
+| Cechy                                                    | Zdalne | Lokalne | 
+|------------------------------------------------------------|--------|-------|
+| Przesyłanie strumieniowe danych (obsługa dużej ilości danych, do 100 GB)          | ✓      |       | 
+| DNN BERT tekstu cechowania i szkolenia             | ✓      |       |
+| Wbudowana obsługa procesora GPU (szkolenia i wnioskowanie)        | ✓      |       |
+| Obsługa klasyfikacji i etykietowania obrazów                  | ✓      |       |
+| Modele autoARIMA, Prophet i ForecastTCN do prognozowania | ✓      |       | 
+| Wiele przebiegów/iteracji równolegle                       | ✓      |       |
+| Tworzenie modeli z możliwością interpretacji w interfejsie użytkownika środowiska Web AutoML Studio      | ✓      |       |
+| Dostosowywanie inżynierii funkcji w interfejsie użytkownika programu Studio Web Experience| ✓      |       |
+| Dostrajanie parametru do usługi Azure ML                             | ✓      |       |
+| Obsługa przepływu pracy potoku usługi Azure ML                         | ✓      |       |
+| Kontynuuj przebieg                                             | ✓      |       |
+| Prognozowanie                                                | ✓      | ✓     |
+| Twórz i uruchamiaj eksperymenty w notesach                    | ✓      | ✓     |
+| Zarejestruj i Wizualizuj informacje i metryki eksperymentu w interfejsie użytkownika | ✓      | ✓     |
+| Guardrails danych                                            | ✓      | ✓     |
 
 ## <a name="many-models"></a>Wiele modeli 
 
@@ -277,7 +275,7 @@ Samouczki to kompleksowe przykładowe scenariusze AutoML.
 
  + **W przypadku środowiska z niską lub brakiem kodu**zapoznaj się z [samouczkiem: Tworzenie zautomatyzowanych modeli klasyfikacji ml przy użyciu programu Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
-Jak artykuły zawierają dodatkowe informacje o oferowanych funkcjach AutoML. Na przykład 
+Jak artykuły zawierają dodatkowe informacje o oferowanych funkcjach AutoML. Przykład: 
 
 + Konfigurowanie ustawień automatycznych eksperymentów szkoleniowych
     + W programie Azure Machine Learning Studio [wykonaj te kroki](how-to-use-automated-ml-for-ml-models.md). 

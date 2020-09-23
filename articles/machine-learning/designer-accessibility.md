@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z funkcji ułatwień dostępu w projektancie (wersja zapoznawcza)
+title: Korzystanie z funkcji ułatwień dostępu w projektancie
 titleSuffix: Azure Machine Learning
 description: Dowiedz się więcej na temat skrótów klawiaturowych i funkcji ułatwień dostępu czytnika ekranu dostępnych w projektancie.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
-ms.openlocfilehash: 5d91dc212eb2f856f0252261f2ddfc8a5a4d70ee
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 86cb5260a59f864658fbb7ac1c1da2d943c6253e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210369"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893419"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Korzystanie z klawiatury do korzystania z programu Azure Machine Learning Designer (wersja zapoznawcza)
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Używanie narzędzia Azure Machine Learning Designer przy użyciu klawiatury
 
 Dowiedz się, jak używać programu Azure Machine Learning Designer przy użyciu klawiatury i czytnika ekranu. Aby zapoznać się z listą skrótów klawiaturowych, które działają wszędzie na Azure Portal, zobacz [skróty klawiaturowe w Azure Portal](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
@@ -70,7 +70,7 @@ Użyj następujących skrótów z kluczem dostępu. Aby uzyskać więcej informa
 | Klucz dostępu + R | Uruchom |
 | Klucz dostępu + P | Opublikuj |
 | Klucz dostępu + C | Klonowanie |
-| Klucz dostępu + D | Wdrażanie |
+| Klucz dostępu + D | Wdróż |
 | Klucz dostępu + I | Utwórz/zaktualizuj potok wnioskowania |
 | Klucz dostępu + B | Utwórz/zaktualizuj potok wnioskowania dotyczącego partii |
 | Klucz dostępu + K | Otwórz listę rozwijaną "Utwórz potok wnioskowania" |

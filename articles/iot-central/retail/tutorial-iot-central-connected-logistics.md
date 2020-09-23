@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
-ms.date: 09/11/2020
-ms.openlocfilehash: 5818e57f29558cbb5a29592cd4e1d7ae2eebbec1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.topic: tutorial
+ms.date: 10/20/2019
+ms.openlocfilehash: 0206c111be7cd6441d9de32af498e961833d214f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531546"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980690"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Samouczek: wdrażanie i przechodzenie przez połączony szablon aplikacji logistycznej
 
@@ -23,6 +23,10 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > [!div class="checklist"]
 > * Tworzenie połączonej aplikacji logistycznej.
 > * Użyj najważniejszych funkcji w aplikacji.
+> * Użyj pulpitu nawigacyjnego, aby wyświetlić krytyczne działania związane z działaniem urządzenia.
+> * Użyj szablonu urządzenia
+> * Przestrzeganie reguł
+> * Korzystanie z zadań
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,6 +45,7 @@ Utwórz aplikację, wykonując następujące czynności:
 
 3. **Utwórz aplikację** otwiera formularz **nowej aplikacji** . Wprowadź następujące wartości:
 
+
     * **Nazwa aplikacji**: możesz użyć domyślnej sugerowanej nazwy lub wprowadzić przyjazną nazwę aplikacji.
     * **Adres URL**: możesz użyć sugerowanego domyślnego adresu URL lub wprowadzić przyjazny unikatowy adres URL, który można dopamiętać. Następnie ustawienie domyślne jest zalecane, jeśli masz już subskrypcję platformy Azure. Możesz zacząć od 7-dniowego planu cenowego w wersji próbnej i wybrać konwersję do standardowego planu cenowego w dowolnym momencie przed wygaśnięciem okresu bezpłatnego.
     * **Informacje o rozliczeniach**: katalog, subskrypcja platformy Azure i szczegółowe informacje o regionie są wymagane do aprowizacji zasobów.
@@ -52,11 +57,22 @@ Utwórz aplikację, wykonując następujące czynności:
 
 ## <a name="walk-through-the-application"></a>Przechodzenie przez aplikację
 
-W poniższych sekcjach omówiono najważniejsze funkcje aplikacji:
+Poniżej znajduje się zrzut ekranu przedstawiający sposób wybierania szablonu aplikacji połączonej logistyki.
+
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający sposób wybierania szablonu aplikacji połączonej logistyki](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
+
+W poniższych sekcjach omówiono najważniejsze funkcje aplikacji.
 
 ### <a name="dashboard"></a>Pulpit nawigacyjny
 
 Po wdrożeniu szablonu aplikacji domyślny pulpit nawigacyjny jest podłączonym ukierunkowanym operatorem logistyki. Podmiot gospodarczy Northwind to fikcyjny dostawca logistyczny zarządzający flotą za ładunki na morzu i na lądzie. Na tym pulpicie nawigacyjnym są widoczne dwie różne bramy dostarczające dane telemetryczne z wysyłek, wraz z skojarzonymi poleceniami, zadaniami i akcjami.
+
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający sposób tworzenia aplikacji na podstawie szablonu połączonej aplikacji logistycznej](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
+
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający opcje rozliczania podczas tworzenia aplikacji](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
 
 Ten pulpit nawigacyjny jest wstępnie skonfigurowany do wyświetlania krytycznej aktywności logistycznej operacji urządzenia.
 
@@ -107,13 +123,15 @@ Zadań można użyć do wykonywania operacji na poziomie aplikacji. Zadania w te
 
 * Zadania umożliwiają wykonywanie operacji na całym systemie, takich jak aktualizowanie oprogramowania układowego na bramach lub aktualizowanie kontraktu usługi, aby zachować bieżące informacje o działaniach konserwacyjnych.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji, odwiedzając **Administration**  >  **Ustawienia aplikacji** Administracja i wybierz pozycję **Usuń**.
 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Czyszczenie szablonu":::
 
 ## <a name="next-steps"></a>Następne kroki
-
-* Dowiedz się więcej o [koncepcji rozwiązanej logistyki](./architecture-connected-logistics.md)
+* Dowiedz się więcej o 
+> [!div class="nextstepaction"]
+> [Połączona koncepcja logistyczna](./architecture-connected-logistics.md)
 * Dowiedz się więcej na temat innych [szablonów detalicznych IoT Central](./overview-iot-central-retail.md)
+* Dowiedz się więcej o [IoT Central przegląd](../core/overview-iot-central.md)

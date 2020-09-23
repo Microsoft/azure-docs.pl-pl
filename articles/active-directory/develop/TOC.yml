@@ -445,7 +445,7 @@
           href: supported-accounts-validation.md
         - name: Aplikacje z jedną i wieloma dzierżawami
           href: single-and-multi-tenant-apps.md
-        - name: Weryfikacja wydawcy (wersja zapoznawcza)
+        - name: Weryfikacja wydawcy
           href: publisher-verification-overview.md
     - name: Uprawnienia i wyrażanie zgody
       displayName: Scopes
@@ -553,9 +553,9 @@
           href: howto-add-terms-of-service-privacy-statement.md
         - name: Konfigurowanie weryfikacji wydawcy dla aplikacji
           items:
-            - name: Oznaczanie aplikacji jako zweryfikowanej przez wydawcę (wersja zapoznawcza)
+            - name: Oznaczanie aplikacji jako zweryfikowanej przez wydawcę
               href: mark-app-as-publisher-verified.md
-            - name: Rozwiązywanie problemów z weryfikacją wydawcy (wersja zapoznawcza)
+            - name: Rozwiązywanie problemów z weryfikacją wydawcy
               href: troubleshoot-publisher-verification.md
     - name: Praca z biblioteką uwierzytelniania firmy Microsoft
       displayName: MSAL

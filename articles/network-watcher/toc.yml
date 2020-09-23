@@ -31,6 +31,8 @@
       href: connection-monitor-preview.md
     - name: Diagnozowanie problemów z filtrowaniem ruchu sieciowego na maszynie wirtualnej
       href: network-watcher-ip-flow-verify-overview.md
+    - name: Diagnozowanie reguł sieciowej grupy zabezpieczeń i filtrowania ruchu
+      href: network-watcher-network-configuration-diagnostics-overview.md
     - name: Diagnozowanie problemów z routingiem maszyny wirtualnej
       href: network-watcher-next-hop-overview.md
     - name: Diagnozowanie problemów z wychodzącą komunikacją maszyny wirtualnej

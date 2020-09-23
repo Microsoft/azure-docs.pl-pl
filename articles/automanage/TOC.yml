@@ -1,0 +1,28 @@
+- name: Azure Automanage
+  href: automanage-virtual-machines.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Włączanie na maszynach wirtualnych w witrynie Azure Portal
+      href: quick-create-virtual-machines-portal.md
+- name: Pojęcia
+  expanded: true
+  items:
+    - name: Maszyny wirtualne
+      href: automanage-virtual-machines.md
+    - name: Najlepsze rozwiązania dotyczące maszyn wirtualnych
+      href: virtual-machines-best-practices.md
+- name: Instrukcje
+  expanded: true
+  items:
+    - name: Tworzenie preferencji niestandardowych
+      href: virtual-machines-custom-preferences.md
+    - name: Włączanie na maszynach wirtualnych za pośrednictwem usługi Azure Policy
+      href: virtual-machines-policy-enable.md
+- name: Zasoby
+  expanded: true
+  items:
+    - name: Często zadawane pytania
+      href: faq.md
+    - name: Struktura wdrażania chmury
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management'

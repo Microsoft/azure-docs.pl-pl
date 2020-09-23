@@ -1,6 +1,6 @@
 ---
-title: Obsługiwane funkcje usługi Azure SQL Edge (wersja zapoznawcza)
-description: Więcej informacji o funkcjach obsługiwanych przez usługę Azure SQL Edge (wersja zapoznawcza).
+title: Obsługiwane funkcje usługi Azure SQL Edge
+description: Więcej informacji o funkcjach obsługiwanych przez usługę Azure SQL Edge.
 keywords: Wprowadzenie do usługi SQL Edge, co to jest SQL Edge, Omówienie programu SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,21 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 87ccb28f527082dccee338396b460124652c0e76
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462704"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886527"
 ---
-# <a name="supported-features-of-azure-sql-edge-preview"></a>Obsługiwane funkcje usługi Azure SQL Edge (wersja zapoznawcza) 
+# <a name="supported-features-of-azure-sql-edge"></a>Obsługiwane funkcje usługi Azure SQL Edge 
 
-Usługa Azure SQL Edge jest oparta na najnowszej wersji aparatu bazy danych Microsoft SQL Server w systemie Linux. Obsługuje ona podzestaw funkcji obsługiwanych w SQL Server 2019 w systemie Linux, a także niektóre funkcje, które nie są obecnie obsługiwane lub dostępne w SQL Server 2019 w systemie Linux (lub w SQL Server z systemem Windows).
+Usługa Azure SQL Edge jest oparta na najnowszej wersji aparatu SQL Database. Obsługuje ona podzestaw funkcji obsługiwanych w SQL Server 2019 w systemie Linux, a także niektóre funkcje, które nie są obecnie obsługiwane lub dostępne w SQL Server 2019 w systemie Linux (lub w SQL Server z systemem Windows).
 
 Aby zapoznać się z pełną listą funkcji obsługiwanych w SQL Server on Linux, zobacz [wersje i obsługiwane funkcje SQL Server 2019 w systemie Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). Wersje i obsługiwane funkcje SQL Server w systemie Windows znajdują się w temacie [wersje i obsługiwane funkcje SQL Server 2019 (15. x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
-
-> [!NOTE]
-> Usługa Azure SQL Edge jest obecnie w wersji zapoznawczej i nie powinna być używana w środowiskach produkcyjnych. Firma Microsoft może zalecić uruchamianie usługi Azure SQL Edge w środowiskach produkcyjnych, w zależności od weryfikacji wdrożenia i scenariuszy przypadków użycia.
 
 ## <a name="azure-sql-edge-editions"></a>Wersje usługi Azure SQL Edge
 
@@ -36,9 +33,7 @@ Usługa Azure SQL Edge jest dostępna z dwiema różnymi wersjami lub planami op
 
 ## <a name="operating-system"></a>System operacyjny
 
-Kontenery usługi Azure SQL Edge są obecnie oparte na Ubuntu 16,04 i są obsługiwane tylko na hostach platformy Docker z systemem Ubuntu 16,04 LTS (zalecane) lub Ubuntu 18,04 LTS. Można uruchamiać kontenery usługi Azure SQL Edge na innych hostach z systemem operacyjnym, na przykład w przypadku innych dystrybucji systemu Linux lub Windows (przy użyciu platformy Docker CE lub platformy Docker EE), jednak firma Microsoft nie zaleca wykonywania tych czynności, ponieważ taka konfiguracja może nie zostać przetestowana.
-
-Usługa Azure SQL Edge jest obecnie obsługiwana tylko w przypadku wdrażania za pomocą Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [Azure IoT Edge obsługiwane systemy](https://docs.microsoft.com/azure/iot-edge/support).
+Kontenery usługi Azure SQL Edge są oparte na Ubuntu 18,04 i są obsługiwane tylko na hostach Docker z systemem Ubuntu 18,04 LTS (zalecane) lub Ubuntu 20,04 LTS. Można uruchamiać kontenery usługi Azure SQL Edge na innych hostach z systemem operacyjnym, na przykład w przypadku innych dystrybucji systemu Linux lub Windows (przy użyciu platformy Docker CE lub platformy Docker EE), jednak firma Microsoft nie zaleca wykonywania tych czynności, ponieważ taka konfiguracja może nie zostać przetestowana.
 
 Zalecaną konfiguracją uruchamiania usługi Azure SQL Edge w systemie Windows jest skonfigurowanie maszyny wirtualnej Ubuntu na hoście z systemem Windows, a następnie uruchomienie usługi Azure SQL Edge wewnątrz maszyny wirtualnej z systemem Linux.
 
@@ -46,7 +41,7 @@ Zalecany i obsługiwany system plików dla usługi Azure SQL Edge to EXT4 i XFS.
 
 ## <a name="hardware-support"></a>Obsługa sprzętowa
 
-Usługa Azure SQL Edge wymaga procesora 64-bitowego (x64 lub ARM64), co najmniej jednego procesora i 1 GB pamięci RAM na hoście. Podczas gdy rozmiar pamięci początkowej programu Azure SQL Edge jest bliski 500 MB, dodatkowa pamięć jest wymagana dla innych modułów IoT Edge uruchomionych na urządzeniu brzegowym. Rzeczywiste wymagania dotyczące pamięci i procesora dla programu Azure SQL Edge różnią się w zależności od złożoności obciążenia i ilości przetwarzanych danych. W przypadku wybrania sprzętu dla rozwiązania firma Microsoft zaleca uruchomienie obszernych testów wydajnościowych, aby upewnić się, że są spełnione wymagane charakterystyki wydajności dla danego rozwiązania.  
+Usługa Azure SQL Edge wymaga procesora 64-bitowego (x64 lub ARM64), co najmniej jednego procesora i 1 GB pamięci RAM na hoście. Podczas gdy rozmiar pamięci początkowej usługi Azure SQL Edge jest bliski 450MB, dodatkowa pamięć jest wymagana dla innych modułów IoT Edge lub procesów uruchomionych na urządzeniu brzegowym. Rzeczywiste wymagania dotyczące pamięci i procesora dla programu Azure SQL Edge różnią się w zależności od złożoności obciążenia i ilości przetwarzanych danych. W przypadku wybrania sprzętu dla rozwiązania firma Microsoft zaleca uruchomienie obszernych testów wydajnościowych, aby upewnić się, że są spełnione wymagane charakterystyki wydajności dla danego rozwiązania.  
 
 ## <a name="azure-sql-edge-components"></a>Składniki usługi Azure SQL Edge
 
@@ -76,6 +71,7 @@ Poniższa lista zawiera SQL Server 2019 funkcji systemu Linux, które nie są ob
 | &nbsp; | PolyBase. Należy pamiętać, że usługa Azure SQL Edge można skonfigurować jako element docelowy dla tabel zewnętrznych w bazie kodu. |
 | &nbsp; | Rozszerzalność języka za poorednictwem języka Java i platformy Spark. |
 | &nbsp; | Active Directory integrację. |
+| &nbsp; | Funkcja autozmniejszania bazy danych. Właściwość Autozmniejszanie dla bazy danych można ustawić przy użyciu `ALTER DATABASE <database_name> SET AUTO_SHRINK ON` polecenia, ale zmiana nie ma żadnego wpływu. Zadanie automatycznego zmniejszania nie zostanie uruchomione względem bazy danych. Użytkownicy mogą nadal zmniejszać pliki bazy danych przy użyciu poleceń DBCC. |
 | &nbsp; | Migawki baz danych. |
 | &nbsp; | Obsługa pamięci trwałej. |
 | &nbsp; | Microsoft Distributed Transaction Coordinator. |
@@ -101,7 +97,7 @@ Poniższa lista zawiera SQL Server 2019 funkcji systemu Linux, które nie są ob
 | &nbsp; | Zawsze włączone wystąpienie klastra trybu failover. |
 | &nbsp; | Dublowanie bazy danych. |
 | &nbsp; | Gorące Dodawanie pamięci i procesora CPU. |
-| **Bezpieczeństwo** | Rozszerzalne zarządzanie kluczami. |
+| **Zabezpieczenia** | Rozszerzalne zarządzanie kluczami. |
 | &nbsp; | Active Directory integrację.|
 | &nbsp; | Obsługa bezpiecznego enclaves.|
 | **Usługi** | SQL Server Browser. |

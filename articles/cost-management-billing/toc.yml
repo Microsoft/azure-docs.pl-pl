@@ -180,6 +180,8 @@
               href: manage/grant-access-to-create-subscription.md
             - name: Eksportowanie informacji o subskrypcji
               href: manage/export-subscriptions.md
+            - name: Usuwanie metody płatności dla rozliczeń na platformie Azure
+              href: manage/delete-azure-payment-method.md
             - name: Zmiana karty kredytowej
               href: manage/change-credit-card.md
             - name: Zmiana administratora

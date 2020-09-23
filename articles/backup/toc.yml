@@ -50,6 +50,8 @@
       items:
         - name: Tabela obsługi usługi Azure Backup
           href: backup-support-matrix.md
+        - name: Macierz obsługi Centrum kopii zapasowych
+          href: backup-center-support-matrix.md
         - name: Tabela obsługi kopii zapasowych maszyn wirtualnych platformy Azure
           href: backup-support-matrix-iaas.md
         - name: Macierz obsługi usługi DPM/Azure Backup Server (MABS)
@@ -68,6 +70,8 @@
       items:
         - name: Często zadawane pytania — magazyny usługi Recovery Services
           href: backup-azure-backup-faq.md
+        - name: Często zadawane pytania — centrum kopii zapasowych
+          href: backup-center-faq.md
         - name: Często zadawane pytania — kopia zapasowa maszyny wirtualnej platformy Azure
           href: backup-azure-vm-backup-faq.md
         - name: Często zadawane pytania — agent usługi MARS
@@ -88,18 +92,36 @@
       href: guidance-best-practices.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Magazyn usługi Recovery Services
+    - name: Magazyny
+      items:
+        - name: Magazyn usługi Recovery Services
+          items:
+            - name: Omówienie
+              href: backup-azure-recovery-services-vault-overview.md
+            - name: Utwórz
+              href: backup-create-rs-vault.md
+            - name: Usuń
+              href: backup-azure-delete-vault.md
+            - name: Move
+              href: backup-azure-move-recovery-services-vault.md
+            - name: Zarządzanie
+              href: backup-azure-manage-windows-server.md
+        - name: Magazyn kopii zapasowych
+          items:
+            - name: Omówienie
+              href: backup-vault-overview.md
+    - name: Centrum kopii zapasowych
       items:
         - name: Omówienie
-          href: backup-azure-recovery-services-vault-overview.md
-        - name: Utwórz
-          href: backup-create-rs-vault.md
-        - name: Usuń
-          href: backup-azure-delete-vault.md
-        - name: Move
-          href: backup-azure-move-recovery-services-vault.md
-        - name: Zarządzanie
-          href: backup-azure-manage-windows-server.md
+          href: backup-center-overview.md
+        - name: Monitorowanie i operowanie
+          href: backup-center-monitor-operate.md
+        - name: Uzyskiwanie szczegółowych informacji
+          href: backup-center-obtain-insights.md
+        - name: Zarządzanie środowiskiem
+          href: backup-center-govern-environment.md
+        - name: Wykonywanie akcji
+          href: backup-center-actions.md
     - name: Kopia zapasowa maszyny wirtualnej platformy Azure
       items:
         - name: Omówienie
@@ -150,6 +172,10 @@
           href: restore-sql-database-azure-vm.md
         - name: Zarządzanie
           href: manage-monitor-sql-database-backup.md
+    - name: Kopia zapasowa usługi Azure Database for PostgreSQL
+      items:
+        - name: Backup
+          href: backup-azure-database-postgresql.md
     - name: Kopia zapasowa w systemie Windows przy użyciu agenta MARS
       items:
         - name: Omówienie

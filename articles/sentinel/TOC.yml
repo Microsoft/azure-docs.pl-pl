@@ -29,6 +29,10 @@
       href: fusion.md
     - name: Rozszerzanie usługi Azure Sentinel na obszary robocze i dzierżawy
       href: extend-sentinel-across-workspaces-tenants.md
+    - name: Identyfikowanie zaawansowanych zagrożeń za pomocą analizy UEBA
+      href: identify-threats-with-entity-behavior-analytics.md
+    - name: Importowanie analizy zagrożeń do usługi Azure Sentinel
+      href: import-threat-intelligence.md
     - name: Normalizowanie danych między tabelami
       href: normalization.md
     - name: Zabezpieczenia
@@ -162,6 +166,8 @@
           href: connect-threat-intelligence.md
         - name: Łączenie maszyn wirtualnych usługi Azure Stack
           href: connect-azure-stack.md
+    - name: Umożliwianie analizy zachowań użytkowników i jednostek
+      href: enable-entity-behavior-analytics.md
     - name: Praca z wieloma dzierżawami (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Praca ze zdarzeniami w wielu obszarach roboczych

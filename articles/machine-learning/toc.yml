@@ -15,21 +15,28 @@
 - name: Samouczki
   expanded: true
   items:
-    - name: Zestaw SDK dla języka Python
+    - name: Python (dzień 1)
       expanded: true
       items:
-        - name: Tworzenie pierwszego eksperymentu uczenia maszynowego
-          items:
-            - name: 1. Konfigurowanie obszaru roboczego i środowiska deweloperskiego
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Trenowanie pierwszego modelu
-              href: tutorial-1st-experiment-sdk-train.md
+        - name: 1. Konfigurowanie komputera lokalnego
+          href: tutorial-1st-experiment-sdk-setup-local.md
+        - name: 2. Hello world
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 3. Szkolenie modelu
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 4. Dostarczanie własnych danych
+          href: tutorial-1st-experiment-bring-data.md
+    - name: Notesy programu Jupyter
+      expanded: true
+      items:
         - name: Klasyfikacja obrazów (dane MNIST)
           items:
-            - name: 1. Szkolenie modelu
+            - name: 1. Konfigurowanie wystąpienia obliczeniowego
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Szkolenie modelu
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 2. Wdrażanie modelu
+            - name: 3. Wdrażanie modelu
               href: tutorial-deploy-models-with-aml.md
         - name: Regresja w przypadku automatycznego uczenia maszynowego (dane dotyczące taksówek w Nowym Jorku)
           items:
@@ -92,8 +99,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Pojęcia
   items:
-    - name: Wersja Enterprise a wersja podstawowa
-      href: concept-editions.md
     - name: Planowanie kosztów i zarządzanie nimi
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -201,6 +206,9 @@
         - name: Bezpieczne kodowanie
           href: concept-secure-code-best-practice.md
           displayName: security threat
+        - name: Inspekcja i zarządzanie zgodnością
+          href: how-to-integrate-azure-policy.md
+          displayName: policy
     - name: Odpowiedzialne uczenie maszynowe
       items:
         - name: Omówienie odpowiedzialnego uczenia maszynowego
@@ -287,12 +295,15 @@
               href: how-to-designer-import-data.md
         - name: Uzyskiwanie dostępu do danych
           items:
-            - name: Łączenie z usługą Azure Storage
+            - name: Łączenie z usługą Azure Storage (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
-            - name: Pobieranie danych z magazynu danych
+            - name: Pobieranie danych z magazynu danych (Python)
               displayName: 'data, data set, register, access data'
               href: how-to-create-register-datasets.md
+            - name: Łączenie z danymi (interfejs użytkownika)
+              displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set'
+              href: how-to-connect-data-ui.md
         - name: Korzystanie z danych i zarządzanie nimi
           items:
             - name: Szkolenie przy użyciu zestawów danych
@@ -448,6 +459,9 @@
         - name: Modele profili
           displayName: profile resource requirement
           href: how-to-deploy-profile-model.md
+        - name: Wdrażanie modeli projektanta
+          displayName: 'designer, studio'
+          href: how-to-deploy-model-designer.md
         - name: (Wersja zapoznawcza) Wdrożenie bez kodu
           displayName: no code
           href: how-to-deploy-no-code-deployment.md

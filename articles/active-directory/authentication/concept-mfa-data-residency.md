@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 09/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bed0f6cc32c25563d322da77193c5a3b6072902
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 0e5d8dc60ee0a1f4742382b1cec8ef3ed60e8fb3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052283"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970671"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Dane dotyczące miejsca zamieszkania i klienta dla Multi-Factor Authentication platformy Azure
 
@@ -24,13 +24,12 @@ Dane klienta są przechowywane w usłudze Azure AD w lokalizacji geograficznej n
 
 Oparta na chmurze usługa Azure Multi-Factor Authentication i proces Serwer Multi-Factor Authentication platformy Azure oraz przechowywanie pewnej ilości danych osobowych i danych organizacji. W tym artykule opisano, jak i gdzie są przechowywane dane.
 
-Następujące działania Multi-Factor Authentication obecnie pochodzą z centrów danych USA, z wyjątkiem sytuacji, w których zanotowano:
+Usługa Azure Multi-Factor Authentication obejmuje centra danych w Stanach Zjednoczonych, Europie i Azja i Pacyfik. Następujące działania pochodzą z regionalnych centrów danych, z wyjątkiem sytuacji, w których zanotowano:
 
-* Uwierzytelnianie dwuskładnikowe przy użyciu połączeń telefonicznych i wiadomości SMS zazwyczaj pochodzą z centrów danych US i są kierowane przez dostawców globalnych.
-    * Żądania uwierzytelniania użytkowników ogólnego przeznaczenia z innych regionów, takich jak Europa lub Australia, są obecnie przetwarzane przez centra danych w tym regionie. Inne zdarzenia, takie jak Samoobsługowe resetowanie haseł, zdarzenia usługi Azure B2C lub scenariusze hybrydowe korzystające z rozszerzenia serwera NPS lub karty AD FS, są obecnie przetwarzane przez centra danych US.
-* Powiadomienia wypychane przy użyciu aplikacji Microsoft Authenticator pochodzą z centrów danych US. Ponadto usługi specyficzne dla dostawcy urządzenia mogą również być odtwarzane z różnych regionów.
-* Kody OATH są zwykle weryfikowane w Stanach Zjednoczonych
-    * Ponownie zdarzenia związane z uwierzytelnianiem użytkowników ogólnego przeznaczenia, które pochodzą z innych regionów, takich jak Europa lub Australia, są przetwarzane przez centra danych w tym regionie. Dodatkowe zdarzenia są obecnie przetwarzane przez centra danych US.
+* Uwierzytelnianie wieloskładnikowe przy użyciu połączeń telefonicznych pochodzi z centrów danych USA i są kierowane przez dostawców globalnych.
+* Żądania uwierzytelniania użytkowników ogólnego przeznaczenia z innych regionów, takich jak Europa lub Australia, są obecnie przetwarzane na podstawie lokalizacji użytkownika.
+* Powiadomienia wypychane przy użyciu aplikacji Microsoft Authenticator pochodzą z regionalnych centrów danych opartych na lokalizacji użytkownika.
+    * Usługi specyficzne dla dostawcy urządzenia, takie jak powiadomienia wypychane firmy Apple, mogą znajdować się poza lokalizacją użytkownika.
 
 ## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Dane osobowe przechowywane przez Multi-Factor Authentication platformy Azure
 

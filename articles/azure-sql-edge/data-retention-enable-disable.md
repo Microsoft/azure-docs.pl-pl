@@ -1,6 +1,6 @@
 ---
-title: Włączanie i wyłączanie zasad przechowywania danych — Azure SQL Edge (wersja zapoznawcza)
-description: Informacje o włączaniu i wyłączaniu zasad przechowywania danych w usłudze Azure SQL Edge (wersja zapoznawcza)
+title: Włączanie i wyłączanie zasad przechowywania danych — Azure SQL Edge
+description: Informacje o włączaniu i wyłączaniu zasad przechowywania danych w usłudze Azure SQL Edge
 keywords: SQL Edge, przechowywanie danych
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9787f2cfa87a16d9e7dd1753e4389977c6753b81
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550662"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902505"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Włączanie i wyłączanie zasad przechowywania danych
 
@@ -23,9 +23,6 @@ W tym temacie opisano sposób włączania i wyłączania zasad przechowywania da
 ## <a name="enable-data-retention-for-a-database"></a>Włączanie przechowywania danych dla bazy danych
 
 Poniższy przykład pokazuje, jak włączyć przechowywanie danych przy użyciu [polecenia ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
-
-> [!NOTE]
-> Aby włączyć funkcję przechowywania danych w usłudze Azure SQL Edge (wersja zapoznawcza), Włącz TF 12825 jako opcję uruchamiania lub użyj polecenia DBCC TRACEON. Aby uzyskać więcej informacji na temat włączania flag śledzenia przy użyciu pliku MSSQL. conf, zobacz [Konfigurowanie przy użyciu pliku MSSQL. conf](configure.md#configure-by-using-an-mssqlconf-file). 
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -59,12 +56,12 @@ CONSTRAINT [pk_current_data_retention_table] PRIMARY KEY CLUSTERED ([product_cod
 
 - DATA_DELETION — wskazuje, czy przechowywanie danych jest włączone czy wyłączone.
 - FILTER_COLUMN-Name w kolumnie w tabeli, która zostanie użyta do sprawdzenia, czy wiersze są przestarzałe. Kolumna filtru może być tylko kolumną z następującymi typami danych 
-    - Data
+    - Date
     - SmallDateTime
-    - Data i godzina
+    - DateTime
     - DateTime2
     - DateTimeOffset
-- RETENTION_PERIOD — wartość całkowita, a po niej deskryptor jednostki. Dozwolone jednostki to dzień, tydzień, miesiąc i rok.
+- RETENTION_PERIOD — wartość całkowita, a po niej deskryptor jednostki. Dozwolone jednostki to dzień, dni, tydzień, tygodnie, miesiąc, miesiące, rok i lata.
 
 Poniższy przykład pokazuje, jak włączyć przechowywanie danych dla tabeli przy użyciu [instrukcji ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
 
@@ -98,9 +95,9 @@ Ustawienie przechowywania danych w bazie danych i tabeli służy do określenia,
 |Opcja bazy danych | Opcja tabeli | Zachowanie |
 |----------------|--------------|----------|
 | WYŁ. | WYŁ. | Zasady przechowywania danych są wyłączone, a autoczyszczenie przestarzałych rekordów jest wyłączone.|
-| WYŁ. | ON  | Zasady przechowywania danych są włączone dla tabeli, ale wyłączono zarówno Auto, jak i ręczne czyszczenie przestarzałych rekordów. |
+| WYŁ. | ON  | Zasady przechowywania danych są włączone dla tabeli. Autooczyszczanie przestarzałych rekordów jest wyłączone, natomiast metody ręcznego czyszczenia mogą służyć do czyszczenia przestarzałych rekordów. |
 | ON | WYŁ. | Zasady przechowywania danych są włączone na poziomie bazy danych. Jednak ta opcja jest wyłączona na poziomie tabeli, ale nie jest wykonywane czyszczenie przestarzałych wierszy.|
-| ON | ON | Zasady przechowywania danych są włączone zarówno dla bazy danych, jak i dla tabel. Autoczyszczenie przestarzałych rekordów jest włączone |
+| ON | ON | Zasady przechowywania danych są włączone zarówno dla bazy danych, jak i dla tabel. Automatyczne czyszczenie przestarzałych rekordów jest włączone. |
 
 ## <a name="disable-data-retention-on-a-table"></a>Wyłączanie przechowywania danych w tabeli 
 

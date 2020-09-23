@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: charwen
-ms.openlocfilehash: 5974ebe7960eec1ca3bb8610f66061395fea64d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: beb4f8fc5b9e22bc3e2bdd4732c8321dfcd70780
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744106"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980734"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Monitorowanie sesji i zarządzanie nim w usłudze Azure bastionu
 
@@ -22,13 +22,13 @@ Gdy usługa bastionu zostanie zainicjowana i wdrożona w sieci wirtualnej, możn
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do zasobu platformy Azure bastionu i wybierz pozycję **sesje** ze strony bastionu platformy Azure.
 
-   ![sesje](./media/session-monitoring/sessions.png)
+   ![Zrzut ekranu przedstawia ustawienia menu Azure Portal z wybranymi sesjami.](./media/session-monitoring/sessions.png)
 2. Na stronie **sesje** można zobaczyć bieżące sesje zdalne po prawej stronie.
 
    ![Wyświetl sesję](./media/session-monitoring/view-session.png)
 3. Wybierz pozycję **Odśwież** , aby wyświetlić zaktualizowaną listę sesji zdalnych. Po wybraniu opcji Odśwież usługa Azure bastionu będzie pobierać najnowsze informacje o monitorowaniu i odświeżyć je w portalu.
 
-   ![odświeżanie](./media/session-monitoring/refresh.png)
+   ![Zrzut ekranu przedstawia sesję, która używa platformy Azure bastionu z wyróżnioną opcją odświeżenia.](./media/session-monitoring/refresh.png)
 
 
 ## <a name="delete-or-force-disconnect-an-ongoing-remote-session"></a><a name="view"></a>Usuń lub Wymuś rozłączenie trwającej sesji zdalnej
@@ -37,16 +37,16 @@ Można wybrać zestaw sesji i wymusić ich rozłączenie. Poniższe kroki pokazu
 
 1. Przejdź do zasobu usługi Azure bastionu i wybierz pozycję **sesje** ze strony bastionu platformy Azure.
 
-   ![nawigacja](./media/session-monitoring/navigate.png)
+   ![Zrzut ekranu przedstawia Azure Portal z sesjami wybranymi w obszarze Ustawienia.](./media/session-monitoring/navigate.png)
 2. Po wybraniu sesji zostanie wyświetlona lista sesji zdalnych.
 
    ![Wyświetl sesje](./media/session-monitoring/list.png)
 3. Wybierz konkretną sesję zdalną, a następnie wybierz trzy wielokropek po prawej stronie wiersza sesji, a następnie wybierz pozycję **Usuń**.
 
-   ![delete](./media/session-monitoring/delete.png)
+   ![Zrzut ekranu przedstawia Azure Portal wyświetlania sesji z wybraną ikoną usuwania.](./media/session-monitoring/delete.png)
 4. Po wybraniu opcji Usuń Sesja zdalna zostanie rozłączona, a użytkownik zobaczy komunikat "nastąpiło odłączenie" w sesji zdalnej.
 
-   ![rozłączenie](./media/session-monitoring/disconnect.png)
+   ![Zrzut ekranu przedstawia komunikat z weryfikacją, że został odłączony.](./media/session-monitoring/disconnect.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
