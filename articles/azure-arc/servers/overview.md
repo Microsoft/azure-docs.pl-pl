@@ -1,36 +1,37 @@
 ---
-title: Serwery z włączonym usługą Azure ARC (wersja zapoznawcza) — Omówienie
-description: Dowiedz się, jak korzystać z serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) w celu zarządzania serwerami hostowanymi poza platformą Azure, takimi jak
+title: Omówienie serwerów z obsługą usługi Azure Arc
+description: Dowiedz się, jak używać serwerów z obsługą usługi Azure Arc do zarządzania serwerami hostowanymi poza platformą Azure, takimi jak zasób platformy Azure.
 keywords: Azure Automation, DSC, PowerShell, Konfiguracja żądanego stanu, zarządzanie aktualizacjami, śledzenie zmian, spis, elementy Runbook, Python, graficzne, hybrydowe
-ms.custom: references_regions
-ms.date: 08/06/2020
+ms.date: 09/16/2020
 ms.topic: overview
-ms.openlocfilehash: c5779eecddcc9d7d2bd0b405a9bdadc88309fb35
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 9fcac35f943eefb15a200e9b148b22ce67cc3941
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604720"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887542"
 ---
-# <a name="what-is-azure-arc-enabled-servers-preview"></a>Co to są serwery z włączonym usługą Azure ARC (wersja zapoznawcza)?
+# <a name="what-is-azure-arc-enabled-servers"></a>Co to są serwery z obsługą usługi Azure Arc?
 
-Serwery z obsługą usługi Azure ARC (wersja zapoznawcza) umożliwiają zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure, w sieci firmowej lub w innym dostawcy chmury, podobnie jak w przypadku zarządzania natywnymi maszynami wirtualnymi platformy Azure. Gdy maszyna hybrydowa jest połączona z platformą Azure, zostanie ona podłączona i jest traktowana jako zasób na platformie Azure. Każdy połączony komputer ma identyfikator zasobu, który jest zarządzany jako część grupy zasobów w ramach subskrypcji, i korzyści ze standardowych konstrukcji platformy Azure, takich jak Azure Policy i stosowanie tagów. Dostawcy usług zarządzający infrastrukturą lokalną klienta mogą zarządzać swoimi maszynami hybrydowymi, podobnie jak w przypadku natywnych zasobów platformy Azure, w wielu środowiskach klientów przy użyciu [usługi Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) z usługą Azure Arc.
+Serwery z obsługą usługi Azure ARC umożliwiają zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure, w sieci firmowej lub w innym dostawcy chmury, podobnie jak w przypadku zarządzania natywnymi maszynami wirtualnymi platformy Azure. Gdy maszyna hybrydowa jest połączona z platformą Azure, zostanie ona podłączona i jest traktowana jako zasób na platformie Azure. Każdy połączony komputer ma identyfikator zasobu, który jest zarządzany jako część grupy zasobów w ramach subskrypcji, i korzyści ze standardowych konstrukcji platformy Azure, takich jak Azure Policy i stosowanie tagów. Dostawcy usług zarządzający infrastrukturą lokalną klienta mogą zarządzać swoimi maszynami hybrydowymi, podobnie jak w przypadku natywnych zasobów platformy Azure, w wielu środowiskach klientów przy użyciu [usługi Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) z usługą Azure Arc.
 
 Aby zapewnić to środowisko dla maszyn hybrydowych hostowanych poza platformą Azure, należy zainstalować agenta maszyny połączonej z platformą Azure na każdym komputerze, na którym ma zostać nawiązane połączenie z platformą Azure. Ten agent nie dostarcza żadnych innych funkcji i nie zastępuje [agenta log Analytics](../../azure-monitor/platform/log-analytics-agent.md)platformy Azure. Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy użytkownik chce aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim za pomocą elementów Runbook usługi Automation lub rozwiązań, takich jak Update Management, lub używać innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-intro.md).
 
->[!NOTE]
->Ta wersja zapoznawcza jest przeznaczona do celów ewaluacyjnych i zalecamy, aby nie zarządzać krytycznymi maszynami produkcyjnymi.
->
-
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-Po nawiązaniu połączenia między maszyną a serwerem z włączonym usługą Azure ARC (wersja zapoznawcza) umożliwia ona wykonywanie następujących zadań zarządzania konfiguracją:
+Po połączeniu maszyny z serwerami z obsługą usługi Azure Arc umożliwia ona wykonywanie następujących zadań związanych z zarządzaniem konfiguracją i monitorowaniem:
 
 - Przypisanie [Azure Policy konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md) przy użyciu tego samego środowiska co przypisanie zasad dla maszyn wirtualnych platformy Azure.
 
+- Raport dotyczący zmian w konfiguracji dotyczących zainstalowanego oprogramowania, usług firmy Microsoft, rejestru systemu Windows i demonów Linux na monitorowanych serwerach przy użyciu Azure Automation [Change Tracking i spisu](../../automation/change-tracking.md).
+
 - Monitoruj wydajność systemu operacyjnego gościa połączonej maszyny i odnajduj składniki aplikacji, aby monitorować ich procesy i zależności z innymi zasobami, z którymi aplikacja komunikuje się za pomocą [Azure monitor dla maszyn wirtualnych](../../azure-monitor/insights/vminsights-overview.md).
 
-- Uprość wdrażanie za pomocą innych usług platformy Azure, takich jak konfiguracja stanu Azure Automation i Azure Monitor obszar roboczy Log Analytics, korzystając z obsługiwanych [rozszerzeń maszyny wirtualnej platformy Azure](manage-vm-extensions.md) dla maszyn z systemem Windows lub Linux. Obejmuje to przeprowadzanie konfiguracji po wdrożeniu lub instalację oprogramowania przy użyciu niestandardowego rozszerzenia skryptu.
+- Uprość wdrażanie za pomocą innych usług platformy Azure, takich jak [Konfiguracja stanu](../../automation/automation-dsc-overview.md) Azure Automation i Azure monitor obszar roboczy log Analytics, korzystając z obsługiwanych [rozszerzeń maszyny wirtualnej platformy Azure](manage-vm-extensions.md) dla maszyny z systemem Windows lub Linux. Obejmuje to przeprowadzanie konfiguracji po wdrożeniu lub instalację oprogramowania przy użyciu niestandardowego rozszerzenia skryptu.
+
+- [Update Management](../../automation/update-management/update-mgmt-overview.md) w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego dla serwerów z systemami Windows i Linux. Najpierw Wdróż rolę [hybrydowego procesu roboczego elementu Runbook](../../automation/automation-hybrid-runbook-worker.md) , a następnie postępuj zgodnie z instrukcjami, aby [włączyć Update Management](../../automation/update-management/update-mgmt-enable-portal.md) na komputerze z systemem Windows lub Linux.
+
+- Uwzględnij serwery spoza platformy Azure, aby wykrywać zagrożenia i aktywnie monitorować potencjalne zagrożenia bezpieczeństwa przy użyciu [Azure Security Center](../../security-center/security-center-intro.md).
 
 Dane dziennika zbierane i przechowywane w obszarze roboczym Log Analytics z maszyny hybrydowej zawierają teraz właściwości specyficzne dla maszyny, takie jak identyfikator zasobu. Może służyć do obsługi dostępu do dziennika [kontekstu zasobów](../../azure-monitor/platform/design-logs-deployment.md#access-mode) .
 
@@ -38,12 +39,7 @@ Dane dziennika zbierane i przechowywane w obszarze roboczym Log Analytics z masz
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
-W przypadku serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) obsługiwane są tylko niektóre regiony:
-
-- EastUS
-- WestUS2
-- WestEurope
-- SoutheastAsia
+Aby uzyskać ostateczną listę obsługiwanych regionów z serwerami z obsługą usługi Azure ARC, zobacz stronę [produkty na platformie Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc) .
 
 W większości przypadków lokalizacja wybrana podczas tworzenia skryptu instalacji powinna być regionem platformy Azure geograficznie najbliżej lokalizacji maszyny. Dane przechowywane w obszarze geograficznym platformy Azure zawierają określony region, co może również mieć wpływ na wybór regionu, jeśli istnieją wymagania dotyczące danych znajdujących się na miejscu. Jeśli do regionu platformy Azure, z którym jest połączona dana maszyna, ma wpływ awaria, nie ma to wpływ na przyłączoną maszynę, ale nie można ukończyć operacji zarządzania przy użyciu platformy Azure. W przypadku awarii regionalnej, jeśli masz wiele lokalizacji, które obsługują geograficznie nadmiarową usługę, najlepszym rozwiązaniem jest połączenie maszyn w każdej lokalizacji z innym regionem platformy Azure.
 
@@ -53,4 +49,4 @@ Agent połączonej maszyny wysyła do usługi zwykły komunikat pulsu co 5 minut
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przed dokonaniem oceny lub włączeniem serwerów z obsługą łuku (wersja zapoznawcza) na wielu maszynach hybrydowych Przejrzyj [Omówienie agenta połączonej maszyny](agent-overview.md) , aby poznać wymagania, szczegóły techniczne dotyczące agenta i metod wdrażania.
+Przed przeszacowaniem lub włączeniem serwerów z obsługą łuku na wielu maszynach hybrydowych Przejrzyj [Omówienie agenta połączonej maszyny](agent-overview.md) , aby poznać wymagania, szczegóły techniczne dotyczące agenta i metod wdrażania.

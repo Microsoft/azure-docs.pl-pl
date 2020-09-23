@@ -1,20 +1,20 @@
 ---
-title: Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza) | Microsoft Docs
+title: Azure Monitor dla usługi Azure cache for Redis | Microsoft Docs
 description: W tym artykule opisano Azure Monitor funkcji Azure Redis Cache, która zapewnia właścicielom pamięci podręcznej szybkie zrozumienie problemów z wydajnością i wykorzystaniem.
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/21/2020
-ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/10/2020
+ms.openlocfilehash: e7b8a8e131cf7e0aae051f42043abf0640c927e4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045858"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887014"
 ---
-# <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Eksploruj Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza)
+# <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Eksploruj Azure Monitor dla usługi Azure cache for Redis
 
-Dla całej pamięci podręcznej platformy Azure dla zasobów Redis Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza) zapewnia ujednolicony, interaktywny widok:
+Dla całej pamięci podręcznej platformy Azure dla zasobów Redis Azure Monitor dla usługi Azure cache for Redis zapewnia ujednolicony, interaktywny widok:
 
 - Ogólna wydajność
 - Błędy
@@ -50,7 +50,7 @@ Aby wyświetlić użycie i wydajność kont magazynu we wszystkich subskrypcjach
 
     ![Pole wyszukiwania z słowem "Monitor" oraz wynikiem wyszukiwania usług, który pokazuje "Monitor" z symbolem prędkościomierza](./media/cosmosdb-insights-overview/search-monitor.png)
 
-1. Wybierz pozycję **Azure cache for Redis (wersja zapoznawcza)**. Jeśli ta opcja nie jest dostępna, wybierz pozycję **więcej**  >  **pamięci podręcznej platformy Azure dla Redis**.
+1. Wybierz pozycję **pamięć podręczna platformy Azure dla Redis**. Jeśli ta opcja nie jest dostępna, wybierz pozycję **więcej**  >  **pamięci podręcznej platformy Azure dla Redis**.
 
 ### <a name="overview"></a>Omówienie
 
@@ -128,9 +128,9 @@ Aby uzyskać dostęp do Azure Monitor dla usługi Azure cache for Redis bezpośr
 
 1. W Azure Portal wybierz pozycję Pamięć podręczna platformy Azure dla Redis.
 
-2. Z listy wybierz indywidualną pamięć podręczną platformy Azure dla zasobu Redis. W sekcji monitorowanie wybierz pozycję szczegółowe dane (wersja zapoznawcza).
+2. Z listy wybierz indywidualną pamięć podręczną platformy Azure dla zasobu Redis. W sekcji monitorowanie wybierz pozycję szczegółowe dane.
 
-    ![Zrzut ekranu przedstawiający opcje menu z wyrazami "Insights (wersja zapoznawcza)" wyróżnioną czerwoną ramką](./media/redis-cache-insights-overview/insights.png)
+    ![Zrzut ekranu przedstawiający opcje menu z wyrazami "Insights" wyróżnionymi w czerwonym polu](./media/redis-cache-insights-overview/insights.png)
 
 Te widoki są również dostępne, wybierając nazwę zasobu pamięci podręcznej platformy Azure dla zasobu Redis z poziomu skoroszytu na poziomie Azure Monitor.
 
@@ -168,7 +168,7 @@ Aby rozwinąć lub zwinąć wszystkie widoki w skoroszycie, wybierz symbol rozwi
 
 ![Wyróżniony symbol rozwijania skoroszytu](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cache-for-redis-preview"></a>Dostosowywanie Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza)
+## <a name="customize-azure-monitor-for-azure-cache-for-redis"></a>Dostosowywanie Azure Monitor dla usługi Azure cache for Redis
 
 Ponieważ to środowisko jest skompilowane Azure monitor szablonów skoroszytów, można wybrać pozycję **Dostosuj**  >  **Edytuj**  >  **Zapisz** , aby zapisać kopię zmodyfikowanej wersji w skoroszycie niestandardowym.
 

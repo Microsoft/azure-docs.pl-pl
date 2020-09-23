@@ -1,6 +1,6 @@
 ---
 title: Wdrażanie i wykonywanie prognoz przy użyciu ONNX
-description: Dowiedz się, jak szkolić model, przekonwertować go na ONNX, wdrożyć go w usłudze Azure SQL Edge (wersja zapoznawcza) lub wystąpieniu zarządzanym Azure SQL (wersja zapoznawcza), a następnie uruchomić natywne przewidywania danych przy użyciu przekazanego modelu ONNX.
+description: Dowiedz się, jak szkolić model, przekonwertować go na ONNX, wdrożyć go w usłudze Azure SQL Edge lub wystąpieniu zarządzanym Azure SQL (wersja zapoznawcza), a następnie uruchomić natywne przewidywania danych przy użyciu przekazanego modelu ONNX.
 keywords: Wdróż program SQL Edge
 ms.prod: sql
 ms.technology: machine-learning
@@ -8,22 +8,22 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
-ms.openlocfilehash: eeb50f682c8b3b225c6574b5276722b79465a511
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1e70b48e4c28cdc74c5079e492b0266ea60900ad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718785"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886823"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Wdrażanie i Tworzenie prognoz przy użyciu modelu ONNX
 
-W tym przewodniku szybki start dowiesz się, jak nauczyć model, przekonwertować go na ONNX, wdrożyć go w [usłudze Azure SQL Edge (wersja zapoznawcza)](onnx-overview.md) lub [wystąpieniu zarządzanym Azure SQL (wersja zapoznawcza)](../azure-sql/managed-instance/machine-learning-services-overview.md), a następnie uruchomić natywne przewidywania danych przy użyciu przekazanego modelu ONNX.
+W tym przewodniku szybki start dowiesz się, jak nauczyć model, przekonwertować go na ONNX, wdrożyć go w usłudze [Azure SQL Edge](onnx-overview.md) lub [wystąpieniu zarządzanym Azure SQL (wersja zapoznawcza)](../azure-sql/managed-instance/machine-learning-services-overview.md), a następnie uruchomić natywne przewidywania danych przy użyciu przekazanego modelu ONNX.
 
 Ten przewodnik Szybki Start jest oparty na **scikit — uczenie** i używa [zestawu danych dla obudowy Boston](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Jeśli używasz usługi Azure SQL Edge i nie wdrożono modułu usługi Azure SQL Edge, postępuj zgodnie z instrukcjami w sekcji [wdrażanie programu SQL Edge (wersja zapoznawcza) przy użyciu Azure Portal](deploy-portal.md).
+* Jeśli używasz usługi Azure SQL Edge i nie wdrożono modułu usługi Azure SQL Edge, postępuj zgodnie z instrukcjami [wdrażania programu SQL Edge przy użyciu Azure Portal](deploy-portal.md).
 
 * Zainstaluj [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 

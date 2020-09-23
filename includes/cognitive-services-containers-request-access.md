@@ -3,34 +3,21 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/18/2020
-ms.openlocfilehash: 66bd78c94e6c54d26959778cc059730c13d02629
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.date: 08/31/2020
+ms.openlocfilehash: 1c374429ca910afeb9972841204bd3e51dcc8306
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698572"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888307"
 ---
-Formularz żąda informacji o użytkowniku, firmie i scenariuszu użytkownika, dla którego będziesz używać kontenera. Po przesłaniu formularza zespół Cognitive Services platformy Azure przegląda go, aby upewnić się, że spełnia on kryteria dostępu do prywatnego rejestru kontenerów.
+Formularz żąda informacji o użytkowniku, firmie i scenariuszu użytkownika, dla którego będziesz używać kontenera. Po przesłaniu formularza zespół usługi Azure Cognitive Services sprawdzi go i wyśle wiadomość e-mail z decyzją.
 
 > [!IMPORTANT]
-> Musisz użyć adresu e-mail skojarzonego z kontem Microsoft (MSA) lub kontem Azure Active Directory (Azure AD) w formularzu.
+> * W formularzu musisz użyć adresu e-mail skojarzonego z IDENTYFIKATORem subskrypcji platformy Azure.
+> * Zasób platformy Azure, którego używasz do uruchamiania kontenera, musi zostać utworzony przy użyciu zatwierdzonego identyfikatora subskrypcji platformy Azure. 
+> * Sprawdź pocztę e-mail (Skrzynka odbiorcza i foldery śmieci), aby uzyskać aktualizacje stanu aplikacji firmy Microsoft.
 
-Jeśli Twoje żądanie zostanie zatwierdzone, otrzymasz wiadomość e-mail z instrukcjami opisującymi, jak uzyskać poświadczenia i uzyskać dostęp do prywatnego rejestru kontenerów.
+Po zatwierdzeniu będzie można uruchomić kontener po jego pobraniu z Container Registry firmy Microsoft (MCR), opisanego w dalszej części artykułu. 
 
-## <a name="log-in-to-the-private-container-registry"></a>Logowanie do rejestru kontenerów prywatnych
-
-Istnieje kilka sposobów uwierzytelniania przy użyciu prywatnego rejestru kontenerów dla kontenerów Cognitive Services. Zalecamy użycie metody wiersza polecenia za pomocą [interfejsu CLI platformy Docker](https://docs.docker.com/engine/reference/commandline/cli/).
-
-Użyj polecenia [Docker login](https://docs.docker.com/engine/reference/commandline/login/) , jak pokazano w poniższym przykładzie, aby zalogować się do programu `containerpreview.azurecr.io` , który jest rejestrem prywatnych kontenerów dla kontenerów Cognitive Services. Zastąp nazwę * \< username \> * nazwą użytkownika i * \< hasłem \> * przy użyciu hasła podanego w ramach poświadczeń otrzymanych od zespołu usługi Azure Cognitive Services.
-
-```
-docker login containerpreview.azurecr.io -u <username> -p <password>
-```
-
-Jeśli poświadczenia zostały zabezpieczone w pliku tekstowym, można połączyć zawartość tego pliku tekstowego z `docker login` poleceniem. Użyj `cat` polecenia, jak pokazano w poniższym przykładzie. Zastąp * \< passwordFile \> * ścieżką i nazwą pliku tekstowego, który zawiera hasło. Zastąp nazwę * \< username \> * nazwą użytkownika podaną w poświadczeniach.
-
-```
-cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-```
-
+Nie będzie można uruchomić kontenera, jeśli subskrypcja platformy Azure nie została zatwierdzona.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 12c9b1226e3ba928a4062049c7839d4e46ef727d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156587"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91024970"
 ---
 ## <a name="for-users-in-your-directory"></a>Dla użytkowników w katalogu
 
@@ -207,3 +207,33 @@ Na przykład, jeśli w pierwszej osoby zatwierdzającej wystawiłeś Alicja i Ro
     ![Dostęp do pakietu — ustawienie zasad włączania zasad](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Kliknij przycisk **Dalej**.
+
+## <a name="add-requestor-information-preview-to-an-access-package"></a>Dodawanie informacji o żądającym (wersja zapoznawcza) do pakietu dostępu
+
+1. Przejdź do karty **Informacje o żądającym** i kliknij kartę **pytania** podrzędne.
+ 
+1. Wpisz tekst, w którym chcesz zadać żądanie, znanego również jako ciąg wyświetlania, dla pytania w polu **pytania** .
+
+    ![Dostęp — ustawienie informacji na temat żądania włączenia zasad](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+
+1. Jeśli chcesz dodać własne opcje lokalizacji, kliknij pozycję **Dodaj lokalizację**.
+    1. W okienku **Dodaj lokalizacje dla pytania** wybierz **kod języka** dla języka, w którym ma zostać zlokalizowane pytanie.
+    1. W skonfigurowanym języku wpisz pytanie w **zlokalizowanym polu tekstowym** .
+    1. Po dodaniu wszystkich wymaganych lokalizacji kliknij przycisk **Zapisz**.
+
+    ![Dostęp do pakietu — zasady — Konfigurowanie zlokalizowanego tekstu](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+
+1. Wybierz **format odpowiedzi** , w którym chcesz odpowiedzieć żądającym. Formaty odpowiedzi obejmują: *krótki tekst*, *wielokrotne wybór*i *długi tekst*.
+ 
+    ![Dostęp do pakietu — zasady — wybierz pozycję Wyświetl i Edytuj format odpowiedzi z wieloma opcjami](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+ 
+1. W przypadku wybrania wielu opcji kliknij przycisk **Wyświetl i edytuj** , aby skonfigurować opcje odpowiedzi.
+    1. Po wybraniu opcji Wyświetl i edytuj okienko **pytania Wyświetl/Edytuj** zostanie otwarte.
+    1. Wpisz opcje odpowiedzi, które chcesz nadać żądającemu w odpowiedzi na pytanie w polach **wartości odpowiedzi** .
+    1. Wpisz tyle odpowiedzi, ile potrzebujesz, a następnie kliknij przycisk **Zapisz**.
+    
+    ![Dostęp do pakietu — zasady — wprowadzanie wielu opcji wyboru](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+  
+1. Aby wymagać od zleceniodawców odpowiedzi na to pytanie podczas żądania dostępu do pakietu dostępu, kliknij pole wyboru w obszarze **wymagane**.
+
+1. Kliknij przycisk Dalej

@@ -8,22 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 0ae3b66d8093c0498011d9f93cd8d869b85f9003
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530713"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903555"
 ---
-# <a name="install-and-run-anomaly-detector-containers-preview"></a>Instalowanie i uruchamianie kontenerów wykrywania anomalii (wersja zapoznawcza)
+# <a name="install-and-run-anomaly-detector-containers"></a>Instalowanie i uruchamianie kontenerów narzędzia do wykrywania anomalii 
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
 Narzędzie do wykrywania anomalii ma następujące funkcje kontenera:
 
 | Funkcja | Funkcje |
 |--|--|
-| Wykrywacz anomalii | <li> Wykrywa anomalie w czasie rzeczywistym. <li> Wykrywa anomalie w zestawie danych jako zadanie wsadowe. <li> Wnioskuje oczekiwany normalny zakres danych. <li> Obsługuje dostosowanie wykrywania anomalii w celu lepszego dopasowania do danych. |
+| Wykrywacz anomalii | <li> Wykrywa anomalie w czasie rzeczywistym. <li> Wykrywa anomalie w zestawie danych jako zadanie wsadowe. <li> Wykrywa punkty zmian trendu w zestawie danych jako zadanie wsadowe.<li> Wnioskuje oczekiwany normalny zakres danych. <li> Obsługuje dostosowanie wykrywania anomalii w celu lepszego dopasowania do danych. |
 
 Aby uzyskać szczegółowe informacje na temat interfejsów API, zobacz:
 * [Dowiedz się więcej o usłudze interfejsu API wykrywania anomalii](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -67,7 +69,7 @@ Użyj [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/
 
 | Kontener | Repozytorium |
 |-----------|------------|
-| poznawcze-usługi-wykrywanie anomalii | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
+| poznawcze-usługi-wykrywanie anomalii | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -95,7 +97,7 @@ Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandlin
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -177,7 +179,7 @@ Aby uzyskać więcej informacji na temat tych opcji, zobacz [Konfigurowanie kont
 W tym artykule przedstawiono koncepcje i przepływ pracy służące do pobierania, instalowania i uruchamiania kontenerów wykrywania anomalii. Podsumowanie:
 
 * Detektor anomalii zawiera jeden kontener systemu Linux dla platformy Docker, Hermetyzowanie wykrywania anomalii przy użyciu usługi Batch i przesyłania strumieniowego z oczekiwanym zakresem oraz dostrajania dokładności.
-* Obrazy kontenerów są pobierane z prywatnego Azure Container Registry dedykowanego dla usługi Containers w wersji zapoznawczej.
+* Obrazy kontenerów są pobierane z prywatnego Azure Container Registry dedykowanego dla kontenerów.
 * Obrazy kontenerów są uruchamiane w platformie Docker.
 * Można użyć interfejsu API REST lub zestawu SDK do wywoływania operacji w kontenerach wykrywania anomalii przez określenie identyfikatora URI hosta kontenera.
 * Podczas tworzenia wystąpienia kontenera należy określić informacje o rozliczeniach.

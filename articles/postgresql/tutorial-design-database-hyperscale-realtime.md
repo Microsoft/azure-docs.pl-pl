@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: projektowanie pulpitu nawigacyjnego w czasie rzeczywistym (Citus) — Azure Database for PostgreSQL'
-description: W tym samouczku przedstawiono sposób tworzenia, wypełniania i wykonywania zapytań dotyczących tabel rozproszonych w Azure Database for PostgreSQL funkcji Citus.
+description: Azure Database for PostgreSQL w tym samouczku pokazano, jak zrównoleglanie zapytania pulpitu nawigacyjnego w czasie rzeczywistym przy użyciu funkcji wieloskalowania (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: db3cd95c5a833b299ee85c1e68b15644ae0e0226
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 41ac1cb856011d9730f7b49bbf85350f4dbccdbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387578"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895240"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Samouczek: projektowanie pulpitu nawigacyjnego analizy w czasie rzeczywistym za pomocą Azure Database for PostgreSQL — Citus
 
@@ -198,7 +198,7 @@ Korzystając z naszej funkcji, wykonaj ją w celu zestawienia danych:
 SELECT rollup_http_request();
 ```
 
-Wraz z naszymi danymi w formie wstępnie zagregowanej możemy zbadać tabelę zestawień, aby uzyskać ten sam raport zgodnie z wcześniejszym użyciem. Uruchom zapytanie:
+Wraz z naszymi danymi w formie wstępnie zagregowanej możemy zbadać tabelę zestawień, aby uzyskać ten sam raport zgodnie z wcześniejszym użyciem. Uruchom poniższe zapytanie:
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -226,6 +226,5 @@ W poprzednich krokach zostały utworzone zasoby platformy Azure w grupie serwer�
 
 W tym samouczku pokazano, jak zainicjować obsługę administracyjną grupy serwerów Citus. Nawiązano połączenie z usługą PSQL, utworzono schemat i dane rozproszone. Wiesz już, jak wykonywać zapytania dotyczące danych w postaci pierwotnej, regularnie agregować te dane, wysyłać zapytania do zagregowanych tabel i wygasać stare dane.
 
-Następnie Dowiedz się więcej na temat pojęć związanych ze skalą.
-> [!div class="nextstepaction"]
-> [Skalowanie typów węzłów](https://aka.ms/hyperscale-concepts)
+- Informacje o [typach węzłów](https://aka.ms/hyperscale-concepts) grupy serwerów
+- Określ najlepszy [początkowy rozmiar](howto-hyperscale-scaling.md#picking-initial-size) grupy serwerów

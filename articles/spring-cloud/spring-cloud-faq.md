@@ -4,15 +4,16 @@ description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotycz�
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ad008ff3ef4f29ee358b075802deba7eef919bd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322045"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888716"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -61,9 +62,11 @@ Jeśli wystąpią problemy z chmurą Azure wiosną, Utwórz [żądanie pomocy te
 
 Aby szybko rozpocząć pracę z chmurą wiosenną platformy Azure, postępuj zgodnie z instrukcjami w [przewodniku szybki start: uruchamianie aplikacji w chmurze ze sprężyną Azure przy użyciu Azure Portal](spring-cloud-quickstart.md).
 
+::: zone pivot="programming-language-java"
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Jakie środowisko uruchomieniowe języka Java obsługuje chmurę Azure?
 
 Chmura sprężynowa platformy Azure obsługuje środowisko Java 8 i 11. Zobacz [środowisko uruchomieniowe Java i wersje systemu operacyjnego](#java-runtime-and-os-versions)
+::: zone-end
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Gdzie mogę wyświetlić sprężynowe dzienniki i metryki aplikacji w chmurze?
 
@@ -75,12 +78,14 @@ Chmura sprężynowa platformy Azure obsługuje eksportowanie dzienników aplikac
 
 Tak. Aby uzyskać więcej informacji, zobacz [Samouczek: używanie rozproszonego śledzenia w chmurze Azure wiosennej](spring-cloud-tutorial-distributed-tracing.md).
 
+::: zone pivot="programming-language-java"
 ### <a name="what-resource-types-does-service-binding-support"></a>Jakie typy zasobów obsługuje usługa powiązania usługi?
 
 Obecnie są obsługiwane trzy usługi:
 * Azure Cosmos DB
 * Azure Database for MySQL
 * Pamięć podręczna platformy Azure dla Redis.
+::: zone-end
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Czy mogę wyświetlać, dodawać i przenosić woluminy trwałe z wewnątrz aplikacji?
 
@@ -96,6 +101,7 @@ Ustawienia diagnostyczne chmury wiosennej można usunąć za pomocą interfejsu 
  az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
 ```
 
+::: zone pivot="programming-language-java"
 ## <a name="java-runtime-and-os-versions"></a>Środowisko uruchomieniowe Java i wersje systemu operacyjnego
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Które wersje środowiska uruchomieniowego Java są obsługiwane w chmurze Azure wiosennej?
@@ -136,10 +142,11 @@ Możesz otworzyć bilet pomocy technicznej w ramach pomocy technicznej platformy
 
 Używana jest Najnowsza wersja programu Ubuntu LTS, a obecnie [Ubuntu 20,04 LTS (system fossa)](https://releases.ubuntu.com/focal/) to domyślny system operacyjny.
 
-### <a name="how-often-will-os-security-patches-be-applied"></a>Jak często będą stosowane poprawki zabezpieczeń systemu operacyjnego?
+### <a name="how-often-are-os-security-patches-applied"></a>Jak często są stosowane poprawki zabezpieczeń systemu operacyjnego?
 
-Poprawki zabezpieczeń dotyczące chmury z użyciem usługi Azure wiosennej zostaną przeprowadzone do produkcji co miesiąc.
-Krytyczne poprawki zabezpieczeń (ocena w wersji CVE >= 9) dotyczące usługi Azure wiosny są dostępne najszybciej, jak to możliwe.
+Poprawki zabezpieczeń stosowane w chmurze Azure wiosennej są przeprowadzone do produkcji miesięcznie.
+Krytyczne poprawki zabezpieczeń (ocena w >= 9) dotyczące usługi Azure wiosny są dostępne najszybciej, jak to możliwe.
+::: zone-end
 
 ## <a name="deployment"></a>Wdrożenie
 
@@ -158,6 +165,7 @@ Tak. Aby uzyskać więcej informacji, zobacz [Uruchamianie aplikacji w chmurze w
 
 Nie.
 
+::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>Jakie są najlepsze rozwiązania dotyczące migrowania istniejących mikrousług w chmurze do usługi Azure wiosny?
 
 Podczas migrowania istniejących mikrousług w chmurze wiosny do chmury wiosennej platformy Azure dobrym pomysłem jest przestrzeganie następujących najlepszych rozwiązań:
@@ -168,8 +176,22 @@ Podczas migrowania istniejących mikrousług w chmurze wiosny do chmury wiosenne
 * Zalecamy używanie oficjalnych, stabilnych bibliotek sprężyny Pivot. Wersje nieoficjalne, beta lub rozwidlenia z nieoficjalnymi wersjami bibliotek sprężynowych nie są objęte umową dotyczącą poziomu usług.
 
 Po migracji Monitoruj metryki procesora/pamięci RAM i ruch sieciowy, aby upewnić się, że wystąpienia aplikacji są odpowiednio skalowane.
+::: zone-end
 
-## <a name="trouble-shooting"></a>Rozwiązywanie problemów
+::: zone pivot="programming-language-csharp"
+## <a name="net-core-versions"></a>Wersje .NET Core
+
+### <a name="which-net-core-versions-are-supported"></a>Które wersje .NET Core są obsługiwane?
+
+.NET Core 3,1 i nowsze wersje.
+
+### <a name="how-long-will-net-core-31-be-supported"></a>Jak długo będzie obsługiwana platforma .NET Core 3,1?
+
+Do 3 grudnia 2022. Zobacz [zasady pomocy technicznej platformy .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+::: zone-end
+
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 ### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>Jaki wpływ na rejestr usługi jest sporadycznie niedostępny?
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: c31f3c998df918466e707c95f041592051e8251c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045318"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903818"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Debuguj Azure Stream Analytics zapytań lokalnie przy użyciu diagramu zadań w Visual Studio Code
 
@@ -27,7 +27,7 @@ Skrypt Azure Stream Analytics służy do przekształcania danych wejściowych w 
 
 ### <a name="start-local-testing"></a>Rozpocznij testowanie lokalne
 
-Skorzystaj z tego [przewodnika Szybki Start](quick-create-vs-code.md) , aby dowiedzieć się, jak utworzyć zadanie Stream Analytics przy użyciu Visual Studio Code lub [wyeksportować istniejące zadanie do projektu lokalnego](visual-studio-code-explore-jobs.md). Poświadczenia dla danych wejściowych i wyjściowych są wypełniane automatycznie dla eksportowanych zadań.
+Skorzystaj z tego [przewodnika Szybki Start](quick-create-visual-studio-code.md) , aby dowiedzieć się, jak utworzyć zadanie Stream Analytics przy użyciu Visual Studio Code lub [wyeksportować istniejące zadanie do projektu lokalnego](visual-studio-code-explore-jobs.md). Poświadczenia dla danych wejściowych i wyjściowych są wypełniane automatycznie dla eksportowanych zadań.
 
 Jeśli chcesz przetestować zapytanie z lokalnymi danymi wejściowymi, postępuj zgodnie z tymi [instrukcjami](visual-studio-code-local-run.md). Jeśli chcesz przetestować przy użyciu danych wejściowych na żywo, [Skonfiguruj dane wejściowe](stream-analytics-add-inputs.md) przejdź do następnego kroku. 
 
@@ -59,7 +59,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
 3. Wybierz nazwę źródła danych wejściowych z listy rozwijanej, aby wyświetlić metryki wejściowe. Źródło danych wejściowych na poniższym zrzucie ekranu jest nazywane *cudzysłowami*. Aby uzyskać więcej informacji na temat metryk wejściowych, zobacz [Omówienie monitorowania zadania Stream Analytics i sposobu monitorowania zapytań](stream-analytics-monitoring.md).
 
    > [!div class="mx-imgBorder"]
-   > ![Metryki diagramu zadania](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
+   > ![Metryki wejściowe diagramu zadania](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
 
 4. Wybierz krok zapytania z diagramu zadania lub wybierz nazwę kroku z listy rozwijanej, aby wyświetlić metryki na poziomie kroku. Opóźnienie jest jedyną dostępną metryką kroku.
 
@@ -108,7 +108,7 @@ Wybierz opcję **Podsumowanie zadania** w prawym górnym rogu diagramu zadania, 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Visual Studio Code](quick-create-vs-code.md)
+* [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Visual Studio Code](quick-create-visual-studio-code.md)
 * [Eksplorowanie Azure Stream Analytics z Visual Studio Code](visual-studio-code-explore-jobs.md)
 * [Testowanie Stream Analytics zapytań lokalnie z przykładowymi danymi przy użyciu Visual Studio Code](visual-studio-code-local-run.md)
 * [Przetestuj Azure Stream Analytics zadania lokalnie z danymi wejściowymi na żywo przy użyciu Visual Studio Code](visual-studio-code-local-run-live-input.md)

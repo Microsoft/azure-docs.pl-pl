@@ -13,15 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 1f69fe027772dc2d008a567723a5b3c04f3ee51b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e8aea9b8abb5926fdb73df7c140ecfec1114f7a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378206"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894764"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Adaptacyjne Zabezpieczanie sieci w Azure Security Center
 Dowiedz się, jak konfigurować adaptacyjną ochronę sieci w Azure Security Center.
+
+## <a name="availability"></a>Dostępność
+|Aspekt|Szczegóły|
+|----|:----|
+|Stan wydania:|Ogólnie dostępna (GA)|
+|Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
+|Wymagane role i uprawnienia:|Uprawnienia do zapisu na sieciowych grup zabezpieczeń komputera|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|||
 
 ## <a name="what-is-adaptive-network-hardening"></a>Co to jest adaptacyjna Funkcja ograniczania przepustowości sieci?
 Zastosowanie [sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń)](https://docs.microsoft.com/azure/virtual-network/security-overview) do filtrowania ruchu do i z zasobów, usprawnia stan zabezpieczeń sieci. Nadal jednak mogą istnieć sytuacje, w których rzeczywisty ruch przepływający przez sieciowej grupy zabezpieczeń jest podzbiorem zdefiniowanych reguł sieciowej grupy zabezpieczeń. W takich przypadkach dalsze ulepszanie stan zabezpieczeń można osiągnąć przez zaostrzonie reguł sieciowej grupy zabezpieczeń na podstawie rzeczywistych wzorców ruchu.
@@ -37,15 +46,6 @@ Załóżmy na przykład, że istniejąca reguła sieciowej grupy zabezpieczeń m
 ![Widok ograniczania funkcjonalności sieci](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 
-## <a name="availability"></a>Dostępność
-
-|Aspekt|Szczegóły|
-|----|:----|
-|Stan wydania:|Ogólna dostępność|
-|Wpisaną|Warstwa Standardowa|
-|Wymagane role i uprawnienia:|Uprawnienia do zapisu na sieciowych grup zabezpieczeń komputera|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
-|||
 
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Wyświetl alerty i reguły ograniczania przepustowości sieci
@@ -56,7 +56,7 @@ Załóżmy na przykład, że istniejąca reguła sieciowej grupy zabezpieczeń m
    * **Niezeskanowane zasoby**: maszyny wirtualne, na których algorytm ograniczania funkcjonalności sieci nie może zostać uruchomiony z jednego z następujących powodów:
       * **Maszyny wirtualne są klasycznymi maszynami wirtualnymi**: obsługiwane są tylko Azure Resource Manager maszyny wirtualne.
       * Brak **wystarczającej ilości danych**: w celu wygenerowania dokładnego zalecenia dotyczącego ograniczania ruchu, Security Center wymaga co najmniej 30 dni danych ruchu.
-      * **Maszyna wirtualna nie jest chroniona przez Standard ASC**: tylko maszyny wirtualne, które są ustawione na standardową warstwę cenową Security Center, kwalifikują się do tej funkcji.
+      * **Maszyna wirtualna nie jest chroniona przez usługę Azure Defender**: dla tej funkcji kwalifikują się tylko maszyny wirtualne chronione za pomocą [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md) .
 
      ![zasoby w złej kondycji](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
@@ -69,7 +69,7 @@ Załóżmy na przykład, że istniejąca reguła sieciowej grupy zabezpieczeń m
 
 1. Na karcie **zasoby w złej kondycji** wybierz maszynę wirtualną. Są wyświetlane alerty i zalecane reguły ograniczania funkcjonalności.
 
-     ![zasady ograniczania funkcjonalności](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+     ![Zasady ograniczania funkcjonalności](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
    > Na karcie **reguły** znajduje się lista reguł, które zaleca się dodanie. Na karcie **alerty** znajduje się lista alertów, które zostały wygenerowane z powodu ruchu, przepływających do zasobu, który nie należy do zakresu adresów IP dozwolony w zalecanych regułach.
@@ -106,14 +106,14 @@ Niektóre ważne wskazówki dotyczące modyfikowania reguły ograniczania funkcj
 
 1. Aby zmodyfikować niektóre parametry reguły, na karcie **reguły** kliknij trzy kropki (...) na końcu wiersza reguły, a następnie kliknij pozycję **Edytuj**.
 
-   ![Edytuj regułę](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+   ![Reguła edycji s](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
 1. W oknie **Edytowanie reguły** Zaktualizuj szczegóły, które chcesz zmienić, a następnie kliknij przycisk **Zapisz**.
 
    > [!NOTE]
-   > Po kliknięciu przycisku **Zapisz**pomyślnie zmieniono regułę. *Nie została jednak zastosowana do sieciowej grupy zabezpieczeń.* Aby go zastosować, należy wybrać regułę z listy, a następnie kliknąć pozycję **Wymuszaj** (zgodnie z opisem w następnym kroku).
+   > Po kliknięciu przycisku **Zapisz**pomyślnie zmieniono regułę. *Nie została jednak zastosowana do sieciowej grupy zabezpieczeń.* Aby go zastosować, należy wybrać regułę z listy i wybrać pozycję **Wymuszaj** (zgodnie z opisem w następnym kroku).
 
-   ![Edytuj regułę](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+   ![Wybieranie pozycji Zapisz](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
 3. Aby zastosować zaktualizowaną regułę, wybierz ją z listy, a następnie kliknij pozycję **Wymuszaj**.
 
@@ -150,4 +150,4 @@ W razie potrzeby można usunąć zalecaną regułę dla bieżącej sesji. Na prz
 
 1. Na karcie **reguły** kliknij trzy kropki (...) na końcu wiersza reguły, a następnie kliknij pozycję **Usuń**.  
 
-    ![zasady ograniczania funkcjonalności](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![Usuwanie reguły](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)

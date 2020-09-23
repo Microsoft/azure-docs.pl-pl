@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f38a973611cb1ab18eead4ec51e6be91ada2cc40
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: abd1bc9b53c303d094d74683da0d6e3fad4d715f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85318645"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887463"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Wdrażanie modelu ML w usłudze Azure SQL Edge przy użyciu ONNX 
 
@@ -36,8 +36,8 @@ W trzeciej części tego samouczka z trzema częściami w celu przewidywania zan
    |Nazwa użytkownika|sa|
    |Hasło|Silne hasło użyte podczas tworzenia wystąpienia usługi Azure SQL Edge|
    |baza danych|Domyślny|
-   |Server group (Grupa serwerów)|Domyślny|
-   |Name (optional) (Nazwa — opcjonalnie)|Podaj nazwę opcjonalną|
+   |Grupa serwerów|Domyślny|
+   |Nazwa (opcjonalnie)|Podaj nazwę opcjonalną|
 
 3. Kliknij przycisk **Połącz** .
 
@@ -225,4 +225,4 @@ Wprowadź następujący kod w języku Python w notesie Azure Data Studio i uruch
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji o korzystaniu z modeli ONNX w usłudze Azure SQL Edge, zobacz [Machine Learning i AI with ONNX in SQL Edge (wersja zapoznawcza)](onnx-overview.md).
+Aby uzyskać więcej informacji na temat korzystania z modeli ONNX w usłudze Azure SQL Edge, zobacz temat [Uczenie maszynowe i AI z ONNX w programie SQL Edge](onnx-overview.md).

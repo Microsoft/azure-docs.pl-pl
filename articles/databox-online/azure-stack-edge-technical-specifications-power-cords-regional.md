@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge — specyfikacje techniczne na podstawie lokalizacji | Microsoft Docs
-description: Dowiedz się więcej na temat specyfikacji technicznych dla Azure Stack brzegowej.
+title: Microsoft Azure Stack Edge wymagania techniczne dotyczące systemu Power BI w oparciu o lokalizację | Microsoft Docs
+description: Dowiedz się więcej na temat specyfikacji technicznych dla Azure Stack brzegowych pakietu Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,22 +8,22 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 34f5b578581c5a11b3dbfba76f68819c2ed706d0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 76d8c84fd1dd403c88e8261cf49e3620f3a6ec14
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055932"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903623"
 ---
-# <a name="azure-stack-edge-power-cord-specifications"></a>Azure Stack brzegowe wymagania dotyczące przewodu zasilającego
+# <a name="azure-stack-edge-pro-power-cord-specifications"></a>Azure Stack Edge — specyfikacje dla przewodu Power BI Pro
 
-Urządzenie z Azure Stack Edge będzie potrzebować przewodu zasilającego, który będzie się różnić w zależności od regionu platformy Azure.
+Twoje urządzenie z systemem Azure Stack Edge będzie potrzebować przewodu sieciowego, który będzie się różnić w zależności od regionu platformy Azure.
 
 ## <a name="supported-power-cords"></a>Obsługiwane przewody zasilające
 
 W poniższej tabeli można znaleźć prawidłowe specyfikacje dotyczące przewodu dla danego regionu:
 
-| Country (Kraj)    | Napięcie znamionowe (V)| Bieżące znamionowe (A)| Standard przewodu |Łącznik wejściowy|Łącznik wyjściowy| Długość mm |  
+| Kraj    | Napięcie znamionowe (V)| Bieżące znamionowe (A)| Standard przewodu |Łącznik wejściowy|Łącznik wyjściowy| Długość mm |  
 |------------|---------------|------------|----|--|----|--|--|--|
 |Albania|250|10|H05Z1Z1 3.|CEE 7|C13|1830|
 |Algieria|250|10|H05Z1Z1 3.|CEE 7|C13|1830|
@@ -158,4 +158,4 @@ W poniższej tabeli można znaleźć prawidłowe specyfikacje dotyczące przewod
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Azure Stack Edge — specyfikacje techniczne](data-box-edge-technical-specifications-compliance.md)
+[Azure Stack Edge — specyfikacje techniczne Pro](data-box-edge-technical-specifications-compliance.md)
