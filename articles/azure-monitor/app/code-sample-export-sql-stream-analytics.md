@@ -3,12 +3,12 @@ title: Eksportowanie do bazy danych SQL z platformy Azure Application Insights |
 description: Ciągle Eksportuj dane Application Insights do bazy danych SQL przy użyciu Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 9c559a61794b36ea1bc33abc14271151fbea9d4c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 90aab1794a9b412de2498edcc4d221f4bcc86968
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311232"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979450"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Przewodnik: Eksportowanie do bazy danych SQL z Application Insights przy użyciu Stream Analytics
 W tym artykule przedstawiono sposób przenoszenia danych telemetrycznych z [usługi Azure Application Insights][start] do Azure SQL Database za pomocą [eksportu ciągłego][export] i [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -133,21 +133,21 @@ W tym przykładzie używamy danych z widoków strony. Aby zobaczyć inne dostęp
 ## <a name="create-an-azure-stream-analytics-instance"></a>Tworzenie wystąpienia Azure Stream Analytics
 W [Azure Portal](https://portal.azure.com/)wybierz usługę Azure Stream Analytics i Utwórz nowe zadanie Stream Analytics:
 
-![Ustawienia usługi Stream Analytics](./media/code-sample-export-sql-stream-analytics/SA001.png)
+![Zrzut ekranu przedstawia stronę zadania usługi Stream Analytics z wyróżnionym przyciskiem Utwórz.](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
 ![Nowe zadanie usługi Stream Analytics](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 Po utworzeniu nowego zadania wybierz pozycję **Przejdź do zasobu**.
 
-![Ustawienia usługi Stream Analytics](./media/code-sample-export-sql-stream-analytics/SA003.png)
+![Zrzut ekranu przedstawia komunikat wdrożenia zakończony pomyślnie i przejdź do przycisku zasobów.](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>Dodaj nowe dane wejściowe
 
-![Ustawienia usługi Stream Analytics](./media/code-sample-export-sql-stream-analytics/SA004.png)
+![Zrzut ekranu przedstawia stronę dane wejściowe z wybranym przyciskiem Dodaj.](./media/code-sample-export-sql-stream-analytics/SA004.png)
 
 Ustaw, aby pobierał dane wejściowe z obiektu BLOB ciągłego eksportu:
 
-![Ustawienia usługi Stream Analytics](./media/code-sample-export-sql-stream-analytics/SA0005.png)
+![Zrzut ekranu przedstawia nowe okno wprowadzania z wybranymi opcjami w menu rozwijanym alias, źródło i konto magazynu.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
 
 Teraz potrzebny jest podstawowy klucz dostępu z konta magazynu, który został zanotowany wcześniej. Ustaw tę wartość jako klucz konta magazynu.
 
@@ -163,10 +163,10 @@ webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 W tym przykładzie:
 
-* `webapplication27`jest nazwą zasobu Application Insights, **w małych przypadkach**. 
-* `1234...`jest kluczem Instrumentacji zasobu Application Insights **z usuniętymi kreskami**. 
-* `PageViews`to typ danych, które chcemy analizować. Dostępne typy zależą od filtru ustawionego w ramach eksportu ciągłego. Sprawdź wyeksportowane dane, aby zobaczyć inne dostępne typy i zobacz [Eksportuj model danych](./export-data-model.md).
-* `/{date}/{time}`jest wzorcem zapisanym dosłownie.
+* `webapplication27` jest nazwą zasobu Application Insights, **w małych przypadkach**. 
+* `1234...` jest kluczem Instrumentacji zasobu Application Insights **z usuniętymi kreskami**. 
+* `PageViews` to typ danych, które chcemy analizować. Dostępne typy zależą od filtru ustawionego w ramach eksportu ciągłego. Sprawdź wyeksportowane dane, aby zobaczyć inne dostępne typy i zobacz [Eksportuj model danych](./export-data-model.md).
+* `/{date}/{time}` jest wzorcem zapisanym dosłownie.
 
 Aby uzyskać nazwę i iKey zasobu Application Insights, Otwórz program Essentials na stronie przeglądu lub Otwórz pozycję Ustawienia.
 

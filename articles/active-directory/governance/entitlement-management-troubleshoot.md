@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460800"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979426"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Rozwiązywanie problemów z zarządzaniem prawami usługi Azure AD
 
@@ -75,7 +75,7 @@ W tym artykule opisano niektóre elementy, które należy zaznaczyć, aby pomóc
 
 ### <a name="view-a-requests-delivery-errors"></a>Wyświetl błędy dostarczania żądania
 
-**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
+**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu, Menedżer pakietów dostępu lub Menedżer przypisań pakietów dostępu
 
 1. W Azure Portal kliknij pozycję **Azure Active Directory** , a następnie kliknij pozycję **Zarządzanie tożsamościami**.
 
@@ -103,7 +103,7 @@ Można ponownie przetwarzać żądanie, które ma stan **dostawy zakończony nie
 
 - Jeśli błąd nie został usunięty podczas przedziału prób, stan żądania może być **Niepowodzenie dostawy** lub **częściowo dostarczone**. Następnie możesz użyć przycisku **Reprocess** . Przetworzenie żądania będzie miało siedem dni.
 
-**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
+**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu, Menedżer pakietów dostępu lub Menedżer przypisań pakietów dostępu
 
 1. W Azure Portal kliknij pozycję **Azure Active Directory** , a następnie kliknij pozycję **Zarządzanie tożsamościami**.
 
@@ -121,7 +121,7 @@ Można ponownie przetwarzać żądanie, które ma stan **dostawy zakończony nie
 
 Można anulować tylko oczekujące żądanie, które nie zostało jeszcze dostarczone lub którego dostarczenie nie powiodło się. Przycisk **Anuluj** zostałby wyszarzony w przeciwnym razie.
 
-**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
+**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu, Menedżer pakietów dostępu lub Menedżer przypisań pakietów dostępu
 
 1. W Azure Portal kliknij pozycję **Azure Active Directory** , a następnie kliknij pozycję **Zarządzanie tożsamościami**.
 

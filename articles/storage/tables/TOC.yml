@@ -50,8 +50,8 @@
         - name: Szyfrowanie danych magazynowanych w usłudze Azure Storage
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
           items:
-            - name: Klucze zarządzane przez klienta za pomocą usługi Azure Key Vault
-              href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Szyfrowanie przy użyciu kluczy zarządzanych przez klienta
+              href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Kontrole zabezpieczeń usługi Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ../common/security-controls-policy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
@@ -104,17 +104,15 @@
           items:
             - name: 'Tworzenie konta, które obsługuje klucze zarządzane przez klienta'
               href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-            - name: Konfigurowanie kluczy zarządzanych przez klienta
+            - name: Konfigurowanie szyfrowania przy użyciu kluczy zarządzanych przez klienta
               items:
-                - name: Portal
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-                - name: Interfejs wiersza polecenia platformy Azure
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+                - name: Przechowywanie kluczy zarządzanych przez klienta w magazynie kluczy
+                  href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+                - name: Przechowywanie kluczy zarządzanych przez klienta w zarządzanym module HSM
+                  href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
             - name: Sprawdzanie modelu klucza szyfrowania dla konta
               href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-            - name: Włączanie szyfrowania infrastruktury dla konta magazynu
+            - name: Włączanie szyfrowania infrastruktury dla konta
               href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Konfigurowanie szyfrowania po stronie klienta
           items:
@@ -136,6 +134,8 @@
                   href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
                 - name: Konfigurowanie wersji protokołu TLS dla aplikacji klienckiej
                   href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Konfigurowanie usługi Azure Defender na potrzeby ochrony przed zagrożeniami
+          href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Zarządzanie nadmiarowością danych
       items:
         - name: Zmienianie sposobu replikowania danych

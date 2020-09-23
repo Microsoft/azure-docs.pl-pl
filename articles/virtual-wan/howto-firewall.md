@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: f20ed76a72eecce59a7b8795a42b033230a2f7e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 577340e485550e84941a33d82b58aa6ff1c933d3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753686"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983671"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Konfigurowanie zapory platformy Azure w wirtualnym koncentratorze sieci WAN
 
@@ -32,20 +32,20 @@ Aby utworzyć nową wirtualną sieć WAN i nowe centrum, wykonaj czynności opis
 
 Na stronie **Przegląd** dla wirtualnej sieci WAN przedstawiono listę centrów wirtualnych i zabezpieczonych centrów. Na poniższej ilustracji przedstawiono wirtualną sieć WAN bez zabezpieczonych centrów.
 
-[![Przegląd](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
+[![Zrzut ekranu przedstawia stronę przegląd wirtualnej sieci WAN z listą koncentratorów wirtualnych.](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
 
 ## <a name="convert-to-secured-hub"></a>Konwertuj na zabezpieczone centrum
 
 1. Na stronie **Przegląd** dla wirtualnej sieci WAN wybierz centrum, które chcesz przekonwertować na zabezpieczone centrum. Na stronie koncentrator wirtualny są dostępne dwie opcje wdrożenia zapory platformy Azure w tym centrum. Wybierz jedną z opcji.
 
-   [![zabezpieczenia](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
+   [![Zrzut ekranu przedstawia stronę przeglądową wirtualnej sieci WAN, w której można wybrać opcję Konwertuj na zabezpieczenia koncentratora lub zapory platformy Azure.](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
 
 1. Po wybraniu jednej z opcji zostanie wyświetlona strona **Konwertuj na zabezpieczenie centrum** . Wybierz centrum do przekonwertowania, a następnie wybierz pozycję **Dalej: Zapora platformy Azure** w dolnej części strony.
 
    [![Wybierz centrum](./media/howto-firewall/select-hub.png)](./media/howto-firewall/select-hub.png#lightbox)
 1. Po zakończeniu przepływu pracy wybierz pozycję **Potwierdź**.
 
-   [![Potwierdź](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
+   [![Zrzut ekranu przedstawia okienko Konwertuj do bezpiecznego centrum z wybranym potwierdzeniem.](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
 
 1. Po przekształceniu centrum w zabezpieczone centrum można je wyświetlić na stronie **Omówienie** wirtualnej sieci WAN.
 

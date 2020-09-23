@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: dd9aee01edf45f89feb6a6010c8d958511bc3904
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185402"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987626"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Samouczek: Tworzenie elementu Runbook przepływu pracy programu PowerShell
 
@@ -109,17 +109,17 @@ Utworzony element Runbook nadal działa w trybie roboczym. Należy opublikować 
 
 6. Należy pamiętać, że stan zadania jest pokazywany w **podsumowaniu zadania**. Ten stan jest zgodny z stanami, które zostały podane podczas testowania elementu Runbook.
 
-   ![Podsumowanie zadania](../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png" alt-text="Zrzut ekranu przedstawiający okienko zadania elementu Runbook z wyróżnioną sekcją podsumowania zadań.":::
 
 7. Po zakończeniu wyświetlania stanu elementu Runbook kliknij pozycję **dane wyjściowe**. Zostanie otwarta strona wyjście, na której będzie widoczny `Hello World` komunikat.
 
-   ![Podsumowanie zadania](../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Zrzut ekranu przedstawiający okienko zadania elementu Runbook z wyróżnionym przyciskiem wyjście.":::
 
 8. Zamknij stronę wyjściową.
 
 9. Kliknij pozycję **Wszystkie dzienniki**, aby otworzyć okienko strumieni dla zadania elementu Runbook. Powinien być widoczny tylko `Hello World` w strumieniu danych wyjściowych. Należy pamiętać, że w okienku strumienie mogą być wyświetlane inne strumienie zadania elementu Runbook, takie jak pełne strumienie i błędy, jeśli element Runbook zapisze w nich.
 
-   ![Podsumowanie zadania](../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Zrzut ekranu przedstawiający okienko zadania elementu Runbook z wyróżnionym przyciskiem wszystkie dzienniki.":::
 
 10. Zamknij okienko strumieni i okienko zadania, aby powrócić do strony MyFirstRunbook.
 

@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej stanu systemu Windows na platformie Azure
 description: Dowiedz się, jak utworzyć kopię zapasową stanu systemu komputerów z systemem Windows Server na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ebe527ef7ddb32d46c2f39970f74b64c2594bf60
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376494"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975499"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Tworzenie kopii zapasowej stanu systemu Windows na platformie Azure
 
@@ -40,7 +40,7 @@ Po utworzeniu magazynu usług Recovery Services upewnij się, że nadmiarowość
 
     ![Opcje konfiguracji magazynu](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Domyślnie magazyn jest nadmiarowy geograficznie. Jeśli używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, kontynuuj korzystanie z magazynu **geograficznie nadmiarowego**. Jeśli nie używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, wybierz pozycję **Lokalnie nadmiarowy**, co zmniejszy koszty magazynów platformy Azure. Więcej informacji o opcjach magazynu [geograficznie nadmiarowego](../storage/common/storage-redundancy.md) i [lokalnie nadmiarowego](../storage/common/storage-redundancy.md) można znaleźć w tym [omówieniu nadmiarowości magazynu](../storage/common/storage-redundancy.md).
+    Domyślnie magazyn jest nadmiarowy geograficznie. Jeśli używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, kontynuuj korzystanie z magazynu **geograficznie nadmiarowego**. Jeśli nie używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, wybierz pozycję **Lokalnie nadmiarowy**, co zmniejszy koszty magazynów platformy Azure. Więcej informacji o opcjach [geograficznie](../storage/common/storage-redundancy.md#geo-redundant-storage)nadmiarowych, [lokalnie nadmiarowych](../storage/common/storage-redundancy.md#locally-redundant-storage) i [strefowo](../storage/common/storage-redundancy.md#zone-redundant-storage) nadmiarowych magazynów można znaleźć w tym [omówieniu nadmiarowości magazynu](../storage/common/storage-redundancy.md).
 
 Po utworzeniu magazynu należy skonfigurować go do tworzenia kopii zapasowych stanu systemu Windows.
 
@@ -152,7 +152,7 @@ Aby utworzyć początkową kopię zapasową, użyj agenta usługi Microsoft Azur
 
 5. Wybierz pozycję **stan systemu** , a następnie wybierz przycisk **OK**.
 
-6. Wybierz pozycję **Next** (Dalej).
+6. Wybierz pozycję **Dalej**.
 
 7. Wybierz żądaną częstotliwość tworzenia kopii zapasowych i zasady przechowywania kopii zapasowych stanu systemu na kolejnych stronach.
 

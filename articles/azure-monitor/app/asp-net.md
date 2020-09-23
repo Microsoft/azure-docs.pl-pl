@@ -3,12 +3,12 @@ title: Konfigurowanie analizy aplikacji internetowej w technologii ASP.NET za po
 description: Konfigurowanie narzędzi analitycznych dotyczących wydajności, dostępności i zachowania użytkowników dla witryny sieci Web ASP.NET hostowanej lokalnie lub na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: acfba63cba520631831888a1480929be3b1897f0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: c07e7c8e7bd710cb591719fe8d53a3bad6ca2ee0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475536"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973786"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurowanie usługi Application Insights dla witryny sieci Web ASP.NET.
 
@@ -23,7 +23,7 @@ Aby dodać usługę Application Insights do witryny internetowej:
     - ASP.NET i programowanie w sieci Web (nie zaznaczaj składników opcjonalnych)
     - Tworzenie aplikacji na platformie Azure
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="step-1-add-the-application-insights-sdk"></a><a name="ide"></a> Krok 1. Dodawanie zestawu SDK usługi Application Insights
 
@@ -42,11 +42,11 @@ Ekran konfiguracji usługi Application Insights:
 
 Wybierz pozycję **Rozpocznij**.
 
-![Zrzut ekranu strony Zarejestruj swoją aplikację w usłudze Application Insights](./media/asp-net/00004-start-free.png)
+![Zrzut ekranu przedstawia stronę Application Insights i przycisk Rozpocznij.](./media/asp-net/00004-start-free.png)
 
 Jeśli chcesz ustawić grupę zasobów lub lokalizację, w której dane są przechowywane, kliknij pozycję **Konfiguruj ustawienia**. Grupy zasobów są używane do kontrolowania dostępu do danych. Jeśli na przykład masz kilka aplikacji, które stanowią część tego samego systemu, możesz umieścić ich dane usługi Application Insights w tej samej grupie zasobów.
 
- Wybierz pozycję **Rejestruj**.
+ Wybierz pozycję **Zarejestruj**.
 
 ![Zrzut ekranu strony Zarejestruj swoją aplikację w usłudze Application Insights](./media/asp-net/00005-register-ed.png)
 
@@ -56,7 +56,7 @@ Jeśli chcesz ustawić grupę zasobów lub lokalizację, w której dane są prze
 > [!NOTE]
 > Jeśli nie chcesz wysłać danych telemetrii do portalu podczas debugowania, wystarczy, że dodasz zestaw SDK usługi Application Insights do aplikacji, ale nie konfiguruj zasobu w portalu. Dane telemetryczne możesz wyświetlać w programie Visual Studio podczas debugowania. Później możesz powrócić do tej strony konfiguracji lub po wdrożeniu aplikacji [włączyć telemetrię w czasie wykonywania](./status-monitor-v2-overview.md).
 
-## <a name="step-2-run-your-app"></a><a name="run"></a>Krok 2. Uruchamianie aplikacji
+## <a name="step-2-run-your-app"></a><a name="run"></a> Krok 2. Uruchamianie aplikacji
 Uruchom aplikację, naciskając klawisz F5. Otwórz różne strony w celu wygenerowania telemetrii.
 
 W programie Visual Studio zobaczysz liczbę zarejestrowanych zdarzeń.
@@ -104,7 +104,7 @@ Można również analizować telemetrię w programie [Visual Studio](./visual-st
 >
 >
 
-## <a name="youre-all-set"></a><a name="land"></a>Wszystko gotowe
+## <a name="youre-all-set"></a><a name="land"></a> Wszystko gotowe
 
 Gratulacje! Udało Ci się zainstalować pakiet usługi Application Insights w swojej aplikacji i skonfigurować go do wysłania danych telemetrii do usługi Application Insights na platformie Azure.
 

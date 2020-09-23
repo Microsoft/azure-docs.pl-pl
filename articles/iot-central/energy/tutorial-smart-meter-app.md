@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 9e954e9c1a7efa43a19849b1c5b40284ec84eeed
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: bdcfeeede8b16bf9a92a885364e4c8fef7ea5cbc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77016004"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986565"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Samouczek: Tworzenie i przechodzenie przez szablon aplikacji do monitorowania mierników inteligentnych 
 
@@ -24,7 +24,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia aplikacji do monitorowani
 > [!div class="checklist"]
 > * Utwórz bezpłatnie aplikację miernika inteligentnego
 > * Przewodnik po aplikacji
-> * Czyszczenie zasobów
+> * Oczyszczanie zasobów
 
 
 Jeśli nie masz subskrypcji, [Utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free)
@@ -77,7 +77,7 @@ Adatum to fikcyjna firma energetyczna, która monitoruje i zarządza inteligentn
 > [!div class="mx-imgBorder"]
 > ![Pulpit nawigacyjny monitorowania mierników inteligentnych](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
 
-### <a name="devices"></a>Urządzenia
+### <a name="devices"></a>Devices
 Aplikacja jest dostarczana z przykładowym urządzeniem miernika inteligentnego. Aby wyświetlić szczegóły urządzenia, kliknij kartę **urządzenia** .
 
 > [!div class="mx-imgBorder"]
@@ -95,7 +95,7 @@ Kliknij kartę **Szablony urządzeń** , aby wyświetlić model urządzenia mier
 > ![Szablony urządzeń mierników inteligentnych](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli zdecydujesz, aby nie używać tej aplikacji, Usuń aplikację, wykonując następujące czynności:
 
 1. W okienku po lewej stronie Otwórz kartę Administracja
@@ -104,8 +104,10 @@ Jeśli zdecydujesz, aby nie używać tej aplikacji, Usuń aplikację, wykonując
     > [!div class="mx-imgBorder"]
     > ![Usuń aplikację](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)
 
-
 ## <a name="next-steps"></a>Następne kroki
-* Informacje o architekturze aplikacji mierników inteligentnych odwołują się do [artykułu koncepcji](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
+
+Dowiedz się więcej o architekturze aplikacji mierników inteligentnych odwołują się do 
+> [!div class="nextstepaction"]
+> [Artykuł koncepcji](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
 * Twórz bezpłatnie szablony aplikacji mierników inteligentnych: [inteligentnego pomiaru aplikacji](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
 * Dowiedz się więcej na temat IoT Central, zobacz [omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/)

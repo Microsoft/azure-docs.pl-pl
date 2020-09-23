@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: cb40252460fe62deb94ce495bb41d38c326f10e2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a76df67d1ef9d203d5e5d54cb95bb8fc90f70180
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000588"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980745"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji centrum dystrybucji cyfrowej
 
@@ -35,7 +35,7 @@ Możesz utworzyć aplikację, wykonując następujące czynności
 1. Przejdź do witryny sieci Web programu Azure IoT Central Application Manager. Wybierz pozycję **kompilacja** na pasku nawigacyjnym po lewej stronie, a następnie kliknij kartę **sprzedaż detaliczna** .
 
     > [!div class="mx-imgBorder"]
-    > ![Centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    > ![Zrzut ekranu przedstawiający sposób wybierania szablonu aplikacji centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
 
 2. Wybierz kartę **sprzedaż detaliczna** i wybierz pozycję **Utwórz aplikację** w obszarze **aplikacja centrum dystrybucji cyfrowej**
 
@@ -46,10 +46,10 @@ Możesz utworzyć aplikację, wykonując następujące czynności
    **Utwórz**: wybierz pozycję Utwórz w dolnej części strony, aby wdrożyć aplikację.
 
     > [!div class="mx-imgBorder"]
-    > ![Centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > ![Zrzut ekranu przedstawiający sposób tworzenia aplikacji z szablonu aplikacji Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-create.png)
 
     > [!div class="mx-imgBorder"]
-    > ![Informacje o rozliczeniu dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+    > ![Zrzut ekranu przedstawiający opcje rozliczania podczas tworzenia aplikacji](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>Przechodzenie przez pulpit nawigacyjny aplikacji 
 
@@ -62,31 +62,31 @@ Pulpit nawigacyjny jest logicznie zorganizowany w celu pokazania możliwości za
    * Zarządzaj wszystkimi aparatami, które są częścią rozwiązania. 
 
 > [!div class="mx-imgBorder"]
-> ![Centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
+> ![Zrzut ekranu przedstawiający pulpit nawigacyjny centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
 
 ## <a name="device-template"></a>Szablon urządzenia
 
 Kliknij kartę szablony urządzeń, a zobaczysz model możliwości bramy. Model możliwości ma strukturę wokół dwóch różnych **aparatów** interfejsów i **bramy dystrybucji cyfrowej**
 
 > [!div class="mx-imgBorder"]
-> ![Centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Zrzut ekranu przedstawiający szablon urządzenia bramy dystrybucji cyfrowej w aplikacji](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 **Aparat fotograficzny** — ten interfejs organizuje wszystkie możliwości poleceń specyficznych dla aparatu 
 
 > [!div class="mx-imgBorder"]
-> ![Centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Zrzut ekranu przedstawiający interfejs aparatu w szablonie urządzenia bramy dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 **Brama dystrybucji cyfrowej** — ten interfejs reprezentuje wszystkie dane telemetryczne pochodzące z aparatu, zdefiniowane przez chmurę właściwości i informacje o bramie.
 
 > [!div class="mx-imgBorder"]
-> ![Centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Zrzut ekranu przedstawiający interfejs bramy dystrybucji cyfrowej w szablonie urządzenia bramy dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 
 ## <a name="gateway-commands"></a>Polecenia bramy
 Ten interfejs organizuje wszystkie możliwości polecenia bramy
 
 > [!div class="mx-imgBorder"]
-> ![Centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Zrzut ekranu przedstawiający interfejs poleceń bramy w szablonie urządzenia bramy dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 ## <a name="rules"></a>Reguły
 Wybierz kartę reguły, aby wyświetlić dwie różne reguły, które istnieją w tym szablonie aplikacji. Te reguły są skonfigurowane do wysyłania powiadomień e-mail do operatorów w celu przeprowadzenia dalszych badań.
@@ -96,7 +96,7 @@ Wybierz kartę reguły, aby wyświetlić dwie różne reguły, które istnieją 
 **Duży pakiet** — ta reguła zostanie wyzwolona, jeśli aparat wykryje ogromny pakiet, którego nie można sprawdzić pod kątem jakości. 
 
 > [!div class="mx-imgBorder"]
-> ![Centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-rules.png)
+> ![Zrzut ekranu przedstawiający listę reguł w aplikacji centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-rules.png)
 
 ## <a name="jobs"></a>Stanowiska
 Wybierz kartę zadania, aby zobaczyć pięć różnych zadań, które istnieją w ramach tego szablonu aplikacji: można wykorzystać funkcję zadań do wykonywania operacji na całym rozwiązaniu. W tym miejscu zadania centrum dystrybucji cyfrowej służą do wykonywania zadań, takich jak, & z użyciem technologii bliźniaczych.
@@ -105,15 +105,17 @@ Wybierz kartę zadania, aby zobaczyć pięć różnych zadań, które istnieją 
    * Modyfikowanie interwału telemetrii w celu zarządzania przekazywaniem danych
 
 > [!div class="mx-imgBorder"]
-> ![Centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-jobs.png)
+> ![Zrzut ekranu przedstawiający listę zadań w aplikacji centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji, odwiedzając**Ustawienia aplikacji** **Administracja** > , a następnie kliknij przycisk **Usuń**.
+Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji, odwiedzając **Administration**  >  **Ustawienia aplikacji** Administracja, a następnie kliknij przycisk **Usuń**.
 
 > [!div class="mx-imgBorder"]
-> ![Centrum dystrybucji cyfrowej](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
+> ![Zrzut ekranu przedstawiający sposób usuwania aplikacji po jej zakończeniu](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [koncepcji](./architecture-digital-distribution-center.md) rozwiązania centrum dystrybucji cyfrowej
+* Dowiedz się więcej o architekturze rozwiązania centrum dystrybucji cyfrowej 
+> [!div class="nextstepaction"]
+> [koncepcja centrum dystrybucji cyfrowej](./architecture-digital-distribution-center.md)
 * Dowiedz się więcej na temat innych [szablonów detalicznych IoT Central](./overview-iot-central-retail.md)
 * Dowiedz się więcej o IoT Central zapoznaj się z [omówieniem IoT Central](../core/overview-iot-central.md)

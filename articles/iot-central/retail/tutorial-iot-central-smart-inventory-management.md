@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 430f477422e040e0e7e28fd69a1cbc18bce7d656
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 827d571a6545d0aaffb0f96134fcf094eaa5f26b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000546"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980606"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Samouczek: wdrażanie i przechodzenie przez szablon aplikacji do zarządzania magazynem inteligentnym
 
@@ -36,7 +36,7 @@ Możesz utworzyć aplikację, wykonując następujące czynności
 1. Przejdź do witryny sieci Web programu Azure IoT Central Application Manager. Wybierz pozycję **kompilacja** na pasku nawigacyjnym po lewej stronie, a następnie kliknij kartę **sprzedaż detaliczna** .
 
     > [!div class="mx-imgBorder"]
-    > ![Pulpit nawigacyjny zarządzania magazynem inteligentnym](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    > ![Zrzut ekranu przedstawiający sposób wybierania szablonu inteligentnego spisu managementapplication](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
 
 2. Wybierz kartę **sprzedaż detaliczna** i wybierz pozycję **Utwórz aplikację** w obszarze **Zarządzanie magazynem inteligentnym**
 
@@ -47,10 +47,10 @@ Możesz utworzyć aplikację, wykonując następujące czynności
    **Utwórz**: wybierz pozycję Utwórz w dolnej części strony, aby wdrożyć aplikację.
 
     > [!div class="mx-imgBorder"]
-    > ![Pulpit nawigacyjny zarządzania magazynem inteligentnym](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    > ![Zrzut ekranu przedstawiający sposób tworzenia aplikacji na podstawie szablonu inteligentnego spisu managementapplication](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
 
     > [!div class="mx-imgBorder"]
-    > ![Informacje o rozliczeniu zarządzania magazynem inteligentnego](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
+    > ![Zrzut ekranu przedstawiający opcje rozliczania podczas tworzenia aplikacji](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
 
 ## <a name="walk-through-the-application"></a>Przechodzenie przez aplikację 
 
@@ -63,14 +63,14 @@ Pulpit nawigacyjny jest logicznie podzielony między dwie różne operacje zarz�
    * Wyświetlanie informacji o lokalizacji bramy, & stanu 
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny zarządzania magazynem inteligentnym](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
+> ![Zrzut ekranu przedstawiający górną połowę managementdashboardnego spisu inteligentnego](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
 
    * Możesz łatwo śledzić łączną liczbę bram, aktywnych i nieznanych tagów.
    * Można wykonywać operacje związane z zarządzaniem urządzeniami, takie jak oprogramowanie układowe aktualizacji, wyłączenie czujnika, włączenie czujnika, próg czujnika aktualizacji, aktualizowanie interwałów telemetrii & aktualizowanie kontraktów usługi urządzenia
    * Urządzenia bramy mogą wykonywać zarządzanie spisem na żądanie przy użyciu pełnego lub przyrostowego skanowania.
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny zarządzania magazynem inteligentnym](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
+> ![Zrzut ekranu przedstawiający dolną połowę managementdashboardu inteligentnego spisu](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
 
 ## <a name="device-template"></a>Szablon urządzenia
 Kliknij kartę szablony urządzeń, a zobaczysz model możliwości bramy. Model możliwości jest strukturalny wokół dwóch różnych poleceń **& właściwości** i **bramy** bramy między bramami interfejsów
@@ -78,13 +78,13 @@ Kliknij kartę szablony urządzeń, a zobaczysz model możliwości bramy. Model 
 **Właściwość & danych telemetrycznych bramy** — ten interfejs reprezentuje wszystkie dane telemetryczne związane z czujnikami, lokalizacją, informacjami o urządzeniu i właściwościami sieci, takimi jak progi bramy i interwały aktualizacji.
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny zarządzania magazynem inteligentnym](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
+> ![Zrzut ekranu przedstawiający szablon urządzenia bramy spisu w aplikacji](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
 
 
 **Polecenia bramy** — ten interfejs organizuje wszystkie możliwości polecenia bramy
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny zarządzania magazynem inteligentnym](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate2.png)
+> ![Zrzut ekranu przedstawiający interfejs poleceń bramy w szablonie urządzenia bramy spisu](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate2.png)
 
 ## <a name="rules"></a>Reguły
 Wybierz kartę reguły, aby wyświetlić dwie różne reguły, które istnieją w tym szablonie aplikacji. Te reguły są skonfigurowane do wysyłania powiadomień e-mail do operatorów w celu przeprowadzenia dalszych badań.
@@ -94,7 +94,7 @@ Wybierz kartę reguły, aby wyświetlić dwie różne reguły, które istnieją 
 **Nieznane znaczniki**: niezwykle ważne jest, aby śledzić każde oznakowanie RFID & znaczniki związane z elementem zawartości. Jeśli Brama wykrywa zbyt wiele nieznanych tagów, jest to wskazanie wyzwań związanych z synchronizacją przy użyciu aplikacji zawierających Tagi.
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny zarządzania magazynem inteligentnym](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
+> ![Zrzut ekranu przedstawiający listę reguł w managementapplicationach inteligentnych spisu](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
 
 ## <a name="jobs"></a>Stanowiska
 Wybierz kartę zadania, aby zobaczyć pięć różnych zadań, które istnieją w ramach tego szablonu aplikacji: funkcja zadań służy do wykonywania operacji na całym rozwiązaniu. W tym miejscu zadania zarządzania spisem służą do wykonywania zadań, takich jak,
@@ -103,16 +103,18 @@ Wybierz kartę zadania, aby zobaczyć pięć różnych zadań, które istnieją 
    * wykonaj skanowanie spisu na żądanie w całym rozwiązaniu.
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny zarządzania magazynem inteligentnym](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
+> ![Zrzut ekranu przedstawiający listę zadań w usłudze Smart Inventory managementapplication](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji, odwiedzając**Ustawienia aplikacji** **Administracja** > , a następnie kliknij przycisk **Usuń**.
+Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń szablon aplikacji, odwiedzając **Administration**  >  **Ustawienia aplikacji** Administracja, a następnie kliknij przycisk **Usuń**.
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny zarządzania magazynem inteligentnym](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
+> ![Zrzut ekranu przedstawiający sposób usuwania aplikacji po jej zakończeniu](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [koncepcji zarządzania magazynem inteligentnym](./architecture-smart-inventory-management.md) zarządzania magazynem inteligentnym
+* Dowiedz się więcej na temat zarządzania magazynem Smart 
+> [!div class="nextstepaction"]
+> [Koncepcja zarządzania magazynem inteligentnego](./architecture-smart-inventory-management.md)
 * Dowiedz się więcej na temat innych [szablonów detalicznych IoT Central](./overview-iot-central-retail.md)
 * Dowiedz się więcej o IoT Central zapoznaj się z [omówieniem IoT Central](../core/overview-iot-central.md)

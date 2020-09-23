@@ -234,6 +234,12 @@
           items:
             - name: Korzystanie z narzędzia PerfInsights
               href: how-to-use-perfinsights-linux.md
+- name: Rozwiązywanie problemów z galeriami obrazów udostępnionych
+  items:
+    - name: Rozwiązywanie problemów z usługą Shared Image Gallery — Windows
+      href: ../windows/troubleshooting-shared-images.md
+    - name: Rozwiązywanie problemów z usługą Shared Image Gallery — Linux
+      href: ../linux/troubleshooting-shared-images.md
 - name: Problemy z rozszerzeniem maszyny wirtualnej
   items:
     - name: Przegląd rozszerzeń platformy Azure

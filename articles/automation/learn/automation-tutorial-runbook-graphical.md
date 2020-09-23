@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 1490687e85d2f59b8cfa28712ef075b451363534
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 81dc23c208ca9fb292c849bdf35d8b91311ed9ce
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564223"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987650"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Samouczek: Tworzenie graficznego elementu Runbook
 
@@ -218,7 +218,7 @@ Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz s
 
 23. Umieść wskaźnik myszy `Login to Azure` , dopóki okrąg nie pojawi się w dolnej części kształtu. Kliknij okrąg i przeciągnij strzałkę do `Specify Subscription Id` . Element Runbook powinien wyglądać podobnie do poniższego.
 
-    ![Konfiguracja uwierzytelniania elementu Runbook](../media/automation-tutorial-runbook-graphical/runbook-auth-config.png)
+    :::image type="content" source="../media/automation-tutorial-runbook-graphical/runbook-auth-config.png" alt-text="Zrzut ekranu elementu Runbook po przeciągnięciu strzałki do elementu "Określ Identyfikator subskrypcji".":::
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Krok 7. Dodawanie działania w celu uruchomienia maszyny wirtualnej
 
@@ -234,9 +234,9 @@ Teraz musisz dodać działanie, `Start-AzVM` Aby uruchomić maszynę wirtualną.
 
 5. Wybierz pozycję **ResourceGroupNameParameterSetName** dla zestawu parametrów. Pola **ResourceGroupName** i **name** mają wykrzykniki obok nich, aby wskazać, że są one wymaganymi parametrami. Należy zauważyć, że oba pola oczekują wartości ciągu.
 
-6. Wybierz pozycję **Nazwa**. Wybierz **wyrażenie programu PowerShell** dla pola **Źródło danych** . W przypadku maszyny wirtualnej, która jest używana do uruchamiania tego elementu Runbook, wpisz nazwę maszyny ujętą w podwójne cudzysłowy. Kliknij pozycję **OK**.
+6. Wybierz pozycję **Nazwa**. Wybierz **wyrażenie programu PowerShell** dla pola **Źródło danych** . W przypadku maszyny wirtualnej, która jest używana do uruchamiania tego elementu Runbook, wpisz nazwę maszyny ujętą w podwójne cudzysłowy. Kliknij przycisk **OK**.
 
-7. Wybierz pozycję **ResourceGroupName**. Użyj **wyrażenia programu PowerShell** wartości dla pola **Źródło danych** i wpisz nazwę grupy zasobów ujętej w podwójne cudzysłowy. Kliknij pozycję **OK**.
+7. Wybierz pozycję **ResourceGroupName**. Użyj **wyrażenia programu PowerShell** wartości dla pola **Źródło danych** i wpisz nazwę grupy zasobów ujętej w podwójne cudzysłowy. Kliknij przycisk **OK**.
 
 8. Kliknij pozycję **okienko testowania** , aby umożliwić przetestowanie elementu Runbook.
 
@@ -297,11 +297,11 @@ Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę w
 
 6. Wybierz zestaw parametrów **GetVirtualMachineInResourceGroupNameParamSet**. Pola **ResourceGroupName** i **name** mają wykrzykniki obok nich, wskazując, że określają wymagane parametry. Należy zauważyć, że oba pola oczekują wartości ciągu.
 
-7. W obszarze **Źródło danych** dla pozycji **Nazwa**wybierz pozycję **dane wejściowe elementu Runbook**, a następnie **VMName**. Kliknij pozycję **OK**.
+7. W obszarze **Źródło danych** dla pozycji **Nazwa**wybierz pozycję **dane wejściowe elementu Runbook**, a następnie **VMName**. Kliknij przycisk **OK**.
 
-8. W obszarze **Źródło danych** dla **ResourceGroupName**wybierz pozycję **dane wejściowe elementu Runbook**, a następnie **ResourceGroupName**. Kliknij pozycję **OK**.
+8. W obszarze **Źródło danych** dla **ResourceGroupName**wybierz pozycję **dane wejściowe elementu Runbook**, a następnie **ResourceGroupName**. Kliknij przycisk **OK**.
 
-9. W obszarze **Źródło danych** dla pozycji **stan**wybierz opcję **stała wartość**, a następnie **wartość true**. Kliknij pozycję **OK**.
+9. W obszarze **Źródło danych** dla pozycji **stan**wybierz opcję **stała wartość**, a następnie **wartość true**. Kliknij przycisk **OK**.
 
 10. Utwórz łącze z `Specify Subscription Id` do `Get-AzVM` .
 

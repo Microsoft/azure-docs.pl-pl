@@ -11,16 +11,16 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 769b4d364412d3409ef95c4222197fe6f7ce222c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7a785aebc282a871d150f0c9b4cca59d7d03558e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893477"
+ms.locfileid: "90976782"
 ---
 # <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
 
-W tym artykule dowiesz się, jak **nawiązać połączenie z usługami Azure Storage za pośrednictwem Azure Machine Learning magazynów danych**. Magazyny danych bezpiecznie łączą się z usługą Azure Storage bez konieczności podawania poświadczeń uwierzytelniania i integralności oryginalnego źródła. Przechowują one informacje o połączeniach, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) skojarzony z obszarem roboczym, dzięki czemu można bezpiecznie uzyskać dostęp do magazynu bez konieczności nawiązywania w nich kodu. Możesz użyć [Azure Machine Learning Python SDK](#python) lub [Azure Machine Learning Studio](#studio) do tworzenia i rejestrowania magazynów danych.
+W tym artykule dowiesz się, jak **nawiązać połączenie z usługami Azure Storage za pośrednictwem Azure Machine Learning magazynów danych**. Magazyny danych bezpiecznie łączą się z usługą Azure Storage bez konieczności podawania poświadczeń uwierzytelniania i integralności oryginalnego źródła. Przechowują one informacje o połączeniach, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) skojarzony z obszarem roboczym, dzięki czemu można bezpiecznie uzyskać dostęp do magazynu bez konieczności nawiązywania w nich kodu. Możesz użyć [Azure Machine Learning Python SDK](#python) lub [Azure Machine Learning Studio](how-to-connect-data-ui.md) do tworzenia i rejestrowania magazynów danych.
 
 Jeśli wolisz tworzyć magazyny danych i zarządzać nimi przy użyciu rozszerzenia Azure Machine Learning VS Code; Aby dowiedzieć się więcej, odwiedź stronę [pomocy dotyczącej zarządzania zasobami vs Code](how-to-manage-resources-vscode.md#datastores) .
 
@@ -92,7 +92,7 @@ Jeśli Twoje konto magazynu danych znajduje się w **sieci wirtualnej**, wymagan
 
 ### <a name="access-validation"></a>Sprawdzanie poprawności dostępu
 
-**W ramach początkowego procesu tworzenia i rejestrowania magazynu**danych Azure Machine Learning automatycznie sprawdza, czy istnieje podstawowa usługa magazynu oraz czy podany przez użytkownika podmiot zabezpieczeń (username, główna usługi lub token SAS) ma dostęp do określonego magazynu.
+**W ramach początkowego procesu tworzenia i rejestracji magazynu**danych Azure Machine Learning automatycznie sprawdza, czy istnieje podstawowa usługa magazynu, oraz czy podany przez użytkownika podmiot zabezpieczeń (username, nazwa główna usługi lub token SAS) ma dostęp do określonego magazynu.
 
 **Po utworzeniu magazynu**danych sprawdzanie poprawności jest wykonywane tylko w przypadku metod, które wymagają dostępu do źródłowego kontenera magazynu, a **nie** do pobierania obiektów magazynu danych. Na przykład sprawdzanie poprawności ma miejsce, jeśli chcesz pobrać pliki z magazynu danych; ale jeśli chcesz jedynie zmienić domyślny magazyn danych, walidacja nie następuje.
 
@@ -117,7 +117,7 @@ W przypadku kontenera obiektów blob platformy Azure i Azure Data Lake magazynu 
 
 <a name="python"></a>
 
-## <a name="create-and-register-datastores-via-the-sdk"></a>Tworzenie i rejestrowanie magazynów danych za pomocą zestawu SDK
+## <a name="create-and-register-datastores"></a>Tworzenie i rejestrowanie magazynów danych
 
 Po zarejestrowaniu rozwiązania usługi Azure Storage jako magazynu danych automatycznie utworzysz i zarejestrujesz ten magazyn danych w określonym obszarze roboczym. Zapoznaj się z sekcją [uprawnień & dostępu do magazynu](#storage-access-and-permissions) , aby uzyskać wskazówki dotyczące scenariuszy sieci wirtualnych oraz znaleźć wymagane poświadczenia uwierzytelniania. 
 
@@ -129,7 +129,7 @@ W tej sekcji przedstawiono przykłady tworzenia i rejestrowania magazynu danych 
 
  Aby utworzyć magazyny danych dla innych obsługiwanych usług magazynu, zapoznaj się z [dokumentacją referencyjną dotyczącą odpowiednich `register_azure_*` metod](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#&preserve-view=truemethods).
 
-Jeśli wolisz pracować przy niskim kodzie, zobacz [Tworzenie magazynów danych w programie Azure Machine Learning Studio](#studio).
+Jeśli wolisz o niskim kodzie, zobacz [nawiązywanie połączenia z danymi za pomocą programu Azure Machine Learning Studio](how-to-connect-data-ui.md).
 
 > [!NOTE]
 > Nazwa magazynu danych powinna zawierać tylko małe litery, cyfry i znaki podkreślenia. 
@@ -199,25 +199,6 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_id=client_id, # client id of service principal
                                                              client_secret=client_secret) # the secret of service principal
 ```
-
-<a name="studio"></a>
-
-
-## <a name="create-datastores-in-the-studio"></a>Tworzenie magazynów danych w programie Studio 
-
-Utwórz nowy magazyn danych w kilku krokach za pomocą programu Azure Machine Learning Studio.
-
-> [!IMPORTANT]
-> Jeśli Twoje konto magazynu danych znajduje się w sieci wirtualnej, wymagane są dodatkowe czynności konfiguracyjne, aby upewnić się, że Studio ma dostęp do danych. Zobacz [używanie Azure Machine Learning Studio w sieci wirtualnej platformy Azure](how-to-enable-studio-virtual-network.md) , aby upewnić się, że zastosowano odpowiednie kroki konfiguracji. 
-
-1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com/).
-1. Wybierz pozycję **magazyny** danych w lewym okienku w obszarze **Zarządzaj**.
-1. Wybierz pozycję **+ nowy magazyn**danych.
-1. Wypełnij formularz dla nowego magazynu danych. Formularz jest inteligentnie aktualizowany na podstawie wybranych opcji typu usługi Azure Storage i typu uwierzytelniania. Zapoznaj się z [sekcją dostęp do magazynu i uprawnienia](#access-validation) , aby dowiedzieć się, gdzie znaleźć poświadczenia uwierzytelniania potrzebne do wypełnienia tego formularza.
-
-Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia **magazynu danych obiektów blob platformy Azure**: 
-    
-![Formularz dla nowego magazynu danych](media/how-to-access-data/new-datastore-form.png)
 
 <a name="train"></a>
 ## <a name="use-data-in-your-datastores"></a>Korzystanie z danych w twoich sklepach

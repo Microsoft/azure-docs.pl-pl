@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 355f0127829b709d82127fb340381830793c93ff
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 18bc7ca9e108a35fd27f7b3155f186221a8caae3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783556"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980072"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Wyświetlanie, Dodawanie i usuwanie przypisań pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -36,7 +36,7 @@ Aby używać usługi Azure AD do zarządzania prawami i przypisywać użytkownik
 
 ## <a name="view-who-has-an-assignment"></a>Wyświetl, kto ma przypisanie
 
-**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
+**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu, Menedżer pakietów dostępu lub Menedżer przypisań pakietów dostępu
 
 1. W Azure Portal kliknij pozycję **Azure Active Directory** , a następnie kliknij pozycję **Zarządzanie tożsamościami**.
 
@@ -64,7 +64,7 @@ Możesz również pobrać przypisania w pakiecie dostępu przy użyciu Microsoft
 
 W niektórych przypadkach może być konieczne bezpośrednie przypisanie określonych użytkowników do pakietu dostępu, dzięki czemu użytkownicy nie muszą przechodzić przez proces żądania pakietu dostępu. Aby bezpośrednio przypisywać użytkowników, pakiet dostępu musi mieć zasady umożliwiające bezpośrednie przypisania administratora.
 
-**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
+**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu, Menedżer pakietów dostępu lub Menedżer przypisań pakietów dostępu
 
 1. W Azure Portal kliknij pozycję **Azure Active Directory** , a następnie kliknij pozycję **Zarządzanie tożsamościami**.
 
@@ -94,7 +94,7 @@ Możesz również bezpośrednio przypisać użytkownika do pakietu dostępu przy
 
 ## <a name="remove-an-assignment"></a>Usuwanie przypisania
 
-**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
+**Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu, Menedżer pakietów dostępu lub Menedżer przypisań pakietów dostępu
 
 1. W Azure Portal kliknij pozycję **Azure Active Directory** , a następnie kliknij pozycję **Zarządzanie tożsamościami**.
 

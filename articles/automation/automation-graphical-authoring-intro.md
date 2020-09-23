@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: c5d611ddffedc2f69cfc4f2b5600a158b0be9680
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186337"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987325"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Tworzenie graficznych elementów Runbook w Azure Automation
 
@@ -61,7 +61,7 @@ Wybierz działanie na kanwie, aby skonfigurować jego właściwości i parametry
 
 Zestaw parametrów definiuje obowiązkowe i opcjonalne parametry, które akceptują wartości dla konkretnego polecenia cmdlet. Wszystkie polecenia cmdlet mają co najmniej jeden zestaw parametrów, a niektóre z nich mają kilka zestawów. Jeśli polecenie cmdlet ma wiele zestawów parametrów, należy wybrać tę, która ma zostać użyta, zanim będzie można skonfigurować parametry. Zestaw parametrów używany przez działanie można zmienić, wybierając pozycję **zestaw parametrów** i wybierając inny zestaw. W takim przypadku wszystkie wartości parametrów, które zostały już skonfigurowane, zostaną utracone.
 
-W poniższym przykładzie polecenie cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) ma trzy zestawy parametrów. W przykładzie zastosowano jeden zestaw o nazwie **ListVirtualMachineInResourceGroupParamSet**z jednym opcjonalnym parametrem w celu zwrócenia wszystkich maszyn wirtualnych w grupie zasobów. W przykładzie jest również wykorzystywany zestaw parametrów **GetVirtualMachineInResourceGroupParamSet** do określania maszyny wirtualnej do zwrócenia. Ten zestaw ma dwa obowiązkowe parametry i jeden opcjonalny parametr.
+W poniższym przykładzie polecenie cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) ma trzy zestawy parametrów. W przykładzie zastosowano jeden zestaw o nazwie **ListVirtualMachineInResourceGroupParamSet**z jednym opcjonalnym parametrem w celu zwrócenia wszystkich maszyn wirtualnych w grupie zasobów. W przykładzie jest również wykorzystywany zestaw parametrów **GetVirtualMachineInResourceGroupParamSet** do określania maszyny wirtualnej do zwrócenia. Ten zestaw ma dwa obowiązkowe parametry i jeden opcjonalny parametr.
 
 ![Zestaw parametrów](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -91,11 +91,11 @@ Funkcja ponawiania prób dla działania umożliwia jego uruchomienie wiele razy 
 
 Po włączeniu opcji ponów dla działania można ustawić opóźnienie i warunek. Opóźnienie to czas (w sekundach lub minutach), przez jaki element Runbook czeka przed ponownym uruchomieniem działania. Jeśli nie określisz opóźnienia, działanie zostanie uruchomione ponownie natychmiast po jego zakończeniu.
 
-![Opóźnienie ponowienia działania](media/automation-graphical-authoring-intro/retry-delay.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-delay.png" alt-text="Zrzut ekranu przedstawiający ustawienia funkcji Włącz ponowną próbę.":::
 
 Warunek ponawiania jest wyrażeniem programu PowerShell, które jest oceniane po każdym uruchomieniu działania. Jeśli wyrażenie jest rozpoznawane jako true, działanie zostanie uruchomione ponownie. Jeśli wyrażenie ma wartość false, działanie nie zostanie uruchomione ponownie, a element Runbook przejdzie do następnego działania.
 
-![Opóźnienie ponowienia działania](media/automation-graphical-authoring-intro/retry-condition.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Zrzut ekranu przedstawiający ponowienie próby, dopóki ten warunek jest prawdziwy pola i Przykłady wyrażeń programu PowerShell, których można użyć w warunku ponawiania.":::
 
 Warunek ponawiania może używać zmiennej o nazwie `RetryData` , która zapewnia dostęp do informacji o ponownych próbach działania. Ta zmienna ma właściwości w poniższej tabeli:
 
@@ -435,4 +435,4 @@ Istnieje możliwość przywrócenia opublikowanej wersji elementu Runbook. Ta op
 * Aby rozpocząć pracę z graficznymi elementami Runbook, zobacz [Samouczek: Tworzenie graficznego elementu Runbook](learn/automation-tutorial-runbook-graphical.md).
 * Aby dowiedzieć się więcej o typach elementów Runbook i ich zaletach i ograniczeniach, zobacz [Azure Automation typów elementów Runbook](automation-runbook-types.md).
 * Aby zrozumieć sposób uwierzytelniania przy użyciu konta Uruchom jako usługi Automation, zobacz [konto Uruchom jako](automation-security-overview.md#run-as-account).
-* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

@@ -7,23 +7,22 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.openlocfilehash: 2455297cd9dd77d2b5f605bf36ed46b6240b3f4d
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 7a298de40264a06e18aa4b7c77abfd622be4bb75
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505406"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978325"
 ---
-[Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności.
+[Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności dla nowych czytelników, nauk językowych i osób, które mają różnice szkoleniowe, takie jak Dyslexia. Możesz użyć czytnika immersyjny w aplikacjach, aby odizolować tekst, aby zwiększyć fokus, wyświetlić obrazy dla często używanych wyrazów, wyróżnić części mowy, odczytywać zaznaczone fragmenty tekstu na głos, tłumaczyć słowa i frazy w czasie rzeczywistym i nie tylko.
 
 W tym przewodniku szybki start utworzysz aplikację dla systemu iOS od podstaw i zintegrujesz czytnik immersyjny. Pełny przykład pracy tego przewodnika Szybki Start jest dostępny [tutaj](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * Zasób czytnika immersyjny skonfigurowany do Azure Active Directory uwierzytelniania. Postępuj zgodnie z [tymi instrukcjami](../../how-to-create-immersive-reader.md) , aby rozpocząć konfigurację. W przypadku konfigurowania przykładowych właściwości projektu konieczne będzie utworzenie niektórych wartości. Zapisz dane wyjściowe sesji w pliku tekstowym do użycia w przyszłości.
 
@@ -31,21 +30,21 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Utwórz nowy projekt w Xcode.
 
-![Nowy projekt](../../media/ios/xcode-create-project.png)
+![Nowy projekt — SWIFT](../../media/ios/xcode-create-project.png)
 
 Wybierz **aplikację z pojedynczym widokiem**.
 
-![Nowa aplikacja z pojedynczym widokiem](../../media/ios/xcode-single-view-app.png)
+![Nowa aplikacja pojedynczego widoku — SWIFT](../../media/ios/xcode-single-view-app.png)
 
 ## <a name="set-up-authentication"></a>Konfigurowanie uwierzytelniania
 
 W górnym menu kliknij pozycję **produkt > schemat > Edytuj schemat...**.
 
-![Edytuj schemat](../../media/ios/quickstart-ios-edit-scheme.png)
+![Edytuj schemat — SWIFT](../../media/ios/quickstart-ios-edit-scheme.png)
 
 W widoku **uruchamiania** kliknij kartę **argumenty** .
 
-![Edytuj schemat](../../media/ios/quickstart-ios-env-vars.png)
+![Edytowanie zmiennych środowiskowych schematu — SWIFT](../../media/ios/quickstart-ios-env-vars.png)
 
 W sekcji **zmienne środowiskowe** Dodaj następujące nazwy i wartości, podając wartości podane podczas tworzenia zasobu czytnika immersyjny.
 
@@ -557,19 +556,19 @@ function sendContentToReader(message) {
 
 Ustaw schemat Archiwum w Xcode, wybierając symulator lub urządzenie docelowe.
 
-![Schemat Archiwum](../../media/ios/xcode-archive-scheme.png)
+![Schemat archiwum — SWIFT](../../media/ios/xcode-archive-scheme.png)
 
-![Wybieranie obiektu docelowego](../../media/ios/xcode-select-target.png)
+![Wybieranie elementu docelowego — SWIFT](../../media/ios/xcode-select-target.png)
 
 W Xcode naciśnij **klawisze CTRL + R** lub kliknij przycisk Odtwórz, aby uruchomić projekt. Aplikacja powinna być uruchamiana w określonym symulatorze lub urządzeniu.
 
 W aplikacji powinny zostać wyświetlone następujące tematy:
 
-![Przykładowa aplikacja](../../media/ios/sample-app-ipad.png)
+![Przykładowa aplikacja — SWIFT](../../media/ios/sample-app-ipad.png)
 
 Po kliknięciu przycisku **czytnika immersyjny** zobaczysz czytnik immersyjny uruchamiany z zawartością w aplikacji.
 
-![Czytnik immersyjny](../../media/ios/immersive-reader-ipad.png)
+![Czytnik immersyjny — SWIFT](../../media/ios/immersive-reader-ipad.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

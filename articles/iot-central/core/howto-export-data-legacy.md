@@ -7,20 +7,20 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 1202e46f2ea12db62062ac50b8e83b51fe9e5ca0
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428129"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974428"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu eksportu danych (starsza wersja)
 
 > [!Note]
 > W tym artykule opisano starsze funkcje eksportu danych w programie IoT Central.
 >
-> - Aby uzyskać informacje na temat nowych funkcji eksportu danych w wersji zapoznawczej, zobacz [Eksportowanie danych IoT do lokalizacji docelowych w chmurze za pomocą eksportu danych (wersja zapoznawcza)](./howto-export-data.md).
-> - Aby dowiedzieć się więcej o różnicach między funkcjami eksportowania danych w wersji zapoznawczej i starszej wersji, zobacz [tabelę porównania](./howto-export-data.md#comparison-of-legacy-data-export-and-preview-data-export).
+> - Aby uzyskać informacje na temat nowych funkcji eksportu danych w wersji zapoznawczej, zobacz [Eksportowanie danych IoT do lokalizacji docelowych w chmurze przy użyciu funkcji eksportowania danych](./howto-export-data.md).
+> - Aby dowiedzieć się więcej o różnicach między funkcjami eksportowania danych w wersji zapoznawczej i starszej wersji, zobacz [tabelę porównania](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
 W tym artykule opisano sposób korzystania z funkcji eksportu danych w usłudze Azure IoT Central. Ta funkcja umożliwia ciągłe eksportowanie danych do wystąpień **usługi azure Event Hubs**, **Azure Service Bus**lub **Azure Blob Storage** . Eksport danych korzysta z formatu JSON i może zawierać informacje telemetryczne, informacje o urządzeniu i szablon urządzenia. Użyj wyeksportowanych danych dla:
 
@@ -131,7 +131,7 @@ W przypadku usługi BLOB Storage dane są eksportowane raz na minutę, przy czym
 
 Aby przeglądać wyeksportowane pliki w Azure Portal, przejdź do pliku i wybierz kartę **Edytuj obiekt BLOB** .
 
-## <a name="telemetry"></a>Telemetria
+## <a name="telemetry"></a>Telemetry
 
 W przypadku Event Hubs i Service Bus IoT Central wyeksportować nowy komunikat szybko po odebraniu komunikatu z urządzenia. Każdy wyeksportowany komunikat zawiera pełną wiadomość wysłaną przez urządzenie we właściwości Body w formacie JSON.
 
@@ -184,7 +184,7 @@ Poniższy przykład przedstawia rekord wyeksportowany do magazynu obiektów blob
 }
 ```
 
-## <a name="devices"></a>Urządzenia
+## <a name="devices"></a>Devices
 
 Każdy komunikat lub rekord w migawce reprezentuje jedną lub więcej zmian na urządzeniu oraz jego właściwości i urządzenia oraz w chmurze od ostatniego wyeksportowanego komunikatu. Komunikat zawiera:
 

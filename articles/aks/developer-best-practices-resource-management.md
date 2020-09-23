@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e52bd150f72ba663c504b81832ce83d3e38cbf04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005316"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986781"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dla deweloperów aplikacji do zarządzania zasobami w usłudze Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Ten artykuł dotyczący najlepszych rozwiązań koncentruje się na sposobie uru
 
 > [!div class="checklist"]
 > * Co to są żądania zasobów i limity
-> * Sposoby tworzenia i wdrażania aplikacji przy użyciu funkcji miejsca do magazynowania i Visual Studio Code
+> * Sposoby tworzenia i wdrażania aplikacji za pomocą mostka do Kubernetes i Visual Studio Code
 > * Jak używać `kube-advisor` Narzędzia do sprawdzania problemów z wdrożeniami
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definiuj żądania zasobów i limity
@@ -74,13 +74,13 @@ Aby uzyskać więcej informacji na temat pomiarów zasobów i przydziałów, zob
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Opracowywanie i debugowanie aplikacji w klastrze AKS
 
-**Wskazówki dotyczące najlepszych** rozwiązań — zespoły programistyczne powinny wdrażać i debugować dla klastra AKS przy użyciu funkcji Spaces dev. Ten model programistyczny zapewnia implementację kontroli dostępu opartej na rolach (RBAC), sieci lub magazynu przed wdrożeniem aplikacji w środowisku produkcyjnym.
+**Wskazówki dotyczące najlepszych** rozwiązań — zespoły programistyczne powinny wdrażać i DEBUGOWAĆ klaster AKS przy użyciu programu Bridge do Kubernetes.
 
-Dzięki Azure Dev Spaces można opracowywać, debugować i testować aplikacje bezpośrednio w klastrze AKS. Deweloperzy w zespole współpracują ze sobą, aby kompilować i testować cały cykl życia aplikacji. Można nadal korzystać z istniejących narzędzi, takich jak Visual Studio lub Visual Studio Code. Rozszerzenie jest zainstalowane dla funkcji miejsca do użytku deweloperskiego, które udostępnia opcję uruchamiania i debugowania aplikacji w klastrze AKS.
+Za pomocą programu Bridge to Kubernetes można opracowywać, debugować i testować aplikacje bezpośrednio w klastrze AKS. Deweloperzy w zespole współpracują ze sobą, aby kompilować i testować cały cykl życia aplikacji. Można nadal korzystać z istniejących narzędzi, takich jak Visual Studio lub Visual Studio Code. Rozszerzenie jest zainstalowane dla mostka Kubernetes, który umożliwia tworzenie bezpośrednio w klastrze AKS.
 
-Ten zintegrowany proces tworzenia i testowania z miejscami deweloperskimi zmniejsza potrzebę używania lokalnych środowisk testowych, takich jak [minikube][minikube]. Zamiast tego można tworzyć i testować klaster AKS. Ten klaster może być zabezpieczony i izolowany, jak wspomniano w poprzedniej sekcji dotyczącej używania przestrzeni nazw do logicznego izolowania klastra. Gdy aplikacje są gotowe do wdrożenia w środowisku produkcyjnym, można je bezpiecznie wdrożyć w miarę rozwoju.
+Ten zintegrowany proces tworzenia i testowania z mostkiem do Kubernetes zmniejsza potrzebę używania lokalnych środowisk testowych, takich jak [minikube][minikube]. Zamiast tego można tworzyć i testować klaster AKS. Ten klaster może być zabezpieczony i izolowany, jak wspomniano w poprzedniej sekcji dotyczącej używania przestrzeni nazw do logicznego izolowania klastra.
 
-Azure Dev Spaces jest przeznaczony do użycia z aplikacjami, które działają w ramach systemów i węzłów systemu Linux.
+Mostek do Kubernetes jest przeznaczony do użycia z aplikacjami, które działają na podst. i węzłach systemu Linux.
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Użyj rozszerzenia Visual Studio Code dla Kubernetes
 
@@ -106,7 +106,7 @@ W tym artykule dotyczącym najlepszych rozwiązań opisano sposób uruchamiania 
 
 Aby zaimplementować niektóre z tych najlepszych rozwiązań, zobacz następujące artykuły:
 
-* [Programowanie za pomocą usługi Dev Spaces][dev-spaces]
+* [Programowanie przy użyciu programu Bridge do Kubernetes][btk]
 * [Sprawdź, czy występują problemy z usługą polecenia — Advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
@@ -117,7 +117,7 @@ Aby zaimplementować niektóre z tych najlepszych rozwiązań, zobacz następuj�
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: /visualstudio/containers/overview-local-process-kubernetes
+[btk]: /visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

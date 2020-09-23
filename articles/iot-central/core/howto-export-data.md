@@ -1,29 +1,29 @@
 ---
-title: Eksportowanie danych z platformy Azure IoT Central (wersja zapoznawcza) | Microsoft Docs
+title: Eksportowanie danych z platformy Azure IoT Central | Microsoft Docs
 description: Jak używać nowego eksportu danych do eksportowania danych IoT do platformy Azure i niestandardowych miejsc docelowych w chmurze.
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/02/2020
+ms.date: 09/15/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 0a07d7e57ced5e2cd9457dc51ebcd355306fc48e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461939"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974411"
 ---
-# <a name="export-iot-data-to-cloud-destinations-using-data-export-preview"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu funkcji eksportu danych (wersja zapoznawcza)
+# <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu eksportu danych
 
 > [!Note]
-> W tym artykule opisano funkcje eksportu danych w wersji zapoznawczej w IoT Central.
+> W tym artykule opisano funkcje eksportu danych w IoT Central.
 >
 > - Aby uzyskać informacje o starszych funkcjach eksportu danych, zobacz [Eksportowanie danych IoT do lokalizacji docelowych w chmurze przy użyciu funkcji eksportu danych (starsza wersja)](./howto-export-data-legacy.md).
-> - Aby dowiedzieć się więcej o różnicach między funkcjami eksportu danych i eksportowaniem starszych danych, zobacz [tabelę porównanie](#comparison-of-legacy-data-export-and-preview-data-export) poniżej.
+> - Aby dowiedzieć się więcej o różnicach między funkcjami eksportu danych a eksportowaniem danych, zobacz [tabelę porównanie](#comparison-of-legacy-data-export-and-data-export) poniżej.
 
-W tym artykule opisano sposób korzystania z nowej funkcji w wersji zapoznawczej eksportu danych w usłudze Azure IoT Central. Użyj tej funkcji, aby ciągle eksportować przefiltrowane i wzbogacone dane IoT z aplikacji IoT Central. Eksport danych umożliwia wypychanie zmian w czasie niemal rzeczywistym do innych części rozwiązania w chmurze w celu uzyskania szczegółowych informacji, analiz i magazynu.
+W tym artykule opisano, jak używać nowej funkcji eksportu danych w usłudze Azure IoT Central. Użyj tej funkcji, aby ciągle eksportować przefiltrowane i wzbogacone dane IoT z aplikacji IoT Central. Eksport danych umożliwia wypychanie zmian w czasie niemal rzeczywistym do innych części rozwiązania w chmurze w celu uzyskania szczegółowych informacji, analiz i magazynu.
 
 Możesz na przykład:
 
@@ -37,7 +37,7 @@ Możesz na przykład:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby korzystać z funkcji eksportu danych w wersji zapoznawczej, musisz mieć [aplikację v3](howto-get-app-info.md)i mieć uprawnienie [Eksportowanie danych](howto-manage-users-roles.md) .
+Aby korzystać z funkcji eksportu danych, musisz mieć [aplikację v3](howto-get-app-info.md)i mieć uprawnienie [Eksportowanie danych](howto-manage-users-roles.md) .
 
 ## <a name="set-up-export-destination"></a>Skonfiguruj miejsce docelowe eksportu
 
@@ -63,7 +63,12 @@ Jeśli nie masz istniejącej przestrzeni nazw Event Hubs do eksportowania do pro
     - Wybierz pozycję **ustawienia > zasady dostępu współdzielonego**.
     - Utwórz nowy klucz lub wybierz istniejący klucz, który ma uprawnienia do **wysyłania** .
     - Skopiuj podstawowe lub pomocnicze parametry połączenia. Te parametry połączenia służą do konfigurowania nowego miejsca docelowego w IoT Central.
-
+    - Alternatywnie można wygenerować parametry połączenia dla całej przestrzeni nazw Event Hubs:
+        1. Przejdź do przestrzeni nazw Event Hubs w Azure Portal.
+        2. W obszarze **Ustawienia**wybierz pozycję **zasady dostępu współdzielonego** .
+        3. Utwórz nowy klucz lub wybierz istniejący klucz, który ma uprawnienia do **wysyłania** .
+        4. Skopiuj podstawowe lub pomocnicze parametry połączenia
+        
 ### <a name="create-a-service-bus-queue-or-topic-destination"></a>Tworzenie kolejki Service Bus lub docelowej tematu
 
 Jeśli nie masz istniejącej przestrzeni nazw Service Bus do eksportowania do programu, wykonaj następujące kroki:
@@ -78,6 +83,11 @@ Jeśli nie masz istniejącej przestrzeni nazw Service Bus do eksportowania do pr
     - Wybierz pozycję **ustawienia/zasady dostępu współdzielonego**.
     - Utwórz nowy klucz lub wybierz istniejący klucz, który ma uprawnienia do **wysyłania** .
     - Skopiuj podstawowe lub pomocnicze parametry połączenia. Te parametry połączenia służą do konfigurowania nowego miejsca docelowego w IoT Central.
+    - Alternatywnie można wygenerować parametry połączenia dla całej przestrzeni nazw Service Bus:
+        1. Przejdź do przestrzeni nazw Service Bus w Azure Portal.
+        2. W obszarze **Ustawienia**wybierz pozycję **zasady dostępu współdzielonego** .
+        3. Utwórz nowy klucz lub wybierz istniejący klucz, który ma uprawnienia do **wysyłania** .
+        4. Skopiuj podstawowe lub pomocnicze parametry połączenia
 
 ### <a name="create-an-azure-blob-storage-destination"></a>Utwórz miejsce docelowe Blob Storage platformy Azure
 
@@ -109,10 +119,10 @@ Teraz, gdy masz miejsce docelowe eksportu danych do programu, skonfiguruj ekspor
 
 1. Zaloguj się do aplikacji IoT Central.
 
-1. W lewym okienku wybierz pozycję **eksport danych (wersja zapoznawcza)**.
+1. W lewym okienku wybierz pozycję **eksport danych**.
 
     > [!Tip]
-    > Jeśli nie widzisz **eksportu danych (wersja zapoznawcza)** w okienku po lewej stronie, nie masz uprawnień do konfigurowania eksportu danych w aplikacji. Skontaktuj się z administratorem, aby skonfigurować eksportowanie danych.
+    > Jeśli nie widzisz **eksportu danych** w okienku po lewej stronie, nie masz uprawnień do konfigurowania eksportu danych w aplikacji. Skontaktuj się z administratorem, aby skonfigurować eksportowanie danych.
 
 1. Wybierz pozycję **+ Nowy eksport**.
 
@@ -122,14 +132,15 @@ Teraz, gdy masz miejsce docelowe eksportu danych do programu, skonfiguruj ekspor
 
     | Typ danych | Opis | Format danych |
     | :------------- | :---------- | :----------- |
-    |  Telemetria | Eksportowanie komunikatów telemetrycznych z urządzeń w czasie niemal rzeczywistym. Każdy wyeksportowany komunikat zawiera pełną zawartość oryginalnego komunikatu urządzenia, znormalizowany.   |  [Format wiadomości telemetrycznych](#telemetry-format)   |
+    |  Telemetry | Eksportowanie komunikatów telemetrycznych z urządzeń w czasie niemal rzeczywistym. Każdy wyeksportowany komunikat zawiera pełną zawartość oryginalnego komunikatu urządzenia, znormalizowany.   |  [Format wiadomości telemetrycznych](#telemetry-format)   |
     | Zmiany właściwości | Eksportuj zmiany do właściwości urządzenia i chmury w czasie niemal rzeczywistym. W przypadku właściwości urządzenia tylko do odczytu są eksportowane zmiany raportowanych wartości. Dla właściwości do odczytu i zapisu są eksportowane zarówno raportowane, jak i żądane wartości. | [Format komunikatu zmiany właściwości](#property-changes-format) |
 
 1. Opcjonalnie dodaj filtry, aby zmniejszyć ilość wyeksportowanych danych. Istnieją różne typy filtrów dostępne dla każdego typu eksportu danych:
 
-    Aby odfiltrować dane telemetryczne, użyj:
+    Aby odfiltrować dane telemetryczne, możesz:
 
-    - **Filtr możliwości**: w przypadku wybrania elementu telemetrii na liście rozwijanej **Nazwa** wyeksportowany strumień zawiera tylko dane telemetryczne, które spełniają warunek filtru. W przypadku wybrania elementu właściwości urządzenia lub chmury na liście rozwijanej **Nazwa** wyeksportowany strumień zawiera tylko dane telemetryczne z urządzeń mających właściwości pasujące do warunku filtru.
+    - **Przefiltruj** wyeksportowany strumień, tak aby zawierał tylko dane telemetryczne z urządzeń, które pasują do nazwy urządzenia, identyfikatora urządzenia i warunku filtru szablonu urządzenia.
+    - **Filtruj** możliwości: w przypadku wybrania elementu telemetrii z listy rozwijanej **Nazwa** wyeksportowany strumień zawiera tylko dane telemetryczne, które spełniają warunek filtru. W przypadku wybrania elementu właściwości urządzenia lub chmury na liście rozwijanej **Nazwa** wyeksportowany strumień zawiera tylko dane telemetryczne z urządzeń mających właściwości pasujące do warunku filtru.
     - **Filtr właściwości komunikatów**: urządzenia korzystające z zestawów SDK urządzeń mogą wysyłać *Właściwości komunikatów* lub *właściwości aplikacji* w każdym komunikacie telemetrii. Właściwości są zbiorem par klucz-wartość, które oznaczają komunikat przy użyciu identyfikatorów niestandardowych. Aby utworzyć filtr właściwości wiadomości, wprowadź klucz właściwości komunikatu, którego szukasz, i określ warunek. Eksportowane są tylko komunikaty telemetryczne z właściwościami, które pasują do określonego warunku filtru. Obsługiwane są następujące operatory porównywania ciągów: Equals, nie równa się, zawiera, nie zawiera, istnieje, nie istnieje. [Dowiedz się więcej o właściwościach aplikacji IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md)dokumentach.
 
     Aby filtrować zmiany właściwości, użyj **filtru możliwości**. Wybierz element właściwości z listy rozwijanej. Wyeksportowany strumień zawiera tylko zmiany wybranej właściwości, które spełniają warunek filtru.
@@ -143,10 +154,10 @@ Teraz, gdy masz miejsce docelowe eksportu danych do programu, skonfiguruj ekspor
 
     - **Nazwa miejsca docelowego**: Nazwa wyświetlana miejsca docelowego w IoT Central.
     - **Typ docelowy**: Wybierz typ lokalizacji docelowej. Jeśli miejsce docelowe nie zostało jeszcze skonfigurowane, zobacz [Konfigurowanie docelowego eksportu](#set-up-export-destination).
-    - W przypadku platformy Azure Event Hubs, kolejki Azure Service Bus lub tematu wklej parametry połączenia dla zasobu.
-    - W przypadku usługi Azure Blob Storage wklej parametry połączenia dla zasobu i wprowadź nazwę kontenera z uwzględnieniem wielkości liter.
+    - W przypadku usługi Azure Event Hubs, kolejki lub tematu Azure Service Bus, wklej parametry połączenia dla zasobu i w razie potrzeby wprowadź nazwę centrum zdarzeń z uwzględnieniem wielkości liter, kolejki lub tematu.
+    - W przypadku usługi Azure Blob Storage wklej parametry połączenia dla zasobu i w razie potrzeby wprowadź nazwę kontenera z uwzględnieniem wielkości liter.
     - W przypadku elementu webhook Wklej adres URL wywołania zwrotnego dla punktu końcowego elementu webhook.
-    - Wybierz pozycję **Utwórz**.
+    - Wybierz przycisk **Utwórz**.
 
 1. Wybierz pozycję **+ miejsce docelowe** i wybierz lokalizację docelową z listy rozwijanej. Do jednego eksportu można dodać maksymalnie pięć miejsc docelowych.
 
@@ -185,7 +196,7 @@ Każdy wyeksportowany komunikat zawiera znormalizowaną postać pełnej wiadomo�
 - `enrichments`: Wszelkie wzbogacenia zostały skonfigurowane podczas eksportowania.
 - `messageProperties`: Dodatkowe właściwości wysyłane przez urządzenie z wiadomością. Te właściwości są czasami określane jako *właściwości aplikacji*. [Dowiedz się więcej z dokumentacji IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
-W przypadku Event Hubs i Service Bus IoT Central wyeksportować nowy komunikat szybko po odebraniu komunikatu z urządzenia.
+W przypadku Event Hubs i Service Bus IoT Central wyeksportować nowy komunikat szybko po odebraniu komunikatu z urządzenia. We właściwościach użytkownika (nazywanych również właściwościami aplikacji) każdego komunikatu,, `iotcentral-device-id` `iotcentral-application-id` i `iotcentral-message-source` są dołączone automatycznie.
 
 W przypadku usługi BLOB Storage komunikaty są przetwarzane wsadowo i eksportowane raz na minutę.
 
@@ -197,7 +208,7 @@ Poniższy przykład pokazuje wyeksportowany komunikat telemetrii:
     "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
     "messageSource": "telemetry",
     "deviceId": "1vzb5ghlsg1",
-    "schema": "default@preview",
+    "schema": "default@v1",
     "templateId": "urn:qugj6vbw5:___qbj_27r",
     "enqueuedTime": "2020-08-05T22:26:55.455Z",
     "telemetry": {
@@ -232,7 +243,7 @@ Każdy komunikat lub rekord przedstawia jedną zmianę w właściwości urządze
 - `templateId`: Identyfikator szablonu urządzenia skojarzonego z urządzeniem.
 - `enrichments`: Wszelkie wzbogacenia zostały skonfigurowane podczas eksportowania.
 
-W przypadku Event Hubs i Service Bus IoT Central eksportuje dane nowych komunikatów do centrum zdarzeń lub kolejki Service Bus lub tematu niemal w czasie rzeczywistym.
+W przypadku Event Hubs i Service Bus IoT Central eksportuje dane nowych komunikatów do centrum zdarzeń lub kolejki Service Bus lub tematu niemal w czasie rzeczywistym. We właściwościach użytkownika (nazywanych również właściwościami aplikacji) każdego komunikatu,,, `iotcentral-device-id` `iotcentral-application-id` `iotcentral-message-source` i `iotcentral-message-type` są dołączone automatycznie.
 
 W przypadku usługi BLOB Storage komunikaty są przetwarzane wsadowo i eksportowane raz na minutę.
 
@@ -244,11 +255,11 @@ W poniższym przykładzie przedstawiono eksportowany komunikat zmiany właściwo
     "messageSource": "properties",
     "messageType": "cloudPropertyChange",
     "deviceId": "18a985g1fta",
-    "schema": "default@preview",
+    "schema": "default@v1",
     "templateId": "urn:qugj6vbw5:___qbj_27r",
     "enqueuedTime": "2020-08-05T22:37:32.942Z",
     "properties": [{
-        "fieldName": "MachineSerialNumber",
+        "name": "MachineSerialNumber",
         "value": "abc"
     }],
     "enrichments": {
@@ -257,9 +268,9 @@ W poniższym przykładzie przedstawiono eksportowany komunikat zmiany właściwo
 }
 ```
 
-## <a name="comparison-of-legacy-data-export-and-preview-data-export"></a>Porównanie starszej wersji eksportu danych i eksportu danych
+## <a name="comparison-of-legacy-data-export-and-data-export"></a>Porównanie starszego eksportu danych i eksportu danych
 
-W poniższej tabeli przedstawiono różnice między funkcjami eksportu [danych a](howto-export-data-legacy.md) eksportowaniem danych w wersji zapoznawczej:
+W poniższej tabeli przedstawiono różnice między [starym eksportem danych](howto-export-data-legacy.md) i nowymi funkcjami eksportu danych:
 
 | Możliwości  | Eksport starszych danych | Nowy eksport danych |
 | :------------- | :---------- | :----------- |

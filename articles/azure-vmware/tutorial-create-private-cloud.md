@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie klastra vSphere na platformie Azure
 description: Dowiedz się, jak wdrożyć klaster vSphere na platformie Azure przy użyciu rozwiązania Azure VMWare
 ms.topic: tutorial
 ms.date: 09/07/2020
-ms.openlocfilehash: 69a29a459ba283bb34169112ac2fa174ac6a14af
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.openlocfilehash: 2aa9d64dfa143e77b0edcc0c32a853645803ef67
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512379"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985945"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Samouczek: Wdrażanie chmury prywatnej rozwiązania Azure VMware na platformie Azure
 
@@ -37,7 +37,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Chmurę prywatną rozwiązania Azure VMware można utworzyć za pomocą [Azure Portal](#azure-portal) lub przy użyciu [interfejsu wiersza polecenia platformy Azure](#azure-cli).
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-avs-private-cloud-azure-portal-steps.md)]
 
@@ -76,14 +76,24 @@ azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 
-## <a name="delete-a-private-cloud-azure-portal"></a>Usuń chmurę prywatną (Azure Portal)
+## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Usuń chmurę prywatną rozwiązania Azure VMware
 
-Jeśli masz chmurę prywatną rozwiązania VMware platformy Azure, która nie jest już potrzebna, możesz ją usunąć. Po usunięciu chmury prywatnej zostaną usunięte wszystkie klastry wraz ze wszystkimi składnikami.
-
-Aby to zrobić, przejdź do chmury prywatnej w Azure Portal i wybierz pozycję **Usuń**. Na stronie Potwierdzenie Potwierdź nazwę chmury prywatnej, a następnie wybierz pozycję **tak**.
+Jeśli masz chmurę prywatną rozwiązania VMware platformy Azure, która nie jest już potrzebna, możesz ją usunąć. Chmura prywatna rozwiązania Azure VMware obejmuje izolowaną domenę sieciową, co najmniej jeden klaster vSphere z obsługą dedykowanych węzłów serwera i zazwyczaj wiele maszyn wirtualnych. Po usunięciu chmury prywatnej zostaną usunięte wszystkie maszyny wirtualne, ich dane i klastry. Dedykowane węzły systemu operacyjnego są bezpiecznie czyszczone i zwracane do puli bezpłatna. Domena sieciowa obsługiwana dla klienta jest usuwana.  
 
 > [!CAUTION]
-> Usuwanie chmury prywatnej jest operacją nieodwracalną. Po usunięciu chmury prywatnej dane nie mogą zostać odzyskane, ponieważ kończy wszystkie uruchomione obciążenia, składniki i niszczy wszystkie dane w chmurze prywatnej oraz ustawienia konfiguracji, w tym publiczne adresy IP. 
+> Usuwanie chmury prywatnej jest operacją nieodwracalną. Po usunięciu chmury prywatnej dane nie mogą zostać odzyskane, ponieważ przerywa wszystkie uruchomione obciążenia i składniki oraz niszczy wszystkie dane chmury prywatnej i ustawienia konfiguracji, w tym publiczne adresy IP.
+
+### <a name="prerequisites"></a>Wymagania wstępne
+
+Po usunięciu chmury prywatnej nie ma możliwości odzyskania maszyn wirtualnych i ich danych. Jeśli dane maszyny wirtualnej będą wymagane później, administrator musi najpierw utworzyć kopię zapasową wszystkich danych przed usunięciem chmury prywatnej.
+
+### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Procedura usuwania chmury prywatnej rozwiązania Azure VMware
+
+1. Uzyskaj dostęp do strony rozwiązań VMware platformy Azure w Azure Portal.
+
+2. Wybierz chmurę prywatną, która ma zostać usunięta.
+ 
+3. Wprowadź nazwę chmury prywatnej i wybierz opcję **tak**. Proces usuwania zostanie zakończony w ciągu kilku godzin.  
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -91,7 +101,8 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 > [!div class="checklist"]
 > * Utwórz chmurę prywatną rozwiązania Azure VMware
-> * Zweryfikowano wdrożenie chmury prywatnej
+> * Weryfikowanie wdrożenia chmury prywatnej
+> * Usuń chmurę prywatną rozwiązania Azure VMware
 
 Przejdź do następnego samouczka, aby dowiedzieć się, jak utworzyć sieć wirtualną do użycia z chmurą prywatną w ramach konfigurowania lokalnego zarządzania klastrami w chmurze prywatnej.
 

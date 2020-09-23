@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: d4067b23c4ff365857c37d7dfdce6dc42e129989
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 642a382f2ec5da7821c9d709bd27d592ced31c8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936609"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974027"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa aplikacji: Klasyfikacja aplikacje rozproszone
 
@@ -34,7 +34,7 @@ Po kliknięciu pozycji "Aktualizuj składniki mapy", mapa jest odświeżana ze w
 
 Jeśli wszystkie składniki są rolami w ramach jednego zasobu Application Insights, ten krok odnajdywania nie jest wymagany. Początkowe obciążenie dla takiej aplikacji będzie miało wszystkie jej składniki.
 
-![Zrzut ekranu mapy aplikacji](media/app-map/app-map-001.png)
+![Zrzut ekranu przedstawia przykład mapy aplikacji.](media/app-map/app-map-001.png)
 
 Jednym z kluczowych celów tego środowiska jest możliwość wizualizacji złożonych topologii przy użyciu setek składników.
 

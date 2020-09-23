@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e40a42afc99d505dc48794d5ad919e4d682b7070
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 354568fa3ab3816b643a8f08305ab55868a9b0b6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961843"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973698"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurowanie zapory aplikacji internetowych za pomocą środowiska App Service Environment
 ## <a name="overview"></a>Omówienie
@@ -26,7 +26,7 @@ Oprócz usługi Azure Application Gateway istnieje wiele innych opcji, takich ja
 ## <a name="setup"></a>Konfigurowanie
 W przypadku tego dokumentu konfigurujemy środowisko App Service Environment za wieloma wystąpieniami zapory aplikacji internetowych Barracuda ze zrównoważonym obciążeniem tak, aby tylko ruch z zapory aplikacji internetowych mógł docierać do środowiska App Service Environment i był niedostępny od sieci obwodowej. Mamy również usługę Azure Traffic Manager przed wystąpieniami zapory aplikacji internetowych Barracuda w celu zrównoważenia obciążenia w centrach danych i regionach platformy Azure. Diagram konfiguracji wysokiego poziomu będzie wyglądać podobnie jak na poniższej ilustracji:
 
-![Architektura][Architecture] 
+![Diagram przedstawia opcjonalne Traffic Manager platformy Azure łączące się z wystąpieniami zapory aplikacji sieci Web, łącząc się z siecią A C L, aby zezwalać tylko na ruch z zapory w App Service Environment, który zawiera aplikacje sieci Web, P I i mobilne dla dwóch regionów.][Architecture] 
 
 > [!NOTE]
 > Dzięki wprowadzeniu [obsługi wewnętrznego modułu równoważenia obciążenia dla środowiska App Service Environment](app-service-environment-with-internal-load-balancer.md) można skonfigurować ASE niedostępny od sieci obwodowej i udostępniane wyłącznie do sieci prywatnej. 

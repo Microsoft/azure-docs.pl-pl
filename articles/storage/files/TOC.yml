@@ -70,7 +70,7 @@
     - name: Szyfrowanie danych magazynowanych
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Szyfrowanie magazynowanych danych przy użyciu kluczy zarządzanych przez klienta
-      href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Cele dotyczące skalowalności i wydajności
       href: storage-files-scale-targets.md
     - name: Oferty rozwiązań do zapewniania zgodności
@@ -243,18 +243,16 @@
           items:
             - name: Sprawdzanie modelu klucza szyfrowania dla konta
               href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Konfigurowanie zarządzanych przez klienta kluczy szyfrowania
+            - name: Konfigurowanie szyfrowania przy użyciu kluczy zarządzanych przez klienta
               items:
-                - name: Portal
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-                - name: Interfejs wiersza polecenia platformy Azure
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Włączanie szyfrowania infrastruktury dla konta magazynu
+                - name: Przechowywanie kluczy zarządzanych przez klienta w magazynie kluczy
+                  href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: Przechowywanie kluczy zarządzanych przez klienta w zarządzanym module HSM
+                  href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Włączanie szyfrowania infrastruktury dla konta
           href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Zaawansowana ochrona przed zagrożeniami
-          href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Konfigurowanie usługi Azure Defender na potrzeby ochrony przed zagrożeniami
+          href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Konfigurowanie zapór i sieci wirtualnych
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Wymaganie bezpiecznego transferu

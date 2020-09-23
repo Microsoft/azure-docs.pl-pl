@@ -4,12 +4,12 @@ description: Tworzenie kopii zapasowych i przywracanie baz danych SQL na maszyna
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: b355aaa465132e86c636c68552f3d650b51b08f1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 37e2336b262311ea00e833ad91fe5e8c5c1ddf1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004990"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975180"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Tworzenie kopii zapasowych i przywracanie baz danych SQL na maszynach wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -102,7 +102,7 @@ Magazyn Recovery Services jest zasobem Menedżer zasobów, dlatego należy umie�
 
 3. Określ typ nadmiarowości, która ma być używana w magazynie magazynu.
 
-    * Można użyć magazynu [lokalnie nadmiarowego](../storage/common/storage-redundancy.md) lub [magazynu geograficznie nadmiarowego](../storage/common/storage-redundancy.md).
+    * Można użyć magazynu [lokalnie](../storage/common/storage-redundancy.md#locally-redundant-storage)nadmiarowego, magazynu [geograficznie nadmiarowego](../storage/common/storage-redundancy.md#geo-redundant-storage) lub [magazynu Strefowo nadmiarowego](../storage/common/storage-redundancy.md#zone-redundant-storage) .
     * W poniższym przykładzie ustawiono opcję **-BackupStorageRedundancy** dla polecenia[Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd dla **testvault** jako **geomiarowy**.
 
     ```powershell

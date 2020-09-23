@@ -10,12 +10,12 @@ ms.date: 09/08/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0d03b2708bfd4aac2565b303ddce44f50be65ef9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ee76c1692049d5b25e85b6780fbcf78f7ebfdd2f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612350"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987055"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replikacja obiektów dla blokowych obiektów BLOB
 
@@ -68,7 +68,7 @@ Można również określić jeden lub więcej filtrów jako część reguły rep
 
 Oba kontenery źródłowe i docelowe muszą istnieć przed określeniem ich w regule. Po utworzeniu zasad replikacji kontener docelowy jest tylko do odczytu. Wszystkie próby zapisu w kontenerze docelowym kończą się niepowodzeniem z kodem błędu 409 (konflikt). Można jednak wywołać operację [ustawiania warstwy obiektów BLOB](/rest/api/storageservices/set-blob-tier) na obiekcie BLOB w kontenerze docelowym, aby przenieść ją do warstwy archiwum. Aby uzyskać więcej informacji o warstwie archiwum, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md#archive-access-tier).
 
-## <a name="billing"></a>Rozliczenia 
+## <a name="billing"></a>Rozliczenia
 
 Replikacja obiektów wiąże się z dodatkowymi kosztami dotyczącymi transakcji odczytu i zapisu na kontach źródłowych i docelowych, a także naliczanie opłat za replikację danych z konta źródłowego na konto docelowe oraz naliczane są opłaty za odczytanie do źródła zmian procesu.
 
