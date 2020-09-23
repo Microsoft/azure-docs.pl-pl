@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540006"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980675"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Omówienie funkcji Threat Modeling Tool
 
@@ -122,7 +122,7 @@ Zatrzymaj wskaźnik myszy nad **otwartym modelem** , aby odsłonić dwie opcje: 
 
 Po wybraniu **opinii, sugestii i problemów**przejdź do forum MSDN dla narzędzi SDL. Możesz odczytywać inne osoby, które mówią o tym narzędziu, w tym o obejściach i nowych pomysłach.
 
-![Opinia](./media/threat-modeling-tool-feature-overview/feedback.png)
+![Zrzut ekranu przedstawia przycisk z odpowiedzią na tekst, sugestiami i problemami.](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>widok Projekt
 
@@ -158,7 +158,7 @@ Elementy można łączyć na dwa sposoby:
 
 Jeśli utworzysz model zagrożeń i zapomnisz połączyć przepływy danych z elementami, otrzymasz powiadomienie. Komunikat można zignorować lub można wykonać instrukcje, aby rozwiązać problem. 
 
-![Komunikaty](./media/threat-modeling-tool-feature-overview/messages.png)
+![Zrzut ekranu przedstawia łącznik modelu zagrożeń, który nie jest połączony z elementami, z komunikatem, że przyczyną jest ten problem.](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Uwagi
 
@@ -174,11 +174,11 @@ Po skompilowaniu diagramu wybierz symbol **analizy** (Lupa) na pasku narzędzi s
 
 Po wybraniu zagrożenia można użyć trzech odrębnych funkcji:
 
-| Cechy                               | Informacje      |
+| Cechy                               | Informacyjny      |
 | --------------------------------------- | ------------ |
 | **Wskaźnik odczytu** | <p>Zagrożenie jest oznaczone jako przeczytane, co pomaga śledzić przeglądane elementy.</p><p>![Wskaźnik odczytu/odczytania](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Fokus interakcji** | <p>Wyróżniono interakcje na diagramie należącym do zagrożenia.</p><p>![Fokus interakcji](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
-| **Właściwości zagrożenia** | <p>Dodatkowe informacje o zagrożeniu pojawiają się w oknie **Właściwości zagrożeń** .</p><p>![Właściwości zagrożenia](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
+| **Właściwości zagrożeń** | <p>Dodatkowe informacje o zagrożeniu pojawiają się w oknie **Właściwości zagrożeń** .</p><p>![Właściwości zagrożeń](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Zmiana priorytetu
 
@@ -190,13 +190,13 @@ Można zmienić poziom priorytetu każdego z wygenerowanych zagrożeń. Różne 
 
 Jak widać na poprzedniej ilustracji, można zmienić informacje wygenerowane przez narzędzie. Możesz również dodać informacje do określonych pól, takich jak uzasadnienie. Te pola są generowane przez szablon. Jeśli potrzebujesz więcej informacji dotyczących poszczególnych zagrożeń, możesz wprowadzić modyfikacje.
 
-![Właściwości zagrożenia](./media/threat-modeling-tool-feature-overview/threatproperties.png)
+![Właściwości zagrożeń](./media/threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Raporty
 
 Po zakończeniu zmieniania priorytetów i aktualizacji stanu każdego z wygenerowanych zagrożeń można zapisać plik i/lub wydrukować raport. Przejdź do pozycji **raport**  >  **Utwórz pełny raport**. Nadaj raportowi nazwę i zobacz coś podobnego do poniższej ilustracji:
 
-![Raport](./media/threat-modeling-tool-feature-overview/report.png)
+![Zrzut ekranu przedstawia przykładowy raport modelowania zagrożeń, w tym podsumowanie, diagramy i inne informacje.](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

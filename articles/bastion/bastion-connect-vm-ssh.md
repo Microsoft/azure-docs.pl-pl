@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 98f1f3d02d8433dd88fed844a587a961ea9f8c82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9bc06e58fcbd93fba0c92e91b51503239b5a951
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744293"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980775"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Nawiązywanie połączenia przy użyciu protokołu SSH z maszyną wirtualną z systemem Linux przy użyciu usługi Azure bastionu
 
@@ -23,7 +23,7 @@ Za pomocą usługi Azure bastionu można nawiązać połączenie z maszyną wirt
 * Klucz prywatny ręcznie wprowadzony przez użytkownika
 * Plik zawierający informacje o kluczu prywatnym
 
-Klucz prywatny SSH musi mieć format zaczynający się od `"-----BEGIN RSA PRIVATE KEY-----"` i kończąc na `"-----END RSA PRIVATE KEY-----"` .
+Klucz prywatny SSH musi mieć format zaczynający się od  `"-----BEGIN RSA PRIVATE KEY-----"` i kończąc na `"-----END RSA PRIVATE KEY-----"` .
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -47,35 +47,35 @@ Aby można było nawiązać połączenie z maszyną wirtualną z systemem Linux 
 
 ## <a name="connect-using-username-and-password"></a><a name="username"></a>Połącz: przy użyciu nazwy użytkownika i hasła
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com). Przejdź do maszyny wirtualnej, z którą chcesz nawiązać połączenie, a następnie kliknij pozycję **Połącz** , a następnie wybierz pozycję **bastionu** z listy rozwijanej.
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com). Przejdź do maszyny wirtualnej, z którą chcesz nawiązać połączenie, a następnie kliknij pozycję **Połącz** , a następnie wybierz pozycję **bastionu** z listy rozwijanej.
 
-   ![Połącz](./media/bastion-connect-vm-ssh/connect.png)
+   ![Zrzut ekranu przedstawia przegląd maszyny wirtualnej w Azure Portal z wybranym połączeniem.](./media/bastion-connect-vm-ssh/connect.png)
 1. Po kliknięciu przycisku bastionu pojawi się pasek boczny z trzema kartami — RDP, SSH i bastionu. Jeśli Zainicjowano obsługę bastionu dla sieci wirtualnej, karta bastionu jest domyślnie aktywna. Jeśli nie zainicjowano obsługi administracyjnej usługi bastionu dla sieci wirtualnej, zobacz [Konfigurowanie bastionu](bastion-create-host-portal.md).
 
-   ![Bastion](./media/bastion-connect-vm-ssh/bastion.png)
+   ![Zrzut ekranu przedstawia okno dialogowe łączenie z maszyną wirtualną z wybraną pozycją BASTIONU.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Wprowadź nazwę użytkownika i hasło dla SSH do maszyny wirtualnej.
 1. Po wprowadzeniu klucza kliknij przycisk **Połącz** .
 
 ## <a name="connect-manually-enter-a-private-key"></a><a name="privatekey"></a>Connect: ręczne wprowadzanie klucza prywatnego
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com). Przejdź do maszyny wirtualnej, z którą chcesz nawiązać połączenie, a następnie kliknij pozycję **Połącz** , a następnie wybierz pozycję **bastionu** z listy rozwijanej.
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com). Przejdź do maszyny wirtualnej, z którą chcesz nawiązać połączenie, a następnie kliknij pozycję **Połącz** , a następnie wybierz pozycję **bastionu** z listy rozwijanej.
 
-   ![Połącz](./media/bastion-connect-vm-ssh/connect.png)
+   ![Zrzut ekranu przedstawia przegląd maszyny wirtualnej w Azure Portal z wybranym połączeniem.](./media/bastion-connect-vm-ssh/connect.png)
 1. Po kliknięciu przycisku bastionu pojawi się pasek boczny z trzema kartami — RDP, SSH i bastionu. Jeśli Zainicjowano obsługę bastionu dla sieci wirtualnej, karta bastionu jest domyślnie aktywna. Jeśli nie zainicjowano obsługi administracyjnej usługi bastionu dla sieci wirtualnej, zobacz [Konfigurowanie bastionu](bastion-create-host-portal.md).
 
-   ![Bastion](./media/bastion-connect-vm-ssh/bastion.png)
+   ![Zrzut ekranu przedstawia okno dialogowe łączenie z maszyną wirtualną z wybraną pozycją BASTIONU.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Wprowadź nazwę użytkownika i wybierz pozycję **prywatny klucz SSH**.
 1. Wprowadź klucz prywatny do **prywatnego klucza SSH** obszaru tekstowego (lub wklej go bezpośrednio).
 1. Po wprowadzeniu klucza kliknij przycisk **Połącz** .
 
 ## <a name="connect-using-a-private-key-file"></a><a name="ssh"></a>Łączenie: korzystanie z pliku klucza prywatnego
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com). Przejdź do maszyny wirtualnej, z którą chcesz nawiązać połączenie, a następnie kliknij pozycję **Połącz** , a następnie wybierz pozycję **bastionu** z listy rozwijanej.
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com). Przejdź do maszyny wirtualnej, z którą chcesz nawiązać połączenie, a następnie kliknij pozycję **Połącz** , a następnie wybierz pozycję **bastionu** z listy rozwijanej.
 
-   ![Połącz](./media/bastion-connect-vm-ssh/connect.png)
+   ![Zrzut ekranu przedstawia przegląd maszyny wirtualnej w Azure Portal z wybranym połączeniem.](./media/bastion-connect-vm-ssh/connect.png)
 1. Po kliknięciu przycisku bastionu pojawi się pasek boczny z trzema kartami — RDP, SSH i bastionu. Jeśli Zainicjowano obsługę bastionu dla sieci wirtualnej, karta bastionu jest domyślnie aktywna. Jeśli nie zainicjowano obsługi administracyjnej usługi bastionu dla sieci wirtualnej, zobacz [Konfigurowanie bastionu](bastion-create-host-portal.md).
 
-   ![Bastion](./media/bastion-connect-vm-ssh/bastion.png)
+   ![Zrzut ekranu przedstawia okno dialogowe łączenie z maszyną wirtualną z wybraną pozycją BASTIONU.](./media/bastion-connect-vm-ssh/bastion.png)
 1. Wprowadź nazwę użytkownika i wybierz opcję **klucz prywatny SSH z pliku lokalnego**.
 1. Kliknij przycisk **przeglądania** (ikona folderu w pliku lokalnym).
 1. Wyszukaj plik, a następnie kliknij przycisk **Otwórz**.

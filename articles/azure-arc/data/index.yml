@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Usługi danych z obsługą usługi Azure Arc
+summary: Uruchamiaj usługi danych platformy Azure lokalnie, na urządzeniach brzegowych i w środowisku wielochmurowym przy użyciu platformy Kubernetes i wybranej infrastruktury.
+metadata:
+  title: Usługi danych z obsługą usługi Azure Arc (wersja zapoznawcza)
+  description: Uruchamiaj usługi danych platformy Azure lokalnie, na urządzeniach brzegowych i w środowisku wielochmurowym przy użyciu platformy Kubernetes i wybranej infrastruktury.
+  ms.service: azure-arc
+  ms.subservice: azure-arc-data
+  ms.topic: landing-page
+  author: MikeRayMSFT
+  ms.author: mikeray
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 3ef94bfc9d3870c4c91116fb2aaf26387999a8da
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928924"
+landingContent:
+- title: Informacje
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to są usługi danych z obsługą usługi Azure Arc?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Tryby i wymagania dotyczące łączności
+      url: connectivity.md
+    - text: Konfiguracja usługi Storage
+      url: storage-configuration.md
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie kontrolera danych
+      url: create-data-controller.md
+    - text: Instalowanie narzędzi klienckich
+      url: install-client-tools.md
+- title: Baza danych PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc (wersja zapoznawcza)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Przycisk Utwórz
+      url: create-postgresql-hyperscale-server-group.md
+    - text: Connect
+      url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+    - text: Migrate (Migracja)
+      url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+    - text: Przywracanie
+      url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+- title: Usługa SQL Managed Instance z obsługą usługi Azure Arc (wersja zapoznawcza)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Przycisk Utwórz
+      url: create-sql-managed-instance.md
+    - text: Connect
+      url: connect-managed-instance.md
+    - text: Migrate (Migracja)
+      url: migrate-to-managed-instance.md
+    - text: Przywracanie
+      url: restore-adventureworks-sample-db.md

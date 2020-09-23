@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77426364"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972430"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Samouczek: Tworzenie połączonej aplikacji zarządzania odpadami w IoT Central
 
@@ -131,13 +131,13 @@ Aby wyświetlić szablon urządzenia:
 
 1. Kliknij pozycję **Szablony urządzeń** w lewym okienku aplikacji w IoT Central. 
 
-    ![Szablon urządzenia](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    ![Zrzut ekranu przedstawiający listę szablonów urządzeń w aplikacji](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
 2. Na liście szablony urządzeń zostanie wyświetlony **pojemnik połączone odpady**. Otwórz program, klikając nazwę.
 
 3. Zapoznaj się z możliwościami szablonu urządzenia. Zobaczysz, że definiuje on czujniki, takie jak *poziom wypełnienia*, *odor*, *waga*, *Lokalizacja*i inne.
 
-   ![Szablon urządzenia](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+   ![Zrzut ekranu przedstawiający szczegóły szablonu urządzenia bin podłączonych odpadów](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
    
 
@@ -161,7 +161,7 @@ Spróbuj dostosować następujące elementy:
 
   ![Widoki szablonów urządzeń](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)
 
-### <a name="publish"></a>Publikowanie 
+### <a name="publish"></a>Opublikuj 
 
 * Jeśli zostały wprowadzone jakiekolwiek zmiany, upewnij się, że szablon urządzenia jest **opublikowany** . 
 
@@ -179,7 +179,7 @@ Aplikacja do **zarządzania połączonymi odpadami** ma dwa symulowane urządzen
 
 1. Przejdź do **urządzenia** z IoT Central lewym okienku. 
 
-   ![Urządzenia](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
+   ![Devices](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
 2. Wybierz i kliknij urządzenie bin połączone odpady.  
 
@@ -258,15 +258,16 @@ Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko u�
 7. Na koniec możesz również zmienić **kompozycję** , klikając pozycję **Ustawienia** w obszarze tytuł aplikacji.
 
   
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń aplikację, wykonując następujące czynności:
 
 1. Otwórz kartę Administracja w lewym okienku aplikacji IoT Central.
 2. Wybierz pozycję Ustawienia aplikacji, a następnie kliknij przycisk Usuń u dołu strony.
 
-  
-
 ## <a name="next-steps"></a>Następne kroki
 
-* Więcej informacji o [pojęciach związanych z zarządzaniem odpadami](./concepts-connectedwastemanagement-architecture.md)
+* Więcej informacji na temat
+ 
+> [!div class="nextstepaction"]
+> [Pojęcia związane z zarządzaniem odpadami](./concepts-connectedwastemanagement-architecture.md)

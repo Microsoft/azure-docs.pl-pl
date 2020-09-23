@@ -1,23 +1,23 @@
 ---
-title: Pojęcia dotyczące usług pogodowych | Mapy Microsoft Azure
-description: Ten artykuł zawiera informacje na temat pojęć, które dotyczą Microsoft Azure mapowania usług pogodowych.
+title: Pojęcia dotyczące usług pogodowych w Microsoft Azure Maps
+description: Zapoznaj się z pojęciami dotyczącymi usługi Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132113"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972048"
 ---
 # <a name="weather-services-in-azure-maps"></a>Usługi pogodowe w Azure Maps
 
-W tym artykule przedstawiono pojęcia dotyczące [Azure Maps usług pogodowych](https://aka.ms/AzureMapsWeatherService). Zalecamy przechodzenie przez ten artykuł przed rozpoczęciem korzystania z interfejsów API pogody. 
+W tym artykule przedstawiono pojęcia dotyczące [Azure Maps usług pogodowych](https://aka.ms/AzureMapsWeatherService). Zalecamy przechodzenie przez ten artykuł przed rozpoczęciem korzystania z interfejsów API pogody.
 
 ## <a name="unit-types"></a>Typy jednostek
 
@@ -56,27 +56,27 @@ Niektóre interfejsy API usługi Pogoda zwracają `iconCode` w odpowiedzi. `icon
 
 | Numer ikony |Ikona| Dzień | Godzinach | Tekst |
 |-------------|:----:|-----|-------|------|
-| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Yes |  Nie    | Sunny|
-| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Yes |  Nie    | W większości Sunny|
-| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Yes |  Nie    | Częściowo Sunny|
-| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Yes |  Nie    | Przerwy w chmurze|
-| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Yes |  Nie    | Hazy słońca |
-| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Yes |  Nie    | W większości w chmurze|
+| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Tak |  Nie    | Sunny|
+| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Tak |  Nie    | W większości Sunny|
+| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Tak |  Nie    | Częściowo Sunny|
+| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Tak |  Nie    | Przerwy w chmurze|
+| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Tak |  Nie    | Hazy słońca |
+| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Tak |  Nie    | W większości w chmurze|
 | 7           | :::image type="icon" source="./media/weather-services-concepts/cloudy-i.png"::: | Tak |  Tak   | Chmura |
 | 8           | :::image type="icon" source="./media/weather-services-concepts/dreary-overcast.png"::: | Tak |  Tak   | Dreary (Overcast)|
 | 11           | :::image type="icon" source="./media/weather-services-concepts/fog-i.png"::: | Tak |  Tak   | Przeciwmgielnych|
 | 12           | :::image type="icon" source="./media/weather-services-concepts/showers-i.png"::: | Tak |  Tak   | Natrysk|
-| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Yes |  Nie    | W większości w chmurze z prysznicami|
-| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Yes |  Nie    | Częściowo Sunny z prysznicami|
+| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Tak |  Nie    | W większości w chmurze z prysznicami|
+| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Tak |  Nie    | Częściowo Sunny z prysznicami|
 | 15           | :::image type="icon" source="./media/weather-services-concepts/tstorms-i.png"::: | Tak |  Tak   | Thunderstorms|
-| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Yes |  Nie    | W większości chmur z Thunderstorms|
-| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Yes |  Nie    | Częściowo Sunny z Thunderstorms|
+| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Tak |  Nie    | W większości chmur z Thunderstorms|
+| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Tak |  Nie    | Częściowo Sunny z Thunderstorms|
 | 18           | :::image type="icon" source="./media/weather-services-concepts/rain-i.png"::: | Tak |  Tak   | Fartuch|
 | 19           | :::image type="icon" source="./media/weather-services-concepts/flurries-i.png"::: | Tak |  Tak   | Flurries|
-| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Yes |  Nie    | W większości chmur z Flurries|
-| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Yes |  Nie    | Częściowo Sunny z Flurries|
+| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Tak |  Nie    | W większości chmur z Flurries|
+| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Tak |  Nie    | Częściowo Sunny z Flurries|
 | 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | Tak |  Tak   | Krab|
-| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Yes |  Nie    | W większości chmur z śniegiem|     
+| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Tak |  Nie    | W większości chmur z śniegiem|     
 | 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | Tak |  Tak   | Ice |
 | 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Tak |  Tak   | Sleet|
 | 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Tak |  Tak   | Zamrażanie deszczu|
@@ -84,11 +84,11 @@ Niektóre interfejsy API usługi Pogoda zwracają `iconCode` w odpowiedzi. `icon
 | 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Tak |  Tak   | Gorąca|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Tak |  Tak   | Chłodne|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Tak |  Tak   | Wiatr|
-| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Nie  |  Yes   | Czyste|
-| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Nie  |  Yes   | Przede wszystkim|
-| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Nie  |  Yes   | Częściowo chmura|
-| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Nie  |  Yes   | Przerwy w chmurze|
-| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | Nie  |  Yes   | Hazy Moonlight|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Nie  |  Tak   | Czyste|
+| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Nie  |  Tak   | Przede wszystkim|
+| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Nie  |  Tak   | Częściowo chmura|
+| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Nie  |  Tak   | Przerwy w chmurze|
+| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | Nie  |  Tak   | Hazy Moonlight|
 | 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | Nie  |  Tak   | W większości w chmurze|
 | 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | Nie  |  Tak   | Częściowo chmura z prysznicami|
 | 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | Nie  |  Tak   | W większości w chmurze z prysznicami|
@@ -472,3 +472,169 @@ Poniżej przedstawiono szczegółową paletę kolorów dla kafelków satelitarny
 |307,57  |#02555555     |
 |308     |#00525252     |
 |308     |#00525252     |
+
+## <a name="index-ids-and-index-groups-ids"></a>Identyfikatory indeksu i identyfikatory grup indeksów
+
+[Pobieranie indeksów dziennych — interfejs API](https://aka.ms/AzureMapsWeatherDailyIndices) umożliwia użytkownikom ograniczenie zwracanych wyników do określonych typów indeksów lub grup indeksów.
+
+Poniżej znajduje się tabela z dostępnymi identyfikatorami indeksu, ich nazwami i linkiem do ich zestawów zakresów. Poniżej przedstawiono tabelę zawierającą listę różnych grup indeksów.
+
+  Nazwa indeksu |  ID (Identyfikator)  | Zakres wartości
+  -------------------------- |---|-----
+  Arthritis bólu             |21 | [Korzystne — przy skrajnym ryzyku](#beneficial-at-extreme-risk)
+  Asthma                     |23|  [Korzystne — przy skrajnym ryzyku](#beneficial-at-extreme-risk)
+  Sekwencje & puli               |10| [Słabe — doskonałe 1](#poor-excellent-1)
+  Jazda                  |4| [Słabe — doskonałe 1](#poor-excellent-1)
+  Typowy zimny                |25|  [Korzystne — przy skrajnym ryzyku](#beneficial-at-extreme-risk)
+  Kompostowanie                 |38| [Słabe — doskonałe 1](#poor-excellent-1)
+  Budownictwo               |14| [Słabe — doskonałe 1](#poor-excellent-1)
+  COPD                       |44|  [Korzystne — przy skrajnym ryzyku](#beneficial-at-extreme-risk)
+  Komfort wzgięty        |43| [Słabe — doskonałe 1](#poor-excellent-1)
+  Jazda samochodem                    |40|  [Słabe — doskonałe 2](#poor-excellent-2)
+  Pył & Dander              |18| [Niski-Extreme 1](#low-extreme-1)
+  Gotowość pola            |32| [Słabe — doskonałe 1](#poor-excellent-1)
+  Poławiania                    |13| [Słabe — doskonałe 1](#poor-excellent-1)
+  Opóźnienia lotu              |-3|  [Bardzo mało prawdopodobne — bardzo prawdopodobne 2](#very-unlikely-very-likely-2)
+  Flu                        |26|  [Korzystne — przy skrajnym ryzyku](#beneficial-at-extreme-risk)
+  Pływający wskaźnik podróży        |31| [Doskonały-słaby](#excellent-poor)
+  Gospodarka paliwowa               |37| [Słabe — doskonałe 1](#poor-excellent-1)
+  Pogoda               |5| [Słabe — doskonałe 1](#poor-excellent-1)
+  Rosnące trawy              |33| [Słabe — doskonałe 1](#poor-excellent-1)
+  Frizz włosia                 |42| [Mało prawdopodobne — nagłe](#unlikely-emergency)
+  Dobra serce      |16| [Słabe — doskonałe 1](#poor-excellent-1)
+  Górach                     |3| [Słabe — doskonałe 1](#poor-excellent-1)
+  Efektywność energii domowej     |36| [Słabe — doskonałe 1](#poor-excellent-1)
+  Wyszukiwanie zagrożeń                    | 20| [Słabe — doskonałe 1](#poor-excellent-1)
+  Działanie wewnętrzne            | -2| [Słabe — doskonałe 1](#poor-excellent-1)
+  Jogging                    |2| [Słabe — doskonałe 1](#poor-excellent-1)
+  Kite                |9| [Słabe — doskonałe 1](#poor-excellent-1)
+  Mowing trawnik                |28| [Słabe — doskonałe 1](#poor-excellent-1)
+  Migraine kłopotliwej          |27|  [Korzystne — przy skrajnym ryzyku](#beneficial-at-extreme-risk)
+  Magistrala szkolna         |35| [Słabe — doskonałe 1](#poor-excellent-1)
+  Działanie Mosquito          |17|[Niski-Extreme 1](#low-extreme-1)
+  Aktywność na zewnątrz           |29| [Słabe — doskonałe 1](#poor-excellent-1)
+  Barbecue na zewnątrz           |24| [Słabe — doskonałe 1](#poor-excellent-1)
+  Uzgadnianie z zewnątrz            |8| [Słabe — doskonałe 1](#poor-excellent-1)
+  Uruchomienie                    |1|  [Słabe — doskonałe 1](#poor-excellent-1)
+  Tenis                     |6| [Słabe — doskonałe 1](#poor-excellent-1)
+  Thirst                     |41| [Niska-Extreme 2](#low-extreme-2)
+  Wypłynięci                    |11| [Słabe — doskonałe 1](#poor-excellent-1)
+  Koszyk                   |39| [Słabe — doskonałe 1](#poor-excellent-1)
+  Sinus kłopotliwej             |30|  [Korzystne — przy skrajnym ryzyku](#beneficial-at-extreme-risk)
+  Skateboarding              | 7| [Słabe — doskonałe 1](#poor-excellent-1)
+  Pogoda                | 15| [Słabe — doskonałe 1](#poor-excellent-1)
+  Dni śniegu                  | 19| [Bardzo mało prawdopodobne — bardzo prawdopodobne](#very-unlikely-very-likely)
+  Wilgotność gleby              | 34| [Słabe — doskonałe 1](#poor-excellent-1)
+  Stargazing                 | 12| [Słabe — doskonałe 1](#poor-excellent-1)
+
+Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
+
+  ID (Identyfikator)   | Nazwa grupy | Indeksy w tej grupie |
+  -------- | ------------------|------
+  1       |Wszystko | Wszystko
+  2       |Aches i bólu | Arthritis bólu (21) </br> Migraine kłopotliwej (27) </br> Sinus kłopotliwej (30)
+  3       |Układ oddechowy | Asthma (23) </br> Typowy zimny (25) </br> Prognoza Flu (26)
+  4       |Ogrodniczy | Gotowość pola (32) </br> Mowing trawnika (28) </br> Wilgotność gleby (34)</br>
+  5       |Wymogów | Składanie (38) </br> Efektywność energii na stronie głównej (36) </br> Gospodarka paliwem (37)
+  6       |Życia na zewnątrz | Barbecue z zewnątrz (24) </br> Działanie Mosquito (17)
+  7       |Sekwencje i morski | Sekwencje & puli (10) </br> Rybołówstwo (13) </br> Żegluga (11)
+  8       |Sportsman | Rybołówstwo (13) </br> Łowiectwo (20) </br> Aktywność na zewnątrz (29)</br>
+  9       |Ekologiczn |  Gotowość pola (32) </br>  Wilgotność gleby (34)
+  10      |Służba zdrowia | Arthritis bólu (21) </br> Asthma (23) </br> Typowy zimny (25) </br> Pył & Dander (18) </br> Flu (26) </br> Dobra serce (16) </br> Migraine kłopotliwej (27)
+  11      |Zewnętrzne | Barbecue z zewnątrz (24) </br> Sekwencje & puli (10) </br> Dwucykliczny (4) </br> Uzgadnianie z zewnątrz (8) </br>  Gotowość pola (32) </br> Rybołówstwo (13) </br> Pogoda (5) </br> Górach (3) </br> Łowiectwo (20) </br> Jogging (2) </br> Kite pływający (9) </br> Działanie Mosquito (17)</br> Mowing trawnika (28) </br> Aktywność na zewnątrz (29) </br> Uruchomione (1) </br> Żegluga (11) </br> Skateboarding (7) </br> Pogoda (15) </br>  Wilgotność gleby (34)</br> Stargazing (12) </br> Tenis (6)
+  12      |Związana | Dwucykliczny (4) </br> Pogoda (5) </br> Górach (3) </br>  Jogging (2) </br> Uruchomione (1) </br> Skateboarding (7) </br> Pogoda (15) </br>Tenis (6)
+  13      |Strona główna | Efektywność energii na stronie głównej (36) </br> Gospodarka paliwem (37) </br> Działanie wewnętrzne (-2)
+
+## <a name="daily-index-range-sets"></a>Dzienne zestawy zakresów indeksów
+
+[Interfejs API uzyskiwania dziennych indeksów](https://aka.ms/AzureMapsWeatherDailyIndices) zwraca wartość przedziału i skojarzoną z nią nazwę kategorii dla każdego identyfikatora indeksu. Zestawy zakresów nie są takie same dla wszystkich indeksów. W poniższych tabelach przedstawiono różne zestawy zakresów używane przez obsługiwane indeksy wymienione w identyfikatorach [indeksu i identyfikatorach grup indeksów](#index-ids-and-index-groups-ids). Aby dowiedzieć się, które indeksy używają zestawów zakresu, przejdź do sekcji [identyfikatory indeksów i identyfikatory grup indeksów](#index-ids-and-index-groups-ids) tego dokumentu.
+
+### <a name="poor-excellent-1"></a>Słabe — doskonałe 1
+
+  | Nazwa kategorii | Początek zakresu | Zakres końcowy |
+  ----------------|--------------|------------
+  Kiepsko              |  0 |                2,99
+  Dostatecznie              |  3  |               4,99
+  Dobrze              |  5  |              6,99
+  Bardzo dobrze         |  7  |               8,99
+  Doskonałe         |  9  |               10
+
+### <a name="poor-excellent-2"></a>Słabe — doskonałe 2
+
+ | Nazwa kategorii | Początek zakresu | Zakres końcowy |
+  ----------------|--------------|------------
+  Kiepsko           |0              |  3
+  Dostatecznie           |3,01           |  6
+  Dobrze           |6,01           |  7,5
+  Bardzo dobrze      |7,51           |  8,99
+  Doskonałe      |9              |  10
+
+### <a name="excellent-poor"></a>Doskonały-słaby
+
+ | Nazwa kategorii | Początek zakresu | Zakres końcowy |
+  ----------------|--------------|------------
+  Doskonałe      |     0,00        |    1,00
+  Bardzo dobrze        |   1.01          |  3,00
+  Dobrze             |   3,01          |  5,00
+  Dostatecznie             |   5,01          |  7,00
+  Kiepsko             |   7,01          |  10,00
+
+### <a name="low-extreme-1"></a>Niski-Extreme 1
+
+   | Nazwa kategorii | Początek zakresu | Zakres końcowy |
+  ----------------|--------------|------------
+  Niski                |  0         |        1,99
+  Umiarkowany           |  2         |        3,99
+  Wysoki               |  4         |        5,99
+  Bardzo wysoka          |  6         |        7,99
+  Ekstremalne            |  8         |        10
+
+### <a name="low-extreme-2"></a>Niska-Extreme 2
+
+   | Nazwa kategorii | Początek zakresu | Zakres końcowy |
+  ----------------|--------------|------------
+  Niski                |  0            |      2,99
+  Umiarkowany           |  3            |      4,99
+  Wysoki               |  5            |      6,99
+  Bardzo wysoka          |  7            |      8,99
+  Ekstremalne            |  9            |      10
+
+### <a name="very-unlikely-very-likely"></a>Bardzo mało prawdopodobne — bardzo prawdopodobne
+
+ | Nazwa kategorii | Początek zakresu | Zakres końcowy |
+  ----------------|--------------|------------
+  Bardzo mało prawdopodobne      | 0     |           1,99
+  Prawdopodobne           | 2     |           3,99
+  Słodzon           | 4     |           5,99
+  Możliwe             | 6     |           7,99
+  Prawdopodobnie        | 8     |           10
+
+### <a name="very-unlikely-very-likely-2"></a>Bardzo mało prawdopodobne — bardzo prawdopodobne 2
+
+ | Nazwa kategorii | Początek zakresu | Zakres końcowy |
+  ----------------|--------------|------------
+  Bardzo mało prawdopodobne      |  0,00     |         1,00
+  Prawdopodobne           |  1.01     |         3,00
+  Słodzon           |  3,01     |         5,00
+  Możliwe             |  5,01     |         7,00
+  Prawdopodobnie        |  7,01     |         10,00
+
+### <a name="unlikely-emergency"></a>Mało prawdopodobne — nagłe
+
+| Nazwa kategorii | Początek zakresu | Zakres końcowy |
+  ----------------|--------------|------------
+  Prawdopodobne         |  0     |          2,99
+  Obejrzyj            |  3     |          4,99
+  Porada         |  5     |          6,99
+  Ostrzeżenie          |  7     |          8,99
+  Kontakt        |  9     |          10
+
+### <a name="beneficial-at-extreme-risk"></a>Korzystne — przy skrajnym ryzyku
+
+| Nazwa kategorii | Początek zakresu | Zakres końcowy |
+  ----------------|--------------|------------
+  Pożyteczn        |    0        |        1,99
+  Neutral           |    2        |        3,99
+  Zagrożone           |    4        |        5,99
+  Przy wysokim ryzyku      |    6        |        7,99
+  Przy skrajnym ryzyku   |    8        |        10

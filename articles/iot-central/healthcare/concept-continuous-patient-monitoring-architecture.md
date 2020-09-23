@@ -1,6 +1,6 @@
 ---
 title: Architektura monitorowania ciągłego pacjenta na platformie Azure IoT Central | Microsoft Docs
-description: Poznaj architekturę rozwiązania ciągłego monitorowania pacjenta.
+description: Samouczek — informacje o architekturze rozwiązania ciągłego monitorowania pacjenta.
 author: philmea
 ms.author: philmea
 ms.date: 09/14/2020
@@ -8,16 +8,18 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: bd0d2f3368f6a2c39b3a9e95c577d85dfe0d87d7
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: ffecd09d1084188195da83568ab3fe32ef2cdaac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068079"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972232"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Architektura ciągłego monitorowania pacjenta
 
 W tym artykule opisano architekturę rozwiązania skompilowanego na podstawie szablonu **ciągłej kontroli nad pacjentem** :
+
+Rozwiązania do monitorowania ciągłego pacjenta można skompilować przy użyciu dostarczonego szablonu aplikacji i korzystając z architektury przedstawionej poniżej jako wskazówki.
 
 :::image type="content" source="media/cpm-architecture.png" alt-text="Architektura ciągłego monitorowania pacjenta":::
 

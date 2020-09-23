@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab68ab4166ddf9e938648e6618ef37df6d998f0
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c761be04c7d31567e727e93b84c98a1b3510e3d9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460902"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979884"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegowanie i role w zarządzaniu prawami usługi Azure AD
 
@@ -81,6 +81,7 @@ Zarządzanie prawami obejmuje następujące role, które są specyficzne dla zar
 | Twórca katalogu | Utwórz wykazy i zarządzaj nimi. Zazwyczaj administrator IT, który nie jest administratorem globalnym lub właścicielem zasobu dla kolekcji zasobów. Osoba tworząca katalog automatycznie stanie się pierwszym właścicielem katalogu i może dodać dodatkowych właścicieli katalogu. Autor wykazu nie może zarządzać katalogami, które nie są właścicielami i nie mogą dodawać do nich zasobów. Jeśli twórca katalogu musi zarządzać innym wykazem lub dodać do nich zasoby, które nie są właścicielami, mogą zażądać od współwłaściciela tego katalogu lub zasobu. |
 | Właściciel katalogu | Edytuj istniejące wykazy i zarządzaj nimi. Zazwyczaj administrator IT lub właściciele zasobów lub użytkownik, który wyznaczył właściciela katalogu. |
 | Menedżer pakietów dostępu | Edytuj wszystkie istniejące pakiety dostępu i zarządzaj nimi w ramach wykazu. |
+| Menedżer przypisania pakietu dostępu | Edytuj wszystkie przypisania istniejących pakietów dostępu i zarządzaj nimi. |
 
 Ponadto Wyznaczeni osoby zatwierdzające i osoba żądająca pakietu dostępu mają również prawa, chociaż nie są rolami.
 
@@ -91,28 +92,29 @@ Ponadto Wyznaczeni osoby zatwierdzające i osoba żądająca pakietu dostępu ma
 
 Poniższa tabela zawiera listę zadań, które mogą być wykonywane przez role zarządzania uprawnieniem.
 
-| Zadanie | Administrator | Twórca katalogu | Właściciel katalogu | Menedżer pakietów dostępu |
-| --- | :---: | :---: | :---: | :---: |
-| [Delegowanie do twórcy katalogu](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
-| [Dodawanie połączonej organizacji](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
-| [Utwórz nowy katalog](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
-| [Dodawanie zasobu do wykazu](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Dodawanie właściciela katalogu](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Edytowanie katalogu](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Usuwanie wykazu](entitlement-management-catalog-create.md#delete-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Deleguj do Menedżera pakietów dostępu](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Usuwanie Menedżera pakietów programu Access](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Utwórz nowy pakiet dostępu w wykazie](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |
-| [Zmiana ról zasobów w pakiecie dostępu](entitlement-management-access-package-resources.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Tworzenie i edytowanie zasad](entitlement-management-access-package-request-policy.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Bezpośrednie przypisywanie użytkownika do pakietu dostępu](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Wyświetl osoby, które mają przypisanie do pakietu dostępu](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Wyświetlanie żądań pakietu dostępu](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Wyświetl błędy dostarczania żądania](entitlement-management-troubleshoot.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Przetwórz ponownie żądanie](entitlement-management-troubleshoot.md#reprocess-a-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Anulowanie oczekującego żądania](entitlement-management-troubleshoot.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Ukryj pakiet dostępu](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Usuwanie pakietu dostępu](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| Zadanie | Administracja | Twórca katalogu | Właściciel katalogu | Menedżer pakietów dostępu | Menedżer przypisania pakietu dostępu |
+| --- | :---: | :---: | :---: | :---: | :---: |
+| [Delegowanie do twórcy katalogu](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
+| [Dodawanie połączonej organizacji](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
+| [Utwórz nowy katalog](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
+| [Dodawanie zasobu do wykazu](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Dodawanie właściciela katalogu](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Edytowanie katalogu](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Usuwanie wykazu](entitlement-management-catalog-create.md#delete-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Deleguj do Menedżera pakietów dostępu](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Usuwanie Menedżera pakietów programu Access](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Utwórz nowy pakiet dostępu w wykazie](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
+| [Zmiana ról zasobów w pakiecie dostępu](entitlement-management-access-package-resources.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Tworzenie i edytowanie zasad](entitlement-management-access-package-request-policy.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Bezpośrednie przypisywanie użytkownika do pakietu dostępu](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
+| [Bezpośrednie Usuwanie użytkownika z pakietu dostępu](entitlement-management-access-package-assignments.md#remove-an-assignment) | :heavy_check_mark:  |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Wyświetl osoby, które mają przypisanie do pakietu dostępu](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
+| [Wyświetlanie żądań pakietu dostępu](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:  |
+| [Wyświetl błędy dostarczania żądania](entitlement-management-troubleshoot.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
+| [Przetwórz ponownie żądanie](entitlement-management-troubleshoot.md#reprocess-a-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:  |
+| [Anulowanie oczekującego żądania](entitlement-management-troubleshoot.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Ukryj pakiet dostępu](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Usuwanie pakietu dostępu](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Role wymagane do dodawania zasobów do wykazu
 

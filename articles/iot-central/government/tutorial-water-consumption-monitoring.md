@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 7f00947504e5c6355379ce1e400fd2325016e05a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 400585d3e5908268708d93ceeefd26a4a5efdd49
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77122063"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972397"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do monitorowania zużycia wody przy użyciu usługi Azure IoT Central
 
@@ -154,7 +154,7 @@ Szablon urządzenia monitora zużycia wody jest dostępny ze wstępnie zdefiniow
 
   ![Widoki szablonów urządzeń](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-views.png)
 
-### <a name="publish"></a>Publikowanie
+### <a name="publish"></a>Opublikuj
 
 W przypadku wprowadzenia jakichkolwiek zmian upewnij się, że szablon urządzenia jest **opublikowany** .
 
@@ -247,7 +247,7 @@ Jako Konstruktor można zmienić kilka ustawień, aby dostosować środowisko u�
 1. Możesz również zmienić obrazy aplikacji, wybierając pozycję **Administracja**  >  **Ustawienia aplikacji**. Aby wybrać obraz do przekazania jako obraz aplikacji, wybierz przycisk **Wybierz obraz** .
 1. Na koniec możesz również zmienić **motyw** , wybierając ikonę **Ustawienia** w prawym górnym rogu aplikacji.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, usuń ją.
 
@@ -256,4 +256,7 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, usuń ją.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [pojęciach dotyczących monitorowania zużycia wody](./concepts-waterconsumptionmonitoring-architecture.md).
+* Dowiedz się więcej o 
+
+> [!div class="nextstepaction"]
+> [Pojęcia dotyczące monitorowania zużycia wody](./concepts-waterconsumptionmonitoring-architecture.md).

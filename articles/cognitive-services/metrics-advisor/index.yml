@@ -1,0 +1,68 @@
+### YamlMime:Landing
+title: Dokumentacja usługi Metrics Advisor
+summary: Metrics Advisor to platforma monitorowania szeregów czasowych, która zapewnia zestaw interfejsów API na potrzeby pozyskiwania danych, wykrywania anomalii i diagnostyki. Znajomość uczenia maszynowego nie jest konieczna.
+metadata:
+  title: Dokumentacja usługi Metrics Advisor — samouczki i dokumentacja interfejsu API — Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  description: Metrics Advisor to platforma monitorowania szeregów czasowych, która zapewnia zestaw interfejsów API na potrzeby pozyskiwania danych, wykrywania anomalii i diagnostyki. Znajomość uczenia maszynowego nie jest konieczna.
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: metrics-advisor
+  ms.topic: landing-page
+  ms.date: 08/13/2020
+  ms.author: aahi
+  ms.openlocfilehash: f30f45b8a683d9403973517ee4558be9cd4be664
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928988"
+landingContent:
+- title: Informacje o usłudze Metrics Advisor
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest Metrics Advisor?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Eksplorowanie witryny demonstracyjnej
+      url: quickstarts/explore-demo.md
+    - text: Monitorowanie swojej pierwszej metryki w Internecie
+      url: quickstarts/web-portal.md
+    - text: Dostosowywanie rozwiązania przy użyciu interfejsów API REST
+      url: quickstarts/rest-api.md
+- title: Instrukcje
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Dołączanie danych
+      url: how-tos/onboard-your-data.md
+    - text: Łączenie różnych źródeł strumieniowego źródła danych
+      url: data-feeds-from-different-sources.md
+    - text: Zarządzanie strumieniowymi źródłami danych
+      url: how-tos/manage-data-feeds.md
+    - text: Konfigurowanie metryk i dostrajanie konfiguracji wykrywania
+      url: how-tos/configure-metrics.md
+    - text: Konfigurowanie alertów i otrzymywanie powiadomień przy użyciu wpięcia
+      url: how-tos/alerts.md
+    - text: Diagnozowanie zdarzenia
+      url: how-tos/diagnose-incident.md
+    - text: Dostosowywanie wykrywania anomalii przy użyciu opinii
+      url: how-tos/anomaly-feedback.md
+    - text: Tworzenie grafu metryk
+      url: how-tos/metrics-graph.md
+- title: Dokumentacja
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Słownik
+      url: glossary.md
+    - text: Interfejs API usługi Metrics Advisor
+      url: https://go.microsoft.com/fwlink/?linkid=2141634
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
+    - text: Interfejs wiersza polecenia platformy Azure
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
