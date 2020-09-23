@@ -11,16 +11,16 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: e4a62b9892af661f74df5b49ff4a451fb673b4e1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7992283c1652199d665aad07c027b88e9489ddf0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325767"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889826"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Wdrażanie modelu w celu Azure Machine Learning wystąpień obliczeniowych
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Dowiedz się, jak za pomocą Azure Machine Learning wdrożyć model jako usługę sieci Web w wystąpieniu Azure Machine Learning COMPUTE. Użyj wystąpień obliczeniowych, jeśli spełniony jest jeden z następujących warunków:
 
@@ -53,8 +53,8 @@ Przykładowy Notes, który pokazuje lokalne wdrożenia, jest uwzględniony w wys
     * Wystąpienie obliczeniowe: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
     Przykład: 
-    * Maszyna wirtualna notesu:`https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
-    * Wystąpienie obliczeniowe:`https://vm-name-6789.northcentralus.instances.azureml.net/score`
+    * Maszyna wirtualna notesu: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
+    * Wystąpienie obliczeniowe: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 
 ## <a name="test-the-service"></a>Testowanie usługi
 
@@ -97,7 +97,7 @@ print("prediction:", resp.text)
 
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
 * [Rozwiązywanie problemów z wdrażaniem](how-to-troubleshoot-deployment.md)
-* [Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
+* [Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS](how-to-secure-web-service.md)
 * [Korzystanie z modelu ML wdrożonego jako usługa sieci Web](how-to-consume-web-service.md)
 * [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)
 * [Zbieranie danych dla modeli w środowisku produkcyjnym](how-to-enable-data-collection.md)

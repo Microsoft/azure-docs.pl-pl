@@ -4,12 +4,12 @@ description: Wykonywanie korekty zbiorczej przy użyciu funkcji szybkiej naprawy
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a9c86a7ae510d9657f64c71db2aa8c4e3e558f52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518066"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968597"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Szybkie korygowanie poprawek dla klasyfikatora
 **Szybka poprawka** zapewnia szybszy i łatwiejszy sposób korygowania zaleceń dotyczących wielu zasobów. Zapewnia możliwość korygowania zbiorczego zasobów i pomaga zoptymalizować subskrypcje szybciej dzięki korygowaniu zasobów.
@@ -20,13 +20,13 @@ Funkcja jest dostępna tylko w przypadku niektórych zaleceń, za pośrednictwem
 
 1. Na liście zaleceń, które mają etykietę **szybka naprawa** , kliknij zalecenie.
 
-   ![Szybka naprawa usługi Advisor](./media/quick-fix-1.png)
+   :::image type="content" source="./media/quick-fix-1.png" alt-text="{Zrzut ekranu przedstawiający Azure Advisor pokazujący szybkie poprawki etykiet w zaleceniach.}":::
    
    *Ceny na obrazie są tylko na przykład*
 
 2. Na stronie Szczegóły zalecenia zobaczysz listę zasobów, dla których masz to zalecenie. Wybierz wszystkie zasoby, które chcesz skorygować dla zalecenia.
 
-   ![Szybka naprawa usługi Advisor](./media/quick-fix-2.png)
+   :::image type="content" source="./media/quick-fix-2.png" alt-text="Zrzut ekranu przedstawiający okno zasoby, których dotyczy problem z wyróżnionymi elementami listy i przyciskiem szybkie rozwiązywanie.":::
    
    *Ceny na obrazie są tylko na przykład*
 
@@ -44,7 +44,7 @@ Funkcja jest dostępna tylko w przypadku niektórych zaleceń, za pośrednictwem
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat zaleceń klasyfikatora, zobacz:
-* [Wprowadzenie do Azure Advisor](advisor-overview.md)
+* [Wprowadzenie do usługi Azure Advisor](advisor-overview.md)
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
 * [Zalecenia dotyczące kosztów usługi Advisor](advisor-cost-recommendations.md)
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)

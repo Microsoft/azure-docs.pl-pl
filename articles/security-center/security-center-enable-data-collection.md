@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 132e21c861f50caca37fb6fc5df660ff413d07a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387374"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905490"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Zbieranie danych w usłudze Azure Security Center
 Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skalowania maszyn wirtualnych, kontenerów IaaS oraz innych niż platformy Azure (w tym komputerów lokalnych) do monitorowania luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik.
@@ -27,27 +27,30 @@ W tym artykule opisano sposób instalowania agenta Log Analytics i ustawiania ob
 > - Listę obsługiwanych platform można znaleźć [w temacie obsługiwane platformy w Azure Security Center](security-center-os-coverage.md).
 > - Przechowywanie danych w Log Analytics, bez względu na to, czy używasz nowego, czy istniejącego obszaru roboczego, może nawiązać dodatkowe opłaty za przechowywanie danych. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Włącz automatyczną obsługę administracyjną agenta Log Analytics<a name="auto-provision-mma"></a>
+## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Włącz automatyczną obsługę administracyjną agenta Log Analytics <a name="auto-provision-mma"></a>
 
 Aby zebrać dane z maszyn, należy zainstalować agenta Log Analytics. Instalację agenta można wykonać automatycznie (zalecane) lub ręcznie zainstalować agenta. Automatyczne Inicjowanie obsługi jest domyślnie wyłączone.
 
 Gdy automatyczne Inicjowanie obsługi jest włączone, Security Center wdraża agenta Log Analytics na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i utworzonych nowych. Zalecana jest Automatyczna obsługa administracyjna, ale w razie potrzeby można zainstalować agenta ręcznie (zobacz [Ręczne instalowanie agenta log Analytics](#manual-agent)).
 
 
+
 Aby włączyć automatyczną obsługę administracyjną agenta Log Analytics:
-1. Z poziomu menu Security Center w portalu wybierz pozycję **cennik & ustawienia**.
-2. Wybierz odpowiednią subskrypcję.
 
-   ![Wybieranie subskrypcji][7]
+1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
+1. Wybierz odpowiednią subskrypcję.
+1. Na stronie **zbieranie danych** ustaw opcję **samoobsługowego udostępniania** na wartość **włączone**.
+1. Wybierz pozycję **Zapisz**.
 
-3. Wybierz pozycję **zbieranie danych**.
-4. W obszarze **Automatyczne Inicjowanie obsługi**wybierz pozycję **włączone** , aby włączyć automatyczną obsługę administracyjną.
-5. Wybierz pozycję **Zapisz**. Agent zostanie wdrożony na wszystkich maszynach wirtualnych w ciągu 15 minut. 
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics":::
 
 >[!TIP]
 > Jeśli konieczne jest zainicjowanie obszaru roboczego, Instalacja agenta może trwać do 25 minut.
 
-   ![Włączanie automatycznej aprowizacji][1]
+Dzięki agentowi wdrożonemu na maszynach Security Center mogą zapewnić dodatkowe zalecenia dotyczące stanu aktualizacji systemu, konfiguracji zabezpieczeń systemu operacyjnego, programu Endpoint Protection, a także generować dodatkowe alerty zabezpieczeń.
+
+>[!NOTE]
+> Ustawienie opcji autozastrzeganie na **wyłączone** nie powoduje usunięcia agenta log Analytics z maszyn wirtualnych platformy Azure, w przypadku których Agent został już zainicjowany. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.
 
 >[!NOTE]
 > - Aby uzyskać instrukcje dotyczące inicjowania obsługi istniejącej instalacji, zobacz [Automatyczne Inicjowanie obsługi w przypadku istniejącej instalacji agenta](#preexisting).
@@ -78,7 +81,7 @@ Aby wybrać obszar roboczy utworzony przez Security Center:
 1. Security Center automatycznie włączy Security Center rozwiązanie w obszarze roboczym zgodnie z warstwą cenową ustawioną dla subskrypcji. 
 
 > [!NOTE]
-> Log Analytics warstwa cenowa obszarów roboczych utworzonych przez Security Center nie ma wpływu na rozliczenia Security Center. Rozliczenie usługi Security Center zawsze zależy od zasad zabezpieczeń usługi Security Center i rozwiązań zainstalowanych w obszarze roboczym. W przypadku warstwy Bezpłatna usługa Security Center w domyślnym obszarze roboczym udostępnia rozwiązanie *SecurityCenterFree*. W przypadku warstwy Standard Security Center włącza rozwiązanie *zabezpieczeń* w domyślnym obszarze roboczym.
+> Log Analytics warstwa cenowa obszarów roboczych utworzonych przez Security Center nie ma wpływu na rozliczenia Security Center. Rozliczenie usługi Security Center zawsze zależy od zasad zabezpieczeń usługi Security Center i rozwiązań zainstalowanych w obszarze roboczym. W przypadku subskrypcji bez usługi Azure Defender Security Center włącza rozwiązanie *SecurityCenterFree* w domyślnym obszarze roboczym. W przypadku subskrypcji w usłudze Azure Defender Security Center włącza rozwiązanie *zabezpieczeń* w domyślnym obszarze roboczym.
 > Przechowywanie danych w Log Analytics może wiązać się z dodatkowymi opłatami za przechowywanie danych. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/security-center/).
 
 Aby uzyskać więcej informacji na temat istniejących kont usługi log Analytics, zobacz [istniejących klientów usługi log Analytics](./faq-azure-monitor-logs.md).
@@ -97,7 +100,7 @@ Aby wybrać istniejący obszar roboczy Log Analytics:
 
 1. W obszarze **Domyślna konfiguracja obszaru roboczego**wybierz pozycję **Użyj innego obszaru roboczego**.
 
-   ![Wybierz istniejący obszar roboczy][2]
+   ![Użyj innego obszaru roboczego][2]
 
 2. Z menu rozwijanego wybierz obszar roboczy, w którym mają być przechowywane zebrane dane.
 
@@ -117,23 +120,28 @@ Aby wybrać istniejący obszar roboczy Log Analytics:
    >
    >
 
-   - Wybierz pozycję **Anuluj** , aby anulować operację.
+   - Aby anulować operację, wybierz pozycję **Anuluj**.
 
-     ![Wybierz istniejący obszar roboczy][3]
+     ![Przejrzyj opcje, aby ponownie skonfigurować monitorowane maszyny wirtualne][3]
 
-5. Wybierz warstwę cenową dla żądanego obszaru roboczego, w której ma zostać ustawiony Agent Log Analytics. <br>Aby użyć istniejącego obszaru roboczego, ustaw warstwę cenową obszaru roboczego. Spowoduje to zainstalowanie rozwiązania Security Center w obszarze roboczym, jeśli jeszcze go nie ma.
+5. Wybierz, czy w obszarze roboczym będzie włączona usługa Azure Defender.
 
-    a.  W menu głównym Security Center wybierz pozycję **cennik & ustawienia**.
+    Aby użyć istniejącego obszaru roboczego, ustaw warstwę cenową obszaru roboczego. Spowoduje to zainstalowanie rozwiązania Security Center w obszarze roboczym, jeśli jeszcze go nie ma.
+
+    1. W menu głównym Security Center wybierz pozycję **cennik & ustawienia**.
      
-    b.  Wybierz żądany obszar roboczy, w którym ma zostać połączony Agent.
-        ![Wybierz pozycję obszar roboczy ][7] c. Ustaw warstwę cenową.
-        ![Wybierz warstwę cenową][9]
+    1. Wybierz obszar roboczy, do którego chcesz połączyć agenta.
+
+    1. Wybierz pozycję **Azure Defender on** lub **Azure Defender off**.
+
    
    >[!NOTE]
    >Jeśli w obszarze roboczym jest już włączone rozwiązanie **Security** lub **SecurityCenterFree** , Cennik zostanie ustawiony automatycznie. 
 
+
 ## <a name="cross-subscription-workspace-selection"></a>Wybór obszaru roboczego między subskrypcjami
 Po wybraniu obszaru roboczego, w którym będą przechowywane dane, są dostępne wszystkie obszary robocze we wszystkich subskrypcjach. Możliwość wybrania obszaru roboczego z innej subskrypcji pozwala na zbieranie danych z maszyn wirtualnych działających w różnych subskrypcjach i przechowywanie ich w wybranym obszarze roboczym. Ten wybór jest przydatny, jeśli w swojej organizacji używasz scentralizowanego obszaru roboczego i chcesz używać go do zbierania danych dotyczących zabezpieczeń. Aby uzyskać więcej informacji na temat zarządzania obszarami roboczymi, zobacz [Zarządzanie dostępem do obszaru roboczego](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
+
 
 
 ## <a name="data-collection-tier"></a>Warstwa zbierania danych
@@ -150,7 +158,7 @@ Wybranie warstwy zbierania danych w usłudze Azure Security Center ma wpływ tyl
 
 
 > [!NOTE]
-> Te zestawy zdarzeń zabezpieczeń są dostępne tylko w warstwie Standardowa Security Center. Zobacz [cennik](security-center-pricing.md), aby dowiedzieć się więcej na temat warstw cenowych usługi Security Center.
+> Te zestawy zdarzeń zabezpieczeń są dostępne tylko w usłudze Azure Defender. Zobacz [cennik](security-center-pricing.md), aby dowiedzieć się więcej na temat warstw cenowych usługi Security Center.
 Te zestawy zostały zaprojektowane w celu rozwiązywania typowych scenariuszy. Upewnij się, że należy obliczyć, który z nich odpowiada Twoim potrzebom przed wdrożeniem.
 >
 >
@@ -188,7 +196,7 @@ Aby wybrać zasady filtrowania:
 
    ![Wybieranie zasad filtrowania][5]
 
-### <a name="automatic-provisioning-in-cases-of-a-pre-existing-agent-installation"></a>Automatyczne Inicjowanie obsługi w przypadku istniejącej instalacji agenta<a name="preexisting"></a> 
+### <a name="automatic-provisioning-in-cases-of-a-pre-existing-agent-installation"></a>Automatyczne Inicjowanie obsługi w przypadku istniejącej instalacji agenta <a name="preexisting"></a> 
 
 W następujących przypadkach użycia określono, jak funkcja automatycznego udostępniania będzie działać w przypadkach, gdy jest już zainstalowany agent lub rozszerzenie. 
 
@@ -210,7 +218,7 @@ Program Security Center zainstaluje rozszerzenie agenta Log Analytics obok istni
     - Aby zobaczyć, w którym obszarze roboczym jest wysyłane dane rozszerzenie, Uruchom test w celu [sprawdzenia łączności z Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Alternatywnie możesz otworzyć obszary robocze Log Analytics, wybrać obszar roboczy, wybrać maszynę wirtualną i sprawdzić połączenie z agentem Log Analytics. 
     - Jeśli masz środowisko, w którym jest zainstalowany agent Log Analytics na stacjach roboczych klienta i raportowanie do istniejącego Log Analytics obszaru roboczego, przejrzyj listę [systemów operacyjnych obsługiwanych przez Azure Security Center](security-center-os-coverage.md) , aby upewnić się, że system operacyjny jest obsługiwany. Aby uzyskać więcej informacji, zobacz [istniejących klientów usługi log Analytics](./faq-azure-monitor-logs.md).
  
-### <a name="turn-off-automatic-provisioning"></a>Wyłącz automatyczne Inicjowanie obsługi<a name="offprovisioning"></a>
+### <a name="turn-off-automatic-provisioning"></a>Wyłącz automatyczne Inicjowanie obsługi <a name="offprovisioning"></a>
 Aby wyłączyć automatyczne Inicjowanie obsługi agenta Log Analytics:
 
 1. Z poziomu menu Security Center w portalu wybierz pozycję **cennik & ustawienia**.
@@ -232,7 +240,7 @@ Jeśli wyłączysz funkcję autozastrzeganie, gdy wcześniej jej Agent nie zosta
 >  Wyłączenie automatycznej aprowizacji nie powoduje usunięcia agenta Log Analytics z maszyn wirtualnych platformy Azure, w przypadku których Agent został zainicjowany. Aby uzyskać informacje dotyczące usuwania rozszerzenia pakietu OMS, zobacz [Jak mogę usuwania rozszerzeń pakietu OMS zainstalowanych przez Security Center](faq-data-collection-agents.md#remove-oms).
 >
     
-## <a name="manual-agent-provisioning"></a>Ręczna obsługa agentów<a name="manual-agent"></a>
+## <a name="manual-agent-provisioning"></a>Ręczna obsługa agentów <a name="manual-agent"></a>
  
 Istnieje kilka sposobów ręcznego instalowania agenta Log Analytics. W przypadku ręcznego instalowania należy wyłączyć funkcję autoaprowizacji.
 
@@ -244,19 +252,16 @@ Można ręcznie zainstalować agenta Log Analytics, aby Security Center mógł z
 
 1. Opcjonalnie możesz utworzyć obszar roboczy.
 
-1. Ustaw obszar roboczy, w którym jest instalowany Agent Log Analytics, do warstwy cenowej standardowa:
+1. Włącz usługę Azure Defender w obszarze roboczym, na którym instalujesz agenta Log Analytics:
 
     1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
 
     1. Ustaw obszar roboczy, w którym jest instalowany Agent. Upewnij się, że obszar roboczy znajduje się w tej samej subskrypcji, której używasz w Security Center i że masz uprawnienia do odczytu/zapisu w obszarze roboczym.
 
-    1. Ustaw warstwę cenową standardowa i wybierz pozycję **Zapisz**.
-
-        ![Ustawianie obszaru roboczego do warstwy cenowej standardowa](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+    1. Ustaw usługę Azure Defender na wartość włączone, a następnie wybierz pozycję **Zapisz**.
 
        >[!NOTE]
        >Jeśli w obszarze roboczym jest już włączone rozwiązanie **Security** lub **SecurityCenterFree** , Cennik zostanie ustawiony automatycznie. 
-   > 
 
 1. Jeśli chcesz wdrożyć agentów na nowych maszynach wirtualnych przy użyciu szablonu Menedżer zasobów, Zainstaluj agenta Log Analytics:
 
@@ -308,7 +313,6 @@ W tym artykule pokazano, jak działa zbieranie danych i automatyczne Inicjowanie
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 [7]: ./media/security-center-enable-data-collection/select-subscription.png
 [8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png

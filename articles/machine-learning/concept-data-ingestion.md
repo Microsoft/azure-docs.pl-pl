@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 93401ee32da8218fa53568a3f46cae3805a5d939
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875323"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890173"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opcje pozyskiwania danych dla przepływów pracy Azure Machine Learning
 
@@ -25,7 +25,7 @@ Ten artykuł zawiera informacje o profesjonalistach i wadach opcji pozyskiwania 
 Wybierz spośród opcji:
 + [Azure Data Factory](#azure-data-factory) potoki, specjalnie utworzone do wyodrębniania, ładowania i przekształcania danych
 
-+ [Azure Machine Learning Python SDK](#azure-machine-learning-python-sdk), dostarczając rozwiązanie niestandardowego kodu dla podstawowych zadań pozyskiwania danych.
++ [Azure Machine Learning Python SDK](#azure-machine-learning-python-sdk), dostarczając niestandardowego rozwiązania do przetwarzania danych.
 
 + połączenie obu
 
@@ -70,7 +70,7 @@ Konfigurowanie własnych skryptów języka Python | Nie obsługuje natywnie obs�
 Przygotowanie danych w ramach każdego modelu wykonywania szkoleń|Wymaga umiejętności programistycznych do utworzenia skryptu pozyskiwania danych
 Obsługuje skrypty przygotowywania danych w różnych obiektach docelowych obliczeń, w tym [Azure Machine Learning COMPUTE](concept-compute-target.md#azure-machine-learning-compute-managed) |Nie zapewnia interfejsu użytkownika do tworzenia mechanizmu pozyskiwania
 
-Na poniższym diagramie potok Azure Machine Learning składa się z dwóch kroków: pozyskiwanie danych i uczenie modeli. Krok pozyskiwania danych obejmuje zadania, które można wykonać przy użyciu bibliotek języka Python i zestawu SDK języka Python, takich jak wyodrębnianie danych ze źródeł lokalnych/sieci Web, a także podstawowych transformacji danych, takich jak brak przypisywania wartości. Krok szkolenia następnie używa przygotowanego danych jako danych wejściowych do skryptu szkoleniowego, aby szkolić model uczenia maszynowego. 
+Na poniższym diagramie potok Azure Machine Learning składa się z dwóch kroków: pozyskiwanie danych i uczenie modeli. Krok pozyskiwania danych obejmuje zadania, które można wykonać przy użyciu bibliotek języka Python i zestawu SDK języka Python, takich jak wyodrębnianie danych ze źródeł lokalnych/internetowych i przekształceń danych, takich jak brak przypisywania wartości. Krok szkolenia następnie używa przygotowanego danych jako danych wejściowych do skryptu szkoleniowego, aby szkolić model uczenia maszynowego. 
 
 ![Pozyskiwanie danych z usługi Azure Pipeline + zestaw SDK](media/concept-data-ingestion/data-ingest-option-two.png)
 

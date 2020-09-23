@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: b14f3c241fd21d3d4f9c4e17ae95d8048139cec1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 12ab54e51b26c4b3d77f5518d4e4f44efe34affd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442875"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983311"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu witryny Azure Portal
 
@@ -178,7 +178,7 @@ Następnie utwórz połączenie od sieci vnet4 do VNet1. W portalu Znajdź bram�
    ![Weryfikuj połączenia](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png "Weryfikuj połączenia")
 3. W kolumnie **Nazwa** wybierz jedno z połączeń, aby wyświetlić więcej informacji. Po rozpoczęciu przepływu danych zostaną wyświetlone wartości dla **danych wejściowych** i **danych wyjściowych**.
 
-   ![Stan](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "Stan")
+   ![Zrzut ekranu przedstawia grupę zasobów zawierającą wartości danych i danych.](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "Stan")
 
 ## <a name="add-additional-connections"></a>Dodawanie kolejnych połączeń
 

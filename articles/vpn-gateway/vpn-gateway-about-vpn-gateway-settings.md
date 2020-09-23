@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: cc9cb06c2154202f319d57aa77700a356ffe19c1
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419575"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976216"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informacje o ustawieniach konfiguracji VPN Gateway
 
@@ -27,8 +27,6 @@ Wartości w tym artykule stosują bramy sieci VPN (bramy sieci wirtualnej, któr
 * W przypadku bram nadmiarowych strefy należy zapoznać się z tematem [about Zone-nadmiarowe bramy](about-zone-redundant-vnet-gateways.md).
 
 * W przypadku wirtualnej sieci WAN zobacz [Informacje o wirtualnej sieci WAN](../virtual-wan/virtual-wan-about.md).
-
-
 
 ## <a name="gateway-types"></a><a name="gwtype"></a>Typy bram
 
@@ -152,9 +150,9 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## <a name="local-network-gateways"></a><a name="lng"></a>Bramy sieci lokalnej
 
- Brama sieci lokalnej różni się od bramy sieci wirtualnej. Podczas tworzenia konfiguracji bramy VPN brama sieci lokalnej zazwyczaj reprezentuje lokalizację lokalną. W klasycznym modelu wdrażania brama sieci była określana jako lokacja lokalna.
+Brama sieci lokalnej różni się od bramy sieci wirtualnej. Podczas tworzenia konfiguracji bramy VPN brama sieci lokalnej zwykle reprezentuje sieć lokalną i odpowiednie urządzenie sieci VPN. W klasycznym modelu wdrażania brama sieci była określana jako lokacja lokalna.
 
-Należy podać nazwę bramy sieci lokalnej, publiczny adres IP lokalnego urządzenia sieci VPN i określić prefiksy adresów, które znajdują się w lokalizacji lokalnej. Na platformie Azure są sprawdzane prefiksy adresów docelowych dla ruchu sieciowego, zapoznaj się z konfiguracją określoną dla bramy sieci lokalnej i odpowiednio kieruj pakiety. Należy również określić bramy sieci lokalnej dla konfiguracji Sieć wirtualna-sieć wirtualna, która korzysta z połączenia bramy sieci VPN.
+Należy podać nazwę bramy sieci lokalnej, publiczny adres IP lub w pełni kwalifikowaną nazwę domeny (FQDN) lokalnego urządzenia sieci VPN, a także określić prefiksy adresów, które znajdują się w lokalizacji lokalnej. Na platformie Azure są sprawdzane prefiksy adresów docelowych dla ruchu sieciowego, zapoznaj się z konfiguracją określoną dla bramy sieci lokalnej i odpowiednio kieruj pakiety. W przypadku korzystania z Border Gateway Protocol (BGP) na urządzeniu sieci VPN należy podać adres IP elementu równorzędnego protokołu BGP urządzenia sieci VPN i numer systemu autonomicznego (ASN) sieci lokalnej. Należy również określić bramy sieci lokalnej dla konfiguracji Sieć wirtualna-sieć wirtualna, która korzysta z połączenia bramy sieci VPN.
 
 Poniższy przykład programu PowerShell tworzy nową bramę sieci lokalnej:
 

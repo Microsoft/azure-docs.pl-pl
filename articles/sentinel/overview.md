@@ -1,5 +1,5 @@
 ---
-title: Co to jest Azure — Wskaźnikowanie? | Microsoft Docs
+title: Co to jest Azure Sentinel? | Microsoft Docs
 description: Dowiedz się więcej na temat platformy Azure — informacje o skalowalnych i natywnych rozwiązaniach do zarządzania zdarzeniami z informacjami o zabezpieczeniach (SIEM) i o.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 1bd61341683148cfc6431d7ca4b1f9293e19e760
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 68ccd21af585d853592ab8cce24f251d810a4160
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662024"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889202"
 ---
 # <a name="what-is-azure-sentinel"></a>Co to jest Azure Sentinel?
 
 Microsoft Azure wskaźnikiem wydajności jest skalowalne i natywne rozwiązanie do **zarządzania zdarzeniami zabezpieczeń (Siem)** i **o (Security Orchestration)** . Platforma Azure — wskaźnik przedstawia inteligentne rozwiązania w zakresie zabezpieczeń i analizy zagrożeń w całym przedsiębiorstwie, zapewniając jedno rozwiązanie do wykrywania alertów, widoczności zagrożeń, aktywnego polowania i reagowania na zagrożenia. 
 
-Azure — wskaźnikowy to Twój Widok z oczami w całym przedsiębiorstwie, zmniejszający nacisk coraz bardziej zaawansowanych ataków, zwiększając liczbę alertów i długotrwałe przedziały czasu rozwiązania.
+Azure — wskaźnikowy to Twój Widok z oczami w całym przedsiębiorstwie, zmniejszający nacisk coraz bardziej zaawansowanych ataków, zwiększając liczbę alertów i długi czas rozwiązania.
 
 - **Zbieraj dane w skali chmury** między wszystkimi użytkownikami, urządzeniami, aplikacjami i infrastrukturą, zarówno lokalnie, jak i w wielu chmurach. 
 
@@ -43,7 +43,7 @@ Kompilowanie w całym zakresie istniejących usług platformy Azure obejmuje nat
 
 ## <a name="connect-to-all-your-data"></a>Połącz ze wszystkimi danymi
 
-Aby przejść do tablicy wskaźnikowej platformy Azure, musisz najpierw [nawiązać połączenie ze źródłami zabezpieczeń](connect-data-sources.md). Wskaźnik platformy Azure obejmuje wiele łączników dla rozwiązań firmy Microsoft, dostępnych poza platformą i zapewniania integracji w czasie rzeczywistym, w tym Microsoft 365 Defender (dawniej Microsoft Threat Protection), a także źródeł Microsoft 365, w tym pakietów Office 365, Azure AD, Microsoft Defender for Identity (dawniej Azure ATP) i Microsoft Cloud App Security i innych. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań firm innych niż Microsoft. Możesz również użyć typowego formatu zdarzeń, dziennika systemowego lub REST-API, aby połączyć źródła danych z systemem Azure.  
+Aby przejść do tablicy wskaźnikowej platformy Azure, musisz najpierw [nawiązać połączenie ze źródłami zabezpieczeń](connect-data-sources.md). Wskaźnik platformy Azure obejmuje wiele łączników dla rozwiązań firmy Microsoft, dostępnych poza platformą i zapewniania integracji w czasie rzeczywistym, w tym Microsoft 365 Defender (dawniej Microsoft Threat Protection), a także źródeł Microsoft 365, w tym pakietów Office 365, Azure AD, Microsoft Defender for Identity (dawniej Azure ATP) i Microsoft Cloud App Security i innych. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań firm innych niż Microsoft. Możesz również użyć typowego formatu zdarzeń, dziennika systemowego lub REST-API, aby połączyć źródła danych z systemem Azure. 
 
 ![Moduły zbierające dane](./media/collect-data/collect-data-page.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie udziałem GPU w Azure Stack Edge | Microsoft Docs
-description: Opisuje, jak używać Azure Portal do zarządzania udziałami na Azure Stack procesora GPU Edge.
+title: Azure Stack Edge Zarządzanie udziałami GPU w programie | Microsoft Docs
+description: Opisuje, jak używać Azure Portal do zarządzania udziałami na urządzeniach z procesorem GPU Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,22 +8,22 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6448ac002482751052310532989278e3b88b5915
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268846"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904684"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-W tym artykule opisano sposób zarządzania udziałami na Azure Stackej krawędzi. Możesz zarządzać Azure Stack krawędzią za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal, aby dodać, usunąć, odświeżyć udziały lub zsynchronizować klucz magazynu dla konta magazynu skojarzonego z udziałami.
+W tym artykule opisano sposób zarządzania udziałami na Azure Stack Edge. Możesz zarządzać Azure Stack Edge przy użyciu Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal, aby dodać, usunąć, odświeżyć udziały lub zsynchronizować klucz magazynu dla konta magazynu skojarzonego z udziałami.
 
 ## <a name="about-shares"></a>Udziały — informacje
 
-Aby przesłać dane na platformę Azure, musisz utworzyć udziały na Azure Stackej krawędzi. Udziały dodawane na Azure Stack urządzeniu brzegowym mogą być udziałami lokalnymi lub udziałami, które wypychanie danych do chmury.
+Aby przesłać dane na platformę Azure, musisz utworzyć udziały na Azure Stack Edge. Udziały dodawane na urządzeniu Azure Stack EDGE Pro mogą być udziałami lokalnymi lub udziałami, które wypychanie danych do chmury.
 
  - **Udziały lokalne**: Użyj tych udziałów, jeśli chcesz, aby dane były przetwarzane lokalnie na urządzeniu.
  - **Udziały**: te udziały mają być automatycznie wypychane na konto magazynu w chmurze. Wszystkie funkcje w chmurze, takie jak **odświeżanie** i **Synchronizacja kluczy magazynu** , mają zastosowanie do udziałów.
@@ -74,7 +74,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 3. Wybierz **Typ** dla udziału. Dostępne są dwa typy — **SMB** i **NFS** — przy czym typ SMB jest domyślny. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux. W zależności od tego, czy wybrano udział SMB czy NFS, wyświetlone opcje są nieco inne.
 
    > [!IMPORTANT]
-   > Upewnij się, że używane konto usługi Azure Storage nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack Edge lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Upewnij się, że konto usługi Azure Storage, którego używasz, nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack EDGE Pro lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 4. Aby łatwo uzyskać dostęp do udziałów z modułów obliczeniowych Edge, Użyj lokalnego punktu instalacji. Wybierz pozycję **Użyj udziału przy użyciu obliczeń brzegowych** , aby moduł Edge mógł korzystać z obliczeń w lokalnym punkcie instalacji.
 
@@ -96,7 +96,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 ## <a name="mount-a-share"></a>Instalowanie udziału
 
-Jeśli udział został utworzony przed skonfigurowaniem obliczeń na urządzeniu z systemem Azure Stack Edge, należy zainstalować udział. Wykonaj następujące kroki, aby zainstalować udział.
+Jeśli udział został utworzony przed skonfigurowaniem obliczeń na urządzeniu Azure Stack EDGE Pro, należy zainstalować udział. Wykonaj następujące kroki, aby zainstalować udział.
 
 
 1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **brama > udziały**. Z listy udziałów wybierz udział, który chcesz zainstalować. Kolumna **użyta do obliczenia** będzie wyświetlać stan jako **wyłączony** dla wybranego udziału.

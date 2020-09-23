@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 9673b3260425fd9244c635beaf77d367a14cac54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63ae7115f905523a3aac131fd7e77b56eb695243
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84810194"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890269"
 ---
 # <a name="split-image-directory"></a>Dzielenie katalogu obrazów
 
-W tym temacie opisano, jak używać modułu Split Image Directory w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu podzielenia obrazów katalogu obrazu na dwa różne zestawy.
+W tym temacie opisano, jak używać modułu Split Image Directory w programie Azure Machine Learning Designer do dzielenia obrazów katalogu obrazu na dwa różne zestawy.
 
 Ten moduł jest szczególnie przydatny, gdy trzeba podzielić dane obrazu na zestawy szkoleniowe i testowe. 
 
@@ -41,9 +41,9 @@ Ten moduł jest szczególnie przydatny, gdy trzeba podzielić dane obrazu na zes
 
 ### <a name="module-parameters"></a>Parametry modułu
 
-| Nazwa                                   | Typ  | Zakres | Opcjonalne | Opis                            | Domyślne |
+| Nazwa                                   | Typ  | Zakres | Opcjonalne | Opis                            | Domyślny |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
-| Ułamek obrazów w pierwszym elemencie wyjściowym | Float | 0-1   | Wymagane | Ułamek obrazów w pierwszym elemencie wyjściowym | 0.9     |
+| Ułamek obrazów w pierwszym elemencie wyjściowym | Float | 0-1   | Wymagane | Ułamek obrazów w pierwszym elemencie wyjściowym | 0,9     |
 
 ### <a name="outputs"></a>Dane wyjściowe
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 808cf713cc34f90224cb3d5ce8a714fbafdcedbc
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5b1e5c73f3d43ca2627729149256f3e9362d58c2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202942"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984267"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Zalecenia dotyczące zabezpieczeń usługi BLOB Storage
 
@@ -30,7 +30,7 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|
 | Korzystanie z modelu wdrażania Azure Resource Manager | Utwórz nowe konta magazynu przy użyciu Azure Resource Manager model wdrażania, aby uzyskać ważne ulepszenia zabezpieczeń, w tym funkcję kontroli dostępu (RBAC) i inspekcję, wdrażanie i zarządzanie na podstawie Menedżer zasobów, dostęp do zarządzanych tożsamości, dostęp do Azure Key Vault dla wpisów tajnych oraz uwierzytelnianie i autoryzację na podstawie usługi Azure AD w celu uzyskania dostępu do danych i zasobów usługi Azure Storage. Jeśli to możliwe, Przeprowadź migrację istniejących kont magazynu, które używają klasycznego modelu wdrażania, aby użyć Azure Resource Manager. Aby uzyskać więcej informacji na temat Azure Resource Manager, zobacz [Azure Resource Manager omówienie](/azure/azure-resource-manager/resource-group-overview). | - |
-| Włącz zaawansowaną ochronę przed zagrożeniami dla wszystkich kont magazynu | Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Alerty zabezpieczeń są wyzwalane w Azure Security Center, gdy wystąpią anomalie działania i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniach dotyczących sposobu badania i korygowania zagrożeń. Aby uzyskać więcej informacji, zobacz [Advanced Threat Protection for Azure Storage](../common/storage-advanced-threat-protection.md). | [Tak](../../security-center/security-center-sql-service-recommendations.md) |
+| Włącz usługę Azure Defender dla wszystkich kont magazynu | Usługa Azure Defender dla usługi Azure Storage oferuje dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby dostępu do kont magazynu lub korzystania z nich. Alerty zabezpieczeń są wyzwalane w Azure Security Center, gdy wystąpią anomalie działania i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniach dotyczących sposobu badania i korygowania zagrożeń. Aby uzyskać więcej informacji, zobacz [Konfigurowanie usługi Azure Defender dla usługi Azure Storage](../common/azure-defender-storage-configure.md). | [Tak](../../security-center/security-center-sql-service-recommendations.md) |
 | Włącz usuwanie nietrwałe dla danych obiektów BLOB | Funkcja usuwania nietrwałego umożliwia odzyskanie danych obiektów BLOB po ich usunięciu. Aby uzyskać więcej informacji na temat usuwania nietrwałego, zobacz [usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](storage-blob-soft-delete.md). | - |
 | Przechowywanie danych o krytycznym znaczeniu dla firmy w niezmiennych obiektach Blob | Skonfiguruj blokady prawne i zasady przechowywania oparte na czasie w celu przechowywania danych obiektów BLOB w ROBAKu (Napisz raz, Odczytaj wiele). Obiekty blob przechowywane immutably można odczytać, ale nie można ich modyfikować ani usuwać na czas trwania interwału przechowywania. Aby uzyskać więcej informacji, zobacz temat [przechowywanie danych obiektów BLOB o krytycznym znaczeniu dla firmy z niezmiennym magazynem](storage-blob-immutable-storage.md). | - |
 | Ogranicz tokeny sygnatury dostępu współdzielonego (SAS) tylko do połączeń HTTPS | Wymaganie protokołu HTTPS, gdy klient używa tokenu sygnatury dostępu współdzielonego, aby uzyskać dostęp do danych obiektów blob, pomaga zminimalizować ryzyko podsłuchiwania. Aby uzyskać więcej informacji, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](../common/storage-sas-overview.md). | - |
@@ -49,7 +49,7 @@ Azure Security Center okresowo analizuje stan zabezpieczeń zasobów platformy A
 | Jeśli sygnatura dostępu współdzielonego usługi nie jest skojarzona z przechowywanymi zasadami, ustaw czas wygaśnięcia na jedną godzinę lub mniejszą | Nie można odwołać skojarzenia zabezpieczeń usługi, która nie jest skojarzona z przechowywanymi zasadami dostępu. Z tego powodu ograniczenie czasu wygaśnięcia w taki sposób, aby sygnatura dostępu współdzielonego była ważna przez jedną godzinę lub mniej. | - |
 | Wyłącz anonimowy publiczny dostęp do odczytu do kontenerów i obiektów BLOB | Anonimowy publiczny dostęp do odczytu do kontenera i jego obiektów BLOB umożliwia dostęp tylko do odczytu do tych zasobów do dowolnego klienta. Unikaj włączania publicznego dostępu do odczytu, chyba że jest to wymagane przez ten scenariusz. Aby dowiedzieć się, jak wyłączyć anonimowy dostęp publiczny dla konta magazynu, zobacz [Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB](anonymous-read-access-configure.md).  | - |
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 | Zalecenie | Komentarze | Security Center |
 |-|----|--|

@@ -1,111 +1,141 @@
 ---
-title: Zapytanie Azure Cosmos DB magazyn analityczny (wersja zapoznawcza) z Apache Spark
-description: Jak badać Azure Cosmos DB analityczne za pomocą Apache Spark dla usługi Azure Synapse Analytics
+title: Korzystanie z Azure Cosmos DB przy użyciu Apache Spark w usłudze Azure Synapse link (wersja zapoznawcza)
+description: Jak korzystać z Azure Cosmos DB przy użyciu Apache Spark w usłudze Azure Synapse link
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 05/06/2020
+ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7ee04c922e4373414dc27ed2b7c98be605280e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 663c07795926b17eb42ff185ca248454c5bc459c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089111"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90881842"
 ---
-# <a name="query-azure-cosmos-db-analytical-store-preview-with-apache-spark-for-azure-synapse-analytics"></a>Tworzenie zapytań dotyczących magazynu analitycznego Azure Cosmos DB (wersja zapoznawcza) za pomocą Apache Spark usługi Azure Synapse Analytics
+# <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Korzystanie z Azure Cosmos DB przy użyciu Apache Spark w usłudze Azure Synapse link (wersja zapoznawcza)
 
-W tym artykule przedstawiono przykłady dotyczące korzystania ze sklepu analitycznego z gestów Synapse. Gesty są widoczne po kliknięciu kontenera prawym przyciskiem myszy. Za pomocą gestów można szybko wygenerować kod i dostosować go do własnych potrzeb. Gesty są również idealne do odnajdywania danych jednym kliknięciem.
+W tym artykule dowiesz się, jak korzystać z Azure Cosmos DB przy użyciu Apache Spark Synapse. Wraz z pełną obsługą Scala, Python, SparkSQL i C#, Synapse Apache Spark to centrum analiz, Inżynieria danych, nauka danych i scenariusze eksploracji danych w [usłudze Azure Synapse link do Azure Cosmos DB](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-## <a name="load-to-dataframe"></a>Załaduj do ramki Dataframe
+Podczas pracy z Azure Cosmos DBami obsługiwane są następujące możliwości:
+* Synapse Apache Spark umożliwia analizowanie danych w kontenerach Azure Cosmos DB, które są włączane za pomocą usługi Azure Synapse link niemal w czasie rzeczywistym bez wpływu na wydajność obciążeń transakcyjnych. Dostępne są następujące dwie opcje wysyłania zapytań do [magazynu analitycznego](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) Azure Cosmos DB z platformy Spark:
+    + Załaduj do platformy Spark Dataframe
+    + Utwórz tabelę platformy Spark
+* Synapse Apache Spark umożliwia również pozyskiwanie danych w Azure Cosmos DB. Należy pamiętać, że dane są zawsze wprowadzane do Azure Cosmos DB kontenerów za pomocą magazynu transakcyjnego. Gdy łącze Synapse jest włączone, wszelkie nowe wstawiane, aktualizacje i usunięcia są automatycznie synchronizowane z magazynem analitycznym.
+* Synapse Apache Spark również obsługuje przesyłanie strumieniowe platformy Spark ze strukturą Azure Cosmos DB jako źródło i ujścia. 
 
-W tym kroku odczytasz dane z Azure Cosmos DB magazynu analitycznego w ramce Dataframe platformy Spark. Zostanie wyświetlonych 10 wierszy z ramki danych o nazwie ***DF***. Po umieszczeniu danych w ramce Dataframe można przeprowadzić dodatkową analizę.
+W poniższych sekcjach opisano składnię powyższych funkcji. Gesty w obszarze roboczym usługi Azure Synapse Analytics zostały zaprojektowane w taki sposób, aby można było łatwo rozpocząć pracę. Gesty są widoczne po kliknięciu prawym przyciskiem myszy kontenera Azure Cosmos DB na karcie **dane** w obszarze roboczym Synapse. Za pomocą gestów można szybko wygenerować kod i dostosować go do własnych potrzeb. Gesty są również idealne do odnajdywania danych jednym kliknięciem.
 
-Ta operacja nie ma wpływu na magazyn transakcyjny.
+## <a name="query-azure-cosmos-db-analytical-store"></a>Zapytanie Azure Cosmos DB magazyn analityczny
 
+Przed zapoznaj się z dwoma możliwymi opcjami wykonywania zapytań dotyczących magazynu analitycznego Azure Cosmos DB, ładowania do usługi Spark Dataframe i tworzenia tabeli Spark, warto zapoznać się z różnicami w działaniu, aby wybrać opcję, która jest odpowiednia dla Twoich potrzeb.
+
+Różnica w działaniu polega na tym, czy zmiany danych źródłowych w kontenerze Azure Cosmos DB powinny być automatycznie odzwierciedlane w analizie wykonywanej na platformie Spark. Gdy jest zarejestrowana ramka Dataframe lub tworzona jest tabela Spark dla magazynu analitycznego kontenera, metadane dotyczące bieżącej migawki danych w magazynie analitycznym są pobierane do platformy Spark w celu wydajnego przekazywania kolejnej analizy. Należy pamiętać, że ponieważ platforma Spark korzysta z zasad oceny z opóźnieniem, chyba że akcja jest wywoływana w ramce Dataframe lub SparkSQL zapytanie jest wykonywane względem tabeli Spark, rzeczywiste dane nie są pobierane z magazynu analitycznego kontenera źródłowego.
+
+W przypadku **ładowania do programu Spark Dataframe**pobrane metadane są buforowane przez okres istnienia sesji Spark, a tym samym kolejne akcje wywołane w ramce Dataframe są oceniane względem migawki magazynu analitycznego w momencie tworzenia ramki danych.
+
+Z drugiej strony, w przypadku **tworzenia tabeli Spark**, metadane stanu magazynu analitycznego nie są buforowane w usłudze Spark i są ponownie ładowane na każdym SparkSQL wykonywania zapytań względem tabeli Spark.
+
+W ten sposób można wybrać między ładowaniem do programu Spark Dataframe i utworzeniem tabeli Spark w oparciu o to, czy analiza platformy Spark ma być oceniana względem stałej migawki magazynu analitycznego, czy też do najnowszej migawki magazynu analitycznego.
+
+> [!NOTE]
+> Aby wykonać zapytanie dotyczące Azure Cosmos DBgo interfejsu API kont usługi Mongo DB, Dowiedz się więcej o [pełnej reprezentacji schematu](../../cosmos-db/analytical-store-introduction.md#analytical-schema) w magazynie analitycznym i nazwach właściwości rozszerzonych, które mają być używane.
+
+### <a name="load-to-spark-dataframe"></a>Załaduj do platformy Spark Dataframe
+
+W tym przykładzie utworzysz ramkę danych Spark, która wskazuje na Azure Cosmos DB magazyn analityczny. Następnie można wykonać dodatkową analizę, wywołując działania platformy Spark względem ramki Dataframe. Ta operacja nie ma wpływu na magazyn transakcyjny.
+
+Składnia w języku **Python** będzie następująca:
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 df = spark.read.format("cosmos.olap")\
-    .option("spark.synapse.linkedService", "INFERRED")\
-    .option("spark.cosmos.container", "INFERRED")\
+    .option("spark.synapse.linkedService", "<enter linked service name>")\
+    .option("spark.cosmos.container", "<enter container name>")\
     .load()
-
-df.show(10)
 ```
 
-Odpowiednikiem gestu odpowiadającego kodowi w **Scala** byłby następujący kod:
+Równoważna składnia w **Scala** będzie następująca:
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 val df_olap = spark.read.format("cosmos.olap").
-    option("spark.synapse.linkedService", "pySparkSamplesDb").
-    option("spark.cosmos.container", "trafficSourceColl").
+    option("spark.synapse.linkedService", "<enter linked service name>").
+    option("spark.cosmos.container", "<enter container name>").
     load()
 ```
 
-## <a name="create-spark-table"></a>Utwórz tabelę platformy Spark
+### <a name="create-spark-table"></a>Utwórz tabelę platformy Spark
 
-W tym gestie utworzysz tabelę Spark wskazującą wybrany kontener. Ta operacja nie wiąże się z przenoszeniem danych. Jeśli zdecydujesz się usunąć tę tabelę, nie będzie to miało wpływu na kontener źródłowy (i odpowiedni magazyn analityczny). 
+W tym przykładzie utworzysz tabelę platformy Spark, która wskazuje Azure Cosmos DB magazyn analityczny. Następnie można wykonać dodatkową analizę, wywołując zapytania SparkSQL względem tabeli. Ta operacja nie ma wpływu na magazyn transakcyjny ani nie wiąże się z jakimkolwiek przenoszeniem danych. Jeśli zdecydujesz się usunąć tę tabelę platformy Spark, nie wpłynie to na kontener źródłowy Azure Cosmos DB i odpowiedni magazyn analityczny. 
 
-Ten scenariusz jest wygodne do ponownego użycia tabel za pomocą narzędzi innych firm i zapewnienia dostępności danych dla czasu wykonywania.
+Ten scenariusz jest wygodne do ponownego użycia tabel platformy Spark za pomocą narzędzi innych firm i zapewnienia dostępności danych źródłowych dla czasu wykonywania.
 
+Składnia służąca do tworzenia tabeli Spark jest następująca:
 ```sql
 %%sql
 -- To select a preferred list of regions in a multi-region Azure Cosmos DB account, add spark.cosmos.preferredRegions '<Region1>,<Region2>' in the config options
 
 create table call_center using cosmos.olap options (
-    spark.synapse.linkedService 'INFERRED',
-    spark.cosmos.container 'INFERRED'
+    spark.synapse.linkedService '<enter linked service name>',
+    spark.cosmos.container '<enter container name>'
 )
 ```
 
-## <a name="write-dataframe-to-container"></a>Zapisz ramkę danych do kontenera
+> [!NOTE]
+> Jeśli masz scenariusze, w których schemat bazowego Azure Cosmos DB kontener zmienia się w czasie; a jeśli chcesz, aby zaktualizowany schemat automatycznie odzwierciedlał zapytania względem tabeli Spark, możesz to zrobić, ustawiając opcję na w opcjach `spark.cosmos.autoSchemaMerge` `true` tabeli Spark.
 
-W tym gestie napiszesz ramkę danych do kontenera. Ta operacja będzie miała wpływ na wydajność transakcji i zużywać jednostki żądań. Używanie Azure Cosmos DB transakcyjnej wydajności jest idealnym rozwiązaniem w przypadku transakcji zapisu. Upewnij się, że zastąpisz **YOURDATAFRAME** przez ramkę danych, w której chcesz pisać z powrotem.
 
+## <a name="write-spark-dataframe-to-azure-cosmos-db-container"></a>Zapisz ramkę danych Spark w kontenerze Azure Cosmos DB
+
+W tym przykładzie napiszesz ramkę Spark do kontenera Azure Cosmos DB. Ta operacja będzie mieć wpływ na wydajność obciążeń transakcyjnych i zużywać jednostki żądań obsługiwane w kontenerze Azure Cosmos DB lub udostępnionej bazie danych.
+
+Składnia w języku **Python** będzie następująca:
 ```python
 # Write a Spark DataFrame into an Azure Cosmos DB container
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
-
 YOURDATAFRAME.write.format("cosmos.oltp")\
-    .option("spark.synapse.linkedService", "INFERRED")\
-    .option("spark.cosmos.container", "INFERRED")\
+    .option("spark.synapse.linkedService", "<enter linked service name>")\
+    .option("spark.cosmos.container", "<enter container name>")\
     .option("spark.cosmos.write.upsertEnabled", "true")\
     .mode('append')\
     .save()
 ```
 
-Odpowiednikiem gestu odpowiadającego kodowi w **Scala** byłby następujący kod:
+Równoważna składnia w **Scala** będzie następująca:
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 import org.apache.spark.sql.SaveMode
 
 df.write.format("cosmos.oltp").
-    option("spark.synapse.linkedService", "pySparkSamplesDb").
-    option("spark.cosmos.container", "trafficSourceColl"). 
+    option("spark.synapse.linkedService", "<enter linked service name>").
+    option("spark.cosmos.container", "<enter container name>"). 
     option("spark.cosmos.write.upsertEnabled", "true").
     mode(SaveMode.Overwrite).
     save()
 ```
 
-## <a name="load-streaming-dataframe-from-container"></a>Załaduj ramkę danych przesyłania strumieniowego z kontenera
-W tym gestie użyjesz funkcji przesyłania strumieniowego Spark do ładowania danych z kontenera do ramki danych. Dane będą przechowywane w podstawowym koncie Data Lake (i w systemie plików) połączonym z obszarem roboczym. 
+> [!NOTE]
+> Jeśli zamierzasz odwoływać się do bibliotek zewnętrznych w Synapse Apache Spark, Dowiedz się więcej [tutaj](#external-library-management). Na przykład jeśli chcesz pozyskać ramkę danych Spark do kontenera Cosmos DB API for Mongo DB, możesz skorzystać z łącznika usługi Mongo DB dla platformy Spark [tutaj](https://docs.mongodb.com/spark-connector/master/).
 
-Jeśli folder */localReadCheckpointFolder* nie zostanie utworzony, zostanie automatycznie utworzony. Ta operacja będzie miała wpływ na wydajność transakcyjne Azure Cosmos DB.
+## <a name="load-streaming-dataframe-from-azure-cosmos-db-container"></a>Załaduj ramkę danych przesyłania strumieniowego z kontenera Azure Cosmos DB
+W tym przykładzie użyjesz funkcji przesyłania strumieniowego platformy Spark w celu załadowania danych z kontenera Azure Cosmos DB do ramki datastreaming strumienia przy użyciu funkcji zmiany źródła w Azure Cosmos DB. Dane punktu kontrolnego używane przez platformę Spark będą przechowywane w podstawowym koncie Data Lake (i systemie plików), które zostało połączone z obszarem roboczym.
 
+Jeśli folder */localReadCheckpointFolder* nie zostanie utworzony (w poniższym przykładzie) zostanie automatycznie utworzony. Ta operacja będzie mieć wpływ na wydajność transakcyjnych obciążeń i zużywać jednostki żądań obsługiwane w kontenerze Azure Cosmos DB lub udostępnionej bazie danych.
+
+Składnia w języku **Python** będzie następująca:
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 dfStream = spark.readStream\
     .format("cosmos.oltp")\
-    .option("spark.synapse.linkedService", "INFERRED")\
-    .option("spark.cosmos.container", "INFERRED")\
+    .option("spark.synapse.linkedService", "<enter linked service name>")\
+    .option("spark.cosmos.container", "<enter container name>")\
     .option("spark.cosmos.changeFeed.readEnabled", "true")\
     .option("spark.cosmos.changeFeed.startFromTheBeginning", "true")\
     .option("spark.cosmos.changeFeed.checkpointLocation", "/localReadCheckpointFolder")\
@@ -113,24 +143,25 @@ dfStream = spark.readStream\
     .load()
 ```
 
-Odpowiednikiem gestu odpowiadającego kodowi w **Scala** byłby następujący kod:
+Równoważna składnia w **Scala** będzie następująca:
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 val dfStream = spark.readStream.
     format("cosmos.oltp").
-    option("spark.synapse.linkedService", "pySparkSamplesDb").
-    option("spark.cosmos.container", "trafficSourceColl").
+    option("spark.synapse.linkedService", "<enter linked service name>").
+    option("spark.cosmos.container", "<enter container name>").
     option("spark.cosmos.changeFeed.readEnabled", "true").
     option("spark.cosmos.changeFeed.startFromTheBeginning", "true").
     option("spark.cosmos.changeFeed.checkpointLocation", "/localReadCheckpointFolder").
-    option("spark.cosmos.changeFeed.queryName", "streamTestRevin2").
+    option("spark.cosmos.changeFeed.queryName", "streamQuery").
     load()
 ```
 
-## <a name="write-streaming-dataframe-to-container"></a>Zapisz ramkę danych przesyłania strumieniowego do kontenera
-W tym gestie napiszesz ramkę danych przesyłania strumieniowego do wybranego kontenera Azure Cosmos DB. Jeśli folder */localReadCheckpointFolder* nie zostanie utworzony, zostanie automatycznie utworzony. Ta operacja będzie miała wpływ na wydajność transakcyjne Azure Cosmos DB.
+## <a name="write-streaming-dataframe-to-azure-cosmos-db-container"></a>Zapisz ramkę danych przesyłania strumieniowego do kontenera Azure Cosmos DB
+W tym przykładzie napiszesz ramkę danych przesyłania strumieniowego do kontenera Azure Cosmos DB. Ta operacja będzie mieć wpływ na wydajność transakcyjnych obciążeń i zużywać jednostki żądań obsługiwane w kontenerze Azure Cosmos DB lub udostępnionej bazie danych. Jeśli folder */localWriteCheckpointFolder* nie zostanie utworzony (w poniższym przykładzie) zostanie automatycznie utworzony. 
 
+Składnia w języku **Python** będzie następująca:
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -139,15 +170,15 @@ streamQuery = dfStream\
         .format("cosmos.oltp")\
         .outputMode("append")\
         .option("checkpointLocation", "/localWriteCheckpointFolder")\
-        .option("spark.synapse.linkedService", "INFERRED")\
-        .option("spark.cosmos.container", "trafficSourceColl_sink")\
+        .option("spark.synapse.linkedService", "<enter linked service name>")\
+        .option("spark.cosmos.container", "<enter container name>")\
         .option("spark.cosmos.connection.mode", "gateway")\
         .start()
 
 streamQuery.awaitTermination()
 ```
 
-Odpowiednikiem gestu odpowiadającego kodowi w **Scala** byłby następujący kod:
+Równoważna składnia w **Scala** będzie następująca:
 ```java
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
@@ -156,14 +187,30 @@ val query = dfStream.
             format("cosmos.oltp").
             outputMode("append").
             option("checkpointLocation", "/localWriteCheckpointFolder").
-            option("spark.synapse.linkedService", "pySparkSamplesDb").
-            option("spark.cosmos.container", "test2").
+            option("spark.synapse.linkedService", "<enter linked service name>").
+            option("spark.cosmos.container", "<enter container name>").
             option("spark.cosmos.connection.mode", "gateway").
             start()
 
 query.awaitTermination()
 ```
+
+## <a name="external-library-management"></a>Zarządzanie biblioteką zewnętrzną
+
+W tym przykładzie dowiesz się, jak odwoływać się do bibliotek zewnętrznych z plików JAR podczas korzystania z notesów platformy Spark w obszarach roboczych Synpase Apache Spark. Pliki JAR można umieścić w kontenerze na podstawowym koncie Data Lake połączonym z obszarem roboczym, a następnie dodać następujące `%configure` instrukcje w notesie platformy Spark:
+
+```cmd
+%%configure -f
+{
+    "jars": [
+        "abfss://<storage container name>@<data lake account name>.dfs.core.windows.net/<path to jar>"
+    ]
+}
+```
+Jeśli chcesz przesłać definicje zadań zdalnej platformy Spark do puli Synapse Spark, możesz dowiedzieć się, jak odwoływać się do bibliotek zewnętrznych, wykonując czynności opisane w tym [samouczku](../spark/apache-spark-job-definitions.md).
+
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, co jest obsługiwane między Synapse i Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
+* [Przykłady umożliwiające rozpoczęcie pracy z usługą Azure Synapse link w serwisie GitHub](https://aka.ms/cosmosdb-synapselink-samples)
+* [Dowiedz się, co jest obsługiwane w usłudze Azure Synapse link dla Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
 * [Połącz z linkiem Synapse dla Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)

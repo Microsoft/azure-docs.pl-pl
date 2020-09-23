@@ -1,6 +1,6 @@
 ---
-title: Przegląd zasad przechowywania danych — Azure SQL Edge (wersja zapoznawcza)
-description: Informacje na temat zasad przechowywania danych w usłudze Azure SQL Edge (wersja zapoznawcza)
+title: Przegląd zasad przechowywania danych — Azure SQL Edge
+description: Informacje na temat zasad przechowywania danych w usłudze Azure SQL Edge
 keywords: SQL Edge, przechowywanie danych
 services: sql-edge
 ms.service: sql-edge
@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 3649d4f77e5b57ab14accacd87fbaa867ba2742f
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: bb059a946c03f41e5b65944eec67070f84ee6b08
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550661"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976337"
 ---
-# <a name="data-retention-policy-overview"></a>Przegląd zasad przechowywania danych
+# <a name="data-retention-overview"></a>Omówienie przechowywania danych
 
 Zbieranie i przechowywanie danych z połączonych urządzeń IoT jest ważne, aby zwiększyć możliwości operacyjne i szczegółowe informacje biznesowe. Jednak dane pochodzące z tych urządzeń stają się ważne dla organizacji, aby starannie planować ilość danych, które mają być zachowane, oraz na jakim poziomie szczegółowości. Zachowanie wszystkich danych na całym poziomie szczegółowości jest pożądane, ale nie zawsze jest praktyczne. Ponadto ilość danych, które mogą być zachowywane, jest ograniczona ilością miejsca dostępnego na urządzeniach IoT lub brzegowych. 
 
-Usługa Azure SQL Edge (wersja zapoznawcza) CTP 2.3 dodaje nową funkcję, która umożliwia administratorom baz danych Definiowanie zasad przechowywania danych w bazie danych programu SQL Edge i jej źródłowych tabelach. Po zdefiniowaniu zasad przechowywania danych zostanie uruchomione zadanie systemu w tle w celu przeczyszczenia wszelkich przestarzałych (starych) danych z tabel użytkowników. 
+Administratorzy baz danych usługi Azure SQL Edge mogą definiować zasady przechowywania danych w bazie danych programu SQL Edge i jej źródłowych tabelach. Po zdefiniowaniu zasad przechowywania danych zostanie uruchomione zadanie systemu w tle w celu przeczyszczenia wszelkich przestarzałych (starych) danych z tabel użytkowników. 
 
 > [!Note]
 > Dane po przeczyszczeniu z tabeli nie są możliwe do odzyskania. Jedynym możliwym sposobem odzyskania przeczyszczonych danych jest przywrócenie bazy danych ze starszej kopii zapasowej.
@@ -40,6 +40,7 @@ Po skonfigurowaniu przechowywania danych dla tabeli zadanie w tle jest uruchamia
 
 - Przechowywanie danych, jeśli ta funkcja jest włączona, jest automatycznie wyłączana, gdy baza danych zostanie przywrócona z pełnej kopii zapasowej lub ponownie dołączona. 
 - Nie można włączyć utrwalania danych dla tabeli historii danych czasowych
+- Nie można zmienić colomn filtru przechowywania danych. Aby zmienić kolumnę, wyłącz przechowywanie danych w tabeli.  
 
 ## <a name="next-steps"></a>Następne kroki
 

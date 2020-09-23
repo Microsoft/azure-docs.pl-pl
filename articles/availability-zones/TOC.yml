@@ -95,6 +95,10 @@
       items:
         - name: Co to są strefy brzegowe?
           href: ../networking/edge-zones-overview.md
+    - name: Dokumentacja platformy Azure Orbital
+      items:
+        - name: Co to jest Azure Orbital?
+          href: ../networking/azure-orbital-overview.md
 - name: Odzyskiwanie po awarii
   items:
     - name: Korzystanie z usługi Azure Site Recovery

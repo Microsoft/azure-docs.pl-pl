@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge procesora GPU zarządzanie użytkownikami | Microsoft Docs
-description: Opisuje, jak używać Azure Portal do zarządzania użytkownikami na Azure Stack GPU.
+title: Azure Stack Edge — procesor GPU — zarządzanie użytkownikami | Microsoft Docs
+description: Opisuje, jak używać Azure Portal do zarządzania użytkownikami w usłudze Azure Stack Edge w procesorze GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8400f134c7a2b9da32c04e15e42a54f697b9cea6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5f7e8c09a09084b28278667cdeaf94f7e38908cd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254189"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904506"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge"></a>Użyj Azure Portal, aby zarządzać użytkownikami na Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać użytkownikami na Azure Stack brzegowej Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-W tym artykule opisano sposób zarządzania użytkownikami na Azure Stackej krawędzi. Możesz zarządzać Azure Stack krawędzią za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Witryna Azure Portal umożliwia dodawanie, modyfikowanie i usuwanie użytkowników.
+W tym artykule opisano sposób zarządzania użytkownikami na Azure Stack Edge. Możesz zarządzać Azure Stack Edge przy użyciu Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Witryna Azure Portal umożliwia dodawanie, modyfikowanie i usuwanie użytkowników.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 

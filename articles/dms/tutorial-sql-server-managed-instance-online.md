@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 08/04/2020
-ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ce63d86c3256646782775c84636c4d248e0a6735
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553312"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984334"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Samouczek: Migrowanie SQL Server do wystąpienia zarządzanego Azure SQL w trybie online za pomocą usługi DMS
 
@@ -35,7 +35,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 > [!IMPORTANT]
 > W przypadku migracji w trybie online z SQL Server do wystąpienia zarządzanego SQL przy użyciu Azure Database Migration Service należy zapewnić pełną kopię zapasową bazy danych i kolejne kopie zapasowe dzienników w udziale sieciowym SMB, którego usługa może używać do migrowania baz danych. Azure Database Migration Service nie inicjuje żadnych kopii zapasowych, a zamiast tego używa istniejących kopii zapasowych, które mogą już znajdować się w ramach planu odzyskiwania po awarii dla migracji.
-> Należy pamiętać o wykonywaniu [kopii zapasowych, korzystając z opcji with Checksum](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Upewnij się również, że nie dołączysz wielu kopii zapasowych (tj. pełnych i t-log) do pojedynczego nośnika kopii zapasowej. Wykonaj każdą kopię zapasową w osobnym pliku kopii zapasowej. Na koniec można użyć skompresowanych kopii zapasowych, aby zmniejszyć prawdopodobieństwo wystąpienia potencjalnych problemów związanych z migracją dużych kopii zapasowych.
+> Należy pamiętać o wykonywaniu [kopii zapasowych, korzystając z opcji with Checksum](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017&preserve-view=true). Upewnij się również, że nie dołączysz wielu kopii zapasowych (tj. pełnych i t-log) do pojedynczego nośnika kopii zapasowej. Wykonaj każdą kopię zapasową w osobnym pliku kopii zapasowej. Na koniec można użyć skompresowanych kopii zapasowych, aby zmniejszyć prawdopodobieństwo wystąpienia potencjalnych problemów związanych z migracją dużych kopii zapasowych.
 
 > [!NOTE]
 > Użycie Azure Database Migration Service do przeprowadzenia migracji w trybie online wymaga utworzenia wystąpienia na podstawie warstwy cenowej Premium.
@@ -212,7 +212,7 @@ Po utworzeniu wystąpienia usługi znajdź je w witrynie Azure Portal, otwórz j
     | | |
     |--------|---------|
     |**Udział lokalizacji sieciowej protokołu SMB** | Lokalny udział sieciowy SMB lub udział plików platformy Azure, który zawiera pliki pełnej kopii zapasowej bazy danych i pliki kopii zapasowej dziennika transakcji, które Azure Database Migration Service mogą być używane do migracji. Konto usługi, na którym uruchomiono źródłowe wystąpienie programu SQL Server, musi mieć uprawnienia do odczytu/zapisu w tym udziale sieciowym. Podaj nazwę FQDN lub adresy IP serwera w udziale sieciowym, na przykład „\\\nazwa_serwera.nazwa_domeny.com\folder_kopii_zapasowych” lub „\\\adres_IP\folder_kopii_zapasowych”. W celu zwiększenia wydajności zaleca się użycie osobnego folderu dla każdej bazy danych, która ma zostać zmigrowana. Ścieżkę udziału plików na poziomie bazy danych można podać przy użyciu opcji **Ustawienia zaawansowane** . |
-    |**Nazwa użytkownika** | Upewnij się, że użytkownik systemu Windows ma uprawnienia pełnej kontroli w udziale sieciowym, który podano powyżej. Azure Database Migration Service personifikuje poświadczenia użytkownika w celu przekazania plików kopii zapasowej do kontenera usługi Azure Storage w celu wykonania operacji przywracania. Jeśli korzystasz z udziału plików platformy Azure, użyj nazwy konta magazynu wstępnie na platformie AZURE jako nazwy użytkownika. |
+    |**User name** (Nazwa użytkownika) | Upewnij się, że użytkownik systemu Windows ma uprawnienia pełnej kontroli w udziale sieciowym, który podano powyżej. Azure Database Migration Service personifikuje poświadczenia użytkownika w celu przekazania plików kopii zapasowej do kontenera usługi Azure Storage w celu wykonania operacji przywracania. Jeśli korzystasz z udziału plików platformy Azure, użyj nazwy konta magazynu wstępnie na platformie AZURE jako nazwy użytkownika. |
     |**Hasło** | Hasło użytkownika. Jeśli używasz udziału plików platformy Azure, użyj klucza konta magazynu jako hasła. |
     |**Subskrypcja konta usługi Azure Storage** | Wybierz subskrypcję, która zawiera konto usługi Azure Storage. |
     |**Konto usługi Azure Storage** | Wybierz konto usługi Azure Storage, na które usługa DMS może przekazać pliki kopii zapasowej z udziału sieciowego protokołu SMB używane podczas migracji bazy danych.  Zalecamy wybranie konta usługi Storage w tym samym regionie co usługa DMS w celu uzyskania optymalnej wydajności przekazywania plików. |
@@ -245,7 +245,7 @@ Po utworzeniu wystąpienia usługi znajdź je w witrynie Azure Portal, otwórz j
 
     Możesz rozwinąć kategorie baz danych i danych logowania, aby monitorować stan migracji odpowiednich obiektów serwera.
 
-   ![Działanie migracji w toku](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
+   ![Stan działania migracji](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## <a name="performing-migration-cutover"></a>Przeprowadzanie migracji jednorazowej
 
@@ -264,7 +264,7 @@ Po przywróceniu pełnej kopii zapasowej bazy danych w wystąpieniu docelowym wy
     ![Przygotowanie do zakończenia migracji jednorazowej](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
     > [!IMPORTANT]
-    > Po uruchomienie produkcyjne dostępność wystąpienia zarządzanego SQL z Krytyczne dla działania firmy warstwy usług może trwać znacznie dłużej niż Ogólnego przeznaczenia, ponieważ trzy repliki pomocnicze muszą być rozsiane dla grupy zawsze włączonych wysokiej dostępności. Ten czas trwania operacji zależy od rozmiaru danych. Aby uzyskać więcej informacji, zobacz temat [czas trwania operacji zarządzania](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
+    > Po uruchomienie produkcyjne dostępność wystąpienia zarządzanego SQL z Krytyczne dla działania firmy warstwy usług może trwać znacznie dłużej niż Ogólnego przeznaczenia, ponieważ trzy repliki pomocnicze muszą być rozsiane dla grupy zawsze włączonych wysokiej dostępności. Ten czas trwania operacji zależy od rozmiaru danych. Aby uzyskać więcej informacji, zobacz temat [czas trwania operacji zarządzania](../azure-sql/managed-instance/management-operations-overview.md#duration).
 
 5. Po **zakończeniu**wyświetlania stanu migracji bazy danych Połącz swoje aplikacje z nowym docelowym wystąpieniem wystąpienia zarządzanego SQL.
 
