@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 4618bb4ba65c48808bc738b51c90a6fd04f0eca3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 63acffd16fa4374d4f8541a9d3327b29a3641f71
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659632"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895801"
 ---
 # <a name="connect-data-sources"></a>Łączenie ze źródłami danych
 
@@ -38,6 +38,7 @@ Po włączeniu usługi Azure wskaźnikowej należy najpierw połączyć źródł
 
    ![Następne kroki dla łączników](./media/collect-data/data-insights.png)
  
+
 ## <a name="data-connection-methods"></a>Metody połączenia danych
 
 Następujące metody łączenia danych są obsługiwane przez wskaźnik na platformie Azure:
@@ -49,7 +50,7 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     - [Usługa Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Microsoft Defender for Identity](connect-azure-atp.md) (dawniej ochrona przed zagrożeniami na platformie Azure)
     - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Usługa Azure Defender](connect-azure-security-center.md) (dawniej Azure Security Center)
+    - [Azure Security Center](connect-azure-security-center.md) — alerty z rozwiązań usługi Azure Defender
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Serwer nazw domen](connect-dns.md)
     - [Office 365](connect-office-365.md)
@@ -135,7 +136,7 @@ Alternatywnie można wdrożyć agenta ręcznie na istniejącej maszynie wirtualn
 | WindowsFirewall | [Podłączanie zapory systemu Windows](connect-windows-firewall.md) | &#10003; | |
 | AADIP SecurityAlert  | [Łączenie z usługą Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | &#10003; | |
 | AATP SecurityAlert  | [Łączenie usługi Microsoft Defender for Identity](connect-azure-atp.md) (dawniej Azure ATP) | &#10003; | |
-| SecurityAlert ASC  | [Łączenie usługi Azure Defender](connect-azure-security-center.md) (dawniej Azure Security Center)  | &#10003; | |
+| SecurityAlert ASC  | [Połącz alerty usługi Azure Defender](connect-azure-security-center.md) z Azure Security Center  | &#10003; | |
 | MCAS SecurityAlert  | [Połącz Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
 | Sysmon (zdarzenie) | [Połącz Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Połącz zdarzenia systemu Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Pobierz Analizator Sysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Kolekcja Sysmon nie jest instalowana domyślnie na maszynach wirtualnych. Aby uzyskać więcej informacji na temat sposobu instalowania agenta Sysmon, zobacz [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |

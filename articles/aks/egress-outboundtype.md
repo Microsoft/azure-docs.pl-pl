@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d8ae03d52691a6c30f78439a579e7e7c136dda76
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796973"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975281"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Dostosowywanie ruchu wychodzącego klastra przy użyciu trasy zdefiniowanej przez użytkownika
 
@@ -51,7 +51,7 @@ Następująca konfiguracja jest wykonywana przez AKS.
 
 Poniżej znajduje się topologia sieci wdrożona domyślnie w klastrach AKS, która korzysta `outboundType` z programu `loadBalancer` .
 
-![niepowiązanytype — lb](media/egress-outboundtype/outboundtype-lb.png)
+![Na diagramie przedstawiono ruch przychodzący i P i wyjścia i P, gdzie usługa transfer danych przychodzących i P kieruje ruchu do modułu równoważenia obciążenia, który kieruje ruch do i z klastra wewnętrznego i innego ruchu do danych wyjściowych, które kierują ruch do Internetu, M C R, wymagane usługi platformy Azure i płaszczyznę kontroli K S.](media/egress-outboundtype/outboundtype-lb.png)
 
 ### <a name="outbound-type-of-userdefinedrouting"></a>Typ wychodzący userDefinedRouting
 

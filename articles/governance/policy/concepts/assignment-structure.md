@@ -1,14 +1,14 @@
 ---
 title: Szczegóły struktury przypisania zasad
 description: Zawiera opis definicji przypisania zasad używanej przez Azure Policy do powiązania definicji zasad i parametrów z zasobami do oceny.
-ms.date: 08/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 969274d72724c8d0a8f10f86f614fe2c50d066f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520717"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904081"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struktura przypisań usługi Azure Policy
 
@@ -17,7 +17,7 @@ Przypisania zasad są używane przez Azure Policy do definiowania zasobów, któ
 Aby utworzyć przypisanie zasad, należy użyć formatu JSON. Przypisanie zasad zawiera elementy dla:
 
 - Nazwa wyświetlana
-- description (opis)
+- description
 - metadane
 - Tryb wymuszania
 - wykluczone zakresy
@@ -70,7 +70,10 @@ Jeśli w definicji zasad lub inicjatywy nie określono **wymuszania** , używana
 
 ## <a name="excluded-scopes"></a>Wykluczone zakresy
 
-**Zakres** przypisania obejmuje wszystkie podrzędne kontenery zasobów i zasoby podrzędne. Jeśli podrzędny kontener zasobów lub zasób podrzędny nie powinien mieć zastosowanej definicji, każdy z nich może zostać wykluczony przez ustawienie **notScopes**. Ta właściwość jest tablicą, która umożliwia wykluczenie co najmniej jednego kontenera zasobów lub zasobów z oceny. **notScopes** można dodać lub zaktualizować po utworzeniu przypisania początkowego.
+**Zakres** przypisania obejmuje wszystkie podrzędne kontenery zasobów i zasoby podrzędne. Jeśli podrzędny kontener zasobów lub zasób podrzędny nie powinien mieć zastosowanej definicji, każdy z nich może zostać _wykluczony_ przez ustawienie **notScopes**. Ta właściwość jest tablicą, która umożliwia wykluczenie co najmniej jednego kontenera zasobów lub zasobów z oceny. **notScopes** można dodać lub zaktualizować po utworzeniu przypisania początkowego.
+
+> [!NOTE]
+> _Wykluczony_ zasób różni się od _zwolnionego_ zasobu. Aby uzyskać więcej informacji, zobacz [Opis zakresu w Azure Policy](./scope.md).
 
 ## <a name="policy-definition-id"></a>Identyfikator definicji zasad
 

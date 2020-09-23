@@ -10,15 +10,15 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: cd9b891212010d7e61c4a4eb64d8bf0660bbd69a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cd9af35e5b616f3f4d72405078782e1e88414c98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661642"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897351"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym artykule dowiesz się, jak utworzyć obszar roboczy Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure. Interfejs wiersza polecenia platformy Azure umożliwia zarządzanie zasobami platformy Azure. Rozszerzenie uczenia maszynowego do interfejsu wiersza polecenia dostarcza poleceń do pracy z zasobami Azure Machine Learning.
 
@@ -35,7 +35,7 @@ W tym artykule dowiesz się, jak utworzyć obszar roboczy Azure Machine Learning
 > [!IMPORTANT]
 > Jeśli używasz Azure Cloud Shell, możesz pominąć tę sekcję. Usługa Cloud Shell automatycznie uwierzytelnia użytkownika przy użyciu konta, które loguje się do subskrypcji platformy Azure.
 
-Istnieje kilka sposobów uwierzytelniania w ramach subskrypcji platformy Azure z poziomu interfejsu wiersza polecenia. Najbardziej podstawowa jest możliwość interakcyjnego uwierzytelniania przy użyciu przeglądarki. Aby uwierzytelnić interaktywnie, Otwórz wiersz polecenia lub terminal i użyj następującego polecenia:
+Istnieje kilka sposobów uwierzytelniania w ramach subskrypcji platformy Azure z poziomu interfejsu wiersza polecenia. Najłatwiej jest interaktywnie uwierzytelniać się za pomocą przeglądarki. Aby uwierzytelnić interaktywnie, Otwórz wiersz polecenia lub terminal i użyj następującego polecenia:
 
 ```azurecli-interactive
 az login
@@ -109,9 +109,6 @@ Aby uzyskać więcej informacji na temat pracy z grupami zasobów, zobacz [AZ Gr
 
 Aby utworzyć nowy obszar roboczy, w którym __usługi są tworzone automatycznie__, użyj następującego polecenia:
 
-> [!TIP]
-> Polecenia w tej sekcji tworzą obszar roboczy wersja podstawowa. Aby utworzyć obszar roboczy przedsiębiorstwa, użyj `--sku enterprise` przełącznika przy użyciu `az ml workspace create` polecenia. Aby uzyskać więcej informacji na temat wersji Azure Machine Learning, zobacz [co to jest Azure Machine Learning](overview-what-is-azure-ml.md#sku).
-
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
@@ -161,7 +158,7 @@ Aby uzyskać więcej informacji na temat korzystania z prywatnego punktu końcow
 
 Domyślnie metryki i metadane obszaru roboczego są przechowywane w Azure Cosmos DB wystąpieniu, które utrzymuje firma Microsoft. Te dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
 
-Jeśli tworzysz wersję __Enterprise__ Azure Machine Learning, możesz użyć klucza Podaj swój własny klucz. Spowoduje to utworzenie wystąpienia Azure Cosmos DB, które przechowuje metryki i metadane w ramach subskrypcji platformy Azure. Użyj `--cmk-keyvault` parametru, aby określić Azure Key Vault, który zawiera klucz, i `--resource-cmk-uri` określić adres URL klucza w ramach magazynu.
+Zamiast używać klucza zarządzanego przez firmę Microsoft, możesz użyć opcji podaj własny klucz. Spowoduje to utworzenie wystąpienia Azure Cosmos DB, które przechowuje metryki i metadane w ramach subskrypcji platformy Azure. Użyj `--cmk-keyvault` parametru, aby określić Azure Key Vault, który zawiera klucz, i `--resource-cmk-uri` określić adres URL klucza w ramach magazynu.
 
 > [!IMPORTANT]
 > Przed użyciem `--cmk-keyvault` parametrów i `--resource-cmk-uri` należy najpierw wykonać następujące czynności:

@@ -10,15 +10,15 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 808f71ae138922b93e3742f7ff2f526e419cf58c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 8a3a82e091791b39ddf36e39987590dcddea320f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645884"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897493"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Zbierz pliki dziennika potoku uczenia maszynowego w Application Insights na potrzeby alertów i debugowania
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Biblioteka języka Python [OpenCensus](https://opencensus.io/quickstart/python/) może służyć do kierowania dzienników do Application Insights ze skryptów. Agregowanie dzienników z uruchamiania potoków w jednym miejscu umożliwia tworzenie zapytań i diagnozowanie problemów. Użycie Application Insights umożliwi śledzenie dzienników w czasie i porównywanie dzienników potoku w ramach przebiegów.
 

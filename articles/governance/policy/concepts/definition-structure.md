@@ -1,14 +1,14 @@
 ---
 title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 81e08e07236d445a4ca351a7d93e7851cad69ace
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648727"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895376"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -206,8 +206,10 @@ Podczas tworzenia inicjatywy lub zasad należy określić lokalizację definicji
 
 Jeśli lokalizacja definicji jest:
 
-- Tylko zasoby z **subskrypcją** w ramach tej subskrypcji mogą być przypisane do zasad.
-- Zasady mogą być przypisywane tylko zasobom należącym do **grupy** zarządzania w ramach podrzędnych grup administracyjnych i subskrypcji podrzędnych. Jeśli planujesz zastosowanie definicji zasad do kilku subskrypcji, lokalizacja musi być grupą zarządzania zawierającą subskrypcję.
+- Tylko zasoby z **subskrypcją** w ramach tej subskrypcji mogą mieć przypisaną definicję zasad.
+- Do definicji zasad można przypisać tylko zasoby **grupy** zarządzania należące do podrzędnych grup zarządzania i subskrypcji podrzędnych. Jeśli planujesz zastosowanie definicji zasad do kilku subskrypcji, lokalizacja musi być grupą zarządzania, która zawiera każdą subskrypcję.
+
+Aby uzyskać więcej informacji, zobacz [Opis zakresu w Azure Policy](./scope.md#definition-location).
 
 ## <a name="policy-rule"></a>Reguła zasad
 
@@ -576,16 +578,16 @@ Wszystkie [funkcje szablonu Menedżer zasobów](../../../azure-resource-manager/
 Następująca funkcja jest dostępna do użycia w regule zasad, ale różni się od użycia w szablonie Azure Resource Manager (szablon ARM):
 
 - `utcNow()` — W przeciwieństwie do szablonu ARM, ta właściwość może być używana poza _DefaultValue_.
-  - Zwraca ciąg, który jest ustawiony na bieżącą datę i godzinę w formacie uniwersalnego ISO 8601 DateTime-MM-DDTgg: mm: SS. fffffffZ
+  - Zwraca ciąg, który jest ustawiony na bieżącą datę i godzinę w formacie Universal ISO 8601 DateTime `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
 
 Następujące funkcje są dostępne tylko w regułach zasad:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **DateTime**: [Required] ciąg ciągu w formacie daty/godziny uniwersalnego ISO 8601 "RRRR-MM-DDTgg: mm: SS. fffffffZ"
-  - **numberOfDaysToAdd**: [Required] liczba dni do dodania
+  - **DateTime**: [Required] ciąg String w formacie daty/godziny uniwersalnego ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
+  - **numberOfDaysToAdd**: [Required] liczba dni do dodania.
 - `field(fieldName)`
   - **FieldName**: [Required] — nazwa [pola](#fields) do pobrania
-  - Zwraca wartość tego pola z zasobu, który jest obliczany przez warunek if
+  - Zwraca wartość tego pola z zasobu, który jest obliczany przez warunek IF.
   - `field` jest używany głównie z **AuditIfNotExists** i **DeployIfNotExists** do odwołań do pól w analizowanym zasobie. Przykład tego zastosowania można zobaczyć w [przykładzie DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Zwraca wersję interfejsu API żądania, które spowodowało wyzwolenie oceny zasad (przykład: `2019-09-01` ).
@@ -679,7 +681,7 @@ Lista aliasów zawsze rośnie. Aby dowiedzieć się, jakie aliasy są obecnie ob
 
 ### <a name="understanding-the--alias"></a>Informacje o aliasie [*]
 
-Kilka dostępnych aliasów ma wersję, która jest wyświetlana jako nazwa "normal" i inna, która została **\[\*\]** do niej dołączona. Na przykład:
+Kilka dostępnych aliasów ma wersję, która jest wyświetlana jako nazwa "normal" i inna, która została **\[\*\]** do niej dołączona. Przykład:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

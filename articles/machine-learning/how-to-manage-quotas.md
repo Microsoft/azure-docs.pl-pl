@@ -11,15 +11,15 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141129"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897408"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Ten artykuł zawiera szczegółowe informacje na temat wstępnie skonfigurowanych limitów zasobów platformy Azure dla subskrypcji [Azure Machine Learning](overview-what-is-azure-ml.md) i przydziałów, którymi można zarządzać. Te limity są stosowane w celu uniemożliwienia budżetowania zbytów z powodu oszustw oraz do przestrzegania ograniczeń pojemności platformy Azure. 
 
@@ -99,8 +99,6 @@ Aby ustawić przydziały na poziomie obszaru roboczego, przejdź do dowolnego ob
 
 
 > [!NOTE]
-> Jest to tylko funkcja w wersji Enterprise. Jeśli masz obszar roboczy [Basic i Enterprise Edition](overview-what-is-azure-ml.md#sku) w ramach subskrypcji, możesz użyć tego ustawienia, aby ustawić przydziały tylko dla obszarów roboczych przedsiębiorstwa. Twoje podstawowe obszary robocze będą nadal miały przydziały poziomu subskrypcji, które są zachowaniem domyślnym.
->
 > Do ustawiania przydziału na poziomie obszaru roboczego wymagane są uprawnienia na poziomie subskrypcji. Jest to wymuszane w taki sposób, aby indywidualni właściciele obszaru roboczego nie edytowali ani nie zwiększają swoich przydziałów i nie encroaching się do zasobów ustawionych dla innego obszaru roboczego. W ten sposób administrator subskrypcji najlepiej przypisuje i dystrybuuje te przydziały w obszarach roboczych.
 
 

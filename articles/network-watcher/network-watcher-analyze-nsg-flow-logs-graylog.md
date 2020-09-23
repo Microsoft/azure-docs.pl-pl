@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 62f4a06ec729d896dc11a290bc7a5ccc7c321683
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497118"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984056"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Zarządzanie i analizowanie dzienników przepływu sieciowych grup zabezpieczeń na platformie Azure przy użyciu Network Watcher i Z narzędzia graylog
 
@@ -175,10 +175,10 @@ Aby uzyskać więcej informacji na temat tego dodatku, zapoznaj się z [dokument
 
 Po nawiązaniu połączenia z dziennikami przepływów przy użyciu usługi logstash i skonfigurowania serwera Z narzędzia graylog należy skonfigurować Z narzędzia graylog w celu akceptowania przychodzących plików dziennika.
 
-1. Przejdź do interfejsu sieci Web serwera Z narzędzia graylog przy użyciu adresu URL, który został przez Ciebie skonfigurowany. Dostęp do interfejsu można uzyskać, kierując do przeglądarki`http://<graylog-server-ip>:9000/`
+1. Przejdź do interfejsu sieci Web serwera Z narzędzia graylog przy użyciu adresu URL, który został przez Ciebie skonfigurowany. Dostęp do interfejsu można uzyskać, kierując do przeglądarki `http://<graylog-server-ip>:9000/`
 
 2. Aby przejść do strony konfiguracji, wybierz menu rozwijane **system** na górnym pasku nawigacyjnym po prawej stronie, a następnie kliknij pozycję **dane wejściowe**.
-   Alternatywnie przejdź do`http://<graylog-server-ip>:9000/system/inputs`
+   Alternatywnie przejdź do `http://<graylog-server-ip>:9000/system/inputs`
 
    ![Wprowadzenie](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
@@ -186,7 +186,7 @@ Po nawiązaniu połączenia z dziennikami przepływów przy użyciu usługi logs
 
    Upewnij się, że dane wejściowe zostały powiązane z adresem IP skonfigurowanym na serwerze Z narzędzia graylog. Adres IP powinien być zgodny z polem **host** w danych wyjściowych protokołu UDP pliku konfiguracji logstash. Domyślnym portem powinna być *12201*. Upewnij się, że port jest zgodny z polem **port** w danych wyjściowych UDP wskazanym w pliku konfiguracji logstash.
 
-   ![Dane wejściowe](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+   ![Zrzut ekranu przedstawia dane wejściowe Z narzędzia graylog z opcjami uruchamiania i znajdowania danych wejściowych.](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
    Po uruchomieniu danych wejściowych powinna zostać wyświetlona w sekcji **lokalne dane wejściowe** , jak pokazano na poniższej ilustracji:
 
@@ -200,11 +200,11 @@ Po nawiązaniu połączenia z dziennikami przepływów przy użyciu usługi logs
 
 Po przeprowadzeniu pewnego czasu serwer Z narzędzia graylog może zbierać komunikaty, możesz przeszukiwać komunikaty. Aby sprawdzić, czy komunikaty są wysyłane do serwera Z narzędzia graylog, na stronie Konfiguracja **danych wejściowych** kliknij przycisk "**Pokaż odebrane komunikaty**" w utworzonym programie GELF UDP. Nastąpi przekierowanie do ekranu, który wygląda podobnie do poniższej ilustracji: 
 
-![Histogram](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
+![Zrzut ekranu przedstawia serwer Z narzędzia graylog, który wyświetla wynik wyszukiwania, histogram i komunikaty.](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
 
 Kliknięcie niebieskiego linku "% {Message}" rozszerza każdy komunikat, aby pokazać parametry każdej kolekcji przepływu, jak pokazano na poniższej ilustracji:
 
-![Komunikaty](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
+![Zrzut ekranu przedstawia szczegóły komunikatu z serwera Z narzędzia graylog.](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
 Domyślnie wszystkie pola komunikatów są uwzględniane w wyszukiwaniu, jeśli nie wybrano konkretnego pola wiadomości do wyszukania. Jeśli chcesz wyszukać określone komunikaty (tj. — przepływaj kolekcje z określonego źródłowego adresu IP) możesz użyć języka zapytań wyszukiwania Z narzędzia graylog zgodnie z [opisem](https://docs.graylog.org/en/2.2/pages/queries.html)
 
@@ -214,11 +214,11 @@ Teraz, po skonfigurowaniu Z narzędzia graylog, możesz użyć niektórych funkc
 
 ### <a name="create-a-dashboard"></a>Tworzenie pulpitu nawigacyjnego
 
-1. Na górnym pasku nawigacyjnym wybierz pozycję **pulpity nawigacyjne** lub przejdź do`http://<graylog-server-ip>:9000/dashboards/`
+1. Na górnym pasku nawigacyjnym wybierz pozycję **pulpity nawigacyjne** lub przejdź do `http://<graylog-server-ip>:9000/dashboards/`
 
 2. W tym miejscu kliknij przycisk zielony **pulpit nawigacyjny** , a następnie Wypełnij krótką formą tytuł i opis pulpitu nawigacyjnego. Naciśnij przycisk **Zapisz** , aby utworzyć nowy pulpit nawigacyjny. Zobaczysz pulpit nawigacyjny podobny do następującego:
 
-    ![Pulpity nawigacyjne](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
+    ![Zrzut ekranu przedstawia pulpity nawigacyjne serwera Z narzędzia graylog z opcjami tworzenia i edytowania pulpitów nawigacyjnych.](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
 ### <a name="add-widgets"></a>Dodaj widżety
 

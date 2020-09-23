@@ -3,12 +3,12 @@ title: Zainstaluj agenta Microsoft Azure Recovery Services (MARS)
 description: Dowiedz się, jak zainstalować agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych maszyn z systemem Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 715153d445acbc372f8305ca39f5276bf8a39773
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fb59c245c469791233ce973b00426a127b116535
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533482"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975305"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalowanie agenta Azure Backup MARS
 
@@ -42,10 +42,10 @@ Dane, które są dostępne dla kopii zapasowej, zależą od tego, gdzie jest zai
 
 ## <a name="modify-storage-replication"></a>Modyfikowanie replikacji magazynu
 
-Domyślnie magazyny korzystają z [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md).
+Domyślnie magazyny korzystają z [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * Jeśli magazyn jest podstawowym mechanizmem tworzenia kopii zapasowych, zalecamy użycie GRS.
-* Aby zmniejszyć koszty usługi Azure Storage, można użyć [magazynu lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) .
+* Aby zmniejszyć koszty usługi Azure Storage, można użyć [magazynu lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) .
 
 Aby zmodyfikować typ replikacji magazynu:
 
@@ -136,13 +136,13 @@ Jeśli Agent został już zainstalowany na wszystkich komputerach, upewnij się,
 ## <a name="install-and-register-the-agent"></a>Instalowanie i rejestrowanie agenta
 
 1. Uruchom plik *MARSagentinstaller.exe* na maszynach, dla których chcesz utworzyć kopię zapasową.
-1. W Kreatorze instalacji agenta MARS wybierz pozycję **ustawienia instalacji**. W tym miejscu wybierz miejsce instalacji agenta i wybierz lokalizację pamięci podręcznej. Następnie wybierz przycisk **Dalej**.
+1. W Kreatorze instalacji agenta MARS wybierz pozycję **ustawienia instalacji**. W tym miejscu wybierz miejsce instalacji agenta i wybierz lokalizację pamięci podręcznej. Następnie wybierz pozycję **Dalej**.
    * Azure Backup używa pamięci podręcznej do przechowywania migawek danych przed wysłaniem ich do platformy Azure.
    * W lokalizacji pamięci podręcznej powinna występować ilość wolnego miejsca równa co najmniej 5% rozmiaru danych, których kopia zapasowa ma zostać wykonana.
 
     ![Wybieranie ustawień instalacji w Kreatorze instalacji agenta MARS](./media/backup-configure-vault/mars1.png)
 
-1. W obszarze **Konfiguracja serwera proxy**Określ, w jaki sposób Agent uruchomiony na komputerze z systemem Windows będzie łączył się z Internetem. Następnie wybierz przycisk **Dalej**.
+1. W obszarze **Konfiguracja serwera proxy**Określ, w jaki sposób Agent uruchomiony na komputerze z systemem Windows będzie łączył się z Internetem. Następnie wybierz pozycję **Dalej**.
 
    * Jeśli używasz niestandardowego serwera proxy, określ wymagane ustawienia serwera proxy i poświadczenia.
    * Należy pamiętać, że Agent musi mieć dostęp do [określonych adresów URL](#before-you-start).
@@ -151,7 +151,7 @@ Jeśli Agent został już zainstalowany na wszystkich komputerach, upewnij się,
 
 1. Na potrzeby **instalacji**Przejrzyj wymagania wstępne i wybierz pozycję **Zainstaluj**.
 1. Po zainstalowaniu agenta wybierz pozycję przechodzenie **do rejestracji**.
-1. W oknie **Rejestrowanie**  >  **magazynu**kreatora, Wyszukaj i wybierz pobrany plik poświadczeń. Następnie wybierz przycisk **Dalej**.
+1. W oknie **Rejestrowanie**  >  **magazynu**kreatora, Wyszukaj i wybierz pobrany plik poświadczeń. Następnie wybierz pozycję **Dalej**.
 
     ![Dodawanie poświadczeń magazynu za pomocą Kreatora rejestrowania serwera](./media/backup-configure-vault/register1.png)
 

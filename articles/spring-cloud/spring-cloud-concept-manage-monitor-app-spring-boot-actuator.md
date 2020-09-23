@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1c1ea19c22d003ed1aa7c3d3191ff20a69513bc5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 93fd286aa76a0409a515abbf8c9dabd88a9a65c4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299511"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904287"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Zarządzanie aplikacją i monitorowanie jej przy użyciu programu Azure Spring Boot Actuator
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java
 
 Po wdrożeniu nowego pliku binarnego w aplikacji możesz chcieć sprawdzić funkcjonalność i wyświetlić informacje o działającej aplikacji. W tym artykule wyjaśniono, jak uzyskać dostęp do interfejsu API z punktu końcowego testu dostarczonego przez chmurę usługi Azure wiosną i uwidocznić funkcje gotowe do użycia w środowisku produkcyjnym.
 
@@ -73,5 +75,7 @@ Możesz teraz wrócić do okienka przegląd aplikacji i poczekać, aż stan apro
 Aby wyświetlić wszystkie wbudowane punkty końcowe, zobacz [Uwidacznianie punktów końcowych](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)
 
 ## <a name="next-steps"></a>Następne kroki
+
 * [Informacje o metrykach dla chmury wiosennej platformy Azure](spring-cloud-concept-metrics.md)
-* [Informacje o stanie aplikacji w chmurze Azure sprężynowej](spring-cloud-concept-app-status.md))
+* [Informacje o stanie aplikacji w usłudze Azure Spring Cloud](spring-cloud-concept-app-status.md)
+

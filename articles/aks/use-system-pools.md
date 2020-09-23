@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8d985587dc436d55e17c69e25295b5a58cb15b0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647493"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888961"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Zarządzanie pulami węzłów systemowych w usłudze Azure Kubernetes Service (AKS)
 
-W usłudze Azure Kubernetes Service (AKS) węzły tej samej konfiguracji są pogrupowane w *Pule węzłów*. Pule węzłów zawierają bazowe maszyny wirtualne, na których działają aplikacje. Pule węzłów systemowych i pule węzłów użytkowników są dwoma różnymi trybami puli węzłów dla klastrów AKS. Pule węzłów systemu stanowią podstawowy cel hostingu krytycznych podstaw systemu, takich jak CoreDNS i tunnelfront. Pule węzłów użytkowników stanowią podstawowy cel hostingu podstaw aplikacji. Jednak w ramach klastra AKS można zaplanować pulę aplikacji w puli węzłów systemu. Każdy klaster AKS musi zawierać co najmniej jedną pulę węzłów systemu z co najmniej jednym węzłem.
+W usłudze Azure Kubernetes Service (AKS) węzły tej samej konfiguracji są pogrupowane w *Pule węzłów*. Pule węzłów zawierają bazowe maszyny wirtualne, na których działają aplikacje. Pule węzłów systemowych i pule węzłów użytkowników są dwoma różnymi trybami puli węzłów dla klastrów AKS. Pule węzłów systemu stanowią podstawowy cel hostingu krytycznych podstaw systemu, takich jak `CoreDNS` i `metrics-server` . Pule węzłów użytkowników stanowią podstawowy cel hostingu podstaw aplikacji. Jednak w ramach klastra AKS można zaplanować pulę aplikacji w puli węzłów systemu. Każdy klaster AKS musi zawierać co najmniej jedną pulę węzłów systemu z co najmniej jednym węzłem.
 
 > [!Important]
 > W przypadku uruchamiania jednej puli węzłów systemu dla klastra AKS w środowisku produkcyjnym zaleca się użycie co najmniej trzech węzłów dla puli węzłów.
@@ -164,13 +164,13 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 > [!Note]
 > Aby użyć pul węzłów systemowych w klastrach AKS przed interfejsem API w wersji 2020-03-02, Dodaj nową pulę węzłów systemu, a następnie usuń oryginalną domyślną pulę węzłów.
 
-Wcześniej nie można było usunąć puli węzłów systemu, która była początkową domyślną pulą węzłów w klastrze AKS. Masz teraz elastyczność usuwania dowolnej puli węzłów z klastrów. Ponieważ klastry AKS wymagają co najmniej jednej puli węzłów systemu, przed usunięciem jednej z nich należy mieć co najmniej dwie pule węzłów systemu w klastrze AKS.
+Aby można było usunąć jedną z nich, należy mieć co najmniej dwie pule węzłów systemowych w klastrze AKS.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Aby usunąć klaster, użyj polecenia [AZ Group Delete][az-group-delete] , aby usunąć grupę zasobów AKS:
 

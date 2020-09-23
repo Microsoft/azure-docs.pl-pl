@@ -1,6 +1,6 @@
 ---
-title: Dostępne uprawnienia roli administratora niestandardowego — usługa Azure AD | Microsoft Docs
-description: Uprawnienia roli administratora niestandardowego do delegowania zarządzania tożsamościami.
+title: Uprawnienia roli niestandardowej do rejestracji aplikacji — Azure AD | Microsoft Docs
+description: Delegowanie uprawnień roli administratora niestandardowego do zarządzania rejestracjami aplikacji.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732110"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967694"
 ---
-# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Podtypy rejestracji aplikacji i uprawnienia w Azure Active Directory
+# <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Uprawnienia rejestracji aplikacji dla ról niestandardowych w Azure Active Directory
 
 Ten artykuł zawiera aktualnie dostępne uprawnienia rejestracji aplikacji dla niestandardowych definicji ról w Azure Active Directory (Azure AD).
 
-## <a name="permissions-for-managing-single-directory-applications"></a>Uprawnienia do zarządzania aplikacjami z jednym katalogiem
+## <a name="permissions-for-managing-single-tenant-applications"></a>Uprawnienia do zarządzania aplikacjami z jedną dzierżawą
 
-Podczas wybierania uprawnień roli niestandardowej można udzielić dostępu do zarządzania tylko aplikacjami z jednym katalogiem. Aplikacje z jednym katalogiem są dostępne tylko dla użytkowników w organizacji usługi Azure AD, w których zarejestrowano aplikację. Aplikacje z jednym katalogiem są zdefiniowane jako, które mają **obsługiwane typy kont** ustawione na "konta tylko w tym katalogu organizacji". W interfejs API programu Graph aplikacje z jednym katalogiem mają właściwość signInAudience ustawioną na wartość "AzureADMyOrg".
+Podczas wybierania uprawnień roli niestandardowej można udzielić dostępu do zarządzania tylko aplikacjami z jedną dzierżawą. aplikacje z jedną dzierżawą są dostępne tylko dla użytkowników w organizacji usługi Azure AD, w których zarejestrowano aplikację. aplikacje o pojedynczej dzierżawie są zdefiniowane jako mające **obsługiwane typy kont** ustawione na "tylko konta w tym katalogu organizacji". W interfejs API programu Graph aplikacje z jedną dzierżawą mają właściwość signInAudience ustawioną na wartość "AzureADMyOrg".
 
-Aby udzielić dostępu do zarządzania tylko aplikacjami z jednym katalogiem, Użyj poniższych uprawnień z aplikacjami podtype **. weborganization**. Na przykład Microsoft. Directory/Applications. weborganization/Basic/Update.
+Aby udzielić dostępu do zarządzania tylko aplikacjami z jedną dzierżawą, Użyj poniższych uprawnień z aplikacjami podtype **. weborganization**. Na przykład Microsoft. Directory/Applications. weborganization/Basic/Update.
 
 Zobacz [Omówienie ról niestandardowych](roles-custom-overview.md) , aby uzyskać informacje na temat tego, co oznaczają ogólne warunki podtype, uprawnienie i właściwość. Poniższe informacje dotyczą rejestracji aplikacji.
 
@@ -95,7 +95,7 @@ Przyznaje takie same uprawnienia jak Microsoft. Directory/Applications/Standard/
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>Microsoft. Directory/Applications/allProperties/Update
 
-Możliwość aktualizowania wszystkich właściwości w aplikacjach z pojedynczym katalogiem i na wiele katalogów.
+Możliwość aktualizowania wszystkich właściwości w aplikacjach z jedną dzierżawą i wieloma dzierżawcami.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>Microsoft. Directory/Applications. weborganization/allProperties/Update
 
@@ -103,7 +103,7 @@ Przyznaje takie same uprawnienia, jak Microsoft. Directory/Applications/allPrope
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>Microsoft. katalog/aplikacje/odbiorcy/aktualizacja
 
-Możliwość aktualizacji właściwości obsługiwanego typu konta (signInAudience) w aplikacjach z pojedynczym katalogiem i aplikacjami wielokatalogowymi.
+Możliwość aktualizacji właściwości obsługiwanego typu konta (signInAudience) dla aplikacji z jedną dzierżawą i wieloma dzierżawcami.
 
 ![To uprawnienie udziela dostęp do właściwości typu konta obsługiwana Rejestracja aplikacji na stronie uwierzytelniania](./media/roles-custom-available-permissions/supported-account-types.png)
 
@@ -139,7 +139,7 @@ Możliwość aktualizowania certyfikatów i właściwości tajnych klienta w apl
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>Microsoft. Directory/Applications. weborganization/Credentials/Update
 
-Przyznaje takie same uprawnienia, jak Microsoft. Directory/Applications/Credentials/Update, ale tylko w przypadku aplikacji z jednym katalogiem.
+Przyznaje takie same uprawnienia, jak Microsoft. Directory/Applications/Credentials/Update, ale tylko w przypadku aplikacji z jedną dzierżawą.
 
 #### <a name="microsoftdirectoryapplicationsownersupdate"></a>Microsoft. Directory/Applications/Owners/Update
 

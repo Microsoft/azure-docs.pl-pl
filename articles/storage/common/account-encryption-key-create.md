@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d60a6f9032a39ab4889ce0db154739c5cb3b540b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 726be3f0f8402404d0154336aaf7d5f09fefec10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070500"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967470"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Utwórz konto, które obsługuje klucze zarządzane przez klienta dla tabel i kolejek
 
-Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Domyślnie usługa queue storage i Table Storage używają klucza, który jest objęty zakresem usługi i jest zarządzany przez firmę Microsoft. Możesz również wybrać użycie kluczy zarządzanych przez klienta do szyfrowania danych z kolejki lub tabeli. Aby używać kluczy zarządzanych przez klienta z kolejkami i tabelami, należy najpierw utworzyć konto magazynu używające klucza szyfrowania, który jest objęty zakresem konta, a nie z usługą. Po utworzeniu konta korzystającego z klucza szyfrowania konta dla danych z kolejki i tabeli można skonfigurować klucze zarządzane przez klienta w Azure Key Vault dla tego konta magazynu.
+Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Domyślnie usługa queue storage i Table Storage używają klucza, który jest objęty zakresem usługi i jest zarządzany przez firmę Microsoft. Możesz również wybrać użycie kluczy zarządzanych przez klienta do szyfrowania danych z kolejki lub tabeli. Aby używać kluczy zarządzanych przez klienta z kolejkami i tabelami, należy najpierw utworzyć konto magazynu używające klucza szyfrowania, który jest objęty zakresem konta, a nie z usługą. Po utworzeniu konta, które korzysta z klucza szyfrowania konta dla danych z kolejki i tabeli, można skonfigurować klucze zarządzane przez klienta dla tego konta magazynu.
 
 W tym artykule opisano sposób tworzenia konta magazynu, które opiera się na kluczu, który jest objęty zakresem konta. Po pierwszym utworzeniu konta firma Microsoft używa klucza konta do szyfrowania danych na koncie, a firma Microsoft zarządza kluczem. Następnie można skonfigurować klucze zarządzane przez klienta dla konta, aby skorzystać z tych korzyści, w tym z możliwością udostępnienia własnych kluczy, zaktualizowania wersji klucza, obrócenia kluczy i odwołaniu kontroli dostępu.
 
@@ -62,7 +62,7 @@ az feature register --namespace Microsoft.Storage \
 
 # <a name="template"></a>[Szablon](#tab/template)
 
-Nie dotyczy
+Brak
 
 ---
 
@@ -94,7 +94,7 @@ az feature show --namespace Microsoft.Storage \
 
 # <a name="template"></a>[Szablon](#tab/template)
 
-Nie dotyczy
+Brak
 
 ---
 
@@ -120,7 +120,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 # <a name="template"></a>[Szablon](#tab/template)
 
-Nie dotyczy
+Brak
 
 ---
 
@@ -215,11 +215,7 @@ Poniższy przykład JSON tworzy konto magazynu ogólnego przeznaczenia w wersji 
 
 ---
 
-Po utworzeniu konta, które opiera się na kluczu szyfrowania konta, zobacz jeden z następujących artykułów, aby skonfigurować klucze zarządzane przez klienta w Azure Key Vault:
-
-- [Skonfiguruj klucze zarządzane przez klienta za pomocą usługi Azure Key Vault przy użyciu witryny Azure Portal](storage-encryption-keys-portal.md)
-- [Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault przy użyciu programu PowerShell](storage-encryption-keys-powershell.md)
-- [Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](storage-encryption-keys-cli.md)
+Po utworzeniu konta, które opiera się na kluczu szyfrowania konta, można skonfigurować klucze zarządzane przez klienta, które są przechowywane w Azure Key Vault lub w Key Vault zarządzanym modelu zabezpieczeń sprzętu (HSM) (wersja zapoznawcza). Aby dowiedzieć się, jak przechowywać klucze zarządzane przez klienta w magazynie kluczy, zobacz [Konfigurowanie szyfrowania z kluczami zarządzanymi przez klienta, które są przechowywane w Azure Key Vault](customer-managed-keys-configure-key-vault.md). Aby dowiedzieć się, jak przechowywać klucze zarządzane przez klienta w zarządzanym module HSM, zobacz [Konfigurowanie szyfrowania z kluczami zarządzanymi przez klienta przechowywanych w Azure Key Vault zarządzanym module HSM (wersja zapoznawcza)](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## <a name="verify-the-account-encryption-key"></a>Weryfikowanie klucza szyfrowania konta
 
@@ -248,11 +244,12 @@ az storage account show /
 
 # <a name="template"></a>[Szablon](#tab/template)
 
-Nie dotyczy
+Brak
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](storage-service-encryption.md) 
+- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](storage-service-encryption.md)
+- [Klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage](customer-managed-keys-overview.md)
 - [Co to jest Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

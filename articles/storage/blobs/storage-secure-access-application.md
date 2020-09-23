@@ -11,12 +11,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: e7dca9224fd213178aa9cee3a284f1eba39fb4fc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d11fada41d0152b44be6cb0cdef41e68808689b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001177"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967522"
 ---
 # <a name="secure-access-to-application-data"></a>Bezpieczny dostęp do danych aplikacji
 
@@ -160,7 +160,7 @@ W poprzednim zadaniu użyto następujących klas, właściwości i metod:
 
 [Szyfrowanie usługi Azure Storage](../common/storage-service-encryption.md) pomaga chronić dane i zabezpieczać je, szyfrując dane przechowywane i obsługując szyfrowanie i odszyfrowywanie. Wszystkie dane są szyfrowane za pomocą 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych.
 
-Możesz wybrać opcję posiadania przez firmę Microsoft zarządzania kluczami szyfrowania lub można przenieść własne klucze z kluczami zarządzanymi przez klienta za pomocą Azure Key Vault. Aby uzyskać więcej informacji, zobacz [Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage](../common/encryption-customer-managed-keys.md).
+Możesz wybrać opcję posiadania przez firmę Microsoft zarządzania kluczami szyfrowania lub można przenieść własne klucze z kluczami zarządzanymi przez klienta w Azure Key Vault lub Key Vault zarządzanym sprzętowym modelem zabezpieczeń (HSM) (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage](../common/customer-managed-keys-overview.md).
 
 Szyfrowanie usługi Azure Storage automatycznie szyfruje dane we wszystkich warstwach wydajności (standard i Premium), wszystkich modelach wdrażania (Azure Resource Manager i klasyczny) oraz wszystkich usługach Azure Storage (obiektów blob, kolejek, tabel i plików).
 
@@ -184,7 +184,7 @@ Teraz, gdy wymagany jest bezpieczny transfer, otrzymasz następujący komunikat:
 HTTP/1.1 400 The account being accessed does not support http.
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W trzeciej części serii przedstawiono, sposób zabezpieczania dostępu do konta magazynu, w tym następujące czynności:
 

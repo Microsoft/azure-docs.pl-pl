@@ -1,19 +1,19 @@
 ---
 title: Narzędzia do oceny wydajności w systemie Linux
 titleSuffix: Azure Kubernetes Service
-description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzystaniem z usługi Azure Kubernetes Service (AKS)
+description: Dowiedz się, jak rozwiązywać typowe problemy podczas korzystania z usługi Azure Kubernetes Service (AKS) przy użyciu narzędzi do oceny wydajności systemu Linux.
 services: container-service
 author: alexeldeib
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
-ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74f65780594c7bc938ed6d59437473c4363e5848
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77925607"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982039"
 ---
 # <a name="linux-performance-troubleshooting"></a>Rozwiązywanie problemów z wydajnością systemu Linux
 
@@ -62,7 +62,7 @@ $ dmesg --level=err | tail
 
 dmesg zrzuca bufor jądra. Zdarzenia, takie jak OOMKill, dodają wpis do buforu jądra. Znajdowanie OOMKill lub innych komunikatów wyczerpania zasobów w dziennikach dmesg jest silnym wskaźnikiem problemu.
 
-### <a name="top"></a>top
+### <a name="top"></a>top (pierwsze)
 
 ```
 $ top
@@ -78,13 +78,13 @@ KiB Swap:        0 total,        0 free,        0 used. 62739060 avail Mem
      ...
 ```
 
-`top`zawiera szeroki przegląd bieżącego stanu systemu. Nagłówki zawierają przydatne informacje zagregowane:
+`top` zawiera szeroki przegląd bieżącego stanu systemu. Nagłówki zawierają przydatne informacje zagregowane:
 
 - stan zadań: uruchomiony, uśpiony, zatrzymany.
 - Użycie procesora CPU w tym przypadku przede wszystkim przedstawia czas bezczynności.
 - całkowita, bezpłatna i używana pamięć systemowa.
 
-`top`może pominąć procesy krótkotrwałe; alternatywy takie jak `htop` i `atop` zapewniają podobne interfejsy przy rozwiązywaniu niektórych wad.
+`top` może pominąć procesy krótkotrwałe; alternatywy takie jak `htop` i `atop` zapewniają podobne interfejsy przy rozwiązywaniu niektórych wad.
 
 ## <a name="cpu"></a>Procesor CPU
 
@@ -108,7 +108,7 @@ Linux 4.15.0-1064-azure (aks-main-10212767-vmss000001)  02/10/20        _x86_64_
 19:49:04       7    1.98    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   97.03
 ```
 
-`mpstat`drukuje podobne informacje o procesorze CPU, ale podzielone według wątku procesora CPU. Jednoczesne wyświetlanie wszystkich rdzeni może być przydatne do wykrywania wysoce niezrównoważonego użycia procesora CPU, na przykład gdy aplikacja jednowątkowa używa jednego rdzenia na 100%. Ten problem może być trudniejszy do zapamiętania, gdy jest zagregowany cały procesor CPU w systemie.
+`mpstat` drukuje podobne informacje o procesorze CPU, ale podzielone według wątku procesora CPU. Jednoczesne wyświetlanie wszystkich rdzeni może być przydatne do wykrywania wysoce niezrównoważonego użycia procesora CPU, na przykład gdy aplikacja jednowątkowa używa jednego rdzenia na 100%. Ten problem może być trudniejszy do zapamiętania, gdy jest zagregowany cały procesor CPU w systemie.
 
 ### <a name="vmstat"></a>vmstat
 
@@ -119,9 +119,9 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-`vmstat`zapewnia podobne informacje `mpstat` i `top` wylicza liczbę procesów oczekujących na procesor CPU (r Column), statystyk pamięci i procent czasu procesora CPU spędzony w każdym stanie pracy.
+`vmstat` zapewnia podobne informacje `mpstat` i `top` wylicza liczbę procesów oczekujących na procesor CPU (r Column), statystyk pamięci i procent czasu procesora CPU spędzony w każdym stanie pracy.
 
-## <a name="memory"></a>Memory (Pamięć)
+## <a name="memory"></a>Pamięć
 
 Pamięć to bardzo ważne i Thankfully, które umożliwiają śledzenie. Niektóre narzędzia mogą raportować zarówno procesor, jak i pamięć, na przykład `vmstat` . Jednak narzędzia takie jak `free` nadal mogą być przydatne do szybkiego debugowania.
 
@@ -134,7 +134,7 @@ Mem:          64403        2338       42485           1       19579       61223
 Swap:             0           0           0
 ```
 
-`free`przedstawia podstawowe informacje o całkowitej ilości pamięci oraz używanej i wolnej pamięci. `vmstat`może być bardziej użyteczna nawet w przypadku podstawowej analizy pamięci z powodu jej zdolności do dostarczania danych wyjściowych.
+`free` przedstawia podstawowe informacje o całkowitej ilości pamięci oraz używanej i wolnej pamięci. `vmstat` może być bardziej użyteczna nawet w przypadku podstawowej analizy pamięci z powodu jej zdolności do dostarczania danych wyjściowych.
 
 ## <a name="disk"></a>Dysk
 
@@ -157,21 +157,21 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat`zapewnia szczegółowe informacje o wykorzystaniu dysku. To wywołanie przekazuje `-x` szczegółowe dane statystyczne, `-y` Aby pominąć średnią orednią systemu drukowania wyjściowego od rozruchu i `1 1` określić, że chcemy 1 sekundowy interwał, kończąc po jednym bloku danych wyjściowych. 
+`iostat` zapewnia szczegółowe informacje o wykorzystaniu dysku. To wywołanie przekazuje `-x` szczegółowe dane statystyczne, `-y` Aby pominąć średnią orednią systemu drukowania wyjściowego od rozruchu i `1 1` określić, że chcemy 1 sekundowy interwał, kończąc po jednym bloku danych wyjściowych. 
 
-`iostat`uwidacznia wiele przydatnych statystyk:
+`iostat` uwidacznia wiele przydatnych statystyk:
 
-- `r/s`i `w/s` są odczytami na sekundę i zapisu na sekundę. Suma tych wartości to IOPS.
-- `rkB/s`i `wkB/s` są kilobajtami do odczytu/zapisu na sekundę. Suma tych wartości jest przepływność.
-- `await`to średni czas iowait w milisekundach dla żądań umieszczonych w kolejce.
-- `avgqu-sz`jest średnim rozmiarem kolejki w podanym interwale.
+- `r/s` i `w/s` są odczytami na sekundę i zapisu na sekundę. Suma tych wartości to IOPS.
+- `rkB/s` i `wkB/s` są kilobajtami do odczytu/zapisu na sekundę. Suma tych wartości jest przepływność.
+- `await` to średni czas iowait w milisekundach dla żądań umieszczonych w kolejce.
+- `avgqu-sz` jest średnim rozmiarem kolejki w podanym interwale.
 
 Na maszynie wirtualnej platformy Azure:
 
 - suma `r/s` i `w/s` dla poszczególnych urządzeń blokujących nie może przekroczyć limitów jednostek SKU tego dysku.
-- suma `rkB/s` i `wkB/s` dla poszczególnych urządzeń blokujących nie może przekroczyć limitów jednostek SKU tego dysku
+- suma `rkB/s` i `wkB/s`  dla poszczególnych urządzeń blokujących nie może przekroczyć limitów jednostek SKU tego dysku
 - suma `r/s` i `w/s` dla wszystkich urządzeń blokujących nie może przekroczyć limitów dla jednostki SKU maszyny wirtualnej.
-- suma `rkB/s` i "wkB/s" dla wszystkich zablokowanych urządzeń nie może przekraczać limitów dla jednostki SKU maszyny wirtualnej.
+- suma  `rkB/s` i "wkB/s" dla wszystkich zablokowanych urządzeń nie może przekraczać limitów dla jednostki SKU maszyny wirtualnej.
 
 Należy zauważyć, że dysk systemu operacyjnego jest liczony jako dysk zarządzany o najmniejszej jednostce SKU odpowiadającej jej pojemności. Na przykład dysk systemu operacyjnego 1024GB odnosi się do dysku P30. Stałe dyski systemu operacyjnego i dyski tymczasowe nie mają indywidualnych limitów dysku; są one ograniczone tylko przez pełne limity maszyn wirtualnych.
 
@@ -199,10 +199,10 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar`jest zaawansowanym narzędziem do szerokiego zakresu analizy. Chociaż w tym przykładzie wykorzystuje ona możliwości mierzenia statystyk sieci, jest to równie wydajne dla mierzenia zużycia procesora i pamięci. Ten przykład wywołuje `sar` przy użyciu `-n` flagi, aby określić `DEV` słowo kluczowe (urządzenie sieciowe), wyświetlając przepływność sieci według urządzenia.
+`sar` jest zaawansowanym narzędziem do szerokiego zakresu analizy. Chociaż w tym przykładzie wykorzystuje ona możliwości mierzenia statystyk sieci, jest to równie wydajne dla mierzenia zużycia procesora i pamięci. Ten przykład wywołuje `sar` przy użyciu `-n` flagi, aby określić `DEV` słowo kluczowe (urządzenie sieciowe), wyświetlając przepływność sieci według urządzenia.
 
 - Suma `rxKb/s` i `txKb/s` jest całkowitą przepływność dla danego urządzenia. Gdy ta wartość przekroczy limit aprowizacji kart sieciowych platformy Azure, obciążenia na maszynie będą zwiększone do opóźnienia sieci.
-- `%ifutil`mierzy wykorzystanie dla danego urządzenia. Ponieważ ta wartość zbliża się do 100%, obciążenia będą powodować zwiększone opóźnienia sieci.
+- `%ifutil` mierzy wykorzystanie dla danego urządzenia. Ponieważ ta wartość zbliża się do 100%, obciążenia będą powodować zwiększone opóźnienia sieci.
 
 ```
 $ sar -n TCP,ETCP [interval]
@@ -323,4 +323,4 @@ IpExt:
     InECT0Pkts: 14
 ```
 
-`netstat`może Introspect szeroką gamę statystyk sieci w tym miejscu z podsumowaniem danych wyjściowych. W zależności od tego problemu istnieje wiele przydatnych pól. Jednym z przydatnych pól w sekcji TCP jest "nieudane próby połączenia". Może to wskazywać na wyczerpanie portów lub inne problemy związane z ruchem wychodzącym. Wysoka szybkość przesyłania segmentów (również w sekcji TCP) może wskazywać na problemy z dostarczaniem pakietów. 
+`netstat` może Introspect szeroką gamę statystyk sieci w tym miejscu z podsumowaniem danych wyjściowych. W zależności od tego problemu istnieje wiele przydatnych pól. Jednym z przydatnych pól w sekcji TCP jest "nieudane próby połączenia". Może to wskazywać na wyczerpanie portów lub inne problemy związane z ruchem wychodzącym. Wysoka szybkość przesyłania segmentów (również w sekcji TCP) może wskazywać na problemy z dostarczaniem pakietów. 

@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie replikacji do usługi Azure SQL Edge (wersja zapoznawcza)
-description: Dowiedz się więcej o konfigurowaniu replikacji do usługi Azure SQL Edge (wersja zapoznawcza).
+title: Konfigurowanie replikacji do usługi Azure SQL Edge
+description: Dowiedz się więcej o konfigurowaniu replikacji do usługi Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282776"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888423"
 ---
-# <a name="configure-replication-to-azure-sql-edge-preview"></a>Konfigurowanie replikacji do usługi Azure SQL Edge (wersja zapoznawcza) 
+# <a name="configure-replication-to-azure-sql-edge"></a>Konfigurowanie replikacji do usługi Azure SQL Edge 
 
 Można skonfigurować wystąpienie usługi Azure SQL Edge jako subskrybent wypychany dla jednokierunkowej replikacji transakcyjnej lub replikacji migawek. To wystąpienie nie może działać jako Wydawca lub dystrybutor dla konfiguracji replikacji transakcyjnej. Należy pamiętać, że usługa Azure SQL Edge nie obsługuje replikacji scalającej, replikacji równorzędnej lub publikacji firmy Oracle.
 

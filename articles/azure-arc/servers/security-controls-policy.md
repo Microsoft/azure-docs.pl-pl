@@ -1,19 +1,19 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla serwerów z obsługą usługi Azure ARC (wersja zapoznawcza)
 description: Wyświetla listę kontroli zgodności z przepisami Azure Policy dostępnych dla serwerów z włączonym usługą Azure ARC (wersja zapoznawcza). Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 9e8aadf62cfad9a5f45bd6f143d583f8a75f4ea5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 5a53a6973a960da2c61d79580806c477961cd468
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015767"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967133"
 ---
-# <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-for-servers"></a>Azure Policy kontroli zgodności z przepisami dla usługi Azure ARC dla serwerów
+# <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-enabled-servers"></a>Azure Policy kontroli zgodności z przepisami dla serwerów z obsługą usługi Azure Arc
 
-[Zgodność z przepisami w Azure Policy](../../governance/policy/concepts/regulatory-compliance.md) zapewnia definicje inicjatywy utworzone i zarządzane przez firmę Microsoft, znane jako _wbudowane_, dla **domen zgodności** i **kontroli zabezpieczeń** związanych z różnymi standardami zgodności. Ta strona zawiera listę **domen zgodności** i **kontroli zabezpieczeń** dla serwerów z obsługą usługi Azure ARC (wersja zapoznawcza). Wbudowane elementy **kontroli zabezpieczeń** można przypisać indywidualnie, aby zapewnić zgodność zasobów platformy Azure z określonym standardem.
+[Zgodność z przepisami w Azure Policy](../../governance/policy/concepts/regulatory-compliance.md) zapewnia definicje inicjatywy utworzone i zarządzane przez firmę Microsoft, znane jako _wbudowane_, dla **domen zgodności** i **kontroli zabezpieczeń** związanych z różnymi standardami zgodności. Ta strona zawiera listę **domen zgodności** i **kontroli zabezpieczeń** dla serwerów z obsługą usługi Azure Arc. Wbudowane elementy **kontroli zabezpieczeń** można przypisać indywidualnie, aby zapewnić zgodność zasobów platformy Azure z określonym standardem.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 
