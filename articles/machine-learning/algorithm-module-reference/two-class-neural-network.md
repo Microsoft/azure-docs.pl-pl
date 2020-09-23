@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 4270e4c71cca28d43b1ecbaca1ec0f262251252b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ad4fc575a6e9d07e4e24c2d570f68edbbea46c3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137607"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907683"
 ---
 # <a name="two-class-neural-network-module"></a>Dwuklasowy moduł sieci neuronowych
 
-W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Ten moduł służy do tworzenia modelu sieci neuronowych, który może służyć do przewidywania elementu docelowego, który ma tylko dwie wartości.
 

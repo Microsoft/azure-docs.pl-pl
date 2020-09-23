@@ -1,0 +1,143 @@
+### YamlMime:Landing
+title: Dokumentacja pojedynczego serwera
+summary: Azure Database for MySQL — pojedynczy serwer jest usługą relacyjnej bazy danych obsługiwaną przez program MySQL Community Edition.  Jest to w pełni zarządzana baza danych oferowana jako usługa, która może obsługiwać obciążenia o krytycznym znaczeniu — z przewidywalną wydajnością i dynamiczną skalowalnością. Dowiedz się, jak używać pojedynczego serwera, korzystając z przewodników Szybki start, samouczków i przykładów.
+metadata:
+  description: Azure Database for MySQL — pojedynczy serwer jest usługą relacyjnej bazy danych w chmurze firmy Microsoft utworzoną dla deweloperów i obsługiwaną przez program MySQL Community Edition.
+  author: mksuni
+  ms.author: sumuth
+  ms.date: 09/20/2020
+  ms.service: mysql
+  ms.topic: landing-page
+  ms.openlocfilehash: a9ddd354a97578c5b83455fc6d709d5c2d60494f
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928940"
+landingContent:
+- title: Informacje o pojedynczym serwerze
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest pojedynczy serwer?
+      url: ../concepts-servers.md
+  - linkListType: whats-new
+    links:
+    - text: Zapoznaj się z naszym blogiem
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie serwera przy użyciu witryny Azure Portal
+      url: ../quickstart-create-mysql-server-database-using-azure-portal.md
+    - text: Tworzenie serwera przy użyciu interfejsu wiersza polecenia platformy Azure
+      url: ../quickstart-create-mysql-server-database-using-azure-cli.md
+  - linkListType: concept
+    links:
+    - text: Omówienie warstw cenowych
+      url: ../concepts-pricing-tiers.md
+    - text: Poznawanie ograniczeń
+      url: ../concepts-limits.md
+    - text: Omówienie obsługiwanych wersji programu MySQL
+      url: ../concepts-supported-versions.md
+    - text: Planowanie na potrzeby wysokiej dostępności
+      url: ../concepts-high-availability.md
+  - linkListType: tutorial
+    links:
+    - text: Projektowanie bazy danych dla pojedynczego serwera
+      url: ../tutorial-design-database-using-portal.md
+    - text: Wdrażanie oprogramowania WordPress w usłudze Web App for Containers przy użyciu programu MySQL
+      url: ../../app-service/tutorial-multi-container-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+    - text: Tworzenie aplikacji internetowej w języku PHP (Laravel) przy użyciu programu MySQL
+      url: ../../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+- title: Nawiązywanie połączeń i wykonywanie zapytań
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Omówienie zapory
+      url: ../concepts-firewall-rules.md
+    - text: Omówienie protokołu SSL
+      url: ../concepts-ssl-connection-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Tworzenie reguł zapory
+      url: ../howto-manage-firewall-using-portal.md
+    - text: Konfigurowanie łączności SSL
+      url: ../howto-configure-ssl.md
+    - text: Rozwiązywanie problemów z połączeniem
+      url: ../howto-troubleshoot-common-connection-issues.md
+  - linkListType: get-started
+    links:
+    - text: Łączenie przy użyciu programu MySQL Workbench
+      url: ../connect-workbench.md
+    - text: Łączenie przy użyciu języka PHP
+      url: ../connect-php.md
+    - text: Łączenie przy użyciu języka Java
+      url: ../connect-java.md
+    - text: Łączenie przy użyciu platformy .NET
+      url: ../connect-csharp.md
+    - text: Łączenie przy użyciu języka Python
+      url: ../connect-python.md
+    - text: Łączenie przy użyciu środowiska Node.js
+      url: ../connect-nodejs.md
+- title: Migrowanie danych i zarządzanie nimi
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Informacje o parametrach serwerów
+      url: ../concepts-server-parameters.md
+    - text: Omówienie sieci wirtualnych
+      url: ../concepts-data-access-and-security-vnet.md
+    - text: Włączanie monitorowania
+      url: ../concepts-monitoring.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurowanie parametrów serwera
+      url: ../howto-server-parameters.md
+    - text: Migrowanie przy użyciu usługi Data Migration Service
+      url: ../howto-migrate-online.md
+    - text: Migrowanie metodą zrzutu i przywracania
+      url: ../concepts-migrate-dump-restore.md
+    - text: Migrowanie metodą importu i eksportu
+      url: ../concepts-migrate-import-export.md
+- title: Ciągłość działalności biznesowej
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Ciągłość działalności biznesowej
+      url: ../concepts-business-continuity.md
+    - text: Tworzenie kopii zapasowej i przywracanie
+      url: ../concepts-backup.md
+    - text: Replikacja wejściowa danych
+      url: ../concepts-data-in-replication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurowanie replikacji wejściowej danych
+      url: ../howto-data-in-replication.md
+    - text: Przywracanie serwera przy użyciu witryny Azure Portal
+      url: ../howto-restore-server-portal.md
+    - text: Przywracanie serwera przy użyciu witryny Azure Portal
+      url: ../howto-restore-server-cli.md
+- title: Dokumentacja
+  linkLists:
+  - linkListType: download
+    links:
+    - text: MySQL Workbench
+      url: https://www.mysql.com/products/workbench
+    - text: Łącznik .NET programu MySQL
+      url: https://dev.mysql.com/doc/connector-net/en/
+  - linkListType: deploy
+    links:
+    - text: Skrypty interfejsu wiersza polecenia platformy Azure dla typowych zadań
+      url: /azure/mysql/sample-scripts-azure-cli
+    - text: Szablony usługi Azure Resource Manager
+      url: /azure/templates/microsoft.dbformysql/allversions
+  - linkListType: reference
+    links:
+    - text: Dokumentacja programistyczna interfejsu wiersza polecenia platformy Azure
+      url: /cli/azure/mysql
+    - text: Dokumentacja programistyczna interfejsu API REST
+      url: /rest/api/mysql/
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.mysql

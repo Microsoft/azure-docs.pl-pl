@@ -12,12 +12,12 @@ ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b756e83f1d810007e9e9ef6cf2987c3cf60b7f7d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ad04566699b2eebb0cbd7a9f242de38bc75e2015
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852858"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986406"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Pozyskiwanie danych przy użyciu usługi Azure Data Factory
 
@@ -35,7 +35,7 @@ Istnieje kilka typowych technik używania Azure Data Factory do przekształcania
 
 ## <a name="adf-with-azure-functions"></a>ADF za pomocą usługi Azure Functions
 
-![ADF — funkcja](media/how-to-data-ingest-adf/adf-function.png)
+![Diagram przedstawia potok Azure Data Factory przy użyciu funkcji platformy Azure i uruchamiania potoku M L oraz potoku Azure Machine Learning, z modelem uczenia oraz z możliwością współdziałania z danymi pierwotnymi i przygotowanymi danymi.](media/how-to-data-ingest-adf/adf-function.png)
 
 Azure Functions umożliwia uruchamianie małych fragmentów kodu (funkcji) bez obaw o infrastrukturę aplikacji. W tej opcji dane są przetwarzane z niestandardowym kodem w języku Python opakowanym w funkcję platformy Azure. 
 
@@ -51,7 +51,7 @@ Funkcja jest wywoływana za pomocą [działania funkcji Azure ADF](https://docs.
 
 ## <a name="adf-with-custom-component-activity"></a>ADF z niestandardowym działaniem składników
 
-![ADF — customcomponent](media/how-to-data-ingest-adf/adf-customcomponent.png)
+![Diagram przedstawia potok Azure Data Factory, ze składnikiem niestandardowym i uruchomienie potoku M L oraz potok Azure Machine Learning, z modelem uczenia i sposób, w jaki współpracują z danymi pierwotnymi i przygotowane dane.](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
 W tej opcji dane są przetwarzane z niestandardowym kodem w języku Python opakowanym w plik wykonywalny. Jest wywoływana z [niestandardowym działaniem składnika ADF](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). To podejście jest lepszym rozwiązaniem w przypadku dużych ilości danych niż w przypadku poprzedniej techniki.
 
@@ -64,7 +64,7 @@ W tej opcji dane są przetwarzane z niestandardowym kodem w języku Python opako
 
 ## <a name="adf-with-azure-databricks-python-notebook"></a>ADF z notesem Azure Databricks Python
 
-![ADF — datakosteks](media/how-to-data-ingest-adf/adf-databricks.png)
+![Diagram przedstawia potok Azure Data Factory przy użyciu Azure Databricks języka Python i przebiegu M L oraz potok Azure Machine Learning z modelem uczenia i sposób, w jaki współpracują z danymi pierwotnymi i przygotowane dane.](media/how-to-data-ingest-adf/adf-databricks.png)
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) to oparta na Apache Spark platforma analityczna w chmurze firmy Microsoft.
 
@@ -82,7 +82,7 @@ W tej metodzie transformacja danych jest wykonywana przez Notes języka [Python]
 
 ## <a name="consuming-data-in-azure-machine-learning-pipelines"></a>Używanie danych w potokach Azure Machine Learning
 
-![AML — zestaw danych](media/how-to-data-ingest-adf/aml-dataset.png)
+![Diagram przedstawia potok Azure Data Factory i potok Azure Machine Learning i sposób współdziałania z danymi pierwotnymi i przygotowane dane. Potok Data Factory zbiera dane do przygotowanej bazy danych danych, która składa się z magazynu danych, w którym są dane, które są źródłami zbiorów w obszarze roboczym Machine Learning.](media/how-to-data-ingest-adf/aml-dataset.png)
 
 Przekształcone dane z potoku ADF są zapisywane w magazynie danych (na przykład w przypadku obiektów blob platformy Azure). Azure Machine Learning mogą uzyskiwać dostęp do tych danych przy użyciu [magazynów](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) i [zestawów danych](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 

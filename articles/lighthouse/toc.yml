@@ -101,6 +101,8 @@
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./samples/policy-reference.md
+    - name: Terraform
+      href: 'https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html'
 - name: Zasoby
   items:
     - name: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Lighthouse

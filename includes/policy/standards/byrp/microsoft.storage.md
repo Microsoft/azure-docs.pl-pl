@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a5912c9f06ace91e1eaf87837142855b7573983c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 137da740eb5556efbaedda3253c3f3b4b04b9903
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019766"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971074"
 ---
 ## <a name="azure-security-benchmark"></a>Test porównawczy zabezpieczeń platformy Azure
 

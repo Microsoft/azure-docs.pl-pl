@@ -1,6 +1,6 @@
 ---
 title: Zmienianie ustawień cyklu życia pakietu dostępu w usłudze Azure AD uprawnienia zarządzania — Azure Active Directory
-description: Dowiedz się, jak zmienić ustawienia cyklu życia pakietu dostępu w Azure Active Directory Zarządzanie uprawnieniami.
+description: Dowiedz się, jak zmienić informacje o żądającym & ustawienia cyklu życia dla pakietu dostępu Azure Active Directory zarządzania prawami.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,18 +16,21 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c628c3c1f11cb973176e7a689856b64177036c9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4fd119238476b842a4dba1efeec86544ca263920
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798702"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980096"
 ---
 # <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Zmienianie ustawień cyklu życia pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
 Jako Menedżer pakietów dostępu można zmienić ustawienia cyklu życia pakietu dostępu w dowolnym momencie, edytując istniejące zasady. Jeśli zmienisz datę wygaśnięcia zasad, Data wygaśnięcia żądań, które już oczekują na zatwierdzenie lub zatwierdzonego stanu, nie ulegnie zmianie.
 
 W tym artykule opisano sposób zmiany ustawień cyklu życia istniejącego pakietu dostępu.
+
+## <a name="open-requestor-information"></a>Otwórz informacje o żądającym
+Aby zapewnić użytkownikom prawidłowy dostęp do pakietu dostępu, pytania niestandardowe można skonfigurować w celu zadawania użytkownikom żądania dostępu do określonych pakietów dostępu. Opcje konfiguracji obejmują: lokalizacja, wymagane/opcjonalne oraz format odpowiedzi dla tekstu/wielokrotnego wyboru. Osoby żądające zobaczą pytania, gdy zażądają pakietu i osób zatwierdzających, aby ułatwić im podejmowanie decyzji. Wykonaj następujące kroki, aby skonfigurować pytania w pakiecie dostępu:
 
 ## <a name="open-lifecycle-settings"></a>Otwórz ustawienia cyklu życia
 

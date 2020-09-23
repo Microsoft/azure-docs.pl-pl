@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6c16aad9bb04ffb4cb4df52799d63f7ec2e19725
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9c635b01bcd04bd03191fca2590b0189bad0f544
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210840"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982020"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Dodawanie komunikatów do kolejki usługi Azure Storage przy użyciu funkcji
 
@@ -58,7 +58,7 @@ W tej sekcji dodasz kod służący do zapisywania komunikatu do kolejki wyjścio
 
 1. Zaktualizuj kod funkcji w zależności od języka funkcji:
 
-    # <a name="c"></a>[C\#](#tab/csharp)
+    # <a name="c"></a>[S\#](#tab/csharp)
 
     Dodaj parametr **outputQueueItem** do sygnatury metody, jak pokazano w poniższym przykładzie.
 
@@ -111,7 +111,7 @@ W tej sekcji dodasz kod służący do zapisywania komunikatu do kolejki wyjścio
 
 1. W obszarze **Ustawienia aplikacji**wybierz pozycję **AzureWebJobsStorage**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Znajdź konto magazynu połączone z usługą AzureWebJobsStorage." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Zrzut ekranu przedstawia stronę konfiguracji z wybraną pozycją AzureWebJobsStorage." border="true":::
 
 1. Znajdź i zanotuj nazwę konta.
 
@@ -127,7 +127,7 @@ W tej sekcji dodasz kod służący do zapisywania komunikatu do kolejki wyjścio
 
 1. Ponownie uruchom funkcję. W kolejce pojawi się nowy komunikat.  
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 

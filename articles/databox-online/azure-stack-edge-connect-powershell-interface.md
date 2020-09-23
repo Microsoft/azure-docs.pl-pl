@@ -1,6 +1,6 @@
 ---
-title: Nawiązywanie połączenia z urządzeniem Microsoft Azure Stack Edge i zarządzanie nim za pomocą interfejsu programu Windows PowerShell | Microsoft Docs
-description: Opisuje sposób nawiązywania połączenia z Azure Stack Edge i zarządzania nim za pomocą interfejsu programu Windows PowerShell.
+title: Łączenie i zarządzanie urządzeniem Microsoft Azure Stack EDGE Pro za pośrednictwem interfejsu programu Windows PowerShell | Microsoft Docs
+description: Opisuje sposób nawiązywania połączenia z usługą Azure Stack EDGE Pro za pomocą interfejsu programu Windows PowerShell i zarządzania nią.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 973c618b46d1b6be902d9629ca63ee120cae6855
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6b0fe7e9e096b252d33d25c4a70305e57d206b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313202"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894422"
 ---
-# <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Zarządzanie urządzeniem brzegowym Azure Stack za pomocą programu Windows PowerShell
+# <a name="manage-an-azure-stack-edge-pro-device-via-windows-powershell"></a>Zarządzanie urządzeniem z systemem Azure Stack Edge przy użyciu programu Windows PowerShell
 
-Rozwiązanie Azure Stack Edge pozwala na przetwarzanie danych i wysyłanie ich przez sieć do platformy Azure. W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem dla Azure Stack urządzenia brzegowego. Aby zarządzać urządzeniem, można użyć Azure Portal, lokalnego interfejsu użytkownika sieci Web lub interfejsu programu Windows PowerShell.
+Rozwiązanie Azure Stack EDGE Pro pozwala przetwarzać dane i wysyłać je za pośrednictwem sieci do platformy Azure. W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem dla urządzenia z Azure Stack Edge. Aby zarządzać urządzeniem, można użyć Azure Portal, lokalnego interfejsu użytkownika sieci Web lub interfejsu programu Windows PowerShell.
 
 Ten artykuł koncentruje się na zadaniach, które można wykonać za pomocą interfejsu programu PowerShell. 
 
@@ -43,7 +43,7 @@ Ten artykuł zawiera następujące procedury:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-Można również przekazać certyfikaty IoT Edge, aby umożliwić bezpieczne połączenie między urządzeniem IoT Edge i urządzeniami podrzędnymi, które mogą się z nim połączyć. Istnieją trzy IoT Edge certyfikaty (format*PEM* ), które należy zainstalować:
+Można również przekazać certyfikaty IoT Edge, aby umożliwić bezpieczne połączenie między urządzeniem IoT Edge i urządzeniami podrzędnymi, które mogą się z nim łączyć. Istnieją trzy IoT Edge certyfikaty (format*PEM* ), które należy zainstalować:
 
 - Certyfikat głównego urzędu certyfikacji lub urząd certyfikacji właściciela
 - Certyfikat urzędu certyfikacji urządzenia
@@ -94,4 +94,4 @@ Aby wyjść z zdalnej sesji programu PowerShell, Zamknij okno programu PowerShel
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Wdróż [Azure Stack Edge](azure-stack-edge-deploy-prep.md) w Azure Portal.
+- Wdróż [Azure Stack EDGE Pro](azure-stack-edge-deploy-prep.md) w Azure Portal.

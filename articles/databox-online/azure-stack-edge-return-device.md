@@ -1,6 +1,6 @@
 ---
-title: Zwróć urządzenie Azure Stack Edge | Microsoft Docs
-description: Dowiedz się, jak wyczyścić dane i zwrócić Azure Stack Urządzenie brzegowe, a następnie usunąć zasób skojarzony z urządzeniem.
+title: Zwróć urządzenie Azure Stack Edge w firmie Pro | Microsoft Docs
+description: Dowiedz się, jak wyczyścić dane i zwrócić urządzenie Azure Stack EDGE Pro, a następnie usuń zasób skojarzony z urządzeniem.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,23 +8,23 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: aa917361ad3c967a697421e86d232e1a206c403e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 730774f33d43754d4ca198ed170159fa4f872e09
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923955"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903672"
 ---
-# <a name="return-your-azure-stack-edge-device"></a>Zwracanie urządzenia Azure Stack Edge
+# <a name="return-your-azure-stack-edge-pro-device"></a>Zwróć urządzenie Azure Stack Edge w wersji Pro
 
-W tym artykule opisano sposób czyszczenia danych, a następnie zwrócenia urządzenia Azure Stack Edge. Po zwróceniu urządzenia można także usunąć zasób skojarzony z urządzeniem.
+W tym artykule opisano sposób czyszczenia danych, a następnie zwrócenia urządzenia z usługą Azure Stack EDGE Pro. Po zwróceniu urządzenia można także usunąć zasób skojarzony z urządzeniem.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
 >
 > * Czyszczenie danych z dysków z danymi na urządzeniu
-> * Inicjowanie powrotu urządzenia w Azure Portal
+> * Inicjowanie zwrotu urządzenia w witrynie Azure Portal
 > * Pakowanie urządzenia i planowanie odbioru
 > * Usuń zasób w Azure Portal
 
@@ -59,7 +59,7 @@ Alternatywnie można nawiązać połączenie z interfejsem programu PowerShell u
 
 Aby rozpocząć proces powrotu, wykonaj następujące czynności.
 
-1. Przejdź do zasobu Azure Stack Edge/Data Box Gateway w Azure Portal. W oknie **Przegląd**przejdź do paska poleceń w okienku po prawej stronie i wybierz pozycję **Zwróć urządzenie**. 
+1. Przejdź do zasobu Azure Stack EDGE Pro/Data Box Gateway w Azure Portal. W oknie **Przegląd**przejdź do paska poleceń w okienku po prawej stronie i wybierz pozycję **Zwróć urządzenie**. 
 
     ![Zwróć urządzenie 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -90,11 +90,11 @@ Aby rozpocząć proces powrotu, wykonaj następujące czynności.
 
     ![Zwróć urządzenie 4](media/azure-stack-edge-return-device/return-device-4.png) 
 
-6. Po przechwyceniu szczegółowych informacji na urządzeniu można powiadomić zespół operacji Azure Stack Edge za pośrednictwem poczty e-mail. Możesz użyć aplikacji poczty e-mail przy założeniu, że aplikacja poczty e-mail jest zainstalowana i skonfigurowana. Możesz również skopiować dane, aby utworzyć i wysłać wiadomość e-mail.
+6. Po przechwyceniu szczegółowych informacji na urządzeniu można powiadomić zespół operacji w programie Azure Stack Edge z pomocą poczty e-mail. Możesz użyć aplikacji poczty e-mail przy założeniu, że aplikacja poczty e-mail jest zainstalowana i skonfigurowana. Możesz również skopiować dane, aby utworzyć i wysłać wiadomość e-mail.
 
     ![Zwróć urządzenie 5](media/azure-stack-edge-return-device/return-device-5.png) 
 
-7. Po otrzymaniu wiadomości e-mail przez zespół operacji Azure Stack Edge zostanie wysłana etykieta wysłanej przesyłki. Po otrzymaniu tej etykiety można zaplanować odbiór urządzenia za pomocą operatora. 
+7. Po otrzymaniu wiadomości e-mail przez zespół operacyjny programu Azure Stack Edge Po otrzymaniu tej etykiety można zaplanować odbiór urządzenia za pomocą operatora. 
 
 ## <a name="schedule-a-pickup"></a>Planowanie odbioru
 
@@ -111,20 +111,20 @@ Aby zaplanować odbiór, wykonaj następujące czynności.
     2. W wywołaniu Zadzwoń na numer śledzenia wycofywania przesyłki, jak pokazano na wydrukowanej etykiecie.
     3. Jeśli numer śledzenia nie jest ujęty w cudzysłów, zasilacz UPS będzie wymagał dodatkowej opłaty podczas odbioru.
 
-    Zamiast planowania odbioru, można również wycofać Azure Stack krawędź w najbliższej lokalizacji docelowej.
+    Zamiast planowania pobrania można również wycofać Azure Stack krawędY Pro w najbliższej lokalizacji docelowej.
 
 ## <a name="delete-the-resource"></a>Usuń zasób
 
 Gdy urządzenie zostanie odebrane w centrum danych platformy Azure, urządzenie jest sprawdzane pod kątem uszkodzenia lub wszelkich oznak naruszenia.
 
-- Jeśli urządzenie zostanie nienaruszone i jest w dobrym kształcie, licznik rozliczeń zostanie zatrzymany dla tego zasobu. Zespół operacyjny Azure Stack Edge skontaktuje się z Tobą w celu potwierdzenia, że urządzenie zostało zwrócone. Następnie można usunąć zasób skojarzony z urządzeniem w Azure Portal.
+- Jeśli urządzenie zostanie nienaruszone i jest w dobrym kształcie, licznik rozliczeń zostanie zatrzymany dla tego zasobu. Zespół Operations Manager w Azure Stack Edge skontaktuje się z Tobą, aby upewnić się, że urządzenie zostało zwrócone. Następnie można usunąć zasób skojarzony z urządzeniem w Azure Portal.
 - Jeśli urządzenie dotrze do znacznego uszkodzenia, mogą wystąpić grzywny. Aby uzyskać szczegółowe informacje, zobacz [często zadawane pytania dotyczące zgubionych lub uszkodzonych urządzeń](https://azure.microsoft.com/pricing/details/databox/edge/) oraz [warunków użytkowania produktów](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 Urządzenie można usunąć w Azure Portal:
 
 - Po złożeniu zamówienia i przed przygotowaniem urządzenia przez firmę Microsoft.
-- Po dodaniu urządzenia do firmy Microsoft przejdzie ona do fizycznej kontroli w centrum danych platformy Azure, a Azure Stacky zespołu operacji brzegowych wzywa do potwierdzenia, że urządzenie zostało zwrócone.
+- Po dodaniu urządzenia do firmy Microsoft przejdzie ona do fizycznej kontroli w centrum danych platformy Azure, a usługa Azure Stack Edge w ramach zespołu ds. operacji w wersji brzegowej w celu potwierdzenia, że urządzenie zostało zwrócone.
 
 Jeśli urządzenie zostało aktywowane na inną subskrypcję lub lokalizację, firma Microsoft przeniesie zamówienie do nowej subskrypcji lub lokalizacji w ciągu jednego dnia roboczego. Po przeniesieniu zamówienia można usunąć ten zasób.
 
@@ -144,4 +144,4 @@ Po pomyślnym usunięciu urządzenia i skojarzonego z nim zasobu zostanie wyświ
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się [, jak uzyskać zamiennik Azure Stack urządzenia brzegowego](azure-stack-edge-replace-device.md).
+- Dowiedz się [, jak uzyskać zastępowanie Azure Stack Edge na urządzeniu](azure-stack-edge-replace-device.md).

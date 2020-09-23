@@ -10,21 +10,20 @@ author: saachigopal
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2289a761d4e266c305c2868e9f234871624ae528
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d90b56366cb22e80162983c982e861de608e4e9e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661317"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893122"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>Uczenie modelu przy użyciu niestandardowego obrazu platformy Docker
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, jak używać niestandardowego obrazu platformy Docker podczas uczenia modeli przy użyciu Azure Machine Learning. 
 
 Przykładowe skrypty w tym artykule służą do klasyfikowania obrazów PET przez utworzenie sieci neuronowych splotowych. 
 
-Mimo że Azure Machine Learning udostępnia domyślny obraz podstawowy platformy Docker, można także użyć środowiska Azure Machine Learning do określenia określonego obrazu podstawowego, takiego jak jeden z zestawu obsługiwanych [obrazów podstawowych platformy Azure ml](https://github.com/Azure/AzureML-Containers) lub własnego [obrazu niestandardowego](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image). Niestandardowe obrazy podstawowe umożliwiają dokładne zarządzanie zależnościami i utrzymuje ściślejszą kontrolę nad wersjami składników podczas wykonywania zadań szkoleniowych. 
+Mimo że Azure Machine Learning udostępnia domyślny obraz podstawowy platformy Docker, można także użyć środowiska Azure Machine Learning do określenia określonego obrazu podstawowego, takiego jak jeden z zestawu obsługiwanych [obrazów podstawowych platformy Azure ml](https://github.com/Azure/AzureML-Containers) lub własnego [obrazu niestandardowego](how-to-deploy-custom-docker-image.md#create-a-custom-base-image). Niestandardowe obrazy podstawowe umożliwiają dokładne zarządzanie zależnościami i utrzymuje ściślejszą kontrolę nad wersjami składników podczas wykonywania zadań szkoleniowych. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 Uruchom ten kod w dowolnym z następujących środowisk:
@@ -101,11 +100,11 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
 
 ### <a name="create-or-attach-existing-amlcompute"></a>Utwórz lub Dołącz istniejące AmlCompute
-Należy utworzyć [obiekt docelowy obliczeń](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#compute-target) do uczenia modelu. W tym samouczku utworzysz AmlCompute jako zasób obliczeniowy szkoleniowej.
+Należy utworzyć [obiekt docelowy obliczeń](concept-azure-machine-learning-architecture.md#compute-targets) do uczenia modelu. W tym samouczku utworzysz AmlCompute jako zasób obliczeniowy szkoleniowej.
 
 Tworzenie AmlCompute trwa około 5 minut. Jeśli AmlCompute o tej nazwie znajduje się już w obszarze roboczym, ten kod pominie proces tworzenia.
 
-Podobnie jak w przypadku innych usług platformy Azure, istnieją ograniczenia dotyczące niektórych zasobów (np. AmlCompute) skojarzonych z usługą Azure Machine Learning. Przeczytaj [ten artykuł](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas) zgodnie z domyślnymi limitami i zażądaj więcej przydziału. 
+Podobnie jak w przypadku innych usług platformy Azure, istnieją ograniczenia dotyczące niektórych zasobów (np. AmlCompute) skojarzonych z usługą Azure Machine Learning. Przeczytaj [ten artykuł](how-to-manage-quotas.md) zgodnie z domyślnymi limitami i zażądaj więcej przydziału. 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -132,7 +131,7 @@ print(compute_target.get_status().serialize())
 ```
 
 ### <a name="create-a-scriptrunconfig"></a>Utwórz ScriptRunConfig
-Ta ScriptRunConfig skonfiguruje zadanie do wykonania na żądanym [miejscu docelowym obliczeń](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets#compute-targets-for-training).
+Ta ScriptRunConfig skonfiguruje zadanie do wykonania na żądanym [miejscu docelowym obliczeń](how-to-set-up-training-targets.md).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -160,4 +159,4 @@ Aby uzyskać więcej informacji na temat dostosowywania środowiska języka Pyth
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule przeszkolony model przy użyciu niestandardowego obrazu platformy Docker. Zapoznaj się z innymi artykułami, aby dowiedzieć się więcej na temat Azure Machine Learning.
 * [Śledzenie metryk uruchamiania](how-to-track-experiments.md) podczas szkolenia
-* [Wdróż model](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image) przy użyciu niestandardowego obrazu platformy Docker.
+* [Wdróż model](how-to-deploy-custom-docker-image.md) przy użyciu niestandardowego obrazu platformy Docker.

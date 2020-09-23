@@ -1,18 +1,18 @@
 ---
 title: Omówienie agenta połączonej maszyny z systemem Windows
-description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC (wersja zapoznawcza), który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
-ms.date: 08/06/2020
+description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: d922652537034bef258c5bcde78fb178b092ed16
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 990b5999a8483c6417049ac5ab965843c2b13659
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212975"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908169"
 ---
-# <a name="overview-of-azure-arc-enabled-servers-preview-agent"></a>Przegląd serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) Agent
+# <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
-Agent połączonej maszyny z obsługą usługi Azure ARC (wersja zapoznawcza) umożliwia zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure w sieci firmowej lub w innym dostawcy chmury. Ten artykuł zawiera szczegółowe omówienie wymagań dotyczących agenta, systemu i sieci oraz różnych metod wdrażania.
+Agent połączonego komputera z usługą Azure Arc umożliwia zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure w sieci firmowej lub w innym dostawcy chmury. Ten artykuł zawiera szczegółowe omówienie wymagań dotyczących agenta, systemu i sieci oraz różnych metod wdrażania.
 
 ## <a name="agent-component-details"></a>Szczegóły składnika agenta
 
@@ -47,15 +47,11 @@ Agenta połączonego z platformą Azure dla systemów Windows i Linux można uak
 Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsługiwane dla agenta połączonego z platformą Azure: 
 
 - Windows Server 2012 R2 lub nowszy (w tym Windows Server Core)
-- Ubuntu 16,04 i 18,04 (x64)
+- Ubuntu 16,04 i 18,04 LTS (x64)
 - CentOS Linux 7 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
-
->[!NOTE]
->Ta wersja zapoznawcza agenta połączonej maszyny dla systemu Windows obsługuje tylko system Windows Server skonfigurowany do korzystania z języka angielskiego.
->
 
 ### <a name="required-permissions"></a>Wymagane uprawnienia
 
@@ -65,7 +61,7 @@ Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsług
 
 ### <a name="azure-subscription-and-service-limits"></a>Limity subskrypcji i usług platformy Azure
 
-Przed skonfigurowaniem maszyn przy użyciu serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) Przejrzyj limity [subskrypcji](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager i [grupy zasobów](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) , aby zaplanować liczbę maszyn, które mają być połączone.
+Przed skonfigurowaniem maszyn przy użyciu serwerów z obsługą usługi Azure Arc Przejrzyj limity [subskrypcji](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager i [limity grup zasobów](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) , aby zaplanować liczbę maszyn, które mają być połączone.
 
 ### <a name="transport-layer-security-12-protocol"></a>Protokół Transport Layer Security 1,2
 
@@ -105,7 +101,7 @@ Adresy URL w powyższej tabeli są wymagane oprócz informacji o zakresie adres�
 
 ### <a name="register-azure-resource-providers"></a>Rejestrowanie dostawców zasobów platformy Azure
 
-Serwery z obsługą usługi Azure ARC (wersja zapoznawcza) są zależne od następujących dostawców zasobów platformy Azure w ramach subskrypcji, aby można było korzystać z tej usługi:
+Serwery z obsługą usługi Azure Arc są zależne od następujących dostawców zasobów platformy Azure w ramach subskrypcji, aby można było korzystać z tej usługi:
 
 * **Microsoft. HybridCompute**
 * **Microsoft. GuestConfiguration**
@@ -248,4 +244,4 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane na
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć ocenianie serwerów z obsługą usługi Azure ARC (wersja zapoznawcza), wykonaj czynności opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal](onboard-portal.md).
+Aby rozpocząć ocenianie serwerów z obsługą usługi Azure ARC, wykonaj czynności opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal](onboard-portal.md).

@@ -7,14 +7,17 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 05107d0246be2273c09e91573bd30a4108ac7795
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cd10421ddcf752625b8040e1afa4e7b15f142ce2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290331"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885682"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapowanie istniejącej domeny niestandardowej na chmurę z platformą Azure
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
+
 Usługa nazw domen (DNS) to technika przechowywania nazw węzłów sieciowych w całej sieci. Ten samouczek mapuje domenę, taką jak www.contoso.com, przy użyciu rekordu CNAME. Zabezpiecza domenę niestandardową za pomocą certyfikatu i pokazuje, jak wymusić Transport Layer Security (TLS), znane także jako SSL (SSL). 
 
 Certyfikaty szyfrują ruch internetowy. Te certyfikaty TLS/SSL mogą być przechowywane w Azure Key Vault. 
@@ -35,7 +38,7 @@ Aby przekazać certyfikat do magazynu kluczy:
 1. W oknie dialogowym **Tworzenie certyfikatu** w obszarze **metoda tworzenia certyfikatu**wybierz opcję `Import` .
 1. W obszarze **Przekaż plik certyfikatu**przejdź do lokalizacji certyfikatu i wybierz ją.
 1. W obszarze **hasło**wprowadź klucz prywatny certyfikatu.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
     ![Importuj certyfikat 1](./media/custom-dns-tutorial/import-certificate-a.png)
 

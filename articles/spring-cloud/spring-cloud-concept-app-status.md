@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: e3ef202a1a98b8193b55bcc4c2cb616d4a2000d8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec87c5523d6f608363ca615037f20365705609df
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037767"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892865"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Informacje o stanie aplikacji w usłudze Azure Spring Cloud
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
 Interfejs użytkownika chmury wiosennej platformy Azure dostarcza informacje o stanie uruchomionych aplikacji.  Istnieje opcja **aplikacje** dla każdej grupy zasobów w subskrypcji, która wyświetla ogólny stan typów aplikacji.  Dla każdego typu aplikacji jest wyświetlane **wystąpienie aplikacji**.
 
@@ -32,7 +34,7 @@ Aby wyświetlić stan ogólny typu aplikacji, wybierz pozycję **aplikacje** w l
 
 | Wyliczenie | Definicja |
 |:--:|:----------------:|
-| Uruchomiono | Wdrożenie powinno być uruchomione. |
+| Uruchomienie | Wdrożenie powinno być uruchomione. |
 | Zatrzymano | Wdrożenie powinno zostać zatrzymane. |
 
 **Stan aprowizacji jest dostępny tylko w interfejsie wiersza polecenia.  Jest raportowany jako jedna z następujących wartości:**
@@ -41,7 +43,7 @@ Aby wyświetlić stan ogólny typu aplikacji, wybierz pozycję **aplikacje** w l
 |:--:|:----------------:|
 | Tworzenie | Tworzony jest zasób. |
 | Aktualizowanie | Zasób jest aktualizowany. |
-| Powodzenie | Pomyślnie dostarczono zasoby i wdrożono plik binarny. |
+| Sukces | Pomyślnie dostarczono zasoby i wdrożono plik binarny. |
 | Niepowodzenie | Nie można osiągnąć celu *zakończonego powodzeniem* . |
 | Usuwanie | Trwa usuwanie zasobu. Zapobiega to operacji, a zasób nie jest dostępny w tym stanie. |
 
@@ -58,7 +60,7 @@ Aby wyświetlić stan określonego wystąpienia wdrożonej aplikacji, kliknij **
 | Wyliczenie | Definicja |
 |:--:|:----------------:|
 | Uruchamianie | Plik binarny został pomyślnie wdrożony w danym wystąpieniu. Rozruch wystąpienia pliku JAR może się nie powieść, ponieważ nie można prawidłowo uruchomić systemu jar. |
-| Uruchomiono | Wystąpienie działa. |
+| Uruchomienie | Wystąpienie działa. |
 | Niepowodzenie | Uruchomienie przez wystąpienie aplikacji danych binarnych użytkownika po kilku próbach nie powiodło się. |
 | Zakończona | Trwa zamykanie wystąpienia aplikacji. |
 
@@ -72,4 +74,4 @@ Aby wyświetlić stan określonego wystąpienia wdrożonej aplikacji, kliknij **
 
 
 ## <a name="see-also"></a>Zobacz też
-* [Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej](spring-cloud-tutorial-prepare-app-deployment.md)
+* [Przygotowywanie aplikacji sprężynowej lub steeltoe na potrzeby wdrażania w chmurze Azure wiosennej](spring-cloud-tutorial-prepare-app-deployment.md)

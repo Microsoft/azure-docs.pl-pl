@@ -1,24 +1,24 @@
 ---
-title: Samouczek dotyczący konfigurowania certyfikatów dla Azure Stack urządzenia brzegowego z procesorem GPU w Azure Portal | Microsoft Docs
-description: Samouczek wdrażania Azure Stack Edge z procesorem GPU powoduje skonfigurowanie certyfikatów na urządzeniu fizycznym.
+title: Samouczek dotyczący konfigurowania certyfikatów dla urządzeń Azure Stack EDGE Pro z procesorem GPU w Azure Portal | Microsoft Docs
+description: Samouczek wdrażania Azure Stack EDGE Pro z procesorem GPU powoduje skonfigurowanie certyfikatów na urządzeniu fizycznym.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 80a857f80fd2c164637e591fbab43123659cd2f7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: 5be484c613c4a18e86df7b5a83f95ca75aec6077
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268180"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903332"
 ---
-# <a name="tutorial-configure-certificates-for-your-azure-stack-edge-with-gpu"></a>Samouczek: Konfigurowanie certyfikatów dla Azure Stack krawędzi z procesorem GPU
+# <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-with-gpu"></a>Samouczek: Konfigurowanie certyfikatów dla Azure Stack brzeg Pro z procesorem GPU
 
-W tym samouczku opisano sposób konfigurowania certyfikatów dla urządzenia brzegowego Azure Stack za pomocą dołączania procesora GPU przy użyciu lokalnego interfejsu użytkownika sieci Web.
+W tym samouczku opisano, jak skonfigurować certyfikaty dla urządzenia z programem Azure Stack EDGE Pro przy użyciu interfejsu GPU w sieci lokalnej.
 
 Czas poświęcony na ten krok może się różnić w zależności od wybranej opcji i sposobu ustanowienia przepływu certyfikatów w środowisku.
 
@@ -31,65 +31,80 @@ Ten samouczek zawiera informacje dotyczące:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack Edge z procesorem GPU upewnij się, że:
+Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack EDGE Pro przy użyciu procesora GPU upewnij się, że:
 
-* Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w temacie [Install Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+* Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w temacie [Install Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-install.md).
 * Jeśli planujesz przeprowadzenie własnych certyfikatów:
-    - Certyfikaty powinny być gotowe w odpowiednim formacie, łącznie z certyfikatem łańcucha podpisywania.
+    - Certyfikaty powinny być gotowe w odpowiednim formacie, łącznie z certyfikatem łańcucha podpisywania. Aby uzyskać szczegółowe informacje na temat certyfikatu, przejdź do obszaru [Zarządzanie certyfikatami](azure-stack-edge-j-series-manage-certificates.md)
+
 <!--    - If your device is deployed in Azure Government or Azure Government Secret or Azure Government top secret cloud and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
     For details on certificate, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md).-->
 
 
 ## <a name="configure-certificates-for-device"></a>Konfigurowanie certyfikatów dla urządzenia
 
-
-1. Na kafelku **zabezpieczenia** wybierz pozycję **Konfiguruj** dla certyfikatów. 
-
-    ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)
-
-2. W zależności od tego, czy zmieniono nazwę urządzenia lub domenę DNS na kafelku **Konfiguracja urządzenia** , można wybrać jedną z następujących opcji certyfikatów.
+1. Na stronie **Certyfikaty** skonfigurujesz certyfikaty. W zależności od tego, czy zmieniono nazwę urządzenia lub domenę DNS na stronie **urządzenia** , można wybrać jedną z następujących opcji certyfikatów.
 
     - Jeśli nie zmieniono nazwy urządzenia lub domeny DNS we wcześniejszym kroku i nie chcesz przenosić własnych certyfikatów, możesz pominąć ten krok i przejść do następnego kroku. Urządzenie automatycznie wygenerowało certyfikaty z podpisem własnym, które zaczynają się od. 
 
         ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-2.png)
 
-    - W przypadku zmiany nazwy urządzenia lub domeny DNS, aby pomyślnie aktywować urządzenie, można wybrać jedną z następujących opcji: 
-    
-        - **Generuj wszystkie certyfikaty urządzeń**. Certyfikaty urządzeń powinny być używane tylko do testowania i nie są używane w przypadku obciążeń produkcyjnych. * * Aby uzyskać więcej informacji, przejdź do pozycji [Generuj certyfikaty urządzeń na Azure Stack Edge](#generate-device-certificates).
+    - W przypadku zmiany nazwy urządzenia lub domeny DNS zobaczysz, że stan certyfikatów będzie wyświetlany jako **nieprawidłowy**. 
 
-        - **Przenoszenie własnych certyfikatów**. Możesz przenieść własne podpisane certyfikaty punktów końcowych i odpowiednie łańcuchy podpisywania. Najpierw należy dodać łańcuch podpisywania, a następnie przekazać certyfikaty punktów końcowych. **Zalecane jest, aby zawsze przenosić własne certyfikaty do obciążeń produkcyjnych.** Aby uzyskać więcej informacji, przejdź do pozycji [przenoszenie własnych certyfikatów na urządzeniu Azure Stack Edge](#bring-your-own-certificates).
+        ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
+
+        Wybierz certyfikat, aby wyświetlić szczegóły stanu.
+
+        ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
+
+        Wynika to z faktu, że certyfikaty nie odzwierciedlają zaktualizowanej nazwy urządzenia i domeny DNS (które są używane w polu Nazwa podmiotu i alternatywny podmiot). Aby pomyślnie aktywować urządzenie, wybierz jedną z następujących opcji: 
+    
+        - **Generuj wszystkie certyfikaty urządzeń**. Te certyfikaty urządzenia powinny być używane tylko do testowania i nie są używane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, przejdź do pozycji [Generuj certyfikaty urządzeń na Azure Stack Edge](#generate-device-certificates).
+
+        - **Przenoszenie własnych certyfikatów**. Możesz przenieść własne podpisane certyfikaty punktów końcowych i odpowiednie łańcuchy podpisywania. Najpierw należy dodać łańcuch podpisywania, a następnie przekazać certyfikaty punktów końcowych. **Zalecane jest, aby zawsze przenosić własne certyfikaty do obciążeń produkcyjnych.** Aby uzyskać więcej informacji, przejdź do pozycji [przenoszenie własnych certyfikatów na urządzeniu Azure Stack EDGE Pro](#bring-your-own-certificates).
     
         - Możesz przenieść niektóre własne certyfikaty i wygenerować niektóre certyfikaty urządzeń. Opcja **Generuj certyfikaty** spowoduje ponowne wygenerowanie certyfikatów urządzeń.
 
-    - Jeśli zmieniono nazwę urządzenia lub domenę DNS, a nie wygenerujesz certyfikatów ani nie przeniesiesz własnych certyfikatów, aktywacja zostanie zablokowana.
+    - Jeśli zmieniono nazwę urządzenia lub domenę DNS, a nie wygenerujesz certyfikatów ani nie przeniesiesz własnych certyfikatów, **Aktywacja zostanie zablokowana**.
 
 
 ### <a name="generate-device-certificates"></a>Generuj certyfikaty urządzeń
 
 Wykonaj następujące kroki, aby wygenerować certyfikaty urządzeń.
 
-Wykonaj następujące kroki, aby ponownie wygenerować i pobrać Azure Stack certyfikaty urządzenia brzegowego:
+Wykonaj następujące kroki, aby ponownie wygenerować i pobrać certyfikaty urządzeń Azure Stack EDGE Pro:
 
 1. W lokalnym interfejsie użytkownika urządzenia przejdź do pozycji **konfiguracja > certyfikaty**. Wybierz pozycję **Generuj certyfikaty**.
 
     ![Generowanie i pobieranie certyfikatu 1](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-3.png)
 
-2. W obszarze **Generuj certyfikaty urządzenia**wybierz pozycję **Generuj**.
+2. W obszarze **Generuj certyfikaty urządzenia**wybierz pozycję **Generuj**. 
 
     ![Generowanie i pobieranie certyfikatu 2](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-4.png)
 
-    Certyfikaty urządzeń są teraz generowane i stosowane. 
+    Certyfikaty urządzeń są teraz generowane i stosowane. Generowanie i stosowanie certyfikatów trwa kilka minut.
     
     > [!IMPORTANT]
     > Podczas gdy operacja generowania certyfikatu jest w toku, nie należy przenosić własnych certyfikatów i próbować dodać je za pośrednictwem opcji **+ Dodaj certyfikat** .
 
-    Otrzymasz powiadomienie, gdy operacja zostanie pomyślnie ukończona. Aby uniknąć potencjalnych problemów z pamięcią podręczną, należy ponownie uruchomić przeglądarkę. 
+    Otrzymasz powiadomienie, gdy operacja zostanie pomyślnie ukończona. **Aby uniknąć potencjalnych problemów z pamięcią podręczną, należy ponownie uruchomić przeglądarkę.**
     
     ![Generowanie i pobieranie certyfikatu 4](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-5.png)
 
-3. Na stronie **Certyfikaty** zostanie wyświetlona kolumna **pobieranie** zostanie wypełniona, a linki do pobrania ponownie wygenerowane certyfikaty są dostępne. 
+3. Po wygenerowaniu certyfikatów: 
 
-    ![Generowanie i pobieranie certyfikatu 5](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6.png)
+    - Stan wszystkich certyfikatów jest wyświetlany jako **prawidłowy**. 
+
+        ![Generowanie i pobieranie certyfikatu 5](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6.png)
+
+    - Można wybrać określoną nazwę certyfikatu i wyświetlić szczegóły certyfikatu. 
+
+        ![Generuj i pobieraj certyfikat 6](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6a.png)
+
+    - Kolumna **pobieranie** jest teraz wypełniana. Ta kolumna zawiera linki umożliwiające pobranie ponownie wygenerowanych certyfikatów. 
+
+        ![Generowanie i pobieranie certyfikatu 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6b.png)
+
 
 4. Wybierz łącze pobierania certyfikatu i po wyświetleniu monitu Zapisz certyfikat. 
 
@@ -105,7 +120,7 @@ Wykonaj następujące kroki, aby ponownie wygenerować i pobrać Azure Stack cer
 
 Należy zainstalować te certyfikaty w systemie klienckim, z którego korzystasz, aby uzyskać dostęp do punktów końcowych na urządzeniu ASE. Te certyfikaty ustanawiają relację zaufania między klientem a urządzeniem.
 
-Aby zaimportować i zainstalować te certyfikaty na kliencie używanym do uzyskiwania dostępu do urządzenia, wykonaj czynności opisane w temacie [Importowanie certyfikatów na klientach uzyskujących dostęp do Azure Stack urządzenia brzegowego](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
+Aby zaimportować i zainstalować te certyfikaty na kliencie używanym do uzyskiwania dostępu do urządzenia, wykonaj czynności opisane w temacie [Importowanie certyfikatów na klientach uzyskujących dostęp do urządzenia z Azure Stack EDGE Pro](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
 
 W przypadku korzystania z Eksplorator usługi Azure Storage należy zainstalować certyfikaty na kliencie w formacie PEM i należy przekonwertować certyfikaty wygenerowane przez urządzenie w formacie PEM. 
 
@@ -138,15 +153,19 @@ Wykonaj następujące kroki, aby dodać własne certyfikaty, w tym łańcuch pod
 
     ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
 
+    W dowolnym momencie możesz wybrać certyfikat i wyświetlić szczegóły, aby upewnić się, że są one zgodne z przekazanym certyfikatem.
+
+    ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
+
     Strona certyfikat powinna zostać zaktualizowana w celu odzwierciedlenia nowo dodanych certyfikatów.
 
-    ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)  
+    ![Strona "certyfikaty" lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
 
     > [!NOTE]
     > Poza chmurą publiczną platformy Azure w przypadku wszystkich konfiguracji chmury (Azure Government lub Azure Stack) należy wprowadzić certyfikaty łańcucha podpisywania.
 
 
-Urządzenie jest teraz gotowe do aktywacji.
+Urządzenie jest teraz gotowe do aktywacji. Wybierz pozycję **< z powrotem, aby**rozpocząć.
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -158,7 +177,7 @@ Ten samouczek zawiera informacje dotyczące:
 > * Wymagania wstępne
 > * Konfigurowanie certyfikatów dla urządzenia fizycznego
 
-Aby dowiedzieć się, jak aktywować Azure Stack Urządzenie brzegowe, zobacz:
+Aby dowiedzieć się, jak aktywować urządzenie Azure Stack EDGE Pro, zobacz:
 
 > [!div class="nextstepaction"]
-> [Aktywuj urządzenie Azure Stack Edge](./azure-stack-edge-gpu-deploy-activate.md)
+> [Aktywuj urządzenie Azure Stack EDGE Pro](./azure-stack-edge-gpu-deploy-activate.md)

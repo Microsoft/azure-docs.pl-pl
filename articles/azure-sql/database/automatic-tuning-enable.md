@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373508"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981461"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Włączanie dostrajania automatycznego w Azure Portal do monitorowania zapytań i zwiększania wydajności obciążeń
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ Na poziomie serwera można wybrać opcję Dziedzicz konfigurację dostrajania au
 
 Aby włączyć dostrajanie automatyczne na [serwerze](logical-servers.md) w Azure SQL Database, przejdź do serwera w Azure Portal a następnie wybierz opcję **dostrajanie automatyczne** w menu.
 
-![Serwer](./media/automatic-tuning-enable/server.png)
+![Zrzut ekranu przedstawia dostrajanie automatyczne w Azure Portal, w którym można zastosować opcje dla serwera.](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Należy pamiętać, że opcja **DROP_INDEX** w tym momencie nie jest zgodna z aplikacjami korzystającymi z przełączania partycji i wskazówek dotyczących indeksów i nie powinna być włączona w takich przypadkach. Usuwanie nieużywanych indeksów nie jest obsługiwane dla warstw usług premium i Krytyczne dla działania firmy.
@@ -77,7 +77,7 @@ Aby włączyć dostrajanie automatyczne dla **pojedynczej bazy danych**, przejd�
 
 Indywidualne ustawienia dostrajania automatycznego można skonfigurować osobno dla każdej bazy danych. Możesz ręcznie skonfigurować indywidualną opcję dostrajania automatycznego lub określić, że opcja dziedziczy ustawienia z serwera.
 
-![Baza danych](./media/automatic-tuning-enable/database.png)
+![Zrzut ekranu przedstawia automatyczne dostrajanie w Azure Portal, w którym można zastosować opcje dla pojedynczej bazy danych.](./media/automatic-tuning-enable/database.png)
 
 Należy pamiętać, że opcja DROP_INDEX nie jest w tej chwili zgodna z aplikacjami korzystającymi z przełączania partycji i wskazówek dotyczących indeksów i nie powinna być włączona w takich przypadkach.
 

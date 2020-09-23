@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 68aaf431f7cca0366b7d77d320357d8ceb525933
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d9f08840165e7e4cf4d13e9a66cbb59489a2b3f7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084608"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974270"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Samouczek: Tworzenie aplikacji PHP i MySQL w Azure App Service
 
@@ -28,7 +28,7 @@ ms.locfileid: "88084608"
 
 ::: zone-end
 
-![Aplikacja PHP uruchomiona w usłudze Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
+:::image type="content" source="./media/tutorial-php-mysql-app/complete-checkbox-published.png" alt-text="Zrzut ekranu przykładu aplikacji PHP zatytułowany Lista zadań.":::
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -161,9 +161,9 @@ W tym kroku utworzysz bazę danych MySQL w usłudze [Azure Database for MySQL](/
 
 ### <a name="create-a-mysql-server"></a>Tworzenie serwera MySQL
 
-W Cloud Shell Utwórz serwer w Azure Database for MySQL za pomocą [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) polecenia.
+W Cloud Shell Utwórz serwer w Azure Database for MySQL za pomocą [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest&preserve-view=true#az-mysql-server-create) polecenia.
 
-W poniższym poleceniu Zastąp unikatową nazwę serwera dla *\<mysql-server-name>* symbolu zastępczego, nazwę użytkownika *\<admin-user>* i hasło dla *\<admin-password>* symbolu zastępczego. Ta nazwa serwera jest używana jako część punktu końcowego bazy danych MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), więc nazwa musi być unikatowa na wszystkich serwerach platformy Azure. Aby uzyskać więcej informacji na temat wybierania jednostki SKU bazy danych MySQL, zobacz [Tworzenie serwera usługi Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
+W poniższym poleceniu Zastąp unikatową nazwę serwera dla *\<mysql-server-name>* symbolu zastępczego, nazwę użytkownika *\<admin-user>* i hasło dla *\<admin-password>*  symbolu zastępczego. Ta nazwa serwera jest używana jako część punktu końcowego bazy danych MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), więc nazwa musi być unikatowa na wszystkich serwerach platformy Azure. Aby uzyskać więcej informacji na temat wybierania jednostki SKU bazy danych MySQL, zobacz [Tworzenie serwera usługi Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -187,7 +187,7 @@ Po utworzeniu serwera MySQL w interfejsie wiersza polecenia platformy Azure zost
 
 ### <a name="configure-server-firewall"></a>Konfigurowanie zapory serwera
 
-W Cloud Shell Utwórz regułę zapory dla serwera MySQL, aby zezwolić na połączenia klientów przy użyciu [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create) polecenia. Po ustawieniu początkowego i końcowego adresu IP na 0.0.0.0 zapora będzie otwierana tylko dla innych zasobów platformy Azure. 
+W Cloud Shell Utwórz regułę zapory dla serwera MySQL, aby zezwolić na połączenia klientów przy użyciu [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest&preserve-view=true#az-mysql-server-firewall-rule-create) polecenia. Po ustawieniu początkowego i końcowego adresu IP na 0.0.0.0 zapora będzie otwierana tylko dla innych zasobów platformy Azure. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -338,7 +338,7 @@ git commit -m "database.php updates"
 
 Aplikacja jest gotowa do wdrożenia.
 
-## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
+## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
 
 W tym kroku wdrożysz aplikację PHP połączoną z bazą danych MySQL w usłudze Azure App Service.
 
@@ -361,7 +361,7 @@ W tym kroku wdrożysz aplikację PHP połączoną z bazą danych MySQL w usłudz
 ::: zone-end
 
 <a name="create"></a>
-### <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
+### <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
 ::: zone pivot="platform-windows"  
 
@@ -377,7 +377,7 @@ W tym kroku wdrożysz aplikację PHP połączoną z bazą danych MySQL w usłudz
 
 ### <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych
 
-W usłudze App Service zmienne środowiskowe są ustawiane jako _ustawienia aplikacji_ za pomocą polecenia [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
+W usłudze App Service zmienne środowiskowe są ustawiane jako _ustawienia aplikacji_ za pomocą polecenia [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set).
 
 Następujące polecenie konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` i `DB_PASSWORD`. Zastąp symbole zastępcze _ &lt; App-Name>_ i _ &lt; mysql-Server-Name>_.
 
@@ -408,7 +408,7 @@ W oknie terminala lokalnego przy użyciu polecenia `php artisan` wygeneruj nowy 
 php artisan key:generate --show
 ```
 
-W Cloud Shell Ustaw klucz aplikacji w aplikacji App Service za pomocą [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) polecenia. Zastąp symbole zastępcze _ &lt; App-Name>_ i _ &lt; outputofphpartisankey: Generate>_.
+W Cloud Shell Ustaw klucz aplikacji w aplikacji App Service za pomocą [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) polecenia. Zastąp symbole zastępcze _ &lt; App-Name>_ i _ &lt; outputofphpartisankey: Generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -498,7 +498,7 @@ remote: Running deployment command...
 
 Przejdź do adresu `http://<app-name>.azurewebsites.net` i dodaj kilka zadań do listy.
 
-![Aplikacja PHP uruchomiona w usłudze Azure App Service](./media/tutorial-php-mysql-app/php-mysql-in-azure.png)
+:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="Zrzut ekranu przedstawiający przykład aplikacji platformy Azure zatytułowany Lista zadań, w którym dodano nowe zadania.":::
 
 Gratulacje! Masz uruchomioną opartą na danych aplikację PHP w usłudze Azure App Service.
 
@@ -650,7 +650,7 @@ Jeśli dodano jakiekolwiek zadania, zostaną one zachowane w bazie danych. Aktua
 
 Gdy aplikacja PHP działa w usłudze Azure App Service, dzienniki konsoli można przesłać potokiem do terminala. W ten sposób można użyć komunikatów diagnostycznych w celu ułatwienia debugowania błędów aplikacji.
 
-Aby rozpocząć przesyłanie strumieniowe dzienników, użyj [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) polecenia znajdującego się w Cloud Shell.
+Aby rozpocząć przesyłanie strumieniowe dzienników, użyj [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az-webapp-log-tail) polecenia znajdującego się w Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

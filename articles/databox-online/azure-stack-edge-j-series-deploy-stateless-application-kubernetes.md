@@ -1,6 +1,6 @@
 ---
-title: Wdróż bezstanową aplikację Kubernetes na urządzeniu z procesorem GPU na Azure Stack Edge przy użyciu polecenia kubectl | Microsoft Docs
-description: Opisuje sposób tworzenia i zarządzania Kubernetes bezstanowej aplikacji przy użyciu polecenia kubectl na urządzeniu brzegowym Microsoft Azure Stack.
+title: Wdrażanie bezstanowej aplikacji Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro GPU przy użyciu polecenia kubectl | Microsoft Docs
+description: Zawiera opis sposobu tworzenia i zarządzania Kubernetes bezstanowej aplikacji przy użyciu polecenia kubectl na urządzeniu z systemem Microsoft Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268863"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890730"
 ---
-# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Wdrażanie bezstanowej aplikacji Kubernetes za pośrednictwem polecenia kubectl na urządzeniu z systemem Azure Stack Edge
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Wdrażanie bezstanowej aplikacji Kubernetes za pośrednictwem polecenia kubectl na urządzeniu z systemem Azure Stack EDGE Pro GPU
 
 W tym artykule opisano sposób wdrażania bezstanowej aplikacji przy użyciu poleceń polecenia kubectl w istniejącym klastrze Kubernetes. W tym artykule omówiono również proces tworzenia i konfigurowania zasobników w aplikacji bezstanowej.
 
@@ -23,13 +23,13 @@ W tym artykule opisano sposób wdrażania bezstanowej aplikacji przy użyciu pol
 
 Aby można było utworzyć klaster Kubernetes i użyć `kubectl` narzędzia wiersza polecenia, należy upewnić się, że:
 
-- Poświadczenia logowania są dostępne dla jednego węzła Azure Stack urządzenia brzegowego.
+- Poświadczenia logowania są dostępne na urządzeniu z 1 węzłem Azure Stack Edge.
 
-- Program Windows PowerShell 5,0 lub nowszy jest zainstalowany w systemie klienta systemu Windows w celu uzyskania dostępu do urządzenia brzegowego Azure Stack. Możesz również mieć dowolnego innego klienta z obsługiwanym systemem operacyjnym. W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do temat [Instalowanie programu Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- Program Windows PowerShell 5,0 lub nowszy jest zainstalowany w systemie klienta systemu Windows w celu uzyskania dostępu do urządzenia Azure Stack EDGE Pro. Możesz również mieć dowolnego innego klienta z obsługiwanym systemem operacyjnym. W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do temat [Instalowanie programu Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
-- Obliczenia są włączone na urządzeniu brzegowym Azure Stack. Aby włączyć obliczenia, przejdź do strony **obliczenia** w lokalnym interfejsie użytkownika urządzenia. Następnie wybierz interfejs sieciowy, który chcesz włączyć dla obliczeń. Wybierz pozycję **Włącz**. Włączenie obliczeń powoduje utworzenie przełącznika wirtualnego na urządzeniu w tym interfejsie sieciowym. Aby uzyskać więcej informacji, zobacz [Włączanie sieci obliczeniowej na Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- Obliczenia są włączane na urządzeniu Azure Stack EDGE Pro. Aby włączyć obliczenia, przejdź do strony **obliczenia** w lokalnym interfejsie użytkownika urządzenia. Następnie wybierz interfejs sieciowy, który chcesz włączyć dla obliczeń. Wybierz pozycję **Włącz**. Włączenie obliczeń powoduje utworzenie przełącznika wirtualnego na urządzeniu w tym interfejsie sieciowym. Aby uzyskać więcej informacji, zobacz [Włączanie usługi COMPUTE Network w Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
-- Urządzenie brzegowe Azure Stack ma uruchomiony serwer klastra Kubernetes w wersji 2.1 lub nowszej. Aby uzyskać więcej informacji, zobacz [Tworzenie klastra Kubernetes Microsoft Azure Stack na urządzeniu brzegowym i zarządzanie](azure-stack-edge-gpu-create-kubernetes-cluster.md)nim.
+- Na urządzeniu z systemem Azure Stack Edge Kubernetes jest uruchomiony serwer klastra programu w wersji 2.1 lub nowszej. Aby uzyskać więcej informacji, zobacz [Tworzenie klastra Kubernetes i zarządzanie nim na urządzeniu Microsoft Azure Stack EDGE Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - Zainstalowano program `kubectl` .
 
@@ -43,7 +43,7 @@ Przed rozpoczęciem należy:
 4. Zapisano konfigurację użytkownika w programie `C:\Users\<username>\.kube` .
 5. Zainstalowany `kubectl` .
 
-Teraz można rozpocząć pracę i zarządzać wdrożeniami aplikacji bezstanowych na urządzeniu Azure Stack Edge. Przed rozpoczęciem korzystania z programu należy `kubectl` sprawdzić, czy jest dostępna poprawna wersja programu `kubectl` .
+Teraz można rozpocząć pracę i zarządzać wdrożeniami aplikacji bezstanowych na urządzeniu z systemem Azure Stack brzeg Pro. Przed rozpoczęciem korzystania z programu należy `kubectl` sprawdzić, czy jest dostępna poprawna wersja programu `kubectl` .
 
 ### <a name="verify-you-have-the-correct-version-of-kubectl-and-set-up-configuration"></a>Sprawdź, czy masz poprawną wersję programu polecenia kubectl i skonfiguruj konfigurację
 
@@ -109,7 +109,7 @@ A pod jest podstawową jednostką wykonywania aplikacji Kubernetes, najmniejszą
 
 Typ aplikacji bezstanowej, którą tworzysz, to wdrożenie serwera sieci Web Nginx.
 
-Wszystkie polecenia polecenia kubectl służące do tworzenia i zarządzania wdrożeniami aplikacji bezstanowych muszą określać przestrzeń nazw skojarzoną z konfiguracją. Przestrzeń nazw została utworzona podczas połączenia z klastrem na urządzeniu z systemem Azure Stack Edge w [Microsoft Azure Stack witrynie Tworzenie klastra Kubernetes i zarządzanie nim](azure-stack-edge-gpu-create-kubernetes-cluster.md) przy użyciu programu `New-HcsKubernetesNamespace` .
+Wszystkie polecenia polecenia kubectl służące do tworzenia i zarządzania wdrożeniami aplikacji bezstanowych muszą określać przestrzeń nazw skojarzoną z konfiguracją. Przestrzeń nazw została utworzona podczas połączenia z klastrem na urządzeniu z systemem Azure Stack EDGE Pro w [witrynie Tworzenie klastra Kubernetes i zarządzanie nim](azure-stack-edge-gpu-create-kubernetes-cluster.md) za pomocą programu Microsoft Azure Stack EDGE Pro `New-HcsKubernetesNamespace` .
 
 Aby określić przestrzeń nazw w polecenia kubectl, użyj polecenia `kubectl <command> -n <namespace-string>` .
 
