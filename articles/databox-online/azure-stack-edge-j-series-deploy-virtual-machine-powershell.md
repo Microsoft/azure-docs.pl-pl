@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge za pośrednictwem Azure PowerShell
-description: W tym artykule opisano sposób tworzenia maszyn wirtualnych i zarządzania nimi na urządzeniu Azure Stack brzegowym procesorze GPU przy użyciu Azure PowerShell.
+title: Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU Pro Azure PowerShell
+description: Zawiera opis sposobu tworzenia maszyn wirtualnych i zarządzania nimi na urządzeniu z systemem Azure Stack Edge przy użyciu Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: aa35111a2fa26b3e4fd5e80a8227b7c244f30e9f
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: aa492acdedc2d131d28c894031de2181e87a2f3e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461718"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890703"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge za pośrednictwem Azure PowerShell
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU Pro Azure PowerShell
 
 <!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
 
-W tym samouczku opisano, jak utworzyć maszynę wirtualną na urządzeniu Azure Stack Edge i zarządzać nią przy użyciu Azure PowerShell.
+W tym samouczku opisano, jak utworzyć maszynę wirtualną i zarządzać nią na urządzeniu Azure Stack EDGE Pro przy użyciu Azure PowerShell.
 
 ## <a name="vm-deployment-workflow"></a>Przepływ pracy wdrożenia maszyny wirtualnej
 
@@ -128,7 +128,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Tylko lokalne konta magazynu, takie jak Magazyn lokalnie nadmiarowy (Standard_LRS lub Premium_LRS), można tworzyć za pośrednictwem Azure Resource Manager. Aby utworzyć konta magazynu warstwowego, zapoznaj się z instrukcjami w temacie [Dodawanie i nawiązywanie połączenia z kontami magazynu na urządzeniu Azure Stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Tylko lokalne konta magazynu, takie jak Magazyn lokalnie nadmiarowy (Standard_LRS lub Premium_LRS), można tworzyć za pośrednictwem Azure Resource Manager. Aby utworzyć konta magazynu warstwowego, zapoznaj się z instrukcjami w temacie [Dodawanie i nawiązywanie połączenia z kontami magazynu w witrynie Azure Stack EDGE Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 Poniżej pokazano przykładowe dane wyjściowe.
 
@@ -193,7 +193,7 @@ Jeśli używasz *protokołu HTTPS*, musisz zainstalować odpowiednie certyfikaty
 
 Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obiektów BLOB na lokalnym koncie magazynu utworzonym w poprzednich krokach. Możesz użyć narzędzia, takiego jak [AzCopy](../storage/common/storage-use-azcopy-v10.md) , aby przekazać dysk VHD do konta magazynu utworzonego w poprzednich krokach. 
 
-Przed użyciem AzCopy upewnij się, że [AzCopy jest prawidłowo skonfigurowany](#configure-azcopy) do użycia z wersją interfejsu API REST usługi BLOB Storage, która jest używana z urządzeniem Azure Stack Edge.
+Przed użyciem AzCopy upewnij się, że [AzCopy jest prawidłowo skonfigurowany](#configure-azcopy) do użycia z wersją interfejsu API REST usługi BLOB Storage, która jest używana z urządzeniem Azure Stack EDGE Pro.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -449,7 +449,7 @@ W poniższej sekcji opisano niektóre typowe operacje dotyczące maszyn wirtualn
 
 ### <a name="list-vms-running-on-the-device"></a>Wyświetlanie listy maszyn wirtualnych działających na urządzeniu
 
-Aby zwrócić listę wszystkich maszyn wirtualnych uruchomionych na urządzeniu Azure Stack Edge, uruchom następujące polecenie.
+Aby zwrócić listę wszystkich maszyn wirtualnych uruchomionych na urządzeniu Azure Stack brzeg Pro, uruchom następujące polecenie.
 
 
 `Get-AzureRmVM -ResourceGroupName <String> -Name <String>`
@@ -502,7 +502,7 @@ Aby uzyskać więcej informacji na temat tego polecenia cmdlet, przejdź do [pol
 
 Rozmiar maszyny wirtualnej określa ilość zasobów obliczeniowych, takich jak procesor CPU, procesor GPU i pamięć, które są dostępne dla maszyny wirtualnej. Tworzone maszyny wirtualne powinny mieć rozmiar odpowiadający obciążeniu. Mimo że wszystkie maszyny będą uruchomione na tym samym sprzęcie, rozmiary maszyn mają różne limity dostępu do dysku, co ułatwia zarządzanie ogólnym dostępem do dysku na maszynach wirtualnych. Jeśli obciążenie zwiększy się, można również zmienić rozmiar istniejącej maszyny wirtualnej.
 
-Następujące standardowe maszyny wirtualne serii Dv2 są obsługiwane na potrzeby tworzenia na Azure Stack urządzeniach brzegowych.
+Następujące standardowe maszyny wirtualne z serii Dv2 są obsługiwane na potrzeby tworzenia na urządzeniu Azure Stack brzeg Pro.
 
 ### <a name="dv2-series"></a>Seria Dv2
 |Rozmiar     |Procesor wirtualny     |Pamięć (GiB) | Magazyn tymczasowy (GiB)  | Maksymalna przepływność dysku systemu operacyjnego (IOPS) | Maksymalna przepływność magazynu (IOPS) | Maksymalna liczba dysków danych/przepływność (IOPS) | Maksymalna liczba kart sieciowych |
@@ -547,9 +547,9 @@ Rozszerzenia, zestawy skalowania, zestawy dostępności, migawki nie są obsług
 
 ## <a name="configure-azcopy"></a>Konfigurowanie AzCopy
 
-W przypadku instalowania najnowszej wersji programu AzCopy należy skonfigurować AzCopy, aby upewnić się, że jest zgodna z wersją interfejsu API REST usługi BLOB Storage na urządzeniu Azure Stack Edge.
+W przypadku instalowania najnowszej wersji programu AzCopy należy skonfigurować AzCopy, aby upewnić się, że jest zgodna z wersją interfejsu API REST usługi BLOB Storage na urządzeniu Azure Stack brzeg Pro.
 
-Na kliencie używanym do uzyskiwania dostępu do Azure Stack urządzenia brzegowego Skonfiguruj zmienną globalną zgodną z wersją interfejsu API REST usługi BLOB Storage.
+Na kliencie używanym do uzyskiwania dostępu do urządzenia z usługą Azure Stack EDGE Pro Skonfiguruj zmienną globalną zgodną z wersją interfejsu API REST usługi BLOB Storage.
 
 ### <a name="on-windows-client"></a>Na kliencie systemu Windows 
 

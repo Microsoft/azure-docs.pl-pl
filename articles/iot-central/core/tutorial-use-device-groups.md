@@ -1,19 +1,19 @@
 ---
-title: Używanie grup urządzeń w aplikacji IoT Central platformy Azure | Microsoft Docs
-description: Dowiedz się, jak używać grup urządzeń do analizowania danych telemetrycznych z urządzeń w aplikacji IoT Central platformy Azure.
+title: Samouczek — używanie grup urządzeń w aplikacji IoT Central platformy Azure | Microsoft Docs
+description: Samouczek — jako operator, Dowiedz się, jak używać grup urządzeń do analizowania danych telemetrycznych z urządzeń w aplikacji IoT Central platformy Azure.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 58fc71ab05c34e8acd252e7a1984c55996d1b3a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3192a9f121d4380a3e681747596fc91997662bf0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80999034"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967935"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Samouczek: używanie grup urządzeń do analizowania danych telemetrycznych urządzenia
 
@@ -81,7 +81,7 @@ Aby przeanalizować dane telemetryczne dla grupy urządzeń:
 
 1. Wybierz pozycję **Analizuj** , aby wyświetlić średnie wartości telemetrii:
 
-    ![Wyświetl analizę](./media/tutorial-use-device-groups/view-analysis.png)
+    ![Wyświetlanie analizy](./media/tutorial-use-device-groups/view-analysis.png)
 
     Możesz dostosować widok, zmienić wyświetlany okres i wyeksportować dane.
 

@@ -4,18 +4,21 @@ description: W tym samouczku użyjesz serwera modelu AI dostarczonego przez firm
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 95dbf555cc6b8f8edb1bc9dca2e10d3ef72eb9db
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: e620da1a4f0b7f782d478314fb0e2e83ab9a124a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567587"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906612"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Samouczek: analizowanie wideo na żywo za pomocą OpenVINO™ model Server — rozszerzenie AI z firmy Intel 
 
-W tym samouczku pokazano, jak używać rozszerzenia OpenVINO™ model Server — AI z firmy Intel do analizowania strumieniowego kanału informacyjnego wideo z (symulowanej) kamery IP. Zobaczysz, jak ten serwer wnioskowania zapewnia dostęp do modeli do wykrywania obiektów (osoby, pojazdu lub roweru) oraz modelu klasyfikowania pojazdów. Podzestaw ramek w dynamicznym kanale wideo jest wysyłany do tego serwera wnioskowania, a wyniki są wysyłane do centrum IoT Edge. 
+W tym samouczku pokazano, jak używać rozszerzenia OpenVINO™ model Server — AI z firmy Intel do analizowania strumieniowego kanału informacyjnego wideo z (symulowanej) kamery IP. Zobaczysz, jak ten serwer wnioskowania zapewnia dostęp do modeli do wykrywania obiektów (osoby, pojazdu lub roweru) oraz modelu klasyfikowania pojazdów. Podzestaw ramek w dynamicznym kanale wideo jest wysyłany do tego serwera wnioskowania, a wyniki są wysyłane do centrum IoT Edge.
 
-W tym samouczku zostanie użyta maszyna wirtualna platformy Azure jako urządzenie IoT Edge i zostanie użyty symulowany strumień wideo na żywo. Jest on oparty na przykładowym kodzie zapisanym w języku C# i kompiluje się w przewodniku [wykrywania zdarzeń i emisji](detect-motion-emit-events-quickstart.md) . 
+W tym samouczku zostanie użyta maszyna wirtualna platformy Azure jako urządzenie IoT Edge i zostanie użyty symulowany strumień wideo na żywo. Jest on oparty na przykładowym kodzie zapisanym w języku C# i kompiluje się w przewodniku [wykrywania zdarzeń i emisji](detect-motion-emit-events-quickstart.md) .
+
+> [!NOTE]
+> Ten samouczek wymaga użycia maszyny z procesorem x86-64 jako urządzenia brzegowego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +43,7 @@ W tym przewodniku szybki start użyjesz usługi Analiza filmów wideo na żywo n
 ## <a name="overview"></a>Omówienie
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/use-intel-openvino-tutorial/topology.png" alt-text="Omówienie":::
+> :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="Omówienie":::
 
 Ten diagram przedstawia sposób przepływu sygnałów w tym przewodniku Szybki Start. [Moduł graniczny](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) symuluje kamerę IP obsługującą serwer protokołu przesyłania strumieniowego w czasie rzeczywistym (RTSP). Węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) pobiera kanał wideo z tego serwera i wysyła ramki wideo do węzła [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) . Ten procesor ogranicza szybkość klatek strumienia wideo, który dociera do węzła [procesora rozszerzenia http](media-graph-concept.md#http-extension-processor) . 
 
@@ -53,6 +56,7 @@ W tym samouczku wykonasz następujące czynności:
 1. Wyczyść zasoby.
 
 ## <a name="about-openvino-model-server--ai-extension-from-intel"></a>Informacje o rozszerzeniu OpenVINO™ model Server — AI z platformy Intel
+
 Dystrybucja [OpenVINO™ zestawu narzędzi](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html) firmy® Intel (Open Visual wnioskowania i neuronowyche optymalizację sieci) to bezpłatny zestaw oprogramowania, który pomaga deweloperom i analitykom danych przyspieszyć tworzenie obciążeń komputerowych, usprawnić przetwarzanie i wdrażanie oraz zapewnić łatwe, heterogeniczne wykonywanie na platformach Intel® od brzegu do chmury. Obejmuje zestaw narzędzi do wdrażania głębokiego uczenia firmy Intel® z technologią optymalizacji modelu i aparatem wnioskowania, a także repozytorium [Open model Zoo](https://github.com/openvinotoolkit/open_model_zoo) , które obejmuje ponad 40 zoptymalizowanych modeli.
 
 Aby można było tworzyć złożone, wysoce wydajne rozwiązania do analizy filmów wideo na żywo, analiza filmów wideo na żywo w module IoT Edge powinna być sparowana z wydajnym aparatem wnioskowania, który może wykorzystać skalę na krawędzi. W tym samouczku żądania wnioskowania są wysyłane do [rozszerzenia OpenVINO™ model Server — AI z firmy Intel](https://aka.ms/lva-intel-ovms), modułu krawędzi, który został zaprojektowany do pracy z analizą wideo na żywo na IoT Edge. Ten moduł serwera wnioskowania zawiera serwer OpenVINO™ Modeling (OVMS), serwer wnioskowania obsługiwany przez zestaw narzędzi OpenVINO™, który jest wysoce zoptymalizowany pod kątem obciążeń dotyczących przetwarzania obrazów i opracowany dla architektur architektury Intel®. Rozszerzenie zostało dodane do OVMS w celu ułatwienia wymiany ramek wideo i wnioskowania między serwerem wnioskowania a analizą filmów wideo na żywo w module IoT Edge, dzięki czemu można w ten sposób uruchomić dowolny model usługi OpenVINO™, który jest obsługiwany przez modyfikację [kodu](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper). Można w dalszej części wybrać różne mechanizmy przyspieszenia zapewniane przez sprzęt firmy Intel®. Obejmują one procesory CPU (Atom, Core, Xeon), FPGA, VPUs.
@@ -370,7 +374,7 @@ Możesz teraz powtórzyć powyższe kroki, aby ponownie uruchomić przykładowy 
 }
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli planujesz wypróbować inne Przewodniki Szybki start lub samouczków, Zachowaj utworzone zasoby. W przeciwnym razie przejdź do Azure Portal, przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten samouczek, i Usuń wszystkie zasoby.
 

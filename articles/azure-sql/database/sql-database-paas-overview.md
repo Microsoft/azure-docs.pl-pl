@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 04/08/2019
-ms.openlocfilehash: 9ee4070562e44d4f560230fa2fd069eb1fd57932
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.reviewer: ''
+ms.date: 09/21/2020
+ms.openlocfilehash: 38f52178ec9c736f3ee51839678401753365d48d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612093"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907052"
 ---
 # <a name="what-is-azure-sql-database"></a>Co to jest usługa Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Strefy dostępności platformy Azure próbuje chronić przed awarią pojedynczeg
 
 W rzeczywistości umowa dotycząca poziomu usług [(SLA)](https://azure.microsoft.com/support/legal/sla/) platformy Azure, obsługiwana przez globalną sieć centrów danych zarządzanych przez firmę Microsoft, pomaga zapewnić, że aplikacja działa 24/7. Platforma Azure w pełni zarządza każdą bazą danych i nie gwarantuje utraty danych i dużej wartości procentowej dostępności danych. Platforma Azure automatycznie obsługuje stosowanie poprawek, kopii zapasowych, replikacji, wykrywania awarii, bazowego potencjalnego sprzętu, błędów oprogramowania lub sieci, wdrażania poprawek błędów, przełączeń do trybu failover, uaktualnień baz danych i innych zadań konserwacyjnych. Dostępność w warstwie Standardowa jest osiągana przez oddzielenie warstw obliczeń i magazynu. Dostępność w warstwie Premium uzyskuje się przez integrację zasobów obliczeniowych i magazynu w jednym węźle w celu uzyskania wydajności, a następnie zaimplementowanie technologii podobnej do zawsze dostępnych grup dostępności. Pełne omówienie możliwości wysokiej dostępności Azure SQL Database można znaleźć w temacie [SQL Database Availability (dostępność](high-availability-sla.md)). 
 
-Ponadto SQL Database zapewnia wbudowaną [ciągłość biznesową i globalne funkcje skalowalności](business-continuity-high-availability-disaster-recover-hadr-overview.md) . Należą do nich następujące elementy:
+Ponadto SQL Database zapewnia wbudowaną [ciągłość biznesową i globalne funkcje skalowalności](business-continuity-high-availability-disaster-recover-hadr-overview.md) . Należą do nich:
 
 - [Automatyczne kopie zapasowe](automated-backups-overview.md):
 
@@ -165,11 +165,8 @@ Usługa SQL Database oferuje szeroką gamę [wbudowanych funkcji zabezpieczeń i
 
 ### <a name="advance-threat-protection"></a>Zaawansowana ochrona przed zagrożeniami
 
-Zaawansowane zabezpieczenia danych to ujednolicony pakiet zaawansowanych funkcji zabezpieczeń SQL. Obejmuje ona funkcje odnajdywania i klasyfikowania poufnych danych, zarządzania lukami w bazie danych i wykrywania nietypowych działań, które mogą wskazywać na zagrożenie dla bazy danych. Zapewnia ona jedną lokalizację do włączania i zarządzania tymi funkcjami.
+Usługa Azure Defender for SQL to ujednolicony pakiet na potrzeby zaawansowanych funkcji zabezpieczeń SQL. Obejmuje ona funkcje zarządzania lukami w bazie danych i wykrywanie nietypowych działań, które mogą wskazywać na zagrożenie dla bazy danych. Zapewnia ona jedną lokalizację do włączania i zarządzania tymi funkcjami.
 
-- [Odnajdywanie i Klasyfikacja danych](data-discovery-and-classification-overview.md):
-
-  Ta funkcja udostępnia funkcje wbudowane w Azure SQL Database do odnajdywania, klasyfikowania, etykietowania i ochrony poufnych danych w bazach danych. Zapewnia wgląd w stan klasyfikacji bazy danych i śledzi dostęp do poufnych danych w bazie danych i wykracza poza jego granice.
 - [Ocena luk w zabezpieczeniach](sql-vulnerability-assessment.md):
 
   Ta usługa może wykrywać, śledzić i pomagać w korygowaniu potencjalnych luk w zabezpieczeniach bazy danych. Zapewnia wgląd w stan zabezpieczeń i zapewnia kroki, które można wykonać w celu rozwiązania problemów z zabezpieczeniami oraz zwiększenia bezpieczeństwa bazy danych.
@@ -185,6 +182,10 @@ Zaawansowane zabezpieczenia danych to ujednolicony pakiet zaawansowanych funkcji
 
 Usługa SQL Database pomaga zabezpieczyć dane, zapewniając szyfrowanie. W przypadku danych w ruchu używa protokołu [Transport Layer Security](https://support.microsoft.com/kb/3135244). W przypadku danych przechowywanych przy użyciu [przezroczystego szyfrowania danych](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). W przypadku używanych danych używa [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
+### <a name="data-discovery-and-classification"></a>Odnajdowanie i klasyfikacja danych
+
+[Funkcja odnajdywania i klasyfikowania danych](data-discovery-and-classification-overview.md) udostępnia funkcje wbudowane w Azure SQL Database na potrzeby odnajdywania, klasyfikowania, etykietowania i ochrony poufnych danych w bazach danych. Zapewnia wgląd w stan klasyfikacji bazy danych i śledzi dostęp do poufnych danych w bazie danych i wykracza poza jego granice.
+
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integracja usługi Azure Active Directory z uwierzytelnianiem wieloskładnikowym
 
 Usługa SQL Database umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft dzięki funkcji [integracji usługi Azure Active Directory](authentication-aad-overview.md). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Azure Active Directory obsługuje [uwierzytelnianie wieloskładnikowe](authentication-mfa-ssms-overview.md) w celu zwiększenia bezpieczeństwa danych i aplikacji, a jednocześnie obsługuje proces logowania jednokrotnego.
@@ -196,7 +197,7 @@ Dzięki usłudze SQL Database tworzenie i konserwowanie aplikacji jest łatwiejs
 |Narzędzie|Opis|
 |:---|:---|
 |[Witryna Azure Portal](https://portal.azure.com/)|Aplikacja oparta na sieci Web do zarządzania wszystkimi usługami platformy Azure.|
-|[Azure Data Studio](/sql/azure-data-studio/)|Międzyplatformowe narzędzie bazy danych działające w systemach Windows, MacOS i Linux.|
+|[Azure Data Studio](/sql/azure-data-studio/)|Międzyplatformowe narzędzie bazy danych działające w systemach Windows, macOS i Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Bezpłatna, do pobrania aplikacja kliencka do zarządzania dowolną infrastrukturą SQL, od SQL Server do SQL Database.|
 |[Narzędzia danych SQL Server w programie Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Bezpłatna, do pobrania aplikacja kliencka służąca do tworzenia SQL Server relacyjnych baz danych, baz danych w Azure SQL Database, pakietów usług Integration Services, Analysis Services modeli danych i raportów usług Reporting Services.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|Bezpłatny, dostępny do pobrania Edytor kodu typu open source dla systemów Windows, macOS i Linux. Obsługuje ona rozszerzenia, w tym [rozszerzenie MSSQL](https://aka.ms/mssql-marketplace) do wykonywania zapytań dotyczących Microsoft SQL Server, Azure SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).|

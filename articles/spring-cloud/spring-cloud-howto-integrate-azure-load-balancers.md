@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 4315427598d004459862bcf12959e22e83c84d5d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 02772f153cdda7e3f3c866c727d589e755e19033
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299730"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906940"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integracja usługi Azure Spring Cloud z rozwiązaniami do równoważenia obciążenia platformy Azure
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
 Chmura sprężynowa platformy Azure obsługuje mikrousługi na platformie Azure.  Zwiększenie firmy może wymagać wielu centrów danych z zarządzaniem wieloma wystąpieniami chmury wiosennej platformy Azure.
 

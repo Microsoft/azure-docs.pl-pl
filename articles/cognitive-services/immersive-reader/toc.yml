@@ -1,14 +1,9 @@
 - name: Dokumentacja czytnika immersyjnego
   href: index.yml
-- name: Omówienie
-  items:
-    - name: Co to jest czytnik immersyjny?
-      href: Overview.md
-- name: Przewodniki Szybki start
-  expanded: true
-  items:
-    - name: Używanie biblioteki klienta
-      href: ./quickstarts/client-libraries.md
+- name: Co to jest czytnik immersyjny?
+  href: Overview.md
+- name: Szybki start
+  href: ./quickstarts/client-libraries.md
 - name: Samouczki
   items:
     - name: Uruchamianie czytnika immersyjnego (Android)

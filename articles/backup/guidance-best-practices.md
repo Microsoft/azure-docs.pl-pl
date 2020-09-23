@@ -3,12 +3,12 @@ title: Wskazówki i najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i wskazówki dotyczące tworzenia kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000366"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985523"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Tworzenie kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 
@@ -48,7 +48,7 @@ Azure Backup umożliwia ochronę danych w różnych obciążeniach (lokalnie i w
 
 ### <a name="management-plane"></a>Płaszczyzna zarządzania
 
-* **Kontrola dostępu** — magazyn Recovery Services udostępnia możliwości zarządzania i jest dostępny za pośrednictwem Azure Portal, zestawu SDK, interfejsu wiersza polecenia, a nawet interfejsów API REST. Jest ona również granicą RBAC, zapewniając możliwość ograniczenia dostępu do kopii zapasowych tylko dla autoryzowanych administratorów kopii zapasowych.
+* **Kontrola dostępu** — magazyny (Recovery Services i magazyny kopii zapasowych) zapewniają możliwości zarządzania i są dostępne za pośrednictwem Azure Portal, centrum kopii zapasowych, pulpitów nawigacyjnych magazynu, zestawu SDK, interfejsu wiersza polecenia, a nawet interfejsów API REST. Jest ona również granicą RBAC, zapewniając możliwość ograniczenia dostępu do kopii zapasowych tylko dla autoryzowanych administratorów kopii zapasowych.
 
 * **Zarządzanie zasadami** — zasady Azure Backup w ramach każdego magazynu definiują, kiedy kopie zapasowe mają być wyzwalane oraz jak długo muszą być przechowywane. Można także zarządzać tymi zasadami i stosować je w wielu elementach.
 
@@ -58,7 +58,7 @@ Azure Backup umożliwia ochronę danych w różnych obciążeniach (lokalnie i w
 
 ## <a name="vault-considerations"></a>Zagadnienia dotyczące magazynu
 
-Azure Backup używa magazynów Recovery Services, aby organizować kopie zapasowe i zarządzać nimi. Używa również magazynów do przechowywania danych kopii zapasowej. Efektywny projekt magazynu ułatwia organizacjom stworzenie struktury do organizowania zasobów kopii zapasowych i zarządzania nimi na platformie Azure w celu zapewnienia obsługi priorytetów firmy. Podczas tworzenia magazynu należy wziąć pod uwagę następujące wytyczne:  
+Azure Backup używa magazynów (Recovery Services i magazynów kopii zapasowych) do organizowania kopii zapasowych i zarządzania nimi. Używa również magazynów do przechowywania danych kopii zapasowej. Efektywny projekt magazynu ułatwia organizacjom stworzenie struktury do organizowania zasobów kopii zapasowych i zarządzania nimi na platformie Azure w celu zapewnienia obsługi priorytetów firmy. Podczas tworzenia magazynu należy wziąć pod uwagę następujące wytyczne:  
 
 ### <a name="align-to-subscription-design-strategy"></a>Dopasuj do strategii projektowania subskrypcji
 
@@ -71,7 +71,8 @@ Za pomocą jednego magazynu lub wielu magazynów można organizować kopie zapas
 * Jeśli Twoje obciążenia są zarządzane przez pojedynczą subskrypcję i pojedynczy zasób, można użyć jednego magazynu do monitorowania i zarządzania zapasami kopii.
 
 * Jeśli Twoje obciążenia są rozłożone między subskrypcjami, możesz utworzyć wiele magazynów, co najmniej jedną subskrypcję.
-  * Aby uprościć monitorowanie działań operacyjnych w ramach wszystkich magazynów, subskrypcji i dzierżawców, można użyć Eksploratora i raportów kopii zapasowych. [Dowiedz się więcej tutaj](monitor-azure-backup-with-backup-explorer.md) , aby uzyskać Zagregowany widok.
+  * Centrum kopii zapasowych umożliwia korzystanie z jednego okienka Glass do zarządzania wszystkimi zadaniami związanymi z tworzeniem kopii zapasowych. [Dowiedz się więcej tutaj]().
+  * Widoki można dostosować za pomocą szablonów skoroszytów. Eksplorator kopii zapasowych jest jednym z takich szablonów dla maszyn wirtualnych platformy Azure. [Dowiedz się więcej tutaj](monitor-azure-backup-with-backup-explorer.md).
   * Jeśli potrzebujesz spójnych zasad w różnych magazynach, możesz użyć usługi Azure Policy do propagowania zasad tworzenia kopii zapasowych w wielu magazynach. Można napisać niestandardową [definicję Azure Policy](../governance/policy/concepts/definition-structure.md) , która używa efektu ["deployifnotexists"](../governance/policy/concepts/effects.md#deployifnotexists) do propagowania zasad tworzenia kopii zapasowych w wielu magazynach. Można [przypisać](../governance/policy/assign-policy-portal.md) tę Azure Policy definicję do określonego zakresu (subskrypcja lub RG), tak aby wdrażał zasób "zasady kopii zapasowych" do wszystkich magazynów Recovery Services w zakresie przypisania Azure Policy. Ustawienia zasad tworzenia kopii zapasowych (takie jak częstotliwość tworzenia kopii zapasowych, przechowywanie i tak dalej) powinny zostać określone przez użytkownika jako parametry w przypisaniu Azure Policy.
 
 * W miarę rozwoju Twojej organizacji można przenieść obciążenia między subskrypcjami z następujących powodów: Wyrównaj według zasad tworzenia kopii zapasowej, Konsoliduj magazyny, a także Obniż poziom nadmiarowości, aby zaoszczędzić koszt (przechodzenie od GRS do LRS).  Azure Backup obsługuje przeniesienie magazynu Recovery Services między subskrypcjami platformy Azure lub inną grupą zasobów w ramach tej samej subskrypcji. [Dowiedz się więcej tutaj](backup-azure-move-recovery-services-vault.md).
@@ -255,7 +256,7 @@ Jako użytkownik lub administrator kopii zapasowej powinien być w stanie monito
 
 * Możesz również otrzymywać powiadomienia za poorednictwem wbudowanych **dzienników aktywności**magazynu Recovery Services. Obsługiwane są jednak ograniczone scenariusze i nie są odpowiednie dla operacji, takich jak zaplanowane kopie zapasowe, które są lepiej dostosowane do dzienników zasobów niż w przypadku dzienników aktywności. Aby dowiedzieć się więcej o tych ograniczeniach i sposobach używania Log Analytics obszaru roboczego do monitorowania i generowania alertów dla wszystkich obciążeń chronionych przez Azure Backup, zapoznaj się z tym [artykułem](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zalecamy zapoznanie się z następującymi artykułami jako punktami początkowymi dotyczącymi używania Azure Backup:
 

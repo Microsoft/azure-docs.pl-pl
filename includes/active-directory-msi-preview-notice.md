@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: dołączanie pliku
+description: dołączanie pliku
 services: active-directory
 author: daveba
 ms.service: active-directory

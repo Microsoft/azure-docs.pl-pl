@@ -1,6 +1,6 @@
 ---
-title: Uczenie maszynowe i AI z ONNX w usłudze Azure SQL Edge (wersja zapoznawcza)
-description: Uczenie maszynowe w usłudze Azure SQL Edge (wersja zapoznawcza) obsługuje modele w formacie Open neuronowych Network Exchange (ONNX). ONNX to otwarty format, którego można użyć do wymiany modeli między różnymi strukturami i narzędziami uczenia maszynowego.
+title: Uczenie maszynowe i AI z ONNX w usłudze Azure SQL Edge
+description: Uczenie maszynowe w usłudze Azure SQL Edge obsługuje modele w formacie Open neuronowych Network Exchange (ONNX). ONNX to otwarty format, którego można użyć do wymiany modeli między różnymi strukturami i narzędziami uczenia maszynowego.
 keywords: Wdróż program SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 2db6c728ac35c6fc2f1fee1a602725371e448104
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47c040b0fad0211af413141a5b16b587d41d3b08
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368060"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907133"
 ---
-# <a name="machine-learning-and-ai-with-onnx-in-sql-edge-preview"></a>Uczenie maszynowe i AI z ONNX w usłudze SQL Edge (wersja zapoznawcza)
+# <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>Uczenie maszynowe i AI z ONNX w usłudze SQL Edge
 
-Uczenie maszynowe w usłudze Azure SQL Edge (wersja zapoznawcza) obsługuje modele w formacie [Open neuronowych Network Exchange (ONNX)](https://onnx.ai/) . ONNX to otwarty format, którego można użyć do wymiany modeli między różnymi [strukturami i narzędziami uczenia maszynowego](https://onnx.ai/supported-tools).
+Uczenie maszynowe w usłudze Azure SQL Edge obsługuje modele w formacie [Open neuronowych Network Exchange (ONNX)](https://onnx.ai/) . ONNX to otwarty format, którego można użyć do wymiany modeli między różnymi [strukturami i narzędziami uczenia maszynowego](https://onnx.ai/supported-tools).
 
 ## <a name="overview"></a>Omówienie
 
@@ -36,7 +36,7 @@ Aby uzyskać model w formacie ONNX:
    * [PyTorch](http://pytorch.org/docs/master/onnx.html)
    * [Tensorflow](https://github.com/onnx/tensorflow-onnx)
    * [Keras](https://github.com/onnx/keras-onnx)
-   * [Scikit — informacje](https://github.com/onnx/sklearn-onnx)
+   * [Scikit-learn](https://github.com/onnx/sklearn-onnx)
    * [CoreML](https://github.com/onnx/onnxmltools)
     
     Aby zapoznać się z pełną listą obsługiwanych platform i przykładów, zobacz [konwertowanie do formatu ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format).
@@ -55,4 +55,4 @@ Dane wejściowe modelu powinny mieć strukturę, aby każde wejście do modelu o
 ## <a name="next-steps"></a>Następne kroki
 
 - [Wdróż program SQL Edge za Azure Portal](deploy-portal.md)
-- [Wdrażanie modelu ONNX w usłudze Azure SQL Edge (wersja zapoznawcza)](deploy-onnx.md)
+- [Wdrażanie modelu ONNX w usłudze Azure SQL Edge ](deploy-onnx.md)

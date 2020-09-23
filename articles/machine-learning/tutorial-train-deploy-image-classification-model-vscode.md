@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203560"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906692"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Uczenie i wdrażanie modelu TensorFlow klasyfikacji obrazów przy użyciu rozszerzenia Visual Studio Code Azure Machine Learning (wersja zapoznawcza)
 
@@ -61,7 +61,7 @@ Pierwszą czynnością, którą należy wykonać w celu skompilowania aplikacji 
 1. Wybierz pozycję **Utwórz nową grupę zasobów**. 
 1. Nazwij grupę zasobów "TeamWorkspace-RG" i naciśnij klawisz **Enter**. 
 1. Wybierz lokalizację obszaru roboczego. Zalecane jest wybranie lokalizacji znajdującej się najbliżej lokalizacji planowanej do wdrożenia modelu. Na przykład "zachodnie stany USA 2".
-1. Po wyświetleniu monitu o wybranie typu obszaru roboczego wybierz pozycję **podstawowa** , aby utworzyć podstawowy obszar roboczy. Aby uzyskać więcej informacji na temat różnych ofert obszaru roboczego, zobacz [Azure Machine Learning Omówienie](./overview-what-is-azure-ml.md#sku).
+1. Po wyświetleniu monitu o wybranie typu obszaru roboczego wybierz pozycję **podstawowa**.
 
 W tym momencie żądanie do platformy Azure jest tworzone w celu utworzenia nowego obszaru roboczego na koncie. Po kilku minutach nowy obszar roboczy zostanie wyświetlony w węźle subskrypcja. 
 
@@ -278,7 +278,7 @@ Aby utworzyć konfigurację uruchamiania:
 
 `MNIST-rc`Konfiguracja przebiegu jest dodawana do węzła obliczeniowego *TeamWkspc-com* , a `MNIST-env` Konfiguracja środowiska jest dodawana w węźle *środowiska* .
 
-## <a name="train-the-model"></a>Szkolenie modelu
+## <a name="train-the-model"></a>Trenowanie modelu
 
 W trakcie procesu szkolenia model TensorFlow jest tworzony przez przetwarzanie danych szkoleniowych i wzorców uczenia osadzonych w nim dla każdej z odpowiednich cyfr, które są klasyfikowane. 
 

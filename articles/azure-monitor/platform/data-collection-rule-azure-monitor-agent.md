@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 97ba976c841e192646ebb484fe4d004556e34c54
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: aa3225378f921792d1e8ba0442f2c555d095fb9d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640841"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968409"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurowanie zbierania danych dla agenta Azure Monitor (wersja zapoznawcza)
 Zasady zbierania danych (DCR) definiują dane wprowadzane do Azure Monitor i określają miejsce, w którym powinny być wysyłane. W tym artykule opisano sposób tworzenia reguły zbierania danych w celu zbierania danych z maszyn wirtualnych przy użyciu agenta Azure Monitor.
@@ -26,7 +26,7 @@ Aby zastosować DCR do maszyny wirtualnej, należy utworzyć skojarzenie dla mas
 
 Rozważmy na przykład środowisko z zestawem maszyn wirtualnych z działającą aplikacją biznesową i innymi osobami, na których działa SQL Server. Może istnieć jedna domyślna reguła zbierania danych, która ma zastosowanie do wszystkich maszyn wirtualnych i oddzielnych reguł zbierania danych, które zbierają dane przeznaczone dla aplikacji biznesowych i dla SQL Server. Skojarzenia dla maszyn wirtualnych z regułami zbierania danych wyglądają podobnie jak na poniższym diagramie.
 
-![Związku](media/data-collection-rule-azure-monitor-agent/associations.png)
+![Diagram przedstawia maszyny wirtualne hostujący aplikację biznesową i SQL Server skojarzone z regułami zbierania danych o nazwie Central-i t-default i aplikacji LOB dla aplikacji biznesowych, a Central-i t-default oraz s q l dla SQL Server.](media/data-collection-rule-azure-monitor-agent/associations.png)
 
 ## <a name="create-using-the-azure-portal"></a>Tworzenie za pomocą witryny Azure Portal
 Za pomocą Azure Portal można utworzyć regułę zbierania danych i skojarzyć maszyny wirtualne w subskrypcji z tą regułą. Agent Azure Monitor zostanie zainstalowany automatycznie, a zarządzana tożsamość utworzona dla każdej maszyny wirtualnej, która nie jest jeszcze zainstalowana.

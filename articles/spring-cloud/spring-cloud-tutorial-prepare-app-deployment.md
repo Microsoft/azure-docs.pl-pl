@@ -1,21 +1,90 @@
 ---
-title: Jak przygotować aplikację ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
-description: Dowiedz się, jak przygotować aplikację ze sprężyną Java do wdrożenia w chmurze z systemem Azure wiosną.
+title: Jak przygotować aplikację do wdrożenia w chmurze Azure wiosennej
+description: Dowiedz się, jak przygotować aplikację do wdrożenia w chmurze Azure wiosennej.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 02/03/2020
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 59318cca33ba1607498546161764aa3aaaaea13e
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: ff0582e3c4f654ed2a7f5efdc9ce8fd7a226595a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014943"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906834"
 ---
-# <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
+# <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji do wdrożenia w chmurze Azure wiosennej
 
+::: zone pivot="programming-language-csharp"
+Chmura sprężynowa platformy Azure oferuje niezawodne usługi do hostowania, monitorowania, skalowania i aktualizowania aplikacji steeltoe. W tym artykule przedstawiono sposób przygotowania istniejącej aplikacji steeltoe do wdrożenia w chmurze z usługą Azure wiosną. 
+
+W tym artykule opisano zależności, konfigurację i kod, które są wymagane do uruchomienia aplikacji platformy .NET Core steeltoe w chmurze sieci szkieletowej platformy Azure. Aby uzyskać informacje na temat sposobu wdrażania aplikacji w chmurze Azure wiosennej, zobacz [wdrażanie pierwszej aplikacji w chmurze Azure wiosennej](spring-cloud-quickstart.md).
+
+>[!Note]
+> Obsługa steeltoe w chmurze z systemem Azure jest obecnie oferowana jako publiczna wersja zapoznawcza. Oferty publicznej wersji zapoznawczej umożliwiają klientom eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją.  Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.  Aby uzyskać więcej informacji o obsłudze wersji zapoznawczych, zapoznaj się z tematem [często zadawanych pytań](https://azure.microsoft.com/support/faq/) lub pliku [support Request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+##  <a name="supported-versions"></a>Obsługiwane wersje
+
+Chmura sprężynowa platformy Azure obsługuje:
+
+* .NET Core 3,1
+* Steeltoe 2,4
+
+## <a name="dependencies"></a>Zależności
+
+Zainstaluj pakiet [Microsoft. Azure. SpringCloud. Client](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) .
+
+## <a name="update-programcs"></a>Aktualizacja Program.cs
+
+W `Program.Main` metodzie Wywołaj `UseAzureSpringCloudService` metodę:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        })
+        .UseAzureSpringCloudService();
+```
+
+## <a name="enable-eureka-server-service-discovery"></a>Włącz odnajdowanie usługi serwera Eureka
+
+W źródle konfiguracji, który będzie używany, gdy aplikacja jest uruchamiana w chmurze Azure wiosennej, ustaw `spring.application.name` taką samą nazwę, jak aplikacja w chmurze Azure wiosny, do której zostanie wdrożony projekt.
+
+Jeśli na przykład projekt .NET został wdrożony o nazwie `EurekaDataProvider` do aplikacji w chmurze Azure wiosennej o nazwie `planet-weather-provider` *appSettings.jsw* pliku powinien zawierać następujący kod JSON:
+
+```json
+"spring": {
+  "application": {
+    "name": "planet-weather-provider"
+  }
+}
+```
+
+## <a name="use-service-discovery"></a>Korzystanie z odnajdowania usług
+
+Aby wywołać usługę przy użyciu odnajdywania usługi serwera Eureka, należy wykonać żądania HTTP, `http://<app_name>` gdzie `app_name` jest wartością `spring.application.name` aplikacji docelowej. Na przykład poniższy kod wywołuje `planet-weather-provider` usługę:
+
+```csharp
+using (var client = new HttpClient(discoveryHandler, false))
+{
+    var responses = await Task.WhenAll(
+        client.GetAsync("http://planet-weather-provider/weatherforecast/mercury"),
+        client.GetAsync("http://planet-weather-provider/weatherforecast/saturn"));
+    var weathers = await Task.WhenAll(from res in responses select res.Content.ReadAsStringAsync());
+    return new[]
+    {
+        new KeyValuePair<string, string>("Mercury", weathers[0]),
+        new KeyValuePair<string, string>("Saturn", weathers[1]),
+    };
+}
+```
+::: zone-end
+
+::: zone pivot="programming-language-java"
 W tym temacie przedstawiono sposób przygotowania istniejącej aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej. W przypadku poprawnego skonfigurowania chmurowa usługa Azure wiosenna zapewnia niezawodne usługi do monitorowania, skalowania i aktualizowania aplikacji w chmurze ze sprężyną Java.
 
 Przed uruchomieniem tego przykładu możesz skorzystać z [podstawowego przewodnika Szybki Start](spring-cloud-quickstart.md).
@@ -232,7 +301,7 @@ Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipk
 
  Musisz również włączyć wystąpienie usługi Azure Application Insights, aby współpracowało z wystąpieniem usług w chmurze sieci Azure ze sprężyną. Aby uzyskać informacje o sposobach używania Application Insights z chmurą Azure wiosennej, zapoznaj się z [dokumentacją śledzenia rozproszonego](spring-cloud-tutorial-distributed-tracing.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Analizowanie dzienników i metryk aplikacji](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 * [Konfigurowanie serwera konfiguracji](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
 * [Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
@@ -244,3 +313,4 @@ Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipk
 W tym temacie opisano sposób konfigurowania aplikacji ze sprężyną Java na potrzeby wdrożenia w chmurze sieci platformy Azure. Aby dowiedzieć się, jak skonfigurować wystąpienie serwera konfiguracji, zobacz [Konfigurowanie wystąpienia serwera konfiguracji](spring-cloud-tutorial-config-server.md).
 
 Więcej przykładów można znaleźć w witrynie GitHub: [przykłady chmur usługi Azure wiosennej](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+::: zone-end

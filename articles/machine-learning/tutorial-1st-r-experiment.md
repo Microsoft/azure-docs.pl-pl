@@ -10,15 +10,15 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 8d5a8555b2bd57dc024318464e38f042469beb4b
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: faf2257f944127748569466d314ff0a76faae4f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458675"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906729"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Samouczek: używanie języka R do tworzenia modelu uczenia maszynowego (wersja zapoznawcza)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > Zestaw Azure Machine Learning R SDK jest obecnie w publicznej wersji zapoznawczej.
@@ -28,7 +28,7 @@ W tym samouczku użyjesz Azure Machine Learning R SDK (wersja zapoznawcza), aby 
 
 Ten samouczek obejmuje wykonanie następujących zadań:
 > [!div class="checklist"]
-> * Tworzenie obszaru roboczego Azure Machine Learning
+> * Tworzenie obszaru roboczego usługi Azure Machine Learning
 > * Otwórz RStudio z obszaru roboczego
 > * Klonowanie https://github.com/Azure/azureml-sdk-for-r plików niezbędnych do uruchomienia tego samouczka w obszarze roboczym
 > * Ładowanie danych i przygotowanie do szkolenia
@@ -369,7 +369,7 @@ Możesz również uzyskać punkt końcowy HTTP usługi sieci Web, który akceptu
 aci_service$scoring_uri
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Usuń zasoby, gdy nie będą już potrzebne. Nie usuwaj zasobów, których planujesz nadal używać. 
 

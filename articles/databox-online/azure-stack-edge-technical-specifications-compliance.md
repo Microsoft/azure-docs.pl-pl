@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge specyfikacje techniczne i zgodność | Microsoft Docs
-description: Poznaj specyfikacje techniczne i zgodność dla Azure Stack krawędzi
+title: Microsoft Azure Stack Edge — specyfikacje techniczne i zgodność | Microsoft Docs
+description: Dowiedz się więcej na temat specyfikacji technicznych i zgodności dla Twojego Azure Stack EDGE Pro
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91aa386311452ae08ead2b8eac9005b2c730f3f3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652038"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883436"
 ---
-# <a name="azure-stack-edge-technical-specifications"></a>Azure Stack Edge — specyfikacje techniczne
+# <a name="azure-stack-edge-pro-technical-specifications"></a>Azure Stack Edge — specyfikacje techniczne Pro
 
-Składniki sprzętowe Microsoft Azure Stack urządzenia brzegowego są zgodne ze specyfikacjami technicznymi i standardami prawnymi opisanymi w tym artykule. Specyfikacje techniczne opisują jednostki zasilacza (PSUs), pojemność magazynu, obudowy i standardy środowiskowe.
+Składniki sprzętowe urządzenia Microsoft Azure Stack Edge w wersji zastosowanej w programie są zgodne ze specyfikacjami technicznymi i normami prawnymi opisanymi w tym artykule. Specyfikacje techniczne opisują jednostki zasilacza (PSUs), pojemność magazynu, obudowy i standardy środowiskowe.
 
 ## <a name="compute-memory-specifications"></a>Obliczenia, specyfikacje pamięci
 
-Urządzenie brzegowe Azure Stack ma następujące specyfikacje dotyczące obliczeń i pamięci:
+Urządzenie Azure Stack EDGE Pro ma następujące specyfikacje dotyczące obliczeń i pamięci:
 
 | Specyfikacja           | Wartość                  |
 |-------------------------|----------------------------|
 | Procesor CPU    | 2 X 10 rdzeni procesora CPU                     |
-| Memory (Pamięć)              | 128 GB pamięci RAM                  |
+| Pamięć              | 128 GB pamięci RAM                  |
 
 ## <a name="fpga-specifications"></a>Specyfikacje FPGA
 
-FPGA jest dołączana do wszystkich Azure Stack urządzeń brzegowych, które umożliwiają Machine Learning (ML) scenariusze.
+FPGA jest dołączana do każdego urządzenia z Azure Stack Edge, które umożliwia Machine Learning (ML) scenariusze.
 
 | Specyfikacja           | Wartość                  |
 |-------------------------|----------------------------|
@@ -38,7 +38,7 @@ FPGA jest dołączana do wszystkich Azure Stack urządzeń brzegowych, które um
 
 ## <a name="power-supply-unit-specifications"></a>Specyfikacje jednostek zasilacza
 
-Urządzenie brzegowe Azure Stack ma dwie jednostki zasilacza 100-240 V (PSUs) z wentylatorami o wysokiej wydajności. Dwa PSUs zapewniają nadmiarową konfigurację zasilacza. Jeśli PSU nie powiedzie się, urządzenie będzie nadal działać normalnie na innych PSU, dopóki nie zostanie zastąpiony moduł zakończony niepowodzeniem. W poniższej tabeli przedstawiono specyfikacje techniczne PSUs.
+Urządzenie Azure Stack EDGE Pro ma dwie jednostki dostarczania 100-240 V (PSUs) z wentylatorami o wysokiej wydajności. Dwa PSUs zapewniają nadmiarową konfigurację zasilacza. Jeśli PSU nie powiedzie się, urządzenie będzie nadal działać normalnie na innych PSU, dopóki nie zostanie zastąpiony moduł zakończony niepowodzeniem. W poniższej tabeli przedstawiono specyfikacje techniczne PSUs.
 
 | Specyfikacja           | 750 W PSU                  |
 |-------------------------|----------------------------|
@@ -47,18 +47,18 @@ Urządzenie brzegowe Azure Stack ma dwie jednostki zasilacza 100-240 V (PSUs) z 
 | Wybór zakresu napięcia | Wybór na Wydziale: 100-240 V AC |
 | Możliwość podłączenia gorąca           | Tak                        |
 
-### <a name="azure-stack-edge-power-cord-specifications-by-region"></a>Azure Stack Edge — specyfikacje przewodu zasilającego według regionu
+### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>Azure Stack Edge — specyfikacje dotyczące przewodu Power BI według regionu
 
-Urządzenie brzegowe Azure Stack wymaga przewodu zasilającego, który różni się w zależności od regionu platformy Azure.
-Aby zapoznać się ze specyfikacją techniczną wszystkich obsługiwanych przewodów zasilających, zobacz [Azure Stack Edge — specyfikacje przewodu zasilającego według regionów](azure-stack-edge-technical-specifications-power-cords-regional.md).
+Twoje urządzenie Azure Stack EDGE Pro wymaga przewodu zasilającego, które różni się w zależności od regionu platformy Azure.
+Aby zapoznać się ze specyfikacją techniczną wszystkich obsługiwanych przewodów zasilających, zobacz [Azure Stack Edge — specyfikacje dotyczące przewodu Power BI według regionów](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
-The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge device.-->
+The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro device.-->
 
 ## <a name="network-interface-specifications"></a>Specyfikacje interfejsu sieciowego
 
-Urządzenie brzegowe Azure Stack ma 6 interfejsów sieciowych, PORT1-PORT6.
+Twoje urządzenie Azure Stack EDGE Pro ma 6 interfejsów sieciowych, PORT1-PORT6.
 
 | Specyfikacja           | Opis                 |
 |-------------------------|----------------------------|
@@ -66,7 +66,7 @@ Urządzenie brzegowe Azure Stack ma 6 interfejsów sieciowych, PORT1-PORT6.
 
 ## <a name="storage-specifications"></a>Specyfikacje magazynu
 
-Urządzenia brzegowe Azure Stack mają 9 X 2,5 "interfejsu NVMe dysków SSD, każdy z pojemnością 1,6 TB. Z tych dysków SSD 1 to dysk systemu operacyjnego, a drugi 8 to dyski z danymi. Całkowita pojemność urządzenia wynosi około 12,5 TB. Poniższa tabela zawiera szczegółowe informacje dotyczące pojemności magazynu urządzenia.
+Urządzenia Azure Stack EDGE Pro mają 9 X 2,5 "interfejsu NVMe dysków SSD, każdy z pojemnością 1,6 TB. Z tych dysków SSD 1 to dysk systemu operacyjnego, a drugi 8 to dyski z danymi. Całkowita pojemność urządzenia wynosi około 12,5 TB. Poniższa tabela zawiera szczegółowe informacje dotyczące pojemności magazynu urządzenia.
 
 |     Specyfikacja                          |     Wartość             |
 |--------------------------------------------|-----------------------|
@@ -87,16 +87,16 @@ W poniższej tabeli przedstawiono wymiary obudowy w milimetrach i calach.
 
 |     Szaf     |     Milimetrach     |     15     |
 |-------------------|---------------------|----------------|
-|    Właściwość Height         |    44,45            |    1,75 "          |
-|    impulsów          |    434,1           |    17,09 "          |
+|    Height         |    44,45            |    1,75 "          |
+|    Width          |    434,1           |    17,09 "          |
 |    Długość          |    740,4           |    29,15 "          |
 
 W poniższej tabeli przedstawiono wymiary pakietu wysyłki w milimetrach i calach.
 
 |     Pakiet     |     Milimetrach     |     15     |
 |-------------------|---------------------|----------------|
-|    Właściwość Height         |    311,2            |    12,25 "          |
-|    impulsów          |    642,8          |    25,31 "          |
+|    Height         |    311,2            |    12,25 "          |
+|    Width          |    642,8          |    25,31 "          |
 |    Długość          |   1 051,1          |    41,38 "          |
 
 ### <a name="enclosure-weight"></a>Waga obudowy
@@ -116,7 +116,7 @@ W tej sekcji przedstawiono specyfikacje dotyczące środowiska obudowy, takie ja
 
 |     Szaf         |     Zakres temperatury otoczenia     |     Wilgotność względna     |     Maksymalny punkt Rosa     |
 |-----------------------|--------------------------------------|--------------------------------------|---------------------------|
-|    Działał        |    10 OC – 35 °C (50 °F-86 °F)         |    10%-80% bez kondensacji.         |    29 °C (84 °F)            |
+|    Operacyjne        |    10 OC – 35 °C (50 °F-86 °F)         |    10%-80% bez kondensacji.         |    29 °C (84 °F)            |
 |    Niedziałające    |    -40 °C do 65 °C (-40 °F-149 °F)     |    5%-95% bez kondensacji.          |    33 °C (91 °F)            |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Przepływ powietrza, wysokość, wstrząsy, wibracje, Orientacja, bezpieczeństwo i EMC
@@ -146,4 +146,4 @@ W tej sekcji przedstawiono specyfikacje dotyczące środowiska obudowy, takie ja
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wdrażanie Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Wdróż swoją Azure Stack EDGE Pro](azure-stack-edge-deploy-prep.md)

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c8694c90fedccbecee1fee09e7146bf2d0aaa6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 37fad118fe314b1392c31906a3f0a0989e39d876
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601167"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969406"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Tworzenie, wyświetlanie i usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu wywołań interfejsu API REST
 
@@ -34,10 +34,23 @@ Ten artykuł zawiera informacje na temat tworzenia, wyświetlania i usuwania to�
 
 - Jeśli nie znasz tożsamości zarządzanych dla zasobów platformy Azure, zapoznaj się z [sekcją przegląd](overview.md). **Pamiętaj, aby zapoznać się z [różnicą między przypisaną przez system i tożsamością zarządzaną przez użytkownika](overview.md#managed-identity-types)**.
 - Jeśli nie masz jeszcze konta platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed kontynuowaniem.
-- Jeśli używasz systemu Windows, zainstaluj [podsystem Windows dla systemu Linux](/windows/wsl/about) lub Użyj [Azure Cloud Shell](../../cloud-shell/overview.md) w Azure Portal.
-- W przypadku korzystania z [podsystemu Windows dla systemu Linux](/windows/wsl/about) lub [systemu operacyjnego dystrybucji Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) [Zainstaluj konsolę lokalną interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
-- Jeśli używasz lokalnej konsoli interfejsu wiersza polecenia platformy Azure, zaloguj się do platformy Azure przy użyciu `az login` konta skojarzonego z subskrypcją platformy Azure, którą chcesz wdrożyć, lub pobrać informacje o tożsamości zarządzane przypisane przez użytkownika.
-- Pobierz token dostępu okaziciela przy użyciu programu, `az account get-access-token` Aby wykonać następujące operacje związane z tożsamościami zarządzanymi przez użytkownika.
+- Wszystkie polecenia w tym artykule można uruchomić w chmurze lub lokalnie:
+    - Aby uruchomić program w chmurze, użyj [Azure Cloud Shell](../../cloud-shell/overview.md).
+    - Aby uruchamiać lokalnie, zainstaluj [zwinięcie](https://curl.haxx.se/download.html) i [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+
+## <a name="obtain-a-bearer-access-token"></a>Uzyskaj token dostępu okaziciela
+
+1. Jeśli działa lokalnie, zaloguj się do platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure:
+
+    ```
+    az login
+    ```
+
+1. Uzyskiwanie tokenu dostępu za pomocą polecenia [AZ Account Get-Access-token](/cli/azure/account#az_account_get_access_token)
+
+    ```azurecli-interactive
+    az account get-access-token
+    ```
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika 
 
@@ -91,7 +104,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 Aby usunąć tożsamość zarządzaną przypisaną przez użytkownika, Twoje konto wymaga przypisania roli [współautor zarządzanej tożsamości](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) .
 
 > [!NOTE]
-> Usunięcie tożsamości zarządzanej przypisanej przez użytkownika nie spowoduje usunięcia odwołania z zasobu, do którego została przypisana. Aby usunąć tożsamość zarządzaną przypisaną przez użytkownika z maszyny wirtualnej przy użyciu narzędzia ZWINIĘCIE [, zobacz Usuwanie tożsamości przypisanej do użytkownika z maszyny wirtualnej platformy Azure](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
+> Usunięcie tożsamości zarządzanej przypisanej przez użytkownika nie spowoduje usunięcia odwołania z zasobu, do którego została przypisana. Aby usunąć tożsamość zarządzaną przypisaną przez użytkownika z maszyny wirtualnej przy użyciu narzędzia ZWINIĘCIE [, zobacz Usuwanie tożsamości przypisanej do użytkownika z maszyny wirtualnej platformy Azure](qs-configure-rest-vm.md#remove-a-user-assigned-managed-identity-from-an-azure-vm).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup

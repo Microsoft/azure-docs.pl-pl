@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3370ea52c5bd189f929c0f81a0aa9b59cc77b97
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 919585d557a668e44f229451ab202fb8bcab9079
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421386"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985160"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Przypisywanie ról usługi Azure AD w Privileged Identity Management
 
@@ -51,7 +51,7 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 
 1. Wybierz pozycję **role** , aby wyświetlić listę ról dla uprawnień usługi Azure AD.
 
-    ![Role usługi Azure Active Directory](./media/pim-how-to-add-role-to-user/roles-list.png)
+    ![Role usługi Azure AD](./media/pim-how-to-add-role-to-user/roles-list.png)
 
 1. Wybierz pozycję **Dodaj przypisania** , aby otworzyć stronę **Dodawanie przypisań** .
 
@@ -74,6 +74,30 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 1. Po przypisaniu roli zostanie wyświetlone powiadomienie o stanie przypisania.
 
     ![Nowe przypisanie — powiadomienie](./media/pim-how-to-add-role-to-user/assignment-notification.png)
+
+## <a name="assign-a-role-with-restricted-scope"></a>Przypisywanie roli z ograniczonym zakresem
+
+W przypadku niektórych ról zakres przyznanych uprawnień może być ograniczony do pojedynczej jednostki administracyjnej, nazwy głównej usługi lub aplikacji. Ta procedura jest przykładem, Jeśli przypiszesz rolę, która ma zakres jednostki administracyjnej. Aby uzyskać listę ról, które obsługują zakres za pośrednictwem jednostki administracyjnej, zobacz [Przypisywanie ról objętych zakresem do jednostki administracyjnej](../users-groups-roles/roles-admin-units-assign-roles.md). Ta funkcja jest obecnie wdrażana w organizacjach usługi Azure AD.
+
+1. Zaloguj się do [Centrum administracyjnego Azure Active Directory](https://aad.portal.azure.com) z uprawnieniami administratora ról uprzywilejowanych.
+
+1. Wybierz pozycję **Azure Active Directory**  >  **role i Administratorzy**.
+
+1. Wybierz **administratora użytkownika**.
+
+    ![Polecenie Dodaj przypisanie jest dostępne po otwarciu roli w portalu](./media/pim-how-to-add-role-to-user/add-assignment.png)
+
+1. Wybierz pozycję **Dodaj przypisania**.
+
+    ![Gdy rola obsługuje zakres, można wybrać zakres](./media/pim-how-to-add-role-to-user/add-scope.png)
+
+1. Na stronie **Dodawanie przypisań** można:
+
+   - Wybierz użytkownika lub grupę, która ma zostać przypisana do roli
+   - Wybierz zakres roli (w tym przypadku jednostki administracyjne)
+   - Wybierz jednostkę administracyjną dla zakresu
+
+Aby uzyskać więcej informacji na temat tworzenia jednostek administracyjnych, zobacz [Dodawanie i usuwanie jednostek administracyjnych](../users-groups-roles/roles-admin-units-manage.md).
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Aktualizowanie lub usuwanie istniejącego przypisania roli
 
@@ -101,7 +125,7 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 
 1. Wybierz **role** lub **członków**.
 
-    ![Role usługi Azure Active Directory](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Otwórz role usługi Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Wybierz pozycję **Dodaj członka** , aby otworzyć aplet **Dodaj elementy zarządzane**.
 
@@ -111,7 +135,7 @@ Wykonaj następujące kroki, aby użytkownik mógł kwalifikować się do roli a
 
 1. Wybierz pozycję **Wybierz członków**, wybierz użytkowników, którym chcesz przypisać rolę, a następnie wybierz pozycję **Wybierz**.
 
-    ![Wybierz rolę](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Wybierz użytkownika lub grupę do przypisania](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. W obszarze **Dodaj zarządzane elementy członkowskie**wybierz **przycisk OK** , aby dodać użytkownika do roli.
 
@@ -169,7 +193,7 @@ Wykonaj następujące kroki, aby usunąć określonego użytkownika z roli admin
 
 1. W komunikacie z prośbą o potwierdzenie wybierz pozycję **tak**.
 
-    ![Usuwanie roli](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Potwierdzenie usunięcia](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     Przypisanie roli zostanie usunięte.
 

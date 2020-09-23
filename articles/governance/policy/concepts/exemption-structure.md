@@ -3,12 +3,12 @@ title: Szczegóły struktury wykluczenia zasad
 description: Opisuje definicję wykluczenia zasad używane przez Azure Policy do wykluczenia zasobów z oceny inicjatyw lub definicji.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3e6a6c9bc7993161697187b6131994c1973b49d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938596"
+ms.locfileid: "90968051"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy struktura wykluczenia
 
@@ -99,11 +99,12 @@ To pole musi zawierać pełną nazwę ścieżki przypisania zasad lub przypisani
 
 Jeśli `policyAssignmentId` dotyczy to przypisania inicjatywy, `policyDefinitionReferenceIds` Właściwość może służyć do określenia definicji zasad w ramach inicjatywy, do których zasób podmiotu ma wykluczenie. Ponieważ zasób może być zwolniony z co najmniej jednej z uwzględnionych definicji zasad, ta właściwość jest _tablicą_. Wartości muszą być zgodne z wartościami w definicji inicjatywy w `policyDefinitions.policyDefinitionReferenceId` polach.
 
-## <a name="required-permissions"></a>Wymagane uprawnienia
+## <a name="exemption-category"></a>Kategoria wykluczenia
 
-Uprawnienia usługi Azure RBAC wymagające zarządzania obiektami wykluczenia zasad znajdują się w `Microsoft.Authorization/policyExemptions` grupie operacji. [Współautorzy zasad zasobów](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) i [administrator zabezpieczeń](../../../role-based-access-control/built-in-roles.md#security-admin) wbudowane role mają uprawnienia `read` i `write` uprawnienia oraz [Moduł zapisywania danych usługi Insights (wersja zapoznawcza)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) `read` .
+Istnieją dwie kategorie wykluczenia i są używane do grupowania wykluczeń:
 
-Zwolnienia mają dodatkowe środki bezpieczeństwa, ponieważ mają wpływ na wykluczenie. Poza wymaganiem `Microsoft.Authorization/policyExemptions/write` operacji w hierarchii zasobów lub poszczególnych zasobów, twórca wykluczenia musi mieć `exempt/Action` zlecenie dotyczące przypisania docelowej.
+- **Skorygowane**: wykluczenie jest udzielane, ponieważ przeznaczenie zasad zostało spełnione przez inną metodę.
+- **Odstąpienie**: zwolnienie jest przyznawane, ponieważ stan braku zgodności zasobu jest tymczasowo zaakceptowany. Kolejną przyczyną użycia tej kategorii jest zasób lub hierarchia zasobów, która powinna zostać wykluczona z co najmniej jednej definicji z inicjatywy, ale nie powinna być wykluczona z całej inicjatywy.
 
 ## <a name="expiration"></a>Wygaśnięcie
 
@@ -111,6 +112,12 @@ Aby określić, kiedy hierarchia zasobów lub pojedynczy zasób nie jest już _w
 
 > [!NOTE]
 > Wykluczenia zasad nie są usuwane, gdy `expiresOn` Data zostanie osiągnięta. Obiekt jest zachowywany do zachowywania rekordów, ale wyłączenie nie jest już honorowane.
+
+## <a name="required-permissions"></a>Wymagane uprawnienia
+
+Uprawnienia usługi Azure RBAC wymagające zarządzania obiektami wykluczenia zasad znajdują się w `Microsoft.Authorization/policyExemptions` grupie operacji. [Współautorzy zasad zasobów](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) i [administrator zabezpieczeń](../../../role-based-access-control/built-in-roles.md#security-admin) wbudowane role mają uprawnienia `read` i `write` uprawnienia oraz [Moduł zapisywania danych usługi Insights (wersja zapoznawcza)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) `read` .
+
+Zwolnienia mają dodatkowe środki bezpieczeństwa, ponieważ mają wpływ na wykluczenie. Poza wymaganiem `Microsoft.Authorization/policyExemptions/write` operacji w hierarchii zasobów lub poszczególnych zasobów, twórca wykluczenia musi mieć `exempt/Action` zlecenie dotyczące przypisania docelowej.
 
 ## <a name="next-steps"></a>Następne kroki
 

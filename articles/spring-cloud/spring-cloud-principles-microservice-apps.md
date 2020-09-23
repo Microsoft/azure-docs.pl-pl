@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1c403398f7320cefa16a4a570645a6d7d750acc7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 8cda46a011ae92f26a15a4e9a918559801ce299c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297505"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906875"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>Java i podstawowy system operacyjny dla aplikacji mikrousług usługi Spring
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java
+
 Poniżej znajdują się zasady dotyczące utrzymania zdrowego środowiska Java i podstawowego systemu operacyjnego pod kątem aplikacji z mikrousług.
 ## <a name="principles-for-healthy-java-and-base-os"></a>Zasady dotyczące zdrowego środowiska Java i podstawowego systemu operacyjnego
 * Jest to ten sam podstawowy system operacyjny w warstwach — Podstawowa | Standardowa | Tytułu.
@@ -52,5 +55,6 @@ Systemy Azul będą stale skanowane pod kątem zmian w podstawowych systemach op
 > ![Wdrożenie domyślne](media/spring-cloud-principles/spring-cloud-default-deployment.png)
  
 ## <a name="next-steps"></a>Następne kroki
-* [Szybki Start: uruchamianie istniejącej aplikacji w chmurze platformy Azure przy użyciu Azure Portal](spring-cloud-quickstart.md)
+
+* [Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny](spring-cloud-quickstart.md)
 * [Długoterminowa obsługa języka Java dla platformy Azure i Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)

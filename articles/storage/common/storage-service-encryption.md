@@ -4,17 +4,17 @@ description: Usługa Azure Storage chroni dane, automatycznie szyfrując je prze
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/24/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e949c3db6d8c0cafab8556dbfde367e6e49273e9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 19f0027b506b78ef81f9acc25a94ef9ab74643e2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078201"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985765"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Szyfrowanie w usłudze Azure Storage dla danych magazynowanych
 
@@ -38,8 +38,8 @@ Aby uzyskać informacje na temat szyfrowania i zarządzania kluczami dla usługi
 
 Dane na nowym koncie magazynu są domyślnie szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Możesz w dalszym ciągu korzystać z kluczy zarządzanych przez firmę Microsoft do szyfrowania danych lub możesz zarządzać szyfrowaniem przy użyciu własnych kluczy. W przypadku wybrania opcji zarządzania szyfrowaniem przy użyciu własnych kluczy dostępne są dwie opcje. Można użyć dowolnego typu zarządzania kluczami lub obu:
 
-- *Klucz zarządzany przez klienta* można określić przy użyciu Azure Key Vault do szyfrowania i odszyfrowywania danych w usłudze BLOB Storage i w Azure Files. <sup>1, 2</sup> Aby uzyskać więcej informacji o kluczach zarządzanych przez klienta, zobacz [Korzystanie z kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage](encryption-customer-managed-keys.md).
-- *Klucz dostarczony przez klienta* można określić w operacjach magazynu obiektów BLOB. Klient wykonujący żądanie odczytu lub zapisu w usłudze BLOB Storage może dołączyć klucz szyfrowania żądania, aby uzyskać szczegółową kontrolę nad sposobem szyfrowania i odszyfrowywania danych obiektów BLOB. Więcej informacji o kluczach dostarczonych przez klienta znajduje się [w temacie zapewnianie klucza szyfrowania w żądaniu usługi BLOB Storage](encryption-customer-provided-keys.md).
+- Możesz określić *klucz zarządzany przez klienta* , który będzie używany do szyfrowania i odszyfrowywania danych w magazynie obiektów blob i w Azure Files. <sup>1, 2</sup> klucze zarządzane przez klienta muszą być przechowywane w Azure Key Vault lub Azure Key Vault zarządzanym sprzętowym modelem zabezpieczeń (HSM) (wersja zapoznawcza). Aby uzyskać więcej informacji o kluczach zarządzanych przez klienta, zobacz [Korzystanie z kluczy zarządzanych przez klienta do szyfrowania usługi Azure Storage](encryption-customer-managed-keys.md).
+- *Klucz dostarczony przez klienta* można określić w operacjach magazynu obiektów BLOB. Klient wykonujący żądanie odczytu lub zapisu w usłudze BLOB Storage może dołączyć klucz szyfrowania żądania, aby uzyskać szczegółową kontrolę nad sposobem szyfrowania i odszyfrowywania danych obiektów BLOB. Więcej informacji o kluczach dostarczonych przez klienta znajduje się [w temacie zapewnianie klucza szyfrowania w żądaniu usługi BLOB Storage](../blobs/encryption-customer-provided-keys.md).
 
 Poniższa tabela zawiera porównanie opcji zarządzania kluczami dla szyfrowania usługi Azure Storage.
 
@@ -47,7 +47,7 @@ Poniższa tabela zawiera porównanie opcji zarządzania kluczami dla szyfrowania
 |--|--|--|--|
 | Operacje szyfrowania/odszyfrowywania | Azure | Azure | Azure |
 | Obsługiwane usługi Azure Storage | Wszystko | BLOB Storage, Azure Files<sup>1, 2</sup> | Blob Storage |
-| Magazyn kluczy | Magazyn kluczy firmy Microsoft | W usłudze Azure Key Vault | Własny magazyn kluczy klienta |
+| Magazyn kluczy | Magazyn kluczy firmy Microsoft | Moduł HSM Azure Key Vault lub Key Vault | Własny magazyn kluczy klienta |
 | Odpowiedzialność za kluczowe rotacje | Microsoft | Klient | Klient |
 | Klucz — formant | Microsoft | Klient | Klient |
 
@@ -56,6 +56,14 @@ Poniższa tabela zawiera porównanie opcji zarządzania kluczami dla szyfrowania
 
 > [!NOTE]
 > Klucze zarządzane przez firmę Microsoft zostały odpowiednio obrócone na wymagania dotyczące zgodności. Jeśli masz określone wymagania dotyczące rotacji kluczy, firma Microsoft zaleca przechodzenie między kluczami zarządzanymi przez klienta, aby umożliwić samodzielne zarządzanie rotacją i przeprowadzanie inspekcji.
+
+## <a name="doubly-encrypt-data-with-infrastructure-encryption"></a>Podwójna szyfrowanie danych przy użyciu szyfrowania infrastruktury
+
+Klienci, którzy wymagają wysokiego poziomu pewności, że ich dane są bezpieczne, mogą również włączyć 256-bitowe szyfrowanie AES na poziomie infrastruktury usługi Azure Storage. Po włączeniu szyfrowania infrastruktury dane na koncie magazynu są szyfrowane dwa razy &mdash; na poziomie usługi i raz na poziomie infrastruktury &mdash; z dwoma różnymi algorytmami szyfrowania i dwoma różnymi kluczami. Podwójne szyfrowanie danych usługi Azure Storage chroni przed scenariuszem, w którym można złamać jeden z algorytmów szyfrowania lub kluczy. W tym scenariuszu dodatkowa warstwa szyfrowania nadal chroni dane.
+
+Szyfrowanie na poziomie usługi obsługuje używanie kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta w programie Azure Key Vault. Szyfrowanie na poziomie infrastruktury korzysta z kluczy zarządzanych przez firmę Microsoft i zawsze korzysta z osobnego klucza.
+
+Aby uzyskać więcej informacji na temat tworzenia konta magazynu, które umożliwia szyfrowanie infrastruktury, zobacz [Tworzenie konta magazynu z włączoną funkcją szyfrowania infrastruktury w celu podwójnego szyfrowania danych](infrastructure-encryption-enable.md).
 
 ## <a name="encryption-scopes-for-blob-storage-preview"></a>Zakresy szyfrowania dla usługi BLOB Storage (wersja zapoznawcza)
 
@@ -102,6 +110,5 @@ Jeśli zakres szyfrowania jest chroniony przy użyciu kluczy zarządzanych przez
 ## <a name="next-steps"></a>Następne kroki
 
 - [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md)
-- [Configure customer-managed keys for Azure Storage encryption from the Azure portal (Konfigurowanie kluczy zarządzanych przez klienta w celu szyfrowania usługi Azure Storage w witrynie Azure Portal)](storage-encryption-keys-portal.md)
-- [Configure customer-managed keys for Azure Storage encryption from PowerShell (Konfigurowanie kluczy zarządzanych przez klienta w celu szyfrowania usługi Azure Storage za pomocą programu PowerShell)](storage-encryption-keys-powershell.md)
-- [Configure customer-managed keys for Azure Storage encryption from Azure CLI (Konfigurowanie kluczy zarządzanych przez klienta w celu szyfrowania usługi Azure Storage za pomocą interfejsu wiersza polecenia platformy Azure)](storage-encryption-keys-cli.md)
+- [Klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage](customer-managed-keys-overview.md)
+- [Zakresy szyfrowania dla usługi BLOB Storage (wersja zapoznawcza)](../blobs/encryption-scope-overview.md)
