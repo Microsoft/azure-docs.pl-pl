@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: bdf3863ae4683c6ef0e8dd3dd67a952bebf62d52
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e9944e95dd452cd00e63280ad8002141591f521e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463751"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971430"
 ---
 # <a name="accessing-secure-resources-via-private-endpoints"></a>Uzyskiwanie dostępu do bezpiecznych zasobów za pośrednictwem prywatnych punktów końcowych
 

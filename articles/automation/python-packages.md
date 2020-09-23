@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.custom: devx-track-python
-ms.openlocfilehash: 0b0fab40eb95fabd4b74e809c9e6cd6f6573f513
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1ab0b2def1a22470c1d0b6339e1525cd683b4a0b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852909"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987560"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Zarządzanie pakietami Python 2 w Azure Automation
 
@@ -21,15 +21,15 @@ Azure Automation umożliwia uruchamianie elementów Runbook języka Python 2 na 
 
 Na koncie usługi Automation wybierz **pakiety Python 2** w obszarze **udostępnione zasoby**. Kliknij pozycję **+ Dodaj pakiet Python 2**.
 
-![Dodaj pakiet języka Python](media/python-packages/add-python-package.png)
+:::image type="content" source="media/python-packages/add-python-package.png" alt-text="Zrzut ekranu przedstawiający stronę pakietów języka Python 2 zawiera pakiety Python 2 w menu po lewej stronie i dodano wyróżniony pakiet Python 2.":::
 
 Na stronie Dodawanie pakietu Python 2 Wybierz pakiet lokalny do przekazania. Pakiet może być plikiem **. WHL** lub **. tar. gz** . Po wybraniu pakietu kliknij przycisk **OK** , aby go załadować.
 
-![Dodaj pakiet języka Python](media/python-packages/upload-package.png)
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="Zrzut ekranu przedstawia stronę Dodawanie pakietu Python 2 z wybranym plikem tar. gz.":::
 
 Po zaimportowaniu pakietu jest on wyświetlany na stronie pakiety języka Python 2 na koncie usługi Automation. Jeśli musisz usunąć pakiet, wybierz pakiet, a następnie kliknij przycisk **Usuń**.
 
-![Lista pakietów](media/python-packages/package-list.png)
+:::image type="content" source="media/python-packages/package-list.png" alt-text="Zrzut ekranu przedstawia stronę pakietów języka Python 2 po zaimportowaniu pakietu.":::
 
 ## <a name="import-packages-with-dependencies"></a>Importuj pakiety z zależnościami
 
@@ -49,12 +49,12 @@ Po pobraniu pakietów można je zaimportować do konta usługi Automation.
 
  Aby uzyskać element Runbook, [zaimportuj pakiety Python 2 z programu PyPi do konta Azure Automation](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) z galerii do konta usługi Automation. Upewnij się, że ustawienia uruchomieniowe są ustawione na **platformę Azure** , i uruchom element Runbook za pomocą parametrów. Aby konto usługi Automation działało, element Runbook wymaga konta Uruchom jako. Dla każdego parametru upewnij się, że został on uruchomiony z przełącznikiem, jak pokazano na poniższej liście i obrazie:
 
-* -s\<subscriptionId\>
-* -g\<resourceGroup\>
-* -a\<automationAccount\>
-* -m\<modulePackage\>
+* -s \<subscriptionId\>
+* -g \<resourceGroup\>
+* -a \<automationAccount\>
+* -m \<modulePackage\>
 
-![Lista pakietów](media/python-packages/import-python-runbook.png)
+:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Zrzut ekranu przedstawia stronę przegląd dla import_py2package_from_pypi przy użyciu okienka Uruchamianie elementu Runbook po prawej stronie.":::
 
 Element Runbook umożliwia określenie pakietu do pobrania. Na przykład, użycie `Azure` parametru pobiera wszystkie moduły platformy Azure i wszystkie zależności (około 105).
 

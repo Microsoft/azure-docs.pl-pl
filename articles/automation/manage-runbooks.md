@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 62b60afb7dc4adb70a0963984ee7848ab056e823
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447823"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987590"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Zarządzanie elementami Runbook w Azure Automation
 
@@ -69,7 +69,7 @@ Aby zaimportować plik skryptu do Azure Automation, można użyć poniższej pro
 4. Kliknij pozycję **plik Runbook** i wybierz plik do zaimportowania.
 5. Jeśli pole **Nazwa** jest włączone, istnieje możliwość zmiany nazwy elementu Runbook. Nazwa musi zaczynać się od litery i może zawierać litery, cyfry, podkreślenia i kreski.
 6. [Typ elementu Runbook](automation-runbook-types.md) jest wybierany automatycznie, ale można zmienić typ po wprowadzeniu odpowiednich ograniczeń do konta.
-7. Kliknij przycisk **Utwórz**. Nowy element Runbook zostanie wyświetlony na liście elementów Runbook dla konta usługi Automation.
+7. Kliknij pozycję **Utwórz**. Nowy element Runbook zostanie wyświetlony na liście elementów Runbook dla konta usługi Automation.
 8. Aby można było uruchomić [element Runbook,](#publish-a-runbook) należy go opublikować.
 
 > [!NOTE]
@@ -268,7 +268,7 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
 
-## <a name="schedule-a-runbook-in-the-azure-portal"></a>Zaplanuj element Runbook w Azure Portal
+## <a name="schedule-a-runbook-in-the-azure-portal"></a>Planowanie użycia elementu Runbook w witrynie Azure Portal
 
 Po opublikowaniu elementu Runbook można zaplanować jego działanie:
 
@@ -293,7 +293,7 @@ Podsumowanie wyświetla liczbę i graficzną reprezentację stanu zadania dla ka
 
 Kliknięcie kafelka przedstawia stronę zadania, która zawiera skróconą listę wszystkich wykonanych zadań. Na tej stronie jest wyświetlany stan, nazwa elementu Runbook, czas rozpoczęcia i czas zakończenia każdego zadania.
 
-![Strona zadań konta usługi Automation](./media/manage-runbooks/automation-account-jobs-status-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Zrzut ekranu strony zadania.":::
 
 Listę zadań można filtrować, wybierając pozycję **Filtruj zadania**. Odfiltruj określony element Runbook, stan zadania lub wybór z listy rozwijanej i podaj zakres czasu dla wyszukiwania.
 
@@ -301,7 +301,7 @@ Listę zadań można filtrować, wybierając pozycję **Filtruj zadania**. Odfil
 
 Możesz też wyświetlić szczegóły podsumowania zadania dla określonego elementu Runbook, wybierając ten element Runbook ze strony elementów Runbook na koncie usługi Automation, a następnie wybierając pozycję **zadania**. Ta akcja przedstawia stronę zadania. W tym miejscu możesz kliknąć rekord zadania, aby wyświetlić jego szczegóły i dane wyjściowe.
 
-![Strona zadań konta usługi Automation](./media/manage-runbooks/automation-runbook-job-summary-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Zrzut ekranu strony zadania z wyróżnionym przyciskiem błędy.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Pobieranie stanów zadań przy użyciu programu PowerShell
 

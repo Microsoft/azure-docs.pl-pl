@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4666768d7e975e976601810bbbfadb1685fa91ff
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5fa40e954c84d4d2d70974bc799a198c6bf7d3e9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543527"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979751"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie piaskownicy usługi Salesforce na potrzeby automatycznego aprowizacji użytkowników
 
@@ -23,7 +23,7 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać w p
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
+W scenariuszu opisanym w tym samouczku założono, że masz już następujące elementy:
 
 *   Dzierżawa usługi Azure Active Directory.
 *   Prawidłowy dzierżawca dla piaskownicy usługi Salesforce na potrzeby edukacji służbowej lub piaskownicy usługi Salesforce. Możesz użyć bezpłatnego konta próbnego dla każdej usługi.
@@ -61,9 +61,9 @@ Celem tej sekcji jest zaprojektowanie sposobu włączania obsługi administracyj
 
 1. Wybierz wystąpienie piaskownicy usługi Salesforce, a następnie wybierz kartę **aprowizacji** .
 
-1. Ustaw **tryb aprowizacji** na **automatyczny**.
+1. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    ![aprowizacji](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawia stronę aprowizacji piaskownicy usługi Salesforce, z trybem aprowizacji ustawionym na automatyczne i inne wartości, które można ustawić.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 1. W sekcji **poświadczenia administratora** podaj następujące ustawienia konfiguracji:
    
@@ -105,8 +105,8 @@ Rozpocznie się początkową synchronizację wszystkich użytkowników i/lub gru
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurowanie logowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)

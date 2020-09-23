@@ -1,25 +1,22 @@
 ---
-title: Skonfiguruj połączenie z kontem magazynu przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
+title: Konfigurowanie połączenia z kontem magazynu przy użyciu tożsamości zarządzanej
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak skonfigurować połączenie indeksatora z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
+description: Dowiedz się, jak skonfigurować połączenie indeksatora z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917979"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971512"
 ---
-# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Skonfiguruj połączenie z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
-
-> [!IMPORTANT] 
-> Obsługa konfigurowania połączenia ze źródłem danych przy użyciu tożsamości zarządzanej jest obecnie dostępna w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych.
+# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Skonfiguruj połączenie z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej
 
 Na tej stronie opisano sposób konfigurowania połączenia indeksatora z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej zamiast podawania poświadczeń w parametrach połączenia obiektu źródła danych.
 
@@ -68,7 +65,7 @@ W tym kroku nadajesz usłudze Azure Wyszukiwanie poznawcze uprawnienia do odczyt
 
 ### <a name="3---create-the-data-source"></a>3 — Tworzenie źródła danych
 
-[Interfejs API REST](/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z konta magazynu przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
+[Interfejs API REST](/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.search.models.datasource) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z konta magazynu przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
 
 W przypadku indeksowania z konta magazynu źródło danych musi mieć następujące wymagane właściwości:
 
@@ -150,6 +147,7 @@ Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w t
 ## <a name="see-also"></a>Zobacz też
 
 Dowiedz się więcej o indeksatorach usługi Azure Storage:
+
 * [Indeksator usługi Azure Blob](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2 indeksator](search-howto-index-azure-data-lake-storage.md)
 * [Indeksator tabeli platformy Azure](search-howto-indexing-azure-tables.md)

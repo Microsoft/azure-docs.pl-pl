@@ -11,21 +11,21 @@ ms.subservice: core
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5c7568b0914b5e60d1a47971424f1f04f41745da
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e984c0c43dcc47c3e11a36f3d5c32bf2ddb9973a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646952"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902321"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Użyj wpisów tajnych poświadczeń uwierzytelniania w Azure Machine Learningych przebiegach szkoleniowych
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym artykule dowiesz się, jak korzystać z wpisów tajnych w programie szkoleniowym w sposób bezpieczny. Informacje o uwierzytelnianiu, takie jak nazwa użytkownika i hasło, są tajne. Na przykład, jeśli łączysz się z zewnętrzną bazą danych w celu wykonywania zapytań dotyczących danych szkoleniowych, musisz przekazać nazwę użytkownika i hasło do zdalnego kontekstu uruchomienia. Kodowanie takich wartości do skryptów szkoleniowych w postaci zwykłego tekstu jest niebezpieczne, ponieważ uwidacznia wpis tajny. 
 
 Zamiast tego obszar roboczy Azure Machine Learning ma skojarzony zasób o nazwie [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Użyj tej Key Vault, aby bezpiecznie przekazywać klucze tajne do zdalnego uruchamiania za pomocą zestawu interfejsów API w Azure Machine Learning SDK języka Python.
 
-Podstawowym przepływem korzystania z kluczy tajnych jest:
+Standardowy przepływ dla korzystania z kluczy tajnych to:
  1. Na komputerze lokalnym Zaloguj się do platformy Azure i Połącz się z obszarem roboczym.
  2. Na komputerze lokalnym Ustaw klucz tajny w obszarze roboczym Key Vault.
  3. Prześlij zdalne uruchomienie.

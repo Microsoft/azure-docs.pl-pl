@@ -5,18 +5,18 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 77892cc9a05c569e431fb9c66c2f6eb92068b3af
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c3fd06e2ac399fa18b588b1db5e154eaf013753b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084562"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979493"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji w języku Ruby i korzystającej z bazy danych Postgres w usłudze Azure App Service w systemie Linux
 
 [Azure App Service](overview.md) zapewnia wysoce skalowalną, samoobsługową usługę hostingu w sieci Web. W tym samouczku pokazano, jak utworzyć aplikację w języku Ruby i połączyć ją z bazą danych PostgreSQL. Po zakończeniu będziesz mieć aplikację platformy [Ruby on Rails](https://rubyonrails.org/) uruchomioną w usłudze App Service w systemie Linux.
 
-![Aplikacja platformy Ruby on Rails uruchomiona w usłudze Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
+:::image type="content" source="./media/tutorial-ruby-postgres-app/complete-checkbox-published.png" alt-text="Zrzut ekranu przedstawiający przykład zadań aplikacji języka Ruby on-Szyns.":::
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -237,7 +237,7 @@ git commit -m "database.yml updates"
 
 Aplikacja jest gotowa do wdrożenia.
 
-## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
+## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
 
 W tym kroku wdrożysz aplikację platformy Rails połączoną z bazą danych Postgres w usłudze Azure App Service.
 
@@ -249,13 +249,13 @@ W tym kroku wdrożysz aplikację platformy Rails połączoną z bazą danych Pos
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
+### <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych
 
-W usłudze App Service zmienne środowiskowe ustawia się jako _ustawienia aplikacji_ za pomocą polecenia [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) w usłudze Cloud Shell.
+W usłudze App Service zmienne środowiskowe ustawia się jako _ustawienia aplikacji_ za pomocą polecenia [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) w usłudze Cloud Shell.
 
 Następujące polecenie usługi Cloud Shell konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` i `DB_PASSWORD`. Zastąp symbole zastępcze _ &lt; nazwa_aplikacji>_ i _ &lt; postgres-Server-Name>_.
 
@@ -316,7 +316,7 @@ remote: Running deployment command...
 
 Przejdź do adresu `http://<app-name>.azurewebsites.net` i dodaj kilka zadań do listy.
 
-![Aplikacja platformy Ruby on Rails uruchomiona w usłudze Azure App Service](./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png)
+:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Zrzut ekranu przedstawiający przykład aplikacji platformy Azure z tytułem zadania z zadaniami dodany do listy.":::
 
 Gratulacje! Masz uruchomioną opartą na danych aplikację platformy Ruby on Rails w usłudze Azure App Service.
 

@@ -10,15 +10,15 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3803b9770d3caf3f45f109b62145677a38c5bcc2
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 794e2c8b436b6a6dfa736bef59eb2ad0bda83bc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657208"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893123"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Zainstaluj & Użyj rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Interfejs wiersza polecenia Azure Machine Learning jest rozszerzeniem [dla platformy Azure, który](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)działa na wielu platformach. To rozszerzenie udostępnia polecenia do pracy z Azure Machine Learning. Pozwala to zautomatyzować działania uczenia maszynowego. Poniższa lista zawiera przykładowe akcje, które można wykonać przy użyciu rozszerzenia interfejsu wiersza polecenia:
 
@@ -110,9 +110,6 @@ Następujące polecenia pokazują, jak używać interfejsu wiersza polecenia do 
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
-
-    > [!TIP]
-    > To polecenie tworzy obszar roboczy wersja podstawowa. Aby utworzyć obszar roboczy przedsiębiorstwa, użyj `--sku enterprise` przełącznika przy użyciu `az ml workspace create` polecenia. Aby uzyskać więcej informacji na temat wersji Azure Machine Learning, zobacz [co to jest Azure Machine Learning](overview-what-is-azure-ml.md#sku).
 
     Aby uzyskać więcej informacji, zobacz [AZ ml Workspace Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 

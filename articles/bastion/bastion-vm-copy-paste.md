@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: 4e818617b70e874153e026bcf40b6dfee8a8e04e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad1476847874f7cea53c6e9c0c3d9f142c949dac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744242"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987725"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Kopiowanie i wklejanie do maszyny wirtualnej: Azure bastionu
 
@@ -37,7 +37,7 @@ Po nawiązaniu połączenia z maszyną wirtualną przy użyciu [Azure Portal ](h
 
    ![Paleta narzędzi](./media/bastion-vm-manage/left.png)
 
-   ![schowek](./media/bastion-vm-manage/clipboard.png)
+   ![Zrzut ekranu przedstawia schowek dla tekstu skopiowanego w bastionu.](./media/bastion-vm-manage/clipboard.png)
 1. Zwykle kopiowany tekst jest automatycznie wyświetlany na palecie kopiowania bastionu. Jeśli Twój tekst nie istnieje, wklej tekst w obszarze tekstu na palecie.
 1. Gdy tekst znajduje się w obszarze tekstu, można wkleić go do sesji zdalnej.
 

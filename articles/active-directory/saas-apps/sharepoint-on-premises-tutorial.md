@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2020
-ms.author: miguego
-ms.openlocfilehash: 996668751ee93d14b18e399035fd345f32c58fbe
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 09/10/2020
+ms.author: jeedes
+ms.openlocfilehash: a3a5834cd63351b9bf61dc97c8d6e14d430b6284
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552177"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979700"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego z lokalnym programem SharePoint
 
@@ -25,8 +25,6 @@ Z tego samouczka dowiesz się, jak zintegrować lokalny program SharePoint z us�
 * Kontroluj, kto ma dostęp do lokalnego programu SharePoint w usłudze Azure AD.
 * Umożliwia użytkownikom automatyczne logowanie do lokalnego programu SharePoint przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,7 +43,7 @@ Aby skonfigurować integrację lokalnego programu SharePoint z usługą Azure AD
 
 Aby dodać lokalne SharePoint z galerii:
 
-1. W [Azure Portal](https://portal.azure.com), w okienku po lewej stronie wybierz pozycję **Azure Active Directory**.
+1. W Azure Portal, w okienku po lewej stronie wybierz pozycję **Azure Active Directory**.
 
    > [!NOTE]
    > Jeśli element nie jest dostępny, można go również otworzyć za pomocą linku **wszystkie usługi** w górnej części okienka po lewej stronie. W poniższym przeglądzie łącze **Azure Active Directory** znajduje się w sekcji **tożsamość** . Możesz również wyszukać ją przy użyciu pola filtr.
@@ -72,7 +70,7 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne usługi Azure AD za pomocą pr
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu lokalnego programu SharePoint, należy wykonać następujące bloki konstrukcyjne:
 
-- [Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on) — aby umożliwić użytkownikom korzystanie z tej funkcji.
+- [Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso) , aby umożliwić użytkownikom korzystanie z tej funkcji.
 - [Skonfiguruj lokalnie program SharePoint](#configure-sharepoint-on-premises) , aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
 - [Utwórz użytkownika testowego usługi Azure AD w Azure Portal,](#create-an-azure-ad-test-user-in-the-azure-portal) aby utworzyć nowego użytkownika w usłudze Azure AD na potrzeby logowania jednokrotnego.
 - [Utwórz grupę zabezpieczeń usługi Azure AD w Azure Portal,](#create-an-azure-ad-security-group-in-the-azure-portal) aby utworzyć nową grupę zabezpieczeń w usłudze Azure AD na potrzeby logowania jednokrotnego.
@@ -81,13 +79,13 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy u
 - [Przyznaj dostęp do konta gościa lokalnemu programu SharePoint w Azure Portal,](#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal) aby przyznać uprawnienia do konta gościa w usłudze Azure AD dla lokalnego programu SharePoint.
 - [Skonfiguruj zaufanego dostawcę tożsamości dla wielu aplikacji sieci Web](#configure-the-trusted-identity-provider-for-multiple-web-applications) , aby używać tego samego zaufanego dostawcy tożsamości dla wielu aplikacji sieci Web.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
+### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 W tej sekcji włączasz Logowanie jednokrotne usługi Azure AD w Azure Portal.
 
 Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu lokalnego programu SharePoint:
 
-1. W [Azure Portal](https://portal.azure.com/)wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**. Wybierz wcześniej utworzoną nazwę aplikacji korporacyjnej i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal wybierz pozycję **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**. Wybierz wcześniej utworzoną nazwę aplikacji korporacyjnej i wybierz pozycję **Logowanie jednokrotne**.
 
 1. W oknie dialogowym **Wybierz metodę logowania** jednokrotnego wybierz tryb **SAML** , aby włączyć logowanie jednokrotne.
  
@@ -156,7 +154,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu lokaln
 
     1. Wybierz pozycję **zaufany dostawca tożsamości**i wybierz pozycję Zidentyfikuj zarejestrowanego dostawcę o nazwie *AzureAD*.
 
-    1. Kliknij przycisk **OK**.
+    1. Wybierz przycisk **OK**.
 
     ![Konfigurowanie dostawcy uwierzytelniania](./media/sharepoint-on-premises-tutorial/config-auth-provider.png)
 
@@ -178,7 +176,7 @@ Celem tej sekcji jest utworzenie użytkownika testowego w Azure Portal.
 
     1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która pojawia się w polu **hasło** .
 
-    1. Wybierz pozycję **Utwórz**.
+    1. Wybierz przycisk **Utwórz**.
 
     1. Możesz teraz udostępnić witrynę TestUser@contoso.com i zezwolić temu użytkownikowi na dostęp do niego.
 
@@ -205,7 +203,7 @@ Aby naprawić ten scenariusz za pomocą selektora osób, rozwiązanie typu open 
   > [!NOTE]
   > Bez AzureCP można dodawać grupy przez dodanie identyfikatora grupy usługi Azure AD, ale ta metoda nie jest przyjazna i niezawodna dla użytkownika. Oto jak wygląda:
   > 
-  >![Dodawanie grupy usługi Azure AD do grupy programu SharePoint](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
+  >![Dodawanie grupy usługi Azure AD do grupy programu SharePoint według identyfikatora](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
   
 ### <a name="grant-permissions-to-an-azure-ad-group-in-sharepoint-on-premises"></a>Przyznawanie uprawnień do grupy usługi Azure AD w środowisku lokalnym programu SharePoint
 
@@ -244,7 +242,7 @@ Można udzielić dostępu do witryny programu SharePoint do konta gościa w spó
 
 1. Zmień właściwość **atrybutu źródłowego** na wartość **User. localuserprincipalname**, a następnie wybierz pozycję **Zapisz**.
 
-    ![Atrybuty użytkownika & początkowe oświadczenia](./media/sharepoint-on-premises-tutorial/manage-claim.png)
+    ![Atrybuty użytkownika & początkowy atrybut źródłowy oświadczenia](./media/sharepoint-on-premises-tutorial/manage-claim.png)
 
 1. Korzystając ze wstążki, Wróć do **logowania opartego na protokole SAML**. Teraz sekcja " **atrybuty użytkownika & oświadczenia** " wygląda następująco: 
 
@@ -287,9 +285,6 @@ Konfiguracja działa dla jednej aplikacji sieci Web, ale jest wymagana dodatkowa
 
 Mogą istnieć inne scenariusze, w których chcesz zapewnić dostęp do lokalnego wystąpienia programu SharePoint dla użytkowników wewnętrznych. W tym scenariuszu należy wdrożyć Microsoft Azure Active Directory Connect, aby zezwolić na synchronizowanie lokalnych użytkowników z usługą Azure AD. Ta konfiguracja została omówiona w innym artykule.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="next-steps"></a>Następne kroki
 
-- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [Co to jest tożsamość hybrydowa z Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
+Po skonfigurowaniu lokalnego programu SharePoint można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)

@@ -10,15 +10,15 @@ ms.author: larryfr
 author: larryfr
 ms.reviewer: larryfr
 ms.date: 06/11/2020
-ms.openlocfilehash: 88dde6e3deeebcb93da3fcd278721a0f5d4bf900
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 101a27e12239394abb1bd79176c4509278d67a81
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646049"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886075"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Wdrażanie modelu do użycia z usługą Cognitive Search
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym artykule przedstawiono sposób użycia Azure Machine Learning do wdrożenia modelu do użycia z [usługą Azure wyszukiwanie poznawcze](../search/search-what-is-azure-search.md).
 

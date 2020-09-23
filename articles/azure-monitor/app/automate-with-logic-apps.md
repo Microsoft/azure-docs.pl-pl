@@ -3,12 +3,12 @@ title: Automatyzacja procesów Application Insights platformy Azure przy użyciu
 description: Dowiedz się, jak szybko zautomatyzować powtarzalne procesy przez dodanie łącznika Application Insights do aplikacji logiki.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: d023d774c130a9db513fbcf9452b05fa030a967a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323200"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970875"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatyzacja procesów Application Insights przy użyciu Logic Apps
 
@@ -36,7 +36,7 @@ W tym samouczku dowiesz się, jak utworzyć aplikację logiki, która używa alg
 
     ![Okno projektanta aplikacji logiki](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. W polu **Interwał** wpisz **1** , a następnie pole**częstotliwość** , a następnie wybierz pozycję **dzień**.
+1. W polu  **Interwał** wpisz **1** , a następnie pole**częstotliwość** , a następnie wybierz pozycję **dzień**.
 
     ![Okno "cykl" projektanta aplikacji logiki](./media/automate-with-logic-apps/3recurrence.png)
 
@@ -53,7 +53,7 @@ W tym samouczku dowiesz się, jak utworzyć aplikację logiki, która używa alg
 
 Aby ukończyć ten krok, potrzebny jest identyfikator aplikacji i klucz interfejsu API dla zasobu. Można je pobrać z Azure Portal, jak pokazano na poniższym diagramie:
 
-![Identyfikator aplikacji w Azure Portal](./media/automate-with-logic-apps/5apiaccess.png)
+![Zrzut ekranu przedstawia stronę dostępu do interfejsu API w Azure Portal z wybranym przyciskiem Utwórz klucz interfejsu API.](./media/automate-with-logic-apps/5apiaccess.png)
 
 ![Identyfikator aplikacji w Azure Portal](./media/automate-with-logic-apps/6apikey.png)
 
@@ -103,7 +103,7 @@ Podczas tworzenia własnych zapytań Sprawdź, czy działają prawidłowo w anal
     
    d. Kliknij listę rozwijaną **Dodaj nowy parametr** , a następnie wybierz pozycję załączniki i jest to kod HTML.
 
-      ![Konfiguracja programu Outlook pakietu Office 365](./media/automate-with-logic-apps/10emailbody.png)
+      ![Zrzut ekranu przedstawia okno Wyślij wiadomość e-mail z wyróżnionym polem Body i menu zawartości dynamicznej z wyróżnioną treścią po prawej stronie.](./media/automate-with-logic-apps/10emailbody.png)
 
       ![Konfiguracja programu Outlook pakietu Office 365](./media/automate-with-logic-apps/11emailparameter.png)
 

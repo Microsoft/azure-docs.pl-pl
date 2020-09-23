@@ -8,20 +8,20 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: bb821d00a168e3b8f0636b93696376dc8b5d492e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 519b5b669cfc8140b837743d694184a5cb859f20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83772902"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987997"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Często zadawane pytania dotyczące usługi Azure poufnego przetwarzania
 
-Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczących uruchamiania [poufnych obciążeń obliczeniowych na platformie Azure](overview.md).
+Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczących uruchamiania [poufnych obciążeń obliczeniowych na maszynach wirtualnych platformy Azure](overview.md).
 
 Jeśli problem z platformą Azure nie został rozwiązany w tym artykule, odwiedź fora platformy Azure w [witrynie MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Możesz ogłosić swój problem na tych forach lub opublikować go w serwisie [ @AzureSupport Twitter](https://twitter.com/AzureSupport). Możesz również przesłać żądanie pomocy technicznej platformy Azure. Aby przesłać żądanie pomocy technicznej, na [stronie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/)wybierz pozycję Uzyskaj pomoc techniczną.
 
-## <a name="confidential-computing-virtual-machines"></a>Virtual Machines danych poufnych<a id="vm-faq"></a>
+## <a name="confidential-computing-virtual-machines"></a>Virtual Machines danych poufnych <a id="vm-faq"></a>
 
 **Jak można wdrożyć maszyny wirtualne z serii DCsv2 na platformie Azure?**
 
@@ -51,7 +51,7 @@ Upewnij się, że wybrano [dostępny region](https://azure.microsoft.com/global-
 
 **Jaka jest różnica między maszynami wirtualnymi serii DCsv2 i kontrolerów domeny?**
 
-Maszyny wirtualne z serii DC działają na starszych, 6-rdzeniowych procesorach Intel z technologią Intel SGX i mają mniej łączną ilość pamięci, mniej enklawy pamięć podręczną strony (EPC) i są dostępne tylko w dwóch regionach (Wschodnie stany USA i Europa Zachodnia w Standard_DC2s i Standard_DC4s rozmiaru). Nie ma żadnych planów, aby te maszyny wirtualne były ogólnie dostępne i nie są zalecane do użycia w środowisku produkcyjnym. Aby wdrożyć te maszyny wirtualne, użyj wystąpienia portalu Marketplace z [obsługą poufnego przetwarzania kontrolerów domen (wersja zapoznawcza)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) .
+Maszyny wirtualne z serii DC działają na starszych, 6-rdzeniowych procesorach Intel z technologią Intel SGX i mają mniej łączną ilość pamięci, mniej enklawy pamięć podręczną strony (EPC) i są dostępne tylko w dwóch regionach (Wschodnie stany USA i Europa Zachodnia w Standard_DC2s i Standard_DC4s rozmiaru). Nie ma żadnych planów, aby te maszyny wirtualne były ogólnie dostępne i nie są zalecane do użycia w środowisku produkcyjnym. Aby wdrożyć te maszyny wirtualne, użyj wystąpienia portalu Marketplace z  [obsługą poufnego przetwarzania kontrolerów domen (wersja zapoznawcza)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) .
 
 **Czy maszyny wirtualne DCsv2 są dostępne globalnie?**
 

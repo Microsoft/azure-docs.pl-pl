@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: c9f0f496bfdb31e0c7cb45a07c87ea238d031e34
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 24e631b3ddb25cc8bed20b432ff2ba31fd331f37
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928772"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979600"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
@@ -94,7 +94,7 @@ Aby dodatkowo kontrolować dostęp do usługi wyszukiwania, można utworzyć reg
 
 Za pomocą portalu można [skonfigurować dostęp przychodzący](service-configure-firewall.md).
 
-Alternatywnie możesz użyć interfejsów API REST zarządzania. Interfejs API w wersji 2020-03-13 z parametrem [IpRule](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) umożliwia ograniczenie dostępu do usługi przez identyfikację adresów IP, pojedynczo lub w zakresie, które mają udzielić dostępu do usługi wyszukiwania.
+Alternatywnie możesz użyć interfejsów API REST zarządzania. Począwszy od interfejsu API w wersji 2020-03-13, przy użyciu parametru [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) można ograniczyć dostęp do usługi, IDENTYFIKUJĄC adresy IP pojedynczo lub w zakresie, który ma udzielić dostępu do usługi wyszukiwania.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Prywatny punkt końcowy (bez ruchu internetowego)
 
@@ -123,7 +123,7 @@ Jeśli potrzebujesz szczegółowej kontroli dla poszczególnych użytkowników n
 | Podejście | Opis |
 |----------|-------------|
 |[Przycinanie zabezpieczeń na podstawie filtrów tożsamości](search-security-trimming-for-azure-search.md)  | Dokumentuje podstawowy przepływ pracy dotyczący implementowania kontroli dostępu do tożsamości użytkownika. Obejmuje ona Dodawanie identyfikatorów zabezpieczeń do indeksu, a następnie objaśnia filtrowanie względem tego pola, aby przyciąć wyniki zabronionej zawartości. |
-|[Przycinanie zabezpieczeń oparte na tożsamościach Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Ten artykuł został rozbudowany w poprzednim artykule, co zapewnia procedurę pobierania tożsamości z usługi Azure Active Directory (AAD), jednej z [bezpłatnych usług](https://azure.microsoft.com/free/) na platformie Azure w chmurze. |
+|[Przycinanie zabezpieczeń oparte na tożsamościach Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Ten artykuł został rozbudowany w poprzednim artykule zawierającym kroki pobierania tożsamości z usługi Azure Active Directory (Azure AD), jednej z [bezpłatnych usług](https://azure.microsoft.com/free/) na platformie Azure w chmurze. |
 
 ## <a name="administrative-rights"></a>Prawa administracyjne
 

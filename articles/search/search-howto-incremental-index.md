@@ -9,17 +9,18 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: c432b89574949b31612aeba862ece7687c12dde4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a1b317b651b0e17c07eb17dbdb8a7c6657d39564
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922841"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971620"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Jak skonfigurować buforowanie na potrzeby przyrostowego wzbogacania na platformie Azure Wyszukiwanie poznawcze
 
 > [!IMPORTANT] 
-> Wzbogacanie przyrostowe jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza i 2020-06-30 — wersja zapoznawcza](search-api-preview.md) . W tej chwili nie ma obsługi portalu lub zestawu SDK platformy .NET.
+> Wzbogacanie przyrostowe jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> [Wersje zapoznawcze interfejsu API REST](search-api-preview.md) zapewniają tę funkcję. W tej chwili nie ma obsługi portalu lub zestawu SDK platformy .NET.
 
 W tym artykule opisano sposób dodawania buforowania do potoku wzbogacania, dzięki czemu można stopniowo modyfikować czynności bez konieczności ponownego kompilowania za każdym razem. Domyślnie zestawu umiejętności jest bezstanowy i zmiana dowolnej części jej składu wymaga pełnego ponownego uruchomienia indeksatora. W przypadku przyrostowego wzbogacania indeksator może określić, które części drzewa dokumentów muszą być odświeżane na podstawie zmian wykrytych w definicjach zestawu umiejętności lub indeksatora. Istniejące przetworzone dane wyjściowe są zachowywane i ponownie używane wszędzie tam, gdzie jest to możliwe. 
 
@@ -169,7 +170,7 @@ Gdy pamięć podręczna działa, indeksatory sprawdzają pamięć podręczną pr
 
 W poniższej tabeli zestawiono różne interfejsy API powiązane z pamięcią podręczną:
 
-| interfejs API           | Wpływ na pamięć podręczną     |
+| Interfejs API           | Wpływ na pamięć podręczną     |
 |---------------|------------------|
 | [Tworzenie indeksatora (2020-06-30 — wersja zapoznawcza)](/rest/api/searchservice/preview-api/create-indexer) | Tworzy i uruchamia indeksator przy pierwszym użyciu, w tym tworzenie pamięci podręcznej, jeśli określa ją definicja indeksatora. |
 | [Uruchom indeksator](/rest/api/searchservice/run-indexer) | Wykonuje potok wzbogacania na żądanie. Ten interfejs API odczytuje z pamięci podręcznej, jeśli istnieje, lub tworzy pamięć podręczną, jeśli dodano buforowanie do zaktualizowanej definicji indeksatora. Gdy uruchamiasz indeksator, który ma włączone buforowanie, Indeksator pomija kroki, jeśli można użyć buforowanych danych wyjściowych. Można korzystać z ogólnie dostępnej lub wersji zapoznawczej interfejsu API tego interfejsu API.|

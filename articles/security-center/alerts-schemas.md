@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85126216"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901339"
 ---
 # <a name="security-alerts-schemas"></a>Schematy alertów zabezpieczeń
 
-Użytkownicy warstwy Standardowa Azure Security Center odbierają alerty zabezpieczeń, gdy Security Center wykryją zagrożenia dla swoich zasobów.
+Jeśli subskrypcja ma włączoną usługę Azure Defender, otrzymasz alerty zabezpieczeń, gdy Security Center wykryje zagrożenia dla swoich zasobów.
 
 Te alerty zabezpieczeń można wyświetlić na stronach Azure Security Center **ochrony przed zagrożeniami** lub za poorednictwem narzędzi zewnętrznych, takich jak:
 
@@ -149,7 +149,7 @@ Zdarzenia alertów zabezpieczeń można wyświetlić w dzienniku aktywności prz
 |**eventName**|Pola wartości i localizedValue zawierają nazwę wyświetlaną alertu|
 |**kategorii**|Pola wartości i localizedValue są stałe-"Security"|
 |**eventTimestamp**|Sygnatura czasowa UTC dla momentu wygenerowania alertu|
-|**#c1**|W pełni kwalifikowany identyfikator alertu|
+|**id**|W pełni kwalifikowany identyfikator alertu|
 |**poziom**|Stała, "informacyjna"|
 |**operationId**|Zobacz identyfikator korelacji|
 |**operationName**|Wartością pola jest stała — "Microsoft. Security/Locations/Alerts/Activate/Action", a zlokalizowana wartość będzie "Activate Alert" (może być możliwe zlokalizowanie wartości nominalnej dla użytkownika)|

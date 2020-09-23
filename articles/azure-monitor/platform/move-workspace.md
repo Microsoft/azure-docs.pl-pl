@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d3937eaa5017ed66641d886ecd45e812f7070b83
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566288"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979698"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Przenoszenie obszaru roboczego Log Analytics do innej subskrypcji lub grupy zasobów
 
@@ -96,7 +96,7 @@ Aby przenieść obszar roboczy przy użyciu Azure Portal, wykonaj czynności opi
 4. Wybierz docelową **subskrypcję** i **grupę zasobów**. Jeśli przenosisz obszar roboczy do innej grupy zasobów w ramach tej samej subskrypcji, opcja **subskrypcji** nie zostanie wyświetlona.
 5. Kliknij przycisk **OK** , aby przenieść obszar roboczy i wybrane zasoby.
 
-    ![Portal](media/move-workspace/portal.png)
+    ![Zrzut ekranu przedstawia okienko przegląd w obszarze roboczym Log Analytics z opcjami zmiany nazwy grupy zasobów i subskrypcji.](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 Aby przenieść obszar roboczy przy użyciu programu PowerShell, użyj polecenia [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) jak w poniższym przykładzie:

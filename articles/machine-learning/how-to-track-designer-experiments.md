@@ -1,5 +1,5 @@
 ---
-title: Rejestrowanie metryk w projektancie (wersja zapoznawcza)
+title: Rejestrowanie metryk w projektancie
 titleSuffix: Azure Machine Learning
 description: Monitoruj eksperymenty projektanta Azure ML. Włącz rejestrowanie przy użyciu modułu uruchamiania skryptu Python i Wyświetl zarejestrowane wyniki w programie Studio.
 services: machine-learning
@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 20845a6f1238095b40c9b05b5f5d8d85217b6db5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950412"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885971"
 ---
-# <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>Włącz rejestrowanie w potokach programu Azure Machine Learning Designer (wersja zapoznawcza)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Włącz rejestrowanie w potokach projektanta Azure Machine Learning
+
 
 W tym artykule dowiesz się, jak dodać kod rejestrowania do potoków projektanta. Dowiesz się również, jak wyświetlić te dzienniki przy użyciu portalu sieci Web programu Azure Machine Learning Studio.
 
@@ -74,9 +74,10 @@ Po zakończeniu przebiegu potoku można zobaczyć *Mean_Absolute_Error* na stron
 
     ![Wyświetl metryki uruchamiania w programie Studio](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym artykule przedstawiono sposób korzystania z dzienników w projektancie. Aby uzyskać kolejne kroki, zobacz następujące artykuły pokrewne:
 
-* Informacje na temat rozwiązywania problemów z potokami projektanta można znaleźć w temacie [Debug & Rozwiązywanie problemów z potokami ml](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview).
+
+* Informacje na temat rozwiązywania problemów z potokami projektanta można znaleźć w temacie [Debug & Rozwiązywanie problemów z potokami ml](how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Dowiedz się, jak używać zestawu SDK języka Python do rejestrowania metryk w środowisku tworzenia zestawu SDK, zobacz [Włączanie rejestrowania w usłudze Azure ml szkoleń](how-to-track-experiments.md).

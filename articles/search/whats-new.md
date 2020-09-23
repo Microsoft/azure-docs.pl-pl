@@ -6,20 +6,33 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 08/01/2020
+ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 788b3f5e9f4012e418ece691ebb5fbc5d2f866af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4526e4916a89b53ae13a31bcdef6cd4715dd7e8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931849"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979588"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
 Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
 ## <a name="feature-announcements-in-2020"></a>Anonse funkcji w 2020
+
+### <a name="september-2020"></a>Wrzesień 2020
+
+Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie użyj uprawnień RBAC, aby przyznać tożsamości tylko do odczytu dla źródeł danych platformy Azure. Opcjonalnie można wybrać opcję [zaufanego wyjątku usługi](search-indexer-howto-access-trusted-service-exception.md) , jeśli nie są dostępne reguły adresów IP.
+
+
+|Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
+|------------------------------|----------|-------------|---------------|
+| [Tożsamość usługi zarządzanej](search-howto-managed-identities-data-sources.md) | Indeksatory, zabezpieczenia | Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie użyj uprawnień RBAC, aby udzielić dostępu do źródeł danych platformy Azure. Takie podejście eliminuje konieczność poświadczeń w parametrach połączenia. <br><br>Dodatkowy sposób używania tożsamości usługi zarządzanej odbywa się za pomocą [zaufanego wyjątku usługi](search-indexer-howto-access-trusted-service-exception.md) , jeśli reguły adresów IP nie są opcją. | Ogólnie dostępna. Uzyskaj dostęp do tej funkcji w przypadku korzystania z portalu lub [tworzenia źródła danych (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) z interfejsem API-Version = 2020-06-30. |
+| [Żądania wychodzące przy użyciu linku prywatnego](search-indexer-howto-access-private.md) | Indeksatory, zabezpieczenia | Utwórz zasób udostępnionego linku, którego indeksatory mogą używać podczas uzyskiwania dostępu do zasobów platformy Azure zabezpieczonych za pomocą prywatnego linku platformy Azure. Aby uzyskać więcej informacji na temat wszystkich sposobów zabezpieczania połączeń indeksatora, zobacz [Zabezpieczanie zasobów indeksatora przy użyciu funkcji zabezpieczeń sieci platformy Azure](search-indexer-securing-resources.md). | Ogólnie dostępna. Uzyskaj dostęp do tej funkcji, gdy korzystasz z portalu lub [udostępnionego zasobu linku prywatnego](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) z interfejsem API-Version = 2020-08-01. |
+| [Interfejs API REST zarządzania (2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Nowy stabilny interfejs API REST dodaje obsługę tworzenia udostępnionych zasobów linków prywatnych. | Ogólnie dostępna. |
+| [Interfejs API REST zarządzania (2020-08-01 — wersja zapoznawcza)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Dodaje udostępnione zasoby linku prywatnego dla baz danych Azure Functions i Azure SQL dla programu MySQL. | Publiczna wersja zapoznawcza. |
+| [Zestaw .NET SDK 4,0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | Zestaw SDK .NET | Aktualizacja zestawu Azure SDK dla zestawu SDK zarządzania, interfejs API REST w wersji 2020-08-01. | Ogólnie dostępna. |
 
 ### <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -31,9 +44,9 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
-| [Azure.Search.DocBiblioteka kliencka uments](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Zestaw Azure SDK dla platformy .NET | Biblioteka kliencka platformy .NET wydana przez zespół zestawu Azure SDK, zaprojektowany pod kątem spójności z innymi bibliotekami klienta platformy .NET. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania-Version = 2020-06-30, ale nie obsługuje jeszcze sklepu z bazami danych, typów geoprzestrzennych ani [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). <br/><br/>Aby uzyskać więcej informacji, zobacz  [Szybki Start: Tworzenie indeksu](search-get-started-dotnet.md) i [uaktualnianie do Azure.Search.Documents (v11)](search-dotnet-sdk-migration-version-11.md). | Ogólnie dostępna. </br> Zainstaluj [ pakietAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) z narzędzia NuGet. |
-| [azure.search.docBiblioteka kliencka uments](/python/api/overview/azure/search-documents-readme?view=azure-python)  | Zestaw Azure SDK dla środowiska Python| Biblioteka klienta języka Python wydana przez zespół zestawu Azure SDK, zaprojektowany pod kątem spójności z innymi bibliotekami klienta języka Python. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania — wersja = 2020-06-30. | Ogólnie dostępna. </br> Zainstaluj [pakiet Azure-Search-Documents](https://pypi.org/project/azure-search-documents/) z PyPI. |
-| [@azure/search-documents Biblioteka kliencka](/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | Zestaw Azure SDK dla języka JavaScript | Biblioteka kliencka języka JavaScript wydana przez zespół zestawu Azure SDK, zaprojektowana pod kątem spójności z innymi bibliotekami klientów JavaScript. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania — wersja = 2020-06-30. | Ogólnie dostępna. </br> Zainstaluj [ @azure/search-documents pakiet](https://www.npmjs.com/package/@azure/search-documents) z npm. |
+| [Azure.Search.DocBiblioteka kliencka uments](/dotnet/api/overview/azure/search.documents-readme) | Zestaw Azure SDK dla platformy .NET | Biblioteka kliencka platformy .NET wydana przez zespół zestawu Azure SDK, zaprojektowany pod kątem spójności z innymi bibliotekami klienta platformy .NET. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania-Version = 2020-06-30, ale nie obsługuje jeszcze sklepu z bazami danych, typów geoprzestrzennych ani [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). <br/><br/>Aby uzyskać więcej informacji, zobacz  [Szybki Start: Tworzenie indeksu](search-get-started-dotnet.md) i [uaktualnianie do Azure.Search.Documents (v11)](search-dotnet-sdk-migration-version-11.md). | Ogólnie dostępna. </br> Zainstaluj [ pakietAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) z narzędzia NuGet. |
+| [azure.search.docBiblioteka kliencka uments](/python/api/overview/azure/search-documents-readme)  | Zestaw Azure SDK dla środowiska Python| Biblioteka klienta języka Python wydana przez zespół zestawu Azure SDK, zaprojektowany pod kątem spójności z innymi bibliotekami klienta języka Python. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania — wersja = 2020-06-30. | Ogólnie dostępna. </br> Zainstaluj [pakiet Azure-Search-Documents](https://pypi.org/project/azure-search-documents/) z PyPI. |
+| [@azure/search-documents Biblioteka kliencka](/javascript/api/overview/azure/search-documents-readme)  | Zestaw Azure SDK dla języka JavaScript | Biblioteka kliencka języka JavaScript wydana przez zespół zestawu Azure SDK, zaprojektowana pod kątem spójności z innymi bibliotekami klientów JavaScript. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania — wersja = 2020-06-30. | Ogólnie dostępna. </br> Zainstaluj [ @azure/search-documents pakiet](https://www.npmjs.com/package/@azure/search-documents) z npm. |
 
 ### <a name="june-2020"></a>Czerwiec 2020 r.
 

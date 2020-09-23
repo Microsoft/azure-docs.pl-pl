@@ -1,25 +1,22 @@
 ---
-title: Konfigurowanie połączenia ze źródłem danych przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
+title: Konfigurowanie połączenia ze źródłem danych przy użyciu tożsamości zarządzanej
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak skonfigurować połączenie indeksatora ze źródłem danych przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
+description: Dowiedz się, jak skonfigurować połączenie indeksatora ze źródłem danych przy użyciu tożsamości zarządzanej
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: d303de23a04d183d0ca280c3b3591299d883adf7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: a057c0d35a465447cc0be99b574ffeebb671115a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936592"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971552"
 ---
-# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Konfigurowanie połączenia indeksatora ze źródłem danych przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
-
-> [!IMPORTANT] 
-> Obsługa konfigurowania połączenia ze źródłem danych przy użyciu tożsamości zarządzanej jest obecnie dostępna w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych.
+# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Konfigurowanie połączenia indeksatora ze źródłem danych przy użyciu tożsamości zarządzanej
 
 [Indeksator](search-indexer-overview.md) w usłudze Azure wyszukiwanie poznawcze to przeszukiwarka, która zapewnia sposób ściągania danych ze źródła danych do usługi Azure wyszukiwanie poznawcze. Indeksator uzyskuje połączenie ze źródłem danych z tworzonego obiektu źródła danych. Obiekt źródła danych zwykle zawiera poświadczenia dla docelowego źródła danych. Na przykład obiekt źródła danych może zawierać klucz konta usługi Azure Storage, jeśli chcesz zindeksować dane z kontenera magazynu obiektów BLOB.
 

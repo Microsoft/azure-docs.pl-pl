@@ -8,17 +8,18 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 5596a2db32a0fe5b6b5eddf3ae20501e6edb0b99
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935385"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971640"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Przyrostowe wzbogacanie i buforowanie na platformie Azure Wyszukiwanie poznawcze
 
 > [!IMPORTANT] 
-> Wzbogacanie przyrostowe jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza i 2020-06-30 — wersja zapoznawcza](search-api-preview.md) . W tej chwili nie ma obsługi portalu lub zestawu SDK platformy .NET.
+> Wzbogacanie przyrostowe jest obecnie w publicznej wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> [Wersje zapoznawcze interfejsu API REST](search-api-preview.md) zapewniają tę funkcję. W tej chwili nie ma obsługi portalu lub zestawu SDK platformy .NET.
 
 *Wzbogacanie przyrostowe* jest funkcją, która jest przeznaczona dla [umiejętności](cognitive-search-working-with-skillsets.md). Korzysta ona z usługi Azure Storage, aby zapisać dane wyjściowe przetwarzania emitowane przez potok wzbogacania do ponownego użycia w przyszłych uruchomieniach indeksatora. Gdy jest to możliwe, indeksator ponownie używa wszystkich buforowanych danych wyjściowych, które są nadal ważne. 
 
@@ -166,7 +167,7 @@ Wersja interfejsu API REST `2020-06-30-Preview` zapewnia przyrostowe wzbogacanie
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przyrostowe wzbogacanie to zaawansowana funkcja, która rozszerza śledzenie zmian na umiejętności i wzbogacanie AI. Wzbogacanie AIncremental umożliwia ponowne użycie istniejącej przetworzonej zawartości podczas iteracji nad projektem zestawu umiejętności.
+Przyrostowe wzbogacanie to zaawansowana funkcja, która rozszerza śledzenie zmian na umiejętności i wzbogacanie AI. Przyrostowe wzbogacanie umożliwia ponowne użycie istniejącej przetworzonej zawartości podczas iteracji nad projektem zestawu umiejętności.
 
 W następnym kroku należy włączyć buforowanie w istniejącym indeksatorze lub dodać pamięć podręczną podczas definiowania nowego indeksatora.
 

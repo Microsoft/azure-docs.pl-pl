@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59b66511720966ff978c8460b9ac69ad133b7501
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 7f8a8f76ce7d46c0a44dd86ef1490c1c74a7992a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707224"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979510"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Typowe scenariusze zarządzania prawami w usłudze Azure AD
 
@@ -119,24 +119,24 @@ Istnieje kilka sposobów konfigurowania zarządzania prawami dla organizacji. Je
 1. [Obejrzyj wideo: bieżące zarządzanie: zmieniono elementy](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. Otwórz pakiet dostępu
 1. [Otwórz ustawienia cyklu życia](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
-1. [Aktualizowanie ustawień wygasania](entitlement-management-access-package-lifecycle-policy.md#lifecycle)
+1. [Aktualizowanie ustawień wygasania](entitlement-management-access-package-lifecycle-policy.md#lifecycle) 
 
 ### <a name="access-package-manager-update-how-access-is-approved-for-a-project"></a>Menedżer pakietów dostępu: aktualizowanie sposobu zatwierdzania dostępu dla projektu
 
 1. [Obejrzyj wideo: bieżące zarządzanie: zmieniono elementy](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
-1. [Otwieranie istniejących zasad ustawień żądania i zatwierdzania](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
-1. [Aktualizowanie ustawień zatwierdzania](entitlement-management-access-package-request-policy.md#approval)
+1. [Otwórz istniejące zasady ustawień żądania](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
+1. [Aktualizowanie ustawień zatwierdzania](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package)
 
 ### <a name="access-package-manager-update-the-people-for-a-project"></a>Menedżer pakietów dostępu: aktualizowanie osób dla projektu
 
 1. [Obejrzyj wideo: bieżące zarządzanie: zmieniono elementy](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. [Usuń użytkowników, którzy już nie potrzebują dostępu](entitlement-management-access-package-assignments.md)
-1. [Otwieranie istniejących zasad ustawień żądania i zatwierdzania](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [Otwórz istniejące zasady ustawień żądania](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Dodawanie użytkowników, którzy potrzebują dostępu](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
 
 ### <a name="access-package-manager-directly-assign-specific-users-to-an-access-package"></a>Menedżer pakietów dostępu: bezpośrednie przypisywanie określonych użytkowników do pakietu dostępu
 
-1. [Jeśli użytkownicy potrzebują innych ustawień cyklu życia, Dodaj nowe zasady do pakietu dostępu](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings)
+1. [Jeśli użytkownicy potrzebują innych ustawień cyklu życia, Dodaj nowe zasady do pakietu dostępu](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Bezpośrednie przypisywanie określonych użytkowników do pakietu dostępu](entitlement-management-access-package-assignments.md#directly-assign-a-user)
 
 ## <a name="assignments-and-reports"></a>Przypisania i raporty

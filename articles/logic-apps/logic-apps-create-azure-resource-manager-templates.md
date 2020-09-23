@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 07fb91f081719a2e51cff45be67bbe9f362123f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066076"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971785"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Tworzenie szablonów usługi Azure Resource Manager w celu zautomatyzowania wdrożenia usługi Azure Logic Apps
 
@@ -60,14 +60,14 @@ W poniższych przykładach pokazano, jak tworzyć i wdrażać aplikacje logiki p
 
 1. Aby najprostszy sposób zainstalować moduł LogicAppTemplate z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/LogicAppTemplate), uruchom następujące polecenie:
 
-   ```text
-   PS> Install-Module -Name LogicAppTemplate
+   ```powershell
+   Install-Module -Name LogicAppTemplate
    ```
 
    Aby zaktualizować do najnowszej wersji, uruchom następujące polecenie:
 
-   ```text
-   PS> Update-Module -Name LogicAppTemplate
+   ```powershell
+   Update-Module -Name LogicAppTemplate
    ```
 
 Lub, aby zainstalować je ręcznie, wykonaj kroki opisane w temacie usługi GitHub dla [twórcy szablonu aplikacji logiki](https://github.com/jeffhollan/LogicAppTemplateCreator).
@@ -80,28 +80,43 @@ Po uruchomieniu `Get-LogicAppTemplate` polecenia za pomocą tego narzędzia, pol
 
 ### <a name="generate-template-with-powershell"></a>Generowanie szablonu przy użyciu programu PowerShell
 
-Aby wygenerować szablon po zainstalowaniu modułu LogicAppTemplate i [interfejsu wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest), Uruchom to polecenie programu PowerShell:
+Aby wygenerować szablon po zainstalowaniu modułu LogicAppTemplate i [interfejsu wiersza polecenia platformy Azure](/cli/azure/), Uruchom to polecenie programu PowerShell:
 
-```text
-PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
+```powershell
+$parameters = @{
+    Token = (az account get-access-token | ConvertFrom-Json).accessToken
+    LogicApp = '<logic-app-name>'
+    ResourceGroup = '<Azure-resource-group-name>'
+    SubscriptionId = $SubscriptionId
+    Verbose = $true
+}
+
+Get-LogicAppTemplate @parameters | Out-File C:\template.json
 ```
 
 Aby postępować zgodnie z zaleceniami dotyczącymi instalacji rurowej w tokenie przy użyciu [narzędzia klienta Azure Resource Manager](https://github.com/projectkudu/ARMClient), należy uruchomić to polecenie zamiast `$SubscriptionId` identyfikatora subskrypcji platformy Azure:
 
-```text
-PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
+```powershell
+$parameters = @{
+    LogicApp = '<logic-app-name>'
+    ResourceGroup = '<Azure-resource-group-name>'
+    SubscriptionId = $SubscriptionId
+    Verbose = $true
+}
+
+armclient token $SubscriptionId | Get-LogicAppTemplate @parameters | Out-File C:\template.json
 ```
 
 Po wyodrębnieniu można utworzyć plik parametrów na podstawie szablonu, uruchamiając następujące polecenie:
 
-```text
-PS> Get-ParameterTemplate -TemplateFile $filename | Out-File '<parameters-file-name>.json'
+```powershell
+Get-ParameterTemplate -TemplateFile $filename | Out-File '<parameters-file-name>.json'
 ```
 
 W celu wyodrębnienia z odwołaniami Azure Key Vault (tylko statyczny) Uruchom następujące polecenie:
 
-```text
-PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
+```powershell
+Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
 | Parametry | Wymagane | Opis |
