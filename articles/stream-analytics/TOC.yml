@@ -4,8 +4,8 @@
   items:
     - name: Co to jest usługa Stream Analytics?
       href: stream-analytics-introduction.md
-    - name: Wzorce kompleksowych rozwiązań
-      href: stream-analytics-solution-patterns.md
+    - name: Klaster usługi Stream Analytics
+      href: cluster-overview.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -23,7 +23,11 @@
         - name: Visual Studio
           href: stream-analytics-quick-create-vs.md
         - name: Visual Studio Code
-          href: quick-create-vs-code.md
+          href: quick-create-visual-studio-code.md
+    - name: Tworzenie klastra
+      items:
+        - name: Azure Portal
+          href: create-cluster.md
 - name: Samouczki
   items:
     - name: 1 — Tworzenie zadania i zarządzanie nim
@@ -42,6 +46,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: Pojęcia
   items:
+    - name: Wzorce kompleksowych rozwiązań
+      href: stream-analytics-solution-patterns.md
     - name: Wybieranie technologii analizy przesyłania strumieniowego
       href: streaming-technologies.md
     - name: Wybieranie narzędzia do tworzenia zadań
@@ -145,6 +151,14 @@
   items:
     - name: Zarządzanie
       items:
+        - name: Klastry
+          items:
+            - name: Tworzenie i usuwanie prywatnych punktów końcowych
+              href: private-endpoints.md
+            - name: Dodawanie i usuwanie zadań
+              href: manage-jobs-cluster.md
+            - name: Skalowanie rozmiaru klastra
+              href: scale-cluster.md
         - name: Zadania autoskalowania
           href: stream-analytics-autoscale.md
         - name: Aktualizowanie poświadczeń
@@ -234,6 +248,14 @@
           href: stream-analytics-cicd-api.md
         - name: Eksportowanie i wdrażanie za pomocą usługi Azure Resource Manager
           href: resource-manager-export.md
+    - name: Ciągła integracja i ciągłe wdrażanie
+      items:
+        - name: Przegląd ciągłej integracji/ciągłego wdrażania
+          href: cicd-overview.md
+        - name: 'Kompilowanie, testowanie i wdrażanie za pomocą programu PowerShell'
+          href: cicd-tools.md
+        - name: Konfigurowanie potoku za pomocą usługi Azure DevOps
+          href: set-up-cicd-pipeline.md
     - name: Visual Studio
       items:
         - name: Instalowanie narzędzi
@@ -260,8 +282,6 @@
           href: visual-studio-code-local-run-live-input.md
         - name: Debugowanie zapytań za pomocą diagramu zadań
           href: debug-locally-using-job-diagram-vs-code.md
-        - name: Konfigurowanie potoku ciągłej integracji/ciągłego dostarczania
-          href: setup-cicd-vs-code.md
         - name: Eksplorowanie zadań
           href: visual-studio-code-explore-jobs.md
         - name: Pola w pliku JobConfig.json

@@ -11,16 +11,16 @@ ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 07/09/2020
-ms.openlocfilehash: 2182c9bc7588947ece5a309018359a8bcfa3ff41
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 355d96fe5a617effab89fbd038f7f1785215f88f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320208"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897691"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Używanie różnicowej ochrony prywatności w Azure Machine Learning (wersja zapoznawcza)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Dowiedz się, jak stosować różnice w zakresie ochrony prywatności dla Azure Machine Learning modeli przy użyciu pakietów języka Python WhiteNoise.
 
@@ -152,11 +152,11 @@ Biblioteka służy do redagowania bardziej złożonych wykresów analitycznych, 
 | Liczba         | Gaussa   | Rzutowanie       |
 | Histogram     | Geometrycznej  | Ustalania poziomu   |
 | Średnia          | Laplace    | Przekształcanie   |
-| Quantiles     |            | Filtr     |
+| Kwantyle     |            | Filtr     |
 | Suma           |            | Przypisywanie |
 | WARIANCJA/Kowariancja |      | Przekształcanie  |
 
-Aby uzyskać więcej informacji, zobacz [Notes podstawowej analizy danych](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) .
+Aby uzyskać więcej informacji, zobacz [Notes analizy danych](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) .
 
 ## <a name="approximate-utility-of-differentially-private-releases"></a>Przybliżone narzędzie różnicowych wersji prywatnych
 

@@ -1,6 +1,6 @@
 ---
 title: Zwiększaj wskaźnik platformy Azure dla obszarów roboczych i dzierżawców | Microsoft Docs
-description: Jak zwiększyć możliwości analityczne na platformie Azure, w obszarze obszary robocze i dzierżawy.
+description: Jak wysyłać zapytania i analizować dane między obszarami roboczymi i dzierżawcami przy użyciu funkcji wskaźnikowej platformy Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9e0fe46e0a7382c0adcfa1f1f781f282e9e77942
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: b899069a03b39d068f2b4059cf26d3baf1f3beae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019329"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905416"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Rozszerzanie usługi Azure Sentinel na obszary robocze i dzierżawy
 
@@ -34,10 +34,10 @@ W przypadku korzystania z jednego obszaru roboczego możesz uzyskać pełną kor
 | Jurysdykcja i zgodność z przepisami | Obszar roboczy jest powiązany z określonym regionem. Jeśli dane muszą być przechowywane w różnych [lokalizacje geograficzneach platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) w celu spełnienia wymagań prawnych, należy podzielić je na osobne obszary robocze. |  |
 | Własność danych | Granice własności danych, na przykład przez podmioty zależne lub firmy stowarzyszone, są lepiej nakreślone przy użyciu oddzielnych obszarów roboczych. |  |
 | Wiele dzierżawców platformy Azure | Usługa Azure — wskaźnik wiedzy obsługuje zbieranie danych z zasobów firmy Microsoft i platformy Azure SaaS tylko w ramach Azure Active Directory własnej granicy dzierżawy usługi Azure AD. W związku z tym każda dzierżawa usługi Azure AD wymaga oddzielnego obszaru roboczego. |  |
-| Szczegółowa kontrola dostępu do danych | Aby uzyskać dostęp do niektórych danych zebranych przez wskaźnik na platformie Azure, organizacja może wymagać zezwolenia na różne grupy w organizacji lub poza nią. Na przykład:<br><ul><li>Dostęp właścicieli zasobów do danych odnoszących się do ich zasobów</li><li>Regionalny lub Socy dostęp do danych istotnych dla ich części organizacji</li></ul> | Użycie kontroli [RBAC zasobów](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) lub [poziomu tabeli RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
+| Szczegółowa kontrola dostępu do danych | Aby uzyskać dostęp do niektórych danych zebranych przez wskaźnik na platformie Azure, organizacja może wymagać zezwolenia na różne grupy w organizacji lub poza nią. Przykład:<br><ul><li>Dostęp właścicieli zasobów do danych odnoszących się do ich zasobów</li><li>Regionalny lub Socy dostęp do danych istotnych dla ich części organizacji</li></ul> | Użycie kontroli [RBAC zasobów](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) lub [poziomu tabeli RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
 | Ustawienia przechowywania szczegółowego | W przeszłości wiele obszarów roboczych była jedynym sposobem ustawiania różnych okresów przechowywania dla różnych typów danych. Nie jest to już potrzebne w wielu przypadkach dzięki wprowadzeniu ustawień przechowywania poziomu tabeli. | Korzystanie z [ustawień przechowywania na poziomie tabeli](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) lub Automatyzowanie [usuwania danych](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Podziel rozliczenia | Umieszczając obszary robocze w osobnych subskrypcjach, można je rozliczać na różne strony. | Raportowanie użycia i naliczanie krzyżowe |
-| Starsza architektura | Korzystanie z wielu obszarów roboczych może być wykonane z projektu historycznego, który uwzględnia ograniczenia lub najlepsze rozwiązania, które nie są już spełnione. Może to być również arbitralne wybranie projektu, które można zmodyfikować, aby lepiej uwzględnić platformę Azure.<br><br>Przykłady obejmują:<br><ul><li>Używanie domyślnego obszaru roboczego dla subskrypcji podczas wdrażania Azure Security Center</li><li>Konieczność stosowania szczegółowych ustawień kontroli dostępu lub przechowywania, dla których rozwiązania są stosunkowo nowe</li></ul> | Obszary robocze ponownej architektury |
+| Starsza architektura | Korzystanie z wielu obszarów roboczych może być wykonane z projektu historycznego, który uwzględnia ograniczenia lub najlepsze rozwiązania, które nie są już spełnione. Może to być również arbitralne wybranie projektu, które można zmodyfikować, aby lepiej uwzględnić platformę Azure.<br><br>Przykłady:<br><ul><li>Używanie domyślnego obszaru roboczego dla subskrypcji podczas wdrażania Azure Security Center</li><li>Konieczność stosowania szczegółowych ustawień kontroli dostępu lub przechowywania, dla których rozwiązania są stosunkowo nowe</li></ul> | Obszary robocze ponownej architektury |
 
 ### <a name="managed-security-service-provider-mssp"></a>Dostawca zarządzanej usługi zabezpieczeń (MSSP)
 

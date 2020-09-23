@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: e4511cf4393172e7d2b1ab8a985c76d8f98d4015
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456067"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905274"
 ---
 # <a name="permutation-feature-importance"></a>Ważność funkcji permutacji
 
-W tym artykule opisano, jak używać modułu ważności funkcji permutacji w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu obliczenia zestawu wyników ważności funkcji dla zestawu danych. Te wyniki służą do określenia najlepszych funkcji do użycia w modelu.
+W tym artykule opisano, jak używać modułu ważności funkcji permutacji w programie Azure Machine Learning Designer do obliczania zestawu wyników ważności funkcji dla zestawu danych. Te wyniki służą do określenia najlepszych funkcji do użycia w modelu.
 
 W tym module wartości funkcji są losowo przebierane w jedną kolumnę w czasie. Wydajność modelu jest mierzona przed i po. Możesz wybrać jedną ze standardowych metryk, aby zmierzyć wydajność.
 

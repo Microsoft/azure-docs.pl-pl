@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d5de8374f58eaf8dc83f54f05557b0a125191c34
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 468d21abc861e905472d1d15405b1c8ba9e5be74
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613716"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904883"
 ---
 # <a name="cut-planes"></a>Wycięte płaszczyzny
 
@@ -19,16 +19,6 @@ ms.locfileid: "89613716"
 Na poniższej ilustracji przedstawiono efekt. Po lewej stronie zostanie wyświetlona oryginalna siatka, po prawej stronie może wyglądać wewnątrz siatki:
 
 ![Wytnij płaszczyznę](./media/cutplane-1.png)
-
-## <a name="limitations"></a>Ograniczenia
-
-* W tym czasie zdalne renderowanie na platformie Azure obsługuje **maksymalnie osiem aktywnych płaszczyzn wycinania**. Można utworzyć bardziej wycięte składniki płaszczyzny, ale jeśli spróbujesz go włączyć dłużej, zignoruje aktywację. Najpierw wyłącz inne płaszczyzny, jeśli chcesz zmienić składnik powinien wpływać na scenę.
-* Każda płaszczyzna wycinania ma wpływ na wszystkie zdalnie renderowane obiekty. Obecnie nie ma możliwości wykluczenia określonych obiektów i części siatki.
-* Wycięte płaszczyzny są czysto funkcją wizualną, nie wpływają na wynik [zapytań przestrzennych](spatial-queries.md). Jeśli chcesz otrzymywać dane z rzutu do siatki wyciętej, możesz dostosować punkt początkowy promienia, aby znajdować się na płaszczyźnie wycinania. W ten sposób promień może trafiać tylko widoczne części.
-
-## <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
-
-Każda aktywna płaszczyzna wycinania wiąże się z niewielkim kosztem podczas renderowania. Wyłącz lub Usuń wycięte płaszczyzny, gdy nie są potrzebne.
 
 ## <a name="cutplanecomponent"></a>CutPlaneComponent
 
@@ -67,6 +57,40 @@ Następujące właściwości są uwidocznione w składniku wycinania płaszczyzn
 * `FadeColor` i `FadeLength`:
 
   Jeśli wartość alfa *FadeColor* jest różna od zera, piksele blisko płaszczyzny wycinania przestaną się na część RGB części FadeColor. Siła kanału alfa decyduje o tym, czy przejdzie w pełni do koloru zanikania, czy tylko częściowo. *FadeLength* definiuje odległość tego zaniku.
+
+* `ObjectFilterMask`: Maska bitów filtru, która określa, której geometrii dotyczy płaszczyzna wycinania. Szczegółowe informacje znajdują się w następnym akapicie.
+
+### <a name="selective-cut-planes"></a>Selektywne wycinanie płaszczyzn
+
+Można skonfigurować poszczególne płaszczyzny wycinania, aby miały wpływ tylko na określoną geometrię. Na poniższej ilustracji przedstawiono sposób, w jaki ta konfiguracja może wyglądać następująco:
+
+![Selektywne wycinanie płaszczyzn](./media/selective-cut-planes.png)
+
+Filtrowanie odbywa się za pomocą **porównania logicznej maski bitowej** , między maską bitową po stronie z płaszczyzną wycinania a drugą maską bitową ustawioną w geometrii. Jeśli wynik operacji logicznej `AND` między maskami nie jest zerem, płaszczyzna wycinania będzie miała wpływ na geometrię.
+
+* Maska bitów składnika wycinania jest ustawiana za pośrednictwem jego `ObjectFilterMask` właściwości
+* Maska bitów w hierarchii podrzędnej geometrycznej jest ustawiana za pośrednictwem [HierarchicalStateOverrideComponent](override-hierarchical-state.md#features)
+
+Przykłady:
+
+| Maska filtru płaszczyzny wycinania | Maska filtru geometrii  | Wynik logiczny `AND` | Płaszczyzna wycinania ma wpływ na geometrię?  |
+|--------------------|-------------------|-------------------|:----------------------------:|
+| (0000 0001) = = 1   | (0000 0001) = = 1  | (0000 0001) = = 1  | Tak |
+| (1111 0000) = = 240 | (0001 0001) = = 17 | (0001 0000) = = 16 | Tak |
+| (0000 0001) = = 1   | (0000 0010) = = 2  | (0000 0000) = = 0  | Nie |
+| (0000 0011) = = 3   | (0000 1000) = = 8  | (0000 0000) = = 0  | Nie |
+
+>[!TIP]
+> Ustawienie płaszczyzny wycinania `ObjectFilterMask` na wartość 0 oznacza, że nie będzie to miało wpływu na żadnej geometrii, ponieważ wynik operacji logicznej `AND` nie może być inny niż null. System renderowania nie uwzględnia tych płaszczyzn w pierwszym miejscu, więc jest to metoda uproszczona, aby wyłączyć poszczególne płaszczyzny wycinania. Te płaszczyzny wycinania również nie są wliczane do limitu 8 płaszczyzn aktywnych.
+
+## <a name="limitations"></a>Ograniczenia
+
+* Zdalne renderowanie na platformie Azure obsługuje **maksymalnie osiem aktywnych płaszczyzn wycinania**. Można utworzyć bardziej wycięte składniki płaszczyzny, ale jeśli spróbujesz go włączyć dłużej, zignoruje aktywację. Najpierw wyłącz inne płaszczyzny, jeśli chcesz przełączyć składniki mające wpływ na scenę.
+* Wycięte płaszczyzny są czysto wizualną funkcją, nie wpływają na wyniki [zapytań przestrzennych](spatial-queries.md). Jeśli chcesz otrzymywać dane z rzutu do siatki wyciętej, możesz dostosować punkt początkowy promienia, aby znajdować się na płaszczyźnie wycinania. W ten sposób promień może trafiać tylko widoczne części.
+
+## <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
+
+Każda aktywna płaszczyzna wycinania wiąże się z niewielkim kosztem podczas renderowania. Wyłącz lub Usuń wycięte płaszczyzny, gdy nie są potrzebne.
 
 ## <a name="api-documentation"></a>Dokumentacja interfejsu API
 

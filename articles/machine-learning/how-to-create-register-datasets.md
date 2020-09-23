@@ -12,20 +12,22 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 9137c98a2ba0b7356d25a79d3b75c3727fc35fc3
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 92394138c5aa20d0abc33387aab1e9c37e6f9cb9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604703"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986388"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Tworzenie zestawów danych usługi Azure Machine Learning
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule opisano sposób tworzenia Azure Machine Learning zestawów danych w celu uzyskania dostępu do danych dla eksperymentów lokalnych lub zdalnych. Aby dowiedzieć się, gdzie zestawy danych mieszczą się w przepływie pracy ogólnego dostępu do danych Azure Machine Learning, zobacz artykuł dotyczący [bezpiecznego dostępu do danych](concept-data.md#data-workflow) .
+
+W tym artykule opisano sposób tworzenia Azure Machine Learning zestawów danych w celu uzyskania dostępu do danych dla eksperymentów lokalnych lub zdalnych za pomocą Azure Machine Learning SDK języka Python. Aby dowiedzieć się, gdzie zestawy danych mieszczą się w przepływie pracy ogólnego dostępu do danych Azure Machine Learning, zobacz artykuł dotyczący [bezpiecznego dostępu do danych](concept-data.md#data-workflow) .
 
 Tworząc zestaw danych, tworzysz odwołanie do lokalizacji źródła danych wraz z kopią jego metadanych. Ponieważ dane pozostają w istniejącej lokalizacji, nie ponosisz żadnych dodatkowych kosztów magazynu i nie ryzykują integralności źródeł danych. Ponadto zestawy danych są opóźnieniem oceniane, co ułatwia szybkość działania przepływu pracy. Zestawy danych mogą być tworzone z magazynów danych, publicznych adresów URL i [otwartych zestawów danych platformy Azure](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
+
+W przypadku środowiska z niską ilością kodu [utwórz Azure Machine Learning zestawy danych przy użyciu programu Azure Machine Learning Studio.](how-to-connect-data-ui.md#create-datasets)
 
 Za pomocą Azure Machine Learning zestawów danych można:
 
@@ -47,7 +49,7 @@ Aby tworzyć zestawy danych i korzystać z nich, potrzebne są:
 
     * Utwórz [wystąpienie obliczeniowe Azure Machine Learning](concept-compute-instance.md#managing-a-compute-instance), które jest w pełni skonfigurowane i zarządzane środowisko programistyczne, które zawiera zintegrowane notesy oraz już zainstalowany zestaw SDK.
 
-    **ORAZ**
+    **LUB**
 
     * Pracuj nad własnym notesem Jupyter i samodzielnie Instaluj zestaw SDK, korzystając z [tych instrukcji](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
@@ -72,15 +74,14 @@ Istnieją dwa typy zestawów danych, w zależności od tego, jak użytkownicy zu
 
 Zalecamy FileDatasets dla przepływów pracy usługi Machine Learning, ponieważ pliki źródłowe mogą być w dowolnym formacie, co pozwala na szersze scenariusze uczenia maszynowego, w tym uczenie głębokie.
 
-Tworzenie FileDataset przy użyciu [zestawu SDK języka Python](#create-a-filedataset) lub [Azure Machine Learning Studio](#create-datasets-in-the-studio)
-
+Utwórz FileDataset za pomocą [zestawu SDK języka Python](#create-a-filedataset) lub [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets) .
 ### <a name="tabulardataset"></a>TabularDataset
 
 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) reprezentuje dane w formacie tabelarycznym przez analizowanie dostarczonego pliku lub listy plików. Zapewnia to możliwość zmaterializowania danych w Pandas lub Spark Dataframe, dzięki czemu możesz współpracować ze znanymi bibliotekami przygotowywania i uczenia danych bez konieczności opuszczania Twojego notesu. Można utworzyć `TabularDataset` obiekt z plików CSV,. tsv,. Parquet,. JSON i z [wyników zapytania SQL](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#&preserve-view=truefrom-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
 
 Za pomocą TabularDatasets można określić sygnaturę czasową z kolumny w danych lub z dowolnego miejsca, w którym są przechowywane dane wzorca ścieżki, aby włączyć cechę szeregów czasowych. Ta specyfikacja umożliwia łatwe i wydajne filtrowanie według czasu. Aby zapoznać się z przykładem, zobacz [Tabelaryczny pokaz interfejsu API związany z szeregiem czasowym z danymi pogody NOAA](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
-Utwórz TabularDataset za pomocą [zestawu SDK języka Python](#create-a-tabulardataset) lub [Azure Machine Learning Studio](#create-datasets-in-the-studio).
+Utwórz TabularDataset za pomocą [zestawu SDK języka Python](#create-a-tabulardataset) lub [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
 > Przepływy pracy AutoML wygenerowane za pośrednictwem Azure Machine Learning Studio obsługują obecnie tylko TabularDatasets. 
@@ -91,9 +92,9 @@ Jeśli obszar roboczy znajduje się w sieci wirtualnej, musisz skonfigurować ze
 
 <a name="datasets-sdk"></a>
 
-## <a name="create-datasets-via-the-sdk"></a>Tworzenie zestawów danych za pośrednictwem zestawu SDK
+## <a name="create-datasets"></a>Tworzenie zestawów danych
 
- Aby można było uzyskać dostęp do danych przez Azure Machine Learning, zestawy danych muszą zostać utworzone na podstawie ścieżek w [usłudze Azure datastores](how-to-access-data.md) lub publicznych adresów URL sieci Web. 
+Aby można było uzyskać dostęp do danych przez Azure Machine Learning, zestawy danych muszą zostać utworzone na podstawie ścieżek w [usłudze Azure datastores](how-to-access-data.md) lub publicznych adresów URL sieci Web. 
 
 Aby utworzyć zestawy danych z [usługi Azure datastore](how-to-access-data.md) za pomocą zestawu SDK języka Python:
 
@@ -101,7 +102,7 @@ Aby utworzyć zestawy danych z [usługi Azure datastore](how-to-access-data.md) 
 
 2. Utwórz zestaw danych, odwołując się do ścieżek w magazynie danych. Można utworzyć zestaw danych z wielu ścieżek w wielu magazynach. Nie ma żadnego sztywnego limitu liczby plików lub rozmiaru danych, z których można utworzyć zestaw danych. 
 
-> [!Note]
+> [!NOTE]
 > Dla każdej ścieżki danych do usługi magazynu wysyłane są kilka żądań, aby sprawdzić, czy wskazuje ona plik lub folder. To obciążenie może prowadzić do obniżenia wydajności lub niepowodzenia. Zestaw danych odwołujący się do jednego folderu z plikami 1000 wewnątrz jest traktowany jako odwołujący się do jednej ścieżki danych. Zalecamy utworzenie zestawu danych, do którego odwołuje się mniej niż 100 ścieżek w magazynach datastores w celu uzyskania optymalnej wydajności.
 
 ### <a name="create-a-filedataset"></a>Utwórz FileDataset
@@ -120,7 +121,12 @@ web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-ima
              'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
+Aby ponownie wykorzystać i udostępnić zestawy danych w ramach eksperymentu w obszarze roboczym, [zarejestruj zestaw danych](#register-datasets). 
 
+> [!TIP] 
+> Przekaż pliki z katalogu lokalnego i Utwórz FileDataset w jednej metodzie przy użyciu metody publicznej wersji zapoznawczej, [upload_directory ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py#methods). Ta metoda jest [eksperymentalną](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie. 
+> 
+>  Ta metoda służy do przekazywania danych do magazynu bazowego, a w związku z tym koszty związane z magazynowaniem. 
 ### <a name="create-a-tabulardataset"></a>Utwórz TabularDataset
 
 Użyj [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) metody `TabularDatasetFactory` klasy, aby odczytać pliki w formacie CSV lub TSV oraz utworzyć niezarejestrowane TabularDataset. W przypadku odczytywania z wielu plików wyniki zostaną zagregowane w jednej reprezentacji tabelarycznej. 
@@ -169,7 +175,9 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|Prawda|1|Cumings, Pani. Jan Bradley (Florencji Briggs th...|kobieta|38,0|1|0|KOMPUTER 17599|71,2833|C85|C
 2|3|Prawda|3|Heikkinen, chybień. Laina|kobieta|26,0|0|0|STON/O2. 3101282|7,9250||S
 
-### <a name="create-a-dataset-from-pandas-dataframe"></a>Tworzenie zestawu danych z Pandas Dataframe
+Aby ponownie użyć zestawów danych i udostępnić je w ramach eksperymentów w obszarze roboczym, [zarejestruj ten element dataset](#register-datasets).
+
+## <a name="create-a-dataset-from-pandas-dataframe"></a>Tworzenie zestawu danych z Pandas Dataframe
 
 Aby utworzyć TabularDataset z ramki datapandas Dataframe, Zapisz dane w lokalnym pliku, takim jak wolumin CSV, i Utwórz zestaw danych z tego pliku. Poniższy kod demonstruje ten przepływ pracy.
 
@@ -180,7 +188,8 @@ Aby utworzyć TabularDataset z ramki datapandas Dataframe, Zapisz dane w lokalny
 from azureml.core import Workspace, Dataset
 local_path = 'data/prepared.csv'
 dataframe.to_csv(local_path)
-upload the local file to a datastore on the cloud
+
+# upload the local file to a datastore on the cloud
 
 subscription_id = 'xxxxxxxxxxxxxxxxxxxxx'
 resource_group = 'xxxxxx'
@@ -198,6 +207,11 @@ datastore.upload(src_dir='data', target_path='data')
 dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
 ```
 
+> [!TIP]
+> Utwórz i zarejestruj TabularDataset z tabeli w pamięci Spark lub Pandas danych za pomocą jednej metody z publicznymi metodami w wersji zapoznawczej [`register_spark_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#methods) i [`register_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#methods) . Te metody rejestracji to [eksperymentalne](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) funkcje w wersji zapoznawczej i mogą ulec zmianie w dowolnym momencie. 
+> 
+>  Metody te umożliwiają przekazywanie danych do magazynu bazowego, a w związku z tym koszty magazynowania. 
+
 ## <a name="register-datasets"></a>Rejestrowanie zestawów danych
 
 Aby ukończyć proces tworzenia, zarejestruj zestawy danych w obszarze roboczym. Użyj [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#&preserve-view=trueregister-workspace--name--description-none--tags-none--create-new-version-false-) metody, aby zarejestrować zestawy danych w obszarze roboczym, aby udostępnić je innym osobom i ponownie wykorzystać je w ramach eksperymentów w obszarze roboczym:
@@ -207,26 +221,6 @@ titanic_ds = titanic_ds.register(workspace=workspace,
                                  name='titanic_ds',
                                  description='titanic training data')
 ```
-
-<a name="datasets-ui"></a>
-## <a name="create-datasets-in-the-studio"></a>Tworzenie zestawów danych w programie Studio
-Poniższe kroki i animacje pokazują, jak utworzyć zestaw danych w programie [Azure Machine Learning Studio](https://ml.azure.com).
-
-> [!Note]
-> Zestawy danych utworzone za pomocą Azure Machine Learning Studio są automatycznie rejestrowane w obszarze roboczym.
-
-![Tworzenie zestawu danych przy użyciu interfejsu użytkownika](./media/how-to-create-register-datasets/create-dataset-ui.gif)
-
-Aby utworzyć zestaw danych w programie Studio:
-1. Zaloguj się pod adresem https://ml.azure.com .
-1. Wybierz pozycję **zestawy danych** w sekcji **elementy zawartości** okienka po lewej stronie. 
-1. Wybierz pozycję **Utwórz zestaw danych** , aby wybrać źródło zestawu danych. To źródło może być plikami lokalnymi, magazynem danych lub publicznymi adresami URL.
-1. Wybierz **tabelaryczną** lub **plik** dla typu zestawu danych.
-1. Wybierz pozycję **dalej** , aby otworzyć formularz **Magazyn danych i wybór pliku** . Na tym formularzu wybierz lokalizację, w której ma zostać zachowany zestaw danych, a także wybierz pliki danych, które mają być używane dla zestawu danych. 
-    1. Włącz weryfikację pomijania, jeśli dane są w sieci wirtualnej. Dowiedz się więcej o [korzystaniu z zestawów danych i magazynów w sieci wirtualnej](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
-1. Wybierz pozycję **dalej** , aby wypełnić **Ustawienia, Podgląd** i formularze **schematów** ; są one inteligentnie wypełniane na podstawie typu pliku i można później skonfigurować zestaw danych przed utworzeniem w tych formularzach. 
-1. Wybierz pozycję **dalej** , aby przejrzeć formularz **Potwierdź szczegóły** . Sprawdź wybrane opcje i Utwórz opcjonalny profil danych dla zestawu danych. Dowiedz się więcej na temat [profilowania danych](how-to-use-automated-ml-for-ml-models.md#profile). 
-1. Wybierz pozycję **Utwórz** , aby zakończyć tworzenie zestawu danych.
 
 ## <a name="create-datasets-with-azure-open-datasets"></a>Tworzenie zestawów danych za pomocą otwartych zestawów danych platformy Azure
 

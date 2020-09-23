@@ -9,26 +9,30 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 874df2cc17e291cb6811ca07d01237f01b523860
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 8dc229b366a7816c861da665c73d6421e67545c6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565042"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985906"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Magazyn danych tożsamości dla klientów europejskich w Azure Active Directory
 Dane tożsamości są przechowywane w usłudze Azure AD w lokalizacji geograficznej na podstawie adresu dostarczonego przez organizację podczas subskrybowania usługi online firmy Microsoft, takiej jak Microsoft 365 i Azure. Aby uzyskać informacje o tym, gdzie są przechowywane dane tożsamości, możesz użyć sekcji [gdzie znajdują się Twoje dane?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Centrum zaufania Microsoft.
 
 W przypadku klientów, którzy podały adres w Europie, usługa Azure AD przechowuje większość danych tożsamości w obrębie europejskich centrów Datacenter. Ten dokument zawiera informacje dotyczące wszelkich danych przechowywanych poza Europą przez usługi Azure AD.
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure uwierzytelnianie wieloskładnikowe (MFA)
-    
-- Wszystkie uwierzytelnianie dwuskładnikowe korzystające z połączeń telefonicznych i wiadomości SMS pochodzą z centrów danych USA i są również kierowane przez dostawców globalnych.
-- Powiadomienia wypychane przy użyciu aplikacji Microsoft Authenticator pochodzą z centrów danych US. Ponadto usługi specyficzne dla dostawcy urządzeń mogą również być odtwarzane, a te usługi są dostępne poza Europą.
-- Kody OATH są zawsze weryfikowane w Stanach Zjednoczonych. 
+## <a name="microsoft-azure-multi-factor-authentication"></a>Microsoft Azure Multi-Factor Authentication
+
+W przypadku usługi Azure Multi-Factor Authentication opartej na chmurze uwierzytelnianie zostanie ukończone w najbliższym centrum danych dla użytkownika. Centra danych dla platformy Azure Multi-Factor Authentication istnieją w Ameryka Północna, Europie i Azja i Pacyfik.
+
+* Uwierzytelnianie wieloskładnikowe przy użyciu połączeń telefonicznych pochodzi z centrów danych USA i są kierowane przez dostawców globalnych.
+* Uwierzytelnianie wieloskładnikowe za pomocą wiadomości SMS jest kierowane przez globalnych dostawców.
+* Żądania uwierzytelniania wieloskładnikowego przy użyciu Microsoft Authenticator powiadomień wypychanych aplikacji, które pochodzą z centrów danych UE, są przetwarzane w centrach danych UE.
+    * Usługi specyficzne dla dostawcy urządzenia, takie jak powiadomienia wypychane firmy Apple, mogą znajdować się poza Europą.
+* Żądania uwierzytelniania wieloskładnikowego używające kodów OATH pochodzących z centrów danych UE są weryfikowane w Unii Europejskiej.
 
 Aby uzyskać więcej informacji o tym, jakie informacje o użytkowniku są zbierane przez usługę Azure Serwer Multi-Factor Authentication (serwer MFA) i opartą na chmurze usługę Azure MFA, zobacz [zbieranie danych użytkownika w usłudze azure Multi-Factor Authentication](../authentication/howto-mfa-reporting-datacollection.md).
 

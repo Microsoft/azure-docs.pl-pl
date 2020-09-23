@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307203"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897570"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania 
 
@@ -78,13 +78,13 @@ Mogą zostać wyzwolone algorytmy uczenia maszynowego. Jeśli te algorytmy są w
 
 W szczególności przede wszystkim w projekcie etykietowania model uczenia maszynowego może być wystarczająco dokładny tylko, aby można było oznaczyć mały podzestaw obrazów. Gdy te obrazy są oznaczone etykietami, projekt etykietowania powróci do ręcznego etykietowania, aby zebrać więcej danych dla następnej rundy szkolenia modeli. W miarę upływu czasu model będzie bardziej wiedział o większej liczbie obrazów, co spowodowało bardziej szczegółowe zadanie zadań w dalszej części projektu.
 
-## <a name="tag-images-for-multi-class-classification"></a>Obrazy tagów dla klasyfikacji wieloklasowej
+## <a name="tag-images-for-multi-class-classification"></a>Tagowanie obrazów na potrzeby klasyfikacji z wieloma klasami
 
 Jeśli projekt jest typu "Klasyfikacja obrazu wiele klas", przypiszesz jeden tag do całego obrazu. Aby zapoznać się ze wskazówkami w dowolnym momencie, przejdź do strony z **instrukcjami** i wybierz pozycję **Wyświetl szczegółowe instrukcje**.
 
 Jeśli zauważysz, że po przypisaniu znacznika do obrazu wystąpi błąd, możesz go naprawić. Wybierz znak "**X**" na etykiecie, która jest wyświetlana poniżej obrazu, aby wyczyścić tag. Lub zaznacz obraz i wybierz inną klasę. Nowo wybrana wartość zastąpi poprzednio zastosowany tag.
 
-## <a name="tag-images-for-multi-label-classification"></a>Obrazy tagów dla klasyfikacji wieloetykietowej
+## <a name="tag-images-for-multi-label-classification"></a>Tagowanie obrazów na potrzeby klasyfikacji z wieloma etykietami
 
 Jeśli pracujesz nad projektem typu "Klasyfikacja obrazu z wieloma etykietami", zastosujesz jeden *lub więcej* tagów do obrazu. Aby wyświetlić wskazówki właściwe dla projektu, wybierz **instrukcje** i przejdź do szczegółów, aby **wyświetlić szczegółowe instrukcje**.
 
@@ -103,7 +103,7 @@ Aby poprawić błąd, kliknij znak "**X**", aby wyczyścić pojedynczy tag, lub 
 Na platformie Azure zostanie włączony przycisk **Prześlij** tylko po zastosowaniu co najmniej jednego znacznika do każdego obrazu. Wybierz pozycję **Prześlij** , aby zapisać swoją służbę.
 
 
-## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Dodawanie tagów do obrazów i określanie pól ograniczenia na potrzeby wykrywania obiektów
+## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Tagowanie obrazów i określanie pól ograniczeń na potrzeby wykrywania obiektów
 
 Jeśli projekt jest typu "Identyfikacja obiektu (pola ograniczające)", należy określić jedno lub więcej pól ograniczenia w obrazie i zastosować tag do każdego pola. Obrazy mogą zawierać wiele pól, z których każdy ma jeden tag. Użyj **widoku szczegółowe instrukcje** , aby określić, czy w projekcie są używane wiele pól ograniczenia.
 
@@ -111,7 +111,7 @@ Jeśli projekt jest typu "Identyfikacja obiektu (pola ograniczające)", należy 
 1. Wybierz **prostokątne** narzędzie ![ prostokątnego pola ](./media/how-to-label-images/rectangular-box-tool.png) i wybierz pozycję "R".
 3. Kliknij i przeciągnij ukośnie na miejsce docelowe, aby utworzyć niedalekią ramkę. Aby dostosować pole ograniczenia, przeciągnij krawędzie lub rogi.
 
-![Zrzut ekranu przedstawia podstawowe tworzenie pól związanych z ograniczeniami.](./media/how-to-label-images/bounding-box-sequence.png)
+![Tworzenie pola ograniczenia](./media/how-to-label-images/bounding-box-sequence.png)
 
 Aby usunąć pole ograniczenia, kliknij obiekt docelowy w kształcie X, który pojawia się obok pola ograniczenia po utworzeniu.
 

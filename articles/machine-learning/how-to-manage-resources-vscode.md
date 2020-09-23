@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 09/03/2020
-ms.openlocfilehash: 06fc929e0149c48aa75aa87a12e3747ef1df1bf2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440122"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897394"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Zarządzanie zasobami Azure Machine Learning przy użyciu rozszerzenia VS Code (wersja zapoznawcza)
 
@@ -44,7 +44,6 @@ Aby uzyskać więcej informacji, zobacz [obszary robocze](concept-workspace.md).
     1. Wybieranie subskrypcji platformy Azure
     1. Wybierz lub Utwórz nową grupę zasobów, w której ma zostać zainicjowana obsługa obszaru roboczego
     1. Wybierz lokalizację, w której ma zostać zainicjowana przestrzeń robocza.
-    1. Wybierz między wersjami *Basic* i *Enterprise* . Dowiedz się więcej o różnych [wersjach Azure Machine Learning](concept-editions.md).
 
 Alternatywne metody tworzenia obszaru roboczego obejmują:
 

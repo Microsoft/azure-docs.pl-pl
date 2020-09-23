@@ -1,7 +1,7 @@
 ---
-title: Importuj dane do projektanta (wersja zapoznawcza)
+title: Importowanie danych do projektanta
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak importować dane do programu Azure Machine Learning Designer (wersja zapoznawcza) z różnych źródeł danych.
+description: Dowiedz się, jak importować dane do programu Azure Machine Learning Designer z różnych źródeł danych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006988"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985605"
 ---
-# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importowanie danych do programu Azure Machine Learning Designer (wersja zapoznawcza)
+# <a name="import-data-into-azure-machine-learning-designer"></a>Importowanie danych do programu Azure Machine Learning Designer
 
 W tym artykule dowiesz się, jak zaimportować własne dane do projektanta w celu utworzenia niestandardowych rozwiązań. Istnieją dwa sposoby importowania danych do projektanta: 
 
@@ -32,7 +32,7 @@ Zalecamy użycie [zestawów](concept-data.md#datasets) danych w celu zaimportowa
 
 ### <a name="register-a-dataset"></a>Rejestrowanie zestawu danych
 
-Istnieje możliwość rejestrowania istniejących zestawów danych [programowo za pomocą zestawu SDK](how-to-create-register-datasets.md#datasets-sdk) lub [wizualizacji w programie Azure Machine Learning Studio](how-to-create-register-datasets.md#datasets-ui).
+Istnieje możliwość rejestrowania istniejących zestawów danych [programowo za pomocą zestawu SDK](how-to-create-register-datasets.md#datasets-sdk) lub [wizualizacji w programie Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 Możesz również zarejestrować dane wyjściowe dla dowolnego modułu projektanta jako zestaw danych.
 
@@ -68,7 +68,7 @@ Chociaż zalecamy używanie zestawów danych do importowania danych, można rów
 Aby uzyskać szczegółowe informacje na temat korzystania z modułu Importuj dane, zobacz [stronę Importowanie danych źródłowych](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Jeśli zestaw danych zawiera zbyt wiele kolumn, może wystąpić następujący błąd: "Walidacja nie powiodła się z powodu ograniczenia rozmiaru". Aby tego uniknąć, [zarejestruj zestaw danych w interfejsie DataSets](how-to-create-register-datasets.md#datasets-ui).
+> Jeśli zestaw danych zawiera zbyt wiele kolumn, może wystąpić następujący błąd: "Walidacja nie powiodła się z powodu ograniczenia rozmiaru". Aby tego uniknąć, [zarejestruj zestaw danych w interfejsie DataSets](how-to-connect-data-ui.md#create-datasets).
 
 ## <a name="supported-sources"></a>Obsługiwane źródła
 
@@ -89,8 +89,8 @@ Projektant obsługuje tabelaryczne zestawy danych utworzone na podstawie następ
 
 Projektant wewnętrznie rozpoznaje następujące typy danych:
 
-* Ciąg
-* Liczba całkowita
+* String
+* Integer
 * Liczba dziesiętna
 * Wartość logiczna
 * Date
@@ -107,4 +107,4 @@ Jeśli obszar roboczy znajduje się w sieci wirtualnej, musisz wykonać dodatkow
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poznaj podstawowe informacje na temat projektanta, korzystając z [samouczka: przewidywanie ceny za aplikacje dla urządzeń przenośnych za pomocą projektanta](tutorial-designer-automobile-price-train-score.md).
+Zapoznaj się z tematami dotyczącymi projektanta w tym [samouczku: przewidywanie ceny za aplikacje dla urządzeń przenośnych za pomocą projektanta](tutorial-designer-automobile-price-train-score.md).

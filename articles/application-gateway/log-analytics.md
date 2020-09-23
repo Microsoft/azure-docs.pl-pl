@@ -1,19 +1,19 @@
 ---
 title: Sprawdzanie dzienników WAF przy użyciu usługi Azure Log Analytics
 titleSuffix: Azure Application Gateway
-description: W tym artykule pokazano, jak za pomocą usługi Azure Log Analytics przeanalizować Application Gateway Dzienniki zapory aplikacji sieci Web
+description: W tym artykule pokazano, jak za pomocą usługi Azure Log Analytics przeanalizować dzienniki Application Gateway zapory aplikacji sieci Web (WAF).
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 88e360c5630c24dd997f72bda3fc4a480264763d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a5925b9667cf0db5003584c3bf6a30d8611c5ce
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086918"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985998"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Używanie Log Analytics do badania dzienników Application Gateway zapory aplikacji sieci Web (WAF)
 

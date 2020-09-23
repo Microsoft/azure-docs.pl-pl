@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: d56ce811155f7b7f60fa870dbdae2550afab2eac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01c54c8baa411e7d57698c626b098dc19e66be4e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246830"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984132"
 ---
 # <a name="state-management-with-service-fabric"></a>Zarządzanie stanem za pomocą Service Fabric
 
@@ -22,7 +22,7 @@ Za pomocą Service Fabric siatki możesz łatwo wdrożyć nową aplikację i po�
 
 Kontenery często używają dysków tymczasowych. Dyski tymczasowe są nieulotne, jednak dzięki temu otrzymujesz nowy dysk tymczasowy i utracisz informacje w przypadku awarii kontenera. Trudno jest również udostępniać informacje na dyskach tymczasowych innym kontenerom. Woluminy są katalogami, które są instalowane w ramach wystąpień kontenera, których można użyć do utrwalania stanu. Woluminy zapewniają magazyn plików ogólnego przeznaczenia i umożliwiają odczytywanie i zapisywanie plików przy użyciu standardowych interfejsów API plików we/wy dysku. Zasób woluminu zawiera opis sposobu instalowania katalogu i magazynu zapasowego do użycia. Możesz wybrać magazyn plików platformy Azure lub Service Fabric dysk woluminu do przechowywania danych.
 
-![Woluminy][image3]
+![Diagram przedstawia usługę, która przepływa do woluminu, który przepływa zarówno do Service Fabric niezawodnego woluminu na replikowanym dysku lokalnym, jak i do Azure Files woluminu w magazynie sieciowym.][image3]
 
 ### <a name="service-fabric-reliable-volume"></a>Service Fabric niezawodny wolumin
 

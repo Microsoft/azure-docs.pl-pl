@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4a116d06f5feb3fe402e7f64b9bccd5531b210c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401728"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986574"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurowanie alertów niestandardowych do monitorowania anonsowanych tras
 
@@ -299,7 +299,7 @@ W wyzwalaczu harmonogramu cyklu można ustawić strefę czasową i cykl dla powt
 
 Na końcu konfiguracji przepływu pracy można sprawdzić spójność częstotliwości cyklu, uruchamiając przepływ pracy kilka razy, a następnie sprawdzając wynik w **historii uruchamiania**.
 
-:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Cykl" lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
+:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Zrzut ekranu pokazuje interwał cyklu i wartości częstotliwości." lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
 
 ### <a name="3-create-a-job"></a><a name="job"></a>3. Utwórz zadanie
 
@@ -320,7 +320,7 @@ Aplikacja logiki uzyskuje dostęp do innych aplikacji, usług i platform, chocia
 
 5. Na stronie **Tworzenie zadania** jednostka usługi powinna mieć rolę "czytelnik" w **grupie zasobów** hostującym konto usługi Automation i "operator zadania automatyzacji" na **koncie usługi Automation**. Ponadto sprawdź, czy **Nazwa elementu Runbook** została dodana jako nowy parametr.
 
-   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Role" lightbox="./media/custom-route-alert-portal/roles-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Zrzut ekranu przedstawia tworzenie wartości zadania w cyklu, gdzie można zweryfikować nazwę elementu Runbook." lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
 ### <a name="4-get-the-job-output"></a><a name="output"></a>4. Pobierz dane wyjściowe zadania
 
@@ -343,7 +343,7 @@ Informacje zawarte w danych wyjściowych z akcji "Azure Automation Utwórz zadan
 
 3. Kliknij wewnątrz pola **zawartość** . Gdy zostanie wyświetlona lista zawartości dynamicznej, wybierz pozycję **zawartość**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Zawartość" lightbox="./media/custom-route-alert-portal/content-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Zrzut ekranu przedstawia okno dialogowe analizowanie pliku JSON z wybraną zawartością." lightbox="./media/custom-route-alert-portal/content-expand.png":::
 
 4. Analizowanie pliku JSON wymaga schematu. Schemat można wygenerować przy użyciu danych wyjściowych elementu Runbook usługi Automation. Otwórz nową sesję przeglądarki sieci Web, Uruchom element Runbook usługi Automation i Pobierz dane wyjściowe. Wróć do akcji **Logic Apps analizowanie danych JSON** . W dolnej części strony wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
 
@@ -363,7 +363,7 @@ W tym kroku przepływu pracy utworzymy warunek wysłania alarmu za pośrednictwe
 
 1. W obszarze **Akcja Pobierz dane wyjściowe zadania**wybierz pozycję **nowy krok**. W polu wyszukiwania Znajdź i wybierz **zmienne**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Zmienne":::
+   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Zrzut ekranu przedstawia okno dialogowe Wybieranie akcji z zmienną w polu wyszukiwania i zmienne zaznaczone.":::
 
 2. Z listy **Akcje** wybierz akcję **zainicjuj zmienną** .
 
@@ -371,7 +371,7 @@ W tym kroku przepływu pracy utworzymy warunek wysłania alarmu za pośrednictwe
 
 3. Określ nazwę zmiennej. W obszarze **Typ**wybierz pozycję **ciąg**. **Wartość** zmiennej zostanie przypisana później w przepływie pracy.
 
-   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Ciąg" lightbox="./media/custom-route-alert-portal/string-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Zrzut ekranu przedstawia kod JSON analizy skojarzony z zmienną Initialize, w której można wprowadzić nazwę, typ i wartość." lightbox="./media/custom-route-alert-portal/string-expand.png":::
 
 ### <a name="7-create-a-for-each-action"></a><a name="cycles-json"></a>7. Utwórz akcję "for each"
 
@@ -379,7 +379,7 @@ Po przeanalizowaniu kodu JSON Akcja **operacji analizy danych JSON** przechowuje
 
 1. W obszarze **zainicjuj zmienną**wybierz pozycję **Dodaj akcję**. W polu wyszukiwania wpisz ciąg "for each" jako filtr.
 
-   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Kontrola":::
+   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Zrzut ekranu przedstawia okno dialogowe Wybieranie akcji z opcją dla każdego w polu wyszukiwania i wybranym formancie.":::
 
 2. Z listy **Akcje** wybierz akcję **dla każdej kontrolki**.
 
@@ -387,7 +387,7 @@ Po przeanalizowaniu kodu JSON Akcja **operacji analizy danych JSON** przechowuje
 
 3. Kliknij w polu tekstowym **Wybierz dane wyjściowe z poprzednich kroków** . Gdy zostanie wyświetlona lista **zawartości dynamicznej** , wybierz **treść**, która jest wyprowadzana z przeanalizowanego kodu JSON.
 
-   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Treść":::
+   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Zrzut ekranu przedstawia zainicjowaną zmienną skojarzoną z for each, która zawiera pole tekstowe wybierz dane wyjściowe z poprzednich kroków.":::
 
 4. Dla każdego elementu treści JSON chcemy ustawić warunek. Z grupy Akcja wybierz pozycję **Kontrola**.
 

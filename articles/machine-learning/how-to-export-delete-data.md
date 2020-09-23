@@ -11,16 +11,16 @@ ms.author: laobri
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 4aa0cecb380f75080abe471a4c414029436c57d6
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b27675f152132a015a6dc6f5aea35aff036e1a63
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645953"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897551"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Eksportowanie lub usuwanie danych obszaru roboczego usługi Machine Learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W Azure Machine Learning można eksportować lub usuwać dane obszaru roboczego za pomocą interfejsu graficznego portalu lub zestawu SDK języka Python. W tym artykule opisano obie opcje.
 

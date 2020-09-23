@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: c260643d7d553e407d0758f286aac76c91ae08d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 403576454615effeb53651b51679681422b08e9e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137692"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890353"
 ---
 # <a name="neural-network-regression-module"></a>Moduł regresji sieci neuronowych
 
@@ -24,7 +24,7 @@ ms.locfileid: "82137692"
   
 ## <a name="module-overview"></a>Przegląd modułu  
 
-W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Ten moduł służy do tworzenia modelu regresji przy użyciu dostosowywalnego algorytmu sieci neuronowych.
   
@@ -50,7 +50,7 @@ Sieci neuronowych można dostosowywać w szerokim stopniu. W tej sekcji opisano 
     
     Ta opcja jest Najlepsza, jeśli masz już doświadczenie w korzystaniu z sieci neuronowych. Język NET # jest używany do definiowania architektury sieci.  
 
-##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a>Tworzenie modelu sieci neuronowych przy użyciu architektury domyślnej
+##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a> Tworzenie modelu sieci neuronowych przy użyciu architektury domyślnej
 
 1.  Dodaj moduł **regresji sieci neuronowych** do potoku w projektancie. Ten moduł można znaleźć w obszarze **Machine Learning**, **zainicjować**, w kategorii **regresja** . 
   

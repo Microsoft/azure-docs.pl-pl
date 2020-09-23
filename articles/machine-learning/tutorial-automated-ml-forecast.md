@@ -10,20 +10,17 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: a244372168cb34f190bd584634bf108f2b5215a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd6f2021a20ff488402bb9d1367feb57c34f582
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092296"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896670"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Samouczek: prognozowanie popytu przy użyciu automatycznej uczenia maszynowego
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 W tym samouczku użyjesz zautomatyzowanej uczenia maszynowego lub zautomatyzowanej produkcji w Azure Machine Learning Studio, aby utworzyć model prognozowania szeregów czasowych, aby przewidzieć zapotrzebowanie na wypożyczenie dla usługi udostępniania roweru.
-
->[!IMPORTANT]
-> Automatyczne środowisko pracy w usłudze Azure Machine Learning Studio jest w wersji zapoznawczej. Niektóre funkcje mogą nie być obsługiwane lub mieć ograniczone możliwości.
 
 Aby zapoznać się z przykładem modelu klasyfikacji, zobacz [Samouczek: Tworzenie modelu klasyfikacji ze zautomatyzowaną ml w Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
@@ -38,8 +35,8 @@ W tym samouczku dowiesz się, jak wykonywać następujące zadania:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Obszar roboczy Azure Machine Learning Enterprise Edition. Jeśli nie masz obszaru roboczego, [Utwórz obszar roboczy Enterprise Edition](how-to-manage-workspace.md). 
-    * Automatyczne Uczenie maszynowe w programie Azure Machine Learning Studio jest dostępne tylko dla obszarów roboczych wersji Enterprise Edition. 
+* Obszar roboczy usługi Azure Machine Learning. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md). 
+
 * Pobierz plik danych [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Wprowadzenie do programu Azure Machine Learning Studio
@@ -60,7 +57,7 @@ Na potrzeby tego samouczka utworzysz zautomatyzowany przebieg eksperymentu ML w 
 
 Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w formie zestawu danych Azure Machine Learning. Dzięki temu można upewnić się, że dane są sformatowane odpowiednio do eksperymentu.
 
-1. W formularzu **Wybierz zestaw danych** wybierz pozycję **z plików lokalnych** z listy rozwijanej **+ Utwórz zestaw danych** . 
+1. W formularzu **Wybierz zestaw danych** wybierz pozycję **z plików lokalnych** z listy rozwijanej  **+ Utwórz zestaw danych** . 
 
     1. W **podstawowym formularzu informacji** nadaj zestawowi danych nazwę i podaj opcjonalny opis. Typ zestawu danych powinien domyślnie mieć wartość **tabelaryczną**, ponieważ automatyczna wartość ML w Azure Machine Learning Studio obsługuje obecnie tylko tabelaryczne zestawy danych.
     
@@ -88,11 +85,11 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
 
     1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. 
     
-        1. **Na potrzeby** tego przykładu wybierz opcję ignorowania niektórych i **zarejestrowanych** kolumn. Te kolumny są podziałem kolumny **CNT** , dlatego nie zawierają ich.
+        1. **Na potrzeby** tego przykładu wybierz opcję ignorowania niektórych i **zarejestrowanych** kolumn. Te kolumny są podziałem kolumny  **CNT** , dlatego nie zawierają ich.
 
         1. Również dla tego przykładu pozostaw wartości domyślne **Właściwości** i **typu**. 
         
-        1. Wybierz przycisk **Dalej**.
+        1. Wybierz pozycję **Dalej**.
 
     1. Na formularzu **Potwierdź szczegóły** Sprawdź, czy informacje są zgodne z informacjami o tym, co zostało wcześniej wypełnione w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** .
 
@@ -100,14 +97,14 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
 
     1. Wybierz zestaw danych, który zostanie wyświetlony na liście.
 
-    1. Wybierz pozycję **dalej**.
+    1. Wybierz pozycję  **dalej**.
 
 ## <a name="configure-experiment-run"></a>Konfigurowanie przebiegu eksperymentu
 
 Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybierz kolumnę, dla której chcesz przewidzieć dane.
 
 1. Wypełnij formularz **konfigurowania przebiegu** w następujący sposób:
-    1. Wprowadź nazwę eksperymentu:`automl-bikeshare`
+    1. Wprowadź nazwę eksperymentu: `automl-bikeshare`
 
     1. Jako kolumnę docelową wybierz pozycję **CNT** , którą chcesz przewidzieć. Ta kolumna wskazuje liczbę wynajmu udziałów w ramach roweru.
 
@@ -115,7 +112,7 @@ Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybi
 
         Pole | Opis | Wartość dla samouczka
         ----|---|---
-        Nazwa obliczeniowa |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|rower — obliczenia
+        Nazwa obiektu obliczeniowego |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|rower — obliczenia
         &nbsp;Typ maszyny &nbsp; wirtualnej|Wybierz typ maszyny wirtualnej dla obliczenia.|Procesor CPU (centralna jednostka przetwarzania)
         &nbsp;Rozmiar maszyny &nbsp; wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.|Standard_DS12_V2
         Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
@@ -128,7 +125,7 @@ Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybi
 
         1. Po utworzeniu wybierz nowe miejsce docelowe obliczeń z listy rozwijanej.
 
-    1. Wybierz przycisk **Dalej**.
+    1. Wybierz pozycję **Dalej**.
 
 ## <a name="select-forecast-settings"></a>Wybierz ustawienia prognozy
 
@@ -156,7 +153,7 @@ Ukończ instalację eksperymentu dotyczącego zautomatyzowanej sieci ML, określ
 
 ## <a name="run-experiment"></a>Uruchom eksperyment
 
-Aby uruchomić eksperyment, wybierz pozycję **Zakończ**. Zostanie otwarty ekran **szczegóły uruchamiania** ze **stanem uruchomienia** znajdującym się u góry obok numeru uruchomienia. Ten stan jest aktualizowany w miarę postępu eksperymentu.
+Aby uruchomić eksperyment, wybierz pozycję **Zakończ**. Zostanie otwarty ekran **szczegóły uruchamiania**  ze **stanem uruchomienia** znajdującym się u góry obok numeru uruchomienia. Ten stan jest aktualizowany w miarę postępu eksperymentu.
 
 >[!IMPORTANT]
 > Przygotowanie eksperymentu trwa do **10-15 minut** .
@@ -195,13 +192,13 @@ Wdrażamy ten model, ale zaleca się wdrożenie trwa około 20 minut. Proces wdr
     ----|----
     Nazwa wdrożenia| bikeshare — Wdróż
     Opis wdrożenia| wdrożenie popytu na zapotrzebowanie na rowery
-    Typ obliczenia | Wybierz wystąpienie obliczeniowe platformy Azure (ACI)
+    Typ środowiska obliczeniowego | Wybierz wystąpienie obliczeniowe platformy Azure (ACI)
     Włącz uwierzytelnianie| Wyłącz. 
     Używanie niestandardowych zasobów wdrażania| Wyłącz. Wyłączenie zezwala na Autogenerowanie domyślnego pliku sterownika (skrypt oceniania) i pliku środowiska. 
     
     W tym przykładzie używamy ustawień domyślnych, które są dostępne w menu *Zaawansowane* . 
 
-1. Wybierz pozycję **Wdróż**.  
+1. Wybierz pozycję **Deploy** (Wdróż).  
 
     W górnej części ekranu **uruchamiania** zostanie wyświetlony zielony komunikat o powodzeniu z informacją o tym, że wdrożenie zostało uruchomione pomyślnie. Postęp wdrożenia można znaleźć w okienku **podsumowania modelu** w obszarze **Wdróż stan**.
     
@@ -209,7 +206,7 @@ Po pomyślnym wdrożeniu masz działającą usługę sieci Web do generowania pr
 
 Przejdź do [**następnych kroków**](#next-steps) , aby dowiedzieć się więcej na temat korzystania z nowej usługi sieci Web i testowania prognoz przy użyciu Power BI wbudowanej Azure Machine Learning obsługi.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Pliki wdrożeń są większe niż pliki danych i eksperymenty, dzięki czemu są one droższe do przechowywania. Usuń tylko pliki wdrożenia, aby zminimalizować koszty dla konta, lub jeśli chcesz zachować obszar roboczy i pliki eksperymentów. W przeciwnym razie Usuń całą grupę zasobów, jeśli nie planujesz używać żadnego z tych plików.  
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1ea04633708e866b6f200bef0eb6e331c06873e9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 20efae411ae4d2fae9bf3b5e69dbfdd98da1603a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947643"
+ms.locfileid: "90985645"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Co to jest Azure Stack Edge — mini R?
 
@@ -35,7 +35,7 @@ Azure Stack Edge mini R ma następujące możliwości:
 |Przyspieszone inferencing AI| Włączone przez procesor Intel Movidius wyposażono X VPU.|
 |Przewodowe i bezprzewodowe | Umożliwia używanie przewodowych i bezprzewodowych transferów danych.|
 |Dostęp do danych     | Bezpośredni dostęp do danych z usług Azure Storage Blob i Azure Files przy użyciu interfejsów API w chmurze w celu dodatkowego przetwarzania danych w chmurze. Lokalna pamięć podręczna na urządzeniu służy do szybkiego dostępu do ostatnio używanych plików.|
-|Tryb rozłączenia| Można opcjonalnie zarządzać urządzeniami i usługami za pośrednictwem Azure Stack. <br> Wdrażaj, uruchamiaj i Zarządzaj aplikacjami w trybie offline. <br> Tryb bez połączenia obsługuje scenariusze przekazywania w trybie offline.|
+|Tryb rozłączenia|  Można opcjonalnie zarządzać urządzeniami i usługami za pośrednictwem Centrum Azure Stack. Wdrażaj, uruchamiaj i Zarządzaj aplikacjami w trybie offline. <br> Tryb bez połączenia obsługuje scenariusze przekazywania w trybie offline.|
 |Obsługiwane protokoły     |Obsługa standardowych protokołów SMB, NFS i REST na potrzeby pozyskiwania danych. <br> Aby uzyskać więcej informacji na temat obsługiwanych wersji, przejdź do pozycji [Azure Stack Edge mini R System Requirements](azure-stack-edge-gpu-system-requirements.md).|
 |Odświeżanie danych     | Możliwość odświeżania plików lokalnych za pomocą najnowszych wersji z chmury.|
 |Podwójne szyfrowanie    | Użycie dysku samoszyfrującego zapewnia pierwszą warstwę szyfrowania. Sieć VPN zapewnia drugą warstwę szyfrowania. Obsługa funkcji BitLocker do lokalnego szyfrowania danych i bezpiecznego transferu danych do chmury za pośrednictwem *protokołu HTTPS* .|

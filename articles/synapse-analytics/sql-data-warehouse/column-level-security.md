@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: a4da74c01f732f3a62d29847d5f61934dede9778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1364da4849a07100ac28644a51409837012f93cc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208097"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986226"
 ---
 # <a name="column-level-security"></a>Zabezpieczenia na poziomie kolumny
 
@@ -28,9 +28,9 @@ Ponieważ to wideo zostało ogłoszone, [zabezpieczenia na poziomie wiersza](/sq
 
 Zabezpieczenia na poziomie kolumny upraszczają projektowanie i kodowanie zabezpieczeń w aplikacji, co pozwala ograniczyć dostęp do kolumn w celu ochrony poufnych danych. Na przykład w celu zapewnienia, że określeni użytkownicy będą mieli dostęp tylko do niektórych kolumn tabeli odnoszących się do ich działu. Logika ograniczeń dostępu znajduje się w warstwie bazy danych, a nie na danych w innej warstwie aplikacji. Baza danych stosuje ograniczenia dostępu przy każdym próbie dostępu do danych z dowolnej warstwy. To ograniczenie sprawia, że zabezpieczenia są bardziej niezawodne i niezawodne przez zredukowanie obszaru ogólnego systemu zabezpieczeń. Ponadto zabezpieczenia na poziomie kolumny eliminują również konieczność wprowadzenia widoków do filtrowania kolumn w celu nakładania ograniczeń dostępu dla użytkowników.
 
-Zabezpieczenia na poziomie kolumny można zaimplementować przy użyciu instrukcji [Grant](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) języka T-SQL. Dzięki temu mechanizmowi obsługiwane jest uwierzytelnianie SQL i Azure Active Directory (AAD).
+Zabezpieczenia na poziomie kolumny można zaimplementować przy użyciu instrukcji [Grant](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) języka T-SQL. W przypadku tego mechanizmu obsługiwane są zarówno uwierzytelnianie SQL, jak i Azure Active Directory (Azure AD).
 
-![ze](./media/column-level-security/cls.png)
+![Diagram przedstawia tabelę schematyczną z pierwszą kolumną, w której znajduje się ZAMKNIĘTA kłódka i jej komórki kolorem pomarańczowym, podczas gdy inne kolumny są białymi komórkami.](./media/column-level-security/cls.png)
 
 ## <a name="syntax"></a>Składnia
 

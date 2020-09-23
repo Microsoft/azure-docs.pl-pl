@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Zarządzanie udziałami krawędziowymi | Microsoft Docs
-description: Opisuje, jak używać Azure Portal do zarządzania udziałami na Azure Stack Edge.
+title: Azure Stack Edge Zarządzanie udziałami Pro | Microsoft Docs
+description: Opisuje, jak używać Azure Portal do zarządzania udziałami w Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 1aceb9d2fb1d9b5890bc0859d432bc1c5e7e4db4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc9c7dda86d39d31b8c9a6329ac29970888f12d1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339843"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904468"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack Edge
 
-W tym artykule opisano sposób zarządzania udziałami na Azure Stackej krawędzi. Możesz zarządzać Azure Stack krawędzią za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal, aby dodać, usunąć, odświeżyć udziały lub zsynchronizować klucz magazynu dla konta magazynu skojarzonego z udziałami.
+W tym artykule opisano sposób zarządzania udziałami na Azure Stack Edge. Możesz zarządzać Azure Stack Edge przy użyciu Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal, aby dodać, usunąć, odświeżyć udziały lub zsynchronizować klucz magazynu dla konta magazynu skojarzonego z udziałami.
 
 ## <a name="about-shares"></a>Udziały — informacje
 
-Aby przesłać dane na platformę Azure, musisz utworzyć udziały na Azure Stackej krawędzi. Udziały dodawane na Azure Stack urządzeniu brzegowym mogą być udziałami lokalnymi lub udziałami, które wypychanie danych do chmury.
+Aby przesłać dane na platformę Azure, musisz utworzyć udziały na Azure Stack Edge. Udziały dodawane na urządzeniu Azure Stack EDGE Pro mogą być udziałami lokalnymi lub udziałami, które wypychanie danych do chmury.
 
  - **Udziały lokalne**: Użyj tych udziałów, jeśli chcesz, aby dane były przetwarzane lokalnie na urządzeniu.
  - **Udziały**: te udziały mają być automatycznie wypychane na konto magazynu w chmurze. Wszystkie funkcje w chmurze, takie jak **odświeżanie** i **Synchronizacja kluczy magazynu** , mają zastosowanie do udziałów.
@@ -54,7 +54,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 5. Z listy rozwijanej wybierz **usługę magazynu** z blokowych obiektów blob, stronicowego obiektu BLOB lub plików. Wybrany typ usługi zależy od tego, jaki format mają mieć dane na platformie Azure. Na przykład w tym wystąpieniu dane mają być przechowywane jako blokowe obiekty blob na platformie Azure, dlatego wybieramy **blokowy obiekt BLOB**. Jeśli wybierzesz **stronicowy obiekt BLOB**, musisz upewnić się, że dane są wyrównane do 512 bajtów. Użyj **stronicowego obiektu BLOB** dla dysków VHD lub VHDX, które są zawsze 512 bajty.
 
    > [!IMPORTANT]
-   > Upewnij się, że używane konto usługi Azure Storage nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack Edge lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Upewnij się, że konto usługi Azure Storage, którego używasz, nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack EDGE Pro lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Ten krok zależy od tego, czy tworzysz udział SMB, czy udział NFS.
    - **W przypadku tworzenia udziału SMB** — w polu **Użytkownik lokalny ze wszystkimi uprawnieniami** wybierz pozycję **Utwórz nowy** lub **Użyj istniejącego**. W przypadku tworzenia nowego użytkownika lokalnego podaj **nazwę użytkownika**, **hasło**, a następnie potwierdź hasło. Spowoduje to przypisanie uprawnień do użytkownika lokalnego. Po przypisaniu uprawnień w tym miejscu możesz następnie zmodyfikować te uprawnienia przy użyciu Eksploratora plików.
@@ -88,7 +88,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 6. W polu **użytkownik lokalny wszystkie uprawnienia** wybierz opcję **Utwórz nowe** lub **Użyj istniejącej**.
 
-7. Wybierz pozycję **Utwórz**. 
+7. Wybierz przycisk **Utwórz**. 
 
    ![Utwórz udział lokalny](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 
@@ -102,7 +102,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 ## <a name="mount-a-share"></a>Instalowanie udziału
 
-Jeśli udział został utworzony przed skonfigurowaniem obliczeń na urządzeniu z systemem Azure Stack Edge, należy zainstalować udział. Wykonaj następujące kroki, aby zainstalować udział.
+Jeśli udział został utworzony przed skonfigurowaniem obliczeń na urządzeniu Azure Stack EDGE Pro, należy zainstalować udział. Wykonaj następujące kroki, aby zainstalować udział.
 
 1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **brama > udziały**. Z listy udziałów wybierz udział, który chcesz zainstalować. Kolumna **użyta do obliczenia** będzie wyświetlać stan jako **wyłączony** dla wybranego udziału.
 

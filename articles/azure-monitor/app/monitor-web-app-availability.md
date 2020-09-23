@@ -4,12 +4,12 @@ description: Konfigurowanie testów sieci Web w usłudze Application Insights. O
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 6f9c5fa691456195943f97419c1175fd5b586878
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310280"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986036"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
 
@@ -43,7 +43,7 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 
 ### <a name="create-a-test"></a>Tworzenie testu
 
-|Ustawienie| Wyjaśnienie
+|Ustawienie| Objaśnienie
 |----|----|----|
 |**Adres URL** |  Adres URL może odnosić się do dowolnej strony sieci Web, którą chcesz przetestować, ale musi być widoczny w publicznym Internecie. Adres URL może zawierać ciąg zapytania. Możesz więc np. szybko sprawdzić działanie bazy danych. Jeśli adres URL jest rozpoznawany jako przekierowanie, zostanie prześledzonych maksymalnie 10 przekierowań.|
 |**Analizuj zależne żądania**| Testuje obrazy, skrypty, pliki stylów i inne pliki, które są częścią strony sieci Web w teście. Rejestrowany czas odpowiedzi obejmuje czas poświęcony na pobieranie tych plików. Test kończy się niepowodzeniem, jeśli nie można pomyślnie pobrać któregokolwiek z tych zasobów w ramach limitu czasu dla całego testu. Jeśli pole opcji nie zostanie zaznaczone, test zażąda tylko pliku pod podanym adresem URL. Włączenie tej opcji skutkuje dokładniejszym sprawdzeniem. Test może zakończyć się niepowodzeniem, co może nie być zauważalne podczas ręcznego przeglądania witryny.
@@ -58,7 +58,7 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 
 ### <a name="success-criteria"></a>Kryteria sukcesu
 
-|Ustawienie| Wyjaśnienie
+|Ustawienie| Objaśnienie
 |----|----|----|
 | **Limit czasu testu** |Zmniejsz tę wartość, aby otrzymywać alerty o powolnych odpowiedziach. Test jest uznawany za błąd, jeśli w tym okresie nie odebrano odpowiedzi z witryny. W przypadku wybrania opcji **Analizuj zależne żądania** wszystkie obrazy, pliki stylów, skrypty i inne zasoby zależne muszą zostać odebrane w tym okresie.|
 | **Odpowiedź HTTP** | Zwrócony kod stanu, który jest liczony jako powodzenie. Kod 200 oznacza, że została zwrócona normalna strona sieci Web.|
@@ -66,7 +66,7 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 
 ### <a name="alerts"></a>Alerty
 
-|Ustawienie| Wyjaśnienie
+|Ustawienie| Objaśnienie
 |----|----|----|
 |**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
 |**Motyw** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
@@ -78,7 +78,7 @@ Wyniki testu dostępności można wizualizować przy użyciu widoków liniowych 
 
 Po kilku minutach kliknij przycisk **Odśwież** , aby zobaczyć wyniki testu.
 
-![Widok wiersza](./media/monitor-web-app-availability/availability-refresh-002.png)
+![Zrzut ekranu przedstawia stronę dostępność z wyróżnionym przyciskiem odświeżania.](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 Widok scatterplot pokazuje próbki wyników testu, które mają w nich szczegółową czynność testu diagnostycznego. Aparat testowy przechowuje szczegółowe informacje diagnostyczne dla testów z błędami. W przypadku udanych testów szczegółowe informacje diagnostyczne są przechowywane dla podzbioru wykonań. Umieść kursor na dowolnym z zielonych i czerwonych kropek, aby zobaczyć test, nazwę testu i lokalizację.
 
@@ -118,7 +118,7 @@ Oprócz nieprzetworzonych wyników można także wyświetlić dwie metryki dost�
 1. Dostępność: procent testów, które zostały pomyślnie zakończone, dla wszystkich wykonań testów.
 2. Czas trwania testu: średni czas trwania testu dla wszystkich wykonań testów.
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 * Automatyczne [konfigurowanie testów dostępności za pomocą skryptów środowiska PowerShell](./powershell.md#add-an-availability-test).
 * Konfigurowanie [elementu webhook](../platform/alerts-webhooks.md) który jest wywoływany przy zgłaszaniu alertu.

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: d7ddb286285de9be089c0a5176e33b7108021c77
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7e98c34198c0821dac59f849267a920a87c48a54
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75459954"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905635"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Samouczek: projektowanie serwera Azure Database for PostgreSQL-pojedynczego przy użyciu Azure Portal
 
@@ -38,22 +38,22 @@ Serwer usługi Azure Database for PostgreSQL jest tworzony ze zdefiniowanym zest
 Wykonaj następujące kroki, aby utworzyć serwer usługi Azure Database for PostgreSQL:
 1. W lewym górnym rogu witryny Azure Portal kliknij polecenie **Utwórz zasób**.
 2. Na stronie **Nowy** wybierz pozycję **Bazy danych**, a następnie na stronie **Bazy danych** wybierz pozycję **Azure Database for PostgreSQL**.
-   ![Usługa Azure Database for PostgreSQL — tworzenie bazy danych](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/1-create-database.png" alt-text="Usługa Azure Database for PostgreSQL — tworzenie bazy danych":::
 
 3. Wybierz opcję wdrożenia **pojedynczego serwera** .
 
-   ![Wybierz opcję wdrażania Azure Database for PostgreSQL-pojedynczego serwera](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/select-deployment-option.png" alt-text="Wybierz opcję wdrażania Azure Database for PostgreSQL-pojedynczego serwera":::
 
 4. Wypełnij formularz **podstawy** przy użyciu następujących informacji:
 
-    ![Tworzenie serwera](./media/tutorial-design-database-using-azure-portal/create-basics.png)
+    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/create-basics.png" alt-text="Tworzenie serwera":::
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
     Subskrypcja|Nazwa subskrypcji użytkownika|Subskrypcja platformy Azure, która ma być używana dla serwera. Jeśli masz wiele subskrypcji, wybierz tę, w ramach której są naliczane opłaty za ten zasób.
     Grupa zasobów|*myresourcegroup*| Nowa nazwa grupy zasobów lub istniejąca nazwa z subskrypcji.
     Nazwa serwera |*mydemoserver*|Unikatowa nazwę, która identyfikuje serwer usługi Azure Database for PostgreSQL. Nazwa domeny *postgres.database.azure.com* jest dołączana do podawanej nazwy serwera. Serwer może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
-    Źródło danych | *Brak* | Wybierz opcję *Brak* , aby utworzyć nowy serwer od podstaw. (Opcję *Kopia zapasowa* należy wybrać w przypadku tworzenia serwera z geograficznej kopii zapasowej istniejącego serwera usługi Azure Database for PostgreSQL).
+    Źródło danych | *Brak* | Wybierz pozycję *Brak*, aby utworzyć nowy serwer od podstaw. (Opcję *Kopia zapasowa* należy wybrać w przypadku tworzenia serwera z geograficznej kopii zapasowej istniejącego serwera usługi Azure Database for PostgreSQL).
     Nazwa użytkownika administratora |*myadmin*| Własne konto logowania do użycia podczas łączenia z serwerem. Nazwa logowania administratora nie może być **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **Guest**ani **Public**. Nie może zaczynać się od **pg_**.
     Hasło |Twoje hasło| Nowe hasło do konta administratora serwera. Musi zawierać od 8 do 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry (od 0 do 9) i znaki inne niż alfanumeryczne (!, $, #, % itp.).
     Lokalizacja|Region najbliżej Twoich użytkowników| Lokalizacja znajdująca się najbliżej użytkowników.
@@ -64,7 +64,7 @@ Wykonaj następujące kroki, aby utworzyć serwer usługi Azure Database for Pos
    > Jeśli niewielkie zasoby obliczeniowe i we/wy są wystarczające dla Twojego obciążenia, warto rozważyć użycie warstwy cenowej Podstawowa. Pamiętaj, że serwerów utworzonych w warstwie cenowej Podstawowa nie można później przeskalować do warstwy Ogólnego przeznaczenia lub Zoptymalizowana pod kątem pamięci. Przejdź na [stronę cennika](https://azure.microsoft.com/pricing/details/postgresql/), aby uzyskać więcej informacji.
    > 
 
-    ![Okienko „Warstwa cenowa”](./media/quickstart-create-database-portal/2-pricing-tier.png)
+    :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="Okienko warstwy cenowej":::
 
     > [!TIP]
     > Po włączeniu **automatycznego wzrostu** serwer zwiększa magazyn, gdy zbliża się limit przydziału, bez wywierania wpływu na obciążenie.
@@ -73,7 +73,7 @@ Wykonaj następujące kroki, aby utworzyć serwer usługi Azure Database for Pos
 
 6. Na pasku narzędzi wybierz ikonę **Powiadomienia** (dzwonek), aby monitorować proces wdrażania. Po zakończeniu wdrażania możesz wybrać opcję **Przypnij do pulpitu nawigacyjnego**, która tworzy kafelek dla tego serwera na pulpicie nawigacyjnym witryny Azure Portal jako skrót do strony **Przegląd** serwera. Wybranie opcji **Przejdź do zasobu** spowoduje otworzenie strony **Przegląd** serwera.
 
-    ![Okienko „Powiadomienia”](./media/quickstart-create-database-portal/3-notifications.png)
+    :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="Okienko powiadomienia":::
    
    Domyślnie baza danych **postgres** zostanie utworzona na Twoim serwerze. Baza danych [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) to domyślna baza danych, która jest przeznaczona do użycia dla użytkowników oraz na potrzeby narzędzi i aplikacji innych firm. (Inną domyślną bazą danych jest **azure_maintenance**. Służy ona do oddzielania procesów usług zarządzanych od działań użytkownika. Nie możesz uzyskać dostępu do tej bazy danych).
 
@@ -84,13 +84,13 @@ Usługa Azure Database for PostgreSQL używa zapory na poziomie serwera. Domyśl
 
 1. Po zakończeniu wdrożenia kliknij pozycję **Wszystkie zasoby** w menu po lewej stronie i wpisz nazwę **mydemoserver**, aby wyszukać nowo utworzony serwer. Kliknij nazwę serwera wyświetlaną w wynikach wyszukiwania. Zostanie otwarta strona **Przegląd** dla Twojego serwera z dodatkowymi opcjami konfiguracji.
 
-   ![Azure Database for PostgreSQL — wyszukiwanie serwera](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Azure Database for PostgreSQL — wyszukiwanie serwera":::
 
 2. Na stronie serwera wybierz pozycję **Zabezpieczenia połączeń**. 
 
 3. Kliknij pole tekstowe w obszarze **Nazwa reguły,** a następnie Dodaj nową regułę zapory, aby określić zakres adresów IP na potrzeby łączności. Wprowadź zakres adresów IP. Kliknij pozycję **Zapisz**.
 
-   ![Usługa Azure Database for PostgreSQL — tworzenie reguły zapory](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/5-firewall-2.png" alt-text="Azure Database for PostgreSQL — tworzenie reguły zapory":::
 
 4. Kliknij polecenie **Zapisz**, a następnie kliknij przycisk **X**, aby zamknąć stronę **Zabezpieczenia połączeń**.
 
@@ -104,13 +104,13 @@ W ramach tworzenia serwera usługi Azure Database for PostgreSQL jest także two
 
 1. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj właśnie utworzony serwer.
 
-   ![Azure Database for PostgreSQL — wyszukiwanie serwera](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Azure Database for PostgreSQL — wyszukiwanie serwera":::
 
 2. Kliknij nazwę serwera **mydemoserver**.
 
 3. Wybierz stronę serwera **Przegląd**. Zanotuj wartości **Nazwa serwera** i **Identyfikator logowania administratora serwera**.
 
-   ![Azure Database for PostgreSQL — dane logowania administratora serwera](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/6-server-name.png" alt-text="Azure Database for PostgreSQL — dane logowania administratora serwera":::
 
 
 ## <a name="connect-to-postgresql-database-using-psql"></a>Nawiązywanie połączenia z bazą danych PostgreSQL za pomocą narzędzia psql
@@ -190,11 +190,11 @@ Załóżmy, że ta tabela została przypadkowo usunięta. W takiej sytuacji nie�
 
 1. Na stronie **Przegląd** usługi Azure Database for PostgreSQL dla serwera kliknij polecenie **Przywróć** na pasku narzędzi. Zostanie otwarta strona **przywracanie** .
 
-   ![Witryna Azure Portal — opcje formularza Przywracanie](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Witryna Azure Portal — opcje formularza Przywracanie":::
 
 2. Wypełnij formularz **Przywracanie** wymaganymi informacjami:
 
-   ![Witryna Azure Portal — opcje formularza Przywracanie](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Witryna Azure Portal — opcje formularza Przywracanie":::
 
    - **Punkt przywracania**: wybierz punkt w czasie przed zmianą serwera
    - **Serwer docelowy**: podaj nazwę nowego serwera, na który chcesz przywrócić dane

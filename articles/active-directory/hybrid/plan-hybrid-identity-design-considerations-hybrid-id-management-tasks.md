@@ -1,6 +1,6 @@
 ---
 title: Projektowanie tożsamości hybrydowej — zadania zarządzania Azure | Microsoft Docs
-description: Przy użyciu kontroli dostępu warunkowego Azure Active Directory sprawdza określone warunki, które można wybrać podczas uwierzytelniania użytkownika i przed zezwoleniem na dostęp do aplikacji. Po spełnieniu tych warunków użytkownik zostanie uwierzytelniony i zezwoli na dostęp do aplikacji.
+description: Usługa Azure AD sprawdza określone warunki, które można wybrać podczas uwierzytelniania użytkownika i przed zezwoleniem na dostęp do aplikacji przy użyciu kontroli dostępu warunkowego.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c416bf19acb1736eeed679c16dbd87de1cc98537
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109382"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986525"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planowanie cyklu życia tożsamości hybrydowej
 Tożsamość stanowi jedną z podstaw strategii dostępu do pakietu Enterprise Mobility i aplikacji. Bez względu na to, czy logujesz się na urządzeniu przenośnym, czy w aplikacji SaaS, Twoja tożsamość jest kluczem do uzyskania dostępu do wszystkiego. Rozwiązanie do zarządzania tożsamościami na najwyższym poziomie obejmuje ujednolicenie i synchronizację między repozytoriami tożsamości, które obejmują automatyzację i scentralizowanie procesu aprowizacji zasobów. Rozwiązanie tożsamości powinno być scentralizowaną tożsamością w środowisku lokalnym i w chmurze, a także używać jakiejś tożsamości Federacji do obsługi scentralizowanego uwierzytelniania i bezpiecznego udostępniania i współpracy z użytkownikami zewnętrznymi i firmami. Zakres zasobów od systemów operacyjnych i aplikacji do osób w organizacji lub stowarzyszonych z nią. Strukturę organizacyjną można zmienić w celu uwzględnienia zasad i procedur aprowizacji.

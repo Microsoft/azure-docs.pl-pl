@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: c9da25a7d7521108195d3183f52b914e13105e8d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2bdfdd31e2cc9bc964abc040d0631c4760fca283
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082288"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984875"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Korzystanie z wystąpienia zarządzanego usługi Azure SQL z usługą SQL Server Integration Services (SSIS) w programie Azure Data Factory
 
@@ -116,7 +116,7 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
         | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Zezwalaj na ruch wychodzący do wystąpienia zarządzanego SQL. Jeśli dla zasad połączenia ustawiono wartość **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do uzyskiwania dostępu do usług platformy Azure, takich jak Azure Storage i Azure Event Hubs. |
         | TCP | VirtualNetwork | * | Internet | 80 | Obowiązkowe Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do pobierania listy odwołania certyfikatów z Internetu. Jeśli zablokujesz ten ruch, może wystąpić obniżenie wydajności podczas uruchamiania środowiska IR i utrata możliwości sprawdzenia listy odwołania certyfikatów w celu użycia certyfikatu. Jeśli chcesz jeszcze bardziej zawęzić miejsce docelowe do określonych nazw FQDN, zapoznaj się z tematem [Korzystanie z usługi Azure ExpressRoute lub trasy zdefiniowanej przez użytkownika (UDR)](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#route).|
-        | TCP | VirtualNetwork | * | Storage | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
+        | TCP | VirtualNetwork | * | Magazyn | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
         |||||||
 
         1. **Wymagania przychodzące Azure-SSIS IR**, aby zezwolić na ruch wymagany przez Azure-SSIS IR.
@@ -141,7 +141,7 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
 
     Nazwa hosta publicznego punktu końcowego jest w formacie <mi_name>. Public. <dns_zone>. database.windows.net i że port używany do połączenia to 3342.  
 
-    ![wykaz — publiczny — punkt końcowy](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
+    ![Zrzut ekranu przedstawia konfigurację środowiska Integration Runtime z wybraną pozycją Utwórz katalog S I S i wprowadzono punkt końcowy serwera bazy danych wykazu.](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
 
 1. Wybierz pozycję Uwierzytelnianie w usłudze Azure AD, jeśli ma zastosowanie.
 
@@ -157,7 +157,7 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
 
     Aby uzyskać więcej informacji na temat dołączania Azure-SSIS IR do sieci wirtualnej, zobacz [dołączanie środowiska Azure-SSIS Integration Runtime do sieci wirtualnej](join-azure-ssis-integration-runtime-virtual-network.md).
 
-    ![Dołącz do sieci wirtualnej](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
+    ![Zrzut ekranu przedstawia ustawienia zaawansowane instalatora środowiska Integration Runtime, w którym można wybrać sieć wirtualną do przyłączenia do środowiska uruchomieniowego.](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
 
 Aby uzyskać więcej informacji na temat sposobu tworzenia Azure-SSIS IR, zobacz [Tworzenie środowiska Azure-SSIS Integration Runtime w programie Azure Data Factory](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime).
 

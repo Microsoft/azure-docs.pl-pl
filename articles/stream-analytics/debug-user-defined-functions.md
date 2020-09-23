@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 758846e2b4bfa42c9f6db0dc330c12e38a2f8c96
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 25be55021e4f07b0803d8b7cc1bb48ab05a3ea3b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432356"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889608"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Debuguj funkcje zdefiniowane przez użytkownika w Azure Stream Analytics 
 
@@ -47,7 +47,7 @@ Kompilacja występuje, gdy projekt Stream Analytics jest kompilowany lub wykonyw
 
 Ze względu na to, że nie ma obsługi debugowania funkcji języka JavaScript w Stream Analytics bezpośrednio, można debugować przez hermetyzację funkcji w witrynie HTML i pobieranie danych wyjściowych.
 
-Poniższy przykład pokazuje, jak debugować UDF JavaScript z pewnymi ograniczeniami w zintegrowanym środowisku uruchomieniowym w [Visual Studio Code](quick-create-vs-code.md).
+Poniższy przykład pokazuje, jak debugować UDF JavaScript z pewnymi ograniczeniami w zintegrowanym środowisku uruchomieniowym w [Visual Studio Code](quick-create-visual-studio-code.md).
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 

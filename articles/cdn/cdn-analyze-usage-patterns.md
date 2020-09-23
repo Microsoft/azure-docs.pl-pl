@@ -1,6 +1,6 @@
 ---
 title: Podstawowe raporty z Verizon | Microsoft Docs
-description: 'Wzorce użycia dla sieci CDN można wyświetlić, korzystając z następujących raportów: przepustowości, transferów danych, trafień, stanu pamięci podręcznej, współczynnika trafień pamięci podręcznej, przesłanych danych IPV4/IPV6.'
+description: Dowiedz się, jak uzyskiwać dostęp do podstawowych raportów Verizon i wyświetlać je za pośrednictwem portalu zarządzania dla profilów Verizon.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dc7547dbcf2bde7dd7db0d3f0db3f163a5910ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5353fa70be4705b28dab9350fcdf7819b22faf54
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888436"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985532"
 ---
 # <a name="core-reports-from-verizon"></a>Raporty podstawowe z usługi Verizon
 
@@ -77,7 +77,7 @@ Ten raport opisuje dystrybucję kodów stanu żądania dla zawartości. Każde �
 Ten raport opisuje rozkład trafień w pamięci podręcznej i chybień w pamięci podręcznej dla żądań klientów. Ze względu na najszybszą wydajność w przypadku trafień w pamięci podręcznej można zoptymalizować szybkość dostarczania danych przez zminimalizowanie chybień w pamięci podręcznej i nieaktualnych trafień 
 
 Aby zmniejszyć liczbę chybień pamięci podręcznej, skonfiguruj serwer pochodzenia, aby zminimalizować użycie następujących elementów: 
- * `no-cache`nagłówki odpowiedzi
+ * `no-cache` nagłówki odpowiedzi
  * Buforowanie ciągu zapytania, chyba że jest to absolutnie niezbędne  
  * Kody odpowiedzi bez pamięci podręcznej
 
@@ -132,6 +132,6 @@ Ten raport przedstawia rozkład użycia ruchu w protokole IPV4 i IPV6.
 
 ![Przesyłane dane IPV4/IPV6](./media/cdn-reports/cdn-ipv4-ipv6.png)
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 Raporty można generować tylko w ciągu ostatnich 18 miesięcy.
 

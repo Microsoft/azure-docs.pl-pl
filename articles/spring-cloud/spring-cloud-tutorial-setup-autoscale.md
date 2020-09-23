@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6e4494762c4652d3db66940dddebb13c3ab03af3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87451026"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905396"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Samouczek: Konfigurowanie automatycznego skalowania dla aplikacji mikrousług
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
+
 Skalowanie automatyczne to wbudowana funkcja chmurowej platformy Azure, która ułatwia aplikacjom mikrousługom optymalne wykonywanie w przypadku zmiany zapotrzebowania. Obejmuje to modyfikowanie liczby wystąpień wirtualnych procesorów CPU, pamięci i aplikacji. W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania aplikacji przy użyciu Microsoft Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -68,4 +71,4 @@ Jeśli korzystasz z warstwy Podstawowa i ograniczono jeden lub więcej z tych li
 ## <a name="next-steps"></a>Następne kroki
 
 * [Omówienie automatycznego skalowania w Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Skalowanie automatyczne monitorowania interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
+* [Skalowanie automatyczne monitorowania interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)

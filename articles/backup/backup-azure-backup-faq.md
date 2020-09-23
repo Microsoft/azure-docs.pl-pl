@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017740"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986429"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -45,7 +45,7 @@ Tak. Aby przenieść magazyn usług Recovery Services, należy zapoznać się z 
 
 Nie. Danych kopii zapasowej przechowywanych w magazynie nie można przenieść do innego magazynu.
 
-### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Czy po utworzeniu kopii zapasowej można zmienić magazyn geograficznie nadmiarowy (GRS) na magazyn lokalnie nadmiarowy (LRS)?
+### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>Czy mogę zmienić ustawienie nadmiarowości magazynu po utworzeniu kopii zapasowej?
 
 Domyślnie typ replikacji magazynu to magazyn Geograficznie nadmiarowy (GRS). Po skonfigurowaniu kopii zapasowej opcja Modyfikuj jest wyłączona i nie można jej zmienić.
 
@@ -224,7 +224,7 @@ Klucz szyfrowania używany przez agenta Microsoft Azure Recovery Services (MARS)
 
 Klucz używany do szyfrowania danych kopii zapasowej znajduje się tylko w Twojej lokacji. Firma Microsoft nie zachowuje kopii na platformie Azure i nie ma dostępu do klucza. W przypadku utraty klucza firma Microsoft nie może odzyskać danych kopii zapasowej.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z innymi często zadawanymi pytaniami:
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 4aec156821a7d38907602cc1def0459dbf996b24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3080836e8b9ed38e99c691c66e71a4620829c90
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84447564"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890205"
 ---
 # <a name="train-model-module"></a>Moduł uczenia modelu
 
-W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Ten moduł służy do uczenia modelu klasyfikacji lub regresji. Szkolenia odbywają się po zdefiniowaniu modelu i ustawieniu jego parametrów i wymaganiu oznakowanych danych. Możesz również użyć **modelu uczenia** , aby ponownie szkolić istniejący model przy użyciu nowych danych. 
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: duau
-ms.openlocfilehash: 09d3723224f9c678e41a6cbc86b5f8f9655173c8
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 52aba71ba289a1b5479a6a9eaef7e07418b563fd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401473"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986365"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Utwórz ExpressRoute bezpośrednio przy użyciu Azure Portal
 
@@ -63,7 +63,7 @@ Sprawdź, czy dostawca zasobów **Microsoft. Network** został zarejestrowany w 
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Przegląd i tworzenie":::
 
-1. Wybierz pozycję **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
+1. Wybierz przycisk **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
 
 ## <a name="2-change-admin-state-of-links"></a><a name="state"></a>2. Zmień stan administratora linków
 
@@ -97,7 +97,7 @@ Poniższe kroki ułatwiają tworzenie obwodu usługi ExpressRoute z przepływu p
 
 1. W sekcji **Ustawienia** bezpośrednie ExpressRoute wybierz pozycję **obwody**, a następnie wybierz pozycję **+ Dodaj**. 
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Dodaj" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Zrzut ekranu przedstawia ustawienia ExpressRoute z wybranymi obwodami i Dodaj wyróżnione." lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 
 1. Skonfiguruj ustawienia na stronie **Konfiguracja** .
 
@@ -107,7 +107,7 @@ Poniższe kroki ułatwiają tworzenie obwodu usługi ExpressRoute z przepływu p
 
    :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Przegląd i tworzenie":::
 
-1. Wybierz pozycję **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
+1. Wybierz przycisk **Utwórz**. Zobaczysz komunikat informujący o tym, że wdrożenie jest w toku. Stan będzie wyświetlany na tej stronie podczas tworzenia zasobów. 
 
 ## <a name="next-steps"></a>Następne kroki
 
