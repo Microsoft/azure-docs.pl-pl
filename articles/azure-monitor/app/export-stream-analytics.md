@@ -3,12 +3,12 @@ title: Eksportowanie za pomocą Stream Analytics z platformy Azure Application I
 description: Stream Analytics mogą w sposób ciągły przekształcać, filtrować i kierować dane eksportowane z Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: d90b965ca65af0acf7032067c77591a2ac4d4b02
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e90daf2516b00f7a27ac47e34cfc4ace03fee6e2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324356"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979175"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Użyj Stream Analytics, aby przetwarzać eksportowane dane z Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jest idealnym narzędziem do przetwarzania danych [wyeksportowanych z Application Insights](export-telemetry.md). Stream Analytics może pobierać dane z różnych źródeł. Może on przekształcać i filtrować dane, a następnie kierować je do różnych zlewów.
@@ -97,10 +97,10 @@ Wzorzec prefiksu ścieżki Określa, gdzie Stream Analytics znajdować pliki wej
 
 W tym przykładzie:
 
-* `webapplication27`to nazwa zasobu Application Insights w **przypadku małych liter**.
-* `1234...`jest kluczem Instrumentacji zasobu Application Insights, **pomijając łączniki**. 
-* `PageViews`to typ danych, które mają być analizowane. Dostępne typy zależą od filtru ustawionego w ramach eksportu ciągłego. Sprawdź wyeksportowane dane, aby zobaczyć inne dostępne typy i zobacz [Eksportuj model danych](export-data-model.md).
-* `/{date}/{time}`jest wzorcem zapisanym dosłownie.
+* `webapplication27` to nazwa zasobu Application Insights w **przypadku małych liter**.
+* `1234...` jest kluczem Instrumentacji zasobu Application Insights, **pomijając łączniki**. 
+* `PageViews` to typ danych, które mają być analizowane. Dostępne typy zależą od filtru ustawionego w ramach eksportu ciągłego. Sprawdź wyeksportowane dane, aby zobaczyć inne dostępne typy i zobacz [Eksportuj model danych](export-data-model.md).
+* `/{date}/{time}` jest wzorcem zapisanym dosłownie.
 
 > [!NOTE]
 > Sprawdź magazyn, aby upewnić się, że pobrano odpowiednie ścieżki.
@@ -196,7 +196,7 @@ Otwórz Power BI przy użyciu konta służbowego i wybierz zestaw danych i tabel
 
 Teraz można użyć tego zestawu danych w raportach i pulpitach nawigacyjnych w programie [Power BI](https://powerbi.microsoft.com).
 
-![W Power BI wybierz zestaw danych i pola.](./media/export-stream-analytics/210.png)
+![Zrzut ekranu przedstawia przykład raportu z zestawu danych w Power BI.](./media/export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>Brak danych?
 * Sprawdź, czy [Format daty](#set-path-prefix-pattern) jest prawidłowo ustawiony na rrrr-mm-dd (z kreskami).

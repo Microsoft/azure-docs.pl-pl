@@ -6,16 +6,16 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2020
-ms.openlocfilehash: 0676b987725a33049d9da3256bdd4e6dc8028d00
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f2dd759203655746601699f665436c78ee0758f8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045182"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885492"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>Azure Stream Analytics JobConfig.jspól
 
-Następujące pola są obsługiwane w *JobConfig.js* pliku używanym do [tworzenia zadania Azure Stream Analytics przy użyciu Visual Studio Code](quick-create-vs-code.md).
+Następujące pola są obsługiwane w *JobConfig.js* pliku używanym do [tworzenia zadania Azure Stream Analytics przy użyciu Visual Studio Code](quick-create-visual-studio-code.md).
 
 ```json
 {
@@ -46,7 +46,7 @@ Następujące pola są obsługiwane w *JobConfig.js* pliku używanym do [tworzen
 |EventsOutOfOrderPolicy|ciąg|Nie|Wskazuje zasady, które mają być stosowane do zdarzeń, które odbierają się poza kolejnością w strumieniu zdarzeń wejściowych. -Dostosuj lub upuść|
 |StreamingUnits|liczba całkowita|Tak|Określa liczbę jednostek przesyłania strumieniowego używanych przez zadanie przesyłania strumieniowego.|
 |CompatibilityLevel|ciąg|Nie|Steruje pewnymi zachowaniami środowiska uruchomieniowego zadania przesyłania strumieniowego. -Akceptowalne wartości to "1,0", "1,1", "1,2"|
-|UseSystemAssignedIdentity|wartość logiczna|Nie|Ustaw wartość true, aby włączyć to zadanie do komunikowania się z innymi usługami platformy Azure za pomocą tożsamości zarządzanej Azure Active Directory.|
+|UseSystemAssignedIdentity|boolean|Nie|Ustaw wartość true, aby włączyć to zadanie do komunikowania się z innymi usługami platformy Azure za pomocą tożsamości zarządzanej Azure Active Directory.|
 |GlobalStorage. AccountName|ciąg|Nie|Globalne konto magazynu jest używane do przechowywania zawartości powiązanej z zadaniem usługi Stream Analytics, na przykład migawek danych referencyjnych SQL.|
 |GlobalStorage. AccountKey|ciąg|Nie|Odpowiedni klucz konta magazynu globalnego.|
 |DataSourceCredentialDomain|ciąg|Nie|Właściwość zastrzeżona dla lokalnego magazynu poświadczeń.|
@@ -55,7 +55,7 @@ Następujące pola są obsługiwane w *JobConfig.js* pliku używanym do [tworzen
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Utwórz zadanie Azure Stream Analytics w Visual Studio Code](quick-create-vs-code.md)
+* [Utwórz zadanie Azure Stream Analytics w Visual Studio Code](quick-create-visual-studio-code.md)
 * [Testowanie Stream Analytics zapytań lokalnie z przykładowymi danymi przy użyciu Visual Studio Code](visual-studio-code-local-run.md)
 * [Przetestuj Stream Analytics zapytań lokalnie względem danych wejściowych strumienia na żywo za pomocą Visual Studio Code](visual-studio-code-local-run-live-input.md) 
 * [Wdróż zadanie Azure Stream Analytics przy użyciu pakietu Ci/CD npm](setup-cicd-vs-code.md)

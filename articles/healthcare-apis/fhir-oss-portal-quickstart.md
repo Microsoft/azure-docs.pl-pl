@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 7fa119db0c974c93aff667060d153b21b8de16bb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 57ab6bca820c4c25a9a56e4a801aa7d917d317ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843491"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978574"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Szybki Start: Wdrażanie serwera FHIR "open source" przy użyciu Azure Portal
 
@@ -25,17 +25,17 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Przejdź do [strony wdrożenia usługi GitHub](https://github.com/Microsoft/fhir-server/blob/master/docs/DefaultDeployment.md) i Znajdź przyciski "wdróż na platformie Azure":
 
-![Strona wdrożenia Open Source](media/quickstart-oss-portal/deployment-page-oss.png)
+>[!div class="mx-imgBorder"]
+>![Strona wdrożenia Open Source](media/quickstart-oss-portal/deployment-page-oss.png)
 
 Kliknij przycisk wdrożenia i Otwórz Azure Portal.
 
 ## <a name="fill-in-deployment-parameters"></a>Wypełnij parametry wdrożenia
 
-Wybierz, aby utworzyć nową grupę zasobów i nadaj jej nazwę. Tylko inny wymagany parametr jest nazwą usługi.
+Wybierz, aby utworzyć nową grupę zasobów i nadaj jej nazwę. Tylko inne wymagane parametry są nazwą usługi i hasłem administratora SQL.
 
-![Niestandardowe parametry wdrożenia](media/quickstart-oss-portal/deployment-custom-parameters.png)
-
-Należy zauważyć, że wdrożenie pobierze kod źródłowy bezpośrednio z repozytorium "open source" w witrynie GitHub. Jeśli masz rozwidlenie repozytorium, możesz wskazać swoje własne dla i konkretnego rozgałęzienia.
+>[!div class="mx-imgBorder"]
+>![Niestandardowe parametry wdrożenia](media/quickstart-oss-portal/deployment-custom-parameters.png)
 
 Po wypełnieniu szczegółów możesz rozpocząć wdrażanie.
 

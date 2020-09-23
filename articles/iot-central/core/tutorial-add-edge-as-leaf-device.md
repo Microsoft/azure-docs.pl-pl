@@ -1,6 +1,6 @@
 ---
-title: Dodawanie urządzenia Azure IoT Edge do usługi Azure IoT Central | Microsoft Docs
-description: Jako operator Dodaj urządzenie Azure IoT Edge do aplikacji IoT Central platformy Azure
+title: Samouczek — Dodawanie urządzenia Azure IoT Edge do usługi Azure IoT Central | Microsoft Docs
+description: Samouczek — jako operator Dodaj urządzenie Azure IoT Edge do aplikacji IoT Central platformy Azure
 author: rangv
 ms.author: rangv
 ms.date: 05/29/2020
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - device-developer
 - iot-edge
-ms.openlocfilehash: cc612d5dc21594da855799ed965effeb4b547d00
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9b4bb462c94ab5a59dbd9d8fdd4cf619e311df56
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018666"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987020"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Samouczek: Dodawanie urządzenia Azure IoT Edge do aplikacji IoT Central platformy Azure
 
@@ -279,12 +279,17 @@ Na stronie **moduły** zostanie wyświetlony stan modułów IoT Edge na urządze
 
 :::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Stan modułu urządzenia":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli planujesz kontynuować pracę z maszyną wirtualną IoT Edge, możesz zachować i ponownie użyć zasobów używanych w tym samouczku. W przeciwnym razie możesz usunąć zasoby utworzone w tym samouczku, aby uniknąć dodatkowych opłat:
 
 * Aby usunąć IoT Edge maszynę wirtualną i skojarzone z nią zasoby, Usuń grupę zasobów **contoso-Edge-RG** w Azure Portal.
 * Aby usunąć aplikację IoT Central, przejdź do strony **aplikacji** w sekcji **Administracja** aplikacji i wybierz pozycję **Usuń**.
+
+Jako deweloper rozwiązania lub operator, teraz wiesz już, jak pracować z urządzeniami IoT Edge i zarządzać nimi w IoT Central, sugerowanym następnym krokiem jest:
+
+> [!div class="nextstepaction"]
+> [Używanie grup urządzeń do analizowania danych telemetrycznych urządzenia](./tutorial-use-device-groups.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -292,8 +297,3 @@ Jako deweloper urządzenia teraz wiesz, jak pracować z urządzeniami IoT Edge i
 
 > [!div class="nextstepaction"]
 > [Opracowywanie modułów IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
-
-Jako deweloper rozwiązania lub operator, teraz wiesz już, jak pracować z urządzeniami IoT Edge i zarządzać nimi w IoT Central, sugerowanym następnym krokiem jest:
-
-> [!div class="nextstepaction"]
-> [Używanie grup urządzeń do analizowania danych telemetrycznych urządzenia](./tutorial-use-device-groups.md)

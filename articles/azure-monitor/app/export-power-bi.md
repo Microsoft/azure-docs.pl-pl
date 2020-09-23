@@ -3,12 +3,12 @@ title: Eksportuj do Power BI z poziomu platformy Azure Application Insights | Mi
 description: Zapytania analityczne mogą być wyświetlane w Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324373"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979161"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI kanału informacyjnego z Application Insights
 [Power BI](https://www.powerbi.com/) to pakiet narzędzi firmy, który ułatwia analizowanie danych i udostępnianie szczegółowych informacji. Rozbudowane pulpity nawigacyjne są dostępne na każdym urządzeniu. Możesz połączyć dane z wielu źródeł, w tym zapytania analityczne z [usługi Azure Application Insights](./app-insights-overview.md).
@@ -67,11 +67,11 @@ Zainstaluj [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    Wklej wyeksportowany skrypt języka M do Edytor zaawansowany. 
 
-   ![Zrzut ekranu przedstawiający Power BI Desktop, z wyróżnioną Edytor zaawansowany](./media/export-power-bi/advancedquery.png)
+   ![Zrzut ekranu przedstawia Power BI Desktop z wyróżnioną Edytor zaawansowany](./media/export-power-bi/advancedquery.png)
 
 4. Wybierz elementy z zapytania, a następnie wybierz wizualizację lejka.
 
-   ![Zrzut ekranu przedstawiający opcje wizualizacji Power BI Desktop](./media/export-power-bi/selectsequence.png)
+   ![Zrzut ekranu przedstawia opcje wizualizacji lejka Power BI Desktop](./media/export-power-bi/selectsequence.png)
 
 5. Zmień tytuł w taki sposób, aby był zrozumiały, i Opublikuj raport w obszarze roboczym usługi Power BI Cloud. 
 
@@ -86,7 +86,7 @@ Taka sytuacja może wystąpić, jeśli token odświeżania nie został zaktualiz
 
 1. Zaloguj się do Azure Portal i upewnij się, że masz dostęp do zasobu.
 2. Spróbuj odświeżyć poświadczenia dla pulpitu nawigacyjnego.
-3. Spróbuj wyczyścić pamięć podręczną z poziomu pulpitu usługi Power BI.
+3. Spróbuj wyczyścić pamięć podręczną z Power BI Desktop.
 
 
    Jeśli masz dostęp i odświeżanie poświadczeń nie działa, Otwórz bilet pomocy technicznej.
@@ -121,14 +121,14 @@ Ta metoda umożliwia utworzenie kompletnego pulpitu nawigacyjnego telemetrii. Po
 1. Zaloguj się do usługi [Power BI](https://app.powerbi.com/).
 2. Otwórz zrzut ekranu **pobieranie danych** ![ z ikony GetData w lewym dolnym rogu ](./media/export-power-bi/001.png) , **usługi**.
 
-    ![Zrzuty ekranu przedstawiające pobieranie ze źródła danych Application Insights](./media/export-power-bi/002.png)
+    ![Zrzuty ekranu przedstawiają przycisk Pobierz w oknie usługi.](./media/export-power-bi/002.png)
 
 3. Wybierz pozycję **Pobierz teraz** w obszarze Application Insights.
 
    ![Zrzuty ekranu przedstawiające pobieranie ze źródła danych Application Insights](./media/export-power-bi/003.png)
 4. Podaj szczegóły zasobu Application Insights, a następnie **Zaloguj się**.
 
-    ![Zrzut ekranu przedstawiający pobieranie ze źródła danych Application Insights](./media/export-power-bi/005.png)
+    ![Zrzut ekranu przedstawia okno łączenie z Application Insights.](./media/export-power-bi/005.png)
 
      Te informacje można znaleźć w okienku Przegląd Application Insights:
 

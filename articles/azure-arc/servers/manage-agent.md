@@ -1,18 +1,40 @@
 ---
-title: Zarządzanie agentem usługi Azure Arc Enabled (wersja zapoznawcza)
-description: W tym artykule opisano różne zadania zarządzania, które zwykle są wykonywane w cyklu życia serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) Agent maszyny połączonej.
-ms.date: 07/30/2020
+title: Zarządzanie agentem serwerów z obsługą usługi Azure Arc
+description: W tym artykule opisano różne zadania zarządzania, które zwykle są wykonywane w cyklu życia serwerów z obsługą usługi Azure Arc połączonej z agentem.
+ms.date: 09/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6066226cea224b1e13262763b626c8c646a397d7
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 146d5e3595e95df3b59b9cb4c0c05f9cc478eb82
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213136"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902535"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
 
-Po początkowym wdrożeniu serwera z włączoną obsługą usługi Azure ARC (wersja zapoznawcza) Agent połączonej maszyny dla systemu Windows lub Linux może być konieczne ponowne skonfigurowanie agenta, uaktualnienie go lub usunięcie z komputera, jeśli osiągnął etap wycofania w jego cyklu życia. Można łatwo zarządzać tymi rutynowymi zadaniami konserwacji ręcznie lub przy użyciu automatyzacji, co zmniejsza zarówno błąd operacyjny, jak i wydatki.
+Po początkowym wdrożeniu serwera z włączoną obsługą usługi Azure Arc w systemie Windows lub Linux może być konieczne ponowne skonfigurowanie agenta, uaktualnienie go lub usunięcie z komputera, jeśli osiągnął etap wycofania w jego cyklu życia. Można łatwo zarządzać tymi rutynowymi zadaniami konserwacji ręcznie lub przy użyciu automatyzacji, co zmniejsza zarówno błąd operacyjny, jak i wydatki.
+
+## <a name="before-uninstalling-agent"></a>Przed odinstalowaniem agenta
+
+Przed usunięciem agenta połączonej maszyny z serwera z obsługą łuku Rozważ następujące kwestie, aby uniknąć nieoczekiwanych problemów lub kosztów dodanych do rachunku na korzystanie z platformy Azure:
+
+* Jeśli wdrożono rozszerzenia maszyny wirtualnej platformy Azure na włączonym serwerze i usuniesz agenta podłączonej maszyny lub usuniesz zasób reprezentujący serwer z włączonymi Łukiemmi w grupie zasobów, te rozszerzenia będą nadal działać i wykonywane były normalne operacje.
+
+* Jeśli usuniesz zasób reprezentujący serwer z włączonym Łukem w grupie zasobów, ale nie odinstalujesz rozszerzeń maszyn wirtualnych, po ponownym zarejestrowaniu maszyny nie będziesz w stanie zarządzać zainstalowanymi rozszerzeniami maszyny wirtualnej.
+
+W przypadku serwerów lub maszyn, których nie chcesz już zarządzać przy użyciu serwerów z obsługą usługi Azure ARC, należy wykonać następujące kroki, aby pomyślnie przerwać zarządzanie nim:
+
+1. Usuń rozszerzenia maszyny wirtualnej z komputera lub serwera. Kroki są podane poniżej.
+
+2. Odłącz maszynę od usługi Azure ARC przy użyciu jednej z następujących metod:
+
+    * Uruchamianie `azcmagent disconnect` polecenia na komputerze lub serwerze.
+
+    * Z wybranego zarejestrowanego serwera z włączonym łukiem łuku w Azure Portal wybierz pozycję **Usuń** z górnego paska.
+
+    * Za pomocą [interfejsu wiersza polecenia platformy Azure](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) lub [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). Dla `ResourceType` parametru USE `Microsoft.HybridCompute/machines` .
+
+3. Odinstaluj agenta z komputera lub serwera. Wykonaj poniższe kroki.
 
 ## <a name="upgrading-agent"></a>Uaktualnianie agenta
 
@@ -120,7 +142,7 @@ Akcje polecenia [użyciu narzędzia zypper](https://en.opensuse.org/Portal:Zyppe
 
 ## <a name="about-the-azcmagent-tool"></a>Informacje o narzędziu Azcmagent
 
-Narzędzie Azcmagent (Azcmagent.exe) służy do konfigurowania agenta maszyny połączonej z usługą Azure ARC (wersja zapoznawcza) podczas instalacji lub zmodyfikowania konfiguracji początkowej agenta po zakończeniu instalacji. Azcmagent.exe zawiera parametry wiersza polecenia umożliwiające dostosowanie agenta i wyświetlenie jego stanu:
+Narzędzie Azcmagent (Azcmagent.exe) służy do konfigurowania agenta maszyny połączonej z usługą Azure Arc podczas instalacji lub modyfikacji konfiguracji początkowej agenta po zakończeniu instalacji. Azcmagent.exe zawiera parametry wiersza polecenia umożliwiające dostosowanie agenta i wyświetlenie jego stanu:
 
 * **Połącz** , aby połączyć maszynę z usługą Azure Arc
 
@@ -136,16 +158,16 @@ Narzędzie Azcmagent (Azcmagent.exe) służy do konfigurowania agenta maszyny po
 
 * **-v lub--verbose** -Włącz pełne rejestrowanie
 
-Można ręcznie wykonać **połączenie**, **rozłączyć**i **ponownie nawiązać połączenie** , a jednocześnie zalogować się przy użyciu tej samej jednostki usługi, która została użyta w celu dołączenia wielu agentów lub [tokenu dostępu](../../active-directory/develop/access-tokens.md)platformy tożsamości firmy Microsoft. Jeśli nie korzystasz z jednostki usługi do zarejestrowania maszyny przy użyciu serwerów z obsługą usługi Azure ARC (wersja zapoznawcza), zapoznaj się z poniższym [artykułem](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) , aby utworzyć nazwę główną.
+Można ręcznie wykonać **połączenie**, **rozłączyć**i **ponownie nawiązać połączenie** , a jednocześnie zalogować się przy użyciu tej samej jednostki usługi, która została użyta w celu dołączenia wielu agentów lub [tokenu dostępu](../../active-directory/develop/access-tokens.md)platformy tożsamości firmy Microsoft. Jeśli nie korzystasz z jednostki usługi w celu zarejestrowania maszyny przy użyciu serwerów z obsługą usługi Azure ARC, zapoznaj się z poniższym [artykułem](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) , aby utworzyć nazwę główną usługi.
 
 >[!NOTE]
 >Aby uruchamiać **azcmagent**, musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
 
 ### <a name="connect"></a>Connect
 
-Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę utworzoną na platformie Azure. Zasób należy do określonej subskrypcji i grupy zasobów, a dane dotyczące maszyny są przechowywane w regionie świadczenia usługi Azure określonym przez to `--location` ustawienie. Domyślna nazwa zasobu jest nazwą hosta tej maszyny, jeśli nie została określona.
+Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę utworzoną na platformie Azure. Zasób należy do określonej subskrypcji i grupy zasobów, a dane dotyczące maszyny są przechowywane w regionie świadczenia usługi Azure określonym przez to `--location` ustawienie. Domyślna nazwa zasobu jest nazwą hosta maszyny, jeśli nie została określona.
 
-Certyfikat odpowiadający tożsamości przypisanej do systemu komputera jest następnie pobierany i przechowywany lokalnie. Po zakończeniu tego kroku, Metadata Service i Agent konfiguracji gościa platformy Azure rozpocznie synchronizację z serwerami z obsługą usługi Azure ARC (wersja zapoznawcza).
+Certyfikat odpowiadający tożsamości przypisanej do systemu komputera jest następnie pobierany i przechowywany lokalnie. Po zakończeniu tego kroku, Metadata Service i Agent konfiguracji gościa na platformie Azure rozpocznie synchronizację z serwerami z obsługą usługi Azure Arc.
 
 Aby nawiązać połączenie przy użyciu nazwy głównej usługi, uruchom następujące polecenie:
 
@@ -161,7 +183,10 @@ Aby nawiązać połączenie z poświadczeniami logowania z podniesionymi uprawni
 
 ### <a name="disconnect"></a>Rozłącz
 
-Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę usuniętą z platformy Azure. Agent nie jest usuwany z komputera. należy to zrobić w osobnym kroku. Jeśli maszyna zostanie odłączona, jeśli chcesz ją ponownie zarejestrować za pomocą serwerów z obsługą usługi Azure ARC (wersja zapoznawcza), użyj `azcmagent connect` tego elementu, aby utworzyć nowy zasób na platformie Azure.
+Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę usuniętą z platformy Azure. Agent nie jest usuwany z komputera. należy to zrobić w osobnym kroku. Jeśli maszyna zostanie odłączona, jeśli chcesz ją ponownie zarejestrować przy użyciu serwerów z obsługą usługi Azure ARC, użyj, `azcmagent connect` Aby dla niej utworzyć nowy zasób na platformie Azure.
+
+> [!NOTE]
+> Po wdrożeniu co najmniej jednego rozszerzenia maszyny wirtualnej platformy Azure na serwerze z włączonym łukiem i usunięciu jego rejestracji na platformie Azure rozszerzenia są nadal zainstalowane. Ważne jest, aby zrozumieć, że w zależności od zainstalowanych rozszerzeń, aktywnie wykonuje swoją funkcję. Przed usunięciem rejestracji z platformy Azure należy najpierw usunąć te maszyny, które mają zostać wycofane lub już nie są zarządzane przez serwery z obsługą Arc.
 
 Aby odłączyć się przy użyciu nazwy głównej usługi, uruchom następujące polecenie:
 
@@ -180,7 +205,7 @@ Aby rozłączyć się z poświadczeniami logowania z podniesionymi uprawnieniami
 > [!WARNING]
 > `reconnect`Polecenie jest przestarzałe i nie powinno być używane. Polecenie zostanie usunięte w przyszłej wersji agenta, a istniejący agenci nie będą mogli zakończyć żądania ponownego połączenia. Zamiast tego [Odłącz](#disconnect) maszynę, a następnie [Podłącz](#connect) ją ponownie.
 
-Ten parametr służy do łączenia już zarejestrowanej lub podłączonej maszyny z serwerami z obsługą usługi Azure ARC (wersja zapoznawcza). Może to być konieczne, jeśli maszyna została wyłączona, co najmniej 45 dni, aby jej certyfikat wygaśnie. Ten parametr używa podanych opcji uwierzytelniania do pobrania nowych poświadczeń odpowiadających zasobowi Azure Resource Manager reprezentującemu ten komputer.
+Ten parametr służy do łączenia już zarejestrowanej lub podłączonej maszyny z serwerami z obsługą usługi Azure Arc. Może to być konieczne, jeśli maszyna została wyłączona, co najmniej 45 dni, aby jej certyfikat wygaśnie. Ten parametr używa podanych opcji uwierzytelniania do pobrania nowych poświadczeń odpowiadających zasobowi Azure Resource Manager reprezentującemu ten komputer.
 
 To polecenie wymaga wyższych uprawnień niż rola [dołączania maszyny połączonej z platformą Azure](agent-overview.md#required-permissions) .
 
@@ -198,7 +223,7 @@ Aby ponownie nawiązać połączenie z poświadczeniami logowania z podwyższony
 
 ## <a name="remove-the-agent"></a>Usuwanie agenta
 
-Wykonaj jedną z następujących metod, aby odinstalować agenta połączonego komputera z systemem Windows lub Linux z komputera. Usunięcie agenta nie spowoduje wyrejestrowania maszyny z serwerami z włączoną funkcją ARC (wersja zapoznawcza). jest to oddzielny proces wykonywany, gdy nie trzeba już zarządzać maszyną na platformie Azure.
+Wykonaj jedną z następujących metod, aby odinstalować agenta połączonego komputera z systemem Windows lub Linux z komputera. Usunięcie agenta nie powoduje wyrejestrowania maszyny z serwerami z włączonymi Łukiemmi lub usunięciem zainstalowanych rozszerzeń maszyny wirtualnej platformy Azure. Te kroki należy wykonać oddzielnie, gdy nie trzeba już zarządzać maszyną na platformie Azure i należy je wykonać przed odinstalowaniem agenta.
 
 ### <a name="windows-agent"></a>Agent systemu Windows
 
@@ -267,9 +292,9 @@ Do odinstalowania agenta systemu Linux polecenie, które ma być używane, zale�
 
 ## <a name="unregister-machine"></a>Wyrejestruj maszynę
 
-Jeśli planujesz zatrzymać zarządzanie maszyną za pomocą usług pomocniczych na platformie Azure, wykonaj następujące kroki, aby wyrejestrować maszynę z użyciem serwerów z funkcją ARC (wersja zapoznawcza). Te kroki można wykonać wcześniej lub po usunięciu z komputera agenta podłączonego maszyny.
+Jeśli planujesz zatrzymanie zarządzania komputerem za pomocą usług pomocniczych na platformie Azure, wykonaj następujące kroki, aby wyrejestrować maszynę z serwerami z włączonymi łukiem. Te kroki można wykonać wcześniej lub po usunięciu z komputera agenta podłączonego maszyny.
 
-1. Otwórz serwery z obsługą usługi Azure ARC (wersja zapoznawcza), przechodząc do [Azure Portal](https://aka.ms/hybridmachineportal).
+1. Otwórz serwery z obsługą usługi Azure ARC, przechodząc do [Azure Portal](https://aka.ms/hybridmachineportal).
 
 2. Wybierz maszynę z listy, wybierz wielokropek (**...**), a następnie wybierz pozycję **Usuń**.
 
@@ -317,4 +342,4 @@ sudo azcmagent_proxy remove
 
 - Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, włącz monitorowanie za pomocą [Azure monitor z maszynami wirtualnymi](../../azure-monitor/insights/vminsights-enable-policy.md)i wiele więcej.
 
-- Dowiedz się więcej o [agencie log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy użytkownik chce aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim za pomocą elementów Runbook lub funkcji usługi Automation, takich jak Update Management, lub używać innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-intro.md).
+- Dowiedz się więcej o [[log Analytics agencie]](../../azure-monitor/platform/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy chcesz zbierać dane monitorowania systemu operacyjnego i obciążenia, zarządzać nimi za pomocą elementów Runbook lub funkcji usługi Automation, takich jak Update Management, lub korzystać z innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-intro.md).

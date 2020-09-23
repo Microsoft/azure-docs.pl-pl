@@ -4,12 +4,12 @@ description: Monitorowanie wydajności aplikacji dla usług Azure App Services. 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript, devx-track-dotnet
-ms.openlocfilehash: 1e06aacaa12a428b42090ecb8e8ae89ae1e5ad76
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 952cd9669ecc3fb5ff1326d15aef25e1a1524ca5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933804"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979431"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -55,17 +55,17 @@ Istnieją dwa sposoby włączania monitorowania aplikacji na platformie Azure Ap
 
 2. Po określeniu zasobu, który ma być używany, możesz wybrać, w jaki sposób aplikacja Application Insights ma zbierać dane na platformę dla aplikacji. Monitorowanie aplikacji ASP.NET jest domyślnie włączone z dwoma różnymi poziomami kolekcji.
 
-    ![Wybierz opcje na platformę](./media/azure-web-apps/choose-options-new.png)
+    ![Zrzut ekranu przedstawia stronę Application Insights rozszerzeń witryny z wybraną opcją Utwórz nowy zasób.](./media/azure-web-apps/choose-options-new.png)
  
  Poniżej znajduje się podsumowanie danych zbieranych dla każdej trasy:
         
 | Dane | Podstawowa kolekcja .NET | Zalecana kolekcja .NET |
 | --- | --- | --- |
-| Dodanie trendów użycia procesora, pamięci i operacji we/wy |Yes |Yes |
-| Zbieranie trendów użycia z możliwością korelacji wyników dostępności z transakcjami | Yes |Yes |
-| Zbieranie wyjątków nieobsłużonych przez proces hosta | Yes |Yes |
-| Zwiększenie dokładności metryki APM pod obciążeniem, gdy jest używane próbkowanie | Yes |Yes |
-| Korelowanie mikrousług ponad granicami żądań/zależności | Nie (tylko możliwości APM o pojedynczym wystąpieniu) |Yes |
+| Dodanie trendów użycia procesora, pamięci i operacji we/wy |Tak |Tak |
+| Zbieranie trendów użycia z możliwością korelacji wyników dostępności z transakcjami | Tak |Tak |
+| Zbieranie wyjątków nieobsłużonych przez proces hosta | Tak |Tak |
+| Zwiększenie dokładności metryki APM pod obciążeniem, gdy jest używane próbkowanie | Tak |Tak |
+| Korelowanie mikrousług ponad granicami żądań/zależności | Nie (tylko możliwości APM o pojedynczym wystąpieniu) |Tak |
 
 3. Aby skonfigurować ustawienia, takie jak próbkowanie, które można wcześniej kontrolować za pomocą pliku applicationinsights.config, można teraz współdziałać z tymi samymi ustawieniami za pośrednictwem ustawień aplikacji z odpowiednim prefiksem. 
 
@@ -373,7 +373,7 @@ Poniżej przedstawiono Przewodnik rozwiązywania problemów krok po kroku dotycz
 
 Poniższa tabela zawiera bardziej szczegółowy opis znaczenia tych wartości, ich podstawowych przyczyn i zalecanych poprawek:
 
-|Wartość problemu|Wyjaśnienie|Wprowadzanie poprawek
+|Wartość problemu|Objaśnienie|Wprowadzanie poprawek
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Ta wartość wskazuje, że rozszerzenie wykryło, że jakiś aspekt zestawu SDK jest już obecny w aplikacji i zostanie wycofany. Może to być spowodowane odwołaniem do `System.Diagnostics.DiagnosticSource` ,  `Microsoft.AspNet.TelemetryCorrelation` lub `Microsoft.ApplicationInsights`  | Usuń odwołania. Niektóre z tych odwołań są domyślnie dodawane z niektórych szablonów programu Visual Studio, a starsze wersje programu Visual Studio mogą dodawać odwołania do programu `Microsoft.ApplicationInsights` .
 |`AppAlreadyInstrumented:true` | Jeśli aplikacja jest przeznaczona dla platformy .NET Core 2,1 lub 2,2 i odwołuje się do [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-Package, to jest Application Insights, a rozszerzenie zostanie wycofane. | Klienci korzystający z programu .NET Core 2.1, 2.2 [zalecają](https://github.com/aspnet/Announcements/issues/287) zamiast tego użycie metadanych Microsoft. AspNetCore. app.|

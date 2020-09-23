@@ -6,16 +6,16 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ba7dc3b0f2bc4f62234c480da0af1061dea1f91
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133496"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885568"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Porównanie funkcji Azure Stream Analytics
 
-Za pomocą Azure Stream Analytics można tworzyć rozwiązania przesyłania strumieniowego w chmurze i IoT Edge przy użyciu [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)i [Visual Studio Code](quick-create-vs-code.md). W tabelach w tym artykule przedstawiono, które funkcje są obsługiwane przez każdą platformę dla obu typów zadań.
+Za pomocą Azure Stream Analytics można tworzyć rozwiązania przesyłania strumieniowego w chmurze i IoT Edge przy użyciu [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)i [Visual Studio Code](quick-create-visual-studio-code.md). W tabelach w tym artykule przedstawiono, które funkcje są obsługiwane przez każdą platformę dla obu typów zadań.
 
 > [!NOTE]
 > Narzędzia Visual Studio i Visual Studio Code Tools nie obsługują zadań w regionach Chiny Wschodnie, Chiny Północne, Niemczech centralnych i Niemczech północnych.
@@ -23,7 +23,7 @@ Za pomocą Azure Stream Analytics można tworzyć rozwiązania przesyłania stru
 ## <a name="cloud-job-features"></a>Funkcje zadania w chmurze
 
 
-|Cecha  |Portal  |Visual Studio  |Visual Studio Code  |
+|Cechy  |Portal  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Wiele platform     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
 |Tworzenie skryptu     |Tak         |Tak         |Tak         |
@@ -39,13 +39,13 @@ Za pomocą Azure Stream Analytics można tworzyć rozwiązania przesyłania stru
 |Przesyłanie, uruchamianie i zatrzymywanie zadań     |Tak         |Tak         |Tak         |
 |Wyświetlanie metryk i diagramów zadań     |Tak         |Tak         |Otwórz w portalu         |
 |Wyświetl błędy środowiska uruchomieniowego zadania     |Tak         |Tak         |Nie         |
-|Dzienniki zasobów     |Yes         |Nie         |Nie         |
+|Dzienniki zasobów     |Tak         |Nie         |Nie         |
 |Niestandardowe właściwości komunikatów     |Tak         |Tak         |Nie       |
-|Funkcja niestandardowego kodu w języku C# i deserializacja|Tryb tylko do odczytu|Yes|Nie|
+|Funkcja niestandardowego kodu w języku C# i deserializacja|Tryb tylko do odczytu|Tak|Nie|
 |Java UDF i UDA     |Tak         |Tak         |Tylko Windows         |
 |Usługa Machine Learning     |Tak        |Tak         |Nie         |
-|Machine Learning Studio     |Tak, ale nie można przetestować zapytania        |Yes |Nie         |
-|Poziom zgodności     |1.0</br>1.1</br>1,2 (wartość domyślna)         |1.0</br>1.1</br>1,2 (wartość domyślna)           |1.0</br>1.1</br>1,2 (wartość domyślna)           |
+|Machine Learning Studio     |Tak, ale nie można przetestować zapytania        |Tak |Nie         |
+|Poziom zgodności     |1,0</br>1,1</br>1,2 (wartość domyślna)         |1,0</br>1,1</br>1,2 (wartość domyślna)           |1,0</br>1,1</br>1,2 (wartość domyślna)           |
 |Wbudowane funkcje wykrywania anomalii opartej na ML     |Tak         |Tak         |Tak         |
 |Wbudowane funkcje geograficzne     |Tak         |Tak         |Tak         |
 
@@ -53,14 +53,14 @@ Za pomocą Azure Stream Analytics można tworzyć rozwiązania przesyłania stru
 
 ## <a name="iot-edge-job-features"></a>Funkcje zadania IoT Edge
 
-|Cecha  |Portal  |Visual Studio  |Visual Studio Code  |
+|Cechy  |Portal  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Tworzenie zadań     |Tak         |Tak         |Nie         |
-|Kontrola źródła     |Nie         |Yes         |Nie         |
-|Eksportowanie zadania do projektu lokalnego     |Nie         |Yes         |Nie         |
+|Kontrola źródła     |Nie         |Tak         |Nie         |
+|Eksportowanie zadania do projektu lokalnego     |Nie         |Tak         |Nie         |
 |Testowanie zapytań przy użyciu pliku przykładowego     |Tak         |Tak         |Nie         |
-|Udostępnianie danych wejściowych i wyjściowych w wielu zapytaniach     |Nie         |Yes         |Nie         |
-|Funkcja zdefiniowana przez użytkownika w języku C#     |Nie         |Yes         |Nie         |
+|Udostępnianie danych wejściowych i wyjściowych w wielu zapytaniach     |Nie         |Tak         |Nie         |
+|Funkcja zdefiniowana przez użytkownika w języku C#     |Nie         |Tak         |Nie         |
 |Prześlij zadania     |Tak         |Tak         |Nie         |
 |Wyświetlanie listy zadań i przeglądanie jednostek zadań     |Tak         |Tak         |Nie         |
 |Wyświetlanie metryk i diagramów zadań     |Tak         |Częściowe         |Nie         |

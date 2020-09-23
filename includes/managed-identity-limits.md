@@ -1,6 +1,6 @@
 ---
 title: dołączanie pliku
-description: Plik dyrektywy include
+description: dołączanie pliku
 services: active-directory
 author: daveba
 ms.service: active-directory
@@ -9,14 +9,17 @@ ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc7849e52b3e00c87d271ee8aef8788d816dff7a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67183640"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971034"
 ---
-| Kategoria | Limit |
-| --- | --- |
-| Tożsamości zarządzane przypisane przez użytkownika | <ul><li>Podczas tworzenia tożsamości zarządzanych przypisanych przez użytkownika, obsługiwane są tylko znaki alfanumeryczne (0-9, a-z i A-Z) i łącznik (-). Aby przypisanie do maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych działało prawidłowo, nazwa jest ograniczona do 24 znaków.</li><li>Jeśli używasz rozszerzenia maszyny wirtualnej tożsamości zarządzanej, obsługiwany limit to 32 tożsamości zarządzane przypisane przez użytkownika. W przypadku braku rozszerzenia maszyny wirtualnej do obsługi tożsamości obsługiwanego limitu jest 512 tożsamości przypisane do użytkownika.</li>|
+- Każda tożsamość zarządzana liczy się do limitu przydziału obiektów w dzierżawie usługi Azure AD zgodnie z opisem w temacie [limity i ograniczenia usług Azure AD](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md).
+-   Szybkość, z jaką można utworzyć tożsamości zarządzane, ma następujące ograniczenia:
 
+    1. Za dzierżawę usługi Azure AD na region Azure: 200 operacji tworzenia na 20 sekund.
+    2. Za subskrypcję platformy Azure dla regionu platformy Azure: 40 operacji tworzenia na 20 sekund.
+
+- Podczas tworzenia tożsamości zarządzanych przypisanych przez użytkownika, obsługiwane są tylko znaki alfanumeryczne (0-9, a-z i A-Z) i łącznik (-). Aby przypisanie do maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych działało prawidłowo, nazwa jest ograniczona do 24 znaków.

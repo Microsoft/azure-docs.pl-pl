@@ -1,15 +1,15 @@
 ---
 title: Przywracanie maszyn wirtualnych przy użyciu Azure Portal
-description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwania przy użyciu Azure Portal
+description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwania, korzystając z Azure Portal, w tym funkcji przywracania między regionami.
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 582ec3e5409e5ada6f98a0c2db77c0bb73eaed18
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: d2b5c00df9f9b5b41877fe21181f11ea7fe76084
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050424"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986541"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -138,18 +138,21 @@ Jako jedna z [opcji przywracania](#restore-options), przywracanie między region
 
 Aby dołączyć do funkcji w wersji zapoznawczej, zapoznaj się z [sekcją przed rozpoczęciem](./backup-create-rs-vault.md#set-cross-region-restore).
 
-Aby sprawdzić, czy CRR jest włączona, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie przywracania między regionami](backup-create-rs-vault.md#configure-cross-region-restore)
+Aby sprawdzić, czy CRR jest włączona, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie przywracania między regionami](backup-create-rs-vault.md#configure-cross-region-restore).
 
 ### <a name="view-backup-items-in-secondary-region"></a>Wyświetlanie elementów kopii zapasowej w regionie pomocniczym
 
 Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regionie pomocniczym.
 
-1. W portalu przejdź do obszaru **Recovery Services**  >  **elementy kopii zapasowej** magazynu
+1. W portalu przejdź do pozycji **Recovery Services**  >  **elementy kopii zapasowej**magazynu.
 1. Wybierz **region pomocniczy** , aby wyświetlić elementy w regionie pomocniczym.
 
-    ![Maszyny wirtualne w regionie pomocniczym](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+>[!NOTE]
+>Na liście zostaną wyświetlone tylko typy zarządzania kopiami zapasowymi obsługujące funkcję CRR. Obecnie dozwolony jest tylko program obsługujący przywracanie danych regionu pomocniczego do regionu pomocniczego.
 
-    ![Wybierz region pomocniczy](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+![Maszyny wirtualne w regionie pomocniczym](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+
+![Wybierz region pomocniczy](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
 
 ### <a name="restore-in-secondary-region"></a>Przywróć w regionie pomocniczym
 
