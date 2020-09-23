@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: e6dfc0eb704b0b35ab4e181076d8f97fd3e8c9d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e367851c4d709acbc0eb94a47d7e20d4d3c1cc46
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080756"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904817"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatyzowanie dołączania Azure Security Center przy użyciu programu PowerShell
 
@@ -29,9 +29,9 @@ Azure Security Center dołączania przy użyciu programu PowerShell umożliwiaj�
 
 Ten artykuł zawiera przykładowy skrypt programu PowerShell, który można zmodyfikować i użyć w środowisku w celu wdrożenia Security Center w ramach subskrypcji. 
 
-W tym przykładzie włączmy Security Center w ramach subskrypcji o IDENTYFIKATORze: d07c0080-170c-4c24-861d-9c817742786c i Zastosuj zalecane ustawienia zapewniające wysoki poziom ochrony, implementując standardową warstwę Security Center, która zapewnia zaawansowane funkcje ochrony przed zagrożeniami i wykrywania:
+W tym przykładzie zostanie włączona Security Center w ramach subskrypcji o IDENTYFIKATORze: d07c0080-170c-4c24-861d-9c817742786c i zastosowaniu zalecanych ustawień, które zapewniają wysoki poziom ochrony, włączając usługę Azure Defender, która zapewnia zaawansowane funkcje ochrony przed zagrożeniami i wykrywania:
 
-1. Ustaw [Security Center standardowy poziom ochrony](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Włącz [usługę Azure Defender](azure-defender.md). 
  
 2. Ustaw obszar roboczy Log Analytics, do którego Agent Log Analytics wyśle dane zbierane na maszynach wirtualnych skojarzonych z subskrypcją — w tym przykładzie istniejący zdefiniowany przez użytkownika obszar roboczy (mój obszar roboczy).
 
@@ -61,7 +61,7 @@ Te kroki należy wykonać przed uruchomieniem Security Center poleceń cmdlet:
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-1. Opcjonalne: Ustaw poziom pokrycia (warstwa cenowa) subskrypcji (jeśli nie jest zdefiniowany, warstwa cenowa jest ustawiona na wartość bezpłatna):
+1. Opcjonalnie: Ustaw poziom pokrycia (usługa Azure Defender włączona/wyłączona) dla subskrypcji. Jeśli undefined, Defender jest wyłączony:
 
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 

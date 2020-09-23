@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: bb7ebee67d65ab37dc037437b7c35d8c19c53096
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137029"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898545"
 ---
 # <a name="decision-forest-regression-module"></a>Moduł regresji lasu decyzyjnego
 
-W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Użyj tego modułu, aby utworzyć model regresji na podstawie kompletu drzew decyzyjnych.
 

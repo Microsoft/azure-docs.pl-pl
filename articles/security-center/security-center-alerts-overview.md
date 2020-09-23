@@ -10,18 +10,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278143"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905473"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alerty zabezpieczeń w Centrum zabezpieczeń Azure
 
 W Azure Security Center istnieje wiele alertów dla wielu różnych typów zasobów. Security Center generuje alerty dotyczące zasobów wdrożonych na platformie Azure, a także dla zasobów wdrożonych w środowiskach lokalnych i hybrydowych w chmurze.
 
-Alerty zabezpieczeń są wyzwalane przez zaawansowane wykrywania i są dostępne tylko w warstwie Standardowa Azure Security Center. Dostępna jest bezpłatna wersja próbna. Uaktualnienie można przeprowadzić na stronie **ustawień & cenowych** . Dowiedz się więcej o [cenach Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Alerty zabezpieczeń są wyzwalane przez zaawansowane wykrywania i są dostępne tylko w usłudze Azure Defender. Dostępna jest bezpłatna wersja próbna. Uaktualnienie można przeprowadzić na stronie **ustawień & cenowych** . Dowiedz się więcej o [cenach Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="respond-to-todays-threats"></a>Reagowanie na bieżące zagrożenia <a name="respond-threats"> </a>
 
@@ -45,7 +45,7 @@ Korzystając z incydentów, Security Center zapewnia jeden widok kampanii ataku 
 
 ## <a name="how-does-security-center-detect-threats"></a>Jak Security Center wykrywać zagrożenia? <a name="detect-threats"> </a>
 
-Pracownicy naukowo-badawczy firmy Microsoft stale poszukują nowych zagrożeń. Ze względu na globalną obecność firmy Microsoft w chmurze i lokalnie mają dostęp do zestawu danych telemetrycznych rozległych. Szeroka i różnorodna kolekcja zestawów danych umożliwia odnalezienie nowych wzorców ataków i trendów w lokalnych produktach konsumenckich i firmowych, a także Usługi online. W związku z tym usługa Security Center może szybko zaktualizować swoje algorytmy wykrywania, w miarę jak atakujący wprowadzają nowe i coraz bardziej zaawansowane metody. Takie podejście pomaga sprostać wymaganiom szybko zmieniającego się środowiska zagrożenia.
+Pracownicy naukowo-badawczy firmy Microsoft stale poszukują nowych zagrożeń. Ze względu na naszą globalną obecność w chmurze i lokalnie mamy dostęp do zestawu danych telemetrycznych rozległych. Szeroka i różnorodna kolekcja zestawów danych pozwala nam odkrywać nowe wzorce ataków i trendy w ramach naszych lokalnych produktów konsumenckich i korporacyjnych, a także naszych Usługi online. W związku z tym usługa Security Center może szybko zaktualizować swoje algorytmy wykrywania, w miarę jak atakujący wprowadzają nowe i coraz bardziej zaawansowane metody. Takie podejście pomaga sprostać wymaganiom szybko zmieniającego się środowiska zagrożenia.
 
 Aby wykrywać rzeczywiste zagrożenia i zmniejszyć liczbę fałszywych wyników, Security Center gromadzi, analizuje i integruje dane dzienników z zasobów platformy Azure i sieci. Współpracuje również z rozwiązaniami partnerskimi, takimi jak zapora i rozwiązania programu Endpoint Protection. Security Center analizuje te informacje, często skorelowane informacje z wielu źródeł, aby identyfikować zagrożenia.
 
@@ -90,6 +90,5 @@ Te połączone wysiłki skutkują w nowych i ulepszonych wykryciuch, z których 
 
 Ten artykuł zawiera informacje o różnych typach alertów dostępnych w Security Center. Aby uzyskać więcej informacji, zobacz:
 
-* [Ochrona przed zagrożeniami w Azure Security Center](threat-protection.md) — Krótki opis źródeł alertów zabezpieczeń wyświetlanych przez Azure Security Center 
-* **Alerty zabezpieczeń w dzienniku aktywności platformy Azure** — oprócz dostępnych w Azure Portal lub programowo, alerty zabezpieczeń i zdarzenia są poddawane inspekcji jako zdarzenia w [dzienniku aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Aby uzyskać więcej informacji o schemacie zdarzeń, zobacz [alerty zabezpieczeń w dzienniku aktywności platformy Azure](https://go.microsoft.com/fwlink/?linkid=2114113)
+- **Alerty zabezpieczeń w dzienniku aktywności platformy Azure** — oprócz dostępnych w Azure Portal lub programowo, alerty zabezpieczeń i zdarzenia są poddawane inspekcji jako zdarzenia w [dzienniku aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Aby uzyskać więcej informacji o schemacie zdarzeń, zobacz [alerty zabezpieczeń w dzienniku aktywności platformy Azure](https://go.microsoft.com/fwlink/?linkid=2114113)
 

@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 32603514db76ceba4f1d9f8873c99b2e8a97eddf
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: aad160f8a4ec96a1e0e627684c598062079b57e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185914"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896311"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: używanie języka Python do łączenia i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 
@@ -63,11 +63,11 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z Azure 
    
 1. Na pasku wyszukiwania portalu Wyszukaj i wybierz utworzony przez siebie serwer Azure Database for MySQL, na przykład **mydemoserver**.
    
-   ![Nazwa serwera usługi Azure Database for MySQL](./media/connect-python/1_server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="Nazwa serwera usługi Azure Database for MySQL":::
    
 1. Na stronie **Przegląd** serwera Zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**. Jeśli zapomnisz hasła, możesz również zresetować hasło na tej stronie.
    
-   ![Nazwa serwera usługi Azure Database for MySQL](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Nazwa serwera usługi Azure Database for MySQL":::
 
 ## <a name="run-the-python-examples"></a>Uruchamianie przykładów języka Python
 

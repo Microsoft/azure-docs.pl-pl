@@ -4,59 +4,54 @@ description: Program partnerski Microsoft Partner Center dla partnerów może po
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: palanis-MSFT
-ms.author: palanis
-ms.date: 05/19/2020
-ms.openlocfilehash: 4a7f3b143df4a177bba67d3556d224ec7c806244
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+author: vamahtan
+ms.author: vamahtan
+ms.date: 09/15/2020
+ms.openlocfilehash: 41dd683bb0ff5be4a48cd05f24663dd51c66a15b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260410"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984628"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
-Możesz użyć programu współsprzedaży firmy Microsoft, aby bezpośrednio współpracować z nami na potrzeby wspólnych możliwości sprzedaży. Program pozwala uzyskać rozległą społeczność klientów i utworzyć nowe możliwości sprzedaży, aby przyspieszyć rozwój firmy.
+Możesz użyć programu współsprzedaży, aby bezpośrednio współpracować ze sprzedawcami firmy Microsoft w ramach wspólnych możliwości sprzedaży i odblokować znaczące dodatkowe korzyści komercyjne i towarowe sprzedawane za pomocą komercyjnej witryny Marketplace.
 
-## <a name="co-sell-channels"></a>Kanały współsprzedawane
+Program współsprzedażowy jest dostępny dla **oprogramowania utworzonego za pomocą swojej własności intelektualnej (IP) jako powtarzalny, spakowane oferty** i **usługi z technologią firmy Microsoft Embedded**. Większość typów ofert w programie do współsprzedaży jest również dostępna w komercyjnym portalu Marketplace. Oferty, które spełniają dodatkowe wymagania, są **gotowe do przedsprzedażu** lub **do zachęcani**.
 
-Możesz sprzedawać swoje rozwiązania za poorednictwem trzech kanałów:
+- Oferty z ofertami do **przedlewej** są udostępniane sprzedającym w dziedzinie firmy Microsoft. Podczas pracy ze sprzedawcami firmy Microsoft, program współsprzedaży pomaga uzyskać rozległą społeczność klientów zarządzanych przez firmę Microsoft w celu współpracy nad szansami sprzedaży, które przyspieszają rozwój Twojej firmy.
 
-* Bezpośrednio dla klientów w Microsoft AppSource lub witrynie Azure Marketplace.
-* We współpracy z innymi partnerami.
-* We współpracy z sprzedawcami firmy Microsoft.
+<ul>
 
-Program współsprzedażowy jest dostępny dla **usług** z technologią firmy Microsoft Embedded oraz do powtarzalnych, opakowanych **rozwiązań własności intelektualnej (IP)**.
+![Diagram przedstawiający sposób, w jaki następuje współsprzedaż, gdy potencjalni klienci są współdzieli, zaakceptowali i korzystali z klientów zarządzanych przez firmę Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+</ul>
 
-Niektóre rozwiązania IP mogą kwalifikować się do bodźców dla sprzedawców firmy Microsoft w przypadku ich pomyślnego sprzedaży i wdrożenia z zespołem ds. sprzedaży firmy Microsoft.
+- **Sprzedawanie zachęcani** Rozwiązania IP mogą zdobywać zachęty dla sprzedawców w dziedzinie firmy Microsoft, gdy są one sprzedawane we współpracy z zespołami sprzedaży firmy Microsoft, oprócz korzyści z witryny Marketplace wymienionych poniżej.</li></ul>
 
-![Diagram przedstawiający sposób, w jaki następuje współsprzedaż, gdy potencjalni klienci są współdzieli, zaakceptowali i korzystali z klientów zarządzanych przez firmę Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell.png)
+## <a name="marketplace-benefits-for-incentivized-offers"></a>Korzyści z witryny Marketplace dla ofert zachęcani
 
-## <a name="azure-ip-co-sell-incentivized-offers"></a>Oferty zachęcani dla usługi Azure IP
+Oferty, które uzyskują dostęp **do usługi Azure IP zachęcani** , mają dodatkowe korzyści z witryny Marketplace:
 
-Oferty w programie do współdziałania to co najmniej jedna sprzedaż, która jest **gotowa** lub **współsprzedawana zachęcani**, w zależności od wymagań, które spełniają.
-
-Rozwiązania z zakresu adresów IP platformy Azure, które docierają do **zachęcani** stanu, odblokują następujące korzyści:
-
-* Opłata za usługę Marketplace jest ograniczona od 20% do 10% rozliczanej sprzedaży. Ten Rabat dotyczy ofert IaaS i SaaS sprzedawanych w portalu komercyjnym firmy Microsoft. Aby uzyskać więcej informacji, zobacz [ograniczoną opłatą za usługę](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) .
-* Partnerzy dostawcy rozwiązań w chmurze (CSP) uzyskują 10% zachęty sprzedaży do sprzedaży ofert SaaS i IaaS. Dowiedz się więcej o dostawcy usług kryptograficznych w [programie Cloud Solution Provider](cloud-solution-providers.md).
-* Oferty zachęcani dla usługi Azure IP dla współsprzedaży będą współdziałać z zobowiązaniem do użycia platformy Azure dla klientów, gdy zostaną zakupione na komercyjnym rynku. Uprawnieni klienci będą widzieć ofertę oznaczoną jako **korzyść platformy Azure kwalifikującą się** w sklepach online. Aby uzyskać więcej informacji, zobacz [korzyść z tytułu zobowiązania dotyczącego użycia platformy Azure](azure-consumption-commitment-benefit.md) .
-* Oferty otrzymają wskaźnik preferowanych rozwiązań firmy Microsoft w sklepach online. Wskaźnik umożliwia promowanie jakości, wydajności i możliwości związanych z ofertami klientów w przypadku niektórych branżowych obszarów pionowych lub rozwiązań. Dowiedz się więcej na temat [preferowanych rozwiązań w Microsoft AppSource i witrynie Azure Marketplace](preferred-solutions.md).
+* Opłata za usługę Marketplace jest zmniejszana z 20% do 10%. Ten Rabat dotyczy oferty IaaS lub SaaS sprzedawanej za pomocą komercyjnej witryny Marketplace. Aby uzyskać więcej informacji, zobacz [ograniczoną opłatą za usługę](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) .
+* Partnerzy dostawcy rozwiązań w chmurze (CSP) otrzymują zachętę 10% do sprzedaży oferty IaaS lub SaaS. Dowiedz się więcej na temat programu CSP w [programie Cloud Solution Provider](cloud-solution-providers.md).
+* Sprzedaż oferty za pomocą komercyjnej witryny Marketplace przyczynia się do realizacji zobowiązań dotyczących użycia platformy Azure przez klientów. Uprawnieni klienci będą widzieć ofertę oznaczoną jako **"kwalifikujące się do korzystania z platformy Azure"** w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [korzyść z tytułu zobowiązania dotyczącego użycia platformy Azure](azure-consumption-commitment-benefit.md) .
+* Twoja oferta będzie otrzymywać wskaźnik **"preferowanych rozwiązań"** w obszarze witryny sklepu. Wskaźnik umożliwia promowanie jakości, wydajności i możliwości związanych z ofertami klientów w przypadku niektórych branżowych obszarów pionowych lub rozwiązań. Dowiedz się więcej na temat [preferowanych rozwiązań w Microsoft AppSource i witrynie Azure Marketplace](preferred-solutions.md).
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Współsprzedażowe kroki i wymagania dotyczące publikowania
 
-W poniższej tabeli przedstawiono kroki i wymagania, które umożliwiają udostępnienie oferty do sprzedaży gotowej lub współsprzedaży zachęcani.
+W poniższej tabeli przedstawiono kroki i wymagania, które należy wykonać w celu udostępnienia oferty z witryny Marketplace gotowej do sprzedaży lub zachęcani. Nie wszystkie typy ofert komercyjnych portalu Marketplace można skonfigurować do wspólnego sprzedaży w centrum partnerskim. Aby uzyskać najnowsze informacje, możesz zapoznać się z [opcją współsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) . 
 
-|Krok    |Typ rozwiązania    |Wymagania    |Stan współpracy ze sprzedażą    |
+|Krok    |Typ oferty    |Wymagania    |Stan współpracy ze sprzedażą    |
 |----    |-------------    |------------    |---------------   |
-|<ol><li> Utwórz profil biznesowy w centrum partnerskim i Opublikuj swoją ofertę na komercyjnym rynku.</li>|IP i usługi|<ul><li>Oferta jest zgodna z komercyjnymi wymaganiami dotyczącymi publikowania w portalu Marketplace.</li><li>Masz pełny profil biznesowy w centrum partnerskim.</li>|Nie gotowy|
-|<ol start=2><li>Opcjonalnie: zgoda na kanał dostawcy rozwiązań w chmurze.</li>|IP i usługi|<ul><li>Oferta została skonfigurowana dla odsprzedawcy dostawcy CSP. Zobacz [program Cloud Solution Provider](cloud-solution-providers.md)</li>|Nie gotowy|
-|<ol start=3><li>Prześlij wymagane materiały do współsprzedawcy</li>|Adres IP|<ul><li>Oferta zawiera kontakt sprzedaży dla każdego kwalifikującego się kraju.</li><li>Wymagane weksle: klient z jednym modułem stronicowania, pokładem prezentacji klienta (opcjonalnie), adresem URL strony docelowej rozwiązania, adresem URL kanału społecznościowego lub innym (na przykład analiza przypadku).|Gotowe do rozłożenia|
-||Usługi|<ul><li>Oferta zawiera kontakt sprzedaży dla każdego kwalifikującego się kraju.</li><li>Wymagane weksle: klient z jednym modułem stronicowania, pokładem prezentacji klienta (opcjonalnie), adresem URL strony docelowej rozwiązania, adresem URL kanału społecznościowego lub innym (na przykład analiza przypadku).</li><li>Aktywne kompetencje złota</li>|Gotowe do rozłożenia|
-|<ol start=4lo><li>Zakwalifikuj się do bodźców dla sprzedawców firmy Microsoft</li>|Kwalifikujący się usługa Azure IP|<ul><li>Na poziomie organizacji spełnia lub przekracza próg $100 000 USD ACR TTM (końcowe dwanaście miesięcy) lub, jeśli oferta jest transakcyjna, miesięczny próg przychodu $100 000 USD. Próg można spełnić za pomocą kombinacji rozwiązań platformy Azure.</li><li>Rozwiązanie musi być zbudowane z ponad 50% powtarzalnego kodu IP na platformie Azure.</li>|Sprzedawanie zachęcani|
-||Business Applications zachęty|<ul><li>Masz aktywną rejestrację w warstwie Premium programu ISV Connect.</li>|Sprzedawanie zachęcani|
+|<ol start=1><li> Utwórz konto w centrum partnerskim i Opublikuj swoją ofertę w komercyjnym portalu Marketplace.</li>|Wszystko|<li>Oferta jest zgodna z komercyjnymi wymaganiami dotyczącymi publikowania w portalu Marketplace.</li><li>Masz pełny profil biznesowy w centrum partnerskim.</li>|Nie gotowy|
+|<ol start=2><li>Prześlij wymagane materiały do przedsprzedażu.</li>|Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Przekaż wymagane materiały w centrum partnerskim](#how-to-submit-co-sell-materials-in-partner-center): <ul><li>Kontakt sprzedaży dla każdego kwalifikującego się kraju.</li><li>Zestawienie materiałów: klient z jednym modułem stronicowania, pokładem prezentacji dla klientów (opcjonalnie), adresem URL strony docelowej rozwiązania, adresem URL kanału społecznościowego lub innym (na przykład z analizą przypadku).|Gotowe do rozłożenia|
+||Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.|Gotowe do rozłożenia|
+||Usługi konsultingowe|<li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.</li><li>Aktywna kompetencja Gold.</li>|Gotowe do rozłożenia|
+|<ol start=3><li>Kwalifikuj na zachęty dla współsprzedażowych adresów IP</li>|Aplikacje platformy Azure, kontenery platformy Azure, moduły IoT Edge, SaaS, maszyny wirtualne|Po osiągnięciu gotowości do współpracy należy wykonać dwa dodatkowe wymagania: <ul> Wymaganie 1: osiągnięcie:<ul><li>*Na poziomie organizacji:* spełnia lub przekracza $100 000 USD przychodu zużywanego przez platformę Azure w ciągu ostatnich 12 miesięcy.</li><li>*Na poziomie oferty:* skumulowany przychód w portalu Marketplace $100 000 USD.</li></ul><br>Wymaganie 2: więcej niż 50% infrastruktury oferty musi działać na platformie Azure:<ul><li>Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): Przekaż diagram architektury z dokumentami towarzyszącymi w centrum partnerskim do przeglądu.</li><li>Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): Przekaż diagram architektury do OCP GTM.|Usługa Azure IP zachęcani — sprzedawanie|
+||Dynamics|<li>Masz aktywną rejestrację w warstwie Premium programu ISV Connect.</li>|Business Applications współsprzedaż zachęcani|
 
-## <a name="co-sell-your-offer"></a>Sprzedawanie oferty
+## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Jak przesłać materiały towarzyszące w centrum partnerskim
 
 Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonując poniższe kroki. Aby uzyskać więcej informacji, zobacz [sprzedawanie opcji w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md).
 
@@ -86,4 +81,4 @@ Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonu
 
 * Dowiedz się więcej o [sprzedawaniu z firmą Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 * Dowiedz się więcej o [opcji "co sprzedajesz" w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md).
-* Zapoznaj się z [przewodnikiem dotyczący współpracy między partnerami i partnera](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).
+* Przeczytaj [element PlayBook współsprzedaż](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).

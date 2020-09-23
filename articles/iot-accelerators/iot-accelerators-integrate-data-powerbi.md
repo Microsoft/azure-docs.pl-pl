@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74184238"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975997"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Wizualizowanie danych monitorowania zdalnego przy użyciu Power BI
 
@@ -42,10 +42,10 @@ W tym samouczku przedstawiono sposób podłączenia danych rozwiązania do monit
 
 5. Na panelu po lewej stronie kliknij sekcję "klucze" i zanotuj następujące wartości, które mają być używane w Power BI:
 
-   - Identyfikator URI
+   - URI
    - Klucz podstawowy
 
-     ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
+     ![Zrzut ekranu przedstawia konto usługi Azure Cosmos D B z wybranym elementem Keys.](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## <a name="setting-up-the-stream-in-power-bi"></a>Konfigurowanie strumienia w Power BI
   
@@ -59,7 +59,7 @@ W tym samouczku przedstawiono sposób podłączenia danych rozwiązania do monit
   
 3. Wprowadź informacje, które zostały zarejestrowane powyżej:
 
-    * Identyfikator URI
+    * URI
     * Klucz podstawowy
 
 4. Zaznacz wszystkie tabele, które mają zostać zaimportowane do Power BI. Ta akcja spowoduje rozpoczęcie ładowania danych. Im dłużej działa Twoje rozwiązanie, tym dłużej może minąć potrzeba załadowania danych (do kilku godzin). 

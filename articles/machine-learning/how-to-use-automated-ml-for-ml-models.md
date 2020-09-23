@@ -11,22 +11,19 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 429471c2a24b90f14241bf54197c4baecb27e5c0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 10c0200aae5ffa432c2da037d58d455fc28e8acd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660439"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904969"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 W tym artykule dowiesz się, jak tworzyć, eksplorować i wdrażać zautomatyzowane modele uczenia maszynowego bez pojedynczego wiersza kodu w Azure Machine Learning Studio.
 
->[!IMPORTANT]
-> Automatyczne środowisko pracy w usłudze Azure Machine Learning Studio jest w wersji zapoznawczej. Niektóre funkcje mogą nie być obsługiwane lub mieć ograniczone możliwości.
-
- Automatyczne Uczenie maszynowe to proces, w którym jest wybierany najlepszy algorytm uczenia maszynowego dla konkretnych danych. Ten proces umożliwia szybkie generowanie modeli uczenia maszynowego. [Dowiedz się więcej o automatycznym uczeniu maszynowym](concept-automated-ml.md).
+Automatyczne Uczenie maszynowe to proces, w którym jest wybierany najlepszy algorytm uczenia maszynowego dla konkretnych danych. Ten proces umożliwia szybkie generowanie modeli uczenia maszynowego. [Dowiedz się więcej o automatycznym uczeniu maszynowym](concept-automated-ml.md).
  
 Aby zapoznać się z kompleksowym przykładem, wypróbuj [Samouczek dotyczący tworzenia modelu klasyfikacji przy użyciu zautomatyzowanego interfejsu ML Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 
@@ -36,9 +33,9 @@ W przypadku środowiska języka Python można [skonfigurować automatyczne ekspe
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 
-* Obszar roboczy Azure Machine Learning z typem **wersji Enterprise Edition**. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).  Aby uaktualnić istniejący obszar roboczy do wersji Enterprise, zobacz [uaktualnianie do wersji Enterprise Edition](how-to-manage-workspace.md#upgrade).
+* Obszar roboczy usługi Azure Machine Learning. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md). 
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 1. Zaloguj się do Azure Machine Learning pod adresem https://ml.azure.com . 
 
@@ -83,7 +80,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.
     
-        Wybierz pozycję **Next** (Dalej).
+        Wybierz pozycję **Dalej**.
 
     1. Formularz **schematu** jest inteligentnie wypełniany na podstawie opcji wybranych w formularzu **Ustawienia i Podgląd** . W tym miejscu należy skonfigurować typ danych dla każdej kolumny, sprawdzić nazwy kolumn i wybrać kolumny, które **nie mają być dołączone** do eksperymentu. 
             
@@ -91,7 +88,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
 
     1. Formularz **Potwierdź szczegóły** to podsumowanie informacji poprzednio wypełnionych w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** . Istnieje również możliwość utworzenia profilu danych dla zestawu danych przy użyciu obliczeń z włączoną obsługą profilowania. Dowiedz się więcej na temat [profilowania danych](#profile).
 
-        Wybierz pozycję **Next** (Dalej).
+        Wybierz pozycję **Dalej**.
 1. Wybierz nowo utworzony zestaw danych, gdy zostanie wyświetlony. Możliwe jest również wyświetlanie podglądu zestawu danych i przykładowych statystyk. 
 
 1. W formularzu **Konfigurowanie przebiegu** wprowadź unikatową nazwę eksperymentu.
@@ -111,12 +108,12 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł. Wprowadź maksymalną liczbę węzłów dla obliczeń. Wartość domyślna to 6 węzłów na potrzeby obliczeń AML.
     Ustawienia zaawansowane | Te ustawienia umożliwiają skonfigurowanie dla eksperymentu konta użytkownika i istniejącej sieci wirtualnej. 
     
-    Wybierz pozycję **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
+    Wybierz przycisk **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
 
     >[!NOTE]
     > Nazwa obliczeniowa wskazuje, czy w przypadku obliczeń, które zostały wybrane/utworzone, *włączono profilowanie*. (Szczegółowe informacje znajdują się w sekcji [Profilowanie danych](#profile) ).
 
-    Wybierz pozycję **Next** (Dalej).
+    Wybierz pozycję **Dalej**.
 
 1. W formularzu **Typ zadania i ustawienia** wybierz typ zadania: Klasyfikacja, regresja lub prognozowanie. Aby uzyskać więcej informacji, zobacz [obsługiwane typy zadań](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
@@ -186,7 +183,7 @@ Dołączono | Określa, które kolumny mają być uwzględnione w szkoleniu.
 Typ funkcji| Zmień typ wartości dla zaznaczonej kolumny.
 Za pomocą| Wybierz wartość, do której mają być przypisane wartości w danych.
 
-![Formularz typu zadania Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
+![Cechowania Azure Machine Learning Studio Custom](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>Uruchamianie eksperymentu i wyświetlanie wyników
 

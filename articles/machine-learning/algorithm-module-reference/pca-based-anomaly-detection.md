@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 0498823e1b730db6425d255b6de4b826dd05a6a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749496"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898456"
 ---
 # <a name="pca-based-anomaly-detection-module"></a>Moduł wykrywania anomalii opartego na UPW
 
-W tym artykule opisano, jak używać modułu wykrywania anomalii opartego na usłudze UPW w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu utworzenia modelu wykrywania anomalii na podstawie głównej analizy składników (PPW).
+W tym artykule opisano, jak używać modułu wykrywania anomalii opartego na usłudze UPW w programie Azure Machine Learning Designer do tworzenia modelu wykrywania anomalii na podstawie głównej analizy składników (PPW).
 
 Ten moduł ułatwia tworzenie modeli w scenariuszach, w których można łatwo uzyskać dane szkoleniowe z jednej klasy, takie jak prawidłowe transakcje, ale trudno jest uzyskać wystarczającą ilość próbek dla określonych anomalii. 
 
@@ -109,4 +109,4 @@ Dla każdego nowego danych wejściowych detektor anomalii najpierw obliczy jego 
 
 Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
 
-Zobacz [wyjątki i kody błędów dla projektanta (wersja zapoznawcza)](designer-error-codes.md) , aby zapoznać się z listą błędów specyficznych dla modułów projektanta.
+Zobacz [wyjątki i kody błędów dla projektanta,](designer-error-codes.md) aby zapoznać się z listą błędów specyficznych dla modułów projektanta.

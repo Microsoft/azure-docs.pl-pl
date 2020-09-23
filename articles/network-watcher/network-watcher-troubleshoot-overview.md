@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 95edcee32c1917d23e4808e805f947d18d2fa7f4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207370"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986237"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Wprowadzenie do rozwiązywania problemów z zasobami w usłudze Azure Network Watcher
 
 Bramy Virtual Network zapewniają łączność między zasobami lokalnymi i innymi sieciami wirtualnymi w ramach platformy Azure. Monitorowania bram i ich połączeń jest niezbędne do zapewnienia nieprzerwanej komunikacji. Network Watcher oferuje możliwość rozwiązywania problemów z bramami i połączeniami. Tę możliwość można wywołać za pomocą portalu, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST. Gdy jest wywoływana, Network Watcher diagnozuje kondycję bramy lub połączenie i zwraca odpowiednie wyniki. Żądanie jest długotrwałą transakcją. Wyniki są zwracane po zakończeniu diagnostyki.
 
-![portal][2]
+![Zrzut ekranu przedstawia diagnostykę Network Watcher V P N.][2]
 
 ## <a name="results"></a>Wyniki
 
@@ -73,7 +73,7 @@ W poniższych tabelach przedstawiono różne typy błędów (identyfikator w obs
 | ConnectionIsMarkedDisconnected | Połączenie jest oznaczone jako "rozłączone" |Nie|
 | ConnectionNotConfiguredOnGateway | Usługa bazowa nie ma skonfigurowanego połączenia. | Tak |
 | ConnectionMarkedStandby | Podstawowa usługa jest oznaczona jako w stanie wstrzymania.| Tak|
-| Uwierzytelnianie | Niezgodność klucza wstępnego | Tak|
+| Authentication | Niezgodność klucza wstępnego | Tak|
 | PeerReachability | Brama równorzędna jest nieosiągalna. | Tak|
 | IkePolicyMismatch | Brama równorzędna ma zasady IKE, które nie są obsługiwane przez platformę Azure. | Tak|
 | Błąd WfpParse | Wystąpił błąd podczas analizowania dziennika WFP. |Tak|

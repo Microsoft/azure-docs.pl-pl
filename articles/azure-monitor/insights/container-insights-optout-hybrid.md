@@ -3,12 +3,12 @@ title: Jak zatrzymać monitorowanie hybrydowego klastra Kubernetes | Microsoft D
 description: W tym artykule opisano, jak można zatrzymać monitorowanie hybrydowego klastra Kubernetes za pomocą Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 8369c82b83cfbaa7128383c6203aaf584916cae9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2754649cd990b015162be158effa2b85aa1fe27e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091202"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986053"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Jak zatrzymać monitorowanie klastra hybrydowego
 
@@ -84,6 +84,25 @@ Zmiana konfiguracji może potrwać kilka minut. Ponieważ usługa Helm śledzi w
     .\disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext
     ```
 
+#### <a name="using-service-principal"></a>Korzystanie z nazwy głównej usługi
+Skrypt *disable-monitoring.ps1* używa logowania interakcyjnego urządzenia. Jeśli wolisz nieinteraktywną logowanie, możesz użyć istniejącej nazwy głównej usługi lub utworzyć nową, która ma wymagane uprawnienia zgodnie z opisem w sekcji [wymagania wstępne](container-insights-enable-arc-enabled-clusters.md#prerequisites). Aby można było użyć jednostki usługi, należy przekazać parametry $servicePrincipalClientId, $servicePrincipalClientSecret i $tenantId z wartościami jednostki usługi, która ma być używana do enable-monitoring.ps1 skryptu.
+
+```powershell
+$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
+
+$servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
+$servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $servicePrincipal.Secret).Password
+$tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
+```
+
+Przykład:
+
+```powershell
+\disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId
+```
+
+
 ### <a name="using-bash"></a>Korzystanie z bash
 
 1. Pobierz i Zapisz skrypt do folderu lokalnego, który konfiguruje klaster przy użyciu dodatku do monitorowania za pomocą następujących poleceń:
@@ -117,6 +136,24 @@ Zmiana konfiguracji może potrwać kilka minut. Ponieważ usługa Helm śledzi w
     ```bash
     bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
     ```
+
+#### <a name="using-service-principal"></a>Korzystanie z nazwy głównej usługi
+Skrypt bash *disable-monitoring.sh* używa logowania interakcyjnego urządzenia. Jeśli wolisz nieinteraktywną logowanie, możesz użyć istniejącej nazwy głównej usługi lub utworzyć nową, która ma wymagane uprawnienia zgodnie z opisem w sekcji [wymagania wstępne](container-insights-enable-arc-enabled-clusters.md#prerequisites). Aby można było użyć jednostki usługi, należy przekazać wartości--Client-ID,--Client-Secret i--ID dla jednostki usługi, która ma zostać użyta do *enable-monitoring.sh* bash skryptu.
+
+```bash
+subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
+servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
+
+servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
+tenantId=$(echo $servicePrincipal | jq -r '.tenant')
+```
+
+Przykład:
+
+```bash
+bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

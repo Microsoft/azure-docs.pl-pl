@@ -1,25 +1,24 @@
 ---
 title: Omówienie zasad platformy Azure
 description: Azure Policy to usługa platformy Azure, która umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w środowisku platformy Azure.
-ms.date: 06/17/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044196"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905965"
 ---
 # <a name="what-is-azure-policy"></a>Co to jest Azure Policy?
 
-Azure Policy pomaga wymuszać standardy organizacyjne i oceniać zgodność na skalę. Pulpit nawigacyjny zgodności udostępnia Zagregowany widok do oceny ogólnego stanu środowiska, z możliwością przechodzenia do szczegółów dla poszczególnych zasobów i stopnia szczegółowości poszczególnych zasad. Pomaga również zapewnić zgodność zasobów dzięki korygowaniu zbiorczemu dla istniejących zasobów i automatycznym korygowaniu nowych zasobów.
+Usługa Azure Policy pomaga wymuszać standardy organizacyjne i oceniać zgodność na dużą skalę. Pulpit nawigacyjny zgodności udostępnia Zagregowany widok do oceny ogólnego stanu środowiska, z możliwością przechodzenia do szczegółów dla poszczególnych zasobów i stopnia szczegółowości poszczególnych zasad. Pomaga również zapewnić zgodność zasobów dzięki korygowaniu zbiorczemu dla istniejących zasobów i automatycznym korygowaniu nowych zasobów.
 
 Typowe przypadki użycia Azure Policy obejmują wdrażanie ładu pod kątem spójności zasobów, zgodności z przepisami, bezpieczeństwa, kosztów i zarządzania. Definicje zasad dla tych typowych przypadków użycia są już dostępne w środowisku platformy Azure jako wbudowane, aby pomóc Ci rozpocząć pracę.
 
 ## <a name="overview"></a>Omówienie
 
-Azure Policy oblicza zasoby na platformie Azure, porównując właściwości tych zasobów z regułami biznesowymi. Te reguły biznesowe, opisane w [formacie JSON](./concepts/definition-structure.md), są nazywane [definicjami zasad](#policy-definition). Aby uprościć zarządzanie, można zgrupować kilka reguł firmowych w celu utworzenia [inicjatywy](#initiative-definition) dotyczącej zasad (nazywanych czasem _policySet_). Po utworzeniu reguł firmy definicja zasad lub inicjatywa jest [przypisywana](#assignments) do dowolnego zakresu zasobów obsługiwanych przez platformę Azure, takich jak [grupy zarządzania](../management-groups/overview.md), subskrypcje, [grupy zasobów](../../azure-resource-manager/management/overview.md#resource-groups)lub poszczególne zasoby. Przypisanie dotyczy wszystkich zasobów w [zakresie](../../azure-resource-manager/management/overview.md#understand-scope) tego przydziału.
-W razie potrzeby można wykluczyć podzakresy.
+Azure Policy oblicza zasoby na platformie Azure, porównując właściwości tych zasobów z regułami biznesowymi. Te reguły biznesowe, opisane w [formacie JSON](./concepts/definition-structure.md), są nazywane [definicjami zasad](#policy-definition). Aby uprościć zarządzanie, można zgrupować kilka reguł firmowych w celu utworzenia [inicjatywy](#initiative-definition) dotyczącej zasad (nazywanych czasem _policySet_). Po utworzeniu reguł firmy definicja zasad lub inicjatywa jest [przypisywana](#assignments) do dowolnego zakresu zasobów obsługiwanych przez platformę Azure, takich jak [grupy zarządzania](../management-groups/overview.md), subskrypcje, [grupy zasobów](../../azure-resource-manager/management/overview.md#resource-groups)lub poszczególne zasoby. Przypisanie dotyczy wszystkich zasobów w [zakresie Menedżer zasobów](../../azure-resource-manager/management/overview.md#understand-scope) tego przydziału. W razie potrzeby można wykluczyć podzakresy. Aby uzyskać więcej informacji, zobacz [zakres w Azure Policy](./concepts/scope.md).
 
 Azure Policy używa [formatu JSON](./concepts/definition-structure.md) do tworzenia logiki używanej przez ewaluacyjną do określenia, czy zasób jest zgodny, czy nie. Definicje obejmują metadane i regułę zasad. Zdefiniowana reguła może używać funkcji, parametrów, operatorów logicznych, warunków i [aliasów](./concepts/definition-structure.md#aliases) właściwości, aby dokładnie dopasować żądany scenariusz. Reguła zasad określa, które zasoby z zakresu przydziału zostaną obliczone.
 
@@ -71,7 +70,7 @@ Kombinacja RBAC i Azure Policy zapewniają pełną kontrolę zakresu na platform
 Usługa Azure Policy ma kilka uprawnień, znanych jako operacje, w ramach dwóch dostawców zasobów:
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft. PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
 Wiele wbudowanych ról udziela uprawnień zasobom usługi Azure Policy. Rola **współautor zasad zasobów** obejmuje większość operacji Azure Policy. **Właściciel** ma pełne uprawnienia. Zarówno **współautor** , jak i **czytelnik** mają dostęp do wszystkich operacji _odczytu_ Azure Policy. **Współautor** może wyzwolić korygowanie zasobów, ale nie może _tworzyć_ definicji ani przypisań.
 
@@ -147,7 +146,7 @@ Na przykład masz definicję inicjatywy **initiativeC** oraz definicje zasad **p
 
 | Zasady | Nazwa parametru |Typ parametru  |Uwaga |
 |---|---|---|---|
-| policyA | allowedLocations | tablica  |Ten parametr oczekuje listy ciągów dla wartości, ponieważ typ parametru został zdefiniowany jako tablica |
+| policyA | allowedLocations | array  |Ten parametr oczekuje listy ciągów dla wartości, ponieważ typ parametru został zdefiniowany jako tablica |
 | policyB | allowedSingleLocation |ciąg |Ten parametr oczekuje jednego słowa dla wartości, ponieważ typ parametru został zdefiniowany jako ciąg |
 
 W tym scenariuszu podczas definiowania parametrów inicjatywy **initiativeC** dostępne są trzy opcje:

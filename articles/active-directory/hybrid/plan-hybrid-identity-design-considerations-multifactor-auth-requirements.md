@@ -1,6 +1,6 @@
 ---
 title: Projekt tożsamości hybrydowej — wymagania dotyczące uwierzytelniania wieloskładnikowego Azure | Microsoft Docs
-description: Przy użyciu kontroli dostępu warunkowego Azure Active Directory sprawdza określone warunki, które można wybrać podczas uwierzytelniania użytkownika i przed zezwoleniem na dostęp do aplikacji. Po spełnieniu tych warunków użytkownik zostanie uwierzytelniony i zezwoli na dostęp do aplikacji.
+description: Przy użyciu kontroli dostępu warunkowego usługa Azure AD weryfikuje określone warunki, które można wybrać podczas uwierzytelniania użytkownika i przed zezwoleniem na dostęp do aplikacji.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4743195fc79d43571ec79a13b8518edc7e81379b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d8ddf372e234bab242e4b28ba53dce7dd68cc89
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109292"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976046"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Określanie wymagań dotyczących uwierzytelniania wieloskładnikowego dla rozwiązania do obsługi tożsamości hybrydowej
 W tym świecie mobilności użytkownicy uzyskujący dostęp do danych i aplikacji w chmurze oraz z dowolnego urządzenia mogą zabezpieczyć te informacje.  Codziennie istnieje nowy nagłówek o naruszeniu zabezpieczeń.  Chociaż nie ma gwarancji na takie naruszenia, usługa uwierzytelniania wieloskładnikowego zapewnia dodatkową warstwę zabezpieczeń, która pomaga zapobiegać naruszeniu tych naruszeń.
@@ -58,6 +58,6 @@ Po udzieleniu odpowiedzi na poprzednie pytania można zrozumieć, czy uwierzytel
 ## <a name="next-steps"></a>Następne kroki
 [Definiowanie hybrydowej strategii wdrażania tożsamości](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 [Omówienie zagadnień dotyczących projektowania](plan-hybrid-identity-design-considerations-overview.md)
 

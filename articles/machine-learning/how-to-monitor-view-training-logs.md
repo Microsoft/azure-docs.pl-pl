@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 642186ef4af43127ba0d6eb6950f09e069eb79ca
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6f557ac8476224cdb8414b2a45952d8f7d34513d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649285"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904990"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorowanie i wyświetlanie dzienników i metryk przebiegów ML
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym artykule dowiesz się, jak monitorować uruchomienia Azure Machine Learning i przeglądać ich dzienniki. Przed wyświetleniem dzienników należy je najpierw włączyć. Aby uzyskać więcej informacji, zobacz [Włączanie rejestrowania w usłudze Azure ml Training](how-to-track-experiments.md).
 
@@ -129,7 +129,7 @@ Użyj następujących metod w interfejsie API rejestrowania, aby mieć wpływ na
 
 Spróbuj wykonać następujące kroki, aby dowiedzieć się, jak używać Azure Machine Learning:
 
-* Dowiedz się [, jak śledzić eksperymenty i włączać dzienniki w programie Azure Machine Learning Designer (wersja zapoznawcza)](how-to-track-designer-experiments.md).
+* Dowiedz się [, jak śledzić eksperymenty i włączać dzienniki w projektancie Azure Machine Learning](how-to-track-designer-experiments.md).
 
-* Zapoznaj się z przykładem sposobu rejestracji najlepszego modelu i wdrożenia go w samouczku, [uczenie modelu klasyfikacji obrazów przy użyciu Azure Machine Learning](tutorial-train-models-with-aml.md).
+* Zobacz w samouczku [Trenowanie modelu klasyfikacji obrazów za pomocą usługi Azure Machine Learning](tutorial-train-models-with-aml.md) przykład sposobu rejestrowania najlepszego modelu i wdrożenia go.
 

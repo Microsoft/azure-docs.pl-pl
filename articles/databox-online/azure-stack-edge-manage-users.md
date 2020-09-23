@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie użytkownikami w Azure Stack Edge | Microsoft Docs
-description: Opisuje sposób używania Azure Portal do zarządzania użytkownikami na Azure Stack brzegowej.
+title: Azure Stack EDGE Pro zarządzanie użytkownikami | Microsoft Docs
+description: Opisuje, jak używać Azure Portal do zarządzania użytkownikami w usłudze Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 1012ce417fb4952878dada29a9080c70954ed21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fb82e95d9d7dcfdf59bd05f91beff8e1184955e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339641"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904379"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge"></a>Użyj Azure Portal, aby zarządzać użytkownikami na platformie Azure Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać użytkownikami na platformie Azure Azure Stack EDGE Pro
 
-W tym artykule opisano sposób zarządzania użytkownikami na Azure Stackej krawędzi. Możesz zarządzać Azure Stack krawędzią za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Witryna Azure Portal umożliwia dodawanie, modyfikowanie i usuwanie użytkowników.
+W tym artykule opisano sposób zarządzania użytkownikami na Azure Stack Edge. Możesz zarządzać Azure Stack Edge przy użyciu Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Witryna Azure Portal umożliwia dodawanie, modyfikowanie i usuwanie użytkowników.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 

@@ -1,6 +1,6 @@
 ---
-title: Uaktualnij do warstwy Standardowa — Azure Security Center
-description: W tym przewodniku szybki start przedstawiono, jak przeprowadzić uaktualnienie do warstwy cenowej standardowa Security Center, aby zwiększyć bezpieczeństwo.
+title: Uaktualnianie do usługi Azure Defender — Azure Security Center
+description: W tym przewodniku szybki start przedstawiono, jak przeprowadzić uaktualnienie do usługi Azure Defender Security Center, aby uzyskać dodatkowe zabezpieczenia.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,104 +14,91 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 550c9ff57b9c558f2f175165c7f06ead45991be9
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: e51d0bfb79eab4db9bb571cc0f4ee70ada352d92
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226020"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895727"
 ---
-# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Szybki start: dołączanie subskrypcji platformy Azure do usługi Security Center w warstwie Standardowa
-Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. Chociaż warstwa Bezpłatna oferuje ograniczone zabezpieczenia tylko dla zasobów platformy Azure, warstwa standardowa rozszerza te możliwości do lokalnych i innych chmur. Usługa Security Center w warstwie Standardowa pomaga w wyszukiwaniu i naprawianiu luk w zabezpieczeniach, stosowaniu kontroli dostępu i aplikacji w celu blokowania złośliwych działań, wykrywaniu zagrożeń przy użyciu analizy oraz szybkim reagowaniu podczas ataku. Warstwę Standardowa usługi Security Center możesz wypróbować bezpłatnie. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/).
+# <a name="quickstart-setting-up-azure-security-center"></a>Szybki Start: Konfigurowanie Azure Security Center
 
-W tym artykule opisano uaktualnienie do warstwy Standardowa w celu zwiększenia bezpieczeństwa i zainstalowania agenta Log Analytics na maszynach wirtualnych w celu monitorowania luk w zabezpieczeniach i zagrożeń.
+Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. Chociaż bezpłatne funkcje oferują ograniczone zabezpieczenia tylko dla zasobów platformy Azure, włączenie usługi Azure Defender rozszerza te możliwości do lokalnych i innych chmur. Usługa Azure Defender ułatwia znajdowanie i rozwiązywanie luk w zabezpieczeniach, stosowanie kontroli dostępu i aplikacji w celu blokowania złośliwych działań, wykrywanie zagrożeń przy użyciu analiz i analiz oraz szybkie reagowanie na ataki. Możesz bezpłatnie wypróbować usługę Azure Defender. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/).
+
+W tym artykule opisano uaktualnienie do usługi Azure Defender w celu zwiększenia bezpieczeństwa i zainstalowanie agenta Log Analytics na maszynach w celu monitorowania luk w zabezpieczeniach i zagrożeń.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do rozpoczęcia korzystania z usługi Security Center wymagana jest subskrypcja usługi Microsoft Azure. Jeśli nie masz subskrypcji, możesz zarejestrować się, aby uzyskać dostęp do [bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).
 
-Aby uaktualnić subskrypcję do warstwy Standardowa, musisz mieć przypisaną rolę właściciela subskrypcji, współautora subskrypcji lub administratora zabezpieczeń.
+Aby włączyć usługę Azure Defender w ramach subskrypcji, musisz mieć przypisaną rolę właściciela subskrypcji, współautora subskrypcji lub administratora zabezpieczeń.
 
-## <a name="enable-your-azure-subscription"></a>Włączanie subskrypcji platformy Azure
 
-1. Zaloguj się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+## <a name="open-security-center-for-the-first-time"></a>Otwórz Security Center po raz pierwszy
 
-1. W menu **Microsoft Azure** wybierz pozycję **Security Center**. **Security Center — przegląd** zostanie otwarty.
+1. Zaloguj się w witrynie [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 
-   ![Security Center — Przegląd][2]
+1. Z menu portalu wybierz pozycję **Security Center**. 
 
-Okno **Security Center — Przegląd** zapewnia ujednolicony wgląd w stan zabezpieczeń obciążeń chmury hybrydowej, dzięki czemu możesz odnajdywać i oceniać zabezpieczenia obciążeń oraz identyfikować i ograniczać ryzyko. Usługa Security Center automatycznie włącza warstwę Bezpłatna dla wszystkich subskrypcji platformy Azure, które nie zostały wcześniej dołączone przez Ciebie lub innego użytkownika subskrypcji.
+    Zostanie otwarta strona przeglądu Security Center.
 
-Klikając element menu **Subskrypcje**, możesz wyświetlić i filtrować listę subskrypcji. Usługa Security Center rozpocznie teraz ocenę zabezpieczeń tych subskrypcji, aby zidentyfikować luki w zabezpieczeniach. Aby dostosować typy ocen, możesz zmodyfikować zasady zabezpieczeń. Zasady zabezpieczeń definiują pożądaną konfigurację Twoich obciążeń oraz pomagają zapewnić zgodność z wymaganiami dotyczącymi zabezpieczeń określonymi przez firmę lub przepisy.
+    :::image type="content" source="./media/security-center-get-started/overview.png" alt-text="Pulpit nawigacyjny przeglądu Security Center" lightbox="./media/security-center-get-started/overview.png":::
+
+Okno **Security Center — Przegląd** zapewnia ujednolicony wgląd w stan zabezpieczeń obciążeń chmury hybrydowej, dzięki czemu możesz odnajdywać i oceniać zabezpieczenia obciążeń oraz identyfikować i ograniczać ryzyko. Security Center automatycznie, bez żadnych kosztów, umożliwia korzystanie z subskrypcji platformy Azure, które nie zostały wcześniej dołączone przez Ciebie lub innego użytkownika subskrypcji.
+
+Możesz wyświetlić i filtrować listę subskrypcji, wybierając element menu **subskrypcje** . Security Center dostosowuje wyświetlanie, aby odzwierciedlały stan zabezpieczeń wybranych subskrypcji. 
 
 W ciągu kilku minut od pierwszego uruchomienia usługi Security Center mogą zostać wyświetlone następujące informacje:
 
-- **Zalecenia** dotyczące sposobów poprawy zabezpieczeń subskrypcji platformy Azure. Kliknięcie kafelka **Zalecenia** spowoduje uruchomienie priorytetyzowanej listy.
-- Spis zasobów **Obliczenia i aplikacje**, **Sieć**, **Bezpieczeństwo danych** oraz **Tożsamość i dostęp**, które są obecnie oceniane przez usługę Security Center wraz ze stanem zabezpieczeń każdego z nich.
+- **Zalecenia** dotyczące sposobów zwiększania bezpieczeństwa połączonych zasobów.
+- Spis zasobów, które są teraz oceniane przez Security Center, wraz z stan zabezpieczeń każdego z nich.
 
-Aby w pełni wykorzystać Security Center, należy wykonać poniższe kroki, aby przeprowadzić uaktualnienie do warstwy Standardowa i zainstalować agenta Log Analytics.
+Aby w pełni wykorzystać Security Center, należy wykonać poniższe kroki, aby włączyć usługę Azure Defender i zainstalować agenta Log Analytics.
 
 
-## <a name="upgrade-to-the-standard-tier"></a>Zmiana warstwy na wyższą warstwę Standardowa
+## <a name="enable-azure-defender"></a>Włączanie usługi Azure Defender
 
-Na potrzeby przewodników Szybki start i samouczków usługi Security Center musisz zmienić warstwę na wyższą warstwę Standardowa. Usługa Security Center w warstwie Standardowa jest dostępna w bezpłatnej wersji próbnej. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). 
+Na potrzeby przewodników Szybki Start i samouczków Security Center należy włączyć usługę Azure Defender. Dostępna jest bezpłatna 30-dniowa wersja próbna. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. Na pasku bocznym Security Center wybierz opcję **wprowadzenie**.
- 
-   ![Wprowadzenie](./media/security-center-get-started/get-started-upgrade-tab.png)
+
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Karta Uaktualnij na stronie Wprowadzenie"::: 
 
     Karta **Uaktualnij** zawiera listę subskrypcji i obszarów roboczych kwalifikujących się do dołączenia.
 
-1. Z listy **Wybierz obszary robocze do włączenia warstwy Standardowa** wybierz obszary robocze do uaktualnienia.
+1. Z listy **Wybierz obszary robocze, aby włączyć usługę Azure Defender na** liście Wybierz obszary robocze do uaktualnienia.
+   - Jeśli wybierzesz subskrypcje i obszary robocze, które nie są uprawnione do korzystania z wersji próbnej, następnym krokiem spowoduje ich uaktualnienie, a opłaty zostaną naliczone.
+   - W przypadku wybrania obszaru roboczego, który kwalifikuje się do korzystania z bezpłatnej wersji próbnej, następnym krokiem będzie rozpoczęcie korzystania z wersji próbnej.
+1. Wybierz pozycję **Uaktualnij** , aby włączyć usługę Azure Defender.
 
+## <a name="enable-automatic-data-collection"></a>Włącz automatyczne zbieranie danych
+Security Center zbiera dane z maszyn do monitorowania pod kątem luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Domyślnie usługa Security Center utworzy nowy obszar roboczy.
 
-    > [!TIP]
-    > W przypadku wybrania obszaru roboczego, który kwalifikuje się do korzystania z bezpłatnej wersji próbnej, następnym krokiem będzie rozpoczęcie korzystania z wersji próbnej. Jeśli obszary robocze nie kwalifikują się do korzystania z wersji próbnej, zostaną uaktualnione i rozpocznie się naliczanie opłat.
-
-1. Wybierz pozycję **Uaktualnij** , aby uaktualnić wybrane obszary robocze do warstwy Standardowa.
-
-
-## <a name="automate-data-collection"></a>Automatyzacja zbierania danych
-Usługa Security Center zbiera dane z maszyn wirtualnych platformy Azure i komputerów spoza platformy Azure w celu monitorowania pod kątem luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Domyślnie usługa Security Center utworzy nowy obszar roboczy.
-
-Po włączeniu automatycznej aprowizacji program Security Center instaluje agenta Log Analytics na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i utworzonych nowych. Używanie automatycznej aprowizacji jest zdecydowanie zalecane.
+W przypadku włączenia automatycznej obsługi administracyjnej program Security Center instaluje agenta Log Analytics na wszystkich obsługiwanych maszynach i utworzonych nowych. Używanie automatycznej aprowizacji jest zdecydowanie zalecane.
 
 Aby włączyć automatyczną obsługę administracyjną agenta Log Analytics:
 
-1. W menu głównym Security Center wybierz pozycję **cennik & ustawienia**.
-1. W wierszu subskrypcji kliknij subskrypcję, dla której chcesz zmienić ustawienia.
-1. Na karcie **Zbieranie danych** ustaw opcję **Automatyczna aprowizacja** na wartość **Wł**.
+1. W menu Security Center wybierz pozycję **cennik & ustawienia**.
+1. Wybierz odpowiednią subskrypcję.
+1. Na stronie **zbieranie danych** ustaw opcję **samoobsługowego udostępniania** na wartość **włączone**.
 1. Wybierz pozycję **Zapisz**.
----
-  ![Włączanie automatycznej aprowizacji][6]
 
-Dzięki temu nowemu wglądowi w maszyny wirtualne platformy Azure usługa Security Center może udostępniać dodatkowe zalecenia dotyczące stanu aktualizacji systemu, konfiguracji zabezpieczeń systemu operacyjnego i ochrony punktów końcowych, a także generować dodatkowe alerty zabezpieczeń.
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics":::
 
-  ![Zalecenia][8]
+>[!TIP]
+> Jeśli konieczne jest zainicjowanie obszaru roboczego, Instalacja agenta może trwać do 25 minut.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
-Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, Kontynuuj uruchamianie warstwy Standardowa i Włącz automatyczną obsługę administracyjną. Jeśli nie zamierzasz kontynuować lub chcesz wrócić do warstwy bezpłatnej:
-
-1. Wróć do menu głównego Security Center i wybierz pozycję **cennik & ustawienia**.
-2. Kliknij subskrypcję, którą chcesz zmienić w ramach warstwy Bezpłatna.
-3. Wybierz pozycję **warstwa cenowa** i wybierz opcję **bezpłatna** , aby zmienić subskrypcję z warstwy Standardowa na warstwa Bezpłatna.
-5. Wybierz pozycję **Zapisz**.
-
-Jeśli chcesz wyłączyć automatyczną aprowizację:
-
-1. Wróć do menu głównego Security Center i wybierz pozycję **cennik & ustawienia**.
-2. Wyczyść subskrypcję, dla której chcesz wyłączyć automatyczne Inicjowanie obsługi administracyjnej.
-3. Na karcie **Zbieranie danych** ustaw opcję **Automatyczna aprowizacja** na wartość **Wył**.
-4. Wybierz pozycję **Zapisz**.
+Dzięki agentowi wdrożonemu na maszynach Security Center mogą zapewnić dodatkowe zalecenia dotyczące stanu aktualizacji systemu, konfiguracji zabezpieczeń systemu operacyjnego, programu Endpoint Protection, a także generować dodatkowe alerty zabezpieczeń.
 
 >[!NOTE]
-> Wyłączenie automatycznej aprowizacji nie powoduje usunięcia agenta Log Analytics z maszyn wirtualnych platformy Azure, w przypadku których Agent został zainicjowany. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.
->
+> Ustawienie opcji autozastrzeganie na **wyłączone** nie powoduje usunięcia agenta log Analytics z maszyn wirtualnych platformy Azure, w przypadku których Agent został już zainicjowany. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.
+
+
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku szybki start uaktualniono do warstwy Standardowa i zainicjowano agenta Log Analytics w celu zapewnienia ujednoliconego zarządzania zabezpieczeniami i ochrony przed zagrożeniami w ramach obciążeń chmury hybrydowej. Aby dowiedzieć się więcej na temat korzystania z usługi Security Center, przejdź do przewodnika Szybki start dotyczącego dołączania komputerów z systemem Windows znajdujących się w środowisku lokalnym i w innych chmurach.
+W tym przewodniku szybki start włączono usługę Azure Defender i Zainicjowano obsługę agenta Log Analytics w celu zapewnienia ujednoliconego zarządzania zabezpieczeniami i ochrony przed zagrożeniami w ramach obciążeń chmury hybrydowej. Aby dowiedzieć się więcej na temat korzystania z usługi Security Center, przejdź do przewodnika Szybki start dotyczącego dołączania komputerów z systemem Windows znajdujących się w środowisku lokalnym i w innych chmurach.
 
 > [!div class="nextstepaction"]
-> [Szybki start: dołączanie komputerów z systemem Windows do usługi Azure Security Center](quick-onboard-windows-computer.md)
+> [Szybki Start: dołączanie maszyn nienależących do platformy Azure](quickstart-onboard-machines.md)
 
 Chcesz zoptymalizować i zapisać wydatki na chmurę?
 

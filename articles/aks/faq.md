@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7a56756855319ee72bd5b3dc60ad1ae440afd7fe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4150f850263aed7b8aa4317028386dc285f06ade
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927151"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905344"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -115,7 +115,7 @@ Aby chronić stabilność systemu i zapobiegać wpływowi niestandardowych kontr
 
 Jeśli masz krytyczny przypadek użycia, który ma zostać wdrożony w systemie polecenia (niezalecane), którego wymagasz, aby był objęty przez niestandardowy element webhook przyjęcia, możesz dodać etykietę lub adnotację w taki sposób, aby Enforcer ignorował ją.
 
-Etykieta: ```"admissions.enforcer/disabled": "true"``` lub Adnotacja:```"admissions.enforcer/disabled": true```
+Etykieta: ```"admissions.enforcer/disabled": "true"``` lub Adnotacja: ```"admissions.enforcer/disabled": true```
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Czy Azure Key Vault jest zintegrowany z AKS?
 
@@ -163,7 +163,7 @@ Można, ale AKS nie jest to zalecane. Uaktualnienia powinny być wykonywane, gdy
 
 Nie, Usuń/Usuń wszystkie węzły w stanie awarii lub w inny sposób usunięte z klastra przed uaktualnieniem.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Klaster został usunięty, ale zapoznaj się z błędem`[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Klaster został usunięty, ale zapoznaj się z błędem `[Errno 11001] getaddrinfo failed` 
 
 Najczęściej jest to spowodowane tym, że użytkownicy, którzy mają co najmniej jedną sieciową grupę zabezpieczeń (sieciowych grup zabezpieczeń), są nadal używani i skojarzeni z klastrem.  Usuń je i spróbuj ponownie wykonać operację usuwania.
 
@@ -173,7 +173,11 @@ Upewnij się, że nazwa główna usługi nie wygasła.  Zapoznaj się z tematem:
 
 ## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Mój klaster działał, ale nagle nie może zainicjować obsługi LoadBalancers, instalacji obwodów PVC itp.? 
 
-Upewnij się, że nazwa główna usługi nie wygasła.  Zapoznaj się z tematem: [AKS nazwa główna usługi](./kubernetes-service-principal.md) i [AKS Aktualizuj poświadczenia](./update-credentials.md).
+Upewnij się, że nazwa główna usługi nie wygasła.  Zapoznaj się z tematem: [AKS nazwa główna usługi](./kubernetes-service-principal.md)  i [AKS Aktualizuj poświadczenia](./update-credentials.md).
+
+## <a name="can-i-scale-my-aks-cluster-to-zero"></a>Czy mogę skalować klaster AKS do zera?
+Można całkowicie [zatrzymać uruchomiony klaster AKS](start-stop-cluster.md), co pozwala zaoszczędzić na odpowiednich kosztach obliczeniowych. Ponadto w celu [skalowania lub automatycznego skalowania wszystkich lub określonych `User` pul węzłów](scale-cluster.md#scale-user-node-pools-to-0) można również wybrać wartość 0, zachowując tylko wymaganą konfigurację klastra.
+Nie można bezpośrednio skalować [pul węzła systemowego](use-system-pools.md) do wartości 0.
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Czy można używać interfejsów API zestawu skalowania maszyn wirtualnych do skalowania ręcznie?
 

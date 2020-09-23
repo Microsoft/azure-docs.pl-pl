@@ -1,16 +1,16 @@
 ---
 title: Przywracanie SQL Server baz danych na maszynie wirtualnej platformy Azure
-description: W tym artykule opisano sposób przywracania SQL Server baz danych, które są uruchomione na maszynie wirtualnej platformy Azure i których kopia zapasowa została utworzona przy użyciu Azure Backup.
+description: W tym artykule opisano sposób przywracania SQL Server baz danych, które są uruchomione na maszynie wirtualnej platformy Azure i których kopia zapasowa została utworzona przy użyciu Azure Backup. Można również użyć przywracania między regionami w celu przywrócenia baz danych do regionu pomocniczego.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377985"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985368"
 ---
-# <a name="restore-sql-server-databases-on-azure-vms"></a>Przywracanie SQL Server baz danych na maszynach wirtualnych platformy Azure
+# <a name="restore-sql-server-databases-on-azure-vms"></a>Przywracanie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure
 
 W tym artykule opisano sposób przywracania bazy danych SQL Server działającej na maszynie wirtualnej platformy Azure (VM), w której utworzono kopię zapasową usługi [Azure Backup](backup-overview.md) do magazynu Azure Backup Recovery Services.
 
@@ -30,7 +30,7 @@ Przed przystąpieniem do przywracania bazy danych należy zwrócić uwagę na na
 - Można przywrócić bazę danych do wystąpienia programu SQL Server w tym samym regionie platformy Azure.
 - Serwer docelowy musi być zarejestrowany w tym samym magazynie co źródło.
 - Aby przywrócić bazę danych zaszyfrowaną TDE na inny SQL Server, należy najpierw [przywrócić certyfikat na serwerze docelowym](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- Bazy danych z włączoną funkcją [przechwytywania](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) zmian należy przywrócić przy użyciu opcji [Przywróć jako pliki](#restore-as-files) .
+- Bazy danych z włączoną funkcją [przechwytywania](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) zmian należy przywrócić przy użyciu opcji [Przywróć jako pliki](#restore-as-files) .
 - Przed przystąpieniem do przywracania bazy danych "Master" uruchom wystąpienie SQL Server w trybie jednego użytkownika przy użyciu opcji Start **-m AzureWorkloadBackup**.
   - Wartość parametru **-m** to nazwa klienta.
   - Połączenie może otworzyć tylko określona nazwa klienta.
@@ -168,6 +168,51 @@ Jeśli wybrano opcję **pełny & różnicowa** jako typ przywracania, wykonaj na
 Jeśli całkowity rozmiar ciągu plików w bazie danych jest większy niż [określony limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup przechowuje listę plików bazy danych w innym składniku Pit, dlatego nie można ustawić docelowej ścieżki przywracania podczas operacji przywracania. Pliki zostaną przywrócone do domyślnej ścieżki SQL.
 
   ![Przywracanie bazy danych z dużym plikiem](./media/backup-azure-sql-database/restore-large-files.jpg)
+
+## <a name="cross-region-restore"></a>Przywracanie między regionami
+
+Ponieważ jedna z opcji przywracania, przywracanie między regionami (CRR) umożliwia przywracanie baz danych SQL hostowanych na maszynach wirtualnych platformy Azure w regionie pomocniczym, który jest sparowanym regionem platformy Azure.
+
+Aby dołączyć do funkcji w wersji zapoznawczej, zapoznaj się z [sekcją przed rozpoczęciem](./backup-create-rs-vault.md#set-cross-region-restore).
+
+Aby sprawdzić, czy CRR jest włączona, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie przywracania między regionami](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### <a name="view-backup-items-in-secondary-region"></a>Wyświetlanie elementów kopii zapasowej w regionie pomocniczym
+
+Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regionie pomocniczym.
+
+1. W portalu przejdź do pozycji **Recovery Services**  >  **elementy kopii zapasowej**magazynu.
+1. Wybierz **region pomocniczy** , aby wyświetlić elementy w regionie pomocniczym.
+
+>[!NOTE]
+>Na liście zostaną wyświetlone tylko typy zarządzania kopiami zapasowymi obsługujące funkcję CRR. Obecnie dozwolony jest tylko program obsługujący przywracanie danych regionu pomocniczego do regionu pomocniczego.
+
+![Elementy kopii zapasowej w regionie pomocniczym](./media/backup-azure-sql-database/backup-items-secondary-region.png)
+
+![Bazy danych w regionie pomocniczym](./media/backup-azure-sql-database/databases-secondary-region.png)
+
+### <a name="restore-in-secondary-region"></a>Przywróć w regionie pomocniczym
+
+Środowisko użytkownika do przywracania regionu pomocniczego będzie podobne do środowiska użytkownika w regionie podstawowym. Podczas konfigurowania szczegółów w okienku Przywracanie konfiguracji w celu skonfigurowania przywracania zostanie wyświetlony monit o podanie tylko parametrów regionu pomocniczego.
+
+![Miejsce i sposób przywracania](./media/backup-azure-sql-database/restore-secondary-region.png)
+
+>[!NOTE]
+>Sieć wirtualną w regionie pomocniczym musi być przypisana unikatowa i nie może być używana dla żadnych innych maszyn wirtualnych w tej grupie zasobów.
+
+![Powiadomienie o wyzwoleniu przywracania w toku](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>- Po wyzwoleniu przywracania i fazie transferu danych nie można anulować zadania przywracania.
+>- Role platformy Azure, które muszą zostać przywrócone w regionie pomocniczym, są takie same jak w regionie podstawowym.
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>Monitorowanie zadań przywracania regionu pomocniczego
+
+1. W portalu przejdź do obszaru **Recovery Services**  >  **zadania tworzenia kopii zapasowej** magazynu
+1. Wybierz **region pomocniczy** , aby wyświetlić elementy w regionie pomocniczym.
+
+    ![Odfiltrowane zadania tworzenia kopii zapasowej](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

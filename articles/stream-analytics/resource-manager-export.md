@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 76c2cf7164c3e2d683a9294cb500ed05381811b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c421c730321213a9adbf0a0043874a21ba26bb05
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043533"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906236"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Eksportowanie szablonu Azure Resource Manager zadania Azure Stream Analytics
 
@@ -28,7 +28,7 @@ Aby wyeksportować zadanie do projektu lokalnego, zlokalizuj zadanie, które chc
 
 ![Otwórz zadanie Stream Analytics w Visual Studio Code](./media/resource-manager-export/open-job-vs-code.png)
 
-Aby uzyskać więcej informacji na temat korzystania z Visual Studio Code do zarządzania zadaniami Stream Analytics, zobacz [Przewodnik Szybki Start](quick-create-vs-code.md)dotyczący usługi Visual Studio Code.
+Aby uzyskać więcej informacji na temat korzystania z Visual Studio Code do zarządzania zadaniami Stream Analytics, zobacz [Przewodnik Szybki Start](quick-create-visual-studio-code.md)dotyczący usługi Visual Studio Code.
 
 ## <a name="compile-the-script"></a>Kompilowanie skryptu 
 

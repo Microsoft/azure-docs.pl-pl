@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 347c539abbe90119a74394eeb748af12d30d0b15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569054"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904668"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Używanie zaleceń usługi Azure Security Center w celu ulepszania zabezpieczeń
 
@@ -41,7 +41,7 @@ David, od zabezpieczeń IT firmy Contoso, został już wybrany do dołączenia S
 
 Security Center automatycznie analizuje stan zabezpieczeń zasobów platformy Azure firmy Contoso i stosuje domyślne zasady zabezpieczeń. Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy **zalecenia** na podstawie kontrolek ustawionych w zasadach zabezpieczeń. 
 
-David uruchamia usługę Azure Security Standard w ramach wszystkich subskrypcji w celu uzyskania pełnego zestawu zaleceń i funkcji zabezpieczeń. Jan również dołącza wszystkie istniejące serwery lokalne, które nie zostały jeszcze poddane migracji do chmury, dzięki czemu mogą korzystać z pomocy technicznej hybrydowej Security Center na serwerach z [systemami Windows](quick-onboard-windows-computer.md) i [Linux](quick-onboard-linux-computer.md) .
+David uruchamia zabezpieczenia platformy Azure z włączonym usługą Azure Defender, we wszystkich swoich subskrypcjach, aby uzyskać pełny pakiet zaleceń i funkcji zabezpieczeń. Jan również dołącza wszystkie istniejące serwery lokalne, które nie zostały jeszcze poddane migracji do chmury, dzięki czemu mogą korzystać z pomocy technicznej hybrydowej Security Center na [serwerach z systemami Windows i Linux](quickstart-onboard-machines.md).
 
 Jan jest właścicielem obciążenia w chmurze. Jan jest odpowiedzialny za stosowanie kontroli zabezpieczeń zgodnie z zasadami zabezpieczeń firmy Contoso. 
 
@@ -60,9 +60,9 @@ W ramach codziennych działań monitorowania Jan loguje się do platformy Azure 
 
 3. Jan musi zdecydować, które zalecenia należy obsłużyć w pierwszej kolejności. Dlatego Jan klika polecenie Secure Score i zaczyna obsługiwać zalecenia w zależności od tego, jak dużo poprawia swój [bezpieczny wynik](secure-score-security-controls.md).
 
-4. Ze względu na to, że program Jan ma wiele połączonych maszyn wirtualnych i serwerów, Marcin decyduje się skoncentrować na **obliczeniach i aplikacjach**.
+4. Ponieważ Jan ma wiele połączonych maszyn wirtualnych, Marcin decyduje się skupić na jego maszynach w [spisie zasobów](asset-inventory.md).
 
-5. Gdy Marcin kliknie pozycję **obliczeniową i aplikacje**, zobaczy listę zaleceń i obsłuży je zgodnie z bezpiecznym wpływem na ocenę.
+5. Gdy Jan otworzy spis zasobów, zostanie wyświetlona lista zaleceń. Jan obsługuje je zgodnie z bezpiecznym wpływem na ocenę.
 
 6. Marcin ma wiele maszyn wirtualnych połączonych z Internetem, a ponieważ ich porty są ujawniane, są martwisz się, że osoba atakująca może przejąć kontrolę nad serwerami. Dlatego Jan wybiera, aby korzystać z [**dostępu just in Time do maszyny wirtualnej**](security-center-just-in-time.md).
 

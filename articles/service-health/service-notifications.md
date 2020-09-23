@@ -1,14 +1,14 @@
 ---
 title: Wyświetlanie powiadomień dotyczących kondycji usługi za pomocą witryny Azure Portal
-description: Powiadomienia o kondycji usługi umożliwiają wyświetlanie komunikatów kondycji usługi opublikowanych przez Microsoft Azure.
+description: Wyświetl powiadomienia dotyczące kondycji usługi w Azure Portal. Powiadomienia o kondycji usługi są publikowane przez infrastrukturę platformy Azure w dzienniku aktywności platformy Azure.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 9f8297ae708d3f4e7921221f2c4bacee12a7a2b1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 615d08b6a04aef9e8ef2033154da8ff8caeebe04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089570"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967781"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Wyświetlanie powiadomień dotyczących kondycji usługi za pomocą witryny Azure Portal
 

@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Key Vault
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Key Vault. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7d9f1330d641b97eeaa6d718cdac4b195960cc6b
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 14bb0cadb264850ebb7027731cb5be37bd56fe30
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007472"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985474"
 ---
 # <a name="azure-policy-built-in-definitions-for-key-vault"></a>Azure Policy wbudowane definicje Key Vault
 

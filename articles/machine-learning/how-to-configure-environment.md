@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8ad22abdf17c68c93a6189db839fe357e7acc91e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 4ccf89a4dcb2c91cfdd96b20d74b7f31596b6249
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650833"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898279"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne dla Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym artykule dowiesz się, jak skonfigurować środowisko deweloperskie do pracy z Azure Machine Learning. Azure Machine Learning jest platformą niezależny od. Jedynym wymaganiem twardym dla środowiska programistycznego jest Python 3. Zalecane jest również środowisko izolowane, takie jak Anaconda lub virtualenv.
 
@@ -61,7 +61,7 @@ Nie ma nic do zainstalowania lub skonfigurowania wystąpienia obliczeniowego.  U
 
 Aby dowiedzieć się więcej o wystąpieniach obliczeniowych, w tym o sposobie instalowania pakietów, zobacz [wystąpienia obliczeniowe](concept-compute-instance.md).
 
-Aby zatrzymać naliczanie opłat za obliczenia, [Zatrzymaj wystąpienie obliczeniowe](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
+Aby zatrzymać naliczanie opłat za obliczenia, [Zatrzymaj wystąpienie obliczeniowe](tutorial-1st-experiment-bring-data.md#clean-up-resources).
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Maszyna wirtualna do analizy danych
 

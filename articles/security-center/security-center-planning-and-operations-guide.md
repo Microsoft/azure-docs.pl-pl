@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 45d3ec8dc5d819464046e40bab22491a4bccde63
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e5d483af44116274019851f049d6222adfd8dbcd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461327"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904852"
 ---
 # <a name="planning-and-operations-guide"></a>Przewodnik dotyczący planowania i operacji
 Ten przewodnik jest przeznaczony dla specjalistów IT, architektów IT, analityków zabezpieczeń informacji i administratorów chmury do korzystania z Azure Security Center.
@@ -40,7 +40,7 @@ W zależności od rozmiaru i struktury organizacji wiele osób oraz zespołów m
 
 ![Role](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązków. Na przykład:
+Usługa Security Center umożliwia tym osobom wypełnianie różnych obowiązków. Przykład:
 
 **Jan (właściciel obciążenia)**
 
@@ -120,7 +120,7 @@ Zasady usługi Security Center zawierają następujące składniki:
 - [Zbieranie danych](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): ustawienia agenta aprowizacji i zbierania danych.
 - [Zasady zabezpieczeń](https://docs.microsoft.com/azure/security-center/security-center-policies): [Azure Policy](../governance/policy/overview.md) , który określa, które kontrolki są monitorowane i zalecane przez Security Center, lub użyj Azure Policy do tworzenia nowych definicji, definiowania dodatkowych zasad i przypisywania zasad w grupach zarządzania.
 - [Wiadomości e-mail z powiadomieniami](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): ustawienia kontaktów i powiadomień dotyczących zabezpieczeń.
-- [Warstwa cenowa](https://docs.microsoft.com/azure/security-center/security-center-pricing): wybór wersji bezpłatnej lub ceny standardowej, który określa, które funkcje usługi Security Center są dostępne dla zasobów w zakresie (można określić dla subskrypcji, grupy zasobów i obszarów roboczych).
+- [Warstwa cenowa](https://docs.microsoft.com/azure/security-center/security-center-pricing): z usługą Azure Defender lub bez niej, która określa, które funkcje Security Center są dostępne dla zasobów w zakresie (można je określić dla subskrypcji, grup zasobów i obszarów roboczych).
 
 > [!NOTE]
 > Określenie kontaktu dotyczącego zabezpieczeń, za pomocą którego zespół platformy Azure może się skontaktować z odpowiednią osobą w Twojej organizacji, jeśli wystąpi incydent związany z zabezpieczeniami. Aby uzyskać więcej informacji na temat sposobu włączania tego zalecenia, przeczytaj [Provide security contact details in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) (Wprowadzanie danych kontaktowych na potrzeby zabezpieczeń w usłudze Azure Security Center).
@@ -158,12 +158,12 @@ W witrynie Azure Portal można wyświetlić listę swoich obszarów roboczych us
 W przypadku obszarów roboczych utworzonych przez usługę Azure Security Center dane są przechowywane przez 30 dni. W przypadku istniejących obszarów przechowywanie zależy od warstwy cenowej obszaru roboczego. Jeśli chcesz, możesz również użyć istniejącego obszaru roboczego.
 
 > [!NOTE]
-> Firma Microsoft zobowiązuje się chronić poufność i bezpieczeństwo tych danych. Firma Microsoft przestrzega surowych wymogów z zakresu zabezpieczeń i zgodności — od kodu po działanie usługi. Aby uzyskać więcej informacji na temat obsługi danych i poufności, należy przeczytać artykuł [Azure Security Center — bezpieczeństwo danych](security-center-data-security.md).
+> Firma Microsoft podejmuje mocne zobowiązania w zakresie ochrony prywatności i bezpieczeństwa tych danych. Firma Microsoft przestrzega surowych wymogów z zakresu zabezpieczeń i zgodności — od kodu po działanie usługi. Aby uzyskać więcej informacji na temat obsługi danych i poufności, należy przeczytać artykuł [Azure Security Center — bezpieczeństwo danych](security-center-data-security.md).
 >
 
 ## <a name="onboarding-non-azure-resources"></a>Dołączanie zasobów innych niż platformy Azure
 
-Usługa Security Center może monitorować stan bezpieczeństwa komputerów nienależących do platformy Azure, ale musisz najpierw dołączyć te zasoby. Przeczytaj artykuł [Onboarding to Azure Security Center Standard for enhanced security](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers) (Dołączanie do standardowej usługi Azure Security Center w celu poprawy zabezpieczeń), aby uzyskać więcej informacji na temat sposobu dołączania zasobów nienależących do platformy Azure.
+Usługa Security Center może monitorować stan bezpieczeństwa komputerów nienależących do platformy Azure, ale musisz najpierw dołączyć te zasoby. Odczytuj [komputery spoza platformy Azure](quickstart-onboard-machines.md) , aby uzyskać więcej informacji na temat sposobu dołączania zasobów nienależących do platformy Azure.
 
 ## <a name="ongoing-security-monitoring"></a>Bieżące monitorowanie zabezpieczeń
 Po wstępnej konfiguracji i zastosowaniu zaleceń usługi Security Center następny krok polega na uwzględnieniu procesów operacyjnych usługi Security Center.
@@ -199,7 +199,7 @@ Usługa Security Center wykrywa zagrożenia i powiadamia o nich, gdy tylko wyst�
 
 Chociaż w tym artykule nie ma potrzeby pomocy przy tworzeniu własnego planu reagowania na zdarzenia, będziemy używać Microsoft Azure odpowiedzi na zabezpieczenia w cyklu życia chmury jako podstawę etapów reagowania na zdarzenia. Poszczególne etapy przedstawiono na poniższym diagramie:
 
-![Podejrzane działania](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
+![Etapy odpowiedzi na zdarzenia w cyklu życia chmury](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
 > W tworzeniu takiego planu może pomóc [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) (Przewodnik obsługi zdarzeń zabezpieczeń komputera) Narodowego Instytutu Norm i Technologii (NIST).

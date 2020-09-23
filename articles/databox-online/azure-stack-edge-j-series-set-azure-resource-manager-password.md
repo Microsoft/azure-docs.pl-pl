@@ -1,6 +1,6 @@
 ---
-title: Ustawianie hasła Azure Resource Manager na urządzeniu z systemem Azure Stack Edge
-description: Opisuje sposób nawiązywania połączenia z Azure Resource Manager działającą na Azure Stack procesora GPU przy użyciu Azure PowerShell.
+title: Ustawianie Azure Resource Manager hasła na urządzeniu z systemem Azure Stack EDGE Pro GPU
+description: Zawiera opis sposobu nawiązywania połączenia z Azure Resource Manager uruchomionego na Azure Stackj funkcji brzegowej procesora GPU przy użyciu Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6a59510b342f7ebd3969a4bb4fcfd75fffd04804
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254155"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904486"
 ---
-# <a name="set-azure-resource-manager-password-on-azure-stack-edge-gpu-device"></a>Ustawianie hasła Azure Resource Manager na urządzeniu z systemem Azure Stack Edge
+# <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Ustawianie hasła Azure Resource Manager na urządzeniu z systemem Azure Stack Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -122,7 +122,7 @@ Procedura ustawiania hasła może się różnić w zależności od tego, czy uż
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    Użyj powyższych wygenerowanych zabezpieczonych ciągów jako parametrów w poleceniu cmdlet Set-AzDataBoxEdgeUser, aby zresetować hasło. Użyj tej samej grupy zasobów, która została użyta podczas tworzenia zasobu Azure Stack Edge/Data Box Gateway.
+    Użyj powyższych wygenerowanych zabezpieczonych ciągów jako parametrów w poleceniu cmdlet Set-AzDataBoxEdgeUser, aby zresetować hasło. Użyj tej samej grupy zasobów, która została użyta podczas tworzenia zasobu Azure Stack EDGE Pro/Data Box Gateway.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key

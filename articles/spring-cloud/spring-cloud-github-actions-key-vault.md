@@ -5,16 +5,19 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 01/20/2019
+ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076016"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888784"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Uwierzytelnianie chmury Azure wiosennej za pomocą Key Vault w akcjach GitHub
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
+
 Magazyn kluczy jest bezpiecznym miejscem do przechowywania kluczy. Użytkownicy przedsiębiorstwa muszą przechowywać poświadczenia dla środowisk CI/CD w zakresie, który kontroluje. Klucz pobierania poświadczeń w magazynie kluczy powinien być ograniczony do zakresu zasobów.  Ma dostęp tylko do zakresu magazynu kluczy, a nie całego zakresu platformy Azure. Jest to klucz, który może jedynie otworzyć silne pole nie jest kluczem głównym, który może otwierać wszystkie drzwi w budynku. Jest to sposób, aby uzyskać klucz z innym kluczem, który jest przydatny w przepływie pracy CICD. 
 
 ## <a name="generate-credential"></a>Generuj poświadczenia
@@ -43,7 +46,7 @@ Następnie Zapisz wyniki do wpisów **tajnych** usługi GitHub zgodnie z opisem 
 ## <a name="add-access-policies-for-the-credential"></a>Dodawanie zasad dostępu dla poświadczeń
 Utworzone powyżej poświadczenia mogą uzyskać tylko ogólne informacje dotyczące Key Vault, a nie zawartości przechowywanej przez nią.  Aby uzyskać wpisy tajne przechowywane w Key Vault, należy ustawić zasady dostępu dla poświadczenia.
 
-Przejdź do pulpitu nawigacyjnego **Key Vault** w Azure Portal, kliknij menu **Kontrola dostępu** , a następnie otwórz kartę **przypisania ról** . Wybierz **aplikacje** dla **typu** i `This resource` dla **zakresu**.  Powinno zostać wyświetlone poświadczenie utworzone w poprzednim kroku:
+Przejdź do pulpitu nawigacyjnego **Key Vault** w Azure Portal, kliknij menu **Kontrola dostępu** , a następnie otwórz kartę **przypisania ról** . Wybierz pozycję **aplikacje** dla **typu** i `This resource` **zakresu**.  Powinno zostać wyświetlone poświadczenie utworzone w poprzednim kroku:
 
  ![Ustawianie zasad dostępu](./media/github-actions/key-vault1.png)
 

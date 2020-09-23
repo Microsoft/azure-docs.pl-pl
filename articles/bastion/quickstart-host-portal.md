@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
-ms.openlocfilehash: 3c2780c8c99fd4568a7213b625ce785d3a99129c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0155ae92e3179918273d6a19773aa15b67949ea
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743987"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985585"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Szybki Start: Nawiązywanie połączenia z maszyną wirtualną przy użyciu prywatnego adresu IP i usługi Azure bastionu
 
@@ -34,14 +34,14 @@ Ten artykuł Szybki Start przedstawia sposób nawiązywania połączenia z maszy
 | Adresy AzureBastionSubnet |  10.1.254.0/27 |
 | Publiczny adres IP |  Tworzenie nowego elementu |
 | Nazwa publicznego adresu IP | VNet1BastionPIP  |
-| Jednostka SKU publicznego adresu IP |  Standardowa (Standard)  |
+| Jednostka SKU publicznego adresu IP |  Standardowa  |
 | Przypisanie  | Static |
 
 ## <a name="create-a-bastion-host"></a><a name="createvmset"></a>Tworzenie hosta bastionu
 
 Po utworzeniu hosta usługi bastionu w portalu przy użyciu istniejącej maszyny wirtualnej różne ustawienia będą automatycznie odpowiadały maszynom wirtualnym i/lub sieci wirtualnej.
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com). Przejdź do maszyny wirtualnej, a następnie kliknij przycisk **Połącz**.
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com). Przejdź do maszyny wirtualnej, a następnie kliknij przycisk **Połącz**.
 
    ![ustawienia maszyny wirtualnej](./media/quickstart-host-portal/vm-settings.png)
 1. Z listy rozwijanej wybierz pozycję **bastionu**.
@@ -66,18 +66,18 @@ Po utworzeniu hosta usługi bastionu w portalu przy użyciu istniejącej maszyny
 
    ![Utwórz hosta bastionu](./media/quickstart-host-portal/bastion-settings.png)
 
-## <a name="connect"></a><a name="connect"></a>Połącz
+## <a name="connect"></a><a name="connect"></a>Łączone
 
 Po wdrożeniu bastionu w sieci wirtualnej, ekran zmieni się na stronę Połącz.
 
 1. Wpisz nazwę użytkownika i hasło dla swojej maszyny wirtualnej. Następnie wybierz pozycję **Połącz**.
 
-   ![nawiązywania połączenia](./media/quickstart-host-portal/connect.png)
+   ![Zrzut ekranu przedstawia okno dialogowe nawiązywanie połączenia przy użyciu usługi Azure bastionu, w którym jest wyświetlany komunikat o nazwie użytkownika i hasła.](./media/quickstart-host-portal/connect.png)
 1. Połączenie RDP z tą maszyną wirtualną za pośrednictwem bastionu zostanie otwarte bezpośrednio w Azure Portal (za pośrednictwem HTML5) przy użyciu portu 443 i usługi bastionu.
 
    ![Połączenie RDP](./media/quickstart-host-portal/443-rdp.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy skończysz korzystać z sieci wirtualnej i maszyn wirtualnych, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 

@@ -1,40 +1,38 @@
 ---
 title: Używanie reguł pomijania alertów w celu pomijania fałszywie dodatnich lub innych niechcianych alertów zabezpieczeń w Azure Security Center.
-description: W tym artykule wyjaśniono, jak używać reguł pomijania Azure Security Center w celu ukrycia niechcianych alertów zabezpieczeń.
+description: W tym artykule wyjaśniono, jak używać reguł pomijania Azure Security Center w celu ukrycia niechcianych alertów usługi Azure Defender
 author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 05/04/2020
+ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 341373c9a8429f335f3064db7a94973d34e0ca1c
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 0d4c2ddc6b18d2f6767fb3a2761bc6a247e101a1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042504"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904896"
 ---
-# <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Pomijaj alerty z Azure Security Center ochrony przed zagrożeniami
+# <a name="suppress-alerts-from-azure-defender"></a>Pomijanie alertów z usługi Azure Defender
 
-Na tej stronie wyjaśniono, jak można użyć reguł pomijania alertów, aby pominąć fałszywie dodatnie lub inne niepożądane alerty zabezpieczeń w Azure Security Center.
+Na tej stronie wyjaśniono, jak można użyć reguł pomijania alertów, aby pominąć fałszywe pozytywne lub inne niepożądane alerty zabezpieczeń z usługi Azure Defender.
 
 ## <a name="availability"></a>Dostępność
 
 |Aspekt|Szczegóły|
 |----|:----|
 |Stan wydania:|Wersja zapoznawcza|
-|Wpisaną|Warstwa Bezpłatna<br>(Większość alertów zabezpieczeń dotyczy tylko warstwy Standardowa)|
+|Wpisaną|Bezpłatna<br>(Większość alertów zabezpieczeń jest dostępnych tylko w usłudze Azure Defender)|
 |Wymagane role i uprawnienia:|**Administrator zabezpieczeń** i **właściciel** mogą tworzyć/usuwać reguły.<br>**Czytelnik zabezpieczeń** i **czytelnik** mogą wyświetlać reguły.|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
 
-
-
 ## <a name="what-are-suppression-rules"></a>Co to są reguły pomijania?
 
-Składniki ochrony przed zagrożeniami Azure Security Center wykrywają zagrożenia w dowolnym obszarze środowiska i generują alerty zabezpieczeń.
+Różne plany usługi Azure Defender wykrywają zagrożenia w dowolnym obszarze środowiska i generują alerty zabezpieczeń.
 
 Jeśli pojedynczy alert nie jest interesujący lub istotny, można go ręcznie odrzucić. Alternatywnie można użyć funkcji pomijania reguł, aby automatycznie odrzucić podobne alerty w przyszłości. Zazwyczaj można użyć reguły pomijania, aby:
 
@@ -45,16 +43,15 @@ Jeśli pojedynczy alert nie jest interesujący lub istotny, można go ręcznie o
 Reguły pomijania definiują kryteria, dla których alerty powinny być automatycznie odrzucane.
 
 > [!CAUTION]
-> Pomijanie alertów zabezpieczeń zmniejsza ochronę przed zagrożeniami Security Center. Należy uważnie sprawdzić potencjalny wpływ każdej reguły pomijania i monitorować ją w czasie.
+> Pomijanie alertów zabezpieczeń zmniejsza efektywność ochrony przed zagrożeniami w usłudze Azure Defender. Należy uważnie sprawdzić potencjalny wpływ każdej reguły pomijania i monitorować ją w czasie.
 
-![Utwórz regułę pomijania alertu](media\alerts-suppression-rules\create-suppression-rule.gif)
+:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Utwórz regułę pomijania alertu":::
 
 ## <a name="create-a-suppression-rule"></a>Tworzenie reguły pomijania
 
 Istnieje kilka sposobów, aby można było utworzyć reguły pomijające niepożądane alerty zabezpieczeń:
 
 - Aby pominąć alerty na poziomie grupy zarządzania, użyj Azure Policy
-
 - Aby pominąć alerty na poziomie subskrypcji, można użyć Azure Portal lub interfejsu API REST, jak wyjaśniono poniżej
 
 Reguły pomijania mogą odrzucać tylko alerty, które zostały już wyzwolone w wybranych subskrypcjach.
@@ -72,39 +69,32 @@ Aby utworzyć regułę bezpośrednio w Azure Portal:
         ![Przycisk tworzenia nowej reguły pomijania * *](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
 1. W okienku Nowa reguła pomijania wprowadź szczegóły nowej reguły.
-
-    - Reguła może odrzucić alert dotyczący **wszystkich zasobów** , aby nie otrzymywać żadnych alertów, takich jak te w przyszłości. 
-    
+    - Reguła może odrzucić alert dotyczący **wszystkich zasobów** , aby nie otrzymywać żadnych alertów, takich jak te w przyszłości.     
     - Reguła może odrzucić alert **dotyczący określonych kryteriów** — w przypadku odnoszącego się do określonego adresu IP, nazwy procesu, konta użytkownika, zasobu platformy Azure lub lokalizacji.
 
     > [!TIP]
     > Jeśli otwarto nową stronę reguły z określonego alertu, alert i subskrypcja zostaną automatycznie skonfigurowane w nowej regule. W przypadku użycia łącza **Utwórz nową regułę pomijania** wybrane subskrypcje będą zgodne z bieżącym filtrem w portalu.
 
     [![Okienko tworzenia reguły pomijania](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
-
 1. Wprowadź szczegóły reguły:
-
     - **Nazwa** — Nazwa reguły. Nazwy reguł muszą zaczynać się literą lub cyfrą od 2 do 50 znaków i nie mogą zawierać symboli innych niż kreski (-) ani znaki podkreślenia (_). 
     - **Stan** — włączony lub wyłączony.
     - **Przyczyna** — wybierz jedno z wbudowanych przyczyn lub "inne", jeśli nie spełnią Twoich potrzeb.
     - **Data wygaśnięcia** — Data i godzina zakończenia dla reguły. Reguły mogą działać przez maksymalnie sześć miesięcy.
-
 1. Opcjonalnie Przetestuj regułę przy użyciu przycisku **Symuluj** , aby zobaczyć, ile alertów zostało odrzuconych, jeśli ta reguła była aktywna.
-
 1. Zapisz regułę. 
+
 
 ## <a name="edit-a-suppression-rules"></a>Edytowanie reguł pomijania
 
 Aby edytować utworzone reguły, użyj strony reguły pomijania.
 
 1. Na stronie Alerty zabezpieczeń Security Center wybierz łącze **reguły pomijania** w górnej części strony.
-
 1. Zostanie otwarta strona reguły pomijania ze wszystkimi regułami dla wybranych subskrypcji.
 
     [![Lista reguł pomijania](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
 1. Aby edytować pojedynczą regułę, otwórz menu wielokropka (...) dla reguły i wybierz pozycję **Edytuj**.
-
 1. Wprowadź niezbędne zmiany i wybierz pozycję **Zastosuj**. 
 
 ## <a name="delete-a-suppression-rule"></a>Usuwanie reguły pomijania
@@ -112,13 +102,9 @@ Aby edytować utworzone reguły, użyj strony reguły pomijania.
 Aby usunąć co najmniej jedną utworzoną regułę, użyj strony reguły pomijania.
 
 1. Na stronie Alerty zabezpieczeń Security Center wybierz łącze **reguły pomijania** w górnej części strony.
-
 1. Zostanie otwarta strona reguły pomijania ze wszystkimi regułami dla wybranych subskrypcji.
-
 1. Aby usunąć pojedynczą regułę, otwórz menu wielokropka (...) dla reguły i wybierz polecenie **Usuń**.
-
 1. Aby usunąć wiele reguł, zaznacz pola wyboru dla reguł, które mają zostać usunięte, a następnie wybierz pozycję **Usuń**.
-
     ![Usuwanie co najmniej jednej reguły pomijania](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
 ## <a name="view-suppressed-alerts"></a>Wyświetl pominięte alerty
@@ -160,7 +146,6 @@ Aby zapoznać się z pełnymi szczegółami i przykładami użycia, zobacz [doku
 
 W tym artykule opisano reguły pomijania w Azure Security Center, które automatycznie odrzucają niechciane alerty.
 
-Aby uzyskać więcej informacji na temat alertów zabezpieczeń w Azure Security Center, zobacz następujące strony:
+Aby uzyskać więcej informacji na temat alertów zabezpieczeń usługi Azure Defender, zobacz następujące strony:
 
-- [Alerty zabezpieczeń i łańcuch zamiar zabicia](alerts-reference.md) — Przewodnik dotyczący alertów zabezpieczeń, które mogą zostać wyświetlone w module ochrony przed zagrożeniami w Azure Security Center.
-- [Ochrona przed zagrożeniami w Azure Security Center](threat-protection.md) — opis wielu aspektów środowiska monitorowanych przez moduł Azure Security Center ochrony przed zagrożeniami.
+- [Alerty zabezpieczeń i łańcuch](alerts-reference.md) założeń — Przewodnik dotyczący alertów zabezpieczeń, które mogą zostać uzyskane z usługi Azure Defender.

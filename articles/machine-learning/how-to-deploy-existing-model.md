@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 006aab66eb220c3bb74794ba78bf1495583b653e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0dcede7e6c15fbc0bae39370431d14696cb4026e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648311"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905660"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Wdróż istniejący model przy użyciu Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym artykule dowiesz się, jak zarejestrować i wdrożyć model uczenia maszynowego, który został przeszkolony poza Azure Machine Learning. Można wdrożyć jako usługę sieci Web lub urządzenie IoT Edge.  Po wdrożeniu można monitorować model i wykrywać dryfowanie danych w Azure Machine Learning. 
 
@@ -274,7 +274,7 @@ Aby uzyskać więcej informacji na temat wdrażania, zobacz [jak i gdzie wdraża
 
 ## <a name="request-response-consumption"></a>Żądanie — użycie odpowiedzi
 
-Po wdrożeniu zostanie wyświetlony identyfikator URI oceniania. Ten identyfikator URI może być używany przez klientów do przesyłania żądań do usługi. Poniższy przykład to podstawowy klient języka Python, który przesyła dane do usługi i wyświetla odpowiedź:
+Po wdrożeniu zostanie wyświetlony identyfikator URI oceniania. Ten identyfikator URI może być używany przez klientów do przesyłania żądań do usługi. Poniższy przykład to prosty klient języka Python, który przesyła dane do usługi i wyświetla odpowiedź:
 
 ```python
 import requests
