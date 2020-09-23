@@ -13,12 +13,12 @@ ms.custom:
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 10c7abf7349a3b2419e81459866920f20c3af6f7
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ca32426b2f3f6251d699c9249b8c6dfdc8fdb4eb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182735"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901925"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie Node.js do nawiązywania połączenia i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 
@@ -52,7 +52,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą 
 
 1. W panelu **Przegląd** serwera Zanotuj **nazwę serwera i nazwa** **użytkownika administratora**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
 
-   ![Azure Database for PostgreSQL parametry połączenia](./media/connect-nodejs/server-details-azure-database-postgresql.png)
+   :::image type="content" source="./media/connect-nodejs/server-details-azure-database-postgresql.png" alt-text="Azure Database for PostgreSQL parametry połączenia":::
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Uruchamianie kodu JavaScript w środowisku Node.js
 Środowisko Node.js można uruchomić w wierszu polecenia powłoki Bash, programu Terminal lub systemu Windows, wpisując polecenie `node`, a następnie uruchomić przykładowy kod JavaScript przez skopiowanie i wklejenie go w wierszu polecenia. Alternatywnie można zapisać kod JavaScript w pliku tekstowym, a następnie uruchomić polecenie `node filename.js` z nazwą pliku jako parametrem uruchamiania.

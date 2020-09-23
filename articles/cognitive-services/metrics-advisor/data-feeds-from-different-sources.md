@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4dc3c46b65bab48b8923af985f0c2c29fcddc53b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938191"
+ms.locfileid: "90973379"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Dodawanie strumieniowych źródeł danych z różnych źródeł danych do klasyfikatora metryk
 
@@ -27,10 +27,10 @@ Skorzystaj z tego artykułu, aby znaleźć ustawienia i wymagania dotyczące ł�
 | ---------------------|-------------|
 |**Podstawowa** | Musisz mieć możliwość udostępnienia podstawowych parametrów dostępu do źródeł danych. Na przykład parametry połączenia lub klucz. Administratorzy strumieniowego źródła danych mogą wyświetlać te poświadczenia. |
 | **AzureManagedIdentity** | [Zarządzane tożsamości](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) dla zasobów platformy Azure to funkcja Azure Active Directory. Zapewnia usługi platformy Azure z automatyczną tożsamością zarządzaną w usłudze Azure AD. Tożsamości można użyć do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie w usłudze Azure AD.|
-| **AzureSQLConnectionString**| Przechowuj parametry połączenia AzureSQL jako **jednostkę uwierzytelniania** w usłudze Metric Advisor i używaj jej bezpośrednio za każdym razem podczas dołączania danych metryk. Tylko Administratorzy jednostki uwierzytelniania mogą wyświetlać te poświadczenia, ale umożliwiają autoryzowanym podglądom tworzenie strumieniowych źródeł danych bez konieczności poznania szczegółowych informacji dotyczących poświadczeń. |
-| **DataLakeGen2SharedKey**| Przechowuj klucz konta usługi Data Lake jako **jednostkę uwierzytelniania** w usłudze Metric Advisor i używaj go bezpośrednio za każdym razem podczas dołączania danych metryk. Tylko Administratorzy jednostki uwierzytelniania mogą wyświetlać te poświadczenia, ale umożliwiają autoryzowanym podglądom tworzenie strumieniowego źródła danych bez znajomości szczegółowych informacji o poświadczeniu.|
-| **ServicePrincipal**| Przechowuj swoją nazwę główną usługi jako **jednostkę uwierzytelniania** w usłudze Metric Advisor i używaj jej bezpośrednio za każdym razem podczas dołączania danych metryk. Tylko Administratorzy jednostki uwierzytelniania mogą wyświetlać poświadczenia, ale umożliwiają autoryzowanym podglądom tworzenie strumieniowego źródła danych bez znajomości szczegółowych informacji o poświadczeniu.|
-| **ServicePrincipalInKeyVault**|Przechowuj swoją nazwę główną usługi w magazynie kluczy jako **jednostkę uwierzytelniania** w usłudze Metric Advisor i używaj jej bezpośrednio za każdym razem podczas dołączania danych metryk. Tylko Administratorzy **jednostki uwierzytelniania** mogą wyświetlać poświadczenia, ale również mogą opuścić podglądy, którzy będą mogli tworzyć strumieniowe źródła danych bez znajomości szczegółowych poświadczeń. |
+| **AzureSQLConnectionString**| Przechowuj parametry połączenia AzureSQL jako **jednostkę poświadczeń** w usłudze Advisor metryk i używaj jej bezpośrednio za każdym razem podczas dołączania danych metryk. Tylko Administratorzy jednostki Credential mogą wyświetlać te poświadczenia, ale umożliwiają autoryzowanym podglądom tworzenie strumieniowych źródeł danych bez konieczności poznania szczegółowych informacji dotyczących poświadczeń. |
+| **DataLakeGen2SharedKey**| Przechowuj klucz konta usługi Data Lake jako **jednostkę poświadczeń** w usłudze Metrics Advisor i używaj go bezpośrednio za każdym razem podczas dołączania danych metryk. Tylko Administratorzy jednostki Credential mogą wyświetlać te poświadczenia, ale umożliwiają autoryzowanym użytkownikom tworzenie strumieniowych źródeł danych bez znajomości szczegółowych informacji o poświadczeniu.|
+| **Nazwa główna usługi**| Przechowuj swoją nazwę główną usługi jako **jednostkę poświadczeń** w usłudze Metrics Advisor i używaj jej bezpośrednio za każdym razem podczas dołączania danych metryk. Tylko Administratorzy jednostki poświadczeń mogą wyświetlać poświadczenia, ale umożliwiają autoryzowanym podglądom tworzenie strumieniowego źródła danych bez znajomości szczegółowych informacji o poświadczeniu.|
+| **Nazwa główna usługi z magazynu kluczy**|Przechowuj swoją nazwę główną usługi w magazynie kluczy jako **jednostkę poświadczeń** w usłudze Metrics Advisor i używaj jej bezpośrednio za każdym razem podczas dołączania danych metryk. Tylko Administratorzy **jednostki poświadczeń** mogą wyświetlać poświadczenia, ale również pozostawiać podglądy mogące tworzyć strumieniowe źródła danych bez znajomości szczegółowych poświadczeń. |
 
 ## <a name="data-sources-supported-and-corresponding-authentication-types"></a>Obsługiwane źródła danych i odpowiednie typy uwierzytelniania
 
@@ -41,8 +41,8 @@ Skorzystaj z tego artykułu, aby znaleźć ustawienia i wymagania dotyczące ł�
 |[**Azure Blob Storage (JSON)**](#blob) | Podstawowe<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Podstawowe |
 |[**Eksplorator danych platformy Azure (Kusto)**](#kusto) | Podstawowe<br>ManagedIdentity|
-|[**Usługa Azure Data Lake Storage 2. generacji**](#adl) | Podstawowe<br>DataLakeGen2SharedKey<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br> |
-|[**Azure SQL Database/SQL Server**](#sql) | Podstawowe<br>ManagedIdentity<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br>AzureSQLConnectionString
+|[**Usługa Azure Data Lake Storage 2. generacji**](#adl) | Podstawowe<br>DataLakeGen2SharedKey<br>Jednostka usługi<br>Nazwa główna usługi z magazynu kluczy<br> |
+|[**Azure SQL Database/SQL Server**](#sql) | Podstawowe<br>ManagedIdentity<br>Jednostka usługi<br>Nazwa główna usługi z magazynu kluczy<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | Podstawowe | 
 |[**ElasticSearch**](#es) | Podstawowe |
 |[**Żądanie http**](#http) | Podstawowe | 
@@ -51,7 +51,7 @@ Skorzystaj z tego artykułu, aby znaleźć ustawienia i wymagania dotyczące ł�
 |[**MySQL**](#mysql) | Podstawowe |
 |[**PostgreSQL**](#pgsql)| Podstawowe|
 
-Utwórz **jednostkę uwierzytelniania** i użyj jej do uwierzytelniania w źródłach danych. W poniższych sekcjach określono parametry wymagane przez program do uwierzytelniania *podstawowego* . 
+Utwórz **jednostkę poświadczeń** i użyj jej do uwierzytelniania w źródłach danych. W poniższych sekcjach określono parametry wymagane przez program do uwierzytelniania *podstawowego* . 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 

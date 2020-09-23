@@ -1,18 +1,18 @@
 ---
 title: Tworzenie klastrów w systemach Windows Server i Linux
-description: Klastry Service Fabric są uruchamiane w systemach Windows Server i Linux, co oznacza, że będzie można wdrażać i hostować aplikacje Service Fabric wszędzie tam, gdzie będzie można uruchamiać system Windows Server lub Linux.
+description: Klastry Service Fabric działają w systemach Windows Server i Linux. Możesz wdrażać i hostować Service Fabric aplikacje wszędzie tam, gdzie będzie można uruchamiać system Windows Server lub Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: 03b9cce0d8e4666630aa6568597e08d1f13386ff
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2c0cc1ddc58347933b498b015c562c3822e8a688
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422814"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978699"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Omówienie klastrów Service Fabric na platformie Azure
 Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem klastra. Klastry mogą być skalowane do tysięcy węzłów. Jeśli dodasz nowe węzły do klastra, Service Fabric ponownie zrównoważą repliki partycji usługi i wystąpienia w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji i wystąpienia na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle.

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: e11d5b14bdf6b134fefea79a1f709ec73499bd20
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 0020efea69fc684ff6ebebf286718aa2a720910e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815712"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900806"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funkcje w wersji zapoznawczej Azure Stream Analytics
 
@@ -25,10 +25,6 @@ Następujące funkcje są dostępne w publicznej wersji zapoznawczej. Można kor
 ### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Uwierzytelnianie w celu SQL Database danych wyjściowych z tożsamościami zarządzanymi
 
 Azure Stream Analytics obsługuje [uwierzytelnianie tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla Azure SQL Database ujścia danych wyjściowych. Tożsamości zarządzane eliminują ograniczenia metod uwierzytelniania opartych na użytkownikach, takich jak konieczność ponownego uwierzytelnienia ze względu na zmiany hasła. 
-
-### <a name="output-to-azure-synapse-analytics"></a>Dane wyjściowe do usługi Azure Synapse Analytics
-
-Azure Stream Analytics zadania mogą wynikać z tabeli puli SQL w [usłudze Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) i mogą przetwarzać stawki przepływności do 200 MB/s. Obsługuje to najbardziej wymagające analiz w czasie rzeczywistym i wymaga przetwarzania danych na gorąco w przypadku obciążeń, takich jak raportowanie i pulpit nawigacyjny.  
 
 ### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Ocena wysokiej wydajności w czasie rzeczywistym z niestandardowymi modelami ML zarządzanymi przez Azure Machine Learning
 
@@ -52,7 +48,7 @@ Narzędzia Visual Studio Tools for Azure Stream Analytics rozszerzają funkcję 
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code Azure Stream Analytics
 
-Azure Stream Analytics zadania mogą być tworzone w Visual Studio Code. Zapoznaj się z naszym [samouczkiem wprowadzenie do vs Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
+Azure Stream Analytics zadania mogą być tworzone w Visual Studio Code. Zapoznaj się z naszym [samouczkiem wprowadzenie do vs Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-visual-studio-code).
 
 ### <a name="local-testing-with-live-data-in-visual-studio-code"></a>Testowanie lokalne z danymi dynamicznymi w Visual Studio Code
 

@@ -1,27 +1,29 @@
 ---
-title: Przywracanie do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)
+title: Przywracanie do punktu w czasie dla blokowych obiektów BLOB
 titleSuffix: Azure Storage
 description: Przywracanie do określonego momentu dla blokowych obiektów BLOB zapewnia ochronę przed przypadkowym usunięciem lub uszkodzeniem przez umożliwienie przywrócenia konta magazynu do poprzedniego stanu w danym momencie.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/18/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1187b01fa623264055edecf21ea5c9d35d59a152
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068306"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987040"
 ---
-# <a name="point-in-time-restore-for-block-blobs-preview"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)
+# <a name="point-in-time-restore-for-block-blobs"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB
 
 Przywracanie do punktu w czasie zapewnia ochronę przed przypadkowym usunięciem lub uszkodzeniem przez umożliwienie przywrócenia blokowych danych obiektów BLOB do wcześniejszego stanu. Przywracanie do punktu w czasie jest przydatne w scenariuszach, w których użytkownik lub aplikacja przypadkowo usuwa dane lub w przypadku, gdy błąd aplikacji uszkadza dane. Przywracanie do określonego momentu umożliwia również scenariuszom testowania, które wymagają przywrócenia zestawu danych do znanego stanu przed uruchomieniem dalszych testów.
 
-Aby dowiedzieć się, jak włączyć przywracanie do punktu w czasie dla konta magazynu, zobacz temat [Włączanie i zarządzanie przywracaniem do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)](point-in-time-restore-manage.md).
+Przywracanie do punktu w czasie jest obsługiwane tylko dla kont magazynu ogólnego przeznaczenia w wersji 2. Tylko dane w warstwach dostępu gorąca i chłodna mogą być przywracane z przywróceniem do punktu w czasie.
+
+Aby dowiedzieć się, jak włączyć przywracanie do punktu w czasie dla konta magazynu, zobacz [wykonywanie przywracania do punktu w czasie na danych blokowych obiektów BLOB](point-in-time-restore-manage.md).
 
 ## <a name="how-point-in-time-restore-works"></a>Jak działa przywracanie do punktu w czasie
 
@@ -48,17 +50,15 @@ Należy pamiętać o następujących ograniczeniach dotyczących operacji przywr
 > Operacje odczytu z lokalizacji pomocniczej mogą być przetwarzane w trakcie operacji przywracania, jeśli konto magazynu ma replikację geograficzną.
 
 > [!CAUTION]
-> Przywracanie do punktu w czasie obsługuje operacje przywracania tylko dla blokowych obiektów BLOB. Nie można przywrócić operacji na kontenerach. W przypadku usunięcia kontenera z konta magazynu przez wywołanie operacji [usuwania kontenera](/rest/api/storageservices/delete-container) w podglądzie przywracania do punktu w czasie nie można przywrócić tego kontenera przy użyciu operacji przywracania. W trakcie okresu zapoznawczego zamiast usuwania kontenera Usuń pojedyncze obiekty blob, jeśli chcesz je przywrócić.
+> Przywracanie do punktu w czasie obsługuje operacje przywracania tylko dla blokowych obiektów BLOB. Nie można przywrócić operacji na kontenerach. W przypadku usunięcia kontenera z konta magazynu przez wywołanie operacji [usuwania kontenera](/rest/api/storageservices/delete-container) nie można przywrócić tego kontenera przy użyciu operacji przywracania. Zamiast usuwać kontener, Usuń pojedyncze obiekty blob, jeśli chcesz je przywrócić.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Wymagania wstępne dotyczące przywracania do punktu w czasie
 
-Przywracanie do punktu w czasie wymaga włączenia następujących funkcji usługi Azure Storage:
+Przywracanie do punktu w czasie wymaga włączenia następujących funkcji usługi Azure Storage, aby można było włączyć przywracanie do punktu w czasie:
 
 - [Usuwanie nietrwałe](soft-delete-overview.md)
-- [Źródło zmian (wersja zapoznawcza)](storage-blob-change-feed.md)
+- [Źródło zmian](storage-blob-change-feed.md)
 - [Przechowywanie wersji obiektów BLOB](versioning-overview.md)
-
-Te funkcje należy włączyć dla konta magazynu przed włączeniem przywracania do punktu w czasie. Pamiętaj, aby zarejestrować się w celu uzyskania źródła zmian i wersji zapoznawczych obiektów BLOB przed ich włączeniem.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Okres przechowywania dla przywracania do punktu w czasie
 
@@ -72,83 +72,17 @@ Okres przechowywania dla przywracania do określonego momentu musi być co najmn
 
 Aby zainicjować operację przywracania, klient musi mieć uprawnienia do zapisu dla wszystkich kontenerów na koncie magazynu. Aby udzielić uprawnień do autoryzacji operacji przywracania za pomocą Azure Active Directory (Azure AD), przypisz rolę **współautor konta magazynu** do podmiotu zabezpieczeń na poziomie konta magazynu, grupy zasobów lub subskrypcji.
 
-## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
+## <a name="limitations-and-known-issues"></a>Ograniczenia i znane problemy
 
-Przywracanie do punktu w czasie jest obsługiwane tylko dla kont magazynu ogólnego przeznaczenia w wersji 2. Tylko dane w warstwach dostępu gorąca i chłodna mogą być przywracane z przywróceniem do punktu w czasie.
+Przywracanie do punktu w czasie dla blokowych obiektów BLOB ma następujące ograniczenia i znane problemy:
 
-Poniższe regiony obsługują przywracanie do punktu w czasie w wersji zapoznawczej:
-
-- Kanada Środkowa
-- Kanada Wschodnia
-- Francja Środkowa
-
-Wersja zapoznawcza obejmuje następujące ograniczenia:
-
-- Przywracanie blokowych obiektów BLOB w warstwie Premium nie jest obsługiwane.
-- Przywracanie obiektów blob w warstwie Archiwum nie jest obsługiwane. Na przykład jeśli obiekt blob z warstwy Gorąca został przeniesiony do warstwy Archiwum dwa dni temu, a operacja przywracania spowodowała jego przywrócenie do punktu sprzed trzech dni, obiekt blob nie zostanie przywrócony do warstwy Gorąca.
+- Tylko blokowe obiekty blob w standardowym koncie magazynu ogólnego przeznaczenia w wersji 2 można przywrócić w ramach operacji przywracania do punktu w czasie. Nie są przywracane obiekty blob, stronicowe obiekty blob i blokowe obiekty blob w warstwie Premium. Jeśli kontener został usunięty w okresie przechowywania, ten kontener nie zostanie przywrócony z operacją przywracania do punktu w czasie. Aby dowiedzieć się więcej o ochronie kontenerów, zobacz [usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md).
+- W ramach operacji przywracania do momentu można przywrócić tylko blokowe obiekty blob w warstwach gorąca lub chłodna. Przywracanie blokowych obiektów BLOB w warstwie archiwum nie jest obsługiwane. Na przykład jeśli obiekt blob z warstwy Gorąca został przeniesiony do warstwy Archiwum dwa dni temu, a operacja przywracania spowodowała jego przywrócenie do punktu sprzed trzech dni, obiekt blob nie zostanie przywrócony do warstwy Gorąca. Aby przywrócić zarchiwizowany obiekt BLOB, najpierw przenieś go z warstwy archiwum.
+- Jeśli blokowy obiekt BLOB w zakresie, który ma zostać przywrócony, ma aktywną dzierżawę, operacja przywracania do punktu w czasie zakończy się niepowodzeniem. Przerwij wszystkie aktywne dzierżawy przed zainicjowaniem operacji przywracania.
 - Przywracanie Azure Data Lake Storage Gen2 płaskich i hierarchicznych przestrzeni nazw nie jest obsługiwane.
-- Przywracanie kont magazynu przy użyciu kluczy dostarczonych przez klienta nie jest obsługiwane.
 
 > [!IMPORTANT]
-> Wersja zapoznawcza przywracania do punktu w czasie jest przeznaczona wyłącznie do użytku w trybie nieprodukcyjnym. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.
-
-### <a name="register-for-the-preview"></a>Zarejestruj się w wersji zapoznawczej
-
-Aby zarejestrować się w celu korzystania z wersji zapoznawczej, uruchom następujące polecenia:
-
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
-
-```powershell
-# Register for the point-in-time restore preview
-Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
-
-# Register for change feed (preview)
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-
-# Register for Blob versioning
-Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
-az feature register --namespace Microsoft.Storage --name Changefeed
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-registration-status"></a>Sprawdź stan rejestracji
-
-Operacja przywracania do punktu w czasie jest automatyczna i powinna trwać krócej niż 10 minut. Aby sprawdzić stan rejestracji, uruchom następujące polecenia:
-
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName RestoreBlobRanges
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Changefeed
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/RestoreBlobRanges')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
-```
-
----
+> Jeśli przywracasz blokowe obiekty blob do punktu, który jest wcześniejszy niż 22 września, 2020, zostaną zastosowane ograniczenia dotyczące przywracania do punktu w czasie. Firma Microsoft zaleca, aby wybrać punkt przywracania o wartości równej lub nowszej niż 22 września 2020, aby korzystać z ogólnie dostępnej funkcji przywracania do punktu w czasie.
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
@@ -158,13 +92,9 @@ Aby oszacować koszt operacji przywracania, zapoznaj się z dziennikiem źródł
 
 Aby uzyskać więcej informacji na temat cen przywracania do punktu w czasie, zobacz [ceny blokowych obiektów BLOB](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="ask-questions-or-provide-feedback"></a>Zadawaj pytania lub przekazanie opinii
-
-Aby zadawać pytania dotyczące podglądu przywracania do punktu w czasie lub aby przekazać opinię, skontaktuj się z firmą Microsoft pod adresem pitrdiscussion@microsoft.com .
-
 ## <a name="next-steps"></a>Następne kroki
 
-- [Włącz przywracanie do punktu w czasie i zarządzaj nimi w przypadku blokowych obiektów BLOB (wersja zapoznawcza)](point-in-time-restore-manage.md)
-- [Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage (wersja zapoznawcza)](storage-blob-change-feed.md)
+- [Wykonaj przywracanie do punktu w czasie dla danych blokowych obiektów BLOB](point-in-time-restore-manage.md)
+- [Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage](storage-blob-change-feed.md)
 - [Włączanie usuwania nietrwałego dla obiektów blob](soft-delete-enable.md)
 - [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Salesforce | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i usługą Salesforce.
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory a usługą Salesforce.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/17/2020
+ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 7228f4fbf348b8112654ece91aa5e9e831ac1201
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6d653594cce20439a6e1214f104d875ec76bf1a9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543571"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979853"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) w usłudze Salesforce
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować usługę Salesforce z usługą Az
 * Kontrolka w usłudze Azure AD, która ma dostęp do usługi Salesforce.
 * Zezwól użytkownikom na automatyczne logowanie do usługi Salesforce przy użyciu kont w usłudze Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,24 +44,23 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 * Aplikacja Salesforce obsługuje aprowizowanie użytkowników typu **just in time**
 
 * Aplikację mobilną Salesforce można teraz skonfigurować za pomocą usługi Azure AD w celu włączenia logowania jednokrotnego. W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
-* Po skonfigurowaniu usługi Salesforce można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-salesforce-from-the-gallery"></a>Dodawanie usługi Salesforce z galerii
 
 Aby skonfigurować integrację usługi Salesforce z usługą Azure AD, musisz dodać usługę Salesforce z galerii do swojej listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **Salesforce** w polu wyszukiwania.
 1. Wybierz pozycję **Salesforce** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-salesforce"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla usług Salesforce
+## <a name="configure-and-test-azure-ad-sso-for-salesforce"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla usług Salesforce
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą usług Salesforce przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Salesforce.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD w usłudze Salesforce, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD w usłudze Salesforce, wykonaj następujące czynności:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
@@ -76,7 +73,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD w usł
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Salesforce** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracja aplikacji **Salesforce** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
@@ -123,7 +120,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -132,15 +129,9 @@ W tej sekcji włączysz funkcję B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście aplikacji wybierz pozycję **Salesforce**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
-
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ## <a name="configure-salesforce-sso"></a>Konfigurowanie logowania jednokrotnego w usłudze Salesforce
@@ -157,46 +148,46 @@ W tej sekcji włączysz funkcję B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **Konfiguracja** pod **ikoną ustawień** w prawym górnym rogu strony.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-tutorial/configure1.png)
+    ![Ikona konfigurowania ustawień logowania jednokrotnego](./media/salesforce-tutorial/configure1.png)
 
 1. Przewiń w dół do pozycji **USTAWIENIA** w okienku nawigacji i kliknij pozycję **Tożsamość**, aby rozwinąć odpowiednią sekcję. Następnie kliknij pozycję **Ustawienia logowania jednokrotnego**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-tutorial/sf-admin-sso.png)
+    ![Konfigurowanie ustawień logowania jednokrotnego](./media/salesforce-tutorial/sf-admin-sso.png)
 
 1. Na stronie **Ustawienia logowania jednokrotnego** kliknij przycisk **Edytuj**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-tutorial/sf-admin-sso-edit.png)
+    ![Skonfiguruj edycję logowania jednokrotnego](./media/salesforce-tutorial/sf-admin-sso-edit.png)
 
     > [!NOTE]
     > Jeśli nie możesz włączyć ustawień logowania jednokrotnego dla swojego konta usługi Salesforce, może być konieczne skontaktowanie się z [zespołem pomocy technicznej klienta usługi Salesforce](https://help.salesforce.com/support).
 
 1. Wybierz pozycję **Włączona obsługa protokołu SAML**, a następnie kliknij pozycję **Zapisz**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-tutorial/sf-enable-saml.png)
+    ![Konfigurowanie protokołu SAML z włączonym logowaniem jednokrotnym](./media/salesforce-tutorial/sf-enable-saml.png)
 
 1. Aby skonfigurować ustawienia logowania jednokrotnego SAML, kliknij pozycję **Nowe z pliku metadanych**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-tutorial/sf-admin-sso-new.png)
+    ![Konfigurowanie logowania jednokrotnego z pliku metadanych](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
 1. Kliknij pozycję **Wybierz plik**, aby przekazać plik metadanych XML pobrany z witryny Azure Portal, i kliknij pozycję **Utwórz**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-tutorial/xmlchoose.png)
+    ![Konfigurowanie logowania jednokrotnego Wybieranie pliku](./media/salesforce-tutorial/xmlchoose.png)
 
 1. Na stronie **Ustawienia rejestracji** jednokrotnej protokołu SAML pola są wypełniane automatycznie, wybierz opcję **Inicjowanie obsługi użytkownika** , a następnie kliknij przycisk **Zapisz**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-tutorial/salesforcexml.png)
+    ![Skonfiguruj obsługę logowania jednokrotnego dla użytkowników](./media/salesforce-tutorial/salesforcexml.png)
 
 1. W okienku nawigacji po lewej stronie w usłudze Salesforce kliknij pozycję **Ustawienia firmowe**, aby rozwinąć odpowiednią sekcję, a następnie kliknij pozycję **Moja domena**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-tutorial/sf-my-domain.png)
+    ![Skonfiguruj domenę logowania jednokrotnego](./media/salesforce-tutorial/sf-my-domain.png)
 
 1. Przewiń w dół do sekcji **Konfiguracja uwierzytelniania** i kliknij przycisk **Edytuj**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-tutorial/sf-edit-auth-config.png)
+    ![Konfigurowanie konfiguracji uwierzytelniania jednokrotnego](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
 1. W sekcji **Konfiguracja uwierzytelniania** zaznacz pozycję **AzureSSO** jako **usługę uwierzytelniania** konfiguracji logowania jednokrotnego SAML, a następnie kliknij pozycję **Zapisz**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-tutorial/sf-auth-config.png)
+    ![Konfigurowanie usługi uwierzytelniania jednokrotnego](./media/salesforce-tutorial/sf-auth-config.png)
 
     > [!NOTE]
     > Jeśli zostanie wybrana więcej niż jedna usługa uwierzytelniania, podczas inicjowania logowania w środowisku usługi Salesforce użytkownikom będzie wyświetlany monit o wybranie usługi uwierzytelniania, przy użyciu której chcą się zalogować. Jeśli nie chcesz, aby ten monit był wyświetlany, **pozostaw wszystkie inne usługi uwierzytelniania niezaznaczone**.
@@ -207,44 +198,36 @@ W tej sekcji użytkownik o nazwie B. Simon został utworzony w usłudze Salesfor
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po kliknięciu kafelka Salesforce w panelu dostępu powinno nastąpić automatyczne zalogowanie do usługi Salesforce, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania do usługi Salesforce, w którym można zainicjować przepływ logowania. 
+
+2. Przejdź bezpośrednio do adresu URL logowania usługi Salesforce i zainicjuj w nim przepływ logowania.
+
+3. Możesz użyć panelu programu Microsoft Access. Po kliknięciu kafelka usługi Salesforce w panelu dostępu należy automatycznie zalogować się do usługi Salesforce, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="test-sso-for-salesforce-mobile"></a>Testowanie logowania jednokrotnego dla usługi Salesforce (Mobile)
 
 1. Otwórz aplikację mobilną Salesforce. Na stronie logowania kliknij pozycję **Użyj domeny niestandardowej**.
 
-    ![Aplikacja mobilna Salesforce](media/salesforce-tutorial/mobile-app1.png)
+    ![Aplikacja mobilna Salesforce Użyj domeny niestandardowej](media/salesforce-tutorial/mobile-app1.png)
 
 1. W polu tekstowym **domena niestandardowa** Wprowadź zarejestrowaną niestandardową nazwę domeny, a następnie kliknij przycisk **Kontynuuj**.
 
-    ![Aplikacja mobilna Salesforce](media/salesforce-tutorial/mobile-app2.png)
+    ![Domena niestandardowa aplikacji mobilnej Salesforce](media/salesforce-tutorial/mobile-app2.png)
 
 1. Wprowadź swoje poświadczenia usługi Azure AD, aby zalogować się do aplikacji Salesforce, a następnie kliknij przycisk **dalej**.
 
-    ![Aplikacja mobilna Salesforce](media/salesforce-tutorial/mobile-app3.png)
+    ![Poświadczenia usługi Azure AD aplikacji mobilnej Salesforce](media/salesforce-tutorial/mobile-app3.png)
 
 1. Na stronie **Zezwalanie na dostęp** , jak pokazano poniżej, kliknij pozycję **Zezwól** , aby udzielić dostępu do aplikacji usługi Salesforce.
 
-    ![Aplikacja mobilna Salesforce](media/salesforce-tutorial/mobile-app4.png)
+    ![Aplikacja mobilna Salesforce — Zezwalanie na dostęp](media/salesforce-tutorial/mobile-app4.png)
 
 1. Na koniec po pomyślnym zalogowaniu zostanie wyświetlona strona główna aplikacji.
 
-    ![Aplikacja mobilna usługi Salesforce dla aplikacji mobilnych ](media/salesforce-tutorial/mobile-app5.png) ![](media/salesforce-tutorial/mobile-app6.png)
+    ![](media/salesforce-tutorial/mobile-app5.png)Strona główna usługi Salesforce aplikacji ![ mobilnej Salesforce](media/salesforce-tutorial/mobile-app6.png)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="next-steps"></a>Następne kroki
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Konfigurowanie aprowizacji użytkowników](salesforce-provisioning-tutorial.md)
-
-- [Wypróbuj usługę Salesforce z usługą Azure AD](https://aad.portal.azure.com)
-
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Jak chronić usługi Salesforce za pomocą zaawansowanej widoczności i kontroli](https://docs.microsoft.com/cloud-app-security/protect-salesforce)
+Po skonfigurowaniu usługi Salesforce można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)

@@ -1,7 +1,7 @@
 ---
-title: Rozwiązywanie problemów z błędami modułu projektanta (wersja zapoznawcza)
+title: Rozwiązywanie problemów z błędami modułu projektanta
 titleSuffix: Azure Machine Learning
-description: Rozwiązywanie problemów z kodami błędów modułów w programie Azure Machine Learning Designer (wersja zapoznawcza)
+description: Rozwiązywanie problemów z kodami błędów modułów w projektancie Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 023a28c6f1d89d0975ff8ecac2466c51c05fa9da
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876924"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908099"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Wyjątki i kody błędów dla projektanta (wersja zapoznawcza)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Wyjątki i kody błędów dla projektanta
 
-W tym artykule opisano komunikaty o błędach i kody wyjątków w programie Azure Machine Learning Designer (wersja zapoznawcza), które ułatwiają rozwiązywanie problemów z potokami uczenia maszynowego.
+W tym artykule opisano komunikaty o błędach i kody wyjątków w programie Azure Machine Learning Designer, które ułatwiają rozwiązywanie problemów z potokami uczenia maszynowego.
 
 Komunikat o błędzie można znaleźć w projektancie, wykonując następujące czynności:  
 
@@ -357,7 +357,7 @@ W przypadku kolumn, które mają być używane do grupowania lub kategoryzacji, 
 ## <a name="error-0018"></a>0018 błędów  
  Wyjątek występuje, jeśli wejściowy zestaw danych jest nieprawidłowy.  
 
-**Rozwiązanie:** Ten błąd w Azure Machine Learning może występować w wielu kontekstach, więc nie istnieje pojedyncze rozwiązanie. Ogólnie rzecz biorąc, błąd wskazuje, że dane podane jako dane wejściowe modułu mają nieprawidłową liczbę kolumn lub że typ danych nie jest zgodny z wymaganiami modułu. Na przykład:  
+**Rozwiązanie:** Ten błąd w Azure Machine Learning może występować w wielu kontekstach, więc nie istnieje pojedyncze rozwiązanie. Ogólnie rzecz biorąc, błąd wskazuje, że dane podane jako dane wejściowe modułu mają nieprawidłową liczbę kolumn lub że typ danych nie jest zgodny z wymaganiami modułu. Przykład:  
 
 -   Moduł wymaga kolumny etykieta, ale żadna kolumna nie jest oznaczona jako etykieta lub nie wybrano jeszcze kolumny etykieta.  
   
@@ -439,7 +439,7 @@ W przypadku kolumn, które mają być używane do grupowania lub kategoryzacji, 
 ## <a name="error-0022"></a>0022 błędów  
  Wyjątek występuje, jeśli liczba wybranych kolumn w wejściowym zestawie danych nie jest równa oczekiwanej liczbie.  
 
- Ten błąd w Azure Machine Learning może wystąpić, gdy moduł podrzędny lub operacja wymaga określonej liczby kolumn lub danych wejściowych, a podano zbyt mało lub zbyt wiele kolumn lub danych wejściowych. Na przykład:  
+ Ten błąd w Azure Machine Learning może wystąpić, gdy moduł podrzędny lub operacja wymaga określonej liczby kolumn lub danych wejściowych, a podano zbyt mało lub zbyt wiele kolumn lub danych wejściowych. Przykład:  
 
 -   Należy określić pojedynczą kolumnę etykiety lub kolumnę klucza i przypadkowo zaznaczyć wiele kolumn.  
   
@@ -491,7 +491,7 @@ Może się również zdarzyć, że kolumna etykieta jest obecna w zestawie danyc
 
 **Rozwiązanie:**
 
-+ Otwórz moduł, który wygenerował błąd, i ustal, czy kolumna etykieta jest obecna. Nazwa lub typ danych kolumny nie ma znaczenia, pod warunkiem, że kolumna zawiera pojedynczy wynik (lub zmienną zależną), którą próbujesz przewidzieć. Jeśli nie masz pewności, która kolumna ma etykietę, poszukaj nazwy generycznej, takiej jak *Class* lub *Target*. 
++ Otwórz moduł, który wygenerował błąd, i ustal, czy kolumna etykieta jest obecna. Nazwa lub typ danych kolumny nie ma znaczenia, pod warunkiem, że kolumna zawiera pojedynczy wynik (lub zmienną zależną), którą próbujesz przewidzieć. Jeśli nie masz pewności, która kolumna ma etykietę, poszukaj nazwy generycznej, takiej jak  *Class* lub *Target*. 
 +  Jeśli zestaw danych nie zawiera kolumny etykieta, istnieje możliwość, że kolumna etykieta została jawnie lub przypadkowo usunięta. Może to być również, że zestaw danych nie jest danymi wyjściowymi nadrzędnego modułu oceniania.
 + Aby jawnie oznaczyć kolumnę jako kolumnę etykiety, Dodaj moduł [Edytuj metadane](edit-metadata.md) i Połącz zestaw danych. Zaznacz tylko kolumnę etykieta i wybierz pozycję **etykieta** z listy rozwijanej **pola** . 
 + Jeśli jako etykieta została wybrana nieprawidłowa kolumna, możesz wybrać pozycję **Wyczyść etykietę** z **pól** , aby naprawić metadane w kolumnie. 

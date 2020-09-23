@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 56f392210aac6045a9dc8cc3522d36092162f26c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086119"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892566"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
 Korzystając z funkcji diagnostyki chmury wiosennej platformy Azure, można analizować dzienniki i metryki przy użyciu dowolnej z następujących usług:
 
@@ -25,7 +27,7 @@ Korzystając z funkcji diagnostyki chmury wiosennej platformy Azure, można anal
 Wybierz kategorię dziennika i kategorię metryki, którą chcesz monitorować.
 
 > [!TIP]
-> Chcesz tylko przesłać strumieniowo dzienniki? Sprawdź to [polecenie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Chcesz tylko przesłać strumieniowo dzienniki? Sprawdź to [polecenie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs)!
 
 ## <a name="logs"></a>Dzienniki
 
@@ -106,7 +108,7 @@ Istnieją różne metody wyświetlania dzienników i metryk zgodnie z opisem w p
     | limit 50
     ```
 > [!NOTE]
-> `==`uwzględnia wielkość liter, ale `=~` nie jest.
+> `==` uwzględnia wielkość liter, ale `=~` nie jest.
 
 Aby dowiedzieć się więcej o języku zapytań używanym w Log Analytics, zobacz [Azure monitor dziennika zapytań](../azure-monitor/log-query/query-language.md).
 
@@ -203,3 +205,7 @@ AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
 Korzystanie z tej samej strategii dla innych bibliotek dzienników Java może być możliwe.
+
+## <a name="next-steps"></a>Następne kroki
+
+* [Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny](spring-cloud-quickstart.md)

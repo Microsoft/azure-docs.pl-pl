@@ -1,6 +1,6 @@
 ---
-title: Śledzenie zmian danych w usłudze Azure SQL Edge (wersja zapoznawcza)
-description: Informacje na temat śledzenia zmian i przechwytywania zmian danych w usłudze Azure SQL Edge (wersja zapoznawcza).
+title: Śledzenie zmian danych w usłudze Azure SQL Edge
+description: Dowiedz się więcej na temat śledzenia zmian i przechwytywania zmian danych w usłudze Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6d0a081f2b0adb143a6b37a647a00014846f8fe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d5d5f74a816bf745faf5decf761cd453f40123
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669600"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900060"
 ---
-# <a name="track-data-changes-in-azure-sql-edge-preview"></a>Śledzenie zmian danych w usłudze Azure SQL Edge (wersja zapoznawcza)
+# <a name="track-data-changes-in-azure-sql-edge"></a>Śledzenie zmian danych w usłudze Azure SQL Edge
 
 Usługa Azure SQL Edge obsługuje dwie SQL Server funkcje, które śledzą zmiany danych w bazie danych: [śledzenie zmian](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Tracking) i [przechwytywanie zmian danych](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture). Te funkcje umożliwiają aplikacjom Określanie zmian języka modyfikacji danych (operacji wstawiania, aktualizowania i usuwania), które zostały wprowadzone do tabel użytkowników w bazie danych. Możesz włączyć funkcję przechwytywania zmian danych i śledzenia zmian w tej samej bazie danych. Nie są wymagane żadne specjalne uwagi.
 
@@ -60,10 +60,10 @@ Aby uzyskać więcej informacji, zobacz [tabele](https://docs.microsoft.com/sql/
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przesyłanie strumieniowe danych w usłudze Azure SQL Edge (wersja zapoznawcza)](stream-data.md)
-- [Uczenie maszynowe i AI z ONNX w usłudze Azure SQL Edge (wersja zapoznawcza)](onnx-overview.md)
-- [Konfigurowanie replikacji do usługi Azure SQL Edge (wersja zapoznawcza)](configure-replication.md)
-- [Tworzenie kopii zapasowych i przywracanie baz danych w usłudze Azure SQL Edge (wersja zapoznawcza)](backup-restore.md)
+- [Przesyłanie strumieniowe danych w usłudze Azure SQL Edge ](stream-data.md)
+- [Uczenie maszynowe i AI z ONNX w usłudze Azure SQL Edge ](onnx-overview.md)
+- [Konfigurowanie replikacji do usługi Azure SQL Edge](configure-replication.md)
+- [Tworzenie kopii zapasowych i przywracanie baz danych w usłudze Azure SQL Edge](backup-restore.md)
 
 
 

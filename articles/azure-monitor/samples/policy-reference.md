@@ -1,17 +1,17 @@
 ---
 title: Wbudowane definicje zasad dla Azure Monitor
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Monitor. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 2557c0673fbc0babd15f24efe67cbf36d0e81fe6
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 88a8253ae121ac671cb7f02443a1a75f43b2158f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006197"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972815"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-monitor"></a>Azure Policy wbudowane definicje Azure Monitor
 

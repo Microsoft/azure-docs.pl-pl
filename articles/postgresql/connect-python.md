@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: a9303909eb98fc0ff2d7582fa7f5807a879e7958
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9fb0c02bcf040b1d27831e72d31ff07a7c38ad0a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182686"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901816"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka Python do nawiązywania połączeń i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 
@@ -46,7 +46,7 @@ Połączenie z bazą danych Azure Database for PostgreSQL wymaga w pełni kwalif
    
    Potrzebujesz także hasła administratora. Jeśli zapomnisz, możesz zresetować ją na tej stronie. 
    
-   ![Nazwa serwera usługi Azure Database for PostgreSQL](./media/connect-python/1-connection-string.png)
+   :::image type="content" source="./media/connect-python/1-connection-string.png" alt-text="Nazwa serwera usługi Azure Database for PostgreSQL":::
 
 ## <a name="how-to-run-the-python-examples"></a>Jak uruchomić przykłady języka Python
 
@@ -105,7 +105,7 @@ conn.close()
 
 Po pomyślnym uruchomieniu kodu generowane są następujące dane wyjściowe:
 
-![Dane wyjściowe wiersza polecenia](media/connect-python/2-example-python-output.png)
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Dane wyjściowe wiersza polecenia":::
 
 ## <a name="read-data"></a>Odczyt danych
 Poniższy przykład kodu nawiązuje połączenie z bazą danych Azure Database for PostgreSQL i używa [cursor.exeurocze](http://initd.org/psycopg/docs/cursor.html#execute) z instrukcją **SELECT** języka SQL w celu odczytu danych. Ta funkcja akceptuje zapytanie i zwraca zestaw wyników, aby wykonać iterację przy użyciu funkcji [Cursor. fetchall ()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 

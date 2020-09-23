@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 8cc2930422bf644f217737d0f0ba585c243575ee
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4627c094c3913d01f06c237b133e1ed0ea4ed2e0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503008"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969792"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Dokumentacja zarządzanego interfejsu API dla wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,6 +44,8 @@ Aby tworzyć wystąpienia zarządzane i zarządzać nimi za pomocą Azure PowerS
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Zwraca informacje dotyczące wystąpienia zarządzanego.|
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Ustawia właściwości wystąpienia zarządzanego.|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Usuwa wystąpienie zarządzane.|
+|[Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation)|Pobiera listę operacji zarządzania wykonanych w wystąpieniu zarządzanym lub określonej operacji.|
+|[Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation)|Anuluje konkretną operację zarządzania wykonywaną na zarządzanym wystąpieniu.|
 |[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Tworzy bazę danych wystąpienia zarządzanego SQL.|
 |[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Zwraca informacje o bazie danych wystąpienia zarządzanego SQL.|
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Usuwa bazę danych wystąpienia zarządzanego SQL.|
@@ -63,6 +65,9 @@ Aby utworzyć i skonfigurować wystąpienia zarządzane za pomocą [interfejsu w
 |[AZ SQL mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Pobiera szczegóły wystąpienia zarządzanego.|
 |[AZ SQL mi Update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Aktualizuje wystąpienie zarządzane.|
 |[AZ SQL mi Delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Usuwa wystąpienie zarządzane.|
+|[AZ SQL mi op list](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_list)|Pobiera listę operacji zarządzania wykonanych w wystąpieniu zarządzanym.|
+|[AZ SQL mi op show](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_show)|Pobiera konkretną operację zarządzania wykonywaną na zarządzanym wystąpieniu.|
+|[AZ SQL mi op Cancel](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_cancel)|Anuluje konkretną operację zarządzania wykonywaną na zarządzanym wystąpieniu.|
 |[AZ SQL MidB Create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Tworzy zarządzaną bazę danych.|
 |[AZ SQL MidB list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Wyświetla listę dostępnych zarządzanych baz danych.|
 |[AZ SQL MidB Restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Przywraca zarządzaną bazę danych.|
@@ -80,8 +85,8 @@ Aby utworzyć i skonfigurować wystąpienia baz danych po utworzeniu wystąpieni
 
 | Polecenie | Opis |
 | --- | --- |
-|[UTWÓRZ BAZĘ DANYCH](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Tworzy nową bazę danych wystąpienia w wystąpieniu zarządzanym SQL. Aby utworzyć nową bazę danych, musisz mieć połączenie z bazą danych Master.|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modyfikuje bazę danych wystąpienia w wystąpieniu zarządzanym SQL.|
+|[UTWÓRZ BAZĘ DANYCH](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|Tworzy nową bazę danych wystąpienia w wystąpieniu zarządzanym SQL. Aby utworzyć nową bazę danych, musisz mieć połączenie z bazą danych Master.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) |Modyfikuje bazę danych wystąpienia w wystąpieniu zarządzanym SQL.|
 
 ## <a name="rest-api-create-and-configure-managed-instances"></a>Interfejs API REST: Tworzenie i Konfigurowanie wystąpień zarządzanych
 
@@ -95,6 +100,9 @@ Aby utworzyć i skonfigurować wystąpienia zarządzane, Użyj tych żądań int
 |[Wystąpienia zarządzane — lista](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Zwraca listę wystąpień zarządzanych w ramach subskrypcji.|
 |[Wystąpienia zarządzane — lista według grupy zasobów](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Zwraca listę wystąpień zarządzanych w grupie zasobów.|
 |[Wystąpienia zarządzane — aktualizacja](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Aktualizuje wystąpienie zarządzane.|
+|[Operacje wystąpienia zarządzanego — lista według wystąpienia zarządzanego](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Pobiera listę operacji zarządzania wykonanych w wystąpieniu zarządzanym.|
+|[Operacje wystąpienia zarządzanego — Pobierz](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Pobiera konkretną operację zarządzania wykonywaną na zarządzanym wystąpieniu.|
+|[Operacje wystąpienia zarządzanego — anulowanie](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Anuluje konkretną operację zarządzania wykonywaną na zarządzanym wystąpieniu.|
 
 ## <a name="next-steps"></a>Następne kroki
 

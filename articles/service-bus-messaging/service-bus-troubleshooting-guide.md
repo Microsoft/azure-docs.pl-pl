@@ -1,14 +1,14 @@
 ---
 title: Przewodnik rozwiązywania problemów dla Azure Service Bus | Microsoft Docs
-description: Ten artykuł zawiera listę wyjątków Azure Service Bus komunikatów i sugerowanych akcji do wykonania w przypadku wystąpienia wyjątku.
+description: Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów i zalecenia dotyczące kilku problemów, które mogą wystąpić podczas korzystania z Azure Service Bus.
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: 822a97a230a8646ddadde21eedc6c23d5e3efbd6
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 09/16/2020
+ms.openlocfilehash: 39d2bf14f88e8efabcddda98268a187009cf029e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067056"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885712"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Przewodnik rozwiązywania problemów Azure Service Bus
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów i zalecenia dotyczące kilku problemów, które mogą wystąpić podczas korzystania z Azure Service Bus. 

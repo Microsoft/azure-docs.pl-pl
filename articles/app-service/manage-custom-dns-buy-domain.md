@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: ae2d91233df25885bdfd765481f4bb6a1a36da37
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 0111da00962f267387e66978952e8a7c9f5d7308
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958732"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970049"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Kupowanie niestandardowej nazwy domeny dla usługi Azure App Service
 
@@ -51,7 +51,7 @@ W lewym obszarze nawigacji na stronie aplikacji przewiń do sekcji **Ustawienia*
 
 Bieżąca warstwa aplikacji jest wyróżniona niebieskim obramowaniem. Upewnij się, że aplikacja nie znajduje się w warstwie **F1**. Niestandardowe nazwy DNS nie są obsługiwane w warstwie **F1**. 
 
-![Sprawdzanie warstwy cenowej](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png" alt-text="Zrzut ekranu przedstawiający menu nawigacji po lewej stronie aplikacji z wybranym przyciskiem Skaluj w górę (plan App Service).":::
 
 Jeśli plan App Service nie znajduje się w warstwie **F1** , zamknij stronę **skalowanie w górę** i przejdź do [opcji Kup domenę](#buy-the-domain).
 
@@ -61,7 +61,7 @@ Wybierz jedną z płatnych warstw (**D1**, **B1**, **B2**, **B3** lub dowolną w
 
 Kliknij pozycję **Zastosuj**.
 
-![Sprawdzanie warstwy cenowej](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Zrzut ekranu przedstawiający warstwy cenowe niestandardowych domen w kategorii produkcja z zakładkami produkcja, plan B1 i przycisk Zastosuj wyróżniony.":::
 
 Wyświetlenie następującego powiadomienia oznacza zakończenie operacji skalowania.
 
@@ -168,7 +168,7 @@ Upewnij się, że zakupiona domena znajduje się na liście w sekcji **domeny Ap
 Wybierz przycisk **Dodaj nazwę hosta**.
 
 ### <a name="configure-hostname"></a>Konfigurowanie nazwy hosta
-W oknie dialogowym **Dodawanie nazwy hosta** wpisz w pełni kwalifikowaną nazwę domeny domeny App Service lub dowolna poddomena. Na przykład:
+W oknie dialogowym **Dodawanie nazwy hosta** wpisz w pełni kwalifikowaną nazwę domeny domeny App Service lub dowolna poddomena. Przykład:
 
 - kontoso.net
 - \.kontoso.NET www

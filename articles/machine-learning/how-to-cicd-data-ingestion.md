@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 47b41e807c4d7b9a9fce6591da6655db74f483f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228889"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971256"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps dla potoku pozyskiwania danych
 
@@ -168,11 +168,11 @@ labels = np.array(data['target'])
 
 Ta nazwa jest inna dla środowisk ***dev***, ***pytań i odpowiedzi***, ***przeprowadzających***i ***produkcyjnego*** . W złożonym potoku z wieloma działaniami może istnieć kilka właściwości niestandardowych. Dobrym sposobem jest zebranie wszystkich wartości w jednym miejscu i Definiowanie ich jako ***zmiennych***potoku:
 
-![ADF — zmienne](media/how-to-cicd-data-ingestion/adf-variables.png)
+![Zrzut ekranu przedstawia Notes o nazwie PrepareData i M L Uruchom potok o nazwie M L Uruchom potok na górze przy użyciu karty zmienne wybrane poniżej z opcją dodania nowych zmiennych, z których każda ma nazwę, typ i wartość domyślną.](media/how-to-cicd-data-ingestion/adf-variables.png)
 
 Działania potoku mogą odwoływać się do zmiennych potoku podczas ich rzeczywistego używania:
 
-![ADF — parametry notesu](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
+![Zrzut ekranu przedstawia Notes o nazwie PrepareData i M L uruchomienia potoku o nazwie M L w górnej części z kartą ustawień wybraną poniżej.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
 W obszarze roboczym Azure Data Factory ***nie*** są domyślnie uwidaczniane zmienne potoku jako parametry szablonów Azure Resource Manager. W obszarze roboczym jest stosowany [domyślny szablon parametryzacja](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) , który określa, jakie właściwości potoku powinny być uwidocznione jako Azure Resource Manager parametry szablonu. Aby dodać zmienne potoku do listy, zaktualizuj `"Microsoft.DataFactory/factories/pipelines"` sekcję [domyślnego szablonu parametryzacja](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) z następującym fragmentem kodu i umieść plik JSON wynik w katalogu głównym folderu źródłowego:
 

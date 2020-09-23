@@ -5,14 +5,14 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814394"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891481"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Co to jest link usługi Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)?
 
@@ -21,7 +21,7 @@ ms.locfileid: "88814394"
 
 Link Synapse platformy Azure dla Azure Cosmos DB to natywna w chmurze funkcja przetwarzania transakcyjnego i analitycznego (HTAP), która pozwala uruchamiać analizę niemal w czasie rzeczywistym za pośrednictwem danych operacyjnych w Azure Cosmos DB. Usługa Azure Synapse Link umożliwia ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics.
 
-Korzystając z [Azure Cosmos DB analitycznego](analytical-store-introduction.md)magazynu, w pełni izolowany magazyn kolumn, usługa Azure Synapse Link umożliwia analizowanie w [usłudze Azure Synapse analiz](../synapse-analytics/overview-what-is.md) na podstawie danych operacyjnych w odpowiedniej skali. Analitycy biznesowi, inżynierowie danych i analityki danych mogą teraz korzystać z Synapse Spark lub Synapse SQL zamiennie do uruchamiania niemal w czasie rzeczywistym potoków analizy biznesowej, analizy i uczenia maszynowego. Można to osiągnąć bez wpływu na wydajność transakcyjnych obciążeń w Azure Cosmos DB. 
+Korzystając z [Azure Cosmos DB analitycznego](analytical-store-introduction.md)magazynu, w pełni izolowany magazyn kolumn, usługa Azure Synapse Link umożliwia analizowanie w [usłudze Azure Synapse analiz](../synapse-analytics/overview-what-is.md) na podstawie danych operacyjnych w odpowiedniej skali. Analitycy biznesowi, inżynierowie danych i analityki danych mogą teraz korzystać z Synapse Spark lub Synapse SQL zamiennie do uruchamiania niemal w czasie rzeczywistym potoków analizy biznesowej, analizy i uczenia maszynowego. Można to osiągnąć bez wpływu na wydajność transakcyjnych obciążeń w usłudze Azure Cosmos DB. 
 
 Na poniższej ilustracji przedstawiono integrację usługi Azure Synapse z usługami Azure Cosmos DB i Azure Synapse Analytics: 
 
@@ -40,7 +40,6 @@ Link usługi Azure Synapse umożliwia bezpośredni dostęp do magazynu analitycz
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Wgląd w dane operacyjne niemal w czasie rzeczywistym
 
 Teraz możesz uzyskać szczegółowe informacje na temat danych operacyjnych niemal w czasie rzeczywistym przy użyciu linku usługi Azure Synapse. Systemy oparte na usłudze ETL mają większe opóźnienia do analizowania danych operacyjnych, z powodu wielu warstw potrzebnych do wyodrębniania, przekształcania i ładowania danych operacyjnych. Dzięki integracji natywnej Azure Cosmos DB z magazynem analitycznym przy użyciu usługi Azure Synapse Analytics można analizować dane operacyjne niemal w czasie rzeczywistym, włączając nowe scenariusze biznesowe. 
-
 
 ### <a name="no-impact-on-operational-workloads"></a>Brak wpływu na obciążenia operacyjne
 
@@ -91,7 +90,7 @@ Możesz wykonywać zapytania dotyczące danych z Azure Cosmos DBego magazynu ana
 
 Ta Integracja umożliwia korzystanie z następujących scenariuszy HTAP dla różnych użytkowników:
 
-* Inżynier analizy biznesowej, który chce modelować i publikować raport w celu uzyskania dostępu do danych operacyjnych w Azure Cosmos DB bezpośrednio za pomocą Synapse SQL.
+* Inżynier analizy biznesowej, który chce modelować i publikować raport Power BI, aby uzyskać dostęp do danych operacyjnych na żywo w Azure Cosmos DB bezpośrednio za pomocą Synapse SQL.
 
 * Analityk danych, który chce uzyskiwać wgląd w dane operacyjne w kontenerze Azure Cosmos DB, wykonując zapytania o Synapse SQL, Odczytaj dane w odpowiedniej skali i Połącz te wyniki z innymi źródłami danych.
 
@@ -105,7 +104,7 @@ Aby uzyskać więcej informacji o obsłudze środowiska uruchomieniowego usługi
 
 Łącze Synapse jest zalecane w następujących przypadkach:
 
-* Jeśli jesteś Azure Cosmos DB klientem i chcesz uruchamiać analizy, analizy biznesowej i uczenia maszynowego na danych operacyjnych. W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko analityczne bez wpływu na przepływność zainicjowaną przez magazyn transakcyjny. Na przykład:
+* Jeśli jesteś Azure Cosmos DB klientem i chcesz uruchamiać analizy, analizy biznesowej i uczenia maszynowego na danych operacyjnych. W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko analityczne bez wpływu na przepływność zainicjowaną przez magazyn transakcyjny. Przykład:
 
   * Jeśli używasz analizy lub analizy biznesowej Azure Cosmos DB danych operacyjnych bezpośrednio przy użyciu osobnych łączników, lub
 
@@ -115,16 +114,15 @@ W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko 
 
 Łącze Synapse nie jest zalecane, jeśli szukasz tradycyjnych wymagań magazynu danych, takich jak wysoka współbieżność, zarządzanie obciążeniami i trwałość agregacji w wielu źródłach danych. Aby uzyskać więcej informacji, zobacz [typowe scenariusze, które mogą być obsługiwane za pomocą linku usługi Azure Synapse dla Azure Cosmos DB](synapse-link-use-cases.md).
 
-
 ## <a name="limitations"></a>Ograniczenia
 
-* W publicznej wersji zapoznawczej link usługi Azure Synapse jest obsługiwany tylko w przypadku interfejsu API Azure Cosmos DB SQL (rdzeń). Obsługa interfejsu API Azure Cosmos DB dla MongoDB & interfejs API Cassandra jest obecnie objęta testową wersją zapoznawczą. Aby zażądać dostępu do warunkowej wersji zapoznawczej, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+* Usługa Azure Synapse link jest obsługiwana Azure Cosmos DB dla interfejsu API SQL (Core) i interfejsu API Azure Cosmos DB dla MongoDB. Obsługa interfejs API Cassandra jest obecnie objęta testową wersją zapoznawczą. Aby zażądać dostępu do warunkowej wersji zapoznawczej, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-* Obecnie magazyn analityczny można włączyć tylko dla nowych kontenerów (zarówno w nowych, jak i istniejących Azure Cosmos DB kontach).
-
-* W wersji zapoznawczej dla kont bazy danych z włączonym linkiem Synapse nie jest obsługiwane wykonywanie kopii zapasowych i przywracanie kontenerów. W przypadku obciążeń produkcyjnych, które wymagają funkcji tworzenia kopii zapasowych i przywracania, zaleca się, aby nie włączać linku Synapse na tych kontach baz danych. 
+* Obecnie magazyn analityczny można włączyć tylko dla nowych kontenerów. Aby używać magazynu analitycznego dla istniejących kontenerów, Migruj dane z istniejących kontenerów do nowych kontenerów za pomocą [narzędzi do migracji Azure Cosmos DB](cosmosdb-migrationchoices.md). Link Synapse można włączyć na nowych i istniejących kontach Azure Cosmos DB.
 
 * Dostęp do magazynu analitycznego Azure Cosmos DB przy użyciu programu Synapse SQL Server jest obecnie objęty testową wersją zapoznawczą. Aby zażądać dostępu, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+
+* W wersji zapoznawczej dla kont bazy danych z włączonym linkiem Synapse nie jest obsługiwane wykonywanie kopii zapasowych i przywracanie kontenerów. W przypadku obciążeń wymagających funkcji tworzenia kopii zapasowych i przywracania zaleca się, aby nie włączać łącza Synapse na tych kontach baz danych. 
 
 * Uzyskiwanie dostępu do Sklepu Azure Cosmos DB Analytics z zainicjowaną obsługą SQL Synapse nie jest obecnie dostępne.
 

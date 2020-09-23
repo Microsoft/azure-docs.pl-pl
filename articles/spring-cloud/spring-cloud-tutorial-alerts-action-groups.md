@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc8dffb12dcd205671e2219dbef45ac14f9f7df7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299231"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892538"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Samouczek: Jak monitorować zasoby w chmurze wiosny przy użyciu alertów i grup akcji
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
 Alerty chmurowe platformy Azure obsługują monitorowanie zasobów na podstawie takich warunków, jak dostępne magazyny, częstotliwość żądań lub użycie danych. Alert wysyła powiadomienie, gdy stawki lub warunki spełniają zdefiniowane specyfikacje.
 
@@ -58,11 +60,11 @@ Na stronie **Dodaj grupę akcji** :
 
 ## <a name="set-up-alert"></a>Konfigurowanie alertu 
 
-W poprzednich krokach utworzono **grupę akcji** , która używa poczty e-mail. Możesz również użyć powiadomień na telefon, elementów webhook, usługi Azure Functions itd.  
+W poprzednich krokach utworzono **grupę akcji** , która używa poczty e-mail. Możesz również użyć powiadomień na telefon, elementów webhook, usługi Azure Functions i tak dalej. Poniższe kroki konfigurują **alert**.
 
-Aby skonfigurować **alert**, przejdź z powrotem do strony **alerty** , a następnie kliknij pozycję **Zarządzaj regułami alertów**.
+1. Przejdź z powrotem do strony **alerty** , a następnie kliknij pozycję **Zarządzaj regułami alertów**.
 
-  ![Portal zrzutu ekranu — Definiowanie alertu](media/alerts-action-groups/alerts-2.png)
+   ![Portal zrzutu ekranu — Definiowanie alertu](media/alerts-action-groups/alerts-2.png)
 
 1. Wybierz **zasób** dla alertu.
 
@@ -84,9 +86,9 @@ Aby skonfigurować **alert**, przejdź z powrotem do strony **alerty** , a nast�
 
 1. Kliknij przycisk **Gotowe**.
 
-Aby uzyskać szczegółowe informacje na temat warunków dostępnych do monitorowania, zobacz [Opcje metryk portalu użytkowników](spring-cloud-concept-metrics.md#user-metrics-options).
+   Aby uzyskać szczegółowe informacje na temat warunków dostępnych do monitorowania, zobacz [Opcje metryk portalu użytkowników](spring-cloud-concept-metrics.md#user-metrics-options).
 
- W obszarze **Akcje**kliknij pozycję **Wybierz grupę akcji**. W okienku **Akcje** wybierz wcześniej zdefiniowaną **grupę akcji**.
+1. W obszarze **Akcje**kliknij pozycję **Wybierz grupę akcji**. W okienku **Akcje** wybierz wcześniej zdefiniowaną **grupę akcji**.
 
    ![Nowy alert dotyczący portalu zrzutu ekranu 4](media/alerts-action-groups/alerts-3-3.png) 
 
@@ -98,13 +100,13 @@ Aby uzyskać szczegółowe informacje na temat warunków dostępnych do monitoro
 
    ![Portal zrzutów ekranu — Nowa reguła alertu 5](media/alerts-action-groups/alerts-3-4.png)
 
-Sprawdź, czy Nowa reguła alertu jest włączona.
+1. Sprawdź, czy Nowa reguła alertu jest włączona.
 
    ![Portal zrzutów ekranu — Nowa reguła alertu 6](media/alerts-action-groups/alerts-4.png)
 
 Regułę można również utworzyć za pomocą strony **metryki** :
 
-   ![Portal zrzutów ekranu — Nowa reguła alertu 7](media/alerts-action-groups/alerts-5.png)
+![Portal zrzutów ekranu — Nowa reguła alertu 7](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

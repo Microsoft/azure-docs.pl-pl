@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: e3dc2990e810096310617e468a533a65626008ff
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 72d5a722e6c1e6b936c6ec0386036317e887bb92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542657"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969826"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Szybki Start: Konfigurowanie maszyny wirtualnej platformy Azure do nawiązywania połączenia z wystąpieniem zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -85,7 +85,7 @@ Najprostszym sposobem utworzenia klienckiej maszyny wirtualnej przy użyciu wszy
    | **Lokalizacja** | Lokalizacja grupy zasobów | Ta wartość jest wypełniana na podstawie wybranej grupy zasobów. |
    | **Nazwa maszyny wirtualnej**  | Dowolna prawidłowa nazwa | Prawidłowe nazwy opisano w artykule [Ograniczenia i reguły nazewnictwa](/azure/architecture/best-practices/resource-naming).|
    |**Nazwa użytkownika administratora**|Dowolna prawidłowa nazwa użytkownika|Prawidłowe nazwy opisano w artykule [Ograniczenia i reguły nazewnictwa](/azure/architecture/best-practices/resource-naming). Nie używaj nazwy „serveradmin”, gdyż jest ona zarezerwowana dla roli poziomu serwera.<br>Ta nazwa użytkownika jest używana przy każdej próbie [połączenia z maszyną wirtualną](#connect-to-the-virtual-machine).|
-   |**Hasło**|Dowolne prawidłowe hasło|Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>To hasło jest używane podczas [nawiązywania połączenia z maszyną wirtualną](#connect-to-the-virtual-machine).|
+   |**Hasło**|Dowolne prawidłowe hasło|Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>To hasło jest używane podczas [nawiązywania połączenia z maszyną wirtualną](#connect-to-the-virtual-machine).|
    | **Rozmiar maszyny wirtualnej** | Dowolny prawidłowy rozmiar | Wartość domyślna w tym szablonie **Standard_B2s** jest wystarczająca dla tego przewodnika Szybki Start. |
    | **Lokalizacja**|[resourceing (). Location].| Nie zmieniaj tej wartości. |
    | **Nazwa Virtual Network**|Sieć wirtualna, w której utworzono wystąpienie zarządzane|
@@ -110,9 +110,9 @@ Poniższe kroki pokazują, jak nawiązać połączenie z nowo utworzoną maszyn�
 
 1. Po zakończeniu wdrażania przejdź do zasobu maszyny wirtualnej.
 
-    ![VM](./media/connect-vm-instance-configure/vm.png)  
+    ![Zrzut ekranu przedstawia Azure Portal na stronie Przegląd dla wybranej maszyny wirtualnej i podłączania.](./media/connect-vm-instance-configure/vm.png)  
 
-2. Wybierz polecenie **Połącz**.
+2. Wybierz pozycję **Połącz**.
 
    Zostanie wyświetlony formularz Remote Desktop Protocol pliku (RDP) z publicznym adresem IP i numerem portu dla maszyny wirtualnej.
 

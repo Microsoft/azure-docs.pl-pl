@@ -8,15 +8,14 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 0725a97aecab5d03c2f5e3937c181a95a7b97c2a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c90d11ba630dbb1e37054715855ae5547a8a034b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461514"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902716"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Tworzenie zestawów danych Azure Machine Learning przy użyciu otwartych zestawów danych platformy Azure
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, jak przenieść nadzorowane dane wzbogacania do swoich lokalnych lub zdalnych eksperymentów w usłudze Machine Learning za pomocą zestawów danych [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) i [otwartych zestawów danych platformy Azure](https://docs.microsoft.com/azure/open-datasets/). 
 
@@ -50,7 +49,7 @@ W tym artykule potrzebne są:
 
     * Utwórz [wystąpienie obliczeniowe Azure Machine Learning](../machine-learning/concept-compute-instance.md#managing-a-compute-instance), które jest w pełni skonfigurowane i zarządzane środowisko programistyczne, które zawiera zintegrowane notesy oraz już zainstalowany zestaw SDK.
 
-    **ORAZ**
+    **LUB**
 
     * Pracuj nad własnym środowiskiem Python i samodzielnie Instaluj zestaw SDK, korzystając z [tych instrukcji](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -111,7 +110,7 @@ Możesz również tworzyć Azure Machine Learning zestawy danych z platformy Azu
 
     ![Wybierz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych **dni wolnych** , należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Zobacz [wykaz otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/open-datasets/catalog) , aby uzyskać szczegółowe informacje, takie jak opisy pól i zakresy dat. Wybierz pozycję **Utwórz**.
+1. Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych **dni wolnych** , należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Zobacz [wykaz otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/open-datasets/catalog) , aby uzyskać szczegółowe informacje, takie jak opisy pól i zakresy dat. Wybierz przycisk **Utwórz**.
 
     ![Ustaw parametry zestawu danych i Utwórz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

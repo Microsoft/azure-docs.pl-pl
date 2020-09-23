@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4703a7d1928415d78eae63c42051542b035d3b1a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: ca42ddbc648f7c342b1cd649c19b77df803257d8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798362"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979796"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Zatwierdzanie lub odrzucanie żądań dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -48,6 +48,22 @@ Jeśli nie masz wiadomości e-mail, możesz znaleźć żądania dostępu oczekuj
 1. W menu po lewej stronie kliknij pozycję **zatwierdzenia** , aby wyświetlić listę żądań dostępu oczekujących na zatwierdzenie.
 
 1. Na karcie **oczekiwanie** Znajdź żądanie.
+
+## <a name="view-requestors-answers-to-questions-preview"></a>Wyświetl odpowiedzi na pytania żądającego (wersja zapoznawcza)
+
+1. Przejdź do karty **zatwierdzenia** w polu mój dostęp.
+
+1. Przejdź do żądania, które chcesz zatwierdzić, a następnie kliknij przycisk **szczegóły**. Możesz również kliknąć pozycję **Zatwierdź** lub **Odmów** , jeśli wszystko jest gotowe do podjęcia decyzji.
+
+1. Kliknij pozycję **szczegóły żądania**.
+
+     ![Portal dostępu — dostęp — szczegóły żądania](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+
+1. Informacje dostarczone przez zleceniodawcę będą znajdować się w dolnej części panelu.
+
+     ![Portal dostępu moje dostęp — żądanie dostępu](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+
+1. Na podstawie informacji podanej przez zleceniodawcę możesz zatwierdzić lub odrzucić żądanie. Zapoznaj się z instrukcjami zawartymi w temacie zatwierdzanie lub odrzucanie żądań wskazówek.
 
 ## <a name="approve-or-deny-request"></a>Zatwierdź lub Odmów żądania
 

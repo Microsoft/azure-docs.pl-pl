@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 3a3090e627eef1229089b12e3106ce12b3ae3b04
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 077f38d385571a07a577f518e45ca495f6c07dc5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90022166"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972740"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -27,7 +27,7 @@ ms.locfileid: "90022166"
 |[Długoterminowa geograficznie nadmiarowa kopia zapasowa powinna być włączona dla baz danych Azure SQL Database](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd38fc420-0735-4ef3-ac11-c806f651a570) |Ta zasada przeprowadza inspekcję wszelkich Azure SQL Database z długoterminową geograficznie nadmiarową kopią zapasową, która nie jest włączona. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_SQLDatabase_AuditIfNotExists.json) |
 |[Połączenia prywatnego punktu końcowego na Azure SQL Database powinny być włączone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7698e800-9299-47a6-b3b6-5a0fee576eed) |Połączenia prywatne punktów końcowych wymuszają bezpieczną komunikację przez włączenie prywatnej łączności do Azure SQL Database. |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_PrivateEndpoint_Audit.json) |
 |[Dostęp do sieci publicznej na Azure SQL Database powinien być wyłączony](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b8ca024-1d5c-4dec-8995-b1a932b41780) |Wyłączenie publicznej właściwości dostępu do sieci zwiększa bezpieczeństwo, zapewniając dostęp do Azure SQL Database tylko z prywatnego punktu końcowego. Ta konfiguracja odrzuca wszystkie identyfikatory logowania zgodne z regułami zapory na podstawie adresu IP lub sieci wirtualnej. |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_PublicNetworkAccess_Audit.json) |
-|[Poufne dane w bazach danych SQL powinny być klasyfikowane](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc9835f2-9f6b-4cc8-ab4a-f8ef615eb349) |Azure Security Center monitoruje wyniki odnajdywania i klasyfikacji danych dla baz danych SQL i oferuje zalecenia dotyczące klasyfikowania poufnych danych w bazach danych w celu lepszego monitorowania i zabezpieczeń |AuditIfNotExists, wyłączone |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbDataClassification_Audit.json) |
+|[Poufne dane w bazach danych SQL powinny być klasyfikowane](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc9835f2-9f6b-4cc8-ab4a-f8ef615eb349) |Azure Security Center monitoruje wyniki odnajdywania i klasyfikacji danych dla baz danych SQL i oferuje zalecenia dotyczące klasyfikowania poufnych danych w bazach danych w celu lepszego monitorowania i zabezpieczeń |AuditIfNotExists, wyłączone |[2.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbDataClassification_Audit.json) |
 |[Ustawienia inspekcji SQL powinny mieć skonfigurowane grupy akcji do przechwytywania działań krytycznych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ff426e2-515f-405a-91c8-4f2333442eb5) |Właściwość AuditActionsAndGroups powinna zawierać co najmniej SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP, FAILED_DATABASE_AUTHENTICATION_GROUP BATCH_COMPLETED_GROUP w celu zapewnienia dokładnego rejestrowania inspekcji |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_ActionsAndGroups_Audit.json) |
 |[SQL Database należy unikać używania nadmiarowości kopii zapasowej GRS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb219b9cf-f672-4f96-9ab0-f5a3ac5e1c13) |Bazy danych powinny unikać używania magazynu GRS dla kopii zapasowych, jeśli reguły zamieszkania danych wymagają, aby dane były przechowywane w określonym regionie. |Odmów, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDb_BlockGrsBackupRedundancy_Deny.json) |
 |[Wystąpienie zarządzane SQL powinno mieć minimalną wersję protokołu TLS 1,2](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8793640-60f7-487c-b5c3-1d37215905c4) |Ustawienie minimalnej wersji protokołu TLS na 1,2 zwiększa bezpieczeństwo, zapewniając, że wystąpienie zarządzane SQL jest dostępne tylko dla klientów korzystających z protokołu TLS 1,2. Korzystanie z wersji TLS mniejszej niż 1,2 nie jest reccomended, ponieważ mają one dobrze udokumentowane vunerabilities zabezpieczeń. |Inspekcja, wyłączona |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_MiniumTLSVersion_Audit.json) |

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9acd322c454002613e21e8591c3e83aeec2d51e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049779"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979390"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Rozwiązywanie problemów z włączaniem lub wyświetlaniem Application Insights Profiler
 
@@ -79,12 +79,12 @@ Aby Profiler działał prawidłowo:
    1. W menu **Narzędzia** wybierz pozycję **pulpit nawigacyjny WebJobs**.  
       Zostanie otwarte okienko **Zadania WebJob** . 
    
-      ![Profiler — zadanie WebJob]   
+      ![Zrzut ekranu przedstawia okienko Zadania WebJob, w którym wyświetlana jest nazwa, stan i czas ostatniego uruchomienia zadań.][profiler-webjob]   
    
    1. Aby wyświetlić szczegóły zadania WebJob, w tym dziennik, wybierz łącze **ApplicationInsightsProfiler3** .  
      Zostanie otwarte okienko **szczegóły ciągłego Zadania WebJob** .
 
-      ![Profiler-WebJob-log]
+      ![Zrzut ekranu przedstawia okienko Szczegóły ciągłego Zadania WebJob.][profiler-webjob-log]
 
 Jeśli nie możesz ustalić, dlaczego Profiler nie działa, możesz pobrać dziennik i wysłać go do naszego zespołu w celu uzyskania pomocy serviceprofilerhelp@microsoft.com . 
     
@@ -191,5 +191,5 @@ Jeśli aplikacja łączy się z Internetem za pośrednictwem serwera proxy lub z
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
-[Profiler — zadanie WebJob]:./media/profiler-troubleshooting/Profiler-webjob.png
-[Profiler-WebJob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
+[profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
+[profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png

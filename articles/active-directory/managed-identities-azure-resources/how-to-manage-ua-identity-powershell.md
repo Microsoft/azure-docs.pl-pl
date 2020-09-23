@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1211245786bbb734e0338be1b79030f5f9552793
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8649c9faf3905e69232cdc15bbba6607abe3e9c4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266378"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969500"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Tworzenie, wyświetlanie i usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure PowerShell
 
@@ -36,12 +36,35 @@ Ten artykuł zawiera informacje na temat tworzenia, wyświetlania i usuwania to�
 
 - Jeśli nie znasz tożsamości zarządzanych dla zasobów platformy Azure, zapoznaj się z [sekcją przegląd](overview.md). **Pamiętaj, aby zapoznać się z [różnicą między przypisaną przez system i tożsamością zarządzaną przez użytkownika](overview.md#managed-identity-types)**.
 - Jeśli nie masz jeszcze konta platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed kontynuowaniem.
-- Zainstaluj [najnowszą wersję programu Azure PowerShell](/powershell/azure/install-az-ps) , jeśli jeszcze tego nie zrobiono.
-- Jeśli używasz programu PowerShell lokalnie, wykonaj również te czynności: 
-    - Uruchom polecenie `Connect-AzAccount`, aby utworzyć połączenia z platformą Azure.
-    - Zainstaluj [najnowszą wersję modułu PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
-    - Uruchom polecenie `Install-Module -Name PowerShellGet -AllowPrerelease`, aby pobrać wersję wstępną modułu `PowerShellGet` (po uruchomieniu tego polecenia może być konieczne uruchomienie polecenia `Exit` umożliwiającego zakończenie bieżącej sesji programu PowerShell w celu zainstalowania modułu `Az.ManagedServiceIdentity`).
-    - Uruchom, `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` Aby zainstalować wersję wstępną modułu w `Az.ManagedServiceIdentity` celu wykonania operacji zarządzania tożsamościami przypisanymi przez użytkownika w tym artykule.
+- Do uruchomienia przykładowych skryptów są dostępne dwie opcje:
+    - Użyj [Azure Cloud Shell](../../cloud-shell/overview.md), którą można otworzyć za pomocą przycisku **Wypróbuj** w prawym górnym rogu bloków kodu.
+    - Uruchom skrypty lokalnie przy użyciu Azure PowerShell, zgodnie z opisem w następnej sekcji.
+
+### <a name="configure-azure-powershell-locally"></a>Skonfiguruj lokalnie Azure PowerShell
+
+Aby używać Azure PowerShell lokalnie w tym artykule (zamiast używać Cloud Shell), wykonaj następujące czynności:
+
+1. Zainstaluj [najnowszą wersję programu Azure PowerShell](/powershell/azure/install-az-ps) , jeśli jeszcze tego nie zrobiono.
+
+1. Zaloguj się do platformy Azure:
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Zainstaluj [najnowszą wersję modułu PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+
+    ```azurepowershell
+    Install-Module -Name PowerShellGet -AllowPrerelease
+    ```
+
+    `Exit`Po uruchomieniu tego polecenia w następnym kroku może być konieczne wyjście z bieżącej sesji programu PowerShell.
+
+1. Zainstaluj wersję wstępną `Az.ManagedServiceIdentity` modułu, aby wykonać operacje zarządzanej tożsamości przypisane przez użytkownika w tym artykule:
+
+    ```azurepowershell
+    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
+    ```
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika
 
