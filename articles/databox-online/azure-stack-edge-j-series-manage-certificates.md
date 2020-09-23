@@ -1,6 +1,6 @@
 ---
-title: Używanie certyfikatów z Azure Stack Edge GPU | Microsoft Docs
-description: Opisuje użycie certyfikatów z urządzeniem z systemem Azure Stack Edge na zewnątrz, w tym do użycia, które typy i sposób przekazywania certyfikatów na urządzeniu.
+title: Korzystanie z certyfikatów w programie Azure Stack EDGE Pro GPU | Microsoft Docs
+description: W tym artykule opisano sposób korzystania z certyfikatów z urządzeniami wieloprocesorowymi w systemie Azure Stack Edge
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,28 +8,28 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: bf7f9236c8f0835d0041b4b0c454a492330ef878
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 59924312fe0483d11d0f70ce83b8f6e4b0e198dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268880"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890758"
 ---
-# <a name="use-certificates-with-azure-stack-edge-gpu-device"></a>Korzystanie z certyfikatów przy użyciu urządzenia z Azure Stack Edge
+# <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Używanie certyfikatów z urządzeniem Azure Stack Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-W tym artykule opisano typy certyfikatów, które można zainstalować na urządzeniu brzegowym Azure Stack. Artykuł zawiera również szczegóły dotyczące każdego typu certyfikatu wraz z procedurą instalacji i identyfikacji daty wygaśnięcia. 
+W tym artykule opisano typy certyfikatów, które można zainstalować na urządzeniu z systemem Azure Stack brzeg Pro. Artykuł zawiera również szczegóły dotyczące każdego typu certyfikatu wraz z procedurą instalacji i identyfikacji daty wygaśnięcia. 
 
 ## <a name="about-certificates"></a>Informacje o certyfikatach
 
 Certyfikat zawiera łącze między **kluczem publicznym** i jednostką (taką jak nazwa domeny), która została **podpisana** (zweryfikowana) przez zaufaną stronę trzecią (na przykład **urząd certyfikacji**).  Certyfikat zapewnia wygodny sposób dystrybucji zaufanych publicznych kluczy szyfrowania. Certyfikaty w ten sposób zapewniają, że komunikacja jest zaufana i że dane zaszyfrowane są wysyłane na właściwy serwer. 
 
-Po wstępnym skonfigurowaniu urządzenia brzegowego Azure Stack certyfikaty z podpisem własnym są generowane automatycznie. Opcjonalnie możesz przenieść własne certyfikaty. Istnieją wskazówki, które należy wykonać, jeśli planujesz przeprowadzenie własnych certyfikatów.
+Po wstępnym skonfigurowaniu urządzenia Azure Stack EDGE Pro certyfikaty z podpisem własnym są generowane automatycznie. Opcjonalnie możesz przenieść własne certyfikaty. Istnieją wskazówki, które należy wykonać, jeśli planujesz przeprowadzenie własnych certyfikatów.
 
 ## <a name="types-of-certificates"></a>Typy certyfikatów
 
-Różne typy certyfikatów używane na urządzeniu Azure Stack Edge są następujące: 
+Różne typy certyfikatów, które są używane na urządzeniu Azure Stack EDGE Pro, są następujące: 
 - Certyfikaty podpisywania
     - Główny urząd certyfikacji
     - Średni
@@ -68,7 +68,7 @@ Te certyfikaty mogą być certyfikatami głównymi lub pośrednimi certyfikatami
 
 ## <a name="node-certificates"></a>Certyfikaty węzła
 
-<!--Your Azure Stack Edge device could be a 1-node device or a 4-node device.--> Wszystkie węzły w urządzeniu stale komunikują się ze sobą i dlatego muszą mieć relację zaufania. Certyfikaty węzła zapewniają sposób ustanowienia tego zaufania. Certyfikaty węzłów są również odtwarzane podczas łączenia się z węzłem urządzenia za pomocą zdalnej sesji programu PowerShell za pośrednictwem protokołu HTTPS.
+<!--Your Azure Stack Edge Pro device could be a 1-node device or a 4-node device.--> Wszystkie węzły w urządzeniu stale komunikują się ze sobą i dlatego muszą mieć relację zaufania. Certyfikaty węzła zapewniają sposób ustanowienia tego zaufania. Certyfikaty węzłów są również odtwarzane podczas łączenia się z węzłem urządzenia za pomocą zdalnej sesji programu PowerShell za pośrednictwem protokołu HTTPS.
 
 ### <a name="caveats"></a>Zastrzeżenia
 
@@ -121,9 +121,9 @@ Możesz uzyskać dostęp do lokalnego interfejsu użytkownika sieci Web urządze
 
 ## <a name="iot-edge-device-certificates"></a>IoT Edge certyfikaty urządzeń
 
-Urządzenie brzegowe Azure Stack jest również urządzeniem IoT z obliczaniem włączonym przez urządzenie IoT Edge z nim połączone. Aby zapewnić bezpieczną komunikację między tym urządzeniem IoT Edge i urządzeniami podrzędnymi, które mogą się z nim połączyć, można także przekazać certyfikaty IoT Edge. 
+Urządzenie Azure Stack EDGE Pro jest również urządzeniem IoT z obliczaniem włączonym przez urządzenie IoT Edge z nim połączone. Aby zapewnić bezpieczną komunikację między tym urządzeniem IoT Edge i urządzeniami podrzędnymi, które mogą się z nim połączyć, można także przekazać certyfikaty IoT Edge. 
 
-Urządzenie ma certyfikaty z podpisem własnym, których można użyć, jeśli chcesz używać tylko scenariusza obliczeń z urządzeniem. Jeśli urządzenie brzegowe Azure Stack jest jednak połączone z urządzeniami podrzędnymi, należy przenieść własne certyfikaty.
+Urządzenie ma certyfikaty z podpisem własnym, których można użyć, jeśli chcesz używać tylko scenariusza obliczeń z urządzeniem. Jeśli urządzenie Azure Stack EDGE Pro jest jednak połączone z urządzeniami podrzędnymi, należy je przenieść.
 
 Istnieją trzy IoT Edge certyfikaty, które należy zainstalować, aby włączyć tę relację zaufania:
 
@@ -140,7 +140,7 @@ Aby uzyskać więcej informacji na temat IoT Edge certyfikatów, zobacz [Azure I
 
 ## <a name="support-session-certificates"></a>Obsługa certyfikatów sesji
 
-Jeśli w Azure Stack urządzeniu brzegowym występują jakieś problemy, to aby rozwiązać te problemy, na urządzeniu może być otwarta sesja obsługi zdalnej programu PowerShell. Aby włączyć bezpieczną, zaszyfrowaną komunikację w ramach tej sesji obsługi, można przekazać certyfikat.
+Jeśli na urządzeniu z programem Azure Stack Edge wystąpią jakieś problemy, to aby rozwiązać te problemy, na urządzeniu może być otwarta sesja obsługi zdalnej programu PowerShell. Aby włączyć bezpieczną, zaszyfrowaną komunikację w ramach tej sesji obsługi, można przekazać certyfikat.
 
 ### <a name="caveats"></a>Zastrzeżenia
 
@@ -155,7 +155,7 @@ Jeśli w Azure Stack urządzeniu brzegowym występują jakieś problemy, to aby 
 
 <!--## VPN certificates
 
-If VPN is configured on your Azure Stack Edge device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
+If VPN is configured on your Azure Stack Edge Pro device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
 
 ### Caveats
 
@@ -262,7 +262,7 @@ $DeviceSerial = "HWDC1T2"
 New-SelfSignedCertificate -Type Custom -DnsName "$AppName.$domain","$DeviceSerial.$domain","management.$AppName.$domain","login.$AppName.$domain","*.blob.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
 ```
 
-Następnym krokiem po utworzeniu certyfikatów jest przekazanie certyfikatów na urządzeniu Azure Stack Edge
+Po utworzeniu certyfikatów następnym krokiem jest przekazanie certyfikatów na urządzeniu Azure Stack EDGE Pro
 
 
 ## <a name="upload-certificates"></a>Przekazywanie certyfikatów 
@@ -370,7 +370,7 @@ Wykonaj następujące kroki, aby wyeksportować certyfikat SSL z kluczem prywatn
 
     ![Eksportuj certyfikat 8](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-8.png)
 
-9. Zostanie wyświetlony komunikat, że eksport zakończył się pomyślnie. Wybierz pozycję **OK**.
+9. Zostanie wyświetlony komunikat, że eksport zakończył się pomyślnie. Wybierz przycisk **OK**.
 
     ![Eksportuj certyfikat 9](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-9.png)
 
@@ -401,7 +401,7 @@ Kopia zapasowa pliku PFX jest teraz zapisywana w wybranej lokalizacji i jest got
 
 ## <a name="supported-certificate-algorithms"></a>Obsługiwane algorytmy certyfikatów
 
- Na urządzeniu brzegowym Azure Stack są obsługiwane tylko certyfikaty RSA (Rivest – Shamir – Adleman). Jeśli używane są certyfikaty algorytmu Digital Signature Algorithm (ECDSA), zachowanie urządzenia jest nieokreślone.
+ Tylko certyfikaty Rivest – Shamir – Adleman (RSA) są obsługiwane przez urządzenie Azure Stack EDGE Pro. Jeśli używane są certyfikaty algorytmu Digital Signature Algorithm (ECDSA), zachowanie urządzenia jest nieokreślone.
 
  Certyfikaty zawierające klucz publiczny RSA są określane jako certyfikaty RSA. Certyfikaty, które zawierają klucz publiczny (ECC), są określane jako ECDSA (algorytm podpisywania cyfrowego krzywej eliptyczna). 
 
@@ -418,4 +418,4 @@ Wyświetlanie daty wygaśnięcia certyfikatu na stronie **Certyfikaty** w lokaln
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wdrażanie urządzenia brzegowego Azure Stack](azure-stack-edge-gpu-deploy-prep.md)
+[Wdrażanie urządzenia z Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-prep.md)

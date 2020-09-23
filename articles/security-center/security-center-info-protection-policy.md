@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7586cca21d470bcb0cf637ca0370f5dfcb59406
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711089"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901108"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Dostosowywanie zasad ochrony informacji SQL w Azure Security Center (wersja zapoznawcza)
  
@@ -56,7 +56,7 @@ Aby dostosować zasady ochrony informacji dla dzierżawy platformy Azure, musisz
  
 4. Etykiety są wyświetlane w kolejności rosnącej. Aby zmienić klasyfikację między etykietami, przeciągnij etykiety, aby zmienić ich kolejność w tabeli, lub użyj przycisków **Przenieś w górę** i **Przenieś w dół** , aby zmodyfikować kolejność. 
  
-    ![Konfigurowanie zasad ochrony informacji](./media/security-center-info-protection-policy/move-up.png)
+    ![Lista etykiet](./media/security-center-info-protection-policy/move-up.png)
  
 5. Pamiętaj, aby po zakończeniu kliknij pozycję **Zapisz** w górnej części ekranu.
  
@@ -66,7 +66,7 @@ Aby dostosować zasady ochrony informacji dla dzierżawy platformy Azure, musisz
 1. Możesz zarządzać typami informacji i dostosowywać je, klikając pozycję **Zarządzaj typami informacji**.
 2. Aby dodać nowy **Typ informacji**, wybierz opcję **Utwórz typ informacji** w górnym menu. Można skonfigurować nazwę, opis i ciągi wzorców wyszukiwania dla **typu informacji**. Ciągi wzorców wyszukiwania mogą opcjonalnie używać słów kluczowych z symbolami wieloznacznymi (za pomocą znaku "%"), który jest używany przez aparat automatycznego odnajdywania do identyfikowania poufnych danych w bazach danych na podstawie metadanych kolumn.
  
-    ![Konfigurowanie zasad ochrony informacji](./media/security-center-info-protection-policy/info-types.png)
+    ![Utwórz typ informacji](./media/security-center-info-protection-policy/info-types.png)
  
 3. Możesz również skonfigurować wbudowane **typy informacji** przez dodanie dodatkowych ciągów wzorca wyszukiwania, wyłączenie niektórych istniejących ciągów lub zmianę opisu. Nie można usunąć wbudowanych **typów informacji** ani edytować ich nazw. 
 4. **Typy informacji** są wymienione w kolejności rosnącej klasyfikacji odnajdywania, co oznacza, że typy wyższe na liście będą podejmować próby dopasowania najpierw. Aby zmienić klasyfikację między typami informacji, przeciągnij typy do prawego miejsca w tabeli lub użyj przycisków **Przenieś w górę** i **Przenieś w dół** , aby zmienić kolejność. 

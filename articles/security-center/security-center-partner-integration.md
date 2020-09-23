@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 1af99f6317ac5888478c7df08fcc31478ef1ccef
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 40b96cac4c9ad638373fbb75f736dc7eded42b43
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180851"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883931"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integracja rozwiązań zabezpieczeń w usłudze Azure Security Center
 Ten dokument ułatwia zarządzanie rozwiązaniami zabezpieczeń już połączonymi z usługą Azure Security Center i dodawanie nowych.
@@ -35,11 +35,11 @@ Obecnie zintegrowane rozwiązania zabezpieczeń obejmują ocenę luk w zabezpiec
 > [!NOTE]
 > Security Center nie instaluje agenta Log Analytics na urządzeniach wirtualnych partnera, ponieważ większość dostawców zabezpieczeń zabroni zewnętrznych agentów działających na ich urządzeniach.
 
-Aby dowiedzieć się więcej o integracji narzędzi do skanowania luk w zabezpieczeniach z programu Qualys, w tym wbudowanego skanera dostępnego dla klientów korzystających z warstwy Standardowa, zobacz [ocenę luk w zabezpieczeniach dla Virtual Machines platformy Azure](deploy-vulnerability-assessment-vm.md).
+Aby dowiedzieć się więcej na temat integracji narzędzi do skanowania luk w zabezpieczeniach z programu Qualys, w tym wbudowanego skanera dostępnego dla klientów usługi Azure Defender, zobacz [ocenę luk w zabezpieczeniach dla Virtual Machines platformy Azure](deploy-vulnerability-assessment-vm.md).
 
 Security Center oferuje również analizę luk w zabezpieczeniach dla:
 
-* Bazy danych SQL — zobacz [Eksplorowanie raportów oceny luk w zabezpieczeniach na pulpicie nawigacyjnym oceny luk w zabezpieczeniach](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
+* Bazy danych SQL — zobacz [Eksplorowanie raportów oceny luk w zabezpieczeniach na pulpicie nawigacyjnym oceny luk w zabezpieczeniach](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)
 * Obrazy Azure Container Registry — zobacz [Azure Container Registry Integration with Security Center (wersja zapoznawcza)](azure-container-registry-integration.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Jak są integrowane rozwiązania zabezpieczeń
@@ -88,7 +88,7 @@ Wybierz opcję **Widok** , aby uzyskać dodatkowe informacje i opcje, takie jak:
 Security Center automatycznie wykrywa rozwiązania zabezpieczeń działające na platformie Azure, ale nie połączyły się z Security Center i wyświetla rozwiązania w sekcji **odnalezione rozwiązania** . Rozwiązania te obejmują rozwiązania platformy Azure, takie jak [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)i rozwiązania partnerskie.
 
 > [!NOTE]
-> Na poziomie subskrypcji dla odnalezionych rozwiązań jest wymagana warstwa standardowa Security Center. Zobacz [Cennik](security-center-pricing.md) , aby dowiedzieć się więcej o warstwach cenowych.
+> Włącz **usługę Azure Defender** na poziomie subskrypcji dla odnalezionych rozwiązań. Zobacz [Cennik](security-center-pricing.md) , aby dowiedzieć się więcej o warstwach cenowych.
 >
 
 Wybierz pozycję **Połącz** w ramach rozwiązania, aby przeprowadzić integrację z usługą Security Center i otrzymywać powiadomienia o alertach zabezpieczeń.

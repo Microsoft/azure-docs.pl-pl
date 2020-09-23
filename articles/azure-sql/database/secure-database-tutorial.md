@@ -7,15 +7,15 @@ ms.subservice: security
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 09/03/2019
+ms.reviewer: ''
+ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bec60875561a9d821642d850c27e47d4f906aba3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496920"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885408"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Samouczek: Zabezpieczanie bazy danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > - Tworzenie reguł zapory na poziomie serwera i na poziomie bazy danych
 > - Konfigurowanie administratora usługi Azure Active Directory (Azure AD)
 > - Zarządzanie dostępem użytkowników za pomocą funkcji uwierzytelniania SQL, uwierzytelniania usługi Azure AD i bezpiecznych parametrów połączenia
-> - Włączanie funkcji zabezpieczeń, takich jak zaawansowane zabezpieczenia danych, inspekcja, maskowanie danych i szyfrowanie
+> - Włączanie funkcji zabezpieczeń, takich jak usługa Azure Defender dla SQL, inspekcja, Maskowanie danych i szyfrowanie
 
 Azure SQL Database zabezpiecza dane przez umożliwienie:
 
@@ -62,7 +62,7 @@ W przypadku wszystkich kroków w samouczku Zaloguj się do [Azure Portal](https:
 
 Bazy danych w SQL Database są chronione przez zapory na platformie Azure. Domyślnie wszystkie połączenia z serwerem i bazą danych są odrzucane. Aby dowiedzieć się więcej, zobacz [reguły zapory na poziomie serwera i na poziomie bazy danych](firewall-configure.md).
 
-Najbezpieczniejsza konfiguracja to ustawienie opcji **Zezwalaj na dostęp do usług platformy Azure** na wartość **WYŁ**. Następnie należy utworzyć [zastrzeżony adres IP (wdrożenie klasyczne)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) dla zasobu wymagającego możliwości połączenia, na przykład maszyny wirtualnej platformy Azure czy usługi w chmurze, i zezwolić na dostęp przez zaporę tylko z tego adresu IP. Jeśli używasz modelu wdrożenia usługi [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm), wymagany jest dedykowany publiczny adres IP dla każdego zasobu.
+Najbezpieczniejsza konfiguracja to ustawienie opcji **Zezwalaj na dostęp do usług platformy Azure** na wartość **WYŁ**. Następnie należy utworzyć [zastrzeżony adres IP (wdrożenie klasyczne)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) dla zasobu wymagającego możliwości połączenia, na przykład maszyny wirtualnej platformy Azure czy usługi w chmurze, i zezwolić na dostęp przez zaporę tylko z tego adresu IP. Jeśli używasz modelu wdrażania [Menedżer zasobów](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) , dla każdego zasobu wymagany jest dedykowany publiczny adres IP.
 
 > [!NOTE]
 > Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być zablokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z serwerem, chyba że administrator otworzy port 1433.
@@ -233,30 +233,30 @@ Aby skopiować bezpieczne parametry połączenia:
 
 ## <a name="enable-security-features"></a>Włączanie funkcji zabezpieczeń.
 
-Usługa Azure SQL Database udostępnia funkcje zabezpieczeń, które są dostępne w witrynie Azure Portal. Te funkcje są dostępne na poziomie bazy danych oraz serwera, z wyjątkiem maskowania danych, które jest dostępne wyłącznie na poziomie bazy danych. Aby dowiedzieć się więcej, zobacz [Zaawansowane zabezpieczenia danych](advanced-data-security.md), [Inspekcja](../../azure-sql/database/auditing-overview.md), [Dynamiczne maskowanie danych](dynamic-data-masking-overview.md) i [Przezroczyste szyfrowanie danych](transparent-data-encryption-tde-overview.md).
+Usługa Azure SQL Database udostępnia funkcje zabezpieczeń, które są dostępne w witrynie Azure Portal. Te funkcje są dostępne na poziomie bazy danych oraz serwera, z wyjątkiem maskowania danych, które jest dostępne wyłącznie na poziomie bazy danych. Aby dowiedzieć się więcej, zobacz temat [usługa Azure Defender dla SQL](azure-defender-for-sql.md), [Inspekcja](../../azure-sql/database/auditing-overview.md), [Dynamiczne maskowanie danych](dynamic-data-masking-overview.md)i [przezroczyste szyfrowanie danych](transparent-data-encryption-tde-overview.md).
 
-### <a name="advanced-data-security"></a>Zaawansowane zabezpieczenia danych
+### <a name="azure-defender-for-sql"></a>Azure Defender for SQL
 
-Funkcja zaawansowanych zabezpieczeń danych wykrywa potencjalne zagrożenia w czasie rzeczywistym i udostępnia alerty zabezpieczeń dotyczące podejrzanych działań. Użytkownicy mogą zbadać te podejrzane zdarzenia za pomocą funkcji inspekcji, aby określić, czy dane zdarzenie było próbą uzyskania dostępu, naruszenia zabezpieczeń lub wykorzystania danych w bazie danych. Użytkownicy mają do dyspozycji także przegląd zabezpieczeń z oceną podatności oraz narzędzie do odnajdowania i klasyfikacji danych.
+Funkcja Azure Defender for SQL wykrywa potencjalne zagrożenia w miarę ich występowania i zapewnia alerty zabezpieczeń w przypadku nietypowych działań. Użytkownicy mogą zbadać te podejrzane zdarzenia za pomocą funkcji inspekcji, aby określić, czy dane zdarzenie było próbą uzyskania dostępu, naruszenia zabezpieczeń lub wykorzystania danych w bazie danych. Użytkownicy mają do dyspozycji także przegląd zabezpieczeń z oceną podatności oraz narzędzie do odnajdowania i klasyfikacji danych.
 
 > [!NOTE]
 > Przykładem zagrożenia jest na przykład wstrzyknięcie kodu SQL, czyli atak polegający na wprowadzeniu złośliwego kodu SQL wraz z danymi wejściowymi do aplikacji. W wyniku takiego ataku aplikacja może niezauważenie wykonać złośliwy kod SQL, umożliwiając dostęp do danych przechowywanych w bazie danych lub ich modyfikację.
 
-Aby włączyć zaawansowane zabezpieczenia danych:
+Aby włączyć usługę Azure Defender dla programu SQL:
 
 1. W Azure Portal wybierz pozycję **bazy danych SQL** w menu po lewej stronie, a następnie wybierz bazę danych ze strony **bazy danych SQL** .
 
 1. Na stronie **Przegląd** wybierz link z **nazwą serwera**. Zostanie otwarta strona serwer.
 
-1. Na stronie **SQL Server** znajdź sekcję **Zabezpieczenia** i wybierz pozycję **Advanced Data Security**.
+1. Na stronie **SQL Server** Znajdź sekcję **zabezpieczenia** i wybierz pozycję **Security Center**.
 
-   1. Wybierz opcję **WŁĄCZONE** dla pozycji **Advanced Data Security**, aby włączyć tę funkcję. Wybierz konto magazynu na potrzeby zapisania wyników oceny luk w zabezpieczeniach. Następnie wybierz pozycję **Zapisz**.
+   1. Aby włączyć tę funkcję, wybierz pozycję **włączone** w **usłudze Azure Defender dla języka SQL** . Wybierz konto magazynu na potrzeby zapisania wyników oceny luk w zabezpieczeniach. Następnie wybierz przycisk **Zapisz**.
 
       ![Okienko nawigacji](./media/secure-database-tutorial/threat-settings.png)
 
       Można również skonfigurować wiadomości e-mail, aby otrzymywać alerty zabezpieczeń, szczegółowe informacje o magazynie i typy wykrytych zagrożeń.
 
-1. Wróć do strony **Bazy danych SQL** dla używanej bazy danych i wybierz pozycję **Advanced Data Security** w sekcji **Zabezpieczenia**. W tym miejscu znajdziesz różne wskaźniki zabezpieczeń dostępne w bazie danych.
+1. Wróć do strony **baz danych SQL** bazy danych i wybierz pozycję **Centrum zabezpieczeń** w sekcji **zabezpieczenia** . W tym miejscu znajdziesz różne wskaźniki zabezpieczeń dostępne w bazie danych.
 
     ![Stan zagrożenia](./media/secure-database-tutorial/threat-status.png)
 
@@ -276,7 +276,7 @@ Aby włączyć inspekcję:
 
 1. W ustawieniach funkcji **Inspekcja** ustaw następujące wartości:
 
-   1. Ustaw opcję **Inspekcja** w pozycji **WŁ**.
+   1. Dla ustawienia **Inspekcja** ustaw wartość **WŁ.**
 
    1. Wybierz dowolną z następujących lokalizacji w polu **Lokalizacja docelowa dziennika inspekcji**:
 
@@ -347,7 +347,7 @@ W tym samouczku wyjaśniono, jak zwiększyć poziom bezpieczeństwa bazy danych 
 > - Tworzenie reguł zapory na poziomie serwera i na poziomie bazy danych
 > - Konfigurowanie administratora usługi Azure Active Directory (AD)
 > - Zarządzanie dostępem użytkowników za pomocą funkcji uwierzytelniania SQL, uwierzytelniania usługi Azure AD i bezpiecznych parametrów połączenia
-> - Włączanie funkcji zabezpieczeń, takich jak zaawansowane zabezpieczenia danych, inspekcja, maskowanie danych i szyfrowanie
+> - Włączanie funkcji zabezpieczeń, takich jak usługa Azure Defender dla SQL, inspekcja, Maskowanie danych i szyfrowanie
 
 Przejdź do następnego samouczka, aby dowiedzieć się, jak wdrożyć bazę danych rozproszoną geograficznie.
 

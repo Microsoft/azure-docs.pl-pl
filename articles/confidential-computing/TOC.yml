@@ -1,27 +1,65 @@
 - name: Poufne przetwarzanie na platformie Azure
-  href: overview.md
+  href: ./index.yml
+- name: Omówienie
+  expanded: true
+  items:
+    - name: Poufne przetwarzanie na platformie Azure — Zapraszamy!
+      href: overview.md
+    - name: Przypadki użycia i scenariusze
+      href: use-cases-scenarios.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Tworzenie w witrynie Azure Portal
-      href: quick-create-portal.md
-    - name: Tworzenie za pomocą witryny Marketplace
-      href: quick-create-marketplace.md
+    - name: Maszyny wirtualne
+      items:
+        - name: Tworzenie w witrynie Azure Portal
+          href: quick-create-portal.md
+        - name: Tworzenie za pomocą witryny Marketplace
+          href: quick-create-marketplace.md
+    - name: Usługi Azure Kubernetes Service (AKS)
+      items:
+        - name: Omówienie węzłów poufnych usługi AKS
+          href: confidential-nodes-aks-overview.md
+        - name: Węzły poufne z interfejsem wiersza polecenia platformy Azure
+          href: confidential-nodes-aks-get-started.md
+        - name: Węzły poufne w usłudze AKS — często zadawane pytania
+          href: confidential-nodes-aks-faq.md
 - name: Pojęcia
   expanded: true
   items:
-    - name: Rozwiązania na maszynach wirtualnych
-      href: virtual-machine-solutions.md
+    - name: Maszyny wirtualne (VM)
+      items:
+        - name: Maszyny wirtualne z obsługą enklawy
+          href: confidential-computing-enclaves.md
+        - name: Rozwiązania na maszynach wirtualnych
+          href: virtual-machine-solutions.md
+        - name: Maszyna wirtualna poufnego przetwarzania — często zadawane pytania
+          href: faq.md
+    - name: Zasoby obliczeniowe kontenera
+      expanded: true
+      items:
+        - name: Kontenery poufne (migrowane metodą „lift-and-shift”)
+          items:
+            - name: Wprowadzenie
+              href: confidential-containers.md
+        - name: Kontenery z obsługą enklawy
+          items:
+            - name: Wprowadzenie
+              href: enclave-aware-containers.md
+    - name: Zaświadczanie
+      href: attestation.md
+    - name: Opracowywanie aplikacji
+      href: application-development.md
 - name: Procedura
-  expanded: true
   items:
     - name: Fortanix Enclave Manager
       href: how-to-fortanix-enclave-manager.md
-- name: Zasoby
-  expanded: true
+- name: Odwołania
   items:
-    - name: Często zadawane pytania
-      href: faq.md
+    - name: Funkcja pomocnika ofert SGX
+      href: confidential-nodes-out-of-proc-attestation.md
+- name: Zasoby
+  items:
     - name: Opinia na temat poufnego przetwarzania
       href: 'https://feedback.azure.com/forums/919792-azure-confidential-compute'
     - name: Witryna StackOverflow

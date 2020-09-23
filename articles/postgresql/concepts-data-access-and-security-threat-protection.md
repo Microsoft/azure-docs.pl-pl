@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 390f44ffebb6531fde2f819fad0d4e9399cba218
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fbb6a7dbe73444ac9049573705e4d04bd868a806
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287520"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884568"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Zaawansowana ochrona przed zagrożeniami w programie Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -29,7 +29,7 @@ Ochrona przed zagrożeniami jest częścią oferty zaawansowanej ochrony przed z
 
 Zaawansowana ochrona przed zagrożeniami dla Azure Database for PostgreSQL zapewnia nową warstwę zabezpieczeń, która umożliwia klientom wykrywanie potencjalnych zagrożeń i reagowanie na nie w miarę ich występowania, zapewniając alerty zabezpieczeń w przypadku nietypowych działań. Użytkownicy otrzymują alerty o podejrzanych działaniach związanych z bazą danych oraz potencjalne luki w zabezpieczeniach, a także nietypowego dostępu do bazy danych i wzorców zapytań. Zaawansowana ochrona przed zagrożeniami dla Azure Database for PostgreSQL integruje alerty z [Azure Security Center](https://azure.microsoft.com/services/security-center/), które zawierają szczegółowe informacje o podejrzanych działaniach i zalecane działania dotyczące badania i łagodzenia zagrożeń. Zaawansowana ochrona przed zagrożeniami dla Azure Database for PostgreSQL ułatwia rozwiązywanie potencjalnych zagrożeń dla bazy danych bez konieczności zapewnienia ekspertowi zabezpieczeń lub zarządzania zaawansowanymi systemami monitorowania zabezpieczeń. 
 
-![Koncepcja zaawansowanej ochrony przed zagrożeniami](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png" alt-text="Koncepcja zaawansowanej ochrony przed zagrożeniami":::
 
 ## <a name="advanced-threat-protection-alerts"></a>Alerty zaawansowanej ochrony przed zagrożeniami 
 Zaawansowana ochrona przed zagrożeniami dla Azure Database for PostgreSQL wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania i może wyzwolić następujące alerty:

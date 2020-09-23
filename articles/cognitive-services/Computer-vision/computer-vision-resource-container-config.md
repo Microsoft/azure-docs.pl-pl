@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 56a03d6f1e4684da797b733d6041309acdac65c3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 674c906a4316ec92101f3f2028a57aa82db3f504
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888148"
+ms.locfileid: "90982007"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Konfigurowanie przetwarzanie obrazów kontenerów platformy Docker
 
@@ -118,7 +118,7 @@ Zastąp ciąg {_argument_name_} własnymi wartościami:
 Poniższe przykłady platformy Docker dotyczą kontenera odczyt.
 
 
-# <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
+# <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
 
 ### <a name="basic-example"></a>Przykład podstawowy
 
@@ -141,7 +141,7 @@ ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
 ```
 
-# <a name="version-31"></a>[Wersja 3,1](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
 
 ### <a name="basic-example"></a>Przykład podstawowy
 

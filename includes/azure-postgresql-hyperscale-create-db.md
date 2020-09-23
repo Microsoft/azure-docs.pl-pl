@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
@@ -15,7 +15,7 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "74973422"
 ---
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 

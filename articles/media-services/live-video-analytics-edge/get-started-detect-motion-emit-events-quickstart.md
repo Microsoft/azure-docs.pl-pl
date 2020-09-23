@@ -3,12 +3,12 @@ title: Wprowadzenie do analizy filmów wideo na żywo na IoT Edge platformy Azur
 description: Ten przewodnik Szybki Start przedstawia sposób rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge. Dowiedz się, jak wykrywać ruch w strumieniu wideo na żywo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: c7e5efa19c27c3f56f9653ed933c7ad290d18408
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 0d1aaf34ad38b50403a3cbefbc953f9140f2fe82
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568051"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884933"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge
 
@@ -84,6 +84,9 @@ Postępuj zgodnie z tymi instrukcjami, aby nawiązać połączenie z Centrum IoT
 Jeśli połączenie zakończy się pomyślnie, zostanie wyświetlona lista urządzeń brzegowych. Powinna zostać wyświetlona co najmniej jedno urządzenie o nazwie **LVA-Sample-Device**. Teraz możesz zarządzać urządzeniami IoT Edge i korzystać z usługi Azure IoT Hub za pomocą menu kontekstowego. Aby wyświetlić moduły wdrożone na urządzeniu brzegowym, w obszarze **LVA-Sample-Device**rozwiń węzeł **moduły** .
 
 ![LVA — przykład — węzeł urządzenia](./media/quickstarts/lva-sample-device-node.png)
+
+> [!TIP]
+> Po [ręcznym wdrożeniu usługi Azure Video Analytics na IoT Edge](deploy-iot-edge-device.md) yourselves na urządzeniu brzegowym (takim jak urządzenie arm64) zobaczysz, że moduł zostanie wyświetlony na tym urządzeniu w obszarze IoT Hub platformy Azure. Możesz wybrać ten moduł i wykonać pozostałe kroki opisane poniżej.
 
 ## <a name="use-direct-method-calls"></a>Używanie wywołań metod bezpośrednich
 
@@ -676,7 +679,7 @@ Spróbuj wykonać następujące czynności:
 1. Wywołaj `GraphTopologyList` i sprawdź, czy moduł nie zawiera topologii grafu.
 1. Wywołaj przy `GraphInstanceList` użyciu tego samego ładunku co `GraphTopologyList` . Zwróć uwagę, że żadne wystąpienia grafu nie są wyliczane.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń zasoby utworzone w tym przewodniku Szybki Start.
 

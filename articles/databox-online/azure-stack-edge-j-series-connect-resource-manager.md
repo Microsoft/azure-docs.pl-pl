@@ -1,6 +1,6 @@
 ---
-title: Nawiązywanie połączenia z Azure Resource Manager na urządzeniu z systemem Azure Stack Edge
-description: Opisuje sposób nawiązywania połączenia z Azure Resource Manager działającą na Azure Stack procesora GPU przy użyciu Azure PowerShell.
+title: Nawiązywanie połączenia z Azure Resource Manager na urządzeniu z systemem Azure Stack EDGE Pro GPU
+description: Zawiera opis sposobu nawiązywania połączenia z Azure Resource Manager uruchomionego na Azure Stackj funkcji brzegowej procesora GPU przy użyciu Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cf57d81c2ef56662abbd529a5de90e03c00e091a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269815"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891241"
 ---
-# <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-device"></a>Nawiązywanie połączenia z Azure Resource Manager na urządzeniu brzegowym Azure Stack
+# <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Nawiązywanie połączenia z usługą Azure Resource Manager na urządzeniu z systemem Azure Stack EDGE Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Azure Resource Manager udostępnia warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów w ramach subskrypcji platformy Azure. Urządzenie brzegowe Azure Stack obsługuje te same interfejsy API Azure Resource Manager do tworzenia, aktualizowania i usuwania maszyn wirtualnych w ramach subskrypcji lokalnej. Ta obsługa pozwala zarządzać urządzeniem w sposób zgodny z chmurą. 
+Azure Resource Manager udostępnia warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów w ramach subskrypcji platformy Azure. Urządzenie Azure Stack EDGE Pro obsługuje te same interfejsy API Azure Resource Manager do tworzenia, aktualizowania i usuwania maszyn wirtualnych w ramach subskrypcji lokalnej. Ta obsługa pozwala zarządzać urządzeniem w sposób zgodny z chmurą. 
 
-W tym samouczku opisano sposób nawiązywania połączenia z lokalnymi interfejsami API na urządzeniu Azure Stack Edge za pośrednictwem Azure Resource Manager przy użyciu Azure PowerShell.
+W tym samouczku opisano sposób nawiązywania połączenia z lokalnymi interfejsami API na urządzeniu Azure Stack EDGE Pro za pośrednictwem Azure Resource Manager przy użyciu Azure PowerShell.
 
 ## <a name="about-azure-resource-manager"></a>Informacje o usłudze Azure Resource Manager
 
-Azure Resource Manager zapewnia spójną warstwę zarządzania do wywoływania interfejsu API urządzenia brzegowego Azure Stack i wykonywania operacji, takich jak tworzenie, aktualizowanie i usuwanie maszyn wirtualnych. Architektura Azure Resource Manager szczegółowo przedstawiono na poniższym diagramie.
+Azure Resource Manager zapewnia spójną warstwę zarządzania do wywoływania interfejsu API urządzeń z systemem Azure Stack EDGE Pro i wykonywania operacji, takich jak tworzenie, aktualizowanie i usuwanie maszyn wirtualnych. Architektura Azure Resource Manager szczegółowo przedstawiono na poniższym diagramie.
 
 ![Diagram dla Azure Resource Manager](media/azure-stack-edge-j-series-connect-resource-manager/edge-device-flow.svg)
 
 
-## <a name="endpoints-on-azure-stack-edge-device"></a>Punkty końcowe na urządzeniu Azure Stack Edge
+## <a name="endpoints-on-azure-stack-edge-pro-device"></a>Punkty końcowe na urządzeniu Azure Stack EDGE Pro
 
 W poniższej tabeli zestawiono różne punkty końcowe uwidocznione na urządzeniu, obsługiwane protokoły i porty umożliwiające dostęp do tych punktów końcowych. W całym artykule znajdują się odwołania do tych punktów końcowych.
 
@@ -47,7 +47,7 @@ Proces łączenia się z lokalnymi interfejsami API urządzenia przy użyciu Azu
 
 | Czynności # | Wykonaj ten krok... | .. w tej lokalizacji. |
 | --- | --- | --- |
-| 1. | [Skonfiguruj urządzenie Azure Stack Edge](#step-1-configure-azure-stack-edge-device) | Lokalny interfejs użytkownika sieci Web |
+| 1. | [Konfigurowanie urządzenia Azure Stack EDGE Pro](#step-1-configure-azure-stack-edge-pro-device) | Lokalny interfejs użytkownika sieci Web |
 | 2. | [Tworzenie i instalowanie certyfikatów](#step-2-create-and-install-certificates) | Klient systemu Windows/lokalny interfejs użytkownika sieci Web |
 | 3. | [Przejrzyj i skonfiguruj wymagania wstępne](#step-3-install-powershell-on-the-client) | Klient systemu Windows |
 | 4. | [Konfigurowanie Azure PowerShell na kliencie](#step-4-set-up-azure-powershell-on-the-client) | Klient systemu Windows |
@@ -59,13 +59,13 @@ W poniższych sekcjach szczegółowo opisano poszczególne kroki opisane w temac
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem upewnij się, że klient używany do nawiązywania połączenia z urządzeniem za pośrednictwem Azure Resource Manager korzysta z protokołu TLS 1,2. Aby uzyskać więcej informacji, przejdź do pozycji [Konfigurowanie protokołu TLS 1,2 na kliencie systemu Windows z dostępem Azure Stack urządzenia brzegowego](azure-stack-edge-j-series-configure-tls-settings.md).
+Przed rozpoczęciem upewnij się, że klient używany do nawiązywania połączenia z urządzeniem za pośrednictwem Azure Resource Manager korzysta z protokołu TLS 1,2. Aby uzyskać więcej informacji, przejdź do pozycji [Konfigurowanie protokołu TLS 1,2 na kliencie systemu Windows, do którego jest uzyskiwany dostęp Azure Stack Edge](azure-stack-edge-j-series-configure-tls-settings.md).
 
-## <a name="step-1-configure-azure-stack-edge-device"></a>Krok 1. Konfigurowanie Azure Stack urządzenia brzegowego 
+## <a name="step-1-configure-azure-stack-edge-pro-device"></a>Krok 1. Konfigurowanie Azure Stack Edge — urządzenie 
 
-Wykonaj następujące kroki w lokalnym interfejsie użytkownika sieci Web urządzenia brzegowego Azure Stack.
+Wykonaj następujące kroki w lokalnym interfejsie użytkownika sieci Web urządzenia z Azure Stack Edge.
 
-1. Ukończ ustawienia sieci dla urządzenia brzegowego Azure Stack. 
+1. Wypełnij ustawienia sieci dla urządzenia z Azure Stack Edge. 
 
     ![Strona ustawień sieciowych lokalnego interfejsu użytkownika sieci Web](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
 
@@ -83,7 +83,7 @@ Wykonaj następujące kroki w lokalnym interfejsie użytkownika sieci Web urząd
 
 ## <a name="step-2-create-and-install-certificates"></a>Krok 2. Tworzenie i instalowanie certyfikatów
 
-Certyfikaty zapewniają, że komunikacja jest zaufana. Na urządzeniu z systemem Azure Stack Edge automatycznie generowane są urządzenia z podpisem własnym, obiekty blob i Azure Resource Manager certyfikatów. Opcjonalnie możesz również przenieść swój własny podpisany obiekt BLOB i Azure Resource Manager certyfikaty.
+Certyfikaty zapewniają, że komunikacja jest zaufana. Na urządzeniu z systemem Azure Stack brzeg Pro automatycznie generowane są urządzenia z podpisem własnym, obiekty blob i Azure Resource Manager certyfikatów. Opcjonalnie możesz również przenieść swój własny podpisany obiekt BLOB i Azure Resource Manager certyfikaty.
 
 Po dołączeniu własnego certyfikatu do własnych potrzeb potrzebny jest również odpowiedni łańcuch podpisywania certyfikatu. W przypadku łańcucha podpisywania, Azure Resource Manager i certyfikatów obiektów BLOB na urządzeniu wymagane są odpowiednie certyfikaty na komputerze klienckim, co umożliwia również uwierzytelnianie i komunikację z urządzeniem.
 
@@ -319,7 +319,7 @@ Ustaw środowisko Azure Resource Manager i sprawdź, czy urządzenie do komunika
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Ustaw środowisko jako Azure Stack Edge i port, który ma być używany dla Azure Resource Manager wywołań jako 443. Środowisko definiuje się na dwa sposoby:
+2. Ustaw środowisko jako Azure Stack brzeg Pro i port, który ma być używany do Azure Resource Manager wywołań jako 443. Środowisko definiuje się na dwa sposoby:
 
     - Ustaw środowisko. Wpisz następujące polecenie:
 
@@ -329,7 +329,7 @@ Ustaw środowisko Azure Resource Manager i sprawdź, czy urządzenie do komunika
     
     Aby uzyskać więcej informacji, przejdź do pozycji [Set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
 
-    - Zdefiniuj środowisko w tekście dla każdego wykonywanego polecenia cmdlet. Dzięki temu wszystkie wywołania interfejsu API przechodzą przez poprawne środowisko. Domyślnie wywołania przechodzą przez publiczną platformę Azure, ale chcesz, aby przechodzą przez środowisko ustawione dla Azure Stack urządzenia brzegowego.
+    - Zdefiniuj środowisko w tekście dla każdego wykonywanego polecenia cmdlet. Dzięki temu wszystkie wywołania interfejsu API przechodzą przez poprawne środowisko. Domyślnie wywołania przechodzą przez publiczną platformę Azure, ale chcesz, aby przechodzą przez środowisko, które zostało ustawione dla Azure Stack Edge na urządzeniu.
 
     - Zobacz więcej informacji na temat [sposobu przełączania środowisk AzureRM](#switch-environments).
 
@@ -376,7 +376,7 @@ Ustaw środowisko Azure Resource Manager i sprawdź, czy urządzenie do komunika
 
 
 > [!IMPORTANT]
-> Połączenie do Azure Resource Manager wygasa co 1,5 godzin lub w przypadku ponownego uruchomienia Azure Stack urządzenia brzegowego. W takim przypadku wszystkie polecenia cmdlet, które wykonujesz, będą zwracać komunikaty o błędach do skutku, że już nie masz połączenia z platformą Azure. Konieczne będzie ponowne zalogowanie.
+> Połączenie do Azure Resource Manager wygasa co 1,5 godzin lub w przypadku ponownego uruchomienia urządzenia Azure Stack EDGE Pro. W takim przypadku wszystkie polecenia cmdlet, które wykonujesz, będą zwracać komunikaty o błędach do skutku, że już nie masz połączenia z platformą Azure. Konieczne będzie ponowne zalogowanie.
 
 ## <a name="switch-environments"></a>Przełączanie środowisk
 
@@ -460,4 +460,4 @@ Przełączono teraz do zamierzonego środowiska.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wdróż maszyny wirtualne na urządzeniu z systemem Azure Stack Edge](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Wdróż maszyny wirtualne na urządzeniu z systemem Azure Stack brzeg Pro](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).

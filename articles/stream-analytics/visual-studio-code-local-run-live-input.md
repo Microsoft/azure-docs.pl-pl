@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: how-to
-ms.openlocfilehash: 1b2268426b66ddb9ffdd48d6901ab991e76cb95c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 944c1a8cc4606c5e614f17cd0590331826527a7c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037447"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892144"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Przetestuj Stream Analytics zapytań lokalnie względem danych wejściowych strumienia na żywo za pomocą Visual Studio Code
 
@@ -21,39 +21,39 @@ Za pomocą Azure Stream Analytics narzędzi do Visual Studio Code można testowa
 
 * Zainstaluj Visual Studio Code [zestaw .NET Core SDK](https://dotnet.microsoft.com/download) i ponownie uruchom program.
 
-* Skorzystaj z [tego przewodnika Szybki Start](quick-create-vs-code.md) , aby dowiedzieć się, jak utworzyć zadanie Stream Analytics przy użyciu Visual Studio Code.
+* Skorzystaj z [tego przewodnika Szybki Start](quick-create-visual-studio-code.md) , aby dowiedzieć się, jak utworzyć zadanie Stream Analytics przy użyciu Visual Studio Code.
 
 ## <a name="define-a-live-stream-input"></a>Zdefiniuj dane wejściowe strumienia na żywo
 
 1. Kliknij prawym przyciskiem myszy folder **Inputs** w projekcie Stream Analytics. Następnie wybierz pozycję **ASA: Dodaj dane wejściowe** z menu kontekstowego.
 
-   ![Dodawanie danych wejściowych z folderu Inputs](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
+   ![Dodawanie danych wejściowych z folderu Inputs](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
    Możesz również wybrać **kombinację klawiszy Ctrl + Shift + P** , aby otworzyć paletę poleceń i wprowadzić **ASA: Dodaj dane wejściowe**.
 
-   ![Dodawanie Stream Analytics danych wejściowych w Visual Studio Code](./media/quick-create-vs-code/add-input.png)
+   ![Dodawanie Stream Analytics danych wejściowych w Visual Studio Code](./media/quick-create-visual-studio-code/add-input.png)
 
 2. Z listy rozwijanej wybierz typ źródła danych wejściowych.
 
-   ![Wybierz pozycję IoT Hub jako opcję wejściową](./media/quick-create-vs-code/iot-hub.png)
+   ![Wybierz pozycję IoT Hub jako opcję wejściową](./media/quick-create-visual-studio-code/iot-hub.png)
 
 3. Jeśli dodano dane wejściowe z palety poleceń, wybierz skrypt kwerendy Stream Analytics, który będzie używać danych wejściowych. Należy ją automatycznie wypełnić ścieżką pliku **myASAproj. asaql**.
 
-   ![Wybierz skrypt Stream Analytics w Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
+   ![Wybierz skrypt Stream Analytics w Visual Studio Code](./media/quick-create-visual-studio-code/asa-script.png)
 
 4. Wybierz **pozycję Wybierz z subskrypcji platformy Azure** z menu rozwijanego.
 
-    ![Wybierz z subskrypcji](./media/quick-create-vs-code/add-input-select-subscription.png)
+    ![Wybierz z subskrypcji](./media/quick-create-visual-studio-code/add-input-select-subscription.png)
 
 5. Skonfiguruj nowo wygenerowany plik JSON. Możesz użyć funkcji CodeLens, aby pomóc wprowadzić ciąg, wybrać z listy rozwijanej lub zmienić tekst bezpośrednio w pliku. Poniższy zrzut ekranu przedstawia **wybór z subskrypcji** jako przykładu.
 
-   ![Konfigurowanie danych wejściowych w Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+   ![Konfigurowanie danych wejściowych w Visual Studio Code](./media/quick-create-visual-studio-code/configure-input.png)
 
 ## <a name="preview-input"></a>Podgląd danych wejściowych
 
 Aby upewnić się, że dane wejściowe są przychodzące, wybierz pozycję **Podgląd danych** w pliku konfiguracji danych wejściowych na żywo z górnego wiersza. Niektóre dane wejściowe pochodzą z Centrum IoT Hub i są wyświetlane w oknie podglądu. Wyświetlenie podglądu może potrwać kilka sekund.
 
- ![Podgląd danych wejściowych na żywo](./media/quick-create-vs-code/preview-live-input.png)
+ ![Podgląd danych wejściowych na żywo](./media/quick-create-visual-studio-code/preview-live-input.png)
 
 ## <a name="run-queries-locally"></a>Uruchom zapytania lokalnie
 

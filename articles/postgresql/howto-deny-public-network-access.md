@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 01a256e17b1101782eaee9bebd85f5e7093773d3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1dfc8d473d0cfe663569d2508404bf190f2da841
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287796"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901579"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Odmowa dostępu do sieci publicznej w Azure Database for PostgreSQL pojedynczym serwerze przy użyciu Azure Portal
 
@@ -33,13 +33,13 @@ Wykonaj następujące kroki, aby ustawić PostgreSQL jeden serwer Odmów dostęp
 
 1. W polu **Odmów dostępu do sieci publicznej**wybierz pozycję **tak** , aby włączyć opcję Odmów dostępu publicznego dla pojedynczego serwera PostgreSQL.
 
-    ![Azure Database for PostgreSQL dostęp do sieci przy pojedynczym serwerze](./media/howto-deny-public-network-access/deny-public-network-access.PNG)
+    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access.PNG" alt-text="Azure Database for PostgreSQL dostęp do sieci przy pojedynczym serwerze":::
 
 1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 
 1. Powiadomienie zostanie potwierdzone, że ustawienie zabezpieczeń połączenia zostało pomyślnie włączone.
 
-    ![Odmowa dostępu do sieci przez pojedynczy serwer Azure Database for PostgreSQL](./media/howto-deny-public-network-access/deny-public-network-access-success.png)
+    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Odmowa dostępu do sieci przez pojedynczy serwer Azure Database for PostgreSQL":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d18d4aa4bf9306bcdd667faa53f0d888c090e2fd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 50d2d974815e0921d99154bce67f604b7314970d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875940"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892027"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Event Hubs dane wyjściowe z Azure Stream Analytics
 
@@ -38,7 +38,7 @@ Poniższa tabela zawiera parametry, które są konieczne do skonfigurowania stru
 
 ## <a name="partitioning"></a>Partycjonowanie
 
-Partycjonowanie różni się w zależności od wyrównania partycji. Gdy klucz partycji dla danych wyjściowych centrum zdarzeń jest równomiernie wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w danych wyjściowych centrum zdarzeń. Każdy moduł zapisujący używa [klasy EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) do wysyłania zdarzeń do konkretnej partycji. Gdy klucz partycji dla danych wyjściowych centrum zdarzeń nie jest wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w tym poprzednim kroku. Każdy moduł zapisujący używa [klasy SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) w **EventHubClient** do wysyłania zdarzeń do wszystkich partycji wyjściowych. 
+Partycjonowanie różni się w zależności od wyrównania partycji. Gdy klucz partycji dla danych wyjściowych centrum zdarzeń jest równomiernie wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w danych wyjściowych centrum zdarzeń. Każdy moduł zapisujący używa [klasy EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet&preserve-view=true) do wysyłania zdarzeń do konkretnej partycji. Gdy klucz partycji dla danych wyjściowych centrum zdarzeń nie jest wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w tym poprzednim kroku. Każdy moduł zapisujący używa [klasy SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet&preserve-view=true) w **EventHubClient** do wysyłania zdarzeń do wszystkich partycji wyjściowych. 
 
 ## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
 
@@ -55,4 +55,4 @@ Kolumny zapytań można dołączać jako właściwości użytkownika do wiadomo�
 * [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu szablonu ARM](quick-create-azure-resource-manager.md)
 * [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu programu Visual Studio](stream-analytics-quick-create-vs.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics w programie Visual Studio Code](quick-create-vs-code.md)
+* [Szybki Start: Tworzenie zadania Azure Stream Analytics w programie Visual Studio Code](quick-create-visual-studio-code.md)
