@@ -1,18 +1,18 @@
 ---
-title: Rozwiązywanie problemów z połączeniem agenta z obsługą usługi Azure ARC (wersja zapoznawcza)
-description: W tym artykule opisano sposób rozwiązywania problemów z agentem podłączonych maszyn (wersja zapoznawcza) podczas próby nawiązania połączenia z usługą.
-ms.date: 07/20/2020
+title: Rozwiązywanie problemów z połączeniami agentów serwerów z obsługą usługi Azure Arc
+description: W tym artykule opisano sposób rozwiązywania problemów z agentem połączonej maszyny, które są dostępne w przypadku serwerów z włączonym rozwiązaniem Azure Arc podczas próby nawiązania połączenia z usługą.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213543"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900678"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Rozwiązywanie problemów z połączeniem z agentem podłączonych maszyn
 
-Ten artykuł zawiera informacje o rozwiązywaniu problemów i rozwiązywaniu problemów, które mogą wystąpić podczas próby skonfigurowania serwera z obsługą usługi Azure ARC (wersja zapoznawcza) Agent połączonej maszyny dla systemu Windows lub Linux. Dostępne są zarówno metody instalacji interaktywnej, jak i na skalę podczas konfigurowania połączenia z usługą. Aby uzyskać ogólne informacje, zobacz [Omówienie serwerów z obsługą Arc](./overview.md).
+Ten artykuł zawiera informacje o rozwiązywaniu problemów i rozwiązywaniu problemów, które mogą wystąpić podczas próby skonfigurowania serwera z włączoną obsługą usługi Azure ARC dla systemu Windows lub Linux. Dostępne są zarówno metody instalacji interaktywnej, jak i na skalę podczas konfigurowania połączenia z usługą. Aby uzyskać ogólne informacje, zobacz [Omówienie serwerów z obsługą Arc](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Pełny dziennik agenta
 
@@ -67,7 +67,7 @@ azcmagent connect \
 
 W poniższej tabeli wymieniono niektóre znane błędy i sugestie dotyczące sposobu rozwiązywania problemów i ich rozwiązywania.
 
-|Komunikat |Błąd |Prawdopodobna przyczyna |Rozwiązanie |
+|Wiadomość |Błąd |Prawdopodobna przyczyna |Rozwiązanie |
 |--------|------|---------------|---------|
 |Nie można uzyskać przepływu urządzenia tokenu autoryzacji |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |Nie można połączyć się z `login.windows.net` punktem końcowym | Sprawdź łączność z punktem końcowym. |
 |Nie można uzyskać przepływu urządzenia tokenu autoryzacji |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |Serwer proxy lub zapora blokuje dostęp do `login.windows.net` punktu końcowego. | Sprawdź łączność z punktem końcowym i nie jest blokowany przez zaporę lub serwer proxy. |

@@ -2,22 +2,22 @@
 title: 'Szybki Start: Language Understanding (LUIS) biblioteki klienckie zestawu SDK'
 description: Utwórz i Zbadaj aplikację LUIS za pomocą bibliotek klienckich SDK LUIS w tym przewodniku Szybki Start przy użyciu języka C#, Python lub JavaScript.
 ms.topic: quickstart
-ms.date: 09/01/2020
-keywords: Azure, sztuczna inteligencja, AI, przetwarzanie języka naturalnego, NLP, interpretacja języka naturalnego, NLU, Konwersacja AI, konwersacje AI, AI chatbot, chatbot Maker, LUIS, NLP AI, Luis AI, Azure Luis, zrozumienie języka naturalnego
+ms.date: 09/14/2020
+keywords: Azure, sztuczna inteligencja, AI, przetwarzanie języka naturalnego, NLP, LUIS, Azure Luis, zrozumienie języka naturalnego, AI chatbot, chatbot Maker, zrozumienie języka naturalnego
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 6bcdca85125d44475fadfd195c1dfda88f761f88
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 64288bbffa2d2c24e2f719477d98426f52da4070
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323249"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972611"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Szybki Start: Language Understanding (LUIS) Biblioteka klienta zestawu SDK do tworzenia i wysyłania zapytań do aplikacji LUIS
 
-Utwórz i Zbadaj aplikację LUIS za pomocą bibliotek klienckich SDK LUIS w tym przewodniku Szybki Start przy użyciu języka C#, Python lub JavaScript.
+Utwórz i Zbadaj aplikację LUIS (AI) platformy Azure przy użyciu bibliotek klienckich LUIS SDK z tym przewodnikiem Szybki Start, korzystając z języka C#, Python lub JavaScript.
 
-Language Understanding (LUIS) umożliwia stosowanie niestandardowych analiz uczenia maszynowego do konwersacji użytkownika, tekstu języka naturalnego w celu przewidywania ogólnego znaczenia i ściągania odpowiednich szczegółowych informacji.
+Language Understanding (LUIS) umożliwia stosowanie przetwarzania języka naturalnego (NLP) do konwersacji użytkownika, tekstu języka naturalnego w celu przewidywania ogólnego znaczenia i ściągania odpowiednich szczegółowych informacji.
 
 * Biblioteka klienta **zestawu SDK tworzenia** umożliwia tworzenie, edytowanie, uczenie i publikowanie aplikacji Luis. * Biblioteka klienta programu **przewidywania środowiska uruchomieniowego SDK** umożliwia wykonywanie zapytań dotyczących opublikowanej aplikacji.
 
@@ -33,7 +33,7 @@ Language Understanding (LUIS) umożliwia stosowanie niestandardowych analiz ucze
 [!INCLUDE [LUIS development with Python SDK](./includes/sdk-python.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Możesz usunąć aplikację z [portalu Luis](https://www.luis.ai) i usunąć zasoby platformy Azure z [Azure Portal](https://portal.azure.com/).
 
@@ -45,7 +45,7 @@ Możesz usunąć aplikację z [portalu Luis](https://www.luis.ai) i usunąć zas
 * Uczenie — w przypadku wystąpienia błędu szkoleniowego zwykle oznacza to pustą aplikację (nie ma intencji z przykładem wyrażenia długości) lub aplikację z intencjami lub nieprawidłowymi jednostkami.
 * Różne błędy — ponieważ kod wywołuje się z bibliotekami klienckimi przy użyciu obiektów tekstowych i JSON, upewnij się, że kod nie został zmieniony.
 
-Inne błędy — jeśli wystąpi błąd, który nie został objęty poprzednią listą, powiadom nas o przesłaniu opinii na końcu na tej stronie. Uwzględnienie języka programowania i wersji zainstalowanych bibliotek klienckich. 
+Inne błędy — jeśli wystąpi błąd, który nie został objęty poprzednią listą, powiadom nas o przesłaniu opinii na końcu na tej stronie. Uwzględnienie języka programowania i wersji zainstalowanych bibliotek klienckich.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -53,3 +53,5 @@ Inne błędy — jeśli wystąpi błąd, który nie został objęty poprzednią 
 * [Co nowego?](whats-new.md)
 * [Zamiary](luis-concept-intent.md), [jednostki](luis-concept-entity-types.md)i [przykład wyrażenia długości](luis-concept-utterance.md)oraz [wstępnie zbudowane jednostki](luis-reference-prebuilt-entities.md)
 * Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
+* Objaśnienie języka naturalnego: [zrozumienie języka naturalnego (NLU) i przetwarzanie języka naturalnego (NLP)](artificial-intelligence.md)
+* Botów: [AI rozszerzenie czatbotów](luis-csharp-tutorial-bf-v4.md "Samouczek chatbot Maker")

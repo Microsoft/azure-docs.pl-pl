@@ -4,12 +4,12 @@ description: Monitoruj swoją aplikację sieci Web w czasie rzeczywistym za pomo
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c12126c23ce1f1e2bd72f88eead5b8f34e4fd83d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142217"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973589"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorowanie & diagnozowanie przy użyciu 1-sekundowego opóźnienia
 
@@ -148,7 +148,7 @@ Podobnie jak w przypadku metryk, można określić dowolne dowolne kryterium dla
 
 Zobacz szczegóły elementu w kanale dynamicznym, klikając go. Możesz wstrzymać kanał informacyjny przez kliknięcie przycisku **Wstrzymaj** lub po prostu przewinięcie lub kliknięcie elementu. Kanały informacyjne na żywo zostaną wznowione po przeprowadzeniu przewijania do góry lub przez kliknięcie licznika zebranych elementów podczas wstrzymania.
 
-![Próbkowane błędy na żywo](./media/live-stream/sample-telemetry.png)
+![Zrzut ekranu przedstawia okno przykładowej telemetrii z wybranym wyjątkem, a szczegóły wyjątku wyświetlane w dolnej części okna.](./media/live-stream/sample-telemetry.png)
 
 ## <a name="filter-by-server-instance"></a>Filtruj według wystąpienia serwera
 
@@ -249,7 +249,7 @@ Jeśli jednak rozpoznasz i ufasz wszystkim połączonym serwerom, możesz wypró
 
 Podstawowe metryki obejmują żądanie, zależność i częstotliwość wyjątków. Metryki wydajności (liczniki wydajności) obejmują pamięć i procesor CPU. Przykładowa Telemetria przedstawia strumień szczegółowych informacji dotyczących żądań zakończonych niepowodzeniem i zależności, wyjątków, zdarzeń i śladów.
 
- \*Obsługa PerfCounters różni się nieco między wersjami programu .NET Core, które nie są przeznaczone dla .NET Framework:
+ \* Obsługa PerfCounters różni się nieco między wersjami programu .NET Core, które nie są przeznaczone dla .NET Framework:
 
 - Metryki PerfCounters są obsługiwane w przypadku uruchamiania w Azure App Service dla systemu Windows. (AspNetCore SDK w wersji 2.4.1 lub nowszej)
 - PerfCounters są obsługiwane, gdy aplikacja jest uruchomiona na wszystkich maszynach z systemem Windows (maszynie wirtualnej lub w chmurze lub w Premium itp.). (AspNetCore SDK w wersji 2.7.1 lub nowszej), ale dla aplikacji przeznaczonych dla platformy .NET Core 2,0 lub nowszej.

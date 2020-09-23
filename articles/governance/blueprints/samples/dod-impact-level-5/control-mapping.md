@@ -1,14 +1,14 @@
 ---
 title: Na poziomie 5 — przykładowe kontrolki planu
 description: Sterowanie mapowaniem przykładu na poziom wpływu na 5 planów. Każda kontrolka jest zamapowana na co najmniej jedną zasadę platformy Azure, która pomaga w ocenie.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a7d1439a73cf387cee773d558ced50ce1c07f6dc
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 456560a8042b239a4d53e1c309742650c00bfa6a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921320"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978367"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Sterowanie mapowaniem przykładu "5" planu wpływu na wartość DoD
 
@@ -307,11 +307,8 @@ Ten plan ułatwia zarządzanie usterkami systemu informacyjnego przez przypisani
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>Rozwiązywanie problemów z SI-02 (06) | Usuwanie poprzednich wersji oprogramowania/oprogramowania układowego
 
-Ten plan przypisuje definicje zasad, które ułatwiają zapewnienie, że aplikacje używają najnowszej wersji .NET Framework, HTTP, Java, PHP, Python i TLS. Ten plan przypisuje również definicję zasad, która zapewnia, że usługi Kubernetes są uaktualnione do wersji niezagrożonej.
+Ten plan przypisuje definicje zasad, które ułatwiają zapewnienie, że aplikacje używają najnowszej wersji protokołów HTTP, Java, PHP, Python i TLS. Ten plan przypisuje również definicję zasad, która zapewnia, że usługi Kubernetes są uaktualnione do wersji niezagrożonej.
 
-- Upewnij się, że wersja ".NET Framework" jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
-- Upewnij się, że wersja ".NET Framework" jest najnowsza, jeśli jest używana jako część aplikacja funkcji
-- Upewnij się, że wersja ".NET Framework" jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
 - Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji interfejsu API
 - Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji funkcji
 - Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji sieci Web
@@ -319,7 +316,6 @@ Ten plan przypisuje definicje zasad, które ułatwiają zapewnienie, że aplikac
 - Upewnij się, że wersja języka Java jest najnowsza, jeśli jest używana jako część aplikacji funkcji
 - Upewnij się, że wersja języka Java jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
 - Upewnij się, że wersja języka PHP jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
-- Upewnij się, że wersja języka PHP jest najnowsza, jeśli jest używana jako część aplikacji funkcji
 - Upewnij się, że wersja języka PHP jest najnowsza, jeśli jest używana jako część aplikacji sieci WEB
 - Upewnij się, że "wersja języka Python" jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
 - Upewnij się, że "wersja języka Python" jest najnowsza, jeśli jest używana jako część aplikacji funkcji

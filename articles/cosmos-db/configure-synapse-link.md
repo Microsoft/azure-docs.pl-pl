@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: 50881071380bbe5d245ed458d162e62bfabd108a
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.custom: references_regions
+ms.openlocfilehash: a375656f579e626d8f41afe49adc3f2ebdb3b27d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061499"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891700"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurowanie i używanie linku Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)
 
 Link Synapse dla Azure Cosmos DB to natywna w pełni funkcjonalna funkcja przetwarzania danych transakcyjnych i analitycznych (HTAP) w chmurze, która umożliwia uruchamianie analizy niemal w czasie rzeczywistym w Azure Cosmos DB. Link Synapse tworzy ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics.
-
 
 > [!IMPORTANT]
 > Aby użyć linku usługi Azure Synapse, upewnij się, że konto usługi Azure Cosmos jest obsługiwane & obszarze roboczym usługi Azure Synapse Analytics w jednym z obsługiwanych regionów. Link Synapse platformy Azure jest obecnie dostępny w następujących regionach świadczenia usługi Azure: zachodnie stany USA, Wschodnie stany USA, zachodni stany USA 2, Europa Północna, Europa Zachodnia, Południowe Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Australia Wschodnia, Wschodni wschód, Południowe Zjednoczone Królestwo.
@@ -26,7 +26,9 @@ Wykonaj następujące kroki, aby uruchomić zapytania analityczne za pomocą lin
 * [Włącz link Synapse dla kont usługi Azure Cosmos](#enable-synapse-link)
 * [Tworzenie kontenera usługi Azure Cosmos z włączonym magazynem analitycznym](#create-analytical-ttl)
 * [Łączenie bazy danych Azure Cosmos z obszarem roboczym Synapse](#connect-to-cosmos-database)
-* [Zbadaj magazyn analityczny za pomocą Synapse Spark](#query-analytical-store)
+* [Zbadaj magazyn analityczny za pomocą Synapse Spark](#query-analytical-store-spark)
+* [Zbadaj magazyn analityczny przy użyciu programu Synapse SQL Server](#query-analytical-store-sql-on-demand)
+* [Używaj bezSynapseowego programu SQL Server, aby analizować i wizualizować dane w Power BI](#analyze-with-powerbi)
 
 ## <a name="enable-azure-synapse-link-for-azure-cosmos-accounts"></a><a id="enable-synapse-link"></a>Włącz link usługi Azure Synapse dla kont usługi Azure Cosmos
 
@@ -207,9 +209,20 @@ container.replace(containerProperties).block();
 
 Skorzystaj z instrukcji w temacie [Connect to Azure Synapse link](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md) , aby uzyskać dostęp do bazy danych Azure Cosmos DB z usługi Azure Synapse Analytics Studio przy użyciu linku Azure Synapse.
 
-## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a> Zapytanie przy użyciu Synapse Spark
+## <a name="query-analytical-store-using-apache-spark-for-azure-synapse-analytics"></a><a id="query-analytical-store-spark"></a> Tworzenie zapytań dotyczących magazynu analitycznego przy użyciu Apache Spark usługi Azure Synapse Analytics
 
 Skorzystaj z instrukcji w temacie [zapytania Azure Cosmos DB ze sklepu analitycznego](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) , aby dowiedzieć się, jak wykonywać zapytania o Synapse Spark. W tym artykule przedstawiono kilka przykładów, na których można korzystać z magazynu analitycznego z gestów Synapse. Te gesty są widoczne po kliknięciu prawym przyciskiem myszy kontenera. Za pomocą gestów można szybko wygenerować kod i dostosować go do własnych potrzeb. Są one również idealne do odnajdywania danych za pomocą jednego kliknięcia.
+
+## <a name="query-the-analytical-store-using-synapse-sql-serverless"></a><a id="query-analytical-store-sql-on-demand"></a> Zbadaj magazyn analityczny przy użyciu programu Synapse SQL Server
+
+Synapse programu SQL Server (funkcja w wersji zapoznawczej, która wcześniej była określana jako **SQL na żądanie**), umożliwia wykonywanie zapytań i analizowanie danych w kontenerach Azure Cosmos DB, które są włączone przy użyciu linku usługi Azure Synapse. Dane można analizować niemal w czasie rzeczywistym bez wpływania na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z magazynu analitycznego i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL. Aby dowiedzieć się więcej, zobacz artykuł dotyczący [magazynu analitycznego w kwerendzie przy użyciu programu Synapse SQL Server](../synapse-analytics/sql/on-demand-workspace-overview.md) .
+
+> [!NOTE]
+> Korzystanie z Azure Cosmos DBego sklepu analitycznego z programem SQL Server w wersji zapoznawczej jest obecnie objęte usługą. Aby zażądać dostępu, skontaktuj się z [zespołem Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+
+## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Używaj bezSynapseowego programu SQL Server, aby analizować i wizualizować dane w Power BI
+
+Można utworzyć Synapse bazę danych programu SQL Server i widoki za pośrednictwem linku Synapse dla Azure Cosmos DB. Później możesz wysyłać zapytania o kontenery usługi Azure Cosmos, a następnie utworzyć model z Power BIem w tych widokach w celu odzwierciedlenia tego zapytania. Aby dowiedzieć się więcej, zobacz artykuł jak korzystać z [programu Synapse SQL Server, aby analizować dane Azure Cosmos DB za pomocą linku Synapse](synapse-link-power-bi.md) .
 
 ## <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
 
@@ -217,7 +230,7 @@ Skorzystaj z instrukcji w temacie [zapytania Azure Cosmos DB ze sklepu analitycz
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Wprowadzenie do usługi Azure Synpase link — przykłady
 
-Możesz znaleźć przykłady umożliwiające rozpoczęcie pracy z usługą Azure Synapse w witrynie [GitHub](https://aka.ms/cosmosdb-synapselink-samples). Są to kompleksowe rozwiązania ze scenariuszami IoT i handlu detalicznego.
+Możesz znaleźć przykłady umożliwiające rozpoczęcie pracy z usługą Azure Synapse w witrynie [GitHub](https://aka.ms/cosmosdb-synapselink-samples). Są to kompleksowe rozwiązania ze scenariuszami IoT i handlu detalicznego. Możesz również znaleźć przykłady odpowiednie dla Azure Cosmos DB API for MongoDB w tym samym repozytorium, w którym znajduje się folder [MongoDB](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/MongoDB) . 
 
 ## <a name="next-steps"></a>Następne kroki
 

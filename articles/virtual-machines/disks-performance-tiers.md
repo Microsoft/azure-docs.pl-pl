@@ -8,16 +8,16 @@ ms.date: 09/22/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4ad0ce1aef45dc4126d3ce17c7093b885f1b8bd7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aa188babf56d4a825059fe6103e2e07745eb134f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938016"
+ms.locfileid: "90974130"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Warstwy wydajności dla dysków zarządzanych (wersja zapoznawcza)
 
-Azure Disk Storage obecnie oferuje wbudowaną funkcję tworzenia serii, aby osiągnąć wyższą wydajność w przypadku obsługi nieoczekiwanego ruchu. Dysków SSD Premium zapewnia elastyczność zwiększania wydajności dysku bez zwiększania rzeczywistego rozmiaru dysku, co pozwala dopasować się do potrzeb związanych z wydajnością obciążeń i obniżyć koszty. Jest to idealne rozwiązanie w przypadku zdarzeń, które tymczasowo wymagają stałego wyższego poziomu wydajności, na przykład zakupów świątecznych, testowania wydajności lub uruchamiania środowiska szkoleniowego. Aby obsłużyć te zdarzenia, można wybrać wyższą warstwę wydajności, tak długo, jak to konieczne, i wrócić do oryginalnej warstwy, gdy dodatkowa wydajność nie jest już potrzebna.
+Azure Disk Storage obecnie oferuje wbudowaną funkcję tworzenia serii, aby osiągnąć wyższą wydajność w przypadku obsługi nieoczekiwanego ruchu. Funkcja Premium dysków SSD zapewnia elastyczność zwiększania wydajności dysku bez zwiększania rzeczywistego rozmiaru dysku, co pozwala dopasować się do potrzeb związanych z wydajnością obciążeń i obniżyć koszty, ponieważ jest ona obecnie dostępna w wersji zapoznawczej. Jest to idealne rozwiązanie w przypadku zdarzeń, które tymczasowo wymagają stałego wyższego poziomu wydajności, na przykład zakupów świątecznych, testowania wydajności lub uruchamiania środowiska szkoleniowego. Aby obsłużyć te zdarzenia, można wybrać wyższą warstwę wydajności, tak długo, jak to konieczne, i wrócić do oryginalnej warstwy, gdy dodatkowa wydajność nie jest już potrzebna.
 
 ## <a name="how-it-works"></a>Jak to działa
 

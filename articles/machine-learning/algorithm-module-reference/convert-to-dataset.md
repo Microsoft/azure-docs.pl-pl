@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 7df783f15280d9f5ba3330afaf504f3259aeccf3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646261"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898712"
 ---
 # <a name="convert-to-dataset"></a>Konwertowanie na zestaw danych
 
-W tym artykule opisano, jak używać modułu Konwertuj do zestawu danych w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu przekonwertowania wszelkich danych dla potoku do wewnętrznego formatu projektanta.
+W tym artykule opisano, jak używać modułu Konwertuj do zestawu danych w programie Azure Machine Learning Designer do konwertowania wszelkich danych dla potoku w wewnętrznym formacie projektanta.
   
 Konwersja nie jest wymagana w większości przypadków. Azure Machine Learning niejawnie konwertuje dane do formatu natywnego zestawu danych w przypadku wykonywania dowolnej operacji na danych. 
 

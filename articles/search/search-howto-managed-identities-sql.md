@@ -1,25 +1,22 @@
 ---
-title: Skonfiguruj połączenie do Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
+title: Skonfiguruj połączenie do Azure SQL Database przy użyciu tożsamości zarządzanej
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak skonfigurować połączenie indeksatora do Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
+description: Dowiedz się, jak skonfigurować połączenie indeksatora do Azure SQL Database przy użyciu tożsamości zarządzanej
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: 9f90125edeee453dc9e8b8b80f8eb09d9fc6e84c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924133"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971524"
 ---
-# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Skonfiguruj połączenie indeksatora, aby Azure SQL Database przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
-
-> [!IMPORTANT] 
-> Obsługa konfigurowania połączenia ze źródłem danych przy użyciu tożsamości zarządzanej jest obecnie dostępna w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych.
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Konfigurowanie połączenia indeksatora w celu Azure SQL Database przy użyciu tożsamości zarządzanej
 
 Na tej stronie opisano sposób konfigurowania połączenia indeksatora w celu Azure SQL Database przy użyciu tożsamości zarządzanej zamiast podawania poświadczeń w parametrach połączenia obiektu źródła danych.
 
@@ -97,7 +94,7 @@ W tym kroku nadajesz usłudze Azure Wyszukiwanie poznawcze uprawnienia do odczyt
 
 ### <a name="5---create-the-data-source"></a>5 — Tworzenie źródła danych
 
-[Interfejs API REST](/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z Azure SQL Database przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
+[Interfejs API REST](/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.search.models.datasource) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z Azure SQL Database przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
 
 Podczas tworzenia źródła danych przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source), źródło danych musi mieć następujące wymagane właściwości:
 

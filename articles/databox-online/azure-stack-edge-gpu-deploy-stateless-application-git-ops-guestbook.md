@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie aplikacji w języku PHP w systemie ARC z włączonym Kubernetes na urządzeniu z systemem Azure Stack Edge Microsoft Docs
-description: Opisuje sposób wdrażania bezstanowej aplikacji w języku PHP przy użyciu usługi Redis za pomocą GitOps w klastrze z włączonym centrum Kubernetes na urządzeniu Azure Stack Edge.
+title: Wdrażanie aplikacji w języku PHP w systemie ARC z włączonym Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro GPU | Microsoft Docs
+description: Opisuje sposób wdrażania bezstanowej aplikacji w języku PHP przy użyciu usługi Redis za pomocą GitOps w klastrze z włączonym centrum Kubernetes na urządzeniu Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319296"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899551"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Wdróż bezstanową aplikację w języku PHP przy użyciu Redis w klastrze Kubernetes z włączonym procesorem GPU na Azure Stack Edge
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Wdróż bezstanową aplikację w języku PHP przy użyciu Redis na łuku z włączonym klastrem Kubernetes w systemie Azure Stack Edge — procesor GPU
 
 W tym artykule pokazano, jak skompilować i wdrożyć prostą wielowarstwową aplikację sieci Web przy użyciu Kubernetes i Azure Arc. Ten przykład składa się z następujących składników:
 
@@ -23,9 +23,9 @@ W tym artykule pokazano, jak skompilować i wdrożyć prostą wielowarstwową ap
 - Wiele zreplikowanych wystąpień Redis do obsługiwania operacji odczytu
 - Wiele wystąpień frontonu sieci Web
 
-Wdrożenie jest wykonywane przy użyciu GitOps w klastrze Kubernetes z włączonym łukiem na urządzeniu Azure Stack Edge. 
+Wdrożenie jest wykonywane przy użyciu GitOps w klastrze Kubernetes z włączonym łukiem na urządzeniu z systemem Azure Stack EDGE Pro. 
 
-Ta procedura jest przeznaczona dla osób, które dokonały przeglądu [obciążeń Kubernetes Azure Stack na urządzeniu brzegowym](azure-stack-edge-gpu-kubernetes-workload-management.md) i znają koncepcje [co to jest usługa Azure Arc Kubernetes (wersja zapoznawcza)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+Ta procedura jest przeznaczona dla osób, które sprawdziły [obciążenia Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) i znają koncepcje [co to jest usługa Azure Arc Kubernetes (wersja zapoznawcza)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -34,30 +34,30 @@ Przed wdrożeniem bezstanowej aplikacji upewnij się, że zostały spełnione na
 
 ### <a name="for-device"></a>Na potrzeby urządzenia
 
-1. Poświadczenia logowania są dostępne dla jednego węzła Azure Stack urządzenia brzegowego.
+1. Poświadczenia logowania są dostępne na urządzeniu z 1 węzłem Azure Stack Edge.
     1. Urządzenie zostało aktywowane. Zobacz [Aktywowanie urządzenia](azure-stack-edge-gpu-deploy-activate.md).
     1. Urządzenie ma rolę obliczeniową skonfigurowaną za pośrednictwem Azure Portal i ma klaster Kubernetes. Zobacz [Konfigurowanie obliczeń](azure-stack-edge-gpu-deploy-configure-compute.md).
 
-1. Usługa Azure Arc została włączona na istniejącym klastrze Kubernetes na urządzeniu i masz odpowiedni zasób usługi Azure Arc w Azure Portal. Aby uzyskać szczegółowe instrukcje, zobacz [Włączanie usługi Azure Arc na Azure Stack urządzeniu brzegowym](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
+1. Usługa Azure Arc została włączona na istniejącym klastrze Kubernetes na urządzeniu i masz odpowiedni zasób usługi Azure Arc w Azure Portal. Aby uzyskać szczegółowe instrukcje, zobacz [Włączanie usługi Azure Arc na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
 
 ### <a name="for-client-accessing-the-device"></a>Do uzyskiwania dostępu do urządzenia przez klienta
 
-1. Masz system klienta systemu Windows, który będzie używany do uzyskiwania dostępu do urządzenia brzegowego Azure Stack.
+1. Masz system klienta systemu Windows, który będzie używany do uzyskiwania dostępu do urządzenia z systemem Azure Stack Edge.
   
     - Klient korzysta z programu Windows PowerShell 5,0 lub nowszego. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do obszaru [Instalowanie programu Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Możesz również mieć dowolnego innego klienta z [obsługiwanym systemem operacyjnym](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. 
     
-1. Procedura opisana w artykule [Uzyskiwanie dostępu do klastra Kubernetes na urządzeniu brzegowym Azure Stack](azure-stack-edge-gpu-create-kubernetes-cluster.md). Masz:
+1. Procedura opisana w artykule [Uzyskiwanie dostępu do klastra Kubernetes na urządzeniu z systemem Azure Stack Edge w systemie](azure-stack-edge-gpu-create-kubernetes-cluster.md). Masz:
     
     - Zainstalowane `kubectl` na kliencie  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
-    - Upewnij się, że `kubectl` wersja klienta jest skośna nie więcej niż jedna wersja z wersji głównej Kubernetes uruchomionej na urządzeniu Azure Stack Edge. 
+    - Upewnij się, że `kubectl` wersja klienta jest skośna nie więcej niż jedna wersja z wersji głównej Kubernetes działającej na urządzeniu Azure Stack EDGE Pro. 
       - Użyj, `kubectl version` Aby sprawdzić wersję polecenia kubectl działającą na kliencie. Zanotuj pełną wersję.
-      - W lokalnym interfejsie użytkownika urządzenia brzegowego Azure Stack przejdź do **omówienia** i zanotuj numer oprogramowania Kubernetes. 
+      - W lokalnym interfejsie użytkownika urządzenia z usługą Azure Stack Edge, przejdź do **omówienia** i zanotuj numer oprogramowania Kubernetes. 
       - Sprawdź te dwie wersje pod kątem zgodności z mapowania podanego w obsługiwanej wersji Kubernetes <!--insert link-->.
 
-1. Istnieje [Konfiguracja GitOps, której można użyć do uruchomienia wdrożenia usługi Azure Arc](https://github.com/kagoyal/dbehaikudemo). W tym przykładzie zostaną użyte następujące `yaml` pliki do wdrożenia na urządzeniu Azure Stack Edge.
+1. Istnieje [Konfiguracja GitOps, której można użyć do uruchomienia wdrożenia usługi Azure Arc](https://github.com/kagoyal/dbehaikudemo). W tym przykładzie zostaną użyte następujące `yaml` pliki do wdrożenia na urządzeniu Azure Stack EDGE Pro.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
@@ -176,4 +176,4 @@ C:\Users\user>
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [za pomocą pulpitu nawigacyjnego Kubernetes monitorować wdrożenia na urządzeniu brzegowym Azure Stack](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)
+Dowiedz się, jak [za pomocą pulpitu nawigacyjnego Kubernetes monitorować wdrożenia na urządzeniu z systemem Azure Stack EDGE Pro](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)

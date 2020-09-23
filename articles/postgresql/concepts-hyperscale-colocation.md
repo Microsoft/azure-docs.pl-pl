@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74967341"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884432"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Współlokalizacja tabeli w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
 
@@ -22,7 +22,7 @@ Wspólna lokalizacja oznacza przechowywanie powiązanych informacji w tych samyc
 
 W Azure Database for PostgreSQL — Citus, wiersz jest przechowywany w fragmentu, jeśli skrót wartości w kolumnie dystrybucja mieści się w zakresie wartości skrótu fragmentu. Fragmentów z tym samym zakresem wyznaczania wartości skrótu są zawsze umieszczane w tym samym węźle. Wiersze z równymi wartościami kolumny dystrybucji są zawsze w tym samym węźle między tabelami.
 
-![Fragmentów](media/concepts-hyperscale-colocation/colocation-shards.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-shards.png" alt-text="Fragmentów":::
 
 ## <a name="a-practical-example-of-colocation"></a>Praktyczny przykład wspólnej lokalizacji
 
@@ -96,7 +96,7 @@ Następnie wyniki dwóch kroków muszą być połączone przez aplikację.
 
 Uruchomienie zapytań musi zajrzeć do danych w fragmentów rozproszeniu między węzłami.
 
-![Niewydajne zapytania](media/concepts-hyperscale-colocation/colocation-inefficient-queries.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Niewydajne zapytania":::
 
 W takim przypadku Dystrybucja danych tworzy znaczące wady:
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 Ze względu na filtr i sprzężenie w tenant_id, funkcja Citus (fragmentów) wie, że całe zapytanie może być odpowiedzią przy użyciu zestawu współdzielonego elementu, który zawiera dane dla danej dzierżawy. Pojedynczy węzeł PostgreSQL może odpowiedzieć na zapytanie w jednym kroku.
 
-![Lepsze zapytanie](media/concepts-hyperscale-colocation/colocation-better-query.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Lepsze zapytanie":::
 
 W niektórych przypadkach zapytania i schematy tabeli muszą zostać zmienione w celu uwzględnienia identyfikatora dzierżawy w unikatowych ograniczeniach i warunkach sprzężenia. Ta zmiana jest zwykle prosta.
 

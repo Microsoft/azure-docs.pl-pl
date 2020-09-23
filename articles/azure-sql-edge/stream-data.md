@@ -1,6 +1,6 @@
 ---
-title: Przesyłanie strumieniowe danych w usłudze Azure SQL Edge (wersja zapoznawcza)
-description: Informacje na temat przesyłania strumieniowego danych w usłudze Azure SQL Edge (wersja zapoznawcza).
+title: Przesyłanie strumieniowe danych w usłudze Azure SQL Edge
+description: Informacje na temat przesyłania strumieniowego danych w usłudze Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,23 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 866c74fbdfcfcef7cbb7d6cddb360c4265a2f776
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca22b3d2c00bfef128455df4ad6b9bb6411f8a13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669617"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900567"
 ---
-# <a name="data-streaming-in-azure-sql-edge-preview"></a>Przesyłanie strumieniowe danych w usłudze Azure SQL Edge (wersja zapoznawcza)
+# <a name="data-streaming-in-azure-sql-edge"></a>Przesyłanie strumieniowe danych w usłudze Azure SQL Edge
 
-Usługa Azure SQL Edge (wersja zapoznawcza) oferuje następujące opcje implementacji przesyłania strumieniowego danych: 
-
-- Wdrażanie Azure Stream Analytics zadań brzegowych utworzonych na platformie Azure. Aby uzyskać więcej informacji, zobacz [wdrażanie Azure Stream Analytics zadań](deploy-dacpac.md).
-- Używanie przesyłania strumieniowego T-SQL do tworzenia zadań przesyłania strumieniowego w usłudze Azure SQL Edge bez konieczności konfigurowania zadań przesyłania strumieniowego na platformie Azure. 
-
-Chociaż można używać obu opcji do implementowania przesyłania strumieniowego danych w usłudze Azure SQL Edge, należy używać tylko jednego z nich. W przypadku korzystania z obu tych elementów mogą wystąpić sytuacje wyścigu, które wpływają na działanie operacji przesyłania strumieniowego danych.
-
-Funkcja przesyłania strumieniowego T-SQL jest skoncentrowana na tym artykule. Umożliwia przesyłanie strumieniowe danych w czasie rzeczywistym, analizowanie i przetwarzanie zdarzeń, co pozwala analizować i przetwarzać duże ilości szybkiego przesyłania strumieniowego danych z wielu źródeł jednocześnie. Przesyłanie strumieniowe T-SQL jest kompilowane przy użyciu tego samego aparatu przesyłania strumieniowego o wysokiej wydajności, który umożliwia [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) w Microsoft Azure. Funkcja obsługuje podobny zestaw możliwości oferowanych przez Azure Stream Analytics uruchomionych na krawędzi.
+Usługa Azure SQL Edge oferuje natywną implementację funkcji przesyłania strumieniowego danych o nazwie Streaming-SQL. Umożliwia przesyłanie strumieniowe danych w czasie rzeczywistym, analizowanie i przetwarzanie zdarzeń, co pozwala analizować i przetwarzać duże ilości szybkiego przesyłania strumieniowego danych z wielu źródeł jednocześnie. Przesyłanie strumieniowe T-SQL jest kompilowane przy użyciu tego samego aparatu przesyłania strumieniowego o wysokiej wydajności, który umożliwia [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) w Microsoft Azure. Funkcja obsługuje podobny zestaw możliwości oferowanych przez Azure Stream Analytics uruchomionych na krawędzi.
 
 Podobnie jak w przypadku Stream Analytics, przesyłanie strumieniowe T-SQL rozpoznaje wzorce i relacje w informacjach wyodrębnionych z wielu źródeł danych wejściowych IoT, w tym urządzeń, czujników i aplikacji. Można użyć tych wzorców do wyzwalania akcji i inicjowania przepływów pracy. Można na przykład utworzyć alerty, dostarczyć informacje do rozwiązania do raportowania lub wizualizacji lub przechowywać dane do późniejszego użycia. 
 
@@ -49,7 +42,6 @@ Zadanie usługi Stream Analytics składa się z:
 - **Dane wyjściowe strumienia**: definiuje połączenia ze źródłem danych, do którego ma zostać zapisany strumień danych. Usługa Azure SQL Edge obecnie obsługuje następujące typy danych wyjściowych strumienia
     - Centrum brzegowe
     - SQL (dane wyjściowe SQL mogą być lokalną bazą danych w wystąpieniu usługi Azure SQL Edge lub SQL Server zdalnego lub Azure SQL Database). 
-    - Azure Blob Storage
 
 - **Zapytanie strumienia**: definiuje transformację, agregacje, filtrowanie, sortowanie i sprzężenia, które mają być zastosowane do strumienia wejściowego, zanim zostanie on zapisany w danych wyjściowych strumienia. Zapytanie strumienia jest oparte na tym samym języku zapytań, jak używany przez Stream Analytics. Aby uzyskać więcej informacji, zobacz [Stream Analytics języka zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
 
@@ -65,9 +57,11 @@ Poniższe ograniczenia i ograniczenia dotyczą przesyłania strumieniowego T-SQL
 
 - Tylko jedno zadanie przesyłania strumieniowego może być aktywne w określonym czasie. Zadania, które są już uruchomione, muszą zostać zatrzymane przed uruchomieniem innego zadania.
 - Każde wykonanie zadania przesyłania strumieniowego jest jednowątkowe. Jeśli zadanie przesyłania strumieniowego zawiera wiele zapytań, każde zapytanie jest oceniane w kolejności szeregowej.
+- Po zatrzymaniu zadania przesyłania strumieniowego w usłudze Azure SQL Edge może wystąpić pewne opóźnienie, zanim będzie można uruchomić następne zadanie przesyłania strumieniowego. To opóźnienie jest wprowadzane, ponieważ podstawowy proces przesyłania strumieniowego musi zostać zatrzymany w odpowiedzi na żądanie zatrzymania zadania, a następnie ponownie uruchomiony w odpowiedzi na żądanie uruchomienia zadania. 
+- Przesyłanie strumieniowe T-SQL do 32 partycji dla strumienia Kafka. Próba skonfigurowania większej liczby partycji spowoduje wystąpienie błędu. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie zadania Stream Analytics w usłudze Azure SQL Edge (wersja zapoznawcza)](create-stream-analytics-job.md)
-- [Wyświetlanie metadanych skojarzonych z zadaniami przesyłania strumieniowego w usłudze Azure SQL Edge (wersja zapoznawcza)](streaming-catalog-views.md)
+- [Tworzenie zadania Stream Analytics w usłudze Azure SQL Edge ](create-stream-analytics-job.md)
+- [Wyświetlanie metadanych skojarzonych z zadaniami przesyłania strumieniowego w usłudze Azure SQL Edge ](streaming-catalog-views.md)
 - [Utwórz strumień zewnętrzny](create-external-stream-transact-sql.md)

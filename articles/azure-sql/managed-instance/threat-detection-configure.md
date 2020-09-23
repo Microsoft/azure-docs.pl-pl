@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-ms.date: 08/05/2019
-ms.openlocfilehash: ceb6285448df2a5d87dfa87ab249c99bf22c9928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/21/2020
+ms.openlocfilehash: d81550f5c6906e409675002fde670db3734de883
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686328"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885055"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Skonfiguruj zaawansowaną ochronę przed zagrożeniami w wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,21 +26,18 @@ ms.locfileid: "84686328"
 
 Powiadomienia dotyczące wykrytych zagrożeń można odbierać za pośrednictwem [powiadomień e-mail](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) lub [Azure Portal](../database/threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
-Zaawansowana [Ochrona przed zagrożeniami](../database/threat-detection-overview.md) jest częścią [zaawansowanej oferty zabezpieczeń danych](../database/advanced-data-security.md) , która jest ujednoliconym pakietem zaawansowanych funkcji zabezpieczeń SQL. Aby uzyskiwać dostęp do funkcji Advanced Threat Protection i zarządzać nią, można korzystać centralnego portalu pakietu SQL ADS.
+[Zaawansowana ochrona przed zagrożeniami](../database/threat-detection-overview.md) jest częścią [usługi Azure Defender dla oferty SQL](../database/azure-defender-for-sql.md)  , która jest ujednoliconym pakietem dla zaawansowanych możliwości zabezpieczeń SQL. Dostęp do zaawansowanej ochrony przed zagrożeniami można uzyskać i zarządzać nimi za pośrednictwem centralnej usługi Azure Defender dla programu SQL Portal.
 
 ##  <a name="azure-portal"></a>Azure Portal
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com). 
-2. Przejdź do strony Konfiguracja wystąpienia wystąpienia zarządzanego SQL, które chcesz chronić. Na stronie **Ustawienia** wybierz pozycję **Zaawansowane zabezpieczenia danych**.
-3. Na stronie Konfiguracja zabezpieczeń danych zaawansowanych
-   - Włącz **Zaawansowane** zabezpieczenia danych.
+1. Zaloguj się do  [Azure Portal](https://portal.azure.com). 
+2. Przejdź do strony Konfiguracja wystąpienia wystąpienia zarządzanego SQL, które chcesz chronić. W obszarze **zabezpieczenia**wybierz pozycję **Centrum zabezpieczeń**.
+3. Na stronie Konfiguracja usługi Azure Defender dla programu SQL Server
+   - Włącz **usługę Azure Defender** dla języka SQL.
    - Skonfiguruj **listę wiadomości e-mail** , aby otrzymywać alerty zabezpieczeń po wykryciu nietypowych działań bazy danych.
    - Wybierz **konto usługi Azure Storage** , w którym są zapisywane rekordy nietypowych zagrożeń inspekcji.
    - Wybierz **typy zaawansowanej ochrony przed zagrożeniami** , które chcesz skonfigurować. Dowiedz się więcej o [alertach dotyczących zaawansowanej ochrony przed zagrożeniami](../database/threat-detection-overview.md).
-4. Kliknij przycisk **Zapisz** , aby zapisać nowe lub zaktualizowane zasady zaawansowanej ochrony danych.
-
-   ![Zaawansowana ochrona przed zagrożeniami](./media/threat-detection-configure/threat-detection.png)
-
+4. Kliknij przycisk **Zapisz** , aby zapisać nowe lub zaktualizowane zasady usługi Azure Defender dla programu SQL Server.
 
 ## <a name="next-steps"></a>Następne kroki
 

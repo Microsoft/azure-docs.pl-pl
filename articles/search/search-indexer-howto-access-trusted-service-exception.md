@@ -7,20 +7,17 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: f901833caf0623de643e0372c53658fa7da8c8be
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 09/22/2020
+ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463722"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971414"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Bezpieczne uzyskiwanie dostępu do danych z kont magazynu za pomocą wyjątku usługi zaufanej
 
 Indeksatory, które uzyskują dostęp do danych na kontach magazynu, mogą korzystać z funkcji [zaufanego wyjątku usługi](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) , aby bezpiecznie uzyskiwać dostęp do danych. Ten mechanizm umożliwia klientom, którzy nie mogą udzielić [dostępu indeksatora za pośrednictwem reguł zapory adresów IP](search-indexer-howto-access-ip-restricted.md) , prostą, bezpieczną i bezpłatną alternatywą dla dostępu do danych na kontach magazynu.
-
-> [!NOTE]
-> Uzyskiwanie dostępu do konta magazynu za pośrednictwem przypisanej do systemu tożsamości usługi wyszukiwania jest nadal w wersji zapoznawczej. Ta funkcja w wersji zapoznawczej jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Krok 1. Konfigurowanie połączenia z kontem magazynu za pośrednictwem tożsamości
 

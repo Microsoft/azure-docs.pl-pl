@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076386"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901083"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Samouczek: Reagowanie na zdarzenia związane z zabezpieczeniami
 Usługa Security Center w sposób ciągły analizuje obciążenia chmury hybrydowej i ostrzega o złośliwych działaniach, używając zaawansowanych funkcji analitycznych oraz funkcji analizy zagrożeń. Ponadto można integrować alerty z innymi produktami i usługami zabezpieczeń w usłudze Security Center oraz tworzyć niestandardowe alerty bazujące na własnych wskaźnikach lub źródłach analiz. Po wygenerowaniu alertu potrzebne jest sprawne działanie w celu zbadania i skorygowania jego przyczyny. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -32,7 +32,7 @@ Usługa Security Center w sposób ciągły analizuje obciążenia chmury hybrydo
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby przekroczyć funkcje omówione w tym samouczku, musisz mieć Security Center warstwy cenowej standardowa. Warstwę Standardowa usługi Security Center możesz wypróbować bezpłatnie. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). Przewodnik szybkiego startu [Dołączanie subskrypcji platformy Azure do standardowej usługi Security Center](security-center-get-started.md) przeprowadzi Cię przez procedurę uaktualniania do warstwy standardowej.
+Aby przekroczyć funkcje omówione w tym samouczku, musisz mieć włączoną usługę Azure Defender. Możesz bezpłatnie wypróbować usługę Azure Defender. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). Przewodnik Szybki Start [dotyczący rozpoczynania pracy z Security Center](security-center-get-started.md) przeprowadzi Cię przez proces uaktualniania.
 
 ## <a name="scenario"></a>Scenariusz
 Firma Contoso dokonała ostatnio migracji niektórych lokalnych zasobów na platformę Azure. Dotyczyło to niektórych obciążeń biznesowych na maszynach wirtualnych i baz danych SQL. Obecnie zespół reagowania na zdarzenia zabezpieczeń firmy Contoso (CSIRT, Computer Security Incident Response Team) ma kłopot ze zbadaniem problemów dotyczących zabezpieczeń. Jest to spowodowane brakiem integracji funkcji analizy zabezpieczeń z ich obecnymi narzędziami do reagowania na zdarzenia. Ten brak integracji powoduje problem na etapach wykrywania (za dużo fałszywych alarmów), oceniania i diagnozowania. W ramach tej migracji zespół postanowił skorzystać z usługi Security Center, aby rozwiązać ten problem.
@@ -68,13 +68,13 @@ Usługa Security Center zapewnia spójny widok wszystkich alertów zabezpieczeń
 
    ![Alerty zabezpieczeń](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
-2. Na liście alertów kliknij zdarzenie zabezpieczeń będące kolekcją alertów, aby dowiedzieć się więcej na temat tego zdarzenia. Zostanie otwarte okno **Wykryto zdarzenie zabezpieczeń**.
+2. Na liście alertów wybierz zdarzenie zabezpieczeń, które jest kolekcją alertów, aby dowiedzieć się więcej o tym zdarzeniu. Zostanie otwarte okno **Wykryto zdarzenie zabezpieczeń**.
 
-   ![Zdarzenie naruszenia zabezpieczeń](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Wykryto zdarzenie zabezpieczeń](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. U góry tego ekranu znajduje się opis zdarzenia zabezpieczeń, a poniżej lista alertów będących częścią tego zdarzenia. Kliknij alert, który chcesz zbadać dokładniej, aby uzyskać więcej informacji.
 
-   ![Zdarzenie naruszenia zabezpieczeń](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Szczegóły alertu ze zdarzenia](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
    Typy alertów mogą być różne. Aby uzyskać więcej szczegółowych informacji na temat typu alertu i możliwych czynności korygujących, przeczytaj [Informacje o alertach zabezpieczeń w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). W przypadku alertów, które można bezpiecznie odrzucić, możesz kliknąć alert prawym przyciskiem myszy i wybrać pozycję **Odrzuć**:
 
@@ -97,15 +97,14 @@ Aby znaleźć więcej dowodów na naruszenie zabezpieczeń systemów i uzyskać 
 
 Aby przeprowadzić wyszukiwanie, otwórz pulpit nawigacyjny usługi **Security Center**, kliknij pozycję **Wyszukaj** w lewym okienku nawigacji, wybierz obszar roboczy zawierający obiekty, które chcesz wyszukać, wpisz zapytanie wyszukiwania i kliknij przycisk wyszukiwania.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, Kontynuuj uruchamianie warstwy Standardowa i Włącz automatyczną obsługę administracyjną. Jeśli nie zamierzasz kontynuować lub chcesz wrócić do warstwy bezpłatnej:
+Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, Zachowaj automatyczną obsługę administracyjną i usługę Azure Defender. Jeśli nie planujesz kontynuować ani wyłączyć usługi Azure Defender:
 
-1. Wróć do menu głównego usługi Security Center i wybierz pozycję **Zasady zabezpieczeń**.
-2. Wybierz subskrypcję lub zasady, którym chcesz przywrócić warstwę bezpłatną. Zostanie otwarte okno **Zasady zabezpieczeń**.
-3. W obszarze **SKŁADNIKI ZASAD** wybierz pozycję **Warstwa cenowa**.
-4. Wybierz opcję **bezpłatna** , aby zmienić subskrypcję z warstwy Standardowa na warstwę bezpłatna.
-5. Wybierz pozycję **Zapisz**.
+1. Wróć do menu głównego Security Center i wybierz pozycję **Cennik i ustawienia**.
+1. Wybierz subskrypcję, którą chcesz obniżyć.
+1. Ustaw **usługę Azure Defender** na off.
+1. Wybierz pozycję **Zapisz**.
 
 Jeśli chcesz wyłączyć automatyczną aprowizację:
 
