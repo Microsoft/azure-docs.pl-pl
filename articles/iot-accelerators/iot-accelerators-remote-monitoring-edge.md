@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 43ba14845765230b9a54c2b34dbc7ccd53af950b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "66117526"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970001"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Samouczek: Wykrywanie anomalii na urządzeniach brzegowych za pomocą akceleratora rozwiązania do monitorowania zdalnego
 
@@ -26,7 +26,7 @@ Firma Contoso chce wdrożyć moduł inteligentnego urządzenia brzegowego, wykry
 
 Na poniższym diagramie przedstawiono najważniejsze składniki w tym scenariuszu samouczka:
 
-![Omówienie](media/iot-accelerators-remote-monitoring-edge/overview.png)
+![Diagram przedstawia gniazdo pompy olejowej połączone z modułem usługi Stream Analytics (T Edge) na urządzeniu z T Edge dla telemetrii i poleceń. Filtrowane dane telemetryczne przechodzą do urządzenia I o T Edge w akceleratorze rozwiązania do zdalnego monitorowania w chmurze. Chmura zawiera również wdrożenie i pakiet. Wdrożenie wdraża środowisko uruchomieniowe we/wy na urządzeniu.](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 W tym samouczku zostały wykonane następujące czynności:
 
@@ -83,7 +83,7 @@ Aby ułatwić zarządzanie urządzeniami usługi IoT Edge w ramach rozwiązania,
     | Zadanie     | Tagi  |
     | Nazwa zadania | AddEdgeTag |
     | Klucz     | IsOilPump |
-    | Wartość   | T     |
+    | Wartość   | Y     |
     | Typ    | Tekst  |
 
     [![Dodaj tag](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
@@ -99,7 +99,7 @@ Aby ułatwić zarządzanie urządzeniami usługi IoT Edge w ramach rozwiązania,
     | Nazwa    | OilPumps |
     | Pole   | Tags.IsOilPump |
     | Operator | = Równa się |
-    | Wartość    | T |
+    | Wartość    | Y |
     | Typ     | Tekst |
 
     [![Utwórz grupę urządzeń](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)

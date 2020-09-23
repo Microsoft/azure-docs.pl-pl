@@ -1,18 +1,18 @@
 ---
-title: Co nowego w usłudze Azure ARC z obsługą serwerów (wersja zapoznawcza) Agent
-description: W tym artykule znajdują się informacje o wersji dla agenta usługi Azure Arc Enabled (wersja zapoznawcza). W przypadku wielu problemów podsumowujących istnieją linki do dodatkowych szczegółów.
+title: Co nowego w agencie serwerów z włączonym usługą Azure Arc
+description: W tym artykule znajdują się informacje o wersji agenta usługi Azure ARC z obsługą serwerów. W przypadku wielu problemów podsumowujących istnieją linki do dodatkowych szczegółów.
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 3b739401603f6dc18b9f48fb3cb6e28023a051ab
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/16/2020
+ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532175"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908158"
 ---
-# <a name="whats-new-with-azure-arc-enabled-servers-preview-agent"></a>Co nowego w usłudze Azure ARC z obsługą serwerów (wersja zapoznawcza) Agent
+# <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Co nowego w agencie serwerów z włączonym usługą Azure Arc
 
-Agent połączonej maszyny z obsługą usługi Azure ARC (wersja zapoznawcza) nie otrzymuje ulepszeń na bieżąco. Aby zachować aktualność w zakresie najnowszych zmian, ten artykuł zawiera informacje na temat:
+Agent połączonej maszyny z włączonym usługą Azure Arc odbiera usprawnienia w sposób ciągły. Aby zachować aktualność w zakresie najnowszych zmian, ten artykuł zawiera informacje na temat:
 
 - Najnowsze wersje
 - Znane problemy
@@ -60,4 +60,4 @@ W przypadku korzystania ze starszej wersji agenta systemu Linux i skonfigurowani
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przed dokonaniem oceny lub włączeniem serwerów z obsługą łuku (wersja zapoznawcza) na wielu maszynach hybrydowych Przejrzyj [Omówienie agenta połączonej maszyny](agent-overview.md) , aby poznać wymagania, szczegóły techniczne dotyczące agenta i metod wdrażania.
+Przed przeszacowaniem lub włączeniem serwerów z obsługą łuku na wielu maszynach hybrydowych Przejrzyj [Omówienie agenta połączonej maszyny](agent-overview.md) , aby poznać wymagania, szczegóły techniczne dotyczące agenta i metod wdrażania.

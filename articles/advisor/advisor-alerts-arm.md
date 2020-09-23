@@ -1,15 +1,15 @@
 ---
 title: Tworzenie alertów Azure Advisor dla nowych zaleceń przy użyciu szablonu Menedżer zasobów
-description: Utwórz alerty Azure Advisor dla nowego zalecenia
+description: Dowiedz się, jak skonfigurować alert dotyczący nowych zaleceń z Azure Advisor przy użyciu szablonu Azure Resource Manager (szablon ARM).
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 2becfbbc63beb6451e5e877c5a60553d98650494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a10ca5f0b4119fb65d6b0f717f5c212acb20f9cd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057816"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973686"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Szybki Start: tworzenie alertów Azure Advisor na temat nowych zaleceń przy użyciu szablonu ARM
 
@@ -144,7 +144,7 @@ Szablon definiuje dwa zasoby:
 - [Microsoft. Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
 - [Microsoft. Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Wdróż szablon przy użyciu dowolnej standardowej metody [wdrażania szablonu ARM](../azure-resource-manager/templates/deploy-portal.md) , takiego jak poniższe przykłady przy użyciu interfejsu wiersza polecenia i programu PowerShell. Zastąp przykładowe wartości dla **grupy zasobów**i **EmailAddress** z odpowiednimi wartościami dla danego środowiska. Nazwa obszaru roboczego musi być unikatowa wśród wszystkich subskrypcji platformy Azure.
 

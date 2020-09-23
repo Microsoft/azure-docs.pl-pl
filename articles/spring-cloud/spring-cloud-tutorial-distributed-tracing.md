@@ -7,17 +7,75 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ff76c38031ac367bf81f6d152642a4d9a209bb7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 97926d5bdf3123ae50714d36ad0234872f67aa96
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294003"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908293"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej
 
 Dzięki narzędziom do śledzenia rozproszonym w chmurze Azure wiosennej można łatwo debugować i monitorować złożone problemy. Chmura ze sprężyną Azure integruje się z [chmurą Sleuth](https://spring.io/projects/spring-cloud-sleuth) z platformą [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)Azure. Ta integracja zapewnia zaawansowane możliwości śledzenia rozproszonego na podstawie Azure Portal.
 
+::: zone pivot="programming-language-csharp"
+W tym artykule dowiesz się, jak włączyć śledzenie rozproszone przy użyciu aplikacji .NET Core steeltoe.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Aby wykonać te procedury, potrzebna jest aplikacja steeltoe, która została już [przygotowana do wdrożenia w chmurze Azure wiosennej](spring-cloud-tutorial-prepare-app-deployment.md).
+
+## <a name="dependencies"></a>Zależności
+
+Zainstaluj następujące pakiety NuGet
+
+* [Steeltoe. Management. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
+* [Steeltoe. Management. ExporterCore](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
+
+## <a name="update-startupcs"></a>Aktualizacja Startup.cs
+
+1. W `ConfigureServices` metodzie Wywołaj `AddDistributedTracing` metody i `AddZipkinExporter` .
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddDistributedTracing(Configuration);
+       services.AddZipkinExporter(Configuration);
+   }
+   ```
+
+1. W `Configure` metodzie Wywołaj `UseTracingExporter` metodę.
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+   {
+        app.UseTracingExporter();
+   }
+   ```
+
+## <a name="update-configuration"></a>Aktualizowanie konfiguracji
+
+Dodaj następujące ustawienia do źródła konfiguracji, które będą używane podczas uruchamiania aplikacji w chmurze Azure wiosną:
+
+1. Ustaw wartość argumentu `management.tracing.alwaysSample` na true.
+
+2. Jeśli chcesz zobaczyć zakresy śledzenia wysyłane między serwerem Eureka, serwerem konfiguracji i aplikacjami użytkownika: Ustaw wartość `management.tracing.egressIgnorePattern` "/API/v2/spans |/v2/Apps/.* /Permissions |/Eureka/.*| /oauth/.*".
+
+Na przykład *appsettings.json* zawiera następujące właściwości:
+ 
+```json
+"management": {
+    "tracing": {
+      "alwaysSample": true,
+      "egressIgnorePattern": "/api/v2/spans|/v2/apps/.*/permissions|/eureka/.*|/oauth/.*"
+    }
+  }
+```
+
+Aby uzyskać więcej informacji na temat śledzenia rozproszonego w aplikacjach .NET Core steeltoe, zobacz [śledzenie rozproszone](https://steeltoe.io/docs/3/tracing/distributed-tracing) w dokumentacji steeltoe.
+::: zone-end
+::: zone pivot="programming-language-java"
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
@@ -28,8 +86,8 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać te procedury, potrzebna jest usługa w chmurze Azure wiosny, która jest już zainicjowana i uruchomiona. Ukończ [Przewodnik Szybki Start dotyczący wdrażania aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart.md) w celu aprowizacji i uruchamiania usługi w chmurze Azure wiosennej.
-    
+Aby wykonać te procedury, potrzebna jest usługa w chmurze Azure wiosny, która jest już zainicjowana i uruchomiona. Ukończ Przewodnik Szybki Start dotyczący [wdrażania pierwszej aplikacji w chmurze Azure ze sprężyną](spring-cloud-quickstart.md) w celu aprowizacji i uruchamiania usługi w chmurze Azure wiosennej.
+
 ## <a name="add-dependencies"></a>Dodaj zależności
 
 1. Dodaj następujący wiersz do pliku Application. Properties:
@@ -73,6 +131,7 @@ spring.sleuth.sampler.probability=0.5
 ```
 
 Jeśli aplikacja została już skompilowana i wdrożona, można zmodyfikować częstotliwość próbkowania. Aby to zrobić, Dodaj poprzedni wiersz jako zmienną środowiskową w interfejsie wiersza polecenia platformy Azure lub w Azure Portal.
+::: zone-end
 
 ## <a name="enable-application-insights"></a>Włączanie usługi Application Insights
 

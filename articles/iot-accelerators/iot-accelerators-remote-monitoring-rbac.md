@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: b32e0a60e099b5ad184f8919be3f93646c3a68b3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 817bc7624bb3a6b69d56265e40681287b7fc09fa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018148"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969595"
 ---
 # <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Konfigurowanie kontroli dostępu opartej na rolach w akceleratorze rozwiązania do zdalnego monitorowania
 
@@ -62,7 +62,7 @@ Jako właściciel aplikacji Azure Active Directory możesz użyć Azure Portal d
 
 1. Sprawdź, czy jesteś właścicielem aplikacji, klikając aplikację, a następnie klikając pozycję **właściciele**. Na poniższym zrzucie ekranu **administrator contoso** jest właścicielem aplikacji **contoso-RM4** :
 
-    ![Właściciele](media/iot-accelerators-remote-monitoring-rbac/owners.png)
+    ![Zrzut ekranu przedstawia wybraną opcję Zarządzaj właścicielami, która wyświetla właścicieli aplikacji Contoso r m 4.](media/iot-accelerators-remote-monitoring-rbac/owners.png)
 
     Jeśli nie jesteś właścicielem, musisz poprosił istniejącego właściciela, aby dodał Cię do listy. Tylko właściciele mogą przypisywać role aplikacji, takie jak **administrator** , lub **tylko do odczytu** dla innych użytkowników.
 
@@ -92,7 +92,7 @@ Poniższe kroki zawierają opis sposobu dodawania roli do aplikacji w Azure Acti
 
 1. Znajdź w Azure Portal **rejestrację aplikacji** dla Twojego rozwiązania. Nazwa aplikacji jest nazwą Twojego rozwiązania do monitorowania zdalnego. Na poniższym zrzucie ekranu nazwa wyświetlana rozwiązania i aplikacji to **contoso-RM4**.
 
-    ![Rejestracja aplikacji](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
+    ![Rejestrowanie aplikacji](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Wybierz aplikację, a następnie kliknij pozycję **manifest**. Można wyświetlić dwie istniejące [role aplikacji](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) zdefiniowane dla aplikacji:
 
@@ -242,7 +242,7 @@ public async Task DeleteAsync(string id)
 }
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym artykule przedstawiono sposób implementacji kontroli dostępu opartej na rolach w akceleratorze rozwiązania do zdalnego monitorowania.
 

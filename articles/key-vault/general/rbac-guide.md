@@ -9,14 +9,17 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9b7abc39bf50a61b7b52bc4027c6d845728c3874
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419269"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972261"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)
+
+> [!NOTE]
+> Dostawca zasobów Key Vault obsługuje dwa typy zasobów: **magazyny** i **zarządzane sprzętowych modułów zabezpieczeń**. Kontrola dostępu opisana w tym artykule dotyczy tylko **magazynów**. Aby dowiedzieć się więcej o kontroli dostępu dla zarządzanego modułu HSM, zobacz [zarządzana kontrola dostępu modułu HSM](../managed-hsm/access-control.md).
 
 Kontrola dostępu oparta na rolach (Azure RBAC) to system autoryzacji oparty na [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) , który zapewnia precyzyjne zarządzanie dostępem do zasobów platformy Azure.
 
@@ -61,10 +64,6 @@ Aby uzyskać więcej informacji na temat definicji ról wbudowanych platformy Az
 Nowy model uprawnień usługi Azure RBAC dla magazynu kluczy zapewnia alternatywę dla modelu uprawnień zasad dostępu do magazynu. 
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Włącz uprawnienia usługi Azure RBAC na Key Vault
-
-W trakcie korzystania z wersji zapoznawczej należy użyć znacznika funkcji RBAC platformy Azure (Microsoft_Azure_KeyVault_RBACEnabled = true), aby wyświetlić nowe opcje modelu uprawnień.
-
-https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > Ustawienie modelu uprawnień RBAC platformy Azure unieważnia wszystkie uprawnienia zasad dostępu. Może to spowodować awarię, gdy równoważne role platformy Azure nie są przypisane.

@@ -2,13 +2,13 @@
 title: Typy zasobów rozszerzenia
 description: Wyświetla listę typów zasobów platformy Azure służących do rozszerania możliwości innych typów zasobów.
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.openlocfilehash: 84de9b66f9001985b8c7b92882f03ff8c7cbf431
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 09/22/2020
+ms.openlocfilehash: 8b80c63d361f3ad8199fd669178f7bf88dabe02e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374018"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969747"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Typy zasobów, które zwiększają możliwości innych zasobów
 
@@ -21,6 +21,8 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. Advisor/tłumienie
 - Microsoft. AlertsManagement/alerty
 - Microsoft. AlertsManagement/alertsSummary
+- Microsoft. Authorization/accessReviewScheduleDefinitions
+- Microsoft. Authorization/accessReviewScheduleSettings
 - Microsoft. Authorization/checkAccess
 - Microsoft. Authorization/denyAssignments
 - Microsoft. Authorization/findOrphanRoleAssignments
@@ -34,6 +36,7 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. Authorization/roleAssignments
 - Microsoft. Authorization/roleAssignmentsUsageMetrics
 - Microsoft. Authorization/roleDefinitions
+- Microsoft. Autozarządzanie/configurationProfileAssignments
 - Microsoft. rozliczenia/billingPeriods
 - Microsoft. rozliczenia/billingPermissions
 - Microsoft. rozliczenia/billingRoleAssignments
@@ -47,24 +50,24 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. zużycie/budżety
 - Microsoft. zużycie/opłaty
 - Microsoft. zużycie/CostTags
+- Microsoft. zużycie/kredyty
+- Microsoft. użycie/zdarzenia
 - Microsoft. zużycie/prognozy
+- Microsoft. zużycie/partie
 - Microsoft. zużycie/Marketplace
 - Microsoft. zużycie/OperationResults
 - Microsoft. zużycie/OperationStatus
 - Microsoft. zużycie/Pricesheets
+- Microsoft. zużycie/produkty
 - Microsoft. zużycie/ReservationDetails
 - Microsoft. zużycie/ReservationRecommendationDetails
 - Microsoft. zużycie/ReservationRecommendations
 - Microsoft. zużycie/ReservationSummaries
 - Microsoft. zużycie/ReservationTransactions
 - Microsoft. użycie/Tagi
+- Microsoft. użycie/dzierżawy
 - Microsoft. zużycie/warunki
 - Microsoft. zużycie/UsageDetails
-- Microsoft. zużycie/kredyty
-- Microsoft. użycie/zdarzenia
-- Microsoft. zużycie/partie
-- Microsoft. zużycie/produkty
-- Microsoft. użycie/dzierżawy
 - Microsoft. ContainerInstance/serviceAssociationLinks
 - Microsoft. CostManagement/alerty
 - Microsoft. CostManagement/budżety
@@ -73,6 +76,7 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. CostManagement/eksporty
 - Microsoft. CostManagement/ExternalSubscriptions
 - Microsoft. CostManagement/Prognoza
+- Microsoft. CostManagement/Insights
 - Microsoft. CostManagement/Query
 - Microsoft. CostManagement/Reportconfigs
 - Microsoft. CostManagement/raporty
@@ -93,17 +97,19 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. Insights/diagnosticSettingsCategories
 - Microsoft. Insights/eventtypes
 - Microsoft. Insights/extendedDiagnosticSettings
+- Microsoft. Insights/generateLiveToken
 - Microsoft. Insights/guestDiagnosticSettingsAssociation
 - Microsoft. Insights/logDefinitions
 - Microsoft. Insights/Logs
+- Microsoft. Insights/metricbaselines
 - Microsoft. Insights/metricDefinitions
 - Microsoft. Insights/metricNamespaces
-- Microsoft. Insights/metricbaselines
 - Microsoft. Insights/metryki
 - Microsoft. Insights/webskoroszyty
 - Microsoft. Insights/topologia
 - Microsoft. Insights/Transactions
 - Microsoft. Insights/vmInsightsOnboardingStatuses
+- Microsoft. KubernetesConfiguration/rozszerzenia
 - Microsoft. KubernetesConfiguration/sourceControlConfigurations
 - Microsoft. Maintenance/applyUpdates
 - Microsoft. Maintenance/configurationAssignments
@@ -128,20 +134,22 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. ResourceHealth/powiadomienia
 - Microsoft. resources/Links
 - Microsoft. resources/Tags
-- Microsoft. zabezpieczenia/zgodność
-- Microsoft. Security/InformationProtectionPolicies
 - Microsoft. Security/adaptiveNetworkHardenings
 - Microsoft. Security/advancedThreatProtectionSettings
 - Microsoft. Security/assessmentMetadata
 - Microsoft. Security/Assessments
 - Microsoft. Security/complianceResults
+- Microsoft. zabezpieczenia/zgodność
 - Microsoft. Security/dataCollectionAgents
 - Microsoft. Security/deviceSecurityGroups
+- Microsoft. Security/InformationProtectionPolicies
+- Microsoft. Security/iotSensors
 - Microsoft. Security/jitPolicies
 - Microsoft. Security/serverVulnerabilityAssessments
+- Microsoft. Security/sqlVulnerabilityAssessments
 - Microsoft. SecurityInsights/agregacje
-- Microsoft. SecurityInsights/alertRuleTemplates
 - Microsoft. SecurityInsights/alertRules
+- Microsoft. SecurityInsights/alertRuleTemplates
 - Microsoft. SecurityInsights/automationRules
 - Microsoft. SecurityInsights/zakładki
 - Microsoft. SecurityInsights/sprawy
@@ -153,6 +161,7 @@ Zasób rozszerzenia jest zasobem, który dodaje do możliwości innego zasobu. N
 - Microsoft. SecurityInsights/officeConsents
 - Microsoft. SecurityInsights/ustawienia
 - Microsoft. SecurityInsights/threatIntelligence
+- Microsoft. SecurityInsights/watchlists
 - Microsoft. SoftwarePlan/hybridUseBenefits
 - Microsoft. subskrypcja/anulowanie subskrypcji
 - Microsoft. Support/supporttickets

@@ -17,12 +17,12 @@ ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4bcd36a1ce38d4d9eb6a0faec470f7427852894b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 0d8c835cdc501061607dc05d0b40ebf95deb36a8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260224"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969153"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi dla zasobów platformy Azure
 
@@ -33,15 +33,13 @@ ms.locfileid: "89260224"
 > [!NOTE]
 > Tożsamości zarządzane dla zasobów platformy Azure to nowa nazwa usługi znanej wcześniej jako Tożsamość usługi zarządzanej (MSI).
 
-
 ### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>Jak można znaleźć zasoby, które mają zarządzaną tożsamość?
 
 Listę zasobów, które mają tożsamość zarządzaną przypisaną przez system, można znaleźć za pomocą następującego polecenia platformy Azure: 
 
-`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
-
-
-
+```azurecli-interactive
+az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
+```
 
 ### <a name="do-managed-identities-have-a-backing-app-object"></a>Czy zarządzane tożsamości mają obiekt aplikacji zapasowej?
 
@@ -72,8 +70,6 @@ Granica zabezpieczeń tożsamości jest zasobem, do którego jest dołączony. N
 - Jeśli tożsamość zarządzana przypisana przez system nie jest włączona i istnieje tylko jedna tożsamość zarządzana przypisana przez użytkownika, IMDS zostanie domyślnie przypisana tożsamość zarządzana pojedynczego użytkownika. 
 - Jeśli tożsamość zarządzana przypisana przez system nie jest włączona, a istnieją wiele tożsamości zarządzanych przypisanych przez użytkownika, a następnie wymagane jest określenie tożsamości zarządzanej w żądaniu.
 
-
-
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Czy tożsamość zarządzana zostanie automatycznie utworzona, Jeśli przeniesiesz subskrypcję do innego katalogu?
 
 Nie. Jeśli przeniesiesz subskrypcję do innego katalogu, musisz ręcznie utworzyć ponownie i przydzielić przydziały ról platformy Azure.
@@ -88,7 +84,6 @@ Nie. Tożsamości zarządzane nie obsługują obecnie scenariuszy między katalo
 
 - Tożsamość zarządzana przypisana przez system: wymagane są uprawnienia do zapisu dla zasobu. Na przykład w przypadku maszyn wirtualnych potrzebne jest uprawnienie Microsoft.Compute/virtualMachines/write. Ta akcja jest uwzględniona w rolach wbudowanych specyficznych dla zasobów, takich jak [współautor maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Tożsamość zarządzana przypisana przez użytkownika: wymagane są uprawnienia do zapisu dla zasobu. Na przykład w przypadku maszyn wirtualnych potrzebne jest uprawnienie Microsoft.Compute/virtualMachines/write. Oprócz przypisywania roli [operatora tożsamości zarządzanej](../../role-based-access-control/built-in-roles.md#managed-identity-operator) przez zarządzaną tożsamość.
-
 
 
 ## <a name="known-issues"></a>Znane problemy
@@ -112,7 +107,7 @@ Jeśli przeniesiesz maszynę wirtualną w stan uruchomienia, będzie ona nadal d
 Wyzwól aktualizację na maszynie wirtualnej, aby możliwe było uzyskanie prawidłowych wartości dla zarządzanych tożsamości dla zasobów platformy Azure. Aby zaktualizować odwołanie do zarządzanych tożsamości dla tożsamości zasobów platformy Azure, można zmienić wartość właściwości maszyny wirtualnej. Na przykład można ustawić nową wartość tagu na maszynie wirtualnej przy użyciu następującego polecenia:
 
 ```azurecli-interactive
- az  vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
+az vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
 ```
  
 To polecenie ustawia nowy tag "fixVM" o wartości 1 na maszynie wirtualnej. 
@@ -124,8 +119,6 @@ Po uruchomieniu maszyny wirtualnej tag można usunąć za pomocą następująceg
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-
-
 
 ### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Przenoszenie subskrypcji między katalogami usługi Azure AD
 

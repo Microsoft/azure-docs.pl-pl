@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: ac8900298670323551a25d4ef7ac3f7b44249c5a
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: 0100ace6dcf4701a8491f034f36075dc483849ec
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88209898"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90970066"
 landingContent:
 - title: Informacje o usłudze Azure Dev Spaces
   linkLists:
@@ -46,13 +46,11 @@ landingContent:
       url: how-to/ingress-https-traefik.md
     - text: Używanie serwera NGINX na potrzeby niestandardowego ruchu przychodzącego i ruchu HTTPS
       url: how-to/ingress-https-nginx.md
-- title: Funkcje w wersji zapoznawczej
+- title: Mostek na platformę Kubernetes
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Korzystanie z usług GitHub Actions i Azure Dev Spaces
-      url: how-to/github-actions.md
-    - text: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio Code
-      url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-    - text: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio
-      url: /visualstudio/containers/local-process-kubernetes
+    - text: Używanie Mostka na platformę Kubernetes z programem Visual Studio Code
+      url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+    - text: Używanie Mostka na platformę Kubernetes z programem Visual Studio
+      url: /visualstudio/containers/bridge-to-kubernetes

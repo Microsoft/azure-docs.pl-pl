@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption z wymaganiami wstępnymi aplikacji usługi Azure AD (poprzednia wersja)
-description: Ten artykuł zawiera wymagania wstępne dotyczące używania Microsoft Azure szyfrowania dysków dla maszyn wirtualnych IaaS.
+description: Ten artykuł zawiera dodatkowe informacje dotyczące Azure Disk Encryption dla maszyn wirtualnych z systemem Linux z dodatkowymi wymaganiami i wymaganiami wstępnymi dotyczącymi Azure Disk Encryption z usługą Azure AD.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c85d362f7295e8edef1b4070a779c6aa99c3991f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b258d499c78aa5fb734cbee01fb753c292bf2678
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372641"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970887"
 ---
 # <a name="azure-disk-encryption-with-azure-active-directory-ad-previous-release"></a>Azure Disk Encryption z Azure Active Directory (AD) (poprzednia wersja)
 

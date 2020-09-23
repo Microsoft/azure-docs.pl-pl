@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73839166"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970090"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Tworzenie projektów za pomocą edytora Video Indexer
 
@@ -51,7 +51,7 @@ W tym artykule pokazano, jak utworzyć projekt od podstaw, a także jak utworzy�
     
     Na przykład na poniższym obrazie szukamy filmów wideo, które zawierają informacje o witrynie GitHub.
     
-    ![GitHub](./media/video-indexer-view-edit/github.png)
+    ![Zrzut ekranu przedstawia wyszukiwanie filmów wideo zawierających dwie wyniki.](./media/video-indexer-view-edit/github.png)
 
     Możesz bardziej filtrować wyniki, wybierając pozycję **Filtruj wyniki**. Można filtrować, aby pokazać wideo, które mają określoną osobę lub określić, że mają być widoczne tylko wyniki wideo, które są w określonym języku lub mają określonego właściciela. <br/> Możesz również określić zakres zapytania. Jeśli na przykład chcesz wyszukać ciąg "GitHub" w OCR, wybierz pozycję **tekst wizualny**.
 
@@ -63,7 +63,7 @@ W tym artykule pokazano, jak utworzyć projekt od podstaw, a także jak utworzy�
 
     Możesz zmienić kolejność filmów wideo, przeciągając je i upuszczając lub wybierając przycisk menu listy i wybierając pozycję **Przenieś w dół** lub Przenieś w **górę**. Z menu Lista będzie można również usunąć wideo z tego projektu. 
 
-    ![Rozmieszczanie](./media/video-indexer-view-edit/rearrange.png)
+    ![Zrzut ekranu przedstawia Video Indexer z menu kontekstowym jednego z filmów wideo do usunięcia, czyszczenia zaznaczenia lub przenoszenia w dół.](./media/video-indexer-view-edit/rearrange.png)
     
     Możesz w dowolnym momencie dodać więcej filmów wideo do tego projektu, wybierając pozycję **Dodaj wideo**. Możesz również dodać wiele wystąpień tego samego filmu wideo do projektu. Możesz to zrobić, jeśli chcesz pokazać klip z jednego filmu wideo, a następnie klip z innego, a następnie inny klip z pierwszego filmu wideo. 
 
@@ -81,7 +81,7 @@ Jeśli klikniesz strzałkę w dół po prawej stronie każdego filmu wideo, będ
 
     Na przykład możesz chcieć zobaczyć klipy, w których znajduje się usługa GitHub, gdy na ekranie jest Donovan brązowy. W tym celu należy dodać filtr "include", który ma "osoby" jako typ szczegółowych informacji. Następnie musisz wpisać ciąg "Donovan Brown" w polu wyszukiwania filtru.
     
-    ![Uwzględnij](./media/video-indexer-view-edit/include.png)
+    ![Zrzut ekranu przedstawia Video Indexer z osobami wybranymi dla filtru dołączania.](./media/video-indexer-view-edit/include.png)
     
     Jeśli chcesz, aby klipy, w których znajduje się usługa GitHub, gdy Donovan Brown _nie_ znajduje się na ekranie, wystarczy zmienić filtr "include" na filtr "exclude" przy użyciu listy rozwijanej. 
 
@@ -96,7 +96,7 @@ Jeśli klikniesz strzałkę w dół po prawej stronie każdego filmu wideo, będ
 > [!TIP]
 > Po wybraniu i uporządkowaniu klipów możesz wyświetlić podgląd filmu wideo w odtwarzaczu po prawej stronie. 
 
-![Wersja zapoznawcza](./media/video-indexer-view-edit/preview.png)
+![Zrzut ekranu przedstawia Video Indexer z podglądem filmu wideo po prawej stronie okna.](./media/video-indexer-view-edit/preview.png)
 
 Pamiętaj, aby zapisać projekt po wprowadzeniu zmian, wybierając pozycję **Zapisz projekt**. 
 
@@ -107,7 +107,7 @@ Pamiętaj, aby zapisać projekt po wprowadzeniu zmian, wybierając pozycję **Za
 
 1. Po zakończeniu upewnij się, że projekt został zapisany. Teraz możesz renderować ten projekt. Wybierz opcję **Renderuj i Pobierz**. 
 
-    ![Zapisz](./media/video-indexer-view-edit/save.png)
+    ![Zrzut ekranu przedstawia Video Indexer z opcją renderowania i pobierania projektu.](./media/video-indexer-view-edit/save.png)
 
     Zostanie wyświetlony podręczny komunikat informujący o tym, że indeksator wideo będzie renderować plik, a następnie link do pobierania zostanie wysłany do wiadomości e-mail. Wybierz pozycję Zastosuj. 
     
@@ -130,7 +130,7 @@ Nowy projekt można utworzyć bezpośrednio z poziomu filmu wideo na Twoim konci
 
     Spowoduje to przejście do tej samej strony, która została użyta do utworzenia nowego projektu. W przeciwieństwie do nowego projektu, zobaczysz segmenty usługi Insights z informacjami o sygnaturach czasowych wideo, które wcześniej rozpoczęły edycję.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Omówienie usługi Video Indexer](video-indexer-overview.md)
 

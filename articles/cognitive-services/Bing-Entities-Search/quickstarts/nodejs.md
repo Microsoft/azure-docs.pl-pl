@@ -1,7 +1,7 @@
 ---
 title: 'Szybki Start: wysyłanie żądania wyszukiwania do interfejsu API REST przy użyciu Node.js-wyszukiwanie jednostek Bing'
 titleSuffix: Azure Cognitive Services
-description: Skorzystaj z tego przewodnika Szybki Start, aby wysyłać żądania do interfejsu API REST wyszukiwania wiadomości Bing przy użyciu języka C# i otrzymywać odpowiedzi w formacie JSON.
+description: Skorzystaj z tego przewodnika Szybki Start, aby wysłać żądanie do interfejsu API REST wyszukiwanie jednostek Bing przy użyciu Node.js i odebrać odpowiedź JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 82bdd8f3890f1685aa442463287fe72bde08d518
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a3e09a26593911e7f8f113ee0db41aa99390b14d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405963"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970565"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Szybki Start: wysyłanie żądania wyszukiwania do wyszukiwanie jednostek Bing interfejsu API REST przy użyciu Node.js
 

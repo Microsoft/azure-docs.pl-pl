@@ -1,6 +1,6 @@
 ---
 title: Przypisywanie roli do grupy przy użyciu Privileged Identity Management w usłudze Azure AD | Microsoft Docs
-description: Wyświetl podgląd niestandardowych ról usługi Azure AD na potrzeby delegowania zarządzania tożsamościami. Zarządzanie rolami platformy Azure w Azure Portal, PowerShell lub interfejs API programu Graph.
+description: Dowiedz się, jak przypisać rolę Azure Active Directory (Azure AD) do grupy przy użyciu Azure AD Privileged Identity Management (PIM).
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343da87048cf43c04a137376e9a7f24270ce729a
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476098"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971171"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Przypisywanie roli do grupy przy użyciu Privileged Identity Management
 
@@ -104,6 +104,6 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zarządzanie przypisaniami ról przy użyciu grup chmur](roles-groups-concept.md)
-- [Rozwiązywanie problemów z rolami przypisanymi do grup chmury](roles-groups-faq-troubleshooting.md)
+- [Rozwiązywanie problemów z rolami przypisanymi do grup w chmurze](roles-groups-faq-troubleshooting.md)
 - [Skonfiguruj ustawienia roli administratora usługi Azure AD w Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Przypisywanie ról zasobów platformy Azure w Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)
