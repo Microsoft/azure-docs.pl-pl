@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0fc4e9a794429e7f1c1609fac287e67dabb3c878
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875949"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891988"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI dane wyjściowe z Azure Stream Analytics
 
@@ -20,7 +20,7 @@ ms.locfileid: "88875949"
 
 Power BI dane wyjściowe z Stream Analytics nie są obecnie dostępne w regionach platformy Azure w Chinach (Chiny) i Azure (Niemcy).
 
-## <a name="ouput-configuration"></a>Konfiguracja dane wyjściowe
+## <a name="output-configuration"></a>Konfiguracja wyjściowa
 
 W poniższej tabeli wymieniono nazwy właściwości i ich opisy w celu skonfigurowania danych wyjściowych Power BI.
 
@@ -53,7 +53,7 @@ W tej tabeli opisano konwersje typów danych z [Stream Analytics typów danych](
 Z Stream Analytics | Aby Power BI
 -----|-----
 bigint | Int64
-nvarchar (max) | Ciąg
+nvarchar (max) | String
 datetime | Datetime (data/godzina)
 float | Double
 Rejestruj tablicę | Typ ciągu, stała wartość "IRecord" lub "IArray"
@@ -64,12 +64,12 @@ Stream Analytics wnioskuje schemat modelu danych na podstawie pierwszego zestawu
 
 Należy unikać `SELECT *` zapytania, aby zapobiec dynamicznej aktualizacji schematu w wierszach. Oprócz potencjalnego wpływu na wydajność może to spowodować niepewność czasu trwania dla wyników. Wybierz dokładne pola, które mają być wyświetlane na pulpicie nawigacyjnym Power BI. Ponadto wartości danych powinny być zgodne z wybranym typem danych.
 
-Poprzedni/bieżący | Int64 | Ciąg | Datetime (data/godzina) | Double
+Poprzedni/bieżący | Int64 | String | Datetime (data/godzina) | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String (ciąg) | String (ciąg) | Double
 Double | Double | String (ciąg) | String (ciąg) | Double
 String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) 
-Datetime (data/godzina) | String (ciąg) | String (ciąg) |  Datetime (data/godzina) | Ciąg
+Datetime (data/godzina) | String (ciąg) | String (ciąg) |  Datetime (data/godzina) | String
 
 ## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
 
@@ -82,4 +82,4 @@ W przypadku wyjściowego rozmiaru partii zobacz [Power BI limity interfejsu API 
 * [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu szablonu ARM](quick-create-azure-resource-manager.md)
 * [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu programu Visual Studio](stream-analytics-quick-create-vs.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics w programie Visual Studio Code](quick-create-vs-code.md)
+* [Szybki Start: Tworzenie zadania Azure Stream Analytics w programie Visual Studio Code](quick-create-visual-studio-code.md)

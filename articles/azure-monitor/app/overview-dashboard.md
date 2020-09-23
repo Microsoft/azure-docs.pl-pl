@@ -3,12 +3,12 @@ title: Pulpit nawigacyjny omówienia usługi Azure Application Insights | Micros
 description: Monitoruj aplikacje za pomocą usługi Azure Application Insights i funkcji pulpitu nawigacyjnego.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322537"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970615"
 ---
 # <a name="application-insights-overview-dashboard"></a>Pulpit nawigacyjny przeglądu Application Insights
 
@@ -36,7 +36,7 @@ Pulpit nawigacyjny aplikacji korzysta z istniejącej technologii pulpitu nawigac
 
 Aby uzyskać dostęp do domyślnego pulpitu nawigacyjnego, wybierz pozycję _pulpit nawigacyjny aplikacji_ w lewym górnym rogu.
 
-![Widok pulpitu nawigacyjnego](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![Zrzut ekranu pokazuje wyróżniony przycisk pulpitu nawigacyjnego aplikacji.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Jeśli po raz pierwszy uzyskujesz dostęp do pulpitu nawigacyjnego, zostanie uruchomiony widok domyślny:
 

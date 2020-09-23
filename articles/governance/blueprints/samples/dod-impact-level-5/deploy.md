@@ -1,14 +1,14 @@
 ---
 title: Przykład planu wpływu na poziom 5 planów
 description: Wdróż kroki dla przykładowego poziomu wpływu na 5 planów, w tym szczegóły parametrów artefaktu.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 9267ed0de35107b8f6582d852ab925b4dbbbdba4
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: deb6ffa0f886cc6a4a9bea10a38d7cd82e7df8f1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85802676"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978235"
 ---
 # <a name="deploy-the-dod-impact-level-5-blueprint-sample"></a>Wdrażanie przykładu planu wpływu na poziom DoD 5
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 51b478e5184c79e11d95ff004a652b2e5298558f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aefa6cd048c41feb1535f2ae7fa5c87bf628b2d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83402608"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884898"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Analiza wydajności zapytań w usłudze Azure Database for MySQL
 
@@ -51,7 +51,7 @@ Karta **długotrwałe zapytania** przedstawia 5 pierwszych zapytań według śre
 
 Klikając i przeciągając na wykresie, możesz zawęzić go do konkretnego przedziału czasu. Alternatywnie możesz użyć ikon powiększenia i powiększania, aby wyświetlić odpowiednio krótszy lub dłuższy okres.
 
-![Szczegółowe informacje o wydajności zapytań długotrwałych zapytań](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Szczegółowe informacje o wydajności zapytań długotrwałych zapytań"::: 
 
 ### <a name="wait-statistics"></a>Statystyka oczekiwania
 
@@ -64,7 +64,7 @@ Wybierz kartę **Statystyki oczekiwania**, aby wyświetlić odpowiednie wizualiz
 
 Zapytania wyświetlane w widoku Statystyka oczekiwania są pogrupowane według zapytań, które wykazują największe oczekiwania w określonym przedziale czasu.
 
-![Dane statystyczne Szczegółowe informacje o wydajności zapytań czeka](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Dane statystyczne Szczegółowe informacje o wydajności zapytań czeka":::
 
 ## <a name="next-steps"></a>Następne kroki
 

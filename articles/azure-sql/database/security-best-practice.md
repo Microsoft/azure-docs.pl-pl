@@ -8,14 +8,14 @@ ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e720a95007ff06a954affe03f43f386be3bed39f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442109"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885178"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -647,7 +647,7 @@ Zaawansowana ochrona przed zagrożeniami umożliwia wykrywanie potencjalnych zag
 
 **Najlepsze rozwiązania**:
 
-- Skonfiguruj [Zaawansowane zabezpieczenia danych (ADS)](advanced-data-security.md#getting-started-with-ads)   dla określonego serwera lub wystąpienia zarządzanego. Możesz również skonfigurować reklamy dla wszystkich serwerów i wystąpień zarządzanych w ramach subskrypcji, przełączając się do [Azure Security Center warstwy Standardowa](../../security-center/security-center-pricing.md).
+- Skonfiguruj [usługę Azure Defender dla programu SQL](azure-defender-for-sql.md)   dla określonego serwera lub wystąpienia zarządzanego. Możesz również skonfigurować usługę Azure Defender for SQL dla wszystkich serwerów i wystąpień zarządzanych w ramach subskrypcji, przełączając się do [Azure Security Center warstwy Standardowa](../../security-center/security-center-pricing.md).
 
 - Aby przeprowadzić pełne badanie, zaleca się włączenie [inspekcji SQL Database](../../azure-sql/database/auditing-overview.md). Za pomocą inspekcji można śledzić zdarzenia bazy danych i zapisywać je w dzienniku inspekcji na koncie usługi Azure Storage lub w obszarze roboczym usługi Azure Log Analytics.
 

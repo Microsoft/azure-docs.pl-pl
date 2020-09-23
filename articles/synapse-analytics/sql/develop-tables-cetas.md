@@ -1,27 +1,27 @@
 ---
-title: CETAS Synapse SQL
-description: Używanie CETAS z Synapse SQL
+title: Utwórz tabelę ZEWNĘTRZną jako SELECT (CETAS) w Synapse SQL
+description: Używanie instrukcji CREATE EXTERNAL TABLE AS SELECT (CETAS) z Synapse SQL
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 18f472da30b34fcacd70bba9ea7371b56f1a7abf
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: d33403f49429398d9bc006187c23bb8091d9b4a1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032915"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885345"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS z Synapse SQL
 
-W puli SQL lub SQL na żądanie (wersja zapoznawcza) możesz użyć opcji Utwórz tabelę ZEWNĘTRZną jako SELECT (CETAS), aby wykonać następujące zadania:  
+Możesz użyć opcji Utwórz tabelę ZEWNĘTRZną jako SELECT (CETAS) w puli SQL lub SQL na żądanie (wersja zapoznawcza), aby wykonać następujące zadania:  
 
 - Tworzenie tabeli zewnętrznej
-- Eksportowanie, równolegle, wyniki instrukcji SELECT języka Transact-SQL do
+- Eksportowanie, równolegle, wyniki instrukcji SELECT języka Transact-SQL:
 
   - Hadoop
   - Azure Storage Blob
@@ -29,11 +29,12 @@ W puli SQL lub SQL na żądanie (wersja zapoznawcza) możesz użyć opcji Utwór
 
 ## <a name="cetas-in-sql-pool"></a>CETAS w puli SQL
 
-Dla puli SQL CETAS użycie i składnię, zaznacz artykuł [Tworzenie tabeli zewnętrznej jako SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) . Ponadto, aby uzyskać wskazówki dotyczące CTAS przy użyciu puli SQL, zobacz artykuł [CREATE TABLE jako SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) .
+Aby uzyskać CETAS i składnię puli SQL, zobacz [Create External Table as SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) . Ponadto, aby uzyskać wskazówki dotyczące CTAS przy użyciu puli SQL, zobacz artykuł [CREATE TABLE jako SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) .
+Aby uzyskać CETAS i składnię puli SQL, zobacz [Create External Table as SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) . Ponadto, aby uzyskać wskazówki dotyczące CTAS przy użyciu puli SQL, zobacz artykuł [CREATE TABLE jako SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) .
 
 ## <a name="cetas-in-sql-on-demand"></a>CETAS na żądanie SQL
 
-W przypadku korzystania z zasobu SQL na żądanie CETAS jest używany do tworzenia tabeli zewnętrznej i eksportowania wyników zapytania do Azure Storage Blob lub Azure Data Lake Storage Gen2.
+W przypadku korzystania z SQL na żądanie CETAS jest używany do tworzenia tabeli zewnętrznej i eksportowania wyników zapytania do Azure Storage Blob lub Azure Data Lake Storage Gen2.
 
 ## <a name="syntax"></a>Składnia
 
@@ -68,18 +69,18 @@ Określa nazwę obiektu zewnętrznego źródła danych, który zawiera lokalizac
 
 FILE_FORMAT = *external_file_format_name*
 
-Określa nazwę obiektu zewnętrznego formatu pliku, który zawiera format zewnętrznego pliku danych. Aby utworzyć zewnętrzny format pliku, użyj [formatu Create External File Format (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Obecnie obsługiwane są tylko zewnętrzne formaty plików z atrybutem FORMAT = "PARQUET".
+Określa nazwę obiektu zewnętrznego formatu pliku, który zawiera format zewnętrznego pliku danych. Aby utworzyć zewnętrzny format pliku, użyj [formatu Create External File Format (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format). Obecnie obsługiwane są tylko zewnętrzne formaty plików z atrybutami FORMAT_TYPE = PARQUET i FORMAT_TYPE = DELIMITEDTEXT.
 
 Z *<common_table_expression>*
 
-Określa tymczasowy, nazwany zestaw wyników, znany jako wspólne wyrażenie tabeli (CTE). Aby uzyskać więcej informacji, zobacz temat [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Określa tymczasowy, nazwany zestaw wyników, znany jako wspólne wyrażenie tabeli (CTE). Aby uzyskać więcej informacji, zobacz temat [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Wybierz <select_criteria>
 
-Wypełnia nową tabelę wynikami instrukcji SELECT. *select_criteria* jest treścią instrukcji SELECT, która określa, które dane mają zostać skopiowane do nowej tabeli. Aby uzyskać informacje na temat instrukcji SELECT, zobacz [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Wypełnia nową tabelę wynikami instrukcji SELECT. *select_criteria* jest treścią instrukcji SELECT, która określa, które dane mają zostać skopiowane do nowej tabeli. Aby uzyskać informacje na temat instrukcji SELECT, zobacz [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 > [!NOTE]
-> Klauzula ORDER BY w SELECT Part elementu CETAS nie jest obsługiwana.
+> Klauzula ORDER BY w SELECT nie jest obsługiwana w przypadku CETAS.
 
 ## <a name="permissions"></a>Uprawnienia
 
@@ -112,7 +113,7 @@ FROM
 GROUP BY decennialTime, stateName
 GO
 
--- you can query created external table
+-- you can query the newly created external table
 SELECT * FROM population_by_year_state
 ```
 
@@ -132,7 +133,7 @@ FROM census_external_table
 GROUP BY decennialTime, stateName
 GO
 
--- you can query created external table
+-- you can query the newly created external table
 SELECT * FROM population_by_year_state
 ```
 
@@ -144,7 +145,7 @@ CETAS może służyć do przechowywania zestawów wyników przy użyciu następu
 - varbinary
 - char
 - varchar
-- date
+- data
 - time
 - datetime2
 - decimal
@@ -173,4 +174,4 @@ Następujące typy danych nie mogą być używane w SELECT część elementu CET
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz spróbować wykonać zapytania [Apache Spark w przypadku tabel zewnętrznych usługi Azure Synapse](develop-storage-files-spark-tables.md).
+Spróbuj wykonać zapytanie [dotyczące Apache Spark w przypadku tabel zewnętrznych usługi Azure Synapse](develop-storage-files-spark-tables.md).

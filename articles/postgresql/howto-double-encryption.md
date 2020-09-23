@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 6612fe38adcd3c8002dd4a11122b5bb2e797a4dd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 362c051cf1dd7e97430bd6afaf4821a9c960b71d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102178"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901551"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Podwójne szyfrowanie infrastruktury dla Azure Database for PostgreSQL
 
@@ -29,19 +29,19 @@ Wykonaj następujące kroki, aby utworzyć serwer Azure Database for MySQL z szy
 
 2. Wybierz pozycję **bazy danych**  >  **Azure Database for PostgreSQL**. Możesz również wprowadzić PostgreSQL w polu wyszukiwania, aby znaleźć usługę. Włączono opcję wdrożenia **pojedynczego serwera** .
 
-   !["Azure Database for PostgreSQL" w menu](./media/quickstart-create-database-portal/1-create-database.png)
+   :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Azure Database for PostgreSQL w menu":::
 
 3. Podaj podstawowe informacje o serwerze. Wybierz **dodatkowe ustawienia** i Włącz pole wyboru **podwójne szyfrowanie infrastruktury** , aby ustawić parametr.
 
-    ![Azure Database for PostgreSQL wybór](./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png" alt-text="Azure Database for PostgreSQL wybór":::
 
 4. Wybierz pozycję **Przegląd + Utwórz** , aby udostępnić serwer.
 
-    ![Podsumowanie Azure Database for PostgreSQL](./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png" alt-text="Podsumowanie Azure Database for PostgreSQL":::
 
 5. Po utworzeniu serwera można sprawdzić poprawność szyfrowania podwójnej infrastruktury, sprawdzając stan w bloku serwer **szyfrowania danych** .
 
-    ![Azure Database for MySQL walidacji](./media/howto-infrastructure-double-encryption/infrastructure-encryption-validation.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-validation.png" alt-text="Azure Database for MySQL walidacji":::
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---cli"></a>Tworzenie serwera Azure Database for PostgreSQL z podwójnym szyfrowaniem infrastruktury — interfejs wiersza polecenia
 

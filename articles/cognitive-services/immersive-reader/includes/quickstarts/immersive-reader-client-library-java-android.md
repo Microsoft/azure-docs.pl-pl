@@ -7,17 +7,17 @@ author: dylankil
 manager: guillasi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/10/2020
+ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-javascript
 ms.author: dylankil
-ms.openlocfilehash: 63a7e7756eee80b8d57c168890ba3613bbd11f01
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 572bd35a916ed97ab0c846e2b8d561bd27b145cc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602399"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978240"
 ---
-[Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności.
+[Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności dla nowych czytelników, nauk językowych i osób, które mają różnice szkoleniowe, takie jak Dyslexia. Możesz użyć czytnika immersyjny w aplikacjach, aby odizolować tekst, aby zwiększyć fokus, wyświetlić obrazy dla często używanych wyrazów, wyróżnić części mowy, odczytywać zaznaczone fragmenty tekstu na głos, tłumaczyć słowa i frazy w czasie rzeczywistym i nie tylko.
 
 W tym przewodniku szybki start utworzysz aplikację dla systemu Android od podstaw i zintegrujesz czytnik immersyjny. Pełny przykład pracy tego przewodnika Szybki Start jest dostępny [w witrynie GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android).
 
@@ -25,6 +25,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * Zasób czytnika immersyjny skonfigurowany do Azure Active Directory uwierzytelniania. Postępuj zgodnie z [tymi instrukcjami](../../how-to-create-immersive-reader.md) , aby rozpocząć konfigurację. Podczas konfigurowania właściwości środowiska będą potrzebne pewne wartości. Zapisz dane wyjściowe sesji w pliku tekstowym do użycia w przyszłości.
 * Usługi [git](https://git-scm.com/).
 * [Zestaw SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk).
@@ -34,27 +35,27 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Rozpocznij nowy projekt w Android Studio. Kod źródłowy dla tego przykładu jest dostępny w ramach [zestawu SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android).
 
-![Nowy projekt](../../media/android/java/android-studio-create-project.png)
+![Nowy projekt — Android](../../media/android/java/android-studio-create-project.png)
 
 W oknie **Wybieranie projektu** wybierz pozycję **puste działanie**, a następnie wybierz pozycję **dalej**.
 
-![Pusty projekt działania](../../media/android/java/android-studio-empty-activity.png)
+![Pusty projekt działania — Android](../../media/android/java/android-studio-empty-activity.png)
 
 ## <a name="configure-the-project"></a>Konfigurowanie projektu
 
 Nazwij projekt **QuickstartJava**i wybierz lokalizację, w której ma zostać zapisany. Wybierz pozycję **Java** jako język programowania, a następnie wybierz pozycję **Zakończ**.
 
-![Konfigurowanie projektu](../../media/android/java/android-studio-configure-project.png)
+![Konfigurowanie projektu — Android](../../media/android/java/android-studio-configure-project.png)
 
 ## <a name="set-up-assets-and-authentication"></a>Konfigurowanie zasobów i uwierzytelniania
 
 Utwórz nowy folder **/Assets** .
 
-![Utwórz nowy folder zasobów](../../media/android/java/android-studio-assets-folder.png)
+![Tworzenie nowego folderu zasobów — Android](../../media/android/java/android-studio-assets-folder.png)
 
  Utwórz plik o nazwie **ENV** w folderze Assets. Dodaj następujące nazwy i wartości, a następnie podaj wartości zgodnie z potrzebami. Nie Zatwierdź tego pliku ENV w kontroli źródła, ponieważ zawiera on klucze tajne, które nie powinny być publiczne.
 
-![Utwórz nowy plik ENV](../../media/android/java/android-studio-create-env-file.png)
+![Tworzenie nowego pliku ENV — Android](../../media/android/java/android-studio-create-env-file.png)
 
 ```text
 TENANT_ID=<YOUR_TENANT_ID>
@@ -81,13 +82,13 @@ dependencies {
 }
 ```
 
-![Implementacje Gradle aplikacji](../../media/android/java/android-studio-build-gradle.png)
+![Implementacje Gradle aplikacji — Android](../../media/android/java/android-studio-build-gradle.png)
 
 ## <a name="update-app-strings-and-layout-resources"></a>Aktualizowanie ciągów aplikacji i zasobów układu
 
 Zastąp zawartość w polu **res/Strings/strings.xml** następującymi ciągami, które mają być używane w aplikacji.
 
-![strings.xml aplikacji](../../media/android/java/android-studio-strings.png)
+![strings.xml aplikacji — Android](../../media/android/java/android-studio-strings.png)
 
 ```strings.xml
 <resources>
@@ -97,7 +98,7 @@ Zastąp zawartość w polu **res/Strings/strings.xml** następującymi ciągami,
 
     <string name="app_name">ImmersiveReaderSDK</string>
     <string name="geographyTitle">Geography</string>
-    <string name="geographyTextEn">The study of Earth’s landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live. The physical features of a region are often rich in resources. Within a nation, mountain ranges become natural borders for settlement areas. In the U.S., major mountain ranges are the Sierra Nevada, the Rocky Mountains, and the Appalachians.Fresh water sources also influence where people settle. People need water to drink. They also need it for washing. Throughout history, people have settled near fresh water. Living near a water source helps ensure that people have the water they need. There was an added bonus, too. Water could be used as a travel route for people and goods. Many Americans live near popular water sources, such as the Mississippi River, the Colorado River and the Great Lakes.Mountains and deserts have been settled by fewer people than the plains areas. However, they have valuable resources of their own.</string>
+    <string name="geographyTextEn">The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live. The physical features of a region are often rich in resources. Within a nation, mountain ranges become natural borders for settlement areas. In the U.S., major mountain ranges are the Sierra Nevada, the Rocky Mountains, and the Appalachians. Fresh water sources also influence where people settle. People need water to drink. They also need it for washing. Throughout history, people have settled near fresh water. Living near a water source helps ensure that people have the water they need. There was an added bonus, too. Water could be used as a travel route for people and goods. Many Americans live near popular water sources, such as the Mississippi River, the Colorado River and the Great Lakes.Mountains and deserts have been settled by fewer people than the plains areas. However, they have valuable resources of their own.</string>
     <string name="geographyTextFr">L\'étude des reliefs de la Terre est appelée géographie physique. Les reliefs peuvent être des montagnes et des vallées. Il peut aussi s\'agira de glaciers, delacs ou de rivières. Les reliefs sont parfois appelés caractéristiques physiques. Il est important que les élèves connaissent la géographie physique de laTerre. Les saisons, l\'atmosphère et tous les processus naturels de la Terre affectent l\'endroit où les gens sont capables de vivre. La géographie est l\'un desfacteurs que les gens utilisent pour décider où ils veulent vivre. Les caractéristiques physiques d\'une région sont souvent riches en ressources. Àl\'intérieur d\'une nation, les chaînes de montagnes deviennent des frontières naturelles pour les zones de peuplement. Aux États-Unis, les principaleschaînes de montagnes sont la Sierra Nevada, les montagnes Rocheuses et les Appalaches.Les sources d\'eau douce influencent également l\'endroit où lesgens s\'installent. Les gens ont besoin d\'eau pour boire. Ils en ont aussi besoin pour se laver. Tout au long de l\'histoire, les gens se sont installés près del\'eau douce. Vivre près d\'une source d\'eau permet de s\'assurer que les gens ont l\'eau dont ils ont besoin. Il y avait un bonus supplémentaire, aussi. L\'eaupourrait être utilisée comme voie de voyage pour les personnes et les marchandises. Beaucoup d\'Américains vivent près des sources d\'eau populaires,telles que le fleuve Mississippi, le fleuve Colorado et les Grands Lacs.Mountains et les déserts ont été installés par moins de gens que les zones desplaines. Cependant, ils disposent de ressources précieuses.Les gens ont une réponse.</string>
     <string name="immersiveReaderButtonText">Immersive Reader</string>
 </resources>
@@ -105,7 +106,7 @@ Zastąp zawartość w polu **res/Strings/strings.xml** następującymi ciągami,
 
 Zastąp zawartość w polu **res/layout/activity_main.xml** następującym kodem XML, który ma być używany w aplikacji. Ten kod XML jest układem interfejsu użytkownika aplikacji.
 
-![activity_main.xml aplikacji](../../media/android/java/android-studio-activity-main-xml.png)
+![activity_main.xml aplikacji — Android](../../media/android/java/android-studio-activity-main-xml.png)
 
 ```activity_main.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -206,9 +207,9 @@ Zastąp zawartość w polu **res/layout/activity_main.xml** następującym kodem
 
 W obszarze **res/layout/** folder Utwórz nowy plik zasobów układu i nadaj mu nazwę **activity_immersive_reader**. Następnie zastąp jego zawartość następującym kodem XML. Ten kod XML dodaje składnik WebView, który będzie używany przez kod Java IRActivity, który zostanie utworzony w późniejszym kroku. Na razie jest to niezdefiniowane i spowoduje błędy.
 
-![Utwórz nowy plik zasobów układu](../../media/android/java/android-studio-new-layout-resource.png)
+![Utwórz nowy plik zasobów układu — Android](../../media/android/java/android-studio-new-layout-resource.png)
 
-![Skonfiguruj nowy zasób układu](../../media/android/java/android-studio-activity-immersive-reader.png)
+![Konfigurowanie nowego zasobu układu — Android](../../media/android/java/android-studio-activity-immersive-reader.png)
 
 ```activity_immersive_reader.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -235,7 +236,7 @@ W obszarze **res/layout/** folder Utwórz nowy plik zasobów układu i nadaj mu 
 
 W folderze **/Java/com.example.quickstartjava** zobaczysz istniejący plik klasy środowiska Java **języka Java.** W tym folderze jest tworzony logika aplikacji.
 
-![MainActivity](../../media/android/java/android-studio-main-activity-java.png)
+![MAINS — Android](../../media/android/java/android-studio-main-activity-java.png)
 
 Zamień zawartość **MAINS. Java** na następujący kod. Istnieje kilka klas, do których odwołuje się kod, który jeszcze nie istnieje i zostanie utworzony później.
 
@@ -292,7 +293,7 @@ Utworzymy 16 dodatkowych plików klas Java w folderze **/Java/com.example.quicks
 
 Aby utworzyć nowy plik klasy Java **ImmersiveReader. Java** , kliknij prawym przyciskiem myszy folder w Android Studio, wybierz pozycję **Nowy**, a następnie wybierz pozycję **Klasa Java**. Ta sama metoda zostanie użyta do utworzenia plików klas języka Java dla każdego nowego tworzonego pliku klasy języka Java.
 
-![ImmersiveReader](../../media/android/java/android-studio-immersivereader-java.png)
+![ImmersiveReader — Android](../../media/android/java/android-studio-immersivereader-java.png)
 
 Zastąp zawartość **ImmersiveReader. Java** następującym kodem:
 
@@ -376,7 +377,7 @@ public class ImmersiveReader {
 
 Utwórz nowy plik klasy Java **IRActivity. Java** .
 
-![IRActivity](../../media/android/java/android-studio-iractivity-java.png)
+![IRActivity — Android](../../media/android/java/android-studio-iractivity-java.png)
 
 Zastąp zawartość **IRActivity. Java** następującym kodem:
 
@@ -460,7 +461,7 @@ public class ImmersiveReader {
 
 Utwórz nowy plik klasy Java **IRError. Java** .
 
-![IRError](../../media/android/java/android-studio-irerror-java.png)
+![IRError — Android](../../media/android/java/android-studio-irerror-java.png)
 
 Zastąp zawartość **IRError. Java** następującym kodem:
 
@@ -539,7 +540,7 @@ public class IRError implements Parcelable {
 
 Utwórz nowy plik **błędu** języka Java środowiska Java.
 
-![Błąd](../../media/android/java/android-studio-error-java.png)
+![Błąd — Android](../../media/android/java/android-studio-error-java.png)
 
 Zamień zawartość **Error. Java** na następujący kod:
 
@@ -570,7 +571,7 @@ public class Error {
 
 Utwórz nowy plik klasy Java **ReadableContent. Java** .
 
-![ReadableContent](../../media/android/java/android-studio-readablecontent-java.png)
+![ReadableContent — Android](../../media/android/java/android-studio-readablecontent-java.png)
 
 Zastąp zawartość **ReadableContent. Java** następującym kodem:
 
@@ -614,7 +615,7 @@ public class ReadableContent {
 
 Utwórz nowy plik klasy Java **ReadableTextChunk. Java** .
 
-![ReadableTextChunk](../../media/android/java/android-studio-readabletextchunk-java.png)
+![ReadableTextChunk — Android](../../media/android/java/android-studio-readabletextchunk-java.png)
 
 Zastąp zawartość **ReadableTextChunk. Java** następującym kodem:
 
@@ -646,7 +647,7 @@ public class ReadableTextChunk {
 
 Utwórz nowy plik klasy Java **IRDataHolder. Java** .
 
-![IRDataHolder](../../media/android/java/android-studio-irdataholder-java.png)
+![IRDataHolder — Android](../../media/android/java/android-studio-irdataholder-java.png)
 
 Zastąp zawartość **IRDataHolder. Java** następującym kodem:
 
@@ -711,7 +712,7 @@ public class IRDataHolder {
 
 Utwórz nowy plik klasy Java **IRAuthenticator. Java** .
 
-![IRAuthenticator](../../media/android/java/android-studio-irauthenticator-java.png)
+![IRAuthenticator — Android](../../media/android/java/android-studio-irauthenticator-java.png)
 
 Zastąp zawartość **IRAuthenticator. Java** następującym kodem:
 
@@ -822,7 +823,7 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
 
 Utwórz nowy plik klasy Java **IRLauncher. Java** .
 
-![IRLauncher](../../media/android/java/android-studio-irlauncher-java.png)
+![IRLauncher — Android](../../media/android/java/android-studio-irlauncher-java.png)
 
 Zastąp zawartość **IRLauncher. Java** następującym kodem:
 
@@ -1015,7 +1016,7 @@ public class IRLauncher {
 
 Utwórz nowy plik klasy Java **IRStore. Java** .
 
-![IRStore](../../media/android/java/android-studio-irstore-java.png)
+![IRStore — Android](../../media/android/java/android-studio-irstore-java.png)
 
 Zastąp zawartość **IRStore. Java** następującym kodem:
 
@@ -1097,7 +1098,7 @@ public class AuthenticationTask extends AsyncTask<Void, Void, String> {
 
 Utwórz nowy plik klasy kodu Java **środowiska Java.**
 
-![Fragment](../../media/android/java/android-studio-chunk-java.png)
+![Fragment — Android](../../media/android/java/android-studio-chunk-java.png)
 
 Zastąp zawartość **fragmentu. Java** następującym kodem:
 
@@ -1134,7 +1135,7 @@ public class Chunk {
 
 Utwórz nową **zawartość.** plik klasy Java środowiska Java.
 
-![Zawartość](../../media/android/java/android-studio-content-java.png)
+![Zawartość — Android](../../media/android/java/android-studio-content-java.png)
 
 Zamień zawartość **Content. Java** na następujący kod:
 
@@ -1170,7 +1171,7 @@ public class Content {
 
 Utwórz nowe **Opcje.** plik klasy Java Java.
 
-![Opcje](../../media/android/java/android-studio-options-java.png)
+![Opcje — Android](../../media/android/java/android-studio-options-java.png)
 
 Zamień zawartość **Options. Java** na następujący kod:
 
@@ -1204,7 +1205,7 @@ public class Options {
 
 Utwórz nowy **komunikat.** plik klasy Java Java.
 
-![Wiadomość](../../media/android/java/android-studio-message-java.png)
+![Komunikat — Android](../../media/android/java/android-studio-message-java.png)
 
 Zastąp zawartość **Message. Java** następującym kodem:
 
@@ -1242,7 +1243,7 @@ public class Message {
 
 Utwórz nowy plik klasy Java **WebAppInterface. Java** .
 
-![WebAppInterface](../../media/android/java/android-studio-webappinterface-java.png)
+![WebAppInterface — Android](../../media/android/java/android-studio-webappinterface-java.png)
 
 Zastąp zawartość **WebAppInterface. Java** następującym kodem:
 
@@ -1293,9 +1294,9 @@ public class WebAppInterface {
 
 Implementacja widoku sieci Web wymaga, aby kod HTML działał. Kliknij prawym przyciskiem myszy folder **/Assets** , Utwórz nowy plik i nadaj mu nazwę **immersiveReader.html**.
 
-![Utwórz nowy plik HTML](../../media/android/java/android-studio-immersive-reader-html.png)
+![Tworzenie nowego pliku HTML — Android](../../media/android/java/android-studio-immersive-reader-html.png)
 
-![Lokalizacja elementu zawartości w formacie HTML](../../media/android/java/android-studio-immersive-reader-html-assets.png)
+![Lokalizacja elementu zawartości HTML — Android](../../media/android/java/android-studio-immersive-reader-html-assets.png)
 
 Dodaj następujący kod HTML i JavaScript. Ten kod dodaje zestaw SDK czytnika immersyjny do aplikacji i używa go do otwierania czytnika immersyjny przy użyciu kodu aplikacji, który został zapisany.
 
@@ -1352,7 +1353,7 @@ Licensed under the MIT License. -->
 
 ## <a name="set-up-app-permissions"></a>Konfigurowanie uprawnień aplikacji
 
-![Pliku AndroidManifest](../../media/android/java/android-studio-android-manifest-xml.png)
+![Pliku AndroidManifest — Android](../../media/android/java/android-studio-android-manifest-xml.png)
 
 Ponieważ aplikacja musi wykonać wywołania sieciowe do zestawu SDK immersyjny do działania, musimy upewnić się, że uprawnienia aplikacji są skonfigurowane tak, aby zezwalały na dostęp do sieci. Zastąp zawartość **/manifests/AndroidManifest.xml** następującym kodem XML:
 
@@ -1389,7 +1390,7 @@ Ponieważ aplikacja musi wykonać wywołania sieciowe do zestawu SDK immersyjny 
 
 Użyj Android Studio, aby uruchomić aplikację w emulatorze urządzenia. Po wybraniu **czytnika immersyjny**zostanie otwarty czytnik immersyjny z zawartością aplikacji.
 
-![Czytnik immersyjny](../../media/android/java/android-studio-device-emulator.png)
+![Czytnik immersyjny — Android](../../media/android/java/android-studio-device-emulator.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

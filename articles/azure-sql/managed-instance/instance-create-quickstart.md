@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: b2d43e970012209acb6ed7fbbaafbb1719617280
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1899baa927bffdaedd1d7ee00f442c449480fc04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533873"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986840"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Szybki Start: Tworzenie wystąpienia zarządzanego wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -77,7 +77,7 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
    | Ustawienie| Sugerowana wartość | Opis |
    | ------ | --------------- | ----------- |
    | **Sieć wirtualna** | Wybierz opcję **Utwórz nową sieć wirtualną** lub prawidłową sieć wirtualną i podsieć.| Jeśli sieć lub podsieć jest niedostępna, należy ją [zmodyfikować, aby spełniała wymagania sieciowe](vnet-existing-add-subnet.md) przed wybraniem jej jako docelowej dla nowego wystąpienia zarządzanego. Aby uzyskać informacje o wymaganiach dotyczących konfigurowania środowiska sieciowego dla wystąpienia zarządzanego SQL, zobacz [Konfigurowanie sieci wirtualnej dla wystąpienia zarządzanego SQL](connectivity-architecture-overview.md). |
-   | **Typ połączenia** | Wybierz między serwerem proxy a typem połączenia przekierowania.|Aby uzyskać więcej informacji na temat typów połączeń, zobacz [Typ połączenia wystąpienia zarządzanego Azure SQL](../database/connectivity-architecture.md#connection-policy).|
+   | **Connection type** (Typ połączenia) | Wybierz między serwerem proxy a typem połączenia przekierowania.|Aby uzyskać więcej informacji na temat typów połączeń, zobacz [Typ połączenia wystąpienia zarządzanego Azure SQL](../database/connectivity-architecture.md#connection-policy).|
    | **Publiczny punkt końcowy**  | Wybierz pozycję **Włącz**. | Aby wystąpienie zarządzane było dostępne za pomocą publicznego punktu końcowego danych, należy włączyć tę opcję. | 
    | **Zezwalaj na dostęp z** (Jeśli **publiczny punkt końcowy** jest włączony) | Wybierz jedną z opcji.   |Środowisko portalu umożliwia skonfigurowanie grupy zabezpieczeń z publicznym punktem końcowym. </br> </br> Na podstawie Twojego scenariusza wybierz jedną z następujących opcji: </br> <ul> <li>**Usługi platformy Azure**: zalecamy korzystanie z tej opcji w przypadku łączenia się z Power BI lub z innej usługi wielodostępnej. </li> <li> **Internet**: służy do celów testowych, gdy chcesz szybko utworzyć wystąpienie zarządzane. Nie zalecamy jej w środowiskach produkcyjnych. </li> <li> **Brak dostępu**: Ta opcja tworzy regułę zabezpieczeń **Odmów** . Zmodyfikuj tę regułę, aby umożliwić dostęp do wystąpienia zarządzanego za pomocą publicznego punktu końcowego. </li> </ul> </br> Aby uzyskać więcej informacji o zabezpieczeniach publicznego punktu końcowego, zobacz [bezpieczne używanie wystąpienia zarządzanego usługi Azure SQL z publicznym punktem końcowym](public-endpoint-overview.md).|
 
@@ -124,7 +124,7 @@ Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://
 > 3. Wybierz operację wdrażania wystąpienia zarządzanego SQL w toku.
 
 > [!IMPORTANT]
-> - Tworzenie wystąpienia zarządzanego SQL to długotrwała operacja, która może potrwać kilka godzin, w zależności od określonych okoliczności. Zobacz [czas trwania operacji zarządzania](management-operations-overview.md#management-operations-duration) dla typowych czasów tworzenia.
+> - Tworzenie wystąpienia zarządzanego SQL to długotrwała operacja, która może potrwać kilka godzin, w zależności od określonych okoliczności. Zobacz [czas trwania operacji zarządzania](management-operations-overview.md#duration) dla typowych czasów tworzenia.
 > - Rozpoczęcie tworzenia wystąpienia zarządzanego przez program SQL może być opóźnione w przypadkach, gdy istnieją inne operacje, takie jak operacje przywracania lub skalowania na innych wystąpieniach zarządzanych w tej samej podsieci. Aby dowiedzieć się więcej, zobacz [wpływ na operacje zarządzania](management-operations-overview.md#management-operations-cross-impact).
 > - Aby można było uzyskać stan tworzenia wystąpienia zarządzanego, należy mieć **uprawnienia do odczytu** grupy zasobów. Jeśli nie masz tego uprawnienia lub nie odwołajsz go podczas procesu tworzenia wystąpienia zarządzanego, może to spowodować, że wystąpienie zarządzane SQL nie będzie widoczne na liście wdrożeń grup zasobów.
 >
@@ -161,7 +161,7 @@ Aby Opcjonalnie dostosować ustawienia sieci, należy sprawdzić następujące k
 > Jeśli skonfigurowano publiczny punkt końcowy dla wystąpienia zarządzanego SQL, należy otworzyć porty, aby zezwolić na ruch sieciowy umożliwiający nawiązywanie połączeń z wystąpieniem zarządzanym SQL z publicznego Internetu. Aby uzyskać więcej informacji, zobacz [Konfigurowanie publicznego punktu końcowego dla wystąpienia zarządzanego SQL](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) .
 >
 
-## <a name="retrieve-connection-details-to-sql-managed-instance"></a>Pobierz szczegóły połączenia z wystąpieniem zarządzanym SQL
+## <a name="retrieve-connection-details-to-sql-managed-instance"></a>Pobieranie szczegółów połączenia z usługą SQL Managed Instance
 
 Aby nawiązać połączenie z wystąpieniem zarządzanym SQL, wykonaj następujące kroki, aby pobrać nazwę hosta i w pełni kwalifikowaną nazwę domeny (FQDN):
 

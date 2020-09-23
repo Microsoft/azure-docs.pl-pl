@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: 5804dcc840eb666c1d43ea7d7ed7640b8f7ff371
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5518da7d22d14de105c07e88b14e94d4b184269b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657439"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883807"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Połącz zaporę Windows Defender z zabezpieczeniami zaawansowanymi z platformą Azure — wskaźnikiem
 
@@ -31,7 +31,7 @@ Rozwiązanie zbiera zdarzenia Zapory systemu Windows z maszyn z systemem Windows
 > [!NOTE]
 > - Dane będą przechowywane w lokalizacji geograficznej obszaru roboczego, w którym jest uruchamiany wskaźnik platformy Azure.
 >
-> - Jeśli na tym samym obszarze roboczym są zbierane dane platformy Azure i usługi Azure Defender (dawniej Azure Security Center), nie ma potrzeby włączania rozwiązania Zapora systemu Windows za pomocą tego łącznika. Jeśli ta funkcja została włączona, nie spowoduje to zduplikowanych danych. 
+> - Jeśli alerty usługi Azure Defender z Azure Security Center są już zbierane do obszaru roboczego wskaźnikowego platformy Azure, nie ma potrzeby włączania rozwiązania Zapora systemu Windows za pośrednictwem tego łącznika. Jeśli jednak go włączysz, nie spowoduje to duplikowania danych. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -47,40 +47,37 @@ Rozwiązanie zbiera zdarzenia Zapory systemu Windows z maszyn z systemem Windows
 
 ### <a name="instructions-tab"></a>Karta instrukcje
 
-Na karcie **instrukcje** wykonaj następujące czynności.
+- **Jeśli maszyny z systemem Windows znajdują się na platformie Azure:**
 
-- **Jeśli maszyny z systemem Windows znajdują się na platformie Azure, wykonaj następujące kroki:**
+    1. Wybierz pozycję **Zainstaluj agenta na maszynie wirtualnej platformy Azure systemu Windows**.
 
-   1. Wybierz pozycję **Zainstaluj agenta na maszynie wirtualnej platformy Azure systemu Windows**.
-   
-   1. Kliknij link **pobierz & Zainstaluj agenta dla maszyn wirtualnych systemu Azure Windows >** .
-   
-   1. Na liście **maszyny wirtualne** wybierz maszynę z systemem Windows, która ma zostać przesłana do usługi Azure wskaźnikowej. (Możesz wybrać **okna** w filtrze kolumn systemu operacyjnego, aby upewnić się, że są wyświetlane tylko maszyny wirtualne z systemem Windows).
-   
-   1. W oknie otwartym dla tej maszyny wirtualnej kliknij pozycję **Połącz**.
-   
-   1. Wróć do okienka **Virtual Machines** i Powtórz dwa poprzednie kroki dla innych maszyn wirtualnych, które chcesz połączyć. Gdy skończysz, Wróć do okienka **Zapora systemu Windows** .
+    1. Kliknij link **pobierz & Zainstaluj agenta dla maszyn wirtualnych systemu Azure Windows >** .
 
-- **Jeśli maszyna z systemem Windows nie jest maszyną wirtualną platformy Azure, wykonaj następujące kroki:**
-   
-   1. Wybierz pozycję **Zainstaluj agenta na komputerze spoza systemu Windows**.
-   
-   1. Kliknij link **pobierz & Zainstaluj agenta dla maszyn nienależących do platformy Azure z systemem Windows >** .
-   
-   1. W okienku **Zarządzanie agentami** wybierz opcję **Pobierz agenta systemu Windows (64 bit)** lub **pobierz agenta systemu Windows (32 bit)**, zgodnie z wymaganiami.
-   
-   1. Skopiuj ciągi **identyfikatora obszaru roboczego**, **klucza podstawowego**i **klucza pomocniczego** do pliku tekstowego. Skopiuj ten plik i pobrany plik instalacyjny na komputer z systemem Windows. Uruchom plik instalacyjny i po wyświetleniu monitu wprowadź identyfikator i ciągi klucza w pliku tekstowym podczas instalacji.
-   
-   1. Wróć do okienka **Zapora systemu Windows** .
+    1. Na liście **maszyny wirtualne** wybierz maszynę z systemem Windows, która ma zostać przesłana do usługi Azure wskaźnikowej. (Możesz wybrać **okna** w filtrze kolumn systemu operacyjnego, aby upewnić się, że są wyświetlane tylko maszyny wirtualne z systemem Windows).
 
-Po wykonaniu kroków na karcie **instrukcje** kliknij przycisk **Zainstaluj rozwiązanie**.
+    1. W oknie otwartym dla tej maszyny wirtualnej kliknij pozycję **Połącz**.
+
+    1. Wróć do okienka **Virtual Machines** i Powtórz dwa poprzednie kroki dla innych maszyn wirtualnych, które chcesz połączyć. Gdy skończysz, Wróć do okienka **Zapora systemu Windows** .
+
+- **Jeśli maszyna z systemem Windows nie jest maszyną wirtualną platformy Azure:**
+
+    1. Wybierz pozycję **Zainstaluj agenta na komputerze spoza systemu Windows**.
+
+    1. Kliknij link **pobierz & Zainstaluj agenta dla maszyn nienależących do platformy Azure z systemem Windows >** .
+
+    1. W okienku **Zarządzanie agentami** wybierz opcję **Pobierz agenta systemu Windows (64 bit)** lub **pobierz agenta systemu Windows (32 bit)**, zgodnie z wymaganiami.
+
+    1. Skopiuj ciągi **identyfikatora obszaru roboczego**, **klucza podstawowego**i **klucza pomocniczego** do pliku tekstowego. Skopiuj ten plik i pobrany plik instalacyjny na komputer z systemem Windows. Uruchom plik instalacyjny i po wyświetleniu monitu wprowadź identyfikator i ciągi klucza w pliku tekstowym podczas instalacji.
+
+    1. Wróć do okienka **Zapora systemu Windows** .
+
+1. Kliknij przycisk **Zainstaluj rozwiązanie**.
 
 ### <a name="next-steps-tab"></a>Karta następne kroki
 
-- Aby uzyskać wgląd w dane dziennika zapory systemu Windows, zobacz dostępne zalecane skoroszyty i przykłady zapytań powiązane z łącznikiem danych **zapory systemu Windows** .
+- Zobacz dostępne zalecane skoroszyty i przykłady zapytań powiązane z łącznikiem danych **zapory systemu Windows** , aby uzyskać wgląd w dane dziennika zapory systemu Windows.
 
 - Aby zbadać dane zapory systemu Windows w **dziennikach**, wpisz **WindowsFirewall** w oknie zapytania.
-
 
 ## <a name="validate-connectivity"></a>Sprawdź poprawność łączności
  

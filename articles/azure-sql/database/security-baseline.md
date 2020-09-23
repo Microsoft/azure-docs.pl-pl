@@ -4,15 +4,15 @@ description: Podstawy zabezpieczeń platformy Azure dla Azure SQL Database i wys
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 846d66a1cf1bb1d97f7ab9d7dfd7bbcf43d3f8d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ce297b436ce79a4a0a14d0f6e9ad900de61a8dc9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231031"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885214"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Podstawowa usługa Azure Security dla Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -285,15 +285,15 @@ https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-porta
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2,7: Włączanie alertów dla nietypowego działania
 
-**Wskazówki**: Użyj Azure Security Center zaawansowanej ochrony przed zagrożeniami dla Azure SQL Database do monitorowania i generowania alertów dotyczących nietypowej aktywności. Włącz zaawansowane zabezpieczenia danych dla baz danych SQL. Zaawansowane zabezpieczenia danych obejmują funkcje odnajdywania i klasyfikowania poufnych danych, umieszczania i ograniczania potencjalnych luk w zabezpieczeniach bazy danych oraz wykrywania nietypowych działań, które mogą wskazywać na zagrożenie dla bazy danych.
+**Wskazówki**: Użyj Azure Security Center zaawansowanej ochrony przed zagrożeniami dla Azure SQL Database do monitorowania i generowania alertów dotyczących nietypowej aktywności. Włącz usługę Azure Defender dla programu SQL dla baz danych SQL. Usługa Azure Defender dla programu SQL zawiera funkcje umożliwiające wykorzystanie i łagodzenie potencjalnych luk w zabezpieczeniach bazy danych oraz wykrywanie nietypowych działań, które mogą wskazywać na zagrożenie dla bazy danych.
 
 Zapoznaj się z zaawansowaną ochroną przed zagrożeniami i alertami dla Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
-Jak włączyć zaawansowane zabezpieczenia danych dla Azure SQL Database:
+Jak włączyć usługę Azure Defender dla programu SQL dla Azure SQL Database:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Jak zarządzać alertami w Azure Security Center:
 
@@ -333,7 +333,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
-**Wskazówki**: Azure Active Directory (AAD) ma wbudowane role, które muszą być jawnie przypisane i są queryable. Przy użyciu modułu programu PowerShell usługi AAD można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
+**Wskazówki**: Azure Active Directory (Azure AD) ma wbudowane role, które muszą być jawnie przypisane i są queryable. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
 Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell:
 
@@ -381,7 +381,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Użyj uwierzytelniania wieloskładnikowego, aby uzyskać dostęp oparty na Azure Active Directory
 
-**Wskazówki**: Włączanie Azure Active Directory (AAD) Multi-Factor Authentication (MFA) i postępuj zgodnie z zaleceniami dotyczącymi zarządzania tożsamościami i dostępem Azure Security Center.
+**Wskazówki**: włączanie usługi Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) i przestrzeganie Azure Security Center zaleceń dotyczących zarządzania tożsamościami i dostępem.
 
 Jak włączyć usługę MFA na platformie Azure:
 
@@ -445,13 +445,13 @@ Jak skonfigurować nazwane lokalizacje na platformie Azure: https://docs.microso
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
-**Wskazówki**: tworzenie administratora Azure Active Directory (AAD) dla serwera.
+**Wskazówki**: utwórz administratora Azure Active Directory (Azure AD) dla serwera.
 
 Jak skonfigurować uwierzytelnianie Azure Active Directory i zarządzać nim przy użyciu usługi Azure SQL:
 
 https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
-Jak utworzyć i skonfigurować wystąpienie usługi AAD:
+Jak utworzyć i skonfigurować wystąpienie usługi Azure AD:
 
 https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
@@ -461,7 +461,7 @@ https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-creat
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: regularnie Przeglądaj i Uzgodnij dostęp użytkowników
 
-**Wskazówki**: Azure Active Directory (AAD) zawiera dzienniki ułatwiające wykrywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają stały dostęp.
+**Wskazówki**: Azure Active Directory (Azure AD) zawiera dzienniki ułatwiające wykrywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają stały dostęp.
 
 Jak korzystać z przeglądów dostępu do tożsamości platformy Azure:
 
@@ -473,7 +473,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3,11: Monitor próbuje uzyskać dostęp do zdezaktywowanych kont
 
-**Wskazówki**: konfigurowanie uwierzytelniania Azure Active Directory (AAD) za pomocą usługi Azure SQL i tworzenie ustawień diagnostycznych dla Azure Active Directory kont użytkowników, wysyłanie dzienników inspekcji i dzienników logowania do obszaru roboczego log Analytics. Skonfiguruj żądane alerty w obszarze roboczym Log Analytics.
+**Wskazówki**: konfigurowanie uwierzytelniania Azure Active Directory (Azure AD) przy użyciu usługi Azure SQL i tworzenie ustawień diagnostycznych dla Azure Active Directory kont użytkowników, wysyłanie dzienników inspekcji i dzienników logowania do obszaru roboczego log Analytics. Skonfiguruj żądane alerty w obszarze roboczym Log Analytics.
 
 Jak skonfigurować uwierzytelnianie Azure Active Directory i zarządzać nim przy użyciu usługi Azure SQL:
 
@@ -489,7 +489,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3,12: odchylenia zachowania podczas logowania do konta
 
-**Wskazówki**: Użyj Azure Active Directory (AAD) do ochrony tożsamości i wykrywania zagrożeń, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Dodatkowo można pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
+**Wskazówki**: usługa Azure Active Directory (Azure AD) umożliwia ochronę tożsamości i wykrywanie zagrożeń, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Dodatkowo można pozyskać dane do usługi Azure wskaźnikowej na potrzeby dalszej analizy.
 
 Jak wyświetlić informacje o ryzyku usługi Azure AD:
 
@@ -599,7 +599,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-cl
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj Azure Active Directory (AAD) do uwierzytelniania i kontrolowania dostępu do wystąpień Azure SQL Database.
+**Wskazówki**: Użyj Azure Active Directory (Azure AD) do uwierzytelniania i kontrolowania dostępu do wystąpień Azure SQL Database.
 
 Jak zintegrować Azure SQL Database z Azure Active Directory na potrzeby uwierzytelniania:
 
@@ -655,15 +655,15 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: uruchamianie narzędzi do skanowania automatycznych luk w zabezpieczeniach
 
-**Wskazówki**: Włącz zaawansowane zabezpieczenia danych dla Azure SQL Database i postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania oceny luk w zabezpieczeniach na serwerach.
+**Wskazówki**: Włącz usługę Azure Defender dla programu SQL dla Azure SQL Database i postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania oceny luk w zabezpieczeniach na serwerach.
 
 Jak uruchomić oceny luk w zabezpieczeniach w Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
-Jak włączyć zaawansowane zabezpieczenia danych:
+Jak włączyć usługę Azure Defender dla programu SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center:
 
@@ -993,7 +993,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azur
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 
-**Wskazówki**: Użyj tożsamości zarządzanych do świadczenia usług platformy Azure z automatyczną tożsamością zarządzaną w usłudze Azure Active Directory (AAD). Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie w usłudze AAD, w tym Azure Key Vault, bez żadnych poświadczeń w kodzie.
+**Wskazówki**: Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure Active Directory (Azure AD). Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Azure Key Vault, bez żadnych poświadczeń w kodzie.
 
 Samouczek: używanie tożsamości zarządzanej przypisanej przez system Windows VM do uzyskiwania dostępu do usługi Azure SQL:
 

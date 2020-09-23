@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921218"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970672"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Znajdź i Zastosuj zalecenia dotyczące wydajności
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,7 +35,7 @@ Wykonaj następujące kroki, aby znaleźć zalecenia dotyczące wydajności Azur
 
 Zalecenia dotyczące wydajności są wyświetlane w tabeli podobnej do przedstawionej na poniższej ilustracji:
 
-![Zalecenia](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![Zrzut ekranu przedstawia zalecenia dotyczące wydajności w tabeli z opisem akcji i rekomendacji.](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 Zalecenia są sortowane według ich potencjalnego wpływu na wydajność na następujące kategorie:
 
@@ -133,7 +133,7 @@ Zastosowanie zalecenia może nie być chwilowo wykonywane. Portal zawiera szczeg
 | Operacji |Zalecenie jest stosowane. |
 | Ponownego |Zalecenie zostało pomyślnie zastosowane i usługa mierzy korzyści. |
 | Powodzenie |Zalecenie zostało pomyślnie zastosowane i korzyści zostały zmierzone. |
-| Error |Wystąpił błąd podczas procesu stosowania zalecenia. Może to być problem przejściowy lub prawdopodobnie zmiana schematu tabeli, a skrypt nie jest już prawidłowy. |
+| Błąd |Wystąpił błąd podczas procesu stosowania zalecenia. Może to być problem przejściowy lub prawdopodobnie zmiana schematu tabeli, a skrypt nie jest już prawidłowy. |
 | Przywracanie |Zalecenie zostało zastosowane, ale zostało uznane za niewykonane i jest automatycznie przywracane. |
 | Przywrócono |Zalecenie zostało cofnięte. |
 
@@ -168,7 +168,7 @@ Monitoruj swoje rekomendacje i Kontynuuj ich stosowanie w celu udoskonalenia wyd
 * Zobacz [zalecenia dotyczące wydajności](database-advisor-implement-performance-recommendations.md) , aby zapoznać się z omówieniem zaleceń dotyczących wydajności Azure SQL Database.
 * Zobacz [szczegółowe informacje o wydajności zapytań](query-performance-insight-use.md) , aby dowiedzieć się więcej o wyświetlaniu wydajności najważniejszych zapytań.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Magazyn zapytań](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)

@@ -5,15 +5,16 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/24/2019
-ms.openlocfilehash: 5d97f7b976ef1dfcf0493a8bef6ddcdd2cd63960
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/22/2020
+ms.openlocfilehash: f86c2f9500f7512c6ba3337b6fac2839bbd91976
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116372"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901493"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrowanie bazy danych PostgreSQL przy użyciu funkcji eksportowania i importowania
+[!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
 Za pomocą [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) można wyodrębnić bazę danych PostgreSQL do pliku skryptu i [PSQL](https://www.postgresql.org/docs/current/static/app-psql.html) do zaimportowania danych do docelowej bazy danych z tego pliku.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -26,6 +27,7 @@ Wykonaj następujące kroki, aby wyeksportować i zaimportować bazę danych Pos
 
 ## <a name="create-a-script-file-using-pg_dump-that-contains-the-data-to-be-loaded"></a>Utwórz plik skryptu przy użyciu pg_dump, który zawiera dane do załadowania
 Aby wyeksportować istniejącą bazę danych PostgreSQL lokalnie lub na maszynie wirtualnej do pliku skryptu SQL, uruchom następujące polecenie w istniejącym środowisku:
+
 ```bash
 pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
@@ -36,14 +38,24 @@ pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sq
 
 ## <a name="import-the-data-on-target-azure-database-for-postgresql"></a>Importuj dane na Azure Database for PostgreSQL docelowym
 Do zaimportowania danych do serwera Azure Database for PostgreSQL i załadowania danych z pliku SQL można użyć wiersza polecenia PSQL oraz parametru--dbname (-d).
+
 ```bash
-psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
+psql --file=<database>.sql --host=<server name> --port=5432 --username=<user> --dbname=<target database name>
 ```
 Ten przykład używa narzędzia PSQL i pliku skryptu o nazwie **TestDB. SQL** z poprzedniego kroku, aby zaimportować dane do bazy danych **mypgsqldb** na serwerze docelowym **mydemoserver.Postgres.Database.Azure.com**.
+
+W przypadku **pojedynczego serwera**Użyj tego polecenia 
 ```bash
 psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
 
+W przypadku **serwera elastycznego**Użyj tego polecenia  
+```bash
+psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin --dbname=mypgsqldb
+```
+
+
+
 ## <a name="next-steps"></a>Następne kroki
 - Aby przeprowadzić migrację bazy danych PostgreSQL przy użyciu funkcji zrzutów i przywracania, zobacz [Migrowanie bazy danych PostgreSQL przy użyciu zrzutów i przywracania](howto-migrate-using-dump-and-restore.md).
-- Aby uzyskać więcej informacji na temat migrowania baz danych do Azure Database for PostgreSQL, zobacz [Przewodnik po migracji bazy danych](https://aka.ms/datamigration). 
+- Aby uzyskać więcej informacji na temat migrowania baz danych do Azure Database for PostgreSQL, zobacz [Przewodnik po migracji bazy danych](https://aka.ms/datamigration).
