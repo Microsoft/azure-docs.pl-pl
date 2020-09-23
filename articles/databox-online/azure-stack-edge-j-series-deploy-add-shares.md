@@ -1,6 +1,6 @@
 ---
-title: Samouczek dotyczący transferu danych do udziałów przy użyciu Azure Stack Edge GPU | Microsoft Docs
-description: Dowiedz się, jak dodawać udziały i łączyć się z nimi na Azure Stack Edge na urządzeniu GPU.
+title: Samouczek dotyczący transferu danych do udziałów przy użyciu programu Azure Stack EDGE Pro GPU | Microsoft Docs
+description: Dowiedz się, jak dodawać udziały i łączyć się z nimi na urządzeniu z systemem Azure Stack Edge w systemie GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4d7453ba34a7bc1dd26d0201f604c9028974c1a2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: 3c0a72c9daa72cffcfe2e5e45bbb6214a13e0a7f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268931"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891101"
 ---
-# <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-gpu"></a>Samouczek: przesyłanie danych za pośrednictwem udziałów w Azure Stack Edge GPU
+# <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Samouczek: przesyłanie danych za pośrednictwem udziałów przy użyciu procesora GPU w Azure Stack Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-W tym samouczku opisano, jak dodawać udziały na urządzeniu Azure Stack Edge i łączyć się z nimi. Po dodaniu udziałów Azure Stack Edge może przesyłać dane na platformę Azure.
+W tym samouczku opisano, jak dodawać i łączyć się z udziałami na urządzeniu Azure Stack EDGE Pro. Po dodaniu udziałów Azure Stack EDGE Pro może przesyłać dane na platformę Azure.
 
 Wykonanie tej procedury może zająć około 10 minut.
 
@@ -33,11 +33,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed dodaniem udziałów do Azure Stack Edge upewnij się, że:
+Przed dodaniem udziałów do Azure Stack EDGE Pro upewnij się, że:
 
-* Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w artykule [instalowanie Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+* Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w artykule [instalowanie Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-install.md).
 
-* Urządzenie fizyczne zostało aktywowane zgodnie z opisem w [uaktywnieniu Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+* Urządzenie fizyczne zostało aktywowane zgodnie z opisem w artykule [aktywowanie Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 ## <a name="add-a-share"></a>Dodawanie udziału
 
@@ -66,7 +66,7 @@ Aby utworzyć udział, wykonaj następującą procedurę:
     Wybrany typ usługi zależy od tego, jaki format mają mieć dane do użycia na platformie Azure. W tym przykładzie, ponieważ chcemy przechowywać dane jako blokowe obiekty blob na platformie Azure, wybieramy **blokowy obiekt BLOB**. W przypadku wybrania opcji **stronicowego obiektu BLOB**upewnij się, że dane są wyrównane do 512 bajtów. Na przykład dysk VHDX jest zawsze wyrównany o 512 bajtów.
 
    > [!IMPORTANT]
-   > Upewnij się, że używane konto usługi Azure Storage nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack Edge lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Upewnij się, że konto usługi Azure Storage, którego używasz, nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack EDGE Pro lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
     e. Utwórz nowy kontener obiektów blob lub Użyj istniejącego z listy rozwijanej. W przypadku tworzenia kontenera obiektów BLOB Podaj nazwę kontenera. Jeśli kontener jeszcze nie istnieje, zostanie on utworzony z nowo utworzoną nazwą udziału na koncie magazynu.
    
@@ -120,7 +120,7 @@ Na kliencie systemu Windows używanym do łączenia się z urządzeniem wykonaj 
 
 ### <a name="connect-to-an-smb-share"></a>Łączenie z udziałem SMB
 
-Na kliencie z systemem Windows Server połączonym z urządzeniem Azure Stack Edge Połącz się z udziałem SMB, wprowadzając następujące polecenia:
+Na kliencie z systemem Windows Server połączonym z urządzeniem Azure Stack EDGE Pro Połącz się z udziałem SMB, wprowadzając następujące polecenia:
 
 
 1. W oknie polecenia wpisz:
@@ -146,7 +146,7 @@ Na kliencie z systemem Windows Server połączonym z urządzeniem Azure Stack Ed
 
 3. Na klawiaturze naciśnij klawisze Windows + R.
 
-4. W oknie **Uruchamianie** określ `\\<device name>`, a następnie wybierz pozycję **OK**.  
+4. W oknie **uruchamiania** Określ wartość `\\<device name>` , a następnie wybierz przycisk **OK**.  
 
     ![Okno dialogowe uruchamiania systemu Windows](media/azure-stack-edge-j-series-deploy-add-shares/run-window-1.png)
 
@@ -158,15 +158,15 @@ Na kliencie z systemem Windows Server połączonym z urządzeniem Azure Stack Ed
 
 ### <a name="connect-to-an-nfs-share"></a>Łączenie z udziałem NFS
 
-Na kliencie z systemem Linux połączonym z urządzeniem Azure Stack Edge wykonaj następującą procedurę:
+Na kliencie z systemem Linux połączonym z urządzeniem Azure Stack EDGE Pro wykonaj następującą procedurę:
 
 1. Upewnij się, że na kliencie zainstalowano klienta NFSv4. Aby zainstalować klienta NFS, użyj następującego polecenia:
 
    `sudo apt-get install nfs-common`
 
-    Aby uzyskać więcej informacji, przejdź do tematu [Instalowanie klienta NFSv4](https://help.ubuntu.com/community/NFSv4Howto).
+    Aby uzyskać więcej informacji, przejdź do [Install NFSv4 Client](https://help.ubuntu.com/community/NFSv4Howto).
 
-2. Po zainstalowaniu klienta NFS Zainstaluj udział NFS, który został utworzony na Azure Stack urządzeniu brzegowym, przy użyciu następującego polecenia:
+2. Po zainstalowaniu klienta NFS Zainstaluj udział NFS, który został utworzony na urządzeniu Azure Stack EDGE Pro, przy użyciu następującego polecenia:
 
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
 
@@ -176,7 +176,7 @@ Na kliencie z systemem Linux połączonym z urządzeniem Azure Stack Edge wykona
     > Użycie `sync` opcji przy instalowaniu udziałów zwiększa szybkość transferu dużych plików.
     > Zanim zainstalujesz udział, upewnij się, że katalogi, które będą pełnić rolę punktów instalacji na komputerze lokalnym, zostały już utworzone. Te katalogi nie powinny zawierać żadnych plików ani podfolderów.
 
-    Poniższy przykład pokazuje, jak nawiązać połączenie za pomocą systemu plików NFS z udziałem na urządzeniu Azure Stack Edge. Adres IP urządzenia to `10.10.10.60`. Udział `mylinuxshare2` jest instalowany w systemie ubuntuVM. Punkt instalacji udziału to `/home/azurestackedgeubuntuhost/edge`.
+    Poniższy przykład pokazuje, jak nawiązać połączenie za pomocą systemu plików NFS z udziałem na urządzeniu Azure Stack EDGE Pro. Adres IP urządzenia to `10.10.10.60`. Udział `mylinuxshare2` jest instalowany w systemie ubuntuVM. Punkt instalacji udziału to `/home/azurestackedgeubuntuhost/edge`.
 
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/azurestackedgeubuntuhost/Edge`
 
@@ -188,15 +188,15 @@ Na kliencie z systemem Linux połączonym z urządzeniem Azure Stack Edge wykona
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku omówiono następujące tematy Azure Stack Edge:
+W tym samouczku omówiono następujące tematy Azure Stack EDGE Pro:
 
 > [!div class="checklist"]
 > * Dodawanie udziału
 > * Łączenie się z udziałem
 
-Aby dowiedzieć się, jak przekształcić dane przy użyciu Azure Stack Edge, przejdź do następnego samouczka:
+Aby dowiedzieć się, jak przekształcić dane przy użyciu Azure Stack EDGE Pro, przejdź do następnego samouczka:
 
 > [!div class="nextstepaction"]
-> [Przekształcanie danych za pomocą Azure Stack Edge](./azure-stack-edge-j-series-deploy-configure-compute.md)
+> [Przekształcanie danych za pomocą Azure Stack EDGE Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
 
 

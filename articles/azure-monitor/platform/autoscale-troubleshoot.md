@@ -4,12 +4,12 @@ description: Śledzenie problemów z funkcją automatycznego skalowania platform
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751334"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979052"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Rozwiązywanie problemów z funkcją automatycznego skalowania platformy Azure
  
@@ -47,7 +47,7 @@ Mamy proste ustawienie automatycznego skalowania dla zestawu skalowania maszyn w
 
 Przejrzyjmy metryki z usługi skalowania automatycznego.
  
-![Przykład procesora CPU zestawu skalowania maszyn wirtualnych (%)](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![Zrzut ekranu przedstawia przykład użycia procesora CPU zestawu skalowania maszyn wirtualnych.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
 ![Przykład procesora CPU zestawu skalowania maszyn wirtualnych (%)](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
@@ -72,7 +72,7 @@ Jeśli wartość **przepływu wychodzącego na wystąpienie** jest większa niż
 
 W takim przypadku wartość metryki obsługiwanego przez aparat automatycznego skalowania jest obliczana jako rzeczywista wartość metryki podzielona przez liczbę wystąpień. Jeśli obserwowana wartość metryki jest mniejsza od progu, nie zostanie zainicjowana akcja skalowania w poziomie. 
  
-![Przykład wskaźników automatycznego skalowania dla zestawu skalowania maszyn wirtualnych](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![Zrzut ekranu przedstawia stronę średnia przepływy wychodzące z przykładem wykresów metryk skalowania maszyn wirtualnych.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
 ![Przykład wskaźników automatycznego skalowania dla zestawu skalowania maszyn wirtualnych](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 

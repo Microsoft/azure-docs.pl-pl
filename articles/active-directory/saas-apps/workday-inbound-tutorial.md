@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 0a025ad7857594b3117b1703a0e19ae47407d0fd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 87085d4a4911801933993720ae0ab23aeb19956d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018105"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974373"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników
 
@@ -171,7 +171,7 @@ W tym kroku zostanie udzielone uprawnienie "zabezpieczenia domeny" dotyczące da
      >[!div class="mx-imgBorder"]
      >![Zasady zabezpieczeń domeny](./media/workday-inbound-tutorial/wd_isu_08.png "Zasady zabezpieczeń domeny") 
 
-     Kliknij pozycję **OK**.
+     Kliknij przycisk **OK**.
 
 3. W wyświetlonym raporcie wybierz przycisk wielokropka (...) wyświetlany obok pozycji **zewnętrzne Inicjowanie obsługi konta** i kliknij opcję menu **domena-> Edytuj uprawnienia zasad zabezpieczeń**
    >[!div class="mx-imgBorder"]
@@ -286,7 +286,7 @@ Ta sekcja zawiera kroki dla aprowizacji konta użytkownika z produktu Workday do
 
 **Aby skonfigurować dzień roboczy do Active Directory aprowizacji:**
 
-1. Przejdź do witryny <https://portal.azure.com>.
+1. Przejdź do adresu <https://portal.azure.com>.
 
 2. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
@@ -373,7 +373,7 @@ Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki podane poni
 1. Sprawdź instalację agenta i upewnij się, że jest uruchomiona, otwierając przystawkę "usługi" i Wyszukaj usługę o nazwie "Microsoft Azure AD Połącz agenta aprowizacji"
 
    >[!div class="mx-imgBorder"]
-   >![Zrzut ekranu przedstawiający agenta aprowizacji Microsoft Azure AD nawiązywanie połączenia z usługami](./media/workday-inbound-tutorial/services.png)
+   >![Zrzut ekranu przedstawiający agenta aprowizacji Microsoft Azure AD łączenia z usługą w usługach.](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Część 3: w aplikacji aprowizacji Skonfiguruj łączność z produktem Workday i Active Directory
 W tym kroku ustanawiamy łączność z produktem Workday i Active Directory w Azure Portal. 
@@ -1154,7 +1154,7 @@ W odniesieniu do przechowywania danych usługa Azure AD Provisioning nie generuj
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 * [Dowiedz się, jak skonfigurować Logowanie jednokrotne między produktem Workday i Azure Active Directory](workday-tutorial.md)
 * [Dowiedz się, jak zintegrować inne aplikacje SaaS z Azure Active Directory](tutorial-list.md)
 * [Dowiedz się, jak używać interfejsów API Microsoft Graph do zarządzania konfiguracjami aprowizacji](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

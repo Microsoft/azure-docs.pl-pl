@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z certyfikatami przy użyciu Azure Stack Edge z procesorem GPU | Microsoft Docs
-description: Opisuje Rozwiązywanie problemów z błędami certyfikatów przy użyciu urządzenia z urządzeniem GPU Azure Stack Edge.
+title: Rozwiązywanie problemów z certyfikatami przy użyciu Azure Stack EDGE Pro z procesorem GPU | Microsoft Docs
+description: Opisuje Rozwiązywanie problemów z błędami certyfikatów przy użyciu urządzenia z procesorem GPU w Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 05338fb70bfa390ff3bd9e14e938edeb40938aeb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a0918c6cebd50231a9664811bb467e04d2d2bfd9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269441"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891336"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Rozwiązywanie problemów z błędami certyfikatów
 
-Artykuł zawiera informacje dotyczące rozwiązywania typowych błędów certyfikatów podczas instalowania certyfikatów na urządzeniu Azure Stack Edge.
+Artykuł zawiera informacje dotyczące rozwiązywania typowych problemów z certyfikatami podczas instalowania certyfikatów na urządzeniu z systemem Azure Stack brzeg Pro.
 
 ## <a name="common-certificate-errors"></a>Typowe błędy certyfikatów
 
@@ -58,4 +58,4 @@ W poniższej tabeli przedstawiono typowe błędy certyfikatów i szczegółowe i
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wymagania dotyczące certyfikatu](azure-stack-edge-j-series-certificate-requirements.md)
+[Wymagania dotyczące certyfikatów](azure-stack-edge-j-series-certificate-requirements.md)

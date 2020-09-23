@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor parametry czasu dla skoroszytów
-description: Uprość złożone raportowanie za pomocą wstępnie skompilowanych i niestandardowych skoroszytów z parametrami
+description: Dowiedz się, jak ustawić parametry czasu, aby umożliwić użytkownikom ustawianie kontekstu czasu analizy. Parametry czasu są używane przez niemal wszystkie raporty.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c84133d5728f7b6593e0606dda2eef28b8167e43
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658017"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972881"
 ---
 # <a name="workbook-time-parameters"></a>Parametry czasu skoroszytu
 
@@ -25,9 +25,9 @@ Parametry czasu umożliwiają użytkownikom ustawienie kontekstu czasu analizy i
 2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
 3. Kliknij niebieski przycisk _Dodaj parametr_ .
 4. W okienku Nowy parametr, który jest podręczny ENTER:
-    1. Nazwa parametru:`TimeRange`
-    2. Typ parametru:`Time range picker`
-    3. Wymagane:`checked`
+    1. Nazwa parametru: `TimeRange`
+    2. Typ parametru: `Time range picker`
+    3. Wymagane: `checked`
     4. Dostępne zakresy czasu: Ostatnia godzina, ostatnie 12 godzin, ostatnie 24 godziny, ostatnie 48 godzin, ostatnie 3 dni, ostatnie 7 dni i Zezwalaj na wybór niestandardowego zakresu czasu
 5. Wybierz pozycję "Zapisz" na pasku narzędzi, aby utworzyć parametr.
 
@@ -48,7 +48,7 @@ W ten sposób skoroszyt będzie wyglądał jak w trybie odczytu.
 
 ### <a name="in-kql"></a>W KQL
 1. Dodaj kontrolkę zapytania do skoroszytu i wybierz zasób Application Insights.
-2. W KQL Wprowadź filtr zakresu czasu przy użyciu parametru:`| where timestamp {TimeRange}`
+2. W KQL Wprowadź filtr zakresu czasu przy użyciu parametru: `| where timestamp {TimeRange}`
 3. Spowoduje to rozwinięcie czasu oceny zapytania do `| where timestamp > ago(1d)` , który jest wartością zakresu czasu parametru.
 4. Uruchom zapytanie, aby zobaczyć wyniki
 
@@ -56,7 +56,7 @@ W ten sposób skoroszyt będzie wyglądał jak w trybie odczytu.
 
 ### <a name="in-text"></a>W tekście 
 1. Dodaj kontrolkę tekstową do skoroszytu.
-2. W obszarze promocji wprowadź`The chosen time range is {TimeRange:label}`
+2. W obszarze promocji wprowadź `The chosen time range is {TimeRange:label}`
 3. Wybierz _gotowe do edycji_
 4. Kontrolka Text wyświetli tekst: _wybrany zakres czasu to ostatnie 24 godziny_
 

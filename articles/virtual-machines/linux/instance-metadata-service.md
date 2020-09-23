@@ -1,6 +1,6 @@
 ---
 title: Azure Instance Metadata Service
-description: Interfejs RESTful, aby uzyskać informacje na temat obliczeniowych, sieciowych i nadchodzących zdarzeń konserwacyjnych maszyn wirtualnych.
+description: Dowiedz się więcej na temat Instance Metadata Service platformy Azure oraz informacje o aktualnie uruchomionych wystąpieniach maszyn wirtualnych.
 services: virtual-machines
 author: KumariSupriya
 manager: paulmey
@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: bb9bc978e49cddab13ab1e4f7ec4f0b74d369ac1
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: ea11e2f5f8d89381723011686de9e22639997c01
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705847"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974148"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Instance Metadata Service platformy Azure (IMDS)
 
@@ -163,7 +163,7 @@ Interfejs API | Domyślny format danych | Inne formaty
 /instance | json | tekst
 /scheduledevents | json | brak
 
-Aby uzyskać dostęp do formatu niedomyślnej odpowiedzi, należy określić żądany format jako parametr ciągu zapytania w żądaniu. Na przykład:
+Aby uzyskać dostęp do formatu niedomyślnej odpowiedzi, należy określić żądany format jako parametr ciągu zapytania w żądaniu. Przykład:
 
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -263,7 +263,7 @@ Obszarze storageprofile | Zobacz [profil magazynu](#storage-metadata) | 2019-06-
 subscriptionId | Subskrypcja platformy Azure dla maszyny wirtualnej | 2017-08-01
 tags | [Tagi](../../azure-resource-manager/management/tag-resources.md) dla maszyny wirtualnej  | 2017-08-01
 tagsList | Tagi sformatowane jako tablica JSON dla łatwiejszego analizowania programistycznego  | 2019-06-04
-version | Wersja obrazu maszyny wirtualnej | 2017-04-02
+Wersja | Wersja obrazu maszyny wirtualnej | 2017-04-02
 vmId | [Unikatowy identyfikator](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) dla maszyny wirtualnej | 2017-04-02
 vmScaleSetName | [Nazwa zestawu skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/overview.md) w zestawie skalowania maszyn wirtualnych | 2017-12-01
 vmSize | [Rozmiar maszyny wirtualnej](../sizes.md) | 2017-04-02
@@ -506,7 +506,7 @@ identyfikator      | Identyfikator zasobu
 offer   | Oferta platformy lub obrazu z witryny Marketplace
 publisher | Wydawca obrazu
 sku     | Jednostka SKU obrazu
-version | Wersja platformy lub obrazu witryny Marketplace
+Wersja | Wersja platformy lub obrazu witryny Marketplace
 
 Obiekt dysku systemu operacyjnego zawiera następujące informacje na temat dysku systemu operacyjnego używanego przez maszynę wirtualną:
 
@@ -812,7 +812,7 @@ C#            | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 Przejdź            | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Java          | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 NodeJS        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-Języku          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Perl          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 PowerShell    | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Puppet        | https://github.com/keirans/azuremetadata
 Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
@@ -820,7 +820,7 @@ Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 
 ## <a name="error-and-debugging"></a>Błąd i debugowanie
 
-Jeśli nie odnaleziono elementu danych lub nieprawidłowo sformułowane żądanie, Instance Metadata Service zwraca standardowe błędy HTTP. Na przykład:
+Jeśli nie odnaleziono elementu danych lub nieprawidłowo sformułowane żądanie, Instance Metadata Service zwraca standardowe błędy HTTP. Przykład:
 
 Kod stanu HTTP | Przyczyna
 ----------------|-------
@@ -906,6 +906,6 @@ Użyj typu problemu `Management` i wybierz `Instance Metadata Service` jako kate
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 1. [Uzyskaj token dostępu dla maszyny wirtualnej](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 1. [Scheduled Events](scheduled-events.md)

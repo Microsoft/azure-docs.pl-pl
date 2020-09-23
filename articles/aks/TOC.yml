@@ -132,6 +132,8 @@
       items:
         - name: Skalowanie klastra AKS
           href: scale-cluster.md
+        - name: Zatrzymywanie klastra AKS (wersja zapoznawcza)
+          href: start-stop-cluster.md
         - name: Uaktualnianie klastra AKS
           href: upgrade-cluster.md
         - name: Używanie umowy SLA dotyczącej czasu dostępności
@@ -307,8 +309,10 @@
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Opracowywanie i uruchamianie aplikacji
       items:
-        - name: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio Code (wersja zapoznawcza)
-          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
+        - name: Używanie Mostka na platformę Kubernetes z programem Visual Studio Code
+          href: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+        - name: Używanie Mostka na platformę Kubernetes z programem Visual Studio
+          href: /visualstudio/containers/bridge-to-kubernetes
         - name: Instalowanie istniejących aplikacji za pomocą zestawu Helm
           href: kubernetes-helm.md
         - name: Korzystanie z usługi OpenFaaS

@@ -9,12 +9,12 @@ metadata:
   author: laurenhughes
   ms.author: lahugh
   ms.date: 07/21/2020
-  ms.openlocfilehash: 35138e4e5569ddfa46cb60c742e7ae0b3868c8cd
-  ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+  ms.openlocfilehash: 98d96c36e8ec801c2a8a5a87d0075f2d9b57bd98
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/04/2020
-  ms.locfileid: "87563334"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90984964"
 landingContent:
 - title: Informacje o usłudze Azure Kubernetes Service (AKS)
   linkLists:
@@ -34,9 +34,9 @@ landingContent:
       url: concepts-identity.md
     - text: Zabezpieczenia
       url: concepts-security.md
-    - text: Sieć
+    - text: Networking
       url: concepts-network.md
-    - text: Storage
+    - text: Magazyn
       url: concepts-storage.md
     - text: Skalowanie
       url: concepts-scale.md
@@ -50,14 +50,14 @@ landingContent:
       url: kubernetes-walkthrough-portal.md
     - text: Szablon usługi Resource Manager
       url: kubernetes-walkthrough-rm-template.md
-- title: Opracowywanie i debugowanie aplikacji przy użyciu procesu lokalnego w usłudze Kubernetes
+- title: Programowanie i debugowanie aplikacji za pomocą Mostka na platformę Kubernetes
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio Code (wersja zapoznawcza)
-      url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-    - text: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio (wersja zapoznawcza)
-      url: /visualstudio/containers/local-process-kubernetes
+    - text: Używanie Mostka na platformę Kubernetes z programem Visual Studio Code
+      url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+    - text: Używanie Mostka na platformę Kubernetes z programem Visual Studio
+      url: /visualstudio/containers/bridge-to-kubernetes
 - title: Wdrażanie i aktualizowanie aplikacji oraz zarządzanie nimi
   linkLists:
   - linkListType: tutorial

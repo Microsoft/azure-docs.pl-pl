@@ -9,21 +9,46 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/04/2020
-ms.openlocfilehash: a2d27f892e79d99f515032b72e1ec090ab1f6a31
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.date: 09/22/2020
+ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500355"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900589"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Informacje o wersji usługi Azure SQL Edge 
 
 W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każdą nową kompilacją usługi Azure SQL Edge.
 
+## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge — 1.0.0 (RTM)
+
+### <a name="sql-engine-build-number---15020001549"></a>Numer kompilacji aparatu SQL — 15.0.2000.1549
+
+### <a name="whats-new"></a>Co nowego
+1. Ubuntu 18,04 na podstawie obrazów kontenerów. 
+2. Obsługa `IGNORE NULL` składni i `RESPECT NULL` funkcji oraz `LAST_VALUE()` `FIRST_VALUE()` . 
+3. Udoskonalenia niezawodności dla przewidywania za pomocą ONNX.
+4. Obsługa oczyszczania opartych na zasadach przechowywania danych.      
+   - Obsługa zoptymalizowanego oczyszczania dla klastrowanych indeksów magazynu kolumn.
+5. Obsługa nowych funkcji 
+   - Szybkie odzyskiwanie
+   - Autodostrajanie zapytań
+
+### <a name="fixes"></a>Poprawki
+1. Dodatkowe komunikaty o błędach i szczegółowe informacje dotyczące rozwiązywania problemów z operacjami TSQL Streaming. 
+2. Ulepszenia w celu zachowania czasu pracy baterii w trybie bezczynności. 
+3. Poprawki aparatu przesyłania strumieniowego TSQL: 
+   - Czyszczenie dla zatrzymywanego zadania przesyłania strumieniowego 
+   - Poprawki dotyczące poprawy obsługi lokalizacji i formatu Unicode
+4. Oczyszczanie oparte na zasadach przechowywania danych
+   - Poprawki dotyczące scenariuszy tworzenia i oczyszczania zasad przechowywania.
+5. Poprawki dotyczące zadań czasomierza w tle w celu zwiększenia oszczędności w trybie niskiego zużycia baterii.
+
+
 ## <a name="ctp-23"></a>CTP 2,3
 ### <a name="sql-engine-build-number---15020001549"></a>Numer kompilacji aparatu SQL — 15.0.2000.1549
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 1. Obsługa niestandardowych źródeł w funkcji Date_Bucket (). 
 2. Obsługa plików BacPac w ramach wdrożenia programu SQL Server.
 3. Obsługa oczyszczania opartych na zasadach przechowywania danych.      
@@ -33,7 +58,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 ### <a name="fixes"></a>Poprawki
 1. Dodatkowe komunikaty o błędach i szczegółowe informacje dotyczące rozwiązywania problemów z operacjami TSQL Streaming. 
-2. Imporvements, aby zachować żywotność baterii w trybie bezczynności. 
+2. Ulepszenia w celu zachowania czasu pracy baterii w trybie bezczynności. 
 3. Poprawki aparatu przesyłania strumieniowego TSQL: 
    - Problem z zablokowanym znakiem wodnym przy użyciu podstrumienia okna przeskoku 
    - Napraw obsługę wyjątków platformy, aby upewnić się, że jest ona zbierana jako błąd z możliwością wykonania przez użytkownika
@@ -41,7 +66,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 ## <a name="ctp-22"></a>CTP 2,2
 ### <a name="sql-engine-build-number---15020001546"></a>Numer kompilacji aparatu SQL — 15.0.2000.1546
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 1. Obsługa kontenerów innych niż główne 
 2. Obsługa zbierania danych użycia i diagnostyki 
 3. Aktualizacje przesyłania strumieniowego T-SQL
@@ -63,7 +88,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 ## <a name="ctp-20"></a>CTP 2,0 
 ### <a name="sql-engine-build-number---15020001401"></a>Numer kompilacji aparatu SQL — 15.0.2000.1401
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 1.  Nazwa produktu została zaktualizowana do "Azure SQL Edge"
 1.  Funkcja Date_bucket
 
@@ -92,7 +117,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 ## <a name="ctp-15"></a>CTP 1,5
 ### <a name="sql-engine-build-number---15020001331"></a>Numer kompilacji aparatu SQL — 15.0.2000.1331
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 1. Funkcja Date_bucket
     
     i. Obsługa typu DateTimeOffset
@@ -102,7 +127,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
  
 ## <a name="ctp-14"></a>CTP 1,4
 ### <a name="sql-engine-build-number---15020001247"></a>Numer kompilacji aparatu SQL — 15.0.2000.1247
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 1.  PRZEWIDYWANie przy użyciu modeli ONNX
  
     i.  Obsługa varchar
@@ -122,7 +147,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
  
 ## <a name="ctp-13"></a>CTP 1,3
 ### <a name="sql-engine-build-number---15020001147"></a>Numer kompilacji aparatu SQL — 15.0.2000.1147
-### <a name="whats-new"></a>Co nowego?
+### <a name="whats-new"></a>Co nowego
 1. Wdrożenie portalu Azure IOT 
 
     i.   Obsługa wdrażania obrazów AMD64 i ARM

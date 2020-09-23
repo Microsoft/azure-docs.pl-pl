@@ -1,6 +1,6 @@
 ---
-title: Samouczek służący do filtrowania, analizowania danych przy użyciu obliczeń na Azure Stack graniczny procesor GPU | Microsoft Docs
-description: Dowiedz się, jak skonfigurować rolę obliczeniową na Azure Stack Edge GPU i używać jej do przekształcania danych przed wysłaniem do platformy Azure.
+title: Samouczek służący do filtrowania, analizowania danych przy użyciu obliczeń na Azure Stack Edge — procesor GPU Microsoft Docs
+description: Dowiedz się, jak skonfigurować rolę obliczeniową w Azure Stack Edge GPU i użyć jej do przekształcenia danych przed wysłaniem do platformy Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: f4a8786c8d86f43d3433dd51fe7696fd523025a9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: 95c59cff1f47fe720e2dbc65c5b0a69a09be2f2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293566"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903175"
 ---
-# <a name="tutorial-configure-compute-on-azure-stack-edge-gpu-device"></a>Samouczek: Konfigurowanie obliczeń na Azure Stack urządzeniach procesora GPU Edge
+# <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Samouczek: Konfigurowanie obliczeń na urządzeniach z procesorem GPU w Azure Stack Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-W tym samouczku opisano, jak skonfigurować rolę obliczeniową i utworzyć klaster Kubernetes na urządzeniu brzegowym Azure Stack. 
+W tym samouczku opisano, jak skonfigurować rolę obliczeniową i utworzyć klaster Kubernetes na urządzeniu Azure Stack EDGE Pro. 
 
 Wykonanie tej procedury może potrwać od 20 do 30 minut.
 
@@ -34,16 +34,16 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
  
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed skonfigurowaniem roli obliczeniowej na urządzeniu z systemem Azure Stack Edge upewnij się, że:
+Przed skonfigurowaniem roli obliczeniowej na urządzeniu z systemem Azure Stack EDGE Pro upewnij się, że:
 
-- Aktywowano urządzenie Azure Stack Edge zgodnie z opisem w artykule [aktywuj Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+- Twoje urządzenie Azure Stack EDGE Pro zostało aktywowane zgodnie z opisem w artykule [aktywuj Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-activate.md).
 - Upewnij się, że wykonano instrukcje zawarte w temacie [Włączanie sieci obliczeniowej](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network) i:
     - Włączono interfejs sieciowy dla obliczeń.
     - Przypisani adresy IP i Kubernetes usług zewnętrznych usługi Kubernetes.
 
 ## <a name="configure-compute"></a>Konfigurowanie obliczeń
 
-Aby skonfigurować obliczenia na Azure Stackej krawędzi, utworzysz zasób IoT Hub za pośrednictwem Azure Portal.
+W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hub za pośrednictwem Azure Portal.
 
 1. W Azure Portal Azure Stack zasobów brzegowych przejdź do **omówienia**. W okienku po prawej stronie na kafelku **Oblicz** wybierz pozycję **Rozpocznij**.
 
@@ -58,7 +58,7 @@ Aby skonfigurować obliczenia na Azure Stackej krawędzi, utworzysz zasób IoT H
    
     |Pole  |Wartość  |
     |---------|---------|
-    |IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
+    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
     |Nazwa     |Wprowadź nazwę dla zasobu IoT Hub.         |
 
     ![Wprowadzenie do obliczeń](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
@@ -72,17 +72,17 @@ Aby skonfigurować obliczenia na Azure Stackej krawędzi, utworzysz zasób IoT H
     ![Wprowadzenie do obliczeń](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
-    > Jeśli okno dialogowe **Konfigurowanie obliczeń** zostanie zamknięte przed skojarzeniem IoT Hub z urządzeniem brzegowym Azure Stack, IoT Hub zostanie utworzone, ale nie będzie wyświetlane w konfiguracji obliczeń. 
+    > Jeśli okno dialogowe **Konfigurowanie obliczeń** zostanie zamknięte przed skojarzeniem IoT Hub z urządzeniem z programem Azure Stack EDGE Pro, IoT Hub zostanie utworzona, ale nie zostanie pokazany w konfiguracji obliczeniowej. 
     
 Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe IoT Edge jest również uruchomione na tym urządzeniu IoT Edge. W chwili obecnej dla urządzenia IoT Edge jest dostępna tylko platforma Linux.
 
 Skonfigurowanie obliczeń może potrwać 20-30 minut, ponieważ w tle są tworzone maszyny wirtualne i klaster Kubernetes. 
 
-Po pomyślnym skonfigurowaniu obliczeń w Azure Portal jest klaster Kubernetes i domyślny użytkownik skojarzony z przestrzenią nazw IoT (systemowa przestrzeń nazw kontrolowana przez Azure Stack Edge) istnieje. 
+Po pomyślnym skonfigurowaniu obliczeń w Azure Portal jest to klaster Kubernetes i domyślny użytkownik skojarzony z przestrzenią nazw IoT (systemowa przestrzeń nazw kontrolowana przez Azure Stack EDGE Pro) istnieje. 
 
 ## <a name="get-kubernetes-endpoints"></a>Pobierz punkty końcowe Kubernetes
 
-Aby skonfigurować klienta do uzyskiwania dostępu do klastra Kubernetes, wymagany jest punkt końcowy Kubernetes. Wykonaj następujące kroki, aby uzyskać punkt końcowy interfejsu API Kubernetes z lokalnego interfejsu użytkownika urządzenia brzegowego Azure Stack.
+Aby skonfigurować klienta do uzyskiwania dostępu do klastra Kubernetes, wymagany jest punkt końcowy Kubernetes. Wykonaj następujące kroki, aby uzyskać punkt końcowy interfejsu API Kubernetes z lokalnego interfejsu użytkownika urządzenia z Azure Stack EDGE Pro.
 
 1. W lokalnym interfejsie użytkownika sieci Web urządzenia przejdź do strony **urządzenia** .
 2. W obszarze **punkty końcowe urządzenia**Skopiuj punkt końcowy **usługi interfejsu API Kubernetes** . Ten punkt końcowy jest ciągiem w następującym formacie: `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]` . 
@@ -117,7 +117,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Pobierz punkty końcowe Kubernetes
 
 
-Aby dowiedzieć się, jak administrować urządzeniem brzegowym Azure Stack, zobacz:
+Aby dowiedzieć się, jak administrować urządzeniem Azure Stack EDGE Pro, zobacz:
 
 > [!div class="nextstepaction"]
-> [Używanie lokalnego interfejsu użytkownika sieci Web do administrowania Azure Stack krawędzią](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Korzystanie z lokalnego interfejsu użytkownika sieci Web do administrowania Azure Stack krawędzią Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)

@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: f78a311125340f447cb0f2dda960e34c289c123a
-  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+  ms.openlocfilehash: eeca42ea748c10970f312a84ea32c53fb904344a
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88650846"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90974437"
 landingContent:
 - title: Dowiedz się więcej o usłudze Azure Backup
   linkLists:
@@ -56,12 +56,14 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Centrum kopii zapasowych
+      url: backup-center-overview.md
+    - text: Tworzenie kopii zapasowej usługi Azure Database for PostgreSQL
+      url: backup-azure-database-postgresql.md
     - text: Usuwanie nietrwałe dla usługi Azure Backup
       url: backup-azure-security-feature-cloud.md
     - text: Przywracanie jako plików programu SQL Server na maszynach wirtualnych platformy Azure
       url: restore-sql-database-azure-vm.md#restore-as-files
-    - text: Kopia zapasowa bazy danych platformy SAP HANA na maszynach wirtualnych platformy Azure
-      url: backup-azure-sap-hana-database.md
 - title: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
   linkLists:
   - linkListType: concept
@@ -134,6 +136,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Zarządzanie na dużą skalę przy użyciu Centrum kopii zapasowych
+      url: backup-center-monitor-operate.md
     - text: Zarządzanie na dużą skalę za pomocą usługi Azure Policy
       url: backup-azure-auto-enable-backup.md
     - text: Monitorowanie i operowanie na dużą skalę za pomocą eksploratora kopii zapasowych

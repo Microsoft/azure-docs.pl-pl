@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 25c58f99f56a4328527d1dd970e3ade21eb51819
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76834691"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987165"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Samouczek: diagnozowanie problemu z komunikacją między sieciami przy użyciu witryny Azure Portal
 
-Brama sieci wirtualnej łączy sieć wirtualną platformy Azure z lokalną lub inną siecią wirtualną. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Brama sieci wirtualnej łączy sieć wirtualną platformy Azure z lokalną lub inną siecią wirtualną. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Diagnozowanie problemu z bramą sieci wirtualnej za pomocą diagnostyki sieci VPN usługi Network Watcher
@@ -73,12 +73,12 @@ Jeśli masz już włączoną usługę Network Watcher w regionie Wschodnie stany
 8. Podczas działania testu w kolumnie **STAN ROZWIĄZYWANIA PROBLEMÓW** jest wyświetlana informacja **Uruchomiono** w miejscu, w którym na poprzedniej ilustracji była wyświetlana informacja **Nie uruchomiono**. Wykonywanie testu może trwać kilka minut.
 9. Wyświetl stan ukończonego testu. Na poniższej ilustracji przedstawiono informacje o stanie ukończonego testu diagnostycznego:
 
-    ![Stan](./media/diagnose-communication-problem-between-networks/status.png)
+    ![Zrzut ekranu przedstawia wyniki testu diagnostycznego w złej kondycji, w tym podsumowanie i szczegóły.](./media/diagnose-communication-problem-between-networks/status.png)
 
     W kolumnie **STAN ROZWIĄZYWANIA PROBLEMÓW** jest wyświetlana wartość **W złej kondycji**. Widać też **Podsumowanie** i **Szczegóły** problemu na karcie **Stan**.
 10. Po wybraniu karty **Akcja** diagnostyka sieci VPN udostępnia dodatkowe informacje. W przykładzie pokazanym na poniższej ilustracji diagnostyka sieci VPN informuje o tym, że należy sprawdzić kondycję każdego połączenia:
 
-    ![Akcja](./media/diagnose-communication-problem-between-networks/action.png)
+    ![Zrzut ekranu przedstawia kartę Akcja, która umożliwia uzyskanie dodatkowych informacji.](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## <a name="diagnose-a-gateway-connection"></a>Diagnozowanie połączenia bramy
 
@@ -86,7 +86,7 @@ Brama jest połączona z innymi sieciami za pośrednictwem połączenia bramy. Z
 
 1. Wykonaj ponownie krok 7 z sekcji [Diagnozowanie bramy](#diagnose-a-gateway), tym razem wybierając połączenie. W poniższym przykładzie jest testowane połączenie o nazwie **VNet1toSite1**:
 
-    ![Połączenie](./media/diagnose-communication-problem-between-networks/connection.png)
+    ![Zrzut ekranu pokazuje, jak rozpocząć rozwiązywanie problemów z wybranym połączeniem.](./media/diagnose-communication-problem-between-networks/connection.png)
 
     Test jest wykonywany przez kilka minut.
 2. Po zakończeniu testu połączenia zostaną wyświetlone wyniki podobne do wyników pokazanych w poniższych ilustracjach na kartach **Stan** i **Akcja**:
@@ -101,7 +101,7 @@ Brama jest połączona z innymi sieciami za pośrednictwem połączenia bramy. Z
 
     Aby rozwiązać ten problem, należy się upewnić, że lokalna brama sieci VPN jest [poprawnie skonfigurowana](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), i zmienić adres IP skonfigurowany za pomocą skryptu dla bramy sieci lokalnej na rzeczywisty publiczny adres lokalnej bramy sieci VPN.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli bramę sieci VPN utworzono przy użyciu skryptu z sekcji [Wymagania wstępne](#prerequisites) wyłącznie w celu wykonania kroków tego samouczka i nie jest ona już potrzebna, usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 

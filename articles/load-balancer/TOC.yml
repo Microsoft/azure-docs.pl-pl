@@ -39,6 +39,10 @@
       href: powershell-samples.md
 - name: Pojęcia
   items:
+    - name: Moduł równoważenia obciążenia między regionami
+      href: cross-region-overview.md
+    - name: Co nowego?
+      href: whats-new.md
     - name: Składniki
       href: components.md
     - name: Pojęcia
