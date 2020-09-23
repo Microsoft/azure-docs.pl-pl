@@ -1,6 +1,6 @@
 ---
-title: Użyj polecenia kubectl do wdrożenia aplikacji stanowej Kubernetes za pośrednictwem dynamicznie przystosowanego udziału na urządzeniu Azure Stack Edge procesor GPU | Microsoft Docs
-description: Opisuje sposób tworzenia i zarządzania wdrożeniem aplikacji stanowych Kubernetes za pośrednictwem dynamicznego udostępniania udziałów przy użyciu usługi polecenia kubectl na urządzeniu z systemem Microsoft Azure Stack Edge.
+title: Użyj polecenia kubectl do wdrożenia aplikacji stanowej Kubernetes za pośrednictwem dynamicznego udostępniania udziałów na urządzeniu z systemem Azure Stack EDGE Pro GPU | Microsoft Docs
+description: Zawiera opis sposobu tworzenia i zarządzania wdrożeniem aplikacji stanowych Kubernetes za pośrednictwem dynamicznego udostępniania przy użyciu usługi polecenia kubectl na urządzeniu GPU z systemem Microsoft Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: c787fc4c37c8fc3b4b8f007b1a84a5989a15fbc4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d37152f7dec78d5f5db21fdde9a8ec25c36c4e05
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254325"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899480"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-gpu-device"></a>Użyj polecenia kubectl, aby uruchomić aplikację stanową Kubernetes z StorageClass na urządzeniu z systemem Azure Stack Edge
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Użyj polecenia kubectl, aby uruchomić aplikację stanową Kubernetes z StorageClass na urządzeniu z systemem Azure Stack Edge
 
 W tym artykule pokazano, jak wdrożyć aplikację stanową pojedynczego wystąpienia w programie Kubernetes przy użyciu StorageClass do dynamicznego aprowizacji magazynu i wdrożenia. Wdrożenie używa `kubectl` poleceń w istniejącym klastrze Kubernetes i wdraża aplikację MySQL. 
 
-Ta procedura jest przeznaczona dla osób, które sprawdziły [Magazyn Kubernetes na urządzeniu Azure Stack Edge](azure-stack-edge-gpu-kubernetes-storage.md) i znają koncepcje [magazynu Kubernetes](https://kubernetes.io/docs/concepts/storage/).
+Ta procedura jest przeznaczona dla osób, które sprawdziły [Magazyn Kubernetes na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-kubernetes-storage.md) i znają koncepcje [magazynu Kubernetes](https://kubernetes.io/docs/concepts/storage/).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -28,30 +28,30 @@ Przed wdrożeniem aplikacji stanowej upewnij się, że zostały spełnione nast�
 
 ### <a name="for-device"></a>Na potrzeby urządzenia
 
-- Poświadczenia logowania są dostępne dla jednego węzła Azure Stack urządzenia brzegowego.
+- Poświadczenia logowania są dostępne na urządzeniu z 1 węzłem Azure Stack Edge.
     - Urządzenie zostało aktywowane. Zobacz [Aktywowanie urządzenia](azure-stack-edge-gpu-deploy-activate.md).
     - Urządzenie ma rolę obliczeniową skonfigurowaną za pośrednictwem Azure Portal i ma klaster Kubernetes. Zobacz [Konfigurowanie obliczeń](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 ### <a name="for-client-accessing-the-device"></a>Do uzyskiwania dostępu do urządzenia przez klienta
 
-- Masz system klienta systemu Windows, który będzie używany do uzyskiwania dostępu do urządzenia brzegowego Azure Stack.
+- Masz system klienta systemu Windows, który będzie używany do uzyskiwania dostępu do urządzenia z systemem Azure Stack Edge.
     - Klient korzysta z programu Windows PowerShell 5,0 lub nowszego. Aby pobrać najnowszą wersję programu Windows PowerShell, przejdź do obszaru [Instalowanie programu Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Możesz również mieć dowolnego innego klienta z [obsługiwanym systemem operacyjnym](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . W tym artykule opisano procedurę w przypadku korzystania z klienta systemu Windows. 
     
-    - Procedura opisana w artykule [Uzyskiwanie dostępu do klastra Kubernetes na urządzeniu brzegowym Azure Stack](azure-stack-edge-gpu-create-kubernetes-cluster.md). Masz:
+    - Procedura opisana w artykule [Uzyskiwanie dostępu do klastra Kubernetes na urządzeniu z systemem Azure Stack Edge w systemie](azure-stack-edge-gpu-create-kubernetes-cluster.md). Masz:
       - Utworzono `userns1` przestrzeń nazw za pomocą `New-HcsKubernetesNamespace` polecenia. 
       - Utworzono użytkownika `user1` za pomocą `New-HcsKubernetesUser` polecenia. 
       - Udzielono `user1` dostępu `userns1` za pośrednictwem `Grant-HcsKubernetesNamespaceAccess` polecenia.       
       - Zainstalowany `kubectl` na kliencie i zapisany `kubeconfig` plik z konfiguracją użytkownika w języku C: \\ Users \\ &lt; &gt; \\ . polecenia. 
     
-    - Upewnij się, że `kubectl` wersja klienta jest skośna nie więcej niż jedna wersja z wersji głównej Kubernetes uruchomionej na urządzeniu Azure Stack Edge. 
+    - Upewnij się, że `kubectl` wersja klienta jest skośna nie więcej niż jedna wersja z wersji głównej Kubernetes działającej na urządzeniu Azure Stack EDGE Pro. 
         - Użyj, `kubectl version` Aby sprawdzić wersję polecenia kubectl działającą na kliencie. Zanotuj pełną wersję.
-        - W lokalnym interfejsie użytkownika urządzenia brzegowego Azure Stack przejdź do **omówienia** i zanotuj numer oprogramowania Kubernetes. 
+        - W lokalnym interfejsie użytkownika urządzenia z usługą Azure Stack Edge, przejdź do **omówienia** i zanotuj numer oprogramowania Kubernetes. 
         - Sprawdź te dwie wersje pod kątem zgodności z mapowania podanego w obsługiwanej wersji Kubernetes<!-- insert link-->. 
 
 
-Możesz przystąpić do wdrażania aplikacji stanowej na urządzeniu Azure Stack Edge. 
+Możesz przystąpić do wdrażania aplikacji stanowej na urządzeniu, na którym znajduje się Azure Stack Edge. 
 
 
 ## <a name="deploy-mysql"></a>Wdrażanie bazy danych MySQL
@@ -78,7 +78,7 @@ Wszystkie `kubectl` polecenia używane do tworzenia i zarządzania wdrożeniami 
 
 1. Będziesz używać następujących plików YAML. `mysql-deployment.yml`Plik zawiera opis wdrożenia z programem MySQL i odwołuje się do obwodu PVC. Plik definiuje instalację woluminu dla programu `/var/lib/mysql` , a następnie tworzy obwód PVC, który szuka woluminu o wielkości 20 GB. Dynamiczna funkcja PV jest inicjowana, a obwód PVC jest powiązany z tym PV.
 
-    Skopiuj i Zapisz następujący `mysql-deployment.yml` plik do folderu na kliencie systemu Windows, którego używasz, aby uzyskać dostęp do urządzenia brzegowego Azure Stack.
+    Skopiuj i Zapisz następujący `mysql-deployment.yml` plik do folderu na kliencie systemu Windows, który jest używany do uzyskania dostępu do urządzenia Azure Stack EDGE Pro.
     
     ```yml
     apiVersion: v1
@@ -126,7 +126,7 @@ Wszystkie `kubectl` polecenia używane do tworzenia i zarządzania wdrożeniami 
               claimName: mysql-pv-claim-sc
     ```
     
-2. Skopiuj i Zapisz jako `mysql-pvc.yml` plik w tym samym folderze, w którym został zapisany `mysql-deployment.yml` . Aby użyć wbudowanej StorageClass, która Azure Stack Urządzenie brzegowe na dołączonym dysku z danymi, `storageClassName` należy ustawić pole w obiekcie PVC na `ase-node-local` i accessModes powinno być `ReadWriteOnce` . 
+2. Skopiuj i Zapisz jako `mysql-pvc.yml` plik w tym samym folderze, w którym został zapisany `mysql-deployment.yml` . Aby użyć wbudowanej StorageClass, która Azure Stack na podłączonym dysku z danymi, należy ustawić `storageClassName` pole w obiekcie PVC na `ase-node-local` i accessModes powinno być `ReadWriteOnce` . 
 
     > [!NOTE] 
     > Upewnij się, że pliki YAML mają poprawne wcięcia. Możesz sprawdzić za pomocą [YAML lint](http://www.yamllint.com/) , aby sprawdzić poprawność, a następnie zapisać.
@@ -326,4 +326,4 @@ C:\Users\user>
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak skonfigurować sieć za pomocą polecenia kubectl, zobacz [wdrażanie aplikacji bezstanowej na urządzeniu Azure Stack Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)
+Aby dowiedzieć się, jak skonfigurować sieć za pośrednictwem polecenia kubectl, zobacz [wdrażanie aplikacji bezstanowej na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)

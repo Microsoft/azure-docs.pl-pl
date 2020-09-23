@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 14c3bc968da9d398fbc14eda74378047cf28277b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b7943b2026d640ae7e5d119e165bd752ae2fe7f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477701"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898821"
 ---
 # <a name="clean-missing-data-module"></a>Wyczyść nieobecny moduł danych
 
-W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Ten moduł służy do usuwania, zastępowania lub wnioskowania brakujących wartości. 
 
@@ -48,7 +48,7 @@ Ten moduł umożliwia zdefiniowanie operacji czyszczenia. Możesz również zapi
 
 ### <a name="replace-missing-values"></a>Zamień brakujące wartości  
 
-Za każdym razem, gdy moduł [czystych danych](./clean-missing-data.md) nie zostanie zastosowany do zestawu danych, ta sama operacja czyszczenia jest stosowana do wszystkich zaznaczonych kolumn. W związku z tym, jeśli chcesz wyczyścić różne kolumny przy użyciu różnych metod, użyj oddzielnych wystąpień modułu.
+Za każdym razem, gdy moduł  [czystych danych](./clean-missing-data.md) nie zostanie zastosowany do zestawu danych, ta sama operacja czyszczenia jest stosowana do wszystkich zaznaczonych kolumn. W związku z tym, jeśli chcesz wyczyścić różne kolumny przy użyciu różnych metod, użyj oddzielnych wystąpień modułu.
 
 1.  Dodaj [czysty moduł danych](./clean-missing-data.md) do potoku, a następnie połącz zestaw danych z brakującymi wartościami.  
   

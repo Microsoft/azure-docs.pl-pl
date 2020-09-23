@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: bf30fc5e6ccfc0f59c1769245e58177428472156
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701814"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900058"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Kontenery Cognitive Services platformy Azure — często zadawane pytania
 
@@ -22,11 +22,16 @@ ms.locfileid: "83701814"
 
 **P: co jest dostępne?**
 
-Odp **.:** Kontenery usługi Azure Cognitive Services umożliwiają deweloperom korzystanie z tych samych inteligentnych interfejsów API, które są dostępne na platformie Azure, ale z [korzyściami](../cognitive-services-container-support.md#features-and-benefits) z kontenerach. Niektóre kontenery są dostępne jako wersja zapoznawcza, co może wymagać, aby aplikacja mogła uzyskać dostęp. Inne kontenery są publicznie dostępne jako wersja zapoznawcza lub są ogólnie dostępne. Pełną listę kontenerów i ich dostępność można znaleźć w artykule [Obsługa kontenerów w usłudze Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) . 
+Odp **.:** Kontenery usługi Azure Cognitive Services umożliwiają deweloperom korzystanie z tych samych inteligentnych interfejsów API, które są dostępne na platformie Azure, ale z [korzyściami](../cognitive-services-container-support.md#features-and-benefits) z kontenerach. Niektóre kontenery są dostępne jako wersja zapoznawcza, co może wymagać, aby aplikacja mogła uzyskać dostęp. Inne kontenery są publicznie dostępne jako wersja zapoznawcza lub są ogólnie dostępne. Pełną listę kontenerów i ich dostępność można znaleźć w artykule [Obsługa kontenerów w usłudze Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) . Możesz również wyświetlić kontenery w usłudze [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 **P: czy istnieje różnica między chmurą Cognitive Services i kontenerami?**
 
 Odp **.:** Kontenery Cognitive Services są alternatywą dla chmury Cognitive Services. Kontenery oferują te same możliwości co odpowiednie usługi w chmurze. Klienci mogą wdrażać kontenery lokalnie lub na platformie Azure. Podstawowa technologia AI, warstwy cenowe, klucze interfejsu API i podpis interfejsu API są takie same, jak w przypadku kontenera i odpowiednich usług w chmurze. Poniżej przedstawiono [funkcje i korzyści wynikające](../cognitive-services-container-support.md#features-and-benefits) z wyboru kontenerów w ramach usługi w chmurze.
+
+**P: Jak mogę dostępu i używania kontenera z bramą w wersji zapoznawczej?**
+
+Odp **.:** Wcześniej w repozytorium były hostowane kontenery w wersji zapoznawczej `containerpreview.azurecr.io` . Od 22 września 2020 te kontenery są hostowane w Container Registry firmy Microsoft, a ich pobieranie nie wymaga użycia polecenia Docker login. Jeśli zasób platformy Azure został utworzony przy użyciu zatwierdzonego identyfikatora subskrypcji platformy Azure, będzie można uruchomić bramę z zapoznawczą. Nie będzie można uruchomić kontenera, jeśli subskrypcja platformy Azure nie została zatwierdzona po zakończeniu [formularza żądania](https://aka.ms/csgate).
+
 
 **P: czy kontenery będą dostępne dla wszystkich Cognitive Services i jakie są następne zestawy kontenerów, których oczekujemy?**
 
@@ -76,6 +81,22 @@ Kontenery nie są testowane z OpenShift, ale ogólnie kontenery Cognitive Servic
 **P: Jak mogę zapewniać opinie o produkcie i zalecenia dotyczące funkcji?**
 
 Odp **.:** Zachęcamy klientów do [zagłosowania](https://cognitive.uservoice.com/) publicznie i popełnienia innych osób, które zrobiły to samo, gdzie potencjalne problemy nakładają się na siebie. Narzędzia głosowego użytkownika można używać zarówno w celu uzyskania opinii o produkcie, jak i zaleceń dotyczących funkcji.
+
+**P: jakie komunikaty o stanie i błędy są zwracane przez Cognitive Services kontenery?**
+
+Odp **.:** Listę komunikatów o stanie i błędów można znaleźć w poniższej tabeli.
+
+|Stan  | Opis  |
+|---------|---------|
+| `Valid` | Klucz interfejsu API jest prawidłowy, nie jest wymagana żadna akcja. |
+| `Invalid` |   Klucz interfejsu API jest nieprawidłowy. Musisz podać prawidłowy klucz interfejsu API, aby uruchomić kontener. Znajdź klucz interfejsu API i region usługi w sekcji **klucze i punkt końcowy** dla zasobu usługi Azure Cognitive Services w Azure Portal. |
+| `Mismatch` | Podano klucz interfejsu API lub punkt końcowy dla innego rodzaju zasobu usług poznawczej. Znajdź klucz interfejsu API i region usługi w sekcji **klucze i punkt końcowy** dla zasobu Cognitive Services platformy Azure. |
+| `CouldNotConnect` | Kontener nie może połączyć się z punktem końcowym rozliczeń. Sprawdź `Retry-After` wartość i poczekaj na zakończenie tego okresu przed wprowadzeniem dodatkowych żądań. |
+| `OutOfQuota` | Brak limitu przydziału klucza interfejsu API. Możesz uaktualnić warstwę cenową lub poczekać na udostępnienie dodatkowego przydziału. Znajdź warstwę w sekcji **warstwa cenowa** zasobu usługi poznawczej platformy Azure, w Azure Portal. |
+| `BillingEndpointBusy` | Punkt końcowy rozliczeniowy jest obecnie zajęty. Sprawdź `Retry-After` wartość i poczekaj na zakończenie tego okresu przed wprowadzeniem dodatkowych żądań. |
+| `ContainerUseUnauthorized` | Podany klucz interfejsu API nie jest autoryzowany do użycia z tym kontenerem. Prawdopodobnie używasz kontenera warunkowego, więc upewnij się, że identyfikator subskrypcji platformy Azure został zatwierdzony przez przesłanie [żądania online](https://aka.ms/csgate). |
+| `Unknown` | Serwer nie może obecnie przetwarzać żądań rozliczeń. |
+
 
 **P: kogo mogę się skontaktować w celu uzyskania pomocy technicznej?**
 

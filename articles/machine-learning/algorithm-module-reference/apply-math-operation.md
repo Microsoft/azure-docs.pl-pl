@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456747"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898886"
 ---
 # <a name="apply-math-operation"></a>Stosowanie operacji matematycznej
 
-W tym artykule opisano moduł programu Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł programu Azure Machine Learning Designer.
 
 Użyj operacji stosowania matematycznego, aby utworzyć obliczenia, które są stosowane do kolumn liczbowych w wejściowym zestawie danych. 
 
@@ -32,11 +32,11 @@ Po zdefiniowaniu operacji i uruchomieniu potoku wartości są dodawane do zestaw
 
 Poszukaj potrzebnych operacji w następujących kategoriach:  
 
-- [Podstawowe](#basic-math-operations)  
+- [Podstawowa](#basic-math-operations)  
   
      Funkcje w kategorii **Basic** mogą służyć do manipulowania pojedynczą wartością lub kolumną wartości. Na przykład możesz uzyskać wartość bezwzględną wszystkich liczb w kolumnie lub obliczyć pierwiastek kwadratowy dla każdej wartości w kolumnie.  
   
--   [Porównaniu](#comparison-operations)  
+-   [Porównaj](#comparison-operations)  
   
       Funkcje w kategorii **porównywania** są używane do porównania: można wykonać porównanie par wartości w dwóch kolumnach lub porównać każdą wartość w kolumnie z określoną stałą. Na przykład można porównać kolumny, aby określić, czy wartości były takie same w dwóch zestawach danych. Lub można użyć stałej, na przykład maksymalnej dozwolonej wartości, aby znaleźć elementy odstające w kolumnie liczbowej.  
   
@@ -138,7 +138,7 @@ Zwraca liczbę e podniesioną do potęgi wartości z zaznaczonej kolumny. Jest t
 
 Zwraca wartość typu wykładniczego 2 dla argumentów, co oznacza wartość y = x * 2<sup>t</sup> , gdzie t jest kolumną wartości zawierających wykładniki.  
 
-W obszarze **zestaw kolumn**wybierz kolumnę zawierającą wartości wykładnika t.
+W obszarze  **zestaw kolumn**wybierz kolumnę zawierającą wartości wykładnika t.
 
 Dla **exp2 —** można określić drugi argument x, który może być stałą lub inną kolumną wartości. W **drugim typie argumentu**wskaż, czy jako stałą ma być udostępniany współczynnik x, czy wartość w kolumnie.  
 
@@ -253,8 +253,8 @@ Kolejność, w której wybierasz kolumny do dzielenia i odejmowania, może wydaw
 
 Operacja|Num1|Num2|Kolumna wyników|Wartość wyniku|
 ----|----|----|----|----
-|Znak dodawania|1|5|Dodaj (Num2_Num1)| 4|
-|Znak mnożenia|1|5|Wiele (Num2_Num1)|5|
+|Dodawanie|1|5|Dodaj (Num2_Num1)| 4|
+|Mnożenie|1|5|Wiele (Num2_Num1)|5|
 |Odejmowanie|1|5|Odejmij (Num2_Num1)|4|
 |Odejmowanie|0|1|Odejmij (Num2_Num1)|0|
 |Dział|1|5|Podziel (Num2_Num1)|5|

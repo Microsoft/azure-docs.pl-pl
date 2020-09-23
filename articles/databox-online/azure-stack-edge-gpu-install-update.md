@@ -1,6 +1,6 @@
 ---
-title: Instalowanie aktualizacji na urządzeniu z systemem Azure Stack Edge Microsoft Docs
-description: Zawiera opis sposobu stosowania aktualizacji przy użyciu Azure Portal i lokalnego interfejsu użytkownika sieci Web na potrzeby Azure Stack urządzenia brzegowego procesora GPU i klastra Kubernetes na urządzeniu.
+title: Zainstaluj aktualizację na urządzeniu z systemem Azure Stack Edge w wersji Pro Microsoft Docs
+description: Zawiera opis sposobu stosowania aktualizacji przy użyciu Azure Portal i lokalnego interfejsu użytkownika sieci Web dla urządzeń z systemem Azure Stack EDGE Pro procesora GPU i klastra Kubernetes na urządzeniu.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 6bafeeeda686dafadc3f5104240f8d018de83aeb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 107485277e28a44841b0d71fef686f0bcbf52216
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268248"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899508"
 ---
-# <a name="update-your-azure-stack-edge-with-gpu"></a>Aktualizowanie Azure Stack krawędzi z procesorem GPU 
+# <a name="update-your-azure-stack-edge-pro-with-gpu"></a>Aktualizowanie Azure Stack Edge z użyciem procesora GPU 
 
-W tym artykule opisano kroki wymagane do zainstalowania aktualizacji na Azure Stack Edge z procesorem GPU za pośrednictwem lokalnego interfejsu użytkownika sieci Web i za pośrednictwem Azure Portal. Należy zastosować aktualizacje oprogramowania lub poprawki, aby zapewnić aktualność urządzenia Azure Stack Edge i skojarzonych Kubernetes cluaster na urządzeniu. 
+W tym artykule opisano kroki wymagane do zainstalowania aktualizacji na Azure Stack Edge z procesorem GPU przy użyciu lokalnego interfejsu użytkownika sieci Web i za pośrednictwem Azure Portal. Aktualizacje lub poprawki oprogramowania są stosowane w celu zachowania aktualności urządzenia Azure Stack Edge i powiązanego cluaster Kubernetes na urządzeniu. 
 
 > [!IMPORTANT]
 > - Aktualizacja **2008** jest zgodna z wersją oprogramowania **2.1.1328.1904** na urządzeniu. Aby uzyskać informacje na temat tej aktualizacji, przejdź do informacji o [wersji](azure-stack-edge-gpu-2008-release-notes.md).
 >
-> - Należy pamiętać, że zainstalowanie aktualizacji lub poprawki powoduje ponowne uruchomienie urządzenia. Ta aktualizacja wymaga sekwencyjnego zastosowania dwóch aktualizacji. Najpierw należy zastosować aktualizacje oprogramowania urządzenia, a następnie Kubernetes aktualizacje. Mając na względzie, że Azure Stack Edge jest urządzeniem z jednym węzłem, wszystkie we/wy w toku są zakłócane, a urządzenie będzie miało czas przestoju do 30 minut na aktualizację oprogramowania urządzenia.
+> - Należy pamiętać, że zainstalowanie aktualizacji lub poprawki powoduje ponowne uruchomienie urządzenia. Ta aktualizacja wymaga sekwencyjnego zastosowania dwóch aktualizacji. Najpierw należy zastosować aktualizacje oprogramowania urządzenia, a następnie Kubernetes aktualizacje. Mając na względzie, że Azure Stack EDGE Pro jest urządzeniem jednego węzła, wszystkie we/wy w toku są zakłócane, a urządzenie będzie miało czas przestoju do 30 minut na aktualizację oprogramowania.
 
 Aby zainstalować aktualizacje na urządzeniu, należy najpierw skonfigurować lokalizację serwera aktualizacji. Po skonfigurowaniu serwera aktualizacji można zastosować aktualizacje za pośrednictwem interfejsu użytkownika Azure Portal lub lokalnego interfejsu użytkownika sieci Web.
 
@@ -57,7 +57,7 @@ Zalecamy zainstalowanie aktualizacji za pomocą Azure Portal. Urządzenie automa
 
 2. W bloku **aktualizacje urządzeń** Sprawdź, czy zostały sprawdzone postanowienia licencyjne związane z nowymi funkcjami w informacjach o wersji.
 
-    Możesz **pobrać i zainstalować** aktualizacje lub po prostu **pobrać** aktualizacje. Następnie można później zainstalować te aktualizacje.
+    Możesz **pobrać i zainstalować** aktualizacje lub po prostu **pobrać** aktualizacje. Następnie możesz zainstalować te aktualizacje później.
 
     ![Wersja oprogramowania po aktualizacji](./media/azure-stack-edge-gpu-install-update/portal-update-2a.png)    
 
@@ -159,13 +159,13 @@ Wykonaj następujące kroki, aby pobrać aktualizację z katalogu Microsoft Upda
 
     ![Przeszukiwanie wykazu](./media/azure-stack-edge-gpu-install-update/download-update-1.png)
 
-2. W polu wyszukiwania w wykazie Microsoft Update wprowadź numer bazy wiedzy (KB) poprawki lub warunków dla aktualizacji, które chcesz pobrać. Na przykład wprowadź **Azure Stack Edge**, a następnie kliknij przycisk **Wyszukaj**.
+2. W polu wyszukiwania w wykazie Microsoft Update wprowadź numer bazy wiedzy (KB) poprawki lub warunków dla aktualizacji, które chcesz pobrać. Na przykład wprowadź **Azure Stack EDGE Pro**, a następnie kliknij przycisk **Wyszukaj**.
    
-    Lista aktualizacji zostanie wyświetlona jako **Azure Stack krawędź 2006**.
+    Lista aktualizacji zostanie wyświetlona jako **Azure Stack EDGE Pro 2006**.
    
     ![Przeszukiwanie wykazu](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
 
-4. Wybierz pozycję **Pobierz**. Istnieją dwa pliki do pobrania przy użyciu *SoftwareUpdatePackage.exe* i *Kubernetes_Package.exe* sufiksów, które odpowiadają odpowiednio aktualizacji oprogramowania i aktualizacji Kubernetes. Pobierz pliki do folderu w systemie lokalnym. Możesz również skopiować folder do udziału sieciowego, który jest osiągalny z urządzenia.
+4. Kliknij pozycję **Pobierz**. Istnieją dwa pliki do pobrania przy użyciu *SoftwareUpdatePackage.exe* i *Kubernetes_Package.exe* sufiksów, które odpowiadają odpowiednio aktualizacji oprogramowania i aktualizacji Kubernetes. Pobierz pliki do folderu w systemie lokalnym. Możesz również skopiować folder do udziału sieciowego, który jest osiągalny z urządzenia.
 
 ### <a name="install-the-update-or-the-hotfix"></a>Zainstaluj aktualizację lub poprawkę
 
@@ -215,4 +215,4 @@ Wykonanie tej procedury zajmuje około 20 minut. Wykonaj następujące kroki, ab
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [administrowaniu Azure Stack krawędzią](azure-stack-edge-manage-access-power-connectivity-mode.md).
+Dowiedz się więcej o [administrowaniu Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md).

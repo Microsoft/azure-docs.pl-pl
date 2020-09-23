@@ -1,6 +1,6 @@
 ---
-title: sys. external_job_streams (Transact-SQL) — Azure SQL Edge (wersja zapoznawcza)
-description: Dowiedz się więcej o używaniu wykazu sys. external_job_streams w usłudze Azure SQL Edge (wersja zapoznawcza)
+title: sys. external_job_streams (Transact-SQL) — Azure SQL Edge
+description: Dowiedz się więcej o używaniu wykazu sys. external_job_streams w usłudze Azure SQL Edge
 keywords: sys. external_job_streams, SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 2634128f4d431e4283f59032c6474a71f2af364d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35010d3aba7f6d5ee3185291c917ff7726ba8bd7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233097"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900358"
 ---
 # <a name="sysexternal_job_streams-transact-sql"></a>sys.external_job_streams (Transact-SQL)
 
@@ -57,7 +57,7 @@ inner join sys.external_streaming_jobs sj on sj.object_id = js.job_id
 
 Widoczność metadanych w widokach wykazu jest ograniczona do zabezpieczania, do których użytkownik należy lub z którym użytkownik przyznał pewne uprawnienia. Aby uzyskać więcej informacji, zobacz [Konfiguracja widoczności metadanych](/sql/relational-databases/security/metadata-visibility-configuration/).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Widoki wykazu (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
 - [Widoki systemowe (Transact-SQL)](/sql/t-sql/language-reference/)

@@ -10,33 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 718f9a29b70dab34269c959ccd62452e56a32d72
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 1335b1034304b7efe2b113f7ff2d2927fea41638
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056605"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977368"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Azure Container Registry skanowania obrazów przez Security Center
 
 Azure Container Registry (ACR) to zarządzana usługa rejestru prywatnego platformy Docker, która przechowuje obrazy kontenerów dla wdrożeń platformy Azure i zarządza nimi w rejestrze centralnym. Jest ona oparta na rejestrze platformy Docker open source 2,0.
 
-Jeśli jesteś w warstwie Standardowa Azure Security Center, możesz dodać pakiet rejestrów kontenerów. Ta opcjonalna funkcja zapewnia dokładniejszy wgląd w luki w zabezpieczeniach obrazów w rejestrach opartych na Azure Resource Manager. Włącz lub Wyłącz pakiet na poziomie subskrypcji, aby uwzględnić wszystkie rejestry w subskrypcji. Ta funkcja jest naliczana za obraz, jak pokazano na [stronie z cennikiem](security-center-pricing.md). Włączenie pakietu rejestrów kontenerów zapewnia, że Security Center jest gotowy do skanowania obrazów, które są przekazywane do rejestru. 
-
-## <a name="availability"></a>Dostępność
-
-|Aspekt|Szczegóły|
-|----|:----|
-|Stan wydania:|Ogólna dostępność|
-|Wpisaną|Warstwa Standardowa|
-|Obsługiwane rejestry i obrazy:|![Tak ](./media/icons/yes-icon.png) hostowane w systemie Linux rejestry ACR, które są dostępne z publicznego Internetu i zapewniają dostęp do powłoki.<br>![Brak ](./media/icons/no-icon.png) rejestrów ACR hostowanych przez system Windows.<br>![Brak ](./media/icons/no-icon.png) rejestrów prywatnych — Security Center wymaga dostępu do Twoich rejestrów z publicznego Internetu. Security Center nie może obecnie nawiązać połączenia z usługą, ani skanować rejestrów z dostępem ograniczonym za pomocą zapory, punktu końcowego usługi lub prywatnych punktów końcowych, takich jak link prywatny platformy Azure.<br>![Nie ](./media/icons/no-icon.png) są to obrazy minimalistyczny, takie jak obrazy wyłuskane [platformy Docker](https://hub.docker.com/_/scratch/) ani obrazy "Distroless", które zawierają tylko aplikacje i ich zależności środowiska uruchomieniowego bez Menedżera pakietów, powłoki lub systemu operacyjnego.|
-|Wymagane role i uprawnienia:|Rola **czytelnik zabezpieczeń** i [Azure Container Registry czytelnik](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
-|||
-
-
+Włącz **usługę Azure Defender dla rejestrów kontenerów** , aby uzyskać lepszy wgląd w luki w zabezpieczeniach obrazów w rejestrach opartych na Azure Resource Manager. Włącz lub Wyłącz plan na poziomie subskrypcji, aby uwzględnić wszystkie rejestry w subskrypcji. Ta funkcja jest naliczana za obraz, jak pokazano na [stronie z cennikiem](security-center-pricing.md). Włączenie usługi Azure Defender zapewnia, że Security Center jest gotowa do skanowania obrazów, które są przekazywane do rejestru. 
 
 
 ## <a name="when-are-images-scanned"></a>Kiedy są skanowane obrazy?
@@ -74,7 +61,7 @@ Podczas każdego wypychania są wyzwalane skanowania obrazu.
 Tak. Wyniki są poniżej [interfejsu API REST podocen](/rest/api/securitycenter/subassessments/list/). Ponadto można użyć usługi Azure Resource Graph (ARG), interfejsu API podobnej do Kusto dla wszystkich zasobów: zapytanie może pobrać określone skanowanie.
  
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Jakie typy rejestrów są skanowane? Jakie typy są rozliczane?
-[Sekcja dostępność](#availability) zawiera listę typów rejestrów kontenerów obsługiwanych przez pakiet rejestrów kontenerów. 
+Sekcja dostępność zawiera listę typów rejestrów kontenerów obsługiwanych przez usługę Azure Defender dla rejestrów kontenerów. 
 
 Jeśli rejestry, które nie są obsługiwane, są połączone z subskrypcją platformy Azure, nie zostaną przeskanowane i nie zostaną naliczone opłaty.
 
@@ -87,4 +74,4 @@ Aby dowiedzieć się więcej o funkcjach zabezpieczeń kontenera Security Center
 
 * [Integracja z usługą Azure Kubernetes Service](azure-kubernetes-service-integration.md)
 
-* [Ochrona maszyny wirtualnej](security-center-virtual-machine-protection.md) — opis zaleceń dotyczących Security Center
+

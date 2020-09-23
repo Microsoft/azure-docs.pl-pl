@@ -10,327 +10,423 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/18/2020
+ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 1f415294c77b743996993f1f00be45e36f9d6002
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660668"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906281"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure — wskaźnik
 
 
 > [!IMPORTANT]
-> Niektóre funkcje Fusion na platformie Azure wskaźnikowej są obecnie dostępne w publicznej wersji zapoznawczej.
+> Niektóre funkcje Fusion na platformie Azure wskaźnikowej są obecnie dostępne w **publicznej wersji zapoznawczej**.
 > Te funkcje są udostępniane bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+Korzystając z technologii Fusion na podstawie uczenia maszynowego, wskaźnik platformy Azure może automatycznie wykrywać ataki potokach wieloetapowych, identyfikując kombinacje nietypowych zachowań i podejrzanych działań, które są obserwowane na różnych etapach łańcucha kasowania. W oparciu o te odnajdywania wskaźnik produktów platformy Azure będzie generował zdarzenia, które w przeciwnym razie byłyby trudne do przechwycenia. Zdarzenia te obejmują dwa lub więcej alertów lub działań. Zgodnie z projektem te zdarzenia to niskie ilości, wysokiej jakości i wysokiej ważności.
 
-
-Korzystając z technologii Fusion, która jest oparta na uczeniu maszynowym, wskaźnik platformy Azure może automatycznie wykrywać ataki potokach wieloetapowych przez połączenie anomalii zachowań i podejrzanych działań, które są obserwowane na różnych etapach łańcucha kasowania. Na platformie Azure wskaźnik wygeneruje zdarzenia, które w przeciwnym razie byłyby trudne do przechwycenia. Zdarzenia te obejmowaćą co najmniej dwa alerty lub działania. Zgodnie z projektem te zdarzenia to małe ilości, wysoka wierność i wysoka ważność.
-
-Takie rozwiązanie jest dostosowane do danego środowiska, ale nie tylko skraca fałszywe dodatnie stawki, ale mogą również wykrywać ataki z ograniczoną lub brakującymi informacjami.
+Ta technologia wykrywania jest dostosowywana do środowiska, ale nie tylko skracają fałszywe dodatnie stawki, ale mogą również wykrywać ataki z ograniczoną lub brakującymi informacjami.
 
 ## <a name="configuration-for-advanced-multistage-attack-detection"></a>Konfiguracja zaawansowanego wieloetapowego wykrywania ataków
 
-To wykrywanie jest domyślnie włączone w wskaźniku na platformie Azure. Aby sprawdzić stan lub wyłączyć go prawdopodobnie z powodu użycia alternatywnego rozwiązania do tworzenia zdarzeń na podstawie wielu alertów, wykonaj następujące instrukcje:
+To wykrywanie jest domyślnie włączone w wskaźniku na platformie Azure. Aby sprawdzić stan lub wyłączyć go w przypadku użycia alternatywnego rozwiązania do tworzenia zdarzeń na podstawie wielu alertów, należy wykonać następujące instrukcje:
 
 1. Jeśli jeszcze tego nie zrobiono, zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Przejdź do **usługi Azure wskaźnik**  >  **konfiguracji**  >  **analizy**
+1. Przejdź do **usługi Azure wskaźnik**  >  **konfiguracji**  >  **analizy**
 
-3. Wybierz pozycję **aktywne reguły** i Znajdź **Zaawansowane wykrywanie ataków potokach wieloetapowych** w kolumnie **Nazwa** . Sprawdź kolumnę **stan** , aby sprawdzić, czy to wykrywanie jest włączone czy wyłączone.
+1. Wybierz pozycję **aktywne reguły**, a następnie Znajdź **Zaawansowane wykrywanie ataków potokach wieloetapowych** w kolumnie **Nazwa** , filtrując listę dla typu reguły **Fusion** . Sprawdź kolumnę **stan** , aby sprawdzić, czy to wykrywanie jest włączone czy wyłączone.
 
-4. Aby zmienić stan, wybierz ten wpis i w bloku **Zaawansowane wykrywanie ataków potokach wieloetapowych** wybierz pozycję **Edytuj**.
+    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{Alt-text}":::
 
-5. W bloku **Kreator tworzenia reguł** zmiana stanu jest automatycznie wybierana, więc wybierz kolejno pozycje **Dalej: przegląd**i **Zapisz**. 
+1. Aby zmienić stan, wybierz ten wpis i w bloku **Zaawansowane wykrywanie ataków potokach wieloetapowych** wybierz pozycję **Edytuj**.
 
-Szablony reguł nie mają zastosowania w przypadku zaawansowanego wykrywania ataków potokach wieloetapowych.
+1. W bloku **Kreator tworzenia reguł** zmiana stanu jest automatycznie wybierana, więc wybierz kolejno pozycje **Dalej: przegląd**i **Zapisz**. 
+
+ Ponieważ typ reguły **Fusion** zawiera tylko jedną regułę, której nie można modyfikować, szablony reguł nie mają zastosowania do tego typu reguły.
 
 > [!NOTE]
 > Dane historyczne platformy Azure są obecnie wykorzystywane do uczenia systemów uczenia maszynowego w ciągu 30 dni od danych historycznych. Te dane są zawsze szyfrowane przy użyciu kluczy firmy Microsoft, które są przekazywane przez potok uczenia maszynowego. Jednak dane szkoleniowe nie są szyfrowane przy użyciu [kluczy zarządzanych przez klienta (CMK)](customer-managed-keys.md) , jeśli włączono CMK w obszarze roboczym wskaźnikowego platformy Azure. Aby zrezygnować z fuzji, przejdź do obszaru **Azure wskaźnik**   \>  **konfiguracji**   \>  **analizy \> \> ** , a następnie w kolumnie **stan** kliknij pozycję **Wyłącz.**
 
-## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Łączenie przy użyciu Palo Alto sieci i usługi Microsoft Defender dla punktów końcowych (dawniej usługa Microsoft Defender ATP)
+## <a name="attack-detection-scenarios"></a>Scenariusze wykrywania ataków
 
-Te scenariusze łączą dwa podstawowe dzienniki używane przez analityków zabezpieczeń: Dzienniki zapory z sieci Palo Alto i dzienników wykrywania punktu końcowego z usługi Microsoft Defender dla punktu końcowego. We wszystkich scenariuszach wymienionych poniżej zostanie wykryte podejrzane działanie w punkcie końcowym, które obejmuje zewnętrzny adres IP, po którym następuje nietypowy ruch z zewnętrznego adresu IP z powrotem do zapory. W Palo Alto dzienników wskaźnik platformy Azure koncentruje się na [dziennikach zagrożeń](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), a ruch jest uznawany za podejrzany, gdy zagrożenia są dozwolone (podejrzane dane, pliki, zalewania, pakiety, skanowania, programy szpiegujące, adresy URL, wirusy, luki, pożarem-wirusy, Wildfires).
+W poniższej sekcji przedstawiono typy scenariuszy korelacji pogrupowanych według klasyfikacji zagrożeń, które wskaźnik platformy Azure szuka przy użyciu technologii Fusion.
 
-### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Żądanie sieciowe do sieci TOR zachowywanie anonimowości, po którym następuje anomalia ruch oflagowany przez zaporę Palo Alto Networks.
+Jak wspomniano powyżej, ponieważ fuzja skorelować wiele alertów zabezpieczeń z różnych produktów, aby wykrywać zaawansowane ataki potokach wieloetapowych, pomyślne wykrywanie sieci są prezentowane jako **zdarzenia syntezy** na stronie **incydentów** platformy Azure, a nie jako **alerty** w tabeli **alertów zabezpieczeń** w **dziennikach**.
 
-W tym scenariuszu wskaźnik na platformie Azure najpierw wykrywa alert informujący o tym, że usługa Microsoft Defender dla punktu końcowego (dawniej Microsoft Defender for ATP) wykryła żądanie sieci do usługi TOR zachowywanie anonimowości, która prowadzi do nietypowej aktywności. Ta Inicjalizacja została zainicjowana w ramach konta {account name} z IDENTYFIKATORem SID {SID} o godzinie {Time}. Wychodzący adres IP do połączenia: {IndividualIp}.
-Następnie nietypowe działanie zostało wykryte przez zaporę Palo Alto Networks pod adresem {TimeGenerated}. Wskazuje to na złośliwy ruch wprowadzony w sieci, docelowy adres IP dla ruchu sieciowego to {DestinationIP}.
+Aby umożliwić te scenariusze wykrywania ataków opartych na fuzji, wszystkie źródła danych wymienione na liście muszą być pozyskiwane przy użyciu skojarzonych łączników danych wskaźnikowych platformy Azure.
 
-Ten scenariusz jest obecnie w publicznej wersji zapoznawczej.
+> [!NOTE]
+> Niektóre z tych scenariuszy są w **publicznej wersji zapoznawczej**. Zostanie to wskazane.
 
+## <a name="compute-resource-abuse"></a>Użycie zasobów obliczeniowych
 
-### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Program PowerShell wykonał podejrzane połączenie sieciowe, a następnie nietypowy ruch oflagowany przez zaporę Palo Alto Networks.
+### <a name="multiple-vm-creation-activities-following-suspicious-azure-active-directory-sign-in"></a>Działania tworzenia wielu maszyn wirtualnych następujące po podejrzanym zalogowaniu Azure Active Directory
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 
-W tym scenariuszu wskaźnik na platformie Azure najpierw wykrywa alert informujący o tym, że usługa Microsoft Defender dla punktu końcowego (dawniej Microsoft Defender for ATP) wykryła podejrzane połączenie sieciowe prowadzące do nietypowej aktywności wykrytej przez zaporę sieciową Palo Alto. Ta nazwa została zainicjowana przez konto {Account Name} z IDENTYFIKATORem SID {SID} o godzinie {Time}. Wychodzący adres IP do połączenia: {IndividualIp}. Następnie nietypowe działanie zostało wykryte przez zaporę Palo Alto Networks pod adresem {TimeGenerated}. Oznacza to, że złośliwy ruch został wprowadzony w sieci. Docelowy adres IP dla ruchu sieciowego to {DestinationIP}.
+**Mitre ATT&taktykę:** Wstępny dostęp, wpływ 
 
-Ten scenariusz jest obecnie w publicznej wersji zapoznawczej.
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), przejmowanie zasobów (T1496)
 
-### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Połączenie wychodzące z adresem IP z historią prób nieautoryzowanego dostępu, po których następuje nietypowy ruch oflagowany przez zaporę Palo Alto Networks
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
 
-W tym scenariuszu badanie wskaźnikowe platformy Azure wykrywa alert informujący o tym, że usługa Microsoft Defender for Endpoint (dawniej Microsoft Defender for ATP) wykryła połączenie wychodzące z adresem IP ze historięm nieautoryzowanych prób dostępu, które prowadzą do wykrycia nietypowego działania przez zaporę Palo Alto Networks. Ta nazwa została zainicjowana przez konto {Account Name} z IDENTYFIKATORem SID {SID} o godzinie {Time}. Wychodzący adres IP do połączenia: {IndividualIp}. Po wykonaniu tej czynności nietypowe działanie zostało wykryte przez zaporę Palo Alto Networks pod adresem {TimeGenerated}. Oznacza to, że złośliwy ruch został wprowadzony w sieci. Docelowy adres IP dla ruchu sieciowego to {DestinationIP}.
+**Opis:** Zdarzenia Fusion tego typu wskazują, że anomalia liczba maszyn wirtualnych została utworzona w ramach jednej sesji po podejrzanej rejestracji na koncie usługi Azure AD. Ten typ alertu wskazuje, że z wysokim poziomem pewności, że konto zanotowane w opisie zdarzenia Fusion zostało naruszone i użyte do utworzenia nowych maszyn wirtualnych dla nieautoryzowanych celów, takich jak uruchamianie operacji wyszukiwania kryptograficznego. Permutacje podejrzanych alertów logowania do usługi Azure AD z alertami dotyczącymi tworzenia wielu maszyn wirtualnych są następujące:
 
-Ten scenariusz jest obecnie w publicznej wersji zapoznawczej.
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do działania tworzenia wielu maszyn wirtualnych**
 
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do działania tworzenia wielu maszyn wirtualnych**
 
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do działania tworzenia wielu maszyn wirtualnych**
 
-## <a name="fusion-using-identity-protection-and-microsoft-cloud-app-security"></a>Łączenie przy użyciu usługi Identity Protection i Microsoft Cloud App Security
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do działania tworzenia wielu maszyn wirtualnych**
 
-Przy użyciu zaawansowanego wykrywania ataków potokach wieloetapowych usługa Azure — Wskaźnikowanie obsługuje następujące scenariusze, które łączą zdarzenia anomalii z Azure Active Directory Identity Protection i Microsoft Cloud App Security:
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do działania tworzenia wielu maszyn wirtualnych**
 
-- [Niemożliwa podróż do nietypowej lokalizacji, po której następuje nietypowe działanie związane z pakietem Office 365](#impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity)
-- [Działania związane z logowaniem dla nieznanej lokalizacji, po której występuje nietypowe działanie pakietu Office 365](#sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity)
-- [Aktywność logowania z zainfekowanego urządzenia, po którym następuje nietypowe działanie związane z pakietem Office 365](#sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity)
-- [Aktywność logowania z anonimowego adresu IP, po którym następuje nietypowe działanie pakietu Office 365](#sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity)
-- [Działania związane z logowaniem z użytkownika z nieujawnionymi poświadczeniami, po których następuje nietypowe działanie związane z pakietem Office 365](#sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity)
+## <a name="data-exfiltration"></a>Eksfiltracja danych
 
-Konieczne jest posiadanie [łącznika danych Azure AD Identity Protection](connect-azure-ad-identity-protection.md) i skonfigurowanych łączników [Cloud App Security](connect-cloud-app-security.md) .
+### <a name="office-365-mailbox-exfiltration-following-a-suspicious-azure-ad-sign-in"></a>Skrzynka pocztowa pakietu Office 365 eksfiltracji po podejrzanym zalogowaniu do usługi Azure AD
 
-W opisach, które obserwują, wskaźnik na platformie Azure będzie wyświetlał rzeczywistą wartość z danych przedstawionych na tej stronie jako zmienne w nawiasach. Na przykład rzeczywista nazwa wyświetlana konta zamiast \<*account name*> i rzeczywista liczba zamiast \<*number*> .
+**Mitre ATT&taktykę:** Wstępny dostęp, Eksfiltracji, kolekcja
 
-### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Niemożliwa podróż do nietypowej lokalizacji, po której następuje nietypowe działanie związane z pakietem Office 365
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), kolekcja poczty E-mail (T1114), zautomatyzowane Eksfiltracji (T1020)
 
-Istnieje siedem możliwych zdarzeń na platformie Azure, które łączą niemożliwa podróż do nietypowych alertów dotyczących lokalizacji z Azure AD Identity Protection i nietypowych alertów pakietu Office 365 generowanych przez Microsoft Cloud App Security:
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
 
-- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do eksfiltracji skrzynek pocztowych pakietu Office 365**
-    
-    Ten alert jest wskaźnikiem zdarzenia logowania \<*account name*>  z niemożliwej podróży do \<*location*> , nietypowej lokalizacji, a po niej została ustawiona podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
-    
-    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. Użytkownik \<*account name*> utworzył lub zaktualizował regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na adres zewnętrzny \<*email address*> .
+**Opis:** Zdarzenia Fusion tego typu wskazują, że w skrzynce odbiorczej użytkownika została ustawiona podejrzana reguła przekazywania skrzynki odbiorczej po podejrzanym logowaniu na koncie usługi Azure AD. To wskazanie zapewnia wysoki poziom pewności, że konto użytkownika (zanotowane w opisie zdarzenia Fusion) zostało naruszone i zostało użyte do wyprowadzać danych z sieci organizacji przez włączenie reguły przekazywania skrzynek pocztowych bez znajomości prawdziwej wiedzy użytkownika. Permutacje alertów dotyczących logowania do usługi Azure AD za pomocą alertu eksfiltracji skrzynki pocztowej pakietu Office 365 są następujące:
 
-- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do podejrzanych działań administracyjnych aplikacji w chmurze**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z niemożliwej podróży do \<*location*> , nietypowej lokalizacji.
-    
-    Następnie konto \<*account name*> wykonywane przez \<*number*> działania administracyjne w ramach jednej sesji.
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do eksfiltracji skrzynek pocztowych pakietu Office 365**
 
-- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do usunięcia pliku masowego**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program do, czyli nietypowej lokalizacji. 
-    
-    Następnie konto \<*account name*> usunęło \<*number of*> unikatowe pliki w ramach jednej sesji.
-
-- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do pobrania pliku masowego**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z niemożliwej podróży do \<*location*> , nietypowej lokalizacji. 
-    
-    Następnie konto zostało \<*account name*> pobrane za pośrednictwem \<*number of*> unikatowych plików w ramach jednej sesji.
-
-- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do personifikacji pakietu Office 365**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z niemożliwej podróży do \<*location*> , nietypowej lokalizacji. 
-    
-    Następnie konto \<*account name*> wykonał nietypową ilość ( \<*number of activities*> ) działań personifikacji w ramach jednej sesji.
-
-- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do masowego udostępniania plików**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z niemożliwej podróży do \<*location*> , nietypowej lokalizacji. 
-    
-    Następnie konto udostępnione dla \<*account name*> \<*number of*> unikatowych plików w ramach jednej sesji.
-
-- **Niemożliwa podróż do nietypowych lokalizacji prowadzących do oprogramowania wymuszającego okup w aplikacji w chmurze**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z niemożliwej podróży do \<*location*> , nietypowej lokalizacji. 
-    
-    Następnie konto \<*account name*> przesłało \<*number of*> pliki i usunięto łączną liczbę \<*number of*> plików. 
-    
-    Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
-
-
-### <a name="sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity"></a>Działania związane z logowaniem dla nieznanej lokalizacji, po której występuje nietypowe działanie pakietu Office 365
-
-Istnieje siedem możliwych zdarzeń związanych z platformą Azure, które łączą działania związane z logowaniem w przypadku nieznanych alertów dotyczących lokalizacji z Azure AD Identity Protection i nietypowych alertów pakietu Office 365 generowanych przez Microsoft Cloud App Security.
-
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do usługi Exchange Online Skrzynka pocztowa eksfiltracji**
-    
-    Ten alert to wskazanie zdarzenia logowania \<*account name*> z programu \<*location*> , nieznanej lokalizacji, po czym została ustawiona podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
-    
-    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. Użytkownik \<*account name*> utworzył lub zaktualizował regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na adres zewnętrzny \<*email address*> . 
-
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podejrzanych działań administracyjnych aplikacji w chmurze**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji. 
-    
-    Następnie konto \<*account name*> wykonywane przez \<*number of*> działania administracyjne w ramach jednej sesji.
-
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do usunięcia pliku masowego**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji. 
-    
-    Następnie konto \<*account name*> usunęło \<*number of*> unikatowe pliki w ramach jednej sesji.
-
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do pobrania pliku masowego**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji. 
-    
-    Następnie konto zostało \<*account name*> pobrane za pośrednictwem \<*number of*> unikatowych plików w ramach jednej sesji.
-
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do personifikacji pakietu Office 365**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji.
-    
-    Następnie konto \<*account name*> personifikowane przez \<*number of*> różne konta w ramach jednej sesji.
-
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do masowego udostępniania plików**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji. 
-    
-    Następnie konto udostępnione dla \<*account name*> \<*number of*> unikatowych plików w ramach jednej sesji.
-
-- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do oprogramowania wymuszającego okup w aplikacji w chmurze**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> \<*location*> program z nieznanej lokalizacji. 
-    
-    Następnie konto \<*account name*> przesłało \<*number of*> pliki i usunięto łączną liczbę \<*number of*> plików. 
-    
-    Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
-
-### <a name="sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity"></a>Aktywność logowania z zainfekowanego urządzenia, po którym następuje nietypowe działanie związane z pakietem Office 365
-
-Istnieje siedem możliwych zdarzeń związanych z systemem Azure, które łączą aktywność logowania z poziomu alertów z zainfekowanych urządzeń z Azure AD Identity Protection i nietypowych alertów Office 365 generowanych przez Microsoft Cloud App Security:
+- **Zdarzenie logowania z nieznanej lokalizacji wiodącej w skrzynce pocztowej usługi Office 365 eksfiltracji**
 
 - **Zdarzenie logowania z zainfekowanego urządzenia wiodącego w skrzynce pocztowej usługi Office 365 eksfiltracji**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z urządzenia, które może być zainfekowane złośliwym oprogramowaniem, a następnie ustawiona została podejrzana reguła przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
-    
-    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. Użytkownik \<*account name*> utworzył lub zaktualizował regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na adres zewnętrzny \<*email address*> . 
-
-- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do podejrzanych działań administracyjnych aplikacji w chmurze**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem.
-    
-    Następnie konto \<*account name*> wykonywane przez \<*number of*> działania administracyjne w ramach jednej sesji.
-
-- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do usunięcia pliku masowego**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem. 
-    
-    Następnie konto \<*account name*> usunęło \<*number of*> unikatowe pliki w ramach jednej sesji.
-
-- **Zdarzenie logowania z zainfekowanego urządzenia, które prowadzi do pobrania pliku masowego**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem. 
-    
-    Następnie konto zostało \<*account name*> pobrane za pośrednictwem \<*number of*> unikatowych plików w ramach jednej sesji.
-
-- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do personifikacji pakietu Office 365**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem. 
-    
-    Następnie konto \<*account name*> personifikowane przez \<*number of*> różne konta w ramach jednej sesji.
-
-- **Zdarzenie logowania z zainfekowanego urządzenia, które prowadzi do masowego udostępniania plików**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem. 
-    
-    Następnie konto udostępnione dla \<*account name*> \<*number of*> unikatowych plików w ramach jednej sesji.
-
-- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do oprogramowania wymuszającego okup w aplikacji w chmurze**
-    
-    Ten alert to oznaczenie zdarzenia logowania przez \<*account name*> urządzenie potencjalnie zainfekowane złośliwym oprogramowaniem. 
-    
-    Następnie konto \<*account name*> przesłało \<*number of*> pliki i usunięto łączną liczbę \<*number of*> plików. 
-    
-    Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
-
-### <a name="sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity"></a>Aktywność logowania z anonimowego adresu IP, po którym następuje nietypowe działanie pakietu Office 365
-
-Istnieje siedem możliwych zdarzeń związanych z systemem Azure, które łączą aktywność logowania z alertów anonimowych adresów IP z Azure AD Identity Protection i anomalii alertów pakietu Office 365 generowanych przez Microsoft Cloud App Security:
 
 - **Zdarzenie logowania z anonimowego adresu IP prowadzącego do skrzynki pocztowej pakietu Office 365 eksfiltracji**
-    
-    Ten alert to wskazanie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> , a następnie ustawienie zasady przekazywania podejrzanej skrzynki odbiorczej w skrzynce odbiorczej użytkownika.
-    
-    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. Użytkownik \<*account name*> utworzył lub zaktualizował regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na adres zewnętrzny \<*email address*> . 
-
-- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do podejrzanych działań administracyjnych aplikacji w chmurze**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
-    
-    Następnie konto \<*account name*> wykonywane przez \<*number of*> działania administracyjne w ramach jednej sesji.
-
-- **Zdarzenie logowania z anonimowego adresu IP prowadzące do usunięcia pliku masowego**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
-    
-    Następnie konto \<*account name*> usunęło \<*number of*> unikatowe pliki w ramach jednej sesji.
-
-- **Zdarzenie logowania z anonimowego adresu IP prowadzące do pobierania pliku masowego**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
-    
-    Następnie konto zostało \<*account name*> pobrane za pośrednictwem \<*number of*> unikatowych plików w ramach jednej sesji.
-
-- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do personifikacji pakietu Office 365**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
-    
-    Następnie konto \<*account name*> personifikowane przez \<*number of*> różne konta w ramach jednej sesji.
-
-- **Zdarzenie logowania z anonimowego adresu IP, które prowadzi do masowego udostępniania plików**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
-    
-    Następnie konto udostępnione dla \<*account name*> \<*number of*> unikatowych plików w ramach jednej sesji.
-
-- **Zdarzenie logowania z anonimowego adresu IP do oprogramowania wymuszającego okup w aplikacji w chmurze**
-    
-    Ten alert to oznaczenie zdarzenia logowania \<*account name*> z anonimowego adresu IP serwera proxy \<*IP address*> . 
-    
-    Następnie konto \<*account name*> przesłało \<*number of*> pliki i usunięto łączną liczbę \<*number of*> plików. 
-    
-    Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
-
-### <a name="sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity"></a>Działania związane z logowaniem z użytkownika z nieujawnionymi poświadczeniami, po których następuje nietypowe działanie związane z pakietem Office 365
-
-Dostępne są siedem zdarzeń wskaźnikowych platformy Azure, które łączą działania związane z logowaniem z użytkownika z alertami dotyczącymi nieujawnionych poświadczeń z Azure AD Identity Protection i anomalii alertów Office 365 generowanych przez Microsoft Cloud App Security:
 
 - **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do eksfiltracji skrzynek pocztowych pakietu Office 365**
-    
-    Ten alert wskazuje na to, że zdarzenie logowania przy użyciu \<*account name*> nieujawnionych poświadczeń, a po nich ustawiono podejrzaną regułę przekazywania skrzynki odbiorczej w skrzynce odbiorczej użytkownika. 
-    
-    Może to wskazywać na naruszenie zabezpieczeń konta i użycie skrzynki pocztowej do wyprowadzać informacji z Twojej organizacji. Użytkownik \<*account name*> utworzył lub zaktualizował regułę przekazywania skrzynki odbiorczej, która przekazuje wszystkie przychodzące wiadomości e-mail na adres zewnętrzny \<*email address*> . 
 
-- **Zdarzenie logowania od użytkownika z nieujawnionymi poświadczeniami prowadzącymi do podejrzanych działań administracyjnych aplikacji w chmurze**
-    
-    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń.
-    
-    Następnie konto \<*account name*> wykonywane przez \<*number of*> działania administracyjne w ramach jednej sesji.
+### <a name="mass-file-download-following-suspicious-azure-ad-sign-in"></a>Pobieranie pliku masowego po podejrzanym zalogowaniu do usługi Azure AD
 
-- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do usunięcia pliku masowego**
-    
-    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń.
-    
-    Następnie konto \<*account name*> usunęło \<*number of*> unikatowe pliki w ramach jednej sesji.
+**Mitre ATT&taktykę:** Wstępny dostęp, Eksfiltracji
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078)
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenia syntezy tego typu wskazują, że nietypowa liczba plików została pobrana przez użytkownika po podejrzanej rejestracji na koncie usługi Azure AD. To oznaczenie zapewnia wysoki poziom pewności, że konto zanotowane w opisie zdarzenia Fusion zostało naruszone i zostało użyte do wyprowadzać danych z sieci organizacji. Permutacje alertów dotyczących logowania do usługi Azure AD z alertem pobierania pliku masowego są następujące:  
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do pobrania pliku masowego**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do pobrania pliku masowego**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia, które prowadzi do pobrania pliku masowego**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do pobierania pliku masowego**
 
 - **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do pobierania pliku masowego**
-    
-    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń.
-    
-    Następnie konto zostało \<*account name*> pobrane za pośrednictwem \<*number of*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do personifikacji pakietu Office 365**
-    
-    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń. 
-    
-    Następnie konto \<*account name*> personifikowane przez \<*number of*> różne konta w ramach jednej sesji.
+### <a name="mass-file-sharing-following-suspicious-azure-ad-sign-in"></a>Masowe udostępnianie plików po podejrzanym zalogowaniu do usługi Azure AD
+
+**Mitre ATT&taktykę:** Wstępny dostęp, Eksfiltracji
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), Eksfiltracji za pośrednictwem usługi sieci Web (T1567)
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenia Fusion tego typu wskazują, że liczba plików powyżej określonego progu została udostępniona innym osobom po podejrzanym logowaniu się do konta usługi Azure AD. To oznaczenie zapewnia wysoki poziom pewności, że konto zanotowane w opisie zdarzenia Fusion zostało naruszone i użyte do wyprowadzać danych z sieci organizacji przez udostępnienie plików, takich jak dokumenty, arkusze kalkulacyjne itp., nieautoryzowanym użytkownikom do złośliwych celów. Permutacje podejrzanych alertów logowania do usługi Azure AD z alertem dotyczącym udostępniania plików masowych są następujące:  
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do masowego udostępniania plików**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do masowego udostępniania plików**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia, które prowadzi do masowego udostępniania plików**
+
+- **Zdarzenie logowania z anonimowego adresu IP, które prowadzi do masowego udostępniania plików**
 
 - **Zdarzenie logowania od użytkownika z nieujawnionymi poświadczeniami prowadzącymi do masowego udostępniania plików**
-    
-    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń.
-    
-    Następnie konto udostępnione dla \<*account name*> \<*number of*> unikatowych plików w ramach jednej sesji.
 
-- **Zdarzenie logowania użytkownika z nieujawnionymi poświadczeniami do oprogramowania wymuszającego okup w aplikacji w chmurze**
-    
-    Ten alert wskazuje na to, że zdarzenie logowania za pomocą \<*account name*> wykorzystanych poświadczeń. 
-    
-    Następnie konto \<*account name*> przesłało \<*number of*> pliki i usunięto łączną liczbę \<*number of*> plików. 
-    
-    Ten wzorzec aktywności jest wskaźnikiem potencjalnego ataku z wykorzystaniem oprogramowania wymuszającego okup.
+### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>Podejrzane reguły manipulowania skrzynką odbiorczą ustawione po podejrzanym zalogowaniu do usługi Azure AD
+Ten scenariusz należy do dwóch klasyfikacji zagrożeń na tej liście: **eksfiltracji danych** i **ruchy poprzeczne**. Dla jasności, pojawia się w obu sekcjach.
+
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+
+**Mitre ATT&taktykę:** Wstępny dostęp, ruchy boczne, Eksfiltracji
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), wewnętrzne wyłudzanie informacji Spear (T1534)
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenie Fusion tego typu wskazuje, że zasady nietypowej skrzynki odbiorczej zostały ustawione w skrzynce odbiorczej użytkownika po podejrzanej rejestracji na koncie usługi Azure AD. Zapewnia to wysoki poziom pewności, że konto zanotowane w opisie zdarzenia Fusion zostało naruszone i zostało użyte do manipulowania regułami skrzynki odbiorczej poczty e-mail użytkownika dla złośliwych celów. Może to być spowodowane próbą wyprowadzać danych z sieci organizacji przez osobę atakującą. Alternatywnie osoba atakująca może próbować generować wiadomości e-mail dotyczące wyłudzania informacji z organizacji (pomijając mechanizmy wykrywania wyłudzania informacji przeznaczone do wiadomości e-mail ze źródeł zewnętrznych) na potrzeby późniejszego przechodzenia przez uzyskanie dostępu do dodatkowych kont użytkowników i/lub uprzywilejowanych. W przypadku alertów o podejrzanych alertach dotyczących logowania do usługi Azure AD przy użyciu podejrzanych reguł manipulowania skrzynką odbiorczą są następujące:  
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do podejrzanej reguły manipulowania skrzynką odbiorczą**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podejrzanej reguły manipulowania skrzynką odbiorczą**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do podejrzanej reguły manipulowania skrzynką odbiorczą**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do podejrzanej reguły manipulowania skrzynką odbiorczą**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do podejrzanej reguły manipulowania skrzynką odbiorczą**
+
+### <a name="multiple-power-bi-report-sharing-activities-following-suspicious-azure-ad-sign-in"></a>Wiele Power BI działań związanych z udostępnianiem raportów po podejrzanym zalogowaniu do usługi Azure AD 
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+
+**Mitre ATT&taktykę:** Wstępny dostęp, Eksfiltracji 
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), Eksfiltracji za pośrednictwem usługi sieci Web (T1567)
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenia Fusion tego typu wskazują, że nietypowej liczby raportów Power BI były udostępniane w ramach jednej sesji po podejrzanej rejestracji na koncie usługi Azure AD. To wskazanie zapewnia wysoki poziom pewności, że konto zanotowane w opisie zdarzenia Fusion zostało naruszone i zostało użyte do wyprowadzać danych z sieci organizacji przez udostępnienie Power BI raporty nieautoryzowanym użytkownikom w celu złośliwego użytku. Permutacje podejrzanych alertów logowania do usługi Azure AD z wieloma Power BImi działaniami do udostępniania raportów są następujące:  
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do wielu Power BI działań związanych z udostępnianiem raportów**
+
+- **Zdarzenie logowania z nieznanej lokalizacji wiodącej w wielu Power BI działaniach związanych z udostępnianiem raportów**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia wiodące w wielu Power BI działaniach związanych z udostępnianiem raportów**
+
+- **Zdarzenie logowania z anonimowego adresu IP, które prowadzi do wielu Power BI działań udostępniania raportów**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do wielu Power BI działań udostępniania raportów**
+
+### <a name="suspicious-power-bi-report-sharing-following-suspicious-azure-ad-sign-in"></a>Podejrzane Power BI udostępnianie raportów po podejrzanym zalogowaniu do usługi Azure AD
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+
+**Mitre ATT&taktykę:** Wstępny dostęp, Eksfiltracji 
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), Eksfiltracji za pośrednictwem usługi sieci Web (T1567)
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenia Fusion tego typu wskazują, że w przypadku podejrzanego logowania do konta usługi Azure AD nastąpiło podejrzane działanie udostępniania raportów Power BI. Działanie udostępniania zostało zidentyfikowane jako podejrzane, ponieważ raport Power BI zawierał informacje poufne identyfikowane przy użyciu przetwarzania języka naturalnego, a ponieważ został udostępniony z zewnętrznym adresem e-mail, opublikowanym w sieci Web lub dostarczony jako migawka na zewnętrzny adres e-mail. Ten alert wskazuje na wysoki poziom pewności, że konto zanotowane w opisie zdarzenia Fusion zostało naruszone i zostało użyte do wyprowadzać poufnych danych z organizacji, udostępniając Power BI raporty nieautoryzowanym użytkownikom w złośliwych celach. Permutacje alertów dotyczących logowania do usługi Azure AD z podejrzanymi Power BI udostępniania raportów są następujące:  
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do podejrzanego Power BI udostępniania raportów**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podejrzanego Power BI udostępniania raportów**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do podejrzanego Power BI udostępniania raportów**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzące do podejrzanego Power BI udostępniania raportów**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do podejrzanego Power BI udostępniania raportów**
+
+## <a name="data-destruction"></a>Niszczenie danych
+
+### <a name="mass-file-deletion-following-suspicious-azure-ad-sign-in"></a>Usuwanie pliku masowego po podejrzanym zalogowaniu do usługi Azure AD
+
+**Mitre ATT&taktykę:** Wstępny dostęp, wpływ
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), niszczenie danych (T1485)
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenia Fusion tego typu wskazują, że nietypowej liczby unikatowych plików zostało usuniętych po podejrzanej zalogowaniu się do konta usługi Azure AD. Zapewnia to wskazanie, że konto zanotowane w opisie zdarzenia Fusion mogło zostać naruszone i było używane do niszczenia danych do złośliwych celów. Permutacje alertów dotyczących logowania do usługi Azure AD za pomocą alertu dotyczącego usuwania plików masowych są następujące:  
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do usunięcia pliku masowego**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do usunięcia pliku masowego**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do usunięcia pliku masowego**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzące do usunięcia pliku masowego**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do usunięcia pliku masowego**
+
+### <a name="suspicious-email-deletion-activity-following-suspicious-azure-ad-sign-in"></a>Podejrzane działanie dotyczące usuwania wiadomości e-mail po podejrzanym zalogowaniu do usługi Azure AD
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+
+**Mitre ATT&taktykę:** Wstępny dostęp, wpływ 
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), niszczenie danych (T1485)
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenia Fusion tego typu wskazują, że nietypowa liczba wiadomości e-mail została usunięta podczas jednej sesji po podejrzanej rejestracji na koncie usługi Azure AD. Zapewnia to wskazanie, że konto zanotowane w opisie zdarzenia Fusion mogło zostać naruszone i było używane do niszczenia danych do złośliwych celów, takich jak naruszenie organizacji lub ukrywanie działania poczty e-mail związanej z spamem. Permutacje podejrzanych alertów logowania do usługi Azure AD za pomocą alertu dotyczącego usuwania podejrzanych wiadomości e-mail są następujące:   
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do podejrzanych działań związanych z usuwaniem poczty e-mail**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podejrzanego działania dotyczącego usuwania wiadomości e-mail**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do podejrzanego działania związanego z usuwaniem poczty e-mail**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do podejrzanego działania dotyczącego usuwania wiadomości e-mail**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do podejrzanego działania dotyczącego usuwania wiadomości e-mail**
+
+## <a name="denial-of-service"></a>Odmowa usługi
+
+### <a name="multiple-vm-delete-activities-following-suspicious-azure-ad-sign-in"></a>Wiele działań usuwania maszyn wirtualnych po podejrzanym zalogowaniu do usługi Azure AD
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+
+**Mitre ATT&taktykę:** Wstępny dostęp, wpływ
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), odmowa usługi Endpoint Service (T1499)
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenia Fusion tego typu wskazują, że nietypowa liczba maszyn wirtualnych została usunięta podczas jednej sesji po podejrzanej rejestracji na koncie usługi Azure AD. To oznaczenie zapewnia wysoki poziom pewności, że konto zanotowane w opisie zdarzenia Fusion zostało naruszone i było używane do próby zakłócenia lub zniszczenia środowiska chmury w organizacji. Permutacje podejrzanych alertów logowania do usługi Azure AD z alertami dotyczącymi usuwania wielu maszyn wirtualnych są następujące:  
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do wielu działań związanych z usuwaniem maszyn wirtualnych**
+
+- **Zdarzenie logowania z nieznanej lokalizacji wiodącej w wielu działaniach usuwania maszyn wirtualnych**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do wielu działań związanych z usuwaniem maszyn wirtualnych**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do wielu działań usuwania maszyn wirtualnych**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do działania usuwania wielu maszyn wirtualnych**
+
+## <a name="lateral-movement"></a>Ruch boczny
+
+### <a name="office-365-impersonation-following-suspicious-azure-ad-sign-in"></a>Personifikacja pakietu Office 365 po podejrzanym zalogowaniu do usługi Azure AD
+
+**Mitre ATT&taktykę:** Wstępny dostęp, ruchy boczne
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), wewnętrzne wyłudzanie informacji Spear (T1534)
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenia Fusion tego typu wskazują, że nietypowej liczby akcji personifikacji nastąpiło po podejrzanym logowaniu z konta usługi Azure AD. W niektórych programach dostępne są opcje umożliwiające użytkownikom personifikację innych użytkowników. Na przykład usługi poczty e-mail zezwalają użytkownikom na autoryzację innych użytkowników w celu wysyłania wiadomości e-mail w ich imieniu. Ten alert wskazuje na wyższy poziom pewności, że konto zanotowane w opisie zdarzenia Fusion zostało naruszone i było używane do wykonywania działań personifikacji dla złośliwych celów, takich jak wysyłanie wiadomości e-mail dotyczących złośliwego oprogramowania lub ruchu bocznego. Permutacje alertów dotyczących logowania do usługi Azure AD za pomocą alertu personifikacji pakietu Office 365 są następujące:  
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do personifikacji pakietu Office 365**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do personifikacji pakietu Office 365**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do personifikacji pakietu Office 365**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do personifikacji pakietu Office 365**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do personifikacji pakietu Office 365**
+ 
+### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>Podejrzane reguły manipulowania skrzynką odbiorczą ustawione po podejrzanym zalogowaniu do usługi Azure AD
+Ten scenariusz należy do dwóch klasyfikacji zagrożeń na tej liście: **przemieszczanie boczne** i **eksfiltracji danych**. Dla jasności, pojawia się w obu sekcjach.
+
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+
+**Mitre ATT&taktykę:** Wstępny dostęp, ruchy boczne, Eksfiltracji
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), wewnętrzne Spear phishing (T1534), zautomatyzowane Eksfiltracji (T1020)
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenie Fusion tego typu wskazuje, że zasady nietypowej skrzynki odbiorczej zostały ustawione w skrzynce odbiorczej użytkownika po podejrzanej rejestracji na koncie usługi Azure AD. To oznaczenie zapewnia wysoki poziom pewności, że konto zanotowane w opisie zdarzenia Fusion zostało naruszone i zostało użyte do manipulowania regułami skrzynki odbiorczej poczty e-mail użytkownika w złośliwych celach. Może to być spowodowane próbą wyprowadzać danych z sieci organizacji przez osobę atakującą. Alternatywnie osoba atakująca może próbować generować wiadomości e-mail dotyczące wyłudzania informacji z organizacji (pomijając mechanizmy wykrywania wyłudzania informacji przeznaczone do wiadomości e-mail ze źródeł zewnętrznych) na potrzeby późniejszego przechodzenia przez uzyskanie dostępu do dodatkowych kont użytkowników i/lub uprzywilejowanych. W przypadku alertów o podejrzanych alertach dotyczących logowania do usługi Azure AD przy użyciu podejrzanych reguł manipulowania skrzynką odbiorczą są następujące:
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do podejrzanej reguły manipulowania skrzynką odbiorczą**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podejrzanej reguły manipulowania skrzynką odbiorczą**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do podejrzanej reguły manipulowania skrzynką odbiorczą**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do podejrzanej reguły manipulowania skrzynką odbiorczą**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do podejrzanej reguły manipulowania skrzynką odbiorczą**
+
+## <a name="malicious-administrative-activity"></a>Złośliwe działanie administracyjne
+
+### <a name="suspicious-cloud-app-administrative-activity-following-suspicious-azure-ad-sign-in"></a>Podejrzane działanie administracyjne aplikacji w chmurze po podejrzanym zalogowaniu do usługi Azure AD
+
+**Mitre ATT&taktykę:** Wstępny dostęp, trwałość, ochrona przed zagrożeniami, ruchy boczne, zbieranie, Eksfiltracji i wpływ
+
+**Techniki MITRE&ATT:** NIE DOTYCZY
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenia syntezy tego typu wskazują, że anomalia liczba działań administracyjnych została wykonana w jednej sesji po podejrzanym zalogowaniu do usługi Azure AD z tego samego konta. Zapewnia to wskazanie, że konto zanotowane w opisie zdarzenia Fusion mogło zostać naruszone i użyte do wykonania dowolnej liczby nieautoryzowanych akcji administracyjnych ze złośliwym intencją. Oznacza to również, że zabezpieczenia konta z uprawnieniami administracyjnymi mogły zostać naruszone. Permutacje podejrzanych alertów logowania do usługi Azure AD za pomocą alertu o podejrzanym działaniu z aplikacjami w chmurze są następujące:  
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do podejrzanych działań administracyjnych aplikacji w chmurze**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do podejrzanych działań administracyjnych aplikacji w chmurze**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do podejrzanych działań administracyjnych aplikacji w chmurze**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do podejrzanych działań administracyjnych aplikacji w chmurze**
+
+- **Zdarzenie logowania od użytkownika z nieujawnionymi poświadczeniami prowadzącymi do podejrzanych działań administracyjnych aplikacji w chmurze**
+
+## <a name="malicious-execution-with-legitimate-process"></a>Złośliwe wykonanie przy użyciu legalnego procesu
+
+### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Program PowerShell wykonał podejrzane połączenie sieciowe, a po nim nietypowy ruch oflagowany przez zaporę Palo Alto Networks.
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+
+**Mitre ATT&taktykę:** Działania
+
+**Techniki MITRE&ATT:** Interpreter poleceń i skryptów (T1059)
+
+**Źródła łącznika danych:** Microsoft Defender for Endpoint (dawniej usługa Microsoft Defender Advanced Threat Protection lub MDATP), Palo Alto Networks 
+
+**Opis:** Zdarzenia Fusion tego typu wskazują, że żądanie połączenia wychodzącego zostało wykonane za pośrednictwem polecenia programu PowerShell, a po wykryciu nietypowej aktywności przychodzącej przez zaporę Palo Alto Networks. Zapewnia to wskazanie, że osoba atakująca prawdopodobnie uzyska dostęp do sieci i próbuje wykonać złośliwe działania. Próby połączenia wykonywane przez program PowerShell, które są zgodne z tym wzorcem, mogą wskazywać na polecenia złośliwego oprogramowania i sterowanie nim, żądania pobrania dodatkowego złośliwego oprogramowania lub osoby atakujące ustanawiające zdalny dostęp interaktywny. Podobnie jak w przypadku ataków "żyjące", to działanie może być uprawnionym użyciem programu PowerShell. Jednak wykonanie polecenia programu PowerShell po podejrzanej aktywności w zaporze przychodzącej zwiększa pewność, że program PowerShell jest używany w złośliwy sposób i powinien zostać przeanalizowany dalej. W Palo Alto dzienników wskaźnik platformy Azure koncentruje się na [dziennikach zagrożeń](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), a ruch jest uznawany za podejrzany, gdy zagrożenia są dozwolone (podejrzane dane, pliki, zalewania, pakiety, skanowania, programy szpiegujące, adresy URL, wirusy, luki, pożarem-wirusy, Wildfires). Odwołuje się również do dziennika Palo Alto Threat odpowiadającego [typowi zagrożeń/zawartości](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) wymienionej w opisie zdarzenia Fusion, aby uzyskać dodatkowe szczegóły alertu.
+
+### <a name="suspicious-remote-wmi-execution-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Podejrzane zdalne wykonanie usługi WMI następuje przez nietypowy ruch oflagowany przez zaporę Palo Alto Networks
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+
+**Mitre ATT&taktykę:** Wykonywanie, odnajdywanie
+
+**Techniki MITRE&ATT:** Instrumentacja zarządzania Windows (T1047)
+
+**Źródła łącznika danych:** Microsoft Defender for Endpoint (dawniej MDATP), Palo Alto Networks 
+
+**Opis:** Zdarzenie Fusion tego typu wskazuje, że polecenia interfejsu zarządzania systemu Windows (WMI) zostały zdalnie wykonane w systemie, a po wykryciu podejrzanej aktywności przychodzącej przez zaporę Palo Alto Networks. Zapewnia to wskazanie, że osoba atakująca mogła uzyskać dostęp do sieci i podejmuje próbę późniejszego przeniesienia, eskalacji uprawnień i/lub wykonywania złośliwych ładunków. Podobnie jak w przypadku ataków "żyjące", to działanie może być uprawnionym użyciem usługi WMI. Jednak zdalne wykonywanie poleceń usługi WMI, po których następuje podejrzana aktywność zapory przychodzącej, zwiększa stopień pewności, że usługa WMI jest używana w złośliwy sposób i należy ją dokładniej zbadać. W Palo Alto dzienników wskaźnik platformy Azure koncentruje się na [dziennikach zagrożeń](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), a ruch jest uznawany za podejrzany, gdy zagrożenia są dozwolone (podejrzane dane, pliki, zalewania, pakiety, skanowania, programy szpiegujące, adresy URL, wirusy, luki, pożarem-wirusy, Wildfires). Odwołuje się również do dziennika Palo Alto Threat odpowiadającego [typowi zagrożeń/zawartości](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) wymienionej w opisie zdarzenia Fusion, aby uzyskać dodatkowe szczegóły alertu.
+
+## <a name="malware-c2-or-download"></a>Złośliwe oprogramowanie C2 lub pobieranie
+
+### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Żądanie sieciowe do sieci TOR zachowywanie anonimowości, po którym następuje anomalia ruch oflagowany przez zaporę Palo Alto Networks.
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+
+**Mitre ATT&taktykę:** Polecenie i kontrola
+
+**Techniki MITRE&ATT:** Szyfrowany kanał (T1573), proxy (T1090)
+
+**Źródła łącznika danych:** Microsoft Defender for Endpoint (dawniej MDATP), Palo Alto Networks 
+
+**Opis:** Zdarzenie Fusion tego typu wskazuje, że zostało wysłane żądanie połączenia wychodzącego do usługi TOR zachowywanie anonimowości, a po wykryciu nietypowej aktywności przychodzącej przez zaporę Palo Alto Networks. Zapewnia to wskazanie, że osoba atakująca prawdopodobnie uzyska dostęp do sieci i próbuje ukryć swoje działania i intencje. Połączenia z siecią TOR następujące po tym wzorcu mogą wskazywać na polecenia złośliwego oprogramowania oraz działania kontroli, żądania pobrania dodatkowego złośliwego oprogramowania lub osoby atakującej, która ustanawia zdalny dostęp interaktywny. W Palo Alto dzienników wskaźnik platformy Azure koncentruje się na [dziennikach zagrożeń](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), a ruch jest uznawany za podejrzany, gdy zagrożenia są dozwolone (podejrzane dane, pliki, zalewania, pakiety, skanowania, programy szpiegujące, adresy URL, wirusy, luki, pożarem-wirusy, Wildfires). Odwołuje się również do dziennika Palo Alto Threat odpowiadającego [typowi zagrożeń/zawartości](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) wymienionej w opisie zdarzenia Fusion, aby uzyskać dodatkowe szczegóły alertu.
+
+### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Połączenie wychodzące z adresem IP z historią prób nieautoryzowanego dostępu, po których następuje nietypowy ruch oflagowany przez zaporę Palo Alto Networks
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+
+**Mitre ATT&taktykę:** Polecenie i kontrola
+
+**Techniki MITRE&ATT:** Nie dotyczy
+
+**Źródła łącznika danych:** Microsoft Defender for Endpoint (dawniej MDATP), Palo Alto Networks 
+
+**Opis:** Zdarzenia Fusion tego typu wskazują, że nastąpiło połączenie wychodzące z adresem IP ze historięm nieautoryzowanych prób dostępu, a w przypadku wykrycia nietypowego działania przez zaporę Palo Alto Networks. Zapewnia to wskazanie, że osoba atakująca może uzyskać dostęp do sieci. Próby połączenia zgodnie z tym wzorcem mogą wskazywać na działanie polecenia i kontroli nad złośliwym oprogramowaniem, żądania pobrania dodatkowego złośliwego oprogramowania lub osoby atakującej, która ustanawia zdalny dostęp interaktywny. W Palo Alto dzienników wskaźnik platformy Azure koncentruje się na [dziennikach zagrożeń](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), a ruch jest uznawany za podejrzany, gdy zagrożenia są dozwolone (podejrzane dane, pliki, zalewania, pakiety, skanowania, programy szpiegujące, adresy URL, wirusy, luki, pożarem-wirusy, Wildfires). Odwołuje się również do dziennika Palo Alto Threat odpowiadającego [typowi zagrożeń/zawartości](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) wymienionej w opisie zdarzenia Fusion, aby uzyskać dodatkowe szczegóły alertu.
+
+## <a name="ransomware"></a>Oprogramowanie wymuszające okup
+
+### <a name="ransomware-execution-following-suspicious-azure-ad-sign-in"></a>Wykonanie oprogramowania wymuszającego okup po podejrzanym zalogowaniu do usługi Azure AD
+
+**Mitre ATT&taktykę:** Wstępny dostęp, wpływ
+
+**Techniki MITRE&ATT:** Prawidłowe konto (T1078), zaszyfrowane dane na potrzeby wpływu (T1486)
+
+**Źródła łącznika danych:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Opis:** Zdarzenia syntezy tego typu wskazują, że nietypowe zachowanie użytkownika wskazujące atak z wykorzystaniem oprogramowania wymuszającego okup zostało wykryte po podejrzanej rejestracji na koncie usługi Azure AD. To wskazanie zapewnia wysoki poziom pewności, że konto zanotowane w opisie zdarzenia Fusion zostało naruszone i zostało użyte do szyfrowania danych na potrzeby extorting właścicielowi danych lub odmowy dostępu do danych przez właściciela danych. Permutacje alertów dotyczących logowania do usługi Azure AD za pomocą alertu uruchamiania oprogramowania wymuszającego okup są następujące:  
+
+- **Niemożliwa podróż do nietypowej lokalizacji prowadzącej do oprogramowania wymuszającego okup w aplikacji w chmurze**
+
+- **Zdarzenie logowania z nieznanej lokalizacji prowadzącej do oprogramowania wymuszającego okup w aplikacji w chmurze**
+
+- **Zdarzenie logowania z zainfekowanego urządzenia prowadzącego do oprogramowania wymuszającego okup w aplikacji w chmurze**
+
+- **Zdarzenie logowania z anonimowego adresu IP prowadzącego do oprogramowania wymuszającego okup w aplikacji w chmurze**
+
+- **Zdarzenie logowania z użytkownika z nieujawnionymi poświadczeniami prowadzącymi do oprogramowania wymuszającego okup w aplikacji w chmurze**
+
+## <a name="remote-exploitation"></a>Zdalne wykorzystanie
+
+### <a name="suspected-use-of-attack-framework-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Podejrzane użycie struktury ataków następuje przez nietypowy ruch oflagowany przez zaporę Palo Alto Networks
+Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
+
+**Mitre ATT&taktykę:** Wstępny dostęp, wykonywanie, przenoszenie boczne, eskalacja uprawnień
+
+**Techniki MITRE&ATT:** Wykorzystanie publicznej aplikacji (T1190), wykorzystanie do wykonania klienta (T1203), wykorzystanie usług zdalnych (T1210), wykorzystanie do eskalacji uprawnień (T1068)
+
+**Źródła łącznika danych:** Microsoft Defender for Endpoint (dawniej MDATP), Palo Alto Networks 
+
+**Opis:** Zdarzenia syntezy tego typu wskazują, że wykryto niestandardowe zastosowania protokołów, podobne do użycia struktur ataków, takich jak Metasploit, i po tym, że podejrzana aktywność przychodząca została wykryta przez zaporę Palo Alto Networks. Może to być pierwotne wskazanie, że osoba atakująca korzystała z usługi, aby uzyskać dostęp do zasobów sieciowych lub że osoba atakująca już uzyskała dostęp i próbuje dalej wykorzystać dostępne systemy/usługi w celu późniejszego przechodzenia i/lub eskalacji uprawnień. W Palo Alto dzienników wskaźnik platformy Azure koncentruje się na [dziennikach zagrożeń](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), a ruch jest uznawany za podejrzany, gdy zagrożenia są dozwolone (podejrzane dane, pliki, zalewania, pakiety, skanowania, programy szpiegujące, adresy URL, wirusy, luki, pożarem-wirusy, Wildfires). Odwołuje się również do dziennika Palo Alto Threat odpowiadającego [typowi zagrożeń/zawartości](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) wymienionej w opisie zdarzenia Fusion, aby uzyskać dodatkowe szczegóły alertu.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge ze specyfikacją techniczną procesora GPU i zgodnością | Microsoft Docs
-description: Dowiedz się więcej na temat specyfikacji technicznych i zgodności dla urządzenia Azure Stack Edge z procesorem GPU
+title: Microsoft Azure Stack EDGE Pro ze specyfikacją i zgodnością procesora GPU | Microsoft Docs
+description: Dowiedz się więcej na temat specyfikacji technicznych i zgodności dla urządzeń z programem Azure Stack EDGE Pro z procesorem GPU
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 3f354655a612d4085b0a0de45ae1a6e5ee097ade
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b0eaa9778480a6a767a4b37bd92a395d2b1ee6cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266667"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899032"
 ---
-# <a name="technical-specifications-and-compliance-for-azure-stack-edge-with-gpu"></a>Specyfikacje techniczne i zgodność dla Azure Stack Edge z procesorem GPU 
+# <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Specyfikacje techniczne i zgodność dla Azure Stack EDGE Pro z procesorem GPU 
 
-Składniki sprzętowe Azure Stack krawędzi z dołączaniem procesora graficznego (GPU), które są zgodne ze specyfikacjami technicznymi i normami obowiązującymi w tym artykule. Specyfikacje techniczne opisują sprzęt, jednostki zasilacza (PSUs), pojemność magazynu, obudowy i standardy środowiskowe.
+Składniki sprzętowe Azure Stack Edge w firmie Pro z jednostką GPU (Graphics Processing Unit) stosują się do specyfikacji technicznych i standardów obowiązujących w tym artykule. Specyfikacje techniczne opisują sprzęt, jednostki zasilacza (PSUs), pojemność magazynu, obudowy i standardy środowiskowe.
 
 ## <a name="compute-and-memory-specifications"></a>Specyfikacje obliczeniowe i pamięci
 
-Urządzenie brzegowe Azure Stack ma następujące specyfikacje dotyczące obliczeń i pamięci:
+Urządzenie Azure Stack EDGE Pro ma następujące specyfikacje dotyczące obliczeń i pamięci:
 
 | Specyfikacja           | Wartość                  |
 |-------------------------|----------------------------|
@@ -31,7 +31,7 @@ Urządzenie brzegowe Azure Stack ma następujące specyfikacje dotyczące oblicz
 
 ## <a name="compute-acceleration-specifications"></a>Specyfikacje przyspieszania obliczeń
 
-Procesor graficzny (GPU) jest dołączany do każdego Azure Stack urządzenia brzegowego, które umożliwia Kubernetes, uczenie głębokie oraz scenariusze uczenia maszynowego.
+Procesor graficzny (GPU) jest dołączany do każdego Azure Stack brzeg Pro urządzenia, które umożliwia obsługę scenariuszy Kubernetes, uczenia głębokiego i uczenia maszynowego.
 
 | Specyfikacja           | Wartość                  |
 |-------------------------|----------------------------|
@@ -40,25 +40,25 @@ Procesor graficzny (GPU) jest dołączany do każdego Azure Stack urządzenia br
 
 ## <a name="power-supply-unit-specifications"></a>Specyfikacje jednostek zasilacza
 
-Urządzenie brzegowe Azure Stack ma dwie jednostki zasilacza 100-240 V (PSUs) z wentylatorami o wysokiej wydajności. Dwa PSUs zapewniają nadmiarową konfigurację zasilacza. Jeśli PSU nie powiedzie się, urządzenie będzie nadal działać normalnie na innych PSU, dopóki nie zostanie zastąpiony moduł zakończony niepowodzeniem. W poniższej tabeli przedstawiono specyfikacje techniczne PSUs.
+Urządzenie Azure Stack EDGE Pro ma dwie jednostki dostarczania 100-240 V (PSUs) z wentylatorami o wysokiej wydajności. Dwa PSUs zapewniają nadmiarową konfigurację zasilacza. Jeśli PSU nie powiedzie się, urządzenie będzie nadal działać normalnie na innych PSU, dopóki nie zostanie zastąpiony moduł zakończony niepowodzeniem. W poniższej tabeli przedstawiono specyfikacje techniczne PSUs.
 
 | Specyfikacja           | 750 W PSU                  |
 |-------------------------|----------------------------|
 | Maksymalna moc wyjściowa    | 750 W                     |
 | Częstotliwość               | 50/60 Hz                   |
 | Wybór zakresu napięcia | Wybór na Wydziale: 100-240 V AC |
-| Możliwość podłączenia gorąca           | Yes                        |
+| Możliwość podłączenia gorąca           | Tak                        |
 
 
 ## <a name="network-interface-specifications"></a>Specyfikacje interfejsu sieciowego
 
-Urządzenie brzegowe Azure Stack ma sześć interfejsów sieciowych PORT1-PORT6.
+Urządzenie Azure Stack EDGE Pro ma sześć interfejsów sieciowych, PORT1-PORT6.
 
 | Specyfikacja           | Opis                 |
 |-------------------------|----------------------------|
 |  Interfejsy sieciowe    | **2 X 1 GbE interfejsy** — 1 interfejs zarządzania port 1 jest używany do początkowej konfiguracji i jest domyślnie statyczny. Po zakończeniu wstępnej instalacji można użyć interfejsu dla danych z dowolnymi adresami IP. Jednak po zresetowaniu interfejs przywraca statyczny adres IP. <br>Innym interfejsem jest port 2 konfigurowany przez użytkownika, który może być używany do transferu danych i domyślnie jest DHCP. <br>**interfejsy 4 X 25 GbE** — te interfejsy danych, port 3 przez port 6 mogą być konfigurowane przez użytkownika jako serwer DHCP (domyślnie) lub statyczny. Mogą one również działać jako interfejsy 10 GbE.  | 
 
-Urządzenie brzegowe Azure Stack ma następujący sprzęt sieciowy:
+Urządzenie Azure Stack EDGE Pro ma następujący sprzęt sieciowy:
 
 * **Niestandardowy Microsoft QLogic Cavium 25G NDC adapter** -port 1 przez port 4.
 * **Mellanox Dual port 25G ConnectX-4 Channel karta sieciowa** -port 5 i port 6.
@@ -79,7 +79,7 @@ Aby uzyskać pełną listę obsługiwanych kabli, przełączników i urządzeń 
 
 ## <a name="storage-specifications"></a>Specyfikacje magazynu
 
-Azure Stack urządzenia brzegowe mają pięć 2,5 "interfejsu NVMe DC P4610 dysków SSD, każdy z pojemnością 1,6 TB. Stacja dysków rozruchowych to dysk SSD SATA 240 GB. Całkowita pojemność urządzenia wynosi około 8,28 TB. W poniższej tabeli wymieniono pojemność magazynu urządzenia.
+Urządzenia Azure Stack EDGE Pro mają pięć 2,5 "interfejsu NVMe DC P4610 dysków SSD, z których każdy ma pojemność 1,6 TB. Stacja dysków rozruchowych to dysk SSD SATA 240 GB. Całkowita pojemność urządzenia wynosi około 8,28 TB. W poniższej tabeli wymieniono pojemność magazynu urządzenia.
 
 |     Specyfikacja                          |     Wartość             |
 |--------------------------------------------|-----------------------|
@@ -97,7 +97,7 @@ Azure Stack urządzenia brzegowe mają pięć 2,5 "interfejsu NVMe DC P4610 dysk
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
 
-Your Azure Stack Edge device also contains the following hardware:
+Your Azure Stack Edge Pro device also contains the following hardware:
 
 * iDRAC baseboard management
 * Performance fans
@@ -172,4 +172,4 @@ W tej sekcji przedstawiono specyfikacje dotyczące środowiska obudowy, takie ja
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wdrażanie Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md)
+[Wdróż swoją Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-prep.md)

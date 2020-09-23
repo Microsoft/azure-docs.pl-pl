@@ -7,14 +7,16 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 665d508a7d95e177d0db09ad86e2a5f0ee4d605b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2f788452455bfbbc47f0a48689ccf3344515fdae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291300"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904248"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Skonfiguruj wystąpienie serwera konfiguracji chmury wiosny dla swojej usługi
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
 W tym artykule opisano sposób nawiązywania połączenia ze sprężynowym wystąpieniem serwera konfiguracji chmury z usługą Azure wiosną w chmurze.
 
@@ -163,7 +165,7 @@ Jeśli chcesz użyć opcjonalnego **repozytorium wzorców** w celu skonfigurowan
 
 Jeśli zapisano plik YAML z ustawieniami repozytorium, możesz zaimportować go bezpośrednio z komputera lokalnego do chmury z systemem Azure wiosną. Prosty plik YAML dla repozytorium prywatnego z uwierzytelnianiem podstawowym będzie wyglądać następująco:
 
-```yml
+```yaml
 spring:
     cloud:
         config:

@@ -1,29 +1,29 @@
 ---
 title: Informacje na temat zarządzania obciążeniem Kubernetes na urządzeniu Azure Stack Edge | Microsoft Docs
-description: Opisuje, w jaki sposób można zarządzać obciążeniami Kubernetes na urządzeniu brzegowym Azure Stack.
+description: Opisuje, w jaki sposób można zarządzać obciążeniami Kubernetes na urządzeniach z systemem Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 53bd7a404e4635833b03507e8b5ae93ae40b1c61
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: f64f9b612ff47fb5c0b6e6202ad87f7660959100
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318985"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899169"
 ---
-# <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Kubernetes zarządzanie obciążeniami na urządzeniu brzegowym Azure Stack
+# <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Kubernetes zarządzanie obciążeniami na urządzeniu Azure Stack EDGE Pro
 
-Na urządzeniu Azure Stack Edge tworzony jest klaster Kubernetes podczas konfigurowania roli obliczeniowej. Po utworzeniu klastra Kubernetes można wdrożyć aplikacje kontenera w klastrze Kubernetes w zasobnikach. Istnieją różne sposoby wdrażania obciążeń w klastrze Kubernetes. 
+Na urządzeniu Azure Stack EDGE Pro tworzony jest klaster Kubernetes podczas konfigurowania roli obliczeniowej. Po utworzeniu klastra Kubernetes można wdrożyć aplikacje kontenera w klastrze Kubernetes w zasobnikach. Istnieją różne sposoby wdrażania obciążeń w klastrze Kubernetes. 
 
-W tym artykule opisano różne metody, których można użyć do wdrożenia obciążeń na urządzeniu Azure Stack Edge.
+W tym artykule opisano różne metody, których można użyć do wdrożenia obciążeń na urządzeniu z systemem Azure Stack brzeg Pro.
 
 ## <a name="workload-types"></a>Typy obciążeń
 
-Dwa popularne typy obciążeń, które można wdrożyć na urządzeniu brzegowym Azure Stack, to bezstanowe aplikacje lub aplikacje stanowe.
+Dwa popularne typy obciążeń, które można wdrożyć na urządzeniu z systemem Azure Stack brzeg Pro, to bezstanowe aplikacje lub aplikacje stanowe.
 
 - **Bezstanowe aplikacje** nie zachowują swojego stanu ani nie zapisują danych w magazynie trwałym. Wszystkie dane użytkownika i sesji pozostają razem z klientem programu. Niektóre przykłady aplikacji bezstanowych obejmują frontony sieci Web, takie jak Nginx i inne aplikacje sieci Web.
 
@@ -35,7 +35,7 @@ Dwa popularne typy obciążeń, które można wdrożyć na urządzeniu brzegowym
 
 ## <a name="deployment-flow"></a>Przepływ wdrożenia
 
-Aby wdrożyć aplikacje na Azure Stack urządzeniu brzegowym, wykonaj następujące kroki: 
+Aby wdrażać aplikacje na urządzeniu z systemem Azure Stack Edge, wykonaj następujące kroki: 
  
 1. **Konfigurowanie dostępu**: najpierw użyjesz obszaru działania programu PowerShell, aby utworzyć użytkownika, utworzyć przestrzeń nazw i udzielić użytkownikowi dostępu do tej przestrzeni nazw.
 2. **Konfigurowanie magazynu**: następnie do tworzenia woluminów trwałych przy użyciu statycznej lub dynamicznej obsługi aplikacji stanowych, które zostaną wdrożone, będzie używany zasób Azure Stack Edge w Azure Portal.
@@ -47,11 +47,13 @@ Istnieją trzy podstawowe sposoby wdrażania obciążeń. Każda z tych metod wd
 
 ![Wdrożenie obciążenia Kubernetes](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Wdrożenie lokalne**: to wdrożenie jest dostępne za pomocą narzędzia wiersza polecenia, takiego jak `kubectl` , które pozwala na wdrożenie Kubernetes `yamls` . Dostęp do klastra Kubernetes można uzyskać na Azure Stackej krawędzi za pomocą `kubeconfig` pliku. Aby uzyskać więcej informacji, przejdź do [obszaru dostęp do klastra Kubernetes za pośrednictwem usługi polecenia kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- **Wdrożenie lokalne**: to wdrożenie jest dostępne za pomocą narzędzia wiersza polecenia, takiego jak `kubectl` , które pozwala na wdrożenie Kubernetes `yamls` . Użytkownik uzyskuje dostęp do klastra Kubernetes na Azure Stack Edge w systemie za pośrednictwem `kubeconfig` pliku. Aby uzyskać więcej informacji, przejdź do [obszaru dostęp do klastra Kubernetes za pośrednictwem usługi polecenia kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
-- **Wdrożenie IoT Edge**: odbywa się to za pomocą IoT Edge, który łączy się z IoT Hub platformy Azure. Nawiąż połączenie z klastrem Kubernetes Azure Stack na urządzeniu brzegowym za pośrednictwem `iotedge` przestrzeni nazw. IoT Edge agenci wdrożoni w tej przestrzeni nazw są odpowiedzialni za łączność z platformą Azure. Konfiguracja zostanie zastosowana `IoT Edge deployment.json` za pomocą usługi Azure DEVOPS Ci/CD. Przestrzeń nazw i zarządzanie IoT Edge są wykonywane za poorednictwem operatora chmury.
+- **Wdrożenie IoT Edge**: odbywa się to za pomocą IoT Edge, który łączy się z IoT Hub platformy Azure. Nawiąż połączenie z klastrem Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro za pośrednictwem `iotedge` przestrzeni nazw. IoT Edge agenci wdrożoni w tej przestrzeni nazw są odpowiedzialni za łączność z platformą Azure. Konfiguracja zostanie zastosowana `IoT Edge deployment.json` za pomocą usługi Azure DEVOPS Ci/CD. Przestrzeń nazw i zarządzanie IoT Edge są wykonywane za poorednictwem operatora chmury.
 
-- **Wdrożenie platformy Azure/Arc**: usługa Azure Arc jest narzędziem do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach Kubernetes. Klaster Kubernetes można połączyć na urządzeniu brzegowym Azure Stack za pośrednictwem `azure-arc namespace` . Agenci są wdrażani w tej przestrzeni nazw, które są odpowiedzialne za łączność z platformą Azure. Konfigurację wdrożenia należy zastosować przy użyciu GitOps zarządzania konfiguracją. Usługa Azure Arc umożliwi także używanie Azure Monitor do kontenerów w celu wyświetlania i monitorowania klastrów. Aby uzyskać więcej informacji, przejdź do [co to jest usługa Azure-Arc włączona Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+- **Usługa Azure ARC z włączonym Kubernetes wdrożeniem**: usługa Azure Arc Kubernetes jest narzędziem do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach Kubernetes. Nawiąż połączenie z klastrem Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro za pośrednictwem `azure-arc namespace` . Agenci wdrożoni w tej przestrzeni nazw są odpowiedzialni za łączność z platformą Azure. Konfigurację wdrożenia należy zastosować przy użyciu GitOps zarządzania konfiguracją. 
+    
+    Usługa Azure ARC z włączonym Kubernetes umożliwia również korzystanie z Azure Monitor kontenerów do wyświetlania i monitorowania klastra. Aby uzyskać więcej informacji, przejdź do [co to jest usługa Azure Arc włączona Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 ## <a name="choose-the-deployment-type"></a>Wybierz typ wdrożenia
 
@@ -59,7 +61,7 @@ Podczas wdrażania aplikacji należy wziąć pod uwagę następujące informacje
 
 - **Jeden lub wiele typów**: można wybrać jedną opcję wdrożenia lub kombinację różnych opcji wdrażania.
 - **Chmura a lokalna**: w zależności od aplikacji można wybrać wdrożenie lokalne za pośrednictwem polecenia kubectl lub wdrożenia w chmurze za pośrednictwem IoT Edge i Azure Arc. 
-    - W przypadku wybrania wdrożenia lokalnego nastąpi ograniczenie do sieci, w której wdrożono urządzenie Azure Stack Edge.
+    - W przypadku wybrania wdrożenia lokalnego nastąpi ograniczenie do sieci, w której wdrożono urządzenie Azure Stack EDGE Pro.
     - Jeśli masz agenta w chmurze, który można wdrożyć, należy wdrożyć operator chmury i użyć zarządzania chmurą.
 - **Usługa IoT vs Azure Arc**: wybór wdrożenia zależy również od intencji scenariusza produktu. W przypadku wdrażania aplikacji lub kontenerów, które mają większą integrację z usługą IoT lub ekosystem IoT, wybierz IoT Edge w celu wdrożenia aplikacji. Jeśli masz istniejące wdrożenia programu Kubernetes, najlepszym wyborem będzie usługa Azure Arc.
 
@@ -68,11 +70,11 @@ Podczas wdrażania aplikacji należy wziąć pod uwagę następujące informacje
 
 Aby lokalnie wdrożyć aplikację za pomocą polecenia kubectl, zobacz:
 
-- [Wdróż bezstanową aplikację na Azure Stackej krawędzi za pośrednictwem polecenia kubectl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Wdróż bezstanową aplikację na Azure Stack EDGE Pro za pośrednictwem polecenia kubectl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
 
 Aby wdrożyć aplikację za pośrednictwem IoT Edge, zobacz:
 
-- [Wdróż przykładowy moduł na Azure Stackej krawędzi za pośrednictwem IoT Edge](azure-stack-edge-gpu-deploy-sample-module.md).
+- [Wdróż przykładowy moduł na Azure Stack EDGE Pro za pośrednictwem IoT Edge](azure-stack-edge-gpu-deploy-sample-module.md).
 
 Aby wdrożyć aplikację za pośrednictwem usługi Azure ARC, zobacz:
 

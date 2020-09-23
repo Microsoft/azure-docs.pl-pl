@@ -1,6 +1,6 @@
 ---
-title: Rejestracja biletu pomocy technicznej dla Azure Stack Edge Azure Data Box Gateway | Microsoft Docs
-description: Dowiedz się, jak rejestrować żądania pomocy technicznej dotyczące problemów związanych z Azure Stack krawędzią lub zamówieniami Data Box Gateway.
+title: Rejestracja biletu pomocy technicznej dla Azure Stack EDGE Pro Azure Data Box Gateway | Microsoft Docs
+description: Dowiedz się, jak rejestrować żądania pomocy technicznej dotyczące problemów związanych z zamówieniami Azure Stack EDGE Pro lub Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 4d513471e288c1aadbf70b24ef367965a0b69a80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9df729277934e074e1e8cc92126e777336708586
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339913"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904516"
 ---
-# <a name="open-a-support-ticket-for-azure-stack-edge-and-azure-data-box-gateway"></a>Otwórz bilet pomocy technicznej dla Azure Stack Edge i Azure Data Box Gateway
+# <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Otwórz bilet pomocy technicznej dla usługi Azure Stack EDGE Pro i Azure Data Box Gateway
 
-Ten artykuł ma zastosowanie do Azure Stack Edge i Azure Data Box Gateway obu tych, które są zarządzane przez usługę Azure Stack Edge/Azure Data Box Gateway. Jeśli wystąpią problemy z usługą, możesz utworzyć żądanie obsługi dla pomocy technicznej. W tym artykule przedstawiono następujące instrukcje:
+Ten artykuł ma zastosowanie do Azure Stack Edge i Azure Data Box Gateway obu z nich, które są zarządzane przez usługę Azure Stack brzeg Pro/Azure Data Box Gateway. Jeśli wystąpią problemy z usługą, możesz utworzyć żądanie obsługi dla pomocy technicznej. W tym artykule przedstawiono następujące instrukcje:
 
 * Jak utworzyć żądanie obsługi.
 * Jak zarządzać cyklem życia żądania pomocy technicznej z poziomu portalu.
@@ -26,20 +26,20 @@ Ten artykuł ma zastosowanie do Azure Stack Edge i Azure Data Box Gateway obu ty
 
 Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
-1. Przejdź do Azure Stack krawędź lub Data Box Gateway. Przejdź do sekcji **Obsługa i rozwiązywanie problemów** , a następnie wybierz pozycję **nowe żądanie obsługi**.
+1. Przejdź do Azure Stack zamówienia Pro lub Data Box Gateway. Przejdź do sekcji **Obsługa i rozwiązywanie problemów** , a następnie wybierz pozycję **nowe żądanie obsługi**.
 
 2. W obszarze **nowe żądanie obsługi**na karcie **podstawowe** wykonaj następujące czynności:
 
     1. Z listy rozwijanej **typ problemu** wybierz pozycję **techniczne**.
     2. Wybierz **subskrypcję**.
-    3. W obszarze **Usługa**Sprawdź pozycję **Moje usługi**. Z listy rozwijanej wybierz pozycję **Azure Stack krawędź i Data Box Gateway**.
+    3. W obszarze **Usługa**Sprawdź pozycję **Moje usługi**. Z listy rozwijanej wybierz pozycję **Azure Stack EDGE Pro i Data Box Gateway**.
     4. Wybierz **zasób**. Odnosi się to do nazwy zamówienia.
     5. Podaj krótkie **Podsumowanie** problemu, który wystąpił. 
     6. Wybierz **typ problemu**.
     7. Na podstawie wybranego typu problemu wybierz odpowiedni **podtyp problemu**.
     8. Wybierz pozycję **Dalej: rozwiązania >>**.
 
-        ![Informacje podstawowe](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
+        ![Podstawy](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
 3. Na karcie **szczegóły** wykonaj następujące czynności:
 
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
         ![Problem](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-2.png)
 
-4. Na karcie **Przegląd i tworzenie** zapoznaj się z informacjami dotyczącymi biletu pomocy technicznej. Wybierz pozycję **Utwórz**. 
+4. Na karcie **Przegląd i tworzenie** zapoznaj się z informacjami dotyczącymi biletu pomocy technicznej. Wybierz przycisk **Utwórz**. 
 
     ![Problem](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
@@ -98,5 +98,5 @@ Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [rozwiązywać problemy związane z Azure Stack Edge](azure-stack-edge-troubleshoot.md).
+Dowiedz się, jak [rozwiązywać problemy związane z usługą Azure Stack EDGE Pro](azure-stack-edge-troubleshoot.md).
 Dowiedz się, jak [rozwiązywać problemy związane z Data Box Gateway](data-box-gateway-troubleshoot.md).

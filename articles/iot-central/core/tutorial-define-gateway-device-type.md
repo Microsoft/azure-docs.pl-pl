@@ -1,5 +1,5 @@
 ---
-title: Definiowanie nowego typu urządzenia bramy na platformie Azure IoT Central | Microsoft Docs
+title: Samouczek — Definiowanie nowego typu urządzenia bramy na platformie Azure IoT Central | Microsoft Docs
 description: W tym samouczku pokazano, jak utworzyć konstruktora, jak zdefiniować nowy typ urządzenia bramy IoT w aplikacji IoT Central platformy Azure.
 author: rangv
 ms.author: rangv
@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81758134"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967914"
 ---
-# <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia bramy IoT w aplikacji IoT Central platformy Azure
+# <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Samouczek — Definiowanie nowego typu urządzenia bramy IoT w aplikacji IoT Central platformy Azure
 
 *Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
 
@@ -31,6 +31,9 @@ Ponadto, aby umożliwić urządzeniom podrzędnym komunikowanie się z aplikacj�
 * Wyślij własne dane telemetryczne, takie jak temperatura.
 * Odpowiadanie na zapisywalne aktualizacje właściwości wykonywane przez operatora. Na przykład operator może zmienić interwał wysyłania danych telemetrycznych.
 * Odpowiadanie na polecenia, takie jak ponowne uruchamianie urządzenia.
+
+> [!div class="checklist"]
+> Tworzenie szablonów urządzeń podrzędnych tworzenie szablonu urządzenia bramy publikowanie szablonu urządzenia tworzenie symulowanych urządzeń
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -107,8 +110,8 @@ Aby dodać właściwości chmury do szablonu **urządzenia do tworzenia intelige
 
     | Nazwa wyświetlana      | Typ semantyczny | Schemat |
     | ----------------- | ------------- | ------ |
-    | Data ostatniego serwisowania | Brak          | Data   |
-    | Nazwa klienta     | Brak          | Ciąg |
+    | Data ostatniego serwisowania | Brak          | Date   |
+    | Nazwa klienta     | Brak          | String |
 
 2. Wybierz pozycję **Zapisz**.
 

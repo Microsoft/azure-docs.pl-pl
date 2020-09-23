@@ -1,6 +1,6 @@
 ---
-title: Wdróż bezstanową aplikację Kubernetes na Azure Stack Edge GPU przy użyciu modułu IoT Edge | Microsoft Docs
-description: Opisuje sposób wdrażania aplikacji bezstanowej Kubernetes na urządzeniu GPU Azure Stack Edge przy użyciu modułu IoT Edge, do którego dostęp jest uzyskiwany za pośrednictwem zewnętrznego adresu IP.
+title: Wdróż bezstanową aplikację Kubernetes na Azure Stack brzegowej procesora GPU przy użyciu modułu IoT Edge | Microsoft Docs
+description: Opisuje sposób wdrażania aplikacji bezstanowej Kubernetes na urządzeniu GPU z systemem Azure Stack Edge przy użyciu modułu IoT Edge, do którego dostęp jest uzyskiwany za pośrednictwem zewnętrznego adresu IP.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 15316cbdd44053bfaf7403815ba42d92e2264b7b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4bc598080b96886e6734ac3709761465a1a28d49
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254172"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899524"
 ---
-# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-gpu-device"></a>Używanie modułu IoT Edge do uruchamiania aplikacji bezstanowej Kubernetes na urządzeniu z systemem Azure Stack Edge
+# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-pro-gpu-device"></a>Używanie modułu IoT Edge do uruchamiania aplikacji bezstanowej Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro GPU
 
-W tym artykule opisano, jak można użyć modułu IoT Edge do wdrożenia aplikacji bezstanowej na urządzeniu brzegowym Azure Stack.
+W tym artykule opisano, jak można użyć modułu IoT Edge do wdrożenia aplikacji bezstanowej na urządzeniu Azure Stack EDGE Pro.
 
 Aby wdrożyć bezstanową aplikację, wykonaj następujące czynności:
 
 - Przed wdrożeniem modułu IoT Edge upewnij się, że wymagania wstępne zostały spełnione.
-- Dodaj moduł IoT Edge, aby uzyskać dostęp do sieci obliczeniowej na Azure Stack brzegowej.
+- Dodaj moduł IoT Edge, aby uzyskać dostęp do sieci obliczeniowej w Azure Stack EDGE Pro.
 - Sprawdź, czy moduł ma dostęp do włączonego interfejsu sieciowego.
 
 W tym artykule z tego artykułu opisano użycie modułu aplikacji sieci WebServer do zademonstrowania tego scenariusza.
@@ -31,19 +31,19 @@ W tym artykule z tego artykułu opisano użycie modułu aplikacji sieci WebServe
 
 Przed rozpoczęciem należy:
 
-- Urządzenie Azure Stack Edge. Upewnij się, że:
+- Urządzenie Azure Stack EDGE Pro. Upewnij się, że:
 
     - Ustawienia sieci obliczeniowej są konfigurowane na urządzeniu.
     - Urządzenie jest aktywowane zgodnie z krokami opisanymi w [samouczku: Aktywuj urządzenie](azure-stack-edge-gpu-deploy-activate.md).
-- Ukończono Konfigurowanie kroków **obliczeniowych** zgodnie z [samouczkiem: Skonfiguruj obliczenia na urządzeniu Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-compute.md) na urządzeniu. Urządzenie powinno mieć skojarzony zasób IoT Hub, urządzenie IoT i urządzenie IoT Edge.
+- Ukończono Konfigurowanie kroków **obliczeniowych** zgodnie z [samouczkiem: Konfigurowanie obliczeń na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-configure-compute.md) na urządzeniu. Urządzenie powinno mieć skojarzony zasób IoT Hub, urządzenie IoT i urządzenie IoT Edge.
 
 
 ## <a name="add-webserver-app-module"></a>Dodaj moduł aplikacji WebServer
 
-Wykonaj następujące kroki, aby dodać moduł aplikacji sieci WebServer na urządzeniu Azure Stack Edge.
+Wykonaj następujące kroki, aby dodać moduł aplikacji sieci WebServer na urządzeniu Azure Stack EDGE Pro.
 
 1. W zasobie IoT Hub skojarzonym z urządzeniem przejdź do pozycji **Automatyczne zarządzanie urządzeniami > IoT Edge**.
-1. Wybierz i kliknij urządzenie IoT Edge skojarzone z Azure Stack urządzeniem brzegowym. 
+1. Wybierz i kliknij urządzenie IoT Edge skojarzone z urządzeniem Azure Stack brzeg Pro. 
 
     ![Wybierz urządzenie IoT Edge](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/select-iot-edge-device-1.png)  
 
@@ -78,7 +78,7 @@ Wykonaj następujące kroki, aby dodać moduł aplikacji sieci WebServer na urz�
 
         ![Określ informacje o porcie w bloku modułu IoT Edge niestandardowego](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/verify-module-status-1.png)
 
-    4. Wybierz pozycję **Przejrzyj i utwórz**. Przejrzyj szczegóły modułu i wybierz pozycję **Utwórz**.
+    4. Wybierz pozycję **Przeglądanie + tworzenie**. Przejrzyj szczegóły modułu i wybierz pozycję **Utwórz**.
 
 ## <a name="verify-module-access"></a>Weryfikuj dostęp do modułu
 
