@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a3cd250e53fb30e07795b184b5c949505e3b20ae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: af32be357899090e0df96e2c67910a4f9ad5194d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905753"
+ms.locfileid: "90988073"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -361,6 +361,17 @@ Oto szczegółowe informacje:
 * Dane telemetryczne są również wypychane do subskrypcji Microsoft/Azure.
 
 [![Przepływ pracy wnioskowania](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
+
+## <a name="audit-and-manage-compliance"></a>Inspekcja i zarządzanie zgodnością
+
+[Azure Policy](/azure/governance/policy) jest narzędziem do zarządzania, które umożliwia upewnienie się, że zasoby platformy Azure są zgodne z zasadami. Za pomocą Azure Machine Learning można przypisać następujące zasady:
+
+* **Klucz zarządzany przez klienta**: Inspekcja lub wymuszanie, czy obszary robocze muszą używać klucza zarządzanego przez klienta.
+* **Link prywatny**: Inspekcja, czy obszary robocze używają prywatnego punktu końcowego do komunikacji z siecią wirtualną.
+
+Aby uzyskać więcej informacji na temat Azure Policy, zobacz [dokumentację Azure Policy](/azure/governance/policy/overview).
+
+Aby uzyskać więcej informacji na temat zasad specyficznych dla Azure Machine Learning, zobacz [Inspekcja i zarządzanie zgodnością z Azure Policy](how-to-integrate-azure-policy.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

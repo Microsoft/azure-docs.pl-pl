@@ -1,17 +1,17 @@
 ---
 title: Uaktualnianie wizualizacji pulpitu nawigacyjnego Log Analytics
-description: Zapytania, które można uruchomić z i zmodyfikować w razie potrzeby
+description: Dowiedz się, jak uaktualnić wizualizacje pulpitu nawigacyjnego Log Analytics przy użyciu zapytań, które mogą zapewniać zaawansowane informacje.
 ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505775"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988252"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Uaktualnianie wizualizacji pulpitu nawigacyjnego Log Analytics
 
@@ -62,7 +62,7 @@ Po uaktualnieniu wizualizacji należy ponownie opublikować pulpit nawigacyjny, 
 
 Gdy początkowy okres obowiązywania jest dłuższy, zespół Log Analytics uaktualni wszystkie pulpity nawigacyjne w systemie. Wyrównanie wszystkich pulpitów nawigacyjnych platformy Azure umożliwia zespołowi wprowadzanie większej liczby wizualizacji i ulepszeń w całej tablicy.
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Wizualizacje Log Analytics przypięte do pulpitu nawigacyjnego mają konkretne zachowanie, które zostały zaprojektowane w celu zapewnienia optymalnego środowiska. Po przypięciu wizualizacji do pulpitu nawigacyjnego Przejrzyj następujące zagadnienia dotyczące projektowania.
 

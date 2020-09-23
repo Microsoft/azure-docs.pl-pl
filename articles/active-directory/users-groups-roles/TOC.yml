@@ -165,18 +165,24 @@
           href: directory-manage-roles-portal.md
         - name: Role niestandardowe
           items:
-            - name: Role niestandardowe
+            - name: Omówienie ról niestandardowych
               href: roles-custom-overview.md
             - name: Tworzenie roli niestandardowej
               href: roles-create-custom.md
             - name: Wyświetlanie przypisań ról niestandardowych
               href: roles-view-assignments.md
-            - name: Przypisywanie ról w centrum administracyjnym usługi Azure AD
+            - name: Przypisywanie ról niestandardowych w witrynie Azure Portal
               href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
             - name: Przypisywanie ról niestandardowych w programie PowerShell
               href: roles-assign-powershell.md
+            - name: Przypisywanie ról niestandardowych na potrzeby aplikacji dla przedsiębiorstw
+              href: custom-enterprise-apps.md
             - name: Uprawnienia ról niestandardowych
-              href: roles-custom-available-permissions.md
+              items:
+                - name: Uprawnienia rejestracji aplikacji
+                  href: roles-custom-available-permissions.md
+                - name: Uprawnienia aplikacji dla przedsiębiorstw
+                  href: custom-enterprise-app-permissions.md
             - name: Delegowanie uprawnień administratora aplikacji
               href: roles-delegate-app-roles.md
         - name: Zarządzanie przypisaniami ról za pomocą grup

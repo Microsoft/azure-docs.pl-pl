@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b0070b35d6ee85f698960708363e7b4d226a8af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f859700be32bda5d8245429076c2359d1adf9d5a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070266"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988067"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Synapse Studio (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ Opcja "SQL on-demand" jest wyszarzona na liście rozwijanej "Połącz z".
 
 Uruchomienie zapytania przy użyciu instrukcji "SQL on-demand" powoduje wyświetlenie komunikatu o błędzie "nie można nawiązać połączenia z serwerem".
 
-![symptom2](media/troubleshooting-synapse-studio/symptom2.png)
+![Zrzut ekranu pokazuje, że nie można nawiązać połączenia z komunikatem serwera.](media/troubleshooting-synapse-studio/symptom2.png)
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
@@ -54,7 +54,7 @@ Upewnij się, że opcja "Wyłącz pamięć podręczną" w panelu "Sieć" został
 
 Spróbuj ponownie wykonać operację wykonywaną w usłudze Azure Synapse Studio. Na liście "Sieć" w obszarze "Narzędzia deweloperskie" mogą pojawić się nowe elementy. Zanotuj bieżącą godzinę systemową, która ma zostać zadana w ramach biletu pomocy technicznej.
 
-![Panel sieci](media/troubleshooting-synapse-studio/network-panel.png)
+![Zrzut ekranu przedstawia okno DevTools z siecią i wyłącza wybraną pamięć podręczną w trybie online.](media/troubleshooting-synapse-studio/network-panel.png)
 
 Znajdź element, którego kolumna URL pasuje do następującego wzorca:
 
@@ -66,7 +66,7 @@ Jeśli jeden z nich ma coś innego niż "20x" i:
 
 - stan rozpoczyna się od "(niepowodzenie)", poszerzyć kolumnę "status" (stan) lub umieść wskaźnik myszy nad tekstem stanu, aby zobaczyć kompletny tekst. Podczas otwierania biletu pomocy technicznej Dołącz tekst i/lub zrzut ekranu.
 
-    ![stan — tekst](media/troubleshooting-synapse-studio/status-text.png)
+    ![Zrzut ekranu przedstawia wyniki, w tym wartość błędną w kolumnie Stan.](media/troubleshooting-synapse-studio/status-text.png)
 
     - Jeśli zobaczysz ERR_NAME_NOT_RESOLVED i utworzysz obszar roboczy w ciągu 10 minut, odczekaj 10 minut, a następnie ponów próbę sprawdzenia, czy problem nadal istnieje.
     - Jeśli widzisz ERR_INTERNET_DISCONNECTED lub ERR_NETWORK_CHANGED, może to oznaczać, że połączenie z siecią komputera ma problemy. Sprawdź połączenie sieciowe i spróbuj ponownie wykonać operację.
@@ -76,28 +76,28 @@ Jeśli jeden z nich ma coś innego niż "20x" i:
 
 - stan to "40x", "50x" lub inne liczby, wybierz elementy, aby wyświetlić szczegóły. Szczegóły elementu powinny być widoczne po prawej stronie. Znajdź sekcję "nagłówek odpowiedzi"; następnie sprawdź, czy istnieje element o nazwie "Access-Control-Allow-Origin". Jeśli tak, sprawdź, czy ma jedną z następujących wartości:
 
-    - `*`(pojedyncza gwiazdka)
-    - https://web.azuresynapse.net/(lub inna wartość, z której zaczyna się tekst na pasku adresu przeglądarki).
+    - `*` (pojedyncza gwiazdka)
+    - https://web.azuresynapse.net/ (lub inna wartość, z której zaczyna się tekst na pasku adresu przeglądarki).
 
 Jeśli nagłówek odpowiedzi zawiera jedną z powyższych wartości, firma Microsoft powinna już zebrać informacje o niepowodzeniu. W razie konieczności można otworzyć bilet pomocy technicznej i opcjonalnie dołączyć zrzut ekranu przedstawiający szczegóły elementu.
 
 Jeśli nie widzisz nagłówka lub nagłówek nie ma jednej z wartości wymienionych powyżej, Dołącz zrzut ekranu przedstawiający szczegóły elementu, gdy otworzysz bilet.
 
-![Item — szczegóły](media/troubleshooting-synapse-studio/item-details.png)
+![Zrzut ekranu przedstawia okno DevTools z wyróżnioną U R L nagłówkiem odpowiedzi.](media/troubleshooting-synapse-studio/item-details.png)
 
 Jeśli powyższe kroki nie rozwiązują problemu, może być konieczne otwarcie biletu pomocy technicznej. Podczas przesyłania biletu pomocy technicznej należy uwzględnić "Identyfikator sesji" lub "informacje diagnostyczne" pobrane na początku tego przewodnika.
 
 Podczas zgłaszania problemu możesz opcjonalnie wykonać zrzut ekranu karty "konsola" w "Narzędzia deweloperskie" i dołączyć go do biletu pomocy technicznej. Przewiń zawartość i w razie potrzeby podejmij więcej niż jeden zrzut ekranu, aby przechwycić cały komunikat.
 
-![Developer-Tool-Console](media/troubleshooting-synapse-studio/developer-tool-console.png)
+![Zrzut ekranu przedstawia okno DevTools o rozmiarze do wyświetlania całego komunikatu dla możliwego zrzutu ekranu.](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
 W przypadku dołączania zrzutów ekranu podaj czas (lub przewidywany zakres czasu) w przypadku wypróbowania zrzutów ekranu. Pomożemy nam podczas wyszukiwania problemu.
 
 Niektóre przeglądarki obsługują wyświetlanie sygnatur czasowych na karcie "konsola". W przypadku opcji chrom Edge/Chrome Otwórz okno dialogowe "Ustawienia" w obszarze "Narzędzia deweloperskie" i sprawdź pozycję "Pokaż sygnatury czasowe" na karcie "Preferencje".
 
-![Developer-Tool-Console-Settings](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
+![Zrzut ekranu przedstawia okno DevTools z ustawieniami wybranymi w menu kontekstowym.](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
-![Pokaż sygnaturę czasową](media/troubleshooting-synapse-studio/show-time-stamp.png)
+![Zrzut ekranu przedstawia preferencje okna DevTools z zaznaczonymi widokami znaczników czasu.](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli poprzednie kroki nie pomogą rozwiązać problemu [, Utwórz bilet pomocy technicznej](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

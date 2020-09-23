@@ -2,22 +2,22 @@
 title: Informacje o wersji i pobraniu emulatora usługi Azure Cosmos
 description: Zapoznaj się z informacjami o wersji emulatora usługi Azure Cosmos dla różnych wersji i Pobierz informacje.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
-ms.date: 06/20/2019
-ms.openlocfilehash: 268470f846f31e3577b12c217ddcb3c128136101
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/21/2020
+ms.openlocfilehash: da17cd1ea6dac52797162e3ac2d733ad1fd50ea1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086644"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988182"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos emulator — informacje o wersji i pobrania
 
 W tym artykule przedstawiono informacje o wersji emulatora usługi Azure Cosmos z listą aktualizacji funkcji, które zostały wprowadzone w poszczególnych wersjach. Znajduje się w nim również Najnowsza wersja emulatora do pobrania i użycia.
 
-## <a name="download"></a>Pobieranie
+## <a name="download"></a>Pobierz
 
 | | |
 |---------|---------|
@@ -26,25 +26,25 @@ W tym artykule przedstawiono informacje o wersji emulatora usługi Azure Cosmos 
 
 ## <a name="release-notes"></a>Informacje o wersji
 
-### <a name="2115-08232020"></a>2.11.5 (08/23/2020)
+### <a name="2115-23-august-2020"></a>2.11.5 (23 sierpnia 2020)
 
 W tej wersji dodano dwie nowe opcje uruchamiania emulatora Cosmos: 
 
 * "/EnablePreview" — umożliwia korzystanie z funkcji w wersji zapoznawczej dla emulatora. Funkcje w wersji zapoznawczej, które są nadal w fazie tworzenia i są dostępne za pośrednictwem CI i przykład pisania.
-* "/EnableAadAuthentication" — umożliwia emulatorowi akceptowanie niestandardowych tokenów usługi AAD jako alternatywę dla kluczy głównych Azure Cosmos. Ta funkcja jest nadal w fazie opracowywania. określone przypisania ról i inne ustawienia powiązane z uprawnieniami nie są obecnie obsługiwane.
+* "/EnableAadAuthentication" — umożliwia emulatorowi akceptowanie niestandardowych tokenów Azure Active Directory jako alternatywę dla kluczy głównych usługi Azure Cosmos. Ta funkcja jest nadal w fazie opracowywania. określone przypisania ról i inne ustawienia związane z uprawnieniami nie są obecnie obsługiwane.
 
-### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
+### <a name="2112-07-july-2020"></a>2.11.2 (07 lipca 2020)
 
-- Ta wersja zmienia sposób, w jaki są zbierane ślady ETL podczas rozwiązywania problemów z emulatorem Cosmos. WP (narzędzia wydajności środowiska uruchomieniowego systemu Windows) są teraz domyślnymi narzędziami do przechwytywania śladów opartych na usłudze ETL, podczas gdy stary plik przechwytywania oparty na usłudze LOGMAN jest przestarzały. Ta zmiana jest wymagana w części, ponieważ najnowsze aktualizacje zabezpieczeń systemu Windows miały nieoczekiwany wpływ na to, jak program LOGMAN działa podczas wykonywania za pomocą emulatora Cosmos.
+- Ta wersja zmienia sposób, w jaki są zbierane ślady ETL podczas rozwiązywania problemów z emulatorem Cosmos. Żądanie WP (narzędzia do środowiska uruchomieniowego systemu Windows) to teraz domyślne narzędzia do przechwytywania śladów opartych na usłudze ETL, podczas gdy stary plik przechwytywania oparty na usłudze LOGMAN jest przestarzały. Ta zmiana jest wymagana w części, ponieważ najnowsze aktualizacje zabezpieczeń systemu Windows miały nieoczekiwany wpływ na to, jak program LOGMAN działa podczas wykonywania za pomocą emulatora Cosmos.
 
-### <a name="2111-06102020"></a>2.11.1 (06/10/2020)
+### <a name="2111-10-june-2020"></a>2.11.1 (10 czerwca 2020)
 
-- W tej wersji rozwiązano kilka usterek związanych z Eksplorator danychami emulatora. W niektórych przypadkach w przypadku używania emulatora Eksplorator danych za pośrednictwem przeglądarki sieci Web nie można nawiązać połączenia z punktem końcowym emulatora usługi Cosmos i wszystkie powiązane akcje, takie jak tworzenie bazy danych lub kontenera, będą się kończyły niepowodzeniem. Drugi problem rozwiązany jest związany z tworzeniem elementu z pliku JSON przy użyciu akcji przekazywania Eksplorator danych.
+- W tej wersji rozwiązano kilka usterek związanych z Eksplorator danychami emulatora. W niektórych przypadkach w przypadku używania emulatora Eksplorator danych za pośrednictwem przeglądarki sieci Web nie można nawiązać połączenia z punktem końcowym emulatora Cosmos i wszystkie powiązane akcje, takie jak tworzenie bazy danych lub kontenera, spowodują błąd. Drugi problem rozwiązany jest związany z tworzeniem elementu z pliku JSON przy użyciu akcji przekazywania Eksplorator danych.
 
 ### <a name="2110"></a>2.11.0
 
 - W tej wersji wprowadzono obsługę przepływności dla aprowizacji automatyczne skalowanie. Te nowe funkcje obejmują możliwość ustawiania niestandardowego maksymalnego poziomu przepływności w jednostkach żądania (RU/s), włączania funkcji automatycznego skalowania w istniejących bazach danych i kontenerach oraz pomocy programistycznej za pomocą zestawów SDK Azure Cosmos DB.
-- Usuń problem podczas wykonywania zapytania w dużej ilości dokumentów (ponad 1 GB), ponieważ emulator zakończy się niepowodzeniem z kodem stanu błędu wewnętrznego 500.
+- Usuń problem podczas wykonywania zapytania przez dużą liczbę dokumentów (ponad 1 GB), ponieważ emulator zakończy się niepowodzeniem z kodem stanu błędu wewnętrznego 500.
 
 ### <a name="292"></a>2.9.2
 
@@ -68,7 +68,7 @@ W tej wersji dodano dwie nowe opcje uruchamiania emulatora Cosmos:
 
 ### <a name="246"></a>2.4.6
 
-- Ta wersja zapewnia parzystość dzięki funkcjom w usłudze Azure Cosmos z lipca 2019 z wyjątkami zanotowanymi w artykule [opracowywanie lokalnie za pomocą emulatora usługi Azure Cosmos](local-emulator.md). Naprawia również kilka usterek związanych z zamknięciem emulatora, gdy są wywoływane za pomocą wiersza polecenia i wewnętrznych zastąpień adresów IP dla klientów zestawu SDK używających łączności w trybie bezpośrednim.
+- Ta wersja zapewnia parzystość dzięki funkcjom w usłudze Azure Cosmos z lipca 2019 z wyjątkami zanotowanymi w artykule [opracowywanie lokalnie za pomocą emulatora usługi Azure Cosmos](local-emulator.md). Naprawia również kilka usterek odnoszących się do zamykania emulatora, gdy są wywoływane za pośrednictwem wiersza polecenia i wewnętrznych zastąpień adresów IP dla klientów zestawu SDK używających trybu bezpośredniego łączności.
 
 ### <a name="243"></a>zasadniczy
 
