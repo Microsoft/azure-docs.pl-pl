@@ -3,12 +3,12 @@ title: Przygotuj serwer programu DPM do tworzenia kopii zapasowych obciążeń
 description: W tym artykule dowiesz się, jak przygotować się do tworzenia kopii zapasowych programu System Center Data Protection Manager (DPM) na platformie Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021038"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975449"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Przygotowanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu System Center DPM
 
@@ -61,7 +61,7 @@ Można wybrać magazyn Geograficznie nadmiarowy i Magazyn lokalnie nadmiarowy.
 
 - Domyślnie magazyn jest nadmiarowy geograficznie.
 - Jeśli magazyn jest podstawową kopią zapasową, pozostaw opcję ustawioną na magazyn Geograficznie nadmiarowy. Jeśli potrzebujesz tańszej opcji, która nie jest całkowicie trwała, wykonaj czynności opisane w poniższej procedurze, aby skonfigurować magazyn lokalnie nadmiarowy.
-- Dowiedz się więcej o [usłudze Azure Storage](../storage/common/storage-redundancy.md)oraz opcjach magazynu [geograficznie nadmiarowego](../storage/common/storage-redundancy.md) i [lokalnie nadmiarowego](../storage/common/storage-redundancy.md) .
+- Dowiedz się więcej na temat [usługi Azure Storage](../storage/common/storage-redundancy.md)oraz opcji magazynu [geograficznie](../storage/common/storage-redundancy.md#geo-redundant-storage) [nadmiarowego i](../storage/common/storage-redundancy.md#locally-redundant-storage) [strefy](../storage/common/storage-redundancy.md#zone-redundant-storage) nadmiarowej.
 - Zmodyfikuj ustawienia magazynu przed początkową kopią zapasową. Jeśli wykonano już kopię zapasową elementu, Zatrzymaj jego kopię zapasową w magazynie przed zmodyfikowaniem ustawień magazynu.
 
 Aby edytować ustawienia replikacji magazynu:
@@ -119,7 +119,7 @@ Każdy komputer, na którym jest tworzona kopia zapasowa Azure Backup musi mieć
     ![Otwórz ustawienia magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Na stronie **Właściwości** pobierz agenta Azure Backup.
 
-    ![Pobieranie](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Pobierz](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 4. Po pobraniu Uruchom MARSAgentInstaller.exe. Aby zainstalować agenta na komputerze DPM.
 5. Wybierz folder instalacyjny i folder pamięci podręcznej agenta. Ilość wolnego miejsca w lokalizacji pamięci podręcznej musi wynosić co najmniej 5% danych kopii zapasowej.
@@ -131,7 +131,7 @@ Każdy komputer, na którym jest tworzona kopia zapasowa Azure Backup musi mieć
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Rejestrowanie serwera DPM w magazynie
 
-1. W konsoli administratora programu DPM > **Zarządzanie**, wybierz pozycję **online**. Wybierz pozycję **Rejestruj**. Spowoduje to otwarcie Kreatora rejestrowania serwera.
+1. W konsoli administratora programu DPM > **Zarządzanie**, wybierz pozycję **online**. Wybierz pozycję **Zarejestruj**. Spowoduje to otwarcie Kreatora rejestrowania serwera.
 2. W obszarze **Konfiguracja serwera proxy**Określ ustawienia serwera proxy zgodnie z wymaganiami.
 
     ![Konfiguracja serwera proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
@@ -165,7 +165,7 @@ Każdy komputer, na którym jest tworzona kopia zapasowa Azure Backup musi mieć
 
 7. Wybierz pozycję **zarejestruj** , aby zarejestrować serwer programu DPM w magazynie.
 
-Po pomyślnym zarejestrowaniu serwera w magazynie możesz rozpocząć tworzenie kopii zapasowej do Microsoft Azure. Należy skonfigurować grupę ochrony w konsoli programu DPM w celu tworzenia kopii zapasowych obciążeń na platformie Azure. [Dowiedz się, jak](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) wdrażać grupy ochrony.
+Po pomyślnym zarejestrowaniu serwera w magazynie możesz rozpocząć tworzenie kopii zapasowej do Microsoft Azure. Należy skonfigurować grupę ochrony w konsoli programu DPM w celu tworzenia kopii zapasowych obciążeń na platformie Azure. [Dowiedz się, jak](/system-center/dpm/create-dpm-protection-groups) wdrażać grupy ochrony.
 
 ## <a name="troubleshoot-vault-credentials"></a>Rozwiązywanie problemów z poświadczeniami magazynu
 

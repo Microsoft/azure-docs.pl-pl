@@ -4,19 +4,25 @@ description: Dowiedz się, jak zautomatyzować odnajdywanie i rejestrację usłu
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/05/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c3e26b157630df6004292c93a0a0a47307d5949a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 1e60799878cc30b729344c03df36a4c5e4f4a199
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071017"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904219"
 ---
 # <a name="discover-and-register-your-spring-cloud-services"></a>Odnajdywanie i rejestrowanie usług w chmurze wiosny
 
 Odnajdowanie usług to kluczowy wymóg dla architektury opartej na mikrousługach.  Skonfigurowanie każdego klienta ręcznie zabiera czas i stanowi zagrożenie dla człowieka.  Rejestr usługi w chmurze Azure wiosennej rozwiązuje ten problem.  Po skonfigurowaniu serwer rejestru usługi będzie kontrolować rejestrację i odnajdywanie usługi dla mikrousług aplikacji. Serwer rejestru usługi przechowuje rejestr wdrożonych mikrousług, umożliwia Równoważenie obciążenia po stronie klienta i oddziela dostawców usług od klientów bez konieczności korzystania z systemu DNS.
+
+::: zone pivot="programming-language-csharp"
+Aby uzyskać informacje o konfigurowaniu rejestracji usługi dla aplikacji steeltoe, zobacz [Przygotowywanie aplikacji Java wiosny do wdrożenia w chmurze Azure wiosennej](spring-cloud-tutorial-prepare-app-deployment.md).
+::: zone-end
+::: zone pivot="programming-language-java"
 
 ## <a name="register-your-application-using-spring-cloud-service-registry"></a>Rejestrowanie aplikacji przy użyciu rejestru wiosennej usługi w chmurze
 
@@ -56,3 +62,4 @@ Na koniec dodajemy adnotację do klasy najwyższego poziomu aplikacji
 Punkt końcowy serwera rejestru usługi w chmurze wiosny zostanie dodany jako zmienna środowiskowa w aplikacji.  Mikrousługi będą teraz mogły zarejestrować się na serwerze rejestru usługi i wykryć inne zależne mikrousługi.
 
 Należy pamiętać, że może upłynąć kilka minut, zanim zmiany są propagowane z serwera do wszystkich mikrousług.
+::: zone-end

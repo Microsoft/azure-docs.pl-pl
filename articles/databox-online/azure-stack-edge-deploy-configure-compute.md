@@ -1,6 +1,6 @@
 ---
-title: Samouczek służący do filtrowania, analizowania danych przy użyciu obliczeń na Azure Stack Edge | Microsoft Docs
-description: Dowiedz się, jak skonfigurować rolę obliczeniową na Azure Stack Edge i użyć jej do przekształcenia danych przed wysłaniem do platformy Azure.
+title: Samouczek służący do filtrowania, analizowania danych przy użyciu obliczeń na Azure Stack EDGE Pro | Microsoft Docs
+description: Dowiedz się, jak skonfigurować rolę obliczeniową w programie Azure Stack EDGE Pro i używać jej do przekształcania danych przed wysłaniem do platformy Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: ab9c93dc029498c70a828f38f297c1e02dcb29ee
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: b19bac439035da85d542d62f33e813822edc38d9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83774076"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904583"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack Edge
+# <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack EDGE Pro
 
-W tym samouczku opisano sposób konfigurowania roli obliczeniowej na urządzeniu Azure Stack Edge. Po skonfigurowaniu roli obliczeniowej Azure Stack Edge może przekształcić dane przed wysłaniem ich do platformy Azure.
+W tym samouczku opisano sposób konfigurowania roli obliczeniowej na urządzeniu z systemem Azure Stack Edge w wersji Pro. Po skonfigurowaniu roli obliczeniowej Azure Stack EDGE Pro może przekształcić dane przed wysłaniem ich do platformy Azure.
 
 Wykonanie tej procedury może potrwać około 10 do 15 minut.
 
@@ -33,14 +33,14 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
  
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed skonfigurowaniem roli obliczeniowej na urządzeniu z systemem Azure Stack Edge upewnij się, że:
+Przed skonfigurowaniem roli obliczeniowej na urządzeniu z systemem Azure Stack EDGE Pro upewnij się, że:
 
-- Uruchomiono Urządzenie brzegowe Azure Stack, zgodnie z opisem w artykule [łączenie, Konfigurowanie i aktywowanie Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- Aktywowano urządzenie Azure Stack EDGE Pro zgodnie z opisem w temacie [Connect, Set up i activate Azure Stack EDGE Pro](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="configure-compute"></a>Konfigurowanie obliczeń
 
-Aby skonfigurować obliczenia na Azure Stackej krawędzi, utworzysz zasób IoT Hub.
+W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hub.
 
 1. W Azure Portal Azure Stack zasobów brzegowych przejdź do omówienia. W okienku po prawej stronie na kafelku **Oblicz** wybierz pozycję **Rozpocznij**.
 
@@ -62,7 +62,7 @@ Aby skonfigurować obliczenia na Azure Stackej krawędzi, utworzysz zasób IoT H
     ![Wprowadzenie do obliczeń](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
     > [!NOTE]
-    > Jeśli okno dialogowe **Konfigurowanie obliczeń** zostanie zamknięte przed skojarzeniem IoT Hub z urządzeniem brzegowym Azure Stack, IoT Hub zostanie utworzone, ale nie będzie wyświetlane w konfiguracji obliczeń. 
+    > Jeśli okno dialogowe **Konfigurowanie obliczeń** zostanie zamknięte przed skojarzeniem IoT Hub z urządzeniem z programem Azure Stack EDGE Pro, IoT Hub zostanie utworzona, ale nie zostanie pokazany w konfiguracji obliczeniowej. 
     
     Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe IoT Edge jest również uruchomione na tym urządzeniu IoT Edge. W chwili obecnej dla urządzenia IoT Edge jest dostępna tylko platforma Linux.
 
@@ -101,9 +101,9 @@ W przypadku prostego wdrażania w tym samouczku potrzebne są dwa udziały: jede
 
 ## <a name="add-a-module"></a>Dodawanie modułu
 
-Możliwe jest dodanie niestandardowego lub wstępnie skompilowanego modułu. Na tym urządzeniu brzegowym nie ma modułów niestandardowych. Aby dowiedzieć się, jak utworzyć niestandardowy moduł, przejdź do [opracowania modułu C# dla urządzenia Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md).
+Możliwe jest dodanie niestandardowego lub wstępnie skompilowanego modułu. Na tym urządzeniu brzegowym nie ma modułów niestandardowych. Aby dowiedzieć się, jak utworzyć niestandardowy moduł, przejdź do pozycji [opracowywanie modułu języka C# dla urządzenia z Azure Stack EDGE Pro](azure-stack-edge-create-iot-edge-module.md).
 
-W tej sekcji dodasz niestandardowy moduł do urządzenia IoT Edge, które zostało utworzone podczas [opracowywania modułu C# dla Azure Stack krawędzi](azure-stack-edge-create-iot-edge-module.md). Ten moduł niestandardowy pobiera pliki z udziału lokalnego z krawędzi na urządzeniu brzegowym i przenosi je do udziału brzegowego (chmurowego) na urządzeniu. Następnie udział chmurowy wypycha pliki na konto magazynu platformy Azure skojarzone z tym udziałem chmurowym.
+W tej sekcji dowiesz się, jak dodać niestandardowy moduł do urządzenia IoT Edge utworzonego w programie [opracowywanie modułu C# dla Azure Stack EDGE Pro](azure-stack-edge-create-iot-edge-module.md). Ten moduł niestandardowy pobiera pliki z udziału lokalnego z krawędzi na urządzeniu brzegowym i przenosi je do udziału brzegowego (chmurowego) na urządzeniu. Następnie udział chmurowy wypycha pliki na konto magazynu platformy Azure skojarzone z tym udziałem chmurowym.
 
 1. Przejdź do pozycji **obliczenia graniczne > wprowadzenie**. Na kafelku **Dodawanie modułów** wybierz typ scenariusza jako **prosty**. Wybierz pozycję **Dodaj**.
 2. W bloku **Konfigurowanie i Dodawanie modułu** wprowadź następujące wartości:
@@ -111,12 +111,12 @@ W tej sekcji dodasz niestandardowy moduł do urządzenia IoT Edge, które zosta�
     
     |Pole  |Wartość  |
     |---------|---------|
-    |Nazwa     | Unikatowa nazwa modułu. Ten moduł jest kontenerem platformy Docker, który można wdrożyć na urządzeniu IoT Edge, które jest skojarzone ze swoją Azure Stack krawędzią.        |
+    |Nazwa     | Unikatowa nazwa modułu. Ten moduł jest kontenerem platformy Docker, który można wdrożyć na urządzeniu IoT Edge, które jest skojarzone z Azure Stack krawędzią Pro.        |
     |Identyfikator URI obrazu     | Identyfikator URI obrazu dla odpowiedniego obrazu kontenera modułu.        |
     |Wymagane są poświadczenia     | Jeśli ta opcja jest zaznaczona, nazwa użytkownika i hasło są używane do pobierania modułów z pasującym adresem URL.        |
     |Udział wejściowy     | Wybierz udział wejściowy. Udział lokalny krawędzi jest w tym przypadku udziałem wejściowym. Używany tutaj moduł przenosi pliki z udziału lokalnego Edge do udziału granicznego, w którym są przekazywane do chmury.        |
     |Udział danych wyjściowych     | Wybierz udział wyjściowy. Udział graniczny jest w tym przypadku udziałem wyjściowym.        |
-    |Typ wyzwalacza     | Wybierz z **pliku** lub **harmonogram**. Wyzwalacz pliku jest uruchamiany za każdym razem, gdy wystąpi zdarzenie pliku, takie jak plik jest zapisywana w udziale wejściowym. Zaplanowany wyzwalacz jest uruchamiany na podstawie harmonogramu zdefiniowanego przez użytkownika.         |
+    |Typ wyzwalacza     | Wybierz z **pliku** lub **harmonogram**. Wyzwalacz pliku jest uruchamiany za każdym razem, gdy występuje zdarzenie pliku, takie jak zapisanie pliku w udziale wejściowym. Zaplanowany wyzwalacz jest uruchamiany na podstawie harmonogramu zdefiniowanego przez Ciebie.         |
     |Nazwa wyzwalacza     | Unikatowa nazwa wyzwalacza.         |
     |Zmienne środowiskowe| Informacje opcjonalne, które ułatwią Definiowanie środowiska, w którym będzie uruchamiany moduł.   |
 
@@ -165,7 +165,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Dodawanie modułu obliczeniowego
 > * Weryfikowanie przekształcania danych i transferu
 
-Aby dowiedzieć się, jak administrować urządzeniem brzegowym Azure Stack, zobacz:
+Aby dowiedzieć się, jak administrować urządzeniem Azure Stack EDGE Pro, zobacz:
 
 > [!div class="nextstepaction"]
-> [Używanie lokalnego interfejsu użytkownika sieci Web do administrowania Azure Stack krawędzią](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Używanie lokalnego interfejsu użytkownika sieci Web do administrowania Azure Stack krawędzią Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)

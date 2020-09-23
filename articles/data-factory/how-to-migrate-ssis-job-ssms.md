@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b95162d34b706b0bbb3e2940ea214e5a662655d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82627589"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984909"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrowanie zadań agenta SQL Server do podajnika APD przy użyciu programu SSMS
 
@@ -46,7 +46,7 @@ Funkcja opisana w tym artykule wymaga SQL Server Management Studio w wersji 18,5
 ## <a name="migrate-ssis-jobs-to-adf"></a>Migrowanie zadań SSIS do podajnika APD
 
 1. W programie SSMS, w Eksplorator obiektów wybierz pozycję Agent SQL Server, wybierz pozycję zadania, a następnie kliknij prawym przyciskiem myszy i wybierz pozycję **Migruj zadania SSIS do ADF**.
-![DodajMenu](media/how-to-migrate-ssis-job-ssms/menu.png)
+![Zrzut ekranu przedstawia Eksplorator obiektów SQL Server Management Studio, w którym można wybrać zadania, następnie przeprowadzić migrację zadań S I s do D.](media/how-to-migrate-ssis-job-ssms/menu.png)
 
 1. Zaloguj się na platformie Azure, wybierz pozycję subskrypcja platformy Azure, Data Factory i Integration Runtime. Usługa Azure Storage jest opcjonalna, która jest używana w kroku mapowania lokalizacji pakietu, jeśli zadania SSIS do migracji mają pakiety systemu plików SSIS.
 ![DodajMenu](media/how-to-migrate-ssis-job-ssms/step1.png)
@@ -57,28 +57,28 @@ Funkcja opisana w tym artykule wymaga SQL Server Management Studio w wersji 18,5
     1. Zaktualizuj ścieżkę folderu źródłowego. Prawidłowe ścieżki są ścieżkami folderów lub ścieżkami folderów nadrzędnych pakietów.
     1. Zaktualizuj ścieżkę folderu docelowego. Wartość domyślna to ścieżka względna do domyślnego konta magazynu, które jest wybrane w kroku 1.
     1. Usuń wybrane mapowanie za pośrednictwem **mapowania usuwania**.
-![step2 ](media/how-to-migrate-ssis-job-ssms/step2.png)
- ![ step2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+![Zrzut ekranu przedstawia stronę Mapa i ścieżki konfiguracji mapy S, gdzie można dodać mapowanie. ](media/how-to-migrate-ssis-job-ssms/step2.png)
+ ![ Zrzut ekranu przedstawia stronę Mapa S i ścieżki konfiguracji, na której można aktualizować ścieżki folderu źródłowego i docelowego.](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
 1. Wybierz odpowiednie zadania do migracji i skonfiguruj ustawienia odpowiedniego *działania wykonywanego pakietu SSIS*.
 
     - *Ustawienie domyślne*domyślnie stosuje się do wszystkich wybranych kroków. Aby uzyskać więcej informacji o każdej z tych właściwości, zobacz *kartę Ustawienia* dla [działania wykonaj pakiet SSIS](how-to-invoke-ssis-package-ssis-activity.md) , gdy lokalizacja pakietu to *system plików (pakiet)*.
-    ![step3-1](media/how-to-migrate-ssis-job-ssms/step3-1.png)
+    ![Zrzut ekranu przedstawia stronę Wybieranie zadań s I S, na której można skonfigurować ustawienia odpowiedniego wykonywanego działania pakietu SSIS.](media/how-to-migrate-ssis-job-ssms/step3-1.png)
     - *Ustawienie kroku*, konfigurowanie ustawienia dla wybranego kroku.
         
         **Zastosuj ustawienie domyślne**: wybrano wartość domyślną. Usuń zaznaczenie, aby skonfigurować ustawienie tylko dla wybranego kroku.  
         Aby uzyskać więcej informacji o innych właściwościach, zobacz *kartę Ustawienia* dla [działania wykonaj pakiet SSIS](how-to-invoke-ssis-package-ssis-activity.md) , gdy lokalizacja pakietu to *system plików (pakiet)*.
-    ![step3-2](media/how-to-migrate-ssis-job-ssms/step3-2.png)
+    ![Zrzut ekranu przedstawia stronę Wybieranie zadań s I S, w której można zastosować ustawienia domyślne.](media/how-to-migrate-ssis-job-ssms/step3-2.png)
 
 1. Generowanie i wdrażanie szablonu ARM.
     1. Wybierz lub wprowadź ścieżkę wyjściową dla szablonów ARM zmigrowanych potoków usługi ADF. Folder zostanie utworzony automatycznie, jeśli nie istnieje.
     2. Wybierz opcję **wdrażania szablonów ARM w fabryce danych**:
         - Ustawienie domyślne jest niezaznaczone. Wygenerowane szablony ARM można później wdrożyć ręcznie.
         - Wybierz, aby bezpośrednio wdrożyć wygenerowane szablony ARM w usłudze Data Factory.
-    ![step4](media/how-to-migrate-ssis-job-ssms/step4.png)
+    ![Zrzut ekranu przedstawia stronę Konfigurowanie migracji, na której można wybrać lub wprowadzić ścieżkę wyjściową szablonów ARM zmigrowanych potoków usługi ADF i wybrać opcję wdrażania szablonów usługi ARM w fabryce danych.](media/how-to-migrate-ssis-job-ssms/step4.png)
 
 1. Przeprowadź migrację, a następnie sprawdź wyniki.
-![step5](media/how-to-migrate-ssis-job-ssms/step5.png)
+![Zrzut ekranu przedstawia stronę wyników migracji, która wyświetla postęp migracji.](media/how-to-migrate-ssis-job-ssms/step5.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

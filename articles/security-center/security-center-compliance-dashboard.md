@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: a636acab42d14925f507568e8a9fff4693c8f71c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7f235f9255df49c096e224e1754ad2bbdf664423
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519647"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895821"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Samouczek: ulepszanie zgodności z przepisami
 ---
@@ -35,8 +35,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby przekroczyć funkcje omówione w tym samouczku, musisz mieć Security Center warstwy cenowej standardowa. Warstwę Standardowa usługi Security Center możesz wypróbować bezpłatnie.
-Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/). Przewodnik szybkiego startu [Dołączanie subskrypcji platformy Azure do standardowej usługi Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started) przeprowadzi Cię przez procedurę uaktualniania do warstwy standardowej.
+Aby przekroczyć funkcje omówione w tym samouczku, należy włączyć [usługę Azure Defender](azure-defender.md) . Usługę Azure Defender można wypróbować bezpłatnie przez 30 dni.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Przeprowadzanie oceny zgodności z przepisami
 
@@ -72,13 +71,13 @@ Dzięki informacjom wyświetlanym na pulpicie nawigacyjnym Zgodność z przepisa
 
 1.  Możesz wybrać określony zasób, aby wyświetlić więcej szczegółów i zastosować rekomendację dotyczącą tego zasobu. <br>Na przykład na karcie **Standard Azure CIS** możesz kliknąć rekomendację **Wymagaj bezpiecznego transferu na konto magazynu**.
 
-    ![Rekomendacje dotyczące zgodności](./media/security-center-compliance-dashboard/compliance-recommendation.png)
+    ![Wybieranie zalecenia * * Wymagaj bezpiecznego transferu na konto magazynu * *](./media/security-center-compliance-dashboard/compliance-recommendation.png)
 
 1. Klikanie informacji dotyczących rekomendacji i wybieranie zasobów w złej kondycji prowadzi bezpośrednio do środowiska włączania **bezpiecznego transferu magazynu** w witrynie Azure Portal.
 
     Więcej informacji dotyczących stosowania rekomendacji można znaleźć w temacie [Wdrażanie zaleceń dotyczących zabezpieczeń w usłudze Azure Security Center](security-center-recommendations.md).
 
-    ![Rekomendacje dotyczące zgodności](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
+    ![Konfiguracja konta magazynu](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
 1.  Gdy zastosujesz się do rekomendacji, w raporcie pulpitu nawigacyjnego zgodności zostanie wyświetlony ich wpływ, ponieważ zwiększy się ocena zgodności.
 

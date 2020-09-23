@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 892bdcc08bd19b92c8b3d32d2954583f80005e87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022896"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985323"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurowanie pulpitu nawigacyjnego aplikacji
 
@@ -79,7 +79,19 @@ W przypadku wykresów liniowych, wykresów słupkowych i wykresów kołowych mo�
 
 W przypadku kafelków pokazujących właściwości ciągu lub wartości telemetryczne możesz wybrać sposób wyświetlania tekstu. Na przykład jeśli urządzenie przechowuje adres URL we właściwości ciągu, można go wyświetlić jako link do kliknięcia. Jeśli adres URL odwołuje się do obrazu, można renderować obraz w ostatniej znanej wartości lub kafelku właściwości. Aby zmienić sposób wyświetlania ciągu, w obszarze Konfiguracja kafelka wybierz ikonę koła zębatego obok pozycji Typ telemetrii lub właściwość:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Zamieść informacje o sposobie wyświetlania ciągu na kafelku":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Zmień sposób wyświetlania ciągu na kafelku":::
+
+W przypadku liczbowych **wskaźników KPI**, **ostatniej znanej wartości**i kafelków **Właściwości** można użyć formatowania warunkowego, aby dostosować kolor kafelka na podstawie jego bieżącej wartości. Aby dodać formatowanie warunkowe, wybierz pozycję **Konfiguruj** na kafelku, a następnie wybierz ikonę **Formatowanie warunkowe** obok wartości, która ma zostać dostosowana:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Zrzut ekranu przedstawiający sposób znalezienia opcji konfigurowania dla kafelka, a następnie ikony formatowania warunkowego":::
+
+Dodaj reguły formatowania warunkowego:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Zrzut ekranu przedstawiający reguły formatowania warunkowego dla średniego przepływu. Istnieją trzy reguły — mniej określona 20 to kolor zielony, mniejszy niż 50 50":::
+
+Poniższy zrzut ekranu przedstawia efekt reguły formatowania warunkowego:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Zrzut ekranu przedstawiający żółty kolor tła na kafelku średniego przepływu wody. Liczba na kafelku to 40,84":::
 
 ## <a name="next-steps"></a>Następne kroki
 

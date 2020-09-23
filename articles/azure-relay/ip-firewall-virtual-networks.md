@@ -3,12 +3,12 @@ title: Konfigurowanie zapory IP dla Azure Relay przestrzeni nazw
 description: W tym artykule opisano sposób używania reguł zapory do zezwalania na połączenia z określonych adresów IP do Azure Relay przestrzenie nazw.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e47c5071a5fc7207d4eabc162fcb24ab6ad57d28
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141860"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976017"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Konfigurowanie zapory IP dla Azure Relay przestrzeni nazw
 Domyślnie przestrzenie nazw przekaźnika są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -27,9 +27,9 @@ Reguły zapory adresów IP są stosowane na poziomie przestrzeni nazw. W związk
 W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć reguły zapory IP dla przestrzeni nazw. 
 
 1. Przejdź do **przestrzeni nazw przekaźnika** w [Azure Portal](https://portal.azure.com).
-2. W menu po lewej stronie wybierz opcję **Sieć** . W przypadku wybrania opcji **wszystkie sieci** w sekcji **Zezwalanie na dostęp z** obszaru przestrzeń nazw usługi Relay akceptuje połączenia z dowolnego adresu IP. To ustawienie jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0. 
+2. W menu po lewej stronie wybierz opcję **Sieć** . W przypadku wybrania opcji **wszystkie sieci** w sekcji  **Zezwalanie na dostęp z** obszaru przestrzeń nazw usługi Relay akceptuje połączenia z dowolnego adresu IP. To ustawienie jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0. 
 
-    ![Zapora — wybrana opcja Wszystkie sieci](./media/ip-firewall/all-networks-selected.png)
+    ![Zrzut ekranu przedstawia stronę sieci z wybraną opcją wszystkie sieci.](./media/ip-firewall/all-networks-selected.png)
 1. Aby ograniczyć dostęp do określonych sieci i adresów IP, wybierz opcję **wybrane sieci** . W sekcji **Zapora** wykonaj następujące kroki:
     1. Wybierz opcję **Dodaj adres IP klienta** , aby zapewnić bieżącemu adresowi IP klienta dostęp do przestrzeni nazw. 
     2. W polu **zakres adresów**wprowadź określony adres IPv4 lub zakres adresów IPv4 w notacji CIDR. 
@@ -51,7 +51,7 @@ Szablon przyjmuje jeden parametr: **ipMask**, który jest pojedynczym adresem IP
 > ```json
 > "defaultAction": "Allow"
 > ```
-> na
+> na wartość
 > ```json
 > "defaultAction": "Deny"
 > ```

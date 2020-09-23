@@ -1,6 +1,6 @@
 ---
-title: Monitoruj urządzenie Azure Stack Edge | Microsoft Docs
-description: Opisuje sposób używania Azure Portal i lokalnego interfejsu użytkownika sieci Web do monitorowania Azure Stack krawędzi.
+title: Monitoruj urządzenie Azure Stack EDGE Pro | Microsoft Docs
+description: Zawiera opis sposobu używania Azure Portal i lokalnego interfejsu użytkownika sieci Web do monitorowania Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4050a4a75432e8bcc840a2406660dce268c5a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd75eb0f7de602979f2233a873c01ef742471e37
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339556"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904405"
 ---
-# <a name="monitor-your-azure-stack-edge"></a>Monitoruj Azure Stack krawędź
+# <a name="monitor-your-azure-stack-edge-pro"></a>Monitoruj Azure Stack Edge
 
-W tym artykule opisano sposób monitorowania Azure Stack krawędzi. Aby monitorować urządzenie, możesz użyć Azure Portal lub lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal, aby wyświetlić zdarzenia dotyczące urządzeń, skonfigurować alerty i zarządzać nimi oraz wyświetlić metryki. Użyj lokalnego interfejsu użytkownika sieci Web na urządzeniu fizycznym, aby wyświetlić stan sprzętu różnych składników urządzeń.
+W tym artykule opisano sposób monitorowania Azure Stack Edge. Aby monitorować urządzenie, możesz użyć Azure Portal lub lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal, aby wyświetlić zdarzenia dotyczące urządzeń, skonfigurować alerty i zarządzać nimi oraz wyświetlić metryki. Użyj lokalnego interfejsu użytkownika sieci Web na urządzeniu fizycznym, aby wyświetlić stan sprzętu różnych składników urządzeń.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -34,9 +34,9 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="view-hardware-status"></a>Wyświetl stan sprzętu
 
-Wykonaj następujące kroki w lokalnym interfejsie użytkownika sieci Web, aby wyświetlić stan sprzętu składników urządzenia.
+Wykonaj następujące kroki w lokalnym internetowym interfejsie użytkownika, aby wyświetlić stan sprzętu składników urządzenia.
 
-1. Nawiąż połączenie z lokalnym interfejsem użytkownika sieci Web urządzenia.
+1. Nawiąż połączenie z lokalnym internetowym interfejsem użytkownika urządzenia.
 2. Przejdź do pozycji **konserwacja > stan sprzętu**. Można wyświetlić kondycję różnych składników urządzeń.
 
     ![Wyświetl stan sprzętu](media/azure-stack-edge-monitor/view-hardware-status.png)

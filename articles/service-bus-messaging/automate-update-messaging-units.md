@@ -1,176 +1,144 @@
 ---
 title: Azure Service Bus — automatycznie Aktualizuj jednostki obsługi komunikatów
-description: W tym artykule pokazano, jak za pomocą Azure Automation elementu Runbook automatycznie aktualizować jednostki obsługi komunikatów Service Bus przestrzeni nazw.
+description: W tym artykule pokazano, jak za pomocą automatycznie aktualizować jednostki obsługi komunikatów Service Bus przestrzeni nazw.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 52f5b13b482739bfa56ff606f684fd5a9c7d3b6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/15/2020
+ms.openlocfilehash: 0a72cc991e768a7bed01762d984cc56238ae0ad0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341500"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984649"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Automatycznie Aktualizuj jednostki obsługi komunikatów Azure Service Bus przestrzeni nazw 
-W tym artykule pokazano, jak można automatycznie aktualizować [jednostki obsługi komunikatów](service-bus-premium-messaging.md) Service Bus przestrzeni nazw na podstawie użycia zasobów (procesora lub pamięci). 
+Funkcja automatycznego skalowania umożliwia korzystanie z odpowiedniej ilości zasobów, aby obsłużyć obciążenie aplikacji. Pozwala to na dodawanie zasobów w celu zwiększenia obciążenia, a także oszczędność pieniędzy dzięki usunięciu zasobów znajdujących się w stanie bezczynności. Zobacz [Omówienie automatycznego skalowania w Microsoft Azure](../azure-monitor/platform/autoscale-overview.md) , aby dowiedzieć się więcej na temat funkcji automatycznego skalowania Azure monitor. 
 
-W przykładzie w tym artykule pokazano, jak zwiększyć liczbę jednostek obsługi komunikatów dla przestrzeni nazw Service Bus, gdy użycie procesora przez przestrzeń nazw przekracza 75%. Ogólne czynności są następujące:
+Warstwa Premium komunikatów usługi Service Bus zapewnia izolację zasobów na poziomie procesora CPU i pamięci, dlatego obciążenia poszczególnych klientów są od siebie odizolowane. Ten kontener zasobów jest nazywany **jednostką obsługi komunikatów**. Aby dowiedzieć się więcej o jednostkach obsługi komunikatów, zobacz [Service Bus Premium Messaging](service-bus-premium-messaging.md). 
 
-1. Utwórz element Runbook Azure Automation przy użyciu skryptu programu PowerShell, który skaluje (zwiększa) jednostki obsługi komunikatów dla Service Bus przestrzeni nazw. 
-2. Utwórz alert użycia procesora CPU w Service Bus przestrzeni nazw, który wywoła skrypt programu PowerShell, gdy użycie procesora w przestrzeni nazw spadnie powyżej 75%. 
+Korzystając z funkcji automatycznego skalowania dla przestrzeni nazw w warstwie Premium Service Bus, można określić minimalną i maksymalną liczbę [jednostek obsługi komunikatów](service-bus-premium-messaging.md) oraz automatycznie dodawać lub usuwać jednostki obsługi komunikatów na podstawie zestawu reguł. 
+
+Można na przykład zaimplementować następujące scenariusze skalowania dla przestrzeni nazw Service Bus przy użyciu funkcji skalowania automatycznego. 
+
+- Zwiększaj liczbę jednostek obsługi komunikatów dla Service Bus przestrzeni nazw, gdy użycie procesora CPU w przestrzeni nazw przekracza 75%. 
+- Zmniejsz jednostki obsługi komunikatów dla przestrzeni nazw Service Bus, gdy użycie procesora CPU w przestrzeni nazw spadnie poniżej 25%. 
+- Używaj większej liczby jednostek obsługi komunikatów w godzinach pracy i mniej niż w godzinach. 
+
+W tym artykule pokazano, jak można automatycznie skalować przestrzeń nazw Service Bus (Aktualizuj [jednostki obsługi komunikatów](service-bus-premium-messaging.md)) w Azure Portal. 
 
 > [!IMPORTANT]
 > Ten artykuł ma zastosowanie tylko do warstwy **premium** Azure Service Bus. 
 
+## <a name="autoscale-setting-page"></a>Strona ustawienia skalowania automatycznego
+Najpierw wykonaj następujące kroki, aby przejść do strony **ustawień skalowania automatycznego** dla obszaru nazw Service Bus.
 
-## <a name="create-a-service-bus-namespace"></a>Tworzenie przestrzeni nazw usługi Service Bus
-Utwórz warstwę Premium Service Bus przestrzeni nazw. Wykonaj kroki z sekcji [Tworzenie przestrzeni nazw w artykule Azure Portal,](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal) aby utworzyć obszar nazw. 
+1. Zaloguj się do [Azure Portal](https://portal.azure.com). 
+2. Na pasku wyszukiwania wpisz **Service Bus**, z listy rozwijanej wybierz pozycję **Service Bus** , a następnie naciśnij klawisz **Enter**. 
+1. Wybierz **przestrzeń nazw Premium** z listy przestrzeni nazw. 
+1. Przejdź do strony **skalowanie** . 
 
-## <a name="create-an-azure-automation-account"></a>Tworzenie konta usługi Azure Automation
-Utwórz konto Azure Automation, wykonując instrukcje podane w artykule [Tworzenie konta usługi Azure Automation](../automation/automation-quickstart-create-account.md) . 
+    :::image type="content" source="./media/automate-update-messaging-units/scale-page.png" alt-text="Service Bus obszar nazw — Strona skalowania":::
 
-## <a name="import-azservice-module-from-gallery"></a>Importuj AZ. Service Module z galerii
-Importuj `Az.Accounts` i `Az.ServiceBus` moduły z galerii do konta usługi Automation. `Az.ServiceBus`Moduł jest zależny od `Az.Accounts` modułu, dlatego musi być zainstalowany jako pierwszy. 
+## <a name="manual-scale"></a>Skalowanie ręczne 
+To ustawienie umożliwia ustawienie stałej liczby jednostek obsługi komunikatów dla przestrzeni nazw. 
 
-Aby uzyskać instrukcje krok po kroku, zobacz [Importowanie modułu z galerii modułów](../automation/automation-runbook-gallery.md#import-a-module-from-the-module-gallery-with-the-azure-portal).
+1. Na stronie **ustawienia skalowania automatycznego** wybierz pozycję **skalowanie ręczne** , jeśli nie została jeszcze wybrana. 
+1. Dla ustawienia **jednostki obsługi komunikatów** wybierz liczbę jednostek obsługi komunikatów z listy rozwijanej.
+1. Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienie. 
 
-## <a name="create-and-publish-a-powershell-runbook"></a>Tworzenie i publikowanie elementu Runbook programu PowerShell
+    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Ręczne skalowanie jednostek obsługi komunikatów":::       
 
-1. Utwórz element Runbook programu PowerShell, postępując zgodnie z instrukcjami zawartymi w artykule [Tworzenie elementu Runbook programu PowerShell](../automation/automation-quickstart-create-runbook.md) . 
 
-    Oto przykładowy skrypt programu PowerShell, którego można użyć do zwiększenia jednostek obsługi komunikatów dla przestrzeni nazw Service Bus. Ten skrypt programu PowerShell w elemencie Runbook usługi Automation zwiększa MUs od 1 do 2, od 2 do 4 lub od 4 do 8. Dozwolone wartości tej właściwości to: 1, 2, 4 i 8. Można utworzyć inny element Runbook, aby zmniejszyć liczbę jednostek obsługi komunikatów.
+## <a name="custom-autoscale---default-condition"></a>Niestandardowe automatyczne skalowanie — warunek domyślny
+Można skonfigurować automatyczne skalowanie jednostek obsługi komunikatów przy użyciu warunków. Ten warunek skalowania jest wykonywany, gdy żaden z pozostałych warunków skalowania nie jest zgodny. Warunek domyślny można ustawić w jeden z następujących sposobów:
 
-    Parametry **NamespaceName** i **resourceGroupName** są używane do testowania skryptu niezależnie od scenariusza alertu. 
+- Skalowanie na podstawie metryki (na przykład użycia procesora CPU lub pamięci)
+- Skalowanie do określonej liczby jednostek obsługi komunikatów
+
+Nie można ustawić harmonogramu automatycznego skalowania w określonych dniach lub zakresach dat dla warunku domyślnego. Ten warunek skalowania jest wykonywany, gdy żaden z pozostałych warunków skalowania nie jest zgodny z harmonogramem. 
+
+### <a name="scale-based-on-a-metric"></a>Skalowanie na podstawie metryki
+Poniższa procedura pokazuje, jak dodać warunek, aby automatycznie zwiększyć liczbę jednostek obsługi komunikatów (skalować w poziomie), gdy użycie procesora CPU jest większe niż 75% i zmniejsz liczbę jednostek obsługi komunikatów (skalowanie w górę), gdy użycie procesora CPU jest mniejsze niż 25%. Przyrosty są wykonywane z przedziału od 1 do 2, od 2 do 4 i od 4 do 8. Podobnie, zmniejszenia są wykonywane z 8 do 4, 4 do 2 i od 2 do 1. 
+
+1. Na stronie **Ustawienia automatycznego skalowania** wybierz pozycję **niestandardowe Skalowanie automatyczne** dla opcji **Wybierz sposób skalowania zasobu** . 
+1. W sekcji **domyślnej** strony określ **nazwę** warunku domyślnego. Wybierz ikonę **ołówka** , aby edytować tekst. 
+1. Wybierz pozycję **skalowanie na podstawie metryki** dla **trybu skalowania**. 
+1. Wybierz pozycję **+ Dodaj regułę**. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Skalowanie domyślne na podstawie metryki":::    
+1. Na stronie **reguła skalowania** wykonaj następujące kroki:
+    1. Wybierz metrykę z listy rozwijanej **Nazwa metryki** . W tym przykładzie jest to **procesor CPU**. 
+    1. Wybierz operatory i wartości progowe. W tym przykładzie są one **większe niż** i **75** dla **progu metryki do wyzwalania akcji skalowania**. 
+    1. W sekcji **Akcja** wybierz **operację** . W tym przykładzie jest ustawiony na wartość **Zwiększ**. 
+    1. Następnie wybierz pozycję **Dodaj**
     
-    Parametr **WebHookData** jest przeznaczony dla alertu do przekazywania informacji, takich jak nazwa grupy zasobów, nazwa zasobu itp. w czasie wykonywania. 
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Domyślne — skalowanie w poziomie, jeśli użycie procesora CPU jest większe niż 75%":::       
 
-    ```powershell
-    [OutputType("PSAzureOperationResponse")]
-    param
-    (
-        [Parameter (Mandatory=$false)]
-        [object] $WebhookData,
-    
-        [Parameter (Mandatory = $false)]
-        [String] $namespaceName,
-    
-        [Parameter (Mandatory = $false)]
-        [String] $resourceGroupName
-    )
-    
-    
-    if ($WebhookData)
-    {
-        # Get the data object from WebhookData
-        $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
-    
-        # Get the alert schema ID
-        $schemaId = $WebhookBody.schemaId
+        > [!NOTE]
+        > Funkcja automatycznego skalowania zwiększa jednostki obsługi komunikatów dla przestrzeni nazw, jeśli całkowite użycie procesora CPU przekracza 75% w tym przykładzie. Przyrosty są wykonywane z przedziału od 1 do 2, od 2 do 4 i od 4 do 8. 
+1. Wybierz pozycję **+ Dodaj regułę** ponownie i wykonaj następujące kroki na stronie **reguły skalowania** :
+    1. Wybierz metrykę z listy rozwijanej **Nazwa metryki** . W tym przykładzie jest to **procesor CPU**. 
+    1. Wybierz operatory i wartości progowe. W tym przykładzie są one **mniejsze niż** i **25** dla **progu metryki do wyzwalania akcji skalowania**. 
+    1. W sekcji **Akcja** wybierz **operację** . W tym przykładzie ustawiono opcję **Zmniejsz**. 
+    1. Następnie wybierz pozycję **Dodaj** 
 
-        # If it's a metric alert
-        if ($schemaId -eq "AzureMonitorMetricAlert") {
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Domyślne skalowanie w przypadku, gdy użycie procesora CPU jest mniejsze niż 25%":::       
 
-            # Get the resource group name from the alert context
-            $resourceGroupName = $WebhookBody.resourceGroupName
-            
-            # Get the namespace name from the alert context
-            $namespaceName = $WebhookBody.resourceName
-        }
-    }
+        > [!NOTE]
+        > Funkcja automatycznego skalowania zmniejsza jednostki obsługi komunikatów dla przestrzeni nazw, jeśli całkowite użycie procesora CPU spadnie poniżej 25% w tym przykładzie. Zmniejszenia są wykonywane z 8 do 4, 4 do 2 i od 2 do 1. 
+1. Ustaw **minimalną** i **maksymalną** i **domyślną** liczbę jednostek obsługi komunikatów.
+
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Domyślna reguła oparta na metryce":::
+1. Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienie skalowania automatycznego. 
+        
+### <a name="scale-to-specific-number-of-messaging-units"></a>Skalowanie do określonej liczby jednostek obsługi komunikatów
+Wykonaj następujące kroki, aby skonfigurować regułę do skalowania przestrzeni nazw do korzystania z określonej liczby jednostek obsługi komunikatów. Ponownie warunek domyślny jest stosowany, gdy żaden z pozostałych warunków skalowania nie jest zgodny. 
+
+1. Na stronie **Ustawienia automatycznego skalowania** wybierz pozycję **niestandardowe Skalowanie automatyczne** dla opcji **Wybierz sposób skalowania zasobu** . 
+1. W sekcji **domyślnej** strony określ **nazwę** warunku domyślnego. 
+1. Wybierz pozycję **Skaluj do określonych jednostek obsługi komunikatów** dla **trybu skalowania**. 
+1. W obszarze **jednostki obsługi komunikatów**wybierz liczbę domyślnych jednostek obsługi komunikatów. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Domyślne skalowanie do określonych jednostek obsługi komunikatów":::       
+
+## <a name="custom-autoscale---additional-conditions"></a>Niestandardowe Skalowanie automatyczne — dodatkowe warunki
+W poprzedniej sekcji pokazano, jak dodać warunek domyślny dla ustawienia skalowania automatycznego. W tej sekcji pokazano, jak dodać więcej warunków do ustawienia skalowania automatycznego. Aby uzyskać dodatkowe warunki inne niż domyślne, można ustawić harmonogram na podstawie określonych dni tygodnia lub zakresu dat. 
+
+### <a name="scale-based-on-a-metric"></a>Skalowanie na podstawie metryki
+1. Na stronie **Ustawienia automatycznego skalowania** wybierz pozycję **niestandardowe Skalowanie automatyczne** dla opcji **Wybierz sposób skalowania zasobu** . 
+1. Wybierz pozycję **Dodaj warunek skali** w bloku **domyślnym** . 
+
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Niestandardowy — Dodawanie łącza warunku skalowania":::    
+1. Określ **nazwę** warunku. 
+1. Upewnij się, że wybrano opcję **skalowanie na podstawie metryki** . 
+1. Wybierz pozycję **+ Dodaj regułę** , aby dodać regułę, aby zwiększyć liczbę jednostek obsługi komunikatów, gdy całkowite użycie procesora CPU przekracza 75%. Wykonaj kroki z sekcji [warunku domyślnego](#custom-autoscale---default-condition) . 
+5. Ustaw **minimalną** i **maksymalną** i **domyślną** liczbę jednostek obsługi komunikatów.
+6. Możesz również ustawić **harmonogram** dla warunku niestandardowego (ale nie dla warunku domyślnego). Możesz określić datę początkową i końcową dla warunku (lub) wybrać określone dni (poniedziałek, wtorek itd.) w tygodniu. 
+    1. W przypadku wybrania opcji **Określ datę początkową/końcową**wybierz pozycję **strefa czasowa**, **datę i godzinę rozpoczęcia** oraz **datę i godzinę zakończenia** (jak pokazano na poniższej ilustracji), aby obowiązywać warunek. 
+
+       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Minimalna, maksymalna i domyślna wartość dla liczby jednostek obsługi komunikatów":::
+    1. W przypadku wybrania opcji **Powtarzaj określone dni**wybierz pozycję dni tygodnia, strefa czasowa, czas rozpoczęcia i czas zakończenia, kiedy warunek ma być stosowany. 
+
+        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Powtarzaj określone dni":::
+  
+### <a name="scale-to-specific-number-of-messaging-units"></a>Skalowanie do określonej liczby jednostek obsługi komunikatów
+1. Na stronie **Ustawienia automatycznego skalowania** wybierz pozycję **niestandardowe Skalowanie automatyczne** dla opcji **Wybierz sposób skalowania zasobu** . 
+1. Wybierz pozycję **Dodaj warunek skali** w bloku **domyślnym** . 
+
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Niestandardowy — Dodawanie łącza warunku skalowania":::    
+1. Określ **nazwę** warunku. 
+2. Wybierz opcję **Skaluj do określonych jednostek obsługi komunikatów** dla **trybu skalowania**. 
+1. Wybierz liczbę **jednostek obsługi komunikatów** z listy rozwijanej. 
+6. Dla **harmonogramu**Określ datę początkową i końcową dla warunku (lub) wybierz określone dni (poniedziałek, wtorek itd.) przez tydzień i godzinę. 
+    1. W przypadku wybrania opcji **Określ daty rozpoczęcia/zakończenia**wybierz **strefę czasową**, **datę i godzinę rozpoczęcia** oraz **datę i godzinę zakończenia** obowiązywania warunku. 
     
-    # Connect to Azure account
-    $connection = Get-AutomationConnection -Name AzureRunAsConnection
+    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="skalowanie do określonych jednostek obsługi komunikatów — daty rozpoczęcia i zakończenia":::        
+    1. W przypadku wybrania opcji **Powtarzaj określone dni**wybierz pozycję dni tygodnia, strefa czasowa, czas rozpoczęcia i czas zakończenia, kiedy warunek ma być stosowany.
     
-    while(!($connectionResult) -And ($logonAttempt -le 10))
-    {
-        $LogonAttempt++
-        # Logging in to Azure...
-        $connectionResult =    Connect-AzAccount `
-                                    -ServicePrincipal `
-                                    -Tenant $connection.TenantID `
-                                    -ApplicationId $connection.ApplicationID `
-                                    -CertificateThumbprint $connection.CertificateThumbprint
-    
-        Start-Sleep -Seconds 30
-    }
-    
-    # Get the current capacity (number of messaging units) of the namespace
-    $sbusns=Get-AzServiceBusNamespace `
-        -Name $namespaceName `
-        -ResourceGroupName $resourceGroupName
-    
-    $currentCapacity = $sbusns.Sku.Capacity
-    
-    # Increase the capacity
-    # Capacity can be one of these values: 1, 2, 4, 8
-    if ($currentCapacity -eq 1) {
-        $newMU = 2
-    }
-    elseif ($currentCapacity -eq 2) {
-        $newMU = 4
-    }
-    elseif ($currentCapacity -eq 4) {
-        $newMU = 8    
-    }
-    else {
-    
-    }
-    
-    # Update the capacity of the namespace
-    Set-AzServiceBusNamespace `
-            -Location eastus `
-            -SkuName Premium `
-            -Name $namespaceName `
-            -SkuCapacity $newMU `
-            -ResourceGroupName $resourceGroupName
+    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="skalowanie do określonych jednostek obsługi komunikatów — powtarzanie określonych dni":::
 
-    ```
-2. [Przetestuj skoroszyt](../automation/manage-runbooks.md#test-a-runbook) , określając wartości dla parametrów **NamespaceName** i **resourceGroupName** . Upewnij się, że jednostki obsługi komunikatów w przestrzeni nazw zostały zaktualizowane. 
-3. Po pomyślnym przetestowaniu [skoroszytu Opublikuj skoroszyt](..//automation/manage-runbooks.md#publish-a-runbook) , aby był dostępny do dodania jako akcja dla alertu w przestrzeni nazw później. 
-
-## <a name="create-an-alert-on-the-namespace-to-trigger-the-runbook"></a>Utwórz alert w przestrzeni nazw, aby wyzwolić element Runbook
-Aby wyzwolić utworzony element Runbook usługi Automation, zobacz temat [Używanie alertu do wyzwolenia artykułu Azure Automation elementu Runbook](../automation/automation-create-alert-triggered-runbook.md) w celu skonfigurowania alertu w przestrzeni nazw Service Bus. Na przykład można utworzyć alert dotyczący **użycia procesora CPU według przestrzeni nazw** lub **rozmiaru pamięci dla metryki przestrzeni nazw** oraz dodać akcję w celu wyzwolenia utworzonego elementu Runbook usługi Automation. Aby uzyskać szczegółowe informacje o tych metrykach, zobacz [metryki użycia zasobów](service-bus-metrics-azure-monitor.md#resource-usage-metrics).
-
-Poniższa procedura przedstawia sposób tworzenia alertu, który wyzwala element Runbook usługi Automation, gdy **użycie procesora** przestrzeni nazw przekracza **75%**.
-
-1. Na stronie **obszar nazw Service Bus** dla obszaru nazw wybierz pozycję **alerty** w menu po lewej stronie, a następnie wybierz pozycję **+ Nowa reguła alertu** na pasku narzędzi. 
-    
-    ![Strona alertów — przycisk Nowa reguła alertu](./media/automate-update-messaging-units/alerts-page.png)
-2. Na stronie **Tworzenie reguły alertu** kliknij pozycję **Wybierz warunek**. 
-
-    ![Strona tworzenia reguły alertu — wybór warunku](./media/automate-update-messaging-units/alert-rule-select-condition.png) 
-3. Na stronie **Konfiguruj logikę sygnału** wybierz opcję **procesor CPU** dla sygnału. 
-
-    ![Konfiguruj logikę sygnałów — wybierz procesor CPU](./media/automate-update-messaging-units/configure-signal-logic.png)
-4. Wprowadź **wartość progową** (w tym przykładzie jest to **75%**), a następnie wybierz pozycję **gotowe**. 
-
-    ![Konfigurowanie sygnału procesora](./media/automate-update-messaging-units/cpu-signal-configuration.png)
-5. Teraz na **stronie Tworzenie alertu**kliknij pozycję **Wybierz grupę akcji**.
-    
-    ![Wybierz grupę akcji](./media/automate-update-messaging-units/select-action-group-button.png)
-6. Na pasku narzędzi wybierz przycisk **Utwórz grupę akcji** . 
-
-    ![Przycisk tworzenia grupy akcji](./media/automate-update-messaging-units/create-action-group-button.png)
-7. Na stronie **Dodawanie grupy akcji** wykonaj następujące czynności:
-    1. Wprowadź **nazwę** grupy akcji. 
-    2. Wprowadź **krótką nazwę** grupy akcji.
-    3. Wybierz **subskrypcję** , w której chcesz utworzyć tę grupę akcji.
-    4. Wybierz **grupę zasobów**. 
-    5. W sekcji **Akcje** wprowadź **nazwę akcji**i wybierz **element Runbook Automation** dla **typu akcji**. 
-
-        ![Strona dodawania grupy akcji](./media/automate-update-messaging-units/add-action-group-page.png)
-8. Na stronie **Konfigurowanie elementu Runbook** wykonaj następujące czynności:
-    1. W obszarze **źródło elementu Runbook**wybierz pozycję **użytkownik**. 
-    2. W polu **subskrypcja**wybierz **subskrypcję** platformy Azure, która zawiera konto usługi Automation. 
-    3. W przypadku **konta usługi Automation**wybierz swoje **konto usługi Automation**.
-    4. W obszarze **Runbook**wybierz element Runbook. 
-    5. Na stronie **Konfigurowanie elementu Runbook** wybierz pozycję **OK** . 
-        ![Konfigurowanie elementu Runbook](./media/automate-update-messaging-units/configure-runbook.png)
-9. Na stronie **Dodaj grupę akcji** wybierz **przycisk OK** . 
-5. Teraz na stronie **Tworzenie reguły alertu** wprowadź **nazwę reguły**, a następnie wybierz pozycję **Utwórz regułę alertu**. 
-    ![Tworzenie reguły alertu](./media/automate-update-messaging-units/create-alert-rule.png)
-
-    > [!NOTE]
-    > Teraz, gdy użycie procesora CPU przestrzeni nazw przekracza 75, alert wyzwala element Runbook automatyzacji, który zwiększa jednostki obsługi komunikatów przestrzeni nazw Service Bus. Podobnie można utworzyć alert dla innego elementu Runbook usługi Automation, który zmniejsza liczbę jednostek obsługi komunikatów, jeśli użycie procesora w przestrzeni nazw spadnie poniżej 25. 
+> [!IMPORTANT]
+> Aby dowiedzieć się więcej o tym, jak działają ustawienia skalowania automatycznego, szczególnie w jaki sposób wybiera profil lub warunek i szacuje wiele reguł, zobacz [Omówienie ustawień skalowania automatycznego](../azure-monitor/platform/autoscale-understanding-settings.md).          
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej o jednostkach obsługi komunikatów, zobacz [Obsługa komunikatów w warstwie Premium](service-bus-premium-messaging.md)
+

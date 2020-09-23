@@ -1,6 +1,6 @@
 ---
-title: Limity Azure Stack krawędzi | Microsoft Docs
-description: Dowiedz się więcej o limitach i zalecanych rozmiarach podczas wdrażania i obsługi Azure Stack Edge, w tym limitów usług, limitów urządzeń i limitów magazynu.
+title: Azure Stack graniczny limit Pro | Microsoft Docs
+description: Dowiedz się więcej na temat limitów i zalecanych rozmiarów podczas wdrażania i obsługiwania Azure Stack brzegowej usługi Pro, w tym limity usług, limity urządzeń i limity magazynu.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: e21f5a89d9f1f21eb99071a141794f99c07a8dfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079816"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904461"
 ---
-# <a name="azure-stack-edge-limits"></a>Limity rozwiązania Azure Stack Edge
+# <a name="azure-stack-edge-pro-limits"></a>Limity urządzenia Azure Stack Edge Pro
 
-Te limity należy wziąć pod uwagę podczas wdrażania i obsługi rozwiązania Microsoft Azure Stack Edge. 
+Te limity należy wziąć pod uwagę podczas wdrażania i obsługi rozwiązania Microsoft Azure Stack EDGE Pro. 
 
 ## <a name="azure-stack-edge-service-limits"></a>Limity usługi Azure Stack Edge
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## <a name="azure-stack-device-limits"></a>Azure Stack limitów urządzeń
+## <a name="azure-stack-edge-device-limits"></a>Limity urządzeń Azure Stack Edge
 
-W poniższej tabeli opisano limity dotyczące Azure Stack urządzenia brzegowego. 
+W poniższej tabeli opisano limity dla urządzenia z Azure Stack Edge. 
 
 | Opis | Wartość |
 |---|---|
@@ -53,4 +53,4 @@ W poniższej tabeli opisano limity dotyczące Azure Stack urządzenia brzegowego
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przygotowywanie do wdrożenia Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Przygotowanie do wdrożenia Azure Stack EDGE Pro](azure-stack-edge-deploy-prep.md)

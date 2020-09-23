@@ -1,6 +1,6 @@
 ---
-title: Azure Stack dostęp do urządzeń brzegowych, Włączanie i wyłączanie łączności | Microsoft Docs
-description: Opisuje sposób zarządzania dostępem, możliwością i trybem łączności dla Azure Stack urządzenia brzegowego, które ułatwia transfer danych do platformy Azure
+title: Azure Stack graniczny dostęp urządzeń, możliwości i tryb łączności | Microsoft Docs
+description: Zawiera opis sposobu zarządzania dostępem, możliwością i trybem łączności dla urządzenia z Azure Stack EDGE Pro, które ułatwia transfer danych do platformy Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 75e7a43d545bea63d553ad01836ed5c6ebc2dcc9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e0e2ac43ce0157b4917e9c45f6a02ace63432137
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079799"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904413"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Zarządzanie dostępem, możliwością i trybem łączności dla Azure Stack krawędzi
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Zarządzanie dostępem, możliwością i trybem łączności dla Twojego Azure Stack EDGE Pro
 
-W tym artykule opisano sposób zarządzania dostępem, możliwością i trybem łączności dla Azure Stack krawędzi. Te operacje są wykonywane za pośrednictwem lokalnego interfejsu użytkownika sieci Web lub Azure Portal.
+W tym artykule opisano sposób zarządzania dostępem, możliwością i trybem łączności dla Azure Stack Edge. Te operacje są wykonywane za pośrednictwem lokalnego interfejsu użytkownika sieci Web lub Azure Portal.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -29,7 +29,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="manage-device-access"></a>Zarządzanie dostępem do urządzeń
 
-Dostęp do urządzenia brzegowego Azure Stack jest kontrolowany przy użyciu hasła urządzenia. Hasło można zmienić za pomocą lokalnego interfejsu użytkownika sieci Web. Możesz również zresetować hasło urządzenia w Azure Portal.
+Dostęp do urządzenia z Azure Stack Edge w wersji Pro jest kontrolowany przy użyciu hasła urządzenia. Hasło można zmienić za pomocą lokalnego interfejsu użytkownika sieci Web. Możesz również zresetować hasło urządzenia w Azure Portal.
 
 ### <a name="change-device-password"></a>Zmienianie hasła urządzenia
 
@@ -61,12 +61,12 @@ Aby utworzyć Azure Stack krawędź/Data Box Gateway, IoT Hub i zasób usługi A
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Zarządzanie uprawnieniami interfejsu API Microsoft Graph
 
-Podczas generowania klucza aktywacji dla urządzenia brzegowego Azure Stack lub wykonywania wszelkich operacji wymagających poświadczeń wymagane są uprawnienia do Azure Active Directory interfejs API programu Graph. Operacje, które wymagają poświadczeń, mogą być następujące:
+Podczas generowania klucza aktywacji dla urządzenia z systemem Azure Stack EDGE Pro lub wykonywania wszelkich operacji wymagających poświadczeń wymagane są uprawnienia do Azure Active Directory interfejs API programu Graph. Operacje, które wymagają poświadczeń, mogą być następujące:
 
 -  Tworzenie udziału ze skojarzonym kontem magazynu.
 -  Tworzenie użytkownika, który może uzyskiwać dostęp do udziałów na urządzeniu.
 
-Musisz mieć dostęp do `User` Active Directory dzierżawy, ponieważ musisz mieć możliwość `Read all directory objects` . Nie możesz być użytkownikiem-gościem, ponieważ nie ma uprawnień do programu `Read all directory objects` . Jeśli jesteś gościem, operacjami takimi jak generacja klucza aktywacji, utworzenie udziału na urządzeniu z systemem Azure Stack Edge, utworzenie użytkownika, konfiguracja roli obliczeń brzegowych spowoduje niepowodzenie wszystkich operacji resetowania hasła urządzenia.
+Musisz mieć dostęp do `User` Active Directory dzierżawy, ponieważ musisz mieć możliwość `Read all directory objects` . Nie możesz być użytkownikiem-gościem, ponieważ nie ma uprawnień do programu `Read all directory objects` . Jeśli jesteś gościem, to operacje, takie jak generowanie klucza aktywacji, tworzenie udziału na urządzeniu z systemem Azure Stack Edge, Tworzenie użytkownika, konfiguracja roli obliczeniowej programu Edge, Resetowanie hasła urządzenia zakończy się niepowodzeniem.
 
 Aby uzyskać więcej informacji na temat zapewniania dostępu użytkownikom do Microsoft Graph interfejsu API, zobacz [Microsoft Graph informacje o uprawnieniach](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -89,7 +89,7 @@ Aby uzyskać listę zarejestrowanych dostawców zasobów w bieżącej subskrypcj
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-W przypadku Azure Stack urządzenia brzegowego `Microsoft.DataBoxEdge` należy zarejestrować. Aby zarejestrować się `Microsoft.DataBoxEdge` , administrator subskrypcji powinien uruchomić następujące polecenie:
+W przypadku urządzenia z Azure Stack Edge `Microsoft.DataBoxEdge` należy zarejestrować. Aby zarejestrować się `Microsoft.DataBoxEdge` , administrator subskrypcji powinien uruchomić następujące polecenie:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

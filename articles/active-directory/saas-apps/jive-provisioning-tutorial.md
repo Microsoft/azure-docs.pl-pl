@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fec959ee34f9491b6510390d4b390e652690897e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 351c7e21bfe59b22f451adddad8fed220c218358
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547090"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983128"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Jive na potrzeby automatycznego aprowizacji użytkowników
 
@@ -23,7 +23,7 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać w J
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
+W scenariuszu opisanym w tym samouczku założono, że masz już następujące elementy:
 
 *   Dzierżawa usługi Azure Active Directory.
 *   Subskrypcja z włączonym logowaniem jednokrotnym (Jive).
@@ -61,9 +61,9 @@ W ramach tej procedury konieczne jest podanie tokenu zabezpieczającego użytkow
 
 1. Wybierz wystąpienie elementu Jive, a następnie wybierz kartę **Inicjowanie obsługi** .
 
-1. Ustaw **tryb aprowizacji** na **automatyczny**. 
+1. Ustaw **Tryb aprowizacji** na **Automatyczny**. 
 
-    ![aprowizacji](./media/jive-provisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawia stronę aprowizacji Jive, z trybem aprowizacji ustawionym na automatyczne i inne wartości, które można ustawić.](./media/jive-provisioning-tutorial/provisioning.png)
 
 1. W sekcji **poświadczenia administratora** podaj następujące ustawienia konfiguracji:
    
@@ -95,8 +95,8 @@ Rozpocznie się początkową synchronizację wszystkich użytkowników i/lub gru
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurowanie logowania jednokrotnego](jive-tutorial.md)

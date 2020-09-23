@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie przesyłania strumieniowego w trybie offline za pomocą Azure Media Services v3
-description: W tym artykule pokazano, jak skonfigurować konto Azure Media Services do przesyłania strumieniowego PlayReady dla systemu Windows 10 w trybie offline.
+description: W tym artykule przedstawiono sposób konfigurowania konta Azure Media Services v3 na potrzeby przesyłania strumieniowego PlayReady dla systemu Windows 10 w trybie offline.
 services: media-services
 keywords: ŁĄCZNIK, DRM, Widevine tryb offline, ExoPlayer, Android
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9e0c4daeae9884bdb5feaceccc23046866f0d59c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 19c930915de20d7f3a8938570e074458b32a8efb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266684"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975673"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Tryb online PlayReady Streaming dla systemu Windows 10 z Media Services v3
 

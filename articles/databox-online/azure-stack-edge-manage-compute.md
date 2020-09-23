@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie obliczeniem Azure Stack Edge | Microsoft Docs
-description: Opisuje sposób zarządzania ustawieniami obliczeń krawędzi, takimi jak wyzwalacz, moduły, wyświetlanie konfiguracji obliczeniowej, Usuwanie konfiguracji za pośrednictwem Azure Portal na Azure Stack brzegowej.
+title: Azure Stack Edge — zarządzanie obliczeniami Microsoft Docs
+description: Opisuje sposób zarządzania ustawieniami obliczeń krawędzi, takimi jak wyzwalacz, moduły, wyświetlanie konfiguracji obliczeniowej, Usuwanie konfiguracji za pośrednictwem Azure Portal w Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 9d34bd1750b798407b493dcde01b04118d66a2d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00e5f8dc067d91e6ea6fed688d72b357d1d50678
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339828"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904432"
 ---
-# <a name="manage-compute-on-your-azure-stack-edge"></a>Zarządzanie obliczeniami na Azure Stackej krawędzi
+# <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Zarządzanie obliczeniami na Azure Stack Edge
 
-W tym artykule opisano sposób zarządzania obliczeniami na Azure Stackej krawędzi. Można zarządzać obliczeniami za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal do zarządzania modułami, wyzwalaczami i konfiguracją obliczeniową oraz lokalnym interfejsem użytkownika sieci Web do zarządzania ustawieniami obliczeniowymi.
+W tym artykule opisano sposób zarządzania obliczeniami na Azure Stack brzegowej. Można zarządzać obliczeniami za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal do zarządzania modułami, wyzwalaczami i konfiguracją obliczeniową oraz lokalnym interfejsem użytkownika sieci Web do zarządzania ustawieniami obliczeniowymi.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -28,7 +28,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="manage-triggers"></a>Zarządzanie wyzwalaczami
 
-Zdarzenia są takie same, jak w środowisku chmury lub na urządzeniu, na którym warto podjąć odpowiednie działania. Na przykład po utworzeniu pliku w udziale jest to zdarzenie. Wyzwalacze zgłaszają zdarzenia. W przypadku Azure Stack krawędzi wyzwalacze mogą być w odpowiedzi na zdarzenia plików lub harmonogram.
+Zdarzenia to rzeczy dziejące się w środowisku chmury lub na urządzeniu, względem których warto podjąć odpowiednie działania. Na przykład utworzenie pliku w udziale to zdarzenie. Wyzwalacze zgłaszają zdarzenia. W przypadku usługi Azure Stack EDGE Pro wyzwalacze mogą być w odpowiedzi na zdarzenia plików lub harmonogram.
 
 - **Plik**: te wyzwalacze są w odpowiedzi na zdarzenia plików, takie jak tworzenie pliku, modyfikacja pliku.
 - **Zaplanowane**: te wyzwalacze są w odpowiedzi na harmonogram, który można zdefiniować przy użyciu daty rozpoczęcia, godziny rozpoczęcia i interwału powtarzania.
@@ -82,7 +82,7 @@ Lista wyzwalaczy jest aktualizowana w celu odzwierciedlenia usunięcia.
 
 ## <a name="manage-compute-configuration"></a>Zarządzanie konfiguracją obliczeń
 
-Użyj Azure Portal, aby wyświetlić konfigurację obliczeń, usunąć istniejącą konfigurację obliczeniową lub odświeżyć konfigurację obliczeniową w celu zsynchronizowania kluczy dostępu dla urządzenia IoT i urządzenia IoT Edge na potrzeby Azure Stack brzegowej.
+Użyj Azure Portal, aby wyświetlić konfigurację obliczeń, usunąć istniejącą konfigurację obliczeniową lub odświeżyć konfigurację obliczeniową w celu zsynchronizowania kluczy dostępu dla urządzenia IoT i urządzenia IoT Edge na potrzeby Azure Stack brzegowej usługi Pro.
 
 ### <a name="view-compute-configuration"></a>Wyświetlanie konfiguracji obliczeniowej
 
@@ -111,11 +111,11 @@ Wykonaj następujące kroki w Azure Portal, aby usunąć istniejącą konfigurac
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Synchronizowanie urządzeń IoT i IoT Edge kluczy dostępu do urządzeń
 
-Podczas konfigurowania obliczeń na Azure Stack Edge zostanie utworzone urządzenie IoT i urządzenie IoT Edge. Do tych urządzeń są automatycznie przypisywane klucze dostępu symetrycznego. Ze względów bezpieczeństwa te klucze są regularnie obracane za pośrednictwem usługi IoT Hub.
+Podczas konfigurowania obliczeń na Azure Stack EDGE Pro zostanie utworzone urządzenie IoT i urządzenie IoT Edge. Do tych urządzeń są automatycznie przypisywane klucze dostępu symetrycznego. Ze względów bezpieczeństwa te klucze są regularnie obracane za pośrednictwem usługi IoT Hub.
 
 Aby obrócić te klucze, możesz przejść do utworzonej usługi IoT Hub, a następnie wybrać urządzenie IoT lub urządzenie IoT Edge. Każde urządzenie ma podstawowy klucz dostępu i pomocnicze klucze dostępu. Przypisz podstawowy klucz dostępu do pomocniczego klucza dostępu, a następnie ponownie Wygeneruj podstawowy klucz dostępu.
 
-Jeśli urządzenie IoT i IoT Edge klucze zostały obrócone, należy odświeżyć konfigurację na Azure Stack Edge, aby uzyskać najnowsze klucze dostępu. Synchronizacja pomaga urządzeniu pobrać najnowsze klucze urządzenia IoT i urządzenia IoT Edge. Azure Stack Edge używa tylko podstawowych kluczy dostępu.
+Jeśli urządzenie IoT i IoT Edge klucze zostały obrócone, należy odświeżyć konfigurację na Azure Stack EDGE Pro, aby uzyskać najnowsze klucze dostępu. Synchronizacja pomaga urządzeniu pobrać najnowsze klucze urządzenia IoT i urządzenia IoT Edge. Azure Stack EDGE Pro używa tylko podstawowych kluczy dostępu.
 
 Aby zsynchronizować klucze dostępu dla urządzenia, wykonaj następujące czynności w Azure Portal.
 

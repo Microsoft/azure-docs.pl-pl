@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: de39789a45856211421e3ec5638a2df94d49976c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 72df946ed35dfdfd2811089a51ab9403d2e0567c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958715"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982998"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Rozwiązywanie problemów z aplikacją w Azure App Service przy użyciu programu Visual Studio
 ## <a name="overview"></a>Omówienie
@@ -70,15 +70,15 @@ Zwykle projekt sieci Web jest wdrażany z `customErrors` flagą w pliku Web.conf
 
 **Błąd serwera w aplikacji "/":**
 
-![Strona błędu niepomocowego](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji "/" w przeglądarce sieci Web.":::
 
 **Wystąpił błąd:**
 
-![Strona błędu niepomocowego](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Zrzut ekranu przedstawiający przykład błędu ogólnego występujący w przeglądarce sieci Web.":::
 
 **Witryna sieci Web nie może wyświetlić strony**
 
-![Strona błędu niepomocowego](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Zrzut ekranu przedstawiający witrynę internetową nie można wyświetlić błędu strony w przeglądarce sieci Web.":::
 
 Często najprostszym sposobem znalezienia przyczyny błędu jest włączenie szczegółowych komunikatów o błędach, które pierwszy z powyższych zrzutów ekranu wyjaśnia, jak to zrobić. Wymaga zmiany we wdrożonym pliku Web.config. Można edytować *Web.config* plik w projekcie i ponownie wdrożyć projekt lub utworzyć [Web.config Przekształć](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) i wdrożyć kompilację debugowania, ale istnieje szybszy sposób: w **Eksplorator rozwiązań**można bezpośrednio wyświetlać i edytować pliki w aplikacji zdalnej przy użyciu funkcji *Widok zdalny* .
 
@@ -139,7 +139,7 @@ W tej sekcji przedstawiono sposób debugowania zdalnego przy użyciu projektu ut
 
 1. W **Eksplorator serwera**kliknij prawym przyciskiem myszy aplikację, a następnie kliknij pozycję **Dołącz debuger**.
 
-    ![Dołącz debuger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Zrzut ekranu przedstawiający okno Eksplorator serwera, w którym zaznaczono aplikację, a następnie klikając pozycję Dołącz debuger.":::
 
     Przeglądarka zostanie automatycznie otwarta na stronie głównej działającej na platformie Azure. Może być konieczne odczekanie 20 sekund lub tak, dopóki platforma Azure skonfiguruje serwer na potrzeby debugowania. To opóźnienie występuje tylko podczas pierwszego uruchomienia w trybie debugowania w aplikacji w ciągu 48 godzin. Po ponownym uruchomieniu debugowania w tym samym okresie nie ma opóźnienia.
 
@@ -192,7 +192,7 @@ Zdalne debugowanie działa tylko z ciągłymi zadaniami WebJob. Zaplanowane i na
 
 8. Kliknij pozycję **Dołącz debuger**.
 
-    ![Dołącz debuger](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Zrzut ekranu przedstawiający Eksplorator serwera pokazywanie ContosoAdsWebJob wybranych w menu rozwijanym i zaznaczono debuger.":::
 
     Przeglądarka zostanie automatycznie otwarta na stronie głównej działającej na platformie Azure. Może być konieczne odczekanie 20 sekund lub tak, dopóki platforma Azure skonfiguruje serwer na potrzeby debugowania. To opóźnienie występuje tylko podczas pierwszego uruchomienia w trybie debugowania w aplikacji w ciągu 48 godzin. Po ponownym uruchomieniu debugowania w tym samym okresie nie ma opóźnienia.
 
@@ -340,11 +340,11 @@ Aby uzyskać informacje o sposobach tworzenia dzienników aplikacji w zadaniach 
 1. Na pasku adresu okna przeglądarki Dodaj wartość *Trace. axd* do adresu URL, a następnie naciśnij klawisz ENTER (adres URL jest podobny do `http://localhost:53370/trace.axd` ).
 1. Na stronie **ślad aplikacji** kliknij pozycję **Wyświetl szczegóły** w pierwszym wierszu (nie w wierszu BrowserLink).
 
-    ![Trace. axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Zrzut ekranu strony śledzenia aplikacji w przeglądarce internetowej pokazujący szczegóły widoku wybrane w pierwszym wierszu.":::
 
     Zostanie wyświetlona strona **szczegóły żądania** , a w sekcji **Informacje o śledzeniu** są wyświetlane dane wyjściowe instrukcji Trace dodanych do `Index` metody.
 
-    ![Trace. axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Zrzut ekranu strony szczegóły żądania w przeglądarce sieci Web, w której wyświetlany jest komunikat wyróżniony w sekcji Informacje o śledzeniu.":::
 
     Domyślnie program `trace.axd` jest dostępny tylko lokalnie. Jeśli chcesz udostępnić ją z poziomu aplikacji zdalnej, możesz dodać `localOnly="false"` do `trace` elementu w pliku *Web.config* , jak pokazano w następującym przykładzie:
 
@@ -361,11 +361,12 @@ Aby uzyskać informacje o sposobach tworzenia dzienników aplikacji w zadaniach 
     Po opublikowaniu aktualizacji przez program Visual Studio otwiera okno przeglądarki na stronie głównej (przy założeniu, że **docelowy adres URL** nie został wyczyszczony na karcie **połączenie** ).
 3. W **Eksplorator serwera**kliknij prawym przyciskiem myszy aplikację i wybierz polecenie **Wyświetl dzienniki przesyłania strumieniowego**.
 
-    ![Wyświetlanie dzienników przesyłania strumieniowego w menu kontekstowym](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Zrzut ekranu przedstawiający Eksplorator serwera po kliknięciu prawym przyciskiem myszy aplikacji, z wyświetleniem dzienników przesyłania strumieniowego wybranych w nowym oknie.":::
 
     Okno **dane wyjściowe** pokazuje, że nawiązano połączenie z usługą przesyłania strumieniowego dziennika i dodaje wiersz powiadomienia każdej minuty, która przechodzi bez dziennika do wyświetlenia.
 
-    ![Wyświetlanie dzienników przesyłania strumieniowego w menu kontekstowym](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Zrzut ekranu przedstawiający okno dane wyjściowe z przykładem połączenia z usługą przesyłania strumieniowego dzienników z wierszami powiadomień.":::
+
 4. W oknie przeglądarki, w którym wyświetlana jest Strona główna aplikacji, kliknij pozycję **kontakt**.
 
     W ciągu kilku sekund dane wyjściowe z śladu poziomu błędu dodanego do `Contact` metody pojawią się w oknie **danych wyjściowych** .
@@ -393,7 +394,7 @@ Aby uzyskać informacje o sposobach tworzenia dzienników aplikacji w zadaniach 
 ### <a name="output-window-features"></a>Funkcje okna danych wyjściowych
 Karta **dzienniki Microsoft Azure** w oknie **danych wyjściowych** zawiera kilka przycisków i pole tekstowe:
 
-![Przyciski kart dzienników](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Zrzut ekranu przedstawiający przyciski i pole tekstowe karty Dzienniki Microsoft Azure w oknie danych wyjściowych.":::
 
 Są to następujące funkcje:
 
@@ -457,14 +458,15 @@ Wszystkie dzienniki, które można monitorować w oknie **danych wyjściowych** 
 
 1. W oknie **dane wyjściowe** kliknij pozycję **Pobierz dzienniki przesyłania strumieniowego**.
 
-    ![Przyciski kart dzienników](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Zrzut ekranu przedstawiający okno dane wyjściowe z wyróżnionym przyciskiem Pobierz dzienniki przesyłania strumieniowego.":::
 
     Eksplorator plików otwiera folder *pliki do pobrania* z wybranym pobranym plikiem.
 
-    ![Pobrany plik](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Zrzut ekranu przedstawiający folder pliki do pobrania w Eksploratorze plików z wybranym pobranym plikiem.":::
+
 2. Wyodrębnij plik *zip* i Wyświetl następującą strukturę folderów:
 
-    ![Pobrany plik](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Zrzut ekranu przedstawiający strukturę folderu pliku zip po wyodrębnieniu pliku.":::
 
    * Dzienniki śledzenia aplikacji znajdują się w plikach *txt* w folderze *LogFiles\Application* .
    * Dzienniki serwera sieci Web znajdują się w plikach *. log* w folderze *LogFiles\http\RawLogs* Do wyświetlania tych plików i manipulowania nimi można użyć narzędzia, takiego jak [parser dzienników](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) .

@@ -1,32 +1,29 @@
 ---
-title: Włącz przywracanie do punktu w czasie i zarządzaj nimi w przypadku blokowych obiektów BLOB (wersja zapoznawcza)
+title: Wykonaj przywracanie do punktu w czasie dla danych blokowych obiektów BLOB
 titleSuffix: Azure Storage
-description: Dowiedz się, jak przywrócić zestaw blokowych obiektów BLOB do poprzedniego stanu przy użyciu funkcji przywracania do określonego momentu (wersja zapoznawcza).
+description: Dowiedz się, jak użyć przywracania do punktu w czasie, aby przywrócić zestaw blokowych obiektów BLOB do ich poprzedniego stanu w danym momencie.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 09/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 140e1203a29dcebec9d6483e73e906591b2213fb
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 226e35452e4b266c3c0a698505d47ab9a53b9761
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068517"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984379"
 ---
-# <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Włącz przywracanie do punktu w czasie i zarządzaj nimi w przypadku blokowych obiektów BLOB (wersja zapoznawcza)
+# <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Wykonaj przywracanie do punktu w czasie dla danych blokowych obiektów BLOB
 
-Możesz użyć przywracania do określonego momentu (wersja zapoznawcza), aby przywrócić zestaw blokowych obiektów BLOB do poprzedniego stanu. W tym artykule opisano sposób włączania przywracania do punktu w czasie dla konta magazynu za pomocą programu PowerShell. Przedstawiono w nim również sposób wykonywania operacji przywracania przy użyciu programu PowerShell.
+Możesz użyć przywracania do punktu w czasie, aby przywrócić jeden lub więcej zestawów blokowych obiektów BLOB do poprzedniego stanu. W tym artykule opisano sposób włączania przywracania do punktu w czasie dla konta magazynu oraz wykonywania operacji przywracania.
 
-Aby uzyskać więcej informacji i dowiedzieć się, jak zarejestrować się w celu korzystania z wersji zapoznawczej, zobacz [przywracanie do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)](point-in-time-restore-overview.md).
+Aby dowiedzieć się więcej o przywracaniu do punktu w czasie, zobacz [przywracanie do punktu w czasie dla blokowych obiektów BLOB](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> Przywracanie do punktu w czasie obsługuje operacje przywracania tylko dla blokowych obiektów BLOB. Nie można przywrócić operacji na kontenerach. W przypadku usunięcia kontenera z konta magazynu przez wywołanie operacji [usuwania kontenera](/rest/api/storageservices/delete-container) w podglądzie przywracania do punktu w czasie nie można przywrócić tego kontenera przy użyciu operacji przywracania. W trakcie okresu zapoznawczego zamiast usuwania kontenera Usuń pojedyncze obiekty blob, jeśli chcesz je przywrócić.
-
-> [!IMPORTANT]
-> Wersja zapoznawcza przywracania do punktu w czasie jest przeznaczona wyłącznie do użytku w trybie nieprodukcyjnym.
+> Przywracanie do punktu w czasie obsługuje operacje przywracania tylko dla blokowych obiektów BLOB. Nie można przywrócić operacji na kontenerach. W przypadku usunięcia kontenera z konta magazynu przez wywołanie operacji [usuwania kontenera](/rest/api/storageservices/delete-container) nie można przywrócić tego kontenera przy użyciu operacji przywracania. Zamiast usuwać kontener, Usuń pojedyncze obiekty blob, jeśli chcesz je przywrócić.
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Włącz i skonfiguruj przywracanie do punktu w czasie
 
@@ -35,6 +32,9 @@ Przed włączeniem i skonfigurowaniem przywracania do punktu w czasie należy w�
 - [Włączanie usuwania nietrwałego dla obiektów blob](soft-delete-enable.md)
 - [Włączanie i wyłączanie kanału informacyjnego zmiany](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)
+
+> [!IMPORTANT]
+> Włączenie usuwania nietrwałego, źródła zmian i przechowywania wersji obiektów BLOB może spowodować naliczenie dodatkowych opłat. Aby uzyskać więcej informacji, zobacz [usuwanie nietrwałe dla obiektów BLOB](soft-delete-blob-overview.md), [Obsługa kanałów zmian w systemie Azure Blob Storage](storage-blob-change-feed.md)i [przechowywanie wersji obiektów BLOB](versioning-overview.md).
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
@@ -52,23 +52,9 @@ Na poniższej ilustracji przedstawiono konto magazynu skonfigurowane do przywrac
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby skonfigurować przywracanie do punktu w czasie za pomocą programu PowerShell, najpierw zainstaluj moduł AZ. Storage w wersji zapoznawczej 1.14.1-Preview lub nowszą wersję modułu w wersji zapoznawczej. Usuń wszystkie inne wersje modułu AZ. Storage.
+Aby skonfigurować przywracanie do punktu w czasie za pomocą programu PowerShell, najpierw zainstaluj moduł [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) w wersji 2.6.0 lub nowszej. Następnie Wywołaj polecenie Enable-AzStorageBlobRestorePolicy, aby włączyć przywracanie do punktu w czasie dla konta magazynu.
 
-Sprawdź, czy masz zainstalowaną wersję 2.2.4.1 lub nowszą PowerShellGet. Aby określić, która wersja jest aktualnie zainstalowana, uruchom następujące polecenie:
-
-```powershell
-Get-InstalledModule PowerShellGet
-```
-
-Następnie zainstaluj moduł AZ. Storage Preview. Następujące polecenie instaluje wersję [2.5.2-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.5.2-preview) modułu AZ. Storage:
-
-```powershell
-Install-Module -Name Az.Storage -RequiredVersion 2.5.2-preview -AllowPrerelease
-```
-
-Aby uzyskać więcej informacji na temat instalowania Azure PowerShell, zobacz [Instalowanie programu PowerShellGet](/powershell/scripting/gallery/installing-psget) i [Instalowanie Azure PowerShell z PowerShellGet](/powershell/azure/install-az-ps).
-
-Aby skonfigurować przywracanie do punktu w czasie platformy Azure za pomocą programu PowerShell, wywołaj polecenie Enable-AzStorageBlobRestorePolicy. Poniższy przykład włącza nietrwałe usuwanie i ustawia okres przechowywania nietrwałego, włącza Źródło zmian, a następnie włącza przywracanie do punktu w czasie. Przed uruchomieniem tego przykładu Użyj szablonu Azure Portal lub Azure Resource Manager, aby włączyć obsługę wersji obiektów BLOB.
+Poniższy przykład włącza nietrwałe usuwanie i ustawia okres przechowywania nietrwałego, włącza Źródło zmian, a następnie włącza przywracanie do punktu w czasie. Przed uruchomieniem tego przykładu Użyj szablonu Azure Portal lub Azure Resource Manager, aby włączyć obsługę wersji obiektów BLOB.
 
 Podczas uruchamiania przykładu Pamiętaj, aby zastąpić wartości w nawiasach ostrych własnymi wartościami:
 
@@ -116,7 +102,7 @@ Symbole wieloznaczne nie są obsługiwane w zakresie lexicographical. Każdy sym
 
 Obiekty blob można przywrócić w `$root` `$web` kontenerach i, jawnie określając je w zakresie przekazanym do operacji przywracania. `$root` `$web` Kontenery i są przywracane tylko wtedy, gdy są jawnie określone. Nie można przywrócić innych kontenerów systemu.
 
-Przywracane są tylko blokowe obiekty blob. Stronicowe obiekty blob i dołączanie obiektów BLOB nie są uwzględniane w operacji przywracania. Aby uzyskać więcej informacji o ograniczeniach związanych z dołączaniem obiektów blob, zobacz [znane problemy](#known-issues).
+Przywracane są tylko blokowe obiekty blob. Stronicowe obiekty blob i dołączanie obiektów BLOB nie są uwzględniane w operacji przywracania. Aby uzyskać więcej informacji o ograniczeniach związanych z dołączaniem obiektów blob, zobacz [przywracanie do punktu w czasie dla blokowych obiektów BLOB](point-in-time-restore-overview.md).
 
 > [!IMPORTANT]
 > Podczas wykonywania operacji przywracania usługa Azure Storage blokuje operacje na danych w obiektach Blob w zakresach przywracanych przez czas trwania operacji. Operacje odczytu, zapisu i usuwania są blokowane w lokalizacji podstawowej. Z tego powodu operacje, takie jak kontenery list w Azure Portal, mogą nie działać zgodnie z oczekiwaniami podczas operacji przywracania.
@@ -141,13 +127,30 @@ Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu przy uży
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu przy użyciu programu PowerShell, wywołaj polecenie **Restore-AzStorageBlobRange** , pomijając `-BlobRestoreRange` parametr. Poniższy przykład przywraca kontenery na koncie magazynu do ich stanu 12 godzin przed chwilą:
+Aby przywrócić wszystkie kontenery i obiekty blob na koncie magazynu przy użyciu programu PowerShell, wywołaj polecenie **Restore-AzStorageBlobRange** . Domyślnie polecenie **Restore-AzStorageBlobRange** jest uruchamiane asynchronicznie i zwraca obiekt typu **PSBlobRestoreStatus** , którego można użyć do sprawdzenia stanu operacji przywracania.
+
+Poniższy przykład asynchronicznie przywraca kontenery na koncie magazynu do ich stanu 12 godzin przed chwilą i sprawdza niektóre właściwości operacji przywracania:
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
-Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+$restoreOperation = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -TimeToRestore (Get-Date).AddHours(-12)
+
+# Get the status of the restore operation.
+$restoreOperation.Status
+# Get the ID for the restore operation.
+$restoreOperation.RestoreId
+# Get the restore point in UTC time.
+$restoreOperation.Parameters.TimeToRestore
+```
+
+Aby uruchomić operację przywracania synchronicznie, należy uwzględnić parametr **-WaitForComplete** w poleceniu. Gdy parametr **-WaitForComplete** jest obecny, program PowerShell wyświetla komunikat zawierający identyfikator przywracania dla operacji, a następnie blokuje wykonywanie do momentu ukończenia operacji przywracania. Należy pamiętać, że długość czasu wymaganego przez operację przywracania zależy od ilości danych do przywrócenia, a duża operacja przywracania może potrwać do godziny.
+
+```powershell
+Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -TimeToRestore (Get-Date).AddHours(-12) -WaitForComplete
 ```
 
 ---
@@ -184,18 +187,18 @@ Operacja przywracania pokazana w obrazie wykonuje następujące czynności:
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
-Aby przywrócić pojedynczy zakres obiektów blob, wywołaj polecenie **Restore-AzStorageBlobRange** i określ zakres lexicographical kontenerów i nazw obiektów BLOB dla `-BlobRestoreRange` parametru. Na przykład, aby przywrócić obiekty blob w pojedynczym kontenerze o nazwie *Sample-Container*, można określić zakres, który rozpoczyna się od *przykładowego kontenera* i kończyć się *próbką-container1*. Nie ma wymagań dotyczących kontenerów o nazwie w zakresach początkowych i końcowych do istniejących. Ponieważ koniec zakresu ma charakter wyłączny, nawet jeśli konto magazynu zawiera kontener o nazwie *Sample-container1*, przywrócony zostanie tylko kontener o nazwie *Sample-Container* :
+Aby przywrócić pojedynczy zakres obiektów blob, wywołaj polecenie **Restore-AzStorageBlobRange** i określ zakres lexicographical kontenerów i nazw obiektów BLOB dla `-BlobRestoreRange` parametru. Na przykład aby przywrócić obiekty blob w pojedynczym kontenerze o nazwie *container1*, można określić zakres, który rozpoczyna się od *container1* i kończąc na *container2*. Nie ma wymagań dotyczących kontenerów o nazwie w zakresach początkowych i końcowych do istniejących. Ponieważ koniec zakresu ma charakter wyłączny, nawet jeśli konto magazynu zawiera kontener o nazwie *container2*, przywrócony zostanie tylko kontener o nazwie *container1* :
 
 ```powershell
-$range = New-AzStorageBlobRangeToRestore -StartRange sample-container `
-    -EndRange sample-container1
+$range = New-AzStorageBlobRangeToRestore -StartRange container1 `
+    -EndRange container2
 ```
 
 Aby określić podzestaw obiektów BLOB w kontenerze do przywrócenia, użyj ukośnika (/), aby oddzielić nazwę kontenera od wzorca prefiksu obiektu BLOB. Na przykład, poniższy zakres wybiera obiekty blob w jednym kontenerze, których nazwy zaczynają się od litery *d* do *f*:
 
 ```powershell
-$range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d `
-    -EndRange sample-container/g
+$range = New-AzStorageBlobRangeToRestore -StartRange container1/d `
+    -EndRange container1/g
 ```
 
 Następnie podaj zakres do polecenia **Restore-AzStorageBlobRange** . Określ punkt przywracania, podając wartość **daty i godziny** UTC dla `-TimeToRestore` parametru. Poniższy przykład przywraca obiekty blob w określonym zakresie do ich stanu 3 dni przed obecną chwilą:
@@ -208,7 +211,15 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddDays(-3)
 ```
 
-Aby przywrócić wiele zakresów blokowych obiektów blob, określ tablicę zakresów dla `-BlobRestoreRange` parametru. W poniższym przykładzie określono dwa zakresy, aby przywrócić kompletną zawartość *container1* i *container4*:
+Domyślnie polecenie **Restore-AzStorageBlobRange** jest uruchamiane asynchronicznie. Po zainicjowaniu operacji przywracania asynchronicznej program PowerShell natychmiast Wyświetla tabelę właściwości dla operacji:  
+
+```powershell
+Status     RestoreId                            FailureReason Parameters.TimeToRestore     Parameters.BlobRanges
+------     ---------                            ------------- ------------------------     ---------------------
+InProgress 459c2305-d14a-4394-b02c-48300b368c63               2020-09-15T23:23:07.1490859Z ["container1/d" -> "container1/g"]
+```
+
+Aby przywrócić wiele zakresów blokowych obiektów blob, określ tablicę zakresów dla `-BlobRestoreRange` parametru. W poniższym przykładzie określono dwa zakresy, aby przywrócić pełną zawartość *container1* i *container4* do ich stanu 24 godz., a następnie zapisać wynik w zmiennej:
 
 ```powershell
 # Specify a range that includes the complete contents of container1.
@@ -218,43 +229,26 @@ $range1 = New-AzStorageBlobRangeToRestore -StartRange container1 `
 $range2 = New-AzStorageBlobRangeToRestore -StartRange container4 `
     -EndRange container5
 
-Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+$restoreOperation = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddMinutes(-30) `
+    -TimeToRestore (Get-Date).AddHours(-24) `
     -BlobRestoreRange @($range1, $range2)
+
+# Get the status of the restore operation.
+$restoreOperation.Status
+# Get the ID for the restore operation.
+$restoreOperation.RestoreId
+# Get the blob ranges specified for the operation.
+$restoreOperation.Parameters.BlobRanges
 ```
+
+Aby uruchomić operację przywracania synchronicznie i zablokować wykonywanie do momentu ukończenia, należy uwzględnić parametr **-WaitForComplete** polecenia.
 
 ---
 
-### <a name="restore-block-blobs-asynchronously-with-powershell"></a>Asynchroniczne przywracanie blokowych obiektów BLOB za pomocą programu PowerShell
-
-Aby uruchomić operację przywracania asynchronicznie, Dodaj `-AsJob` parametr do wywołania **Restore-AzStorageBlobRange** i Zapisz wynik wywołania w zmiennej. Polecenie **Restore-AzStorageBlobRange** zwraca obiekt typu **AzureLongRunningJob**. Możesz sprawdzić Właściwość **State** tego obiektu, aby określić, czy operacja przywracania została ukończona. Wartość właściwości **State** może być **uruchomiona** lub **zakończona**.
-
-Poniższy przykład pokazuje, jak wywołać operację przywracania asynchronicznie:
-
-```powershell
-$job = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
-    -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddMinutes(-5) `
-    -AsJob
-
-# Check the state of the job.
-$job.State
-```
-
-Aby poczekać na zakończenie operacji przywracania po jej uruchomieniu, wywołaj polecenie [wait-Job](/powershell/module/microsoft.powershell.core/wait-job) , jak pokazano w następującym przykładzie:
-
-```powershell
-$job | Wait-Job
-```
-
-## <a name="known-issues"></a>Znane problemy
-
-W przypadku podzbioru operacji przywracania, w których znajdują się dołączane obiekty blob, operacja przywracania zakończy się niepowodzeniem. Firma Microsoft zaleca, aby nie przeprowadzać przywracania do punktu w czasie w wersji zapoznawczej, jeśli w ramach konta znajdują się w niej obiekty blob.
-
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przywracanie do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)](point-in-time-restore-overview.md)
+- [Przywracanie do punktu w czasie dla blokowych obiektów BLOB](point-in-time-restore-overview.md)
 - [Usuwanie nietrwałe](soft-delete-overview.md)
-- [Źródło zmian (wersja zapoznawcza)](storage-blob-change-feed.md)
+- [Źródło zmian](storage-blob-change-feed.md)
 - [Przechowywanie wersji obiektów BLOB](versioning-overview.md)

@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087188"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983620"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Informacje o cenach usługi Data Factory w ramach przykładów
 
@@ -38,7 +38,7 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 
 3. Wyzwalacz harmonogramu do wykonywania potoku co godzinę.
 
-   ![Scenario1](media/pricing-concepts/scenario1.png)
+   ![Diagram przedstawia potok z wyzwalaczem harmonogramu. W potoku do kopiowania przepływów aktywności do wejściowego zestawu danych, który przepływa do połączonej usługi W warstwie S3 i działania kopiowania, również przepływy do wyjściowego zestawu danych, który przepływa do połączonej usługi Azure Storage.](media/pricing-concepts/scenario1.png)
 
 | **Operacje** | **Typy i jednostki** |
 | --- | --- |
@@ -69,7 +69,7 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 2. Jedno Azure Databricks działanie dla transformacji danych.
 3. Jeden wyzwalacz harmonogramu do uruchomienia potoku co godzinę.
 
-![Scenario2](media/pricing-concepts/scenario2.png)
+![Diagram przedstawia potok z wyzwalaczem harmonogramu. W potoku należy skopiować przepływy działania do wejściowego zestawu danych, wyjściowego zestawu danych i działania elementów datakostki, które działa na Azure Databricks. Wejściowy zestaw danych jest przenoszony do połączonej usługi W warstwie S3. Wyjściowy zestaw danych jest przepływem do połączonej usługi Azure Storage.](media/pricing-concepts/scenario2.png)
 
 | **Operacje** | **Typy i jednostki** |
 | --- | --- |
@@ -103,7 +103,7 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 3. Jedno Azure Databricks działanie dla transformacji danych.
 4. Jeden wyzwalacz harmonogramu do uruchomienia potoku co godzinę.
 
-![Scenario3](media/pricing-concepts/scenario3.png)
+![Diagram przedstawia potok z wyzwalaczem harmonogramu. W potoku, kopiowania przepływu aktywności do wejściowego zestawu danych, wyjściowego zestawu danych i działania wyszukiwania, które przepływa do działania elementów datakostki, które działa na Azure Databricks. Wejściowy zestaw danych jest przenoszony do połączonej usługi W warstwie S3. Wyjściowy zestaw danych jest przepływem do połączonej usługi Azure Storage.](media/pricing-concepts/scenario3.png)
 
 | **Operacje** | **Typy i jednostki** |
 | --- | --- |

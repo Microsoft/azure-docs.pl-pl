@@ -4,18 +4,18 @@ description: Dowiedz się więcej o zrównoważonej inżynierii oprogramowania w
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: bc2240b3cb8508109f6dd25c4c80ff31ba197cfd
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2457de7bdaa94a6e2269515fafe6689d44960625
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086091"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984973"
 ---
-# <a name="sustainable-software-engineering-principals-in-azure-kubernetes-service-aks"></a>Trwałe podmioty inżynieryjne w usłudze Azure Kubernetes Service (AKS)
+# <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Zrównoważone Zasady inżynierii oprogramowania w usłudze Azure Kubernetes Service (AKS)
 
-Podstawowe podmioty inżynieryjne inżynieria oprogramowania są zestawem kompetencji, które ułatwiają Definiowanie, kompilowanie i uruchamianie trwałych aplikacji. Ogólnym celem jest zmniejszenie poziomu węgla każdego aspektu aplikacji. [Projekt zasad. Green][principals-green] zawiera przegląd najważniejszych elementów inżynierii oprogramowania.
+Zrównoważone Zasady inżynierii oprogramowania to zbiór kompetencji ułatwiających Definiowanie, kompilowanie i uruchamianie trwałych aplikacji. Ogólnym celem jest zmniejszenie poziomu węgla każdego aspektu aplikacji. [Projekt zasad. Green][principles-green] zawiera przegląd zasad stałego inżynieria oprogramowania.
 
-Ważnym pomysłem, aby zrozumieć, jak to jest trwały inżynieria oprogramowania, jest zmiana priorytetów i koncentracja. W wielu przypadkach oprogramowanie zostało zaprojektowane i uruchomione w sposób, który koncentruje się na szybkiej wydajności i małych opóźnieniach. Zrównoważona inżynieria oprogramowania koncentruje się na zredukowaniu możliwie dużej ilości emisji węgla. W niektórych przypadkach zastosowanie stałych podmiotów inżynierii oprogramowania może zapewnić szybszą wydajność lub mniejsze opóźnienia, na przykład przez obniżenie łącznej liczby podróży sieci. W innych przypadkach zmniejszenie emisji węgla może spowodować obniżenie wydajności lub zwiększone opóźnienia, takie jak opóźnianie obciążeń o niskim priorytecie. Przed podjęciem dalszych rozważań dotyczących stosowania w aplikacji stałych podmiotów inżynierii oprogramowania należy zapoznać się z priorytetami, potrzebami i zaletami aplikacji.
+Ważnym pomysłem, aby zrozumieć, jak to jest trwały inżynieria oprogramowania, jest zmiana priorytetów i koncentracja. W wielu przypadkach oprogramowanie zostało zaprojektowane i uruchomione w sposób, który koncentruje się na szybkiej wydajności i małych opóźnieniach. Zrównoważona inżynieria oprogramowania koncentruje się na zredukowaniu możliwie dużej ilości emisji węgla. W niektórych przypadkach zastosowanie trwałych zasad inżynierii oprogramowania może zapewnić szybszą wydajność lub mniejsze opóźnienia, na przykład przez obniżenie łącznej liczby podróży w sieci. W innych przypadkach zmniejszenie emisji węgla może spowodować obniżenie wydajności lub zwiększone opóźnienia, takie jak opóźnianie obciążeń o niskim priorytecie. Przed uwzględnieniem zastosowania zasad dotyczących zrównoważonej inżynierii oprogramowania do aplikacji zapoznaj się z priorytetami, potrzebami i zaletami aplikacji.
 
 ## <a name="measure-and-optimize"></a>Mierzenie i optymalizacja
 
@@ -74,4 +74,4 @@ Dowiedz się więcej o funkcjach AKS wymienionych w tym artykule:
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principals-green]: https://principles.green/
+[principles-green]: https://principles.green/

@@ -10,17 +10,19 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: c5509d6a284ab7afe827f67b79b7be027e76f66c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: bf758a07cff248fc0da3f279e68a14e88797e382
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068850"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984602"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>Usuwanie nietrwałe zostanie włączone dla wszystkich magazynów kluczy
 
 > [!WARNING]
 > **Nieprzerwana zmiana**: możliwość rezygnacji z usuwania nietrwałego zostanie wycofana do końca roku, a ochrona usuwania nietrwałego zostanie automatycznie włączona dla wszystkich magazynów kluczy.  Azure Key Vault Użytkownicy i Administratorzy powinni natychmiast włączyć funkcję trwałego usuwania dla swoich magazynów kluczy.
+>
+> W przypadku zarządzanego modułu HSM funkcja usuwania nietrwałego jest domyślnie włączona i nie można jej wyłączyć.
 
 Po usunięciu wpisu tajnego z magazynu kluczy bez ochrony przed usunięciem nietrwałego wpis tajny zostanie trwale usunięty. Użytkownicy mogą obecnie zrezygnować z usuwania nietrwałego podczas tworzenia magazynu kluczy, ale aby chronić wpisy tajne przed przypadkowym lub złośliwym usunięciem przez użytkownika, firma Microsoft wkrótce włączy ochronę nietrwałego usuwania **wszystkich** magazynów kluczy, a użytkownicy nie będą już mogli zrezygnować ani wyłączyć usuwania nietrwałego.
 
