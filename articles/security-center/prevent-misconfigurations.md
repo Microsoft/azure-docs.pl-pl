@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: ceafbe1fd1682fc5e92ab3048ed09866fb9ebbdf
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 19e9a33350b6a1a67986dc35a372f737e45ab39a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89570491"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906387"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Zapobiegaj błędom konfiguracji z zaleceń Wymuszaj/Odmów
 
@@ -24,10 +24,9 @@ Ta funkcja może pomóc w zabezpieczeniu obciążeń i stabilizacji bezpiecznego
 Wymuszanie bezpiecznej konfiguracji w oparciu o określone zalecenie jest oferowane w dwóch trybach:
 
 - Przy użyciu efektu **odmowy** Azure Policy można zatrzymać tworzenie zasobów w złej kondycji
-
 - Przy użyciu opcji **Wymuszaj** można korzystać z **DeployIfNotExist** i automatycznego korygowania niezgodnych zasobów podczas tworzenia
- 
-Jest to dostępne dla wybranych zaleceń dotyczących zabezpieczeń i można je znaleźć w górnej części strony Szczegóły zasobu.
+
+Można to znaleźć w górnej części strony Szczegóły zasobów dla wybranych zaleceń dotyczących zabezpieczeń (zobacz [zalecenia z opcjami Odmów/wymuszania](#recommendations-with-denyenforce-options)).
 
 ## <a name="prevent-resource-creation"></a>Zapobiegaj tworzeniu zasobów
 

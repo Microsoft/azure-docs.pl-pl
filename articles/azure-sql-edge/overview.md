@@ -1,6 +1,6 @@
 ---
-title: Co to jest Azure SQL Edge (wersja zapoznawcza)?
-description: Informacje o usłudze Azure SQL Edge (wersja zapoznawcza)
+title: Co to jest Azure SQL Edge?
+description: Dowiedz się więcej o usłudze Azure SQL Edge
 keywords: Wprowadzenie do usługi SQL Edge, co to jest SQL Edge, Omówienie programu SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,27 +9,31 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 20e709db9e6992f52b04934cb0f6eb65d3dcb44c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e34cd0907320f96f2846c1f424e678555381cccc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489531"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907118"
 ---
-# <a name="what-is-azure-sql-edge-preview"></a>Co to jest Azure SQL Edge (wersja zapoznawcza)?
+# <a name="what-is-azure-sql-edge"></a>Co to jest Azure SQL Edge?
 
-Usługa Azure SQL Edge (wersja zapoznawcza) to zoptymalizowany aparat relacyjnej bazy danych umożliwiający wdrażanie rozwiązań IoT i IoT Edge. Zapewnia możliwości tworzenia wysokiej wydajności magazynu danych i warstwy przetwarzania dla aplikacji i rozwiązań IoT. Usługa Azure SQL Edge oferuje możliwości przesyłania strumieniowego, przetwarzania i analizowania relacyjnych i nierelacyjnych danych, takich jak dane JSON, grafy i szeregi czasowe, dzięki czemu można wybrać różne nowoczesne aplikacje IoT.
+Usługa Azure SQL Edge jest zoptymalizowanym aparatem relacyjnej bazy danych, który umożliwia wdrażanie IoT i IoT Edge. Zapewnia możliwości tworzenia wysokiej wydajności magazynu danych i warstwy przetwarzania dla aplikacji i rozwiązań IoT. Usługa Azure SQL Edge oferuje możliwości przesyłania strumieniowego, przetwarzania i analizowania relacyjnych i nierelacyjnych danych, takich jak dane JSON, grafy i szeregi czasowe, dzięki czemu można wybrać różne nowoczesne aplikacje IoT.
 
-Usługa Azure SQL Edge jest oparta na najnowszych wersjach aparatu Microsoft SQL Database Engine (/SQL/SQL-Server/SQL-Server-Technical-Documentation? TOC =/Azure/Azure-SQL-Edge/toc.json), który zapewnia wiodące w branży funkcje, zabezpieczenia i przetwarzanie zapytań. Ze względu na to, że usługa Azure SQL Edge jest oparta na tym samym aparacie co [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) i [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), zapewnia ten sam obszar powierzchni programowania T-SQL, który umożliwia łatwiejsze i szybsze opracowywanie aplikacji i rozwiązań, a jednocześnie umożliwia przenoszenie aplikacji między urządzeniami IoT Edge, centrami danych i chmurą.
+Usługa Azure SQL Edge jest oparta na najnowszych wersjach [aparatu bazy danych SQL Server](/sql/sql-server/sql-server-technical-documentation), co zapewnia wiodącą w branży wydajność, funkcje zabezpieczeń i przetwarzania zapytań. Ponieważ usługa Azure SQL Edge jest oparta na tym samym aparacie co [SQL Server](/sql/sql-server/sql-server-technical-documentation) i [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), zapewnia ten sam obszar powierzchni programowania Transact-SQL (T-SQL), który umożliwia łatwiejsze i szybsze tworzenie aplikacji i rozwiązań, a także przenoszenie aplikacji między urządzeniami IoT Edge, centrami danych i chmurą.
 
-> [!NOTE]
-> Usługa Azure SQL Edge jest obecnie w wersji zapoznawczej i nie powinna być używana w środowiskach produkcyjnych.
+Co to jest Azure SQL Edge wideo w witrynie Channel 9:
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-SQL-Edge/player]
 
 ## <a name="deployment-models"></a>Modele wdrażania
 
-Usługa Azure SQL Edge jest dostępna w portalu Azure Marketplace i można ją wdrożyć jako moduł dla [Azure IoT Edge](../iot-edge/about-iot-edge.md). Aby uzyskać więcej informacji, zobacz [wdrażanie usługi Azure SQL Edge](deploy-portal.md).<br>
+Usługa Azure SQL Edge obsługuje dwa tryby wdrażania.
+
+- Połączone wdrożenie za pomocą Azure IoT Edge: usługa Azure SQL Edge jest dostępna w portalu Azure Marketplace i można ją wdrożyć jako moduł dla [Azure IoT Edge](../iot-edge/about-iot-edge.md). Aby uzyskać więcej informacji, zobacz [wdrażanie usługi Azure SQL Edge](deploy-portal.md).<br>
 
 ![Diagram omówienia programu SQL Edge](media/overview/overview.png)
+
+- Rozłączono wdrożenie: obrazy kontenerów usługi Azure SQL Edge można ściągnąć z centrum Docker i wdrożyć je jako autonomiczny kontener platformy Docker lub w klastrze Kubernetes. Aby uzyskać więcej informacji, zobacz [wdrażanie usługi Azure SQL Edge przy użyciu platformy Docker](disconnected-deployment.md) i [wdrażanie kontenera usługi Azure SQL Edge w Kubernetes](deploy-kubernetes.md).
 
 ## <a name="editions-of-sql-edge"></a>Wersje programu SQL Edge
 
@@ -42,7 +46,7 @@ Program SQL Edge jest dostępny z dwiema różnymi wersjami lub planami oprogram
 
 ## <a name="pricing-and-availability"></a>Cennik i dostępność
 
-Usługa Azure SQL Edge jest obecnie w wersji zapoznawczej. Aby uzyskać więcej informacji na temat cen i dostępności, zobacz [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
+Usługa Azure SQL Edge jest teraz ogólnie dostępna. Aby uzyskać więcej informacji na temat cen i dostępności w określonych regionach, zobacz [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > Aby zrozumieć różnice między funkcjami usługi Azure SQL Edge i SQL Server, a także różnice między różnymi opcjami usługi Azure SQL Edge, zobacz temat [obsługiwane funkcje usługi Azure SQL Edge](features.md).

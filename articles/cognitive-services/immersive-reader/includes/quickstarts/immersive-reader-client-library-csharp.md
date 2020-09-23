@@ -7,24 +7,23 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f3d694a1e1eb368a97d994ebe9885c279ff44463
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: fc3d5237fc795a2a828e886172e5d15acd9a9fb7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505407"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978266"
 ---
-[Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności.
+[Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności dla nowych czytelników, nauk językowych i osób, które mają różnice szkoleniowe, takie jak Dyslexia. Możesz użyć czytnika immersyjny w aplikacjach, aby odizolować tekst, aby zwiększyć fokus, wyświetlić obrazy dla często używanych wyrazów, wyróżnić części mowy, odczytywać zaznaczone fragmenty tekstu na głos, tłumaczyć słowa i frazy w czasie rzeczywistym i nie tylko.
 
-W tym przewodniku szybki start utworzysz aplikację internetową od podstaw i zintegrujesz czytnik immersyjny przy użyciu biblioteki klienta czytnika immersyjny. Pełny przykład pracy tego przewodnika Szybki Start jest dostępny [tutaj](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
-
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
+W tym przewodniku szybki start utworzysz aplikację internetową od podstaw i zintegrujesz czytnik immersyjny przy użyciu biblioteki klienta czytnika immersyjny. Pełny przykład pracy tego przewodnika Szybki Start jest dostępny [w witrynie GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
 * Zasób czytnika immersyjny skonfigurowany do Azure Active Directory uwierzytelniania. Postępuj zgodnie z [tymi instrukcjami](../../how-to-create-immersive-reader.md) , aby rozpocząć konfigurację. W przypadku konfigurowania przykładowych właściwości projektu konieczne będzie utworzenie niektórych wartości. Zapisz dane wyjściowe sesji w pliku tekstowym do użycia w przyszłości.
 
@@ -32,17 +31,17 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Utwórz nowy projekt w programie Visual Studio przy użyciu szablonu aplikacji sieci Web ASP.NET Core z wbudowanym modelem-View-Controller i ASP.NET Core 2,1. Nadaj projektowi nazwę "QuickstartSampleWebApp".
 
-![Nowy projekt](../../media/quickstart-csharp/1-createproject.png)
+![Nowy projekt — C #](../../media/quickstart-csharp/1-createproject.png)
 
-![Konfiguruj nowy projekt](../../media/quickstart-csharp/2-configureproject.png)
+![Konfiguruj nowy projekt — C #](../../media/quickstart-csharp/2-configureproject.png)
 
-![Nowa aplikacja sieci Web ASP.NET Core](../../media/quickstart-csharp/3-createmvc.png)
+![Nowa aplikacja sieci Web ASP.NET Core — C #](../../media/quickstart-csharp/3-createmvc.png)
 
 ## <a name="set-up-authentication"></a>Konfigurowanie uwierzytelniania
 
 ### <a name="configure-authentication-values"></a>Konfigurowanie wartości uwierzytelniania
 
-Kliknij prawym przyciskiem myszy projekt w _Eksplorator rozwiązań_ i wybierz polecenie **Zarządzaj kluczami tajnymi użytkownika**. Spowoduje to otwarcie pliku o nazwie _secrets.jsna_. Ten plik nie jest sprawdzany w kontroli źródła. Dowiedz się więcej [tutaj](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Zastąp zawartość _secrets.js_ przy użyciu poniższego, podając wartości podanych podczas tworzenia zasobu czytnika immersyjny.
+Kliknij prawym przyciskiem myszy projekt w _Eksplorator rozwiązań_ i wybierz polecenie **Zarządzaj kluczami tajnymi użytkownika**. Spowoduje to otwarcie pliku o nazwie _secrets.jsna_. Ten plik nie jest sprawdzany w kontroli źródła. Dowiedz się więcej [tutaj](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true). Zastąp zawartość _secrets.js_ przy użyciu poniższego, podając wartości podanych podczas tworzenia zasobu czytnika immersyjny.
 
 ```json
 {
@@ -53,7 +52,7 @@ Kliknij prawym przyciskiem myszy projekt w _Eksplorator rozwiązań_ i wybierz p
 }
 ```
 
-### <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Dodawanie pakietu NuGet Microsoft. IdentityModel. clients. ActiveDirectory
+### <a name="install-active-directory"></a>Zainstaluj Active Directory
 
 Poniższy kod używa obiektów z pakietu NuGet **Microsoft. IdentityModel. clients. ActiveDirectory** , dlatego należy dodać odwołanie do tego pakietu w projekcie.
 
@@ -216,7 +215,7 @@ Teraz dodamy przykładową zawartość do tej aplikacji sieci Web. Otwórz _View
 
 Zwróć uwagę, że cały tekst ma atrybut **lang** , który opisuje Języki tekstu. Ten atrybut pomaga czytnikom immersyjny zapewnić odpowiednie funkcje języka i gramatyki.
 
-## <a name="add-javascript-to-handle-launching-the-immersive-reader"></a>Dodaj kod JavaScript, aby obsłużyć uruchamianie czytnika immersyjny
+## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Dodaj kod JavaScript do obsługi uruchamiania czytnika immersyjny
 
 Biblioteka czytników immersyjny udostępnia funkcje, takie jak uruchamianie czytnika Immersyjnygo i renderowanie przycisków czytnika szczegółowego. Dowiedz się więcej [tutaj](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
 
@@ -296,18 +295,14 @@ Na pasku menu wybierz kolejno opcje **debuguj > Rozpocznij debugowanie**lub naci
 
 W przeglądarce powinny zostać wyświetlone następujące tematy:
 
-![Przykładowa aplikacja](../../media/quickstart-csharp/4-buildapp.png)
+![Przykładowa aplikacja — C #](../../media/quickstart-csharp/4-buildapp.png)
 
 ## <a name="launch-the-immersive-reader"></a>Uruchom czytnik immersyjny
 
 Po kliknięciu przycisku "czytnik immersyjny" zobaczysz czytnik immersyjny uruchamiany z zawartością na stronie.
 
-![Czytnik immersyjny](../../media/quickstart-csharp/5-viewimmersivereader.png)
+![Czytnik immersyjny-C #](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Wyświetl [Node.js przewodnika Szybki Start](../../tutorial-nodejs.md) , aby zobaczyć, co jeszcze można zrobić z biblioteką klienta czytnika immersyjny przy użyciu Node.js
-* Obejrzyj [Samouczek systemu Android](../../tutorial-android.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu języka Java lub Kotlin dla systemu Android
-* Wyświetl [Samouczek systemu iOS](../../tutorial-ios.md) , aby zobaczyć, co jeszcze można zrobić z zestawem SDK "immersyjny" przy użyciu SWIFT dla systemu iOS
-* Obejrzyj [samouczek języka Python](../../tutorial-python.md) , aby zobaczyć, co jeszcze można zrobić z biblioteką klienta czytnika immersyjny przy użyciu języka Python
 * Poznaj [zestaw SDK czytnika immersyjny](https://github.com/microsoft/immersive-reader-sdk) i [Kompendium zestawu SDK czytnika immersyjny](../../reference.md)

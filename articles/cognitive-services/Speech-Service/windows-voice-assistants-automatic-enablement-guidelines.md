@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: b9cbb873066131264732d6f46320461bae8c3188
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: a9fe083818c5850ad05556b18911c19fe19e0e72
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84981765"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987395"
 ---
 # <a name="privacy-guidelines-for-voice-assistants-on-windows"></a>Wskazówki dotyczące prywatności asystentów głosowych w systemie Windows
 
@@ -31,7 +31,7 @@ Deweloperzy tworzący asystentów głosowych w systemie Windows muszą zawierać
 Użytkownicy systemu Windows mogą wyświetlać i kontrolować dostępność aplikacji asystenta w programie **`Settings > Privacy > Voice activation`** .
 
  > [!div class="mx-imgBorder"]
- > [![Prywatność — lista aplikacji](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "Wpis ustawienia prywatności aktywacji głosu systemu Windows dla aplikacji Asystenta")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
+ > [![Zrzut ekranu przedstawia opcje sterujące dostępności Cortany. ](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "Wpis ustawienia prywatności aktywacji głosu systemu Windows dla aplikacji Asystenta")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
 
 Aby można było korzystać z tej listy, skontaktuj się z firmą Microsoft w winvoiceassistants@microsoft.com celu rozpoczęcia pracy. Domyślnie użytkownicy będą musieli jawnie włączyć aktywację głosu dla nowego asystenta w programie, w **`Settings > Privacy > Voice Activation`** którym aplikacja może łączyć się z usługą `ms-settings:privacy-voiceactivation` . Gdy aplikacja zostanie uruchomiona i używała interfejsów API, zostanie wyświetlona na liście dozwolonych aplikacji `Windows.ApplicationModel.ConversationalAgent` . Ustawienia aktywacji głosu będą modyfikowane, gdy aplikacja uzyska zgodę na mikrofon od użytkownika.
 

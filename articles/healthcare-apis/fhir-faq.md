@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 252abcac6e9e39930593c1b110bf6d55ffdfc33f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 36945d998bf00d7b229b5ae3cce1958953ade601
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843525"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978620"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Często zadawane pytania dotyczące interfejsu API platformy Azure dla usługi FHIR
 
@@ -48,6 +48,23 @@ Z punktu widzenia projektowania każda funkcja jest wdrażana na serwerze progra
 
 INTELIGENTNE (podstawiane aplikacje medyczne i technologia wielokrotnego użytku) w systemie FHIR to zestaw otwartych specyfikacji umożliwiających integrację aplikacji partnerskich z serwerami FHIR i innymi systemami IT o kondycji, takimi jak rejestry kondycji elektronicznej i wymiana informacji o kondycji. Tworząc INTELIGENTNą aplikację FHIR, możesz zapewnić dostęp do aplikacji i wykorzystać ją przez mnóstwo różnych systemów.
 Uwierzytelnianie i interfejs API platformy Azure dla usługi FHIR. Aby dowiedzieć się więcej na temat inteligentnych, odwiedź stronę [Smart Health](https://smarthealthit.org/).
+
+### <a name="can-i-create-a-custom-fhir-resource"></a>Czy można utworzyć niestandardowy zasób FHIR?
+
+Nie zezwalamy na używanie niestandardowych zasobów FHIR. Jeśli potrzebujesz niestandardowego zasobu FHIR, możesz utworzyć zasób niestandardowy na podstawie [podstawowego zasobu](http://www.hl7.org/fhir/basic.html) z rozszerzeniami. 
+
+### <a name="are-extensions-supported-on-azure-api-for-fhir"></a>Czy [rozszerzenia](https://www.hl7.org/fhir/extensibility.html) są obsługiwane w interfejsie API platformy Azure dla FHIR?
+
+Zezwalamy na ładowanie dowolnych prawidłowych danych JSON FHIR na serwer. Jeśli chcesz przechowywać definicję struktury definiującą rozszerzenie, możesz ją zapisać jako zasób definicji struktury. Obecnie nie można wyszukiwać rozszerzeń.
+
+### <a name="what-is-the-limit-on-_count"></a>Jaki jest limit _count?
+
+Bieżący limit liczby wynosi 100.
+
+### <a name="are-there-any-limitations-on-the-group-export-functionality"></a>Czy istnieją jakieś ograniczenia dotyczące funkcji eksportowania grup?
+
+W przypadku eksportu grupy eksportuje tylko dołączone odwołania z grupy, nie wszystkie właściwości [zasobu grupy](https://www.hl7.org/fhir/group.html).
+
 
 ## <a name="azure-iot-connector-for-fhir-preview"></a>Łącznik usługi Azure IoT dla FHIR (wersja zapoznawcza)
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 5b46dc0197022aa72b6ca4c206d1da4369234167
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 576ff4eb3a189b27a4c7743966ced0676ec67a9d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707683"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978908"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dla Azure Database for PostgreSQL pojedynczego serwera
 
@@ -126,5 +126,8 @@ Ponieważ ta aktualizacja jest zmianą po stronie klienta, jeśli klient używan
 ### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. Czy masz zapytanie po stronie serwera, aby sprawdzić, czy protokół SSL jest używany?
 Aby sprawdzić, czy jest używane połączenie SSL do łączenia się z serwerem, odwołaj się do [weryfikacji protokołu SSL](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity).
 
-### <a name="13-what-if-i-have-further-questions"></a>13. co zrobić, jeśli mam więcej pytań?
+### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. czy jest wymagana akcja, jeśli mam już DigiCertGlobalRootG2 w moim pliku certyfikatu?
+Nie. Jeśli plik certyfikatu ma już **DigiCertGlobalRootG2**, nie jest wymagana żadna akcja.
+
+### <a name="14-what-if-i-have-further-questions"></a>14. co zrobić, jeśli mam więcej pytań?
 Jeśli masz pytania, uzyskaj odpowiedzi od ekspertów społeczności w [firmie Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). Jeśli masz plan pomocy technicznej i potrzebujesz pomocy technicznej,  [skontaktuj się z nami](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)

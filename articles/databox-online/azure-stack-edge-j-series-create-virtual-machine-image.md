@@ -1,5 +1,5 @@
 ---
-title: Tworzenie obrazów maszyn wirtualnych dla urządzenia z Azure Stack Edge GPU
+title: Tworzenie obrazów maszyn wirtualnych dla urządzenia GPU z Azure Stack Edge
 description: Zawiera opis sposobu tworzenia obrazów maszyn wirtualnych z systemem Linux lub Windows, które mają być używane z urządzeniem GPU Azure Stack Edge.
 services: databox
 author: alkohli
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: fd87cbef4c667d9da1f93b448a2a67e6e90307b7
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 745d0df07b6d0d01acf0d564df8c242e16f3f56d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500287"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890993"
 ---
-# <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Tworzenie niestandardowych obrazów maszyn wirtualnych dla urządzenia z Azure Stack Edge
+# <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Tworzenie niestandardowych obrazów maszyn wirtualnych dla urządzenia z Azure Stack EDGE Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Aby wdrożyć maszyny wirtualne na urządzeniu z systemem Azure Stack Edge, musisz mieć możliwość tworzenia niestandardowych obrazów maszyn wirtualnych, których można użyć do tworzenia maszyn wirtualnych. W tym artykule opisano kroki wymagane do utworzenia niestandardowych obrazów maszyn wirtualnych z systemem Linux lub Windows, których można użyć do wdrożenia maszyn wirtualnych na urządzeniu Azure Stack Edge.
+Aby wdrażać maszyny wirtualne na urządzeniu Azure Stack EDGE Pro, musisz mieć możliwość tworzenia niestandardowych obrazów maszyn wirtualnych, których można użyć do tworzenia maszyn wirtualnych. W tym artykule opisano kroki wymagane do utworzenia niestandardowych obrazów maszyn wirtualnych z systemem Linux lub Windows, których można użyć do wdrożenia maszyn wirtualnych na urządzeniu Azure Stack EDGE Pro.
 
 ## <a name="vm-image-workflow"></a>Przepływ pracy obrazu maszyny wirtualnej
 
-Przepływ pracy wymaga utworzenia maszyny wirtualnej na platformie Azure, dostosowania maszyny wirtualnej, uogólnienia, a następnie pobrania wirtualnego dysku twardego odpowiadającego danej maszynie wirtualnej. Ten uogólniony wirtualny dysk twardy jest przekazywany do Azure Stack Edge, dysk zarządzany jest tworzony na podstawie tego wirtualnego dysku twardego, a na końcu tworzone są maszyny wirtualne utworzone na podstawie tego obrazu.   
+Przepływ pracy wymaga utworzenia maszyny wirtualnej na platformie Azure, dostosowania maszyny wirtualnej, uogólnienia, a następnie pobrania wirtualnego dysku twardego odpowiadającego danej maszynie wirtualnej. Ten uogólniony wirtualny dysk twardy jest przekazywany do Azure Stack EDGE Pro, dysk zarządzany jest tworzony na podstawie tego wirtualnego dysku twardego, a na końcu tworzone są maszyny wirtualne na podstawie tego obrazu.   
 
-Aby uzyskać więcej informacji, przejdź do [wdrożenia maszyny wirtualnej na urządzeniu z systemem Azure Stack Edge przy użyciu Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+Aby uzyskać więcej informacji, przejdź do [wdrożenia maszyny wirtualnej na urządzeniu z systemem Azure Stack brzeg Pro przy użyciu Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
 
 
 ## <a name="create-a-windows-custom-vm-image"></a>Tworzenie niestandardowego obrazu maszyny wirtualnej systemu Windows
@@ -44,7 +44,7 @@ Wykonaj następujące kroki, aby utworzyć obraz maszyny wirtualnej z systemem W
    
        Można także zapoznać się z [omówieniem narzędzia Sysprep (Przygotowanie systemu)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Użyj tego wirtualnego dysku twardego, aby teraz utworzyć i wdrożyć maszynę wirtualną na urządzeniu Azure Stack Edge.
+Użyj tego wirtualnego dysku twardego, aby teraz utworzyć i wdrożyć maszynę wirtualną na urządzeniu Azure Stack brzeg Pro.
 
 ## <a name="create-a-linux-custom-vm-image"></a>Tworzenie niestandardowego obrazu maszyny wirtualnej z systemem Linux
 
@@ -69,9 +69,9 @@ Wykonaj następujące kroki, aby utworzyć obraz maszyny wirtualnej z systemem L
 
 1. [Pobierz istniejący dysk systemu operacyjnego](../virtual-machines/linux/download-vhd.md).
 
-Użyj tego wirtualnego dysku twardego, aby teraz utworzyć i wdrożyć maszynę wirtualną na urządzeniu Azure Stack Edge. Aby utworzyć niestandardowe obrazy systemu Linux, można użyć następujących dwóch obrazów witryny Azure Marketplace:
+Użyj tego wirtualnego dysku twardego, aby teraz utworzyć i wdrożyć maszynę wirtualną na urządzeniu Azure Stack brzeg Pro. Aby utworzyć niestandardowe obrazy systemu Linux, można użyć następujących dwóch obrazów witryny Azure Marketplace:
 
-|Nazwa elementu  |Opis  |Wydawca  |
+|Nazwa elementu  |Opis  |Publisher  |
 |---------|---------|---------|
 |[Serwer Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Serwer Ubuntu to najpopularniejsze w świecie środowisko Linux dla środowisk chmurowych.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux to jedna z najpopularniejszych dystrybucji systemu Linux.     |credativ|
@@ -81,4 +81,4 @@ Aby zapoznać się z pełną listą obrazów portalu Azure Marketplace, które m
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wdróż maszyny wirtualne na urządzeniu z systemem Azure Stack Edge](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Wdróż maszyny wirtualne na urządzeniu z systemem Azure Stack brzeg Pro](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8843f24f27f8973ad99989f743d1b3fae568679e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b37aabb39e19fa5ec53d2b006a7cbc1793adad72
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997153"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988053"
 ---
 # <a name="server-sizes"></a>Rozmiary serwerów
 
@@ -23,7 +23,7 @@ Renderowanie zdalne z `Standard` serwerem rozmiaru ma maksymalny rozmiar sceny w
 
 Gdy moduł renderowania na serwerze "standardowy" osiągnie to ograniczenie, włącza renderowanie do tła szachownicy:
 
-![Szachownic](media/checkerboard.png)
+![Zrzut ekranu przedstawia siatkę czarno-białych kwadratów z menu Narzędzia.](media/checkerboard.png)
 
 ## <a name="specify-the-server-size"></a>Określ rozmiar serwera
 
@@ -83,7 +83,7 @@ Istnieją dwa sposoby określenia liczby wielokątów modelu lub sceny, które p
 
 Szczegółowy podział cen dla każdego typu konfiguracji można znaleźć na stronie [cennika renderowania zdalnego](https://azure.microsoft.com/pricing/details/remote-rendering) .
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Przykładowe skrypty programu PowerShell](../samples/powershell-example-scripts.md)
 * [Konwersja modelu](../how-tos/conversion/model-conversion.md)
 

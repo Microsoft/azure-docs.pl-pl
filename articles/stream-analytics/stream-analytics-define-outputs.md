@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ade5972226a735ce5d093890091536baf02f5eff
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6576ac53f43a8e176b3d166d5218b0ba9934b856
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068987"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907161"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Dane wyjściowe z Azure Stream Analytics
 
@@ -24,17 +24,17 @@ Niektóre typy danych wyjściowych obsługują [partycjonowanie](#partitioning),
 
 | Typ danych wyjściowych | Partycjonowanie | Zabezpieczenia | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory użytkownika </br> Tożsamość usługi zarządzanej|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Tak|Azure Active Directory użytkownika </br> Tożsamość usługi zarządzanej|
 |[Azure SQL Database](sql-database-output.md)|Tak, musi być włączona.|Uwierzytelnianie użytkownika SQL </br> MSI (wersja zapoznawcza)|
-|[Azure Synapse Analytics (wersja zapoznawcza)](azure-synapse-analytics-output.md)|Nie|Uwierzytelnianie użytkownika SQL|
-|[BLOB Storage i Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Tożsamość usługi zarządzanej </br> Klucz dostępu|
-|[Azure Event Hubs](event-hubs-output.md)|Yes|Klucz dostępu|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Nie|Uwierzytelnianie użytkownika SQL|
+|[BLOB Storage i Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Tak|Tożsamość usługi zarządzanej </br> Klucz dostępu|
+|[Azure Event Hubs](event-hubs-output.md)|Tak|Klucz dostępu|
 |[Power BI](power-bi-output.md)|Nie|Azure Active Directory użytkownika </br> Tożsamość usługi zarządzanej|
-|[Azure Table storage](table-storage-output.md)|Yes|Klucz konta|
-|[Kolejki usługi Azure Service Bus](service-bus-queues-output.md)|Yes|Klucz dostępu|
-|[Tematy Azure Service Bus](service-bus-topics-output.md)|Yes|Klucz dostępu|
-|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Klucz dostępu|
-|[Azure Functions](azure-functions-output.md)|Yes|Klucz dostępu|
+|[Azure Table storage](table-storage-output.md)|Tak|Klucz konta|
+|[Kolejki usługi Azure Service Bus](service-bus-queues-output.md)|Tak|Klucz dostępu|
+|[Tematy Azure Service Bus](service-bus-topics-output.md)|Tak|Klucz dostępu|
+|[Azure Cosmos DB](azure-cosmos-db-output.md)|Tak|Klucz dostępu|
+|[Azure Functions](azure-functions-output.md)|Tak|Klucz dostępu|
 
 ## <a name="partitioning"></a>Partycjonowanie
 

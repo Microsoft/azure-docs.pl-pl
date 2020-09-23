@@ -1,14 +1,14 @@
 ---
 title: Poziom wpływu 4 — przykładowe kontrolki planu
 description: Sterowanie mapowaniem przykładu planu wpływu na poziom 4. Każda kontrolka jest zamapowana na co najmniej jedną zasadę platformy Azure, która pomaga w ocenie.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a704731f4fe8e810235507fd84c90b17571a8442
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9ee3214f8cdacd1d70a59bc5a23e4638cadb579d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923292"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978395"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Sterowanie mapowaniem przykładu planu wpływu na poziom DoD 4
 
@@ -102,11 +102,11 @@ Ten plan zawiera definicje zasad pomagające zapewnić prawidłowe włączenie p
 Dane dziennika zbierane przez Azure Monitor są przechowywane w Log Analytics obszarze roboczym, co pozwala na scentralizowaną konfigurację i zarządzanie. Ten plan pomaga zapewnić, że zdarzenia są rejestrowane przez przypisanie [Azure Policy](../../../policy/overview.md) definicji, które przeprowadzają inspekcję i egzekwowanie wdrożenia agenta log Analytics na maszynach wirtualnych platformy Azure.
 
 - \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- Inspekcja wdrożenia agenta Log Analytics w zestawach skalowania maszyn wirtualnych — obraz maszyny wirtualnej (OS) nie został wystawiony
 - \[Wersja zapoznawcza \] : inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
-- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
+- Wdrażanie agenta Log Analytics dla zestawów skalowania maszyn wirtualnych z systemem Linux
 - \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
-- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
+- Wdrażanie agenta Log Analytics dla zestawów skalowania maszyn wirtualnych z systemem Windows
 - \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>Odpowiedź na błędy przetwarzania inspekcji w usłudze AU-5
@@ -123,11 +123,11 @@ Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , któ
 Dane dziennika zbierane przez Azure Monitor są przechowywane w Log Analytics obszarze roboczym, co umożliwia scentralizowane raportowanie i analizę. Ten plan pomaga zapewnić, że zdarzenia są rejestrowane przez przypisanie [Azure Policy](../../../policy/overview.md) definicji, które przeprowadzają inspekcję i egzekwowanie wdrożenia agenta log Analytics na maszynach wirtualnych platformy Azure.
 
 - \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- Inspekcja wdrożenia agenta Log Analytics w zestawach skalowania maszyn wirtualnych — obraz maszyny wirtualnej (OS) nie został wystawiony
 - \[Wersja zapoznawcza \] : inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
-- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
+- Wdrażanie agenta Log Analytics dla zestawów skalowania maszyn wirtualnych z systemem Linux
 - \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
-- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
+- Wdrażanie agenta Log Analytics dla zestawów skalowania maszyn wirtualnych z systemem Windows
 - \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) przegląd inspekcji, analiza i raportowanie | Możliwości integracji/skanowania i monitorowania
@@ -144,7 +144,7 @@ Ten plan zawiera definicje zasad, które przeprowadzają inspekcję rekordów z 
 - Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować
 - \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- Inspekcja wdrożenia agenta Log Analytics w zestawach skalowania maszyn wirtualnych — obraz maszyny wirtualnej (OS) nie został wystawiony
 
 ## <a name="au-12-audit-generation"></a>Generowanie inspekcji w usłudze AU-12
 
@@ -152,11 +152,11 @@ Ten plan zawiera definicje zasad, które przeprowadzają inspekcję i egzekwowan
 Te definicje zasad umożliwiają również inspekcję konfiguracji dzienników diagnostycznych w celu zapewnienia wglądu w operacje wykonywane w ramach zasobów platformy Azure. Ponadto na serwerach SQL są konfigurowane inspekcje i zaawansowane zabezpieczenia danych.
 
 - \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- Inspekcja wdrożenia agenta Log Analytics w zestawach skalowania maszyn wirtualnych — obraz maszyny wirtualnej (OS) nie został wystawiony
 - \[Wersja zapoznawcza \] : inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
-- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
+- Wdrażanie agenta Log Analytics dla zestawów skalowania maszyn wirtualnych z systemem Linux
 - \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
-- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
+- Wdrażanie agenta Log Analytics dla zestawów skalowania maszyn wirtualnych z systemem Windows
 - \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
 - Przeprowadzanie inspekcji ustawienia diagnostyki
 - Inspekcja powinna być włączona w zaawansowanych ustawieniach zabezpieczeń danych na SQL Server
@@ -336,11 +336,8 @@ Ten plan ułatwia zarządzanie usterkami systemu informacyjnego przez przypisani
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>Rozwiązywanie problemów z SI-02 (06) | Usuwanie poprzednich wersji oprogramowania/oprogramowania układowego
 
-Ten plan przypisuje definicje zasad, które ułatwiają zapewnienie, że aplikacje używają najnowszej wersji .NET Framework, HTTP, Java, PHP, Python i TLS. Ten plan przypisuje również definicję zasad, która zapewnia, że usługi Kubernetes są uaktualnione do wersji niezagrożonej.
+Ten plan przypisuje definicje zasad, które ułatwiają zapewnienie, że aplikacje używają najnowszej wersji protokołów HTTP, Java, PHP, Python i TLS. Ten plan przypisuje również definicję zasad, która zapewnia, że usługi Kubernetes są uaktualnione do wersji niezagrożonej.
 
-- Upewnij się, że wersja ".NET Framework" jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
-- Upewnij się, że wersja ".NET Framework" jest najnowsza, jeśli jest używana jako część aplikacja funkcji
-- Upewnij się, że wersja ".NET Framework" jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
 - Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji interfejsu API
 - Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji funkcji
 - Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji sieci Web
@@ -348,7 +345,6 @@ Ten plan przypisuje definicje zasad, które ułatwiają zapewnienie, że aplikac
 - Upewnij się, że wersja języka Java jest najnowsza, jeśli jest używana jako część aplikacji funkcji
 - Upewnij się, że wersja języka Java jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
 - Upewnij się, że wersja języka PHP jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
-- Upewnij się, że wersja języka PHP jest najnowsza, jeśli jest używana jako część aplikacji funkcji
 - Upewnij się, że wersja języka PHP jest najnowsza, jeśli jest używana jako część aplikacji sieci WEB
 - Upewnij się, że "wersja języka Python" jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
 - Upewnij się, że "wersja języka Python" jest najnowsza, jeśli jest używana jako część aplikacji funkcji
@@ -356,7 +352,7 @@ Ten plan przypisuje definicje zasad, które ułatwiają zapewnienie, że aplikac
 - Najnowsza wersja protokołu TLS powinna być używana w aplikacji interfejsu API
 - Najnowsza wersja protokołu TLS powinna być używana w aplikacja funkcji
 - Najnowsza wersja protokołu TLS powinna być używana w aplikacji sieci Web
-- \[Wersja zapoznawcza \] : usługi Kubernetes należy uaktualnić do niezagrożonej wersji Kubernetes
+- Usługi Kubernetes należy uaktualnić do niezagrożonej wersji Kubernetes
 
 ## <a name="si-3-malicious-code-protection"></a>Ochrona przed złośliwym kodem SI-3
 
@@ -378,11 +374,11 @@ Ten plan ułatwia zarządzanie programem Endpoint Protection, w tym złośliwą 
 Ten plan ułatwia monitorowanie systemu przez inspekcjonowanie i wymuszanie rejestrowania i zabezpieczeń danych w ramach zasobów platformy Azure. W odniesieniu do zasad są przypisane inspekcje i egzekwowanie wdrożenia agenta Log Analytics oraz ulepszone ustawienia zabezpieczeń baz danych SQL, kont magazynu i zasobów sieciowych. Te możliwości mogą pomóc w wykrywaniu nietypowych zachowań i wskaźników ataków, co pozwala na podejmowanie odpowiednich działań.
 
 - \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- Inspekcja wdrożenia agenta Log Analytics w zestawach skalowania maszyn wirtualnych — obraz maszyny wirtualnej (OS) nie został wystawiony
 - \[Wersja zapoznawcza \] : inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
-- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
+- Wdrażanie agenta Log Analytics dla zestawów skalowania maszyn wirtualnych z systemem Linux
 - \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
-- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
+- Wdrażanie agenta Log Analytics dla zestawów skalowania maszyn wirtualnych z systemem Windows
 - \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
 - Zaawansowana ochrona danych powinna być włączona w wystąpieniach zarządzanych
 - Zaawansowana ochrona danych powinna być włączona na serwerach SQL

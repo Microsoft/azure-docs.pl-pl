@@ -1,5 +1,5 @@
 ---
-title: Samouczek umożliwiający nawiązanie połączenia z usługą, skonfigurowanie, aktywowanie Azure Stack urządzenia brzegowego za pomocą procesora GPU w Azure Portal | Microsoft Docs
+title: Samouczek dotyczący nawiązywania połączenia z usługą, konfigurowania i aktywowania urządzenia Azure Stack EDGE Pro z procesorem GPU w Azure Portal | Microsoft Docs
 description: Dowiedz się, w jaki sposób można nawiązać połączenie z urządzeniem z Azure Stack Edge przy użyciu interfejsu GPU w sieci lokalnej.
 services: databox
 author: alkohli
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: ac3ba2583e0f9a42b7f139538eee04de8980b492
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: f069f711ccf5672041ea6f3b15a52fa2b3ba2022
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532260"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900035"
 ---
-# <a name="tutorial-connect-to-azure-stack-edge-with-gpu"></a>Samouczek: łączenie się z Azure Stack Edge z procesorem GPU
+# <a name="tutorial-connect-to-azure-stack-edge-pro-with-gpu"></a>Samouczek: Nawiązywanie połączenia z usługą Azure Stack EDGE Pro z procesorem GPU
 
-W tym samouczku opisano, jak nawiązać połączenie z urządzeniem usługi Azure Stack Edge przy użyciu interfejsu GPU w sieci lokalnej.
+W tym samouczku opisano, jak nawiązać połączenie z urządzeniem z programem Azure Stack EDGE Pro przy użyciu interfejsu GPU w sieci lokalnej.
 
 Proces połączenia może potrwać około 5 minut.
 
@@ -32,14 +32,14 @@ Ten samouczek zawiera informacje dotyczące:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack Edge z procesorem GPU upewnij się, że:
+Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack EDGE Pro przy użyciu procesora GPU upewnij się, że:
 
-* Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w temacie [Install Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+* Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w temacie [Install Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-install.md).
 
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Nawiązywanie połączenia z konfiguracją lokalnego interfejsu użytkownika sieci Web
 
-1. Skonfiguruj kartę Ethernet na komputerze, aby nawiązać połączenie z urządzeniem Azure Stack Edge ze statycznym adresem IP 192.168.100.5 i podsiecią 255.255.255.0.
+1. Skonfiguruj kartę Ethernet na komputerze, aby nawiązać połączenie z urządzeniem Azure Stack EDGE Pro ze statycznym adresem IP 192.168.100.5 i podsiecią 255.255.255.0.
 
 2. Podłącz komputer do portu 1 na urządzeniu. Jeśli komputer jest połączony bezpośrednio z urządzeniem (bez przełącznika), użyj kabla skrzyżowanego lub karty Ethernet USB. Użyj poniższej ilustracji, aby zidentyfikować PORT 1 na urządzeniu.
 
@@ -60,7 +60,7 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack Edge z proceso
 
 5. Zaloguj się do internetowego interfejsu użytkownika urządzenia. Domyślne hasło to *Password1*. 
    
-    ![Strona logowania do urządzenia brzegowego Azure Stack](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
+    ![Strona logowania do urządzenia z systemem Azure Stack Edge](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. W wierszu polecenia Zmień hasło administratora urządzenia.  
     Nowe hasło musi zawierać od 8 do 16 znaków. Musi zawierać trzy z następujących znaków: wielkie litery, małe litery, cyfry i znaki specjalne.
@@ -77,7 +77,7 @@ W tym samouczku przedstawiono następujące informacje:
 > * Nawiązywanie połączenia z urządzeniem fizycznym
 
 
-Aby dowiedzieć się, jak skonfigurować ustawienia sieci na urządzeniu brzegowym Azure Stack, zobacz:
+Aby dowiedzieć się, jak skonfigurować ustawienia sieci na urządzeniu Azure Stack EDGE Pro, zobacz:
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie sieci](./azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)

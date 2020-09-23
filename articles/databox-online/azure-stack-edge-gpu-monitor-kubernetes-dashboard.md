@@ -1,6 +1,6 @@
 ---
-title: Monitoruj urządzenie Azure Stack Edge za pośrednictwem pulpitu nawigacyjnego Kubernetes | Microsoft Docs
-description: Opisuje sposób uzyskiwania dostępu do pulpitu nawigacyjnego Kubernetes i używania go do monitorowania urządzenia brzegowego Azure Stack.
+title: Monitoruj urządzenie Azure Stack EDGE Pro za pośrednictwem pulpitu nawigacyjnego Kubernetes | Microsoft Docs
+description: Zawiera opis sposobu uzyskiwania dostępu do pulpitu nawigacyjnego Kubernetes i używania go do monitorowania urządzenia z usługą Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 12fe605fef444b4e0d7439350e350316157f53a5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297866"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899192"
 ---
-# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Korzystanie z pulpitu nawigacyjnego Kubernetes do monitorowania urządzenia z procesorem GPU Azure Stack Edge
+# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Korzystanie z pulpitu nawigacyjnego Kubernetes do monitorowania urządzenia z procesorem GPU w Azure Stack Edge
 
-W tym artykule opisano, jak uzyskać dostęp do pulpitu nawigacyjnego Kubernetes i korzystać z niego do monitorowania urządzeń Azure Stack z procesorem GPU. Aby monitorować urządzenie, można użyć wykresów w Azure Portal, wyświetlić pulpit nawigacyjny Kubernetes lub uruchomić `kubectl` polecenia za pomocą interfejsu programu PowerShell urządzenia. 
+W tym artykule opisano, jak uzyskać dostęp do pulpitu nawigacyjnego Kubernetes i korzystać z niego do monitorowania urządzenia z procesorem GPU w Azure Stack Edge. Aby monitorować urządzenie, można użyć wykresów w Azure Portal, wyświetlić pulpit nawigacyjny Kubernetes lub uruchomić `kubectl` polecenia za pomocą interfejsu programu PowerShell urządzenia. 
 
 Ten artykuł koncentruje się tylko na zadaniach monitorowania, które można wykonać na pulpicie nawigacyjnym Kubernetes.
 
@@ -35,7 +35,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 Pulpit nawigacyjny Kubernetes jest interfejsem użytkownika opartym na sieci Web, którego można użyć do rozwiązywania problemów z aplikacjami w kontenerach. Pulpit nawigacyjny Kubernetes jest alternatywną metodą interfejsu `kubectl` wiersza polecenia Kubernetes. Aby uzyskać więcej informacji, zobacz [pulpit nawigacyjny Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-Na urządzeniu Azure Stack Edge możesz użyć pulpitu nawigacyjnego Kubernetes w trybie *tylko do odczytu* , aby uzyskać przegląd aplikacji uruchomionych na urządzeniu brzegowym Azure Stack, wyświetlić stan zasobów klastra Kubernetes i zobaczyć błędy, które wystąpiły na urządzeniu.
+Na urządzeniu Azure Stack EDGE Pro możesz użyć pulpitu nawigacyjnego Kubernetes w trybie *tylko do odczytu* , aby uzyskać przegląd aplikacji uruchomionych na urządzeniu Azure Stack EDGE Pro, wyświetlić stan zasobów klastra Kubernetes i zobaczyć błędy, które wystąpiły na urządzeniu.
 
 ## <a name="access-dashboard"></a>Dostęp do pulpitu nawigacyjnego
 
@@ -54,19 +54,19 @@ Pulpit nawigacyjny Kubernetes jest *tylko do odczytu* i uruchamiany w węźle g�
     1. Wybierz wielokropek **...**. Przeglądaj i wskaż `kubeconfig` pobrany wcześniej w systemie lokalnym. Wybierz pozycję **Zaloguj się**.
         ![Przejdź do pliku kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
-6. Teraz możesz wyświetlić pulpit nawigacyjny usługi Kubernetes dla urządzenia brzegowego Azure Stack w trybie tylko do odczytu.
+6. Teraz możesz wyświetlić pulpit nawigacyjny Kubernetes dla urządzenia z systemem Azure Stack EDGE Pro w trybie tylko do odczytu.
 
     ![Strona główna pulpitu nawigacyjnego Kubernetes](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-main-page-1.png)
 
 ## <a name="view-module-status"></a>Wyświetl stan modułu
 
-Moduły obliczeniowe są kontenerami, w których zaimplementowano logikę biznesową. Możesz użyć pulpitu nawigacyjnego, aby sprawdzić, czy moduł obliczeniowy został pomyślnie wdrożony na urządzeniu Azure Stack Edge.
+Moduły obliczeniowe są kontenerami, w których zaimplementowano logikę biznesową. Możesz użyć pulpitu nawigacyjnego, aby sprawdzić, czy moduł obliczeniowy został pomyślnie wdrożony na urządzeniu Azure Stack EDGE Pro.
 
 Aby wyświetlić stan modułu, wykonaj następujące kroki na pulpicie nawigacyjnym:
 
 1. W lewym okienku pulpitu nawigacyjnego przejdź do **obszaru nazw**. Filtruj według przestrzeni nazw, w której są wyświetlane IoT Edge modułów, w tym przypadku **iotedge**.
 1. W lewym okienku przejdź do pozycji **obciążenia > wdrożenia**.
-1. W okienku po prawej stronie zostaną wyświetlone wszystkie moduły wdrożone na urządzeniu. W takim przypadku moduł GettingStartedWithGPU został wdrożony na Azure Stack brzegowej. Można zobaczyć, że moduł został wdrożony.
+1. W okienku po prawej stronie zostaną wyświetlone wszystkie moduły wdrożone na urządzeniu. W takim przypadku moduł GettingStartedWithGPU został wdrożony na Azure Stack brzeg Pro. Można zobaczyć, że moduł został wdrożony.
 
     ![Wyświetl wdrożenie modułu](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-module-deployment-1.png)
 
@@ -81,7 +81,7 @@ Aby uzyskać adres IP, wykonaj następujące kroki na pulpicie nawigacyjnym:
 
 1. W lewym okienku pulpitu nawigacyjnego przejdź do **obszaru nazw**. Filtrowanie według przestrzeni nazw, w której wdrożono usługę zewnętrzną, w tym przypadku **iotedge**.
 1. W okienku po lewej stronie przejdź do pozycji **odnajdywanie i równoważenie obciążenia > usługi**.
-1. W okienku po prawej stronie zostaną wyświetlone wszystkie usługi, które działają w `iotedge` przestrzeni nazw na urządzeniu Azure Stack Edge.
+1. W okienku po prawej stronie zostaną wyświetlone wszystkie usługi, które działają w `iotedge` przestrzeni nazw na urządzeniu Azure Stack EDGE Pro.
 
     ![Uzyskaj adres IP dla usług zewnętrznych](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-get-ip-external-service-1.png)
 
@@ -104,7 +104,7 @@ Aby wyświetlić dzienniki kontenerów, wykonaj następujące kroki na pulpicie 
 
 ## <a name="view-cpu-memory-usage"></a>Wyświetlanie użycia procesora CPU, pamięci
 
-Pulpit nawigacyjny Kubernetes dla urządzenia brzegowego Azure Stack również zawiera [dodatek serwera metryk](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) , który agreguje użycie procesora i pamięci przez zasoby Kubernetes.
+Pulpit nawigacyjny Kubernetes dla urządzenia z systemem Azure Stack EDGE Pro ma także [dodatek serwer metryk](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) , który agreguje użycie procesora i pamięci w zasobach Kubernetes.
  
 Na przykład można wyświetlić procesor i pamięć zużywaną między wdrożeniami we wszystkich przestrzeniach nazw. 
 

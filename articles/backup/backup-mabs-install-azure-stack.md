@@ -3,12 +3,12 @@ title: Instalowanie składnika Azure Backup Server w usłudze Azure Stack
 description: W tym artykule dowiesz się, jak używać Azure Backup Server do ochrony lub tworzenia kopii zapasowych obciążeń w programie Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018131"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970245"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalowanie składnika Azure Backup Server w usłudze Azure Stack
 
@@ -107,7 +107,7 @@ Zawsze dołączaj Azure Backup Server do domeny. Jeśli musisz przenieść Azure
 
 ### <a name="set-storage-replication"></a>Konfigurowanie replikacji magazynu
 
-Opcja replikacji magazynu Recovery Services Storage umożliwia wybranie między magazynem geograficznie nadmiarowym i magazynem lokalnym nadmiarowym. Domyślnie magazyny Recovery Services korzystają z magazynu geograficznie nadmiarowego. Jeśli magazyn jest magazynem podstawowym, pozostaw opcję magazynu ustawioną na magazyn Geograficznie nadmiarowy. Wybierz pozycję Magazyn lokalnie nadmiarowy, jeśli chcesz skorzystać z tańszej opcji, która jest mniej trwała. Więcej informacji na temat opcji magazynu [geograficznie nadmiarowego](../storage/common/storage-redundancy.md) i [lokalnie nadmiarowego](../storage/common/storage-redundancy.md) przechowywania można znaleźć w artykule [Omówienie replikacji usługi Azure Storage](../storage/common/storage-redundancy.md).
+Opcja replikacji magazynu Recovery Services Storage umożliwia wybranie między magazynem geograficznie nadmiarowym i magazynem lokalnym nadmiarowym. Domyślnie magazyny Recovery Services korzystają z magazynu geograficznie nadmiarowego. Jeśli magazyn jest magazynem podstawowym, pozostaw opcję magazynu ustawioną na magazyn Geograficznie nadmiarowy. Wybierz pozycję Magazyn lokalnie nadmiarowy, jeśli chcesz skorzystać z tańszej opcji, która jest mniej trwała. Więcej informacji na temat opcji magazynu [geograficznie](../storage/common/storage-redundancy.md#geo-redundant-storage)nadmiarowego, [lokalnie nadmiarowego](../storage/common/storage-redundancy.md#locally-redundant-storage)i [strefowo nadmiarowe](../storage/common/storage-redundancy.md#zone-redundant-storage) można znaleźć w artykule [Omówienie replikacji usługi Azure Storage](../storage/common/storage-redundancy.md).
 
 Aby edytować ustawienia replikacji magazynu:
 
@@ -217,7 +217,7 @@ Azure Backup Server udostępnia kod z Data Protection Manager. W instalatorze Az
 
     ![Azure Backup Server — sprawdzanie wymagań wstępnych](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Jeśli środowisko ma wymagane wymagania wstępne, zobaczysz komunikat informujący o tym, że komputer spełnia wymagania. Wybierz pozycję **Next** (Dalej).  
+    Jeśli środowisko ma wymagane wymagania wstępne, zobaczysz komunikat informujący o tym, że komputer spełnia wymagania. Wybierz pozycję **Dalej**.  
 
     ![Zakończono sprawdzanie wymagań wstępnych Azure Backup Server](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
@@ -243,7 +243,7 @@ Azure Backup Server udostępnia kod z Data Protection Manager. W instalatorze Az
 
     ![Podaj lokalizację instalacji plików](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    Lokalizacja tymczasowa jest wymagana do utworzenia kopii zapasowej na platformie Azure. Upewnij się, że rozmiar lokalizacji tymczasowej odpowiada co najmniej 5% danych planowanych do utworzenia kopii zapasowej na platformie Azure. W przypadku ochrony dysków należy skonfigurować oddzielne dyski po zakończeniu instalacji. Aby uzyskać więcej informacji na temat pul magazynów, zobacz [Przygotowywanie magazynu danych](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    Lokalizacja tymczasowa jest wymagana do utworzenia kopii zapasowej na platformie Azure. Upewnij się, że rozmiar lokalizacji tymczasowej odpowiada co najmniej 5% danych planowanych do utworzenia kopii zapasowej na platformie Azure. W przypadku ochrony dysków należy skonfigurować oddzielne dyski po zakończeniu instalacji. Aby uzyskać więcej informacji na temat pul magazynów, zobacz [Przygotowywanie magazynu danych](/system-center/dpm/plan-long-and-short-term-data-storage).
 
 6. Na ekranie **Ustawienia zabezpieczeń** Podaj silne hasło dla kont użytkowników lokalnych z ograniczeniami i wybierz pozycję **dalej**.
 
@@ -326,10 +326,10 @@ Po uzyskaniu informacji o stanie łączności z platformą Azure i subskrypcji p
 
 | Stan łączności | Subskrypcja platformy Azure | Tworzenie kopii zapasowej w systemie Azure | Utwórz kopię zapasową na dysku | Przywróć z platformy Azure | Przywracanie z dysku |
 | --- | --- | --- | --- | --- | --- |
-| Połączone |Aktywne |Dozwolone |Dozwolone |Dozwolone |Dozwolone |
+| Połączone |Aktywny |Dozwolone |Dozwolone |Dozwolone |Dozwolone |
 | Połączone |Wygasłe |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
 | Połączone |Anulowanie aprowizacji |Zatrzymano |Zatrzymano |Zatrzymane i usunięte punkty odzyskiwania platformy Azure |Zatrzymano |
-| Utracono łączność > 15 dni |Aktywne |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
+| Utracono łączność > 15 dni |Aktywny |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
 | Utracono łączność > 15 dni |Wygasłe |Zatrzymano |Zatrzymano |Dozwolone |Dozwolone |
 | Utracono łączność > 15 dni |Anulowanie aprowizacji |Zatrzymano |Zatrzymano |Zatrzymane i usunięte punkty odzyskiwania platformy Azure |Zatrzymano |
 
@@ -357,7 +357,7 @@ Istnieje możliwość zmiany stanu subskrypcji platformy Azure z *wygasłej* lub
 Jeśli Microsoft Azure Backup serwer ulegnie awarii z błędami podczas fazy instalacji (lub tworzenia kopii zapasowej lub przywracania), zobacz [dokument kody błędów](https://support.microsoft.com/kb/3041338).
 Możesz również odwoływać się do [Azure Backup powiązanych często zadawanych pytań](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Artykuł [Przygotowywanie środowiska dla programu DPM](/system-center/dpm/prepare-environment-for-dpm)zawiera informacje o obsługiwanych konfiguracjach Azure Backup Server.
 

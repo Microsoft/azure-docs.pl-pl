@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 88425e2c875b3cce7c63cd66fd034e5a7af56ec7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b5ccd1281e50ca10b8edd7d7567a000b97107901
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117036"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907435"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla Azure Database for PostgreSQL-Citus
 
@@ -26,7 +26,7 @@ Można skonfigurować alert, aby wykonał następujące akcje po jego wyzwoleniu
 * Wywoływanie elementu webhook.
 
 Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Witryna Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Interfejs wiersza polecenia platformy Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [Interfejs API REST usługi Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
@@ -35,19 +35,19 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
 
 2. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **alerty** , jak pokazano:
 
-   ![Wybierz reguły alertów](./media/howto-hyperscale-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="Wybierz reguły alertów":::
 
 3. Wybierz pozycję **Nowa reguła alertu** (ikona +).
 
 4. Zostanie otwarta strona **Tworzenie reguły** , jak pokazano poniżej. Wypełnij wymagane informacje:
 
-   ![Formularz dodawania alertu metryki](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Formularz dodawania alertu metryki":::
 
 5. W sekcji **warunek** wybierz pozycję **Dodaj**.
 
 6. Wybierz metrykę z listy sygnałów, dla których chcesz otrzymywać alerty. W tym przykładzie wybierz pozycję "procent magazynu".
    
-   ![Wybierz metrykę](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Wybierz metrykę":::
 
 7. Skonfiguruj logikę alertów:
 
@@ -58,13 +58,13 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
    
    Wybierz pozycję **gotowe** po zakończeniu.
 
-   ![Wybierz metrykę](./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Wybierz metrykę":::
 
 8. W sekcji **grupy akcji** wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę, która będzie otrzymywać powiadomienia dotyczące alertu.
 
 9. Wypełnij formularz "Dodawanie grupy akcji" z nazwą, krótką nazwą, subskrypcją i grupą zasobów.
 
-    ![Grupa akcji](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Grupa akcji":::
 
 10. Skonfiguruj typ akcji **poczty e-mail/SMS/wypychania/głosu** .
     
@@ -72,11 +72,11 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
    
     Po zakończeniu wybierz **przycisk OK** .
 
-    ![Grupa akcji](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Grupa akcji":::
 
 11. Określ nazwę, opis i ważność reguły alertu.
 
-    ![Grupa akcji](./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Grupa akcji"::: 
 
 12. Wybierz pozycję **Utwórz regułę alertu** , aby utworzyć alert.
 

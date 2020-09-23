@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 843bb32a4b5b5e29c4ab7c1dc9ff254a8424ae86
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 61b08514f8d2989736ff2505f0446937757ddb99
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118685"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884687"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Tworzenie punktów końcowych usługi sieci wirtualnej i zarządzanie nimi Azure Database for MySQL przy użyciu Azure Portal
 Punkty końcowe i reguły usługi sieci wirtualnej rozszerzają prywatną przestrzeń adresową sieci wirtualnej na serwer usługi Azure Database for MySQL. Omówienie punktów końcowych usługi sieci wirtualnej Azure Database for MySQL, w tym ograniczeń, znajduje się w temacie [punkty końcowe usługi sieci wirtualnej Azure Database for MySQL Server](concepts-data-access-and-security-vnet.md). Punkty końcowe usługi sieci wirtualnej są dostępne we wszystkich obsługiwanych regionach dla Azure Database for MySQL.
@@ -32,11 +32,11 @@ Punkty końcowe i reguły usługi sieci wirtualnej rozszerzają prywatną przest
 
 3. Następnie kliknij pozycję **+ Dodaj istniejącą sieć wirtualną**. Jeśli nie masz istniejącej sieci wirtualnej, możesz kliknąć pozycję **+ Utwórz nową sieć wirtualną** , aby ją utworzyć. Zobacz [Szybki Start: tworzenie sieci wirtualnej przy użyciu Azure Portal](../virtual-network/quick-create-portal.md)
 
-   ![Azure Portal kliknij pozycję zabezpieczenia połączeń](./media/howto-manage-vnet-using-portal/1-connection-security.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/1-connection-security.png" alt-text="Azure Portal kliknij pozycję zabezpieczenia połączeń":::
 
 4. Wprowadź nazwę reguły sieci wirtualnej, wybierz subskrypcję, sieć wirtualną i nazwę podsieci, a następnie kliknij pozycję **Włącz**. Spowoduje to automatyczne włączenie punktów końcowych usługi sieci wirtualnej w podsieci przy użyciu tagu usługi **Microsoft. SQL** .
 
-   ![Azure Portal — Konfigurowanie sieci wirtualnej](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/2-configure-vnet.png" alt-text="Azure Portal — Konfigurowanie sieci wirtualnej":::
 
    Konto musi mieć niezbędne uprawnienia do tworzenia sieci wirtualnej i punktu końcowego usługi.
 
@@ -54,7 +54,7 @@ Punkty końcowe i reguły usługi sieci wirtualnej rozszerzają prywatną przest
 
 5. Po włączeniu kliknij przycisk **OK** , aby zobaczyć, że punkty końcowe usługi sieci wirtualnej są włączone wraz z regułą sieci wirtualnej.
 
-   ![Włączono punkty końcowe usługi sieci wirtualnej i utworzono regułę sieci wirtualnej](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png" alt-text="Włączono punkty końcowe usługi sieci wirtualnej i utworzono regułę sieci wirtualnej":::
 
 ## <a name="next-steps"></a>Następne kroki
 - Analogicznie, można utworzyć skrypt, aby [włączyć punkty końcowe usługi sieci wirtualnej oraz regułę sieci wirtualnej dla Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure](howto-manage-vnet-using-cli.md).

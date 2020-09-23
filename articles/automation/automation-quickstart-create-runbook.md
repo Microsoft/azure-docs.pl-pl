@@ -6,12 +6,12 @@ ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 0717a7ac3cc663ff68ba96864aa5d37732337ca5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 948ca820347c7cdcd560ade46e850f66b25bc88e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836740"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987300"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Tworzenie elementu runbook usługi Azure Automation
 
@@ -37,9 +37,9 @@ Najpierw utwórz element runbook. Przykładowy element runbook tworzony w tym pr
 
    ![Wprowadzanie na stronie informacji dotyczących elementu runbook usługi Automation](./media/automation-quickstart-create-runbook/automation-create-runbook-configure.png)
 
-1. Kliknij przycisk **Utwórz**. Element runbook zostanie utworzony i zostanie otworzona strona Edytuj element runbook programu PowerShell.
+1. Kliknij pozycję **Utwórz**. Element runbook zostanie utworzony i zostanie otworzona strona Edytuj element runbook programu PowerShell.
 
-    ![Tworzenie skryptu programu PowerShell w edytorze elementów runbook](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png" alt-text="Zrzut ekranu przedstawiający stronę Edytowanie elementu Runbook programu PowerShell.":::
 
 1. Wpisz lub skopiuj i wklej następujący kod do okienka edycji. Powoduje utworzenie opcjonalnego parametru wejściowego o nazwie `Name` domyślnej wartości `World` i wyjście ciągu, który używa tej wartości wejściowej:
 
@@ -55,7 +55,7 @@ Najpierw utwórz element runbook. Przykładowy element runbook tworzony w tym pr
 
 1. Kliknij przycisk **Zapisz** , aby zapisać kopię roboczą elementu Runbook.
 
-    ![Tworzenie skryptu programu PowerShell w edytorze elementów runbook](./media/automation-quickstart-create-runbook/automation-edit-runbook.png)
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-edit-runbook.png" alt-text="Zrzut ekranu przedstawiający stronę Edytowanie elementu Runbook programu PowerShell z przykładowym kodem w prawym oknie.":::
 
 ## <a name="test-the-runbook"></a>Testowanie elementu runbook
 
@@ -65,13 +65,13 @@ Po utworzeniu elementu Runbook należy przetestować element Runbook, aby sprawd
 
 1. Wprowadź wartość w polu **Nazwa** i kliknij pozycję **Uruchom**. Zadanie testowania zostanie uruchomione oraz zostaną wyświetlone stan zadania i danej wyjściowe.
 
-    ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-test-runbook.png)
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-test-runbook.png" alt-text="Zrzut ekranu okienka testowania z przykładową wartością w polu Nazwa.":::
 
 1. Zamknij okienko testowania, klikając **symbol X** w prawym górnym rogu. Wybierz przycisk **OK** w wyświetlonym oknie podręcznym.
 
 1. Na stronie Edytuj element runbook programu PowerShell kliknij pozycję **Publikuj**, aby opublikować element runbook jako oficjalną wersję elementu runboook na koncie.
 
-   ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png" alt-text="Zrzut ekranu przedstawiający stronę Edytowanie elementu Runbook programu PowerShell z wybranym przyciskiem Publikuj.":::
 
 ## <a name="run-the-runbook"></a>Uruchamianie elementu runbook
 
@@ -79,17 +79,17 @@ Po opublikowaniu elementu runbook zostanie wyświetlona strona przeglądu.
 
 1. Na stronie przeglądu elementu runbook kliknij pozycję **Uruchom**, aby otworzyć stronę konfiguracji Uruchamianie elementu Runbook dla tego elementu runbook.
 
-   ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png" alt-text="Zrzut ekranu przedstawiający stronę uruchamianie konfiguracji elementu Runbook.":::
 
 1. Zostaw pole **Nazwa** puste, aby została użyta wartość domyślna, i kliknij przycisk **OK**. Zadanie elementu Runbook zostało przesłane i zostanie wyświetlona strona zadanie.
 
-   ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-job-page.png" alt-text="Zrzut ekranu przedstawiający stronę zadania z wybranym przyciskiem dane wyjściowe.":::
 
 1. Gdy zadanie ma stan `Running` lub `Completed` , kliknij pozycję **dane wyjściowe** , aby otworzyć okienko dane wyjściowe i wyświetlić dane wyjściowe elementu Runbook.
 
-   ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png" alt-text="Zrzut ekranu przedstawiający okienko wyjście z danymi wyjściowymi elementu Runbook.":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy element runbook nie będzie już potrzebny, usuń go. Aby to zrobić, zaznacz element runbook na liście i kliknij pozycję **Usuń**.
 

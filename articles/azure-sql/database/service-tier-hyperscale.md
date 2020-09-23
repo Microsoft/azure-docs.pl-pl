@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 655486d8273719e89187ebac0992cf83904d9b98
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3455503570d09daedc5e34cba0bf36d71ddcdcbc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120647"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988118"
 ---
 # <a name="hyperscale-service-tier"></a>Warstwa usługi Hiperskala
 
@@ -183,7 +183,7 @@ Włączone regiony:
 - Australia Środkowa
 - Brazil South
 - Kanada Środkowa
-- Central US
+- Środkowe stany USA
 - Chiny Wschodnie 2
 - Chiny Północne 2
 - Azja Wschodnia
@@ -228,7 +228,7 @@ Są to bieżące ograniczenia dotyczące warstwy usług w ramach skalowania na p
 | Migracja do funkcji Moje skalowanie jest obecnie operacją jednokierunkową | Po migracji bazy danych do funkcji wieloskalowania nie można jej migrować bezpośrednio do warstwy usługi, która nie jest w skali. W obecnym czasie jedynym sposobem migrowania bazy danych z Azure Databricks Azure Data Factory funkcji ze skalowaniem do poziomu non------------------------------------------- BACPAC Export/Import z Azure Portal z programu PowerShell przy użyciu polecenia [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) lub [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport)z interfejsu wiersza polecenia platformy Azure przy użyciu polecenia [AZ SQL DB Export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) i [AZ SQL DB import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)i from [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) nie jest obsługiwana. BACPAC Import/Export w przypadku mniejszych baz danych w postaci większej skali (do 200 GB) jest obsługiwana przy użyciu programu SSMS i [sqlpackage](https://docs.microsoft.com/sql/tools/sqlpackage) w wersji 18,4 lub nowszej. W przypadku większych baz danych eksport/import BACPAC może zająć dużo czasu i może się nie powieść z różnych powodów.|
 | Migracja baz danych z obiektami OLTP w pamięci | Funkcja skalowania obsługuje podzestaw obiektów OLTP w pamięci, w tym typów tabel zoptymalizowanych pod kątem pamięci, zmiennych tabel i modułów skompilowanych w sposób macierzysty. Jeśli jednak w trakcie migrowania bazy danych istnieją jakiekolwiek typy obiektów OLTP w pamięci, migracja z warstw usług premium i Krytyczne dla działania firmy nie jest obsługiwana. Aby przeprowadzić migrację takiej bazy danych do skalowania, należy porzucić wszystkie obiekty OLTP w pamięci i ich zależności. Po migracji bazy danych można odtworzyć te obiekty. Trwałe i nietrwałe tabele zoptymalizowane pod kątem pamięci nie są obecnie obsługiwane w ramach skalowania i muszą zostać utworzone ponownie jako tabele dysków.|
 | Replikacja geograficzna  | Nie można jeszcze skonfigurować replikacji geograficznej na potrzeby Azure SQL Database skalowania. |
-| Kopia bazy danych | Nie można jeszcze użyć kopii bazy danych w celu utworzenia nowej bazy danych w funkcji wieloskalowania SQL platformy Azure. |
+| Kopia bazy danych | Kopia bazy danych w ramach skalowania jest teraz w publicznej wersji zapoznawczej. |
 | Integracja TDE/AKV | Nieprzezroczyste szyfrowanie bazy danych przy użyciu Azure Key Vault (nazywanego również przenoszeniem własnym kluczem lub BYOK) jest obecnie dostępne w wersji zapoznawczej. |
 | Funkcje inteligentnej bazy danych | Z wyjątkiem opcji "Wymuś plan" wszystkie inne opcje dostrajania automatycznego nie są jeszcze obsługiwane w obszarze skalowanie: opcje mogą być dostępne, ale nie zostaną wykonane żadne zalecenia ani działania. |
 | Analiza wydajności zapytań | Szczegółowe informacje o wydajności zapytań nie są obecnie obsługiwane w przypadku baz danych w skali. |

@@ -4,12 +4,12 @@ description: Przechowywanie danych niestrukturalnych przy użyciu usług Azure F
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: a242f1ffc0a7738ce7cdf33aeeef214fb4f63e61
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2828bf14b6965e87ef9547020e870333c4e839af
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210872"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987980"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Przechowywanie danych niestrukturalnych przy użyciu usług Azure Functions i Azure Cosmos DB
 
@@ -143,7 +143,7 @@ Ten przykładowy kod odczytuje ciągi zapytań żądania HTTP i przypisuje je do
 
 1. Wybierz pozycję **Uruchom** i sprawdź, czy jest zwracany stan 200.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Przetestuj funkcję." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Zrzut ekranu pokazuje kod odpowiedzi HTTP 200 wyróżniony po wybraniu polecenia Uruchom." border="true":::
 
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Cosmos DB**.

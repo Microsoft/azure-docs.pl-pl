@@ -1,6 +1,6 @@
 ---
-title: Wymagania systemowe Microsoft Azure Stack Edge | Microsoft Docs
-description: Dowiedz się więcej o wymaganiach dotyczących oprogramowania i sieci dla Azure Stack Edge
+title: Microsoft Azure Stack Edge wymagania systemowe | Microsoft Docs
+description: Dowiedz się więcej o wymaganiach dotyczących oprogramowania i sieci dla Twojego Azure Stack EDGE Pro
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 7754c57563ec5acb9028c2ace217f318fea5e959
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 091d272ff00982a0d0a5ae44885a04cc62d7a4b4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256285"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899142"
 ---
-# <a name="system-requirements-for-azure-stack-edge-with-gpu"></a>Wymagania systemowe dla Azure Stack Edge z procesorem GPU 
+# <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Wymagania systemowe dla programu Azure Stack EDGE Pro z procesorem GPU 
 
-W tym artykule opisano ważne wymagania systemowe dotyczące rozwiązania Microsoft Azure Stack Edge oraz klientów łączących się z Azure Stack Edge. Zalecamy dokładne zapoznanie się z informacjami przed wdrożeniem Azure Stack krawędzi. W razie potrzeby można odwoływać się do tych informacji podczas wdrażania i kolejnej operacji.
+W tym artykule opisano ważne wymagania systemowe dotyczące rozwiązania Microsoft Azure Stack EDGE Pro oraz klientów łączących się z usługą Azure Stack EDGE Pro. Zalecamy dokładne zapoznanie się z informacjami przed wdrożeniem Azure Stack EDGE Pro. W razie potrzeby można odwoływać się do tych informacji podczas wdrażania i kolejnej operacji.
 
-Wymagania systemowe Azure Stack krawędzi obejmują:
+Wymagania systemowe dotyczące Azure Stack Edge w wersji Pro obejmują:
 
 - **Wymagania dotyczące oprogramowania dla hostów** — zawiera opis obsługiwanych platform, przeglądarek dla lokalnego interfejsu użytkownika konfiguracji, klientów SMB i wszelkich dodatkowych wymagań dla klientów, którzy uzyskują dostęp do urządzenia.
 - **Wymagania dotyczące sieci dla urządzenia** — zawiera informacje o wymaganiach sieciowych dla działania urządzenia fizycznego.
@@ -42,7 +42,7 @@ W przypadku zarządzania z Azure Stack następujące konta magazynu warstwowego 
 
 |Typ  |Konto magazynu  |Komentarze  |
 |---------|---------|---------|
-|Standard     |GPv1: blokowy obiekt BLOB         |         |
+|Standardowa     |GPv1: blokowy obiekt BLOB         |         |
 |    |  BLOB Storage: blokowy obiekt BLOB       | Obsługiwane tylko dla NAS     |
 
 * Stronicowe obiekty blob i Azure Files nie są obecnie obsługiwane w programie Azure Stack.
@@ -59,9 +59,9 @@ W przypadku zarządzania z Azure Stack następujące konta magazynu warstwowego 
 
 ## <a name="networking-port-requirements"></a>Wymagania dotyczące portów sieciowych
 
-### <a name="port-requirements-for-azure-stack-edge"></a>Wymagania dotyczące portów dla Azure Stack Edge
+### <a name="port-requirements-for-azure-stack-edge-pro"></a>Wymagania dotyczące portów dla Azure Stack EDGE Pro
 
-Poniższa tabela zawiera listę portów, które należy otworzyć w zaporze, aby umożliwić obsługę ruchu SMB, chmury lub zarządzania. W tej tabeli *w programie lub w* *ruchu przychodzącym* odwołuje się do kierunku, w którym klient przychodzący żąda dostępu do urządzenia. *Out* lub *wychodzący* odnosi się do kierunku, w którym urządzenie Azure Stack Edge wysyła dane zewnętrznie, poza wdrożeniem, na przykład przez wychodzące do Internetu.
+Poniższa tabela zawiera listę portów, które należy otworzyć w zaporze, aby umożliwić obsługę ruchu SMB, chmury lub zarządzania. W tej tabeli *w programie lub w* *ruchu przychodzącym* odwołuje się do kierunku, w którym klient przychodzący żąda dostępu do urządzenia. *Out* lub *wychodzący* odnosi się do kierunku, w którym urządzenie Azure Stack EDGE Pro wysyła dane zewnętrznie, poza wdrożeniem, na przykład przez wychodzące do Internetu.
 
 [!INCLUDE [Port configuration for device](../../includes/azure-stack-edge-gateway-port-config.md)]
 
@@ -73,15 +73,15 @@ W poniższej tabeli przedstawiono konfigurację portów dla serwerów hostujący
 
 | Numer portu. | Do lub do zewnątrz | Zakres portów | Wymagane | Wskazówki |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Out       | Sieć WAN        | Yes      | Wychodzące otwarte dla IoT Edge aprowizacji. Ta konfiguracja jest wymagana w przypadku używania skryptów ręcznych lub usługi Azure IoT Device Provisioning Service (DPS).|
+| TCP 443 (HTTPS)| Out       | Sieć WAN        | Tak      | Wychodzące otwarte dla IoT Edge aprowizacji. Ta konfiguracja jest wymagana w przypadku używania skryptów ręcznych lub usługi Azure IoT Device Provisioning Service (DPS).|
 
 Aby uzyskać pełne informacje, przejdź do [reguły konfiguracji zapory i portów dla IoT Edge wdrożenia](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 
 ## <a name="url-patterns-for-firewall-rules"></a>Wzorce adresów URL dla reguł zapory
 
-Administratorzy sieci mogą często konfigurować zaawansowane reguły zapory na podstawie wzorców adresów URL, aby filtrować ruch przychodzący i wychodzący. Urządzenia brzegowe Azure Stack i usługi zależą od innych aplikacji firmy Microsoft, takich jak Azure Service Bus, Azure Active Directory Access Control, konta magazynu i serwery Microsoft Update. Wzorce adresów URL skojarzone z tymi aplikacjami mogą służyć do konfigurowania reguł zapory. Ważne jest, aby zrozumieć, że wzorce adresów URL skojarzone z tymi aplikacjami mogą się zmieniać. Te zmiany wymagają od administratora sieci monitorowania i aktualizowania reguł zapory dla Azure Stack krawędzi, jak i w razie potrzeby.
+Administratorzy sieci mogą często konfigurować zaawansowane reguły zapory na podstawie wzorców adresów URL, aby filtrować ruch przychodzący i wychodzący. Twoje urządzenie Azure Stack EDGE Pro i usługa zależą od innych aplikacji firmy Microsoft, takich jak Azure Service Bus, Azure Active Directory Access Control, konta magazynu i serwery Microsoft Update. Wzorce adresów URL skojarzone z tymi aplikacjami mogą służyć do konfigurowania reguł zapory. Ważne jest, aby zrozumieć, że wzorce adresów URL skojarzone z tymi aplikacjami mogą się zmieniać. Te zmiany wymagają od administratora sieci monitorowania i aktualizowania reguł zapory dla Azure Stack Edge w organizacji i w razie potrzeby.
 
-Zalecamy ustawienie reguł zapory dla ruchu wychodzącego w oparciu o stałe adresy IP w usłudze Azure Stack Edge, w większości przypadków. Można jednak użyć poniższych informacji, aby ustawić zaawansowane reguły zapory, które są potrzebne do tworzenia bezpiecznych środowisk.
+Zalecamy ustawienie reguł zapory dla ruchu wychodzącego, w oparciu o Azure Stack EDGE Pro stałe adresy IP w większości przypadków. Można jednak użyć poniższych informacji, aby ustawić zaawansowane reguły zapory, które są potrzebne do tworzenia bezpiecznych środowisk.
 
 > [!NOTE]
 > - Adresy IP urządzeń (źródłowych) powinny zawsze być ustawione na wszystkie interfejsy sieciowe obsługujące chmurę.
@@ -137,8 +137,8 @@ Aby zrozumieć i udoskonalić wydajność rozwiązania, można użyć:
 - Metryki obliczeń dostępne w Azure Portal. Przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **monitorowanie > metryki**. Zapoznaj się z wartością procentową **wykorzystania pamięci obliczeniowej** i **szybkością obliczeniową (%)** w celu zrozumienia dostępnych zasobów i sposobu ich wykorzystania przez zasoby.
 - Aby monitorować i rozwiązywać problemy z modułami obliczeniowymi, przejdź do pozycji [Debuguj Kubernetes problemy](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge).
 
-Na koniec upewnij się, że Twoje rozwiązanie zostało zweryfikowane w zestawie danych, a następnie Zwiększ wydajność Azure Stack Edge przed wdrożeniem w środowisku produkcyjnym.
+Na koniec upewnij się, że Twoje rozwiązanie zostało zweryfikowane w zestawie danych i określisz wydajność Azure Stack EDGE Pro przed wdrożeniem w środowisku produkcyjnym.
 
 ## <a name="next-step"></a>Następny krok
 
-- [Wdrażanie Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md)
+- [Wdróż swoją Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-prep.md)

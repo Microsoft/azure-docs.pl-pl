@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/10/2020
-ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e279a7c9f6810ece482b043284f0be0719a3dafe
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965012"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908048"
 ---
 # <a name="edit-metadata-module"></a>Edytuj moduł metadanych
 
-W tym artykule opisano moduł dostępny w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł dostępny w programie Azure Machine Learning Designer.
 
 Użyj modułu Edytowanie metadanych, aby zmienić metadane skojarzone z kolumnami w zestawie danych. Wartość i typ danych zestawu danych zmienią się po użyciu modułu Edytowanie metadanych.
 

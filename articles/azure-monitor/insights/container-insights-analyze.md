@@ -3,12 +3,12 @@ title: Kubernetes monitorowanie za pomocą Azure Monitor dla kontenerów | Micro
 description: W tym artykule opisano sposób wyświetlania i analizowania wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166641"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988123"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorowanie wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów
 
@@ -72,17 +72,17 @@ W poniższej tabeli przedstawiono podział obliczeń kontrolujących Stany kondy
 | |Dobra kondycja |100% |
 | |Ostrzeżenie |90 – 99% |
 | |Krytyczny |<90% |
-| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 |**System pod**| | |
 | |Dobra kondycja |100% |
-| |Ostrzeżenie |Nie dotyczy |
+| |Ostrzeżenie |Brak |
 | |Krytyczny |<100% |
-| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 |**Węzeł** | | |
 | |Dobra kondycja |>85% |
 | |Ostrzeżenie |60 – 84% |
 | |Krytyczny |<60% |
-| |Nieznany |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
+| |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 
 Z listy klastrów możesz przejść do szczegółów na stronie **klaster** , wybierając nazwę klastra. Następnie przejdź do strony wydajność **węzłów** , wybierając pakiet zbiorczy węzłów w kolumnie **węzły** dla danego klastra. Możesz też przejść do szczegółów na stronie wydajność **kontrolerów** , wybierając zestawienie z kolumną **zasobników użytkownika** lub **system** .
 
@@ -135,7 +135,7 @@ Można [podzielić](../platform/metrics-charts.md#apply-splitting-to-a-chart) me
 * Kontroler
 * Kubernetes przestrzeń nazw
 * Węzeł
-* Faza
+* Etap
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analizowanie węzłów, kontrolerów i kondycji kontenera
 
@@ -161,7 +161,7 @@ Azure Container Instances węzły wirtualne z systemem operacyjnym Linux są wy�
 
 Z rozwiniętego węzła możesz przejść do szczegółów z lub kontenera, który jest uruchamiany w węźle, do kontrolera, aby wyświetlić dane wydajności odfiltrowane dla tego kontrolera. Wybierz wartość w kolumnie **kontroler** dla określonego węzła.
 
-![Przykład przechodzenia do szczegółów z węzła do kontrolera w widoku wydajności](./media/container-insights-analyze/drill-down-node-controller.png)
+![Zrzut ekranu przedstawia przechodzenie do szczegółów z węzła do kontrolera w widoku wydajności](./media/container-insights-analyze/drill-down-node-controller.png)
 
 Wybierz pozycję Kontrolery lub kontenery w górnej części strony, aby przejrzeć stan i wykorzystanie zasobów dla tych obiektów. Aby przejrzeć użycie pamięci, na liście rozwijanej **Metryka** wybierz pozycję **pamięć RSS** lub **zestaw roboczy pamięci**. **Pamięć RSS** jest obsługiwana tylko dla Kubernetes w wersji 1,8 lub nowszej. W przeciwnym razie można wyświetlić wartości **dla &nbsp; % minimum** jako *NaN &nbsp; % *, czyli liczbowej wartości typu danych, która reprezentuje niezdefiniowaną lub niereprezentującą wartość.
 
@@ -196,7 +196,7 @@ Informacje przedstawione podczas wyświetlania karty **węzły** są opisane w p
 | Minimum &nbsp; %, średnia &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, używany 95. &nbsp; %, maksimum&nbsp;%  | Średni procent węzła w oparciu o percentyl w wybranym czasie. |
 | Minimum, AVG, pięćdziesiąt, 90, używany 95., Max | Średnia wartość rzeczywista węzłów oparta na percentylu podczas wybranego czasu trwania. Średnia wartość jest mierzona na podstawie limitu procesora CPU/pamięci ustawionego dla węzła. W przypadku zasobników i kontenerów jest to średnia wartość raportowana przez hosta. |
 | Containers | Liczba kontenerów. |
-| Czas | Przedstawia czas od momentu uruchomienia lub ponownego uruchomienia węzła. |
+| Czas pracy | Przedstawia czas od momentu uruchomienia lub ponownego uruchomienia węzła. |
 | Kontroler | Tylko dla kontenerów i zasobników. Pokazuje, który kontroler znajduje się w. Nie wszystkie zasobniki znajdują się w kontrolerze, dlatego niektóre mogą wyświetlać **N/a**. |
 | Minimum trendu &nbsp; %, średnia &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, używany 95. &nbsp; %, maksimum&nbsp;% | Trend wykresu słupkowego reprezentuje procentową metrykę percentylości kontrolera. |
 
@@ -240,7 +240,7 @@ Informacje wyświetlane podczas przeglądania kontrolerów są opisane w poniżs
 | Minimum, AVG, pięćdziesiąt, 90, używany 95., Max  | Rzutowanie średniej millicore procesora CPU lub wydajności pamięci kontenera dla wybranego percentylu. Średnia wartość jest mierzona na podstawie limitu procesora CPU/pamięci ustawionego dla elementu. |
 | Containers | Łączna liczba kontenerów dla kontrolera lub pod. |
 | Uruchamiania | Zestawienie liczby ponownych uruchomień z kontenerów. |
-| Czas | Przedstawia czas od momentu rozpoczęcia kontenera. |
+| Czas pracy | Przedstawia czas od momentu rozpoczęcia kontenera. |
 | Węzeł | Tylko dla kontenerów i zasobników. Pokazuje, który kontroler znajduje się w. |
 | Minimum trendu &nbsp; %, średnia &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, używany 95. &nbsp; %, maksimum&nbsp;% | Trend wykresu słupkowego przedstawia średnią metrykę percentylu kontrolera. |
 
@@ -278,7 +278,7 @@ Informacje wyświetlane podczas wyświetlania kontenerów są opisane w poniższ
 | Pod | Kontener, w którym znajduje się pod.|
 | Węzeł |  Węzeł, w którym znajduje się kontener. |
 | Uruchamiania | Przedstawia czas od momentu rozpoczęcia kontenera. |
-| Czas | Reprezentuje godzinę uruchomienia lub ponownego uruchomienia kontenera. |
+| Czas pracy | Reprezentuje godzinę uruchomienia lub ponownego uruchomienia kontenera. |
 | Minimum trendu &nbsp; %, średnia &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, używany 95. &nbsp; %, maksimum&nbsp;% | Trend wykresu słupkowego reprezentuje procentową metrykę percentylu kontenera. |
 
 Ikony w polu Stan wskazują stan online, zgodnie z opisem w poniższej tabeli.

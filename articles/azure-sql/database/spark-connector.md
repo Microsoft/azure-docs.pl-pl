@@ -11,12 +11,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/02/2020
-ms.openlocfilehash: 22a9bec09652b6cbce02fe5a54a319694aaa6911
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 46fa489c5a72c3de923f5281cc9be205925dd42d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421309"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988097"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Przyspieszenie analizy danych Big Data w czasie rzeczywistym za pomocą łącznika Spark
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ Przepływu danych jest następujący:
 
 Na poniższym diagramie przedstawiono przepływ danych.
 
-   ![architektura](./media/spark-connector/architecture.png)
+   ![Diagram przedstawia opisany przepływ, z węzłem głównym łączącym się bezpośrednio z bazą danych i łącząc się z trzema węzłami procesu roboczego, które łączą się z bazą danych.](./media/spark-connector/architecture.png)
 
 ### <a name="build-the-spark-connector"></a>Kompilowanie łącznika Spark
 

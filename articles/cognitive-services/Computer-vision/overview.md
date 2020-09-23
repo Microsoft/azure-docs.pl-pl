@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: Obsługa komputerów, aplikacje komputerowe, usługa komputerowa
-ms.openlocfilehash: f613080ec24fdfc4c739d4d0494aa2f3c36705cd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323254"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907074"
 ---
 # <a name="what-is-computer-vision"></a>Czym jest przetwarzanie obrazów?
 
@@ -54,9 +54,9 @@ Wykrywanie obiektów jest podobne do tagowania, ale interfejs API zwraca współ
 
 Identyfikuj marki handlowe na obrazach lub filmach na podstawie bazy danych z tysiącami znaków logo z całego świata. Za pomocą tej funkcji można na przykład ustalać, które marki są najpopularniejsze w mediach społecznościowych lub najpowszechniej promowane za pomocą lokowania produktów w mediach. [Wykrywanie marek](concept-brand-detection.md)
 
-### <a name="categorize-an-image"></a>Kategoryzowanie obrazu
+### <a name="categorize-an-image"></a>Klasyfikowanie obrazu
 
-Identyfikowanie i kategoryzowanie całego obrazu za pomocą [taksonomii kategorii](Category-Taxonomy.md) z użyciem dziedzicznych hierarchii obiektów nadrzędnych i podrzędnych. Kategorii można używać oddzielnie lub z naszymi nowymi modelami tagowania.<br/>Obecnie jedynym obsługiwanym językiem tagowania i kategoryzowania obrazów jest angielski. [Kategoryzowanie obrazu](concept-categorizing-images.md)
+Identyfikowanie i kategoryzowanie całego obrazu za pomocą [taksonomii kategorii](Category-Taxonomy.md) z użyciem dziedzicznych hierarchii obiektów nadrzędnych i podrzędnych. Kategorii można używać oddzielnie lub z naszymi nowymi modelami tagowania.<br/>Obecnie jedynym obsługiwanym językiem tagowania i kategoryzowania obrazów jest angielski. [Klasyfikowanie obrazu](concept-categorizing-images.md)
 
 ### <a name="describe-an-image"></a>Opisywanie obrazu
 
@@ -92,7 +92,11 @@ Za pomocą przetwarzanie obrazów można [wykrywać zawartość dla dorosłych](
 
 ## <a name="use-containers"></a>Korzystanie z kontenerów
 
-[Użyj kontenerów przetwarzanie obrazów](computer-vision-how-to-install-containers.md) do rozpoznawania tekstu napisanego i odręcznego lokalnie przez zainstalowanie standardowego kontenera Docker bliżej danych.
+Użyj przetwarzanie obrazów kontenerów platformy Docker, aby korzystać z lokalnej usługi. Obecnie dostępne są dwa kontenery:
+
+* [Kontener przetwarzanie obrazów Read](computer-vision-how-to-install-containers.md) umożliwia rozpoznawanie wydrukowanych i odręcznych tekstu w obrazach.
+
+* [Kontener analizy przestrzennej przetwarzanie obrazów](spatial-analysis-container.md) umożliwia analizowanie wideo przesyłania strumieniowego w czasie rzeczywistym w celu zrozumienia relacji przestrzennych między ludźmi a ich przenoszeniem za pomocą środowisk fizycznych.
 
 ## <a name="image-requirements"></a>Wymagania obrazu
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 9cd1db0365cdc4f834516fd4efb0d80dacc75eca
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118532"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905804"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Weryfikowanie szyfrowania danych dla Azure Database for MySQL
 
@@ -19,7 +19,7 @@ Ten artykuł pomaga sprawdzić, czy szyfrowanie danych przy użyciu klucza zarz�
 
 ## <a name="check-the-encryption-status"></a>Sprawdź stan szyfrowania
 
-### <a name="from-portal"></a>Z portalu
+### <a name="from-portal"></a>Z poziomu portalu
 
 1. Jeśli chcesz sprawdzić, czy klucz klienta jest używany do szyfrowania, wykonaj następujące czynności:
 
@@ -37,7 +37,7 @@ Ten artykuł pomaga sprawdzić, czy szyfrowanie danych przy użyciu klucza zarz�
 
 2. Na Azure Portal, jeśli masz pewność, że klucz szyfrowania jest ustawiony, dane są szyfrowane przy użyciu klucza klienci używanego w Azure Portal.
 
-  ![Przegląd zasad dostępu](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="Przegląd zasad dostępu":::
 
 ### <a name="from-cli"></a>Z interfejsu wiersza polecenia
 

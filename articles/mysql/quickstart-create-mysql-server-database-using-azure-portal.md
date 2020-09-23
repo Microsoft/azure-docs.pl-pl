@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: 840e7769e8a242314b10562684c942a2468ea5ad
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: cdddd9a90911499421351adf0f41ef90f0e2f9a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705150"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906567"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL w Azure Portal
 
@@ -34,25 +34,25 @@ Wykonaj następujące kroki, aby utworzyć serwer usługi Azure Database for MyS
 
   
 >[!div class="mx-imgBorder"]
-> ![Opcja Azure Database for MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png" alt-text="Opcja Azure Database for MySQL":::
 
 3. Wypełnij formularz szczegółów nowego serwera, używając następujących informacji:
     
 >[!div class="mx-imgBorder"]
-> ![Tworzenie formularza serwera](./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Tworzenie formularza serwera":::
 
 **Ustawienie** | **Sugerowana wartość** | **Opis pola** 
 ---|---|---
 Subskrypcja | Twoja subskrypcja | Wybierz subskrypcję platformy Azure, która ma być używana dla serwera. Jeśli masz wiele subskrypcji, wybierz tę, w ramach której są naliczane opłaty za ten zasób.
 Grupa zasobów | *myresourcegroup* | Podaj nazwę nowej lub istniejącej grupy zasobów. Grupy zasobów można używać do organizowania zależności należących do pojedynczego projektu.
 Nazwa serwera | Unikatowa nazwa serwera | Wprowadź unikatową nazwę identyfikującą serwer Azure Database for MySQL. Na przykład "mysqldbserver". Nazwa serwera może zawierać tylko małe litery, cyfry i znak łącznika (-). Musi zawierać od 3 do 63 znaków.
-Źródło danych |*Brak* | Wybierz opcję *Brak* , aby utworzyć nowy serwer od podstaw. (W przypadku tworzenia serwera z geograficznej kopii zapasowej istniejącego serwera Azure Database for MySQL należy wybrać pozycję *kopia zapasowa* ).
+Źródło danych |*Brak* | Wybierz pozycję *Brak*, aby utworzyć nowy serwer od podstaw. (W przypadku tworzenia serwera z geograficznej kopii zapasowej istniejącego serwera Azure Database for MySQL należy wybrać pozycję *kopia zapasowa* ).
 Identyfikator logowania administratora serwera | myadmin | Wprowadź nazwę użytkownika dla administratora serwera. Nie można używać **azure_superuser**, **admin**, **administrator**, **root**, **Guest**ani **Public** jako nazwy użytkownika administratora.
 Hasło | *Wybór* | Podaj nowe hasło dla konta administratora serwera. Hasło musi mieć długość od 8 do 128 znaków z kombinacją wielkich lub małych liter, cyfr i znaków innych niż alfanumeryczne (!, $, #,% itp.).
 Potwierdź hasło | *Wybór*| Potwierdź hasło do konta administratora.
-Lokalizacja | *Region najbliżej Twoich użytkowników*| Wybierz lokalizację najbliżej użytkowników lub innych aplikacji Azure.
+Location | *Region najbliżej Twoich użytkowników*| Wybierz lokalizację najbliżej użytkowników lub innych aplikacji Azure.
 Wersja | *Najnowsza wersja główna*| Najnowsza wersja główna, chyba że z konkretnych powodów wymagana jest inna wersja.
-Obliczenia i magazyn | **Ogólnego przeznaczenia**, **Generacja 5**, **2 rdzenie wirtualne**, **5 GB**, **7 dni**, **Geograficznie nadmiarowy** |Konfiguracje obliczania, magazynu i kopii zapasowej dla nowego serwera. Wybierz pozycję **Konfiguruj serwer**. Następnie wybierz odpowiednią warstwę cenową, aby uzyskać więcej informacji, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/mysql/). Aby włączyć kopie zapasowe serwera w magazynie geograficznie nadmiarowym, wybierz opcję **Geograficznie nadmiarowy** z **opcji nadmiarowości kopii zapasowej**. Kliknij **OK**.
+Obliczenia i magazyn | **Ogólnego przeznaczenia**, **Generacja 5**, **2 rdzenie wirtualne**, **5 GB**, **7 dni**, **Geograficznie nadmiarowy** |Konfiguracje obliczania, magazynu i kopii zapasowej dla nowego serwera. Wybierz pozycję **Konfiguruj serwer**. Następnie wybierz odpowiednią warstwę cenową, aby uzyskać więcej informacji, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/mysql/). Aby włączyć kopie zapasowe serwera w magazynie geograficznie nadmiarowym, wybierz opcję **Geograficznie nadmiarowy** z **opcji nadmiarowości kopii zapasowej**. Wybierz przycisk **OK**.
 
    > [!NOTE]
    > Jeśli niewielkie zasoby obliczeniowe i we/wy są wystarczające dla Twojego obciążenia, warto rozważyć użycie warstwy cenowej Podstawowa. Pamiętaj, że serwerów utworzonych w warstwie cenowej Podstawowa nie można później przeskalować do warstwy Ogólnego przeznaczenia lub Zoptymalizowana pod kątem pamięci. 
@@ -67,7 +67,7 @@ Domyślnie na serwerze są tworzone następujące bazy danych: **information_sch
 Domyślnie utworzony serwer jest chroniony za pomocą zapory i nie jest dostępny publicznie. Aby udzielić dostępu do adresu IP, przejdź do zasobu serwera w Azure Portal i wybierz pozycję **zabezpieczenia połączeń** z menu po lewej stronie dla zasobu serwera. Nie wiesz, jak znaleźć zasób, zobacz [Jak otworzyć zasób](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
 >[!div class="mx-imgBorder"]
-> ![Zabezpieczenia połączeń — reguły zapory](./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Zabezpieczenia połączeń — reguły zapory":::
    
 Teraz wybierz pozycję **Dodaj bieżący adres IP klienta** , a następnie wybierz pozycję **Zapisz**. Możesz dodać dodatkowe adresy IP lub podać zakres adresów, aby połączyć się z serwerem z tych adresów IP. Aby uzyskać więcej informacji, zobacz [jak zarządzać regułami zapory na serwerze Azure Database for MySQL](./concepts-firewall-rules.md)
 
@@ -83,7 +83,7 @@ Aby nawiązać połączenie z serwerem ze środowiska lokalnego, możesz wybrać
     >W przypadku uruchamiania usługi Cloud Shell po raz pierwszy zostanie wyświetlony monit o utworzenie grupy zasobów i konta magazynu. Jest to krok jednorazowy, który zostanie automatycznie dołączony do wszystkich sesji. 
 
    >[!div class="mx-imgBorder"]
-   > ![Cloud Shell widoku pełnego portalu](./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png)
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Cloud Shell widoku pełnego portalu":::
 2. Uruchom to polecenie w Azure Cloud Shell terminalu. Zamień wartości na rzeczywistą nazwę serwera i nazwę logowania użytkownika administracyjnego. Nazwa użytkownika administratora wymaga znaku "@ \<servername> ", jak pokazano poniżej, aby uzyskać Azure Database for MySQL  
 
   ```azurecli-interactive
@@ -136,7 +136,7 @@ Pomyślnie utworzono serwer Azure Database for MySQL w grupie zasobów.  Jeśli 
 
 Aby usunąć serwer, możesz kliknąć przycisk **Usuń** na stronie **Przegląd** serwera, jak pokazano poniżej:
 > [!div class="mx-imgBorder"]
-> ![Usuwanie zasobów](media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
+> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Usuwanie zasobów":::
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]

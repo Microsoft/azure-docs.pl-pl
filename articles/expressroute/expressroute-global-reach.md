@@ -5,14 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 8c6ed19a585bc1ebae65045cd1cc4c442f113597
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.custom: references_regions
+ms.openlocfilehash: e3f9105037c049a53f1b7b99da96dd857070fcc7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651488"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987615"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
 ExpressRoute to prywatny i odporny na połączenie sieci lokalnych z Microsoft Cloud. Dostęp do wielu usług w chmurze firmy Microsoft, takich jak Azure i Microsoft 365, można uzyskać z prywatnego centrum danych lub sieci firmowej. Na przykład możesz mieć oddział w sieci San Francisco z obwodem usługi ExpressRoute w Dolina krzemu i innym biurze oddziału w Londynie z obwodem usługi ExpressRoute w tym samym mieście. Obie biura oddziałów mają wysoką szybkość łączności z zasobami platformy Azure w zachodnich stanach USA i Południowe Zjednoczone Królestwo. Oddziały nie mogą jednak łączyć i wysyłać danych bezpośrednio ze sobą. Innymi słowy, 10.0.1.0/24 może wysyłać dane do sieci 10.0.3.0/24 i 10.0.4.0/24, ale nie do sieci 10.0.2.0/24.
@@ -29,10 +30,27 @@ ExpressRoute Global Reach zaprojektowano w celu uzupełnienia implementacji siec
 ![Diagram przedstawiający przypadek użycia dla Global Reach usługi Express Route.][3]
 
 ## <a name="availability"></a>Dostępność 
-ExpressRoute Global Reach jest obsługiwana w większości regionów, w których ExpressRoute jest obecnie obsługiwany. Można odwołać się do [dostawców połączeń ExpressRoute](expressroute-locations-providers.md#partners) dla bieżących obsługiwanych regionów. 
+ExpressRoute Global Reach jest obsługiwane w następujących miejscach. 
 
 > [!NOTE] 
 > Aby umożliwić ExpressRoute Global Reach między [różnymi regionami geopolitycznych](expressroute-locations-providers.md#locations), obwody muszą być **jednostkami SKU w warstwie Premium**.
+
+* Australia
+* Kanada
+* Francja
+* Niemcy
+* SRA Hongkong
+* Irlandia
+* Japonia
+* Korea
+* Holandia
+* Nowa Zelandia
+* Norwegia
+* Singapur
+* Szwecja
+* Szwajcaria
+* Zjednoczone Królestwo
+* Stany Zjednoczone
 
 ## <a name="next-steps"></a>Następne kroki
 - Wyświetl [Global REACH często zadawanych pytań](expressroute-faqs.md#globalreach).

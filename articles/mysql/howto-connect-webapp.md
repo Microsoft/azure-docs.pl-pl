@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a3f3daa56c782d84cf6ba07223f8cfea15daa8a4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101628"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905849"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Połącz istniejące Azure App Service z serwerem Azure Database for MySQL
 W tym temacie wyjaśniono, jak połączyć istniejące Azure App Service z serwerem Azure Database for MySQL.
@@ -26,21 +26,21 @@ Azure Database for MySQL zapewnia zabezpieczenia dostępu przy użyciu zapory do
 
 1. W bloku ustawienia serwera MySQL kliknij pozycję **zabezpieczenia połączeń** , aby otworzyć blok zabezpieczenia połączenia dla Azure Database for MySQL.
 
-   ![Azure Portal kliknij pozycję zabezpieczenia połączeń](./media/howto-connect-webapp/1-connection-security.png)
+   :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure Portal kliknij pozycję zabezpieczenia połączeń":::
 
 2. Wybierz pozycję **włączone** w obszarze **Zezwalaj na dostęp do usług platformy Azure**, a następnie **Zapisz**.
-   ![Azure Portal — Zezwalaj na dostęp do platformy Azure](./media/howto-connect-webapp/allow-azure.png)
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal — Zezwalaj na dostęp do platformy Azure":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Rozwiązanie 2 — Tworzenie reguły zapory w celu jawnego zezwalania na wychodzące adresy IP
 Można jawnie dodać wszystkie wychodzące adresy IP Azure App Service.
 
 1. W bloku właściwości App Service Wyświetl **wychodzący adres IP**.
 
-   ![Azure Portal — wyświetlanie wychodzących adresów IP](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal — wyświetlanie wychodzących adresów IP":::
 
 2. W bloku zabezpieczenia połączenia MySQL Dodaj wychodzące adresy IP jeden według jednego.
 
-   ![Azure Portal — Dodawanie jawnych adresów IP](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal — Dodawanie jawnych adresów IP":::
 
 3. Pamiętaj, aby **zapisać** reguły zapory.
 
