@@ -10,15 +10,15 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 60dd9631df0b997ce39134002bdb6ed9f69336ed
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9e24a652bb4e577ff9b604b6b4f5284883723ee5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319273"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906714"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania dla wieloklasowej klasyfikacji obrazów 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym samouczku pokazano, jak zarządzać procesem etykietowania (nazywanymi również znakami oznakowania), które mają być używane jako dane do kompilowania modeli uczenia maszynowego. Etykietowanie danych w Azure Machine Learning jest w publicznej wersji zapoznawczej.
 
@@ -102,7 +102,7 @@ Teraz, gdy masz dostęp do danych, które mają mieć etykietę, Utwórz projekt
 
 1. Użyj następujących danych wejściowych dla formularza **Create DataSet from datastore** :
 
-    1. W formularzu **podstawowe informacje** Dodaj nazwę. w tym miejscu będziemy używać **obrazów na potrzeby samouczka**.  Dodaj opis, jeśli chcesz.  Następnie wybierz przycisk **Dalej**.
+    1. W formularzu **podstawowe informacje** Dodaj nazwę. w tym miejscu będziemy używać **obrazów na potrzeby samouczka**.  Dodaj opis, jeśli chcesz.  Następnie wybierz pozycję **Dalej**.
     1. W formularzu **wyboru magazynu** danych Użyj listy rozwijanej, aby wybrać **wcześniej utworzony magazyn**danych, na przykład **tutorial_images (Azure Blob Storage)**
     1. Następnie w formularzu **wyboru magazynu** danych wybierz pozycję **Przeglądaj** , a następnie wybierz pozycję **wieloclass-DogsCats**.  Wybierz pozycję **Zapisz** , aby użyć **/MULTICLASS-DogsCats** jako ścieżki.
     1. Wybierz pozycję **dalej** , aby potwierdzić szczegóły, a następnie **Utwórz** , aby utworzyć zestaw danych.
@@ -130,7 +130,7 @@ Wybierz przycisk **Dalej**, aby kontynuować.
 
 1. Wybierz pozycję **Dalej**.
 
-1. Jeśli używasz obszaru roboczego przedsiębiorstwa, zobaczysz sekcję **zatytułowaną etykieta z asystą** .  Pozostaw niezaznaczone pole wyboru. Etykieta z asystą, wymaga większej ilości danych niż ta, która będzie używana w tym samouczku.
+1. W sekcji **etykieta zatytułowana "ml** " pozostaw niezaznaczone pole wyboru. Etykieta z asystą, wymaga większej ilości danych niż ta, która będzie używana w tym samouczku.
 
 1. Wybierz pozycję **Create project** (Utwórz projekt).
 

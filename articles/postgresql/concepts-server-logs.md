@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5515c21d89b01576bb6aae8c9d480b439dc1507
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392815"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902707"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Dzienniki w Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -23,7 +23,7 @@ Rejestrowanie inspekcji jest udostępniane za pomocą rozszerzenia Postgres pgau
 ## <a name="configure-logging"></a>Konfigurowanie rejestrowania 
 W celu skonfigurowania rejestrowania standardowego Postgres na serwerze możesz użyć parametrów serwera rejestrowania. Na każdym serwerze Azure Database for PostgreSQL `log_checkpoints` i `log_connections` są domyślnie włączone. Istnieją dodatkowe parametry, które można dostosować, aby odpowiadały potrzebom rejestrowania: 
 
-![Azure Database for PostgreSQL — parametry rejestrowania](./media/concepts-server-logs/log-parameters.png)
+:::image type="content" source="./media/concepts-server-logs/log-parameters.png" alt-text="Azure Database for PostgreSQL — parametry rejestrowania":::
 
 Aby dowiedzieć się więcej na temat parametrów dziennika Postgres, zapoznaj się z sekcją [kiedy rejestrować](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) i [co należy rejestrować](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) w dokumentacji Postgres. W Azure Database for PostgreSQL są dostępne większość parametrów rejestrowania Postgres.
 
@@ -103,18 +103,18 @@ W poniższej tabeli opisano pola dla typu **PostgreSQLLogs** . W zależności od
 | TenantId | Identyfikator dzierżawy |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
-| Typ | Typ dziennika. Stałego`AzureDiagnostics` |
+| Typ | Typ dziennika. Stałego `AzureDiagnostics` |
 | SubscriptionId | Identyfikator GUID subskrypcji, do której należy serwer |
 | ResourceGroup | Nazwa grupy zasobów, do której należy serwer |
-| ResourceProvider | Nazwa dostawcy zasobów. Stałego`MICROSOFT.DBFORPOSTGRESQL` |
+| ResourceProvider | Nazwa dostawcy zasobów. Stałego `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | Identyfikator URI zasobu |
 | Zasób | Nazwa serwera |
 | Kategoria | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | Zmienna | Poziom rejestrowania, przykład: LOG, błąd, Uwaga |
-| Komunikat | Podstawowy komunikat dziennika | 
-| Domain | Wersja serwera, przykład: Postgres-10 |
+| Wiadomość | Podstawowy komunikat dziennika | 
+| Domena | Wersja serwera, przykład: Postgres-10 |
 | Szczegóły | Dodatkowy komunikat dziennika (jeśli dotyczy) |
 | nazwa_kolumny | Nazwa kolumny (jeśli dotyczy) |
 | SchemaName | Nazwa schematu (jeśli dotyczy) |

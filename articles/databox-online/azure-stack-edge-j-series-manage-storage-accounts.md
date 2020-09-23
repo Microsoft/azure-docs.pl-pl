@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Zarządzanie kontem magazynu GPU | Microsoft Docs
-description: Opisuje sposób używania Azure Portal do zarządzania kontem magazynu na Azure Stack brzegowej.
+title: Azure Stack Edge Zarządzanie kontem magazynu GPU Pro Microsoft Docs
+description: Opisuje, jak używać Azure Portal do zarządzania kontem magazynu na Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 3b190a108651f4b127c2f009c383613922a59018
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a239b36a539cf7be3e880512b753d45ae4050bad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254303"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904544"
 ---
-# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge"></a>Użyj Azure Portal, aby zarządzać kontami magazynu Edge na Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać kontami magazynu Edge na Azure Stack EDGE Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-W tym artykule opisano sposób zarządzania kontami magazynu brzegowego na Azure Stackej krawędzi. Możesz zarządzać Azure Stack krawędzią za pośrednictwem Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal, aby dodać lub usunąć konta magazynu brzegowego na urządzeniu.
+W tym artykule opisano sposób zarządzania kontami magazynu programu Edge na Azure Stack brzegowej. Możesz zarządzać Azure Stack Edge przy użyciu Azure Portal lub za pośrednictwem lokalnego interfejsu użytkownika sieci Web. Użyj Azure Portal, aby dodać lub usunąć konta magazynu brzegowego na urządzeniu.
 
 ## <a name="about-edge-storage-accounts"></a>Informacje o kontach magazynu Edge
 
-Dane z urządzenia brzegowego Azure Stack można przenieść za pośrednictwem protokołów SMB, NFS lub REST. Aby przesłać dane do usługi BLOB Storage przy użyciu interfejsów API REST, należy utworzyć konta magazynu brzegowego na Azure Stack Edge. 
+Możesz przesyłać dane z urządzenia Azure Stack EDGE Pro za pośrednictwem protokołów SMB, NFS lub REST. Aby przesłać dane do usługi BLOB Storage przy użyciu interfejsów API REST, należy utworzyć konta magazynu brzegowego na Azure Stack EDGE Pro. 
 
-Konta magazynu brzegowego dodawane na Azure Stack urządzeniu brzegowym są mapowane na konta usługi Azure Storage. Wszystkie dane zapisywane na kontach magazynu brzegowego są automatycznie wypychane do chmury.
+Konta magazynu brzegowego dodawane do urządzenia z systemem Azure Stack EDGE Pro są mapowane na konta usługi Azure Storage. Wszystkie dane zapisywane na kontach magazynu brzegowego są automatycznie wypychane do chmury.
 
 Poniżej przedstawiono diagram przedstawiający dwa typy kont i sposób przepływu danych z każdego z tych kont na platformie Azure:
 

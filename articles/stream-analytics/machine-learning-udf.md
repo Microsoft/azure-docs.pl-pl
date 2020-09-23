@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e2277e2088a8cb386d6f19799b235d96e08959b0
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e9496dc70d847d0e9e830a216e8f435b1c48d878
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543439"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900947"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integracja Azure Stream Analytics z Azure Machine Learning (wersja zapoznawcza)
 
@@ -33,23 +33,39 @@ Przed dodaniem modelu uczenia maszynowego do zadania Stream Analytics należy wy
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Dodawanie modelu uczenia maszynowego do zadania
 
-Do zadania Stream Analytics można dodawać funkcje Azure Machine Learning bezpośrednio z Azure Portal.
+Funkcje Azure Machine Learning można dodawać do zadania Stream Analytics bezpośrednio z Azure Portal lub Visual Studio Code.
 
-1. Przejdź do zadania Stream Analytics w Azure Portal, a następnie wybierz pozycję **funkcje** w obszarze **topologia zadania**. Następnie wybierz pozycję **Azure ml Service** z menu rozwijanego **+ Dodaj** .
+### <a name="azure-portal"></a>Azure Portal
 
-   ![Dodawanie usługi Azure ML UDF](./media/machine-learning-udf/add-azureml-udf.png)
+1. Przejdź do zadania Stream Analytics w Azure Portal, a następnie wybierz pozycję **funkcje** w obszarze **topologia zadania**. Następnie wybierz pozycję **usługa Azure Machine Learning** z menu rozwijanego **+ Dodaj** .
+
+   ![Dodawanie Azure Machine Learning UDF](./media/machine-learning-udf/add-azure-machine-learning-udf.png)
 
 2. Wypełnij formularz **funkcji usługi Azure Machine Learning** przy użyciu następujących wartości właściwości:
 
-   ![Konfigurowanie usługi Azure ML UDF](./media/machine-learning-udf/configure-azureml-udf.png)
+   ![Konfigurowanie Azure Machine Learning UDF](./media/machine-learning-udf/configure-azure-machine-learning-udf.png)
 
-W poniższej tabeli opisano każdą właściwość funkcji usługi Azure ML w Stream Analytics.
+### <a name="visual-studio-code"></a>Visual Studio Code
+
+1. Otwórz projekt Stream Analytics w Visual Studio Code i kliknij prawym przyciskiem myszy folder **Functions** . Następnie wybierz pozycję **Dodaj funkcję**. Wybierz pozycję **Machine Learning UDF** z listy rozwijanej.
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Dodaj funkcję UDF w VS Code":::
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Dodaj Azure Machine Learning UDF w VS Code":::
+
+2. Wprowadź nazwę funkcji i wypełnij ustawienia w pliku konfiguracji przy użyciu **opcji wybierz z subskrypcji** w programie CodeLens.
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Wybierz pozycję Azure Machine Learning UDF w VS Code":::
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Konfigurowanie Azure Machine Learning UDF w VS Code":::
+
+W poniższej tabeli opisano każdą właściwość funkcji usługi Azure Machine Learning w Stream Analytics.
 
 |Właściwość|Opis|
 |--------|-----------|
 |Alias funkcji|Wprowadź nazwę, aby wywołać funkcję w zapytaniu.|
 |Subskrypcja|Twoja subskrypcja platformy Azure.|
-|Obszar roboczy usługi Azure ML|Azure Machine Learning obszar roboczy, który został użyty do wdrożenia modelu jako usługi sieci Web.|
+|Obszar roboczy usługi Azure Machine Learning|Azure Machine Learning obszar roboczy, który został użyty do wdrożenia modelu jako usługi sieci Web.|
 |Wdrożenia|Usługa sieci Web obsługująca model.|
 |Sygnatura funkcji|Podpis usługi sieci Web wywnioskowanej ze specyfikacji schematu interfejsu API. Jeśli nie można załadować podpisu, sprawdź, czy podano przykładowe dane wejściowe i wyjściowe w skrypcie oceniania, aby automatycznie wygenerować schemat.|
 |Liczba żądań równoległych na partycję|Jest to zaawansowana konfiguracja umożliwiająca optymalizację przepływności o dużej skali. Ta liczba przedstawia współbieżne żądania wysyłane z każdej partycji zadania do usługi sieci Web. Zadania z sześcioma jednostkami przesyłania strumieniowego (SU) i niższą mają jedną partycję. Zadania z 12 usługami SUs mają dwie partycje, 18 usługi SUs mają trzy partycje i tak dalej.<br><br> Na przykład jeśli zadanie ma dwie partycje i ustawisz ten parametr na cztery, do usługi sieci Web będzie osiem współbieżnych żądań z zadania. W tej chwili w publicznej wersji zapoznawczej ta wartość jest domyślnie równa 20 i nie można jej zaktualizować.|
@@ -168,4 +184,3 @@ Aby zapobiec takim opóźnieniu, należy się upewnić, że Zainicjowano obsług
 
 * [Samouczek: funkcje języka JavaScript zdefiniowane przez użytkownika w usłudze Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
 * [Skalowanie zadania Stream Analytics za pomocą funkcji Azure Machine Learning Studio (klasycznej)](stream-analytics-scale-with-machine-learning-functions.md)
-

@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 08859eb87431b59e8be68369ce8f3876aa7d9f21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 3c2934c92be668d4b4c05f97a98395e2e219b7dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530305"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907609"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Interaktywny debugowanie za pomocą Visual Studio Code
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Dowiedz się, jak interaktywnie debugować potoki i wdrożenia Azure Machine Learning przy użyciu Visual Studio Code (VS Code) i [depugpy](https://github.com/microsoft/debugpy/).
 
@@ -109,7 +109,7 @@ Aby włączyć debugowanie, wprowadź następujące zmiany w skryptach języka P
         print(f'Debugger attached = {debugpy.is_client_connected()}')
     ```
 
-W poniższym przykładzie w języku Python przedstawiono podstawowy `train.py` plik, który umożliwia debugowanie:
+W poniższym przykładzie w języku Python przedstawiono prosty `train.py` plik, który umożliwia debugowanie:
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.

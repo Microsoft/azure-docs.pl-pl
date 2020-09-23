@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 2be89f9263c71b7c9d7bc32edd0b1fc7cb2cfbce
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cf22a165e9a6eadcd2e5d4cdb0efa301538be7e9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118158"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907522"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Konfigurowanie i dostęp do Azure Database for PostgreSQL-pojedynczych dzienników serwera z Azure Portal
 
@@ -29,7 +29,7 @@ Skonfiguruj dostęp do dzienników zapytań i dzienników błędów.
 
 3. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **Dzienniki serwera**. 
 
-   ![Zrzut ekranu przedstawiający opcje dzienników serwera](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Zrzut ekranu przedstawiający opcje dzienników serwera":::
 
 4. Aby wyświetlić parametry serwera, wybierz **pozycję kliknij tutaj, aby włączyć dzienniki i skonfigurować parametry dziennika**.
 
@@ -37,7 +37,7 @@ Skonfiguruj dostęp do dzienników zapytań i dzienników błędów.
 
    Po zmianie parametrów wybierz pozycję **Zapisz**. Możesz też odrzucić zmiany. 
 
-   ![Zrzut ekranu przedstawiający opcje parametrów serwera](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Zrzut ekranu przedstawiający opcje parametrów serwera":::
 
 Na stronie **parametry serwera** możesz powrócić do listy dzienników, zamykając stronę.
 
@@ -50,18 +50,18 @@ Po rozpoczęciu rejestrowania można wyświetlić listę dostępnych dzienników
 
 3. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **Dzienniki serwera**. Na stronie zostanie wyświetlona lista plików dziennika.
 
-   ![Zrzut ekranu strony dzienników serwera z wyróżnioną listą dzienników](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Zrzut ekranu strony dzienników serwera z wyróżnioną listą dzienników":::
 
    > [!TIP]
    > Konwencja nazewnictwa dziennika to **PostgreSQL-rrrr-mm-dd_hh0000. log**. Data i godzina użyta w nazwie pliku to czas, kiedy dziennik został wystawiony. Pliki dziennika obracają się co godzinę lub 100 MB, w zależności od tego, co nastąpi wcześniej.
 
 4. W razie potrzeby użyj pola wyszukiwania, aby szybko zawęzić do określonego dziennika na podstawie daty i godziny. Wyszukiwanie znajduje się na nazwie dziennika.
 
-   ![Zrzut ekranu strony dzienników serwera z wyróżnionym polem wyszukiwania i wynikami](./media/howto-configure-server-logs-in-portal/5-search.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="Zrzut ekranu strony dzienników serwera z wyróżnionym polem wyszukiwania i wynikami":::
 
 5. Aby pobrać pojedyncze pliki dziennika, wybierz ikonę strzałki w dół obok każdego pliku dziennika w wierszu tabeli.
 
-   ![Zrzut ekranu strony Dzienniki serwera z wyróżnioną ikoną Strzałka w dół](./media/howto-configure-server-logs-in-portal/6-download.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="Zrzut ekranu strony Dzienniki serwera z wyróżnioną ikoną Strzałka w dół":::
 
 ## <a name="next-steps"></a>Następne kroki
 - Zobacz [Dzienniki serwera dostępu w interfejsie wiersza polecenia](howto-configure-server-logs-using-cli.md) , aby dowiedzieć się, jak programowo pobierać dzienniki.

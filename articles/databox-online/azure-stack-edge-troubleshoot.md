@@ -1,6 +1,6 @@
 ---
-title: Użyj Azure Portal, aby rozwiązywać problemy Azure Stack Edge | Microsoft Docs
-description: Dowiedz się, jak rozwiązywać problemy na Azure Stackej krawędzi. Można uruchomić diagnostykę, zebrać informacje do pomocy technicznej i użyć dzienników do rozwiązywania problemów.
+title: Użyj Azure Portal, aby rozwiązać problemy Azure Stack EDGE Pro | Microsoft Docs
+description: Dowiedz się, jak rozwiązywać problemy na Azure Stack Edge. Można uruchomić diagnostykę, zebrać informacje do pomocy technicznej i użyć dzienników do rozwiązywania problemów.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: f9dabdfd9df77822f06c41fa4355a1657bceb76c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: bc4afa0d26f6ba256354d3802a0c4f9b9b04088e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134568"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903660"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Rozwiązywanie problemów z Azure Stack Edge
+# <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Rozwiązywanie problemów z Azure Stack EDGE Pro
 
-W tym artykule opisano sposób rozwiązywania problemów na Azure Stackej krawędzi. 
+W tym artykule opisano sposób rozwiązywania problemów z Azure Stack Edge. 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -65,7 +65,7 @@ Wszelkie błędy występujące podczas procesów przekazywania i odświeżania s
 
       ![Łączenie i wyświetlanie zawartości udziału](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Wybierz _folder Microsoft Azure Stack Edge_. Ten folder zawiera dwa podfoldery:
+2. Wybierz _folder Microsoft Azure Stack brzeg Pro_. Ten folder zawiera dwa podfoldery:
 
     * Folder przekazywania zawierający pliki dziennika w przypadku błędów przekazywania.
     * Folder odświeżania dla błędów podczas odświeżania.

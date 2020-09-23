@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Usługi Azure Communication Services
+summary: Azure Communication Services to chmurowa usługa komunikacyjna, która umożliwia dodawanie głosu, wideo, czatu i telefonii do aplikacji. Pamiętaj, że usługi Azure Communication Services są obecnie dostępne w publicznej wersji zapoznawczej.
+metadata:
+  title: Usługi Azure Communication Services
+  description: Azure Communication Services to chmurowa usługa komunikacyjna, która umożliwia dodawanie głosu, wideo, czatu i telefonii do aplikacji. Pamiętaj, że usługi Azure Communication Services są obecnie dostępne w publicznej wersji zapoznawczej.
+  ms.service: azure-communication-services
+  ms.topic: landing-page
+  author: mikben
+  ms.author: mikben
+  ms.date: 08/10/2020
+  ms.openlocfilehash: 6081063605439982e29984cc4378ec3aee7ac08a
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90929039"
+landingContent:
+- title: Informacje o usługach Azure Communication Services
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to są usługi Azure Communication Services?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Opcje biblioteki klienta
+      url: concepts/sdk-options.md
+- title: Wprowadzenie
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie zasobu usług Communication Services
+      url: quickstarts/create-communication-resource.md
+    - text: Tworzenie tokenów dostępu użytkowników i zarządzanie nimi
+      url: quickstarts/access-tokens.md
+  - linkListType: concept
+    links:
+    - text: Architektura klienta i serwera
+      url: concepts/client-and-server-architecture.md
+    - text: Uwierzytelnianie i autoryzacja
+      url: concepts/authentication.md
+    - text: Obsługa zdarzeń
+      url: concepts/event-handling.md
+    - text: Powiadomienia
+      url: concepts/notifications.md
+- title: Połączenia głosowe i wideo
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Dodawanie połączenia głosowego i wideo do aplikacji
+      url: quickstarts/voice-video-calling/getting-started-with-calling.md
+    - text: Używanie biblioteki klienta połączeń
+      url: quickstarts/voice-video-calling/calling-client-samples.md
+  - linkListType: concept
+    links:
+    - text: Pojęcia dotyczące głosu i wideo
+      url: concepts/voice-video-calling/about-call-types.md
+    - text: Omówienie biblioteki klienta połączeń
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: Przepływy połączenia
+      url: concepts/call-flows.md
+- title: Telefonia i wiadomości SMS
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uzyskiwanie numeru telefonu
+      url: quickstarts/telephony-sms/get-phone-number.md
+    - text: Wysyłanie wiadomości SMS
+      url: quickstarts/telephony-sms/send.md
+    - text: Obsługiwanie zdarzeń SMS
+      url: quickstarts/telephony-sms/handle-sms-events.md
+  - linkListType: concept
+    links:
+    - text: Pojęcia dotyczące wiadomości SMS
+      url: concepts/telephony-sms/concepts.md
+    - text: Omówienie biblioteki klienta wiadomości SMS
+      url: concepts/telephony-sms/sdk-features.md
+    - text: Omówienie nawiązywania połączeń
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: Planowanie rozwiązania do obsługi telefonii i wiadomości SMS
+      url: concepts/telephony-sms/plan-solution.md
+- title: Czat
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Dodawanie czatu do aplikacji
+      url: quickstarts/chat/get-started.md
+  - linkListType: concept
+    links:
+    - text: Pojęcia dotyczące czatu
+      url: concepts/chat/concepts.md
+    - text: Omówienie biblioteki klienta czatu
+      url: concepts/chat/sdk-features.md
+- title: Samples
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Rozpoczynanie pracy z połączeniami grupowymi — przykład dużego obrazu
+      url: samples/calling-hero-sample.md
+    - text: Rozpoczynanie pracy z czatem — przykład dużego obrazu
+      url: samples/chat-hero-sample.md

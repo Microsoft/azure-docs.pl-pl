@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420893"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907782"
 ---
 # <a name="train-wide--deep-recommender"></a>& głębokiego polecania szkolenia w szerokim zakresie
-W tym artykule opisano, jak używać modułu **uczenie szczegółowe & głębokiego polecania** w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu uczenia modelu rekomendacji. Ten moduł jest oparty na szerokiej & głębokiej uczeniu zaproponowanym przez firmę Google.
+W tym artykule opisano, jak używać modułu **uczenie szczegółowe & głębokiego polecania** w programie Azure Machine Learning Designer do uczenia modelu rekomendacji. Ten moduł jest oparty na szerokiej & głębokiej uczeniu zaproponowanym przez firmę Google.
 
 Moduł **Pociąga & głębokiego polecania** odczytuje zestaw danych trzech klasyfikacji elementów użytkownika i, opcjonalnie, niektóre funkcje użytkownika i elementu. Zwraca przeszkolony & głębokiego zalecenia.  Można następnie użyć przeszkolonego modelu, aby wygenerować przewidywania lub zalecenia dotyczące oceny przy użyciu modułu [oceny szerokiej i głębokiego polecania](score-wide-and-deep-recommender.md) .  
 
@@ -39,7 +39,7 @@ Więcej szczegółowych informacji o szerokim & zalecanym i podstawowym algorytm
 ## <a name="how-to-configure-train-wide--deep-recommender"></a>Jak skonfigurować & głębokiego polecania szkolenia w zakresie uczenia  
 
 + [Przygotuj dane szkoleniowe](#prepare-data)
-+ [Szkolenie modelu](#train-the-model)
++ [Trenowanie modelu](#train-the-model)
 
 ### <a name="prepare-data"></a>Przygotowywanie danych
 
@@ -77,14 +77,14 @@ Zestaw danych funkcji elementu musi zawierać identyfikatory elementów w swojej
 
 Na przykład typowy zestaw funkcji elementu może wyglądać następująco:  
 
-|MovieId|Tytuł|Język oryginalny|Gatunkami|Rok|
+|MovieId|Tytuł|Język oryginalny|Gatunkami|Year (Rok)|
 |-------------|-------------|-------------------|-----------|---------------|
 |68646|Godfather|Angielski|Dramat|1972|
 |31381|Zostało usunięte z wiatru|Angielski|Historia|1939|
 
-### <a name="train-the-model"></a>Szkolenie modelu
+### <a name="train-the-model"></a>Trenowanie modelu
 
-1.  Dodaj moduł szkoleń **i głębokiego polecania** do eksperymentu w projektancie (wersja zapoznawcza) i połącz go z zestawem danych szkoleniowych.  
+1.  Dodaj moduł szkoleń **i głębokiego polecania** do eksperymentu w projektancie, a następnie połącz go z zestawem danych szkoleniowych.  
   
 2. Jeśli masz osobny zestaw danych funkcji użytkownika i/lub funkcji elementów, podłącz je do modułu **uczenie i szerokiego zalecenia** .  
   

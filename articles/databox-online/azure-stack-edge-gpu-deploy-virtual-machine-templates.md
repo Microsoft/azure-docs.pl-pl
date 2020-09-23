@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie maszyn wirtualnych na urządzeniu Azure Stack Edge za pośrednictwem szablonów
-description: Opisuje sposób tworzenia maszyn wirtualnych i zarządzania nimi na Azure Stack urządzeniu brzegowym przy użyciu szablonów.
+title: Wdrażaj maszyny wirtualne na urządzeniu Azure Stack EDGE Pro za pośrednictwem szablonów
+description: Opisuje sposób tworzenia maszyn wirtualnych i zarządzania nimi na urządzeniu z systemem Azure Stack Edge przy użyciu szablonów.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 4f5fb02239fa48d96b0b779af7c970fc67fbcb99
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419830"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899706"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge przy użyciu szablonów
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu szablonów
 
-W tym samouczku opisano, jak utworzyć maszynę wirtualną na urządzeniu Azure Stack Edge i zarządzać nią przy użyciu szablonów. Te szablony są plikami JavaScript Object Notation (JSON), które definiują infrastrukturę i konfigurację maszyny wirtualnej. W tych szablonach należy określić zasoby do wdrożenia oraz właściwości tych zasobów.
+W tym samouczku opisano sposób tworzenia maszyny wirtualnej na urządzeniu z systemem Azure Stack Edge przy użyciu szablonów i zarządzania nią. Te szablony są plikami JavaScript Object Notation (JSON), które definiują infrastrukturę i konfigurację maszyny wirtualnej. W tych szablonach należy określić zasoby do wdrożenia oraz właściwości tych zasobów.
 
 Szablony są elastyczne w różnych środowiskach, ponieważ mogą one przyjmować parametry jako dane wejściowe w czasie wykonywania z pliku. Standardowa struktura nazewnictwa jest `TemplateName.json` dla szablonu i `TemplateName.parameters.json` pliku parametrów. Aby uzyskać więcej informacji na temat szablonów ARM, przejdź do [co to są szablony Azure Resource Manager?](../azure-resource-manager/templates/overview.md).
 
@@ -25,7 +25,7 @@ W tym samouczku użyjemy wstępnie zapisanych przykładowych szablonów do tworz
 
 ## <a name="vm-deployment-workflow"></a>Przepływ pracy wdrożenia maszyny wirtualnej
 
-Aby wdrożyć maszyny wirtualne Azure Stack Edge na wielu urządzeniach, można użyć jednego wirtualnego dysku twardego Sysprep dla całej floty, tego samego szablonu do wdrożenia i po prostu wprowadzić drobne zmiany parametrów do tego szablonu dla każdej lokalizacji wdrożenia (te zmiany mogą być wykonywane w tym miejscu lub w sposób programowy). 
+Aby wdrożyć maszyny wirtualne z systemem Azure Stack Edge na wielu urządzeniach, możesz użyć jednego wirtualnego dysku twardego Sysprep dla całej floty, tego samego szablonu do wdrożenia i po prostu wprowadzić drobne zmiany parametrów do tego szablonu dla każdej lokalizacji wdrożenia (te zmiany mogą być wykonywane w tym miejscu lub w sposób programowy). 
 
 Podsumowanie wysokiego poziomu przepływu pracy wdrożenia przy użyciu szablonów jest następujące:
 
@@ -57,13 +57,13 @@ Podsumowanie wysokiego poziomu przepływu pracy wdrożenia przy użyciu szablon�
 
 ## <a name="device-prerequisites"></a>Wymagania wstępne dotyczące urządzeń
 
-Skonfiguruj te wymagania wstępne na urządzeniu Azure Stack Edge.
+Skonfiguruj te wymagania wstępne na urządzeniu z systemem Azure Stack brzeg Pro.
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 ## <a name="client-prerequisites"></a>Wymagania wstępne klienta
 
-Skonfiguruj te wymagania wstępne na kliencie, które będą używane do uzyskiwania dostępu do urządzenia brzegowego Azure Stack.
+Skonfiguruj te wymagania wstępne na kliencie, które będą używane w celu uzyskania dostępu do urządzenia z systemem Azure Stack Edge.
 
 1. [Pobierz Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) , jeśli używasz go do przekazywania dysku VHD. Alternatywnie możesz pobrać AzCopy, aby przekazać dysk VHD. Jeśli używasz starszych wersji programu AzCopy, może być konieczne skonfigurowanie protokołu TLS 1,2 na komputerze klienckim. 
 1. [Pobierz szablony maszyn wirtualnych i pliki parametrów](https://aka.ms/ase-vm-templates) na komputer kliencki. Rozpakuj go do katalogu, który będzie używany jako katalog roboczy.
@@ -108,7 +108,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Tylko lokalne konta magazynu, takie jak Magazyn lokalnie nadmiarowy (Standard_LRS lub Premium_LRS), można tworzyć za pośrednictwem Azure Resource Manager. Aby utworzyć konta magazynu warstwowego, zapoznaj się z instrukcjami w temacie [Dodawanie i nawiązywanie połączenia z kontami magazynu na urządzeniu Azure Stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Tylko lokalne konta magazynu, takie jak Magazyn lokalnie nadmiarowy (Standard_LRS lub Premium_LRS), można tworzyć za pośrednictwem Azure Resource Manager. Aby utworzyć konta magazynu warstwowego, zapoznaj się z instrukcjami w temacie [Dodawanie i nawiązywanie połączenia z kontami magazynu w witrynie Azure Stack EDGE Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 Poniżej pokazano przykładowe dane wyjściowe.
 
@@ -145,7 +145,7 @@ Upewnij się, że został już dodany identyfikator URI obiektu BLOB w pliku hos
 
 `<Device IP> <storage account name>.blob.<Device name>.<DNS domain>`
 
-W typowym środowisku skonfigurowano system DNS tak, aby wszystkie konta magazynu wskazywały na Azure Stack Urządzenie brzegowe z `*.blob.devicename.domainname.com` wpisem.
+W typowym środowisku skonfigurowano system DNS tak, aby wszystkie konta magazynu wskazywały na urządzenie Azure Stack EDGE Pro z `*.blob.devicename.domainname.com` wpisem.
 
 ### <a name="optional-install-certificates"></a>Obowiązkowe Instalowanie certyfikatów
 
@@ -185,11 +185,11 @@ Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obi
 
     ![Łączenie z usługą Azure Storage 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
 
-5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz pozycję **Next** (Dalej).
+5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz pozycję **Dalej**.
 
     ![Nawiązywanie połączenia z usługą Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. W oknie **łączenie z nazwą i kluczem**Podaj **nazwę wyświetlaną**, **nazwę konta magazynu**i **klucz konta**usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz pozycję **Next** (Dalej).
+6. W oknie **łączenie z nazwą i kluczem**Podaj **nazwę wyświetlaną**, **nazwę konta magazynu**i **klucz konta**usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz pozycję **Dalej**.
 
     ![Nawiązywanie połączenia przy użyciu nazwy i klucza](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
@@ -215,7 +215,7 @@ Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obi
 
 <!--### Use AzCopy for upload
 
-Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge device.
+Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
 
 ```powershell
@@ -269,7 +269,7 @@ Plik `CreateImageAndVnet.parameters.json` przyjmuje następujące parametry:
     }
 ```
 
-Edytuj plik, `CreateImageAndVnet.parameters.json` Aby uwzględnić następujące elementy Azure Stack urządzenia brzegowego:
+Edytuj plik, `CreateImageAndVnet.parameters.json` Aby uwzględnić następujące elementy na urządzeniu Azure Stack EDGE Pro:
 
 1. Podaj typ systemu operacyjnego odpowiadający dyskowi VHD, który zostanie przekazany. Typem systemu operacyjnego może być Windows lub Linux.
 
@@ -341,7 +341,7 @@ Edytuj plik, `CreateImageAndVnet.parameters.json` Aby uwzględnić następujące
 Wdróż szablon `CreateImageAndVnet.json` . Ten szablon wdraża zasoby sieci wirtualnej i obrazów, które będą używane do tworzenia maszyn wirtualnych w późniejszym kroku.
 
 > [!NOTE]
-> Po wdrożeniu szablonu w przypadku uzyskania błędu uwierzytelniania Twoje poświadczenia platformy Azure dla tej sesji mogły wygasnąć. Ponownie uruchom `login-AzureRM` polecenie w celu ponownego nawiązania połączenia z Azure Resource Manager na urządzeniu brzegowym Azure Stack.
+> Po wdrożeniu szablonu w przypadku uzyskania błędu uwierzytelniania Twoje poświadczenia platformy Azure dla tej sesji mogły wygasnąć. Ponownie uruchom `login-AzureRM` polecenie, aby połączyć się z Azure Resource Manager na urządzeniu Azure Stack EDGE Pro.
 
 1. Uruchom następujące polecenie: 
     
@@ -437,7 +437,7 @@ Aby utworzyć maszynę wirtualną, użyj `CreateVM.parameters.json` pliku parame
         }
 ```    
 
-Przypisz odpowiednie parametry na `CreateVM.parameters.json` urządzeniu Azure Stack Edge.
+Przypisz odpowiednie parametry do `CreateVM.parameters.json` urządzenia z Azure Stack Edge.
 
 1. Podaj unikatową nazwę, nazwę interfejsu sieciowego i nazwę ipconfig. 
 1. Wprowadź nazwę użytkownika, hasło i obsługiwane rozmiary maszyn wirtualnych.
@@ -594,7 +594,7 @@ Wykonaj następujące kroki, aby nawiązać połączenie z maszyną wirtualną z
 
 <!--## Manage VM
 
-The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge device.
+The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.
 
 [!INCLUDE [azure-stack-edge-gateway-manage-vm](../../includes/azure-stack-edge-gateway-manage-vm.md)]-->
 
@@ -609,9 +609,9 @@ Rozszerzenia, zestawy skalowania, zestawy dostępności, migawki nie są obsług
 
 <!--## Configure AzCopy
 
-When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge device.
+When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge Pro device.
 
-On the client used to access your Azure Stack Edge device, set up a global variable to match the blob storage REST API version.
+On the client used to access your Azure Stack Edge Pro device, set up a global variable to match the blob storage REST API version.
 
 ### On Windows client 
 

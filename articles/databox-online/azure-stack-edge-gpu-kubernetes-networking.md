@@ -1,6 +1,6 @@
 ---
-title: Informacje o Kubernetes sieci Azure Stack na urządzeniu brzegowym | Microsoft Docs
-description: Opisuje sposób działania sieci Kubernetes Azure Stack na urządzeniu brzegowym.
+title: Informacje na temat sieci Kubernetes na urządzeniu z systemem Azure Stack Edge | Microsoft Docs
+description: Opisuje sposób działania sieci Kubernetes na urządzeniu z systemem Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 4eab89710e031ead0a3758afd2367e60d26f395b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 001304ad6eda27db2285aaa9ad8b28929e2a04f8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268129"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899325"
 ---
-# <a name="kubernetes-networking-in-your-azure-stack-edge-gpu-device"></a>Kubernetes sieci na urządzeniu GPU Azure Stack Edge
+# <a name="kubernetes-networking-in-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes sieci na urządzeniu GPU z Azure Stack Edge
 
-Na urządzeniu Azure Stack Edge tworzony jest klaster Kubernetes podczas konfigurowania roli obliczeniowej. Po utworzeniu klastra Kubernetes można wdrożyć aplikacje kontenera w klastrze Kubernetes w zasobnikach. Istnieją różne sposoby używania sieci dla zasobników w klastrze Kubernetes. 
+Na urządzeniu Azure Stack EDGE Pro tworzony jest klaster Kubernetes podczas konfigurowania roli obliczeniowej. Po utworzeniu klastra Kubernetes można wdrożyć aplikacje kontenera w klastrze Kubernetes w zasobnikach. Istnieją różne sposoby używania sieci dla zasobników w klastrze Kubernetes. 
 
-W tym artykule opisano sieci w klastrze Kubernetes ogólnie i w kontekście Azure Stack urządzenia brzegowego. 
+W tym artykule opisano sieci w klastrze Kubernetes ogólnie i w kontekście Twojego urządzenia Azure Stack EDGE Pro. 
 
 ## <a name="networking-requirements"></a>Wymagania dotyczące sieci
 
@@ -59,9 +59,9 @@ For discovery of applications within the cluster, Kubernetes cluster has a
 When an application or the end user would first use the IP address associated with the service of type load balancer to discover the service. Then it would use the label select `app = WS` to discover the pods associated with the application. The `kube-proxy` component would then distribute the traffic and ensure that it hits one of the web server application pods. If the web server app wanted to talk to the database app, then it would simply use the name of the service and using the name and the DNS server pod, resolve the name to an IP address. Again using labels and label selector, it would discover the pods associated with the database application. The `kube-proxy` would then distribute the traffic across each of the database app nodes.-->
 
 
-## <a name="kubernetes-networking-on-azure-stack-edge"></a>Kubernetes sieci na Azure Stack Edge
+## <a name="kubernetes-networking-on-azure-stack-edge-pro"></a>Kubernetes Networking na Azure Stack EDGE Pro
 
-Calico, Metallb i Core DNS to wszystkie składniki, które są zainstalowane na potrzeby sieci na Azure Stackej krawędzi. 
+Calico, Metallb i Core DNS to wszystkie składniki, które są zainstalowane dla sieci na Azure Stack Edge. 
 
 - **Calico** przypisuje adres IP z prywatnego zakresu adresów IP do każdego pod i konfiguruje sieć dla tych zasobników, tak aby w przypadku jednego węzła można było komunikować się z pod innym węzłem. 
 - **Metallb** działa w klastrze pod i przypisuje adresy IP do usług typu równoważenia obciążenia. Adresy IP modułu równoważenia obciążenia są wybierane z zakresu adresów IP usługi dostarczonych za pośrednictwem lokalnego interfejsu użytkownika. 
@@ -80,8 +80,8 @@ Przypisanie adresu IP:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby skonfigurować sieć Kubernetes na krawędzi Azure Stack, zobacz:
+Aby skonfigurować sieć Kubernetes na Azure Stack EDGE Pro, zobacz:
 
-- [Udostępnienie bezstanowej aplikacji na Azure Stackej krawędzi za pośrednictwem IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
+- [Udostępnienie bezstanowej aplikacji na Azure Stack EDGE Pro za pośrednictwem IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
 
-- [Udostępnienie bezstanowej aplikacji na Azure Stackej krawędzi za pośrednictwem kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Udostępnienie bezstanowej aplikacji na Azure Stack brzeg Pro za pośrednictwem kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).

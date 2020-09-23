@@ -1,6 +1,6 @@
 ---
-title: Informacje na temat zarządzania magazynem Kubernetes na urządzeniu Azure Stack Edge | Microsoft Docs
-description: Opisuje, w jaki sposób Zarządzanie magazynem Kubernetes odbywa się na urządzeniu brzegowym Azure Stack.
+title: Informacje o zarządzaniu magazynem Kubernetes na urządzeniu Azure Stack EDGE Pro | Microsoft Docs
+description: Opisuje, w jaki sposób Zarządzanie magazynem Kubernetes odbywa się na urządzeniu Azure Stack brzeg Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 57574b66ddb20e592a5979a4b827347f7c8e09af
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268095"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899265"
 ---
-# <a name="kubernetes-storage-management-on-your-azure-stack-edge-gpu-device"></a>Zarządzanie magazynem Kubernetes na urządzeniu Azure Stack Edge GPU
+# <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes Zarządzanie magazynem na urządzeniu GPU z systemem Azure Stack Edge
 
-Na urządzeniu Azure Stack Edge tworzony jest klaster Kubernetes podczas konfigurowania roli obliczeniowej. Po utworzeniu klastra Kubernetes można wdrożyć aplikacje kontenera w klastrze Kubernetes w zasobnikach. Istnieją różne sposoby dostarczania magazynu do zasobników w klastrze Kubernetes. 
+Na urządzeniu Azure Stack EDGE Pro tworzony jest klaster Kubernetes podczas konfigurowania roli obliczeniowej. Po utworzeniu klastra Kubernetes można wdrożyć aplikacje kontenera w klastrze Kubernetes w zasobnikach. Istnieją różne sposoby dostarczania magazynu do zasobników w klastrze Kubernetes. 
 
-W tym artykule opisano metody udostępniania magazynu w klastrze Kubernetes ogólnie i w kontekście Azure Stack urządzenia brzegowego. 
+W tym artykule opisano metody inicjowania obsługi administracyjnej magazynu w klastrze Kubernetes w ogólności i w kontekście programu Azure Stack Edge na urządzeniu. 
 
 ## <a name="storage-requirements-for-kubernetes-pods"></a>Wymagania dotyczące magazynu Kubernetes
 
@@ -75,9 +75,9 @@ Wystąpią następujące czynności:
 1. **Zainstaluj obwód PVC do kontenera**: po POwiązaniu obwodu PVC z WB można zainstalować obwód PVC w kontenerze na ścieżce w taki sam sposób jak statyczna obsługa administracyjna i Odczyt lub zapis w udziale.
 
 
-## <a name="storage-provisioning-on-azure-stack-edge"></a>Inicjowanie obsługi administracyjnej magazynu na Azure Stack Edge
+## <a name="storage-provisioning-on-azure-stack-edge-pro"></a>Inicjowanie obsługi magazynu na Azure Stack EDGE Pro
 
-Na urządzeniu z systemem Azure Stack Edge statycznie inicjowane `PersistentVolumes` jest tworzenie przy użyciu możliwości magazynu urządzenia. Gdy udostępniasz udział i **korzystasz z opcji udział z funkcją COMPUTE Edge** , ta akcja powoduje automatyczne utworzenie zasobu PV w klastrze Kubernetes.
+Na urządzeniu z systemem Azure Stack Edge, alokacja statyczna `PersistentVolumes` jest tworzona przy użyciu funkcji magazynu urządzenia. Gdy udostępniasz udział i **korzystasz z opcji udział z funkcją COMPUTE Edge** , ta akcja powoduje automatyczne utworzenie zasobu PV w klastrze Kubernetes.
 
 ![Tworzenie udziału lokalnego w Azure Portal na potrzeby inicjowania obsługi statycznej](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
@@ -85,7 +85,7 @@ Aby korzystać z obsługi warstw w chmurze, możesz utworzyć udział w chmurze 
 
 ![Tworzenie udziału w chmurze w Azure Portal na potrzeby inicjowania obsługi statycznej](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
-Można utworzyć udziały SMB i NFS do statycznego udostępniania PVs na urządzeniu brzegowym na Azure Stack. Po zainicjowaniu obsługi PV zostanie przesłany obwód PVC, aby przejąć ten magazyn. Poniżej znajduje się przykład wdrożenia obwodu PVC `yaml` , które jest oświadczeniem magazynu i korzysta z udostępnianych udziałów.
+Można utworzyć udziały SMB i NFS do statycznego udostępniania PVs na urządzeniu Azure Stack EDGE Pro. Po zainicjowaniu obsługi PV zostanie przesłany obwód PVC, aby przejąć ten magazyn. Poniżej znajduje się przykład wdrożenia obwodu PVC `yaml` , które jest oświadczeniem magazynu i korzysta z udostępnianych udziałów.
 
 
 ```yml
@@ -103,13 +103,13 @@ spec:
   storageClassName: ""
 ```
 
-Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji stanowej za pośrednictwem statycznej aprowizacji na Azure Stackej krawędzi za pomocą polecenia kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji stanowej za pośrednictwem statycznej aprowizacji na Azure Stack EDGE Pro za pośrednictwem polecenia kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
 
-Azure Stack Edge również ma wbudowaną `StorageClass` nazwę `ase-node-local` , która używa magazynu danych dołączonego do węzła Kubernetes. `StorageClass`Obsługuje to dynamiczną obsługę administracyjną. Możesz wprowadzić `StorageClass` odwołanie w aplikacjach pod, a funkcja PV zostanie automatycznie utworzona. Aby uzyskać więcej informacji, zobacz [pulpit nawigacyjny Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) , aby wykonać zapytanie `ase-node-local StorageClass` .
+Azure Stack EDGE Pro ma także wbudowaną `StorageClass` nazwę `ase-node-local` , która używa magazynu danych dołączonego do węzła Kubernetes. `StorageClass`Obsługuje to dynamiczną obsługę administracyjną. Możesz wprowadzić `StorageClass` odwołanie w aplikacjach pod, a funkcja PV zostanie automatycznie utworzona. Aby uzyskać więcej informacji, zobacz [pulpit nawigacyjny Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) , aby wykonać zapytanie `ase-node-local StorageClass` .
 
 ![Wbudowana Klasa magazynu na pulpicie nawigacyjnym Kubernetes](./media/azure-stack-edge-gpu-kubernetes-storage/dynamic-provisioning-builtin-storage-class-1.png)
 
-Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji stanowej za pośrednictwem dynamicznej obsługi administracyjnej na Azure Stackej krawędzi za pomocą kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).
+Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji stanowej za pośrednictwem dynamicznej obsługi administracyjnej na Azure Stack EDGE Pro za pośrednictwem kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).
 
 ## <a name="choose-storage-type"></a>Wybierz typ magazynu
 
@@ -127,8 +127,8 @@ Aby uzyskać więcej informacji na temat trybów dostępu, zobacz [tryb dostępu
 
 Aby zrozumieć, jak można statycznie zainicjować obsługę administracyjną `PersistentVolume` , zobacz:
 
-- [Wdróż aplikację stanową za pośrednictwem statycznej aprowizacji na Azure Stackej krawędzi za pośrednictwem polecenia kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+- [Wdróż aplikację stanową za pośrednictwem statycznej aprowizacji w Azure Stack EDGE Pro za pośrednictwem polecenia kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
 
 Aby dowiedzieć się, jak można dynamicznie zainicjować obsługę administracyjną `StorageClass` , zobacz:
 
-- [Wdróż aplikację stanową za pośrednictwem dynamicznej obsługi administracyjnej na Azure Stackej krawędzi za pośrednictwem kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).
+- [Wdróż aplikację stanową za pośrednictwem dynamicznej obsługi administracyjnej na Azure Stack brzeg Pro za pośrednictwem kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 314004d2b62d5616c1d7925b82fd9f050d0a1fd0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441803"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906920"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Podstawa zabezpieczeń Azure dla usługi Azure IoT Hub
 
@@ -71,7 +71,7 @@ Azure DDoS Protection podstawowa jest już włączona i dostępna bez dodatkowyc
 
 - [IoT Hub filtr IP](iot-hub-ip-filtering.md)
 
-- [Azure Security Center do komunikacji z podejrzanym adresem IP IoT](../asc-for-iot/concept-security-alerts.md)
+- [Azure Security Center do komunikacji z podejrzanym adresem IP IoT](../defender-for-iot/concept-security-alerts.md)
 
 - [Zarządzanie Azure DDoS Protection podstawowa](../virtual-network/ddos-protection-overview.md)
 
@@ -234,7 +234,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 - [Monitorowanie kondycji usługi Azure IoT Hub](iot-hub-monitor-resource-health.md)
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
-- [Azure Security Center alertów IoT](../asc-for-iot/concept-security-alerts.md)
+- [Azure Security Center alertów IoT](../defender-for-iot/concept-security-alerts.md)
 
 - [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/learn/tutorial-response.md)
 

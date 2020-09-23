@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: f54dd09ac82ddefeb2528462c7131aa921592d2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84487954"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907882"
 ---
 # <a name="init-image-transformation"></a>Inicjowanie transformacji obrazów
 
-W tym artykule opisano, jak używać modułu **transformacji obrazu init** w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu zainicjowania przekształcenia obrazu w celu określenia, w jaki sposób ma zostać przekształcony obraz.
+W tym artykule opisano, jak używać modułu **transformacji obrazu init** w programie Azure Machine Learning Designer, aby zainicjować transformację obrazu, aby określić, w jaki sposób obraz ma zostać przekształcony.
 
 ## <a name="how-to-configure-init-image-transformation"></a>Jak skonfigurować transformację obrazu init
 
@@ -67,7 +67,7 @@ Aby [https://pytorch.org/docs/stable/torchvision/transforms.html](https://pytorc
 
 ###  <a name="module-parameters"></a>Parametry modułu  
 
-| Nazwa                    | Zakres   | Typ    | Domyślne | Opis                              |
+| Nazwa                    | Zakres   | Typ    | Domyślny | Opis                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
 | Zmiana rozmiaru                  | Dowolne     | Boolean | Prawda    | Zmień rozmiar obrazu wejściowego PIL na dany rozmiar |
 | Rozmiar                    | >= 1     | Integer | 256     | Określ żądany rozmiar wyjściowy          |

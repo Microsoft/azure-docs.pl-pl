@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 09daffa74ccd279c8187391ba3b86063aed7d204
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6724d8eb8df29ccfb033f5951ec56b7770e3c413
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607030"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903567"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Obsługa interfejsu API w usłudze Azure static Web Apps Preview przy użyciu Azure Functions
 
@@ -20,19 +20,19 @@ Statyczne Web Apps platformy Azure udostępnia bezserwerowe punkty końcowe inte
 
 - **Zintegrowane zabezpieczenia** dzięki bezpośredniemu dostępowi do [uwierzytelniania użytkowników i danych autoryzacji opartych na rolach](user-information.md) .
 - **Bezproblemowy Routing** , który sprawia, że trasa _interfejsu API_ jest bezpiecznie dostępna dla aplikacji sieci Web bez konieczności stosowania niestandardowych reguł CORS.
-- **Azure Functions** wersja 3 zgodna z Node.js 12.
-- **Wyzwalacze protokołu HTTP** i powiązania wyjściowe.
+- **Azure Functions** v3 zgodne z Node.js 12, .net Core 3,1 i Python 3,8.
+- **Wyzwalacze protokołu HTTP** i powiązania wejścia/wyjścia.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-Punkty końcowe interfejsu API są dostępne dla aplikacji sieci Web za pomocą trasy _interfejsu API_ . Po naprawieniu tej trasy masz kontrolę nad folderem, w którym znajduje się skojarzona aplikacja Azure Functions. Tę lokalizację można zmienić, [edytując plik YAML przepływu pracy](github-actions-workflow.md#build-and-deploy) znajdujący się w folderze _. GitHub/_ Workflows repozytorium.
+Punkty końcowe interfejsu API są dostępne dla aplikacji sieci Web za pomocą trasy _interfejsu API_ . Po naprawieniu trasy masz kontrolę nad folderem i projektem, w którym znajduje się skojarzona aplikacja Azure Functions. Tę lokalizację można zmienić, [edytując plik YAML przepływu pracy](github-actions-workflow.md#build-and-deploy) znajdujący się w folderze _. GitHub/_ Workflows repozytorium.
 
 ## <a name="constraints"></a>Ograniczenia
 
 Usługa Azure static Web Apps udostępnia interfejs API za pomocą Azure Functions. Możliwości Azure Functions są skoncentrowane na określonym zestawie funkcji, które umożliwiają tworzenie interfejsu API dla aplikacji sieci Web i Zezwalanie aplikacji sieci Web na bezpieczne łączenie się z interfejsem API. Te funkcje są dostępne z pewnymi ograniczeniami, w tym:
 
 - Prefiks trasy interfejsu API musi być _interfejsem API_.
-- Aplikacja funkcji API musi znajdować się w języku JavaScript.
+- Interfejs API musi być aplikacją JavaScript, C# lub Python Azure Functions.
 - Reguły tras dla funkcji API obsługują tylko [przekierowywanie](routes.md#redirects) i [Zabezpieczanie tras z rolami](routes.md#securing-routes-with-roles).
 - Wyzwalacze są ograniczone do [protokołu HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Obsługiwane są [powiązania](../azure-functions/functions-triggers-bindings.md#supported-bindings) wejściowe i wyjściowe.

@@ -1,7 +1,7 @@
 ---
-title: Pouczenie modeli przy użyciu programu Azure Machine Learning Designer (wersja zapoznawcza)
+title: Pouczenie modeli przy użyciu narzędzia Azure Machine Learning Designer
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak ponownie szkolić modele z opublikowanymi potokami w programie Azure Machine Learning Designer (wersja zapoznawcza).
+description: Dowiedz się, jak ponownie szkolić modele z opublikowanymi potokami w programie Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661611"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905672"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Ponowne trenowanie modeli za pomocą projektanta usługi Azure Machine Learning (wersja zapoznawcza)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Ponowne uczenie modeli za pomocą narzędzia Azure Machine Learning Designer
+
 
 W tym artykule z tego artykułu dowiesz się, jak za pomocą narzędzia Azure Machine Learning Designer ponownie przeprowadzić uczenie modelu uczenia maszynowego. Przy użyciu opublikowanych potoków można zautomatyzować przepływ pracy i ustawić parametry w celu uczenia modelu na nowych danych. 
 
@@ -32,12 +32,12 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Azure Machine Learning obszar roboczy z jednostką SKU przedsiębiorstwa.
-* Ukończ część 1 tej serii jak to zrobić, [Przekształć dane w projektancie](how-to-designer-transform-data.md).
+* Obszar roboczy usługi Azure Machine Learning
+* Ukończ część 1 tej serii How to-to-to-to-the [-to-](how-to-designer-transform-data.md) Series
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
-W tym artykule założono również, że masz podstawową wiedzę na temat tworzenia potoków w projektancie. Aby zapoznać się z przewodnikiem, Ukończ [samouczek](tutorial-designer-automobile-price-train-score.md). 
+W tym artykule założono również, że masz pewną wiedzę na temat kompilowania potoków w projektancie. Aby zapoznać się z przewodnikiem, Ukończ [samouczek](tutorial-designer-automobile-price-train-score.md). 
 
 ### <a name="sample-pipeline"></a>Przykładowy potok
 
