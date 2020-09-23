@@ -10,16 +10,16 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
-ms.openlocfilehash: abb24ef1cc6a693acbaf6561a185fd5ae536a66d
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 64665c0b1e32970f29233f5abdd6b2d2d020a6b2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89668791"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897520"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Zwiększ odporność Azure Machine Learning
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym artykule dowiesz się, jak zwiększyć odporność Microsoft Azure Machine Learning zasobów przy użyciu konfiguracji o wysokiej dostępności. Można skonfigurować usługi platformy Azure, które Azure Machine Learning zależy od zapewnienia wysokiej dostępności. Ten artykuł zawiera informacje o usługach, które można skonfigurować pod kątem wysokiej dostępności, oraz linki do dodatkowych informacji na temat konfigurowania tych zasobów.
 
@@ -53,7 +53,7 @@ W poniższej tabeli przedstawiono, które usługi platformy Azure są zarządzan
 | **Infrastruktura Azure Machine Learning** | Microsoft | |
 | **Skojarzone zasoby** |
 | Azure Storage | Ty | |
-| Usługa Key Vault | Ty | ✓ |
+| Key Vault | Ty | ✓ |
 | Container Registry | Ty | |
 | Application Insights | Ty | Nie dotyczy |
 | **Zasoby obliczeniowe** |

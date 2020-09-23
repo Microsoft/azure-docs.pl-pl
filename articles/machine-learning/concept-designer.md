@@ -1,5 +1,5 @@
 ---
-title: Tworzenie modeli ML przy użyciu projektanta (wersja zapoznawcza)
+title: Tworzenie modeli ML przy użyciu narzędzia Projektant
 titleSuffix: Azure Machine Learning
 description: Poznaj warunki, koncepcje i przepływ pracy, które tworzą projektanta dla Azure Machine Learning.
 services: machine-learning
@@ -10,15 +10,15 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 788eebaf28a768acbdb5b1eb778f196fe05dc3e3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: c92351131a60b571a102b85f7d11b79ab29d939e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651217"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883127"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>Co to jest projektant usługi Azure Machine Learning (wersja zapoznawcza)? 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="what-is-azure-machine-learning-designer"></a>Co to jest Azure Machine Learning Designer? 
+
 
 Projektant Azure Machine Learning umożliwia wizualne łączenie [zestawów danych](#datasets) i [modułów](#module) na interaktywnej kanwie w celu tworzenia modeli uczenia maszynowego. Aby dowiedzieć się, jak rozpocząć pracę z projektantem, zobacz [Samouczek: przewidywanie ceny za samochód dla urządzeń przenośnych za pomocą projektanta](tutorial-designer-automobile-price-train-score.md)
 
@@ -98,7 +98,7 @@ Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostow
 
 Elementy docelowe obliczeń są dołączone do [obszaru roboczego Azure Machine Learning](concept-workspace.md). Obiektami docelowymi obliczeń można zarządzać w obszarze roboczym w programie [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="deploy"></a>Wdrażanie
+## <a name="deploy"></a>Wdróż
 
 Aby wykonać inferencing w czasie rzeczywistym, należy wdrożyć potok jako **punkt końcowy w czasie rzeczywistym**. Punkt końcowy w czasie rzeczywistym tworzy interfejs między aplikacją zewnętrzną a modelem oceniania. Wywołanie punktu końcowego w czasie rzeczywistym zwraca wyniki prognozowania do aplikacji w czasie rzeczywistym. Aby wykonać wywołanie do punktu końcowego w czasie rzeczywistym, należy przekazać klucz interfejsu API, który został utworzony podczas wdrażania punktu końcowego. Punkt końcowy jest oparty na pozostałej, popularnej architekturze dla projektów programowania w sieci Web.
 
@@ -106,7 +106,7 @@ Punkty końcowe w czasie rzeczywistym muszą zostać wdrożone w klastrze usług
 
 Aby dowiedzieć się, jak wdrożyć model, zobacz [Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą projektanta](tutorial-designer-automobile-price-deploy.md).
 
-## <a name="publish"></a>Publikowanie
+## <a name="publish"></a>Opublikuj
 
 Możesz również opublikować potok w **punkcie końcowym potoku**. Podobnie jak w przypadku punktu końcowego w czasie rzeczywistym, punkt końcowy potoku umożliwia przesyłanie nowych uruchomień potoków z aplikacji zewnętrznych przy użyciu wywołań REST. Nie można jednak wysyłać ani odbierać danych w czasie rzeczywistym za pomocą punktu końcowego potoku.
 
@@ -118,5 +118,5 @@ Projektant tworzy ten sam obiekt [PublishedPipeline](https://docs.microsoft.com/
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Poznaj podstawy analizy predykcyjnej i uczenia maszynowego za pomocą [samouczka: przewidywanie ceny za samochód z użyciem projektanta](tutorial-designer-automobile-price-train-score.md)
+* Poznaj podstawowe informacje na temat analizy predykcyjnej i uczenia maszynowego za pomocą [samouczka: przewidywanie ceny samochodów dla urządzeń przenośnych za pomocą projektanta](tutorial-designer-automobile-price-train-score.md)
 * Dowiedz się, jak modyfikować istniejące [przykłady projektanta](samples-designer.md) , aby dostosować je do swoich potrzeb.

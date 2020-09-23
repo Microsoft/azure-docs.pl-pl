@@ -1,14 +1,14 @@
 ---
 title: Przywracanie SAP HANA baz danych na maszynach wirtualnych platformy Azure
-description: W tym artykule opisano sposób przywracania SAP HANA baz danych uruchomionych w usłudze Azure Virtual Machines.
+description: W tym artykule opisano sposób przywracania SAP HANA baz danych uruchomionych w usłudze Azure Virtual Machines. Można również użyć przywracania między regionami w celu przywrócenia baz danych do regionu pomocniczego.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 68858db6f89221e1a3a8f0955d5e009d56e2d365
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c502b7741acd343baefe5e2bf8b95cfc02e46688
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375316"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986127"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Przywracanie SAP HANA baz danych na maszynach wirtualnych platformy Azure
 
@@ -249,6 +249,51 @@ Jeśli wybrano opcję **pełny & różnicowa** jako typ przywracania, wykonaj na
 
     > [!NOTE]
     > W przypadku przywracania wielu baz danych (MDC) po przywróceniu bazy danych systemowych do wystąpienia docelowego jeden musi ponownie uruchomić skrypt przed rejestracją. Kolejne Przywracanie bazy danych dzierżawy zakończy się powodzeniem. Aby dowiedzieć się więcej, zobacz [temat Rozwiązywanie problemów — przywracanie MDC](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
+
+## <a name="cross-region-restore"></a>Przywracanie między regionami
+
+Jako jedna z opcji przywracania, przywracanie między regionami (CRR) umożliwia przywracanie SAP HANA baz danych hostowanych na maszynach wirtualnych platformy Azure w regionie pomocniczym, który jest sparowanym regionem platformy Azure.
+
+Aby dołączyć do funkcji w wersji zapoznawczej, zapoznaj się z [sekcją przed rozpoczęciem](./backup-create-rs-vault.md#set-cross-region-restore).
+
+Aby sprawdzić, czy CRR jest włączona, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie przywracania między regionami](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### <a name="view-backup-items-in-secondary-region"></a>Wyświetlanie elementów kopii zapasowej w regionie pomocniczym
+
+Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regionie pomocniczym.
+
+1. W portalu przejdź do pozycji **Recovery Services**  >  **elementy kopii zapasowej**magazynu.
+1. Wybierz **region pomocniczy** , aby wyświetlić elementy w regionie pomocniczym.
+
+>[!NOTE]
+>Na liście zostaną wyświetlone tylko typy zarządzania kopiami zapasowymi obsługujące funkcję CRR. Obecnie dozwolony jest tylko program obsługujący przywracanie danych regionu pomocniczego do regionu pomocniczego.
+
+![Elementy kopii zapasowej w regionie pomocniczym](./media/sap-hana-db-restore/backup-items-secondary-region.png)
+
+![Bazy danych w regionie pomocniczym](./media/sap-hana-db-restore/databases-secondary-region.png)
+
+### <a name="restore-in-secondary-region"></a>Przywróć w regionie pomocniczym
+
+Środowisko użytkownika do przywracania regionu pomocniczego będzie podobne do środowiska użytkownika w regionie podstawowym. Podczas konfigurowania szczegółów w okienku Przywracanie konfiguracji w celu skonfigurowania przywracania zostanie wyświetlony monit o podanie tylko parametrów regionu pomocniczego.
+
+![Miejsce i sposób przywracania](./media/sap-hana-db-restore/restore-secondary-region.png)
+
+>[!NOTE]
+>Sieć wirtualną w regionie pomocniczym musi być przypisana unikatowa i nie może być używana dla żadnych innych maszyn wirtualnych w tej grupie zasobów.
+
+![Powiadomienie o wyzwoleniu przywracania w toku](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>* Po wyzwoleniu przywracania i fazie transferu danych nie można anulować zadania przywracania.
+>* Role platformy Azure, które muszą zostać przywrócone w regionie pomocniczym, są takie same jak w regionie podstawowym.
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>Monitorowanie zadań przywracania regionu pomocniczego
+
+1. W portalu przejdź do obszaru **Recovery Services**  >  **zadania tworzenia kopii zapasowej** magazynu
+1. Wybierz **region pomocniczy** , aby wyświetlić elementy w regionie pomocniczym.
+
+    ![Odfiltrowane zadania tworzenia kopii zapasowej](./media/sap-hana-db-restore/backup-jobs-secondary-region.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

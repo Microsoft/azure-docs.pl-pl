@@ -1,6 +1,6 @@
 ---
-title: Tworzenie kopii zapasowych i przywracanie baz danych — Azure SQL Edge (wersja zapoznawcza)
-description: Informacje o możliwościach tworzenia kopii zapasowych i przywracania w usłudze Azure SQL Edge (wersja zapoznawcza).
+title: Tworzenie kopii zapasowych i przywracanie baz danych — Azure SQL Edge
+description: Informacje o możliwościach tworzenia kopii zapasowych i przywracania danych w usłudze Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 92a37babbcc0bbba3845267ca2eb0f95b9fceafa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2cc8901ee3952f7d258d768e175412254ec5d1a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667866"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905946"
 ---
-# <a name="back-up-and-restore-databases-in-azure-sql-edge-preview"></a>Tworzenie kopii zapasowych i przywracanie baz danych w usłudze Azure SQL Edge (wersja zapoznawcza) 
+# <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>Tworzenie kopii zapasowych i przywracanie baz danych w usłudze Azure SQL Edge 
 
-Usługa Azure SQL Edge jest oparta na najnowszych wersjach aparatu bazy danych Microsoft SQL Server w systemie Linux. Zapewnia ona podobne możliwości tworzenia kopii zapasowych i przywracania baz danych, jak te dostępne w SQL Server on Linux i SQL Server uruchomione w kontenerach. Składnik kopia zapasowa i przywracanie zapewnia podstawowe zabezpieczenia ochrony danych przechowywanych w bazach danych usługi Azure SQL Edge. 
+Usługa Azure SQL Edge jest oparta na najnowszych wersjach aparatu Microsoft SQL Database Engine. Zapewnia ona podobne możliwości tworzenia kopii zapasowych i przywracania baz danych, jak te dostępne w SQL Server on Linux i SQL Server uruchomione w kontenerach. Składnik kopia zapasowa i przywracanie zapewnia podstawowe zabezpieczenia ochrony danych przechowywanych w bazach danych usługi Azure SQL Edge. 
 
 Aby zminimalizować ryzyko utraty danych, należy okresowo tworzyć kopie zapasowe baz danych, aby regularnie zachować modyfikacje danych. Dobrze zaplanowana strategii tworzenia kopii zapasowej i przywracania pomaga chronić bazy danych przed utratą danych spowodowaną przez różne błędy. Przetestuj strategię przez przywrócenie zestawu kopii zapasowych, a następnie odzyskiwanie bazy danych, aby przygotować się do skutecznej reakcji na awarię.
 
@@ -75,7 +75,7 @@ W poniższym przykładzie użyto `BACKUP DATABASE` polecenia Transact-SQL do utw
 
 ### <a name="back-up-to-url"></a>Utwórz kopię zapasową do adresu URL
 
-Usługa Azure SQL Edge obsługuje kopie zapasowe zarówno stronicowych obiektów blob, jak i blokowych obiektów BLOB. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowej do blokowego obiektu BLOB programu vs Page](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15#blockbloborpageblob). W poniższym przykładzie kopia zapasowa bazy danych *IronOreSilicaPrediction* jest tworzona w blokowym obiekcie blob. 
+Usługa Azure SQL Edge obsługuje kopie zapasowe zarówno stronicowych obiektów blob, jak i blokowych obiektów BLOB. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowej do blokowego obiektu BLOB programu vs Page](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). W poniższym przykładzie kopia zapasowa bazy danych *IronOreSilicaPrediction* jest tworzona w blokowym obiekcie blob. 
 
 1. Aby skonfigurować tworzenie kopii zapasowych w celu blokowania obiektów blob, należy najpierw wygenerować token sygnatury dostępu współdzielonego (SAS), za pomocą którego można utworzyć poświadczenia SQL Server w usłudze Azure SQL Edge. Skrypt tworzy sygnaturę dostępu współdzielonego, która jest skojarzona z przechowywanymi zasadami. Aby uzyskać więcej informacji, zobacz [sygnatury dostępu współdzielonego, część 1: Omówienie modelu SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/). Skrypt zapisuje również polecenie T-SQL wymagane do utworzenia poświadczenia na SQL Server. W poniższym skrypcie założono, że masz już subskrypcję platformy Azure z kontem magazynu i kontenerem magazynu dla kopii zapasowych.
 
@@ -133,7 +133,10 @@ Usługa Azure SQL Edge obsługuje kopie zapasowe zarówno stronicowych obiektów
 
 ## <a name="restore-a-database-in-azure-sql-edge"></a>Przywracanie bazy danych w usłudze Azure SQL Edge
 
-W usłudze Azure SQL Edge można przywrócić z dysku lokalnego, lokalizacji sieciowej lub konta usługi Azure Blob Storage. Aby uzyskać więcej informacji na temat przywracania i odzyskiwania w SQL Server, zobacz [przywracanie i odzyskiwanie — Omówienie](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server?view=sql-server-ver15). Aby zapoznać się z omówieniem prostego modelu odzyskiwania w SQL Server, zobacz [Kończenie przywracania bazy danych (model odzyskiwania prostego)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model?view=sql-server-ver15).
+W usłudze Azure SQL Edge można przywrócić z dysku lokalnego, lokalizacji sieciowej lub konta usługi Azure Blob Storage. Aby uzyskać więcej informacji na temat przywracania i odzyskiwania w SQL Server, zobacz [przywracanie i odzyskiwanie — Omówienie](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). Aby zapoznać się z omówieniem prostego modelu odzyskiwania w SQL Server, zobacz [Kończenie przywracania bazy danych (model odzyskiwania prostego)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
+
+> [!IMPORTANT] 
+> Baz danych utworzonych w usłudze Azure SQL Edge nie można przywrócić w wystąpieniu Microsoft SQL Server lub Azure SQL. Ponadto baza danych utworzona w Microsoft SQL Server lub Azure SQL może być przywracana w usłudze Azure SQL Edge, pod warunkiem, że baza danych nie zawiera żadnych funkcji nieobsługiwanych przez usługę Azure SQL Edge. 
 
 ### <a name="restore-from-a-local-disk"></a>Przywracanie z dysku lokalnego
 

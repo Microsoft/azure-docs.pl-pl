@@ -1,7 +1,7 @@
 ---
-title: Co to jest interfejs API czytnika immersyjny?
+title: Co to jest czytnik immersyjny?
 titleSuffix: Azure Cognitive Services
-description: Interfejs API czytnika immersyjny to narzędzie, którego można użyć w celu podzielenia się z różnicami w nauce lub ułatwieniami nowych czytników i języków.
+description: Czytnik immersyjny to narzędzie, które jest przeznaczone do ułatwienia innym osobom, które mają różne różnice, lub pomagają nowym czytelnikom i osobom korzystającym z czytelnych informacji.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,57 +10,72 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 01/4/2020
 ms.author: metan
-ms.openlocfilehash: b9efe70e8658e25d61decffbe44dec776890b17b
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.custom: cog-serv-seo-aug-2020
+keywords: Czytelnicy, informacje o języku, wyświetlanie obrazów, ulepszanie odczytu, odczytywanie zawartości, tłumaczenie
+ms.openlocfilehash: a537845c0256316f9c47317a8805fa989a624f60
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267277"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985745"
 ---
 # <a name="what-is-immersive-reader"></a>Co to jest czytnik immersyjny?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+[Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności dla nowych czytelników, nauk językowych i osób, które mają różnice szkoleniowe, takie jak Dyslexia. Za pomocą biblioteki klienta czytnika immersyjny można korzystać z tej samej technologii, która jest używana w programach Microsoft Word i Microsoft renote do ulepszania aplikacji sieci Web. 
 
-[Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności dla nowych czytelników, nauk językowych i osób, które mają różnice szkoleniowe, takie jak Dyslexia.
+## <a name="use-immersive-reader-to-improve-reading-accessibility"></a>Korzystanie z czytnika immersyjny w celu usprawnienia ułatwienia dostępu do odczytu 
 
-Czytnik immersyjny można zastosować w aplikacji internetowej, korzystając z zestawu SDK czytnika immersyjnego.
+Czytnik immersyjny został zaprojektowany w celu łatwiejszego czytania i ułatwienia dostępu dla wszystkich użytkowników. Przyjrzyjmy się kilku podstawowym funkcjom czytnika immersyjny.
 
-## <a name="what-does-immersive-reader-do"></a>Co robi czytnik immersyjny?
+### <a name="isolate-content-for-improved-readability"></a>Izoluj zawartość, aby zwiększyć czytelność
 
-Czytnik immersyjny został zaprojektowany w celu ułatwienia dostępu do odczytu dla wszystkich użytkowników.
+Czytnik immersyjny izoluje zawartość, aby zwiększyć czytelność. 
 
-* Pokazuje zawartość w minimalnym widoku do czytania
+  ![Izoluj zawartość w celu zwiększenia czytelności dzięki czytnikom immersyjny](./media/immersive-reader.png)
 
-  ![Czytnik immersyjny](./media/immersive-reader.png)
+### <a name="display-pictures-for-common-words"></a>Wyświetlanie obrazów dla typowych słów
 
-* Wyświetla obrazy często używanych słów
+W przypadku często używanych terminów czytnik immersyjny będzie wyświetlał obraz.
 
-  ![Słownik obrazów](./media/picture-dictionary.png)
+  ![Słownik obrazu z czytnikiem immersyjny](./media/picture-dictionary.png)
 
-* Wyróżnia rzeczowniki, czasowniki, przymiotniki i parametrów
+### <a name="highlight-parts-of-speech"></a>Wyróżnij części mowy
 
-  ![Części mowy](./media/parts-of-speech.png)
+Czytnik immersyjny może służyć do zdobywania informacji o częściach mowy i gramatyki, wyróżniania czasowników, rzeczowników, prorzeczowników itd.
 
-* Odczytuje zawartość na głos
+  ![Pokaż części mowy za pomocą czytnika immersyjny](./media/parts-of-speech.png)
 
-  ![Czytaj na głos](./media/read-aloud.png)
+### <a name="read-content-aloud"></a>Czytaj zawartość na głos
 
-* Tłumaczy zawartość na inny język
+Synteza mowy (lub zamiana tekstu na mowę) jest rozszerzania w usłudze czytnika immersyjny, co umożliwia czytelnikom wybranie tekstu do odczytu na głos. 
 
-  ![Tłumaczenie](./media/translation.png)
+  ![Czytaj tekst na głos z czytnikiem immersyjny](./media/read-aloud.png)
 
-* Dzieli wyrazy na sylaby
+### <a name="translate-content-in-real-time"></a>Tłumaczenie zawartości w czasie rzeczywistym
 
-  ![Syllabification](./media/syllabification.png)
+Czytnik immersyjny może tłumaczyć tekst w wielu językach w czasie rzeczywistym. Jest to przydatne w celu ulepszania zrozumienia dla czytelników.
+
+  ![Tłumaczenie tekstu za pomocą czytnika immersyjny](./media/translation.png)
+
+### <a name="split-words-into-syllables"></a>Dzielenie wyrazów na sylaby
+
+Za pomocą czytnika immersyjny można przerwać słowa w sylabach, aby zwiększyć czytelność lub wyszukać nowe słowa.
+
+  ![Dzielenie wyrazów na sylaby za pomocą czytnika immersyjny](./media/syllabification.png)
 
 ## <a name="how-does-immersive-reader-work"></a>Jak działa czytnik immersyjny?
 
-Czytnik immersyjny to autonomiczna aplikacja internetowa, która jest wywoływana przy użyciu zestawu SDK języka JavaScript czytnika immersyjny, która jest wyświetlana na górze istniejącej aplikacji sieci Web za pośrednictwem `iframe` . Po wywołaniu interfejsu API w celu uruchomienia czytnika immersyjny należy określić zawartość, która ma być wyświetlana w czytniku immersyjny. Nasz zestaw SDK obsługuje tworzenie i określanie stylów `iframe` i komunikacji z usługą zaplecza czytnika immersyjny, która przetwarza zawartość dla części mowy, zamiany tekstu na mowę, tłumaczenie i tak dalej.
+Czytnik immersyjny to autonomiczna aplikacja internetowa. Po wywołaniu przy użyciu biblioteki klienta czytnika immersyjny jest wyświetlana na górze istniejącej aplikacji sieci Web w witrynie `iframe` . Gdy aplikacja WEP wywołuje usługę czytnika immersyjny, należy określić zawartość do wyświetlania czytnika. Biblioteka klienta czytnika immersyjny obsługuje tworzenie i określanie stylów `iframe` i komunikacji z usługą zaplecza czytnika immersyjny. Usługa czytnika immersyjny przetwarza zawartość dla części mowy, zamiany tekstu na mowę, tłumaczenia i nie tylko.
+
+## <a name="get-started-with-immersive-reader"></a>Wprowadzenie do czytnika immersyjny
+
+Biblioteka klienta czytnika immersyjny jest dostępna w językach C#, JavaScript, Java (Android), Kotlin (Android) i SWIFT (iOS). Rozpocznij pracę, korzystając z następujących zasobów:
+
+* [Szybki Start: korzystanie z biblioteki klienta czytnika immersyjny](quickstarts/client-libraries.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
 Rozpoczynanie pracy z czytnikiem immersyjnym:
 
-* Przejdź do [przewodników szybki start](./quickstarts/client-libraries.md?pivots=programming-language-csharp)
-* Eksplorowanie [zestawu SDK czytnika immersyjny w witrynie GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* Przeczytaj [Kompendium zestawu SDK czytnika immersyjny](./reference.md)
+* Przeczytaj [Informacje o bibliotece klienta czytnika immersyjny](./reference.md)
+* Eksplorowanie [biblioteki klienta czytnika immersyjny w serwisie GitHub](https://github.com/microsoft/immersive-reader-sdk)

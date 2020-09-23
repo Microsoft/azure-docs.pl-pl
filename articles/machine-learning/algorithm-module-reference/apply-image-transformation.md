@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 7ff135911742c49c2c52ce30d1dca00bc89b3a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898916"
 ---
 # <a name="apply-image-transformation"></a>Stosowanie transformacji obrazów 
 
-W tym artykule opisano, jak za pomocą modułu Zastosuj transformację obrazu w programie Azure Machine Learning Designer (wersja zapoznawcza) zmodyfikować katalog obrazu wejściowego na podstawie wcześniej określonej transformacji obrazu.  
+W tym artykule opisano, jak za pomocą modułu Zastosuj transformację obrazu w programie Azure Machine Learning Designer zmodyfikować katalog obrazu wejściowego na podstawie wcześniej określonej transformacji obrazu.  
 
 Aby określić transformację, należy podłączyć moduł [przekształcenia obrazu init](init-image-transformation.md) , a następnie można zastosować takie przekształcenia do katalogu obrazu wejściowego modułu Zastosuj transformację obrazu.
 
@@ -47,7 +47,7 @@ Aby określić transformację, należy podłączyć moduł [przekształcenia obr
 
 ### <a name="module-parameters"></a>Parametry modułu
 
-| Nazwa | Zakres | Typ | Domyślne                   | Opis                              |
+| Nazwa | Zakres | Typ | Domyślny                   | Opis                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
 | Tryb | Dowolne   | Tryb | (Wymaganie użytkownika do określenia) | Do czego służy transformacja danych wejściowych. Należy wykluczyć operacje transformacji "Random" w wnioskach, ale zachować je w szkoleniu |
 

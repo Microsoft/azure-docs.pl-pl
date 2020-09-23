@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 73e8f0de9f879498acb71e97fa47c81b3447252d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edf35fada4233fbe43bc7f859c2414bfb8130714
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749608"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905732"
 ---
 # <a name="train-anomaly-detection-model-module"></a>Moduł wykrywania anomalii szkolenia
 
-W tym artykule opisano, jak używać modułu wykrywania anomalii w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu utworzenia przeszkolonego modelu wykrywania anomalii.
+W tym artykule opisano, jak za pomocą modułu wykrywania anomalii w programie Azure Machine Learning Designer utworzyć szkolony model wykrywania anomalii.
 
 Moduł przyjmuje jako wejściowy zestaw parametrów dla modelu wykrywania anomalii i nieoznaczonego zestawu danych. Zwraca on szkolony model wykrywania anomalii wraz z zestawem etykiet dla danych szkoleniowych.  
 
@@ -53,5 +53,5 @@ Po zakończeniu szkolenia:
 
 Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
 
-Zobacz [wyjątki i kody błędów dla projektanta (wersja zapoznawcza)](designer-error-codes.md) , aby zapoznać się z listą błędów specyficznych dla modułów projektanta.
+Zobacz [wyjątki i kody błędów dla projektanta,](designer-error-codes.md) aby zapoznać się z listą błędów specyficznych dla modułów projektanta.
 '

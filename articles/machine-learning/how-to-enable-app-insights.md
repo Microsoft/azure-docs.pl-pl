@@ -11,15 +11,15 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f497bf5374dd6f621a6b48bae245e5efb1505a19
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: a36f69c9956dd05c5fbd85d7e37b90c0b1e4c21e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603071"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897654"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorowanie i zbieranie danych z punktów końcowych usługi sieci Web ML
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym artykule dowiesz się, jak zbierać dane z modeli wdrożonych w punktach końcowych usługi sieci Web w usłudze Azure Kubernetes Service (AKS) lub Azure Container Instances (ACI). Użyj [usługi Azure Application Insights](../azure-monitor/app/app-insights-overview.md) , aby zebrać następujące dane z punktu końcowego:
 * Dane wyjściowe

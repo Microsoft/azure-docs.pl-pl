@@ -1,7 +1,7 @@
 ---
-title: Przekształcanie danych w projektancie (wersja zapoznawcza)
+title: Przekształcanie danych w projektancie
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak przekształcać dane w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu utworzenia własnych zestawów danych.
+description: Dowiedz się, jak przekształcać dane w projektancie Azure Machine Learning, aby tworzyć własne zestawy danych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 05a21ce10db2822c963f1b375842e9a7233e0816
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 06ba65b9ef031b1d33477a15e01f3e0be53b5e53
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457825"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897803"
 ---
-# <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Przekształcanie danych w programie Azure Machine Learning Designer (wersja zapoznawcza)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="transform-data-in-azure-machine-learning-designer"></a>Przekształcanie danych w projektancie Azure Machine Learning
+
 
 W tym artykule przedstawiono sposób przekształcania i zapisywania zestawów danych w projektancie Azure Machine Learning, dzięki czemu można przygotować własne dane do uczenia maszynowego.
 
@@ -107,7 +107,7 @@ Teraz, gdy potok został skonfigurowany tak, aby podzielił dane, musisz określ
 
     **Magazyn**danych: wybierz istniejący magazyn danych lub wybierz pozycję "nowy magazyn danych", aby utworzyć go teraz.
 
-    **Ścieżka**:`/data/us-income`
+    **Ścieżka**: `/data/us-income`
 
     **Format pliku**: CSV
 
@@ -124,7 +124,7 @@ Teraz, gdy potok został skonfigurowany tak, aby podzielił dane, musisz określ
 
     **Magazyn**danych: Wybierz ten sam magazyn danych, jak powyżej
 
-    **Ścieżka**:`/data/non-us-income`
+    **Ścieżka**: `/data/non-us-income`
 
     **Format pliku**: CSV
 

@@ -1,6 +1,6 @@
 ---
-title: Wymagania systemowe Microsoft Azure Stack Edge | Microsoft Docs
-description: Dowiedz się więcej o wymaganiach dotyczących oprogramowania i sieci dla Azure Stack Edge
+title: Microsoft Azure Stack Edge wymagania systemowe | Microsoft Docs
+description: Dowiedz się więcej o wymaganiach dotyczących oprogramowania i sieci dla Twojego Azure Stack EDGE Pro
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 921dcb05401c61a9fb581595c20112e67f696c5e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a1a0462b82629b16bd8ccbe269fb1a917357d542
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371310"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883506"
 ---
-# <a name="azure-stack-edge-system-requirements"></a>Wymagania systemowe Azure Stack Edge
+# <a name="azure-stack-edge-pro-system-requirements"></a>Azure Stack Edge wymagania systemowe
 
-W tym artykule opisano ważne wymagania systemowe dotyczące rozwiązania Microsoft Azure Stack Edge oraz klientów łączących się z Azure Stack Edge. Zalecamy dokładne zapoznanie się z informacjami przed wdrożeniem Azure Stack krawędzi. W razie potrzeby można odwoływać się do tych informacji podczas wdrażania i kolejnej operacji.
+W tym artykule opisano ważne wymagania systemowe dotyczące rozwiązania Microsoft Azure Stack EDGE Pro oraz klientów łączących się z usługą Azure Stack EDGE Pro. Zalecamy dokładne zapoznanie się z informacjami przed wdrożeniem Azure Stack EDGE Pro. W razie potrzeby można odwoływać się do tych informacji podczas wdrażania i kolejnej operacji.
 
-Wymagania systemowe Azure Stack krawędzi obejmują:
+Wymagania systemowe dotyczące Azure Stack Edge w wersji Pro obejmują:
 
 - **Wymagania dotyczące oprogramowania dla hostów** — zawiera opis obsługiwanych platform, przeglądarek dla lokalnego interfejsu użytkownika konfiguracji, klientów SMB i wszelkich dodatkowych wymagań dla klientów, którzy uzyskują dostęp do urządzenia.
 - **Wymagania dotyczące sieci dla urządzenia** — zawiera informacje o wymaganiach sieciowych dla działania urządzenia fizycznego.
@@ -46,9 +46,9 @@ Wymagania systemowe Azure Stack krawędzi obejmują:
 
 ## <a name="networking-port-requirements"></a>Wymagania dotyczące portów sieciowych
 
-### <a name="port-requirements-for-azure-stack-edge"></a>Wymagania dotyczące portów dla Azure Stack Edge
+### <a name="port-requirements-for-azure-stack-edge-pro"></a>Wymagania dotyczące portów dla Azure Stack EDGE Pro
 
-Poniższa tabela zawiera listę portów, które należy otworzyć w zaporze, aby umożliwić obsługę ruchu SMB, chmury lub zarządzania. W tej tabeli *w programie lub w* *ruchu przychodzącym* odwołuje się do kierunku, w którym klient przychodzący żąda dostępu do urządzenia. *Out* lub *wychodzący* odnosi się do kierunku, w którym urządzenie Azure Stack Edge wysyła dane zewnętrznie, poza wdrożeniem, na przykład przez wychodzące do Internetu.
+Poniższa tabela zawiera listę portów, które należy otworzyć w zaporze, aby umożliwić obsługę ruchu SMB, chmury lub zarządzania. W tej tabeli *w programie lub w* *ruchu przychodzącym* odwołuje się do kierunku, w którym klient przychodzący żąda dostępu do urządzenia. *Out* lub *wychodzący* odnosi się do kierunku, w którym urządzenie Azure Stack EDGE Pro wysyła dane zewnętrznie, poza wdrożeniem, na przykład przez wychodzące do Internetu.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
@@ -66,9 +66,9 @@ Aby uzyskać pełne informacje, przejdź do [reguły konfiguracji zapory i port�
 
 ## <a name="url-patterns-for-firewall-rules"></a>Wzorce adresów URL dla reguł zapory
 
-Administratorzy sieci mogą często konfigurować zaawansowane reguły zapory na podstawie wzorców adresów URL, aby filtrować ruch przychodzący i wychodzący. Urządzenia brzegowe Azure Stack i usługi zależą od innych aplikacji firmy Microsoft, takich jak Azure Service Bus, Azure Active Directory Access Control, konta magazynu i serwery Microsoft Update. Wzorce adresów URL skojarzone z tymi aplikacjami mogą służyć do konfigurowania reguł zapory. Ważne jest, aby zrozumieć, że wzorce adresów URL skojarzone z tymi aplikacjami mogą się zmieniać. Te zmiany wymagają od administratora sieci monitorowania i aktualizowania reguł zapory dla Azure Stack krawędzi, jak i w razie potrzeby.
+Administratorzy sieci mogą często konfigurować zaawansowane reguły zapory na podstawie wzorców adresów URL, aby filtrować ruch przychodzący i wychodzący. Twoje urządzenie Azure Stack EDGE Pro i usługa zależą od innych aplikacji firmy Microsoft, takich jak Azure Service Bus, Azure Active Directory Access Control, konta magazynu i serwery Microsoft Update. Wzorce adresów URL skojarzone z tymi aplikacjami mogą służyć do konfigurowania reguł zapory. Ważne jest, aby zrozumieć, że wzorce adresów URL skojarzone z tymi aplikacjami mogą się zmieniać. Te zmiany wymagają od administratora sieci monitorowania i aktualizowania reguł zapory dla Azure Stack Edge w organizacji i w razie potrzeby.
 
-Zalecamy ustawienie reguł zapory dla ruchu wychodzącego w oparciu o stałe adresy IP w usłudze Azure Stack Edge, w większości przypadków. Można jednak użyć poniższych informacji, aby ustawić zaawansowane reguły zapory, które są potrzebne do tworzenia bezpiecznych środowisk.
+Zalecamy ustawienie reguł zapory dla ruchu wychodzącego, w oparciu o Azure Stack EDGE Pro stałe adresy IP w większości przypadków. Można jednak użyć poniższych informacji, aby ustawić zaawansowane reguły zapory, które są potrzebne do tworzenia bezpiecznych środowisk.
 
 > [!NOTE]
 > - Adresy IP urządzeń (źródłowych) powinny zawsze być ustawione na wszystkie interfejsy sieciowe obsługujące chmurę.
@@ -123,16 +123,16 @@ Aby zrozumieć i udoskonalić wydajność rozwiązania, można użyć:
 - Metryki obliczeń dostępne w Azure Portal. Przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **monitorowanie > metryki**. Zapoznaj się z wartością procentową **wykorzystania pamięci obliczeniowej** i **szybkością obliczeniową (%)** w celu zrozumienia dostępnych zasobów i sposobu ich wykorzystania przez zasoby.
 - Polecenia monitorowania dostępne za pośrednictwem interfejsu programu PowerShell urządzenia, takie jak:
 
-    - `dkr`Statystyka umożliwiająca uzyskanie strumienia na żywo statystyk użycia zasobów. Polecenie obsługuje procesor CPU, użycie pamięci, limit pamięci i metryki operacji we/wy sieci.
-    - `dkr system df`, aby uzyskać informacje dotyczące ilości użytego miejsca na dysku. 
-    - `dkr image [prune]`Aby oczyścić nieużywane obrazy i zwolnić miejsce.
-    - `dkr ps --size`do wyświetlania przybliżonego rozmiaru działającego kontenera. 
+    - `dkr` Statystyka umożliwiająca uzyskanie strumienia na żywo statystyk użycia zasobów. Polecenie obsługuje procesor CPU, użycie pamięci, limit pamięci i metryki operacji we/wy sieci.
+    - `dkr system df` , aby uzyskać informacje dotyczące ilości użytego miejsca na dysku. 
+    - `dkr image [prune]` Aby oczyścić nieużywane obrazy i zwolnić miejsce.
+    - `dkr ps --size` do wyświetlania przybliżonego rozmiaru działającego kontenera. 
 
     Aby uzyskać więcej informacji na temat dostępnych poleceń, przejdź do pozycji [monitorowanie i rozwiązywanie problemów z modułami obliczeniowymi](azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 
-Na koniec upewnij się, że Twoje rozwiązanie zostało zweryfikowane w zestawie danych, a następnie Zwiększ wydajność Azure Stack Edge przed wdrożeniem w środowisku produkcyjnym.
+Na koniec upewnij się, że Twoje rozwiązanie zostało zweryfikowane w zestawie danych i określisz wydajność Azure Stack EDGE Pro przed wdrożeniem w środowisku produkcyjnym.
 
 
 ## <a name="next-step"></a>Następny krok
 
-- [Wdrażanie Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Wdróż swoją Azure Stack EDGE Pro](azure-stack-edge-deploy-prep.md)

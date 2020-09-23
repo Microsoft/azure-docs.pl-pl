@@ -4,12 +4,12 @@ description: Zawiera omówienie usługi Azure Backup i sposobu, w jaki przyczyni
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 9954c8fa6affca7d2c2b73d7176280587d749476
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 72dee7bbcaa730f12af3ee323157fa92f6694603
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017893"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968340"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Co to jest usługa Azure Backup?
 
@@ -24,6 +24,7 @@ Usługa Azure Backup udostępnia proste, bezpieczne i ekonomiczne rozwiązania d
 - **Azure Files udziały**  -  [Tworzenie kopii zapasowych udziałów plików platformy Azure na koncie magazynu](backup-afs.md)
 - **SQL Server na maszynach wirtualnych**  -   platformy Azure [Tworzenie kopii zapasowych baz danych SQL Server uruchomionych na maszynach wirtualnych platformy Azure](backup-azure-sql-database.md)
 - **SAP HANA baz danych na maszynach wirtualnych**  -  platformy Azure [Tworzenie kopii zapasowych SAP HANA baz danych działających na maszynach wirtualnych platformy Azure](backup-azure-sap-hana-database.md)
+- **Serwery Azure Database for PostgreSQL (wersja zapoznawcza)**  -   [Tworzenie kopii zapasowych baz danych usługi Azure PostgreSQL i przechowywanie kopii zapasowych przez maksymalnie 10 lat](backup-azure-database-postgresql.md)
 
 ![Przegląd Azure Backup](./media/backup-overview/azure-backup-overview.png)
 
@@ -43,10 +44,11 @@ Usługa Azure Backup oferuje następujące kluczowe korzyści:
 - **Przechowuj krótkoterminowe i długoterminowe dane**: możesz używać [magazynów Recovery Services](backup-azure-recovery-services-vault-overview.md) do krótkoterminowego i długoterminowego przechowywania danych.
 - **Automatyczne zarządzanie magazynem** — hybrydowe środowiska często wymagają heterogenicznego magazynu — znajdującego się w części lokalnie, a w części w chmurze. W przypadku Azure Backup nie ma kosztu korzystania z lokalnych urządzeń magazynujących. Usługa Azure Backup automatycznie przydziela pojemność i zarządza magazynem kopii zapasowych, przy czym użytkownik płaci tylko za faktyczne użycie. Płacisz tylko za zużyty magazyn. [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/backup) o cenach.
 - **Wiele opcji magazynowania** — usługa Azure Backup oferuje dwa typy replikacji, aby zapewnić wysoką dostępność magazynu/danych.
-  - [Magazyn lokalnie nadmiarowy (LRS)](../storage/common/storage-redundancy.md) replikuje dane trzy razy (tworzy trzy kopie danych) w jednostce skalowania magazynu w centrum danych. Wszystkie kopie danych istnieją w tym samym regionie. Magazyn LRS to ekonomiczna opcja ochrony danych przed awariami sprzętu lokalnego.
-  - [Magazyn geograficznie nadmiarowy (GRS)](../storage/common/storage-redundancy.md) jest ustawieniem domyślnym i zalecaną opcją replikacji. Magazyn GRS replikuje dane do regionu pomocniczego (setki kilometrów od lokalizacji głównej danych źródłowych). GRS koszty więcej niż LRS, ale GRS zapewnia wyższy poziom trwałości danych, nawet jeśli wystąpi awaria regionalna.
+  - [Magazyn lokalnie nadmiarowy (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikuje dane trzy razy (tworzy trzy kopie danych) w jednostce skalowania magazynu w centrum danych. Wszystkie kopie danych istnieją w tym samym regionie. Magazyn LRS to ekonomiczna opcja ochrony danych przed awariami sprzętu lokalnego.
+  - [Magazyn geograficznie nadmiarowy (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) jest ustawieniem domyślnym i zalecaną opcją replikacji. Magazyn GRS replikuje dane do regionu pomocniczego (setki kilometrów od lokalizacji głównej danych źródłowych). GRS koszty więcej niż LRS, ale GRS zapewnia wyższy poziom trwałości danych, nawet jeśli wystąpi awaria regionalna.
+  - [Magazyn strefowo nadmiarowy (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replikuje dane w [strefach dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), gwarantując miejsce zamieszkania i odporność danych w tym samym regionie. ZRS nie ma żadnych przestojów. W związku z tym krytyczne obciążenia wymagające miejsca [zamieszkania](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)i nie mogą mieć żadnych przestojów, ale można utworzyć kopię zapasową w ZRS.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Przejrzyj](backup-architecture.md) architekturę i składniki w różnych scenariuszach wykonywania kopii zapasowych.
 - [Sprawdź](backup-support-matrix.md) wymagania dotyczące pomocy technicznej i ograniczenia dotyczące kopii zapasowych oraz [Utwórz kopię zapasową maszyny wirtualnej platformy Azure](backup-support-matrix-iaas.md).

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/19/2020
-ms.openlocfilehash: 023b731216605746e838306ce1ab69ebe8c6c6fd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1a1cb7661ae01dd89d45afe004978813ac90eaff
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955781"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905310"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Wieloklasowe wzmocnione drzewo decyzyjne
 
-W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Ten moduł służy do tworzenia modelu uczenia maszynowego, który jest oparty na algorytmie drzew z podwyższaną decyzją.
 

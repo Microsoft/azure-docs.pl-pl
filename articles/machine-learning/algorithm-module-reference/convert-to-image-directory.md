@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: b29b5fa1beb19bc055f94c56b064ae2c0ae175b5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 677cf60ff3e614fd1486445786154fbf026b7cd9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171146"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898690"
 ---
 # <a name="convert-to-image-directory"></a>Konwertowanie na katalog obrazów
 
-W tym artykule opisano sposób użycia modułu Konwertuj na katalog obrazu w celu ułatwienia konwersji zestawu danych obrazu na typ danych "Image Directory", który jest standardowym formatem danych w zadaniach związanych z obrazami, takimi jak Klasyfikacja obrazu w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano sposób użycia modułu Konwertuj do katalogu obrazów w celu ułatwienia konwersji zestawu danych obrazu na typ danych "Image Directory", który jest standardowym formatem danych w zadaniach związanych z obrazami, takimi jak Klasyfikacja obrazu w programie Azure Machine Learning Designer.
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Jak używać konwersji do katalogu obrazów  
 

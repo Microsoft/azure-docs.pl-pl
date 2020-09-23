@@ -1,6 +1,6 @@
 ---
-title: Moduł IoT Edge C# dla Azure Stack Edge | Microsoft Docs
-description: Dowiedz się, jak opracowywać moduł IoT Edge C#, który można wdrożyć na Azure Stack brzegowej.
+title: Moduł IoT Edge C# dla Azure Stack EDGE Pro | Microsoft Docs
+description: Dowiedz się, jak opracowywać moduł IoT Edge w języku C#, który można wdrożyć na Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,36 +9,36 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8cea74ec24efa7562caab5074d87d436cddaffb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8acbc7eec7581adcf0d73ffcd4bb2aa7ab2dd572
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018488"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883492"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Opracowywanie modułu IoT Edge C# w celu przenoszenia plików na Azure Stack Edge
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Opracowywanie modułu IoT Edge C# w celu przenoszenia plików na Azure Stack EDGE Pro
 
-W tym artykule opisano sposób tworzenia modułu IoT Edge na potrzeby wdrożenia przy użyciu urządzenia brzegowego Azure Stack. Azure Stack Edge to rozwiązanie magazynu, które pozwala na przetwarzanie danych i wysyłanie ich przez sieć do platformy Azure.
+W tym artykule opisano sposób tworzenia modułu IoT Edge na potrzeby wdrożenia przy użyciu urządzenia z Azure Stack EDGE Pro. Azure Stack EDGE Pro to rozwiązanie magazynu, które pozwala na przetwarzanie danych i wysyłanie ich przez sieć do platformy Azure.
 
-Za pomocą Azure IoT Edge modułów z krawędzią Azure Stack można przekształcić dane w miarę ich przenoszenia na platformę Azure. Moduł używany w tym artykule implementuje logikę kopiowania pliku z udziału lokalnego do udziału w chmurze na urządzeniu Azure Stack Edge.
+Za pomocą modułów Azure IoT Edge za pomocą Azure Stack Edge w firmie Pro można przekształcić dane w miarę ich przenoszenia na platformę Azure. Moduł używany w tym artykule implementuje logikę kopiowania pliku z udziału lokalnego do udziału w chmurze na urządzeniu Azure Stack EDGE Pro.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
 >
 > * Utwórz rejestr kontenerów w celu przechowywania modułów (obrazów platformy Docker) i zarządzania nimi.
-> * Utwórz moduł IoT Edge do wdrożenia na urządzeniu brzegowym Azure Stack. 
+> * Utwórz moduł IoT Edge, który ma zostać wdrożony na urządzeniu z systemem Azure Stack EDGE Pro. 
 
 
 ## <a name="about-the-iot-edge-module"></a>Informacje o module IoT Edge
 
-Urządzenie brzegowe Azure Stack może wdrażać i uruchamiać moduły IoT Edge. Moduły brzegowe są zasadniczo kontenerami Docker, które wykonują określone zadanie, takie jak pozyskiwanie komunikatów z urządzenia, przekształcanie komunikatu lub wysyłanie komunikatu do IoT Hub. W tym artykule opisano tworzenie modułu, który kopiuje pliki z udziału lokalnego do udziału w chmurze na urządzeniu Azure Stack Edge.
+Twoje urządzenie Azure Stack EDGE Pro może wdrażać i uruchamiać moduły IoT Edge. Moduły brzegowe są zasadniczo kontenerami Docker, które wykonują określone zadanie, takie jak pozyskiwanie komunikatów z urządzenia, przekształcanie komunikatu lub wysyłanie komunikatu do IoT Hub. W tym artykule opisano tworzenie modułu, który kopiuje pliki z udziału lokalnego do udziału w chmurze na urządzeniu Azure Stack EDGE Pro.
 
-1. Pliki są zapisywane w udziale lokalnym na urządzeniu Azure Stack Edge.
+1. Pliki są zapisywane w udziale lokalnym na urządzeniu z Azure Stack Edge.
 2. Generator zdarzeń pliku tworzy zdarzenie pliku dla każdego pliku zapisywanego w udziale lokalnym. Zdarzenia plików są również generowane, gdy plik zostanie zmodyfikowany. Zdarzenia plików są następnie wysyłane do centrum IoT Edge (w IoT Edge Runtime).
 3. Moduł niestandardowy IoT Edge przetwarza zdarzenie pliku, aby utworzyć obiekt zdarzenia pliku, który zawiera również ścieżkę względną dla pliku. Moduł generuje ścieżkę bezwzględną przy użyciu względnej ścieżki pliku i kopiuje plik z udziału lokalnego do udziału w chmurze. Następnie moduł usunie plik z udziału lokalnego.
 
-![Jak działa moduł Azure IoT Edge na Azure Stack Edge](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
+![Jak działa moduł Azure IoT Edge na Azure Stack EDGE Pro](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
 
 Gdy plik znajduje się w udziale w chmurze, zostanie automatycznie przekazany do konta usługi Azure Storage.
 
@@ -46,11 +46,11 @@ Gdy plik znajduje się w udziale w chmurze, zostanie automatycznie przekazany do
 
 Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
-- Urządzenie brzegowe Azure Stack uruchomione.
+- Urządzenie, na którym działa Azure Stack Edge.
 
     - Urządzenie ma także skojarzony zasób IoT Hub.
     - Na urządzeniu skonfigurowano rolę obliczeń brzegowych.
-    Aby uzyskać więcej informacji, przejdź do pozycji [Konfigurowanie obliczeń](azure-stack-edge-deploy-configure-compute.md#configure-compute) dla Azure Stack krawędzi.
+    Aby uzyskać więcej informacji, przejdź do pozycji [Konfigurowanie obliczeń](azure-stack-edge-deploy-configure-compute.md#configure-compute) dla Azure Stack Edge.
 
 - Następujące zasoby programistyczne:
 
@@ -65,7 +65,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 Usługa Azure Container Registry to rejestr prywatny platformy Docker na platformie Azure, w którym można przechowywać prywatne obrazy kontenerów Docker i zarządzać nimi. Dwie popularne usługi rejestru platformy Docker dostępne w chmurze to Azure Container Registry i Docker Hub. W tym artykule jest wykorzystywany Container Registry.
 
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
-2. Wybierz pozycję **Utwórz zasób > kontenery > Container Registry**. Kliknij przycisk **Utwórz**.
+2. Wybierz pozycję **Utwórz zasób > kontenery > Container Registry**. Kliknij pozycję **Utwórz**.
 3. Oferować
 
    1. Unikatowa **Nazwa rejestru** na platformie Azure, która zawiera od 5 do 50 znaków alfanumerycznych.
@@ -77,7 +77,7 @@ Usługa Azure Container Registry to rejestr prywatny platformy Docker na platfor
 
       ![Tworzenie rejestru kontenerów](./media/azure-stack-edge-create-iot-edge-module/create-container-registry-1.png)
  
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 5. Po utworzeniu rejestru kontenerów przejdź do niego i wybierz pozycję **Klucze dostępu**.
 
     ![Pobierz klucze dostępu](./media/azure-stack-edge-create-iot-edge-module/get-access-keys-1.png)
@@ -276,6 +276,6 @@ W poprzedniej sekcji utworzono rozwiązanie IoT Edge i dodano kod do FileCopyMod
 
 4. Pełny adres obrazu kontenera możesz wyświetlić za pomocą tagu w zintegrowanym terminalu programu VS Code. Adres obrazu jest tworzony na podstawie informacji znajdujących się w module.jsw pliku z formatem `<repository>:<version>-<platform>` . W tym artykule powinien wyglądać tak `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64` .
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-Aby wdrożyć i uruchomić ten moduł na Azure Stack Edge, zapoznaj się z instrukcjami w temacie [Dodawanie modułu](azure-stack-edge-deploy-configure-compute.md#add-a-module).
+Aby wdrożyć i uruchomić ten moduł w Azure Stack EDGE Pro, zobacz kroki opisane w temacie [Dodawanie modułu](azure-stack-edge-deploy-configure-compute.md#add-a-module).

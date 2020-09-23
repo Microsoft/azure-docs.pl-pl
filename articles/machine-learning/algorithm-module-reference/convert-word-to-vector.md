@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 21b207ece1a2a7fd6f218716912d4c4d2c2f1ee2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c2aa9023a7081387d38b9f7c6cfe8323300ad6e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753892"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898600"
 ---
 # <a name="convert-word-to-vector-module"></a>Konwertuj słowo na moduł Vector
 
-W tym artykule opisano sposób użycia modułu Konwertuj wyraz do wektora w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu wykonania następujących zadań:
+W tym artykule opisano sposób użycia modułu Konwertuj wyraz do wektora w programie Azure Machine Learning Designer do wykonywania następujących zadań:
 
 - Zastosuj różne modele Word2Vec (Word2Vec, FastText, dokładne prepociąg model) na korpus tekstu, który został określony jako dane wejściowe.
 - Generuj słownictwo przy użyciu osadzania wyrazów.
@@ -55,7 +55,7 @@ Ten moduł wymaga zestawu danych, który zawiera kolumnę tekstu. Wstępnie prze
 
     Ponieważ ten moduł tworzy słownictwo z tekstu, zawartość kolumn różni się, co prowadzi do różnych zawartości słownika. Dlatego moduł akceptuje tylko jedną kolumnę docelową.
 
-4. W przypadku **strategii Word2Vec**wybierz pozycję z **dokładne premieszczonego w języku angielskim**, **Gensim Word2Vec**i **Gensim FastText**.
+4. W przypadku  **strategii Word2Vec**wybierz pozycję z **dokładne premieszczonego w języku angielskim**, **Gensim Word2Vec**i **Gensim FastText**.
 
 5. Jeśli **strategia Word2Vec** jest **Gensim Word2Vec** lub **Gensim FastText**:
 
@@ -93,7 +93,7 @@ Moduł ma jedno wyjście:
 
 + **Słownictwo z osadzaniem**: zawiera wygenerowany słownictwo wraz z osadzaniem każdego wyrazu. Jeden wymiar zajmuje jedną kolumnę.
 
-Poniższy przykład ilustruje, jak działa Konwertuj wyraz na wektor. Stosuje ten moduł z ustawieniami domyślnymi wstępnie przetworzony zestaw danych programu Wikipedia SP 500 udostępniony w Azure Machine Learning (wersja zapoznawcza).
+Poniższy przykład ilustruje, jak działa Konwertuj wyraz na wektor. Stosuje ten moduł z ustawieniami domyślnymi wstępnie przetworzony zestaw danych programu Wikipedia SP 500 podany w Azure Machine Learning.
 
 ### <a name="source-dataset"></a>Zestaw danych źródłowych
 
@@ -149,4 +149,4 @@ Ta sekcja zawiera porady i odpowiedzi na często zadawane pytania.
 
 Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
 
-Aby zapoznać się z listą błędów specyficznych dla modułów projektant (wersja zapoznawcza), zobacz [Machine Learning kodów błędów](designer-error-codes.md).
+Aby zapoznać się z listą błędów specyficznych dla modułów projektanta, zobacz [Machine Learning kodów błędów](designer-error-codes.md).

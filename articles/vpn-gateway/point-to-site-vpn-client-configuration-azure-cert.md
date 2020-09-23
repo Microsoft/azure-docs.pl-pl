@@ -1,19 +1,19 @@
 ---
 title: 'Tworzenie & Instalowanie plików konfiguracji klienta sieci VPN P2S: uwierzytelnianie certyfikatu'
 titleSuffix: Azure VPN Gateway
-description: Tworzenie i Instalowanie plików konfiguracji klienta z systemami Windows, Linux, Linux (klient strongswan) i Mac OS X, aby P2S uwierzytelnianie certyfikatu.
+description: Tworzenie i Instalowanie plików konfiguracji klienta sieci VPN systemu Windows, Linux, Linux (klient strongswan) i macOS X na potrzeby uwierzytelniania certyfikatu P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 17a9339fff27a0fbd7fa389933d21ef85e29248b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 3a7a9711f04a4b54459d57a05ae65b4eedf1d6b6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420782"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986651"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Tworzenie i instalowanie plików konfiguracji klienta sieci VPN dla konfiguracji połączeń punkt-lokacja z natywnym uwierzytelnianiem certyfikatów platformy Azure
 
@@ -96,7 +96,7 @@ Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN na k
 
    Wartość **interfejsu** to "VPN", a wartość **typu sieci VPN** to "IKEv2". Określ nazwę profilu w polu **nazwa usługi** , a następnie kliknij przycisk **Utwórz** , aby utworzyć profil połączenia klienta sieci VPN.
 
-   ![network](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![Zrzut ekranu przedstawia okno sieci z opcją wyboru interfejsu, wybierz opcję Typ sieci VPN i wprowadź nazwę usługi.](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. W folderze **ogólnym** , w pliku **VpnSettings.xml** skopiuj wartość tagu **VpnServer** . Wklej tę wartość do pól **adres serwera** i **Identyfikator zdalny** profilu.
 
    ![Informacje o serwerze](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -106,14 +106,14 @@ Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN na k
 
    * W przypadku Catalina wybierz **Brak** , a następnie **certyfikat**. **Wybierz** prawidłowy certyfikat:
    
-   ![catalina](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
+   ![Zrzut ekranu przedstawia okno sieć z opcją brak wybraną dla ustawień uwierzytelniania i wybranego certyfikatu.](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
 
 6. Kliknij przycisk **Wybierz...** Aby wybrać certyfikat klienta, który ma być używany do uwierzytelniania. Jest to certyfikat zainstalowany w kroku 2.
 
-   ![certyfikat](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
+   ![Zrzut ekranu przedstawia okno sieci z ustawieniami uwierzytelniania, w którym można wybrać certyfikat.](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **Wybierz tożsamość** wyświetla listę certyfikatów do wyboru. Wybierz odpowiedni certyfikat, a następnie kliknij przycisk **Kontynuuj**.
 
-   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![Zrzut ekranu przedstawia okno dialogowe Wybieranie tożsamości, w którym można wybrać odpowiedni certyfikat.](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. W polu **Identyfikator lokalny** Określ nazwę certyfikatu (z kroku 6). W tym przykładzie jest to "ikev2Client.com". Następnie kliknij przycisk **Zastosuj** , aby zapisać zmiany.
 
    ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
@@ -213,4 +213,4 @@ Wróć do artykułu, aby [zakończyć konfigurację programu P2S](vpn-gateway-ho
 Aby rozwiązać problemy z połączeniami P2S, zobacz następujące artykuły:
 
   * [Rozwiązywanie problemów z połączeniami "punkt-lokacja" platformy Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-  * [Rozwiązywanie problemów z połączeniami sieci VPN od klientów Mac OS X VPN](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+  * [Rozwiązywanie problemów z połączeniami sieci VPN od klientów sieci VPN macOS X](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)

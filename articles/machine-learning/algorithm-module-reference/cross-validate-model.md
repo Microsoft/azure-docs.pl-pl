@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 7550bb7c6bbf7602245f9a9f1ac006ce693b36a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63c61b12ad68a3add2e7b40ab0bec38d3c2835e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477650"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898572"
 ---
 # <a name="cross-validate-model"></a>Krzyżowa weryfikacja modelu
 
-W tym artykule opisano sposób korzystania z modułu weryfikacji krzyżowej w programie Azure Machine Learning Designer (wersja zapoznawcza). *Wzajemne sprawdzanie poprawności* jest techniką często używaną w uczeniu maszynowym do oceny zmienności zestawu danych i niezawodności dowolnego modelu przeszkolonego za pomocą tych danych.  
+W tym artykule opisano sposób korzystania z modułu weryfikacji krzyżowej w programie Azure Machine Learning Designer. *Wzajemne sprawdzanie poprawności* jest techniką często używaną w uczeniu maszynowym do oceny zmienności zestawu danych i niezawodności dowolnego modelu przeszkolonego za pomocą tych danych.  
 
 Moduł sprawdzania poprawności krzyżowej przyjmuje jako wejściowy zestaw danych, wraz z niesprawdzonym modelem klasyfikacji lub regresji. Dzieli zestaw danych na pewną liczbę podzestawów (*zgięcia*), kompiluje model dla każdego zgięcia, a następnie zwraca zestaw statystyk dokładności dla każdego złożenia. Porównując statystyki dokładności dla wszystkich zagięć, można interpretować jakość zestawu danych. Następnie można zrozumieć, czy model jest podatny na różnice w danych.  
 

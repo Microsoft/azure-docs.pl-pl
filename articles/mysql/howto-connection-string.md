@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 2dc701b15b0fd30af0f4a28e39153c0ee77ae128
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 289a33d6544e3b8930059ad58115673193a1c89b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850342"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905816"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Jak połączyć aplikacje z usługą Azure Database for MySQL
 W tym temacie wymieniono typy parametrów połączenia, które są obsługiwane przez Azure Database for MySQL wraz z szablonami i przykładami. W parametrach połączenia mogą istnieć inne parametry i ustawienia.
@@ -63,7 +63,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Pobierz szczegóły parametrów połączenia z Azure Portal
-W [Azure Portal](https://portal.azure.com)przejdź do serwera Azure Database for MySQL, a następnie kliknij pozycję **Parametry połączenia** , aby uzyskać listę ciągów dla wystąpienia: ![ okienko parametry połączenia w Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+W [Azure Portal](https://portal.azure.com)przejdź do serwera Azure Database for MySQL, a następnie kliknij pozycję **Parametry połączenia** , aby uzyskać listę ciągów dla wystąpienia: :::image type="content" source="./media/howto-connection-strings/connection-strings-on-portal.png" alt-text="okienko parametry połączenia w Azure Portal":::
 
 Ten ciąg zawiera szczegółowe informacje, takie jak sterownik, serwer i inne parametry połączenia z bazą danych. Zmodyfikuj te przykłady, aby użyć własnych parametrów, takich jak nazwa bazy danych, hasło i tak dalej. Tego ciągu można użyć do nawiązania połączenia z serwerem z poziomu kodu i aplikacji.
 

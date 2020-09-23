@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f32f6c4366aac1a39dbc1bc4af3b945e259b3280
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4444f86f094d46419d7ff4b2f80609da007c4594
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543541"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906143"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu programu PowerShell
 
@@ -21,7 +21,7 @@ W tym przewodniku szybki start opisano, jak utworzyć serwer Azure Database for 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -66,7 +66,7 @@ Poniższa tabela zawiera listę często używanych parametrów i wartości przyk
 | SKU                        | GP_Gen5_2        | Nazwa jednostki SKU. Postępuj zgodnie z Konwencją ** \_ \_ rdzeni wirtualnych obliczeń warstwy cenowej** . Aby uzyskać więcej informacji na temat parametru SKU, zobacz informacje przedstawione w tej tabeli.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Jak długo należy przechowywać kopię zapasową. Jednostka to dni. Zakres wynosi od 7 do 35.                                                                                                                                                                                                                                                                       |
 | GeoRedundantBackup         | Enabled (Włączony)          | Określa, czy dla tego serwera powinny być włączone kopie zapasowe geograficznie nadmiarowe. Tej wartości nie można włączyć dla serwerów w warstwie cenowej podstawowa i nie można jej zmienić po utworzeniu serwera. Dozwolone wartości: Enabled (włączone) i Disabled (wyłączone).                                                                                                      |
-| Lokalizacja                   | westus           | Region świadczenia usługi Azure dla serwera.                                                                                                                                                                                                                                                                                                         |
+| Location                   | westus           | Region świadczenia usługi Azure dla serwera.                                                                                                                                                                                                                                                                                                         |
 | SslEnforcement             | Enabled (Włączony)          | Określa, czy protokół SSL ma być włączony na tym serwerze, czy nie. Dozwolone wartości: Enabled (włączone) i Disabled (wyłączone).                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Pojemność magazynu serwera (w megabajtach). Prawidłowe StorageInMb to co najmniej 5120 MB i zwiększa się w przyrostach 1024 MB. Aby uzyskać więcej informacji na temat limitów rozmiaru magazynu, zobacz [Azure Database for MySQL warstwy cenowe](./concepts-pricing-tiers.md).                                                                               |
 | Wersja                    | 5.7              | Wersja główna MySQL.                                                                                                                                                                                                                                                                                                                 |
@@ -201,13 +201,13 @@ Aby zapoznać się z dodatkowymi poleceniami, zobacz [MySQL 5.7 Reference Manual
 
 1. W oknie dialogowym **Konfigurowanie nowego połączenia** wprowadź poniższe informacje na karcie **Parametry**:
 
-   ![konfigurowanie nowego połączenia](./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png)
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png" alt-text="konfigurowanie nowego połączenia":::
 
     |    **Ustawienie**    |           **Sugerowana wartość**           |                      **Opis**                       |
     | ----------------- | --------------------------------------- | ---------------------------------------------------------- |
     | Nazwa połączenia   | Moje połączenie                           | Określ etykietę dla tego połączenia                        |
-    | Metoda połączenia | Standardowa (TCP/IP)                       | Użyj protokołu TCP/IP, aby nawiązać połączenie z usługą Azure Database for MySQL |
-    | Nazwa hosta          | `mydemoserver.mysql.database.azure.com` | Nazwa serwera zanotowana wcześniej                           |
+    | Connection Method (Metoda połączenia) | Standard (TCP/IP)                       | Użyj protokołu TCP/IP, aby nawiązać połączenie z usługą Azure Database for MySQL |
+    | Hostname (Nazwa hosta)          | `mydemoserver.mysql.database.azure.com` | Nazwa serwera zanotowana wcześniej                           |
     | Port              | 3306                                    | Domyślny port dla programu MySQL                                 |
     | Nazwa użytkownika          | myadmin@mydemoserver                    | Identyfikator logowania administratora serwera zanotowany wcześniej                |
     | Hasło          | *************                           | Użyj hasła do konta administratora, które zostało skonfigurowane wcześniej      |
@@ -216,7 +216,7 @@ Aby zapoznać się z dodatkowymi poleceniami, zobacz [MySQL 5.7 Reference Manual
 
 1. Wybierz połączenie, aby nawiązać połączenie z serwerem.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli zasoby utworzone w tym przewodniku Szybki Start nie są potrzebne do korzystania z innego przewodnika Szybki start lub samouczka, możesz je usunąć, uruchamiając Poniższy przykład.
 
@@ -237,4 +237,4 @@ Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Generowanie parametrów połączenia przy użyciu programu PowerShell — Azure Database for MySQL](connect-powershell.md)
+> [Projektowanie Azure Database for MySQL przy użyciu programu PowerShell](tutorial-design-database-using-powershell.md)

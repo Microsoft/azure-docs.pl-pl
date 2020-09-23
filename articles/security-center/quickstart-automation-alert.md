@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: ecef318978194ac3773c54e2d9c960781086de65
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691811"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906358"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>Szybki Start: Tworzenie automatycznej odpowiedzi na określony alert zabezpieczeń przy użyciu szablonu Azure Resource Manager (szablon ARM)
 
@@ -73,9 +73,7 @@ Użyj Azure Portal, aby sprawdzić, czy Automatyzacja przepływu pracy został w
 1. W [Azure Portal](https://portal.azure.com)Otwórz **Security Center**.
 1. Na górnym pasku menu wybierz ikonę filtru, a następnie wybierz konkretną subskrypcję, w której wdrożono nową automatyzację przepływu pracy.
 1. Na pasku bocznym Security Center Otwórz **automatyzację przepływu pracy** i Sprawdź nową automatyzację.
-
-    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Tekst alternatywny obrazu." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Lista skonfigurowanych automatyzacji" lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > Jeśli masz wiele automatyzacji przepływu pracy w subskrypcji, użyj opcji **Filtruj według nazwy** . 
 
@@ -86,11 +84,9 @@ Gdy nie jest już potrzebne, Usuń automatyzację przepływu pracy przy użyciu 
 1. W [Azure Portal](https://portal.azure.com)Otwórz **Security Center**.
 1. Na górnym pasku menu wybierz ikonę filtru, a następnie wybierz konkretną subskrypcję, w której wdrożono nową automatyzację przepływu pracy.
 1. Na pasku bocznym Security Center Otwórz **automatyzację przepływu pracy** i Znajdź automatyzację do usunięcia.
-
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Tekst alternatywny obrazu." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Procedura usuwania automatyzacji przepływu pracy" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Zaznacz pole wyboru dla elementu, który ma zostać usunięty.
-1. Na pasku narzędzi wybierz pozycję Usuń.
+1. Na pasku narzędzi wybierz pozycję **Usuń**.
 
 
 ## <a name="next-steps"></a>Następne kroki

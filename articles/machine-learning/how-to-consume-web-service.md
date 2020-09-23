@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 3e6b5e2e06e6cd87295b2faf2a426b75b5f6bf10
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 5427d62f93eb6284ecda9a0762e3d8c4e99c06e2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650770"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890096"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu usługi Azure Machine Learning wdrożonego jako usługa internetowa
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Wdrożenie modelu Azure Machine Learning jako usługi sieci Web powoduje utworzenie punktu końcowego interfejsu API REST. Dane można wysyłać do tego punktu końcowego i odbierać prognozę zwracaną przez model. W tym dokumencie dowiesz się, jak tworzyć klientów dla usługi sieci Web przy użyciu języków C#, go, Java i Python.
 

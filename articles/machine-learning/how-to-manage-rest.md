@@ -10,16 +10,16 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8c97ee9782f728e39175ed2517b64020ca4169f4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 39000a34d1d19026ce406eeb996f89d1acc7ea04
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649406"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897371"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Tworzenie, uruchamianie i usuwanie zasobów usługi Azure ML przy użyciu interfejsu REST
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Istnieje kilka sposobów zarządzania zasobami usługi Azure ML. Możesz użyć [portalu](https://portal.azure.com/), [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)lub [zestawu SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Można też wybrać interfejs API REST. Interfejs API REST używa zleceń HTTP w standardowym sposobie tworzenia, pobierania, aktualizowania i usuwania zasobów. Interfejs API REST działa z dowolnym językiem lub narzędziem, które może wykonywać żądania HTTP. Prosta struktura usługi REST często sprawia, że jest dobrym wyborem w środowiskach skryptów i automatyzacji MLOps. 
 
@@ -423,5 +423,5 @@ W przypadku niektórych operacji Azure Machine Learning obszar roboczy używa Az
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się z kompletnym [odwołaniem interfejsu API REST usługi Azure](https://docs.microsoft.com/rest/api/azureml/).
-- Dowiedz się, jak za pomocą narzędzia Studio & Designer [przewidzieć cenę samochodów w programie Designer (wersja zapoznawcza)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
+- Dowiedz się, w jaki sposób używać projektanta do [przewidywania cen samochodów w programie Designer](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
 - Eksploruj [Azure Machine Learning z notesami Jupyter](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).

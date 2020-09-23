@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 714148815fa4ff543ecbf86ab21e8d51fe775543
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7926d5dd33df5538713f8de152dbbace2bc29864
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77153778"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890300"
 ---
 # <a name="select-columns-in-dataset-module"></a>Wybierz kolumny w module DataSet
 
-W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Użyj tego modułu, aby wybrać podzbiór kolumn do użycia w operacjach podrzędnych. Moduł nie usuwa fizycznie kolumn ze źródłowego zestawu danych; Zamiast tego tworzy podzestaw kolumn, podobnie jak w przypadku *widoku* bazy danych lub *projekcji*.
 
@@ -62,7 +62,7 @@ W module istnieje wiele opcji umożliwiających wybranie kolumn według nazwy:
     Jeśli zestaw danych jest szeroki, może być łatwiejsze używanie indeksów lub wygenerowanych list nazw zamiast wybierania kolumn pojedynczo. Przy założeniu, że lista została przygotowana z góry:
 
     1. Kliknij opcję **with Rules** . 
-    2. Wybierz pozycję **brak kolumn**, wybierz pozycję **Dołącz**, a następnie kliknij wewnątrz pola tekstowego z czerwonym wykrzyknikiem. 
+    2. Wybierz pozycję **brak kolumn**, wybierz pozycję  **Dołącz**, a następnie kliknij wewnątrz pola tekstowego z czerwonym wykrzyknikiem. 
     3. Wklej lub wpisz rozdzieloną przecinkami listę nazw kolumn, które zostały wcześniej zweryfikowane. Nie można zapisać modułu, jeśli dowolna kolumna ma nieprawidłową nazwę. Upewnij się, że nazwy zostały wcześniej sprawdzone.
     
     Możesz również użyć tej metody, aby określić listę kolumn przy użyciu ich wartości indeksu. 

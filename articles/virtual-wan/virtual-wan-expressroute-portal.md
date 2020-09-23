@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b78c2b93a9427105ce2cc0ad8bd5d2b995c834ae
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77209430"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976291"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Samouczek: Tworzenie skojarzenia ExpressRoute przy użyciu wirtualnej sieci WAN platformy Azure
 
 W tym samouczku pokazano, jak używać wirtualnej sieci WAN do łączenia się z zasobami na platformie Azure za pośrednictwem obwodu usługi ExpressRoute. Aby uzyskać więcej informacji na temat wirtualnych sieci WAN i wirtualnych zasobów sieci WAN, zobacz [Omówienie wirtualnej sieci WAN](virtual-wan-about.md).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie wirtualnej sieci WAN
@@ -122,7 +122,7 @@ Użyj klucza autoryzacji i identyfikatora URI obwodu, który podano w celu nawi�
 
 1. Na stronie ExpressRoute kliknij pozycję **+ Zrealizuj klucz autoryzacji**
 
-   ![Zrealizuj](./media/virtual-wan-expressroute-portal/redeem.png "Zrealizuj")
+   ![Zrzut ekranu przedstawia ExpressRoute dla koncentratora wirtualnego z wybranym kluczem autoryzacji Zrealizuj.](./media/virtual-wan-expressroute-portal/redeem.png "Zrealizuj")
 2. Na stronie klucz autoryzacji Zrealizuj wprowadź wartości.
 
    ![wartości klucza wykupu](./media/virtual-wan-expressroute-portal/redeemkey2.png "wartości klucza wykupu")

@@ -11,17 +11,17 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 0fb46f4b9fd29c47e9cd38920665b2791f678847
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 8e8d0a13bc01e95311345154648ecb00b624c4bf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647230"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905605"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Uruchamiaj wnioskowanie wsadowe dla dużych ilości danych za pomocą Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule pokazano, jak uruchomić model Azure Machine Learning równolegle i szybko oceniać duże ilości danych. 
+
+W tym artykule opisano, jak uruchamiać równolegle modele usługi Azure Machine Learning, co umożliwia szybką ocenę dużych ilości danych. 
 
 Inferencing z dużymi zestawami danych lub skomplikowanymi modelami mogą być czasochłonne. `ParallelRunStep`Klasa umożliwia przeprowadzenie przetwarzania równolegle, co może spowodować szybsze uzyskanie wyników. Nawet w przypadku uruchamiania pojedynczej oceny jest dość duża szybkość, wiele scenariuszy (wykrywanie obiektów, przetwarzanie wideo, przetwarzanie języka naturalnego itp.) obejmuje uruchamianie wielu ocen. 
 

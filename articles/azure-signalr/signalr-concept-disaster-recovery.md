@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: 71bcb72b645c574eedd24ff868751f366738e73d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b1cb48d1ae858dbcd0df80780b4c3cee3deac75b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935691"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976495"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Odporność i odzyskiwanie po awarii w usłudze Azure SignalR Service
 
@@ -42,7 +42,7 @@ Lecz kiedy klient nawiązuje połączenie, jest on zawsze kierowany do serwera a
 
 Poniżej przedstawiono diagram, który ilustruje taką topologię:
 
-![topology](media/signalr-concept-disaster-recovery/topology.png)
+![Diagram przedstawia dwa regiony z serwerem aplikacji i usługą sygnalizującego, gdzie każdy serwer jest skojarzony z usługą sygnalizującą w swoim regionie jako podstawową i z usługą w innym regionie jako pomocniczą.](media/signalr-concept-disaster-recovery/topology.png)
 
 ## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>Konfigurowanie serwerów aplikacji od kątem wielu wystąpień usługi SignalR
 

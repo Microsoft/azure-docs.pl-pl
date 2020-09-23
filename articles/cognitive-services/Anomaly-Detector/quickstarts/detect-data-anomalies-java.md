@@ -8,26 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: e8fdc703b094ace83e70b736c1eb0d15c461adba
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 6c37ac4a8e43f8e11e37186e2438c4803556339e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243874"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905762"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu interfejsu API REST usługi wykrywania anomalii i środowiska Java
 
-Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch trybów wykrywania interfejsu API wykrywania anomalii w celu wykrycia anomalii w danych szeregów czasowych. Ta aplikacja Java wysyła dwa żądania interfejsu API zawierające dane szeregów czasowych w formacie JSON i pobiera odpowiedzi.
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch trybów wykrywania interfejsu API wykrywania anomalii w celu wykrycia anomalii w danych szeregów czasowych. Ta aplikacja Java wysyła żądania interfejsu API zawierające dane szeregów czasowych w formacie JSON i pobiera odpowiedzi.
 
 | Żądanie interfejsu API                                        | Dane wyjściowe aplikacji                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Wykryj anomalie jako partię                        | Odpowiedź JSON zawierająca stan anomalii (i inne dane) dla każdego punktu danych w danych szeregów czasowych oraz pozycje wykryte anomalie. |
-| Wykrywanie stanu anomalii najnowszego punktu danych | Odpowiedź JSON zawierająca stan anomalii (i inne dane) dla najnowszego punktu danych w danych szeregów czasowych.                                                                                                                                         |
+| Wykrywanie stanu anomalii najnowszego punktu danych | Odpowiedź JSON zawierająca stan anomalii (i inne dane) dla najnowszego punktu danych w danych szeregów czasowych.   |
+| Wykrywanie punktów zmiany, które oznaczają nowe trendy dotyczące danych | Odpowiedź JSON zawierająca wykryte punkty zmian w danych szeregów czasowych. |
 
- Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania. Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
+Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania. Kod źródłowy dla tego przewodnika Szybki Start można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -56,6 +57,7 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
     |---------|---------|
     |Wykrywanie partii    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Wykrywanie najnowszego punktu danych     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    | Wykrywanie punktu zmiany | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-java[Initial key and endpoint variables](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=vars)]
 
@@ -91,6 +93,17 @@ Utwórz metodę o nazwie `detectAnomaliesLatest()` w celu wykrycia stanu anomali
 
 [!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
 
+
+## <a name="detect-change-points-in-the-data"></a>Wykrywanie punktów zmiany w danych
+
+1. Utwórz metodę o nazwie, `detectChangePoints()` Aby wykrywać anomalie w danych jako partię. Wywołaj `sendRequest()` metodę utworzoną powyżej przy użyciu swojego punktu końcowego, adresu URL, klucza subskrypcji i danych JSON. Pobierz wynik i wydrukuj go w konsoli programu.
+
+2. Jeśli odpowiedź zawiera `code` pole, Wydrukuj kod błędu i komunikat o błędzie.
+
+3. W przeciwnym razie Znajdź pozycje punktów zmian w zestawie danych. `isChangePoint`Pole odpowiedzi zawiera wartość logiczną wskazującą, czy dany punkt danych jest punktem zmiany trendu. Pobierz tablicę JSON i wykonaj iterację, drukując indeks dowolnych `true` wartości. Te wartości odpowiadają indeksom punktów zmiany trendu, jeśli zostały znalezione.
+
+    [!code-java[detect change points](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectChangePoint)]
+
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Załaduj dane szeregów czasowych i Wyślij żądanie
 
 1. W głównej metodzie aplikacji przeczytaj plik JSON zawierający dane, które zostaną dodane do żądań.
@@ -104,5 +117,6 @@ Utwórz metodę o nazwie `detectAnomaliesLatest()` w celu wykrycia stanu anomali
 Pomyślna odpowiedź jest zwracana w formacie JSON. Kliknij poniższe linki, aby wyświetlić odpowiedź JSON w serwisie GitHub:
 * [Przykładowa reakcja wykrywania partii](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Przykład ostatniej odpowiedzi wykrywania punktu](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Przykład odpowiedzi wykrywania punktu zmiany](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

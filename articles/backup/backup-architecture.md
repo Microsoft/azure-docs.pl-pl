@@ -3,12 +3,12 @@ title: Omówienie architektury
 description: Zawiera omówienie architektury, składników i procesów używanych przez usługę Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824036"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986483"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup architektura i składniki
 
@@ -35,18 +35,22 @@ Dowiedz się więcej o [możliwościach tworzenia kopii zapasowych](backup-overv
 
 ## <a name="where-is-data-backed-up"></a>Gdzie są tworzone kopie zapasowe danych?
 
-Azure Backup przechowuje dane kopii zapasowej w magazynie Recovery Services. Magazyn jest jednostką online magazynu na platformie Azure, która jest używana do przechowywania danych, takich jak kopie zapasowe, punkty odzyskiwania i zasady tworzenia kopii zapasowych.
+Azure Backup przechowuje kopie zapasowe danych w magazynach — Odzyskaj magazyny usług i magazyny kopii zapasowych. Magazyn jest jednostką online magazynu na platformie Azure, która jest używana do przechowywania danych, takich jak kopie zapasowe, punkty odzyskiwania i zasady tworzenia kopii zapasowych.
 
-Recovery Services magazyny mają następujące funkcje:
+Magazyny mają następujące funkcje:
 
 - Magazyny ułatwiają organizowanie danych kopii zapasowej, przy jednoczesnym zminimalizowaniu obciążeń związanych z zarządzaniem.
-- W każdej subskrypcji platformy Azure można utworzyć maksymalnie 500 magazynów.
 - Możesz monitorować elementy kopii zapasowej w magazynie, w tym maszyn wirtualnych platformy Azure i maszynach lokalnych.
 - Możesz zarządzać dostępem do magazynu za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Określ sposób replikowania danych w magazynie w celu zapewnienia nadmiarowości:
-  - **Magazyn lokalnie nadmiarowy (LRS)**: aby chronić przed awarią w centrum danych, można użyć LRS. LRS replikuje dane do jednostki skalowania magazynu. [Dowiedz się więcej](../storage/common/storage-redundancy.md).
-  - **Magazyn Geograficznie nadmiarowy (GRS)**: aby chronić przed awarią całego regionu, możesz użyć GRS. GRS replikuje dane do regionu pomocniczego. [Dowiedz się więcej](../storage/common/storage-redundancy.md).
+  - **Magazyn lokalnie nadmiarowy (LRS)**: aby chronić przed awarią w centrum danych, można użyć LRS. LRS replikuje dane do jednostki skalowania magazynu. [Dowiedz się więcej](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Magazyn Geograficznie nadmiarowy (GRS)**: aby chronić przed awarią całego regionu, możesz użyć GRS. GRS replikuje dane do regionu pomocniczego. [Dowiedz się więcej](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **Magazyn strefowo nadmiarowy (ZRS)**: replikuje dane w [strefach dostępności](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), gwarantując miejsce zamieszkania i odporność danych w tym samym regionie. [Dowiedz się więcej](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Domyślnie magazyny Recovery Services używają GRS.
+
+Recovery Services magazyny mają następujące dodatkowe funkcje:
+
+- W każdej subskrypcji platformy Azure można utworzyć maksymalnie 500 magazynów.
 
 ## <a name="backup-agents"></a>Agenci tworzenia kopii zapasowych
 

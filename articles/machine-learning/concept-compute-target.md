@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 08f1d1e0ca1936b30db968dde5d7f6f2e6104cf8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651199"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883205"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są cele obliczeniowe w Azure Machine Learning? 
 
@@ -68,7 +68,7 @@ Po utworzeniu te zasoby obliczeniowe są automatycznie częścią obszaru robocz
 
 
 > [!NOTE]
-> Gdy klaster obliczeniowy jest bezczynny, automatycznie skaluje się do 0 węzłów, więc nie płacisz, gdy nie jest używany.  Jednak *wystąpienie*obliczeniowe jest zawsze włączone i nie Skalowanie automatyczne.  [Wystąpienie obliczeniowe należy zatrzymać,](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) gdy nie jest używane, aby uniknąć dodatkowych kosztów. 
+> Gdy klaster obliczeniowy jest bezczynny, automatycznie skaluje się do 0 węzłów, więc nie płacisz, gdy nie jest używany.  Jednak *wystąpienie*obliczeniowe jest zawsze włączone i nie Skalowanie automatyczne.  [Wystąpienie obliczeniowe należy zatrzymać,](concept-compute-instance.md#managing-a-compute-instance) gdy nie jest używane, aby uniknąć dodatkowych kosztów. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Obsługiwane serie maszyn wirtualnych i rozmiary
 

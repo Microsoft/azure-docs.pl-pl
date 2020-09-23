@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b024010583ba1c6e0ffdf663f7335011ce212bf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414580"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905127"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Uczenie głębokie a uczenie maszynowe
 
@@ -26,7 +26,7 @@ Ten artykuł pomaga porównać głębokie uczenie i uczenie maszynowe. Dowiesz s
 
 Rozważ następujące definicje, aby zrozumieć głębokie uczenie i uczenie maszynowe a AI:
 
-- **Uczenie głębokie** to podzestaw uczenia maszynowego, który jest oparty na sztucznych sieciach neuronowych. _Proces uczenia_ jest _głęboki_ , ponieważ struktura sztucznych sieci neuronowych składa się z wielu warstw danych wejściowych, wyjściowych i ukrytych. Każda warstwa zawiera jednostki, które przekształcają dane wejściowe w informacje, które następne warstwy mogą używać dla pewnego zadania predykcyjnego. Dzięki tej strukturze komputer może poznać swoje własne przetwarzanie danych.
+- **Uczenie głębokie** to podzestaw uczenia maszynowego, który jest oparty na sztucznych sieciach neuronowych. _Proces uczenia_ jest _głęboki_ , ponieważ struktura sztucznych sieci neuronowych składa się z wielu warstw danych wejściowych, wyjściowych i ukrytych. Każda warstwa zawiera jednostki, które przekształcają dane wejściowe w informacje, których następne warstwy mogą używać do wykonania pewnego zadania predykcyjnego. Dzięki tej strukturze komputer może poznać swoje własne przetwarzanie danych.
 
 - **Uczenie maszynowe** to podzbiór sztucznej analizy wykorzystującej techniki (takie jak uczenie głębokie), które umożliwiają maszynom używanie środowiska w celu usprawnienia zadań. _Proces uczenia_ jest oparty na następujących krokach:
 
@@ -96,7 +96,7 @@ W poniższych sekcjach opisano najpopularniejsze Popularne sieci sztucznej neuro
 
 ### <a name="feedforward-neural-network"></a>Sieć feedforward neuronowych
 
-Sieć feedforward neuronowych jest najbardziej podstawowym typem sztucznej sieci neuronowych. W sieci feedforward informacje są przenoszone tylko jeden kierunek z warstwy wejściowej do warstwy wyjściowej. Feedforward sieci neuronowych przekształcają dane wejściowe, umieszczając je w szeregu ukrytych warstw. Każda warstwa składa się z zestawu neurons, a każda warstwa jest w pełni podłączona do wszystkich neurons w warstwie. Ostatnia w pełni łączona warstwa (warstwa wyjściowa) reprezentuje wygenerowane prognozy.
+Sieć feedforward neuronowych jest najbardziej prostym typem sieci sztucznej neuronowych. W sieci feedforward informacje są przenoszone tylko jeden kierunek z warstwy wejściowej do warstwy wyjściowej. Feedforward sieci neuronowych przekształcają dane wejściowe, umieszczając je w szeregu ukrytych warstw. Każda warstwa składa się z zestawu neurons, a każda warstwa jest w pełni podłączona do wszystkich neurons w warstwie. Ostatnia w pełni łączona warstwa (warstwa wyjściowa) reprezentuje wygenerowane prognozy.
 
 ### <a name="recurrent-neural-network"></a>Rebieżąca sieć neuronowych
 
