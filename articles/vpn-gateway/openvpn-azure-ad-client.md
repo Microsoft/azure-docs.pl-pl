@@ -1,18 +1,18 @@
 ---
 title: 'VPN Gateway: klient VPN dla połączeń protokołu P2S OpenVPN: uwierzytelnianie usługi Azure AD'
-description: Aby nawiązać połączenie z siecią wirtualną przy użyciu uwierzytelniania usługi Azure AD, możesz użyć sieci VPN P2S
+description: Dowiedz się, jak skonfigurować klienta sieci VPN do łączenia się z siecią wirtualną przy użyciu sieci VPN typu punkt-lokacja i uwierzytelniania Azure Active Directory.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 781d3aeea6a5568aec065ec4b1cbcfacb74836a6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: a1e2804b45efe95ee1f67c3aadbefccd805d1aa2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434677"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981887"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Uwierzytelnianie Azure Active Directory: Konfigurowanie klienta VPN dla połączeń protokołu P2S OpenVPN
 

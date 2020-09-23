@@ -4,21 +4,21 @@ description: Dowiedz się więcej na temat Azure Cosmos DB transakcyjnych (opart
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: fdaffef6c682bd1f9c81f14af6cd949816f7555a
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505526"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900270"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
 
 > [!IMPORTANT]
 > Magazyn analityczny Azure Cosmos DB jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
-Magazyn analityczny Azure Cosmos DB to w pełni izolowany magazyn kolumn służący do włączania analiz dużej skali względem danych operacyjnych w Azure Cosmos DB, bez wpływu na obciążenia transakcyjne.  
+Magazyn analityczny Azure Cosmos DB to w pełni izolowany magazyn kolumn służący do włączania analiz na dużą skalę na potrzeby danych operacyjnych w Azure Cosmos DB, bez wpływu na obciążenia transakcyjne.  
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Wyzwania związane z analizą danych operacyjnych na dużą skalę
 
@@ -30,11 +30,11 @@ Potoki ETL są również złożone w przypadku obsługi aktualizacji danych oper
 
 ## <a name="column-oriented-analytical-store"></a>Magazyn analityczny zorientowany na kolumny
 
-Azure Cosmos DB magazyn analityczny rozwiązuje problemy z złożonością i opóźnieniem występujące w tradycyjnych potokach ETL. Magazyn analityczny Azure Cosmos DB może automatycznie synchronizować dane operacyjne w oddzielnym magazynie kolumn. Format magazynu kolumn jest odpowiedni dla kwerend analitycznych o dużej skali, które mają być wykonywane w sposób zoptymalizowany, co poprawia opóźnienia takich zapytań.
+Azure Cosmos DB magazyn analityczny rozwiązuje problemy z złożonością i opóźnieniem występujące w tradycyjnych potokach ETL. Magazyn analityczny Azure Cosmos DB może automatycznie synchronizować dane operacyjne w oddzielnym magazynie kolumn. Format magazynu kolumn jest odpowiedni dla zapytań analitycznych na dużą skalę, które mają być wykonywane w sposób zoptymalizowany, co poprawia opóźnienia takich zapytań.
 
 Korzystając z linku Synapse platformy Azure, możesz teraz tworzyć rozwiązania No-ETL HTAP przez bezpośrednie łączenie Azure Cosmos DB się z magazynem analitycznym w usłudze Synapse Analytics. Umożliwia ona uruchamianie w czasie niemal rzeczywistym analiz na dużą skalę na danych operacyjnych.
 
-## <a name="analytical-store-details"></a>Szczegóły magazynu analitycznego
+## <a name="features-of-analytical-store"></a>Funkcje magazynu analitycznego 
 
 Po włączeniu magazynu analitycznego w kontenerze Azure Cosmos DB nowy magazyn kolumn jest tworzony wewnętrznie na podstawie danych operacyjnych w kontenerze. Ten magazyn kolumn jest utrwalany niezależnie od magazynu transakcyjnego zorientowanego na wiersze dla tego kontenera. Operacje wstawiania, aktualizacji i usuwania danych operacyjnych są automatycznie synchronizowane z magazynem analitycznym. Nie potrzebujesz kanału informacyjnego zmiany ani ETL do synchronizowania danych.
 
@@ -72,33 +72,92 @@ Korzystając z partycjonowania poziomego, Azure Cosmos DB magazyn transakcyjny m
 
 Magazyn transakcyjny Azure Cosmos DB to Schema-niezależny od i umożliwia iteracyjne wykonywanie iteracji w aplikacjach transakcyjnych bez konieczności rozwiązywania problemów ze schematem lub zarządzaniem indeksem. W przeciwieństwie do tego Azure Cosmos DB magazyn analityczny jest schematized do optymalizacji pod kątem wydajności zapytań analitycznych. Dzięki funkcji autosynchronizacji Program Azure Cosmos DB zarządza wnioskami o schemacie w porównaniu z najnowszymi aktualizacjami ze sklepu transakcyjnego.  Zarządza również reprezentacją schematu w magazynie analitycznym, który obejmuje obsługę zagnieżdżonych typów danych.
 
-W przypadku ewolucji schematu, gdy nowe właściwości są dodawane z upływem czasu, magazyn analityczny automatycznie przedstawia schemat Union dla wszystkich schematów historycznych w magazynie transakcyjnym.
+Gdy schemat zostanie rozwijający się, a nowe właściwości są dodawane z upływem czasu, magazyn analityczny automatycznie przedstawia schemat składający się ze zbiorów we wszystkich schematach historycznych w magazynie transakcyjnym.
 
-Jeśli wszystkie dane operacyjne w Azure Cosmos DB są zgodne z dobrze zdefiniowanym schematem analitycznym, schemat zostanie automatycznie wywnioskowany i reprezentowany prawidłowo w magazynie analitycznym. Jeśli dobrze zdefiniowany schemat analityczny, zgodnie z definicją poniżej, został naruszony przez pewne elementy, nie zostaną one uwzględnione w magazynie analitycznym. Jeśli masz zablokowane scenariusze ze względu na dobrze zdefiniowany schemat dla definicji analitycznej, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+##### <a name="schema-constraints"></a>Ograniczenia schematu
 
-Dobrze zdefiniowany schemat dla analiz został zdefiniowany z następującymi kwestiami:
+Poniższe ograniczenia dotyczą danych operacyjnych w Azure Cosmos DB po włączeniu magazynu analitycznego w celu poprawnego automatycznego wywnioskowania i reprezentowania schematu:
 
-* Właściwość zawsze ma ten sam typ w wielu elementach
-
-  * Na przykład nie `{"a":123} {"a": "str"}` ma dobrze zdefiniowanego schematu, ponieważ `"a"` jest czasami ciągiem i czasami liczbą. 
+* W schemacie można mieć maksymalnie 200 właściwości na dowolnym poziomie zagnieżdżenia oraz maksymalną głębokość zagnieżdżenia wynoszącą 5.
   
-    W takim przypadku magazyn analityczny rejestruje typ danych `“a”` jako typ danych `“a”` w pierwszym elemencie w okresie istnienia kontenera. Elementy, w których typ danych `“a”` różni się nie zostaną uwzględnione w magazynie analitycznym.
+  * Element o właściwościach 201 na najwyższym poziomie nie spełnia tego ograniczenia i dlatego nie będzie reprezentowany w magazynie analitycznym.
+  * Element o więcej niż pięciu zagnieżdżonych poziomach w schemacie również nie spełnia tego ograniczenia, dlatego nie będzie reprezentowany w magazynie analitycznym. Na przykład następujący element nie spełnia wymagań:
+
+     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+
+* Nazwy właściwości powinny być unikatowe w porównaniu z wielkością liter. Na przykład następujące elementy nie spełniają tego ograniczenia, więc nie będą reprezentowane w magazynie analitycznym:
+
+  `{"Name": "fred"} {"name": "john"}` — "Name" i "name" są takie same, w porównaniu z wielkością liter.
+
+##### <a name="schema-representation"></a>Reprezentacja schematu
+
+Istnieją dwa tryby reprezentacji schematu w magazynie analitycznym. Te tryby mają wady między prostotą reprezentacji kolumnowy, obsługą schematów polimorficznych i prostotą środowiska zapytań:
+
+* Dobrze zdefiniowana reprezentacja schematu
+* Reprezentacja schematu pełnej wierności
+
+> [!NOTE]
+> W przypadku kont interfejsu API SQL (Core), gdy jest włączony magazyn analityczny, domyślną reprezentację schematu w magazynie analitycznym jest dobrze zdefiniowana. W przypadku Azure Cosmos DB interfejsu API dla kont MongoDB domyślną reprezentację schematu w magazynie analitycznym jest przedstawiona w pełni wierność schematem. Jeśli istnieją scenariusze wymagające innej reprezentacji schematu niż domyślna oferta dla każdego z tych interfejsów API, skontaktuj się z [zespołem Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) , aby go włączyć.
+
+**Dobrze zdefiniowana reprezentacja schematu**
+
+Dobrze zdefiniowana reprezentacja schematu tworzy prostą tabelaryczną reprezentację danych Schema-niezależny od w magazynie transakcyjnym. Dobrze zdefiniowana reprezentacja schematu ma następujące zagadnienia:
+
+* Właściwość zawsze ma ten sam typ w wielu elementach.
+
+  * Na przykład nie `{"a":123} {"a": "str"}` ma dobrze zdefiniowanego schematu, ponieważ `"a"` jest czasami ciągiem i czasami liczbą. W takim przypadku magazyn analityczny rejestruje typ danych `“a”` jako typ danych `“a”` w pierwszym elemencie w okresie istnienia kontenera. Elementy, w których typ danych `“a”` różni się nie zostaną uwzględnione w magazynie analitycznym.
   
     Ten warunek nie ma zastosowania do właściwości o wartości null. Na przykład, `{"a":123} {"a":null}` jest nadal zdefiniowane.
 
-* Typy tablic muszą zawierać pojedynczy powtórzony typ
+* Typy tablic muszą zawierać pojedynczy powtórzony typ.
 
-  * Na przykład, `{"a": ["str",12]}` nie jest dobrze zdefiniowanym schematem, ponieważ tablica zawiera kombinację liczb całkowitych i typów ciągów
+  * Na przykład `{"a": ["str",12]}` nie jest dobrze zdefiniowanym schematem, ponieważ tablica zawiera kombinację typów całkowitych i ciągów.
 
-* Istnieje maksymalnie 200 właściwości na dowolnym poziomie zagnieżdżenia schematu i Maksymalna głębokość zagnieżdżenia wynosząca 5
+> [!NOTE]
+> Jeśli Azure Cosmos DB magazyn analityczny jest zgodny z dobrze zdefiniowaną reprezentacją schematu, a powyższa specyfikacja została naruszona przez pewne elementy, te elementy nie zostaną uwzględnione w magazynie analitycznym.
 
-  * Element o właściwościach 201 na najwyższym poziomie nie ma dobrze zdefiniowanego schematu.
+**Reprezentacja schematu pełnej wierności**
 
-  * Element o więcej niż pięciu zagnieżdżonych poziomach w schemacie również nie ma dobrze zdefiniowanego schematu. Na przykład `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+Reprezentacja schematu pełnej wierności jest przeznaczona do obsługi pełnej szerokości schematów polimorficznych w danych operacyjnych schematu-niezależny od. W tej reprezentacji schematu żadne elementy nie są usuwane z magazynu analitycznego, nawet jeśli nie zostały naruszone prawidłowo zdefiniowane ograniczenia schematu (które nie są polami mieszanymi typu danych ani tablicami typu danych mieszanych).
 
-* Nazwy właściwości są unikatowe w porównaniu z wielkością liter
+Jest to osiągane poprzez przetłumaczenie właściwości liścia danych operacyjnych do magazynu analitycznego z różnymi kolumnami na podstawie typu danych wartości we właściwości. Nazwy właściwości liścia są rozszerzane o typy danych jako sufiks w schemacie magazynu analitycznego, aby można było wysyłać zapytania bez niejednoznaczności.
 
-  * Na przykład następujące elementy nie mają dobrze zdefiniowanego schematu `{"Name": "fred"} {"name": "john"}` — `"Name"` i `"name"` są takie same w porównaniu z wielkością liter
+Załóżmy na przykład, że następujące przykładowe dokumenty są przechowywane w magazynie transakcyjnym:
+
+```json
+{
+name: "John Doe",
+age: 32,
+profession: "Doctor",
+address: {
+  streetNo: 15850,
+  streetName: "NE 40th St.",
+  zip: 98052
+},
+salary: 1000000
+}
+```
+
+Właściwość liścia `streetName` w obiekcie zagnieżdżonym `address` będzie reprezentowana w schemacie magazynu analitycznego jako kolumna `address.object.streetName.int32` . Typ danych jest dodawany jako sufiks do kolumny. W ten sposób, jeśli inny dokument zostanie dodany do magazynu transakcyjnego, w którym Właściwość liścia `streetNo` ma wartość "123" (należy zauważyć, że jest to ciąg), schemat magazynu analitycznego jest automatycznie rozwijany bez zmiany typu wcześniej zapisanej kolumny. Nowa kolumna dodana do magazynu analitycznego, w `address.object.streetName.string` której jest przechowywana ta wartość "123".
+
+**Typ danych na mapę sufiksów**
+
+Oto mapa wszystkich typów danych właściwości i ich reprezentacje sufiksów w magazynie analitycznym:
+
+|Typ danych oryginalnych  |Przedrostk  |Przykład  |
+|---------|---------|---------|
+| Double |  ". Float64" |    24,99|
+| Tablica | ". Array" |    ["a", "b"]|
+|Binarne | ". Binary" |0|
+|Boolean    | ". bool"   |Prawda|
+|Int32  | ". Int32"  |123|
+|Int64  | ". Int64"  |255486129307|
+|Zero   | ". null"   | wartość null|
+|String|    ". ciąg" | "ABC"|
+|Timestamp |    ". timestamp" |  Sygnatura czasowa (0, 0)|
+|DateTime   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
+|ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|
+|Dokument   |". Object" |    {"a": "a"}|
 
 ### <a name="cost-effective-archival-of-historical-data"></a>Ekonomiczne archiwizowanie danych historycznych
 
@@ -155,15 +214,17 @@ Analityczny czas wygaśnięcia dla kontenera jest ustawiany przy użyciu `Analyt
 * Jeśli jest obecny, a wartość jest równa liczbie dodatniej "n": elementy wygaśnie z magazynu analitycznego "n" s po ostatniej modyfikacji w magazynie transakcyjnym. Tego ustawienia można użyć, jeśli chcesz przechowywać dane operacyjne przez ograniczony czas w magazynie analitycznym, niezależnie od przechowywania danych w magazynie transakcyjnym.
 
 Oto niektóre ważne kwestie:
-*   Po włączeniu magazynu analitycznego za pomocą wartości analitycznej TTL można ją zaktualizować do innej prawidłowej wartości później 
-*   Gdy transakcyjny czas wygaśnięcia można ustawić na poziomie kontenera lub elementu, analityczny czas TTL można ustawić tylko na poziomie kontenera
-*   Możesz uzyskać dłuższe przechowywanie danych operacyjnych w magazynie analitycznym, ustawiając wartości w polu analityczny czas wygaśnięcia >= transakcyjna wartość czasu wygaśnięcia na poziomie kontenera
-*   Magazyn analityczny może być tworzony w celu dublowania magazynu transakcyjnego przez ustawienie wartości czasowej TTL = transakcyjna wartość czasu wygaśnięcia
 
-Po włączeniu sklepu anaytical w kontenerze:
- * przy użyciu witryny Azure Portal analityczny czas wygaśnięcia jest ustawiany na wartość domyślną-1. Można zmienić tę wartość na "n" s, przechodząc do pozycji Ustawienia kontenera w obszarze Eksplorator danych. 
+*   Gdy magazyn analityczny jest włączony z wartością analityczną TTL, można go później zaktualizować do innej prawidłowej wartości. 
+*   Gdy transakcyjny czas wygaśnięcia można ustawić na poziomie kontenera lub elementu, analityczny czas TTL można ustawić tylko na poziomie kontenera.
+*   Możesz uzyskać więcej przechowywania danych operacyjnych w magazynie analitycznym, ustawiając wartości w polu analityczny czas wygaśnięcia >= transakcyjna wartość czasu wygaśnięcia na poziomie kontenera.
+*   Magazyn analityczny może być tworzony w celu dublowania magazynu transakcyjnego przez ustawienie wartości czas wygaśnięcia (TTL).
+
+Po włączeniu magazynu analitycznego w kontenerze:
+
+* W Azure Portal opcja analityczny czas wygaśnięcia jest ustawiona na wartość domyślną-1. Można zmienić tę wartość na "n" s, przechodząc do pozycji Ustawienia kontenera w obszarze Eksplorator danych. 
  
- * przy użyciu zestawu Azure SDK lub programu PowerShell lub interfejsu wiersza polecenia można włączyć analityczny czas wygaśnięcia, ustawiając dla niego wartość-1 lub "n". 
+* Korzystając z zestawu Azure SDK lub programu PowerShell lub interfejsu wiersza polecenia, można włączyć funkcję analitycznego czasu wygaśnięcia, ustawiając ją na wartość-1 lub "n". 
 
 Aby dowiedzieć się więcej, zobacz [jak skonfigurować analityczny czas wygaśnięcia dla kontenera](configure-synapse-link.md#create-analytical-ttl).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ac087a7ba241534c08c4e5737973861727ab01ca
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 46234f3b4bfd467db9b5754b5590603ff3d42915
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069582"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974542"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)
 [Rozszerzenie diagnostyki Azure](diagnostics-extension-overview.md) to agent w Azure monitor, który zbiera dane monitorowania z systemu operacyjnego gościa i obciążeń maszyn wirtualnych platformy Azure i innych zasobów obliczeniowych. Ten artykuł zawiera szczegółowe informacje na temat instalowania i konfigurowania rozszerzenia Diagnostyka systemu Windows oraz opis sposobu przechowywania danych w usłudze i koncie usługi Azure Storage.
@@ -51,7 +51,7 @@ Można zainstalować i skonfigurować rozszerzenie diagnostyki na pojedynczej ma
 
 6. Na karcie **dzienniki** wybierz dzienniki, które mają być zbierane z maszyny wirtualnej. Dzienniki mogą być wysyłane do magazynu lub centrów zdarzeń, ale nie do Azure Monitor. Użyj [agenta log Analytics](log-analytics-agent.md) , aby zebrać dzienniki gościa do Azure monitor.
 
-   ![Dzienniki](media/diagnostics-extension-windows-install/logs.png)
+   ![Zrzut ekranu przedstawia kartę dzienniki z różnymi dziennikami wybranymi dla maszyny wirtualnej.](media/diagnostics-extension-windows-install/logs.png)
 
 7. Na karcie **Zrzuty awaryjne** Określ wszystkie procesy, które mają zbierać zrzuty pamięci po awarii. Dane zostaną zazapisywane na koncie magazynu dla ustawienia diagnostyki, a opcjonalnie można określić kontener obiektów BLOB.
 
@@ -59,7 +59,7 @@ Można zainstalować i skonfigurować rozszerzenie diagnostyki na pojedynczej ma
 
 8. Na karcie **ujścia** Określ, czy dane mają być wysyłane do lokalizacji innych niż usługa Azure Storage. W przypadku wybrania **Azure monitor**dane dotyczące wydajności gościa będą wysyłane do metryk Azure monitor. Nie można skonfigurować ujścia centrów zdarzeń przy użyciu Azure Portal.
 
-   ![Ujścia](media/diagnostics-extension-windows-install/sinks.png)
+   ![Zrzut ekranu przedstawia kartę ujścia z włączoną opcją Wyślij dane diagnostyczne do Azure Monitor.](media/diagnostics-extension-windows-install/sinks.png)
    
    Jeśli nie włączono tożsamości przypisanej do systemu skonfigurowanej dla maszyny wirtualnej, po zapisaniu konfiguracji przy użyciu ujścia Azure Monitor może zostać wyświetlone poniższe ostrzeżenie. Kliknij transparent, aby włączyć tożsamość przypisaną do systemu.
    
@@ -67,7 +67,7 @@ Można zainstalować i skonfigurować rozszerzenie diagnostyki na pojedynczej ma
 
 9. W **agencie**można zmienić konto magazynu, ustawić limit przydziału dysku i określić, czy mają być zbierane dzienniki infrastruktury diagnostycznej.  
 
-   ![Agent](media/diagnostics-extension-windows-install/agent.png)
+   ![Zrzut ekranu przedstawia kartę Agent z opcją ustawienia konta magazynu.](media/diagnostics-extension-windows-install/agent.png)
 
 10. Kliknij przycisk **Zapisz** , aby zapisać konfigurację. 
 
@@ -204,7 +204,7 @@ W poniższej tabeli wymieniono różne typy danych zbieranych z rozszerzenia dia
 | celnej | Obiekt blob | Niestandardowy kontener oparty na konfigurowaniu katalogów monitorowanych przez Monitor diagnostyczny.  Nazwa tego kontenera obiektów BLOB zostanie określona w WADDirectoriesTable. |
 
 ## <a name="tools-to-view-diagnostic-data"></a>Narzędzia do wyświetlania danych diagnostycznych
-Dostępnych jest kilka narzędzi do wyświetlania danych po ich przeniesieniu do magazynu. Na przykład:
+Dostępnych jest kilka narzędzi do wyświetlania danych po ich przeniesieniu do magazynu. Przykład:
 
 * Eksplorator serwera w programie Visual Studio — Jeśli zainstalowano narzędzia platformy Azure dla Microsoft Visual Studio, można użyć węzła usługi Azure Storage w Eksplorator serwera, aby wyświetlić dane obiektów BLOB tylko do odczytu i tabele z kont usługi Azure Storage. Możesz wyświetlić dane z lokalnego konta emulatora magazynu, a także z kont magazynu utworzonych dla platformy Azure. Aby uzyskać więcej informacji, zobacz [przeglądanie zasobów magazynu i zarządzanie nimi za pomocą Eksplorator serwera](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Eksplorator usługi Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md) jest aplikacją autonomiczną, która umożliwia łatwe współdziałanie z danymi usługi Azure Storage w systemach Windows, OSX i Linux.

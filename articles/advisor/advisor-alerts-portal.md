@@ -3,12 +3,12 @@ title: Utwórz alerty Azure Advisor dla nowych zaleceń przy użyciu Azure Porta
 description: Utwórz alerty Azure Advisor dla nowego zalecenia
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 0b3984b82cd5265f4940cd88597ccb29d51e1118
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507220"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973660"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Utwórz Azure Advisor alerty dotyczące nowych zaleceń przy użyciu Azure Portal 
 
@@ -63,8 +63,7 @@ Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i
 
 8. W sekcji Szczegóły alertu nadaj Alertowi nazwę i Krótki opis. Jeśli chcesz, aby alert był włączony, pozostaw **regułę Włącz po** wybraniu pozycji **tak**. Następnie wybierz grupę zasobów, w której ma zostać zapisany alert. Nie wpłynie to na zakres docelowy zalecenia. 
 
-    ![Transparent Azure Advisor](./media/advisor-alerts/create8.png)
-
+    :::image type="content" source="./media/advisor-alerts/create8.png" alt-text="Zrzut ekranu przedstawiający sekcję Szczegóły alertu.":::
 
 
 ## <a name="configure-recommendation-alerts-to-use-a-webhook"></a>Konfigurowanie alertów rekomendacji do używania elementu webhook
@@ -170,7 +169,7 @@ Jeśli nie używasz wspólnego schematu, ładunek będzie wyglądać następują
 }
 ```
 
-W obu schematach można zidentyfikować zdarzenia rekomendacji klasyfikatora, szukając elementu **EventSource** `Recommendation` , a **OperationName** jest `Microsoft.Advisor/recommendations/available/action` .
+W obu schematach można zidentyfikować zdarzenia rekomendacji klasyfikatora, szukając elementu **EventSource** `Recommendation` , a **OperationName**  jest `Microsoft.Advisor/recommendations/available/action` .
 
 Oto niektóre z innych ważnych pól, których warto użyć: 
 
@@ -188,11 +187,11 @@ W Azure Advisor można edytować, usuwać lub wyłączać i włączać alerty do
 
 1. W **portalu**wybierz pozycję **Azure Advisor**.
 
-    ![Transparent Azure Advisor](./media/advisor-alerts/create1.png)
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Zrzut ekranu przedstawiający menu Azure Portal, w którym zaznaczono Azure Advisor.":::
 
 2. W sekcji **monitorowanie** w menu po lewej stronie wybierz pozycję **alerty**.
 
-    ![Transparent Azure Advisor](./media/advisor-alerts/create2.png)
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Zrzut ekranu przedstawiający menu Azure Portal, w którym są zaznaczone alerty.":::
 
 3. Aby edytować alert, kliknij nazwę alertu, aby otworzyć alert i edytować pola, które chcesz edytować.
 

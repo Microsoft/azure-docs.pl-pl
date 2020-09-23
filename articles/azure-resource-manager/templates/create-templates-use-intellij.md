@@ -5,12 +5,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321823"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973330"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Tworzenie i wdrażanie szablonów ARM przy użyciu POMYSŁu IntelliJ
 
@@ -60,13 +60,13 @@ Zamiast tworzyć szablon od podstaw, otwórz szablon z obszaru [Azure Quickstart
 
 ## <a name="edit-and-update-an-existing-deployment"></a>Edytowanie i Aktualizowanie istniejącego wdrożenia
 
-1. Wybierz pozycję **Edytuj wdrożenie** z menu rozwijanego prawym przyciskiem myszy lub widoku Pokaż właściwości przed. Zostanie otwarty inny widok karty, który pokazuje szablon i pliki parametrów wdrożenia na platformie Azure. Aby zapisać te pliki do lokalnego, można kliknąć pozycję **Eksportuj plik szablonu** lub **pliki parametrów eksportu**.
+1. Wybierz pozycję **Edytuj wdrożenie** z menu rozwijanego prawym przyciskiem myszy lub widoku Pokaż właściwości przed. Zostanie otwarty inny widok karty, który pokazuje szablon i pliki parametrów wdrożenia na platformie Azure. Aby zapisać te pliki do lokalnego, można kliknąć pozycję **Eksportuj plik szablonu**  lub **pliki parametrów eksportu**.
 
     ![Edytowanie wdrożenia szablonu Menedżer zasobów](./media/create-templates-use-intellij/resource-manager-edit-deployment.png)
 
 1. Można edytować te dwa pliki na tej stronie i wdrażać zmiany na platformie Azure. W tym miejscu zmodyfikujemy wartość **storageAccountType** w plikach parametrów, od `Standard_LRS` do `Standard_GRS` . Następnie kliknij pozycję **Aktualizuj wdrożenie** u dołu i Potwierdź aktualizację.
 
-    ![Edytowanie wdrożenia szablonu Menedżer zasobów](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![Zrzut ekranu przedstawia szablon Menedżer zasobów z wyświetlonym monitem wdrożenia aktualizacji.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. Po zakończeniu wdrażania aktualizacji można sprawdzić, czy w portalu została zmieniona wartość utworzone konto magazynu `Standard_GRS` .
 

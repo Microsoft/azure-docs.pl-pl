@@ -1,6 +1,6 @@
 ---
 title: Uruchamianie programu Micro Focus Enterprise Server 5,0 w kontenerze platformy Docker na platformie Azure | Microsoft Docs
-description: Przehostaj obciążenia systemu mainframe firmy IBM z/OS przy użyciu środowiska deweloperskiego i testowego na maszynach wirtualnych platformy Azure.
+description: W tym artykule dowiesz się, jak uruchomić program Micro Focus Enterprise Server 5,0 w kontenerze platformy Docker na Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: maggsl
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: d266dbd0ee908c41a7d29ddbb6d9c73fcfdc7c9e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c4afc6c0adb8d499e38abf3d709a951774dda4e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083467"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974057"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Uruchamianie programu Micro Focus Enterprise Server 5,0 w kontenerze platformy Docker na platformie Azure
 
@@ -83,7 +83,7 @@ W tym momencie maszyna wirtualna jest uruchomiona i dołączona za pośrednictwe
 
 1.  Utwórz katalog na maszynie wirtualnej, w którym można przekazać pliki demonstracyjne i licencje. Na przykład **C: \\ piaskownica**.
 
-2.  Przekaż ** \_ serwer \_ wieloetapowe dockerfile \_ \_windows.zip5,0** i plik **es-Docker-prod-XXXXXXXX. mflic** do utworzonego katalogu.
+2.  Przekaż ** \_ serwer \_ wieloetapowe dockerfile \_ \_windows.zip5,0 ** i plik **es-Docker-prod-XXXXXXXX. mflic** do utworzonego katalogu.
 
 3.  Wyodrębnij zawartość pliku zip do ** \_ serwera \_ wieloetapowe dockerfile \_ 5,0 \_ systemu Windows** utworzonego przez proces wyodrębniania. Ten katalog zawiera plik Readme (plik HTML i txt) i dwa podkatalogi, **EnterpriseServer** i **przykłady**.
 
@@ -137,7 +137,7 @@ W tym momencie maszyna wirtualna jest uruchomiona i dołączona za pośrednictwe
     docker inspect \<containerID\> --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
     ~~~
 
-    Na przykład:
+    Przykład:
 
     ~~~
     docker inspect 22a0fe3159d0 --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"

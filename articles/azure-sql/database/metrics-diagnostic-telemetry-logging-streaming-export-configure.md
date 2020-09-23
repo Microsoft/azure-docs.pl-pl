@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: efb99e23466e4615dfa1f4a429addcd8c4ac68f5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 51d86e51d89bdaf83be4a722d0350b35d2146cff
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085603"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973045"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurowanie eksportu przesyłania strumieniowego Azure SQL Database i diagnostyki wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,16 +37,16 @@ Oprócz przesyłania strumieniowego eksportu dziennika Intelligent Insights moż
 
 | Dane telemetryczne diagnostyki dla baz danych | Obsługa Azure SQL Database | Obsługa wystąpień zarządzanych Azure SQL |
 | :------------------- | ----- | ----- |
-| [Metryki podstawowe](#basic-metrics): zawiera wartość procentową jednostek DTU/CPU, limit liczby jednostek DTU/procesora, procent odczytu danych fizycznych, procent zapisu w dzienniku, powodzenie/niepowodzenie/zablokowano przez połączenia zapory, procentową wartość procentową, magazyn, procent magazynu i procent magazynu XTP. | Yes | Nie |
-| [Zaawansowane wystąpienie i aplikacja](#advanced-metrics): zawiera bazę danych tempdb system Data i rozmiar pliku dziennika oraz plik dziennika bazy danych tempdb (%). | Yes | Nie |
+| [Metryki podstawowe](#basic-metrics): zawiera wartość procentową jednostek DTU/CPU, limit liczby jednostek DTU/procesora, procent odczytu danych fizycznych, procent zapisu w dzienniku, powodzenie/niepowodzenie/zablokowano przez połączenia zapory, procentową wartość procentową, magazyn, procent magazynu i procent magazynu XTP. | Tak | Nie |
+| [Zaawansowane wystąpienie i aplikacja](#advanced-metrics): zawiera bazę danych tempdb system Data i rozmiar pliku dziennika oraz plik dziennika bazy danych tempdb (%). | Tak | Nie |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): zawiera informacje o statystykach środowiska uruchomieniowego zapytań, takich jak użycie procesora CPU i statystyka czasu trwania zapytania. | Tak | Tak |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): zawiera informacje o statystykach oczekiwania na zapytanie (zapytania, w których zarejestrowano), takie jak procesor CPU, dziennik i blokowanie. | Tak | Tak |
 | [Błędy](#errors-dataset): zawiera informacje o błędach SQL w bazie danych. | Tak | Tak |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): zawiera informacje o tym, ile czasu baza danych poświęca na oczekiwanie na różne typy oczekiwania. | Yes | Nie |
-| [Limity czasu](#time-outs-dataset): zawiera informacje na temat limitów czasu w bazie danych. | Yes | Nie |
-| [Bloki](#blockings-dataset): zawiera informacje o blokowaniu zdarzeń w bazie danych. | Yes | Nie |
-| [Zakleszczenia](#deadlocks-dataset): zawiera informacje o zdarzeniach zakleszczenia w bazie danych. | Yes | Nie |
-| [AutomaticTuning](#automatic-tuning-dataset): zawiera informacje o zaleceniach dostrajania automatycznego dla bazy danych. | Yes | Nie |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): zawiera informacje o tym, ile czasu baza danych poświęca na oczekiwanie na różne typy oczekiwania. | Tak | Nie |
+| [Limity czasu](#time-outs-dataset): zawiera informacje na temat limitów czasu w bazie danych. | Tak | Nie |
+| [Bloki](#blockings-dataset): zawiera informacje o blokowaniu zdarzeń w bazie danych. | Tak | Nie |
+| [Zakleszczenia](#deadlocks-dataset): zawiera informacje o zdarzeniach zakleszczenia w bazie danych. | Tak | Nie |
+| [AutomaticTuning](#automatic-tuning-dataset): zawiera informacje o zaleceniach dostrajania automatycznego dla bazy danych. | Tak | Nie |
 | [SQLInsights](#intelligent-insights-dataset): zawiera Intelligent Insights do wydajności bazy danych. Aby dowiedzieć się więcej, zobacz [Intelligent Insights](intelligent-insights-overview.md). | Tak | Tak |
 
 > [!NOTE]
@@ -72,7 +72,7 @@ Dane telemetryczne diagnostyki mogą być przesyłane strumieniowo do jednego z 
 
 To dane telemetryczne diagnostyki przesyłane do jednego z tych miejsc docelowych mogą służyć do oceny użycia zasobów i statystyk wykonywania zapytań w celu ułatwienia monitorowania wydajności.
 
-![Architektura](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
+![Diagram przedstawia wiele baz danych i baz danych SQL w zarządzanych wystąpieniach wysyłających dane telemetryczne do Diagnostyka Azure, które przesyłają informacje do Azure SQL Analytics, centrum zdarzeń i magazyn.](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
 
 ## <a name="enable-and-configure-the-streaming-export-of-diagnostic-telemetry"></a>Włącz i skonfiguruj eksport strumieniowy danych telemetrycznych diagnostyki
 
@@ -96,7 +96,7 @@ Możesz użyć menu **Ustawienia diagnostyczne** w Azure Portal, aby włączyć 
 
 Wybierz jedną z następujących kart, aby uzyskać wskazówki krok po kroku dotyczące konfigurowania eksportu danych telemetrycznych diagnostyki w Azure Portal i skryptów na potrzeby wykonywania tych samych kroków przy użyciu programu PowerShell i interfejsu wiersza polecenia platformy Azure.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
 ### <a name="elastic-pools-in-azure-sql-database"></a>Pule elastyczne w Azure SQL Database
 
@@ -441,7 +441,7 @@ Szczegółowe informacje na temat podstawowych metryk według zasobów można zn
 
 |**Zasób**|**Metryki**|
 |---|---|
-|Elastyczna pula|procentowa wartość eDTU, użyta wartość eDTU, limit liczby jednostek eDTU, procent użycia procesora, procent odczytu danych fizycznych, procent zapisu w dzienniku, procent sesji, procent procesów roboczych, magazyn, procent magazynu, limit magazynu, procent magazynu XTP |
+|Pula elastyczna|procentowa wartość eDTU, użyta wartość eDTU, limit liczby jednostek eDTU, procent użycia procesora, procent odczytu danych fizycznych, procent zapisu w dzienniku, procent sesji, procent procesów roboczych, magazyn, procent magazynu, limit magazynu, procent magazynu XTP |
 
 #### <a name="basic-metrics-for-single-and-pooled-databases"></a>Podstawowe metryki dla pojedynczych i w puli baz danych
 
@@ -602,7 +602,7 @@ Dowiedz się więcej na temat [danych statystycznych oczekiwania magazynu zapyta
 |ElasticPoolName_s|Nazwa puli elastycznej dla bazy danych (jeśli istnieje) |
 |DatabaseName_s|Nazwa bazy danych |
 |ResourceId|Identyfikator URI zasobu |
-|Komunikat|Komunikat o błędzie w postaci zwykłego tekstu |
+|Wiadomość|Komunikat o błędzie w postaci zwykłego tekstu |
 |user_defined_b|Jest błędem bitowym zdefiniowanym przez użytkownika |
 |error_number_d|Kod błędu |
 |Ważność|Ważność błędu |

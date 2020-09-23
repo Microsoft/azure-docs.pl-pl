@@ -4,12 +4,12 @@ description: Ten samouczek zawiera szczegółowe instrukcje tworzenia kopii zapa
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 33090a0156d147fee5ab362b284ec503039617c4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 53a5df430a3ea57201ecb19bac68ef9f073beb14
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181735"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980961"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure za pomocą programu PowerShell
 
@@ -48,7 +48,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 [Magazyn Recovery Services](backup-azure-recovery-services-vault-overview.md) jest kontenerem logicznym, który przechowuje dane kopii zapasowej chronionych zasobów, takich jak maszyny wirtualne platformy Azure. Po uruchomieniu zadania tworzenia kopii zapasowej tworzy punkt odzyskiwania w magazynie Recovery Services. Następnie można użyć jednego z tych punktów odzyskiwania w celu przywrócenia danych do danego punktu w czasie.
 
 * W tym samouczku utworzysz magazyn w tej samej grupie zasobów i lokalizacji co maszyna wirtualna, dla której chcesz utworzyć kopię zapasową.
-* Azure Backup automatycznie obsługuje magazyn do przechowywania kopii zapasowych danych. Domyślnie magazyn używa [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md). Nadmiarowość geograficzna gwarantuje, że kopia zapasowa danych jest replikowana do pomocniczego regionu platformy Azure, a setki kilometrów od regionu podstawowego.
+* Azure Backup automatycznie obsługuje magazyn do przechowywania kopii zapasowych danych. Domyślnie magazyn używa [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Nadmiarowość geograficzna gwarantuje, że kopia zapasowa danych jest replikowana do pomocniczego regionu platformy Azure, a setki kilometrów od regionu podstawowego.
 
 Utwórz magazyn w następujący sposób:
 

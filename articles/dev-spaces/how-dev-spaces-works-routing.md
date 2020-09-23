@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Zawiera opis procesów Azure Dev Spaces i sposobu działania routingu
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: abdd8a573b7e120c5494b8878c2eb19813fc9507
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 6987bbaaebe342b571d5b19fe0e37bebd5b8b6e1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213412"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981299"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Jak działa Routing przy użyciu Azure Dev Spaces
 
@@ -55,7 +55,7 @@ Możesz również utworzyć nowe miejsce dev, które jest tworzone na podstawie 
 
 Pochodna przestrzeń dev również umożliwia inteligentne kierowanie żądań między własnymi aplikacjami i aplikacjami udostępnionymi z jego elementu nadrzędnego. Routing działa przez próbę skierowania żądania do aplikacji w pochodnym obszarze dev i powrocie do aplikacji udostępnionej z nadrzędnego obszaru dev. Routing powróci do aplikacji udostępnionej w obszarze nadrzędnym, jeśli aplikacja nie znajduje się w przestrzeni nadrzędnej.
 
-Na przykład:
+Przykład:
 * *Domyślna* przestrzeń dev ma aplikacje *Service* i *serviceB*.
 * Przestrzeń dev *azureuser* jest pochodną *domyślnego*.
 * Zaktualizowana wersja *usługi Service* . została wdrożona w *azureuser*.
@@ -64,11 +64,7 @@ W przypadku korzystania z programu *azureuser*wszystkie żądania do *usługi Se
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z przykładami, jak Azure Dev Spaces używa routingu, aby zapewnić szybką iterację i programowanie, zobacz [jak działa proces lokalny z Kubernetes][how-it-works-local-process-kubernetes], [jak zdalne debugowanie kodu za pomocą Azure dev Spaces Works][how-it-works-remote-debugging]i [Akcje GitHub & usłudze Azure Kubernetes Service][pr-flow].
+Aby zobaczyć przykład, jak Azure Dev Spaces używa routingu, aby zapewnić szybką iterację i programowanie, zobacz [jak zdalne debugowanie kodu za pomocą Azure dev Spaces działa][how-it-works-remote-debugging].
 
 
-[helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
-[pr-flow]: how-to/github-actions.md
-[troubleshooting]: troubleshooting.md

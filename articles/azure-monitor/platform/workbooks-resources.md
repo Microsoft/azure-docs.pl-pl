@@ -1,6 +1,6 @@
 ---
 title: Azure Monitornie parametrów zasobów skoroszytów
-description: Uprość złożone raportowanie za pomocą wstępnie skompilowanych i niestandardowych skoroszytów z parametrami
+description: Dowiedz się, jak używać parametrów zasobów, aby zezwalać na pobieranie zasobów w skoroszytach. Użyj parametrów zasobów, aby ustawić zakres, z którego mają zostać pobrane dane.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: b5822c1af4f3bc5d9519af93054a01c3cdc82001
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504995"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972850"
 ---
 # <a name="workbook-resource-parameters"></a>Parametry zasobów skoroszytu
 
@@ -27,12 +27,12 @@ Wartości z funkcji wyboru zasobów mogą pochodzić z kontekstu skoroszytu, lis
 2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
 3. Kliknij niebieski przycisk _Dodaj parametr_ .
 4. W okienku Nowy parametr, który jest podręczny ENTER:
-    1. Nazwa parametru:`Applications`
-    2. Typ parametru:`Resource picker`
-    3. Wymagane:`checked`
-    4. Zezwalaj na wybór wielokrotny:`checked`
-5. Pobierz dane z:`Workbook Resources`
-6. Uwzględnij tylko typy zasobów:`Application Insights`
+    1. Nazwa parametru: `Applications`
+    2. Typ parametru: `Resource picker`
+    3. Wymagane: `checked`
+    4. Zezwalaj na wybór wielokrotny: `checked`
+5. Pobierz dane z: `Workbook Resources`
+6. Uwzględnij tylko typy zasobów: `Application Insights`
 7. Wybierz pozycję "Zapisz" na pasku narzędzi, aby utworzyć parametr.
 
 ![Obraz przedstawiający tworzenie parametru zasobu przy użyciu zasobów skoroszytu](./media/workbooks-resources/resource-create.png)
@@ -42,13 +42,13 @@ Wartości z funkcji wyboru zasobów mogą pochodzić z kontekstu skoroszytu, lis
 2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
 3. Kliknij niebieski przycisk _Dodaj parametr_ .
 4. W okienku Nowy parametr, który jest podręczny ENTER:
-    1. Nazwa parametru:`Applications`
-    2. Typ parametru:`Resource picker`
-    3. Wymagane:`checked`
-    4. Zezwalaj na wybór wielokrotny:`checked`
-5. Pobierz dane z:`Query`
-    1. Typ zapytania:`Azure Resource Graph`
-    2. Opłaty`Use default subscriptions`
+    1. Nazwa parametru: `Applications`
+    2. Typ parametru: `Resource picker`
+    3. Wymagane: `checked`
+    4. Zezwalaj na wybór wielokrotny: `checked`
+5. Pobierz dane z: `Query`
+    1. Typ zapytania: `Azure Resource Graph`
+    2. Opłaty `Use default subscriptions`
     3. W kontrolce zapytania Dodaj ten fragment kodu
     ```kusto
     where type == 'microsoft.insights/components'
@@ -68,11 +68,11 @@ Wartości z funkcji wyboru zasobów mogą pochodzić z kontekstu skoroszytu, lis
 2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
 3. Kliknij niebieski przycisk _Dodaj parametr_ .
 4. W okienku Nowy parametr, który jest podręczny ENTER:
-    1. Nazwa parametru:`Applications`
-    2. Typ parametru:`Resource picker`
-    3. Wymagane:`checked`
-    4. Zezwalaj na wybór wielokrotny:`checked`
-5. Pobierz dane z:`JSON`
+    1. Nazwa parametru: `Applications`
+    2. Typ parametru: `Resource picker`
+    3. Wymagane: `checked`
+    4. Zezwalaj na wybór wielokrotny: `checked`
+5. Pobierz dane z: `JSON`
     1. W kontrolce zawartość Dodaj ten fragment kodu JSON
     ```json
     [
@@ -100,7 +100,7 @@ Wartości z funkcji wyboru zasobów mogą pochodzić z kontekstu skoroszytu, lis
 > Takie podejście może służyć do powiązania zasobów z innymi kontrolkami, takimi jak metryki.
 
 ## <a name="resource-parameter-options"></a>Opcje parametrów zasobu
-| Parametr | Wyjaśnienie | Przykład |
+| Parametr | Objaśnienie | Przykład |
 | ------------- |:-------------|:-------------|
 | `{Applications}` | Wybrany identyfikator zasobu | _Identyfikator podrzędny/subscriptions/<> <grupy zasobów>/Providers/<typ zasobu>/acmeauthentication_ |
 | `{Applications:label}` | Etykieta wybranego zasobu | `acmefrontend` |

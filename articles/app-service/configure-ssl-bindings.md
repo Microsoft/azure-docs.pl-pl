@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 6c3f4cfe7c896b317edc5897098a1c18c98dc826
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: f7301809b3befc41110a32062d6e478c412fa56e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962642"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981112"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS/SSL w Azure App Service
 
@@ -24,7 +24,7 @@ Zabezpieczanie [domeny niestandardowej](app-service-web-tutorial-custom-domain.m
 - [Dodaj prywatny certyfikat do App Service](configure-ssl-certificate.md) , który spełnia wszystkie [wymagania dotyczące certyfikatu prywatnego](configure-ssl-certificate.md#private-certificate-requirements).
 -  Utwórz powiązanie TLS z odpowiednią domeną niestandardową. Ten drugi krok jest objęty tym artykułem.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Uaktualnienie warstwy cenowej aplikacji
@@ -108,7 +108,7 @@ Istnieją dwie zmiany, które należy wprowadzić, potencjalnie:
 
 W różnych przeglądarkach przejdź do, aby `https://<your.custom.domain>` sprawdzić, czy program obsługuje aplikację.
 
-![Nawigacja w portalu do aplikacji platformy Azure](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+:::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="Zrzut ekranu przedstawiający przykład przeglądania do domeny niestandardowej z wyróżnionym adresem URL contoso.com.":::
 
 Kod aplikacji może sprawdzić protokół za pośrednictwem nagłówka "x-appService-proto". Nagłówek będzie miał wartość `http` lub `https` . 
 
@@ -133,7 +133,7 @@ Na stronie aplikacji w obszarze nawigacji po lewej stronie wybierz pozycję **Us
 
 ![Wymuszanie protokołu HTTPS](./media/configure-ssl-bindings/enforce-https.png)
 
-Po zakończeniu operacji przejdź do dowolnego adresu URL protokołu HTTP, który wskazuje Twoją aplikację. Na przykład:
+Po zakończeniu operacji przejdź do dowolnego adresu URL protokołu HTTP, który wskazuje Twoją aplikację. Przykład:
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`

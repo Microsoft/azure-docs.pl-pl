@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Dowiedz się, jak rozwiązywać typowe problemy podczas włączania i używania Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: e26f066294cb0a6a48c5a3299213206fe4226ad0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d697a11f3087c31a49d9b88e99b18bab686a2b59
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210827"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981065"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Rozwiązywanie problemów Azure Dev Spaces
 
@@ -18,7 +18,7 @@ Ten przewodnik zawiera informacje o typowych problemach, które mogą wystąpić
 
 Jeśli wystąpi problem podczas korzystania z Azure Dev Spaces, Utwórz [problem w repozytorium Azure dev Spaces GitHub](https://github.com/Azure/dev-spaces/issues).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby bardziej efektywnie rozwiązywać problemy, może to pomóc w tworzeniu bardziej szczegółowych dzienników do przeglądu.
 
@@ -27,14 +27,6 @@ Dla programu Visual Studio ustaw wartość `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_E
 W interfejsie wiersza polecenia można wyprowadzić więcej informacji podczas wykonywania poleceń przy użyciu `--verbose` przełącznika. Więcej szczegółowych dzienników można także przeglądać w temacie `%TEMP%\Azure Dev Spaces` . Na komputerze Mac katalog *tymczasowy* można znaleźć, uruchamiając `echo $TMPDIR` z okna terminalu. Na komputerze z systemem Linux katalog *temp* jest zwykle `/tmp` . Ponadto sprawdź, czy rejestrowanie jest włączone w [pliku konfiguracji interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
 Azure Dev Spaces sprawdza się również najlepiej podczas debugowania pojedynczego wystąpienia lub pod. `azds.yaml`Plik zawiera ustawienie *replicaCount*, które wskazuje liczbę Kubernetes uruchomionych dla usługi. Jeśli zmienisz *replicaCount* w celu skonfigurowania aplikacji tak, aby uruchamiała wiele zasobników dla danej usługi, debuger dołącza do pierwszego pod, gdy zostanie wyświetlony alfabetycznie. Debuger dołącza się do innego, pod, kiedy pierwotne odzyskanie, prawdopodobnie wystąpiło nieoczekiwane zachowanie.
-
-## <a name="common-issues-when-using-local-process-with-kubernetes"></a>Typowe problemy występujące podczas korzystania z procesu lokalnego z usługą Kubernetes
-
-### <a name="fail-to-restore-original-configuration-of-deployment-on-cluster"></a>Przywrócenie oryginalnej konfiguracji wdrożenia w klastrze nie powiodło się
-
-W przypadku korzystania z procesu lokalnego z usługą Kubernetes, jeśli proces lokalny z Kubernetes klienta ulegnie awarii lub zakończy się nieoczekiwanie, usługa, którą proces lokalny z usługą Kubernetes, przekieruje, może nie zostać przywrócona do oryginalnego stanu przed połączeniem lokalnym z tym Kubernetes.
-
-Aby rozwiązać ten problem, należy ponownie wdrożyć usługę w klastrze.
 
 ## <a name="common-issues-when-enabling-azure-dev-spaces"></a>Typowe problemy występujące podczas włączania Azure Dev Spaces
 
@@ -58,13 +50,13 @@ az aks use-dev-spaces -g <resource group name> -n <cluster name>
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Tworzenie kontrolera kończy się niepowodzeniem z powodu długości nazwy kontrolera
 
-Nazwa kontrolera Azure Dev Spaces nie może być dłuższa niż 31 znaków. Jeśli nazwa kontrolera przekracza 31 znaków po włączeniu funkcji miejsca do magazynowania w klastrze AKS lub utworzeniu kontrolera, zostanie wyświetlony komunikat o błędzie. Na przykład:
+Nazwa kontrolera Azure Dev Spaces nie może być dłuższa niż 31 znaków. Jeśli nazwa kontrolera przekracza 31 znaków po włączeniu funkcji miejsca do magazynowania w klastrze AKS lub utworzeniu kontrolera, zostanie wyświetlony komunikat o błędzie. Przykład:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Aby rozwiązać ten problem, Utwórz kontroler z alternatywną nazwą. Na przykład:
+Aby rozwiązać ten problem, Utwórz kontroler z alternatywną nazwą. Przykład:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -168,7 +160,7 @@ Załóżmy na przykład, że używasz polecenia Helm do uruchamiania całej apli
 
 Azure Dev Spaces można skonfigurować tak, aby wskazywały określony _pliku dockerfile_ w projekcie. Jeśli jest wyświetlany Azure Dev Spaces nie używa _pliku dockerfile_ , aby móc kompilować kontenery, może być konieczne jawne poinformowanie Azure dev Spaces, których pliku dockerfile użyć. 
 
-Aby rozwiązać ten problem, Otwórz plik _azds. YAML_ , który Azure dev Spaces wygenerowany w projekcie. *Konfiguracje aktualizacji: Programowanie: kompilacja: pliku dockerfile* , aby wskazać pliku dockerfile, którego chcesz użyć. Na przykład:
+Aby rozwiązać ten problem, Otwórz plik _azds. YAML_ , który Azure dev Spaces wygenerowany w projekcie. *Konfiguracje aktualizacji: Programowanie: kompilacja: pliku dockerfile* , aby wskazać pliku dockerfile, którego chcesz użyć. Przykład:
 
 ```yaml
 ...
@@ -215,7 +207,7 @@ install:
 
 Ten błąd może pojawić się, gdy uruchomienie kodu usługi nie powiedzie się. Przyczyną jest często kod użytkownika. Aby uzyskać więcej informacji diagnostycznych, należy włączyć bardziej szczegółowe rejestrowanie podczas uruchamiania usługi.
 
-W wierszu polecenia Użyj, `--verbose` Aby włączyć bardziej szczegółowe rejestrowanie. Możesz również określić format danych wyjściowych przy użyciu `--output` . Na przykład:
+W wierszu polecenia Użyj, `--verbose` Aby włączyć bardziej szczegółowe rejestrowanie. Możesz również określić format danych wyjściowych przy użyciu `--output` . Przykład:
 
 ```cmd
 azds up --verbose --output json
@@ -265,7 +257,7 @@ Ten błąd występuje, ponieważ Azure Dev Spaces nie obsługuje obecnie kompila
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>Ruch sieciowy nie jest przekazywany do klastra AKS podczas nawiązywania połączenia z maszyną deweloperskią
 
-W przypadku korzystania z [Azure dev Spaces do łączenia klastra AKS z maszyną deweloperskią](https://code.visualstudio.com/docs/containers/local-process-kubernetes)może wystąpić problem polegający na tym, że ruch sieciowy nie jest przekazywany między komputerem deweloperskim i klastrem AKS.
+W przypadku korzystania z [Azure dev Spaces do łączenia klastra AKS z maszyną deweloperskią](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes)może wystąpić problem polegający na tym, że ruch sieciowy nie jest przekazywany między komputerem deweloperskim i klastrem AKS.
 
 Podczas łączenia komputera deweloperskiego z klastrem usługi AKS Azure Dev Spaces przekazuje ruch sieciowy między klastrem AKS i komputerem deweloperskim, modyfikując plik maszyny deweloperskiej `hosts` . Azure Dev Spaces tworzy wpis w polu `hosts` z adresem usługi Kubernetes, która jest zastępowana jako nazwa hosta. Ten wpis jest używany z przekazywaniem portów do bezpośredniego ruchu sieciowego między komputerem deweloperskim i klastrem AKS. Jeśli usługa na komputerze deweloperskim jest w konflikcie z portem usługi Kubernetes, która jest zastępowana, Azure Dev Spaces nie może przekazywać ruchu sieciowego dla usługi Kubernetes. Na przykład usługa *Windows BranchCache* jest zwykle powiązana z *0.0.0.0:80*, co spowoduje konflikty dla portu 80 na wszystkich lokalnych adresach IP.
 
@@ -326,7 +318,7 @@ Aby wyświetlić szczegóły zarządzanej tożsamości, uruchom następujące po
 az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
 ```
 
-Powyższe polecenie wyprowadza *clientId* i *ResourceID* dla tożsamości zarządzanej. Na przykład:
+Powyższe polecenie wyprowadza *clientId* i *ResourceID* dla tożsamości zarządzanej. Przykład:
 
 ```json
 {
@@ -367,7 +359,7 @@ kubectl apply -f clusteridentity.yaml
 kubectl apply -f clusteridentitybinding.yaml
 ```
 
-Po wdrożeniu obiektów *AzureIdentity* i *AzureIdentityBinding* każde obciążenie z etykietą *aadpodidbinding: My-Label-Value* może uzyskać dostęp do zarządzanej tożsamości klastra. Dodaj tę etykietę i Wdróż ponownie wszystkie obciążenia działające w dowolnym miejscu dev. Na przykład:
+Po wdrożeniu obiektów *AzureIdentity* i *AzureIdentityBinding* każde obciążenie z etykietą *aadpodidbinding: My-Label-Value* może uzyskać dostęp do zarządzanej tożsamości klastra. Dodaj tę etykietę i Wdróż ponownie wszystkie obciążenia działające w dowolnym miejscu dev. Przykład:
 
 ```yaml
 apiVersion: apps/v1
@@ -451,7 +443,7 @@ Aby rozwiązać ten problem:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Błąd autoryzacji "Microsoft. DevSpaces/Register/Action"
 
-Aby zarządzać Azure Dev Spaces, musisz mieć dostęp do *właściciela* lub *współautora* w ramach subskrypcji platformy Azure. Jeśli próbujesz zarządzać miejscami deweloperskimi, a nie masz dostępu *właściciela* lub *współautora* do skojarzonej subskrypcji platformy Azure, może zostać wyświetlony błąd autoryzacji. Na przykład:
+Aby zarządzać Azure Dev Spaces, musisz mieć dostęp do *właściciela* lub *współautora* w ramach subskrypcji platformy Azure. Jeśli próbujesz zarządzać miejscami deweloperskimi, a nie masz dostępu *właściciela* lub *współautora* do skojarzonej subskrypcji platformy Azure, może zostać wyświetlony błąd autoryzacji. Przykład:
 
 ```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.

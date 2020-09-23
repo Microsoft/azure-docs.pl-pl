@@ -5,12 +5,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 description: Opisuje procesy, które Azure Dev Spaces
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: 48bde5f3cc6f397d51a31f80f41ab299ba8866ee
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 81408ed4bbe5322538d893b29c7397104c5b0844
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212535"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981270"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Jak działa usługa Azure Dev Spaces
 
@@ -22,9 +22,9 @@ Azure Dev Spaces zapewnia wiele sposobów na szybkie Iterowanie i debugowanie ap
 
 Azure Dev Spaces zmniejsza nakład pracy, aby opracowywać, testować i iterować aplikację Kubernetes w kontekście klastra AKS. To zmniejszenie nakładu pracy pozwala deweloperom skupić się na logice biznesowej aplikacji i nie konfigurować usług do uruchamiania w Kubernetes.
 
-### <a name="local-process-with-kubernetes"></a>Proces lokalny z platformą Kubernetes
+### <a name="bridge-to-kubernetes"></a>Mostek do Kubernetes
 
-Przy użyciu procesu lokalnego z usługą Kubernetes można połączyć komputer deweloperski z klastrem Kubernetes, co pozwala na uruchamianie i debugowanie kodu na komputerze deweloperskim, tak jakby był uruchomiony w klastrze. Azure Dev Spaces przekierowuje ruch między podłączonym klastrem przez uruchomienie go w klastrze, który działa jako agent zdalny do przekierowywania ruchu między komputerem deweloperskim i klastrem. To przekierowanie ruchu umożliwia kod na komputerze deweloperskim i usługach uruchomionych w klastrze, aby komunikować się tak, jakby znajdowały się w tym samym klastrze. Aby uzyskać więcej informacji na temat łączenia komputera deweloperskiego z klastrem Kubernetes, zobacz [jak działa proces lokalny z Kubernetes][how-it-works-local-process-kubernetes].
+Za pomocą programu Bridge to Kubernetes można połączyć komputer deweloperski z klastrem Kubernetes, co pozwala na uruchamianie i debugowanie kodu na komputerze deweloperskim, tak jakby był uruchomiony w klastrze. Mostek do Kubernetes przekierowuje ruch między podłączonym klastrem, uruchamiając go w klastrze, który działa jako agent zdalny do przekierowywania ruchu między komputerem deweloperskim i klastrem. To przekierowanie ruchu umożliwia kod na komputerze deweloperskim i usługach uruchomionych w klastrze, aby komunikować się tak, jakby znajdowały się w tym samym klastrze. Aby uzyskać więcej informacji na temat łączenia komputera deweloperskiego z klastrem Kubernetes, zobacz [jak działa mostek do Kubernetes][how-it-works-bridge-to-kubernetes].
 
 ### <a name="run-your-code-in-aks"></a>Uruchamianie kodu w AKS
 
@@ -47,8 +47,8 @@ Możesz również użyć akcji usługi GitHub z Azure Dev Spaces, aby przetestow
 Aby rozpocząć łączenie lokalnego komputera deweloperskiego z klastrem AKS, zobacz [Łączenie komputera deweloperskiego z klastrem AKS][connect].
 
 
-[connect]: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
+[connect]: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+[how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

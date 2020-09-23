@@ -1,15 +1,15 @@
 ---
 title: Tworzenie i konfigurowanie magazynów Recovery Services
-description: W tym artykule dowiesz się, jak tworzyć i konfigurować magazyny Recovery Services, w których są przechowywane kopie zapasowe i punkty odzyskiwania.
+description: W tym artykule dowiesz się, jak tworzyć i konfigurować magazyny Recovery Services, w których są przechowywane kopie zapasowe i punkty odzyskiwania. Dowiedz się, jak używać przywracania między regionami do przywracania w regionie pomocniczym.
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 81c6fd47ccea2ea17a20535df04931727c23be6f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177197"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981486"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Tworzenie i Konfigurowanie magazynu Recovery Services
 
@@ -30,34 +30,45 @@ Azure Backup automatycznie obsługuje magazyn dla magazynu. Należy określić s
 
 1. Wybierz typ replikacji magazynu i wybierz pozycję **Zapisz**.
 
-     ![Ustawianie konfiguracji przechowywania dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Ustawianie konfiguracji przechowywania dla nowego magazynu](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
    - Zalecamy, aby Jeśli używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, Kontynuuj, aby użyć domyślnego ustawienia **geograficznie nadmiarowego** .
    - Jeśli nie używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, wybierz pozycję **Lokalnie nadmiarowy**, co zmniejszy koszty magazynów platformy Azure.
-   - Dowiedz się więcej o nadmiarowości [geograficznym](../storage/common/storage-redundancy.md) i [lokalnym](../storage/common/storage-redundancy.md) .
+   - Dowiedz się więcej o nadmiarowości [geograficznym](../storage/common/storage-redundancy.md#geo-redundant-storage) i [lokalnym](../storage/common/storage-redundancy.md#locally-redundant-storage) .
+   - Jeśli potrzebujesz dostępności danych bez przestojów w regionie, zagwarantujesz miejsce zamieszkania danych, a następnie wybierz pozycję [Magazyn strefowo nadmiarowy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 >[!NOTE]
 >Ustawienia replikacji magazynu dla magazynu nie są odpowiednie dla kopii zapasowej udziału plików platformy Azure, ponieważ bieżące rozwiązanie jest oparte na migawce i nie ma żadnych danych przesłanych do magazynu. Migawki są przechowywane na tym samym koncie magazynu co kopia zapasowa udziału plików.
 
 ## <a name="set-cross-region-restore"></a>Ustaw przywracanie między regionami
 
-Jako jedna z opcji przywracania, przywracanie między regionami (CRR) umożliwia przywracanie maszyn wirtualnych platformy Azure w regionie pomocniczym, który jest [sparowanym regionem platformy Azure](../best-practices-availability-paired-regions.md). Ta opcja umożliwia:
+Przywrócenie opcji przywracania **między regionami (CRR)** umożliwia przywrócenie danych w pomocniczym [regionie platformy Azure](../best-practices-availability-paired-regions.md).
+
+Obsługuje następujące źródła danych:
+
+- Maszyny wirtualne platformy Azure
+- Bazy danych SQL hostowane na maszynach wirtualnych platformy Azure
+- SAP HANA baz danych hostowanych na maszynach wirtualnych platformy Azure
+
+Użycie funkcji przywracania między regionami umożliwia:
 
 - Przeprowadzaj drążenie w przypadku spełnienia wymagań dotyczących inspekcji lub zgodności
-- Przywróć maszynę wirtualną lub jej dysk w przypadku awarii w regionie podstawowym.
+- Przywróć dane w przypadku awarii w regionie podstawowym
+
+Podczas przywracania maszyny wirtualnej można przywrócić maszynę wirtualną lub jej dysk. Jeśli przywracasz z baz danych SQL/SAP HANA hostowanych na maszynach wirtualnych platformy Azure, możesz przywrócić bazy danych lub ich pliki.
 
 Aby wybrać tę funkcję, wybierz pozycję **Włącz przywracanie między regionami** w okienku **Konfiguracja kopii zapasowej** .
 
-W przypadku tego procesu istnieją wpływ na ceny, który jest na poziomie magazynu.
+Ponieważ ten proces jest na poziomie magazynu, istnieją [implikacje cenowe](https://azure.microsoft.com/pricing/details/backup/).
 
 >[!NOTE]
 >Przed rozpoczęciem:
 >
 >- Zapoznaj się z [matrycą pomocy technicznej](backup-support-matrix.md#cross-region-restore) , aby zapoznać się z listą obsługiwanych typów i regionów zarządzanych.
->- Funkcja przywracania między regionami (CRR) jest teraz wyświetlana we wszystkich publicznych regionach platformy Azure.
+>- Funkcja przywracania między regionami (CRR) jest teraz w wersji zapoznawczej we wszystkich regionach publicznych platformy Azure i w ramach suwerennych chmur.
 >- CRR to funkcja wyboru poziomu magazynu dla dowolnego magazynu GRS (domyślnie wyłączona).
 >- Po przypisaniu elementów kopii zapasowych w regionach pomocniczych może upłynąć do 48 godzin.
->- Obecnie CRR jest obsługiwana tylko dla typu zarządzania kopiami zapasowymi — ARM Azure VM (klasyczna maszyna wirtualna platformy Azure nie będzie obsługiwana).  Gdy dodatkowe typy zarządzania obsługują CRR, zostaną one **automatycznie** zarejestrowane.
+>- Obecnie CRR dla maszyn wirtualnych platformy Azure są obsługiwane tylko dla maszyn wirtualnych platformy Azure z usługą Azure Resource Manager. Klasyczne maszyny wirtualne platformy Azure nie będą obsługiwane.  Gdy dodatkowe typy zarządzania obsługują CRR, zostaną one **automatycznie** zarejestrowane.
 >- Nie można obecnie przywrócić operacji przywracania między regionami do GRS lub LRS po zainicjowaniu ochrony po raz pierwszy.
 
 ### <a name="configure-cross-region-restore"></a>Konfigurowanie przywracania między regionami
@@ -69,15 +80,13 @@ Magazyn utworzony za pomocą nadmiarowości GRS zawiera opcję konfigurowania fu
 1. W portalu przejdź do obszaru Recovery Services ustawienia > magazynu > właściwości.
 2. Aby włączyć tę funkcję, wybierz opcję **Włącz przywracanie między regionami w tym magazynie** .
 
-   ![Przed wybraniem opcji Włącz przywracanie między regionami w tym magazynie](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Włącz przywracanie między regionami](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 
-   ![Po wybraniu opcji Włącz przywracanie między regionami w tym magazynie](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+Zobacz następujące artykuły, aby uzyskać więcej informacji na temat tworzenia kopii zapasowych i przywracania w programie CRR:
 
-Dowiedz się [, jak wyświetlać elementy kopii zapasowej w regionie pomocniczym](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
-
-Dowiedz się [, jak przywrócić w regionie pomocniczym](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
-
-Dowiedz się, jak [monitorować zadania przywracania regionu pomocniczego](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+- [Przywracanie między regionami maszyn wirtualnych platformy Azure](backup-azure-arm-restore-vms.md#cross-region-restore)
+- [Przywracanie między regionami dla baz danych SQL](restore-sql-database-azure-vm.md#cross-region-restore)
+- [Przywracanie między regionami dla SAP HANA baz danych](sap-hana-db-restore.md#cross-region-restore)
 
 ## <a name="set-encryption-settings"></a>Ustawianie ustawień szyfrowania
 
@@ -99,7 +108,7 @@ Instrukcje dotyczące każdego z tych kroków można znaleźć [w tym artykule](
 
 ## <a name="modifying-default-settings"></a>Modyfikowanie ustawień domyślnych
 
-Zdecydowanie zalecamy przejrzenie ustawień domyślnych dla **typu replikacji magazynu** i **ustawień zabezpieczeń** przed skonfigurowaniem kopii zapasowych w magazynie.
+Przed skonfigurowaniem kopii zapasowych w magazynie zdecydowanie zalecamy zapoznanie się z ustawieniami domyślnymi **Typ replikacji magazynu** i **Ustawienia zabezpieczeń**.
 
 - **Typ replikacji magazynu** jest domyślnie ustawiony na **Geograficznie nadmiarowy** (GRS). Po skonfigurowaniu kopii zapasowej opcja Modyfikuj jest wyłączona.
   - Jeśli nie skonfigurowano jeszcze kopii zapasowej, [wykonaj następujące kroki](#set-storage-redundancy) , aby przejrzeć i zmodyfikować ustawienia.
