@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/7/2020
-ms.openlocfilehash: f8dbdf87eef193540fd5c1bf9d9e7f3794ae46ce
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 8ebb524a5297380fca575ce6849fe4c5f15507cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168222"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903991"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Jak skonfigurować replikacja typu data-in Azure Database for MySQL
 
@@ -105,15 +105,15 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
 
    Aby utworzyć rolę replikacji w programie MySQL Workbench, Otwórz panel **Użytkownicy i uprawnienia** w panelu **zarządzania** . Następnie kliknij pozycję **Dodaj konto**. 
  
-   ![Użytkownicy i uprawnienia](./media/howto-data-in-replication/users_privileges.png)
+   :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Użytkownicy i uprawnienia":::
 
    Wpisz nazwę użytkownika w polu **Nazwa logowania** . 
 
-   ![Użytkownik synchronizacji](./media/howto-data-in-replication/syncuser.png)
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Użytkownik synchronizacji":::
  
    Kliknij panel **role administracyjne** , a następnie wybierz pozycję **replikacja podrzędna** z listy **uprawnień globalnych**. Następnie kliknij przycisk **Zastosuj** , aby utworzyć rolę replikacji.
 
-   ![Replikacja podrzędna](./media/howto-data-in-replication/replicationslave.png)
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Replikacja podrzędna":::
 
 1. Ustaw serwer główny do trybu tylko do odczytu
 
@@ -133,7 +133,7 @@ Poniższe kroki dotyczą przygotowania i skonfigurowania serwera MySQL hostowane
    ```
    Wyniki powinny wyglądać jak poniżej. Pamiętaj, aby zanotować nazwę pliku binarnego, ponieważ zostanie ona użyta w kolejnych krokach.
 
-   ![Wyniki stanu głównego](./media/howto-data-in-replication/masterstatus.png)
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Wyniki stanu głównego":::
  
 ## <a name="dump-and-restore-master-server"></a>Zrzuć i przywróć serwer główny
 

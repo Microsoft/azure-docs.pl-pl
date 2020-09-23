@@ -16,12 +16,12 @@ ms.date: 12/06/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b0437308a0495281e364d42199cc84d9a291cb58
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 13c69dda1e300bcff95b6a017fdeb308a6bbf3a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263419"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969250"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -33,24 +33,15 @@ Po skonfigurowaniu zasobu platformy Azure przy użyciu tożsamości zarządzanej
 
 - Jeśli nie znasz tożsamości zarządzanych dla zasobów platformy Azure, zapoznaj się z [sekcją przegląd](overview.md). **Pamiętaj, aby zapoznać się z [różnicą między przypisaną przez system i tożsamością zarządzaną przez użytkownika](overview.md#managed-identity-types)**.
 - Jeśli nie masz jeszcze konta platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed kontynuowaniem.
-- Aby uruchomić przykłady skryptów interfejsu wiersza polecenia, można korzystać z trzech opcji:
-    - Użyj [Azure Cloud Shell](../../cloud-shell/overview.md) z Azure Portal (zobacz następną sekcję).
-    - Użyj osadzonego Azure Cloud Shell za pomocą przycisku "Wypróbuj go" znajdującego się w prawym górnym rogu każdego bloku kodu.
-    - [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) , jeśli wolisz korzystać z lokalnej konsoli interfejsu wiersza polecenia. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Do uruchomienia przykładowych skryptów są dostępne dwie opcje:
+    - Użyj [Azure Cloud Shell](../../cloud-shell/overview.md), którą można otworzyć za pomocą przycisku **Wypróbuj** w prawym górnym rogu bloków kodu.
+    - Uruchom skrypty lokalnie, instalując najnowszą wersję [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli), a następnie zaloguj się do platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login). Użyj konta skojarzonego z subskrypcją platformy Azure, w której chcesz utworzyć zasoby.
 
 ## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Korzystanie z usługi Azure RBAC do przypisywania zarządzanej tożsamości do innego zasobu
 
 Po włączeniu tożsamości zarządzanej w zasobie platformy Azure, na przykład w przypadku [maszyny wirtualnej platformy Azure](qs-configure-cli-windows-vm.md) lub [zestawu skalowania maszyn wirtualnych platformy Azure](qs-configure-cli-windows-vmss.md): 
 
-1. Jeśli używasz interfejsu wiersza polecenia platformy Azure w konsoli lokalnej, najpierw zaloguj się do platformy Azure za pomocą polecenia [az login](/cli/azure/reference-index#az-login). Użyj konta skojarzonego z subskrypcją platformy Azure, w ramach której chcesz wdrożyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych:
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. W tym przykładzie przydajemy maszynom wirtualnym platformy Azure dostęp do konta magazynu. Najpierw użyj [AZ Resource list](/cli/azure/resource/#az-resource-list) , aby uzyskać nazwę główną usługi dla maszyny wirtualnej o nazwie myVM:
+1. W tym przykładzie przydajemy maszynom wirtualnym platformy Azure dostęp do konta magazynu. Najpierw użyj [AZ Resource list](/cli/azure/resource/#az-resource-list) , aby uzyskać nazwę główną usługi dla maszyny wirtualnej o nazwie myVM:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
@@ -61,7 +52,7 @@ Po włączeniu tożsamości zarządzanej w zasobie platformy Azure, na przykład
    spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
    ```
 
-3. Gdy masz identyfikator jednostki usługi, użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby nadać maszynie wirtualnej lub zestaw skalowania maszyn wirtualnych "czytnik" dostęp do konta magazynu o nazwie "ciąg mystorageacct":
+1. Gdy masz identyfikator jednostki usługi, użyj [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby nadać maszynie wirtualnej lub zestaw skalowania maszyn wirtualnych "czytnik" dostęp do konta magazynu o nazwie "ciąg mystorageacct":
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct

@@ -1,5 +1,5 @@
 ---
-title: Przykładowe potoki & zestawy danych dla projektanta (wersja zapoznawcza)
+title: Przykładowe potoki & zestawy danych dla projektanta
 titleSuffix: Azure Machine Learning
 description: Użyj przykładów w programie Azure Machine Learning Designer, aby przeskakuje i uruchamiać potoki uczenia maszynowego.
 services: machine-learning
@@ -10,21 +10,21 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2020
 ms.custom: designer
-ms.openlocfilehash: cbeb37599d28241dac3829af3891b2810cca4dce
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 15393a0e618c14fbaff46a51a300284d8afb4b77
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662109"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889752"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Przykładowe potoki & zestawy danych dla programu Azure Machine Learning Designer (wersja zapoznawcza)
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Przykładowe potoki & zestawy danych dla projektanta Azure Machine Learning
 
 Skorzystaj z wbudowanych przykładów w programie Azure Machine Learning Designer, aby szybko rozpocząć tworzenie własnych potoków uczenia maszynowego. [Repozytorium usługi GitHub](https://github.com/Azure/MachineLearningDesigner) Azure Machine Learning Designer zawiera szczegółową dokumentację ułatwiającą zrozumienie niektórych typowych scenariuszy uczenia maszynowego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://aka.ms/AMLFree).
-* Azure Machine Learning obszar roboczy z jednostką SKU przedsiębiorstwa.
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://aka.ms/AMLFree)
+* Obszar roboczy usługi Azure Machine Learning 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -132,11 +132,11 @@ Przykładowe zestawy danych są dostępne w kategorii **przykłady zestawów dan
 |Zestaw danych witryny Wikipedia SP 500|Dane są wyprowadzane z witryny Wikipedia ( https://www.wikipedia.org/) na podstawie artykułów każdej usługi S&P 500 firmy, przechowywanej jako dane XML.    <br/>Przed przekazaniem do projektanta zestaw danych został przetworzony w następujący sposób:    <br/> -Wyodrębnij zawartość tekstową dla każdej konkretnej firmy    <br/> -Usuń formatowanie wiki    <br/> -Usuń znaki inne niż alfanumeryczne    <br/> — Konwertuj cały tekst na małe litery    <br/> -Znane kategorie firmy zostały dodane    <br/>Należy zauważyć, że w niektórych firmach nie znaleziono artykułu, więc liczba rekordów jest mniejsza niż 500.|
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Poznaj podstawy analizy predykcyjnej i uczenia maszynowego za pomocą [samouczka: przewidywanie ceny za samochód z użyciem projektanta](tutorial-designer-automobile-price-train-score.md)
+Poznaj podstawowe informacje na temat analizy predykcyjnej i uczenia maszynowego za pomocą [samouczka: przewidywanie ceny samochodów dla urządzeń przenośnych za pomocą projektanta](tutorial-designer-automobile-price-train-score.md)
 

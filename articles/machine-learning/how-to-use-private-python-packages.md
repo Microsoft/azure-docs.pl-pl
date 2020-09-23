@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 2af6749565a7fefd2892b82bcd5dff203eccdedc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 0f6f5d0ca757b10a16b31864124f1bcf1190674a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661213"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896922"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Używanie prywatnych pakietów języka Python z Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym artykule dowiesz się, jak bezpiecznie używać prywatnych pakietów języka Python w programie Azure Machine Learning. Przypadki użycia dla prywatnych pakietów języka Python obejmują:
 

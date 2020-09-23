@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 3220b9d56ff7107245a0a00aac44bb58f87099f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b1bc58b6b4a87cd6e5e09e83020a38261b8746f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075961"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905367"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Konfigurowanie środowisk i bibliotek frontonu za pomocą usługi Azure static Web Apps Preview
 
 Statyczna Web Apps platformy Azure wymaga, aby w [pliku konfiguracji kompilacji](github-actions-workflow.md) dla platformy lub biblioteki frontonu były dostępne odpowiednie wartości konfiguracyjne.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli wymieniono ustawienia dla serii platform i bibliotek<sup>1</sup>.
 
@@ -35,6 +35,7 @@ Zamiarem kolumn tabeli jest wyjaśnienie następujących elementów:
 | [Kątowy uniwersalny](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | `npm run prerender` |
 | [Aurelia](https://aurelia.io/) | `dist` | nie dotyczy |
 | [Backbone.js](https://backbonejs.org/) | `/` | nie dotyczy |
+| [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) | `wwwroot` | nie dotyczy |
 | [Ember](https://emberjs.com/) | `dist` | nie dotyczy |
 | [Flutter](https://flutter.dev/) | `build/web` | `flutter build web` |
 | [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
@@ -46,7 +47,7 @@ Zamiarem kolumn tabeli jest wyjaśnienie następujących elementów:
 | [KnockoutJS](https://knockoutjs.com/) | `dist` | nie dotyczy |
 | [LitElement](https://lit-element.polymer-project.org/) | `dist` | nie dotyczy |
 | [Marko](https://markojs.com/) | `public` | nie dotyczy |
-| [Platforma Meteor](https://www.meteor.com/) | `bundle` | nie dotyczy |
+| [Meteor](https://www.meteor.com/) | `bundle` | nie dotyczy |
 | [Mithril](https://mithril.js.org/) | `dist` | nie dotyczy |
 | [Polymer](https://www.polymer-project.org/) | `build/default` | nie dotyczy |
 | [Preact](https://preactjs.com/) | `build` | nie dotyczy |

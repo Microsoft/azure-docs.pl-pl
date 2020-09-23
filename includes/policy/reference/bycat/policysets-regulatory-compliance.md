@@ -2,20 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 69273ba7ca1a21cdb0c365d69a3f4305fa76a865
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: a7080e62a4063ca2975ee72bb04cf3e06c1483ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90022680"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984557"
 ---
 |Nazwa |Opis |Zasady |Wersja |
 |---|---|---|---|
 |[Australian Government ISM PROTECTED](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRAP_Audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń maszyn wirtualnych i ich rozszerzenia, które dotyczą podzbioru kontroli w zakresie bezpieczeństwa informacji dla instytucji rządowych (ISM). Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/AustralianGovernmentISM-blueprint](https://aka.ms/AustralianGovernmentISM-blueprint) . |62 |3.0.0 — wersja zapoznawcza |
-|[Test porównawczy zabezpieczeń platformy Azure](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |Ta inicjatywa obejmuje zasady wdrażania usługi Audit i Extension maszyny wirtualnej, które dotyczą podzestawu zaleceń dotyczących usług Azure Security test. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/azsecbm](https://aka.ms/azsecbm) . |137 |6.0.0 — wersja zapoznawcza |
+|[Test porównawczy zabezpieczeń platformy Azure](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |Ta inicjatywa obejmuje zasady wdrażania usługi Audit i Extension maszyny wirtualnej, które dotyczą podzestawu zaleceń dotyczących usług Azure Security test. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/azsecbm](https://aka.ms/azsecbm) . |136 |6.0.0 — wersja zapoznawcza |
 |[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń i maszyn wirtualnych, które dotyczą podzestawu federalnych kontrolek PBMM Kanady. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint) . |60 |3.0.0 |
 |[CIS Microsoft Azure Foundations Benchmark 1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json) |Ta inicjatywa obejmuje zasady inspekcji, które są związane z podzbiorem zaleceń dotyczących usługi CIS Microsoft Azure. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/cisazure-blueprint](https://aka.ms/cisazure-blueprint) . |87 |7.0.0 |
 |[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Ta inicjatywa obejmuje zasady wdrażania rozszerzeń maszyn wirtualnych i ich rozszerzenia, które dotyczą podzbioru kontrolek FedRAMP H. Dodatkowe zasady zostaną dodane w przyszłych wydaniach. Aby uzyskać więcej informacji, odwiedź stronę [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint) . |72 |3.0.0 |

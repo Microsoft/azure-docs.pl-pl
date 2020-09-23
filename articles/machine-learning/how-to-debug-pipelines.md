@@ -10,17 +10,16 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: cad1c8b7250ddf1e675145e764abcc90b4db9d86
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 616cdb1d0940ea6f64c3be3d687adaa9c2a98cc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661728"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889974"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Ten artykuł zawiera informacje dotyczące rozwiązywania problemów i debugowania [potoków uczenia maszynowego](concept-ml-pipelines.md) w [zestawach SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) i [Azure Machine Learning Designer (wersja zapoznawcza)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+W tym artykule dowiesz się, jak debugować i rozwiązywać problemy z [potokami uczenia maszynowego](concept-ml-pipelines.md) w [zestawach SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) i [Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer). Informacje na ten temat można znaleźć w tematach:
 
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 
@@ -108,31 +107,7 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-### <a name="finding-and-reading-pipeline-log-files"></a>Znajdowanie i odczytywanie plików dziennika potoku
-
-Plik dziennika `70_driver_log.txt` zawiera: 
-
-* Wszystkie wydrukowane instrukcje podczas wykonywania skryptu
-* Ślad stosu dla skryptu 
-
-Aby znaleźć te i inne pliki dziennika w portalu, najpierw kliknij potok uruchomiony w obszarze roboczym.
-
-![Strona listy uruchomień potoku](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-Przejdź do strony szczegółów uruchomienia potoku.
-
-![Strona szczegółów uruchomienia potoku](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-Kliknij moduł dla określonego kroku. Przejdź do karty **dzienniki** . Inne dzienniki zawierają informacje o procesie kompilacji obrazu środowiska i skryptach przygotowania krokowego.
-
-![Karta dziennika strony szczegółów uruchomienia potoku](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> Przebiegi *opublikowanych potoków* można znaleźć na karcie **punkty końcowe** w obszarze roboczym. Przebiegi dla *nieopublikowanych potoków* można znaleźć w **eksperymentach** lub **potokach**.
-
-Aby uzyskać więcej informacji na temat rejestrowania i śledzenia z usługi `ParallelRunStep` , zobacz [debugowanie i rozwiązywanie problemów z ParallelRunStep](how-to-debug-parallel-run-step.md).
-
-## <a name="logging-in-azure-machine-learning-designer-preview"></a>Logowanie w programie Azure Machine Learning Designer (wersja zapoznawcza)
+## <a name="azure-machine-learning-designer"></a>Projektant usługi Azure Machine Learning
 
 W przypadku potoków utworzonych w projektancie można znaleźć plik **70_driver_log** na stronie Tworzenie lub na stronie szczegółów uruchomienia potoku.
 

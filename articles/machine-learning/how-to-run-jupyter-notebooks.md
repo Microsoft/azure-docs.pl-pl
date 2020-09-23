@@ -11,15 +11,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: a59905c1d410ae0ffd4520f3b61fd37e649012e7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650917"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897381"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Dowiedz się, jak uruchamiać notesy Jupyter bezpośrednio w obszarze roboczym w programie Azure Machine Learning Studio. Chociaż możesz uruchomić [Jupyter](https://jupyter.org/) lub [JupyterLab](https://jupyterlab.readthedocs.io), możesz również edytować i uruchamiać notesy bez opuszczania obszaru roboczego.
 
@@ -50,7 +50,7 @@ Aby utworzyć nowy Notes:
 1. Nazwij plik. 
 1. Dla plików Jupyter Notebook wybierz opcję **Notes** jako typ pliku.
 1. Wybierz katalog plików.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Można również tworzyć pliki tekstowe.  Zaznacz **tekst** jako typ pliku i Dodaj rozszerzenie do nazwy (na przykład myfile.py lub myfile.txt)  
 
@@ -166,7 +166,7 @@ Aby uruchomić eksperyment z notesu, należy najpierw połączyć się z uruchom
 
 1. Wybierz **+** na pasku narzędzi Notes. 
 2. Nazwij obliczenia i wybierz **rozmiar maszyny wirtualnej**. 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 4. Wystąpienie obliczeniowe jest połączone z notesem automatycznie i można teraz uruchamiać komórki.
 
 Można wyświetlać i używać tylko utworzonych wystąpień obliczeniowych.  **Pliki użytkownika** są przechowywane niezależnie od maszyny wirtualnej i są współdzielone między wszystkimi wystąpieniami obliczeniowymi w obszarze roboczym.
@@ -224,7 +224,7 @@ Można zainstalować dowolne z [dostępnych jądra Jupyter](https://github.com/j
 
 Wskaźnik obok listy rozwijanej **obliczenia** pokazuje swój stan.  Stan jest również wyświetlany na liście rozwijanej.  
 
-|Color (Kolor) |Stan obliczeń |
+|Kolor |Stan obliczeń |
 |---------|---------| 
 | Green (Zielony) | Uruchomione obliczenia |
 | Red (Czerwony) |Obliczanie nie powiodło się | 
@@ -234,7 +234,7 @@ Wskaźnik obok listy rozwijanej **obliczenia** pokazuje swój stan.  Stan jest r
 
 Wskaźnik obok menu rozwijanego **jądra** pokazuje jego stan.
 
-|Color (Kolor) |Stan jądra |
+|Kolor |Stan jądra |
 |---------|---------|
 |  Green (Zielony) |Jądro połączone, bezczynne, zajęte|
 |  Szary |Jądro niepołączone |

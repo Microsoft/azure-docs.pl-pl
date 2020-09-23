@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: ed6d9e86143c3a5d6c97c4bd92a07c258bbd1bbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 501f3e8946023d28d67a33fbbfca661afbc6306d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477463"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898284"
 ---
 # <a name="smote"></a>SMOTE
 
-W tym artykule opisano, jak używać modułu SMOTE w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu zwiększenia liczby nieużywanych przypadków w zestawie danych, który służy do uczenia maszynowego. SMOTE to lepszy sposób zwiększenia liczby rzadkich przypadków niż zwykłe duplikowanie istniejących przypadków.  
+W tym artykule opisano, jak używać modułu SMOTE w programie Azure Machine Learning Designer do zwiększania liczby poddanych wystawianych przypadków w elemencie DataSet używanym do uczenia maszynowego. SMOTE to lepszy sposób zwiększenia liczby rzadkich przypadków niż zwykłe duplikowanie istniejących przypadków.  
 
 Moduł SMOTE można połączyć z *niezrównoważonym*zestawem danych. Istnieje wiele powodów, dla których może być niezrównoważony zestaw danych. Na przykład kategoria, która ma być używana, może być rzadki w populacji lub dane mogą być trudne do zebrania. Zazwyczaj należy używać SMOTE, gdy *Klasa* , która ma zostać poddana analizie, jest niereprezentowana. 
   

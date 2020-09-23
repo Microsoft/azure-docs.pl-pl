@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/12/2020
+ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: f3aeccd30a9c89c2a43dfb85d4a57274037ec05f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: e4a0dfb658bb9388aa43b568fe0d28576026d1e9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569258"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905590"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -33,7 +33,16 @@ Ta strona jest regularnie aktualizowana, więc często należy ją ponownie odwi
 ## <a name="september-2020"></a>Wrzesień 2020
 
 Aktualizacje we wrześniu obejmują:
-
+- [Security Center Pobiera nowy wygląd!](#security-center-gets-a-new-look)
+- [Wydano usługę Azure Defender](#azure-defender-released)
+- [Usługa Azure Defender dla Key Vault jest ogólnie dostępna](#azure-defender-for-key-vault-is-generally-available)
+- [Usługa Azure Defender do ochrony magazynu dla plików i ADLS Gen2 jest ogólnie dostępna](#azure-defender-for-storage-protection-for-files-and-adls-gen2-is-generally-available)
+- [Narzędzia spisu zasobów są teraz ogólnie dostępne](#asset-inventory-tools-are-now-generally-available)
+- [Wyłączenie konkretnej luki w zabezpieczeniach w poszukiwaniu skanów rejestrów kontenerów i maszyn wirtualnych](#disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines)
+- [Wykluczanie zasobu z rekomendacji](#exempt-a-resource-from-a-recommendation)
+- [Łączniki AWS i GCP w Security Center zapewniają środowisko z obsługą chmury](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
+- [Pakiet rekomendacji ochrony obciążeń Kubernetes](#kubernetes-workload-protection-recommendation-bundle)
+- [Ulepszenia ochrony IoT Threat w usłudze Azure Defender dla IoT](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [Wyniki oceny luk w zabezpieczeniach są teraz dostępne w przypadku eksportu ciągłego](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Zapobiegaj błędom konfiguracji zabezpieczeń, wymuszając zalecenia podczas tworzenia nowych zasobów](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [Ulepszone zalecenia dotyczące sieciowej grupy zabezpieczeń](#network-security-group-recommendations-improved)
@@ -41,6 +50,127 @@ Aktualizacje we wrześniu obejmują:
 - [Ulepszona wiadomość e-mail z powiadomieniem Azure Security Center](#email-notifications-from-azure-security-center-improved)
 - [Wynik zabezpieczony nie obejmuje zaleceń dotyczących wersji zapoznawczej](#secure-score-doesnt-include-preview-recommendations)
 - [Zalecenia zawierają teraz wskaźnik ważności i interwał Aktualności](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
+
+
+### <a name="security-center-gets-a-new-look"></a>Security Center Pobiera nowy wygląd!
+
+Opublikowano odświeżony interfejs użytkownika dla stron portalu Security Center. Nowe strony zawierają nową stronę przeglądu, a także pulpity nawigacyjne do zabezpieczania oceny, spisu zasobów i usługi Azure Defender.
+
+Przeprojektowana Strona przeglądu zawiera teraz kafelek umożliwiające dostęp do usług pulpitu nawigacyjnego bezpiecznego oceny, spisu zasobów i usługi Azure Defender. Zawiera również kafelek łączący pulpit nawigacyjny zgodności z przepisami.
+
+Dowiedz się więcej o [stronie Przegląd](overview-page.md).
+
+
+### <a name="azure-defender-released"></a>Wydano usługę Azure Defender
+
+**Usługa Azure Defender** to platforma ochrony obciążeń w chmurze (CWPP) zintegrowana w ramach Security Center na potrzeby zaawansowanej, inteligentnej, chronionej platformy Azure i obciążeń hybrydowych. Zastępuje Security Center opcję warstwy cenowej standardowa. 
+
+Po włączeniu usługi Azure Defender w obszarze **cennika i ustawienia** Azure Security Center następujące plany usługi Defender są dostępne jednocześnie i zapewniają kompleksowe zabezpieczenia dla warstw obliczeniowych, danych i usług w środowisku:
+
+- [Usługa Azure Defender dla serwerów](defender-for-servers-introduction.md)
+- [Usługa Azure Defender dla usługi App Service](defender-for-app-service-introduction.md)
+- [Usługa Azure Defender dla usługi Storage](defender-for-storage-introduction.md)
+- [Azure Defender for SQL](defender-for-sql-introduction.md)
+- [Usługa Azure Defender dla IoT](defender-for-iot-introduction.md)
+- [Usługa Azure Defender dla usługi Key Vault](defender-for-key-vault-introduction.md)
+- [Usługa Azure Defender dla platformy Kubernetes](defender-for-kubernetes-introduction.md)
+- [Usługa Azure Defender dla rejestrów kontenerów](defender-for-container-registries-introduction.md)
+
+Każdy z tych planów został opisany osobno w dokumentacji Security Center.
+
+Dzięki dedykowanemu pulpitowi nawigacyjnemu usługa Azure Defender udostępnia alerty zabezpieczeń i zaawansowaną ochronę przed zagrożeniami dla maszyn wirtualnych, baz danych SQL, kontenerów, aplikacji sieci Web, sieci i innych.
+
+[Dowiedz się więcej o usłudze Azure Defender](azure-defender.md)
+
+### <a name="azure-defender-for-key-vault-is-generally-available"></a>Usługa Azure Defender dla Key Vault jest ogólnie dostępna
+
+Azure Key Vault to usługa w chmurze, która chroni klucze szyfrowania i wpisy tajne, takie jak certyfikaty, ciągi połączeń i hasła. 
+
+**Usługa Azure Defender dla Key Vault** zapewnia platformę Azure — natywną, zaawansowaną ochronę przed zagrożeniami dla Azure Key Vault, zapewniając dodatkową warstwę analizy zabezpieczeń. Dzięki rozszerzeniu usługa Azure Defender dla Key Vault chroni wiele zasobów zależnych od kont Key Vault.
+
+Plan opcjonalny jest teraz rozpowszechny. Ta funkcja była dostępna w wersji zapoznawczej jako "Zaawansowana ochrona przed zagrożeniami dla Azure Key Vault".
+
+Ponadto strony Key Vault w Azure Portal zawierają teraz dedykowaną stronę **zabezpieczeń** dla **Security Center** zaleceń i alertów.
+
+Dowiedz się więcej w [usłudze Azure Defender dla Key Vault](defender-for-key-vault-introduction.md).
+
+
+### <a name="azure-defender-for-storage-protection-for-files-and-adls-gen2-is-generally-available"></a>Usługa Azure Defender do ochrony magazynu dla plików i ADLS Gen2 jest ogólnie dostępna 
+
+**Usługa Azure Defender for Storage** wykrywa potencjalnie szkodliwe działanie na kontach usługi Azure Storage. Dane można chronić, niezależnie od tego, czy są przechowywane jako kontenery obiektów blob, udziały plików czy jeziora danych.
+
+Obsługa [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) i [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) jest teraz ogólnie dostępna.
+
+Od 1 października 2020 rozpocznie się naliczanie opłat za ochronę zasobów w tych usługach.
+
+Dowiedz się więcej w [usłudze Azure Defender dla magazynu](defender-for-storage-introduction.md).
+
+
+### <a name="asset-inventory-tools-are-now-generally-available"></a>Narzędzia spisu zasobów są teraz ogólnie dostępne
+
+Strona spisu zasobów Azure Security Center udostępnia pojedynczą stronę do wyświetlania stan zabezpieczeń zasobów, z którymi nawiązano połączenie Security Center.
+
+Security Center okresowo analizuje stan zabezpieczeń zasobów platformy Azure w celu zidentyfikowania potencjalnych luk w zabezpieczeniach. Następnie zawiera zalecenia dotyczące sposobu korygowania tych luk w zabezpieczeniach.
+
+Jeśli którykolwiek z zasobów ma zaległe zalecenia, zostaną one wyświetlone w spisie.
+
+Dowiedz się więcej w temacie [Eksplorowanie zasobów i zarządzanie nimi przy użyciu spisu zasobów i narzędzi do zarządzania](asset-inventory.md).
+
+
+
+### <a name="disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines"></a>Wyłączenie konkretnej luki w zabezpieczeniach w poszukiwaniu skanów rejestrów kontenerów i maszyn wirtualnych
+
+Usługa Azure Defender zawiera skanery luk w zabezpieczeniach do skanowania obrazów w Azure Container Registry i maszynach wirtualnych.
+
+Jeśli istnieje organizacja, która ma być ignorowana, zamiast skorygować ją, możesz ją wyłączyć. Wyłączone wyniki nie wpływają na swój Bezpieczny wynik ani nie generują niechcianych szumów.
+
+Gdy wyszukiwanie jest zgodne z kryteriami zdefiniowanymi w regułach wyłączania, nie będą wyświetlane na liście wyników.
+
+Ta opcja jest dostępna na stronie Szczegóły zaleceń dla:
+
+- **Luki w zabezpieczeniach Azure Container Registry obrazów należy skorygować**
+- **Luki w zabezpieczeniach maszyn wirtualnych należy skorygować**
+
+Dowiedz się więcej w temacie [wyłączanie określonych wyników dla obrazów kontenerów](defender-for-container-registries-usage.md#disable-specific-findings-preview) i [wyłączanie określonych wyników dla maszyn wirtualnych](remediate-vulnerability-findings-vm.md#disable-specific-findings-preview).
+
+
+### <a name="exempt-a-resource-from-a-recommendation"></a>Wykluczanie zasobu z rekomendacji
+
+Czasami zasób będzie wyświetlany jako w złej kondycji w odniesieniu do konkretnego zalecenia (i w związku z tym obniżenie bezpiecznego wyniku), nawet jeśli nie będzie to możliwe. Być może został skorygowany przez proces, który nie jest śledzony przez Security Center. Lub być może Twoja organizacja zdecydowała się zaakceptować ryzyko związane z tym konkretnym zasobem. 
+
+W takich przypadkach można utworzyć regułę wykluczania i upewnić się, że zasób nie znajduje się na liście zasobów w złej kondycji w przyszłości. Te reguły mogą zawierać udokumentowane uzasadnienia, jak opisano poniżej.
+
+Dowiedz się więcej na temat [wykluczania zasobu z rekomendacji i bezpiecznego oceny](exempt-resource.md).
+
+
+### <a name="aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience"></a>Łączniki AWS i GCP w Security Center zapewniają środowisko z obsługą chmury
+
+W przypadku obciążeń w chmurze zwykle obejmujących wiele platform w chmurze usługi zabezpieczeń w chmurze muszą być takie same.
+
+Azure Security Center teraz chroni obciążenia na platformie Azure, Amazon Web Services (AWS) i Google Cloud Platform (GCP).
+
+Dołączanie kont AWS i GCP do Security Center integruje się z usługą AWS Security Hub, GCP Security Command i Azure Security Center. 
+
+Więcej informacji znajduje się w temacie [Łączenie kont AWS w celu Azure Security Center](quickstart-onboard-aws.md) i [łączenia kont GCP z Azure Security Center](quickstart-onboard-gcp.md).
+
+
+### <a name="kubernetes-workload-protection-recommendation-bundle"></a>Pakiet rekomendacji ochrony obciążeń Kubernetes
+
+Aby zapewnić, że obciążenia Kubernetes są zabezpieczone domyślnie, Security Center dodaje zalecenia dotyczące ograniczania poziomu Kubernetes, w tym opcje wymuszania z Kubernetes Admission Control.
+
+Po zainstalowaniu dodatku Azure Policy dla Kubernetes w klastrze AKS, każde żądanie do serwera interfejsu API Kubernetes zostanie monitorowane względem wstępnie zdefiniowanego zestawu najlepszych rozwiązań przed utrwaleniem w klastrze. Następnie można skonfigurować w celu wymuszenia najlepszych rozwiązań i ich upoważnienia do przyszłych obciążeń.
+
+Na przykład można przystąpić do tego, że kontenery uprzywilejowane nie powinny być tworzone, a wszystkie przyszłe żądania, które należy wykonać, zostaną zablokowane.
+
+Dowiedz się więcej o [najlepszych rozwiązaniach dotyczących ochrony obciążeń przy użyciu funkcji Kubernetes Admission Control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
+
+
+### <a name="iot-threat-protection-enhancements-in-azure-defender-for-iot"></a>Ulepszenia ochrony IoT Threat w usłudze Azure Defender dla IoT
+
+Usługa Azure Defender dla IoT oferuje więcej możliwości ochrony przed zagrożeniami, dzięki czemu można dołączać technologię CyberX bez agenta. Zapewnia to ochronę zabezpieczeń dla niezarządzanych urządzeń brownfield używanych w środowiskach technologii operacyjnych (OT), takich jak produkcja, systemy zarządzania budynku (MS), nauki przyrodnicze, narzędzia energetyczne i wodne, olej & i logistyka.
+
+Dowiedz się więcej w temacie [wprowadzenie do usługi Azure Defender dla IoT](defender-for-iot-introduction.md).
+
 
 ### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>Wyniki oceny luk w zabezpieczeniach są teraz dostępne w przypadku eksportu ciągłego
 
@@ -55,7 +185,7 @@ W przypadku wybrania opcji zalecenia dotyczące zabezpieczeń można eksportowa�
 Powiązane strony:
 
 - [Security Center rozwiązanie do oceny luk w zabezpieczeniach dla usługi Azure Virtual Machines](deploy-vulnerability-assessment-vm.md)
-- [Security Center rozwiązanie do oceny luk w zabezpieczeniach dla Azure Container Registry obrazów](monitor-container-security.md)
+- [Security Center rozwiązanie do oceny luk w zabezpieczeniach dla Azure Container Registry obrazów](defender-for-container-registries-usage.md)
 - [Eksport ciągły](continuous-export.md)
 
 ### <a name="prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources"></a>Zapobiegaj błędom konfiguracji zabezpieczeń, wymuszając zalecenia podczas tworzenia nowych zasobów
@@ -257,9 +387,9 @@ Podczas wdrażania rozwiązania do oceny luk w zabezpieczeniach Security Center 
 
 W ramach tej aktualizacji sprawdzanie zostało usunięte i teraz można wdrożyć narzędzia do oceny luk w zabezpieczeniach na komputerach z systemem Windows i Linux. Niestandardowe obrazy są modyfikowane przy użyciu ustawień domyślnych portalu Marketplace.
 
-Chociaż teraz można wdrożyć zintegrowane rozwiązanie do oceny luk w zabezpieczeniach (obsługiwane przez Qualys) na wielu maszynach, pomoc techniczna jest dostępna tylko w przypadku korzystania z systemu operacyjnego wymienionego w temacie [wdrażanie skanera zintegrowanej luki w zabezpieczeniach w warstwie Standardowa](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-standard-tier-vms) .
+Chociaż teraz można wdrożyć zintegrowane rozwiązanie do oceny luk w zabezpieczeniach (obsługiwane przez Qualys) na wielu maszynach, pomoc techniczna jest dostępna tylko w przypadku korzystania z systemu operacyjnego wymienionego w temacie [wdrażanie skanera zintegrowanej luki w zabezpieczeniach w warstwie Standardowa](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-your-vms) .
 
-Dowiedz się więcej o [zintegrowanym skanerze luk w zabezpieczeniach dla maszyn wirtualnych (tylko w warstwie Standardowa)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
+Dowiedz się więcej o [zintegrowanym skanerze luk w zabezpieczeniach dla maszyn wirtualnych (wymaga usługi Azure Defender)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
 Dowiedz się więcej o korzystaniu z rozwiązania do oceny luk w zabezpieczeniach w ramach usługi Qualys lub Rapid7 w [ramach wdrażania rozwiązania partnerskiego do skanowania](deploy-vulnerability-assessment-vm.md).
 
@@ -268,9 +398,7 @@ Dowiedz się więcej o korzystaniu z rozwiązania do oceny luk w zabezpieczeniac
 
 Ochrona przed zagrożeniami dla usługi Azure Storage wykrywa potencjalnie szkodliwe działanie na kontach usługi Azure Storage. Security Center wyświetla alerty w przypadku wykrycia prób uzyskania dostępu do kont magazynu lub korzystania z nich. 
 
-Dane można chronić, niezależnie od tego, czy są przechowywane jako kontenery obiektów blob, udziały plików czy jeziora danych. 
-
-Dowiedz się więcej o [ochronie przed zagrożeniami dla usługi Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+Dane można chronić, niezależnie od tego, czy są przechowywane jako kontenery obiektów blob, udziały plików czy jeziora danych.
 
 
 
@@ -386,13 +514,13 @@ Usługa Advanced Data Security Azure Security Center dla maszyn SQL chroni teraz
 
 Zaawansowane zabezpieczenia danych zapewniają ocenę luk w zabezpieczeniach i zaawansowaną ochronę przed zagrożeniami dla maszyn SQL, wszędzie tam, gdzie się znajdują.
 
-Instalator obejmuje dwa kroki:
+Konfiguracja obejmuje dwie czynności:
 
 1. Wdrożenie agenta Log Analytics na komputerze-hoście SQL Server w celu udostępnienia połączenia z kontem platformy Azure.
 
 1. Włączanie opcjonalnego pakietu na stronie cennika i ustawienia Security Center.
 
-Dowiedz się więcej o [zaawansowanych zabezpieczeniach danych dla maszyn SQL](security-center-iaas-advanced-data.md).
+Dowiedz się więcej o [zaawansowanych zabezpieczeniach danych dla maszyn SQL](defender-for-sql-usage.md).
 
 
 
@@ -551,7 +679,7 @@ Formanty zabezpieczeń — i ten przełącznik — są częścią nowego bezpiec
 
 Dowiedz się więcej o kontrolkach zabezpieczeń w [ulepszonym zabezpieczeniu (wersja zapoznawcza) w Azure Security Center](secure-score-security-controls.md).
 
-![Przełącznik "Grupuj według kontrolek" dla zaleceń](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Grupuj według kontrolek przełącznik dla zaleceń":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Rozszerzona kontrola zabezpieczeń "implementacja najlepszych rozwiązań w zakresie zabezpieczeń" 
 

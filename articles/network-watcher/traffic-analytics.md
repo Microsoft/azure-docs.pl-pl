@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 8deb3d81895629e817aeb9dbc1eb6520e1fb7aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747527"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967497"
 ---
 # <a name="traffic-analytics"></a>Analiza ruchu
 
@@ -61,23 +61,23 @@ Analizy ruchu można użyć dla sieciowych grup zabezpieczeń w jednym z następ
 
 * Kanada Środkowa
 * Zachodnio-środkowe stany USA
-* Wschodnie stany USA
+* East US
 * Wschodnie stany USA 2
 * Północno-środkowe stany USA
-* Południowo-środkowe stany USA
-* Środkowe stany USA
+* South Central US
+* Central US
 * Zachodnie stany USA
 * Zachodnie stany USA 2
 * Francja Środkowa
-* Europa Zachodnia
+* West Europe
 * Europa Północna
-* Brazylia Południowa
+* Brazil South
 * Zachodnie Zjednoczone Królestwo
 * Południowe Zjednoczone Królestwo
 * Australia Wschodnia
 * Australia Południowo-Wschodnia
 * Azja Wschodnia
-* Azja Południowo-Wschodnia
+* Southeast Asia
 * Korea Środkowa
 * Indie Środkowe
 * Indie Południowe
@@ -91,27 +91,27 @@ Analizy ruchu można użyć dla sieciowych grup zabezpieczeń w jednym z następ
 Obszar roboczy Log Analytics musi istnieć w następujących regionach:
 * Kanada Środkowa
 * Zachodnio-środkowe stany USA
-* Wschodnie stany USA
+* East US
 * Wschodnie stany USA 2
 * Północno-środkowe stany USA
-* Południowo-środkowe stany USA
-* Środkowe stany USA
+* South Central US
+* Central US
 * Zachodnie stany USA
 * Zachodnie stany USA 2
 * Środkowe stany USA
 * Francja Środkowa
-* Europa Zachodnia
+* West Europe
 * Europa Północna
-* Brazylia Południowa
+* Brazil South
 * Zachodnie Zjednoczone Królestwo
 * Południowe Zjednoczone Królestwo
 * Australia Wschodnia
 * Australia Południowo-Wschodnia
 * Azja Wschodnia
-* Azja Południowo-Wschodnia
+* Southeast Asia
 * Korea Środkowa
 * Indie Środkowe
-* Japonia Wschodnia
+* Japan East
 * US Gov Wirginia
 * Chiny Wschodnie 2
 
@@ -208,7 +208,7 @@ Aby wyświetlić Analiza ruchu, Wyszukaj **Network Watcher** na pasku wyszukiwan
 
 Po raz pierwszy pulpit nawigacyjny może potrwać do 30 minut, ponieważ Analiza ruchu musi najpierw agregować wystarczającą ilość danych, aby uzyskać istotny wgląd, zanim będzie mógł generować raporty.
 
-## <a name="usage-scenarios"></a>Scenariusze użytkowania
+## <a name="usage-scenarios"></a>Scenariusze użycia
 
 Niektóre szczegółowe informacje, które można uzyskać po skonfigurowaniu Analiza ruchu jest w pełni skonfigurowane, są następujące:
 
@@ -339,7 +339,7 @@ Dystrybucja ruchu na bramę aplikacji & Load Balancer, topologia, najważniejsze
  - Poznanie podsieci, do której odnosi się Brama aplikacji lub Load Balancer. Jeśli zauważysz nieoczekiwane konwersacje, możesz poprawić konfigurację.
  - Jeśli nieautoryzowane sieci są odwracające do bramy aplikacji lub Load Balancer, można je poprawić, konfigurując reguły sieciowej grupy zabezpieczeń w celu blokowania nieautoryzowanych sieci. 
 
-    ![Topologia podsieci — Prezentacja typu "ruch-dystrybucja między aplikacjami-Brama-sieć" z uwzględnieniem przepływów](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![Zrzut ekranu przedstawia topologię podsieci z dystrybucją ruchu do podsieci bramy aplikacji w odniesieniu do przepływów.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Wyświetlanie portów i maszyn wirtualnych odbierających ruch z Internetu
 

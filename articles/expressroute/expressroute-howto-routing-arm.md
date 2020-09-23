@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: Konfigurowanie komunikacji równorzędnej: PowerShell'
-description: Ten artykuł zawiera instrukcje tworzenia i inicjowania obsługi komunikacji równorzędnej prywatnej, publicznej i firmy Microsoft obwodu usługi ExpressRoute. W tym artykule opisano również, jak aktualizować i usuwać komunikację równoległą dla obwodu oraz sprawdzać jej stan.
+description: Dowiedz się, jak utworzyć konfigurację routingu i zarządzać nią dla obwodu usługi ExpressRoute w Menedżer zasobów modelu wdrażania przy użyciu programu PowerShell.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: e1f1a36e84567a56ddb25366f96d1b2dba1d82fb
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2c29dc051780b15fb55d446d3f4002c3870fb529
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395574"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968390"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute przy użyciu programu PowerShell
 

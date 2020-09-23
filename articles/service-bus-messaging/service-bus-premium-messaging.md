@@ -3,12 +3,12 @@ title: Azure Service Bus warstwach Premium i Standard
 description: W tym artykule opisano warstwy Standard i Premium Azure Service Bus. Porównuje te warstwy i zapewnia różnice techniczne.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386354"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90966793"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Warstwy Premium i Standardowa komunikatów usługi Service Bus
 
@@ -18,7 +18,7 @@ Warstwa *Premium* Service Bus komunikatów rozwiązuje typowe żądania klientó
 
 W poniższej tabeli wyróżniono pewne ogólne różnice.
 
-| Premium | Standard |
+| Premium | Standardowa |
 | --- | --- |
 | Wysoka przepływność |Zmienna przepływność |
 | Przewidywalna wydajność |Zmienne opóźnienie |
@@ -72,7 +72,7 @@ Istnieje kilka czynników, które należy wziąć pod uwagę podczas decydowania
     - Jeśli użycie procesora CPU jest ***poniżej 20%***, można ***skalować*** liczbę jednostek obsługi komunikatów przypisywanych do przestrzeni nazw.
     - Jeśli użycie procesora CPU jest ***powyżej 70%***, aplikacja będzie korzystać z ***skalowania w górę*** liczby jednostek obsługi komunikatów przypisywanych do przestrzeni nazw.
 
-Proces skalowania zasobów przyznanych do przestrzeni nazw Service Bus może być zautomatyzowany przy użyciu [Azure Automation elementów Runbook](../automation/automation-quickstart-create-runbook.md).
+Aby dowiedzieć się, jak skonfigurować Service Bus przestrzeń nazw w celu automatycznego skalowania (zwiększać lub zmniejszać liczbę jednostek obsługi komunikatów), zobacz [Automatyczne aktualizowanie jednostek obsługi komunikatów](automate-update-messaging-units.md).
 
 > [!NOTE]
 > **Skalowanie** zasobów przyznanych do przestrzeni nazw może być zastępują lub ponownie aktywne.
@@ -96,10 +96,9 @@ Możesz również tworzyć [przestrzenie nazw Premium za pomocą szablonów usł
 
 Aby dowiedzieć się więcej na temat obsługi komunikatów usługi Service Bus, zobacz poniższe linki:
 
-* [Introducing Azure Service Bus Premium messaging](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/) (Wprowadzenie do komunikatów usługi Service Bus w warstwie Premium) — wpis w blogu
-* [Introducing Azure Service Bus Premium messaging](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging) (Wprowadzenie do komunikatów usługi Service Bus w warstwie Premium) — Channel9
-* [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
-* [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
+- [Automatycznie Aktualizuj jednostki obsługi komunikatów](automate-update-messaging-units.md).
+- [Introducing Azure Service Bus Premium messaging](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/) (Wprowadzenie do komunikatów usługi Service Bus w warstwie Premium) — wpis w blogu
+- [Introducing Azure Service Bus Premium messaging](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging) (Wprowadzenie do komunikatów usługi Service Bus w warstwie Premium) — Channel9
 
 <!--Image references-->
 

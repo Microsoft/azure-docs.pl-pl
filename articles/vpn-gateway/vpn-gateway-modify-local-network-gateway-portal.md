@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 57288d49fdfa193e9ebebe5f2ce4d24327997980
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: af3513c4a4f3b3187e85c65de51ad2e6e2d7279c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392480"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983160"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modyfikowanie ustawień lokalnej bramy sieci w witrynie Azure Portal
 
@@ -27,18 +27,63 @@ Przed usunięciem połączenia warto pobrać konfigurację dla podłączonych ur
 >
 >
 
+## <a name="local-network-gateway-configuration"></a><a name="configure-lng"></a>Konfiguracja bramy sieci lokalnej
+
+Zrzut ekranu poniżej przedstawia stronę **konfiguracji** zasobu bramy sieci lokalnej przy użyciu punktu końcowego publicznego adresu IP:
+
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/ip-address.png" alt-text="Konfigurowanie bramy sieci lokalnej — adres IP":::
+
+Jest to ta sama strona konfiguracji z punktem końcowym FQDN:
+
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/fqdn.png" alt-text="Konfigurowanie bramy sieci lokalnej — Nazwa FQDN":::
+
+## <a name="modify-the-gateway-ip-address"></a><a name="ip"></a>Modyfikowanie adresu IP bramy
+
+W przypadku zmiany publicznego adresu IP urządzenia sieci VPN, z którym chcesz nawiązać połączenie, musisz zmodyfikować bramę sieci lokalnej w celu odzwierciedlenia tej zmiany.
+
+1. W obszarze **Ustawienia** zasobu Brama sieci lokalnej kliknij pozycję **Konfiguracja**.
+2. W polu **adres IP** zmodyfikuj adres IP.
+3. Kliknij polecenie **Zapisz**, aby zapisać ustawienia.
+
+## <a name="modify-the-gateway-fqdn"></a><a name="fqdn"></a>Modyfikowanie nazwy FQDN bramy
+
+Jeśli urządzenie sieci VPN, z którym chcesz nawiązać połączenie, zmieniło nazwę FQDN (w pełni kwalifikowana nazwa domeny), należy zmodyfikować bramę sieci lokalnej w celu odzwierciedlenia tej zmiany.
+
+1. W obszarze **Ustawienia** zasobu Brama sieci lokalnej kliknij pozycję **Konfiguracja**.
+2. W polu Nazwa **FQDN** zmodyfikuj nazwę domeny.
+3. Kliknij polecenie **Zapisz**, aby zapisać ustawienia.
+
+> ! KORYGUJĄC Nie można zmienić bramy sieci lokalnej między punktem końcowym nazwy FQDN a punktem końcowym adresu IP. Musisz usunąć wszystkie połączenia skojarzone z tą bramą sieci lokalnej, utworzyć nową nazwę z nowym punktem końcowym (adresem IP lub nazwą FQDN), a następnie ponownie utworzyć połączenia.
 
 ## <a name="modify-ip-address-prefixes"></a><a name="ipaddprefix"></a>Modyfikuj prefiksy adresów IP
 
-Podczas modyfikowania prefiksów adresów IP, kroki, które należy wykonać, zależą od tego, czy Brama sieci lokalnej ma połączenie.
+### <a name="to-add-additional-address-prefixes"></a>Aby dodać dodatkowe prefiksy adresów:
 
-[!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
+1. W obszarze **Ustawienia** zasobu Brama sieci lokalnej kliknij pozycję **Konfiguracja**.
+2. Dodaj przestrzeń adresową IP w polu *Dodaj dodatkowy zakres adresów* .
+3. Kliknij przycisk **Zapisz** , aby zapisać ustawienia.
 
-## <a name="modify-the-gateway-ip-address"></a><a name="gwip"></a>Modyfikowanie adresu IP bramy
+### <a name="to-remove-address-prefixes"></a>Aby usunąć prefiksy adresów:
 
-W przypadku zmiany publicznego adresu IP urządzenia sieci VPN, z którym chcesz nawiązać połączenie, musisz zmodyfikować bramę sieci lokalnej w celu odzwierciedlenia tej zmiany. Gdy zmienisz publiczny adres IP, kroki, które należy wykonać, zależą od tego, czy Brama sieci lokalnej ma połączenie.
+1. W obszarze **Ustawienia** zasobu Brama sieci lokalnej kliknij pozycję **Konfiguracja**.
+2. Kliknij **"..."** w wierszu zawierającym prefiks, który chcesz usunąć.
+3. Kliknij przycisk **Usuń**.
+4. Kliknij przycisk **Zapisz** , aby zapisać ustawienia.
 
-[!INCLUDE [modify gateway IP](../../includes/vpn-gateway-modify-lng-gateway-ip-portal-include.md)]
+## <a name="modify-bgp-settings"></a><a name="bgp"></a>Modyfikowanie ustawień protokołu BGP
+
+### <a name="to-add-or-update-bgp-settings"></a>Aby dodać lub zaktualizować ustawienia protokołu BGP:
+
+1. W obszarze **Ustawienia** zasobu Brama sieci lokalnej kliknij pozycję **Konfiguracja**.
+2. Wybierz pozycję **"Konfiguruj ustawienia protokołu BGP"** , aby wyświetlić lub zaktualizować konfiguracje protokołu BGP dla tej bramy sieci lokalnej
+3. Dodaj lub zaktualizuj numer systemu autonomicznego lub adres IP elementu równorzędnego BGP w odpowiednich polach
+4. Kliknij przycisk **Zapisz** , aby zapisać ustawienia.
+
+### <a name="to-remove-bgp-settings"></a>Aby usunąć ustawienia protokołu BGP:
+
+1. W obszarze **Ustawienia** zasobu Brama sieci lokalnej kliknij pozycję **Konfiguracja**.
+2. Usuń zaznaczenie opcji **"Konfiguruj ustawienia protokołu BGP"** , aby usunąć istniejący adres IP ASN protokołu BGP i element RÓWNORZĘDNy BGP
+3. Kliknij przycisk **Zapisz** , aby zapisać ustawienia.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: f20abffa429add8edcbffba16529c467cb9506fe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 21153d3c914864966106bf66edccb3c549398bc7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651099"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898234"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planowanie i zarządzanie kosztami Azure Machine Learning
 
@@ -49,7 +49,7 @@ Poniższy zrzut ekranu przedstawia oszacowanie kosztów za pomocą kalkulatora:
 
 Dodając nowe zasoby do obszaru roboczego, Wróć do tego kalkulatora i Dodaj tutaj ten sam zasób, aby zaktualizować oszacowania kosztów.
 
-Wersja Enterprise Edition jest dostępna w wersji zapoznawczej, ale nie ma dopłaty do l. Gdy wersja Enterprise jest ogólnie dostępna, będzie ona mieć dodatkową opłatę (na potrzeby szkoleń i inferencing).  Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
+Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ## <a name="get-cost-alerts"></a>Pobierz alerty kosztów
 

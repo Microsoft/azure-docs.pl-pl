@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cf8fdd8d91c035d374277c4752fb761c0c4e72c7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433940"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905629"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Eksportowanie alertów zabezpieczeń i zaleceń
 
@@ -33,8 +33,8 @@ Za pomocą tych narzędzi możesz:
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Ogólnie dostępna|
-|Wpisaną|Warstwa Bezpłatna|
+|Stan wydania:|Ogólnie dostępna (GA)|
+|Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|**Rola administratora zabezpieczeń** w grupie zasobów (lub **właściciela**)<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Tak](./media/icons/yes-icon.png) Chiny gov (do centrum zdarzeń), inne gov|
 |||
@@ -89,7 +89,7 @@ Interfejs API zapewnia dodatkowe funkcje niedostępne w Azure Portal, na przykł
 * **Bardziej ukierunkowany zakres** — interfejs API zapewnia bardziej szczegółowy poziom konfiguracji eksportu. Podczas definiowania eksportu za pomocą interfejsu API można to zrobić na poziomie grupy zasobów. Jeśli używasz strony **eksportu ciągłego** w interfejsie użytkownika portalu Security Center, musisz ją zdefiniować na poziomie subskrypcji.
 
     > [!TIP]
-    > Jeśli skonfigurowano wiele konfiguracji eksportu przy użyciu interfejsu API lub jeśli użyto parametrów z tylko interfejsem API, te dodatkowe funkcje nie będą wyświetlane w interfejsie użytkownika Security Center. Zamiast tego zostanie wyświetlony transparent informujący o tym, że istnieją inne konfiguracje.
+    > Jeśli skonfigurowano wiele konfiguracji eksportu przy użyciu interfejsu API lub jeśli użyto parametrów tylko do API, te dodatkowe funkcje nie będą wyświetlane w interfejsie użytkownika Security Center. Zamiast tego zostanie wyświetlony transparent informujący o tym, że istnieją inne konfiguracje.
 
 Więcej informacji na temat interfejsu API usługi automations znajduje się w [dokumentacji interfejsu API REST](https://docs.microsoft.com/rest/api/securitycenter/automations).
 
@@ -125,11 +125,11 @@ Ponadto jeśli chcesz automatycznie przenieść ciągłe wyeksportowane dane ze 
 
 Jeśli chcesz analizować Azure Security Center dane w obszarze roboczym Log Analytics lub użyć alertów platformy Azure razem z Security Center, skonfiguruj eksport ciągły do obszaru roboczego Log Analytics.
 
-Aby wyeksportować do obszaru roboczego Log Analytics, musisz mieć Security Center Log Analytics rozwiązania w Twoim obszarze roboczym. W przypadku korzystania z Azure Portal rozwiązanie warstwy Bezpłatna Security Center jest automatycznie włączane po włączeniu eksportu ciągłego. Jeśli jednak konfigurujesz ustawienia eksportu ciągłego programowo, musisz ręcznie wybrać warstwę cenową dla wymaganego obszaru roboczego z poziomu **ustawień & cenowych**.  
+Aby wyeksportować do obszaru roboczego Log Analytics, musisz mieć Security Center Log Analytics rozwiązania w Twoim obszarze roboczym. Jeśli używasz Azure Portal, bezpłatny rozwiązanie Security Center jest automatycznie włączane po włączeniu eksportu ciągłego. Jeśli jednak konfigurujesz ustawienia eksportu ciągłego programowo, musisz ręcznie włączyć lub wyłączyć usługę Azure Defender na stronie **ustawień & cenowej** .
 
 ### <a name="log-analytics-tables-and-schemas"></a>Log Analytics tabele i schematy
 
-Alerty zabezpieczeń i zalecenia są przechowywane odpowiednio w tabelach *SecurityAlert* i *SecurityRecommendations* . Nazwa rozwiązania Log Analytics zawierającego te tabele zależy od tego, czy korzystasz z warstwy Bezpłatna, czy standardowa (zobacz [Cennik](security-center-pricing.md)): zabezpieczenia ("Security and Audit") lub SecurityCenterFree.
+Alerty zabezpieczeń i zalecenia są przechowywane odpowiednio w tabelach *SecurityAlert* i *SecurityRecommendations* . Nazwa rozwiązania Log Analytics zawierającego te tabele zależy od tego, czy usługa Azure Defender jest włączona: zabezpieczenia ("Security and Audit") czy SecurityCenterFree.
 
 ![Tabela * SecurityAlert * w Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 

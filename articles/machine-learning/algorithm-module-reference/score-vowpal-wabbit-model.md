@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 02f4fe4f97d3e976675757835e3931666d1c6410
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 23dfee7b78f2606c54525391e1260af69a9b0779
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857763"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898399"
 ---
 # <a name="score-vowpal-wabbit-model"></a>Ocenianie modelu Vowpal Wabbit
-W tym artykule opisano sposób użycia modułu **oceny Vowpal Wabbit** w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu wygenerowania wyników dla zestawu danych wejściowych przy użyciu istniejącego wyszkolonego modelu Vowpal Wabbit.  
+W tym artykule opisano, jak używać modułu **oceny Vowpal Wabbit** w programie Azure Machine Learning Designer do generowania wyników dla zestawu danych wejściowych przy użyciu istniejącego wyszkolonego modelu Vowpal Wabbit.  
 
 Ten moduł zawiera najnowszą wersję Vowpal platformy Wabbit Framework w wersji 8.8.1. Ten moduł służy do oceny danych przy użyciu przeszkolonego modelu zapisanego w formacie VW w wersji 8.  
 
@@ -74,7 +74,7 @@ Vowpal Wabbit ma wiele opcji wiersza polecenia do wybierania i dostrajania algor
 
 Następujące parametry nie są obsługiwane w Azure Machine Learning Studio (klasyczny).  
 
--   Opcje wejścia/wyjścia określone w[https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
+-   Opcje wejścia/wyjścia określone w [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
      Te właściwości są już konfigurowane automatycznie przez moduł.  
   

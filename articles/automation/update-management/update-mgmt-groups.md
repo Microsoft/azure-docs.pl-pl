@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20e6d26808964c8e697c694bd796af2851e7ca48
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 61339a22fc3823325ff5356112c2df8a800010a0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450549"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985202"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Używanie grup dynamicznych z rozwiązaniem Update Management
 
@@ -45,7 +45,7 @@ Aby wyświetlić podgląd wyników zapytania grupy dynamicznej, kliknij przycisk
 
 Grupa dynamiczna dla maszyn nieopartych na platformie Azure używa zapisanych wyszukiwań, nazywanych również grupami komputerów. Aby dowiedzieć się, jak utworzyć zapisane wyszukiwanie, zobacz [Tworzenie grupy komputerów](../../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Po utworzeniu zapisanego wyszukiwania możesz wybrać je z listy zapisanych wyszukiwań w programie **Update Management** w Azure Portal. Kliknij pozycję **Podgląd** , aby wyświetlić podgląd komputerów w zapisanym wyszukiwaniu.
 
-![Wybieranie grup](./media/update-mgmt-groups/select-groups-2.png)
+![Zrzut ekranu przedstawia stronę Wybieranie grup dla programu spoza platformy Azure (wersja zapoznawcza) i okienko podglądu po prawej stronie.](./media/update-mgmt-groups/select-groups-2.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

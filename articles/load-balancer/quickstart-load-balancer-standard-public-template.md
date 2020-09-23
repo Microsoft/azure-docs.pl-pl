@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie szablonu Load Balancer — Azure'
+title: 'Szybki Start: Tworzenie publicznego modułu równoważenia obciążenia — szablon platformy Azure'
 titleSuffix: Azure Load Balancer
 description: Ten przewodnik Szybki Start przedstawia sposób tworzenia modułu równoważenia obciążenia przy użyciu szablonu Azure Resource Manager.
 services: load-balancer
@@ -15,16 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: d83d58d608fc184f94ae70e60c56fe8fdc1e5eaa
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 66d702846bac5825239e891ce47f8cca5bb857f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706051"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984417"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Szybki Start: Tworzenie Load Balancer równoważenia obciążenia maszyn wirtualnych przy użyciu szablonu ARM
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Szybki Start: Tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu szablonu ARM
 
-Równoważenie obciążenia zapewnia większą dostępność i możliwości skalowania dzięki rozdzielaniu żądań przychodzących między wiele maszyn wirtualnych. Ten przewodnik Szybki Start przedstawia sposób wdrażania szablonu Azure Resource Manager (szablon ARM), który tworzy standardowy moduł równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych. Użycie szablonu ARM powoduje przeliczenie mniejszej liczby kroków do innych metod wdrażania.
+Równoważenie obciążenia zapewnia większą dostępność i możliwości skalowania dzięki rozdzielaniu żądań przychodzących między wiele maszyn wirtualnych. 
+
+W tym przewodniku szybki start przedstawiono sposób wdrażania standardowego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych.
+
+Użycie szablonu ARM powoduje przeliczenie mniejszej liczby kroków do innych metod wdrażania.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -40,7 +44,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-load-balancer-standard-create/).
 
-Load Balancer i jednostki SKU publicznego adresu IP muszą być zgodne. Podczas tworzenia usługa Load Balancer w warstwie Standardowa należy również utworzyć nowy, publiczny adres IP, który jest skonfigurowany jako fronton dla usługi równoważenia obciążenia w warstwie Standardowa. Jeśli chcesz utworzyć podstawową Load Balancer, użyj [tego szablonu](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). Firma Microsoft zaleca używanie standardowej jednostki SKU dla obciążeń produkcyjnych.
+Jednostki SKU modułu równoważenia obciążenia i publicznego adresu IP muszą być zgodne. Podczas tworzenia standardowego modułu równoważenia obciążenia należy również utworzyć nowy, publiczny adres IP, który jest skonfigurowany jako fronton dla usługi równoważenia obciążenia w warstwie Standardowa. Jeśli chcesz utworzyć podstawowy moduł równoważenia obciążenia, użyj [tego szablonu](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). Firma Microsoft zaleca używanie standardowej jednostki SKU dla obciążeń produkcyjnych.
 
 :::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json":::
 
@@ -52,7 +56,7 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 - [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft. COMPUTE/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3 z nich).
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3 z nich).
-- [**Microsoft. COMPUTE/virtualMachine/Extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 z nich): służy do konfigurowania usług IIS i stron sieci Web.
+- [**Microsoft. COMPUTE/virtualMachine/Extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 z nich): służy do konfigurowania serwera Internet Information Server (IIS) i stron sieci Web.
 
 Aby znaleźć więcej szablonów związanych z Azure Load Balancer, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -91,7 +95,7 @@ Wdrożenie szablonu trwa około 10 minut. Po zakończeniu dane wyjściowe są po
 
 ![Szablon platformy Azure usługa Load Balancer w warstwie Standardowa Menedżer zasobów dane wyjściowe wdrożenia programu PowerShell](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
 
-Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można również użyć Azure Portal, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-portal.md).
+Azure PowerShell służy do wdrożenia szablonu. Można również użyć Azure Portal, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-portal.md).
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
@@ -115,13 +119,23 @@ Aby zobaczyć, jak moduł równoważenia obciążenia dystrybuuje ruch między w
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie są już potrzebne, Usuń grupę zasobów, moduł równoważenia obciążenia i wszystkie powiązane zasoby. W tym celu przejdź do Azure Portal, wybierz grupę zasobów zawierającą moduł równoważenia obciążenia, a następnie wybierz pozycję **Usuń grupę zasobów**.
+Gdy nie są już potrzebne, Usuń: 
+
+* Grupa zasobów
+* Moduł równoważenia obciążenia
+* Powiązane zasoby
+
+Przejdź do Azure Portal, wybierz grupę zasobów zawierającą moduł równoważenia obciążenia, a następnie wybierz pozycję **Usuń grupę zasobów**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono moduł równoważenia obciążenia w warstwie Standardowa, dołączono do niego maszyny wirtualne, skonfigurowano regułę ruchu modułu równoważenia obciążenia, wykonano sondę kondycji, a następnie przetestowano moduł równoważenia obciążenia.
+W ramach tego przewodnika Szybki start wykonasz następujące czynności:
 
-Aby dowiedzieć się więcej, przejdź do samouczków dotyczących Load Balancer.
+* Utworzono standardowy moduł równoważenia obciążenia i dołączono do niego maszyny wirtualne.
+* Skonfigurowano regułę ruchu modułu równoważenia obciążenia i sondę kondycji.
+* Przetestowano moduł równoważenia obciążenia.
+
+Aby dowiedzieć się więcej, przejdź do samouczków dotyczących Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Samouczki usługi Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

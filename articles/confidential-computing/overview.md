@@ -6,23 +6,23 @@ author: JBCook
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.topic: overview
-ms.date: 04/06/2020
+ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 4e92f974ce7d6c03143276808c4ca4d09d607a84
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 16f45c39a329998f4b4da4ea89315683a0fab790
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835820"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967578"
 ---
 # <a name="confidential-computing-on-azure"></a>Dane poufne na platformie Azure
 
-Dane poufne platformy Azure umożliwiają izolowanie poufnych danych podczas przetwarzania w chmurze. Wiele branż wykorzystuje dane poufne do ochrony danych. Te obciążenia obejmują:
+Dane poufne platformy Azure umożliwiają izolowanie poufnych danych podczas przetwarzania w chmurze. Wiele branż wykorzystuje poufne dane obliczeniowe do ochrony danych przy użyciu funkcji poufnego przetwarzania:
 
-- Zabezpieczanie danych finansowych
+- Bezpieczne dane finansowe
 - Ochrona informacji pacjenta
 - Uruchamianie procesów uczenia maszynowego na poufnych informacjach
-- Wykonywanie algorytmów na zaszyfrowanych zestawach danych z wielu źródeł
+- Wykonaj algorytmy dla zaszyfrowanych zestawów danych z wielu źródeł
 
 
 ## <a name="overview"></a>Omówienie
@@ -39,74 +39,58 @@ Wiemy, że Zabezpieczanie danych w chmurze jest ważne. Znamy Twoje problemy. Ot
 
 Microsoft Azure pomaga zminimalizować obszar narażony na ataki w celu uzyskania silniejszej ochrony danych. Platforma Azure oferuje już wiele narzędzi do ochrony [**danych**](../security/fundamentals/encryption-atrest.md) przechowywanych przez modele, takie jak szyfrowanie po stronie klienta i szyfrowanie po stronie serwera. Ponadto platforma Azure oferuje mechanizmy szyfrowania [**danych**](../security/fundamentals/data-encryption-best-practices.md#protect-data-in-transit) przesyłanych za pośrednictwem protokołów Secure Protocol, takich jak TLS i https. Na tej stronie wprowadzono trzeci etap szyfrowania danych — szyfrowanie **danych jest używane**.
 
+## <a name="introduction-to-confidential-computing"></a>Wprowadzenie do danych poufnych 
 
-## <a name="introduction-to-confidential-computing"></a>Wprowadzenie do danych poufnych<a id="intro to acc"></a>
+Dane poufne polegają na tym, że jest to termin branżowy zdefiniowany przez [konsorcjum, którego poufny](https://confidentialcomputing.io/) wpływ (CCC) — podstawą do definiowania i przyspieszania wdrażania poufnych danych. CCC definiuje charakter poufny jako: Ochrona danych używanych przez wykonywanie obliczeń w środowisku zaufanego środowiska wykonawczego (TEE) w oparciu o sprzęt.
 
-Dane poufne polegają na tym, że jest to termin branżowy zdefiniowany przez [konsorcjum, którego poufny](https://confidentialcomputing.io/) wpływ (CCC) — podstawą do definiowania i przyspieszania wdrażania poufnych danych. CCC definiuje charakter poufny jako ochronę danych używanych przez wykonywanie obliczeń w środowisku zaufanego środowiska wykonawczego (TEE) opartym na sprzęcie.
+TEE to środowisko, które wymusza wykonywanie tylko autoryzowanego kodu. Wszystkie dane w TEE nie mogą zostać odczytane ani naruszone przez żaden kod poza tym środowiskiem. 
 
-TEE to środowisko, które wymusza wykonywanie tylko autoryzowanego kodu. Wszystkie dane w TEE nie mogą zostać odczytane ani naruszone przez żaden kod poza tym środowiskiem.
-
-### <a name="enclaves"></a>Enclaves
-
-Enclaves są zabezpieczonymi częściami procesora sprzętowego i pamięci. Nie ma możliwości wyświetlania danych ani kodu w enklawy, nawet z debugerem. Jeśli niezaufany kod próbuje zmodyfikować zawartość w pamięci enklawy, środowisko zostanie wyłączone, a operacje zostaną odrzucone.
-
-Podczas tworzenia aplikacji można używać [narzędzi programowych](#oe-sdk) do osłony fragmentów kodu i danych w enklawy. Narzędzia te zapewniają, że kod i dane nie mogą być wyświetlane ani modyfikowane przez żadną osobę spoza zaufanego środowiska. 
-
-Zasadniczo należy traktować enklawy jako zabezpieczone pole. W polu należy umieścić zaszyfrowany kod i dane. Od zewnątrz pola nie są wyświetlane żadne elementy. Enklawy klucz do odszyfrowania danych, dane są następnie przetwarzane i szyfrowane ponownie przed wysłaniem z enklawy.
-
-### <a name="attestation"></a>Zaświadczania o
-
-Chcesz uzyskać weryfikację i sprawdzanie poprawności, czy zaufane środowisko jest bezpieczne. Ta weryfikacja jest procesem zaświadczania. 
-
-Zaświadczanie umożliwia jednostce uzależnionej zwiększenie pewności, że ich oprogramowanie (1) działa w enklawy i (2), że enklawy jest aktualne i bezpieczne. Na przykład enklawy prosi podstawowy sprzęt do wygenerowania poświadczeń, które obejmują potwierdzenie, że enklawy istnieje na platformie. Raport może następnie zostać przekazany do drugiego enklawy, który sprawdza, czy raport został wygenerowany na tej samej platformie.
-
-Zaświadczanie należy zaimplementować przy użyciu bezpiecznej usługi zaświadczania zgodnej z oprogramowaniem systemowym i krzemem. [Usługi zaświadczania i aprowizacji firmy Intel](https://software.intel.com/sgx/attestation-services) są zgodne z maszynami wirtualnymi do przetwarzania poufnego platformy Azure.
+### <a name="lessen-the-need-for-trust"></a>Zmniejszanie potrzeb zaufania
+Uruchomione obciążenia w chmurze wymagają zaufania. To zaufanie należy nadać różnym dostawcom, włączając różne składniki aplikacji.
 
 
-## <a name="using-azure-for-cloud-based-confidential-computing"></a>Korzystanie z platformy Azure na potrzeby danych poufnych opartych na chmurze<a id="cc-on-azure"></a>
+**Dostawcy oprogramowania aplikacji**: Ufaj oprogramowaniu, wdrażając Premium, korzystając z funkcji Open Source lub tworząc oprogramowanie w firmie.
 
-Dane poufne platformy Azure umożliwiają korzystanie z funkcji danych poufnych w środowisku zwirtualizowanym. Możesz teraz używać narzędzi, oprogramowania i infrastruktury chmurowej do kompilowania na bezpiecznym sprzęcie. 
+**Dostawcy sprzętu**: Ufaj sprzętowi przy użyciu sprzętu lokalnego lub sprzętu wewnętrznego. 
 
-### <a name="virtual-machines"></a>Virtual Machines
+**Dostawcy infrastruktury**: Ufaj dostawcom chmury lub Zarządzaj własnymi lokalnymi centrami danych.
 
-Platforma Azure to pierwszy dostawca usług w chmurze, który oferuje poufne dane obliczeniowe w środowisku zwirtualizowanym. Opracowano maszyny wirtualne, które działają jako warstwa abstrakcji między sprzętem a aplikacją. Obciążenia można uruchamiać w odpowiedniej skali i z opcjami nadmiarowości i dostępności.  
 
-#### <a name="intel-sgx-enabled-virtual-machines"></a>Virtual Machines z włączonym technologią Intel SGX
+Dane poufne na platformie Azure ułatwiają zaufanie dostawcy usług w chmurze, zmniejszając potrzebę zaufania między różnymi aspektami infrastruktury w chmurze obliczeniowej. Dane poufne platformy Azure minimalizują zaufanie do jądra systemu operacyjnego hosta, funkcji hypervisor, administratora maszyny wirtualnej i administratora hosta.
 
-W przypadku maszyn wirtualnych z danymi poufnymi na platformie Azure część sprzętu procesora CPU jest zarezerwowana dla części kodu i danych w aplikacji. Ta część z ograniczeniami to enklawy. 
+### <a name="reducing-the-attack-surface"></a>Zmniejszenie podatności na ataki
+Trusted Computing Base (TCB) odnosi się do wszystkich składników sprzętowych, oprogramowania układowego i oprogramowania, które zapewniają bezpieczne środowisko. Składniki w ramach TCB są uznawane za "krytyczne". Jeśli jeden ze składników w TCB zostanie naruszony, zabezpieczenia całego systemu mogą być zagrożone. 
 
-![Model maszyny wirtualnej](media/overview/hardware-backed-enclave.png)
+Niższa wartość TCB oznacza wyższe zabezpieczenia. Mniejsze ryzyko wystąpienia różnych luk w zabezpieczeniach, złośliwe oprogramowanie, ataki i złośliwe osoby. Dane poufne platformy Azure mają na celu obniżenie poziomu TCB dla obciążeń w chmurze przez oferowanie TEEs. TEEs zmniejszaj TCB do zaufanych plików binarnych, kodu i bibliotek środowiska uruchomieniowego. Gdy korzystasz z infrastruktury i usług platformy Azure do celów poufnych, możesz usunąć wszystkie firmy Microsoft z TCB.
 
-Usługa Azure poufnej infrastruktury obliczeniowej składa się z specjalistycznej jednostki SKU maszyn wirtualnych. Te maszyny wirtualne działają na procesorach Intel z rozszerzeniem Guard (SGX). [Procesor Intel SGX](https://intel.com/sgx) to składnik, który umożliwia zwiększonej ochrony, którą ponosi poufne dane. 
 
-Obecnie platforma Azure oferuje [DCsv2ą](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) platformę opartą na technologii Intel SGX na potrzeby tworzenia sprzętowych enklawy. Można tworzyć bezpieczne aplikacje oparte na enklawy do uruchamiania w serii DCsv2 maszyn wirtualnych w celu ochrony danych aplikacji i używanego kodu. 
+## <a name="using-azure-for-cloud-based-confidential-computing"></a>Korzystanie z platformy Azure na potrzeby danych poufnych opartych na chmurze <a id="cc-on-azure"></a>
 
-Aby dowiedzieć się [więcej](virtual-machine-solutions.md) o wdrażaniu maszyn wirtualnych do przetwarzania poufnego platformy Azure za pomocą zaufanych enclaves opartych na sprzęcie.
+Dane poufne platformy Azure umożliwiają korzystanie z funkcji danych poufnych w środowisku zwirtualizowanym. Możesz teraz używać narzędzi, oprogramowania i infrastruktury chmurowej do kompilowania na bezpiecznym sprzęcie.  
 
-## <a name="application-development"></a>Opracowywanie aplikacji<a id="application-development"></a>
+**Zapobiegaj nieautoryzowanemu dostępowi**: Uruchom poufne dane w chmurze. Dzięki temu platforma Azure zapewnia najlepszą ochronę danych, dzięki czemu nie zmienia się już dziś.
 
-Aby wykorzystać możliwości enclaves i izolowanych środowisk, musisz użyć narzędzi, które obsługują dane poufne. Istnieją różne narzędzia, które obsługują Programowanie aplikacji enklawy. Można na przykład użyć tych platform typu "open source": 
+**Zgodność z przepisami**: Migruj do chmury i zapewnia pełną kontrolę nad danymi, aby zaspokoić przepisy rządowe dotyczące ochrony informacji osobistych i bezpiecznego organizacyjnego adresu IP.
 
-- [Open enklawy Software Development Kit (SDK)](https://github.com/openenclave/openenclave)
-- [Struktura konsorcjum poufnego (CCF)](https://github.com/Microsoft/CCF)
+**Współpraca bezpiecznych i niezaufanych**: Rozwiązywanie problemów z skalowalnością w całej branży dzięki rozciąganie danych między organizacjami, nawet konkurentami, w celu odblokowania szerokiej analizy danych i dokładniejszego wglądu w dane.
 
-### <a name="overview"></a>Omówienie
+**Izolowane przetwarzanie**: oferuje nową fala produktów, które usuwają zobowiązania dotyczące prywatnych danych z przetwarzaniem niewidomym. Dane użytkownika nie mogą być nawet pobierane przez dostawcę usług. 
 
-Aplikacja skompilowana za pomocą enclaves jest partycjonowana na dwa sposoby:
-1. Składnik "niezaufany" (Host)
-1. Składnik "zaufany" (enklawy)
+## <a name="get-started"></a>Rozpocznij
+### <a name="azure-compute"></a>Azure Compute
+Twórz aplikacje w oparciu o poufne oferty obliczeniowe IaaS na platformie Azure.
+- Virtual Machines (maszyny wirtualne): [Seria DCsv2](confidential-computing-enclaves.md)
+- Azure Kubernetes (AKS): [organizowanie kontenerów poufnych](confidential-nodes-aks-overview.md)
 
-**Host** jest miejscem, w którym aplikacja enklawy jest uruchomiona w systemie i jest środowiskiem niezaufanym. Na hoście nie można uzyskać dostępu do kodu enklawy wdrożonego na hoście. 
+### <a name="azure-security"></a>Zabezpieczenia platformy Azure 
+Upewnij się, że obciążenia są bezpieczne za poorednictwem metod weryfikacji i zarządzania kluczami związanymi ze sprzętem. 
+- Zaświadczanie: [Zaświadczanie Microsoft Azure (wersja zapoznawcza)](https://docs.microsoft.com/azure/attestation/overview)
+- Zarządzanie kluczami: zarządzane-HSM (wersja zapoznawcza)
 
-**Enklawy polega na** tym, że kod aplikacji i jego buforowane dane/pamięć są uruchamiane. Aby zapewnić tajne i poufne dane, ochrona powinna być wykonywana w enclaves. 
-
-Podczas projektowania aplikacji ważne jest, aby identyfikować i określić, jaka część aplikacji musi być uruchamiana w enclaves. Kod wybrany do umieszczenia w zaufanym składniku jest odizolowany od reszty aplikacji. Po zainicjowaniu enklawy i załadowaniu kodu do pamięci kod nie może zostać odczytany lub zmieniony z niezaufanych składników. 
-
-### <a name="open-enclave-software-development-kit-oe-sdk"></a>Otwórz zestaw enklawy Software Development Kit (zestaw SDK programu OE)<a id="oe-sdk"></a>
-
-Użyj biblioteki lub platformy obsługiwanej przez dostawcę, jeśli chcesz napisać kod, który jest uruchamiany w enklawy. [Open ENKLAWY SDK](https://github.com/openenclave/openenclave) (zestaw SDK programu OE) to zestaw SDK typu open source, który umożliwia abstrakcję wielu różnych sprzętowych urządzeń z obsługą informacji. 
-
-Zestaw SDK programu OE jest oparty na jednej warstwie abstrakcji na dowolnym sprzęcie dowolnego dostawcy usług kryptograficznych. Zestaw OE SDK może być używany w odniesieniu do poufnych maszyn wirtualnych platformy Azure do tworzenia i uruchamiania aplikacji w oparciu o enclaves.
+### <a name="develop"></a>Programowanie
+Zacznij korzystać z programowania aplikacji obsługujących enklawy i wdrażaj algorytmy poufne przy użyciu poufnej struktury inferencing.
+- Pisanie aplikacji do uruchamiania na maszynach wirtualnych DCsv2: [zestaw Open-enklawy SDK](https://github.com/openenclave/openenclave)
+- Poufne modele ML w środowisku uruchomieniowym ONNX: [poufne inferencing (beta)](https://aka.ms/confidentialinference)
 
 ## <a name="next-steps"></a>Następne kroki
 

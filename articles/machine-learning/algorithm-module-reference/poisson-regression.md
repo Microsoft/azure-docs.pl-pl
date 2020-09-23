@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 6682d9426ed3fe011fe5c493ec34fcdf0a2b35b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097845"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905252"
 ---
 # <a name="poisson-regression"></a>Regresja Poissona
 
-W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Ten moduł służy do tworzenia modelu regresji Poissona w potoku. Regresja Poissona jest przeznaczona do przewidywania wartości liczbowych, zazwyczaj liczy. W związku z tym należy używać tego modułu do tworzenia modelu regresji tylko wtedy, gdy wartości, które próbujesz przewidzieć, spełniają następujące warunki:
 
@@ -49,7 +49,7 @@ Ze względu na to, że zmienna odpowiedzi ma rozkład Poissona, model wykonuje r
 
 ## <a name="how-to-configure-poisson-regression"></a>Jak skonfigurować regresję Poissona
 
-1. Dodaj moduł **regresji Poissona** do potoku w projektancie (wersja zapoznawcza). Ten moduł można znaleźć w obszarze **algorytmy Machine Learning**w kategorii **regresja** .
+1. Dodaj moduł **regresji Poissona** do potoku w projektancie. Ten moduł można znaleźć w obszarze **algorytmy Machine Learning**w kategorii **regresja** .
 
 2. Dodaj zestaw danych zawierający dane szkoleniowe o poprawnym typie. 
 

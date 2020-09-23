@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c046d2e437004146b5ee4c53dd98942ca1781ad4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86077659"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983743"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Rozgałęzianie działań i łączenie łańcuchów w potoku Azure Data Factory przy użyciu Azure Portal
 
@@ -24,7 +24,7 @@ ms.locfileid: "86077659"
 
 W tym samouczku pokazano, jak utworzyć potok usługi Data Factory przedstawiający niektóre funkcje przepływu sterowania. Ten potok tworzy prostą kopię z kontenera w usłudze Azure Blob Storage w innym kontenerze na tym samym koncie magazynu. Jeśli działanie kopiowania zakończy się powodzeniem, potok wysyła szczegóły zakończonej pomyślnie operacji kopiowania (takie jak ilość zapisanych danych) w wiadomości e-mail z informacją o powodzeniu. W przypadku niepowodzenia działania kopiowania potok wysyła szczegóły błędu kopiowania (np. komunikat o błędzie) w wiadomości e-mail z informacją o niepowodzeniu. W samouczku pokazano, jak przekazać parametry.
 
-Ogólne omówienie scenariusza: ![Omówienie](media/tutorial-control-flow-portal/overview.png)
+Ogólne omówienie scenariusza: ![ diagram przedstawia BLOB Storage platformy Azure, która jest celem kopii, która po powodzeniu wysyła wiadomość e-mail ze szczegółami lub, w przypadku niepowodzenia, wysyła wiadomość e-mail z informacjami o błędzie.](media/tutorial-control-flow-portal/overview.png)
 
 Ten samouczek obejmuje następujące procedury:
 
@@ -151,7 +151,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 4. Wybierz opcję **V2** w obszarze **Wersja**.
 5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
-7. Kliknij przycisk **Utwórz**.      
+7. Kliknij pozycję **Utwórz**.      
 8. Na pulpicie nawigacyjnym jest widoczny następujący kafelek ze stanem: **wdrażanie fabryki danych**.
 
     ![kafelek Wdrażanie fabryki danych](media/tutorial-control-flow-portal/deploying-data-factory.png)
@@ -282,7 +282,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
     ![Weryfikowanie potoku](./media/tutorial-control-flow-portal/validate-pipeline.png)
 24. Aby opublikować jednostki (zestawy danych, potoki itp.) w usłudze Data Factory, kliknij przycisk **Opublikuj wszystko**. Poczekaj na wyświetlenie komunikatu **Pomyślnie opublikowano**.
 
-    ![Publikowanie](./media/tutorial-control-flow-portal/publish-button.png)
+    ![Opublikuj](./media/tutorial-control-flow-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run-that-succeeds"></a>Wyzwalanie pomyślnego uruchomienia potoku
 1. Aby **wyzwolić** uruchomienie potoku, kliknij pozycję **Wyzwól** na pasku narzędzi, a następnie kliknij polecenie **Wyzwól teraz**.
