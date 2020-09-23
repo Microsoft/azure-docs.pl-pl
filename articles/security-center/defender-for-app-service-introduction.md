@@ -3,16 +3,16 @@ title: Usługa Azure Defender dla App Service — korzyści i funkcje
 description: Dowiedz się więcej o zaletach i funkcjach usługi Azure Defender dla App Service.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8d3eec85ba72a4b5ac43bd3988694e833abfe73b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d15e881ca1246d463d8054fe5bd094efaff0cdd5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940346"
+ms.locfileid: "90977181"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Wprowadzenie do usługi Azure Defender dla App Service
 

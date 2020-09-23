@@ -15,7 +15,7 @@ To `ApplicationInsights` ustawienie umożliwia dodanie obsługi telemetrii [usł
 
 W poniższej tabeli opisano ustawienia konfiguracji obsługiwane w `ApplicationInsights` sekcji.
 
-|Wymagany| Nazwa | Typ danych | Opis |
+|Wymagane| Nazwa | Typ danych | Opis |
 |--|------|-----------|-------------|
-|Nie| `InstrumentationKey` | String | Klucz Instrumentacji wystąpienia Application Insights, do którego są wysyłane dane telemetryczne dla kontenera. Aby uzyskać więcej informacji, zobacz [Application Insights ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). <br><br>Przykład:<br>`InstrumentationKey=123456789`|
+|Nie| `InstrumentationKey` | Ciąg | Klucz Instrumentacji wystąpienia Application Insights, do którego są wysyłane dane telemetryczne dla kontenera. Aby uzyskać więcej informacji, zobacz [Application Insights ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). <br><br>Przykład:<br>`InstrumentationKey=123456789`|
 

@@ -13,7 +13,7 @@ ms.locfileid: "73484106"
 ---
 Kontener ma następujące ustawienia konfiguracji:
 
-|Wymagany|Ustawienie|Przeznaczenie|
+|Wymagane|Ustawienie|Przeznaczenie|
 |--|--|--|
 |Tak|[ApiKey](#apikey-configuration-setting)|Śledzi informacje o rozliczeniach.|
 |Nie|[ApplicationInsights](#applicationinsights-setting)|Umożliwia dodawanie obsługi telemetrii [usługi Azure Application Insights](https://docs.microsoft.com/azure/application-insights) do kontenera.|

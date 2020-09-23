@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09a66f45fe3e20bedf5ff99ee924ac267b4fd869
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a2b776ba64d96d092ad51ad2888b891e19e8b521
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266803"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968884"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na zestawie skalowania maszyn wirtualnych przy użyciu wywołań interfejsu API REST
 
@@ -45,12 +45,9 @@ W tym artykule przy użyciu zapełniania w celu wykonywania wywołań do punktu 
     - [Współautor maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) w celu utworzenia zestawu skalowania maszyn wirtualnych oraz włączenia i usunięcia tożsamości zarządzanej system i/lub przypisanej przez użytkownika z zestawu skalowania maszyn wirtualnych.
     - Rola [współautor tożsamości zarządzanej](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) do tworzenia tożsamości zarządzanej przypisanej przez użytkownika.
     - Rola [operatora tożsamości zarządzanej](../../role-based-access-control/built-in-roles.md#managed-identity-operator) do przypisywania i usuwania tożsamości przypisanej przez użytkownika z i do zestawu skalowania maszyn wirtualnych.
-- Jeśli używasz systemu Windows, zainstaluj [podsystem Windows dla systemu Linux](/windows/wsl/about) lub Użyj [Azure Cloud Shell](../../cloud-shell/overview.md) w Azure Portal.
-- [Zainstaluj konsolę lokalną interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli), jeśli używasz [podsystemu Windows dla systemu Linux](/windows/wsl/about) lub [systemu operacyjnego dystrybucji Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
-- Jeśli używasz lokalnej konsoli interfejsu wiersza polecenia platformy Azure, zaloguj się do platformy Azure przy użyciu `az login` konta skojarzonego z subskrypcją platformy Azure, do której chcesz zarządzać tożsamościami zarządzanymi przez system lub użytkownika.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Wszystkie polecenia w tym artykule można uruchomić w chmurze lub lokalnie:
+    - Aby uruchomić program w chmurze, użyj [Azure Cloud Shell](../../cloud-shell/overview.md).
+    - Aby uruchomić lokalnie, zainstalować założenia i [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) [, a następnie](https://curl.haxx.se/download.html) zalogować się do platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) przy użyciu konta skojarzonego z subskrypcją platformy Azure, którą chcesz zarządzać tożsamościami zarządzanymi przez system lub użytkownika.
 
 ## <a name="system-assigned-managed-identity"></a>Tożsamość zarządzana przypisana przez system
 

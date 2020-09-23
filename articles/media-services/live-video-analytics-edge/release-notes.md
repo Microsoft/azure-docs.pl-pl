@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge informacji o wersji — Azure
 description: Ten temat zawiera informacje o wersji analizy wideo na żywo na temat wydań IoT Edge, ulepszeń, poprawek błędów i znanych problemów.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: feab7755dea69a932fe40df59e0dd35f3f826553
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0bdf11cd99d99067dc53dde7d55fd37b96a382c9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645816"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882727"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Analiza filmów wideo na żywo na IoT Edge informacji o wersji
 
@@ -21,6 +21,31 @@ Ten artykuł zawiera informacje na temat:
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
 
+<hr width=100%>
+
+## <a name="september-22-2020"></a>22 września, 2020
+
+Ten tag wersji dla odświeżania z września 2020 dla modułu to:
+
+```
+mcr.microsoft.com/media/live-video-analytics:1.0.4
+```
+
+> [!NOTE]
+> W ramach przewodników Szybki Start i samouczków w manifestach wdrożenia jest używany tag 1 (Live-Video-Analytics: 1). Należy więc po prostu ponownie wdrożyć takie manifesty należy zaktualizować moduł na urządzeniu brzegowym > urządzenia.
+
+### <a name="module-updates"></a>Aktualizacje modułu
+
+* Nowy węzeł rozszerzenia grafu, [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) jest dostępny do integracji z [modułem analizy przestrzennej](spatial-analysis-tutorial.md)(wersja zapoznawcza) z Cognitive Services.
+* Dodano obsługę urządzeń z systemem Linux ARM64 — należy użyć [ręcznych kroków](deploy-iot-edge-device.md) do wdrożenia na takich urządzeniach.
+
+### <a name="documentation-updates"></a>Aktualizacje dokumentacji
+
+* Dostępne są [instrukcje](deploy-azure-stack-edge-how-to.md) dotyczące korzystania z usługi Analiza filmów wideo na żywo na IoT Edge na urządzeniach brzegowych Azure Stack.
+* Nowy samouczek dotyczący projektowania specyficznych dla scenariusza modeli przetwarzania obrazów przy użyciu [usługi Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) i używania go do [analizowania wideo na żywo](custom-vision-tutorial.md) w czasie rzeczywistym.
+
+<hr width=100%>
+
 ## <a name="august-19-2020"></a>19 sierpnia 2020
 
 Ten tag wersji dla odświeżenia 2020 sierpnia modułu to:
@@ -32,7 +57,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 > [!NOTE]
 > W ramach przewodników Szybki Start i samouczków w manifestach wdrożenia jest używany tag 1 (Live-Video-Analytics: 1). Należy więc po prostu ponownie wdrożyć takie manifesty należy zaktualizować moduł na urządzeniu brzegowym > urządzenia.
 
-### <a name="new-features"></a>Nowe funkcje 
+### <a name="module-updates"></a>Aktualizacje modułu
 
 * Teraz można uzyskać wysoką wydajność transferu zawartości danych między aktywną analizą filmów wideo na IoT Edge a niestandardowym rozszerzeniem przy użyciu platformy gRPC Framework. Zobacz [ten](analyze-live-video-use-your-grpc-model-quickstart.md) temat, aby rozpocząć pracę.
 * Szersze wdrożenie regionalne analizy filmów wideo i aktualizowanie tylko usługi w chmurze.  
@@ -43,6 +68,8 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 ### <a name="bug-fixes"></a>Poprawki błędów 
 
 * Usuń użycie przestarzałego rozszerzenia platformy Azure w skrypcie konfigurowania
+
+<hr width=100%>
 
 ## <a name="july-13-2020"></a>13 lipca 2020
 
@@ -55,11 +82,15 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
 > [!NOTE]
 > W ramach przewodników Szybki Start i samouczków w manifestach wdrożenia jest używany tag 1 (Live-Video-Analytics: 1). Należy więc po prostu ponownie wdrożyć takie manifesty należy zaktualizować moduł na urządzeniu brzegowym > urządzenia.
 
-### <a name="new-features"></a>Nowe funkcje
+### <a name="module-updates"></a>Aktualizacje modułu
+
 * Teraz można tworzyć topologie grafów, które mają węzeł ujścia zasobów, a także węzeł ujścia plików, który znajduje się w węźle procesora bramy sygnalizującej. Zapoznaj [się](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) z przykładem.
 
 ### <a name="bug-fixes"></a>Poprawki błędów
+
 * Ulepszenia weryfikacji żądanych właściwości
+
+<hr width=100%>
 
 ## <a name="june-1-2020"></a>1 czerwca 2020 r.
 
@@ -70,6 +101,7 @@ Ta wersja to pierwsza publiczna wersja zapoznawcza usługi Live Video Analytics 
 ```
 
 ### <a name="supported-functionalities"></a>Obsługiwane funkcje
+
 * Analizuj strumienie wideo na żywo przy użyciu wybranych modułów AI i opcjonalnie nagrywaj wideo na urządzeniu brzegowym lub w chmurze
 * Używany w systemach operacyjnych Linux AMD64 [obsługiwanych](../../iot-edge/support.md) przez IoT Edge
 * Wdróż i skonfiguruj moduł za pośrednictwem IoT Hub przy użyciu Azure Portal lub Visual Studio Code
@@ -83,7 +115,6 @@ Ta wersja to pierwsza publiczna wersja zapoznawcza usługi Live Video Analytics 
     *   GraphInstanceSet
     *   GraphInstanceDelete
     *   GraphInstanceList
-
 
 ## <a name="next-steps"></a>Następne kroki
 

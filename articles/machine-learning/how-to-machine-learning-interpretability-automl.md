@@ -10,16 +10,16 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 921132947fbf52fbd187941b96d8b75197763387
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7cb40df6a4619e11694e65020bfcb560cf695795
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419116"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897443"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretowanie: Omówienie modelu w zautomatyzowanej usłudze Machine Learning (wersja zapoznawcza)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym artykule dowiesz się, jak uzyskać wyjaśnienia dotyczące zautomatyzowanej uczenia maszynowego (ML) w Azure Machine Learning. Automatyczna ML pomaga zrozumieć zaprojektowaną ważność funkcji. 
 

@@ -3,14 +3,14 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 09/11/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ab2c584b1e62ac8296c4e9489a72489cd815fc3c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 4a753cd139db9dec23c82346704382979aeaa0de
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089857"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976984"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -30,6 +30,8 @@ Update Management dla maszyn wirtualnych można włączyć w następujący spos�
 
 > [!NOTE]
 > Nie można użyć komputera skonfigurowanego przy użyciu Update Management do uruchamiania skryptów niestandardowych z Azure Automation. Na tym komputerze można uruchomić tylko skrypt aktualizacji podpisany przez firmę Microsoft.
+
+Aby automatycznie pobierać i instalować dostępne poprawki *krytyczne* i *zabezpieczenia* na maszynie wirtualnej platformy Azure, przejrzyj [automatyczną poprawkę gościa maszyny wirtualnej](../../virtual-machines/windows/automatic-vm-guest-patching.md) dla maszyn wirtualnych z systemem Windows.
 
 ## <a name="about-update-management"></a>Informacje o Update Management
 
@@ -82,7 +84,7 @@ W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen 
 |Windows Server 2008 R2 (wersja RTM i SP1 standard)| Update Management obsługuje oceny i poprawki dla tego systemu operacyjnego. [Hybrydowy proces roboczy elementu Runbook](../automation-windows-hrw-install.md) jest obsługiwany w przypadku systemu Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) i 7 (x64)      | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji. Stosowanie poprawek opartych na klasyfikacji wymaga `yum` zwrócenia danych zabezpieczeń, które nie są dostępne w wersjach RTM CentOS. Aby uzyskać więcej informacji na temat stosowania poprawek opartych na klasyfikacji na CentOS, zobacz [Aktualizacja klasyfikacji w systemie Linux](update-mgmt-view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 (x86/x64) i 7 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) i 12 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.        |
+|SUSE Linux Enterprise Server 12 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.        |
 |Ubuntu 14,04 LTS, 16,04 LTS i 18,04 (x86/x64)      |Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.         |
 
 > [!NOTE]
@@ -164,9 +166,9 @@ W poniższej tabeli opisano połączone źródła obsługiwane przez Update Mana
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| Agenci dla systemu Windows |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów systemu Windows, a następnie uruchamia instalację wymaganych aktualizacji. |
-| Agenci dla systemu Linux |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów z systemem Linux, a następnie uruchamia instalację wymaganych aktualizacji w obsługiwanych dystrybucjach. |
-| Grupa zarządzania programu Operations Manager |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br/><br/>Bezpośrednie połączenie z agentem Operations Manager do Azure Monitor dzienników nie jest wymagane. Dane są przekazywane z grupy zarządzania do obszaru roboczego Log Analytics. |
+| Agenci dla systemu Windows |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów systemu Windows, a następnie uruchamia instalację wymaganych aktualizacji. |
+| Agenci dla systemu Linux |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów z systemem Linux, a następnie uruchamia instalację wymaganych aktualizacji w obsługiwanych dystrybucjach. |
+| Grupa zarządzania programu Operations Manager |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br/><br/>Bezpośrednie połączenie z agentem Operations Manager do Azure Monitor dzienników nie jest wymagane. Dane są przekazywane z grupy zarządzania do obszaru roboczego Log Analytics. |
 
 ### <a name="collection-frequency"></a>Częstotliwość zbierania
 
@@ -211,7 +213,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.
@@ -234,7 +236,7 @@ W przypadku systemu Linux Update Management może rozróżnić aktualizacje kryt
 sudo yum -q --security check-update
 ```
 
-Obecnie nie jest obsługiwana metoda umożliwiająca natywną klasyfikację — dostępność danych w systemie CentOS. W tej chwili do klientów, którzy mogli korzystać z tej funkcji, jest świadczona tylko Najlepsza pomoc techniczna.
+Obecnie nie jest obsługiwana metoda umożliwiająca natywną klasyfikację — dostępność danych w systemie CentOS. W tej chwili ograniczona pomoc techniczna jest świadczona klientom, którzy mogą korzystać z tej funkcji samodzielnie.
 
 Aby sklasyfikować aktualizacje w systemie Red Hat Enterprise w wersji 6, należy zainstalować wtyczkę yum-Security. W Red Hat Enterprise Linux 7 wtyczka jest już częścią yum i nie trzeba instalować żadnych elementów. Aby uzyskać więcej informacji, zobacz następujący [artykuł merytoryczny](https://access.redhat.com/solutions/10021)firmy Red Hat.
 

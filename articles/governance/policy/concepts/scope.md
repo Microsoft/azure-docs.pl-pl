@@ -3,12 +3,12 @@ title: Opis zakresu w Azure Policy
 description: Opisuje koncepcję zakresu w Azure Resource Manager i sposób, w jaki ma zastosowanie do Azure Policy do kontrolowania, które zasoby Azure Policy oceniane.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: dee5d2bdbcb5aa86e293652af3bc5008f56b7877
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940147"
+ms.locfileid: "90984430"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Opis zakresu w Azure Policy
 
@@ -34,6 +34,8 @@ Przypisanie ma kilka właściwości, które ustawiają zakres. Te właściwości
 - Dołączenie — hierarchia zasobów lub indywidualny zasób należy ocenić pod kątem zgodności przez definicję. `properties.scope`Właściwość obiektu przypisania określa elementy, które mają zostać uwzględnione i oszacowane pod kątem zgodności. Aby uzyskać więcej informacji, zobacz [Definicja przypisania](./assignment-structure.md).
 
 - Wykluczanie — nie należy oceniać hierarchii zasobów lub pojedynczego zasobu pod kątem zgodności przez definicję. Właściwość `properties.notScopes` _Array_ obiektu przypisania określa elementy, które mają zostać wykluczone. Zasoby znajdujące się w tych zakresach nie są oceniane ani uwzględniane w liczniku zgodności. Aby uzyskać więcej informacji, zobacz [definicje przypisania — wykluczone zakresy](./assignment-structure.md#excluded-scopes).
+
+Poza właściwościami przypisywania zasad jest obiektem [wykluczenia zasad](./exemption-structure.md) . Wykluczenia rozszerzają historię zakresu, dostarczając metodę identyfikującą część przypisania, która nie zostanie oceniona.
 
 - Wykluczanie (**bezpłatne w wersji zapoznawczej** ) — hierarchia zasobów lub poszczególne zasoby powinny być oceniane pod kątem zgodności przez definicję, ale nie będą oceniane z przyczyn, takich jak rezygnacja lub ograniczenie przez inną metodę. Zasoby w tym stanie są wyświetlane jako **wykluczone** w raportach zgodności, aby mogły być śledzone. Obiekt wykluczenia jest tworzony w hierarchii zasobów lub pojedynczym zasobie jako obiekt podrzędny, który określa zakres wykluczenia. Hierarchia zasobów lub pojedynczy zasób może być wykluczony dla wielu przypisań. Wykluczenie można skonfigurować tak, aby wygasał zgodnie z harmonogramem przy użyciu `expiresOn` właściwości. Aby uzyskać więcej informacji, zobacz [Definicja wykluczenia](./exemption-structure.md).
 

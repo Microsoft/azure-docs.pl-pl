@@ -8,20 +8,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 90c1132091f543b84fc764522dfa95672f2e2aef
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277497"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906315"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Ochrona zasobów centrum administracyjnego systemu Windows za pomocą Security Center
 
 Centrum administracyjne systemu Windows to narzędzie do zarządzania dla serwerów z systemem Windows. Jest to jedna lokalizacja dla administratorów systemu, aby uzyskać dostęp do większości najczęściej używanych narzędzi administracyjnych. Z poziomu Centrum administracyjnego systemu Windows możesz bezpośrednio dołączyć serwery z systemem Premium do Azure Security Center. Możesz wyświetlić podsumowanie zaleceń dotyczących zabezpieczeń i alertów bezpośrednio w środowisku centrum administracyjnego systemu Windows.
 
 > [!NOTE]
-> Aby można było włączyć integrację centrum administracyjnego systemu Windows, w ramach subskrypcji platformy Azure i powiązanego obszaru roboczego Log Analytics należy włączyć Security Center warstwy Standardowa.
-> Warstwa standardowa jest bezpłatna przez pierwsze 30 dni, jeśli nie została wcześniej użyta w subskrypcji i obszarze roboczym. Aby uzyskać więcej informacji, zobacz [stronę informacje o cenach](security-center-pricing.md).
+> Aby można było włączyć integrację centrum administracyjnego systemu Windows, w ramach subskrypcji platformy Azure i powiązanego obszaru roboczego Log Analytics należy włączyć usługę Azure Defender.
+> Usługa Azure Defender jest bezpłatna przez pierwsze 30 dni, jeśli nie została wcześniej użyta w subskrypcji i obszarze roboczym. Aby uzyskać więcej informacji, zobacz [stronę informacje o cenach](security-center-pricing.md).
 >
 
 Po pomyślnym dołączeniu serwera z centrum administracyjnego systemu Windows do Azure Security Center można:
@@ -46,8 +46,8 @@ Po pomyślnym dołączeniu serwera z centrum administracyjnego systemu Windows d
 1. Postępuj zgodnie z instrukcjami, aby połączyć serwer z Security Center. Po wprowadzeniu niezbędnych szczegółów i potwierdzeniu Security Center wprowadza niezbędne zmiany konfiguracji, aby upewnić się, że spełnione są wszystkie następujące wymagania:
     * Brama platformy Azure jest zarejestrowana.
     * Serwer ma obszar roboczy do raportowania i skojarzonej subskrypcji.
-    * Rozwiązanie Log Analytics w warstwie Standardowa Security Center jest włączone w obszarze roboczym. To rozwiązanie zapewnia Security Center funkcje warstwy standardowej dla *wszystkich* serwerów i maszyn wirtualnych raportowanych w tym obszarze roboczym.
-    * W ramach subskrypcji jest włączona cena warstwy Standardowa Security Center dla maszyny wirtualnej.
+    * Rozwiązanie Log Analytics Security Center jest włączone w obszarze roboczym. To rozwiązanie udostępnia funkcje usługi Azure Defender dla *wszystkich* serwerów i maszyn wirtualnych raportowanych w tym obszarze roboczym.
+    * Usługa Azure Defender dla serwerów jest włączona w ramach subskrypcji.
     * Agent Log Analytics jest zainstalowany na serwerze i skonfigurowany do raportowania do wybranego obszaru roboczego. Jeśli serwer już jest raportowany do innego obszaru roboczego, jest on skonfigurowany do raportowania do nowo wybranego obszaru roboczego.
 
     > [!NOTE]
@@ -63,12 +63,8 @@ Po dołączeniu można wyświetlić swoje alerty i zalecenia bezpośrednio w obs
 ## <a name="view-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Wyświetlanie zaleceń dotyczących zabezpieczeń i alertów dla serwerów zarządzanych w centrum administracyjnym systemu Windows w Security Center
 Z Azure Security Center:
 
-* Aby wyświetlić zalecenia dotyczące zabezpieczeń dla wszystkich serwerów centrum administracyjnego systemu Windows, Otwórz **& aplikacje obliczeniowe** i kliknij kartę **maszyny wirtualne i komputery** . Przefiltruj listę według zasobu "serwer", jak pokazano poniżej:
-
-    [![Wyświetlanie zaleceń dotyczących zabezpieczeń serwerów zarządzanych w centrum administracyjnym systemu Windows](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
+* Aby wyświetlić zalecenia dotyczące zabezpieczeń dla wszystkich serwerów centrum administracyjnego systemu Windows, Otwórz [spis zasobów](asset-inventory.md) i odfiltruj do typu komputera, który chcesz zbadać. Wybierz kartę **maszyny wirtualne i komputery** .
 
 * Aby wyświetlić alerty zabezpieczeń dla wszystkich serwerów centrum administracyjnego systemu Windows, Otwórz aplet **alerty zabezpieczeń**. Kliknij przycisk **Filtruj** i upewnij się, że wybrano **tylko** opcję "nie na platformie Azure":
 
-    ![Filtrowanie alertów zabezpieczeń dla serwerów zarządzanych w centrum administracyjnym systemu Windows](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
-
-    [![Wyświetlanie alertów zabezpieczeń dla serwerów zarządzanych w centrum administracyjnym systemu Windows](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)
+    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filtrowanie alertów zabezpieczeń dla serwerów zarządzanych w centrum administracyjnym systemu Windows" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::

@@ -31,11 +31,11 @@ Jeśli występują problemy z urządzeniem, możesz utworzyć pakiet pomocy tech
 
     Używane parametry są następujące:
 
-    - `-Path`-Określ sieć lub ścieżkę lokalną, do której ma zostać skopiowana pakiet obsługi. potrzeb
-    - `-Credential`-Określ poświadczenia, aby uzyskać dostęp do chronionej ścieżki.
-    - `-Zip`-Określ, aby wygenerować plik zip.
-    - `-Include`-Określ, aby uwzględnić składniki do uwzględnienia w pakiecie pomocy technicznej. Jeśli nie zostanie określony, `Default` przyjmowana jest wartość.
-    - `-IncludeArchived`-Określ, aby uwzględnić archiwizowane dzienniki w pakiecie obsługi.
-    - `-IncludePeriodicStats`-Określ, aby uwzględnić okresowe dzienniki statnia w pakiecie pomocy technicznej.
+    - `-Path` -Określ sieć lub ścieżkę lokalną, do której ma zostać skopiowana pakiet obsługi. potrzeb
+    - `-Credential` -Określ poświadczenia, aby uzyskać dostęp do chronionej ścieżki.
+    - `-Zip` -Określ, aby wygenerować plik zip.
+    - `-Include` -Określ, aby uwzględnić składniki do uwzględnienia w pakiecie pomocy technicznej. Jeśli nie zostanie określony, `Default` przyjmowana jest wartość.
+    - `-IncludeArchived` -Określ, aby uwzględnić archiwizowane dzienniki w pakiecie obsługi.
+    - `-IncludePeriodicStats` -Określ, aby uwzględnić okresowe dzienniki statnia w pakiecie pomocy technicznej.
 
     

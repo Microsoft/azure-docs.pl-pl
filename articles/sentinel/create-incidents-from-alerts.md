@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2020
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: f4c631360417afda41b7f48a46b618e7a4328aef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fabf847b672f4dbf3e680a21bc7015655c612552
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660709"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906313"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Automatycznie twórz zdarzenia z alertów zabezpieczeń firmy Microsoft
 
@@ -31,13 +31,13 @@ Za każdym razem, gdy alert jest wyzwalany w połączonym rozwiązaniu zabezpiec
 ## <a name="prerequisites"></a>Wymagania wstępne
 Należy [połączyć rozwiązania zabezpieczeń firmy Microsoft](connect-data-sources.md#data-connection-methods) , aby umożliwić tworzenie zdarzeń z alertów usługi zabezpieczeń.
 
-## <a name="using-microsoft-security-incident-creation-analytic-rules"></a>Korzystanie z reguł analitycznych tworzenia zdarzeń zabezpieczeń firmy Microsoft
+## <a name="using-microsoft-security-incident-creation-analytics-rules"></a>Korzystanie z reguł analizy tworzenia zdarzeń zabezpieczeń firmy Microsoft
 
 Skorzystaj z wbudowanych reguł dostępnych na platformie Azure — wskaźnik wyboru, aby wybrać połączone rozwiązania zabezpieczeń firmy Microsoft, które mają być automatycznie tworzone w czasie rzeczywistym. Możesz również edytować reguły, aby zdefiniować bardziej szczegółowe opcje filtrowania, które alerty wygenerowane przez rozwiązanie zabezpieczeń firmy Microsoft powinny tworzyć zdarzenia na platformie Azure. Na przykład możesz wybrać opcję automatycznego tworzenia zdarzeń ze wskaźnikiem na platformie Azure przy użyciu alertów usługi Azure Defender o wysokiej ważności (dawniej Azure Security Center).
 
 1. W Azure Portal w obszarze wskaźnik platformy Azure wybierz pozycję **Analiza**.
 
-1. Wybierz kartę **Szablony reguł** , aby wyświetlić wszystkie wbudowane reguły analityczne.
+1. Wybierz kartę **Szablony reguł** , aby wyświetlić wszystkie wbudowane reguły analizy.
 
     ![Szablony reguł](media/incidents-from-alerts/rule-templates.png)
 
@@ -47,7 +47,7 @@ Skorzystaj z wbudowanych reguł dostępnych na platformie Azure — wskaźnik wy
 
 1. Możesz zmodyfikować szczegóły reguły i wybrać filtrowanie alertów, które spowodują utworzenie incydentów według ważności alertu lub tekstu zawartego w nazwie alertu.  
       
-    Na przykład w przypadku wybrania **usługi Azure Defender** (może być nadal wywoływana Azure Security Center) w polu **Usługa zabezpieczeń firmy Microsoft** i wybrać opcję **wysoki** w polu **Filtruj według ważności** tylko alerty usługi Azure Defender o wysokiej ważności będą automatycznie tworzyć zdarzenia na platformie Azure.  
+    Na przykład w przypadku wybrania **usługi Azure Defender** (może być nadal wywoływana *Azure Security Center*) w polu **Usługa zabezpieczeń firmy Microsoft** i wybrać opcję **wysoki** w polu **Filtruj według ważności** tylko alerty usługi Azure Defender o wysokiej ważności będą automatycznie tworzyć zdarzenia na platformie Azure.  
 
     ![Kreator tworzenia reguły](media/incidents-from-alerts/create-rule-wizard.png)
 
@@ -55,7 +55,7 @@ Skorzystaj z wbudowanych reguł dostępnych na platformie Azure — wskaźnik wy
 
     ![Reguła tworzenia zdarzenia](media/incidents-from-alerts/incident-creation-rule.png)
 
-  Można utworzyć więcej niż jedną regułę analityczną **zabezpieczeń firmy Microsoft** dla typu **usługi zabezpieczeń firmy Microsoft** . Nie powoduje to utworzenia zduplikowanych zdarzeń, ponieważ Każda reguła jest używana jako filtr. Nawet jeśli alert jest zgodny z więcej niż jedną regułą analityczną **zabezpieczeń firmy Microsoft** , tworzy tylko jedno zdarzenie wskaźnikowe platformy Azure.
+  Można utworzyć więcej niż jedną regułę analizy **zabezpieczeń firmy Microsoft** na typ **usługi zabezpieczeń firmy Microsoft** . Nie powoduje to utworzenia zduplikowanych zdarzeń, ponieważ Każda reguła jest używana jako filtr. Nawet jeśli alert jest zgodny z więcej niż jedną regułą analizy **zabezpieczeń firmy Microsoft** , tworzy tylko jedno zdarzenie wskaźnikowe platformy Azure.
 
 ## <a name="enable-incident-generation-automatically-during-connection"></a>Włącz automatyczne generowanie zdarzeń podczas połączenia
  W przypadku łączenia rozwiązania zabezpieczeń firmy Microsoft możesz wybrać, czy alerty z rozwiązania zabezpieczeń mają automatycznie generować zdarzenia na platformie Azure.
@@ -64,7 +64,7 @@ Skorzystaj z wbudowanych reguł dostępnych na platformie Azure — wskaźnik wy
 
    ![Generuj zdarzenia zabezpieczeń](media/incidents-from-alerts/generate-security-incidents.png)
 
-1. W obszarze **Tworzenie zdarzeń** wybierz pozycję **Włącz** , aby włączyć domyślną regułę analityczną, która automatycznie tworzy zdarzenia z alertów generowanych w połączonej usłudze zabezpieczeń. Następnie można edytować tę regułę w obszarze **Analiza** , a następnie **aktywne reguły**.
+1. W obszarze **Tworzenie zdarzeń** wybierz pozycję **Włącz** , aby włączyć domyślną regułę analizy, która automatycznie tworzy zdarzenia z alertów generowanych w połączonej usłudze zabezpieczeń. Następnie można edytować tę regułę w obszarze **Analiza** , a następnie **aktywne reguły**.
 
 ## <a name="next-steps"></a>Następne kroki
 

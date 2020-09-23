@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować dostawcę połączenia usługi Ope
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: 89164061a968e37f928f8c21f5323c418e85361f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413922"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983873"
 ---
-# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Skonfiguruj App Service lub aplikację Azure Functions, aby zalogować się przy użyciu dostawcy połączenia usługi OpenID Connect (wersja zapoznawcza)
+# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Konfigurowanie aplikacji usługi App Service lub Azure Functions pod kątem logowania za pomocą dostawcy uwierzytelniania OpenID Connect (wersja zapoznawcza)
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
@@ -53,7 +53,7 @@ Jeśli nie można użyć dokumentu metadanych konfiguracji, należy oddzielnie z
 Ta sekcja przeprowadzi Cię przez proces aktualizowania konfiguracji w celu uwzględnienia nowej dostawcy tożsamości. Poniżej przedstawiono przykładową konfigurację.
 
 1. W `identityProviders` obiekcie Dodaj `openIdConnectProviders` obiekt, jeśli jeszcze nie istnieje.
-1. W `openIdConnectProviders` obiekcie Dodaj klucz dla nowego dostawcy. Jest to przyjazna nazwa używana do odwoływania się do dostawcy w pozostałej części konfiguracji. Na przykład jeśli chcesz, aby wszystkie żądania były uwierzytelniane za pomocą tego dostawcy, ustaw wartość `globalValidation.unauthenticatedClientAction` "RedirectToLoginPage" i ustaw `globalValidation.unauthenticatedClientAction` na tę samą przyjazną nazwę.
+1. W `openIdConnectProviders` obiekcie Dodaj klucz dla nowego dostawcy. Jest to przyjazna nazwa używana do odwoływania się do dostawcy w pozostałej części konfiguracji. Na przykład jeśli chcesz, aby wszystkie żądania były uwierzytelniane za pomocą tego dostawcy, ustaw wartość `globalValidation.unauthenticatedClientAction` "RedirectToLoginPage" i ustaw `redirectToProvider` na tę samą przyjazną nazwę.
 1. Przypisz obiekt do tego klucza z `registration` obiektem w tym obiekcie i opcjonalnie `login` obiekt:
     
     ```json
