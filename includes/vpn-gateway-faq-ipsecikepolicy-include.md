@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f7134d0e8087d17e78a13c958298006e321bd192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 754a47b3692847957de7f3d666f4dc09dc309d25
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84346209"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025084"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Czy niestandardowe zasady protokołu IPsec/IKE są obsługiwane na wszystkich jednostkach SKU bramy sieci VPN platformy Azure?
 Niestandardowe zasady protokołu IPsec/IKE są obsługiwane we wszystkich jednostkach SKU platformy Azure z wyjątkiem podstawowej jednostki SKU.
@@ -31,7 +31,7 @@ W poniższej tabeli wymieniono obsługiwane algorytmy kryptograficzne i siły kl
 | ---              | ---                                                                           |
 | Szyfrowanie IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
 | Integralność IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
-| Grupa DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Brak |
+| Grupa DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Brak  |
 | Szyfrowanie IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Brak      |
 | Integralność IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | Grupa PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Brak                              |
@@ -99,6 +99,9 @@ Tak, można stosować zasady niestandardowe zarówno dla połączeń obejmujący
 
 ### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>Czy trzeba określić te same zasady dla obu zasobów połączenia między sieciami wirtualnymi?
 Tak. Tunel połączenia między sieciami wirtualnymi zawiera dwa zasoby połączenia na platformie Azure, po jednym dla każdego kierunku. Upewnij się, że oba zasoby połączenia mają te same zasady. W przeciwnym razie połączenie między sieciami wirtualnymi nie zostanie ustanowione.
+
+### <a name="what-is-the-default-dpd-timeout-value-can-i-specify-a-different-dpd-timeout"></a>Jaka jest domyślna wartość limitu czasu DPD? Czy można określić inny limit czasu DPD?
+Domyślny limit czasu DPD wynosi 45 sekund. Można określić inną wartość limitu czasu DPD dla każdego połączenia z protokołem IPsec lub między sieciami wirtualnymi (od 9 sekund do 3600 sekund).
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>Czy niestandardowe zasady protokołu IPsec/IKE działają dla połączenia ExpressRoute?
 Nie. Zasady protokołu IPsec/IKE działają tylko dla połączeń sieci VPN S2S i połączeń między sieciami wirtualnymi za pośrednictwem bram sieci VPN platformy Azure.

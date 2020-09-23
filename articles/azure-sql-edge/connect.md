@@ -1,5 +1,5 @@
 ---
-title: Łączenie i wykonywanie zapytań w usłudze Azure SQL Edge (wersja zapoznawcza)
+title: Łączenie i wykonywanie zapytań w usłudze Azure SQL Edge
 description: Dowiedz się, jak nawiązać połączenie z usługą Azure SQL Edge i wysyłać do niej zapytania.
 keywords: ''
 services: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
-ms.openlocfilehash: bc7410325bbcf3086c4ac2054b7bc663629a29e5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4548d4956b4cd01886fb1be9a530cc1627f76b2c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373117"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888243"
 ---
-# <a name="connect-and-query-azure-sql-edge-preview"></a>Łączenie i wykonywanie zapytań w usłudze Azure SQL Edge (wersja zapoznawcza)
+# <a name="connect-and-query-azure-sql-edge"></a>Łączenie i wykonywanie zapytań w usłudze Azure SQL Edge
 
 W usłudze Azure SQL Edge po wdrożeniu kontenera można nawiązać połączenie z aparatem bazy danych z dowolnej z następujących lokalizacji:
 

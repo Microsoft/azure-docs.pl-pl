@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74774741"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895078"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Samouczek: monitorowanie i dostrajanie Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -40,7 +40,7 @@ Potrzebujesz serwera usługi Azure Database for PostgreSQL z programem PostgreSQ
 
 4. Ustaw parametr **pg_qs.query_capture_mode** na wartość **TOP**, aby rozpocząć zbieranie danych o wydajności zapytań. Ustaw parametr **pgms_wait_sampling.query_capture_mode** na wartość **ALL**, aby rozpocząć zbieranie statystyk oczekiwania. Zapisz zmiany.
    
-   ![Parametry serwera magazynu zapytań](./media/tutorial-performance-intelligence/query-store-parameters.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-store-parameters.png" alt-text="Parametry serwera magazynu zapytań":::
 
 5. Poczekaj do 20 minut na utrwalenie pierwszej partii danych w bazie danych **azure_sys**.
 
@@ -52,7 +52,7 @@ W widoku [Szczegółowe informacje o wydajności zapytań](concepts-query-perfor
 
 2. Na karcie **Długotrwałe zapytania** jest wyświetlane pięć pierwszych zapytań według średniego czasu trwania na wykonanie, agregowanych w piętnastominutowych interwałach. 
    
-   ![Szczegółowe informacje o wydajności zapytań, strona docelowa](./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Szczegółowe informacje o wydajności zapytań, strona docelowa":::
 
    Możesz wyświetlić więcej zapytań, wybierając wartość z listy rozwijanej **Liczba zapytań**. Gdy to zrobisz, kolory wykresu dla określonego identyfikatora zapytania mogą ulec zmianie.
 
@@ -64,7 +64,7 @@ W widoku [Szczegółowe informacje o wydajności zapytań](concepts-query-perfor
 
 6. Wybierz kartę **Statystyki oczekiwania**, aby wyświetlić odpowiednie wizualizacje oczekiwań na serwerze.
    
-   ![Szczegółowe informacje o wydajności zapytań — statystyki oczekiwania](./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Szczegółowe informacje o wydajności zapytań — statystyki oczekiwania":::
 
 ### <a name="permissions"></a>Uprawnienia
 Uprawnienia **Właściciel** lub **Współautor** są wymagane do wyświetlania tekstu zapytań w widoku Szczegółowe informacje o wydajności zapytań. **Czytelnik** może wyświetlać wykresy i tabele, ale nie tekst zapytań.
@@ -75,7 +75,7 @@ Funkcja [Zalecenia dotyczące wydajności](concepts-performance-recommendations.
 
 1. Otwórz **Zalecenia dotyczące wydajności** w sekcji **Pomoc techniczna i rozwiązywanie problemów** paska menu na stronie serwera PostgreSQL w witrynie Azure Portal.
    
-   ![Zalecenia dotyczące wydajności, strona docelowa](./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Zalecenia dotyczące wydajności, strona docelowa":::
 
 2. Wybierz opcję **Analiza** i wybierz bazę danych. Spowoduje to rozpoczęcie analizy.
 
@@ -85,7 +85,7 @@ Funkcja [Zalecenia dotyczące wydajności](concepts-performance-recommendations.
 
 5. Zalecenia będą zawierały informacje o odpowiedniej **bazie danych**, **tabeli**, **kolumnie** i **rozmiarze indeksu**.
 
-   ![Zalecenia dotyczące wydajności, wyniki](./media/tutorial-performance-intelligence/performance-recommendations-result.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Zalecenia dotyczące wydajności, wyniki":::
 
 6. Aby wdrożyć zalecenie, skopiuj tekst zapytania i uruchom je z poziomu wybranego klienta.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 12/18/2019
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 9237e670dd8d43c4036f996c477948944718e3aa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ba094709d78d92b678e3aa5ad9995923888caf00
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053712"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887498"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Co to jest interfejs API narzędzia do wykrywania anomalii?
 
@@ -31,10 +31,11 @@ Korzystanie z detektora anomalii nie wymaga wcześniejszego doświadczenia w ucz
 
 Dzięki detektorowi anomalii można automatycznie wykrywać anomalie w danych szeregów czasowych lub w miarę ich występowania w czasie rzeczywistym.
 
-|Funkcja  |Opis  |
+|Cechy  |Opis  |
 |---------|---------|
 |Wykrywaj anomalie w czasie rzeczywistym. | Wykrywaj anomalie w danych przesyłanych strumieniowo, używając wcześniej zaobserwowanych punktów danych w celu ustalenia, czy Najnowsza z nich jest nieaktualna. Ta operacja generuje model przy użyciu wysyłanych punktów danych i określa, czy punkt docelowy jest anomalią. Wywołując interfejs API z każdym wygenerowanym nowym punktem danych, można monitorować dane w miarę ich tworzenia. |
 |Wykrywaj anomalie w zestawie danych jako Partia zadań. | Skorzystaj z szeregów czasowych, aby wykryć ewentualne anomalie, które mogą istnieć w danych. Ta operacja generuje model przy użyciu wszystkich danych szeregów czasowych, przy czym każdy punkt jest analizowany z tym samym modelem.         |
+|Wykrywaj punkty zmian w zestawie danych jako Partia zadań. | Skorzystaj z szeregów czasowych, aby wykryć wszystkie punkty zmian trendów, które istnieją w danych. Ta operacja generuje model przy użyciu wszystkich danych szeregów czasowych, przy czym każdy punkt jest analizowany z tym samym modelem.    |
 | Uzyskaj dodatkowe informacje na temat danych. | Uzyskaj przydatne szczegóły dotyczące danych i wszelkich obserwowanych anomalii, w tym oczekiwanych wartości, granic anomalii i pozycji. |
 | Dostosuj granice wykrywania anomalii. | Interfejs API wykrywania anomalii automatycznie tworzy granice na potrzeby wykrywania anomalii. Dostosuj te granice, aby zwiększyć lub zmniejszyć czułość interfejsu API na anomalie danych i lepiej dopasować dane. |
 
@@ -45,7 +46,7 @@ Aby uruchomić demonstrację, należy utworzyć zasób wykrywania anomalii i uzy
 
 ## <a name="notebook"></a>Notes
 
-Aby dowiedzieć się, jak wywołać interfejs API wykrywania anomalii, Wypróbuj ten [Notes platformy Azure](https://aka.ms/adNotebook). Ta Jupyter Notebook hostowana w sieci Web pokazuje, jak wysłać żądanie interfejsu API i wizualizować wynik.
+Aby dowiedzieć się, jak wywołać interfejs API wykrywania anomalii, Wypróbuj ten [Notes](https://aka.ms/adNotebook). W tym Jupyter Notebook pokazano, jak wysłać żądanie interfejsu API i wizualizować wynik.
 
 Aby uruchomić Notes, wykonaj następujące czynności:
 
@@ -54,7 +55,7 @@ Aby uruchomić Notes, wykonaj następujące czynności:
 1. Usuń zaznaczenie opcji "publiczny" w oknie dialogowym przed ukończeniem operacji klonowania, w przeciwnym razie Notes, w tym wszystkie klucze subskrypcji, będzie publiczny.
 1. Kliknij pozycję **Uruchom przy bezpłatnej obliczeń**
 1. Wybierz jeden z notesów.
-1. Dodaj do `subscription_key` zmiennej prawidłowy klucz subskrypcji interfejsu API wykrywania anomalii.
+1. Dodaj do zmiennej prawidłowy klucz subskrypcji interfejsu API wykrywania anomalii `subscription_key` .
 1. Zmień `endpoint` zmienną na punkt końcowy. Na przykład: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. Na górnym pasku menu kliknij **komórkę**, a następnie **Uruchom wszystkie**.
 
@@ -92,4 +93,4 @@ Aby dowiedzieć się więcej na temat algorytmów SR-CNN opracowanych przez firm
 
 * [Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu interfejsu API REST usługi wykrywania anomalii](quickstarts/detect-data-anomalies-csharp.md)
 * [Demonstracja online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) interfejsu API wykrywania anomalii
-* [Dokumentacja interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) usługi wykrywania anomalii
+* [Dokumentacja interfejsu API REST](https://aka.ms/anomaly-detector-rest-api-ref) usługi wykrywania anomalii

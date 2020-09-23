@@ -1,23 +1,23 @@
 ---
-title: Nawiązywanie połączenia z urządzeniem Microsoft Azure Stack Edge i zarządzanie nim za pomocą interfejsu programu Windows PowerShell | Microsoft Docs
-description: Opisuje sposób nawiązywania połączenia z Azure Stack Edge i zarządzania nim za pomocą interfejsu programu Windows PowerShell.
+title: Łączenie i zarządzanie urządzeniem Microsoft Azure Stack EDGE Pro za pośrednictwem interfejsu programu Windows PowerShell | Microsoft Docs
+description: Opisuje sposób nawiązywania połączenia z usługą Azure Stack EDGE Pro za pomocą interfejsu programu Windows PowerShell i zarządzania nią.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b58c38dd0257a65bad6021b6152c14a37f905e0a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: b0c2b547391efd37fc667b84548d99f1e7385cfb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461837"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903512"
 ---
-# <a name="manage-an-azure-stack-edge-gpu-device-via-windows-powershell"></a>Zarządzanie urządzeniem GPU Azure Stack Edge przy użyciu programu Windows PowerShell
+# <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Zarządzanie urządzeniem wieloprocesorowym Pro Azure Stack Edge za pośrednictwem programu Windows PowerShell
 
-Rozwiązanie Azure Stack Edge pozwala na przetwarzanie danych i wysyłanie ich przez sieć do platformy Azure. W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem dla Azure Stack urządzenia brzegowego. Aby zarządzać urządzeniem, można użyć Azure Portal, lokalnego interfejsu użytkownika sieci Web lub interfejsu programu Windows PowerShell.
+Rozwiązanie Azure Stack EDGE Pro pozwala przetwarzać dane i wysyłać je za pośrednictwem sieci do platformy Azure. W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem dla urządzenia z Azure Stack Edge. Aby zarządzać urządzeniem, można użyć Azure Portal, lokalnego interfejsu użytkownika sieci Web lub interfejsu programu Windows PowerShell.
 
 Ten artykuł koncentruje się na sposobach łączenia się z interfejsem programu PowerShell urządzenia i zadaniami, które można wykonać za pomocą tego interfejsu. 
 
@@ -84,11 +84,11 @@ Jeśli na urządzeniu skonfigurowano rolę obliczeniową, można także uzyskać
 
 ## <a name="enable-multi-process-service-mps"></a>Włącz usługę wieloprocesową (MPS)
 
-Usługa wieloprocesowa (MP) w procesorach GPU firmy NVIDIA udostępnia mechanizm, w którym procesory GPU mogą być współużytkowane przez wiele zadań, gdzie każde zadanie jest przydzielone pewną część zasobów procesora GPU. Aby włączyć MPS na urządzeniu Azure Stack Edge, wykonaj następujące kroki:
+Usługa wieloprocesowa (MP) w procesorach GPU firmy NVIDIA udostępnia mechanizm, w którym procesory GPU mogą być współużytkowane przez wiele zadań, gdzie każde zadanie jest przydzielone pewną część zasobów procesora GPU. Pakiet MP to funkcja w wersji zapoznawczej na urządzeniu z procesorem GPU w Azure Stack Edge. Aby włączyć pakiety MP na urządzeniu, wykonaj następujące kroki:
 
 1. Przed rozpoczęciem upewnij się, że: to 
 
-    1. [Urządzenie Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md) zostało skonfigurowane i aktywowane przy użyciu zasobu Azure Stack edge/Data Box Gateway na platformie Azure.
+    1. [Twoje urządzenie Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-activate.md) zostało skonfigurowane i aktywowane przy użyciu zasobu Azure Stack Edge pro/Data Box Gateway na platformie Azure.
     1. [Na tym urządzeniu skonfigurowano obliczenia w Azure Portal](azure-stack-edge-deploy-configure-compute.md#configure-compute).
     
 1. [Nawiąż połączenie z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
@@ -187,7 +187,7 @@ users:
 ```
 -->
 
-Na urządzeniu brzegowym Azure Stack, na którym skonfigurowano rolę obliczeniową, można rozwiązywać problemy lub monitorować urządzenie przy użyciu dwóch różnych zestawów poleceń.
+Na urządzeniu Azure Stack EDGE Pro z skonfigurowaną rolą obliczeniową można rozwiązywać problemy lub monitorować urządzenie przy użyciu dwóch różnych zestawów poleceń.
 
 - Korzystanie z `iotedge` poleceń. Te polecenia są dostępne dla podstawowych operacji na urządzeniu.
 - Korzystanie z `kubectl` poleceń. Te polecenia są dostępne dla obszernego zestawu operacji dla urządzenia.
@@ -241,7 +241,7 @@ webserverapp           Running Up 10 days  nginx:stable                         
 
 ### <a name="use-kubectl-commands"></a>Użyj poleceń polecenia kubectl
 
-Na urządzeniu brzegowym Azure Stack, na którym skonfigurowano rolę obliczeniową, wszystkie `kubectl` polecenia są dostępne do monitorowania lub rozwiązywania problemów z modułami. Aby wyświetlić listę dostępnych poleceń, uruchom `kubectl --help` polecenie z okna poleceń.
+Na urządzeniu Azure Stack EDGE Pro, na którym skonfigurowano rolę obliczeniową, wszystkie `kubectl` polecenia są dostępne do monitorowania lub rozwiązywania problemów z modułami. Aby wyświetlić listę dostępnych poleceń, uruchom `kubectl --help` polecenie z okna poleceń.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
@@ -433,4 +433,4 @@ Aby wyjść z zdalnej sesji programu PowerShell, Zamknij okno programu PowerShel
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Wdróż [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) w Azure Portal.
+- Wdróż [Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-prep.md) w Azure Portal.

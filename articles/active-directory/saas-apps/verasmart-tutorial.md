@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 1aa52c81b7abbfb355ef06f6ae93a5dd4c985042
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f5b5f115ab2fb7036287c976a94b9e123bf6ed42
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88532436"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982797"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-verasmart"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą VeraSMART
 
@@ -105,7 +105,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -131,11 +131,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Przejdź do **Administration**  ->  **Security**  ->  **konfiguracji uwierzytelniania**zabezpieczeń administracyjnych.
 
-    ![Konfigurowanie](./media/verasmart-tutorial/configuration.png)
+    ![Zrzut ekranu przedstawia VeraSMART z administracją, a następnie zabezpieczenia, a następnie wybraną konfigurację uwierzytelniania.](./media/verasmart-tutorial/configuration.png)
 
 1. Wykonaj następujące czynności na poniższej stronie:
 
-    ![Konfigurowanie](./media/verasmart-tutorial/upload-metadata.png)
+    ![Konfiguracja](./media/verasmart-tutorial/upload-metadata.png)
 
     a. Wybierz pozycję **SAML2** jako **metodę logowania jednokrotnego**  z listy rozwijanej.
 
@@ -160,11 +160,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka VeraSMART w panelu dostępu należy automatycznie zalogować się do VeraSMART, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

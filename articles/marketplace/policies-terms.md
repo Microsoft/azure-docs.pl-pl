@@ -3,16 +3,16 @@ title: Komercyjne zasady i postanowienia dotyczące portalu Marketplace, Azure M
 description: Zasady i postanowienia komercyjnego portalu firmy Microsoft dotyczą wszystkich wydawców i ofert w portalu Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: reference
+ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/09/2020
-ms.openlocfilehash: cd936307eaacc7b2a46bac23c8fcfc9e2769135c
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4ddf37d5f2e7f569e5447dfe321574e3f9ccc778
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974838"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Zasady i warunki komercyjnej platformy handlowej
 
@@ -25,12 +25,11 @@ Oferty na komercyjnej platformie Marketplace muszą być zgodne z naszymi zasada
 
 ## <a name="policies-and-terms"></a>Zasady i postanowienia
 
-* [Zasady certyfikacji komercyjnej platformy handlowej](https://docs.microsoft.com/legal/marketplace/certification-policies)
-
-* [Zasady klasyfikacji i przeglądu](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
-
-* [Warunki witryny Azure Marketplace](https://docs.microsoft.com/legal/marketplace/terms)
+- [Zasady certyfikacji komercyjnej platformy handlowej](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context)
+- [Zasady przeglądu Microsoft AppSource i portalu Azure Marketplace](/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context)
+- [Azure Marketplace — zasady udziału](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context)
+- [Warunki witryny Azure Marketplace](/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
 ## <a name="next-step"></a>Następny krok
 
-Odwiedź stronę [podręcznika publikowania w witrynie komercyjnej](./marketplace-publishers-guide.md) .
+Odwiedź stronę [podręcznika publikowania w witrynie komercyjnej](marketplace-publishers-guide.md) .

@@ -7,13 +7,13 @@ services: security-center
 ms.author: memildin
 ms.date: 08/11/2020
 ms.service: security-center
-ms.topic: conceptual
-ms.openlocfilehash: f3a542cd62c3d593dbc0cce7982d47222e9a7c88
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.topic: how-to
+ms.openlocfilehash: dfba8bc1713e14099413a6c01d0af8508ba0eb73
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181107"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895166"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów i narzędzi do zarządzania
 
@@ -25,19 +25,22 @@ Jeśli którykolwiek z zasobów ma zaległe zalecenia, zostaną one wyświetlone
 
 Ten widok i jego filtry służą do rozwiązywania takich pytań jako:
 
-- Które z subskrypcji warstwy standardowej mają zaległe rekomendacje?
+- Które z moich subskrypcji z włączoną usługą Azure Defender mają zaległe rekomendacje?
 - Na których maszynach ze znacznikiem "produkcja" brakuje agenta Log Analytics?
-- Ile maszyn, Otagowano z określonym tagiem, mają zaległe rekomendacje?
+- Ile maszyn z tagami z określonym tagiem ma zaległe rekomendacje?
 - Ile zasobów w określonej grupie zasobów zawiera wyniki zabezpieczeń z usługi oceny luk w zabezpieczeniach?
 
 Możliwości zarządzania zasobami dla tego narzędzia są znaczne i nadal rosną. 
+
+> [!TIP]
+> Zalecenia dotyczące zabezpieczeń są takie same jak te na stronie **zalecenia** , ale w tym miejscu są one filtrowane według wybranego typu zasobu. Aby uzyskać więcej informacji o sposobach rozwiązywania zaleceń, zobacz [implementowanie zaleceń dotyczących zabezpieczeń w Azure Security Center](security-center-recommendations.md).
 
 
 ## <a name="availability"></a>Dostępność
 
 |Aspekt|Szczegóły|
 |----|:----|
-|Stan wydania:|Wersja zapoznawcza|
+|Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|Wszyscy użytkownicy|
 |Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
@@ -56,7 +59,7 @@ Na stronie spisu dostępne są następujące narzędzia:
 
 - **Filtry** — wiele filtrów w górnej części strony umożliwia szybkie udoskonalenie listy zasobów na podstawie pytania, na które próbujesz odpowiedzieć. Na przykład jeśli chcesz odpowiedzieć na pytanie, *które z moich maszyn z tagiem "produkcja" brakuje agenta log Analytics?* można połączyć filtr **monitorowania agentów** z filtrem **tagów** , jak pokazano w następującym klipie:
 
-    ![Filtrowanie do zasobów produkcyjnych, które nie są monitorowane](./media/asset-inventory/filtering-to-prod-unmonitored.gif)
+    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane":::
 
     Po zastosowaniu filtrów podsumowania wartości są aktualizowane w celu powiązania z wynikami zapytania. 
 
@@ -69,8 +72,9 @@ Na stronie spisu dostępne są następujące narzędzia:
 
 - **Opcje zarządzania zasobami** — spis umożliwia wykonywanie złożonych zapytań odnajdowania. Po znalezieniu zasobów pasujących do zapytań Spis zawiera skróty do operacji takich jak:
 
-    - Przypisywanie tagów do filtrowanych zasobów — zaznacz pola wyboru obok zasobów, które chcesz oznaczyć tagami
-    - Dodaj nowe serwery do Security Center — Użyj przycisku paska narzędzi **Dodawanie serwerów spoza platformy Azure**
+    - Przypisywanie tagów do filtrowanych zasobów — zaznacz pola wyboru obok zasobów, które chcesz oznaczyć tagami.
+    - Dodaj nowe serwery do Security Center — Użyj przycisku paska narzędzi **Dodawanie serwerów spoza platformy Azure** .
+    - Automatyzowanie obciążeń przy użyciu Azure Logic Apps — Użyj przycisku **Wyzwalaj aplikację logiki** , aby uruchomić aplikację logiki w jednym lub większej liczbie zasobów. Aplikacje logiki muszą zostać przygotowane z wyprzedzeniem i zaakceptować odpowiedni typ wyzwalacza (żądanie HTTP). [Dowiedz się więcej o usłudze Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Jak działa spis zasobów?
@@ -86,11 +90,11 @@ Za pomocą [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-ex
 
 1. Na pasku bocznym Security Center wybierz pozycję **spis**.
 
-1. Opcjonalnie, aby wyświetlić określony zasób, wprowadź nazwę w polu **Filtruj według nazwy** .
+1. Użyj pola **Filtruj według nazwy** , aby wyświetlić określony zasób, lub Użyj filtrów zgodnie z poniższym opisem.
 
 1. Wybierz odpowiednie opcje w filtrach, aby utworzyć konkretne zapytanie, które chcesz wykonać.
 
-    ![Filtry spisu](./media/asset-inventory/inventory-filters.png)
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Opcje filtrowania spisu" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     Domyślnie zasoby są sortowane według liczby aktywnych zaleceń dotyczących zabezpieczeń.
 
@@ -106,19 +110,24 @@ Za pomocą [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-ex
     > [!TIP]
     > **Ustalenia dotyczące zabezpieczeń zawierają** filtry **tagów** , które akceptują tylko jedną wartość. Aby filtrować według więcej niż jednego, użyj **Dodaj filtry**.
 
-1. Aby użyć filtru **warstwy cenowej** , wybierz jedną lub więcej opcji (bezpłatna, częściowa lub standardowa):
+1. Aby użyć filtru **usługi Azure Defender** , wybierz jedną lub więcej opcji (wyłączone, włączone lub częściowe):
 
-    - Zasoby **bezpłatne** , które znajdują się w warstwie cenowej bezpłatna
-    - Zasoby **standardowe** , które znajdują się w warstwie cenowej standardowa
-    - **Częściowo** — dotyczy subskrypcji w warstwie Standardowa cenowej, ale niektóre opcjonalne plany zabezpieczeń są wyłączone. Na przykład następująca subskrypcja znajduje się w warstwie Standardowa, ale ma pięć elementów warstwy Standardowa wyłączona. 
+    - **Poza** zasobami, które nie są chronione przez plan usługi Azure Defender. Możesz kliknąć dowolny z tych elementów i uaktualnić je:
 
-        ![Subskrypcja warstwy cenowej standardowa (częściowa)](./media/asset-inventory/pricing-tier-partial.png)
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Uaktualnianie zasobu do usługi Azure Defender po kliknięciu prawym przyciskiem myszy" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+
+    - **On** Zasoby, które są chronione przez plan usługi Azure Defender
+    - **Częściowo** — dotyczy **subskrypcji** , w przypadku których niektóre plany usługi Azure Defender nie zostały wyłączone. Na przykład następująca subskrypcja ma wyłączone pięć planów usługi Azure Defender. 
+
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subskrypcja częściowo w usłudze Azure Defender":::
 
 1. Aby dodatkowo zbadać wyniki zapytania, wybierz interesujące Cię zasoby.
 
-1. Opcjonalnie wybierz pozycję **Widok w Eksploratorze grafu zasobów** , aby otworzyć zapytanie w Eksploratorze grafów zasobów.
+1. Aby wyświetlić bieżące wybrane opcje filtru jako zapytanie w Eksploratorze grafu zasobów, wybierz pozycję **Widok w Eksploratorze grafu zasobów**.
 
     ![Zapytanie spisu w ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
+
+1. Aby uruchomić wcześniej zdefiniowaną aplikację logiki za pomocą 
 
 1. Jeśli zdefiniowano niektóre filtry i po lewej stronie zostanie otwarta strona, Security Center nie będzie automatycznie aktualizować wyników. Wszelkie zmiany w zasobach nie wpłyną na wyświetlane wyniki, chyba że ręcznie załadujesz ponownie stronę lub wybierzesz pozycję **Odśwież**.
 
@@ -127,22 +136,19 @@ Za pomocą [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-ex
 
 ### <a name="why-arent-all-of-my-subscriptions-machines-storage-accounts-etc-shown"></a>Dlaczego nie wszystkie moje subskrypcje, komputery, konta magazynu itp. są wyświetlane?
 
-Widok spisu zawiera listę zasobów w perspektywie stan Management (CSPM) w chmurze. Filtry nie zwracają wszystkich zasobów w środowisku; tylko te z zaległymi (lub "aktywnymi") zaleceniami. 
+Widok spisu zawiera listę Security Center połączonych zasobów z perspektywy usługi Cloud Security stan Management (CSPM). Filtry nie zwracają wszystkich zasobów w środowisku; tylko te z zaległymi (lub "aktywnymi") zaleceniami. 
 
-Na przykład jeśli masz dziewięć subskrypcji, ale tylko osiem z nich ma zaleceń, po filtrowaniu według **typu zasobu = subskrypcje** zobaczysz tylko osiem subskrypcji z aktywnymi zaleceniami:
+Na przykład poniższy zrzut ekranu przedstawia użytkownika z dostępem do subskrypcji 38, ale tylko 10 ma obecnie zalecenia. Dlatego w przypadku filtrowania według **typu zasobu = subskrypcje**w spisie są wyświetlane tylko 10 subskrypcji z aktywnymi zaleceniami:
 
-![Nie wszystkie są zwracane, gdy nie ma aktywnych rekomendacji](./media/asset-inventory/filtered-subscriptions-some.png)
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Nie wszystkie są zwracane, gdy nie ma aktywnych rekomendacji":::
 
-
-### <a name="why-do-some-of-my-resources-show-blank-values-in-the-pricing-or-agent-monitoring-columns"></a>Dlaczego niektóre zasoby zawierają wartości puste w kolumnach monitorowanie cen i agentów?
+### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>Dlaczego niektóre zasoby pokazują puste wartości w kolumnach monitorowania usługi Azure Defender lub agenta?
 
 Nie wszystkie Security Center monitorowane zasoby mają agentów. Na przykład konta usługi Azure Storage lub zasoby PaaS, takie jak dyski, Logic Apps, analiza Data Lake i centrum zdarzeń.
 
 Gdy ceny lub monitorowanie agentów nie są odpowiednie dla zasobu, w tych kolumnach spisu nie będą wyświetlane żadne dane.
 
-![Niektóre zasoby wyświetlają puste informacje w obszarze monitorowanie agenta lub kolumny cen](./media/asset-inventory/agent-pricing-blanks.png)
-
-
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="W niektórych zasobach są wyświetlane puste informacje w kolumnach monitorowanie agenta lub Azure Defender":::
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -151,5 +157,4 @@ W tym artykule opisano stronę spisu zasobów Azure Security Center.
 Aby uzyskać więcej informacji na temat powiązanych narzędzi, zobacz następujące strony:
 
 - [Wykres zasobów platformy Azure (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
-
 - [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)

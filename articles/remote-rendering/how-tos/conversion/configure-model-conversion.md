@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: dda2676f258705ed833068c966bcc57115434b0d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067175"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967223"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurowanie konwersji modelu
 
@@ -73,42 +73,48 @@ Przykładowy plik `box.ConversionSettings.json` może być:
 
 ### <a name="geometry-parameters"></a>Parametry geometrii
 
-* `scaling`— Ten parametr skaluje model jednolicie. Skalowanie może służyć do powiększania lub zmniejszania modelu, na przykład w celu wyświetlenia modelu budynku na górze tabeli.
+* `scaling` — Ten parametr skaluje model jednolicie. Skalowanie może służyć do powiększania lub zmniejszania modelu, na przykład w celu wyświetlenia modelu budynku na górze tabeli.
 Skalowanie jest również ważne, gdy model jest zdefiniowany w jednostkach innych niż liczniki, ponieważ aparat renderowania oczekuje liczników.
 Na przykład jeśli model jest zdefiniowany w centymetrach, zastosowanie skali 0,01 powinno spowodować, że model ma prawidłowy rozmiar.
 Niektóre formaty danych źródłowych (na przykład. FBX) zapewniają wskazówkę skalowania jednostki, w tym przypadku konwersja niejawnie skaluje model do jednostek miary. Niejawne skalowanie dostarczone przez format źródła zostanie zastosowane w górnej części parametru skalowania.
 Końcowy współczynnik skalowania jest stosowany do wierzchołków geometrii i lokalnych przekształceń węzłów wykresu sceny. Skalowanie dla przekształcenia jednostki głównej pozostaje niemodyfikowane.
 
-* `recenterToOrigin`-Określa, że model powinien zostać przekonwertowany, aby jego pole ograniczenia zostało wyśrodkowane w miejscu pochodzenia.
+* `recenterToOrigin` -Określa, że model powinien zostać przekonwertowany, aby jego pole ograniczenia zostało wyśrodkowane w miejscu pochodzenia.
 Jeśli model źródłowy jest odsunięty od źródła, problemy z dokładnością do liczby zmiennoprzecinkowej mogą spowodować artefakty renderowania.
 Wyśrodkowanie modelu może pomóc w takiej sytuacji.
 
-* `opaqueMaterialDefaultSidedness`-Aparat renderowania zakłada, że nieprzezroczyste materiały są dwustronne.
+* `opaqueMaterialDefaultSidedness` -Aparat renderowania zakłada, że nieprzezroczyste materiały są dwustronne.
 Jeśli to założenie nie jest prawdziwe względem określonego modelu, ten parametr powinien być ustawiony na wartość "SingleSided". Aby uzyskać więcej informacji, zobacz [ :::no-loc text="single sided"::: renderowanie](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Zastępowanie materiału
 
-* `material-override`-Ten parametr umożliwia dostosowanie przetwarzania materiałów [podczas konwersji](override-materials.md).
+* `material-override` -Ten parametr umożliwia dostosowanie przetwarzania materiałów [podczas konwersji](override-materials.md).
 
 ### <a name="material-de-duplication"></a>Usuwanie materiału z deduplikacji
 
-* `deduplicateMaterials`-Ten parametr włącza lub wyłącza automatyczne usuwanie duplikatów materiałów, które mają te same właściwości i tekstury. Dezinstalacja jest wykonywana po przetworzeniu zastąpień materiału. Jest on domyślnie włączony.
+* `deduplicateMaterials` -Ten parametr włącza lub wyłącza automatyczne usuwanie duplikatów materiałów, które mają te same właściwości i tekstury. Dezinstalacja jest wykonywana po przetworzeniu zastąpień materiału. Jest on domyślnie włączony.
+
+* Jeśli nawet po usunięciu deduplikacji model ma więcej niż 65 535 materiałów, usługa podejmie próbę scalenia materiałów z podobnymi właściwościami. Jako ostatni z nich materiały przekroczenia limitu zostaną zastąpione czerwonym materiałem błędu.
+
+![Obraz przedstawia dwa moduły 68 921 kolorowych trójkątów.](media/mat-dedup.png?raw=true)
+
+Dwa moduły z 68 921 kolorowych trójkątów. Pozostało: przed cofnięciem duplikacji z 68 921 materiałami koloru. Prawo: po cofnięciu duplikowania z materiałami kolorów 64 000. Limit to 65 535 materiałów. (Zobacz [limity](../../reference/limits.md)).
 
 ### <a name="color-space-parameters"></a>Parametry przestrzeni kolorów
 
 Aparat renderowania oczekuje, że wartości koloru mają być w przestrzeni liniowej.
 Jeśli model jest zdefiniowany przy użyciu przestrzeni gamma, te opcje powinny być ustawione na wartość true.
 
-* `gammaToLinearMaterial`— Konwertuj kolory materiału z przestrzeni gamma na miejsce liniowe
-* `gammaToLinearVertex`— Konwertuj :::no-loc text="vertex"::: kolory z przestrzeni gamma na miejsce liniowe
+* `gammaToLinearMaterial` — Konwertuj kolory materiału z przestrzeni gamma na miejsce liniowe
+* `gammaToLinearVertex` — Konwertuj :::no-loc text="vertex"::: kolory z przestrzeni gamma na miejsce liniowe
 
 > [!NOTE]
 > Dla plików FBX te ustawienia są domyślnie ustawione na `true` . Dla wszystkich innych typów plików wartością domyślną jest `false` .
 
 ### <a name="scene-parameters"></a>Parametry sceny
 
-* `sceneGraphMode`-Definiuje sposób konwersji grafu sceny w pliku źródłowym:
-  * `dynamic`(ustawienie domyślne): wszystkie obiekty w pliku są ujawniane jako [jednostki](../../concepts/entities.md) w interfejsie API i mogą być niezależne. Hierarchia węzłów w czasie wykonywania jest taka sama jak struktura w pliku źródłowym.
+* `sceneGraphMode` -Definiuje sposób konwersji grafu sceny w pliku źródłowym:
+  * `dynamic` (ustawienie domyślne): wszystkie obiekty w pliku są ujawniane jako [jednostki](../../concepts/entities.md) w interfejsie API i mogą być niezależne. Hierarchia węzłów w czasie wykonywania jest taka sama jak struktura w pliku źródłowym.
   * `static`: Wszystkie obiekty są uwidocznione w interfejsie API, ale nie mogą być niezależne.
   * `none`: Wykres sceny jest zwinięty do jednego obiektu.
 
@@ -123,27 +129,27 @@ Każdy tryb ma inną wydajność środowiska uruchomieniowego. W `dynamic` trybi
 
 ### <a name="physics-parameters"></a>Parametry fizyki
 
-* `generateCollisionMesh`— Jeśli potrzebujesz obsługi [zapytań przestrzennych](../../overview/features/spatial-queries.md) w modelu, ta opcja musi być włączona. W najgorszym przypadku tworzenie siatki kolizji może być podwojone czasu konwersji. Modele ze oczkami kolizji zajmują więcej czasu, a w przypadku korzystania z `dynamic` wykresu sceny są również większe obciążenie wydajności środowiska uruchomieniowego. W celu uzyskania ogólnej optymalnej wydajności należy wyłączyć tę opcję dla wszystkich modeli, w których nie są potrzebne zapytania przestrzenne.
+* `generateCollisionMesh` — Jeśli potrzebujesz obsługi [zapytań przestrzennych](../../overview/features/spatial-queries.md) w modelu, ta opcja musi być włączona. W najgorszym przypadku tworzenie siatki kolizji może być podwojone czasu konwersji. Modele ze oczkami kolizji zajmują więcej czasu, a w przypadku korzystania z `dynamic` wykresu sceny są również większe obciążenie wydajności środowiska uruchomieniowego. W celu uzyskania ogólnej optymalnej wydajności należy wyłączyć tę opcję dla wszystkich modeli, w których nie są potrzebne zapytania przestrzenne.
 
 ### <a name="unlit-materials"></a>Materiały bez oświetlenia
 
-* `unlitMaterials`-Domyślnie konwersja będzie preferować tworzenie [materiałów PBR](../../overview/features/pbr-materials.md). Ta opcja nakazuje konwerterowi traktowanie wszystkich materiałów jako [materiałów koloru](../../overview/features/color-materials.md) . Jeśli masz dane, które już zawierają oświetlenie, takie jak modele utworzone za pomocą photogrammetry, ta opcja pozwala szybko wymusić poprawną konwersję dla wszystkich materiałów, bez konieczności [przesłonięcia poszczególnych materiałów](override-materials.md) osobno.
+* `unlitMaterials` -Domyślnie konwersja będzie preferować tworzenie [materiałów PBR](../../overview/features/pbr-materials.md). Ta opcja nakazuje konwerterowi traktowanie wszystkich materiałów jako [materiałów koloru](../../overview/features/color-materials.md) . Jeśli masz dane, które już zawierają oświetlenie, takie jak modele utworzone za pomocą photogrammetry, ta opcja pozwala szybko wymusić poprawną konwersję dla wszystkich materiałów, bez konieczności [przesłonięcia poszczególnych materiałów](override-materials.md) osobno.
 
 ### <a name="converting-from-older-fbx-formats-with-a-phong-material-model"></a>Konwertowanie ze starszych formatów FBX z modelem materiałowym podstawowego Phong
 
-* `fbxAssumeMetallic`-Starsze wersje formatu FBX definiują ich materiały przy użyciu modelu materiału podstawowego Phong. Proces konwersji musi wnioskować, jak te materiały są mapowane na [model PBR](../../overview/features/pbr-materials.md)modułu renderowania. Zwykle jest to dobre rozwiązanie, ale niejednoznaczność może powstać, gdy materiał nie ma żadnych tekstur, wysokich wartości odblasków i nieszarego koloru albedo. W takim przypadku konwersja musi wybrać między priorytetyzacją odblasków wartości, Definiowanie wysoce odbijających materiałów metalicznych, gdy kolor albedo jest rozwiązany, lub określić priorytety koloru albedo, definiując takie jak Shiny kolorowe tworzywo sztuczne. Domyślnie proces konwersji zakłada, że wysoce odblasków wartości implikują materiał metaliczny w przypadkach, gdy ma zastosowanie niejednoznaczność. Ten parametr można ustawić, aby `false` przełączyć się na odwrotność.
+* `fbxAssumeMetallic` -Starsze wersje formatu FBX definiują ich materiały przy użyciu modelu materiału podstawowego Phong. Proces konwersji musi wnioskować, jak te materiały są mapowane na [model PBR](../../overview/features/pbr-materials.md)modułu renderowania. Zwykle jest to dobre rozwiązanie, ale niejednoznaczność może powstać, gdy materiał nie ma żadnych tekstur, wysokich wartości odblasków i nieszarego koloru albedo. W takim przypadku konwersja musi wybrać między priorytetyzacją odblasków wartości, Definiowanie wysoce odbijających materiałów metalicznych, gdy kolor albedo jest rozwiązany, lub określić priorytety koloru albedo, definiując takie jak Shiny kolorowe tworzywo sztuczne. Domyślnie proces konwersji zakłada, że wysoce odblasków wartości implikują materiał metaliczny w przypadkach, gdy ma zastosowanie niejednoznaczność. Ten parametr można ustawić, aby `false` przełączyć się na odwrotność.
 
 ### <a name="coordinate-system-overriding"></a>Przesłanianie systemu współrzędnych
 
-* `axis`-Aby przesłonić jednostkę układu współrzędnych. Wartości domyślne to `["+x", "+y", "+z"]` . Teoretycznie format FBX ma nagłówek, w którym są zdefiniowane te wektory, a konwersja używa tych informacji do przekształcenia sceny. Format glTF definiuje również stały układ współrzędnych. W ramach tej działalności niektóre elementy zawartości mają nieprawidłowe informacje w nagłówku lub zostały zapisane z inną Konwencją systemu współrzędnych. Ta opcja umożliwia przesłonięcie układu współrzędnych w celu zrekompensowania. Na przykład: `"axis" : ["+x", "+z", "-y"]` program zamieni osi z i oś y i utrzymuje skrętności układu współrzędnych, odwracając kierunek osi y.
+* `axis` -Aby przesłonić jednostkę układu współrzędnych. Wartości domyślne to `["+x", "+y", "+z"]` . Teoretycznie format FBX ma nagłówek, w którym są zdefiniowane te wektory, a konwersja używa tych informacji do przekształcenia sceny. Format glTF definiuje również stały układ współrzędnych. W ramach tej działalności niektóre elementy zawartości mają nieprawidłowe informacje w nagłówku lub zostały zapisane z inną Konwencją systemu współrzędnych. Ta opcja umożliwia przesłonięcie układu współrzędnych w celu zrekompensowania. Na przykład: `"axis" : ["+x", "+z", "-y"]` program zamieni osi z i oś y i utrzymuje skrętności układu współrzędnych, odwracając kierunek osi y.
 
 ### <a name="node-meta-data"></a>Metadane węzła
 
-* `metadataKeys`— Umożliwia określenie kluczy właściwości metadanych węzła, które mają być zachowane w wyniku konwersji. Można określić dokładne klucze lub klucze wieloznaczne. Klucze wieloznaczne mają format "ABC *" i pasują do każdego klucza rozpoczynającego się od "ABC". Obsługiwane typy wartości metadanych to `bool` , `int` , `float` , i `string` .
+* `metadataKeys` — Umożliwia określenie kluczy właściwości metadanych węzła, które mają być zachowane w wyniku konwersji. Można określić dokładne klucze lub klucze wieloznaczne. Klucze wieloznaczne mają format "ABC *" i pasują do każdego klucza rozpoczynającego się od "ABC". Obsługiwane typy wartości metadanych to `bool` , `int` , `float` , i `string` .
 
     Dla plików GLTF te dane pochodzą z [obiektu Extras w węzłach](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). Dla plików FBX te dane pochodzą z `Properties70` danych `Model nodes` . Aby uzyskać więcej informacji, zapoznaj się z dokumentacją narzędzia zasobów 3W.
 
-### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::Formatowanie
+### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex"::: Formatowanie
 
 Można dostosować :::no-loc text="vertex"::: format siatki do dokładności handlowej w przypadku oszczędności pamięci. Zmniejszenie ilości pamięci umożliwia załadowanie większych modeli lub osiągnięcie lepszej wydajności. Jednak w zależności od danych niewłaściwy format może znacząco wpływać na jakość renderowania.
 
@@ -194,7 +200,7 @@ Formaty te są dozwolone dla odpowiednich składników:
 
 Są to następujące pamięci:
 
-| Format | Opis | Bajtów na:::no-loc text="vertex"::: |
+| Format | Opis | Bajtów na :::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|Pełna precyzja zmiennoprzecinkowa dwóch składników|8
 |16_16_FLOAT|dwuskładnikowa precyzja zmiennoprzecinkowa|4
@@ -208,7 +214,7 @@ Są to następujące pamięci:
 * `position`: Bardzo rzadko jest wystarczająca dokładność. **16_16_16_16_FLOAT** wprowadza zauważalne artefakty podziału nawet dla małych modeli.
 * `normal`, `tangent` , `binormal` : Zwykle te wartości są zmieniane razem. O ile nie istnieją zauważalne artefakty oświetlenia wynikające z normalnego podziałuu, nie ma powodów, aby zwiększyć ich dokładność. W niektórych przypadkach te składniki mogą być ustawione na **Brak**:
   * `normal`, `tangent` , i `binormal` są odpowiednie tylko wtedy, gdy powinien być oświetlony co najmniej jeden materiał w modelu. W odniesieniu do ARR jest to przypadek, gdy [materiał PBR](../../overview/features/pbr-materials.md) jest używany w modelu w dowolnym momencie.
-  * `tangent`i `binormal` są potrzebne tylko wtedy, gdy żadne z materiałów oświetlonych używa normalnej tekstury mapy.
+  * `tangent` i `binormal` są potrzebne tylko wtedy, gdy żadne z materiałów oświetlonych używa normalnej tekstury mapy.
 * `texcoord0`, `texcoord1` : Współrzędne tekstury mogą korzystać z zmniejszonej dokładności (**16_16_FLOAT**), gdy ich wartości pozostają w `[0; 1]` zakresie, a rozmiary tekstur mają maksymalny rozmiar 2048 x 2048 pikseli. W przypadku przekroczenia tych limitów jakość mapowania tekstury będzie mieć wpływ.
 
 #### <a name="example"></a>Przykład
@@ -241,9 +247,9 @@ W programie [Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) istniej
 
 ![Klonowanie w tabeli 3ds Max](./media/3dsmax-clone-object.png)
 
-* **`Copy`**: W tym trybie siatka jest klonowana, dlatego nie są używane żadne wystąpienia ( `numMeshPartsInstanced` = 0).
-* **`Instance`**: Te dwa obiekty mają tę samą siatkę, więc jest używane Tworzenie wystąpień ( `numMeshPartsInstanced` = 1).
-* **`Reference`**: Modyfikatory DISTINCT można zastosować do geometrie, aby eksporter wybierał podejście i nie używa wystąpień ( `numMeshPartsInstanced` = 0).
+* **`Copy`** : W tym trybie siatka jest klonowana, dlatego nie są używane żadne wystąpienia ( `numMeshPartsInstanced` = 0).
+* **`Instance`** : Te dwa obiekty mają tę samą siatkę, więc jest używane Tworzenie wystąpień ( `numMeshPartsInstanced` = 1).
+* **`Reference`** : Modyfikatory DISTINCT można zastosować do geometrie, aby eksporter wybierał podejście i nie używa wystąpień ( `numMeshPartsInstanced` = 0).
 
 
 ### <a name="depth-based-composition-mode"></a>Tryb kompozycji oparty na głębokości
@@ -259,8 +265,8 @@ Zgodnie z opisem w sekcji [najlepsze rozwiązania dotyczące zmian w formacie sk
 W zależności od typu scenariusza ilość danych tekstury może być większa niż ilość pamięci używanej przez dane siatki. Modele photogrammetry są kandydatami.
 Konfiguracja konwersji nie umożliwia automatycznego skalowania tekstur w dół. W razie potrzeby skalowanie tekstury musi odbywać się jako krok wstępnego przetwarzania po stronie klienta. Krok konwersji pozwala jednak wybrać odpowiedni [Format kompresji tekstury](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
 
-* `BC1`dla nieprzezroczystych tekstur kolorów
-* `BC7`dla tekstur kolorów źródłowych z kanałem alfa
+* `BC1` dla nieprzezroczystych tekstur kolorów
+* `BC7` dla tekstur kolorów źródłowych z kanałem alfa
 
 Ponieważ format `BC7` ma dwukrotnie wpływ na pamięć w porównaniu z `BC1` , ważne jest, aby upewnić się, że tekstury wejściowe nie zapewniają niepotrzebnych kanałów alfa.
 

@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i odzyskiwanie maszyn wirtualnych platformy Az
 description: Zawiera opis sposobu tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych platformy Azure przy użyciu Azure Backup programu PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: e4564ba2b6109296a7383fb4b056c2f4b1890fda
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 87d655652d0207a50f8980f18d18e76fea0b1e21
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178135"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975093"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -96,7 +96,7 @@ Poniższe kroki umożliwiają utworzenie magazynu Recovery Services. Magazyn Rec
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Określ typ nadmiarowości magazynu, który ma być używany. Można użyć [magazynu lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy.md) lub [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md). W poniższym przykładzie pokazano opcję-BackupStorageRedundancy dla testvault jest ustawiona na wartość geomiarowa.
+3. Określ typ nadmiarowości magazynu, który ma być używany. Można używać magazynu [lokalnie nadmiarowego (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), [magazynu geograficznie nadmiarowego (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)lub [magazynu Strefowo nadmiarowego (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). W poniższym przykładzie pokazano opcję **-BackupStorageRedundancy** dla *testvault* z ustawioną **geomiarowo**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"

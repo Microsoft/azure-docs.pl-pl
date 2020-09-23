@@ -1,6 +1,6 @@
 ---
-title: Użyj Azure Portal, aby rozwiązać problemy związane z Azure Stack porządkowaniem krawędzi | Microsoft Docs
-description: Opisuje sposób rozwiązywania problemów związanych z porządkowaniem Azure Stack krawędzi.
+title: Użyj Azure Portal, aby rozwiązać problemy związane z porządkowaniem Azure Stack EDGE Pro Microsoft Docs
+description: Opisuje sposób rozwiązywania problemów związanych z porządkowaniem Azure Stack EDGE Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c42ee867bdd20de64fa1c603de47b5f1e7bdb39
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055949"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903645"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Rozwiązywanie problemów z porządkowaniem Azure Stack krawędzi
+# <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Rozwiązywanie problemów związanych z porządkowaniem programu Azure Stack EDGE Pro
 
-W tym artykule opisano sposób rozwiązywania problemów związanych z porządkowaniem Azure Stack krawędzi.
+W tym artykule opisano sposób rozwiązywania problemów związanych z porządkowaniem programu Azure Stack EDGE Pro.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -59,7 +59,7 @@ Aby uzyskać więcej informacji, zobacz [Rejestrowanie dostawców zasobów](azur
 
 ## <a name="microsoftdataboxedge-not-registered-for-subscription"></a>Nie zarejestrowano elementu Microsoft. DataBoxEdge dla subskrypcji
 
-**Błąd:** W Azure Portal wybierz subskrypcję do użycia dla Azure Stack Edge lub Data Box Gateway i Pobierz następujący błąd:
+**Błąd:** W Azure Portal wybierz subskrypcję, która ma być używana dla Azure Stack EDGE Pro lub Data Box Gateway i uzyskaj następujący błąd:
 
 *Dostawcy zasobów: Microsoft. DataBoxEdge nie są zarejestrowane dla &lt; nazwy subskrypcji subskrypcji &gt; i nie masz uprawnień do zarejestrowania dostawcy zasobów dla &lt; nazwy &gt; subskrypcji subskrypcji*.
 
@@ -75,4 +75,4 @@ Aby uzyskać więcej informacji, zobacz [Rejestrowanie dostawców zasobów](azur
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat [rozwiązywania problemów z Azure Stack Edge](azure-stack-edge-troubleshoot.md).
+* Dowiedz się więcej na temat [rozwiązywania problemów z programem Azure Stack EDGE Pro](azure-stack-edge-troubleshoot.md).

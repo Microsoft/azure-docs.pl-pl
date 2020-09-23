@@ -4,12 +4,12 @@ description: Tworzenie alertów dziennika aktywności przy użyciu Azure Portal,
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7914f3ee57d014de2f34fca301b587c6297bebe3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322418"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983090"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure Monitor  
 
@@ -111,7 +111,7 @@ Prostą analogową dla zrozumienie warunków, w których można tworzyć reguły
 
 1. W Azure Portal wybierz pozycję **Monitoruj**  >  **alerty**. Wybierz pozycję **Zarządzaj regułami alertów** w lewym górnym rogu okna.
 
-    ![Zarządzaj regułami alertów](media/alerts-activity-log/manage-alert-rules.png)
+    ![Zrzut ekranu przedstawia dziennik aktywności z wyróżnionym polem wyszukiwania.](media/alerts-activity-log/manage-alert-rules.png)
 
     Zostanie wyświetlona lista dostępnych reguł.
 
@@ -119,7 +119,7 @@ Prostą analogową dla zrozumienie warunków, w których można tworzyć reguły
 
     ![Wyszukaj reguły alertów dziennika aktywności](media/alerts-activity-log/searth-activity-log-rule-to-edit.png)
 
-    Aby znaleźć regułę działania, którą chcesz edytować, można użyć dostępnych filtrów, _subskrypcji_, _grupy zasobów_, _zasobu_, _typu sygnału_lub _stanu_.
+    Aby znaleźć regułę działania, którą chcesz edytować, można użyć dostępnych filtrów, _subskrypcji_, _grupy zasobów_,  _zasobu_, _typu sygnału_lub _stanu_.
 
    > [!NOTE]
    > 
@@ -219,7 +219,7 @@ Następujące pola są opcjami, których można użyć w szablonie Azure Resourc
 9. Substatus: zazwyczaj kod stanu HTTP odpowiadającego wywołania REST, ale może również zawierać inne ciągi opisujące podstan.   Na przykład: OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), zaakceptowany (kod stanu HTTP: 202), brak zawartości (kod stanu HTTP: 204), złe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu http: 409), wewnętrzny błąd serwera (kod stanu http: 500), Usługa niedostępna (kod stanu HTTP: 503), limit czasu bramy (kod stanu HTTP: 504).
 10. ResourceType: typ zasobu, którego dotyczy zdarzenie. Na przykład: Microsoft. resources/Deployments
 
-Na przykład:
+Przykład:
 
 ```json
 "condition": {

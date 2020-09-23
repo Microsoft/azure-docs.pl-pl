@@ -1,15 +1,15 @@
 ---
 title: Wbudowane definicje zasad dla Azure Resource Manager
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Resource Manager. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: cce79a4d13accca0069112a25ad416d97d67eaf1
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: c7bca070f8576efc8c5f9d28a04f9d62d10bec04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004327"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967190"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-resource-manager"></a>Azure Policy wbudowane definicje Azure Resource Manager
 

@@ -2,28 +2,32 @@
 title: Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge — Azure
 description: W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.openlocfilehash: 30a3bda4069bb8c07d7c9be3fd8a3a2b1171eba2
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/09/2020
+ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526327"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887226"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Wdrażanie analizy filmów wideo na żywo na urządzeniu IoT Edge
 
 W tym artykule przedstawiono kroki, które ułatwią wdrożenie analizy wideo na żywo na urządzeniu IoT Edge. Można to zrobić na przykład, jeśli masz dostęp do lokalnej maszyny z systemem Linux i/lub wcześniej utworzono konto Azure Media Services.
 
+> [!NOTE]
+> Obsługa urządzeń z systemem ARM64 jest dostępna w usłudze analiza filmów wideo na żywo na IoT Edge kompilacjach `1.0.4` i nowszych.
+> Obsługa środowiska uruchomieniowego Azure IoT Edge na urządzeniach ARM64 jest w [publicznej wersji zapoznawczej](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Komputer z systemem Linux, który spełnia ograniczenia SPRZĘTowe/SW do analizy wideo na żywo
+* Urządzenie z systemem x86/64 lub ARM64 z jednym z [obsługiwanych systemów operacyjnych Linux](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
 * Subskrypcja platformy Azure, do której masz [uprawnienia właściciela](../../role-based-access-control/built-in-roles.md#owner)
 * [Utwórz i skonfiguruj IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Zarejestruj urządzenie IoT Edge](../../iot-edge/how-to-register-device.md)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Tworzenie konta usługi Azure Media Services](../latest/create-account-howto.md)
 
-    * Użyj jednego z następujących regionów: Wschodnie stany USA 2, środkowe stany USA, Północno-środkowe stany USA, Japonia Wschodnia, zachodnie stany USA 2, zachodnio-środkowe stany USA, Kanada Wschodnia, Południowe Zjednoczone Królestwo, Francja środkowa, Francja Południowa, Szwajcaria Północna, Szwajcaria Zachodnia i Japonia Zachodnia.
+    * Użyj jednego z następujących regionów: Wschodnie stany USA 2, Wschodnie stany USA, środkowe stany USA, Północno-środkowe stany USA, Japonia Wschodnia, zachodnie stany USA, zachodnie stany USA 2, zachodnie stany USA, Kanada Wschodnia, Południowe Zjednoczone Królestwo, Francja środkowa, Francja Południowa, Szwajcaria Północna, Szwajcaria Zachodnia i Japonia Zachodnia.
     * Zalecane jest użycie kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2)
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Konfigurowanie zasobów platformy Azure do korzystania z analizy filmów wideo na żywo
@@ -81,7 +85,6 @@ sudo chown -R edgeuser /var/media
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>Wdrażanie modułu usługi Microsoft Live Video Analytics
 
-<!-- (To JuliaKo: this is similar to https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob)-->
 Na żywo analiza filmów wideo na IoT Edge uwidacznia właściwości wieloosiowe modułu, które są udokumentowane w [schemacie konfiguracji sznurka modułu](module-twin-configuration-schema.md). 
 
 ### <a name="deploy-using-the-azure-portal"></a>Wdrażanie przy użyciu witryny Azure Portal
@@ -252,4 +255,4 @@ Następnie umożliwia przetestowanie próbki przez wywołanie metody bezpośredn
 Wypróbuj [Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]
-> W poleceniu zostanie uruchomione polecenie Dalej, `device-id` zamiast domyślnego `lva-sample-device` .
+> Jeśli przejdziesz do powyższego przewodnika Szybki Start, podczas wywoływania metody bezpośredniej przy użyciu Visual Studio Code będziesz używać urządzenia, które zostało dodane do IoT Hub za pośrednictwem tego artykułu zamiast domyślnego `lva-sample-device` .

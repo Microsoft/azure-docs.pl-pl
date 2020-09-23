@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906806"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974705"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Tworzenie pól niestandardowych w obszarze roboczym Log Analytics w Azure Monitor (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ ms.locfileid: "84906806"
 
 Funkcja **pól niestandardowych** Azure monitor pozwala na rozbudowanie istniejących rekordów w obszarze roboczym log Analytics przez dodanie własnych pól do przeszukiwania.  Pola niestandardowe są automatycznie wypełniane na podstawie danych wyodrębnionych z innych właściwości w tym samym rekordzie.
 
-![Omówienie](media/custom-fields/overview.png)
+![Na diagramie przedstawiono oryginalny rekord skojarzony ze zmodyfikowanym rekordem w obszarze roboczym Log Analytics z parami wartości właściwości dodanymi do oryginalnej właściwości w zmodyfikowanym rekordzie.](media/custom-fields/overview.png)
 
 Na przykład Przykładowy rekord poniżej ma użyteczne dane, które zostały ukryte w opisie zdarzenia. Wyodrębnienie tych danych do oddzielnej właściwości sprawia, że są one dostępne dla takich akcji jak sortowanie i filtrowanie.
 
@@ -81,7 +81,7 @@ W poniższej sekcji przedstawiono pełny przykład tworzenia pola niestandardowe
 
 Wprowadź następujące zapytanie, aby zwrócić wszystkie zdarzenia z Menedżera sterowania usługami, które mają identyfikator zdarzenia 7036, czyli zdarzenie wskazujące, że usługa jest uruchamiana lub zatrzymywana.
 
-![Zapytanie](media/custom-fields/query.png)
+![Zrzut ekranu przedstawia zapytanie dotyczące źródła i identyfikatora zdarzenia.](media/custom-fields/query.png)
 
 Następnie wybieramy i rozszerzamy każdy rekord z IDENTYFIKATORem zdarzenia 7036.
 

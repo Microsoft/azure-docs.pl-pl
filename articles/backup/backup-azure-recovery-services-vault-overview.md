@@ -1,14 +1,14 @@
 ---
 title: Omówienie magazynów usługi Recovery Services
-description: Omówienie i porównanie między magazynami Recovery Services i magazynami Azure Backup.
+description: Omówienie magazynów Recovery Services.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 6b6550bc8c5221547d55ad1e81a985b8ecd303e0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: cc09c1ffa84bc66e8fe2c48c80b8aea0977762ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889621"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975144"
 ---
 # <a name="recovery-services-vaults-overview"></a>Przegląd magazynów usługi Recovery Services
 
@@ -30,7 +30,7 @@ Magazyn Recovery Services jest jednostką, która przechowuje kopie zapasowe i p
 
 - Azure Backup automatycznie obsługuje magazyn dla magazynu. Zobacz, jak [można zmienić ustawienia magazynu](./backup-create-rs-vault.md#set-storage-redundancy).
 
-- Aby dowiedzieć się więcej o nadmiarowości magazynu, zapoznaj się z tymi artykułami dotyczącymi nadmiarowości [geograficznej](../storage/common/storage-redundancy.md) i [lokalnej](../storage/common/storage-redundancy.md) .
+- Aby dowiedzieć się więcej o nadmiarowości magazynu, zapoznaj się z tymi artykułami dotyczącymi nadmiarowości [geograficznej](../storage/common/storage-redundancy.md#geo-zone-redundant-storage), [lokalnej](../storage/common/storage-redundancy.md#locally-redundant-storage) i [strefowej](../storage/common/storage-redundancy.md#zone-redundant-storage) .
 
 ## <a name="encryption-settings-in-the-recovery-services-vault"></a>Ustawienia szyfrowania w magazynie Recovery Services
 
@@ -54,7 +54,7 @@ Azure Advisor zawiera co godzinę [zalecenia](../advisor/advisor-high-availabili
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Obsługiwane i nieobsługiwane scenariusze dotyczące magazynu](backup-support-matrix.md#vault-support)
 - [Często zadawane pytania dotyczące magazynu](backup-azure-backup-faq.md)

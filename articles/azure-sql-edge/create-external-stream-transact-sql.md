@@ -1,6 +1,6 @@
 ---
-title: TWORZENIE strumienia zewnętrznego (Transact-SQL) — Azure SQL Edge (wersja zapoznawcza)
-description: Dowiedz się więcej na temat instrukcji CREATE EXTERNAL STREAM w usłudze Azure SQL Edge (wersja zapoznawcza)
+title: TWORZENIE strumienia zewnętrznego (Transact-SQL) — Azure SQL Edge
+description: Dowiedz się więcej na temat instrukcji CREATE EXTERNAL STREAM w usłudze Azure SQL Edge
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 17783662ba91f227a7b0bf69203bf21dd8342277
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e28ce4cd46cb802241e02e4060441747389d3989
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489548"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888175"
 ---
 # <a name="create-external-stream-transact-sql"></a>Utwórz strumień zewnętrzny (Transact-SQL)
 
@@ -27,7 +27,7 @@ Usługa Azure SQL Edge obecnie obsługuje tylko następujące źródła danych j
 | Typ źródła danych | Dane wejściowe | Dane wyjściowe | Opis |
 |------------------|-------|--------|------------------|
 | Azure IoT Edge Hub | T | T | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
-| Baza danych SQL | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
+| SQL Database | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
 | Kafka | T | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Obsługa Kafka jest niedostępna dla wersji ARM64 usługi Azure SQL Edge.|
 
 
@@ -100,7 +100,7 @@ WITH  ( <with_options> )
    - W przypadku lokalizacji obiektu usługi Azure Blob Storage Stream odwołuje się do wzorca ścieżki, który ma być używany wewnątrz kontenera obiektów BLOB. Aby uzyskać więcej informacji na temat tej funkcji, zobacz (/articles/Stream-Analytics/Stream-Analytics-define-Outputs.MD # BLOB-Storage-and-Azure-Data-Lake-Gen2)
 
 - **INPUT_OPTIONS**: Określ opcje jako pary klucz-wartość dla usług takich jak Kafka, IoT Edge Hub, które są danymi wejściowymi zapytań przesyłania strumieniowego
-    - PARTYCJE: liczba partycji zdefiniowanych dla tematu
+    - PARTYCJE: liczba partycji zdefiniowanych dla tematu. Maksymalna liczba partycji, których można użyć, jest ograniczona do 32.
       - Dotyczy strumieni danych wejściowych Kafka
     - CONSUMER_GROUP: Centra zdarzeń i IoT ograniczają liczbę czytelników w ramach jednej grupy odbiorców (do 5). Pozostawienie tego pola pustego spowoduje użycie grupy konsumentów "$Default".
       - Zarezerwowane do użycia w przyszłości. Nie ma zastosowania do usługi Azure SQL Edge.  
@@ -245,8 +245,7 @@ WITH
 ); 
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-- [ALTER EXTERNAL STREAM (Transact-SQL)](alter-external-stream-transact-sql.md) 
 - [Usuń strumień zewnętrzny (Transact-SQL)](drop-external-stream-transact-sql.md) 
 
