@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: Azure App Service, Web App, Linux, Windows, Docker, kontener
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: df46d61ddfba5f4da977b19db3158691c78168f8
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: fdc15ecd79a6672d2a46b4da284533965977d753
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958494"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982876"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrowanie oprogramowania niestandardowego do Azure App Service przy użyciu niestandardowego kontenera
 
@@ -56,7 +56,7 @@ Otwórz plik *custom-font-win-container/CustomFontSample.sln* w programie Visual
 
 Naciśnij klawisze `Ctrl+F5`, aby uruchomić aplikację bez debugowania. Aplikacja zostanie wyświetlona w domyślnej przeglądarce. 
 
-![Okno dialogowe Nowy projekt ASP.NET](media/tutorial-custom-container/local-app-in-browser.png)
+:::image type="content" source="media/tutorial-custom-container/local-app-in-browser.png" alt-text="Zrzut ekranu przedstawiający aplikację wyświetlaną w domyślnej przeglądarce.":::
 
 Ponieważ ta aplikacja używa zainstalowanej czcionki, nie może ona działać w piaskownicy usługi App Service. Aplikację tę można jednak wdrożyć za pomocą kontenera systemu Windows, ponieważ można w nim zainstalować wymaganą czcionkę.
 
@@ -64,7 +64,7 @@ Ponieważ ta aplikacja używa zainstalowanej czcionki, nie może ona działać w
 
 W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CustomFontSample** i wybierz pozycję **Dodaj** > **Obsługa aranżacji kontenerów**.
 
-![Okno dialogowe Nowy projekt ASP.NET](media/tutorial-custom-container/enable-container-orchestration.png)
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Zrzut ekranu okna Eksplorator rozwiązań, w którym zaznaczono elementy menu obsługa projektu, Dodawanie i kontenery usługi Orchestrator.":::
 
 Wybierz pozycję **Docker Compose**  >  **OK**.
 
@@ -98,13 +98,13 @@ Usługa [Azure Container Registry](../container-registry/index.yml) może przech
 
 W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CustomFontSample** i wybierz polecenie **Publikuj**.
 
-![Okno dialogowe Nowy projekt ASP.NET](media/tutorial-custom-container/open-publish-wizard.png)
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Zrzut ekranu przedstawiający Eksplorator rozwiązań pokazujący projekt CustomFontSample i publikowanie wybranych elementów.":::
 
 ### <a name="create-registry-and-publish"></a>Tworzenie rejestru i publikowanie
 
 W Kreatorze publikacji wybierz pozycję **Container Registry**  >  **Utwórz nowy Azure Container Registry**  >  **Publikuj**.
 
-![Okno dialogowe Nowy projekt ASP.NET](media/tutorial-custom-container/create-registry.png)
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Zrzut ekranu Kreatora publikacji prezentujący Container Registry, Utwórz nowy Azure Container Registry i wybierz przycisk Publikuj.":::
 
 ### <a name="sign-in-with-azure-account"></a>Logowanie się za pomocą konta platformy Azure
 
@@ -131,7 +131,7 @@ Zostanie otwarte okno terminalu z wyświetlonym postępem wdrażania obrazu. Zac
 
 Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
-## <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
+## <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
 Z menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **Sieć Web**  >  **Web App for Containers**.
 
@@ -211,9 +211,9 @@ Przesyłane strumieniowo dzienniki wyglądają następująco:
 
 ::: zone pivot="container-linux"
 
-Azure App Service używa technologii kontenera Docker do hostowania zarówno wbudowanych obrazów, jak i obrazów niestandardowych. Aby wyświetlić listę wbudowanych obrazów, uruchom polecenie interfejsu wiersza polecenia platformy Azure, ["AZ webapp list-Runtimes--Linux"](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). Jeśli te obrazy nie spełniają Twoich potrzeb, można skompilować i wdrożyć niestandardowy obraz.
+Azure App Service używa technologii kontenera Docker do hostowania zarówno wbudowanych obrazów, jak i obrazów niestandardowych. Aby wyświetlić listę wbudowanych obrazów, uruchom polecenie interfejsu wiersza polecenia platformy Azure, ["AZ webapp list-Runtimes--Linux"](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-list-runtimes). Jeśli te obrazy nie spełniają Twoich potrzeb, można skompilować i wdrożyć niestandardowy obraz.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie obrazu niestandardowego, jeśli żaden wbudowany obraz nie spełnia Twoich potrzeb
@@ -346,7 +346,7 @@ ENTRYPOINT ["init.sh"]
 
 W tej sekcji i tych, które obserwujesz, udostępniamy zasoby na platformie Azure, do których należy wypchnąć obraz, a następnie wdrożyć kontener do Azure App Service. Zacznij od utworzenia grupy zasobów, w której mają być zbierane wszystkie te zasoby.
 
-Uruchom polecenie [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create) , aby utworzyć grupę zasobów:
+Uruchom polecenie [AZ Group Create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create) , aby utworzyć grupę zasobów:
 
 ```azurecli-interactive
 az group create --name AppSvc-DockerTutorial-rg --location westus2
@@ -358,7 +358,7 @@ Możesz zmienić wartość, `--location` Aby określić region w sąsiedztwie.
 
 W tej sekcji popchnij obraz do Azure Container Registry, z którego App Service mogą go wdrożyć.
 
-1. Uruchom [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az-acr-create) polecenie, aby utworzyć Azure Container Registry:
+1. Uruchom [`az acr create`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-create) polecenie, aby utworzyć Azure Container Registry:
 
     ```azurecli-interactive
     az acr create --name <registry-name> --resource-group AppSvc-DockerTutorial-rg --sku Basic --admin-enabled true
@@ -366,7 +366,7 @@ W tej sekcji popchnij obraz do Azure Container Registry, z którego App Service 
     
     Zamień na `<registry-name>` odpowiednią nazwę rejestru. Nazwa może zawierać tylko litery i cyfry i musi być unikatowa we wszystkich na platformie Azure.
 
-1. Uruchom [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) polecenie, aby pobrać poświadczenia dla rejestru:
+1. Uruchom [`az acr show`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-show) polecenie, aby pobrać poświadczenia dla rejestru:
 
     ```azurecli-interactive
     az acr credential show --resource-group AppSvc-DockerTutorial-rg --name <registry-name>
@@ -413,7 +413,7 @@ W tej sekcji popchnij obraz do Azure Container Registry, z którego App Service 
 
 Aby wdrożyć kontener do Azure App Service, należy najpierw utworzyć aplikację sieci Web na App Service, a następnie połączyć aplikację sieci Web z rejestrem kontenerów. Gdy aplikacja sieci Web zostanie uruchomiona, App Service automatycznie pobiera obraz z rejestru.
 
-1. Utwórz plan App Service przy użyciu [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) polecenia:
+1. Utwórz plan App Service przy użyciu [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest&preserve-view=true#az-appservice-plan-create) polecenia:
 
     ```azurecli-interactive
     az appservice plan create --name AppSvc-DockerTutorial-plan --resource-group AppSvc-DockerTutorial-rg --is-linux
@@ -421,7 +421,7 @@ Aby wdrożyć kontener do Azure App Service, należy najpierw utworzyć aplikacj
 
     Plan App Service odpowiada maszynie wirtualnej, która hostuje aplikację sieci Web. Domyślnie poprzednie polecenie używa niedrogiej [warstwy cenowej B1](https://azure.microsoft.com/pricing/details/app-service/linux/) , która jest bezpłatna przez pierwszy miesiąc. Warstwę można kontrolować za pomocą `--sku` parametru.
 
-1. Utwórz aplikację internetową za pomocą [`az webpp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) polecenia:
+1. Utwórz aplikację internetową za pomocą [`az webpp create`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-create) polecenia:
 
     ```azurecli-interactive
     az webapp create --resource-group AppSvc-DockerTutorial-rg --plan AppSvc-DockerTutorial-plan --name <app-name> --deployment-container-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
@@ -429,7 +429,7 @@ Aby wdrożyć kontener do Azure App Service, należy najpierw utworzyć aplikacj
     
     Zamień na `<app-name>` nazwę aplikacji sieci Web, która musi być unikatowa dla wszystkich platform Azure. Zastąp także `<registry-name>` nazwą rejestru z poprzedniej sekcji.
 
-1. Użyj, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) Aby ustawić `WEBSITES_PORT` zmienną środowiskową zgodnie z oczekiwaniami w kodzie aplikacji: 
+1. Użyj, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) Aby ustawić `WEBSITES_PORT` zmienną środowiskową zgodnie z oczekiwaniami w kodzie aplikacji: 
 
     ```azurecli-interactive
     az webapp config appsettings set --resource-group AppSvc-DockerTutorial-rg --name <app-name> --settings WEBSITES_PORT=8000
@@ -439,7 +439,7 @@ Aby wdrożyć kontener do Azure App Service, należy najpierw utworzyć aplikacj
     
     Aby uzyskać więcej informacji na temat tej zmiennej środowiskowej, zobacz [plik Readme w repozytorium GitHub przykładu](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Włącz [zarządzaną tożsamość](./overview-managed-identity.md) aplikacji sieci Web za pomocą [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) polecenia:
+1. Włącz [zarządzaną tożsamość](./overview-managed-identity.md) aplikacji sieci Web za pomocą [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest&preserve-view=true#az-webapp-identity-assign) polecenia:
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -449,7 +449,7 @@ Aby wdrożyć kontener do Azure App Service, należy najpierw utworzyć aplikacj
 
     Tożsamość zarządzana umożliwia udzielenie uprawnień aplikacji sieci Web w celu uzyskania dostępu do innych zasobów platformy Azure bez konieczności ponoszenia określonych poświadczeń.
 
-1. Pobierz swój identyfikator subskrypcji za pomocą [`az account show`](/cli/azure/account?view=azure-cli-latest#az-account-show) polecenia, którego potrzebujesz w następnym kroku:
+1. Pobierz swój identyfikator subskrypcji za pomocą [`az account show`](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az-account-show) polecenia, którego potrzebujesz w następnym kroku:
 
     ```azurecli-interactive
     az account show --query id --output tsv
@@ -472,7 +472,7 @@ Aby uzyskać więcej informacji o tych uprawnieniach, zobacz [co to jest kontrol
 
 Te kroki można wykonać po wypchnięciu obrazu do rejestru kontenerów, a App Service jest w pełni inicjowane.
 
-1. Użyj [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) polecenia, aby określić rejestr kontenerów i obraz do wdrożenia dla aplikacji sieci Web:
+1. Użyj [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest&preserve-view=true#az-webapp-config-container-set) polecenia, aby określić rejestr kontenerów i obraz do wdrożenia dla aplikacji sieci Web:
 
     ```azurecli-interactive
     az webapp config container set --name <app-name> --resource-group AppSvc-DockerTutorial-rg --docker-custom-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest --docker-registry-server-url https://<registry-name>.azurecr.io
@@ -559,7 +559,7 @@ W tej sekcji wprowadzisz zmiany w kodzie aplikacji sieci Web, odbudujesz kontene
     
     Jeśli nie widzisz dzienników konsoli, sprawdź ponownie w ciągu 30 sekund.
 
-    Możesz również sprawdzić pliki dziennika z przeglądarki pod adresem `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
+    Pliki dzienników można także sprawdzać w przeglądarce pod adresem `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
 1. Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, wpisz **Ctrl** + **C**.
 
@@ -610,7 +610,7 @@ service ssh start
 
     Na przykład można przejrzeć procesy działające w ramach tego `top` polecenia.
     
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Zasoby utworzone w tym artykule mogą wiązać się z bieżącymi kosztami. Aby wyczyścić zasoby, należy usunąć tylko grupę zasobów, która ją zawiera:
 
@@ -618,7 +618,7 @@ Zasoby utworzone w tym artykule mogą wiązać się z bieżącymi kosztami. Aby 
 az group delete --name AppSvc-DockerTutorial-rg
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Które czynności umiesz wykonać:
 

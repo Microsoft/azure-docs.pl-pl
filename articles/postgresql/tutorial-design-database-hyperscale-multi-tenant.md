@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: projektowanie wielodostępnej bazy danych (Citus) — Azure Database for PostgreSQL'
-description: W tym samouczku pokazano, jak zaprojektować bazę danych z wieloma dzierżawami przy użyciu Azure Database for PostgreSQL Citus.
+description: W tym samouczku pokazano, jak włączyć skalowalną aplikację wielodostępną przy użyciu funkcji Azure Database for PostgreSQL Citus.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: b28307783957af2613152c2a8305f3650aa352ac
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: ef0f542a27f378b6132d8ef19b55f386d4102d53
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530730"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895254"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Samouczek: Projektowanie bazy danych z wieloma dzierżawami przy użyciu Azure Database for PostgreSQL — Citus
 
@@ -267,7 +267,7 @@ SELECT id
    AND company_id = 5;
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 W poprzednich krokach zostały utworzone zasoby platformy Azure w grupie serwerów. Jeśli nie chcesz potrzebować tych zasobów w przyszłości, Usuń grupę serwerów. Naciśnij przycisk *Usuń* na stronie *Przegląd* dla swojej grupy serwerów. Po wyświetleniu monitu na stronie podręcznej Potwierdź nazwę grupy serwerów, a następnie kliknij przycisk *Usuń* końcowego.
 
@@ -275,6 +275,5 @@ W poprzednich krokach zostały utworzone zasoby platformy Azure w grupie serwer�
 
 W tym samouczku pokazano, jak zainicjować obsługę administracyjną grupy serwerów Citus. Nawiązano połączenie z usługą PSQL, utworzono schemat i dane rozproszone. Nauczysz się wysyłać zapytania dotyczące danych zarówno w dzierżawach, jak i między nimi, a następnie dostosować schemat na dzierżawcę.
 
-Następnie Dowiedz się więcej na temat pojęć związanych ze skalą.
-> [!div class="nextstepaction"]
-> [Skalowanie typów węzłów](https://aka.ms/hyperscale-concepts)
+- Informacje o [typach węzłów](https://aka.ms/hyperscale-concepts) grupy serwerów
+- Określ najlepszy [początkowy rozmiar](howto-hyperscale-scaling.md#picking-initial-size) grupy serwerów

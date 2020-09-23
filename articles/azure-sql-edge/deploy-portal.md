@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie usługi Azure SQL Edge (wersja zapoznawcza) przy użyciu Azure Portal
-description: Dowiedz się, jak wdrożyć usługę Azure SQL Edge (wersja zapoznawcza) przy użyciu Azure Portal
+title: Wdrażanie usługi Azure SQL Edge przy użyciu Azure Portal
+description: Dowiedz się, jak wdrożyć usługę Azure SQL Edge przy użyciu Azure Portal
 keywords: Wdróż program SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -8,17 +8,17 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 7af4264860f8d9950515cd5302f03822e7cbac39
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/22/2020
+ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816868"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886735"
 ---
-# <a name="deploy-azure-sql-edge-preview"></a>Wdrażanie usługi Azure SQL Edge (wersja zapoznawcza) 
+# <a name="deploy-azure-sql-edge"></a>Wdrażanie usługi Azure SQL Edge 
 
-Azure SQL Edge (wersja zapoznawcza) to aparat relacyjnej bazy danych zoptymalizowany pod kątem wdrożeń IoT i Azure IoT Edge. Zapewnia możliwości tworzenia wysokiej wydajności magazynu danych i warstwy przetwarzania dla aplikacji i rozwiązań IoT. W tym przewodniku szybki start pokazano, jak rozpocząć tworzenie modułu usługi Azure SQL Edge za pośrednictwem Azure IoT Edge przy użyciu Azure Portal.
+Usługa Azure SQL Edge jest aparatem relacyjnej bazy danych zoptymalizowanym pod kątem wdrożeń IoT i Azure IoT Edge. Zapewnia możliwości tworzenia wysokiej wydajności magazynu danych i warstwy przetwarzania dla aplikacji i rozwiązań IoT. W tym przewodniku szybki start pokazano, jak rozpocząć tworzenie modułu usługi Azure SQL Edge za pośrednictwem Azure IoT Edge przy użyciu Azure Portal.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -28,7 +28,7 @@ Azure SQL Edge (wersja zapoznawcza) to aparat relacyjnej bazy danych zoptymalizo
 * Zarejestruj [urządzenie IoT Edge z Azure Portal](../iot-edge/how-to-register-device-portal.md).
 * Przygotuj IoT Edge urządzenie do [wdrożenia modułu IoT Edge z Azure Portal](../iot-edge/how-to-deploy-modules-portal.md).
 
-> [!NOTE]
+> [!NOTE]   
 > Aby wdrożyć maszynę wirtualną z systemem Linux na platformie Azure jako urządzenie IoT Edge, zapoznaj się z tym [przewodnikiem Szybki Start](../iot-edge/quickstart-linux.md).
 
 ## <a name="deploy-sql-edge-module-from-azure-marketplace"></a>Wdrażanie modułu SQL Edge z poziomu portalu Azure Marketplace
@@ -48,78 +48,76 @@ Portal Azure Marketplace to rynek aplikacji i usług online, w którym można pr
    |**Pole**  |**Opis**  |
    |---------|---------|
    |Subskrypcja  |  Subskrypcja platformy Azure, w ramach której utworzono IoT Hub |
-   |IoT Hub   |  Nazwa IoT Hub, w którym zarejestrowano urządzenie IoT Edge, a następnie wybierz opcję "wdróż w urządzeniu"|
+   |Usługa IoT Hub   |  Nazwa IoT Hub, w którym zarejestrowano urządzenie IoT Edge, a następnie wybierz opcję "wdróż w urządzeniu"|
    |Nazwa urządzenia IoT Edge  |  Nazwa urządzenia IoT Edgeego, na którym zostanie wdrożona Przeglądarka SQL Edge |
 
-4. Na stronie **Ustawianie modułów** przejdź do sekcji dotyczącej modułów wdrażania, a następnie kliknij pozycję **Konfiguruj** względem modułu SQL Edge. 
+4. Na stronie **Ustawianie modułów na urządzeniu:** kliknij moduł Azure SQL Edge w obszarze **IoT Edge**modules. Domyślna nazwa modułu jest ustawiona na *AzureSQLEdge*. 
 
-5. W okienku **IoT Edge modułów niestandardowych** określ odpowiednie wartości zmiennych środowiskowych i/lub Dostosuj opcje tworzenia i żądane właściwości modułu. Aby uzyskać pełną listę obsługiwanych zmiennych środowiskowych, odwołują się [SQL Server zmiennych środowiskowych kontenera](/sql/linux/sql-server-linux-configure-environment-variables/).
+5. W sekcji *Ustawienia modułu* w bloku **Update IoT Edge module** określ odpowiednie wartości dla *IoT Edge Nazwa modułu*, *zasady ponownego uruchamiania* i *żądany stan*. 
+
+   > [!IMPORTANT]    
+   > Nie zmieniaj ani nie Aktualizuj ustawień **identyfikatora URI obrazu** w module.
+
+6. W sekcji *zmienne środowiskowe* w bloku **Update IoT Edge module** określ odpowiednie wartości zmiennych środowiskowych. Aby uzyskać pełną listę zmiennych środowiskowych usługi Azure SQL Edge, zobacz [Konfigurowanie przy użyciu zmiennych środowiskowych](configure.md#configure-by-using-environment-variables). Następujące domyślne zmienne środowiskowe są zdefiniowane dla modułu. 
 
    |**Parametr**  |**Opis**|
    |---------|---------|
    | Nazwa | Nazwa modułu. |
-   |SA_PASSWORD  | Określ silne hasło dla konta administratora programu SQL Edge. |
-   |MSSQL_LCID   | Ustawia identyfikator języka, który ma być używany dla SQL Server. Na przykład 1036 jest francuski. |
-   |MSSQL_COLLATION | Ustawia domyślne sortowanie dla SQL Server. To ustawienie przesłania domyślne mapowanie identyfikatora języka (LCID) do sortowania. |
+   | MSSQL_SA_PASSWORD  | Zmień wartość domyślną, aby określić silne hasło dla konta administratora programu SQL Edge. |
+   | MSSQL_LCID   | Zmień wartość domyślną, aby ustawić żądany identyfikator języka dla programu SQL Edge. Na przykład 1036 jest francuski. |
+   | MSSQL_COLLATION | Zmień wartość domyślną, aby ustawić sortowanie domyślne dla programu SQL Edge. To ustawienie przesłania domyślne mapowanie identyfikatora języka (LCID) do sortowania. |
 
-   > [!NOTE]
-   > Nie zmieniaj ani nie Aktualizuj **identyfikatora URI obrazu** ani ustawień **ACCEPT_EULA** w module.
+   > [!IMPORTANT]    
+   > Nie zmieniaj ani nie Aktualizuj zmiennej środowiskowej **ACCEPT_EULA** dla modułu.
 
-6. W okienku **IoT Edge modułów niestandardowych** zaktualizuj odpowiednie wartości opcji Utwórz kontener dla **portu hosta**. Jeśli zachodzi potrzeba wdrożenia więcej niż jednego modułu usługi SQL DB Edge, należy zaktualizować opcję instalacji, aby utworzyć nową parę źródłową & docelowej dla woluminu trwałego. Aby uzyskać więcej informacji na temat instalacji i woluminów, zobacz [Używanie woluminów](https://docs.docker.com/storage/volumes/) w dokumentacji platformy Docker. 
-
-   ```json
-       {
-         "HostConfig": {
-           "Binds": [
-             "sqlvolume:/sqlvolume"
-           ],
-           "PortBindings": {
-             "1433/tcp": [
-               {
-                 "HostPort": "1433"
-               }
-             ]
-           },
-           "Mounts": [
-             {
-               "Type": "volume",
-               "Source": "sqlvolume",
-               "Target": "/var/opt/mssql"
-             }
-           ]
-         },
-         "Env": [
-           "MSSQL_AGENT_ENABLED=TRUE",
-           "MSSQL_PID=Developer"
-         ]
-       }
-   ```
-
-7. W okienku **IoT Edge modułów niestandardowych** zaktualizuj *odpowiednie właściwości zestawu splotów modułu* , aby uwzględnić lokalizację pakietu SQL i informacje o zadaniu usługi Stream Analytics. Te dwa pola są opcjonalne i powinny być używane, jeśli chcesz wdrożyć moduł programu SQL Edge przy użyciu bazy danych i zadania przesyłania strumieniowego.
+7. W sekcji *Opcje tworzenia kontenera* w bloku **Update IoT Edge module** zaktualizuj poniższe opcje zgodnie z wymaganiami. 
+   - **Port hosta:** Mapuj określony port hosta na port 1433 (domyślny port SQL) w kontenerze.
+   - **Powiązania** i **instalacje:** Jeśli konieczne jest wdrożenie więcej niż jednego modułu programu SQL Edge, należy zaktualizować opcję instalacji, aby utworzyć nową parę źródłową & docelowej dla woluminu trwałego. Aby uzyskać więcej informacji na temat instalacji i woluminów, zobacz [Używanie woluminów](https://docs.docker.com/storage/volumes/) w dokumentacji platformy Docker. 
 
    ```json
-       {
-         "properties.desired":
-         {
-           "SqlPackage": "<Optional_DACPAC_ZIP_SAS_URL>",
-           "ASAJobInfo": "<Optional_ASA_Job_ZIP_SAS_URL>"
-         }
-       }
+   {
+    "HostConfig": {
+        "CapAdd": [
+            "SYS_PTRACE"
+        ],
+        "Binds": [
+            "sqlvolume:/sqlvolume"
+        ],
+        "PortBindings": {
+            "1433/tcp": [
+                {
+                    "HostPort": "1433"
+                }
+            ]
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Source": "sqlvolume",
+                "Target": "/var/opt/mssql"
+            }
+        ]
+    },
+    "Env": [
+        "MSSQL_AGENT_ENABLED=TRUE",
+        "ClientTransportType=AMQP_TCP_Only",
+        "PlanId=asde-developer-on-iot-edge"
+    ]
+   }
    ```
-
-8. W okienku **IoT Edge modułów niestandardowych** Ustaw *zasady ponownego uruchamiania* na zawsze i *żądany stan* do uruchomienia.
-9. W okienku **IoT Edge modułów niestandardowych** kliknij pozycję **Zapisz**.
-10. Na stronie **Ustawianie modułów** kliknij przycisk **dalej**.
-11. Na stronie **Określ trasę (opcjonalnie)** dla **zestawu modułów** Określ trasy modułu do modułu lub modułu, aby IoT Edge komunikację z centrum, zobacz [wdrażanie modułów i ustanawianie tras w IoT Edge](../iot-edge/module-composition.md).
-12. Kliknij przycisk **Dalej**.
-13. Kliknij przycisk **Prześlij**.
+   > [!IMPORTANT]    
+   > Nie zmieniaj `PlanId` zmiennej środowiska w środowisku zdefiniowanym w ustawieniu Utwórz konfigurację. Jeśli ta wartość zostanie zmieniona, kontener usługi Azure SQL Edge nie zostanie uruchomiony. 
+   
+8. W okienku **Aktualizowanie modułu IoT Edge** kliknij pozycję **Aktualizuj**.
+9. Na stronie **Ustawianie modułów na urządzeniu** kliknij pozycję **dalej: trasy >** , jeśli chcesz zdefiniować trasy dla wdrożenia. W przeciwnym razie kliknij pozycję **Przegląd + Utwórz**. Aby uzyskać więcej informacji na temat konfigurowania tras, zobacz [wdrażanie modułów i ustanawianie tras w IoT Edge](../iot-edge/module-composition.md).
+11. W okienku **Aktualizowanie modułu IoT Edge** kliknij pozycję **Utwórz**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Łączenie z usługą Azure SQL Edge
 
 Poniższe kroki służą do nawiązywania połączenia z usługą Azure SQL Edge przy użyciu narzędzia wiersza polecenia usługi Azure SQL **Edge w**kontenerze.
 
-> [!NOTE]
-> Narzędzie sqlcmd nie jest dostępne w wersji ARM64 kontenerów programu SQL Edge.
+> [!NOTE]      
+> Narzędzia wiersza polecenia SQL (sqlcmd) nie są dostępne w wersji ARM64 kontenerów usługi Azure SQL Edge.
 
 1. Użyj `docker exec -it` polecenia, aby uruchomić interaktywną powłokę bash wewnątrz działającego kontenera. W poniższym przykładzie `azuresqledge` Nazwa określona przez `Name` parametr modułu IoT Edge.
 
@@ -133,14 +131,14 @@ Poniższe kroki służą do nawiązywania połączenia z usługą Azure SQL Edge
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
    ```
 
-   > [!TIP]
+   > [!TIP]    
    > Możesz pominąć hasło w wierszu polecenia, aby uzyskać monit o jego wprowadzenie.
 
 3. Jeśli to się powiedzie, należy przejść do wiersza polecenia **sqlcmd** : `1>` .
 
 ## <a name="create-and-query-data"></a>Tworzenie i wykonywanie zapytań dotyczących danych
 
-W poniższych sekcjach opisano, jak za pomocą narzędzia **sqlcmd** i Transact-SQL utworzyć nową bazę danych, dodać dane i uruchomić proste zapytanie.
+W poniższych sekcjach opisano, jak za pomocą narzędzia **sqlcmd** i Transact-SQL utworzyć nową bazę danych, dodać dane i uruchomić zapytanie.
 
 ### <a name="create-a-new-database"></a>Tworzenie nowej bazy danych
 
@@ -222,6 +220,7 @@ W tym przewodniku szybki start wdrożono moduł programu SQL Edge na urządzeniu
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Machine Learning i sztuczna inteligencja przy użyciu ONNX w programie SQL Edge](onnx-overview.md).
-- [Tworzenie kompleksowego rozwiązania IoT za pomocą programu SQL Edge przy użyciu IoT Edge](tutorial-deploy-azure-resources.md).
+- [Machine Learning i sztuczna inteligencja przy użyciu ONNX w programie SQL Edge](onnx-overview.md)
+- [Tworzenie kompleksowego rozwiązania IoT za pomocą programu SQL Edge przy użyciu IoT Edge](tutorial-deploy-azure-resources.md)
 - [Przesyłanie strumieniowe danych w usłudze Azure SQL Edge](stream-data.md)
+- [Rozwiązywanie błędów związanych z wdrażaniem](troubleshoot.md)

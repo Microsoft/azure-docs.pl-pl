@@ -2,22 +2,40 @@
 title: Uwierzytelnianie, żądania i odpowiedzi
 description: Dowiedz się, w jaki sposób Azure Key Vault korzysta z żądań i odpowiedzi w formacie JSON oraz o wymaganym uwierzytelnianiu dla korzystania z magazynu kluczy.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 2b4c8ad666efa32d98e78a0bc2544d0f8851be5e
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 09/15/2020
+ms.author: ambapat
+ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191792"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983255"
 ---
 # <a name="authentication-requests-and-responses"></a>Uwierzytelnianie, żądania i odpowiedzi
+
+Azure Key Vault oferuje dwa typy kontenerów do przechowywania wpisów tajnych aplikacji w chmurze i zarządzania nimi:
+
+|Typ kontenera|Obsługiwane typy obiektów|Punkt końcowy płaszczyzny danych|
+|--|--|--|
+| **Magazyny**|<ul><li>Klucze chronione przez oprogramowanie</li><li>Klucze chronione przez moduł HSM (z jednostką SKU Premium)</li><li>Certyfikaty</li><li>Klucze kont magazynu</li></ul> | https://{nazwa magazynu}. magazyn. Azure. NET
+|**Zarządzany moduł HSM** |<ul><li>Klucze chronione przez moduł HSM</li></ul> | https://{HSM-Name}. managedhsm. Azure. NET
+
+Poniżej przedstawiono sufiksy adresów URL używane do uzyskiwania dostępu do poszczególnych typów obiektów
+
+|Typ obiektu|Sufiks adresu URL|
+|--|--|
+|Klucze chronione przez oprogramowanie| /keys |
+|Klucze chronione przez moduł HSM| /keys |
+|Wpisy tajne|/secrets|
+|Certyfikaty| /certificates|
+|Klucze kont magazynu|/storageaccounts
+||
 
 Azure Key Vault obsługuje żądania i odpowiedzi sformatowane w formacie JSON. Żądania do Azure Key Vault są kierowane do prawidłowego adresu URL Azure Key Vault przy użyciu protokołu HTTPS z niektórymi parametrami adresu URL i treściami żądania i odpowiedzi zakodowanych w formacie JSON.
 
@@ -36,7 +54,9 @@ W tym temacie omówiono specyficzne dla usługi Azure Key Vault. Aby uzyskać og
 
 - Aby PODPISać skrót przy użyciu klucza o nazwie TESTKEY w Key Vault use- `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  Urząd żądania do Key Vault jest zawsze następujący:  `https://{keyvault-name}.vault.azure.net/`  
+- Urząd żądania do Key Vault jest zawsze następujący:
+  - W przypadku magazynów: `https://{keyvault-name}.vault.azure.net/`
+  - W przypadku zarządzanych sprzętowych modułów zabezpieczeń: `https://{HSM-name}.managedhsm.azure.net/`
 
   Klucze są zawsze przechowywane pod ścieżką/Keys, wpisy tajne są zawsze przechowywane pod ścieżką/Secrets.  
 

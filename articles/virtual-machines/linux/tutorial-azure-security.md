@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 24117e914afa0e443ce979ae71eb506156fa11b3
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4fc8a0a4ea5063f52b6f9553018bddddd7bcf312
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830414"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974606"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Samouczek: monitorowanie maszyn wirtualnych z systemem Linux za pomocą usługi Azure Security Center
 
@@ -41,7 +41,7 @@ Aby uzyskać dostęp do pulpitu nawigacyjnego usługi Security Center, w menu w 
 
 Usługa Security Center wykracza poza odnajdywanie danych i udostępnia zalecenia dla wykrytych problemów. Na przykład jeśli maszyna wirtualna została wdrożona bez dołączonej sieciowej grupy zabezpieczeń, usługa Security Center wyświetla zalecenie z krokami korygowania do wykonania. Automatyczne kroki korygowania uzyskuje się bez opuszczania kontekstu usługi Security Center.  
 
-![Zalecenia](./media/tutorial-azure-security/recommendations.png)
+![Zrzut ekranu przedstawia stronę zalecenia, która zawiera opis, zasób, stan i ważność zaleceń.](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>Konfigurowanie zbierania danych
 

@@ -1,6 +1,6 @@
 ---
 title: Wyświetlanie ról przypisanych do grupy w Azure Active Directory | Microsoft Docs
-description: Wyświetl podgląd niestandardowych ról usługi Azure AD na potrzeby delegowania zarządzania tożsamościami. Zarządzanie rolami platformy Azure w Azure Portal, PowerShell lub interfejs API programu Graph.
+description: Dowiedz się, w jaki sposób role przypisane do grupy mogą być wyświetlane przy użyciu Centrum administracyjnego usługi Azure AD. Wyświetlanie grup i przypisanych ról jest domyślnymi uprawnieniami użytkownika.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7613fb70299a70e4389b97c2647a26cb7c3374
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 0c0a34b3861c82b3d2ef54a36108f9ea522d716d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476090"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983104"
 ---
 # <a name="view-roles-assigned-to-a-group-in-azure-active-directory"></a>Wyświetlanie ról przypisanych do grupy w Azure Active Directory
 
@@ -63,4 +63,4 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$f
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zarządzanie przypisaniami ról przy użyciu grup chmur](roles-groups-concept.md)
-- [Rozwiązywanie problemów z rolami przypisanymi do grup chmury](roles-groups-faq-troubleshooting.md)
+- [Rozwiązywanie problemów z rolami przypisanymi do grup w chmurze](roles-groups-faq-troubleshooting.md)

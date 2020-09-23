@@ -4,12 +4,12 @@ description: Informacje o regułach akcji w Azure Monitor są i sposobami ich ko
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723da36093c895a3a4aefbe66c2d8ca2ac0cba32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983140"
 ---
 # <a name="action-rules-preview"></a>Reguły akcji (wersja zapoznawcza)
 
@@ -21,7 +21,7 @@ Reguły akcji ułatwiają Definiowanie lub pomijanie akcji w dowolnym zakresie A
 
 ### <a name="suppression-of-alerts"></a>Pomijanie alertów
 
-Istnieje wiele scenariuszy, w których warto pominąć powiadomienia generowane przez alerty. Te scenariusze przedziały od pomijania podczas planowanego okna obsługi do pomijania w godzinach poza godzinami pracy. Na przykład zespół odpowiedzialny za **ContosoVM** chce pominąć powiadomienia o alertach dla nadchodzącego weekendu, ponieważ **ContosoVM** jest w trakcie planowanej konserwacji.
+Istnieje wiele scenariuszy, w których warto pominąć powiadomienia generowane przez alerty. Te scenariusze przedziały od pomijania podczas planowanego okna obsługi do pomijania w godzinach poza godzinami pracy. Na przykład zespół odpowiedzialny za  **ContosoVM** chce pominąć powiadomienia o alertach dla nadchodzącego weekendu, ponieważ **ContosoVM** jest w trakcie planowanej konserwacji.
 
 Mimo że zespół może wyłączyć każdą regułę alertu, która została skonfigurowana w **ContosoVM** ręcznie (i włączyć ją ponownie po konserwacji), nie jest to prosty proces. Reguły akcji ułatwiają Definiowanie pomijania alertów na dużą skalę dzięki możliwości elastycznego konfigurowania okresu pomijania. W poprzednim przykładzie zespół może zdefiniować jedną regułę akcji w programie **ContosoVM** , która pomija wszystkie powiadomienia o alertach dla weekendu.
 
@@ -44,11 +44,11 @@ Dostęp do tej funkcji można uzyskać, wybierając pozycję **Zarządzaj akcjam
 
 Wybierz pozycję **+ Nowa reguła akcji**.
 
-![Dodaj nową regułę akcji](media/alerts-action-rules/action-rules-new-rule.png)
+![Zrzut ekranu przedstawia stronę Zarządzanie akcjami z wyróżnionym przyciskiem Nowa reguła akcji.](media/alerts-action-rules/action-rules-new-rule.png)
 
 Alternatywnie można utworzyć regułę akcji podczas konfigurowania reguły alertu.
 
-![Dodaj nową regułę akcji](media/alerts-action-rules/action-rules-alert-rule.png)
+![Zrzut ekranu przedstawia stronę Tworzenie reguły z wyróżnionym przyciskiem Utwórz regułę akcji.](media/alerts-action-rules/action-rules-alert-rule.png)
 
 Teraz powinna zostać wyświetlona strona Flow dotycząca tworzenia reguł akcji. Skonfiguruj następujące elementy:
 
@@ -111,19 +111,19 @@ Na koniec skonfiguruj następujące szczegóły dla reguły akcji:
 
 Reguły akcji można tworzyć za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu poleceń [AZ monitor Action-Rule Create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) .  `az monitor action-rule`Odwołanie to tylko jeden z wielu [odwołań interfejsu wiersza polecenia platformy Azure dla Azure monitor](/cli/azure/azure-cli-reference-for-monitor).
 
-### <a name="prepare-your-environment"></a>Przygotowanie środowiska
+### <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
 1. [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 
    Jeśli wolisz, możesz również użyć Azure Cloud Shell, aby wykonać kroki opisane w tym artykule.  Azure Cloud Shell to interaktywne środowisko powłoki, które jest używane w przeglądarce.  Rozpocznij Cloud Shell przy użyciu jednej z następujących metod:
 
-   - Otwórz Cloud Shell, przechodząc do[https://shell.azure.com](https://shell.azure.com)
+   - Otwórz Cloud Shell, przechodząc do [https://shell.azure.com](https://shell.azure.com)
 
    - Wybierz przycisk **Cloud Shell** na pasku menu w prawym górnym rogu [Azure Portal](https://portal.azure.com)
 
 1. Zaloguj się.
 
-   Jeśli używasz lokalnej instalacji interfejsu wiersza polecenia, zaloguj się za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) .  Postępuj zgodnie z instrukcjami wyświetlanymi w terminalu, aby ukończyć proces uwierzytelniania.
+   Jeśli używasz lokalnej instalacji interfejsu wiersza polecenia, zaloguj się za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login) .  Wykonaj kroki wyświetlane w terminalu, aby ukończyć proces uwierzytelniania.
 
     ```azurecli
     az login
@@ -255,7 +255,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 Alerty dzienników tworzone za pomocą opcji [liczba wyników](alerts-unified-log.md) generują pojedyncze wystąpienie alertu za pomocą całego wyniku wyszukiwania (co może obejmować wiele komputerów). W tym scenariuszu, jeśli reguła akcji używa filtru **kontekstu alertu (ładunku)** , działa on w wystąpieniu alertu, o ile jest to zgodne. W scenariuszu 2 opisanym wcześniej, jeśli wyniki wyszukiwania dla wygenerowanego alertu dziennika zawierają zarówno **komputer-01** , jak i **komputer-02**, całe powiadomienie jest pomijane. Dla **komputera-02** nie Wygenerowano powiadomienia.
 
-![Reguły akcji i alerty dziennika (liczba wyników)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+![Diagram przedstawia reguły akcji i alerty dzienników z wyróżnionym pojedynczym wystąpieniem alertu.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
 Aby najlepiej używać alertów dziennika z regułami akcji, Utwórz alerty dzienników przy użyciu opcji [pomiar metryki](alerts-unified-log.md) . Dla tej opcji generowane są osobne wystąpienia alertów na podstawie pola zdefiniowanej grupy. Następnie w scenariuszu 2 generowane są osobne wystąpienia alertów dla **komputerów-01** i **Computer-02**. Ze względu na regułę akcji opisaną w tym scenariuszu tylko powiadomienie dla **komputera-01** jest pomijane. Powiadomienie dla **komputera-02** nadal jest normalne.
 
@@ -272,7 +272,7 @@ Po zdefiniowaniu zakresu podczas konfigurowania reguły akcji można wyświetli�
 * Nadzbiór: na przykład zdefiniowana reguła akcji znajduje się w grupie zasobów, a nakładający się reguła działania znajduje się w subskrypcji zawierającej grupę zasobów.
 * Część wspólna: na przykład reguła akcji, którą definiujesz, znajduje się w **VM1** i **VM2**, a nakładana reguła działania jest włączona na **VM2** i **VM3**.
 
-![Nakładające się reguły akcji](media/alerts-action-rules/action-rules-overlapping.png)
+![Zrzut ekranu przedstawia nową stronę reguły akcji z nakładającymi się regułami akcji wyświetlanymi w regułach akcji zdefiniowanych w tym samym oknie zakresu.](media/alerts-action-rules/action-rules-overlapping.png)
 
 ### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>Czy podczas konfigurowania reguły alertu można sprawdzić, czy istnieją już zdefiniowane reguły akcji, które mogą działać na regule alertów, które definiujemy?
 

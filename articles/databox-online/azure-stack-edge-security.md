@@ -1,6 +1,6 @@
 ---
-title: Zabezpieczenia Azure Stack Edge | Microsoft Docs
-description: Opisuje funkcje zabezpieczeń i ochrony prywatności, które chronią Azure Stack urządzenia brzegowego, usługi i danych lokalnie i w chmurze.
+title: Azure Stack brzeg Pro zabezpieczenia | Microsoft Docs
+description: W tym artykule opisano funkcje zabezpieczeń i ochrony prywatności, które chronią urządzenia, usługi i dane w systemie Azure Stack Edge w środowisku lokalnym i w chmurze.
 services: Data Box Edge
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 3d567ec4d760be24fdbb79ff85bd6db0eb4a66c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5c5143c7bc92487aeabc3cdc1afea5061466027
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82570072"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903159"
 ---
-# <a name="azure-stack-edge-security-and-data-protection"></a>Azure Stack Edge zabezpieczenia i ochrona danych
+# <a name="azure-stack-edge-pro-security-and-data-protection"></a>Azure Stack brzeg Pro zabezpieczenia i ochrona danych
 
-Bezpieczeństwo jest ważnym problemem w przypadku przyjęcia nowej technologii, szczególnie jeśli technologia jest używana z danymi poufnymi lub zastrzeżonymi. Azure Stack Edge pomaga upewnić się, że tylko autoryzowane jednostki będą mogły wyświetlać, modyfikować i usuwać dane.
+Bezpieczeństwo jest ważnym problemem w przypadku przyjęcia nowej technologii, szczególnie jeśli technologia jest używana z danymi poufnymi lub zastrzeżonymi. Azure Stack EDGE Pro pomaga upewnić się, że tylko autoryzowane jednostki będą mogły wyświetlać, modyfikować i usuwać dane.
 
-W tym artykule opisano funkcje zabezpieczeń Azure Stack Edge, które pomagają chronić poszczególne składniki rozwiązań i przechowywane w nich dane.
+W tym artykule opisano funkcje zabezpieczeń programu Edge w wersji Azure Stack brzegowej, które pomagają chronić poszczególne składniki rozwiązań i przechowywane w nich dane.
 
-Azure Stack Edge składa się z czterech głównych komponentów, które współpracują ze sobą:
+Azure Stack EDGE Pro obejmuje cztery główne składniki, które współpracują ze sobą:
 
 - **Usługa Azure Stack Edge hostowana na platformie Azure**. Zasób zarządzania służący do tworzenia kolejności urządzeń, konfigurowania urządzenia, a następnie śledzenia kolejności do ukończenia.
-- **Azure Stack Urządzenie brzegowe**. Urządzenie transferowe, które jest wysyłane do Ciebie, aby można było zaimportować dane lokalne na platformę Azure.
-- **Klienci/hosty połączeni z urządzeniem**. Klienci w infrastrukturze, którzy łączą się z urządzeniem Azure Stack Edge i zawierają dane, które muszą być chronione.
+- **Azure Stack Edge na urządzeniu**. Urządzenie transferowe, które jest wysyłane do Ciebie, aby można było zaimportować dane lokalne na platformę Azure.
+- **Klienci/hosty połączeni z urządzeniem**. Klienci w infrastrukturze, którzy łączą się z urządzeniem Azure Stack EDGE Pro i zawierają dane, które muszą być chronione.
 - **Magazyn w chmurze**. Lokalizacja na platformie Azure w chmurze, w której są przechowywane dane. Ta lokalizacja jest zazwyczaj kontem magazynu połączonym z utworzonym zasobem Azure Stack Edge.
 
 ## <a name="azure-stack-edge-service-protection"></a>Azure Stacka Ochrona usługi Edge
@@ -34,9 +34,9 @@ Usługa Edge Azure Stack to usługa zarządzania hostowana na platformie Azure. 
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
 
-## <a name="azure-stack-edge-device-protection"></a>Azure Stack ochronę urządzenia brzegowego
+## <a name="azure-stack-edge-pro-device-protection"></a>Azure Stack Edge — ochrona urządzeń
 
-Urządzenie brzegowe Azure Stack jest urządzeniem lokalnym, które pomaga przekształcić dane, przetwarzając je lokalnie, a następnie wysyłając je na platformę Azure. Twoje urządzenie:
+Urządzenie Azure Stack EDGE Pro to urządzenie lokalne, które pomaga przekształcić dane, przetwarzając je lokalnie, a następnie wysyłając je na platformę Azure. Twoje urządzenie:
 
 - Potrzebuje klucza aktywacji, aby uzyskać dostęp do usługi Azure Stack Edge.
 - Jest chronione przez cały czas przy użyciu hasła urządzenia.
@@ -46,7 +46,7 @@ Urządzenie brzegowe Azure Stack jest urządzeniem lokalnym, które pomaga przek
 
 ### <a name="protect-the-device-via-activation-key"></a>Ochrona urządzenia za pomocą klucza aktywacji
 
-Tylko autoryzowane Azure Stack Urządzenie brzegowe może dołączyć do usługi Azure Stack Edge utworzonej w ramach subskrypcji platformy Azure. Aby autoryzować urządzenie, należy użyć klucza aktywacji w celu aktywowania urządzenia za pomocą usługi Azure Stack Edge.
+Do przyłączenia do usługi Azure Stack Edge, która została utworzona w ramach subskrypcji platformy Azure, może być dołączane tylko autoryzowane urządzenie Azure Stack Edge. Aby autoryzować urządzenie, należy użyć klucza aktywacji w celu aktywowania urządzenia za pomocą usługi Azure Stack Edge.
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
 
@@ -54,19 +54,19 @@ Aby uzyskać więcej informacji, zobacz [Uzyskiwanie klucza aktywacji](azure-sta
 
 ### <a name="protect-the-device-via-password"></a>Ochrona urządzenia za pomocą hasła
 
-Hasła zapewniają, że dostęp do danych mają tylko autoryzowani użytkownicy. Urządzenia brzegowe Azure Stack rozruchu w stanie zablokowanym.
+Hasła zapewniają, że dostęp do danych mają tylko autoryzowani użytkownicy. Azure Stack nastąpi rozruch urządzeń brzegowych Pro w stanie zablokowanym.
 
-Dostępne możliwości:
+Można:
 
 - Połącz się z lokalnym interfejsem użytkownika sieci Web urządzenia za pośrednictwem przeglądarki, a następnie podaj hasło, aby zalogować się na urządzeniu.
-- Zdalne łączenie się z interfejsem PowerShell urządzenia za pośrednictwem protokołu HTTP. Zdalne zarządzanie jest domyślnie włączone. Następnie można podać hasło urządzenia, aby zalogować się na urządzeniu. Aby uzyskać więcej informacji, zobacz [zdalne łączenie z urządzeniem Azure Stack Edge](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Zdalne łączenie się z interfejsem PowerShell urządzenia za pośrednictwem protokołu HTTP. Zdalne zarządzanie jest domyślnie włączone. Następnie można podać hasło urządzenia, aby zalogować się na urządzeniu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem Azure Stack EDGE Pro](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - [Zmień hasło](azure-stack-edge-manage-access-power-connectivity-mode.md#manage-device-access)przy użyciu lokalnego interfejsu użytkownika sieci Web. Jeśli zmienisz hasło, upewnij się, że wszyscy użytkownicy dostępu zdalnego nie mają problemów z logowaniem.
 
 ## <a name="protect-your-data"></a>Ochrona danych
 
-W tej sekcji opisano Azure Stack funkcje zabezpieczeń brzegowych chroniące dane przesyłane i przechowywane.
+Ta sekcja zawiera Azure Stack opis funkcji zabezpieczeń programu Edge w programie, które chronią dane w trakcie przesyłania i przechowywania.
 
 ### <a name="protect-data-at-rest"></a>Ochrona danych magazynowanych
 
@@ -95,4 +95,4 @@ Aby uzyskać więcej informacji, zapoznaj się z zasadami ochrony prywatności f
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wdrażanie urządzenia brzegowego Azure Stack](azure-stack-edge-deploy-prep.md)
+[Wdrażanie urządzenia z Azure Stack EDGE Pro](azure-stack-edge-deploy-prep.md)

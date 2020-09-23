@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189926"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983250"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault funkcje danych klienta
 
-Azure Key Vault otrzymuje dane klienta podczas tworzenia lub aktualizowania magazynów, kluczy, wpisów tajnych, certyfikatów i zarządzanych kont magazynu. Dane klienta są bezpośrednio widoczne w Azure Portal i za pomocą interfejsu API REST. Dane klienta można edytować lub usunąć, aktualizując lub usuwając obiekt zawierający dane.
+Azure Key Vault otrzymuje dane klienta podczas tworzenia lub aktualizowania magazynów, pul zarządzanych modułów HSM, kluczy, wpisów tajnych, certyfikatów i zarządzanych kont magazynu. Dane klienta są bezpośrednio widoczne w Azure Portal i za pomocą interfejsu API REST. Dane klienta można edytować lub usunąć, aktualizując lub usuwając obiekt zawierający dane.
 
 Dzienniki dostępu do systemu są generowane, gdy użytkownik lub aplikacja uzyskują dostęp do Key Vault. Szczegółowe dzienniki dostępu są dostępne dla klientów korzystających z usługi Azure Insights.
 
@@ -52,7 +52,7 @@ Azure Key Vault dzienników diagnostycznych zawierających dane osobowe można p
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Rejestrowanie Azure Key Vault](logging.md))
+- [Rejestrowanie Azure Key Vault](logging.md)
 
 - [Azure Key Vault — omówienie usuwania nietrwałego](soft-delete-cli.md)
 

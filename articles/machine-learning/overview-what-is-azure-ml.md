@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 72de3c45d0def7cf4a48884ee49be256179ac0a4
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f8be403a9aa095a24ec4802aad0364b535ed7c5a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659516"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902904"
 ---
 # <a name="what-is-azure-machine-learning"></a>Co to jest usługa Azure Machine Learning?
 
@@ -41,7 +41,7 @@ Dzięki prognozom lub przewidywaniom uzyskiwanym za pomocą uczenia maszynowego 
 ## <a name="machine-learning-tools-to-fit-each-task"></a>Narzędzia uczenia maszynowego do dopasowania poszczególnych zadań 
 
 Azure Machine Learning udostępnia wszystkie narzędzia dla deweloperów i analityków danych, które są potrzebne dla swoich przepływów pracy uczenia maszynowego, w tym:
-+ [Projektant Azure Machine Learning](tutorial-designer-automobile-price-train-score.md) (wersja zapoznawcza): Przeciągnij i upuść moduły, aby skompilować eksperymenty, a następnie wdrożyć potoki.
++ [Projektant Azure Machine Learning](tutorial-designer-automobile-price-train-score.md): Przeciągnij i upuść moduły, aby skompilować eksperymenty, a następnie wdrożyć potoki.
 
 + Notesy Jupyter: Użyj naszych [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks) lub Utwórz własne notesy, aby korzystać z naszego <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">zestawu SDK dla</a> przykładów języka Python dla uczenia maszynowego. 
 
@@ -71,7 +71,7 @@ Możesz również [zautomatyzować szkolenia i dostrajanie modeli](tutorial-auto
 
 [Azure Machine Learning Studio](https://studio.azureml.net) to portal sieci web w Azure Machine Learning dla opcji niskiego kodu i braku kodu dla celów związanych z modelem szkoleń, wdrażania i zarządzania zasobami. Program Studio integruje się z zestawem SDK Azure Machine Learning, aby zapewnić bezproblemowe działanie. Aby uzyskać więcej informacji, zobacz [co to jest Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
 
-+ **Projektant Azure Machine Learning (wersja zapoznawcza)**
++ **Projektant usługi Azure Machine Learning**
 
   Użyj [projektanta,](concept-designer.md) aby nauczyć i wdrożyć modele uczenia maszynowego bez konieczności pisania kodu. Wypróbuj [samouczek projektanta](tutorial-designer-automobile-price-train-score.md) , aby rozpocząć pracę. 
 
@@ -124,15 +124,6 @@ Azure Machine Learning współpracuje z innymi usługami na platformie Azure, a 
 ### <a name="secure-communications"></a>Bezpieczna komunikacja
 
 Twoje konto usługi Azure Storage, cele obliczeniowe i inne zasoby mogą być bezpiecznie używane w sieci wirtualnej do uczenia modeli i wykonywania wnioskowania. Aby uzyskać więcej informacji, zobacz [Omówienie izolacji i prywatności w sieci wirtualnej](how-to-network-security-overview.md).
-
-## <a name="basic--enterprise-editions"></a><a name="sku"></a>Wersje Basic & Enterprise
-
-Azure Machine Learning oferuje dwie wersje dostosowane do potrzeb uczenia maszynowego:
-+ **Podstawowa**: doskonałe dla opracowywania aplikacji typu "open source" w skali chmury przy użyciu pierwszego środowiska.
-
-+ **Enterprise**: wszystkie podstawowe oraz interfejs sieci Web (Studio) + bezpieczne, kompleksowe zarządzanie cyklem życia ml dla wszystkich poziomów umiejętności.
-
-Aby dowiedzieć się więcej o tych wersjach i ich możliwościach, Przeczytaj [artykuł "Azure Machine Learning wersje"](concept-editions.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

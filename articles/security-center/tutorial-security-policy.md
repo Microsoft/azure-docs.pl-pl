@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 94a0c0af5071397ee4deb859f8f58f2ed1c73a77
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277667"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894569"
 ---
 # <a name="working-with-security-policies"></a>Praca z zasadami zabezpieczeń
 
@@ -33,7 +33,7 @@ Azure Security Center wykonuje zalecenia dotyczące zabezpieczeń w oparciu o wy
 
 Security Center oferuje następujące opcje pracy z zasadami zabezpieczeń:
 
-* **Wyświetlanie i edytowanie wbudowanych zasad domyślnych** — po włączeniu Security Center, wbudowana inicjatywa o nazwie "wartość domyślna" w wersji ASC zostanie automatycznie przypisana do wszystkich Security Center zarejestrowanych subskrypcji (warstwy cenowe bezpłatne lub standardowe). Aby dostosować tę inicjatywę, możesz włączyć lub wyłączyć poszczególne zasady w ramach tego programu. Zapoznaj się z listą [wbudowanych zasad zabezpieczeń](security-center-policy-definitions.md) , aby poznać dostępne opcje.
+* **Wyświetlanie i edytowanie wbudowanych zasad domyślnych** — po włączeniu Security Center wbudowana inicjatywa o nazwie "domyślna wartość ASC" jest automatycznie przypisywana do wszystkich Security Center zarejestrowanych subskrypcji. Aby dostosować tę inicjatywę, możesz włączyć lub wyłączyć poszczególne zasady w ramach tego programu. Zapoznaj się z listą [wbudowanych zasad zabezpieczeń](security-center-policy-definitions.md) , aby poznać dostępne opcje.
 
 * **Dodawanie własnych zasad niestandardowych** — Jeśli chcesz dostosować inicjatywy zabezpieczeń stosowane do subskrypcji, możesz to zrobić w ramach Security Center. Następnie otrzymasz zalecenia, jeśli maszyny nie będą zgodne z tworzonymi zasadami. Aby uzyskać instrukcje dotyczące tworzenia i przypisywania zasad niestandardowych, zobacz [Używanie niestandardowych zasad zabezpieczeń](custom-security-policies.md).
 

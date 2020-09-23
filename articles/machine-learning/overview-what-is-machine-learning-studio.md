@@ -1,5 +1,5 @@
 ---
-title: Co to jest Azure Machine Learning Studio?
+title: Co to jest usługa Azure Machine Learning Studio?
 description: Azure Machine Learning Studio to portal sieci Web dla Azure Machine Learning obszarów roboczych. W programie Studio nie są połączona żadne kod i pierwsze środowisko, aby utworzyć platformę do nauki o danych.
 services: machine-learning
 ms.service: machine-learning
@@ -8,14 +8,14 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 4f6252ffbb880e347a89594cb267fb99d576dc7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89040458"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902923"
 ---
-# <a name="what-is-azure-machine-learning-studio"></a>Co to jest Azure Machine Learning Studio?
+# <a name="what-is-azure-machine-learning-studio"></a>Co to jest usługa Azure Machine Learning Studio?
 
 Ten artykuł zawiera informacje na temat Azure Machine Learning Studio — portalu sieci Web dla deweloperów analityków danych w programie [Azure Machine Learning](overview-what-is-azure-ml.md). W programie Studio nie są połączona żadne kod i pierwsze środowisko do nauki o danych.
 
@@ -34,13 +34,13 @@ Studio oferuje wiele środowisk tworzenia w zależności od projektu typu i pozi
 
   Pisz i uruchamiaj własny kod w zarządzanych [serwerach Jupyter Notebook](how-to-run-jupyter-notebooks.md) , które są bezpośrednio zintegrowane w programie Studio. 
 
-+ **Projektant Azure Machine Learning (wersja zapoznawcza)**
++ **Projektant usługi Azure Machine Learning**
 
   Użyj projektanta, aby nauczyć i wdrożyć modele uczenia maszynowego bez konieczności pisania kodu. Przeciągnij i upuść zestawy danych i moduły, aby utworzyć potoki ML. Wypróbuj [samouczek projektanta](tutorial-designer-automobile-price-train-score.md).
 
     ![Przykład projektanta Azure Machine Learning](media/concept-designer/designer-drag-and-drop.gif)
 
-+ **Zautomatyzowany interfejs użytkownika uczenia maszynowego (wersja zapoznawcza)**
++ **Zautomatyzowany interfejs użytkownika uczenia maszynowego**
 
   Dowiedz się, jak tworzyć [zautomatyzowane eksperymenty ml](tutorial-first-experiment-automated-ml.md) przy użyciu łatwego w użyciu interfejsu. 
 
@@ -80,9 +80,9 @@ Zalecamy, aby nowi użytkownicy wybierali **Azure Machine Learning**, a nie ml S
 
 Poniższa tabela zawiera podsumowanie podstawowych różnic między ML Studio (klasyczne) i Azure Machine Learning.
 
-| Cecha | ML Studio (klasyczny) | Azure Machine Learning |
+| Cechy | ML Studio (klasyczny) | Azure Machine Learning |
 |---| --- | --- |
-| Przeciąganie i upuszczanie interfejsu | Środowisko klasyczne | Zaktualizowane środowisko — [projektant Azure Machine Learning (wersja zapoznawcza)](concept-designer.md) <br/>(Wymaga obszaru roboczego przedsiębiorstwa) | 
+| Przeciąganie i upuszczanie interfejsu | Środowisko klasyczne | Zaktualizowane środowisko — [projektant Azure Machine Learning](concept-designer.md)| 
 | Zestawy SDK kodu | Nieobsługiwane | W pełni zintegrowane z [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) i [języka R](tutorial-1st-r-experiment.md) SDK |
 | Experiment | Skalowalne (limit danych szkolenia 10 GB) | Skalowanie za pomocą elementu docelowego obliczeń |
 | Szkoleniowe cele obliczeniowe | Własnościowy obiekt docelowy obliczeń, tylko obsługa procesora CPU | Szeroki zakres dostosowywalnych [obiektów docelowych obliczeń szkoleniowych](concept-compute-target.md#train). Obejmuje obsługę procesora GPU i procesorów | 
@@ -95,7 +95,7 @@ Poniższa tabela zawiera podsumowanie podstawowych różnic między ML Studio (k
 | Projekty etykietowania danych | Nieobsługiwane | [Obsługiwane](how-to-create-labeling-projects.md) |
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Odwiedź [Studio](https://ml.azure.com)lub zapoznaj się z różnymi opcjami tworzenia, korzystając z następujących samouczków:  
   + [Korzystanie z notesów Python do uczenia & wdrażania modeli](tutorial-1st-experiment-sdk-setup.md)

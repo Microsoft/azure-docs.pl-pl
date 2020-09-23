@@ -1,6 +1,6 @@
 ---
-title: Tworzenie klastra Kubernetes i zarządzanie nim na urządzeniu Azure Stack Edge GPU Microsoft Docs
-description: Opisuje sposób tworzenia klastra Kubernetes Azure Stack na urządzeniu z systemem Windows Edge i zarządzania nim za pośrednictwem interfejsu programu PowerShell.
+title: Tworzenie klastra Kubernetes i zarządzanie nim na urządzeniu z systemem Azure Stack EDGE Pro GPU | Microsoft Docs
+description: Zawiera opis sposobu tworzenia klastra Kubernetes i zarządzania nim na urządzeniu z systemem Windows PowerShell Azure Stack w wersji brzegowej Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 95663553bc68d34eebd90be0d4032ee53900479b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267962"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903209"
 ---
-# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Nawiązywanie połączenia z klastrem Kubernetes i zarządzanie nim za pośrednictwem polecenia kubectl na urządzeniu z procesorem GPU Azure Stack Edge
+# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Nawiązywanie połączenia z klastrem Kubernetes i zarządzanie nim za pomocą polecenia kubectl na urządzeniu z systemem Azure Stack EDGE Pro GPU
 
-Na urządzeniu Azure Stack Edge tworzony jest klaster Kubernetes podczas konfigurowania roli obliczeniowej. Po utworzeniu klastra Kubernetes można nawiązać połączenie z klastrem i zarządzać nim lokalnie z komputera klienckiego za pomocą narzędzia macierzystego, takiego jak *polecenia kubectl*.
+Na urządzeniu Azure Stack EDGE Pro tworzony jest klaster Kubernetes podczas konfigurowania roli obliczeniowej. Po utworzeniu klastra Kubernetes można nawiązać połączenie z klastrem i zarządzać nim lokalnie z komputera klienckiego za pomocą narzędzia macierzystego, takiego jak *polecenia kubectl*.
 
-Azure Stack w tym artykule opisano sposób nawiązywania połączenia z klastrem Kubernetes na urządzeniu brzegowym, a następnie zarządzania nim za pomocą usługi *polecenia kubectl*. 
+W tym artykule opisano sposób nawiązywania połączenia z klastrem Kubernetes na urządzeniu z systemem Azure Stack EDGE Pro, a następnie zarządzania nim za pomocą usługi *polecenia kubectl*. 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem upewnij się, że:
 
-1. Masz dostęp do Azure Stack urządzenia brzegowego.
+1. Masz dostęp do urządzenia z Azure Stack Edge.
 
-2. Aktywowano urządzenie Azure Stack Edge zgodnie z opisem w artykule [aktywuj Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+2. Twoje urządzenie Azure Stack EDGE Pro zostało aktywowane zgodnie z opisem w artykule [aktywuj Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-activate.md).
 
-3. Na urządzeniu została włączona rola obliczeniowa. Klaster Kubernetes został również utworzony na urządzeniu podczas konfigurowania obliczeń na urządzeniu zgodnie z instrukcjami w temacie [Konfigurowanie obliczeń na urządzeniu Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-compute.md).
+3. Na urządzeniu została włączona rola obliczeniowa. Klaster Kubernetes został również utworzony na urządzeniu podczas konfigurowania obliczeń na urządzeniu zgodnie z instrukcjami w temacie [Konfigurowanie obliczeń na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 4. Masz dostęp do systemu klienta systemu Windows z uruchomionym programem PowerShell 5,0 lub nowszym w celu uzyskania dostępu do urządzenia. Możesz również mieć dowolnego innego klienta z [obsługiwanym systemem operacyjnym](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . 
 
@@ -48,7 +48,7 @@ Po utworzeniu klastra Kubernetes można uzyskać dostęp do tego klastra w celu 
 
 Po utworzeniu klastra Kubernetes można użyć *polecenia kubectl* za pośrednictwem pliku Cmdlines, aby uzyskać dostęp do klastra. 
 
-W tym podejściu utworzysz przestrzeń nazw i użytkownika. Następnie należy skojarzyć użytkownika z przestrzenią nazw. Należy również pobrać plik *konfiguracji* , który umożliwia klientowi Kubernetes bezpośrednie komunikowanie się z klastrem Kubernetes utworzonym bez konieczności nawiązywania połączenia z interfejsem programu PowerShell urządzenia Azure Stack Edge.
+W tym podejściu utworzysz przestrzeń nazw i użytkownika. Następnie należy skojarzyć użytkownika z przestrzenią nazw. Należy również pobrać plik *konfiguracji* , który umożliwia klientowi Kubernetes bezpośrednie komunikowanie się z klastrem Kubernetes, który został utworzony bez konieczności nawiązywania połączenia z interfejsem programu PowerShell urządzenia z Azure Stack EDGE Pro.
 
 1. Tworzenie przestrzeni nazw. Wpisz:
 
@@ -66,7 +66,7 @@ W tym podejściu utworzysz przestrzeń nazw i użytkownika. Następnie należy s
     `New-HcsKubernetesUser -UserName <string>`
 
     > [!NOTE]
-    > Nie można użyć *aseuser* jako nazwy użytkownika, ponieważ jest ona zarezerwowana dla domyślnego użytkownika skojarzonego z przestrzenią nazw IoT dla Azure Stack Edge.
+    > Nie można użyć *aseuser* jako nazwy użytkownika, ponieważ jest ona zarezerwowana dla domyślnego użytkownika skojarzonego z przestrzenią nazw IoT dla Azure Stack EDGE Pro.
 
     Oto przykładowe dane wyjściowe pliku konfiguracji:
    
@@ -113,7 +113,7 @@ W tym podejściu utworzysz przestrzeń nazw i użytkownika. Następnie należy s
 
     `[10.100.10.10]: PS>Grant-HcsKubernetesNamespaceAccess -Namespace "myasetest1" -UserName "aseuser1"`
 
-    Po utworzeniu pliku konfiguracji nie jest potrzebny fizyczny dostęp do klastra. Jeśli klient może wysyłać polecenie ping do adresu IP urządzenia brzegowego Azure Stack, powinno być możliwe skierowanie klastra przy użyciu poleceń *polecenia kubectl* .
+    Po utworzeniu pliku konfiguracji nie jest potrzebny fizyczny dostęp do klastra. Jeśli klient może wysłać polecenie ping do adresu IP urządzenia w Azure Stack EDGE Pro, powinno być możliwe skierowanie klastra przy użyciu poleceń *polecenia kubectl* .
 
 6. Rozpocznij nową sesję programu PowerShell na kliencie. Nie musisz być połączony z interfejsem urządzenia. Teraz można zainstalować program `kubectl` na kliencie przy użyciu następującego polecenia:
 
@@ -125,7 +125,7 @@ W tym podejściu utworzysz przestrzeń nazw i użytkownika. Następnie należy s
     Na przykład, jeśli węzeł główny Kubernetes miał uruchomioną 1.15.2, zainstaluj program v 1.15.2 na komputerze klienckim.
 
     > [!IMPORTANT]
-    > Pobierz klienta, który jest skośny, nie więcej niż jedną wersję pomocniczą z serwera głównego. Wersja klienta, ale może prowadzić do programu głównego do jednej wersji pomocniczej. Na przykład wzorzec v 1.3 powinien współpracować z węzłami v 1.1, v 1.2 i v 1.3 i powinien współpracować z klientami w wersji 1.2, v 1.3 i v 1.4. Aby uzyskać więcej informacji na temat wersji klienta Kubernetes, zobacz [zasady obsługi systemu Kubernetes wersja i wersja](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). Aby uzyskać więcej informacji o wersji serwera Kubernetes na Azure Stack Edge, przejdź do Get Kubernetes Server version.<!-- insert link-->
+    > Pobierz klienta, który jest skośny, nie więcej niż jedną wersję pomocniczą z serwera głównego. Wersja klienta, ale może prowadzić do programu głównego do jednej wersji pomocniczej. Na przykład wzorzec v 1.3 powinien współpracować z węzłami v 1.1, v 1.2 i v 1.3 i powinien współpracować z klientami w wersji 1.2, v 1.3 i v 1.4. Aby uzyskać więcej informacji na temat wersji klienta Kubernetes, zobacz [zasady obsługi systemu Kubernetes wersja i wersja](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew). Aby uzyskać więcej informacji na temat wersji Kubernetes Server w Azure Stack EDGE Pro, przejdź do pozycji Pobierz Kubernetes Server version.<!-- insert link-->
     > Czasami program `kubectl` jest preinstalowany w systemie, jeśli jest uruchomiony program Docker for Windows lub inne narzędzia. Ważne jest, aby pobrać określoną wersję programu `kubectl` zgodnie z opisem w tej sekcji, aby współdziałać z tym klastrem Kubernetes. 
 
     Instalacja trwa kilka minut.
@@ -172,4 +172,4 @@ Aby uzyskać szczegółowe instrukcje, przejdź do obszaru [Usuwanie konfiguracj
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wdróż bezstanową aplikację na Azure Stackej krawędzi](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Wdróż bezstanową aplikację na Azure Stack Edge](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).

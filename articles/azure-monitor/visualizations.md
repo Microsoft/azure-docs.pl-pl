@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325529"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983593"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Wizualizowanie danych z usługi Azure Monitor
 Ten artykuł zawiera podsumowanie dostępnych metod wizualizacji danych dziennika i metryk przechowywanych w Azure Monitor.
@@ -21,7 +21,7 @@ Wizualizacje, takie jak wykresy i wykresy, mogą ułatwić analizowanie danych m
 ## <a name="workbooks"></a>Skoroszyty
 [Skoroszyty](./platform/workbooks-overview.md) to interaktywne dokumenty, które zapewniają szczegółowe informacje o danych, badaniu i współpracy w zespole. Konkretne przykłady, w których przydatne są skoroszyty, to przewodniki dotyczące rozwiązywania problemów i postmortem zdarzeń.
 
-![skoroszyt](media/visualizations/workbook.png)
+![Diagram przedstawia zrzuty ekranu zawierające kilka stron ze skoroszytu, w tym analizę widoków stron, użycie i czas spędzony na stronie.](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>Zalety
 - Obsługuje metryki i dzienniki.
@@ -39,7 +39,7 @@ Wizualizacje, takie jak wykresy i wykresy, mogą ułatwić analizowanie danych m
 ## <a name="azure-dashboards"></a>Pulpity nawigacyjne platformy Azure
 [Pulpity nawigacyjne platformy Azure](../azure-portal/azure-portal-dashboards.md) są podstawową technologią nawigacyjną dla platformy Azure. Są one szczególnie przydatne w przypadku udostępniania pojedynczego okienka Glass przez infrastrukturę i usługi platformy Azure, co pozwala na szybkie identyfikowanie ważnych problemów.
 
-![Pulpit nawigacyjny](media/visualizations/dashboard.png)
+![Zrzut ekranu przedstawia przykład pulpitu nawigacyjnego platformy Azure z dostosowywalnymi informacjami.](media/visualizations/dashboard.png)
 
 Oto przewodnik wideo dotyczący tworzenia pulpitów nawigacyjnych.
 
@@ -88,7 +88,7 @@ Oto przewodnik wideo dotyczący tworzenia pulpitów nawigacyjnych.
 ## <a name="grafana"></a>Grafana
 [Grafana](https://grafana.com/) to otwarta platforma, którą program Excel ma w operacyjnych pulpitach nawigacyjnych. Jest to szczególnie przydatne w przypadku wykrywania i izolowania i segregowania zdarzeń operacyjnych. Możesz dodać [wtyczkę Grafana Azure monitor źródła danych](platform/grafana-plugin.md) do subskrypcji platformy Azure, aby wizualizować dane metryk platformy Azure.
 
-![Grafana](media/visualizations/grafana.png)
+![Zrzut ekranu przedstawia wizualizacje Grafana.](media/visualizations/grafana.png)
 
 ### <a name="advantages"></a>Zalety
 - Rozbudowane wizualizacje.
@@ -117,10 +117,10 @@ Możesz uzyskać dostęp do danych w dziennikach i danych metryk w Azure Monitor
 > [!IMPORTANT]
 > Widoki są w trakcie przestarzałe. Aby uzyskać wskazówki dotyczące konwertowania widoków na skoroszyty, zobacz temat [Azure monitor View Designer to skoroszyts](platform/view-designer-conversion-overview.md) .
 
-[Widoki w Azure monitor](platform/view-designer.md) umożliwiają tworzenie niestandardowych wizualizacji przy użyciu danych dziennika. Są one używane przez [rozwiązania monitorujące](insights/solutions.md) , które umożliwiają prezentowanie zbieranych danych.
+[Widoki w Azure monitor](platform/view-designer.md)  umożliwiają tworzenie niestandardowych wizualizacji przy użyciu danych dziennika. Są one używane przez [rozwiązania monitorujące](insights/solutions.md) , które umożliwiają prezentowanie zbieranych danych.
 
 
-![Widok](media/visualizations/view.png)
+![Zrzut ekranu przedstawia kafelek rozwiązania do monitorowania kontenerów i widok szczegółowy Azure Monitor, który zostanie otwarty po jego wybraniu.](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Zalety
 - Rozbudowane wizualizacje danych dziennika.

@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9d94904e580cefb53b2c71d21259bebfc07c1ad6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431282"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983748"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Łączenie VPN Gateway (Brama sieci wirtualnej) z wirtualną siecią WAN
 
@@ -20,7 +20,7 @@ Ten artykuł ułatwia skonfigurowanie łączności z usługą Azure VPN Gateway 
 
 Aby zminimalizować możliwe pomyłki między dwoma funkcjami, firma Microsoft ponosi bramę o nazwie funkcji, do której się odwołuje. Na przykład VPN Gateway bramy sieci wirtualnej i bramy sieci VPN wirtualnej sieci WAN.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Przed rozpoczęciem Utwórz następujące zasoby:
 
@@ -47,7 +47,7 @@ Na stronie **Konfiguracja** bramy sieci wirtualnej Włącz tryb aktywny-aktywny.
 
 Na stronie **Konfiguracja** bramy sieci wirtualnej można skonfigurować protokół **BGP**. Zmień wartość ASN protokołu BGP. Wartość ASN protokołu BGP nie może być 65515. 66515 będzie używana przez wirtualną sieć WAN platformy Azure.
 
-![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "Protokół")
+![Zrzut ekranu przedstawia stronę konfiguracji bramy sieci wirtualnej z wybraną pozycją Konfiguruj protokół BGP ASN.](./media/connect-virtual-network-gateway-vwan/bgp.png "Protokół")
 
 ### <a name="public-ip-addresses"></a><a name="pip"></a>Publiczne adresy IP
 
