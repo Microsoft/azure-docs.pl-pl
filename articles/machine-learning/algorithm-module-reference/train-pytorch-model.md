@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170262"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883234"
 ---
 # <a name="train-pytorch-model"></a>Trenowanie modelu Pytorch
 
-W tym artykule opisano, jak używać modułu **uczenie Pytorch model** w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu uczenia modeli Pytorch, takich jak DenseNet. Szkolenia odbywają się po zdefiniowaniu modelu i ustawieniu jego parametrów i wymaganiu etykiet danych. 
+W tym artykule opisano, jak używać modułu **uczenie Pytorch model** w programie Azure Machine Learning Designer do uczenia modeli Pytorch, takich jak DenseNet. Szkolenia odbywają się po zdefiniowaniu modelu i ustawieniu jego parametrów i wymaganiu etykiet danych. 
 
 ## <a name="how-to-use-train-pytorch-model"></a>Jak używać modelu uczenia Pytorch 
 
@@ -66,12 +66,12 @@ Po zakończeniu przebiegu potoku, aby użyć modelu do oceniania, Połącz [mode
 
 ###  <a name="module-parameters"></a>Parametry modułu  
 
-| Nazwa          | Zakres            | Typ    | Domyślne | Opis                              |
+| Nazwa          | Zakres            | Typ    | Domyślny | Opis                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Epoki        | >0               | Integer | 5       | Wybierz kolumnę, która zawiera etykietę lub kolumnę wyniku |
 | Rozmiar partii    | >0               | Integer | 16      | Liczba wystąpień do uczenia w partii   |
 | Tempo nauki | >= Double. Epsilon | Float   | 0,001   | Początkowa stawka szkoleniowa dla Stochastycznegoego gradientu. |
-| Losowy inicjator   | Dowolny              | Integer | 1       | Inicjator dla generatora liczb losowych używanego przez model. |
+| Losowy inicjator   | Dowolne              | Integer | 1       | Inicjator dla generatora liczb losowych używanego przez model. |
 | Oczekując      | >0               | Integer | 3       | Ile epok z wczesnym zatrzymywaniem szkoleń   |
 
 ###  <a name="outputs"></a>Dane wyjściowe  

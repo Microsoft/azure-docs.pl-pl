@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004107"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886503"
 ---
 # <a name="data-discovery--classification"></a>Odnajdywanie i klasyfikacja danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,8 +30,6 @@ Najważniejsze dane mogą obejmować działalność, finanse, opiekę lub dane o
 - Pomoc w spełnianiu standardów dotyczących prywatności danych i wymagań dotyczących zgodności z przepisami.
 - Różne scenariusze zabezpieczeń, takie jak monitorowanie (inspekcja) i alerty dotyczące nietypowego dostępu do poufnych danych.
 - Kontrolowanie dostępu do i ograniczanie bezpieczeństwa baz danych zawierających wysoce poufne dane.
-
-Funkcja odnajdywania danych & jest częścią [zaawansowanej oferty zabezpieczeń danych](advanced-data-security.md) , która jest jednolitym pakietem zaawansowanych funkcji zabezpieczeń usługi Azure SQL. Możesz uzyskać dostęp do klasyfikacji & odnajdywania danych i zarządzać nią za pośrednictwem centralnej sekcji **zaawansowanego dostępu do danych SQL** w Azure Portal.
 
 > [!NOTE]
 > Aby uzyskać informacje na temat SQL Server lokalnych, zobacz temat [klasyfikacja & SQL Data Discovery](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -79,31 +77,23 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 
-2. Przejdź do pozycji **Zaawansowane zabezpieczenia danych** w obszarze nagłówek **zabezpieczenia** w okienku Azure SQL Database. Wybierz pozycję **Zaawansowane zabezpieczenia danych**, a następnie wybierz kartę **Klasyfikacja danych &** .
+1. Przejdź do obszaru **odnajdywanie danych & Klasyfikacja** pod nagłówkiem zabezpieczenia w okienku Azure SQL Database. Karta przegląd zawiera podsumowanie bieżącego stanu klasyfikacji bazy danych. Podsumowanie zawiera szczegółową listę wszystkich sklasyfikowanych kolumn, które można również filtrować w celu wyświetlania tylko określonych części schematu, typów informacji i etykiet. Jeśli nie zostały jeszcze sklasyfikowane żadne kolumny, [Przejdź do kroku 4](#step-4).
 
-   ![Zaawansowane okienko zabezpieczenia danych w Azure Portal](./media/data-discovery-and-classification-overview/data_classification.png)
+1. Aby pobrać raport w formacie programu Excel, wybierz opcję **Eksportuj** w górnym menu okienka.
 
-3. Na stronie **klasyfikacja & odnajdywania danych** karta **Przegląd** zawiera podsumowanie bieżącego stanu klasyfikacji bazy danych. Podsumowanie zawiera szczegółową listę wszystkich sklasyfikowanych kolumn, które można również filtrować w celu wyświetlania tylko określonych części schematu, typów informacji i etykiet. Jeśli nie zostały jeszcze sklasyfikowane żadne kolumny, [Przejdź do kroku 5](#step-5).
-
-   ![Podsumowanie bieżącego stanu klasyfikacji](./media/data-discovery-and-classification-overview/2_data_classification_overview_dashboard.png)
-
-4. Aby pobrać raport w formacie programu Excel, wybierz opcję **Eksportuj** w górnym menu okienka.
-
-5. <a id="step-5"></a>Aby rozpocząć klasyfikowanie danych, wybierz kartę **Klasyfikacja** na stronie **Klasyfikacja & odnajdywania danych** .
+1. <a id="step-4"></a>Aby rozpocząć klasyfikowanie danych, wybierz kartę **Klasyfikacja** na stronie **Klasyfikacja & odnajdywania danych** .
 
     Aparat klasyfikacji skanuje bazę danych pod kątem kolumn zawierających potencjalnie wrażliwe dane i zawiera listę zalecanych klasyfikacji kolumn.
 
-6. Wyświetl i Zastosuj zalecenia dotyczące klasyfikacji:
+1. Wyświetl i Zastosuj zalecenia dotyczące klasyfikacji:
 
    - Aby wyświetlić listę zalecanych klasyfikacji kolumn, wybierz Panel zalecenia w dolnej części okienka.
 
    - Aby zaakceptować zalecenie dotyczące konkretnej kolumny, zaznacz pole wyboru w lewej kolumnie odpowiedniego wiersza. Aby oznaczyć wszystkie rekomendacje jako akceptowane, zaznacz pole wyboru z lewej strony w nagłówku tabeli rekomendacji.
 
-       ![Przejrzyj i wybierz z listy zaleceń klasyfikacji](./media/data-discovery-and-classification-overview/6_data_classification_recommendations_list.png)
-
    - Aby zastosować wybrane zalecenia, wybierz pozycję **Zaakceptuj wybrane rekomendacje**.
 
-7. Można również klasyfikować kolumny ręcznie, jako alternatywę lub jako uzupełnienie klasyfikacji opartej na rekomendacji:
+1. Można również klasyfikować kolumny ręcznie, jako alternatywę lub jako uzupełnienie klasyfikacji opartej na rekomendacji:
 
    1. Wybierz pozycję **Dodaj klasyfikację** w górnym menu okienka.
 
@@ -111,9 +101,7 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 
    1. Wybierz pozycję **Dodaj klasyfikację** u dołu okna kontekstu.
 
-      ![Wybierz kolumnę do klasyfikowania](./media/data-discovery-and-classification-overview/9_data_classification_manual_classification.png)
-
-8. Aby dokończyć swoją klasyfikację i trwale oznaczyć (tag) kolumnami bazy danych nowymi metadanymi klasyfikacji, wybierz pozycję **Zapisz** w górnym menu okna.
+1. Aby dokończyć swoją klasyfikację i trwale oznaczyć (tag) kolumnami bazy danych nowymi metadanymi klasyfikacji, wybierz pozycję **Zapisz** w górnym menu okna.
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Inspekcja dostępu do poufnych danych
 
@@ -191,6 +179,5 @@ Za pomocą interfejsu API REST można programowo zarządzać klasyfikacjami i za
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [zaawansowanych zabezpieczeniach danych](advanced-data-security.md).
 - Należy rozważyć skonfigurowanie [inspekcji usługi Azure SQL](../../azure-sql/database/auditing-overview.md) na potrzeby monitorowania i inspekcji dostępu do danych poufnych.
 - Aby poznać prezentację obejmującą &ą klasyfikację, zobacz [odnajdywanie, klasyfikowanie, etykietowanie & Ochrona danych SQL | Dane uwidocznione](https://www.youtube.com/watch?v=itVi9bkJUNc).

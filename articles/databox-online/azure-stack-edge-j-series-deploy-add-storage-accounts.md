@@ -1,6 +1,6 @@
 ---
-title: Samouczek dotyczący transferu danych do konta magazynu za pomocą Azure Stack Edge GPU | Microsoft Docs
-description: Dowiedz się, jak dodawać lokalne i graniczne konta magazynu na Azure Stack na urządzeniu GPU.
+title: Samouczek dotyczący transferowania danych do konta magazynu przy użyciu programu Azure Stack EDGE Pro GPU | Microsoft Docs
+description: Dowiedz się, jak dodawać lokalne i brzegowe konta magazynu na urządzeniu z systemem Azure Stack Edge w ramach procesora GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 66c09b7fa0eb8fbf709441da5996fb2237b3e284
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: c24970b30e522d593a491194dbbabb0421ad7f4b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256400"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891062"
 ---
-# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-gpu"></a>Samouczek: przesyłanie danych za pomocą kont magazynu za pomocą Azure Stack Edge GPU 
+# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>Samouczek: przesyłanie danych za pomocą kont magazynu za pomocą Azure Stack Edge — procesor GPU 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-W tym samouczku opisano, jak dodawać konta magazynu i łączyć się z nimi na urządzeniu Azure Stack Edge. Po dodaniu kont magazynu Azure Stack Edge może przesyłać dane na platformę Azure.
+W tym samouczku opisano, jak dodawać konta magazynu i łączyć się z nimi na urządzeniu Azure Stack EDGE Pro. Po dodaniu kont magazynu Azure Stack EDGE Pro będzie mogła przesyłać dane na platformę Azure.
 
 Wykonanie tej procedury może potrwać około 30 minut.
 
@@ -33,11 +33,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
  
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed dodaniem kont magazynu do Azure Stack Edge upewnij się, że:
+Przed dodaniem kont magazynu do Azure Stack EDGE Pro upewnij się, że:
 
-- Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w artykule [instalowanie Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+- Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w artykule [instalowanie Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-install.md).
 
-- Urządzenie fizyczne zostało aktywowane zgodnie z opisem w [uaktywnieniu Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+- Urządzenie fizyczne zostało aktywowane zgodnie z opisem w artykule [aktywowanie Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 
 ## <a name="add-an-edge-storage-account"></a>Dodawanie konta magazynu brzegowego
@@ -135,7 +135,7 @@ Wszystkie wymienione kroki zostały opisane poniżej.
 
 ### <a name="get-certificate"></a>Pobierz certyfikat
 
-Dostęp do usługi BLOB Storage za pośrednictwem protokołu HTTPS wymaga certyfikatu SSL dla urządzenia. Ten certyfikat zostanie również przekazany do urządzenia Azure Stack Edge jako plik *PFX* z dołączonym kluczem prywatnym. Aby uzyskać więcej informacji na temat tworzenia (tylko dla celów testowych i deweloperskich) i przekazywania tych certyfikatów do urządzenia Azure Stack Edge, przejdź do:
+Dostęp do usługi BLOB Storage za pośrednictwem protokołu HTTPS wymaga certyfikatu SSL dla urządzenia. Ten certyfikat zostanie również przekazany do urządzenia z systemem Azure Stack brzeg Pro jako plik *PFX* z dołączonym kluczem prywatnym. Aby uzyskać więcej informacji na temat sposobu tworzenia (tylko do celów testowych i deweloperskich) i przekazywania tych certyfikatów do urządzenia Azure Stack EDGE Pro, przejdź do:
 
 - [Utwórz certyfikat punktu końcowego obiektu BLOB](azure-stack-edge-j-series-manage-certificates.md#create-certificates-optional).
 - [Przekaż certyfikat punktu końcowego obiektu BLOB](azure-stack-edge-j-series-manage-certificates.md#upload-certificates).
@@ -167,15 +167,15 @@ Postępuj zgodnie z instrukcjami, aby [skonfigurować i zweryfikować połączen
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku omówiono następujące tematy Azure Stack Edge:
+W tym samouczku omówiono następujące tematy Azure Stack EDGE Pro:
 
 > [!div class="checklist"]
 > * Dodawanie konta magazynu
 > * Nawiązywanie połączenia z kontem magazynu
 
-Aby dowiedzieć się, jak przekształcić dane przy użyciu Azure Stack Edge, przejdź do następnego samouczka:
+Aby dowiedzieć się, jak przekształcić dane przy użyciu Azure Stack EDGE Pro, przejdź do następnego samouczka:
 
 > [!div class="nextstepaction"]
-> [Przekształcanie danych za pomocą Azure Stack Edge](./azure-stack-edge-j-series-deploy-configure-compute.md)
+> [Przekształcanie danych za pomocą Azure Stack EDGE Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
 
 

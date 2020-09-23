@@ -11,15 +11,14 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 37253ccfb249eb8b510af5e314c3167ddd979a87
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661953"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898102"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Utwórz cele obliczeniowe dla szkolenia i wdrożenia modelu w programie Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, jak tworzyć cele obliczeniowe i zarządzać nimi w usłudze Azure Machine Studio.  Można również tworzyć cele obliczeń i zarządzać nimi za pomocą:
 
@@ -71,7 +70,7 @@ Wykonaj poprzednie kroki, aby wyświetlić listę elementów docelowych oblicze�
   * [Klastry wnioskowania](#inference-clusters)
   * [Dołączone obliczenia](#attached-compute)
 
-1. Wybierz pozycję __Utwórz__.
+1. Wybierz przycisk __Utwórz__.
 
 1. Wyświetl stan operacji tworzenia, wybierając obiekt docelowy obliczeń z listy:
 

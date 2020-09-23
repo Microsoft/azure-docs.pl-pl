@@ -1,6 +1,6 @@
 ---
-title: Użyj Azure Portal, aby rozwiązywać problemy Azure Stack Edge z procesorem GPU | Microsoft Docs
-description: Opisuje sposób rozwiązywania problemów Azure Stack brzegowych procesora GPU.
+title: Użyj Azure Portal do rozwiązywania problemów z Azure Stack EDGE Pro z procesorem GPU | Microsoft Docs
+description: Opisuje sposób rozwiązywania problemów z urządzeniami GPU w Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
-ms.openlocfilehash: 92b82631ca78826dd927c6773c47072038eb4ab1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9deb10336d959a3f706cfc0ba970c3b83d5cd0a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290127"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891553"
 ---
-# <a name="troubleshoot-issues-on-your-azure-stack-edge-gpu-device"></a>Rozwiązywanie problemów na urządzeniu z systemem Azure Stack Edge na komputerze GPU 
+# <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Rozwiązywanie problemów na urządzeniu z systemem Azure Stack Edge — procesor GPU 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -55,7 +55,7 @@ Wykonaj następujące czynności, aby zebrać pakiet dla pomocy technicznej.
 
 ## <a name="gather-advanced-security-logs"></a>Zbierz zaawansowane dzienniki zabezpieczeń
 
-Zaawansowane dzienniki zabezpieczeń mogą być dziennikami programu wtargnięcia oprogramowania lub sprzętu dla urządzenia Azure Stack Edge.
+Zaawansowane dzienniki zabezpieczeń mogą być dziennikami programu wtargnięcia oprogramowania lub sprzętu dla urządzenia Azure Stack EDGE Pro.
 
 ### <a name="software-intrusion-logs"></a>Dzienniki włamania oprogramowania
 
@@ -67,7 +67,7 @@ W przypadku ruchu przychodzącego i wychodzącego są zbierane programowe lub do
 
 - Jeśli nie zostanie podana żadna konkretna opcja include, Dziennik zapory jest domyślnie dołączany do pakietu dla pomocy technicznej.
 
-- W pakiecie pomocy technicznej Dziennik zapory znajduje się i znajduje się `pfirewall.log` w folderze głównym. Oto przykład dziennika włamania oprogramowania dla urządzenia Azure Stack Edge. 
+- W pakiecie pomocy technicznej Dziennik zapory znajduje się i znajduje się `pfirewall.log` w folderze głównym. Oto przykład dziennika włamania oprogramowania dla urządzenia z Azure Stack Edge. 
 
     ```
     #Version: 1.5
@@ -101,7 +101,7 @@ W celu wykrycia nieautoryzowanego sprzętu na urządzeniu są rejestrowane wszys
 
 - Jeśli nie zostanie podana żadna konkretna opcja include, dziennik wtargnięcia sprzętowego jest domyślnie dołączany do pakietu dla pomocy technicznej.
 
-- W pakiecie pomocy technicznej dziennik wtargnięcia sprzętowego jest i znajduje się `HWIntrusion.txt` w folderze głównym. Oto przykład dziennika nieautoryzowanego sprzętu dla urządzenia Azure Stack Edge. 
+- W pakiecie pomocy technicznej dziennik wtargnięcia sprzętowego jest i znajduje się `HWIntrusion.txt` w folderze głównym. Oto przykład dziennika nieautoryzowanego sprzętu dla urządzenia z Azure Stack Edge. 
 
     ```
     09/04/2019 15:51:23 system Critical The chassis is open while the power is off.
@@ -143,7 +143,7 @@ Poniżej przedstawiono błędy, które mogą pojawić się podczas konfigurowani
 | **Problem/błędy** |  **Rozwiązanie** | 
 |------------|-----------------|
 |Ogólne problemy|<li>[Upewnij się, że urządzenie brzegowe jest prawidłowo skonfigurowane](#verify-the-device-is-configured-properly).<li> [Sprawdź, czy klient jest prawidłowo skonfigurowany](#verify-the-client-is-configured-properly)|
-|Add-AzureRmEnvironment: Wystąpił błąd podczas wysyłania żądania.<br>W wierszu: 1 char: 1<br>+ Add-AzureRmEnvironment-Name Az3-ARMEndpoint " https://management.dbe ...|Ten błąd oznacza, że Azure Stack Urządzenie brzegowe jest nieosiągalne lub nieprawidłowo skonfigurowane. Upewnij się, że urządzenie brzegowe i klient są poprawnie skonfigurowane. Aby uzyskać wskazówki, zobacz wiersz **Ogólne problemy** w tej tabeli.|
+|Add-AzureRmEnvironment: Wystąpił błąd podczas wysyłania żądania.<br>W wierszu: 1 char: 1<br>+ Add-AzureRmEnvironment-Name Az3-ARMEndpoint " https://management.dbe ...|Ten błąd oznacza, że urządzenie Azure Stack EDGE Pro jest nieosiągalne lub nieprawidłowo skonfigurowane. Upewnij się, że urządzenie brzegowe i klient są poprawnie skonfigurowane. Aby uzyskać wskazówki, zobacz wiersz **Ogólne problemy** w tej tabeli.|
 |Usługa zwróciła błąd. Sprawdź wyjątek wewnętrzny, aby uzyskać więcej szczegółów: Połączenie podstawowe zostało zamknięte: nie można ustanowić relacji zaufania dla bezpiecznego kanału SSL/TLS. |   Ten błąd jest prawdopodobnie spowodowany niepoprawnym wykonaniem własnych kroków certyfikatu. Wskazówki można znaleźć [tutaj](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-connect-resource-manager#step-2-create-and-install-certificates). |
 |Operacja zwróciła nieprawidłowy kod stanu "serviceniedostępny" <br> Kod stanu odpowiedzi nie wskazuje sukcesu: 503 (Usługa niedostępna). | Przyczyną tego błędu może być dowolny z tych warunków.<li>ArmStsPool jest w stanie zatrzymania.</li><li>Jedna z witryn sieci Web usług tokenów Azure Resource Manager/Security nie działa.</li><li>Zasób klastra Azure Resource Manager nie działa.</li><br><strong>Uwaga:</strong> Ponowne uruchomienie urządzenia może rozwiązać ten problem, ale należy zebrać pakiet pomocy technicznej, aby umożliwić jego dalsze debugowanie.|
 |AADSTS50126: Nieprawidłowa nazwa użytkownika lub hasło.<br>Identyfikator śledzenia: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>Identyfikator korelacji: 1b9752c4-8cbf-4304-A714-8a16527410f4<br>Sygnatura czasowa: 2019-11-15 09:21:57Z: serwer zdalny zwrócił błąd: (400) złe żądanie.<br>W wierszu: 1 char: 1 |Przyczyną tego błędu może być dowolny z tych warunków.<li>W przypadku nieprawidłowej nazwy użytkownika i hasła Sprawdź, czy klient zmienił hasło z Azure Portal, wykonując kroki opisane w [tym miejscu](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-set-azure-resource-manager-password) , a następnie używając poprawnego hasła.<li>Dla nieprawidłowego identyfikatora dzierżawy identyfikator dzierżawy jest stałym identyfikatorem GUID i powinien być ustawiony na `c0257de7-538f-415c-993a-1b87a031879d`</li>|
@@ -167,7 +167,7 @@ Poniżej przedstawiono błędy, które mogą pojawić się podczas konfigurowani
 
 2. Sprawdź, czy poprawne moduły programu PowerShell są zainstalowane zgodnie z opisem w [tym miejscu](azure-stack-edge-j-series-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client).
 
-3. Sprawdź, czy Azure Resource Manager i punkty końcowe logowania są osiągalne. Możesz spróbować wysłać polecenie ping do punktów końcowych. Na przykład:
+3. Sprawdź, czy Azure Resource Manager i punkty końcowe logowania są osiągalne. Możesz spróbować wysłać polecenie ping do punktów końcowych. Przykład:
 
    `ping management.28bmdw2-bb9.microsoftdatabox.com`
    `ping login.28bmdw2-bb9.microsoftdatabox.com`
@@ -182,7 +182,7 @@ Poniżej przedstawiono błędy, które mogą pojawić się podczas konfigurowani
 
 ## <a name="blob-storage-on-device"></a>Blob Storage na urządzeniu 
 
-Poniżej przedstawiono błędy związane z usługą BLOB Storage na urządzeniu Azure Stack Edge/Data Box Gateway.
+Poniżej przedstawiono błędy związane z usługą BLOB Storage na urządzeniu Azure Stack EDGE Pro/Data Box Gateway.
 
 | **Problem/błędy** |  **Rozwiązanie** | 
 |--------------------|-----------------|
@@ -196,7 +196,7 @@ Poniżej przedstawiono błędy związane z usługą BLOB Storage na urządzeniu 
 |Polecenie AzCopy wydaje się przestać odpowiadać przez 20 minut przed wyświetleniem tego błędu:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `/etc/hosts` .|
 |Polecenie AzCopy wydaje się przestać odpowiadać przez 20 minut przed wyświetleniem tego błędu: `Error parsing source location… The SSL connection could not be established` .|Zaimportuj certyfikat SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, zobacz [Pobieranie certyfikatu](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
 |Wartość jednego z nagłówków HTTP nie ma poprawnego formatu.|Zainstalowana wersja biblioteki Microsoft Azure Storage dla języka Python nie jest obsługiwana przez urządzenie Data Box. Zobacz Azure Data Box wymagania dotyczące magazynu obiektów BLOB dla obsługiwanych wersji.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED]...| Przed uruchomieniem języka Python należy ustawić zmienną środowiskową REQUESTS_CA_BUNDLE na ścieżkę pliku certyfikatu SSL zakodowanego algorytmem Base64 (Zobacz artykuł jak [pobrać certyfikat](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Na przykład:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternatywnie Dodaj certyfikat do magazynu certyfikatów systemu, a następnie ustaw tę zmienną środowiskową na ścieżkę do tego magazynu. Na przykład na platformie Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
+|… [SSL: CERTIFICATE_VERIFY_FAILED]...| Przed uruchomieniem języka Python należy ustawić zmienną środowiskową REQUESTS_CA_BUNDLE na ścieżkę pliku certyfikatu SSL zakodowanego algorytmem Base64 (Zobacz artykuł jak [pobrać certyfikat](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Przykład:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternatywnie Dodaj certyfikat do magazynu certyfikatów systemu, a następnie ustaw tę zmienną środowiskową na ścieżkę do tego magazynu. Na przykład na platformie Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |Upłynął limit czasu połączenia.|Zaloguj się do Azure Stack Edge, a następnie sprawdź, czy jest odblokowany. Za każdym razem, gdy urządzenie zostanie ponownie uruchomione, pozostaje ono zablokowane, dopóki ktoś się nie zaloguje.|
 
 

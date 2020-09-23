@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
-ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477446"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898221"
 ---
 # <a name="summarize-data"></a>Podsumowywanie danych
 
-W tym artykule opisano moduł programu Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł programu Azure Machine Learning Designer.
 
 Moduł podsumowujące dane służy do tworzenia zestawu standardowych miar statystycznych, które opisują poszczególne kolumny w tabeli wejściowej.
 

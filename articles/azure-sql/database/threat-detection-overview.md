@@ -11,21 +11,21 @@ ms.topic: conceptual
 author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
-ms.date: 02/05/2020
+ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 07a39edcb7a5605759ae70a014549863a038de1c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 0f0dde0da69ad225e39292681fc079aba4b81203
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437058"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885141"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Zaawansowana ochrona przed zagrożeniami dla [Azure SQL Database](sql-database-paas-overview.md), [wystąpienie zarządzane SQL Azure](../managed-instance/sql-managed-instance-paas-overview.md) i [usługa Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) wykrywają anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania.
 
-Zaawansowana ochrona przed zagrożeniami jest częścią [zaawansowanej oferty zabezpieczeń danych](advanced-data-security.md) , która jest ujednoliconym pakietem zaawansowanych funkcji zabezpieczeń SQL. Aby uzyskiwać dostęp do funkcji Advanced Threat Protection i zarządzać nią, można korzystać centralnego portalu pakietu SQL ADS.
+Zaawansowana ochrona przed zagrożeniami jest częścią [usługi Azure Defender dla oferty SQL](azure-defender-for-sql.md) , która jest ujednoliconym pakietem dla zaawansowanych możliwości zabezpieczeń SQL. Dostęp do zaawansowanej ochrony przed zagrożeniami można uzyskać i zarządzać nimi za pośrednictwem centralnej usługi Azure Defender dla programu SQL Portal.
 
 ## <a name="overview"></a>Omówienie
 
@@ -55,19 +55,15 @@ Po wykryciu nietypowych działań bazy danych otrzymasz powiadomienie e-mail. Wi
 
 ## <a name="explore-alerts-in-the-azure-portal"></a>Eksplorowanie alertów w Azure Portal
 
-Zaawansowana ochrona przed zagrożeniami integruje swoje alerty z [usługą Azure Security Center](https://azure.microsoft.com/services/security-center/). Kafelki SQL Advanced Threat Protection na żywo w ramach bazy danych i bloki usługi SQL AD w Azure Portal śledzą stan aktywnych zagrożeń.
+Zaawansowana ochrona przed zagrożeniami integruje swoje alerty z [usługą Azure Security Center](https://azure.microsoft.com/services/security-center/). Kafelki na żywo SQL Advanced Threat Protection w bazie danych i w usłudze SQL Azure Defender w Azure Portal śledzą stan aktywnych zagrożeń.
 
 Kliknij **alert zaawansowanej ochrony przed zagrożeniami** , aby uruchomić stronę alerty Azure Security Center i zapoznać się z omówieniem aktywnych zagrożeń SQL wykrytych w bazie danych.
-
-   ![Alert dotyczący zaawansowanej ochrony przed zagrożeniami](./media/threat-detection-overview/threat_detection_alert.png)
-
-   ![Zaawansowana ochrona przed zagrożeniami Alert2](./media/threat-detection-overview/threat_detection_alert_atp.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej [na temat zaawansowanej ochrony przed zagrożeniami w Azure SQL Database & Azure Synapse](threat-detection-configure.md).
 - Dowiedz się więcej [na temat zaawansowanej ochrony przed zagrożeniami w wystąpieniu zarządzanym usługi Azure SQL](../managed-instance/threat-detection-configure.md).
-- Dowiedz się więcej o [zaawansowanych zabezpieczeniach danych](advanced-data-security.md).
+- Dowiedz się więcej o [usłudze Azure Defender dla języka SQL](azure-defender-for-sql.md).
 - Dowiedz się więcej na temat [inspekcji Azure SQL Database](../../azure-sql/database/auditing-overview.md)
 - Dowiedz się więcej o [usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Aby uzyskać więcej informacji na temat cen, zobacz [stronę z cennikiem Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) .  

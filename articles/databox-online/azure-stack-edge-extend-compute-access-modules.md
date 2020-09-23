@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie siecią obliczeniową na Azure Stack Edge w celu uzyskania dostępu do modułów | Microsoft Docs
-description: Opisuje sposób rozszerzenia sieci obliczeniowej na Azure Stackej krawędzi w celu uzyskania dostępu do modułów za pośrednictwem zewnętrznego adresu IP.
+title: Zarządzanie siecią obliczeniową na Azure Stack EDGE Pro w celu uzyskania dostępu do modułów | Microsoft Docs
+description: Zawiera opis sposobu rozszerzenia sieci obliczeniowej na Azure Stack brzegowej Pro w celu uzyskania dostępu do modułów za pośrednictwem zewnętrznego adresu IP.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 01b0eae7d2e5d1078c0761838081a2379a724a97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84342990"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894125"
 ---
-# <a name="enable-compute-network-on-your-azure-stack-edge"></a>Włącz sieć obliczeniową na Azure Stackej krawędzi
+# <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Włączanie sieci obliczeniowej na Azure Stack Edge
 
-W tym artykule opisano, jak moduły uruchomione na Azure Stack Edge mogą uzyskać dostęp do sieci obliczeniowej włączonej na urządzeniu.
+W tym artykule opisano, w jaki sposób moduły działające w ramach programu Azure Stack EDGE Pro mogą uzyskać dostęp do sieci obliczeniowej włączonej na urządzeniu.
 
 Aby skonfigurować sieć, wykonaj następujące czynności:
 
-- Włącz interfejs sieciowy na urządzeniu Azure Stack Edge na potrzeby obliczeń
+- Włącz interfejs sieciowy na urządzeniu z systemem Azure Stack Edge w wersji Pro na potrzeby obliczeń
 - Dodawanie modułu w celu uzyskania dostępu do sieci obliczeniowej na Azure Stack Edge
 - Sprawdź, czy moduł ma dostęp do włączonego interfejsu sieciowego
 
@@ -31,8 +31,8 @@ W tym samouczku użyjesz modułu aplikacji sieci WebServer, aby przedstawić ten
 
 Przed rozpoczęciem należy:
 
-- Ukończono Azure Stack urządzenia brzegowego z konfiguracją urządzenia.
-- Ukończono Konfigurowanie kroków **obliczeniowych** zgodnie z [samouczkiem: Przekształć dane przy użyciu Azure Stack Edge](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) na urządzeniu. Urządzenie powinno mieć skojarzony zasób IoT Hub, urządzenie IoT i urządzenie IoT Edge.
+- Ukończono Azure Stack urządzenia brzegowego Pro z konfiguracją urządzenia.
+- Ukończono Konfigurowanie kroków **obliczeniowych** zgodnie z [samouczkiem: Przekształć dane przy użyciu Azure Stack EDGE Pro](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) na urządzeniu. Urządzenie powinno mieć skojarzony zasób IoT Hub, urządzenie IoT i urządzenie IoT Edge.
 
 ## <a name="enable-network-interface-for-compute"></a>Włącz interfejs sieciowy dla obliczeń
 
@@ -55,10 +55,10 @@ Aby skonfigurować ustawienia obliczeń, wykonaj następujące kroki w lokalnym 
 
 ## <a name="add-webserver-app-module"></a>Dodaj moduł aplikacji WebServer
 
-Wykonaj następujące kroki, aby dodać moduł aplikacji sieci WebServer na urządzeniu Azure Stack Edge.
+Wykonaj następujące kroki, aby dodać moduł aplikacji sieci WebServer na urządzeniu Azure Stack EDGE Pro.
 
-1. Przejdź do zasobu IoT Hub skojarzonego z Azure Stack urządzeniem brzegowym, a następnie wybierz pozycję **IoT Edge urządzenie**.
-2. Wybierz urządzenie IoT Edge skojarzone z Azure Stack urządzeniem brzegowym. Na stronie **szczegóły urządzenia**wybierz pozycję **Ustaw moduły**. W obszarze **Dodaj moduły**wybierz pozycję **+ Dodaj** , a następnie wybierz pozycję **moduł IoT Edge**.
+1. Przejdź do zasobu IoT Hub skojarzonego z urządzeniem Azure Stack brzeg Pro, a następnie wybierz pozycję **IoT Edge urządzenie**.
+2. Wybierz urządzenie IoT Edge skojarzone z urządzeniem Azure Stack brzeg Pro. Na stronie **szczegóły urządzenia**wybierz pozycję **Ustaw moduły**. W obszarze **Dodaj moduły**wybierz pozycję **+ Dodaj** , a następnie wybierz pozycję **moduł IoT Edge**.
 3. W bloku **IoT Edge modułów niestandardowych** :
 
     1. Określ **nazwę** modułu aplikacji WebServer, który chcesz wdrożyć.

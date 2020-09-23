@@ -1,7 +1,7 @@
 ---
 title: Często zadawane pytania
 titleSuffix: Azure SQL Managed Instance
-description: Często zadawane pytania dotyczące wystąpienia zarządzanego usługi Azure SQL
+description: Usługa Azure SQL Managed Instance (często zadawane pytania)
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab
-ms.date: 03/17/2020
-ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.reviewer: sstein
+ms.date: 09/21/2020
+ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661422"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887390"
 ---
-# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące wystąpienia zarządzanego usługi Azure SQL
+# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Usługa Azure SQL Managed Instance (często zadawane pytania)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Ten artykuł zawiera najbardziej typowe pytania dotyczące [wystąpienia zarządzanego usługi Azure SQL](sql-managed-instance-paas-overview.md).
@@ -82,7 +82,7 @@ Aby zapoznać się z nowymi funkcjami i wersjami zapoznawczymi, zobacz [Informac
 
 **Jak mogę zainicjować wystąpienie zarządzane SQL?**
 
-Można zainicjować obsługę administracyjną wystąpienia za pomocą witryny [Azure Portal](instance-create-quickstart.md), [programu PowerShell](scripts/create-configure-managed-instance-powershell.md), [interfejsu wiersza polecenia platformy Azure](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) i [szablonów ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
+Można zainicjować obsługę wystąpienia z [Azure Portal](instance-create-quickstart.md), [programu PowerShell](scripts/create-configure-managed-instance-powershell.md), [interfejsu wiersza polecenia platformy Azure](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) i [szablonów ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
 
 **Czy mogę zainicjować zarządzane wystąpienia w istniejącej subskrypcji?**
 
@@ -94,7 +94,7 @@ Jest to bieżące ograniczenie składnika podstawowego, który weryfikuje nazwę
 
 **Jak mogę skalować moje wystąpienie zarządzane?**
 
-Wystąpienie zarządzane można skalować z poziomu witryny [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [programu PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) lub [szablonów usługi ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Wystąpienie zarządzane można skalować z poziomu [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [programu PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) lub [szablonów usługi ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Czy mogę przenieść wystąpienie zarządzane z jednego regionu do innego?**
 
@@ -102,7 +102,7 @@ Tak, możesz. Aby uzyskać instrukcje, zobacz [przenoszenie zasobów między reg
 
 **Jak mogę usunąć moje wystąpienie zarządzane?**
 
-Wystąpienia zarządzane można usunąć za pomocą witryny Azure Portal, [programu PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) lub [interfejsów API REST Menedżer zasobów](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Wystąpienia zarządzane można usunąć za pomocą Azure Portal, [programu PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) lub [interfejsów API REST Menedżer zasobów](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **Ile czasu zajmuje utworzenie lub zaktualizowanie wystąpienia lub przywrócenie bazy danych?**
 
@@ -326,7 +326,7 @@ Usługi zarządzania i wdrażania nawiązują połączenie z wystąpieniem zarz�
 
 **Czy mogę użyć publicznego punktu końcowego, aby uzyskać dostęp do danych w bazach danych wystąpienia zarządzanego?**
 
-Tak. Klient będzie musiał włączyć dostęp do danych publicznego punktu końcowego z poziomu programu PowerShell/ARM w [witrynie Azure Portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) i skonfigurować sieciowej grupy zabezpieczeń, aby zablokować dostęp do portu danych (numer portu 3342). Aby uzyskać więcej informacji, zobacz [Konfigurowanie publicznego punktu końcowego w wystąpieniu zarządzanym Azure SQL](public-endpoint-configure.md) i [bezpieczne używanie wystąpienia zarządzanego usługi Azure SQL z publicznym punktem końcowym](public-endpoint-overview.md). 
+Tak. Klient będzie musiał włączyć dostęp do danych publicznego punktu końcowego z [Azure portal](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [programu Azure Portal PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM i skonfigurować sieciowej grupy zabezpieczeń do blokowania dostępu do portu danych (numer portu 3342). Aby uzyskać więcej informacji, zobacz [Konfigurowanie publicznego punktu końcowego w wystąpieniu zarządzanym Azure SQL](public-endpoint-configure.md) i [bezpieczne używanie wystąpienia zarządzanego usługi Azure SQL z publicznym punktem końcowym](public-endpoint-overview.md). 
 
 **Czy można określić niestandardowy port dla punktów końcowych danych SQL?**
 
@@ -350,9 +350,9 @@ Aby zmniejszyć ryzyko związane z eksfiltracji danych, klienci są zalecani do 
 - Uzyskaj dostęp do wystąpienia przy użyciu konta DBA o niskim poziomie uprawnień.
 - Skonfiguruj dostęp JIT serwera przesiadkowego dla konta sysadmin.
 - Włącz [inspekcję SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)i Zintegruj ją z mechanizmami alertów.
-- Włącz [wykrywanie zagrożeń](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) z poziomu zestawu [Advanced Data Security (AD)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) .
+- Włącz [wykrywanie zagrożeń](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) z poziomu [usługi Azure Defender dla pakietu SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql) .
 
-## <a name="dns"></a>System DNS
+## <a name="dns"></a>DNS
 
 **Czy można skonfigurować niestandardowe DNS dla wystąpienia zarządzanego SQL?**
 
@@ -450,7 +450,7 @@ Ilość wolnego miejsca do magazynowania kopii zapasowej jest naliczana jako zar
 
 **Jak mogę monitorować koszt rozliczeń za użycie magazynu kopii zapasowych?**
 
-Możesz monitorować koszt magazynu kopii zapasowych za pośrednictwem witryny Azure Portal. Aby uzyskać instrukcje, zobacz [monitorowanie kosztów automatycznych kopii zapasowych](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+Możesz monitorować koszt magazynu kopii zapasowych za pośrednictwem Azure Portal. Aby uzyskać instrukcje, zobacz [monitorowanie kosztów automatycznych kopii zapasowych](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
 
 **Jak mogę zoptymalizować koszty magazynu kopii zapasowych w wystąpieniu zarządzanym?**
 
@@ -482,7 +482,7 @@ Zasady haseł wystąpienia zarządzanego SQL dla nazw logowania SQL dziedziczą 
 
 Każda nazwa logowania musi ustawić swoje hasło po zalogowaniu i zmienić hasło po osiągnięciu maksymalnego wieku.
 
-| **Zasady** | **Ustawienie zabezpieczeń** |
+| **Zasada** | **Ustawienie zabezpieczeń** |
 | --- | --- |
 | Maksymalny wiek hasła | 42 dni |
 | Minimalny wiek hasła | 1 dzień |

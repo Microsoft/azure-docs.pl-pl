@@ -11,13 +11,13 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "79129377"
 ---
-Aby zresetować urządzenie, należy bezpiecznie wyczyścić wszystkie dane na dysku z danymi i dysku rozruchowego urządzenia. 
+Aby zresetować urządzenie, należy bezpiecznie wyczyścić wszystkie dane na dysku danych i dysku rozruchowym urządzenia. 
 
 Użyj `Reset-HcsAppliance` polecenia cmdlet, aby wyczyścić zarówno dyski danych, jak i dysk rozruchowy, albo tylko dyski danych. `ClearData`Przełączniki i `BootDisk` umożliwiają odpowiednio czyszczenie dysków danych i dysku rozruchowego.
 
-`BootDisk`Przełącznik powoduje wymazanie dysku rozruchowego i uniemożliwić korzystanie z tego urządzenia. Powinno być używane tylko wtedy, gdy urządzenie musi zostać zwrócone do firmy Microsoft. Aby uzyskać więcej informacji, zobacz [zwracają urządzenie do firmy Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
+`BootDisk`Przełącznik powoduje wymazanie dysku rozruchowego i uniemożliwić korzystanie z tego urządzenia. Należy go używać tylko wtedy, gdy urządzenie ma zostać zwrócone firmie Microsoft. Aby uzyskać więcej informacji, zobacz [zwracają urządzenie do firmy Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
 
-Jeśli używasz resetowania urządzenia w lokalnym interfejsie użytkownika sieci Web, tylko dyski danych są bezpiecznie czyszczone, ale dysk rozruchowy jest nienaruszony. Dysk rozruchowy zawiera konfigurację urządzenia.
+Jeśli użyjesz funkcji resetowania urządzenia w lokalnym internetowym interfejsie użytkownika, tylko dyski danych zostaną bezpiecznie wyczyszczone, a dysk rozruchowy pozostanie nienaruszony. Dysk rozruchowy zawiera konfigurację urządzenia.
 
 1. [Nawiąż połączenie z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
 2. W wierszu polecenia wpisz polecenie:

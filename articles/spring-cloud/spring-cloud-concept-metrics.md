@@ -4,15 +4,16 @@ description: Dowiedz się, jak przejrzeć metryki w chmurze Azure wiosennej
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 4a12658eada3d2660cde86b3eb80e332416ea7a3
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: e488f2ddc44f1339d648cd6fe6b1aae18b748679
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046854"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892650"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informacje o metrykach dla chmury wiosennej platformy Azure
 
@@ -109,6 +110,34 @@ W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 >| JVM. GC. Pause. Total. Count | JVM. GC. Pause (łącznie-Count) | Liczba | Łączna liczba GC po rozpoczęciu tego JMV, w tym w przypadku młodych i starych wykazów GC. |
 >| JVM. GC. Pause. Total. Time | JVM. GC. Pause (całkowity czas) | ) | Łączny czas, zużyty przez GC po rozpoczęciu tego JMV, w tym dla młodych i starych WYKAZów. |
 
+::: zone pivot="programming-language-csharp"
+### <a name="performance-net"></a>Wydajność (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
+>|------|-----------------------------|------|---------|
+>| Użycie procesora       | Użycie procesora CPU      | ) | Czas, przez jaki proces używał procesora CPU. |
+>| Zestaw roboczy     | zestaw roboczy    | Megabajtach    | Ilość zestawu roboczego używanego przez proces. |
+>| Rozmiar sterty GC    | GC-sterta-rozmiar   | Megabajtach    | Łączny rozmiar sterty zgłoszony przez moduł wyrzucania elementów bezużytecznych. |
+>| Liczba generacji GC 0  | Gen-0-GC-Count | Liczba        | Liczba wyrzucania elementów bezużytecznych generacji 0 na sekundę. |
+>| Liczba generacji GC 1  | Gen-1-GC-Count | Liczba        | Liczba wyrzucania elementów bezużytecznych generacji 1 na sekundę. |
+>| Liczba generacji GC 2  | Gen-2-GC-Count | Liczba        | Liczba wyrzucania elementów bezużytecznych generacji 2 na sekundę. |
+>| Rozmiar sterty generacji 0 | rozmiar generacji (0)     | Bajty        | Rozmiar sterty generacji 0. |
+>| Rozmiar sterty generacji 1 | Gen-1-size     | Bajty        | Rozmiar sterty generacji 1. |
+>| Rozmiar sterty generacji 2 | Gen-2 — rozmiar     | Bajty        | Rozmiar sterty generacji 2. |
+>| Rozmiar sterty LOH   | LOH — rozmiar       | Bajty        | Rozmiar sterty sterty dużego obiektu. |
+>| Szybkość alokacji | Alokacja — stawka     | Bajty        | Liczba bajtów przydzielono na sekundę. |
+>| Liczba zestawów  | liczba zestawów | Liczba        | Liczba załadowanych zestawów. |
+>| Liczba wyjątków | Liczba wyjątków | Liczba       | Liczba wyjątków na sekundę. |
+>| Liczba wątków puli wątków      | wątków — liczba wątków              | Liczba | Liczba wątków puli wątków. |
+>| Liczba rywalizacji o blokadę monitora | monitorowanie-blokowanie-rywalizacja-liczba        | Liczba | Liczba przypadków na sekundę wystąpiła rywalizacja podczas próby przeprowadzenia blokady monitora. |
+>| Długość kolejki puli wątków      | puli wątków — długość kolejki              | Liczba | Długość kolejki elementów roboczych puli wątków. |
+>| Liczba elementów ukończonych w puli wątków | z puli wątków — liczba elementów zakończonych | Liczba | Liczba elementów roboczych ukończonych przez pulę wątków. |
+>| Liczba aktywnych czasomierzy               | Active-Timer-Count               | Liczba | Liczba czasomierzy, które są obecnie aktywne. Aktywny czasomierz to taki, który jest zarejestrowany w taktie w pewnym momencie w przyszłości i nie został jeszcze anulowany. |
+
+Aby uzyskać więcej informacji, zobacz [liczniki dotnet](/dotnet/core/diagnostics/dotnet-counters).
+::: zone-end
+
 ### <a name="request"></a>Żądanie
 >[!div class="mx-tdCol2BreakAll"]
 >| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
@@ -117,6 +146,20 @@ W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 >| Tomcat. Global. Receives | Tomcat. Global. Receives | Bajty | Liczba odebranych danych Tomcat serwera sieci Web |
 >| Tomcat. Global. Request. Total. Count | Tomcat. Global. Request (Total-Count) | Liczba | Łączna liczba żądań przetworzonych przez serwer sieci Web Tomcat |
 >| Tomcat. Global. Request. Max | Tomcat. Global. Request. Max | ) | Maksymalny czas przetwarzania żądania przez serwer sieci Web Tomcat |
+
+::: zone pivot="programming-language-csharp"
+### <a name="request-net"></a>Żądanie (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
+>|------|-----------------------------|------|---------|
+>| Żądania na sekundę | Liczba żądań na sekundę | Liczba | Liczba żądań. |
+>| Łączna liczba żądań | łącznie — żądania | Liczba | Łączna liczba żądań. |
+>| Bieżące żądania | bieżące żądania | Liczba | Liczba bieżących żądań. |
+>| Żądania zakończone niepowodzeniem | Nieudane żądania | Liczba | Liczba żądań zakończonych niepowodzeniem. |
+
+Aby uzyskać więcej informacji, zobacz [liczniki dotnet](/dotnet/core/diagnostics/dotnet-counters).
+::: zone-end
 
 ### <a name="session"></a>Sesja
 >[!div class="mx-tdCol2BreakAll"]
@@ -130,6 +173,7 @@ W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Liczba | Liczba aktywnych sesji Tomcat |
 
 ## <a name="see-also"></a>Zobacz też
+
 * [Szybki Start: monitorowanie aplikacji w chmurze platformy Azure z użyciem dzienników, metryk i śledzenia](spring-cloud-quickstart-logs-metrics-tracing.md)
 
 * [Wprowadzenie do Eksploratora metryk platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
@@ -137,7 +181,7 @@ W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 * [Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 
 ## <a name="next-steps"></a>Następne kroki
+
 * [Samouczek: monitorowanie źródeł wiosennych w chmurze przy użyciu alertów i grup akcji](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
 
 * [Limity przydziału i plany usług dla chmury wiosennej platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
-

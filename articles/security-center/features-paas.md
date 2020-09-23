@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 539b663366cd2820eec62a18d1fc2989c6b3c9b0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 77bf0f4cd60ba6e85763334a4d864975945ec2c3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042360"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894787"
 ---
-# <a name="feature-coverage-for-azure-paas-services"></a>Pokrycie funkcji dla usług Azure PaaS Services<a name="paas-services"></a>
+# <a name="feature-coverage-for-azure-paas-services"></a>Pokrycie funkcji dla usług Azure PaaS Services <a name="paas-services"></a>
 
 W poniższej tabeli przedstawiono dostępność Azure Security Center funkcji dla obsługiwanych zasobów usługi Azure PaaS.
 
-|Usługa|Zalecenia (bezpłatnie)|Alerty zabezpieczeń (standard)|Ocena luk w zabezpieczeniach (standardowa)|
+|Usługa|Zalecenia (bezpłatnie)|Alerty zabezpieczeń (Azure Defender)|Ocena luk w zabezpieczeniach (Azure Defender)|
 |:----|:----:|:----:|:----:|
 |Azure App Service|✔|✔|-|
 |Konto Azure Automation|✔|-|-|
@@ -41,7 +41,7 @@ W poniższej tabeli przedstawiono dostępność Azure Security Center funkcji dl
 |Azure Database for PostgreSQL *|✔|✔|-|
 |Przestrzeń nazw usługi Azure Event Hubs|✔|-|-|
 |Aplikacja usługi Azure Functions|✔|-|-|
-|W usłudze Azure Key Vault|✔|✔ *|-|
+|W usłudze Azure Key Vault|✔|✔|-|
 |Azure Kubernetes Service|✔|✔|-|
 |Azure Load Balancer|✔|-|-|
 |Azure Logic Apps|✔|-|-|
@@ -54,6 +54,6 @@ W poniższej tabeli przedstawiono dostępność Azure Security Center funkcji dl
 |Subskrypcja platformy Azure|✔ **|✔|-|
 |Azure Virtual Network</br> (w tym podsieci, karty sieciowe i sieciowe grupy zabezpieczeń)|✔|-|-|
 
-\*Te funkcje są obecnie obsługiwane w wersji zapoznawczej.
+\* Te funkcje są obecnie obsługiwane w wersji zapoznawczej.
 
-\*\*Zalecenia dotyczące Azure Active Directory (Azure AD) są dostępne tylko w przypadku subskrypcji w warstwie Standardowa.
+\*\* Zalecenia dotyczące Azure Active Directory (Azure AD) są dostępne tylko w przypadku subskrypcji z włączoną usługą Azure Defender.

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651250"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886320"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -193,7 +193,7 @@ Aby zapoznać się z przykładem wdrażania modelu jako usługi sieci Web, zobac
 
 #### <a name="real-time-endpoints"></a>Punkty końcowe w czasie rzeczywistym
 
-Po wdrożeniu przeszkolonego modelu w projektancie (wersja zapoznawcza) można [wdrożyć model jako punkt końcowy w czasie rzeczywistym](tutorial-designer-automobile-price-deploy.md). Punkt końcowy w czasie rzeczywistym często odbiera pojedyncze żądanie za pośrednictwem punktu końcowego REST i zwraca prognozę w czasie rzeczywistym. Jest to w przeciwieństwie do przetwarzania wsadowego, który przetwarza wiele wartości jednocześnie i zapisuje wyniki po zakończeniu do magazynu danych.
+Podczas wdrażania przeszkolonego modelu w projektancie można [wdrożyć model jako punkt końcowy w czasie rzeczywistym](tutorial-designer-automobile-price-deploy.md). Punkt końcowy w czasie rzeczywistym często odbiera pojedyncze żądanie za pośrednictwem punktu końcowego REST i zwraca prognozę w czasie rzeczywistym. Jest to w przeciwieństwie do przetwarzania wsadowego, który przetwarza wiele wartości jednocześnie i zapisuje wyniki po zakończeniu do magazynu danych.
 
 #### <a name="pipeline-endpoints"></a>Punkty końcowe potoku
 
@@ -209,7 +209,7 @@ Wdrożony punkt końcowy modułu IoT to kontener platformy Docker, który obejmu
 Jeśli włączono monitorowanie, platforma Azure zbiera dane telemetryczne z modelu w module Azure IoT Edge. Dane telemetryczne są dostępne tylko dla Ciebie i są przechowywane w wystąpieniu konta magazynu.
 
 Azure IoT Edge zapewnia, że moduł jest uruchomiony, i monitoruje urządzenie, które je obsługuje. 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 ### <a name="azure-machine-learning-cli"></a>Interfejs wiersza polecenia Azure Machine Learning 
 
@@ -229,7 +229,7 @@ Program [Azure Machine Learning Studio](overview-what-is-machine-learning-studio
 
 W programie Studio znajduje się również dostęp do interaktywnych narzędzi, które są częścią Azure Machine Learning:
 
-+ [Azure Machine Learning Designer (wersja zapoznawcza)](concept-designer.md) do wykonywania kroków przepływu pracy bez pisania kodu
++ [Azure Machine Learning projektanta](concept-designer.md) do wykonywania kroków przepływu pracy bez pisania kodu
 + Środowisko internetowe umożliwiające [Automatyczne Uczenie maszynowe](concept-automated-ml.md)
 + [Azure Machine Learning notesy](how-to-run-jupyter-notebooks.md) do pisania i uruchamiania własnego kodu na zintegrowanych serwerach Jupyter Notes.
 + Tworzenie [etykietowania danych](how-to-create-labeling-projects.md) w celu tworzenia i monitorowania projektów oraz zarządzania nimi w celu etykietowania danych
@@ -242,6 +242,7 @@ W programie Studio znajduje się również dostęp do interaktywnych narzędzi, 
 
 +  Korzystanie z usługi w dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + Korzystanie z usługi w dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (wersja zapoznawcza).
++ Za pomocą [projektanta Azure Machine Learning](concept-designer.md) wykonaj kroki przepływu pracy bez pisania kodu. 
 + Użyj [interfejsu wiersza polecenia Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) do automatyzacji.
 + [Akcelerator rozwiązań wielu modeli](https://aka.ms/many-models) (wersja zapoznawcza) jest oparty na Azure Machine Learning i umożliwia uczenie, obsługę setek lub nawet tysięcy modeli uczenia maszynowego oraz zarządzanie nimi.
 

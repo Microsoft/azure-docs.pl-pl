@@ -2,13 +2,13 @@
 title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/16/2020
+ms.openlocfilehash: b852af961327fbecb773c0608dfb823093e17267
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89288971"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883383"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -55,6 +55,9 @@ Możesz skonfigurować okres przechowywania danych przechwyconych na koncie maga
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Jak mogę monitorować moje Event Hubs?
 Event Hubs emituje wyczerpujące metryki, które zapewniają stan zasobów do [Azure monitor](../azure-monitor/overview.md). Pozwalają również ocenić ogólną kondycję usługi Event Hubs nie tylko na poziomie przestrzeni nazw, ale również na poziomie jednostki. Dowiedz się więcej na temat monitorowania oferowanego w [usłudze Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
+### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Gdzie usługa Azure Event Hubs przechować dane klienta?
+Usługa Azure Event Hubs przechowuje dane klientów. Te dane są automatycznie przechowywane przez Event Hubs w jednym regionie, więc ta usługa automatycznie spełnia wymagania dotyczące miejsca zamieszkania danych regionu, w tym te określone w [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/).
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Jakie porty muszę otworzyć na zaporze? 
 Za pomocą następujących protokołów można Azure Service Bus wysyłać i odbierać komunikaty:
 
@@ -78,9 +81,9 @@ Aby znaleźć odpowiednie adresy IP, które mają zostać dodane do listy dozwol
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Zanotuj adres IP zwrócony w `Non-authoritative answer` . Jedyną zmianą jest to, że w przypadku przywracania przestrzeni nazw w innym klastrze.
+2. Zanotuj adres IP zwrócony w `Non-authoritative answer` . 
 
-Jeśli używasz nadmiarowości strefy dla przestrzeni nazw, musisz wykonać kilka dodatkowych czynności: 
+Jeśli używasz **nadmiarowości strefy** dla przestrzeni nazw, musisz wykonać kilka dodatkowych czynności: 
 
 1. Najpierw uruchom polecenie nslookup w przestrzeni nazw.
 
@@ -94,9 +97,12 @@ Jeśli używasz nadmiarowości strefy dla przestrzeni nazw, musisz wykonać kilk
     <name>-s2.cloudapp.net
     <name>-s3.cloudapp.net
     ```
+
+    > [!NOTE]
+    > Adres IP zwrócony przez `nslookup` polecenie nie jest statycznym adresem IP. Jednak pozostaje stałą do momentu usunięcia lub przeniesienia bazowego wdrożenia do innego klastra.
 3. Uruchom polecenie nslookup dla każdego z sufiksów S1, S2 i S3, aby uzyskać adresy IP wszystkich trzech wystąpień uruchomionych w trzech strefach dostępności, 
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-msgs-to-my-namespace"></a>Gdzie mogę znaleźć adres IP klienta podczas wysyłania lub otrzymywania wiadomości do mojej przestrzeni nazw?
+### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Gdzie można znaleźć adresy IP klienta wysyłające lub otrzymujące komunikaty do mojej przestrzeni nazw?
 Najpierw włącz [filtrowanie adresów IP](event-hubs-ip-filtering.md) w przestrzeni nazw. 
 
 Następnie Włącz dzienniki diagnostyczne dla [zdarzeń połączeń sieci wirtualnej Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) , wykonując instrukcje podane w temacie [Włączanie dzienników diagnostycznych](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Zostanie wyświetlony adres IP, dla którego nastąpi odmowa połączenia.

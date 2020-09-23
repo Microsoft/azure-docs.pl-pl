@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: f7817a596a38c6bb259a048e3dfea11abfd14d82
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006435"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892896"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Samouczek: Wdrażanie chmury wiosennej platformy Azure w usłudze Azure Virtual Network (iniekcja sieci wirtualnej)
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java ✔️ C #
 
 W tym samouczku wyjaśniono, jak wdrożyć wystąpienie usługi w chmurze Azure wiosny w sieci wirtualnej. Jest to czasami nazywane iniekcją sieci wirtualnej.  
 
@@ -56,7 +58,7 @@ Jeśli masz już sieć wirtualną do hostowania wystąpienia usługi w chmurze z
     |Subskrypcja     |Wybierz subskrypcję.                         |
     |Grupa zasobów   |Wybierz grupę zasobów lub Utwórz nową.  |
     |Nazwa             |Wprowadzenie do *platformy Azure-sprężyny w chmurze*                   |
-    |Lokalizacja         |Wybierz **Wschodnie stany USA**                                |
+    |Location         |Wybierz **Wschodnie stany USA**                                |
 
 1. Kliknij przycisk **Dalej: adresy IP >**. 
  
@@ -120,7 +122,7 @@ az role assignment create \
 
     |Ustawienie                                |Wartość                                             |
     |---------------------------------------|--------------------------------------------------|
-    |Wdrażanie we własnej sieci wirtualnej     |Wybierz opcję **tak**                                    |
+    |Wdrażanie we własnej sieci wirtualnej     |Wybierz pozycję **Tak**                                    |
     |Sieć wirtualna                        |Wybierz pozycję *Azure-Sprężyna-chmura-Sieć wirtualna*                  |
     |Podsieć środowiska uruchomieniowego usługi                 |Wybieranie *usługi — środowisko uruchomieniowe — podsieć*                   |
     |Podsieć aplikacji mikrousług rozruchu sprężynowego   |Wybieranie *aplikacji — podsieć*                              |
@@ -152,7 +154,7 @@ Te zasoby sieciowe są połączone z siecią wirtualną utworzoną powyżej.
 
 [Wdrażanie aplikacji w chmurze Azure wiosny w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Rozwiązywanie problemów z chmurą wiosenną platformy Azure w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Obowiązki klientów do uruchamiania chmury Azure wiosny w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

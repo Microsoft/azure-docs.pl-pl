@@ -1,6 +1,6 @@
 ---
-title: Uruchamianie modułu GPU na urządzeniu Microsoft Azure Stack Edge z procesorem GPU | Microsoft Docs
-description: Opisuje sposób konfigurowania i uruchamiania modułu na procesorach GPU na urządzeniu Azure Stack Edge za pośrednictwem Azure Portal.
+title: Uruchamianie modułu GPU na urządzeniu Microsoft Azure Stack Edge z procesorem GPU Pro | Microsoft Docs
+description: Opisuje sposób konfigurowania i uruchamiania modułu na procesorach GPU na urządzeniu z systemem Azure Stack brzeg Pro za pośrednictwem Azure Portal.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 419b8beb866711e80b4366df4398eb248256021b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8b9f1180639f638e72fdea2f87958628a2e9e86b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266956"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891465"
 ---
-# <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-device"></a>Konfigurowanie i uruchamianie modułu na procesorach GPU na Azure Stack urządzeniu brzegowym
+# <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Konfigurowanie i uruchamianie modułu na procesorach GPU na Azure Stack na urządzeniu brzegowym Pro
 
-Urządzenie z Azure Stack Edge zawiera jedną lub więcej jednostek przetwarzania grafiki (GPU). Procesory GPU są popularnym wyborem w przypadku obliczeń dla AI, ponieważ oferują funkcje przetwarzania równoległego i są szybsze przy renderowaniu obrazu niż centralne jednostki przetwarzania (CPU). Aby uzyskać więcej informacji na temat procesora GPU zawartego w Azure Stack urządzeniu brzegowym, przejdź do pozycji [Azure Stack Edge techniczne urządzenia](azure-stack-edge-gpu-technical-specifications-compliance.md)techniczne.
+Urządzenie Azure Stack EDGE Pro zawiera jedną lub więcej jednostek przetwarzania grafiki (GPU). Procesory GPU są popularnym wyborem w przypadku obliczeń dla AI, ponieważ oferują funkcje przetwarzania równoległego i są szybsze przy renderowaniu obrazu niż centralne jednostki przetwarzania (CPU). Aby uzyskać więcej informacji na temat procesora GPU znajdującego się na urządzeniu Azure Stack brzeg Pro, przejdź do pozycji [Azure Stack EDGE Pro techniczne urządzenia](azure-stack-edge-gpu-technical-specifications-compliance.md)techniczne.
 
-W tym artykule opisano sposób konfigurowania i uruchamiania modułu na procesorze GPU na urządzeniu Azure Stack Edge. W tym artykule opisano użycie publicznie dostępnych **cyfr** modułu kontenera przeznaczonych dla procesorów GPU firmy NVIDIA. Tej procedury można użyć do skonfigurowania innych modułów opublikowanych przez NVIDIA dla tych procesorów GPU.
+W tym artykule opisano sposób konfigurowania i uruchamiania modułu na procesorze GPU na urządzeniu Azure Stack EDGE Pro. W tym artykule opisano użycie publicznie dostępnych **cyfr** modułu kontenera przeznaczonych dla procesorów GPU firmy NVIDIA. Tej procedury można użyć do skonfigurowania innych modułów opublikowanych przez NVIDIA dla tych procesorów GPU.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem upewnij się, że:
 
-1. Masz dostęp do procesora GPU z włączonym 1 węzłem Azure Stack urządzeniem brzegowym. To urządzenie jest aktywowane przy użyciu zasobu na platformie Azure.  
+1. Masz dostęp do procesora GPU z włączonym 1 węzłem Azure Stack Edge na urządzeniu. To urządzenie jest aktywowane przy użyciu zasobu na platformie Azure.  
 
 ## <a name="configure-module-to-use-gpu"></a>Konfigurowanie modułu do użycia procesora GPU
 
-Aby skonfigurować moduł do używania procesora GPU na urządzeniu brzegowym Azure Stack w celu uruchomienia modułu, wykonaj następujące kroki.
+Aby skonfigurować moduł do używania procesora GPU na urządzeniu z systemem Azure Stack Edge w wersji Pro w celu uruchomienia modułu, wykonaj następujące kroki.
 
 1. W Azure Portal przejdź do zasobu skojarzonego z urządzeniem. 
 
@@ -54,7 +54,7 @@ Aby skonfigurować moduł do używania procesora GPU na urządzeniu brzegowym Az
 
     ![Konfigurowanie modułu do użycia procesora GPU 6](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
 
-    W okienku po prawej stronie zostanie wyświetlone urządzenie IoT Edge skojarzone z Azure Stack urządzeniem brzegowym. Odnosi się to do IoT Edge urządzenia utworzonego w poprzednim kroku podczas tworzenia zasobu IoT Hub. 
+    W okienku po prawej stronie zostanie wyświetlone urządzenie IoT Edge skojarzone z urządzeniem Azure Stack EDGE Pro. Odnosi się to do IoT Edge urządzenia utworzonego w poprzednim kroku podczas tworzenia zasobu IoT Hub. 
     
 6. Wybierz to urządzenie IoT Edge.
 

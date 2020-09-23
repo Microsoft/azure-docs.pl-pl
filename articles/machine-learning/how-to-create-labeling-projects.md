@@ -8,16 +8,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a86a7ee600d7443e5ba8cb4f30db0c48c8170327
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612175"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897975"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Voluminous danych etykietowania w projektach uczenia maszynowego jest często kłopotliwej. Projekty, które mają składnik programu obsługi komputera, takie jak Klasyfikacja obrazu lub wykrywanie obiektów, zwykle wymagają etykiet dla tysięcy obrazów.
  
@@ -84,7 +84,7 @@ Aby utworzyć zestaw danych na podstawie danych, które zostały już zapisane w
     * Dołącz "/* *" do ścieżki, aby uwzględnić wszystkie pliki w podfolderach wybranej ścieżki.
     * Dołącz "* */* . *", aby uwzględnić wszystkie dane w bieżącym kontenerze i jego podfolderach.
 1. Podaj opis zestawu danych.
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 
@@ -98,7 +98,7 @@ Aby bezpośrednio przekazać dane:
 1. *Opcjonalne:* Wybierz pozycję **Ustawienia zaawansowane** , aby dostosowywać magazyn danych, kontener i ścieżkę do swoich potrzeb.
 1. Wybierz pozycję **Przeglądaj** , aby wybrać pliki lokalne do przekazania.
 1. Podaj opis zestawu danych.
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 Dane są przekazywane do domyślnego magazynu obiektów BLOB ("workspaceblobstore") obszaru roboczego Machine Learning.
@@ -144,13 +144,7 @@ W przypadku pól ograniczenia ważne pytania obejmują:
 >[!NOTE]
 > Pamiętaj, że etykiety będą mogły wybrać pierwszych 9 etykiet przy użyciu klawiszy Number 1-9.
 
-## <a name="use-ml-assisted-labeling-preview"></a>Użycie etykiety z asystą (wersja zapoznawcza)
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
-
-> [!IMPORTANT]
-> Etykieta z asystą jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="use-ml-assisted-labeling"></a>Użyj etykiety z asystą
 
 Strona **etykietowania** z pomocąą ml umożliwia wyzwalanie automatycznych modeli uczenia maszynowego w celu przyspieszenia zadania etykietowania. Na początku projektu etykietowania obrazy są ustawiane losowo w kolejności losowej, aby zmniejszyć liczbę potencjalnych odchyleń. Jednak wszelkie bias, które znajdują się w zestawie danych, zostaną odzwierciedlone w modelu przeszkolonym. Na przykład jeśli 80% obrazów ma jedną klasę, wówczas około 80% danych używanych do uczenia modelu będzie tej klasy. To szkolenie nie obejmuje aktywnego uczenia się.
 
@@ -175,9 +169,6 @@ Faza klastrowania nie jest wyświetlana dla modeli wykrywania obiektów.
 Po przesłaniu wystarczającej liczby etykiet obrazu model klasyfikacji jest używany do przewidywania tagów obrazu. Lub model wykrywania obiektów służy do przewidywania pól ograniczenia. Labeler teraz widzi strony, które zawierają przewidywane etykiety, które znajdują się już w każdym obrazie. W przypadku wykrywania obiektów wyświetlane są również pola predykcyjne. Zadanie jest następnie, aby przejrzeć te przewidywania i skorygować wszystkie nieoznaczone obrazy przed przesłaniem strony.  
 
 Po przeszkoleniu modelu uczenia maszynowego na ręcznie etykietowanych danych model jest oceniany na zestawie testów z ręcznie oznaczonymi obrazami, aby określić jego dokładność na różnych różnych progach ufności. Ten proces oceny jest używany do określenia progu pewności, powyżej którego model jest wystarczająco dokładny, aby pokazać etykietki wstępne. Model jest następnie oceniany pod kątem braku etykietowania danych. Obrazy z przewidywaniami bardziej wątpliwości niż ten próg są używane do wstępnego etykietowania.
-
-> [!NOTE]
-> Etykieta zatytułowana "ML" jest dostępna **tylko** w obszarze roboczym wersji Enterprise Edition.
 
 ## <a name="initialize-the-labeling-project"></a>Inicjowanie projektu etykietowania
 

@@ -1,5 +1,5 @@
 ---
-title: Prognozowanie partii za pomocą projektanta usługi Azure Machine Learning (wersja zapoznawcza)
+title: Uruchamianie prognoz wsadowych za pomocą narzędzia Azure Machine Learning Designer
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak szkolić model i skonfigurować potok prognozowania usługi Batch przy użyciu narzędzia Projektant. Wdróż potok jako sparametryzowanej usługi sieci Web, która może być wyzwalana z dowolnej biblioteki HTTP.
 services: machine-learning
@@ -10,15 +10,15 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: e4ca191e50f4ca8aa5a11a36ec44e737cc2ef6bc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661499"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883084"
 ---
-# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Prognozowanie partii za pomocą projektanta usługi Azure Machine Learning (wersja zapoznawcza)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Uruchamianie prognoz wsadowych za pomocą narzędzia Azure Machine Learning Designer
+
 
 W tym artykule dowiesz się, jak utworzyć potok prognozowania wsadowego za pomocą projektanta. Funkcja prognozowanie wsadowe umożliwia ciągłe tworzenie dużych zestawów danych na żądanie przy użyciu usługi sieci Web, która może być wyzwalana z dowolnej biblioteki HTTP.
 

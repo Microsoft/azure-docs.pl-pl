@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 29934758ab729e0fb888c10b7f834da3d0bf7fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfe01e16b55325db03e4150a33ae5c4aa5822ae2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456084"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898506"
 ---
 # <a name="one-vs-all-multiclass"></a>moduł wieloklasowy "jeden przeciw wszystkim"
 
-W tym artykule opisano sposób korzystania z modułu moduł wieloklasowy "jeden przeciw wszystkim" w programie Azure Machine Learning Designer (wersja zapoznawcza). Celem jest utworzenie modelu klasyfikacji, który może przewidzieć wiele klas, przy użyciu podejścia *jednokierunkowego* .
+W tym artykule opisano sposób korzystania z modułu moduł wieloklasowy "jeden przeciw wszystkim" w programie Azure Machine Learning Designer. Celem jest utworzenie modelu klasyfikacji, który może przewidzieć wiele klas, przy użyciu podejścia *jednokierunkowego* .
 
 Ten moduł jest przydatny do tworzenia modeli predykcyjnych trzy lub więcej wyników, gdy wynik zależy od zmiennych predykcyjnych ciągłych lub kategorii. Ta metoda umożliwia także używanie binarnych metod klasyfikacji dla problemów wymagających wielu klas wyjściowych.
 

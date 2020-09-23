@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus

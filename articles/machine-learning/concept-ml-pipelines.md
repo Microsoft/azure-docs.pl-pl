@@ -9,12 +9,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2232aa46b0586ca62e80c8b9002271a67e4021c1
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b0217766c92ddcd1907eca2c6702d91b02e06c03
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651113"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893649"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Co to są Azure Machine Learning potoki?
 
@@ -95,7 +95,7 @@ Potok Azure ML jest skojarzony z obszarem roboczym Azure Machine Learning, a kro
 
 ### <a name="a-simple-python-pipeline"></a>Prosty potok Python
 
-Ten fragment kodu przedstawia obiekty i wywołania, które są konieczne do utworzenia i uruchomienia podstawowego `Pipeline` :
+Ten fragment kodu przedstawia obiekty i wywołania, które są konieczne do utworzenia i uruchomienia `Pipeline` :
 
 ```python
 ws = Workspace.from_config() 
@@ -152,7 +152,7 @@ Najważniejsze zalety używania potoków dla przepływów pracy usługi Machine 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Potoki Azure ML to zaawansowana funkcja, która rozpoczyna dostarczanie wartości na wczesnych etapach tworzenia oprogramowania. Wartość zwiększa się wraz ze wzrostem zespołu i projektu. W tym artykule wyjaśniono, jak potoki są określone za pomocą zestawu SDK języka Python Azure Machine Learning i zorganizowane na platformie Azure. Zaobserwowano kilka podstawowych kodów źródłowych i wprowadzono je do kilku `PipelineStep` dostępnych klas. W przypadku korzystania z potoków Azure ML i sposobu ich uruchamiania na platformie Azure należy mieć sens. 
+Potoki Azure ML to zaawansowana funkcja, która rozpoczyna dostarczanie wartości na wczesnych etapach tworzenia oprogramowania. Wartość zwiększa się wraz ze wzrostem zespołu i projektu. W tym artykule wyjaśniono, jak potoki są określone za pomocą zestawu SDK języka Python Azure Machine Learning i zorganizowane na platformie Azure. Widzisz prosty kod źródłowy i został wprowadzony do kilku `PipelineStep` dostępnych klas. W przypadku korzystania z potoków Azure ML i sposobu ich uruchamiania na platformie Azure należy mieć sens. 
 
 
 + Dowiedz się, jak [utworzyć pierwszy potok](how-to-create-your-first-pipeline.md).

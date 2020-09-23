@@ -1,26 +1,26 @@
 ---
 title: Instalowanie agenta połączonej maszyny przy użyciu programu Windows PowerShell DSC
-description: W tym artykule dowiesz się, jak połączyć maszyny z platformą Azure przy użyciu serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) przy użyciu programu Windows PowerShell DSC.
-ms.date: 03/12/2020
+description: W tym artykule dowiesz się, jak połączyć maszyny z platformą Azure przy użyciu serwerów z obsługą usługi Azure ARC przy użyciu programu Windows PowerShell DSC.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 675258ff95829c2dc9922571db5014b2ba93d336
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5349ff870be324c0137d2adcaf201ecdac286cbc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565824"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887648"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Jak zainstalować agenta połączonej maszyny przy użyciu programu Windows PowerShell DSC
 
-Przy użyciu [konfiguracji żądanego stanu (DSC) programu Windows PowerShell](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) można zautomatyzować instalację oprogramowania i konfigurację dla komputera z systemem Windows. W tym artykule opisano sposób korzystania z usługi DSC w celu zainstalowania serwera z włączoną obsługą funkcji Azure ARC (wersja zapoznawcza) na hybrydowych maszynach z systemem Windows.
+Przy użyciu [konfiguracji żądanego stanu (DSC) programu Windows PowerShell](/powershell/scripting/dsc/getting-started/winGettingStarted) można zautomatyzować instalację oprogramowania i konfigurację dla komputera z systemem Windows. W tym artykule opisano, jak używać usługi DSC do instalowania agenta maszyny połączonej z usługą Azure Arc na hybrydowych maszynach z systemem Windows.
 
 ## <a name="requirements"></a>Wymagania
 
 - Windows PowerShell w wersji 4,0 lub nowszej
 
-- Moduł [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc/1.0.1.0) DSC
+- Moduł [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc) DSC
 
-- Nazwa główna usługi do łączenia maszyn z serwerami z obsługą usługi Azure ARC (wersja zapoznawcza) nieinteraktywnie. Wykonaj kroki opisane w sekcji [Tworzenie jednostki usługi na potrzeby](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) dołączania w odpowiedniej skali, jeśli nie utworzono jednostki usługi dla serwerów z włączonym łukiem (wersja zapoznawcza).
+- Jednostka usługi do łączenia maszyn z serwerami z obsługą usługi Azure Arc nie interaktywnie. Wykonaj kroki opisane w sekcji [Tworzenie jednostki usługi na potrzeby](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) dołączania w odpowiedniej skali, jeśli nie utworzono jednostki usługi dla serwerów z włączonym łukiem.
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>Instalowanie modułu ConnectedMachine DSC
 
@@ -44,7 +44,7 @@ Przy użyciu [konfiguracji żądanego stanu (DSC) programu Windows PowerShell](/
 
 Zasoby w tym module są przeznaczone do zarządzania konfiguracją agenta połączonej maszyny platformy Azure. Uwzględniono również skrypt programu PowerShell, który znajduje się `AzureConnectedMachineAgent.ps1` w `AzureConnectedMachineDsc\examples` folderze. Używa zasobów społeczności do automatyzowania pobierania i instalacji oraz nawiązywania połączenia z usługą Azure Arc. Ten skrypt wykonuje podobne kroki opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z artykułu Azure Portal](onboard-portal.md) .
 
-Jeśli komputer musi komunikować się z usługą za pomocą serwera proxy, po zainstalowaniu agenta należy uruchomić polecenie, które jest opisane w [tym miejscu](manage-agent.md#update-or-remove-proxy-settings). Powoduje to ustawienie zmiennej środowiskowej serwera proxy `https_proxy` . Zamiast ręcznego uruchamiania polecenia można wykonać ten krok za pomocą usługi DSC przy użyciu modułu [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) .
+Jeśli komputer musi komunikować się z usługą za pomocą serwera proxy, po zainstalowaniu agenta należy uruchomić polecenie, które jest opisane w [tym miejscu](manage-agent.md#update-or-remove-proxy-settings). Powoduje to ustawienie zmiennej środowiskowej serwera proxy `https_proxy` . Zamiast ręcznego uruchamiania polecenia można wykonać ten krok za pomocą usługi DSC przy użyciu modułu [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc) .
 
 >[!NOTE]
 >Aby można było uruchomić DSC, system Windows musi być skonfigurowany do odbierania poleceń zdalnych programu PowerShell nawet w przypadku uruchamiania konfiguracji hosta lokalnego. Aby prawidłowo skonfigurować środowisko, po prostu uruchom `Set-WsManQuickConfig -Force` w terminalu programu PowerShell z podwyższonym poziomem uprawnień.
@@ -64,11 +64,11 @@ Poniżej przedstawiono parametry, które są przekazywane do skryptu programu Po
 
 - `Tags`: Tablica ciągów znaczników, które powinny być stosowane do zasobu połączonej maszyny.
 
-- `Credential`: Obiekt poświadczeń programu PowerShell z identyfikatorem **aplikacji** i **hasłem** używanym do rejestrowania maszyn na dużą skalę przy użyciu [nazwy głównej usługi](onboard-service-principal.md). 
+- `Credential`: Obiekt poświadczeń programu PowerShell z identyfikatorem **aplikacji** i **hasłem** używanym do rejestrowania maszyn na dużą skalę przy użyciu [nazwy głównej usługi](onboard-service-principal.md).
 
 1. W konsoli programu PowerShell przejdź do folderu, w którym zapisano `.ps1` plik.
 
-2. Uruchom następujące polecenia programu PowerShell, aby skompilować dokument MOF (Aby uzyskać informacje na temat kompilowania konfiguracji DSC, zobacz [konfiguracje DSC](/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
+2. Uruchom następujące polecenia programu PowerShell, aby skompilować dokument MOF (Aby uzyskać informacje na temat kompilowania konfiguracji DSC, zobacz [konfiguracje DSC](/powershell/scripting/dsc/configurations/configurations):
 
     ```powershell
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
@@ -76,13 +76,13 @@ Poniżej przedstawiono parametry, które są przekazywane do skryptu programu Po
 
 3. Spowoduje to utworzenie `localhost.mof file` nowego folderu o nazwie `C:\dsc` .
 
-Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z serwerami z obsługą usługi Azure ARC (wersja zapoznawcza) przejdź do Azure Portal, aby sprawdzić, czy serwer został pomyślnie połączony. Wyświetl maszyny w witrynie [Azure Portal](https://aka.ms/hybridmachineportal).
+Po zainstalowaniu agenta i skonfigurowaniu go w celu nawiązania połączenia z serwerami z obsługą usługi Azure Arc przejdź do Azure Portal, aby sprawdzić, czy serwer został pomyślnie połączony. Wyświetl maszyny w witrynie [Azure Portal](https://aka.ms/hybridmachineportal).
 
 ## <a name="adding-to-existing-configurations"></a>Dodawanie do istniejących konfiguracji
 
 Ten zasób można dodać do istniejących konfiguracji DSC, aby reprezentować konfigurację kompleksową dla maszyny. Na przykład możesz chcieć dodać ten zasób do konfiguracji, która ustawia bezpieczne ustawienia systemu operacyjnego.
 
-Moduł [CompositeResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) z Galeria programu PowerShell może służyć do tworzenia [zasobów złożonych](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) przykładowej konfiguracji, aby dodatkowo uprościć łączenie konfiguracji.
+Moduł [CompositeResource](https://www.powershellgallery.com/packages/compositeresource) z Galeria programu PowerShell może służyć do tworzenia [zasobów złożonych](/powershell/scripting/dsc/resources/authoringResourceComposite) przykładowej konfiguracji, aby dodatkowo uprościć łączenie konfiguracji.
 
 ## <a name="next-steps"></a>Następne kroki
 

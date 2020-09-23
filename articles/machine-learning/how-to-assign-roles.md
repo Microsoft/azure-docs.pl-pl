@@ -11,15 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 235135cbbcc7c622f4dd23c2e4f29cc3636dc1ea
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661925"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893405"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, jak zarządzać dostępem do obszaru roboczego Azure Machine Learning. [Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview) służy do zarządzania dostępem do zasobów platformy Azure. Użytkownicy w Azure Active Directory są przypisani do określonych ról, które przyznają dostęp do zasobów. Platforma Azure udostępnia wbudowane role i możliwość tworzenia ról niestandardowych.
 
@@ -46,7 +45,7 @@ Jeśli jesteś właścicielem obszaru roboczego, możesz dodawać i usuwać role
 - [Program PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Interfejs wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
 - [Interfejs API REST](/azure/role-based-access-control/role-assignments-rest)
-- [Szablony Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
+- [Szablony usługi Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
 
 Jeśli zainstalowano [interfejs wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md), do przypisywania ról użytkownikom można używać poleceń CLI:
 
@@ -135,7 +134,6 @@ Poniższa tabela zawiera podsumowanie działań Azure Machine Learning i uprawni
 | Działanie | Zakres poziomu subskrypcji | Zakres poziomu grupy zasobów | Zakres obszaru roboczego |
 | ----- | ----- | ----- | ----- |
 | Utwórz nowy obszar roboczy | Niewymagane | Właściciel lub współautor | Nie dotyczy (jest właścicielem lub dziedziczy wyższy zakres roli po utworzeniu) |
-| Aktualizowanie wersji obszaru roboczego | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `/workspaces/write` |
 | Żądaj przydziału Amlcompute poziomu subskrypcji lub ustawienia przydziału poziomu obszaru roboczego | Właściciel lub współautor lub rola niestandardowa </br>umożliwiające `/locations/updateQuotas/action`</br> w zakresie subskrypcji | Brak autoryzacji | Brak autoryzacji |
 | Utwórz nowy klaster obliczeniowy | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `/workspaces/computes/write` |
 | Utwórz nowe wystąpienie obliczeniowe | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `/workspaces/computes/write` |
@@ -301,7 +299,6 @@ Tak tutaj są niektóre typowe scenariusze z niestandardowymi, proponowanymi def
 
     * Tworzenie nowego obszaru roboczego
     * Przypisywanie przydziałów poziomu subskrypcji lub obszaru roboczego
-    * Uaktualnianie wersji obszaru roboczego
 
     Administrator obszaru roboczego nie może również utworzyć nowej roli. Może przypisywać tylko istniejące wbudowane lub niestandardowe role w zakresie ich obszaru roboczego:
 
@@ -415,11 +412,7 @@ Musisz mieć uprawnienia do całego zakresu nowej definicji roli. Jeśli na przy
 
 > [!NOTE]
 > Zastosowanie aktualizacji ról może zająć od 15 minut do godziny.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>PYTANIE: Czy mogę zdefiniować rolę, która uniemożliwia Aktualizowanie wersji obszaru roboczego? 
 
-Tak, możesz zdefiniować rolę, która uniemożliwi Aktualizowanie wersji obszaru roboczego. Ponieważ aktualizacja obszaru roboczego jest wywołaniem poprawki w obiekcie obszaru roboczego, można to zrobić, umieszczając w tablicy następującą akcję w `"NotActions"` definicji JSON: 
-
-`"Microsoft.MachineLearningServices/workspaces/write"`
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>PYTANIE: Jakie uprawnienia są potrzebne do wykonania operacji przydziałów w obszarze roboczym? 
 

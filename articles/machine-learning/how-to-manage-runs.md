@@ -12,15 +12,15 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6d0d626fe0720500b436aea73d6df7c8bb08e004
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fc9dee3d4ace5f70c4238cdce5c57696b131bfa9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649385"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897306"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Uruchamianie, monitorowanie i anulowanie przebiegów szkoleniowych w języku Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), [Machine Learning interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md)i [Azure Machine Learning Studio](https://ml.azure.com) udostępnia różne metody monitorowania, organizowania i zarządzania przebiegami w celu uczenia i eksperymentowania.
 
@@ -110,7 +110,7 @@ Aby rozpocząć wykonywanie eksperymentu, wykonaj następujące czynności:
 
 ### <a name="using-azure-machine-learning-studio"></a>Korzystanie z programu Azure Machine Learning Studio
 
-Aby rozpocząć przesyłanie potoku w projektancie (wersja zapoznawcza), wykonaj następujące czynności:
+Aby rozpocząć przesyłanie potoku w projektancie, wykonaj następujące czynności:
 
 1. Ustaw domyślny element docelowy obliczeń dla potoku.
 
@@ -384,7 +384,7 @@ list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"
 
 #### <a name="using-the-cli"></a>Korzystanie z interfejsu wiersza polecenia
 
-Interfejs wiersza polecenia platformy Azure obsługuje zapytania [JMESPath](http://jmespath.org) , które mogą służyć do filtrowania przebiegów w oparciu o właściwości i Tagi. Aby użyć zapytania JMESPath z interfejsem wiersza polecenia platformy Azure, określ go za pomocą `--query` parametru. W poniższych przykładach przedstawiono podstawowe zapytania przy użyciu właściwości i tagów:
+Interfejs wiersza polecenia platformy Azure obsługuje zapytania [JMESPath](http://jmespath.org) , które mogą służyć do filtrowania przebiegów w oparciu o właściwości i Tagi. Aby użyć zapytania JMESPath z interfejsem wiersza polecenia platformy Azure, określ go za pomocą `--query` parametru. Poniższe przykłady przedstawiają niektóre zapytania przy użyciu właściwości i tagów:
 
 ```azurecli-interactive
 # list runs where the author property = 'azureml-user'

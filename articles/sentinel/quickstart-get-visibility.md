@@ -8,14 +8,14 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.date: 09/23/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 304f80dcb2da4ed60bd94e9fb4d71d985da87cc2
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661994"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889135"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Szybki Start: Rozpoczynanie pracy z platformą Azure — wskaźnikiem
 
@@ -44,7 +44,6 @@ Główna treść strony Przegląd zapewnia wgląd w informacje o stanie zabezpie
 
    ![Mapa złośliwego ruchu](./media/qs-get-visibility/map.png)
 
-
 - **Ostatnie zdarzenia**: Aby wyświetlić ostatnie incydenty, ich ważność oraz liczbę alertów skojarzonych ze zdarzeniem. Jeśli widzisz jako nagły szczyt w określonym typie alertu, może to oznaczać, że jest aktualnie uruchomiony aktywny atak. Na przykład w przypadku nagłego szczytu 20 zdarzeń typu Pass-the-hash z usługi Microsoft Defender dla tożsamości (dawniej Azure ATP) istnieje możliwość, że ktoś aktualnie próbuje się zaatakować.
 
 - **Anomalie źródła danych**: analityki danych firmy Microsoft utworzyły modele, które stale przeszukują dane ze źródeł danych pod kątem anomalii. Jeśli nie ma żadnych anomalii, nic nie zostanie wyświetlone. W przypadku wykrycia anomalii należy szczegółowo szczegółowe je, aby zobaczyć, co się stało. Na przykład kliknij pozycję skok w działaniu platformy Azure. Możesz kliknąć **Wykres** , aby zobaczyć, kiedy nastąpiło przekroczenie, a następnie odfiltrować działania, które wystąpiły w tym okresie, aby zobaczyć, co spowodowało skok.
@@ -67,7 +66,7 @@ Wbudowane skoroszyty zapewniają zintegrowane dane z połączonych źródeł dan
       ![Palo Alto Dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Możesz dostosować skoroszyty, edytując ![ przycisk Edytuj głównej kwerendy zapytania ](./media/qs-get-visibility/edit-query-button.png) . Możesz kliknąć przycisk usługi ![ log Analytics ](./media/qs-get-visibility/go-to-la-button.png) , aby przejść do [log Analytics, aby edytować zapytanie](../azure-monitor/log-query/get-started-portal.md)w tym miejscu, a następnie wybrać przycisk wielokropka (...), a następnie wybrać opcję **Dostosuj dane kafelka**, co umożliwia edytowanie filtru czasu głównego lub usuwanie określonych kafelków ze skoroszytu.
+Możesz dostosować skoroszyty, edytując ![ przycisk Edytuj głównej kwerendy zapytania ](./media/qs-get-visibility/edit-query-button.png) . Możesz kliknąć przycisk Log Analytics przycisk ![ ](./media/qs-get-visibility/go-to-la-button.png) , aby przejść do [log Analytics, aby edytować zapytanie](../azure-monitor/log-query/get-started-portal.md)w tym miejscu, a następnie wybrać wielokropek (...) i wybrać opcję **Dostosuj dane kafelka**, co umożliwia edytowanie filtru czasu głównego lub usuwanie określonych kafelków ze skoroszytu.
 
 Aby uzyskać więcej informacji na temat pracy z zapytaniami, zobacz [Samouczek: dane wizualne w log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

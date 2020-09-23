@@ -11,15 +11,15 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: eb28ee0adb3c23a44936cbc940ee9bcddfd11141
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6b239ab14437083b74f4501eabb588e929152431
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647419"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897238"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Korzystanie z zautomatyzowanej tablicy w potoku Azure Machine Learning w języku Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Funkcja zautomatyzowanej ML Azure Machine Learning umożliwia odnajdywanie modeli o wysokiej wydajności bez konieczności ponownego wdrażania każdej możliwej metody. W połączeniu z potokami Azure Machine Learning można tworzyć możliwe do wdrożenia przepływy pracy, które mogą szybko wykryć algorytm, który najlepiej sprawdza się w przypadku danych. W tym artykule pokazano, jak efektywnie dołączać krok przygotowania danych do zautomatyzowanego kroku ML. Automatycznej ML mogą szybko wykrywać algorytm, który najlepiej sprawdza się w przypadku danych, jednocześnie zapewniając drogę do MLOps i model cyklu życia operacjonalizacji z potokami.
 
@@ -29,7 +29,7 @@ Funkcja zautomatyzowanej ML Azure Machine Learning umożliwia odnajdywanie model
 
 * Obszar roboczy usługi Azure Machine Learning. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).  
 
-* Zapoznaj się z podstawową wiedzą na temat infrastruktury usług [uczenia maszynowego](concept-automated-ml.md) i usługi [Machine Learning](concept-ml-pipelines.md) na platformie Azure.
+* Zapoznaj się z [automatycznymi usługami uczenia maszynowego](concept-automated-ml.md) i uczenia [maszynowego](concept-ml-pipelines.md) platformy Azure.
 
 ## <a name="review-automated-mls-central-classes"></a>Przegląd klas centralnych o zautomatyzowanej ML
 
@@ -49,7 +49,7 @@ Preferowanym sposobem na wstępne przeniesienie danych _do_ potoku jest z `Datas
 
 W celu utworzenia konkretnych elementów ten artykuł tworzy prosty potok dla zadania klasyfikacji. Zadanie jest przewidywane przewidywalność Titanic, ale nie będziemy omawiać danych ani zadań poza przekazywaniem.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 ### <a name="retrieve-initial-dataset"></a>Pobierz początkowy zestaw danych
 
@@ -368,7 +368,7 @@ Czasami może być widoczne użycie `X` funkcji danych i `y` etykiet danych. Ta 
 
 ## <a name="register-the-model-generated-by-automated-ml"></a>Zarejestruj model wygenerowany przez zautomatyzowaną ML 
 
-Ostatnim krokiem w ramach potoku podstawowej ML jest zarejestrowanie utworzonego modelu. Po dodaniu modelu do rejestru modelu obszaru roboczego będzie on dostępny w portalu i może być w wersji. Aby zarejestrować model, napisz inny, `PythonScriptStep` który pobiera `model_data` dane wyjściowe `AutoMLStep` .
+Ostatnim krokiem w prostym potoku jest zarejestrowanie utworzonego modelu. Po dodaniu modelu do rejestru modelu obszaru roboczego będzie on dostępny w portalu i może być w wersji. Aby zarejestrować model, napisz inny, `PythonScriptStep` który pobiera `model_data` dane wyjściowe `AutoMLStep` .
 
 ### <a name="write-the-code-to-register-the-model"></a>Napisz kod, aby zarejestrować model
 

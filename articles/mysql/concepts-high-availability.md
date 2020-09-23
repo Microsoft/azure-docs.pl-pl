@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: bd2f7798ca02f4d6eab6d6d78d158a48bcccc010
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 668243f66deff67a923097c116c4b150d0256992
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206072"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882564"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Wysoka dostępność w Azure Database for MySQL
 Usługa Azure Database for MySQL zapewnia gwarantowany wysoki poziom dostępności dzięki finansowej umowie dotyczącej poziomu usług (SLA) wynoszącej [99,99%](https://azure.microsoft.com/support/legal/sla/mysql) czasu. Azure Database for MySQL zapewnia wysoką dostępność podczas planowanych zdarzeń, takich jak operacja obliczeniowa initated przez użytkownika, a także w przypadku nieplanowanych zdarzeń, takich jak podstawowy sprzęt, oprogramowanie lub awarie sieci. Azure Database for MySQL możliwość szybkiego odzyskania sprawności od najbardziej krytycznych okoliczności, co gwarantuje praktycznie brak aplikacji podczas korzystania z tej usługi.
@@ -29,7 +29,7 @@ Azure Database for MySQL jest odpowiednia do uruchamiania krytycznych baz danych
 ## <a name="planned-downtime-mitigation"></a>Planowane ograniczenie przestoju
 Azure Database for MySQL jest zaprojektowany w celu zapewnienia wysokiej dostępności podczas planowanych operacji przestojów. 
 
-![Widok elastycznego skalowania w usłudze Azure MySQL](./media/concepts-high-availability/elastic-scaling-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/elastic-scaling-mysql-server.png" alt-text="Widok elastycznego skalowania w usłudze Azure MySQL":::
 
 Poniżej przedstawiono niektóre planowane scenariusze konserwacji:
 
@@ -46,7 +46,7 @@ Poniżej przedstawiono niektóre planowane scenariusze konserwacji:
 Nieplanowany przestój może wystąpić w wyniku nieprzewidzianych awarii, w tym podstawowego błędu sprzętowego, problemów z siecią i błędów oprogramowania. Jeśli serwer bazy danych ulegnie awarii, w ciągu kilku sekund zostanie automatycznie zainicjowany nowy serwer bazy danych. Magazyn zdalny jest automatycznie dołączany do nowego serwera bazy danych. Aparat MySQL wykonuje operację odzyskiwania przy użyciu plików WAL i Database, a następnie otwiera serwer baz danych, aby umożliwić klientom nawiązywanie połączeń. Niezatwierdzone transakcje są tracone i muszą być ponawiane przez aplikację. Nie można uniknąć nieplanowanych przestojów, Azure Database for MySQL ogranicza przestoje przez automatyczne wykonywanie operacji odzyskiwania zarówno na serwerze bazy danych, jak i w warstwach magazynu, bez konieczności interwencji człowieka. 
 
 
-![Widok wysokiej dostępności w usłudze Azure MySQL](./media/concepts-high-availability/availability-for-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="Widok wysokiej dostępności w usłudze Azure MySQL":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Nieplanowany przestój: scenariusze awarii i odzyskiwanie usługi
 Poniżej przedstawiono niektóre scenariusze awarii i sposób automatycznego odzyskiwania Azure Database for MySQL:
@@ -60,8 +60,8 @@ Poniżej przedstawiono niektóre scenariusze niepowodzeń, które wymagają wyko
 
 | **Scenariusz** | **Plan odzyskiwania** |
 | ---------- | ---------- |
-| <b>Awaria regionu | Awaria regionu jest zdarzeniem rzadkim. Jeśli jednak potrzebujesz ochrony przed awarią regionu, możesz skonfigurować co najmniej jedną replikę odczytu w innych regionach na potrzeby odzyskiwania po awarii (DR). (Zobacz [ten artykuł](howto-read-replicas-portal.md) dotyczący tworzenia replik odczytu i zarządzania nimi w celu uzyskania szczegółowych informacji). W przypadku awarii poziomu regionu można ręcznie podwyższyć poziom repliki odczytu skonfigurowany w innym regionie jako produkcyjny serwer bazy danych. |
-| <b>Błędy logiczne/użytkownika | Odzyskiwanie z błędów użytkowników, takich jak przypadkowo porzucane tabele lub nieprawidłowo aktualizowane dane, polega na przeprowadzeniu [odzyskiwania do punktu w czasie](concepts-backup.md) (kopie) przez przywrócenie i odzyskanie danych do czasu, gdy wystąpi błąd.<br> <br>  Aby przywrócić tylko podzestaw baz danych lub określonych tabel, a nie wszystkich baz danych na serwerze bazy danych, można przywrócić serwer bazy danych w nowym wystąpieniu, wyeksportować tabele za pośrednictwem [mysqldump](concepts-migrate-dump-restore.md), a następnie użyć [przywracania](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench) , aby przywrócić te tabele do bazy danych programu. |
+| <b> Awaria regionu | Awaria regionu jest zdarzeniem rzadkim. Jeśli jednak potrzebujesz ochrony przed awarią regionu, możesz skonfigurować co najmniej jedną replikę odczytu w innych regionach na potrzeby odzyskiwania po awarii (DR). (Zobacz [ten artykuł](howto-read-replicas-portal.md) dotyczący tworzenia replik odczytu i zarządzania nimi w celu uzyskania szczegółowych informacji). W przypadku awarii poziomu regionu można ręcznie podwyższyć poziom repliki odczytu skonfigurowany w innym regionie jako produkcyjny serwer bazy danych. |
+| <b> Błędy logiczne/użytkownika | Odzyskiwanie z błędów użytkowników, takich jak przypadkowo porzucane tabele lub nieprawidłowo aktualizowane dane, polega na przeprowadzeniu [odzyskiwania do punktu w czasie](concepts-backup.md) (kopie) przez przywrócenie i odzyskanie danych do czasu, gdy wystąpi błąd.<br> <br>  Aby przywrócić tylko podzestaw baz danych lub określonych tabel, a nie wszystkich baz danych na serwerze bazy danych, można przywrócić serwer bazy danych w nowym wystąpieniu, wyeksportować tabele za pośrednictwem [mysqldump](concepts-migrate-dump-restore.md), a następnie użyć [przywracania](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench) , aby przywrócić te tabele do bazy danych programu. |
 
 
 
