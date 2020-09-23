@@ -3,12 +3,12 @@ title: Monitorowanie aplikacji platformy Docker na platformie Azure Application 
 description: Liczniki wydajności platformy Docker, zdarzenia i wyjątki mogą być wyświetlane na Application Insights wraz z danymi telemetrycznymi z aplikacji kontenerowych.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 1cbb2968fec68eb750ce3c9b6cac09f23a1d36c5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 272b4e8af7b1ed3d01d8af0979b56954585f795d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324424"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977579"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorowanie aplikacji platformy Docker w Application Insights (przestarzałe)
 
@@ -71,12 +71,12 @@ Kliknij kafelek Docker.
 Wkrótce zobaczysz dane przychodzące z aplikacji platformy Docker, zwłaszcza jeśli masz inne kontenery uruchomione na aparacie platformy Docker.
 
 ### <a name="docker-container-events"></a>Zdarzenia kontenera platformy Docker
-![przykład](./media/docker/13.png)
+![Zrzut ekranu pokazuje Wybieranie wyszukiwania, okno wyników wyszukiwania diagnostycznego ze strzałką wskazującą ze zdarzenia niestandardowego do okna z danymi niestandardowymi.](./media/docker/13.png)
 
 Aby zbadać poszczególne zdarzenia, kliknij przycisk [Wyszukaj](./diagnostic-search.md). Wyszukaj i Filtruj, aby znaleźć żądane zdarzenia. Kliknij dowolne zdarzenie, aby uzyskać więcej szczegółów.
 
 ### <a name="exceptions-by-container-name"></a>Wyjątki według nazwy kontenera
-![przykład](./media/docker/14.png)
+![Zrzut ekranu przedstawia stronę Eksplorator metryk z wybranym wykresem, a okno Szczegóły wykresu otwiera się po prawej stronie.](./media/docker/14.png)
 
 ### <a name="docker-context-added-to-app-telemetry"></a>Kontekst platformy Docker został dodany do telemetrii aplikacji
 Dane telemetryczne żądania wysyłane z aplikacji z zestawem SDK AI są wzbogacane przy użyciu informacji kontekstu platformy Docker.

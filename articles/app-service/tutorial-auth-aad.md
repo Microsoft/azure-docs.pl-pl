@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: devx-track-csharp, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c1c3f52dafe63e3f829eb12d4fb872ed3ce85f36
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: abda26e359becb137d4c0c9f2965ebfbb5ee047c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211712"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982906"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników w usłudze Azure App Service
 
@@ -145,7 +145,7 @@ http://<back-end-app-name>.azurewebsites.net
 http://<front-end-app-name>.azurewebsites.net
 ```
 
-![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/tutorial-auth-aad/azure-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/azure-run.png" alt-text="Zrzut ekranu przedstawiający przykład interfejsu API REST Azure App Service w oknie przeglądarki, w którym znajduje się aplikacja listy rzeczy do zrobienia.":::
 
 > [!NOTE]
 > Jeśli aplikacja zostanie ponownie uruchomiona, możesz zauważyć, że nowe dane zostały usunięte. To zachowanie jest oczekiwane, ponieważ przykładowa aplikacja platformy ASP.NET Core używa bazy danych w pamięci.
@@ -225,7 +225,7 @@ Przejdź na adres `http://<front-end-app-name>.azurewebsites.net` i dodaj kilka 
 
 Przejdź na adres `http://<back-end-app-name>.azurewebsites.net`, aby zobaczyć elementy dodane z poziomu aplikacji frontonu. Dodaj również kilka elementów, np. `from back end 1` i `from back end 2`, a następnie odśwież aplikację frontonu, aby zobaczyć, czy zmiany zostały uwzględnione.
 
-![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/tutorial-auth-aad/remote-api-call-run.png)
+:::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Zrzut ekranu przedstawiający przykład interfejsu API REST Azure App Service w oknie przeglądarki, w którym znajduje się lista aplikacji do wykonania z elementami dodanymi z aplikacji frontonu.":::
 
 ## <a name="configure-auth"></a>Konfigurowanie uwierzytelniania
 
@@ -239,7 +239,7 @@ W menu [Azure Portal](https://portal.azure.com) wybierz pozycję **grupy zasobó
 
 W obszarze **grupy zasobów**Znajdź i wybierz grupę zasobów. W obszarze **Przegląd**wybierz stronę zarządzania aplikacji zaplecza.
 
-![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/tutorial-auth-aad/portal-navigate-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Zrzut ekranu przedstawiający okno grupy zasobów z omówieniem przykładowej grupy zasobów i wybranej strony zarządzania aplikacji zaplecza.":::
 
 W menu po lewej stronie aplikacji zaplecza wybierz pozycję **uwierzytelnianie/autoryzacja**, a następnie włącz uwierzytelnianie App Service, wybierając pozycję **włączone**.
 
@@ -247,7 +247,7 @@ Z listy **Akcja do wykonania w przypadku nieuwierzytelnionego żądania** wybier
 
 W obszarze **dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**.
 
-![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/tutorial-auth-aad/configure-auth-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Zrzut ekranu przedstawiający menu po lewej stronie aplikacji zaplecza z wybraną pozycją uwierzytelnianie/autoryzacja i ustawienia wybrane w menu po prawej stronie.":::
 
 Wybierz pozycję **Express**, a następnie zaakceptuj ustawienia domyślne, aby utworzyć nową aplikację usługi AD, a następnie wybierz **przycisk OK**.
 
@@ -259,7 +259,7 @@ Wybierz **Azure Active Directory** ponownie, a następnie wybierz **aplikacja us
 
 Skopiuj **Identyfikator klienta** aplikacji usługi Azure AD do Notatnika. Ta wartość będzie potrzebna później.
 
-![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/tutorial-auth-aad/get-application-id-back-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Zrzut ekranu przedstawiający okno Ustawienia Azure Active Directory z aplikacja usługi Azure AD i okno aplikacje usługi Azure AD z informacjami o IDENTYFIKATORze klienta do skopiowania.":::
 
 Jeśli zatrzymasz tutaj, będziesz mieć samodzielną aplikację, która jest już zabezpieczona przez App Service uwierzytelnianie i autoryzację. Pozostałe sekcje przedstawiają sposób zabezpieczania rozwiązania z obsługą aplikacji przez "przepływanie" uwierzytelnionego użytkownika z frontonu do zaplecza. 
 
@@ -284,13 +284,13 @@ W menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active 
 
 Wybierz **rejestracje aplikacji**  >  **posiadane aplikacje**  >  **Wyświetl wszystkie aplikacje w tym katalogu**. Wybierz nazwę aplikacji frontonu, a następnie wybierz pozycję **uprawnienia interfejsu API**.
 
-![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/tutorial-auth-aad/add-api-access-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Zrzut ekranu okna Microsoft-Rejestracje aplikacji z posiadanymi aplikacjami, nazwą aplikacji frontonu i wybranym uprawnieniem interfejsu API.":::
 
 Wybierz pozycję **Dodaj uprawnienia**, a następnie wybierz pozycję Interfejsy API, które są **wykorzystywane przez moją organizację**  >  **\<back-end-app-name>** .
 
 Na stronie **uprawnienia interfejsu API żądania** dla aplikacji zaplecza wybierz pozycję **uprawnienia delegowane** i **user_impersonation**, a następnie wybierz pozycję **Dodaj uprawnienia**.
 
-![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/tutorial-auth-aad/select-permission-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Zrzut ekranu przedstawiający stronę uprawnień interfejsu API żądania z uprawnieniami delegowania, user_impersonation i przycisk Dodaj uprawnienie.":::
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>Konfigurowanie usługi App Service do zwracania nadającego się do użycia tokenu dostępu
 
@@ -300,7 +300,7 @@ Przejdź do [Azure Resource Explorer](https://resources.azure.com) i przy użyci
 
 [Azure Resource Explorer](https://resources.azure.com) jest teraz otwarta z aplikacją frontonu wybraną w drzewie zasobów. U góry strony kliknij pozycję **Odczyt/zapis**, aby włączyć edytowanie zasobów platformy Azure.
 
-![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/tutorial-auth-aad/resources-enable-write.png)
+:::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Zrzut ekranu przycisków tylko do odczytu i do odczytu/zapisu w górnej części strony Azure Resource Explorer z wybranym przyciskiem do odczytu/zapisu.":::
 
 W lewej przeglądarce przejdź do szczegółów **konfiguracji**  >  **authsettings**.
 
@@ -310,7 +310,7 @@ W widoku **authsettings** kliknij pozycję **Edytuj**. Ustaw `additionalLoginPar
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
 ```
 
-![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/tutorial-auth-aad/additional-login-params-front-end.png)
+:::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Zrzut ekranu przedstawiający przykład kodu w widoku authsettings pokazujący ciąg additionalLoginParams z przykładem identyfikatora klienta.":::
 
 Zapisz ustawienia, klikając pozycję **PUT**.
 
@@ -442,7 +442,7 @@ Gratulacje! Kod klienta uzyskuje teraz dostęp do danych zaplecza w imieniu uwie
 
 Token dostępu wygasa po pewnym czasie. Aby uzyskać informacje na temat odświeżania tokenów dostępu bez konieczności ponownego uwierzytelniania użytkowników w aplikacji, zobacz [Odświeżanie tokenów dostawców tożsamości](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 W poprzednich krokach utworzono zasoby platformy Azure w grupie zasobów. Jeśli te zasoby nie będą raczej potrzebne w przyszłości, usuń grupę zasobów, uruchamiając następujące polecenie w usłudze Cloud Shell:
 

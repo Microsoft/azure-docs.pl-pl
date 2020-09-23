@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie danymi historycznymi przy użyciu zasad przechowywania — Azure SQL Edge (wersja zapoznawcza)
-description: Dowiedz się, jak zarządzać danymi historycznymi przy użyciu zasad przechowywania w usłudze Azure SQL Edge (wersja zapoznawcza)
+title: Zarządzanie danymi historycznymi przy użyciu zasad przechowywania — Azure SQL Edge
+description: Dowiedz się, jak zarządzać danymi historycznymi przy użyciu zasad przechowywania w usłudze Azure SQL Edge
 keywords: SQL Edge, przechowywanie danych
 services: sql-edge
 ms.service: sql-edge
@@ -9,22 +9,21 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9acec467819f159623176edf2f3f763a55019eb4
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550758"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888138"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Zarządzanie danymi historycznymi przy użyciu zasad przechowywania
 
 Przechowywanie danych można włączyć w bazie danych i dowolnych tabelach bazowych, co pozwala użytkownikom na tworzenie elastycznych zasad przedawniania dla ich tabel i baz danych. Stosowanie przechowywania danych jest proste: wymaga ustawienia tylko jednego parametru podczas tworzenia tabeli lub w ramach operacji ALTER TABLE. 
 
-Gdy zasady przechowywania danych są zdefiniowanych przez dla bazy danych i tabeli źródłowej, uruchamiane jest zadanie czasomierza czasu w tle w celu usunięcia wszelkich przestarzałych rekordów z tabeli obsługujących przechowywanie danych. Identyfikacja pasujących wierszy i ich usunięcie z tabeli odbywa się w sposób przezroczysty, w tle zadania, które zostało zaplanowane i uruchomione przez system. Warunek wieku dla wierszy tabeli jest sprawdzany na podstawie kolumny użytej `filter_column` w definicji tabeli. Jeśli na przykład okres przechowywania jest ustawiony na jeden tydzień, wiersze tabeli kwalifikujące się do oczyszczenia spełniają następujący warunek: 
+Gdy zasady przechowywania danych są zdefiniowanych przez dla bazy danych i tabeli źródłowej, uruchamiane jest zadanie czasomierza czasu w tle w celu usunięcia wszelkich przestarzałych rekordów z tabeli obsługujących przechowywanie danych. Identyfikacja pasujących wierszy i ich usunięcie z tabeli odbywa się w sposób przezroczysty, w tle zadania, które zostało zaplanowane i uruchomione przez system. Warunek wieku dla wierszy tabeli jest sprawdzany na podstawie kolumny użytej `filter_column` w definicji tabeli. Jeśli na przykład okres przechowywania jest ustawiony na jeden tydzień, wiersze tabeli, które kwalifikują się do oczyszczenia, spełniają jeden z następujących warunków: 
 
-```sql
-filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())
-```
+- Jeśli kolumna filtru używa typu danych DATETIMEOFFSET, warunek jest `filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())`
+- W przeciwnym razie warunek jest `filter_column < DATEADD(WEEK, -1, SYSDATETIME())`
 
 ## <a name="data-retention-cleanup-phases"></a>Fazy oczyszczania przechowywania danych
 
@@ -37,7 +36,7 @@ Operacja oczyszczania przechowywania danych składa się z dwóch faz.
 
 ## <a name="manual-cleanup"></a>Ręczne czyszczenie
 
-W zależności od ustawień przechowywania danych w tabeli i charakteru obciążenia bazy danych istnieje możliwość, że wątek automatycznego oczyszczania może nie usunąć całkowicie wszystkich przestarzałych wierszy w trakcie jego uruchamiania. Aby pomóc Ci w tym i umożliwić użytkownikom ręczne usuwanie przestarzałych wierszy, `sys.sp_cleanup_data_retention` procedura składowana została wprowadzona w usłudze Azure SQL Edge (wersja zapoznawcza). 
+W zależności od ustawień przechowywania danych w tabeli i charakteru obciążenia bazy danych istnieje możliwość, że wątek automatycznego oczyszczania może nie usunąć całkowicie wszystkich przestarzałych wierszy w trakcie jego uruchamiania. Aby pomóc Ci w tym i umożliwić użytkownikom ręczne usuwanie przestarzałych wierszy, `sys.sp_cleanup_data_retention` procedura składowana została wprowadzona w usłudze Azure SQL Edge. 
 
 Ta procedura składowana pobiera trzy parametry. 
     - Nazwa schematu — nazwa schematu będącego właścicielem dla tabeli. Jest to parametr wymagany. 
@@ -67,7 +66,7 @@ Doskonałej kompresji danych i wydajne oczyszczanie przechowywania sprawia, że 
 
 ## <a name="monitoring-data-retention-cleanup"></a>Monitorowanie oczyszczania przechowywania danych
 
-Operacje czyszczenia zasad przechowywania danych można monitorować przy użyciu zdarzeń rozszerzonych (XEvents) w usłudze Azure SQL Edge (wersja zapoznawcza). Aby uzyskać więcej informacji na temat zdarzeń rozszerzonych, zobacz [Omówienie XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
+Operacje czyszczenia zasad przechowywania danych można monitorować przy użyciu zdarzeń rozszerzonych (XEvents) w usłudze Azure SQL Edge. Aby uzyskać więcej informacji na temat zdarzeń rozszerzonych, zobacz [Omówienie XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
 
 Następujące sześć zdarzeń rozszerzonych ułatwia śledzenie stanu operacji oczyszczania. 
 
@@ -78,7 +77,9 @@ Następujące sześć zdarzeń rozszerzonych ułatwia śledzenie stanu operacji 
 | data_retention_task_exception  | Występuje, gdy zadanie w tle do czyszczenia tabel z zasadami przechowywania zakończy się niepowodzeniem poza procesem oczyszczania przechowywania specyficznym dla tabeli. |
 | data_retention_cleanup_started  | Występuje po rozpoczęciu procesu oczyszczania tabeli z zasadami przechowywania danych. |
 | data_retention_cleanup_exception  | Występuje proces oczyszczania tabeli z zasadami przechowywania kończy się niepowodzeniem. |
-| data_retention_cleanup_completed  | Występuje, gdy trwa czyszczenie procesu tabeli z zasadami przechowywania danych. |
+| data_retention_cleanup_completed  | Występuje, gdy trwa czyszczenie procesu tabeli z zasadami przechowywania danych. |  
+
+Ponadto nowy typ bufora pierścieniowego `RING_BUFFER_DATA_RETENTION_CLEANUP` został dodany do wykazu sys. dm_os_ring_buffers dynamiczny widok zarządzania. Ten widok może służyć do monitorowania operacji czyszczenia danych. 
 
 
 ## <a name="next-steps"></a>Następne kroki

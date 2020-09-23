@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738060"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975063"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Używanie funkcji przechwytywania pakietów do aktywnego monitorowania sieci z alertami i Azure Functions
 
@@ -30,7 +30,7 @@ Zasoby wdrożone na platformie Azure — Uruchom 24/7. Ty i pracownicy nie mogą
 
 Korzystając z Network Watcher, alertów i funkcji z poziomu ekosystemu platformy Azure, możesz proaktywnie odpowiedzieć na dane i narzędzia, aby rozwiązać problemy w sieci.
 
-![Scenariusz][scenario]
+![Na diagramie przedstawiono Network Watcher rozszerzenie na maszynie wirtualnej, które przenosi do segmentów T C P wysłanych > 100 błąd, który przepływa do Azure Functions, który przepływa do Network Watcher z powrotem do rozszerzenia Network Watcher.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -138,7 +138,7 @@ Aby użyć Network Watcher poleceń cmdlet programu PowerShell, Przekaż najnows
 
 1. Kliknij prawym przyciskiem myszy folder **AZ. Network** , a następnie wybierz pozycję **Przekaż pliki**. 
 
-6. Przejdź do modułów platformy Azure. W lokalnym folderze **AZ. Network** wybierz wszystkie pliki w folderze. Następnie wybierz pozycję **OK**. 
+6. Przejdź do modułów platformy Azure. W lokalnym folderze **AZ. Network** wybierz wszystkie pliki w folderze. Następnie wybierz przycisk **OK**. 
 
 7. Powtórz te kroki dla **AZ. Accounts** i **AZ. resources**.
 
@@ -350,7 +350,7 @@ Przejdź do istniejącej maszyny wirtualnej, a następnie Dodaj regułę alertu.
   |**Warunek**|Większe niż| Warunek, który ma być używany podczas oceniania metryki.|
   |**Próg**|100| Wartość metryki wyzwalającej alert. Ta wartość powinna być ustawiona na prawidłową wartość dla danego środowiska.|
   |**Okres**|W ciągu ostatnich pięciu minut| Określa okres, w którym ma być wyszukiwany próg dla metryki.|
-  |**Webhook**|[adres URL elementu webhook z aplikacji funkcji]| Adres URL elementu webhook z aplikacji funkcji, który został utworzony w poprzednich krokach.|
+  |**Element webhook**|[adres URL elementu webhook z aplikacji funkcji]| Adres URL elementu webhook z aplikacji funkcji, który został utworzony w poprzednich krokach.|
 
 > [!NOTE]
 > Metryka segmentów TCP nie jest domyślnie włączona. Dowiedz się więcej o tym, jak włączyć dodatkowe metryki, odwiedzając [funkcję monitorowanie i diagnostykę](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).

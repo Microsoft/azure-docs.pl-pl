@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 5b298767f9814f76dd606bab29bd0b245dad6937
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 84a262cae17a4e26724ab06da397e699e09468db
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260190"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969208"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Jak zatrzymać korzystanie z rozszerzenia tożsamości zarządzanej maszyny wirtualnej i zacząć korzystać z usługi Azure Instance Metadata Service
 
@@ -37,8 +37,8 @@ Ze względu na kilka ograniczeń przedstawionych w następnej sekcji rozszerzeni
 
 Podczas konfigurowania maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych w celu posiadania tożsamości zarządzanej można opcjonalnie zainicjować obsługę administracyjną tożsamości dla rozszerzenia maszyny wirtualnej zasobów platformy Azure za pomocą `-Type` parametru polecenia cmdlet [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) . Można przekazać albo `ManagedIdentityExtensionForWindows` , w `ManagedIdentityExtensionForLinux` zależności od typu maszyny wirtualnej, i nazwać ją przy użyciu `-Name` parametru. `-Settings`Parametr określa port używany przez punkt końcowy tokenu OAuth do pozyskiwania tokenu:
 
-```powershell
-   $settings = @{ "port" = 50342 }
+```azurepowershell-interactive
+$settings = @{ "port" = 50342 }
    Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
 ```
 
@@ -68,7 +68,7 @@ Można również użyć szablonu wdrażania Azure Resource Manager, aby zainicjo
     
 Jeśli pracujesz z zestawami skalowania maszyn wirtualnych, możesz również udostępnić zarządzane tożsamości dla rozszerzenia zestawu skalowania maszyn wirtualnych zasobów platformy Azure za pomocą polecenia cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) . Można przekazać albo `ManagedIdentityExtensionForWindows` , w `ManagedIdentityExtensionForLinux` zależności od typu zestawu skalowania maszyn wirtualnych, i nazwać go przy użyciu `-Name` parametru. `-Settings`Parametr określa port używany przez punkt końcowy tokenu OAuth do pozyskiwania tokenu:
 
-   ```powershell
+   ```azurepowershell-interactive
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
@@ -106,7 +106,7 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
 ```
 
-```powershell
+```azurepowershell-interactive
 Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
 ```
 
@@ -162,7 +162,7 @@ Content-Type: application/json
 
 W systemie Windows i niektórych wersjach systemu Linux, jeśli rozszerzenie zostanie zatrzymane, można użyć następującego polecenia cmdlet, aby ręcznie uruchomić ponownie:
 
-```powershell
+```azurepowershell-interactive
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: Omówienie skoroszytów usługi Azure Monitor
-description: Uprość złożone raportowanie za pomocą wstępnie skompilowanych i niestandardowych skoroszytów z parametrami
+description: Dowiedz się, jak skoroszyty zapewniają elastyczną kanwę do analizy danych i tworzenia zaawansowanych raportów wizualnych w ramach Azure Portal.
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 18e757ccac56d2165a1b46bb73a698ac754177b7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657942"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977564"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor skoroszyty
 

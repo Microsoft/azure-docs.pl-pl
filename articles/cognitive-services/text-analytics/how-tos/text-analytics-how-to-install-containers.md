@@ -11,19 +11,20 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 61303a52212c4cec88dee2ccd8a1c08fb971a9b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a83fd67a9ad5e5a36555fcbaed65b1d76936c33d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545662"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906079"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalowanie i uruchamianie kontenerów analizy tekstu
 
 > [!NOTE]
 > * Kontener dla analiza tonacji V3 jest teraz ogólnie dostępny. Kontenery funkcji wyodrębniania kluczowych fraz i wykrywania języka są dostępne jako nieograniczona publiczna wersja zapoznawcza.
 > * Łączenie jednostek i NER nie są obecnie dostępne jako kontener.
-> * Obecnie nie są naliczane opłaty za użycie kontenera funkcji analizy tekstu dla opieki zdrowotnej.
+> * Dostęp do analiza tekstu dla kontenera kondycji wymaga [formularza żądania](https://aka.ms/cognitivegate). Obecnie nie są naliczane opłaty za użycie.
+> * Lokalizacje obrazu kontenera mogły być ostatnio zmienione. Przeczytaj ten artykuł, aby wyświetlić zaktualizowaną lokalizację dla tego kontenera.
 
 Kontenery umożliwiają uruchamianie interfejsów API analizy tekstu we własnym środowisku i doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. Kontenery analiza tekstu zapewniają zaawansowane przetwarzanie języka naturalnego w przypadku nieprzetworzonego tekstu i zawierają trzy główne funkcje: tonacji Analysis, wyodrębnianie kluczowych fraz i wykrywanie języka. 
 

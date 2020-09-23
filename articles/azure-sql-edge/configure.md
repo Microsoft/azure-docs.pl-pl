@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie usługi Azure SQL Edge (wersja zapoznawcza)
-description: Dowiedz się więcej o konfigurowaniu usługi Azure SQL Edge (wersja zapoznawcza).
+title: Konfigurowanie usługi Azure SQL Edge
+description: Dowiedz się więcej o konfigurowaniu usługi Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -8,15 +8,15 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/28/2020
-ms.openlocfilehash: 722d33e76b6009a44811dfcb8a3238b042ec6918
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/22/2020
+ms.openlocfilehash: b2c52457972d94b2e999c137d19d3a434ff17a7d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816885"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888403"
 ---
-# <a name="configure-azure-sql-edge-preview"></a>Konfigurowanie usługi Azure SQL Edge (wersja zapoznawcza)
+# <a name="configure-azure-sql-edge"></a>Konfigurowanie usługi Azure SQL Edge
 
 Usługa Azure SQL Edge obsługuje konfigurację przy użyciu jednej z następujących dwóch opcji:
 
@@ -30,6 +30,15 @@ Usługa Azure SQL Edge obsługuje konfigurację przy użyciu jednej z następuj�
 
 Usługa Azure SQL Edge uwidacznia kilka różnych zmiennych środowiskowych, których można użyć do skonfigurowania kontenera programu SQL Edge. Te zmienne środowiskowe są podzbiorem tych, które są dostępne dla SQL Server on Linux. Aby uzyskać więcej informacji na temat zmiennych środowiskowych SQL Server on Linux, zobacz [zmienne środowiskowe](/sql/linux/sql-server-linux-configure-environment-variables/).
 
+Następujące nowe zmienne środowiskowe zostały dodane do usługi Azure SQL Edge. 
+
+| Zmienna środowiskowa | Opis | Wartości |     
+|-----|-----| ---------- |   
+| **MSSQL_TELEMETRY_ENABLED** | Włącz lub Wyłącz zbieranie danych dotyczących użycia i diagnostyki. | TRUE lub FALSE |  
+| **MSSQL_TELEMETRY_DIR** | Ustawia katalog docelowy dla plików inspekcji zbierania danych użycia i diagnostyki. | Lokalizacja folderu w kontenerze programu SQL Edge. Ten folder można zamapować na wolumin hosta przy użyciu punktów instalacji lub woluminów danych. | 
+| **MSSQL_PACKAGE** | Określa lokalizację pakietu dacpac lub BACPAC, który ma zostać wdrożony. | Folder, plik lub adres URL sygnatury dostępu współdzielonego zawierający pakiety dacpac lub BACPAC. Aby uzyskać więcej informacji, zobacz [wdrażanie pakietów SQL Database dacpac i BACPAC w programie SQL Edge](deploy-dacpac.md). |
+
+
 Następująca SQL Server on Linux zmienna środowiskowa nie jest obsługiwana w przypadku usługi Azure SQL Edge. Jeśli jest zdefiniowany, ta zmienna środowiskowa zostanie zignorowana podczas inicjowania kontenera.
 
 | Zmienna środowiskowa | Opis |
@@ -38,9 +47,6 @@ Następująca SQL Server on Linux zmienna środowiskowa nie jest obsługiwana w 
 
 > [!IMPORTANT]
 > Zmienna środowiskowa **MSSQL_PID** dla programu SQL Edge akceptuje tylko wartości **Premium** i **Developer** , ponieważ są prawidłowymi wartościami. Usługa Azure SQL Edge nie obsługuje inicjowania przy użyciu klucza produktu.
-
-> [!NOTE]
-> Pobierz [postanowienia licencyjne dotyczące oprogramowania firmy Microsoft](https://go.microsoft.com/fwlink/?linkid=2128283) dla usługi Azure SQL Edge.
 
 ### <a name="specify-the-environment-variables"></a>Określanie zmiennych środowiskowych
 
@@ -53,6 +59,9 @@ Dodaj wartości w **zmiennych środowiskowych**.
 Dodaj wartości w obszarze **Opcje tworzenia kontenera**.
 
 ![Ustawianie przy użyciu opcji tworzenia kontenera](media/configure/set-environment-variables-using-create-options.png)
+
+> [!NOTE]
+> W trybie rozłączonym wdrożenia zmienne środowiskowe można określić za pomocą `-e` lub `--env` lub `--env-file` opcji `docker run` polecenia.
 
 ## <a name="configure-by-using-an-mssqlconf-file"></a>Konfigurowanie przy użyciu pliku MSSQL. conf
 
@@ -70,6 +79,13 @@ Usługa Azure SQL Edge nie zawiera [Narzędzia konfiguracji MSSQL-conf](/sql/lin
       }
     }
 ```
+
+Dodano następujące nowe opcje MSSQL. conf dla usługi Azure SQL Edge. 
+
+|Opcja|Opis|
+|:---|:---|
+|**customerfeedback** | Wybierz, czy SQL Server wysyła informacje zwrotne do firmy Microsoft. Aby uzyskać więcej informacji, zobacz [wyłączanie zbierania danych użycia i diagnostyki](usage-and-diagnostics-data-configuration.md#disable-usage-and-diagnostic-data-collection)|      
+|**userrequestedlocalauditdirectory** | Ustawia katalog docelowy dla plików inspekcji zbierania danych użycia i diagnostyki. Aby uzyskać więcej informacji, zobacz [lokalne inspekcje zbierania danych użycia i diagnostyki](usage-and-diagnostics-data-configuration.md#local-audit-of-usage-and-diagnostic-data-collection) |        
 
 Następujące opcje MSSQL. conf nie mają zastosowania do programu SQL Edge:
 
@@ -116,7 +132,7 @@ traceflag2 = 1204
 
 ## <a name="run-azure-sql-edge-as-non-root-user"></a>Uruchamianie usługi Azure SQL Edge jako użytkownika niebędącego głównym
 
-Począwszy od usługi Azure SQL Edge CTP 2.2, kontenery usługi SQL Edge mogą działać z niegłównym użytkownikiem/grupą. W przypadku wdrożenia w portalu Azure Marketplace, jeśli nie określono innego użytkownika/grupy, kontenery usługi SQL Edge są uruchamiane jako użytkownik MSSQL (niebędący elementem głównym). Aby określić innego użytkownika niebędącego elementem głównym podczas wdrażania, Dodaj `*"User": "<name|uid>[:<group|gid>]"*` parę klucz-wartość w obszarze Opcje tworzenia kontenera. W poniższym przykładzie jest skonfigurowany do uruchamiania jako użytkownik programu SQL Edge `*IoTAdmin*` .
+Domyślnie kontenery usługi Azure SQL Edge są uruchamiane z niegłównym użytkownikiem/grupą. W przypadku wdrażania za pośrednictwem portalu Azure Marketplace (lub przy użyciu uruchomienia platformy Docker), jeśli nie określono innego użytkownika/grupy, kontenery usługi SQL Edge są uruchamiane jako użytkownik MSSQL (niebędący elementem głównym). Aby określić innego użytkownika niebędącego elementem głównym podczas wdrażania, Dodaj `*"User": "<name|uid>[:<group|gid>]"*` parę klucz-wartość w obszarze Opcje tworzenia kontenera. W poniższym przykładzie jest skonfigurowany do uruchamiania jako użytkownik programu SQL Edge `*IoTAdmin*` .
 
 ```json
 {
@@ -140,7 +156,7 @@ chown -R 10001:0 <database file dir>
 
 ### <a name="upgrading-from-earlier-ctp-releases"></a>Uaktualnianie z wcześniejszych wersji CTP
 
-Starsze wersje CTP usługi Azure SQL Edge zostały skonfigurowane tak, aby były uruchamiane jako użytkownicy root. Podczas uaktualniania z wcześniejszych wersji CTP dostępne są następujące opcje:
+Wcześniej CTPs usługi Azure SQL Edge zostały skonfigurowane tak, aby były uruchamiane jako użytkownicy root. Podczas uaktualniania z wcześniejszych CTPs są dostępne następujące opcje.
 
 - Kontynuuj korzystanie z użytkownika głównego — aby nadal korzystać z użytkownika root, Dodaj `*"User": "0:0"*` parę klucz-wartość w obszarze Opcje tworzenia kontenera.
 - Użyj domyślnego użytkownika programu MSSQL — aby użyć domyślnego użytkownika MSSQL, wykonaj poniższe czynności.
@@ -148,7 +164,7 @@ Starsze wersje CTP usługi Azure SQL Edge zostały skonfigurowane tak, aby były
     ```bash
     sudo useradd -M -s /bin/bash -u 10001 -g 0 mssql
     ```
-  - Zmień uprawnienie do katalogu/woluminu instalacji, w którym znajduje się plik bazy danych 
+  - Zmiana uprawnienia do katalogu/woluminu instalacji, w którym znajduje się plik bazy danych 
     ```bash
     sudo chgrp -R 0 /var/lib/docker/volumes/kafka_sqldata/
     sudo chmod -R g=u /var/lib/docker/volumes/kafka_sqldata/
@@ -169,11 +185,11 @@ Zmiany konfiguracji i pliki bazy danych usługi Azure SQL Edge są utrwalane w k
 Pierwszą opcją jest zainstalowanie katalogu na hoście jako woluminu danych w kontenerze. Aby to zrobić, użyj `docker run` polecenia z `-v <host directory>:/var/opt/mssql` flagą. Dzięki temu dane będą przywracane między wykonaniami kontenera.
 
 ```bash
-docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge
 ```
 
 ```PowerShell
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge
 ```
 
 Ta technika umożliwia także udostępnianie i wyświetlanie plików na hoście poza platformą Docker.
@@ -189,11 +205,11 @@ Ta technika umożliwia także udostępnianie i wyświetlanie plików na hoście 
 Drugą opcją jest użycie kontenera woluminów danych. Kontener woluminów danych można utworzyć, określając nazwę woluminu zamiast katalogu hosta z `-v` parametrem. Poniższy przykład tworzy wolumin danych udostępnionych o nazwie **sqlvolume**.
 
 ```bash
-docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge
 ```
 
 ```PowerShell
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge
 ```
 
 > [!NOTE]

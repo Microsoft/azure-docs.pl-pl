@@ -86,12 +86,18 @@
     - name: Zrozumienie efektów
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Zakres
+      displayName: 'location, notScope, exemption, waiver, save'
+      href: ./concepts/scope.md
     - name: Struktura inicjatywy
       displayName: 'parameters, groups, domains, policies'
       href: ./concepts/initiative-definition-structure.md
     - name: Struktura przypisania
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
+    - name: Struktura wykluczenia
+      displayName: 'waiver, mitigated, compliance'
+      href: ./concepts/exemption-structure.md
     - name: Ocena wpływu nowych zasad
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md

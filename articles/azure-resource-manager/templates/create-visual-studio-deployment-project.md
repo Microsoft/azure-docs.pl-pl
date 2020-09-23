@@ -3,12 +3,12 @@ title: Utwórz & Wdróż projekty grupy zasobów programu Visual Studio
 description: Tworzenie projektu grupy zasobów platformy Azure przy użyciu programu Visual Studio i wdrażanie zasobów na platformie Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76152735"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985242"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio
 
@@ -23,7 +23,7 @@ W tej sekcji utworzysz projekt grupy zasobów platformy Azure z szablonem **apli
 1. W programie Visual Studio wybierz pozycję **plik** > **Nowy** > **projekt**.
 1. Wybierz szablon projektu **grupy zasobów platformy Azure** i kliknij przycisk **dalej**.
 
-    ![Tworzenie projektu](./media/create-visual-studio-deployment-project/create-project.png)
+    ![Zrzut ekranu przedstawia okno Utwórz nowy projekt z grupą zasobów platformy Azure, a następnie wyróżnione przycisk Dalej.](./media/create-visual-studio-deployment-project/create-project.png)
 
 1. Nadaj projektowi nazwę. Inne ustawienia domyślne są prawdopodobnie odpowiednie, ale zapoznaj się z nimi, aby działały w danym środowisku. Po zakończeniu wybierz pozycję **Utwórz**.
 
@@ -65,7 +65,7 @@ Projekt wdrożenia można dostosować, modyfikując szablon Menedżer zasobów, 
 
 1. Nowy zasób można dodać, wybierając przycisk **Dodaj zasób** u góry okna Konspekt pliku JSON lub klikając prawym przyciskiem myszy węzeł **zasoby** i wybierając polecenie **Dodaj nowy zasób**.
 
-   ![Dodaj zasób](./media/create-visual-studio-deployment-project/add-resource.png)
+   ![Zrzut ekranu przedstawia okno konspektu JSON z wyróżnioną opcją Dodaj nowy zasób.](./media/create-visual-studio-deployment-project/add-resource.png)
 
 1. Wybierz pozycję **konto magazynu** i nadaj jej nazwę. Podaj nazwę nie dłuższą niż 11 znaków, zawierającą tylko cyfry i małe litery.
 
@@ -143,7 +143,7 @@ W przypadku skryptu modułu AzureRM Użyj programu Visual Studio:
 
     ![Nowy element menu wdrożenia](./media/create-visual-studio-deployment-project/deploy.png)
 
-1. Zostanie wyświetlone okno dialogowe **Wdrażanie w grupie zasobów**. W polu listy rozwijanej **Grupa zasobów** wybierz istniejącą grupę zasobów lub utwórz nową. Wybierz pozycję **Wdróż**.
+1. Zostanie wyświetlone okno dialogowe **Wdrażanie w grupie zasobów**. W polu listy rozwijanej **Grupa zasobów** wybierz istniejącą grupę zasobów lub utwórz nową. Wybierz pozycję **Deploy** (Wdróż).
 
     ![Okno dialogowe wdrażanie w grupie zasobów](./media/create-visual-studio-deployment-project/show-deployment.png)
 
@@ -189,7 +189,7 @@ Wdrożono już infrastrukturę aplikacji, ale z projektem nie został wdrożony 
 
 1. Musisz teraz upewnić się, że projekt grupy zasobów wie o nowym projekcie. Wróć do projektu grupy zasobów (ExampleAppDeploy). Kliknij prawym przyciskiem myszy pozycję **Odwołania** i wybierz polecenie **Dodaj odwołanie**.
 
-    ![Dodawanie odwołania](./media/create-visual-studio-deployment-project/add-new-reference.png)
+    ![Zrzut ekranu przedstawia menu ExampleAppDeploy z wyróżnioną opcją Dodaj odwołanie.](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
 1. Wybierz projekt aplikacji internetowej, który został utworzony.
 
@@ -364,7 +364,7 @@ Możesz korzystać nie tylko z zasobów dostępnych z poziomu interfejsu program
 
 1. Po zakończeniu wdrażania Wyświetl pulpit nawigacyjny w portalu. Wybierz pozycję **pulpit nawigacyjny** i wybierz wdrożony.
 
-   ![Niestandardowy pulpit nawigacyjny](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
+   ![Zrzut ekranu przedstawia stronę pulpitu nawigacyjnego z wyróżnionym przykładowym pulpitem nawigacyjnym.](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
 1. Zobaczysz dostosowany pulpit nawigacyjny.
 
@@ -372,7 +372,7 @@ Możesz korzystać nie tylko z zasobów dostępnych z poziomu interfejsu program
 
 Możesz zarządzać dostępem do pulpitu nawigacyjnego, korzystając z grup kontroli dostępu opartych na rolach. Po wdrożeniu pulpitu nawigacyjnego możesz też dostosowywać jego wygląd. Jeśli jednak ponownie wdrożysz grupę zasobów, pulpit nawigacyjny zostanie zresetowany do domyślnego stanu określonego w szablonie. Aby uzyskać więcej informacji na temat tworzenia pulpitów nawigacyjnych, zobacz [Programmatically create Azure Dashboards (Programowe tworzenie pulpitów nawigacyjnych platformy Azure)](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

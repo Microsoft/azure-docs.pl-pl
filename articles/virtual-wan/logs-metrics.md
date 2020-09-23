@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ce5bc3b4e5ccd26ec3f6b35c995ebe2274042c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983639"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Dzienniki i metryki wirtualnych sieci WAN platformy Azure
 
@@ -62,7 +62,7 @@ Poniższe kroki ułatwiają lokalizowanie i wyświetlanie metryk:
 
 3. Wybierz pozycję **Metryki**.
 
-   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="Pomiar":::
+   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="Zrzut ekranu przedstawia okienko P N lokacji z zaznaczoną opcją widok w Azure Monitor.":::
 
 4. Na stronie **metryki** możesz wyświetlić interesujące Cię metryki.
 

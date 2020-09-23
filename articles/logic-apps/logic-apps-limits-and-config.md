@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/03/2020
-ms.openlocfilehash: 46f7c7185de559fb6b6545eb8f1b2113aa0ec4b2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d5db970d4ed3c3988c96a2c0c33775bcbfb00d92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085012"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986008"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -31,12 +31,13 @@ Poniżej przedstawiono limity dla jednej definicji aplikacji logiki:
 | Wyzwalacze na przepływ pracy | 10 | Praca w widoku kodu, a nie Projektant |
 | Limit przypadków przełączania zakresu | 25 | |
 | Zmienne na przepływ pracy | 250 | |
-| Liczba znaków na wyrażenie | 8192 | |
-| Maksymalny rozmiar dla `trackedProperties` | 16 000 znaków |
 | Nazwa `action` lub `trigger` | 80 znaków | |
+| Liczba znaków na wyrażenie | 8192 | |
 | Długość `description` | 256 znaków | |
-| Długość `parameters` | 50 | |
-| Długość `outputs` | 10 | |
+| Maksymalna liczba `parameters` | 50 | |
+| Maksymalna liczba `outputs` | 10 | |
+| Maksymalny rozmiar dla `trackedProperties` | 16 000 znaków |
+| Akcja kodu wbudowanego — Maksymalna liczba znaków kodu | 1 024 znaków <p>Aby uzyskać limit znaków 100 000, Utwórz Aplikacje logiki przy użyciu Visual Studio Code i [rozszerzenia podglądu **Azure Logic Apps** ](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
 
 <a name="run-duration-retention-limits"></a>
 
