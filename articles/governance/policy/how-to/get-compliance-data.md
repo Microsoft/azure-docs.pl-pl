@@ -1,14 +1,14 @@
 ---
 title: Pobierz dane zgodności zasad
 description: Azure Policy oceny i efekty określają zgodność. Dowiedz się, jak uzyskać szczegóły zgodności zasobów platformy Azure.
-ms.date: 08/10/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 57e508048b5e628911db90b0b6835f88b5ebd8fb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2ab75bdab0dcf910da91eb60b5f0cf23892d6c51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648347"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895420"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Pobieranie danych zgodności zasobów platformy Azure
 
@@ -30,11 +30,13 @@ Wyniki kompletnego cyklu oceny są dostępne w ramach `Microsoft.PolicyInsights`
 
 Oceny przypisanych zasad i inicjatyw odbywają się w wyniku różnych zdarzeń:
 
-- Zasady lub inicjatywa są nowo przypisane do zakresu. Przypisanie do określonego zakresu zajmie około 30 minut. Po zastosowaniu cykl oceny rozpoczyna się dla zasobów należących do tego zakresu od nowo przypisanych zasad lub inicjatyw, a w zależności od skutków używanych przez zasady lub inicjatywę zasoby są oznaczane jako zgodne lub niezgodne. Duże zasady lub inicjatywy oceniane w odniesieniu do dużego zakresu zasobów mogą zająć dużo czasu. W związku z tym nie istnieje wstępnie zdefiniowane oczekiwanie po zakończeniu cyklu szacowania. Po jego zakończeniu zaktualizowane wyniki zgodności są dostępne w portalu i zestawach SDK.
+- Zasady lub inicjatywa są nowo przypisane do zakresu. Przypisanie do określonego zakresu zajmie około 30 minut. Po zastosowaniu cykl oceny rozpoczyna się dla zasobów należących do tego zakresu od nowo przypisanych zasad lub inicjatyw i w zależności od skutków używanych przez zasady lub inicjatywę, zasoby są oznaczane jako zgodne, niezgodne lub wykluczone. Duże zasady lub inicjatywy oceniane w odniesieniu do dużego zakresu zasobów mogą zająć dużo czasu. W związku z tym nie istnieje wstępnie zdefiniowane oczekiwanie po zakończeniu cyklu szacowania. Po jego zakończeniu zaktualizowane wyniki zgodności są dostępne w portalu i zestawach SDK.
 
 - Zasady lub inicjatywa już przypisane do zakresu zostały zaktualizowane. Cykl oceny i czas dla tego scenariusza są takie same jak w przypadku nowego przypisania do zakresu.
 
 - Zasób jest wdrażany lub aktualizowany w ramach zakresu z przypisaniem za pośrednictwem Azure Resource Manager, interfejsu API REST lub obsługiwanego zestawu SDK. W tym scenariuszu zdarzenie wpływu (dołączanie, inspekcja, odmowa, wdrożenie) i informacje o stanie zgodnym dla poszczególnych zasobów staną się dostępne w portalu i zestawach SDK około 15 minut później. To zdarzenie nie powoduje oceny innych zasobów.
+
+- [Wykluczanie zasad](../concepts/exemption-structure.md) jest tworzone, aktualizowane lub usuwane. W tym scenariuszu odpowiednie przypisanie jest oceniane dla zdefiniowanego zakresu wykluczenia.
 
 - Cykl oceny zgodności standardowej. Co 24 godziny, przydziały są automatycznie oceniane. Duże zasady lub inicjatywy wielu zasobów mogą zająć dużo czasu, dlatego nie istnieje wstępnie zdefiniowane oczekiwanie po zakończeniu cyklu szacowania. Po jego zakończeniu zaktualizowane wyniki zgodności są dostępne w portalu i zestawach SDK.
 
@@ -127,8 +129,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>Jak działa zgodność
 
-W przypisaniu zasób nie jest **zgodny** , jeśli nie przestrzega reguł zasad lub inicjatyw.
-W poniższej tabeli przedstawiono, w jaki sposób różne skutki zasad działają w przypadku oceny warunku dotyczącego stanu zgodności:
+W przypisaniu zasób nie jest **zgodny** , jeśli nie przestrzega reguł zasad lub inicjatyw i nie jest _wykluczony_. W poniższej tabeli przedstawiono, w jaki sposób różne skutki zasad działają w przypadku oceny warunku dotyczącego stanu zgodności:
 
 | Stan zasobu | Efekt | Ocena zasad | Stan zgodności |
 | --- | --- | --- | --- |
@@ -137,8 +138,7 @@ W poniższej tabeli przedstawiono, w jaki sposób różne skutki zasad działaj�
 | Nowy | Audit, AuditIfNotExist\* | Prawda | Niezgodne |
 | Nowy | Audit, AuditIfNotExist\* | Fałsz | Zgodny |
 
-\* Efekty Append, DeployIfNotExist i AuditIfNotExist wymagają instrukcji IF z wartością TRUE.
-Ponadto efekty wymagają, aby warunek istnienia miał wartość FALSE, aby być niezgodnymi. W przypadku wartości TRUE warunek IF wyzwala ocenę warunku istnienia dla powiązanych zasobów.
+\* Efekty Modify, append, DeployIfNotExist i AuditIfNotExist wymagają, aby instrukcja IF była prawdziwa. Ponadto efekty wymagają, aby warunek istnienia miał wartość FALSE, aby być niezgodnymi. W przypadku wartości TRUE warunek IF wyzwala ocenę warunku istnienia dla powiązanych zasobów.
 
 Załóżmy na przykład, że masz grupę zasobów — ContsoRG z pewnymi kontami magazynu (wyróżnioną kolorem czerwonym), które są dostępne w sieciach publicznych.
 
@@ -146,22 +146,23 @@ Załóżmy na przykład, że masz grupę zasobów — ContsoRG z pewnymi kontami
    Diagram przedstawiający obrazy pięciu kont magazynu w grupie zasobów contoso R G.  Konta magazynu jedno i trzy są niebieskie, natomiast konta magazynu dwa, cztery i pięć są czerwone.
 :::image-end:::
 
-W tym przykładzie należy zastanowić się nad zagrożeniem bezpieczeństwa. Po utworzeniu przypisania zasad jest ono oceniane dla wszystkich kont magazynu w grupie zasobów ContosoRG. Przeprowadza inspekcję trzech niezgodnych kont magazynu, wskutek zmiany ich Stanów na **niezgodne.**
+W tym przykładzie należy zastanowić się nad zagrożeniem bezpieczeństwa. Po utworzeniu przypisania zasad zostanie ono ocenione dla wszystkich uwzględnionych i niewykluczonych kont magazynu w grupie zasobów ContosoRG. Przeprowadza inspekcję trzech niezgodnych kont magazynu, wskutek zmiany ich Stanów na **niezgodne.**
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagram zgodności konta magazynu w grupie zasobów contoso R G." border="false":::
    Diagram przedstawiający obrazy pięciu kont magazynu w grupie zasobów contoso R G. Konta magazynu jedno i trzy z nich mają teraz zielone znaczniki wyboru poniżej, natomiast konta magazynu dwa, cztery i pięć mają teraz czerwone znaki ostrzegawcze poniżej.
 :::image-end:::
 
-Oprócz **zgodnych** i **niezgodnych**zasad i zasobów mają trzy inne stany:
+Oprócz **zgodnych** i **niezgodnych**zasad i zasobów są cztery inne stany:
 
-- **Konflikt**: istnieją co najmniej dwie zasady z regułami powodującymi konflikt. Na przykład dwie zasady dołączają ten sam tag z różnymi wartościami.
+- **Wykluczone**: zasób znajduje się w zakresie przypisania, ale ma [zdefiniowane wykluczenie](../concepts/exemption-structure.md).
+- **Konflikt**: istnieją co najmniej dwie definicje zasad z regułami powodującymi konflikt. Na przykład dwie definicje dołączają ten sam tag z różnymi wartościami.
 - **Nierozpoczęte**: cykl oceniania nie został uruchomiony dla zasad lub zasobów.
 - **Nie zarejestrowano**: dostawca zasobów Azure Policy nie został zarejestrowany lub zalogowane konto nie ma uprawnień do odczytu danych zgodności.
 
-Azure Policy używa pól **Typ** i **Nazwa** w definicji, aby określić, czy zasób jest zgodny. Gdy zasób jest zgodny, jest uznawany za stosowany i ma stan **zgodne** lub **niezgodne**. Jeśli **Typ** lub **Nazwa** jest jedyną właściwością w definicji, wszystkie zasoby są uważane za stosowane i są oceniane.
+Azure Policy używa pól **Typ** i **Nazwa** w definicji, aby określić, czy zasób jest zgodny. Gdy zasób jest zgodny, jest uznawany za stosowany i ma status **zgodne**, **niezgodne**lub **wykluczone**. Jeśli **Typ** lub **Nazwa** jest jedyną właściwością w definicji, wszystkie uwzględnione i niewykluczone zasoby są uznawane za stosowane i są oceniane.
 
-Wartość procentowa zgodności jest określana przez podzielenie **zgodnych** zasobów przez _Łączne zasoby_.
-_Łączna liczba zasobów_ jest definiowana jako suma **zgodnych**, **niezgodnych**i **sprzecznych** zasobów. Ogólne numery zgodności są sumą różnych zasobów, które są **zgodne** , podzieloną przez sumę wszystkich różnych zasobów. Na poniższej ilustracji przedstawiono 20 odrębnych zasobów, które mają zastosowanie i tylko jeden z nich jest **niezgodny**. Ogólna zgodność zasobów wynosi 95% (19 z 20).
+Wartość procentowa zgodności jest określana przez podzielenie zasobów **zgodnych** i **wykluczonych** przez _Łączne zasoby_. _Łączna liczba zasobów_ jest definiowana jako suma **zgodnych**, **niezgodnych**, **zwolnionych**i **sprzecznych** zasobów. Ogólne numery zgodności są sumą odrębnych zasobów, które są **zgodne** lub **wykluczone** przez sumę wszystkich odrębnych zasobów. Na poniższej ilustracji przedstawiono 20 odrębnych zasobów, które mają zastosowanie i tylko jeden z nich jest **niezgodny**.
+Ogólna zgodność zasobów wynosi 95% (19 z 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Zrzut ekranu przedstawiający szczegóły zgodności zasad ze strony zgodności." border="false":::
 

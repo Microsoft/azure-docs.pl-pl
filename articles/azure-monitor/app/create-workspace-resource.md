@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat kroków wymaganych do włączenia now
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783845"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894540"
 ---
-# <a name="workspace-based-application-insights-resources-preview"></a>Zasoby Application Insights oparte na obszarze roboczym (wersja zapoznawcza)
+# <a name="workspace-based-application-insights-resources"></a>Zasoby Application Insights oparte na obszarze roboczym
 
 Zasoby oparte na obszarze roboczym obsługują pełną integrację między Application Insights i Log Analytics. Teraz możesz wysyłać dane telemetryczne Application Insights do wspólnego Log Analytics obszaru roboczego, dzięki któremu masz pełny dostęp do wszystkich funkcji Log Analytics podczas zachowywania dzienników aplikacji, infrastruktury i platformy w pojedynczej skonsolidowanej lokalizacji.
 
@@ -21,7 +21,19 @@ Pozwala to również na wspólne Access Control oparte na rolach (RBAC) w ramach
 > [!NOTE]
 > Pozyskiwanie i przechowywanie danych dla zasobów Application Insights opartych na obszarze roboczym jest rozliczane za pośrednictwem Log Analytics obszaru roboczego, w którym znajdują się dane. [Dowiedz się więcej]( ./pricing.md#workspace-based-application-insights) o rozliczeniach dla zasobów Application Insights opartych na obszarze roboczym.
 
-Aby przetestować nowe środowisko, zaloguj się do [Azure Portal](https://portal.azure.com)i utwórz zasób Application Insights:
+## <a name="new-capabilities"></a>Nowe możliwości
+
+Application Insights oparte na obszarze roboczym umożliwia korzystanie z najnowszych możliwości Azure Monitor i Log Analytics w tym:
+
+* [Klucze zarządzane przez klienta (CMK)](../platform/customer-managed-keys.md) zapewniają szyfrowanie dla danych za pomocą kluczy szyfrowania, do których tylko masz dostęp.
+* [Link prywatny platformy Azure](../platform/private-link-security.md) umożliwia bezpieczne łączenie usług Azure PaaS z siecią wirtualną za pomocą prywatnych punktów końcowych.
+* Udostępnienie [własnego magazynu (BYOS) dla programu Profiler, a Snapshot Debugger](./profiler-bring-your-own-storage.md) zapewnia pełną kontrolę nad zasadami szyfrowania w trybie spoczynku, zasadami zarządzania istnieniem i dostępem sieciowym dla wszystkich danych skojarzonych z Application Insights Profiler i Snapshot Debugger. 
+* [Warstwy rezerwacji zdolności produkcyjnych](../platform/manage-cost-storage.md#pricing-model) pozwalają zaoszczędzić o 25% w porównaniu z ceną płatność zgodnie z rzeczywistym użyciem. 
+* Szybsze pozyskiwanie danych przy użyciu pozyskiwania strumieniowego Log Analytics.
+
+## <a name="create-workspace-based-resource"></a>Utwórz zasób oparty na obszarze roboczym
+
+Zaloguj się do [Azure Portal](https://portal.azure.com)i utwórz zasób Application Insights:
 
 ![Zasób Application Insights oparty na obszarze roboczym](./media/create-workspace-resource/create-workspace-based.png)
 
@@ -36,7 +48,7 @@ Po utworzeniu zasobu zobaczysz odpowiednie informacje o obszarze roboczym w okie
 Kliknięcie niebieskiego linku spowoduje przejście do skojarzonego obszaru roboczego Log Analytics, w którym można wykorzystać nowe środowisko zapytań ujednoliconego obszaru roboczego.
 
 > [!NOTE]
-> Firma Microsoft zapewnia pełną zgodność z poprzednimi wersjami Application Insights klasycznych zapytań zasobów, skoroszytów i alertów opartych na dziennikach w ramach Application Insights środowiska. Aby zbadać/wyświetlić [nową strukturę lub schemat tabeli opartych na obszarze roboczym](apm-tables.md) , musisz najpierw przejść do obszaru roboczego log Analytics. W trakcie korzystania z wersji zapoznawczej Wybieranie **dzienników** z poziomu okienek Application Insights umożliwi dostęp do klasycznego zapytania Application Insights.
+> Firma Microsoft zapewnia pełną zgodność z poprzednimi wersjami Application Insights klasycznych zapytań zasobów, skoroszytów i alertów opartych na dziennikach w ramach Application Insights środowiska. Aby zbadać/wyświetlić [nową strukturę lub schemat tabeli opartych na obszarze roboczym](apm-tables.md) , musisz najpierw przejść do obszaru roboczego log Analytics. Wybranie pozycji **dzienniki (analiza)** z okienka Application Insights spowoduje udostępnienie klasycznego środowiska kwerend Application Insights.
 
 ## <a name="copy-the-connection-string"></a>Kopiowanie parametrów połączenia
 
@@ -185,14 +197,6 @@ Aby zapoznać się z pełną dokumentacją interfejsu wiersza polecenia platform
 
 ```
 
-## <a name="new-capabilities"></a>Nowe możliwości
-
-Application Insights oparte na obszarze roboczym pozwala korzystać ze wszystkich najnowszych możliwości Azure Monitor, takich jak:
-
-* [Klucze zarządzane przez klienta (CMK)](../platform/customer-managed-keys.md) zapewniają szyfrowanie dla danych za pomocą kluczy szyfrowania, do których tylko masz dostęp.
-* [Link prywatny platformy Azure](../platform/private-link-security.md) umożliwia bezpieczne łączenie usług Azure PaaS z siecią wirtualną za pomocą prywatnych punktów końcowych.
-* Udostępnienie [własnego magazynu (BYOS) dla programu Profiler, a Snapshot Debugger](./profiler-bring-your-own-storage.md) zapewnia pełną kontrolę nad zasadami szyfrowania w trybie spoczynku, zasadami zarządzania istnieniem i dostępem sieciowym dla wszystkich danych skojarzonych z Application Insights Profiler i Snapshot Debugger. 
-
 ## <a name="modifying-the-associated-workspace"></a>Modyfikowanie skojarzonego obszaru roboczego
 
 Po utworzeniu zasobu Application Insights opartego na obszarze roboczym można zmodyfikować skojarzony obszar roboczy Log Analytics.
@@ -207,8 +211,3 @@ Starsza Funkcja eksportu ciągłego nie jest obsługiwana w przypadku zasobów o
 
 * [Eksploruj metryki](../platform/metrics-charts.md)
 * [Pisanie zapytań analitycznych](../log-query/log-query-overview.md)
-
-[api]: ./api-custom-events-metrics.md
-[diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
-[start]: ./app-insights-overview.md

@@ -2,16 +2,14 @@
 title: Skalowanie klastra usługi Azure Kubernetes Service (AKS)
 description: Dowiedz się, jak skalować liczbę węzłów w klastrze usługi Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 55d7a00a0a8c0b655f06810f8bcea7126bb9167f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/16/2020
+ms.openlocfilehash: d5686a74ffe138af51d2319c839a3a5c5887f992
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79368421"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902934"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Skalowanie liczby węzłów w klastrze usługi Azure Kubernetes Service 
 
@@ -41,7 +39,7 @@ Następujące przykładowe dane wyjściowe pokazują, że *Nazwa* jest *nodepool
 ]
 ```
 
-Aby skalować węzły klastra, użyj polecenia [AZ AKS Scale][az-aks-scale] . Poniższy przykład skaluje klaster o nazwie *myAKSCluster* do jednego węzła. Podaj własną *nazwę nodepool* z poprzedniego polecenia, na przykład *nodepool1*:
+Aby skalować węzły klastra, użyj polecenia [AZ AKS Scale][az-aks-scale] . Poniższy przykład skaluje klaster o nazwie *myAKSCluster* do jednego węzła. Podaj własne `--nodepool-name` polecenie, takie jak *nodepool1*:
 
 ```azurecli-interactive
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
@@ -69,6 +67,20 @@ Następujące przykładowe dane wyjściowe pokazują, że klaster został pomyś
 }
 ```
 
+
+## <a name="scale-user-node-pools-to-0"></a>Skalowanie `User` pul węzłów do wartości 0
+
+W przeciwieństwie do `System` pul węzłów, które zawsze wymagają uruchomionych węzłów, `User` Pule węzłów umożliwiają skalowanie do 0. Aby dowiedzieć się więcej na temat różnic między pulami węzłów systemu i użytkownika, zobacz [Pule węzłów systemu i użytkownika](use-system-pools.md).
+
+Aby skalować pulę użytkowników do wartości 0, możesz użyć opcji [AZ AKS nodepool Scale][az-aks-nodepool-scale] zamiast powyższego `az aks scale` polecenia i ustawić 0 jako liczbę węzłów.
+
+
+```azurecli-interactive
+az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
+```
+
+Można również automatycznie skalować `User` Pule węzłów do 0 węzłów, ustawiając `--min-count` parametr [automatycznego skalowania klastra](cluster-autoscaler.md) na 0.
+
 ## <a name="next-steps"></a>Następne kroki
 
 W tym artykule opisano ręczne skalowanie klastra AKS w celu zwiększenia lub zmniejszenia liczby węzłów. Możesz również użyć automatycznego [skalowania klastra][cluster-autoscaler] , aby automatycznie skalować klaster.
@@ -81,3 +93,4 @@ W tym artykule opisano ręczne skalowanie klastra AKS w celu zwiększenia lub zm
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [cluster-autoscaler]: cluster-autoscaler.md
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale&preserve-view=true

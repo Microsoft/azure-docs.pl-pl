@@ -1,23 +1,23 @@
 ---
-title: Monitoruj Key Vault z Azure Monitor dla Key Vault (wersja zapoznawcza) | Microsoft Docs
+title: Monitoruj Key Vault przy użyciu Azure Monitor dla Key Vault | Microsoft Docs
 description: W tym artykule opisano Azure Monitor dla magazynów kluczy.
 services: azure-monitor
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/13/2019
-ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.date: 09/10/2020
+ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069802"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894507"
 ---
-# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorowanie usługi magazynu kluczy za pomocą Azure Monitor dla Key Vault (wersja zapoznawcza)
-Azure Monitor dla Key Vault (wersja zapoznawcza) zapewnia kompleksowe monitorowanie magazynów kluczy, udostępniając ujednolicony widok żądań Key Vault, wydajności, błędów i opóźnień.
-Ten artykuł pomoże Ci zrozumieć, jak dołączyć i dostosować środowisko Azure Monitor dla Key Vault (wersja zapoznawcza).
+# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitorowanie usługi magazynu kluczy za pomocą Azure Monitor dla Key Vault
+Azure Monitor dla Key Vault oferuje kompleksowe monitorowanie Twoich magazynów kluczy, udostępniając ujednolicony widok żądań, wydajności, niepowodzeń i opóźnień Key Vault.
+Ten artykuł pomoże Ci zrozumieć, jak dołączyć i dostosować środowisko Azure Monitor w Key Vault.
 
-## <a name="introduction-to-azure-monitor-for-key-vault-preview"></a>Wprowadzenie do Azure Monitor dla Key Vault (wersja zapoznawcza)
+## <a name="introduction-to-azure-monitor-for-key-vault"></a>Wprowadzenie do Azure Monitor dla Key Vault
 
 Przed przechodzeniem do środowiska należy zrozumieć, jak prezentuje i wizualizuje informacje.
 -    **W perspektywie skalowania** przedstawia widok migawki wydajności na podstawie żądań, podziałów błędów oraz przeglądów operacji i opóźnień.
@@ -49,7 +49,7 @@ Aby wyświetlić wykorzystanie i operacje Twoich magazynów kluczy we wszystkich
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/)
 
-2. Wybierz pozycję **monitor** z okienka po lewej stronie w Azure Portal i w sekcji szczegółowe informacje wybierz pozycję **magazyny kluczy (wersja zapoznawcza)**.
+2. Wybierz pozycję **monitor** z okienka po lewej stronie w Azure Portal i w sekcji szczegółowe informacje wybierz pozycję **magazyny kluczy**.
 
 ![Zrzut ekranu przedstawiający środowisko omówienia z wieloma wykresami](./media/key-vaults-insights-overview/overview.png)
 
@@ -83,7 +83,7 @@ Aby uzyskać dostęp do Azure Monitor Key Vault bezpośrednio z magazynu kluczy:
 
 1. W Azure Portal wybierz pozycję magazyny kluczy.
 
-2. Z listy wybierz magazyn kluczy. W sekcji monitorowanie wybierz pozycję szczegółowe dane (wersja zapoznawcza).
+2. Z listy wybierz magazyn kluczy. W sekcji monitorowanie wybierz pozycję szczegółowe dane.
 
 Te widoki są również dostępne, wybierając nazwę zasobu magazynu kluczy w skoroszycie na poziomie Azure Monitor.
 
@@ -140,7 +140,7 @@ Dostosowania są zapisywane w niestandardowym skoroszycie, aby zapobiec zastąpi
 
 Można skonfigurować wiele subskrypcji i omówienia magazynu kluczy lub skoroszyty błędów, aby określić zakres do określonych subskrypcji lub magazynów kluczy w każdym uruchomieniu, wykonując następujące czynności:
 
-1. Wybierz pozycję **monitor** z portalu, a następnie wybierz pozycję **magazyny kluczy (wersja zapoznawcza)** w okienku po lewej stronie.
+1. Wybierz pozycję **monitor** z portalu, a następnie wybierz pozycję **magazyny kluczy** w okienku po lewej stronie.
 2. W skoroszycie **Przegląd** , na pasku poleceń wybierz pozycję **Edytuj**.
 3. Z listy rozwijanej **subskrypcje** wybierz co najmniej jedną subskrypcję, która ma być yo używana jako domyślna. Pamiętaj, że skoroszyt obsługuje wybieranie maksymalnie 10 subskrypcji.
 4. Wybierz z listy rozwijanej **magazyny kluczy** jeden lub więcej kont, które mają być używane domyślnie jako domyślne. Pamiętaj, że skoroszyt obsługuje wybieranie maksymalnie 200 kont magazynu.
@@ -150,11 +150,11 @@ Można skonfigurować wiele subskrypcji i omówienia magazynu kluczy lub skorosz
 
 Ogólne wskazówki dotyczące rozwiązywania problemów można znaleźć w artykule dotyczącym szczegółowych informacji o [rozwiązywaniu problemów](troubleshoot-workbooks.md)opartych na skoroszycie.
 
-Ta sekcja pomoże Ci w diagnozowaniu i rozwiązywaniu problemów z typowymi problemami, które mogą wystąpić podczas korzystania z Azure Monitor dla Key Vault (wersja zapoznawcza). Skorzystaj z poniższej listy, aby znaleźć informacje istotne dla danego problemu.
+Ta sekcja pomoże Ci w diagnozowaniu i rozwiązywaniu problemów z typowymi problemami, które mogą wystąpić podczas korzystania z Azure Monitor Key Vault. Skorzystaj z poniższej listy, aby znaleźć informacje istotne dla danego problemu.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Rozwiązywanie problemów z wydajnością lub niepowodzeń
 
-Aby ułatwić rozwiązywanie problemów związanych z magazynem kluczy, które można zidentyfikować za pomocą Azure Monitor dla Key Vault (wersja zapoznawcza), zobacz [dokumentację Azure Key Vault](../../key-vault/index.yml).
+Aby ułatwić rozwiązywanie problemów związanych z magazynem kluczy, które można zidentyfikować za pomocą Azure Monitor dla Key Vault, zobacz [dokumentację Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Dlaczego można zobaczyć tylko magazyny kluczy 200
 

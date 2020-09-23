@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83641100"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982859"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Samouczek: Tworzenie demona wielodostępnego, która używa punktu końcowego platformy tożsamości firmy Microsoft
 
@@ -41,7 +41,7 @@ Składnik "Demon" w tym przykładzie jest kontrolerem interfejsu API, `SyncContr
 
 Ponieważ aplikacja jest aplikacją wielodostępnymi dla klientów firmy Microsoft, musi zapewnić klientom możliwość "rejestracji" lub "łączenia" aplikacji z danymi firmowymi. Podczas przepływu połączenia administrator firmy najpierw przyznaje *uprawnienia aplikacji* bezpośrednio do aplikacji, dzięki czemu może uzyskiwać dostęp do danych firmowych w sposób nieinteraktywny, bez obecności zalogowanego użytkownika. Większość logiki w tym przykładzie przedstawia sposób osiągnięcia tego przepływu połączenia przy użyciu punktu końcowego [zgody](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) na platformę tożsamości.
 
-![Topologia](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+![Diagram przedstawia aplikację UserSync z trzema elementami lokalnymi, które łączą się z platformą Azure, z uwierzytelnianiem typu "Uruchom jako" w sposób interaktywny, aby połączyć się z platformą Azure A D, elementu AccountController otrzymywanie zgody administratora na łączenie się z platformą Azure A D i SyncController odczytywanie użytkownika w celu połączenia z Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 Aby uzyskać więcej informacji na temat pojęć użytych w tym przykładzie, Przeczytaj [dokumentację protokołu poświadczeń klienta dla punktu końcowego platformy tożsamości](v2-oauth2-client-creds-grant-flow.md).
 
@@ -113,17 +113,17 @@ Jeśli nie chcesz używać automatyzacji, wykonaj kroki opisane w poniższych se
      Jeśli istnieje więcej niż dwa identyfikatory URI przekierowania, należy dodać je z karty **uwierzytelnianie** później, po pomyślnym utworzeniu aplikacji.
 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją jako nowszą. Będzie ona potrzebna do skonfigurowania pliku konfiguracji programu Visual Studio dla tego projektu.
-1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**. Wtedy:
+1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**. Następnie:
    - W sekcji **Ustawienia zaawansowane** Ustaw **adres URL wylogowywania** na **https://localhost:44316/Account/EndSession** .
    - W sekcji **Ustawienia zaawansowane**  >  **niejawne przyznanie** wybierz pozycję **tokeny dostępu** i **tokeny identyfikatorów**. Ten przykład wymaga, aby [przepływ niejawnego przydzielenia](v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika i wywoływania interfejsu API.
 1. Wybierz pozycję **Zapisz**.
-1. Na stronie **certyfikaty & wpisy tajne** w sekcji **klucze tajne klienta** wybierz pozycję **nowy klucz tajny klienta**. Wtedy:
+1. Na stronie **certyfikaty & wpisy tajne** w sekcji **klucze tajne klienta** wybierz pozycję **nowy klucz tajny klienta**. Następnie:
 
    1. Wprowadź opis klucza (na przykład **klucz tajny aplikacji**),
    1. Wybierz kluczowy okres trwania z przedziału **1 roku**, **w ciągu 2 lat**lub **nigdy nie wygasa**.
    1. Wybierz przycisk **Add** (Dodaj).
    1. Gdy zostanie wyświetlona wartość klucza, skopiuj ją i Zapisz w bezpiecznej lokalizacji. Ten klucz będzie potrzebny później, aby skonfigurować projekt w programie Visual Studio. Nie będzie można go ponownie wyświetlić ani pobrać w inny sposób.
-1. Na liście stron dla aplikacji wybierz pozycję **uprawnienia interfejsu API**. Wtedy:
+1. Na liście stron dla aplikacji wybierz pozycję **uprawnienia interfejsu API**. Następnie:
    1. Wybierz przycisk **Dodaj uprawnienia**.
    1. Upewnij się, że wybrano kartę **interfejsy API firmy Microsoft** .
    1. W sekcji **najczęściej używane interfejsy API firmy Microsoft** wybierz pozycję **Microsoft Graph**.

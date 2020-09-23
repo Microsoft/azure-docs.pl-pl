@@ -10,20 +10,17 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f68867a7b24e9c5d8dafa0da65209e14eeae5210
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047865"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896457"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Samouczek: Tworzenie modelu klasyfikacji przy użyciu zautomatyzowanej ML w Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-W tym samouczku dowiesz się, jak utworzyć podstawowy model klasyfikacji bez pisania pojedynczego wiersza kodu przy użyciu funkcji automatycznego uczenia maszynowego w programie Azure Machine Learning Studio. Ten model klasyfikacji przewiduje, czy klient zasubskrybuje stały termin złożenia przez instytucję finansową.
 
->[!IMPORTANT]
-> Automatyczne Uczenie maszynowe w usłudze Azure Machine Learning Studio jest w wersji zapoznawczej. Niektóre funkcje mogą nie być obsługiwane lub mieć ograniczone możliwości.
+W tym samouczku dowiesz się, jak utworzyć prosty model klasyfikacji bez pisania pojedynczego wiersza kodu przy użyciu funkcji automatycznego uczenia maszynowego w programie Azure Machine Learning Studio. Ten model klasyfikacji przewiduje, czy klient zasubskrybuje stały termin złożenia przez instytucję finansową.
 
 Dzięki zautomatyzowanej usłudze Machine Learning można zautomatyzować czasochłonne zadania. Automatyczne Uczenie maszynowe szybko iteruje wiele kombinacji algorytmów i parametrów, aby ułatwić znalezienie najlepszego modelu w oparciu o pomyślną metrykę wybrania.
 
@@ -47,9 +44,9 @@ W tym samouczku dowiesz się, jak wykonywać następujące zadania:
 
 Obszar roboczy Azure Machine Learning to podstawowe zasoby w chmurze, za pomocą których można eksperymentować, uczeniować i wdrażać modele uczenia maszynowego. Łączy ona Twoją subskrypcję i grupę zasobów platformy Azure z łatwym w użyciu obiektem w usłudze. 
 
-Utwórz obszar roboczy **wersji Enterprise Edition** za pośrednictwem Azure Portal konsoli internetowej do zarządzania zasobami platformy Azure.
+Utwórz obszar roboczy za pośrednictwem Azure Portal konsoli internetowej do zarządzania zasobami platformy Azure.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Zanotuj swój **obszar roboczy** i **subskrypcję**. Będą one potrzebne do utworzenia eksperymentu w odpowiednim miejscu. 
@@ -76,7 +73,7 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
 
 Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w formie zestawu danych Azure Machine Learning. Dzięki temu można upewnić się, że dane są sformatowane odpowiednio do eksperymentu.
 
-1. Utwórz nowy zestaw danych, wybierając pozycję **z plików lokalnych** z listy rozwijanej **+ Utwórz zestaw danych** . 
+1. Utwórz nowy zestaw danych, wybierając pozycję **z plików lokalnych** z listy rozwijanej  **+ Utwórz zestaw danych** . 
 
     1. W **podstawowym formularzu informacji** nadaj zestawowi danych nazwę i podaj opcjonalny opis. Interfejs zautomatyzowanej sieci obsługuje obecnie tylko TabularDatasets, więc typ DataSet powinien domyślnie mieć wartość *tabelaryczną*.
 
@@ -104,7 +101,7 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Wszystkie pliki mają te same nagłówki
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
 
-    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla funkcji **day_of_week** , więc nie dodawaj go do tego eksperymentu. Wybierz przycisk **Dalej**.
+    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla funkcji **day_of_week** , więc nie dodawaj go do tego eksperymentu. Wybierz pozycję **Dalej**.
 
         ![Konfiguracja karty podglądu](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
@@ -114,16 +111,16 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
     
     1. Wybierz zestaw danych, który zostanie wyświetlony na liście.
     
-    1. Przejrzyj **Podgląd danych** , aby upewnić się, że nie doszło do **day_of_week** następnie wybierz przycisk **OK**.
+    1. Przejrzyj **Podgląd danych**  , aby upewnić się, że nie doszło do **day_of_week** następnie wybierz przycisk **OK**.
 
-    1. Wybierz pozycję **dalej**.
+    1. Wybierz pozycję  **dalej**.
 
 ## <a name="configure-experiment-run"></a>Konfigurowanie przebiegu eksperymentu
 
 Po załadowaniu i skonfigurowaniu danych możesz skonfigurować eksperyment. Ta konfiguracja obejmuje eksperymentowe zadania projektowe, takie jak, wybranie rozmiaru środowiska obliczeniowego i określenie kolumny, która ma zostać przewidywalna. 
 
 1. Wypełnij formularz **konfigurowania przebiegu** w następujący sposób:
-    1. Wprowadź nazwę tego eksperymentu:`my-1st-automl-experiment`
+    1. Wprowadź nazwę tego eksperymentu: `my-1st-automl-experiment`
 
     1. Zaznacz opcję **y** jako kolumnę docelową, którą chcesz przewidzieć. Ta kolumna wskazuje, czy klient subskrybuje termin depozytowy.
     
@@ -131,7 +128,7 @@ Po załadowaniu i skonfigurowaniu danych możesz skonfigurować eksperyment. Ta 
 
         Pole | Opis | Wartość dla samouczka
         ----|---|---
-        Nazwa obliczeniowa |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|automl — obliczenia
+        Nazwa obiektu obliczeniowego |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|automl — obliczenia
         &nbsp;Typ maszyny &nbsp; wirtualnej| Wybierz typ maszyny wirtualnej dla obliczenia.|Procesor CPU (centralna jednostka przetwarzania)
         &nbsp;Rozmiar maszyny &nbsp; wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.|Standard_DS12_V2
         Minimalna/Maksymalna liczba węzłów| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
@@ -143,7 +140,7 @@ Po załadowaniu i skonfigurowaniu danych możesz skonfigurować eksperyment. Ta 
 
         1. Po utworzeniu wybierz nowe miejsce docelowe obliczeń z listy rozwijanej.
 
-    1. Wybierz przycisk **Dalej**.
+    1. Wybierz pozycję **Dalej**.
 
 1. Na formularzu **Typ i ustawienia zadania** Ukończ konfigurację eksperymentu zautomatyzowanej sieci, określając typ zadania Uczenie maszynowe i ustawienia konfiguracji.
     
@@ -162,7 +159,7 @@ Po załadowaniu i skonfigurowaniu danych możesz skonfigurować eksperyment. Ta 
         
         Wybierz pozycję **Zapisz**.
 
-1. Wybierz pozycję **Zakończ** , aby uruchomić eksperyment. Po rozpoczęciu przygotowania eksperymentu zostanie otwarty ekran **szczegóły uruchamiania** ze **stanem Uruchom** na górze.
+1. Wybierz pozycję **Zakończ** , aby uruchomić eksperyment. Po rozpoczęciu przygotowania eksperymentu zostanie otwarty ekran **szczegóły uruchamiania**  ze **stanem Uruchom** na górze.
 
 >[!IMPORTANT]
 > Przygotowanie eksperymentu trwa do **10-15 minut** .
@@ -203,13 +200,13 @@ Wdrażamy ten model, ale zaleca się wdrożenie trwa około 20 minut. Proces wdr
     ----|----
     Nazwa wdrożenia| My-automl-Deploy
     Opis wdrożenia| Moje pierwsze zautomatyzowane wdrożenie eksperymentu w usłudze Machine Learning
-    Typ obliczenia | Wybierz wystąpienie obliczeniowe platformy Azure (ACI)
+    Typ środowiska obliczeniowego | Wybierz wystąpienie obliczeniowe platformy Azure (ACI)
     Włącz uwierzytelnianie| Wyłącz. 
     Korzystanie z wdrożeń niestandardowych| Wyłącz. Zezwala na Autogenerowanie domyślnego pliku sterownika (skrypt oceniania) i pliku środowiska. 
     
     W tym przykładzie używamy ustawień domyślnych, które są dostępne w menu *Zaawansowane* . 
 
-1. Wybierz pozycję **Wdróż**.  
+1. Wybierz pozycję **Deploy** (Wdróż).  
 
     W górnej części ekranu **uruchamiania** zostanie wyświetlony zielony komunikat o powodzeniu, a w okienku **Podsumowanie modelu** zostanie wyświetlony komunikat o stanie w obszarze **Wdróż stan**. Należy okresowo wybierać pozycję **Odśwież** , aby sprawdzić stan wdrożenia.
     
@@ -217,7 +214,7 @@ Teraz masz działającą usługę sieci Web do generowania prognoz.
 
 Przejdź do [**następnych kroków**](#next-steps) , aby dowiedzieć się więcej na temat korzystania z nowej usługi sieci Web i testowania prognoz przy użyciu Power BI wbudowanej Azure Machine Learning obsługi.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Pliki wdrożeń są większe niż pliki danych i eksperymenty, dzięki czemu są one droższe do przechowywania. Usuń tylko pliki wdrożenia, aby zminimalizować koszty dla konta, lub jeśli chcesz zachować obszar roboczy i pliki eksperymentów. W przeciwnym razie Usuń całą grupę zasobów, jeśli nie planujesz używać żadnego z tych plików.  
 

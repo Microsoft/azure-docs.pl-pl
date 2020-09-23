@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: prognozowanie cen samochodów za pomocą projektanta (wersja zapoznawcza)'
+title: 'Samouczek: prognozowanie cen samochodu przy użyciu narzędzia Projektant'
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak uczenie, ocenę i wdrożenie modelu uczenia maszynowego przy użyciu interfejsu typu "przeciągnij i upuść". Ten samouczek jest częścią jednej z serii dwóch części na przewidywania cen samochodów, przy użyciu regresji liniowej.
 author: peterclu
@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 9d25d9e13cc7f3dba0f4254cda6e1119ff9e2e68
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659796"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896695"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Samouczek: przewidywanie ceny za samochód przy użyciu projektanta (wersja zapoznawcza)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Samouczek: przewidywanie ceny za samochód przy użyciu narzędzia Projektant
+
 
 W tym dwuczęściowym samouczku dowiesz się, jak używać projektanta Azure Machine Learning do uczenia i wdrażania modelu uczenia maszynowego, który przewiduje cenę dowolnego samochodu. Projektant jest narzędziem typu "przeciągnij i upuść", które pozwala tworzyć modele uczenia maszynowego bez pojedynczego wiersza kodu.
 
@@ -49,10 +49,6 @@ Do utworzenia potoku Azure Machine Learning jest wymagany obszar roboczy Azure M
 ### <a name="create-a-new-workspace"></a>Tworzenie nowego obszaru roboczego
 
 Aby można było korzystać z projektanta, najpierw potrzebny jest obszar roboczy Azure Machine Learning. Obszar roboczy jest zasobem najwyższego poziomu dla Azure Machine Learning, stanowi scentralizowane miejsce do pracy ze wszystkimi artefaktami tworzonymi w Azure Machine Learning.
-
-Jeśli masz obszar roboczy Azure Machine Learning z wersją Enterprise, [Przejdź do następnej sekcji](#create-the-pipeline).
-
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Tworzenie potoku
 
@@ -307,7 +303,7 @@ Następujące statystyki są wyświetlane dla modelu:
 
 W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepszą jakość modelu. Mniejsza wartość wskazuje, że przewidywania są bliżej rzeczywistych wartości. Dla współczynnika wyznaczania wartość bliższej wartości to 1 (1,0), tym lepsze przewidywania.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Pomiń tę sekcję, jeśli chcesz kontynuować w części 2 samouczka [Wdrażanie modeli](tutorial-designer-automobile-price-deploy.md).
 

@@ -8,90 +8,110 @@
       items:
         - name: Certyfikat główny SSL wygasa
           href: concepts-certificate-rotation.md
-- name: Przewodniki Szybki start
+- name: Dokumentacja udostępniona
+  items:
+    - name: Migracja
+      items:
+        - name: Migrowanie danych przy użyciu narzędzi pg_dump i pg_restore
+          href: howto-migrate-using-dump-and-restore.md
+          displayName: 'pg_dump, pg_restore'
+        - name: Migrowanie danych przy użyciu narzędzi pg_dump i psql
+          href: howto-migrate-using-export-and-import.md
+          displayName: 'import , export'
+        - name: Migracja z minimalnym przestojem za pomocą usługi DMS
+          href: howto-migrate-online.md
+          displayName: 'dms, data migration service'
+- name: Pojedynczy serwer
   expanded: true
   items:
-    - name: Pojedynczy serwer
+    - name: Dokumentacja pojedynczego serwera
+      href: single-server/index.yml
+    - name: Omówienie
+      href: overview-single-server.md
+    - name: Przewodniki Szybki start
+      expanded: true
       items:
-        - name: Tworzenie bazy danych — portal
-          href: quickstart-create-server-database-portal.md
-        - name: Tworzenie bazy danych — interfejs wiersza polecenia platformy Azure
-          href: quickstart-create-server-database-azure-cli.md
-        - name: Tworzenie bazy danych — polecenie up interfejsu wiersza polecenia platformy Azure
-          href: quickstart-create-server-up-azure-cli.md
-        - name: Tworzenie bazy danych — program Azure PowerShell
-          href: quickstart-create-postgresql-server-database-using-azure-powershell.md
-        - name: Tworzenie bazy danych — szablon usługi Resource Manager
-          href: quickstart-create-postgresql-server-database-using-arm-template.md
-          displayName: deploy azure resource manager template
+        - name: Tworzenie serwera
+          items:
+            - name: Azure Portal
+              href: quickstart-create-server-database-portal.md
+              displayName: 'create single server,portal'
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: quickstart-create-server-database-azure-cli.md
+              displayName: create single server in CLI
+            - name: Polecenie up interfejsu wiersza polecenia platformy Azure
+              href: quickstart-create-server-up-azure-cli.md
+              displayName: create single server up command
+            - name: Azure PowerShell
+              href: quickstart-create-postgresql-server-database-using-azure-powershell.md
+            - name: Szablon ARM
+              href: quickstart-create-postgresql-server-database-using-arm-template.md
+              displayName: deploy azure resource manager template
         - name: Nawiązywanie połączeń i wykonywanie zapytań
           items:
             - name: Python
               href: connect-python.md
+              displayName: 'python, django , connect'
             - name: Node.js
               href: connect-nodejs.md
+              displayName: 'nodejs, express, connect'
             - name: Java
               href: connect-java.md
+              displayName: 'java , connect'
             - name: Język Java z modułem Spring Data JDBC
               href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+              displayName: 'spring java, jdbc, connect'
             - name: Język Java z modułem Spring Data JPA
               href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+              displayName: 'java jpa, spring data'
             - name: Język Java z modułem Spring Data R2DBC
               href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+              displayName: 'java, r2dbc, spring data'
             - name: Ruby
               href: connect-ruby.md
+              displayName: connect with ruby
             - name: PHP
               href: connect-php.md
+              displayName: connect with php
             - name: .NET
               href: connect-csharp.md
+              displayName: connect with .net
             - name: Przejdź
               href: connect-go.md
-    - name: Hiperskala (Citus)
+              displayName: connect with go
+    - name: Samouczki
       items:
-        - name: Tworzenie grupy serwerów — portal
-          href: quickstart-create-hyperscale-portal.md
-- name: Samouczki
-  items:
-    - name: Pojedynczy serwer
-      items:
-        - name: 1 — Projektowanie bazy danych
+        - name: Projektowanie bazy danych
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: tutorial-design-database-using-azure-portal.md
+              displayName: design database
             - name: Interfejs wiersza polecenia platformy Azure
               href: tutorial-design-database-using-azure-cli.md
             - name: Azure PowerShell
               href: tutorial-design-database-using-powershell.md
-        - name: 2 — Projektowanie aplikacji internetowej — Python
+        - name: Kompilowanie i wdrażanie aplikacji internetowej Python (Django)
           href: ../app-service/tutorial-python-postgresql-app.md
+          displayName: 'python, django, connect'
           maintainContext: true
-        - name: 3 — Monitorowanie i dostrajanie
+        - name: Monitorowanie i dostrajanie
           href: tutorial-monitor-and-tune.md
-    - name: Hiperskala (Citus)
+          displayName: 'monitor, alerts, configure'
+    - name: Samples
       items:
-        - name: Projektowanie wielodostępnej bazy danych
-          href: tutorial-design-database-hyperscale-multi-tenant.md
-        - name: Projektowanie pulpitu nawigacyjnego w czasie rzeczywistym
-          href: tutorial-design-database-hyperscale-realtime.md
-- name: Samples
-  items:
-    - name: Interfejs wiersza polecenia platformy Azure
-      href: sample-scripts-azure-cli.md
-- name: Pojęcia
-  items:
-    - name: Pojedynczy serwer
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: sample-scripts-azure-cli.md
+        - name: Elementy wbudowane usługi Azure Policy
+          href: policy-samples.md
+    - name: Pojęcia
       items:
-        - name: Bazy danych i serwery
-          items:
-            - name: Serwery
-              href: concepts-servers.md
-            - name: Obsługiwane wersje
-              href: concepts-supported-versions.md
-            - name: Rozszerzenia PostgreSQL
-              href: concepts-extensions.md
-            - name: Wysoka dostępność
-              href: concepts-high-availability.md
-        - name: Zasoby
+        - name: Serwery
+          href: concepts-servers.md
+        - name: Obsługiwane wersje
+          href: concepts-supported-versions.md
+        - name: Rozszerzenia PostgreSQL
+          href: concepts-extensions.md
+        - name: Omówienie warstw cenowych
           items:
             - name: Warstwy cenowe
               href: concepts-pricing-tiers.md
@@ -99,270 +119,485 @@
               href: concept-reserved-pricing.md
             - name: Limity
               href: concepts-limits.md
-        - name: Dostęp do danych i zabezpieczenia
+        - name: Zabezpieczenia
           items:
             - name: Omówienie zabezpieczeń
               href: concepts-security.md
+              displayName: 'security, overview'
             - name: Konfigurowanie protokołu SSL
               href: concepts-ssl-connection-security.md
+              displayName: 'security,ssl'
             - name: Architektura łączności
               href: concepts-connectivity-architecture.md
-            - name: Reguły zapory
-              href: concepts-firewall-rules.md
-            - name: Sieć wirtualna
-              href: concepts-data-access-and-security-vnet.md
+              displayName: 'security, architecture'
             - name: Zaawansowana ochrona przed zagrożeniami
               href: concepts-data-access-and-security-threat-protection.md
+              displayName: 'security, advanced threat protection'
             - name: Uwierzytelnianie w usłudze Azure AD
               href: concepts-aad-authentication.md
-            - name: Link prywatny
-              href: concepts-data-access-and-security-private-link.md
+              displayName: 'security, aad, active directory'
             - name: Szyfrowanie danych
               href: concepts-data-encryption-postgresql.md
+              displayName: 'security, data encryption'
             - name: Podwójne szyfrowanie infrastruktury
               href: concepts-infrastructure-double-encryption.md
-            - name: Kontrole zabezpieczeń usługi Azure Policy
-              displayName: 'regulatory, compliance, standards, domains'
-              href: ./security-controls-policy.md
-            - name: Punkt odniesienia zabezpieczeń dla testu porównawczego zabezpieczeń platformy Azure
+              displayName: 'security, infrastructure encryption'
+            - name: Punkt odniesienia zabezpieczeń
               href: security-baseline.md
+        - name: Networking
+          items:
+            - name: Reguły zapory
+              href: concepts-firewall-rules.md
+              displayName: 'firewall rules, security, connect'
+            - name: Sieć wirtualna
+              href: concepts-data-access-and-security-vnet.md
+              displayName: 'security, service endpoint'
+            - name: Łącze prywatne
+              href: concepts-data-access-and-security-private-link.md
+              displayName: 'security, private link, private endpoint'
         - name: Ciągłość działalności biznesowej
           items:
             - name: Wprowadzenie do ciągłości działalności biznesowej
               displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
               href: concepts-business-continuity.md
+            - name: Wysoka dostępność
+              href: concepts-high-availability.md
             - name: Tworzenie kopii zapasowej i przywracanie
               href: concepts-backup.md
+              displayName: 'backup ,restore, georestore, geo-restore, outage'
         - name: Monitorowanie i dostrajanie
           items:
             - name: Monitorowanie i dostrajanie
               href: concepts-monitoring.md
+              displayName: 'monitor, tune, alerts'
             - name: Dzienniki
               href: concepts-server-logs.md
+              displayName: 'monitor, server logs'
             - name: Dzienniki inspekcji
               href: concepts-audit.md
+              displayName: 'audit logs, monitor'
             - name: Magazyn zapytań
               items:
                 - name: Magazyn zapytań
                   href: concepts-query-store.md
+                  displayName: 'performance, optimize, query store'
                 - name: Scenariusze użycia magazynu zapytań
                   href: concepts-query-store-scenarios.md
+                  displayName: 'query store, performance, optimize'
                 - name: Najlepsze rozwiązania dotyczące magazynu zapytań
                   href: concepts-query-store-best-practices.md
-            - name: Szczegółowe informacje o wydajności zapytań
+            - name: Analiza wydajności zapytań
               href: concepts-query-performance-insight.md
+              displayName: 'query store, performance, optimize, insights'
             - name: Zalecenia dotyczące wydajności
               href: concepts-performance-recommendations.md
-        - name: Opracowywanie zawartości
+              displayName: 'query store, performance, optimize, recommendations'
+        - name: Opracowywanie aplikacji
           items:
             - name: Biblioteki połączeń
               href: concepts-connection-libraries.md
+              displayName: 'libraries, drivers'
             - name: Elastyczność połączenia
               href: concepts-connectivity.md
-            - name: Tworzenie za pomocą usługi Azure Kubernetes Service (AKS)
-              href: concepts-aks.md
-            - name: Java
-              items:
-                - name: Używanie języka Java i technologii JDBC
-                  href: connect-java.md
-                - name: Konfigurowanie modułu Spring Data JDBC
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
-                - name: Konfigurowanie modułu Spring Data JPA
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
-                - name: Konfigurowanie modułu Spring Data R2DBC
-                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql
+              displayName: 'transient errors, connection issues, connectivity issues, pooling'
         - name: Replikacja
           items:
             - name: Repliki do odczytu
               href: concepts-read-replicas.md
+              displayName: 'replication, read replica'
             - name: Dekodowanie logiczne
               href: concepts-logical.md
-    - name: Hiperskala (Citus)
+              displayName: logical decoding
+    - name: Przewodniki z instrukcjami
       items:
-        - name: Rozproszone dane
-          items:
-            - name: Węzły i tabele
-              href: concepts-hyperscale-nodes.md
-            - name: Określanie typu aplikacji
-              href: concepts-hyperscale-app-type.md
-            - name: Wybieranie kolumny dystrybucji
-              href: concepts-hyperscale-choose-distribution-column.md
-            - name: Kolokacja tabeli
-              href: concepts-hyperscale-colocation.md
-        - name: Dostęp do danych i zabezpieczenia
-          items:
-            - name: Reguły zapory
-              href: concepts-hyperscale-firewall-rules.md
-            - name: Konfigurowanie protokołu SSL
-              href: concepts-hyperscale-ssl-connection-security.md
-            - name: Punkt odniesienia zabezpieczeń dla testu porównawczego zabezpieczeń platformy Azure
-              href: postgresql-hyperscale-security-baseline.md
-        - name: Ciągłość działalności biznesowej
-          items:
-            - name: Tworzenie kopii zapasowej i przywracanie
-              href: concepts-hyperscale-backup.md
-        - name: Monitorowanie i dostrajanie
-          items:
-            - name: Monitorowanie i dostrajanie
-              href: concepts-hyperscale-monitoring.md
-        - name: Rozszerzenia PostgreSQL
-          href: concepts-hyperscale-extensions.md
-        - name: Wysoka dostępność
-          href: concepts-hyperscale-high-availability.md
-        - name: Zasoby
-          items:
-            - name: Opcje konfiguracji
-              href: concepts-hyperscale-configuration-options.md
-            - name: Opłacanie wydajności rezerwowej z góry
-              href: concepts-hyperscale-reserved-pricing.md
-- name: Przewodniki z instrukcjami
-  items:
-    - name: Pojedynczy serwer
-      items:
-        - name: Zarządzanie serwerem
+        - name: Zarządzanie i skalowanie
           items:
             - name: Azure Portal
               href: howto-create-manage-server-portal.md
-        - name: Authentication
+              displayName: 'scale server, reset password'
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: how-to-manage-server-cli.md
+              displayName: 'scale server, reset password'
+        - name: Ponowne uruchamianie serwera
+          items:
+            - name: Azure Portal
+              href: howto-restart-server-portal.md
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: howto-restart-server-cli.md
+            - name: Azure PowerShell
+              href: howto-restart-server-powershell.md
+        - name: Reguły zapory
+          items:
+            - name: Azure Portal
+              href: howto-manage-firewall-using-portal.md
+              displayName: 'firewall, portal, rules'
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: howto-manage-firewall-using-cli.md
+              displayName: 'firewall, rules, cli'
+        - name: Przewodnik nawiązywania połączeń i wykonywania zapytań
+          href: how-to-connect-query-guide.md
+          displayName: application development
+        - name: Przywracanie serwera
+          items:
+            - name: Azure Portal
+              href: howto-restore-server-portal.md
+              displayName: 'restore, georestore, geo-restore, outage'
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: howto-restore-server-cli.md
+              displayName: 'restore, georestore, geo-restore, outage'
+            - name: Azure PowerShell
+              href: howto-restore-server-powershell.md
+              displayName: 'restore, georestore, geo-restore, outage'
+        - name: Włącz uwierzytelnianie
           items:
             - name: Tworzenie użytkowników
               href: howto-create-users.md
+              displayName: 'non-admin user, application development'
             - name: Konfigurowanie integracji z usługą Azure AD
               href: howto-configure-sign-in-aad-authentication.md
+              displayName: 'application development, aad, active directory'
             - name: Nawiązywanie połączenia z tożsamością zarządzaną
               href: howto-connect-with-managed-identity.md
         - name: Optymalizacja
           items:
             - name: Zbiorcze operacje wstawiania
               href: howto-optimize-bulk-inserts.md
+              displayName: 'bulk inserts, optimzie'
             - name: Automatyczna próżnia
               href: howto-optimize-autovacuum.md
+              displayName: 'optimize, autovacuum'
             - name: Zbieranie statystyk zapytań
               href: howto-optimize-query-stats-collection.md
+              displayName: 'query optimize, performance'
             - name: Strategia dotycząca wyskakujących tabel
               href: howto-optimize-query-time-with-toast-table-storage-strategy.md
-        - name: Zarządzanie zaporą
-          items:
-            - name: Witryna Azure Portal
-              href: howto-manage-firewall-using-portal.md
-            - name: Interfejs wiersza polecenia platformy Azure
-              href: howto-manage-firewall-using-cli.md
-        - name: Przywracanie serwera
-          items:
-            - name: Witryna Azure Portal
-              href: howto-restore-server-portal.md
-            - name: Interfejs wiersza polecenia platformy Azure
-              href: howto-restore-server-cli.md
-            - name: Azure PowerShell
-              href: howto-restore-server-powershell.md
-        - name: Migrowanie bazy danych
-          items:
-            - name: Zrzucanie i przywracanie
-              href: howto-migrate-using-dump-and-restore.md
-            - name: Importowanie i eksportowanie
-              href: howto-migrate-using-export-and-import.md
-            - name: Migracja z minimalnym przestojem
-              href: howto-migrate-online.md
-        - name: Łączenie aplikacji
-          items:
-            - name: Konfigurowanie protokołu TLS
-              href: howto-tls-configurations.md
-            - name: Azure PowerShell
-              href: howto-connection-string-powershell.md
+              displayName: 'query optimize, performance'
+        - name: Konfigurowanie protokołu TLS
+          href: howto-tls-configurations.md
+          displayName: 'application development, TLS'
+        - name: Parametry połączeń
+          href: howto-connection-string-powershell.md
+          displayName: 'application development, TLS'
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-configure-server-parameters-using-portal.md
+              displayName: 'application development, server parameters'
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-server-parameters-using-cli.md
+              displayName: 'application development, server parameters'
             - name: Azure PowerShell
               href: howto-configure-server-parameters-using-powershell.md
+              displayName: 'application development, server parameters'
         - name: Automatyczne zwiększanie rozmiaru magazynu
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
+              displayName: 'business continuity, scale , storage'
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-auto-grow-storage-cli.md
+              displayName: 'business continuity, scale , storage'
             - name: Azure PowerShell
               href: howto-auto-grow-storage-powershell.md
+              displayName: 'business continuity, scale , storage'
         - name: Dzienniki dostępu
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
+              displayName: 'access logs, monitor'
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-server-logs-using-cli.md
+              displayName: 'access logs, monitor'
         - name: Monitorowanie
           items:
             - name: Tworzenie alertów dotyczących metryk
               href: howto-alert-on-metric.md
+              displayName: 'alerts, metrics, monitor'
         - name: Rozwiązywanie problemów
           items:
             - name: Rozwiązywanie problemów z błędami połączenia
               href: howto-troubleshoot-common-connection-issues.md
+              displayName: 'debug, connection, issues, firewall, ssl, port'
             - name: Rozwiązywanie problemów z szyfrowaniem danych
               href: howto-data-encryption-troubleshoot.md
+              displayName: 'debug, security, encryption'
         - name: Zaawansowana ochrona przed zagrożeniami
           items:
             - name: Azure Portal
               href: howto-database-threat-protection-portal.md
-        - name: Virtual Network
+              displayName: 'advanced thread, security'
+        - name: Sieć wirtualna
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-manage-vnet-using-portal.md
+              displayName: 'service endpoint, vnet, virtual network'
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-manage-vnet-using-cli.md
-        - name: Link prywatny
+              displayName: 'service endpoint, vnet, virtual network'
+        - name: Łącze prywatne
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-configure-privatelink-portal.md
+              displayName: 'private endpoint, private link'
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-privatelink-cli.md
+              displayName: 'private endpoint, private link'
         - name: Szyfrowanie danych
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-data-encryption-portal.md
+              displayName: 'encryption, security'
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-data-encryption-cli.md
+              displayName: 'encryption, security'
             - name: Walidacja szyfrowania danych
               href: howto-data-encryption-validation.md
+              displayName: 'encryption, security'
         - name: Podwójne szyfrowanie infrastruktury
           items:
-            - name: Konfigurowanie podwójnego szyfrowania infrastruktury
+            - name: Konfigurowanie podwójnego szyfrowania
               href: howto-double-encryption.md
-        - name: Ponowne uruchamianie serwera
-          items:
-            - name: Witryna Azure Portal
-              href: howto-restart-server-portal.md
-            - name: Interfejs wiersza polecenia platformy Azure
-              href: howto-restart-server-cli.md
-            - name: Azure PowerShell
-              href: howto-restart-server-powershell.md
+              displayName: 'encryption, security'
         - name: Odmowa dostępu do sieci publicznej
           items:
             - name: Azure Portal
               href: howto-deny-public-network-access.md
+              displayName: 'deny, public access, security'
         - name: Replikacja
           items:
-            - name: Zarządzanie replikami do odczytu w witrynie Azure Portal
+            - name: Azure Portal
               href: howto-read-replicas-portal.md
-            - name: 'Zarządzanie replikami do odczytu (interfejs wiersza polecenia platformy Azure, interfejs API REST)'
+              displayName: replica
+            - name: 'Interfejs wiersza polecenia platformy Azure, interfejs API REST'
               href: howto-read-replicas-cli.md
-            - name: Zarządzanie replikami do odczytu w programie Azure PowerShell
+              displayName: read replica
+            - name: Azure PowerShell
               href: howto-read-replicas-powershell.md
+              displayName: read replica
         - name: Przenoszenie między regionami
           items:
             - name: Azure Portal
               href: howto-move-regions-portal.md
-    - name: Hiperskala (Citus)
+- name: Serwer elastyczny (wersja zapoznawcza)
+  expanded: true
+  items:
+    - name: Dokumentacja serwera elastycznego
+      href: flexible-server/index.yml
+    - name: Omówienie
+      href: flexible-server/overview.md
+    - name: Przewodniki Szybki start
+      expanded: true
       items:
-        - name: Tworzenie użytkowników
-          href: howto-hyperscale-create-users.md
-        - name: Rozmiar grupy serwerów
+        - name: Tworzenie serwera i bazy danych
+          items:
+            - name: Azure Portal
+              href: flexible-server/quickstart-create-server-portal.md
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: flexible-server/quickstart-create-server-cli.md
+            - name: Szablon ARM
+              href: flexible-server/quickstart-create-server-arm-template.md
+        - name: Nawiązywanie połączeń i wykonywanie zapytań
+          items:
+            - name: Python
+              href: flexible-server/connect-python.md
+    - name: Samouczki
+      items:
+        - name: Tworzenie aplikacji internetowej w sieci wirtualnej
+          href: flexible-server/tutorial-webapp-server-vnet.md
+        - name: Wdrażanie aplikacji Django
+          href: flexible-server/tutorial-django-app-service-postgres.md
+    - name: Pojęcia
+      items:
+        - name: Serwery
+          href: flexible-server/concepts-servers.md
+        - name: Obsługiwane wersje
+          href: flexible-server/concepts-supported-versions.md
+        - name: Obliczenia i magazyn
+          href: flexible-server/concepts-compute-storage.md
+        - name: Networking
+          href: flexible-server/concepts-networking.md
+          displayName: 'virtual networks, vnet, IP address, public access'
+        - name: Limity
+          href: flexible-server/concepts-limits.md
+        - name: Rozszerzenia
+          href: flexible-server/concepts-extensions.md
+        - name: Konserwacja zaplanowana
+          href: flexible-server/concepts-maintenance.md
+        - name: Ciągłość działalności biznesowej
+          items:
+            - name: Omówienie ciągłości działania
+              href: flexible-server/concepts-business-continuity.md
+            - name: Tworzenie kopii zapasowej i przywracanie
+              href: flexible-server/concepts-backup-restore.md
+            - name: Wysoka dostępność
+              href: flexible-server/concepts-high-availability.md
+        - name: Monitorowanie i dostrajanie
+          items:
+            - name: Omówienie monitorowania i dostrajania
+              href: flexible-server/concepts-monitoring.md
+              displayName: 'monitor, metrics'
+            - name: Dzienniki
+              href: flexible-server/concepts-logging.md
+              displayName: 'monitor, server logs'
+            - name: Dzienniki inspekcji
+              href: flexible-server/concepts-audit.md
+        - name: Replikacja
+          href: flexible-server/concepts-logical.md
+          displayName: logical decoding
+    - name: Przewodniki z instrukcjami
+      items:
+        - name: Zarządzanie serwerem
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-manage-server-portal.md
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: flexible-server/how-to-manage-server-cli.md
+        - name: Konserwacja zaplanowana
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-maintenance-portal.md
+        - name: Networking
+          items:
+            - name: Dostęp prywatny (integracja z siecią wirtualną)
+              items:
+                - name: Azure Portal
+                  href: flexible-server/how-to-manage-virtual-network-portal.md
+                - name: Interfejs wiersza polecenia platformy Azure
+                  href: flexible-server/how-to-manage-virtual-network-cli.md
+            - name: Dostęp publiczny (dozwolone adresy IP)
+              items:
+                - name: Azure Portal
+                  href: flexible-server/how-to-manage-firewall-portal.md
+                - name: Interfejs wiersza polecenia platformy Azure
+                  href: flexible-server/how-to-manage-firewall-cli.md
+            - name: TLS/SSL
+              items:
+                - name: Nawiązywanie połączenia przy użyciu protokołu TLS/SSL
+                  href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Konfigurowanie parametrów serwera
+          items:
+            - name: Azure Portal
+              href: flexible-server/howto-configure-server-parameters-using-portal.md
+              displayName: 'application development, server parameters'
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: flexible-server/howto-configure-server-parameters-using-cli.md
+              displayName: 'application development, server parameters'
+        - name: Skalowanie serwera
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-scale-compute-storage-portal.md
+        - name: Ponowne uruchamianie serwera
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-restart-server-portal.md
+        - name: Przywracanie serwera
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-restore-server-portal.md
+        - name: Zatrzymywanie/uruchamianie serwera
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-stop-start-server-portal.md
+        - name: Zarządzanie wysoką dostępnością
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-manage-high-availability-portal.md
+        - name: Monitorowanie
+          items:
+            - name: Tworzenie alertów dotyczących metryk
+              href: flexible-server/howto-alert-on-metrics.md
+            - name: Konfigurowanie dzienników i uzyskiwanie do nich dostępu
+              href: flexible-server/howto-configure-and-access-logs.md
+- name: Hiperskala (Citus)
+  items:
+    - name: Dokumentacja warstwy Hiperskala (Citus)
+      href: hyperscale/index.yml
+    - name: Omówienie
+      items:
+        - name: Co to jest Hiperskala (Citus)?
+          href: hyperscale-overview.md
+    - name: Szybki start
+      items:
+        - name: Tworzenie grupy serwerów
+          items:
+            - name: Azure Portal
+              href: quickstart-create-hyperscale-portal.md
+              displayName: 'portal, create hyperscale'
+    - name: Samouczki
+      items:
+        - name: Projektowanie wielodostępnej bazy danych
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+          displayName: 'hyperscale, tutorial, multi-tenant'
+        - name: Projektowanie pulpitu nawigacyjnego w czasie rzeczywistym
+          href: tutorial-design-database-hyperscale-realtime.md
+          displayName: 'hyperscale, tutorial, real-time'
+    - name: Samples
+      items:
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: sample-scripts-azure-cli.md
+          displayName: 'samples, azure cli'
+        - name: Elementy wbudowane usługi Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./policy-samples.md
+    - name: Pojęcia
+      items:
+        - name: Rozproszone dane
+          items:
+            - name: Węzły i tabele
+              href: concepts-hyperscale-nodes.md
+              displayName: 'nodes, tables'
+            - name: Określanie typu aplikacji
+              href: concepts-hyperscale-app-type.md
+            - name: Wybieranie kolumny dystrybucji
+              href: concepts-hyperscale-choose-distribution-column.md
+            - name: Kolokacja tabeli
+              href: concepts-hyperscale-colocation.md
+            - name: Opcje konfiguracji
+              href: concepts-hyperscale-configuration-options.md
+            - name: Opłacanie wydajności rezerwowej z góry
+              href: concepts-hyperscale-reserved-pricing.md
+        - name: Zabezpieczenia
+          items:
+            - name: Reguły zapory
+              href: concepts-hyperscale-firewall-rules.md
+              displayName: 'firewall, rules, hyperscale'
+            - name: Konfigurowanie protokołu SSL
+              href: concepts-hyperscale-ssl-connection-security.md
+              displayName: 'hyperscale, ssl'
+            - name: Punkt odniesienia zabezpieczeń
+              href: postgresql-hyperscale-security-baseline.md
+        - name: Ciągłość działalności biznesowej
+          items:
+            - name: Tworzenie kopii zapasowej i przywracanie
+              href: concepts-hyperscale-backup.md
+              displayName: 'backup, restore, outage, hyperscale'
+            - name: Wysoka dostępność
+              href: concepts-hyperscale-high-availability.md
+        - name: Monitorowanie i dostrajanie
+          items:
+            - name: Monitorowanie i dostrajanie
+              href: concepts-hyperscale-monitoring.md
+        - name: Rozszerzenia PostgreSQL
+          href: concepts-hyperscale-extensions.md
+    - name: Dokumentacja interfejsu API
+      items:
+        - name: Funkcje interfejsu SQL API
+          href: reference-hyperscale-functions.md
+        - name: Parametry serwera
+          href: reference-hyperscale-parameters.md
+        - name: Tabele systemowe
+          href: reference-hyperscale-metadata.md
+    - name: Przewodniki z instrukcjami
+      items:
+        - name: Skalowanie grupy serwerów
           href: howto-hyperscale-scaling.md
-        - name: Zarządzanie zaporą
+        - name: Reguły zapory
           items:
             - name: Azure Portal
               href: howto-hyperscale-manage-firewall-using-portal.md
+              displayName: 'firewall rule, hyperscale'
+        - name: Tworzenie użytkowników
+          href: howto-hyperscale-create-users.md
         - name: Rozproszone dane
           items:
             - name: Rozpowszechnianie i modyfikowanie tabel
@@ -373,33 +608,23 @@
           items:
             - name: Tworzenie alertów dotyczących metryk
               href: howto-hyperscale-alert-on-metric.md
+              dispalyName: alerts on hyperscale
             - name: Uzyskiwanie dostępu do dzienników bazy danych
               href: howto-hyperscale-logging.md
+              displayName: 'log, hyperscale'
         - name: Rozwiązywanie problemów
           items:
             - name: Rozwiązywanie problemów z błędami połączenia
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
+              displayName: 'connection errors, hyperscale'
 - name: Dokumentacja
   items:
-    - name: Pojedynczy serwer
-      items:
-        - name: Interfejs wiersza polecenia platformy Azure
-          href: /cli/azure/postgres
-        - name: Interfejs API REST
-          href: /rest/api/postgresql
-        - name: Szablon usługi Resource Manager
-          href: /azure/templates/microsoft.dbforpostgresql/allversions
-    - name: Hiperskala (Citus)
-      items:
-        - name: Funkcje interfejsu SQL API
-          href: reference-hyperscale-functions.md
-        - name: Parametry serwera
-          href: reference-hyperscale-parameters.md
-        - name: Tabele systemowe
-          href: reference-hyperscale-metadata.md
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/postgres
+    - name: Interfejs API REST
+      href: /rest/api/postgresql
+    - name: Szablon usługi Resource Manager
+      href: /azure/templates/microsoft.dbforpostgresql/allversions
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

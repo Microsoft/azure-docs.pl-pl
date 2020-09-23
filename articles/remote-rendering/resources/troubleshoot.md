@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014595"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982970"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -156,7 +156,8 @@ Renderowanie zdalne na platformie Azure jest podłączane do potoku renderowania
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Wzór szachownicy jest renderowany po załadowaniu modelu
 
-Jeśli renderowany obraz wygląda następująco: ![ szachownica ](../reference/media/checkerboard.png) , a moduł renderowania trafi na [limity dla rozmiaru standardowej konfiguracji](../reference/vm-sizes.md). Aby wyeliminować ograniczenia, należy przełączyć się do rozmiaru konfiguracji **Premium** lub zmniejszyć liczbę widocznych wielokątów.
+Jeśli renderowany obraz wygląda następująco: ![ zrzut ekranu pokazuje siatkę czarno-białych kwadratów z menu Narzędzia.](../reference/media/checkerboard.png)
+następnie moduł renderujący trafi [limity dla rozmiaru standardowej konfiguracji](../reference/vm-sizes.md). Aby wyeliminować ograniczenia, należy przełączyć się do rozmiaru konfiguracji **Premium** lub zmniejszyć liczbę widocznych wielokątów.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>Renderowany obraz w aparacie Unity jest odwrócony do góry
 
@@ -216,7 +217,7 @@ Jeśli powyższe kroki zostały wyczerpane, a pozostała walka z nią nie zostan
 
 ARR zawiera funkcję służącą do określenia, czy powierzchnie mogą z-walka: [podświetlanie szachownicy](../overview/features/z-fighting-mitigation.md). Możesz również określić wizualnie, co powoduje przeprowadzenie walki z. Poniższa pierwsza animacja przedstawia przykład utraty dokładności na odległość, a drugi pokazuje przykład niemal widocznych powierzchni:
 
-![Głębokość — precyzja — walka z](./media/depth-precision-z-fighting.gif)  ![Współrzędna-z-walka](./media/coplanar-z-fighting.gif)
+![Animacja pokazuje przykład zmniejszenia dokładności na odległość.](./media/depth-precision-z-fighting.gif)  ![Animacja pokazuje przykład niemal współrzędnych.](./media/coplanar-z-fighting.gif)
 
 Porównaj te przykłady z walką z, aby określić przyczynę lub opcjonalnie wykonać ten przepływ pracy krok po kroku:
 
@@ -244,7 +245,7 @@ Współrzędne powierzchniowe mogą mieć różne przyczyny:
 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Wymagania systemowe](../overview/system-requirements.md)
 * [Wymagania dotyczące sieci](../reference/network-requirements.md)
