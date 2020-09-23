@@ -1,6 +1,6 @@
 ---
 title: Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption za pomocą usługi Azure AD (poprzednia wersja)
-description: Ten artykuł zawiera wymagania wstępne dotyczące używania Microsoft Azure szyfrowania dysków dla maszyn wirtualnych IaaS.
+description: W tym artykule dowiesz się, jak utworzyć i skonfigurować magazyn kluczy dla Azure Disk Encryption za pomocą usługi Azure AD.
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: eb625624fa6faa4fdf3ef4fba3b49a0d2d5d7e09
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f983c0f5fc951376246fdbed9869211c8b495402
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284544"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977955"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption za pomocą usługi Azure AD (poprzednia wersja)
 
@@ -232,13 +232,13 @@ Jeśli chcesz użyć klucza szyfrowania klucza (KEK) w celu uzyskania dodatkowej
 
 * Klucze tajne magazynu kluczy i adresy URL KEK muszą mieć wersję. System Azure wymusza to ograniczenie wersji. Aby uzyskać prawidłowe tajne i KEK adresy URL, zobacz następujące przykłady:
 
-  * Przykładowy prawidłowy tajny adres URL:*https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Przykład prawidłowego adresu URL KEK:*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Przykładowy prawidłowy tajny adres URL:   *https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Przykład prawidłowego adresu URL KEK:   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Azure Disk Encryption nie obsługuje określania numerów portów jako części wpisów tajnych magazynu kluczy i adresów URL KEK. Przykłady nieobsługiwanych i obsługiwanych adresów URL magazynu kluczy można znaleźć w następujących przykładach:
 
-  * Nieakceptowalny adres URL magazynu kluczy*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Akceptowalny adres URL magazynu kluczy:*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Nieakceptowalny adres URL magazynu kluczy  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Akceptowalny adres URL magazynu kluczy:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 ### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a>Skonfiguruj klucz szyfrowania klucza z Azure PowerShell 
 Przed użyciem skryptu programu PowerShell należy zapoznać się z wymaganiami wstępnymi Azure Disk Encryption, aby poznać kroki skryptu. Przykładowy skrypt może wymagać zmian w danym środowisku. Ten skrypt tworzy wszystkie Azure Disk Encryption wymagania wstępne i szyfruje istniejącą maszynę wirtualną IaaS, zawijając klucz szyfrowania dysku przy użyciu klucza szyfrowania klucza. 

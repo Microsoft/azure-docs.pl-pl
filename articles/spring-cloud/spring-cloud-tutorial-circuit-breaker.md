@@ -7,14 +7,18 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8cc8f347330904bfab980b79cf5c5f351ce16629
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa66f17c6f96ac7f70188c5a28c0b180ed2f03e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089485"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906887"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Korzystanie z pulpitu nawigacyjnego wyłącznika ze sprężyną Azure
+
+**Ten artykuł ma zastosowanie do:** ✔️ Java
+
+::: zone pivot="programming-language-java"
 [Turbina Netflix Cloud w chmurze](https://github.com/Netflix/Turbine) jest szeroko używana do agregowania wielu strumieni metryk [Hystrix](https://github.com/Netflix/Hystrix) , dzięki czemu strumienie mogą być monitorowane w jednym widoku przy użyciu pulpitu nawigacyjnego Hystrix. W tym samouczku pokazano, jak używać ich w chmurze Azure wiosennej.
 > [!NOTE]
 > Netflix Hystrix jest szeroko używany w wielu istniejących aplikacjach w chmurze, ale nie jest już aktywnym programowaniem. W przypadku tworzenia nowego projektu należy użyć zamiast nich aplikacji wyłącznika, takich jak [resilience4j](https://github.com/resilience4j/resilience4j). Inaczej niż w przypadku platformy turbin pokazanej w tym samouczku, Nowa struktura wyłącznika chmurowego sprężyny łączy wszystkie implementacje potoku danych metryk w Micrometer. Nadal pracujemy nad obsługą micrometer w chmurze Azure wiosennej, dlatego nie będzie ona objęta tym samouczkiem.
@@ -71,7 +75,7 @@ Skopiuj adres URL strumienia turbiny `https://<SERVICE-NAME>-hystrix-turbine.azu
 > W środowisku produkcyjnym nie należy ujawniać w Internecie strumienia Hystrix i metryk.
 
 ### <a name="using-private-test-endpoints"></a>Korzystanie z punktów końcowych testów prywatnych
-Strumienie metryk Hystrix są również dostępne z programu `test-endpoint` . Jako usługa zaplecza nie przypisała publicznego punktu końcowego dla `recommendation-service` , ale możemy wyświetlić metryki z punktem końcowym test-at`https://primary:<KEY>@<SERVICE-NAME>.test.azuremicroservices.io/recommendation-service/default/actuator/hystrix.stream`
+Strumienie metryk Hystrix są również dostępne z programu `test-endpoint` . Jako usługa zaplecza nie przypisała publicznego punktu końcowego dla `recommendation-service` , ale możemy wyświetlić metryki z punktem końcowym test-at `https://primary:<KEY>@<SERVICE-NAME>.test.azuremicroservices.io/recommendation-service/default/actuator/hystrix.stream`
 
 ![Test Hystrix — strumień punktu końcowego](media/spring-cloud-circuit-breaker/hystrix-test-endpoint-stream.png)
 
@@ -80,3 +84,4 @@ Jako aplikacja internetowa Hystrix pulpit nawigacyjny powinien działać na `tes
 ## <a name="next-steps"></a>Następne kroki
 * [Inicjowanie obsługi administracyjnej wystąpienia usługi w interfejsie wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)
 * [Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+::: zone-end

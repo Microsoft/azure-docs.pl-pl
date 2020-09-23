@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 2ab45f4c64e6993f70f08f04ee413211abb0307d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: d9805c45b7c0af0cfe6410defaab7ea7725691d4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875904"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907201"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Magazyn obiektów blob i Azure Data Lake dane wyjściowe Gen2 z Azure Stream Analytics
 
@@ -68,4 +68,4 @@ Maksymalny rozmiar komunikatu znajduje się w temacie [limity usługi Azure Stor
 * [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu szablonu ARM](quick-create-azure-resource-manager.md)
 * [Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu programu Visual Studio](stream-analytics-quick-create-vs.md)
-* [Szybki Start: Tworzenie zadania Azure Stream Analytics w programie Visual Studio Code](quick-create-vs-code.md)
+* [Szybki Start: Tworzenie zadania Azure Stream Analytics w programie Visual Studio Code](quick-create-visual-studio-code.md)

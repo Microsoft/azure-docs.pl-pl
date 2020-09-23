@@ -3,14 +3,14 @@ title: Wdrażanie hybrydowego procesu roboczego elementu Runbook w systemie Linu
 description: W tym artykule opisano sposób instalowania Azure Automation hybrydowego procesu roboczego elementu Runbook w celu uruchamiania elementów Runbook na maszynach z systemem Linux w lokalnym środowisku centrum danych lub w chmurze.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f19aec65ed2616d757718116ac948473dd4b0ed
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: fb975305e18315fa8d0a39e4fe0ab6902c98b7e7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448007"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987229"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux
 
@@ -56,7 +56,7 @@ Funkcja hybrydowego procesu roboczego elementu Runbook obsługuje następujące 
 * Red Hat Enterprise Linux Server 5, 6 i 7 (x86/x64)
 * Debian GNU/Linux 6, 7 i 8 (x86/x64)
 * Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS i 18,04 (x86/x64)
-* SUSE Linux Enterprise Server 11 i 12 (x86/x64)
+* SUSE Linux Enterprise Server 12 (x86/x64)
 
 ### <a name="minimum-requirements"></a>Minimalne wymagania
 
@@ -75,6 +75,12 @@ Minimalne wymagania dla hybrydowego procesu roboczego elementu Runbook systemu L
 |PAM | Podłączane moduły uwierzytelniania (PAM)|
 | **Opcjonalny pakiet** | **Opis** | **Wersja minimalna**|
 | Program PowerShell Core | Aby można było uruchomić elementy Runbook programu PowerShell, należy zainstalować program PowerShell Core. Zobacz temat [Instalowanie programu PowerShell Core w systemie Linux](/powershell/scripting/install/installing-powershell-core-on-linux) , aby dowiedzieć się, jak go zainstalować. | 6.0.0 |
+
+## <a name="supported-linux-hardening"></a>Obsługiwane Ograniczanie poziomu systemu Linux
+
+Następujące elementy nie są jeszcze obsługiwane:
+
+* SIC
 
 ## <a name="supported-runbook-types"></a>Obsługiwane typy elementów Runbook
 

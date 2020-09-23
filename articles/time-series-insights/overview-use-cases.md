@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: d2d3c94985f099c7a0ab92efab564415f5cd81bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3ede38edd9d24114eb4d0939ff9d4586a2d31daa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099199"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978148"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Azure Time Series Insights przypadki użycia Gen2
 
@@ -66,7 +66,7 @@ Istnieją trzy podstawowe sposoby współpracy z danymi przechowywanymi w Azure 
 
 Użyj Azure Time Series Insights Gen2 do monitorowania kondycji, użycia i wydajności sprzętu w odpowiedniej skali i mierzenia wydajności operacyjnej. Azure Time Series Insights Gen2 ułatwia zarządzanie różnorodnymi i nieprzewidywalnymi obciążeniami IoT bez poświęcania na pozyskiwanie lub wydajność zapytań.
 
-[![Omówienie](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
+[![Zrzut ekranu przedstawia urządzenia/dane aplikacji, przetwarzanie strumienia, efektywność operacyjną, inteligencję i szczegółowe informacje oraz zaawansowaną analizę w Azure Time Series Insights Gen2.](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 Przesyłanie strumieniowe i ciągłe przetwarzanie danych pochodzących z procesów operacyjnych może pomyślnie przekształcić każdą firmę, jeśli jest ona połączona z odpowiednią technologią lub rozwiązaniem. Często te rozwiązania są kombinacją wielu systemów. Umożliwiają one eksplorację i analizę danych, które są stale zmieniane, szczególnie w obszarze IoT, i dzielą się wspólnym wzorcem.
 

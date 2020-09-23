@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e6653f8f26f90b6ea7f911efab40ec7a3e0c2a60
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518779"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906790"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Trasy w usłudze Azure static Web Apps Preview
 
@@ -28,18 +28,21 @@ Temat dotyczący routingu znacznie pokrywa się z pojęciami dotyczącymi uwierz
 
 Zobacz [przykładowy plik trasy](#example-route-file) , aby uzyskać szczegółowe informacje.
 
-## <a name="location"></a>Lokalizacja
+## <a name="location"></a>Location
 
 _routes.js_ pliku musi znajdować się w folderze głównym folderu artefaktów kompilacji aplikacji. Jeśli aplikacja sieci Web zawiera krok kompilacji, który kopiuje skompilowane pliki z określonego folderu do folderu artefaktów kompilacji, wówczas _routes.jsw_ pliku musi istnieć w tym konkretnym folderze.
 
-W poniższej tabeli wymieniono odpowiednie lokalizacje umieszczania _routes.jsw_ pliku dla wielu platform i bibliotek języka JavaScript frontonu.
+W poniższej tabeli wymieniono odpowiednie lokalizacje, w których należy umieścić _routes.jsw_ pliku dla wielu platform i bibliotek frontonu.
 
-|Struktura/Biblioteka | Lokalizacja  |
+|Struktura/Biblioteka | Location  |
 |---------|----------|
 | Angular | _stanu_   |
 | React   | _public_  |
 | Svelte  | _public_   |
-| VUE     | _public_ |
+| Vue     | _public_ |
+| Blazor  | _wwwroot_ |
+
+Powyższa tabela jest tylko reprezentatywna dla kilku platform i bibliotek zgodnych z Web Appsami statycznymi platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z tematem [Konfigurowanie platform i bibliotek frontonu](./front-end-frameworks.md) .
 
 ## <a name="defining-routes"></a>Definiowanie tras
 
@@ -48,7 +51,7 @@ Trasy są zdefiniowane w _routes.jsw_ pliku jako tablica reguł tras we `routes`
 | Właściwość reguły  | Wymagane | Wartość domyślna | Komentarz                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
 | `route`        | Tak      | nie dotyczy          | Wzorzec trasy żądany przez wywołującego.<ul><li>[Symbole wieloznaczne](#wildcards) są obsługiwane na końcu ścieżek tras. Na przykład _administrator trasy/ \* _ dopasowuje dowolną trasę pod ścieżką _administratora_ .<li>Domyślny plik trasy to _index.html_.</ul>|
-| `serve`        | Nie       | nie dotyczy          | Definiuje plik lub ścieżkę zwracaną z żądania. Ścieżka i nazwa pliku mogą się różnić od żądanej ścieżki. Jeśli `serve` wartość nie jest zdefiniowana, zostanie użyta żądana ścieżka. Parametry QueryString nie są obsługiwane; `serve`wartości muszą wskazywać na rzeczywiste pliki.  |
+| `serve`        | Nie       | nie dotyczy          | Definiuje plik lub ścieżkę zwracaną z żądania. Ścieżka i nazwa pliku mogą się różnić od żądanej ścieżki. Jeśli `serve` wartość nie jest zdefiniowana, zostanie użyta żądana ścieżka. Parametry QueryString nie są obsługiwane; `serve` wartości muszą wskazywać na rzeczywiste pliki.  |
 | `allowedRoles` | Nie       | anonimowe     | Tablica nazw ról. <ul><li>Prawidłowe znaki to `a-z` , `A-Z` , `0-9` , i `_` .<li>Wbudowana rola `anonymous` ma zastosowanie do wszystkich nieuwierzytelnionych użytkowników.<li>Wbudowana rola `authenticated` ma zastosowanie do każdego zalogowanego użytkownika.<li>Użytkownicy muszą należeć do co najmniej jednej roli.<li>Role są dopasowane na zasadzie _lub_ . Jeśli użytkownik znajduje się w dowolnej z wymienionych ról, zostanie udzielony dostęp.<li>Indywidualni użytkownicy są skojarzeni z rolami za pomocą [zaproszeń](authentication-authorization.md).</ul> |
 | `statusCode`   | Nie       | 200           | Odpowiedź na [kod stanu HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) dla żądania. |
 
@@ -106,7 +109,7 @@ Możesz również zabezpieczyć trasy z symbolami wieloznacznymi. W poniższym p
 
 ## <a name="fallback-routes"></a>Trasy powrotu
 
-Struktury i biblioteki języka JavaScript frontonu często bazują na kierowaniu aplikacji sieci Web po stronie klienta. Te reguły routingu po stronie klienta aktualizują lokalizację okna przeglądarki bez przesyłania żądań z powrotem do serwera. W przypadku odświeżenia strony lub przejścia bezpośrednio do lokalizacji wygenerowanych przez reguły routingu po stronie klienta, wymagana jest trasa rezerwowa po stronie serwera do obsłużynia odpowiedniej strony HTML.
+Aplikacje jednostronicowe, niezależnie od tego, czy korzystają z platform i bibliotek języka JavaScript frontonu, czy platformy zestawów webassembly, takich jak Blazor, często polegają na kierowaniu aplikacji sieci Web po stronie klienta. Te reguły routingu po stronie klienta aktualizują lokalizację okna przeglądarki bez przesyłania żądań z powrotem do serwera. W przypadku odświeżenia strony lub przejścia bezpośrednio do lokalizacji wygenerowanych przez reguły routingu po stronie klienta, wymagana jest trasa rezerwowa po stronie serwera do obsłużynia odpowiedniej strony HTML.
 
 W poniższym przykładzie przedstawiono wspólną trasę rezerwową:
 
@@ -186,6 +189,9 @@ Poniższe zagadnienia są ważne podczas pracy z typami MIME:
 
 - Klucze nie mogą mieć wartości null ani być puste lub mieć więcej niż 50 znaków
 - Wartości nie mogą być zerowe ani puste ani mieć więcej niż 1000 znaków
+
+> [!NOTE]
+> Statyczne Web Apps rozumie aplikacje Blazor i oczekiwane typy MIME dla plików WASM i DLL, nie trzeba dodawać mapowań dla tych.
 
 ## <a name="default-headers"></a>Nagłówki domyślne
 

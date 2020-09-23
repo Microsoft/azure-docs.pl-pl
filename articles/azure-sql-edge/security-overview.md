@@ -1,0 +1,115 @@
+---
+title: Zabezpieczanie usługi Azure SQL Edge
+description: Informacje o zabezpieczeniach w usłudze Azure SQL Edge
+keywords: SQL Edge, zabezpieczenia
+services: sql-edge
+ms.service: sql-edge
+ms.topic: conceptual
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: sstein
+ms.date: 09/22/2020
+ms.openlocfilehash: 17e3e8dca1c03f9783c0ca94350bb8a4ba5aca64
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90938646"
+---
+# <a name="securing-azure-sql-edge"></a>Zabezpieczanie usługi Azure SQL Edge
+
+Wraz ze wzrostem liczby rozwiązań IoT i brzegowych między branżami można zwiększyć liczbę urządzeń i dane wygenerowane z tych urządzeń. Zwiększona ilość danych i liczba punktów końcowych urządzenia stanowią znaczący wyzwanie w zakresie zabezpieczeń danych i urządzeń. 
+
+Usługa Azure SQL Edge oferuje wiele funkcji i możliwości, które znacznie ułatwiają Zabezpieczanie danych IoT w ramach SQL Server baz danych. Usługa Azure SQL Edge jest tworzona przy użyciu tego samego aparatu SQL, który zapewnia Microsoft SQL Server i Azure SQL, udostępniając te same funkcje zabezpieczeń, co ułatwia poszerzanie tych samych zasad zabezpieczeń i praktyk z chmury do krawędzi.
+
+Podobnie jak Microsoft SQL Server i Azure SQL, zabezpieczanie wdrożeń usługi Azure SQL Edge może być widoczne jako seria kroków obejmujących cztery obszary: platformy, uwierzytelniania, obiektów (w tym danych) i aplikacji, które uzyskują dostęp do systemu. 
+
+## <a name="platform-and-system-security"></a>Zabezpieczenia platformy i systemu
+
+Platforma usługi Azure SQL Edge obejmuje fizyczny Host platformy Docker, system operacyjny na hoście oraz systemy sieciowe łączące urządzenie fizyczne z aplikacjami i klientami. 
+
+Implementacja zabezpieczeń platformy rozpoczyna się od utrzymywania nieautoryzowanych użytkowników w sieci. Niektóre najlepsze rozwiązania obejmują, ale nie są ograniczone do:
+- Implementowanie reguł zapory w celu zapewnienia zasad zabezpieczeń organizacji. 
+- Upewnij się, że system operacyjny na urządzeniu fizycznym ma wszystkie najnowsze aktualizacje zabezpieczeń. 
+- Określanie i ograniczanie portów hosta, które są używane na potrzeby usługi Azure SQL Edge
+- Upewnienie się, że odpowiednia kontrola dostępu jest stosowana do wszystkich woluminów danych, które obsługują dane usługi Azure SQL Edge. 
+
+Aby uzyskać więcej informacji na temat protokołów sieciowych i punktów końcowych usługi Azure SQL Edge, odwołuje się do nich, [protokoły sieciowe i punkty końcowe TDS](https://docs.microsoft.com//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
+
+## <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja 
+
+### <a name="authentication"></a>Authentication  
+Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Usługa Azure SQL Edge obecnie obsługuje tylko `SQL Authentication` mechanizm.
+
+- *Uwierzytelnianie SQL*:
+
+    Uwierzytelnianie SQL dotyczy uwierzytelnienia użytkownika podczas nawiązywania połączenia z usługą Azure SQL Edge przy użyciu nazwy użytkownika i hasła. Podczas wdrażania programu SQL Edge należy określić hasło logowania do programu SQL **sa** . Następnie administrator serwera może utworzyć dodatkowe identyfikatory logowania i użytkowników SQL, które umożliwią użytkownikom łączenie się przy użyciu nazwy użytkownika i hasła.
+
+    Aby uzyskać więcej informacji na temat tworzenia i zarządzania nazwami logowania i użytkownikami w usłudze SQL Edge, zapoznaj się z tematem [Tworzenie nazwy logowania](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) i [użytkownika CREATE DATABASE](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user).
+
+### <a name="authorization"></a>Autoryzacja   
+
+Autoryzacja odnosi się do uprawnień przypisanych do użytkownika w bazie danych usługi Azure SQL Edge i określa, co użytkownik może zrobić. Uprawnienia są kontrolowane przez dodawanie kont użytkowników do [ról bazy danych](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) i przypisywanie uprawnień na poziomie bazy danych do tych ról lub udzielanie użytkownikowi określonych [uprawnień na poziomie obiektów](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Aby uzyskać więcej informacji, zobacz [logowania i użytkownicy](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage).
+
+Najlepszym rozwiązaniem jest utworzenie ról niestandardowych w razie konieczności. Dodaj użytkowników do roli o najniższych uprawnieniach wymaganych do wykonania funkcji zadań. Nie należy przypisywać uprawnień bezpośrednio do użytkowników. Konto administratora serwera jest członkiem wbudowanej roli db_owner, która ma rozległe uprawnienia i powinno być udzielane tylko kilku użytkownikom z zadaniami administracyjnymi. W przypadku aplikacji użyj funkcji [EXECUTE AS](https://docs.microsoft.com/sql/t-sql/statements/execute-as-clause-transact-sql) , aby określić kontekst wykonywania wywołanego modułu, lub Użyj [ról aplikacji](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) z ograniczonymi uprawnieniami. Dzięki temu aplikacja, która łączy się z bazą danych, ma najniższe uprawnienia wymagane przez aplikację. Poniższe najlepsze rozwiązania wspierają także Rozdzielenie obowiązków.
+
+## <a name="database-object-security"></a>Zabezpieczenia obiektu bazy danych
+
+Podmioty zabezpieczeń są osobami, grupami i procesami, którym udzielono dostępu do programu SQL Edge. "Zabezpieczane" to serwer, baza danych i obiekty zawarte w bazie danych. Każdy z nich ma zestaw uprawnień, które można skonfigurować, aby zmniejszyć obszar powierzchni. Poniższa tabela zawiera informacje dotyczące podmiotów zabezpieczeń i zabezpieczania.
+
+|Aby uzyskać informacje na temat|Zobacz|  
+|---------------------------|---------|  
+|Użytkownicy serwera i bazy danych, role i procesy|[Aparat bazy danych podmiotów zabezpieczeń](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine)|  
+|Zabezpieczenia obiektów serwera i bazy danych|[Obiektów zabezpieczanych](https://docs.microsoft.com/sql/relational-databases/security/securables)|
+| &nbsp; | &nbsp; |
+
+### <a name="encryption-and-certificates"></a>Szyfrowanie i certyfikaty  
+ 
+Szyfrowanie nie rozwiązuje problemów z kontrolą dostępu. Jednak zwiększa to bezpieczeństwo przez ograniczenie utraty danych, nawet w rzadkich przypadkach, gdy formanty dostępu są pomijane. Na przykład jeśli komputer hosta bazy danych jest niepoprawnie skonfigurowany i złośliwy użytkownik uzyska dane poufne, takie jak numery kart kredytowych, skradzione informacje mogą być bezużyteczne, jeśli są szyfrowane. Poniższa tabela zawiera więcej informacji na temat szyfrowania w usłudze Azure SQL Edge.  
+  
+|Aby uzyskać informacje na temat|Zobacz|  
+|---------------------------|---------|  
+|Implementowanie bezpiecznych połączeń|[Szyfrowanie połączeń](https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections)|  
+|Funkcje szyfrowania|[Funkcje kryptograficzne &#40;Transact-SQL&#41;](https://docs.microsoft.com/sql/t-sql/functions/cryptographic-functions-transact-sql)|
+|Szyfrowanie danych magazynowanych|[Niewidoczne szyfrowanie danych](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)|
+|Zawsze szyfrowane|[Zawsze szyfrowane](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)|
+| &nbsp; | &nbsp; |
+
+> [!NOTE]
+> Ograniczenia zabezpieczeń opisane dla [SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-security-overview) dotyczą również usługi Azure SQL Edge. 
+
+
+> [!NOTE]
+> Usługa Azure SQL Edge nie obejmuje narzędzia MSSQL-conf. Wszystkie konfiguracje, w tym konfiguracja związana z szyfrowaniem, muszą zostać wykonane za pomocą [pliku MSSQL. conf](configure.md#configure-by-using-an-mssqlconf-file) lub [zmiennych środowiskowych](configure.md#configure-by-using-environment-variables). 
+
+
+Podobnie jak w przypadku usługi Azure SQL i Microsoft SQL Server, usługa Azure SQL Edge zapewnia ten sam mechanizm do tworzenia i używania certyfikatów w celu zwiększenia bezpieczeństwa obiektów i połączeń. Aby uzyskać więcej informacji, zobacz [Tworzenie certyfikatu (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql).
+
+
+## <a name="application-security"></a>Zabezpieczenia aplikacji
+
+### <a name="client-programs"></a>Programy klienckie
+
+Najlepsze rozwiązania w zakresie zabezpieczeń usługi Azure SQL Edge obejmują pisanie bezpiecznych aplikacji klienckich. Aby uzyskać więcej informacji na temat zabezpieczania aplikacji klienckich w warstwie sieciowej, zobacz [Konfiguracja sieci klienta](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration).
+
+### <a name="sql-server-security-catalog-views-and-functions"></a>SQL Server widoków i funkcji wykazu zabezpieczeń  
+ Informacje o zabezpieczeniach są udostępniane w kilku widokach i funkcjach, które są zoptymalizowane pod kątem wydajności i narzędzi. Poniższa tabela zawiera informacje o widokach i funkcjach zabezpieczeń.  
+  
+|Funkcje i widoki|Linki|  
+|---------------------------|---------|  
+|Widoki wykazu zabezpieczeń, które zwracają informacje dotyczące uprawnień na poziomie bazy danych i serwera, podmiotów zabezpieczeń, ról i tak dalej. Ponadto istnieją widoki wykazu, które zawierają informacje na temat kluczy szyfrowania, certyfikatów i poświadczeń.|[Widoki wykazu zabezpieczeń &#40;Transact-SQL&#41;](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/security-catalog-views-transact-sql)|  
+|Funkcje zabezpieczeń, które zwracają informacje o bieżącym użytkowniku, uprawnieniach i schematach.|[Funkcje zabezpieczeń &#40;Transact-SQL&#41;](https://docs.microsoft.com/sql/t-sql/functions/security-functions-transact-sql)|  
+|Dynamiczne widoki zarządzania zabezpieczeniami.|[Dynamiczne widoki zarządzania i funkcje związane z zabezpieczeniami &#40;Transact-SQL&#41;](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)|  
+| &nbsp; | &nbsp; |
+
+### <a name="auditing"></a>Inspekcja 
+
+Usługa Azure SQL Edge zapewnia te same mechanizmy inspekcji co SQL Server. Aby uzyskać więcej informacji, zobacz [SQL Server Audit (aparat bazy danych)](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine).
+
+
+## <a name="next-steps"></a>Następne kroki
+
+- [Wprowadzenie z funkcjami zabezpieczeń](https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started)
+- [Uruchamianie usługi Azure SQL Edge jako użytkownika niebędącego głównym](configure.md#run-azure-sql-edge-as-non-root-user)
+- [Azure Security Center IoT](https://docs.microsoft.com/azure/asc-for-iot/overview)
+

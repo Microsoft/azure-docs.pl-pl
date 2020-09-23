@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 7683d3472d382707de538874035c8448f589bf82
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9ff62a568af4f60318ba0e5bdf2144bb43c9d2b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110814"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884315"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for PostgreSQL-pojedynczym serwerze przy użyciu Azure Portal
 
@@ -28,7 +28,7 @@ Należy wybrać między konfigurowaniem serwera do lokalnie nadmiarowych kopii z
 
 Podczas tworzenia serwera za pomocą Azure Portal okno **warstwy cenowej** to miejsce, w którym można wybrać **lokalnie nadmiarowe** lub **geograficznie nadmiarowe** kopie zapasowe dla serwera. To okno służy również do wybierania **okresu przechowywania kopii zapasowej** — jak długo (w dniach) mają być przechowywane kopie zapasowe serwera.
 
-   ![Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Warstwa cenowa — Wybieranie nadmiarowości kopii zapasowej":::
 
 Aby uzyskać więcej informacji na temat ustawiania tych wartości podczas tworzenia, zobacz [Azure Database for PostgreSQL Server — szybki start](quickstart-create-server-database-portal.md).
 
@@ -37,7 +37,7 @@ Okres przechowywania kopii zapasowej serwera można zmienić, wykonując następ
 2. Wybierz serwer usługi Azure Database for PostgreSQL. Ta akcja powoduje otwarcie strony **Przegląd** .
 3. Wybierz pozycję **warstwa cenowa** z menu, w obszarze **Ustawienia**. Za pomocą suwaka można zmienić **okres przechowywania kopii zapasowej** na preferencję od 7 do 35 dni.
 Na poniższym zrzucie ekranu został zwiększony do 34 dni.
-![Zwiększono okres przechowywania kopii zapasowej](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Zwiększono okres przechowywania kopii zapasowej":::
 
 4. Kliknij przycisk **OK** , aby potwierdzić zmianę.
 
@@ -53,11 +53,11 @@ Poniższe kroki umożliwiają przywrócenie przykładowego serwera do punktu w c
 
 2. Na pasku narzędzi na stronie **Przegląd** serwera wybierz pozycję **Przywróć**.
 
-   ![Azure Database for PostgreSQL — przegląd — przycisk Przywróć](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for PostgreSQL — przegląd — przycisk Przywróć":::
 
 3. Wypełnij formularz Przywracanie wymaganymi informacjami:
 
-   ![Azure Database for PostgreSQL — przywracanie informacji](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for PostgreSQL — przywracanie informacji":::
    - **Punkt przywracania**: Wybierz punkt w czasie, do którego chcesz wykonać przywracanie.
    - **Serwer docelowy**: Podaj nazwę nowego serwera.
    - **Lokalizacja**: nie można wybrać regionu. Domyślnie jest to taka sama jak w przypadku serwera źródłowego.

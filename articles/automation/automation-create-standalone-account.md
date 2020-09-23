@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: ea0970a672ac8fb15c2e7c6bbb65edf33bd25f04
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186592"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987270"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tworzenie autonomicznego konta usługi Azure Automation
 
@@ -33,7 +33,7 @@ Aby utworzyć lub zaktualizować konto usługi Automation oraz wykonać zadania 
 * Aby można było utworzyć konto usługi Automation, konto użytkownika usługi Azure AD musi zostać dodane do roli z uprawnieniami odpowiadającymi roli właściciela dla `Microsoft.Automation` zasobów. Aby uzyskać więcej informacji, zobacz [Access Control oparte na rolach w Azure Automation](automation-role-based-access-control.md).
 * W Azure Portal w obszarze **Azure Active Directory**  >  **Zarządzanie**  >  **ustawieniami użytkownika**, jeśli **rejestracje aplikacji** jest ustawiona na **tak**, użytkownicy inni niż administratorzy w dzierżawie usługi Azure AD mogą [rejestrować aplikacje Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Jeśli **rejestracje aplikacji** jest ustawiona na wartość **nie**, użytkownik wykonujący tę akcję musi mieć co najmniej rolę Deweloper aplikacji w usłudze Azure AD.
 
-Jeśli nie jesteś członkiem wystąpienia Active Directory subskrypcji przed dodaniem do roli administratora globalnego/współadministratora subskrypcji, dodasz Cię do Active Directory jako gość. W tym scenariuszu ten komunikat zostanie wyświetlony w okienku Dodawanie konta usługi Automation:`You do not have permissions to create.`
+Jeśli nie jesteś członkiem wystąpienia Active Directory subskrypcji przed dodaniem do roli administratora globalnego/współadministratora subskrypcji, dodasz Cię do Active Directory jako gość. W tym scenariuszu ten komunikat zostanie wyświetlony w okienku Dodawanie konta usługi Automation: `You do not have permissions to create.`
 
 Jeśli użytkownik zostanie najpierw dodany do roli administratora globalnego/współadministratora, można usunąć tego użytkownika z wystąpienia Active Directory subskrypcji. Możesz przeczytać użytkownika do roli użytkownika w Active Directory. Aby sprawdzić role użytkowników:
 
@@ -59,7 +59,7 @@ Aby utworzyć konto Azure Automation w Azure Portal, wykonaj następujące czynn
    > [!NOTE]
    > Jeśli w okienku Dodawanie konta usługi Automation zostanie wyświetlony następujący komunikat, Twoje konto nie jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.
    >
-   > ![Ostrzeżenie dotyczące dodawania konta usługi Automation](media/automation-create-standalone-account/create-account-without-perms.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="Zrzut ekranu przedstawiający monit "nie masz uprawnień do utworzenia konta Uruchom jako w usłudze Azure Active Directory".":::
 
 1. W okienku Dodawanie konta usługi Automation wprowadź nazwę nowego konta usługi Automation w polu **Nazwa** . Tej nazwy nie można zmienić po jej wybraniu. 
 
@@ -74,7 +74,7 @@ Aby utworzyć konto Azure Automation w Azure Portal, wykonaj następujące czynn
    > [!NOTE]
    > Jeśli zdecydujesz się nie tworzyć konta Uruchom jako, wybierając pozycję **nie** , aby **utworzyć konto Uruchom jako platformy Azure**, w okienku Dodawanie konta usługi Automation zostanie wyświetlony komunikat. Mimo że konto jest tworzone w Azure Portal, konto nie ma odpowiedniej tożsamości uwierzytelniania w ramach subskrypcji klasycznego modelu wdrażania lub subskrypcji Azure Resource Manager usługi katalogowej. W związku z tym konto usługi Automation nie ma dostępu do zasobów w Twojej subskrypcji. Dzięki temu wszystkie elementy Runbook odwołujące się do tego konta nie będą mogły uwierzytelniać i wykonywać zadań względem zasobów w tych modelach wdrożenia.
    >
-   > ![Ostrzeżenie dotyczące dodawania konta usługi Automation](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Zrzut ekranu przedstawiający monit z komunikatem "nie można utworzyć konta Uruchom jako".":::
    >
    > Gdy nie zostanie utworzona jednostka usługi, rola współautor nie jest przypisana.
    >
@@ -105,4 +105,4 @@ Klasyczne konta Uruchom jako nie są już tworzone domyślnie podczas tworzenia 
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz [Samouczek: Tworzenie elementu Runbook programu PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz [Samouczek: Tworzenie elementu Runbook przepływu pracy programu PowerShell](learn/automation-tutorial-runbook-textual.md).
 * Aby rozpocząć pracę z elementami Runbook języka Python 2, zobacz [Samouczek: Tworzenie elementu Runbook w języku Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

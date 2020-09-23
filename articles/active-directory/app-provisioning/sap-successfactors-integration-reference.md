@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
-ms.openlocfilehash: ea47f8a6fc29571a27f8976bd0ad9bbd30ed0ad9
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808460"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969525"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Jak Azure Active Directory aprowizacji integruje się z usługą SAP SuccessFactors 
 
@@ -63,7 +63,7 @@ Dla każdego użytkownika w SuccessFactors usługa Azure AD Provisioning pobiera
 | 14 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Tylko wtedy `jobCode` , gdy `jobCodeId` atrybut lub jest mapowany |
 | 15 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Tylko wtedy, gdy `payGrade` atrybut jest zamapowany |
 | 16 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Tylko wtedy, gdy `location` atrybut jest zamapowany |
-| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Jeśli mapowanie zawiera jeden z następujących atrybutów:`officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Jeśli mapowanie zawiera jeden z następujących atrybutów: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
 | 18 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Tylko wtedy, gdy `eventReason` atrybut jest zamapowany |
 | 19 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Tylko wtedy, gdy `assignmentType` jest zamapowany |
 | 20 | Lista wyboru                | employmentNav/jobInfoNav/employmentTypeNav | Tylko wtedy, gdy `employmentType` jest zamapowany |
@@ -166,9 +166,9 @@ Domyślny schemat aplikacji aprowizacji usługi Azure AD SuccessFactors jest dos
    * Jeśli atrybut jest częścią jednostki *użytkownika* , należy poszukać atrybutu w węźle *employmentNav/userNav* .
    * Jeśli atrybut jest częścią jednostki *EmpJob* , należy poszukać atrybutu w węźle *employmentNav/jobInfoNav* . 
 1. Utwórz ścieżkę JSON skojarzoną z atrybutem i Dodaj ten nowy atrybut do listy atrybutów SuccessFactors. 
-   * Przykład 1: Załóżmy, że chcesz dodać atrybut *okToRehire*, który jest częścią jednostki *employmentNav* , a następnie użyć wykryto`$.employmentNav.results[0].okToRehire`
-   * Przykład 2: Załóżmy, że chcesz dodać atrybut *strefy czasowej*, która jest częścią jednostki *userNav* , a następnie użyć wykryto`$.employmentNav.results[0].userNav.timeZone`
-   * Przykład 3: Załóżmy, że chcesz dodać atrybut *flsaStatus*, który jest częścią jednostki *jobInfoNav* , a następnie użyć wykryto`$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
+   * Przykład 1: Załóżmy, że chcesz dodać atrybut *okToRehire*, który jest częścią jednostki *employmentNav* , a następnie użyć wykryto  `$.employmentNav.results[0].okToRehire`
+   * Przykład 2: Załóżmy, że chcesz dodać atrybut *strefy czasowej*, która jest częścią jednostki *userNav* , a następnie użyć wykryto `$.employmentNav.results[0].userNav.timeZone`
+   * Przykład 3: Załóżmy, że chcesz dodać atrybut *flsaStatus*, który jest częścią jednostki *jobInfoNav* , a następnie użyć wykryto `$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
 1. Zapisz schemat. 
 1. Ponownie rozpocznij Inicjowanie obsługi administracyjnej.
 
@@ -182,14 +182,14 @@ Domyślnie następujące atrybuty niestandardowe są wstępnie zdefiniowane w ap
 Załóżmy, że w wystąpieniu klasy Employee Central, atrybut *customString35* w *EmpJobInfo* przechowuje opis lokalizacji. Chcesz przepływać tę wartość do Active Directory atrybutu *physicalDeliveryOfficeName* . Aby skonfigurować Mapowanie atrybutów dla tego scenariusza, wykonaj czynności podane poniżej: 
 
 1. Edytuj listę atrybutów SuccessFactors, aby dodać nowy atrybut o nazwie *empJobNavCustomString35*.
-1. Ustaw wyrażenie interfejsu API wykryto dla tego atrybutu jako:`$.employmentNav.results[0].jobInfoNav.results[0].customString35`
+1. Ustaw wyrażenie interfejsu API wykryto dla tego atrybutu jako: `$.employmentNav.results[0].jobInfoNav.results[0].customString35`
 1. Zapisz i ponownie załaduj zmiany mapowania w Azure Portal.  
 1. W bloku mapowanie atrybutu zamapuj *empJobNavCustomString35* na *physicalDeliveryOfficeName*.
 1. Zapisz mapowanie.
 
 Rozszerzanie tego scenariusza: 
-* Jeśli chcesz zmapować atrybut *custom35* z jednostki *User* , użyj wykryto`$.employmentNav.results[0].userNav.custom35`
-* Jeśli chcesz zmapować atrybut *customString35* z jednostki *EmpEmployment* , użyj wykryto`$.employmentNav.results[0].customString35`
+* Jeśli chcesz zmapować atrybut *custom35* z jednostki *User* , użyj wykryto `$.employmentNav.results[0].userNav.custom35`
+* Jeśli chcesz zmapować atrybut *customString35* z jednostki *EmpEmployment* , użyj wykryto `$.employmentNav.results[0].customString35`
 
 ### <a name="handling-worker-conversion-scenario"></a>Obsługa scenariusza konwersji procesów roboczych
 
@@ -199,20 +199,20 @@ Konwersja procesu roboczego to proces konwersji istniejącego pracownika pełneg
 1. Przewiń w dół i kliknij pozycję **Pokaż opcje zaawansowane**.
 1. Kliknij link **Przejrzyj tutaj schemat** , aby otworzyć Edytor schematu. 
 
-   >![Przegląd — schemat](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
+   >![Zrzut ekranu przedstawia link Przejrzyj swój schemat, który otwiera Edytor schematu.](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
 
 1. Kliknij link **pobierania** , aby zapisać kopię schematu przed edycją. 
 
-   >![Pobieranie-schemat](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
+   >![Zrzut ekranu przedstawia Edytor schematu z opcją Pobierz wybierz, aby zapisać kopię schematu.](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
 1. W edytorze schematu naciśnij klawisze CTRL-H, aby otworzyć kontrolkę Znajdowanie-zamienianie.
-1. W polu tekstowym Znajdź skopiuj i wklej wartość`$.employmentNav.results[0]`
+1. W polu tekstowym Znajdź skopiuj i wklej wartość `$.employmentNav.results[0]`
 1. W polu tekstowym Zamień skopiuj wartość i wklej ją `$.employmentNav.results[?(@.userNav != null)]` . Zwróć uwagę na odstępy wokół `!=` operatora, co jest ważne dla pomyślnego przetwarzania wyrażenia wykryto. 
    >![Find-Replace-Conversion](media/sap-successfactors-integration-reference/find-replace-conversion-scenario.png#lightbox)
 1. Kliknij opcję "Zastąp wszystko", aby zaktualizować schemat. 
 1. Zapisz schemat. 
 1. Powyższy proces aktualizuje wszystkie wyrażenia wykryto w następujący sposób: 
-   * Stary wykryto:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Nowy wykryto:`$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
+   * Stary wykryto: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Nowy wykryto: `$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
 1. Ponownie rozpocznij Inicjowanie obsługi administracyjnej. 
 
 ### <a name="handling-rehire-scenario"></a>Obsługa scenariusza rezatrudniania
@@ -230,13 +230,13 @@ Aby obsłużyć ten scenariusz Revision (opcja 2), dzięki czemu najnowsze dane 
 1. Kliknij link **Przejrzyj tutaj schemat** , aby otworzyć Edytor schematu.   
 1. Kliknij link **pobierania** , aby zapisać kopię schematu przed edycją.   
 1. W edytorze schematu naciśnij klawisze CTRL-H, aby otworzyć kontrolkę Znajdowanie-zamienianie.
-1. W polu tekstowym Znajdź skopiuj i wklej wartość`$.employmentNav.results[0]`
+1. W polu tekstowym Znajdź skopiuj i wklej wartość `$.employmentNav.results[0]`
 1. W polu tekstowym Zamień skopiuj wartość i wklej ją `$.employmentNav.results[-1:]` . To wyrażenie wykryto zwraca najnowszy rekord *EmpEmployment* .   
 1. Kliknij opcję "Zastąp wszystko", aby zaktualizować schemat. 
 1. Zapisz schemat. 
 1. Powyższy proces aktualizuje wszystkie wyrażenia wykryto w następujący sposób: 
-   * Stary wykryto:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Nowy wykryto:`$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
+   * Stary wykryto: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Nowy wykryto: `$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
 1. Ponownie rozpocznij Inicjowanie obsługi administracyjnej. 
 
 Ta zmiana schematu obsługuje również scenariusz konwersji procesów roboczych. 
@@ -254,13 +254,13 @@ Aby pobrać atrybuty należące do profilu standardowego przypisania i globalneg
 1. Kliknij link **Przejrzyj tutaj schemat** , aby otworzyć Edytor schematu.   
 1. Kliknij link **pobierania** , aby zapisać kopię schematu przed edycją.   
 1. W edytorze schematu naciśnij klawisze CTRL-H, aby otworzyć kontrolkę Znajdowanie-zamienianie.
-1. W polu tekstowym Znajdź skopiuj i wklej wartość`$.employmentNav.results[0]`
+1. W polu tekstowym Znajdź skopiuj i wklej wartość `$.employmentNav.results[0]`
 1. W polu tekstowym Zamień skopiuj wartość i wklej ją `$.employmentNav.results[?(@.assignmentClass == 'ST')]` . 
 1. Kliknij opcję "Zastąp wszystko", aby zaktualizować schemat. 
 1. Zapisz schemat. 
 1. Powyższy proces aktualizuje wszystkie wyrażenia wykryto w następujący sposób: 
-   * Stary wykryto:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Nowy wykryto:`$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
+   * Stary wykryto: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Nowy wykryto: `$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
 1. Załaduj ponownie blok mapowania atrybutów aplikacji. 
 1. Przewiń w dół i kliknij pozycję **Pokaż opcje zaawansowane**.
 1. Kliknij pozycję **Edytuj listę atrybutów dla SuccessFactors**.
@@ -278,7 +278,7 @@ Gdy użytkownik w centrali Employee ma współbieżne/wielokrotne zadania, istni
 1. Otwórz blok Mapowanie atrybutów aplikacji SuccessFactors Provisioning. 
 1. Przewiń w dół i kliknij pozycję **Pokaż opcje zaawansowane**.
 1. Kliknij pozycję **Edytuj listę atrybutów dla SuccessFactors**.
-1. Załóżmy, że chcesz ściągnąć dział skojarzony z zadaniem 1 i 2. Wstępnie zdefiniowany *Wydział* atrybutów pobiera już wartość działu dla pierwszego zadania. Można zdefiniować nowy atrybut o nazwie *secondJobDepartment* i ustawić wyrażenie wykryto na`$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
+1. Załóżmy, że chcesz ściągnąć dział skojarzony z zadaniem 1 i 2. Wstępnie zdefiniowany *Wydział* atrybutów pobiera już wartość działu dla pierwszego zadania. Można zdefiniować nowy atrybut o nazwie *secondJobDepartment* i ustawić wyrażenie wykryto na `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
 1. Teraz można przepływać obie wartości działu do atrybutów Active Directory lub wybiórczo przepływać wartość przy użyciu mapowania wyrażenia. 
 1. Zapisz mapowanie. 
 1. Ponownie rozpocznij Inicjowanie obsługi administracyjnej. 
@@ -294,7 +294,7 @@ W tej sekcji omówiono różne scenariusze zapisywania zwrotnego. Zaleca się u�
 | 1 | * Ustaw służbowe wiadomości e-mail jako podstawowe. <br> * Nie ustawiaj numerów telefonów. | true | true | fałsz | \[Nie ustawiono\] | \[Nie ustawiono\] | 
 | 2 | * W SuccessFactors, służbowe wiadomości e-mail i telefon służbowy są podstawowe <br> * Zawsze przepływaj numer telefonu usługi Azure AD do telefonu służbowego i telefonu komórkowego do telefonów komórkowych. | true | true | fałsz | telephoneNumber | telefon komórkowy | 
 | 3 | * W SuccessFactors, służbowe wiadomości e-mail i telefon komórkowy są podstawowe <br> * Zawsze przepływaj numer telefonu usługi Azure AD do telefonu służbowego i do telefonu komórkowego | true | fałsz | true |  telephoneNumber | telefon komórkowy | 
-| 4 | * W firmowym adresie e-mail SuccessFactors jest podstawowy <br> * W usłudze Azure AD Sprawdź, czy jest obecny numer telefonu służbowego (jeśli istnieje), a następnie sprawdź, czy numer telefonu komórkowego jest również obecny, Oznacz służbowe numery telefonów jako podstawowe tylko wtedy, gdy nie ma numeru telefonu komórkowego. | true | Użycie mapowania wyrażeń:`IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Użycie mapowania wyrażeń:`IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | telefon komórkowy | 
+| 4 | * W firmowym adresie e-mail SuccessFactors jest podstawowy <br> * W usłudze Azure AD Sprawdź, czy jest obecny numer telefonu służbowego (jeśli istnieje), a następnie sprawdź, czy numer telefonu komórkowego jest również obecny, Oznacz służbowe numery telefonów jako podstawowe tylko wtedy, gdy nie ma numeru telefonu komórkowego. | true | Użycie mapowania wyrażeń: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Użycie mapowania wyrażeń: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | telefon komórkowy | 
 | 5 | * W programie SuccessFactors Business e-mail i telefon służbowy jest podstawowy. <br> * W usłudze Azure AD, jeśli masz dostęp do urządzeń przenośnych, ustaw ją jako telefon służbowy, a w przeciwnym razie użyj numeru telefonu. | true | true | fałsz | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Nie ustawiono\] | 
 
 * Jeśli nie istnieje mapowanie numeru telefonu w mapowaniu atrybutów zapisu, wówczas tylko poczta e-mail zostanie uwzględniona na stronie zapisywanie zwrotne.

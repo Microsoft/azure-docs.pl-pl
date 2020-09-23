@@ -1,7 +1,7 @@
 ---
 title: Używanie kontenera przetwarzanie obrazów z Kubernetes i Helm
 titleSuffix: Azure Cognitive Services
-description: Wdróż kontener przetwarzanie obrazów w usłudze Azure Container instance i przetestuj go w przeglądarce sieci Web.
+description: Dowiedz się, jak wdrożyć kontener przetwarzanie obrazów przy użyciu Kubernetes i Helm.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e2a017371ccb3cf70812aed5606c386746024884
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9a8e0dde8b24c39180a584c26af725ab82ea0176
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443164"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907099"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Używanie kontenera przetwarzanie obrazów z Kubernetes i Helm
 
@@ -44,7 +44,7 @@ Poniższe wymagania wstępne przed użyciem kontenerów przetwarzanie obrazów l
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Nawiązywanie połączenia z klastrem Kubernetes
 
-Oczekuje się, że komputer hosta ma dostępny klaster Kubernetes. Zapoznaj się z tym samouczkiem dotyczącym [wdrażania klastra Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) , aby poznać koncepcję wdrażania klastra Kubernetes na komputerze hosta.
+Oczekuje się, że komputer hosta ma dostępny klaster Kubernetes. Zapoznaj się z tym samouczkiem dotyczącym [wdrażania klastra Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) , aby poznać koncepcję wdrażania klastra Kubernetes na komputerze hosta. Więcej informacji na temat wdrożeń można znaleźć w [dokumentacji Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Udostępnianie poświadczeń platformy Docker w klastrze Kubernetes
 

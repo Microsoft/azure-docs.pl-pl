@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
-ms.openlocfilehash: 2fa969b6dd89000b4d669bc5d42aa09b3cf3a2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751694"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907856"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Ukryty moduł alokacji Dirichlet
 
-W tym artykule opisano sposób używania ukrytego modułu alokacji Dirichlet w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu grupowania niesklasyfikowanego tekstu w kategorii. 
+W tym artykule opisano sposób używania ukrytego modułu alokacji Dirichlet w programie Azure Machine Learning Designer do grupowania niesklasyfikowanego tekstu w kategorii. 
 
 Ukryty Dirichlet Allocation (LDA) jest często używany w przetwarzaniu języka naturalnego, aby znaleźć podobne dokumenty. Innym często spotykanym terminem jest *modelowanie tematów*.
 
@@ -58,7 +58,7 @@ Ten moduł wymaga zestawu danych, który zawiera kolumnę tekstu — nieprzetwor
 
     Ponieważ LDA tworzy z tekstu dużą macierz funkcji, przeważnie przeanalizuje pojedynczą kolumnę tekstową.
 
-4. Aby uzyskać informacje o **liczbie tematów do modelowania**, wprowadź liczbę całkowitą z zakresu od 1 do 1000, która wskazuje liczbę kategorii lub tematów, które mają być wyprowadzane z tekstu wejściowego.
+4. Aby uzyskać informacje o  **liczbie tematów do modelowania**, wprowadź liczbę całkowitą z zakresu od 1 do 1000, która wskazuje liczbę kategorii lub tematów, które mają być wyprowadzane z tekstu wejściowego.
 
     Domyślnie są tworzone 5 tematów.
 
@@ -75,7 +75,7 @@ Ten moduł wymaga zestawu danych, który zawiera kolumnę tekstu — nieprzetwor
     + Wartości w macierzy tematu funkcji będą reprezentowane jako prawdopodobieństwo, gdzie `P(word|topic)` .
 
     > [!NOTE] 
-    > W programie Azure Machine Learning Designer (wersja zapoznawcza) Biblioteka scikit nie obsługuje już nieznormalizowanych *doc_topic_distr* danych wyjściowych z wersji 0,19. W tym module parametr **normalizing** może być stosowany tylko do danych wyjściowych *macierzy tematu funkcji* . *Przekształcony wynikowy zestaw danych* jest zawsze znormalizowany.
+    > W projektancie Azure Machine Learning Biblioteka doscikita nie obsługuje już nieznormalizowanych *doc_topic_distr* danych wyjściowych z wersji 0,19. W tym module parametr **normalizing** może być stosowany tylko do danych wyjściowych *macierzy tematu funkcji* . *Przekształcony wynikowy zestaw danych* jest zawsze znormalizowany.
 
 7. Wybierz opcję **Pokaż wszystkie opcje**, a następnie ustaw **wartość na true** , jeśli chcesz ustawić następujące parametry zaawansowane.
 
@@ -148,7 +148,7 @@ Często można poprawić dokładność modeli opartych na LDA za pomocą przetwa
 
 Aby uzyskać więcej informacji, zobacz [preprocess Text](preprocess-text.md).
 
-W projektancie można także użyć bibliotek języka R lub Python do przetwarzania tekstu: [Wykonaj skrypt języka r](execute-r-script.md)i [Wykonaj skrypt](execute-python-script.md)w języku Python.
+W projektancie można także użyć bibliotek języka R lub Python do przetwarzania tekstu: [Wykonaj skrypt języka r](execute-r-script.md)i  [Wykonaj skrypt](execute-python-script.md)w języku Python.
 
 
 
@@ -181,7 +181,7 @@ Po przeprowadzeniu indeksowania indeksów, miara podobieństwa na odległość p
 
 ###  <a name="module-parameters"></a>Parametry modułu
 
-|Nazwa|Typ|Zakres|Opcjonalne|Domyślne|Opis|  
+|Nazwa|Typ|Zakres|Opcjonalne|Domyślny|Opis|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
 |Kolumny docelowe|Wybór kolumny||Wymagane|StringFeature|Nazwa lub indeks kolumny docelowej.|  
 |Liczba tematów do modelowania|Integer|[1; 1000]|Wymagane|5|Modelowanie dystrybucji dokumentu względem N tematów.|  

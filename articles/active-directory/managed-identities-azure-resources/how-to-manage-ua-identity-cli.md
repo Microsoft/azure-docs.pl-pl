@@ -16,12 +16,12 @@ ms.date: 04/17/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5c3af6c46dd8ad69915e8f870d739f33375dba5e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 29a1a991ab79c38dad1a89533091d80406615d35
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266412"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969480"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Tworzenie, wyświetlanie i usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -34,18 +34,12 @@ Ten artykuł zawiera informacje na temat tworzenia, wyświetlania i usuwania to�
 
 - Jeśli nie znasz tożsamości zarządzanych dla zasobów platformy Azure, zapoznaj się z [sekcją przegląd](overview.md). **Pamiętaj, aby zapoznać się z [różnicą między przypisaną przez system i tożsamością zarządzaną przez użytkownika](overview.md#managed-identity-types)**.
 - Jeśli nie masz jeszcze konta platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed kontynuowaniem.
-- Aby uruchomić przykłady skryptów interfejsu wiersza polecenia, można korzystać z trzech opcji:
-    - Użyj [Azure Cloud Shell](../../cloud-shell/overview.md) z Azure Portal (zobacz następną sekcję).
-    - Użyj osadzonego Azure Cloud Shell za pomocą przycisku "Wypróbuj go" znajdującego się w prawym górnym rogu każdego bloku kodu.
-    - [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) (2.0.13 lub nowsza), jeśli wolisz korzystać z lokalnej konsoli interfejsu wiersza polecenia. Zaloguj się do platformy Azure przy użyciu `az login` konta skojarzonego z subskrypcją platformy Azure, w ramach której chcesz wdrożyć tożsamość zarządzaną przypisaną przez użytkownika.
-
+- Do uruchomienia przykładowych skryptów są dostępne dwie opcje:
+    - Użyj [Azure Cloud Shell](../../cloud-shell/overview.md), którą można otworzyć za pomocą przycisku **Wypróbuj** w prawym górnym rogu bloków kodu.
+    - Uruchom skrypty lokalnie, instalując najnowszą wersję [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli), a następnie zaloguj się do platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login). Użyj konta skojarzonego z subskrypcją platformy Azure, w której chcesz utworzyć zasoby.   
 
 > [!NOTE]
-> Aby zmodyfikować uprawnienia użytkownika w przypadku korzystania z podmiotu zabezpieczeń servivce aplikacji przy użyciu interfejsu wiersza polecenia, należy podać dodatkowe uprawnienia jednostki usługi w usłudze Azure AD interfejs API programu Graph jako części interfejsu wiersza polecenia wykonaj żądania GET względem interfejs API programu Graph. W przeciwnym razie można przestać otrzymywać komunikat "niewystarczające uprawnienia do ukończenia tej operacji". Aby to zrobić, musisz przejść do rejestracji aplikacji w Azure Active Directory wybierz aplikację, kliknij pozycję uprawnienia interfejsu API, przewiń w dół i wybierz pozycję Azure Active Directory Graf. Z poziomu wybranych uprawnień aplikacji, a następnie Dodaj odpowiednie uprawnienia. 
-
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+> Aby zmodyfikować uprawnienia użytkownika w przypadku korzystania z jednostki usługi App Service przy użyciu interfejsu wiersza polecenia, należy podać dodatkowe uprawnienia jednostki usługi w usłudze Azure AD interfejs API programu Graph jako części interfejsu wiersza polecenia wykonaj żądania GET względem interfejs API programu Graph. W przeciwnym razie można przestać otrzymywać komunikat "niewystarczające uprawnienia do ukończenia tej operacji". Aby to zrobić, musisz przejść do rejestracji aplikacji w Azure Active Directory wybierz aplikację, kliknij pozycję uprawnienia interfejsu API, przewiń w dół i wybierz pozycję Azure Active Directory Graf. Z poziomu wybranych uprawnień aplikacji, a następnie Dodaj odpowiednie uprawnienia. 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika 
 
@@ -55,7 +49,7 @@ Za pomocą polecenia [AZ Identity Create](/cli/azure/identity#az-identity-create
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
- ```azurecli-interactive
+```azurecli-interactive
 az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 ```
 ## <a name="list-user-assigned-managed-identities"></a>Wyświetlanie tożsamości zarządzanych przypisanych przez użytkownika
@@ -67,6 +61,7 @@ Aby wyświetlić tożsamości zarządzane przypisane przez użytkownika, użyj p
 ```azurecli-interactive
 az identity list -g <RESOURCE GROUP>
 ```
+
 W odpowiedzi JSON tożsamości zarządzane przypisane przez użytkownika mają `"Microsoft.ManagedIdentity/userAssignedIdentities"` wartość zwracaną dla klucza, `type` .
 
 `"type": "Microsoft.ManagedIdentity/userAssignedIdentities"`
@@ -77,7 +72,7 @@ Aby usunąć tożsamość zarządzaną przypisaną przez użytkownika, Twoje kon
 
 Aby usunąć tożsamość zarządzaną przypisaną przez użytkownika, użyj polecenia [AZ Identity Delete](/cli/azure/identity#az-identity-delete) .  Parametr-n określa nazwę i parametr-g określa grupę zasobów, w której utworzono tożsamość zarządzaną przez użytkownika. Zastąp `<USER ASSIGNED IDENTITY NAME>` `<RESOURCE GROUP>` wartości parametrów i własnymi wartościami:
 
- ```azurecli-interactive
+```azurecli-interactive
 az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>
 ```
 > [!NOTE]
@@ -88,5 +83,3 @@ az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>
 Aby zapoznać się z pełną listą poleceń dotyczących tożsamości interfejsu wiersza polecenia platformy Azure, zobacz [AZ Identity](/cli/azure/identity).
 
 Aby uzyskać informacje na temat sposobu przypisywania tożsamości zarządzanej przypisanej przez użytkownika do maszyny wirtualnej platformy Azure, zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
-
-

@@ -4,12 +4,12 @@ description: Rozpocznij pracę z Application Insights. Analizowanie użycia, dos
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f84e1065f93fc2cca950f12d5df537b931faac8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323455"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987151"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorowanie wydajności w aplikacjach internetowych
 
@@ -112,11 +112,11 @@ Możesz użyć środowiska badania wydajności, aby przejrzeć wolno wykonywane 
 
 Aby lepiej zrozumieć środowisko użytkownika dla tej operacji, można wybrać większy zakres czasu. Możemy również zawęzić w czasie w określonym przedziale czasu, w którym operacja była niska. W poniższym przykładzie przejdziemy od domyślnego 24-godzinnego zakresu czasowego do 7 dni, a następnie powiększamy do przedziału od 9:47 do 12:47 czasu między WT a od 13. Zarówno rozkład czasu trwania, jak i liczba śladów przykładu i profilera zostały zaktualizowane po prawej stronie.
 
-![Uzyskaj klientów/szczegóły trzech okresów trwania w ciągu 7 dni zakresu z przedziałem czasu](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![Zrzut ekranu przedstawia wydajność (wersja zapoznawcza) z trzema okresem trwania przedziału w ciągu 7 dni z przedziałem czasu](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
 Aby zawęzić w przypadku wolnych środowisk, należy dalej powiększyć czas trwania między używany 95. a 99 percentylu. Reprezentują one 4% interakcji z użytkownikami, które były powolne.
 
-![Uzyskaj klientów/szczegóły trzech okresów trwania w ciągu 7 dni zakresu z przedziałem czasu](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![Zrzut ekranu przedstawia liczbę klientów/szczegóły trzy czasy trwania w ciągu 7 dni zakresu z przedziałem czasu.](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 Teraz możemy przyjrzeć się reprezentatywnym przykładom, klikając przycisk przykłady lub na reprezentatywnych śladów profilera, klikając przycisk ślady profilera. W tym przykładzie wprowadzono cztery ślady, które zostały zebrane w celu uzyskania klientom/szczegóły w przedziale czasu i przedziały okresu zainteresowania.
 
@@ -126,7 +126,7 @@ Czasami problem nie będzie znajdował się w kodzie, ale raczej w zależności 
 
 Środowisko badania wydajności pokazuje odpowiednie szczegółowe informacje po stronie zestawu przykładowego, na którym zamierzasz się skupić. Najlepszym sposobem, aby poznać wszystkie dostępne informacje, jest przełączenie na 30-dniowy zakres czasu, a następnie wybierz pozycję Ogólne, aby zobaczyć szczegółowe informacje na temat wszystkich operacji w ostatnim miesiącu.
 
-![Uzyskaj klientów/szczegóły trzech okresów trwania w ciągu 7 dni zakresu z przedziałem czasu](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![Zrzut ekranu przedstawia wydajność (wersja zapoznawcza) z wybranym oknem i wglądem w szczegółowe dane.](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki

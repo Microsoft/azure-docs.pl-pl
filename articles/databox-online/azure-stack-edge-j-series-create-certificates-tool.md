@@ -1,29 +1,29 @@
 ---
 title: Tworzenie certyfikatów przy użyciu narzędzia sprawdzania gotowości centrum Microsoft Azure Stack | Microsoft Docs
-description: Opisuje sposób tworzenia żądań certyfikatów, a następnie pobierania i instalowania certyfikatów na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu narzędzia sprawdzania gotowości centrum Azure Stack.
-services: Azure Stack Edge
+description: Opisuje sposób tworzenia żądań certyfikatów, a następnie pobierania i instalowania certyfikatów na urządzeniu z systemem Azure Stack EDGE Pro GPU przy użyciu narzędzia sprawdzania gotowości centrum Azure Stack.
+services: Azure Stack Edge Pro
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 7a6cf265f0be177aab436d544e694c5d59cfffd5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267381"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891090"
 ---
-# <a name="create-certificates-for-your-azure-stack-edge-using-azure-stack-hub-readiness-checker-tool"></a>Tworzenie certyfikatów dla Azure Stack Edge przy użyciu narzędzia sprawdzania gotowości centrum Azure Stack 
+# <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Utwórz certyfikaty dla Azure Stack EDGE Pro przy użyciu narzędzia do sprawdzania gotowości centrum Azure Stack 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-W tym artykule opisano sposób tworzenia certyfikatów dla Azure Stack Edge przy użyciu narzędzia sprawdzania gotowości centrum Azure Stack. 
+W tym artykule opisano sposób tworzenia certyfikatów dla Azure Stack EDGE Pro przy użyciu narzędzia sprawdzania gotowości centrum Azure Stack. 
 
 ## <a name="using-azure-stack-hub-readiness-checker-tool"></a>Korzystanie z narzędzia sprawdzania gotowości centrum Azure Stack
 
-Użyj narzędzia sprawdzania gotowości centrum Azure Stack, aby utworzyć żądania podpisania certyfikatu (przedstawiciele klienta) dla Azure Stack wdrożenia urządzenia brzegowego. Te żądania można utworzyć po umieszczeniu zamówienia na Azure Stack Urządzenie brzegowe i oczekiwanie na jego dostarczenie. 
+Użyj narzędzia sprawdzania gotowości centrum Azure Stack, aby utworzyć żądania podpisania certyfikatu (przedstawiciele klienta) na potrzeby wdrożenia urządzenia Azure Stack EDGE Pro. Te żądania można utworzyć po umieszczeniu zamówienia na urządzenie Azure Stack EDGE Pro i oczekiwanie na jego dostarczenie. 
 
 > [!NOTE]
 > To narzędzie służy tylko do celów testowych i programistycznych, a nie dla urządzeń produkcyjnych. 
@@ -39,10 +39,10 @@ Aby zażądać następujących certyfikatów, można użyć narzędzia sprawdzan
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby utworzyć klienta w celu Azure Stack wdrożenia urządzenia brzegowego, upewnij się, że: 
+Aby utworzyć obsługę klienta na potrzeby wdrożenia urządzeń z systemem Azure Stack EDGE Pro, upewnij się, że: 
 
 - Jesteś klientem z systemem Windows 10 lub Windows Server 2016 lub nowszym. 
-- Pobrano narzędzie do sprawdzania gotowości centrum Microsoft Azure Stack 1.2002.1133.85 [z Galeria programu PowerShell](https://aka.ms/AzsReadinessChecker) w tym systemie. Może być konieczne wyszukanie tego pakietu. Tylko ta wersja narzędzia może tworzyć certyfikaty dla Azure Stack urządzeń brzegowych.
+- Pobrano narzędzie do sprawdzania gotowości centrum Microsoft Azure Stack 1.2002.1133.85 [z Galeria programu PowerShell](https://aka.ms/AzsReadinessChecker) w tym systemie. Może być konieczne wyszukanie tego pakietu. Tylko ta wersja narzędzia może tworzyć certyfikaty dla urządzeń z Azure Stack EDGE Pro.
 - Istnieją następujące informacje dotyczące certyfikatów:
   - Nazwa urządzenia
   - Numer seryjny węzła
@@ -50,7 +50,7 @@ Aby utworzyć klienta w celu Azure Stack wdrożenia urządzenia brzegowego, upew
 
 ## <a name="generate-certificate-signing-requests"></a>Generuj żądania podpisania certyfikatu
 
-Wykonaj następujące kroki, aby przygotować certyfikaty urządzeń Azure Stack Edge:
+Wykonaj następujące kroki, aby przygotować certyfikaty urządzeń Azure Stack EDGE Pro:
 
 1. Uruchom program PowerShell jako administrator (5,1 lub nowszy).
 2. Zainstaluj narzędzie do sprawdzania gotowości centrum Azure Stack. W wierszu polecenia programu PowerShell wpisz: 
@@ -121,15 +121,15 @@ Wykonaj następujące kroki, aby przygotować certyfikaty urządzeń Azure Stack
     Zobaczysz również folder INF. Zawiera on element Management. <Edge-DeviceName> pliku informacji w postaci zwykłego tekstu opisującego szczegóły certyfikatu.  
 
 
-6. Prześlij te pliki do urzędu certyfikacji (wewnętrzne lub publiczne). Upewnij się, że urząd certyfikacji generuje certyfikaty przy użyciu wygenerowanego żądania, które spełnia wymagania dotyczące Azure Stack brzegowych certyfikatów [węzłów](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [certyfikatów punktów końcowych](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates)i [lokalnych certyfikatów interfejsu użytkownika](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
+6. Prześlij te pliki do urzędu certyfikacji (wewnętrzne lub publiczne). Należy upewnić się, że urząd certyfikacji generuje certyfikaty przy użyciu wygenerowanego żądania, które spełnia wymagania certyfikatu Azure Stack EDGE Pro dla [certyfikatów węzłów](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [certyfikatów punktów końcowych](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates)i [lokalnych certyfikatów interfejsu użytkownika](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
 
 ## <a name="prepare-certificates-for-deployment"></a>Przygotowywanie certyfikatów do wdrożenia
 
-Pliki certyfikatów uzyskane od urzędu certyfikacji (CA) muszą zostać zaimportowane i wyeksportowane z właściwościami, które pasują do wymagań dotyczących certyfikatu urządzenia brzegowego Azure Stack. Wykonaj następujące kroki w tym samym systemie, w którym wygenerowałeś żądania podpisania certyfikatu.
+Pliki certyfikatów uzyskane od urzędu certyfikacji (CA) muszą zostać zaimportowane i wyeksportowane z właściwościami, które pasują do wymagań dotyczących certyfikatu urządzenia Azure Stack Edge. Wykonaj następujące kroki w tym samym systemie, w którym wygenerowałeś żądania podpisania certyfikatu.
 
-- Aby zaimportować certyfikaty, wykonaj czynności opisane w temacie [Importowanie certyfikatów na klientach uzyskujących dostęp do Azure Stack urządzenia brzegowego](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Aby zaimportować certyfikaty, postępuj zgodnie z instrukcjami w temacie [Importowanie certyfikatów na klientach uzyskujących dostęp do urządzenia z usługą Azure Stack EDGE Pro](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
-- Aby wyeksportować certyfikaty, wykonaj kroki opisane w [sekcji eksportowanie certyfikatów z klienta uzyskującego dostęp do Azure Stack urządzenia brzegowego](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Aby wyeksportować certyfikaty, postępuj zgodnie z instrukcjami w [sekcji eksportowanie certyfikatów z klienta uzyskującego dostęp do urządzenia Azure Stack EDGE Pro](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
 
 ## <a name="validate-certificates"></a>Weryfikuj certyfikaty
@@ -152,4 +152,4 @@ Najpierw wygenerujesz odpowiednią strukturę folderów i umieścisz certyfikaty
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wdrażanie urządzenia brzegowego Azure Stack](azure-stack-edge-gpu-deploy-prep.md)
+[Wdrażanie urządzenia z Azure Stack EDGE Pro](azure-stack-edge-gpu-deploy-prep.md)

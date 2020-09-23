@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a9b0ec0fc19b6b6efa0453d698a5a978dacabc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137461"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907839"
 ---
 # <a name="linear-regression-module"></a>Moduł regresji liniowej
-W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Użyj tego modułu, aby utworzyć model regresji liniowej do użycia w potoku.  Regresja liniowa próbuje nawiązać liniową relację między jedną lub wieloma niezależnymi zmiennymi oraz wynikiem liczbowym lub zmienną zależną. 
 
@@ -25,7 +25,7 @@ Ten moduł służy do definiowania metody regresji liniowej, a następnie uczeni
 
 ## <a name="about-linear-regression"></a>Regresja liniowa — informacje
 
-Regresja liniowa to wspólna metoda statystyczna, która została przyjęta w uczeniu maszynowym i ulepszona z wieloma nowymi metodami dopasowania linii i błędów pomiaru. W najbardziej podstawowym sensie regresja odnosi się do przewidywania liczbowych elementów docelowych. Regresja liniowa jest nadal dobrym wyborem, gdy chcesz utworzyć prosty model dla podstawowego zadania predykcyjnego. Regresja liniowa również znacznie działa w przypadku wysoce wielowymiarowych, rozrzedzonych zestawów danych, które nie mają złożoności.
+Regresja liniowa to wspólna metoda statystyczna, która została przyjęta w uczeniu maszynowym i ulepszona z wieloma nowymi metodami dopasowania linii i błędów pomiaru. Po prostu funkcja regresji odwołuje się do przewidywania liczbowych elementów docelowych. Regresja liniowa jest nadal dobrym wyborem, gdy chcesz utworzyć prosty model dla podstawowego zadania predykcyjnego. Regresja liniowa również znacznie działa w przypadku wysoce wielowymiarowych, rozrzedzonych zestawów danych, które nie mają złożoności.
 
 Oprócz regresji liniowej Azure Machine Learning obsługuje różne modele regresji. Jednak termin "regresja" może być interpretowany w sposób luźny, a niektóre typy regresji dostępne w innych narzędziach nie są obsługiwane.
 

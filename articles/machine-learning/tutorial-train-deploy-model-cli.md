@@ -9,25 +9,25 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 4028d6732220dba4848c88306a501ce22af7487a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 07edfa2bca25a9f3e8d985cfe36987ff04ca950f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144029"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906654"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Samouczek: uczenie i wdrażanie modelu z poziomu interfejsu wiersza polecenia
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 W tym samouczku użyjesz rozszerzenia Machine Learning dla interfejsu wiersza polecenia platformy Azure, aby nauczyć, zarejestrować i wdrożyć model.
 
-Skrypty szkoleniowe dotyczące języka Python w tym samouczku wykorzystują [scikit — Dowiedz się, jak](https://scikit-learn.org/) nauczyć model podstawowy. Fokus tego samouczka nie znajduje się na skryptach lub modelu, ale proces używania interfejsu wiersza polecenia do pracy z Azure Machine Learning.
+Skrypty szkoleniowe dotyczące języka Python w tym samouczku wykorzystują [scikit — Dowiedz się, jak](https://scikit-learn.org/) uczenie prostego modelu. Fokus tego samouczka nie znajduje się na skryptach lub modelu, ale proces używania interfejsu wiersza polecenia do pracy z Azure Machine Learning.
 
 Dowiedz się, jak wykonać następujące czynności:
 
 > [!div class="checklist"]
 > * Zainstaluj rozszerzenie uczenia maszynowego
-> * Tworzenie obszaru roboczego Azure Machine Learning
+> * Tworzenie obszaru roboczego usługi Azure Machine Learning
 > * Utwórz zasób obliczeniowy służący do uczenia modelu
 > * Definiowanie i rejestrowanie zestawu danych używanego do uczenia modelu
 > * Rozpocznij pracę szkoleniową
@@ -75,7 +75,7 @@ Repozytorium zawiera następujące pliki, które są używane do wdrożenia prze
 
 ## <a name="connect-to-your-azure-subscription"></a>Nawiązywanie połączenia z subskrypcją platformy Azure
 
-Istnieje kilka sposobów uwierzytelniania w ramach subskrypcji platformy Azure z poziomu interfejsu wiersza polecenia. Najbardziej podstawowa jest możliwość interakcyjnego uwierzytelniania przy użyciu przeglądarki. Aby uwierzytelnić interaktywnie, Otwórz wiersz polecenia lub terminal i użyj następującego polecenia:
+Istnieje kilka sposobów uwierzytelniania w ramach subskrypcji platformy Azure z poziomu interfejsu wiersza polecenia. Najłatwiej jest interaktywnie uwierzytelniać się za pomocą przeglądarki. Aby uwierzytelnić interaktywnie, Otwórz wiersz polecenia lub terminal i użyj następującego polecenia:
 
 ```azurecli-interactive
 az login
@@ -101,7 +101,7 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów to podstawowy kontener zasobów na platformie Azure. Podczas pracy z Azure Machine Learning Grupa zasobów będzie zawierać obszar roboczy Azure Machine Learning. Będzie również zawierać inne usługi platformy Azure używane przez obszar roboczy. Na przykład jeśli nauczysz model przy użyciu zasobów obliczeniowych opartych na chmurze, ten zasób zostanie utworzony w grupie zasobów.
+Grupa zasobów to kontener zasobów na platformie Azure. Podczas pracy z Azure Machine Learning Grupa zasobów będzie zawierać obszar roboczy Azure Machine Learning. Będzie również zawierać inne usługi platformy Azure używane przez obszar roboczy. Na przykład jeśli nauczysz model przy użyciu zasobów obliczeniowych opartych na chmurze, ten zasób zostanie utworzony w grupie zasobów.
 
 Aby __utworzyć nową grupę zasobów__, użyj następującego polecenia. Zamień na `<resource-group-name>` nazwę, która ma być używana dla tej grupy zasobów. Zamień na `<location>` region platformy Azure, który ma być używany dla tej grupy zasobów:
 
@@ -436,7 +436,7 @@ az ml service run -n myservice -d @testdata.json
 
 Odpowiedź polecenia jest podobna do `[ 3 ]` .
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 > [!IMPORTANT]
 > Utworzone zasoby mogą być używane jako wstępnie wymagane składniki w innych samouczkach usługi Azure Machine Learning i artykułach z instrukcjami.
@@ -477,7 +477,7 @@ W tym samouczku Azure Machine Learning użyto interfejsu wiersza polecenia usłu
 
 > [!div class="checklist"]
 > * Zainstaluj rozszerzenie uczenia maszynowego
-> * Tworzenie obszaru roboczego Azure Machine Learning
+> * Tworzenie obszaru roboczego usługi Azure Machine Learning
 > * Utwórz zasób obliczeniowy służący do uczenia modelu
 > * Definiowanie i rejestrowanie zestawu danych używanego do uczenia modelu
 > * Rozpocznij pracę szkoleniową

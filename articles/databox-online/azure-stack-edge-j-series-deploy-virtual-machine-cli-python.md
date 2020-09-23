@@ -1,27 +1,27 @@
 ---
-title: Wdrażanie maszyn wirtualnych na urządzeniu Azure Stack Edge GPU za pośrednictwem interfejsu wiersza polecenia platformy Azure i języka Python
-description: Opisuje sposób tworzenia maszyn wirtualnych i zarządzania nimi na urządzeniu z systemem Azure Stack Edge przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python.
+title: Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU za pomocą interfejsu wiersza polecenia platformy Azure i języka Python
+description: Zawiera opis sposobu tworzenia maszyn wirtualnych i zarządzania nimi na urządzeniu z systemem Azure Stack Edge przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c633cc973cb9e4d4f0375dec638e278c48c6709c
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: c27f6ef47b8e4db83ceb63e308e318803800f8a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500236"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890710"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge na komputerze GPU przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]
 
-W tym samouczku opisano, jak utworzyć maszynę wirtualną na urządzeniu Azure Stack Edge i zarządzać nią przy użyciu interfejsu wiersza polecenia platformy Azure (CLI) i języka Python.
+W tym samouczku opisano, jak utworzyć maszynę wirtualną i zarządzać nią na urządzeniu Azure Stack brzeg Pro przy użyciu interfejsu wiersza polecenia platformy Azure (CLI) i języka Python.
 
 ## <a name="vm-deployment-workflow"></a>Przepływ pracy wdrożenia maszyny wirtualnej
 
@@ -43,13 +43,13 @@ Podsumowanie wysokiego poziomu przepływu pracy wdrożenia jest następujące:
 10. Tworzenie sieci wirtualnej
 11. Tworzenie wirtualnej karty sieciowej przy użyciu identyfikatora podsieci sieci wirtualnej
 
-Aby uzyskać szczegółowy opis diagramu przepływu pracy, zobacz [wdrażanie maszyn wirtualnych na urządzeniu Azure Stack Edge przy użyciu Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Aby uzyskać informacje na temat nawiązywania połączenia z usługą Azure Resource Manager, zobacz [nawiązywanie połączenia z Azure Resource Manager przy użyciu Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+Aby uzyskać szczegółowy opis diagramu przepływu pracy, zobacz [wdrażanie maszyn wirtualnych na urządzeniu Azure Stack EDGE Pro przy użyciu Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Aby uzyskać informacje na temat nawiązywania połączenia z usługą Azure Resource Manager, zobacz [nawiązywanie połączenia z Azure Resource Manager przy użyciu Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu Azure Stack Edge przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python należy upewnić się, że zostały spełnione wymagania wstępne wymienione w następujących krokach:
+Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu Azure Stack EDGE Pro przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python należy upewnić się, że zostały spełnione wymagania wstępne wymienione w następujących krokach:
 
-1. Ustawienia sieciowe na urządzeniu Azure Stack Edge zostały wykonane zgodnie z opisem w [sekcji Krok 1: konfigurowanie Azure Stack urządzenia brzegowego](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+1. Ustawienia sieciowe zostały wykonane na urządzeniu z systemem Azure Stack brzeg Pro zgodnie z opisem w [sekcji Krok 1. konfigurowanie Azure Stack EDGE Pro Device](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
 2. Włączono interfejs sieciowy dla obliczeń. Ten interfejs sieciowy IP służy do tworzenia przełącznika wirtualnego dla wdrożenia maszyny wirtualnej. Poniższe kroki przeprowadzą Cię przez proces:
 
@@ -58,7 +58,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
         > [!IMPORTANT] 
         > Dla obliczeń można skonfigurować tylko jeden port.
 
-    2. Włącz obliczenia w interfejsie sieciowym. Azure Stack Edge tworzy przełącznik wirtualny i zarządza nim, odpowiadający interfejsowi sieciowemu.
+    2. Włącz obliczenia w interfejsie sieciowym. Azure Stack EDGE Pro tworzy przełącznik wirtualny i zarządza nim, odpowiadający interfejsowi sieciowemu.
 
     <!--If you decide to use another network interface for compute, make sure that you:
 
@@ -68,9 +68,9 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
     - You can now enable another network interface for compute.-->
 
-3. Utworzono i zainstalowano wszystkie certyfikaty na urządzeniu brzegowym Azure Stack i w zaufanym magazynie Twojego klienta. Postępuj zgodnie z procedurą opisaną w [kroku 2: Tworzenie i instalowanie certyfikatów](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
+3. Utworzono i zainstalowano wszystkie certyfikaty na urządzeniu Azure Stack EDGE Pro i w zaufanym magazynie Twojego klienta. Postępuj zgodnie z procedurą opisaną w [kroku 2: Tworzenie i instalowanie certyfikatów](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. Utworzono certyfikat *CER* z kodowaniem Base-64 (format PEM) dla urządzenia Azure Stack Edge. Ten element został już przekazany jako łańcuch podpisywania na urządzeniu i zainstalowany w zaufanym magazynie głównym na komputerze klienckim. Ten certyfikat jest również wymagany w formacie *PEM* , aby można było korzystać z tego klienta w języku Python.
+4. Utworzono certyfikat *CER* z kodowaniem Base-64 (format PEM) dla urządzenia Azure Stack EDGE Pro. Ten element został już przekazany jako łańcuch podpisywania na urządzeniu i zainstalowany w zaufanym magazynie głównym na komputerze klienckim. Ten certyfikat jest również wymagany w formacie *PEM* , aby można było korzystać z tego klienta w języku Python.
 
     Przekonwertuj ten certyfikat na format PEM przy użyciu `certutil` polecenia. Należy uruchomić to polecenie w katalogu, który zawiera certyfikat.
 
@@ -199,7 +199,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-### <a name="trust-the-azure-stack-edge-ca-root-certificate"></a>Ufaj certyfikatowi głównemu urzędu certyfikacji Azure Stack Edge
+### <a name="trust-the-azure-stack-edge-pro-ca-root-certificate"></a>Ufaj certyfikatowi głównemu urzędu certyfikacji Azure Stack EDGE Pro
 
 1. Znajdź lokalizację certyfikatu na swojej maszynie. Lokalizacja może się różnić w zależności od tego, gdzie zainstalowano `az cli` . Uruchom program Windows PowerShell jako administrator. Przejdź do ścieżki, w której `az cli` zainstalowano Język Python: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe` .
 
@@ -219,7 +219,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
       
     Zanotuj tę lokalizację, ponieważ będziesz jej używać później — `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`
 
-2. Ufaj certyfikatowi głównemu urzędu certyfikacji Azure Stack Edge przez dołączenie go do istniejącego certyfikatu języka Python. Podaj ścieżkę do lokalizacji, w której zapisano certyfikat PEM wcześniej.
+2. Ufaj certyfikatowi głównemu urzędu certyfikacji programu Azure Stack Edge, dołączając go do istniejącego certyfikatu języka Python. Podaj ścieżkę do lokalizacji, w której zapisano certyfikat PEM wcześniej.
 
     ```powershell
     $pemFile = "<Path to the pem format certificate>"
@@ -252,10 +252,10 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
     Write-Host "Adding the certificate content to Python Cert store"
     Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
     
-    Write-Host "Python Cert store was updated to allow the Azure Stack Edge CA root certificate"
+    Write-Host "Python Cert store was updated to allow the Azure Stack Edge Pro CA root certificate"
     ```
     
-### <a name="connect-to-azure-stack-edge"></a>Łączenie z Azure Stack Edge
+### <a name="connect-to-azure-stack-edge-pro"></a>Nawiązywanie połączenia z Azure Stack EDGE Pro
 
 1. Zarejestruj środowisko Azure Stack Edge, uruchamiając `az cloud register` polecenie.
 
@@ -266,7 +266,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
     $ENV:ADAL_PYTHON_SSL_NO_VERIFY = 1
     ```
 
-2. Ustaw zmienne środowiskowe dla skryptu dla Azure Resource Manager punkt końcowy, lokalizację, w której są tworzone zasoby, oraz ścieżkę do lokalizacji źródłowego wirtualnego dysku twardego. Lokalizacja zasobów jest rozwiązywana na wszystkich urządzeniach brzegowych Azure Stack i jest ustawiona na `dbelocal` . Należy również określić prefiksy adresów i prywatny adres IP. Wszystkie następujące zmienne środowiskowe są wartościami na podstawie wartości z wyjątkiem `AZURE_RESOURCE_LOCATION` , które powinny być stałe `"dbelocal"` .
+2. Ustaw zmienne środowiskowe dla skryptu dla Azure Resource Manager punkt końcowy, lokalizację, w której są tworzone zasoby, oraz ścieżkę do lokalizacji źródłowego wirtualnego dysku twardego. Lokalizacja zasobów jest ustalana na wszystkich urządzeniach z Azure Stack EDGE Pro i jest ustawiona na `dbelocal` . Należy również określić prefiksy adresów i prywatny adres IP. Wszystkie następujące zmienne środowiskowe są wartościami na podstawie wartości z wyjątkiem `AZURE_RESOURCE_LOCATION` , które powinny być stałe `"dbelocal"` .
 
     ```powershell
     $ENV:ARM_ENDPOINT = "https://management.team3device.teatraining1.com"
@@ -308,7 +308,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Zaloguj się do swojego środowiska Azure Stack Edge przy użyciu `az login` polecenia. Możesz zalogować się do środowiska Azure Stack Edge jako użytkownik lub jako nazwa [główna usługi](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+4. Zaloguj się do swojego środowiska usługi Azure Stack EDGE Pro przy użyciu `az login` polecenia. Możesz zalogować się do środowiska Azure Stack EDGE Pro jako użytkownik lub jako nazwa [główna usługi](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
    Wykonaj następujące kroki, aby zalogować się jako *użytkownik*:
 

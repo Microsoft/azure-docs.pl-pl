@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 92d4fb638e41c668c557ef9e618d30677481585d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7d2bdb96485a811ea9b3dde5320084f666508622
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829853"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907491"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Tworzenie prywatnego linku do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu portalu i zarządzanie nim
 
@@ -22,7 +22,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 > [!NOTE]
 > Funkcja Link prywatny jest dostępna tylko dla serwerów Azure Database for PostgreSQL w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer bazy danych znajduje się w jednej z tych warstw cenowych.
 
-## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Tworzenie maszyny wirtualnej platformy Azure
@@ -41,7 +41,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     | Przestrzeń adresowa | Wprowadź adres *10.1.0.0/16*. |
     | Subskrypcja | Wybierz subskrypcję.|
     | Grupa zasobów | Wybierz pozycję **Utwórz nową**, wprowadź nazwę *myResourceGroup*, a następnie wybierz przycisk **OK**. |
-    | Lokalizacja | Wybierz pozycję **Europa Zachodnia**.|
+    | Location | Wybierz pozycję **Europa Zachodnia**.|
     | Podsieć — nazwa | Wprowadź nazwę moja *podsieć*. |
     | Zakres adresów podsieci: 10.41.0.0/24 | Wprowadź *10.1.0.0/24*. |
     |||
@@ -62,21 +62,21 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     | Nazwa maszyny wirtualnej | Wprowadź *myVm*. |
     | Region | Wybierz pozycję **Europa Zachodnia**. |
     | Opcje dostępności | Pozostaw wartość domyślną **Brak wymaganej nadmiarowości infrastruktury**. |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter**. |
-    | Rozmiar | Pozostaw wartość domyślną **Standardowy DS1, wersja 2**. |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter**. |
+    | Rozmiar | Pozostaw domyślną wartość **Standard DS1 v2**. |
     | **KONTO ADMINISTRATORA** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
-    | Hasło | Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Hasło | Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Potwierdź hasło | Ponownie wprowadź hasło. |
     | **REGUŁY PORTÓW WEJŚCIOWYCH** |  |
     | Publiczne porty wejściowe | Pozostaw wartość domyślną **Brak**. |
     | **OSZCZĘDZAJ PIENIĄDZE** |  |
-    | Masz już licencję systemu Windows? | Pozostaw wartość domyślną **Nie**. |
+    | Masz już licencję systemu Windows? | Pozostaw wartość domyślną **nie**. |
     |||
 
 1. Wybierz pozycję **Dalej: dyski**.
 
-1. W obszarze **Utwórz maszynę wirtualną**, pozostaw wartości domyślne, a następnie wybierz pozycję **Dalej: sieć**.
+1. W obszarze **Tworzenie maszyny wirtualnej — dyski** pozostaw wartości domyślne i wybierz przycisk **Dalej: Sieć**.
 
 1. W obszarze **Tworzenie maszyny wirtualnej — sieć** wybierz następujące informacje:
 
@@ -85,15 +85,15 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     | Sieć wirtualna | Pozostaw wartość domyślną **MyVirtualNetwork**.  |
     | Przestrzeń adresowa | Pozostaw wartość domyślną **10.1.0.0/24**.|
     | Podsieć | Pozostaw domyślną wartość moja **podsieć (10.1.0.0/24)**.|
-    | Publiczny adres IP | Pozostaw wartość domyślną **(nowy) myVm-ip**. |
+    | Publiczny adres IP | Pozostaw wartość domyślną **(New) myVm-IP**. |
     | Publiczne porty wejściowe | Wybierz pozycję **Zezwalaj na wybrane porty**. |
     | Wybierz porty wejściowe | Wybierz pozycje **HTTP** i **RDP**.|
     |||
 
 
-1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację.
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację.
 
-1. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
+1. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**.
 
 > [!NOTE]
 > W niektórych przypadkach Azure Database for PostgreSQL i podsieć wirtualna znajdują się w różnych subskrypcjach. W takich przypadkach należy zapewnić następujące konfiguracje:
@@ -116,13 +116,13 @@ W tej sekcji utworzysz serwer Azure Database for PostgreSQL na platformie Azure.
     |Nazwa serwera  | Wprowadź *tekst*. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę.|
     | Nazwa użytkownika administratora| Wprowadź wybraną nazwę administratora. |
     | Hasło | Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 8 znaków i spełniać zdefiniowane wymagania. |
-    | Lokalizacja | Wybierz region platformy Azure, w którym ma być przechowywany serwer PostgreSQL. |
+    | Location | Wybierz region platformy Azure, w którym ma być przechowywany serwer PostgreSQL. |
     |Wersja  | Wybierz wymaganą wersję bazy danych serwera PostgreSQL.|
     | Obliczenia i magazyn| Wybierz warstwę cenową, która jest wymagana dla serwera na podstawie obciążenia. |
     |||
  
 7. Wybierz przycisk **OK**. 
-8. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
+8. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację. 
 9. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję **Utwórz**. 
 10. Gdy zobaczysz komunikat o przekazaniu walidacji, wybierz pozycję Utwórz. 
 
@@ -133,7 +133,7 @@ W tej sekcji utworzysz serwer PostgreSQL i dodasz do niego prywatny punkt końco
 1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **prywatny link**.
 2. W **centrum linków prywatnych — Omówienie**opcji **tworzenia połączenia prywatnego z usługą**wybierz pozycję **Rozpocznij**.
 
-    ![Omówienie linku prywatnego](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Omówienie linku prywatnego":::
 
 1. W obszarze **Tworzenie prywatnego punktu końcowego — podstawy**wprowadź lub wybierz następujące informacje:
 
@@ -162,35 +162,35 @@ W tej sekcji utworzysz serwer PostgreSQL i dodasz do niego prywatny punkt końco
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    |**SIECI**| |
+    |**SIEĆ**| |
     | Sieć wirtualna| Wybierz pozycję *MyVirtualNetwork*. |
     | Podsieć | Wybierz pozycję Moja *podsieć*. |
-    |**PRYWATNA INTEGRACJA Z USŁUGĄ DNS**||
-    |Integracja z prywatną strefą DNS |Wybierz pozycję **Tak**. |
-    |Strefa Prywatna strefa DNS |SELECT *(New) privatelink. Postgres. Database. Azure. com* |
+    |**INTEGRACJA PRYWATNEJ USŁUGI DNS**||
+    |Integruj z prywatną strefą DNS |Wybierz pozycję **Tak**. |
+    |Prywatna strefa DNS |SELECT *(New) privatelink. Postgres. Database. Azure. com* |
     |||
 
     > [!Note] 
     > Użyj wstępnie zdefiniowanej prywatnej strefy DNS dla usługi lub podaj nazwę preferowanego strefy DNS. Aby uzyskać szczegółowe informacje, zapoznaj się z [konfiguracją strefy DNS usług platformy Azure](../private-link/private-endpoint-dns.md) .
 
-1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
-2. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**. 
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację. 
+2. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**. 
 
-    ![Utworzono link prywatny](media/concepts-data-access-and-security-private-link/show-postgres-private-link.png)
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Utworzono link prywatny":::
 
     > [!NOTE] 
     > Nazwa FQDN w ustawieniu DNS klienta nie jest rozpoznawana jako prywatny adres IP skonfigurowany. Konieczne będzie skonfigurowanie strefy DNS dla skonfigurowanej nazwy FQDN, jak pokazano [poniżej](../dns/dns-operations-recordsets-portal.md).
 
-## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Nawiązywanie połączenia z maszyną wirtualną przy użyciu Pulpit zdalny (RDP)
+## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Nawiązywanie połączenia z maszyną wirtualną przy użyciu Pulpitu zdalnego (RDP)
 
 
 Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następujący sposób: 
 
-1. Na pasku wyszukiwania portalu wprowadź *myVm*.
+1. Na pasku wyszukiwania portalu wpisz *myVm*.
 
 1. Wybierz przycisk **Połącz**. Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną**.
 
-1. Wybierz pozycję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
+1. Wybierz pozycję **Pobierz plik RDP**. Platforma Azure tworzy plik Remote Desktop Protocol (*RDP*) i pobiera go na komputer.
 
 1. Otwórz *pobrany plik RDP* .
 
@@ -201,7 +201,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
         > [!NOTE]
         > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 

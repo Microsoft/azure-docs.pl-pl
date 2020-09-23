@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 8a1b38b9f673669adb0b5fcf67d9d560c24d5c2a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84f5a8f638e4a9525b330277ff1eaa26ba035e1a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825960"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907406"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie użytkowników w Azure Database for PostgreSQL-Citus
 
@@ -48,11 +48,11 @@ Jak wspomniano wcześniej, `citus` konto administratora nie ma uprawnień do two
 
 1. Przejdź do strony **role** dla swojej grupy serwerów w ramach skalowania i kliknij pozycję **+ Dodaj**:
 
-   ![Strona role](media/howto-hyperscale-create-users/1-role-page.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="Strona role":::
 
 2. Wprowadź nazwę i hasło roli. Kliknij pozycję **Zapisz**.
 
-   ![Dodaj rolę](media/howto-hyperscale-create-users/2-add-user-fields.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Dodaj rolę":::
 
 Użytkownik zostanie utworzony w węźle koordynatora grupy serwerów i rozpropagowany do wszystkich węzłów procesu roboczego. Role utworzone za pośrednictwem Azure Portal mają `LOGIN` atrybutu, co oznacza, że są one prawdziwe użytkownikom, którzy mogą logować się do bazy danych.
 
@@ -77,7 +77,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 Aby zaktualizować użytkownika, odwiedź stronę **role** dla swojej grupy serwerów w skali i kliknij wielokropek **...** obok użytkownika. Wielokropek spowoduje otwarcie menu w celu usunięcia użytkownika lub zresetowania hasła.
 
-   ![Edytowanie roli](media/howto-hyperscale-create-users/edit-role.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Edytowanie roli":::
 
 `citus`Rola jest uprzywilejowana i nie można jej usunąć.
 

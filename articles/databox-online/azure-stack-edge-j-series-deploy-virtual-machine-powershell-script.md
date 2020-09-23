@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge za pośrednictwem Azure PowerShell
-description: Opisuje sposób tworzenia maszyn wirtualnych i zarządzania nimi na Azure Stack urządzeniu brzegowym przy użyciu Azure PowerShell.
+title: Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge przy użyciu procesora GPU Pro Azure PowerShell
+description: W tym artykule opisano sposób tworzenia maszyn wirtualnych i zarządzania nimi na urządzeniu Azure Stack EDGE Pro przy użyciu Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,26 +8,26 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: ab303dd42d9064a9fa1392e27adc361d5b761cf0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5ed6de28f1e1b0545ebd675c30249e2f2b4747e9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256127"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890643"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell-script"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge przy użyciu skryptu Azure PowerShell
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Wdrażaj maszyny wirtualne na urządzeniu z systemem Azure Stack Edge przy użyciu Azure PowerShell skryptu
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-W tym samouczku opisano, jak utworzyć maszynę wirtualną na urządzeniu Azure Stack Edge przy użyciu skryptu Azure PowerShell i zarządzać nią.
+W tym samouczku opisano sposób tworzenia maszyny wirtualnej na urządzeniu z systemem Azure Stack Edge przy użyciu skryptu Azure PowerShell i zarządzania nią.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu Azure Stack Edge przy użyciu tego skryptu musisz upewnić się, że zostały spełnione wymagania wstępne wymienione w następujących krokach:
+Przed rozpoczęciem tworzenia maszyny wirtualnej i zarządzania nią na urządzeniu Azure Stack EDGE Pro przy użyciu tego skryptu musisz upewnić się, że zostały spełnione wymagania wstępne wymienione w następujących krokach:
 
-### <a name="for-azure-stack-edge-device-via-the-local-web-ui"></a>Dla Azure Stack urządzenia brzegowego za pośrednictwem lokalnego interfejsu użytkownika sieci Web
+### <a name="for-azure-stack-edge-pro-device-via-the-local-web-ui"></a>W przypadku urządzenia z Azure Stack EDGE Pro za pośrednictwem lokalnego interfejsu użytkownika sieci Web
 
-1. Ustawienia sieciowe na urządzeniu Azure Stack Edge zostały wykonane zgodnie z opisem w [sekcji Krok 1: konfigurowanie Azure Stack urządzenia brzegowego](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+1. Ustawienia sieciowe zostały wykonane na urządzeniu z systemem Azure Stack brzeg Pro zgodnie z opisem w [sekcji Krok 1. konfigurowanie Azure Stack EDGE Pro Device](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
 2. Włączono interfejs sieciowy dla obliczeń. Ten interfejs sieciowy IP służy do tworzenia przełącznika wirtualnego dla wdrożenia maszyny wirtualnej. Poniższe kroki przeprowadzą Cię przez proces:
 
@@ -36,9 +36,9 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
         > [!IMPORTANT] 
         > Dla obliczeń można skonfigurować tylko jeden port.
 
-    2. Włącz obliczenia w interfejsie sieciowym. Azure Stack Edge tworzy przełącznik wirtualny i zarządza nim, odpowiadający interfejsowi sieciowemu.
+    2. Włącz obliczenia w interfejsie sieciowym. Azure Stack EDGE Pro tworzy przełącznik wirtualny i zarządza nim, odpowiadający interfejsowi sieciowemu.
 
-3. Utworzono i zainstalowano wszystkie certyfikaty na urządzeniu brzegowym Azure Stack i w zaufanym magazynie głównym klienta. Postępuj zgodnie z procedurą opisaną w [kroku 2: Tworzenie i instalowanie certyfikatów](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
+3. Utworzono i zainstalowano wszystkie certyfikaty na urządzeniu Azure Stack EDGE Pro i w zaufanym magazynie głównym klienta. Postępuj zgodnie z procedurą opisaną w [kroku 2: Tworzenie i instalowanie certyfikatów](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
 ### <a name="for-your-windows-client"></a>Dla klienta systemu Windows
 

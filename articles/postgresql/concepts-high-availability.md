@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0d723e1613e96f0aea243eace8ece3f0473e3742
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547685"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884437"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Wysoka dostępność w Azure Database for PostgreSQL — pojedynczy serwer
 Azure Database for PostgreSQL — usługa pojedynczego serwera zapewnia gwarantowany wysoki poziom dostępności dzięki finansowej umowie dotyczącej poziomu usług (SLA) wynoszącej [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) czasu. Azure Database for PostgreSQL zapewnia wysoką dostępność podczas planowanych zdarzeń, takich jak operacja obliczeniowa initated przez użytkownika, a także w przypadku nieplanowanych zdarzeń, takich jak podstawowy sprzęt, oprogramowanie lub awarie sieci. Azure Database for PostgreSQL możliwość szybkiego odzyskania sprawności od najbardziej krytycznych okoliczności, co gwarantuje praktycznie brak aplikacji podczas korzystania z tej usługi.
@@ -29,7 +29,7 @@ Azure Database for PostgreSQL jest odpowiednia do uruchamiania krytycznych baz d
 ## <a name="planned-downtime-mitigation"></a>Planowane ograniczenie przestoju
 Azure Database for PostgreSQL jest zaprojektowany w celu zapewnienia wysokiej dostępności podczas planowanych operacji przestojów. 
 
-![Widok elastycznego skalowania w usłudze Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-elastic-scaling.png" alt-text="Widok elastycznego skalowania w usłudze Azure PostgreSQL":::
 
 1. Skalowanie w górę i w dół serwerów baz danych PostgreSQL w ciągu kilku sekund
 2. Brama, która działa jako serwer proxy do routingu klienta nawiązuje połączenie z właściwym serwerem bazy danych
@@ -49,7 +49,7 @@ Poniżej przedstawiono niektóre planowane scenariusze konserwacji:
 Nieplanowany przestój może wystąpić w wyniku nieprzewidzianych awarii, w tym podstawowego błędu sprzętowego, problemów z siecią i błędów oprogramowania. Jeśli serwer bazy danych ulegnie awarii, w ciągu kilku sekund zostanie automatycznie zainicjowany nowy serwer bazy danych. Magazyn zdalny jest automatycznie dołączany do nowego serwera bazy danych. Aparat PostgreSQL wykonuje operację odzyskiwania przy użyciu plików WAL i Database, a następnie otwiera serwer baz danych, aby umożliwić klientom nawiązywanie połączeń. Niezatwierdzone transakcje są tracone i muszą być ponawiane przez aplikację. Nie można uniknąć nieplanowanych przestojów, Azure Database for PostgreSQL ogranicza przestoje przez automatyczne wykonywanie operacji odzyskiwania zarówno na serwerze bazy danych, jak i w warstwach magazynu, bez konieczności interwencji człowieka. 
 
 
-![Widok wysokiej dostępności w usłudze Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="Widok wysokiej dostępności w usłudze Azure PostgreSQL":::
 
 1. Serwery usługi Azure PostgreSQL z funkcją szybkiego skalowania.
 2. Brama, która działa jako serwer proxy do kierowania połączeń klienta do odpowiedniego serwera bazy danych

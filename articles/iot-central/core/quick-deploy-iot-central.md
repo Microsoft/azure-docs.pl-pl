@@ -1,6 +1,6 @@
 ---
-title: Tworzenie aplikacji usługi Azure IoT Central | Microsoft Docs
-description: Tworzenie nowej aplikacji usługi Azure IoT Central. Utwórz aplikację, korzystając z bezpłatnego planu cenowego lub jednego z standardowych planów cenowych.
+title: Szybki Start — Tworzenie aplikacji IoT Central platformy Azure | Microsoft Docs
+description: Szybki Start — Tworzenie nowej aplikacji IoT Central platformy Azure. Utwórz aplikację, korzystając z bezpłatnego planu cenowego lub jednego z standardowych planów cenowych.
 author: viv-liu
 ms.author: viviali
 ms.date: 07/30/2020
@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 4b939505f807385f235def2606d0f29564f5d08f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 477da41bab48ee49727ec2a8c029e748d6e7f863
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552581"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987377"
 ---
-# <a name="create-an-azure-iot-central-application"></a>Tworzenie aplikacji usługi Azure IoT Central
+# <a name="quickstart---create-an-azure-iot-central-application"></a>Szybki Start — Tworzenie aplikacji IoT Central platformy Azure
 
 Ten przewodnik Szybki Start przedstawia sposób tworzenia aplikacji IoT Central platformy Azure.
 

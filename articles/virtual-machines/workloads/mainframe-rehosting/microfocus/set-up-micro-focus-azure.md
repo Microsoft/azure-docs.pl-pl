@@ -1,6 +1,6 @@
 ---
 title: Instalowanie programu Micro Focus Enterprise Server 5,0 i Enterprise Developer 5,0 na platformie Azure | Microsoft Docs
-description: Przehostaj obciążenia systemu mainframe firmy IBM z/OS przy użyciu środowiska deweloperskiego i testowego na maszynach wirtualnych platformy Azure.
+description: W tym artykule dowiesz się, jak zainstalować program Micro Focus Enterprise Server 5,0 i Enterprise Developer 5,0 na Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: maggsl
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 59566fc051b1e84d8e271b3c9d061f2481dcc58f
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 11fde4480f4e2ed9feda00fa2af0e5937a77b9ad
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245319"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986884"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Instalowanie programu Micro Focus Enterprise Server 5,0 i Enterprise Developer 5,0 na platformie Azure
 

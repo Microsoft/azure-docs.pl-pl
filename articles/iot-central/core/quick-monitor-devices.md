@@ -1,6 +1,6 @@
 ---
 title: Szybki Start — monitorowanie urządzeń na platformie Azure IoT Central
-description: Dowiedz się, jak używać aplikacji IoT Central platformy Azure do monitorowania urządzeń.
+description: Szybki Start — jako operator, Dowiedz się, jak monitorować urządzenia za pomocą aplikacji IoT Central platformy Azure.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 1dec52bbf1435cd7e363edf111f769d3e2cffb6a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af5683bf253e26ab928e46059f9af9d2ab8af3bd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80998920"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987348"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Szybki Start: korzystanie z usługi Azure IoT Central do monitorowania urządzeń
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137624"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907700"
 ---
 # <a name="two-class-logistic-regression-module"></a>Moduł regresji logistycznej dla dwóch klas
 
-W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Użyj tego modułu, aby utworzyć model regresji logistycznej, który może służyć do przewidywania dwóch (i tylko dwóch) wyników. 
 
@@ -58,7 +58,7 @@ Na przykład kolumna etykieta może być [głosowana] z możliwymi wartościami 
      Ten algorytm obsługuje liniową kombinację wartości rozliczania L1 i L2: to jest, jeśli <code>x = L1</code> i <code>y = L2</code> , następnie <code>ax + by = c</code> definiuje liniowy zakres warunków uregulowania.  
   
     > [!NOTE]
-    >  Chcesz dowiedzieć się więcej na temat uregulowania L1 i L2? Poniższy artykuł zawiera omówienie sposobu, w jaki uregulowania L1 i L2 są różne i jak wpływają na ich dopasowanie, z przykładami kodu na potrzeby regresji logistycznej i modeli sieci neuronowych: [w przypadku Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Chcesz dowiedzieć się więcej na temat uregulowania L1 i L2? Poniższy artykuł zawiera omówienie sposobu, w jaki uregulowania L1 i L2 są różne i jak wpływają na ich dopasowanie, z przykładami kodu na potrzeby regresji logistycznej i modeli sieci neuronowych:  [w przypadku Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
     >
     > Dla modeli regresji logistycznej opracowano różne liniowe kombinacje warunków L1 i L2: na przykład [elastyczne uregulowanie netto](https://wikipedia.org/wiki/Elastic_net_regularization). Sugerujemy, aby odwoływać się do tych kombinacji w celu zdefiniowania kombinacji liniowej, która obowiązuje w modelu.
       
