@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 329d3208037548bd1cb5a5564a4a393747ed48f0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0dfe507163237402b66c2bbd639290cea035ca78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017281"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334997"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Rozwiązywanie problemów z wydajnością Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL w programie Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -328,7 +328,7 @@ Uzyskaj dostęp do Intelligent Insights za pośrednictwem Azure Portal, przechod
 
 Intelligent Insights zwykle potrzebuje jednej godziny, aby przeprowadzić analizę głównej przyczyny problemu z wydajnością. Jeśli nie możesz znaleźć problemu w Intelligent Insights i ma on krytyczne znaczenie, użyj magazynu zapytań, aby ręcznie zidentyfikować główną przyczynę problemu z wydajnością. (Zwykle te problemy są krótsze niż godzina starego). Aby uzyskać więcej informacji, zobacz [monitorowanie wydajności przy użyciu magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Poznaj [Intelligent Insights](intelligent-insights-overview.md) pojęcia.
 - Użyj [dziennika diagnostyki wydajności Intelligent Insights](intelligent-insights-use-diagnostics-log.md).

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop, sachinp, sstein
+ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 3c9389e6063279e214e3650f6364dc25ff773db5
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: c563862c777dd9b5bf4c9f31155aa65c430acd1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069598"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323245"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -76,11 +76,11 @@ Wystąpienie zarządzane SQL ma dwie warstwy usług: [ogólnego przeznaczenia](.
 | Maksymalna liczba plików bazy danych na wystąpienie | Do 280, o ile nie osiągnięto rozmiaru magazynu wystąpienia lub limitu [przestrzeni dyskowej usługi Azure Premium](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) . | 32 767 plików na bazę danych, o ile nie osiągnięto limitu rozmiaru magazynu wystąpień. |
 | Maksymalny rozmiar pliku danych | Ograniczone do aktualnie dostępnego rozmiaru magazynu wystąpień (maksymalnie 2 TB-8 TB) i [miejsca alokacji dysku Azure Premium Storage](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Ograniczone do aktualnie dostępnego rozmiaru magazynu wystąpień (do 1 TB – 4 TB). |
 | Maksymalny rozmiar pliku dziennika | Ograniczone do 2 TB i aktualnie dostępnego rozmiaru magazynu wystąpień. | Ograniczone do 2 TB i aktualnie dostępnego rozmiaru magazynu wystąpień. |
-| Operacje we/wy danych/dziennika (przybliżone) | Do 30-40 K operacji we/wy na wystąpienie *, 500-7500 na plik<br/>\*[Zwiększ rozmiar pliku, aby uzyskać więcej operacji we/wy na sekundę](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (2500 IOPS/rdzeń wirtualny)<br/>Dodaj więcej rdzeni wirtualnych, aby uzyskać lepszą wydajność operacji we/wy. |
-| Limit przepływności zapisu dziennika (na wystąpienie) | 3 MB/s na rdzeń wirtualny<br/>Maks. 22 MB/s | 4 MB/s na rdzeń wirtualny<br/>Maks 48 MB/s |
+| Operacje we/wy danych/dziennika (przybliżone) | Do 30-40 K operacji we/wy na wystąpienie *, 500-7500 na plik<br/>\*[Zwiększ rozmiar pliku, aby uzyskać więcej operacji we/wy na sekundę](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (4000 IOPS/rdzeń wirtualny)<br/>Dodaj więcej rdzeni wirtualnych, aby uzyskać lepszą wydajność operacji we/wy. |
+| Limit przepływności zapisu dziennika (na wystąpienie) | 3 MB/s na rdzeń wirtualny<br/>Maks 120 MB/s na wystąpienie<br/>22-65 MB/s na bazę danych<br/>\*[Zwiększ rozmiar pliku, aby uzyskać lepszą wydajność we/wy](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s na rdzeń wirtualny<br/>Maks 96 MB/s |
 | Przepływność danych (przybliżona) | 100 – 250 MB/s na plik<br/>\*[Zwiększ rozmiar pliku, aby uzyskać lepszą wydajność we/wy](#file-io-characteristics-in-general-purpose-tier) | Nieograniczone. |
 | Opóźnienie operacji we/wy magazynu (w przybliżeniu) | 5-10 ms | 1-2 MS |
-| Przetwarzanie OLTP danych w pamięci | Nieobsługiwane | Dostępne, [rozmiar zależy od liczby rdzeń wirtualny](#in-memory-oltp-available-space) |
+| Przetwarzanie OLTP w pamięci | Nieobsługiwane | Dostępne, [rozmiar zależy od liczby rdzeń wirtualny](#in-memory-oltp-available-space) |
 | Maksymalna liczba sesji | 30000 | 30000 |
 | Maksymalna liczba współbieżnych procesów roboczych (żądań) | Obliczenia: 210 * liczba rdzeni wirtualnych + 800<br>5 rdzeń: 105 * liczba rdzeni wirtualnych + 800 | Obliczenia: 210 * liczba rdzeń wirtualny + 800<br>5 rdzeń: 105 * liczba rdzeń wirtualny + 800 |
 | [Repliki tylko do odczytu](../database/read-scale-out.md) | 0 | 1 (wliczone w cenę) |

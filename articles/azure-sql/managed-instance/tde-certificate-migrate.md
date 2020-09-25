@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: carlrab, jovanpop
+ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
-ms.openlocfilehash: ba2dd167cdf49b5f1a4b4f2dcd0edd48ea969fae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5311d6504e98c107b6ceb893babb6db31c9aff51
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073337"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325049"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Migrowanie certyfikatu chronionej bazy danych TDE do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

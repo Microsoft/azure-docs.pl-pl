@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 74c603576016b72edddb4c0fe7aa970bd8626a4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325219"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Usługa Azure SQL Managed Instance (często zadawane pytania)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Jest to bieżące ograniczenie składnika podstawowego, który weryfikuje nazwę
 
 **Jak mogę skalować moje wystąpienie zarządzane?**
 
-Wystąpienie zarządzane można skalować z poziomu [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [programu PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) lub [szablonów usługi ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Wystąpienie zarządzane można skalować z poziomu [Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [programu PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) lub [szablonów usługi ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Czy mogę przenieść wystąpienie zarządzane z jednego regionu do innego?**
 
@@ -102,7 +102,7 @@ Tak, możesz. Aby uzyskać instrukcje, zobacz [przenoszenie zasobów między reg
 
 **Jak mogę usunąć moje wystąpienie zarządzane?**
 
-Wystąpienia zarządzane można usunąć za pomocą Azure Portal, [programu PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) lub [interfejsów API REST Menedżer zasobów](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Wystąpienia zarządzane można usunąć za pomocą Azure Portal, [programu PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) lub [interfejsów API REST Menedżer zasobów](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **Ile czasu zajmuje utworzenie lub zaktualizowanie wystąpienia lub przywrócenie bazy danych?**
 
@@ -135,9 +135,9 @@ Wystąpienie zarządzane oferuje te same poziomy wydajności dla wielkości zaso
 
 Jedną z opcji jest [wyeksportowanie bazy danych do BACPAC](../database/database-export.md) , a następnie [zaimportowanie pliku BACPAC](../database/database-import.md). Jest to zalecane rozwiązanie, jeśli baza danych jest mniejsza niż 100 GB.
 
-[Replikacji transakcyjnej](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) można użyć, jeśli wszystkie tabele w bazie danych mają klucze *podstawowe* i w bazie danych nie ma obiektów OLTP w pamięci.
+[Replikacji transakcyjnej](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) można użyć, jeśli wszystkie tabele w bazie danych mają klucze *podstawowe* i w bazie danych nie ma obiektów OLTP w pamięci.
 
-Nie można przywrócić natywnych kopii zapasowych COPY_ONLY pobranych z wystąpienia zarządzanego do SQL Server, ponieważ wystąpienie zarządzane ma nowszą wersję bazy danych w porównaniu do SQL Server. Aby uzyskać więcej informacji, zobacz [kopia zapasowa tylko do kopiowania](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
+Nie można przywrócić natywnych kopii zapasowych COPY_ONLY pobranych z wystąpienia zarządzanego do SQL Server, ponieważ wystąpienie zarządzane ma nowszą wersję bazy danych w porównaniu do SQL Server. Aby uzyskać więcej informacji, zobacz [kopia zapasowa tylko do kopiowania](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true).
 
 **Jak można migrować wystąpienie SQL Server do wystąpienia zarządzanego SQL?**
 
@@ -184,11 +184,11 @@ Aby uzyskać wszystkie opcje monitorowania i generowania alertów dotyczących u
 
 **Czy mogę używać programu SQL Profiler do śledzenia wydajności?**
 
-Tak, program SQL Profiler jest obsługiwany lub wystąpienie zarządzane SQL. Aby uzyskać więcej informacji, zobacz [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15).
+Tak, program SQL Profiler jest obsługiwany lub wystąpienie zarządzane SQL. Aby uzyskać więcej informacji, zobacz [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true).
 
 **Czy Database Advisor i Szczegółowe informacje o wydajności zapytań obsługiwane dla baz danych wystąpienia zarządzanego?**
 
-Nie, nie są obsługiwane. Do monitorowania baz danych można używać [widoków DMV](../database/monitoring-with-dmvs.md) i [magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) wraz z [programem SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) i [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) .
+Nie, nie są obsługiwane. Do monitorowania baz danych można używać [widoków DMV](../database/monitoring-with-dmvs.md) i [magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15&preserve-view=true) wraz z [programem SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true) i [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15&preserve-view=true) .
 
 **Czy można tworzyć alerty metryk w wystąpieniu zarządzanym SQL?**
 
@@ -228,7 +228,7 @@ Aby śledzić, kiedy zautomatyzowane kopie zapasowe zostały wykonane na wystąp
 
 **Czy jest dostępna kopia zapasowa na żądanie?**
 
-Tak, możesz utworzyć pełną kopię zapasową w swoich Blob Storage platformy Azure, ale będzie ona dostępnych tylko w wystąpieniu zarządzanym. Aby uzyskać szczegółowe informacje, zobacz [kopia zapasowa tylko do kopiowania](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Jednak kopia zapasowa tylko do kopiowania jest niemożliwa, jeśli baza danych została zaszyfrowana przez TDE zarządzaną przez usługę, ponieważ certyfikat używany do szyfrowania jest niedostępny. W takim przypadku należy użyć funkcji przywracania w czasie do przenoszenia bazy danych do innego wystąpienia zarządzanego SQL lub przełączyć się na klucz zarządzany przez klienta.
+Tak, możesz utworzyć pełną kopię zapasową w swoich Blob Storage platformy Azure, ale będzie ona dostępnych tylko w wystąpieniu zarządzanym. Aby uzyskać szczegółowe informacje, zobacz [kopia zapasowa tylko do kopiowania](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true). Jednak kopia zapasowa tylko do kopiowania jest niemożliwa, jeśli baza danych została zaszyfrowana przez TDE zarządzaną przez usługę, ponieważ certyfikat używany do szyfrowania jest niedostępny. W takim przypadku należy użyć funkcji przywracania w czasie do przenoszenia bazy danych do innego wystąpienia zarządzanego SQL lub przełączyć się na klucz zarządzany przez klienta.
 
 **Czy natywne odzyskiwanie (z plików. bak) do obsługiwanego wystąpienia zarządzanego?**
 
@@ -390,7 +390,7 @@ Tak, Transparent Data Encryption jest obsługiwana w przypadku wystąpienia zarz
 
 **Czy mogę wykorzystać model "Przenieś własny klucz" dla TDE?**
 
-Tak, Azure Key Vault scenariusz BYOK jest dostępny dla wystąpienia zarządzanego Azure SQL. Aby uzyskać szczegółowe informacje, zobacz [transparent Data Encryption z kluczem zarządzanym przez klienta](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
+Tak, Azure Key Vault scenariusz BYOK jest dostępny dla wystąpienia zarządzanego Azure SQL. Aby uzyskać szczegółowe informacje, zobacz [transparent Data Encryption z kluczem zarządzanym przez klienta](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true).
 
 **Czy można przeprowadzić migrację zaszyfrowanej bazy danych SQL Server?**
 
@@ -509,6 +509,10 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 
 ## <a name="service-updates"></a>Aktualizacje usług
+
+**Co to jest zmiana głównego urzędu certyfikacji dla Azure SQL Database & wystąpienia zarządzanego SQL?**
+
+Zobacz [rotacja certyfikatów dla Azure SQL Database & wystąpienia zarządzanego SQL](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring). 
 
 **Co to jest planowane zdarzenie konserwacji dla wystąpienia zarządzanego SQL?**
 

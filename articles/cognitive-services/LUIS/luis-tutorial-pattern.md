@@ -1,14 +1,16 @@
 ---
 title: 'Samouczek: wzorce — LUIS'
 description: Użyj wzorców, aby zwiększyć zamiar i prognozowanie jednostek, jednocześnie dostarczając mniejszą liczbę przykładów wyrażenia długości w tym samouczku. Wzorzec jest dostępny jako przykład wypowiedź szablonu, który zawiera składnię identyfikującą jednostki i tekst, który można zignorować.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 9814304aed4d7a5f307fb2179491b0fa9635fd68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86039504"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324658"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Samouczek: Dodawanie typowych formatów wypowiedź szablonów wzorców w celu usprawnienia prognoz
 
@@ -529,7 +531,7 @@ Jeśli zauważysz, że Twój wzorzec, gdy zawiera jednostkę Pattern.any, niepop
 
 W tym samouczku dodano wzorce umożliwiające LUIS przewidywalność zamiaru z znacznie wyższym wynikiem, bez konieczności dodawania więcej przykładowych wyrażenia długości. Oznaczanie jednostek i tekst możliwy do zignorowania pozwoliły usłudze LUIS na zastosowanie wzorca do szerszego zakresu wypowiedzi.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

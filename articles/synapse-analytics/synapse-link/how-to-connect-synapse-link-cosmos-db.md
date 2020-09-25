@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fa33f2d9e0c4606587ca5ef65a3f4a021319431f
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: f453c074126e448eb54d432532b9064b3eb3cb35
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85195049"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287896"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Połącz z linkiem usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB
 
@@ -22,7 +22,7 @@ W tym artykule opisano, jak uzyskać dostęp do bazy danych Azure Cosmos DB z us
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed nawiązaniem połączenia z bazą danych Azure Cosmos DB z obszarem roboczym potrzebne są następujące elementy:
+Przed nawiązaniem połączenia z bazą danych Azure Cosmos DB z obszarem roboczym będziesz potrzebować:
 
 > [!IMPORTANT]
 > Link Synapse platformy Azure dla Azure Cosmos DB jest obecnie obsługiwany w przypadku obszarów roboczych, dla których nie włączono zarządzanej sieci wirtualnej. 
@@ -47,7 +47,7 @@ Korzystając z Eksplorator obiektów danych, możesz połączyć się bezpośred
 1. Wybierz ***+*** ikonę obok danych
 2. Wybierz pozycję **Połącz z danymi zewnętrznymi**
 3. Wybierz interfejs API, z którym chcesz nawiązać połączenie: interfejs API SQL lub interfejs API dla MongoDB
-4. Wybierz pozycję ***Kontynuuj***
+4. Wybierz przycisk ***Kontynuuj***
 5. Nazwij połączoną usługę. Nazwa zostanie wyświetlona w Eksplorator obiektów i użyta przez Synapse Run-Times do łączenia się z bazą danych i kontenerami. Zalecamy używanie przyjaznej nazwy.
 6. Wybierz **nazwę konta Azure Cosmos DB** i **nazwę bazy danych**
 7. Obowiązkowe Jeśli region nie zostanie określony, operacje czasu wykonywania Synapse będą kierowane do najbliższego regionu, w którym jest włączony magazyn analityczny. Można jednak ręcznie ustawić region, do którego użytkownicy mają uzyskiwać dostęp Azure Cosmos DB do magazynu analitycznego. Wybierz opcję **dodatkowe właściwości połączenia** , a następnie pozycję **nowe**. W obszarze **Nazwa właściwości**wpisz ***PreferredRegions*** i ustaw **wartość** na żądany region (przykład: WestUS2, nie ma spacji między wyrazami i cyfrą).

@@ -8,23 +8,23 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ef9d0eb3dd97795f3b6757759679351f857891ab
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032864"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288073"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Obsługa sortowania bazy danych dla Synapse SQL
 
-Sortowania zapewniają ustawienia regionalne, strony kodowej, porządek sortowania i reguły czułości znaków dla typów danych opartych na znakach. Po wybraniu tej opcji wszystkie kolumny i wyrażenia wymagające informacji o sortowaniu dziedziczą wybrane sortowanie z poziomu bazy danych. Dziedziczenie domyślne można przesłonić, jawnie podając inne sortowanie dla typu danych opartego na znakach.
+Sortowanie udostępnia ustawienia regionalne, strony kodowej, porządek sortowania i reguły czułości znaków dla typów danych opartych na znakach. Po wybraniu tej opcji wszystkie kolumny i wyrażenia wymagające informacji o sortowaniu dziedziczą wybrane sortowanie z poziomu bazy danych. Dziedziczenie domyślne można przesłonić, jawnie podając inne sortowanie dla typu danych opartego na znakach.
 
 Podczas tworzenia nowej bazy danych puli SQL można zmienić domyślne sortowanie bazy danych z Azure Portal. Ta funkcja ułatwia tworzenie nowej bazy danych przy użyciu jednego z 3800 obsługiwanych baz danych.
 
 Przy użyciu instrukcji CREATE DATABASE można określić domyślne sortowanie bazy danych na żądanie w usłudze SQL Synapse podczas tworzenia.
 
 ## <a name="change-collation"></a>Zmień sortowanie
-Aby zmienić domyślne sortowanie bazy danych puli SQL, można wykonać prostą aktualizację pola sortowania w środowisku aprowizacji. Na przykład jeśli chcesz zmienić domyślne sortowanie na uwzględniające wielkość liter, po prostu zmień nazwę sortowania z SQL_Latin1_General_CP1_CI_AS na SQL_Latin1_General_CP1_CS_AS. 
+Aby zmienić domyślne sortowanie bazy danych puli SQL, należy zaktualizować do pola sortowania w środowisku aprowizacji. Na przykład jeśli chcesz zmienić domyślne sortowanie na wielkość liter, Zmień nazwę sortowania z SQL_Latin1_General_CP1_CI_AS na SQL_Latin1_General_CP1_CS_AS. 
 
 Aby zmienić domyślne sortowanie dla bazy danych SQL na żądanie, można użyć instrukcji ALTER DATABASE.
 

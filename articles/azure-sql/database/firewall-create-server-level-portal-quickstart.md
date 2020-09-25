@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: quickstart
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 02/11/2019
-ms.openlocfilehash: 6a449c078b18b5bc9e005a873c51d92ad29417f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d62d568b4924a2bfa67740b3e5f0cc1377519d47
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335045"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>Szybki Start: Tworzenie reguły zapory na poziomie serwera przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
  SQL Database tworzy zaporę na poziomie serwera dla jednej i puli baz danych. Ta zapora uniemożliwia aplikacjom klienckim łączenie się z serwerem lub dowolnymi z jego baz danych, chyba że zostanie utworzona reguła zapory IP w celu otworzenia zapory. Na potrzeby połączenia z adresu IP spoza platformy Azure utwórz regułę zapory dla określonego adresu lub zakresu adresów IP, z którymi połączenie ma być możliwe. Aby uzyskać więcej informacji na temat reguł zapory adresów IP na poziomie serwera i na poziomie bazy danych, zobacz [reguły zapory adresów IP na poziomie serwera i na poziomie bazy danych](firewall-configure.md).
 
 > [!NOTE]
-> Azure SQL Database komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z serwerem, chyba że dział IT otworzy port 1433.
+> Usługa Azure SQL Database komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z serwerem, chyba że dział IT otworzy port 1433.
 > [!IMPORTANT]
 > Reguła zapory o wartości 0.0.0.0 umożliwia wszystkim usługom platformy Azure przekazywanie reguły zapory na poziomie serwera i próbę nawiązania połączenia z bazą danych za pomocą serwera programu.
 

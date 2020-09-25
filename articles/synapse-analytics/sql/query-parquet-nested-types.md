@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f58adf124634ce1b4326f0026718688f0eb1dc7b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.reviewer: jrasnick
+ms.openlocfilehash: 08502704515c791bf63f4803b7446a0471c0a869
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076739"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288260"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Zapytania zagnieżdżonych typów w plikach Parquet i JSON przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -117,7 +117,7 @@ FROM
 
 Wynik jest przedstawiony w poniższej tabeli:
 
-|tytuł  | first_author_name | body_text | complex_column |
+|title  | first_author_name | body_text | complex_column |
 | --- | --- | --- | --- |
 | Dodatkowe informacje o epidemioloach ekonomicznych... | Julien   | -Ilustracja S1: Phylogeny... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 

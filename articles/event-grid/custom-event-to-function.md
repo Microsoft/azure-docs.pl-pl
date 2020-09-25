@@ -3,12 +3,12 @@ title: 'Szybki Start: wysyłanie zdarzeń niestandardowych do funkcji platformy 
 description: 'Szybki Start: Użyj Azure Event Grid i interfejsu wiersza polecenia platformy Azure w celu opublikowania tematu i zasubskrybowania tego zdarzenia. Funkcja platformy Azure jest używana w punkcie końcowym.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 26ddfd1aeb61d3786edcdfca1acf5e293e4145ae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115098"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324432"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do funkcji platformy Azure za pomocą Event Grid
 
@@ -17,14 +17,17 @@ Azure Event Grid to usługa obsługi zdarzeń dla chmury. Azure Functions jest j
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-azure-function"></a>Tworzenie funkcji platformy Azure
+Przed zasubskrybowaniem tematu niestandardowego Utwórz funkcję do obsługi zdarzeń. 
 
-Przed zasubskrybowaniem tematu niestandardowego Utwórzmy funkcję do obsługi zdarzeń. W Azure Portal kliknij pozycję "Utwórz zasób" i wpisz "funkcja", a następnie wybierz opcję "aplikacja funkcji" i kliknij przycisk Utwórz. Wybierz pozycję "Utwórz nowy" w obszarze Grupa zasobów i nadaj jej nazwę. Ta funkcja zostanie użyta w pozostałej części samouczka. Nadaj aplikacja funkcji nazwę, pozostaw przełącznik "Publikuj" w "kodzie", Wybierz dowolne środowisko uruchomieniowe i region, a następnie kliknij przycisk Utwórz.
+1. Tworzenie aplikacji funkcji przy użyciu instrukcji z [tworzenia aplikacji funkcji](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+2. Utwórz funkcję przy użyciu **wyzwalacza Event Grid**. Wybierz, jeśli używasz tego wyzwalacza po raz pierwszy, aby zainstalować rozszerzenie, może być konieczne kliknięcie przycisku "Zainstaluj".
+    1. Na stronie **aplikacja funkcji** wybierz pozycję **funkcje** w menu po lewej stronie, Wyszukaj pozycję **Event Grid** w obszarze szablony, a następnie wybierz pozycję **Azure Event Grid wyzwalacz**. 
 
-Gdy aplikacja funkcji będzie gotowa, przejdź do niego i kliknij pozycję "+ Nowa funkcja". Wybierz pozycję "w portalu" dla środowiska deweloperskiego i naciśnij przycisk Kontynuuj. W obszarze Utwórz funkcję wybierz pozycję "Więcej szablonów", aby wyświetlić więcej szablonów, a następnie wyszukaj ciąg "Azure Event Grid Trigger" i wybierz go. Jeśli ten wyzwalacz jest używany po raz pierwszy, może być konieczne kliknięcie przycisku "Zainstaluj", aby zainstalować rozszerzenie.
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Wybierz wyzwalacz Event Grid":::
+3. Na stronie **Nowa funkcja** wprowadź nazwę funkcji, a następnie wybierz pozycję **Utwórz funkcję**.
 
-![Wyzwalacz Event Grid funkcji](./media/custom-event-to-function/grid-trigger.png)
-
-Po zainstalowaniu rozszerzenia kliknij przycisk Kontynuuj, nadaj funkcji nazwę, a następnie naciśnij przycisk Utwórz.
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Nowa strona funkcji":::
+4. Użyj strony **Kod + test** , aby wyświetlić istniejący kod dla funkcji i zaktualizować ją. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -43,13 +46,13 @@ Temat usługi Event Grid udostępnia zdefiniowany przez użytkownika punkt końc
 4. Na stronie **Tworzenie tematu** wykonaj następujące kroki:
 
     1. Podaj unikatową **nazwę** tematu niestandardowego. Nazwa tematu musi być unikatowa, ponieważ jest reprezentowana przez wpis DNS. Nie należy używać nazwy widocznej na obrazie. Zamiast tego utwórz własną nazwę — musi mieć od 3 do 50 znaków i może zawierać wyłącznie wartości a–z, A–Z, 0–9 i „-”.
-    2. Wybierz swoją **subskrypcję** platformy Azure.
+    2. Wybierz swoją **subskrypcję**platformy Azure.
     3. Wybierz tę samą grupę zasobów z poprzednich kroków.
     4. Wybierz **lokalizację** tematu usługi Event Grid.
     5. Zachowaj wartość domyślną **Event Grid schemacie** dla pola **schemat zdarzenia** . 
 
        ![Utwórz stronę tematu](./media/custom-event-to-function/create-custom-topic.png)
-    6. Wybierz pozycję **Utwórz**. 
+    6. Wybierz przycisk **Utwórz**. 
 
 5. Po utworzeniu tematu niestandardowego zostanie wyświetlone powiadomienie z informacją o powodzeniu. Wybierz pozycję **Przejdź do grupy zasobów**. 
 
@@ -81,8 +84,12 @@ Zasubskrybowanie tematu pozwala poinformować usługę Event Grid o tym, które 
     5. Dla punktu końcowego funkcji wybierz subskrypcję platformy Azure i grupę zasobów, w której znajduje się aplikacja funkcji, a następnie wybierz utworzone wcześniej aplikacja funkcji i funkcję. Wybierz pozycję **Potwierdź wybór**.
 
        ![Podawanie adresu URL punktu końcowego](./media/custom-event-to-function/provide-endpoint.png)
-
-    6. Wróć na stronę **Tworzenie subskrypcji zdarzeń** , a następnie wybierz pozycję **Utwórz**.
+    6. Ten krok jest opcjonalny, ale zalecany dla scenariuszy produkcyjnych. Na stronie **Tworzenie subskrypcji zdarzeń** przejdź do karty **funkcje zaawansowane** , a następnie ustaw wartości w polu **Maksymalna liczba zdarzeń na partię** i **preferowany rozmiar partii (w kilobajtach**). 
+    
+        Przetwarzanie wsadowe może zapewnić wysoką przepływność. W przypadku **maksymalnych zdarzeń na partię**Ustaw maksymalną liczbę zdarzeń obejmującą subskrypcję w partii. Preferowany rozmiar wsadu ustawia preferowaną górną granicę rozmiaru partii w kilobajtach, ale można ją przekroczyć, jeśli pojedyncze zdarzenie jest większe niż ten próg.
+    
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Włącz przetwarzanie wsadowe":::
+    6. Na stronie **Tworzenie subskrypcji zdarzeń** wybierz pozycję **Utwórz**.
 
 ## <a name="send-an-event-to-your-topic"></a>Wysyłanie zdarzenia do tematu
 

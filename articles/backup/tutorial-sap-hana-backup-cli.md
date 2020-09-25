@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb6b9f4d58a94cc8a4b9f70b5ead7d319a0d51b5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f11e01c6af18cac956d58b9c692d7b57c8fe653a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007591"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324964"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -50,7 +50,7 @@ az backup vault create --resource-group saphanaResourceGroup \
     --location westus2
 ```
 
-Domyślnie magazyn usługi Recovery Services jest ustawiony na magazyn geograficznie nadmiarowy. Magazyn Geograficznie nadmiarowy gwarantuje, że dane kopii zapasowej są replikowane do dodatkowego regionu świadczenia usługi Azure, który znajduje się setki kilometrów od regionu podstawowego. Jeśli należy zmodyfikować ustawienie nadmiarowości magazynu, użyj polecenia [AZ Backup Storage Backup-Properties Set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) .
+Domyślnie magazyn usługi Recovery Services jest ustawiony na magazyn geograficznie nadmiarowy. Magazyn Geograficznie nadmiarowy gwarantuje, że dane kopii zapasowej są replikowane do dodatkowego regionu świadczenia usługi Azure, który znajduje się setki kilometrów od regionu podstawowego. Jeśli należy zmodyfikować ustawienie nadmiarowości magazynu, użyj polecenia [AZ Backup Storage Backup-Properties Set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set) .
 
 ```azurecli
 az backup vault backup-properties set \
@@ -59,7 +59,7 @@ az backup vault backup-properties set \
     --backup-storage-redundancy "LocallyRedundant/GeoRedundant"
 ```
 
-Aby sprawdzić, czy magazyn został pomyślnie utworzony, użyj polecenia [AZ Backup magazynu list](/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-list) . Zostanie wyświetlona następująca odpowiedź:
+Aby sprawdzić, czy magazyn został pomyślnie utworzony, użyj polecenia [AZ Backup magazynu list](/cli/azure/backup/vault#az-backup-vault-list) . Zostanie wyświetlona następująca odpowiedź:
 
 ```output
 Location   Name             ResourceGroup
@@ -71,7 +71,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 Na maszynie SAP HANA należy uruchomić [skrypt przed rejestracją](https://aka.ms/scriptforpermsonhana) dla SAP HANA wystąpienia (maszyna wirtualna z zainstalowanym SAP HANA), który ma zostać odnaleziony przez usługi platformy Azure. Przed uruchomieniem skryptu upewnij się, że spełniono wszystkie [wymagania wstępne](./tutorial-backup-sap-hana-db.md#prerequisites) . Aby dowiedzieć się więcej na temat działania skryptu, zapoznaj się z sekcją co to jest [skrypt przed rejestracją](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) .
 
-Po uruchomieniu skryptu wystąpienie SAP HANA może zostać zarejestrowane przy użyciu magazynu Recovery Services utworzonego wcześniej. Aby zarejestrować wystąpienie, użyj polecenia cmdlet [AZ Backup Container Register](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register) . *VMResourceId* to identyfikator zasobu maszyny wirtualnej, który został utworzony w celu zainstalowania SAP HANA.
+Po uruchomieniu skryptu wystąpienie SAP HANA może zostać zarejestrowane przy użyciu magazynu Recovery Services utworzonego wcześniej. Aby zarejestrować wystąpienie, użyj polecenia cmdlet [AZ Backup Container Register](/cli/azure/backup/container#az-backup-container-register) . *VMResourceId* to identyfikator zasobu maszyny wirtualnej, który został utworzony w celu zainstalowania SAP HANA.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
@@ -87,7 +87,7 @@ az backup container register --resource-group saphanaResourceGroup \
 
 Zarejestrowanie wystąpienia SAP HANA automatycznie odnajduje wszystkie jego bieżące bazy danych. Jednak w celu odnalezienia nowych baz danych, które mogą zostać dodane w przyszłości, zapoznaj się z sekcją [odnajdywanie nowych baz danych dodanych do zarejestrowanego wystąpienia SAP HANA](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance) .
 
-Aby sprawdzić, czy wystąpienie SAP HANA zostało pomyślnie zarejestrowane w magazynie, użyj polecenia cmdlet [AZ Backup Container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) . Zostanie wyświetlona następująca odpowiedź:
+Aby sprawdzić, czy wystąpienie SAP HANA zostało pomyślnie zarejestrowane w magazynie, użyj polecenia cmdlet [AZ Backup Container list](/cli/azure/backup/container#az-backup-container-list) . Zostanie wyświetlona następująca odpowiedź:
 
 ```output
 Name                                                    Friendly Name    Resource Group        Type           Registration Status
@@ -100,7 +100,7 @@ VMAppContainer;Compute;saphanaResourceGroup;saphanaVM   saphanaVM        saphana
 
 ## <a name="enable-backup-on-sap-hana-database"></a>Włącz tworzenie kopii zapasowej w bazie danych SAP HANA
 
-Polecenie [AZ Backup Protected-Item](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) list Wyświetla wszystkie bazy danych odnalezione w wystąpieniu SAP HANA zarejestrowanym w poprzednim kroku.
+Polecenie [AZ Backup Protected-Item](/cli/azure/backup/protectable-item#az-backup-protectable-item-list) list Wyświetla wszystkie bazy danych odnalezione w wystąpieniu SAP HANA zarejestrowanym w poprzednim kroku.
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -121,7 +121,7 @@ saphanadatabase;hxe;hxe        SAPHanaDatabase          HXE           hxehost   
 
 Jak widać z powyższych danych wyjściowych, identyfikator SID systemu SAP HANA jest HXE. W tym samouczku skonfigurujemy tworzenie kopii zapasowej bazy danych *saphanadatabase; HXE; HXE* , która znajduje się na serwerze *hxehost* .
 
-Aby jednocześnie chronić i konfigurować kopie zapasowe bazy danych, użyj polecenia [AZ Backup Protection Enable-for-azurewl](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-enable-for-azurewl) . Podaj nazwę zasad, których chcesz użyć. Aby utworzyć zasady przy użyciu interfejsu wiersza polecenia, użyj polecenia [AZ Backup Policy Create](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create) . W tym samouczku będziemy używać zasad *sapahanaPolicyymi* .
+Aby jednocześnie chronić i konfigurować kopie zapasowe bazy danych, użyj polecenia [AZ Backup Protection Enable-for-azurewl](/cli/azure/backup/protection#az-backup-protection-enable-for-azurewl) . Podaj nazwę zasad, których chcesz użyć. Aby utworzyć zasady przy użyciu interfejsu wiersza polecenia, użyj polecenia [AZ Backup Policy Create](/cli/azure/backup/policy#az-backup-policy-create) . W tym samouczku będziemy używać zasad *sapahanaPolicyymi* .
 
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
@@ -133,7 +133,7 @@ az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --output table
 ```
 
-Aby sprawdzić, czy powyższa Konfiguracja kopii zapasowej została ukończona, użyj polecenia cmdlet [AZ Backup Job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) . Dane wyjściowe będą wyświetlane w następujący sposób:
+Aby sprawdzić, czy powyższa Konfiguracja kopii zapasowej została ukończona, użyj polecenia cmdlet [AZ Backup Job list](/cli/azure/backup/job#az-backup-job-list) . Dane wyjściowe będą wyświetlane w następujący sposób:
 
 ```output
 Name                                  Operation         Status     Item Name   Start Time UTC
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-Polecenie polecenia [AZ Backup Job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) wyświetla wszystkie zadania tworzenia kopii zapasowej (zaplanowane lub na żądanie), które zostały uruchomione lub są aktualnie uruchomione w chronionej bazie danych, a także inne operacje, takie jak rejestrowanie, konfigurowanie kopii zapasowej i usuwanie danych kopii zapasowej.
+Polecenie polecenia [AZ Backup Job list](/cli/azure/backup/job#az-backup-job-list) wyświetla wszystkie zadania tworzenia kopii zapasowej (zaplanowane lub na żądanie), które zostały uruchomione lub są aktualnie uruchomione w chronionej bazie danych, a także inne operacje, takie jak rejestrowanie, konfigurowanie kopii zapasowej i usuwanie danych kopii zapasowej.
 
 >[!NOTE]
 >Azure Backup nie dostosowuje się automatycznie podczas tworzenia kopii zapasowej bazy danych SAP HANA uruchomionej na maszynie wirtualnej platformy Azure.
@@ -173,14 +173,14 @@ Name                                  ResourceGroup
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 >[!NOTE]
 >Oprócz planowania pełnej lub różnicowej kopii zapasowej, mogą one być również obecnie wyzwalane ręcznie. Kopie zapasowe dzienników są automatycznie wyzwalane i zarządzane przez SAP HANA wewnętrznie.
 >
 > Przyrostowe kopie zapasowe nie są obecnie obsługiwane przez Azure Backup.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się, jak przywrócić bazę danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia, przejdź do samouczka — [przywracanie SAP HANAj bazy danych na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia](tutorial-sap-hana-restore-cli.md)
 

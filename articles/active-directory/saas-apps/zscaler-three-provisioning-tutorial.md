@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b7cb55b5d14208128c894a007d13f4e73fc54b3b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d217f21b0a2dbdad56f2147c8800bbb50b0fa45e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545810"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265531"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler trzech dla automatycznej aprowizacji użytkowników
 
@@ -119,7 +119,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 11. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, aby rozwiązania Zscaler trzy w sekcji **mapowania atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowywania kont użytkowników w rozwiązania Zscaler trzy dla operacji aktualizacji. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
 
-    ![Mapowania atrybutów](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
+    ![Zrzut ekranu przedstawiający sekcję mapowania atrybutów z wyświetloną siedem mapowań.](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
 
 12. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do ZscalerThree**:
 
@@ -127,7 +127,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 13. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD, aby rozwiązania Zscaler trzy w sekcji **mapowania atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w rozwiązania Zscaler trzy dla operacji aktualizacji. Wybierz pozycję **Zapisz** , aby zatwierdzić wszelkie zmiany.
 
-    ![Mapowania atrybutów](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
+    ![Zrzut ekranu przedstawiający sekcję mapowania atrybutów z wyświetlonymi trzema mapowaniami.](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Aby skonfigurować filtry zakresu, zapoznaj się z instrukcjami w [samouczku filtr zakresu](./../active-directory-saas-scoping-filters.md).
 
@@ -150,11 +150,11 @@ Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji us
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../active-directory-saas-provisioning-reporting.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-three-provisioning-tutorial/tutorial-general-01.png

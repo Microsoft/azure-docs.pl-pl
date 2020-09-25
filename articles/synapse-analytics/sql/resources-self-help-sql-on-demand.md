@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7a6b145e9a1efb29bbb6c233f2a09498b4a4ea7f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8bd955e844c9569438c5d35f152ba1bcdfccc306
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213129"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288005"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Samoobsługowa pomoc dla SQL na żądanie (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ Ten artykuł zawiera informacje o sposobie rozwiązywania problemów z większo�
 
 Jeśli program Synapse Studio nie może nawiązać połączenia z usługą SQL na żądanie, zobaczysz, że wartość SQL na żądanie jest wyszarzona lub zawiera stan "offline". Zazwyczaj ten problem występuje, gdy wystąpi jedno z następujących przypadków:
 
-1) Twoja sieć uniemożliwia komunikację z zapleczem usługi Azure Synapse. W większości przypadków jest blokowany port 1443. Aby uzyskać dostęp do programu SQL Server na żądanie w celu odblokowania tego portu. Inne problemy mogą uniemożliwić działanie programu SQL na żądanie. Aby uzyskać [więcej informacji, odwiedź pełny Przewodnik rozwiązywania problemów](../troubleshoot/troubleshoot-synapse-studio.md).
+1) Twoja sieć uniemożliwia komunikację z zapleczem usługi Azure Synapse. W większości przypadków jest blokowany port 1443. Aby uzyskać dostęp do programu SQL na żądanie, Odblokuj ten port. Inne problemy mogą uniemożliwić działanie programu SQL na żądanie. Aby uzyskać [więcej informacji, odwiedź pełny Przewodnik rozwiązywania problemów](../troubleshoot/troubleshoot-synapse-studio.md).
 2) Nie masz uprawnień do logowania się do programu SQL na żądanie. Aby uzyskać dostęp, jedna z administratorów obszaru roboczego usługi Azure Synapse powinna dodać użytkownika do roli administratora obszaru roboczego lub administratora SQL. [Aby uzyskać więcej informacji, odwiedź pełny Przewodnik po kontroli dostępu](access-control.md).
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>Zapytanie nie powiodło się, ponieważ nie można otworzyć pliku
@@ -33,9 +33,9 @@ Jeśli zapytanie nie powiedzie się z powodu błędu "nie można otworzyć pliku
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>Zapytanie nie powiodło się, ponieważ nie można go wykonać ze względu na bieżące ograniczenia zasobów 
 
-Jeśli zapytanie nie powiedzie się i zostanie wyświetlony komunikat o błędzie "to zapytanie nie może zostać wykonane z powodu bieżących ograniczeń zasobów", oznacza to, że w tej chwili nie można wykonać tego zapytania z powodu ograniczeń zasobów: 
+Jeśli zapytanie nie powiedzie się i zostanie wyświetlony komunikat o błędzie "nie można wykonać tego zapytania z powodu bieżących ograniczeń zasobów", oznacza to, że na żądanie SQL nie można wykonać tej operacji z powodu ograniczeń zasobów: 
 
-- Upewnij się, że są używane typy danych o rozsądnych rozmiarach. Ponadto określ schemat dla kolumn ciągów plików Parquet, ponieważ domyślnie jest to VARCHAR(8000). 
+- Upewnij się, że są używane typy danych o rozsądnych rozmiarach. Ponadto Określ schemat dla plików Parquet dla kolumn ciągów, ponieważ będą one domyślnie VARCHAR (8000). 
 
 - Jeśli zapytanie wskazuje pliki CSV, należy rozważyć [utworzenie statystyk](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
 
@@ -61,7 +61,7 @@ Rozwiązanie:
 CREATE DATABASE <DATABASE_NAME>
 ```
 
-  2. Wykonaj instrukcję CREATE w kontekście <DATABASE_NAME>, która nie powiodła się wcześniej dla bazy danych Master. 
+  2. Wykonanie instrukcji CREATE w kontekście <DATABASE_NAME>, która nie powiodła się wcześniej dla bazy danych Master. 
   
   Przykład tworzenia zewnętrznego formatu pliku:
     

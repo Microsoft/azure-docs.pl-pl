@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 336409b8b6f804b224b87d5fb11fded0654b8619
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0cdc9e242c2254cafaf0af75bcb8f8879cf3eb58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895527"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287832"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Link usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB obsługiwanych funkcji
 
@@ -29,7 +29,7 @@ Istnieją dwa typy kontenerów w Azure Cosmos DB:
 > [!IMPORTANT]
 > Link Synapse platformy Azure dla Azure Cosmos DB jest obecnie obsługiwany w obszarach roboczych Synapse, w których nie włączono zarządzanej sieci wirtualnej. 
 
-Można nawiązać połączenie z kontenerem Azure Cosmos DB bez włączania linku Synapse, w takim przypadku można tylko odczyt/zapis w magazynie transakcyjnym. Poniżej znajduje się lista obecnie obsługiwanych funkcji w ramach linku Synapse dla Azure Cosmos DB. 
+Można nawiązać połączenie z kontenerem Azure Cosmos DB bez włączania linku Synapse. W tym scenariuszu można tylko odczytywać i zapisywać dane w magazynie transakcyjnym. Poniżej znajduje się lista obecnie obsługiwanych funkcji w ramach linku Synapse dla Azure Cosmos DB. 
 
 | Kategoria              | Opis |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [Bezserwerowy SQL](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
@@ -39,9 +39,9 @@ Można nawiązać połączenie z kontenerem Azure Cosmos DB bez włączania link
 | **Przeczytaj**    | Typ kontenera Azure Cosmos DB, który może zostać odczytany | OLTP/HTAP | HTAP  |
 | **Prawem**   | Czy środowisko uruchomieniowe usługi Azure Synapse jest używane do zapisywania danych w kontenerze Azure Cosmos DB | Tak | Nie |
 
-* Jeśli zapisujesz dane do kontenera Azure Cosmos DB z platformy Spark, odbywa się to za pośrednictwem transakcyjnego magazynu Azure Cosmos DB i wpłynie na wydajność obciążeń transakcyjnych w Azure Cosmos DB i korzystać z jednostek żądania.
-* Integracja puli SQL Synapse za poorednictwem tabel zewnętrznych nie jest obecnie obsługiwana.
-
+* Jeśli zapisujesz dane do kontenera Azure Cosmos DB z platformy Spark, ten proces odbywa się za pośrednictwem transakcyjnego magazynu Azure Cosmos DB. Będzie to miało wpływ na transakcyjną wydajność Azure Cosmos DB przez zużywanie jednostek żądania.
+* Integracja puli SQL za poorednictwem tabel zewnętrznych nie jest obecnie obsługiwana.
+ 
 ## <a name="supported-code-generated-actions-for-spark"></a>Obsługiwane akcje generowane przez kod dla platformy Spark
 
 | Gest              | Opis |OLTP |HTAP  |
@@ -51,7 +51,6 @@ Można nawiązać połączenie z kontenerem Azure Cosmos DB bez włączania link
 | **Zapisz ramkę danych do kontenera** |Zapisywanie danych w kontenerze|✓| ✓ |
 | **Załaduj ramkę danych przesyłania strumieniowego z kontenera** |Przesyłanie strumieniowe danych przy użyciu kanału informacyjnego zmiany Azure Cosmos DB|✓| ✓ |
 | **Zapisz ramkę danych przesyłania strumieniowego do kontenera** |Przesyłanie strumieniowe danych przy użyciu kanału informacyjnego zmiany Azure Cosmos DB|✓| ✓ |
-
 
 
 ## <a name="supported-code-generated-actions-for-sql-serverless"></a>Obsługiwane akcje generowane w kodzie dla programu SQL Server

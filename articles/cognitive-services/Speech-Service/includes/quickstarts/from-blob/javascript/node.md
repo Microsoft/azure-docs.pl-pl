@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5d1d7008151ae61a72368d3d8ecfaf545a2080fa
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: f480419bb25f3fe8d49c6b4af4a5d1873e286b58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324758"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -155,7 +155,7 @@ Stan można sprawdzić, pobierając zawartość pod adresem URL, który otrzyma�
 
 Oto kod sondowania z wyświetlaniem stanu dla wszystkiego, z wyjątkiem pomyślnego zakończenia, zajmiemy się tym dalej. 
 
-`CheckTranscriptionStatus`Pobiera adres URL stanu z żądania transkrypcji i sonduje go co 5 sekund do momentu, aż wskazuje powodzenie lub błąd. Następnie wywołuje, `PrintResults` Aby wydrukować wyniki transkrypcji. Zostanie wdrożony `PrintResults` Następny.
+`CheckTranscriptionStatus` Pobiera adres URL stanu z żądania transkrypcji i sonduje go co 5 sekund do momentu, aż wskazuje powodzenie lub błąd. Następnie wywołuje, `PrintResults` Aby wydrukować wyniki transkrypcji. Zostanie wdrożony `PrintResults` Następny.
 ```csharp
 function CheckTranscriptionStatus(statusUrl) {
     transcription = null;

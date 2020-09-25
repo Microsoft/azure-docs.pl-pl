@@ -1,14 +1,16 @@
 ---
 title: 'Samouczek: wyodrębnianie danych strukturalnych za pomocą jednostki uczenia maszynowego — LUIS'
 description: Wyodrębnij dane strukturalne z wypowiedź przy użyciu jednostki Uczenie maszynowe. Aby zwiększyć dokładność wyodrębniania, Dodaj podjednostki z funkcjami.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86045607"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334734"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Samouczek: wyodrębnianie danych strukturalnych z wypowiedź użytkownika przy użyciu jednostek uczenia maszynowego w Language Understanding (LUIS)
 
@@ -79,12 +81,12 @@ Aby wyodrębnić szczegółowe informacje o Pizza kolejności, Utwórz jednostk�
 
 1. W polu **Wybierz typ jednostki** wybierz pozycję **Dodaj strukturę** , a następnie wybierz przycisk **dalej**. Struktura jest niezbędna do dodawania podjednostek, takich jak rozmiar i ilość.
 
-    ![Dodaj strukturę do jednostki](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
+    ![Zrzut ekranu przedstawia okno Wybierz typ jednostki z zaznaczoną opcją Dodaj strukturę.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. W polu **Dodaj podjednostki (opcjonalnie)** wybierz **+** `Order` wiersz, a następnie Dodaj `Size` i `Quantity` jako podjednostki, a następnie wybierz pozycję **Utwórz**.
 
     > [!div class="mx-imgBorder"]
-    > ![Dodaj strukturę do jednostki](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
+    > ![Zrzut ekranu przedstawia okno Dodawanie podjednostek (opcjonalnie) z wyróżnionymi podjednostkami.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
 ## <a name="edit-subentities-to-improve-extraction"></a>Edytuj podjednostki w celu usprawnienia ekstrakcji
 
@@ -114,14 +116,14 @@ Dodawanie listy znanych rozmiarów rozpoznawanych przez aplikację kliencką uł
 
     |Znormalizowana wartość|Synonimy|
     |--|--|
-    |Mała|SM, SML, mały, najmniejszy|
+    |Mały|SM, SML, mały, najmniejszy|
     |Średniaa|MD, MDM, regularne, średnie, środkowe|
-    |Duża|LG, LRG, Big|
+    |Duży|LG, LRG, Big|
     |XLarge|XL, największe, bardzo duże|
 
 
     > [!div class="mx-imgBorder"]
-    > ![Dodaj strukturę do jednostki](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+    > ![Zrzut ekranu przedstawia okno SizeList i elementy listy z wybranym XLarge.](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
 
 ### <a name="add-feature-of-sizelist-entity"></a>Dodawanie funkcji jednostki SizeList
 
@@ -160,7 +162,7 @@ Dodanie wbudowanej jednostki numeru również pomoże w wyodrębnieniu.
 Na stronie szczegółów jednostki dla jednostki **Order (kolejność** ) Wybierz gwiazdkę, `*` dla funkcji **@ SizeList** i funkcji **@ Number** . Gwiazdka pojawia się w tej samej etykiecie co nazwa funkcji.
 
 > [!div class="mx-imgBorder"]
-> ![Dodaj strukturę do jednostki](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+> ![Zrzut ekranu pokazuje @SizeList funkcję z gwiazdką i wymaga ostrzeżenia.](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
 <a name="label-text-as-entities-in-example-utterances"></a>
 <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
@@ -200,7 +202,7 @@ Aby nauczyć aplikację, wybierz pozycję **pouczenie**. Szkolenie stosuje zmian
 1. Aby zmienić prognozowanie na jednostkę oznaczoną etykietą, zaznacz znacznik wyboru w tym samym wierszu.
 
     > [!div class="mx-imgBorder"]
-    > ![Częściowy zrzut ekranu przedstawiający nowy przykład wypowiedź przewidywany w jednostce](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
+    > ![Zrzut ekranu przedstawia przykład wypowiedź z wyróżnionym znacznikiem wyboru.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     W tym momencie jednostka uczenia maszynowego działa, ponieważ może znaleźć jednostkę w ramach nowego przykładu wypowiedź. Po dodaniu przykładu wyrażenia długości, jeśli jednostka nie jest przewidywalna prawidłowo, Oznacz jednostkę i podjednostki. Jeśli jednostka jest przewidywalna prawidłowo, upewnij się, że są one potwierdzone.
 

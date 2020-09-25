@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88962d63519cfeb78be694c4f702b05ed4e7d3df
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 409f1ecee5ccf42a0168d500b40337366e07bfc0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287854"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-sql-pool-using-apache-spark"></a>Kopiowanie danych z Azure Cosmos DB do puli SQL przy użyciu Apache Spark
 
@@ -29,15 +29,15 @@ Link Synapse platformy Azure dla Azure Cosmos DB umożliwia użytkownikom urucha
 * [Skonfigurowanie odpowiedniej konfiguracji w celu zaimportowania danych do puli SQL z platformy Spark](../spark/synapse-spark-sql-pool-import-export.md)
 
 ## <a name="steps"></a>Kroki
-W ramach tego samouczka nawiążesz połączenie z magazynem analitycznym, więc nie ma żadnego wpływu na magazyn transakcyjny (nie będą zużywać żadnych jednostek żądania). Wykonamy następujące kroki:
+W ramach tego samouczka nawiążesz połączenie z magazynem analitycznym, więc nie ma to wpływu na magazyn transakcyjny (nie zużywa żadnych jednostek żądania). Przejdziemy przez następujące kroki:
 1. Odczytywanie kontenera Cosmos DB HTAP w ramce Dataframe platformy Spark
 2. Agreguj wyniki w nowej ramce Dataframe
 3. Pozyskiwanie danych w puli SQL
 
-[![Kroki z platformy Spark do języka SQL](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
+[![Kroki z platformy Spark do SQL 1](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## <a name="data"></a>Dane
-W tym przykładzie używamy kontenera HTAP o nazwie **RetailSales**. Jest częścią połączonej usługi o nazwie **ConnectedData**i ma następujący schemat:
+W tym przykładzie używamy kontenera HTAP o nazwie **RetailSales**. Jest to część połączonej usługi o nazwie **ConnectedData**i ma następujący schemat:
 * _rid: ciąg (nullable = true)
 * _ts: Long (nullable = true)
 * logQuantity: Double (nullable = true)
@@ -50,7 +50,7 @@ W tym przykładzie używamy kontenera HTAP o nazwie **RetailSales**. Jest częś
 * weekStarting: Long (nullable = true)
 * _etag: ciąg (nullable = true)
 
-Będziemy agregować sprzedaż (*ilość*, *przychód* (cena x ilość) według *productCode* i *weekStarting* na potrzeby raportowania. Na koniec dane zostaną wyeksportowane do tabeli puli SQL o nazwie **dbo. ProductSales**.
+Będziemy agregować sprzedaż (*ilość*, *przychód* (cena x ilość) według *productCode* i *weekStarting* na potrzeby raportowania. Na koniec będziemy eksportować te dane do tabeli puli SQL o nazwie **dbo. ProductSales**.
 
 ## <a name="configure-a-spark-notebook"></a>Konfigurowanie notesu platformy Spark
 Utwórz Notes Spark z Scala jako Spark (Scala) jako język główny. Używamy domyślnego ustawienia notesu dla sesji.
@@ -97,7 +97,7 @@ SELECT  [productCode]
  FROM [dbo].[productsales]
 ```
 
-Zapytanie będzie przedstawiać następujące wyniki w trybie wykresu: kroki od [ ![ Spark do SQL](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
+Zapytanie będzie przedstawiać następujące wyniki w trybie wykresu: kroki od [ ![ Spark do SQL 2](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zapytanie Azure Cosmos DB magazyn analityczny z Apache Spark](./how-to-query-analytical-store-spark.md)

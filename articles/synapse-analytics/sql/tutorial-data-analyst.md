@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z SQL na żądanie (wersja zapoznawcza) w celu analizowania otwartych zestawów danych platformy Azure w usłudze Azure Synapse Studio (wersja zapoznawcza)
-description: W ramach tego samouczka dowiesz się, jak łatwo przeprowadzać analizę danych w nauce łączącej różne otwarte zestawy datadataset przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) i wizualizować wyniki w usłudze Azure Synapse Studio.
+description: Dowiedz się, jak łatwo przeprowadzać analizę danych w ramach nauki, łącząc różne usługi Azure Open DataSets przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) i Wizualizuj wyniki w usłudze Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2fc98e927fcf9686f0f39dae600f944b485c5a06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 6325c5c597ce0f85615780f7970a4a3c6c4c451b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089145"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288056"
 ---
 # <a name="use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Korzystanie z SQL na żądanie w celu analizowania otwartych zestawów danych platformy Azure i wizualizacji wyników w usłudze Azure Synapse Studio
 
@@ -135,7 +135,7 @@ Ponownie można łatwo wizualizować dane, Wykreśl wykres **kolumnowy** z kolum
 
 ![Wykres kolumnowy przedstawiający dzienną liczbę kolarstwu dla 2016](./media/tutorial-data-analyst/7.png)
 
-Na wykresie wykresu można zobaczyć, że istnieje tygodniowy wzorzec, w soboty jako dzień szczytu. W ciągu roku letniego występuje mniej kolarstwuów z powodu wakacji. Istnieją również pewne znaczące przerwy w liczbie taksówki kolarstwu bez jasnego wzorca, kiedy i Dlaczego występują.
+Na wykresie grafu można zobaczyć, że istnieje tygodniowy wzorzec, w soboty, jako dzień szczytu. W ciągu roku letniego występuje mniej kolarstwuów z powodu wakacji. Należy również zwrócić uwagę na kilka znaczących porzucanych kolarstwuów bez wyraźnego wzorca, kiedy i Dlaczego występują.
 
 Następnie Zobaczmy, czy porzucanie jest skorelowane z świętami publicznymi, dołączając zestaw danych NYC taksówki kolarstwu do publicznego zestawu danych dni wolnych:
 

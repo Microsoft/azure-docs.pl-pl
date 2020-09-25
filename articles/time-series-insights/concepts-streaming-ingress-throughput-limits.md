@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: a9ac55802e4bcc435bb4bd6fd4af8977db9fd293
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 3bc68b7f4682ff00d2b93a75e39e0e5eabe4637b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950463"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287444"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limity przepływności pozyskiwania strumieniowego
 
@@ -35,7 +35,7 @@ Domyślnie Azure Time Series Insights Gen2 może pozyskać dane przychodzące z 
 > [!TIP]
 >
 > * Obsługa środowiska w celu pozyskiwania prędkości do 8 MB/s może być świadczona przez żądanie.
-> * Skontaktuj się z nami, jeśli potrzebujesz wyższej przepływności przez przesłanie biletu pomocy technicznej za pomocą Azure Portal.
+> * Skontaktuj się z nami, jeśli potrzebujesz większej przepływności przez przesłanie biletu pomocy technicznej za pomocą Azure Portal.
  
 * **Przykład 1:**
 
@@ -96,6 +96,6 @@ Zapoznaj się z poniższymi zasobami, aby dowiedzieć się więcej na temat opty
 * [Skala centrum zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
 * [Partycje centrum zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Przeczytaj o [magazynie](./concepts-storage.md) danych

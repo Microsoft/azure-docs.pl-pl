@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886320"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276088"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -102,24 +102,17 @@ Podczas przesyłania skryptu w celu uczenia modelu należy utworzyć przebieg. U
 
 [Obszar roboczy](#workspace)  >  [Eksperymenty](#experiments)  >  [Uruchom](#runs)  >  **Uruchom konfigurację**
 
-Konfiguracja przebiegu to zestaw instrukcji, które definiują sposób uruchamiania skryptu w określonym elemencie docelowym obliczeń. Konfiguracja obejmuje szeroki zestaw definicji zachowań, takich jak użycie istniejącego środowiska Python lub użycie środowiska Conda, które jest kompilowane ze specyfikacji.
+Konfiguracja przebiegu definiuje sposób uruchamiania skryptu w określonym elemencie docelowym obliczeń. Konfiguracja służy do określania skryptu, lokalizacji docelowej obliczeń i środowiska Azure ML do uruchomienia, wszystkich rozdystrybuowanych konfiguracji specyficznych dla zadań i pewnych dodatkowych właściwości. Aby uzyskać więcej informacji na temat pełnego zestawu konfigurowalnych opcji dla przebiegów, zobacz [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
 
 Konfigurację przebiegu można utrwalić do pliku znajdującego się w katalogu zawierającym skrypt szkoleniowy.   Lub może być skonstruowany jako obiekt w pamięci i używany do przesyłania przebiegu.
 
-Na przykład Uruchom konfiguracje, zobacz [Używanie elementu docelowego obliczeń do uczenia modelu](how-to-set-up-training-targets.md).
-
-### <a name="estimators"></a>Szacowania
-
-Aby ułatwić uczenie modeli przy użyciu popularnych struktur, Klasa szacowania umożliwia łatwe konstruowanie konfiguracji uruchomieniowych. Można utworzyć i użyć generycznej [szacowania](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) do przesyłania skryptów szkoleniowych, które korzystają z wybranej platformy szkoleniowej (na przykład scikit-Learning).
-
-Aby uzyskać więcej informacji na temat szacowania, zobacz [uczenie modeli ml z szacowania](how-to-train-ml-models.md).
+Na przykład Uruchom konfiguracje, zobacz [Konfigurowanie przebiegu szkoleniowego](how-to-set-up-training-targets.md).
 
 ### <a name="snapshots"></a>Migawki
 
 [Obszar roboczy](#workspace)  >  [Eksperymenty](#experiments)  >  [Uruchom](#runs)  >  **Migawka**
 
 W przypadku przesyłania przebiegu Azure Machine Learning kompresuje katalog zawierający skrypt jako plik zip i wysyła go do obiektu docelowego obliczeń. Następnie plik zip zostanie wyodrębniony, a skrypt zostanie uruchomiony w tym miejscu. Azure Machine Learning również zapisuje plik zip jako migawkę w ramach rekordu uruchomieniowego. Każda osoba mająca dostęp do obszaru roboczego może przeglądać rekord uruchomienia i pobrać migawkę.
-
 
 ### <a name="logging"></a>Rejestrowanie
 
@@ -133,7 +126,7 @@ Istnieją różne sposoby wyświetlania dzienników: monitorowanie stanu przebie
 
 ### <a name="git-tracking-and-integration"></a>Śledzenie i integracja usługi git
 
-Po rozpoczęciu szkolenia w przypadku, gdy katalog źródłowy jest lokalnym repozytorium git, informacje o repozytorium są przechowywane w historii uruchamiania. Działa to z przebiegami przesłanymi przy użyciu potoku szacowania, ML lub uruchamiania skryptu. Działa również w przypadku przebiegów przesłanych z zestawu SDK lub interfejsu wiersza polecenia Machine Learning.
+Po rozpoczęciu szkolenia w przypadku, gdy katalog źródłowy jest lokalnym repozytorium git, informacje o repozytorium są przechowywane w historii uruchamiania. Działa to z przebiegami przesłanymi przy użyciu konfiguracji uruchamiania skryptu lub potoku ML. Działa również w przypadku przebiegów przesłanych z zestawu SDK lub interfejsu wiersza polecenia Machine Learning.
 
 Aby uzyskać więcej informacji, zobacz Integracja z usługą [git dla Azure Machine Learning](concept-train-model-git-integration.md).
 

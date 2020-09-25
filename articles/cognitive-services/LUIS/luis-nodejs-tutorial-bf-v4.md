@@ -1,15 +1,17 @@
 ---
 title: 'Samouczek: Language Understanding bot Node.js v4'
 description: Korzystając z Node.js, skompiluj program Chat bot zintegrowany z funkcją interpretacji języka (LUIS) w tym samouczku. Ten czatbot używa aplikacji Human Resources, aby szybko wdrożyć rozwiązanie bota. Bot jest tworzony za pomocą platformy Bot Framework w wersji 4 i bota aplikacji internetowej platformy Azure.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 522502a043778d6f482c1756506063dfa6515ca3
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: d6ef0b0d437674d78064e6c5c5a91e1b2b89074a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405028"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324675"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Samouczek: używanie bot aplikacji sieci Web z włączonym Language Understanding w Node.js
 
@@ -41,7 +43,7 @@ Użyj Node.js, aby utworzyć Czat bot zintegrowany z funkcją interpretacji jęz
     |Dojście bot|Nazwa zasobu|`luis-nodejs-bot-` + `<your-name>`, na przykład `luis-nodejs-bot-johnsmith`|
     |Subskrypcja|Subskrypcja miejsca utworzenia bota.|Subskrypcja podstawowa.
     |Grupa zasobów|Logiczna grupa zasobów platformy Azure|Utwórz nową grupę do przechowywania wszystkich zasobów używanych z tym botem, nazwij grupę `luis-nodejs-bot-resource-group`.|
-    |Location|Region platformy Azure — nie musi być taki sam jak region tworzenia lub publikowania usługi LUIS.|`westus`|
+    |Lokalizacja|Region platformy Azure — nie musi być taki sam jak region tworzenia lub publikowania usługi LUIS.|`westus`|
     |Warstwa cenowa|Służy do określania limitów żądań usługi i rozliczeń.|`F0` to warstwa bezpłatna.
     |Nazwa aplikacji|Nazwa jest używana jako domena podrzędna, gdy bot jest wdrażany w chmurze (na przykład humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, na przykład `luis-nodejs-bot-johnsmith`|
     |Szablon bota|Ustawienia struktury bota — zobacz następną tabelę|

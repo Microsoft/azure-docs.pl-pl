@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlr
+ms.reviewer: sstein
 ms.date: 04/16/2019
-ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 332b5198f046d0096e95e79e27cbc49408e6d136
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167984"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325202"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Informacje o zawartości wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ W tym artykule można znaleźć odwołanie do zawartości do różnych przewodni
 
 - [Konfigurowanie uwierzytelniania usługi Azure AD](../database/authentication-aad-configure.md)
 - [Konfigurowanie zasad dostępu warunkowego](../database/conditional-access-configure.md)
-- [Uwierzytelnianie wieloskładnikowe usługi Azure AD](../database/authentication-mfa-ssms-overview.md)
+- [Uwierzytelnianie wieloskładnikowe w usłudze Azure AD](../database/authentication-mfa-ssms-overview.md)
 - [Konfigurowanie uwierzytelniania wieloskładnikowego](../database/authentication-mfa-ssms-configure.md)
 - [Konfigurowanie zasad przechowywania danych czasowych](../database/temporal-tables-retention-policy.md)
 - [Konfigurowanie szyfrowania TDE przy usługi BYOK](../database/transparent-data-encryption-byok-configure.md)
@@ -77,7 +77,7 @@ W tym artykule można znaleźć odwołanie do zawartości do różnych przewodni
 
 ### <a name="alerting"></a>Generowanie alertów
 
-- [Tworzenie alertów w wystąpieniu zarządzanym](alerts-create.md)
+- [Tworzenie alertów dla wystąpienia zarządzanego](alerts-create.md)
 
 ## <a name="operations"></a>Operacje
 

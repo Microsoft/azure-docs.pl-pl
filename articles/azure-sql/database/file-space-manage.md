@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: ebaddbcacbc20097b2ec5606244650ea2916edfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e751a77d40403c7bdd4644e8e6fb03ff89063e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335074"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Zarządzanie miejscem plików dla baz danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ Większość metryk miejsca do magazynowania wyświetlana w Azure Portal i nast�
 
 Jednak poniższe interfejsy API mierzą również rozmiar miejsca przydzieloną dla baz danych i pul elastycznych:
 
-- T-SQL: [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL:  [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Zmniejszanie plików danych
@@ -236,7 +236,7 @@ Po usunięciu plików danych bazy danych indeksy mogą stać się pofragmentowan
 
 - Aby uzyskać informacje o maksymalnych rozmiarach baz danych, zobacz:
   - [Azure SQL Database limity modelu zakupu opartego na rdzeń wirtualny dla pojedynczej bazy danych](resource-limits-vcore-single-databases.md)
-  - [Limity zasobów dla pojedynczych baz danych korzystających z modelu zakupu opartego na jednostkach DTU](resource-limits-dtu-single-databases.md)
+  - [Limity zasobów dla pojedynczych baz danych w przypadku modelu zakupów opartego na jednostkach DTU](resource-limits-dtu-single-databases.md)
   - [Azure SQL Database limity modelu zakupu opartego na rdzeń wirtualny dla pul elastycznych](resource-limits-vcore-elastic-pools.md)
   - [Limity zasobów dla pul elastycznych przy użyciu modelu zakupu opartego na jednostkach DTU](resource-limits-dtu-elastic-pools.md)
 - Aby uzyskać więcej informacji o `SHRINKDATABASE` poleceniu, zobacz [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).

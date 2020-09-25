@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a4b61b89921b41476ff1c2196502092809862a82
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d43c223c0a3e67ff784688255bd75fc61e5c120c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495503"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288022"
 ---
 # <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
@@ -34,17 +34,17 @@ Istnieją dwa konta z uprawnieniami administracyjnymi (**Administrator serwera**
 
 - **Administrator serwera**
 
-  Podczas tworzenia analizy usługi Azure Synapse należy wyznaczyć **Identyfikator logowania administratora serwera**. Serwer SQL tworzy to konto jako identyfikator logowania w bazie danych master. To konto używa do połączenia uwierzytelnienia programu SQL Server (nazwy użytkownika i hasła). Może istnieć tylko jedno z tych kont.
+  Podczas tworzenia analizy usługi Azure Synapse należy nazwać nazwę **logowania administratora serwera**. Serwer SQL tworzy to konto jako identyfikator logowania w bazie danych master. To konto używa do połączenia uwierzytelnienia programu SQL Server (nazwy użytkownika i hasła). Może istnieć tylko jedno z tych kont.
 
 - **Administrator usługi Azure Active Directory**
 
-  Jako konto administratora można również skonfigurować jedno konto usługi Azure Active Directory (indywidualne lub grupy zabezpieczeń). Skonfigurowanie administratora usługi Azure AD jest opcjonalne, ale **należy** skonfigurować administratora usługi Azure AD, jeśli chcesz używać kont usługi Azure AD do nawiązywania połączeń z usługą SQL Synapse.
+  Jako konto administratora można również skonfigurować jedno konto usługi Azure Active Directory (indywidualne lub grupy zabezpieczeń). Skonfigurowanie administratora usługi Azure AD jest opcjonalne, ale **należy** skonfigurować administratora usługi Azure AD, jeśli chcesz używać kont usługi Azure AD do łączenia się z usługą Synapse SQL.
 
 Konta administratorów **serwera** i **usługi Azure AD** mają następującą charakterystykę:
 
 - Są jedynymi kontami, które mogą automatycznie łączyć się z dowolnymi SQL Database na serwerze. (Aby połączyć się z bazą danych użytkownika, inne konta muszą być właścicielem bazy danych lub mieć konto użytkownika w bazie danych użytkownika).
 - Te konta korzystają z baz danych użytkowników jako użytkownik `dbo` i mają wszystkie uprawnienia w bazach danych użytkowników. (Właściciel bazy danych użytkownika również korzysta z bazy danych jako użytkownik `dbo`).
-- Nie należy wprowadzać `master` bazy danych jako `dbo` użytkownik i mieć ograniczone uprawnienia w obszarze głównym.
+- Nie wprowadzaj `master` bazy danych jako `dbo` użytkownika i masz ograniczone uprawnienia w głównym.
 - **Nie** są członkami standardowej SQL Server `sysadmin` stałej roli serwera, która nie jest dostępna w SQL Database.  
 - Może tworzyć, zmieniać i usuwać bazy danych, nazwy logowania, użytkowników z wzorców i reguły zapory adresów IP na poziomie serwera.
 - Może dodawać i usuwać członków do `dbmanager` ról i `loginmanager` .
@@ -126,13 +126,13 @@ Teraz użytkownik może połączyć się z `master` bazą danych i może tworzy�
 
 ### <a name="login-managers"></a>Menedżerowie logowania
 
-Druga rola administracyjna to rola menedżera logowania. Członkowie tej roli mogą tworzyć nowe nazwy logowania w bazie danych master. Jeśli chcesz, możesz wykonać te same kroki (utworzenie identyfikatora logowania i użytkownika, a następnie dodanie użytkownika do roli **loginmanager**), aby umożliwić użytkownikowi tworzenie nowych identyfikatorów logowania w bazie danych master. Zazwyczaj identyfikatory logowania nie są konieczne, ponieważ firma Microsoft zaleca korzystanie z użytkowników zawartej bazy danych, którzy przeprowadzają uwierzytelnianie na poziomie bazy danych zamiast użytkowników przeprowadzających uwierzytelnianie w oparciu o identyfikator logowania. Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
+Druga rola administracyjna to rola menedżera logowania. Członkowie tej roli mogą tworzyć nowe nazwy logowania w bazie danych master. Jeśli chcesz, możesz wykonać te same kroki (utworzenie identyfikatora logowania i użytkownika, a następnie dodanie użytkownika do roli **loginmanager**), aby umożliwić użytkownikowi tworzenie nowych identyfikatorów logowania w bazie danych master. Zazwyczaj logowanie nie jest konieczne, ponieważ firma Microsoft zaleca korzystanie z użytkowników zawartej bazy danych, którzy uwierzytelniają się na poziomie bazy danych zamiast korzystać z użytkowników na podstawie nazw logowania. Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
 
 ---
 
 ## <a name="non-administrator-users"></a>Użytkownicy niebędący administratorami
 
-Ogólnie rzecz biorąc, konta inne niż administracyjne nie potrzebują dostępu do bazy danych master. Tworzenie użytkowników zawartej bazy danych na poziomie bazy danych przy użyciu instrukcji [CREATE USER (język Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). 
+Ogólnie rzecz biorąc, konta inne niż administracyjne nie potrzebują dostępu do bazy danych Master. Tworzenie użytkowników zawartej bazy danych na poziomie bazy danych przy użyciu instrukcji [CREATE USER (język Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). 
 
 Użytkownik może być użytkownikiem uwierzytelnienia zawartej bazy danych usługi Azure Active Directory (jeśli skonfigurowano środowisko dla uwierzytelniania usługi Azure AD), użytkownikiem uwierzytelnienia zawartej bazy danych programu SQL Server lub użytkownikiem uwierzytelniania programu SQL Server w oparciu o nazwę logowania uwierzytelniania programu SQL Server (utworzonym w poprzednim kroku).  
 
@@ -166,7 +166,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 > [!NOTE]
 > Jednym z typowych przyczyn tworzenia użytkownika bazy danych na podstawie nazwy logowania serwera jest użytkownicy, którzy potrzebują dostępu do wielu baz danych. Ponieważ użytkownicy zawartej bazy danych są poszczególnymi jednostkami, każda baza danych utrzymuje własnego użytkownika i jego własne hasło. Może to spowodować obciążenie, ponieważ użytkownik musi pamiętać każde hasło dla każdej bazy danych i może stać się untenable w przypadku konieczności zmiany wielu haseł dla wielu baz danych. Jednak w przypadku korzystania z SQL Server logowań i wysokiej dostępności (aktywnej replikacji geograficznej i grup trybu failover) SQL Server logowania należy ustawić ręcznie na każdym serwerze. W przeciwnym razie użytkownik bazy danych nie będzie już mapowany na logowanie do serwera po przejściu w tryb failover i nie będzie mógł uzyskać dostępu do przełączenia do trybu failover dla bazy danych. 
 
-Aby uzyskać więcej informacji na temat konfigurowania nazw logowania dla replikacji geograficznej, zobacz [Konfigurowanie i zarządzanie zabezpieczeniami Azure SQL Database na potrzeby przywracania geograficznego lub przełączania do trybu failover](../../azure-sql/database/active-geo-replication-security-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Aby uzyskać więcej informacji na temat konfigurowania nazw logowania dla replikacji geograficznej, zobacz  [Konfigurowanie i zarządzanie zabezpieczeniami Azure SQL Database na potrzeby przywracania geograficznego lub przełączania do trybu failover](../../azure-sql/database/active-geo-replication-security-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="configuring-the-database-level-firewall"></a>Konfigurowanie zapory na poziomie bazy danych
 
@@ -190,7 +190,7 @@ Role bazy danych mogą być rolami wbudowanymi, takimi jak **db_owner**, **db_dd
 
 Na przykład ustalona rola bazy danych **db_datareader** pozwala na odczyt każdej tabeli w bazie danych, co nie zawsze jest niezbędne. 
 
-Znacznie lepiej jest używać instrukcji [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx), aby tworzyć własne role użytkownika bazy danych i rozważnie udzielać każdej roli możliwie najniższych uprawnień niezbędnych do zaspokojenia potrzeb biznesowych. Gdy użytkownik jest członkiem wielu ról, łączą one uprawnienia ich wszystkich.
+Znacznie lepiej jest użyć instrukcji [Create role](https://msdn.microsoft.com/library/ms187936.aspx) , aby utworzyć własne zdefiniowane przez użytkownika role baz danych i starannie udzielić każdej roli najniższych uprawnień niezbędnych dla potrzeb firmy. Gdy użytkownik jest członkiem wielu ról, łączą one uprawnienia ich wszystkich.
 
 ## <a name="permissions"></a>Uprawnienia
 
@@ -205,13 +205,13 @@ Rozpocznij od listy uprawnień [Uprawnienia (aparat bazy danych)](https://docs.m
 Podczas zarządzania nazwami logowania i użytkownikami w SQL Database należy wziąć pod uwagę następujące kwestie:
 
 - Podczas wykonywania instrukcji musisz mieć połączenie z bazą danych **Master** `CREATE/ALTER/DROP DATABASE` .
-- Użytkownik bazy danych odpowiadający identyfikatorowi logowania **Administrator serwera** nie może zostać zmieniony ani usunięty.
+- Nie można zmienić ani usunąć użytkownika bazy danych odpowiadającego identyfikatorowi logowania **administratora serwera** .
 - Domyślnym językiem identyfikatora logowania **Administrator serwera** jest angielski (Stany Zjednoczone).
 - Tylko administratorzy (identyfikator logowania **Administrator serwera** lub Administrator usługi Azure AD) i członkowie roli bazy danych **dbmanager** w bazie danych **master** mają uprawnienia do wykonywania instrukcji `CREATE DATABASE` i `DROP DATABASE`.
 - Podczas wykonywania instrukcji `CREATE/ALTER/DROP LOGIN` musisz mieć połączenie z bazą danych master. Nie zaleca się jednak używania nazw logowania. Zamiast tego korzystaj z użytkowników zawartej bazy danych.
 - Aby połączyć się z bazą danych użytkownika, podaj nazwę bazy danych w parametrach połączenia.
 - Tylko główna nazwa logowania na poziomie serwera i członkowie roli bazy danych **loginmanager** w bazie danych **master** mają uprawnienia do wykonywania instrukcji `CREATE LOGIN`, `ALTER LOGIN` i `DROP LOGIN`.
-- Podczas wykonywania instrukcji `CREATE/ALTER/DROP LOGIN` i `CREATE/ALTER/DROP DATABASE` w aplikacji ADO.NET niedozwolone jest używanie poleceń sparametryzowanych. Aby uzyskać więcej informacji, zobacz artykuł [Polecenia i parametry](/dotnet/framework/data/adonet/commands-and-parameters?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- Podczas wykonywania `CREATE/ALTER/DROP LOGIN` instrukcji i `CREATE/ALTER/DROP DATABASE` w aplikacji ADO.NET użycie poleceń sparametryzowanych nie jest dozwolone. Aby uzyskać więcej informacji, zobacz artykuł [Polecenia i parametry](/dotnet/framework/data/adonet/commands-and-parameters?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 - Podczas wykonywania instrukcji `CREATE/ALTER/DROP DATABASE` i `CREATE/ALTER/DROP LOGIN` każda z tych instrukcji musi być jedyną instrukcją w zadaniu wsadowym języka Transact-SQL. W przeciwnym razie wystąpi błąd. Na przykład następująca instrukcja języka Transact-SQL sprawdza, czy baza danych istnieje. Jeśli baza istnieje, jest wywoływana instrukcja `DROP DATABASE` w celu jej usunięcia. Ponieważ instrukcja `DROP DATABASE` nie jest jedyną instrukcją w zadaniu wsadowym, wykonywanie następującej instrukcji języka Transact-SQL spowoduje błąd.
 
   ```sql

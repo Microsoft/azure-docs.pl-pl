@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.reviewer: jrasnick
+ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055570"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288107"
 ---
 # <a name="use-file-metadata-in-queries"></a>Korzystanie z metadanych plików w zapytaniach
 
@@ -22,7 +22,7 @@ Program SQL na żądanie może rozdzielić wiele plików i folderów zgodnie z o
 
 Czasami może być konieczne sprawdzenie, który plik lub źródło folderu jest skorelowane z określonym wierszem w zestawie wyników.
 
-Można użyć funkcji `filepath` i `filename` zwrócić nazwy plików i/lub ścieżki w zestawie wyników. Można też użyć ich do filtrowania danych na podstawie nazwy pliku i/lub ścieżki folderu. Te funkcje są opisane w sekcji składnia [Nazwa](query-data-storage.md#filename-function) i [ścieżka funkcji](query-data-storage.md#filepath-function). Poniżej znajdziesz krótkie opisy dotyczące przykładów.
+Można użyć funkcji `filepath` i `filename` zwrócić nazwy plików i/lub ścieżki w zestawie wyników. Można też użyć ich do filtrowania danych na podstawie nazwy pliku i/lub ścieżki folderu. Te funkcje są opisane w sekcji składnia [Nazwa](query-data-storage.md#filename-function) i [ścieżka funkcji](query-data-storage.md#filepath-function). W poniższych sekcjach znajdują się krótkie opisy i przykłady.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

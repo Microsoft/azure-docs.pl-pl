@@ -4,12 +4,12 @@ description: Ten samouczek przeprowadzi Cię przez proces konfigurowania archite
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27cc64eee31755bcefc9d0d82b7d06e52efcf183
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324131"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Tworzenie własnego odzyskiwania po awarii dla tematów niestandardowych w programie Event Grid
 Odzyskiwanie po awarii powinno być skoncentrowane na odzyskiwaniu po poważnej utracie funkcjonalności aplikacji. Ten samouczek przeprowadzi Cię przez konfigurowanie architektury obsługi zdarzeń pod kątem odzyskiwania w przypadku pogorszenia kondycji usługi Event Grid w konkretnym regionie.
@@ -72,7 +72,7 @@ Najpierw utwórz dwa tematy usługi Event Grid. Będą one pełnić role temató
    * Jako typ punktu końcowego wybierz element webhook.
    * Jako punkt końcowy ustaw adres URL odbiorcy zdarzeń. Powinno to wyglądać mniej więcej tak: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-     ![Podstawowa subskrypcja zdarzeń usługi Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Zrzut ekranu przedstawiający stronę "Tworzenie subskrypcji zdarzeń — podstawowa" z wyróżnionymi wartościami "nazwa", "typ punktu końcowego" i "punkt końcowy".](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Powtórz te czynności w celu utworzenia pomocniczych tematu i subskrypcji. W tym przypadku zamiast sufiksu „-primary” („podstawowy”) użyj sufiksu „-secondary” („pomocniczy”), aby ułatwić śledzenie. Na koniec koniecznie umieść te elementy w innym regionie platformy Azure. Chociaż możesz umieścić je, gdziekolwiek zechcesz, zaleca się użycie [regionów sparowanych platformy Azure](../best-practices-availability-paired-regions.md). Umieszczenie tematu i subskrypcji pomocniczej w innym regionie gwarantuje, że nowe zdarzenia będą przepływać nawet wtedy, gdy region podstawowy ulegnie awarii.
 
@@ -183,7 +183,7 @@ namespace EventGridFailoverPublisher
 }
 ```
 
-### <a name="try-it-out"></a>Czas to wypróbować
+### <a name="try-it-out"></a>Wypróbowywanie działania
 
 Wszystkie składniki są już gotowe, możesz więc przetestować tę implementację trybu failover. Uruchom powyższy przykład w programie Visual Studio Code lub w swoim ulubionym środowisku. Zamień następujące cztery wartości na punkty końcowe i klucze z używanych tematów:
 
@@ -204,7 +204,7 @@ Istnieje wiele sposobów, w jakie można rozszerzyć ten przykład stosownie do 
 
 Podobnie można zaimplementować logikę powrotu po awarii — w zależności od określonych potrzeb. Jeśli publikowanie w najbliższym centrum danych jest bardzo ważne ze względu na zmniejszenie opóźnień, można okresowo badać interfejs API kondycji tematu, dla którego włączono tryb failover. Gdy jego dobra kondycja zostanie przywrócona, będzie wiadomo, że można bezpiecznie powrócić po awarii do bliższego centrum danych.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się, jak [odbierać zdarzenia w punkcie końcowym http](./receive-events.md)
 - Dowiedz się, jak [kierować zdarzenia do połączeń hybrydowych](./custom-event-to-hybrid-connection.md)

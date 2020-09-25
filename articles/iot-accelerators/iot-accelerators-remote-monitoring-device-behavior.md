@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4840363b2f6645fceca80f6dd57ece64fb2c8163
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 7f887aac91bdb1b8c752806c7c5076708a40bc10
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419924"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276173"
 ---
 # <a name="implement-the-device-model-behavior"></a>Zaimplementuj zachowanie modelu urządzenia
 
@@ -37,8 +37,8 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 Sekcja [symulacja](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) schematu modelu urządzenia definiuje stan wewnętrzny symulowanego urządzenia:
 
-- `InitialState`definiuje początkowe wartości dla wszystkich właściwości obiektu stanu urządzenia.
-- `Script`identyfikuje plik JavaScript, który jest uruchamiany zgodnie z harmonogramem w celu zaktualizowania stanu urządzenia.
+- `InitialState` definiuje początkowe wartości dla wszystkich właściwości obiektu stanu urządzenia.
+- `Script` identyfikuje plik JavaScript, który jest uruchamiany zgodnie z harmonogramem w celu zaktualizowania stanu urządzenia.
 
 Poniższy przykład przedstawia definicję obiektu stanu urządzenia symulowanego urządzenia chłodzenia:
 
@@ -79,9 +79,9 @@ function main(context, previousState, previousProperties) {
 
 `context`Parametr ma następujące właściwości:
 
-- `currentTime`jako ciąg z formatem`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`, na przykład`Simulated.Chiller.123`
-- `deviceModel`, na przykład`Chiller`
+- `currentTime` jako ciąg z formatem `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`, na przykład `Simulated.Chiller.123`
+- `deviceModel`, na przykład `Chiller`
 
 `state`Parametr zawiera stan urządzenia obsługiwanego przez usługę symulacji urządzenia. Ta wartość jest `state` obiektem zwracanym przez poprzednie wywołanie metody `main` .
 
@@ -200,9 +200,9 @@ function main(context, previousState, previousProperties) {
 
 `context`Parametr ma następujące właściwości:
 
-- `currentTime`jako ciąg z formatem`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`, na przykład`Simulated.Chiller.123`
-- `deviceModel`, na przykład`Chiller`
+- `currentTime` jako ciąg z formatem `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`, na przykład `Simulated.Chiller.123`
+- `deviceModel`, na przykład `Chiller`
 
 `state`Parametr zawiera stan urządzenia obsługiwanego przez usługę symulacji urządzenia.
 
@@ -210,9 +210,9 @@ function main(context, previousState, previousProperties) {
 
 Istnieją trzy funkcje globalne, których można użyć, aby pomóc zaimplementować zachowanie metody:
 
-- `updateState`Aby zaktualizować stan przechowywany przez usługę symulacji.
-- `updateProperty`Aktualizowanie pojedynczej właściwości urządzenia.
-- `sleep`w celu wstrzymania wykonywania w celu symulowania długotrwałego zadania.
+- `updateState` Aby zaktualizować stan przechowywany przez usługę symulacji.
+- `updateProperty` Aktualizowanie pojedynczej właściwości urządzenia.
+- `sleep` w celu wstrzymania wykonywania w celu symulowania długotrwałego zadania.
 
 Poniższy przykład przedstawia skróconą wersję skryptu **IncreasePressure-method.js** używanego przez symulowane urządzenia chłodzenia:
 

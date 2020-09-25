@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: c699186c77bba16e96de2dc8b5968f5a83a5a9ce
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4d00abdd3caf6c77b2227d9edfea3cc23d13e392
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461769"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288226"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse użycie zasobów SQL
 
@@ -29,7 +29,7 @@ Zalecenia dotyczące wyboru idealnej liczby jednostek magazynu danych (jednostek
 
 ### <a name="data-warehouse-units"></a>Jednostki magazynu danych
 
-Synapse Pula SQL reprezentuje kolekcję zasobów analitycznych, które są obsługiwane. Zasoby analityczne są definiowane jako kombinacja procesora CPU, pamięci i operacji we/wy. Te trzy zasoby są powiązane z jednostkami skali obliczeniowej o nazwie jednostki magazynu danych (jednostek dwu). Jednostka DWU to abstrakcyjna, znormalizowana miara zasobów obliczeniowych i wydajności. Zmiana poziomu usługi zmienia liczbę jednostek dwu, które są dostępne dla systemu, co z kolei dostosowuje wydajność i koszt systemu.
+Synapse Pula SQL reprezentuje kolekcję zasobów analitycznych, które są obsługiwane. Zasoby analityczne są definiowane jako kombinacja procesora CPU, pamięci i operacji we/wy. Te trzy zasoby są powiązane z jednostkami skali obliczeniowej o nazwie jednostki magazynu danych (jednostek dwu). Jednostka DWU to abstrakcyjna, znormalizowana miara zasobów obliczeniowych i wydajności. Zmiana poziomu usługi zmienia liczbę jednostek dwu, które są dostępne dla systemu. Z kolei ta zmiana dostosowuje wydajność i koszt systemu.
 
 Aby uzyskać większą wydajność, można zwiększyć liczbę jednostek magazynu danych. W przypadku mniejszej wydajności Zmniejsz liczbę jednostek magazynu danych. Koszty magazynu i mocy obliczeniowej są rozliczane osobno, więc zmiana liczby jednostek magazynu danych nie ma wpływu na koszty magazynu.
 
@@ -81,7 +81,7 @@ Każdy serwer SQL (na przykład myserver.database.windows.net) ma przydział [je
 
 ### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>Oceń liczbę potrzebnych jednostek magazynu danych
 
-Idealna liczba jednostek magazynu danych zależy znacznie od obciążenia i ilości danych załadowanych do systemu.
+Idealna liczba jednostek magazynu danych zależy znacznie od obciążenia i ilości danych, które zostały załadowane do systemu.
 
 Kroki umożliwiające znalezienie najlepszego jednostek dwu dla obciążenia:
 
@@ -124,11 +124,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 Aby zmienić jednostek dwu:
 
-1. Otwórz [Azure Portal](https://portal.azure.com), Otwórz bazę danych, a następnie kliknij pozycję **Skaluj**.
+1. Otwórz [Azure Portal](https://portal.azure.com), Otwórz bazę danych i wybierz pozycję **Skala**.
 
 2. W obszarze **skalowanie**przesuń suwak w lewo lub w prawo, aby zmienić ustawienie jednostek dwu.
 
-3. Kliknij pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij pozycję **tak**, aby potwierdzić, lub **nie**, aby anulować.
+3. Wybierz pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Wybierz pozycję **tak** , aby potwierdzić, lub przycisk **nie** , aby anulować.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -176,9 +176,9 @@ Aby uzyskać więcej przykładów interfejsu API REST, zobacz [interfejsy API RE
 
 ### <a name="check-status-of-dwu-changes"></a>Sprawdź stan zmian jednostek dwu
 
-JEDNOSTEK dwu zmiany mogą potrwać kilka minut. Jeśli skalowanie odbywa się automatycznie, należy rozważyć zaimplementowanie logiki, aby upewnić się, że niektóre operacje zostały zakończone przed przejściem do innej akcji.
+JEDNOSTEK dwu zmiany mogą potrwać kilka minut. W przypadku automatycznego skalowania należy rozważyć zaimplementowanie logiki, aby upewnić się, że niektóre operacje zostały zakończone przed przejściem do innej akcji.
 
-Sprawdzenie stanu bazy danych za pomocą różnych punktów końcowych pozwala na prawidłowe wdrożenie automatyzacji. Portal udostępnia powiadomienie po zakończeniu operacji i bazach danych w bieżącym stanie, ale nie umożliwia programistycznego sprawdzania stanu.
+Sprawdzenie stanu bazy danych za pomocą różnych punktów końcowych pozwala na prawidłowe wdrożenie automatyzacji. Portal udostępnia powiadomienie po zakończeniu operacji i bieżących Stanów baz danych, ale nie umożliwia programistycznego sprawdzania stanu.
 
 Nie można sprawdzić stanu bazy danych dla operacji skalowania w poziomie przy użyciu Azure Portal.
 

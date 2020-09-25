@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 663c07795926b17eb42ff185ca248454c5bc459c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90881842"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287733"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Korzystanie z Azure Cosmos DB przy użyciu Apache Spark w usłudze Azure Synapse link (wersja zapoznawcza)
 
@@ -120,6 +120,8 @@ df.write.format("cosmos.oltp").
     save()
 ```
 
+## <a name="load-streaming-dataframe-from-container"></a>Załaduj ramkę danych przesyłania strumieniowego z kontenera
+W tym gestie użyjesz funkcji przesyłania strumieniowego Spark do ładowania danych z kontenera do ramki danych. Dane będą przechowywane w podstawowym koncie Data Lake (i w systemie plików) podłączonym do obszaru roboczego. 
 > [!NOTE]
 > Jeśli zamierzasz odwoływać się do bibliotek zewnętrznych w Synapse Apache Spark, Dowiedz się więcej [tutaj](#external-library-management). Na przykład jeśli chcesz pozyskać ramkę danych Spark do kontenera Cosmos DB API for Mongo DB, możesz skorzystać z łącznika usługi Mongo DB dla platformy Spark [tutaj](https://docs.mongodb.com/spark-connector/master/).
 

@@ -1,6 +1,6 @@
 ---
 title: Samouczek — Konfigurowanie zasad WAFymi filtrowania geograficznego — drzwi platformy Azure
-description: W ramach tego samouczka nauczysz się tworzyć zasady filtrowania geograficznego i kojarzyć zasady z istniejącym hostem frontonu z systemem frontonu.
+description: W ramach tego samouczka nauczysz się, jak utworzyć zasady WAFego filtrowania geograficznego i skojarzyć je z istniejącym hostem frontonu z przodu.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 20aa038e15b1ae5734ad6f463c6f450368617119
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: f9b5869f7dd472c50ffb2c1c0dce765200f53882
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090038"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324030"
 ---
 # <a name="tutorial-how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Samouczek: jak skonfigurować zasady WAFego filtrowania geograficznego dla drzwi czołowych
 W tym samouczku pokazano, jak utworzyć przykładowe zasady filtrowania geograficznego za pomocą programu Azure PowerShell i skojarzyć je z istniejącym hostem frontonu usługi Front Door. Ta przykładowa zasada filtrowania geograficznego będzie blokować żądania ze wszystkich innych krajów/regionów z wyjątkiem Stany Zjednoczone.

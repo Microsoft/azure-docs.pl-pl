@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 ms.date: 01/14/2020
-ms.openlocfilehash: e5fd842e47c606c8f41aafe72253c1c4a1e885f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa79af1047862e8694fa6342942ffd0793bafcb6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324401"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335011"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>Konfigurowanie i zarządzanie odwołaniem do zawartości — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Ten artykuł zawiera informacje dotyczące różnych przewodników, skryptów i 
 
 - [Konfigurowanie uwierzytelniania Azure Active Directory (Azure AD)](authentication-aad-configure.md)
 - [Konfigurowanie dostępu warunkowego](conditional-access-configure.md)
-- [Uwierzytelnianie wieloskładnikowe usługi Azure AD](authentication-mfa-ssms-overview.md)
+- [Uwierzytelnianie wieloskładnikowe w usłudze Azure AD](authentication-mfa-ssms-overview.md)
 - [Konfigurowanie Multi-Factor Authentication](authentication-mfa-ssms-configure.md)
 - [Konfigurowanie zasad przechowywania danych czasowych](temporal-tables-retention-policy.md)
 - [Konfigurowanie szyfrowania TDE przy usługi BYOK](transparent-data-encryption-byok-configure.md)
@@ -111,7 +111,7 @@ Ten artykuł zawiera informacje dotyczące różnych przewodników, skryptów i 
 
 ## <a name="develop-applications"></a>Tworzenie aplikacji
 
-- [Połączenia](connect-query-content-reference-guide.md#libraries)
+- [Łączność](connect-query-content-reference-guide.md#libraries)
 - [Korzystanie z łącznika Spark](spark-connector.md)
 - [Uwierzytelnianie aplikacji](application-authentication-get-client-id-keys.md)
 - [Korzystanie z usługi Batch w celu uzyskania lepszej wydajności](../performance-improve-use-batching.md)

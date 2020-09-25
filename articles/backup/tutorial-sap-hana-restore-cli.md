@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak przywrócić bazy danych SAP HANA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d0a6cec234c367ceb1c6032e99d64d6ca5bc4805
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 0e524bfe090f0d67b76c13e876f44e83986aeb9e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180273"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334807"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Przywracanie SAP HANA baz danych na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -34,7 +34,7 @@ W tym samouczku założono, że masz bazę danych SAP HANA działającą na masz
 
 ## <a name="view-restore-points-for-a-backed-up-database"></a>Wyświetlanie punktów przywracania dla kopii zapasowej bazy danych
 
-Aby wyświetlić listę wszystkich punktów odzyskiwania dla bazy danych, użyj polecenia [AZ Backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) w następujący sposób:
+Aby wyświetlić listę wszystkich punktów odzyskiwania dla bazy danych, użyj polecenia [AZ Backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) w następujący sposób:
 
 ```azurecli-interactive
 az backup recoverypoint list --resource-group saphanaResourceGroup \
@@ -57,7 +57,7 @@ DefaultRangeRecoveryPoint                                    AzureWorkload      
 Jak widać, Powyższa lista zawiera trzy punkty odzyskiwania: jeden dla pełnych, różnicowych i kopii zapasowych dziennika.
 
 >[!NOTE]
->Możesz również wyświetlić punkty początkowe i końcowe każdego nieuszkodzonego łańcucha kopii zapasowych dziennika za pomocą polecenia [AZ Backup recoverypoint show-log-łańcucha](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) .
+>Możesz również wyświetlić punkty początkowe i końcowe każdego nieuszkodzonego łańcucha kopii zapasowych dziennika za pomocą polecenia [AZ Backup recoverypoint show-log-łańcucha](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) .
 
 ## <a name="prerequisites-to-restore-a-database"></a>Wymagania wstępne dotyczące przywracania bazy danych
 
@@ -74,7 +74,7 @@ Azure Backup można przywrócić SAP HANA baz danych uruchomionych na maszynach 
 * Przywracanie do określonej daty lub czasu (w drugim) przy użyciu kopii zapasowych dziennika. Azure Backup automatycznie określa odpowiednie pełne, różnicowe kopie zapasowe i łańcuch kopii zapasowych dziennika, które są wymagane do przywrócenia w oparciu o wybrany czas.
 * Przywróć do konkretnej pełnej lub różnicowej kopii zapasowej, aby przywrócić do określonego punktu odzyskiwania.
 
-Aby przywrócić bazę danych, użyj polecenia [AZ Restore Restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) , które wymaga obiektu konfiguracji odzyskiwania jako jednego z danych wejściowych. Ten obiekt można wygenerować za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) . Obiekt konfiguracji odzyskiwania zawiera wszystkie szczegóły do wykonania przywracania. Jeden z nich jest trybem przywracania — **OriginalWorkloadRestore** lub **AlternateWorkloadRestore**.
+Aby przywrócić bazę danych, użyj polecenia [AZ Restore Restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) , które wymaga obiektu konfiguracji odzyskiwania jako jednego z danych wejściowych. Ten obiekt można wygenerować za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) . Obiekt konfiguracji odzyskiwania zawiera wszystkie szczegóły do wykonania przywracania. Jeden z nich jest trybem przywracania — **OriginalWorkloadRestore** lub **AlternateWorkloadRestore**.
 
 >[!NOTE]
 > **OriginalWorkloadRestore** — Przywróć dane do tego samego wystąpienia SAP HANA co oryginalne źródło. Ta opcja zastępuje oryginalną bazę danych. <br>
@@ -86,11 +86,11 @@ Aby przywrócić bazę danych do innej lokalizacji, użyj **AlternateWorkloadRes
 
 W tym samouczku przywrócisz do poprzedniego punktu przywracania. [Wyświetl listę punktów przywracania](#view-restore-points-for-a-backed-up-database) bazy danych i wybierz punkt, do którego chcesz przywrócić. W tym samouczku zostanie użyty punkt przywracania o nazwie *7660777527047692711*.
 
-Korzystając z powyższej nazwy punktu przywracania i trybu przywracania, Utwórz teraz obiekt konfiguracji odzyskiwania za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) . Przyjrzyjmy się poszczególnym parametrom w tym poleceniu cmdlet:
+Korzystając z powyższej nazwy punktu przywracania i trybu przywracania, Utwórz teraz obiekt konfiguracji odzyskiwania za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) . Przyjrzyjmy się poszczególnym parametrom w tym poleceniu cmdlet:
 
 * **--Target-Item-Name** Jest to nazwa używana przez przywróconą bazę danych. W takim przypadku użyto nazwy *restored_database*.
 * **--Target-Server-Name** Jest to nazwa serwera SAP HANA, który został pomyślnie zarejestrowany w magazynie Recovery Services i znajduje się w tym samym regionie, w którym znajduje się baza danych, która ma zostać przywrócona. W tym samouczku będziemy przywracać bazę danych na tym samym serwerze SAP HANA, który został objęty ochroną, o nazwie *hxehost*.
-* **--Target-Server-Type** Aby można było przywrócić SAP HANA baz danych, należy użyć **SapHanaDatabase** .
+* **--Target-Server-Type** Aby można było przywrócić SAP HANA baz danych, należy użyć **HANAInstance** .
 
 ```azurecli-interactive
 
@@ -113,7 +113,7 @@ Odpowiedź na powyższe zapytanie będzie obiektem konfiguracji odzyskiwania, kt
 {"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
-Teraz, aby przywrócić bazę danych, uruchom polecenie [AZ Restore Restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) . Aby użyć tego polecenia, wprowadzimy powyższe dane wyjściowe JSON zapisane w pliku o nazwie *recoveryconfig.jsna*.
+Teraz, aby przywrócić bazę danych, uruchom polecenie [AZ Restore Restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) . Aby użyć tego polecenia, wprowadzimy powyższe dane wyjściowe JSON zapisane w pliku o nazwie *recoveryconfig.jsna*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -130,13 +130,13 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 ## <a name="restore-and-overwrite"></a>Przywróć i Zastąp
 
 Aby przywrócić do oryginalnej lokalizacji, użyjemy **OrignialWorkloadRestore** jako trybu przywracania. Następnie należy wybrać punkt przywracania, który może być wcześniejszym punktem w czasie lub dowolnym z poprzednich punktów przywracania.
 
-Na potrzeby tego samouczka wybierzemy poprzedni punkt w czasie "28-11-2019-09:53:00", aby przywrócić wartość. Ten punkt przywracania można podać w następujących formatach: dd-mm-rrrr, dd-mm-rrrr-hh: mm: SS. Aby wybrać prawidłowy punkt w czasie do przywrócenia, użyj polecenia [AZ Backup recoverypoint show-log-łańcucha](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) , które wyświetla listę interwałów tworzenia kopii zapasowych łańcucha dzienników.
+Na potrzeby tego samouczka wybierzemy poprzedni punkt w czasie "28-11-2019-09:53:00", aby przywrócić wartość. Ten punkt przywracania można podać w następujących formatach: dd-mm-rrrr, dd-mm-rrrr-hh: mm: SS. Aby wybrać prawidłowy punkt w czasie do przywrócenia, użyj polecenia [AZ Backup recoverypoint show-log-łańcucha](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) , które wyświetla listę interwałów tworzenia kopii zapasowych łańcucha dzienników.
 
 ```azurecli-interactive
 az backup recoveryconfig show --resource-group saphanaResourceGroup \
@@ -154,7 +154,7 @@ Odpowiedź na powyższe zapytanie będzie obiektem konfiguracji odzyskiwania, kt
 {"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
 ```
 
-Teraz, aby przywrócić bazę danych, uruchom polecenie [AZ Restore Restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) . Aby użyć tego polecenia, wprowadzimy powyższe dane wyjściowe JSON zapisane w pliku o nazwie *recoveryconfig.jsna*.
+Teraz, aby przywrócić bazę danych, uruchom polecenie [AZ Restore Restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) . Aby użyć tego polecenia, wprowadzimy powyższe dane wyjściowe JSON zapisane w pliku o nazwie *recoveryconfig.jsna*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -171,15 +171,15 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 ## <a name="restore-as-files"></a>Przywróć jako pliki
 
 Aby przywrócić dane kopii zapasowej jako pliki zamiast bazy danych, użyjemy **RestoreAsFiles** jako trybu przywracania. Następnie wybierz punkt przywracania, który może być wcześniejszym punktem w czasie lub dowolnym z poprzednich punktów przywracania. Po zrzucie plików do określonej ścieżki można wykonać te pliki na dowolnym komputerze SAP HANA, na którym chcesz je przywrócić jako bazę danych. Ponieważ można przenieść te pliki na dowolną maszynę, można teraz przywrócić dane między subskrypcjami i regionami.
 
-Na potrzeby tego samouczka wybierzemy poprzedni punkt w czasie, w którym ma zostać `28-11-2019-09:53:00` przywrócona wartość, i lokalizacja do zrzutu plików kopii zapasowej `/home/saphana/restoreasfiles` na tym samym serwerze SAP HANA. Ten punkt przywracania można podać w dowolnym z następujących formatów: **dd-mm-rrrr** lub **dd-mm-rrrr-hh: mm: SS**. Aby wybrać prawidłowy punkt w czasie do przywrócenia, użyj polecenia [AZ Backup recoverypoint show-log-łańcucha](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-show-log-chain) , które wyświetla listę interwałów tworzenia kopii zapasowych łańcucha dzienników.
+Na potrzeby tego samouczka wybierzemy poprzedni punkt w czasie, w którym ma zostać `28-11-2019-09:53:00` przywrócona wartość, i lokalizacja do zrzutu plików kopii zapasowej `/home/saphana/restoreasfiles` na tym samym serwerze SAP HANA. Ten punkt przywracania można podać w dowolnym z następujących formatów: **dd-mm-rrrr** lub **dd-mm-rrrr-hh: mm: SS**. Aby wybrać prawidłowy punkt w czasie do przywrócenia, użyj polecenia [AZ Backup recoverypoint show-log-łańcucha](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) , które wyświetla listę interwałów tworzenia kopii zapasowych łańcucha dzienników.
 
-Korzystając z powyższej nazwy punktu przywracania i trybu przywracania, Utwórz obiekt konfiguracji odzyskiwania za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) . Przyjrzyjmy się poszczególnym parametrom w tym poleceniu cmdlet:
+Korzystając z powyższej nazwy punktu przywracania i trybu przywracania, Utwórz obiekt konfiguracji odzyskiwania za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) . Przyjrzyjmy się poszczególnym parametrom w tym poleceniu cmdlet:
 
 * **--Target-Container-Name** Jest to nazwa serwera SAP HANA, który został pomyślnie zarejestrowany w magazynie Recovery Services i znajduje się w tym samym regionie, w którym znajduje się baza danych, która ma zostać przywrócona. W tym samouczku przywrócono bazę danych jako pliki do tego samego serwera SAP HANA, który został objęty ochroną, o nazwie *hxehost*.
 * **--RP-Name** W przypadku przywracania do punktu w czasie nazwa punktu przywracania będzie **DefaultRangeRecoveryPoint**
@@ -216,7 +216,7 @@ Odpowiedź na powyższe zapytanie będzie obiektem konfiguracji odzyskiwania, kt
 }
 ```
 
-Teraz, aby przywrócić bazę danych jako pliki, uruchom polecenie [AZ Restore Restore-azurewl](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurewl) . Aby użyć tego polecenia, wprowadzimy dane wyjściowe JSON powyżej, które są zapisywane w pliku o nazwie *recoveryconfig.jsna*.
+Teraz, aby przywrócić bazę danych jako pliki, uruchom polecenie [AZ Restore Restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) . Aby użyć tego polecenia, wprowadzimy dane wyjściowe JSON powyżej, które są zapisywane w pliku o nazwie *recoveryconfig.jsna*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -267,7 +267,7 @@ Dane wyjściowe będą wyglądać następująco:
 }
 ```
 
-Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do śledzenia stanu zadania za pomocą polecenia [AZ Backup Job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 Pliki, które są zrzucane do kontenera docelowego:
 

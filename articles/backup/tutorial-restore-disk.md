@@ -4,12 +4,12 @@ description: Dowiedz się, jak przywrócić dysk i utworzyć odzyskaną maszynę
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: d93f3d24762f4b9a3da4a9e725d28810f6700fe0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 861c911e84c9de02467d443751902e71d2504422
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890709"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324993"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Przywracanie maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -43,13 +43,13 @@ Po ukończeniu przesyłania danych migawka jest usuwana, a utworzony zostaje pun
 
 Aby przywrócić dysk, należy wybrać punkt odzyskiwania będący źródłem danych do odzyskania. Domyślne zasady przewidują tworzenie punktów odzyskiwania codziennie i przechowywanie ich przez 30 dni, dzięki czemu możesz wybrać określony punkt w czasie do odzyskania z dostępnego zestawu punktów odzyskiwania.
 
-Aby wyświetlić listę dostępnych punktów odzyskiwania, użyj polecenia [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). Do odzyskiwania dysków używana jest **nazwa** punktu odzyskiwania. W tym samouczku użyjemy najnowszego dostępnego punktu odzyskiwania. Parametr `--query [0].name` wybiera nazwę najnowszego punktu odzyskiwania, jak pokazano poniżej:
+Aby wyświetlić listę dostępnych punktów odzyskiwania, użyj polecenia [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list). Do odzyskiwania dysków używana jest **nazwa** punktu odzyskiwania. W tym samouczku użyjemy najnowszego dostępnego punktu odzyskiwania. Parametr `--query [0].name` wybiera nazwę najnowszego punktu odzyskiwania, jak pokazano poniżej:
 
 ```azurecli-interactive
 az backup recoverypoint list \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
-    --backup-management-type AzureIaasVM
+    --backup-management-type AzureIaasVM \
     --container-name myVM \
     --item-name myVM \
     --query [0].name \
@@ -65,7 +65,7 @@ az backup recoverypoint list \
 
 Jeśli kopia zapasowa maszyny wirtualnej ma dyski zarządzane i chcesz przywrócić dyski zarządzane z punktu odzyskiwania, najpierw Podaj konto usługi Azure Storage. To konto magazynu służy do przechowywania konfiguracji maszyny wirtualnej i szablonu wdrożenia, którego można później użyć do wdrożenia maszyny wirtualnej z przywróconych dysków. Następnie podaj docelową grupę zasobów dla dysków zarządzanych, do których mają zostać przywrócone.
 
-1. Aby utworzyć konto magazynu, użyj polecenia [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Nazwa konta magazynu może zawierać tylko małe litery i musi być globalnie unikatowa. Zastąp ciąg *mystorageaccount* własną unikatową nazwą:
+1. Aby utworzyć konto magazynu, użyj polecenia [az storage account create](/cli/azure/storage/account#az-storage-account-create). Nazwa konta magazynu może zawierać tylko małe litery i musi być globalnie unikatowa. Zastąp ciąg *mystorageaccount* własną unikatową nazwą:
 
     ```azurecli-interactive
     az storage account create \
@@ -74,7 +74,7 @@ Jeśli kopia zapasowa maszyny wirtualnej ma dyski zarządzane i chcesz przywróc
         --sku Standard_LRS
     ```
 
-2. Przywróć dysk z punktu odzyskiwania, uruchamiając polecenie [az backup restore restore-disks](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Zastąp ciąg *mystorageaccount* nazwą konta magazynu utworzonego przy użyciu poprzedniego polecenia. Zastąp *ciąg myrecoverypointname nazwą* nazwą punktu odzyskiwania uzyskaną w danych wyjściowych z poprzedniego polecenia [AZ Backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) . ***Podaj również docelową grupę zasobów, do której zostaną przywrócone dyski zarządzane***.
+2. Przywróć dysk z punktu odzyskiwania, uruchamiając polecenie [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Zastąp ciąg *mystorageaccount* nazwą konta magazynu utworzonego przy użyciu poprzedniego polecenia. Zastąp *ciąg myrecoverypointname nazwą* nazwą punktu odzyskiwania uzyskaną w danych wyjściowych z poprzedniego polecenia [AZ Backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) . ***Podaj również docelową grupę zasobów, do której zostaną przywrócone dyski zarządzane***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -109,7 +109,7 @@ Jeśli kopia zapasowa maszyny wirtualnej zawiera dyski niezarządzane i chcesz p
 
 Dodatkowe czynności obejmują tworzenie maszyny wirtualnej przy użyciu przywróconego dysku.
 
-1. Aby utworzyć konto magazynu, użyj polecenia [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Nazwa konta magazynu może zawierać tylko małe litery i musi być globalnie unikatowa. Zastąp ciąg *mystorageaccount* własną unikatową nazwą:
+1. Aby utworzyć konto magazynu, użyj polecenia [az storage account create](/cli/azure/storage/account#az-storage-account-create). Nazwa konta magazynu może zawierać tylko małe litery i musi być globalnie unikatowa. Zastąp ciąg *mystorageaccount* własną unikatową nazwą:
 
     ```azurecli-interactive
     az storage account create \
@@ -118,7 +118,7 @@ Dodatkowe czynności obejmują tworzenie maszyny wirtualnej przy użyciu przywr�
         --sku Standard_LRS
     ```
 
-2. Przywróć dysk z punktu odzyskiwania, uruchamiając polecenie [az backup restore restore-disks](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Zastąp ciąg *mystorageaccount* nazwą konta magazynu utworzonego przy użyciu poprzedniego polecenia. Zastąp ciąg *myRecoveryPointName* nazwą punktu odzyskiwania uzyskaną wcześniej przy użyciu polecenia [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list):
+2. Przywróć dysk z punktu odzyskiwania, uruchamiając polecenie [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Zastąp ciąg *mystorageaccount* nazwą konta magazynu utworzonego przy użyciu poprzedniego polecenia. Zastąp ciąg *myRecoveryPointName* nazwą punktu odzyskiwania uzyskaną wcześniej przy użyciu polecenia [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list):
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -145,7 +145,7 @@ Jak wspomniano powyżej, dyski niezarządzane zostaną przywrócone do oryginaln
 
 ## Monitor the restore job
 
-To monitor the status of restore job, use [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
+To monitor the status of restore job, use [az backup job list](/cli/azure/backup/job#az-backup-job-list):
 
 ```azurecli-interactive
 az backup job list \
@@ -181,7 +181,7 @@ az backup job show \
     -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
 ```
 
-Dane wyjściowe tego zapytania będą zawierać wszystkie szczegóły, ale interesuje tylko zawartość konta magazynu. Można użyć [funkcji zapytania](/cli/azure/query-azure-cli?view=azure-cli-latest) interfejsu wiersza polecenia platformy Azure, aby pobrać odpowiednie szczegóły
+Dane wyjściowe tego zapytania będą zawierać wszystkie szczegóły, ale interesuje tylko zawartość konta magazynu. Można użyć [funkcji zapytania](/cli/azure/query-azure-cli) interfejsu wiersza polecenia platformy Azure, aby pobrać odpowiednie szczegóły
 
 ```azurecli-interactive
 az backup job show \
@@ -258,7 +258,7 @@ az group deployment create \
   --template-uri $url?$token
 ```
 
-Aby potwierdzić utworzenie maszyny wirtualnej na podstawie odzyskanego dysku, wyświetl listę maszyn wirtualnych w grupie zasobów przy użyciu polecenia [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list), jak pokazano poniżej:
+Aby potwierdzić utworzenie maszyny wirtualnej na podstawie odzyskanego dysku, wyświetl listę maszyn wirtualnych w grupie zasobów przy użyciu polecenia [az vm list](/cli/azure/vm#az-vm-list), jak pokazano poniżej:
 
 ```azurecli-interactive
 az vm list --resource-group myResourceGroup --output table

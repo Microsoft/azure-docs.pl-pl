@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 8c49f751bae048d2faf7047e538eebcac5d818b5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658725"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325168"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Co to jest pula wystąpień zarządzanych Azure SQL (wersja zapoznawcza)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -113,7 +113,7 @@ Opcjonalne funkcje lub funkcje, które wymagają wybrania określonych wartości
 
 Chociaż wystąpienia zarządzane w ramach pul mają dedykowany rdzeń wirtualny i pamięć RAM, współużytkują dysk lokalny (na potrzeby użycia bazy danych tempdb) i zasoby sieciowe. Prawdopodobnie nie jest to możliwe, ale można napotkać efekt *sąsiedniego szumu* , jeśli wiele wystąpień w puli ma duże zużycie zasobów w tym samym czasie. W przypadku zaobserwowania tego zachowania należy rozważyć wdrożenie tych wystąpień do większej puli lub jako pojedyncze wystąpienia.
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 Ponieważ wystąpienia wdrożone w puli współużytkują tę samą maszynę wirtualną, warto rozważyć wyłączenie funkcji, które wprowadzają wyższe zagrożenia bezpieczeństwa lub w celu uzyskania prawidłowej kontroli uprawnień dostępu do tych funkcji. Na przykład integracja środowiska CLR, natywne wykonywanie kopii zapasowych i przywracanie, poczta e-mail bazy danych itp.
 
