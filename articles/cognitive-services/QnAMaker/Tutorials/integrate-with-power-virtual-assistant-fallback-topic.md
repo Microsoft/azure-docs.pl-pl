@@ -3,12 +3,12 @@ title: 'Samouczek: integracja z dodatkami do zaawansowanych agentów — QnA Mak
 description: W tym samouczku poprawisz jakość bazy wiedzy o aktywnej uczeniu. Przejrzyj, zaakceptuj lub Odrzuć lub Dodaj bez usuwania lub zmiany istniejących pytań.
 ms.topic: tutorial
 ms.date: 06/08/2020
-ms.openlocfilehash: f1d51f6ad8892252161238eb71fbb02f463463fd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6d00833a1331ebca9b070d90f32ee30c56bd5f96
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84635391"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319218"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Samouczek: Dodawanie bazy wiedzy do zaawansowanych agentów
 Utwórz i zwiększ [możliwości bot agentów wirtualnych](https://powervirtualagents.microsoft.com/) w celu zapewnienia odpowiedzi z bazy wiedzy.
@@ -152,7 +152,7 @@ Poniższa procedura umożliwia utworzenie przepływu automatyzacji, który:
 1. Wybierz pole **Generuj akcję odpowiedzi** i wypełnij ustawienia QNA Maker w poprzedniej sekcji zatytułowanej [Tworzenie i publikowanie bazy wiedzy](#create-and-publish-a-knowledge-base). Twój **host usługi** na poniższej ilustracji odwołuje się do Twojego **hosta** hosta bazy wiedzy i ma format `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker` .
 
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="Częściowy zrzut ekranu przedstawiający przepływ szablonu QnA Maker z wyróżnionym przyciskiem Kontynuuj.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="Częściowo zrzut ekranu przedstawiający przepływ szablonu QnA Maker z wyróżnioną opcją Generuj odpowiedź (wersja zapoznawcza).":::
 
 1. Aby zapisać zmiany, wybierz opcję **Zapisz**.
 
@@ -192,17 +192,17 @@ Aby Agent mógł znaleźć i połączyć się z przepływem, przepływ musi być
 
 1. Aby prawidłowo ustawić zmienną wejściową dla akcji QnA Maker, wybierz pozycję **Wybierz zmienną**, a następnie wybierz pozycję **bot. UnrecognizedTriggerPhrase**.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="Częściowy zrzut ekranu kanwy konwersacji w temacie Wybieranie zmiennej wejściowej.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="Częściowy zrzut ekranu kanwy konwersacji w temacie "Wybieranie zmiennej wejściowej".":::
 
 
 1. Aby prawidłowo ustawić zmienną wyjściową dla akcji QnA Maker, w akcji **komunikat** wybierz pozycję **UnrecognizedTriggerPhrase**, a następnie wybierz ikonę, aby wstawić zmienną, `{x}` a następnie wybierz pozycję **FinalAnswer**.
 
 1. Na pasku narzędzi kontekstu wybierz pozycję **Zapisz**, aby zapisać szczegóły kanwy tworzenia dla tematu.
 
-Poniżej przedstawiono ostateczną kanwę agenta.
+Oto jak wygląda Ostatnia Kanwa agenta.
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu przedstawiający końcową kanwę agenta](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
+> ![Zrzut ekranu przedstawia kanwę agenta końcowego z frazami wyzwalacza, akcją, a następnie sekcjami komunikatów.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
 
 ## <a name="test-the-agent"></a>Testowanie agenta
 
@@ -244,7 +244,7 @@ Aby udostępnić witrynę internetową demonstracyjną, skonfiguruj ją jako kan
 
 1. Skopiuj link i wybierz pozycję **Zapisz**. Wklej link do witryny internetowej demonstracyjnej w wiadomości e-mail do członków Twojej szkoły lub organizacji.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z bazą wiedzy Usuń QnA Maker zasoby z Azure Portal.
 

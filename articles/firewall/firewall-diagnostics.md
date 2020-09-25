@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/17/2020
 ms.author: victorh
-ms.openlocfilehash: 92fc4252dd52236e2cc4e8fdfdd2afa32059a721
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 784459282007edab599d54edff0d2b38eed07b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320646"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorowanie dzienników i metryk usługi Azure Firewall
 
@@ -35,14 +35,17 @@ Od wykonania tej procedury w celu włączenia rejestrowania diagnostycznego moż
 1. W Azure Portal Otwórz grupę zasobów zapory i wybierz zaporę.
 2. W obszarze **Monitorowanie** wybierz pozycję **Ustawienia diagnostyczne**.
 
-   W przypadku usługi Azure Firewall są dostępne dwa dzienniki specyficzne dla usługi:
+   W przypadku zapory platformy Azure dostępne są cztery dzienniki specyficzne dla usługi:
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule
+   * AzureFirewallThreatIntelLog
+   * AzureFirewallDnsProxy
+
 
 3. Wybierz pozycję **Dodaj ustawienie diagnostyczne**. Strona **Ustawienia diagnostyczne** zawiera ustawienia dzienników diagnostycznych.
 5. W tym przykładzie dzienniki są przechowywane w dziennikach usługi Azure Monitor, więc wpisz nazwę **Firewall log analytics**.
-6. W obszarze **Dziennik**wybierz pozycję **AzureFirewallApplicationRule** i **AzureFirewallNetworkRule** , aby zebrać dzienniki dla reguł aplikacji i sieci.
+6. W **obszarze Dziennik**wybierz pozycję **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog**i **AzureFirewallDnsProxy** , aby zebrać dzienniki.
 7. Wybierz pozycję **Wyślij do log Analytics** , aby skonfigurować obszar roboczy.
 8. Wybierz subskrypcję.
 9. Wybierz pozycję **Zapisz**.

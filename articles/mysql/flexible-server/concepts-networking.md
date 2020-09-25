@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 550f3367fe2e5283aff788b36203e988361590ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/23/2020
+ms.openlocfilehash: 4eb9ffceada245f7a7f4b2631a79330fb497a452
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937120"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331730"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Pojęcia dotyczące łączności i sieci dla Azure Database for MySQL-elastyczny serwer (wersja zapoznawcza)
 
@@ -62,6 +62,8 @@ Poniżej przedstawiono kilka koncepcji, które należy znać w przypadku używan
 
    Serwer elastyczny MySQL musi znajdować się w podsieci **delegowanej** tylko do użytku elastycznego serwera MySQL. Ta delegacja oznacza, że tylko usługa Azure Database for MySQL — elastyczny serwer może korzystać z tej podsieci. W podsieci delegowanej nie mogą znajdować się żadne inne typy zasobów platformy Azure. Delegowanie podsieci przez przypisanie jej właściwości delegowania jako Microsoft. DBforMySQL/flexibleServers.
 
+* **Sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń)** Reguły zabezpieczeń w sieciowych grupach zabezpieczeń umożliwiają filtrowanie typu ruchu sieciowego, który może przepływać do i z podsieci sieci wirtualnej i interfejsów sieciowych. Aby uzyskać więcej informacji, zapoznaj się z [omówieniem sieciowej grupy zabezpieczeń](../../virtual-network/network-security-groups-overview.md) .
+
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Nieobsługiwane scenariusze sieci wirtualnej
 * Publiczny punkt końcowy (lub publiczny adres IP lub DNS) — elastyczny serwer wdrożony w sieci wirtualnej nie może mieć publicznego punktu końcowego
@@ -108,11 +110,9 @@ Podczas uzyskiwania dostępu do bazy danych programu Microsoft Azure dla usługi
 ## <a name="hostname"></a>Hostname (Nazwa hosta)
 Niezależnie od wybranej opcji sieci zalecamy zawsze używać w pełni kwalifikowanej nazwy domeny (FQDN) jako nazwy hosta podczas łączenia się z serwerem elastycznym. Adres IP serwera nie musi pozostać statyczny. Użycie nazwy FQDN pomoże uniknąć wprowadzania zmian w parametrach połączenia. 
 
-W przypadku, gdy jest używana strefa nadmiarowa o dużej dostępności i przełączenie w tryb failover odbywa się między podstawowym i pomocniczym. Przy użyciu nazwy FQDN można bezproblemowo ponawiać próby połączeń z tymi samymi parametrami połączenia.
-
 Przykład
 * Rekomendowane `hostname = servername.mysql.database.azure.com`
-* Unikaj używania `hostname = 10.0.0.4` (adresu prywatnego) lub `hostname = 40.2.45.67` (Public IP)
+* Tam, gdzie to możliwe, Unikaj używania `hostname = 10.0.0.4` (adresu prywatnego) lub `hostname = 40.2.45.67` (publiczny adres IP)
 
 
 

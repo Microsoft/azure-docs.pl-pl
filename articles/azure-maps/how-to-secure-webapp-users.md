@@ -5,17 +5,17 @@ description: Jak skonfigurować aplikację sieci Web, która obsługuje logowani
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: devx-track-javascript
-ms.openlocfilehash: b86a8f726c039e3fa909cdc6f3f7b33b7c9c01ff
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: 50194341d1d34da4b02558461f532ae64b941b16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279750"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319626"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Zabezpieczanie aplikacji sieci Web przy użyciu logowania użytkownika
 

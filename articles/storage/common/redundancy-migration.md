@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 09/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ca9a796483c52e2e74231dfcbb67a72b913d35d7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f570f13fd39bd25b37c35a2c823e64eaa02fef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072999"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295400"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Zmień sposób replikowania konta magazynu
 
@@ -39,8 +39,8 @@ Poniższa tabela zawiera omówienie sposobu przełączania poszczególnych typó
 
 | Włączanie | ... do LRS | ... do GRS/RA-GRS | ... do ZRS | ... do GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... z LRS</b> | Nie dotyczy | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia<sup>1</sup> | Przeprowadź migrację ręczną <br /><br />Żądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do GRS/RA-GRS, a następnie Zażądaj migracji na żywo<sup>1</sup> |
-| <b>... z GRS/RA-GRS</b> | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Nie dotyczy | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do LRS, a następnie Zażądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> Żądaj migracji na żywo |
+| <b>... z LRS</b> | Nie dotyczy | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia<sup>1</sup> | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do GRS/RA-GRS, a następnie Zażądaj migracji na żywo<sup>1</sup> |
+| <b>... z GRS/RA-GRS</b> | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Nie dotyczy | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do LRS, a następnie Zażądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo |
 | <b>... z ZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Nie dotyczy | Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby zmienić ustawienie replikacji<sup>1, 2</sup> |
 | <b>... z GZRS/RA-GZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Nie dotyczy |
 
@@ -48,11 +48,11 @@ Poniższa tabela zawiera omówienie sposobu przełączania poszczególnych typó
 <sup>2</sup> konwersja z ZRS na GZRS/RA-GZRS lub odwrotnie nie jest obsługiwana w następujących regionach: Wschodnie stany USA 2, Wschodnie stany USA, Europa Zachodnia.
 
 > [!CAUTION]
-> W przypadku przełączenia w [tryb failover konta](storage-disaster-recovery-guidance.md) dla konta usługi (Ra-) GRS lub (Ra-) GZRS konto jest lokalnie nadmiarowy w nowym regionie podstawowym po przejściu do trybu failover. Migracja na żywo do ZRS lub GZRS dla konta LRS, które wynika z trybu failover, nie jest obsługiwana. Konieczne będzie przeprowadzenie [ręcznej migracji](#perform-a-manual-migration-to-zrs) do ZRS lub GZRS.
+> W przypadku przełączenia w [tryb failover konta](storage-disaster-recovery-guidance.md) dla konta usługi (Ra-) GRS lub (Ra-) GZRS konto jest lokalnie nadmiarowy w nowym regionie podstawowym po przejściu do trybu failover. Migracja na żywo do ZRS lub GZRS dla konta LRS, które wynika z trybu failover, nie jest obsługiwana. Jest to prawdziwe nawet w przypadku tego typu operacji powrotu po awarii. Na przykład w przypadku przełączenia w tryb failover konta z usługi RA-GZRS do LRS w regionie pomocniczym, a następnie skonfigurowania go ponownie w usłudze RA-GRS i przełączenia w tryb failover do oryginalnego regionu podstawowego nie można skontaktować się z pomocą techniczną dla oryginalnej migracji na żywo do urzędu RA-GZRS w regionie podstawowym. Zamiast tego należy przeprowadzić migrację ręczną do ZRS lub GZRS.
 
 ## <a name="change-the-replication-setting"></a>Zmień ustawienie replikacji
 
-Przy użyciu interfejsu wiersza polecenia Azure Portal, PowerShell lub platformy Azure można zmienić ustawienie replikacji dla konta magazynu, o ile nie zmienia się sposób replikowania danych w regionie podstawowym. W przypadku migrowania z programu LRS w regionie podstawowym do ZRS w regionie podstawowym lub na odwrót, należy przeprowadzić [migrację ręczną](#perform-a-manual-migration-to-zrs) lub [migrację na żywo](#request-a-live-migration-to-zrs).
+Przy użyciu interfejsu wiersza polecenia Azure Portal, PowerShell lub platformy Azure można zmienić ustawienie replikacji dla konta magazynu, o ile nie zmienia się sposób replikowania danych w regionie podstawowym. W przypadku migrowania z programu LRS w regionie podstawowym do ZRS w regionie podstawowym lub na odwrót, należy przeprowadzić migrację ręczną lub migrację na żywo.
 
 Zmiana sposobu replikowania konta magazynu nie powoduje wyłączenia aplikacji.
 
@@ -89,7 +89,7 @@ az storage account update \
 
 ---
 
-## <a name="perform-a-manual-migration-to-zrs"></a>Przeprowadź ręczną migrację do ZRS
+## <a name="perform-a-manual-migration-to-zrs-gzrs-or-ra-gzrs"></a>Wykonaj ręczną migrację do ZRS, GZRS lub RA-GZRS
 
 Jeśli chcesz zmienić sposób replikowania danych z konta magazynu w regionie podstawowym, przechodząc od LRS do ZRS lub odwrotnie, można wybrać migrację ręczną. Migracja ręczna zapewnia większą elastyczność niż migracja na żywo. Możesz kontrolować chronometraż migracji ręcznej, dlatego użyj tej opcji, jeśli chcesz przeprowadzić migrację w określonym dniu.
 
@@ -102,9 +102,11 @@ W przypadku ręcznej migracji dane z istniejącego konta magazynu są kopiowane 
 - Skopiuj dane przy użyciu istniejącego narzędzia, takiego jak AzCopy, jednej z bibliotek klienta usługi Azure Storage lub niezawodnego narzędzia innej firmy.
 - Jeśli znasz już usługi Hadoop lub HDInsight, możesz dołączyć do klastra zarówno konto magazynu źródłowego, jak i docelowe konto magazynu. Następnie zrównoleglanie proces kopiowania danych za pomocą narzędzia, takiego jak pomocą distcp.
 
-## <a name="request-a-live-migration-to-zrs"></a>Zażądaj migracji na żywo do ZRS
+## <a name="request-a-live-migration-to-zrs-gzrs-or-ra-gzrs"></a>Zażądaj migracji na żywo do ZRS, GZRS lub RA-GZRS
 
-Jeśli musisz przeprowadzić migrację konta magazynu z usługi LRS lub GRS do ZRS w regionie podstawowym bez przestojów aplikacji, możesz zażądać migracji na żywo od firmy Microsoft. Podczas migracji na żywo możesz uzyskać dostęp do danych na koncie magazynu i bez utraty trwałości ani dostępności. Umowa SLA usługi Azure Storage jest utrzymywana podczas procesu migracji. Brak utraty danych skojarzonej z migracją na żywo. Punkty końcowe usługi, klucze dostępu, sygnatury dostępu współdzielonego i inne opcje konta pozostają bez zmian po migracji.
+Jeśli musisz przeprowadzić migrację konta magazynu z usługi LRS do ZRS w regionie podstawowym bez przestojów aplikacji, możesz zażądać migracji na żywo od firmy Microsoft. Aby przeprowadzić migrację z LRS do GZRS lub RA-GZRS, najpierw Przełącz się do GRS lub RA-GRS, a następnie Zażądaj migracji na żywo. Podobnie można zażądać migracji na żywo z GRS lub RA-GRS do GZRS lub RA-GZRS. Aby przeprowadzić migrację z usługi GRS lub RA-GRS do usługi ZRS, najpierw Przełącz się do LRS, a następnie Zażądaj migracji na żywo.
+
+Podczas migracji na żywo możesz uzyskać dostęp do danych na koncie magazynu bez utraty trwałości ani dostępności. Umowa SLA usługi Azure Storage jest utrzymywana podczas procesu migracji. Brak utraty danych skojarzonej z migracją na żywo. Punkty końcowe usługi, klucze dostępu, sygnatury dostępu współdzielonego i inne opcje konta pozostają bez zmian po migracji.
 
 ZRS obsługuje tylko konta ogólnego przeznaczenia w wersji 2, dlatego pamiętaj, aby uaktualnić konto magazynu przed przesłaniem żądania migracji na żywo do ZRS. Aby uzyskać więcej informacji, zobacz [uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2](storage-account-upgrade.md). Konto magazynu musi zawierać dane, które mają zostać zmigrowane za pośrednictwem migracji na żywo.
 
@@ -123,16 +125,16 @@ Możesz zażądać migracji na żywo za pomocą [portalu pomocy technicznej syst
 
 1. Wybierz **nowe żądanie obsługi**
 2. Wypełnij **podstawowe** informacje na podstawie informacji o koncie. W sekcji **Usługa** wybierz pozycję **Zarządzanie kontem magazynu** i zasób, który chcesz przekonwertować na ZRS.
-3. Wybierz pozycję **Next** (Dalej).
+3. Wybierz opcję **Dalej**.
 4. Określ następujące wartości w sekcji **problem** :
     - **Ważność**: pozostaw wartość domyślną równą-is.
     - **Typ problemu**: wybierz pozycję **migracja danych**.
     - **Kategoria**: wybierz pozycję **Migruj do ZRS**.
     - **Title**: wpisz opisowy tytuł, na przykład **ZRS**.
     - **Szczegóły**: wpisz dodatkowe szczegóły w polu **szczegóły** , na przykład chcę przeprowadzić migrację do ZRS z [LRS, GRS] w \_ \_ regionie.
-5. Wybierz pozycję **Next** (Dalej).
+5. Wybierz opcję **Dalej**.
 6. Sprawdź, czy informacje kontaktowe są poprawne w bloku **informacje kontaktowe** .
-7. Wybierz pozycję **Utwórz**.
+7. Wybierz przycisk **Utwórz**.
 
 Osoba odpowiedzialna za pomoc techniczną skontaktuje się z Tobą i pomoże Ci uzyskać pomoc.
 

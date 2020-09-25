@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 4d0800ff8a35c5c91b067a85dfcc089f2e343d1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86090968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319082"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Zestaw Batch Processing Kit dla kontenerów mowy
 
@@ -23,9 +23,9 @@ Użyj zestawu Batch Processing, aby uzupełnić i skalować obciążenia w konte
 
 :::image type="content" source="media/containers/general-diagram.png" alt-text="Diagram przedstawiający przykładowy przepływ pracy kontenera zestawu Partia zadań.":::
 
-Kontener zestawu Batch jest dostępny bezpłatnie w witrynie [GitHub](https://github.com/microsoft/batch-processing-kit) i w usłudze [Docker Hub](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). [Opłaty są naliczane](speech-container-howto.md#billing) tylko za używane kontenery mowy.
+Kontener zestawu Batch jest dostępny bezpłatnie w witrynie [GitHub](https://github.com/microsoft/batch-processing-kit) i w usłudze   [Docker Hub](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). [Opłaty są naliczane](speech-container-howto.md#billing) tylko za używane kontenery mowy.
 
-| Cecha  | Opis  |
+| Cechy  | Opis  |
 |---------|---------|
 | Dystrybucja plików audio wsadowych     | Automatyczne wysyłanie dużej liczby plików do lokalnych lub opartych na chmurze punktów końcowych kontenerów mowy. Pliki mogą znajdować się na dowolnym woluminie zgodnym ze standardem POSIX, w tym z systemem plików sieciowych.       |
 | Integracja z zestawem SDK mowy | Przekazuj typowe flagi do zestawu Speech SDK, w tym: n-najlepsze z nich, diarization, język, maskowanie wulgarności.  |
@@ -35,7 +35,7 @@ Kontener zestawu Batch jest dostępny bezpłatnie w witrynie [GitHub](https://gi
 | Wymiana gorąca punktu końcowego | Dodaj, Usuń lub Modyfikuj punkty końcowe kontenera mowy w czasie wykonywania bez przerywania postępów partii. Aktualizacje są natychmiastowe. |
 | Rejestrowanie w czasie rzeczywistym | Rejestrowanie próbnych żądań, sygnatur czasowych i przyczyn niepowodzenia w czasie rzeczywistym przy użyciu plików dziennika zestawu Speech SDK dla każdego pliku dźwiękowego. |
 
-## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą `docker pull`
 
 Użyj [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) polecenie, aby pobrać najnowszy kontener zestawu Batch Kit.
 
@@ -76,6 +76,8 @@ Klient usługi Batch może dynamicznie wykryć, czy punkt końcowy stanie się n
 > * Ten przykład używa tego samego katalogu ( `/my_nfs` ) dla pliku konfiguracji oraz katalogów danych wejściowych, wyjściowych i dzienników. Dla tych folderów można użyć katalogów zainstalowanych w środowisku hostowanym lub w systemie plików NFS.
 > * Uruchomienie klienta przy użyciu programu `–h` spowoduje wyświetlenie listy dostępnych parametrów wiersza polecenia i ich wartości domyślnych. 
 
+
+#### <a name="linux"></a>[Linux](#tab/linux)
 Użyj polecenia Docker, `run` Aby uruchomić kontener. Spowoduje to uruchomienie interaktywnej powłoki wewnątrz kontenera.
 
 ```Docker
@@ -94,6 +96,18 @@ Aby uruchomić klienta i kontener w usłudze Batch w pojedynczym poleceniu:
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
+#### <a name="windows"></a>[Windows](#tab/windows)
+
+Aby uruchomić klienta i kontener w usłudze Batch w pojedynczym poleceniu:
+
+```Docker
+docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
+
+```
+
+---
+
+
 Klient zacznie działać. Jeśli plik dźwiękowy został już uzyskanego w poprzednim uruchomieniu, klient automatycznie pominie ten plik. Pliki są wysyłane z automatycznym ponowieniem próby w przypadku wystąpienia błędów przejściowych. można odróżnić między innymi błędy, które mają być ponownie podejmowane przez klienta. Po błędzie transkrypcji klient będzie kontynuował transkrypcję i może ponowić próbę bez utraty postępu.  
 
 ## <a name="run-modes"></a>Tryby uruchamiania 
@@ -102,7 +116,7 @@ Zestaw Batch Processing Kit oferuje trzy tryby, przy użyciu `--run-mode` parame
 
 #### <a name="oneshot"></a>[Oneshot](#tab/oneshot)
 
-`ONESHOT`Tryb przekształca pojedynczej partii plików audio (z katalogu wejściowego i opcjonalnej listy plików) do folderu wyjściowego.
+`ONESHOT` Tryb przekształca pojedynczej partii plików audio (z katalogu wejściowego i opcjonalnej listy plików) do folderu wyjściowego.
 
 :::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Diagram przedstawiający pliki przetwarzania kontenerów zestawu wsadowego w trybie OneShot.":::
 
@@ -117,7 +131,7 @@ Zestaw Batch Processing Kit oferuje trzy tryby, przy użyciu `--run-mode` parame
 > [!TIP]
 > Jeśli w tym samym czasie dodawane są wiele plików, można zwiększyć wydajność, zamiast dodawać je w regularnych odstępach czasu.
 
-`DAEMON`Tryb przekształca istniejące pliki w danym folderze i ciągle przekształca nowe pliki audio w miarę ich dodawania.          
+`DAEMON` Tryb przekształca istniejące pliki w danym folderze i ciągle przekształca nowe pliki audio w miarę ich dodawania.          
 
 :::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Diagram przedstawiający pliki przetwarzania kontenerów zestawu wsadowego w trybie demona.":::
 
@@ -130,14 +144,14 @@ Zestaw Batch Processing Kit oferuje trzy tryby, przy użyciu `--run-mode` parame
 
 #### <a name="rest"></a>[REST](#tab/rest)
 
-`REST`Tryb to tryb serwera interfejsu API, który zapewnia podstawowy zestaw punktów końcowych HTTP na potrzeby przesłania wsadowego plików audio, sprawdzania stanu i długiego sondowania. Włącza również programistyczne użycie przy użyciu rozszerzenia modułu języka Python lub importowania jako modułu podrzędnego.
+`REST` Tryb to tryb serwera interfejsu API, który zapewnia podstawowy zestaw punktów końcowych HTTP na potrzeby przesłania wsadowego plików audio, sprawdzania stanu i długiego sondowania. Włącza również programistyczne użycie przy użyciu rozszerzenia modułu języka Python lub importowania jako modułu podrzędnego.
 
 :::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Diagram przedstawiający pliki przetwarzania kontenerów zestawu wsadowego w trybie demona.":::
 
 1. Zdefiniuj punkty końcowe kontenera mowy, które będą używane przez klienta programu Batch w `config.yaml` pliku. 
 2. Wyślij żądanie HTTP do jednego z punktów końcowych serwera interfejsu API. 
         
-    |Endpoint  |Opis  |
+    |Punkt końcowy  |Opis  |
     |---------|---------|
     |`/submit`     | Punkt końcowy do tworzenia nowych żądań wsadowych.        |
     |`/status`     | Punkt końcowy do sprawdzania stanu żądania usługi Batch. Połączenie pozostanie otwarte do momentu zakończenia zadania wsadowego.       |

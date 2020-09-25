@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: ce0e03407349505d54aeb22b164fa8593446967d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653033"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319796"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Konfiguracja infrastruktury Application Gateway
 
@@ -20,10 +20,10 @@ Infrastruktura bramy aplikacji obejmuje sieć wirtualną, podsieci, sieciowe gru
 
 ## <a name="virtual-network-and-dedicated-subnet"></a>Sieć wirtualna i podsieć dedykowana
 
-Brama aplikacji to dedykowane wdrożenie w sieci wirtualnej. W ramach sieci wirtualnej wymagana jest dedykowana podsieć dla bramy aplikacji. W podsieci można mieć wiele wystąpień danego wdrożenia bramy aplikacji. Możesz również wdrożyć inne bramy aplikacji w podsieci. Nie można jednak wdrożyć żadnego innego zasobu w podsieci bramy aplikacji.
+Brama aplikacji to dedykowane wdrożenie w sieci wirtualnej. W ramach sieci wirtualnej wymagana jest dedykowana podsieć dla bramy aplikacji. W podsieci można mieć wiele wystąpień danego wdrożenia bramy aplikacji. Możesz również wdrożyć inne bramy aplikacji w podsieci. Nie można jednak wdrożyć żadnego innego zasobu w podsieci bramy aplikacji. Nie można mieszać Standard_v2 i standardowego Application Gateway platformy Azure w tej samej podsieci.
 
 > [!NOTE]
-> Nie można mieszać Standard_v2 i standardowego Application Gateway platformy Azure w tej samej podsieci.
+> [Zasady punktu końcowego usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoint-policies-overview.md) nie są obecnie obsługiwane w podsieci Application Gateway.
 
 ### <a name="size-of-the-subnet"></a>Rozmiar podsieci
 

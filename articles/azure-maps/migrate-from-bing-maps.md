@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 643e49bdba76051c873ed549d5f6c21487f34056
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: b0c23955248a3468ee6bd624ebf7281bc6c3c961
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108799"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319609"
 ---
 # <a name="migrate-from-bing-maps-to-azure-maps"></a>Migrowanie z usługi mapy Bing do Azure Maps
 
@@ -36,7 +36,7 @@ Poniższa tabela zawiera listę funkcji mapy Bing na wysokim poziomie oraz pomoc
 | PLATFORMY UWP SDK                               | Planowany            |
 | ZESTAW WPF SDK                               | Planowany            |
 | Interfejsy API usługi REST                     | ✓                  |
-| Automatycznego sugerowania                           | ✓                  |
+| Automatyczne sugerowanie                           | ✓                  |
 | Kierunki (w tym ciężarówka)          | ✓                  |
 | Macierz odległości                       | ✓                  |
 | Podniesienia                            | Planowany            |
@@ -52,7 +52,7 @@ Poniższa tabela zawiera listę funkcji mapy Bing na wysokim poziomie oraz pomoc
 | Data Services przestrzenne           | Częściowe            |
 | Strefa czasowa                             | ✓                  |
 | Zdarzenia dotyczące ruchu                     | ✓                  |
-| Mapy oparte na konfiguracji             | Brak                |
+| Mapy oparte na konfiguracji             | Nie dotyczy                |
 
 Usługi mapy Bing zapewniają podstawowe uwierzytelnianie oparte na kluczach. Azure Maps zapewnia zarówno podstawowe uwierzytelnianie oparte na kluczach, jak i wysoce bezpieczne, Azure Active Directory uwierzytelnianie.
 
@@ -81,6 +81,15 @@ Poniżej znajduje się plan migracji wysokiego poziomu.
 4.  Migruj kod aplikacji.
 5.  Przetestuj zmigrowane aplikacje.
 6.  Wdróż zmigrowane aplikacje w środowisku produkcyjnym.
+
+## <a name="create-an-azure-maps-account"></a>Tworzenie konta usługi Azure Maps
+
+Aby utworzyć konto Azure Maps i uzyskać dostęp do platformy Azure Maps, wykonaj następujące kroki:
+
+1. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+2. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+3. Utwórz [konto Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
+4. [Pobierz klucz subskrypcji Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) lub skonfiguruj Azure Active Directory uwierzytelnianie, aby zwiększyć bezpieczeństwo.
 
 ## <a name="azure-maps-technical-resources"></a>Azure Maps zasoby techniczne
 

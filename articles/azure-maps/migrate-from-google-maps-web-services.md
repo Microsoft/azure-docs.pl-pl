@@ -1,20 +1,20 @@
 ---
-title: 'Samouczek: Migrowanie usług internetowych z usługi Google Maps | Mapy Microsoft Azure'
-description: Jak przeprowadzić migrację usług sieci Web z usługi Google Maps do Microsoft Azure Maps.
+title: Migrowanie usług internetowych z usługi Google Maps | Mapy Microsoft Azure
+description: Jak przeprowadzić migrację usług sieci Web z usługi Google Maps do Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
-ms.topic: tutorial
+ms.date: 08/19/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8cc16e611002748dad2716a1c8dc914f297da9f1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 57d71d517cb953a2a2c84b7e003fd08541416539
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090554"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319575"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migruj usługę sieci Web z usługi Google Maps
 
@@ -94,7 +94,7 @@ Ta tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google 
 | `key`                       | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `latlng`                    | `query`  |
-| `location_type`             | *NIE DOTYCZY*     |
+| `location_type`             | *Nie dotyczy*     |
 | `result_type`               | `entityType`    |
 
 Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi wyszukiwania](how-to-use-best-practices-for-search.md).
@@ -138,9 +138,9 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 
 | Parametr interfejsu API usługi Google Maps | Porównywalny parametr interfejsu API Azure Maps |
 |---------------------------|-------------------------------------|
-| `fields`                  | *NIE DOTYCZY*                               |
+| `fields`                  | *Nie dotyczy*                               |
 | `input`                   | `query`                             |
-| `inputtype`               | *NIE DOTYCZY*                               |
+| `inputtype`               | *Nie dotyczy*                               |
 | `key`                     | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](azure-maps-authentication.md) . |
 | `language`                | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `locationbias`            | `lat``lon`i`radius`<br/>`topLeft` i `btmRight`<br/>`countrySet`  |
@@ -157,13 +157,13 @@ W tabeli przedstawiono parametry interfejsu API usługi Google Maps z porównywa
 | `keyword`                   | `categorySet` i `brandSet`        |
 | `language`                  | `language` — Zobacz dokumentację [obsługiwanych języków](supported-languages.md) .  |
 | `location`                  | `lat` i `lon`                     |
-| `maxprice`                  | *NIE DOTYCZY*                               |
-| `minprice`                  | *NIE DOTYCZY*                               |
+| `maxprice`                  | *Nie dotyczy*                               |
+| `minprice`                  | *Nie dotyczy*                               |
 | `name`                      | `categorySet` i `brandSet`        |
-| `opennow`                   | *NIE DOTYCZY*                               |
+| `opennow`                   | *Nie dotyczy*                               |
 | `pagetoken`                 | `ofs` i `limit`                   |
 | `radius`                    | `radius`                            |
-| `rankby`                    | *NIE DOTYCZY*                               |
+| `rankby`                    | *Nie dotyczy*                               |
 | `type`                      | `categorySet –` Zapoznaj się z dokumentacją dotyczącą [obsługiwanych kategorii wyszukiwania](supported-search-categories.md) .   |
 
 ## <a name="calculate-routes-and-directions"></a>Obliczanie tras i wskazówek
@@ -243,10 +243,10 @@ Tabela krzyżowo odwołuje się do parametrów interfejsu API usługi Google Map
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | Nie *dotyczy — jest* to funkcja powiązana z geokodowaniem. Użyj `countrySet` parametru podczas korzystania z interfejsu API Azure Maps geokodowania.  |
-| `scale`                     | *NIE DOTYCZY*                              |
+| `scale`                     | *Nie dotyczy*                              |
 | `size`                      | `width` i `height` — może mieć rozmiar maksymalnie 8192x8192. |
-| `style`                     | *NIE DOTYCZY*                              |
-| `visible`                   | *NIE DOTYCZY*                              |
+| `style`                     | *Nie dotyczy*                              |
+| `visible`                   | *Nie dotyczy*                              |
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]
@@ -293,9 +293,8 @@ Na przykład Dodajmy znacznik czerwony, średni rozmiar do mapy na długości ge
 &markers=color:red|size:mid|45,-110
 ```
 
-<center>
 
-![Znacznik Google Maps](media/migrate-google-maps-web-services/google-maps-marker.png)</center>
+![Znacznik Google Maps](media/migrate-google-maps-web-services/google-maps-marker.png)
 
 **Po: Azure Maps**
 
@@ -335,9 +334,8 @@ Dodajmy domyślną ikonę czerwoną ( `FF0000` ) z etykietą "obszar etykietka",
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-<center>
 
-![Znacznik Azure Maps](media/migrate-google-maps-web-services/azure-maps-marker.png)</center>
+![Znacznik Azure Maps](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Dodaj trzy numery PIN z wartościami etykiet "1", "2" i "3":
 
@@ -345,9 +343,9 @@ Dodaj trzy numery PIN z wartościami etykiet "1", "2" i "3":
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
 
-<center>
 
-![Azure Maps wiele znaczników](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)</center>
+
+![Azure Maps wiele znaczników](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
 ### <a name="path-url-parameter-format-comparison"></a>Porównanie formatu parametru adresu URL
 
@@ -376,9 +374,7 @@ Dodaj nieprzezroczystą linię i grubość pikseli do mapy między współrzędn
 &path=color:0xFF000088|weight:4|45,-110|50,-100
 ```
 
-<center>
-
-![Google Maps — łamana](media/migrate-google-maps-web-services/google-maps-polyline.png)</center>
+![Google Maps — łamana](media/migrate-google-maps-web-services/google-maps-polyline.png)
 
 **Po: Azure Maps**
 
@@ -405,9 +401,7 @@ Dodaj nieprzezroczystość czerwoną linii i grubość pikseli między współrz
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
 ```
 
-<center>
-
-![Azure Maps łamana](media/migrate-google-maps-web-services/azure-maps-polyline.png)</center>
+![Azure Maps łamana](media/migrate-google-maps-web-services/azure-maps-polyline.png)
 
 ## <a name="calculate-a-distance-matrix"></a>Obliczanie macierzy odległości
 
@@ -474,7 +468,7 @@ Te biblioteki klienckie typu "open source" są przeznaczone dla innych języków
 
 - .NET Standard 2,0 — [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [pakiet NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/) projektu GitHub
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 Poniżej znajdują się dodatkowe dokumenty i zasoby dotyczące Azure Maps usług REST.
 
@@ -482,22 +476,5 @@ Poniżej znajdują się dodatkowe dokumenty i zasoby dotyczące Azure Maps usłu
 - [Wyszukiwanie adresu](how-to-search-for-address.md)
 - [Najlepsze rozwiązania dotyczące routingu](how-to-use-best-practices-for-routing.md)
 - [Dokumentacja interfejsu API usługi REST Azure Maps](https://docs.microsoft.com/rest/api/maps/)
-
-## <a name="next-steps"></a>Następne kroki
-
-Dowiedz się więcej na temat Azure Maps usług REST.
-
-> [!div class="nextstepaction"]
-> [Najlepsze rozwiązania dotyczące korzystania z usługi wyszukiwania](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Najlepsze rozwiązania dotyczące korzystania z usługi routingu](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Jak używać modułu usług (Web SDK)](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API usługi REST Azure Maps](https://docs.microsoft.com/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [Przykłady kodu](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [Przykłady kodu](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [Jak używać modułu usług (Web SDK)](how-to-use-best-practices-for-routing.md)

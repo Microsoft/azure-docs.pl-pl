@@ -9,14 +9,17 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb27b4fec0d266bb9931b3942746b034ee3a645f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b004bb4fbca768d782863f73d83ec5443bc66ae3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009954"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320613"
 ---
 # <a name="configure-opc-publisher"></a>Konfigurowanie wydawcy OPC
+
+> [!IMPORTANT]
+> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
 
 Można skonfigurować OPC wydawcę, aby określić:
 
@@ -379,6 +382,6 @@ Składnia pliku konfiguracji jest następująca:
 }
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz wiesz już, jak skonfigurować program OPC Publisher, sugerowanym następnym krokiem jest zapoznanie się z tematem [Uruchamianie programu OPC Publisher](howto-opc-publisher-run.md).

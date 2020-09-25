@@ -1,6 +1,6 @@
 ---
 title: Tworzenie zestawu skalowania na podstawie uogólnionego obrazu przy użyciu Azure PowerShell
-description: Utwórz zestaw skalowania przy użyciu uogólnionego obrazu w galerii obrazów udostępnionych.
+description: Utwórz zestaw skalowania przy użyciu uogólnionego obrazu w udostępnionej galerii obrazów przy użyciu programu PowerShell.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3b8c9d46a5bc5dde3e39bfa5673247ca752d2a89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22bd1ed88f61689eec9312392f7f58d137f703e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077565"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331526"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image"></a>Tworzenie zestawu skalowania na podstawie uogólnionego obrazu
+# <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>Tworzenie zestawu skalowania na podstawie uogólnionego obrazu przy użyciu programu PowerShell 
 
 Utwórz maszynę wirtualną na podstawie uogólnionej wersji obrazu przechowywanej w [galerii obrazów udostępnionych](shared-image-galleries.md). Jeśli chcesz utworzyć zestaw skalowania przy użyciu wyspecjalizowanego obrazu, zobacz [Tworzenie wystąpień zestawu skalowania na podstawie obrazu specjalistycznego](instance-specialized-image-version-powershell.md).
 
@@ -181,4 +181,4 @@ Możesz również utworzyć zasób udostępnionej galerii obrazów przy użyciu 
 - [Tworzenie definicji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Tworzenie wersji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Omówienie](shared-image-galleries.md). Jeśli występują problemy, zobacz temat [Rozwiązywanie problemów z udostępnionymi galeriami obrazów](troubleshooting-shared-images.md).
+Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Omówienie](shared-image-galleries.md). Jeśli występują problemy, zobacz temat [Rozwiązywanie problemów z udostępnionymi galeriami obrazów](../virtual-machines/troubleshooting-shared-images.md).

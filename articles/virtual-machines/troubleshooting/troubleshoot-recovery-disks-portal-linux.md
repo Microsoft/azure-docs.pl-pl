@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: be124e7677774cbe6b4a0a2730c662f25b619ee0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9907be0e7cd14876964b820d9b267f279fc50d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525980"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331458"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Linux przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure Portal
 Jeśli maszyna wirtualna z systemem Linux napotyka błąd rozruchu lub dysku, może być konieczne wykonanie kroków rozwiązywania problemów na wirtualnym dysku twardym. Typowym przykładem może być nieprawidłowy wpis w programie `/etc/fstab` , który uniemożliwia pomyślne uruchomienie maszyny wirtualnej. W tym artykule szczegółowo opisano sposób używania Azure Portal do łączenia wirtualnego dysku twardego z inną maszyną wirtualną z systemem Linux w celu usunięcia błędów, a następnie ponownego utworzenia oryginalnej maszyny wirtualnej.
@@ -28,7 +28,7 @@ Proces rozwiązywania problemów jest następujący:
 1. Zatrzymaj zaatakowaną maszynę wirtualną.
 1. Utwórz migawkę dysku systemu operacyjnego maszyny wirtualnej.
 1. Utwórz wirtualny dysk twardy na podstawie migawki.
-1. Dołącz i Zainstaluj wirtualny dysk twardy na innej maszynie wirtualnej z systemem Windows w celu rozwiązywania problemów.
+1. Dołącz i Zainstaluj wirtualny dysk twardy na innej maszynie wirtualnej z systemem Linux w celu rozwiązywania problemów.
 1. Nawiąż połączenie z maszyną wirtualną rozwiązywania problemów. Edytuj pliki lub Uruchom dowolne narzędzia, aby rozwiązać problemy dotyczące oryginalnego wirtualnego dysku twardego.
 1. Odłącz wirtualny dysk twardy od maszyny wirtualnej rozwiązywania problemów.
 1. Zamień dysk systemu operacyjnego dla maszyny wirtualnej.

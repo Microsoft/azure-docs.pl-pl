@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084842"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319983"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronizacja programu Azure AD Connect: konfigurowanie filtrowania
 Korzystając z funkcji filtrowania, można kontrolować, które obiekty są wyświetlane w Azure Active Directory (Azure AD) z katalogu lokalnego. Konfiguracja domyślna pobiera wszystkie obiekty we wszystkich domenach w skonfigurowanych lasach. Ogólnie rzecz biorąc jest to zalecana konfiguracja. Użytkownicy korzystający z obciążeń Microsoft 365, takich jak Exchange Online i Skype dla firm, korzystają z kompletnej globalnej listy adresów, aby mogli wysyłać wiadomości e-mail i wywoływać wszystkich użytkowników. W przypadku konfiguracji domyślnej mogą one korzystać z tego samego środowiska z lokalną implementacją programu Exchange lub Lync.
@@ -113,7 +113,7 @@ Aby ustawić filtr domeny, wykonaj następujące czynności:
    ![Właściwości łącznika](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Kliknij pozycję **Konfiguruj partycje katalogu**.
 5. Z listy **Wybierz partycje katalogów** wybierz i usuń zaznaczenie domen zgodnie z wymaganiami. Sprawdź, czy wybrano tylko partycje, które chcesz synchronizować.  
-   ![Partycje](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![Zrzut ekranu pokazujący partycje katalogu w oknie "właściwości".](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    Jeśli została zmieniona lokalna infrastruktura Active Directory i dodano lub usunięto domeny z lasu, kliknij przycisk **Odśwież** , aby wyświetlić zaktualizowaną listę. Po odświeżeniu zostanie wyświetlony monit o podanie poświadczeń. Podaj wszelkie poświadczenia z dostępem do odczytu do systemu Windows Server Active Directory. Nie musi to być użytkownik, który jest wstępnie wypełniony w oknie dialogowym.  
    ![Wymagana odświeżenie](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Gdy skończysz, Zamknij okno dialogowe **Właściwości** , klikając przycisk **OK**. W przypadku usunięcia domen z lasu zostanie wyświetlony komunikat z informacją, że domena została usunięta i że konfiguracja zostanie oczyszczona.

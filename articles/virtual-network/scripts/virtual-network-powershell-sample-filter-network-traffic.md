@@ -1,6 +1,6 @@
 ---
 title: Filtrowanie ruchu sieciowego maszyny wirtualnej — przykład skryptu Azure PowerShell
-description: Przykładowy skrypt programu Azure PowerShell — filtrowanie przychodzącego i wychodzącego ruchu sieciowego maszyny wirtualnej.
+description: Filtrowanie przychodzącego i wychodzącego ruchu sieciowego maszyny wirtualnej — przykład skryptu Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b04ad7d9252bd97d3fa1a236a4150ffac3d8af65
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: dbbc0fa160affec81d36a4da127c4fb864913fd5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077827"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306756"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>Przykładowy skrypt służący do filtrowania przychodzącego i wychodzącego ruchu sieciowego maszyny wirtualnej
 

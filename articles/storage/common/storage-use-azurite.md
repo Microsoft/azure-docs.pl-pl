@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 35a93669bf301b3be1d560a0777751c12f3c9d14
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f18746242ef9f680f44be1fd614c6c769289aadb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331577"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Korzystanie z emulatora azurite na potrzeby tworzenia lokalnych magazynów platformy Azure
 
@@ -499,7 +499,7 @@ Wykonaj następujące kroki, aby dodać azurite HTTPS do Eksplorator usługi Sto
 1. Wybierz **załączony & lokalny**
 1. Kliknij prawym przyciskiem myszy pozycję **konta magazynu** i wybierz pozycję **Połącz z usługą Azure Storage**.
 1. Wybierz opcję **Użyj parametrów połączenia**
-1. Wybierz pozycję **Next** (Dalej).
+1. Wybierz opcję **Dalej**.
 1. Wprowadź wartość w polu **Nazwa wyświetlana** .
 1. Wprowadź [Parametry połączenia HTTPS](#https-connection-strings) z poprzedniej sekcji tego dokumentu
 1. Wybierz pozycję **Dalej**
@@ -556,11 +556,17 @@ Azurite obsługuje replikację Geograficznie nadmiarowy do odczytu (RA-GRS). W p
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
 
+### <a name="table-support"></a>Obsługa tabel
+
+Wsparcie dla tabel w azurite jest obecnie opracowywane i otwarte na potrzeby udziału! Aby uzyskać najnowszy postęp, sprawdź projekt [tabeli azurite v3](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) .
+
+Obsługa trwałych funkcji wymaga tabel.
+
 ## <a name="azurite-is-open-source"></a>Azurite jest otwartym źródłem
 
 Zamieszczamy wkłady i sugestie dotyczące azurite. Przejdź na stronę [projektu GitHub](https://github.com/Azure/Azurite/projects) azurite lub problemy z usługą [GitHub](https://github.com/Azure/Azurite/issues) dla punktów kontrolnych i elementów roboczych, które są śledzone pod kątem nadchodzących funkcji i poprawek błędów. Szczegółowe elementy robocze są również śledzone w usłudze GitHub.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Korzystanie z emulatora usługi Azure Storage na potrzeby tworzenia i testowania](storage-use-emulator.md) dokumentów w starszym emulatorze usługi Azure Storage, który jest zastępowany przez azurite.
 - [Konfigurowanie parametrów połączenia usługi Azure Storage](storage-configure-connection-string.md) wyjaśnia, jak utworzyć prawidłowe parametry połączenia usługi Azure Storage.

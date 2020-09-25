@@ -1,6 +1,6 @@
 ---
 title: Wysoka dostępność maszyn wirtualnych platformy Azure dla oprogramowania SAP NW na RHEL przewodnik z obsługą wielosid | Microsoft Docs
-description: Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux
+description: Ustanów wysoką dostępność dla oprogramowania SAP NW na maszynach wirtualnych platformy Azure RHEL wiele identyfikatorów SID.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 892c45db835457d5f0127d7377d722fc7f0df518
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 612bd019dc7a4bdf481fde4511084245fabd1620
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760757"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319966"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie Red Hat Enterprise Linux for SAP — Przewodnik dotyczący wiele identyfikatorów SID
 
@@ -56,7 +56,7 @@ W przykładowych konfiguracjach polecenia instalacji itp. trzy systemy SAP NetWe
 * **NW2**: ASCS wystąpienie o numerze **10** i wirtualne nazwy hosta **msnw2ascs**; Wykres WYWOŁUJĄCYCH wystąpienie numer **12** i nazwa hosta wirtualnego **msnw2ers**.  
 * **NW3**: ASCS wystąpienie o numerze **20** i wirtualne nazwy hosta **msnw3ascs**; Wykres WYWOŁUJĄCYCH wystąpienie numer **22** i nazwa hosta wirtualnego **msnw3ers**.  
 
-Artykuł nie obejmuje warstwy bazy danych i wdrożenia udziałów SAP NFS. W przykładach w tym artykule używamy [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) Volume **SAPMSID** dla udziałów NFS, przy założeniu, że wolumin jest już wdrożony. Przyjęto również, że wolumin Azure NetApp Files jest wdrażany przy użyciu protokołu NFSv3 oraz że istnieją następujące ścieżki plików dla zasobów klastra dla wystąpień ASCS i wykres WYWOŁUJĄCYCH systemów SAP NW1, NW2 i NW3:  
+Artykuł nie obejmuje warstwy bazy danych i wdrożenia udziałów SAP NFS. W przykładach w tym artykule używamy [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)  Volume **SAPMSID** dla udziałów NFS, przy założeniu, że wolumin jest już wdrożony. Przyjęto również, że wolumin Azure NetApp Files jest wdrażany przy użyciu protokołu NFSv3 oraz że istnieją następujące ścieżki plików dla zasobów klastra dla wystąpień ASCS i wykres WYWOŁUJĄCYCH systemów SAP NW1, NW2 i NW3:  
 
 * Volume sapMSID (nfs://10.42.0.4/sapmnt<b>NW1</b>)
 * Volume sapMSID (nfs://10.42.0.4/usrsap<b>NW1</b>ASCS)

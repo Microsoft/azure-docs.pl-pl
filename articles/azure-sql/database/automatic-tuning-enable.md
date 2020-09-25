@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/03/2019
-ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: dfd21a38c46238dbd9d58d3eae5b3f9414d3c5fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284503"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Włączanie dostrajania automatycznego w Azure Portal do monitorowania zapytań i zwiększania wydajności obciążeń
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ Dostrajanie automatyczne można włączyć na serwerze lub na poziomie bazy dany
 
 - [Azure Portal](automatic-tuning-enable.md#azure-portal)
 - Wywołania [interfejsu API REST](automatic-tuning-enable.md#rest-api)
-- Polecenia [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
+- Polecenia [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true)
 
 > [!NOTE]
 > W przypadku wystąpienia zarządzanego Azure SQL obsługiwane opcje FORCE_LAST_GOOD_PLAN można skonfigurować tylko przy użyciu [języka T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) . Opcje konfiguracji opartej na Azure Portal i automatyczne dostosowywanie indeksu opisane w tym artykule nie dotyczą wystąpienia zarządzanego Azure SQL.
@@ -109,7 +109,7 @@ Ustawienie opcji dostrajania indywidualnego na włączone spowoduje zastąpienie
 > W przypadku [aktywnej replikacji geograficznej](auto-failover-group-overview.md), dostrajanie automatyczne należy skonfigurować tylko w podstawowej bazie danych. Automatycznie stosowane akcje dostrajania, takie jak na przykład tworzenie lub usuwanie indeksu, zostaną automatycznie zreplikowane do pomocniczego elementu tylko do odczytu. Próba włączenia dostrajania automatycznego przy użyciu języka T-SQL na pomocniczym serwerze z uprawnieniami tylko do odczytu spowoduje wystąpienie błędu z nieobsługiwaną konfiguracją dla elementu pomocniczego tylko do odczytu.
 >
 
-Aby dowiedzieć się więcej na temat opcji obejmować języka T-SQL w celu skonfigurowania dostrajania automatycznego, zobacz [ALTER DATABASE SET Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Aby dowiedzieć się więcej na temat opcji obejmować języka T-SQL w celu skonfigurowania dostrajania automatycznego, zobacz [ALTER DATABASE SET Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
 ## <a name="disabled-by-the-system"></a>Wyłączone przez system
 

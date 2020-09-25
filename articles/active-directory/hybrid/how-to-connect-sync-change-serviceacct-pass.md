@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31c76b78d4ab7a3f305b52526b7e4ce14f3b1ede
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278041"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319932"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Zmienianie hasła konta usługi ADSync
 Jeśli zmienisz hasło konta usługi ADSync, usługa synchronizacji nie będzie mogła zostać uruchomiona prawidłowo, dopóki nie powrócisz klucza szyfrowania i ponownie zainicjowano hasło konta usługi ADSync. 
@@ -52,7 +52,7 @@ Aby upewnić się, że te błędy nie są wyświetlane, wykonaj procedury [porzu
  
 ## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Porzucanie klucza szyfrowania konta usługi ADSync
 >[!IMPORTANT]
->Poniższe procedury dotyczą tylko Azure AD Connect kompilacji wersji 1.1.443.0 lub starszej. Nie można jej używać w nowszych wersjach Azure AD Connect.
+>Poniższe procedury dotyczą tylko Azure AD Connect kompilacji wersji 1.1.443.0 lub starszej. Tego elementu nie można używać w nowszych wersjach Azure AD Connect, ponieważ porzucanie klucza szyfrowania jest obsługiwane przez program Azure AD Connect w przypadku zmiany hasła konta usługi synchronizacji AD, w związku z czym następujące kroki nie są wymagane w nowszych wersjach.   
 
 Aby porzucić klucz szyfrowania, wykonaj czynności opisane w poniższych procedurach.
 
@@ -88,7 +88,7 @@ Porzuć istniejący klucz szyfrowania, aby można było utworzyć nowy klucz szy
 
 4. Uruchom polecenie: `./miiskmu.exe /a`
 
-![Narzędzie klucza szyfrowania Azure AD Connect synchronizacji](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
+![Zrzut ekranu przedstawiający program PowerShell po uruchomieniu polecenia.](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
 #### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>Podaj hasło do konta łącznika AD DS
 Ponieważ istniejące hasła przechowywane wewnątrz bazy danych nie mogą być już odszyfrowywane, należy podać usługę synchronizacji przy użyciu hasła konta łącznika AD DS. Usługa synchronizacji szyfruje hasła przy użyciu nowego klucza szyfrowania:
@@ -101,7 +101,7 @@ Ponieważ istniejące hasła przechowywane wewnątrz bazy danych nie mogą być 
 5. W podręcznym oknie dialogowym wybierz pozycję **Połącz z lasem Active Directory**:
 6. Wprowadź hasło konta AD DS w polu tekstowym **hasło** . Jeśli hasło nie jest znane, przed wykonaniem tego kroku należy ustawić jego nazwę na znaną wartość.
 7. Kliknij przycisk **OK** , aby zapisać nowe hasło i zamknąć okno dialogowe.
-![Narzędzie klucza szyfrowania Azure AD Connect synchronizacji](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
+![Zrzut ekranu przedstawiający stronę "łączenie się z lasem Active Directory" w oknie "właściwości".](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
 #### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>Zainicjuj ponownie hasło konta usługi ADSync
 Nie można bezpośrednio podać hasła konta usługi Azure AD do usługi synchronizacji. Zamiast tego należy użyć polecenia cmdlet **Add-ADSyncAADServiceAccount** , aby ponownie zainicjować konto usługi Azure AD. Polecenie cmdlet resetuje hasło konta i udostępnia je usłudze synchronizacji:

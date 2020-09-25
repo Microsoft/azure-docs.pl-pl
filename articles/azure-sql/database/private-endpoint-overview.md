@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442602"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319473"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Prywatny link do platformy Azure dla Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -23,28 +23,6 @@ Link prywatny umożliwia nawiązanie połączenia z różnymi usługami PaaS na 
 
 > [!IMPORTANT]
 > Ten artykuł dotyczy zarówno Azure SQL Database, jak i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse). Dla uproszczenia termin "baza danych" odnosi się do obu baz danych w Azure SQL Database i Azure Synapse Analytics. Podobnie wszystkie odwołania do "serwer" odwołują się do [logicznego serwera SQL](logical-servers.md) , który hostuje Azure SQL Database i usługi Azure Synapse Analytics. Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL**.
-
-## <a name="data-exfiltration-prevention"></a>Data exfiltration prevention (Zapobieganie eksfiltracji danych)
-
-Eksfiltracji danych w Azure SQL Database polega na tym, że autoryzowany użytkownik, taki jak administrator bazy danych, może wyodrębnić dane z jednego systemu i przenieść go do innej lokalizacji lub systemu poza organizacją. Na przykład użytkownik przenosi dane na konto magazynu należące do innej firmy.
-
-Zapoznaj się z scenariuszem dla użytkownika z uruchomionym SQL Server Management Studio (SSMS) w ramach maszyny wirtualnej platformy Azure łączącej się z bazą danych w programie SQL Database. Ta baza danych znajduje się w centrum danych w zachodnich stanach USA. W poniższym przykładzie pokazano, jak ograniczyć dostęp za pomocą publicznych punktów końcowych w SQL Database przy użyciu funkcji kontroli dostępu do sieci.
-
-1. Wyłącz cały ruch usługi platformy Azure do SQL Database za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na **wyłączanie**usług platformy Azure. Upewnij się, że żadne adresy IP nie są dozwolone w regułach zapory na poziomie serwera i bazy danych. Aby uzyskać więcej informacji, zobacz [Azure SQL Database i kontrola dostępu do sieci w usłudze Azure Synapse Analytics](network-access-controls-overview.md).
-1. Zezwalanie na ruch do bazy danych w SQL Database przy użyciu prywatnego adresu IP maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz artykuły na temat [punktów końcowych usługi](vnet-service-endpoint-rule-overview.md) i [reguł zapory sieci wirtualnej](firewall-configure.md).
-1. Na maszynie wirtualnej platformy Azure Zawęź zakres połączenia wychodzącego za pomocą [sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../virtual-network/manage-network-security-group.md) i tagów usługi w następujący sposób:
-    - Określ regułę sieciowej grupy zabezpieczeń, aby zezwolić na ruch dla programu Service Tag = SQL. Zachodnie — Zezwalanie na połączenie tylko SQL Database w regionie zachodnie stany USA
-    - Określ regułę sieciowej grupy zabezpieczeń (z **wyższym priorytetem**), aby odmówić ruchu dla programu Service Tag = odmowa dostępu do SQL Database we wszystkich regionach
-
-Po zakończeniu tej instalacji maszyna wirtualna platformy Azure może łączyć się tylko z bazą danych w SQL Database w regionie zachodnie stany USA. Łączność nie jest jednak ograniczona do pojedynczej bazy danych w SQL Database. Maszyna wirtualna może nadal łączyć się z dowolną bazą danych w regionie zachodnie stany USA, włącznie z bazami danych, które nie są częścią subskrypcji. Chociaż eksfiltracji zakres danych w powyższym scenariuszu do określonego regionu, nie został on całkowicie wyeliminowany.
-
-Za pomocą linku prywatnego klienci mogą teraz konfigurować metody kontroli dostępu do sieci, takie jak sieciowych grup zabezpieczeń, aby ograniczyć dostęp do prywatnego punktu końcowego. Poszczególne zasoby usługi Azure PaaS są następnie mapowane na określone prywatne punkty końcowe. Złośliwy tester może uzyskać dostęp tylko do zamapowanego zasobu PaaS (na przykład bazy danych w SQL Database) i bez innego zasobu. 
-
-## <a name="on-premises-connectivity-over-private-peering"></a>Łączność lokalna za pośrednictwem prywatnej komunikacji równorzędnej
-
-Gdy klienci łączą się z publicznym punktem końcowym z maszyn lokalnych, ich adresy IP należy dodać do zapory opartej na protokole IP przy użyciu [reguły zapory na poziomie serwera](firewall-create-server-level-portal-quickstart.md). Chociaż ten model działa dobrze, aby umożliwić dostęp do poszczególnych maszyn na potrzeby obciążeń deweloperskich lub testowych, trudno jest zarządzać w środowisku produkcyjnym.
-
-Za pomocą linku prywatnego klienci mogą włączyć dostęp między lokalizacjami do prywatnego punktu końcowego za pomocą [ExpressRoute](../../expressroute/expressroute-introduction.md), prywatnej komunikacji równorzędnej lub TUNELOWANIA sieci VPN. Klienci mogą następnie wyłączyć cały dostęp za pośrednictwem publicznego punktu końcowego i nie używać zapory opartej na protokole IP, aby zezwalać na dowolnych adresów IP.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Jak skonfigurować link prywatny dla Azure SQL Database 
 
@@ -71,6 +49,12 @@ Po utworzeniu przez administratora sieci prywatnego punktu końcowego (PE) admin
 
 1. Po zatwierdzeniu lub odrzuceniu lista będzie odzwierciedlać odpowiedni stan wraz z tekstem odpowiedzi.
 ![Zrzut ekranu przedstawiający wszystkie PECs po zatwierdzeniu][5]
+
+## <a name="on-premises-connectivity-over-private-peering"></a>Łączność lokalna za pośrednictwem prywatnej komunikacji równorzędnej
+
+Gdy klienci łączą się z publicznym punktem końcowym z maszyn lokalnych, ich adresy IP należy dodać do zapory opartej na protokole IP przy użyciu [reguły zapory na poziomie serwera](firewall-create-server-level-portal-quickstart.md). Chociaż ten model działa dobrze, aby umożliwić dostęp do poszczególnych maszyn na potrzeby obciążeń deweloperskich lub testowych, trudno jest zarządzać w środowisku produkcyjnym.
+
+Za pomocą linku prywatnego klienci mogą włączyć dostęp między lokalizacjami do prywatnego punktu końcowego za pomocą [ExpressRoute](../../expressroute/expressroute-introduction.md), prywatnej komunikacji równorzędnej lub TUNELOWANIA sieci VPN. Klienci mogą następnie wyłączyć cały dostęp za pośrednictwem publicznego punktu końcowego i nie używać zapory opartej na protokole IP, aby zezwalać na dowolnych adresów IP.
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Przypadki użycia prywatnego linku do Azure SQL Database 
 
@@ -154,6 +138,22 @@ Wykonaj kroki opisane tutaj, aby użyć programu [SSMS do nawiązania połączen
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## <a name="data-exfiltration-prevention"></a>Data exfiltration prevention (Zapobieganie eksfiltracji danych)
+
+Eksfiltracji danych w Azure SQL Database polega na tym, że autoryzowany użytkownik, taki jak administrator bazy danych, może wyodrębnić dane z jednego systemu i przenieść go do innej lokalizacji lub systemu poza organizacją. Na przykład użytkownik przenosi dane na konto magazynu należące do innej firmy.
+
+Zapoznaj się z scenariuszem dla użytkownika z uruchomionym SQL Server Management Studio (SSMS) w ramach maszyny wirtualnej platformy Azure łączącej się z bazą danych w programie SQL Database. Ta baza danych znajduje się w centrum danych w zachodnich stanach USA. W poniższym przykładzie pokazano, jak ograniczyć dostęp za pomocą publicznych punktów końcowych w SQL Database przy użyciu funkcji kontroli dostępu do sieci.
+
+1. Wyłącz cały ruch usługi platformy Azure do SQL Database za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na **wyłączanie**usług platformy Azure. Upewnij się, że żadne adresy IP nie są dozwolone w regułach zapory na poziomie serwera i bazy danych. Aby uzyskać więcej informacji, zobacz [Azure SQL Database i kontrola dostępu do sieci w usłudze Azure Synapse Analytics](network-access-controls-overview.md).
+1. Zezwalanie na ruch do bazy danych w SQL Database przy użyciu prywatnego adresu IP maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz artykuły na temat [punktów końcowych usługi](vnet-service-endpoint-rule-overview.md) i [reguł zapory sieci wirtualnej](firewall-configure.md).
+1. Na maszynie wirtualnej platformy Azure Zawęź zakres połączenia wychodzącego za pomocą [sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../virtual-network/manage-network-security-group.md) i tagów usługi w następujący sposób:
+    - Określ regułę sieciowej grupy zabezpieczeń, aby zezwolić na ruch dla programu Service Tag = SQL. Zachodnie — Zezwalanie na połączenie tylko SQL Database w regionie zachodnie stany USA
+    - Określ regułę sieciowej grupy zabezpieczeń (z **wyższym priorytetem**), aby odmówić ruchu dla programu Service Tag = odmowa dostępu do SQL Database we wszystkich regionach
+
+Po zakończeniu tej instalacji maszyna wirtualna platformy Azure może łączyć się tylko z bazą danych w SQL Database w regionie zachodnie stany USA. Łączność nie jest jednak ograniczona do pojedynczej bazy danych w SQL Database. Maszyna wirtualna może nadal łączyć się z dowolną bazą danych w regionie zachodnie stany USA, włącznie z bazami danych, które nie są częścią subskrypcji. Chociaż eksfiltracji zakres danych w powyższym scenariuszu do określonego regionu, nie został on całkowicie wyeliminowany.
+
+Za pomocą linku prywatnego klienci mogą teraz konfigurować metody kontroli dostępu do sieci, takie jak sieciowych grup zabezpieczeń, aby ograniczyć dostęp do prywatnego punktu końcowego. Poszczególne zasoby usługi Azure PaaS są następnie mapowane na określone prywatne punkty końcowe. Złośliwy tester może uzyskać dostęp tylko do zamapowanego zasobu PaaS (na przykład bazy danych w SQL Database) i bez innego zasobu. 
 
 ## <a name="limitations"></a>Ograniczenia 
 Połączenia z prywatnym punktem końcowym obsługują tylko **serwer proxy** jako [zasady połączenia](connectivity-architecture.md#connection-policy)

@@ -3,12 +3,12 @@ title: Zarządzanie zasadami automatycznego zamykania w programie Azure DevTest 
 description: Dowiedz się, jak ustawić zasady Autozamykania dla laboratorium, aby maszyny wirtualne były automatycznie zamykane, gdy nie są używane.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3532e4859bd63c81cb9b9cda973064e5ef8357ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287553"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320714"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Konfigurowanie automatycznego zamykania dla maszyn wirtualnych w środowisku laboratoryjnym i obliczeniowym w Azure DevTest Labs
 
@@ -162,7 +162,7 @@ Aby rozpocząć, Utwórz aplikację logiki w ramach subskrypcji platformy Azure,
     }
     ```
     
-    ![Schemat JSON treści żądania](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Zrzut ekranu przedstawiający "schemat JSON treści żądania".](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Wybierz pozycję **+ nowy krok** w projektancie, a następnie wykonaj następujące kroki:
     1. Wyszukaj **pakiet Office 365 Outlook — Wyślij wiadomość e-mail**. 
     2. Wybierz opcję **Wyślij wiadomość e-mail** z **akcji**. 

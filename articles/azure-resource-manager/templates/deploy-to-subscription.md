@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w ramach subskrypcji
 description: Opisuje sposób tworzenia grupy zasobów w szablonie Azure Resource Manager. Przedstawiono w nim również sposób wdrażania zasobów w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 09/24/2020
+ms.openlocfilehash: cd1d0a05fc1039d8e99b0af6fc8019face4516bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605179"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284792"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Tworzenie grup zasobów i zasobów na poziomie subskrypcji
 
@@ -62,7 +62,7 @@ Inne obsługiwane typy to:
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
-### <a name="schema"></a>Schemat
+## <a name="schema"></a>Schemat
 
 Schemat używany do wdrożeń na poziomie subskrypcji różni się od schematu dla wdrożeń grup zasobów.
 
@@ -77,6 +77,20 @@ Schemat pliku parametrów jest taki sam dla wszystkich zakresów wdrożenia. W p
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>Zakresy wdrożenia
+
+Podczas wdrażania w ramach subskrypcji można wskazać jedną subskrypcję i grupy zasobów w ramach subskrypcji. Nie można przeprowadzić wdrożenia w ramach subskrypcji innej niż subskrypcja docelowa. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+
+Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do subskrypcji.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Aby określić grupę zasobów w ramach subskrypcji, Dodaj wdrożenie zagnieżdżone i Uwzględnij `resourceGroup` Właściwość. W poniższym przykładzie zagnieżdżone wdrożenie jest przeznaczone dla grupy zasobów o nazwie `rg2` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+W tym artykule można znaleźć szablony, które pokazują, jak wdrażać zasoby w różnych zakresach. Aby utworzyć szablon, który tworzy grupę zasobów i wdraża do niej konto magazynu, zobacz [Tworzenie grupy zasobów i zasobów](#create-resource-group-and-resources). W przypadku szablonu, który tworzy grupę zasobów, stosuje do niej blokadę i przypisuje rolę dla grupy zasobów, zobacz [Kontrola dostępu](#access-control).
 
 ## <a name="deployment-commands"></a>Polecenia wdrażania
 
@@ -112,49 +126,6 @@ W przypadku wdrożeń na poziomie subskrypcji należy podać lokalizację wdroż
 Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
 
 Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
-
-## <a name="deployment-scopes"></a>Zakresy wdrożenia
-
-Podczas wdrażania w ramach subskrypcji można wskazać jedną subskrypcję i grupy zasobów w ramach subskrypcji. Nie można przeprowadzić wdrożenia w ramach subskrypcji innej niż subskrypcja docelowa. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
-
-Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do subskrypcji.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        subscription-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Aby określić grupę zasobów w ramach subskrypcji, Dodaj wdrożenie zagnieżdżone i Uwzględnij `resourceGroup` Właściwość. W poniższym przykładzie zagnieżdżone wdrożenie jest przeznaczone dla grupy zasobów o nazwie `rg2` .
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedDeployment",
-            "resourceGroup": "rg2",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resource-group-resources
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-W tym artykule można znaleźć szablony, które pokazują, jak wdrażać zasoby w różnych zakresach. Aby utworzyć szablon, który tworzy grupę zasobów i wdraża do niej konto magazynu, zobacz [Tworzenie grupy zasobów i zasobów](#create-resource-group-and-resources). W przypadku szablonu, który tworzy grupę zasobów, stosuje do niej blokadę i przypisuje rolę dla grupy zasobów, zobacz [Kontrola dostępu](#access-control).
 
 ## <a name="use-template-functions"></a>Korzystanie z funkcji szablonu
 

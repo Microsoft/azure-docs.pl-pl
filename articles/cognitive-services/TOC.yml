@@ -23,7 +23,7 @@
       href: cognitive-services-apis-create-account-client-library.md
     - name: Tworzenie nowego zasobu przy użyciu szablonu usługi Resource Manager
       displayName: Resource Manager
-      href: resource-manager-template.md
+      href: create-account-resource-manager-template.md
     - name: Rejestrowanie diagnostyczne
       href: diagnostic-logging.md
 - name: Zabezpieczenia

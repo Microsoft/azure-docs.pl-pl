@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: aa37e2d0c301022a018ae9cb4082dbbed650f921
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eca19c7cf8beed033ae0f11a518677c4c8744506
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084966"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319375"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-database-in-azure-sql-database"></a>Używanie programu PowerShell do konfigurowania aktywnej replikacji geograficznej dla bazy danych w Azure SQL Database
 

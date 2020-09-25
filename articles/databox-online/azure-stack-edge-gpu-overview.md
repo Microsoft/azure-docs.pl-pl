@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/07/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: c17cd17dfc3462d5a55753e6a4a364c14f9e2b62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 34dc0717b13cb38c4477cc93f23d57d0a8023dae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899090"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320748"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Co to jest Azure Stack Edge Pro z procesorem GPU?
 
@@ -44,11 +44,10 @@ Azure Stack EDGE Pro ma następujące możliwości:
 |---------|---------|
 |Przyspieszone inferencing AI| Włączone przez wbudowany procesor GPU (jeden lub dwa w zależności od modelu).|
 |Obliczenia brzegowe      |Obsługuje maszyny wirtualne i obciążenia kontenerów, aby umożliwić analizę, przetwarzanie i filtrowanie danych. |
-|Wysoka wydajność | Obliczenia o wysokiej wydajności i transfery danych.|
 |Dostęp do danych     | Bezpośredni dostęp do danych z usług Azure Storage Blob i Azure Files przy użyciu interfejsów API w chmurze w celu dodatkowego przetwarzania danych w chmurze. Lokalna pamięć podręczna na urządzeniu służy do szybkiego dostępu do ostatnio używanych plików.|
 |Zarządzane przez chmurę     |Urządzenia i usługi są zarządzane za pośrednictwem Azure Portal.  |
 |Przekazywanie w trybie offline     | Tryb bez połączenia obsługuje scenariusze przekazywania w trybie offline.|
-|Obsługiwane protokoły magazynu     | Obsługa standardowych protokołów SMB, NFS i REST na potrzeby pozyskiwania danych. <br> Aby uzyskać więcej informacji na temat obsługiwanych wersji, zobacz [Azure Stack Edge — wymagania systemowe](azure-stack-edge-system-requirements.md).|
+|Obsługiwane protokoły transferu plików      | Obsługa standardowych protokołów SMB, NFS i REST na potrzeby pozyskiwania danych. <br> Aby uzyskać więcej informacji na temat obsługiwanych wersji, zobacz [Azure Stack Edge — wymagania systemowe](azure-stack-edge-system-requirements.md).|
 |Odświeżanie danych     | Możliwość odświeżania plików lokalnych za pomocą najnowszych wersji z chmury.|
 |Szyfrowanie    | Obsługa funkcji BitLocker w celu lokalnego szyfrowania danych i zabezpieczania transferu danych do chmury za pośrednictwem protokołu *https*.|
 |Ograniczanie przepustowości| Ograniczanie użycia przepustowości w godzinach szczytu.|
@@ -73,6 +72,8 @@ Rozwiązanie Azure Stack EDGE Pro składa się z Azure Stack zasobów brzegowych
 Azure Stack Edge urządzenie fizyczne, zasób platformy Azure i docelowe konto magazynu, do którego są przesyłane dane, nie muszą znajdować się w tym samym regionie.
 
 - **Dostępność zasobów** — w przypadku tej wersji zapoznawczej zasób jest dostępny w regionach Wschodnie stany USA, zachodnie UE i południowe Azja Wschodnia.
+
+- **Dostępność urządzenia** — aby zapoznać się z listą wszystkich krajów, w których jest dostępne urządzenie Azure Stack EDGE Pro, przejdź do sekcji **dostępność** na karcie **Azure Stack EDGE Pro** dla pozycji [Azure Stack EDGE Pro — Cennik](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Docelowe konta magazynu** — konta magazynu, w których są przechowywane dane, są dostępne we wszystkich regionach platformy Azure. Regiony, w których przechowywane są konta magazynu Azure Stack dane brzegowe Pro, powinny znajdować się w pobliżu lokalizacji urządzenia w celu uzyskania optymalnej wydajności. Duża odległość konta magazynu od urządzenia powoduje długie opóźnienia i mniejszą wydajność.
 

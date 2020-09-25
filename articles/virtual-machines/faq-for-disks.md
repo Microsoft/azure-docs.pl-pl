@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0affcb3c1bab6eb5616c69bb15faf423895328b0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: c2589b47c1619dd528ab843dcf4befd0da227d16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331492"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Często zadawane pytania dotyczące dysków maszyn wirtualnych IaaS platformy Azure oraz dysków zarządzanych i niezarządzanych w warstwie Premium
 
@@ -417,7 +417,7 @@ Nie musisz uaktualniać istniejących narzędzi platformy Azure, aby tworzyć, d
 |Azure PowerShell | Numer wersji 4.1.0: wydanie 2017 czerwca lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 1     | Numer wersji 0.10.13:2017 maja lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 2     | Numer wersji 2.0.12: wydanie 2017 lipca lub nowszej|
-|Narzędzie AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
+|AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
 
 **Czy rozmiary dysków P4 i P6 są obsługiwane w przypadku dysków niezarządzanych lub stronicowych obiektów BLOB?**
 
@@ -491,6 +491,6 @@ Nie.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Co zrobić, jeśli w tym miejscu nie udzielono odpowiedzi na moje pytanie?
 
-Jeśli pytania nie ma na liście, poinformuj nas o tym, a my pomożemy Ci znaleźć odpowiedź. W komentarzach można opublikować pytanie na końcu tego artykułu. Aby skontaktować się z zespołem usługi Azure Storage i innymi członkami społeczności dotyczącymi tego artykułu, użyj strony pytania i odpowiedzi MSDN [firmy&Microsoft dla usługi Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
+Jeśli pytania nie ma na liście, poinformuj nas o tym, a my pomożemy Ci znaleźć odpowiedź. W komentarzach można opublikować pytanie na końcu tego artykułu. Aby skontaktować się z zespołem usługi Azure Storage i innymi członkami społeczności dotyczącymi tego artykułu, użyj strony pytań i odpowiedzi [Microsoft&pytań i odpowiedzi na temat usługi Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 Aby zażądać funkcji, Prześlij swoje wnioski i pomysły do [forum opinii o usłudze Azure Storage](https://feedback.azure.com/forums/217298-storage).

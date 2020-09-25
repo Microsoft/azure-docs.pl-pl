@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 02/21/2020
+ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 663c852574667e45a39241575d6b50038495c33d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319592"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitoruj Azure SQL Database przy użyciu Azure SQL Analytics (wersja zapoznawcza)
 
@@ -43,18 +43,18 @@ Azure SQL Analytics to rozwiązanie do monitorowania tylko w chmurze obsługują
 
 W poniższej tabeli przedstawiono opcje obsługiwane przez dwie wersje pulpitu nawigacyjnego Azure SQL Analytics, jedną dla Azure SQL Database i drugą dla baz danych wystąpienia zarządzanego Azure SQL.
 
-| Opcja Azure SQL Analytics | Opis | Obsługa SQL Database | Obsługa wystąpienia zarządzanego SQL |
+| Opcja Azure SQL Analytics | Opis | Obsługa SQL Database | Obsługa usługi SQL Managed Instance |
 | --- | ------- | ----- | ----- |
 | Zasób według typu | Perspektywa, która zlicza wszystkie monitorowane zasoby. | Tak | Tak |
 | Insights | Zapewnia hierarchiczne przechodzenie do szczegółów w Intelligent Insights wydajności. | Tak | Tak |
 | błędy | Zawiera hierarchiczne przechodzenie do szczegółów błędów SQL, które wystąpiły w bazach danych. | Tak | Tak |
-| Limity czasu | Zawiera hierarchiczne przekroczenia limitów czasu SQL, które wystąpiły w bazach danych. | Yes | Nie |
-| Bloki | Zawiera hierarchiczne przechodzenie do szczegółów w blokach SQL, które wystąpiły w bazach danych. | Yes | Nie |
-| Oczekiwanie na bazę danych | Zawiera hierarchiczne przechodzenie do szczegółów na poziomie bazy danych. Zawiera podsumowanie łącznego czasu oczekiwania i czasu oczekiwania na typ oczekiwania. |Yes | Nie |
+| Limity czasu | Zawiera hierarchiczne przekroczenia limitów czasu SQL, które wystąpiły w bazach danych. | Tak | Nie |
+| Bloki | Zawiera hierarchiczne przechodzenie do szczegółów w blokach SQL, które wystąpiły w bazach danych. | Tak | Nie |
+| Oczekiwanie na bazę danych | Zawiera hierarchiczne przechodzenie do szczegółów na poziomie bazy danych. Zawiera podsumowanie łącznego czasu oczekiwania i czasu oczekiwania na typ oczekiwania. |Tak | Nie |
 | Czas trwania zapytania | Zawiera hierarchiczne przechodzenie do szczegółów w statystyce wykonywania zapytania, takich jak czas trwania zapytania, użycie procesora CPU, użycie operacji we/wy danych, użycie operacji we/wy dziennika. | Tak | Tak |
 | Query waits (Czas oczekiwania na zapytania) | Zawiera hierarchiczne przechodzenie do szczegółów w celu uwzględnienia statystyk oczekiwania na zapytanie według kategorii oczekiwania. | Tak | Tak |
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Aby dodać Azure SQL Analytics (wersja zapoznawcza) do obszaru roboczego Log Analytics, należy użyć procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](./solutions.md) .
 
@@ -230,6 +230,9 @@ AzureMetrics
 > - Dane wyjściowe to lista zasobów bazy danych, które znajdują się powyżej storage_threshold w ramach zdefiniowanego time_range.
 
 #### <a name="alert-on-intelligent-insights"></a>Alert dotyczący usługi Intelligent Insights
+
+> [!IMPORTANT]
+> Jeśli baza danych działa prawidłowo i nie Wygenerowano żadnych Intelligent Insights, to zapytanie zakończy się niepowodzeniem z komunikatem o błędzie: nie można rozpoznać wyrażenia skalarnego o nazwie "rootCauseAnalysis_s". To zachowanie jest oczekiwane dla wszystkich przypadków, w których nie ma żadnych inteligentnych szczegółowych informacji dotyczących bazy danych.
 
 ```
 let alert_run_interval = 1h;

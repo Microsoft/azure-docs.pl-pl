@@ -1,25 +1,19 @@
 ---
 title: Integracja Azure Relay z usługą konsolidacji prywatnej platformy Azure
 description: Dowiedz się, jak zintegrować Azure Relay z usługą Azure Private Link Service
-ms.date: 06/23/2020
+ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719431"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263883"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integracja Azure Relay z prywatnym łączem platformy Azure (wersja zapoznawcza)
 **Usługa link prywatny** platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem prywatnego punktu końcowego w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link (wersja zapoznawcza)?](../private-link/private-link-overview.md)
 
 **Prywatny punkt końcowy** to interfejs sieciowy, który pozwala obciążom uruchomionym w sieci wirtualnej łączenie się prywatnie i bezpiecznie z usługą, która ma **prywatny zasób linku** (na przykład przestrzeń nazw przekaźnika). Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, co skutecznie doprowadza usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, dlatego nie są konieczne żadne bramy, urządzenia NAT, ExpressRoute, połączenia sieci VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą przechodzi przez sieć szkieletową firmy Microsoft w celu wyeliminowania zagrożeń z publicznego Internetu. Możesz zapewnić poziom szczegółowości w kontroli dostępu, zezwalając na połączenia z określonymi przestrzeniami nazw Azure Relay. 
-
-
-> [!IMPORTANT]
-> Ta funkcja jest obecnie dostępna w **wersji zapoznawczej**. 
->
-> Obecnie obsługujemy prywatne połączenia z linkami na klientach nadawcy. 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Dodawanie prywatnego punktu końcowego przy użyciu Azure Portal
@@ -167,7 +161,7 @@ Istnieją cztery Stany aprowizacji:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do Portalu Azure.
 1. Na pasku wyszukiwania wpisz w **Relay**.
 1. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 1. Wybierz kartę **Sieć** .

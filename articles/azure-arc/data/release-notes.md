@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5908083be4e6ed389b606754ffef41a4a371c3e3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d22976254cc804ca53060fb284abde8e80a684e6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938726"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319733"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Informacje o wersji — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -28,6 +28,14 @@ Usługi danych z włączonym usługą Azure Arc są udostępniane w publicznej w
 - PostgreSQL
 
 Aby uzyskać instrukcje, zobacz [co to są usługi danych z włączonym usługą Azure Arc?](overview.md)
+
+### <a name="known-issues"></a>Znane problemy
+
+Do tej wersji mają zastosowanie następujące problemy:
+
+* **Usuwanie grupy serwerów PostgreSQL w ramach skalowania**: Jeśli zmieniono konfigurację grupy serwerów lub wystąpienia, poczekaj na zakończenie operacji edycji przed usunięciem grupy serwerów PostgreSQL.
+
+* ** `azdata notebook run` może się nie powieść**: Aby obejść ten problem, uruchom polecenie `azdata notebook run` w środowisku wirtualnym języka Python. Ten problem występuje również w przypadku nieudanej próby utworzenia wystąpienia zarządzanego SQL lub grupy serwerów PostgreSQL w ramach skalowania przy użyciu Kreatora wdrażania Azure Data Studio. W takim przypadku można otworzyć Notes i kliknąć przycisk **Uruchom wszystko** w górnej części notesu.
 
 ## <a name="next-steps"></a>Następne kroki
 

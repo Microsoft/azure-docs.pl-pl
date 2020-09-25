@@ -7,15 +7,15 @@ author: mgblythe
 ms.author: mblythe
 ms.date: 01/08/2020
 ms.topic: how-to
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: d19809df7f79f1d1fa84a90d552dbe5bf2449ea5
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 4e8d7054fb0df265285bda223e360ea61612aaf2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386898"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263950"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Użyj kafelka promocji na pulpitach nawigacyjnych platformy Azure, aby pokazać zawartość niestandardową
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: a11894eb94b73d8d31ca7135be2ba9c05eca5e04
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075887"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319456"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Wybór między modelami zakupów rdzeń wirtualny i DTU — Azure SQL Database i wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,10 +34,10 @@ Istnieją dwa modele zakupów:
 
 Poniższa tabela i wykres porównują i różnią się w zależności od modelu zakupu opartego na rdzeń wirtualny i DTU:
 
-|**Model zakupu**|**Opis**|**Najlepsze dla**|
+|**Model zakupów**|**Opis**|**Optymalne zastosowanie**|
 |---|---|---|
-|Oparte na jednostkach DTU|Ten model jest oparty na podstawie miary zasobów obliczeniowych, magazynu i operacji we/wy. Rozmiary obliczeń są wyrażone w DTU dla pojedynczych baz danych i w jednostkach Elastic Database Transaction units (jednostek eDTU) dla pul elastycznych. Aby uzyskać więcej informacji na temat DTU i jednostek eDTU, zobacz [co to są DTU i jednostek eDTU?](purchasing-models.md#dtu-based-purchasing-model).|Klienci, którzy chcą mieć proste, wstępnie skonfigurowane opcje zasobów|
-|Rdzeń wirtualny|Ten model umożliwia niezależne wybieranie zasobów obliczeniowych i magazynu. Model zakupu oparty na rdzeń wirtualny umożliwia również korzystanie z [Korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) SQL Server do oszczędności kosztów.|Klienci, którzy mają elastyczność, kontrolę i przezroczystość|
+|Oparty na jednostkach DTU|Ten model jest oparty na podstawie miary zasobów obliczeniowych, magazynu i operacji we/wy. Rozmiary obliczeniowe są wyrażane w jednostkach DTU w przypadku pojedynczych baz danych, a w jednostkach transakcji elastycznej bazy danych (eDTU) w przypadku pul elastycznych. Aby uzyskać więcej informacji na temat jednostek DTU i eDTU, zobacz [Co to są jednostki DTU i eDTU?](purchasing-models.md#dtu-based-purchasing-model).|Klienci, którzy chcą mieć proste, wstępnie skonfigurowane opcje zasobów|
+|Rdzeń wirtualny|Ten model umożliwia niezależne wybieranie zasobów obliczeniowych i magazynu. Model zakupu oparty na rdzeniach wirtualnych umożliwia również obniżenie kosztów dzięki [korzyści użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) dla programu SQL Server.|Klienci, którzy mają elastyczność, kontrolę i przezroczystość|
 ||||  
 
 ![Porównanie modelu cen](./media/purchasing-models/pricing-model.png)
@@ -77,7 +77,7 @@ W modelu zakupu opartego na rdzeń wirtualny można wybrać [ogólnego przeznacz
 Model zakupu oparty na rdzeń wirtualny umożliwia niezależne wybieranie zasobów obliczeniowych i magazynowych, dopasowanie wydajności lokalnej i optymalizację cen. W modelu zakupu opartego na rdzeń wirtualny płacisz za:
 
 - Zasoby obliczeniowe (warstwa usług + liczba rdzeni wirtualnych i ilość pamięci + generacja sprzętu).
-- Typ i ilość danych i magazynu dzienników.
+- Typ i ilość danych oraz magazynu dzienników.
 - Magazyn kopii zapasowych (RA-GRS).
 
 > [!IMPORTANT]
@@ -104,7 +104,7 @@ Zasoby używane przez obciążenie nie wpływają na zasoby dostępne dla innych
 
 ![Pole ograniczenia](./media/purchasing-models/bounding-box.png)
 
-DTU są najbardziej przydatne do poznania zasobów względnych, które są przyłączone do baz danych w różnych rozmiarach obliczeniowych i warstwach usług. Przykład:
+DTU są najbardziej przydatne do poznania zasobów względnych, które są przyłączone do baz danych w różnych rozmiarach obliczeniowych i warstwach usług. Na przykład:
 
 - Podwajanie DTU przez zwiększenie rozmiaru obliczeń bazy danych jest równe Podwajanie zestawu zasobów dostępnych dla tej bazy danych.
 - Baza danych P11 usługi w warstwie Premium z 1750 DTU zapewnia 350 razy większą moc obliczeniową jednostek DTU niż podstawowa baza danych warstwy usług z 5 DTU.  

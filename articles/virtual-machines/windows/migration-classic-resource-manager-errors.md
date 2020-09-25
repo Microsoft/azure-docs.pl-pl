@@ -1,6 +1,6 @@
 ---
 title: Typowe błędy występujące podczas migracji z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager
-description: W tym artykule opisano najczęstsze błędy i środki zaradcze podczas migracji zasobów IaaS z usługi Azure Service Management do stosu Azure Resource Manager.
+description: Poznaj najczęstsze błędy i środki zaradcze występujące podczas migracji zasobów IaaS z usługi Azure Service Management do stosu Azure Resource Manager.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 00ecb64bceafbacafc007754e8bcc0aa94c8b984
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b052951b0d601681239701711a6636156ad4ebf1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320034"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Typowe błędy występujące podczas migracji z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager
 

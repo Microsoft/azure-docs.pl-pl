@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: ea2fae483da495bce9551899b9646868251f0454
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: cc49bec71f6c591ca3036592b0949e3fc7cef48e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030831"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263780"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Omówienie agenta Azure Monitor (wersja zapoznawcza)
 Agent Azure Monitor (AMA) zbiera dane monitorowania z systemu operacyjnego gościa maszyn wirtualnych i dostarcza go do Azure Monitor. Ten artykuł zawiera omówienie agenta Azure Monitor, w tym sposobu instalowania go i konfigurowania zbierania danych.
@@ -38,6 +38,14 @@ Metody definiowania zbierania danych dla istniejących agentów różnią się o
 - Rozszerzenie diagnostyczne ma konfigurację dla każdej maszyny wirtualnej. Jest to łatwe definiowanie niezależnych definicji dla różnych maszyn wirtualnych, ale trudno jest centralnie zarządzać. Może on wysyłać tylko dane do Azure Monitor metryk, Azure Event Hubs lub Azure Storage. W przypadku agentów systemu Linux Agent telegraf Open Source jest wymagany do wysyłania danych do metryk Azure Monitor.
 
 Agent Azure Monitor używa [reguł zbierania danych (DCR)](data-collection-rule-overview.md) do konfigurowania danych zbieranych z poszczególnych agentów. Reguły zbierania danych umożliwiają zarządzanie ustawieniami kolekcji na dużą skalę, jednocześnie umożliwiając jednocześnie korzystanie z unikatowych, w zakresie konfiguracji dla podzestawów maszyn. Są one niezależne od obszaru roboczego i niezależne od maszyny wirtualnej, dzięki czemu można je definiować raz i ponownie używać między maszynami i środowiskami. Zobacz [Konfigurowanie zbierania danych dla agenta Azure monitor (wersja zapoznawcza)](data-collection-rule-azure-monitor-agent.md).
+
+## <a name="should-i-switch-to-azure-monitor-agent"></a>Czy należy przełączyć się na Azure Monitor agenta?
+Azure Monitor Agent współistnieje z [ogólnie dostępnymi agentami dla Azure monitor](agents-overview.md), ale możesz rozważyć przechodzenie maszyn wirtualnych do bieżącego agenta w okresie publicznej wersji zapoznawczej agenta programu Azure monitor. Podczas dokonywania tego ustalenia należy wziąć pod uwagę następujące czynniki.
+
+- **Wymagania dotyczące środowiska.** Agent Azure Monitor ma bardziej ograniczony zestaw obsługiwanych systemów operacyjnych, środowisk i wymagań sieci niż bieżący agenci. Przyszła obsługa środowiska, taka jak nowe wersje systemu operacyjnego i typy wymagań sieci, najprawdopodobniej będzie dostępna tylko w agencie Azure Monitor. Należy ocenić, czy środowisko jest obsługiwane przez Azure Monitor agenta. W przeciwnym razie trzeba będzie pozostać z bieżącym agentem. Jeśli Agent Azure Monitor obsługuje bieżące środowisko, należy rozważyć przejście do niego.
+- **Tolerancja ryzyka dla publicznej wersji zapoznawczej.** Mimo że Agent Azure Monitor został dokładnie przetestowany dla obecnie obsługiwanych scenariuszy, Agent nadal jest w publicznej wersji zapoznawczej. Aktualizacje wersji i ulepszenia funkcjonalności będą często wykonywane i mogą wprowadzać usterki. Należy ocenić ryzyko wystąpienia usterki agenta na maszynach wirtualnych, które mogą zatrzymać zbieranie danych. Jeśli przerwy w zbieraniu danych nie mają znaczącego wpływu na usługi, przejdź Azure Monitor agenta. Jeśli masz małą tolerancję dla każdej niestabilności, należy pozostawać z ogólnie dostępnymi agentami, dopóki Azure Monitor Agent osiągnie ten stan.
+- **Bieżące i nowe wymagania dotyczące funkcji.** Azure Monitor Agent wprowadza kilka nowych funkcji, takich jak filtrowanie, określanie zakresu i wiele multihostingu, ale nie jest jeszcze parzysta z bieżącymi agentami do obsługi innych funkcji, takich jak kolekcja dzienników niestandardowych i integracja z rozwiązaniami. Większość nowych funkcji w Azure Monitor zostanie udostępniona tylko z agentem Azure Monitor, dzięki czemu większa funkcjonalność będzie dostępna tylko w nowym agencie. Należy wziąć pod uwagę, czy Agent Azure Monitor ma wymagane funkcje, a jeśli istnieją pewne funkcje, które można tymczasowo wykonać bez konieczności uzyskiwania innych ważnych funkcji w nowym agencie. Jeśli Agent Azure Monitor ma wszystkie wymagane funkcje podstawowe, należy rozważyć przejście do niego. Jeśli istnieją kluczowe funkcje, których potrzebujesz, Kontynuuj od bieżącego agenta, dopóki Azure Monitor Agent osiągnie parzystość.
+- **Tolerancja dla pozostałej pracy.** W przypadku konfigurowania nowego środowiska z zasobami, takimi jak skrypty wdrażania i szablony dołączania, należy rozważyć, czy będzie można je obsłużyć, gdy Agent Azure Monitor stanie się ogólnie dostępny. Jeśli nakład pracy związany z tą pracą będzie minimalny, należy teraz pozostać na bieżąco z bieżącymi agentami. Jeśli zajmie to znaczną ilość pracy, rozważ skonfigurowanie nowego środowiska z nowym agentem. Agent Azure Monitor powinien stać się ogólnie dostępny i Data wycofania opublikowana dla agentów Log Analytics w 2021. Bieżący agenci będą obsługiwani przez kilka lat po rozpoczęciu wycofania.
 
 
 
@@ -76,24 +84,8 @@ Agent Azure Monitor wysyła dane do metryk Azure Monitor lub obszaru roboczego L
 
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
-Następujące systemy operacyjne są obecnie obsługiwane przez agenta Azure Monitor.
+Zobacz [obsługiwane systemy operacyjne](agents-overview.md#supported-operating-systems) , aby uzyskać listę wersji systemu operacyjnego Windows i Linux, które są obecnie obsługiwane przez agenta log Analytics.
 
-### <a name="windows"></a>Windows 
-  - Windows Server 2019
-  - Windows Server 2016
-  - Windows Server 2012
-  - Windows Server 2012 z dodatkiem R2
-
-### <a name="linux"></a>Linux
-  - CentOS 6<sup>,</sup>7
-  - Debian 9, 10
-  - Oracle Linux 6<sup>1</sup>, 7
-  - RHEL 6<sup>,</sup>7
-  - SLES 11, 12, 15
-  - Ubuntu 14,04 LTS, 16,04 LTS, 18,04 LTS
-
-> [!IMPORTANT]
-> <sup>1</sup> Aby można było wysyłać dane dziennika systemu przy użyciu tych dystrybucji, należy raz uruchomić usługę rsyslog po zainstalowaniu agenta.
 
 
 ## <a name="security"></a>Zabezpieczenia

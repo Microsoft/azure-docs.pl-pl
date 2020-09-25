@@ -7,17 +7,17 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 88f74bcc93d640ec8d4d9014c6f25a6d0d0df680
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.custom: devx-track-js
+ms.openlocfilehash: dd0d3e462f0b2d8b525e63d65d657a8f056d01a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331866"
 ---
 # <a name="write-client-app-authentication-code"></a>Napisz kod uwierzytelniania aplikacji klienckiej
 
-Po [skonfigurowaniu wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-scripted.md)można utworzyć aplikację kliencką, która będzie używana do współpracy z wystąpieniem. Po skonfigurowaniu początkowego projektu klienta w tym artykule opisano **sposób pisania kodu w aplikacji klienckiej w celu uwierzytelnienia go** w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
+Po [skonfigurowaniu wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-portal.md)można utworzyć aplikację kliencką, która będzie używana do współpracy z wystąpieniem. Po skonfigurowaniu początkowego projektu klienta w tym artykule opisano **sposób pisania kodu w aplikacji klienckiej w celu uwierzytelnienia go** w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
 
 Istnieją dwa podejścia do przykładowego kodu w tym artykule. Możesz użyć tego, który jest odpowiedni dla Ciebie, w zależności od wybranego języka:
 * Pierwsza sekcja przykładowego kodu używa zestawu Azure Digital bliźniaczych reprezentacji .NET (C#) SDK. Zestaw SDK jest częścią zestawu Azure SDK dla platformy .NET i znajduje się tutaj: [*Biblioteka kliencka Digital bliźniaczych usługi Azure IoT dla platformy .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
@@ -27,7 +27,7 @@ Więcej informacji na temat interfejsów API i zestawów SDK dla usługi Azure D
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Najpierw wykonaj kroki instalacji opisane w temacie [*How to: Set a instance and Authentication*](how-to-set-up-instance-scripted.md). Zapewni to, że masz wystąpienie usługi Azure Digital bliźniaczych reprezentacji, użytkownik ma uprawnienia dostępu i ustawił uprawnienia dla aplikacji klienckich. Po skonfigurowaniu tej konfiguracji możesz przystąpić do pisania kodu aplikacji klienta.
+Najpierw wykonaj kroki instalacji opisane w temacie [*How to: Set a instance and Authentication*](how-to-set-up-instance-portal.md). Zapewni to, że masz wystąpienie usługi Azure Digital bliźniaczych reprezentacji, użytkownik ma uprawnienia dostępu i ustawił uprawnienia dla aplikacji klienckich. Po skonfigurowaniu tej konfiguracji możesz przystąpić do pisania kodu aplikacji klienta.
 
 Aby można było wykonać operację, potrzebny będzie projekt aplikacji klienckiej, w którym napisano kod. Jeśli nie masz jeszcze skonfigurowanego projektu aplikacji klienckiej, Utwórz podstawowy projekt w wybranym języku, który ma być używany z tym samouczkiem.
 
@@ -45,13 +45,13 @@ Potrzebne są również następujące instrukcje using:
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
-Aby uwierzytelnić się za pomocą zestawu .NET SDK, użyj jednej z metod uzyskiwania poświadczeń, które są zdefiniowane w bibliotece [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) . Poniżej przedstawiono dwa, które są często używane (nawet razem w tej samej aplikacji):
+Aby uwierzytelnić się za pomocą zestawu .NET SDK, użyj jednej z metod uzyskiwania poświadczeń, które są zdefiniowane w bibliotece [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) . Poniżej przedstawiono dwa, które są często używane (nawet razem w tej samej aplikacji):
 
-* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) jest przeznaczony dla aplikacji interaktywnych i może służyć do tworzenia uwierzytelnionego klienta SDK
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) działa doskonale w przypadkach, gdy potrzebne są tożsamości zarządzane (msi), i jest dobrym kandydatem do pracy z Azure Functions
+* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) jest przeznaczony dla aplikacji interaktywnych i może służyć do tworzenia uwierzytelnionego klienta SDK
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) działa doskonale w przypadkach, gdy potrzebne są tożsamości zarządzane (msi), i jest dobrym kandydatem do pracy z Azure Functions
 
 ### <a name="interactivebrowsercredential-method"></a>InteractiveBrowserCredential, Metoda
-Metoda [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) jest przeznaczona dla aplikacji interaktywnych i umożliwia wyświetlenie przeglądarki sieci Web w celu uwierzytelnienia.
+Metoda [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) jest przeznaczona dla aplikacji interaktywnych i umożliwia wyświetlenie przeglądarki sieci Web w celu uwierzytelnienia.
 
 Aby użyć poświadczeń interaktywnej przeglądarki do utworzenia uwierzytelnionego klienta zestawu SDK, Dodaj następujący kod:
 
@@ -81,7 +81,7 @@ try
 > Identyfikator klienta, identyfikator dzierżawy i adres URL wystąpienia można umieścić bezpośrednio w kodzie jak pokazano powyżej. dobrym pomysłem jest, że kod pobiera te wartości z pliku konfiguracji lub zmiennej środowiskowej.
 
 ### <a name="managedidentitycredential-method"></a>ManagedIdentityCredential, Metoda
- Metoda [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) działa dobrze w przypadkach, gdy potrzebne są [tożsamości zarządzane (msi)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)— na przykład podczas pracy z Azure Functions.
+ Metoda [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) działa dobrze w przypadkach, gdy potrzebne są [tożsamości zarządzane (msi)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)— na przykład podczas pracy z Azure Functions.
 W funkcji platformy Azure można użyć poświadczeń tożsamości zarządzanej, takich jak:
 
 ```csharp

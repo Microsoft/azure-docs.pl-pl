@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 963c9c06409eca2b2f836388b94f8b80484a671a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: e4d3a594011cb57ce6dfd951215d0ae7471ae7c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90936981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331679"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Przegląd sieci — serwer elastyczny Azure Database for PostgreSQL
 
@@ -62,7 +62,7 @@ Poniżej przedstawiono kilka koncepcji, które należy znać w przypadku korzyst
 
    Serwer elastyczny PostgreSQL musi znajdować się w podsieci **delegowanej** wyłącznie do użycia przez PostgreSQL elastyczny serwer. To delegowanie oznacza, że tylko Azure Database for PostgreSQL elastycznych serwerów może korzystać z tej podsieci. W podsieci delegowanej nie mogą znajdować się żadne inne typy zasobów platformy Azure. Delegowanie podsieci przez przypisanie jej właściwości delegowania jako Microsoft. DBforPostgreSQL/flexibleServers.
 
-Dowiedz się, jak utworzyć elastyczny serwer z dostępem prywatnym (Integracja z siecią wirtualną) w [Azure Portal](how-to-manage-virtual-network-portal.md) lub [interfejsie wiersza polecenia platformy Azure](how-to-manage-virtual-network-cli.md).
+* **Sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń)** Reguły zabezpieczeń w sieciowych grupach zabezpieczeń umożliwiają filtrowanie typu ruchu sieciowego, który może przepływać do i z podsieci sieci wirtualnej i interfejsów sieciowych. Aby uzyskać więcej informacji, zapoznaj się z [omówieniem sieciowej grupy zabezpieczeń](../../virtual-network/network-security-groups-overview.md) .
 
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Nieobsługiwane scenariusze sieci wirtualnej
@@ -71,6 +71,7 @@ Dowiedz się, jak utworzyć elastyczny serwer z dostępem prywatnym (Integracja 
 * Nie można zwiększyć rozmiaru podsieci (przestrzenie adresowe), gdy zasoby istnieją w podsieci
 * Komunikacja równorzędna sieci wirtualnych między regionami nie jest obsługiwana
 
+Dowiedz się, jak utworzyć elastyczny serwer z dostępem prywatnym (Integracja z siecią wirtualną) w [Azure Portal](how-to-manage-virtual-network-portal.md) lub [interfejsie wiersza polecenia platformy Azure](how-to-manage-virtual-network-cli.md).
 
 ## <a name="public-access-allowed-ip-addresses"></a>Dostęp publiczny (dozwolone adresy IP)
 Właściwości metody dostępu publicznego obejmują:
@@ -107,12 +108,9 @@ Należy wziąć pod uwagę następujące kwestie, gdy dostęp do usługi Microso
 ## <a name="hostname"></a>Hostname (Nazwa hosta)
 Niezależnie od wybranej opcji sieci zalecamy zawsze używać w pełni kwalifikowanej nazwy domeny (FQDN) jako nazwy hosta podczas łączenia się z serwerem elastycznym. Adres IP serwera nie musi pozostać statyczny. Użycie nazwy FQDN pomoże uniknąć wprowadzania zmian w parametrach połączenia. 
 
-W przypadku, gdy jest używana strefa nadmiarowa o dużej dostępności i przełączenie w tryb failover odbywa się między podstawowym i pomocniczym. Przy użyciu nazwy FQDN można bezproblemowo ponawiać próby połączeń z tymi samymi parametrami połączenia.
-
 Przykład
 * Rekomendowane `hostname = servername.postgres.database.azure.com`
-* Unikaj używania `hostname = 10.0.0.4` (adresu prywatnego) lub `hostname = 40.2.45.67` (adres publiczny)
-
+* Jeśli to możliwe, Unikaj używania `hostname = 10.0.0.4` (adresu prywatnego) lub `hostname = 40.2.45.67` (adres publiczny)
 
 
 ## <a name="tls-and-ssl"></a>TLS i SSL

@@ -6,21 +6,21 @@ services: virtual-wan
 author: erjosito
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
-ms.openlocfilehash: 98142e3a8904bcbb0352fa768fc72966412dae0b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306637"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>Korzystanie z prywatnego linku w wirtualnej sieci WAN
 
 [Łącze prywatne platformy Azure](../private-link/private-link-overview.md) to technologia, która umożliwia łączenie ofert typu "platforma jako usługa" na platformie Azure przy użyciu połączenia z prywatnym adresem IP przez ujawnienie [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md). Za pomocą wirtualnej sieci WAN platformy Azure można wdrożyć prywatny punkt końcowy w jednej z sieci wirtualnych podłączonych do dowolnego koncentratora wirtualnego. Zapewnia to łączność z innymi sieciami wirtualnymi lub gałęziami połączonymi z tą samą wirtualną siecią WAN.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W krokach w tym artykule przyjęto założenie, że wirtualna sieć WAN została już wdrożona z co najmniej jednym koncentratorem, a także przynajmniej dwie sieci wirtualne połączone z wirtualną siecią WAN.
 

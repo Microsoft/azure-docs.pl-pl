@@ -5,20 +5,42 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 5e293bb98405affd824d4bbc50b6f24c5a0e3c11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de0f58b54f0cb5ad450949bb1a7b8744f081227d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320340"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Część trzecia: Konfigurowanie uprawnień na poziomie katalogu i pliku za pośrednictwem protokołu SMB 
 
 Przed rozpoczęciem pracy z tym artykułem upewnij się, że wykonano Poprzedni artykuł, [Przypisz uprawnienia na poziomie udziału do tożsamości](storage-files-identity-ad-ds-assign-permissions.md) , aby upewnić się, że Twoje uprawnienia na poziomie udziału zostały wprowadzone.
 
 Po przypisaniu uprawnień na poziomie udziału za pomocą RBAC należy skonfigurować odpowiednie listy ACL systemu Windows na poziomie katalogu głównego, katalogu lub pliku, aby skorzystać z szczegółowej kontroli dostępu. Należy traktować uprawnienia na poziomie udziału RBAC jako strażnika wysokiego poziomu, który określa, czy użytkownik może uzyskać dostęp do udziału. Listy ACL systemu Windows działają na bardziej szczegółowym poziomie, aby określić, jakie operacje może wykonywać użytkownik na poziomie katalogu lub pliku. Uprawnienia na poziomie udziału i pliku/katalogu są wymuszane, gdy użytkownik próbuje uzyskać dostęp do pliku/katalogu, więc jeśli istnieje różnica między jednym z nich, zostanie zastosowane tylko najbardziej restrykcyjne. Na przykład jeśli użytkownik ma dostęp do odczytu/zapisu na poziomie pliku, ale tylko do odczytu na poziomie udziału, może odczytać tylko ten plik. Ta sama wartość powinna być równa true, jeśli została odwrócona, a użytkownik miał dostęp do odczytu/zapisu na poziomie udziału, ale tylko do odczytu na poziomie pliku może nadal tylko odczytać plik.
+
+## <a name="rbac-permissions"></a>Uprawnienia RBAC
+
+Poniższa tabela zawiera uprawnienia RBAC powiązane z tą konfiguracją:
+
+
+| Wbudowana rola  | Uprawnienie NTFS  | Uzyskany dostęp  |
+|---------|---------|---------|
+|Czytelnik udziału SMB danych w pliku magazynu | Pełna kontrola, modyfikowanie, Odczyt, zapis, wykonywanie | Odczyt i wykonanie  |
+|     |   Odczyt |     Odczyt  |
+|Współautor udziału SMB danych w pliku magazynu  |  Pełna kontrola    |  Modyfikowanie, Odczyt, zapis, wykonywanie |
+|     |  Modyfikowanie         |  Modyfikowanie    |
+|     |  Odczyt i wykonanie |  Odczyt i wykonanie |
+|     |  Odczyt           |  Odczyt    |
+|     |  Zapisywanie          |  Zapisywanie   |
+|Współautor udziału SMB danych w pliku magazynu z podwyższonym poziomem uprawnień | Pełna kontrola  |  Modyfikowanie, Odczyt, zapis, Edycja, wykonywanie |
+|     |  Modyfikowanie          |  Modyfikowanie |
+|     |  Odczyt i wykonanie  |  Odczyt i wykonanie |
+|     |  Odczyt            |  Odczyt   |
+|     |  Zapisywanie           |  Zapisywanie  |
+
+
 
 ## <a name="supported-permissions"></a>Obsługiwane uprawnienia
 

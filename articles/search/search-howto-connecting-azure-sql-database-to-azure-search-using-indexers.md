@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: a1dd88e9007a878ffdf6e5d836391c30c952c35a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 631f5afbac4337cd0852f46ac4a336107f042397
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923028"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331645"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Łączenie się z zawartością usługi Azure SQL i indeksowanie jej przy użyciu usługi Azure Wyszukiwanie poznawcze Indexer
 
@@ -74,7 +74,9 @@ W zależności od kilku czynników związanych z danymi korzystanie z usługi Az
     }
    ```
 
-   Parametry połączenia można uzyskać z [Azure Portal](https://portal.azure.com); Użyj `ADO.NET connection string` opcji.
+   Parametry połączenia mogą mieć jeden z następujących formatów:
+    1. Parametry połączenia można uzyskać z [Azure Portal](https://portal.azure.com); Użyj `ADO.NET connection string` opcji.
+    1. Parametry połączenia tożsamości zarządzanej, które nie zawierają klucza konta o następującym formacie: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;` . Aby użyć tych parametrów połączenia, postępuj zgodnie z instrukcjami dotyczącymi [konfigurowania połączenia indeksatora do Azure SQL Database przy użyciu tożsamości zarządzanej](search-howto-managed-identities-sql.md).
 
 2. Utwórz docelowy indeks Wyszukiwanie poznawcze platformy Azure, jeśli jeszcze go nie masz. Indeks można utworzyć przy użyciu [portalu](https://portal.azure.com) lub [interfejsu API tworzenia indeksu](/rest/api/searchservice/Create-Index). Upewnij się, że schemat indeksu docelowego jest zgodny ze schematem tabeli źródłowej — zobacz [Mapowanie między typami danych wyszukiwania SQL i usług Azure poznawczej](#TypeMapping).
 

@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/09/2020
-ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/15/2020
+ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331662"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Skrytka klienta Microsoft Azure
 
@@ -32,22 +32,23 @@ Następujące usługi są obecnie dostępne w wersji zapoznawczej dla Skrytka kl
 
 - API Management
 - Azure App Service
-- Azure Database for MySQL
-- Azure Databricks
-- Azure Synapse Analytics
 - Cognitive Services
 - Container Registry
+- Azure Database for MySQL
+- Azure Databricks
+- Azure Data Box
+- Azure Data Explorer
 - Azure Data Factory
 - Azure Database for PostgreSQL
-- Azure Kubernetes Service
-- Azure Data Box
+- Azure Functions
 - HDInsight
-- Funkcje
+- Azure Kubernetes Service
+- Azure Monitor
 - Azure Storage
 - Azure SQL DB
-- Azure Data Explorer
-- Maszyny wirtualne (teraz obejmują również dostęp do zrzutów pamięci i dysków zarządzanych)
 - Transfery subskrypcji platformy Azure
+- Azure Synapse Analytics
+- Maszyny wirtualne (teraz obejmują również dostęp do zrzutów pamięci i dysków zarządzanych)
 
 Aby włączyć Skrytka klienta dla tych ofert w wersji zapoznawczej dla Twojej organizacji, zarejestruj się, aby uzyskać [skrytka klienta dla publicznej wersji zapoznawczej platformy Azure](https://aka.ms/customerlockbox/insiderprogram).
 

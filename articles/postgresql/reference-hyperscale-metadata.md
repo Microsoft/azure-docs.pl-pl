@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: c11fd7a9cb6fdd3eb976d0b9e6a91fdc69bf9fba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 888f8c96e8c1aa596c76cf09cd95a104821740ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136847"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320459"
 ---
 # <a name="system-tables-and-views"></a>Tabele i widoki systemowe
 
@@ -27,7 +27,7 @@ Możesz przeglądać te tabele i wysyłać do nich zapytania przy użyciu progra
 
 > [!NOTE]
 >
-> Grupy serwerów ze skalowaniem ze starszymi wersjami aparatu Citus mogą nie oferować wszystkich tabel wymienionych poniżej.
+> Grupy serwerów ze skalowaniem (Citus) korzystające ze starszych wersji aparatu Citus mogą nie oferować wszystkich tabel wymienionych poniżej.
 
 ### <a name="partition-table"></a>Tabela partycji
 
@@ -524,5 +524,5 @@ W tym przykładzie zapytania pochodzą z koordynatora, ale widok może również
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, w jaki sposób niektóre funkcje w ramach [funkcji Moje skalowanie](reference-hyperscale-functions.md) zmieniają
+* Dowiedz się, jak niektóre [funkcje funkcji Citus (deskaling)](reference-hyperscale-functions.md) zmieniają tabele systemowe
 * Przegląd pojęć związanych z [węzłami i tabelami](concepts-hyperscale-nodes.md)

@@ -9,14 +9,14 @@ ms.devlang: azurecli
 ms.topic: sample
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: bd2f8005300aeb77a88be2609246f2d760154e36
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: c4df9ecc025bbffb63730273be06f54cf46f613c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232012"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319401"
 ---
 # <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Używanie interfejsu wiersza polecenia platformy Azure do monitorowania i skalowania pojedynczej bazy danych w Azure SQL Database
 

@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 07b9e3e7529aa867a4baf51ffe5c4bbf23599d32
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 96603d27f53161c72c9e81bb7b84fdc6ab5d1ca2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836194"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320068"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Wersja zapoznawcza: Tworzenie obrazu systemu Windows i dystrybuowanie go do galerii obrazów udostępnionych 
 
@@ -22,7 +22,7 @@ Aby skonfigurować obraz, będziemy używać szablonu JSON. Używany plik JSON j
 
 W celu rozesłania obrazu do galerii obrazów udostępnionych szablon używa [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) jako wartości `distribute` sekcji szablonu.
 
-Usługa Azure Image Builder automatycznie uruchamia program Sysprep w celu uogólnienia obrazu. jest to ogólne polecenie programu Sysprep, które można [przesłonić](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) w razie potrzeby. 
+Usługa Azure Image Builder automatycznie uruchamia program Sysprep w celu uogólnienia obrazu. jest to ogólne polecenie programu Sysprep, które można [przesłonić](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) w razie potrzeby. 
 
 Dowiedzieć się, ile razy są dostosowywane warstwy. Można uruchomić polecenie Sysprep do 8 razy w pojedynczym obrazie systemu Windows. Po uruchomieniu programu Sysprep 8 należy ponownie utworzyć obraz systemu Windows. Aby uzyskać więcej informacji, zobacz [limity czasu, w którym można uruchomić program Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
@@ -298,7 +298,7 @@ dir c:\
 Powinien zostać wyświetlony katalog o nazwie `buildActions` , który został utworzony podczas dostosowywania obrazu.
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli chcesz teraz spróbować ponownie dostosować wersję obrazu, aby utworzyć nową wersję tego samego obrazu, **Pomiń ten krok** i przejdź do, aby [użyć usługi Azure Image Builder do utworzenia innej wersji obrazu](image-builder-gallery-update-image-version.md).
 
 

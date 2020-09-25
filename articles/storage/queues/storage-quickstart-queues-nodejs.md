@@ -7,13 +7,13 @@ ms.date: 12/13/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f2d740184c160faa241e3c0267ec39e1309725a8
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: ad26cba30986ee9a5f642755840ad5ec281219aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431328"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320289"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Szybki Start: Biblioteka kliencka usługi Azure queue storage V12 dla języka JavaScript
 
@@ -34,7 +34,7 @@ Dodatkowe zasoby:
 * [Dokumentacja referencyjna interfejsu API](https://docs.microsoft.com/javascript/api/@azure/storage-queue/)
 * [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
 * [Pakiet (Menedżer pakietów węzła)](https://www.npmjs.com/package/@azure/storage-queue)
-* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

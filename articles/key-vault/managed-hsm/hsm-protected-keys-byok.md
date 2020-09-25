@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: b90d868042e9fb947afdfae9acf35262912eff94
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320629"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importuj klucze chronione przez moduł HSM do zarządzanego modułu HSM (BYOK)
 
- Azure Key Vault zarządzanym modułem HSM obsługuje importowanie kluczy generowanych w lokalnym sprzętowym module zabezpieczeń (HSM). klucze nigdy nie pozostawiają granicy ochrony modułu HSM. Ten scenariusz często jest nazywany *własnym kluczem* (BYOK). Zarządzany moduł HSM używa rodziny oprogramowanie wspomagające nCipher sprzętowego nshield of sprzętowych modułów zabezpieczeń (sprawdzony 140-2 Level 3) do ochrony kluczy.
+ Azure Key Vault zarządzanym modułem HSM obsługuje importowanie kluczy generowanych w lokalnym sprzętowym module zabezpieczeń (HSM). klucze nigdy nie pozostawiają granicy ochrony modułu HSM. Ten scenariusz często jest nazywany *własnym kluczem* (BYOK). Zarządzane moduły HSM używają kart HSM LiquidSecurity (poziom 3 trybu FIPS 140-2) do ochrony kluczy.
 
 Informacje przedstawione w tym artykule ułatwiają planowanie, generowanie i przenoszenie własnych kluczy chronionych przez moduł HSM w celu użycia z zarządzanym modułem HSM.
 

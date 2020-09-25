@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a0fc1bc3158e04c9b1f677af7ef2375ac3ed2ce7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279945"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320051"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Naprawianie zmodyfikowanych reguł domyślnych w Azure AD Connect
 
@@ -73,7 +73,7 @@ Jeśli rozszerzenia nie działają, spróbuj dodać dwie nowe reguły synchroniz
 #### <a name="add-an-inbound-sync-rule"></a>Dodawanie reguły synchronizacji ruchu przychodzącego
 Reguła synchronizacji ruchu przychodzącego oznacza Źródło dla atrybutu, który jest obszarem łącznika, a obiektem docelowym jest Metaverse. Na przykład, aby utworzyć nowy przepływ atrybutów z Active Directory lokalnego do Azure Active Directory, Utwórz nową regułę synchronizacji ruchu przychodzącego. Uruchom **Edytor reguł synchronizacji**, wybierz pozycję **przychodzące** jako kierunek i wybierz pozycję **Dodaj nową regułę**. 
 
- ![Edytor reguł synchronizacji](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Zrzut ekranu pokazujący "Edytor reguł synchronizacji" z wybraną opcją "przychodzące" i "Dodaj nową regułę".](media/how-to-connect-fix-default-rules/default3a.png)
 
 Postępuj zgodnie z własną konwencją nazewnictwa, aby nazwać regułę. W tym miejscu używamy **niestandardowej usługi AD-User**. Oznacza to, że reguła jest regułą niestandardową i jest regułą ruchu przychodzącego z obszaru łącznika Active Directory do Metaverse.   
 
@@ -176,7 +176,7 @@ Wybierz **Podgląd...**
 
 W oknie Podgląd Wybierz pozycję **Generuj Podgląd** i **zaimportuj przepływ atrybutów** w okienku po lewej stronie.
 
-![Wersja zapoznawcza](media/how-to-connect-fix-default-rules/default14.png)
+![Zrzut ekranu pokazujący okno "Podgląd" z wybraną opcją "Importuj przepływ atrybutów" i "Generuj Podgląd".](media/how-to-connect-fix-default-rules/default14.png)
  
 W tym miejscu należy zauważyć, że nowo dodana reguła jest uruchamiana na obiekcie i ma ustawiony `cloudFiltered` atrybut true.
 

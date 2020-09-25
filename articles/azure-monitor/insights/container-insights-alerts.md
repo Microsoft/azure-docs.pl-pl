@@ -3,12 +3,12 @@ title: Tworzenie alertów wydajności dla Azure Monitor kontenerów | Microsoft 
 description: W tym artykule opisano sposób tworzenia niestandardowych alertów opartych na kwerendach dzienników dotyczących wykorzystania pamięci i procesora CPU z Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1041b8bfe299a0daac633e478c906c746759d50f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75730929"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319541"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Jak skonfigurować alerty dotyczące problemów z wydajnością w usłudze Azure Monitor dla kontenerów
 
@@ -277,7 +277,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Tworzenie reguły alertu
 
-Wykonaj następujące kroki, aby utworzyć alert dziennika w Azure Monitor przy użyciu jednej z reguł przeszukiwania dzienników, które zostały podane wcześniej. Aby utworzyć szablon przy użyciu szablonu ARM, zobacz [Przykładowy dziennik tworzenia alertu przy użyciu szablonu zasobów platformy Azure](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
+Wykonaj następujące kroki, aby utworzyć alert dziennika w Azure Monitor przy użyciu jednej z reguł przeszukiwania dzienników, które zostały podane wcześniej. Aby utworzyć przy użyciu szablonu ARM, zobacz [przykłady tworzenia alertów dziennika przy użyciu szablonu zasobów platformy Azure](../platform/alerts-log-create-templates.md).
 
 >[!NOTE]
 >Poniższa procedura umożliwia utworzenie reguły alertu dotyczącego użycia zasobów kontenera. w tym celu należy przełączyć się do nowego interfejsu API alertów dziennika, zgodnie z opisem w [preferencjach przełącznika interfejsu API dla alertów dzienników](../platform/alerts-log-api-switch.md).

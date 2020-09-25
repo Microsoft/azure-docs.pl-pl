@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b2a01e816c0f0569c207aa65e5027b935210e3b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296519"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331781"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
@@ -234,6 +234,7 @@ Typowe błędy odnajdowania aplikacji zostały podsumowane w tabeli.
 9033: nie można odnaleźć, ponieważ nazwa użytkownika maszyny wirtualnej zawiera nieprawidłowe znaki.     |   W nazwie użytkownika wykryto nieprawidłowe znaki.   |   Podaj ponownie poświadczenia maszyny wirtualnej, aby upewnić się, że nie ma żadnych nieprawidłowych znaków.
 9034: podana nazwa użytkownika nie jest w formacie nazwy UPN.    |   Nazwa użytkownika nie jest w formacie nazwy UPN.  |   Upewnij się, że nazwa użytkownika jest w formacie głównej nazwy użytkownika (UPN).
 9035: nie można odnaleźć, ponieważ tryb języka programu PowerShell nie jest ustawiony na wartość "Full Language".  |   Tryb języka dla programu PowerShell na maszynie wirtualnej gościa nie jest ustawiony na język pełny.   |   Upewnij się, że tryb języka programu PowerShell jest ustawiony na wartość "Full Language".
+9037: zbieranie danych zostało tymczasowo wstrzymane, ponieważ czas odpowiedzi maszyny wirtualnej jest zbyt duży.    |   Wykryta maszyna wirtualna trwa zbyt długo, aby odpowiedzieć     |   Żadna akcja nie jest wymagana. W przypadku odnajdywania aplikacji i 3 godzin próba analizy zależności (bez wykorzystania agentów) zostanie ponowiona w ciągu 24 godzin.
 10000: typ systemu operacyjnego nie jest obsługiwany.   |   System operacyjny uruchomiony na serwerze nie jest systemem Windows ani Linux.    |   Obsługiwane typy systemów operacyjnych to tylko systemy Windows i Linux.
 10001: na urządzeniu nie znaleziono skryptu do odnajdowania serwerów.    |   Odnajdywanie nie działa zgodnie z oczekiwaniami.   |   Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
 10002: zadanie odnajdywania nie zostało ukończone w czasie.     |   Agent odnajdywania nie działa zgodnie z oczekiwaniami.     |   Problem powinien zostać automatycznie rozwiązany w ciągu 24 godzin. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft.

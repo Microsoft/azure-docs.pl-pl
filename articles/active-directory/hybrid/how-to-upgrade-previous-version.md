@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69373e039320cd733fb859bb84e03e5493e05403
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b78d3cab17b0cc4085c824cf35d4c6037f0e2af5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277208"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319864"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: uaktualnianie z wcześniejszej wersji do najnowszej
 W tym temacie opisano różne metody, których można użyć w celu uaktualnienia instalacji programu Azure Active Directory (Azure AD) Connect do najnowszej wersji. Zalecamy, aby zachować aktualność w wersjach Azure AD Connect. W przypadku zmiany konfiguracji należy również użyć kroków [z sekcji](#swing-migration) przedziały czasowe.
@@ -106,7 +106,7 @@ Mogą wystąpić sytuacje, w których nie chcesz, aby te zastąpienia zostały w
 
 1. Podczas uaktualniania **Usuń zaznaczenie** opcji **Rozpocznij proces synchronizacji po zakończeniu konfiguracji**. Spowoduje to wyłączenie harmonogramu synchronizacji i uniemożliwia automatyczne przeprowadzenie cyklu synchronizacji przed usunięciem przesłonięć.
 
-   ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
+   ![Zrzut ekranu, który podświetla opcję Rozpocznij proces synchronizacji, gdy konfiguracja jest ukończona, należy wyczyścić.](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
 2. Po zakończeniu uaktualniania Uruchom następujące polecenie cmdlet, aby dowiedzieć się, jakie zastąpienia zostały dodane: `Get-ADSyncSchedulerConnectorOverride | fl`
 
@@ -142,7 +142,7 @@ Poniższa sekcja zawiera informacje dotyczące rozwiązywania problemów i infor
 
 Podczas uaktualniania Azure AD Connect z poprzedniej wersji, można napotkać następujący błąd na początku uaktualnienia 
 
-![Błąd](./media/how-to-upgrade-previous-version/error1.png)
+![Error](./media/how-to-upgrade-previous-version/error1.png)
 
 Ten błąd występuje, ponieważ łącznik Azure Active Directory o identyfikatorze b891884f-051e-4a83-95af-2544101c9083 nie istnieje w bieżącej konfiguracji Azure AD Connect. Aby sprawdzić, czy jest to przypadek, Otwórz okno programu PowerShell, uruchom polecenie cmdlet. `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 

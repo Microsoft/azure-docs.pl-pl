@@ -14,12 +14,12 @@ ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb45f4488c0ddc63ab8e7357a122b47777feee
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: aed5dcf98e37b0d075804985355bdabe3b50b712
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662345"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295349"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Niestandardowa instalacja programu Azure AD Connect
 Opcja **Ustawienia niestandardowe** programu Azure AD Connect umożliwia skorzystanie z większej liczby opcji instalacji. Jest używana w przypadku występowania wielu lasów lub w celu skonfigurowania funkcji opcjonalnych, których nie obejmuje instalacja ekspresowa. Jest przydatna w każdej sytuacji, gdy opcja [**instalacji ekspresowej**](how-to-connect-install-express.md) nie zaspokaja potrzeb związanych z wdrożeniem lub topologią.
@@ -46,7 +46,7 @@ Podczas instalowania usług synchronizacji sekcja konfiguracji opcjonalnej może
 ### <a name="user-sign-in"></a>Logowanie użytkowników
 Po zainstalowaniu wymaganych składników zostanie wyświetlony monit o wybranie metody logowania jednokrotnego dla użytkowników. Poniższa tabela zawiera krótki opis dostępnych opcji. Pełny opis metod logowania znajduje się w temacie [Logowanie użytkowników](plan-connect-user-signin.md).
 
-![Logowanie użytkownika](./media/how-to-connect-install-custom/usersignin4.png)
+![Zrzut ekranu przedstawiający stronę "Logowanie użytkownika" z wybraną opcją "Synchronizacja skrótów haseł".](./media/how-to-connect-install-custom/usersignin4.png)
 
 | Opcja logowania jednokrotnego | Opis |
 | --- | --- |
@@ -75,7 +75,7 @@ Jeśli wystąpi błąd lub problemy z łącznością, zobacz [Rozwiązywanie pro
 ### <a name="connect-your-directories"></a>Podłączanie katalogów
 Aby połączyć się z usługami Active Directory Domain Services, program Azure AD Connect potrzebuje nazwy lasu i poświadczeń konta z wystarczającymi uprawnieniami.
 
-![Podłączanie katalogu](./media/how-to-connect-install-custom/connectdir01.png)
+![Zrzut ekranu przedstawiający stronę "łączenie katalogów".](./media/how-to-connect-install-custom/connectdir01.png)
 
 Po wprowadzeniu nazwy lasu i kliknięciu pozycji **Dodaj katalog** zostanie wyświetlone podręczne okno dialogowe z prośbą o wybranie odpowiedniej opcji:
 
@@ -300,7 +300,7 @@ Jeśli zostało wybrane konto usługi zarządzane przez grupę i funkcja ta nie 
 ### <a name="select-the-azure-ad-domain-that-you-wish-to-federate"></a>Wybór domeny usługi Azure AD, która ma być sfederowana
 Ta konfiguracja służy do konfiguracji relacji federacyjnej pomiędzy usługami AD FS a usługą Azure AD. Usługi AD FS są konfigurowane w celu wydawania tokenów zabezpieczających do usługi Azure AD, natomiast usługa Azure AD jest konfigurowana w celu zaufania tokenom pochodzącym z tego określonego wystąpienia usług AD FS. Ta strona umożliwia tylko konfigurowanie pojedynczej domeny podczas instalacji wstępnej. Później można skonfigurować więcej domen przez ponowne uruchomienie programu Azure AD Connect.
 
-![Domena usługi Azure AD](./media/how-to-connect-install-custom/adfs6.png)
+![Zrzut ekranu przedstawiający stronę "domena usługi Azure AD".](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>Weryfikowanie domeny usługi Azure AD wybranej do federacji
 Po wybraniu domeny do sfederowania program Azure AD Connect dostarcza niezbędne informacje umożliwiające sprawdzenie niezweryfikowanej domeny. Sposób korzystania z tych informacji opisano w temacie [Dodawanie i weryfikowanie domeny](../fundamentals/add-custom-domain.md).
@@ -320,7 +320,7 @@ Konfigurowanie serwera PingFederate przy użyciu programu Azure AD Connect jest 
 ### <a name="verify-the-domain"></a>Weryfikowanie domeny
 Po wyborze federacji z serwerem PingFederate zostanie wyświetlony monit z prośbą o weryfikację domeny, która ma zostać sfederowana.  Wybierz domenę z listy rozwijanej.
 
-![Zweryfikuj domenę](./media/how-to-connect-install-custom/ping1.png)
+![Zrzut ekranu przedstawiający "domenę usługi Azure AD" z wybraną przykładową domeną "contoso.com".](./media/how-to-connect-install-custom/ping1.png)
 
 ### <a name="export-the-pingfederate-settings"></a>Eksportowanie ustawień serwera PingFederate
 
@@ -394,7 +394,7 @@ Poniższa sekcja obejmuje rozwiązywanie problemów i informacje, z których mo�
 ### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>„Baza danych ADSync już zawiera dane i nie można jej zastąpić”
 W przypadku niestandardowej instalacji Azure AD Connect i wybrania opcji **Użyj istniejącego serwera SQL** na stronie **Instalowanie wymaganych składników** może wystąpić błąd informujący o tym, że **baza danych ADSync zawiera już dane i nie można jej zastąpić. Usuń istniejącą bazę danych i spróbuj ponownie.**
 
-![Błąd](./media/how-to-connect-install-custom/error1.png)
+![Zrzut ekranu przedstawiający stronę "Instalowanie składników wymaganych".](./media/how-to-connect-install-custom/error1.png)
 
 Dzieje się tak, ponieważ na wystąpieniu SQL serwera SQL istnieje już baza danych o nazwie **ADSync**, którą określono w powyższych polach tekstowych.
 
@@ -406,7 +406,7 @@ Następnie zaleca się utworzenie kopii zapasowej bazy danych przed jej usunięc
 
 Na koniec należy usunąć bazę danych.  Możesz to zrobić, używając programu **Microsoft SQL Server Management Studio** i nawiązując połączenie z wystąpieniem SQL. Znajdź bazę danych **ADSync**, kliknij ją prawym przyciskiem myszy, a następnie wybierz polecenie **Usuń** z menu kontekstowego.  Następnie kliknij przycisk **OK**, aby usunąć bazę danych.
 
-![Błąd](./media/how-to-connect-install-custom/error2.png)
+![Error](./media/how-to-connect-install-custom/error2.png)
 
 Po usunięciu bazy danych **ADSync** możesz kliknąć przycisk **Zainstaluj**, aby ponowić próbę instalacji.
 

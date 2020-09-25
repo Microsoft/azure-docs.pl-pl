@@ -3,12 +3,12 @@ title: Metryki Azure Service Bus w Azure Monitor | Microsoft Docs
 description: W tym artykule wyjaśniono, jak używać Azure Monitor do monitorowania jednostek Service Bus (kolejek, tematów i subskrypcji).
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 3081b46bebdba8e83e5584178b37aab2dffee599
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 158662a5d0fc3489b2cac638b28a64aa218b888e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065016"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320442"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metryki Azure Service Bus w Azure Monitor
 
@@ -128,7 +128,7 @@ Azure Service Bus obsługuje następujące wymiary dla metryk w Azure Monitor. D
     1. Wybierz **Service Bus przestrzenie nazw** dla pola **Filtr według typu zasobu** . 
     2. Wybierz subskrypcję dla pola **Filtruj według subskrypcji** .
     3. Wybierz z listy **przestrzeń nazw usługi Service Bus** . 
-    4. Kliknij **Gotowe**. 
+    4. Wybierz pozycję **Gotowe**. 
     
         ![Wybierz przestrzeń nazw](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Wybierz pozycję **Dodaj kryteria**i wykonaj następujące czynności na stronie **Konfigurowanie logiki sygnałów** :
@@ -139,7 +139,7 @@ Azure Service Bus obsługuje następujące wymiary dla metryk w Azure Monitor. D
     1. Wybierz opcję **większe niż** w przypadku **warunku**.
     2. Wybierz pozycję **Suma** dla **agregacji czasu**. 
     3. Wprowadź wartość **5** w obszarze **próg**. 
-    4. Kliknij **Gotowe**.    
+    4. Wybierz pozycję **Gotowe**.    
 
         ![Określ warunek](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
 1. Na stronie **Tworzenie reguły** rozwiń pozycję **Zdefiniuj szczegóły alertu**i wykonaj następujące czynności:
@@ -147,7 +147,7 @@ Azure Service Bus obsługuje następujące wymiary dla metryk w Azure Monitor. D
     2. Wprowadź **Opis** alertu.
     3. Wybierz pozycję **ważność** dla alertu. 
 
-        ![Szczegóły alertu](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Zrzut ekranu przedstawiający stronę Tworzenie reguły. Zdefiniuj szczegóły alertu, a pola dla nazwy, opisu i ważności reguły alertu są wyróżnione.](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. Na stronie **Tworzenie reguły** rozwiń węzeł **Zdefiniuj grupę akcji**, wybierz pozycję **Nowa grupa akcji**i wykonaj następujące czynności na **stronie Dodaj grupę akcji**. 
     1. Wprowadź nazwę grupy akcji.
     2. Wprowadź krótką nazwę grupy akcji. 
@@ -159,9 +159,9 @@ Azure Service Bus obsługuje następujące wymiary dla metryk w Azure Monitor. D
     8. Na stronie **wiadomości e-mail/SMS/wypychanie/głos** wykonaj następujące czynności:
         1. Wybierz pozycję **Adres e-mail**. 
         2. Wpisz **adres e-mail**. 
-        3. Wybierz pozycję **OK**.
+        3. Wybierz przycisk **OK**.
 
-            ![Szczegóły alertu](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![Zrzut ekranu przedstawiający stronę Dodawanie grupy akcji. Akcja o nazwie "Wyślij wiadomość e-mail" z akcją typu email/SMS/push/Voice jest dodawana do grupy.](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. Na stronie **Dodaj grupę akcji** wybierz pozycję **OK**. 
 1. Na stronie **Tworzenie reguły** wybierz pozycję **Utwórz regułę alertu**. 
 

@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461038"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306569"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
 
@@ -37,7 +37,7 @@ ms.locfileid: "89461038"
 
 * Automatyzuj wyniki przeglądu, takie jak usuwanie dostępu użytkowników do zasobów
 
-  ![Planowanie przeglądów dostępu](./media/deploy-access-review/1-planning-review.png)
+  ![Diagram przedstawiający przepływ przeglądów dostępu.](./media/deploy-access-review/1-planning-review.png)
 
 Przeglądy dostępu to [Azure AD Identity Governance](identity-governance-overview.md) możliwości. Inne funkcje to [Zarządzanie uprawnieniami](entitlement-management-overview.md), [Privileged Identity Management](../privileged-identity-management/pim-configure.md) i [warunki użytkowania](../conditional-access/terms-of-use.md). Wspólnie ułatwiają one organizacjom rozwiązywanie tych czterech pytań:
 
@@ -300,7 +300,7 @@ Podczas [tworzenia pakietu dostępu](entitlement-management-access-package-creat
 
 Otwórz kartę cykl życia, aby przewinąć w dół do okna przeglądy dostępu.
 
- ![Edycja zasad](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![Zrzut ekranu, który pokazuje "Edytuj zasady" na karcie "cykl życia".](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>Planowanie przeglądów dostępu dla grup
 
@@ -446,7 +446,7 @@ Dostęp do grup i aplikacji musi być zmieniany w miarę upływu czasu. Aby zmni
 
 Aby zmniejszyć ryzyko związane ze starymi przypisaniami ról, należy regularnie przeglądać dostęp do ról uprzywilejowanych usługi Azure AD.
 
-![przeglądanie ról usługi Azure AD](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Zrzut ekranu przedstawiający listę "przegląd członkostwa" ról Azure A D.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Postępuj zgodnie z instrukcjami podanymi w poniższych linkach:
 

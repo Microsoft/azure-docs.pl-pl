@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 98f4c30d03763e070b1bdc32a5e6e099556916ab
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 52a9932db4fc261b8f3d740a316af3e852559a32
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946570"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320493"
 ---
 # <a name="tutorial-run-hello-world-python-script-part-2-of-4"></a>Samouczek: uruchamianie skryptu Python "Hello world" (część 2 z 4)
 
@@ -124,7 +124,7 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Przesyła skrypt. To przesyłanie jest nazywane [przebiegiem](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).  Przebieg hermetyzuje pojedyncze wykonanie kodu. Użyj przebiegu, aby monitorować postęp skryptu, przechwycić dane wyjściowe, analizować wyniki, wizualizować metryki i nie tylko.
+       Przesyła skrypt. To przesyłanie jest nazywane [przebiegiem](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).  Przebieg hermetyzuje pojedyncze wykonanie kodu. Użyj przebiegu, aby monitorować postęp skryptu, przechwycić dane wyjściowe, analizować wyniki, wizualizować metryki i nie tylko.
    :::column-end:::
 :::row-end:::
 :::row:::

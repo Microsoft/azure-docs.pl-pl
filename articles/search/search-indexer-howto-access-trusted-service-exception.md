@@ -8,16 +8,19 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 30fc71e6f59766a759cdb8e4e503123623f48bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971414"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320476"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Bezpieczne uzyskiwanie dostępu do danych z kont magazynu za pomocą wyjątku usługi zaufanej
 
 Indeksatory, które uzyskują dostęp do danych na kontach magazynu, mogą korzystać z funkcji [zaufanego wyjątku usługi](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) , aby bezpiecznie uzyskiwać dostęp do danych. Ten mechanizm umożliwia klientom, którzy nie mogą udzielić [dostępu indeksatora za pośrednictwem reguł zapory adresów IP](search-indexer-howto-access-ip-restricted.md) , prostą, bezpieczną i bezpłatną alternatywą dla dostępu do danych na kontach magazynu.
+
+> [!NOTE]
+> Obsługa uzyskiwania dostępu do danych na kontach magazynu za pośrednictwem zaufanego wyjątku usługi jest ograniczona do magazynu obiektów blob platformy Azure i Azure Data Lake magazynu Gen2. Usługa Azure Table Storage nie jest obsługiwana.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Krok 1. Konfigurowanie połączenia z kontem magazynu za pośrednictwem tożsamości
 

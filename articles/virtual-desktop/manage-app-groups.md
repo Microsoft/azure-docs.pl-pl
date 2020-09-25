@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 52f495753d055730c1ad42444c83cf3d5cd4c1d3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: beac9f64b12a07d2fc900099ee1f107e4981f17e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461429"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320221"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Samouczek: Zarządzanie grupami aplikacji przy użyciu Azure Portal
 
@@ -32,7 +32,8 @@ Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu
 
 1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
    
-   >! KORYGUJĄC Jeśli logujesz się do portalu US Gov, przejdź do [https://portal.azure.us/](https://portal.azure.us/) zamiast tego.
+    >[!NOTE]
+    > Jeśli logujesz się do portalu US Gov, przejdź do [https://portal.azure.us/](https://portal.azure.us/) zamiast tego.
 
 2.  Wyszukaj i wybierz pozycję **pulpit wirtualny systemu Windows**.
 

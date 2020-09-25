@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: e77379be863f4527081eeec6a0ee1f426d526527
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 12407d6344c69c747230e9db6fa4d53b4520dc82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331815"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Samouczek: Konfigurowanie materiałów renderowania fizycznie opartych na protokole 3ds Max
 
@@ -22,6 +22,10 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > * Przypisuj materiały z zaawansowanymi oświetleniem do obiektów w scenie.
 > * Obsługa wystąpień obiektów i materiałów.
 > * Wyeksportuj scenę do formatu FBX i wybierz ważne opcje.
+
+> [!Note]
+> Procedura opisana w tym samouczku działa w tabeli 3ds Max 2019 i 3ds Max 2020.
+> Zmiana sposobu, w jaki program 3ds Max 2021 eksportuje wartości mapy, oznacza, że normalne mapy nie zostaną znalezione przez usługę konwersji, jeśli ta wersja jest używana.
 
 Tworzenie [materiałów renderowania (PBR)](../../overview/features/pbr-materials.md) w języku 3ds Max jest bardzo proste. Podobnie jak w przypadku innych aplikacji do tworzenia zawartości, takich jak Maya, jest to podobne na wiele sposobów. Ten samouczek to przewodnik dotyczący podstawowej instalacji modułu cieniującego w programie PBR i eksportowania FBX na potrzeby projektów zdalnego renderowania na platformie Azure.
 
