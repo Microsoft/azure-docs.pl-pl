@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: da0c00f0b4a8f2c49996fbcb9b34ee4a1ab65273
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6648a20e03facad4b791cacba8513f9f1aa7d2f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291915"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Znane problemy/ograniczenia migracji z migracją online do Azure SQL Database
 
@@ -40,7 +40,7 @@ Jeśli źródłowa baza danych składa się z co najmniej jednej tabeli czasowej
 
 **Obejście**
 
-Wykonaj następujące czynności.
+Skorzystaj z poniższych instrukcji.
 
 1. Znajdź tabele danych czasowych w schemacie źródłowym przy użyciu poniższego zapytania.
 
@@ -66,7 +66,7 @@ Podczas operacji "pełnego ładowania danych" może zostać wyświetlony wyjąte
 
 **Obejście**
 
-Wykonaj następujące czynności.
+Skorzystaj z poniższych instrukcji.
 
 1. Znajdź tabele użytkownika zawierające kolumny z typem danych hierarchyid przy użyciu poniższego zapytania.
 
@@ -82,7 +82,7 @@ Wykonaj następujące czynności.
 
 **Obejście**
 
-Wykonaj następujące czynności.
+Skorzystaj z poniższych instrukcji.
 
 1. Znajdź wyzwalacze, które są obecnie aktywne w źródłowej bazie danych, przy użyciu poniższego zapytania:
 

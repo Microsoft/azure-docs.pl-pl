@@ -1,14 +1,14 @@
 ---
 title: Odbieraj alerty dziennika aktywności w powiadomieniach usługi platformy Azure przy użyciu Azure Portal
-description: Otrzymuj powiadomienia za pośrednictwem wiadomości SMS, poczty e-mail lub elementu webhook w przypadku wystąpienia usługi platformy Azure.
+description: Informacje na temat używania Azure Portal do konfigurowania alertów dziennika aktywności dla powiadomień o kondycji usługi przy użyciu Azure Portal.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b90940c4532370e7742f736708625ddec283aab1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88fbdeeb8bdcc239f1591e053aaf4fb1c36b9b19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499285"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289790"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Tworzenie alertów dziennika aktywności dla powiadomień usługi przy użyciu Azure Portal
 ## <a name="overview"></a>Omówienie

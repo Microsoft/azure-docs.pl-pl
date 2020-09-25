@@ -1,14 +1,16 @@
 ---
 title: Definicja schematu aplikacji
 description: Aplikacja LUIS jest reprezentowana w `.json` lub `.lu` i zawiera wszystkie intencje, jednostki, przykład wyrażenia długości, funkcje i ustawienia.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 08/22/2020
-ms.openlocfilehash: 816a6c50129f37a55ab3dba72319358e832a6b8b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: db4fd52dad82542f20e58ebb3b8526c5be7f2f88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756792"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327327"
 ---
 # <a name="app-schema-definition"></a>Definicja schematu aplikacji
 
@@ -18,7 +20,7 @@ Aplikacja LUIS jest reprezentowana w `.json` lub `.lu` i zawiera wszystkie inten
 
 Podczas importowania i eksportowania aplikacji wybierz opcję `.json` lub `.lu` .
 
-|Format|Informacje|
+|Format|Informacyjny|
 |--|--|
 |`.json`| Standardowy format programowania|
 |`.lu`|Obsługiwane przez [narzędzia bot Builder](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown/docs/lu-file-format.md)platformy bot Framework.|

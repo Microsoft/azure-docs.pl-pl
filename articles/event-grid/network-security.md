@@ -1,16 +1,16 @@
 ---
 title: Zabezpieczenia sieciowe Azure Event Grid zasobów
-description: W tym artykule opisano sposób konfigurowania dostępu z prywatnych punktów końcowych
+description: W tym artykule opisano sposób używania tagów usługi dla ruchu wychodzącego, reguł zapory protokołu IP na potrzeby transferu danych przychodzących i prywatnych punktów końcowych przy użyciu Azure Event Grid.
 author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119246"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326460"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Zabezpieczenia sieciowe Azure Event Grid zasobów
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Event Grid: 
@@ -27,7 +27,7 @@ Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grup
 
 | Tag usługi | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
 | --- | -------- |:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. | Obie | Nie | Nie |
+| AzureEventGrid | Azure Event Grid. | Oba | Nie | Nie |
 
 
 ## <a name="ip-firewall"></a>Zapora IP 

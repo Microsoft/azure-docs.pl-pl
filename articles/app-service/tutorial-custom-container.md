@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: Azure App Service, Web App, Linux, Windows, Docker, kontener
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: fdc15ecd79a6672d2a46b4da284533965977d753
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f4b2aea0a6782b5484b2f6d15066d71990348596
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982876"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312060"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrowanie oprogramowania niestandardowego do Azure App Service przy użyciu niestandardowego kontenera
 
@@ -72,7 +72,7 @@ Projekt jest teraz skonfigurowany do uruchamiania w kontenerze systemu Windows. 
 
 W Eksploratorze rozwiązań otwórz plik **Dockerfile**.
 
-Konieczne będzie użycie [obsługiwanego obrazu nadrzędnego](quickstart-custom-container.md#use-a-different-parent-image). Zmień obraz nadrzędny, zastępując wiersz `FROM` następującym kodem:
+Konieczne będzie użycie [obsługiwanego obrazu nadrzędnego](configure-custom-container.md#supported-parent-images). Zmień obraz nadrzędny, zastępując wiersz `FROM` następującym kodem:
 
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
@@ -120,7 +120,7 @@ Skonfiguruj nowy rejestr kontenerów, korzystając z sugerowanych wartości z po
 | ----------------- | ------------ | ----|
 |**Prefiks DNS**| Zachowaj wygenerowaną nazwę rejestru lub zmień ją na inną unikatową nazwę. |  |
 |**Grupa zasobów**| Kliknij pozycję **Nowy**, wpisz **myResourceGroup** i kliknij przycisk **OK**. |  |
-|**SKU**| Podstawowe | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Podstawowy | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Lokalizacja rejestru**| West Europe | |
 
 ![Konfigurowanie rejestru kontenerów platformy Azure](./media/tutorial-custom-container/configure-registry.png)
@@ -610,13 +610,15 @@ service ssh start
 
     Na przykład można przejrzeć procesy działające w ramach tego `top` polecenia.
     
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Zasoby utworzone w tym artykule mogą wiązać się z bieżącymi kosztami. Aby wyczyścić zasoby, należy usunąć tylko grupę zasobów, która ją zawiera:
 
 ```azurecli
 az group delete --name AppSvc-DockerTutorial-rg
 ```
+
+::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -625,9 +627,13 @@ Które czynności umiesz wykonać:
 > [!div class="checklist"]
 > * Wdrażanie obrazu niestandardowego w rejestrze kontenera prywatnego
 > * Wdrażanie i obraz niestandardowy w App Service
+::: zone pivot="container-linux"
 > * Aktualizowanie i ponowne wdrażanie obrazu
+::: zone-end
 > * Uzyskiwanie dostępu do dzienników diagnostycznych
+::: zone pivot="container-linux"
 > * Nawiązywanie połączenia z kontenerem przy użyciu protokołu SSH
+::: zone-end
 
 W następnym samouczku dowiesz się, jak zmapować niestandardową nazwę DNS na aplikację.
 
@@ -639,7 +645,7 @@ Lub zapoznaj się z innymi zasobami:
 > [!div class="nextstepaction"]
 > [Konfigurowanie kontenera niestandardowego](configure-custom-container.md)
 
+::: zone pivot="container-linux"
 > [!div class="nextstepaction"]
 > [Samouczek: wielokontenerowa aplikacja WordPress](tutorial-multi-container-app.md)
-
 ::: zone-end
