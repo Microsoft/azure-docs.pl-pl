@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 797bd97940aa49db87b4ca4dd96f140208cd69b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820177"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261876"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Korzystanie z funkcji na pulpicie nawigacyjnym akceleratora rozwiązania połączonej fabryki
+
+> [!IMPORTANT]
+> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
 
 [Wdrożenie rozwiązania w chmurze do zarządzania moimi urządzeniami przemysłowymi IoT —](quickstart-connected-factory-deploy.md) szybki start przedstawia sposób nawigowania po pulpicie nawigacyjnym i reagowanie na alarmy. Ten przewodnik zawiera informacje na temat dodatkowych funkcji pulpitu nawigacyjnego, których można użyć do monitorowania i zarządzania urządzeniami przemysłowymi IoT.
 

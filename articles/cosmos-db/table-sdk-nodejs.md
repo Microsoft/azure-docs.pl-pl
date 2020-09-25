@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB interfejs API tabel Node.js
-description: Dowiedz się więcej na temat Azure Cosmos DB interfejs API tabel w tym daty wydania, daty wycofania i zmiany wprowadzone między każdą wersją.
+description: Dowiedz się więcej na temat Azure Cosmos DB interfejs API tabel do Node.js, w tym dat wydania, dat wycofania i zmian wprowadzonych między każdą wersją.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 52aebf5a4f2e5ea7b3b09ae105c9ea632416c27e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bcc0559e5b4d3fafe1f83a1850cdda2d9d1fdfd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167982"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261791"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB interfejs API tabel do Node.js: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "84167982"
 |   |   |
 |---|---|
 |**Pobieranie zestawu SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu APINode.js](https://azure.github.io/azure-storage-node/)|
+|**Dokumentacja interfejsu API**|[ Dokumentacja interfejsu APINode.js](https://azure.github.io/azure-storage-node/)|
 |**Współtworzenie zestawu SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]
@@ -51,6 +51,6 @@ Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu
 ## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) . 
 

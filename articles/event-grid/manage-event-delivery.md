@@ -3,14 +3,14 @@ title: Utracony komunikat i zasady ponawiania — Azure Event Grid
 description: Opisuje sposób dostosowywania opcji dostarczania zdarzeń dla Event Grid. Ustaw miejsce docelowe utraconych wiadomości, a następnie określ, jak długo ma być ponawiane dostarczanie.
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e780ddd5c49b1a2cced10a1907d25784b0285f01
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074886"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261808"
 ---
-# <a name="dead-letter-and-retry-policies"></a>Utracony i ponawianie zasad
+# <a name="set-dead-letter-location-and-retry-policy"></a>Ustaw lokalizację utraconych wiadomości i zasady ponawiania
 
 Podczas tworzenia subskrypcji zdarzeń można dostosować ustawienia dostarczania zdarzeń. W tym artykule opisano sposób konfigurowania martwej lokalizacji i dostosowywania ustawień ponownych prób. Aby uzyskać informacje o tych funkcjach, zobacz [Event Grid dostarczania komunikatów i ponów próbę](delivery-and-retry.md).
 

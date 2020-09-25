@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c4bef25a0be12c0335a82345ec998274f1faa67
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058406"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257133"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Scenariusz: aplikacja sieci Web, która wywołuje interfejsy API sieci Web
 
@@ -24,12 +24,7 @@ Dowiedz się, jak utworzyć aplikację sieci Web, która podpisuje użytkownikó
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
-W tym scenariuszu przyjęto założenie, że został już przetworzony następujący scenariusz:
-
-> [!div class="nextstepaction"]
-> [Aplikacja internetowa z możliwością logowania użytkowników](scenario-web-app-sign-user-overview.md)
+W tym scenariuszu przyjęto założenie, że scenariusz został już ukończony [: aplikacja sieci Web, która loguje użytkowników](scenario-web-app-sign-user-overview.md).
 
 ## <a name="overview"></a>Omówienie
 
@@ -51,6 +46,10 @@ Opracowywanie tego scenariusza obejmuje następujące zadania:
 
 - Podczas [rejestracji aplikacji](scenario-web-app-call-api-app-registration.md)należy podać identyfikator URI odpowiedzi, klucz tajny lub certyfikat, który ma być współużytkowany z usługą Azure AD. Jeśli aplikacja zostanie wdrożona w kilku lokalizacjach, dla każdej lokalizacji zostanie podany identyfikator URI odpowiedzi.
 - [Konfiguracja aplikacji](scenario-web-app-call-api-app-configuration.md) musi udostępniać poświadczenia klienta, które zostały udostępnione usłudze Azure AD podczas rejestracji aplikacji.
+
+## <a name="recommended-reading"></a>Zalecany odczyt
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

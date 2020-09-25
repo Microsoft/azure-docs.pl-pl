@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 44fbbbdb1c36f74a4131d4e5a82de6ef058381f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 547712d16cb6a7504d1a875b6155a587746d86bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508756"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279199"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Tworzenie maszyny wirtualnej przy użyciu wyspecjalizowanego obrazu 
 
@@ -133,4 +133,4 @@ Możesz również utworzyć zasób udostępnionej galerii obrazów przy użyciu 
 - [Tworzenie wersji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Tworzenie maszyny wirtualnej na podstawie wersji obrazu](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Omówienie](./windows/shared-image-galleries.md). Jeśli występują problemy, zobacz temat [Rozwiązywanie problemów z udostępnionymi galeriami obrazów](./windows/troubleshooting-shared-images.md).
+Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Omówienie](./windows/shared-image-galleries.md). Jeśli występują problemy, zobacz temat [Rozwiązywanie problemów z udostępnionymi galeriami obrazów](troubleshooting-shared-images.md).

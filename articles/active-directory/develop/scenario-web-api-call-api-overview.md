@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 88a0177755fbd913bdaaf0ecf3e12c62dee294c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dcf377797709b56b4db735dabf4d48cfae4fc06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257167"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Scenariusz: internetowy interfejs API, który wywołuje interfejsy API sieci Web
 
@@ -24,13 +24,13 @@ Dowiedz się, co musisz wiedzieć, aby utworzyć interfejs API sieci Web, który
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym scenariuszu, w którym chroniony interfejs API sieci Web wywołuje interfejsy API sieci Web, kompiluje się w scenariuszu "Ochrona internetowego interfejsu API". Aby dowiedzieć się więcej na temat tego scenariusza, zobacz temat [Scenariusz: chroniony internetowy interfejs API](scenario-protected-web-api-overview.md).
+W tym scenariuszu, w którym chroniony internetowy interfejs API wywołuje inne interfejsy API sieci Web, kompiluje w [scenariuszu: chroniony internetowy interfejs API](scenario-protected-web-api-overview.md).
 
 ## <a name="overview"></a>Omówienie
 
 - Klient sieci Web, pulpitu, aplikacji mobilnej lub jednostronicowej (niereprezentowanej na towarzyszącym diagramie) wywołuje chroniony internetowy interfejs API i udostępnia token okaziciela sieci Web w formacie JSON (JWT) w nagłówku HTTP "Authorization".
 - Chroniony internetowy interfejs API sprawdza token i używa metody Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` w celu zażądania innego tokenu z Azure Active Directory (Azure AD), aby chroniony internetowy interfejs API mógł wywołać drugi internetowy interfejs API lub podrzędny interfejs API sieci Web w imieniu użytkownika.
-- Chroniony internetowy interfejs API może również wywołać `AcquireTokenSilent` później, aby zażądać tokenów innych podrzędnych interfejsów API w imieniu tego samego użytkownika. `AcquireTokenSilent`Odświeża token w razie konieczności.
+- Chroniony internetowy interfejs API może również wywołać `AcquireTokenSilent` później, aby zażądać tokenów innych podrzędnych interfejsów API w imieniu tego samego użytkownika. `AcquireTokenSilent` Odświeża token w razie konieczności.
 
 ![Diagram interfejsu API sieci Web wywołującego interfejs API sieci Web](media/scenarios/web-api.svg)
 
@@ -41,4 +41,4 @@ Część rejestracji aplikacji, która jest powiązana z uprawnieniami interfejs
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Rejestrowanie aplikacji](scenario-web-api-call-api-app-registration.md)
+> [Rejestracja aplikacji](scenario-web-api-call-api-app-registration.md)

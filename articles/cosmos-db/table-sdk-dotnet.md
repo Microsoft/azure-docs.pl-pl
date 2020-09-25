@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB interfejs API tabel zestawu .NET SDK & zasobów
-description: Dowiedz się więcej na temat Azure Cosmos DB interfejs API tabel w tym daty wydania, daty wycofania i zmiany wprowadzone między każdą wersją.
+description: Dowiedz się więcej na temat interfejs API tabel Azure Cosmos DB dla platformy .NET, w tym daty wydania, daty wycofania i zmiany dokonane między poszczególnymi wersjami.
 author: sakash279
 ms.author: akshanka
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 8c594ba01ea6fe9fb1c3cee2ed415496132d1abc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bc984e330085430db10298380dfdc9767f1aa770
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018437"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261944"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Interfejs API platformy .NET tabeli Azure Cosmos DB: pobieranie i informacje o wersji
 

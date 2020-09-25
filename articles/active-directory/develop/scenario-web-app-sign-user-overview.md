@@ -11,20 +11,16 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 52e33177b5fc6c68f615b8eb7738e66b18a1763a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257076"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenariusz: aplikacja sieci Web, która loguje użytkowników
 
 Dowiedz się, co musisz zrobić, aby utworzyć aplikację sieci Web korzystającą z platformy tożsamości firmy Microsoft do logowania użytkowników.
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -60,7 +56,7 @@ Jeśli tworzysz przy użyciu języka Python, wypróbuj następujący Przewodnik 
 
 ## <a name="overview"></a>Omówienie
 
-Należy dodać uwierzytelnianie do aplikacji sieci Web, aby umożliwić użytkownikom logowanie się. Dodanie uwierzytelniania umożliwia aplikacji sieci Web dostęp do ograniczonych informacji o profilach w celu dostosowania środowiska dla użytkowników. 
+Należy dodać uwierzytelnianie do aplikacji sieci Web, aby umożliwić użytkownikom logowanie się. Dodanie uwierzytelniania umożliwia aplikacji sieci Web dostęp do ograniczonych informacji o profilach w celu dostosowania środowiska dla użytkowników.
 
 Aplikacje sieci Web uwierzytelniają użytkownika w przeglądarce internetowej. W tym scenariuszu aplikacja sieci Web kieruje przeglądarkę użytkownika do podpisania ich w usłudze Azure Active Directory (Azure AD). Usługa Azure AD zwraca odpowiedź logowania za pomocą przeglądarki użytkownika, która zawiera oświadczenia dotyczące użytkownika w tokenie zabezpieczającym. Podpisywanie użytkowników korzysta z protokołu [Open ID Connect](./v2-protocols-oidc.md) Standard, uproszczonego przy użyciu [bibliotek](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps)pośredniczących.
 
@@ -69,13 +65,17 @@ Aplikacje sieci Web uwierzytelniają użytkownika w przeglądarce internetowej. 
 W drugiej fazie można umożliwić aplikacji wywoływanie interfejsów API sieci Web w imieniu zalogowanego użytkownika. Ta kolejna faza jest innym scenariuszem, który można znaleźć w [aplikacji sieci Web, która wywołuje interfejsy API sieci Web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Dodawanie logowania do aplikacji sieci Web polega na tym, jak chronić aplikację sieci Web i sprawdzać token użytkownika, który jest biblioteką **oprogramowania pośredniczącego** . W przypadku platformy .NET ten scenariusz nie wymaga jeszcze biblioteki uwierzytelniania firmy Microsoft (MSAL), która ma na celu uzyskanie tokenu do wywołania chronionych interfejsów API. Biblioteki uwierzytelniania zostaną wprowadzone w scenariuszu kontynuacji, gdy aplikacja sieci Web wymaga wywołania interfejsów API sieci Web.
+> Dodawanie logowania do aplikacji sieci Web polega na tym, jak chronić aplikację sieci Web i sprawdzać token użytkownika, który jest biblioteką  **oprogramowania pośredniczącego** . W przypadku platformy .NET ten scenariusz nie wymaga jeszcze biblioteki uwierzytelniania firmy Microsoft (MSAL), która ma na celu uzyskanie tokenu do wywołania chronionych interfejsów API. Biblioteki uwierzytelniania zostaną wprowadzone w scenariuszu kontynuacji, gdy aplikacja sieci Web wymaga wywołania interfejsów API sieci Web.
 
 ## <a name="specifics"></a>Szczegółowych informacji
 
 - Podczas rejestracji aplikacji należy podać jeden lub kilka (Jeśli aplikacja jest wdrażana w kilku lokalizacjach) identyfikatorów URI odpowiedzi. W niektórych przypadkach (ASP.NET i ASP.NET Core) należy włączyć token identyfikatora. Na koniec należy skonfigurować identyfikator URI, aby aplikacja działała w celu wylogowania użytkowników.
 - W kodzie aplikacji należy podać uprawnienia do logowania pełnomocników aplikacji sieci Web. Możesz chcieć dostosować sprawdzanie poprawności tokenów (w szczególności w scenariuszach partnerskich).
 - Aplikacje sieci Web obsługują wszystkie typy kont. Aby uzyskać więcej informacji, zobacz [obsługiwane typy kont](v2-supported-account-types.md).
+
+## <a name="recommended-reading"></a>Zalecany odczyt
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

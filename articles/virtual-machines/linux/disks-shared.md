@@ -1,6 +1,6 @@
 ---
 title: Udostępnianie dysku zarządzanego platformy Azure między maszynami wirtualnymi
-description: Informacje o udostępnianiu dysków zarządzanych przez platformę Azure na wielu maszynach wirtualnych.
+description: Informacje o udostępnianiu dysków zarządzanych przez platformę Azure na wielu maszynach wirtualnych z systemem Linux.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 07/16/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: b0d2784c602b15ffb08637e39e43056fa0b5a31f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 15d39c8ac12b032d2147aa1acc36e4be96929ad4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690769"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279567"
 ---
 # <a name="share-an-azure-managed-disk"></a>Udostępnianie dysku zarządzanego na platformie Azure
 

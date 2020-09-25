@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 08/25/2020
+ms.date: 09/24/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 0572613fe33d525ed1a5a42c627de3ce1049a290
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 24b30842bea51394a375cf48e09b7547e057405c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434048"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261740"
 ---
 # <a name="what-is-azure-firewall"></a>Co to jest usługa Azure Firewall?
 
@@ -55,7 +55,8 @@ Reguły filtrowania dla protokołów innych niż TCP/UDP (na przykład ICMP) nie
 |Reguły NAT z portami z zakresu od 64000 do 65535 nie są obsługiwane|Zapora platformy Azure zezwala na dowolny port w zakresie 1-65535 w regułach sieci i aplikacji, jednak reguły NAT obsługują tylko porty w zakresie 1-63999.|Jest to bieżące ograniczenie.
 |Aktualizacje konfiguracji mogą mieć średnio pięć minut|Aktualizacja konfiguracji zapory platformy Azure może trwać od trzech do pięciu minut, a aktualizacje równoległe nie są obsługiwane.|Trwa badanie poprawki.|
 |Zapora platformy Azure używa nagłówków SNI TLS do filtrowania ruchu HTTPS i MSSQL|Jeśli oprogramowanie przeglądarki lub serwera nie obsługuje rozszerzenia wskaźnika nazwy serwera (SNI), nie będzie można nawiązać połączenia za pomocą zapory platformy Azure.|Jeśli oprogramowanie przeglądarki lub serwera nie obsługuje SNI, może być możliwe sterowanie połączeniem przy użyciu reguły sieci zamiast reguły aplikacji. Zobacz [oznaczanie nazwy serwera](https://wikipedia.org/wiki/Server_Name_Indication) oprogramowania, które obsługuje SNI.|
-|Niestandardowy system DNS (wersja zapoznawcza) nie działa z wymuszonym tunelowaniem|Jeśli Wymuszone tunelowanie jest włączone, niestandardowa usługa DNS (wersja zapoznawcza) nie działa.|Trwa badanie poprawki.
+|Niestandardowy system DNS (wersja zapoznawcza) nie działa z wymuszonym tunelowaniem|Jeśli Wymuszone tunelowanie jest włączone, niestandardowa usługa DNS (wersja zapoznawcza) nie działa.|Trwa badanie poprawki.|
+|Nowy publiczny adres IP obsługa wielu Strefy dostępności|Nie można dodać nowego publicznego adresu IP podczas wdrażania zapory z dwiema strefami dostępności (1 i 2, 2 i 3 lub 1 i 3)|Jest to ograniczenie zasobów publicznego adresu IP.
 
 ## <a name="next-steps"></a>Następne kroki
 
