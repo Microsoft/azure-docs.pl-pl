@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2830d8b82f5b53300d0af3f48e55b573d78ad295
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084366"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287393"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
@@ -48,7 +48,8 @@ Aby rozpocząć tworzenie nowej puli hostów:
 
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com/).
    
-   >! KORYGUJĄC Jeśli logujesz się do portalu US Gov, przejdź do [https://portal.azure.us/](https://portal.azure.us/) zamiast tego.
+   >[!NOTE]
+   > Jeśli logujesz się do portalu US Gov, przejdź do [https://portal.azure.us/](https://portal.azure.us/) zamiast tego.
 
 2. Na pasku wyszukiwania przejdź do **pulpitu wirtualnego systemu Windows** , a następnie Znajdź i wybierz pozycję **pulpit wirtualny systemu Windows** w obszarze usługi.
 

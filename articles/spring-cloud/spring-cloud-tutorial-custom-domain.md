@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: cd10421ddcf752625b8040e1afa4e7b15f142ce2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5892fd732a1e66b2b7dd4c1031cabfcbcc768c6d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885682"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326154"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapowanie istniejącej domeny niestandardowej na chmurę z platformą Azure
 
@@ -58,12 +58,12 @@ Możesz też użyć interfejsu wiersza polecenia platformy Azure, aby przyznać 
 
 Pobierz identyfikator obiektu za pomocą następującego polecenia.
 ```
-az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId
+az ad sp show --id <service principal id> --query objectId
 ```
 
 Przyznaj usłudze Azure wiosennej chmury dostęp do odczytu do magazynu kluczy, Zastąp identyfikator obiektu w poniższym poleceniu.
 ```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list --secret-permissions get list
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list
 ``` 
 
 Aby zaimportować certyfikat do chmury wiosennej platformy Azure:
@@ -93,7 +93,7 @@ Po pomyślnym zaimportowaniu certyfikatu zobaczysz go na liście **certyfikatów
 Można też użyć interfejsu wiersza polecenia platformy Azure, aby wyświetlić listę certyfikatów:
 
 ```
-az spring-cloud certificate list
+az spring-cloud certificate list --resource-group <resource group name> --service <service name>
 ```
 
 > [!IMPORTANT] 
@@ -128,7 +128,7 @@ Przejdź do strony aplikacji.
 
 Lub można użyć interfejsu wiersza polecenia platformy Azure, aby dodać domenę niestandardową:
 ```
-az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> 
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 Jedna aplikacja może mieć wiele domen, ale jedna domena może mapować tylko jedną aplikację. Po pomyślnym zmapowaniu domeny niestandardowej do aplikacji zobaczysz ją w tabeli domeny niestandardowej.
@@ -137,7 +137,7 @@ Jedna aplikacja może mieć wiele domen, ale jedna domena może mapować tylko j
 
 Można też użyć interfejsu wiersza polecenia platformy Azure, aby wyświetlić listę domen niestandardowych:
 ```
-az spring-cloud app custom-domain list --app <app name> 
+az spring-cloud app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 > [!NOTE]
@@ -168,7 +168,7 @@ Na stronie aplikacji w lewym okienku nawigacji wybierz pozycję **domena niestan
 
 Możesz też użyć interfejsu wiersza polecenia platformy Azure, aby wymusić HTTPS:
 ```
-az spring-cloud app update -name <app-name> --https-only <true|false> -g <resource group> --service <service-name>
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 
 Po zakończeniu operacji przejdź do dowolnego adresu URL HTTPS, który wskazuje aplikację. Należy zauważyć, że adresy URL protokołu HTTP nie działają.

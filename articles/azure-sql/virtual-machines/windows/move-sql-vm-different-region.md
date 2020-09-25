@@ -7,19 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 37f098bc28ee89bdad9e5bde213e3c2a6847b0bf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 4252528020dde731dd7bf14ae8f7a03467ba953a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851805"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298603"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Przenoszenie SQL Server maszyny wirtualnej do innego regionu na platformie Azure z Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -63,7 +63,7 @@ Przygotuj zarówno źródłową, SQL Server maszynę wirtualną, jak i region do
 - Upewnij się, że tworzysz zasób docelowy dla każdego składnika, który jest identyfikowany w układzie sieci źródłowej. Ten krok jest ważne, aby upewnić się, że maszyny wirtualne mają wszystkie funkcje i funkcje w regionie docelowym, który istniał w regionie źródłowym. 
     - Azure Site Recovery automatycznie wykrywa i tworzy sieć wirtualną po włączeniu replikacji dla źródłowej maszyny wirtualnej. Możesz również wstępnie utworzyć sieć i przypisać ją do maszyny wirtualnej w przepływie użytkownika w celu włączenia replikacji. Należy ręcznie utworzyć wszystkie inne zasoby w regionie docelowym.
 - Aby utworzyć najczęściej używane zasoby sieciowe, które są odpowiednie dla Ciebie na podstawie konfiguracji źródłowej maszyny wirtualnej, zapoznaj się z następującą dokumentacją: 
-    - [Grupy zabezpieczeń sieci](../../../virtual-network/tutorial-filter-network-traffic.md) 
+    - [Sieciowe grupy zabezpieczeń](../../../virtual-network/tutorial-filter-network-traffic.md) 
     - [Moduł równoważenia obciążenia](../../../load-balancer/tutorial-load-balancer-standard-internal-portal.md)
     - [Publiczny adres IP](../../../virtual-network/virtual-network-public-ip-address.md)
     - Dodatkowe składniki sieci można znaleźć w dokumentacji dotyczącej [sieci](../../../virtual-network/virtual-networks-overview.md).

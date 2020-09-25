@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e58a98f8503c271eec113298a7e7a0cab5e0003e
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 9df1226d4b61326f8e5aa6f9b71d36eb5a33e81e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707496"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306518"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Samouczek: Tworzenie pierwszego pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -29,7 +29,7 @@ Zarządzanie dostępem do wszystkich zasobów wymaganych przez pracowników, tak
 
 W tym samouczku będziesz używać banku Woodgrove jako administrator IT. Zażądano utworzenia pakietu zasobów dla kampanii marketingowej, którą użytkownicy wewnętrzni mogą zażądać samoobsługi. Żądania nie wymagają zatwierdzenia i dostęp użytkownika wygaśnie po upływie 30 dni. W tym samouczku zasoby kampanii marketingowej są tylko członkostwem w pojedynczej grupie, ale może to być Kolekcja grup, aplikacji lub witryn usługi SharePoint Online.
 
-![Omówienie scenariusza](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
+![Diagram przedstawiający Omówienie scenariusza.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -110,7 +110,7 @@ Katalog zasobów zawiera co najmniej jeden zasób do udostępnienia. W tym kroku
 
      Domyślnie są wyświetlane grupy w katalogu ogólnym. Po wybraniu grupy poza katalogiem ogólnym, którą można zobaczyć po zaznaczeniu pola wyboru **Zobacz wszystkie** , zostanie ono dodane do wykazu ogólnego.
 
-    ![Nowy pakiet dostępu — karta role zasobów](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
+    ![Zrzut ekranu przedstawiający kartę "nowy pakiet dostępu — role zasobów" i okno "Wybieranie grup".](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
 10. Kliknij pozycję **Wybierz** , aby dodać grupę do listy.
 

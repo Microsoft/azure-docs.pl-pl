@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 1c2dd3f93abf6418b99bf28d11f2df254b024971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 498d00b4f6a0ca16d07663641a46f30109b39d5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708654"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325066"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Skonfiguruj publiczny punkt końcowy w wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -40,7 +40,7 @@ Ze względu na czułość danych w wystąpieniu zarządzanym, konfiguracja do w�
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Włączanie publicznego punktu końcowego dla wystąpienia zarządzanego w Azure Portal
 
-1. Uruchom Azure Portal w<https://portal.azure.com/.>
+1. Uruchom Azure Portal w <https://portal.azure.com/.>
 1. Otwórz grupę zasobów z wystąpieniem zarządzanym i wybierz **wystąpienie zarządzane SQL** , dla którego chcesz skonfigurować publiczny punkt końcowy.
 1. Na stronie ustawienia **zabezpieczeń** wybierz kartę **Sieć wirtualna** .
 1. Na stronie Konfiguracja sieci wirtualnej wybierz pozycję **Włącz** , a następnie ikonę **Zapisz** , aby zaktualizować konfigurację.
@@ -82,7 +82,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Zezwalaj na ruch publicznego punktu końcowego w sieciowej grupie zabezpieczeń
 
-1. Jeśli strona Konfiguracja wystąpienia zarządzanego jest nadal otwarta, przejdź do karty **Przegląd** . w przeciwnym razie Wróć do zasobu **wystąpienia zarządzanego SQL** . Wybierz łącze **Sieć wirtualna/podsieć** , co spowoduje przejście do strony Konfiguracja sieci wirtualnej.
+1. Jeśli strona Konfiguracja wystąpienia zarządzanego jest nadal otwarta, przejdź do karty **Przegląd** . W przeciwnym razie Wróć do zasobu **wystąpienia zarządzanego SQL** . Wybierz łącze **Sieć wirtualna/podsieć** , co spowoduje przejście do strony Konfiguracja sieci wirtualnej.
 
     ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
 
@@ -98,8 +98,8 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |---------|---------|---------|
     |**Element źródłowy**     |Dowolny adres IP lub tag usługi         |<ul><li>W przypadku usług platformy Azure, takich jak Power BI, wybierz tag usługi w chmurze platformy Azure</li> <li>Użyj adresu IP translatora adresów sieciowych dla komputera lub maszyny wirtualnej platformy Azure</li></ul> |
     |**Zakresy portów źródłowych**     |* |Pozostaw to * (any), ponieważ porty źródłowe są zwykle przydzielane dynamicznie i nieprzewidywalne |
-    |**Punktu**     |Dowolne         |Pozostawienie miejsca docelowego jako dowolnego do zezwalania na ruch w podsieci wystąpienia zarządzanego |
-    |**Docelowe zakresy portów**     |3342         |Port docelowy zakresu do 3342, czyli publiczny punkt końcowy TDS wystąpienia zarządzanego |
+    |**Miejsce docelowe**     |Dowolne         |Pozostawienie miejsca docelowego jako dowolnego do zezwalania na ruch w podsieci wystąpienia zarządzanego |
+    |**Zakresy portów docelowych**     |3342         |Port docelowy zakresu do 3342, czyli publiczny punkt końcowy TDS wystąpienia zarządzanego |
     |**Protokół**     |TCP         |Wystąpienie zarządzane SQL używa protokołu TCP dla TDS |
     |**Akcja**     |Zezwalaj         |Zezwalaj na ruch przychodzący do wystąpienia zarządzanego za pomocą publicznego punktu końcowego |
     |**Priority**     |1300         |Upewnij się, że ta reguła ma wyższy priorytet niż reguła **deny_all_inbound** |

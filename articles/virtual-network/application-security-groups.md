@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 775ef92a0ca486d1f8a6c44c78a4df04cd5ef467
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3542ae2e94c2fa3d3e9d6100738b2aabded94d15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78274712"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306671"
 ---
 # <a name="application-security-groups"></a>Grupy zabezpieczeń aplikacji
 
@@ -26,7 +26,7 @@ Grupy zabezpieczeń aplikacji umożliwiają skonfigurowanie zabezpieczeń sieci 
 
 ![Grupy zabezpieczeń aplikacji](./media/security-groups/application-security-groups.png)
 
-Na poprzedniej ilustracji interfejsy sieciowe *NIC1* i *NIC2* są elementami członkowskimi grupy zabezpieczeń aplikacji *AsgWeb*. Interfejs sieciowy *NIC3* jest elementem członkowskim grupy zabezpieczeń aplikacji *AsgLogic*. Interfejs sieciowy *NIC4* jest elementem członkowskim grupy zabezpieczeń aplikacji *AsgDb*. Chociaż każdy interfejs sieciowy w tym przykładzie jest elementem członkowskim tylko jednej grupy zabezpieczeń aplikacji, interfejs sieciowy może być elementem członkowskim wielu grup zabezpieczeń aplikacji, w granicach [limitów platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Żaden z interfejsów sieciowych nie ma skojarzonej grupy zabezpieczeń sieci. *NSG1* jest skojarzony z obiema podsieciami i zawiera następujące reguły:
+Na poprzedniej ilustracji interfejsy sieciowe *NIC1* i *NIC2* są elementami członkowskimi grupy zabezpieczeń aplikacji *AsgWeb*. Interfejs sieciowy *NIC3* jest elementem członkowskim grupy zabezpieczeń aplikacji *AsgLogic*. Interfejs sieciowy *NIC4* jest elementem członkowskim grupy zabezpieczeń aplikacji *AsgDb*. Chociaż każdy interfejs sieciowy w tym przykładzie jest członkiem tylko jednej sieciowej grupy zabezpieczeń, interfejs sieciowy może być członkiem wielu grup zabezpieczeń aplikacji, do których [obowiązują limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Żaden z interfejsów sieciowych nie ma skojarzonej grupy zabezpieczeń sieci. *NSG1* jest skojarzony z obiema podsieciami i zawiera następujące reguły:
 
 ## <a name="allow-http-inbound-internet"></a>Allow-HTTP-Inbound-Internet
 

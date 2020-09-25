@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ced763ca4abd32f3b824f05f2f5786a5d9cfd4c4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825447"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287325"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i AD DS
 
@@ -29,7 +29,7 @@ Najpierw musisz skonfigurować konto magazynu Azure Files.
 
 Aby skonfigurować konto magazynu:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 
 2. Wyszukaj **konto magazynu** na pasku wyszukiwania.
 
@@ -56,7 +56,7 @@ Aby utworzyć udział plików:
 
 1. Wybierz pozycję **Przejdź do zasobu**.
 
-2. Na stronie Przegląd wybierz pozycję **udziały plików**.
+2. Na stronie Przegląd wybierz pozycję **Udziały plików**.
 
 3. Wybierz pozycję **+ udziały plików**, Utwórz nowy udział plików o nazwie **Profile**, a następnie wprowadź odpowiedni przydział lub pozostaw pole puste, aby nie mieć limitu przydziału.
 
@@ -154,7 +154,7 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
 2. Uruchom następujące polecenie, aby zainstalować udział plików platformy Azure i przypisać mu literę dysku:
 
      ```cmd
-     net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
+     net use <desired-drive-letter>: <UNC-path> <SA-key> /user:Azure\<SA-name>
      ```
 
 3. Uruchom następujące polecenie, aby przejrzeć uprawnienia dostępu do udziału plików platformy Azure:

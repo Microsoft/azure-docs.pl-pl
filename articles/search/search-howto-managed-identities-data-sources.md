@@ -9,14 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: a057c0d35a465447cc0be99b574ffeebb671115a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 787c7d7df5f013dd4477e466c02a2b323b4b59df
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971552"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275102"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Konfigurowanie połączenia indeksatora ze źródłem danych przy użyciu tożsamości zarządzanej
+
+> [!IMPORTANT] 
+> Skonfigurowanie połączenia ze źródłem danych przy użyciu tożsamości zarządzanej nie jest obsługiwane w przypadku bezpłatnej warstwy Wyszukiwanie poznawcze platformy Azure.
 
 [Indeksator](search-indexer-overview.md) w usłudze Azure wyszukiwanie poznawcze to przeszukiwarka, która zapewnia sposób ściągania danych ze źródła danych do usługi Azure wyszukiwanie poznawcze. Indeksator uzyskuje połączenie ze źródłem danych z tworzonego obiektu źródła danych. Obiekt źródła danych zwykle zawiera poświadczenia dla docelowego źródła danych. Na przykład obiekt źródła danych może zawierać klucz konta usługi Azure Storage, jeśli chcesz zindeksować dane z kontenera magazynu obiektów BLOB.
 

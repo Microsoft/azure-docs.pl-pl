@@ -10,13 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f1b32a72d81b42e7a349f92dcdc7a141a013312d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 28f7d279d1328ff750bf7095f32fbf3ff65e591b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404034"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324526"
 ---
 # <a name="tutorial-create-a-visual-search-single-page-web-app"></a>Samouczek: Tworzenie wyszukiwanie wizualne jednostronicowej aplikacji sieci Web
 

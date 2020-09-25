@@ -1,21 +1,23 @@
 ---
 title: Parametry ciągu zapytania interfejsu API v3
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/30/2020
-ms.openlocfilehash: 47727f6df772669fa323a10cd099764a6d35cb6a
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 14380dd781fc1eebfe7edb0a816ff8af0f2f17b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610793"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309436"
 ---
 Parametry ciągu zapytania interfejsu API v3 obejmują:
 
 |Parametr zapytania|Nazwa portalu LUIS|Typ|Wersja|Domyślny|Przeznaczenie|
 |--|--|--|--|--|--|
-|`log`|Zapisz dzienniki|wartość logiczna|WERSJA 2 & V3|fałsz|Zapisz zapytanie w pliku dziennika. Wartość domyślna to false.|
+|`log`|Zapisz dzienniki|boolean|WERSJA 2 & V3|fałsz|Zapisz zapytanie w pliku dziennika. Wartość domyślna to false.|
 |`query`|-|ciąg|Tylko wersja 3|Brak domyślnej — jest to wymagane w żądaniu GET|**W wersji 2**wypowiedź do przewidywania jest `q` parametrem. <br><br>**W wersji 3**funkcja jest przenoszona do `query` parametru.|
-|`show-all-intents`|Uwzględnij wyniki dla wszystkich intencji|wartość logiczna|Tylko wersja 3|fałsz|Zwróć wszystkie intencje z odpowiednim wynikiem w obiekcie **przewidywania. intencje** . Intencje są zwracane jako obiekty w obiekcie nadrzędnym `intents` . Pozwala to na dostęp programistyczny bez konieczności wyszukiwania zamiaru w tablicy: `prediction.intents.give` . W wersji 2 te zostały zwrócone w tablicy. |
-|`verbose`|Dołącz więcej szczegółów jednostek|wartość logiczna|WERSJA 2 & V3|fałsz|**W wersji 2**, gdy ustawiono wartość true, wszystkie przewidywane intencje zostały zwrócone. Jeśli potrzebujesz wszystkich przewidywanych intencji, użyj parametru v3 `show-all-intents` .<br><br>**W wersji 3**ten parametr zawiera tylko szczegóły metadanych jednostki przewidywania jednostek.  |
+|`show-all-intents`|Uwzględnij wyniki dla wszystkich intencji|boolean|Tylko wersja 3|fałsz|Zwróć wszystkie intencje z odpowiednim wynikiem w obiekcie **przewidywania. intencje** . Intencje są zwracane jako obiekty w obiekcie nadrzędnym `intents` . Pozwala to na dostęp programistyczny bez konieczności wyszukiwania zamiaru w tablicy: `prediction.intents.give` . W wersji 2 te zostały zwrócone w tablicy. |
+|`verbose`|Dołącz więcej szczegółów jednostek|boolean|WERSJA 2 & V3|fałsz|**W wersji 2**, gdy ustawiono wartość true, wszystkie przewidywane intencje zostały zwrócone. Jeśli potrzebujesz wszystkich przewidywanych intencji, użyj parametru v3 `show-all-intents` .<br><br>**W wersji 3**ten parametr zawiera tylko szczegóły metadanych jednostki przewidywania jednostek.  |
 |`timezoneOffset`|-|ciąg|Wersja 2|-|Strefa czasowa zastosowana do jednostek datetimeV2.|
 |`datetimeReference`|-|ciąg|Czytanie|-|[Strefa czasowa](../luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) zastosowana do jednostek datetimeV2. Zamienia `timezoneOffset` z wersji 2.|

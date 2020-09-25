@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/07/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1de7e98a9cb57f83b87589ceddedc3cdd80927
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b826c6a1fd5a60247f8c69cb10cd24e7e001fe71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335888"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Odnajdywanie i szczegółowe informacje (wersja zapoznawcza) dla ról usługi Azure AD (dawniej Kreator zabezpieczeń)
 
@@ -29,9 +29,9 @@ Jeśli zaczynasz pracę z usługą Privileged Identity Management (PIM) w organi
 
 Zanim organizacja zacznie korzystać z Privileged Identity Management, wszystkie przypisania ról są trwałe. Użytkownicy zawsze mają przypisane role nawet wtedy, gdy nie potrzebują ich uprawnień. Odnajdywanie i szczegółowe informacje (wersja zapoznawcza), które zastępują poprzedni Kreator zabezpieczeń, pokazują listę ról uprzywilejowanych i liczbę użytkowników, którzy obecnie znajdują się w tych rolach. Możesz wyświetlić listę przypisań dla roli, aby dowiedzieć się więcej na temat przypisanych użytkowników, jeśli co najmniej jedna z nich jest nieznana.
 
-: heavy_check_mark: **firma Microsoft zaleca** zachowanie dwóch kont szklanych ze znakiem, które są trwale przypisane do roli administratora globalnego, która nie wymaga uwierzytelniania wieloskładnikowego podczas logowania. Można ich użyć w dowolnym scenariuszu ze szlifem lub w przypadku, gdy żaden z nich nie może podwyższyć poziomu roli administratora globalnego.
+: heavy_check_mark: **firma Microsoft zaleca** , aby zachować dwa konta ze szlifem, które są trwale przypisane do roli administratora globalnego. Upewnij się, że te konta nie wymagają tego samego mechanizmu usługi uwierzytelniania wieloskładnikowego co normalne konta administracyjne, aby się zalogować, zgodnie z opisem w temacie [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../users-groups-roles/directory-emergency-access.md).
 
-Ponadto należy zachować stałe przypisania ról, jeśli użytkownik ma konto Microsoft (innymi słowy, konto używane do logowania się do usług firmy Microsoft, takich jak Skype lub Outlook.com). Jeśli wymagane jest aktywowanie uwierzytelniania wieloskładnikowego w takiej roli, użytkownik zostanie zablokowany.
+Ponadto należy zachować stałe przypisania ról, jeśli użytkownik ma konto Microsoft (innymi słowy, konto używane do logowania się do usług firmy Microsoft, takich jak Skype lub Outlook.com). Jeśli wymagane jest uwierzytelnianie wieloskładnikowe dla użytkownika z konto Microsoft w celu aktywowania przypisania roli, użytkownik zostanie zablokowany.
 
 ## <a name="open-discovery-and-insights-preview"></a>Otwórz odnajdywanie i szczegółowe informacje (wersja zapoznawcza)
 
@@ -49,7 +49,7 @@ Ponadto należy zachować stałe przypisania ról, jeśli użytkownik ma konto M
 
 1. Przejrzyj listę przypisań roli administratora globalnego.
 
-    ![Zmniejsz liczbę administratorów globalnych — okienko roli pokazujące wszystkich członków](./media/pim-security-wizard/new-global-administrator-list.png)
+    ![Ogranicz administratorów globalnych — okienko role przedstawiające wszystkich administratorów globalnych](./media/pim-security-wizard/new-global-administrator-list.png)
 
 1. Wybierz pozycję **dalej** , aby wybrać użytkowników lub grupy, które chcesz udostępnić, a następnie wybierz pozycję **Udostępnij** lub **Usuń przypisanie**.
 

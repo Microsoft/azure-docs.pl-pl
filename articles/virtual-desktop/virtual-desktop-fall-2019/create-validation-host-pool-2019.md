@@ -1,17 +1,17 @@
 ---
 title: Aktualizacje usług pulpitu wirtualnego systemu Windows (klasycznego) — Azure
-description: Jak utworzyć pulę hostów weryfikacji do monitorowania aktualizacji usługi przed przeprowadzeniem aktualizacji do środowiska produkcyjnego.
+description: Dowiedz się, jak utworzyć pulę hostów weryfikacji na pulpicie wirtualnym systemu Windows (klasyczny), aby monitorować Aktualizacje usług przed przeprowadzeniem aktualizacji do środowiska produkcyjnego.
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 572b74347194070615efadca4ed6b1329b3f89c2
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 291f1e8b8870257c233dc32894ff49b26c0a3501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526803"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323533"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-windows-virtual-desktop-classic"></a>Samouczek: Tworzenie puli hostów w celu sprawdzenia poprawności aktualizacji usługi w programie Virtual Desktop systemu Windows (klasyczny)
 

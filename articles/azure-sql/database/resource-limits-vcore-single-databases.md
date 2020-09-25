@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/21/2020
-ms.openlocfilehash: bb69d48fe4e65d0fc27db027aecab0f1a745e8d5
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: e67675d0d3fb5f96b35eba0085003b00595d8214
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566186"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325280"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limity zasobów dla pojedynczych baz danych podczas używania modelu zakupu opartego na rdzeniach wirtualnych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -411,7 +411,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miej
 |Maksymalny rozmiar dziennika (GB)|307|307|307|307|307|307|
 |Maksymalny rozmiar danych TempDB (GB)|32|64|96|128|160|192|
 |Opóźnienie we/wy (przybliżone)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|1-2 ms (zapis)<br>1-2 ms (odczyt)|
-|Maksymalna liczba operacji we/wy danych *|4000|8000|12 000|16 000|20 000|24 000|
+|Maksymalna liczba operacji we/wy danych *|4000|8000|12 000|16 000|20 000|24 000|
 |Maksymalny współczynnik rejestrowania (MB/s)|8|16|24|32|40|48|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|200|400|600|800|1000|1200|
 |Maksymalna liczba współbieżnych logowań|200|400|600|800|1000|1200|
