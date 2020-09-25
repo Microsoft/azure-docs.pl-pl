@@ -5,27 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9efb3b451f6fc6c70c5d9ec346132bfc763ca28
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e76c5f51486f7c1673fb5359eabc99ee41130472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705779"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278860"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure Portal
 
 Usługa Azure AD udostępnia centralne miejsce do zarządzania tożsamościami urządzeń.
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Przejdź do **Azure Active Directory**  >  **urządzeń**.
-
-[![Widok wszystkie urządzenia w Azure Portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
 Strona **wszystkie urządzenia** umożliwia:
 
@@ -38,6 +33,13 @@ Strona **wszystkie urządzenia** umożliwia:
 - Skonfiguruj ustawienia tożsamości urządzenia.
 - Włączać lub wyłączać Enterprise State Roaming.
 - Przeglądanie dzienników inspekcji związanych z urządzeniem
+
+[![Widok wszystkie urządzenia w Azure Portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
+
+Dostęp do portalu urządzeń można uzyskać, wykonując następujące czynności:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Przejdź do **Azure Active Directory**  >  **urządzeń**.
 
 ## <a name="manage-devices"></a>Zarządzanie urządzeniami
 
@@ -146,6 +148,13 @@ Teraz można **dodawać filtry** do widoku **wszystkie urządzenia** .
 ## <a name="configure-device-settings"></a>Konfiguruj ustawienia urządzenia
 
 Aby zarządzać tożsamościami urządzeń za pomocą portalu usługi Azure AD, te urządzenia muszą być [zarejestrowane lub dołączone](overview.md) do usługi Azure AD. Jako administrator można kontrolować proces rejestrowania i dołączania urządzeń przez skonfigurowanie następujących ustawień urządzenia.
+
+Do wyświetlania ustawień urządzenia i zarządzania nimi w Azure Portal należy przypisać jedną z następujących ról:
+
+- Administrator globalny
+- Administrator urządzenia w chmurze
+- Czytnik globalny
+- Czytnik katalogów
 
 ![Ustawienia urządzenia związane z usługą Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 

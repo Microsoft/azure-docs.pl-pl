@@ -3,17 +3,17 @@ title: 'Dzierżawa usługi Azure AD dla połączeń sieci VPN użytkownika: uwie
 description: Do łączenia się z siecią wirtualną przy użyciu uwierzytelniania usługi Azure AD można używać sieci VPN użytkownika wirtualnej sieci WAN platformy Azure (punkt-lokacja).
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: e88437dc03772348ebbe0d179afc7fd4ddd24bd9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f77d17881054440b01e30e738a8c38407c38b4a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507560"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306552"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Przygotowywanie Azure Active Directory dzierżawy dla połączeń protokołu VPN użytkowników OpenVPN
 
@@ -46,7 +46,7 @@ Wykonaj kroki opisane w [tym artykule](../active-directory/fundamentals/add-user
 
 2. Następnie udziel zgody administratora na swoją organizację, dzięki czemu aplikacja sieci VPN platformy Azure będzie mogła się zalogować i odczytać profile użytkowników. Skopiuj i wklej adres URL odnoszący się do lokalizacji wdrożenia na pasku adresu przeglądarki:
 
-    Publiczny
+    Public
 
     ```
     https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent

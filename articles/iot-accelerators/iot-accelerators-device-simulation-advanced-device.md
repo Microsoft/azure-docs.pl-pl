@@ -12,13 +12,13 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-- devx-track-javascript
-ms.openlocfilehash: b424ea01d8283963c49d899a97120c9132d862f8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: 101bd9ce351ea830688fc18affdf21ce527ba43a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261434"
 ---
 # <a name="create-an-advanced-device-model"></a>Utwórz zaawansowany model urządzenia
 
@@ -166,10 +166,10 @@ Pola wymienione w schemacie mogą być następujące:
 * Serializacja obiektu za pomocą kodu JSON
 * Serializacja binarna przy użyciu algorytmu Base64
 * Tekst
-* Wartość logiczna
+* Boolean
 * Integer
 * Double
-* DateTime
+* Data i godzina
 
 ### <a name="supported-methods"></a>Obsługiwane metody
 

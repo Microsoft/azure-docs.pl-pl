@@ -1,14 +1,16 @@
 ---
 title: Migrowanie do jednostki uczenia maszynowego v3
 description: Program v3 Authoring zawiera jeden nowy typ jednostki, jednostkę uczenia maszynowego oraz możliwość dodawania relacji do jednostki uczenia maszynowego i innych obiektów lub funkcji aplikacji.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684595"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324692"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migrowanie do jednostki tworzenia w wersji 3
 
@@ -106,7 +108,7 @@ W poniższej tabeli przedstawiono proces migracji:
 
 |Modele v2|Modele v3|
 |--|--|
-|Jednostka składników nadrzędnych o nazwie`Order`|Jednostka "Parent-Machine-Learning" o nazwie`Order`|
+|Jednostka składników nadrzędnych o nazwie `Order`|Jednostka "Parent-Machine-Learning" o nazwie `Order`|
 |DatetimeV2 wstępnie skompilowanych elementów podrzędnych|* Migruj prekompilowany obiekt do nowej aplikacji.<br>* Dodaj wymaganą funkcję w obiekcie nadrzędnym dla wstępnie skompilowanego datetimeV2.|
 |Jednostka listy podrzędnej dla toppings|* Migruj jednostkę listy do nowej aplikacji.<br>* Następnie Dodaj wymaganą funkcję w obiekcie nadrzędnym dla jednostki listy.|
 
@@ -132,7 +134,7 @@ W poniższej tabeli przedstawiono proces migracji:
 
 |Modele v2|Modele v3|
 |--|--|
-|Jednostka składników nadrzędnych o nazwie`Order`|Jednostka "Parent-Machine-Learning" o nazwie`Order`|
+|Jednostka składników nadrzędnych o nazwie `Order`|Jednostka "Parent-Machine-Learning" o nazwie `Order`|
 |Podmiot podrzędny-hierarchiczny z pierwotną i końcową Pizza topping|* Dodaj rolę do `Order` każdego topping.|
 
 ## <a name="api-change-constraint-replaced-with-required-feature"></a>Ograniczenie zmiany interfejsu API zostało zastąpione wymaganą funkcją

@@ -3,12 +3,12 @@ title: Zarządzanie formułami w Azure DevTest Labs tworzenia maszyn wirtualnych
 description: W tym artykule przedstawiono sposób tworzenia formuły z poziomu bazy (obrazu niestandardowego, obrazu witryny Marketplace lub innej formuły) lub istniejącej maszyny wirtualnej.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0a254d306ad2417c500571df4b8f2d852d21e7ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f012a8c59a8e938334c3e1abc4c7b3ccd0e48d3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480409"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308898"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Zarządzanie formułami Azure DevTest Labs
 
@@ -60,7 +60,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia formuły z obrazu nies
     - **Data i godzina wygaśnięcia** — nie można edytować tego pola. 
     - **Ustaw tę maszynę** jako dodające się do dołączenia, co oznacza, że ta maszyna nie zostanie przypisana do momentu utworzenia. W przypadku, gdy użytkownicy w laboratorium będą mogli przejmować na stronie laboratorium na własność ("Claim") maszynę.  
 
-        ![Strona Ustawienia zaawansowane](./media/devtest-lab-create-formulas/advanced-settings.png)
+        ![Zrzut ekranu pokazujący ustawienia zaawansowane strony "Tworzenie formuły (baza wielokrotnego użytku)".](./media/devtest-lab-create-formulas/advanced-settings.png)
     - W przypadku wybrania obrazu udostępnionej galerii obrazów jako podstawy, zobaczysz również pole **wersja obrazu** , które umożliwia wybranie wersji obrazu z galerii, która ma być używana jako baza. 
 
         ![Strona Ustawienia zaawansowane](./media/devtest-lab-create-formulas/advanced-settings-shared-image-gallery.png)
@@ -98,7 +98,7 @@ Aby zmodyfikować formułę, wykonaj następujące kroki:
 3. Z listy laboratoriów wybierz odpowiednie laboratorium.  
 4. Na stronie laboratorium wybierz pozycję **formuły (baza wielokrotnego użytku)**.
    
-    ![Menu formuły](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
+    ![Zrzut ekranu przedstawiający stronę laboratorium z wybranym "formułami (bazami wielokrotnego użytku)".](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Na stronie **formuły laboratoryjne** wybierz formułę, którą chcesz zmodyfikować.
 6. Na stronie **Aktualizuj formułę** wprowadź wymagane zmiany, a następnie wybierz pozycję **Aktualizuj**.
 
@@ -113,7 +113,7 @@ Aby usunąć formułę, wykonaj następujące kroki:
     ![Menu formuły](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Na stronie **formuły laboratoryjne** wybierz wielokropek z prawej strony formuły, którą chcesz usunąć.
    
-    ![Menu formuły](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
+    ![Zrzut ekranu przedstawiający stronę "formuły laboratoryjne" z wielokropkiem dla wyróżnionych opcji formuły.](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 6. W menu kontekstowym formuły wybierz pozycję **Usuń**.
    
     ![Menu kontekstowe formuły](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)

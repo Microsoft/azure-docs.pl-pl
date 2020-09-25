@@ -1,14 +1,16 @@
 ---
 title: Limity — LUIS
 description: Ten artykuł zawiera znane limity usługi Azure Cognitive Services Language Understanding (LUIS). LUIS ma kilka obszarów ograniczeń. Limit modelu kontroluje intencje, jednostki i funkcje w LUIS. Limity przydziału na podstawie typu klucza. Kombinacja klawiatury kontroluje witrynę sieci Web LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: 79a59408ec7d0cdfa4ded07e196a75a28143c20c
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5ef681e335cf49a1759a096766b5ccd70545e60a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055345"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324709"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limity dotyczące modelu i kluczy LUIS
 LUIS ma kilka obszarów ograniczeń. Pierwszy to [Limit modelu](#model-limits), który steruje intencjami, jednostkami i funkcjami w Luis. Drugi obszar ma [limity przydziału](#key-limits) na podstawie typu klucza. Trzeci obszar limitów jest [kombinacją klawiatury](#keyboard-controls) służącą do kontrolowania witryny sieci Web Luis. Czwarty obszar to [Mapowanie regionów świata](luis-reference-regions.md) między witryną sieci Web Luis Authoring a interfejsem API Luis [Endpoint](luis-glossary.md#endpoint) .
@@ -39,7 +41,7 @@ Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji 
 | [Role](luis-concept-roles.md)|300 ról na aplikację. 10 ról na jednostkę|
 | [Wypowiedź][utterances] | 500 znaków<br><br>Jeśli masz tekst dłuższy niż ten limit znaków, musisz podzielić wypowiedź przed wprowadzeniem do LUIS, a otrzymasz indywidualne odpowiedzi na segment. Istnieją oczywiste przerwy, z którymi można korzystać, takie jak znaki interpunkcyjne i długie przerwy w mowie.|
 | [Przykłady wypowiedź][utterances] | 15 000 na aplikację — nie ma limitu liczby wyrażenia długości na zamiar<br><br>Jeśli konieczne jest uczenie aplikacji z więcej przykładów, użyj podejścia modelu [wysyłania](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) . Możesz przeszkolić pojedyncze aplikacje LUIS (nazywane aplikacjami podrzędnymi do nadrzędnej aplikacji do wysyłania) z co najmniej jednym zamiarem, a następnie przeszkolić aplikację do wysyłania, która próbuje pobrać z poszczególnych podrzędnych aplikacji LUIS wyrażenia długości, aby skierować żądanie przewidywania do odpowiedniej aplikacji podrzędnej. |
-| [Wersje](luis-concept-version.md)| 100 wersji na aplikację |
+| [Versions](luis-concept-version.md) (Wersje)| 100 wersji na aplikację |
 | [Nazwa wersji][luis-how-to-manage-versions] | 128 znaków |
 
 * Wartość domyślna to 50 znaków.

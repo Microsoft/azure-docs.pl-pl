@@ -3,12 +3,12 @@ title: Azure Event Grid dostarczania i ponów próbę
 description: Opisuje, w jaki sposób Azure Event Grid dostarcza zdarzenia i jak obsługuje niedostarczone komunikaty.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fe7574d7e17b1763afb2292c15007dd87b056ef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087615"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324097"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid dostarczania komunikatów i ponów próbę
 
@@ -89,11 +89,151 @@ Event Grid wysyła zdarzenie do lokalizacji utraconych, gdy nastąpi próba wszy
 
 Istnieje pięć minut opóźnienia między ostatnią próbą dostarczenia zdarzenia a jego dostarczeniem do lokalizacji utraconych wiadomości. To opóźnienie jest przeznaczone do zmniejszenia liczby operacji magazynu obiektów BLOB. Jeśli lokalizacja utraconych wiadomości jest niedostępna przez cztery godziny, zdarzenie zostanie odrzucone.
 
-Przed ustawieniem lokalizacji utraconych wiadomości musisz mieć konto magazynu z kontenerem. Należy podać punkt końcowy dla tego kontenera podczas tworzenia subskrypcji zdarzeń. Punkt końcowy ma format:`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+Przed ustawieniem lokalizacji utraconych wiadomości musisz mieć konto magazynu z kontenerem. Należy podać punkt końcowy dla tego kontenera podczas tworzenia subskrypcji zdarzeń. Punkt końcowy ma format: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Możesz chcieć otrzymywać powiadomienia, gdy zdarzenie zostało wysłane do lokalizacji utraconych wiadomości. Aby użyć Event Grid do odpowiadania na zdarzenia niedostarczone, [Utwórz subskrypcję zdarzeń](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) dla utraconego magazynu obiektów BLOB. Za każdym razem, gdy magazyn obiektów BLOB utraconych wiadomości odbiera zdarzenie niedostarczone, Event Grid powiadamia program obsługi. Program obsługi reaguje na akcje, które mają zostać wykonane w celu uzgodnienia niedostarczonych zdarzeń.
+Możesz chcieć otrzymywać powiadomienia, gdy zdarzenie zostało wysłane do lokalizacji utraconych wiadomości. Aby użyć Event Grid do odpowiadania na zdarzenia niedostarczone, [Utwórz subskrypcję zdarzeń](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) dla utraconego magazynu obiektów BLOB. Za każdym razem, gdy magazyn obiektów BLOB utraconych wiadomości odbiera zdarzenie niedostarczone, Event Grid powiadamia program obsługi. Program obsługi reaguje na akcje, które mają zostać wykonane w celu uzgodnienia niedostarczonych zdarzeń. Aby zapoznać się z przykładem konfigurowania martwej lokalizacji i zasad ponawiania, zobacz [utracony komunikat i zasady ponawiania](manage-event-delivery.md).
 
-Aby zapoznać się z przykładem konfigurowania martwej lokalizacji, zobacz artykuł [utracony i zasady ponawiania](manage-event-delivery.md).
+## <a name="delivery-event-formats"></a>Formaty zdarzeń dostarczania
+W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych formatach schematów dostarczania (schemat Event Grid, schemat CloudEvents 1,0 i schemat niestandardowy). Aby uzyskać więcej informacji na temat tych formatów, zobacz artykuł [Event Grid schematów](event-schema.md) i [zdarzeń Cloud Events 1,0](cloud-event-schema.md) . 
+
+### <a name="event-grid-schema"></a>Schemat usługi Event Grid
+
+#### <a name="event"></a>Zdarzenie 
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/000000000-0000-0000-0000-00000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>Wydarzenie utraconych wiadomości
+
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    },
+
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T17:18:14.0265758Z",
+    "lastDeliveryAttemptTime": "2020-08-13T17:18:14.0465788Z" 
+}
+```
+
+### <a name="cloudevents-10-schema"></a>Schemat CloudEvents 1,0
+
+#### <a name="event"></a>Zdarzenie
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>Wydarzenie utraconych wiadomości
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    },
+
+    "deadletterreason": "MaxDeliveryAttemptsExceeded",
+    "deliveryattempts": 1,
+    "lastdeliveryoutcome": "NotFound",
+    "publishtime": "2020-08-13T21:21:36.4018726Z",
+}
+```
+
+### <a name="custom-schema"></a>Schemat niestandardowy
+
+#### <a name="event"></a>Zdarzenie
+
+```json
+{
+    "prop1": "my property",
+    "prop2": 5,
+    "myEventType": "fooEventType"
+}
+
+```
+
+#### <a name="dead-letter-event"></a>Wydarzenie utraconych wiadomości
+```json
+{
+    "id": "8bc07e6f-0885-4729-90e4-7c3f052bd754",
+    "eventTime": "2020-08-13T18:11:29.4121391Z",
+    "eventType": "myEventType",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/00000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.EventGrid/topics/myCustomSchemaTopic",
+    "subject": "subjectDefault",
+  
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T18:11:29.4121391Z",
+    "lastDeliveryAttemptTime": "2020-08-13T18:11:29.4277644Z",
+  
+    "data": {
+        "prop1": "my property",
+        "prop2": 5,
+        "myEventType": "fooEventType"
+    }
+}
+```
+
 
 ## <a name="message-delivery-status"></a>Stan dostarczania wiadomości
 

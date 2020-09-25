@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 1690a844ff700a2975be8e972fd90ba71eeb937c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: f83baf7a038ad8cf17421c778deccbc7dc389d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707785"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325559"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Metryki dla usługi Azure NetApp Files
 
@@ -37,21 +37,24 @@ Azure NetApp Files udostępnia metryki przydziału magazynu, rzeczywistego użyc
 - *Rozmiar zużytego puli*  
     Całkowita ilość przestrzeni logicznej (GiB) używana między woluminami w puli pojemności.  
 
-- *Łączny rozmiar migawki puli*    
-    Suma rozmiaru migawki wszystkich woluminów w puli.
+- *Łączny rozmiar migawki dla puli*    
+    Suma rozmiaru migawki ze wszystkich woluminów w puli.
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Metryki użycia dla woluminów
 
-<!--
-- *Volume Quota Size*    
-    The quota size (GiB) the volume is provisioned with.   
-    This size is the size you selected during capacity pool creation. 
+<!-- ANF-5023: fixed version: 2020.08, 2020.09
+- *Percentage Volume Consumed Size*    
+    The percentage of the volume consumed, including snapshots.  
 -->
+- *Rozmiar przydzielony woluminu*   
+    Rozmiar aprowizacji woluminu
+- *Rozmiar przydziału woluminu*    
+    Rozmiar przydziału (GiB), w którym jest inicjowany wolumin.   
 - *Rozmiar zużytego woluminu*   
-    Łączna ilość przestrzeni logicznej używanej w woluminie (GiB).  
+    Rozmiar logiczny woluminu (zużyte bajty).  
     Ten rozmiar obejmuje przestrzeni logicznej używanej przez aktywne systemy plików i migawki.  
 - *Rozmiar migawki woluminu*   
-   Przyrostowe miejsce logiczne używane przez migawki w woluminie.  
+   Rozmiar wszystkich migawek w woluminie.  
 
 ## <a name="performance-metrics-for-volumes"></a>Metryki wydajności dla woluminów
 
@@ -63,11 +66,28 @@ Azure NetApp Files udostępnia metryki przydziału magazynu, rzeczywistego użyc
     Liczba odczytów do woluminu na sekundę.
 - *Zapisz operacje we/wy*   
     Liczba zapisów w woluminie na sekundę.
+- *Odczyt MiB/s*   
+    Przepływność odczytu w bajtach na sekundę.
+- *Zapisz MiB/s*   
+    Przepływność zapisu w bajtach na sekundę.
+
+<!-- ANF-4128; 2020.07
+- *Pool Provisioned Throughput*   
+    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
+- *Pool Allocated to Volume Throughput*   
+    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
+-->
+
+<!-- ANF-6443; future
+- *Pool Consumed Throughput*    
+    The total throughput being consumed by volumes in a given capacity pool.
+-->
+
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Metryki replikacji woluminów
 
 - *Kondycja stanu replikacji woluminu*   
-    Warunek relacji replikacji. 
+    Warunek relacji replikacji. Prawidłowy stan jest wskazywany przez `1` . Stan złej kondycji jest wskazywany przez `0` .
 
 - *Czy transfer replikacji woluminu*    
     Czy stan replikacji woluminu to "Transfer". 

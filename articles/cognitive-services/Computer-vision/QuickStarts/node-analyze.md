@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019, devx-track-javascript
-ms.openlocfilehash: d6962ae364c8f86d5069c9ec47eed6ffc5d2d419
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019, devx-track-js
+ms.openlocfilehash: b6c24be8f1fc0b1d9ee40337df40c64e89a1c11f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835004"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262568"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Szybki Start: analizowanie obrazu zdalnego przy użyciu interfejsu API REST przetwarzanie obrazów z Node.js
 
@@ -165,7 +165,7 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 }
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli plik nie jest już potrzebny, usuń to, a następnie odinstaluj pakiet `request` npm. Aby odinstalować pakiet, wykonaj następujące czynności:
 

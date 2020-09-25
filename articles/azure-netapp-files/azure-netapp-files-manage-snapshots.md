@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459105"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325693"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files
 
@@ -41,7 +41,7 @@ Migawki woluminów można tworzyć na żądanie.
 
     ![Nowa migawka](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
 
-4. Kliknij pozycję **OK**. 
+4. Kliknij przycisk **OK**. 
 
 ## <a name="manage-snapshot-policies"></a>Zarządzanie zasadami migawek
 
@@ -65,7 +65,7 @@ Funkcja **zasad migawek** jest obecnie w wersji zapoznawczej. Jeśli używasz te
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-Możesz również użyć poleceń interfejsu wiersza polecenia platformy Azure [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) , [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) Aby zarejestrować funkcję i wyświetlić stan rejestracji. 
+Możesz również użyć [poleceń interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` , `az feature show` Aby zarejestrować funkcję i wyświetlić stan rejestracji. 
 
 ### <a name="create-a-snapshot-policy"></a>Tworzenie zasad migawek 
 
@@ -161,7 +161,7 @@ Obecnie można przywrócić migawkę tylko do nowego woluminu.
 
     ![Przywróć do nowego woluminu](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Kliknij przycisk **Przegląd + Utwórz**.  Kliknij przycisk **Utwórz**.   
+4. Kliknij przycisk **Przegląd + Utwórz**.  Kliknij pozycję **Utwórz**.   
     Nowy wolumin używa tego samego protokołu, który jest wykorzystywany przez migawkę.   
     Nowy wolumin, do którego zostanie przywrócona migawka, pojawia się w bloku woluminy.
 
@@ -221,6 +221,6 @@ W przypadku wybrania pola wyboru Ukryj ścieżkę migawki podczas tworzenia wolu
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Omówienie hierarchii magazynu usługi Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Rozwiązywanie problemów z zasadami migawek](troubleshoot-snapshot-policies.md)
 * [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Film Azure NetApp Files migawek 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

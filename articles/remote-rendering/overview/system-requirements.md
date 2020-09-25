@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323729"
 ---
 # <a name="system-requirements"></a>Wymagania systemowe
 
@@ -63,6 +63,17 @@ Stabilne połączenie sieciowe o małym opóźnieniu ma kluczowe znaczenie dla d
 Zapoznaj się z tematem specjalny rozdział [wymagań sieci](../reference/network-requirements.md).
 
 Rozwiązywanie problemów z siecią można znaleźć w [przewodniku rozwiązywania problemów](../resources/troubleshoot.md#unstable-holograms).
+
+### <a name="network-ports"></a>Porty sieciowe
+
+Upewnij się, że zapory (na urządzeniu, wewnątrz routerów itp.) nie blokują następujących portów:
+
+| Port              | Protokół | Zezwalaj    | Opis |
+|-------------------|----------|----------|-------------|
+| 50051             | TCP      | Przeznaczony | Połączenie początkowe (uzgadnianie HTTP) |
+| 8266              | UDP      | Przeznaczony | Transfer danych |
+| 5000, 5433, 8443  | TCP      | Przeznaczony | Wymagane dla [Narzędzia ArrInspector](../resources/tools/arr-inspector.md)|
+
 
 ## <a name="software"></a>Oprogramowanie
 

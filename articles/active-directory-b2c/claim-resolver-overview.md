@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201179"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259640"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informacje o rozpoznawaniu roszczeń w Azure Active Directory B2C zasadach niestandardowych
 
@@ -48,7 +48,7 @@ W poniższych sekcjach znajduje się lista dostępnych elementów rozwiązywania
 
 | Claim | Opis | Przykład |
 | ----- | ----------- | --------|
-| {Culture: LanguageName} | Dwuliterowy kod ISO dla języka. | pl |
+| {Culture: LanguageName} | Dwuliterowy kod ISO dla języka. | en |
 | {Culture: LCID}   | Identyfikator LCID kodu języka. | 1045 |
 | {Culture: RegionName} | Dwuliterowy kod ISO dla regionu. | USA |
 | {Culture: RFC5646} | Kod języka RFC5646. | pl-PL |
@@ -113,6 +113,7 @@ Wszelkie nazwy parametrów dołączone jako część żądania OIDC lub OAuth2 m
 | Claim | Opis | Przykład |
 | ----- | ----------------------- | --------|
 | {OAuth2: access_token} | Token dostępu. | Nie dotyczy |
+| {OAuth2: refresh_token} | Token odświeżania. | Nie dotyczy |
 
 
 ### <a name="saml"></a>SAML

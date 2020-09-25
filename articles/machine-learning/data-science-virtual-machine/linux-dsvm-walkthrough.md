@@ -5,16 +5,16 @@ description: Dowiedz się, jak wykonać kilka typowych zadań związanych z nauk
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 07/17/2020
-ms.openlocfilehash: ca3cfa44bd4f757c6fbb0dd2c84d7a843f9bff36
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/17/2020
+ms.openlocfilehash: 65a627cc009699660de0897ce853acaa78381f6a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816222"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275986"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Nauka danych przy użyciu Data Science Virtual Machine Ubuntu na platformie Azure
 
@@ -478,7 +478,7 @@ Aby skonfigurować połączenie z serwerem lokalnym:
 1. W obszarze **Sterownik**wybierz pozycję **PostgreSQL**.
 1. Ustaw adres URL **JDBC: PostgreSQL://localhost/spam**.
 1. Wprowadź nazwę użytkownika i hasło.
-1. Wybierz pozycję **OK**.
+1. Wybierz przycisk **OK**.
 1. Aby otworzyć okno **połączenia** , kliknij dwukrotnie alias **bazy danych spamu** .
 1. Wybierz pozycję **Połącz**.
 

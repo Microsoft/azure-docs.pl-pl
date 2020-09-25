@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: e7d424435c29eb3e7a6779a7036816a7bedd2085
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708804"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278298"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replikacja między regionami Azure NetApp Files woluminów
 
@@ -45,6 +45,7 @@ Azure NetApp Files replikacja woluminu jest obecnie dostępna w następujących 
 * Japonia Wschodnia i Japonia Zachodnia
 * Południowe Zjednoczone Królestwo i Niemcy Środkowo-Zachodnie
 * Azja Południowo-Wschodnia i Australia Wschodnia
+* Indie Środkowe i Indie Południowe
 
 ## <a name="service-level-objectives"></a>Cele poziomu usługi
 
@@ -111,7 +112,7 @@ Zwykła Azure NetApp Files opłata za magazyn w miesiącu 2 dotyczy woluminu doc
 ## <a name="next-steps"></a>Następne kroki
 * [Wymagania i zagadnienia dotyczące korzystania z replikacji między regionami](cross-region-replication-requirements-considerations.md)
 * [Tworzenie komunikacji równorzędnej replikacji](cross-region-replication-create-peering.md)
-* [Wyświetl stan kondycji relacji replikacji](cross-region-replication-display-health-status.md)
+* [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md)
 * [Zarządzanie odzyskiwaniem po awarii](cross-region-replication-manage-disaster-recovery.md)
 * [Metryki replikacji woluminów](azure-netapp-files-metrics.md#replication)
 * [Rozwiązywanie problemów z replikacją między regionami](troubleshoot-cross-region-replication.md)

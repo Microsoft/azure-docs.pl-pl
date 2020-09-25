@@ -3,12 +3,12 @@ title: Konfigurowanie zapory IP dla tematów Azure Event Grid lub domen
 description: W tym artykule opisano sposób konfigurowania ustawień zapory dla Event Grid tematów lub domen.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: df6098df4817ee6c47378704c25d07433d6b9480
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509422"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324165"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Konfigurowanie zapory IP dla tematów Azure Event Grid lub domen 
 Domyślnie temat i domena są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Wydawcy pochodzące z dowolnego innego adresu IP będą odrzucani i otrzymają odpowiedź 403 (zabroniony). Aby uzyskać więcej informacji na temat funkcji zabezpieczeń sieci obsługiwanych przez Event Grid, zobacz [zabezpieczenia sieci dla Event Grid](network-security.md).
@@ -23,7 +23,7 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć reguły zapory dla 
 
     Ruch można ograniczyć przy użyciu reguł zapory opartych na protokole IP. Określ pojedynczy adres IPv4 lub zakres adresów IP w notacji CIDR (Classless Inter-Domain Routing). 
 
-    ![Strona sieci publiczne](./media/configure-firewall/public-networks-page.png)
+    ![Zrzut ekranu przedstawiający stronę "dostęp do sieci publicznej" z wybraną opcją "sieci publiczne".](./media/configure-firewall/public-networks-page.png)
 3. Wybierz **tylko prywatne punkty końcowe** , aby zezwolić na dostęp do tego zasobu tylko prywatnym połączeniem punktu końcowego. Za pomocą karty **połączenia prywatne punktu końcowego** na tej stronie można zarządzać połączeniami. 
 
     ![Strona sieci publiczne](./media/configure-firewall/private-endpoints-page.png)

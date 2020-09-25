@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
-ms.openlocfilehash: d369614357bd62dc13073f650fbe5ce358d6dc6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dadd04497eae0e91bdf5ea3caad38beda35f7fa3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884318"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275425"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Zarządzanie regułami zapory dla Azure Database for PostgreSQL-ze skalowaniem (Citus)
 Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do węzła koordynatora ze skalowaniem (Citus) z określonego adresu IP lub zakresu adresów IP.
@@ -49,7 +49,7 @@ Alternatywnie, kliknięcie **+ Dodaj 0.0.0.0-255.255.255.255** (z prawej strony 
 
 ## <a name="connecting-from-azure"></a>Łączenie z platformy Azure
 
-Istnieje prosty sposób udzielania dostępu do bazy danych w ramach aplikacji hostowanej na platformie Azure (np. aplikacji platformy Azure Web Apps lub działających na maszynie wirtualnej platformy Azure). Po prostu ustaw opcję **Zezwól usługom i zasobom platformy Azure na dostęp do tej grupy serwerów** **w portalu z okienka** **Sieć** i kliknij przycisk **Zapisz**.
+Istnieje prosty sposób udzielenia dostępu do bazy danych Citus (na przykład aplikacji platformy Web Apps Azure) do aplikacji hostowanych na platformie Azure. Po prostu ustaw opcję **Zezwól usługom i zasobom platformy Azure na dostęp do tej grupy serwerów** **w portalu z okienka** **Sieć** i kliknij przycisk **Zapisz**.
 
 > [!IMPORTANT]
 > Ta opcja konfiguruje zaporę w celu zezwalania na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika zezwalają na dostęp tylko uprawnionym użytkownikom.

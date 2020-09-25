@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: c0aac897d85cd96d537238bc81cbc89d3626a07c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 21d0587b951d909f0091eccf9a7f86a484bc5051
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324046"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Tworzenie i testowanie nowego symulowanego urządzenia
 
@@ -44,7 +44,7 @@ W poniższej tabeli przedstawiono dane, które żarówki raporty do chmury jako 
 | Nazwa   | Wartości      |
 | ------ | ----------- |
 | Stan | "on", "off" |
-| Temperature | Stopnie F |
+| Temperatura | Stopnie F |
 | online | wartość true, false |
 
 > [!NOTE]
@@ -65,7 +65,7 @@ W poniższej tabeli przedstawiono początkowy stan urządzenia:
 
 | Nazwa                     | Wartości |
 | ------------------------ | -------|
-| Kolor początkowy            | Biali  |
+| Kolor początkowy            | Biały  |
 | Jasność początkowa       | 75     |
 | Początkowy pozostały okres istnienia   | 10 000 |
 | Początkowy stan telemetrii | z   |
@@ -108,7 +108,7 @@ Pobierz i rozpakuj [mikrousługę symulacji urządzenia z usługi](https://githu
 
 Otwórz folder **Remote-Monitoring-Services-dotnet-master\storage-adapter** w Visual Studio Code. Kliknij dowolne przyciski **przywracania** , aby naprawić wszystkie nierozwiązane zależności.
 
-Otwórz plik **Storage-Adapter/WebService/appsettings.ini** i przypisz Cosmos DB parametry połączenia do zmiennej **documentDBConnectionString** .
+Otwórz plik **Storage-Adapter/WebService/appsettings.ini** i przypisz Cosmos DB parametry połączenia do zmiennej **documentDBConnectionString**  .
 
 Aby uruchomić mikrousługę lokalnie, kliknij pozycję **debuguj > Rozpocznij debugowanie**.
 
@@ -493,7 +493,7 @@ Aby skonfigurować i uruchomić symulację:
 
 Aby zatrzymać symulację, wybierz żądanie **zatrzymania symulacji** w programie Poster i kliknij pozycję **Wyślij**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Można zatrzymać dwa lokalnie działające mikrousługi w Visual Studio Code wystąpieniach (**debugowanie > zatrzymać debugowanie**).
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 9bd98d69c9a941e8da08fc7ab798c37b1a22f0bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c5ee1f1fbd55bfa44f78f2d1f0129b60be8ea34c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498417"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325185"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Wdróż wystąpienie zarządzane Azure SQL w puli wystąpień
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,11 +30,11 @@ W poniższej tabeli przedstawiono dostępne operacje związane z pulami wystąpi
 
 |Polecenie|Azure Portal|PowerShell|
 |:---|:---|:---|
-|Tworzenie puli wystąpień|Nie|Yes|
-|Zaktualizuj pulę wystąpień (ograniczoną liczbę właściwości)|Nie |Yes |
-|Sprawdź użycie puli wystąpień i właściwości|Nie|Yes |
-|Usuwanie puli wystąpień|Nie|Yes|
-|Tworzenie wystąpienia zarządzanego wewnątrz puli wystąpień|Nie|Yes|
+|Tworzenie puli wystąpień|Nie|Tak|
+|Zaktualizuj pulę wystąpień (ograniczoną liczbę właściwości)|Nie |Tak |
+|Sprawdź użycie puli wystąpień i właściwości|Nie|Tak |
+|Usuwanie puli wystąpień|Nie|Tak|
+|Tworzenie wystąpienia zarządzanego wewnątrz puli wystąpień|Nie|Tak|
 |Aktualizowanie użycia zasobów dla wystąpienia zarządzanego|Tak |Tak|
 |Sprawdzanie użycia i właściwości wystąpienia zarządzanego|Tak|Tak|
 |Usuwanie wystąpienia zarządzanego z puli|Tak|Tak|
@@ -188,7 +188,7 @@ Aby zaktualizować tylko rozmiar magazynu:
 $instance | Set-AzSqlInstance -StorageSizeInGB 1024 -InstancePoolName "mi-pool-name"
 ```
 
-## <a name="connect"></a>Połącz 
+## <a name="connect"></a>Connect 
 
 Aby połączyć się z wystąpieniem zarządzanym w puli, wymagane są następujące dwa kroki:
 

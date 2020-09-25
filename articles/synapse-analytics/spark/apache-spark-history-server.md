@@ -9,18 +9,18 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: e8dece3478e00c6f9279767e57e3bb8aca865f45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260414"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Użyj serwera Apache Spark History, aby debugować i diagnozować aplikacje Apache Spark
 
 Ten artykuł zawiera wskazówki dotyczące sposobu korzystania z serwera Apache Spark History do debugowania i diagnozowania ukończonych i uruchomionych aplikacji platformy Spark.
 
-Rozszerzenie zawiera kartę dane, kartę wykresu i kartę Diagnostyka. Użyj karty **dane** , aby sprawdzić dane wejściowe i wyjściowe zadania platformy Spark. Na karcie **Wykres** znajduje się przepływ danych i odtwarzanie wykresu zadań. Karta **Diagnostyka** przedstawia **pochylenie danych**, **pochylenie czasu**i **analizę użycia programu wykonującego**.
+Rozszerzenie zawiera kartę dane, kartę graf i kartę Diagnostyka. Użyj karty **dane** , aby sprawdzić dane wejściowe i wyjściowe zadania platformy Spark. Na karcie **Wykres** znajduje się przepływ danych i odtwarzanie wykresu zadań. Karta **Diagnostyka** przedstawia  **pochylenie danych**, **pochylenie czasu**i **analizę użycia programu wykonującego**.
 
 ## <a name="access-the-apache-spark-history-server"></a>Dostęp do serwera historii Apache Spark
 
@@ -30,11 +30,11 @@ Serwer historii Apache Spark jest interfejsem użytkownika sieci Web dla ukończ
 
 1. Otwórz [usługę Azure Synapse Analytics](https://web.azuresynapse.net/).
 
-2. Kliknij pozycję **monitorowanie**, a następnie wybierz pozycję **Apache Spark aplikacje**.
+2. Wybierz pozycję **monitor**, a następnie wybierz pozycję **Apache Spark aplikacje**.
 
-    ![Kliknij pozycję Monitoruj, a następnie wybierz pozycję Aplikacja platformy Spark.](./media/apache-spark-history-server/click-monitor-spark-application.png)
+    ![Wybierz pozycję Monitoruj, a następnie wybierz pozycję Aplikacja platformy Spark.](./media/apache-spark-history-server/click-monitor-spark-application.png)
 
-3. Wybierz aplikację, a następnie otwórz **zapytanie dziennika** , klikając je.
+3. Wybierz aplikację, a następnie otwórz **zapytanie dziennika** , wybierając je.
 
     ![Otwórz okno zapytania dziennika.](./media/apache-spark-history-server/open-application-window.png)
 
@@ -46,11 +46,11 @@ Serwer historii Apache Spark jest interfejsem użytkownika sieci Web dla ukończ
 
 1. W notesie usługi Azure Synapse Studio wybierz pozycję **serwer historii platformy Spark** z komórki wyjściowej wykonywania zadania lub z panelu stanu w dolnej części dokumentu notesu. Wybierz pozycję **Szczegóły sesji**.
 
-   ![Uruchom serwer historii platformy Spark](./media/apache-spark-history-server/launch-history-server2.png "Uruchom serwer historii platformy Spark")
+   ![Uruchom serwer historii Spark 1](./media/apache-spark-history-server/launch-history-server2.png "Uruchom serwer historii platformy Spark")
 
 2. Wybierz pozycję **serwer historii platformy Spark** z panelu slajdy.
 
-   ![Uruchom serwer historii platformy Spark](./media/apache-spark-history-server/launch-history-server.png "Uruchom serwer historii platformy Spark")
+   ![Uruchom serwer historii Spark 2](./media/apache-spark-history-server/launch-history-server.png "Uruchom serwer historii platformy Spark")
 
 ## <a name="explore-the-data-tab-in-spark-history-server"></a>Eksplorowanie karty dane na serwerze historii platformy Spark
 
@@ -80,7 +80,7 @@ Wybierz identyfikator zadania dla zadania, które chcesz wyświetlić. Następni
 
     ![Dane dla wiersza pobierania aplikacji platformy Spark](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-* Aby skopiować pełną ścieżkę lub ścieżkę względną, wybierz opcje **Kopiuj pełną ścieżkę** lub **Kopiuj ścieżkę względną** , które rozwiń z menu rozwijanego. W przypadku plików Azure Data Lake Storage **Otwórz w Eksplorator usługi Azure Storage** uruchamia Eksplorator usługi Azure Storage i lokalizuje folder po zalogowaniu się.
+* Aby skopiować pełną ścieżkę lub ścieżkę względną, wybierz opcje **Kopiuj pełną ścieżkę** lub **Kopiuj ścieżkę względną** , które rozwiń z menu rozwijanego. W przypadku plików Azure Data Lake Storage **Otwórz w Eksplorator usługi Azure Storage** uruchamia Eksplorator usługi Azure Storage i lokalizuje folder podczas logowania.
 
     ![Dane dla ścieżki kopii aplikacji Spark](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
@@ -125,7 +125,7 @@ Aby odtworzyć zadanie, wybierz pozycję **odtwarzanie**. W dowolnym momencie mo
 |Green (Zielony)|Zakończone powodzeniem: zadanie zostało ukończone pomyślnie.|
 |Orange|Ponawianie próby: wystąpienia zadań, które zakończyły się niepowodzeniem, ale nie wpływają na końcowy wynik zadania. Te zadania mają zduplikowane lub ponawiane wystąpienia, które mogą się powieść później.|
 |Blue (Niebieski)|Uruchomiono: zadanie jest uruchomione.|
-|Biali|Oczekiwanie lub pominięte: zadanie oczekuje na uruchomienie lub etap został pominięty.|
+|Biały|Oczekiwanie lub pominięte: zadanie oczekuje na uruchomienie lub etap został pominięty.|
 |Red (Czerwony)|Niepowodzenie: zadanie zakończyło się niepowodzeniem.|
 
 Na poniższej ilustracji przedstawiono kolor zielony, pomarańczowy i niebieski.
@@ -182,7 +182,7 @@ W węźle grafu zadania są wyświetlane następujące informacje dotyczące pos
     >  
     > Rozmiar danych odczytu i zapisu to 1 MB = 1000 KB = 1000 * 1000 bajtów.
 
-### <a name="provide-feedback"></a>Wyraź opinię
+### <a name="provide-feedback"></a>Przekazywanie opinii
 
 Prześlij opinię z problemami, wybierając pozycję Prześlij **nam swoją opinię**.
 
@@ -200,7 +200,7 @@ Sprawdź **pochylenie danych**, **pochylenie czasu**i **analizę użycia wykonaw
 
 Po wybraniu karty **pochylanie danych** odpowiednie skośne zadania są wyświetlane na podstawie określonych parametrów.
 
-* **Określ parametry** — w pierwszej sekcji są wyświetlane parametry, które są używane do wykrywania pochylenia danych. Reguła domyślna to: odczyt danych zadania jest dłuższy niż trzy razy średniego odczytania danych zadania, a odczyt danych zadania przekracza 10 MB. Jeśli chcesz zdefiniować własną regułę dla pochylonych zadań, możesz wybrać parametry, **etapy skośne** i **pochylone** fragmenty są odpowiednio odświeżane.
+* **Określ parametry** — w pierwszej sekcji są wyświetlane parametry, które są używane do wykrywania pochylenia danych. Reguła domyślna to: odczyt danych zadania jest dłuższy niż trzy razy średniego odczytania danych zadania, a odczyt danych zadania przekracza 10 MB. Jeśli chcesz zdefiniować własną regułę dla zadań skośnych, możesz wybrać parametry. Sekcje **skośne** i **pochylone** są odpowiednio odświeżane.
 
 * **Skośny etap** — druga sekcja wyświetla etapy, które mają skośne zadania spełniające określone powyżej kryteria. Jeśli na etapie występuje więcej niż jedno zadanie skośne, w tabeli etapów skośnych jest wyświetlane tylko zadanie najbardziej skośne (na przykład największe dane dotyczące pochylenia danych).
 
@@ -224,7 +224,7 @@ Karta **przechylenie czasu** przedstawia zadania skośne w oparciu o czas wykony
 
 Wykres użycia programu wykonującego wizualizacje przedstawia stan alokacji i uruchomienia programu wykonującego zadanie platformy Spark.  
 
-1. Wybierz pozycję **Analiza użycia programu wykonującego**, a następnie cztery typy krzywe dotyczące użycia programu wykonującego są przygotowane, w tym **przydzieloną wykonawcy**, **uruchomione wykonawcy**, **wykonawcze bezczynne**i **maksymalne wystąpienia wykonawców**. W odniesieniu do przyznanych modułów wykonujących, każdy "dodany moduł wykonujący" lub "moduł wykonujący został usunięty" zwiększa lub zmniejsza przydzieloną wykonawcy. Aby uzyskać więcej informacji, możesz sprawdzić "oś czasu zdarzeń" na karcie "zadania".
+1. Wybierz pozycję **Analiza użycia programu wykonującego**, a następnie cztery typy krzywe dotyczące użycia programu wykonującego są przygotowane, w tym **przydzieloną wykonawcy**, **uruchomione wykonawcy**, **wykonawcze bezczynne**i **maksymalne wystąpienia wykonawców**. W przypadku przyznanych modułów wykonujących, każdy "dodany przez program wykonawczy" lub "usunięty moduł wykonujący" zwiększa lub zmniejsza przydzieloną wykonawcy. Aby uzyskać więcej informacji, możesz sprawdzić "oś czasu zdarzeń" na karcie "zadania".
 
    ![Karta modułów wykonujących diagnostyki sparkui](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 

@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
-ms.openlocfilehash: e9df7b00a384859fb29577be0ad05da233683f46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044526"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276512"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Format Delta w Azure Data Factory
 
@@ -35,12 +35,13 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło r�
 
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Format musi być`delta` | tak | `delta` | format |
-| System plików | Kontener/system plików delty Lake | tak | String (ciąg) | Wymagany |
-| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | String (ciąg) | folderPath |
+| Format | Format musi być `delta` | tak | `delta` | format |
+| System plików | Kontener/system plików delty Lake | tak | String | Wymagany |
+| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | String | folderPath |
 | Typ kompresji | Typ kompresji tabeli różnicowej | nie | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | CompressionType |
 | Poziom kompresji | Zdecyduj, czy kompresja kończy się tak szybko, jak to możliwe, czy plik powinien być optymalnie kompresowany. | wymagane, jeśli `compressedType` jest określony. | `Optimal` lub `Fastest` | compressionLevel |
 | Czas podróży | Zdecyduj, czy chcesz utworzyć zapytanie do starszej migawki tabeli różnicowej | nie | Zapytanie według sygnatury czasowej: sygnatura czasowa <br> Zapytanie według wersji: liczba całkowita | timestampAsOf <br> versionAsOf |
+| Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
 
 #### <a name="import-schema"></a>Importuj schemat
 
@@ -71,9 +72,9 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia ró�
 
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Format musi być`delta` | tak | `delta` | format |
-| System plików | Kontener/system plików delty Lake | tak | String (ciąg) | Wymagany |
-| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | String (ciąg) | folderPath |
+| Format | Format musi być `delta` | tak | `delta` | format |
+| System plików | Kontener/system plików delty Lake | tak | String | Wymagany |
+| Ścieżka folderu | Bezpośrednia różnica w usłudze Data Lake | tak | String | folderPath |
 | Typ kompresji | Typ kompresji tabeli różnicowej | nie | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | CompressionType |
 | Poziom kompresji | Zdecyduj, czy kompresja kończy się tak szybko, jak to możliwe, czy plik powinien być optymalnie kompresowany. | wymagane, jeśli `compressedType` jest określony. | `Optimal` lub `Fastest` | compressionLevel |
 | Vacuum | Określ próg przechowywania w godzinach dla starszych wersji tabeli. Wartość 0 lub mniej wartością domyślną jest 30 dni | tak | Integer | ciśnienie |

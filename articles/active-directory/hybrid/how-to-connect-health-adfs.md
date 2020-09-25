@@ -18,12 +18,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa7be140b47d389bea0e7468d1a5ac7e58c3b1b
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 26fdf202cb9bcacee94c83578432f7a399f90a0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276290"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306280"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorowanie usług AD FS za pomocą programu Azure AD Connect Health
 Poniższa dokumentacja dotyczy monitorowania infrastruktury usług AD FS przy użyciu programu Azure AD Connect Health. Aby uzyskać informacje na temat monitorowania Azure AD Connect (Sync) z Azure AD Connect Health, zobacz [używanie Azure AD Connect Health do synchronizacji](how-to-connect-health-sync.md). Ponadto aby uzyskać informacje na temat monitorowania Active Directory Domain Services przy użyciu Azure AD Connect Health, zobacz [używanie Azure AD Connect Health z AD DS](how-to-connect-health-adds.md).
@@ -33,7 +33,7 @@ Sekcja Alerty programu Azure AD Connect Health udostępnia listę aktywnych aler
 
 Kliknij dwukrotnie aktywny lub rozwiązany alert, aby otworzyć nowy blok z dodatkowymi informacjami, krokami, jakie można podjąć, aby rozwiązać alert, oraz linkami do dodatkowej dokumentacji. Można również wyświetlić dane historyczne na temat alertów, które zostały rozwiązane w przeszłości.
 
-![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/alert2.png)
+![Zrzut ekranu, na którym zostanie wyświetlona strona Azure AD Connect Health "alerty" z wybranym alertem, a okno "Szczegóły alertu".](./media/how-to-connect-health-adfs/alert2.png)
 
 ## <a name="usage-analytics-for-ad-fs"></a>Analiza użycia usług AD FS
 Analiza użycia programu Azure AD Connect Health analizuje ruch na serwerach federacyjnych związany z uwierzytelnianiem. Kliknij dwukrotnie pole analizy użycia, aby otworzyć blok analizy użycia, który zawiera metryki i grupowania.
@@ -43,7 +43,7 @@ Analiza użycia programu Azure AD Connect Health analizuje ruch na serwerach fed
 >
 >
 
-![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/report1.png)
+![Zrzut ekranu przedstawiający stronę Azure AD Connect Health analizy użycia.](./media/how-to-connect-health-adfs/report1.png)
 
 Aby wybrać dodatkowe metryki, określić zakres czasu lub zmienić grupowanie, kliknij prawym przyciskiem myszy wykres analizy użycia i wybierz pozycję Edytuj wykres. Następnie możesz określić zakres czasu, wybrać inne metryki oraz zmienić grupowanie. Za pomocą odpowiednich parametrów funkcji „grupuj według” opisanych w poniższej sekcji możesz zobaczyć rozkład ruchu uwierzytelniania w oparciu o różne „metryki” i pogrupować wszystkie metryki.
 
@@ -78,7 +78,7 @@ Aby wybrać dodatkowe metryki, określić zakres czasu lub zmienić grupowanie, 
 ## <a name="performance-monitoring-for-ad-fs"></a>Monitorowanie wydajności dla usług AD FS
 Funkcja monitorowania wydajności w programie Azure AD Connect Health udostępnia informacje o metrykach. Wybranie pola Monitorowanie powoduje otwarcie nowego bloku ze szczegółowymi informacjami o metrykach.
 
-![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/perf1.png)
+![Zrzut ekranu przedstawiający stronę Monitorowanie wydajności Azure AD Connect Health.](./media/how-to-connect-health-adfs/perf1.png)
 
 Po wybraniu opcji Filtrowanie u góry bloku można przeprowadzać filtrowanie według serwera, aby uzyskać informacje o poszczególnych metrykach serwera. Aby zmienić metrykę, kliknij prawym przyciskiem myszy wykres monitorowania pod blokiem monitorowania i wybierz pozycję Edytuj wykres (lub wybierz przycisk Edytuj wykres). W nowo otwartym bloku możesz wybrać dodatkowe metryki z listy rozwijanej i określić zakres czasu w celu wyświetlenia danych wydajności.
 
@@ -89,7 +89,7 @@ Jednak istnieją inne przyczyny nieoczekiwanej liczby żądań obsługiwanych pr
 
 Program Azure AD Connect Health dla usług AD FS dostarcza raport dotyczący 50 użytkowników z największą liczbą nieudanych prób logowania z powodu wpisania nieprawidłowej nazwy użytkownika lub nieprawidłowego hasła. Ten raport jest uzyskiwany przez przetwarzanie zdarzeń inspekcji generowanych przez wszystkie serwery usług AD FS w farmach.
 
-![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/report1a.png)
+![Zrzut ekranu przedstawiający sekcję "Raporty" z liczbą nieudanych prób wprowadzenia hasła z ostatnich 30 dni.](./media/how-to-connect-health-adfs/report1a.png)
 
 Ten raport daje łatwy dostęp do następujących informacji:
 

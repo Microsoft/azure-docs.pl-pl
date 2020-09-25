@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971512"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275136"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Skonfiguruj połączenie z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej
 
@@ -143,6 +143,10 @@ Ten indeksator będzie uruchamiany co dwie godziny (interwał harmonogramu jest 
 Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zapoznaj się z tematem [Tworzenie indeksatora](/rest/api/searchservice/create-indexer).
 
 Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w temacie [jak zaplanować indeksatory dla platformy Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
+
+## <a name="accessing-secure-data-in-storage-accounts"></a>Uzyskiwanie dostępu do zabezpieczonych danych na kontach magazynu
+
+Konta usługi Azure Storage można zabezpieczyć za pomocą zapór i sieci wirtualnych. Jeśli chcesz zindeksować zawartość z konta usługi BLOB Storage lub Data Lake konto magazynu Gen2 zabezpieczone za pomocą zapory lub sieci wirtualnej, postępuj zgodnie z instrukcjami dotyczącymi [bezpiecznego uzyskiwania dostępu do danych w kontach magazynu za pomocą wyjątku usługi zaufanej](search-indexer-howto-access-trusted-service-exception.md).
 
 ## <a name="see-also"></a>Zobacz też
 

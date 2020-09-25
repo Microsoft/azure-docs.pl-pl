@@ -3,12 +3,12 @@ title: Azure Key Vault jako źródło Event Grid
 description: Opisuje właściwości i schemat udostępnione dla zdarzeń Azure Key Vault z Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: f6e2bdfb2000f3a4c4a8f91eee23348d9cc9c766
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: b3d961228429c1f84e45c1df9147fa1687ab5074
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090401"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324080"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault jako źródło Event Grid
 
@@ -70,7 +70,7 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 | vaultName | ciąg | Nazwa magazynu kluczy obiektu, który wyzwolił to zdarzenie |
 | objectType | ciąg | Typ obiektu, który wyzwolił to zdarzenie. |
 | Obiektu | ciąg | Nazwa obiektu, który wyzwolił to zdarzenie |
-| version | ciąg | Wersja obiektu, który wyzwolił to zdarzenie |
+| Wersja | ciąg | Wersja obiektu, który wyzwolił to zdarzenie |
 | NBF | liczba | Data nie wcześniejsza (w sekundach) od 1970 r-01-01T00:00:00Z obiektu, który wyzwolił to zdarzenie |
 | exp | liczba | Data wygaśnięcia (w sekundach) od 1970 r-01-01T00:00:00Z obiektu, który wyzwolił to zdarzenie |
 
@@ -78,17 +78,12 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 |Tytuł  |Opis  |
 |---------|---------|
 | [Monitorowanie zdarzeń Key Vault z Azure Event Grid](../key-vault/general/event-grid-overview.md) | Omówienie integrowania Key Vault z Event Grid. |
-| [Samouczek: Tworzenie i monitorowanie zdarzeń Key Vault przy użyciu Event Grid](../key-vault/general/event-grid-tutorial.md) | Dowiedz się, jak skonfigurować Event Grid powiadomienia dla Key Vault. |
+| [Samouczek: Tworzenie i monitorowanie zdarzeń Key Vault przy użyciu Event Grid](../key-vault/general/event-grid-logicapps.md) | Dowiedz się, jak skonfigurować Event Grid powiadomienia dla Key Vault. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby zapoznać się z wprowadzeniem do Azure Event Grid, zobacz [co to jest Event Grid?](overview.md).
 * Aby uzyskać więcej informacji na temat tworzenia subskrypcji Azure Event Grid, zobacz [Event Grid schematu subskrypcji](subscription-creation-schema.md).
-* Aby dowiedzieć się więcej na temat integracji Key Vault z usługą Event Grid, zobacz [monitorowanie Key Vault z Azure Event Grid](../key-vault/general/event-grid-overview.md).
-* Aby zapoznać się z samouczkiem dotyczącym Key Vault integracji z Event Grid, zobacz [Odbieranie i reagowanie na powiadomienia magazynu kluczy za pomocą Azure Event Grid](../key-vault/general/event-grid-tutorial.md).
-* Aby uzyskać dodatkowe wskazówki dotyczące Key Vault i Azure Automation, zobacz:
-    - [Co to jest usługa Azure Key Vault?](../key-vault/general/overview.md)
-    - [Key Vault monitorowania z Azure Event Grid](../key-vault/general/event-grid-overview.md)
-    - [Odbieraj powiadomienia magazynu kluczy i odpowiadaj na nie za pomocą Azure Event Grid](../key-vault/general/event-grid-tutorial.md)
-    - [Przegląd Azure Automation](../automation/index.yml)
+* Aby uzyskać więcej informacji na temat magazynu kluczy, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md)
+

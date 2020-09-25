@@ -1,6 +1,6 @@
 ---
 title: Dostęp warunkowy dla użytkowników współpracy B2B — Azure AD
-description: Azure Active Directory współpracy B2B obsługuje uwierzytelnianie wieloskładnikowe (MFA) na potrzeby selektywnego dostępu do aplikacji firmowych
+description: Dowiedz się, jak wymusić zasady uwierzytelniania wieloskładnikowego dla Azure Active Directory użytkowników B2B.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b47ec082daa6eee4ab593fdb5523087f9eb5b038
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909587"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274150"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Dostęp warunkowy dla użytkowników współpracy B2B
 

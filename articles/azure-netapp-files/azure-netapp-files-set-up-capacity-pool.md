@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: d76af4901103b0eed8cd1cffac744f8fb41d9689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b52ad50854092cddd7b9e79cbeebd4a83017081
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483503"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325418"
 ---
 # <a name="set-up-a-capacity-pool"></a>Konfigurowanie puli pojemności
 
@@ -49,16 +49,27 @@ Potrzebujesz utworzonego konta usługi NetApp.
      To pole wskazuje docelową wydajność puli pojemności.  
      Określ poziom usługi dla puli pojemności: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium)lub [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
-   * **Zmienia**     
+    * **Zmienia**     
      Określ rozmiar kupowanej puli pojemności.        
      Minimalny rozmiar puli pojemności to 4 TiB. Można utworzyć pulę o rozmiarze będącym wielokrotnością 4 TiB.   
-      
-     ![Nowa pula pojemności](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
-4. Kliknij przycisk **OK**.
+   * **QoS**   
+     Określ, czy pula pojemności ma używać typu **ręcznego** , **czy autoqos.**  
+
+     Zobacz tematy dotyczące hierarchii i [wydajności](azure-netapp-files-performance-considerations.md) [magazynu](azure-netapp-files-understand-storage-hierarchy.md) , aby poznać typy QoS.  
+
+     > [!IMPORTANT] 
+     > Ustawienie **typu QoS** na **ręczny** jest trwałe. Nie można przekonwertować ręcznej puli pojemności usługi QoS, aby używać funkcji autoqos. Można jednak skonwertować pulę pojemności autoqos, aby używać ręcznej jakości usług. Zobacz [zmiana puli pojemności, aby użyć ręcznej jakości](manage-manual-qos-capacity-pool.md#change-to-qos)usług.   
+     > Korzystanie z ręcznego typu QoS dla puli pojemności wymaga rejestracji. Zobacz [Zarządzanie ręczną pulą pojemności usługi QoS](manage-manual-qos-capacity-pool.md#register-the-feature). 
+
+    ![Nowa pula pojemności](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+
+4. Kliknij pozycję **Utwórz**.
 
 ## <a name="next-steps"></a>Następne kroki 
 
+- [Hierarchia magazynu](azure-netapp-files-understand-storage-hierarchy.md) 
 - [Poziomy usług dla usługi Azure NetApp Files](azure-netapp-files-service-levels.md)
-- Informacje o różnych poziomach usługi można uzyskać na [stronie z cennikiem dla usługi Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- [Strona cennika Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- [Zarządzanie ręczną pulą pojemności usługi QoS](manage-manual-qos-capacity-pool.md)
 - [Delegowanie podsieci do usługi Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

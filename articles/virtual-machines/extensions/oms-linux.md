@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: d24463834a49cdfbdb4599770caf579ae94582d8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 38bbe52e45c348977cdda02a5399f6c89fb91bcc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999822"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307453"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Rozszerzenie maszyny wirtualnej usługi Log Analytics dla systemu Linux
 
@@ -43,7 +43,7 @@ Poniższa tabela zawiera mapowanie wersji rozszerzenia maszyny wirtualnej Log An
 
 | Wersja rozszerzenia maszyny wirtualnej z systemem Log Analytics Linux | Wersja pakietu agenta Log Analytics | 
 |--------------------------------|--------------------------|
-| 1.13.13 | [1.13.7-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.7-0) |
+| 1.13.15 | [1.13.9-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.9-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -211,7 +211,9 @@ Dane wyjściowe wykonania rozszerzenia są rejestrowane w następującym pliku:
 | 19 | Niepowodzenie instalacji pakietu OMI | 
 | 20 | Niepowodzenie instalacji pakietu SCX |
 | 51 | To rozszerzenie nie jest obsługiwane w systemie operacyjnym maszyny wirtualnej | |
-| 55 | Nie można nawiązać połączenia z usługą Azure Monitor lub brakuje wymaganych pakietów lub Menedżer pakietów serwerach dpkg jest zablokowany| Sprawdź, czy system ma dostęp do Internetu lub czy podano prawidłowy serwer proxy HTTP. Sprawdź poprawność identyfikatora obszaru roboczego i sprawdź, czy zostały zainstalowane narzędzia zwinięcie i tar. |
+| 52 | To rozszerzenie nie powiodło się ze względu na brakującą zależność | Sprawdź dane wyjściowe i dzienniki, aby uzyskać więcej informacji o braku zależności. |
+| 53 | To rozszerzenie nie powiodło się z powodu braku lub nieprawidłowych parametrów konfiguracji | Sprawdź dane wyjściowe i dzienniki, aby uzyskać więcej informacji na temat tego, co poszło źle. Sprawdź również prawidłowość identyfikatora obszaru roboczego i sprawdź, czy komputer jest połączony z Internetem. |
+| 55 | Nie można nawiązać połączenia z usługą Azure Monitor lub brakuje wymaganych pakietów lub Menedżer pakietów serwerach dpkg jest zablokowany| Sprawdź, czy system ma dostęp do Internetu lub czy podano prawidłowy serwer proxy HTTP. Sprawdź poprawność identyfikatora obszaru roboczego i sprawdź, czy zainstalowano narzędzia Zastąp i tar. |
 
 Dodatkowe informacje dotyczące rozwiązywania problemów można znaleźć w [przewodniku rozwiązywania problemów log Analytics-Agent-for-Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 

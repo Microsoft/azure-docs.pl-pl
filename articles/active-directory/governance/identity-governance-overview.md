@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c100c1b65b2af1201dfc3b52a6d90b2ed26d454
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460818"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306467"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Co to jest usługa Azure AD Identity Governance?
 
@@ -46,7 +46,7 @@ Zarządzanie tożsamościami pomaga organizacjom w osiągnięciu równowagi mię
 
 ![Cykl życia tożsamości](./media/identity-governance-overview/identity-lifecycle.png)
 
-W przypadku wielu organizacji cykl życia tożsamości dla pracowników jest powiązany z reprezentacją tego użytkownika w systemie HCM (zarządzanie dużymi środkami).  Azure AD — wersja Premium automatycznie obsługuje tożsamości użytkowników dla osób przedstawionych w dniach roboczych w Active Directory i Azure Active Directory, zgodnie z opisem w [samouczku inicjowania obsługi ruchu przychodzącego](../saas-apps/workday-inbound-tutorial.md)dla programu Workday.  Azure AD — wersja Premium obejmuje również [Microsoft Identity Manager](/microsoft-identity-manager/), które mogą importować rekordy z lokalnych systemów HCM, takich jak SAP, Oracle eBusiness i Oracle PeopleSoft.
+W przypadku wielu organizacji cykl życia tożsamości dla pracowników jest powiązany z reprezentacją tego użytkownika w systemie HCM (zarządzanie dużymi środkami).  Azure AD — wersja Premium automatycznie obsługuje tożsamości użytkowników dla osób, które są reprezentowane w dniach roboczych i SuccessFactors w Active Directory i Azure Active Directory, zgodnie z opisem w  [aplikacji Cloud kadr w Azure Active Directory podręczniku planowania użytkowników](../app-provisioning/plan-cloud-hr-provision.md).  Azure AD — wersja Premium obejmuje również [Microsoft Identity Manager](/microsoft-identity-manager/), które mogą importować rekordy z lokalnych systemów HCM, takich jak SAP HCM, Oracle eBusiness i Oracle PeopleSoft.
 
 W coraz większym stopniu scenariusze wymagają współpracy z osobami spoza organizacji. Współpraca B2B w usłudze [Azure AD](/azure/active-directory/b2b/) umożliwia bezpieczne udostępnianie aplikacji i usług organizacji użytkownikom-Gościom i partnerom zewnętrznym z dowolnej organizacji przy zachowaniu kontroli nad danymi firmowymi.  [Zarządzanie prawami w usłudze Azure AD](entitlement-management-overview.md) pozwala wybrać, którzy użytkownicy organizacji mogą żądać dostępu i mogą być dodawani jako Goście B2B do katalogu organizacji, a także zagwarantować, że Ci Goście zostaną usunięci, gdy nie potrzebują już dostępu.
 
@@ -69,6 +69,24 @@ W przeszłości dostęp uprzywilejowany został opisany przez innych dostawców 
 ![Cykl życia uprzywilejowanego dostępu](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) oferuje dodatkowe funkcje kontroli dostosowane do zabezpieczania praw dostępu do zasobów w usłudze Azure AD, na platformie Azure i innych usługach online firmy Microsoft.  Możliwości dostępu just-in-Time i alertów dotyczące zmiany roli udostępniane przez usługę Azure AD PIM, oprócz uwierzytelniania wieloskładnikowego i dostępu warunkowego, zapewniają kompleksowy zestaw kontrolek ładu, aby pomóc w zabezpieczeniu zasobów firmy (katalogów, Microsoft 365 i ról zasobów platformy Azure). Podobnie jak w przypadku innych form dostępu, organizacje mogą korzystać z przeglądów dostępu w celu skonfigurowania cyklicznej certyfikacji dostępu dla wszystkich użytkowników w rolach administratora.
+
+## <a name="governance-capabilities-in-other-azure-ad-features"></a>Możliwości ładu w innych funkcjach usługi Azure AD
+
+Oprócz funkcji wymienionych powyżej, dodatkowe funkcje usługi Azure AD często używane do zapewniania scenariuszy zarządzania tożsamościami obejmują:
+
+| Możliwość | Scenariusz |Cechy
+| ------- | --------------------- |-----|
+|Cykl życia tożsamości (pracownicy)|Administratorzy mogą włączyć Inicjowanie obsługi konta użytkownika z poziomu produktu Workday lub SuccessFactors Cloud HR lub lokalnej KADRy.|[Inicjowanie obsługi administracyjnej użytkowników w chmurze w usłudze Azure AD](../app-provisioning/plan-cloud-hr-provision.md)|
+|Cykl życia tożsamości (Goście)|Administratorzy mogą włączyć dołączenie do samoobsługowego użytkownika-gościa z innej dzierżawy usługi Azure AD, Federacji bezpośredniej, jednorazowego kodu dostępu (OTP) lub kont Google.  Użytkownicy-Goście są automatycznie obsługiwani i cofają aprowizacji z uwzględnieniem zasad cyklu życia.|[Zarządzanie prawami](entitlement-management-overview.md) przy użyciu [B2B](../external-identities/what-is-b2b.md)|
+|Zarządzanie upoważnieniami|Właściciele zasobów mogą tworzyć pakiety dostępu zawierające aplikacje, zespoły, usługi Azure AD i grupy Microsoft 365 oraz witryny programu SharePoint Online.|[Zarządzanie upoważnieniami](entitlement-management-overview.md)|
+|Żądania dostępu|Użytkownicy końcowi mogą żądać członkostwa w grupie lub dostępu do aplikacji. Użytkownicy końcowi, w tym Goście z innych organizacji, mogą zażądać dostępu do pakietów.|[Zarządzanie upoważnieniami](entitlement-management-overview.md)|
+|Przepływ pracy|Właściciele zasobów mogą definiować osoby zatwierdzające i osoby zatwierdzające eskalacji dla żądań dostępu i osób zatwierdzających dla żądań aktywacji roli.  |[Zarządzanie prawami](entitlement-management-overview.md) i [PIM](../privileged-identity-management/pim-configure.md)|
+|Zarządzanie zasadami i rolami|Administrator może zdefiniować zasady dostępu warunkowego dla dostępu do aplikacji w czasie wykonywania.  Właściciele zasobów mogą definiować zasady dostępu użytkownika za pośrednictwem pakietów dostępu.|Zasady [dostępu warunkowego](../conditional-access/overview.md) i [zarządzania uprawnieniami](entitlement-management-overview.md)|
+|Dostęp do certyfikacji|Administratorzy mogą włączyć cykliczny certyfikat dostępu do aplikacji SaaS lub członkostwa w grupach w chmurze, usługi Azure AD lub przypisań ról zasobów platformy Azure. Automatycznie usuwaj dostęp do zasobów, Blokuj dostęp gościa i usuwaj konta gościa.|[Przeglądy dostępu](access-reviews-overview.md), również w programie [PIM](../privileged-identity-management/pim-how-to-start-security-review.md)|
+|Realizacja i Inicjowanie obsługi|Automatyczne Inicjowanie obsługi i cofanie aprowizacji do aplikacji połączonych z usługą Azure AD, w tym za pośrednictwem Standard scim oraz witryn usługi SharePoint Online. |[Inicjowanie obsługi użytkowników](../app-provisioning/user-provisioning.md)|
+|Raportowanie i analiza|Administratorzy mogą pobrać dzienniki inspekcji dotyczące ostatniej aprowizacji i aktywności użytkownika. Integracja z Azure Monitor i "kto ma dostęp" za pośrednictwem pakietów dostępu.|Raporty i [monitorowanie](../reports-monitoring/overview-monitoring.md) [usługi Azure AD](../reports-monitoring/overview-reports.md)|
+|Dostęp uprzywilejowany|Dostęp just-in-Time i zaplanowany, alerty, przepływy pracy zatwierdzania dla ról usługi Azure AD (w tym ról niestandardowych) i ról zasobów platformy Azure.|[Usługa Azure AD PIM](../privileged-identity-management/pim-configure.md)|
+|Inspekcja|Administratorzy mogą otrzymywać alerty o tworzeniu kont administratorów.|[Alerty usługi Azure AD PIM](../privileged-identity-management/pim-how-to-configure-security-alerts.md)|
 
 ## <a name="getting-started"></a>Wprowadzenie
 

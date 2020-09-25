@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d39e66e205c592d58a93c1187a1c77269da9e7ad
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 171fc11c8de9cd53a7abd9602768a117341826ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438232"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306604"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -44,7 +44,7 @@ Tak. Możesz użyć sieci wirtualnej bez łączenia jej z Twoim lokalem. Można 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>Czy mogę przeprowadzić optymalizację sieci WAN między sieci wirtualnychą a siecią wirtualną i lokalnym centrum danych?
 Tak. [Wirtualne urządzenie sieciowe optymalizacji sieci WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization) można wdrożyć od kilku dostawców za pośrednictwem portalu Azure Marketplace.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Jakie narzędzia są używane do tworzenia sieci wirtualnej?
 Aby utworzyć lub skonfigurować sieć wirtualną, można użyć następujących narzędzi:
@@ -266,7 +266,7 @@ Poniższe zasoby mogą korzystać z podstawowych modułów równoważenia obcią
 Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub sieci VNet-to-VNet za pośrednictwem bram sieci wirtualnej.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Czy mogę włączyć komunikację równorzędną wirtualnych, jeśli moje sieci wirtualne należą do subskrypcji w ramach różnych Azure Active Directory dzierżawców?
-Tak. Istnieje możliwość ustanowienia komunikacji równorzędnej sieci wirtualnej (lokalnego lub globalnego), jeśli subskrypcje należą do różnych dzierżaw Azure Active Directory. Można to zrobić za pomocą programu PowerShell lub interfejsu wiersza polecenia. Portal nie jest jeszcze obsługiwany.
+Tak. Istnieje możliwość ustanowienia komunikacji równorzędnej sieci wirtualnej (lokalnego lub globalnego), jeśli subskrypcje należą do różnych dzierżaw Azure Active Directory. Można to zrobić za pomocą portalu, programu PowerShell lub interfejsu wiersza polecenia.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Połączenie komunikacji równorzędnej sieci wirtualnej jest w stanie *inicjowania* , dlaczego nie mogę nawiązać połączenia?
 Jeśli połączenie komunikacji równorzędnej jest w stanie *zainicjowanym* , oznacza to, że utworzono tylko jeden link. Aby można było nawiązać połączenie, należy utworzyć dwukierunkowy link. Na przykład aby połączyć równorzędną sieć wirtualną z siecią VNet B, należy utworzyć łącze z VNetA do Vnetc i z Vnetc do VNetA. Utworzenie obu linków spowoduje zmianę stanu na *połączony*.

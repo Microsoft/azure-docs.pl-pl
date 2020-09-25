@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b52830e7cddb01c129df2344e26ac1684a88872
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 959837ff540fd95d186497858d7b9de1f8b1124d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292728"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274014"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Przejrzyj dostęp do swoich grup lub aplikacji w przeglądach dostępu usługi Azure AD
 
@@ -65,13 +65,13 @@ Po otwarciu przeglądu dostępu zobaczysz Twój dostęp.
 
     Jeśli żądanie dotyczy przeglądania dostępu dla innych osób, strona będzie wyglądać inaczej. Aby uzyskać więcej informacji, zobacz [Przegląd dostępu do grup lub aplikacji](perform-access-review.md).
 
-    ![Otwórz przegląd dostępu z pytaniem, czy nadal potrzebujesz dostępu do grupy](./media/review-your-access/perform-access-review.png)
+    ![Zrzut ekranu pokazujący otwarty przegląd dostępu z pytaniem, czy nadal potrzebujesz dostępu do grupy.](./media/review-your-access/perform-access-review.png)
 
 1. Kliknij przycisk **tak** , aby zachować dostęp, lub kliknij przycisk **nie** , aby usunąć dostęp.
 
 1. Jeśli klikniesz przycisk **tak**, w polu **Przyczyna** może być konieczne określenie uzasadnienia.
 
-    ![Zakończono przegląd dostępu z pytaniem, czy nadal potrzebujesz dostępu do grupy](./media/review-your-access/perform-access-review-submit.png)
+    ![Zrzut ekranu pokazujący zakończony przegląd dostępu z pytaniem, czy nadal potrzebny jest dostęp do grupy z wybraną opcją "tak".](./media/review-your-access/perform-access-review-submit.png)
 
 1. Kliknij przycisk **Prześlij**.
 
@@ -103,7 +103,7 @@ Nowe środowisko można wypróbować za pomocą zaktualizowanego interfejsu uży
 
 4. Kontynuuj w sekcji **Przeprowadź przegląd dostępu**
 
-### <a name="email"></a>E-mail
+### <a name="email"></a>Poczta e-mail
 
 >[!IMPORTANT]
 > W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dodaj azure-noreply@microsoft.com do listy bezpiecznych adresatów, aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.

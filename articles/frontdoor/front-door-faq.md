@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2020
+ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0d669d4232adca3348b51c2a48947e0dabf0a472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399739"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324063"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -100,6 +100,31 @@ Aby zablokować aplikację w celu akceptowania tylko ruchu pochodzącego z okre�
 
 -    Wykonaj operację pobierania na swoich drzwiach z przodu przy użyciu wersji interfejsu API `2020-01-01` lub nowszej. W wywołaniu interfejsu API poszukaj `frontdoorID` pola. Odfiltruj w przychodzącym nagłówku "**X-Azure-FDID**" wysyłanym przez tylne drzwi do zaplecza przy użyciu wartości jako pola `frontdoorID` . Możesz również znaleźć `Front Door ID` wartość w sekcji Przegląd na stronie portalu front-drzwi. 
 
+- Zastosuj filtrowanie reguł na serwerze sieci Web zaplecza, aby ograniczyć ruch na podstawie otrzymanej wartości nagłówka "X-Azure-FDID".
+
+  Oto przykład dla [programu Microsoft Internet Information Services (IIS)](https://www.iis.net/):
+
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+        <system.webServer>
+            <rewrite>
+                <rules>
+                    <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+                        <match url="*" />
+                        <conditions>
+                            <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+                        </conditions>
+                        <action type="AbortRequest" />
+                    </rule>
+                </rules>
+            </rewrite>
+        </system.webServer>
+    </configuration>
+    ```
+
+
+
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Czy adres IP emisji jest zmieniany w okresie istnienia moich zewnętrznych drzwi?
 
 Adres IP usługi frontonu dla drzwi przednich nie powinien się zwykle zmieniać i może pozostawać statyczny w okresie istnienia drzwi z przodu. Nie ma jednak **żadnych gwarancji** dla tego samego. W adresie IP nie są wykonywane żadne bezpośrednie zależności.
@@ -123,7 +148,7 @@ Uwaga — niestandardowe aktualizacje certyfikatu TLS/SSL trwają około 30 minu
 Wszystkie aktualizacje tras lub pul zaplecza itp. są bezproblemowe i spowodują zero przestojów (Jeśli nowa konfiguracja jest poprawna). Aktualizacje certyfikatów są również niepodzielne i nie spowodują awarii, chyba że zostanie przełączone z "AFD Managed" na "Użyj własnego certyfikatu" lub na odwrót.
 
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Czy można zrównoważyć ruch z przodu platformy Azure lub kierowaniu ruchu w sieci wirtualnej?
 
@@ -132,6 +157,10 @@ Drzwi frontonu platformy Azure (AFD) wymagają publicznego adresu IP lub publicz
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Jakie są różne limity czasu i limity dotyczące zewnętrznych drzwi platformy Azure?
 
 Dowiedz się więcej na temat wszystkich udokumentowanych [limitów czasu i limitów dla drzwi platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
+
+### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>Jak długo trwa wykonywanie reguły po dodaniu do aparatu reguł dla drzwi przednich?
+
+Konfiguracja aparatu reguł trwa od 10 do 15 minut, aby ukończyć aktualizację. Można oczekiwać, że reguła zacznie obowiązywać zaraz po zakończeniu aktualizacji. 
 
 ## <a name="performance"></a>Wydajność
 

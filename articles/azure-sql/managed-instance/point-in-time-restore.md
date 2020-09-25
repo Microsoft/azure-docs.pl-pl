@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, mathoma
+ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 407d56c209f64d350906a17c0746b1c43f969d43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c4a538a0dc5447f95152de87f9a19ed57f08359
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708676"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325117"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Przywracanie bazy danych w wystąpieniu zarządzanym Azure SQL do wcześniejszego punktu w czasie
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +46,7 @@ W poniższej tabeli przedstawiono scenariusze przywracania do punktu w czasie dl
 
 |           |Przywróć istniejącą bazę danych do tego samego wystąpienia wystąpienia zarządzanego SQL| Przywracanie istniejącej bazy danych do innego wystąpienia zarządzanego SQL|Przywracanie usuniętej bazy danych do tego samego wystąpienia zarządzanego SQL|Przywracanie usuniętej bazy danych do innego wystąpienia zarządzanego SQL|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure Portal**| Yes|Nie |Yes|Nie|
+|**Witryna Azure Portal**| Tak|Nie |Tak|Nie|
 |**Interfejs wiersza polecenia platformy Azure**|Tak |Tak |Nie|Nie|
 |**Program PowerShell**| Tak|Tak |Tak|Tak|
 

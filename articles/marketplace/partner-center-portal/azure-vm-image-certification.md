@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 2d19098ec82fe9361154d798b981341a86decf97
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 751fbbb83f1ccb75cb84453f8c03296f6d1a786c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647830"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275783"
 ---
 # <a name="azure-virtual-machine-image-validation"></a>Sprawdzanie poprawności obrazu maszyny wirtualnej platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób testowania i przesyłania obrazu maszyny wirtualn
 
 Przed przesłaniem oferty maszyny wirtualnej wykonaj następujące kroki:
 
-- Wdróż maszynę wirtualną platformy Azure przy użyciu uogólnionego obrazu.
+- Wdróż maszynę wirtualną platformy Azure przy użyciu uogólnionego obrazu. Zobacz tutaj, aby uzyskać więcej informacji na temat [uogólnionych obrazów](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset#generalize-the-image).
 - Uruchamianie walidacji.
 
 ## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Wdróż maszynę wirtualną platformy Azure przy użyciu uogólnionego obrazu
@@ -589,7 +589,7 @@ Narzędzie Test certyfikacji dla certyfikatu platformy Azure jest uruchamiane na
 
     :::image type="content" source="media/vm/azure-vm-cert-4.png" alt-text="Pokazuje wybór nazwy użytkownika i hasła maszyny wirtualnej.":::
 
-6. Wybierz pozycję **Next** (Dalej).
+6. Wybierz opcję **Dalej**.
 
 #### <a name="run-a-certification-test"></a>Uruchamianie testu certyfikacji
 
@@ -599,7 +599,9 @@ Po zakończeniu testu automatycznego podaj dodatkowe informacje o obrazie maszyn
 
 Ostatni ekran umożliwia podanie dodatkowych informacji, takich jak informacje o dostępie SSH dla obrazu maszyny wirtualnej z systemem Linux, oraz wyjaśnienie ewentualnych ocen zakończonych niepowodzeniem, jeśli szukasz wyjątków.
 
-Na koniec wybierz pozycję Generuj raport, aby pobrać wyniki testów i pliki dziennika dla wykonanych przypadków testowych wraz z odpowiedziami na kwestionariusz. Zapisz wyniki w tym samym kontenerze co wirtualne dyski twarde.
+Na koniec wybierz pozycję Generuj raport, aby pobrać wyniki testów i pliki dziennika dla wykonanych przypadków testowych wraz z odpowiedziami na kwestionariusz. 
+> [!Note]
+> Kilku wydawców ma scenariusze, w których maszyny wirtualne muszą być zablokowane, ponieważ mają one oprogramowanie takie jak zapory zainstalowane na maszynie wirtualnej. W takim przypadku wydawcy mogą pobrać [certyfikowane Narzędzie testowe](https://aka.ms/AzureCertificationTestTool) tutaj i udostępnić raport na stronie [pomocy technicznej wydawcy w portalu Marketplace](https://aka.ms/marketplacepublishersupport)
 
 ## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Jak korzystać z interfejsu API samoobsługowego testowania przy użyciu programu PowerShell
 

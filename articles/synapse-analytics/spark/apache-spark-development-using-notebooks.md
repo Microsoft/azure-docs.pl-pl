@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 2feaf33f7bc31396764bfbaa3ae6291b6752e961
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 0f6f193f531be746d3ef4920b86855ffa49efda2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612794"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260448"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ W tym artykule opisano sposób korzystania z notesów w usłudze Azure Synapse S
 
 Istnieją dwa sposoby tworzenia notesu. Możesz utworzyć nowy Notes lub zaimportować istniejący Notes do obszaru roboczego usługi Azure Synapse z **Eksplorator obiektów**. Notesy usługi Azure Synapse Studio mogą rozpoznawać standardowe pliki IPYNB Jupyter Notebook.
 
-![Synapse-Create-import-Notes](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![Tworzenie notesu importowania](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
 ## <a name="develop-notebooks"></a>Tworzenie notesów
 
@@ -80,7 +80,7 @@ Możesz użyć wielu języków w jednym notesie, określając poprawne polecenie
 
 Na poniższej ilustracji przedstawiono przykład sposobu pisania zapytania PySpark przy użyciu polecenia **%% PySpark** Magic lub zapytania SparkSQL z poleceniem **%% SQL** Magic w notesie **Spark (Scala)** . Zwróć uwagę, że podstawowy język notesu jest ustawiony na pySpark.
 
-   ![Synapse-Spark-MAGICS](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
+   ![Synapse Spark — polecenia](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 ### <a name="use-temp-tables-to-reference-data-across-languages"></a>Używanie tabel tymczasowych do odwoływania się do danych w różnych językach
 
@@ -125,12 +125,12 @@ Funkcje IntelliSense są na różnych poziomach dojrzałości dla różnych jęz
 
 Za pomocą przycisków formatowania na pasku narzędzi komórki tekstowe można wykonywać typowe działania dotyczące promocji. Zawiera tekst pogrubiony, tekst italicizing, wstawianie fragmentów kodu, wstawianie listy nieuporządkowanej, wstawianie uporządkowanej listy i Wstawianie obrazu z adresu URL.
 
-  ![Synapse-Text-Cell-Toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
+  ![Pasek narzędzi komórki tekstu Synapse](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
 ### <a name="undo-cell-operations"></a>Operacje cofania komórek
-Kliknij przycisk **Cofnij** lub naciśnij **klawisze CTRL + z** , aby odwołać ostatnią operację komórki. Teraz można cofnąć maksymalnie 20 akcji w ramach komórki historycznej. 
+Wybierz przycisk **Cofnij** lub naciśnij **klawisze CTRL + z** , aby odwołać ostatnią operację komórki. Teraz można cofnąć maksymalnie 20 akcji w ramach komórki historycznej. 
 
-   ![Synapse-Undo-Cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+   ![Synapse Cofaj komórki](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 
 ### <a name="move-a-cell"></a>Przenoszenie komórki
 
@@ -149,13 +149,13 @@ Możesz również użyć [klawiszy skrótów w trybie polecenia](#shortcut-keys-
    ![delete-a-Cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
 ### <a name="collapse-a-cell-input"></a>Zwiń dane wejściowe komórki
-Kliknij przycisk strzałki w dolnej części bieżącej komórki, aby go zwinąć. Aby ją rozwinąć, kliknij przycisk strzałki, gdy komórka jest zwinięta.
+Wybierz przycisk strzałki w dolnej części bieżącej komórki, aby go zwinąć. Aby ją rozwinąć, wybierz przycisk strzałki, gdy komórka jest zwinięta.
 
    ![Zwiń komórki wejściowe](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
 ### <a name="collapse-a-cell-output"></a>Zwiń dane wyjściowe komórki
 
-Kliknij przycisk **Zwiń dane wyjściowe** w lewym górnym rogu bieżącej komórki wyjściowej, aby je zwinąć. Aby ją rozwinąć, kliknij pozycję **Pokaż dane wyjściowe komórki** , gdy dane wyjściowe komórki są zwinięte.
+Wybierz przycisk **Zwiń dane wyjściowe** w lewym górnym rogu bieżącej komórki wyjściowej, aby go zwinąć. Aby ją rozwinąć, zaznacz pole wyboru **Pokaż dane wyjściowe komórki** , gdy dane wyjściowe komórki są zwijane.
 
    ![Zwiń komórki](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
@@ -180,7 +180,7 @@ Istnieje kilka sposobów uruchamiania kodu w komórce.
 
 
 ### <a name="run-all-cells"></a>Uruchom wszystkie komórki
-Kliknij przycisk **Uruchom wszystko** , aby uruchomić wszystkie komórki w bieżącym notesie w sekwencji.
+Wybierz przycisk **Uruchom wszystko** , aby uruchomić wszystkie komórki w bieżącym notesie w sekwencji.
 
    ![Run-All-Cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
@@ -192,7 +192,7 @@ Aby uzyskać dostęp do menu akcji dodatkowych po prawej stronie, wybierz wielok
 
 
 ### <a name="cancel-all-running-cells"></a>Anuluj wszystkie uruchomione komórki
-Kliknij przycisk **Anuluj wszystko** , aby anulować uruchomione komórki lub komórki oczekujące w kolejce. 
+Wybierz przycisk **Anuluj wszystko** , aby anulować uruchomione komórki lub komórki oczekujące w kolejce. 
    ![Anuluj — wszystkie komórki](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 ### <a name="cell-status-indicator"></a>Wskaźnik stanu komórki
@@ -204,7 +204,7 @@ Poniżej komórki zostanie wyświetlony stan wykonania komórki krok po kroku, a
 ### <a name="spark-progress-indicator"></a>Wskaźnik postępu platformy Spark
 
 Notes usługi Azure Synapse Studio jest całkowicie oparty na platformie Spark. Komórki kodu są wykonywane zdalnie w puli Spark. Zostanie wyświetlony wskaźnik postępu zadania platformy Spark z paskiem postępu w czasie rzeczywistym, który pomoże zrozumieć stan wykonywania zadania.
-Liczba zadań poszczególnych zadań lub etapów ułatwia identyfikowanie równoległego poziomu zadania platformy Spark. Możesz również przejść do szczegółów do interfejsu użytkownika Spark określonego zadania (lub etapu) przez kliknięcie linku w nazwie zadania (lub etapu).
+Liczba zadań poszczególnych zadań lub etapów ułatwia identyfikowanie równoległego poziomu zadania platformy Spark. Możesz również przejść do szczegółów do interfejsu użytkownika Spark określonego zadania (lub etapu) przez wybranie linku do nazwy zadania (lub etapu).
 
 
 ![Spark-Progress-wskaźnik](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
@@ -215,7 +215,7 @@ Możesz określić czas trwania limitu czasu, liczbę i rozmiar wykonawców, kt�
 
 [![Zarządzanie sesjami](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
-Zalecany jest teraz moduł polecający sesji platformy Spark na panelu konfiguracji sesji platformy Spark. Pulę platformy Spark można wybrać bezpośrednio z poziomu panelu konfiguracja sesji i zobaczyć, ile węzłów jest używanych i ile pozostałych wykonawców jest dostępnych. Te informacje ułatwiają odpowiednie Ustawianie rozmiaru sesji, a nie ich modyfikowanie i wykonywanie.
+W panelu konfiguracji sesji Spark jest teraz dostępna zalecana sesja platformy Spark. Pulę platformy Spark można wybrać bezpośrednio z poziomu panelu konfiguracja sesji i zobaczyć, ile węzłów jest używanych i ile pozostałych wykonawców jest dostępnych. Te informacje mogą pomóc w określeniu odpowiedniego rozmiaru sesji zamiast modyfikowania jego wartości i z powrotem.
 
 ![sesja — zalecane](./media/apache-spark-development-using-notebooks/synapse-spark-session-recommender.png)
 
@@ -277,23 +277,24 @@ Dostęp do danych można uzyskać bezpośrednio na podstawowym koncie magazynu. 
 
 Widok wyników tabelarycznych jest dostępny z opcją tworzenia wykresu słupkowego, wykresu liniowego, wykresu kołowego, wykresu punktowego i wykresu warstwowego. Możesz wizualizować dane bez konieczności pisania kodu. Wykresy można dostosować w **opcjach wykresu**. 
 
-Dane wyjściowe poleceń Magic **%% SQL** są wyświetlane domyślnie w widoku renderowanej tabeli. Możesz wywołać <code>display(df)</code> funkcję Spark Dataframes lub odporną na błędy rozproszone zestawy danych (RDD), aby utworzyć renderowany widok tabeli.
+Dane wyjściowe poleceń Magic **%% SQL** są wyświetlane domyślnie w widoku renderowanej tabeli. Możesz wywoływać <code>display(df)</code> na platformie Spark Dataframes, Pandas Dataframes, list lub odporną funkcję rozproszonego zestawu danych (RDD), aby utworzyć renderowany widok tabeli.
 
    [![Wykresy wbudowane](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
 ### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Wizualizuj wbudowane wykresy z zestawu danych o dużej skali 
 
-Domyślnie <code>display(df)</code> funkcja będzie przyjmować wykresy tylko z pierwszych 1000 wierszy danych. Sprawdź **agregację dla wszystkich wyników** , a następnie kliknij przycisk **Zastosuj** . zostanie zastosowana generacja wykresu z całego zestawu danych. Zadanie Spark zostanie wyzwolone w przypadku zmiany ustawienia wykresu, trwa wykonywanie obliczeń i renderowanie wykresu. 
+Domyślnie <code>display(df)</code> funkcja będzie przyjmować wykresy tylko z pierwszych 1000 wierszy danych. Sprawdź **agregację dla wszystkich wyników** i wybierz przycisk **Zastosuj** . zostanie zastosowana generacja wykresu z całego zestawu danych. Zadanie Spark zostanie wyzwolone w przypadku zmiany ustawienia wykresu, trwa wykonywanie obliczeń i renderowanie wykresu. 
     [![wbudowane — wykresy — agregacja — wszystko](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
 
 
+
 ### <a name="visualize-data-statistic-information"></a>Wizualizacja informacji statystycznych dotyczących danych
-Można użyć <code>display(df, summary = true)</code> do sprawdzenia podsumowania statystyk danej ramki danych platformy Spark, która zawiera nazwę kolumny, typ kolumny, unikatowe wartości i brakujące wartości dla każdej kolumny. Możesz również wybrać opcję dla konkretnej kolumny, aby zobaczyć jej wartość minimalną, wartość maksymalną, wartość średnią i odchylenie standardowe.
+Można użyć <code>display(df, summary = True)</code> do sprawdzenia podsumowania statystyk danej ramki danych platformy Spark, która zawiera nazwę kolumny, typ kolumny, unikatowe wartości i brakujące wartości dla każdej kolumny. Możesz również wybrać opcję dla konkretnej kolumny, aby zobaczyć jej wartość minimalną, wartość maksymalną, wartość średnią i odchylenie standardowe.
     [![wbudowane — wykresy — podsumowanie ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
 
 ### <a name="render-html-or-interactive-libraries"></a>Renderowanie bibliotek HTML lub interaktywnych
 
-Można renderować biblioteki HTML lub interaktywne, takie jak **bokeh**, przy użyciu **displayHTML ()**.
+Możesz renderować kod HTML, w tym JavaScript, CSS, D3 lub biblioteki interaktywne, takie jak **bokeh**, przy użyciu **displayHTML ()**.
 
 Na poniższej ilustracji przedstawiono przykład kreślenia symboli na mapie za pomocą **bokeh**.
 
@@ -349,7 +350,7 @@ We właściwościach notesu można określić, czy podczas zapisywania mają by�
    ![Notes — właściwości](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
 ## <a name="magic-commands"></a>Magic — polecenia
-Możesz użyć znanych poleceń Jupyter Magic w notesach usługi Azure Synapse Studio. Sprawdź poniższą listę jako bieżące dostępne polecenia Magic. Przekaż nam [swoje przypadki użycia w serwisie GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) , aby można było dalej tworzyć bardziej magicowe polecenia, aby zaspokoić Twoje potrzeby.
+Możesz używać znanych poleceń Jupyter Magic w notesach usługi Azure Synapse Studio. Przejrzyj poniższą listę jako bieżące dostępne polecenia Magic. Przekaż nam [swoje przypadki użycia w serwisie GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) , aby można było dalej tworzyć bardziej magicowe polecenia, aby zaspokoić Twoje potrzeby.
 
 Dostępne magicznki wiersza: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% czasu](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% czasu](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
@@ -360,23 +361,23 @@ Dostępne magicy komórki: [%% Time](https://ipython.readthedocs.io/en/stable/in
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>Dodawanie notesu do potoku
 
-Kliknij przycisk **Dodaj do potoku** w prawym górnym rogu, aby dodać Notes do istniejącego potoku lub utworzyć nowy potok.
+Wybierz przycisk **Dodaj do potoku** w prawym górnym rogu, aby dodać Notes do istniejącego potoku lub utworzyć nowy potok.
 
-![Dodaj do potoku](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
+![Dodawanie notesu do potoku](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
 
 ### <a name="designate-a-parameters-cell"></a>Wyznaczanie komórki parametrów
 
-Aby Sparametryzuj Notes, wybierz wielokropek (...), aby uzyskać dostęp do menu akcji dodatkowych po prawej stronie. Następnie wybierz pozycję **Przełącz komórkę parametru** , aby wyznaczyć komórkę jako komórkę Parameters.
+Aby Sparametryzuj Notes, wybierz wielokropek (...), aby uzyskać dostęp do menu akcji dodatkowych. Następnie wybierz pozycję **Przełącz komórkę parametru** , aby wyznaczyć komórkę jako komórkę Parameters.
 
 ![Przełącznik — parametr](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 
-Azure Data Factory szuka komórki Parameters i traktuje tę komórkę jako wartości domyślne parametrów przekazywania w czasie wykonywania. Aparat wykonywania doda nową komórkę poniżej komórki Parameters z parametrami wejściowymi w celu zastąpienia wartości domyślnych. Gdy nie jest wyznaczono żadnej komórki parametrów, wprowadzona komórka zostanie wstawiona w górnej części notesu.
+Azure Data Factory szuka komórki Parameters i traktuje tę komórkę jako wartości domyślne parametrów przekazywania w czasie wykonywania. Aparat wykonywania doda nową komórkę poniżej komórki Parameters z parametrami wejściowymi w celu zastąpienia wartości domyślnych. Gdy komórka parametrów nie jest wyznaczono, wprowadzona komórka zostanie wstawiona w górnej części notesu.
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>Przypisywanie wartości parametrów z potoku
 
 Po utworzeniu notesu z parametrami można wykonać go z potoku za pomocą działania notesu Azure Synapse. Po dodaniu działania do kanwy potoku będzie możliwe ustawienie wartości parametrów w sekcji **parametry podstawowe** na karcie **Ustawienia** . 
 
-![Assign — parametr](./media/apache-spark-development-using-notebooks/assign-parameter.png)
+![Przypisz parametr](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
 Podczas przypisywania wartości parametrów można użyć [języka wyrażenia potoku](../../data-factory/control-flow-expression-language-functions.md) lub [zmiennych systemowych](../../data-factory/control-flow-system-variables.md).
 
@@ -386,11 +387,11 @@ Podczas przypisywania wartości parametrów można użyć [języka wyrażenia po
 
 Podobnie jak w przypadku notesów Jupyter, notesy platformy Azure Synapse Studio mają interfejs użytkownika modalnego. Klawiatura wykonuje różne czynności w zależności od trybu, w którym znajduje się komórka notesu. Notesy programu Synapse Studio obsługują następujące dwa tryby dla danej komórki kodu: Tryb poleceń i tryb edycji.
 
-1. Komórka jest w trybie polecenia, gdy nie ma kursora tekstu z monitem o wpisanie. Gdy komórka jest w trybie poleceń, można edytować Notes jako całość, ale nie do pojedynczych komórek. Przejdź do trybu polecenia, naciskając `ESC` lub klikając myszą poza obszarem edytora komórki.
+1. Komórka jest w trybie polecenia, gdy nie ma kursora tekstu z monitem o wpisanie. Gdy komórka jest w trybie poleceń, można edytować Notes jako całość, ale nie do pojedynczych komórek. Przejdź do trybu polecenia, naciskając `ESC` lub używając myszy, aby zaznaczyć poza obszarem edytora komórki.
 
    ![tryb polecenia](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. Tryb edycji jest wskazywany przez kursor tekstowy z monitem o wpisanie w obszarze edytora. Gdy komórka jest w trybie edycji, możesz wpisać ją w komórce. Przejdź do trybu edycji, naciskając `Enter` lub klikając myszą w obszarze edytora komórki.
+2. Tryb edycji jest wskazywany przez kursor tekstowy z monitem o wpisanie w obszarze edytora. Gdy komórka jest w trybie edycji, możesz wpisać ją w komórce. Przejdź do trybu edycji, naciskając `Enter` lub używając myszy, aby wybrać obszar edytora komórki.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 

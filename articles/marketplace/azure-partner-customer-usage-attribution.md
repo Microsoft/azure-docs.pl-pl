@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 72d8cb0ef80210cca1dbf1d2726590c0cb8540e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261387"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 
@@ -268,39 +268,7 @@ Podczas wdrażania \<PARTNER> oprogramowania firma Microsoft może zidentyfikowa
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-Istnieją dwa kanały pomocy technicznej w zależności od występujących problemów.
-
-W przypadku wystąpienia jakichkolwiek problemów w centrum partnerskim, takich jak wyświetlanie raportu dotyczącego użycia klienta lub logowanie, Utwórz żądanie pomocy technicznej z zespołem pomocy technicznej Centrum partnerskiego tutaj: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
-
-![Zrzut ekranu przedstawiający stronę Uzyskaj pomoc techniczną](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
-
-Jeśli potrzebujesz pomocy w ogólnym przypisywaniu do portalu Marketplace i/lub użyciu klienta, na przykład w sposobie konfigurowania przypisywania użycia klienta, wykonaj następujące czynności:
-
-1. Przejdź do [strony pomocy technicznej](https://go.microsoft.com/fwlink/?linkid=844975).
-
-1. W obszarze **typ problemu**wybierz pozycję Dołączanie do **witryny Marketplace**.
-
-1. Wybierz **kategorię** problemu:
-
-   - W przypadku problemów z skojarzeniem użycia wybierz pozycję **inne**.
-   - Aby uzyskać dostęp do problemów z usługą Azure Marketplace, wybierz pozycję **problem z dostępem**.
-
-     ![Wybierz kategorię problemu](media/marketplace-publishers-guide/lu-article-incident.png)
-
-1. Wybierz pozycję **Uruchom żądanie**.
-
-1. Na następnej stronie Wprowadź wymagane wartości. Wybierz pozycję **Continue** (Kontynuuj).
-
-1. Na następnej stronie Wprowadź wymagane wartości.
-
-   > [!IMPORTANT]
-   > W polu **tytuł zdarzenia** wprowadź wartość **Śledzenie użycia niezależnego dostawcy oprogramowania**. Opisz swój problem szczegółowo.
-
-   ![Wprowadź śledzenie użycia niezależnego dostawcy oprogramowania dla tytułu zdarzenia](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
-
-1. Wypełnij formularz, a następnie wybierz pozycję **Prześlij**.
-
-Możesz również otrzymywać wskazówki techniczne od doradcy technicznej partnera firmy Microsoft w celu uzyskania pomocy technicznej dotyczącej przedsprzedaży, wdrożenia i opracowywania aplikacji, aby zrozumieć i uwzględnić przypisanie użycia klientów.
+Dowiedz się więcej o opcjach pomocy technicznej w portalu komercyjnym na [potrzeby obsługi komercyjnego programu Marketplace w centrum partnerskim](./partner-center-portal/support.md).
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Jak przesłać żądanie konsultacji technicznych
 

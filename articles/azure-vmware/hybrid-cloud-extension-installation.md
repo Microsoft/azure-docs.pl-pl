@@ -1,18 +1,18 @@
 ---
-title: Zainstaluj rozszerzenie chmury hybrydowej (HCX)
-description: Skonfiguruj rozwiązanie VMware hybrydowego rozszerzenia chmury (HCX) dla chmury prywatnej rozwiązania Azure VMware
+title: Zainstaluj program VMware HCX
+description: Skonfiguruj rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware
 ms.topic: how-to
-ms.date: 07/15/2020
-ms.openlocfilehash: fb8497af33b364c1d2ab475233bd2a83ef1befad
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/24/2020
+ms.openlocfilehash: 76a7432b78ec2141039dcdc5dd1d7572335b18e1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752320"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263205"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Zainstaluj program HCX for Azure VMware Solution
 
-W tym artykule opisano procedury dotyczące konfigurowania rozwiązania VMWare hybrydowego Extension (HCX) dla chmury prywatnej rozwiązania Azure VMWare. HCX umożliwia migrowanie obciążeń oprogramowania VMware do chmury oraz inne połączone Lokacje za pomocą różnych wbudowanych typów migracji obsługiwanych przez program HCX.
+W tym artykule omówiono procedury konfigurowania rozwiązania VMWare HCX dla chmury prywatnej rozwiązania Azure VMWare. HCX umożliwia migrowanie obciążeń oprogramowania VMware do chmury oraz inne połączone Lokacje za pomocą różnych wbudowanych typów migracji obsługiwanych przez program HCX.
 
 HCX Advanced — instalacja domyślna obsługuje maksymalnie trzy połączenia z lokacją (lokalnie lub w chmurze do chmury). Jeśli wymagane są więcej niż trzy połączenia z lokacją, klienci mają możliwość włączenia dodatku HCX Enterprise w ramach pomocy technicznej, która jest obecnie dostępna w wersji zapoznawczej. Firma HCX Enterprise wykonuje dodatkowe opłaty dla klientów po ogólnej dostępności (GA), ale udostępnia [dodatkowe funkcje](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
@@ -40,7 +40,7 @@ Po zakończeniu instalacji możesz wykonać czynności opisane w kolejnych kroka
 
 Ustalanie rozmiarów obciążeń związanych z zasobami obliczeniowymi i magazynem jest ważnym etapem planowania podczas przygotowywania do korzystania z rozwiązania HCX chmury prywatnej w chmurze platformy Azure. Zaadresuj krok zmiany wielkości w ramach wstępnego planowania środowiska chmury prywatnej. 
 
-Możesz również zmienić rozmiar obciążeń, wykonując ocenę rozwiązań VMware platformy Azure w portalu Azure Migrate ( https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) .
+Możesz również zmienić rozmiar obciążeń, wykonując [ocenę rozwiązań VMware platformy Azure](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) w portalu Azure Migrate.
 
 ## <a name="software-version-requirements"></a>Wymagania dotyczące wersji oprogramowania
 
@@ -67,15 +67,13 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 
 ## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>Wdrażanie programu VMware HCX komórki jajowe w środowisku lokalnym
 
+1. Zaloguj się do usługi Azure VMware Solution HCX Manager na `https://x.x.x.9` porcie 443 przy użyciu poświadczeń użytkownika **cloudadmin** , a następnie przejdź do **pomocy technicznej**.
+
+1. Wybierz link pobierania dla pliku komórek jajowych programu VMware HCX. 
+
 1. Zaloguj się do rozwiązania Azure VMware SDDC vCenter i wybierz pozycję **HCX**.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/avs-vsphere-client.png" alt-text="Zaloguj się do rozwiązania Azure VMware SDDC vCenter i wybierz pozycję HCX.":::
-
-1. W obszarze **Administracja**wybierz pozycję **aktualizacje systemu** , a następnie wybierz pozycję **Żądaj pobrania linku** , aby pobrać plik komórek jajowych programu VMware HCX.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/administration-updates.png" alt-text="W obszarze Administracja wybierz pozycję Aktualizacje systemu, a następnie wybierz pozycję Żądaj pobrania linku, aby pobrać plik komórek jajowych programu VMware HCX.":::
-
-1. Następnie przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter.  
+   
+1. Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Następnie przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter.":::
 
@@ -83,7 +81,7 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/configure-template.png" alt-text=" Wybierz nazwę i lokalizację, a następnie wybierz zasób/klaster, w którym należy wdrożyć HCX. Następnie przejrzyj szczegóły i wymagane zasoby.":::
 
-1. Zapoznaj się z postanowieniami licencyjnymi, a jeśli zgadzasz się, wybierz pozycję wymagane magazyn i sieć. Następnie wybierz przycisk **Dalej**.
+1. Zapoznaj się z postanowieniami licencyjnymi, a jeśli zgadzasz się, wybierz pozycję wymagane magazyn i sieć. Następnie wybierz pozycję **Dalej**.
 
 1. W obszarze **Dostosowywanie szablonu**wprowadź wszystkie wymagane informacje. 
 
@@ -95,7 +93,7 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 
 Po zakończeniu instalacji wykonaj następujące czynności.
 
-1. Zaloguj się do lokalnego programu HCX Manager pod adresem `https://HCXManagerIP:9443` i zaloguj się przy użyciu nazwy użytkownika i hasła. 
+1. Zaloguj się do lokalnego programu HCX Manager pod adresem `https://HCXManagerIP:9443` i zaloguj się przy użyciu poświadczeń nazwy użytkownika **administratora** . 
 
    > [!IMPORTANT]
    > Upewnij się, że numer portu został uwzględniony w `9443` adresie IP HCX Manager.

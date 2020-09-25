@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: d93ff81bacbb537cc5891e0b869f164e0d6824c6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324335"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Funkcje optymalizacji wydajności działania kopiowania
 
@@ -124,31 +124,35 @@ Po określeniu wartości `parallelCopies` właściwości należy zwiększyć obc
 
 ## <a name="staged-copy"></a>Kopia przygotowana
 
-W przypadku kopiowania danych ze źródłowego magazynu danych do magazynu danych ujścia można użyć usługi BLOB Storage jako tymczasowego magazynu przemieszczania. Przygotowanie jest szczególnie przydatne w następujących przypadkach:
+W przypadku kopiowania danych ze źródłowego magazynu danych do magazynu danych ujścia można użyć usługi Azure Blob Storage lub Azure Data Lake Storage Gen2 jako tymczasowego magazynu przemieszczania. Przygotowanie jest szczególnie przydatne w następujących przypadkach:
 
-- **Chcesz pozyskać dane z różnych magazynów danych do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) za pośrednictwem bazy.** Usługa Azure Synapse Analytics korzysta z bazy jako mechanizmu wysokiej przepływności w celu załadowania dużej ilości danych do usługi Azure Synapse Analytics. Dane źródłowe muszą znajdować się w magazynie obiektów blob lub Azure Data Lake Store i muszą spełniać dodatkowe kryteria. Podczas ładowania danych z magazynu danych innego niż magazyn obiektów blob lub Azure Data Lake Store można aktywować kopiowanie danych za pośrednictwem tymczasowego tymczasowego magazynu obiektów BLOB. W takim przypadku Azure Data Factory wykonuje wymagane przekształcenia danych, aby upewnić się, że spełnia on wymagania bazy. Następnie używa metody bazowej do wydajnego ładowania danych do usługi Azure Synapse Analytics. Aby uzyskać więcej informacji, zobacz artykuł Tworzenie [bazy danych w usłudze Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+- **Chcesz pozyskać dane z różnych magazynów danych do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) za pośrednictwem bazy danych Base, skopiować dane z/do płaty śnieg lub pozyskiwać dane z usług Amazon RedShift/HDFS performantly.** Więcej informacji zawiera temat:
+  - [Użyj podstawy, aby załadować dane do usługi Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+  - [Łącznik płatka śniegu](connector-snowflake.md)
+  - [Łącznik usługi Amazon RedShift](connector-amazon-redshift.md)
+  - [Łącznik HDFS](connector-hdfs.md)
+- **Nie chcesz otwierać portów innych niż port 80 i port 443 w zaporze ze względu na firmowe zasady IT.** Na przykład podczas kopiowania danych z lokalnego magazynu danych do Azure SQL Database lub analizy usługi Azure Synapse należy aktywować wychodzącą komunikację TCP na porcie 1433 zarówno dla zapory systemu Windows, jak i zapory firmowej. W tym scenariuszu kopia przygotowana może korzystać z własnego środowiska Integration Runtime, aby najpierw skopiować dane do tymczasowego magazynu za pośrednictwem protokołu HTTP lub HTTPS na porcie 443, a następnie załadować dane z przemieszczania do SQL Database lub Azure Synapse Analytics. W tym przepływie nie trzeba włączać portu 1433.
 - **Czasami trwa przeprowadzenie hybrydowego przenoszenia danych (czyli kopiowania z lokalnego magazynu danych do magazynu danych w chmurze) przez wolne połączenie sieciowe.** Aby zwiększyć wydajność, można użyć kopii przygotowanej do skompresowania danych w środowisku lokalnym, co pozwala na przenoszenie danych do tymczasowego magazynu danych w chmurze. Następnie można zdekompresować dane w magazynie przemieszczania przed załadowaniem do docelowego magazynu danych.
-- **Nie chcesz otwierać portów innych niż port 80 i port 443 w zaporze ze względu na firmowe zasady IT.** Na przykład podczas kopiowania danych z lokalnego magazynu danych do ujścia Azure SQL Database lub ujścia usługi Azure Synapse Analytics należy aktywować wychodzącą komunikację TCP na porcie 1433 zarówno dla zapory systemu Windows, jak i zapory firmowej. W tym scenariuszu kopia przygotowana może korzystać z własnego środowiska Integration Runtime, aby najpierw skopiować dane do wystąpienia tymczasowego magazynu obiektów BLOB za pośrednictwem protokołu HTTP lub HTTPS na porcie 443. Następnie może załadować dane do SQL Database lub analizy Synapse Azure z usługi BLOB Storage. W tym przepływie nie trzeba włączać portu 1433.
 
 ### <a name="how-staged-copy-works"></a>Jak działa kopia przygotowana
 
-Gdy uaktywniasz funkcję przemieszczania, najpierw dane są kopiowane ze źródłowego magazynu danych do tymczasowego magazynu obiektów BLOB (należy je przenieść). Następnie dane zostaną skopiowane z tymczasowego magazynu danych do magazynu danych ujścia. Azure Data Factory automatycznie zarządza przepływem dwuetapowym. Azure Data Factory również czyści dane tymczasowe z magazynu tymczasowego po zakończeniu przenoszenia danych.
+Gdy uaktywniasz funkcję przemieszczania, najpierw dane są kopiowane z magazynu danych źródłowych do magazynu przemieszczania (należy przenieść własny obiekt blob platformy Azure lub Azure Data Lake Storage Gen2). Następnie dane są kopiowane z przemieszczania do magazynu danych ujścia. Działanie kopiowania Azure Data Factory automatycznie zarządza przepływem dwuetapowym, a także czyści dane tymczasowe z magazynu przemieszczania po zakończeniu przenoszenia danych.
 
 ![Kopia przygotowana](media/copy-activity-performance/staged-copy.png)
 
-W przypadku aktywowania przenoszenia danych przy użyciu magazynu przemieszczania można określić, czy dane mają być kompresowane przed przeniesieniem danych ze źródłowego magazynu danych do tymczasowego lub przejściowego magazynu danych, a następnie zdekompresować przed przeniesieniem danych z tymczasowego lub przejściowego magazynu danych do magazynu danych ujścia.
+W przypadku aktywowania przenoszenia danych przy użyciu magazynu przemieszczania można określić, czy dane mają być kompresowane przed przeniesieniem danych ze źródłowego magazynu danych do magazynu przemieszczania, a następnie zdekompresować przed przeniesieniem danych z tymczasowego lub przejściowego magazynu danych do magazynu danych ujścia.
 
 Obecnie nie można kopiować danych między dwoma magazynami danych, które są połączone za pośrednictwem różnych urzędów certyfikacji samodzielnych, ani z kopią etapową lub bez niej. W tym scenariuszu można skonfigurować dwa jawne działania kopiowania w łańcuchu w celu skopiowania danych ze źródła do przemieszczania z miejsca przejściowego do ujścia.
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 
-Skonfiguruj ustawienie **enableStaging** w działaniu kopiowania, aby określić, czy dane mają zostać przygotowane w magazynie obiektów BLOB przed załadowaniem ich do docelowego magazynu danych. Po ustawieniu **enableStaging** na `TRUE` , określ dodatkowe właściwości wymienione w poniższej tabeli. Należy również utworzyć usługę Azure Storage lub usługi połączonej sygnatury dostępu współdzielonego na potrzeby przemieszczania, jeśli nie istnieje.
+Skonfiguruj ustawienie **enableStaging** w działaniu kopiowania, aby określić, czy dane mają zostać przygotowane w magazynie przed załadowaniem ich do docelowego magazynu danych. Po ustawieniu **enableStaging** na `TRUE` , określ dodatkowe właściwości wymienione w poniższej tabeli. 
 
 | Właściwość | Opis | Wartość domyślna | Wymagane |
 | --- | --- | --- | --- |
 | enableStaging |Określ, czy chcesz kopiować dane za pośrednictwem tymczasowego magazynu przemieszczania. |Fałsz |Nie |
-| linkedServiceName |Określ nazwę połączonej usługi [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) , która odwołuje się do wystąpienia magazynu, którego używasz jako tymczasowego magazynu przemieszczania. <br/><br/> Nie można użyć magazynu z sygnaturą dostępu współdzielonego w celu załadowania danych do usługi Azure Synapse Analytics za pośrednictwem bazy. Można go używać we wszystkich innych scenariuszach. |Nie dotyczy |Tak, gdy **enableStaging** jest ustawiona na wartość true |
-| path |Określ ścieżkę magazynu obiektów blob, która ma zawierać dane przemieszczane. Jeśli nie podano ścieżki, usługa tworzy kontener do przechowywania danych tymczasowych. <br/><br/> Określ ścieżkę tylko wtedy, gdy używasz magazynu z sygnaturą dostępu współdzielonego lub potrzebujesz danych tymczasowych, aby znajdować się w określonej lokalizacji. |Nie dotyczy |Nie |
+| linkedServiceName |Określ nazwę usługi [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) połączoną usługę, która odwołuje się do wystąpienia magazynu używanego jako tymczasowy magazyn tymczasowy. |Nie dotyczy |Tak, gdy **enableStaging** jest ustawiona na wartość true |
+| path |Określ ścieżkę, która ma zawierać dane przemieszczane. Jeśli nie podano ścieżki, usługa tworzy kontener do przechowywania danych tymczasowych. |Nie dotyczy |Nie |
 | Ustawieniem EnableCompression |Określa, czy dane mają być kompresowane przed skopiowaniem do lokalizacji docelowej. To ustawienie zmniejsza ilość przesyłanych danych. |Fałsz |Nie |
 
 >[!NOTE]
@@ -159,25 +163,24 @@ Oto przykładowa definicja działania kopiowania z właściwościami, które są
 ```json
 "activities":[
     {
-        "name": "Sample copy activity",
+        "name": "CopyActivityWithStaging",
         "type": "Copy",
         "inputs": [...],
         "outputs": [...],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "OracleSource",
             },
             "sink": {
-                "type": "SqlSink"
+                "type": "SqlDWSink"
             },
             "enableStaging": true,
             "stagingSettings": {
                 "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
+                    "referenceName": "MyStagingStorage",
                     "type": "LinkedServiceReference"
                 },
-                "path": "stagingcontainer/path",
-                "enableCompression": true
+                "path": "stagingcontainer/path"
             }
         }
     }

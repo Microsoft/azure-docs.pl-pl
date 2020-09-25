@@ -12,23 +12,27 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e6686c69eb6dababb577e9c556a8a13ec42485a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3b2c89086688451b16a8a6e10c25be65ffd4d9dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273861"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalowanie agenta programu Azure AD Connect Health
 
 W tym dokumencie opisano instalowanie i konfigurowanie agentów programu Azure AD Connect Health. Agentów możesz pobrać [tutaj](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
 
 ## <a name="requirements"></a>Wymagania
+
+
+> [!IMPORTANT]
+> Instalowanie agenta Azure AD Connect Health w systemie Windows Server Core nie jest obsługiwane.
 
 Poniższa tabela zawiera listę wymagań dotyczących używania programu Azure AD Connect Health.
 
@@ -48,7 +52,7 @@ Poniższa tabela zawiera listę wymagań dotyczących używania programu Azure A
 
 > [!NOTE]
 > Jeśli masz wysoce zablokowanie i wyjątkowo ograniczone środowisko, musisz dodać adresy URL wymienione na liście punktów końcowych poniżej, oprócz tych wymienionych w powyższej konfiguracji programu IE zwiększonych zabezpieczeń. 
->
+
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Łączność wychodząca z punktami końcowymi usług Azure
 
@@ -140,7 +144,7 @@ Aby funkcja Analiza użycia mogła zbierać i analizować dane, agent programu A
 7. W okienku **Akcje** kliknij pozycję **Edytuj właściwości usługi federacyjnej**.
 8. W oknie dialogowym **właściwości usługa federacyjna** kliknij kartę **zdarzenia** .
 9. Zaznacz pola wyboru **Inspekcje zakończone sukcesem** i **Inspekcje zakończone niepowodzeniem**.
-10. Kliknij pozycję **OK**.
+10. Kliknij przycisk **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Aby włączyć inspekcję usług AD FS w systemie Windows Server 2012 R2
 

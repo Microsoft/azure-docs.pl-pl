@@ -1,14 +1,16 @@
 ---
 title: 'Szybki Start: Tworzenie nowej aplikacji w portalu LUIS'
 description: W tym przewodniku szybki start utworzysz podstawowe elementy aplikacji, intencje i jednostki, a także test z przykładową wypowiedźą w portalu LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 7cf55a7891b7e06c18c80d9d359b19e54f0413a9
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 38fffd7793e1f5bd59ac6dde4499b2eb25009b52
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697284"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303866"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Szybki Start: Tworzenie nowej aplikacji w portalu LUIS
 
@@ -43,7 +45,7 @@ Po utworzeniu aplikacji LUIS należy utworzyć intencje. Intencje są sposobem n
 
 Dwie różne _intencje_ dotyczące aplikacji są wyrównane do następujących intencji:
 
-|Intencja|Przykładowy tekst od użytkownika<br>znane jako _wypowiedź_|
+|Zamiar|Przykładowy tekst od użytkownika<br>znane jako _wypowiedź_|
 |--|--|
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|
@@ -135,7 +137,7 @@ Przykładowa metoda wyrażenia długości **nie** powinna być poza domeną apli
 
 ## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>Przyjrzyj się jednostce wyrażenia regularnego w przykładzie wyrażenia długości
 
-1. Sprawdź, czy jednostka została znaleziona w **FindForm** zamiaru, wybierając pozycję **intencje** w menu po lewej stronie. Następnie wybierz pozycję **FindForm** zamierzenia.
+1. Sprawdź, czy jednostka została znaleziona w **FindForm**  zamiaru, wybierając pozycję **intencje** w menu po lewej stronie. Następnie wybierz pozycję **FindForm** zamierzenia.
 
    Jednostka jest oznaczona, gdzie pojawia się w przykładzie wyrażenia długości.
 
@@ -161,7 +163,7 @@ Użyj interaktywnego okienka **testowego** w portalu Luis, aby sprawdzić, czy j
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Po zakończeniu korzystania z tego przewodnika Szybki Start i przechodzenia do następnego przewodnika Szybki Start wybierz pozycję **Moje aplikacje** w górnym menu nawigacji. Następnie zaznacz pole wyboru po lewej stronie z listy i wybierz pozycję **Usuń** z paska narzędzi kontekstu powyżej listy.
+Po zakończeniu korzystania z tego przewodnika Szybki Start i przechodzenia do następnego przewodnika Szybki Start wybierz pozycję **Moje aplikacje** w górnym menu nawigacji. Następnie zaznacz pole wyboru po lewej stronie z listy i wybierz pozycję  **Usuń** z paska narzędzi kontekstu powyżej listy.
 
 ## <a name="next-steps"></a>Następne kroki
 

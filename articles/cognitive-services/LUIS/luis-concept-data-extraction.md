@@ -1,15 +1,17 @@
 ---
 title: Wyodrębnianie danych — LUIS
 description: Wyodrębnij dane z wypowiedź tekstu z intencjami i jednostkami. Dowiedz się, jakiego rodzaju dane mogą zostać wyodrębnione z Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c69971b36bf945086d1a8f398043444071acea5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682192"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324828"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Wyodrębnij dane z wypowiedź tekstu z intencjami i jednostkami
 LUIS daje możliwość uzyskiwania informacji z wyrażenia długości języka naturalnego użytkownika. Informacje są wyodrębniane w taki sposób, aby mogły być używane przez program, aplikację lub czat bot. W poniższych sekcjach dowiesz się, jakie dane są zwracane z intencji i jednostek z przykładami JSON.
@@ -71,7 +73,7 @@ Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v
 
 |Obiekt danych|Typ danych|Lokalizacja danych|Wartość|
 |--|--|--|--|
-|Intencja|String|topScoringIntent. intencja|"GetStoreInfo"|
+|Zamiar|String|topScoringIntent. intencja|"GetStoreInfo"|
 
 Jeśli aplikacja chatbot lub LUIS-wywołująca podejmuje decyzję na podstawie więcej niż jednego wyniku zamiaru, zwracają wszystkie wyniki założeń.
 
@@ -133,8 +135,8 @@ Intencje są uporządkowane od najwyższego do najniższego wyniku.
 
 |Obiekt danych|Typ danych|Lokalizacja danych|Wartość|Wynik|
 |--|--|--|--|:--|
-|Intencja|String|intencje [0]. cel|"GetStoreInfo"|0,984749258|
-|Intencja|String|intencje [1]. cel|Dawaj|0,0168218873|
+|Zamiar|String|intencje [0]. cel|"GetStoreInfo"|0,984749258|
+|Zamiar|String|intencje [1]. cel|Dawaj|0,0168218873|
 
 W przypadku dodania wstępnie skompilowanych domen nazwa zamierzenia wskazuje domenę, taką jak `Utilties` lub, `Communication` a także zamiar:
 
@@ -192,11 +194,11 @@ Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v
 
 * * *
 
-|Domain|Obiekt danych|Typ danych|Lokalizacja danych|Wartość|
+|Domena|Obiekt danych|Typ danych|Lokalizacja danych|Wartość|
 |--|--|--|--|--|
-|Narzędzia|Intencja|String|intencje [0]. cel|"<b>Narzędzia</b>. ShowNext"|
-|Komunikacja|Intencja|String|intencje [1]. cel|<b>Komunikacja</b>. StartOver"|
-||Intencja|String|intencje [2]. cel|Dawaj|
+|Narzędzia|Zamiar|String|intencje [0]. cel|"<b>Narzędzia</b>. ShowNext"|
+|Komunikacja|Zamiar|String|intencje [1]. cel|<b>Komunikacja</b>. StartOver"|
+||Zamiar|String|intencje [2]. cel|Dawaj|
 
 
 ## <a name="data-from-entities"></a>Dane z jednostek

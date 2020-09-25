@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab, bonova, jovanpop
+ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 7b9c9fc6259656af77bf1ba1b95ccf190cbd85da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a629d230d63506a163cac0c530a1a8fbfed9627f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708653"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325083"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Szybki Start: Konfigurowanie połączenia punkt-lokacja z wystąpieniem zarządzanym usługi Azure SQL z lokalnego
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączenia z wys
 
 Ten przewodnik Szybki start:
 
-- Używa zasobów utworzonych w ramach [tworzenia wystąpienia zarządzanego](instance-create-quickstart.md) jako punktu początkowego.
+- Używa zasobów utworzonych w ramach  [tworzenia wystąpienia zarządzanego](instance-create-quickstart.md) jako punktu początkowego.
 - Program wymaga programu PowerShell 5,1 i Azure PowerShell 1.4.0 lub nowszego na lokalnym komputerze klienckim. W razie potrzeby zapoznaj się z instrukcjami dotyczącymi [instalowania modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
 - Wymaga najnowszej wersji [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) na lokalnym komputerze klienckim.
 

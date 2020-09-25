@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z działań niestandardowych w potoku
-description: Dowiedz się, jak tworzyć niestandardowe działania i używać ich w potoku Azure Data Factory.
+description: Dowiedz się, jak tworzyć niestandardowe działania przy użyciu platformy .NET, a następnie używać działań w potoku Azure Data Factory.
 services: data-factory
 ms.service: data-factory
 author: nabhishek
@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b8114a6abf5579ed0750862d59a5d13178339f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84019966"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276503"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 
@@ -310,7 +310,7 @@ Możesz wysyłać niestandardowe wartości z kodu w niestandardowym działaniu z
 
 ## <a name="retrieve-securestring-outputs"></a>Pobieranie danych wyjściowych SecureString
 
-Poufne wartości właściwości wyznaczono jako typ *SecureString*, jak pokazano w niektórych przykładach w tym artykule, są maskowane na karcie monitorowanie w interfejsie użytkownika Data Factory.  Jednak w rzeczywistym wykonaniu potoku Właściwość *SecureString* jest serializowana jako kod JSON w `activity.json` pliku jako zwykły tekst. Przykład:
+Poufne wartości właściwości wyznaczono jako typ *SecureString*, jak pokazano w niektórych przykładach w tym artykule, są maskowane na karcie monitorowanie w interfejsie użytkownika Data Factory.  Jednak w rzeczywistym wykonaniu potoku Właściwość *SecureString* jest serializowana jako kod JSON w `activity.json` pliku jako zwykły tekst. Na przykład:
 
 ```json
 "extendedProperties": {
@@ -325,7 +325,7 @@ Ta Serializacja nie jest naprawdę bezpieczna i nie jest przeznaczona do zabezpi
 
 Aby uzyskać dostęp do właściwości typu *SecureString* z działania niestandardowego, zapoznaj się z `activity.json` plikiem umieszczonym w tym samym folderze co plik. EXE, deserializacji pliku JSON, a następnie uzyskać dostęp do właściwości JSON (Właściwości ExtendedProperties => [propertyName] => Value).
 
-## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a>Porównanie działań niestandardowych w wersji 2 i 1 (niestandardowe) działania DotNet
+## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a> Porównanie działań niestandardowych w wersji 2 i 1 (niestandardowe) działania DotNet
 
 W Azure Data Factory wersji 1 zaimplementowano działanie programu DotNet (Custom), tworząc projekt biblioteki klas .NET z klasą implementującą `Execute` metodę `IDotNetActivity` interfejsu. Połączone usługi, zestawy danych i właściwości rozszerzone w ładunku JSON (Custom) działania DotNet są przesyłane do metody wykonywania jako obiekty silnie określone. Aby uzyskać szczegółowe informacje o zachowaniu wersji 1, zobacz [(niestandardowe) dotnet w wersji 1](v1/data-factory-use-custom-activities.md). Ze względu na tę implementację kod działania DotNet w wersji 1 musi wskazywać na .NET Framework 4.5.2. Działanie programu DotNet w wersji 1 należy również wykonać w węzłach puli Azure Batch opartych na systemie Windows.
 

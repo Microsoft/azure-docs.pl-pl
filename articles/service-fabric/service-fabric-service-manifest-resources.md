@@ -2,22 +2,24 @@
 title: Określanie punktów końcowych usługi Service Fabric
 description: Jak opisać zasoby punktu końcowego w manifeście usługi, w tym sposób konfigurowania punktów końcowych HTTPS
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/16/2020
+ms.openlocfilehash: 8fdd95a7c0390c987b7c59663e0ee12e4a4a968e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610748"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267809"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Określanie zasobów w manifeście usługi
 ## <a name="overview"></a>Omówienie
-Manifest usługi umożliwia deklarowanie lub zmianę zasobów używanych przez usługę, bez konieczności zmiany skompilowanego kodu. Service Fabric obsługuje konfigurację zasobów punktu końcowego dla usługi. Dostęp do zasobów określonych w manifeście usługi można kontrolować za pośrednictwem funkcji zabezpieczeń w manifeście aplikacji. Deklaracja zasobów pozwala na zmianę tych zasobów w czasie wdrażania, co oznacza, że usługa nie musi wprowadzać nowego mechanizmu konfiguracji. Definicja schematu dla pliku ServiceManifest.xml jest instalowana z zestawem SDK Service Fabric i narzędziami do *folderu C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Service Fabric aplikacje i usługi są zdefiniowane i są używane przy użyciu plików manifestu. Więcej informacji na temat ServiceManifest.xml i ApplicationManifest.xml można znaleźć w temacie [Service Fabric manifesty aplikacji i usług](service-fabric-application-and-service-manifests.md).
+
+Manifest usługi umożliwia deklarowanie lub zmianę zasobów używanych przez usługę, bez konieczności zmiany skompilowanego kodu. Service Fabric obsługuje konfigurację zasobów punktu końcowego dla usługi. Dostęp do zasobów określonych w manifeście usługi można kontrolować za pośrednictwem funkcji zabezpieczeń w manifeście aplikacji. Deklaracja zasobów pozwala na zmianę tych zasobów w czasie wdrażania, co oznacza, że usługa nie musi wprowadzać nowego mechanizmu konfiguracji. Definicja schematu dla pliku ServiceManifest.xml jest instalowana z zestawem SDK Service Fabric i narzędziami do *folderu C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*i jest udokumentowana w [dokumentacji schematu ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
 
 ## <a name="endpoints"></a>Punkty końcowe
 Gdy zasób punktu końcowego jest zdefiniowany w manifeście usługi, Service Fabric przypisuje porty z zakresu portów aplikacji zastrzeżonej, gdy port nie jest jawnie określony. Na przykład poszukaj w punkcie końcowym *ServiceEndpoint1* określonym we fragmencie kodu manifestu dostarczonym po tym akapicie. Ponadto usługi mogą również zażądać określonego portu w zasobie. Do replik usługi uruchomionych w różnych węzłach klastra można przypisać różne numery portów, natomiast repliki usługi uruchomionej w tym samym węźle współużytkują port. Repliki usług mogą następnie używać tych portów w razie potrzeby replikacji i nasłuchiwania żądań klientów.
 
-Po aktywowaniu usługi, która określa punkt końcowy https, Service Fabric ustawi wpis kontroli dostępu dla portu, powiąże określony certyfikat serwera z portem, a także przyznaje tożsamość, którą usługa będzie działała jako uprawnienia do klucza prywatnego certyfikatu. Przepływ aktywacji jest wywoływany przy każdym uruchomieniu Service Fabric lub po zmianie deklaracji certyfikatu aplikacji przy użyciu uaktualnienia. Certyfikat punktu końcowego będzie również monitorowany pod kątem zmian/odnowień, a uprawnienia będą okresowo stosowane ponownie w razie potrzeby.
+Po aktywowaniu usługi, która określa punkt końcowy https, Service Fabric ustawi wpis kontroli dostępu dla portu, powiąże określony certyfikat serwera z portem, a także przyznaje tożsamość, która jest uruchomiona przez usługę jako uprawnienia do klucza prywatnego certyfikatu. Przepływ aktywacji jest wywoływany przy każdym uruchomieniu Service Fabric lub po zmianie deklaracji certyfikatu aplikacji przy użyciu uaktualnienia. Certyfikat punktu końcowego będzie również monitorowany pod kątem zmian/odnowień, a uprawnienia będą okresowo stosowane ponownie w razie potrzeby.
 
 Po zakończeniu usługi Service Fabric spowoduje wyczyszczenie wpisu kontroli dostępu punktu końcowego i usunięcie powiązania certyfikatu. Jednak wszelkie uprawnienia zastosowane do klucza prywatnego certyfikatu nie zostaną wyczyszczone.
 
@@ -155,14 +157,16 @@ Poniżej znajduje się przykład ApplicationManifest pokazujący konfigurację w
 
 W przypadku klastrów systemu Linux magazyn **My** default jest domyślnie używany w folderze **/var/lib/sfcerts**.
 
+Aby zapoznać się z przykładem pełnej aplikacji korzystającej z punktu końcowego HTTPS, zobacz [Dodawanie punktu końcowego HTTPS do usługi frontonu internetowego interfejsu API ASP.NET Core przy użyciu Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+
 ## <a name="port-acling-for-http-endpoints"></a>ACLing portów dla punktów końcowych HTTP
-W Service Fabric automatycznie są określane punkty końcowe HTTP (S) listy ACL. **Nie** zostanie wykonana automatyczna acling, jeśli punkt końcowy nie ma skojarzonego z nim [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) i Service Fabric jest skonfigurowany do uruchamiania przy użyciu konta z uprawnieniami administratora.
+W Service Fabric automatycznie są określane punkty końcowe HTTP (S) listy ACL. **Nie** zostanie wykonana automatyczna ACLing, jeśli punkt końcowy nie ma skojarzonego z nim [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) i Service Fabric jest skonfigurowany do uruchamiania przy użyciu konta z uprawnieniami administratora.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Zastępowanie punktów końcowych w ServiceManifest.xml
 
-W sekcji ApplicationManifest Dodaj ResourceOverrides, która będzie częścią elementu równorzędnego do ConfigOverrides. W tej sekcji można określić przesłonięcie dla sekcji punktów końcowych w sekcji Resources (zasoby) określonej w manifeście usługi. Przesłanianie punktów końcowych jest obsługiwane w środowisku uruchomieniowym 5.7.217/SDK 2.7.217 i wyższym.
+W ApplicationManifest Dodaj sekcję ResourceOverrides, która będzie częścią elementu równorzędnego do ConfigOverrides. W tej sekcji można określić przesłonięcie dla sekcji punktów końcowych w sekcji Resources (zasoby) określonej w manifeście usługi. Przesłanianie punktów końcowych jest obsługiwane w środowisku uruchomieniowym 5.7.217/SDK 2.7.217 i wyższym.
 
-Aby przesłonić punkt końcowy w elemencie servicemanifest przy użyciu elementu applicationparameters, Zmień ApplicationManifest w następujący sposób:
+Aby przesłonić punkt końcowy w elemencie servicemanifest przy użyciu elementu applicationparameters, Zmień ApplicationManifest w taki sposób, aby:
 
 W sekcji ServiceManifestImport Dodaj nową sekcję "ResourceOverrides".
 
@@ -194,15 +198,15 @@ W poniższej tabeli Dodaj następujące parametry:
   </Parameters>
 ```
 
-Podczas wdrażania aplikacji można przekazać te wartości jako elementu applicationparameters.  Przykład:
+Podczas wdrażania aplikacji można przekazać te wartości jako elementu applicationparameters.  Na przykład:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Uwaga: Jeśli wartości podane dla elementu applicationparameters są puste, wracamy do wartości domyślnej podanej w elemencie servicemanifest dla odpowiadającego punktu Końcowegoname.
+Uwaga: Jeśli wartość podana dla danego ApplicationParameter jest pusta, wracamy do wartości domyślnej podanej w elemencie servicemanifest dla odpowiadającego punktu Końcowegoname.
 
-Przykład:
+Na przykład:
 
 Jeśli w określonym elemencie servicemanifest
 
@@ -214,6 +218,18 @@ Jeśli w określonym elemencie servicemanifest
   </Resources>
 ```
 
-A wartość PORT1 i Protocol1 dla parametrów aplikacji ma wartość null lub jest pusta. Port jest nadal ustalany przez servicefabric. Protokół będzie TCP.
+Załóżmy, że wartość PORT1 i Protocol1 dla parametrów aplikacji ma wartość null lub jest pusta. Port zostanie ustalony przez sieć szkieletową, a protokół będzie TCP.
 
-Załóżmy, że określono nieprawidłową wartość. Podobnie jak w przypadku portu określono wartość ciągu "foo" zamiast int.  Polecenie New-ServiceFabricApplication nie powiedzie się z powodu błędu: parametr override o nazwie "ServiceEndpoint1" atrybutu "PORT1" w sekcji "ResourceOverrides" jest nieprawidłowy. Określona wartość to "foo", a wymagane jest "int".
+Załóżmy, że określono nieprawidłową wartość. Załóżmy, że port określił wartość ciągu "foo" zamiast int.  Polecenie New-ServiceFabricApplication zakończy się niepowodzeniem z powodu błędu: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+
+## <a name="next-steps"></a>Następne kroki
+
+W tym artykule wyjaśniono, jak definiować punkty końcowe w manifeście usługi Service Fabric. Aby uzyskać bardziej szczegółowe przykłady, zobacz:
+
+> [!div class="nextstepaction"]
+> [Przykłady manifestu aplikacji i usługi](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+
+Aby zapoznać się z przewodnikiem tworzenia pakietów i wdrażania istniejącej aplikacji w klastrze Service Fabric, zobacz:
+
+> [!div class="nextstepaction"]
+> [Pakowanie i wdrażanie istniejącego pliku wykonywalnego do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)

@@ -1,6 +1,6 @@
 ---
-title: Udostępnianie obrazów galerii między dzierżawcami na platformie Azure
-description: Dowiedz się, jak udostępniać obrazy maszyn wirtualnych w dzierżawach platformy Azure przy użyciu udostępnionych galerii obrazów.
+title: Udostępnianie obrazów galerii między dzierżawcami
+description: Dowiedz się, jak tworzyć zestawy skalowania przy użyciu obrazów, które są współużytkowane przez dzierżawy platformy Azure przy użyciu udostępnionych galerii obrazów.
 author: cynthn
 ms.author: cynthn
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.subservice: imaging
 ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: 542dfbc28621e02cd2842fb174e986bfeb91e6ec
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ea61b3bd76fc4ada48a8a2fb734a841b8a969272
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501682"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323485"
 ---
-# <a name="share-gallery-vm-images-across-tenants-in-azure"></a>Udostępnianie obrazów maszyn wirtualnych z galerii między dzierżawcami na platformie Azure
+# <a name="share-images-across-tenants-with-shared-image-gallery"></a>Udostępnianie obrazów między dzierżawcami za pomocą udostępnionej galerii obrazów
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -51,4 +51,4 @@ az vmss create \
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli napotkasz jakiekolwiek problemy, możesz [rozwiązać problemy z udostępnionymi galeriami obrazów](troubleshooting-shared-images.md).
+Jeśli napotkasz jakiekolwiek problemy, możesz [rozwiązać problemy z udostępnionymi galeriami obrazów](../virtual-machines/troubleshooting-shared-images.md).

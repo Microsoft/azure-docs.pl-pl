@@ -1,14 +1,16 @@
 ---
 title: Jak działa program Personalizuj-Personalizacja
 description: _Pętla_ personalizacji używa uczenia maszynowego do kompilowania modelu, który przewiduje najwyższą akcję dla zawartości. Model jest szkolony wyłącznie na danych, które zostały do niego wysłane, z wywołaniami rangi i nagrody.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 836c207213ac52a60e27da6fc957418187059023
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfbe5cf8c19bfafb38f6149391e09350785ebf9c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77623746"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303611"
 ---
 # <a name="how-personalizer-works"></a>Jak działa usługa Personalizacja
 
@@ -30,7 +32,7 @@ Możesz określić wynik nagrody i wysłać ten wynik do interfejsu API nagradza
 
 Na poniższej ilustracji przedstawiono przepływ architektury wywołujący wywołania rangi i nagrody:
 
-![tekst alternatywny](./media/how-personalizer-works/personalization-how-it-works.png "Jak działa Personalizacja")
+![Tekst alternatywny](./media/how-personalizer-works/personalization-how-it-works.png "Jak działa Personalizacja")
 
 1. Do interfejsu API rangi są wysyłane _akcje z funkcjami_ i _funkcjami kontekstu_ .
 

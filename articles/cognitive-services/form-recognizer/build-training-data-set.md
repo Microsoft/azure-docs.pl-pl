@@ -9,36 +9,35 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: da9445b12ce6f35d249fc3af1a4a0ef560ba35de
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 073f1361771ded96b33158d040efd77306acd846
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276949"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego
 
-W przypadku korzystania z niestandardowego modelu aparatu rozpoznawania formularzy należy zapewnić własne dane szkoleniowe, aby model mógł nauczyć się na formularzach specyficznych dla branży. 
+W przypadku korzystania z niestandardowego modelu aparatu rozpoznawania formularzy należy zapewnić własne dane szkoleniowe do niestandardowej operacji na [modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) , dzięki czemu model będzie mógł nauczyć się na formularzach specyficznych dla branży. Postępuj zgodnie z tym przewodnikiem, aby dowiedzieć się, jak zbierać i przygotowywać dane w celu skutecznego uczenia modelu.
 
 W przypadku szkoleń bez etykiet ręcznych można użyć pięciu wypełnionych formularzy lub pustego formularza (w nazwie pliku musi znajdować się słowo "Empty") oraz dwie wypełnione formularze. Nawet jeśli masz wystarczającą liczbę wypełnionych formularzy, dodanie pustego formularza do zestawu danych szkoleniowych może poprawić dokładność modelu.
 
 Jeśli chcesz używać ręcznie etykietowanych danych szkoleniowych, musisz zacząć od co najmniej pięciu wypełnionych formularzy tego samego typu. Oprócz wymaganego zestawu danych można nadal używać formularzy bez etykiet i pustego formularza.
 
+## <a name="custom-model-input-requirements"></a>Wymagania dotyczące danych wejściowych modelu niestandardowego
+
+Najpierw upewnij się, że zestaw danych szkoleniowych spełnia wymagania wejściowe dla aparatu rozpoznawania formularzy.
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
 ## <a name="training-data-tips"></a>Wskazówki dotyczące danych szkoleniowych
 
-Ważne jest, aby użyć zestawu danych, który jest zoptymalizowany do szkoleń. Skorzystaj z poniższych wskazówek, aby uzyskać najlepsze wyniki operacji dotyczącej [niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) :
+Postępuj zgodnie z tymi dodatkowymi wskazówkami, aby dodatkowo zoptymalizować zestaw danych do szkoleń.
 
 * Jeśli to możliwe, użyj tekstowych dokumentów PDF zamiast dokumentów opartych na obrazie. Skanowane pliki PDF są obsługiwane jako obrazy.
 * W przypadku formularzy wypełnionych Użyj przykładów, w których wypełniono wszystkie pola.
 * Używaj formularzy z różnymi wartościami w każdym polu.
 * Jeśli obrazy formularzy mają niższą jakość, użyj większego zestawu danych (na przykład obrazów 10-15).
-* Łączny rozmiar zestawu danych szkoleniowych może należeć do 500 stron.
-
-## <a name="general-input-requirements"></a>Ogólne wymagania dotyczące danych wejściowych
-
-Upewnij się, że zestaw danych szkoleniowych jest również zgodny z wymaganiami wejściowymi dla całej zawartości aparatu rozpoznawania formularzy. 
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## <a name="upload-your-training-data"></a>Przekaż swoje dane szkoleniowe
 
@@ -73,7 +72,12 @@ Jeśli dodasz następującą zawartość do treści żądania, interfejs API bę
 
 Teraz, gdy wiesz już, jak utworzyć zestaw danych szkoleniowych, postępuj zgodnie z przewodnikiem Szybki Start, aby przeprowadzić uczenie niestandardowego modelu aparatu rozpoznawania formularzy i rozpocząć korzystanie z niego w formularzach.
 
+* [Uczenie modelu i wyodrębnianie danych formularza przy użyciu biblioteki klienckiej](./quickstarts/client-library.md)
 * [Uczenie modelu i wyodrębnianie danych formularza przy użyciu Zwinięciea](./quickstarts/curl-train-extract.md)
 * [Uczenie modelu i wyodrębnianie danych formularza przy użyciu interfejsu API REST i języka Python](./quickstarts/python-train-extract.md)
 * [Uczenie z etykietami przy użyciu narzędzia do etykietowania przykładowego](./quickstarts/label-tool.md)
 * [Trenowanie z użyciem etykiet za pomocą interfejsu API REST i języka Python](./quickstarts/python-labeled-data.md)
+
+## <a name="see-also"></a>Zobacz też
+
+* [Co to jest rozpoznawanie formularzy?](./overview.md)

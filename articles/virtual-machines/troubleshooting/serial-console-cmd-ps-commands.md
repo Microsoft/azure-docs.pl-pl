@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 571df9c07e71682e2be51a73e3837c79cb074c3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef533b3566ac557b57f1435a2a9b2dbe26896993
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306892"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Polecenia systemu Windows — CMD i PowerShell
 
@@ -30,11 +30,11 @@ Konsola SAC umożliwia nawiązanie połączenia z uruchomionym systemem operacyj
 
 Ponieważ konsola SAC jest ograniczona do 80x24ego buforu ekranu bez przewijania z powrotem, Dodaj `| more` do poleceń, aby wyświetlić dane wyjściowe po jednej stronie w danym momencie. Użyj `<spacebar>` , aby zobaczyć następną stronę lub `<enter>` zobaczyć następny wiersz.
 
-`SHIFT+INSERT`jest skrótem wklejania okna konsoli szeregowej.
+`SHIFT+INSERT` jest skrótem wklejania okna konsoli szeregowej.
 
 Ze względu na ograniczony bufor ekranu, dłuższe polecenia mogą być łatwiejsze do wpisania w edytorze tekstu lokalnego, a następnie wklejone do konsoli SAC.
 
-## <a name="view-and-edit-windows-registry-settings"></a>Wyświetlanie i edytowanie ustawień rejestru systemu Windows
+## <a name="view-and-edit-windows-registry-settings-using-cmd"></a>Wyświetlanie i edytowanie ustawień rejestru systemu Windows za pomocą polecenia CMD
 ### <a name="verify-rdp-is-enabled"></a>Sprawdź, czy włączono protokół RDP
 `reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections`
 
@@ -49,7 +49,7 @@ Drugi klucz (w obszarze \Policies) będzie istnieć tylko w przypadku skonfiguro
 
 Drugi klucz (w obszarze \Policies) byłby wymagany tylko wtedy, gdy skonfigurowano odpowiednie ustawienie zasad grupy. Wartość zostanie ponownie zapisywana przy następnym odświeżeniu zasad grupy, jeśli jest skonfigurowana w zasadach grupy.
 
-## <a name="manage-windows-services"></a>Zarządzanie usługami systemu Windows
+## <a name="manage-windows-services-using-cmd"></a>Zarządzanie usługami systemu Windows przy użyciu polecenia CMD
 
 ### <a name="view-service-state"></a>Wyświetl stan usługi
 `sc query termservice`
@@ -79,7 +79,7 @@ lub
 lub
 
 `sc stop termservice`
-## <a name="manage-networking-features"></a>Zarządzanie funkcjami sieciowymi
+## <a name="manage-networking-features-using-cmd"></a>Zarządzanie funkcjami sieciowymi za pomocą polecenia CMD
 ### <a name="show-nic-properties"></a>Pokaż właściwości karty sieciowej
 `netsh interface show interface`
 ### <a name="show-ip-properties"></a>Pokaż właściwości IP
@@ -120,7 +120,7 @@ Jeśli domyślnie jest ograniczone do metod dostępnych w systemie Windows, prog
 Tego polecenia można użyć podczas rozwiązywania problemów z tymczasową regułą zapory systemu Windows. Zostanie on włączony przy następnym ponownym uruchomieniu lub po włączeniu przy użyciu poniższego polecenia. Nie należy zatrzymywać usługi Zapora systemu Windows (MPSSVC) ani podstawowego aparatu filtrowania (BFE) jako sposobu wyłączania zapory systemu Windows. Zatrzymywanie MPSSVC lub BFE spowoduje zablokowanie wszystkich połączeń.
 ### <a name="enable-windows-firewall"></a>Włączanie Zapory systemu Windows
 `netsh advfirewall set allprofiles state on`
-## <a name="manage-users-and-groups"></a>Zarządzanie użytkownikami i grupami
+## <a name="manage-users-and-groups-using-cmd"></a>Zarządzanie użytkownikami i grupami przy użyciu polecenia CMD
 ### <a name="create-local-user-account"></a>Utwórz konto użytkownika lokalnego
 `net user /add <username> <password>`
 ### <a name="add-local-user-to-local-group"></a>Dodaj użytkownika lokalnego do grupy lokalnej
@@ -150,7 +150,7 @@ Przykładowe wiersze zainteresowania z konta administratora lokalnego:
 
 ### <a name="view-local-groups"></a>Wyświetlanie grup lokalnych
 `net localgroup`
-## <a name="manage-the-windows-event-log"></a>Zarządzanie dziennikiem zdarzeń systemu Windows
+## <a name="manage-the-windows-event-log-using-cmd"></a>Zarządzanie dziennikiem zdarzeń systemu Windows przy użyciu polecenia CMD
 ### <a name="query-event-log-errors"></a>Rejestruj błędy dziennika zdarzeń
 `wevtutil qe system /c:10 /f:text /q:"Event[System[Level=2]]" | more`
 
@@ -165,7 +165,7 @@ Zmień `/c:10` żądaną liczbę zdarzeń do zwrócenia lub przenieś ją, aby z
 Użyj `604800000` , aby odszukać 7 dni zamiast 24 godzin.
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>Zbadaj dziennik zdarzeń według identyfikatora zdarzenia, dostawcy i EventData w ciągu ostatnich 7 dni
 `wevtutil qe security /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>Wyświetl lub Usuń zainstalowane aplikacje
+## <a name="view-or-remove-installed-applications-using-cmd"></a>Wyświetlanie lub usuwanie zainstalowanych aplikacji przy użyciu polecenia CMD
 ### <a name="list-installed-applications"></a>Wyświetlanie listy zainstalowanych aplikacji
 `wmic product get Name,InstallDate | sort /r | more`
 
@@ -175,7 +175,7 @@ Użyj `604800000` , aby odszukać 7 dni zamiast 24 godzin.
 
 Zamień na `<name>` nazwę zwracaną w powyższym poleceniu dla aplikacji, którą chcesz usunąć.
 
-## <a name="file-system-management"></a>Zarządzanie systemem plików
+## <a name="file-system-management-using-cmd"></a>Zarządzanie systemem plików przy użyciu polecenia CMD
 ### <a name="get-file-version"></a>Pobierz wersję pliku
 `wmic datafile where "drive='C:' and path='\\windows\\system32\\drivers\\' and filename like 'netvsc%'" get version /format:list`
 
@@ -206,7 +206,7 @@ Zobacz też [Naprawa obrazu systemu Windows](/windows-hardware/manufacture/deskt
 ## <a name="manage-group-policy"></a>Zarządzanie zasadami grupy
 ### <a name="force-group-policy-update"></a>Wymuś aktualizację zasad grupy
 `gpupdate /force /wait:-1`
-## <a name="miscellaneous-tasks"></a>Różne zadania
+## <a name="miscellaneous-tasks-using-cmd"></a>Różne zadania przy użyciu polecenia CMD
 ### <a name="show-os-version"></a>Pokaż wersję systemu operacyjnego
 `ver`
 
@@ -259,7 +259,7 @@ Jeśli powyższe polecenie zwróci wersję modułu PSReadLine, uruchom następuj
 
 `remove-module psreadline`
 
-## <a name="view-and-edit-windows-registry-settings"></a>Wyświetlanie i edytowanie ustawień rejestru systemu Windows
+## <a name="view-and-edit-windows-registry-settings-using-powershell"></a>Wyświetlanie i edytowanie ustawień rejestru systemu Windows przy użyciu programu PowerShell
 ### <a name="verify-rdp-is-enabled"></a>Sprawdź, czy włączono protokół RDP
 `get-itemproperty -path 'hklm:\system\curRentcontrolset\control\terminal server' -name 'fdenytsconNections'`
 
@@ -272,11 +272,11 @@ Drugi klucz (w obszarze \Policies) będzie istnieć tylko w przypadku skonfiguro
 `set-itemproperty -path 'hklm:\software\policies\microsoft\windows nt\terminal services' -name 'fdenytsconNections' 0 -type dword`
 
 Drugi klucz (w obszarze \Policies) byłby wymagany tylko wtedy, gdy skonfigurowano odpowiednie ustawienie zasad grupy. Wartość zostanie ponownie zapisywana przy następnym odświeżeniu zasad grupy, jeśli jest skonfigurowana w zasadach grupy.
-## <a name="manage-windows-services"></a>Zarządzanie usługami systemu Windows
+## <a name="manage-windows-services-using-powershell"></a>Zarządzanie usługami systemu Windows przy użyciu programu PowerShell
 ### <a name="view-service-details"></a>Wyświetl szczegóły usługi
 `get-wmiobject win32_service -filter "name='termservice'" |  format-list Name,DisplayName,State,StartMode,StartName,PathName,ServiceType,Status,ExitCode,ServiceSpecificExitCode,ProcessId`
 
-`Get-Service`można go użyć, ale nie obejmuje konta logowania do usługi. `Get-WmiObject win32-service`wpływa.
+`Get-Service` można go użyć, ale nie obejmuje konta logowania do usługi. `Get-WmiObject win32-service` wpływa.
 ### <a name="set-service-logon-account"></a>Ustaw konto logowania do usługi
 `(get-wmiobject win32_service -filter "name='termservice'").Change($null,$null,$null,$null,$null,$false,'NT Authority\NetworkService')`
 
@@ -284,14 +284,14 @@ W przypadku korzystania z konta usługi innego niż `NT AUTHORITY\LocalService` 
 ### <a name="set-service-startup-type"></a>Ustaw typ uruchomienia usługi
 `set-service termservice -startuptype Manual`
 
-`Set-service`akceptuje `Automatic` , `Manual` lub `Disabled` dla typu uruchomienia.
+`Set-service` akceptuje `Automatic` , `Manual` lub `Disabled` dla typu uruchomienia.
 ### <a name="set-service-dependencies"></a>Ustawianie zależności usługi
 `Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\TermService' -Name DependOnService -Value @('RPCSS','TermDD')`
 ### <a name="start-service"></a>Uruchom usługę
 `start-service termservice`
 ### <a name="stop-service"></a>Zatrzymaj usługę
 `stop-service termservice`
-## <a name="manage-networking-features"></a>Zarządzanie funkcjami sieciowymi
+## <a name="manage-networking-features-using-powershell"></a>Zarządzanie funkcjami sieciowymi przy użyciu programu PowerShell
 ### <a name="show-nic-properties"></a>Pokaż właściwości karty sieciowej
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} |  format-list status,name,ifdesc,macadDresS,driverversion,MediaConNectState,MediaDuplexState`
 
@@ -299,7 +299,7 @@ lub
 
 `get-wmiobject win32_networkadapter -filter "servicename='netvsc'" |  format-list netenabled,name,macaddress`
 
-`Get-NetAdapter`jest dostępny w 2012 +, do użycia w programie 2008R2 `Get-WmiObject` .
+`Get-NetAdapter` jest dostępny w 2012 +, do użycia w programie 2008R2 `Get-WmiObject` .
 ### <a name="show-ip-properties"></a>Pokaż właściwości IP
 `get-wmiobject Win32_NetworkAdapterConfiguration -filter "ServiceName='netvsc'" |  format-list DNSHostName,IPAddress,DHCPEnabled,IPSubnet,DefaultIPGateway,MACAddress,DHCPServer,DNSServerSearchOrder`
 ### <a name="enable-nic"></a>Włącz kartę sieciową
@@ -309,13 +309,13 @@ lub
 
 `(get-wmiobject win32_networkadapter -filter "servicename='netvsc'").enable()`
 
-`Get-NetAdapter`jest dostępny w 2012 +, do użycia w programie 2008R2 `Get-WmiObject` .
+`Get-NetAdapter` jest dostępny w 2012 +, do użycia w programie 2008R2 `Get-WmiObject` .
 ### <a name="set-nic-to-use-dhcp"></a>Ustawianie karty sieciowej do korzystania z protokołu DHCP
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} | Set-NetIPInterface -DHCP Enabled`
 
 `(get-wmiobject Win32_NetworkAdapterConfiguration -filter "ServiceName='netvsc'").EnableDHCP()`
 
-`Get-NetAdapter`jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` . Maszyny wirtualne platformy Azure należy zawsze skonfigurować w systemie operacyjnym gościa, aby można było uzyskać adres IP przy użyciu protokołu DHCP. Ustawienie statycznego adresu IP platformy Azure nadal używa protokołu DHCP do nadawania adresu IP do maszyny wirtualnej.
+`Get-NetAdapter` jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` . Maszyny wirtualne platformy Azure należy zawsze skonfigurować w systemie operacyjnym gościa, aby można było uzyskać adres IP przy użyciu protokołu DHCP. Ustawienie statycznego adresu IP platformy Azure nadal używa protokołu DHCP do nadawania adresu IP do maszyny wirtualnej.
 ### <a name="ping"></a>Ping
 `test-netconnection`
 
@@ -326,7 +326,7 @@ lub
 
 `get-wmiobject Win32_PingStatus -Filter 'Address="8.8.8.8"' | format-table -autosize IPV4Address,ReplySize,ResponseTime`
 
-`Test-Netconnection`bez żadnych parametrów spróbuje wysłać polecenie ping `internetbeacon.msedge.net` . Jest on dostępny w 2012 +. W przypadku 2008R2 Użyj `Get-WmiObject` jak w drugim przykładzie.
+`Test-Netconnection` bez żadnych parametrów spróbuje wysłać polecenie ping `internetbeacon.msedge.net` . Jest on dostępny w 2012 +. W przypadku 2008R2 Użyj `Get-WmiObject` jak w drugim przykładzie.
 ### <a name="port-ping"></a>Port ping
 `test-netconnection -ComputerName bing.com -Port 80`
 
@@ -334,7 +334,7 @@ lub
 
 `(new-object Net.Sockets.TcpClient).BeginConnect('bing.com','80',$null,$null).AsyncWaitHandle.WaitOne(300)`
 
-`Test-NetConnection`jest dostępny w 2012 +. Do użycia w 2008R2`Net.Sockets.TcpClient`
+`Test-NetConnection` jest dostępny w 2012 +. Do użycia w 2008R2 `Net.Sockets.TcpClient`
 ### <a name="test-dns-name-resolution"></a>Testowanie rozpoznawania nazw DNS
 `resolve-dnsname bing.com`
 
@@ -342,7 +342,7 @@ lub
 
 `[System.Net.Dns]::GetHostAddresses('bing.com')`
 
-`Resolve-DnsName`jest dostępny w 2012 +. Do użycia w 2008R2 `System.Net.DNS` .
+`Resolve-DnsName` jest dostępny w 2012 +. Do użycia w 2008R2 `System.Net.DNS` .
 ### <a name="show-windows-firewall-rule-by-name"></a>Pokaż regułę zapory systemu Windows według nazwy
 `get-netfirewallrule -name RemoteDesktop-UserMode-In-TCP`
 ### <a name="show-windows-firewall-rule-by-port"></a>Pokaż regułę zapory systemu Windows według portu
@@ -352,12 +352,12 @@ lub
 
 `(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled`
 
-`Get-NetFirewallPortFilter`jest dostępny w 2012 +. Dla 2008R2 Użyj `hnetcfg.fwpolicy2` obiektu com.
+`Get-NetFirewallPortFilter` jest dostępny w 2012 +. Dla 2008R2 Użyj `hnetcfg.fwpolicy2` obiektu com.
 ### <a name="disable-windows-firewall"></a>Wyłącz zaporę systemu Windows
 `Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False`
 
-`Set-NetFirewallProfile`jest dostępny w 2012 +. Do użycia 2008R2 `netsh advfirewall` jako odwołania w powyższej sekcji cmd.
-## <a name="manage-users-and-groups"></a>Zarządzanie użytkownikami i grupami
+`Set-NetFirewallProfile` jest dostępny w 2012 +. Do użycia 2008R2 `netsh advfirewall` jako odwołania w powyższej sekcji cmd.
+## <a name="manage-users-and-groups-using-powershell"></a>Zarządzanie użytkownikami i grupami przy użyciu programu PowerShell
 ### <a name="create-local-user-account"></a>Utwórz konto użytkownika lokalnego
 `new-localuser <name>`
 ### <a name="verify-user-account-is-enabled"></a>Sprawdź, czy konto użytkownika jest włączone
@@ -367,7 +367,7 @@ lub
 
 `(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
 
-`Get-LocalUser`jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` . W tym przykładzie pokazano wbudowane konto administratora lokalnego, które ma zawsze identyfikator SID `S-1-5-21-*-500` . Maszyny wirtualne platformy Azure utworzone na podstawie uogólnionego obrazu będą miały nazwę konta administratora lokalnego o nazwie określonej podczas aprowizacji maszyny wirtualnej. W związku z tym zwykle nie będzie `Administrator` .
+`Get-LocalUser` jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` . W tym przykładzie pokazano wbudowane konto administratora lokalnego, które ma zawsze identyfikator SID `S-1-5-21-*-500` . Maszyny wirtualne platformy Azure utworzone na podstawie uogólnionego obrazu będą miały nazwę konta administratora lokalnego o nazwie określonej podczas aprowizacji maszyny wirtualnej. W związku z tym zwykle nie będzie `Administrator` .
 ### <a name="add-local-user-to-local-group"></a>Dodaj użytkownika lokalnego do grupy lokalnej
 `add-localgroupmember -group Administrators -member <username>`
 ### <a name="enable-local-user-account"></a>Włącz konto użytkownika lokalnego
@@ -381,12 +381,12 @@ lub
 
 `get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" |  format-list Name,Disabled,Status,Lockout,Description,SID`
 
-`Get-LocalUser`jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` . W tym przykładzie pokazano wbudowane konto administratora lokalnego, które ma zawsze identyfikator SID `S-1-5-21-*-500` .
+`Get-LocalUser` jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` . W tym przykładzie pokazano wbudowane konto administratora lokalnego, które ma zawsze identyfikator SID `S-1-5-21-*-500` .
 ### <a name="view-local-groups"></a>Wyświetlanie grup lokalnych
 `(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
 
-`Get-LocalUser`jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` .
-## <a name="manage-the-windows-event-log"></a>Zarządzanie dziennikiem zdarzeń systemu Windows
+`Get-LocalUser` jest dostępny w 2012 +. Do użycia w 2008R2 `Get-WmiObject` .
+## <a name="manage-the-windows-event-log-using-powershell"></a>Zarządzanie dziennikiem zdarzeń systemu Windows przy użyciu programu PowerShell
 ### <a name="query-event-log-errors"></a>Rejestruj błędy dziennika zdarzeń
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Level=2]]" | more`
 
@@ -401,12 +401,12 @@ Zmień `/c:10` żądaną liczbę zdarzeń do zwrócenia lub przenieś ją, aby z
 Użyj `604800000` , aby odszukać 7 dni zamiast 24 godzin. |
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>Zbadaj dziennik zdarzeń według identyfikatora zdarzenia, dostawcy i EventData w ciągu ostatnich 7 dni
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>Wyświetl lub Usuń zainstalowane aplikacje
+## <a name="view-or-remove-installed-applications-using-powershell"></a>Wyświetlanie lub usuwanie zainstalowanych aplikacji przy użyciu programu PowerShell
 ### <a name="list-installed-software"></a>Wyświetl listę zainstalowanego oprogramowania
 `get-wmiobject win32_product | select installdate,name | sort installdate -descending | more`
 ### <a name="uninstall-software"></a>Odinstaluj oprogramowanie
 `(get-wmiobject win32_product -filter "Name='<name>'").Uninstall()`
-## <a name="file-system-management"></a>Zarządzanie systemem plików
+## <a name="file-system-management-using-powershell"></a>Zarządzanie systemem plików przy użyciu programu PowerShell
 ### <a name="get-file-version"></a>Pobierz wersję pliku
 `(get-childitem $env:windir\system32\drivers\netvsc*.sys).VersionInfo.FileVersion`
 
@@ -415,7 +415,7 @@ Ten przykład zwraca wersję pliku sterownika wirtualnej karty sieciowej o nazwi
 `$path='c:\bin';md $path;cd $path;(new-object net.webclient).downloadfile( ('htTp:/'+'/download.sysinternals.com/files/SysinternalsSuite.zip'),"$path\SysinternalsSuite.zip");(new-object -com shelL.apPlication).namespace($path).CopyHere( (new-object -com shelL.apPlication).namespace("$path\SysinternalsSuite.zip").Items(),16)`
 
 W tym przykładzie tworzony jest `c:\bin` folder, a następnie pobiera i wyodrębnia pakiet narzędzi Sysinternals do programu `c:\bin` .
-## <a name="miscellaneous-tasks"></a>Różne zadania
+## <a name="miscellaneous-tasks-using-powershell"></a>Różne zadania przy użyciu programu PowerShell
 ### <a name="show-os-version"></a>Pokaż wersję systemu operacyjnego
 `get-wmiobject win32_operatingsystem | format-list caption,version,buildnumber`
 ### <a name="view-os-install-date"></a>Wyświetl datę instalacji systemu operacyjnego

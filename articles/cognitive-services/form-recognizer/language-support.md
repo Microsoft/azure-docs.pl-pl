@@ -6,31 +6,29 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: immersive-reader
+ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 6cf0c73876d6d261ba25f32fd5112abaf253acdf
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: ba89db30e11b35840adada8fdfa6a9d15e0e79d8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669669"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324488"
 ---
 # <a name="language-support-for-form-recognizer"></a>Obsługa języków dla aparatu rozpoznawania formularzy
 
-W tym artykule wymieniono Języki ludzkie obsługiwane przez usługę aparat rozpoznawania formularzy (wersja zapoznawcza).
+W tym artykule wymieniono Języki ludzkie obsługiwane przez usługę aparat rozpoznawania formularzy.
 
 
-|Język| Kod języka | Aparat rozpoznawania formularzy v 2.0 | Wersja zapoznawcza aparatu rozpoznawania w wersji 2.1 2.0 \*|
+|Język| Kod języka | Aparat rozpoznawania formularzy v 2.0 | Aparat rozpoznawania formularzy v 2.1 (wersja zapoznawcza)|
 |:-----|:----:|:-----:|:---:|
 |Chiński (uproszczony) | `zh-Hans`| | ✔ |
 |Niderlandzki | `nl` | | ✔ |
-|Angielski (wydrukowany & napisany ręcznie) | `en` | ✔ | |
+|Angielski (wydrukowany & napisany ręcznie) | `en` | ✔ | ✔|
 |Francuski | `fr` | | ✔ |
 |Niemiecki | `de` | | ✔ |
 |Włoski | `it` | | ✔ |
 |Portugalski | `pt` | | ✔ |
 |Hiszpański | `es` | | ✔ |
-
-\* Wersja zapoznawcza aparatu rozpoznawania w wersji 2.1 2.0 obsługuje te języki układu i niestandardowego. Wstępnie skompilowane przyjęcie i wbudowana karta biznesowa są obsługiwane tylko w języku angielskim.

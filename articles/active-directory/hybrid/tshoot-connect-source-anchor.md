@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb82eb2d8e23daec0ddb8856b713c1aa051f25c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e6460015430850c11fbf70a005d7440ce1b92fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306008"
 ---
 # <a name="troubleshooting-source-anchor-issues-during-installation"></a>Rozwiązywanie problemów z kotwicą źródła podczas instalacji
 W tym artykule wyjaśniono różne problemy związane z kotwicą źródłową, które mogą wystąpić podczas instalacji i przedstawiono sposoby rozwiązania tych problemów.
@@ -27,16 +27,16 @@ W tym artykule wyjaśniono różne problemy związane z kotwicą źródłową, k
 Podczas instalacji niestandardowej Azure AD Connect odczytuje źródłowe zasady kotwic z Azure Active Directory. Jeśli zasady istnieją w Azure Active Directory, Azure AD Connect stosuje te same zasady, chyba że zostaną zastąpione przez klienta. Kreator informuje, który atrybut został odczytany. Ponadto Kreator ostrzega w przypadku próby zastąpienia źródłowych zasad kotwicy.
 
 Podczas tej operacji odczytu możliwe jest, że źródłowe zasady zakotwiczenia w Azure Active Directory są nieoczekiwane. W tym przypadku Azure AD Connect nie wie, do czego służy zakotwiczenie źródłowe i wymaga ręcznej przesłonięcia.</br>
-![oczekiwan](media/tshoot-connect-source-anchor/source1.png)
+![Zrzut ekranu pokazujący, gdzie ręcznie przesłonić zakotwiczenie źródła.](media/tshoot-connect-source-anchor/source1.png)
 
 Aby rozwiązać ten problem, można ręcznie przesłonić kotwicę źródłową, wybierając konkretny atrybut. Kontynuuj tę opcję, jeśli i tylko wtedy, gdy masz pewne atrybuty do wybrania. Jeśli nie masz pewności, skontaktuj się z działem [pomocy technicznej firmy Microsoft](https://support.microsoft.com/contactus/) w celu uzyskania wskazówek. Zmiana zasad zakotwiczenia źródła może spowodować przerwanie skojarzenia między użytkownikami lokalnymi i skojarzonymi z nimi zasobami platformy Azure.</br>
-![oczekiwan](media/tshoot-connect-source-anchor/source2.png)
+![Zrzut ekranu pokazujący określony atrybut, który zastąpi zakotwiczenie źródła.](media/tshoot-connect-source-anchor/source2.png)
 
 ### <a name="express-installation"></a>Instalacja ekspresowa
 Podczas instalacji ekspresowej Azure AD Connect odczytuje źródłowe zasady kotwic z Azure Active Directory. Jeśli zasady istnieją w Azure Active Directory, Azure AD Connect stosuje te same zasady. Nie ma możliwości przesłonięcia ręcznego.
 
 Podczas tej operacji odczytu możliwe jest, że źródłowe zasady zakotwiczenia w Azure Active Directory są nieoczekiwane. W tym przypadku Azure AD Connect nie wie, jak powinna być zakotwiczenie źródłowe.</br>
-![oczekiwan](media/tshoot-connect-source-anchor/source3.png)
+![Zrzut ekranu pokazujący, co się dzieje, gdy zakotwiczenie źródła w Azure Active Directory jest nieoczekiwane.](media/tshoot-connect-source-anchor/source3.png)
 
 Aby rozwiązać ten problem, należy ponownie zainstalować program przy użyciu trybu niestandardowego i ręcznie przesłonić zakotwiczenie źródła przez wybranie określonego atrybutu. Kontynuuj tę opcję, jeśli i tylko wtedy, gdy masz pewne atrybuty do wybrania. Jeśli nie masz pewności, skontaktuj się z działem [pomocy technicznej firmy Microsoft](https://support.microsoft.com/contactus/) w celu uzyskania wskazówek. Zmiana zasad zakotwiczenia źródła może spowodować przerwanie skojarzenia między użytkownikami lokalnymi i skojarzonymi z nimi zasobami platformy Azure.
 

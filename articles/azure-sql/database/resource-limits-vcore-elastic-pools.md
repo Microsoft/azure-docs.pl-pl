@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab, sstein
+ms.reviewer: sstein
 ms.date: 07/21/2020
-ms.openlocfilehash: f71daab55139f6b4690df50472928db466774cb3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 345fd0df5b56bac164e78a540f8b26221294eabe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128271"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325300"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limity zasobów dla pul elastycznych przy użyciu modelu zakupu rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,21 +47,21 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Pamięć (GB)|7|14|21|28|35|42|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|100|200|500|500|500|500|
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
-|Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Maksymalny rozmiar danych (GB)|512|756|1536|1536|1536|2048|
 |Maksymalny rozmiar dziennika|154|227|461|461|461|614|
 |Maksymalny rozmiar danych TempDB (GB)|32|64|96|128|160|192|
 |Typ magazynu|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup> |400|800|1200|1600|2000|2400|
-|Maksymalna szybkość rejestrowania na pulę (MB/s)|4,7|9.4|14,1|18,8|23,4|28,1|
+|Maksymalna szybkość rejestrowania na pulę (MB/s)|4.7|9,4|14,1|18,8|23,4|28,1|
 |Maksymalna liczba współbieżnych procesów roboczych na pulę (żądania) <sup>3</sup> |210|420|630|840|1050|1260|
 |Maksymalna liczba współbieżnych logowań na pulę <sup>3</sup> |210|420|630|840|1050|1260|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
 |Liczba replik|1|1|1|1|1|1|
-|Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
-|Skalowanie w górę odczytu|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Wiele-AZ|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Skalowanie w górę odczytu|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 <sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
@@ -79,7 +79,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Pamięć (GB)|49|56|63|70|112|159,5|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|500|500|500|500|500|500|
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
-|Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Maksymalny rozmiar danych (GB)|2048|2048|2048|2048|3584|4096|
 |Maksymalny rozmiar dziennika (GB)|614|614|614|614|1075|1229|
 |Maksymalny rozmiar danych TempDB (GB)|224|256|288|320|512|768|
@@ -92,8 +92,8 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|0, 0,25, 0,5, 1... 7|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 9|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 10, 16|0, 0,25, 0,5, 1... 10, 16, 24|
 |Liczba replik|1|1|1|1|1|1|
-|Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
-|Skalowanie w górę odczytu|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Wiele-AZ|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Skalowanie w górę odczytu|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 <sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
@@ -113,21 +113,21 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Pamięć (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|100|200|500|500|500|500|500|
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
-|Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Maksymalny rozmiar danych (GB)|512|756|1536|1536|1536|2048|2048|
 |Maksymalny rozmiar dziennika (GB)|154|227|461|461|461|614|614|
 |Maksymalny rozmiar danych TempDB (GB)|64|128|192|256|320|384|448|
 |Typ magazynu|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
 |Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup>|800|1600|2400|3200|4000|4800|5600|
-|Maksymalna szybkość rejestrowania na pulę (MB/s)|9.4|18,8|28,1|37,5|37,5|37,5|37,5|
+|Maksymalna szybkość rejestrowania na pulę (MB/s)|9,4|18,8|28,1|37,5|37,5|37,5|37,5|
 |Maksymalna liczba współbieżnych procesów roboczych na pulę (żądania) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Maksymalna liczba współbieżnych logowań na pulę (żądania) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
 |Liczba replik|1|1|1|1|1|1|1|
-|Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
-|Skalowanie w górę odczytu|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Wiele-AZ|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Skalowanie w górę odczytu|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 <sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
@@ -145,7 +145,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Pamięć (GB)|83|93,4|103,8|124,6|166,1|207,6|415,2|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|500|500|500|500|500|500|500|
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
-|Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Maksymalny rozmiar danych (GB)|2048|3072|3072|3072|4096|4096|4096|
 |Maksymalny rozmiar dziennika (GB)|614|922|922|922|1229|1229|1229|
 |Maksymalny rozmiar danych TempDB (GB)|512|576|640|768|1024|1280|2560|
@@ -158,8 +158,8 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|0, 0,25, 0,5, 1... 16|0, 0,25, 0,5, 1... 18|0, 0,25, 0,5, 1... 20|0, 0,25, 0,5, 1... 20, 24|0, 0,25, 0,5, 1... 20, 24, 32|0, 0,25, 0,5, 1... 16, 24, 32, 40|0, 0,25, 0,5, 1... 16, 24, 32, 40, 80|
 |Liczba replik|1|1|1|1|1|1|1|
-|Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
-|Skalowanie w górę odczytu|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Wiele-AZ|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Skalowanie w górę odczytu|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 <sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
@@ -179,7 +179,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Pamięć (GB)|15.1|18,9|22,7|26,5|30,2|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|500|500|500|500|500|
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|
-|Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Maksymalny rozmiar danych (GB)|1024|1024|1024|1024|1536|
 |Maksymalny rozmiar dziennika (GB)|336|336|336|336|512|
 |Maksymalny rozmiar danych TempDB (GB)|333|333|333|333|333|
@@ -192,8 +192,8 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|
 |Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|0-8|0-10|0-12|0-14|0-16|
 |Liczba replik|1|1|1|1|1|
-|Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
-|Skalowanie w górę odczytu|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Wiele-AZ|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Skalowanie w górę odczytu|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 
@@ -212,7 +212,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Pamięć (GB)|34,0|37,8|45,4|60,5|68,0|136,0|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|500|500|500|500|500|
 |Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
-|Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Magazyn OLTP w pamięci (GB)|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Maksymalny rozmiar danych (GB)|1536|1536|1536|3072|3072|4096|
 |Maksymalny rozmiar dziennika (GB)|512|512|512|1024|1024|1024|
 |Maksymalny rozmiar danych TempDB (GB)|83,25|92,5|111|148|166,5|333|
@@ -225,8 +225,8 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|0-18|0-20|0-24|0-32|0-36|0-72|
 |Liczba replik|1|1|1|1|1|1|
-|Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
-|Skalowanie w górę odczytu|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Wiele-AZ|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
+|Skalowanie w górę odczytu|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 <sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
@@ -280,7 +280,7 @@ Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerS
 |Rdzeni wirtualnych|7|8|9|10|16|24|
 |Pamięć (GB)|49|56|63|70|112|159,5|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|100|100|100|100|100|100|
-|Obsługa magazynu kolumn|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
+|Obsługa magazynu kolumn|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|
 |Magazyn OLTP w pamięci (GB)|7|8|9,5|11|20|36|
 |Typ magazynu|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|
 |Maksymalny rozmiar danych (GB)|1024|1024|1024|1024|1024|1024|

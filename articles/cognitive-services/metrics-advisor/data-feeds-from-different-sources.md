@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: ''
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324471"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Dodawanie strumieniowych źródeł danych z różnych źródeł danych do klasyfikatora metryk
 
@@ -37,19 +37,19 @@ Skorzystaj z tego artykułu, aby znaleźć ustawienia i wymagania dotyczące ł�
 
 | Źródła danych | Typy uwierzytelniania |
 |-------------| ---------------------|
-|[**Azure Application Insights**](#appinsights)|  Podstawowe |
-|[**Azure Blob Storage (JSON)**](#blob) | Podstawowe<br>ManagedIdentity|
-|[**Azure Cosmos DB (SQL)**](#cosmosdb) | Podstawowe |
-|[**Eksplorator danych platformy Azure (Kusto)**](#kusto) | Podstawowe<br>ManagedIdentity|
-|[**Usługa Azure Data Lake Storage 2. generacji**](#adl) | Podstawowe<br>DataLakeGen2SharedKey<br>Jednostka usługi<br>Nazwa główna usługi z magazynu kluczy<br> |
-|[**Azure SQL Database/SQL Server**](#sql) | Podstawowe<br>ManagedIdentity<br>Jednostka usługi<br>Nazwa główna usługi z magazynu kluczy<br>AzureSQLConnectionString
-|[**Azure Table Storage**](#table) | Podstawowe | 
-|[**ElasticSearch**](#es) | Podstawowe |
-|[**Żądanie http**](#http) | Podstawowe | 
-|[**InfluxDB (InfluxQL)**](#influxdb) | Podstawowe |
-|[**MongoDB**](#mongodb) | Podstawowe |
-|[**MySQL**](#mysql) | Podstawowe |
-|[**PostgreSQL**](#pgsql)| Podstawowe|
+|[**Azure Application Insights**](#appinsights)|  Podstawowy |
+|[**Azure Blob Storage (JSON)**](#blob) | Podstawowy<br>ManagedIdentity|
+|[**Azure Cosmos DB (SQL)**](#cosmosdb) | Podstawowy |
+|[**Eksplorator danych platformy Azure (Kusto)**](#kusto) | Podstawowy<br>ManagedIdentity|
+|[**Usługa Azure Data Lake Storage 2. generacji**](#adl) | Podstawowy<br>DataLakeGen2SharedKey<br>Jednostka usługi<br>Nazwa główna usługi z magazynu kluczy<br> |
+|[**Azure SQL Database/SQL Server**](#sql) | Podstawowy<br>ManagedIdentity<br>Jednostka usługi<br>Nazwa główna usługi z magazynu kluczy<br>AzureSQLConnectionString
+|[**Azure Table Storage**](#table) | Podstawowy | 
+|[**ElasticSearch**](#es) | Podstawowy |
+|[**Żądanie http**](#http) | Podstawowy | 
+|[**InfluxDB (InfluxQL)**](#influxdb) | Podstawowy |
+|[**MongoDB**](#mongodb) | Podstawowy |
+|[**MySQL**](#mysql) | Podstawowy |
+|[**PostgreSQL**](#pgsql)| Podstawowy|
 
 Utwórz **jednostkę poświadczeń** i użyj jej do uwierzytelniania w źródłach danych. W poniższych sekcjach określono parametry wymagane przez program do uwierzytelniania *podstawowego* . 
 
@@ -93,7 +93,7 @@ Utwórz **jednostkę poświadczeń** i użyj jej do uwierzytelniania w źródła
   
   * V1 (wartość domyślna)
 
-      Tylko *Nazwa* metryki i *wartość* są akceptowane. Przykład:
+      Tylko *Nazwa* metryki i *wartość* są akceptowane. Na przykład:
     
       ``` JSON
       {"count":11, "revenue":1.23}
@@ -101,7 +101,7 @@ Utwórz **jednostkę poświadczeń** i użyj jej do uwierzytelniania w źródła
 
   * v2
 
-      Są również akceptowane *Wymiary* metryk i *sygnatura czasowa* . Przykład:
+      Są również akceptowane *Wymiary* metryk i *sygnatura czasowa* . Na przykład:
       
       ``` JSON
       [
@@ -159,7 +159,7 @@ Dozwolony jest tylko jeden znacznik czasu na plik JSON.
   * `%h` jest godziną sformatowaną jako `HH`
   * `%M` jest minutą sformatowaną jako `mm`
 
-Obecnie klasyfikator metryk obsługuje schemat danych w plikach JSON. Przykład:
+Obecnie klasyfikator metryk obsługuje schemat danych w plikach JSON. Na przykład:
 
 ``` JSON
 [

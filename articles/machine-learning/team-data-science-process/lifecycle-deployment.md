@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe5eba72b507ebea6bc1012c567de70bc3deb5ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720490"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261349"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Etap wdrażania cyklu życia zespołowego procesu nauki danych
 
@@ -50,7 +50,7 @@ Po utworzeniu zestawu modeli, które działają prawidłowo, można operacjonali
    * Aplikacje biznesowe 
    * Aplikacje zaplecza 
 
-Przykłady modelu operacjonalizacji z usługą sieci Web Azure Machine Learning można znaleźć w temacie [Deploy a Azure Machine Learning Web Service](../studio/deploy-a-machine-learning-web-service.md). Najlepszym rozwiązaniem jest tworzenie danych telemetrycznych i monitorowanie ich w modelu produkcyjnym i w wdrażanym potoku danych. To rozwiązanie pomaga w kolejnym raportowaniu stanu systemu i rozwiązywaniu problemów.  
+Przykłady modelu operacjonalizacji z usługą sieci Web Azure Machine Learning można znaleźć w temacie [Deploy a Azure Machine Learning Web Service](../classic/deploy-a-machine-learning-web-service.md). Najlepszym rozwiązaniem jest tworzenie danych telemetrycznych i monitorowanie ich w modelu produkcyjnym i w wdrażanym potoku danych. To rozwiązanie pomaga w kolejnym raportowaniu stanu systemu i rozwiązywaniu problemów.  
 
 ## <a name="artifacts"></a>Artifacts
 

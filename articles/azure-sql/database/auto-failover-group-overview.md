@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7b4a85077c8e0147f926f9a86fc8a003591ec8ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277737"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -213,11 +213,11 @@ W celu zilustrowania sekwencji zmian przyjęto, że serwer A jest serwerem podst
 
 ## <a name="best-practices-for-sql-managed-instance"></a>Najlepsze rozwiązania dotyczące wystąpienia zarządzanego SQL
 
-Grupa autotrybu failover musi być skonfigurowana w wystąpieniu podstawowym i nawiązać połączenie z wystąpieniem pomocniczym w innym regionie świadczenia usługi Azure.  Wszystkie bazy danych w wystąpieniu zostaną zreplikowane do wystąpienia pomocniczego.
+Grupa automatycznego trybu failover musi być skonfigurowana w wystąpieniu podstawowym i będzie nawiązywać połączenie z wystąpieniem pomocniczym w innym regionie świadczenia usługi Azure.  Wszystkie bazy danych w wystąpieniu zostaną zreplikowane do wystąpienia pomocniczego.
 
 Na poniższym diagramie przedstawiono typową konfigurację aplikacji w chmurze nadmiarowej geograficznie przy użyciu wystąpienia zarządzanego i grupy autotrybu failover.
 
-![Tryb failover](./media/auto-failover-group-overview/auto-failover-group-mi.png)
+![Diagram Autotryb failover](./media/auto-failover-group-overview/auto-failover-group-mi.png)
 
 > [!NOTE]
 > Zobacz [Dodawanie wystąpienia zarządzanego do grupy trybu failover](../managed-instance/failover-group-add-instance-tutorial.md) , aby uzyskać szczegółowy samouczek krok po kroku dodawania wystąpienia zarządzanego SQL do korzystania z grupy trybu failover.
@@ -242,11 +242,11 @@ Ze względu na to, że każde wystąpienie jest izolowane w własnej sieci wirtu
 Można utworzyć grupę trybu failover między wystąpieniami zarządzanymi SQL w dwóch różnych subskrypcjach, o ile subskrypcje są skojarzone z tą samą [dzierżawą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Korzystając z interfejsu API programu PowerShell, można to zrobić, określając `PartnerSubscriptionId` parametr pomocniczego wystąpienia zarządzanego SQL. W przypadku korzystania z interfejsu API REST każdy identyfikator wystąpienia zawarty w `properties.managedInstancePairs` parametrze może mieć swój własny identyfikatora subskrypcji.
   
 > [!IMPORTANT]
-> Azure Portal nie obsługuje tworzenia grup trybu failover w różnych subskrypcjach. Ponadto w przypadku istniejących grup trybu failover w różnych subskrypcjach i/lub grupach zasobów nie można zainicjować trybu failover ręcznie za pośrednictwem portalu z podstawowego wystąpienia zarządzanego SQL. Zamiast tego zainicjuj go z wystąpienia geograficznego.
+> Azure Portal nie obsługuje tworzenia grup trybu failover w różnych subskrypcjach. Ponadto w przypadku istniejących grup trybu failover w różnych subskrypcjach i/lub grupach zasobów nie można zainicjować trybu failover ręcznie za pośrednictwem portalu z podstawowego wystąpienia zarządzanego SQL. Zamiast tego należy zainicjować go z wystąpienia pomocniczego obszaru geograficznego.
 
-### <a name="managing-failover-to-secondary-instance"></a>Zarządzanie przejściem do trybu failover do wystąpienia dodatkowego
+### <a name="managing-failover-to-secondary-instance"></a>Zarządzanie trybem failover do wystąpienia pomocniczego
 
-Grupa trybu failover będzie zarządzać trybem failover wszystkich baz danych w wystąpieniu zarządzanym SQL. Gdy grupa zostanie utworzona, każda baza danych w wystąpieniu zostanie automatycznie zreplikowana geograficznie do pomocniczego wystąpienia zarządzanego SQL. Nie można użyć grup trybu failover w celu zainicjowania częściowej pracy awaryjnej podzestawu baz danych.
+Grupa trybu failover będzie zarządzać trybem failover wszystkich baz danych w usłudze SQL Managed Instance. Gdy grupa zostanie utworzona, każda baza danych w wystąpieniu zostanie automatycznie zreplikowana geograficznie do pomocniczego wystąpienia usługi SQL Managed Instance. Nie można użyć grup trybu failover w celu zainicjowania częściowego trybu failover dla podzestawu baz danych.
 
 > [!IMPORTANT]
 > Jeśli baza danych zostanie usunięta z podstawowego wystąpienia zarządzanego SQL, zostanie ona również porzucona automatycznie w wystąpieniu zarządzanym geograficznie pomocnicze wystąpienie bazy danych SQL.
@@ -260,7 +260,7 @@ Podczas wykonywania operacji OLTP Użyj `<fog-name>.zone_id.database.windows.net
 Jeśli istnieje logicznie izolowane obciążenie przeznaczone tylko do odczytu, które jest odporne na określoną nieaktualność danych, możesz użyć pomocniczej bazy danych w aplikacji. Aby nawiązać bezpośrednie połączenie z replikacją geograficzną, użyj `<fog-name>.secondary.<zone_id>.database.windows.net` jako adresu URL serwera, a połączenie jest nawiązywane bezpośrednio z bazą replikacji geograficznej.
 
 > [!NOTE]
-> W niektórych warstwach usług SQL Database obsługuje korzystanie z [replik tylko do odczytu](read-scale-out.md) w celu równoważenia obciążenia obciążeń zapytań tylko do odczytu przy użyciu pojemności jednej repliki tylko do odczytu i przy użyciu parametru w parametrach `ApplicationIntent=ReadOnly` połączenia. Jeśli skonfigurowano pomocniczą replikację geograficzną, można użyć tej funkcji do łączenia się z repliką tylko do odczytu w lokalizacji podstawowej lub w lokalizacji zreplikowanej geograficznie.
+> W niektórych warstwach usług SQL Database obsługuje korzystanie z [replik tylko do odczytu](read-scale-out.md) w celu równoważenia obciążenia obciążeń zapytań tylko do odczytu przy użyciu pojemności jednej repliki tylko do odczytu i przy użyciu parametru w parametrach `ApplicationIntent=ReadOnly` połączenia. Jeśli skonfigurowano pomocnicze wystąpienie replikowane geograficznie, można użyć tej funkcji do łączenia się z repliką tylko do odczytu w lokalizacji podstawowej lub w lokalizacji zreplikowanej geograficznie.
 >
 > - Aby nawiązać połączenie z repliką tylko do odczytu w lokalizacji podstawowej, użyj `<fog-name>.<zone_id>.database.windows.net` .
 > - Aby nawiązać połączenie z repliką tylko do odczytu w lokalizacji pomocniczej, użyj programu `<fog-name>.secondary.<zone_id>.database.windows.net` .
@@ -348,16 +348,16 @@ Powyższa konfiguracja gwarantuje, że automatyczna praca awaryjna nie będzie b
 > [!IMPORTANT]
 > Aby zagwarantować ciągłość działania w regionie awarii, należy zapewnić geograficzną nadmiarowość dla składników frontonu i baz danych.
 
-## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Włączanie replikacji geograficznej między wystąpieniami zarządzanymi i ich sieci wirtualnych
+## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Włączanie replikacji geograficznej między wystąpieniami zarządzanymi i ich sieciami wirtualnymi
 
 Po skonfigurowaniu grupy trybu failover między podstawowym i pomocniczym wystąpieniem zarządzanym SQL w dwóch różnych regionach każde wystąpienie jest izolowane przy użyciu niezależnej sieci wirtualnej. Aby zezwolić na ruch związany z replikacją między tymi sieci wirtualnychami, upewnij się, że spełniono następujące wymagania wstępne:
 
 - Dwa wystąpienia wystąpienia zarządzanego SQL muszą znajdować się w różnych regionach świadczenia usługi Azure.
 - Dwa wystąpienia wystąpienia zarządzanego SQL muszą być tą samą warstwą usług i mieć ten sam rozmiar magazynu.
 - Dodatkowe wystąpienie wystąpienia zarządzanego SQL musi być puste (bez baz danych użytkowników).
-- Sieci wirtualne używane przez wystąpienia wystąpienia zarządzanego SQL muszą być połączone za pomocą [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Gdy dwie sieci wirtualne nawiązują połączenie za poorednictwem sieci lokalnej, upewnij się, że nie ma portów blokowania reguły zapory 5022 i 11000-11999. Globalna komunikacja równorzędna sieci wirtualnych nie jest obsługiwana.
+- Sieci wirtualne używane przez wystąpienia wystąpienia zarządzanego SQL muszą być połączone za pomocą [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Gdy dwie sieci wirtualne nawiązują połączenie za pośrednictwem sieci lokalnej, upewnij się, że nie ma reguły zapory blokującej porty 5022 i 11000-11999. Globalna komunikacja równorzędna sieci wirtualnych nie jest obsługiwana.
 - Dwa sieci wirtualnych wystąpienie zarządzane SQL nie może mieć nakładających się adresów IP.
-- Należy skonfigurować sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń), takie jak porty 5022 i zakres 11000 ~ 12 000 są otwarte i wychodzące dla połączeń z podsieci drugiego wystąpienia zarządzanego. Jest to dozwolone dla ruchu związanego z replikacją między wystąpieniami.
+- Należy skonfigurować sieciowe grupy zabezpieczeń tak, aby porty 5022 i zakres 11000 ~12000 były dla połączeń przychodzących i wychodzących z podsieci drugiego wystąpienia zarządzanego. Ma to na celu umożliwienie ruchu związanego z replikacją pomiędzy wystąpieniami.
 
    > [!IMPORTANT]
    > Nieprawidłowo skonfigurowane reguły zabezpieczeń sieciowej grupy zabezpieczeń prowadzą do zablokowanych operacji kopiowania bazy danych.
@@ -369,9 +369,9 @@ Po skonfigurowaniu grupy trybu failover między podstawowym i pomocniczym wystą
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Uaktualnianie lub obniżanie poziomu podstawowej bazy danych
 
-Możesz uaktualnić lub obniżyć podstawową bazę danych do innego rozmiaru obliczeniowego (w ramach tej samej warstwy usług, a nie między Ogólnego przeznaczenia i Krytyczne dla działania firmy) bez rozłączania pomocniczych baz danych. Podczas uaktualniania zalecamy najpierw uaktualnić wszystkie pomocnicze bazy danych, a następnie uaktualnić podstawową. W przypadku obniżenia poziomu należy odwrócić kolejność: najpierw Obniż poziom podstawowego, a następnie obniżyć wszystkie pomocnicze bazy danych. W przypadku uaktualnienia lub obniżenia poziomu bazy danych do innej warstwy usług to zalecenie jest wymuszane.
+Możesz uaktualnić lub obniżyć podstawową bazę danych do innego rozmiaru obliczeniowego (w ramach tej samej warstwy usług, a nie między Ogólnego przeznaczenia i Krytyczne dla działania firmy) bez rozłączania pomocniczych baz danych. Podczas uaktualniania zalecamy najpierw uaktualnić wszystkie pomocnicze bazy danych, a następnie uaktualnić podstawową. W przypadku obniżenia poziomu należy odwrócić kolejność: najpierw Obniż poziom podstawowego, a następnie obniżyć wszystkie pomocnicze bazy danych. W przypadku uaktualnienia lub obniżenia poziomu bazy danych do innej warstwy usługi to zalecenie jest wymuszane.
 
-Ta sekwencja jest zalecana, aby uniknąć problemu polegającego na tym, że pomocnicza w mniejszej jednostce SKU jest przeciążona i należy ją ponownie umieścić w procesie uaktualnienia lub obniżenia poziomu. Można również uniknąć problemu, tworząc podstawowy tylko do odczytu, przy kosztach, które mają wpływ na wszystkie obciążenia odczytu i zapisu do podstawowego.
+Ta sekwencja jest zalecana specjalnie po to, aby uniknąć problemu polegającego na tym, że wystąpienie pomocnicze z niższym poziomem jednostki SKU zostaje przeciążone i musi zostać ponownie rozmieszczone podczas procesu podwyższania lub obniżania poziomu. Można również uniknąć problemu, tworząc wystąpienie podstawowe tylko do odczytu, kosztem wpływu na wszystkie obciążenia odczytu i zapisu względem wystąpienia podstawowego.
 
 > [!NOTE]
 > Jeśli utworzono pomocniczą bazę danych w ramach konfiguracji grupy trybu failover, nie jest zalecane obniżenie poziomu pomocniczej bazy danych. Ma to na celu zapewnienie wystarczającej wydajności warstwy danych do przetwarzania zwykłego obciążenia po aktywowaniu trybu failover.

@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: 00eb064aaf549ee0d83d0cf7d9c9b47c2dc5ef78
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d0a5c1b5800bbc626453ba8896dc706a0cd5bfd4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827209"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324947"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server i DPM — często zadawane pytania
 
@@ -39,7 +39,7 @@ W przypadku serwerów programu DPM ze źródłami danych, które są chronione w
 
 ### <a name="are-there-recommendations-for-configuring-exclusions-for-antivirus-software"></a>Czy istnieją zalecenia dotyczące konfigurowania wykluczeń dla oprogramowania antywirusowego?
 
-Tak, zaleca się skonfigurowanie wykluczenia oprogramowania antywirusowego. Wyjątki dla programu DPM można znaleźć [w artykule uruchamianie oprogramowania antywirusowego na serwerze DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019). Wyjątki dla serwera usługi MAB można znaleźć w temacie [Konfigurowanie oprogramowania antywirusowego serwera serwera usługi MAB](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
+Tak, zaleca się skonfigurowanie wykluczenia oprogramowania antywirusowego. Wyjątki dla programu DPM można znaleźć [w artykule uruchamianie oprogramowania antywirusowego na serwerze DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server). Wyjątki dla serwera usługi MAB można znaleźć w temacie [Konfigurowanie oprogramowania antywirusowego serwera serwera usługi MAB](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## <a name="vmware-and-hyper-v-backup"></a>Kopia zapasowa oprogramowania VMware i funkcji Hyper-V
 

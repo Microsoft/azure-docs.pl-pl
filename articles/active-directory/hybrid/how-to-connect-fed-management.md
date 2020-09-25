@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dadffd6fe3e6b438b21900f957f0d4ef71bb23cb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cc0c8c40e370579100c562e0289c97e3f5ce4236
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661267"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274116"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Zarządzanie Active Directory Federation Servicesami i dostosowywanie ich przy użyciu Azure AD Connect
 W tym artykule opisano sposób zarządzania i dostosowywania Active Directory Federation Services (AD FS) przy użyciu programu Azure Active Directory Connect (Azure AD). Zawiera również inne typowe zadania AD FS, które mogą być konieczne do pełnej konfiguracji farmy AD FSowej.
@@ -52,11 +52,11 @@ Za pomocą Azure AD Connect można sprawdzić bieżącą kondycję AD FS i zaufa
    ![Naprawa usługi AAD i relacji zaufania usług ADFS](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
 2. Na stronie **Połącz z usługą Azure AD** podaj poświadczenia administratora globalnego usługi Azure AD, a następnie kliknij przycisk **dalej**.
-   ![Łączenie z usługą Azure AD](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
+   ![Zrzut ekranu przedstawiający stronę "łączenie się z usługą Azure AD" z przykładowymi poświadczeniami.](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
 
 3. Na stronie **poświadczenia dostępu zdalnego** wprowadź poświadczenia administratora domeny.
 
-   ![Poświadczenia dostępu zdalnego](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
+   ![Zrzut ekranu przedstawiający stronę "poświadczenia dostępu zdalnego" z przykładowymi poświadczeniami.](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
 
     Po kliknięciu **przycisku dalej**Azure AD Connect sprawdza kondycję certyfikatu i pokazuje wszelkie problemy.
 
@@ -64,7 +64,7 @@ Za pomocą Azure AD Connect można sprawdzić bieżącą kondycję AD FS i zaufa
 
     Strona **gotowy do konfiguracji** zawiera listę akcji, które zostaną wykonane w celu naprawy zaufania.
 
-    ![Wszystko gotowe do skonfigurowania](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
+    ![Zrzut ekranu przedstawiający stronę "gotowe do skonfigurowania" z listą akcji.](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
 
 4. Kliknij przycisk **Instaluj** , aby naprawić zaufanie.
 
@@ -98,7 +98,7 @@ Konfigurowanie alternatywnego identyfikatora logowania dla AD FS składa się z 
 
 2. Na stronie **Połącz z usługą Azure AD** wprowadź poświadczenia administratora globalnego dla usługi Azure AD, a następnie kliknij przycisk **dalej**.
 
-   ![Łączenie z usługą Azure AD](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
+   ![Zrzut ekranu przedstawiający stronę "łączenie się z usługą Azure AD" z wprowadzonymi przykładowymi poświadczeniami.](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
 3. Podaj poświadczenia administratora domeny.
 
@@ -106,9 +106,9 @@ Konfigurowanie alternatywnego identyfikatora logowania dla AD FS składa się z 
 
 4. Azure AD Connect pyta o hasło pliku PFX, który został podany podczas konfigurowania nowej farmy AD FS przy użyciu Azure AD Connect. Kliknij przycisk **Wprowadź hasło** , aby podać hasło dla pliku PFX.
 
-   ![Hasło certyfikatu](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
+   ![Zrzut ekranu przedstawiający stronę "Określ certyfikat SSL" z otwartym oknem "hasło certyfikatu".](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![Określanie certyfikatu TLS/SSL](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![Zrzut ekranu przedstawiający stronę "Określ certyfikat SSL" po wprowadzeniu hasła dla pliku PFX.](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. Na stronie **serwery AD FS** wprowadź nazwę serwera lub adres IP, który ma zostać dodany do farmy AD FS.
 
@@ -116,9 +116,9 @@ Konfigurowanie alternatywnego identyfikatora logowania dla AD FS składa się z 
 
 6. Kliknij przycisk **dalej**i przejdź przez ostateczną stronę **konfigurowania** . Po zakończeniu dodawania serwerów do farmy AD FS Azure AD Connect zostanie nadana opcja sprawdzenia łączności.
 
-   ![Wszystko gotowe do skonfigurowania](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
+   ![Zrzut ekranu przedstawiający stronę "gotowe do skonfigurowania" z listą akcji do wykonania po kliknięciu pozycji "Zainstaluj".](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
 
-    ![Instalacja zakończona](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
+    ![Zrzut ekranu przedstawiający stronę "zakończenie instalacji" z wyświetlonym komunikatem "Konfiguracja sieci intranet została pomyślnie zweryfikowana". ](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
 ## <a name="add-an-ad-fs-wap-server"></a><a name="addwapserver"></a>Dodawanie AD FS serwera WAP 
 
@@ -131,7 +131,7 @@ Konfigurowanie alternatywnego identyfikatora logowania dla AD FS składa się z 
 
 2. Podaj poświadczenia administratora globalnego platformy Azure.
 
-   ![Łączenie z usługą Azure AD](./media/how-to-connect-fed-management/wapserver2.PNG)
+   ![Zrzut ekranu przedstawiający stronę "Połącz z usługą Azure AD" z wprowadzonym przykładową nazwą użytkownika i hasłem.](./media/how-to-connect-fed-management/wapserver2.PNG)
 
 3. Na stronie **Określanie certyfikatu SSL** Podaj hasło dla pliku PFX, który został podany podczas konfigurowania farmy AD FS przy użyciu Azure AD Connect.
    ![Hasło certyfikatu](./media/how-to-connect-fed-management/WapServer3.PNG)
@@ -148,7 +148,7 @@ Konfigurowanie alternatywnego identyfikatora logowania dla AD FS składa się z 
 
 6. Na stronie **gotowy do konfiguracji** Kreator wyświetla listę akcji, które zostaną wykonane.
 
-   ![Wszystko gotowe do skonfigurowania](./media/how-to-connect-fed-management/WapServer7.PNG)
+   ![Zrzut ekranu przedstawiający stronę "gotowe do skonfigurowania" z listą akcji do wykonania.](./media/how-to-connect-fed-management/WapServer7.PNG)
 
 7. Kliknij przycisk **Instaluj** , aby zakończyć konfigurację. Po zakończeniu konfiguracji Kreator umożliwia zweryfikowanie łączności z serwerami. Kliknij przycisk **Weryfikuj** , aby sprawdzić łączność.
 

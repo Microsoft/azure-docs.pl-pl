@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 56a865de8cb1be079f4935ef2a8f840f10589b26
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550014"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305658"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu dla automatycznej aprowizacji użytkowników
 
@@ -126,7 +126,7 @@ Aby skonfigurować automatyczną obsługę administracyjną dla programu obsług
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. W polu **adres URL dzierżawy** wprowadź wartość **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** .  
+   a. W polu **adres URL dzierżawy** wprowadź wartość **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`** . Identyfikator konta usługi można uzyskać z adresu URL w przeglądarce, gdy użytkownik jest zalogowany do programu.
    b. W polu **token Secret** wprowadź wartość tokenu uwierzytelniania Standard scim, która została zapisana w kroku 6 sekcji "Konfigurowanie usługi dla aprowizacji".  
    c. Wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z serwerem programu. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi klienta ma uprawnienia *administratora* , a następnie spróbuj ponownie.
 
@@ -173,8 +173,8 @@ Aby uzyskać więcej informacji o sposobie odczytywania dzienników aprowizacji 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)

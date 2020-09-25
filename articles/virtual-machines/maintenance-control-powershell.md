@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 5cb504e10c9a1b10c5bad201f4f599a3c00992fe
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530764"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306943"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Kontroluj aktualizacje przy użyciu sterowania konserwacją i Azure PowerShell
 
@@ -66,6 +66,33 @@ Można wykonać zapytanie o dostępne konfiguracje konserwacji za pomocą polece
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Utwórz konfigurację konserwacji z zaplanowanym oknem (w wersji zapoznawczej)
+
+
+> [!IMPORTANT]
+> Funkcja zaplanowanego okna jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Użyj New-AzMaintenanceConfiguration, aby utworzyć konfigurację konserwacji z zaplanowanym oknem, gdy platforma Azure zastosuje aktualizacje do zasobów. W tym przykładzie zostanie utworzona konfiguracja konserwacji o nazwie Moja config z zaplanowanym oknem 5 godzin w czwartym poniedziałek każdego miesiąca. Po utworzeniu zaplanowanego okna nie trzeba już ręcznie stosować aktualizacji.
+
+```azurepowershell-interactive
+$config = New-AzMaintenanceConfiguration `
+   -ResourceGroup $RGName `
+   -Name $MaintenanceConfig `
+   -MaintenanceScope Host `
+   -Location $location `
+   -StartDateTime "2020-10-01 00:00" `
+   -TimeZone "Pacific Standard Time" `
+   -Duration "05:00" `
+   -RecurEvery "Month Fourth Monday"
+```
+> [!IMPORTANT]
+> **Czas trwania** konserwacji nie może być dłuższy niż *2 godziny* . **Cykl** konserwacji musi być ustawiony na co najmniej raz w ciągu 35 dni.
+
+**Cykl** konserwacji można wyrazić jako harmonogram dzienny, tygodniowy lub miesięczny. Dzienne przykłady harmonogramu to recurEvery: Day, recurEvery: 3Days. Cotygodniowe przykłady harmonogramu to recurEvery: 3Weeks, recurEvery: tydzień Sobota, niedziela. Miesięczne przykłady harmonogramu to recurEvery: Month day23, day24, recurEvery: Month Last niedziela, recurEvery: miesiąc czwarty poniedziałek.
+
 
 ## <a name="assign-the-configuration"></a>Przypisz konfigurację
 

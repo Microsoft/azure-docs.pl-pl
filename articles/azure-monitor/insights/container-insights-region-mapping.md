@@ -1,15 +1,15 @@
 ---
 title: Azure Monitor mapowania regionów kontenerów
-description: W tym artykule opisano mapowania regionów obsługiwane między Azure Monitor for Containers, Log Analytics Workspace i metrykami niestandardowymi.
+description: Opisuje mapowania regionów obsługiwane między Azure Monitor dla kontenerów, Log Analytics obszaru roboczego i metryk niestandardowych.
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3e8ead78c5e0e534e07c1e2ab0e25eb3f5a90c38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e3b8635c70dfdf33b0a062be80c948cd77923cc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194989"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272909"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Mapowania regionów obsługiwane przez Azure Monitor dla kontenerów
 
@@ -17,7 +17,8 @@ ms.locfileid: "84194989"
 
 ## <a name="log-analytics-workspace-supported-mappings"></a>Mapowania obsługiwane w obszarze roboczym Log Analytics
 
-Zasoby klastra AKS lub obszar roboczy Log Analytics mogą znajdować się w innych regionach, a w poniższej tabeli przedstawiono mapowania.
+Obsługiwane regiony AKS są wymienione w obszarze [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service). Obszar roboczy Log Analytics musi znajdować się w tym samym regionie, z wyjątkiem regionów wymienionych w poniższej tabeli. Obejrzyj [Informacje o wersji AKS](https://github.com/Azure/AKS/releases) dla aktualizacji.
+
 
 |**Region klastra AKS** | **Log Analytics region obszaru roboczego** |
 |-----------------------|------------------------------------|
@@ -25,43 +26,24 @@ Zasoby klastra AKS lub obszar roboczy Log Analytics mogą znajdować się w inny
 |SouthAfricaNorth |WestEurope |
 |SouthAfricaWest |WestEurope |
 |**Australia** | |
-|AustraliaEast |AustraliaEast |
-|AustraliaCentral |AustraliaCentral |
 |AustraliaCentral2 |AustraliaCentral |
-|AustraliaEast |AustraliaEast |
-|**Azja i Pacyfik** | |
-|EastAsia |EastAsia |
-|SoutheastAsia |SoutheastAsia |
 |**Brazylia** | |
 |BrazilSouth | SouthCentralUS |
 |**Kanada** ||
-|CanadaCentral |CanadaCentral |
 |CanadaEast |CanadaCentral |
 |**Europa** | |
-|FranceCentral |FranceCentral |
 |FranceSouth |FranceCentral |
-|NorthEurope |NorthEurope |
-|UKSouth |UKSouth |
 |UKWest |UKSouth |
-|WestEurope |WestEurope |
 |**Indie** | |
-|CentralIndia |CentralIndia |
 |SouthIndia |CentralIndia |
 |WestIndia |CentralIndia |
 |**Japonia** | |
-|JapanEast |JapanEast |
 |JapanWest |JapanEast |
 |**Korea** | |
-|KoreaCentral |KoreaCentral |
 |KoreaSouth |KoreaCentral |
 |**USA** | |
-|CentralUS |CentralUS|
-|EastUS |EastUS |
-|EastUS2 |EastUS2 |
-|WestUS |WestUS |
-|WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|Wschodnie<sup>1</sup>|
-|US Gov Wirginia |US Gov Wirginia |
+
 
 <sup>1</sup> ze względu na ograniczenia pojemności region nie jest dostępny podczas tworzenia nowych zasobów. Obejmuje obszar roboczy Log Analytics. Jednak istniejące połączone zasoby w regionie powinny być nadal wykonywane.
 

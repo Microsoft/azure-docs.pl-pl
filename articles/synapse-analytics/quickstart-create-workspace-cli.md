@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: ''
 ms.date: 08/25/2020
 ms.author: alehall
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7f0bf7d409c5e47abaaa5b59271f55952d8ccff4
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.reviewer: jrasnick
+ms.openlocfilehash: 065e24c12e0750cd7a1f3ce2d4cad5c7ad4b95df
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260717"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Szybki Start: Tworzenie obszaru roboczego usługi Azure Synapse przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -65,7 +65,7 @@ az extension add --name synapse
     |StorageAccountResourceGroup| Nazwa istniejącej grupy zasobów konta magazynu ADLS Gen2. |
     |FileShareName| Nazwa istniejącego systemu plików magazynu.|
     |SynapseResourceGroup| Wybierz nową nazwę grupy zasobów usługi Azure Synapse. |
-    |Region (Region)| Wybierz jeden z [regionów świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/geographies/#overview). |
+    |Region| Wybierz jeden z [regionów świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/geographies/#overview). |
     |SynapseWorkspaceName| Wybierz unikatową nazwę dla nowego obszaru roboczego usługi Azure Synapse. |
     |Sqluser| Wybierz wartość nowej nazwy użytkownika.|
     |SqlPassword| Wybierz bezpieczne hasło.|
