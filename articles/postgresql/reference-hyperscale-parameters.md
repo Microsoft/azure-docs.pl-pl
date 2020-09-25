@@ -7,23 +7,23 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 2b4d3d44cb4e78f52ab03f31e58df5e66118ae25
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 07f966c7b0be542f848f1a0a4eaf2b5549735b4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441514"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336245"
 ---
 # <a name="server-parameters"></a>Parametry serwera
 
 Istnieją różne parametry serwera, które mają wpływ na zachowanie funkcji Citus (skala), zarówno ze standardowego PostgreSQL, jak i dla skalowania (Citus).
 Te parametry można ustawić w Azure Portal dla grupy serwerów Citus. W kategorii **Ustawienia** wybierz kolejno pozycje **Parametry węzła procesu roboczego** lub **węzeł koordynatora**. Te strony umożliwiają ustawienie parametrów dla wszystkich węzłów procesu roboczego lub tylko dla węzła koordynatora.
 
-## <a name="hyperscale-parameters"></a>Parametry przeskalowania
+## <a name="hyperscale-citus-parameters"></a>Parametry przeskalowania (Citus)
 
 > [!NOTE]
 >
-> Grupy serwerów ze skalowaniem ze starszymi wersjami aparatu Citus mogą nie oferować wszystkich parametrów wymienionych poniżej.
+> Grupy serwerów ze skalowaniem (Citus) korzystające ze starszych wersji aparatu Citus mogą nie oferować wszystkich parametrów wymienionych poniżej.
 
 ### <a name="general-configuration"></a>Konfiguracja ogólna
 

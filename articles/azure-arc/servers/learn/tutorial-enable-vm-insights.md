@@ -2,17 +2,17 @@
 title: Samouczek — monitorowanie maszyny hybrydowej za pomocą Azure Monitor dla maszyn wirtualnych
 description: Dowiedz się, jak zbierać i analizować dane z maszyny hybrydowej w Azure Monitor.
 ms.topic: tutorial
-ms.date: 08/12/2020
-ms.openlocfilehash: 76df7d403fdce6fc3ac77c0b24849aedffb57ce0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/23/2020
+ms.openlocfilehash: 97ab390570f434295a5aa836ef994640f6dc14f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213172"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335419"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Samouczek: monitorowanie maszyny hybrydowej za pomocą Azure Monitor dla maszyn wirtualnych
 
-[Azure monitor](../overview.md) może zbierać dane bezpośrednio z hybrydowych maszyn wirtualnych do log Analytics obszaru roboczego w celu uzyskania szczegółowej analizy i korelacji. Zazwyczaj pociąga to za sobą zainstalowanie [agenta log Analytics](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) na maszynie przy użyciu skryptu, ręcznie lub zautomatyzowanej metody zgodnie ze standardami zarządzania konfiguracją. Serwery z obsługą ARC (wersja zapoznawcza) ostatnio wprowadzono obsługę instalacji [rozszerzeń maszyn wirtualnych](../manage-vm-extensions.md) log Analytics i agenta zależności dla systemów Windows i Linux, umożliwiając Azure monitor zbieranie danych z maszyn wirtualnych spoza platformy Azure.
+[Azure monitor](../overview.md) może zbierać dane bezpośrednio z hybrydowych maszyn wirtualnych do log Analytics obszaru roboczego w celu uzyskania szczegółowej analizy i korelacji. Zazwyczaj pociąga to za sobą zainstalowanie [agenta log Analytics](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) na maszynie przy użyciu skryptu, ręcznie lub zautomatyzowanej metody zgodnie ze standardami zarządzania konfiguracją. Serwery z włączonymi łukiemmi zostały ostatnio wprowadzone, aby zainstalować Log Analytics i [rozszerzenia maszyny wirtualnej](../manage-vm-extensions.md) agenta zależności dla systemów Windows i Linux, umożliwiając Azure monitor zbieranie danych z maszyn wirtualnych spoza platformy Azure.
 
 W tym samouczku pokazano, jak skonfigurować i zbierać dane z maszyn wirtualnych z systemem Linux lub Windows przez włączenie Azure Monitor dla maszyn wirtualnych po uproszczonym zestawie kroków, co usprawni pracę i trwa krótszy czas.  
 

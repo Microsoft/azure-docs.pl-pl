@@ -4,21 +4,21 @@ description: Azure Security test — zarządzanie i strategia
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e8a5196bf71712caae1218933ed13345f4cecd99
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 255e5533dc19036624042a0b82116c4dc107d762
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059275"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336228"
 ---
-# <a name="security-control-governance-and-strategy"></a>Kontrola zabezpieczeń: zarządzanie i strategia
+# <a name="security-control-v2-governance-and-strategy"></a>Kontrola zabezpieczeń v2: ładu i strategia
 
-Tworzenie kopii zapasowych i odzyskiwanie obejmuje kontrolki, aby zapewnić, że kopie zapasowe danych i konfiguracji w różnych warstwach usług są wykonywane, weryfikowane i chronione.
+Kierownictwo i strategia zapewniają wskazówki dotyczące zapewnienia spójnej strategii zabezpieczeń i udokumentowanego podejścia do nadzoru w zakresie zabezpieczeń i zapewnienia bezpieczeństwa, w tym ustanawiania ról i obowiązków związanych z różnymi funkcjami zabezpieczeń w chmurze, ujednoliconą strategią techniczną oraz obsługą zasad i standardów.
 
-## <a name="gs-1-define-asset-management-and-protection-strategy"></a>GS-1: Zdefiniuj zarządzanie zasobami i strategię ochrony
+## <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definiowanie strategii zarządzania zasobami i ochrony danych
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
@@ -44,47 +44,70 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 -   Odpowiednie standardy kryptograficzne
 
-Uwaga: podejście do zarządzania zasobami i ochrony dla chmury i lokalnego może się różnić w zależności od wielu czynników, takich jak Usługa aplikacji/model hostingu, zagrożenia biznesowe i wymagania dotyczące zgodności. 
-
+Aby uzyskać więcej informacji, zobacz następujące odwołania:
 - [Zalecenie dotyczące architektury zabezpieczeń platformy Azure — magazyn, dane i szyfrowanie](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
 - [Podstawy zabezpieczeń platformy Azure — zabezpieczenia, szyfrowanie i magazyn danych platformy Azure](../fundamentals/encryption-overview.md)
 
 - [Środowisko wdrażania chmury — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Test wydajności Azure Security — zarządzanie zasobami](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Test wydajności Azure Security — zarządzanie zasobami](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
-- [Test porównawczy zabezpieczeń platformy Azure — Ochrona danych](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Test porównawczy zabezpieczeń platformy Azure — Ochrona danych](/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Wszyscy uczestnicy projektu](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-2-define-security-posture-management-strategy"></a>GS-2: Definiowanie strategii zarządzania Stanami zabezpieczeń
+## <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: Definiowanie strategii segmentacji przedsiębiorstwa
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| GS-2 | 20, 3, 5 | RA, CM, SC |
+| GS-2 | 4, 9, 16 | AC, CA, SC |
+
+Ustanów strategię całego przedsiębiorstwa do segmentacji dostępu do zasobów przy użyciu kombinacji tożsamości, sieci, aplikacji, subskrypcji, grupy zarządzania i innych kontrolek.
+
+Należy starannie zrównoważyć potrzebę rozdzielania zabezpieczeń, aby umożliwić codzienne działanie systemów, które muszą komunikować się ze sobą i uzyskiwać dostęp do danych.
+
+Upewnij się, że strategia segmentacji jest zaimplementowana spójnie między typami formantów, w tym zabezpieczeniami sieci, modelami tożsamości i dostępu, a także z kontrolkami dostępu i dostępem do aplikacji.
+
+- [Wskazówki dotyczące strategii segmentacji na platformie Azure (wideo)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
+
+- [Wskazówki dotyczące strategii segmentacji na platformie Azure (dokument)](/security/compass/governance#enterprise-segmentation-strategy)
+
+- [Wyrównaj segmentację sieci przy użyciu strategii segmentacji przedsiębiorstwa](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
+
+**Odpowiedzialność**: klient
+
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+
+- [Wszyscy uczestnicy projektu](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
+
+## <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: Definiowanie strategii zarządzania stan zabezpieczeń
+
+| Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
+|--|--|--|--|
+| GS-3 | 20, 3, 5 | RA, CM, SC |
 
 Nieustannie mierz i ograniczaj ryzyko dla poszczególnych zasobów i środowiska, w którym są hostowane. Ustalanie priorytetów zasobów o wysokiej wartości i wysoce narażonych obszarów ataków, takich jak opublikowane aplikacje, punkty danych przychodzących i wychodzących sieci, punkty końcowe użytkowników i administratorów itp.
 
-- [Azure Security test — stan i zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Azure Security test — stan i zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Wszyscy uczestnicy projektu](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-3-align-organization-roles-responsibilities-and-accountabilities"></a>GS-3: Wyrównaj role organizacji, obowiązki i accountabilities
+## <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: Wyrównaj role organizacji, obowiązki i accountabilities
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| GS-3 | Nie dotyczy | PL, PM |
+| GS-4 | Nie dotyczy | PL, PM |
 
-Zadbaj o to, aby udokumentować i komunikować się z przejrzystą strategią dotyczącą ról i obowiązków w organizacji zabezpieczeń. Ustalanie priorytetów w celu zapewnienia jasnej odpowiedzialności za decyzje dotyczące zabezpieczeń, edukację na potrzeby wspólnego modelu odpowiedzialności oraz edukację techniczną dla bezpieczeństwa chmury. 
+Zadbaj o to, aby udokumentować i komunikować się z przejrzystą strategią dotyczącą ról i obowiązków w organizacji zabezpieczeń. Ustalaj priorytety w celu zapewnienia jasnej odpowiedzialności za decyzje dotyczące zabezpieczeń, przenosząc wszystkie osoby na współużytkowany model odpowiedzialności i przeszkolej zespoły techniczne dotyczące technologii, aby zabezpieczyć chmurę.
 
 - [Najlepsze rozwiązanie w zakresie zabezpieczeń Azure 1 — ludzie: Edukacja zespołów w podróży w zakresie zabezpieczeń w chmurze](https://aka.ms/AzSec1)
 
@@ -94,15 +117,15 @@ Zadbaj o to, aby udokumentować i komunikować się z przejrzystą strategią do
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Wszyscy uczestnicy projektu](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-4-define-network-security-strategy"></a>GS-4: Definiowanie strategii zabezpieczeń sieci
+## <a name="gs-5-define-network-security-strategy"></a>GS-5: Definiowanie strategii zabezpieczeń sieci
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| GS-4 | 9 | URZĄD CERTYFIKACJI, SC |
+| GS-5 | 9 | URZĄD CERTYFIKACJI, SC |
 
 Ustanów podejście zabezpieczeń sieci platformy Azure jako część ogólnej strategii kontroli dostępu zabezpieczeń w organizacji.  
 
@@ -120,11 +143,11 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 -   Aktualne artefakty zabezpieczeń sieci (np. diagramy sieciowe, Architektura sieci odniesienia)
 
-Uwaga: podejście zabezpieczeń sieci dla chmury i lokalnego może się różnić w zależności od wielu czynników, takich jak model usługi aplikacji, ekspozycja na zagrożenia i konfiguracja sieci hybrydowej.
+Aby uzyskać więcej informacji, zobacz następujące odwołania:
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 11 — architektura. Pojedyncza ujednolicona strategia zabezpieczeń](https://aka.ms/AzSec11)
 
-- [Test porównawczy zabezpieczeń platformy Azure — Zabezpieczenia sieci](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Test porównawczy zabezpieczeń platformy Azure — Zabezpieczenia sieci](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
 - [Omówienie zabezpieczeń sieci platformy Azure](../fundamentals/network-overview.md)
 
@@ -132,15 +155,15 @@ Uwaga: podejście zabezpieczeń sieci dla chmury i lokalnego może się różni�
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Wszyscy uczestnicy projektu](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-5-define-identity-and-privileged-access-strategy"></a>GS-5: Definiowanie strategii dostępu Identity i Privileged Access
+## <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: Definiowanie strategii dostępu Identity i Privileged Access
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| GS-5 | 16, 4 | AC, AU, SC |
+| GS-6 | 16, 4 | AC, AU, SC |
 
 Ustanów rolę platformy Azure i dostęp uprzywilejowany jako część ogólnej strategii kontroli dostępu zabezpieczeń w organizacji.  
 
@@ -156,11 +179,11 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 -   Przegląd tożsamości i dostępu użytkownika oraz proces uzgadniania
 
-Uwaga: podejście do Twojej tożsamości i uprzywilejowanego dostępu do chmury i lokalnego może się różnić w zależności od wielu czynników, takich jak ścieżka dostępu do danych/aplikacji, model usługi i strategia dostępu klientów/partnerów.
+Aby uzyskać więcej informacji, zobacz następujące odwołania:
 
-- [Test porównawczy zabezpieczeń Azure — Zarządzanie tożsamościami](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Test porównawczy zabezpieczeń Azure — Zarządzanie tożsamościami](/azure/security/benchmarks/security-benchmark-v2-identity-management)
 
-- [Test porównawczy zabezpieczeń platformy Azure — uprzywilejowany dostęp](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Test porównawczy zabezpieczeń platformy Azure — uprzywilejowany dostęp](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 11 — architektura. Pojedyncza ujednolicona strategia zabezpieczeń](https://aka.ms/AzSec11)
 
@@ -168,15 +191,15 @@ Uwaga: podejście do Twojej tożsamości i uprzywilejowanego dostępu do chmury 
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Wszyscy uczestnicy projektu](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-6-define-logging-and-threat-response-strategy"></a>GS-6: Definiowanie strategii rejestrowania i reagowania na zagrożenia
+## <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: Definiowanie strategii rejestrowania i reagowania na zagrożenia
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| GS-6 | 19 | IR, AU, RA, SC |
+| GS-7 | 19 | IR, AU, RA, SC |
 
 Ustanów strategię rejestrowania i reagowania na zagrożenia, aby szybko wykrywać i rozwiązywać zagrożenia oraz spełnić wymagania dotyczące zgodności. Ustalaj priorytety, dostarczając analityków z alertami o wysokiej jakości i bezproblemowe środowisko, aby umożliwić im skoncentrowanie się na zagrożeniach, a nie na poziomie integracji i ręcznej. 
 
@@ -196,11 +219,10 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 -   Procesy obsługi zdarzeń i działań po zdarzeniu, takie jak zdobyte doświadczenia i przechowywanie dowodów
 
-Uwaga: sposób rejestrowania i wykrywania zagrożeń w chmurze i lokalnie może się różnić w zależności od wielu czynników, takich jak wymagania dotyczące zgodności, poziom zagrożenia oraz możliwość wykrywania i korygowania. 
+Aby uzyskać więcej informacji, zobacz następujące odwołania:
+- [Test porównawczy zabezpieczeń platformy Azure — rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
-- [Test porównawczy zabezpieczeń platformy Azure — rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
-
-- [Test porównawczy zabezpieczeń platformy Azure — odpowiedź na zdarzenie](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Test porównawczy zabezpieczeń platformy Azure — odpowiedź na zdarzenie](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
 - [Azure Security Best Practice 4 — proces. Aktualizowanie procesów odpowiedzi na zdarzenia dla chmury](https://aka.ms/AzSec11)
 
@@ -210,15 +232,15 @@ Uwaga: sposób rejestrowania i wykrywania zagrożeń w chmurze i lokalnie może 
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Wszyscy uczestnicy projektu](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-7-define-backup-and-recovery-strategy"></a>GS-7: Definiowanie strategii tworzenia kopii zapasowych i odzyskiwania
+## <a name="gs-8-define-backup-and-recovery-strategy"></a>GS-8: Definiowanie strategii tworzenia kopii zapasowych i odzyskiwania
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| GS-7 | 10 | CP |
+| GS-8 | 10 | CP |
 
 Utwórz strategię tworzenia kopii zapasowych i odzyskiwania na platformie Azure dla swojej organizacji. 
 
@@ -230,9 +252,8 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 
 -   Ochrona kopii zapasowych przy użyciu funkcji kontroli dostępu i szyfrowania danych
 
-Uwaga: podejście do tworzenia kopii zapasowych i odzyskiwania w chmurze i lokalnie może się różnić w zależności od wielu czynników, takich jak nadmiarowość infrastruktury, Usługa aplikacji/model hostingu i wymagania dotyczące zgodności.
-
-- [Azure Security test — tworzenie kopii zapasowych i odzyskiwanie](/azure/security/benchmarks/security-controls-v2-backup-recovery)
+Aby uzyskać więcej informacji, zobacz następujące odwołania:
+- [Azure Security test — tworzenie kopii zapasowych i odzyskiwanie](/azure/security/benchmarks/security-benchmark-v2-backup-recovery)
 
 - [Środowisko platformy Azure — tworzenie kopii zapasowych i odzyskiwanie po awarii dla aplikacji platformy Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
 
@@ -240,7 +261,7 @@ Uwaga: podejście do tworzenia kopii zapasowych i odzyskiwania w chmurze i lokal
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Wszyscy uczestnicy projektu](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

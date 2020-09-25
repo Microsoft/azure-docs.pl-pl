@@ -3,18 +3,18 @@ title: 'Szybki Start: usługa Azure Blob Storage dla języka JavaScript v10 w pr
 description: Dowiedz się, jak przekazywać, wyświetlać i usuwać obiekty blob za pomocą zestawu SDK języka JavaScript v10 na stronie HTML.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.service: storage
 ms.author: mhopkins
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 3982e54d06f2e84c4e8e8703e70e9a26773c389a
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 134408704d54479fbbe0dfb5094f2920fa2e74be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429209"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336194"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -355,7 +355,7 @@ Ten kod wywołuje funkcję [BlobURL. Delete](https://docs.microsoft.com/javascri
 
 W tym momencie możesz uruchomić stronę i eksperyment, aby poznać sposób działania usługi BLOB Storage. Jeśli wystąpią błędy (na przykład podczas próby wyświetlenia listy plików przed utworzeniem kontenera), w okienku **stan** zostanie wyświetlony komunikat o błędzie otrzymany. Możesz również ustawić punkty przerwania w kodzie JavaScript, aby przeanalizować wartości zwracane przez interfejsy API magazynu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby wyczyścić zasoby utworzone w ramach tego przewodnika Szybki Start, przejdź do [Azure Portal](https://portal.azure.com) i Usuń grupę zasobów utworzoną w sekcji wymagania wstępne.
 

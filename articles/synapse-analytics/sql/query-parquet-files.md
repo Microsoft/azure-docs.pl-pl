@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496240"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288311"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików Parquet przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ W tym artykule dowiesz się, jak napisać zapytanie przy użyciu programu SQL na
 
 ## <a name="quickstart-example"></a>Przykład szybkiego startu
 
-`OPENROWSET`funkcja umożliwia odczytywanie zawartości pliku Parquet, podając adres URL pliku.
+`OPENROWSET` funkcja umożliwia odczytywanie zawartości pliku Parquet, podając adres URL pliku.
 
 ### <a name="read-parquet-file"></a>Odczytaj plik Parquet
 
@@ -57,7 +57,7 @@ Jeśli źródło danych jest chronione za pomocą klucza SAS lub tożsamości ni
 
 ### <a name="explicitly-specify-schema"></a>Jawnie określ schemat
 
-`OPENROWSET`umożliwia jawne Określanie kolumn, które mają być odczytywane z klauzuli File using `WITH` :
+`OPENROWSET` umożliwia jawne Określanie kolumn, które mają być odczytywane z klauzuli File using `WITH` :
 
 ```sql
 select top 10 *
@@ -182,7 +182,7 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | ELEMENTEM |INT (8, FAŁSZ) |tinyint |
 | ELEMENTEM |INT (16, FAŁSZ) |int |
 | ELEMENTEM |INT (32, false) |bigint |
-| ELEMENTEM |DATE |date |
+| ELEMENTEM |DATE |data |
 | ELEMENTEM |DOKŁADNOŚCI |decimal |
 | ELEMENTEM |CZAS (MŁYNER)|time |
 | INT64 |INT (64, true) |bigint |

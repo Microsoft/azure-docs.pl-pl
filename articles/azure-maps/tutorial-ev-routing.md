@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: kierowanie pojazdów elektrycznych przy użyciu Azure Notebooks (Python) | Mapy Microsoft Azure'
-description: Kierowanie pojazdów elektrycznych przy użyciu Microsoft Azure Maps Routing interfejsów API i Azure Notebooks.
+description: Samouczek dotyczący sposobu kierowania pojazdami elektrycznymi przy użyciu Microsoft Azure Maps Routing interfejsów API i Azure Notebooks
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 506429f51ac442b73adea98058a833f52a728c72
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 28fcdc992f98ff380467718314148984559a7fee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639753"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335232"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Samouczek: kierowanie pojazdów elektrycznych przy użyciu Azure Notebooks (Python)
 
@@ -387,8 +387,6 @@ display(Image(staticMapImage))
 
 ![Mapa pokazująca trasę](./media/tutorial-ev-routing/route.png)
 
-## <a name="next-steps"></a>Następne kroki
-
 W tym samouczku przedstawiono sposób bezpośredniego Azure Maps wywoływania interfejsów API REST i wizualizacji danych Azure Maps przy użyciu języka Python.
 
 Aby poznać Azure Maps interfejsów API, które są używane w tym samouczku, zobacz:
@@ -399,7 +397,11 @@ Aby poznać Azure Maps interfejsów API, które są używane w tym samouczku, zo
 * [Renderowanie — Pobieranie obrazu mapy](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Macierz po trasie](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Pobierz wskazówki dotyczące trasy](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
+* [Interfejsy API REST Azure Maps](https://docs.microsoft.com/azure/azure-maps/consumption-model)
 
-Aby uzyskać pełną listę Azure Maps interfejsów API REST, zobacz [Azure Maps interfejsów API REST](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat Azure Notebooks, zobacz [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+Aby dowiedzieć się więcej na temat Azure Notebooks, zobacz
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

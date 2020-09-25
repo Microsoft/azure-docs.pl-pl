@@ -1,20 +1,20 @@
 ---
-title: 'Samouczek: Tworzenie geofencingu i śledzenie urządzeń na Azure Maps'
-description: Dowiedz się, jak skonfigurować geoogrodzenie. Zobacz, jak śledzić urządzenia względem geoogrodzenia przy użyciu usługi przestrzennej Azure Maps.
+title: 'Samouczek: Tworzenie geoogrodzenia i śledzenie urządzeń na mapie Microsoft Azure'
+description: Samouczek dotyczący sposobu konfigurowania geoogrodzenia. Zobacz, jak śledzić urządzenia względem geoogrodzenia przy użyciu usługi przestrzennej Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 8/11/2020
+ms.date: 8/20/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b374bbe086281c7f7914334be6ca275f0fd05b7f
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 7a0c39b6d2369a1279fee3905083f0660a4aabb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335198"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Samouczek: Konfigurowanie geofencingu przy użyciu usługi Azure Maps
 
@@ -254,7 +254,7 @@ Poniższe kroki pokazują, jak utworzyć subskrypcję zdarzeń dla zdarzeń wej�
 
     :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Zrzut ekranu przedstawiający szczegóły subskrypcji zdarzeń Azure Maps.":::
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 Powtórz kroki 1-4 dla punktu końcowego aplikacji logiki, który został utworzony w poprzedniej sekcji. W kroku 3 Upewnij się, że wybrano opcję `Geofence Exited` jako typ zdarzenia.
 
@@ -429,14 +429,14 @@ W powyższej odpowiedzi GEOJSON urządzenie pozostawało w głównym ogrodzeniu 
 
 W powyższej odpowiedzi GEOJSON sprzęt pozostawał w głównym ogrodzeniu lokacji, ale zakończył granicę geolokacji. Należy jednak zauważyć, że `userTime` wartość jest po wartości `expiredTime` zdefiniowanej w danych geoogrodzenia. W związku z tym `isEventPublished` parametr jest ustawiany na `false` , a program Operations Manager nie otrzymuje powiadomienia e-mail.
 
-### <a name="location-547637988-1221338344"></a>Lokalizacja 5 (47.637988,-122,1338344)
+### <a name="location-5-4763799--122134505"></a>Lokalizacja 5 (47,63799,-122,134505)
 
 1. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** dla żądania. Ustaw *lokalizację na 5*. Wybierz kolekcję utworzoną w [sekcji Przekaż dane GEOnotacji GEOJSON](#upload-geofencing-geojson-data), a następnie wybierz pozycję **Zapisz**.
 
 2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. Pamiętaj, aby zamienić `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji na swój podstawowy i `{udid}` `udid` zapisany w [sekcji przekazywanie geonotacji GEOJSON](#upload-geofencing-geojson-data).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 3. Wybierz pozycję **Wyślij**. Poniższy GEOJSON zostanie wyświetlony w oknie odpowiedzi:
@@ -469,13 +469,10 @@ W powyższej odpowiedzi GEOJSON sprzęt pozostawał w głównym ogrodzeniu lokac
 
 W powyższej odpowiedzi GEOJSON sprzęt zakończył geoogrodzenie lokacji głównej. W związku z tym `isEventPublished` parametr jest ustawiany na `true` , a program Operations Manager odbiera powiadomienie e-mail z informacją o tym, że urządzenie zakończyło geoogrodzenie.
 
+
+[Powiadomienia e-mail można także wysyłać przy użyciu Event Grid i Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) i sprawdzić [obsługiwane programy obsługi zdarzeń w Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers) przy użyciu Azure Maps.
+
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Obsługa typów zawartości w Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
-
-> [!div class="nextstepaction"]
-> [Wysyłaj powiadomienia e-mail przy użyciu Event Grid i Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
-
-> [!div class="nextstepaction"]
-> [Obsługiwane programy obsługi zdarzeń w Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers)

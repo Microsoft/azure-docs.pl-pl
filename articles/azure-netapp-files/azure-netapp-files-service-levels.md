@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 09/22/2019
 ms.author: b-juche
-ms.openlocfilehash: 639f1e09fdb5603965209e5b5ee6c224ad238b76
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 818b3b59b1113875b6486ffe64bc8d2d30d613d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325468"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Poziomy usług dla usługi Azure NetApp Files
 Poziomy usług są atrybutem puli pojemności. Poziomy usług są zdefiniowane i odróżniane przez maksymalną przepustowość dla woluminu w puli pojemności na podstawie przydziału przypisanego do woluminu.
@@ -30,29 +30,47 @@ Azure NetApp Files obsługuje trzy poziomy usługi: *Ultra*, *Premium*i *Standar
 
 * <a name="Ultra"></a>Ultra Storage
 
-    Warstwa Ultra Storage zapewnia do 128 MiB/s przepływność na 1 TiB przydzielonego przydziału woluminu. 
+    Warstwa Ultra Storage zapewnia do 128 MiB/s przepływność na 1 TiB pojemności. 
 
 * <a name="Premium"></a>Premium Storage
 
-    Warstwa magazynu Premium Storage zapewnia do 64 MiB/s przepływność na 1 TiB przydzielonego przydziału woluminu. 
+    Warstwa magazynu Premium Storage zapewnia do 64 MiB/s przepływność na 1 TiB pojemności. 
 
 * <a name="Standard"></a>Magazyn w warstwie Standardowa
 
-    Standardowa warstwa magazynowania oferuje do 16 MiB/s przepływność na 1 TiB przydzielonego przydziału woluminu.
+    Standardowa warstwa magazynowania oferuje do 16 MiB/s przepływność na 1 TiB pojemności.
 
 ## <a name="throughput-limits"></a>Limity przepływności
 
 Limit przepływności dla woluminu jest określany przez połączenie następujących czynników:
 * Poziom usługi puli pojemności, do której należy wolumin
 * Przydział przypisany do woluminu  
+* Typ*QoS (* autolub *ręczny*) puli pojemności  
 
-Koncepcje te przedstawiono na poniższym diagramie:
+### <a name="throughput-limit-examples-of-volumes-in-an-auto-qos-capacity-pool"></a>Przykładowe limity przepływności woluminów w puli pojemności usługi autoqos
+
+Na poniższym diagramie przedstawiono przykładowe limity przepływności woluminów w puli wydajności autoqos:
 
 ![Ilustracja poziomu usługi](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
 
-W powyższym przykładzie 1 wolumin z puli pojemności w warstwie Premium Storage, do której przypisano 2 TiB przydziału, zostanie przypisany limit przepływności równy 128 MiB/s (2 TiB * 64 MiB/s). Ten scenariusz dotyczy niezależnie od rozmiaru puli pojemności lub rzeczywistego zużycia woluminu.
+* W powyższym przykładzie 1 wolumin z puli pojemności usługi w warstwie Premium z przypisaną 2 TiB przydziału zostanie przypisany do limitu przepływności wynoszącego 128 MiB/s (2 TiB * 64 MiB/s). Ten scenariusz dotyczy niezależnie od rozmiaru puli pojemności lub rzeczywistego zużycia woluminu.
 
-W przykładzie 2 powyżej wolumin z puli pojemności w warstwie magazynu Premium przypisany 100 GiB przydziału zostanie przypisany limit przepływności równy 6,25 MiB/s (0,09765625 TiB * 64 MiB/s). Ten scenariusz dotyczy niezależnie od rozmiaru puli pojemności lub rzeczywistego zużycia woluminu.
+* W przykładzie 2 powyżej wolumin z puli usługi autoqos z obsługą warstwy Premium, do której przypisano 100 GiB przydziału, zostanie przypisany limit przepływności równy 6,25 MiB/s (0,09765625 TiB * 64 MiB/s). Ten scenariusz dotyczy niezależnie od rozmiaru puli pojemności lub rzeczywistego zużycia woluminu.
+
+### <a name="throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool"></a>Przykładowe limity przepływności woluminów w ręcznej puli pojemności usługi QoS 
+
+W przypadku korzystania z ręcznej puli pojemności usługi QoS można niezależnie przypisać pojemność i przepływność woluminu. Podczas tworzenia woluminu w ręcznej puli pojemności usługi QoS można określić wartość przepływności (MiB/S). Całkowita przepływność przypisana do woluminów w ręcznej puli pojemności usługi QoS zależy od rozmiaru puli i poziomu usługi. Jest to ograniczone przez (rozmiar puli pojemności w TiB x przepływności poziomu usługi/TiB). Na przykład Pula pojemności 10 TiB z poziomem usługi Ultra Service ma łączną wydajność przepływności wynoszącą 1280 MiB/s (10 TiB x 128 MiB/s/TiB) dostępną dla woluminów.
+
+W przypadku systemu SAP HANA tej puli pojemności można użyć do utworzenia następujących woluminów. Każdy wolumin zapewnia indywidualny rozmiar i przepływność w celu spełnienia wymagań aplikacji:
+
+* Wolumin danych SAP HANA: rozmiar 4 TB z maksymalnie 704 MiB/s
+* Wolumin dziennika SAP HANA: rozmiar 0,5 TB z maksymalnie 256 MiB/s
+* SAP HANA udostępniony wolumin: rozmiar 1 TB z maksymalnie 64 MiB/s
+* Wolumin kopii zapasowej SAP HANA: rozmiar 4,5 TB z maksymalnie 256 MiB/s
+
+Na poniższym diagramie przedstawiono scenariusze dotyczące woluminów SAP HANA:
+
+![Scenariusze dotyczące woluminów SAP HANA QoS](../media/azure-netapp-files/qos-sap-hana-volume-scenarios.png) 
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -61,3 +79,4 @@ W przykładzie 2 powyżej wolumin z puli pojemności w warstwie magazynu Premium
 - [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md)
 - [Umowa dotycząca poziomu usług (SLA) dla Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
 - [Dynamiczna zmiana poziomu usługi woluminu](dynamic-change-volume-service-level.md) 
+- [Cele poziomu usługi dotyczące replikacji między regionami](cross-region-replication-introduction.md#service-level-objectives)

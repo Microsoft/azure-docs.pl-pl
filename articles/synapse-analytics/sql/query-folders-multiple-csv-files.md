@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: jrasnick
+ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207635"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288345"
 ---
 # <a name="query-folders-and-multiple-files"></a>Wykonywanie zapytań względem folderów i wielu plików  
 
@@ -87,7 +87,7 @@ ORDER BY payment_type;
 
 ### <a name="read-all-files-from-specific-folder"></a>Odczytaj wszystkie pliki z określonego folderu
 
-Wszystkie pliki w folderze można odczytać za pomocą symbolu wieloznacznego poziomu pliku, jak pokazano w [Odczytaj wszystkie pliki w folderze](#read-all-files-in-folder). Istnieje jednak możliwość tworzenia zapytań względem folderu i używania wszystkich plików w tym folderze.
+Wszystkie pliki w folderze można odczytać za pomocą symbolu wieloznacznego poziomu pliku, jak pokazano w [Odczytaj wszystkie pliki w folderze](#read-all-files-in-folder). Istnieje jednak możliwość wykonywania zapytań względem folderu i używania wszystkich plików znajdujących się w tym folderze.
 
 Jeśli ścieżka podana w polu OPENROWSET wskazuje folder, wszystkie pliki w tym folderze będą używane jako źródło zapytania. Następujące zapytanie odczytaje wszystkie pliki w folderze *CSV/taksówki* .
 

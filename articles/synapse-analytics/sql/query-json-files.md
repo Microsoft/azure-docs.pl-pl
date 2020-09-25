@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0757c867d46144ac9fb9b9eca8b2a588aeeb15d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489728"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288328"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików JSON przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ W tym artykule dowiesz się, jak napisać zapytanie przy użyciu języka SQL na 
 
 ## <a name="read-json-documents"></a>Odczytaj dokumenty JSON
 
-Najprostszym sposobem, aby zobaczyć zawartość pliku JSON, jest podanie adresu URL pliku do `OPENROWSET` działania, określenie woluminu CSV `FORMAT` i ustawienie wartości `0x0b` dla `fieldterminator` i `fieldquote` . Jeśli musisz odczytywać pliki JSON rozdzielane wierszami, to jest to wystarczające. Jeśli masz klasyczny plik JSON, musisz ustawić wartości `0x0b` dla `rowterminator` . `OPENROWSET`funkcja będzie analizować kod JSON i zwracać każdy dokument w następującym formacie:
+Najprostszym sposobem, aby zobaczyć zawartość pliku JSON, jest podanie adresu URL pliku do `OPENROWSET` funkcji, określenie woluminu CSV `FORMAT` i ustawienie wartości `0x0b` dla `fieldterminator` i `fieldquote` . Jeśli musisz odczytywać pliki JSON rozdzielane wierszami, to jest to wystarczające. Jeśli masz klasyczny plik JSON, musisz ustawić wartości `0x0b` dla `rowterminator` . `OPENROWSET` funkcja będzie analizować kod JSON i zwracać każdy dokument w następującym formacie:
 
 | usługę |
 | --- |
@@ -33,7 +33,7 @@ Najprostszym sposobem, aby zobaczyć zawartość pliku JSON, jest podanie adresu
 |{"date_rep": "2020-07-26", "Day": 26, "Month": 7, "Year": 2020, "Cases": 4, "śmierć": 0, "geo_id": "AF"}|
 |{"date_rep": "2020-07-27", "Day": 27, "Month": 7, "Year": 2020, "Cases": 8, "śmierć": 0, "geo_id": "AF"}|
 
-Jeśli plik jest dostępny publicznie lub tożsamość usługi Azure AD może uzyskać dostęp do tego pliku, powinna być widoczna zawartość pliku przy użyciu zapytania, jak pokazano w poniższych przykładach.
+Jeśli plik jest publicznie dostępny lub tożsamość usługi Azure AD może uzyskać do niego dostęp, zawartość pliku powinna zostać wyświetlona przy użyciu zapytania, jak pokazano w poniższych przykładach.
 
 ### <a name="read-json-files"></a>Odczytaj pliki JSON
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dc47bf73f39d73861c166674a692932d51064e6d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496393"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288532"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics 
 
@@ -25,9 +25,11 @@ SQL na żądanie to usługa zapytania na dane w usłudze Data Lake. Umożliwia o
 - Znana składnia T-SQL służąca do wykonywania zapytań dotyczących danych bez konieczności kopiowania lub ładowania danych do wyspecjalizowanego magazynu. 
 - Zintegrowana łączność za pośrednictwem interfejsu T-SQL, który oferuje szeroką gamę narzędzi do analizy biznesowej i usług zapytań ad hoc, w tym najpopularniejszych sterowników. 
 
-SQL na żądanie to system rozproszonego przetwarzania danych, oparty na dużej skali danych i obliczeń. SQL na żądanie umożliwia analizowanie danych Big Data w ciągu kilku sekund, w zależności od obciążenia. Dzięki wbudowanej odporności na błędy wykonywania zapytania system zapewnia wysoką niezawodność i sukces, nawet w przypadku długotrwałych zapytań obejmujących duże zbiory danych.
+SQL na żądanie to system rozproszonego przetwarzania danych, oparty na danych o dużej skali i funkcjach obliczeniowych. SQL na żądanie umożliwia analizowanie danych Big Data w ciągu kilku sekund, w zależności od obciążenia. Dzięki wbudowanej odporności na błędy wykonywania zapytania system zapewnia wysoką niezawodność i sukces, nawet w przypadku długotrwałych zapytań obejmujących duże zbiory danych.
 
-SQL na żądanie jest bezserwerowy, dlatego nie istnieje infrastruktura do konfigurowania lub klastrów do obsługi. Domyślny punkt końcowy dla tej usługi jest udostępniany w każdym obszarze roboczym usługi Azure Synapse, więc możesz zacząć wysyłać zapytania o dane zaraz po utworzeniu obszaru roboczego. Za zarezerwowane zasoby nie jest naliczana opłata za dane przeskanowane przez uruchomione zapytania, dlatego ten model jest rzeczywistym modelem płatnym za użycie.  
+SQL na żądanie jest bezserwerowy, dlatego nie istnieje infrastruktura do konfigurowania lub klastrów do obsługi. Domyślny punkt końcowy dla tej usługi jest udostępniany w każdym obszarze roboczym usługi Azure Synapse, więc możesz zacząć wysyłać zapytania o dane zaraz po utworzeniu obszaru roboczego. 
+
+Za zarezerwowane zasoby nie jest naliczana opłata za dane przetworzone przez uruchomione zapytania, dlatego ten model jest rzeczywistym modelem płatnym za użycie.  
 
 W przypadku korzystania z Apache Spark platformy Azure Synapse w potoku danych w celu przygotowania, oczyszczenia lub wzbogacania danych można [wykonywać zapytania dotyczące zewnętrznych tabel platformy Spark](develop-storage-files-spark-tables.md) utworzonych w procesie bezpośrednio z poziomu bazy danych SQL na żądanie. Użyj [linku prywatnego](../security/how-to-connect-to-workspace-with-private-links.md) , aby przenieść punkt końcowy na żądanie SQL do [zarządzanej sieci wirtualnej obszaru roboczego](../security/synapse-workspace-managed-vnet.md).  
 
@@ -77,11 +79,11 @@ Obsługiwane T-SQL:
 - CETAS — UTWÓRZ TABELĘ ZEWNĘTRZNĄ JAKO WYBRANĄ
 - Instrukcje języka DDL powiązane tylko z widokami i zabezpieczeniami
 
-SQL na żądanie nie ma magazynu lokalnego. w bazach danych są przechowywane tylko obiekty metadanych. W związku z tym nie są obsługiwane T-SQL związane z następującymi pojęciami:
+SQL na żądanie nie ma magazynu lokalnego. w bazach danych są przechowywane tylko obiekty metadanych. W związku z tym język T-SQL dotyczący następujących pojęć nie jest obsługiwany:
 
 - Tabele
 - Wyzwalacze
-- Widoki z materiałami
+- Zmaterializowane widoki
 - Instrukcje języka DDL inne niż powiązane z widokami i zabezpieczeniami
 - Instrukcje języka DML
 

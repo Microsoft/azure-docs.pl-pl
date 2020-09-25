@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 989399bcc86547b914deb442fa9793f6d79d0606
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325325"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325763"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami ITSM przy użyciu łącznika zarządzania usługami IT
 
@@ -114,8 +114,8 @@ Grupy akcji umożliwiają modularne i wielokrotne użycie metody wyzwalania akcj
 
 Postępuj zgodnie z następującą procedurą:
 
-1. W Azure Portal kliknij pozycję **Monitoruj**.
-2. W lewym okienku kliknij pozycję **grupy akcji**. Zostanie wyświetlone okno **Dodaj grupę akcji** .
+1. W Azure Portal kliknij pozycję  **Monitoruj**.
+2. W lewym okienku kliknij pozycję  **grupy akcji**. Zostanie wyświetlone okno **Dodaj grupę akcji** .
 
     ![Grupy akcji](media/itsmc-overview/action-groups.png)
 
@@ -137,6 +137,10 @@ Podczas tworzenia/edytowania reguły alertu platformy Azure Użyj grupy akcji, k
 > [!NOTE]
 >
 > Aby uzyskać informacje na temat cen akcji narzędzia ITSM, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/monitor/) dla grup akcji.
+
+> [!NOTE]
+>
+> Pole Krótki opis w definicji reguły alertu jest ograniczone do 40 znaków podczas wysyłania przy użyciu akcji narzędzia ITSM.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Wizualizuj i analizuj dane zdarzenia i żądania zmiany
@@ -289,7 +293,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 
 2. Jeśli dane z usługi ServiceNow nie są synchronizowane do Log Analytics, upewnij się, że wystąpienie usługi ServiceNow nie jest w stanie uśpienia. Wystąpienia dev usługi ServiceNow czasami przechodzą w stan uśpienia, gdy jest on bezczynny przez długi czas. W przeciwnym razie Zgłoś problem.
 3. Jeśli alerty Log Analytics wyzwalane, ale elementy robocze nie są tworzone w produkcie narzędzia ITSM lub elementy konfiguracji nie są tworzone/połączone z elementami roboczymi lub innymi informacjami ogólnymi, należy poszukać w następujących miejscach:
-   -  ITSMC: rozwiązanie pokazuje podsumowanie połączeń/elementów roboczych/komputerów itp. Kliknij kafelek ze **stanem łącznika**, który przeprowadzi Cię przez **Wyszukiwanie** przy użyciu odpowiedniego zapytania. Aby uzyskać więcej informacji, sprawdź rekordy dziennika z LogType_S jako błąd.
+   -  ITSMC: rozwiązanie pokazuje podsumowanie połączeń/elementów roboczych/komputerów itp. Kliknij kafelek ze **stanem łącznika**, który przeprowadzi Cię przez **Wyszukiwanie**  przy użyciu odpowiedniego zapytania. Aby uzyskać więcej informacji, sprawdź rekordy dziennika z LogType_S jako błąd.
    - Strona **przeszukiwania dzienników** : Wyświetl błędy/powiązane informacje bezpośrednio przy użyciu `*` ServiceDeskLog_CL zapytania `*` .
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Rozwiązywanie problemów z wdrażaniem aplikacji sieci Web Service Manager

@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e5a5b06bc95d022cfad66118db4b55e9369b5bd
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a0ee8661ca985e1882cff54d2fc2cdc5e9ad0a22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661888"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335973"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrowanie z Federacji do uwierzytelniania przekazywanego dla Azure Active Directory
 
@@ -283,9 +283,9 @@ Dalej. Wdróż dodatkowe metody uwierzytelniania:
 
 4. Uruchom instalację agenta uwierzytelniania. Podczas instalacji należy wprowadzić poświadczenia konta administratora globalnego.
 
-   ![Zrzut ekranu pokazujący przycisk Instaluj na stronie pakietu agenta uwierzytelniania Microsoft Azure AD Connect](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Zrzut ekranu pokazujący przycisk Zainstaluj, który służy do uruchamiania pakietu Microsoft Azure AD Connect Authentication Agent.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-   ![Zrzut ekranu przedstawiający stronę logowania](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Zrzut ekranu przedstawiający stronę logowania firmy Microsoft.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. Po zainstalowaniu agenta uwierzytelniania można wrócić do strony kondycja agenta uwierzytelniania przekazywanego, aby sprawdzić stan dodatkowych agentów.
 
@@ -327,7 +327,7 @@ Najpierw Włącz uwierzytelnianie przekazywane:
    * **Bezproblemowe logowanie jednokrotne** jest ustawione na **włączone**.
    * **Uwierzytelnianie przekazywane** jest ustawione na **włączone**.
    
-   ![Zrzut ekranu pokazujący ustawienia w sekcji logowania użytkownika](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
+   ![Zrzut ekranu pokazujący ustawienia, które należy sprawdzić w sekcji Logowanie użytkownika.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
 8. Wybierz pozycję **uwierzytelnianie przekazywane** i sprawdź, czy stan jest **aktywny**.<br />
    
    Jeśli Agent uwierzytelniania nie jest aktywny, przed kontynuowaniem procesu konwersji domeny w następnym kroku wykonaj kilka [kroków rozwiązywania problemów](./tshoot-connect-pass-through-authentication.md) . Istnieje ryzyko powstania przestoju uwierzytelniania w przypadku konwersji domen przed potwierdzeniem, że agenci uwierzytelniania przekazywanego zostały pomyślnie zainstalowani i że ich stan jest **aktywny** w Azure Portal.
@@ -368,7 +368,7 @@ Ukończ konwersję przy użyciu modułu Azure AD PowerShell:
    * **Bezproblemowe logowanie jednokrotne** jest ustawione na **włączone**.
    * **Uwierzytelnianie przekazywane** jest ustawione na **włączone**.<br />
 
-   ![Zrzut ekranu pokazujący ustawienia w sekcji logowania użytkownika](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
+   ![Zrzut ekranu pokazujący ustawienia w sekcji logowania użytkownika w portalu usługi Azure AD.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
 
 ## <a name="testing-and-next-steps"></a>Testowanie i następne kroki
 

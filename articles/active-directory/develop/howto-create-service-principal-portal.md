@@ -12,16 +12,16 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178947"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265905"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
-W tym artykule opisano sposób tworzenia nowej aplikacji Azure Active Directory (Azure AD) i nazwy głównej usługi, która może być używana z kontrolą dostępu opartą na rolach. W przypadku aplikacji, usług hostowanych lub zautomatyzowanych narzędzi, które wymagają dostępu lub modyfikacji zasobów, można utworzyć tożsamość aplikacji. Ta tożsamość jest określana jako jednostka usługi. Dostęp do zasobów jest ograniczony przez role przypisane do jednostki usługi, co zapewnia kontrolę nad zasobami, do których można uzyskać dostęp oraz na którym poziomie. Ze względów bezpieczeństwa zawsze zaleca się używanie jednostek usługi ze zautomatyzowanymi narzędziami, zamiast zezwalać im na logowanie za pomocą tożsamości użytkownika. 
+W tym artykule opisano sposób tworzenia nowej aplikacji Azure Active Directory (Azure AD) i nazwy głównej usługi, która może być używana z kontrolą dostępu opartą na rolach. W przypadku aplikacji, usług hostowanych lub zautomatyzowanych narzędzi, które wymagają dostępu lub modyfikacji zasobów, można utworzyć tożsamość aplikacji. Ta tożsamość jest określana jako jednostka usługi. Dostęp do zasobów jest ograniczony przez role przypisane do jednostki usługi, co zapewnia kontrolę nad zasobami, do których można uzyskać dostęp oraz na którym poziomie. Ze względów bezpieczeństwa zawsze zaleca się używanie jednostek usługi ze zautomatyzowanymi narzędziami, zamiast zezwalać im na logowanie za pomocą tożsamości użytkownika.
 
 W tym artykule pokazano, jak za pomocą portalu utworzyć nazwę główną usługi w Azure Portal. Koncentruje się na aplikacji z jedną dzierżawą, w której aplikacja jest przeznaczona do działania tylko w jednej organizacji. Zwykle używasz aplikacji z jedną dzierżawą dla aplikacji biznesowych, które działają w organizacji.  Możesz również [użyć Azure PowerShell, aby utworzyć jednostkę usługi](howto-authenticate-service-principal-powershell.md).
 
@@ -55,7 +55,7 @@ Aby sprawdzić uprawnienia do subskrypcji:
 
 1. Wyszukaj i wybierz pozycję **subskrypcje**lub wybierz pozycję **subskrypcje** na stronie **głównej** .
 
-   ![Wyszukiwanie](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Wyszukaj](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Wybierz subskrypcję, w której chcesz utworzyć nazwę główną usługi.
 
@@ -129,12 +129,13 @@ Podczas programowego logowania należy przekazać identyfikator dzierżawy przy 
 
    ![Kopiowanie identyfikatora aplikacji (klienta)](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## <a name="upload-a-certificate-or-create-a-secret-for-signing-in"></a>Przekaż certyfikat lub Utwórz klucz tajny do logowania
-Istnieją dwa typy uwierzytelniania dostępne dla podmiotów usługi: uwierzytelnianie oparte na hasłach (klucz tajny aplikacji) i uwierzytelnianie oparte na certyfikatach.  Zalecamy używanie certyfikatu, ale można również utworzyć nowy klucz tajny aplikacji.
+## <a name="authentication-two-options"></a>Uwierzytelnianie: dwie opcje
 
-### <a name="upload-a-certificate"></a>Przekaż certyfikat
+Istnieją dwa typy uwierzytelniania dostępne dla podmiotów usługi: uwierzytelnianie oparte na hasłach (klucz tajny aplikacji) i uwierzytelnianie oparte na certyfikatach. *Zalecamy używanie certyfikatu*, ale można również utworzyć klucz tajny aplikacji.
 
-Jeśli masz istniejący certyfikat, możesz go użyć.  Opcjonalnie można utworzyć certyfikat z podpisem własnym *tylko do celów testowych*. Aby utworzyć certyfikat z podpisem własnym, Otwórz program PowerShell i uruchom polecenie [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) z poniższymi parametrami, aby utworzyć certyfikat w magazynie certyfikatów użytkownika na komputerze: 
+### <a name="option-1-upload-a-certificate"></a>Opcja 1: przekazywanie certyfikatu
+
+Jeśli masz istniejący certyfikat, możesz go użyć.  Opcjonalnie można utworzyć certyfikat z podpisem własnym *tylko do celów testowych*. Aby utworzyć certyfikat z podpisem własnym, Otwórz program PowerShell i uruchom polecenie [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) z poniższymi parametrami, aby utworzyć certyfikat w magazynie certyfikatów użytkownika na komputerze:
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -163,7 +164,7 @@ Aby przekazać certyfikat:
 
 Po zarejestrowaniu certyfikatu w aplikacji w portalu rejestracji aplikacji należy włączyć użycie tego certyfikatu w kodzie aplikacji klienta.
 
-### <a name="create-a-new-application-secret"></a>Tworzenie nowego klucza tajnego aplikacji
+### <a name="option-2-create-a-new-application-secret"></a>Opcja 2: Tworzenie nowego klucza tajnego aplikacji
 
 Jeśli zdecydujesz się nie używać certyfikatu, możesz utworzyć nowy klucz tajny aplikacji.
 
@@ -178,14 +179,15 @@ Jeśli zdecydujesz się nie używać certyfikatu, możesz utworzyć nowy klucz t
    ![Skopiuj wartość klucza tajnego, ponieważ nie można pobrać jej później](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Konfigurowanie zasad dostępu do zasobów
-Należy pamiętać, że konieczne może być skonfigurowanie dodatkowych uprawnień do zasobów wymaganych przez aplikację. Na przykład należy również [zaktualizować zasady dostępu magazynu kluczy](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) , aby zapewnić aplikacji dostęp do kluczy, wpisów tajnych lub certyfikatów.  
+Należy pamiętać, że konieczne może być skonfigurowanie dodatkowych uprawnień do zasobów wymaganych przez aplikację. Na przykład należy również [zaktualizować zasady dostępu magazynu kluczy](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) , aby zapewnić aplikacji dostęp do kluczy, wpisów tajnych lub certyfikatów.
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do magazynu kluczy i wybierz pozycję **zasady dostępu**.  
+1. W [Azure Portal](https://portal.azure.com)przejdź do magazynu kluczy i wybierz pozycję **zasady dostępu**.
 1. Wybierz pozycję **Dodaj zasady dostępu**, a następnie wybierz uprawnienia Key, Secret i Certificate, które chcesz udzielić aplikacji.  Wybierz nazwę główną usługi utworzoną wcześniej.
 1. Wybierz pozycję **Dodaj** , aby dodać zasady dostępu, a następnie pozycję **Zapisz** , aby zatwierdzić zmiany.
     ![Dodawanie zasad dostępu](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [utworzyć jednostkę usługi za pomocą Azure PowerShell](howto-authenticate-service-principal-powershell.md).
-* Aby dowiedzieć się więcej o określaniu zasad zabezpieczeń, zobacz [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).  
+* Aby dowiedzieć się więcej o określaniu zasad zabezpieczeń, zobacz [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Aby uzyskać listę dostępnych akcji, które można udzielić lub odmówić użytkownikom, zobacz [Azure Resource Manager operacje dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md).
+* Aby uzyskać informacje na temat pracy z rejestracjami aplikacji przy użyciu **Microsoft Graph**, zobacz Dokumentacja interfejsu API [aplikacji](/graph/api/resources/application) .

@@ -6,14 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 06/09/2020
+ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: c8f431a609dafc1064b901cfdda8d170124cf0f9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 1506ab7210f8b98614f51e5168555068cce0afbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089245"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325678"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Szybki Start: Konfigurowanie Azure NetApp Files i Tworzenie woluminu NFS 
 
@@ -186,14 +186,15 @@ Poniższy fragment kodu przedstawia sposób tworzenia konta NetApp w szablonie A
 
 3. Kliknij pozycję **+ Dodaj pule**. 
 
-    ![Kliknij pozycję Dodaj pule](../media/azure-netapp-files/azure-netapp-files-click-add-pools.png)  
+    ![Kliknij pozycję Dodaj pule](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)  
 
 4. Podaj informacje dotyczące puli pojemności: 
-    1. Wprowadź **mypool1** jako nazwę puli.
-    2. Wybierz pozycję **Premium** dla poziomu usługi. 
-    3. Określ **4 (TIB)** jako rozmiar puli. 
+    * Wprowadź **mypool1** jako nazwę puli.
+    * Wybierz pozycję **Premium** dla poziomu usługi. 
+    * Określ **4 (TIB)** jako rozmiar puli. 
+    * Użyj typu **autoqos.**
 
-5. Kliknij przycisk **OK**.
+5. Kliknij pozycję **Utwórz**.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -416,7 +417,7 @@ Gdy wszystko będzie gotowe, a jeśli chcesz, możesz usunąć grupę zasobów. 
 
 3. Na stronie Grupa zasobów kliknij pozycję **Usuń grupę zasobów**.
 
-    ![Usuwanie grupy zasobów](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![Zrzut ekranu, który podświetla przycisk Usuń grupę zasobów.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     Zostanie otwarte okno zawierające ostrzeżenie dotyczące zasobów, które zostaną usunięte razem z grupą zasobów.
 

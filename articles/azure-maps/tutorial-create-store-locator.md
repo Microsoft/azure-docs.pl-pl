@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Tworzenie aplikacji lokalizatora sklepu przy użyciu Azure Maps | Mapy Microsoft Azure'
-description: Dowiedz się, jak tworzyć aplikacje sieci Web lokalizatora magazynu. Użyj zestawu Web SDK Azure Maps, aby utworzyć stronę sieci Web, wysłać zapytanie do usługi wyszukiwania i wyświetlić wyniki na mapie.
+description: Samouczek dotyczący tworzenia aplikacji sieci Web lokalizatora magazynów. Użyj zestawu Web SDK Azure Maps, aby utworzyć stronę sieci Web, wysłać zapytanie do usługi wyszukiwania i wyświetlić wyniki na mapie.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/11/2020
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085318"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335266"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Samouczek: Tworzenie lokalizatora sklepu za pomocą Azure Maps
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia prostego lokalizatora sklepów przy użyciu usługi Azure Maps. Lokalizatory sklepów są powszechne. Wiele koncepcji używanych w tego typu aplikacjach można stosować w wielu innych typach aplikacji. Oferowanie lokalizatora sklepów jest koniecznością dla większości firm prowadzących sprzedaż detaliczną bezpośrednio dla klientów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
-    
+
 > [!div class="checklist"]
 > * Tworzenie nowej strony internetowej przy użyciu interfejsu API kontrolki mapy platformy Azure.
 > * Ładowanie danych niestandardowych z pliku i wyświetlanie ich na mapie.
@@ -924,34 +924,21 @@ Jeśli rozmiar okna przeglądarki zostanie zmieniony tak, że jego szerokość b
 
 ![Zrzut ekranu przedstawiający wersję lokalizatora sklepów na małe ekrany](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
+W tym samouczku pokazano, jak utworzyć podstawowy lokalizator magazynu za pomocą Azure Maps. Lokalizator sklepu utworzony w tym samouczku może mieć wszystkie funkcje, których potrzebujesz. Możesz dodać funkcje do swojego lokalizatora sklepów lub użyć bardziej zaawansowanych funkcji w celu uzyskania bardziej niestandardowego środowiska użytkownika: 
+
+ * Włącz [sugestie podczas pisania](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) w polu wyszukiwania.  
+ * Dodaj [obsługę wielu języków](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
+ * Umożliw użytkownikom [filtrowanie lokalizacji wzdłuż trasy](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+ * Dodaj możliwość [ustawienia filtrów](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
+ * Dodaj obsługę określania początkowej wartości wyszukiwania przy użyciu ciągu zapytania. Jeśli włączysz tę opcję w lokalizatorze sklepów, użytkownicy będą mogli dodawać zakładki i udostępniać wyszukiwania. Zapewnia ona także prostą metodę przekazywania wyszukiwań do tej strony z innej strony.  
+ * Wdróż swój lokalizator sklepów jako [aplikację internetową usługi Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html). 
+ * Przechowuj dane w bazie danych i wyszukuj pobliskie lokalizacje. Aby dowiedzieć się więcej, zobacz [omówienie typów danych przestrzennych programu SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017&preserve-view=true) i artykuł na temat [wysyłania zapytań względem danych przestrzennych dla najbliższego otoczenia](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017&preserve-view=true).
+
+Możesz [wyświetlić pełny kod źródłowy](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [wyświetlić próbkę na żywo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) i dowiedzieć się więcej na temat pokrycia i możliwości Azure Maps przy użyciu [poziomów powiększenia i siatki kafelków](zoom-levels-and-tile-grid.md). Można również [użyć wyrażeń stylów opartych na danych](data-driven-style-expressions-web-sdk.md) do zastosowania do logiki biznesowej.
+
 ## <a name="next-steps"></a>Następne kroki
-
-W tym samouczku przedstawiono tworzenie podstawowego lokalizatora sklepów przy użyciu usługi Azure Maps. Lokalizator sklepu utworzony w tym samouczku może mieć wszystkie funkcje, których potrzebujesz. Możesz dodać funkcje do swojego lokalizatora sklepów lub użyć bardziej zaawansowanych funkcji w celu uzyskania bardziej niestandardowego środowiska użytkownika: 
-
-> [!div class="checklist"]
-> * Włącz [sugestie podczas pisania](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) w polu wyszukiwania.  
-> * Dodaj [obsługę wielu języków](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
-> * Umożliw użytkownikom [filtrowanie lokalizacji wzdłuż trasy](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
-> * Dodaj możliwość [ustawienia filtrów](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-> * Dodaj obsługę określania początkowej wartości wyszukiwania przy użyciu ciągu zapytania. Jeśli włączysz tę opcję w lokalizatorze sklepów, użytkownicy będą mogli dodawać zakładki i udostępniać wyszukiwania. Zapewnia ona także prostą metodę przekazywania wyszukiwań do tej strony z innej strony.  
-> * Wdróż swój lokalizator sklepów jako [aplikację internetową usługi Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html). 
-> * Przechowuj dane w bazie danych i wyszukuj pobliskie lokalizacje. Aby dowiedzieć się więcej, zobacz [omówienie typów danych przestrzennych programu SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) i artykuł na temat [wysyłania zapytań względem danych przestrzennych dla najbliższego otoczenia](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor).
-
-> [!div class="nextstepaction"]
-> [Wyświetl pełny kod źródłowy](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-> [!div class="nextstepaction"]
-> [Wyświetl przykład na żywo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
-
-Aby dowiedzieć się więcej o zasięgu i możliwościach usługi Azure Maps, zobacz:
-
-> [!div class="nextstepaction"]
-> [Poziomy powiększenia i siatka kafelków](zoom-levels-and-tile-grid.md)
 
 Aby uzyskać dodatkowe przykłady kodu i zapoznać się z interaktywnym środowiskiem kodowania:
 
 > [!div class="nextstepaction"]
 > [Jak używać kontrolki mapy](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [Korzystanie z wyrażeń stylu opartych na danych](data-driven-style-expressions-web-sdk.md)

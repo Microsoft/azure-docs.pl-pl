@@ -5,20 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: fd0826ad11a153d72ee47f35930d25f0df498418
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: dd7aed0d23dd657b655e473565611ef36c592562
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336330"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Replikacja logiczna i dekodowanie logiczne w Azure Database for PostgreSQL-elastycznym serwerze
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL — serwer elastyczny jest w wersji zapoznawczej
 
-Funkcje replikacji logicznej i logicznego dekodowania PostgreSQL są obsługiwane w Azure Database for PostgreSQL-elastycznym serwerze.
+Funkcje replikacji logicznej i logicznego dekodowania PostgreSQL są obsługiwane w Azure Database for PostgreSQL-elastycznym serwerze dla Postgres w wersji 11.
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>Porównywanie logicznej replikacji i dekodowania logicznego
 Replikacja logiczna i dekodowanie logiczne mają różne podobieństwa. Oba te elementy
@@ -43,7 +43,11 @@ Dekodowanie logiczne
 1. Dla parametru serwer Ustaw `wal_level` wartość `logical` .
 2. Uruchom ponownie serwer, aby zastosować `wal_level` zmianę.
 3. Upewnij się, że wystąpienie PostgreSQL zezwala na ruch sieciowy z połączonego zasobu.
-4. Użyj użytkownika administracyjnego podczas wykonywania poleceń replikacji.
+4. Udziel uprawnień do replikacji użytkownika administrator.
+   ```SQL
+   ALTER ROLE <adminname> WITH REPLICATION;
+   ```
+
 
 ## <a name="using-logical-replication-and-logical-decoding"></a>Korzystanie z replikacji logicznej i dekodowania logicznego
 
@@ -54,7 +58,7 @@ Replikacja logiczna używa wyrazów "Wydawca" i "Subscriber".
 
 Oto przykładowy kod, którego można użyć do wypróbowania replikacji logicznej.
 
-1. Nawiąż połączenie z wydawcą. Utwórz tabelę i Dodaj dane.
+1. Nawiąż połączenie z bazą danych wydawcy. Utwórz tabelę i Dodaj dane.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    INSERT INTO basic(name) VALUES ('apple');
@@ -66,14 +70,14 @@ Oto przykładowy kod, którego można użyć do wypróbowania replikacji logiczn
    CREATE PUBLICATION pub FOR TABLE basic;
    ```
 
-3. Połącz się z subskrybentem. Utwórz tabelę z tym samym schematem co na wydawcy.
+3. Nawiąż połączenie z bazą danych subskrybenta. Utwórz tabelę z tym samym schematem co na wydawcy.
    ```SQL
    CREATE TABLE basic(id SERIAL, name varchar(40));
    ```
 
 4. Utwórz subskrypcję, która będzie łączyć się z utworzoną wcześniej publikacją.
    ```SQL
-   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname>' PUBLICATION pub;
+   CREATE SUBSCRIPTION sub CONNECTION 'host=<server>.postgres.database.azure.com user=<admin> dbname=<dbname> password=<password>' PUBLICATION pub;
    ```
 
 5. Teraz możesz wysyłać zapytania do tabeli na subskrybencie. Zobaczysz, że dane zostały odebrane od wydawcy.
@@ -101,7 +105,7 @@ W poniższym przykładzie użyto interfejsu SQL z wtyczką wal2json.
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. Wydaj polecenia SQL. Przykład:
+2. Wydaj polecenia SQL. Na przykład:
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,
@@ -170,8 +174,9 @@ SELECT * FROM pg_replication_slots;
 
 [Ustawianie alertów](howto-alert-on-metrics.md) dotyczących **maksymalnego użycia identyfikatorów transakcji** i **magazynu używanych** przez elastyczne metryki serwera do powiadamiania o zwiększeniu liczby ostatnich progów normalnych przez wartości. 
 
-## <a name="read-replicas"></a>Repliki do odczytu
-Azure Database for PostgreSQL odczytu replik nie są obecnie obsługiwane dla elastycznych serwerów.
+## <a name="limitations"></a>Ograniczenia
+* **Odczytaj repliki** — Azure Database for PostgreSQL odczytu replik nie są obecnie obsługiwane dla elastycznych serwerów.
+* **Gniazda i tryb failover z wysoką dostępnością** — gniazda replikacji logicznej na serwerze podstawowym nie są dostępne na serwerze rezerwy w pomocniczym programie AZ. Dotyczy to sytuacji, gdy serwer używa opcji "nadmiarowa wysoka dostępność" strefy. W przypadku przejścia w tryb failover do serwera rezerwowego gniazda replikacji logicznej nie będą dostępne w stanie wstrzymania.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [opcjach sieciowych](concepts-networking.md)

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 9822d7bd769ea161ddcf195d695f27024351ca4b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4b8c879a89da47a081e4b95382d17b3d2baede9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662448"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325576"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -132,6 +132,12 @@ Azure NetApp Files obsługuje NFSv3 i NFSv 4.1. Wolumin można [utworzyć](azure
 
 Można określić, czy konto główne może uzyskać dostęp do woluminu, czy nie za pomocą zasad eksportowania woluminu. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie zasad eksportowania dla woluminu systemu plików NFS](azure-netapp-files-configure-export-policy.md) .
 
+### <a name="can-i-use-the-same-file-path-volume-creation-token-for-multiple-volumes"></a>Czy można używać tej samej ścieżki pliku (tokenu tworzenia woluminu) dla wielu woluminów?
+
+Tak, możesz. Jednak ścieżka pliku musi być używana w innej subskrypcji lub innym regionie.   
+
+Na przykład utworzysz wolumin o nazwie `vol1` . Następnie tworzony jest również inny wolumin `vol1` w innej puli pojemności, ale w tej samej subskrypcji i regionie. W takim przypadku użycie tej samej nazwy woluminu `vol1` spowoduje wystąpienie błędu. Aby użyć tej samej ścieżki pliku, nazwa musi znajdować się w innym regionie lub subskrypcji.
+
 ## <a name="smb-faqs"></a>Protokół SMB — często zadawane pytania
 
 ### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Które wersje protokołu SMB są obsługiwane przez Azure NetApp Files?
@@ -161,12 +167,6 @@ Azure NetApp Files obsługuje wersje Active Directory Domain Services systemu Wi
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Dlaczego dostęp do dostępnego miejsca na kliencie SMB nie jest wyświetlany?
 
 Rozmiar woluminu zgłoszonego przez klienta SMB to maksymalny rozmiar, do którego można zwiększyć wolumin Azure NetApp Files. Rozmiar woluminu Azure NetApp Files, jak pokazano na kliencie SMB nie jest odzwierciedleniem przydziału lub rozmiaru woluminu. Azure NetApp Files rozmiaru woluminu lub przydziału można uzyskać za pomocą Azure Portal lub interfejsu API.
-
-<!--
-### Does Azure NetApp Files support Kerberos encryption?
-
-Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption for traffic between the service and the targeted Active Directory domain controllers. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
--->
 
 <!--
 ### Does Azure NetApp Files support LDAP signing? 

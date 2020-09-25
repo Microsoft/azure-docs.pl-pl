@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie jednostkami administracyjnymi (wersja zapoznawcza) — Azure AD | Microsoft Docs
+title: Jednostki administracyjne w Azure Active Directory | Microsoft Docs
 description: Korzystanie z jednostek administracyjnych na potrzeby bardziej szczegółowego delegowania uprawnień w Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: a31c4a5c9d20b5b248f7d722ed3d9289bbb4dded
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335820"
 ---
-# <a name="administrative-units-management-in-azure-active-directory-preview"></a>Zarządzanie jednostkami administracyjnymi w Azure Active Directory (wersja zapoznawcza)
+# <a name="administrative-units-in-azure-active-directory"></a>Jednostki administracyjne w Azure Active Directory
 
-W tym artykule opisano jednostki administracyjne w Azure Active Directory (Azure AD). Jednostka administracyjna to zasób usługi Azure AD, który może być kontenerem dla innych zasobów usługi Azure AD. W tej wersji zapoznawczej jednostka administracyjna może zawierać tylko użytkowników i grupy.
+W tym artykule opisano jednostki administracyjne w Azure Active Directory (Azure AD). Jednostka administracyjna to zasób usługi Azure AD, który może być kontenerem dla innych zasobów usługi Azure AD. Jednostka administracyjna może zawierać tylko użytkowników i grupy.
 
 Jednostki administracyjne umożliwiają Przyznawanie uprawnień administratora, które są ograniczone do działu, regionu lub innego segmentu zdefiniowanej organizacji. Jednostki administracyjne mogą służyć do delegowania uprawnień do administratorów regionalnych lub do ustawiania zasad na poziomie szczegółowym. Administrator konta użytkownika może na przykład zaktualizować informacje o profilu, zresetować hasła i przypisać licencje dla użytkowników tylko w ich jednostce administracyjnej.
 
@@ -44,11 +44,11 @@ Korzystanie z jednostek administracyjnych wymaga Azure Active Directory — wers
 
 ## <a name="manage-administrative-units"></a>Zarządzanie jednostkami administracyjnymi
 
-W tej wersji zapoznawczej można zarządzać jednostkami administracyjnymi przy użyciu Azure Portal, poleceń cmdlet programu PowerShell i skryptów lub Microsoft Graph. Aby uzyskać szczegółowe informacje, możesz zapoznać się z naszą dokumentacją:
+Jednostkami administracyjnymi można zarządzać za pomocą Azure Portal, poleceń cmdlet programu PowerShell i skryptów lub Microsoft Graph. Aby uzyskać szczegółowe informacje, możesz zapoznać się z naszą dokumentacją:
 
 - [Twórz, usuwaj, wypełniaj i dodawaj role do jednostek administracyjnych](roles-admin-units-manage.md): wykonaj procedury opisane w procedurach
-- [Praca z jednostkami](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)administracyjnymi: jak pracować z jednostkami administracyjnymi przy użyciu programu PowerShell
-- [Obsługa grafu jednostki administracyjnej](/graph/api/resources/administrativeunit?view=graph-rest-beta): szczegółowa dokumentacja dotycząca Microsoft Graph dla jednostek administracyjnych.
+- [Praca z jednostkami](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true)administracyjnymi: jak pracować z jednostkami administracyjnymi przy użyciu programu PowerShell
+- [Obsługa grafu jednostki administracyjnej](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true): szczegółowa dokumentacja dotycząca Microsoft Graph dla jednostek administracyjnych.
 
 ### <a name="planning-your-administrative-units"></a>Planowanie jednostek administracyjnych
 

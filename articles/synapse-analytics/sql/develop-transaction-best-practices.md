@@ -1,6 +1,6 @@
 ---
 title: Optymalizowanie transakcji dla puli SQL
-description: Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w puli SQL (magazyn danych), jednocześnie minimalizując ryzyko długotrwałego wycofywania.
+description: Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w puli SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 174ae84e66f10db4ad24ed561b228f0031492d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503195"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288651"
 ---
 # <a name="optimize-transactions-in-sql-pool"></a>Optymalizowanie transakcji w puli SQL
 
@@ -23,9 +23,9 @@ Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w puli SQL, je
 
 ## <a name="transactions-and-logging"></a>Transakcje i rejestrowanie
 
-Transakcje są ważnym składnikiem aparatu relacyjnej bazy danych. Podczas modyfikacji danych Pula SQL używa transakcji. Te transakcje mogą być jawne lub niejawne. Pojedyncze instrukcje INSERT, UPDATE i DELETE to wszystkie przykłady niejawnych transakcji. Transakcje jawne używają instrukcji BEGIN przeładunek, Zatwierdź transakcję lub Wycofaj ładunek. Jawne transakcje są zwykle używane, gdy wielokrotne instrukcje modyfikacji muszą być powiązane ze sobą w jednej jednostce niepodzielnej.
+Transakcje są ważnym składnikiem aparatu relacyjnej bazy danych. Podczas modyfikacji danych Pula SQL używa transakcji. Te transakcje mogą być jawne lub niejawne. Pojedyncze instrukcje INSERT, UPDATE i DELETE to wszystkie przykłady niejawnych transakcji. Transakcje jawne używają instrukcji BEGIN przeładunek, Zatwierdź transakcję lub Wycofaj ładunek. Jawne transakcje są zwykle używane, gdy wielokrotne instrukcje modyfikacji muszą być powiązane z pojedynczą jednostką niepodzielną.
 
-Pula SQL zatwierdza zmiany w bazie danych przy użyciu dzienników transakcji. Każda dystrybucja ma swój własny dziennik transakcji. Zapisy w dzienniku transakcji są automatyczne. Nie jest wymagana żadna konfiguracja. Jednak mimo że ten proces gwarantuje, że zapis wprowadza narzuty w systemie. Ten wpływ można zminimalizować przez zapisanie wydajnego kodu transactionowego. W szerokim stopniu funkcjonalny kod jest podzielony na dwie kategorie.
+Pula SQL zatwierdza zmiany w bazie danych przy użyciu dzienników transakcji. Każda dystrybucja ma swój własny dziennik transakcji. Zapisy w dzienniku transakcji są automatyczne. Nie jest wymagana żadna konfiguracja. Jednak proces ten gwarantuje, że zapis wprowadza obciążenie systemu. Ten wpływ można zminimalizować przez zapisanie wydajnego kodu transactionowego. W szerokim stopniu funkcjonalny kod jest podzielony na dwie kategorie.
 
 * Używaj minimalnych konstrukcji rejestrowania wszędzie tam, gdzie to możliwe
 * Przetwarzaj dane przy użyciu partii o określonym zakresie, aby uniknąć długotrwałych transakcji długoterminowych
@@ -84,7 +84,7 @@ Warto zauważyć, że wszystkie zapisy do aktualizacji pomocniczych lub nieklast
 
 ## <a name="optimize-deletes"></a>Optymalizuj usunięcia
 
-Usuwanie jest operacją w pełni zarejestrowana.  Jeśli konieczne jest usunięcie dużej ilości danych w tabeli lub partycji, często jest to bardziej zrozumiałe dla danych, które mają `SELECT` być przechowywane, które mogą być uruchamiane jako zarejestrowane minimalnie.  Aby wybrać dane, Utwórz nową tabelę z [CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Po utworzeniu Użyj [nazwy](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , aby zamienić starą tabelę na nowo utworzoną tabelę.
+Usuwanie jest operacją w pełni zarejestrowana.  Jeśli konieczne jest usunięcie dużej ilości danych w tabeli lub partycji, często jest to bardziej zrozumiałe dla danych, które mają `SELECT` być przechowywane, które mogą być uruchamiane jako zarejestrowane minimalnie.  Aby wybrać dane, Utwórz nową tabelę z [CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Po utworzeniu Użyj [nazwy](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , aby zamienić starą tabelę na nowo utworzoną tabelę.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.

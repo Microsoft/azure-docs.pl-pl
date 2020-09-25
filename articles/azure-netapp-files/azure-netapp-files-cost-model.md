@@ -12,18 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c4eebae6909c9ef0969bc85bcb9a985db2a7c02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84142150"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325610"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Model kosztów usługi Azure NetApp Files 
 
-Zrozumienie modelu kosztów Azure NetApp Files ułatwia zarządzanie wydatkami z usługi.
+Zrozumienie modelu kosztów Azure NetApp Files ułatwia zarządzanie wydatkami z usługi. 
+
+Aby uzyskać model kosztów specyficzny dla replikacji między regionami, zobacz [model kosztów dla replikacji między regionami](cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
 
 ## <a name="calculation-of-capacity-consumption"></a>Obliczanie zużycia pojemności
 
@@ -61,6 +63,7 @@ Rozmiar puli można ręcznie zwiększyć lub zmniejszyć. Jednak obowiązują na
 * Przyrost 1 TiB po początkowym minimalnym zakupie 4-TiB
 * Minimalny przyrost rozliczania dla jednej godziny
 * Rozmiar puli aprowizacji nie może zostać zmniejszony do wartości mniejszej niż całkowita użyta w puli.
+* W przypadku pul pojemności z ręczną usługą QoS rozmiar puli można zmniejszyć tylko wtedy, gdy rozmiar i poziom usług zapewniają większą przepływność niż rzeczywista przypisana przepływność dla wszystkich woluminów.
 
 ## <a name="behavior-of-maximum-size-pool-overage"></a>Zachowanie nadwyżkowe w puli o maksymalnym rozmiarze   
 
@@ -94,3 +97,4 @@ Użycie pojemności migawek w Azure NetApp Files jest obciążane opłatami za p
 * [Strona cennika Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Poziomy usług dla usługi Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Model kosztów dla replikacji między regionami](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)

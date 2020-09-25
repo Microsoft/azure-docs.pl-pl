@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288617"
 ---
 # <a name="use-transactions-in-sql-pool"></a>Używanie transakcji w puli SQL
 
@@ -29,7 +29,7 @@ Zgodnie z oczekiwaniami Pula SQL obsługuje transakcje w ramach obciążenia mag
 
 Pula SQL implementuje transakcje KWASowe. Poziom izolacji obsługi transakcyjnej jest domyślnie ODCZYTYWANy jako niezatwierdzony.  Można ją zmienić w celu odczytania ZATWIERDZONEj izolacji migawek przez READ_COMMITTED_SNAPSHOT włączenie opcji bazy danych dla bazy danych użytkownika w przypadku nawiązania połączenia z bazą danych Master.  
 
-Po włączeniu wszystkie transakcje w tej bazie danych są wykonywane w ramach przekroczenia izolacji ZATWIERDZONEj migawki i ustawienie Odczytaj niezatwierdzone na poziomie sesji nie zostanie uznane. Sprawdź [Opcje ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) , aby uzyskać szczegółowe informacje.
+Po włączeniu wszystkie transakcje w tej bazie danych są wykonywane w ramach przekroczenia izolacji ZATWIERDZONEj migawki i ustawienie Odczytaj niezatwierdzone na poziomie sesji nie zostanie uznane. Sprawdź [Opcje ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) , aby uzyskać szczegółowe informacje.
 
 ## <a name="transaction-size"></a>Rozmiar transakcji
 Ograniczenie pojedynczej transakcji modyfikacji danych jest ograniczone. Limit jest stosowany do dystrybucji. W związku z tym łączne alokacje można obliczyć przez pomnożenie limitu przez liczbę dystrybucji. 
@@ -181,7 +181,7 @@ Wszystko, co zostało zmienione, polega na tym, że WYCOFANie transakcji musiał
 
 ## <a name="error_line-function"></a>Error_Line () — funkcja
 
-Warto również zauważyć, że Pula SQL nie implementuje ani nie obsługuje funkcji ERROR_LINE (). Jeśli masz ten kod, musisz go usunąć, aby był zgodny z pulą SQL. Zamiast zaimplementować równoważne funkcje, użyj etykiet zapytań w kodzie. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [etykiet](develop-label.md) .
+Warto również zauważyć, że Pula SQL nie implementuje ani nie obsługuje funkcji ERROR_LINE (). Jeśli ta funkcja jest dostępna w kodzie, należy ją usunąć, aby była zgodna z pulą SQL. Zamiast zaimplementować równoważne funkcje, użyj etykiet zapytań w kodzie. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [etykiet](develop-label.md) .
 
 ## <a name="use-of-throw-and-raiserror"></a>Użycie instrukcji THROW i RAISERROR
 
@@ -193,9 +193,7 @@ THROW to bardziej nowoczesny implementacja do wywoływania wyjątków w puli SQL
 
 ## <a name="limitations"></a>Ograniczenia
 
-Pula SQL zawiera kilka innych ograniczeń odnoszących się do transakcji.
-
-Są one następujące:
+Pula SQL zawiera kilka innych ograniczeń odnoszących się do transakcji. Są one następujące:
 
 * Brak transakcji rozproszonych
 * Brak dozwolonych transakcji zagnieżdżonych

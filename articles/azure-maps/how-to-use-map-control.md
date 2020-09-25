@@ -4,17 +4,17 @@ description: Dowiedz się, jak dodać mapy do aplikacji sieci Web i mobilnych pr
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7d45adc10a84af2cf1e5bfddd09c990e53a9f7e2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: 19db4fb0d75369a0f272eef1180e86f47d45d284
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086355"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335334"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Jak używać kontrolki mapy usługi Azure Maps
 

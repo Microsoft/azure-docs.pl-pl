@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 35e5e688f5589c23c7c583c7bcbca3fd0956eec7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ffee15776a48b6495f78b6becf81c620e1dc4d69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937252"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336313"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Zaplanowana konserwacja w Azure Database for PostgreSQL — elastyczny serwer
  
@@ -46,5 +46,5 @@ Jeśli zdarzenie konserwacji zostało anulowane przez system lub zakończy się 
 ## <a name="next-steps"></a>Następne kroki
  
 * Dowiedz się [, jak zmienić harmonogram konserwacji](how-to-maintenance-portal.md)
-* Dowiedz się, jak [otrzymywać powiadomienia o nadchodzącej konserwacji](/azure/service-health/service-notifications.md) przy użyciu Azure Service Health
-* Dowiedz się, jak [skonfigurować alerty dotyczące nadchodzących zdarzeń konserwacji zaplanowanej](/azure/service-health/resource-health-alert-monitor-guide.md)
+* Dowiedz się, jak [otrzymywać powiadomienia o nadchodzącej konserwacji](../../service-health/service-notifications.md) przy użyciu Azure Service Health
+* Dowiedz się, jak [skonfigurować alerty dotyczące nadchodzących zdarzeń konserwacji zaplanowanej](../../service-health/resource-health-alert-monitor-guide.md)

@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 93e6b373aa125facb3a3eddecc926438c919b335
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489745"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288379"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
 
@@ -52,7 +52,7 @@ WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 
 Zapoznaj się z artykułem [pliki Parquet zapytania](query-parquet-files.md) , aby zapoznać się z przykładami użycia.
 
-## <a name="query-csv-files"></a>Pliki CSV zapytania
+## <a name="query-csv-files"></a>Wykonywanie zapytań o pliki CSV
 
 Aby wykonać zapytanie dotyczące danych źródłowych woluminu CSV, użyj formatu "CSV". Możesz określić schemat pliku CSV jako część `OPENROWSET` funkcji podczas wykonywania zapytania dotyczącego plików CSV:
 
@@ -264,7 +264,7 @@ Dane demonstracyjne zawierają następujące zestawy danych:
 
 Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących różnych typów plików i tworzenia widoków i korzystania z nich, zobacz następujące artykuły:
 
-- [Pliki CSV zapytania](query-single-csv-file.md)
+- [Wykonywanie zapytań o pliki CSV](query-single-csv-file.md)
 - [Wykonywanie zapytań względem plików Parquet](query-parquet-files.md)
 - [Wykonywanie zapytań względem plików JSON](query-json-files.md)
 - [Wartości zagnieżdżone zapytania](query-parquet-nested-types.md)

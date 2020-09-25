@@ -4,16 +4,16 @@ description: Dowiedz się, jak wyświetlać metryki użycia interfejsu API Azure
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/06/2018
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 766bb2eaf6878a8d7261472ba11ea7acd46de92e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3f5dfcafe1c7b08a2c8320f807bf809107197d40
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036491"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335283"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Wyświetlanie metryk użycia interfejsu API usługi Azure Maps
 
@@ -42,7 +42,7 @@ Przejdź do następnej sekcji, jeśli chcesz dostosować te wykresy do konkretne
 
       ![Okienko metryk użycia Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Następnie możesz wybrać *zakres czasu* , klikając **ostatnie 24 godziny (automatyczne)**. Domyślnie zakres czasu jest ustawiany na 24 godziny. Po kliknięciu zobaczysz wszystkie wybrane zakresy czasu. Możesz wybrać *stopień szczegółowości czasu* i wybrać opcję wyświetlania czasu jako *lokalnego* lub *GMT* w tej samej liście rozwijanej. Kliknij przycisk **Zastosuj**.
+5. Następnie możesz wybrać *zakres czasu* , klikając **ostatnie 24 godziny (automatyczne)**. Domyślnie zakres czasu jest ustawiany na 24 godziny. Po kliknięciu zobaczysz wszystkie wybrane zakresy czasu. Możesz wybrać *stopień szczegółowości czasu* i wybrać opcję wyświetlania czasu jako *lokalnego* lub *GMT* w tej samej liście rozwijanej. Kliknij pozycję **Zastosuj**.
 
     ![Zakres czasu metryk Azure Maps](media/how-to-view-api-usage/time-range.png)
 

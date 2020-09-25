@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 497c6f669699f1e1ce879c0c7da2593256b97448
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 48b6639ad8228347737669fffca06eb660a25874
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501103"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288702"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu programu Power BI Professional
 
@@ -22,7 +22,7 @@ ms.locfileid: "87501103"
 >
 > - [Azure Data Studio](get-started-azure-data-studio.md)
 > - [Power BI](get-started-power-bi-professional.md)
-> - [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
@@ -30,7 +30,7 @@ W tym samouczku przedstawiono procedurę łączenia Power BI Desktop z programem
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Narzędzie do wysyłania zapytań:
+Aby wystawiać zapytania, potrzebne są następujące narzędzia:
 
 - Wybrany klient SQL:
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 10108fdf4f2b7090eaeaa4b378992c2e94d3b04c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325389"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database i architektura łączności usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -83,7 +83,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Brazil South         | 104.41.11.5, 191.233.200.14 |
 | Kanada Środkowa       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Kanada Wschodnia          | 40.86.226.166, 52.242.30.154 |
-| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
+| Środkowe stany USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Chiny Wschodnie           | 139.219.130.35     |
 | Chiny Wschodnie 2         | 40.73.82.1         |
 | Chiny Północne          | 139.219.15.17      |

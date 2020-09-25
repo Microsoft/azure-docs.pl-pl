@@ -7,16 +7,16 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563091"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325797"
 ---
-# <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla Azure Functions 
+# <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla Azure Functions
 
-W tym artykule opisano sposób pracy z wyzwalaczami czasomierza w Azure Functions. Wyzwalacz Timer pozwala uruchamiać funkcję zgodnie z harmonogramem. 
+W tym artykule opisano sposób pracy z wyzwalaczami czasomierza w Azure Functions. Wyzwalacz Timer pozwala uruchamiać funkcję zgodnie z harmonogramem.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -80,6 +80,21 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+Następująca przykładowa funkcja wyzwala i wykonuje co pięć minut. `@TimerTrigger`Adnotacja w funkcji definiuje harmonogram przy użyciu tego samego formatu ciągu co [cronus](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Poniższy przykład przedstawia powiązanie wyzwalacza czasomierza w *function.jsw* pliku oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja zapisuje dziennik wskazujący, czy to wywołanie funkcji jest spowodowane pominiętym wystąpieniem harmonogramu. [Obiekt Timer](#usage) jest przenoszona do funkcji.
@@ -111,9 +126,44 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Poniższy przykład ilustruje sposób konfigurowania *function.jsna* i *run.ps1* pliku dla wyzwalacza czasomierza w programie [PowerShell](./functions-reference-powershell.md).
+
+```json
+{
+  "bindings": [
+    {
+      "name": "Timer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
+}
+```
+
+```powershell
+# Input bindings are passed in via param block.
+param($Timer)
+
+# Get the current universal time in the default string format.
+$currentUTCtime = (Get-Date).ToUniversalTime()
+
+# The 'IsPastDue' property is 'true' when the current function invocation is later than scheduled.
+if ($Timer.IsPastDue) {
+    Write-Host "PowerShell timer is running late!"
+}
+
+# Write an information log with the current time.
+Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
+```
+
+Wystąpienie [obiektu Timer](#usage) jest przesyłane jako pierwszy argument do funkcji.
+
 # <a name="python"></a>[Python](#tab/python)
 
-W poniższym przykładzie jest stosowane powiązanie wyzwalacza czasomierza, którego konfiguracja została opisana w *function.js* pliku. Rzeczywista [funkcja języka Python](functions-reference-python.md) , która używa powiązania, jest opisana w pliku * __init__. PR* . Obiekt przesłany do funkcji jest [obiektem typu Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). Logika funkcji zapisuje w dziennikach wskazujący, czy bieżące wywołanie jest spowodowane pominiętym wystąpieniem harmonogramu. 
+W poniższym przykładzie jest stosowane powiązanie wyzwalacza czasomierza, którego konfiguracja została opisana w *function.js* pliku. Rzeczywista [funkcja języka Python](functions-reference-python.md) , która używa powiązania, jest opisana w pliku * __init__. PR* . Obiekt przesłany do funkcji jest [obiektem typu Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). Logika funkcji zapisuje w dziennikach wskazujący, czy bieżące wywołanie jest spowodowane pominiętym wystąpieniem harmonogramu.
 
 Oto dane powiązania w *function.js* pliku:
 
@@ -145,21 +195,6 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-Następująca przykładowa funkcja wyzwala i wykonuje co pięć minut. `@TimerTrigger`Adnotacja w funkcji definiuje harmonogram przy użyciu tego samego formatu ciągu co [cronus](https://en.wikipedia.org/wiki/Cron#CRON_expression).
-
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
-}
-```
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Atrybuty i adnotacje
@@ -188,14 +223,6 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Atrybuty nie są obsługiwane przez język JavaScript.
-
-# <a name="python"></a>[Python](#tab/python)
-
-Atrybuty nie są obsługiwane przez język Python.
-
 # <a name="java"></a>[Java](#tab/java)
 
 `@TimerTrigger`Adnotacja w funkcji definiuje harmonogram przy użyciu tego samego formatu ciągu co [cronus](https://en.wikipedia.org/wiki/Cron#CRON_expression).
@@ -210,6 +237,18 @@ public void keepAlive(
      context.getLogger().info("Timer is triggered: " + timerInfo);
 }
 ```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Atrybuty nie są obsługiwane przez język JavaScript.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Atrybuty nie są obsługiwane przez program PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+Atrybuty nie są obsługiwane przez język Python.
 
 ---
 
@@ -229,7 +268,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> Zalecamy ustawienie **runOnStartup** na `true` w środowisku produkcyjnym. Użycie tego ustawienia sprawia, że kod jest wykonywany w bardzo nieprzewidywalnym czasie. W niektórych ustawieniach produkcyjnych te dodatkowe wykonania mogą spowodować znacznie wyższe koszty dla aplikacji hostowanych w planach zużycia. Na przykład po włączeniu **runOnStartup** wyzwalacz jest wywoływany za każdym razem, gdy aplikacja funkcji jest skalowana. Upewnij się, że w pełni zrozumiesz zachowanie środowiska produkcyjnego przed włączeniem **runOnStartup** w środowisku produkcyjnym.   
+> Zalecamy ustawienie **runOnStartup** na `true` w środowisku produkcyjnym. Użycie tego ustawienia sprawia, że kod jest wykonywany w bardzo nieprzewidywalnym czasie. W niektórych ustawieniach produkcyjnych te dodatkowe wykonania mogą spowodować znacznie wyższe koszty dla aplikacji hostowanych w planach zużycia. Na przykład po włączeniu **runOnStartup** wyzwalacz jest wywoływany za każdym razem, gdy aplikacja funkcji jest skalowana. Upewnij się, że w pełni zrozumiesz zachowanie środowiska produkcyjnego przed włączeniem **runOnStartup** w środowisku produkcyjnym.
 
 ## <a name="usage"></a>Użycie
 
@@ -250,8 +289,7 @@ Po wywołaniu funkcji wyzwalacza czasomierza obiekt Timer jest przenoszona do fu
 
 `IsPastDue`Właściwość jest, `true` gdy bieżące wywołanie funkcji jest późniejsze niż zaplanowana. Na przykład ponowne uruchomienie aplikacji funkcji może spowodować utratę wywołania.
 
-
-## <a name="ncrontab-expressions"></a>Wyrażenia NCRONTAB 
+## <a name="ncrontab-expressions"></a>Wyrażenia NCRONTAB
 
 Azure Functions rozpoznaje wyrażenia NCRONTAB przy użyciu biblioteki [NCronTab](https://github.com/atifaziz/NCrontab) . Wyrażenie NCRONTAB jest podobne do wyrażenia CRONUS, z tą różnicą, że zawiera dodatkowe szóste pole na początku do użycia dla dokładności czasu w sekundach:
 
@@ -300,12 +338,12 @@ W przeciwieństwie do wyrażenia CRONUS, `TimeSpan` wartość określa przedzia�
 
 Jest to ciąg, który jest `TimeSpan` `hh:mm:ss` `hh` mniejszy niż 24. Gdy dwie pierwsze cyfry mają wartość 24 lub większą, format to `dd:hh:mm` . Oto kilka przykładów:
 
-|Przykład |Po wyzwoleniu  |
-|---------|---------|
-|"01:00:00" | co godzinę        |
-|"00:01:00"|co minutę         |
-|"24:00:00" | co 24 dni        |
-|"1,00:00:00" | Codziennie        |
+| Przykład      | Po wyzwoleniu |
+|--------------|----------------|
+| "01:00:00"   | co godzinę     |
+| "00:01:00"   | co minutę   |
+| "24:00:00"   | co 24 dni  |
+| "1,00:00:00" | Codziennie      |
 
 ## <a name="scale-out"></a>Skalowanie w poziomie
 
