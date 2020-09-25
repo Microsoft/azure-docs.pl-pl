@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319898"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect Sync: Konfigurowanie preferowanej lokalizacji danych dla zasobów Microsoft 365
 W tym temacie opisano sposób konfigurowania atrybutu dla preferowanej lokalizacji danych w programie Azure Active Directory (Azure AD) Connect Sync. Gdy ktoś korzysta z możliwości wieloznacznych w Microsoft 365, użyj tego atrybutu, aby określić lokalizację geograficzną Microsoft 365 danych użytkownika. ( *Region* terminów i *geograficznie* są używane zamiennie).
@@ -118,7 +118,7 @@ Nie wszystkie atrybuty usługi Azure AD są importowane do lokalnego obszaru ł�
 4. Upewnij się, że atrybut źródłowy wybrany do użycia jest zaznaczony na liście atrybutów. Jeśli nie widzisz atrybutu, zaznacz pole wyboru **Pokaż wszystkie** .
 5. Aby zapisać, wybierz **przycisk OK**.
 
-![Zrzut ekranu przedstawiający okno dialogowe Synchronization Service Manager i właściwości](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Zrzut ekranu przedstawiający okno dialogowe Synchronization Service Manager i właściwości z wyróżnioną listą "atrybuty".](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
 ## <a name="step-4-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Krok 4. Dodawanie **preferredDataLocation** do schematu łącznika usługi Azure AD
 **Ten krok jest wymagany tylko w przypadku uruchamiania połączenia w wersji 1.3.21 lub starszej. Jeśli używasz programu 1.4.18 lub nowszego, przejdź do kroku 5.**  

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: d4da9a819d7aa96992259112c75154b1651341ac
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319132"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspekcja danych usługi Custom Speech
 
@@ -79,17 +79,19 @@ Po pomyślnym zaimportowaniu danych możesz kliknąć w zestawach i rozpocząć 
 
 ### <a name="edit-transcription-by-listening-to-audio"></a>Edytuj transkrypcję, nasłuchiwanie na dźwięk
 
-Po pomyślnym przekazaniu danych kliknij każdą nazwę elementu, aby wyświetlić szczegóły danych. Na stronie szczegółów są wyświetlane wszystkie pliki w zestawie danych, a następnie można kliknąć w żądanym wypowiedź. Dla każdego wypowiedźu można odtworzyć dźwięk i sprawdzić transkrypcje oraz edytować transkrypcje, jeśli znajdziesz jakiekolwiek błędy wstawiania, usuwania lub podstawiania. Zapoznaj się z informacjami na [temat oceny danych](how-to-custom-speech-evaluate-data.md) , aby uzyskać więcej szczegółów na temat typów błędów.
+Po pomyślnym przekazaniu danych kliknij każdą nazwę elementu, aby wyświetlić szczegóły danych. Można również użyć **poprzednich** i **następnych** do przechodzenia między każdym plikiem.
+
+Na stronie szczegółów są wyświetlane wszystkie segmenty w każdym pliku audio i można kliknąć w żądanym wypowiedź. Dla każdego wypowiedźu można odtworzyć dźwięk i sprawdzić transkrypcje oraz edytować transkrypcje, jeśli znajdziesz jakiekolwiek błędy wstawiania, usuwania lub podstawiania. Zapoznaj się z informacjami na [temat oceny danych](how-to-custom-speech-evaluate-data.md) , aby uzyskać więcej szczegółów na temat typów błędów.
 
 ![Strona edytora](media/custom-speech/custom-speech-editor.png)
 
-Jeśli plik audio jest długi, zostanie automatycznie podzielony na mniejsze części. Można je edytować jeden z nich przy użyciu funkcji **poprzednie** i **obok pozycji** przechodzenie między stronami. Po dokonaniu edycji kliknij przycisk **Zapisz** .
+Po dokonaniu edycji kliknij przycisk **Zapisz** .
 
 ### <a name="export-datasets-from-the-editor"></a>Eksportowanie zestawów danych z edytora
 
 Aby wyeksportować zestawy danych z powrotem do karty **dane** , przejdź do strony Szczegóły danych, a następnie kliknij przycisk **Eksportuj** , aby wyeksportować wszystkie pliki jako nowy zestaw danych. Można również filtrować pliki według czasu ostatniego edytowania, czasów trwania audio itp., aby częściowo wybierać żądane pliki. 
 
-![Wyeksportowanie danych](media/custom-speech/custom-speech-editor-export.png)
+![Eksportowanie danych](media/custom-speech/custom-speech-editor-export.png)
 
 Pliki eksportowane do danych będą używane jako zestaw danych marki i nie wpłyną na żadne istniejące dane/szkolenia/jednostki testowe.
 
@@ -100,6 +102,6 @@ Pliki eksportowane do danych będą używane jako zestaw danych marki i nie wpł
 - [Ulepszanie modelu](how-to-custom-speech-improve-accuracy.md)
 - [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Przygotuj dane testowe dla Custom Speech](how-to-custom-speech-test-data.md)

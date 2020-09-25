@@ -1,14 +1,16 @@
 ---
 title: Typy jednostek — LUIS
 description: Jednostka wyodrębnia dane z wypowiedź użytkownika w środowisku uruchomieniowym przewidywania. _Opcjonalne_, pomocnicze przeznaczenie ma na celu zwiększenie przewidywania zamiaru lub innych jednostek przy użyciu jednostki jako funkcji.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 8751bdd52bb1c3738103dc074184a3cf72bfeb09
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207735"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316566"
 ---
 # <a name="extract-data-with-entities"></a>Wyodrębnij dane przy użyciu jednostek
 
@@ -49,7 +51,7 @@ Jednostka reprezentuje koncepcję danych _w wypowiedź_. Celem jest sklasyfikowa
 
 Weź pod uwagę następujące cztery wyrażenia długości:
 
-|Wypowiedź|Przewidywany cel|Wyodrębnione jednostki|Wyjaśnienie|
+|Wypowiedź|Przewidywany cel|Wyodrębnione jednostki|Objaśnienie|
 |--|--|--|--|
 |Pomoc|Pomoc|-|Brak elementów do wyodrębnienia.|
 |Wyślij coś|sendSomething|-|Brak elementów do wyodrębnienia. Model nie ma wymaganej funkcji do wyodrębnienia `something` w tym kontekście i nie podano odbiorcy.|

@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43edb9ba6cdd73ce195a8b4eb60071b6831b7223
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e771a988faca98d009b97b1e705ddac7110a255f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526939"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266500"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Pilotażowa aprowizacja w chmurze dla istniejącego zsynchronizowanego lasu usługi AD 
 
@@ -40,7 +40,7 @@ Poniżej przedstawiono wymagania wstępne niezbędne do wykonania kroków tego s
 - Środowisko testowe z Azure AD Connect synchronizacji w wersji 1.4.32.0 lub nowszej
 - Jednostka organizacyjna lub Grupa, która znajduje się w zakresie synchronizacji i może być używana przez pilotaż. Zalecamy rozpoczęcie od małego zestawu obiektów.
 - Serwer z systemem Windows Server 2012 R2 lub nowszym, który będzie hostem agenta aprowizacji.  Nie może to być ten sam serwer, co serwer Azure AD Connect.
-- Kotwicą źródłową dla synchronizacji programu AAD Connect powinna być wartość *objectGUID* lub *MS-ds-consistencyGUID*
+- Kotwicą źródłową dla synchronizacji Azure AD Connect powinna być parametr *objectGUID* lub *MS-ds-consistencyGUID*
 
 ## <a name="update-azure-ad-connect"></a>Azure AD Connect aktualizacji
 
@@ -54,7 +54,7 @@ Synchronizacja Azure AD Connect synchronizuje zmiany występujące w katalogu lo
 3.  Uruchom polecenie `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
 >[!NOTE] 
->Jeśli używasz własnego harmonogramu niestandardowego dla synchronizacji z usługą AAD Connect, wyłącz Harmonogram. 
+>Jeśli używasz własnego harmonogramu niestandardowego na potrzeby synchronizacji Azure AD Connect, wyłącz Harmonogram. 
 
 ## <a name="create-custom-user-inbound-rule"></a>Utwórz niestandardową regułę ruchu przychodzącego użytkownika
 
@@ -62,7 +62,7 @@ Synchronizacja Azure AD Connect synchronizuje zmiany występujące w katalogu lo
  ![Menu edytora reguł synchronizacji](media/how-to-cloud-custom-user-rule/user8.png)</br>
  
  2. Z listy rozwijanej wybierz pozycję **ruch przychodzący** , a następnie kliknij pozycję **Dodaj nową regułę**.
- ![Reguła niestandardowa](media/how-to-cloud-custom-user-rule/user1.png)</br>
+ ![Zrzut ekranu przedstawiający okno "Wyświetlanie i zarządzanie regułami synchronizacji" z wybranym przyciskiem "przychodzący" i "Dodaj nową regułę".](media/how-to-cloud-custom-user-rule/user1.png)</br>
  
  3. Na stronie **Opis** wprowadź następujące opcje i kliknij przycisk **dalej**:
 
@@ -74,7 +74,7 @@ Synchronizacja Azure AD Connect synchronizuje zmiany występujące w katalogu lo
     **Typ łącza:** Złącza<br>
     **Priorytet:** Podaj wartość, która jest unikatowa w systemie<br>
     **Tag:** Pozostaw to pole puste<br>
-    ![Reguła niestandardowa](media/how-to-cloud-custom-user-rule/user2.png)</br>
+    ![Zrzut ekranu przedstawiający stronę "Tworzenie reguły synchronizacji ruchu przychodzącego — opis" z wprowadzonymi wartościami.](media/how-to-cloud-custom-user-rule/user2.png)</br>
  
  4. Na stronie **Filtr określania zakresu** wprowadź jednostkę organizacyjną lub grupę zabezpieczeń, dla której ma zostać wykorzystana pilotaż.  Aby filtrować według jednostki organizacyjnej, należy dodać część jednostki organizacyjnej nazwy wyróżniającej. Ta reguła zostanie zastosowana dla wszystkich użytkowników należących do tej jednostki organizacyjnej.  W związku z tym, jeśli DN zostanie zakończona z "OU = procesorami, DC = contoso, DC = com, należy dodać ten filtr.  Następnie kliknij przycisk **Dalej**. 
 
@@ -83,31 +83,31 @@ Synchronizacja Azure AD Connect synchronizuje zmiany występujące w katalogu lo
     |Określanie zakresu jednostki organizacyjnej|WYRÓŻNIAJĄC|ENDSWITH|Nazwa wyróżniająca jednostki organizacyjnej.|
     |Grupa określania zakresu||ISMEMBEROF|Nazwa wyróżniająca grupy zabezpieczeń.|
 
-    ![Reguła niestandardowa](media/how-to-cloud-custom-user-rule/user3.png)</br>
+    ![Zrzut ekranu pokazujący stronę "Tworzenie reguły synchronizacji ruchu przychodzącego — filtr zakresu" z wprowadzoną wartością filtru określania zakresu.](media/how-to-cloud-custom-user-rule/user3.png)</br>
  
  5. Na stronie reguły **sprzężenia** kliknij przycisk **dalej**.
  6. Na stronie **przekształcenia** Dodaj stałą transformację: przepływaj do cloudNoFlow atrybutu. Kliknij pozycję **Dodaj**.
- ![Reguła niestandardowa](media/how-to-cloud-custom-user-rule/user4.png)</br>
+ ![Zrzut ekranu przedstawiający stronę "Tworzenie reguły synchronizacji ruchu przychodzącego — przekształcenia" z dodaniem przepływu "stała transformacja".](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
 Należy wykonać te same czynności dla wszystkich typów obiektów (użytkownik, Grupa i kontakt). Powtórz kroki według skonfigurowanego łącznika usługi AD/dla każdego lasu usługi AD. 
 
 ## <a name="create-custom-user-outbound-rule"></a>Utwórz niestandardową regułę ruchu wychodzącego użytkownika
 
  1. Z listy rozwijanej wybierz pozycję ruch **wychodzący** , a następnie kliknij pozycję **Dodaj regułę**.
- ![Reguła niestandardowa](media/how-to-cloud-custom-user-rule/user5.png)</br>
+ ![Zrzut ekranu pokazujący wybrany kierunek "Wychodzący" i wyróżniony przycisk "Dodaj nową regułę".](media/how-to-cloud-custom-user-rule/user5.png)</br>
  
  2. Na stronie **Opis** wprowadź następujące opcje i kliknij przycisk **dalej**:
 
     **Nazwa:** Nadaj regule nazwę zrozumiałą<br>
     **Opis:** Dodaj opis istotny<br>
-    **Połączony system:** Wybierz łącznik usługi AAD, dla którego piszesz regułę synchronizacji niestandardowej<br>
+    **Połączony system:** Wybierz łącznik usługi Azure AD, dla którego chcesz napisać regułę synchronizacji niestandardowej<br>
     **Typ połączonego obiektu systemowego:** Użytkownicy<br>
     **Typ obiektu metaverse:** Sprzedawca<br>
     **Typ łącza:** JoinNoFlow<br>
     **Priorytet:** Podaj wartość, która jest unikatowa w systemie<br>
     **Tag:** Pozostaw to pole puste<br>
     
-    ![Reguła niestandardowa](media/how-to-cloud-custom-user-rule/user6.png)</br>
+    ![Zrzut ekranu pokazujący stronę "opis" z wprowadzonymi właściwościami.](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
  3. Na stronie **Filtr określania zakresu** wybierz pozycję **cloudNoFlow** równe **true**. Następnie kliknij przycisk **Dalej**.
  ![Reguła niestandardowa](media/how-to-cloud-custom-user-rule/user7.png)</br>
@@ -122,14 +122,14 @@ Należy wykonać te same czynności dla wszystkich typów obiektów (użytkownik
 2. Pobierz Azure AD Connect agenta aprowizacji w chmurze, wykonując kroki opisane [tutaj](how-to-install.md#install-the-agent).
 3. Uruchamianie Azure AD Connect aprowizacji w chmurze (AADConnectProvisioningAgent. Installer)
 3. Na ekranie powitalnym **Zaakceptuj** postanowienia licencyjne, a następnie kliknij przycisk **Instaluj**.</br>
-![Ekran powitalny](media/how-to-install/install1.png)</br>
+![Zrzut ekranu przedstawiający ekran powitalny "Microsoft Azure A D Connecting Agent".](media/how-to-install/install1.png)</br>
 
 4. Po zakończeniu tej operacji zostanie uruchomiony Kreator konfiguracji.  Zaloguj się przy użyciu konta administratora globalnego usługi Azure AD.
 5. Na ekranie **połącz Active Directory** kliknij pozycję **Dodaj katalog** , a następnie zaloguj się przy użyciu konta administratora Active Directory.  Ta operacja spowoduje dodanie katalogu lokalnego.  Kliknij przycisk **Dalej**.</br>
-![Ekran powitalny](media/how-to-install/install3.png)</br>
+![Zrzut ekranu pokazujący ekran "Połącz Active Directory" z wprowadzoną wartością katalogu.](media/how-to-install/install3.png)</br>
 
 6. Na ekranie **Konfiguracja ukończona** kliknij przycisk **Potwierdź**.  Ta operacja spowoduje zarejestrowanie i ponowne uruchomienie agenta.</br>
-![Ekran powitalny](media/how-to-install/install4.png)</br>
+![Zrzut ekranu przedstawiający ekran "ukończenie konfiguracji" z wybranym przyciskiem "Potwierdź".](media/how-to-install/install4.png)</br>
 
 7. Po zakończeniu tej operacji powinna zostać wyświetlona informacja o **tym, że została pomyślnie zweryfikowana.**  Możesz kliknąć przycisk **Zakończ**.</br>
 ![Ekran powitalny](media/how-to-install/install5.png)</br>

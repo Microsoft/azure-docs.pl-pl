@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b79bf5e8ead16bbdf9c69e8d7faae43fa778ab3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316583"
 ---
 # <a name="limits-and-quotas"></a>Limity przydziału i ograniczenia
 
@@ -39,7 +39,7 @@ Liczba obrazów szkoleniowych na projekt i Tagi dla projektu powinna wzrosnąć 
 |[Inne wywołania interfejsu API](https://go.microsoft.com/fwlink/?linkid=865446) (liczba transakcji na sekundę)|10|10|
 |Akceptowane typy obrazów|jpg, PNG, BMP, GIF|jpg, PNG, BMP, GIF|
 |Minimalna wysokość/szerokość obrazu w pikselach|256 (patrz Uwaga)|256 (patrz Uwaga)|
-|Maksymalna wysokość/szerokość obrazu (w pikselach)|bez ograniczeń|bez ograniczeń|
+|Maksymalna wysokość/szerokość obrazu (w pikselach)|10 240|10 240|
 |Maksymalny rozmiar obrazu (przekazywanie obrazów szkoleniowych) |6 MB|6 MB|
 |Maksymalny rozmiar obrazu (przewidywanie)|4 MB|4 MB|
 |Obraz szkoleń dotyczących liczby regionów na wykrycie obiektu|300|300|
@@ -47,3 +47,4 @@ Liczba obrazów szkoleniowych na projekt i Tagi dla projektu powinna wzrosnąć 
 
 > [!NOTE]
 > Obrazy o rozmiarze mniejszym niż 256 pikseli zostaną zaakceptowane, ale przeskalowane.
+> Współczynnik proporcji obrazu nie powinien być większy niż 25

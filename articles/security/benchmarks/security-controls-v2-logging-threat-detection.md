@@ -4,17 +4,17 @@ description: Rejestrowanie testów zabezpieczeń Azure w wersji 2 i wykrywanie z
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 24ddca37a729a459382fc96a2f6e0ef1a7832f37
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059298"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295468"
 ---
-# <a name="security-control-logging-and-threat-detection"></a>Kontrola zabezpieczeń: rejestrowanie i wykrywanie zagrożeń
+# <a name="security-control-v2-logging-and-threat-detection"></a>Kontrola zabezpieczeń v2: rejestrowanie i wykrywanie zagrożeń
 
 Rejestrowanie i wykrywanie zagrożeń obejmują kontrolę w zakresie wykrywania zagrożeń na platformie Azure oraz włączanie, zbieranie i przechowywanie dzienników inspekcji dla usług platformy Azure. Obejmuje to Włączanie procesów wykrywania, badania i korygowania przy użyciu kontrolek w celu generowania alertów o wysokiej jakości z natywnym wykrywaniem zagrożeń w usługach platformy Azure. obejmuje to również zbieranie dzienników z Azure Monitor, scentralizowanie analizy zabezpieczeń dzięki wskaźnikom danych platformy Azure, synchronizacji czasu i przechowywaniu dzienników. 
 
@@ -40,11 +40,11 @@ Ponadto przy użyciu wskaźnikowego platformy Azure można tworzyć reguły anal
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia infrastruktury i punktu końcowego](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operacje zabezpieczeń (SecOP)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -77,11 +77,11 @@ Azure Security Center może również otrzymywać alerty dotyczące niektórych 
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia infrastruktury i punktu końcowego](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operacje zabezpieczeń (SecOP)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -111,11 +111,11 @@ Umożliwiają włączanie i zbieranie dzienników zasobów sieciowych grup zabez
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia infrastruktury i punktu końcowego](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operacje zabezpieczeń (SecOP)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Zarządzanie stanem bezpieczeństwa](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -129,7 +129,7 @@ Umożliwiają włączanie i zbieranie dzienników zasobów sieciowych grup zabez
 |--|--|--|--|
 | LT-4 | 6,2, 6,3, 8,8 | AU-3, AU-12 |
 
-Włącz rejestrowanie zasobów platformy Azure, aby spełnić wymagania dotyczące zgodności, wykrywania zagrożeń i badania oraz łowiectwa zagrożeń. 
+Włącz rejestrowanie zasobów platformy Azure, aby spełnić wymagania dotyczące zgodności, wykrywania zagrożeń, łowiectwa i badania incydentu. 
 
 Azure Security Center i Azure Policy umożliwiają włączenie dzienników zasobów i danych dzienników zbieranych w zasobach platformy Azure w celu uzyskania dostępu do dzienników inspekcji, zabezpieczeń i zasobów. Dzienniki aktywności, które są automatycznie dostępne, obejmują źródło zdarzeń, datę, użytkownika, sygnaturę czasową, adresy źródłowe, adresy docelowe i inne przydatne elementy. 
 
@@ -141,9 +141,9 @@ Azure Security Center i Azure Policy umożliwiają włączenie dzienników zasob
 
 **Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operacje zabezpieczeń (SecOP)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 Zabezpieczenia infrastruktury i punktu końcowego 
 
@@ -171,7 +171,7 @@ Wiele organizacji decyduje się na korzystanie z platformy Azure na potrzeby dan
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -185,25 +185,25 @@ Wiele organizacji decyduje się na korzystanie z platformy Azure na potrzeby dan
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
-Skonfiguruj przechowywanie dzienników zgodnie ze zgodnością, rozporządzeniem i innymi wymaganiami. 
+Skonfiguruj przechowywanie dzienników zgodnie ze zgodnością, przepisami i wymaganiami biznesowymi. 
 
 W Azure Monitor można ustawić okres przechowywania Log Analytics obszaru roboczego zgodnie z regulacjami zgodności w organizacji. Użyj usługi Azure Storage Data Lake lub Log Analytics konta obszaru roboczego do przechowywania długoterminowego i archiwizowania.
 
 - [Zmień okres przechowywania danych w Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-Jak skonfigurować zasady przechowywania dzienników kont usługi Azure Storage: ttps://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging
+- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 - [Azure Security Center alertów i zaleceń — eksport](../../security-center/continuous-export.md)
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Operacje zabezpieczeń (SecOP)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [Zarządzanie zgodnością zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -225,7 +225,7 @@ Wszystkie dzienniki wygenerowane przez zasoby w ramach platformy Azure zapewniaj
 
 **Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zasady i standardy](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 

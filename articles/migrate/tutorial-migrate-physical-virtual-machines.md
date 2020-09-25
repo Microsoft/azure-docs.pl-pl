@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób migrowania maszyn fizycznych na plat
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 7091d95a07da60faed7012df04c05def340df7b4
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 2f9b3d43effff49da6aa348e22c0c974606f4c2b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376081"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296335"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrowanie maszyn jako serwerów fizycznych na platformę Azure
 
@@ -35,7 +35,7 @@ Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i mi
 > * Uruchom pełną migrację na platformę Azure.
 
 > [!NOTE]
-> Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Samouczki korzystają z domyślnych opcji, jeśli jest to możliwe, i nie wyświetlają wszystkich możliwych ustawień i ścieżek. Aby uzyskać szczegółowe instrukcje, zapoznaj się z tematem Porady dotyczące Azure Migrate.
+> Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Jeśli to możliwe, samouczki używają opcji domyślnych i nie przedstawiają wszystkich możliwych ustawień i ścieżek. Aby uzyskać szczegółowe instrukcje, zapoznaj się z tematem Porady dotyczące Azure Migrate.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -52,17 +52,17 @@ Przygotuj platformę Azure do migracji przy użyciu migracji serwera.
 
 **Zadanie** | **Szczegóły**
 --- | ---
-**Tworzenie projektu Azure Migrate** | Twoje konto platformy Azure musi mieć uprawnienia współautora lub właściciela, aby utworzyć projekt.
+**Tworzenie projektu usługi Azure Migrate** | Twoje konto platformy Azure musi mieć uprawnienia współautora lub właściciela, aby utworzyć projekt.
 **Weryfikowanie uprawnień do konta platformy Azure** | Twoje konto platformy Azure wymaga uprawnień do utworzenia maszyny wirtualnej i zapisu na dysku zarządzanym platformy Azure.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Przypisywanie uprawnień do tworzenia projektu
 
-1. W Azure Portal Otwórz subskrypcję i wybierz pozycję **Kontrola dostępu (IAM)**.
+1. W witrynie Azure Portal otwórz daną subskrypcję i wybierz pozycję **Kontrola dostępu (IAM)** .
 2. W obszarze **Sprawdź dostęp**Znajdź odpowiednie konto i kliknij je, aby wyświetlić uprawnienia.
 3. Należy mieć uprawnienia **współautora** lub **właściciela** .
-    - Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicielem subskrypcji.
-    - Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać rolę.
+    - Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji.
+    - Jeśli nie jesteś właścicielem subskrypcji, poproś właściciela o przypisanie roli.
 
 
 ### <a name="assign-azure-account-permissions"></a>Przypisywanie uprawnień konta platformy Azure
@@ -126,7 +126,7 @@ Skonfiguruj projekt Azure Migrate, a następnie Dodaj do niego narzędzie do mig
 6. W obszarze **Projekt migracji**wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.
 7. W obszarze **Szczegóły projektu** określ nazwę projektu i lokalizację geograficzną, w której chcesz utworzyć projekt, a następnie kliknij przycisk **Dalej**. Przejrzyj obsługiwane lokalizacje geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
-    ![Tworzenie projektu Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
+    ![Tworzenie projektu usługi Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
 8. W obszarze **Wybierz narzędzie oceny**, wybierz pozycję **Pomiń teraz dodawanie narzędzia oceny** > **Dalej**.
 9. W obszarze **Wybierz narzędzie migracji** wybierz pozycję **Azure Migrate: Migracja serwera** > **Dalej**.
@@ -228,14 +228,14 @@ Teraz wybierz maszyny do migracji.
 
 1. Na **serwerach**Azure Migrate project > **Azure Migrate: Migracja serwera**, kliknij przycisk **replikacja**.
 
-    ![Replikowanie maszyn wirtualnych](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
+    ![Zrzut ekranu przedstawiający ekran Azure Migrate serwerów z przyciskiem replikacja wybrana w Azure Migrate: Migracja serwera w obszarze Narzędzia migracji.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
 2. W obszarze **replikacja**> **Ustawienia źródła**  >  **są zwirtualizowane na maszynach?** wybierz opcję **niezwirtualizowane/inne**.
 3. W **urządzeniu lokalnym**wybierz nazwę skonfigurowanego urządzenia Azure Migrate.
 4. W obszarze **serwer przetwarzania**wybierz nazwę urządzenia replikacji.
 6. W obszarze **poświadczenia gościa**wybierz konto fikcyjne utworzone wcześniej podczas [instalacji Instalatora replikacji](#download-the-replication-appliance-installer) , aby ręcznie zainstalować usługę mobilności (instalacja wypychana nie jest obsługiwana). Następnie kliknij przycisk **Dalej: maszyny wirtualne**.   
 
-    ![Replikowanie maszyn wirtualnych](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
+    ![Zrzut ekranu przedstawiający kartę Ustawienia źródła na ekranie replikacja z wyróżnionym polem poświadczenia gościa.](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
 7. W **Virtual Machines**w **ustawieniach migracji importu z oceny?** pozostaw ustawienie domyślne **nie, określ ustawienia migracji ręcznie**.
 8. Sprawdź wszystkie maszyny wirtualne, które chcesz zmigrować. Następnie kliknij przycisk **Dalej: ustawienia docelowe**.
@@ -264,9 +264,9 @@ Teraz wybierz maszyny do migracji.
     - **Zestaw dostępności**: Określ zestaw dostępności, który ma być używany.
 
 > [!NOTE]
->Jeśli chcesz wybrać inną opcję dostępności dla zestawów maszyn wirtualnych, przejdź do kroku 1 i powtórz kroki, wybierając różne opcje dostępności po uruchomieniu replikacji dla jednego zestawu maszyn wirtualnych.
+> Jeśli chcesz wybrać inną opcję dostępności dla zestawów maszyn wirtualnych, przejdź do kroku 1 i powtórz kroki, wybierając różne opcje dostępności po uruchomieniu replikacji dla jednego zestawu maszyn wirtualnych.
 
-    ![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
+   ![Ustawienia obliczeń](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
 13. W obszarze **dyski**Określ, czy dyski maszyn wirtualnych mają być replikowane na platformę Azure, a następnie wybierz typ dysku (standardowy dysk SSD lub dyski w warstwie Premium) na platformie Azure. Następnie kliknij przycisk **Dalej**.
     - Dyski można wykluczyć z replikacji.

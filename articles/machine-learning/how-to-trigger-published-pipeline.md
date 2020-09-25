@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 6d54945ce026f91b27ce31ba82ada1b0cc49a260
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324254"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318300"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Wyzwalanie przebiegu potoku Machine Learning z poziomu aplikacji logiki
 
@@ -94,3 +94,14 @@ Po udostępnieniu aplikacji logiki wykonaj następujące kroki, aby skonfigurowa
     > ![Ustawienia protokołu HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. Wybierz pozycję **Zapisz** , a harmonogram jest teraz gotowy.
+
+## <a name="next-steps"></a>Następne kroki
+
+Aby uzyskać więcej informacji, zobacz:
+
+> [!div class="nextstepaction"]
+> [Korzystanie z potoków Azure Machine Learning na potrzeby oceniania partii](tutorial-pipeline-batch-scoring-classification.md)
+
+* Dowiedz się więcej o [potokach](concept-ml-pipelines.md)
+* Dowiedz się więcej o [eksplorowaniu Azure Machine Learning za pomocą Jupyter](samples-notebooks.md)
+

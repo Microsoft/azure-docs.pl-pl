@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: f0d8a37f0edc161cbd73bf7438dc1c9486c4251b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027941"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320017"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Wersja zapoznawcza: Tworzenie maszyny wirtualnej z systemem Windows przy użyciu usługi Azure Image Builder
 
@@ -161,7 +161,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> W przypadku obrazu źródłowego należy zawsze [określić wersję](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), której nie można użyć `latest` .
+> W przypadku obrazu źródłowego należy zawsze [określić wersję](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version), której nie można użyć `latest` .
 > W przypadku dodania lub zmiany grupy zasobów, do której jest dystrybuowany obraz, należy [ustawić uprawnienia](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) dla grupy zasobów.
  
 ## <a name="create-the-image"></a>Tworzenie obrazu
@@ -179,13 +179,13 @@ az resource create \
 
 Po zakończeniu spowoduje to zwrócenie komunikatu o powodzeniu z powrotem do konsoli i utworzenie `Image Builder Configuration Template` w `$imageResourceGroup` . Możesz zobaczyć ten zasób w grupie zasobów w Azure Portal, jeśli włączysz opcję "Pokaż ukryte typy".
 
-W tle Konstruktor obrazów utworzy również tymczasową grupę zasobów w ramach subskrypcji. Ta grupa zasobów jest używana do kompilowania obrazu. Będzie w tym formacie:`IT_<DestinationResourceGroup>_<TemplateName>`
+W tle Konstruktor obrazów utworzy również tymczasową grupę zasobów w ramach subskrypcji. Ta grupa zasobów jest używana do kompilowania obrazu. Będzie w tym formacie: `IT_<DestinationResourceGroup>_<TemplateName>`
 
 > [!Note]
 > Nie można bezpośrednio usunąć grupy zasobów tymczasowych. Najpierw usuń artefakt szablonu obrazu, co spowoduje usunięcie tymczasowej grupy zasobów.
 
 Jeśli usługa zgłasza błąd podczas przesłania szablonu konfiguracji obrazu:
--  Zapoznaj się z tymi krokami [rozwiązywania problemów](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) . 
+-  Zapoznaj się z tymi krokami [rozwiązywania problemów](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) . 
 - Przed ponownym przesłaniem należy usunąć szablon przy użyciu poniższego fragmentu kodu.
 
 ```azurecli-interactive
@@ -208,7 +208,7 @@ az resource invoke-action \
 
 Poczekaj, aż kompilacja zostanie ukończona. Może to potrwać około 15 minut.
 
-W przypadku wystąpienia błędów zapoznaj się z tymi krokami [rozwiązywania problemów](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) .
+W przypadku wystąpienia błędów zapoznaj się z tymi krokami [rozwiązywania problemów](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) .
 
 
 ## <a name="create-the-vm"></a>Tworzenie maszyny wirtualnej

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9f3d95d7ae725dba700b0a060ba74552d6b83ad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84172368"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329265"
 ---
 # <a name="public-ip-addresses"></a>Publiczne adresy IP
 
@@ -44,7 +44,7 @@ Publiczne adresy IP są tworzone przy użyciu jednej z następujących jednostek
 >[!IMPORTANT]
 > W przypadku zasobów modułu równoważenia obciążenia i publicznych adresów IP wymagane są zgodne jednostki SKU. Nie można mieć kombinacji podstawowych i standardowych zasobów SKU. Nie można dołączyć autonomicznych maszyn wirtualnych, maszyn wirtualnych w zasobie zestawu dostępności lub zasobów zestawu skalowania maszyn wirtualnych jednocześnie do obu jednostek SKU.  W nowych projektach należy rozważyć użycie standardowych zasobów SKU.  Zapoznaj się z tematem [Usługa Load Balancer w warstwie Standardowa](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), aby uzyskać szczegółowe informacje.
 
-### <a name="standard"></a>Standardowa (Standard)
+### <a name="standard"></a>Standardowa
 
 Publiczne adresy IP jednostki SKU:
 
@@ -165,6 +165,13 @@ Publiczny adres IP możesz skojarzyć z usługą [Application Gateway](../applic
 * Przypisz **dynamiczny** podstawowy adres IP do konfiguracji frontonu bramy aplikacji w wersji 1. 
 * Przypisz **statyczny** standardowy adres jednostki SKU do konfiguracji frontonu w wersji 2.
 
+## <a name="azure-firewall"></a>Azure Firewall
+
+[Zapora platformy Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) umożliwia tworzenie, wymuszanie i rejestrowanie zasad łączności aplikacji i sieci w ramach subskrypcji i sieci wirtualnych.
+
+Do zapory można kojarzyć tylko **statyczne** publiczne adresy IP. Dzięki temu zapory zewnętrzne mogą identyfikować ruch pochodzący z sieci wirtualnej. 
+
+
 ## <a name="at-a-glance"></a>W skrócie
 
 W poniższej tabeli przedstawiono właściwości, za pomocą których publiczny adres IP można skojarzyć z zasobem najwyższego poziomu i możliwymi metodami alokacji.
@@ -173,8 +180,9 @@ W poniższej tabeli przedstawiono właściwości, za pomocą których publiczny 
 | --- | --- | --- | --- |
 | Maszyna wirtualna |Interfejs sieciowy |Tak |Tak |
 | Moduł równoważenia obciążenia dostępny z Internetu |Konfiguracja frontonu |Tak |Tak |
-| Brama sieci VPN |Konfiguracja adresu IP bramy |Yes |Nie |
+| Brama sieci VPN |Konfiguracja adresu IP bramy |Tak |Nie |
 | Brama aplikacji |Konfiguracja frontonu |Tak (tylko wersja 1) |Tak (tylko wersja 2) |
+| Azure Firewall | Konfiguracja frontonu | Nie | Tak|
 
 ## <a name="limits"></a>Limity
 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 287bd02a11c71fbdd29b28b5ec9fc8424a477fea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535097"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320357"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Część druga: przypisywanie uprawnień na poziomie udziału do tożsamości
 
@@ -47,7 +47,7 @@ Aby przypisać rolę platformy Azure do tożsamości usługi Azure AD przy użyc
 1. W Azure Portal przejdź do udziału plików lub [Utwórz udział plików](storage-how-to-create-file-share.md).
 1. Wybierz pozycję **Access Control (IAM)**.
 1. Wybierz pozycję **Dodaj przypisanie roli**
-1. W bloku **Dodaj przypisanie roli** wybierz odpowiednią rolę wbudowaną (plik magazynu: czytnik udziałów SMB, współautor udziału danych plików magazynu) z listy **rola** . Pozostaw ustawienie domyślne do **przypisywania** : **użytkownik, Grupa lub nazwa główna usługi Azure AD**. Wybierz docelową tożsamość usługi Azure AD według nazwy lub adresu e-mail. Wybrana tożsamość usługi Azure AD musi być tożsamością hybrydową i nie może być tożsamością tylko do chmury. Oznacza to, że ta sama tożsamość jest również reprezentowana w AD DS.
+1. W bloku **Dodaj przypisanie roli** wybierz odpowiednią rolę wbudowaną (plik magazynu: czytnik udziałów SMB, współautor udziału danych plików magazynu) z listy **rola** . Pozostaw ustawienie domyślne do **przypisywania** : **użytkownik, Grupa lub nazwa główna usługi Azure AD**. Wybierz docelową tożsamość usługi Azure AD według nazwy lub adresu e-mail. **Wybrana tożsamość usługi Azure AD musi być tożsamością hybrydową i nie może być tożsamością tylko do chmury.** Oznacza to, że ta sama tożsamość jest również reprezentowana w AD DS.
 1. Wybierz pozycję **Zapisz** , aby ukończyć operację przypisywania roli.
 
 ### <a name="powershell"></a>PowerShell

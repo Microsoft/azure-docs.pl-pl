@@ -9,19 +9,19 @@ metadata:
   ms.topic: hub-page
   author: MGoedtel
   ms.author: magoedte
-  ms.date: 08/21/2020
-  ms.openlocfilehash: a2bf337f5bcd5d4fb5810025b6d2aaa8da15201c
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.date: 09/23/2020
+  ms.openlocfilehash: ea57cbb94a45339c6de58ba1abdaa864ddc43186
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90908221"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91317246"
 highlightedContent:
   items:
   - title: Informacje o usłudze Azure Arc
     itemType: overview
     url: overview.md
-  - title: Serwery z obsługą usługi Azure Arc (wersja zapoznawcza)
+  - title: Serwery z usługą Azure Arc
     itemType: overview
     url: ./servers/overview.md
   - title: Platforma Kubernetes z obsługą usługi Azure Arc (wersja zapoznawcza)
@@ -32,7 +32,7 @@ highlightedContent:
     url: ./data/overview.md
   - title: Program SQL Server z obsługą usługi Azure Arc (wersja zapoznawcza)
     itemType: overview
-    url: https://docs.microsoft.com/en-us/sql/sql-server/
+    url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
 productDirectory:
   title: Usługi współdziałające z usługą Azure Arc
   summary: Zobacz, jak uruchamiać usługi w dowolnym miejscu.
@@ -78,7 +78,7 @@ productDirectory:
 conceptualContent:
   title: Rozpoczęcie pracy
   items:
-  - title: Serwery z obsługą usługi Azure Arc (wersja zapoznawcza)
+  - title: Serwery z usługą Azure Arc
     links:
     - url: ./servers/learn/quick-enable-hybrid-vm.md
       itemType: get-started

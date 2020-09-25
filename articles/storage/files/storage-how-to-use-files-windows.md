@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 485a054a91bd3db9b116cf80a4e457d013c20ea1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071078"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329350"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziałów plików platformy Azure można bezproblemowo używać w systemach Windows i Windows Server. W tym artykule omówiono zagadnienia dotyczące korzystania z udziału plików platformy Azure w systemach Windows i Windows Server.
@@ -24,18 +24,18 @@ Z udziałów plików platformy Azure można korzystać w instalacji systemu Wind
 
 | Wersja systemu Windows        | Wersja protokołu SMB | Możliwa instalacja na maszynie wirtualnej platformy Azure | Instalacja lokalna |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | Yes | Yes |
-| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server 2016 | SMB 3.0 | Yes | Yes |
-| Windows 8.1 | SMB 3.0 | Yes | Yes |
-| Windows Server 2012 z dodatkiem R2 | SMB 3.0 | Yes | Yes |
-| Windows Server 2012 | SMB 3.0 | Yes | Yes |
-| Windows 7<sup>3</sup> | SMB 2.1 | Yes | Nie |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | Nie |
+| Windows Server 2019 | SMB 3.0 | Tak | Tak |
+| Windows 10<sup>1</sup> | SMB 3.0 | Tak | Tak |
+| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Tak | Tak |
+| Windows Server 2016 | SMB 3.0 | Tak | Tak |
+| Windows 8.1 | SMB 3.0 | Tak | Tak |
+| Windows Server 2012 z dodatkiem R2 | SMB 3.0 | Tak | Tak |
+| Windows Server 2012 | SMB 3.0 | Tak | Tak |
+| Windows 7<sup>3</sup> | SMB 2.1 | Tak | Nie |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Tak | Nie |
 
-<sup>1</sup> Windows 10, wersje 1507, 1607, 1709, 1803, 1809, 1903 i 1909.  
-<sup>2</sup> System Windows Server, wersje 1809, 1903 i 1909.  
+<sup>1</sup> Windows 10, wersje 1507, 1607, 1803, 1809, 1903, 1909 i 2004.  
+<sup>2</sup> Windows Server, wersje 1809, 1903, 1909, 2004.  
 <sup>3</sup> Zakończono regularne wsparcie firmy Microsoft dla systemów Windows 7 i Windows Server 2008 R2. Dodatkowe wsparcie dla aktualizacji zabezpieczeń można zakupić tylko za pomocą [programu Extended Security Update (ESU)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). Zdecydowanie zalecamy Migrowanie z tych systemów operacyjnych.
 
 > [!Note]  

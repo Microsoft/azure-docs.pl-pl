@@ -3,12 +3,12 @@ title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: b852af961327fbecb773c0608dfb823093e17267
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aa108d961fca3819b0747332c363b324c05b7994
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883383"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318504"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -97,10 +97,10 @@ Jeśli używasz **nadmiarowości strefy** dla przestrzeni nazw, musisz wykonać 
     <name>-s2.cloudapp.net
     <name>-s3.cloudapp.net
     ```
+3. Uruchom polecenie nslookup dla każdego z sufiksów S1, S2 i S3, aby uzyskać adresy IP wszystkich trzech wystąpień uruchomionych w trzech strefach dostępności, 
 
     > [!NOTE]
     > Adres IP zwrócony przez `nslookup` polecenie nie jest statycznym adresem IP. Jednak pozostaje stałą do momentu usunięcia lub przeniesienia bazowego wdrożenia do innego klastra.
-3. Uruchom polecenie nslookup dla każdego z sufiksów S1, S2 i S3, aby uzyskać adresy IP wszystkich trzech wystąpień uruchomionych w trzech strefach dostępności, 
 
 ### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Gdzie można znaleźć adresy IP klienta wysyłające lub otrzymujące komunikaty do mojej przestrzeni nazw?
 Najpierw włącz [filtrowanie adresów IP](event-hubs-ip-filtering.md) w przestrzeni nazw. 

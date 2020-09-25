@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: bcc7ebd8d9a6e61425ba7cd980a400c3fe756492
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 47a280a46cbc0650efb9a7576bb21bb31d1d2613
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762338"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330421"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Działanie usuwania w usłudze Azure Data Factory
 
@@ -52,6 +52,7 @@ Poniżej przedstawiono kilka zaleceń dotyczących używania działania usuwania
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
 -   [Google Cloud Storage](connector-google-cloud-storage.md)
+-   [HDFS](connector-hdfs.md)
 
 ## <a name="syntax"></a>Składnia
 
@@ -119,7 +120,7 @@ Istnieją dwa miejsca, w których można zobaczyć i monitorować wyniki działa
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Przykładowy plik dziennika działania usuwania
 
-| Nazwa | Kategoria | Stan | Błąd |
+| Nazwa | Kategoria | Stan | Error |
 |:--- |:--- |:--- |:--- |
 | TEST1/yyy.jswłączone | Plik | Usunięte |  |
 | TEST2/hello789.txt | Plik | Usunięte |  |

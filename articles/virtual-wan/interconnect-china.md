@@ -1,18 +1,18 @@
 ---
 title: Łączenie z Chinami przy użyciu wirtualnej sieci WAN platformy Azure i bezpiecznego centrum
-description: Dowiedz się więcej o wirtualnej skalowalnej gałęzi sieci WAN, dostępnych regionach i partnerach.
+description: Dowiedz się, jak łączyć się z Chinami przy użyciu wirtualnej sieci WAN platformy Azure i bezpiecznego centrum.
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: d89a3c65eb8d8bffd4cf87160286d1905bd1ba5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d95330c14e0d088bdee03c0edbc2eb9d1deb12cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747608"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329231"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Łączenie z Chinami przy użyciu wirtualnej sieci WAN platformy Azure i bezpiecznego centrum
 

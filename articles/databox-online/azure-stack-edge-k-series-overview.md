@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 20efae411ae4d2fae9bf3b5e69dbfdd98da1603a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4bae9e28a22a99d092db2bf887f0cd790e04c52a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985645"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318567"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Co to jest Azure Stack Edge — mini R?
 
-Azure Stack Edge mini R to rozwiązanie typu "sprzęt jako usługa". Firma Microsoft dostarcza wzmocnione urządzenie przenośne zarządzane przez chmurę z wbudowaną jednostką przetwarzania wzrokowego (VPU), które umożliwia szybsze korzystanie z systemu AI-inferencing i ma wszystkie możliwości bramy magazynu sieciowego. Te urządzenia są odpowiednie do użycia w środowiskach harshest i są zoptymalizowane pod kątem obliczeniowych, analitycznych i nieopartych na serwerach.
+Azure Stack Edge mini R to niezwykle przenośne, wzmocnione i brzegowe urządzenie obliczeniowe przeznaczone do użycia w środowiskach Harsh. Azure Stack Edge mini R jest dostarczany jako rozwiązanie typu "sprzęt jako usługa". Firma Microsoft dostarcza urządzenie zarządzane przez chmurę, które działa jako brama magazynu sieciowego i ma wbudowaną jednostkę przetwarzania wizji (VPU), która umożliwia przyspieszenie AI-inferencing.
 
 Ten artykuł zawiera omówienie rozwiązania typu mini R w Azure Stack Edge, kluczowych możliwości i scenariuszy, w których można wdrożyć to urządzenie.
 
@@ -28,7 +28,7 @@ Azure Stack Edge mini R ma następujące możliwości:
 
 |Możliwość |Opis  |
 |---------|---------|
-|Sprzęt wzporny| Sprzęt z urządzeniami nieprzeznaczonymi do środowiska harshest.|
+|Sprzęt wzporny| Sprzęt z urządzeniami nieprzeznaczonymi do środowiska Harsh.|
 |Ultra Portable| Ultra przenośny i oparty na bateriach współczynnik formy.|
 |Zarządzane przez chmurę|Urządzenia i usługi są zarządzane za pośrednictwem Azure Portal.|
 |Obciążenia obliczeń brzegowych|Umożliwia analizowanie, przetwarzanie i filtrowanie danych.<br>Obsługuje maszyny wirtualne i obciążenia kontenerów. |
@@ -36,7 +36,7 @@ Azure Stack Edge mini R ma następujące możliwości:
 |Przewodowe i bezprzewodowe | Umożliwia używanie przewodowych i bezprzewodowych transferów danych.|
 |Dostęp do danych     | Bezpośredni dostęp do danych z usług Azure Storage Blob i Azure Files przy użyciu interfejsów API w chmurze w celu dodatkowego przetwarzania danych w chmurze. Lokalna pamięć podręczna na urządzeniu służy do szybkiego dostępu do ostatnio używanych plików.|
 |Tryb rozłączenia|  Można opcjonalnie zarządzać urządzeniami i usługami za pośrednictwem Centrum Azure Stack. Wdrażaj, uruchamiaj i Zarządzaj aplikacjami w trybie offline. <br> Tryb bez połączenia obsługuje scenariusze przekazywania w trybie offline.|
-|Obsługiwane protokoły     |Obsługa standardowych protokołów SMB, NFS i REST na potrzeby pozyskiwania danych. <br> Aby uzyskać więcej informacji na temat obsługiwanych wersji, przejdź do pozycji [Azure Stack Edge mini R System Requirements](azure-stack-edge-gpu-system-requirements.md).|
+|Obsługiwane protokoły transferu plików      |Obsługa standardowych protokołów SMB, NFS i REST na potrzeby pozyskiwania danych. <br> Aby uzyskać więcej informacji na temat obsługiwanych wersji, przejdź do pozycji [Azure Stack Edge mini R System Requirements](azure-stack-edge-gpu-system-requirements.md).|
 |Odświeżanie danych     | Możliwość odświeżania plików lokalnych za pomocą najnowszych wersji z chmury.|
 |Podwójne szyfrowanie    | Użycie dysku samoszyfrującego zapewnia pierwszą warstwę szyfrowania. Sieć VPN zapewnia drugą warstwę szyfrowania. Obsługa funkcji BitLocker do lokalnego szyfrowania danych i bezpiecznego transferu danych do chmury za pośrednictwem *protokołu HTTPS* .|
 |Ograniczanie przepustowości| Ograniczanie użycia przepustowości w godzinach szczytu.|
@@ -60,13 +60,13 @@ Poniżej znajdują się różne scenariusze, w których do szybkiej Machine Lear
 
 Rozwiązanie typu mini R Azure Stack Edge obejmuje Azure Stack zasobów brzegowych, Azure Stack Edge mini R porne, Ultra przenośne urządzenie fizyczne i lokalny interfejs użytkownika sieci Web.
 
-* **Azure Stack Edge urządzenie fizyczne** typu "Ultra Portable R" z baterią z dołączaniem i encasing zapewniane przez firmę Microsoft, które można skonfigurować do wysyłania danych do platformy Azure. Urządzenie z baterią waży mniej niż 7 funtów.
+* Urządzenie **fizyczne urządzenia fizycznego R Azure Stack Edge** — niezwykle przenośne, niewzmocnione, obliczeniowe i magazynujące dostarczone przez firmę Microsoft. Urządzenie ma baterię z dołączaniem i waży mniej niż 7 funtów.
 
     ![Urządzenie w Azure Stack Edge mini R](media/azure-stack-edge-k-series-overview/perspective-view-1.png)
 
 * **Zasób graniczny Azure Stack** — zasób w Azure Portal, który umożliwia zarządzanie niewytrzymałym urządzeniem z systemem i Azure Stack Edge za pośrednictwem interfejsu sieci Web, do którego można uzyskać dostęp z różnych lokalizacji geograficznych. Użyj zasobu brzegowego Azure Stack, aby tworzyć i zarządzać zasobami, wyświetlać i zarządzać urządzeniami oraz alertami oraz zarządzać udziałami.  
 
-* **Azure Stack Edge — lokalny interfejs użytkownika sieci Web w wersji mini r** — Użyj lokalnego interfejsu użytkownika sieci Web do początkowej konfiguracji urządzenia, aby uruchomić diagnostykę, Zamknij i uruchom ponownie urządzenie z systemem Azure Stack Edge mini R, wyświetl dzienniki kopiowania i skontaktuj się z pomoc techniczna firmy Microsoft, aby wysłać żądanie obsługi.
+* **Azure Stack Edge** — lokalny interfejs użytkownika sieci Web w przeglądarce — na urządzeniu z systemem Azure Stack Edge mini r w sposób przeznaczony głównie do wstępnej konfiguracji urządzenia. Użyj lokalnego interfejsu użytkownika sieci Web, aby uruchomić diagnostykę, Zamknij i uruchom ponownie urządzenie Azure Stack EDGE Pro, wyświetl dzienniki kopiowania i skontaktuj się z pomoc techniczna firmy Microsoft, aby wysłać żądanie obsługi.
 
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
@@ -74,6 +74,8 @@ Rozwiązanie typu mini R Azure Stack Edge obejmuje Azure Stack zasobów brzegowy
 Azure Stack Edge urządzenie fizyczne, zasób platformy Azure i docelowe konto magazynu, do którego są przesyłane dane, nie muszą znajdować się w tym samym regionie.
 
 - **Dostępność zasobów** — Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, przejdź do pozycji [dostępne produkty platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
+
+- **Dostępność urządzenia** — aby zapoznać się z listą wszystkich krajów, w których jest dostępne urządzenie Azure Stack Edge mini r, przejdź do sekcji dostępność na karcie Azure Stacke mini r karty, aby uzyskać [Cennik usługi Azure Stack Edge](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeMiniR).
 
 - **Docelowe konta magazynu** — konta magazynu, w których są przechowywane dane, są dostępne we wszystkich regionach platformy Azure. Regiony, w których przechowywane są konta magazynu Azure Stack dane programu Edge mini R powinny znajdować się w pobliżu lokalizacji urządzenia w celu uzyskania optymalnej wydajności. Duża odległość konta magazynu od urządzenia powoduje długie opóźnienia i mniejszą wydajność.
 

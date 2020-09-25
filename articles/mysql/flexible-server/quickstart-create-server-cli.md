@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.custom: mvc
-ms.openlocfilehash: bae6e9f04eced02130ae628d5308a87a1baaa8fa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7a5bab13dbaa5715aa8dd34e41aba34ce62557a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947778"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329532"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Szybki Start: Tworzenie Azure Database for MySQL elastycznego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -28,17 +28,17 @@ W tym przewodniku szybki start pokazano, jak za pomocą poleceń [interfejsu wie
 
 Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również otworzyć Cloud Shell na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash) . Wybierz pozycję **Kopiuj** , aby skopiować bloki kodu, wklej je do Cloud Shell i wybierz **klawisz ENTER** , aby go uruchomić.
 
-Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Musisz zalogować się na swoje konto za pomocą polecenia [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) . Zanotuj Właściwość **ID** , która odwołuje się do **identyfikatora subskrypcji** dla Twojego konta platformy Azure.
+Musisz zalogować się na swoje konto za pomocą polecenia [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) . Zanotuj Właściwość **ID** , która odwołuje się do **identyfikatora subskrypcji** dla Twojego konta platformy Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Wybierz określoną subskrypcję na koncie za pomocą polecenia [AZ Account Set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) . Zanotuj wartość **identyfikatora** z polecenia **AZ login** Output to use jako wartość argumentu **Subscription** w poleceniu. Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Aby uzyskać całą subskrypcję, użyj [AZ Account List](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Wybierz określoną subskrypcję na koncie za pomocą polecenia [AZ Account Set](https://docs.microsoft.com/cli/azure/account#az-account-set) . Zanotuj wartość **identyfikatora** z polecenia **AZ login** Output to use jako wartość argumentu **Subscription** w poleceniu. Jeśli masz wiele subskrypcji, wybierz odpowiednią subskrypcję, w ramach której powinny być naliczane opłaty za ten zasób. Aby uzyskać całą subskrypcję, użyj [AZ Account List](https://docs.microsoft.com/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -46,13 +46,13 @@ az account set --subscription <subscription id>
 
 ## <a name="create-a-flexible-server"></a>Tworzenie serwera elastycznego
 
-Utwórz [grupę zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) za pomocą `az group create` polecenia, a następnie utwórz w tej grupie zasobów elastyczny serwer MySQL. Należy podać unikatową nazwę. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myresourcegroup` w lokalizacji `westus`.
+Utwórz [grupę zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) za pomocą `az group create` polecenia, a następnie utwórz w tej grupie zasobów elastyczny serwer MySQL. Należy podać unikatową nazwę. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myresourcegroup` w lokalizacji `eastus2`.
 
 ```azurecli-interactive
-az group create --name myresourcegroup --location westus
+az group create --name myresourcegroup --location eastus2
 ```
 
-Utwórz elastyczny serwer przy użyciu `az mysql flexible-server create` polecenia. Serwer może zawierać wiele baz danych. Następujące polecenie tworzy serwer przy użyciu wartości domyślnych usługi i z [lokalnego kontekstu](https://docs.microsoft.com/cli/azure/local-context?view=azure-cli-latest)interfejsu wiersza polecenia platformy Azure: 
+Utwórz elastyczny serwer przy użyciu `az mysql flexible-server create` polecenia. Serwer może zawierać wiele baz danych. Następujące polecenie tworzy serwer przy użyciu wartości domyślnych usługi i z [lokalnego kontekstu](https://docs.microsoft.com/cli/azure/local-context)interfejsu wiersza polecenia platformy Azure: 
 
 ```azurecli
 az mysql flexible-server create
@@ -66,7 +66,35 @@ Utworzony serwer ma następujące atrybuty:
 > [!NOTE] 
 > Nie można zmienić metody łączności po utworzeniu serwera. Na przykład jeśli wybrano opcję *dostęp prywatny (Integracja z siecią wirtualną)* podczas tworzenia, nie można zmienić *dostępu publicznego (dozwolone adresy IP)* po utworzeniu. Zdecydowanie zalecamy utworzenie serwera z dostępem prywatnym, aby bezpiecznie uzyskać dostęp do serwera przy użyciu integracji sieci wirtualnej. Dowiedz się więcej o prywatnym dostępie w [artykule pojęcia](./concepts-networking.md).
 
-Jeśli chcesz zmienić ustawienia domyślne, zapoznaj się z dokumentacją interfejsu wiersza polecenia platformy Azure <!--FIXME --> Aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia. 
+Jeśli chcesz zmienić ustawienia domyślne, zapoznaj się z [dokumentacją](/cli/azure/mysql/flexible-server) interfejsu wiersza polecenia platformy Azure, aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia. 
+
+Poniżej przedstawiono przykładowe dane wyjściowe: 
+
+```json
+Command group 'mysql flexible-server' is in preview. It may be changed/removed in a future release.
+Creating Resource Group 'groupXXXXXXXXXX'...
+Creating new vnet "serverXXXXXXXXXVNET" in resource group "groupXXXXXXXXXX"...
+Creating new subnet "serverXXXXXXXXXSubnet" in resource group "groupXXXXXXXXXX" and delegating it to "Microsoft.DBforMySQL/flexibleServers"...
+Creating MySQL Server 'serverXXXXXXXXX' in group 'groupXXXXXXXXXX'...
+Your server 'serverXXXXXXXXX' is using sku 'Standard_B1ms' (Paid Tier). Please refer to https://aka.ms/mysql-pricing for pricing details
+Creating MySQL database 'flexibleserverdb'...
+Make a note of your password. If you forget, you would have to reset your password with 'az mysql flexible-server update -n serverXXXXXXXXX -g groupXXXXXXXXXX -p <new-password>'.
+{
+  "connectionString": "server=serverXXXXXXXXX.mysql.database.azure.com;database=flexibleserverdb;uid=secureusername;pwd=securepasswordstring",
+  "databaseName": "flexibleserverdb",
+  "host": "serverXXXXXXXXX.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/groupXXXXXXXXXX/providers/Microsoft.DBforMySQL/flexibleServers/serverXXXXXXXXX",
+  "location": "East US 2",
+  "password": "securepasswordstring",
+  "resourceGroup": "groupXXXXXXXXXX",
+  "skuname": "Standard_B1ms",
+  "subnetId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/groupXXXXXXXXXX/providers/Microsoft.Network/virtualNetworks/serverXXXXXXXXXVNET/subnets/serverXXXXXXXXXSubnet",
+  "username": "secureusername",
+  "version": "5.7"
+}
+```
+
+Jeśli chcesz zmienić ustawienia domyślne, zapoznaj się z [dokumentacją](/cli/azure/mysql/flexible-server) interfejsu wiersza polecenia platformy Azure, aby uzyskać pełną listę konfigurowalnych parametrów interfejsu wiersza polecenia. 
 
 > [!NOTE]
 > Połączenia z usługą Azure Database for MySQL korzystają z portu 3306. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 3306 może być zablokowany. W takim przypadku nie będzie można nawiązać połączenia z serwerem, chyba że dział informatyczny otworzy port 3306.
@@ -79,33 +107,35 @@ Aby nawiązać połączenie z serwerem, musisz podać informacje o hoście i po�
 az mysql flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin**.
+Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin**. Poniżej znajduje się przykład danych wyjściowych JSON: 
 
-<!--FIXME-->
 ```json
 {
-  "administratorLogin": "myadmin",
-  "earliestRestoreDate": null,
+  "administratorLogin": "myadminusername",
+  "administratorLoginPassword": null,
+  "delegatedSubnetArguments": {
+    "subnetArmResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/mydemoserverVNET/subnets/mydemoserverSubnet"
+  },
   "fullyQualifiedDomainName": "mydemoserver.mysql.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/flexibleServers/mydemoserver",
-  "location": "westus",
+  "location": "East US 2",
   "name": "mydemoserver",
+  "publicNetworkAccess": "Disabled",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 1,
+    "capacity": 0,
     "name": "Standard_B1ms",
-    "size": null,
     "tier": "Burstable"
   },
-  "publicAccess": "Enabled",
   "storageProfile": {
     "backupRetentionDays": 7,
-    "geoRedundantBackup": "Disabled",
-    "storageMb": 5120
+    "fileStorageSkuName": "Premium_LRS",
+    "storageAutogrow": "Disabled",
+    "storageIops": 0,
+    "storageMb": 10240
   },
   "tags": null,
   "type": "Microsoft.DBforMySQL/flexibleServers",
-  "userVisibleState": "Ready",
   "version": "5.7"
 }
 ```
@@ -122,7 +152,7 @@ W mysql.exe Połącz się przy użyciu poniższego polecenia. Zastąp wartości 
  mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli te zasoby nie są Ci potrzebne do pracy z innym przewodnikiem Szybki start lub samouczkiem, możesz je usunąć, uruchamiając następujące polecenie:
 

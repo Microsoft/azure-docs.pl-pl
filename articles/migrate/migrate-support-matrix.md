@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej dla
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6137201f8accb901ffe1892d9876b172411cfe6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612116"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329601"
 ---
 # <a name="azure-migrate-support-matrix"></a>Macierz obsługi Azure Migrate
 
@@ -21,7 +21,7 @@ W tabeli zestawiono obsługiwane scenariusze odnajdywania, oceny i migracji.
 
 **Wdrożenie** | **Szczegóły** 
 --- | --- 
-**Odnajdywanie** | Można odnajdywać metadane maszyn i dynamiczne dane dotyczące wydajności.
+**Odnajdowa** | Można odnajdywać metadane maszyn i dynamiczne dane dotyczące wydajności.
 **Odnajdywanie aplikacji** | Możesz wykrywać aplikacje, role i funkcje działające na maszynach wirtualnych VMware. Obecnie ta funkcja jest ograniczona tylko do odnajdowania. Ocena jest obecnie na poziomie komputera. Nie oferujemy jeszcze ocen dotyczących aplikacji, roli lub funkcji. 
 **Ocena** | Oceniaj obciążenia lokalne i dane uruchomione na maszynach wirtualnych VMware, maszynach wirtualnych funkcji Hyper-V i serwerach fizycznych. Oceń przy użyciu Azure Migrate oceny serwera, Microsoft Data Migration Assistant (DMA), a także innych narzędzi i ofert niezależnych dostawców oprogramowania.
 **Migracja** | Migrowanie obciążeń i danych działających na serwerach fizycznych, maszynach wirtualnych VMware, maszynach wirtualnych funkcji Hyper-V, serwerach fizycznych i maszynach wirtualnych opartych na chmurze na platformie Azure. Migruj przy użyciu Azure Migrate oceny i Azure Database Migration Service (DMS), a także innych narzędzi i ofert niezależnych dostawców oprogramowania.
@@ -34,7 +34,7 @@ W tabeli zestawiono obsługiwane scenariusze odnajdywania, oceny i migracji.
 
 W tabeli przedstawiono obsługę określonego narzędzia.
 
-**Narzędzie** | **Ocena** | **Migrate (Migracja)** 
+**Narzędzie** | **Ocena** | **Migrate** 
 --- | --- | ---
 Azure Migrate oceny serwera | Oceniaj [maszyny wirtualne programu VMware](tutorial-prepare-vmware.md), [maszyny wirtualne funkcji Hyper-V](tutorial-prepare-hyper-v.md)i [serwery fizyczne](tutorial-prepare-physical.md). |  Niedostępne (NA)
 Migracja serwera usługi Azure Migrate | Nie dotyczy | Migrowanie [maszyn wirtualnych VMware](tutorial-migrate-vmware.md), [maszyn wirtualnych funkcji Hyper-V](tutorial-migrate-hyper-v.md)i [serwerów fizycznych](tutorial-migrate-physical-virtual-machines.md).
@@ -69,7 +69,7 @@ Aby Azure Migrate do pracy z platformą Azure, musisz mieć te uprawnienia przed
 
 **Zadanie** | **Uprawnienia** | **Szczegóły**
 --- | --- | ---
-Tworzenie projektu Azure Migrate | Twoje konto platformy Azure wymaga uprawnień do utworzenia projektu. | Konfiguracja programu [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [funkcji Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)lub [serwerów fizycznych](tutorial-prepare-physical.md#assign-permissions-to-create-project).
+Tworzenie projektu usługi Azure Migrate | Twoje konto platformy Azure wymaga uprawnień do utworzenia projektu. | Konfiguracja programu [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [funkcji Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)lub [serwerów fizycznych](tutorial-prepare-physical.md#assign-permissions-to-create-project).
 Rejestrowanie urządzenia Azure Migrate| Azure Migrate korzysta z uproszczonego [urządzenia Azure Migrate](migrate-appliance.md) do oceny maszyn z oceną serwera Azure Migrate oraz do uruchamiania [migracji bez agentów](server-migrate-overview.md) maszyn wirtualnych VMware z Azure Migrate migracji serwera. To urządzenie umożliwia odnajdywanie maszyn i wysyłanie metadanych oraz danych wydajności do Azure Migrate.<br/><br/> W trakcie rejestracji dostawcy rejestru (Microsoft. OffAzure, Microsoft. zmigrować i Microsoft. kluczy) są zarejestrowani z subskrypcją wybraną w urządzeniu, dzięki czemu subskrypcja współpracuje z dostawcą zasobów. Aby się zarejestrować, musisz mieć uprawnienia współautora lub właściciela subskrypcji.<br/><br/> **VMware**— podczas dołączania Azure Migrate tworzy dwie aplikacje Azure Active Directory (Azure AD). Pierwsza aplikacja komunikuje się między agentami urządzeń a usługą Azure Migrate. Aplikacja nie ma uprawnień do wykonywania wywołań usługi Azure Resource Management lub dostępu RBAC do zasobów. Druga aplikacja uzyskuje dostęp do Azure Key Vault utworzonego w subskrypcji użytkownika dla migracji VMware bez agentów. W przypadku migracji bez wykorzystania agentów Azure Migrate tworzy Key Vault do zarządzania kluczami dostępu do konta magazynu replikacji w ramach subskrypcji. Ma dostęp do usługi RBAC na Azure Key Vault (w dzierżawie klienta) po zainicjowaniu odnajdowania z urządzenia.<br/><br/> **Funkcja Hyper-V**— podczas dołączania. Azure Migrate tworzy jedną aplikację usługi Azure AD. Aplikacja komunikuje się między agentami urządzeń a usługą Azure Migrate. Aplikacja nie ma uprawnień do wykonywania wywołań usługi Azure Resource Management lub dostępu RBAC do zasobów. | Konfiguracja programu [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps), [funkcji Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-azure-ad-apps)lub [serwerów fizycznych](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
 Tworzenie magazynu kluczy dla migracji bez agenta VMware | Aby przeprowadzić migrację maszyn wirtualnych VMware z migracją Azure Migrate serwera bez agenta, Azure Migrate tworzy Key Vault do zarządzania kluczami dostępu do konta magazynu replikacji w ramach subskrypcji. Aby utworzyć magazyn, należy ustawić uprawnienia (właściciel lub współautor i administrator dostępu użytkowników) w grupie zasobów, w której znajduje się projekt Azure Migrate. | [Skonfiguruj](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) uprawnienia.
 
@@ -92,9 +92,12 @@ Francja | Francja Środkowa
 Indie | Indie Środkowe lub Indie Południowe
 Japonia |  Japonia Wschodnia lub Japonia Zachodnia
 Korea | Korea środkowa lub Korea Południowa
+Szwajcaria | Szwajcaria Północna
 Zjednoczone Królestwo | Południowe Zjednoczone Królestwo lub Zachodnie Zjednoczone Królestwo
 Stany Zjednoczone | Środkowe stany USA lub zachodnie stany USA 2
 
+> [!NOTE]
+> W przypadku lokalizacji geograficznej Szwajcarii Szwajcaria Zachodnia jest dostępna tylko dla użytkowników interfejsu API REST i wymaga subskrypcji listy dozwolonych.
 
 ## <a name="supported-geographies-azure-government"></a>Obsługiwane lokalizacje geograficzne (Azure Government)
 

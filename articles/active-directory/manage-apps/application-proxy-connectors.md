@@ -1,6 +1,6 @@
 ---
 title: Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD | Microsoft Docs
-description: Obejmuje podstawowe informacje dotyczące łączników usługi Azure serwer proxy aplikacji usługi Azure AD.
+description: Dowiedz się więcej na temat łączników serwer proxy aplikacji usługi Azure AD platformy Azure.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7f14c757df8bcc38bf226cb6346c400087c2d7a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764676"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319830"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure
 
@@ -99,7 +99,7 @@ Ogólnie rzecz biorąc, im więcej użytkowników, tym większa jest potrzebna m
 |8|32|270|1190|
 |16|64|245|1200 *|
 
-\*Ta maszyna użyła ustawienia niestandardowego w celu podniesienia liczby domyślnych limitów połączeń poza zalecanymi ustawieniami platformy .NET. Przed skontaktowaniem się z pomocą techniczną zalecamy przeprowadzenie testu z ustawieniami domyślnymi, aby uzyskać ten limit dla dzierżawy.
+\* Ta maszyna użyła ustawienia niestandardowego w celu podniesienia liczby domyślnych limitów połączeń poza zalecanymi ustawieniami platformy .NET. Przed skontaktowaniem się z pomocą techniczną zalecamy przeprowadzenie testu z ustawieniami domyślnymi, aby uzyskać ten limit dla dzierżawy.
 
 > [!NOTE]
 > Nie istnieje wiele różnic w maksymalnej TPS między 4, 8 i 16 rdzeniami. Główna różnica między tymi występuje w oczekiwanym opóźnieniu.

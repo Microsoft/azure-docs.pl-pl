@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, seo-javascript-september2019, devx-track-javascript
+ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c8aca82567de0b564aadc355b198502450dd7a5c
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169807"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258918"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
 
@@ -51,7 +51,7 @@ Ponadto w lokalnym środowisku programistycznym są potrzebne następujące elem
 
 W drugim samouczku, który został ukończony w ramach wymagań wstępnych, zarejestrowano aplikację sieci Web w Azure AD B2C. Aby włączyć komunikację z przykładem kodu w tym samouczku, Dodaj adres URL odpowiedzi (nazywany także identyfikatorem URI przekierowania) do rejestracji aplikacji.
 
-Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
+Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
 
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
@@ -92,8 +92,8 @@ Teraz, gdy uzyskano przykład, zaktualizuj kod przy użyciu nazwy dzierżawy Azu
 
 1. Otwórz plik *authConfig.js* w folderze *JavaScriptSPA* .
 1. W `msalConfig` obiekcie zaktualizuj:
-    * `clientId`z wartością z **identyfikatorem aplikacji (klienta)** zapisanym we wcześniejszym kroku
-    * `authority`Identyfikator URI z nazwą dzierżawy Azure AD B2C i nazwą przepływu użytkownika tworzenia konta/logowania utworzonego w ramach wymagań wstępnych (na przykład *B2C_1_signupsignin1*)
+    * `clientId` z wartością z **identyfikatorem aplikacji (klienta)** zapisanym we wcześniejszym kroku
+    * `authority` Identyfikator URI z nazwą dzierżawy Azure AD B2C i nazwą przepływu użytkownika tworzenia konta/logowania utworzonego w ramach wymagań wstępnych (na przykład *B2C_1_signupsignin1*)
 
     ```javascript
     const msalConfig = {

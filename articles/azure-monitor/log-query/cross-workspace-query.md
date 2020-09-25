@@ -6,27 +6,30 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 7cfa3d5652e13ddc88db70674049069a5b391297
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e2f9430ae039cc54c3e6180eb8ea76791d17f67f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322129"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285132"
 ---
-# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Wykonywanie zapytań dotyczących dzienników wielu zasobów w Azure Monitor  
+# <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Wykonywanie zapytań dzienników w Azure Monitor obejmujących obszary robocze i aplikacje
+
+Azure Monitor dzienniki obsługują zapytania w wielu obszarach roboczych Log Analytics i aplikacji Application Insights w tej samej grupie zasobów, w innej grupie zasobów lub innej subskrypcji. Umożliwia to wyświetlanie danych w całym systemie.
+
+Istnieją dwie metody wykonywania zapytań dotyczących danych przechowywanych w wielu obszarach roboczych i aplikacjach:
+1. Jawnie przez określenie obszaru roboczego i szczegółów aplikacji. Ta technika została szczegółowo opisana w tym artykule.
+2. Niejawnie użycie [zapytań kontekstu zasobów](../platform/design-logs-deployment.md#access-mode). Podczas wykonywania zapytania w kontekście określonego zasobu, grupy zasobów lub subskrypcji, odpowiednie dane zostaną pobrane ze wszystkich obszarów roboczych zawierających dane dla tych zasobów. Application Insights dane przechowywane w aplikacjach nie będą pobierane.
 
 > [!IMPORTANT]
 > Jeśli używasz Application Insights danych telemetrycznych w [obszarze roboczym](../app/create-workspace-resource.md) , w obszarze roboczym log Analytics będą przechowywane wszystkie inne dane dziennika. Użyj wyrażenia log (), aby napisać zapytanie zawierające aplikację w wielu obszarach roboczych. W przypadku wielu aplikacji w tym samym obszarze roboczym nie jest wymagane zapytanie między obszarem roboczym.
 
-Wcześniej z Azure Monitor można analizować dane tylko z poziomu bieżącego obszaru roboczego i ograniczyć możliwość wykonywania zapytań w wielu obszarach roboczych zdefiniowanych w ramach subskrypcji.  Ponadto można wyszukiwać tylko elementy telemetrii zebrane z aplikacji sieci Web, Application Insights bezpośrednio w Application Insights lub z programu Visual Studio. Jest to również wyzwanie do natywnej analizy danych operacyjnych i aplikacji.
-
-Teraz można wykonywać zapytania nie tylko w wielu obszarach roboczych Log Analytics, ale również dane z konkretnej aplikacji Application Insights w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji. Umożliwia to wyświetlanie danych w całym systemie. Te typy zapytań można wykonywać tylko w [log Analytics](./log-query-overview.md).
 
 ## <a name="cross-resource-query-limits"></a>Limity zapytania między zasobami 
 
 * Liczba zasobów Application Insights i Log Analytics obszarów roboczych, które można uwzględnić w pojedynczym zapytaniu, jest ograniczona do 100.
 * Zapytanie krzyżowe nie jest obsługiwane w projektancie widoków. Możesz utworzyć zapytanie w Log Analytics i przypiąć je do pulpitu nawigacyjnego platformy Azure, aby [wyświetlić wizualizację zapytania dziennika](../learn/tutorial-logs-dashboards.md). 
-* Zapytanie między zasobami w ramach alertów dziennika jest obsługiwane w nowym [interfejsie API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Domyślnie Azure Monitor używa [starszego interfejsu API alertów log Analytics](../platform/api-alerts.md) na potrzeby tworzenia nowych reguł alertów dziennika z Azure Portal, chyba że zostanie przełączony w [STARSZEJ wersji interfejsu API alertów dziennika](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Po przełączeniu nowy interfejs API zostanie ustawiony jako domyślny dla nowych reguł alertów w Azure Portal i umożliwia tworzenie reguł alertów dziennika zapytań dla wielu zasobów. Można tworzyć reguły alertów dziennika zapytań dla wielu zasobów bez przełączenia przy użyciu [szablonu Azure Resource Manager dla interfejsu API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) — ale ta reguła alertu jest zarządzana, chociaż [interfejs API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) , a nie z Azure Portal.
+* Zapytania między zasobami w alertach dziennika są obsługiwane tylko w bieżącym [interfejsie API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Jeśli używasz starszej wersji interfejsu API alertów Log Analytics, musisz [przełączyć się do bieżącego interfejsu API](../platform/alerts-log-api-switch.md).
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Wykonywanie zapytań w obszarach roboczych Log Analytics i z Application Insights
@@ -132,7 +135,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->Ta metoda nie może być używana z alertami dziennika, ponieważ sprawdzanie dostępu do zasobów reguły alertów, w tym obszarów roboczych i aplikacji, odbywa się w czasie tworzenia alertu. Dodawanie nowych zasobów do funkcji po utworzeniu alertu nie jest obsługiwane. Jeśli wolisz używać funkcji dla określania zakresu zasobów w alertach dziennika, musisz zmodyfikować regułę alertu w portalu lub z szablonem Menedżer zasobów, aby zaktualizować zasoby w zakresie. Alternatywnie możesz dołączyć listę zasobów do zapytania alertu dziennika.
+> Ta metoda nie może być używana z alertami dziennika, ponieważ sprawdzanie dostępu do zasobów reguły alertów, w tym obszarów roboczych i aplikacji, odbywa się w czasie tworzenia alertu. Dodawanie nowych zasobów do funkcji po utworzeniu alertu nie jest obsługiwane. Jeśli wolisz używać funkcji dla określania zakresu zasobów w alertach dziennika, musisz zmodyfikować regułę alertu w portalu lub z szablonem Menedżer zasobów, aby zaktualizować zasoby w zakresie. Alternatywnie możesz dołączyć listę zasobów do zapytania alertu dziennika.
 
 
 ![Timechart](media/cross-workspace-query/chart.png)

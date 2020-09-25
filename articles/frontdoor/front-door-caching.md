@@ -1,6 +1,6 @@
 ---
 title: Buforowanie z przodu platformy Azure | Microsoft Docs
-description: Ten artykuł pomaga zrozumieć, w jaki sposób usługa Azure front-drzwi monitoruje kondycję zasobie
+description: Ten artykuł ułatwia zapoznanie się z zachowaniem czołowych drzwi z regułami routingu, które obsługują buforowanie.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 221627a756c69d11ec5385b12970bb835d6a0a0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024285"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318458"
 ---
 # <a name="caching-with-azure-front-door"></a>Buforowanie z usługami frontonu platformy Azure
 Poniższy dokument określa zachowanie dla drzwi z przodu z regułami routingu, które mają włączone buforowanie. Przód drzwi to nowoczesne Content Delivery Network (CDN) i tak, jak za pomocą funkcji przyspieszania witryn dynamicznych i równoważenia obciążenia, obsługuje również zachowania buforowania tak samo jak w przypadku innych sieci CDN.
@@ -29,7 +29,7 @@ Drzwi frontonu platformy Azure zapewniają duże pliki bez limitu rozmiaru pliku
 </br>Aby uzyskać więcej informacji na temat żądania zakresu bajtów, przeczytaj artykuł [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Drzwi z przodu buforują wszystkie fragmenty, gdy są odbierane, i dlatego cały plik nie musi być buforowany w pamięci podręcznej z przodu. Kolejne żądania dla plików lub zakresów bajtów są obsługiwane z pamięci podręcznej. Jeśli nie wszystkie fragmenty są buforowane, wstępne pobieranie jest używane do żądania fragmentów z zaplecza. Ta optymalizacja opiera się na możliwości wewnętrznej bazy danych obsługującej żądania zakresu bajtów; Jeśli zaplecze nie obsługuje żądań zakresu bajtów, Ta optymalizacja nie obowiązuje.
 
-## <a name="file-compression"></a>Kompresja plików
+## <a name="file-compression"></a>Kompresja pliku
 Drzwi przednich umożliwiają dynamiczne kompresowanie zawartości na krawędzi, co pozwala na wypróbowanie klientów w krótszej i krótszej reakcji. Wszystkie pliki kwalifikują się do kompresji. Jednak plik musi być typu MIME, który kwalifikuje się do listy kompresji. Obecnie przed drzwiami nie zezwala się na zmianę tej listy. Bieżąca lista:</br>
 - "Application/EOT"
 - "aplikacja/czcionka"
@@ -113,7 +113,7 @@ Następująca kolejność nagłówków jest używana w celu określenia czasu pr
 2. Cache-Control: max-age =\<seconds>
 3. Wygasł \<http-date>
 
-Nagłówki odpowiedzi kontroli pamięci podręcznej, wskazujące, że odpowiedź nie będzie buforowana, taka jak Cache-Control: Private, Cache-Control: Brak pamięci podręcznej i kontrola pamięci podręcznej: żaden magazyn nie jest uznawany. Jeśli jednak dla tego samego adresu URL występuje wiele żądań w punkcie obecności, mogą one udostępnić odpowiedź. Jeśli żadna kontrola pamięci podręcznej nie jest obecna, domyślnym zachowaniem jest to, że AFD będzie buforować zasób dla X czasu, gdzie X jest losowo wybierany z przedziału od 1 do 3 dni.
+Nagłówki odpowiedzi kontroli pamięci podręcznej, wskazujące, że odpowiedź nie będzie buforowana, taka jak Cache-Control: Private, Cache-Control: Brak pamięci podręcznej i kontrola pamięci podręcznej: żaden magazyn nie jest uznawany.  Jeśli żadna kontrola pamięci podręcznej nie jest obecna, domyślnym zachowaniem jest to, że AFD będzie buforować zasób dla X czasu, gdzie X jest losowo wybierany z przedziału od 1 do 3 dni.
 
 ## <a name="request-headers"></a>Nagłówki żądań
 

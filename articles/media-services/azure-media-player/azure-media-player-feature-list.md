@@ -6,19 +6,19 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: 41e090b9e1d4c091bd3972afd296c5751e6b8c58
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88048c3328114f17b30859efb41bb9f059b71439
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082719"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296369"
 ---
 # <a name="feature-list"></a>Lista funkcji #
 Poniżej znajduje się Lista przetestowanych funkcji i nieobsługiwanych funkcji:
 
 | Cechy | SPRAWDZA | CZĘŚCIOWO PRZETESTOWANE | NIEPRZETESTOWANEGO | ICH | UWAGI |
 | ------- | ------ | ---------------- | -------- | ----------- | ----- |
-| Odtwarzanie                                |        |                  |          |             |                                                                                                                      |
+| **Odtwarzanie**                                |        |                  |          |             |                                                                                                                      |
 | Podstawowe odtwarzanie na żądanie                | X      |                  |          |             | Obsługuje strumienie tylko z Azure Media Services                                                                      |
 | Podstawowe odtwarzanie na żywo                     | X      |                  |          |             | Obsługuje strumienie tylko z Azure Media Services                                                                      |
 | AES                                     | X      |                  |          |             | Obsługuje usługę dostarczania kluczy Azure Media Services                                                                   |
@@ -26,12 +26,12 @@ Poniżej znajduje się Lista przetestowanych funkcji i nieobsługiwanych funkcji
 | PlayReady                               | X      |                  |          |             | Obsługuje usługę dostarczania kluczy Azure Media Services                                                                   |
 | Widevine                                |        | X                |          |             | Obsługuje pola Widevine PSSH opisane w manifeście                                                                    |
 | FairPlay                                |        | X                |          |             | Obsługuje usługę dostarczania kluczy Azure Media Services                                                                   |
-| Technologie techniczne                                   |        |                  |          |             |                                                                                                                      |
+| **Technologie techniczne**                                   |        |                  |          |             |                                                                                                                      |
 | MSE/EME (AzureHtml5JS)                  | X      |                  |          |             |                                                                                                                      |
 | Alternatywa błyskowa (błysk)                | X      |                  |          |             | Nie wszystkie funkcje są dostępne w tej technologii technicznej.                                                                         |
 | Silverlight rezerwowego Silverlight      | X      |                  |          |             | Nie wszystkie funkcje są dostępne w tej technologii technicznej.                                                                         |
 | Przekazywanie natywne HLS (HTML5)         |        | X                |          |             | Nie wszystkie funkcje są dostępne z powodu ograniczeń platformy.                                            |
-| Funkcje                                |        |                  |          |             |                                                                                                                      |
+| **Funkcje**                                |        |                  |          |             |                                                                                                                      |
 | Obsługa interfejsu API                             | X      |                  |          |             | Zobacz listę znanych problemów                                                                                                |
 | Podstawowy interfejs użytkownika                                | X      |                  |          |                                                                                                                                    |
 | Inicjowanie za poorednictwem języka JavaScript       | X      |                  |          |             |                                                                                                                      |
@@ -40,7 +40,7 @@ Poniżej znajduje się Lista przetestowanych funkcji i nieobsługiwanych funkcji
 | Adresowanie segmentu — oparte na indeksie        |        |                  |          | X           |                                                                                                                      |
 | Adresowanie segmentu na podstawie bajtu         |        |                  |          | X           |                                                                                                                      |
 | Azure Media Services ponownej edycji adresu URL       |        | X                |          |             |                                                                                                                      |
-| Ułatwienia dostępu — podpisy i napisy  |        | X                |          |             |  WebVTT obsługiwana na żądanie, na żywo 708 CEA częściowo przetestowane                                                       |
+| Ułatwienia dostępu — podpisy i napisy  | X      |                 |          |             |  WebVTT (na żądanie), CEA 708 (na żądanie i na żywo) i IMSC1 (na żądanie i na żywo)                                                       |
 | Ułatwienia dostępu — klawisze skrótu                 | X      |                  |          |             |                                                                                                                      |
 | Ułatwienia dostępu — duży kontrast           |        | X                |          |             |                                                                                                                      |
 | Dostępność — fokus kart               |        | X                |          |             |                                                                                                                      |
@@ -55,13 +55,13 @@ Poniżej znajduje się Lista przetestowanych funkcji i nieobsługiwanych funkcji
 | Strumień audio                      |        | X                |          |             | Programistyczny przełącznik dźwiękowy jest obsługiwany przez AzureHtml5JS i błyskowe techniczne i jest dostępny w ramach wyboru interfejsu użytkownika w przypadku AzureHtml5JS, Flash i natywnego języka HTML5 (w przeglądarce Safari).  Większość platform wymaga, aby te same dane prywatne kodera-dekoder przełączać strumienie audio (ten sam koder-dekoder, kanał, częstotliwość próbkowania itp.). |
 | Lokalizacja interfejsu użytkownika                         |        | X                |          |             |                                                                                                                      |
 | Odtwarzanie przez wiele wystąpień                 |        |                  |          | X           | Ten scenariusz może obsłużyć niektóre czynności techniczne, ale nie jest aktualnie obsługiwany i nietestowany. Można to również zrobić, aby korzystać z elementów iframe |
-| Obsługa reklam                             |        | x                |          |             | AMP obsługuje wstawianie ofert liniowych w wersji wstępnej i końcowej z niezgodnych serwerów usługi AD do VOD w AzureHtml5JS Tech |
+| Obsługa reklam                             |        | X                |          |             | AMP obsługuje wstawianie ofert liniowych w wersji wstępnej i końcowej z niezgodnych serwerów usługi AD do VOD w AzureHtml5JS Tech |
 | Analiza                               |        | X                |          |             | AMP umożliwia nasłuchiwanie zdarzeń analitycznych i diagnostycznych w celu wysłania do wybranego zaplecze analizy.  Wszystkie zdarzenia i właściwości nie są dostępne w ramach techniczna ze względu na ograniczenia platformy.                                                                            |
-| Karnacje niestandardowe                            |        |                  | X        |             | Zmień ustawienia kontrolek na false w AMP i przy użyciu własnego kodu HTML i CSS.           |
+| Karnacje niestandardowe                            |        |                  | X        |             | Ten scenariusz można osiągnąć przez włączenie dla kontrolek ustawień wartości false w AMP i użycie własnego kodu HTML i CSS.           |
 | Szybka kontrola paska wyszukiwania                      |        |                  |          | X           |                                                                                                                      |
 | Gra z lew                              |        |                  |          | X           |                                                                                                                      |
-| Tylko audio                              |        |                  |          | X           | Może obsłużyć pewne czynności techniczne na potrzeby adaptacyjnego przesyłania strumieniowego, ale nie jest to obecnie obsługiwane i nie działa w AzureHtml5JS. Progresywne odtwarzanie w formacie MP3 może współpracowało z przepisami HTML5 Tech., jeśli Platforma obsługuje tę funkcję.                                                                                                        |
-| Tylko wideo                              |        |                  |          | X           | Może obsłużyć pewne czynności techniczne na potrzeby adaptacyjnego przesyłania strumieniowego, ale nie jest to obecnie obsługiwane i nie działa w AzureHtml5JS.      |
+| Tylko audio                              | X      |                  |          |           | Obsługiwane w AzureHtml5JS. Progresywne odtwarzanie w formacie MP3 może współpracowało z przepisami HTML5 Tech., jeśli Platforma obsługuje tę funkcję.                                                                                                        |
+| Tylko wideo                              | X      |                  |          |           | Obsługiwane w AzureHtml5JS.                                                                                                        |
 | Prezentacja wielookresowa               |        |                  |          | X                                                                                                                                  |
 | Wiele kątów aparatu                  |        |                  |          | X           |                                                                                                                      |
 | Szybkość odtwarzania                          |        | X                |          |             | Szybkość odtwarzania jest obsługiwana w większości scenariuszy poza przypadkiem mobilnym ze względu na częściową usterkę w programie Chrome                 |

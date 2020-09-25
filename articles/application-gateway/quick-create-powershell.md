@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 115f01bffc4664798682923cb83a99a23a8ce274
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 3f64086ed97594416b5964cf648c857c2f271480
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958341"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331101"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Szybki Start: bezpośredni ruch internetowy za pomocą usługi Azure Application Gateway przy użyciu Azure PowerShell
 
@@ -33,7 +33,7 @@ Możesz również ukończyć ten przewodnik Szybki Start przy użyciu [interfejs
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="connect-to-azure"></a>Nawiązywanie połączenia z platformą Azure
+## <a name="connect-to-azure"></a>Nawiązywanie połączenia z usługą Azure
 
 Aby nawiązać połączenie z platformą Azure, uruchom polecenie `Connect-AzAccount` .
 
@@ -53,6 +53,8 @@ Do komunikacji między tworzonymi zasobami platforma Azure potrzebuje sieci wirt
 1. Utwórz konfiguracje podsieci przy użyciu polecenia `New-AzVirtualNetworkSubnetConfig` .
 2. Utwórz sieć wirtualną z konfiguracjami podsieci za pomocą polecenia `New-AzVirtualNetwork` . 
 3. Utwórz publiczny adres IP za pomocą `New-AzPublicIpAddress` . 
+> [!NOTE]
+> [Zasady punktu końcowego usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoint-policies-overview.md) nie są obecnie obsługiwane w podsieci Application Gateway.
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -244,7 +246,7 @@ Aby usunąć grupę zasobów, wywołaj `Remove-AzResourceGroup` polecenie cmdlet
 Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Zarządzanie ruchem internetowym przy użyciu bramy aplikacji za pomocą programu Azure PowerShell](./tutorial-manage-web-traffic-powershell.md)

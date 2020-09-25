@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 40549fa8880fb4dc4d29046b0037621610f0b130
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544187"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331167"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Foodee na potrzeby automatycznego aprowizacji użytkowników
 
@@ -104,13 +104,13 @@ Skonfiguruj automatyczne Inicjowanie obsługi użytkowników dla Foodee w usłud
 
     ![Link Foodee na liście aplikacji](common/all-applications.png)
 
-1. Wybierz kartę **aprowizacji** .
+1. Wybierz kartę **Aprowizacja**.
 
-    ![Karta aprowizacji](common/provisioning.png)
+    ![Zrzut ekranu przedstawiający opcje zarządzania z opcją aprowizacji o nazwie out.](common/provisioning.png)
 
 1. Z listy rozwijanej **tryb aprowizacji** wybierz pozycję **automatycznie**.
 
-    ![Karta aprowizacji](common/provisioning-automatic.png)
+    ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
 1. W obszarze **poświadczenia administratora**wykonaj następujące czynności:
 
@@ -167,8 +167,8 @@ Możesz użyć bieżącej sekcji **stanu** , aby monitorować postęp i postępo
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)

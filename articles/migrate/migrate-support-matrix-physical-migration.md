@@ -4,12 +4,12 @@ description: Dowiedz się więcej o obsłudze migracji serwera fizycznego w Azur
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: 2e71ab5cd934f2fe931cd901d425061455cc9f0e
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 95456298b3275c83152115d700a4539cab2d2a67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535452"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318164"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Macierz obsługi dla migracji serwera fizycznego
 
@@ -43,10 +43,10 @@ W tabeli zestawiono obsługę serwerów fizycznych, które mają być migrowane 
 **Sieć/magazyn** | Aby uzyskać najnowsze informacje, zapoznaj się z wymaganiami wstępnymi dotyczącymi [sieci](../site-recovery/vmware-physical-azure-support-matrix.md#network) i [magazynu](../site-recovery/vmware-physical-azure-support-matrix.md#storage) Site Recovery. Azure Migrate zapewnia identyczne wymagania dotyczące sieci/magazynu.
 **Wymagania platformy Azure** | Aby uzyskać najnowsze informacje, zapoznaj się z wymaganiami dotyczącymi sieci, [magazynu](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)i [mocy obliczeniowej](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) [platformy Azure](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)dla Site Recovery. Azure Migrate ma identyczne wymagania dotyczące migracji serwera fizycznego.
 **Usługa mobilności** | Agent usługi mobilności musi być zainstalowany na każdej maszynie, która ma zostać poddana migracji.
-**Rozruch z interfejsem UEFI** | Migrowana maszyna na platformie Azure zostanie automatycznie przekonwertowana na maszynę wirtualną platformy Azure z systemem BIOS. Obsługiwane są tylko serwery z systemem Windows Server 2012 lub nowszym.<br/><br/> Dysk systemu operacyjnego powinien mieć maksymalnie cztery partycje, a woluminy powinny być sformatowane w systemie plików NTFS.
+**Rozruch z interfejsem UEFI** | Obsługiwane. Maszyny z interfejsem UEFI zostaną zmigrowane do maszyn wirtualnych generacji 2 platformy Azure.  <br/><br/> Dysk systemu operacyjnego powinien mieć maksymalnie cztery partycje, a woluminy powinny być sformatowane w systemie plików NTFS.
 **Interfejs UEFI — bezpieczny rozruch**         | Migracja nie jest obsługiwana.
 **Dysk docelowy** | Maszyny wirtualne można migrować tylko do dysków zarządzanych (dysk twardy w warstwie Standardowa, dysk SSD w warstwie Premium) na platformie Azure.
-**Rozmiar dysku** | dysk systemu operacyjnego: 2 TB; 8 TB dla dysków z danymi.
+**Rozmiar dysku** | dysk systemu operacyjnego 2 TB (rozruch w systemie BIOS); dysk systemu operacyjnego 4 TB (UEFI); 8 TB dla dysków z danymi.
 **Limity dysku** |  Do 63 dysków na maszynę.
 **Zaszyfrowane dyski/woluminy** |  Maszyny z szyfrowanymi dyskami/woluminami nie są obsługiwane na potrzeby migracji.
 **Udostępniony klaster dysków** | Nieobsługiwane.

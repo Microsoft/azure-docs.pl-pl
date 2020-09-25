@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w grupie zarządzania
 description: Opisuje sposób wdrażania zasobów w zakresie grupy zarządzania w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 2325e9f5a03f7451492c9b9b8e929df95ddc3852
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 09/24/2020
+ms.openlocfilehash: 0c5ed8d2427a9e0329db6ebd7f0aa48aa4912a48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605230"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284826"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Tworzenie zasobów na poziomie grupy zarządzania
 
@@ -45,7 +45,7 @@ Aby zarządzać zasobami, użyj:
 
 * [tabliczk](/azure/templates/microsoft.resources/tags)
 
-### <a name="schema"></a>Schemat
+## <a name="schema"></a>Schemat
 
 Schemat używany do wdrożeń grup zarządzania różni się od schematu dla wdrożeń grup zasobów.
 
@@ -60,6 +60,30 @@ Schemat pliku parametrów jest taki sam dla wszystkich zakresów wdrożenia. W p
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>Zakresy wdrożenia
+
+W przypadku wdrażania w grupie zarządzania można wskazać grupę zarządzania określoną w poleceniu wdrożenia lub wybrać inne grupy zarządzania w dzierżawie.
+
+Zasoby zdefiniowane w sekcji zasoby szablonu są stosowane do grupy zarządzania z polecenia wdrożenia.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
+
+Aby wskazać inną grupę zarządzania, Dodaj wdrożenie zagnieżdżone i określ `scope` Właściwość. Ustaw `scope` Właściwość na wartość w formacie `Microsoft.Management/managementGroups/<mg-name>` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+
+Możesz również kierować subskrypcje lub grupy zasobów w grupie zarządzania. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+
+Aby uzyskać subskrypcję w grupie zarządzania, należy użyć zagnieżdżonego wdrożenia i `subscriptionId` właściwości.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+
+Aby wskazać grupę zasobów w ramach tej subskrypcji, Dodaj kolejne zagnieżdżone wdrożenie i `resourceGroup` Właściwość.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+
+Aby użyć wdrożenia grupy zarządzania do utworzenia grupy zasobów w ramach subskrypcji i wdrożenia konta magazynu w tej grupie zasobów, zobacz [wdrażanie w ramach subskrypcji i grupy zasobów](#deploy-to-subscription-and-resource-group).
 
 ## <a name="deployment-commands"></a>Polecenia wdrażania
 
@@ -94,97 +118,6 @@ W przypadku wdrożeń na poziomie grupy zarządzania należy podać lokalizację
 Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
 
 Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
-
-## <a name="deployment-scopes"></a>Zakresy wdrożenia
-
-Podczas wdrażania w grupie zarządzania można wskazać grupę zarządzania określoną w poleceniu wdrożenia lub w innych grupach zarządzania w dzierżawie. Możesz również kierować subskrypcje lub grupy zasobów w grupie zarządzania. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
-
-Zasoby zdefiniowane w sekcji zasoby szablonu są stosowane do grupy zarządzania z polecenia wdrożenia.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        management-group-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Aby wskazać inną grupę zarządzania, Dodaj wdrożenie zagnieżdżone i określ `scope` Właściwość.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-10-01",
-            "name": "nestedDeployment",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resources-in-different-mg
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-Aby uzyskać subskrypcję w grupie zarządzania, należy użyć zagnieżdżonego wdrożenia i `subscriptionId` właściwości. Aby wskazać grupę zasobów w ramach tej subskrypcji, Dodaj kolejne zagnieżdżone wdrożenie i `resourceGroup` Właściwość.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "nestedSub",
-      "location": "westus2",
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.Resources/deployments",
-              "apiVersion": "2020-06-01",
-              "name": "nestedRG",
-              "resourceGroup": "rg2",
-              "properties": {
-                "mode": "Incremental",
-                "template": {
-                  nested-template-with-resources-in-resource-group
-                }
-              }
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-Aby użyć wdrożenia grupy zarządzania do utworzenia grupy zasobów w ramach subskrypcji i wdrożenia konta magazynu w tej grupie zasobów, zobacz [wdrażanie w ramach subskrypcji i grupy zasobów](#deploy-to-subscription-and-resource-group).
 
 ## <a name="use-template-functions"></a>Korzystanie z funkcji szablonu
 

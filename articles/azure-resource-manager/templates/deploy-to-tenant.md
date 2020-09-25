@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w dzierżawie
 description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 9b653f3fd4ed66f23521ea3ec8f9972e3b6cc09c
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/24/2020
+ms.openlocfilehash: af75e4f0e51ac685986e57b3b92a23dd37174460
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468559"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284763"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Tworzenie zasobów na poziomie dzierżawy
 
@@ -42,7 +42,7 @@ Aby zarządzać kosztami, użyj:
 * [wskazówek](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
-### <a name="schema"></a>Schemat
+## <a name="schema"></a>Schemat
 
 Schemat używany do wdrożeń dzierżawców różni się od schematu dla wdrożeń grup zasobów.
 
@@ -78,11 +78,23 @@ Administrator globalny Azure Active Directory nie ma automatycznie uprawnienia d
 
 Podmiot zabezpieczeń ma teraz wymagane uprawnienia do wdrożenia szablonu.
 
+## <a name="deployment-scopes"></a>Zakresy wdrożenia
+
+Podczas wdrażania w dzierżawie można kierować do dzierżawców lub grup zarządzania, subskrypcji i grup zasobów w dzierżawie. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+
+Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do dzierżawcy.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+Aby wskazać grupę zarządzania w ramach dzierżawy, Dodaj wdrożenie zagnieżdżone i określ `scope` Właściwość.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
 ## <a name="deployment-commands"></a>Polecenia wdrażania
 
 Polecenia dla wdrożeń dzierżawców są inne niż polecenia dla wdrożeń grup zasobów.
 
-W przypadku interfejsu wiersza polecenia platformy Azure Użyj polecenia [AZ Deployment dzierżawca Create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+W przypadku interfejsu wiersza polecenia platformy Azure Użyj polecenia [AZ Deployment dzierżawca Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -109,56 +121,6 @@ W przypadku wdrożeń na poziomie dzierżawy należy podać lokalizację wdroże
 Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy.jsw** programie tworzy domyślną nazwę wdrożenia **azuredeploy**.
 
 Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
-
-## <a name="deployment-scopes"></a>Zakresy wdrożenia
-
-Podczas wdrażania w dzierżawie można kierować do dzierżawców lub grup zarządzania, subskrypcji i grup zasobów w dzierżawie. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
-
-Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do dzierżawcy.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        tenant-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Aby wskazać grupę zarządzania w ramach dzierżawy, Dodaj wdrożenie zagnieżdżone i określ `scope` Właściwość.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedMG",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resources-in-mg
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
 
 ## <a name="use-template-functions"></a>Korzystanie z funkcji szablonu
 

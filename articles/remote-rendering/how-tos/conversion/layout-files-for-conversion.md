@@ -5,12 +5,12 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 8acd19408c328ef3f534ba7bc41c96e395f768be
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89510980"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318079"
 ---
 # <a name="laying-out-files-for-conversion"></a>Ustalanie układu plików na potrzeby konwersji
 
@@ -28,6 +28,10 @@ Jeśli ścieżki są przechowywane jako ścieżki względne, a względna lokaliz
 
 > [!Note]
 > Zalecamy umieszczenie plików w kontenerze wejściowym, aby względne lokalizacje plików były takie same, jak podczas tworzenia elementu zawartości.
+
+> [!Note]
+> Wolisz tworzyć zasoby, które mają ścieżki względne.
+> Samouczek dotyczący [konfigurowania materiałów dla 3ds Max](../../tutorials/modeling/3dsmax-material-setup.md) to 3ds Max przykład, aby upewnić się, że zasób używa ścieżek względnych.
 
 ## <a name="finding-textures"></a>Znajdowanie tekstur
 

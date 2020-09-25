@@ -3,21 +3,22 @@ title: Wdrożenie programu IBM DB2 Azure Virtual Machines DBMS dla obciążeń S
 description: Wdrażanie systemu DBMS usługi Azure Virtual Machines programu IBM Db2 dla obciążenia SAP
 services: virtual-machines-linux,virtual-machines-windows
 author: msjuergent
-manager: patfilot
+manager: bburns
 tags: azure-resource-manager
+keywords: Azure, DB2, SAP, IBM
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/18/2020
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc881b1b366a152c2d592463c8025ea1087307cf
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331271"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrażanie systemu DBMS usługi Azure Virtual Machines programu IBM Db2 dla obciążenia SAP
 
@@ -80,58 +81,58 @@ W przypadku maszyny wirtualnej z serii M na platformie Azure opóźnienie zapisu
 
 Aplikacje IBM DB2 for SAP NetWeaver są obsługiwane na dowolnym typie maszyny wirtualnej wymienionym w temacie [1928533].  Zalecane rodziny maszyn wirtualnych do uruchamiania bazy danych programu IBM DB2 są Esd_v4/Eas_v4/Es_v3 i serii M/M_v2 dla dużych baz danych z obsługą wielu terabajtów. Wydajność zapisu na dysku dziennika transakcji IBM DB2 można ulepszyć, włączając akcelerator zapisu serii M. 
 
-Poniżej znajduje się konfiguracja linii bazowej dla różnych rozmiarów i użycia oprogramowania SAP na wdrożeniach z bazy danych DB2 z małych i bardzo dużych:
+Poniżej znajduje się konfiguracja linii bazowej dla różnych rozmiarów i użycia oprogramowania SAP na wdrożeniach z bazy danych DB2 z małych i dużych. Lista jest oparta na usłudze Azure Premium Storage. Jednak platforma Azure Ultra Disk jest w pełni obsługiwana również w programie DB2 i może być również używana. Wystarczy użyć wartości wydajności, przepływności serii i operacji we/wy na sekundę, aby zdefiniować konfigurację Ultra Disk. Można ograniczyć liczbę operacji we/wy dla/DB2/ <SID> /log_dir na około 5000 operacji we/wy na sekundę. 
 
 #### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>Bardzo mały system SAP: rozmiar bazy danych 50-200 GB: przykładowy Menedżer rozwiązań
 | Nazwa/rozmiar maszyny wirtualnej |Punkt instalacji bazy danych DB2 |Dysk platformy Azure w warstwie Premium |Liczba dysków |Liczba operacji we/wy na sekundę |Przepływność [MB/s] |Rozmiar [GB] |Operacje we/wy na sekundę |Prz serii [GB] | Rozmiar paska | Buforowanie |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  ||  |
-|vCPU: 4 |/DB2/ <SID> /sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256 KB |ReadOnly |
-|Pamięć RAM: 32 GiB |/DB2/ <SID> /saptmp |P6 |1 |240  |50  |128  |3,500  |170  | ||
-| |/DB2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64 KB ||
-| |/DB2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  || |
+|E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  ||  |
+|vCPU: 4 |/DB2/ <SID> /sapdata |P10 |2 |1000  |200  |256  |7 000  |340  |256 KB |ReadOnly |
+|Pamięć RAM: 32 GiB |/DB2/ <SID> /saptmp |P6 |1 |240  |50  |128  |3500  |170  | ||
+| |/DB2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7 000  |340  |64 KB ||
+| |/DB2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  || |
 
 #### <a name="small-sap-system-database-size-200---750-gb-small-business-suite"></a>Mały system SAP: rozmiar bazy danych 200-750 GB: Small Business Suite
 | Nazwa/rozmiar maszyny wirtualnej |Punkt instalacji bazy danych DB2 |Dysk platformy Azure w warstwie Premium |Liczba dysków |Liczba operacji we/wy na sekundę |Przepływność [MB/s] |Rozmiar [GB] |Operacje we/wy na sekundę |Prz serii [GB] | Rozmiar paska | Buforowanie |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 16 |/DB2/ <SID> /sapdata |P15 |4 |4,400  |500  |1,024  |14,000  |680  |256 KB |ReadOnly |
-|Pamięć RAM: 128 GiB |/DB2/ <SID> /saptmp |P6 |2 |480  |100  |128  |7,000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P15 |2 |2,200  |250  |512  |7,000  |340  |64 KB ||
-| |/DB2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  ||| 
+|E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
+|vCPU: 16 |/DB2/ <SID> /sapdata |P15 |4 |4 400  |500  |1,024  |14 000  |680  |256 KB |ReadOnly |
+|Pamięć RAM: 128 GiB |/DB2/ <SID> /saptmp |P6 |2 |480  |100  |128  |7 000  |340  |128 KB ||
+| |/DB2/ <SID> /log_dir |P15 |2 |2200  |250  |512  |7 000  |340  |64 KB ||
+| |/DB2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  ||| 
 
 #### <a name="medium-sap-system-database-size-500---1000-gb-small-business-suite"></a>Średni system SAP: rozmiar bazy danych 500-1000 GB: Small Business Suite
 | Nazwa/rozmiar maszyny wirtualnej |Punkt instalacji bazy danych DB2 |Dysk platformy Azure w warstwie Premium |Liczba dysków |Liczba operacji we/wy na sekundę |Przepływność [MB/s] |Rozmiar [GB] |Operacje we/wy na sekundę |Prz serii [GB] | Rozmiar paska | Buforowanie |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 32 |/DB2/ <SID> /sapdata |P30 |2 |10,000  |400  |2,048  |10,000  |400  |256 KB |ReadOnly |
-|Pamięć RAM: 256 GiB |/DB2/ <SID> /saptmp |P10 |2 |1,000  |200  |256  |7,000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P20 |2 |4,600  |300  |1,024  |7,000  |340  |64 KB ||
-| |/DB2/ <SID> /offline_log_dir |P15 |1 |1,100  |125  |256  |3,500  |170  ||| 
+|E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
+|vCPU: 32 |/DB2/ <SID> /sapdata |P30 |2 |10 000  |400  |2,048  |10 000  |400  |256 KB |ReadOnly |
+|Pamięć RAM: 256 GiB |/DB2/ <SID> /saptmp |P10 |2 |1000  |200  |256  |7 000  |340  |128 KB ||
+| |/DB2/ <SID> /log_dir |P20 |2 |4 600  |300  |1,024  |7 000  |340  |64 KB ||
+| |/DB2/ <SID> /offline_log_dir |P15 |1 |1,100  |125  |256  |3500  |170  ||| 
 
 #### <a name="large-sap-system-database-size-750---2000-gb-business-suite"></a>Duży system SAP: rozmiar bazy danych 750-2000 GB: zestaw biznesowy
 | Nazwa/rozmiar maszyny wirtualnej |Punkt instalacji bazy danych DB2 |Dysk platformy Azure w warstwie Premium |Liczba dysków |Liczba operacji we/wy na sekundę |Przepływność [MB/s] |Rozmiar [GB] |Operacje we/wy na sekundę |Prz serii [GB] | Rozmiar paska | Buforowanie |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 64 |/DB2/ <SID> /sapdata |P30 |4 |20,000  |800  |4,096  |20,000  |800  |256 KB |ReadOnly |
-|Pamięć RAM: 504 GiB |/DB2/ <SID> /saptmp |P15 |2 |2,200  |250  |512  |7,000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P20 |4 |9,200  |600  |2,048  |14,000  |680  |64 KB ||
-| |/DB2/ <SID> /offline_log_dir |P20 |1 |2,300  |150  |512  |3,500  |170  || |
+|E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
+|vCPU: 64 |/DB2/ <SID> /sapdata |P30 |4 |20 000  |800  |4,096  |20 000  |800  |256 KB |ReadOnly |
+|Pamięć RAM: 504 GiB |/DB2/ <SID> /saptmp |P15 |2 |2200  |250  |512  |7 000  |340  |128 KB ||
+| |/DB2/ <SID> /log_dir |P20 |4 |9 200  |600  |2,048  |14 000  |680  |64 KB ||
+| |/DB2/ <SID> /offline_log_dir |P20 |1 |2300  |150  |512  |3500  |170  || |
 
-#### <a name="large-multi-terabyte-sap-system-database-size-2tb-global-business-suite-system"></a>Duży system SAP dla wielu terabajtów: rozmiar bazy danych 2 TB +: system globalnego zestawu biznesowego
+#### <a name="large-multi-terabyte-sap-system-database-size-2-tb-global-business-suite-system"></a>Duży system SAP z obsługą wielu terabajtów: baza danych o rozmiarze 2 TB +: system globalnego zestawu biznesowego
 | Nazwa/rozmiar maszyny wirtualnej |Punkt instalacji bazy danych DB2 |Dysk platformy Azure w warstwie Premium |Liczba dysków |Liczba operacji we/wy na sekundę |Przepływność [MB/s] |Rozmiar [GB] |Operacje we/wy na sekundę |Prz serii [GB] | Rozmiar paska | Buforowanie |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|M128s |/db2 |P10 |1 |500  |100  |128  |3,500  |170  || |
-|vCPU: 128 |/DB2/ <SID> /sapdata |P40 |4 |30,000  |1,000  |8,192  |30,000  |1,000  |256 KB |ReadOnly |
-|Pamięć RAM: 2048 GiB |/DB2/ <SID> /saptmp |P20 |2 |4,600  |300  |1,024  |7,000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P30 |4 |20,000  |800  |4,096  |20,000  |800  |64 KB |WriteAccelerator |
-| |/DB2/ <SID> /offline_log_dir |P30 |1 |5,000  |200  |1,024  |5,000  |200  || |
+|M128s |/db2 |P10 |1 |500  |100  |128  |3500  |170  || |
+|vCPU: 128 |/DB2/ <SID> /sapdata |P40 |4 |30 000  |1,000  |8,192  |30 000  |1,000  |256 KB |ReadOnly |
+|Pamięć RAM: 2048 GiB |/DB2/ <SID> /saptmp |P20 |2 |4 600  |300  |1,024  |7 000  |340  |128 KB ||
+| |/DB2/ <SID> /log_dir |P30 |4 |20 000  |800  |4,096  |20 000  |800  |64 KB |WriteAccelerator |
+| |/DB2/ <SID> /offline_log_dir |P30 |1 |5000  |200  |1,024  |5000  |200  || |
 
 
 ### <a name="backuprestore"></a>Tworzenie/przywracanie kopii zapasowych
 Funkcja tworzenia kopii zapasowej/przywracania dla programu IBM DB2 for LUW jest obsługiwana w taki sam sposób jak w przypadku standardowych systemów operacyjnych Windows Server i funkcji Hyper-V.
 
-Musisz upewnić się, że masz prawidłową strategię tworzenia kopii zapasowych bazy danych. 
+Upewnij się, że masz prawidłową strategię tworzenia kopii zapasowych bazy danych. 
 
 Podobnie jak w przypadku wdrożeń bez systemu operacyjnego, wydajność tworzenia kopii zapasowej/przywracania zależy od liczby woluminów, które mogą być jednocześnie odczytywane i co może być przepływność tych woluminów. Ponadto użycie procesora CPU używane przez kompresję kopii zapasowej może odgrywać znaczącą rolę na maszynach wirtualnych z maksymalnie ośmiu wątkami procesora. W związku z tym można założyć, że:
 
@@ -161,7 +162,7 @@ Serwer klastrów firmy Microsoft (MSCS) nie jest obsługiwany.
 
 Obsługiwane jest odzyskiwanie po awarii o wysokiej dostępności (HADR cluster) programu DB2. Jeśli maszyny wirtualne w konfiguracji HA mają działające rozpoznawanie nazw, instalacja na platformie Azure nie różni się od żadnej instalacji wykonywanej lokalnie. Nie zaleca się korzystania tylko z rozpoznawania adresów IP.
 
-Nie należy używać replikacji geograficznej dla kont magazynu przechowujących dyski bazy danych. Aby uzyskać więcej informacji, zapoznaj się z [zagadnieniami dotyczącymi dokumentów dotyczących wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP](dbms_guide_general.md). 
+Nie należy używać replikacji geograficznej dla kont magazynu przechowujących dyski bazy danych. Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące dokumentu dotyczące wdrażania platformy Azure Virtual Machines DBMS dla obciążeń SAP](dbms_guide_general.md). 
 
 ### <a name="accelerated-networking"></a>Accelerated Networking
 W przypadku wdrożeń programu DB2 w systemie Windows zdecydowanie zaleca się korzystanie z funkcji systemu Azure przyspieszonej sieci zgodnie z opisem w dokumencie " [przyspieszona sieć platformy Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Należy również wziąć pod uwagę zalecenia dotyczące [wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP](dbms_guide_general.md). 
@@ -226,6 +227,12 @@ Wszystkie inne obszary ogólne, takie jak zestawy dostępności platformy Azure 
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
+
+
+## <a name="next-steps"></a>Następne kroki
+Zapoznaj się z artykułem 
+
+- [Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP](dbms_guide_general.md)
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com

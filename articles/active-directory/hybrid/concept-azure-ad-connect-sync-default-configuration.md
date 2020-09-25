@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661854"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295230"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: opis konfiguracji domyślnej
 W tym artykule wyjaśniono, jakie są reguły konfiguracji. Dokumentuje reguły i sposób, w jaki te reguły wpływają na konfigurację. Przedstawiono w nim również domyślną konfigurację synchronizacji Azure AD Connect. Celem jest to, że czytelnik rozumie, jak model konfiguracji o nazwie deklaracyjne Inicjowanie obsługi działa w świecie rzeczywistym. W tym artykule przyjęto założenie, że już zainstalowano i skonfigurowano synchronizację Azure AD Connect przy użyciu Kreatora instalacji.
@@ -160,7 +160,7 @@ Możesz również sprawdzić, czy ta reguła synchronizacji jest używana do syn
 #### <a name="scoping-filter"></a>Filtr zakresu
 Sekcja filtr zakresu służy do konfigurowania czasu, w którym ma zostać zastosowana reguła synchronizacji. Ponieważ nazwa reguły synchronizacji, którą przeglądasz, wskazuje, że powinna być stosowana tylko dla włączonych użytkowników, zakres jest skonfigurowany, **dlatego ATRYBUT AD** kontroli konta użytkownika nie może mieć zestawu bit 2. Gdy aparat synchronizacji odnajdzie użytkownika w usłudze AD, stosuje tę regułę synchronizacji **, gdy dla** konta użytkownika jest ustawiona wartość dziesiętna 512 (włączony normalny użytkownik). Nie stosuje reguły, jeśli **użytkownik ma** ustawioną wartość 514 (wyłączony normalny użytkownik).
 
-![Karta Określanie zakresu w Edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Zrzut ekranu przedstawiający sekcję "filtr określania zakresu" w oknie "Edytowanie reguły synchronizacji ruchu przychodzącego".](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 Filtr zakresu ma grupy i klauzule, które mogą być zagnieżdżane. Aby reguła synchronizacji została zastosowana, należy spełnić wszystkie klauzule wewnątrz grupy. Jeśli zdefiniowano wiele grup, należy spełnić co najmniej jedną grupę, aby można było zastosować regułę. Oznacza to, że logiczne lub jest oceniane między grupami, a wartość logiczna jest obliczana w grupie. Przykład tej konfiguracji można znaleźć w przystawce reguła synchronizacji ruchu wychodzącego **do usługi AAD — Grupa**. Istnieje kilka grup filtru synchronizacji, na przykład jeden dla grup zabezpieczeń ( `securityEnabled EQUAL True` ) i jeden dla grup dystrybucyjnych ( `securityEnabled EQUAL False` ).
 

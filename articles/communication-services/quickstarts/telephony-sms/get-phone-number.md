@@ -9,12 +9,12 @@ ms.date: 07/09/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: 2743dc0164f604c9c5e033aacc3e58fae42a1fd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f5cf8f8ef004dacc9fe2bbdd1b815f2ae5275311
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947705"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298120"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Szybki Start: uzyskiwanie numeru telefonu przy użyciu Azure Portal
 
@@ -117,7 +117,7 @@ Wybierz kartę numery telefonów w menu, aby zarządzać numerami telefonów.
 
 Często zadawane pytania i problemy:
 
-- W tej chwili tylko firma Microsoft i Kanada obsługują kupowanie numerów telefonów. Jest to oparte na adresie rozliczeniowym subskrypcji, z którą jest skojarzony zasób. W tej chwili nie można przenieść zasobu do innej subskrypcji.
+- W tej chwili jest obsługiwane kupowanie numerów telefonów. Jest to oparte na adresie rozliczeniowym subskrypcji, z którą skojarzony jest zasób. W tej chwili nie można przenieść zasobu do innej subskrypcji.
 
 - Po usunięciu numeru telefonu numer telefonu nie zostanie opublikowany lub nie można go wykupić do końca cyklu rozliczeniowego.
 

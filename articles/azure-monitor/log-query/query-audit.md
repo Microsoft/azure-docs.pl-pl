@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: bfaa9d8908d9401441d8811c3edcd087781b1d89
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: df937ba7f23f2789d929a043c7239ababb24374f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458641"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285064"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Inspekcja zapytań w dziennikach Azure Monitor (wersja zapoznawcza)
 Dzienniki inspekcji zapytań dzienników udostępniają dane telemetryczne dotyczące zapytań dzienników uruchomionych w Azure Monitor. Obejmuje to takie informacje, jak w przypadku uruchomienia zapytania, jego uruchomienia, używanego narzędzia, tekstu zapytania i statystyki wydajności opisującej wykonywanie zapytania.
@@ -64,6 +64,7 @@ Rekord inspekcji jest tworzony przy każdym uruchomieniu zapytania. Jeśli dane 
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
+- Zapytania są rejestrowane tylko wtedy, gdy są wykonywane w kontekście użytkownika. Nie zostanie zarejestrowana żadna usługa do usługi na platformie Azure. Dwa podstawowe zestawy zapytań, których dotyczy ten wyjątek, obejmują obliczenia rozliczeń i zautomatyzowane wykonywanie alertów. W przypadku alertów tylko zaplanowana kwerenda alertu nie zostanie zarejestrowana. początkowe wykonywanie alertu na ekranie tworzenia alertów jest wykonywane w kontekście użytkownika i będzie dostępne do celów inspekcji. 
 - Statystyki wydajności nie są dostępne dla zapytań pochodzących z serwera proxy usługi Azure Eksplorator danych. Wszystkie inne dane dla tych zapytań będą nadal wypełniane.
 - Wskazówki *h* dotyczące ciągów, które [zasłaniają literały ciągu](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) , nie będą miały wpływu na dzienniki inspekcji zapytań. Zapytania zostaną przechwycone dokładnie tak, jak zostało przesłane bez wycofywania ciągu. Należy upewnić się, że tylko użytkownicy z prawami zgodności do wyświetlania tych danych mogą korzystać z różnych trybów RBAC dostępnych w obszarze roboczym Log Analytics.
 - W przypadku zapytań zawierających dane z wielu obszarów roboczych zapytanie zostanie przechwycone tylko w tych obszarach roboczych, do których użytkownik ma dostęp.

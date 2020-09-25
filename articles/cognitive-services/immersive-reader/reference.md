@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 73322cdee151969e6e765690284bbffc1c871f4e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: aa85f1323795098d161e6bfb1b9cf9237b2a5501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090197"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330608"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Dokumentacja zestawu SDK języka JavaScript czytnika immersyjny (v 1.1)
 
@@ -159,9 +159,9 @@ Zawiera odpowiedź z wywołania do `ImmersiveReader.launchAsync` . Należy zauwa
 | Ustawienie | Typ | Opis |
 | ------- | ---- | ----------- |
 | kontener | HTMLDivElement | Element HTML, który zawiera obiekt iframe czytnika immersyjny. |
-| sessionId | Ciąg | Unikatowy identyfikator globalny dla tej sesji używany do debugowania. |
+| sessionId | String | Unikatowy identyfikator globalny dla tej sesji używany do debugowania. |
  
-## <a name="error"></a>Błąd
+## <a name="error"></a>Error
 
 Zawiera informacje o błędzie.
 
@@ -176,8 +176,8 @@ Zawiera informacje o błędzie.
 
 | Ustawienie | Typ | Opis |
 | ------- | ---- | ----------- |
-| kod | Ciąg | Jeden z zestawów kodów błędów. Zobacz [Kody błędów](#error-codes). |
-| message | Ciąg | Czytelna dla człowieka Reprezentacja błędu. |
+| kod | String | Jeden z zestawów kodów błędów. Zobacz [Kody błędów](#error-codes). |
+| message | String | Czytelna dla człowieka Reprezentacja błędu. |
 
 #### <a name="error-codes"></a>Kody błędów
 
@@ -242,8 +242,8 @@ Pojedynczy fragment danych, który zostanie przesłany do zawartości czytnika i
 
 | Nazwa | Typ | Opis |
 | ---- | ---- |------------ |
-| zawartość | Ciąg | Ciąg, który zawiera zawartość wysłaną do czytnika immersyjny. |
-| bibliografi | Ciąg | Język tekstu, wartość jest w formacie języka IETF BCP 47, np. en, es-ES. Język zostanie wykryty automatycznie, jeśli nie zostanie określony. Zobacz [Obsługiwane języki](#supported-languages). |
+| zawartość | String | Ciąg, który zawiera zawartość wysłaną do czytnika immersyjny. |
+| bibliografi | String | Język tekstu, wartość jest w formacie języka IETF BCP 47, np. en, es-ES. Język zostanie wykryty automatycznie, jeśli nie zostanie określony. Zobacz [Obsługiwane języki](#supported-languages). |
 | mimeType | ciąg | Obsługiwane są formaty w formacie zwykłego tekstu, MathML, HTML & Word. Aby uzyskać więcej informacji, zobacz [obsługiwane typy MIME](#supported-mime-types) . |
 
 ##### `-content`
@@ -307,21 +307,21 @@ Zawiera właściwości, które konfigurują pewne zachowania czytnika immersyjny
 
 | Nazwa | Typ | Opis |
 | ---- | ---- |------------ |
-| uiLang | Ciąg | Język interfejsu użytkownika — wartość to format znacznika języka IETF BCP 47, np. en, es-ES. Jeśli nie zostanie określony, domyślnie jest używany język przeglądarki. |
+| uiLang | String | Język interfejsu użytkownika — wartość to format znacznika języka IETF BCP 47, np. en, es-ES. Jeśli nie zostanie określony, domyślnie jest używany język przeglądarki. |
 | timeout | Liczba | Czas trwania (w milisekundach) przed [launchAsync](#launchasync) kończy się niepowodzeniem z błędem przekroczenia limitu czasu (wartość domyślna to 15000 MS). Ten limit czasu ma zastosowanie tylko do początkowego uruchomienia strony czytnika, gdzie powodzenie jest zaobserwowane, gdy zostanie otwarta strona czytelnik i rozpocznie się pokrętło. Dostosowanie limitu czasu nie powinno być konieczne. |
 | uiZIndex | Liczba | Indeks z elementu iframe, który zostanie utworzony (wartość domyślna to 1000). |
-| useWebview | Wartość logiczna| Użyj tagu WebView zamiast elementu iframe, aby zapewnić zgodność z aplikacjami programu Chrome (wartość domyślna to false). |
+| useWebview | Boolean| Użyj tagu WebView zamiast elementu iframe, aby zapewnić zgodność z aplikacjami programu Chrome (wartość domyślna to false). |
 | Zakończ | Funkcja | Wykonuje się, gdy czytnik immersyjny zostanie zakończony. |
-| allowFullscreen | Wartość logiczna | Możliwość przełączania trybu pełnoekranowego (wartość domyślna to true). |
-| hideExitButton | Wartość logiczna | Określa, czy ukryć strzałkę przycisku zakończenia czytnika immersyjny (wartość domyślna to false). Powinno to być spełnione tylko w przypadku, gdy istnieje alternatywny mechanizm do zamykania czytnika immersyjny (np. strzałka wstecz na pasku narzędzi dla urządzeń przenośnych). |
+| allowFullscreen | Boolean | Możliwość przełączania trybu pełnoekranowego (wartość domyślna to true). |
+| hideExitButton | Boolean | Określa, czy ukryć strzałkę przycisku zakończenia czytnika immersyjny (wartość domyślna to false). Powinno to być spełnione tylko w przypadku, gdy istnieje alternatywny mechanizm do zamykania czytnika immersyjny (np. strzałka wstecz na pasku narzędzi dla urządzeń przenośnych). |
 | cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Ustawienie użycia pliku cookie czytnika immersyjny (wartość domyślna to *CookiePolicy. Disable*). Aplikacja hosta jest odpowiedzialna za uzyskanie wszelkich niezbędnych wyrazów zgody użytkownika zgodnie z zasadami zgodności plików cookie UE. Zobacz [Opcje zasad dotyczących plików cookie](#cookiepolicy-options). |
-| disableFirstRun | Wartość logiczna | Wyłącz środowisko pierwszego uruchomienia. |
+| disableFirstRun | Boolean | Wyłącz środowisko pierwszego uruchomienia. |
 | readAloudOptions | [ReadAloudOptions](#readaloudoptions) | Opcje konfigurowania odczytywania na głos. |
 | translationOptions | [TranslationOptions](#translationoptions) | Opcje konfigurowania tłumaczenia. |
 | displayOptions | [DisplayOptions](#displayoptions) | Opcje konfigurowania rozmiaru tekstu, czcionki itp. |
-| Preferencje | Ciąg | Ciąg zwrócony z onPreferencesChanged reprezentujący preferencje użytkownika w czytniku immersyjny. Aby uzyskać więcej informacji, zobacz [parametry ustawień](#settings-parameters) i [sposób przechowywania preferencji użytkownika](./how-to-store-user-preferences.md) . |
+| Preferencje | String | Ciąg zwrócony z onPreferencesChanged reprezentujący preferencje użytkownika w czytniku immersyjny. Aby uzyskać więcej informacji, zobacz [parametry ustawień](#settings-parameters) i [sposób przechowywania preferencji użytkownika](./how-to-store-user-preferences.md) . |
 | onPreferencesChanged | Funkcja | Wykonuje się, gdy zmienią się preferencje użytkownika. Aby uzyskać więcej informacji [, zobacz jak zachować preferencje użytkownika](./how-to-store-user-preferences.md) . |
-| Że element customdomain | Ciąg | Zarezerwowane do użytku wewnętrznego. Domena niestandardowa, w której jest hostowany webapp czytnika immersyjny (domyślnie ma wartość null). |
+| Że element customdomain | String | Zarezerwowane do użytku wewnętrznego. Domena niestandardowa, w której jest hostowany webapp czytnika immersyjny (domyślnie ma wartość null). |
 
 ##### `-uiLang`
 ```Parameters
@@ -392,9 +392,9 @@ type ReadAloudOptions = {
 
 | Nazwa | Typ | Opis |
 | ---- | ---- |------------ |
-| głos | Ciąg | Głos, "kobieta" lub "męski". Należy pamiętać, że nie wszystkie języki obsługują obie płci. |
+| głos | String | Głos, "kobieta" lub "męski". Należy pamiętać, że nie wszystkie języki obsługują obie płci. |
 | szybkość | Liczba | Szybkość odtwarzania musi mieścić się w przedziale od 0,5 do 2,5 włącznie. |
-| Autoodtwarzania | Wartość logiczna | Automatycznie Rozpocznij odczytywanie po załadowaniu czytnika immersyjny. |
+| Autoodtwarzania | Boolean | Automatycznie Rozpocznij odczytywanie po załadowaniu czytnika immersyjny. |
 
 ##### `-voice`
 ```Parameters
@@ -431,9 +431,9 @@ type TranslationOptions = {
 
 | Nazwa | Typ | Opis |
 | ---- | ---- |------------ |
-| language | Ciąg | Ustawia język tłumaczenia, wartość jest w formacie języka IETF BCP 47, np. fr-FR, es-MX, zh-Hans-CN. Wymagane, aby automatycznie włączyć tłumaczenie wyrazu lub dokumentu. |
-| autoEnableDocumentTranslation | Wartość logiczna | Automatycznie Przetłumacz cały dokument. |
-| autoEnableWordTranslation | Wartość logiczna | Automatyczne włączenie tłumaczenia wyrazów. |
+| language | String | Ustawia język tłumaczenia, wartość jest w formacie języka IETF BCP 47, np. fr-FR, es-MX, zh-Hans-CN. Wymagane, aby automatycznie włączyć tłumaczenie wyrazu lub dokumentu. |
+| autoEnableDocumentTranslation | Boolean | Automatycznie Przetłumacz cały dokument. |
+| autoEnableWordTranslation | Boolean | Automatyczne włączenie tłumaczenia wyrazów. |
 
 ##### `-language`
 ```Parameters
@@ -460,8 +460,8 @@ type DisplayOptions = {
 | Nazwa | Typ | Opis |
 | ---- | ---- |------------ |
 | Wartość parametru TEXTSIZE | Liczba | Ustawia wybrany rozmiar tekstu. |
-| increaseSpacing | Wartość logiczna | Określa, czy odstępy tekstu mają być włączane czy wyłączane. |
-| fontFamily | Ciąg | Ustawia wybraną czcionkę ("Calibri", "ComicSans" lub "Sitka"). |
+| increaseSpacing | Boolean | Określa, czy odstępy tekstu mają być włączane czy wyłączane. |
+| fontFamily | String | Ustawia wybraną czcionkę ("Calibri", "ComicSans" lub "Sitka"). |
 
 ##### `-textSize`
 ```Parameters
@@ -494,27 +494,27 @@ enum CookiePolicy { Disable, Enable }
 | Ustawienie | Typ | Opis |
 | ------- | ---- | ----------- |
 | Wartość parametru TEXTSIZE | Liczba | Ustawia wybrany rozmiar tekstu. |
-| fontFamily | Ciąg | Ustawia wybraną czcionkę ("Calibri", "ComicSans" lub "Sitka"). |
+| fontFamily | String | Ustawia wybraną czcionkę ("Calibri", "ComicSans" lub "Sitka"). |
 | textodstępy | Liczba | Określa, czy odstępy tekstu mają być włączane czy wyłączane. |
-| formattingEnabled | Wartość logiczna | Określa, czy formatowanie HTML ma być włączone czy wyłączone. |
-| tematów | Ciąg | Ustawia wybrany motyw (na przykład "lekki", "ciemny"...). |
-| syllabificationEnabled | Wartość logiczna | Określa, czy syllabification jest włączony czy wyłączony. |
-| nounHighlightingEnabled | Wartość logiczna | Określa, czy wyróżnianie rzeczowników jest włączane czy wyłączane. |
-| nounHighlightingColor | Ciąg | Ustawia wybrany kolor wyróżniania rzeczowników. |
-| verbHighlightingEnabled | Wartość logiczna | Określa, czy wyróżnianie zleceń jest włączane, czy wyłączane. |
-| verbHighlightingColor | Ciąg | Ustawia wybrany kolor podświetlania zlecenia. |
-| adjectiveHighlightingEnabled | Wartość logiczna | Określa, czy wyróżnianie przymiotnika jest włączone, czy wyłączone. |
-| adjectiveHighlightingColor | Ciąg | Ustawia wybrany kolor podświetlania przymiotników. |
-| adverbHighlightingEnabled | Wartość logiczna | Określa, czy wyróżnianie parametrów jest włączone, czy wyłączone. |
-| adverbHighlightingColor | Ciąg | Ustawia wybrany kolor wyróżniania parametrów. |
-| pictureDictionaryEnabled | Wartość logiczna | Określa, czy słownik obrazu ma być włączony, czy wyłączony. |
-| posLabelsEnabled | Wartość logiczna | Określa, czy etykieta tekstu indeksu górnego każdej wyróżnionej części mowy jest włączana, czy wyłączona.  |
+| formattingEnabled | Boolean | Określa, czy formatowanie HTML ma być włączone czy wyłączone. |
+| tematów | String | Ustawia wybrany motyw (na przykład "lekki", "ciemny"...). |
+| syllabificationEnabled | Boolean | Określa, czy syllabification jest włączony czy wyłączony. |
+| nounHighlightingEnabled | Boolean | Określa, czy wyróżnianie rzeczowników jest włączane czy wyłączane. |
+| nounHighlightingColor | String | Ustawia wybrany kolor wyróżniania rzeczowników. |
+| verbHighlightingEnabled | Boolean | Określa, czy wyróżnianie zleceń jest włączane, czy wyłączane. |
+| verbHighlightingColor | String | Ustawia wybrany kolor podświetlania zlecenia. |
+| adjectiveHighlightingEnabled | Boolean | Określa, czy wyróżnianie przymiotnika jest włączone, czy wyłączone. |
+| adjectiveHighlightingColor | String | Ustawia wybrany kolor podświetlania przymiotników. |
+| adverbHighlightingEnabled | Boolean | Określa, czy wyróżnianie parametrów jest włączone, czy wyłączone. |
+| adverbHighlightingColor | String | Ustawia wybrany kolor wyróżniania parametrów. |
+| pictureDictionaryEnabled | Boolean | Określa, czy słownik obrazu ma być włączony, czy wyłączony. |
+| posLabelsEnabled | Boolean | Określa, czy etykieta tekstu indeksu górnego każdej wyróżnionej części mowy jest włączana, czy wyłączona.  |
 
 <br>
 
 ## <a name="supported-languages"></a>Obsługiwane języki
 
-Funkcja tłumaczenia w czytniku immersyjny obsługuje wiele języków. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://www.onenote.com/learningtools/languagesupport) .
+Funkcja tłumaczenia w czytniku immersyjny obsługuje wiele języków. Aby uzyskać więcej informacji, zobacz [Obsługa języka](./language-support.md) .
 
 <br>
 

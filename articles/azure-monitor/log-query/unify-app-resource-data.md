@@ -7,12 +7,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 40ce2844e33c9a71f87e434a6a3e9f8e0f7e3cc6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 360578a36b92711c55b1fc65befa1b3df7927aad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322112"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330897"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Ujednolicenie wielu zasobów Application Insights Azure Monitor 
 W tym artykule opisano sposób wykonywania zapytań i wyświetlania wszystkich danych dziennika Application Insights w jednym miejscu, nawet w przypadku, gdy znajdują się one w różnych subskrypcjach platformy Azure, jako zamiennik dla zaniechania Application Insights Connector. Liczba zasobów Application Insights, które można uwzględnić w pojedynczym zapytaniu, jest ograniczona do 100.
@@ -57,7 +57,7 @@ Zapytanie używa schematu Application Insights, mimo że zapytanie jest wykonywa
 ![Przykład wyników między zapytaniami](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->[Zapytanie między zasobami](./cross-workspace-query.md) w ramach alertów dziennika jest obsługiwane w nowym [interfejsie API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Domyślnie Azure Monitor używa [starszego interfejsu API alertów log Analytics](../platform/api-alerts.md) na potrzeby tworzenia nowych reguł alertów dziennika z Azure Portal, chyba że zostanie przełączony w [STARSZEJ wersji interfejsu API alertów dziennika](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Po przełączeniu nowy interfejs API zostanie ustawiony jako domyślny dla nowych reguł alertów w Azure Portal i umożliwia tworzenie reguł alertów dziennika zapytań dla wielu zasobów. Można tworzyć reguły alertów dziennika [zapytań dla wielu zasobów](./cross-workspace-query.md) bez przełączenia przy użyciu [szablonu ARM dla interfejsu API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) , ale ta reguła alertu jest możliwa do zarządzania, chociaż [interfejs API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) , a nie z Azure Portal.
+>[Zapytania między zasobami](./cross-workspace-query.md) w alertach dziennika są obsługiwane tylko w bieżącym [interfejsie API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Jeśli używasz starszej wersji interfejsu API alertów Log Analytics, musisz [przełączyć się do bieżącego interfejsu API](../platform/alerts-log-api-switch.md). [Zobacz przykładowe szablony](../platform/alerts-log-create-templates.md).
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Application Insights i Log Analytics różnice w schemacie obszaru roboczego
 W poniższej tabeli przedstawiono różnice schematu między Log Analytics i Application Insights.  
@@ -76,7 +76,7 @@ W poniższej tabeli przedstawiono różnice schematu między Log Analytics i App
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | sygnatura czasowa |
 | Przeglądarka | client_browser |
-| Miasto | client_city |
+| City (Miasto) | client_city |
 | ClientIP | client_IP |
 | Computer (Komputer) | cloud_RoleInstance | 
 | Kraj | client_CountryOrRegion | 

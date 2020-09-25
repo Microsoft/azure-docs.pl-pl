@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 62f30d8a0fe1b2f2397fc16161929279a148aaa2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037511"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329758"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Pomoc techniczna dla portalu komercyjnego firmy Microsoft
 
@@ -38,10 +38,9 @@ Otwórz bilet z [obsługą wydawcy portalu Microsoft Marketplace](https://aka.ms
 ## <a name="marketing-resources"></a>Zasoby marketingowe  
 
 | Kanał pomocy technicznej | Opis | Dostępność |  
-|:--- |:--- |:--- |  
-| Adres e-mail:[cosell@microsoft.com](mailto:cosell@microsoft.com) | Obsługa procesów dołączania i pytań związanych z programem współsprzedażowym. | Na podstawie strefy czasowej pacyficznego. |  
-| Adres e-mail:[gtm@microsoft.com](mailto:gtm@microsoft.com) | Obsługa korzyści GTM i pytań programu. | Godziny pracy znajdują się w strefie czasowej pacyficznego. |  
-| Adres e-mail:[cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Odpowiedzi na pytania dotyczące użycia logo i znakowanie na platformie Azure. |  |  
+|:--- |:--- |:--- |
+| Adres e-mail: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Obsługa korzyści GTM i pytań programu. | Godziny pracy znajdują się w strefie czasowej pacyficznego. |  
+| Adres e-mail: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Odpowiedzi na pytania dotyczące użycia logo i znakowanie na platformie Azure. |  |  
 
 ## <a name="next-steps"></a>Następne kroki
 

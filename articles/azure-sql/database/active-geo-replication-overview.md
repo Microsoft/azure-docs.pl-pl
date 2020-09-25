@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: a269796c072a235e4ecd47731ca37a774750a3cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3526510e4cbd77ffe1f468512e1128dcebe9b1da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018386"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330846"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Tworzenie i używanie aktywnej replikacji geograficznej — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -210,13 +210,13 @@ Zalecamy używanie [reguł zapory adresów IP na poziomie bazy danych](firewall-
 
 ## <a name="upgrading-or-downgrading-primary-database"></a>Uaktualnianie lub obniżanie podstawowej bazy danych
 
-Możesz uaktualnić lub obniżyć podstawową bazę danych do innego rozmiaru obliczeniowego (w ramach tej samej warstwy usług, a nie między Ogólnego przeznaczenia i Krytyczne dla działania firmy) bez rozłączania pomocniczych baz danych. Podczas uaktualniania zalecamy najpierw uaktualnić pomocniczą bazę danych, a następnie uaktualnić podstawową. W przypadku zmiany wersji na starszą należy odwrócić kolejność: najpierw Obniż poziom podstawowego, a następnie obniżyć wartość pomocniczą. W przypadku uaktualnienia lub obniżenia poziomu bazy danych do innej warstwy usług to zalecenie jest wymuszane.
+Możesz uaktualnić lub obniżyć podstawową bazę danych do innego rozmiaru obliczeniowego (w ramach tej samej warstwy usług, a nie między Ogólnego przeznaczenia i Krytyczne dla działania firmy) bez rozłączania pomocniczych baz danych. Podczas uaktualniania zalecamy najpierw uaktualnić pomocniczą bazę danych, a następnie uaktualnić podstawową. W przypadku obniżania poziomu, należy odwrócić kolejność: najpierw obniżyć poziom podstawowej bazy danych, a następnie obniżyć poziom pomocniczej bazy danych. W przypadku uaktualnienia lub obniżenia poziomu bazy danych do innej warstwy usługi to zalecenie jest wymuszane.
 
 > [!NOTE]
-> W przypadku utworzenia pomocniczej bazy danych w ramach konfiguracji grupy trybu failover nie zaleca się obniżania poziomu pomocniczej bazy danych. Ma to na celu zapewnienie wystarczającej wydajności warstwy danych do przetwarzania zwykłego obciążenia po aktywowaniu trybu failover.
+> W przypadku utworzenia pomocniczej bazy danych jako części konfiguracji grupy trybu failover nie zaleca się obniżania poziomu pomocniczej bazy danych. Ma to na celu zapewnienie wystarczającej wydajności warstwy danych do przetwarzania zwykłego obciążenia po aktywowaniu trybu failover.
 
 > [!IMPORTANT]
-> Podstawowa baza danych w grupie trybu failover nie może skalować do wyższej warstwy, chyba że pomocnicza baza danych jest najpierw skalowana do wyższej warstwy. Jeśli spróbujesz skalować podstawową bazę danych przed skalowaniem pomocniczej bazy danych, może zostać wyświetlony następujący błąd:
+> Podstawowa baza danych w grupie trybu failover nie może być przeskalowana do wyższej warstwy, chyba że pomocnicza baza danych zostanie najpierw przeskalowana do tej wyższej warstwy. Jeśli spróbujesz skalować podstawową bazę danych przed skalowaniem pomocniczej bazy danych, może zostać wyświetlony następujący błąd:
 >
 > `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
 >
@@ -248,9 +248,9 @@ Jak wspomniano wcześniej, aktywna replikacja geograficzna może być również 
 
 | Polecenie | Opis |
 | --- | --- |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Użyj argumentu Dodaj dodatkową na serwerze, aby utworzyć pomocniczą bazę danych dla istniejącej bazy danych i rozpocząć replikację danych |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Użyj trybu FAILOVER lub FORCE_FAILOVER_ALLOW_DATA_LOSS, aby przełączyć pomocniczą bazę danych jako główną w celu zainicjowania trybu failover |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Użyj Usuń POMOCNICZy serwer na serwerze, aby zakończyć replikację danych między SQL Database a określoną pomocniczą bazą danych. |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Użyj argumentu Dodaj dodatkową na serwerze, aby utworzyć pomocniczą bazę danych dla istniejącej bazy danych i rozpocząć replikację danych |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Użyj trybu FAILOVER lub FORCE_FAILOVER_ALLOW_DATA_LOSS, aby przełączyć pomocniczą bazę danych jako główną w celu zainicjowania trybu failover |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Użyj Usuń POMOCNICZy serwer na serwerze, aby zakończyć replikację danych między SQL Database a określoną pomocniczą bazą danych. |
 | [sys. geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Zwraca informacje o wszystkich istniejących łączach replikacji dla każdej bazy danych na serwerze. |
 | [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Pobiera czas ostatniej replikacji, ostatnie opóźnienie replikacji i inne informacje o łączu replikacji danej bazy danych. |
 | [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Przedstawia stan wszystkich operacji bazy danych, w tym stan łączy replikacji. |
@@ -288,7 +288,7 @@ Jak wspomniano wcześniej, aktywna replikacja geograficzna może być również 
 | [Usuń łącze replikacji](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Usuwa łącze replikacji bazy danych. Nie można wykonać operacji w trybie failover. |
 |  | |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Aby zapoznać się z przykładowymi skryptami, zobacz:
   - [Konfigurowanie pojedynczej bazy danych i wprowadzanie jej w tryb failover przy użyciu funkcji aktywnej replikacji geograficznej](scripts/setup-geodr-and-failover-database-powershell.md)

@@ -1,27 +1,29 @@
 ---
 title: Co to jest interfejs API narzędzia do wykrywania anomalii?
 titleSuffix: Azure Cognitive Services
-description: Użyj zaawansowanych algorytmów interfejsu API wykrywania anomalii, aby identyfikować anomalie w danych szeregów czasowych.
+description: Użyj algorytmów API wykrywania anomalii, aby zastosować wykrywanie anomalii w danych szeregów czasowych.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: aahi
-ms.openlocfilehash: ba094709d78d92b678e3aa5ad9995923888caf00
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: wykrywanie anomalii, uczenie maszynowe, algorytmy
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 2e48c189df23ed94cd54e1bc9097b7d9709c9ed3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887498"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319320"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Co to jest interfejs API narzędzia do wykrywania anomalii?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Interfejs API wykrywania anomalii umożliwia monitorowanie i wykrywanie anomalii w danych szeregów czasowych przy użyciu uczenia maszynowego. Interfejs API wykrywania anomalii dostosowuje się przez automatyczne identyfikowanie i stosowanie modeli najlepiej dopasowane do danych, niezależnie od wielkości branżowej, scenariusza lub ilości danych. Korzystając z danych szeregów czasowych, interfejs API określa granice wykrywania anomalii, oczekiwane wartości i które punkty danych są anomaliami.
+Interfejs API wykrywania anomalii umożliwia monitorowanie i wykrywanie anomalii w danych szeregów czasowych bez konieczności znajomości uczenia maszynowego. Algorytmy interfejsu API wykrywania anomalii dostosowują się przez automatyczne identyfikowanie i stosowanie najlepszych modeli do danych, bez względu na wielkość branżową, scenariusz lub dane. Korzystając z danych szeregów czasowych, interfejs API określa granice wykrywania anomalii, oczekiwane wartości i które punkty danych są anomaliami.
 
 ![Wykrywanie zmian wzorca w żądaniach obsługi](./media/anomaly_detection2.png)
 
@@ -33,7 +35,7 @@ Dzięki detektorowi anomalii można automatycznie wykrywać anomalie w danych sz
 
 |Cechy  |Opis  |
 |---------|---------|
-|Wykrywaj anomalie w czasie rzeczywistym. | Wykrywaj anomalie w danych przesyłanych strumieniowo, używając wcześniej zaobserwowanych punktów danych w celu ustalenia, czy Najnowsza z nich jest nieaktualna. Ta operacja generuje model przy użyciu wysyłanych punktów danych i określa, czy punkt docelowy jest anomalią. Wywołując interfejs API z każdym wygenerowanym nowym punktem danych, można monitorować dane w miarę ich tworzenia. |
+|Wykrywanie anomalii w czasie rzeczywistym. | Wykrywaj anomalie w danych przesyłanych strumieniowo, używając wcześniej zaobserwowanych punktów danych w celu ustalenia, czy Najnowsza z nich jest nieaktualna. Ta operacja generuje model przy użyciu wysyłanych punktów danych i określa, czy punkt docelowy jest anomalią. Wywołując interfejs API z każdym wygenerowanym nowym punktem danych, można monitorować dane w miarę ich tworzenia. |
 |Wykrywaj anomalie w zestawie danych jako Partia zadań. | Skorzystaj z szeregów czasowych, aby wykryć ewentualne anomalie, które mogą istnieć w danych. Ta operacja generuje model przy użyciu wszystkich danych szeregów czasowych, przy czym każdy punkt jest analizowany z tym samym modelem.         |
 |Wykrywaj punkty zmian w zestawie danych jako Partia zadań. | Skorzystaj z szeregów czasowych, aby wykryć wszystkie punkty zmian trendów, które istnieją w danych. Ta operacja generuje model przy użyciu wszystkich danych szeregów czasowych, przy czym każdy punkt jest analizowany z tym samym modelem.    |
 | Uzyskaj dodatkowe informacje na temat danych. | Uzyskaj przydatne szczegóły dotyczące danych i wszelkich obserwowanych anomalii, w tym oczekiwanych wartości, granic anomalii i pozycji. |

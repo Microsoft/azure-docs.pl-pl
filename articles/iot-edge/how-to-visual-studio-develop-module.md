@@ -2,18 +2,18 @@
 title: Opracowywanie i debugowanie modułów w programie Visual Studio — Azure IoT Edge
 description: Użyj programu Visual Studio z narzędziami Azure IoT Tools, aby utworzyć moduł IoT Edge C lub C# i wypchnąć go z IoT Hub do urządzenia IoT zgodnie z konfiguracją manifestu wdrożenia.
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 9722c7dec3a066d8f776424cb599be0d463416d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 823b16dcaf113136b10fdaa054da20840b99f02d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297049"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Użyj programu Visual Studio 2019 do tworzenia i debugowania modułów dla Azure IoT Edge
 

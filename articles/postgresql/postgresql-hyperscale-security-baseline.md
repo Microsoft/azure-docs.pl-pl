@@ -1,22 +1,22 @@
 ---
-title: Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-ze skalowaniem
-description: Linia bazowa zabezpieczeń Azure Database for PostgreSQL-ze skalą zawiera wskazówki i zasoby związane z wdrażaniem zaleceń dotyczących zabezpieczeń określonych w teście zabezpieczeń platformy Azure.
+title: Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-Citus
+description: Linia bazowa zabezpieczeń Azure Database for PostgreSQL-Citus) zawiera wskazówki i zasoby dotyczące procedur związanych z wdrażaniem zaleceń dotyczących zabezpieczeń określonych w teście zabezpieczeń Azure.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 37ebd1702ed8ef059b38378b89f5a5cb61748568
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c82451ca9f1f974aba7578b0dfc4f6f0eb99ac16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231303"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318130"
 ---
-# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-ze skalowaniem
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-Citus
 
-Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-stan zawiera zalecenia, które pomogą ulepszyć bezpieczeństwa wdrożenia.
+Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-Citus) zawiera zalecenia, które pomogą ulepszyć zabezpieczenia stan wdrożenia.
 
 Punkt odniesienia dla tej usługi jest rysowany w [wersji 1,0 usługi Azure Security test](https://docs.microsoft.com/azure/security/benchmarks/overview), która zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure z naszymi najlepszymi wskazówkami.
 
@@ -631,7 +631,7 @@ Przed przeskanowaniem zawartość przekazywana do zasobów platformy Azure, któ
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: wykonaj kompletne kopie zapasowe systemu i Utwórz kopię zapasową wszystkich kluczy zarządzanych przez klienta
 
-**Wskazówki**: co najmniej raz dziennie Azure Database for PostgreSQL wykonuje kopie zapasowe migawek plików danych i dziennika transakcji bazy danych. Kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w okresie przechowywania. Okres przechowywania jest obecnie 35 dni dla wszystkich klastrów. Wszystkie kopie zapasowe są szyfrowane przy użyciu szyfrowania AES 256-bitowego.
+**Wskazówki**: co najmniej raz dziennie Azure Database for PostgreSQL wykonuje kopie zapasowe migawek plików danych i dziennika transakcji bazy danych. Kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w okresie przechowywania. Okres przechowywania jest obecnie 35 dni dla wszystkich klastrów. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
 
 W regionach platformy Azure, które obsługują strefy dostępności, migawki kopii zapasowych są przechowywane w trzech strefach dostępności. Tak długo, jak co najmniej jedna strefa dostępności jest w trybie online, klaster Citus jest dostępnych.
 

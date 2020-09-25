@@ -1,26 +1,26 @@
 ---
 title: Omówienie zabezpieczeń
-description: Informacje o zabezpieczeniach dotyczące serwerów z obsługą usługi Azure ARC (wersja zapoznawcza).
+description: Informacje o zabezpieczeniach na serwerach z obsługą usługi Azure Arc.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 17641fab9933d9d6a60c2b21912f755acc01a6dd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/23/2020
+ms.openlocfilehash: be79be3030af76425b54fd683784d0e216ac2cf5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89447860"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329044"
 ---
-# <a name="azure-arc-for-servers-preview-security-overview"></a>Azure ARC dla serwerów (wersja zapoznawcza) Omówienie zabezpieczeń
+# <a name="azure-arc-for-servers-security-overview"></a>Usługa Azure ARC dla serwerów — Omówienie zabezpieczeń
 
 W tym artykule opisano konfigurację zabezpieczeń i zagadnienia, które należy oszacować przed wdrożeniem serwerów z obsługą usługi Azure Arc w przedsiębiorstwie.
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-Każdy serwer z obsługą usługi Azure Arc ma zarządzaną tożsamość jako część grupy zasobów w ramach subskrypcji platformy Azure, która reprezentuje serwer działający lokalnie lub w innym środowisku chmury. Dostęp do tego zasobu jest kontrolowany przy użyciu standardowej [kontroli dostępu opartej na rolach platformy Azure](../../role-based-access-control/overview.md). Na stronie [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) w Azure Portal można sprawdzić, kto ma dostęp do serwera z włączonym usługą Azure Arc.
+Każdy serwer z obsługą usługi Azure Arc ma zarządzaną tożsamość jako część grupy zasobów w ramach subskrypcji platformy Azure. Ta tożsamość reprezentuje serwer działający lokalnie lub w innym środowisku chmury. Dostęp do tego zasobu jest kontrolowany przy użyciu standardowej [kontroli dostępu opartej na rolach platformy Azure](../../role-based-access-control/overview.md). Na stronie [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) w Azure Portal można sprawdzić, kto ma dostęp do serwera z włączonym usługą Azure Arc.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Kontrola dostępu do serwera z obsługą usługi Azure Arc" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
-Użytkownicy i aplikacje z uprawnieniami [współautora](../../role-based-access-control/built-in-roles.md#contributor) lub administratora dostępu do zasobu mogą wprowadzać zmiany w zasobie, w tym wdrażać lub usuwać [rozszerzenia](manage-vm-extensions.md) na komputerze. Rozszerzenia mogą zawierać dowolne skrypty, które są uruchamiane w kontekście uprzywilejowanym, więc Rozważ wszelkie współautorów zasobów platformy Azure, aby być pośrednim administratorem serwera spoza platformy Azure.
+Użytkownicy i aplikacje z uprawnieniami [współautora](../../role-based-access-control/built-in-roles.md#contributor) lub administratora dostępu do zasobu mogą wprowadzać zmiany w zasobie, w tym wdrażać lub usuwać [rozszerzenia](manage-vm-extensions.md) na komputerze. Rozszerzenia mogą zawierać dowolne skrypty, które są uruchamiane w kontekście uprzywilejowanym, więc Rozważ wszelkie współautorów zasobów platformy Azure, aby być pośrednim administratorem serwera.
 
 Rola **dołączania maszyny połączonej z platformą Azure** jest dostępna na potrzeby dołączenia do skalowania i może odczytywać i tworzyć nowe serwery z obsługą łuku na platformie Azure. Nie można jej użyć do usunięcia serwerów już zarejestrowanych lub do zarządzania rozszerzeniami. Najlepszym rozwiązaniem jest przypisanie tej roli tylko do jednostki usługi Azure Active Directory (Azure AD) używanej do dołączania maszyn w odpowiedniej skali.
 
@@ -28,7 +28,7 @@ Użytkownicy będący członkiem roli **administratora zasobów maszyny połącz
 
 ## <a name="agent-security-and-permissions"></a>Zabezpieczenia i uprawnienia agenta
 
-Aby zarządzać agentem usługi Azure Connected Machine (azcmagent), w systemie Windows konto użytkownika musi być członkiem lokalnej grupy administratorów, a w systemie Linux wymagane są uprawnienia dostępu do katalogu głównego.
+Aby zarządzać agentem usługi Azure Connected Machine (azcmagent) w systemie Windows, konto użytkownika musi być członkiem lokalnej grupy administratorów. W systemie Linux wymagane są uprawnienia dostępu do katalogu głównego.
 
 Agent maszyny połączonej z platformą Azure składa się z trzech usług, które są uruchamiane na komputerze.
 
@@ -56,4 +56,4 @@ Agent połączonej platformy Azure używa uwierzytelniania klucza publicznego do
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przed dokonaniem oceny lub włączeniem serwerów z obsługą łuku (wersja zapoznawcza) na wielu maszynach hybrydowych Przejrzyj [Omówienie agenta połączonej maszyny](agent-overview.md) , aby poznać wymagania, szczegóły techniczne dotyczące agenta i metod wdrażania.
+Przed przeszacowaniem lub włączeniem serwerów z obsługą łuku na wielu maszynach hybrydowych Przejrzyj [Omówienie agenta połączonej maszyny](agent-overview.md) , aby poznać wymagania, szczegóły techniczne dotyczące agenta i metod wdrażania.

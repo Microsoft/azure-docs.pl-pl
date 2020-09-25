@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266063"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -66,8 +66,8 @@ Ten proces umożliwia scenariuszowi, w którym użytkownicy tracą dostęp do pl
 
 | | Aplikacje sieci Web pakietu Office | Aplikacje pakietu Office Win32 | Pakiet Office dla systemu iOS | Pakiet Office dla systemu Android | Pakiet Office dla komputerów Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Obsługiwane | Obsługiwane | Nieobsługiwane | Obsługiwane | Obsługiwane |
-| **Exchange Online** | Obsługiwane | Obsługiwane | Nieobsługiwane | Obsługiwane | Obsługiwane |
+| **SharePoint Online** | Nieobsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
+| **Exchange Online** | Nieobsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane |
 
 ### <a name="client-side-claim-challenge"></a>Wyzwanie dla żądania po stronie klienta
 

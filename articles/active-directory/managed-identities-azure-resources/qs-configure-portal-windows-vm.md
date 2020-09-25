@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ed19b9dae179c3e4fe89a9ce28df4ad0cd080af
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e35366e35fc127057020906ac6d3dfb0f207ab72
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263216"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331339"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal
 
@@ -63,7 +63,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system na maszynie wi
 
 3. W obszarze **przypisano system**, **stan**, wybierz opcję **włączone** , a następnie kliknij przycisk **Zapisz**:
 
-   ![Zrzut ekranu strony konfiguracji](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Zrzut ekranu przedstawiający stronę "tożsamość (wersja zapoznawcza)" ze stanem "on" przypisanym do systemu.](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ### <a name="remove-system-assigned-managed-identity-from-a-vm"></a>Usuwanie tożsamości zarządzanej przypisanej przez system z maszyny wirtualnej
 
@@ -99,7 +99,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure, która zawiera maszynę wirtualną.
 2. Przejdź do odpowiedniej maszyny wirtualnej i kliknij pozycję **tożsamość**, **przypisane przez użytkownika** , a następnie ** \+ Dodaj**.
 
-   ![Dodawanie tożsamości zarządzanej przypisanej przez użytkownika do maszyny wirtualnej](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
+   ![Zrzut ekranu pokazujący stronę "tożsamość" z wybraną pozycją "użytkownik przypisany" oraz wyróżniony przycisk "Dodaj".](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
 
 3. Kliknij tożsamość przypisaną przez użytkownika, którą chcesz dodać do maszyny wirtualnej, a następnie kliknij przycisk **Dodaj**.
 

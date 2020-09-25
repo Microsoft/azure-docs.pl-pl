@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: ba4b8f1d3aaa9b06f3bc24e9e267f6778734152a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: bad81e8929cd0c5c66c87fd9f6cc11dc746b3e5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903744"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317795"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Service Bus dane wyjściowe kolejek z Azure Stream Analytics
 
@@ -51,6 +51,22 @@ Maksymalny rozmiar wiadomości to 256 KB na komunikat dla warstwy Standardowa i 
 ## <a name="custom-metadata-properties-for-output"></a>Niestandardowe właściwości metadanych dla danych wyjściowych
 
 Kolumny zapytań można dołączać jako właściwości użytkownika do wiadomości wychodzących. Te kolumny nie przechodzą do ładunku. Właściwości są obecne w formie słownika w wiadomości wyjściowej. *Klucz* to nazwa kolumny i *wartość* jest wartością kolumny w słowniku właściwości. Wszystkie typy danych Stream Analytics są obsługiwane z wyjątkiem rekordów i tablic.
+
+W poniższym przykładzie pola `DeviceId` i `DeviceStatus` są dodawane do metadanych.
+
+1. Użyj następującego zapytania:
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Skonfiguruj `DeviceId,DeviceStatus` jako kolumny właściwości w danych wyjściowych.
+
+   :::image type="content" source="media/service-bus-queues-output/property-columns.png" alt-text="Kolumny właściwości":::
+
+Na poniższej ilustracji przedstawiono oczekiwane właściwości komunikatów wyjściowych, które zostały sprawdzone w centrum EventHub przy użyciu [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Właściwości niestandardowe zdarzenia":::
 
 ## <a name="system-properties"></a>Właściwości systemu
 

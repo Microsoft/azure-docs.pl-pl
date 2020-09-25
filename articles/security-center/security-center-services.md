@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: db0c5890add303d85bdec76e00b8377567226a38
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cece53544bfc8287f6ef542575d92b05032991f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904711"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318045"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -45,7 +45,7 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 |Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: bezpłatnie<br><br>Nie na platformie Azure: tak|
 |Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
 |[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
-|Ocena szyfrowania dysku|✔|✔|-|Bezpłatna|
+|Ocena szyfrowania dysku|✔</br>(dla [obsługiwanych scenariuszy](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Bezpłatna|
 |Ocena luk w zabezpieczeniach innych firm|✔|-|-|Bezpłatna|
 |[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Bezpłatna|
 
@@ -69,7 +69,7 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 |Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: bezpłatnie<br><br>Nie na platformie Azure: tak|
 |Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: bezpłatnie<br><br>Nie na platformie Azure: tak|
 |[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Bezpłatna|
-|Ocena szyfrowania dysku|✔|✔|-|Bezpłatna|
+|Ocena szyfrowania dysku|✔</br>(dla [obsługiwanych scenariuszy](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Bezpłatna|
 |Ocena luk w zabezpieczeniach innych firm|✔|-|-|Bezpłatna|
 |[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Bezpłatna|
 

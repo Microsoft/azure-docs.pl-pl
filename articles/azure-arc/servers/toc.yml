@@ -47,6 +47,8 @@
       items:
         - name: Problemy z połączeniem z agentem
           href: troubleshoot-agent-onboard.md
+        - name: Problemy z rozszerzeniem maszyny wirtualnej
+          href: troubleshoot-vm-extensions.md
 - name: Dokumentacja
   items:
     - name: Rezydencja danych

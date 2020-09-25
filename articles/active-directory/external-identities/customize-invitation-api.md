@@ -1,6 +1,6 @@
 ---
 title: Interfejs API współpracy B2B i dostosowywanie — Azure Active Directory
-description: Współpraca B2B usługi Azure Active Directory wspiera relacje między firmami, umożliwiając partnerom biznesowym selektywne uzyskiwanie dostępu do Twoich aplikacji firmowych
+description: Azure Active Directory współpracy B2B obsługuje relacje między firmami, umożliwiając partnerom biznesowym selektywne uzyskiwanie dostępu do aplikacji firmowych.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f62ece12732c45037bcad328eec162bebb4e6a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 2cc959d23aebea082d873e9474998e7f17b1b320
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909554"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295162"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory interfejs API współpracy B2B i dostosowywanie
 
@@ -80,7 +80,7 @@ W tym trybie interfejs API musi mieć uprawnienia do tworzenia zaproszeń B2B.
 
 W kontekście tylko aplikacji aplikacja wymaga elementu User. zaprasza. All, aby zaproszenie zostało zakończone pomyślnie.
 
-Aby uzyskać więcej informacji, zobacz:https://developer.microsoft.com/graph/docs/authorization/permission_scopes
+Aby uzyskać więcej informacji, zobacz: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
@@ -115,7 +115,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > Upewnij się, że masz najnowszą wersję modułu AzureAD PowerShell lub moduł AzureADPreview PowerShell. 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Zapoznaj się z dokumentacją interfejsu API zaproszenia w temacie [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) .
 

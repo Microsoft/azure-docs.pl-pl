@@ -1,7 +1,7 @@
 ---
 title: Tworzenie niestandardowej usługi mowy głosowej
 titleSuffix: Azure Cognitive Services
-description: Gdy wszystko będzie gotowe do przekazania danych, przejdź do niestandardowego portalu głosowego. Utwórz lub wybierz niestandardowy projekt głosowy. Projekt musi udostępniać odpowiednie właściwości języka/ustawień regionalnych oraz płci jako dane, których zamierzasz użyć do szkolenia głosowego.
+description: Gdy wszystko będzie gotowe do przekazania danych, przejdź do niestandardowego portalu głosowego. Utwórz lub wybierz niestandardowy projekt głosowy. Projekt musi udostępniać odpowiednie właściwości języka/ustawień regionalnych oraz płci jako dane, które mają być używane dla szkolenia głosowego.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f087a2880c16218905a4410a2f591511a155ffd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 3747033fcaf65e0c6da07e9f1bb625771958bb4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629011"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319065"
 ---
 # <a name="create-a-custom-voice"></a>Tworzenie niestandardowego głosu
 
@@ -28,7 +28,7 @@ Sprawdź języki obsługiwane dla niestandardowego głosu: [język do dostosowan
 
 ## <a name="upload-your-datasets"></a>Przekazywanie zestawów danych
 
-Gdy wszystko będzie gotowe do przekazania danych, przejdź do [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal). Utwórz lub wybierz niestandardowy projekt głosowy. Projekt musi udostępniać odpowiednie właściwości języka/ustawień regionalnych oraz płci jako dane, których zamierzasz użyć do szkolenia głosowego. Na przykład wybierz, `en-GB` czy nagranie audio zostało wykonane w języku angielskim z akcentem Zjednoczonego Królestwa.
+Gdy wszystko będzie gotowe do przekazania danych, przejdź do [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal). Utwórz lub wybierz niestandardowy projekt głosowy. Projekt musi udostępniać odpowiednie właściwości języka/ustawień regionalnych oraz płci jako dane, które mają być używane dla szkolenia głosowego. Na przykład wybierz, `en-GB` czy nagranie audio zostało wykonane w języku angielskim z akcentem Zjednoczonego Królestwa.
 
 Przejdź do karty **dane** , a następnie kliknij pozycję **Przekaż dane**. W kreatorze wybierz odpowiedni typ danych, który jest zgodny z przygotowanymi danymi.
 
@@ -44,7 +44,7 @@ Zestawy danych są automatycznie sprawdzane po naciśnięciu przycisku Przekaż.
 
 W poniższej tabeli przedstawiono Stany przetwarzania zaimportowanych zestawów danych:
 
-| Stan | Znaczenie |
+| State | Znaczenie |
 | ----- | ------- |
 | Przetwarzanie | Zestaw danych został odebrany i jest przetwarzany. |
 | Sukces | Zestaw danych został sprawdzony i może być teraz używany do kompilowania modelu głosowego. |
@@ -86,7 +86,7 @@ W tabeli szkoleń zostanie wyświetlony nowy wpis, który odnosi się do nowo ut
 
 Wyświetlany stan odzwierciedla proces konwersji zestawu danych na model głosu, jak pokazano poniżej.
 
-| Stan | Znaczenie |
+| State | Znaczenie |
 | ----- | ------- |
 | Przetwarzanie | Trwa tworzenie modelu głosu. |
 | Sukces | Twój model głosu został utworzony i można go wdrożyć. |
@@ -117,7 +117,7 @@ Po pomyślnym skompilowaniu czcionki głosowej możesz ją przetestować przed w
     > [!NOTE]
     > Język tekstu musi być taki sam jak język czcionki głosowej. Testy można testować tylko dla pomyślnie przeszkolonych modeli. W tym kroku jest obsługiwany tylko zwykły tekst.
 
-5.  Kliknij przycisk **Utwórz**.
+5.  Kliknij pozycję **Utwórz**.
 
 Po przesłaniu żądania testowego nastąpi powrót do strony testowej. Tabela zawiera teraz wpis odpowiadający nowemu żądaniu i kolumnie Stan. Wypróbowanie mowy może potrwać kilka minut. Gdy kolumna stanu **powiedzie się**, można odtworzyć dźwięk lub pobrać dane wejściowe tekstu (plik. txt) i dane wyjściowe audio (plik. wav), a następnie Audition je w celu zapewnienia jakości.
 

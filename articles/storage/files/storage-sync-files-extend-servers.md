@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d2a0d79a5cdd53f8376c088fc986c20908575eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037103"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329464"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Samouczek: rozszerzanie serwerów plików systemu Windows przy użyciu usługi Azure File Sync
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-## <a name="prepare-your-environment"></a>Przygotowanie środowiska
+## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
 Na potrzeby tego samouczka konieczne jest wykonanie następujących czynności przed rozpoczęciem wdrażania usługi Azure File Sync:
 
@@ -158,7 +158,7 @@ Teraz można dodać dysk z danymi do maszyny wirtualnej.
 
 1. Kliknij prawym przyciskiem myszy dysk o pojemności 1 GB o nazwie **Msft Virtual Disk** i wybierz pozycję **Nowy wolumin**.
 1. Wykonaj kroki kreatora. Użyj ustawień domyślnych i zapisz przypisaną literę dysku.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Wybierz pozycję **Close** (Zamknij).
 
    Na tym etapie przeniesiono dysk do trybu online i utworzono wolumin. Otwórz Eksploratora plików na maszynie wirtualnej z systemem Windows Server, aby potwierdzić obecność dodanego przed chwilą dysku z danymi.
@@ -286,7 +286,7 @@ Grupa synchronizacji definiuje topologię synchronizacji dla zestawu plików. Gr
    | **Konto magazynu** | Wybierz pozycję **Wybierz konto magazynu**. W wyświetlonym okienku wybierz konto magazynu, które zawiera utworzony udział plików platformy Azure. Na potrzeby tego samouczka użyj nazwy *afsstoracct101918*. |
    | **Udział plików platformy Azure** | Nazwa utworzonego udziału plików platformy Azure. Na potrzeby tego samouczka użyj nazwy *afsfileshare*. |
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Jeśli wybierzesz grupę synchronizacji, zobaczysz, że masz teraz jeden **punkt końcowy w chmurze**.
 
@@ -307,13 +307,15 @@ Punkt końcowy serwera reprezentuje określoną lokalizację na zarejestrowanym 
    | **Obsługa warstw w chmurze** | Pozostaw tę funkcję wyłączoną na potrzeby tego samouczka. |
    | **Wolne miejsce w woluminie** | Pozostaw to pole puste na potrzeby tego samouczka. |
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Pliki zostały teraz zsynchronizowane między udziałem plików platformy Azure i systemem Windows Server.
 
 ![Pomyślnie zsynchronizowana usługa Azure Storage](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Jeśli chcesz wyczyścić zasoby utworzone w tym samouczku, najpierw usuń punkty końcowe z usługi synchronizacji magazynu. Następnie Wyrejestruj serwer z usługą synchronizacji magazynu, Usuń grupy synchronizacji i Usuń usługę synchronizacji.
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

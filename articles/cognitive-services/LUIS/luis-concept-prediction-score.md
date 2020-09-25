@@ -1,14 +1,16 @@
 ---
 title: Wyniki przewidywania — LUIS
 description: Wynik przewidywania wskazuje stopień zaufania usługi interfejsu API LUIS w celu przewidywania wyników w oparciu o wypowiedź użytkownika.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d836273e61752ff208133466016ce7c6ff9c28fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382376"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316464"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Wyniki przewidywania wskazują dokładność przewidywania dla zamiar i jednostek
 
@@ -19,7 +21,7 @@ Wynik przewidywania jest z przedziału od zera (0) do jednego (1). Przykładem w
 |Wartość wyniku|Ufność|
 |--|--|
 |1|określone dopasowanie|
-|0.99|wysoki poziom pewności|
+|0,99|wysoki poziom pewności|
 |0,01|niski poziom pewności|
 |0|Niepowodzenie dopasowania|
 
@@ -46,7 +48,7 @@ Przegląd oceny dla wszystkich intencji to dobry sposób na sprawdzenie, czy nie
 
 Jeśli wiele intencji ma zamknięte wyniki prognozowania na podstawie kontekstu wypowiedź, LUIS może przełączać się między intencjami. Aby rozwiązać ten problem, Kontynuuj dodawanie wyrażenia długości do każdego zamiaru z większą różnorodnością różnic kontekstowych lub aplikację kliencką, taką jak rozmowa bot, wybierz programowe opcje dotyczące obsługi 2 najważniejszych założeń.
 
-2 intencje, które są zbyt blisko oceniane, mogą odwrócić ze względu na **niedeterministyczne szkolenie**. Górny wynik może stać się drugim u góry, a drugi wynik może stać się pierwszym górnym wynikiem. Aby uniknąć tej sytuacji, należy dodać przykład wyrażenia długości do każdego z dwóch najlepszych zamiar dla tego wypowiedź z wyborem słowa i kontekstem, który odróżnia 2 intencje. Dwa intencje powinny mieć taką samą liczbę przykładowych wyrażenia długości. Reguła kciuka do oddzielenia, aby zapobiec występowaniu z poziomu szkolenia, to 15% różnica w ocenie.
+Jeśli 2 intencje mają zbyt zbliżone wyniki, ich kolejność może zostać odwrócona z powodu **trenowania niedeterministycznego**. Górny wynik może stać się drugim u góry, a drugi wynik może stać się pierwszym górnym wynikiem. Aby uniknąć tej sytuacji, należy dodać przykład wyrażenia długości do każdego z dwóch najlepszych zamiar dla tego wypowiedź z wyborem słowa i kontekstem, który odróżnia 2 intencje. Dwa intencje powinny mieć taką samą liczbę przykładowych wyrażenia długości. Reguła kciuka do oddzielenia, aby zapobiec występowaniu z poziomu szkolenia, to 15% różnica w ocenie.
 
 Możesz wyłączyć **niedeterministyczne szkolenie** , [przekształcenie ze wszystkimi danymi](luis-how-to-train.md#train-with-all-data).
 
@@ -60,7 +62,7 @@ Możesz wyłączyć **niedeterministyczne szkolenie** , [przekształcenie ze wsz
 
 ## <a name="e-exponent-notation"></a>Notacja E (wykładnik)
 
-Wyniki przewidywania mogą korzystać z notacji wykładnika, która jest _wyświetlana_ powyżej zakresu `9.910309E-07`0-1, na przykład. Ten wynik wskazuje bardzo **małą** liczbę.
+Wyniki przewidywania mogą korzystać z notacji wykładnika, która jest _wyświetlana_ powyżej zakresu 0-1, na przykład `9.910309E-07` . Ten wynik wskazuje bardzo **małą** liczbę.
 
 |Wynik w notacji E |Rzeczywisty wynik|
 |--|--|
