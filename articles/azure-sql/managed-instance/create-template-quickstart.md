@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 06/22/2020
-ms.openlocfilehash: d405cfda3c72ce9c724a7d96925d3346428a3089
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: badeb850e8d0346347a994f053fb0f64fd01240a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283347"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Szybki Start: Tworzenie wystąpienia zarządzanego usługi Azure SQL przy użyciu szablonu ARM
 
@@ -91,7 +91,7 @@ Odwiedź [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseReso
 - Aby zapoznać się z przewodnikiem Szybki Start, który pokazuje, jak połączyć się z wystąpieniem zarządzanym SQL z maszyny wirtualnej platformy Azure, zobacz [Konfigurowanie połączenia z maszyną wirtualną platformy Azure](connect-vm-instance-configure.md).
 - Aby zapoznać się z przewodnikiem Szybki Start, który pokazuje, jak połączyć się z wystąpieniem zarządzanym SQL z lokalnego komputera klienckiego przy użyciu połączenia typu punkt-lokacja, zobacz [Konfigurowanie połączenia punkt-lokacja](point-to-site-p2s-configure.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Zachowaj wystąpienie zarządzane, jeśli chcesz przejść do [następnych kroków](#next-steps), ale Usuń wystąpienie zarządzane i powiązane zasoby po ukończeniu dodatkowych samouczków. Po usunięciu wystąpienia zarządzanego zapoznaj się z tematem [usuwanie podsieci po usunięciu wystąpienia zarządzanego](virtual-cluster-delete.md).
 

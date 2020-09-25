@@ -7,6 +7,10 @@
       items:
         - name: Co to jest Azure Stack Edge Pro z procesorem GPU?
           href: azure-stack-edge-gpu-overview.md
+    - name: Przewodniki Szybki start
+      items:
+        - name: Rozpoczęcie pracy
+          href: azure-stack-edge-gpu-quickstart.md
     - name: Samouczki
       items:
         - name: 0 — Pobieranie listy kontrolnej

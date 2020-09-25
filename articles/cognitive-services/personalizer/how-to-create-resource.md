@@ -1,15 +1,17 @@
 ---
 title: Utwórz zasób personalizacji
 description: W tym artykule dowiesz się, jak utworzyć zasób personalizacji w Azure Portal dla każdej pętli opinii.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7965fb1eaa3efbe1f47db4eedd88e4444b0e610b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 0c75d917f1abe72af2f4aa56b0f67dbb7bcd24a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985826"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303560"
 ---
 # <a name="create-a-personalizer-resource"></a>Utwórz zasób personalizacji
 

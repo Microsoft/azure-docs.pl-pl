@@ -9,14 +9,18 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 78ec233e618511c748ed9f51b97161eddc5e8308
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: f5851174ba223bd0ab48512b9e75449dcc927a04
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707530"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300109"
 ---
-# <a name="create-a-synapse-workspace"></a>Tworzenie obszaru roboczego usługi Synapse
+# <a name="prerequisites"></a>Wymagania wstępne
+
+Aby wykonać wszystkie kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do której przypisano rolę **właściciela** . Utwórz obszar roboczy Synapse w tej grupie zasobów.
+
+## <a name="create-a-synapse-workspace"></a>Tworzenie obszaru roboczego usługi Synapse
 
 W tym samouczku dowiesz się, jak utworzyć obszar roboczy Synapse, pulę SQL i pulę Apache Spark. 
 
@@ -66,7 +70,7 @@ Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę można wst
     |Ustawienie | Sugerowana wartość | 
     |---|---|---|
     |**Nazwa puli Apache Spark**|**Spark1**
-    |**Rozmiar węzła**| **Mała**|
+    |**Rozmiar węzła**| **Mały**|
     |**Liczba węzłów**| Ustaw wartość minimalną na 3 i wartość maksymalną na 3.|
 
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Pula Apache Spark będzie gotowa w ciągu kilku sekund.

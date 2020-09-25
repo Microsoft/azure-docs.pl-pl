@@ -4,12 +4,12 @@ description: Jak zarządzać użytkownikami w usłudze Azure łańcucha bloków 
 ms.date: 07/15/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 541d5b2fa3d1a0cd5c4beba65cfe5ff3bdc3124a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: be078e7149ba008ab8b7ad44a016a0d1cf82df0e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538262"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263015"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Zarządzanie użytkownikami w usłudze Azure łańcucha bloków Workbench
 
@@ -29,7 +29,7 @@ Aby można było przypisywać aplikacje i role, użytkownicy programu łańcucha
 1. Wybierz swoje konto w prawym górnym rogu i przejdź do dzierżawy usługi Azure AD skojarzonej z łańcucha bloków Workbench.
 1. Wybierz **Azure Active Directory > użytkowników**. Zostanie wyświetlona lista użytkowników w katalogu.
 1. Aby dodać użytkowników do katalogu, wybierz pozycję **nowy użytkownik**. W przypadku użytkowników zewnętrznych wybierz pozycję **nowy użytkownik-Gość**.
-1. Wypełnij pola wymagane dla nowego użytkownika. Wybierz pozycję **Utwórz**.
+1. Wypełnij pola wymagane dla nowego użytkownika. Wybierz przycisk **Utwórz**.
 
 Więcej informacji na temat zarządzania użytkownikami w usłudze Azure AD można znaleźć w dokumentacji usługi [Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md) .
 
@@ -79,7 +79,7 @@ Użyj aplikacji łańcucha bloków Workbench, aby zarządzać użytkownikami i o
 1. Wybierz kafelek elementu członkowskiego, aby wyświetlić listę bieżących członków.
 1. Wybierz pozycję **Dodaj członków**.
 
-    ![Dodawanie członków](./media/manage-users/application-add-members.png)
+    ![Zrzut ekranu przedstawia okno członkostwa aplikacji z wyróżnionym przyciskiem Dodaj element członkowski.](./media/manage-users/application-add-members.png)
 
 1. Wyszukaj nazwę użytkownika.  Na liście znajdują się tylko użytkownicy usługi Azure AD, którzy istnieją w dzierżawie usługi Blockchain Workbench. Jeśli użytkownik nie zostanie odnaleziony, należy [dodać użytkowników usługi Azure AD](#add-azure-ad-users).
 

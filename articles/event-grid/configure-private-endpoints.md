@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób konfigurowania prywatnych punktów k
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa67ba8dbe8106c0311bafec07a1510ca0c25c3f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508842"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324148"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Skonfiguruj prywatne punkty końcowe dla tematów Azure Event Grid lub domen
 Możesz użyć [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md) , aby umożliwić bezpieczne wykonywanie zdarzeń bezpośrednio z sieci wirtualnej do Twoich tematów i domen za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md) bez pośrednictwa publicznego Internetu. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla tematu lub domeny. Aby uzyskać więcej informacji na temat pojęć, zobacz [zabezpieczenia sieci](network-security.md).
@@ -42,7 +42,7 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć prywatny punkt koń
         3. Upewnij się, że **docelowy zasób** podrzędny jest ustawiony na **temat** lub **domenę** (na podstawie wybranego typu zasobu).    
         4. Wybierz pozycję **Dalej: przycisk >konfiguracji ** w dolnej części strony. 
 
-            ![Prywatny punkt końcowy — Strona zasobów](./media/configure-private-endpoints/resource-page.png)
+            ![Zrzut ekranu przedstawiający stronę "Tworzenie prywatnego zasobu punktu końcowego".](./media/configure-private-endpoints/resource-page.png)
     2. W przypadku wybrania opcji **Połącz z zasobem przy użyciu identyfikatora zasobu lub aliasu**wykonaj następujące kroki:
         1. Wprowadź identyfikator zasobu. Na przykład: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. W obszarze **zasób**wprowadź **temat** lub **domenę**. 
@@ -108,7 +108,7 @@ Możesz odrzucić prywatny punkt końcowy, który znajduje się w stanie oczekiw
 
 1. Wybierz **prywatny punkt końcowy** , który chcesz odrzucić, a następnie na pasku narzędzi wybierz pozycję **Odrzuć** .
 
-    ![Prywatny punkt końcowy — Odrzuć](./media/configure-private-endpoints/reject-button.png)
+    ![Zrzut ekranu pokazujący "sieci — połączenia punktu końcowego (wersja zapoznawcza)" z wybraną opcją "Odrzuć".](./media/configure-private-endpoints/reject-button.png)
 1. W oknie dialogowym **Odrzuć połączenie** Wprowadź komentarz (opcjonalnie), a następnie wybierz pozycję **tak**. 
 
     ![Prywatny punkt końcowy — Odrzuć](./media/configure-private-endpoints/reject.png)

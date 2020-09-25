@@ -1,19 +1,19 @@
 ---
 title: Konfigurowanie kończenia protokołu TLS przy użyciu certyfikatów Key Vault — PowerShell
 titleSuffix: Azure Application Gateway
-description: Dowiedz się, jak zintegrować Application Gateway platformy Azure z Key Vault dla certyfikatów serwera, które są dołączone do odbiorników z włączonym protokołem HTTPS.
+description: Dowiedz się, jak za pomocą skryptu Azure PowerShell zintegrować Magazyn kluczy z bramą aplikacji dla certyfikatów zakończenia protokołu TLS/SSL.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 4a872bc63be33ebed0a8ba9d89383cdfc9feef28
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: aaaeed9d8d6a2d84fa13f495f581dc1f5fdc19e2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386286"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323428"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Konfigurowanie zakończenia protokołu TLS przy użyciu certyfikatów Key Vault za pomocą Azure PowerShell
 

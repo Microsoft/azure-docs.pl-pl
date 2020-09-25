@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 40b96cac4c9ad638373fbb75f736dc7eded42b43
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9a781fd48b30ccb32b0a733e5aa1ac054b96dc12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323659"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integracja rozwiązań zabezpieczeń w usłudze Azure Security Center
 Ten dokument ułatwia zarządzanie rozwiązaniami zabezpieczeń już połączonymi z usługą Azure Security Center i dodawanie nowych.
@@ -40,7 +40,7 @@ Aby dowiedzieć się więcej na temat integracji narzędzi do skanowania luk w z
 Security Center oferuje również analizę luk w zabezpieczeniach dla:
 
 * Bazy danych SQL — zobacz [Eksplorowanie raportów oceny luk w zabezpieczeniach na pulpicie nawigacyjnym oceny luk w zabezpieczeniach](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)
-* Obrazy Azure Container Registry — zobacz [Azure Container Registry Integration with Security Center (wersja zapoznawcza)](azure-container-registry-integration.md)
+* Obrazy Azure Container Registry — zobacz [Korzystanie z usługi Azure Defender dla rejestrów kontenerów do skanowania obrazów pod kątem luk w zabezpieczeniach](defender-for-container-registries-usage.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Jak są integrowane rozwiązania zabezpieczeń
 Rozwiązania zabezpieczeń platformy Azure, które zostały wdrożone z usługi Security Center, są automatycznie połączone. Można także połączyć inne źródła danych zabezpieczeń, w tym komputery działające lokalnie lub w innych chmurach.

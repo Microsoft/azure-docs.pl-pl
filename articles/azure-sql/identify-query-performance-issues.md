@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b33d8db9d43b151cb0405ea24e0bea87e21cbdc9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7cd807de7e723d48faaa0944ea55b1887c9721
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345346"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284114"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Wykrywalne typy wąskich gardeł wydajności zapytań w Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -58,7 +58,7 @@ Nieoptymalny plan wygenerowany przez optymalizator zapytań SQL może być przyc
 
 W poniższych sekcjach omówiono sposób rozwiązywania zapytań z nieoptymalnym planem wykonywania zapytań.
 
-### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a>Zapytania, które mają problemy z planem z uwzględnieniem parametrów (PSP)
+### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a> Zapytania, które mają problemy z planem z uwzględnieniem parametrów (PSP)
 
 Problem z planem wrażliwym na parametry (PSP) występuje, gdy optymalizator zapytań generuje plan wykonywania zapytania, który jest optymalny tylko dla konkretnej wartości parametru (lub zestawu wartości), a w pamięci podręcznej nie jest optymalny dla wartości parametrów, które są używane podczas wykonywania kolejnych operacji. Plany, które nie są optymalne, mogą powodować problemy z wydajnością zapytań i obniżać ogólną przepływność obciążeń.
 

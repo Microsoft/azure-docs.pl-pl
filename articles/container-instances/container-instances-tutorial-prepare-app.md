@@ -3,13 +3,13 @@ title: Samouczek — przygotowanie obrazu kontenera do wdrożenia
 description: Samouczek usługi Azure Container Instances, część 1 z 3 — przygotowywanie aplikacji w obrazie kontenera do wdrożenia w usłudze Azure Container Instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.custom: seodec18, mvc, devx-track-javascript
-ms.openlocfilehash: 3a73d68f99c7e2ec4c71e408abbdbc7eec7ee95d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seodec18, mvc, devx-track-js
+ms.openlocfilehash: 1eca34fb5da50b15f15322a3b534556bcd3bda09
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303118"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Samouczek: Tworzenie obrazu kontenera na potrzeby wdrożenia Azure Container Instances
 
@@ -24,7 +24,7 @@ W tym artykule, który jest pierwszą częścią trzyczęściowej serii, wykonas
 
 Podczas pracy z częścią drugą i trzecią samouczka przekażesz obraz do usługi Azure Container Registry, a następnie wdrożysz go w usłudze Azure Container Instances.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 

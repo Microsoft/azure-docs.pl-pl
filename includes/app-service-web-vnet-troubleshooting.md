@@ -4,23 +4,27 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: ff54d60573fbc7b6694b8d02d1378869674c1e81
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050224"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255257"
 ---
 Ta funkcja jest łatwa do skonfigurowania, ale nie oznacza to, że Twoje doświadczenie będzie bezpłatne. Jeśli wystąpią problemy z uzyskaniem dostępu do żądanego punktu końcowego, istnieją pewne narzędzia, których można użyć do testowania łączności z poziomu konsoli aplikacji. Istnieją dwie konsole, których można użyć. Jedna z nich jest konsolą kudu, a druga jest konsolą w Azure Portal. Aby nawiązać połączenie z konsolą kudu z poziomu aplikacji, przejdź do pozycji **Narzędzia**  >  **kudu**. Możesz również uzyskać dostęp do konsoli Kudo na stronie [sitename]. SCM. azurewebsites. NET. Po załadowaniu witryny sieci Web przejdź do karty **konsola debugowania** . Aby uzyskać dostęp do konsoli obsługiwanej przez Azure Portal z poziomu aplikacji, przejdź **Tools**do  >  **konsoli**narzędzia.
 
 #### <a name="tools"></a>narzędzia
-Narzędzia **ping**, **nslookup**i **tracert** nie będą przełączane przez konsolę ze względu na ograniczenia zabezpieczeń. Aby wypełnić wartość void, dodawane są dwa osobne narzędzia. Aby przetestować funkcje DNS, dodaliśmy narzędzie o nazwie **nameresolver.exe**. Składnia jest następująca:
+W natywnych aplikacjach systemu Windows narzędzia **ping**, **nslookup**i **tracert** nie działają przez konsolę ze względu na ograniczenia zabezpieczeń (działają w [niestandardowych kontenerach systemu Windows](../articles/app-service/quickstart-custom-container.md)). Aby wypełnić wartość void, dodawane są dwa osobne narzędzia. Aby przetestować funkcje DNS, dodaliśmy narzędzie o nazwie **nameresolver.exe**. Składnia jest następująca:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
 ```
 
 Możesz użyć nameresolver, aby sprawdzić nazwy hostów, od których zależy aplikacja. W ten sposób można testować, czy masz jakieś błędnie skonfigurowane w systemie DNS lub prawdopodobnie nie masz dostępu do serwera DNS. Możesz zobaczyć serwer DNS używany przez aplikację w konsoli programu, przeglądając zmienne środowiskowe WEBSITE_DNS_SERVER i WEBSITE_DNS_ALT_SERVER.
+
+> [!NOTE]
+> nameresolver.exe obecnie nie działa w niestandardowych kontenerach systemu Windows.
+>
 
 Można użyć następnego narzędzia do testowania łączności TCP z kombinacją hosta i portu. To narzędzie ma nazwę **tcpping** , a Składnia:
 

@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 910ea6d333da08e69b6c5e6d6fe86421bda743ee
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c54a112a85ad930dde524ba4293a3ad0b700a22f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422593"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303101"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Szybki Start: Włączanie protokołu SSH i RDP przez strumień urządzeń IoT Hub przy użyciu aplikacji Node.js proxy (wersja zapoznawcza)
 
@@ -43,7 +43,7 @@ Microsoft Azure IoT Hub obecnie obsługuje strumienie urządzeń jako [funkcję 
 > [!IMPORTANT]
 > Podgląd strumieni urządzeń jest obecnie obsługiwany tylko dla centrów IoT utworzonych w następujących regionach:
 >
-> * Central US
+> * Środkowe stany USA
 > * Środkowe stany USA — EUAP
 > * Europa Północna
 > * Azja Południowo-Wschodnia
@@ -60,7 +60,7 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 Jeśli ukończono poprzedni przewodnik [Szybki start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT](quickstart-send-telemetry-node.md), możesz pominąć ten krok.
 
@@ -164,7 +164,7 @@ Teraz należy używać aplikacji klienckiej RDP i nawiązać połączenie z serw
 
 ![Klient RDP nawiązuje połączenie z aplikacją lokalnego serwera proxy usługi.](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 

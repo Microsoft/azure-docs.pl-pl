@@ -7,12 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: bd85155f932d57319f5f27081b44b48e5540bfb2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284051"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334603"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Dostęp do zasobów IBM DB2 i zarządzanie nimi przy użyciu Azure Logic Apps
 
@@ -84,8 +84,8 @@ Aby skonfigurować połączenie, podaj te szczegóły połączenia po wyświetle
 |----------|----------|-------------|
 | **Łączenie za pośrednictwem bramy lokalnej** | Nie | Dotyczy tylko połączeń lokalnych. |
 | **Nazwa połączenia** | Tak | Nazwa połączenia, na przykład "MyLogicApp-DB2-Connection" |
-| **Serwer** | Tak | Numer portu lub dwukropek aliasu dla serwera bazy danych DB2, na przykład "myDB2server.cloudapp.net:50000" <p><p>**Uwaga**: Ta wartość to ciąg, który reprezentuje adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP. |
-| **Baza danych** | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
+| **Server** (Serwer) | Tak | Numer portu lub dwukropek aliasu dla serwera bazy danych DB2, na przykład "myDB2server.cloudapp.net:50000" <p><p>**Uwaga**: Ta wartość to ciąg, który reprezentuje adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP. |
+| **Database** (Baza danych) | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
 | **Nazwa użytkownika** | Tak | Nazwa użytkownika bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, którego długość jest określana na podstawie określonej bazy danych: <p><p>-DB2 dla systemu z/OS akceptuje ciąg 8-bajtowy. <br>-DB2 dla i akceptuje 10-bajtowy ciąg. <br>-DB2 dla systemu Linux lub UNIX akceptuje 8-bajtowy ciąg. <br>-DB2 dla systemu Windows akceptuje 30-bajtowy ciąg. |
 | **Hasło** | Tak | Hasło do bazy danych |
 ||||
@@ -104,8 +104,8 @@ Przed utworzeniem połączenia należy zainstalować lokalną bramę danych. W p
 |----------|----------|-------------|
 | **Łączenie za pośrednictwem bramy lokalnej** | Tak | Ma zastosowanie, gdy chcesz połączyć lokalne i wyświetlić właściwości połączenia lokalnego. |
 | **Nazwa połączenia** | Tak | Nazwa połączenia, na przykład "MyLogicApp-DB2-Connection" | 
-| **Serwer** | Tak | Numer portu lub dwukropek aliasu dla serwera bazy danych DB2, na przykład "myDB2server: 50000" <p><p>**Uwaga**: Ta wartość to ciąg, który reprezentuje adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP. |
-| **Baza danych** | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
+| **Server** (Serwer) | Tak | Numer portu lub dwukropek aliasu dla serwera bazy danych DB2, na przykład "myDB2server: 50000" <p><p>**Uwaga**: Ta wartość to ciąg, który reprezentuje adres TCP/IP lub alias w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP. |
+| **Database** (Baza danych) | Tak | Nazwa bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, który reprezentuje nazwę DRDA relacyjnej bazy danych (RDBNAM): <p>-DB2 dla systemu z/OS akceptuje 16-bajtowy ciąg, w którym baza danych jest znana jako lokalizacja "IBM DB2 dla systemu z/OS". <br>-DB2 dla Akceptuję ciąg 18-bajtowy, w którym baza danych jest znana jako relacyjna baza danych "IBM DB2 for i". <br>-DB2 for LUW akceptuje ciąg 8-bajtowy. |
 | **Authentication** | Tak | Typ uwierzytelniania dla połączenia, na przykład "podstawowa" <p><p>**Uwaga**: Wybierz tę wartość z listy, która zawiera podstawowe lub Windows (Kerberos). |
 | **Nazwa użytkownika** | Tak | Nazwa użytkownika bazy danych <p><p>**Uwaga**: Ta wartość jest ciągiem, którego długość jest określana na podstawie określonej bazy danych: <p><p>-DB2 dla systemu z/OS akceptuje ciąg 8-bajtowy. <br>-DB2 dla i akceptuje 10-bajtowy ciąg. <br>-DB2 dla systemu Linux lub UNIX akceptuje 8-bajtowy ciąg. <br>-DB2 dla systemu Windows akceptuje 30-bajtowy ciąg. |
 | **Hasło** | Tak | Hasło do bazy danych |
@@ -157,7 +157,7 @@ Aby pobrać jeden rekord z tabeli bazy danych DB2, użyj akcji **Pobierz wiersz*
    | **Identyfikator obszaru** | Tak | Identyfikator żądanego rekordu, na przykład "99999" w tym przykładzie |
    ||||
 
-   ![Wybieranie tabeli](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Zrzut ekranu pokazujący akcję "Pobierz wiersz (wersja zapoznawcza)" z otwartą listą "Nazwa tabeli" i wybraną wartością "obszar".](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
@@ -192,7 +192,7 @@ Aby pobrać wszystkie rekordy z tabeli bazy danych DB2, użyj akcji **Pobierz wi
 
 1. Otwórz listę **Nazwa tabeli** , a następnie wybierz żądaną tabelę, czyli "obszar" w tym przykładzie:
 
-   ![Wybieranie tabeli](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Zrzut ekranu pokazujący akcję "Pobierz wiersz (wersja zapoznawcza)" z wartością "obszar" wybraną na liście "Nazwa tabeli".](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. Aby określić filtr lub zapytanie dla wyników, wybierz pozycję **Pokaż opcje zaawansowane**.
 
@@ -241,7 +241,7 @@ Aby dodać pojedynczy rekord do tabeli bazy danych DB2, użyj akcji **Wstaw wier
 
    Na przykład:
 
-   ![Wybieranie tabeli](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Zrzut ekranu, który pokazuje projektanta Logic Apps z akcją "Wstaw wiersz (wersja zapoznawcza)" i przykładowymi wartościami właściwości.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
@@ -289,7 +289,7 @@ Aby zaktualizować pojedynczy rekord w tabeli bazy danych DB2, użyj akcji **Akt
 
    Na przykład:
 
-   ![Wybieranie tabeli](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Zrzut ekranu, który pokazuje projektanta Logic Apps z akcją "Aktualizuj wiersz (wersja zapoznawcza)", w której wybiera się tabelę.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
@@ -334,7 +334,7 @@ Aby usunąć pojedynczy rekord z tabeli bazy danych DB2, użyj akcji **Usuń wie
 
    Na przykład:
 
-   ![Wybieranie tabeli](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Zrzut ekranu przedstawiający projektanta Logic Apps z akcją "Usuń wiersz (wersja zapoznawcza)", w której jest wybierana tabela do usunięcia.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 

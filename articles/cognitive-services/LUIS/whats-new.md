@@ -1,14 +1,16 @@
 ---
 title: Co nowego — Language Understanding (LUIS)
 description: Ten artykuł jest regularnie aktualizowany za pomocą wiadomości o interfejs API usługi Language Understanding usługi Azure Cognitive Services.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/15/2020
-ms.openlocfilehash: d178ee2f5db74949f4a8ad68df93bf3c4407c58a
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: fffe337a59ff343164a155fcd0f4d5616a32bf41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84789212"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334620"
 ---
 # <a name="whats-new-in-language-understanding"></a>Co nowego w Language Understanding
 
@@ -21,7 +23,7 @@ Dowiedz się, co nowego w usłudze. Te elementy obejmują informacje o wersji, k
 * [Wersja Zapoznawcza 3,0](luis-migration-authoring-entities.md) Zestawie
     * Wersja 3.2.0-Preview. 3 — [.NET — NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
     * Wersja 4.0.0-Preview. 3- [js-npm](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
-* Stosowanie praktyk DevOps z LUIS
+* Stosowanie praktyk DevOps z usługą LUIS
     * Pojęcia
         * [DevOps praktyk dla LUIS](luis-concept-devops-sourcecontrol.md)
         * [Przepływy pracy ciągłej integracji i ciągłego dostarczania dla LUIS DevOps](luis-concept-devops-automation.md)

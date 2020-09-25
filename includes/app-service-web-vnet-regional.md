@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218326"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255258"
 ---
 Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
@@ -56,7 +56,7 @@ Jeden adres jest używany dla każdego wystąpienia planu. W przypadku skalowani
 
 Jeśli chcesz, aby aplikacje w innym planie miały dostęp do sieci wirtualnej, która jest już połączona przez aplikacje w innym planie, wybierz inną podsieć niż używana przez istniejącą integrację z siecią wirtualną.
 
-Ta funkcja jest w pełni obsługiwana zarówno w przypadku aplikacji sieci Web systemu Windows, jak i Linux. Wszystkie zachowania działają tak samo w aplikacjach systemu Windows i Linux.
+Ta funkcja jest w pełni obsługiwana zarówno w przypadku aplikacji systemu Windows, jak i Linux, w tym [kontenerów niestandardowych](../articles/app-service/quickstart-custom-container.md). Wszystkie zachowania działają tak samo w aplikacjach systemu Windows i Linux.
 
 ### <a name="service-endpoints"></a>Punkty końcowe usługi
 

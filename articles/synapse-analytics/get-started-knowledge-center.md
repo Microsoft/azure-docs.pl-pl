@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: c01d1bcb682a5f711dcba3cc7b32ef69b2642ef6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 47b8c45e22569cc758d00fb8534f409ecebf58ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299935"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Poznaj centrum wiedzy Synapse
 
@@ -46,7 +46,6 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 1. Kliknij przycisk Uruchom. Zostanie uruchomiony wybrany tekst.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Ładowanie większej ilości danych NYC taksówki
-
 1. **Centrum wiedzy**, kliknij przycisk **Przeglądaj dostępne przykłady** 
 1. Wybierz kartę **skrypty SQL** u góry
 1. Wybierz pozycję **Załaduj zestaw danych Taxicab New York**
@@ -58,5 +57,6 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Analizowanie przy użyciu puli SQL](get-started-analyze-sql-pool.md)
+* [Rozpoczynanie pracy z usługą Azure Synapse Analytics](get-started.md)
+* [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
+* [Korzystanie z bazy danych SQL na żądanie](quickstart-sql-on-demand.md)

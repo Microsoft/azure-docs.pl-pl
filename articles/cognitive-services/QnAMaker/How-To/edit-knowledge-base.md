@@ -3,12 +3,12 @@ title: Edytowanie bazy wiedzy — QnA Maker
 description: QnA Maker umożliwia zarządzanie zawartością bazy wiedzy przez zapewnienie łatwego w użyciu funkcji edycji.
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 34eec343defa4614881e23543f2099040b866997
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054014"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324624"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Edytuj pary QnA w bazie wiedzy
 
@@ -72,7 +72,7 @@ Edycja tekstu odpowiedzi w postaci tekstu sformatowanego umożliwia przeprowadze
 
 
     > [!div class="mx-imgBorder"]
-    > ![Użyj edytora tekstu sformatowanego, Dodaj dostępny publicznie obraz i jego tekst ALTERNATYWny.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+    > ![Zrzut ekranu przedstawia Edytor w miejscu z adresem URL obrazu dostępnego publicznie i alternatywnym tekstem dla wprowadzonego obrazu.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
 1. Dodaj link do adresu URL, wybierając tekst w odpowiedzi, a następnie wybierając ikonę linku na pasku narzędzi lub wybierając ikonę link na pasku narzędzi, a następnie wprowadzając nowy tekst i adres URL.
 

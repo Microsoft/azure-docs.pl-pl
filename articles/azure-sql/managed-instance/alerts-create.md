@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: ae139dd65242be9456f3498c494e1a7c5a29402f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48dfc456616fa4876b7053483f7377eda21aabde
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695712"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283823"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Tworzenie alertów dla wystąpienia zarządzanego Azure SQL przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-W tym artykule opisano sposób konfigurowania alertów dla baz danych w bazie danych wystąpienia zarządzanego Azure SQL przy użyciu Azure Portal. Alerty mogą wysłać wiadomość e-mail, wywołać element webhook, wykonać funkcję platformy Azure, element Runbook, wywołać zewnętrzny narzędzia ITSM zgodny z systemem biletów, nawiązać połączenie z telefonem lub wysłać wiadomość tekstową, gdy dana metryka to przykład rozmiaru magazynu wystąpienia lub użycia procesora CPU, osiągnie wstępnie zdefiniowany próg. W tym artykule przedstawiono również najlepsze rozwiązania dotyczące ustawiania okresów alertów.
+W tym artykule opisano sposób konfigurowania alertów dla baz danych w bazie danych wystąpienia zarządzanego Azure SQL przy użyciu Azure Portal. Alerty mogą wysłać wiadomość e-mail, wywołać element webhook, wykonać funkcję usługi Azure Functions, wykonać element runbook, wywołać zewnętrzny system obsługi biletów zgodny z narzędziem ITSM, nawiązać połączenie telefoniczne lub wysłać wiadomość tekstową, gdy dana metryka, na przykład rozmiar magazynu wystąpienia lub użycie procesora CPU, osiągnie wstępnie zdefiniowany próg. W tym artykule przedstawiono również najlepsze rozwiązania dotyczące ustawiania okresów alertów.
 
 
 ## <a name="overview"></a>Omówienie
@@ -50,13 +50,13 @@ Można skonfigurować i uzyskać informacje o regułach alertów za pomocą [Azu
 
 Następujące metryki wystąpienia zarządzanego są dostępne dla konfiguracji alertów:
 
-| Metric | Opis | Wartość jednostki miary \ możliwe wartości |
+| Metryka | Opis | Wartość jednostki miary \ możliwe wartości |
 | :--------- | --------------------- | ----------- |
 | Średni procent procesora CPU | Średni procent użycia procesora CPU w wybranym okresie. | 0-100 (procent) |
 | Odczytane bajty we/wy | Bajty we/wy odczytane w wybranym okresie. | Bajty |
 | Bajty we/wy zapisywane | Bajty we/wy zapisywane w wybranym okresie. | Bajty |
 | Liczba żądań we/wy | Liczba żądań we/wy w wybranym okresie. | Porządkow |
-| Zarezerwowane miejsce w magazynie | Bieżąca wartość maksymalna. miejsce do magazynowania zarezerwowane dla wystąpienia zarządzanego. Zmiany przy użyciu operacji skalowania zasobów. | MB (megabajty) |
+| Zarezerwowane miejsce w magazynie | Bieżąca Maksymalna ilość miejsca do magazynowania zarezerwowana dla wystąpienia zarządzanego. Zmiany przy użyciu operacji skalowania zasobów. | MB (megabajty) |
 | Używane miejsce do magazynowania | Miejsce do magazynowania używane w wybranym okresie. Zmiany użycia magazynu według baz danych i wystąpienia. | MB (megabajty) |
 | Liczba rdzeni wirtualnych | Rdzeni wirtualnych aprowizacji dla wystąpienia zarządzanego. Zmiany przy użyciu operacji skalowania zasobów. | 4-80 (rdzeni wirtualnych) |
 

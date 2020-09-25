@@ -7,12 +7,12 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284119"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334586"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Tworzenie rekordów i zarządzanie nimi w Common Data Service przy użyciu Azure Logic Apps
 
@@ -108,7 +108,7 @@ W przypadku wyzwalaczy, które są uruchamiane podczas aktualizowania rekordów,
 
 1. W wyzwalaczu na liście **Dodaj nowy parametr** wybierz pozycję **filtry atrybutów**.
 
-   ![Dodaj właściwość "filtry atrybutów"](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+   ![Zrzut ekranu pokazujący akcję "po zaktualizowaniu rekordu" i otwartej listy "Dodaj nowy parametr" z wybraną właściwością "filtry atrybutów".](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
 1. Dla każdego **elementu filtry atrybutów**Wybierz atrybut, który ma być monitorowany dla aktualizacji, na przykład:
 
@@ -122,7 +122,7 @@ W przypadku akcji, które zwracają rekordy, takie jak Akcja **listy rekordów**
 
    ![Dodaj właściwość "Filter Query"](./media/connect-common-data-service/list-records-action-filter-query.png)
 
-1. We właściwości **Filtruj zapytanie** , która jest teraz wyświetlana w akcji, wprowadź zapytanie filtru OData:`statuscode eq 1`
+1. We właściwości **Filtruj zapytanie** , która jest teraz wyświetlana w akcji, wprowadź zapytanie filtru OData: `statuscode eq 1`
 
    ![Wprowadź zapytanie filtru ODATA dla rekordów filtrowania](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
@@ -136,7 +136,7 @@ W przypadku akcji, które zwracają rekordy, takie jak działanie **list Records
 
    ![Dodaj właściwość "Order by"](./media/connect-common-data-service/list-records-action-order-by.png)
 
-1. W właściwości **order by** , która jest teraz wyświetlana w akcji, wprowadź zapytanie filtru OData:`name`
+1. W właściwości **order by** , która jest teraz wyświetlana w akcji, wprowadź zapytanie filtru OData: `name`
 
    ![Wprowadzanie zapytania filtru ODATA w celu uporządkowania rekordów](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
@@ -151,7 +151,7 @@ W tej tabeli opisano niektóre typy pól i typy danych, których te pola wymagaj
 | Pole | Typ danych | Opis |
 |-------|-----------|-------------|
 | Pole tekstowe | Pojedynczy wiersz tekstu | Wymaga pojedynczego wiersza tekstu lub zawartości dynamicznej, która ma typ danych tekstowych, na przykład następujące właściwości: <p><p>- **Zharmonizowan** <br>- **Kategorii** |
-| Pole liczb całkowitych | Liczba całkowita | Wymaga wartości całkowitej lub dynamicznej, która ma typ danych Integer, na przykład następujące właściwości: <p><p>- **Procent ukończenia** <br>- **Trwania** |
+| Pole liczb całkowitych | Liczby całkowite | Wymaga wartości całkowitej lub dynamicznej, która ma typ danych Integer, na przykład następujące właściwości: <p><p>- **Procent ukończenia** <br>- **Trwania** |
 | Pole daty | Data i godzina | Wymaga daty w formacie MM/DD/YYY lub zawartości dynamicznej, która ma typ danych Data, na przykład następujące właściwości: <p><p>- **Data utworzenia** <br>- **Data rozpoczęcia** <br>- **Rzeczywiste rozpoczęcie** <br>- **Rzeczywiste zakończenie** <br>- **Data ukończenia** |
 | Pole, które odwołuje się do innego rekordu jednostki | Klucz podstawowy | Wymaga zarówno identyfikatora rekordu, takiego jak identyfikator GUID, jak i typu wyszukiwania, co oznacza, że wartości z listy zawartości dynamicznej nie będą działały, na przykład następujące właściwości: <p><p>- **Właściciel**: musi być PRAWIDŁOWYm identyfikatorem użytkownika lub identyfikatorem rekordu zespołu. <br>- **Typ właściciela**: musi być typem wyszukiwania, takim jak `systemusers` lub `teams` , odpowiednio. <p><p>- **Dotyczy**: musi być PRAWIDŁOWYm identyfikatorem rekordu, np. identyfikatorem konta lub identyfikatorem rekordu osoby kontaktowej. <br>- **Typ dotyczący**: musi być typem wyszukiwania, na `accounts` przykład `contacts` , lub, odpowiednio. <p><p>- **Klient**: musi być PRAWIDŁOWYm identyfikatorem rekordu, np. identyfikatorem konta lub identyfikatorem rekordu osoby kontaktowej. <br>- **Typ klienta**: musi być typem wyszukiwania, takim jak `accounts` lub `contacts` , odpowiednio. |
 ||||

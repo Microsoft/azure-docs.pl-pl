@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/24/2020
 ms.author: alkohli
-ms.openlocfilehash: 6f1199b29e3bdaa2200aeb7fe4f76c4c9d0d8e19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9d3aafad457f5c72a8c45f4f98f8f03eb8d978d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324267"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Azure Stack EDGE Pro z informacjami o wersji ogólnego udostępnienia procesora GPU
 
@@ -21,9 +21,7 @@ Poniższe informacje o wersji dotyczą krytycznych problemów z problemami i roz
 
 Informacje o wersji są stale aktualizowane i wykryto krytyczne problemy wymagające obejścia. Przed wdrożeniem urządzenia z Azure Stack Edge w programie należy uważnie zapoznać się z informacjami zawartymi w informacjach o wersji.
 
-Ten artykuł ma zastosowanie do wersji oprogramowania **Azure Stack EDGE Pro 2009** . 
-
-<!--- This software release corresponds to software version number **2.1.1328.1904**-->
+Ten artykuł ma zastosowanie do wersji **Azure Stack EDGE Pro 2009** , która jest mapowana na numer wersji oprogramowania **2.1.1358.2075**.
 
 ## <a name="whats-new"></a>Co nowego
 

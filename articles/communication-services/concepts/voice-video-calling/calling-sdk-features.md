@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9cc00cfa9f44c69a5880d53c0b7ac623f60be16b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6021bb4fa5d30de423ab56bfb5fdea6af2665a4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947617"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334484"
 ---
-# <a name="calling-client-library-overview"></a>Omówienie wywoływania biblioteki klienta
+# <a name="calling-client-library-overview"></a>Omówienie biblioteki klienta połączeń
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -55,8 +55,7 @@ Na poniższej liście przedstawiono zestaw funkcji, które są obecnie dostępne
 |                   | Umieść połączenie grupy z uczestnikami PSTN                                                                           | ✔️   | ✔️            | ✔️
 |                   | Podwyższanie poziomu wywołania "jeden do jednego" uczestnika PSTN do wywołania grupy                                                 | ✔️   | ✔️            | ✔️
 |                   | Wybieranie numeru z wywołania grupy jako uczestnika sieci PSTN                                                                    | ✔️   | ✔️            | ✔️   
-| Ogólne           | Weź udział w wywołaniu grupy zawierającym do 350 uczestników                                                       |  ✔️  | ✔️            | ✔️    
-|                   | Testowanie mikrofonu, głośników i aparatu za pomocą usługi testowania audio (dostępnej przez wywołanie 8: echo123)                   |  ✔️  | ✔️            | ✔️   
+| Ogólne           | Testowanie mikrofonu, głośników i aparatu za pomocą usługi testowania audio (dostępnej przez wywołanie 8: echo123)                   |  ✔️  | ✔️            | ✔️   
 
 ## <a name="calling-client-library-browser-support"></a>Obsługa wywoływania przeglądarki biblioteki klienta
 

@@ -4,13 +4,13 @@ description: Użyj rozwiązania Ethereum The-Authority Consortium do wdrożenia 
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8ce343045f7ff124f5faf86b13210bfb5b3b5519
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.custom: devx-track-js
+ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527160"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283432"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 
@@ -101,7 +101,7 @@ Subskrypcja | Subskrypcja, do której ma zostać wdrożona sieć konsorcjum |
 Grupa zasobów| Grupa zasobów, w której ma zostać wdrożona sieć konsorcjum. | myResourceGroup
 Lokalizacja | Region świadczenia usługi Azure dla grupy zasobów. | Zachodnie stany USA 2
 
-Wybierz pozycję **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="deployment-regions"></a>Regiony wdrożenia
 
@@ -115,7 +115,7 @@ Liczba regionów|Liczba regionów do wdrożenia sieci konsorcjum| 2
 Pierwszy region | Pierwszy region wdrożenia sieci konsorcjum | Zachodnie stany USA 2
 Drugi region | Drugi region do wdrożenia sieci konsorcjum. Dodatkowe regiony są widoczne, gdy liczba regionów jest równa co najmniej dwa. | Wschodnie stany USA 2
 
-Wybierz pozycję **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="network-size-and-performance"></a>Rozmiar i wydajność sieci
 
@@ -137,7 +137,7 @@ F1|Dysk SSD w warstwie Standardowa|małą|małą|wysoka
 D2_v3|Dysk SSD w warstwie Standardowa|średni|średni|średni
 F16s|Dysk SSD w warstwie Premium|wysoka|wysoka|małą
 
-Wybierz pozycję **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="ethereum-settings"></a>Ustawienia Ethereum
 
@@ -156,7 +156,7 @@ Limit blokowania gazu | Limit wychodzący z bloków wyjściowych sieci. | 500000
 Okres ponownego pieczętowania bloku (s) | Częstotliwość tworzenia pustych bloków, gdy nie ma żadnych transakcji w sieci. Wyższa częstotliwość będzie miała szybszy wzrost, ale zwiększy się koszty magazynowania. | 15
 Kontrakt uprawnień transakcji | Kod bajtowy dla kontraktu uprawniającego do transakcji. Ogranicza wdrożenie i wykonywanie kontraktu inteligentnego do listy dozwolonych kont Ethereum. |
 
-Wybierz pozycję **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="monitoring"></a>Monitorowanie
 
@@ -172,7 +172,7 @@ Lokalizacja | Region, w którym jest wdrożone nowe wystąpienie | East US
 Istniejący identyfikator obszaru roboczego usługi log Analytics (Połącz z istniejącymi dziennikami Azure Monitor = Dołącz istniejący)|Identyfikator obszaru roboczego istniejącego wystąpienia dzienników Azure Monitor||Nie dotyczy
 Istniejący klucz podstawowy usługi log Analytics (łączenie z istniejącymi dziennikami Azure Monitor = Połącz istniejące)|Klucz podstawowy używany do nawiązywania połączenia z istniejącym wystąpieniem dzienników Azure Monitor||Nie dotyczy
 
-Wybierz pozycję **OK**.
+Wybierz przycisk **OK**.
 
 ### <a name="summary"></a>Podsumowanie
 

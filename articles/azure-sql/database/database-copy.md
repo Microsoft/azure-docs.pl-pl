@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 02ff222337e1b1c22df79724c232d4ca2b8b9f67
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: f6a3ccbcdb3d29434b196dbf75dc61c4177de271
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225737"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284282"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiuj spójnie transakcyjną kopię bazy danych w Azure SQL Database
 
@@ -26,7 +26,7 @@ Azure SQL Database oferuje kilka metod tworzenia kopii istniejącej [bazy danych
 
 ## <a name="overview"></a>Omówienie
 
-Kopia bazy danych jest spójną transakcyjnie migawką źródłowej bazy danych jako punkt w czasie po zainicjowaniu żądania kopiowania. Możesz wybrać ten sam serwer lub inny serwer dla kopii. Możesz również wybrać, aby zachować warstwę usług i rozmiar obliczeniowy źródłowej bazy danych, lub użyć innego rozmiaru obliczeniowego w ramach tej samej lub innej warstwy usług. Po zakończeniu kopiowania zostanie ona w pełni funkcjonalna, niezależna baza danych. Nazwy logowania, użytkownicy i uprawnienia w skopiowanej bazie danych są zarządzane niezależnie od źródłowej bazy danych. Kopia jest tworzona przy użyciu technologii replikacji geograficznej. Po zakończeniu rozpełniania replik łącze replikacji geograficznej jest automatycznie przerywane. Wszystkie wymagania dotyczące korzystania z replikacji geograficznej dotyczą operacji kopiowania bazy danych. Szczegółowe informacje znajdują się w temacie [Omówienie aktywnej replikacji geograficznej](active-geo-replication-overview.md) .
+Kopia bazy danych jest spójną transakcyjnie migawką źródłowej bazy danych jako punkt w czasie po zainicjowaniu żądania kopiowania. Możesz wybrać ten sam serwer lub inny serwer dla kopii. Możesz również wybrać, aby zachować warstwę usług i rozmiar obliczeniowy źródłowej bazy danych, lub użyć innego rozmiaru obliczeniowego w ramach tej samej lub innej warstwy usług. Po zakończeniu kopiowania zostanie ona w pełni funkcjonalna, niezależna baza danych. Nazwy logowania, użytkownicy i uprawnienia w skopiowanej bazie danych są zarządzane niezależnie od źródłowej bazy danych. Kopia jest tworzona przy użyciu technologii replikacji geograficznej. Po zakończeniu rozmieszczania repliki połączenie replikacji geograficznej zostaje przerwane. Wszystkie wymagania dotyczące korzystania z replikacji geograficznej dotyczą również operacji kopiowania bazy danych. Szczegółowe informacje znajdują się w temacie [Omówienie aktywnej replikacji geograficznej](active-geo-replication-overview.md) .
 
 ## <a name="logins-in-the-database-copy"></a>Nazwy logowania w kopii bazy danych
 
@@ -36,7 +36,7 @@ Podczas kopiowania bazy danych na inny serwer podmiot zabezpieczeń, który zain
 
 Bez względu na to, że serwer docelowy, wszyscy użytkownicy bazy danych, ich uprawnienia i identyfikatory zabezpieczeń (SID) są kopiowane do kopii bazy danych. Korzystanie z [użytkowników zawartej bazy danych](logins-create-manage.md) na potrzeby dostępu do danych gwarantuje, że skopiowana baza danych ma te same poświadczenia użytkownika, więc po zakończeniu kopiowania można natychmiast uzyskać do niego dostęp przy użyciu tych samych poświadczeń.
 
-W przypadku korzystania z nazw logowania na poziomie serwera na potrzeby dostępu do danych i kopiowania bazy danych na inny serwer, dostęp oparty na logowaniu może nie zadziałał. Może się tak zdarzyć, ponieważ nazwy logowania nie istnieją na serwerze docelowym lub ponieważ ich hasła i identyfikatory zabezpieczeń (SID) są różne. Aby dowiedzieć się więcej o zarządzaniu nazwami logowania podczas kopiowania bazy danych na inny serwer, zapoznaj się z tematem [jak zarządzać zabezpieczeniami Azure SQL Database po odzyskiwaniu po awarii](active-geo-replication-security-configure.md). Po pomyślnym przeprowadzeniu operacji kopiowania na inny serwer, a przed ponownym zamapowaniem innych użytkowników, tylko nazwa logowania skojarzona z właścicielem bazy danych lub administrator serwera może zalogować się do skopiowanej bazy danych. Aby rozwiązać nazwy logowania i ustanowić dostęp do danych po zakończeniu operacji kopiowania, zobacz temat [Rozwiązywanie logowań](#resolve-logins).
+Jeśli do uzyskiwania dostępu do danych i kopiowania bazy danych na inny serwer używasz danych logowania na poziomie serwera, dostęp z wykorzystaniem danych logowania może nie zadziałać. Dzieje się tak, ponieważ na serwerze docelowym nie istnieją dane logowania lub ponieważ odpowiednie hasła i identyfikatory zabezpieczeń są inne. Aby dowiedzieć się więcej o zarządzaniu nazwami logowania podczas kopiowania bazy danych na inny serwer, zapoznaj się z tematem [jak zarządzać zabezpieczeniami Azure SQL Database po odzyskiwaniu po awarii](active-geo-replication-security-configure.md). Po pomyślnym przeprowadzeniu operacji kopiowania na inny serwer, a przed ponownym zamapowaniem innych użytkowników, tylko nazwa logowania skojarzona z właścicielem bazy danych lub administrator serwera może zalogować się do skopiowanej bazy danych. Aby rozwiązać nazwy logowania i ustanowić dostęp do danych po zakończeniu operacji kopiowania, zobacz temat [Rozwiązywanie logowań](#resolve-logins).
 
 ## <a name="copy-using-the-azure-portal"></a>Kopiowanie za pomocą witryny Azure Portal
 
@@ -48,7 +48,7 @@ Aby skopiować bazę danych przy użyciu Azure Portal, Otwórz stronę dla bazy 
 
 Aby skopiować bazę danych, należy użyć następujących przykładów.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 W przypadku programu PowerShell należy użyć polecenia cmdlet [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) .
 

@@ -1,14 +1,16 @@
 ---
 title: Przykład wypowiedź jednostki etykiety
 description: Dowiedz się, jak dodać etykietę do jednostki uczenia maszynowego za pomocą podjednostek w przykładowej wypowiedź na stronie szczegółów obiektu w portalu LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610493"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303730"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etykieta jednostki uczenia maszynowego w przykładzie wypowiedź
 
@@ -53,7 +55,7 @@ Paleta jednostek oferuje alternatywę dla poprzedniego środowiska etykietowania
 3. W przykładzie wypowiedź, _maluj_ jednostki za pomocą kursora.
 
     > [!div class="mx-imgBorder"]
-    > ![Paleta jednostek dla jednostki uczenia maszynowego](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![Zrzut ekranu przedstawia jednostkę pomalowaną kursorem.](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## <a name="adding-entity-as-a-feature-from-the-entity-palette"></a>Dodawanie jednostki jako funkcji z palety Entity
 

@@ -4,18 +4,18 @@ description: Wysyłanie danych łańcucha bloków do Azure Cosmos DB za pomocą 
 ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 69790787bc888448f2f40178bd12ee7058cc5892
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "79533185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283461"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Samouczek: wysyłanie danych do Azure Cosmos DB za pomocą łańcucha bloków Data Manager
 
 W tym samouczku użyjesz łańcucha bloków Data Manager dla usługi Azure łańcucha bloków, aby zarejestrować dane transakcji łańcucha bloków w Azure Cosmos DB. Łańcucha bloków Data Manager przechwytuje, przekształca i dostarcza dane finansów łańcucha bloków do tematów Azure Event Grid. Z poziomu Azure Event Grid używasz łącznika aplikacji logiki platformy Azure do tworzenia dokumentów w Azure Cosmos DB bazie danych. Po zakończeniu pracy z samouczkiem możesz eksplorować dane transakcji łańcucha bloków w Eksplorator danych Azure Cosmos DB.
 
-[![Szczegóły transakcji łańcucha bloków](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+[![Zrzut ekranu przedstawia szczegóły transakcji łańcucha bloków.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
 W tym samouczku zostały wykonane następujące czynności:
 
@@ -271,7 +271,7 @@ Po powiązaniu Data Manager z usługą łańcucha bloków w celu Azure Cosmos DB
 
 1. Przejrzyj komunikaty, wybierając pozycję Identyfikator elementu i Znajdź komunikat ze skrótem pasującej transakcji.
 
-    [![Szczegóły transakcji łańcucha bloków](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+    [![Zrzut ekranu przedstawia szczegóły transakcji łańcucha bloków wybranego elementu.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
     Komunikat nieprzetworzonych transakcji zawiera szczegółowe informacje o transakcji. Jednak informacje o właściwościach są szyfrowane.
 

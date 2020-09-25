@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: cfa79569ea4f2ec37eb7086d4878d3592babf18d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7ab3a368cbaa065742f62dead71e3a93df87ad87
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015190"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303021"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>Przykłady zestawu SDK platformy Azure Cosmos DB.NET v3 (Microsoft. Azure. Cosmos) dla interfejsu API SQL
 
@@ -21,6 +21,7 @@ ms.locfileid: "89015190"
 > * [Przykłady zestawu SDK dla platformy .NET V2](sql-api-dotnet-samples.md)
 > * [Przykłady zestawu SDK dla platformy .NET v3](sql-api-dotnet-v3sdk-samples.md)
 > * [Przykłady zestawu SDK dla języka Java v4](sql-api-java-sdk-samples.md)
+> * [Przykłady zestawu SDK dla danych wiosennych v3](sql-api-spring-data-sdk-samples.md)
 > * [Przykłady dla platformy Node.js](sql-api-nodejs-samples.md)
 > * [Przykłady języka Python](sql-api-python-samples.md)
 > * [Galeria przykładów kodu dla platformy Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

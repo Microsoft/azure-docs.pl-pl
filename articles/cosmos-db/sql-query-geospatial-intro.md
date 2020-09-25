@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 25150722e2d42625731cb741be80b86645c857e0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: ee88b980c448bfbf581537aef4653fde5354623a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420094"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302935"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dane lokalizacji geograficznej i GEOJSON w Azure Cosmos DB
 
@@ -164,7 +164,7 @@ Azure Cosmos DB interpretuje współrzędne reprezentowane na system odniesienia
 
 Ze względu na to, że kształt ziemi jest nieregularny, współrzędne danych geoprzestrzennych są reprezentowane w wielu systemach odniesienia współrzędnych (KSR), z których każdy ma własne ramki referencyjne i jednostki miary. Na przykład "krajowa siatka Zjednoczonego Królestwa" to system odniesienia dla Wielkiej Brytanii, ale nie poza nim.
 
-Najbardziej popularnym KSR w korzystaniu z dzisiaj jest świat Geodetic System [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). Urządzenia GPS i wiele usług mapowania, w tym mapy Google i interfejsy API mapy Bing używają WGS-84. Azure Cosmos DB obsługuje indeksowanie i wykonywanie zapytań dotyczących danych geoprzestrzennych geograficznych tylko przy użyciu WGS-84 KSR.
+Najbardziej popularnym KSR w korzystaniu z dzisiaj jest świat Geodetic System  [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). Urządzenia GPS i wiele usług mapowania, w tym mapy Google i interfejsy API mapy Bing używają WGS-84. Azure Cosmos DB obsługuje indeksowanie i wykonywanie zapytań dotyczących danych geoprzestrzennych geograficznych tylko przy użyciu WGS-84 KSR.
 
 ## <a name="creating-documents-with-spatial-data"></a>Tworzenie dokumentów z danymi przestrzennymi
 Podczas tworzenia dokumentów zawierających wartości GEOJSON są one automatycznie indeksowane przy użyciu indeksu przestrzennego zgodnie z zasadami indeksowania kontenera. Jeśli pracujesz z zestawem SDK Azure Cosmos DB w języku, który jest typem dynamicznym, takim jak Python lub Node.js, musisz utworzyć prawidłowy plik GEOJSON.

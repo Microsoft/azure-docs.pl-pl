@@ -5,39 +5,32 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 09/24/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ea8ed75bf91850abb95ebe983923989375c0fcf5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 9eff9b5356f3201f151cc959a96b070d2afaa267
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76759856"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283460"
 ---
 Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w witrynie Azure Portal, wykonaj następujące kroki:
 
 1. W menu witryny Azure Portal wybierz pozycję **Wszystkie usługi**. Na liście zasobów wpisz wartość **Konta magazynu**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **konta magazynu**.
-2. W oknie **Konta magazynu**, które zostanie wyświetlone, wybierz pozycję **Dodaj**.
-3. Wybierz subskrypcję, w ramach której chcesz utworzyć konto magazynu.
-4. W polu **Grupa zasobów** wybierz pozycję **Utwórz nową**. Wprowadź nazwę nowej grupy zasobów, jak pokazano na poniższej ilustracji.
+1. W oknie **Konta magazynu**, które zostanie wyświetlone, wybierz pozycję **Dodaj**.
+1. Na karcie **podstawowe** wybierz subskrypcję, w ramach której chcesz utworzyć konto magazynu.
+1. W polu **Grupa zasobów** wybierz żądaną grupę zasobów lub Utwórz nową grupę zasobów.  Aby uzyskać więcej informacji na temat grup zasobów platformy Azure, zobacz [omówienie Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+1. Następnie wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery.
+1. Wybierz lokalizację konta magazynu lub użyj lokalizacji domyślnej.
+1. Wybierz warstwę wydajności. Warstwa domyślna to *standardowa*.
+1. Ustaw wartość pola **rodzaj konta** na *Magazyn v2 (ogólnego przeznaczenia w wersji 2)*.
+1. Określ sposób replikowania konta magazynu. Domyślna opcja replikacji to *Magazyn Geograficznie nadmiarowy do odczytu (RA-GRS)*. Aby uzyskać więcej informacji na temat dostępnych opcji replikacji, zobacz [nadmiarowość usługi Azure Storage](../articles/storage/common/storage-redundancy.md).
+1. Określ warstwę dostępu dla obiektów BLOB na koncie magazynu. Warstwa domyślna to *gorąca*. Aby uzyskać więcej informacji na temat warstw dostępu do obiektów blob, zobacz [warstwy dostępu gorąca, chłodna i archiwalna dla obiektów BLOB](../articles/storage/blobs/storage-blob-storage-tiers.md).
+1. Aby użyć [Azure Data Lake Storage](/services/storage/data-lake-storage/), wybierz kartę **Zaawansowane** , a następnie ustaw **hierarchiczną przestrzeń nazw** na wartość **włączone**.
+1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
+1. Wybierz przycisk **Utwórz**.
 
-    ![Zrzut ekranu przedstawiający sposób tworzenia grupy zasobów w portalu](./media/storage-create-account-portal-include/create-resource-group-for-storage.png)
+Na poniższej ilustracji przedstawiono ustawienia na karcie **podstawowe** dla nowego konta magazynu:
 
-5. Następnie wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Ponadto nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery.
-6. Wybierz lokalizację konta magazynu lub użyj lokalizacji domyślnej.
-7. Pozostaw poniższe pola ustawione na wartości domyślne:
-
-   |Pole  |Wartość  |
-   |---------|---------|
-   |Model wdrażania     |Resource Manager         |
-   |Wydajność     |Standardowa         |
-   |Rodzaj konta     |StorageV2 (ogólnego przeznaczenia wersja 2)         |
-   |Replikacja     |Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)         |
-   |Warstwa dostępu     |Gorąca         |
-
-8. Jeśli planujesz używać [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), wybierz kartę **Zaawansowane** , a następnie ustaw **hierarchiczną przestrzeń nazw** na wartość **włączone**.
-9. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
-10. Wybierz przycisk **Utwórz**.
-
-Aby uzyskać więcej informacji na temat typów kont magazynu i innych ustawień konta magazynu, zobacz [Azure storage account overview (Omówienie kont usługi Azure Storage)](https://docs.microsoft.com/azure/storage/common/storage-account-overview). Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Azure Resource Manager przegląd](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 
+:::image type="content" source="media/storage-create-account-portal-include/account-create-portal.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia konta magazynu w witrynie Azure Portal":::

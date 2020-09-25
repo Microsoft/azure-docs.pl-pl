@@ -1,15 +1,17 @@
 ---
 title: Często zadawane pytania — LUIS
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ff7beff6682d594f9b9fc1901d396d29028ec989
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334705"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Usługa Language Understanding — często zadawane pytania
 
@@ -78,11 +80,11 @@ Przeczytaj więcej na temat [błędów importowania wersji](luis-how-to-manage-v
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Jak mogę zapewnić współpracownikom dostęp do LUIS za pomocą Azure Active Directory (Azure AD) lub kontroli dostępu opartej na rolach (RBAC)?
 
-Zapoznaj się z tematem [Azure Active Directory zasobów](luis-how-to-collaborate.md#azure-active-directory-resources) i [Azure Active Directory użytkownika dzierżawy](luis-how-to-collaborate.md#azure-active-directory-tenant-user) , aby dowiedzieć się, jak zapewnić współpracownikom dostęp.
+Zapoznaj się z tematem [Azure Active Directory zasobów](luis-how-to-collaborate.md#azure-active-directory-resources)  i [Azure Active Directory użytkownika dzierżawy](luis-how-to-collaborate.md#azure-active-directory-tenant-user) , aby dowiedzieć się, jak zapewnić współpracownikom dostęp.
 
 <a name="luis-endpoint"></a>
 
-## <a name="endpoint"></a>Endpoint
+## <a name="endpoint"></a>Punkt końcowy
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Otrzymałem kod stanu błędu HTTP 403. Jak go naprawić?
 
@@ -258,7 +260,7 @@ Jeśli używasz dziennika do analizy predykcyjnej, nie Przechwytuj wyrażenia d�
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>Dlaczego otrzymuję wiadomość e-mail z informacją, że prawie nie ma przydziału?
 Twój klucz do tworzenia/uruchamiania jest dozwolony tylko na 1000 zapytań o punkty końcowe miesięcznie. Utwórz klucz punktu końcowego LUIS (bezpłatny lub płatny) i Użyj tego klucza podczas wykonywania zapytań dotyczących punktów końcowych. Jeśli tworzysz zapytania punktu końcowego z bot lub innej aplikacji klienckiej, musisz zmienić klucz punktu końcowego LUIS.
 
-## <a name="bots"></a>Botów
+## <a name="bots"></a>Boty
 
 ### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>LUIS bot nie działa. Co mam zrobić?
 
@@ -267,7 +269,7 @@ Pierwszym problemem jest wyizolowanie, jeśli problem związany z LUISem lub zac
 #### <a name="resolve-issue-in-luis"></a>Rozwiązywanie problemu w programie LUIS
 Przekaż ten sam wypowiedź do LUIS z [punktu końcowego Luis](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Jeśli zostanie wyświetlony komunikat o błędzie, należy rozwiązać problem w LUIS, dopóki błąd nie zostanie już zwrócony. Typowe błędy obejmują:
 
-* `Out of call volume quota. Quota will be replenished in <time>.`— Ten problem oznacza konieczność zmiany z klucza tworzenia do [klucza punktu końcowego](luis-how-to-azure-subscription.md) lub należy zmienić [warstwy usług](luis-how-to-azure-subscription.md#change-pricing-tier).
+* `Out of call volume quota. Quota will be replenished in <time>.` — Ten problem oznacza konieczność zmiany z klucza tworzenia do [klucza punktu końcowego](luis-how-to-azure-subscription.md) lub należy zmienić [warstwy usług](luis-how-to-azure-subscription.md#change-pricing-tier).
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Rozwiąż problem w Azure Bot Service
 

@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 295c4bde64ad21a19d21fd48f2556114b26b202d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fe5fe29a66483934ae47f70512a310a4ae6bb1b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947394"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303248"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Wprowadzenie do przykładu Hero rozmowy z grupą
 
@@ -30,7 +30,7 @@ ms.locfileid: "90947394"
 W tym przykładowym samouczku szybki start dowiesz się, jak działa przykład przed uruchomieniem przykładu na komputerze lokalnym. Następnie zainstalujemy przykład na platformie Azure przy użyciu własnych zasobów usług Azure Communications Services.
 
 > [!IMPORTANT]
-> [Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples)
+> [Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
 
 ## <a name="overview"></a>Omówienie
 
@@ -72,29 +72,24 @@ Otwórz program Visual Studio w programie Chat. csproj i uruchom w trybie debugo
 
 Możesz przetestować przykład lokalnie, otwierając wiele sesji przeglądarki z adresem URL rozmowy w celu symulowania rozmowy z wieloma użytkownikami.
 
-### <a name="before-running-the-sample-for-the-first-time"></a>Przed uruchomieniem przykładu po raz pierwszy
+## <a name="before-running-the-sample-for-the-first-time"></a>Przed uruchomieniem przykładu po raz pierwszy
 
 1. Otwórz wystąpienie programu PowerShell, terminalu systemu Windows, wiersza polecenia lub równoważne i przejdź do katalogu, do którego chcesz sklonować przykład.
-2. `git clone`
-3. Przejdź do folderu **Chat/ClientApp** i uruchom `npm run setup`
-   1. Jeśli zobaczysz błąd 1, poszukaj powyżej w danych wyjściowych dla adresu URL, na którym musisz przejść do autoryzacji klienta. (Adres URL będzie wyglądać następująco: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...` ) Po odwiedzeniu adresu URL w przeglądarce Skopiuj polecenie z okna przeglądarki i uruchom je.
-   2. Uruchom polecenie `npm run setup` ponownie po wykonaniu poprzedniego kroku.
-4. Pobierz `Connection String` z Azure Portal. Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [Tworzenie zasobów usługi Azure Communication](../quickstarts/create-communication-resource.md)
-5. Po otrzymaniu programu `Connection String` Dodaj parametry połączenia do okna **rozmowa/appsettings.jsw** pliku znalezionym w folderze rozmowa. Wprowadź parametry połączenia w zmiennej: `ResourceConnectionString` .
+2. `git clone https://github.com/Azure/Communication.git`
+3. Pobierz `Connection String` z Azure Portal. Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [Tworzenie zasobów usługi Azure Communication](../quickstarts/create-communication-resource.md)
+4. Po otrzymaniu programu `Connection String` Dodaj parametry połączenia do okna **rozmowa/appsettings.jsw** pliku znalezionym w folderze rozmowa. Wprowadź parametry połączenia w zmiennej: `ResourceConnectionString` .
+5. Zaktualizuj ENVIRONMENT_URL w programie `./Chat/ClientApp/src/constants.tsx` przy użyciu lokalizacji zasobu. (np. https://<RESOURCE_NAME>. communication.azure.com)
 
 ### <a name="local-run"></a>Uruchamianie lokalne
 
-1. Przejdź do folderu czatu
-2. Otwórz `Chat.csproj` rozwiązanie w programie Visual Studio
-3. Uruchom `Chat` projekt. *
-
-* Przeglądarka zostanie otwarta przy użyciu nazwy localhost: 5000 (gdzie węzeł wdraża aplikację kliencką). Aplikacja nie jest obsługiwana w programie Internet Explorer.
+1. Przejdź do folderu rozmowa i Otwórz `Chat.csproj` rozwiązanie w programie Visual Studio
+2. Uruchom projekt. Przeglądarka zostanie otwarta przy użyciu nazwy localhost: 5000.
 
 #### <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 - Rozwiązanie nie kompiluje się, zgłasza błędy podczas instalacji/kompilacji NPM
 
-Oczyść/Kompiluj rozwiązanie C#
+   Oczyść/Kompiluj rozwiązanie C#
 
 ## <a name="publish-the-sample-to-azure"></a>Publikuj przykład na platformie Azure
 
@@ -102,11 +97,14 @@ Oczyść/Kompiluj rozwiązanie C#
 2. Utwórz nowy profil publikowania i wybierz subskrypcję platformy Azure.
 3. Przed opublikowaniem Dodaj parametry połączenia z `Edit App Service Settings` i wypełnij `ResourceConnectionString` jako klucz i podaj parametry połączenia (skopiowane z appsettings.json) jako wartość.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów. Dowiedz się więcej o [czyszczeniu zasobów](../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Następne kroki
+
+>[!div class="nextstepaction"] 
+>[Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
@@ -115,7 +113,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 ## <a name="additional-reading"></a>Materiały uzupełniające
 
-- [Azure Communication Preview](https://github.com/Azure/communication-preview) — aby dowiedzieć się więcej o zestawie SDK sieci Web programu Chat
+- [Azure Communication GitHub](https://github.com/Azure/communication) — Znajdź więcej przykładów i informacji na oficjalnej stronie GitHub
 - [Redux](https://redux.js.org/) — zarządzanie stanem po stronie klienta
 - [FluentUI](https://developer.microsoft.com/fluentui#/) — Biblioteka interfejsu użytkownika zasilanego przez firmę Microsoft
 - [Reagowanie](https://reactjs.org/) — Biblioteka do tworzenia interfejsów użytkownika

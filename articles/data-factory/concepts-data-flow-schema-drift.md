@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886628"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324352"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Dryf schematu w mapowaniu przepływu danych
 
@@ -60,7 +60,7 @@ Jeśli funkcja dryfowania schematu jest włączona, upewnij się, że suwak **au
 Gdy przepływ danych ma przelany kolumny, możesz uzyskać do nich dostęp przy użyciu następujących metod:
 
 * Użyj `byPosition` wyrażeń i, `byName` Aby jawnie odwoływać się do kolumny według nazwy lub numeru pozycji.
-* Dodaj wzorzec kolumny w kolumnie pochodnej lub transformację agregacji, aby dopasować ją do dowolnej kombinacji nazwy, strumienia, pozycji lub typu
+* Dodaj wzorzec kolumny w kolumnie pochodnej lub transformację agregacji, aby dopasować ją do dowolnej kombinacji nazw, strumienia, pozycji, pochodzenia lub typu
 * Dodaj mapowanie oparte na regułach w transformację SELECT lub ujścia, aby dopasować kolumny przeznaczone do aliasów kolumn za pośrednictwem wzorca
 
 Aby uzyskać więcej informacji na temat implementowania wzorców kolumn, zobacz [wzorce kolumn w mapowaniu przepływu danych](concepts-data-flow-column-pattern.md).

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9e909db0041979eb7bc4fc30bd9551382e83c488
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323641"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Informacje o aplikacji i wdrażaniu w chmurze Azure wiosennej
 
@@ -29,26 +29,26 @@ Usługa Azure wiosny Cloud w warstwie Standardowa umożliwia jednej aplikacji po
 ## <a name="app"></a>Aplikacja
 Następujące funkcje/właściwości są zdefiniowane na poziomie aplikacji.
 
-| Wyliczenie | Definicja |
+| Funkcje | Opis |
 |:--|:----------------|
 | Public</br>Punkt końcowy | Adres URL dostępu do aplikacji |
 | Niestandardowy</br>Domena | Rekord CNAME, który zabezpiecza domenę niestandardową |
-| Usługa</br>Wiązanie | Właściwości konfiguracji powiązania ustawione w function.jsw pliku i atrybut *ServiceBusTrigger* |
+| Usługa</br>Wiązanie | Połączenie z innymi usługami platformy Azure |
 | Zarządzani</br>Tożsamość | Tożsamość zarządzana przez Azure Active Directory umożliwia aplikacji łatwe uzyskiwanie dostępu do innych zasobów chronionych przez usługę Azure AD, takich jak Azure Key Vault |
-| Stale</br>Magazyn | Ustawienie, które umożliwia utrzymywanie danych poza ponownym uruchomieniem aplikacji |
+| Stale</br>Storage | Ustawienie, które umożliwia utrzymywanie danych poza ponownym uruchomieniem aplikacji |
 
 ## <a name="deployment"></a>Wdrożenie
 
 Następujące funkcje/właściwości są zdefiniowane na poziomie wdrożenia i będą wymieniane podczas wymiany wdrożenia produkcyjnego/przejściowego.
 
-| Wyliczenie | Definicja |
+| Funkcje | Opis |
 |:--|:----------------|
-| Procesor CPU | Liczba rdzeni wirtualnych na wystąpienie aplikacji |
-| Pamięć | Ustawienie przydzielenia pamięci do skalowania w górę lub w poziomie do wdrożenia |
+| CPU | Liczba rdzeni wirtualnych na wystąpienie aplikacji |
+| Pamięć | GB pamięci na wystąpienie aplikacji|
 | Wystąpienie</br>Liczba | Liczba wystąpień aplikacji, ustawiana ręcznie lub automatycznie. |
 | Automatyczne skalowanie | Automatyczne skalowanie liczby wystąpień na podstawie wstępnie zdefiniowanych reguł i harmonogramów |
-| JVM</br>Opcje | ustawienie: JAVA_OPTS |
-| Środowisko</br>Zmienne | Ustawienia, które mają zastosowanie do całego środowiska chmury Azure wiosny |
+| JVM</br>Opcje | Ustawianie opcji JVM  |
+| Środowisko</br>Zmienne | Ustawianie zmiennych środowiskowych |
 | Środowisko uruchomieniowe</br>Wersja | Java 8/Java 11|
 
 ## <a name="restrictions"></a>Ograniczenia

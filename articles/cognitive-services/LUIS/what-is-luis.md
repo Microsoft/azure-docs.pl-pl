@@ -2,15 +2,17 @@
 title: Co to jest usługa Language Understanding (LUIS)?
 description: Language Understanding (LUIS) — usługa interfejsu API oparta na chmurze, która korzysta z uczenia maszynowego, w celu przewidywania znaczenia i wyodrębnienia informacji.
 keywords: Azure, sztuczna inteligencja, AI, przetwarzanie języka naturalnego, NLP, interpretacja języka naturalnego, NLU, LUIS, konwersacje AI, AI chatbot, NLP AI, Azure Luis
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 09/02/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 3a8905ca1b9e7d7b4b1e4f5add000def9e91f9c6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 242d131e79966ebdb286a20f75d20f91f5fa7406
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985869"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334654"
 ---
 # <a name="what-is-language-understanding-luis"></a>Co to jest usługa Language Understanding (LUIS)?
 

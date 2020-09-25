@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 5a81ceea151b937b63544cbe51cc22de11d25230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254943"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284367"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Zalecenia dotyczące wydajności Database Advisor Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,9 +84,9 @@ Zalecenia dotyczące *zapytań Sparametryzuj* pojawiają się, gdy istnieje co n
 
 Najpierw należy skompilować każde zapytanie w celu wygenerowania planu wykonania. Każdy wygenerowany plan zostanie dodany do pamięci podręcznej planu. Kolejne wykonania tego samego zapytania mogą ponownie wykorzystać ten plan z pamięci podręcznej, co eliminuje konieczność tworzenia dodatkowej kompilacji.
 
-Zapytania z wartościami nieparametrycznymi mogą prowadzić do narzutu wydajności, ponieważ plan wykonywania jest ponownie kompilowany, za każdym razem, gdy wartości niesparametryzowane są różne. W wielu przypadkach te same zapytania z różnymi wartościami parametrów generują te same plany wykonania. Te plany są jednak nadal osobno dodawane do pamięci podręcznej planu.
+Zapytania z wartościami niesparametryzowanymi mogą zmniejszać wydajność, ponieważ plan wykonania jest ponownie kompilowany przy każdej zmianie wartości niesparametryzowanych. Te same zapytania z różnymi wartościami parametrów w wielu przypadkach generują te same plany wykonania. Jednak plany te i tak są dodawane oddzielnie do pamięci podręcznej planów.
 
-Proces ponownego kompilowania planów wykonywania używa zasobów bazy danych, wydłużenia czasu trwania zapytania i przepełnienie pamięci podręcznej planu. Z kolei te zdarzenia powodują, że plany mają być wykluczone z pamięci podręcznej. Takie zachowanie można zmienić, ustawiając opcję wymuszone parametryzacja w bazie danych.
+Proces ponownego kompilowania planów wykonania powoduje zużycie zasobów bazy danych, wydłużenie czasu wykonywania zapytań i przepełnienie pamięci podręcznej planów. To z kolei prowadzi do wykluczenia planów z pamięci podręcznej. Takie zachowanie można zmienić, ustawiając opcję wymuszone parametryzacja w bazie danych.
 
 Aby ułatwić oszacowanie wpływu tego zalecenia, należy uzyskać porównanie między rzeczywistym użyciem procesora CPU a przewidywanym użyciem procesora CPU (jak w przypadku zastosowania zalecenia). To zalecenie może pomóc w uzyskaniu oszczędności procesora. Może również pomóc w zmniejszeniu czasu trwania zapytania i nakładu pracy w pamięci podręcznej planu, co oznacza, że więcej planów może pozostać w pamięci podręcznej i być ponownie używane. To zalecenie można szybko zastosować, wybierając polecenie **Zastosuj** .
 
@@ -103,7 +103,7 @@ Po zastosowaniu tego zalecenia włącza wymuszone parametryzacja w ciągu kilku 
 
 Zalecenie "Rozwiąż problem ze schematem" pojawia się, gdy Azure SQL Database zauważy anomalię w liczbie błędów SQL związanych ze schematami, które są wykonywane w bazie danych. W poniższej tabeli przedstawiono błędy związane z problemami ze schematem:
 
-| Kod błędu SQL | Komunikat |
+| Kod błędu SQL | Wiadomość |
 | --- | --- |
 | 201 |Procedura lub funkcja "*" oczekuje parametru "*", który nie został podany. |
 | 207 |Nieprawidłowa nazwa kolumny "*". |

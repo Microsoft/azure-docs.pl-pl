@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84706447"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283874"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Samouczek: zabezpieczenia w wystąpieniu zarządzanym usługi Azure SQL przy użyciu podmiotów zabezpieczeń serwera usługi Azure AD (nazwy logowania)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Aby ukończyć ten samouczek, upewnij się, że dysponujesz następującymi elem
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - Wystąpienie zarządzane
   - Wykonaj czynności opisane w tym artykule: [Szybki Start: Tworzenie wystąpienia zarządzanego](instance-create-quickstart.md)
-- Możliwość dostępu do wystąpienia zarządzanego oraz [aprowizowanego administratora usługi Azure AD dla wystąpienia zarządzanego](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Aby dowiedzieć się więcej, zobacz następujące artykuły:
+- Możliwość dostępu do wystąpienia zarządzanego oraz [aprowizowanego administratora usługi Azure AD dla wystąpienia zarządzanego](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Aby dowiedzieć się więcej, zobacz:
   - [Connect your application to a managed instance](connect-application-instance.md) (Łączenie aplikacji z wystąpieniem zarządzanym)
   - [Architektura łączności wystąpienia zarządzanego SQL](connectivity-architecture-overview.md)
   - [Configure and manage Azure Active Directory authentication with SQL (Konfigurowanie uwierzytelniania w usłudze Azure Active Directory i zarządzanie nim przy użyciu języka SQL)](../database/authentication-aad-configure.md)
@@ -104,7 +104,7 @@ Zobacz następujące artykuły, aby zapoznać się z przykładami łączenia z w
     GO
     ```
 
-    ![native-login.png](./media/aad-security-configure-tutorial/native-login.png)
+    ![Zrzut ekranu przedstawiający kartę wyniki w s s M s Eksplorator obiektów pokazywanie nazwy, principal_id, identyfikatora SID, typu i type_desc nowo dodanej nazwy logowania.](./media/aad-security-configure-tutorial/native-login.png)
 
 Aby uzyskać więcej informacji, zobacz temat [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
@@ -153,13 +153,13 @@ Po utworzeniu jednostki usługi (identyfikatora logowania) serwera Azure AD oraz
    - Active Directory — hasło
    - Active Directory — zintegrowane </br>
 
-     ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
+     ![Zrzut ekranu okna dialogowego Łączenie z serwerem w S S M S z obsługą usługi MFA Active Directory-uniwersalną z opcją wybraną na liście rozwijanej uwierzytelniania.](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
      Aby uzyskać więcej informacji, zobacz [uniwersalne uwierzytelnianie (Obsługa programu SSMS dla Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
 1. Wybierz opcję **Active Directory — uniwersalne z obsługą uwierzytelniania wieloskładnikowego**. Spowoduje to wyświetlenie okna logowania Multi-Factor Authentication. Zaloguj się przy użyciu hasła usługi Azure AD.
 
-    ![mfa-login-prompt.png](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
+    ![Zrzut ekranu okna logowania Multi-Factor Authentication z kursorem w polu Wprowadź hasło.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
 1. W **Eksploratorze obiektów** programu SSMS kliknij prawym przyciskiem myszy serwer, a następnie wybierz pozycję **Nowe zapytanie**.
 1. W oknie zapytania użyj następującej składni, aby utworzyć identyfikator logowania dla kolejnego konta usługi Azure AD:
@@ -222,7 +222,7 @@ Autoryzacja poszczególnych baz danych działa tak samo jak w wystąpieniu zarz�
 
 Po utworzeniu bazy danych o nazwie **MyMITestDB** oraz utworzeniu identyfikatora logowania, który ma tylko uprawnienia domyślne, utworzymy teraz użytkownika na podstawie tego identyfikatora. Obecnie identyfikator logowania może nawiązać połączenie z wystąpieniem zarządzanym i wyświetlać wszystkie bazy danych, ale nie może korzystać z tych baz danych. Jeśli zalogujesz się za pomocą konta usługi Azure AD, które ma uprawnienia domyślne, i spróbujesz rozwinąć nowo utworzoną bazę danych, zostanie wyświetlony następujący komunikat o błędzie:
 
-![ssms-db-not-accessible.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
+![Zrzut ekranu komunikatu o błędzie z Eksplorator obiektów S s, który odczytuje "MyMITestDB bazy danych jest niedostępny. (ObjectExplorer)".](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
 Aby uzyskać więcej informacji na temat udzielania uprawnień bazie danych, zobacz [Getting Started with Database Engine Permissions (Rozpoczynanie pracy z uprawnieniami aparatu bazy danych)](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
 
@@ -326,7 +326,7 @@ Wyświetlanie danych przez użytkownika jest możliwe dopiero po przyznaniu mu o
 1. Utwórz nowe połączenie z wystąpieniem zarządzanym z użytkownikiem, który został dodany do roli `db_datareader`.
 1. Rozwiń bazę danych w **Eksploratorze obiektów**, aby wyświetlić tabelę.
 
-    ![ssms-test-table.png](./media/aad-security-configure-tutorial/ssms-test-table.png)
+    ![Zrzut ekranu z Eksplorator obiektów w S S M S pokazujący strukturę folderów dla tabel w MyMITestDB. Obiekt dbo. Folder.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
 1. Otwórz nowe okno zapytania i wykonaj następującą instrukcję SELECT:
 
@@ -337,7 +337,7 @@ Wyświetlanie danych przez użytkownika jest możliwe dopiero po przyznaniu mu o
 
     Czy jesteś w stanie wyświetlić dane w tabeli? Kolumny powinny zostać zwrócone.
 
-    ![ssms-test-table-query.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
+    ![Zrzut ekranu przedstawiający kartę wyniki w s s M s Eksplorator obiektów pokazując nagłówki kolumny tabeli AccountNum, miasto, nazwa i stan.](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
 
 ## <a name="impersonate-azure-ad-server-level-principals-logins"></a>Personifikowanie podmiotów zabezpieczeń na poziomie serwera usługi Azure AD (nazwy logowania)
 

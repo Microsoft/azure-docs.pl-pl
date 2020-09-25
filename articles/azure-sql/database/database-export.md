@@ -8,15 +8,15 @@ ms.subservice: data-movement
 author: stevestein
 ms.custom: sqldbrb=2
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: 10d10ccfbd04a52f6d522700d66d2c959fed24ee
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 9fb638feb254d5789d26cd854c0dcb3ae70da472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982420"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284335"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Eksportowanie do Azure SQL Database pliku BACPAC i wystąpienia zarządzanego usługi Azure SQL
 
@@ -24,7 +24,7 @@ ms.locfileid: "85982420"
 
 W przypadku konieczności eksportowania bazy danych na potrzeby archiwizacji lub przechodzenia do innej platformy można wyeksportować schemat bazy danych i dane do pliku [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) . Plik BACPAC jest plikiem ZIP z rozszerzeniem BACPAC zawierającym metadane i dane z bazy danych. Plik BACPAC może być przechowywany w usłudze Azure Blob Storage lub w magazynie lokalnym w lokalizacji lokalnej, a później zaimportowany z powrotem do Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL lub wystąpienia SQL Server.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 - Aby eksport był spójnie sprzeczny, należy upewnić się, że nie ma żadnych działań zapisu w trakcie eksportowania lub że eksportuje się z [sprzecznej z transakcyjną kopią](database-copy.md) bazy danych.
 - Jeśli eksportujesz do magazynu obiektów blob, maksymalny rozmiar pliku BACPAC wynosi 200 GB. Aby zarchiwizować większy plik BACPAC, należy wyeksportować do magazynu lokalnego.

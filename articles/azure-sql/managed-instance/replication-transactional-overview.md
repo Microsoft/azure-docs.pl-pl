@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 95fc877636fe1d3dac466dc32fc49cee56f35185
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283228"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replikacja transakcyjna z wystąpieniem zarządzanym usługi Azure SQL (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -199,7 +199,7 @@ Aby uzyskać więcej informacji na temat konfigurowania replikacji transakcyjnej
 - [Utwórz publikację](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 - [Utwórz subskrypcję wypychaną](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) , używając nazwy serwera jako subskrybenta (na przykład `N'azuresqldbdns.database.windows.net` bazy danych w Azure SQL Database nazwie jako docelowej bazy danych (na przykład **AdventureWorks**. )
 
-## <a name="see-also"></a>Zobacz także  
+## <a name="see-also"></a>Zobacz też  
 
 - [Replikacja z wystąpieniem zarządzanym SQL i grupą trybu failover](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replikacja do bazy danych SQL](../database/replication-to-sql-database.md)

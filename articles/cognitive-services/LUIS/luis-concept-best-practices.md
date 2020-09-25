@@ -1,15 +1,17 @@
 ---
 title: Najlepsze rozwiązania dotyczące tworzenia aplikacji LUIS
 description: Poznaj najlepsze rozwiązania, aby uzyskać najlepsze wyniki z modelu aplikacji LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 9c22256f6fac3647108b7078b774338d7f22d29a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 6ab7b8db3e1bc1b1134c0e7ab6c14bd17f819935
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324879"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Najlepsze rozwiązania dotyczące tworzenia aplikacji do interpretacji języka (LUIS)
 Tworzenie aplikacji LUIS za pomocą procesu tworzenia aplikacji:
@@ -65,7 +67,7 @@ Rozważmy następujący przykład wyrażenia długości:
 |Książka a samolotem|
 |Książka w hotelu|
 
-`Book a flight`i `Book a hotel` Używaj tego samego słownika `book a ` . Ten format jest taki sam, więc powinien być taki sam, jak w przypadku innych słów `flight` i `hotel` jako wyodrębnionych jednostek.
+`Book a flight` i `Book a hotel` Używaj tego samego słownika `book a ` . Ten format jest taki sam, więc powinien być taki sam, jak w przypadku innych słów `flight` i `hotel` jako wyodrębnionych jednostek.
 
 ## <a name="do-add-features-to-intents"></a>Dodaj funkcje do intencji
 

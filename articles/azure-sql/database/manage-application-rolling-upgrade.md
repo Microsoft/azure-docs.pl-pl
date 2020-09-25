@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1346fed738bb9afa595b63c91064a481e2ee2b51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8645e8c1f1f371f1416a998af41104ebb6867eea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045627"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334888"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Zarządzanie uaktualnieniami stopniowymi aplikacji w chmurze za pomocą SQL Database aktywnej replikacji geograficznej
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Aby osiągnąć te cele, oprócz korzystania ze środowisk Web Apps można korzy
 * Podstawowa baza danych w regionie podstawowym (2)
 * Wystąpienie w stanie wstrzymania aplikacji sieci Web w regionie kopii zapasowej (3)
 * Pomocnicza baza danych z replikacją geograficzną w regionie kopii zapasowej (4)
-* Profil wydajności Traffic Manager z wywoływanym punktem końcowym online `contoso-1.azurewebsites.net` i wywoływanym punktem końcowym w trybie offline`contoso-dr.azurewebsites.net`
+* Profil wydajności Traffic Manager z wywoływanym punktem końcowym online `contoso-1.azurewebsites.net` i wywoływanym punktem końcowym w trybie offline `contoso-dr.azurewebsites.net`
 
 Aby umożliwić wycofanie uaktualnienia, należy utworzyć środowisko przejściowe z w pełni zsynchronizowaną kopią aplikacji. Ponieważ trzeba upewnić się, że aplikacja może szybko wykonać odzyskiwanie w przypadku wystąpienia awarii w procesie uaktualniania, środowisko przejściowe musi być również Geograficznie nadmiarowy. Następujące kroki są wymagane do utworzenia środowiska przejściowego dla uaktualnienia:
 
