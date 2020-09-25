@@ -1,5 +1,5 @@
 ---
-title: Dodawanie i usuwanie jednostek administracyjnych (wersja zapoznawcza) — Azure Active Directory | Microsoft Docs
+title: Dodawanie i usuwanie jednostek administracyjnych — Azure Active Directory | Microsoft Docs
 description: Użyj jednostek administracyjnych, aby ograniczyć zakres uprawnień roli w Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977a90419c142e576fcf484562875d12c8dad451
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 30b673994e20f01dde504adb438aa1b199c96d88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851764"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264734"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Zarządzanie jednostkami administracyjnymi w Azure Active Directory
 
@@ -45,7 +45,7 @@ Aby uzyskać bardziej szczegółową kontrolę administracyjną w usłudze Azure
 
 1. W Azure Portal przejdź do usługi Azure AD, a następnie w okienku po lewej stronie wybierz pozycję **jednostki administracyjne**.
 
-    ![Zrzut ekranu przedstawiający link jednostki administracyjne (wersja zapoznawcza) w usłudze Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
+    ![Zrzut ekranu przedstawiający unitslink administracyjne w usłudze Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
 
 1. Wybierz pozycję **Dodaj** , a następnie wprowadź nazwę jednostki administracyjnej. Opcjonalnie Dodaj opis jednostki administracyjnej.
 

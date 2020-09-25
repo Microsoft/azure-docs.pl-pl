@@ -11,19 +11,19 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: ad2b13fbfbd9871a55efb1826fa1e978d4eeb453
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032303"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289173"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Grupowanie według opcji w Synapse SQL
 Synapse SQL umożliwia tworzenie rozwiązań przez implementację różnych opcji Grupuj według. 
 
 ## <a name="what-does-group-by-do"></a>Co robi Grupuj według
 
-Klauzula [Group by](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL agreguje dane do zestawu podsumowującego wierszy.
+Klauzula [Group by](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL agreguje dane do zestawu podsumowującego wierszy.
 
 SQL na żądanie obsługuje cały zakres opcji Grupuj według. Pula SQL obsługuje ograniczoną liczbę opcji Grupuj według.
 
@@ -57,7 +57,7 @@ GROUP BY ROLLUP (
 Przy użyciu pakietu zbiorczego poprzedni przykład żąda następujących agregacji:
 
 * Kraj i region
-* Country (Kraj)
+* Kraj
 * Suma końcowa
 
 Aby zastąpić pakiet zbiorczy i zwrócić te same wyniki, można użyć klauzuli UNION ALL i jawnie określić wymagane agregacje:
@@ -124,7 +124,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Na poniższej ilustracji przedstawiono wyniki [CREATE TABLE jako wybrane](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest):
+Na poniższej ilustracji przedstawiono wyniki [CREATE TABLE jako wybrane](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
 
 ![Grupuj według modułu](./media/develop-group-by-options/develop-group-by-cube.png)
 

@@ -3,12 +3,12 @@ title: Zarządzanie laboratoriami klas w Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak utworzyć i skonfigurować laboratorium zajęć, wyświetlić wszystkie laboratoria zajęć, udostępnić link rejestracji użytkownikowi laboratorium lub usunąć laboratorium.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: ed5eb05fa586e19fdf684a4f88b56e7b0185baf4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445393"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251681"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Zarządzanie pracownią w Azure Lab Services 
 W tym artykule opisano sposób tworzenia i usuwania laboratorium zajęć. Przedstawiono w nim również sposób wyświetlania wszystkich laboratoriów zajęć na koncie laboratorium. 
@@ -32,7 +32,7 @@ Aby skonfigurować laboratorium na potrzeby zajęć w ramach konta laboratorium,
     1. Przejrzyj **łączną cenę za godzinę** wyświetlaną na stronie. 
     1. Wybierz pozycję **Zapisz**.
 
-        ![Nowe okno laboratorium](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![Zrzut ekranu przedstawiający okno "nowe laboratorium".](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
         > [!NOTE]
         > Zostanie wyświetlona opcja wyboru lokalizacji laboratorium, jeśli konto laboratorium zostało skonfigurowane tak, aby [umożliwić twórcę laboratorium wybranie opcji lokalizacji laboratorium](allow-lab-creator-pick-lab-location.md) . 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5e3cb07730aafed7d1c339f543e7fb09fe956cab
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: ca333115b8a0588f781b93e0d8a9279ab9c7928c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961911"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255166"
 ---
 # <a name="use-an-app-service-environment"></a>Używanie środowiska usługi App Service
 
@@ -161,7 +161,7 @@ Bez dodatkowych zmian internetowe systemy CI, takie jak GitHub i Azure DevOps, n
 
 Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Zobaczysz ją w profilu publikowania aplikacji i w okienku portalu aplikacji (w temacie **Omówienie**  >  **podstawowe** i również w obszarze **Właściwości**).
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 Środowisko ASE ma 1 TB magazynu dla wszystkich aplikacji w środowisku ASE. Plan App Service w odizolowanej cenie SKU ma limit wynoszący 250 GB. W środowisku ASE 250 GB miejsca do magazynowania jest dodawane App Service planowanie do limitu 1 TB. Możesz mieć więcej App Service planów niż tylko cztery, ale nie Dodaliśmy więcej miejsca poza limit 1 TB.
 
@@ -196,7 +196,7 @@ W przypadku integracji z usługą Log Analytics można zobaczyć dzienniki, wybi
 
 **Tworzenie alertu**
 
-Aby utworzyć alert dotyczący dzienników, postępuj zgodnie z instrukcjami w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienników przy użyciu Azure monitor][logalerts]. W skrócie:
+Aby utworzyć alert dotyczący dzienników, postępuj zgodnie z instrukcjami w temacie [Tworzenie, wyświetlanie i zarządzanie alertami dzienników przy użyciu Azure monitor](../../azure-monitor/platform/alerts-log.md). W skrócie:
 
 * Otwieranie strony alertów w portalu ASE
 * Wybierz **nową regułę alertu**
@@ -250,7 +250,7 @@ Aby usunąć środowisko ASE:
 
     ![Usuwanie środowiska ASE][3]
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 ## <a name="ase-cli"></a>INTERFEJS WIERSZA POLECENIA ŚRODOWISKA ASE
 

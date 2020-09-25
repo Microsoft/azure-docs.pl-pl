@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 54d33b849f809dbe1ebefbbc3d2f63db6877e86e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: feb79a2a077f819cce22925f23f5ed640d05e8d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996721"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296675"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Łączenie się z danymi za pomocą programu Azure Machine Learning Studio
 
@@ -24,14 +24,14 @@ W tym artykule dowiesz się, jak uzyskać dostęp do danych za pomocą programu 
 
 W poniższej tabeli zdefiniowano i podsumowano zalety magazynów danych i zestawów danych. 
 
-||Opis| Korzyści|   
+|Obiekt|Opis| Korzyści|   
 |---|---|---|
-|Magazyny danych| Bezpiecznie łącz się z usługą magazynu na platformie Azure, przechowując informacje o połączeniu, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) skojarzonych z obszarem roboczym | Ponieważ informacje są bezpiecznie przechowywane, należy <br><br> <li> Nie &nbsp; umieszczaj &nbsp; &nbsp; w zagrożeniu poświadczeń uwierzytelniania ani oryginalnych źródeł danych. <li> Nie trzeba już pokodować ich w skryptach.
+|Magazyny danych| Bezpiecznie łącz się z usługą magazynu na platformie Azure, przechowując informacje o połączeniu, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) skojarzonych z obszarem roboczym | Ponieważ informacje są bezpiecznie przechowywane, należy <br><br> <li> Nie &nbsp; umieszczaj &nbsp; &nbsp; &nbsp; &nbsp; w zagrożeniu poświadczeń uwierzytelniania ani oryginalnych &nbsp; źródeł danych. <li> Nie trzeba już pokodować ich w skryptach.
 |Zestawy danych| Tworząc zestaw danych, tworzysz odwołanie do lokalizacji źródła danych wraz z kopią jego metadanych. Z zestawami danych można, <br><br><li> Dostęp do danych podczas uczenia modelu.<li> Udostępnianie danych i współpraca z innymi użytkownikami.<li> Korzystaj z bibliotek typu open source, takich jak Pandas, na potrzeby eksploracji danych. | Ponieważ zestawy danych są opóźnieniem oceniane, a dane pozostają w istniejącej lokalizacji, należy <br><br><li>Przechowywanie pojedynczej kopii danych w magazynie.<li> Nie Powiąż dodatkowego kosztu magazynowania <li> Nie ryzykuj przypadkowego zmiany oryginalnych źródeł danych.<li>Zwiększ szybkość działania przepływu pracy w usłudze ML. 
 
 Aby zrozumieć, w jaki sposób magazyny danych i zestawy danych mieszczą się w ogólnym przepływie pracy Azure Machine Learning, zobacz artykuł [bezpieczny dostęp do](concept-data.md#data-workflow) danych.
 
-Aby uzyskać pierwsze środowisko kodu, zapoznaj się z następującymi artykułami, aby użyć [zestawu SDK języka Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) w programie:
+Aby uzyskać pierwsze środowisko kodu, zapoznaj się z następującymi artykułami, aby użyć [zestawu SDK języka Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) w programie:
 * [Nawiązywanie połączenia z usługami Azure Storage z magazynami danych](how-to-access-data.md). 
 * [Utwórz Azure Machine Learning zestawy danych](how-to-create-register-datasets.md). 
 
@@ -112,22 +112,22 @@ W każdym przypadku profil danych Azure Machine Learning DataSet obejmuje:
 >[!NOTE]
 > Puste wpisy są wyświetlane dla funkcji o nieistotnych typach.
 
-Statystyka|Opis
-------|------
-Cechy| Nazwa sumowanej kolumny.
-Profil| Wizualizacja w wierszu oparta na wywnioskowanym typie. Na przykład ciągi, wartości logiczne i daty będą mieć liczby wartości, podczas gdy miejsca dziesiętne (liczbowe) mają przybliżone histogramy. Pozwala to na szybkie zrozumienie dystrybucji danych.
-Dystrybucja typów| Liczba wartości w wierszu dla typów w kolumnie. Wartości null są własnym typem, więc Wizualizacja jest przydatna do wykrywania nieparzystych lub brakujących wartości.
-Typ|Wywnioskowany typ kolumny. Możliwe wartości to: ciągi, wartości logiczne, daty i miejsca dziesiętne.
-Min.| Minimalna wartość kolumny. Puste wpisy są wyświetlane dla funkcji, których typ nie ma własnej kolejności (np. wartości logicznych).
-Maks.| Maksymalna wartość kolumny. 
-Liczba| Łączna liczba brakujących i nieobecnych wpisów w kolumnie.
-Liczba niebrakujących| Liczba wpisów w kolumnie, których nie ma. Puste ciągi i błędy są traktowane jako wartości, więc nie będą wchodzić w skład "niebrakującej liczby".
-Kwantyle| Przybliżone wartości dla każdego quantileu, aby zapewnić rozkład danych.
-Średnia| Średnia arytmetyczna kolumny lub jej średnia.
-Odchylenie standardowe| Pomiar wielkości rozproszenia lub zmienności danych tej kolumny.
-Variance (Wariancja)| Mierzona, jak daleko odłożenie danych z tej kolumny pochodzi z wartości średniej. 
-Skośność| Mierzona, jak różne dane tej kolumny pochodzą z rozkładu normalnego.
-Kurtoza| Mierzona, jak silnie naśladowanie danych tej kolumny jest porównywane z rozkładem normalnym.
+|Statystyka|Opis
+|------|------
+|Cechy| Nazwa sumowanej kolumny.
+|Profil| Wizualizacja w wierszu oparta na wywnioskowanym typie. Na przykład ciągi, wartości logiczne i daty będą mieć liczby wartości, podczas gdy miejsca dziesiętne (liczbowe) mają przybliżone histogramy. Pozwala to na szybkie zrozumienie dystrybucji danych.
+|Dystrybucja typów| Liczba wartości w wierszu dla typów w kolumnie. Wartości null są własnym typem, więc Wizualizacja jest przydatna do wykrywania nieparzystych lub brakujących wartości.
+|Typ|Wywnioskowany typ kolumny. Możliwe wartości to: ciągi, wartości logiczne, daty i miejsca dziesiętne.
+|Min.| Minimalna wartość kolumny. Puste wpisy są wyświetlane dla funkcji, których typ nie ma własnej kolejności (np. wartości logicznych).
+|Maks.| Maksymalna wartość kolumny. 
+|Liczba| Łączna liczba brakujących i nieobecnych wpisów w kolumnie.
+|Liczba niebrakujących| Liczba wpisów w kolumnie, których nie ma. Puste ciągi i błędy są traktowane jako wartości, więc nie będą wchodzić w skład "niebrakującej liczby".
+|Kwantyle| Przybliżone wartości dla każdego quantileu, aby zapewnić rozkład danych.
+|Średnia| Średnia arytmetyczna kolumny lub jej średnia.
+|Odchylenie standardowe| Pomiar wielkości rozproszenia lub zmienności danych tej kolumny.
+|Variance (Wariancja)| Mierzona, jak daleko odłożenie danych z tej kolumny pochodzi z wartości średniej. 
+|Skośność| Mierzona, jak różne dane tej kolumny pochodzą z rozkładu normalnego.
+|Kurtoza| Mierzona, jak silnie naśladowanie danych tej kolumny jest porównywane z rozkładem normalnym.
 
 ## <a name="storage-access-and-permissions"></a>Dostęp do magazynu i uprawnienia
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: cf73b3949b0a0dc1e76ebdebb191af0a33ce22ff
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: ac76ce5d4fb788e6c2fb3dc9ec01c8d88bfb55cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268080"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Sprawdzanie poprawności alertu w Azure Security Center
 Ten dokument zawiera informacje dotyczące sposobu weryfikacji systemu pod kątem prawidłowej konfiguracji alertów usługi Azure Security Center.
@@ -62,16 +62,16 @@ Po zainstalowaniu agenta Security Center na komputerze wykonaj następujące kro
 
 ## <a name="validate-alerts-on-kubernetes"></a>Weryfikowanie alertów w witrynie Kubernetes <a name="validate-kubernetes"></a>
 
-Jeśli używasz funkcji Security Center w wersji zapoznawczej integracji usługi Azure Kubernetes, uruchom następujące polecenie polecenia kubectl, aby sprawdzić, czy Twoje alerty działają:
+Jeśli zintegrowano usługę Azure Kubernetes z usługą Security Center, możesz sprawdzić, czy alerty działają przy użyciu następującego polecenia polecenia kubectl:
 
 ```kubectl get pods --namespace=asc-alerttest-662jfi039n```
 
-Aby uzyskać więcej informacji na temat integracji usługi Azure Kubernetes i Azure Security Center, zobacz [ten artykuł](azure-kubernetes-service-integration.md).
+Aby uzyskać więcej informacji na temat obrony węzłów i klastrów Kubernetes, zobacz [wprowadzenie do usługi Azure Defender dla Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## <a name="next-steps"></a>Następne kroki
 Ten artykuł zawiera wprowadzenie do procesu walidacji alertów. Teraz, kiedy znasz już usługę Security Center, zapoznaj się z następującymi artykułami:
 
 * [Sprawdzanie poprawności Azure Key Vault wykrywania zagrożeń w Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
-* [Zarządzanie alertami zabezpieczeń i reagowanie na nie w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) — Dowiedz się, jak zarządzać alertami i reagować na zdarzenia związane z bezpieczeństwem w programie Security Center.
+* [Zarządzanie alertami zabezpieczeń i reagowanie na nie w Azure Security Center](security-center-managing-and-responding-alerts.md) — Dowiedz się, jak zarządzać alertami i reagować na zdarzenia związane z bezpieczeństwem w programie Security Center.
 * [Monitorowanie kondycji zabezpieczeń w Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
-* [Opis alertów zabezpieczeń w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) — informacje o różnych typach alertów zabezpieczeń.
+* [Opis alertów zabezpieczeń w Azure Security Center](security-center-alerts-type.md) — informacje o różnych typach alertów zabezpieczeń.

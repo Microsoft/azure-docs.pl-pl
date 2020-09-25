@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 16a5793f9848a6e16856728877727dbefc3e0805
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6b4373efc4979900e676257cc0b2748145165499
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264933"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261417"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Szybki Start: przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu
 
@@ -66,7 +66,7 @@ W tym przewodniku szybki start pokazano, jak używać Azure Portal do przekazywa
 
 Po przejściu do okna elementy zawartości zobaczysz, że do listy dodano nowy element zawartości:
 
-![Przekazywanie](./media/manage-assets-quickstart/upload.png)
+![Zrzut ekranu przedstawiający Azure Portal wyświetlenia okna elementów zawartości otwartego przez wybranie pozycji zasoby (nowe) i nowego elementu zawartości dodanej przez wybranie przycisku Przekaż.](./media/manage-assets-quickstart/upload.png)
 
 ## <a name="encode"></a>Kodowanie
 
@@ -78,7 +78,7 @@ Po przejściu do okna elementy zawartości zobaczysz, że do listy dodano nowy e
 
 Jeśli przejdziesz do okna elementów zawartości, zobaczysz, że zasób wyjściowy został dodany do listy:
 
-![Kodowanie](./media/manage-assets-quickstart/encode.png)
+![Zrzut ekranu przedstawiający okno elementy zawartości w Azure Portal pokazujący ignite.mp4 zasobów zakodowane w standardowym formacie nośnika, dodane do listy zasobów.](./media/manage-assets-quickstart/encode.png)
 
 ## <a name="monitor-the-job-progress"></a>Monitoruj postęp zadania
 

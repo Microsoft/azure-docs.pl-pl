@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1beb2065f1823135981545e42d499c5429b87c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7e4da2051ab84cebff5aae857c02907f7b58e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045396"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263627"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Samouczek: Konfigurowanie aktywnej replikacji geograficznej i trybu failover w Azure Portal (Azure SQL Database)
 
@@ -55,12 +55,12 @@ Po utworzeniu i umieszczeniu w nim pliku podrzędnego dane rozpoczynają replika
     ![Konfigurowanie replikacji geograficznej](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. Wybierz lub skonfiguruj serwer i warstwę cenową pomocniczej bazy danych.
 
-    ![Konfiguruj pomocniczy](./media/active-geo-replication-configure-portal/create-secondary.png)
+    ![Utwórz formularz pomocniczy](./media/active-geo-replication-configure-portal/create-secondary.png)
 4. Opcjonalnie można dodać pomocniczą bazę danych do puli elastycznej. Aby utworzyć pomocniczą bazę danych w puli, kliknij pozycję **Pula elastyczna** i wybierz pulę na serwerze docelowym. Pula musi już istnieć na serwerze docelowym. Ten przepływ pracy nie tworzy puli.
 5. Kliknij przycisk **Utwórz** , aby dodać pomocniczą.
 6. Zostanie utworzona pomocnicza baza danych i rozpocznie się proces umieszczania.
 
-    ![Konfiguruj pomocniczy](./media/active-geo-replication-configure-portal/seeding0.png)
+    ![Mapa serwerów pomocniczych](./media/active-geo-replication-configure-portal/seeding0.png)
 7. Po zakończeniu procesu umieszczania w pomocniczej bazie danych zostanie wyświetlony stan.
 
     ![Ukończono rozmieszczanie](./media/active-geo-replication-configure-portal/seeding-complete.png)
@@ -73,7 +73,7 @@ Pomocnicza baza danych może zostać przełączona, aby stała się podstawowym.
 2. W bloku SQL Database wybierz pozycję **wszystkie ustawienia**  >  **replikacja geograficzna**.
 3. Na liście **serwery pomocnicze** wybierz bazę danych, która ma stać się nowym podstawowym, a następnie kliknij pozycję **wymuszone przełączanie do trybu failover**.
 
-    ![pracy](./media/active-geo-replication-configure-portal/secondaries.png)
+    ![tryb failover](./media/active-geo-replication-configure-portal/secondaries.png)
 4. Kliknij przycisk **tak** , aby rozpocząć pracę w trybie failover.
 
 Polecenie natychmiast przełącza pomocniczą bazę danych do roli podstawowej. Ten proces jest zwykle zakończony w ciągu 30 sekund lub mniej.

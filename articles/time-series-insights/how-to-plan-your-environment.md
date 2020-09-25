@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1788eba0ef9be781fb7cf23f1eb86b48c9c360e1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289911"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287422"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planowanie środowiska Azure Time Series Insights Gen2
 
@@ -69,10 +69,7 @@ Można wybrać maksymalnie trzy klucze, aby jednoznacznie odróżnić zasoby. Ab
 
 Właściwość **sygnatury czasowej** jest również ważna. Tę właściwość można wyznaczyć podczas dodawania źródeł zdarzeń. Każde źródło zdarzenia ma opcjonalną właściwość sygnatury czasowej, która jest używana do śledzenia źródeł zdarzeń w czasie. W wartościach sygnatury czasowej jest uwzględniana wielkość liter i muszą one być sformatowane do poszczególnych specyfikacji każdego źródła zdarzenia.
 
-> [!TIP]
-> Sprawdź wymagania dotyczące formatowania i analizowania źródeł zdarzeń.
-
-Po podaniu pustego pola czas do kolejki zdarzeń źródła zdarzeń jest używany jako sygnatura czasowa zdarzenia. W przypadku wysyłania danych historycznych lub zdarzeń wsadowych dostosowanie właściwości timestamp jest bardziej pomocne niż domyślny czas dodawania do kolejki zdarzeń. Aby uzyskać więcej informacji, przeczytaj temat jak [dodać źródła zdarzeń w usłudze Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Gdy pole pozostanie puste, czas, w którym zdarzenie zostało w kolejce do IoT Hub lub centrum zdarzeń, jest używany jako sygnatura czasowa zdarzenia. Ogólnie rzecz biorąc, użytkownicy powinni dostosowywać Właściwość sygnatur czasowych i korzystać z czasu, gdy czujnik lub tag wygenerował odczyt, a nie czas podłączany do centrum. Aby uzyskać więcej informacji i zapoznać się z przesunięciami strefy czasowej odczytywanie [sygnatury czasowej źródła zdarzenia](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp).
 
 ## <a name="understand-the-time-series-model"></a>Omówienie modelu szeregów czasowych
 
@@ -91,7 +88,7 @@ Dobrym regułą dla elementu kciuk:
 * Przechowuj metadane w modelu szeregów czasowych.
 * Upewnij się, że tryb szeregów czasowych, pola wystąpień i zdarzenia zawierają tylko niezbędne informacje, takie jak identyfikator szeregów czasowych lub właściwość sygnatury czasowej.
 
-Aby uzyskać więcej informacji, Odczytaj [zdarzenia kształtu](./time-series-insights-send-events.md#supported-json-shapes).
+Aby uzyskać więcej informacji i zrozumieć, jak zdarzenia mają być spłaszczone i przechowywane, Przeczytaj [reguły spłaszczania i ucieczki JSON](./concepts-json-flattening-escaping-rules.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

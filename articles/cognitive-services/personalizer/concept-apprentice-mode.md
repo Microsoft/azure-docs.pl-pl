@@ -1,14 +1,16 @@
 ---
 title: Tryb praktykanta — Personalizacja
 description: ''
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 5ee8242fbc9ab5bed4e3eed8997feb122b131062
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f793535f04b36d231cec384b7acd66e38a7eb039
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253534"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Używanie trybu programu w celu uczenia personalizacji bez wpływu na istniejącą aplikację
 
@@ -88,7 +90,7 @@ Jest to przydatne tylko w przypadku testów A/B przeprowadzenia działania perso
 
 Nawet jeśli Personalizacja jest tylko _traktowaniem_, to to samo wyzwanie jest obecne podczas walidacji danych jest dobre dla personalizacji szkoleniowej. W zamian można używać trybu podmiotu, z 100% ruchu i ze wszystkimi użytkownikami, którzy uzyskują kontrolę (bez zmian).
 
-Gdy masz przypadek użycia przy użyciu narzędzia Personalizacja i uczenie online, eksperymenty A/B umożliwiają kontrolowane kohorty i porównanie wyników, które mogą być bardziej skomplikowane niż sygnały wykorzystywane do nagrody. Przykładem pytania można udzielić odpowiedzi na test A/B:`In a retail website, Personalizer optimizes a layout and gets more users to _check out_ earlier, but does this reduce total revenue per transaction?`
+Gdy masz przypadek użycia przy użyciu narzędzia Personalizacja i uczenie online, eksperymenty A/B umożliwiają kontrolowane kohorty i porównanie wyników, które mogą być bardziej skomplikowane niż sygnały wykorzystywane do nagrody. Przykładem pytania można udzielić odpowiedzi na test A/B: `In a retail website, Personalizer optimizes a layout and gets more users to _check out_ earlier, but does this reduce total revenue per transaction?`
 
 ## <a name="next-steps"></a>Następne kroki
 

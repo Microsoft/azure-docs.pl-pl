@@ -1,14 +1,14 @@
 ---
 title: Informacje o działaniu efektów
 description: Definicje Azure Policy mają różne skutki, które określają sposób zarządzania i zgłaszania zgodności.
-ms.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: b6622796ab0554f692a3b64e0b41d60f49c561b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425538"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252008"
 ---
 # <a name="understand-azure-policy-effects"></a>Zrozumienie efektów Azure Policy
 
@@ -21,7 +21,7 @@ Te efekty są obecnie obsługiwane w definicji zasad:
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Disabled](#disabled)
+- [Wyłączone](#disabled)
 - [Modify](#modify)
 
 Następujące efekty są _przestarzałe_:
@@ -374,8 +374,8 @@ Gdy **wymuszanie** jest _wyłączone_, nadal są oceniane zasoby. Rejestrowanie,
 
 Ten efekt jest używany z _trybem_ definicji zasad `Microsoft.Kubernetes.Data` . Jest on używany do przekazywania reguł kontroli przyjęcia strażnika v3 zdefiniowanych za pomocą [platformy ograniczeń nieprzez](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) , aby [otworzyć agenta zasad](https://www.openpolicyagent.org/) (Nieprzez) do klastrów Kubernetes na platformie Azure.
 
-> [!NOTE]
-> [Azure Policy dla Kubernetes](./policy-for-kubernetes.md) jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej z efektem **EnforceOPAConstraint** i pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć trybu _inspekcji_ efektów i _Odmów_ przy użyciu dostawcy zasobów `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> Definicje zasad z ograniczeniami w wersji zapoznawczej z efektem **EnforceOPAConstraint** i pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć trybu _inspekcji_ efektów i _Odmów_ przy użyciu dostawcy zasobów `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceopaconstraint-evaluation"></a>Ocena EnforceOPAConstraint
 
@@ -430,8 +430,8 @@ Przykład: strażnik v3 reguła kontroli w celu ustawienia limitów zasobów pro
 
 Ten efekt jest używany z _trybem_ definicji zasad `Microsoft.ContainerService.Data` . Służy do przekazywania reguł kontroli wpływu strażnika v2 zdefiniowanych za pomocą [rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) , aby [otworzyć agenta zasad](https://www.openpolicyagent.org/) (Nieprzez) w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Azure Policy dla Kubernetes](./policy-for-kubernetes.md) jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej z efektem **EnforceRegoPolicy** i pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć trybu _inspekcji_ efektów i _Odmów_ przy użyciu dostawcy zasobów `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> Definicje zasad z ograniczeniami w wersji zapoznawczej z efektem **EnforceRegoPolicy** i pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć trybu _inspekcji_ efektów i _Odmów_ przy użyciu dostawcy zasobów `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceregopolicy-evaluation"></a>Ocena EnforceRegoPolicy
 

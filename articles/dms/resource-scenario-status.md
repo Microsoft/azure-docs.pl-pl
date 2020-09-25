@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 4e6f8a115e996ac6862f2fb04e5050b94f9f823b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 77c54d6ea463b5a8a4952d243886b80f38312d27
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132744"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291490"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Stan scenariuszy migracji obsługiwanych przez Azure Database Migration Service
 
@@ -45,7 +45,7 @@ W poniższych tabelach przedstawiono, które scenariusze migracji są obsługiwa
 
 W poniższej tabeli przedstawiono Azure Database Migration Service obsługi migracji w trybie offline.
 
-| Środowisko docelowe  | Element źródłowy | Pomoc techniczna | Stan |
+| Cel  | Element źródłowy | Pomoc techniczna | Stan |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | Ogólna dostępność |
 |   | SQL RDS | X |  |
@@ -67,7 +67,7 @@ W poniższej tabeli przedstawiono Azure Database Migration Service obsługi migr
 
 W poniższej tabeli przedstawiono Azure Database Migration Service obsługi migracji w trybie online.
 
-| Środowisko docelowe  | Element źródłowy | Pomoc techniczna | Stan |
+| Cel  | Element źródłowy | Pomoc techniczna | Stan |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | Ogólna dostępność |
 |   | SQL RDS | ✔ | Ogólna dostępność |

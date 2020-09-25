@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: bc55ab2697d8278bd975f618d17804499ba0128d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 310a7578fe9d3af8c4600968178cb677658feaa6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982063"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254333"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalowanie i uruchamianie kontenerów odczytu (wersja zapoznawcza)
 
@@ -40,7 +40,7 @@ Przed użyciem kontenerów należy spełnić następujące wymagania wstępne:
 
 ## <a name="request-approval-to-run-the-container"></a>Żądaj zatwierdzenia do uruchomienia kontenera
 
-Wypełnij i prześlij [formularz żądania](https://aka.ms/cognitivegate) , aby zażądać zatwierdzenia do uruchomienia kontenera. 
+Wypełnij i prześlij [formularz żądania](https://aka.ms/csgate) , aby zażądać zatwierdzenia do uruchomienia kontenera. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -345,7 +345,7 @@ Aby synchronicznie odczytywać obraz, można użyć następującej operacji.
 
 # <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
 
-`POST /vision/v3.0/read/SyncAnalyze`
+`POST /vision/v3.0/read/syncAnalyze`
 
 ---
 

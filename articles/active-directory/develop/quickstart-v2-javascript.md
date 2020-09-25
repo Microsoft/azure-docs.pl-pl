@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: ed94b44972ffc8c53ce96c0240f11ad44535531b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.openlocfilehash: b6e3e0c1ecf9ce3a9d86f6b03c3ad3efc5676b5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257932"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA
 
@@ -268,7 +268,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Istnieją sytuacje, w których należy wymusić, aby użytkownicy mogli korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Przykład:
+Istnieją sytuacje, w których należy wymusić, aby użytkownicy mogli korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Na przykład:
 * Może być konieczne ponowne wprowadzenie poświadczeń przez użytkowników, ponieważ ich hasło wygasło.
 * Aplikacja żąda dostępu do dodatkowych zakresów zasobów, do których użytkownik musi wyrazić zgodę.
 * Wymagane jest uwierzytelnianie dwuskładnikowe.

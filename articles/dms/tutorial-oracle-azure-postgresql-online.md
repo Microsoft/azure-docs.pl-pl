@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: 37bf610d1ecc6a05e8dd142ff3d72dd9ed72e51f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5047e4e63f71c482cd1bcc98152ae35e10e94b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087768"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291643"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Samouczek: Migrowanie bazy danych Oracle do Azure Database for PostgreSQL online przy użyciu usługi DMS (wersja zapoznawcza)
 

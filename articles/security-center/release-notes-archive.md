@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 2012f590aa833bea1b49955958095917a6479665
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 09b23e9951c6da597b82d2e012a57f2c93410a5d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438572"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289807"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -76,7 +76,7 @@ Ochrona Security Center obejmuje:
 - **Zalecenia dotyczące zabezpieczeń** — zalecenia z możliwością podejmowania działań, które ułatwiają zgodność z najlepszymi rozwiązaniami w zakresie zabezpieczeń dla AKS. Te zalecenia są zawarte w zabezpieczonym wyniku, aby upewnić się, że są one widoczne jako część stan zabezpieczeń organizacji. Przykładem zalecenia powiązanego z AKSem jest "kontrola dostępu oparta na rolach powinna być używana do ograniczania dostępu do klastra usługi Kubernetes Service".
 - **Ochrona przed zagrożeniami** — dzięki ciągłej analizie wdrożenia AKS Security Center ostrzega o zagrożeniach i złośliwych działaniach wykrytych na poziomie klastra hosta i AKS.
 
-Dowiedz się więcej o [integracji usług Azure Kubernetes Services z usługą Security Center](azure-kubernetes-service-integration.md).
+Dowiedz się więcej o [integracji usług Azure Kubernetes Services z usługą Security Center](defender-for-kubernetes-introduction.md).
 
 Dowiedz się więcej o [funkcjach zabezpieczeń kontenera w Security Center](container-security.md).
 

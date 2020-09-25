@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 5eaf107861d20cea395209418c343d25461b3836
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 6dffe2c6145e1596d92335defdc764c3c7bc3fa0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469936"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264375"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostycznego dla aplikacji w Azure App Service
 ## <a name="overview"></a>Omówienie
@@ -62,10 +62,10 @@ Wybierz **poziom**lub poziom szczegółów do zarejestrowania. W poniższej tabe
 
 | Poziom | Uwzględnione kategorie |
 |-|-|
-|**Disabled** | Brak |
+|**Wyłączone** | Brak |
 |**Błąd** | Błąd, krytyczny |
 |**Ostrzeżenie** | Ostrzeżenie, błąd, krytyczny|
-|**Informacje** | Informacje, ostrzeżenie, błąd, krytyczne|
+|**Informacyjny** | Informacje, ostrzeżenie, błąd, krytyczne|
 |**Pełne** | Trace, Debug, info, Warning, Error, krytyczny (wszystkie kategorie) |
 
 Po zakończeniu wybierz pozycję **Zapisz**.
@@ -185,16 +185,16 @@ Przy użyciu nowej [integracji Azure monitor](https://aka.ms/appsvcblog-azmon)mo
 
 W poniższej tabeli przedstawiono obsługiwane typy i opisy dzienników: 
 
-| Typ dziennika | Obsługa systemu Windows | Obsługa systemu Linux (Docker) | Opis |
-|-|-|-|
-| AppServiceConsoleLogs | TBA | Tak | Standardowe wyjście i standardowy błąd |
-| AppServiceHTTPLogs | Tak | Tak | Dzienniki serwera sieci Web |
-| AppServiceEnvironmentPlatformLogs | Tak | Tak | App Service Environment: skalowanie, zmiany konfiguracji i dzienniki stanu|
-| AppServiceAuditLogs | Tak | Tak | Działanie logowania za pośrednictwem protokołu FTP i kudu |
-| AppServiceFileAuditLogs | Tak | TBD | Zmiany plików wprowadzone do zawartości witryny; dostępne tylko dla warstwy Premium i wyższych |
-| AppServiceAppLogs | TBA | Java SE & Tomcat | Dzienniki aplikacji |
-| AppServiceIPSecAuditLogs  | Tak | Tak | Żądania z reguł adresów IP |
-| AppServicePlatformLogs  | TBA | Tak | Dzienniki kontenerów |
+| Typ dziennika | Windows | Kontener systemu Windows | Linux | Kontener systemu Linux | Opis |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | TBA | TBA | Tak | Tak | Standardowe wyjście i standardowy błąd |
+| AppServiceHTTPLogs | Tak | TBA | Tak | Tak | Dzienniki serwera sieci Web |
+| AppServiceEnvironmentPlatformLogs | Tak | Nie dotyczy | Tak | Tak | App Service Environment: skalowanie, zmiany konfiguracji i dzienniki stanu|
+| AppServiceAuditLogs | Tak | TBA | Tak | Tak | Działanie logowania za pośrednictwem protokołu FTP i kudu |
+| AppServiceFileAuditLogs | Tak | TBA | TBA | TBA | Zmiany plików wprowadzone do zawartości witryny; dostępne tylko dla warstwy Premium i wyższych |
+| AppServiceAppLogs | ASP .NET | TBA | Java SE & Tomcat | Java SE & Tomcat | Dzienniki aplikacji |
+| AppServiceIPSecAuditLogs  | Tak | TBA | Tak | Tak | Żądania z reguł adresów IP |
+| AppServicePlatformLogs  | TBA | TBA | Tak | Tak | Dzienniki operacji kontenera |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Następne kroki
 * [Wysyłanie zapytań do dzienników przy użyciu Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

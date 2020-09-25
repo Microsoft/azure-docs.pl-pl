@@ -10,21 +10,21 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9db7f2016de01edbedfa9e7d7254561fea957d2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 33e1ebc2269ef1db6bb0646f845b09be1a01c724
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495305"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289059"
 ---
 # <a name="use-t-sql-loops-in-synapse-sql"></a>Używanie pętli T-SQL w programie SQL Synapse
 Ten artykuł zawiera istotne porady dotyczące korzystania z pętli T-SQL, zastępowania kursorów i tworzenia powiązanych rozwiązań z pulą SQL w Synapse SQL.
 
 ## <a name="purpose-of-while-loops"></a>Przeznaczenie pętli WHILE
 
-Synapse SQL obsługuje pętlę [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) do wielokrotnego wykonywania bloków instrukcji. Ta Pętla WHILE działa tak długo, jak określone warunki są prawdziwe lub do momentu, aż kod zakończy pętlę przy użyciu słowa kluczowego BREAK. 
+Synapse SQL obsługuje pętlę [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15&preserve-view=true) do wielokrotnego wykonywania bloków instrukcji. Ta Pętla WHILE działa tak długo, jak określone warunki są prawdziwe lub do momentu, aż kod zakończy pętlę przy użyciu słowa kluczowego BREAK. 
 
-Pętle w puli SQL są przydatne do zastępowania kursorów zdefiniowanych w kodzie SQL. Na szczęście prawie wszystkie kursory, które są zapisywane w kodzie SQL, są do przodu, tylko do odczytu. Tak więc pętle [WHILE] są świetną alternatywą dla zastępowania kursorów.
+Pętle w puli SQL są przydatne do zastępowania kursorów zdefiniowanych w kodzie SQL. Na szczęście prawie wszystkie kursory, które są zapisywane w kodzie SQL, są do przodu, tylko do odczytu. Tak więc, podczas gdy pętle są świetną alternatywą dla zastępowania kursorów.
 
 ## <a name="replace-cursors-in-sql-pool"></a>Zastąp kursory w puli SQL
 

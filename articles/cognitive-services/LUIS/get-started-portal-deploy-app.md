@@ -1,14 +1,16 @@
 ---
 title: 'Szybki Start: wdrażanie aplikacji za pomocą portalu LUIS'
 description: W tym przewodniku szybki start pokazano, jak wdrożyć aplikację, tworząc zasób punktu końcowego przewidywania, przypisując zasób, szkolenie i publikację aplikacji.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 3d12fa2956f962fe7a05b9639c1d32a7069635f9
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 6126c6e37ad43ed6456b224d043dc6695fa2d00e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336376"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298417"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Szybki Start: wdrażanie aplikacji w portalu LUIS
 
@@ -112,7 +114,7 @@ Aby wyświetlić ten sam poziom informacji w okienku testów, należy opublikowa
 
 [![Porównanie obecnie edytowanej i opublikowanej wersji aplikacji](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym przewodnikiem Szybki Start wybierz pozycję **Moje aplikacje** w górnym menu nawigacji. Zaznacz pole wyboru aplikacji z listy, a następnie wybierz pozycję **Usuń** z paska narzędzi kontekstowego nad listą.
 

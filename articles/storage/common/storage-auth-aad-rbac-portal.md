@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 21120239c44dbdd812dfb3d3208990db4372ec29
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7c463beb7874e0b66e2a45a1675484f19c4fab34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249669"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Użyj Azure Portal, aby przypisać rolę platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek
 
@@ -59,16 +59,16 @@ Pokazana tutaj procedura przypisuje rolę w zakresie kontenera, ale można wykon
 1. Znajdź kontener, do którego chcesz przypisać rolę, i Wyświetl ustawienia kontenera.
 1. Wybierz pozycję **Kontrola dostępu (IAM)** , aby wyświetlić ustawienia kontroli dostępu dla kontenera. Wybierz kartę **przypisania ról** , aby wyświetlić listę przypisań ról.
 
-    ![Zrzut ekranu przedstawiający ustawienia kontroli dostępu do kontenera](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/portal-access-control-container.png" alt-text="Zrzut ekranu przedstawiający ustawienia kontroli dostępu do kontenera":::
 
 1. Kliknij przycisk **Dodaj przypisanie roli** , aby dodać nową rolę.
 1. W oknie **Dodawanie przypisania roli** wybierz rolę usługi Azure Storage, którą chcesz przypisać. Następnie wyszukaj w celu zlokalizowania podmiotu zabezpieczeń, do którego chcesz przypisać tę rolę.
 
-    ![Zrzut ekranu przedstawiający sposób przypisywania roli platformy Azure](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Zrzut ekranu przedstawiający sposób przypisywania roli platformy Azure":::
 
 1. Kliknij pozycję **Zapisz**. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji przedstawiono, że dodany użytkownik ma teraz uprawnienia do odczytu danych w kontenerze o nazwie *Sample-Container*.
 
-    ![Zrzut ekranu przedstawiający listę użytkowników przypisanych do roli](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Zrzut ekranu przedstawiający listę użytkowników przypisanych do roli":::
 
 Możesz wykonać podobne kroki, aby przypisać rolę do zakresu konta magazynu, grupy zasobów lub subskrypcji.
 

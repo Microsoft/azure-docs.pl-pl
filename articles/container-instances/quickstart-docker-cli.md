@@ -3,13 +3,13 @@ title: Szybki Start — wdrażanie kontenera platformy Docker do wystąpienia ko
 description: W tym przewodniku szybki start użyjemy interfejsu wiersza polecenia platformy Docker, aby szybko wdrożyć aplikację sieci Web, która działa w izolowanym wystąpieniu kontenera platformy Azure
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 37a6c430055e440d149b9a793c453251787267d4
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.custom: devx-track-js
+ms.openlocfilehash: 9904fb8c2142816196a1939a16445318bdb245d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90709701"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262318"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-docker-cli"></a>Szybki Start: Wdrażanie wystąpienia kontenera na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Docker
 

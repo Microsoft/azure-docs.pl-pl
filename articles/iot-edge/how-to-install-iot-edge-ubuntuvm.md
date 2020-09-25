@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e70b22b3edaae96e00306d5d0a93d229e11aac41
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95fd10ab7de4885d3630b5defe4080fe0203b62f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494081"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296981"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Uruchom Azure IoT Edge na Ubuntu Virtual Machines
 
@@ -71,7 +71,7 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
     > [!div class="mx-imgBorder"]
     > [![Zrzut ekranu przedstawiający nazwę DNS maszyny wirtualnej iotedge](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
-1. Aby SSH do tej maszyny wirtualnej po zakończeniu instalacji, należy użyć skojarzonej **nazwy DNS** z poleceniem:`ssh <adminUsername>@<DNS_Name>`
+1. Aby SSH do tej maszyny wirtualnej po zakończeniu instalacji, należy użyć skojarzonej **nazwy DNS** z poleceniem:  `ssh <adminUsername>@<DNS_Name>`
 
 ## <a name="deploy-from-azure-cli"></a>Wdrażanie z poziomu interfejsu wiersza polecenia platformy Azure
 
@@ -117,7 +117,7 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
    --parameters authenticationType='password' \
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
@@ -134,7 +134,7 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
     --template-uri "https://aka.ms/iotedge-vm-deploy" \
     --parameters dnsLabelPrefix='my-edge-vm1' \
     --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-    --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
     ```
@@ -157,7 +157,7 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
     > [!div class="mx-imgBorder"]
     > [![Zrzut ekranu przedstawiający nazwę DNS maszyny wirtualnej iotedge](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
-1. Aby SSH do tej maszyny wirtualnej po zakończeniu instalacji, należy użyć skojarzonej **nazwy DNS** z poleceniem:`ssh <adminUsername>@<DNS_Name>`
+1. Aby SSH do tej maszyny wirtualnej po zakończeniu instalacji, należy użyć skojarzonej **nazwy DNS** z poleceniem:  `ssh <adminUsername>@<DNS_Name>`
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,14 +1,14 @@
 ---
 title: Zabezpieczenia sieci dla Azure Relay
-description: W tym artykule opisano sposób konfigurowania dostępu z prywatnych punktów końcowych
+description: W tym artykule opisano sposób używania reguł zapory IP i prywatnych punktów końcowych z Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: bf49eff29385b5b72639420416df87b9187845e8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3aa3ffd119f65ec5181b0c382472cc4ef3c8bac4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532989"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263729"
 ---
 # <a name="network-security-for-azure-relay"></a>Zabezpieczenia sieci dla Azure Relay 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Relay: 

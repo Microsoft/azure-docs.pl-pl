@@ -3,12 +3,12 @@ title: Usuwanie magazynu Microsoft Azure Recovery Services
 description: W tym artykule dowiesz się, jak usunąć zależności, a następnie usunąć Magazyn Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: c0b75d147abba45a745f811de5e4b8ac45088bd8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fd941db933d243b83c1c19c7ae0fdfc2d7869b8a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826739"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293071"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Usuwanie magazynu Recovery Services Azure Backup
 
@@ -123,7 +123,7 @@ Po zakończeniu tego procesu można usunąć elementy kopii zapasowej z konsoli 
 >Jeśli maszyna źródłowa została usunięta lub utracona bez zatrzymywania kopii zapasowej, następna zaplanowana kopia zapasowa zakończy się niepowodzeniem. Stary punkt odzyskiwania wygasa zgodnie z zasadami, ale ostatni pojedynczy punkt odzyskiwania jest zawsze zachowywany do momentu zatrzymania wykonywania kopii zapasowej i usunięcia danych. Można to zrobić, wykonując kroki opisane w [tej sekcji](#delete-protected-items-on-premises).
 
 1. Otwórz konsolę zarządzania MARS, przejdź do okienka **Akcje** , a następnie wybierz pozycję **Zaplanuj kopię zapasową**.
-2. Na stronie **Modyfikuj lub Zatrzymaj zaplanowaną kopię zapasową** wybierz pozycję **Zatrzymaj korzystanie z tego harmonogramu kopii zapasowych i Usuń wszystkie przechowywane kopie zapasowe**. Następnie wybierz przycisk **dalej**.
+2. Na stronie **Modyfikuj lub Zatrzymaj zaplanowaną kopię zapasową** wybierz pozycję **Zatrzymaj korzystanie z tego harmonogramu kopii zapasowych i Usuń wszystkie przechowywane kopie zapasowe**. Następnie wybierz pozycję **Dalej**.
 
     ![Zmodyfikuj lub Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 
@@ -331,7 +331,7 @@ Aby usunąć istniejący magazyn Recovery Services, wykonaj następujące czynno
                        [--yes]
     ```
 
-    Aby uzyskać więcej informacji, zobacz ten [artykuł](/cli/azure/backup/vault?view=azure-cli-latest)
+    Aby uzyskać więcej informacji, zobacz ten [artykuł](/cli/azure/backup/vault)
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Usuwanie magazynu Recovery Services przy użyciu Azure Resource Manager
 

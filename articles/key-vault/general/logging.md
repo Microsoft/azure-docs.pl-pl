@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0364495d751465f644686824758992d47f0b8bdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485459"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290657"
 ---
 # <a name="azure-key-vault-logging"></a>Funkcja rejestrowania usługi Azure Key Vault
 
@@ -133,6 +133,7 @@ Co jest rejestrowane:
   * Tworzenie, modyfikowanie lub usuwanie tych kluczy lub wpisów tajnych.
   * Podpisywanie, weryfikowanie, szyfrowanie, odszyfrowywanie, zawijanie i depakowanie kluczy, pobieranie wpisów tajnych i wyświetlanie listy kluczy i wpisów tajnych (oraz ich wersji).
 * Nieuwierzytelnione żądania, które powodują uzyskanie odpowiedzi 401. Przykłady to żądania, które nie mają tokenu okaziciela, które są źle sformułowane lub wygasłe lub które mają nieprawidłowy token.  
+* Event Grid zdarzenia powiadomień o zbliżającym się wygaśnięciu, wygaśnięciu i zmianie zasad dostępu do magazynu (nowe zdarzenie wersji nie jest rejestrowane). Zdarzenia są rejestrowane niezależnie od tego, czy utworzono subskrypcję zdarzeń w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [schemat zdarzeń Event Grid dla Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
 
 ## <a name="enable-logging-using-azure-cli"></a>Włączanie rejestrowania przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -190,7 +191,7 @@ Wartości daty i godziny używają czasu UTC.
 
 Ponieważ do zbierania dzienników dla wielu zasobów można użyć tego samego konta magazynu, pełny identyfikator zasobu w nazwie obiektu BLOB jest przydatny do uzyskiwania dostępu do obiektów blob, które są potrzebne. Jednak zanim do tego przejdziemy, najpierw zostanie omówiony sposób pobierania wszystkich obiektów blob.
 
-Utwórz folder, aby pobrać obiekty blob. Przykład:
+Utwórz folder, aby pobrać obiekty blob. Na przykład:
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -210,7 +211,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 Po uruchomieniu drugiego polecenia **/** ogranicznik w nazwach obiektów BLOB tworzy pełną strukturę folderów w folderze docelowym. Ta struktura będzie używana do pobierania i przechowywania obiektów BLOB jako plików.
 
-Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Przykład:
+Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Na przykład:
 
 * Jeśli masz wiele magazynów kluczy i chcesz pobrać dzienniki dla tylko jednego magazynu kluczy o nazwie CONTOSOKEYVAULT3:
 
@@ -281,13 +282,15 @@ W poniższej tabeli wymieniono nazwy pól i opisy:
 | **Identity** |Tożsamość z tokenu, która została przedstawiona w żądaniu interfejsu API REST. Zwykle jest to "użytkownik", "Nazwa główna usługi" lub kombinacja "użytkownik + appId", jak w przypadku żądania, które wynika z Azure PowerShell polecenia cmdlet. |
 | **aœciwoœci** |Informacje, które różnią się w zależności od operacji (**OperationName**). W większości przypadków to pole zawiera informacje o kliencie (ciąg agenta użytkownika przekazaną przez klienta), dokładny identyfikator URI żądania interfejsu API REST i kod stanu HTTP. Ponadto, gdy obiekt jest zwracany w wyniku żądania (na przykład **Create** lub **VaultGet**), zawiera również identyfikator URI klucza (AS `id` ), identyfikator URI magazynu lub identyfikator URI wpisu tajnego. |
 
-Wartości pola **OperationName** są w formacie *ObjectVerb* . Przykład:
+Wartości pola **OperationName** są w formacie *ObjectVerb* . Na przykład:
 
 * Wszystkie operacje magazynu kluczy mają `Vault<action>` Format, taki jak `VaultGet` i `VaultCreate` .
 * Wszystkie operacje na kluczach mają `Key<action>` Format, taki jak `KeySign` i `KeyList` .
 * Wszystkie operacje tajne mają `Secret<action>` Format, taki jak `SecretGet` i `SecretListVersions` .
 
 W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecenia interfejsu API REST:
+
+### <a name="operation-names-table"></a>Tabela nazw operacji
 
 | operationName | Polecenie interfejsu API REST |
 | --- | --- |
@@ -318,6 +321,13 @@ W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecen
 | **SecretDelete** |[Usuń klucz tajny](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[Utwórz listę kluczy tajnych w magazynie](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Utwórz listę wersji klucza tajnego](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultAccessPolicyChangedEventGridNotification** | Opublikowano zdarzenie zmiany zasad dostępu do magazynu |
+| **SecretNearExpiryEventGridNotification** |Opublikowano wpis tajny po bliskim wygaśnięciu zdarzenia |
+| **SecretExpiredEventGridNotification** |Opublikowano wydarzenie wygasłe dla wpisu tajnego |
+| **KeyNearExpiryEventGridNotification** |Opublikowano wydarzenie bliskie wygaśnięcia |
+| **KeyExpiredEventGridNotification** |Opublikowano wygasłe zdarzenie klucza |
+| **CertificateNearExpiryEventGridNotification** |Opublikowano wydarzenie bliskie wygaśnięcia certyfikatu |
+| **CertificateExpiredEventGridNotification** |Opublikowano zdarzenie wygasłe certyfikatu |
 
 ## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Korzystanie z dzienników Azure Monitor
 

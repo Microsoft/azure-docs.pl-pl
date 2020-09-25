@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5953e5d5f6bc50c913c3e92aa92775c34c0fd170
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512338"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257456"
 ---
 # <a name="protected-web-api-code-configuration"></a>Chroniony internetowy interfejs API: Konfiguracja kodu
 
@@ -111,6 +111,12 @@ Jeśli zaakceptujesz identyfikator URI aplikacji proponowany przez portal rejest
 
 Gdy aplikacja jest wywoływana w ramach akcji kontrolera, która zawiera atrybut **[autoryzuje]** , ASP.NET i ASP.NET Core Wyodrębnij token dostępu z tokenu okaziciela nagłówka autoryzacji. Token dostępu jest następnie przekazywany do oprogramowania pośredniczącego JwtBearer, które wywołuje rozszerzenia Microsoft IdentityModel dla platformy .NET.
 
+#### <a name="microsoftidentityweb"></a>Microsoft. Identity. Web
+
+Firma Microsoft zaleca używanie pakietu NuGet [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) podczas tworzenia internetowego interfejsu API z ASP.NET Core.
+
+_Microsoft. Identity. Web_ oferuje klej między ASP.NET Core, oprogramowanie pośredniczące uwierzytelniania i [Biblioteka Microsoft Authentication Library (MSAL)](msal-overview.md) dla platformy .NET. Pozwala to na wyraźniejsze i bardziej niezawodne środowisko programistyczne oraz wykorzystuje możliwości platformy tożsamości firmy Microsoft i Azure AD B2C.
+
 #### <a name="using-microsoftidentityweb-templates"></a>Korzystanie z szablonów Microsoft. Identity. Web
 
 Interfejs API sieci Web można utworzyć od podstaw przy użyciu szablonów projektów Microsoft. Identity. Web. Aby uzyskać szczegółowe informacje, zobacz [szablon projektu interfejsu API sieci Web Microsoft. Identity. Web](https://aka.ms/ms-id-web/webapi-project-templates)
@@ -134,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Obecnie szablony ASP.NET Core tworzą interfejsy API sieci Web Azure Active Directory (Azure AD), które logują użytkowników w organizacji lub dowolnej organizacji. Użytkownicy nie logują się przy użyciu kont osobistych. Można jednak zmienić szablony, aby używać punktu końcowego platformy tożsamości firmy Microsoft przy użyciu [programu Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web), dostępnego jako pakiet NuGet, zastępując kod w *Startup.cs*:
+ Obecnie szablony ASP.NET Core tworzą interfejsy API sieci Web Azure Active Directory (Azure AD), które logują użytkowników w organizacji lub dowolnej organizacji. Użytkownicy nie logują się przy użyciu kont osobistych. Można jednak zmienić szablony, aby używać punktu końcowego platformy tożsamości firmy Microsoft przy użyciu [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) zastępując kod w *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;

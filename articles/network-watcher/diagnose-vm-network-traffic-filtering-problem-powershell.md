@@ -1,7 +1,7 @@
 ---
 title: 'Szybki Start: diagnozowanie problemu z filtrem ruchu sieciowego maszyny wirtualnej — Azure PowerShell'
 titleSuffix: Azure Network Watcher
-description: W tym przewodniku Szybki start zawarto informacje na temat sposobu diagnozowania problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej przy użyciu możliwości weryfikowania przepływu adresów IP w usłudze Azure Network Watcher.
+description: Dowiedz się, jak za pomocą Azure PowerShell zdiagnozować problem z filtrem ruchu sieciowego maszyny wirtualnej za pomocą funkcji weryfikacji przepływu IP w usłudze Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 6d1c41df638c092daf24938931c3526fb18ea3db
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b74987e225314112c84280e18af523bc5c3804a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074784"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296063"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Szybki start: diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej — Azure PowerShell
 

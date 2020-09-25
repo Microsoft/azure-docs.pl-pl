@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6796ac42a10d3b976b23f5af1418b1789011d61b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b71c78f484eef0fc4d9c34a2f218a177dbffa0a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257518"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Rejestracja aplikacji
 
@@ -33,7 +33,6 @@ Jeśli aplikacja klasyczna korzysta z uwierzytelniania interakcyjnego, użytkown
 ### <a name="audience-for-desktop-app-silent-flows"></a>Odbiorcy dla przepływów dyskretnych aplikacji klasycznych
 
 - Aby można było używać zintegrowanego uwierzytelniania systemu Windows lub nazwy użytkownika i hasła, aplikacja musi zalogować użytkowników w Twojej dzierżawie, na przykład jeśli jesteś deweloperem biznesowym (LOB). Lub, w Azure Active Directory organizacji, aplikacja musi zalogować użytkowników w Twojej dzierżawie, jeśli jest to scenariusz niezależnego dostawcy oprogramowania. Te przepływy uwierzytelniania nie są obsługiwane w przypadku kont osobistych firmy Microsoft.
-- Jeśli chcesz użyć przepływu kodu urządzenia, nie możesz jeszcze zalogować użytkowników przy użyciu kont osobistych firmy Microsoft.
 - Jeśli logujesz się do użytkowników przy użyciu tożsamości społecznościowych, które przechodzą przez Urząd i zasady firmy B2C (Business-to-Handle), możesz używać tylko uwierzytelniania interakcyjnego i nazwy użytkownika.
 
 ## <a name="redirect-uris"></a>Identyfikatory URI przekierowania
@@ -45,11 +44,14 @@ Identyfikatory URI przekierowania do użycia w aplikacji klasycznej zależą od 
   > [!IMPORTANT]
   > Dzisiaj MSAL.NET domyślnie używa innego identyfikatora URI przekierowania w aplikacjach klasycznych, które działają w systemie Windows ( `urn:ietf:wg:oauth:2.0:oob` ). W przyszłości będziemy chcieć zmienić to ustawienie domyślne, dlatego zalecamy korzystanie z programu `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 
-- W przypadku tworzenia natywnej aplikacji "cel-C" lub "Swift" dla usługi macOS należy zarejestrować identyfikator URI przekierowania na podstawie identyfikatora pakietu aplikacji w następującym formacie: msauth. <your.app.bundle.id>://auth. Zastąp <your.app.bundle.id> identyfikatorem pakietu aplikacji.
+- W przypadku tworzenia natywnej aplikacji "cel-C" lub "Swift" dla usługi macOS należy zarejestrować identyfikator URI przekierowania na podstawie identyfikatora pakietu aplikacji w następującym formacie: `msauth.<your.app.bundle.id>://auth` . Zastąp `<your.app.bundle.id>` identyfikatorem pakietu aplikacji.
 - Jeśli aplikacja używa tylko zintegrowanego uwierzytelniania systemu Windows lub nazwy użytkownika i hasła, nie trzeba rejestrować identyfikatora URI przekierowania dla aplikacji. Te przepływy umożliwiają przeprowadzenie rundy w punkcie końcowym Microsoft Identity platform v 2.0. Aplikacja nie zostanie wywołana ponownie na żadnym konkretnym identyfikatorze URI.
-- Aby rozróżnić przepływ kodu urządzenia, zintegrowane uwierzytelnianie systemu Windows oraz nazwę użytkownika i hasło z poufnego przepływu aplikacji klienta, który nie ma identyfikatorów URI przekierowania (przepływ poświadczeń klienta używany w aplikacjach demonów), należy się doświadczyć, że aplikacja jest publiczną aplikacją kliencką. Aby osiągnąć tę konfigurację, przejdź do sekcji **uwierzytelnianie** dla swojej aplikacji. W podsekcji **Ustawienia zaawansowane** w obszarze **domyślny typ klienta** wybierz pozycję **tak** dla **aplikacji Traktuj jako klienta publicznego**.
+- Aby rozróżnić [przepływ kodu urządzenia](scenario-desktop-acquire-token.md#device-code-flow), [zintegrowane uwierzytelnianie systemu Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)oraz [nazwę użytkownika i hasło](scenario-desktop-acquire-token.md#username-and-password) z poufnej aplikacji klienckiej przy użyciu przepływu poświadczeń klienta używanego w [aplikacjach demonów](scenario-daemon-overview.md), żadna z tych elementów nie wymaga identyfikatora URI przekierowania, należy ją skonfigurować jako publiczną aplikację klienta. Aby osiągnąć tę konfigurację:
 
-  ![Zezwalaj na klienta publicznego](media/scenarios/default-client-type.png)
+    1. W [Azure Portal](https://portal.azure.com)wybierz aplikację w **rejestracje aplikacji**, a następnie wybierz pozycję **uwierzytelnianie**.
+    1. W obszarze **Ustawienia zaawansowane**  >  **domyślny typ klienta**  >  **Traktuj aplikację jako klienta publicznego**, wybierz opcję **tak**.
+
+        :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Włącz publiczne ustawienie klienta w okienku uwierzytelnianie w Azure Portal":::
 
 ## <a name="api-permissions"></a>Uprawnienia aplikacji
 

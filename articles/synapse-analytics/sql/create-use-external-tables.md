@@ -1,6 +1,6 @@
 ---
 title: Tworzenie i używanie tabel zewnętrznych w programie SQL na żądanie (wersja zapoznawcza)
-description: W tej sekcji dowiesz się, jak tworzyć tabele zewnętrzne i korzystać z nich na żądanie SQL (wersja zapoznawcza). Tabele zewnętrzne są przydatne, gdy chcesz kontrolować dostęp do danych zewnętrznych w programie SQL na żądanie, a jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z SQL na żądanie.
+description: W tej sekcji dowiesz się, jak tworzyć tabele zewnętrzne i korzystać z nich na żądanie SQL (wersja zapoznawcza).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d830ee28eb1f5befc3ad778a6b82c291d1e49d02
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.reviewer: jrasnick
+ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289331"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Tworzenie i używanie tabel zewnętrznych w programie SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
 
@@ -132,4 +132,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać informacje na temat sposobu przechowywania wyników zapytania do magazynu, zapoznaj się z [wynikami zapytania Store do magazynu](../sql/create-external-table-as-select.md).
+Aby uzyskać informacje na temat sposobu przechowywania wyników zapytania do magazynu, zapoznaj się z [wynikami zapytania Store](../sql/create-external-table-as-select.md) w artykule magazyn.

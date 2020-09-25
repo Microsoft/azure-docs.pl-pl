@@ -11,12 +11,12 @@ ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d442c980ad5bbe3b56eae127b6e9eaeddf380a4e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 172e836a212f9ce097c2c4e392a7386a510c2c6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526854"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266296"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Azure AD Connect obsługiwane topologie i scenariusze aprowizacji w chmurze
 W tym artykule opisano różne topologie lokalne i Azure Active Directory (Azure AD) korzystające Azure AD Connect aprowizacji w chmurze. Ten artykuł zawiera tylko obsługiwane konfiguracje i scenariusze.
@@ -34,7 +34,7 @@ Poniżej znajduje się lista informacji, które należy wziąć pod uwagę podcz
 - Nie można zmienić atrybutu, który jest używany dla kotwicy źródłowej.
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Pojedynczy las, pojedyncza dzierżawa usługi Azure AD
-![Topologia jednego lasu i pojedynczej dzierżawy](media/plan-cloud-provisioning-topologies/single-forest.png)
+![Diagram przedstawiający topologię pojedynczego lasu i pojedynczej dzierżawy.](media/plan-cloud-provisioning-topologies/single-forest.png)
 
 Najprostsza topologia to pojedynczy las lokalny, z co najmniej jedną domeną i jedną dzierżawą usługi Azure AD.  Przykład tego scenariusza można znaleźć w [samouczku: pojedynczy las z jedną dzierżawą usługi Azure AD](tutorial-single-forest.md)
 
@@ -45,7 +45,7 @@ Najprostsza topologia to pojedynczy las lokalny, z co najmniej jedną domeną i 
 Wspólna topologia to wiele lasów usługi AD, z co najmniej jedną domeną i jedną dzierżawą usługi Azure AD.  
 
 ## <a name="existing-forest-with-azure-ad-connect-new-forest-with-cloud-provisioning"></a>Istniejący Las z Azure AD Connectm, nowym lasem z obsługą chmury
-![Topologia jednego lasu i pojedynczej dzierżawy](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
+![Diagram przedstawiający topologię istniejącego lasu i nowy las.](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
 
 Ten scenariusz jest podobny do scenariusza obejmującego wiele lasów, jednak ten element obejmuje istniejące środowisko Azure AD Connect, a następnie umieszcza je w nowym lesie przy użyciu Azure AD Connect aprowizacji w chmurze.  Aby zapoznać się z przykładem tego scenariusza, zobacz [Samouczek: istniejący Las z pojedynczą dzierżawą usługi Azure AD](tutorial-existing-forest.md)
 

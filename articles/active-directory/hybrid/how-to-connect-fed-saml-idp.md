@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c341235a646fff28a16d30d1bf010932b02cf19
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 2cd95d01c9b49bb6002c00c805dc82dcf30941e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660957"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295042"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Korzystanie z dostawcy tożsamości SAML 2.0 na potrzeby logowania jednokrotnego
 
@@ -306,7 +306,7 @@ Firma Microsoft udostępniła narzędzie, którego można użyć do przetestowan
 2.  Kliknij przycisk Zainstaluj teraz, aby rozpocząć pobieranie i Instalowanie narzędzia.
 3.  Wybierz pozycję "nie mogę skonfigurować Federacji z pakietem Office 365, platformą Azure ani innymi usługami korzystającymi z Azure Active Directory".
 4.  Po pobraniu i uruchomieniu narzędzia zostanie wyświetlone okno Diagnostyka łączności. Narzędzie przeprowadzi Cię przez testowanie połączenia federacyjnego.
-5.  Analizator łączności otworzy dostawcy tożsamości SAML 2,0, aby móc się zalogować, wprowadź poświadczenia dla podmiotu zabezpieczeń, które testujesz: ![ SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  Analizator łączności otworzy dostawcy tożsamości SAML 2,0, aby móc się zalogować, wprowadzić poświadczenia dla podmiotu zabezpieczeń, które są testowane: ![ zrzut ekranu przedstawiający okno logowania dla dostawcy tożsamości SAML 2,0.](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  W oknie logowania do testu Federacji należy wprowadzić nazwę konta i hasło dla dzierżawy usługi Azure AD skonfigurowanej do federacyjnego z dostawcą tożsamości SAML 2,0. Narzędzie podejmie próbę zalogowania się przy użyciu tych poświadczeń i szczegółowe wyniki testów wykonywanych podczas próby logowania będą przekazywane jako dane wyjściowe.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. To okno pokazuje wynik testu zakończony niepowodzeniem. Kliknięcie pozycji Przejrzyj szczegółowe wyniki spowoduje wyświetlenie informacji na temat wyników dla każdego wykonanego testu. Możesz również zapisać wyniki na dysku, aby je udostępnić.

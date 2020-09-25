@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efab031ac2ad96524ce12e6d1c4a942f01ce2344
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7e03ba5e7a4a24ee3114946230f78a64ea3d42cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299970"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265685"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Przeglądanie dostępu do grup i aplikacji w przeglądach dostępu do usługi Azure AD
 
@@ -37,7 +37,7 @@ Proces przeglądu dostępu można uruchomić z powiadomienia e-mail lub bezpośr
 
 1. Poszukaj wiadomości e-mail od firmy Microsoft z prośbą o przegląd dostępu. Oto przykładowa wiadomość e-mail, aby przejrzeć dostęp do grupy.
 
-    ![Przykładowa wiadomość e-mail od firmy Microsoft w celu przejrzenia dostępu do grupy](./media/perform-access-review/access-review-email.png)
+    ![Zrzut ekranu pokazujący przykładową wiadomość e-mail od firmy Microsoft w celu przejrzenia dostępu do grupy.](./media/perform-access-review/access-review-email.png)
 
 1. Kliknij link **Rozpocznij przegląd** , aby otworzyć przegląd dostępu.
 
@@ -54,7 +54,7 @@ Proces przeglądu dostępu można uruchomić z powiadomienia e-mail lub bezpośr
         > [!NOTE]
         > Jeśli kafelek **przeglądy dostępu** nie jest widoczny, nie ma żadnych przeglądów dostępu do wykonania dla tej organizacji, a w tej chwili nie jest wymagana żadna akcja.
 
-        ![Lista oczekujących przeglądów dostępu dla aplikacji i grup](./media/perform-access-review/access-reviews-list.png)
+        ![Zrzut ekranu pokazujący listę oczekujących przeglądów dostępu dla aplikacji i grup.](./media/perform-access-review/access-reviews-list.png)
 
     1. Kliknij link **Rozpocznij przegląd** , aby zapoznać się z przeglądem dostępu, który chcesz wykonać.
 
@@ -99,7 +99,7 @@ Aby ułatwić Ci przeglądy dostępu, możesz także zatwierdzić zaleceń, któ
 
 1. Na niebieskim pasku w dolnej części strony kliknij pozycję **Zaakceptuj zalecenia**.
 
-    ![Otwórz listę przeglądów dostępu z przyciskiem Zaakceptuj zalecenia](./media/perform-access-review/accept-recommendations.png)
+    ![Zrzut ekranu pokazujący otwartą listę przeglądów dostępu z wybranym przyciskiem "Akceptuj rekomendacje".](./media/perform-access-review/accept-recommendations.png)
 
     Zobaczysz podsumowanie zalecanych akcji.
 
@@ -126,7 +126,7 @@ Możesz przejść do nowego środowiska recenzenta przy użyciu zaktualizowanego
 
 3. Kliknij przycisk **Wypróbuj!** na banerze u góry strony. Spowoduje to przejście do nowego środowiska dostępu.
   
-### <a name="email"></a>E-mail
+### <a name="email"></a>Poczta e-mail
 
   >[!IMPORTANT]
 > W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dodaj azure-noreply@microsoft.com do listy bezpiecznych adresatów, aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.

@@ -3,12 +3,12 @@ title: Jak wykonywać zapytania dotyczące dzienników z Azure Monitor kontener�
 description: Azure Monitor dla kontenerów zbiera dane dotyczące metryk i dzienników, a w tym artykule opisano rekordy i zawiera przykładowe zapytania.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: f9b30f11ae6a2f64601b9595bfb1d45493209849
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 2f0e9848ffbf7584d75b5e994e49379186a69641
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569683"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254894"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla kontenerów
 
@@ -27,7 +27,7 @@ W poniższej tabeli przedstawiono szczegółowe informacje o rekordach zebranych
 | Spis węzłów części klastra Kubernetes | Interfejs API polecenia | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Zdarzenia Kubernetes | Interfejs API polecenia | `KubeEvents` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, komunikat, SourceSystem | 
 | Usługi w klastrze Kubernetes | Interfejs API polecenia | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Metryki wydajności dla węzłów części klastra Kubernetes | Metryki użycia są uzyskiwane z cAdvisor i limitów z interfejsu API polecenia | &#124; wydajności, gdzie ObjectName = = "K8SNode" | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Metryki wydajności dla węzłów części klastra Kubernetes | Metryki użycia są uzyskiwane z cAdvisor i limitów z interfejsu API polecenia | &#124; wydajności, gdzie ObjectName = = "K8SNode" | Computer, ObjectName, CounterName &#40;cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Metryki wydajności dotyczące kontenerów części klastra Kubernetes | Metryki użycia są uzyskiwane z cAdvisor i limitów z interfejsu API polecenia | &#124; wydajności, gdzie ObjectName = = "K8SContainer" | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Metryki niestandardowe ||`InsightsMetrics` | Komputer, nazwa, przestrzeń nazw, pochodzenie, SourceSystem, znaczniki<sup>1</sup>, TimeGenerated, typ, Va, _ResourceId | 
 

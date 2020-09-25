@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089755"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258153"
 ---
 # <a name="publisher-verification"></a>Weryfikacja wydawcy
 
@@ -33,9 +33,10 @@ Weryfikacja wydawcy zapewnia następujące korzyści:
 
 - **Ulepszona znakowanie**— wskaźnik "zweryfikowany" pojawia się na stronie [monitu o zgodę](application-consent-experience.md)usługi Azure AD, witrynie aplikacje dla przedsiębiorstw i dodatkowych powierzchniach środowiska użytkownika używanych przez użytkowników końcowych i administratorów. 
 
-- **Bezproblemowe wdrażanie w przedsiębiorstwie**— Administratorzy mogą konfigurować [zasady zgody użytkowników](../manage-apps/configure-user-consent.md), używając stanu weryfikacji wydawcy jako jednego z podstawowych kryteriów zasad. 
+- **Bezproblemowe wdrażanie w przedsiębiorstwie**— Administratorzy mogą konfigurować [zasady zgody użytkowników](../manage-apps/configure-user-consent.md), używając stanu weryfikacji wydawcy jako jednego z podstawowych kryteriów zasad.
 
-- **Ulepszona Ocena ryzyka**— wykrycia firmy Microsoft dla "ryzykownych" żądań zgody będą obejmować weryfikację wydawcy jako sygnał. 
+> [!NOTE]
+> Począwszy od listopada 2020, użytkownicy końcowi nie będą już mogli przyznawać zgody na większość nowo zarejestrowanych aplikacji wielodostępnych bez zweryfikowanych wydawców. Dotyczy to aplikacji, które są zarejestrowane po 8 listopada 2020, za pomocą protokołu OAuth 2.0 można zażądać uprawnień poza podstawową rejestracją i odczytać profil użytkownika, a następnie poprosić o zgodę użytkowników w różnych dzierżawców niż ta, w której jest zarejestrowana aplikacja. Na ekranie zgody zostanie wyświetlone ostrzeżenie z informacją o tym, że te aplikacje są ryzykowne i pochodzą z niezweryfikowanych wydawców.    
 
 ## <a name="requirements"></a>Wymagania
 Istnieje kilka wymagań wstępnych dotyczących weryfikacji wydawcy, z których część zostanie już ukończona przez wielu partnerów firmy Microsoft. Są to: 
@@ -69,7 +70,7 @@ Poniżej przedstawiono kilka często zadawanych pytań dotyczących programu wer
 
   Deweloperzy, którzy mają integrację z usługą Microsoft 365, mogą uzyskać dodatkowe korzyści z tych programów. Aby uzyskać więcej informacji, zobacz [zaświadczanie wydawcy Microsoft 365](/microsoft-365-app-certification/docs/attestation) i [certyfikat Microsoft 365 aplikacji](/microsoft-365-app-certification/docs/certification). 
 
-- **Czy ta funkcja jest taka sama jak Galeria aplikacji usługi Azure AD?** Nie — weryfikacja wydawcy to komplementarny, ale oddzielny program do [galerii aplikacji Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md). Deweloperzy, którzy spełniają powyższe kryteria, powinni zakończyć proces weryfikacji wydawcy niezależnie od udziału w tym programie. 
+- **Czy ta funkcja jest taka sama jak Galeria aplikacji usługi Azure AD?** Nie — weryfikacja wydawcy to komplementarny, ale oddzielny program do [galerii aplikacji Azure Active Directory](v2-howto-app-gallery-listing.md). Deweloperzy, którzy spełniają powyższe kryteria, powinni zakończyć proces weryfikacji wydawcy niezależnie od udziału w tym programie. 
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się [, jak oznaczyć aplikację jako zweryfikowaną przez wydawcę](mark-app-as-publisher-verified.md).

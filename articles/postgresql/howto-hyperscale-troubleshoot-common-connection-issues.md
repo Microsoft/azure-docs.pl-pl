@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 10/8/2019
-ms.openlocfilehash: a47a6e1860edcb9b2bf89c25e78f6a66e8a7cf4d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e1c6825820ae943d10157279dfe93922a7521b75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117716"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295621"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Rozwiązywanie problemów z połączeniami w celu Azure Database for PostgreSQL-Citus
 
@@ -27,7 +27,7 @@ Problemy z połączeniem mogą być spowodowane przez kilka rzeczy, takich jak:
 * Konserwacja usługi
 * Węzeł koordynatora przechodzi do trybu failover na nowym sprzęcie
 
-Ogólnie rzecz biorąc problemy z połączeniem do przeskalowania można podzielić na następujące:
+Ogólnie rzecz biorąc problemy z połączeniami ze skalą (Citus) można klasyfikować w następujący sposób:
 
 * Błędy przejściowe (krótko-lub sporadyczne)
 * Błędy trwałe lub nieprzejściowe (błędy, które regularnie powtarzają się)
@@ -36,7 +36,7 @@ Ogólnie rzecz biorąc problemy z połączeniem do przeskalowania można podziel
 
 Błędy przejściowe występują z kilku powodów. Najbardziej typową czynnością jest konserwacja systemu, błąd ze sprzętem lub oprogramowaniem, a także rdzeń wirtualny uaktualnienia węzłów koordynatora.
 
-Włączenie wysokiej dostępności dla węzłów grupy serwerów ze skalowaniem może wyeliminować te rodzaje problemów automatycznie. Jednak aplikacja powinna być nadal przygotowana, aby skrócić swoje połączenie. Ponadto inne zdarzenia mogą zająć więcej czasu, na przykład wtedy, gdy duża transakcja powoduje długotrwałe odzyskiwanie.
+Włączenie węzłów grupy serwerów o wysokiej dostępności (Citus) umożliwia automatyczne ograniczenie tego rodzaju problemów. Jednak aplikacja powinna być nadal przygotowana, aby skrócić swoje połączenie. Ponadto inne zdarzenia mogą zająć więcej czasu, na przykład wtedy, gdy duża transakcja powoduje długotrwałe odzyskiwanie.
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Kroki rozwiązywania przejściowych problemów z łącznością
 
@@ -49,13 +49,13 @@ Włączenie wysokiej dostępności dla węzłów grupy serwerów ze skalowaniem 
 
 Jeśli aplikacja trwale nie może nawiązać połączenia ze zbyt dużą skalą (Citus), najczęstsze przyczyny są błędnej konfiguracji zapory lub błędu użytkownika.
 
-* Konfiguracja zapory węzła koordynatora: Upewnij się, że Zapora serwera w ramach skalowania jest skonfigurowana tak, aby zezwalać na połączenia z klienta, w tym serwery proxy i bramy.
+* Konfiguracja zapory węzła koordynatora: Upewnij się, że Zapora serwera Citus jest skonfigurowana tak, aby zezwalać na połączenia z klienta, w tym serwery proxy i bramy.
 * Konfiguracja zapory klienta: Zapora na kliencie musi zezwalać na połączenia z serwerem bazy danych. Niektóre zapory wymagają zezwolenia nie tylko na aplikacje według nazwy, ale dopuszczają adresy IP i porty serwera.
 * Błąd użytkownika: podwójne sprawdzenie parametrów połączenia. Mogą istnieć niewpisane parametry, takie jak nazwa serwera. Parametry połączenia dla różnych platform języka i PSQL można znaleźć w Azure Portal. Przejdź do strony **Parametry połączenia** w grupie serwerów moja skala (Citus). Należy również pamiętać, że klastry ze skalowaniem (Citus) mają tylko jedną bazę danych i jej wstępnie zdefiniowaną nazwę to **Citus**.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kroki rozwiązywania problemów z łącznością trwałą
 
-1. Skonfiguruj [reguły zapory](howto-hyperscale-manage-firewall-using-portal.md) w taki sposób, aby zezwalały na adres IP klienta. Wyłącznie do celów testowania tymczasowego, należy skonfigurować regułę zapory przy użyciu adresu 0.0.0.0 jako początkowy adres IP i przy użyciu wartości 255.255.255.255 jako końcowego adresu IP. Ta zasada otwiera serwer do wszystkich adresów IP. Jeśli reguła rozwiązuje problem z łącznością, usuń ją i Utwórz regułę zapory dla odpowiednio ograniczonego adresu IP lub zakresu adresów.
+1. Skonfiguruj [reguły zapory](howto-hyperscale-manage-firewall-using-portal.md) w taki sposób, aby zezwalały na adres IP klienta. Wyłącznie do celów testowania tymczasowego, należy skonfigurować regułę zapory przy użyciu adresu 0.0.0.0 jako początkowy adres IP i przy użyciu wartości 255.255.255.255 jako końcowego adresu IP. Ta reguła otwiera serwer dla wszystkich adresów IP. Jeśli reguła rozwiązuje problem z łącznością, usuń ją i Utwórz regułę zapory dla odpowiednio ograniczonego adresu IP lub zakresu adresów.
 2. Na wszystkich zaporach między klientem a Internetem upewnij się, że port 5432 jest otwarty dla połączeń wychodzących.
 3. Sprawdź parametry połączenia i inne ustawienia połączenia.
 4. Sprawdź kondycję usługi na pulpicie nawigacyjnym.

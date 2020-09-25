@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f85430aea183cca977e3cb648cb43779f25c61a0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a5d5528865fc910751b8052dcc78a82131e17290
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657836"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266245"
 ---
 # <a name="what-is-identity-provisioning"></a>Co to jest aprowizacja tożsamości?
 
@@ -24,7 +24,7 @@ Obecnie małe i duże firmy w coraz większym stopniu korzystają zarówno z apl
 
 Inicjowanie obsługi jest procesem tworzenia obiektu na podstawie określonych warunków, utrzymywania aktualnego obiektu i usuwania obiektu, gdy warunki nie są już spełnione. Na przykład gdy nowy użytkownik zostanie przyłączony do organizacji, ten użytkownik jest wprowadzany do systemu kadr.  W tym momencie Inicjowanie obsługi może utworzyć odpowiednie konto użytkownika w chmurze, w Active Directory i różne aplikacje, do których użytkownik będzie potrzebował dostępu.  Dzięki temu użytkownik może uruchamiać pracę i mieć dostęp do aplikacji i systemów, których potrzebują, w ciągu jednego dnia. 
 
-![Inicjowanie obsługi chmury](media/what-is-provisioning/cloud1.png)
+![Diagram przedstawiający Inicjowanie obsługi chmury z Azure Active Directory.](media/what-is-provisioning/cloud1.png)
 
 W odniesieniu do Azure Active Directory Inicjowanie obsługi można podzielić na następujące kluczowe scenariusze.  
 
@@ -34,7 +34,7 @@ W odniesieniu do Azure Active Directory Inicjowanie obsługi można podzielić n
 
 ## <a name="hr-driven-provisioning"></a>Obsługa administracyjna oparta na HR
 
-![Inicjowanie obsługi chmury](media/what-is-provisioning/cloud2.png)
+![Diagram przedstawiający Inicjowanie obsługi przy użyciu usługi HR w chmurze, lokalne HR i Azure Active Directory.](media/what-is-provisioning/cloud2.png)
 
 Inicjowanie obsługi z poziomu usługi HR do chmury obejmuje tworzenie obiektów (użytkowników, ról, grup itp.) w oparciu o informacje znajdujące się w systemie kadr.  
 
@@ -48,7 +48,7 @@ Najbardziej typowym scenariuszem jest to, że w przypadku dołączenia nowego pr
 
 ## <a name="app-provisioning"></a>Inicjowanie obsługi aplikacji
 
-![Inicjowanie obsługi chmury](media/what-is-provisioning/cloud3.png)
+![Diagram przedstawiający Inicjowanie obsługi aplikacji za pomocą aplikacji lokalnych, aplikacji w chmurze innych niż firmy Microsoft i Azure Active Directory.](media/what-is-provisioning/cloud3.png)
 
 W Azure Active Directory (Azure AD) termin **[aprowizacji aplikacji](../app-provisioning/user-provisioning.md)** dotyczy automatycznego tworzenia tożsamości i ról użytkowników w aplikacjach w chmurze, do których użytkownicy potrzebują dostępu. Oprócz tworzenia tożsamości użytkowników automatyczne Inicjowanie obsługi obejmuje konserwację i usuwanie tożsamości użytkowników jako zmiany stanu lub ról. Typowe scenariusze obejmują Inicjowanie obsługi użytkownika usługi Azure AD w aplikacjach takich jak [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [usługi ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)i inne.
 

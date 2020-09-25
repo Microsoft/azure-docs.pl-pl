@@ -1,6 +1,6 @@
 ---
 title: Kopiowanie danych w Blob Storage przy użyciu Azure Data Factory
-description: Tworzenie fabryki danych platformy Azure w celu skopiowania danych między lokalizacjami w usłudze Azure Blob Storage.
+description: Utwórz fabrykę danych Azure przy użyciu programu PowerShell, aby skopiować dane z jednej lokalizacji w usłudze Azure Blob Storage do innej lokalizacji.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: ad757e3d65d3094ca6883d747404906a871ed850
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ebcab92c40705bf108d5839a7e67aee345c1bbc7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419344"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292391"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Szybki Start: Tworzenie fabryki danych Azure przy użyciu programu PowerShell
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Szybki start: Tworzenie fabryki danych platformy Azure przy użyciu programu PowerShell
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -166,7 +166,7 @@ Utwórz połączone usługi w fabryce danych w celu połączenia swoich magazyn�
 W tej procedurze tworzone są dwa zestawy danych: **InputDataset** i **OutputDataset**. Te zestawy danych są typu **Binary**. Odwołują się one do połączonej usługi Azure Storage utworzonej w poprzedniej sekcji.
 Wejściowy zestaw danych reprezentuje dane źródłowe w folderze wejściowym. W definicji wejściowego zestawu danych określany jest kontener obiektów blob (**adftutorial**), folder (**input**) i plik (**emp.txt**), który zawiera dane źródłowe.
 Wyjściowy zestaw danych reprezentuje dane, które są kopiowane do lokalizacji docelowej. W definicji wyjściowego zestawu danych określany jest kontener obiektów blob (**adftutorial**), folder (**output**) i plik, do którego kopiowane są dane. 
-1. Utwórz plik JSON o nazwie **InputDataset. JSON** w folderze **C:\ADFv2QuickStartPSH** o następującej zawartości:
+1. Utwórz plik JSON o nazwie **InputDataset.js** w folderze **C:\ADFv2QuickStartPSH** o następującej zawartości:
 
     ```json
     {
@@ -208,7 +208,7 @@ Wyjściowy zestaw danych reprezentuje dane, które są kopiowane do lokalizacji 
     Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
     ```
 
-3. Powtórz kroki, aby utworzyć wyjściowy zestaw danych. Utwórz plik JSON o nazwie **OutputDataset. JSON** w folderze **C:\ADFv2QuickStartPSH** o następującej zawartości:
+3. Powtórz kroki, aby utworzyć wyjściowy zestaw danych. Utwórz plik JSON o nazwie **OutputDataset.js** w folderze **C:\ADFv2QuickStartPSH** o następującej zawartości:
 
     ```json
     {

@@ -8,17 +8,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 3b18582cdb34708c379725d361d1fcc5e608ae38
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8459ab364fc0af15dd1a1b0035e4ce27d192f7a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462772"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293462"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Ciągłość działania i HADR Cluster SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

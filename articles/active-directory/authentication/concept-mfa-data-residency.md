@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e5d8dc60ee0a1f4742382b1cec8ef3ed60e8fb3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1b8673dd98ab66714c54720ea1d909a90e117c18
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970671"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266432"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Dane dotyczące miejsca zamieszkania i klienta dla Multi-Factor Authentication platformy Azure
 
@@ -28,7 +28,7 @@ Usługa Azure Multi-Factor Authentication obejmuje centra danych w Stanach Zjedn
 
 * Uwierzytelnianie wieloskładnikowe przy użyciu połączeń telefonicznych pochodzi z centrów danych USA i są kierowane przez dostawców globalnych.
 * Żądania uwierzytelniania użytkowników ogólnego przeznaczenia z innych regionów, takich jak Europa lub Australia, są obecnie przetwarzane na podstawie lokalizacji użytkownika.
-* Powiadomienia wypychane przy użyciu aplikacji Microsoft Authenticator pochodzą z regionalnych centrów danych opartych na lokalizacji użytkownika.
+* Powiadomienia wypychane przy użyciu aplikacji Microsoft Authenticator są obecnie przetwarzane w regionalnych centrach danych na podstawie lokalizacji użytkownika.
     * Usługi specyficzne dla dostawcy urządzenia, takie jak powiadomienia wypychane firmy Apple, mogą znajdować się poza lokalizacją użytkownika.
 
 ## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Dane osobowe przechowywane przez Multi-Factor Authentication platformy Azure

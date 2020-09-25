@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d5809d7475759450a513153abf641f7943163d98
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: be8e43585fca77fc891a9142066d406444b674d8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422219"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253238"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Jak modelować i partycjonować dane w usłudze Azure Cosmos DB przy użyciu przykładu wziętego z życia
 
@@ -323,7 +323,7 @@ function createComment(postId, comment) {
 Ta procedura składowana przyjmuje identyfikator wpisu i treść nowego komentarza jako parametry, a następnie:
 
 - Pobiera wpis
-- zwiększa wartość`commentCount`
+- zwiększa wartość `commentCount`
 - zastępuje wpis
 - dodaje nowy komentarz
 
@@ -365,7 +365,7 @@ Ta procedura składowana Pobiera identyfikator użytkownika i nową nazwę użyt
 
 - Pobiera wszystkie elementy pasujące do `userId` (które mogą być ogłoszeniami, komentarzami lub polubieniem)
 - dla każdego z tych elementów
-  - zastępuje`userUsername`
+  - zastępuje `userUsername`
   - zamienia element
 
 > [!IMPORTANT]
@@ -418,8 +418,8 @@ Mimo że pozostałe zapytanie nie jest filtrowane w kluczu partycji `posts` kont
 Sposób, w jaki można myśleć o tej sytuacji, jest w rzeczywistości prosty:
 
 1. To żądanie *musi* odfiltrować się, `userId` ponieważ chcemy pobrać wszystkie wpisy dla określonego użytkownika
-1. Nie działa prawidłowo, ponieważ jest wykonywane względem `posts` kontenera, który nie jest partycjonowany przez`userId`
-1. Mówiąc oczywisty, możemy rozwiązać problem z wydajnością, wykonując to żądanie w odniesieniu do kontenera, który *jest* partycjonowany przez`userId`
+1. Nie działa prawidłowo, ponieważ jest wykonywane względem `posts` kontenera, który nie jest partycjonowany przez `userId`
+1. Mówiąc oczywisty, możemy rozwiązać problem z wydajnością, wykonując to żądanie w odniesieniu do kontenera, który *jest* partycjonowany przez `userId`
 1. Spowoduje to wymuszenie takiego kontenera: `users` Container!
 
 Dlatego wprowadzamy drugi poziom denormalizacji przez duplikowanie całych wpisów do `users` kontenera. Dzięki temu będziemy efektywnie uzyskać kopię naszych wpisów, które są podzielone na partycje w różnych wymiarach, co sprawia, że są one wydajniejsze do pobrania `userId` .

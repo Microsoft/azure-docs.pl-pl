@@ -3,13 +3,13 @@ title: Przechowywanie i przechowywanie danych w usłudze Azure Application Insig
 description: Zasady przechowywania i zasad zachowania poufności informacji
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: a2440379c001c0213145c1c5972cfed8799f4966
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 2205ab1115a66092ae6dd6d75ee7004ab281eec7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90562795"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263916"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Zbieranie, przechowywanie i magazynowanie danych w usłudze Application Insights
 
@@ -220,7 +220,7 @@ Firma Microsoft nie zaleca jawnie ustawienia aplikacji do używania protokołu T
 | Windows Server 2012 — 2016 | Obsługiwane i domyślnie włączone. | Aby potwierdzić, że nadal używasz [ustawień domyślnych](/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 | Obsługiwane, ale nie włączone domyślnie. | Aby uzyskać szczegółowe informacje na temat włączania, zobacz stronę [Ustawienia rejestru Transport Layer Security (TLS)](/windows-server/security/tls/tls-registry-settings) .  |
 | Windows Server 2008 SP2 | Obsługa protokołu TLS 1,2 wymaga aktualizacji. | Zobacz [Aktualizacja, aby dodać obsługę protokołu TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) w systemie Windows Server 2008 z dodatkiem SP2. |
-|Windows Vista | Nieobsługiwane. | Brak
+|Windows Vista | Nieobsługiwane. | Nie dotyczy
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Sprawdź wersję OpenSSL, w której działa dystrybucja systemu Linux
 

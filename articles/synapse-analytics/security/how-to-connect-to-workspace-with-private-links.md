@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 17636bf993df5105093ca690e36db22493a2472e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea791e4fc1031c0a5c041119c409f8623ce7aee9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005977"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260380"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Nawiązywanie połączenia z obszarem roboczym usługi Azure Synapse za pomocą linków prywatnych (wersja zapoznawcza)
 
@@ -34,7 +34,7 @@ Wybierz pozycję **połączenie prywatne punktu końcowego** w obszarze **zabezp
 Na karcie **podstawy** w oknie **Tworzenie prywatnego punktu końcowego** wybierz swoją **subskrypcję** i **grupę zasobów**. Nadaj **nazwę** do prywatnego punktu końcowego, który chcesz utworzyć. Wybierz **region** , w którym ma zostać utworzony prywatny punkt końcowy.
 
 Prywatne punkty końcowe są tworzone w podsieci. Wybrana subskrypcja, Grupa zasobów i region odfiltruje podsieci prywatnych punktów końcowych. Wybierz pozycję **Dalej: zasób >** po zakończeniu.
-![Wybierz szczegóły subskrypcji i regionu](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
+![Wybierz szczegóły subskrypcji i regionu 1](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
 
 ## <a name="step-4-select-your-azure-synapse-workspace-details"></a>Krok 4. Wybierz szczegóły obszaru roboczego usługi Azure Synapse
 
@@ -43,17 +43,17 @@ Wybierz pozycję **Połącz z zasobem platformy Azure w moim katalogu** na karci
 Wybierz obszar roboczy usługi Azure Synapse jako **zasób**. Każdy obszar roboczy usługi Azure Synapse ma trzy **docelowe zasoby podrzędne** , do których można utworzyć prywatny punkt końcowy: SQL, SqlOnDemand i dev.
 
 Wybierz pozycję **Dalej: konfiguracja>** , aby przejść do następnej części Instalatora.
-![Wybierz szczegóły subskrypcji i regionu](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-3.png)
+![Wybierz szczegóły subskrypcji i regionu 2](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-3.png)
 
 Na karcie **Konfiguracja** wybierz **sieć wirtualną** i **podsieć** , w której ma zostać utworzony prywatny punkt końcowy. Należy również utworzyć rekord DNS, który jest mapowany na prywatny punkt końcowy.
 
 Wybierz opcję **tak** dla **integracji z prywatną strefą DNS** , aby zintegrować prywatny punkt końcowy z prywatną strefą DNS. Jeśli nie masz skojarzonej ze swoim Microsoft Azure Virtual Network prywatnej strefy DNS, zostanie utworzona nowa prywatna strefa DNS. Wybierz pozycję **Przegląd + Utwórz** po zakończeniu.
 
-![Wybierz szczegóły subskrypcji i regionu](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
+![Wybierz szczegóły subskrypcji i regionu 3](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 
 Po zakończeniu wdrażania Otwórz obszar roboczy usługi Azure Synapse w obszarze Azure Portal i wybierz pozycję **połączenia prywatne punktów końcowych**. Zostanie wyświetlony nowy prywatny punkt końcowy i nazwa połączenia prywatnego punktu końcowego skojarzone z prywatnym punktem końcowym.
 
-![Wybierz szczegóły subskrypcji i regionu](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-5.png)
+![Wybierz szczegóły subskrypcji i regionu 4](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-5.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

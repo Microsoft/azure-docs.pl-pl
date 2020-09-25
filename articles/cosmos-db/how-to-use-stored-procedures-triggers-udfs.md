@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: e21d74ca250061ec67d0d27477591da953a37cfa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: 3744029b72a12cee1543a17bf1dee67a080904c7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997119"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253058"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Jak rejestrować procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika oraz jak ich używać w usłudze Azure Cosmos DB
 
@@ -707,7 +707,7 @@ results = list(container.query_items(
     'query': 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Poznaj dodatkowe pojęcia i dowiedz się, jak pisać procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika w usłudze Azure Cosmos DB:
 

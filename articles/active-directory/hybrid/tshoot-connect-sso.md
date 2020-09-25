@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016269"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294822"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Rozwiązywanie problemów Azure Active Directory bezproblemowe logowanie jednokrotne
 
@@ -37,6 +37,7 @@ Ten artykuł ułatwia znalezienie informacji o rozwiązywaniu problemów dotycz�
 - W przypadku synchronizacji co najmniej 30 Active Directory lasów nie można włączyć bezproblemowego logowania jednokrotnego za pomocą Azure AD Connect. Aby obejść ten element, można [ręcznie włączyć](#manual-reset-of-the-feature) tę funkcję w dzierżawie.
 - Dodanie adresu URL usługi Azure AD ( `https://autologon.microsoftazuread-sso.com` ) do strefy Zaufane witryny zamiast lokalnej strefy intranetowej *uniemożliwia użytkownikom logowanie*się.
 - Bezproblemowe logowanie jednokrotne obsługuje typy szyfrowania AES256_HMAC_SHA1, AES128_HMAC_SHA1 i RC4_HMAC_MD5 dla protokołu Kerberos. Zaleca się, aby w celu zwiększenia bezpieczeństwa typ szyfrowania dla konta AzureADSSOAcc $ miał wartość AES256_HMAC_SHA1 lub jeden z typów AES a RC4. Typ szyfrowania jest przechowywany w atrybucie msDS-Supportedencryptiontypes konta konta w Active Directory.  Jeśli typ szyfrowania AzureADSSOAcc $ Account jest ustawiony na RC4_HMAC_MD5 i chcesz zmienić go na jeden z typów szyfrowania AES, upewnij się, że najpierw przeniesiesz klucz odszyfrowujący protokołu Kerberos konta AzureADSSOAcc $ zgodnie z opisem w [dokumencie często zadawane pytania](how-to-connect-sso-faq.md) , w przeciwnym razie bezproblemowe logowanie jednokrotne nie następuje.
+-  Jeśli masz więcej niż jeden las z zaufaniem lasu, włączenie logowania jednokrotnego w jednym z lasów spowoduje włączenie logowania jednokrotnego we wszystkich zaufanych lasach. Jeśli włączysz logowanie jednokrotne w lesie, w którym logowanie jednokrotne jest już włączone, zostanie wyświetlony komunikat o błędzie informujący o tym, że logowanie jednokrotne jest już włączone w lesie.
 
 ## <a name="check-status-of-feature"></a>Sprawdź stan funkcji
 

@@ -1,6 +1,6 @@
 ---
 title: Wystąpił problem podczas zapisywania poświadczeń administratora Konfigurowanie aplikacji w galerii usługi Azure AD
-description: Jak rozwiązywać typowe problemy związane z konfigurowaniem aprowizacji użytkowników w aplikacji już wymienionej w galerii aplikacji usługi Azure AD
+description: Dowiedz się, jak rozwiązywać problemy związane z zapisywaniem poświadczeń administratora podczas konfigurowania aprowizacji użytkowników w aplikacji Galerii Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 4f47954f3f4943846cab2dd9a38fd310abce3469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a3340e72499087dce7773264272601dfce8a50f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782249"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266786"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Wystąpił problem podczas zapisywania poświadczeń administratora podczas konfigurowania aprowizacji użytkowników w aplikacji Galerii Azure Active Directory 
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 6f5b6bfdb523a22fc4dd9593bfec556da7493aa9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c753e9a18f9869e1bf11aa437fb60484f2553e17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371196"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259258"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania LexisNexis z Azure Active Directory B2C
 
@@ -73,7 +73,7 @@ Po utworzeniu konta otrzymasz informacje potrzebne do konfiguracji interfejsu AP
 
 ### <a name="part-1---deploy-the-api"></a>Część 1 — wdrażanie interfejsu API
 
-Wdróż podany kod interfejsu API w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Aby skonfigurować usługę Azure AD przy użyciu wymaganych ustawień, należy podać adres URL wdrożonej usługi.
@@ -95,9 +95,9 @@ Ustawienia aplikacji można [skonfigurować w usłudze App Service na platformie
 
 To rozwiązanie używa niestandardowych szablonów interfejsu użytkownika, które są ładowane przez Azure AD B2C. Te szablony interfejsu użytkownika to profilowanie wysyłane bezpośrednio do usługi ThreatMetrix.
 
-Zapoznaj się z tymi [instrukcjami](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) , aby wdrożyć dołączone pliki interfejsu użytkownika na koncie magazynu obiektów BLOB. Instrukcje obejmują Konfigurowanie konta magazynu obiektów blob, Konfigurowanie mechanizmu CORS i Włączanie dostępu publicznego.
+Zapoznaj się z tymi [instrukcjami](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) , aby wdrożyć dołączone [pliki interfejsu użytkownika](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) na koncie magazynu obiektów BLOB. Instrukcje obejmują Konfigurowanie konta magazynu obiektów blob, Konfigurowanie mechanizmu CORS i Włączanie dostępu publicznego.
 
-Interfejs użytkownika jest oparty na szablonie niebieskiej strony ocean. Wszystkie linki w interfejsie użytkownika należy zaktualizować, aby odwoływać się do wdrożonej lokalizacji. W folderze UI Znajdź i Zamień na https://yourblobstorage/blobcontainer wdrożoną lokalizację.
+Interfejs użytkownika jest oparty na [niebieskim szablonie oceanu](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Wszystkie linki w interfejsie użytkownika należy zaktualizować, aby odwoływać się do wdrożonej lokalizacji. W folderze UI Znajdź i Zamień na https://yourblobstorage/blobcontainer wdrożoną lokalizację.
 
 ### <a name="part-4---create-api-policy-keys"></a>Część 4 — Tworzenie kluczy zasad interfejsu API
 
@@ -111,21 +111,21 @@ Przykładowe zasady używają tych nazw kluczy:
 
 ### <a name="part-5---update-the-api-url"></a>Część 5 — Aktualizowanie adresu URL interfejsu API
 
-W podanych zasadach TrustFrameworkExtensions Znajdź profil techniczny `Rest-LexisNexus-SessionQuery` i zaktualizuj `ServiceUrl` element metadanych przy użyciu lokalizacji wdrożonego powyżej interfejsu API.
+W podanych [zasadach TrustFrameworkExtensions](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml)Znajdź profil techniczny `Rest-LexisNexus-SessionQuery` i zaktualizuj `ServiceUrl` element metadanych przy użyciu lokalizacji wdrożonego powyżej interfejsu API.
 
 ### <a name="part-6---update-ui-url"></a>Część 6 — aktualizowanie adresu URL interfejsu użytkownika
 
-W podanych zasadach TrustFrameworkExtensions wykonaj Znajdź i Zamień, aby wyszukać https://yourblobstorage/blobcontainer/ lokalizację, w której są wdrażane pliki interfejsu użytkownika.
-
-### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Część 7 — Konfigurowanie zasad Azure AD B2C
-
-Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) , aby pobrać [pakiet startowy kont lokalnych](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) i skonfigurować zasady dla dzierżawy Azure AD B2C.
-
->[!NOTE]
->Aktualizowanie podanych zasad w celu odłożenia względem określonej dzierżawy.
+W podanych [zasadach TrustFrameworkExtensions](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml)wykonaj Znajdź i Zamień, aby wyszukać https://yourblobstorage/blobcontainer/ lokalizację, w której są WDRAŻANE pliki interfejsu użytkownika.
 
 >[!NOTE]
 > Najlepszym rozwiązaniem jest, aby klienci mogli dodać powiadomienie o zgodzie na stronie kolekcji atrybutów. Powiadom użytkowników, że informacje będą wysyłane do usług innych firm w celu weryfikacji tożsamości.
+
+### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Część 7 — Konfigurowanie zasad Azure AD B2C
+
+Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) , aby pobrać [pakiet startowy kont lokalnych](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) i skonfigurować [zasady](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) dla dzierżawy Azure AD B2C.
+
+>[!NOTE]
+>Aktualizowanie podanych zasad w celu odłożenia względem określonej dzierżawy.
 
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 

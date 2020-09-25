@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure p
 description: Ten artykuł zawiera omówienie ochrony programu DPM/Azure Backup serwera w farmie programu SharePoint na platformie Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: a667626fb53920150a4b5a16759228aacbfae75d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 7661d64e487c8b8badca240852d17bcf736ba8cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375248"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254435"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure przy użyciu programu DPM
 
@@ -18,7 +18,7 @@ Tworzenie kopii zapasowej programu SharePoint na platformie Azure przy użyciu p
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Obsługiwane wersje programu SharePoint i powiązane z nimi scenariusze ochrony
 
-Aby uzyskać listę obsługiwanych wersji programu SharePoint i wersji programu DPM wymaganych do wykonywania kopii zapasowych poszczególnych wersji programu SharePoint, zobacz artykuł [What can DPM back up?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019#applications-backup) (Kopie zapasowe wykonywane przez program DPM).
+Aby uzyskać listę obsługiwanych wersji programu SharePoint i wersji programu DPM wymaganych do wykonywania kopii zapasowych poszczególnych wersji programu SharePoint, zobacz artykuł [What can DPM back up?](/system-center/dpm/dpm-protection-matrix#applications-backup) (Kopie zapasowe wykonywane przez program DPM).
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
@@ -28,19 +28,19 @@ Przed utworzeniem kopii zapasowej farmy programu SharePoint na platformie Azure 
 
 Przed kontynuowaniem upewnij się, że zostały spełnione wszystkie [wymagania wstępne dotyczące używania Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) w celu ochrony obciążeń. Niektóre zadania związane z wymaganiami wstępnymi obejmują: Tworzenie magazynu kopii zapasowych, pobieranie poświadczeń magazynu, instalowanie Azure Backup agenta i rejestrowanie programu DPM/Azure Backup Server z magazynem.
 
-Dodatkowe wymagania wstępne i ograniczenia można znaleźć w artykule [Tworzenie kopii zapasowej programu SharePoint przy użyciu programu DPM](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations) .
+Dodatkowe wymagania wstępne i ograniczenia można znaleźć w artykule [Tworzenie kopii zapasowej programu SharePoint przy użyciu programu DPM](/system-center/dpm/back-up-sharepoint#prerequisites-and-limitations) .
 
 ## <a name="configure-backup"></a>Konfigurowanie kopii zapasowych
 
-Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę programu SharePoint przy użyciu pliku ConfigureSharePoint.exe, a następnie utwórz grupę ochrony w programie DPM. Aby uzyskać instrukcje, zobacz [Konfigurowanie kopii zapasowej](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) w dokumentacji programu DPM.
+Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę programu SharePoint przy użyciu pliku ConfigureSharePoint.exe, a następnie utwórz grupę ochrony w programie DPM. Aby uzyskać instrukcje, zobacz [Konfigurowanie kopii zapasowej](/system-center/dpm/back-up-sharepoint#configure-backup) w dokumentacji programu DPM.
 
 ## <a name="monitoring"></a>Monitorowanie
 
-Aby monitorować zadanie tworzenia kopii zapasowej, postępuj zgodnie z instrukcjami w temacie [monitorowanie kopii zapasowej programu DPM](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring) .
+Aby monitorować zadanie tworzenia kopii zapasowej, postępuj zgodnie z instrukcjami w temacie [monitorowanie kopii zapasowej programu DPM](/system-center/dpm/back-up-sharepoint#monitoring) .
 
 ## <a name="restore-sharepoint-data"></a>Przywracanie danych programu SharePoint
 
-Aby dowiedzieć się, jak przywrócić element programu SharePoint z dysku za pomocą programu DPM, zobacz [przywracanie danych programu SharePoint](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data).
+Aby dowiedzieć się, jak przywrócić element programu SharePoint z dysku za pomocą programu DPM, zobacz [przywracanie danych programu SharePoint](/system-center/dpm/back-up-sharepoint#restore-sharepoint-data).
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>Przywracanie bazy danych programu SharePoint z platformy Azure przy użyciu programu DPM
 
@@ -71,7 +71,7 @@ Aby dowiedzieć się, jak przywrócić element programu SharePoint z dysku za po
 
 ## <a name="switching-the-front-end-web-server"></a>Przełączanie serwera frontonu sieci Web
 
-Jeśli masz więcej niż jeden serwer frontonu sieci Web i chcesz przełączyć serwer, którego program DPM używa do ochrony farmy, postępuj zgodnie z instrukcjami w temacie [przełączanie serwera frontonu sieci Web](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
+Jeśli masz więcej niż jeden serwer frontonu sieci Web i chcesz przełączyć serwer, którego program DPM używa do ochrony farmy, postępuj zgodnie z instrukcjami w temacie [przełączanie serwera frontonu sieci Web](/system-center/dpm/back-up-sharepoint#switching-the-front-end-web-server).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,12 +3,12 @@ title: Łączenie zdalne z węzłem klastra usługi Azure Service Fabric
 description: Dowiedz się, jak zdalnie połączyć się z wystąpieniem zestawu skalowania (Service Fabric węźle klastra).
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268098"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Połączenie zdalne z wystąpieniem zestawu skalowania maszyn wirtualnych lub węzłem klastra
 W klastrze Service Fabric działającym na platformie Azure każdy zdefiniowany typ węzła klastra [konfiguruje maszynę wirtualną w osobnym skalowaniu](service-fabric-cluster-nodetypes.md).  Można połączyć się zdalnie z określonymi wystąpieniami zestawu skalowania (węzły klastra).  W przeciwieństwie do maszyn wirtualnych z pojedynczym wystąpieniem, wystąpienia zestawu skalowania nie mają własnych wirtualnych adresów IP. Może to być trudne, gdy szukasz adresu IP i portu, których można użyć do zdalnego łączenia się z konkretnym wystąpieniem.
@@ -21,11 +21,11 @@ Aby znaleźć adres IP i port, których można użyć do zdalnego łączenia si�
     
     Na stronie modułu równoważenia obciążenia w Azure Portal wybierz pozycję **Ustawienia**  >  **reguły NAT dla ruchu przychodzącego**: 
 
-    ![Reguły NAT dla ruchu przychodzącego modułu równoważenia obciążenia](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    ![Zrzut ekranu przedstawiający stronę usługi równoważenia obciążenia w Azure Portal. W menu po lewej stronie w obszarze Ustawienia wybrana jest opcja reguły NAT dla ruchu przychodzącego.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
     Na poniższym zrzucie ekranu przedstawiono reguły NAT dla ruchu przychodzącego dla typu węzła o nazwie fronton: 
 
-    ![Reguły NAT dla ruchu przychodzącego modułu równoważenia obciążenia](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![Zrzut ekranu przedstawiający reguły NAT dla ruchu przychodzącego dla modułu równoważenia obciążenia. Dla każdej reguły są wyświetlane nazwy, wersja IP, miejsce docelowe, cel i usługa.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
     Dla każdego węzła adres IP jest wyświetlany w kolumnie Target **, kolumna** **docelowa** zawiera wystąpienie zestawu skalowania, a kolumna **usługi** zawiera numer portu. W przypadku połączenia zdalnego porty są przypisywane do każdego węzła w kolejności rosnącej, począwszy od portu 3389.
 

@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: fd49e922e5952f5a7c4b7f477dd33d6518010428
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088327"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256895"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Rozwiązywanie problemów z weryfikacją wydawcy
 Jeśli nie można zakończyć procesu lub występują nieoczekiwane zachowanie podczas [weryfikacji wydawcy](publisher-verification-overview.md), należy zacząć od następującej procedury, Jeśli otrzymujesz błędy lub widzisz nieoczekiwane zachowanie: 
@@ -59,7 +59,7 @@ Poniżej przedstawiono niektóre typowe problemy, które mogą wystąpić w trak
 
 - **Otrzymuję błąd związany z uwierzytelnianiem wieloskładnikowym. Co mam zrobić?** 
     Upewnij się, że [uwierzytelnianie wieloskładnikowe](../fundamentals/concept-fundamentals-mfa-get-started.md) jest włączone i wymagane dla użytkownika, za pomocą którego logujesz się w tym scenariuszu. Na przykład uwierzytelnianie wieloskładnikowe może być następujące:
-    - Zawsze wymagane dla użytkownika, za pomocą którego logujesz się
+    - Zawsze wymagane dla użytkownika, za pomocą którego się logujesz
     - [Wymagane do zarządzania platformą Azure](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Wymagane dla typu administratora](../conditional-access/howto-conditional-access-policy-admin-mfa.md) , za pomocą którego się logujesz.
 
@@ -150,31 +150,45 @@ Poniżej znajduje się lista potencjalnych kodów błędów, które mogą zosta�
 
 ### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess     
 
-Podany identyfikator MPN () nie <MPNID> istnieje lub nie masz do niego dostępu. Podaj prawidłowy identyfikator MPN i spróbuj ponownie. 
+Podany identyfikator MPN () nie <MPNID> istnieje lub nie masz do niego dostępu. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
+    
+Najczęściej spowodowane przez zalogowanego użytkownika nie jest członkiem właściwej roli dla konta MPN w centrum partnerskim — Aby uzyskać więcej informacji, zobacz [wymagania](publisher-verification-overview.md#requirements) dotyczące listy kwalifikujących się ról i zobacz [typowe problemy](#common-issues) . Może być także spowodowany przez dzierżawę, w której aplikacja jest zarejestrowana, nie jest dodawana do konta MPN lub nieprawidłowy identyfikator MPN.
 
 ### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound     
 
-Podany identyfikator MPN ( <MPNID> ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie. 
+Podany identyfikator MPN ( <MPNID> ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
+    
+Najczęściej jest to spowodowane tym, że podany identyfikator MPN odnosi się do konta lokalizacji partnera (PLA). Obsługiwane są tylko konta globalne partnera. Aby uzyskać więcej informacji, zobacz [strukturę konta Centrum partnerskiego](/partner-center/account-structure) .
 
 ### <a name="mpnaccountinvalid"></a>MPNAccountInvalid    
 
-Podany identyfikator MPN ( <MPNID> ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie. 
+Podany identyfikator MPN ( <MPNID> ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
+    
+Najczęściej przyczyną jest podano nieprawidłowy identyfikator MPN.
 
 ### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted  
 
 Podany identyfikator MPN ( <MPNID> ) nie ukończył procesu przed sprawdzeniem. Ukończ ten proces w centrum partnerskim i spróbuj ponownie. 
+    
+Najczęściej jest to spowodowane tym, że konto MPN nie ukończyło procesu [weryfikacji](/partner-center/verification-responses) .
 
 ### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount  
 
 Podany identyfikator MPN ( <MPNID> ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie. 
+   
+Najczęściej przyczyną jest podano nieprawidłowy identyfikator MPN.
 
 ### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount    
 
-Podany identyfikator MPN ( <MPNID> ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie. 
+Podany identyfikator MPN ( <MPNID> ) jest nieprawidłowy. Podaj prawidłowy identyfikator MPN i spróbuj ponownie.
+    
+Najczęściej przyczyną jest podano nieprawidłowy identyfikator MPN.
 
 ### <a name="applicationnotfound"></a>ApplicationNotFound  
 
-Nie można znaleźć aplikacji docelowej ( <AppId> ). Podaj prawidłowy identyfikator aplikacji i spróbuj ponownie. 
+Nie można znaleźć aplikacji docelowej ( <AppId> ). Podaj prawidłowy identyfikator aplikacji i spróbuj ponownie.
+    
+Najczęściej jest to spowodowane tym, że weryfikacja odbywa się za pośrednictwem interfejs API programu Graph, a identyfikator podanej aplikacji jest nieprawidłowy. Uwaga — należy podać identyfikator aplikacji, a nie AppId/ClientId.
 
 ### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed  
 
@@ -188,13 +202,19 @@ Ta funkcja nie jest obsługiwana w przypadku zweryfikowanej dzierżawy poczty e-
 
 Aplikacja docelowa ( \<AppId\> ) musi mieć ustawioną domenę wydawcy. Ustaw domenę wydawcy i spróbuj ponownie.
 
+Występuje, gdy [domena wydawcy](howto-configure-publisher-domain.md) nie jest skonfigurowana w aplikacji.
+
 ### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
 
 Domena wydawcy aplikacji docelowej () nie jest <publisherDomain> zgodna z domeną używaną do weryfikacji wiadomości e-mail w centrum partnerskim ( <pcDomain> ). Upewnij się, że te domeny pasują do siebie, i spróbuj ponownie. 
+    
+Występuje, gdy żadna [domena wydawcy](howto-configure-publisher-domain.md) aplikacji ani jedna z [domen niestandardowych](../fundamentals/add-custom-domain.md) nie została dodana do DZIERŻAWy usługi Azure AD nie jest zgodna z domeną używaną do weryfikacji wiadomości e-mail w centrum partnerskim.
 
 ### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher   
 
 Nie masz uprawnień do ustawiania zweryfikowanej właściwości wydawcy w aplikacji ( <AppId> ) 
+  
+Najczęściej spowodowane przez zalogowanego użytkownika nie jest członkiem właściwej roli dla konta MPN w usłudze Azure AD — Zobacz [wymagania](publisher-verification-overview.md#requirements) dotyczące listy kwalifikujących się ról i zobacz [typowe problemy](#common-issues) , aby uzyskać więcej informacji.
 
 ### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided  
 
@@ -202,7 +222,11 @@ Nie podano identyfikatora MPN w treści żądania lub typem zawartości żądani
 
 ### <a name="msanotsupported"></a>MSANotSupported  
 
-Ta funkcja nie jest obsługiwana w przypadku kont użytkowników Microsoft. Obsługiwane są tylko aplikacje zarejestrowane w usłudze Azure AD za pomocą użytkownika usługi Azure AD. 
+Ta funkcja nie jest obsługiwana w przypadku kont użytkowników Microsoft. Obsługiwane są tylko aplikacje zarejestrowane w usłudze Azure AD za pomocą użytkownika usługi Azure AD.
+
+### <a name="interactionrequired"></a>InteractionRequired
+
+Występuje, gdy nie wykonano uwierzytelniania wieloskładnikowego przed podjęciem próby dodania zweryfikowanego wydawcy do aplikacji. Aby uzyskać więcej informacji, zobacz [typowe problemy](#common-issues) .
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -216,4 +240,4 @@ Jeśli zostały sprawdzone wszystkie poprzednie informacje i nadal pojawiają si
 - TenantId, gdzie zarejestrowano aplikację
 - Identyfikator MPN
 - Podejmowane żądania REST 
-- Zwrócony kod błędu i komunikat 
+- Zwrócony kod błędu i komunikat

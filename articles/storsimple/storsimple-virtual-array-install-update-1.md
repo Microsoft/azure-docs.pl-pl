@@ -1,6 +1,6 @@
 ---
 title: Zainstaluj aktualizację 1,0 w macierzy wirtualnej StorSimple | Microsoft Docs
-description: Opisuje sposób użycia interfejsu użytkownika sieci Web macierzy wirtualnej StorSimple do zastosowania aktualizacji przy użyciu metody Azure Portal i poprawki
+description: Opisuje sposób użycia interfejsu użytkownika sieci Web macierzy wirtualnej StorSimple do zastosowania aktualizacji 1,0 przy użyciu metody Azure Portal i Hot Fix.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 41546a449165951cd7b462d1db2b1b58ae74e407
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bb6b61bb7d9392984bf5c308ce7ee039234461e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508099"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295570"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Zainstaluj aktualizację 1,0 w macierzy wirtualnej StorSimple
 
@@ -104,7 +104,7 @@ Wykonanie tej procedury zajmuje około 4 minuty. Wykonaj następujące kroki, ab
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
-2. W polu **ścieżka pliku aktualizacji**wprowadź nazwę pliku aktualizacji lub poprawki. Możesz również przejść do pliku instalacyjnego aktualizacji lub poprawek, jeśli znajduje się on w udziale sieciowym. Kliknij przycisk **Zastosuj**.
+2. W polu **ścieżka pliku aktualizacji**wprowadź nazwę pliku aktualizacji lub poprawki. Możesz również przejść do pliku instalacyjnego aktualizacji lub poprawek, jeśli znajduje się on w udziale sieciowym. Kliknij pozycję **Zastosuj**.
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-1/update2m.png)
 

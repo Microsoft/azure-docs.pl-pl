@@ -12,16 +12,16 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085709"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258340"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Oznaczanie aplikacji jako zweryfikowanej przez wydawcę
 
-Gdy aplikacja zostanie oznaczona jako zweryfikowana przez wydawcę, oznacza to, że Wydawca sprawdził swoją tożsamość przy użyciu konta Microsoft Partner Network (MPN) i skojarzył to konto MPN z rejestracją aplikacji. W tym artykule opisano, jak ukończyć proces [weryfikacji wydawcy](publisher-verification-overview.md) .
+Gdy rejestracja aplikacji ma zweryfikowanego wydawcy, oznacza to, że Wydawca aplikacji [zweryfikował](/partner-center/verification-responses) swoją tożsamość przy użyciu konta Microsoft Partner Network (MPN) i powiązana z tym kontem MPN z rejestracją aplikacji. W tym artykule opisano, jak ukończyć proces [weryfikacji wydawcy](publisher-verification-overview.md) .
 
 ## <a name="quickstart"></a>Szybki start
 Jeśli użytkownik jest już zarejestrowany w Microsoft Partner Network (MPN) i spełnił [wymagania wstępne](publisher-verification-overview.md#requirements), można zacząć od razu: 
@@ -42,9 +42,9 @@ Upewnij się, że spełniono [wymagania wstępne](publisher-verification-overvie
 
 1. Upewnij się, że zalogowano się przy użyciu [uwierzytelniania wieloskładnikowego](../fundamentals/concept-fundamentals-mfa-get-started.md) na koncie organizacji (Azure AD) autoryzowanym do wprowadzania zmian w aplikacjach, które chcesz oznaczyć jako zweryfikowane przez wydawcę, a na koncie MPN w centrum partnerskim.
 
-    - W usłudze Azure AD ten użytkownik musi być członkiem jednej z następujących ról: Administrator aplikacji, administrator aplikacji w chmurze, Administrator globalny. 
+    - W usłudze Azure AD ten użytkownik musi być członkiem jednej z następujących [ról](../users-groups-roles/directory-assign-admin-roles.md): Administrator aplikacji, administrator aplikacji w chmurze, Administrator globalny. 
 
-    - W centrum partnerskim ten użytkownik musi mieć następujące role: Administrator MPN, administrator kont lub Administrator globalny (jest to rola udostępniona w usłudze Azure AD). 
+    - W centrum partnerskim ten użytkownik musi mieć następujące [role](/partner-center/permissions-overview): Administrator MPN, administrator kont lub Administrator globalny (jest to rola udostępniona w usłudze Azure AD). 
 
 1. Przejdź do portalu rejestracji aplikacji:  
 

@@ -3,16 +3,16 @@ title: Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
 description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby utworzyć kopię zapasową maszyn wirtualnych przy użyciu Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 0dd2b16254e697a08d0ff542a5ddcb3fc7e4103d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 516f4a2fa92740897e186a782e276fc6d40fc925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750616"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255013"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Skonfiguruj Azure Backup Server rozwiązania VMware dla platformy Azure
 
-Azure Backup Server to niezawodny system tworzenia kopii zapasowych i odzyskiwania danych w przedsiębiorstwie, który przyczynia się do strategii ciągłości działania i odzyskiwania po awarii (BCDR). Podczas korzystania z wersji zapoznawczej rozwiązania Azure VMware można skonfigurować tylko kopie zapasowe na poziomie maszyny wirtualnej za pomocą Azure Backup Server. 
+Azure Backup Server to niezawodny system tworzenia kopii zapasowych i odzyskiwania danych w przedsiębiorstwie, który przyczynia się do strategii ciągłości działania i odzyskiwania po awarii (BCDR). W ramach rozwiązania Azure VMware można skonfigurować tylko kopie zapasowe na poziomie maszyny wirtualnej za pomocą Azure Backup Server. 
 
 Azure Backup Server mogą przechowywać dane kopii zapasowej w:
 
@@ -34,7 +34,7 @@ W tym artykule pomożemy przygotować środowisko rozwiązań VMware platformy A
 - **Tworzenie kopii zapasowej bez wykorzystania agentów:** Azure Backup Server nie wymaga zainstalowania agenta na serwerze vCenter lub ESXi w celu utworzenia kopii zapasowej maszyny wirtualnej. Zamiast tego wystarczy podać adres IP lub w pełni kwalifikowaną nazwę domeny (FQDN) oraz poświadczenia logowania używane do uwierzytelniania serwera VMware za pomocą Azure Backup Server.
 - **Kopia zapasowa zintegrowana z chmurą:** Azure Backup Server chroni obciążenia dyskami i chmurą. Przepływ pracy tworzenia kopii zapasowych i odzyskiwania Azure Backup Server ułatwia zarządzanie długoterminowym przechowywaniem i kopią zapasową poza siedzibą firmy.
 - **Wykrywanie i ochrona maszyn wirtualnych zarządzanych przez program vCenter:** Azure Backup Server wykrywa i chroni maszyny wirtualne wdrożone na serwerze vCenter lub ESXi. Azure Backup Server wykrywa również maszyny wirtualne zarządzane przez program vCenter, dzięki czemu można chronić duże wdrożenia.
-- **Autoochrona na poziomie folderu:** program vCenter umożliwia organizowanie maszyn wirtualnych w folderach maszyn wirtualnych. Azure Backup Server wykrywa te foldery i można z niej korzystać w celu ochrony maszyn wirtualnych na poziomie folderów, które obejmują wszystkie podfoldery. W przypadku ochrony folderów Azure Backup Server nie tylko chroni maszyny wirtualne znajdujące się w tym folderze, ale również chroni maszyny wirtualne dodane później. Azure Backup Server wykrywa nowe maszyny wirtualne codziennie i chroni je automatycznie. Podczas organizowania maszyn wirtualnych w folderach cyklicznych Azure Backup Server automatycznie wykrywa i chroni nowe maszyny wirtualne wdrożone w folderach cyklicznych.
+- **Autoochrona na poziomie folderu:** program vCenter umożliwia organizowanie maszyn wirtualnych w folderach maszyn wirtualnych. Azure Backup Server wykrywa te foldery. Można jej użyć do ochrony maszyn wirtualnych na poziomie folderów, które obejmują wszystkie podfoldery. W przypadku ochrony folderów Azure Backup Server nie tylko chroni maszyny wirtualne znajdujące się w tym folderze, ale również chroni maszyny wirtualne dodane później. Azure Backup Server wykrywa nowe maszyny wirtualne codziennie i chroni je automatycznie. Podczas organizowania maszyn wirtualnych w folderach cyklicznych Azure Backup Server automatycznie wykrywa i chroni nowe maszyny wirtualne wdrożone w folderach cyklicznych.
 - **Azure Backup Server nadal chronią maszyny wirtualne vMotioned w klastrze:** Ponieważ maszyny wirtualne są vMotioned do równoważenia obciążenia w klastrze, Azure Backup Server automatycznie wykrywa i kontynuuje ochronę maszyny wirtualnej.
 - **Szybsze odzyskiwanie niezbędnych plików:** Azure Backup Server może odzyskiwać pliki lub foldery z maszyny wirtualnej z systemem Windows bez odzyskiwania całej maszyny wirtualnej.
 
@@ -68,7 +68,7 @@ Upewnij się, że [skonfigurowano sieć dla chmury prywatnej VMware na platformi
 
 ### <a name="determine-the-size-of-the-virtual-machine"></a>Określanie rozmiaru maszyny wirtualnej
 
-Należy utworzyć maszynę wirtualną z systemem Windows w sieci wirtualnej utworzonej w poprzednim kroku. Po wybraniu serwera do uruchamiania Azure Backup Server, Zacznij od obrazu galerii systemu Windows Server 2019 Datacenter. Samouczek [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w Azure Portal](../virtual-machines/windows/quick-create-portal.md) pozwala rozpocząć pracę z ZALECAną maszyną wirtualną na platformie Azure, nawet jeśli nie korzystasz z platformy Azure.
+Utwórz maszynę wirtualną z systemem Windows w sieci wirtualnej utworzonej w poprzednim kroku. Po wybraniu serwera do uruchamiania Azure Backup Server, Zacznij od obrazu galerii systemu Windows Server 2019 Datacenter. Samouczek [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w Azure Portal](../virtual-machines/windows/quick-create-portal.md) pozwala rozpocząć pracę z ZALECAną maszyną wirtualną na platformie Azure, nawet jeśli nie korzystasz z platformy Azure.
 
 Poniższa tabela zawiera podsumowanie maksymalnej liczby chronionych obciążeń dla każdego Azure Backup Server rozmiaru maszyny wirtualnej. Informacje są oparte na wewnętrznych testach wydajności i skali z wartościami kanonicznymi rozmiaru i zmian obciążenia. Rzeczywisty rozmiar obciążenia może być większy, ale powinien być uwzględniany przez dyski dołączone do maszyny wirtualnej Azure Backup Server.
 
@@ -148,26 +148,26 @@ Magazyn Recovery Services jest jednostką magazynową, która przechowuje punkty
 
    Zostanie wyświetlona lista magazynów usługi Recovery Services w ramach subskrypcji.
 
-1. Na pulpicie nawigacyjnym **Recovery Services magazynów** wybierz pozycję **Dodaj**.
+1. Na pulpicie nawigacyjnym **Magazyny usługi Recovery Services** wybierz pozycję **Dodaj**.
 
    ![Dodaj magazyn Recovery Services.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
 
-   Zostanie otwarte okno dialogowe **magazyn Recovery Services** .
+   Zostanie otwarte okno dialogowe **Magazyn usługi Recovery Services**.
 
 1. Wprowadź wartości dla **nazwy**, **subskrypcji**, **grupy zasobów**i **lokalizacji**.
 
    ![Skonfiguruj magazyn Recovery Services.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Nazwa**: wprowadź przyjazną nazwę identyfikującą magazyn. Nazwa musi być unikatowa dla subskrypcji platformy Azure. Określ nazwę, która ma co najmniej dwa znaki, ale nie więcej niż 50 znaków. Nazwa musi rozpoczynać się od litery i zawierać tylko litery, cyfry i łączniki.
-   - **Subskrypcja**: wybierz subskrypcję do użycia. Jeśli jesteś członkiem tylko jednej subskrypcji, zobaczysz tę nazwę. Jeśli nie masz pewności, której subskrypcji użyć, Użyj domyślnej (sugerowanej) subskrypcji. Istnieje wiele opcji, które są dostępne tylko wtedy, gdy konto służbowe jest skojarzone z więcej niż jedną subskrypcją platformy Azure.
-   - **Grupa zasobów**: Użyj istniejącej grupy zasobów lub Utwórz nową. Aby wyświetlić listę dostępnych grup zasobów w ramach subskrypcji, wybierz pozycję **Użyj istniejącej**, a następnie wybierz zasób z listy rozwijanej. Aby utworzyć nową grupę zasobów, wybierz pozycję **Utwórz nową** i wprowadź nazwę.
-   - **Lokalizacja**: Wybierz region geograficzny magazynu. Aby utworzyć magazyn do ochrony maszyn wirtualnych rozwiązań VMware platformy Azure, magazyn *musi* znajdować się w tym samym regionie co chmurę prywatną rozwiązania VMware platformy Azure.
+   - **Nazwa**: Wprowadź przyjazną nazwę identyfikującą magazyn. Nazwa musi być unikalna w subskrypcji platformy Azure. Określ nazwę, która ma co najmniej dwa znaki, ale nie więcej niż 50 znaków. Nazwa musi rozpoczynać się od litery i składać się tylko z liter, cyfr i łączników.
+   - **Subskrypcja**: Wybierz subskrypcję, która ma zostać użyta. Jeśli jesteś członkiem tylko jednej subskrypcji, zostanie wyświetlona jej nazwa. Jeśli nie masz pewności, której subskrypcji użyć, wybierz domyślną (sugerowaną). Większa liczba opcji do wyboru jest dostępna tylko w przypadku, gdy konto służbowe jest skojarzone z więcej niż jedną subskrypcją platformy Azure.
+   - **Grupa zasobów**: Użyj istniejącej grupy zasobów lub utwórz nową. Aby wyświetlić listę grup zasobów dostępnych w ramach subskrypcji, wybierz pozycję **Użyj istniejącej**, a następnie wybierz zasób z listy rozwijanej. Aby utworzyć nową grupę zasobów, wybierz pozycję **Utwórz nową** i wprowadź nazwę.
+   - **Lokalizacja**: Wybierz region geograficzny dla magazynu. Aby utworzyć magazyn do ochrony maszyn wirtualnych rozwiązań VMware platformy Azure, magazyn *musi* znajdować się w tym samym regionie co chmurę prywatną rozwiązania VMware platformy Azure.
 
-1. Gdy wszystko będzie gotowe do utworzenia magazynu Recovery Services, wybierz pozycję **Utwórz**.
+1. Gdy wszystko będzie gotowe do utworzenia magazynu usługi Recovery Services, wybierz pozycję **Utwórz**.
 
    ![Utwórz magazyn Recovery Services.](../backup/media/backup-create-rs-vault/click-create-button.png)
 
-   Utworzenie magazynu Recovery Services może chwilę potrwać. Monitoruj powiadomienia o stanie w obszarze **powiadomienia** w prawym górnym rogu portalu. Po utworzeniu magazynu będzie on widoczny na liście magazynów Recovery Services. Jeśli Twój magazyn nie jest widoczny, wybierz pozycję **Odśwież**.
+   Utworzenie magazynu usługi Recovery Services może zająć trochę czasu. Monitoruj powiadomienia o stanie w obszarze **powiadomienia** w prawym górnym rogu portalu. Po utworzeniu magazynu będzie on widoczny na liście magazynów usługi Recovery Services. Jeśli magazyn nie jest widoczny, wybierz pozycję **Odśwież**.
 
    ![Odśwież listę magazynów kopii zapasowych.](../backup/media/backup-create-rs-vault/refresh-button.png)
 
@@ -183,8 +183,6 @@ Opcja replikacja magazynu umożliwia wybranie między magazynem geograficznie na
 1. W obszarze **Ustawienia** wybierz pozycję **Właściwości**. W obszarze **Konfiguracja kopii zapasowej**wybierz pozycję **Aktualizuj**.
 
 1. Wybierz typ replikacji magazynu i wybierz pozycję **Zapisz**.
-
-   ![Ustaw konfigurację magazynu dla nowego magazynu.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## <a name="download-and-install-the-software-package"></a>Pobierz i zainstaluj pakiet oprogramowania
 
@@ -309,7 +307,7 @@ Jeśli pakiet oprogramowania został pobrany na inny serwer, skopiuj pliki na ma
    * **Baza danych**: **DatabaseName** powinna być **reportserver \<SQLInstanceName> $**.
    * **Adres URL portalu sieci Web**: **katalog wirtualny** powinien być **Reports_ \<SQLInstanceName> **.
 
-   [Dowiedz się więcej](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) o konfiguracji usług SSRS.
+   Dowiedz się więcej o [konfiguracji usług SSRS](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode).
 
    > [!NOTE]
    > [Warunki użytkowania usług online firmy Microsoft](https://www.microsoft.com/licensing/product-licensing/products) (ost) regulują licencjonowanie SQL Server używanych jako baza danych Azure Backup Server. Zgodnie z elementem OST SQL Server dołączone do Azure Backup Server może być używany tylko jako baza danych Azure Backup Server.

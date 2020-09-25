@@ -1,6 +1,6 @@
 ---
 title: Samouczek dotyczący konfigurowania środowiska Azure-SSIS Integration Runtime w celu dołączenia do sieci wirtualnej
-description: Dowiedz się, jak dołączać środowisko Azure-SSIS Integration Runtime do sieci wirtualnej platformy Azure.
+description: Dowiedz się, jak dołączyć do środowiska Azure-SSIS Integration Runtime, aby dołączyć do sieci wirtualnej platformy Azure.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 0b83049e154afc48334cc6deb576c700ed71d844
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2bd2fa9badc7c299099b647e1f67c50e997024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292307"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Skonfiguruj środowisko Integration Runtime (IR) platformy SQL Server Integration Services Azure, aby dołączyć do sieci wirtualnej
 

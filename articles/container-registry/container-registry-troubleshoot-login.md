@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z logowaniem do rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas logowania do usługi Azure Container Registry
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 8fbb96be8223001ac52db47788c31609e9b86e35
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253358"
 ---
 # <a name="troubleshoot-registry-login"></a>Rozwiązywanie problemów z logowaniem do rejestru
 
@@ -105,9 +105,9 @@ Powiązane linki:
 
 * [Role i uprawnienia RBAC — Azure Container Registry](container-registry-roles.md)
 * [Logowanie przy użyciu tokenu z zakresem repozytorium](container-registry-repository-scoped-permissions.md)
-* [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md)
+* [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](../role-based-access-control/role-assignments-portal.md)
 * [używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Utwórz nowy klucz tajny aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)
+* [Tworzenie nowego klucza tajnego aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
 * [Uwierzytelnianie i kody autoryzacji usługi Azure AD](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### <a name="check-that-credentials-arent-expired"></a>Sprawdź, czy poświadczenia nie wygasły

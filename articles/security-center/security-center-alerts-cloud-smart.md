@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b60798ad1fab0ed66f3d4a39b2fd7faf79fd515e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73686496"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268073"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Korelacja inteligentnego alertu w chmurze w Azure Security Center (zdarzenia)
 
@@ -38,5 +38,5 @@ Podczas badania zdarzenia analitykowie często potrzebują dodatkowego kontekstu
 
 ![Zrzut ekranu przedstawiający raport wykrytych zdarzeń zabezpieczeń](./media/security-center-alerts-cloud-smart/security-incident.png)
 
-Aby lepiej zrozumieć zdarzenia związane z zabezpieczeniami, zobacz [jak obsłużyć zdarzenia zabezpieczeń w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-incident).
+Aby lepiej zrozumieć zdarzenia związane z zabezpieczeniami, zobacz [jak obsłużyć zdarzenia zabezpieczeń w Azure Security Center](security-center-incident.md).
 

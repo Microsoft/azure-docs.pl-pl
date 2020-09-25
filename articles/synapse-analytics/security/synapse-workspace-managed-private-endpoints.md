@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e592159777f3b533bc447bb109e9b1308af7ecff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459543"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249506"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Zarządzane prywatne punkty końcowe Synapse (wersja zapoznawcza)
 
@@ -27,7 +27,9 @@ Usługa Azure Synapse obsługuje linki prywatne. Link prywatny umożliwia dostę
 
 W przypadku korzystania z prywatnego linku ruch między Virtual Networkami i obszarem roboczym odbywa się całkowicie za pośrednictwem sieci szkieletowej firmy Microsoft. Prywatne łącze chroniące przed ryzykiem eksfiltracji danych. Aby utworzyć prywatny link do zasobu, można utworzyć prywatny punkt końcowy.
 
-Prywatny punkt końcowy używa prywatnego adresu IP z Virtual Network w celu efektywnego przełączenia usługi do Virtual Network. Prywatne punkty końcowe są mapowane na określony zasób na platformie Azure, a nie całej usługi. Klienci mogą ograniczyć łączność z określonym zasobem zatwierdzonym przez organizację. Dowiedz się więcej na temat [linków prywatnych i prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/).
+Prywatny punkt końcowy używa prywatnego adresu IP z Virtual Network w celu efektywnego przełączenia usługi do Virtual Network. Prywatne punkty końcowe są mapowane na określony zasób na platformie Azure, a nie całej usługi. Klienci mogą ograniczyć łączność z określonym zasobem zatwierdzonym przez organizację. 
+
+Dowiedz się więcej na temat [linków prywatnych i prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/).
 
 >[!IMPORTANT]
 >Zarządzane prywatne punkty końcowe są obsługiwane tylko w obszarze roboczym usługi Azure Synapse z zarządzanym obszarem roboczym Virtual Network.
@@ -35,9 +37,9 @@ Prywatny punkt końcowy używa prywatnego adresu IP z Virtual Network w celu efe
 >[!NOTE]
 >Cały ruch wychodzący z zarządzanego obszaru roboczego Virtual Network poza zarządzanymi prywatnymi punktami końcowymi zostanie zablokowany w przyszłości. Zaleca się utworzenie zarządzanych prywatnych punktów końcowych w celu nawiązania połączenia ze wszystkimi źródłami danych platformy Azure spoza obszaru roboczego. 
 
-Połączenie prywatnego punktu końcowego jest tworzone w stanie "oczekiwanie" podczas tworzenia zarządzanego prywatnego punktu końcowego w usłudze Azure Synapse. Zainicjowano przepływ pracy zatwierdzania. Właściciel zasobu link prywatny jest odpowiedzialny za zaakceptowanie lub odrzucenie połączenia.
+Połączenie prywatnego punktu końcowego jest tworzone w stanie "oczekiwanie" podczas tworzenia zarządzanego prywatnego punktu końcowego w usłudze Azure Synapse. Przepływ pracy zatwierdzania jest uruchamiany. Właściciel zasobu link prywatny jest odpowiedzialny za zaakceptowanie lub odrzucenie połączenia.
 
-Jeśli właściciel zatwierdzi połączenie, zostanie nawiązane łącze prywatne. W przeciwnym razie połączenie prywatne nie zostanie nawiązane. W obu przypadkach zarządzany prywatny punkt końcowy zostanie zaktualizowany przy użyciu stanu połączenia.
+Jeśli właściciel zatwierdzi połączenie, zostanie nawiązane łącze prywatne. Jeśli jednak właściciel nie zaakceptuje połączenia, połączenie prywatne nie zostanie nawiązane. W obu przypadkach zarządzany prywatny punkt końcowy zostanie zaktualizowany przy użyciu stanu połączenia.
 
 Tylko zarządzany prywatny punkt końcowy w zatwierdzonym stanie może wysyłać ruch do podanego zasobu linku prywatnego.
 
@@ -56,4 +58,4 @@ Te dwa zarządzane prywatne punkty końcowe są tworzone automatycznie podczas t
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie zarządzanych prywatnych punktów końcowych dla źródeł danych](./how-to-create-managed-private-endpoints.md)
+Aby dowiedzieć się więcej, przejdź do artykułu [Tworzenie zarządzanych prywatnych punktów końcowych do źródła danych](./how-to-create-managed-private-endpoints.md) .

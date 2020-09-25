@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć kopię zapasową serwera programu Excha
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: eff702cb50317e6b685e19e7df1ffc99b5fc1736
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377629"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262998"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Tworzenie kopii zapasowej serwera programu Exchange na platformie Azure za pomocą Azure Backup Server
 
@@ -23,8 +23,8 @@ Przed kontynuowaniem upewnij się, że Azure Backup Server jest [zainstalowana i
 
 Aby zainstalować agenta ochrony serwera usługi MAB na serwerze Exchange, wykonaj następujące kroki:
 
-1. Upewnij się, że zapory są prawidłowo skonfigurowane. Zobacz [Configure firewall Exceptions for the Agent](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Zainstaluj agenta na serwerze programu Exchange, wybierając pozycję **zarządzanie > agenci > Zainstaluj** w Konsola administratora serwera usługi MAB. Szczegółowe instrukcje można znaleźć w temacie [Install the serwera usługi MAB Protection Agent](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) .
+1. Upewnij się, że zapory są prawidłowo skonfigurowane. Zobacz [Configure firewall Exceptions for the Agent](/system-center/dpm/configure-firewall-settings-for-dpm).
+2. Zainstaluj agenta na serwerze programu Exchange, wybierając pozycję **zarządzanie > agenci > Zainstaluj** w Konsola administratora serwera usługi MAB. Szczegółowe instrukcje można znaleźć w temacie [Install the serwera usługi MAB Protection Agent](/system-center/dpm/deploy-dpm-protection-agent) .
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Tworzenie grupy ochrony dla serwera programu Exchange
 
@@ -47,7 +47,7 @@ Aby zainstalować agenta ochrony serwera usługi MAB na serwerze Exchange, wykon
 
    * Chcę uzyskać krótkoterminową ochronę za pomocą dysku.
    * Chcę chronić w trybie online.
-6. Wybierz pozycję **Next** (Dalej).
+6. Wybierz opcję **Dalej**.
 7. Wybierz opcję **Uruchom program Eseutil, aby sprawdzić integralność danych** , jeśli chcesz sprawdzić integralność baz danych programu Exchange Server.
 
     Po wybraniu tej opcji sprawdzanie spójności kopii zapasowej zostanie uruchomione na serwera usługi MAB, aby uniknąć ruchu we/wy wygenerowanego przez uruchomienie polecenia **eseutil** na serwerze Exchange.
@@ -57,7 +57,7 @@ Aby zainstalować agenta ochrony serwera usługi MAB na serwerze Exchange, wykon
    > ![błąd Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Wybierz pozycję **Next** (Dalej).
+8. Wybierz opcję **Dalej**.
 9. Wybierz bazę danych **kopii zapasowej**, a następnie wybierz przycisk **dalej**.
 
    > [!NOTE]

@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2a0751f12f33a36d9e0003977bcf40b66d715615
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986954"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288991"
 ---
 # <a name="access-external-storage-in-synapse-sql-on-demand"></a>Dostęp do magazynu zewnętrznego w programie Synapse SQL (na żądanie)
 
@@ -52,12 +52,12 @@ CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
-Jeśli nie ma poświadczeń na poziomie serwera pasujących do adresu URL lub użytkownik SQL nie ma uprawnień odwołuje się do tego poświadczenia, zostanie zwrócony błąd. Podmioty zabezpieczeń SQL nie mogą personifikować się przy użyciu tożsamości usługi Azure AD.
+Jeśli nie ma poświadczeń na poziomie serwera pasujących do adresu URL lub użytkownik SQL nie ma uprawnień do odniesień dla tego poświadczenia, zostanie zwrócony błąd. Podmioty zabezpieczeń SQL nie mogą personifikować się przy użyciu tożsamości usługi Azure AD.
 
 ### <a name="direct-access"></a>[Bezpośredni dostęp](#tab/direct-access)
 
 Żadna dodatkowa konfiguracja nie jest wymagana, aby umożliwić użytkownikom usługi Azure AD dostęp do plików przy użyciu ich tożsamości.
-Każdy użytkownik może uzyskać dostęp do usługi Azure Storage, która zezwala na dostęp anonimowy (dodatkowa konfiguracja nie jest wymagana).
+Każdy użytkownik może uzyskać dostęp do usługi Azure Storage, która umożliwia dostęp anonimowy (dodatkowa konfiguracja nie jest wymagana).
 
 ---
 
@@ -75,11 +75,11 @@ SELECT * FROM
  FORMAT= 'parquet') as rows
 ```
 
-Użytkownik, który wykonuje to zapytanie, musi mieć dostęp do plików. Użytkownicy muszą być personifikowani przy użyciu [tokenu SAS](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) lub [zarządzanej tożsamości obszaru roboczego](develop-storage-files-storage-access-control.md?tabs=managed-identity) , jeśli nie mogą bezpośrednio uzyskiwać dostępu do plików przy użyciu [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) lub [dostępu anonimowego](develop-storage-files-storage-access-control.md?tabs=public-access).
+Użytkownik wykonujący to zapytanie musi mieć możliwość uzyskania dostępu do plików. Użytkownicy muszą być personifikowani przy użyciu [tokenu SAS](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) lub [zarządzanej tożsamości obszaru roboczego](develop-storage-files-storage-access-control.md?tabs=managed-identity) , jeśli nie mogą bezpośrednio uzyskiwać dostępu do plików przy użyciu [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) lub [dostępu anonimowego](develop-storage-files-storage-access-control.md?tabs=public-access).
 
 ### <a name="impersonation"></a>[Personifikacja](#tab/impersonation)
 
-`DATABASE SCOPED CREDENTIAL`Określa, jak uzyskać dostęp do plików w źródle danych, do którego się odwołuje (obecnie jest to tożsamość SAS i zarządzana). Użytkownik zaawansowany z `CONTROL DATABASE` uprawnieniem musi utworzyć `DATABASE SCOPED CREDENTIAL` , który będzie używany do uzyskiwania dostępu do magazynu i `EXTERNAL DATA SOURCE` określa adres URL źródła danych i poświadczenia, które powinny być używane:
+`DATABASE SCOPED CREDENTIAL` Określa, jak uzyskać dostęp do plików w źródle danych, do którego się odwołuje (obecnie jest to tożsamość SAS i zarządzana). Użytkownik zaawansowany z `CONTROL DATABASE` uprawnieniem musi utworzyć `DATABASE SCOPED CREDENTIAL` , który będzie używany do uzyskiwania dostępu do magazynu i `EXTERNAL DATA SOURCE` określa adres URL źródła danych i poświadczenia, które powinny być używane:
 
 ```sql
 EXECUTE AS somepoweruser;
@@ -99,9 +99,9 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 Obiekt wywołujący musi mieć jedno z następujących uprawnień, aby wykonać funkcję OPENROWSET:
 
 - Jedno z uprawnień do wykonania funkcji OPENROWSET:
-  - `ADMINISTER BULK OPERATIONS`umożliwia logowanie do wykonywania funkcji OPENROWSET.
-  - `ADMINISTER DATABASE BULK OPERATIONS`umożliwia użytkownikowi z zakresem bazy danych wykonywanie funkcji OPENROWSET.
-- `REFERENCES DATABASE SCOPED CREDENTIAL`do poświadczeń, do których odwołuje się `EXTERNAL DATA SOURCE` .
+  - `ADMINISTER BULK OPERATIONS` umożliwia logowanie do wykonywania funkcji OPENROWSET.
+  - `ADMINISTER DATABASE BULK OPERATIONS` umożliwia użytkownikowi z zakresem bazy danych wykonywanie funkcji OPENROWSET.
+- `REFERENCES DATABASE SCOPED CREDENTIAL` do poświadczeń, do których odwołuje się `EXTERNAL DATA SOURCE` .
 
 ### <a name="direct-access"></a>[Bezpośredni dostęp](#tab/direct-access)
 
@@ -116,7 +116,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 Użytkownik z uprawnieniami do odczytu tabeli może uzyskać dostęp do zewnętrznych plików przy użyciu zewnętrznej tabeli utworzonej w oparciu o zestaw plików i folderów usługi Azure Storage.
 
-Użytkownik, który ma [uprawnienia do tworzenia tabeli zewnętrznej](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions) (na przykład CREATE TABLE i zmiany poświadczeń lub odwołania do bazy danych), może użyć następującego skryptu, aby utworzyć tabelę na podstawie źródła danych usługi Azure Storage:
+Użytkownik, który ma [uprawnienia do tworzenia tabeli zewnętrznej](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true) (na przykład CREATE TABLE i zmiany poświadczeń lub odwołania do bazy danych), może użyć następującego skryptu, aby utworzyć tabelę na podstawie źródła danych usługi Azure Storage:
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]
@@ -171,8 +171,8 @@ FROM dbo.DimProductsExternal
 ```
 
 Obiekt wywołujący musi mieć następujące uprawnienia do odczytu danych:
-- `SELECT`uprawnienie do tabeli zewnętrznej
-- `REFERENCES DATABASE SCOPED CREDENTIAL`uprawnienie, jeśli `DATA SOURCE` ma`CREDENTIAL`
+- `SELECT` uprawnienie do tabeli zewnętrznej
+- `REFERENCES DATABASE SCOPED CREDENTIAL` uprawnienie, jeśli `DATA SOURCE` ma `CREDENTIAL`
 
 ## <a name="permissions"></a>Uprawnienia
 
@@ -181,10 +181,10 @@ Poniższa tabela zawiera listę wymaganych uprawnień do operacji wymienionych p
 | Zapytanie | Wymagane uprawnienia|
 | --- | --- |
 | OPENROWSET (BULK) bez źródła danych | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS` lub logowanie SQL musi zawierać poświadczenie odwołania:: \<URL> dla magazynu chronionego przez sygnaturę dostępu współdzielonego |
-| OPENROWSET (BULK) ze źródłem danych bez poświadczeń | `ADMINISTER BULK OPERATIONS`lub `ADMINISTER DATABASE BULK OPERATIONS` , |
-| OPENROWSET (BULK) z elementem DataSource z poświadczeniem | `REFERENCES DATABASE SCOPED CREDENTIAL`i jeden z `ADMINISTER BULK OPERATIONS` lub`ADMINISTER DATABASE BULK OPERATIONS` |
+| OPENROWSET (BULK) ze źródłem danych bez poświadczeń | `ADMINISTER BULK OPERATIONS` lub `ADMINISTER DATABASE BULK OPERATIONS` , |
+| OPENROWSET (BULK) z elementem DataSource z poświadczeniem | `REFERENCES DATABASE SCOPED CREDENTIAL` i jeden z `ADMINISTER BULK OPERATIONS` lub `ADMINISTER DATABASE BULK OPERATIONS` |
 | UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH | `ALTER ANY EXTERNAL DATA SOURCE` i `REFERENCES DATABASE SCOPED CREDENTIAL` |
-| TWORZENIE TABELI ZEWNĘTRZNEJ | `CREATE TABLE`, `ALTER ANY SCHEMA` , `ALTER ANY EXTERNAL FILE FORMAT` i`ALTER ANY EXTERNAL DATA SOURCE` |
+| TWORZENIE TABELI ZEWNĘTRZNEJ | `CREATE TABLE`, `ALTER ANY SCHEMA` , `ALTER ANY EXTERNAL FILE FORMAT` i `ALTER ANY EXTERNAL DATA SOURCE` |
 | WYBIERZ Z TABELI ZEWNĘTRZNEJ | `SELECT TABLE` i `REFERENCES DATABASE SCOPED CREDENTIAL` |
 | CETAS | Aby utworzyć tabelę, `CREATE TABLE` , `ALTER ANY SCHEMA` , `ALTER ANY DATA SOURCE` i `ALTER ANY EXTERNAL FILE FORMAT` . Aby odczytywać dane: `ADMINISTER BULK OPERATIONS` lub `REFERENCES CREDENTIAL` lub `SELECT TABLE` dla każdej tabeli/widoku/funkcji w programie Query + R/w pozwoleniu na magazyn |
 
@@ -204,6 +204,6 @@ Teraz można przystąpić do dalszej pracy z następującymi artykułami:
 
 - [Korzystanie z funkcji partycjonowania i metadanych](query-specific-files.md)
 
-- [Typy zagnieżdżone zapytania](query-parquet-nested-types.md)
+- [Zagnieżdżone typy zapytań](query-parquet-nested-types.md)
 
 - [Tworzenie widoków i korzystanie z nich](create-use-views.md)

@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d7e6d3c1554f70ea14e097ff2fe6df47987b5927
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 15f5918748df80cec01ccf89835a0ef51da64529
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423052"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296250"
 ---
 # <a name="azure-media-player-full-setup"></a>Pełna konfiguracja usługi Azure Media Player #
 
@@ -56,11 +56,11 @@ Za pomocą Azure Media Player można osadzić wideo za pomocą tagu wideo HTML5.
 1. `<data-setup>`Atrybut na `<video>` stronie instruuje Azure Media Player, aby automatycznie skonfigurować wideo, gdy strona jest gotowa, i odczytać dowolne (w formacie JSON) z atrybutu.
 1. `id`Atrybut: powinien być używany i unikatowy dla każdego filmu wideo na tej samej stronie.
 1. Ten `class` atrybut zawiera dwie klasy:
-    - `azuremediaplayer`stosuje style, które są wymagane do Azure Media Player funkcji interfejsu użytkownika
-    - `amp-default-skin`stosuje domyślną skórkę do formantów HTML5
+    - `azuremediaplayer` stosuje style, które są wymagane do Azure Media Player funkcji interfejsu użytkownika
+    - `amp-default-skin` stosuje domyślną skórkę do formantów HTML5
 1. `<source>`Zawiera dwa wymagane atrybuty
-    - `src`atrybut może zawierać plik **. ISM/manifest* z Azure Media Services zostanie dodany, Azure Media Player automatycznie dodaje adresy URL dla łącznika, gładkie i HLS do odtwarzacza
-    - `type`atrybut jest wymaganym typem MIME strumienia. Typ MIME skojarzony z elementem *". ISM/manifest"* to *"application/vnd. MS-SStR + XML"*
+    - `src` atrybut może zawierać plik **. ISM/manifest* z Azure Media Services zostanie dodany, Azure Media Player automatycznie dodaje adresy URL dla łącznika, gładkie i HLS do odtwarzacza
+    - `type` atrybut jest wymaganym typem MIME strumienia. Typ MIME skojarzony z elementem *". ISM/manifest"* to *"application/vnd. MS-SStR + XML"*
 1. *Opcjonalny* `<data-setup>` atrybut na stronie `<source>` informuje Azure Media Player, jeśli istnieją jakieś unikatowe zasady dostarczania dla strumienia z Azure Media Services, w tym, ale nie jest ograniczony do, typ szyfrowania (AES, PlayReady, Widevine lub FairPlay) i token.
 
 Uwzględnij/Wyklucz atrybuty, ustawienia, źródła i ścieżki dokładnie tak samo, jak w przypadku wideo HTML5.

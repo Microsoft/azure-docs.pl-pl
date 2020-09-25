@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6f773f57bea40ba87f35ca2bbefe424d084afb2e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462143"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264613"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -162,7 +162,7 @@ Utworzono sieć wirtualną i podsieć, a następnie utworzono i przypisano upraw
 
 Następujące zakresy adresów IP są również zdefiniowane jako część procesu tworzenia klastra:
 
-* *--Service-CIDR* służy do przypisywania wewnętrznych usług w klastrze AKS jako adres IP. Ten zakres adresów IP powinien być przestrzenią adresową, która nie jest używana w innym miejscu w środowisku sieciowym. Ten zakres obejmuje wszystkie lokalne zakresy sieci w przypadku nawiązania połączenia lub zaplanowania połączenia z sieciami wirtualnymi platformy Azure przy użyciu trasy Express lub połączenia sieci VPN typu lokacja-lokacja.
+* *--Service-CIDR* służy do przypisywania wewnętrznych usług w klastrze AKS jako adres IP. Ten zakres adresów IP powinien być przestrzenią adresową, która nie jest używana w innym miejscu w środowisku sieciowym, łącznie z dowolnymi zakresami sieci lokalnych, Jeśli nawiązujesz połączenie lub planujesz nawiązać połączenie z sieciami wirtualnymi platformy Azure przy użyciu trasy Express lub połączenia sieci VPN typu lokacja-lokacja.
 
 * Wartość *--DNS-Service-IP* musi być adresem *.10* zakresu adresów IP usługi.
 

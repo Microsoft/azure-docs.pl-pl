@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: dc467eebbd7346777765af7143d13c76627ab648
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288787"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Nawiązywanie połączenia z usługą Synapse SQL z programem SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -41,9 +41,9 @@ Przed rozpoczęciem upewnij się, że masz następujące wymagania wstępne:
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 * W przypadku puli SQL potrzebny jest istniejący magazyn danych. Aby go utworzyć, zobacz [Tworzenie puli SQL](../quickstart-create-sql-pool-portal.md). W przypadku usługi SQL na żądanie jedna została już zainicjowana w obszarze roboczym podczas tworzenia. 
-* W pełni kwalifikowana nazwa SQL Server. Aby to znaleźć, zobacz [nawiązywanie połączenia z usługą SQL Synapse](connect-overview.md).
+* W pełni kwalifikowana nazwa SQL Server. Aby znaleźć tę nazwę, zobacz [nawiązywanie połączenia z usługą SQL Synapse](connect-overview.md).
 
-## <a name="connect"></a>Połącz
+## <a name="connect"></a>Connect
 
 ### <a name="sql-pool"></a>Pula SQL
 
@@ -52,7 +52,7 @@ Aby nawiązać połączenie z usługą Synapse SQL przy użyciu puli SQL, wykona
 1. Otwórz SQL Server Management Studio (SSMS). 
 1. W oknie dialogowym **łączenie z serwerem** Wypełnij pola, a następnie wybierz pozycję **Połącz**: 
   
-    ![Łączenie z serwerem](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
+    ![Łączenie z serwerem 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
    * **Nazwa serwera**: wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
    * **Uwierzytelnianie**: Wybierz typ uwierzytelniania, na przykład **uwierzytelnianie SQL Server** lub **Active Directory uwierzytelnianie zintegrowane**.
@@ -60,7 +60,7 @@ Aby nawiązać połączenie z usługą Synapse SQL przy użyciu puli SQL, wykona
 
 1. Rozwiń SQL Server platformy Azure w **Eksplorator obiektów**. Można wyświetlić bazy danych skojarzone z serwerem, takie jak Przykładowa baza danych AdventureWorksDW. Bazę danych można rozwinąć, aby wyświetlić tabele:
    
-    ![Poznawanie bazy danych AdventureWorksDW](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
+    ![Eksploruj AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
 ### <a name="sql-on-demand-preview"></a>SQL na żądanie (wersja zapoznawcza)
@@ -70,16 +70,16 @@ Aby nawiązać połączenie z usługą SQL Synapse przy użyciu usługi SQL na �
 1. Otwórz SQL Server Management Studio (SSMS).
 1. W oknie dialogowym **łączenie z serwerem** Wypełnij pola, a następnie wybierz pozycję **Połącz**: 
    
-    ![Łączenie z serwerem](./media/get-started-ssms/connect-object-explorer1.png)
+    ![Łączenie z serwerem 2](./media/get-started-ssms/connect-object-explorer1.png)
    
    * **Nazwa serwera**: wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
    * **Uwierzytelnianie**: Wybierz typ uwierzytelniania, na przykład **uwierzytelnianie SQL Server** lub **uwierzytelnianie zintegrowane Active Directory**:
    * **Nazwa użytkownika** i **hasło**: Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
-   * Kliknij przycisk **Podłącz**.
+   * Wybierz pozycję **Połącz**.
 
 4. W celach poznawczych rozwiń węzeł serwera Azure SQL. Możesz przejrzeć skojarzone z serwerem bazy danych. Rozwiń *demonstrację* , aby zobaczyć zawartość w przykładowej bazie danych.
    
-    ![Poznawanie bazy danych AdventureWorksDW](./media/get-started-ssms/explore-tables.png)
+    ![Eksploruj AdventureWorksDW 2](./media/get-started-ssms/explore-tables.png)
 
 
 ## <a name="run-a-sample-query"></a>Uruchamianie przykładowego zapytania
@@ -91,18 +91,18 @@ Po nawiązaniu połączenia z bazą danych można wykonywać zapytania dotycząc
 1. Kliknij prawym przyciskiem myszy bazę danych w Eksploratorze obiektów SQL Server.
 2. Wybierz pozycję **Nowe zapytanie**. Otworzy się okno nowego zapytania.
    
-    ![Nowe zapytanie](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
-3. Skopiuj to zapytanie T-SQL do okna zapytania:
+    ![Nowe zapytanie 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
+3. Skopiuj następujące zapytanie T-SQL do okna zapytania:
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Uruchom zapytanie. Aby to zrobić, kliknij `Execute` lub użyj następującego skrótu: `F5` .
+4. Uruchom zapytanie, wybierając `Execute` lub użyj następującego skrótu: `F5` .
    
-    ![Uruchamianie zapytania](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
-5. Przejrzyj wyniki zapytania. W tym przykładzie tabela FactInternetSales ma 60398 wierszy.
+    ![Uruchom zapytanie 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
+5. Przejrzyj wyniki zapytania. W poniższym przykładzie tabela FactInternetSales ma 60398 wierszy.
    
-    ![Wyniki zapytania](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
+    ![Wyniki zapytania 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
 ### <a name="sql-on-demand"></a>SQL na żądanie
 
@@ -111,18 +111,18 @@ Po nawiązaniu połączenia z bazą danych można wykonywać zapytania dotycząc
 1. Kliknij prawym przyciskiem myszy bazę danych w Eksploratorze obiektów SQL Server.
 2. Wybierz pozycję **Nowe zapytanie**. Otworzy się okno nowego zapytania.
    
-    ![Nowe zapytanie](./media/get-started-ssms/new-query.png)
+    ![Nowe zapytanie 2](./media/get-started-ssms/new-query.png)
 3. Skopiuj następujące zapytanie T-SQL do okna zapytania:
    
     ```sql
     SELECT COUNT(*) FROM demo.dbo.usPopulationView
     ```
-4. Uruchom zapytanie. Aby to zrobić, kliknij `Execute` lub użyj następującego skrótu: `F5` .
+4. Uruchom zapytanie, wybierając `Execute` lub użyj następującego skrótu: `F5` .
    
-    ![Uruchamianie zapytania](./media/get-started-ssms/execute-query.png)
+    ![Uruchom zapytanie 2](./media/get-started-ssms/execute-query.png)
 5. Przejrzyj wyniki zapytania. W tym przykładzie widok usPopulationView ma 3664512 wierszy.
    
-    ![Wyniki zapytania](./media/get-started-ssms/results.png)
+    ![Wyniki zapytania 2](./media/get-started-ssms/results.png)
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy można nawiązać połączenie i wykonywać zapytania, spróbuj [wizualizować dane za pomocą Power BI](get-started-power-bi-professional.md).

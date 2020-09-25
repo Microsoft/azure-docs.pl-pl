@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: 4f0a895795c9a50e3ec81632b2d57329dbe4777d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: seodec18, devx-track-js
+ms.openlocfilehash: bac3a20c45c15b88d0e00ef10960f74b761042d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834987"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262505"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-nodejs"></a>Szybki Start: Wyodrębnij drukowany tekst (OCR) przy użyciu interfejsu API REST przetwarzanie obrazów i Node.js
 
@@ -199,7 +199,7 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 }
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli plik nie jest już potrzebny, usuń to, a następnie odinstaluj pakiet `request` npm. Aby odinstalować pakiet, wykonaj następujące czynności:
 

@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: reference
 ms.date: 03/03/2020
-ms.openlocfilehash: 4e6c539622c682cff60c92fcfdd7b8d1fc2ef852
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: cdd08742e6aad956325508046a182674ec1bb1ea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489786"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292017"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Usługi i narzędzia dostępne dla scenariuszy migracji danych
 

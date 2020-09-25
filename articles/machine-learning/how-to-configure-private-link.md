@@ -10,20 +10,34 @@ ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/03/2020
-ms.openlocfilehash: 83927c9df9a4f1a6ab32c15c481898ec68f53c4c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/21/2020
+ms.openlocfilehash: 619960238125191e7bd4e702a49016c8fd58c847
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898140"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296658"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning (wersja zapoznawcza)
 
 W tym dokumencie dowiesz się, jak korzystać z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning. Aby uzyskać informacje na temat konfigurowania sieci wirtualnej dla Azure Machine Learning, zobacz [Omówienie izolacji i prywatności w sieci wirtualnej](how-to-network-security-overview.md)
 
 > [!IMPORTANT]
-> Korzystanie z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna tylko w regionach **Wschodnie stany USA**, **Stany** USA i **zachodnie** stany USA 2. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Korzystanie z prywatnego linku platformy Azure z obszarem roboczym Azure Machine Learning jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna tylko w następujących regionach:
+>
+> * **East US**
+> * **South Central US**
+> * **Zachodnie stany USA**
+> * **Zachodnie stany USA 2**
+> * **Kanada środkowa**
+> * **Southeast Asia**
+> * **Japan East**
+> * **Europa Północna**
+> * **Australia Wschodnia**
+> * **Południowe Zjednoczone Królestwo**
+>
+> Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem roboczym przy użyciu prywatnego punktu końcowego. Prywatny punkt końcowy to zestaw prywatnych adresów IP w sieci wirtualnej. Następnie można ograniczyć dostęp do obszaru roboczego tylko w przypadku prywatnych adresów IP. Link prywatny pomaga ograniczyć ryzyko związane z eksfiltracji danych. Aby dowiedzieć się więcej o prywatnych punktach końcowych, zobacz artykuł [prywatny link do platformy Azure](/azure/private-link/private-link-overview) .
 
@@ -34,6 +48,10 @@ Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem rob
 
 > [!TIP]
 > Wystąpienie obliczeniowe Azure Machine Learning może być używane z obszarem roboczym i prywatnym punktem końcowym. Ta funkcja jest obecnie dostępna w publicznej wersji zapoznawczej w regionach **Wschodnie stany USA**, **Południowo-środkowe** stany USA i **zachodnie stany USA 2** .
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Jeśli planujesz używanie obszaru roboczego z włączoną obsługą linku prywatnego z kluczem zarządzanym przez klienta, musisz zażądać tej funkcji przy użyciu biletu pomocy technicznej. Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Tworzenie obszaru roboczego korzystającego z prywatnego punktu końcowego
 

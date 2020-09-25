@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: c64e7988094612077131029547682c7ae3d25c98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 116ec518f7788e620fc6bd177e535c8f6af99d10
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753143"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267775"
 ---
 # <a name="working-with-user-vpn-client-profiles"></a>Praca z profilami klienta sieci VPN użytkownika
 

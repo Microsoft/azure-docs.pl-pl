@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52cf3af4b4ab84c12b2e1b5d7f076c43e652157d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031317"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289484"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Zarządzanie dostępem do obszarów roboczych, danych i potoków
 
@@ -50,7 +50,7 @@ Po aprowizacji obszaru roboczego należy wybrać konto [Azure Data Lake Storage 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 2. Przejdź do konta Azure Data Lake Storage Gen2
 3. Przejdź do kontenera (systemu plików) wybranego dla obszaru roboczego usługi Azure Synapse
-4. Kliknij **Access Control (IAM)**
+4. Wybierz **Access Control (IAM)**
 5. Przypisz następujące role:
    1. Rola **czytelnika** :`Synapse_WORKSPACENAME_Users`
    2. Rola **właściciela danych obiektów blob magazynu** :`Synapse_WORKSPACENAME_Admins`
@@ -64,17 +64,17 @@ Po aprowizacji obszaru roboczego należy wybrać konto [Azure Data Lake Storage 
 
 1. Przejdź do [ **interfejsu użytkownika sieci Web usługi Azure Synapse**](https://web.azuresynapse.net)
 2. Przejdź do **zarządzania**   >  **Security**  >  **kontrolą dostępu** zabezpieczeń
-3. Kliknij pozycję **Dodaj administratora**, a następnie wybierz pozycję `Synapse_WORKSPACENAME_Admins`
+3. Wybierz pozycję **Dodaj administratora**, a następnie wybierz pozycję `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Krok 4. Konfigurowanie dostępu administratora SQL dla obszaru roboczego
 
 1. Przejdź do [Azure Portal](https://portal.azure.com)
 2. Przejdź do obszaru roboczego
 3. Przejdź do pozycji **Ustawienia**  >  **Active Directory administrator**
-4. Kliknij pozycję **Ustaw administratora** .
+4. Wybierz pozycję **Ustaw administratora**
 5. Wybierz pozycję `Synapse_WORKSPACENAME_Admins`
-6. Kliknij pozycję **Wybierz** .
-7. Kliknij przycisk **Zapisz**
+6. Wybierz **pozycję Wybierz**
+7. Wybierz pozycję **Zapisz**
 
 > [!NOTE]
 > WORKSPACEname — należy zamienić tę część na rzeczywistą nazwę obszaru roboczego.

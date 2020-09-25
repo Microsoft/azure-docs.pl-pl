@@ -3,16 +3,22 @@ title: Service Fabric platformy Azure — korzystanie z Service Fabric odwołań
 description: W tym artykule wyjaśniono, jak używać obsługi KeyVaultReference usługi Service-Fabric dla wpisów tajnych aplikacji.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f1ac3ac50c5ac7cbabb03561c5db7f9c14150de4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246167"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261145"
 ---
-#  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Obsługa KeyVaultReference dla aplikacji Service Fabric (wersja zapoznawcza)
+# <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Obsługa KeyVaultReference dla aplikacji Service Fabric (wersja zapoznawcza)
 
 Typowym wyzwaniem podczas kompilowania aplikacji w chmurze jest sposób bezpiecznego przechowywania wpisów tajnych wymaganych przez aplikację. Na przykład możesz chcieć zapisać poświadczenia repozytorium kontenera w magazynie kluczy i odwołać się do niego w manifeście aplikacji. Service Fabric KeyVaultReference korzysta z tożsamości zarządzanej Service Fabric i ułatwia odwoływanie się do wpisów tajnych magazynu kluczy. W pozostałej części tego artykułu szczegółowo przedstawiono sposób korzystania z Service Fabric KeyVaultReference i zawiera on typowe użycie.
+
+> [!IMPORTANT]
+> Korzystanie z tej funkcji w wersji zapoznawczej nie jest zalecane w środowiskach produkcyjnych.
+
+> [!NOTE]
+> Funkcja w wersji zapoznawczej magazynu [kluczy obsługuje](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) tylko wpisy tajne. Wpisy tajne bez wersji nie są obsługiwane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -90,14 +96,14 @@ Załóżmy, że aplikacja musi odczytać hasło bazy danych zaplecza przechowywa
 
 - Dodaj sekcję do settings.xml
 
-    Zdefiniuj `DBPassword` parametr z typem `KeyVaultReference` i wartością`<KeyVaultURL>`
+    Zdefiniuj `DBPassword` parametr z typem `KeyVaultReference` i wartością `<KeyVaultURL>`
 
     ```xml
     <Section Name="dbsecrets">
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- Odwołuje się do nowej sekcji w ApplicationManifest.xml w`<ConfigPackagePolicies>`
+- Odwołuje się do nowej sekcji w ApplicationManifest.xml w `<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>

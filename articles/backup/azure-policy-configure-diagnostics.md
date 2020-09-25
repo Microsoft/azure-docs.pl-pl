@@ -3,12 +3,12 @@ title: Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 description: Skonfiguruj ustawienia diagnostyki Log Analytics dla wszystkich magazynów w danym zakresie przy użyciu Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 33956fe7ce2e162d58ef3aa09feaea2882dccb36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378053"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293088"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 
@@ -34,7 +34,7 @@ Aby przypisać zasady dla magazynów w wymaganym zakresie, wykonaj następujące
 
 1. Zaloguj się do Azure Portal i przejdź do pulpitu nawigacyjnego **zasad** .
 2. Wybierz pozycję **definicje** w menu po lewej stronie, aby wyświetlić listę wszystkich wbudowanych zasad w ramach zasobów platformy Azure.
-3. Filtrowanie listy dla **kategorii = Monitorowanie**. Zlokalizuj zasady o nazwie **[wersja zapoznawcza]: Wdróż ustawienia diagnostyczne magazynu Recovery Services do log Analytics obszaru roboczego dla kategorii specyficznych dla zasobów**.
+3. Filtrowanie listy dla **kategorii = kopia zapasowa**. Zlokalizuj zasady o nazwie **[wersja zapoznawcza]: Wdróż ustawienia diagnostyczne magazynu Recovery Services do log Analytics obszaru roboczego dla kategorii specyficznych dla zasobów**.
 
     ![Okienko definicji zasad](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

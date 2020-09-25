@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e33a5e32848dfd0a6cf252d6876616fc89edd1d7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f312b690ac7743b1574dbbec9d408b3fafbb0194
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284272"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263185"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>SQL Server Skonfiguruj zawsze dostępną grupę dostępności w różnych regionach platformy Azure
 
@@ -107,7 +107,7 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
 
 1. Dodaj adres IP jako zależność dla głównej nazwy klastra.
 
-   Otwórz właściwości klastra jeszcze raz i wybierz kartę **zależności** . Skonfiguruj zależność dla dwóch adresów IP lub: 
+   Otwórz właściwości klastra, a następnie wybierz kartę **zależności** . Skonfiguruj zależność lub dla dwóch adresów IP: 
 
    ![Właściwości klastra](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
 
@@ -183,7 +183,7 @@ Aby przetestować łączność odbiornika z regionem zdalnym, można przełączy
 
 Po przetestowaniu łączności należy przenieść replikę podstawową z powrotem do głównego centrum danych i ustawić tryb dostępności z powrotem na normalne ustawienia operacyjne. W poniższej tabeli przedstawiono normalne ustawienia operacyjne dla architektury opisanej w tym dokumencie:
 
-| Location | Wystąpienie serwera | Rola | Tryb dostępności | Tryb pracy awaryjnej
+| Lokalizacja | Wystąpienie serwera | Rola | Tryb dostępności | Tryb pracy awaryjnej
 | ----- | ----- | ----- | ----- | -----
 | Podstawowe centrum danych | SQL — 1 | Podstawowe | Synchronous | Automatyczny
 | Podstawowe centrum danych | SQL — 2 | Pomocniczy | Synchronous | Automatyczny

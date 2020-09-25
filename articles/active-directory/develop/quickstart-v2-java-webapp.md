@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 10ae1c76d48c1cedbb915fec66177ac3612feea0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d1b79d60bba89ef01b261c403fe3b25939669d0b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115224"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258102"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft
 
@@ -53,7 +53,7 @@ Do uruchomienia tego przykładu potrzebne są:
 > 1. Wybierz pozycję **Nowa rejestracja**.
 > 1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
 >    - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `java-webapp`.
->    - Wybierz pozycję **Rejestruj**.
+>    - Wybierz pozycję **Zarejestruj**.
 > 1. Na stronie **Przegląd** Znajdź wartość **Identyfikator aplikacji (klienta)** i **Identyfikator katalogu (dzierżawcy)** aplikacji. Skopiuj te wartości później.
 > 1. Wybierz **uwierzytelnianie** z menu, a następnie Dodaj następujące informacje:
 >    - Dodaj konfigurację platformy **sieci Web** .  Dodaj te `https://localhost:8443/msal4jsample/secure/aad` i `https://localhost:8443/msal4jsample/graph/me` jako **identyfikatory URI przekierowania**.
@@ -70,7 +70,7 @@ Do uruchomienia tego przykładu potrzebne są:
 >
 > Aby uzyskać przykładowy kod dla tego przewodnika Szybki Start, należy wykonać następujące czynności:
 >
-> 1. Dodaj adresy URL odpowiedzi jako `https://localhost:8443/msal4jsample/secure/aad` i`https://localhost:8443/msal4jsample/graph/me`
+> 1. Dodaj adresy URL odpowiedzi jako `https://localhost:8443/msal4jsample/secure/aad` i `https://localhost:8443/msal4jsample/graph/me`
 > 1. Utwórz klucz tajny klienta.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Wprowadź zmiany automatycznie]()
@@ -122,8 +122,8 @@ Do uruchomienia tego przykładu potrzebne są:
 > Gdzie:
 >
 > - `Enter_the_Application_Id_here` jest identyfikatorem dla zarejestrowanej aplikacji.
-> - `Enter_the_Client_Secret_Here`-jest **kluczem tajnym klienta** utworzonym w **certyfikatach & wpisy tajne** dla zarejestrowanej aplikacji.
-> - `Enter_the_Tenant_Info_Here`-jest wartością **identyfikatora katalogu (dzierżawcy)** zarejestrowanej aplikacji.
+> - `Enter_the_Client_Secret_Here` -jest **kluczem tajnym klienta** utworzonym w **certyfikatach & wpisy tajne** dla zarejestrowanej aplikacji.
+> - `Enter_the_Tenant_Info_Here` -jest wartością **identyfikatora katalogu (dzierżawcy)** zarejestrowanej aplikacji.
 > 1. Aby używać protokołu HTTPS z localhost, Wypełnij właściwości Server. SSL. Key. Aby wygenerować certyfikat z podpisem własnym, użyj narzędzia klucza (dołączonego do środowiska JRE).
 >
 >  ```
@@ -149,7 +149,7 @@ Uruchom ją bezpośrednio z poziomu środowiska IDE przy użyciu osadzonego serw
 
 ##### <a name="running-from-ide"></a>Uruchamianie z IDE
 
-Jeśli aplikacja sieci Web jest uruchamiana z poziomu środowiska IDE, kliknij pozycję Uruchom, a następnie przejdź do strony głównej projektu. W tym przykładzie adres URL standardowej strony głównej tohttps://localhost:8443
+Jeśli aplikacja sieci Web jest uruchamiana z poziomu środowiska IDE, kliknij pozycję Uruchom, a następnie przejdź do strony głównej projektu. W tym przykładzie adres URL standardowej strony głównej to https://localhost:8443
 
 1. Na stronie frontonu wybierz przycisk **Zaloguj** , aby przekierować do Azure Active Directory i monitować użytkownika o ich poświadczenia.
 
@@ -162,7 +162,7 @@ Jeśli aplikacja sieci Web jest uruchamiana z poziomu środowiska IDE, kliknij p
 Jeśli chcesz wdrożyć próbkę sieci Web w Tomcat, musisz wprowadzić kilka zmian w kodzie źródłowym.
 
 1. Otwórz MS-Identity-Java-webapp/pom.xml
-    - W obszarze `<name>msal-web-sample</name>` Dodaj`<packaging>war</packaging>`
+    - W obszarze `<name>msal-web-sample</name>` Dodaj `<packaging>war</packaging>`
 
 2. Otwórz MS-Identity-Java-webapp/src/Main/Java/com. Microsoft. Azure. msalwebsample/MsalWebSampleApplication
 
@@ -193,18 +193,19 @@ Jeśli chcesz wdrożyć próbkę sieci Web w Tomcat, musisz wprowadzić kilka zm
 3.   Domyślnym portem HTTP Tomcat jest 8080, chociaż jest wymagany połączenie HTTPS przez port 8443. Aby skonfigurować to:
         - Przejdź do tomcat/conf/server.xml
         - Wyszukaj `<connector>` znacznik i Zastąp istniejący łącznik:
-        ```
+
+        ```xml
         <Connector
                    protocol="org.apache.coyote.http11.Http11NioProtocol"
                    port="8443" maxThreads="200"
                    scheme="https" secure="true" SSLEnabled="true"
                    keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
                    clientAuth="false" sslProtocol="TLS"/>
-        ``` 
-       
+        ```
+
 4. Otwórz wiersz polecenia, przejdź do folderu głównego tego przykładu (w którym znajduje się plik pom.xml), a następnie uruchom polecenie, `mvn package` Aby skompilować projekt
     - Spowoduje to wygenerowanie `msal-web-sample-0.1.0.war` pliku w katalogu/targets.
-    - Zmień nazwę tego pliku na`msal4jsample.war`
+    - Zmień nazwę tego pliku na `msal4jsample.war`
     - Wdróż ten plik War przy użyciu Tomcat lub dowolnego innego rozwiązania kontenera J2EE.
         - Aby wdrożyć program, skopiuj plik msal4jsample. War do `/webapps/` katalogu w instalacji programu Tomcat, a następnie uruchom serwer Tomcat.
 
@@ -249,16 +250,11 @@ Dodaj odwołanie do MSAL for Java, dodając następujący kod na początku pliku
 import com.microsoft.aad.msal4j.*;
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat uprawnień i wyrażania zgody:
+Aby uzyskać bardziej szczegółowe omówienie tworzenia aplikacji sieci Web, które logują użytkowników na platformie tożsamości firmy Microsoft, przejdź do naszej wieloczęściowej serii scenariuszy:
 
 > [!div class="nextstepaction"]
-> [Uprawnienia i zgoda](./v2-permissions-and-consent.md)
-
-Aby dowiedzieć się więcej o przepływie uwierzytelniania dla tego scenariusza, zobacz przepływ kodu autoryzacji OAuth 2,0:
-
-> [!div class="nextstepaction"]
-> [Przepływ OAuth kodu autoryzacji](./v2-oauth2-auth-code-flow.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[Scenariusz: aplikacja sieci Web, która loguje użytkowników](scenario-web-app-sign-user-overview.md?tabs=java)

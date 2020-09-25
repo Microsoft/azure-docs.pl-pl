@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/08/2019
+ms.date: 09/22/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f1099a3564a5891a69429d78bda8177094538e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10c460775bcb63028f03d0e8d0b1f7ed1507cdb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388021"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259462"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania za pomocą konta LinkedIn przy użyciu Azure Active Directory B2C
 
@@ -26,10 +26,13 @@ Aby użyć konta LinkedIn jako [dostawcy tożsamości](authorization-code-flow.m
 
 1. Zaloguj się do [witryny sieci Web deweloperów serwisu LinkedIn](https://www.developer.linkedin.com/) przy użyciu poświadczeń konta usługi LinkedIn.
 1. Wybierz pozycję **Moje aplikacje**, a następnie kliknij pozycję **Utwórz aplikację**.
-1. Wprowadź **nazwę firmy**, **nazwę aplikacji**, **Opis aplikacji**, **logo aplikacji**, **użycie aplikacji**, **adres URL witryny sieci Web**, **służbowe wiadomości e-mail**i **telefon służbowy**.
-1. Zaakceptuj **warunki użytkowania interfejsu API usługi LinkedIn** i kliknij pozycję **Prześlij**.
-1. Skopiuj wartości **Identyfikator klienta** i **klucz tajny klienta**. Można je znaleźć w obszarze **klucze uwierzytelniania**. Oba te elementy będą potrzebne do skonfigurowania serwisu LinkedIn jako dostawcy tożsamości w dzierżawie. **Klucz tajny klienta** jest ważnym poświadczeniem zabezpieczeń.
-1. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` w polu **autoryzowane adresy URL przekierowań**. Zamień `your-tenant-name` na nazwę dzierżawy. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C. Wybierz pozycję **Dodaj**, a następnie kliknij pozycję **Aktualizuj**.
+1. Wprowadź **nazwę aplikacji**, **stronę serwisu LinkedIn**, **adres URL zasad ochrony prywatności**i **logo aplikacji**.
+1. Zaakceptuj **warunki użytkowania interfejsu API** usługi LinkedIn i kliknij pozycję **Utwórz aplikację**.
+1. Wybierz kartę **uwierzytelnianie** . W obszarze **klucze uwierzytelniania**Skopiuj wartości **Identyfikator klienta** i **klucz tajny klienta**. Musisz mieć oba te elementy, aby skonfigurować konto LinkedIn jako dostawcę tożsamości w dzierżawie. **Klucz tajny klienta** jest ważnym poświadczeniem zabezpieczeń.
+1. Wybierz pozycję Edytuj ołówek obok pozycji **autoryzowane adresy URL przekierowań dla aplikacji**, a następnie wybierz pozycję **Dodaj adres URL przekierowania**. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` wartość, zastępując `your-tenant-name` ją nazwą dzierżawy. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C. Wybierz pozycję **Aktualizuj**.
+2. Domyślnie aplikacja LinkedIn nie jest zatwierdzona dla zakresów związanych z logowaniem. Aby zażądać przeglądu, wybierz kartę **produkty** , a następnie wybierz pozycję **Zaloguj się przy użyciu konta LinkedIn**. Po zakończeniu przeglądu wymagane zakresy zostaną dodane do aplikacji.
+   > [!NOTE]
+   > Zakresy, które są obecnie dozwolone dla aplikacji, można wyświetlić na karcie **uwierzytelnianie** w sekcji **zakresy OAuth 2,0** .
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Konfigurowanie konta LinkedIn jako dostawcy tożsamości
 

@@ -7,13 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cb1e1baa63e5a38a7f3db251c6c6d551e999befc
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 1f47c35997fe060fd3c318602bcad17de83b530c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431069"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249624"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK języka JavaScript v10 w Node.js
 
@@ -403,7 +403,7 @@ await containerURL.delete(aborter);
 console.log(`Container "${containerName}" is deleted`);
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Wszystkie dane zapisane na koncie magazynu są automatycznie usuwane po zakończeniu pracy z przykładowym kodem. 
 

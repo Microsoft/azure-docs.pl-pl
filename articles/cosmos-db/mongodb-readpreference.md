@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 22530e79a2bcf34a88ea857bda56b6f424894461
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: a0bc2118c1a7e719c5ac45cb4d253a0708acefdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421998"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292342"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Jak globalnie dystrybuować odczyty przy użyciu interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -162,7 +162,7 @@ Zapoznaj się z odpowiednimi przykładowymi repozytoriami aplikacji dla innych p
 
 W tym artykule wyjaśniono, jak globalnie dystrybuować operacje odczytu przy użyciu preferencji odczytu z interfejsem API Azure Cosmos DB dla MongoDB.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń wszystkie zasoby utworzone w tym artykule w Azure Portal, wykonując następujące czynności:
 

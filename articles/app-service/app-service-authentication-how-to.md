@@ -4,12 +4,12 @@ description: Dowiedz się, jak dostosować funkcję uwierzytelniania i autoryzac
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2fa2e3463e057062ba743c2f6989aa571c85c983
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: a5d81d99759c972d91f66ec75c482e08826a8e07
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255217"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Zaawansowane użycie uwierzytelniania i autoryzacji w Azure App Service
 
@@ -154,7 +154,7 @@ W kodzie serwera tokeny specyficzne dla dostawcy są wstawiane do nagłówka ż�
 
 | Dostawca | Nazwy nagłówków |
 |-|-|
-| Usługa Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
+| Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Token Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
 | Konto Microsoft | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
@@ -443,7 +443,7 @@ W pliku są dostępne następujące opcje konfiguracji:
                 }
             },
             "preserveUrlFragmentsForLogins": <true|false>,
-            "allowedExternalRedirectUrls": [
+            "allowedExternalRedirectUri": [
                 "https://uri1.azurewebsites.net/",
                 "https://uri2.azurewebsites.net/"
             ],
@@ -532,7 +532,7 @@ Zamień `<my_app_name>` na nazwę aplikacji. Zastąp również `<my_resource_gro
 
 Możesz uruchomić to polecenie z [Azure Cloud Shell](../cloud-shell/overview.md) , wybierając pozycję **Wypróbuj** w poprzednim przykładzie kodu. Możesz również użyć [interfejsu wiersza polecenia platformy Azure lokalnie](/cli/azure/install-azure-cli) , aby wykonać to polecenie po wykonaniu polecenia [AZ login](/cli/azure/reference-index#az-login) , aby się zalogować.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników](tutorial-auth-aad.md)

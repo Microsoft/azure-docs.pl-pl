@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 2d19c061ad1e5cf033d2801df64a0ae37736c418
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983023"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254078"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetrię i rozwiązywanie problemów
 
@@ -121,7 +121,7 @@ Po wdrożeniu modułu telegraf do raportowanych metryk można uzyskać dostęp z
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Rozwiązywanie problemów z urządzeniem IoT Edge
 
-Za pomocą `iotedge` narzędzia wiersza polecenia można sprawdzić stan i dzienniki uruchomionych modułów. Przykład:
+Za pomocą `iotedge` narzędzia wiersza polecenia można sprawdzić stan i dzienniki uruchomionych modułów. Na przykład:
 * `iotedge list`: Raportuje listę uruchomionych modułów. 
   Możesz również sprawdzić pod kątem błędów `iotedge logs edgeAgent` . Jeśli `iotedge` jest zablokowany, możesz spróbować ponownie uruchomić go za pomocą `iotedge restart edgeAgent`
 * `iotedge logs <module-name>`
@@ -313,8 +313,7 @@ Jeśli w dziennikach modułów zostanie wyświetlony następujący komunikat, mo
 
 "Kontener nie jest w prawidłowym stanie. Sprawdzanie poprawności subskrypcji nie powiodło się ze stanem "niezgodność". Klucz interfejsu API nie jest przeznaczony dla danego typu kontenera. "
 
-Aby uzyskać więcej informacji, zobacz [żądanie zatwierdzenia w celu uruchomienia kontenera](spatial-analysis-container.md#request-approval-to-run-the-container). 
-
+Aby uzyskać więcej informacji, zobacz [żądanie zatwierdzenia w celu uruchomienia kontenera](spatial-analysis-container.md#request-approval-to-run-the-container).
 
 ## <a name="troubleshooting-the-azure-stack-edge-device"></a>Rozwiązywanie problemów z urządzeniem Azure Stack Edge
 

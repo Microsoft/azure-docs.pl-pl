@@ -2,19 +2,19 @@
 title: Wdróż wiele wystąpień zasobów
 description: Użyj operacji kopiowania i tablic w szablonie Azure Resource Manager, aby wdrożyć wiele razy typ zasobu.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/21/2020
+ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583384"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293972"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteracja zasobów w szablonach ARM
 
 W tym artykule pokazano, jak utworzyć więcej niż jedno wystąpienie zasobu w szablonie Azure Resource Manager (ARM). Dodając element **copy** do sekcji Resources szablonu, można dynamicznie ustawić liczbę zasobów do wdrożenia. Należy również unikać powtarzania składni szablonu.
 
-Można również użyć kopiowania z [właściwościami](copy-properties.md), [zmiennymi](copy-variables.md) i [wyjściami](copy-outputs.md).
+Można również użyć kopiowania z [właściwościami](copy-properties.md), [zmiennymi](copy-variables.md)i [wyjściami](copy-outputs.md).
 
 Jeśli musisz określić, czy zasób został wdrożony w ogóle, zobacz [warunek elementu](conditional-resource-deployment.md).
 
@@ -155,6 +155,8 @@ Jeśli chcesz zwrócić wartości ze wdrożonych zasobów, możesz użyć opcji 
 Domyślnie Menedżer zasobów tworzy zasoby równolegle. Nie ma żadnego limitu liczby zasobów wdrożonych równolegle, poza całkowitym limitem 800 zasobów w szablonie. Kolejność, w której są tworzone, nie jest gwarantowana.
 
 Można jednak określić, że zasoby są wdrażane w sekwencji. Na przykład podczas aktualizowania środowiska produkcyjnego warto rozłożyć aktualizacje, aby w dowolnym momencie zaktualizować tylko określoną liczbę. Aby przeprowadzić szeregowo wdrożenie więcej niż jednego wystąpienia zasobu, należy ustawić `mode` wartość **serial** oraz `batchSize` liczbę wystąpień do wdrożenia w danym momencie. W trybie serial Menedżer zasobów tworzy zależność od wcześniejszych wystąpień w pętli, dlatego nie uruchamia jednej partii do momentu zakończenia poprzedniej partii.
+
+Wartość parametru `batchSize` nie może przekroczyć wartości `count` elementu w elemencie Copy.
 
 Na przykład aby przeprowadzić sekwencyjne wdrażanie kont magazynu dwa naraz, należy użyć:
 

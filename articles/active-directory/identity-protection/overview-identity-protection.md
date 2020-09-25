@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8b19b8e928a220efa8a445ff033582e0f13c6de
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707734"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265277"
 ---
 # <a name="what-is-identity-protection"></a>Co to jest ochrona tożsamości?
 
@@ -53,7 +53,7 @@ Ochrona tożsamości identyfikuje ryzyko w następujących klasyfikacjach:
 | Anonimowy adres IP | Zaloguj się przy użyciu anonimowego adresu IP (na przykład: przeglądarki tor, sieci VPN Anonymizer). |
 | Nieznane właściwości logowania | Zaloguj się przy użyciu właściwości, które nie były ostatnio widziane dla danego użytkownika. |
 | Połączony adres IP złośliwego oprogramowania | Zaloguj się przy użyciu połączonego adresu IP złośliwego oprogramowania. |
-| Nieujawnione poświadczenia | To wykrywanie ryzyka wskazuje, że zostały ujawnione prawidłowe poświadczenia użytkownika. |
+| Nieujawnione poświadczenia | Wskazuje, że nieprawidłowe poświadczenia użytkownika zostały ujawnione. |
 | Rozpylanie hasła | Wskazuje, że wiele nazw użytkowników jest zaatakowanych przy użyciu typowych haseł w jednolity sposób. |
 | Analiza zagrożeń usługi Azure AD | Wewnętrzne i zewnętrzne źródła analizy zagrożeń firmy Microsoft określiły znany wzorzec ataku. |
 
@@ -96,7 +96,7 @@ Aby uzyskać dostęp do programu, Ochrona tożsamości wymaga, aby użytkownicy 
 
 Obecnie rola operatora zabezpieczeń nie może uzyskać dostępu do raportu ryzykowne logowania.
 
-Administratorzy dostępu warunkowego mogą również tworzyć zasady, które są czynnikiem ryzyka związanego z logowaniem jako warunek, aby uzyskać więcej informacji na temat [dostępu warunkowego w artykule: warunki](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
+Administratorzy dostępu warunkowego mogą również tworzyć zasady, które są czynnikiem ryzyka związanego z logowaniem jako warunek. Więcej informacji znajduje się w temacie [dostęp warunkowy do artykułu: warunki](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## <a name="license-requirements"></a>Wymagania licencyjne
 
@@ -104,14 +104,14 @@ Administratorzy dostępu warunkowego mogą również tworzyć zasady, które są
 
 | Możliwość | Szczegóły  | Aplikacje Azure AD — wersja Bezpłatna/Microsoft 365 | Usługa Azure AD — wersja Premium P1|Usługa Azure AD — wersja Premium P2 |
 | --- | --- | --- | --- | --- |
-| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości)  | Nie | Nie |Yes | 
-| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego)  | Nie |  Nie |Yes |
-| Raporty dotyczące zabezpieczeń | Omówienie |  Nie | Nie |Yes |
+| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości)  | Nie | Nie |Tak | 
+| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego)  | Nie |  Nie |Tak |
+| Raporty dotyczące zabezpieczeń | Omówienie |  Nie | Nie |Tak |
 | Raporty dotyczące zabezpieczeń | Ryzykowni użytkownicy  | Ograniczone informacje | Ograniczone informacje | Dostęp pełny|
 | Raporty dotyczące zabezpieczeń | Ryzykowne logowania  | Ograniczone informacje | Ograniczone informacje | Dostęp pełny|
 | Raporty dotyczące zabezpieczeń | Wykrycia ryzyka   | Nie | Ograniczone informacje| Dostęp pełny|
-| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami  | Nie | Nie |Yes |
-| Powiadomienia | Podsumowanie tygodniowe| Nie | Nie | Yes | 
+| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami  | Nie | Nie |Tak |
+| Powiadomienia | Podsumowanie tygodniowe| Nie | Nie | Tak | 
 | | Zasady rejestracji uwierzytelniania wieloskładnikowego | Nie | Nie | Tak |
 
 ## <a name="next-steps"></a>Następne kroki

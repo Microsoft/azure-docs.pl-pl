@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b7b8a0d98db1411a08afdb33fa272bb7e6d6313e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289025"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Jak używać funkcji OPENROWSET z SQL na żądanie (wersja zapoznawcza)
 
-`OPENROWSET(BULK...)`Funkcja umożliwia dostęp do plików w usłudze Azure Storage. `OPENROWSET`Funkcja odczytuje zawartość zdalnego źródła danych (na przykład pliku) i zwraca zawartość jako zestaw wierszy. W ramach zasobu SQL na żądanie (wersja zapoznawcza) dostawca zestawu wierszy zbiorczych OPENROWSET jest dostępny przez wywołanie funkcji OPENROWSET i określenie opcji BULK.  
+`OPENROWSET(BULK...)`Funkcja umożliwia dostęp do plików w usłudze Azure Storage. `OPENROWSET` Funkcja odczytuje zawartość zdalnego źródła danych (na przykład pliku) i zwraca zawartość jako zestaw wierszy. W ramach zasobu SQL na żądanie (wersja zapoznawcza) dostawca zestawu wierszy zbiorczych OPENROWSET jest dostępny przez wywołanie funkcji OPENROWSET i określenie opcji BULK.  
 
 Do `OPENROWSET` funkcji można odwoływać się w `FROM` klauzuli zapytania, tak jakby była nazwą tabeli `OPENROWSET` . Obsługuje operacje zbiorcze za pośrednictwem wbudowanego dostawcy ZBIORCZego, który umożliwia odczytywanie danych z pliku i zwracanie ich jako zestawu wierszy.
 
@@ -26,7 +26,7 @@ Do `OPENROWSET` funkcji można odwoływać się w `FROM` klauzuli zapytania, tak
 
 Funkcja OPENROWSET w Synapse SQL odczytuje zawartość plików ze źródła danych. Źródło danych jest kontem usługi Azure Storage i może być jawnie przywoływane w `OPENROWSET` funkcji lub może być dynamicznie wywnioskowane z adresu URL plików, które mają zostać odczytane.
 `OPENROWSET`Funkcja może opcjonalnie zawierać parametr, `DATA_SOURCE` Aby określić źródło danych, które zawiera pliki.
-- `OPENROWSET`bez `DATA_SOURCE` może służyć do bezpośredniego odczytywania zawartości plików z lokalizacji URL określonej jako `BULK` Opcja:
+- `OPENROWSET` bez `DATA_SOURCE` może służyć do bezpośredniego odczytywania zawartości plików z lokalizacji URL określonej jako `BULK` Opcja:
 
     ```sql
     SELECT *
@@ -36,7 +36,7 @@ Funkcja OPENROWSET w Synapse SQL odczytuje zawartość plików ze źródła dany
 
 Jest to szybka i łatwa metoda odczytywania zawartości plików bez wstępnej konfiguracji. Ta opcja umożliwia korzystanie z opcji uwierzytelniania podstawowego w celu uzyskania dostępu do magazynu (usługa Azure AD Passthrough dla nazw logowania usługi Azure AD i token sygnatury dostępu współdzielonego dla logowań SQL). 
 
-- `OPENROWSET`Program with `DATA_SOURCE` umożliwia dostęp do plików na określonym koncie magazynu:
+- `OPENROWSET` Program with `DATA_SOURCE` umożliwia dostęp do plików na określonym koncie magazynu:
 
     ```sql
     SELECT *
@@ -49,7 +49,7 @@ Jest to szybka i łatwa metoda odczytywania zawartości plików bez wstępnej ko
     Ta opcja umożliwia skonfigurowanie lokalizacji konta magazynu w źródle danych i określenie metody uwierzytelniania, która ma być używana do uzyskiwania dostępu do magazynu. 
     
     > [!IMPORTANT]
-    > `OPENROWSET`bez `DATA_SOURCE` zapewnia szybki i łatwy sposób uzyskiwania dostępu do plików magazynu, ale oferuje ograniczoną liczbę opcji uwierzytelniania. Na przykład podmioty zabezpieczeń usługi Azure AD mogą uzyskiwać dostęp do plików tylko przy użyciu [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) lub publicznie dostępnych plików. Jeśli potrzebujesz bardziej zaawansowanych opcji uwierzytelniania, użyj `DATA_SOURCE` opcji i zdefiniuj poświadczenia, które mają być używane do uzyskiwania dostępu do magazynu.
+    > `OPENROWSET` bez `DATA_SOURCE` zapewnia szybki i łatwy sposób uzyskiwania dostępu do plików magazynu, ale oferuje ograniczoną liczbę opcji uwierzytelniania. Na przykład podmioty zabezpieczeń usługi Azure AD mogą uzyskiwać dostęp do plików tylko przy użyciu [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) lub publicznie dostępnych plików. Jeśli potrzebujesz bardziej zaawansowanych opcji uwierzytelniania, użyj `DATA_SOURCE` opcji i zdefiniuj poświadczenia, które mają być używane do uzyskiwania dostępu do magazynu.
 
 
 ## <a name="security"></a>Zabezpieczenia
@@ -58,7 +58,7 @@ Użytkownik bazy danych musi mieć `ADMINISTER BULK OPERATIONS` uprawnienia do k
 
 Administrator magazynu musi także umożliwić użytkownikowi dostęp do plików przez udostępnienie prawidłowego tokenu SAS lub włączenie podmiotu zabezpieczeń usługi Azure AD w celu uzyskania dostępu do plików magazynu. Dowiedz się więcej o kontroli dostępu do magazynu w [tym artykule](develop-storage-files-storage-access-control.md).
 
-`OPENROWSET`Użyj następujących reguł, aby określić sposób uwierzytelniania do magazynu:
+`OPENROWSET` Użyj następujących reguł, aby określić sposób uwierzytelniania do magazynu:
 - W programie `OPENROWSET` bez `DATA_SOURCE` mechanizmu uwierzytelniania zależy od typu obiektu wywołującego.
   - Każdy użytkownik może używać `OPENROWSET` bez `DATA_SOURCE` konieczności odczytywania publicznie dostępnych plików w usłudze Azure Storage.
   - Identyfikatory logowania usługi Azure AD mogą uzyskiwać dostęp do chronionych plików przy użyciu własnej [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) , jeśli usługa Azure Storage umożliwia użytkownikowi usługi Azure AD dostęp do plików źródłowych (na przykład jeśli obiekt wywołujący ma `Storage Reader` uprawnienia do usługi Azure Storage).
@@ -119,7 +119,7 @@ Unstructured_data_path, który ustanawia ścieżkę do danych może być ścież
 | Azure Blob Storage         | wasb [s]  | \<container>@\<storage_account>. blob.core.windows.net/path/file |
 | Azure Data Lake Store Gen1 | http [s]  | \<storage_account>. azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | http [s]  | \<storage_account>. dfs.core.windows.net/Path/File   |
-| Azure Data Lake Store Gen2 | ABFS [s]  | [\<file_system>@\<account_name>. dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Store Gen2 | Aufs [s]  | [\<file_system>@\<account_name>. dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -184,7 +184,7 @@ Parametr ESCAPE_CHAR zostanie zastosowany niezależnie od tego, czy FIELDQUOTE j
 
 FIRSTROW = "first_row" 
 
-Określa numer pierwszego wiersza do załadowania. Domyślnym ustawieniem jest 1. Wskazuje pierwszy wiersz w określonym pliku danych. Numery wierszy są określane przez liczenie terminatorów wierszy. FIRSTROW jest oparty na 1.
+Określa numer pierwszego wiersza do załadowania. Wartość domyślna to 1 i wskazuje pierwszy wiersz w określonym pliku danych. Numery wierszy są określane przez liczenie terminatorów wierszy. FIRSTROW jest oparty na 1.
 
 FIELDQUOTE = "field_quote" 
 
@@ -203,7 +203,7 @@ Określa wersję parsera, która ma być używana podczas odczytywania plików. 
 - PARSER_VERSION = "1,0"
 - PARSER_VERSION = "2,0"
 
-Analizator CSV w wersji 1,0 jest domyślny i bogaty w funkcję, a program 2,0 jest zbudowany pod kątem wydajności i nie obsługuje wszystkich opcji i kodowań. 
+Analizator CSV w wersji 1,0 jest domyślny i bogaty w funkcję. Wersja 2,0 została skompilowana z myślą o wydajności i nie obsługuje wszystkich opcji i kodowań. 
 
 Specyficzne dla analizatora CSV wersja 2,0:
 
@@ -229,7 +229,7 @@ WITH (
 ) AS [r]
 ```
 
-Poniższy przykład zwraca wszystkie kolumny pierwszego wiersza z zestawu danych spisu w formacie Parquet bez określania nazw kolumn i typów danych: 
+Poniższy przykład zwraca wszystkie kolumny pierwszego wiersza z zestawu danych spisu, w formacie Parquet i bez określania nazw kolumn i typów danych: 
 
 ```sql
 SELECT 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 5955bc35acfaf8f877e68db083871c353a3ce326
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f9df17afe8b6d25df3d9dcc5f4eec0b9a028404f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984926"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254010"
 ---
 # <a name="spatial-analysis-operations"></a>Operacje analizy przestrzennej
 
@@ -644,7 +644,7 @@ Możesz chcieć zintegrować wykrywanie przestrzenne lub zdarzenia w aplikacji. 
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Wdrażanie operacji analizy przestrzennej na dużą skalę (wiele kamer)
 
-Aby uzyskać najlepszą wydajność i wykorzystanie procesorów GPU, można wdrożyć wszystkie operacje analizy przestrzennej dla wielu kamer przy użyciu wystąpień grafu. Poniżej znajduje się przykład uruchamiania operacji cognitiveservices. Vision. spatialanalysis-personcount na pięciu (5) aparatach fotograficznych.
+Aby uzyskać najlepszą wydajność i wykorzystanie procesorów GPU, można wdrożyć wszystkie operacje analizy przestrzennej dla wielu kamer przy użyciu wystąpień grafu. Poniżej znajduje się przykład służący do uruchamiania `cognitiveservices.vision.spatialanalysis-personcount` operacji w pięciu aparatach.
 
 ```json
  "properties.desired": {
@@ -727,7 +727,7 @@ Aby uzyskać najlepszą wydajność i wykorzystanie procesorów GPU, można wdro
   ```
 | Nazwa | Typ| Opis|
 |---------|---------|---------|
-| `batch_size` | int | Wskazuje liczbę kamer, które będą używane w tej operacji.|
+| `batch_size` | int | Wskazuje liczbę kamer, które będą używane w operacji. |
 
 ## <a name="next-steps"></a>Następne kroki
 

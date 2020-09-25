@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: aac5c937ab2f80dcbe1567a3817b056a6285cf17
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 9812724b62717440160b9db8604a65ab787f3a9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086678"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252667"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -61,6 +61,8 @@ Aby używać interfejsów API płaszczyzny danych:
 * Możesz użyć zestawu SDK **języka JavaScript** . Aby użyć zestawu SDK języka JavaScript...
    - Możesz wyświetlić i zainstalować pakiet z npm: [Azure Digital bliźniaczych reprezentacji Client Library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
    - można wyświetlić [dokumentację referencyjną zestawu SDK](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true).
+* Możesz użyć zestawu SDK **języka JavaScript** . Aby użyć zestawu SDK języka JavaScript...
+   - Możesz wyświetlić i zainstalować pakiet z Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
 * Zestaw SDK dla innego języka można wygenerować przy użyciu funkcji AutoRest. Postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Create Custom SDK for Azure Digital bliźniaczych reprezentacji with AutoRest*](how-to-create-custom-sdks.md).
 
 Możesz również wykonywać interfejsy API płaszczyzny danych, współpracując z usługą Azure Digital bliźniaczych reprezentacji za pomocą [interfejsu wiersza polecenia](how-to-use-cli.md).
@@ -298,7 +300,7 @@ W tym miejscu można wyświetlić metryki dla wystąpienia i utworzyć widoki ni
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z tematem jak używać interfejsów API do konfigurowania wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji:
-* [*Instrukcje: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-scripted.md)
+* [*Instrukcje: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md)
 
 Lub zapoznaj się z instrukcjami, aby utworzyć aplikację kliencką, taką jak ta, która jest używana w tym przewodniku:
 * [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)

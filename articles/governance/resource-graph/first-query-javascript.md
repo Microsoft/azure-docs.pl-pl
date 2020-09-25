@@ -3,13 +3,13 @@ title: 'Szybki Start: pierwsze zapytanie JavaScript'
 description: W tym przewodniku szybki start wykonaj kroki umożliwiające włączenie biblioteki grafu zasobów dla języka JavaScript i uruchomienie pierwszego zapytania.
 ms.date: 06/23/2020
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fc9809dbe615950b4f5c9e4dc66cefcd054f5ebf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: cdc0589829f250851212ad990dde99eb6dcc958f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415928"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251970"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Szybki Start: uruchamianie pierwszego zapytania wykresu zasobów przy użyciu języka JavaScript
 
@@ -118,7 +118,7 @@ Aby włączyć JavaScript do tworzenia zapytań dotyczących grafu zasobów plat
 
 Gdy ostateczne zapytanie jest uruchamiane kilka razy, przy założeniu, że nic w środowisku nie zmienia się, zwracane wyniki są spójne i uporządkowane według właściwości **nazwy** , ale nadal są ograniczone do pięciu pierwszych wyników.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz usunąć zainstalowane biblioteki z aplikacji, uruchom następujące polecenie.
 

@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: c868aa0f1c2449ccf163523c9ded25a31d1d84c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a294368e82bcd00f98c26504b3141e8f39fe0c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820111"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261604"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>Co to jest Akcelerator rozwiązania do podłączenia fabryki IoT?
+
+> [!IMPORTANT]
+> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
 
 Połączona fabryka to implementacja architektury referencyjnej platformy Azure przemysłowego firmy Microsoft, spakowana jako rozwiązanie typu "open source". Można go użyć jako punktu wyjścia dla produktu komercyjnego. Możesz wdrożyć wstępnie utworzoną wersję rozwiązania połączonej fabryki w ramach subskrypcji platformy Azure z [akceleratorów rozwiązań usługi Azure IoT](https://www.azureiotsolutions.com/#solutions/types/CF).
 

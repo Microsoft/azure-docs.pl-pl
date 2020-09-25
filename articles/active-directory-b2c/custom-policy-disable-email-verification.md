@@ -1,7 +1,7 @@
 ---
 title: Wyłącz weryfikację poczty e-mail podczas rejestracji klienta przy użyciu zasad niestandardowych
 titleSuffix: Azure AD B2C
-description: Dowiedz się, jak wyłączyć weryfikację poczty e-mail podczas tworzenia konta klienta w Azure Active Directory B2C.
+description: Dowiedz się, jak wyłączyć weryfikację poczty e-mail podczas tworzenia konta klienta przy użyciu zasad niestandardowych w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29426f8e3797c89deb712e89e0d972dd1ac8028e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9372a9caff5aefb53bfa8adf7eb1c68d2a3b7b2e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389313"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259618"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Wyłącz weryfikację poczty e-mail podczas rejestracji klienta przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
