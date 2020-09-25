@@ -7,17 +7,17 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6d77855f095c59b47156af735f4581076ce5a09c
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: a8bfa91ac9b70c0ff4f461bd9e10899d1170b24d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611622"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272523"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ Wystąpienia klastra trybu failover z SQL Server w usłudze Azure Virtual Machin
 Aby dowiedzieć się więcej, zobacz [najlepsze rozwiązania dotyczące kworum z maszynami wirtualnymi SQL Server na platformie Azure](hadr-cluster-best-practices.md#quorum). 
 
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 W tradycyjnych lokalnych środowiskach klastrowanych klaster trybu failover systemu Windows używa sieci magazynowania (SAN), która jest dostępna w obu węzłach jako magazyn udostępniony. Pliki SQL Server są hostowane w magazynie udostępnionym, a tylko aktywny węzeł może uzyskać do nich dostęp jednocześnie. 
 

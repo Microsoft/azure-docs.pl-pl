@@ -8,24 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 82dc81c540115f08e57f87e63184e1e895c5e4fe
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: cog-serv-seo-aug-2020
+keywords: Content moderator, Azure Content moderator, moderator online, oprogramowanie do filtrowania zawartości, usługa Content moderatoring
+ms.openlocfilehash: d502f41a79500b80e1891219b54bde30eb3cd8ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309658"
 ---
 # <a name="what-is-azure-content-moderator"></a>Czym jest usługa Azure Content Moderator?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Content Moderator to usługa poznawczej, która sprawdza zawartość tekstu, obrazu i wideo dla materiałów, które są potencjalnie obraźliwe, ryzykowne lub w inny sposób niepożądane. Po znalezieniu tego materiału usługa stosuje odpowiednie etykiety (flagi) do zawartości. Aplikacja może następnie obsłużyć oflagowaną zawartość w celu zachowania zgodności z przepisami lub zapewnienia odpowiedniego środowiska dla użytkowników. Zobacz sekcję dotyczącą [moderowania interfejsów API](#moderation-apis) , aby dowiedzieć się więcej na temat tego, co wskazuje różne flagi zawartości.
+Azure Content Moderator to usługa AI, która umożliwia obsługę zawartości potencjalnie obraźliwej, ryzykownej lub niepożądanej. Obejmuje ona usługę moderowania zawartości, która skanuje tekst, obrazy i wideo oraz automatycznie stosuje flagi zawartości, a także narzędzie do przeglądu, środowisko moderatora online dla zespołu recenzentów ludzkich.
+
+Możesz chcieć utworzyć oprogramowanie do filtrowania zawartości w aplikacji, aby zachować zgodność z przepisami lub zachować zamierzone środowisko dla użytkowników.
 
 ## <a name="where-its-used"></a>Miejsce użycia
 
-Poniżej przedstawiono kilka scenariuszy, w których deweloper lub zespół ds. oprogramowania będą używać pakietu Content Moderator:
+Poniżej przedstawiono kilka scenariuszy, w których deweloper oprogramowania lub zespół wymaga usługi moderowania zawartości:
 
 - Portale online, które moderowają katalogi produktów i inną zawartość wygenerowaną przez użytkownika.
 - Firmy zajmujące się giermi, które moderowają wygenerowane przez użytkownika artefakty gier i pokoje rozmowy.
@@ -33,7 +37,7 @@ Poniżej przedstawiono kilka scenariuszy, w których deweloper lub zespół ds. 
 - Firmy zajmujące się multimediami przedsiębiorstwa, które implementują scentralizowane moderowanie dla ich zawartości.
 - K-12 dostawcy rozwiązań edukacyjnych, który umożliwia filtrowanie zawartości nieodpowiedniej dla uczniów i wykładowców.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Nie można użyć Content Moderator do wykrywania niedozwolonych podrzędnych obrazów wykorzystujących luki w zabezpieczeniach. Jednak kwalifikowana organizacja może używać [usługi PhotoDNA w chmurze](https://www.microsoft.com/photodna "Usługa w chmurze firmy Microsoft PhotoDNA") na ekranie dla tego typu zawartości.
 
 ## <a name="what-it-includes"></a>Co zawiera
@@ -77,4 +81,4 @@ Jak w przypadku wszystkich usług Cognitive Services, deweloperzy korzystający 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zacznij korzystać z usługi Content Moderator, postępując zgodnie z instrukcjami w przewodniku [Wypróbowywanie usługi Content Moderator w Internecie](quick-start.md).
+Aby rozpocząć korzystanie z Content Moderator w portalu internetowym, należy wykonać [Content moderator w sieci Web](quick-start.md). Można też ukończyć [Przewodnik Szybki Start dla biblioteki klienta](client-libraries.md) , aby zaimplementować podstawowe scenariusze w kodzie.

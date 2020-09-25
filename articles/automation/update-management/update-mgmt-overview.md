@@ -3,14 +3,14 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4a753cd139db9dec23c82346704382979aeaa0de
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 314012467da532002529a3f561b192876602b46e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976984"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335436"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -59,7 +59,7 @@ Update Management raportuje, jak to jest aktualność maszyny, na podstawie źr�
 
 Aktualizacje oprogramowania można wdrożyć i zainstalować na komputerach, które wymagają aktualizacji przez utworzenie zaplanowanego wdrożenia. Aktualizacje sklasyfikowane jako opcjonalne nie są uwzględnione w zakresie wdrożenia dla maszyn z systemem Windows. Zakres wdrożenia obejmuje tylko wymagane aktualizacje.
 
-Zaplanowane wdrożenie definiuje, które maszyny docelowe otrzymują odpowiednie aktualizacje. Robi to przez jawne określenie pewnych maszyn lub wybranie [grupy komputerów](../../azure-monitor/platform/computer-groups.md) , która jest oparta na przeszukiwaniu dzienników określonego zestawu maszyn (lub w [Azure Query] update-logs.MD), który dynamicznie wybiera maszyny wirtualne platformy Azure na podstawie określonych kryteriów). Te grupy różnią się od [konfiguracji zakresu](../../azure-monitor/insights/solution-targeting.md), która jest używana do sterowania kierowaniem maszyn, które odbierają konfigurację w celu włączenia Update Management. Zapobiega to wykonywaniu i raportowaniu zgodności aktualizacji oraz instalowaniu zatwierdzonych wymaganych aktualizacji.
+Zaplanowane wdrożenie definiuje, które maszyny docelowe otrzymują odpowiednie aktualizacje. Robi to przez jawne określenie pewnych maszyn lub wybranie [grupy komputerów](../../azure-monitor/platform/computer-groups.md) , która jest oparta na przeszukiwaniu dzienników określonego zestawu maszyn (lub w [zapytaniu platformy Azure](update-mgmt-query-logs.md) , które dynamicznie wybiera maszyny wirtualne platformy Azure na podstawie określonych kryteriów). Te grupy różnią się od [konfiguracji zakresu](../../azure-monitor/insights/solution-targeting.md), która jest używana do sterowania kierowaniem maszyn, które odbierają konfigurację w celu włączenia Update Management. Zapobiega to wykonywaniu i raportowaniu zgodności aktualizacji oraz instalowaniu zatwierdzonych wymaganych aktualizacji.
 
 Podczas definiowania wdrożenia należy również określić harmonogram zatwierdzania i ustawiania przedziału czasu, w którym można zainstalować aktualizacje. Ten okres jest nazywany oknem obsługi. 20-minutowy zakres okna obsługi jest zarezerwowany dla ponownych uruchomień, przy założeniu, że jest to wymagane i wybrano odpowiednią opcję ponownego uruchomienia. Jeśli stosowanie poprawek trwa dłużej niż oczekiwano, a w oknie obsługi jest mniej niż 20 minut, ponowne uruchomienie nie zostanie przeprowadzone.
 
@@ -213,7 +213,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.

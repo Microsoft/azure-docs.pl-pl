@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431b45f4ef3431e7fd1d34cf80278892470c36ef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660838"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306399"
 ---
 # <a name="risky-ip-report-public-preview"></a>Raport dotyczący ryzykownych adresów IP (publiczna wersja zapoznawcza)
 AD FS klienci mogą uwidaczniać punkty końcowe uwierzytelniania hasła w Internecie w celu zapewnienia usług uwierzytelniania dla użytkowników końcowych w celu uzyskania dostępu do aplikacji SaaS, takich jak Microsoft 365. W takim przypadku możliwe są nieuprawnione próby logowania przy użyciu systemu AD FS w celu odgadnięcia hasła użytkownika końcowego i uzyskania dostępu do zasobów aplikacji. Od wersji 2012 R2 systemu Windows Server usługi AD FS udostępniają funkcję blokady konta na ekstranecie, która uniemożliwia przeprowadzenie takich ataków. Jeśli korzystasz ze starszej wersji, zdecydowanie zalecamy uaktualnienie systemu AD FS do wersji 2016 systemu Windows Server. <br />
@@ -39,7 +39,7 @@ Ponadto możliwe jest podejmowanie szeregu prób logowania z jednego adresu IP p
 > 
 
 ## <a name="what-is-in-the-report"></a>Co znajduje się w raporcie?
-Adresy IP klienta niepowodzenia logowania są agregowane za pomocą serwerów proxy aplikacji sieci Web. Poszczególne elementy raportu ryzykownych adresów IP zawierają zagregowane informacje o nieudanych operacjach logowania za pomocą usług AD FS, przekraczających wyznaczoną wartość progową. Raport udostępnia następujące informacje: ![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+Adresy IP klienta niepowodzenia logowania są agregowane za pomocą serwerów proxy aplikacji sieci Web. Poszczególne elementy raportu ryzykownych adresów IP zawierają zagregowane informacje o nieudanych operacjach logowania za pomocą usług AD FS, przekraczających wyznaczoną wartość progową. Zawiera następujące informacje: ![ zrzut ekranu przedstawiający ryzykowny raport IP z wyróżnionymi nagłówkami kolumn.](./media/how-to-connect-health-adfs/report4a.png)
 
 | Element raportu | Opis |
 | ------- | ----------- |
@@ -52,7 +52,7 @@ Adresy IP klienta niepowodzenia logowania są agregowane za pomocą serwerów pr
 
 Na przykład zgodnie z poniższym elementem raportu w dniu 28.02.2018 w godzinach 18:00–19:00 z adresu IP <i>104.2XX.2XX.9</i> zainicjowano próby uzyskania dostępu, które spowodowały wystąpienie 284 błędów blokady ekstranetu. Nie wystąpiły błędy związane z nieprawidłowym hasłem. W ramach kryteriów zdarzenia obejmowały 14 unikatowych użytkowników. Działania przekroczyły wartość progową określoną w raporcie. 
 
-![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/report4b.png)
+![Zrzut ekranu przedstawiający przykładowy wpis ryzykownego raportu IP.](./media/how-to-connect-health-adfs/report4b.png)
 
 > [!NOTE]
 > - Raport zawiera tylko działania przekraczające wyznaczoną wartość progową. 
@@ -60,7 +60,7 @@ Na przykład zgodnie z poniższym elementem raportu w dniu 28.02.2018 w godzinac
 > - Raport z alertem nie zawiera adresów IP programu Exchange ani prywatnych adresów IP. Jednak można je znaleźć na wyeksportowanej liście. 
 >
 
-![Portal programu Azure AD Connect Health](./media/how-to-connect-health-adfs/report4c.png)
+![Zrzut ekranu pokazujący ryzykowny raport IP z wyróżnioną opcją "Pobierz", "ustawienia powiadomień" i "Ustawienia progu".](./media/how-to-connect-health-adfs/report4c.png)
 
 ## <a name="load-balancer-ip-addresses-in-the-list"></a>Adresy IP usługi równoważenia obciążenia na liście
 Moduł równoważenia obciążenia agreguje nieudane działania związane z logowaniem i osiąga próg alertu. Jeśli adresy IP modułu równoważenia obciążenia są widoczne, prawdopodobnie zewnętrzny moduł równoważenia obciążenia nie wysyła adresu IP klienta podczas przekazywania żądania do serwera proxy aplikacji internetowych. Skonfiguruj prawidłowo moduł równoważenia obciążenia, aby przekazać adres IP klienta na potrzeby przekazywania dalej. 

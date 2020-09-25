@@ -10,12 +10,12 @@ ms.date: 05/04/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d0770cd9e7ec99765b8f201634e6a857b3cf02e4
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: f6ffa23818a223ef1c0d46823955668ad96292d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318070"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307215"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants---linux-examples"></a>Udostępnianie obrazów maszyn wirtualnych galerii w ramach dzierżawców platformy Azure — przykłady dla systemu Linux
 
@@ -56,4 +56,4 @@ az vm create \
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli napotkasz jakiekolwiek problemy, możesz [rozwiązać problemy z udostępnionymi galeriami obrazów](troubleshooting-shared-images.md).
+Jeśli napotkasz jakiekolwiek problemy, możesz [rozwiązać problemy z udostępnionymi galeriami obrazów](../troubleshooting-shared-images.md).

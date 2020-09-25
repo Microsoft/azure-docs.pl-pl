@@ -1,14 +1,14 @@
 ---
 title: Omówienie usługi Azure Arc
 description: Dowiedz się więcej na temat tego, co to jest usługa Azure Arc i jak pomaga klientom w zarządzaniu zasobami hybrydowymi i zarządzaniem nimi za pomocą innych usług i funkcji platformy Azure.
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 46bd2089dbc2794d0fb98ceb9a5e97011e36d6ea
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e6dc052655bffae949399f77a26d7b76c5b0d13c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052303"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335402"
 ---
 # <a name="azure-arc-overview"></a>Omówienie usługi Azure Arc
 
@@ -34,7 +34,7 @@ Najważniejsze funkcje usługi Azure Arc obejmują:
 
 * Skonfiguruj [rozszerzenia maszyny wirtualnej platformy Azure](./servers/manage-vm-extensions.md) , aby używać usług zarządzania platformy Azure do monitorowania, zabezpieczania i aktualizowania serwerów.
 
-* Zarządzanie klastrami Kubernetes na dużą skalę i zarządzania nimi. 
+* Zarządzanie klastrami Kubernetes na dużą skalę i zarządzania nimi.
 
 * Użyj konfiguracji opartej na GitOps jako zarządzania kodem, aby wdrażać aplikacje i konfigurację w jednym lub większej liczbie klastrów bezpośrednio z kontroli źródła, takich jak GitHub.
 
@@ -50,7 +50,17 @@ Poniżej znajdują się szczegółowe informacje o cenach dla funkcji dostępnyc
 
 ### <a name="arc-enabled-servers"></a>Serwery z obsługą usługi Arc
 
-W bieżącej fazie wersji zapoznawczej serwery z obsługą usługi Azure Arc są oferowane bez dodatkowych kosztów.
+Funkcja płaszczyzny kontroli usługi Azure Arc jest oferowana bez dodatkowych kosztów.Obejmuje on:
+
+* Organizacja zasobów za pomocą grup i tagów zarządzania platformy Azure.
+
+* Wyszukiwanie i indeksowanie za pomocą grafu zasobów platformy Azure.
+
+* Dostęp i zabezpieczenia za za poorednictwem RBAC i subskrypcji.
+
+* Środowiska i Automatyzacja za poorednictwem szablonów i rozszerzeń.
+
+* Zarządzanie aktualizacjami
 
 Dla każdej usługi platformy Azure, która jest używana na serwerach z włączonym łukiem, na przykład Azure Security Center lub Azure Monitor, zostanie naliczona opłata zgodnie z cennikiem tej usługi. Aby uzyskać więcej informacji, zobacz [stronę z cennikiem platformy Azure](https://azure.microsoft.com/pricing/).
 
@@ -58,7 +68,7 @@ Dla każdej usługi platformy Azure, która jest używana na serwerach z włącz
 
 W bieżącej fazie wersji zapoznawczej usługa Azure Arc Kubernetes jest oferowana bez dodatkowych kosztów.
 
-### <a name="azure-arc-enabled-data-services"></a>Usługi danych z włączonym usługą Azure Arc
+### <a name="azure-arc-enabled-data-services"></a>Usługi danych z obsługą usługi Azure Arc
 
 W bieżącej fazie wersji zapoznawczej usługi danych z włączonym usługą Azure Arc są oferowane bez dodatkowych kosztów.
 

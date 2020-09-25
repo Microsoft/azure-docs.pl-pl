@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b06120437555ec71bc431cb1429120cb5e1987f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: be6040b8b84a4b86746d62bd2f1c07f0ffea0a3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938916"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336296"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-postgresql--flexible-server"></a>Zarządzanie ustawieniami zaplanowanej konserwacji dla Azure Database for PostgreSQL — elastyczny serwer
  
@@ -31,9 +31,9 @@ Aby ukończyć ten przewodnik, musisz:
  
 ## <a name="notifications-about-scheduled-maintenance-events"></a>Powiadomienia o zdarzeniach zaplanowanej konserwacji
  
-Za pomocą Azure Service Health można [wyświetlać powiadomienia](/azure/service-health/service-notifications.md) o nadchodzącej i zaplanowanej konserwacji na serwerze elastycznym. Możesz również [skonfigurować](/azure/service-health/resource-health-alert-monitor-guide.md) alerty w Azure Service Health, aby otrzymywać powiadomienia o zdarzeniach konserwacji.
+Za pomocą Azure Service Health można [wyświetlać powiadomienia](../../service-health/service-notifications.md) o nadchodzącej i zaplanowanej konserwacji na serwerze elastycznym. Możesz również [skonfigurować](../../service-health/resource-health-alert-monitor-guide.md) alerty w Azure Service Health, aby otrzymywać powiadomienia o zdarzeniach konserwacji.
  
 ## <a name="next-steps"></a>Następne kroki  
  
 * Informacje o [zaplanowanej konserwacji w Azure Database for PostgreSQL — elastyczny serwer](concepts-maintenance.md)
-* Pochylenie o [Azure Service Health](/azure/service-health/overview.md)
+* Pochylenie o [Azure Service Health](../../service-health/overview.md)

@@ -3,12 +3,12 @@ title: Oceny maszyn wirtualnych platformy Azure w ramach oceny Azure Migrate Ser
 description: Dowiedz się więcej na temat ocen w Azure Migrate oceny serwera
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275527"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Przegląd oceny serwera (Migrowanie do maszyn wirtualnych platformy Azure)
 
@@ -27,15 +27,15 @@ Istnieją dwa typy ocen, które można utworzyć przy użyciu Azure Migrate: Oce
 
 **Typ oceny** | **Szczegóły**
 --- | --- 
-**Maszyna wirtualna platformy Azure** | Ocenianie migracji serwerów lokalnych do usługi Azure Virtual Machines. <br/><br/> Możesz ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny.
-**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](../azure-vmware/introduction.md). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
+**Maszyna wirtualna platformy Azure** | Oceny umożliwiające migrację serwerów lokalnych do maszyn wirtualnych platformy Azure. <br/><br/> Przy użyciu tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md) i [serwery fizyczne](how-to-set-up-appliance-physical.md) pod kątem migracji na platformę Azure.
+**Rozwiązanie Azure VMware (AVS)** | Oceny umożliwiające migrację serwerów lokalnych do usługi [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Przy użyciu tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) pod kątem migracji do usługi Azure VMware Solution (AVS).[Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Oceny tworzone za pomocą oceny serwera to migawka danych w danym momencie. Ocena maszyn wirtualnych platformy Azure w ramach oceny serwera oferuje dwie opcje kryteriów ustalania rozmiarów:
 
 **Typ oceny** | **Szczegóły** | **Dane**
 --- | --- | ---
-**Oparta na wydajności** | Oceny, które podejmują zalecenia na podstawie zebranych danych wydajności | Zalecenie dotyczące rozmiaru maszyny wirtualnej bazuje na danych użycia procesora CPU i pamięci RAM.<br/><br/> Zalecenia dotyczące typu dysku opierają się na operacjach wejścia/wyjścia na sekundę (IOPS) i przepływności dysków lokalnych. Typy dysków to Azure HDD w warstwie Standardowa, Azure SSD w warstwie Standardowa i Azure Premium Disks.
-**Zgodnie z lokalnym** | Oceny, które nie używają danych wydajności do wykonywania zaleceń | Zalecenie dotyczące rozmiaru maszyny wirtualnej bazuje na lokalnym rozmiarze maszyny wirtualnej.<br/><br> Zalecany typ dysku jest oparty na wybranym typie magazynu dla oceny.
+**Na podstawie wydajności** | Oceny zawierające rekomendacje na podstawie zebranych danych dotyczących wydajności | Zalecenie dotyczące rozmiaru maszyny wirtualnej bazuje na danych użycia procesora CPU i pamięci RAM.<br/><br/> Zalecenia dotyczące typu dysku opierają się na operacjach wejścia/wyjścia na sekundę (IOPS) i przepływności dysków lokalnych. Typy dysków to Azure HDD w warstwie Standardowa, Azure SSD w warstwie Standardowa i Azure Premium Disks.
+**Zgodnie ze środowiskiem lokalnym** | Oceny, które nie używają danych wydajności do wykonywania zaleceń | Zalecenie dotyczące rozmiaru maszyny wirtualnej bazuje na lokalnym rozmiarze maszyny wirtualnej.<br/><br> Zalecany typ dysku jest oparty na wybranym typie magazynu dla oceny.
 
 ## <a name="how-do-i-run-an-assessment"></a>Jak mogę uruchomić ocenę?
 
@@ -80,7 +80,7 @@ Jeśli urządzenie jest używane do odnajdywania, zbiera dane o wydajności dla 
     - **Maszyny wirtualne funkcji Hyper-V**: punkt próbki jest zbierany co 30 sekund.
     - **Serwery fizyczne**: punkt próbki jest zbierany co pięć minut.
 
-1. Urządzenie łączy przykładowe punkty, aby utworzyć jeden punkt danych co 10 minut. Aby utworzyć punkt danych, urządzenie wybiera wartości szczytowe ze wszystkich próbek. Następnie wysyła punkt danych do platformy Azure.
+1. Urządzenie łączy przykładowe punkty, aby utworzyć jeden punkt danych co 10 minut dla serwerów VMware i funkcji Hyper-V, a co 5 minut dla serwerów fizycznych. Aby utworzyć punkt danych, urządzenie wybiera wartości szczytowe ze wszystkich próbek. Następnie wysyła punkt danych do platformy Azure.
 1. Ocena serwera przechowuje wszystkie 10-minutowe punkty danych w ciągu ostatniego miesiąca.
 1. Podczas tworzenia oceny Ocena serwera identyfikuje odpowiedni punkt danych do użycia dla odpowiedniej zmiany. Identyfikator jest oparty na wartościach percentylu dla *historii wydajności* i *użycia percentylu*.
 
@@ -118,7 +118,7 @@ Oto nowości w ocenie maszyny wirtualnej platformy Azure w ramach oceny serwera:
 **Docelowy dysk magazynujący (w przypadku zmiany wielkości liter)** | Typ dysku do użycia na potrzeby magazynu na platformie Azure. <br/><br/> Określ docelowy dysk magazynujący jako zarządzany przez usługę Premium, zarządzany SSD w warstwie Standardowa lub HDD w warstwie Standardowa.
 **Docelowy dysk magazynujący (ustalanie wielkości na podstawie wydajności)** | Określa typ docelowego dysku magazynującego, który ma być zarządzany przez funkcję automatycznej, w warstwie Premium — zarządzany HDD w warstwie Standardowa lub SSD w warstwie Standardowa.<br/><br/> **Automatyczne**: zalecenie dysku opiera się na danych wydajności dysków, co oznacza liczbę IOPS i przepływność.<br/><br/>**Premium lub standard**: Ocena zaleca użycie jednostki SKU dysku w wybranym typie magazynu.<br/><br/> Jeśli chcesz uzyskać umowę na poziomie usług (SLA) na jednym wystąpieniu maszyny wirtualnej o wartości 99,9%, rozważ użycie dysków zarządzanych w warstwie Premium. Pozwala to zagwarantować, że wszystkie dyski w ocenie są zalecane jako dyski zarządzane w warstwie Premium.<br/><br/> Azure Migrate obsługuje tylko dyski zarządzane na potrzeby oceny migracji.
 **Azure Reserved VM Instances** | Określa [wystąpienia zarezerwowane](https://azure.microsoft.com/pricing/reserved-vm-instances/) , aby oszacować koszt w ocenie wziąć pod uwagę.<br/><br/> Po wybraniu opcji "zarezerwowane wystąpienia" rabat (%) i nie mają zastosowania właściwości "czas pracy maszyny wirtualnej".<br/><br/> Azure Migrate obecnie obsługuje Azure Reserved VM Instances tylko w przypadku ofert z opcją płatność zgodnie z rzeczywistym użyciem.
-**Kryteria ustalania wielkości** | Używane do rightsize maszyny wirtualnej platformy Azure.<br/><br/> Używaj wielkości liter lub wielkości na podstawie wydajności.
+**Kryterium określania rozmiaru** | Używane do rightsize maszyny wirtualnej platformy Azure.<br/><br/> Używaj wielkości liter lub wielkości na podstawie wydajności.
 **Historia wydajności** | Używane z rozmiarem opartym na wydajności. Historia wydajności określa czas trwania używany podczas oceniania danych wydajności.
 **Użycie percentyla** | Używane z rozmiarem opartym na wydajności. Użycie percentylu określa wartość percentylości próbki wydajności używanej dla odpowiedniej zmiany.
 **Serie maszyn wirtualnych** | Seria maszyn wirtualnych platformy Azure, którą chcesz uwzględnić dla odpowiedniej zmiany. Na przykład jeśli nie masz środowiska produkcyjnego wymagającego maszyn wirtualnych serii A na platformie Azure, możesz wykluczyć serię z listy serii.

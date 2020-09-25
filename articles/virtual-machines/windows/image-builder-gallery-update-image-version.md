@@ -1,17 +1,17 @@
 ---
 title: Tworzenie nowej wersji obrazu z istniejącej wersji obrazu przy użyciu narzędzia Azure Image Builder (wersja zapoznawcza)
-description: Utwórz nową wersję obrazu maszyny wirtualnej z istniejącej wersji obrazu przy użyciu narzędzia Azure Image Builder.
+description: Utwórz nową wersję obrazu maszyny wirtualnej z istniejącej wersji obrazu przy użyciu narzędzia Azure Image Builder w systemie Windows.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.openlocfilehash: bdae608d573bc411242b4bf66ea033a7df421cfc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7515e0a39d1cf0da74d2a23457443e96716b4275
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005705"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335956"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>Wersja zapoznawcza: Tworzenie nowej wersji obrazu maszyny wirtualnej na podstawie istniejącej wersji obrazu przy użyciu narzędzia Azure Image Builder w systemie Windows
 
@@ -171,8 +171,8 @@ dir c:\
 ```
 
 Powinny teraz być widoczne dwa katalogi:
-- `buildActions`została utworzona w pierwszej wersji obrazu.
-- `buildActions2`Ten element został utworzony w ramach aktualizacji pierwszej wersji obrazu w celu utworzenia drugiej wersji obrazu.
+- `buildActions` została utworzona w pierwszej wersji obrazu.
+- `buildActions2` Ten element został utworzony w ramach aktualizacji pierwszej wersji obrazu w celu utworzenia drugiej wersji obrazu.
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,20 +1,22 @@
 ---
 title: Źródłowa kontrola i programowanie — LUIS
 description: Jak zachować aplikację Language Understanding (LUIS) pod kontrolą źródła. Jak zastosować aktualizacje do aplikacji LUIS podczas pracy w gałęzi deweloperskiej.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 2d060fefbd32ecea1f91e6b062da7606699a63c4
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783674"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309510"
 ---
 # <a name="devops-practices-for-luis"></a>DevOps praktyk dla LUIS
 
 Inżynierowie oprogramowania, którzy opracowują aplikację Language Understanding (LUIS), mogą stosować praktyki DevOps dotyczące [kontroli źródła](luis-concept-devops-sourcecontrol.md), [zautomatyzowanych kompilacji](luis-concept-devops-automation.md), [testów](luis-concept-devops-testing.md)i [zarządzania wersjami](luis-concept-devops-automation.md#release-management) , postępując zgodnie z tymi wskazówkami.
 
-## <a name="source-control-and-branch-strategies-for-luis"></a>Strategie kontroli źródła i gałęzi dla LUIS
+## <a name="source-control-and-branch-strategies-for-luis"></a>Strategie kontroli źródła i stosowania gałęzi dla usługi LUIS
 
 Jednym z kluczowych czynników, od których zależy powodzenie DevOps, jest [Kontrola źródła](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops). System kontroli źródła umożliwia deweloperom współpracę w kodzie i śledzenie zmian. Użycie gałęzi umożliwia deweloperom przełączanie się między różnymi wersjami bazy kodu i pracę niezależnie od innych członków zespołu. Gdy deweloperzy zgłaszają [żądanie ściągnięcia](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) w celu zaproponowania aktualizacji z jednej gałęzi do innej lub gdy zmiany są scalane, może to być wyzwalacz dla [zautomatyzowanych kompilacji](luis-concept-devops-automation.md) , aby kompilować i ciągle testować kod.
 
@@ -32,7 +34,7 @@ Korzystając z pojęć i wskazówek opisanych w tym dokumencie, można opracowyw
   - Istnieje możliwość zintegrowania zmian w aplikacji LUIS z jednej gałęzi do innej za pośrednictwem zmiany bazy lub scalenia.
   - Deweloperzy mogą scalić żądanie ściągnięcia z gałęzią nadrzędną.
 
-- **Przechowywanie wersji**
+- **Obsługa wersji**
   - Każdy składnik w dużej aplikacji powinien mieć niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji.
 
 - **Przeglądy kodu**
@@ -40,7 +42,7 @@ Korzystając z pojęć i wskazówek opisanych w tym dokumencie, można opracowyw
 
 ## <a name="source-control"></a>Kontrola źródła
 
-Aby zarządzać [definicją schematu aplikacji](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) Luis w systemie zarządzania kodem źródłowym, użyj [formatu LUDown ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0) aplikacji. `.lu`Format jest preferowany do `.json` formatowania, ponieważ jest czytelny, co ułatwia dokonywanie i przeglądanie zmian w żądań ściągnięcia.
+Aby zarządzać [definicją schematu aplikacji](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) Luis w systemie zarządzania kodem źródłowym, użyj [formatu LUDown ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  aplikacji. `.lu` Format jest preferowany do `.json` formatowania, ponieważ jest czytelny, co ułatwia dokonywanie i przeglądanie zmian w żądań ściągnięcia.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Zapisywanie aplikacji LUIS przy użyciu formatu LUDown
 
@@ -66,7 +68,7 @@ W przypadku aplikacji LUIS do *kompilowania ze źródła* środków w celu [utwo
 
 Następujące typy plików dla aplikacji LUIS powinny być utrzymywane pod kontrolą źródła:
 
-- `.lu`plik dla aplikacji LUIS
+- `.lu` plik dla aplikacji LUIS
 
 - [Pliki definicji testów jednostkowych](luis-concept-devops-testing.md#writing-tests) (wyrażenia długości i oczekiwane wyniki)
 
@@ -179,7 +181,7 @@ Aby uzyskać więcej informacji na temat testowania dla LUIS DevOps, zobacz [tes
 
 Aplikacja LUIS w formacie LUDown jest czytelna dla człowieka, która obsługuje komunikację z zmianami w ramach żądania ściągnięcia, które jest odpowiednie do przeglądu. Pliki testów jednostkowych są również zapisywane w formacie LUDown, a także łatwo można je przeglądać w ramach żądania ściągnięcia.
 
-## <a name="versioning"></a>Przechowywanie wersji
+## <a name="versioning"></a>Obsługa wersji
 
 Aplikacja składa się z wielu składników, które mogą obejmować takie elementy, jak bot działające w [Azure bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QNA Maker](https://www.qnamaker.ai/), [Azure Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)i innych. Aby osiągnąć cel luźno sprzężonych aplikacji, należy użyć [kontroli wersji](https://docs.microsoft.com/azure/devops/learn/git/what-is-version-control) , tak aby każdy składnik aplikacji miał niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji. Łatwiej jest w wersji aplikacji LUIS niezależnie od innych składników, Jeśli przechowujesz ją we własnym repozytorium.
 

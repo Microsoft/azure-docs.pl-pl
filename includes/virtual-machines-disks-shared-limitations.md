@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/26/2020
+ms.date: 09/22/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edb5836ace6f7a1a0cff703b9921f6e6999de578
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 11901e0b68fed9a6a83287d50896bf2afc51fa37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88944503"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279568"
 ---
 Włączenie dysków udostępnionych jest możliwe tylko dla podzbioru typów dysków. Obecnie tylko Ultra disks i Premium dysków SSD mogą włączać dyski udostępnione. Każdy dysk zarządzany z włączonymi dyskami udostępnionymi podlega następującym ograniczeniom zorganizowanym według typu dysku:
 
@@ -51,7 +51,7 @@ Udostępnione dysków SSD Premium są obsługiwane tylko w następujących regio
 - Zachodnio-środkowe stany USA
 - South Central US
 - Północno-środkowe stany USA
-- Central US
+- Środkowe stany USA
 - West Europe
 - Europa Północna
 - Korea Środkowa
@@ -59,7 +59,7 @@ Udostępnione dysków SSD Premium są obsługiwane tylko w następujących regio
 - Kanada Wschodnia
 - Japonia Wschodnia
 - Japonia Zachodnia
+- Azja Południowo-Wschodnia
+- Azja Wschodnia
 - US Gov Wirginia
 - US Gov Arizona
-
-Jeśli interesuje Cię podjęcie próby udostępnienia dysków SSD Premium, [Utwórz konto w celu uzyskania dostępu](https://aka.ms/AzureSharedDiskGASignUp).

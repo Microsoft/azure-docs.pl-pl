@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265939"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Skonfiguruj zarządzanie sesją uwierzytelniania z użyciem dostępu warunkowego
 
@@ -89,6 +89,8 @@ Dostęp warunkowy jest możliwością Azure AD — wersja Premium i wymaga licen
 
 > [!WARNING]
 > Jeśli używasz funkcji [okresowego istnienia tokenu](../develop/active-directory-configurable-token-lifetimes.md) , który jest obecnie w publicznej wersji zapoznawczej, pamiętaj, że nie obsługujemy tworzenia dwóch różnych zasad dla tej samej kombinacji użytkownika lub aplikacji: jeden z tą funkcją i inną z konfigurowalną funkcją okresu istnienia tokenu. Firma Microsoft planuje wycofać funkcję konfigurowalnego okresu istnienia tokenu 1 maja 2020 i zamienić ją na funkcję zarządzania sesjami uwierzytelniania dostępu warunkowego.  
+>
+> Przed włączeniem częstotliwości logowania upewnij się, że inne ustawienia ponownego uwierzytelniania są wyłączone w dzierżawie. Jeśli jest włączona funkcja "Pamiętaj MFA na zaufanych urządzeniach", pamiętaj, aby ją wyłączyć przed użyciem częstotliwości logowania, ponieważ te dwa ustawienia mogą prowadzić do nieoczekiwanego monitowania użytkowników. Aby dowiedzieć się więcej o ponownym uwierzytelnianiu i okresach istnienia sesji, zobacz artykuł, [Optymalizacja ponownych prób uwierzytelniania i opis okresu istnienia sesji dla Multi-Factor Authentication platformy Azure](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Zasady 1: kontrola częstotliwości logowania
 

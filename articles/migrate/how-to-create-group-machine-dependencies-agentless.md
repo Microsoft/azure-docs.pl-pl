@@ -3,12 +3,12 @@ title: Konfigurowanie analizy zależności bez agentów w ocenie serwera Azure M
 description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure Migrate.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 164cc20632faa1d444d06da6688000e9b40d7e76
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536442"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275595"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizowanie zależności maszyny (bez agentów)
 
@@ -25,7 +25,7 @@ W tym artykule opisano sposób konfigurowania analizy zależności bez agentów 
 
 - W widoku Analiza zależności nie można obecnie dodawać ani usuwać serwera z grupy.
 - Mapa zależności dla grupy serwerów jest obecnie niedostępna.
-- Zbieranie danych zależności można skonfigurować współbieżnie dla serwerów 400. Można analizować większą liczbę serwerów przez sekwencjonowanie w partiach 400.
+- Zbieranie danych zależności można skonfigurować współbieżnie dla serwerów 1000. Można analizować większą liczbę serwerów przez sekwencjonowanie w partiach 1000.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
@@ -57,7 +57,7 @@ Dodaj konto użytkownika do urządzenia.
 
 ## <a name="start-dependency-discovery"></a>Uruchom odnajdywanie zależności
 
-Wybierz maszyny, na których chcesz włączyć odnajdowanie zależności.
+Wybierz maszyny, na których chcesz włączyć odnajdowanie zależności. 
 
 1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
 2. Kliknij ikonę **analiza zależności** .
@@ -68,7 +68,7 @@ Wybierz maszyny, na których chcesz włączyć odnajdowanie zależności.
 
     ![Uruchom odnajdywanie zależności](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
-Możesz wizualizować zależności na sześć godzin po rozpoczęciu odnajdywania zależności.
+Możesz wizualizować zależności na sześć godzin po rozpoczęciu odnajdywania zależności. Jeśli chcesz włączyć kilka maszyn, możesz to zrobić za pomocą [programu PowerShell](#start-or-stop-dependency-discovery-using-powershell) .
 
 ## <a name="visualize-dependencies"></a>Wizualizacja zależności
 
@@ -125,7 +125,7 @@ Port docelowy | Numer portu na maszynie docelowej
 
 ## <a name="stop-dependency-discovery"></a>Zatrzymaj odnajdywanie zależności
 
-Wybierz maszyny, na których chcesz zatrzymać odnajdywanie zależności.
+Wybierz maszyny, na których chcesz zatrzymać odnajdywanie zależności. 
 
 1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
 2. Kliknij ikonę **analiza zależności** .
@@ -133,6 +133,114 @@ Wybierz maszyny, na których chcesz zatrzymać odnajdywanie zależności.
 3. Na stronie **usuwanie serwerów** wybierz **urządzenie** , które odnajduje maszyny wirtualne, na których chcesz zatrzymać odnajdywanie zależności.
 4. Z listy maszyna wybierz maszyny.
 5. Kliknij przycisk **Usuń serwery**.
+
+Jeśli chcesz zatrzymać zależność od kilku maszyn, możesz to zrobić za pomocą [programu PowerShell](#start-or-stop-dependency-discovery-using-powershell) .
+
+
+### <a name="start-or-stop-dependency-discovery-using-powershell"></a>Uruchamianie lub zatrzymywanie odnajdywania zależności przy użyciu programu PowerShell
+
+Pobierz moduł programu PowerShell z repozytorium [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) w witrynie GitHub.
+
+
+#### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+
+1. Zaloguj się do subskrypcji platformy Azure przy użyciu polecenia cmdlet Connect-AzAccount.
+
+    ```PowerShell
+    Connect-AzAccount
+    ```
+    W przypadku używania Azure Government Użyj następującego polecenia.
+    ```PowerShell
+    Connect-AzAccount -EnvironmentName AzureUSGovernment
+    ```
+
+2. Wybierz subskrypcję, w której utworzono projekt Azure Migrate 
+
+    ```PowerShell
+    select-azsubscription -subscription "Fabrikam Demo Subscription"
+    ```
+
+3. Importowanie pobranego modułu AzMig_Dependencies PowerShell
+
+    ```PowerShell
+    Import-Module .\AzMig_Dependencies.psm1
+    ```
+
+#### <a name="enable-or-disable-dependency-data-collection"></a>Włączanie lub wyłączanie zbierania danych zależności
+
+1. Pobierz listę odnalezionych maszyn wirtualnych VMware w projekcie Azure Migrate przy użyciu następujących poleceń. W poniższym przykładzie nazwa projektu to FabrikamDemoProject, a grupa zasobów, do której należy, to FabrikamDemoRG. Lista maszyn zostanie zapisana w FabrikamDemo_VMs.csv
+
+    ```PowerShell
+    Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "FabrikamDemoRG" -ProjectName "FabrikamDemoProject" -OutputCsvFile "FabrikamDemo_VMs.csv"
+    ```
+
+    W pliku można zobaczyć nazwę wyświetlaną maszyny wirtualnej, bieżący stan kolekcji zależności oraz identyfikator ARM wszystkich odnalezionych maszyn wirtualnych. 
+
+2. Aby włączyć lub wyłączyć zależności, Utwórz wejściowy plik CSV. Plik musi mieć kolumnę z nagłówkiem "ARM ID". Wszystkie dodatkowe nagłówki w pliku CSV zostaną zignorowane. Wolumin CSV można utworzyć przy użyciu pliku wygenerowanego w poprzednim kroku. Utwórz kopię pliku z zachowaniem maszyn wirtualnych, na których chcesz włączyć lub wyłączyć zależności. 
+
+    W poniższym przykładzie analiza zależności jest włączana na liście maszyn wirtualnych w pliku wejściowym FabrikamDemo_VMs_Enable.csv.
+
+    ```PowerShell
+    Set-AzMigDependencyMappingAgentless -InputCsvFile .\FabrikamDemo_VMs_Enable.csv -Enable
+    ```
+
+    W poniższym przykładzie analiza zależności jest wyłączana na liście maszyn wirtualnych w pliku wejściowym FabrikamDemo_VMs_Disable.csv.
+
+    ```PowerShell
+    Set-AzMigDependencyMappingAgentless -InputCsvFile .\FabrikamDemo_VMs_Disable.csv -Disable
+    ```
+
+## <a name="visualize-network-connections-in-power-bi"></a>Wizualizowanie połączeń sieciowych w Power BI
+
+Azure Migrate oferuje szablon Power BI, którego można użyć do wizualizacji połączeń sieciowych wielu serwerów jednocześnie i filtrowania według procesu i serwera. Aby wizualizować, Załaduj Power BI z danymi zależności zgodnie z poniższymi instrukcjami.
+
+1. Pobierz moduł programu PowerShell i szablon Power BI z repozytorium [przykładów Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) w witrynie GitHub.
+
+2. Zaloguj się do platformy Azure, korzystając z poniższych instrukcji: 
+- Zaloguj się do subskrypcji platformy Azure przy użyciu polecenia cmdlet Connect-AzAccount.
+
+    ```PowerShell
+    Connect-AzAccount
+    ```
+
+- W przypadku używania Azure Government Użyj następującego polecenia.
+
+    ```PowerShell
+    Connect-AzAccount -EnvironmentName AzureUSGovernment
+    ```
+
+- Wybierz subskrypcję, w której utworzono projekt Azure Migrate 
+
+    ```PowerShell
+    select-azsubscription -subscription "Fabrikam Demo Subscription"
+    ```
+
+3. Importowanie pobranego modułu AzMig_Dependencies PowerShell
+
+    ```PowerShell
+    Import-Module .\AzMig_Dependencies.psm1
+    ```
+
+4. Uruchom następujące polecenie. To polecenie pobiera dane zależności w woluminie CSV i przetwarza je w celu wygenerowania listy unikatowych zależności, które mogą być używane do wizualizacji w Power BI. W poniższym przykładzie nazwa projektu to FabrikamDemoProject, a grupa zasobów, do której należy, to FabrikamDemoRG. Zależności zostaną pobrane dla maszyn odnalezionych przez FabrikamAppliance. Unikatowe zależności zostaną zapisane w FabrikamDemo_Dependencies.csv
+
+    ```PowerShell
+    Get-AzMigDependenciesAgentless -ResourceGroup FabrikamDemoRG -Appliance FabrikamAppliance -ProjectName FabrikamDemoProject -OutputCsvFile "FabrikamDemo_Dependencies.csv"
+    ```
+
+5. Otwórz pobrany szablon Power BI
+
+6. Załaduj pobrane dane zależności w Power BI.
+    - Otwórz szablon w Power BI.
+    - Kliknij pozycję **Pobierz dane** na pasku narzędzi. 
+    - Wybierz pozycję **tekst/CSV** ze wspólnych źródeł danych.
+    - Wybierz pobrany plik zależności.
+    - Kliknij przycisk **Załaduj**.
+    - Zostanie wyświetlona tabela zostanie zaimportowana z nazwą pliku CSV. Tabelę można zobaczyć na pasku pola po prawej stronie. Zmień nazwę na AzMig_Dependencies
+    - Kliknij przycisk Odśwież na pasku narzędzi.
+
+    Na wykresie połączenia sieciowe i nazwa serwera źródłowego, nazwa serwera docelowego, nazwa procesu źródłowego, fragmentatory nazw procesów docelowych powinny być jasne z zaimportowanymi danymi.
+
+7. Wizualizuj mapę połączeń sieciowych filtrowanie według serwerów i procesów. Zapisz plik.
 
 
 ## <a name="next-steps"></a>Następne kroki

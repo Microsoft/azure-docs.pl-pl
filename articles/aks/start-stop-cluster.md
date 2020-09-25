@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/18/2020
 author: palma21
-ms.openlocfilehash: a743a6c30d5ce8bcaf275bf1a658f8343de4d4fb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 44c33aa018971cc2b2f5eb215597a63e8b55c853
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278570"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Zatrzymywanie i uruchamianie klastra usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -69,7 +69,7 @@ Możesz użyć polecenia, `az aks stop` Aby zatrzymać węzły i płaszczyznę k
 az aks stop --name myAKSCluster --resource-group myResourceGroup
 ```
 
-Możesz sprawdzić, czy klaster został zatrzymany za pomocą polecenia [AZ AKS show] [AZ-AKS-show] i potwierdzając `powerState` sposób wyświetlania w następujący sposób `Stopped` :
+Możesz sprawdzić, czy klaster został zatrzymany za pomocą polecenia [AZ AKS show][az-aks-show] i potwierdzając, `powerState` jak pokazano `Stopped` na poniższym wyjściu:
 
 ```json
 {
@@ -100,7 +100,7 @@ W poniższym przykładzie jest uruchamiany klaster o nazwie *myAKSCluster*:
 az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
-Można sprawdzić, czy klaster został uruchomiony przy użyciu polecenia [AZ AKS show] [AZ-AKS-show], a następnie potwierdzić, `powerState` jak pokazano `Running` na poniższym wyjściu:
+Możesz sprawdzić, czy klaster został uruchomiony przy użyciu polecenia [AZ AKS show][az-aks-show] i potwierdzając, `powerState` `Running` jak pokazano na poniższym wyjściu:
 
 ```json
 {
@@ -136,3 +136,4 @@ Jeśli `provisioningState` tak, `Starting` oznacza to, że klaster nie został j
 [az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az_aks_show

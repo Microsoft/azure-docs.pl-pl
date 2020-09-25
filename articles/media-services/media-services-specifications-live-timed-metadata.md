@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 665bb89d929433db5868eff1c2a5d182d7a94d54
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f826ee9ef3c9fff0b721a9c79d3c12e0adbd5f7f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800283"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336398"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Sygnalizowanie metadanych w czasie przesyłania strumieniowego na żywo 
 
@@ -42,7 +42,7 @@ Ta specyfikacja zawiera kilka trybów, które są obsługiwane przez Media Servi
 
 ## <a name="11-terms-used"></a>1,1 warunków użytkowania
 
-| Okres                | Definicja                                                                                                                                                                                                                                    |
+| Termin                | Definicja                                                                                                                                                                                                                                    |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Przerwanie usługi AD            | Lokalizacja lub punkt w czasie, w którym co najmniej jedna usługa ads może zostać zaplanowana do dostarczenia; taka sama jak w przypadku możliwości dostępn i umieszczania.                                                                                                                     |
 | Usługa decyzji usługi AD | Usługa zewnętrzna, która decyduje, które reklamy i czas trwania będą widoczne dla użytkownika. Usługi są zwykle udostępniane przez partnera i poza zakresem tego dokumentu.                                                                    |
@@ -67,25 +67,25 @@ Ta specyfikacja zawiera kilka trybów, które są obsługiwane przez Media Servi
 Następujące dokumenty zawierają postanowienia, które za pomocą odwołania w tym tekście stanowią postanowienia tego dokumentu. Wszystkie dokumenty podlegają zmianom w treści standardów, a czytelnicy są zachęcani do zbadania możliwości zastosowania najnowszych wersji dokumentów wymienionych poniżej. Czytelnicy są również przypomnili, że nowsze wersje dokumentów, do których istnieją odwołania, mogą nie być zgodne z tą wersją specyfikacji metadanych czasowych dla Azure Media Services.
 
 
-| Standard          | Definicja                                                                                                                                                                                                     |
+| Standardowa          | Definicja                                                                                                                                                                                                     |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Adobe-Primetime] | [Specyfikacja sygnalizowania Primetime Digital Programs 1,2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf)                       |
 | [Adobe-Flash AS]  | [Dokumentacja języka FLASH ActionScript](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf)                                                                                                   |
 | [AMF0]            | ["Format komunikatu akcji AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)                                                                                                              |
-| [ŁĄCZNIK-IF-REDUKCJA]     | KRESKOWANY forum branżowe wskazówki dotyczące międzyoperacyjności v 4,2[https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
-| [HLS-TMD]         | Metadane czasu dla HTTP Live Streaming-[https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
+| [ŁĄCZNIK-IF-REDUKCJA]     | KRESKOWANY forum branżowe wskazówki dotyczące międzyoperacyjności v 4,2 [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
+| [HLS-TMD]         | Metadane czasu dla HTTP Live Streaming- [https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
 | [CMAF-ID3]        | [Metadane czasowe w formacie Common Media Application (CMAF)](https://github.com/AOMediaCodec/id3-emsg)                                                                                                        |
-| [ID3v2]           | 2.4.0 tag ID3 wersja[http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
+| [ID3v2]           | 2.4.0 tag ID3 wersja  [http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
 | [ISO-14496-12]    | ISO/IEC 14496-12: część 12 ISO Base plik multimedialny format, FourthEdition 2012-07-15                                                                                                                                 |
-| [MPEGDASH]        | Technologia informacyjna — dynamiczne adaptacyjne przesyłanie strumieniowe za pośrednictwem protokołu HTTP (KRESKa) — część 1: Opis prezentacji multimediów i formaty segmentów. 2014 maja. Publikacj. Adres URL:https://www.iso.org/standard/65274.html         |
-| [MPEGCMAF]        | Technologia informacyjna — format aplikacji multimedialnej (MPEG-A) — część 19: Common Media Application Format (CMAF) dla nośnika z segmentacją. Styczeń 2018. Publikacj. Adres URL:https://www.iso.org/standard/71975.html |
-| [MPEGCENC]        | Technologia informacyjna--— część 7: typowe szyfrowanie w plikach formatu plików multimediów ISO Base. Luty 2016. Publikacj. Adres URL:https://www.iso.org/standard/68042.html                   |
+| [MPEGDASH]        | Technologia informacyjna — dynamiczne adaptacyjne przesyłanie strumieniowe za pośrednictwem protokołu HTTP (KRESKa) — część 1: Opis prezentacji multimediów i formaty segmentów. 2014 maja. Publikacj. Adres URL: https://www.iso.org/standard/65274.html         |
+| [MPEGCMAF]        | Technologia informacyjna — format aplikacji multimedialnej (MPEG-A) — część 19: Common Media Application Format (CMAF) dla nośnika z segmentacją. Styczeń 2018. Publikacj. Adres URL: https://www.iso.org/standard/71975.html |
+| [MPEGCENC]        | Technologia informacyjna--— część 7: typowe szyfrowanie w plikach formatu plików multimediów ISO Base. Luty 2016. Publikacj. Adres URL: https://www.iso.org/standard/68042.html                   |
 | [MS-SSTR]         | ["Microsoft Smooth Streaming Protocol", 15 maja 2014](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
 | [MS-SSTR-pozyskiwanie]  | [Azure Media Services pofragmentowana Specyfikacja pozyskiwania na żywo w formacie MP4](./media-services-fmp4-live-ingest-overview.md)                                                      |
 | [RFC8216]         | ®. Pantos, Ed.; W. mogą. HTTP Live Streaming. 2017 sierpnia. Informacyjną. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
-| [RFC4648]         | Kodowanie danych Base16, Base32 i base64 —[https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
+| [RFC4648]         | Kodowanie danych Base16, Base32 i base64 — [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
 | RTMP            | ["Protokół obsługi komunikatów w czasie rzeczywistym firmy Adobe", 21 grudnia 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
-| [SCTE-35-2019]    | SCTE 35:2019 — cyfrowy Wstawianie programu cueing wiadomość dla kablahttps://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
+| [SCTE-35-2019]    | SCTE 35:2019 — cyfrowy Wstawianie programu cueing wiadomość dla kabla https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
 | [SCTE-214-1]      | SCTE 214-1 2016 — KRESKa MPEG dla usług kablowych opartych na protokole IP część 1. ograniczenia i rozszerzenia.                                                                                                                 |
 | [SCTE-214-3]      | SCTE 214-3 2015 MPEG PAUZy dla usług kablowych opartych na protokole IP część 3: profil PAUZy/FF                                                                                                                                  |
 | [SCTE-224]        | SCTE 224 2018r1 — planowanie zdarzeń i interfejs powiadamiania                                                                                                                                                  |
@@ -239,8 +239,8 @@ W poniższej sekcji przedstawiono ładunek protokołu RTMP "Simple" Mode, który
 
 | Nazwa pola | Typ pola | Wymagane? | Znajduje                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typ       | Ciąg     | Wymagane  | Komunikat zdarzenia.  Powinien być "SpliceOut", aby wyznaczyć Metoda łączenia w trybie prostym.                                                                                                                                                                                                         |
-| identyfikator         | Ciąg     | Wymagane  | Unikatowy identyfikator opisujący metody łączenia lub segmentów. Identyfikuje to wystąpienie komunikatu                                                                                                                                                                                       |
+| typ       | String     | Wymagane  | Komunikat zdarzenia.  Powinien być "SpliceOut", aby wyznaczyć Metoda łączenia w trybie prostym.                                                                                                                                                                                                         |
+| identyfikator         | String     | Wymagane  | Unikatowy identyfikator opisujący metody łączenia lub segmentów. Identyfikuje to wystąpienie komunikatu                                                                                                                                                                                       |
 | czas trwania   | Liczba     | Wymagane  | Czas trwania łączenia. Jednostki są ułamkami sekund.                                                                                                                                                                                                                           |
 | elapsed    | Liczba     | Opcjonalne  | Gdy sygnał jest powtarzany w celu obsługi dostrajania w, to pole jest ilością czasu prezentacji, który upłynął od początku metody łączenia. Jednostki są ułamkami sekund. W przypadku korzystania z trybu prostego ta wartość nie powinna przekroczyć oryginalnego czasu trwania łączenia. |
 | time       | Liczba     | Wymagane  | Jest to godzina łączenia w czasie prezentacji. Jednostki są ułamkami sekund.                                                                                                                                                                                                |
@@ -251,7 +251,7 @@ W poniższej sekcji przedstawiono ładunek protokołu RTMP "Simple" Mode, który
 
 Zobacz przykład [3.3.2.1 MPEG pauz. mpd EventStream przy użyciu trybu prostego Adobe](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
 
-Zobacz przykład [3.3.3.1 kreskowany z pojedynczym kropką i trybem prostym Adobe](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
+Zobacz przykład [3.3.3.1 kreskowany z pojedynczym kropką i trybem prostym Adobe ](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
 
 #### <a name="example-hls-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Przykład danych wyjściowych manifestu HLS w przypadku korzystania z trybu prostego Adobe RTMP
 
@@ -267,9 +267,9 @@ W tym scenariuszu należy wysłać następujący ładunek z kodera lokalnego prz
 
 | Nazwa pola | Typ pola | Wymagane? | Znajduje                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| kontrol        | Ciąg     | Wymagane  | Komunikat zdarzenia.  W przypadku komunikatów [SCTE-35] musi to być plik binarny szyfrowany algorytmem Base64 [RFC4648] splice_info_section (), aby komunikaty były wysyłane do klientów HLS, gładkich i kresowych.                                                                                                                                                                                                                               |
-| typ       | Ciąg     | Wymagane  | Nazwa URN lub adres URL identyfikujący schemat komunikatów. W przypadku komunikatów [SCTE-35] **powinno** to być **"scte35"** , aby komunikaty były wysyłane do klientów HLS, gładkich i kresowych, w zgodności z [Adobe-Primetime]. Opcjonalnie można również użyć nazwy URN: SCTE: scte35:2013: bin, aby sygnalizować komunikat [SCTE-35].                                                                                                        |
-| identyfikator         | Ciąg     | Wymagane  | Unikatowy identyfikator opisujący metody łączenia lub segmentów. Identyfikuje to wystąpienie komunikatu.  Komunikaty o równoważnej semantyce mają tę samą wartość.                                                                                                                                                                                                                                                       |
+| kontrol        | String     | Wymagane  | Komunikat zdarzenia.  W przypadku komunikatów [SCTE-35] musi to być plik binarny szyfrowany algorytmem Base64 [RFC4648] splice_info_section (), aby komunikaty były wysyłane do klientów HLS, gładkich i kresowych.                                                                                                                                                                                                                               |
+| typ       | String     | Wymagane  | Nazwa URN lub adres URL identyfikujący schemat komunikatów. W przypadku komunikatów [SCTE-35] **powinno** to być **"scte35"** , aby komunikaty były wysyłane do klientów HLS, gładkich i kresowych, w zgodności z [Adobe-Primetime]. Opcjonalnie można również użyć nazwy URN: SCTE: scte35:2013: bin, aby sygnalizować komunikat [SCTE-35].                                                                                                        |
+| identyfikator         | String     | Wymagane  | Unikatowy identyfikator opisujący metody łączenia lub segmentów. Identyfikuje to wystąpienie komunikatu.  Komunikaty o równoważnej semantyce mają tę samą wartość.                                                                                                                                                                                                                                                       |
 | czas trwania   | Liczba     | Wymagane  | Czas trwania zdarzenia lub segmentu łączenia AD, jeśli jest znany. Jeśli nieznany, wartość **powinna** być równa 0.                                                                                                                                                                                                                                                                                                                    |
 | elapsed    | Liczba     | Opcjonalne  | Gdy sygnał usługi AD [SCTE-35] jest powtarzany w celu dostrojenia, to pole jest ilością czasu prezentacji, który upłynął od rozpoczęcia łączenia. Jednostki są ułamkami sekund. W trybie [SCTE-35] Ta wartość może przekroczyć pierwotny określony czas trwania łączenia lub segmentu.                                                                                                                   |
 | time       | Liczba     | Wymagane  | Czas prezentacji zdarzenia lub łączenia z usługą AD.  Czas prezentacji i czas trwania **powinny być** wyrównane z punktami dostępu strumienia (SAP) typu 1 lub 2, zgodnie z definicją w załączniku I [ISO-14496-12]. Dla ruchu wychodzącego HLS, czas i czas trwania **powinny być** wyrównane z granicami segmentów. Czas prezentacji i czas trwania różnych komunikatów o zdarzeniach w ramach tego samego strumienia zdarzeń nie mogą nakładać się na siebie. Jednostki są ułamkami sekund. |
@@ -306,7 +306,7 @@ Gdy jest używany ten tryb znacznika AD, dane wyjściowe manifestu HLS są podob
 
 #### <a name="example-mpeg-dash-mpd-single-period-adobe-simple-mode-signals"></a>Przykładowa MPEG PAUZy, Single kropka, sygnały w trybie prostym Adobe
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" publishTime="2020-01-07T18:58:03Z" minimumUpdatePeriod="PT0S" timeShiftBufferDepth="PT58M56S" availabilityStartTime="2020-01-07T17:44:47Z" minBufferTime="PT7S">
@@ -357,14 +357,13 @@ Gdy jest używany ten tryb znacznika AD, dane wyjściowe manifestu HLS są podob
         </AdaptationSet>
     </Period>
 </MPD>
-~~~
-
+```
 
 #### <a name="example-hls-playlist-adobe-simple-mode-signals-using-ext-x-cue-tag-truncated--for-brevity"></a>Przykładowa lista odtwarzania HLS, sygnalizowanie w trybie prostym firmy Adobe przy użyciu tagu EXT-X-CUE (obcięty "..." dla zwięzłości)
 
 Poniższy przykład przedstawia dane wyjściowe z Media Servicesego dynamicznego Pakowarki dla strumienia pozyskiwania RTMP przy użyciu sygnałów trybu "Simple" i starszej wersji [Adobe-Primetime].  
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -401,8 +400,7 @@ Fragments(video=1583487999666666,format=m3u8-aapl-v8)
 #EXTINF:6.400000,no-desc
 Fragments(video=1583488022000000,format=m3u8-aapl-v8)
 ...
-
-~~~
+```
 
 ### <a name="216-cancellation-and-updates"></a>2.1.6 Anulowanie i aktualizacje
 
@@ -424,11 +422,11 @@ Aby osiągnąć dokładne wstawianie reklam, koder musi podzielić fragment w cz
 | **Nazwa atrybutu** | **Typ pola** | **Wymagane?** | **Opis**                                                                                                                                                                                                              |
 | ------------------ | -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | systemBitrate      | Liczba         | Wymagane      | **Musi** mieć wartość "0", co oznacza, że ścieżka z nieznaną zmienną szybkością transmisji bitów.                                                                                                                                                          |
-| parentTrackName    | Ciąg         | Wymagane      | **Musi** być nazwą ścieżki nadrzędnej, do której są wyrównane Skala czasu ścieżki rozrzedzonej. Ścieżka nadrzędna nie może być ścieżką rozrzedzoną.                                                                             |
-| manifestOutput     | Wartość logiczna        | Wymagane      | **Musi** mieć wartość "true", aby wskazać, że ścieżka rozrzedzona zostanie osadzona w niezakłóconym manifeście klienta.                                                                                                                        |
-| Podtyp            | Ciąg         | Wymagane      | **Musi** to być czterocyfrowy kod znaku "Data".                                                                                                                                                                                  |
-| Schemat             | Ciąg         | Wymagane      | **Musi** być identyfikatorem urn lub adresem URL identyfikującym schemat komunikatów. W przypadku komunikatów [SCTE-35] **musi** to być "urn: SCTE: scte35:2013: bin", aby komunikaty były wysyłane do programu HLS, gładkie i przerywane klientów zgodne z programem [SCTE-35]. |
-| ścieżka śledzenia          | Ciąg         | Wymagane      | **Musi** to być nazwa ścieżki rozrzedzonej. Wartość trackname może być używana do rozróżniania wielu strumieni zdarzeń z tym samym schematem. Każdy unikatowy strumień zdarzeń **musi** mieć unikatową nazwę ścieżki.                                |
+| parentTrackName    | String         | Wymagane      | **Musi** być nazwą ścieżki nadrzędnej, do której są wyrównane Skala czasu ścieżki rozrzedzonej. Ścieżka nadrzędna nie może być ścieżką rozrzedzoną.                                                                             |
+| manifestOutput     | Boolean        | Wymagane      | **Musi** mieć wartość "true", aby wskazać, że ścieżka rozrzedzona zostanie osadzona w niezakłóconym manifeście klienta.                                                                                                                        |
+| Podtyp            | String         | Wymagane      | **Musi** to być czterocyfrowy kod znaku "Data".                                                                                                                                                                                  |
+| Schemat             | String         | Wymagane      | **Musi** być identyfikatorem urn lub adresem URL identyfikującym schemat komunikatów. W przypadku komunikatów [SCTE-35] **musi** to być "urn: SCTE: scte35:2013: bin", aby komunikaty były wysyłane do programu HLS, gładkie i przerywane klientów zgodne z programem [SCTE-35]. |
+| ścieżka śledzenia          | String         | Wymagane      | **Musi** to być nazwa ścieżki rozrzedzonej. Wartość trackname może być używana do rozróżniania wielu strumieni zdarzeń z tym samym schematem. Każdy unikatowy strumień zdarzeń **musi** mieć unikatową nazwę ścieżki.                                |
 | Dział          | Liczba         | Opcjonalne      | **Musi** to być Skala czasu ścieżki nadrzędnej.                                                                                                                                                                               |
 
 ---
@@ -477,7 +475,7 @@ Pole MediaDataBox ("MDAT") **musi** mieć następujący format:
 
 | **Nazwa pola**          | **Typ pola**                   | **Wymagane?** | **Opis**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------- | -------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                 | 32-bitowa liczba całkowita bez znaku (uimsbf) | Wymagane      | Określa format zawartości pola "MDAT". Nierozpoznane wersje zostaną zignorowane. Obecnie jedyną obsługiwaną wersją jest 1.                                                                                                                                                                                                                                                                                                                                                                      |
+| Wersja                 | 32-bitowa liczba całkowita bez znaku (uimsbf) | Wymagane      | Określa format zawartości pola "MDAT". Nierozpoznane wersje zostaną zignorowane. Obecnie jedyną obsługiwaną wersją jest 1.                                                                                                                                                                                                                                                                                                                                                                      |
 | identyfikator                      | 32-bitowa liczba całkowita bez znaku (uimsbf) | Wymagane      | Identyfikuje to wystąpienie komunikatu. Komunikaty o równoważnej semantyce muszą mieć taką samą wartość; oznacza to, że przetwarzanie dowolnego jednego okna komunikatu o tym samym identyfikatorze jest wystarczające.                                                                                                                                                                                                                                                                                                                            |
 | presentation_time_delta | 32-bitowa liczba całkowita bez znaku (uimsbf) | Wymagane      | Suma fragment_absolute_time, określona w TrackFragmentExtendedHeaderBox, a presentation_time_delta **musi** być czasem prezentacji zdarzenia. Czas prezentacji i czas trwania **powinny być** wyrównane z punktami dostępu strumienia (SAP) typu 1 lub 2, zgodnie z definicją w załączniku I [ISO-14496-12]. Dla ruchu wychodzącego HLS, czas i czas trwania **powinny być** wyrównane z granicami segmentów. Czas prezentacji i czas trwania różnych komunikatów o zdarzeniach w ramach tego samego strumienia zdarzeń nie **mogą** nakładać się na siebie. |
 | message                 | tablica bajtów                       | Wymagane      | Komunikat zdarzenia. W przypadku komunikatów [SCTE-35] komunikat jest binarny splice_info_section (). W przypadku komunikatów [SCTE-35] **musi** to być splice_info_section (), aby komunikaty były wysyłane do klientów HLS, gładkich i kresowych z zachowaniem zgodności z [SCTE-35]. W przypadku komunikatów [SCTE-35] splice_info_section binarny () jest ładunkiem pola "MDAT" i **nie** jest zakodowana w formacie base64.                                                                                                                     |
@@ -506,7 +504,7 @@ Aby uzyskać szczegółowe informacje na temat formatowania ścieżki komunikat�
 StreamIndex **musi** mieć PODTYP "Data", a CustomAttributes — **musi** zawierać atrybut o nazwie "Schema" i value = "urn: SCTE: scte35:2013: bin".
 
 #### <a name="smooth-client-manifest-example-showing-base64-encoded-scte35-splice_info_section"></a>Przykładowy przykład manifestu klienta z kodowaniem Base64 [SCTE35] splice_info_section ()
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" TimeScale="10000000" IsLive="true" Duration="0"
   LookAheadFragmentCount="2" DVRWindowLength="6000000000">
@@ -542,7 +540,7 @@ StreamIndex **musi** mieć PODTYP "Data", a CustomAttributes — **musi** zawier
     </c>
   </StreamIndex>
 </SmoothStreamingMedia>
-~~~
+```
 
 ## <a name="32-apple-hls-manifest-decoration"></a>HLS 3,2
 
@@ -567,7 +565,7 @@ The **RECOMMENDED** approach in Azure Media Services (version 3 API) is to follo
 
 Poniższy przykład danych wyjściowych manifestu HLS Media Services z dynamicznego Pakowarki zawiera tag EXT-X-CUE dla [Adobe-Primetime] w trybie SCTE35. 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:8
 #EXT-X-MEDIA-SEQUENCE:0
@@ -719,7 +717,7 @@ Fragments(video=28513485,format=m3u8-aapl-v8)
 #EXTINF:1.501500,no-desc
 Fragments(video=28648620,format=m3u8-aapl-v8)
 
-~~~
+```
 
 
 <!---
@@ -934,8 +932,8 @@ Media Services (interfejs API w wersji 2 i 3) obsługuje dane wyjściowe taga EX
 | ------------------ | ----------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | KONTROL                | ciąg w cudzysłowie                 | Wymagane                                  | Komunikat zakodowany jako ciąg zakodowany algorytmem Base64, zgodnie z opisem w [RFC4648]. W przypadku komunikatów [SCTE-35] jest to splice_info_section zakodowane w formacie base64 ().                                                                                                                                      |
 | TYP               | ciąg w cudzysłowie                 | Wymagane                                  | Nazwa URN lub adres URL identyfikujący schemat komunikatów. W przypadku komunikatów [SCTE-35] typ przyjmuje wartość specjalną "scte35".                                                                                                                                                                          |
-| ID                 | ciąg w cudzysłowie                 | Wymagane                                  | Unikatowy identyfikator zdarzenia. Jeśli identyfikator nie zostanie określony podczas pozyskiwania wiadomości, Azure Media Services wygeneruje unikatowy identyfikator.                                                                                                                                              |
-| TRWANIA           | dziesiętna liczba zmiennoprzecinkowa | Wymagane                                  | Czas trwania zdarzenia. Jeśli nieznany, wartość **powinna** być równa 0. Jednostki są factional s.                                                                                                                                                                                           |
+| ID (Identyfikator)                 | ciąg w cudzysłowie                 | Wymagane                                  | Unikatowy identyfikator zdarzenia. Jeśli identyfikator nie zostanie określony podczas pozyskiwania wiadomości, Azure Media Services wygeneruje unikatowy identyfikator.                                                                                                                                              |
+| DURATION           | dziesiętna liczba zmiennoprzecinkowa | Wymagane                                  | Czas trwania zdarzenia. Jeśli nieznany, wartość **powinna** być równa 0. Jednostki są factional s.                                                                                                                                                                                           |
 | KTÓRY upłynął            | dziesiętna liczba zmiennoprzecinkowa | Opcjonalne, ale wymagane dla przesuwanego okna | Gdy sygnał jest powtarzany do obsługi okna prezentacji ruchomej, to pole **musi** być ilością czasu prezentacji, która upłynęła od momentu rozpoczęcia zdarzenia. Jednostki są ułamkami sekund. Ta wartość może przekroczyć pierwotny określony czas trwania łączenia lub segmentu. |
 | CZAS               | dziesiętna liczba zmiennoprzecinkowa | Wymagane                                  | Czas prezentacji zdarzenia. Jednostki są ułamkami sekund.                                                                                                                                                                                                                        |
 
@@ -949,7 +947,7 @@ Poniższy przykład przedstawia dekorację manifestu HLS przy użyciu znacznika 
 --->
 
 
-~~~
+```
 #EXTM3U
 #EXT-X-VERSION:4
 #EXT-X-PLAYLIST-TYPE:VOD
@@ -1008,7 +1006,7 @@ Fragments(video=4011692972,format=m3u8-aapl)
 #EXTINF:8.008000,no-desc
 Fragments(video=4011702982,format=m3u8-aapl)
 
-~~~
+```
 
 ### <a name="324-hls-message-handling-for-adobe-primetime-ext-x-cue"></a>3.2.4 Obsługa komunikatów HLS dla elementu Adobe Primetime EXT-X-CUE
 
@@ -1055,7 +1053,7 @@ Element EventStream ma następujące atrybuty:
 | **Nazwa atrybutu** | **Typ**                | **Wymagane?** | **Opis**                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------ | ----------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | scheme_id_uri      | ciąg                  | Wymagane      | Identyfikuje schemat komunikatu. Schemat jest ustawiony na wartość atrybutu schematu w polu manifestu serwera na żywo. Wartość **powinna** być identyfikatorem urn lub adresem URL identyfikującym schemat komunikatów; Obsługiwane wyjściowe schemeId powinny mieć wartość "urn: SCTE: scte35:2014: XML + bin" na [SCTE-214-1] s 6.7.4 (MPD), ponieważ usługa obsługuje tylko "XML + bin" w tej chwili dla zwięzłości w MPD. |
-| value              | ciąg                  | Opcjonalne      | Dodatkowa wartość ciągu używana przez właścicieli schematu do dostosowywania semantyki wiadomości. Aby można było rozróżnić wiele strumieni zdarzeń z tym samym schematem, wartość **musi** być ustawiona na nazwę strumienia zdarzeń (trackname dla [MS-SSTR-pozyskiwania] lub AMF nazwę komunikatu dla [RTMP] pozyskiwania).                                                                         |
+| wartość              | ciąg                  | Opcjonalne      | Dodatkowa wartość ciągu używana przez właścicieli schematu do dostosowywania semantyki wiadomości. Aby można było rozróżnić wiele strumieni zdarzeń z tym samym schematem, wartość **musi** być ustawiona na nazwę strumienia zdarzeń (trackname dla [MS-SSTR-pozyskiwania] lub AMF nazwę komunikatu dla [RTMP] pozyskiwania).                                                                         |
 | Skala czasu          | 32-bitowa liczba całkowita bez znaku | Wymagane      | Skala czasu w taktach na sekundę.                                                                                                                                                                                                                                                                                                                                                     |
 
 
@@ -1065,7 +1063,7 @@ Element EventStream ma następujące atrybuty:
 
 Poniższy przykład przedstawia fragment EventStream z Media Servicesego dynamicznego Pakowarki dla strumienia RTMP przy użyciu funkcji Sygnalizowanie w trybie prostym firmy Adobe.
 
-~~~ xml
+```xml
 <!-- Example EventStream element using "urn:com:adobe:dpi:simple:2015" Adobe simple signaling per [Adobe-Primetime] -->
     <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="simplesignal" timescale="10000000">
         <Event presentationTime="1583497601000000" duration="300000000" id="1085900"/>
@@ -1080,7 +1078,7 @@ Poniższy przykład przedstawia fragment EventStream z Media Servicesego dynamic
         <Event presentationTime="1583527306666666" duration="300000000" id="4056466"/>
         <Event presentationTime="1583530607333333" duration="300000000" id="4386533"/>
     </EventStream>
-~~~
+```
 
 
 #### <a name="3322-example-mpeg-dash-mpd-manifest-signaling-of-an-rtmp-stream-using-adobe-scte-35-mode"></a>3.3.2.2 przykładowy skrypt MPEG PAUZy. mpd, sygnalizowanie strumienia RTMP przy użyciu trybu Adobe SCTE-35
@@ -1089,7 +1087,7 @@ Poniższy przykład przedstawia fragment EventStream z Media Services dynamiczne
 
 Przykład EventStream elementu przy użyciu kodu XML + bin sygnalizowanie na [SCTE-214-1]
 
-~~~ xml
+```xml
 
       <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
         <Event presentationTime="2595092444" duration="11011000" id="1002">
@@ -1103,7 +1101,7 @@ Przykład EventStream elementu przy użyciu kodu XML + bin sygnalizowanie na [SC
             </Signal>
         </Event>
       </EventStream>
-~~~
+```
 
 
 
@@ -1119,7 +1117,7 @@ Przykład EventStream elementu przy użyciu kodu XML + bin sygnalizowanie na [SC
 W poniższym przykładzie przedstawiono dane wyjściowe z Media Servicesego dynamicznego Pakowarki dla źródłowego strumienia RTMP przy użyciu metody "Simple" trybu AD. Dane wyjściowe to manifest pojedynczego okresu przedstawiający EventStream przy użyciu identyfikatora URI schemeId ustawionego na "urn: com: Adobe: dpi: Simple: 2015" i Właściwość Value o wartości "simplesignal".
 Każdy prosty sygnał jest udostępniany w elemencie zdarzenia z @presentationTime @duration właściwościami, i @id wypełnianymi na podstawie przychodzących sygnałów prostych.
 
-~~~ xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" mediaPresentationDuration="PT28M1.680S" minBufferTime="PT3S">
@@ -1168,7 +1166,7 @@ Każdy prosty sygnał jest udostępniany w elemencie zdarzenia z @presentationTi
     </Period>
 </MPD>
 
-~~~
+```
 
 <!---
 #### 3.3.3.2 Example MPEG DASH manifest (MPD) with multi-period, EventStream, using Adobe SCTE35 mode signaling
@@ -1322,10 +1320,10 @@ Poniższe szczegóły zawierają informacje o określonych wartościach, które 
 
 
 #### <a name="example-inbandevenstream-entity-for-adobe-simple-mode"></a>Przykładowa jednostka InBandEvenStream dla trybu prostego Adobe
-~~~ xml
+```xml
 
       <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
-~~~
+```
 
 ### <a name="335-dash-message-handling"></a>Obsługa komunikatów PAUZy 3.3.5
 
@@ -1352,7 +1350,7 @@ Podczas testowania implementacji przy użyciu platformy Azure Media Services, na
 
 ## <a name="change-history"></a>Historia zmian
 
-| Date     | Zmiany                                                                                                             |
+| Data     | Zmiany                                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------------------------- |
 | 07/2/19  | Poprawiono obsługę przyjmowania RTMP, dodano "onCuePoint" dla elementów na żywo                                            |
 | 08/22/19 | Zaktualizowano w celu dodania OnUserDataEvent do protokołu RTMP dla metadanych niestandardowych                                                          |

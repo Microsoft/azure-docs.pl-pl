@@ -1,6 +1,6 @@
 ---
 title: Schemat metadanych danych wyjściowych Azure Media Services | Microsoft Docs
-description: Ten artykuł zawiera omówienie schematu metadanych danych wyjściowych Azure Media Services.
+description: Ten artykuł zawiera omówienie schematu metadanych danych wyjściowych Azure Media Services v3.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 66f4e426ee6d77b9faa1efab3deb3d7ee4baf47d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289375"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336415"
 ---
 # <a name="output-metadata"></a>Metadane wyjściowe
 
@@ -51,7 +51,7 @@ Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek wide
 
 | Nazwa | Opis |
 | --- | --- |
-| **#C1**<br /> Wymagane |Indeks tej ścieżki wideo liczony od zera. **Uwaga:**  Ten **Identyfikator** nie musi być TrackID używany w pliku MP4. <br /><br />Przykład: `"Id": 1`|
+| **Id**<br /> Wymagane |Indeks tej ścieżki wideo liczony od zera. **Uwaga:**  Ten **Identyfikator** nie musi być TrackID używany w pliku MP4. <br /><br />Przykład: `"Id": 1`|
 | **FourCC**<br />Wymagane | Kod kodera-dekoder wideo, który jest raportowany przez narzędzia FFmpeg.  <br /><br />Przykład: `"FourCC": "avc1"`|
 | **Profil** |Profil wielokrotna H264 (dotyczy tylko kodera-dekoder wielokrotna H264).  <br /><br />Przykład: `"Profile": "High"` |
 | **Poziomie** |Poziom wielokrotna H264 (dotyczy tylko wielokrotna H264 Codec).  <br /><br />Przykład: `"Level": "3.2"`|
@@ -69,7 +69,7 @@ Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek audi
 
 | Nazwa  | Opis |
 | --- | --- |
-| **#C1**<br />Wymagane  |Indeks tej ścieżki audio liczony od zera. **Uwaga:**  Nie jest to konieczne TrackID w pliku MP4.  <br /><br />Przykład: `"Id": 2`|
+| **Id**<br />Wymagane  |Indeks tej ścieżki audio liczony od zera. **Uwaga:**  Nie jest to konieczne TrackID w pliku MP4.  <br /><br />Przykład: `"Id": 2`|
 | **Wymaga**  |Ciąg Codec ścieżki audio.  <br /><br />Przykład: `"Codec": "aac"`|
 | **Język**|Przykład: `"Language": "eng"`|
 | **Kanały**<br />Wymagane|Liczba kanałów audio.  <br /><br />Przykład: `"Channels": 2`|

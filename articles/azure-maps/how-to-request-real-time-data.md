@@ -4,17 +4,17 @@ description: Dowiedz się, jak żądać danych tranzytu publicznego w czasie rze
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 71dc67d4c142f6fb84458cd6cd0b33452f2217b3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 6f0cf663b42c8487495602e4cdbf1a88427f9daf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037290"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310938"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Żądaj danych tranzytu publicznego w czasie rzeczywistym przy użyciu usługi Azure Maps Mobility
 

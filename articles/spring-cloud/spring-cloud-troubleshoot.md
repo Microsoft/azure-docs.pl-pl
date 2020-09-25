@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d3094a8cca317e53dd3b8bc8e9b32b956c89a376
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 98b7f9b1ed5e09a1f731e45f8ca2d148a4084986
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904195"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336160"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Rozwiązywanie typowych problemów z chmurą wiosenną platformy Azure
 
@@ -131,7 +131,7 @@ Nie można przekazać pliku *. zip* dla aplikacji platformy .NET Core steeltoe p
 
 Podczas wdrażania pakietu aplikacji przy użyciu [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)platformy Azure interfejs wiersza polecenia platformy Azure okresowo sonduje postęp wdrażania i na końcu wyświetla wynik wdrożenia.
 
-Upewnij się, że Twoja aplikacja jest spakowana w prawidłowym formacie pliku *zip* . Jeśli plik nie zostanie poprawnie spakowany, proces zostanie odsunięty lub zostanie wyświetlony komunikat o błędzie.
+Upewnij się, że Twoja aplikacja jest spakowana w prawidłowym formacie pliku *zip* . Jeśli plik nie zostanie poprawnie spakowany, proces przestanie odpowiadać lub zostanie wyświetlony komunikat o błędzie.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"

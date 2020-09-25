@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 9b225ccb0e607b073fd28f79d0151da0b77f5cdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266619"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opcje uwierzytelniania bezhasło dla Azure Active Directory
 
@@ -82,7 +82,7 @@ Aby rozpocząć logowanie bez hasła, wykonaj następujące czynności:
 
 ## <a name="fido2-security-keys"></a>FIDO2 klucze zabezpieczeń
 
-FIDO (Fast IDentity online) Alliance pomaga wspierać otwarte standardy uwierzytelniania i zmniejszać użytkowników haseł jako formy uwierzytelniania. FIDO2 to najnowszy standard, który obejmuje Standard Uwierzytelnianie sieci Web (WebAuthn).
+FIDO (Fast IDentity online) Alliance pomaga wspierać otwarte standardy uwierzytelniania i zmniejszać użycie haseł jako formy uwierzytelniania. FIDO2 to najnowszy standard, który obejmuje Standard Uwierzytelnianie sieci Web (WebAuthn).
 
 Klucze zabezpieczeń FIDO2 to metoda uwierzytelniania bez hasła oparta na standardach, która może mieć dowolny współczynnik form. Szybka tożsamość w trybie online (FIDO) to otwarty standard uwierzytelniania bezhaseł. FIDO umożliwia użytkownikom i organizacjom korzystanie ze standardu do logowania się do swoich zasobów bez użycia nazwy użytkownika ani hasła przy użyciu zewnętrznego klucza zabezpieczeń lub klucza platformy wbudowanego w urządzenie.
 

@@ -1,15 +1,15 @@
 ---
 title: Analizowanie wideo na żywo przy użyciu własnego modelu HTTP — Azure
-description: W tym przewodniku szybki start nastąpi zastosowanie wizji komputerowej w celu przeanalizowania na żywo kanału informacyjnego wideo z (symulowanej) kamery IP.
+description: W tym przewodniku szybki start nastąpi zastosowanie funkcji analizy komputerów w celu przeanalizowania na żywo kanału informacyjnego wideo z (symulowanej) kamery IP przy użyciu własnego modelu HTTP.
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 5fd7f1a7db323e3aa7971c1ced6fc588d6e60e37
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 07661fb1e9496aacff6f108a840e0c357f068d41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336466"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>Szybki Start: analizowanie wideo na żywo przy użyciu własnego modelu HTTP
 
@@ -75,7 +75,7 @@ Ten przewodnik Szybki Start używa maszyny wirtualnej platformy Azure jako urzą
 [!INCLUDE [interpret-results](includes/analyze-live-video-your-http-model-quickstart/python/interpret-results.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz wypróbować inne Przewodniki Szybki Start, Zachowaj utworzone zasoby. W przeciwnym razie przejdź do Azure Portal, przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten przewodnik Szybki Start, i Usuń wszystkie zasoby.
 

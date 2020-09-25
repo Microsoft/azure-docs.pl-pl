@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4b7c82e4650c7680709e809d9f563d79f068601f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310173"
 ---
 # <a name="supported-data-format-details"></a>Szczegóły obsługiwanego formatu danych
 
@@ -52,7 +52,7 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy KML.
 | `atom:author`        | tak     | tak     |                                                                                                                            |
 | `atom:link`          | tak     | tak     |                                                                                                                            |
 | `atom:name`          | tak     | tak     |                                                                                                                            |
-| `BalloonStyle`       | partial | partial | `displayMode`nie jest obsługiwana. Konwertowany na `PopupTemplate` . Aby napisać, Dodaj `popupTemplate` Właściwość jako właściwość funkcji, dla której chcesz ją zapisać. |
+| `BalloonStyle`       | partial | partial | `displayMode` nie jest obsługiwana. Konwertowany na `PopupTemplate` . Aby napisać, Dodaj `popupTemplate` Właściwość jako właściwość funkcji, dla której chcesz ją zapisać. |
 | `begin`              | tak     | tak     |                                                                                                                            |
 | `color`              | tak     | tak     | Obejmuje `#AABBGGRR` i `#BBGGRR` . Przeanalizowane w ciągu koloru CSS                                                           |
 | `colorMode`          | tak     | nie      |                                                                                                                            |
@@ -68,12 +68,12 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy KML.
 | `extrude`            | partial | partial | Obsługiwane tylko dla wielokątów. Wielogeometria, która ma wielokąty o różnej wysokości, zostanie podzielona na poszczególne funkcje. Style linii nie są obsługiwane. Wielokąty o wysokości 0 będą renderowane jako płaski wielokąt. Podczas odczytywania Wysokość pierwszej współrzędnej w pierścieniu zewnętrznym zostanie dodana jako właściwość Height wielokąta. Następnie Wysokość pierwszej współrzędnej zostanie użyta do renderowania wielokąta na mapie. |
 | `fill`               | tak     | tak     |                                                                                                                            |
 | `Folder`             | tak     | tak     |                                                                                                                            |
-| `GroundOverlay`      | tak     | tak     | `color`nie jest obsługiwana                                                                                                   |
+| `GroundOverlay`      | tak     | tak     | `color` nie jest obsługiwana                                                                                                   |
 | `heading`            | partial | nie      | Przeanalizowane, ale nie renderowane przez `SimpleDataLayer` . Tylko zapisy, jeśli dane są przechowywane we właściwości kształtu.                 |
 | `hotSpot`            | tak     | partial | Tylko zapisy, jeśli dane są przechowywane we właściwości kształtu. Jednostki są zwracane tylko jako "piksele".                         |
 | `href`               | tak     | tak     |                                                                                                                            |
 | `Icon`               | partial | partial | Przeanalizowane, ale nie renderowane przez `SimpleDataLayer` . Zapisuje tylko Właściwość Icon kształtu, jeśli zawiera on dane identyfikatora URI. `href`Obsługiwane są tylko. |
-| `IconStyle`          | partial | partial | `icon`, `heading` , `colorMode` , i `hotspots` wartości są analizowane, ale nie są renderowane przez`SimpleDataLayer`         |
+| `IconStyle`          | partial | partial | `icon`, `heading` , `colorMode` , i `hotspots` wartości są analizowane, ale nie są renderowane przez `SimpleDataLayer`         |
 | `innerBoundaryIs`    | tak     | tak     |                                                                                                                            |
 | `kml`                | tak     | tak     |                                                                                                                            |
 | `LabelStyle`         | nie      | nie      |                                                                                                                            |
@@ -81,7 +81,7 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy KML.
 | `gx:LatLonQuad`      | tak     | tak     |                                                                                                                            |
 | `LinearRing`         | tak     | tak     |                                                                                                                            |
 | `LineString`         | tak     | tak     |                                                                                                                            |
-| `LineStyle`          | tak     | tak     | `colorMode`nie jest obsługiwana.                                                                                         |
+| `LineStyle`          | tak     | tak     | `colorMode` nie jest obsługiwana.                                                                                         |
 | `Link`               | tak     | nie      | Tylko `href` Właściwość jest obsługiwana w przypadku linków sieciowych.                                                                   |
 | `MultiGeometry`      | partial | partial | Może zostać rozbite do poszczególnych funkcji podczas odczytu.                                                                     |
 | `name`               | tak     | tak     |                                                                                                                            |
@@ -92,14 +92,14 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy KML.
 | `outerBoundaryIs`    | tak     | tak     |                                                                                                                            |
 | `outline`            | tak     | tak     |                                                                                                                            |
 | `overlayXY`          | nie      | nie      |                                                                                                                            |
-| `Pair`               | partial | nie      | `normal`Obsługiwany jest tylko styl w elemencie `StyleMap` . `highlight`nie jest obsługiwana.                                   |
+| `Pair`               | partial | nie      | `normal`Obsługiwany jest tylko styl w elemencie `StyleMap` . `highlight` nie jest obsługiwana.                                   |
 | `phoneNumber`        | tak     | tak     |                                                                                                                            |
 | `PhotoOverlay`       | nie      | nie      |                                                                                                                            |
 | `Placemark`          | tak     | tak     |                                                                                                                            |
 | `Point`              | tak     | tak     |                                                                                                                            |
 | `Polygon`            | tak     | tak     |                                                                                                                            |
 | `PolyStyle`          | tak     | tak     |                                                                                                                            |
-| `Region`             | partial | partial | `LatLongBox`jest obsługiwana na poziomie dokumentu.                                                                      |
+| `Region`             | partial | partial | `LatLongBox` jest obsługiwana na poziomie dokumentu.                                                                      |
 | `rotation`           | nie      | nie      |                                                                                                                            |
 | `rotationXY`         | nie      | nie      |                                                                                                                            |
 | `scale`              | nie      | nie      |                                                                                                                            |
@@ -111,7 +111,7 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy KML.
 | `SimpleData`         | tak     | tak     |                                                                                                                            |
 | `SimpleField`        | tak     | tak     |                                                                                                                            |
 | `size`               | nie      | nie      |                                                                                                                            |
-| `Snippet`            | partial | partial | `maxLines`atrybut jest ignorowany.                                                                                  |
+| `Snippet`            | partial | partial | `maxLines` atrybut jest ignorowany.                                                                                  |
 | `south`              | tak     | tak     |                                                                                                                            |
 | `Style`              | tak     | tak     |                                                                                                                            |
 | `StyleMap`           | partial | nie      | Obsługiwany jest tylko styl Normalny w elemencie `StyleMap` .                                                                        |
@@ -225,12 +225,12 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy GML.
 | `gml:LineString`        | tak  | tak   |                                                                                        |
 | `gml:lineStringMember`  | tak  | tak   |                                                                                        |
 | `gml:lineStringMembers` | tak  | nie    |                                                                                        |
-| `gml:MultiCurve`        | tak  | nie    | Tylko odczytuje `gml:LineString` członków. Zapisany jako`gml.MultiLineString`                  |
+| `gml:MultiCurve`        | tak  | nie    | Tylko odczytuje `gml:LineString` członków. Zapisany jako `gml.MultiLineString`                  |
 | `gml:MultiGeometry`     | partial  | partial   | Odczytaj tylko jako Funkcjacollection.                                              |
 | `gml:MultiLineString`   | tak  | tak   |                                                                                        |
 | `gml:MultiPoint`        | tak  | tak   |                                                                                        |
 | `gml:MultiPolygon`      | tak  | tak   |                                                                                        |
-| `gml:MultiSurface`      | tak  | nie    | Tylko odczytuje `gml:Polygon` członków. Zapisany jako`gml.MultiPolygon`                        |
+| `gml:MultiSurface`      | tak  | nie    | Tylko odczytuje `gml:Polygon` członków. Zapisany jako `gml.MultiPolygon`                        |
 | `gml:name`              | tak  | tak   |                                                                                        |
 | `gml:outerBoundaryIs`   | tak  | nie    | Zapisano przy użyciu `gml.exterior` .                                                          |
 | `gml:Point`             | tak  | tak   |                                                                                        |
@@ -246,7 +246,7 @@ Moduł operacji we/wy jest obsługiwany przez następujące elementy GML.
 #### <a name="additional-notes"></a>dodatkowe uwagi
 
 - Elementy członkowskie będą przeszukiwane w poszukiwaniu geometrii, która może być przypadana w elementach podrzędnych. Ta operacja wyszukiwania jest niezbędna, ponieważ wiele formatów XML, które zwiększają się z GML, nie może umieszczać geometrii jako bezpośredniego elementu członkowskiego.
-- `srsName`jest częściowo obsługiwana dla współrzędnych WGS84 i następujących kodów:[EPSG: 4326](https://epsg.io/4326)) i sieci Web Merkatora ([EPSG: 3857](https://epsg.io/3857) lub jeden z kodów alternatywnych. Każdy inny układ współrzędnych zostanie przeanalizowany jako WGS84.
+- `srsName` jest częściowo obsługiwana dla współrzędnych WGS84 i następujących kodów:[EPSG: 4326](https://epsg.io/4326)) i sieci Web Merkatora ([EPSG: 3857](https://epsg.io/3857) lub jeden z kodów alternatywnych. Każdy inny układ współrzędnych zostanie przeanalizowany jako WGS84.
 - O ile nie zostanie określony podczas odczytywania źródła danych XML, kolejność osi jest określana na podstawie wskazówek w źródle danych XML. Podano preferencję dla kolejności osi "Szerokość geograficzna".
 - O ile nie określono niestandardowej przestrzeni nazw GML dla właściwości podczas zapisywania do pliku GML, dodatkowe informacje o właściwościach nie zostaną dodane.
 
@@ -431,5 +431,4 @@ Jeśli nie można wyodrębnić informacji o typie z nagłówka, a dynamiczna opc
 
 Zapoznaj się z następującymi artykułami, aby uzyskać więcej przykładów kodu do dodania do Twoich map:
 
-> [!div class="nextstepaction"]
-> [Odczytywanie i zapisywanie danych przestrzennych](spatial-io-read-write-spatial-data.md)
+[Odczytywanie i zapisywanie danych przestrzennych](spatial-io-read-write-spatial-data.md)

@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie infrastrukturą hybrydową na dużą skalę za pomocą usługi Azure Arc
 description: Dowiedz się, jak efektywnie zarządzać maszynami klientów i klastrami Kubernetes poza platformą Azure.
-ms.date: 09/15/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2ffbe9019398896c594b7cb0e0424d2b5f4dc37a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 66a798265683045d7ff9f3d8d811141800d08f9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605333"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336619"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Zarządzanie infrastrukturą hybrydową na dużą skalę za pomocą usługi Azure Arc
 
@@ -16,19 +16,16 @@ Jako dostawca usług możesz dołączyć wielu dzierżawców klientów do [usłu
 
 [Usługa Azure Arc](../../azure-arc/overview.md) pomaga uprościć złożone i rozproszone środowiska w środowisku lokalnym, w granicach i w chmurze, umożliwiając wdrażanie usług platformy Azure w dowolnym miejscu i rozszerzanie zarządzania platformy Azure do dowolnej infrastruktury.
 
-Dzięki [serwerom z obsługą usługi Azure ARC (wersja zapoznawcza)](../../azure-arc/servers/overview.md)klienci mogą zarządzać wszystkimi maszynami z systemami Windows i Linux hostowanymi poza platformą Azure w sieci firmowej w taki sam sposób, jak w przypadku zarządzania natywnymi maszynami wirtualnymi platformy Azure Po połączeniu maszyny hybrydowej z platformą Azure będzie ona traktowana jak zasób na platformie Azure. Dostawcy usług mogą następnie zarządzać tymi maszynami spoza platformy Azure wraz z zasobami platformy Azure dla klientów.
+Dzięki [serwerom z obsługą usługi Azure Arc](../../azure-arc/servers/overview.md)klienci mogą zarządzać wszystkimi maszynami z systemami Windows i Linux hostowanymi poza platformą Azure w sieci firmowej w taki sam sposób, jak w przypadku zarządzania natywnymi maszynami wirtualnymi platformy Azure. Po połączeniu maszyny hybrydowej z platformą Azure będzie ona traktowana jak zasób na platformie Azure. Dostawcy usług mogą następnie zarządzać tymi maszynami spoza platformy Azure wraz z zasobami platformy Azure dla klientów.
 
 [Usługa Azure ARC z włączonym Kubernetes (wersja zapoznawcza)](../../azure-arc/kubernetes/overview.md) umożliwia klientom dołączanie i konfigurowanie klastrów Kubernetes w ramach platformy Azure lub poza nią. Po dołączeniu klastra Kubernetes do usługi Azure Arc zostanie on wyświetlony w Azure Portal z IDENTYFIKATORem Azure Resource Manager i tożsamością zarządzaną. Klastry są dołączone do standardowych subskrypcji platformy Azure, znajdują się w grupie zasobów i mogą odbierać Tagi tak samo jak każdy inny zasób platformy Azure.
 
-Ten temat zawiera omówienie sposobu, w jaki dostawcy usług mogą korzystać z serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) i usługi Azure Arc Kubernetes (wersja zapoznawcza) w sposób skalowalny do zarządzania środowiskiem hybrydowym klientów, dzięki wglądowi we wszystkich zarządzanych dzierżawców klientów.
+Ten temat zawiera omówienie sposobu, w jaki dostawcy usług mogą korzystać z serwerów z obsługą usługi Azure Arc i usługi Azure Arc Kubernetes (wersja zapoznawcza) w skalowalny sposób do zarządzania środowiskiem hybrydowym klientów, z widocznością dla wszystkich zarządzanych dzierżawców klientów.
 
 > [!TIP]
 > Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, te wskazówki dotyczą również [przedsiębiorstw korzystających z usługi Azure Lighthouse do zarządzania wieloma dzierżawcami](../concepts/enterprise.md).
 
-## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers-preview"></a>Zarządzanie serwerami hybrydowymi na dużą skalę za pomocą serwerów z obsługą usługi Azure ARC (wersja zapoznawcza)
-
-> [!NOTE]
-> Serwery z obsługą usługi Azure Arc są obecnie w wersji zapoznawczej. W tej chwili nie zalecamy obsługi obciążeń produkcyjnych.
+## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers"></a>Zarządzanie serwerami hybrydowymi na dużą skalę przy użyciu serwerów z obsługą usługi Azure Arc
 
 Jako dostawca usług możesz zarządzać lokalnymi maszynami z systemem Windows Server lub Linux poza platformą Azure, że klienci zostali połączeni z subskrypcją za pomocą [agenta połączonego z platformą Azure](../../azure-arc/servers/agent-overview.md).
 

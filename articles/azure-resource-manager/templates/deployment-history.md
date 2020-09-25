@@ -3,13 +3,13 @@ title: Historia wdrożenia
 description: Opisuje sposób wyświetlania Azure Resource Manager operacji wdrażania przy użyciu portalu, programu PowerShell, interfejsu wiersza polecenia platformy Azure i usługi API REST.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 00e0c51244d5c191d4c9f05f689b90ece81ec5a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117849"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284622"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Wyświetlanie historii wdrożenia za pomocą Azure Resource Manager
 
@@ -21,7 +21,7 @@ Aby uzyskać pomoc dotyczącą rozwiązywania określonych błędów wdrażania,
 
 ## <a name="get-deployments-and-correlation-id"></a>Pobierz wdrożenia i identyfikator korelacji
 
-Szczegółowe informacje o wdrożeniu można wyświetlić za pomocą programu Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST. Każde wdrożenie ma identyfikator korelacji, który jest używany do śledzenia powiązanych zdarzeń. Może być przydatne podczas pracy z pomocą techniczną w celu rozwiązywania problemów z wdrożeniem.
+Szczegółowe informacje o wdrożeniu można wyświetlić za pomocą programu Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST. Każde wdrożenie ma identyfikator korelacji, który jest używany do śledzenia powiązanych zdarzeń. Jeśli [utworzysz żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md), pomoc techniczna może prosić o identyfikator korelacji. Obsługa używa identyfikatora korelacji do identyfikowania operacji dla niepowodzenia wdrożenia.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -61,13 +61,13 @@ Aby uzyskać identyfikator korelacji, użyj:
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby wyświetlić listę wdrożenia dla grupy zasobów, użyj polecenie [AZ Deployment Group list](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
+Aby wyświetlić listę wdrożenia dla grupy zasobów, użyj polecenie [AZ Deployment Group list](/cli/azure/group/deployment#az-deployment-group-list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-Aby uzyskać określone wdrożenie, użyj polecenie [AZ Deployment Group Show](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
+Aby uzyskać określone wdrożenie, użyj polecenie [AZ Deployment Group Show](/cli/azure/group/deployment#az-deployment-group-show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -81,7 +81,7 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Aby wyświetlić listę wdrożeń dla grupy zasobów, użyj następującej operacji. Aby uzyskać najnowszy numer wersji interfejsu API do użycia w żądaniu, zobacz [wdrożenia — lista według grupy zasobów](/rest/api/resources/deployments/listbyresourcegroup).
+Aby wyświetlić listę wdrożeń dla grupy zasobów, użyj następującej operacji. Aby uzyskać najnowszy numer wersji interfejsu API do użycia w żądaniu, zobacz  [wdrożenia — lista według grupy zasobów](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}

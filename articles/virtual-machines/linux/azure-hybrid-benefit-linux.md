@@ -3,34 +3,35 @@ title: Maszyny wirtualne Korzyść użycia hybrydowego platformy Azure i Linux
 description: Korzyść użycia hybrydowego platformy Azure pozwala zaoszczędzić pieniądze na maszynach wirtualnych z systemem Linux działających na platformie Azure.
 services: virtual-machines
 documentationcenter: ''
-author: asinn826
+author: mathapli
 manager: westonh
-editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: a9ea3b21908d1f461745ffe2689b36f8efcb6f89
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996978"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279777"
 ---
-# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Korzyść użycia hybrydowego platformy Azure — jak ma zastosowanie do Linux Virtual Machines
+# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Wersja zapoznawcza: Korzyść użycia hybrydowego platformy Azure — jak ma to zastosowanie do Linux Virtual Machines
 
 ## <a name="overview"></a>Omówienie
 
-Korzyść użycia hybrydowego platformy Azure umożliwia łatwiejsze Migrowanie serwera lokalnego Red Hat Enterprise Linux (RHEL) i SUSE Linux Enterprise (SLES) do platformy Azure przy użyciu własnej istniejącej subskrypcji Red Hat lub SUSE. Korzystając z tej korzyści, płacisz tylko za koszty infrastruktury maszyny wirtualnej, ponieważ opłata za oprogramowanie jest objęta subskrypcją usługi RHEL lub SLES. Korzyść ma zastosowanie do wszystkich obrazów RHEL i SLES Marketplace z opcją płatność zgodnie z rzeczywistym użyciem.
+Korzyść użycia hybrydowego platformy Azure umożliwia łatwiejsze Migrowanie lokalnych maszyn wirtualnych Red Hat Enterprise Linux (RHEL) i SUSE Linux Enterprise Server (SLES) na platformę Azure przy użyciu własnej istniejącej subskrypcji Red Hat lub SUSE. Korzystając z tej korzyści, płacisz tylko za koszty infrastruktury maszyny wirtualnej, ponieważ opłata za oprogramowanie jest objęta subskrypcją usługi RHEL lub SLES. Korzyść ma zastosowanie do wszystkich obrazów RHEL i SLES Marketplace z opcją płatność zgodnie z rzeczywistym użyciem.
+
+> [!IMPORTANT]
+> Korzyść użycia hybrydowego platformy Azure dla maszyn wirtualnych z systemem Linux jest obecnie dostępna w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="benefit-description"></a>Opis korzyści
 
 Za pośrednictwem Korzyść użycia hybrydowego platformy Azure można łatwiej migrować lokalne serwery RHEL i SLES na platformę Azure, konwertując istniejące maszyny wirtualne RHEL i SLES PAYG na platformę Azure, aby przenieść rozliczenia własnej subskrypcji (BYOS). Zazwyczaj maszyny wirtualne wdrożone z obrazów PAYG na platformie Azure będą naliczane opłaty za infrastrukturę oraz opłaty za oprogramowanie. Za pomocą Korzyść użycia hybrydowego platformy Azure maszyny wirtualne PAYG można przekonwertować na model rozliczeń BYOS bez konieczności ponownego wdrażania, unikając ryzyka przestoju.
 
-![Wizualizacja kosztów Korzyść użycia hybrydowego platformy Azure na maszynach wirtualnych z systemem Linux](./media/ahb-linux/azure-hybrid-benefit-cost.png)
+:::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Korzyść użycia hybrydowego platformy Azure wizualizacji kosztów na maszynach wirtualnych z systemem Linux.":::
 
 Po umożliwieniu skorzystania z usługi RHEL lub SLES maszyny wirtualnej nie będą już naliczane opłaty za dodatkowy koszt oprogramowania zwykle ponoszony na maszynę wirtualną PAYG. Zamiast tego maszyna wirtualna rozpocznie emitowanie opłaty za BYOS, która obejmuje tylko opłaty za sprzęt i opłaty za oprogramowanie.
 
@@ -149,7 +150,7 @@ Odp.: może upłynąć trochę czasu na rejestrację subskrypcji usługi Red Hat
 ## <a name="common-errors"></a>Typowe błędy
 Ta sekcja zawiera listę typowych błędów i kroków związanych z ograniczeniami.
 
-| Błąd | Ograniczanie ryzyka |
+| Error | Ograniczanie ryzyka |
 | ----- | ---------- |
 | "Subskrypcja nie jest zarejestrowana w wersji zapoznawczej systemu Linux dla Korzyść użycia hybrydowego platformy Azure. Aby uzyskać instrukcje krok po kroku, zobacz https://aka.ms/ahb-linux " | Wypełnij formularz, https://aka.ms/ahb-linux-form Aby zarejestrować się w wersji zapoznawczej systemu Linux dla korzyść użycia hybrydowego platformy Azure.
 | "Akcja nie może zostać ukończona, ponieważ nasze rekordy pokazują, że nie udało Ci się pomyślnie włączyć usługi Red Hat Cloud Access w ramach subskrypcji platformy Azure..." | Aby można było korzystać z zalet z maszynami wirtualnymi RHEL, należy najpierw zarejestrować subskrypcje platformy Azure przy użyciu usługi Red Hat Cloud Access. Odwiedź ten link, aby dowiedzieć się więcej o rejestrowaniu subskrypcji platformy Azure na potrzeby usługi Red Hat Cloud Access

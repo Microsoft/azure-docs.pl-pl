@@ -4,12 +4,12 @@ description: Dowiedz się, jak odnajdywać wystąpienia AWS za pomocą oceny ser
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c2d91e0b2c2eaa2df8b01aca60e5a0e18e251fb8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603700"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275459"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Samouczek: odnajdywanie wystąpień AWS z oceną serwera
 
@@ -47,7 +47,7 @@ Aby utworzyć projekt Azure Migrate i zarejestrować urządzenie Azure Migrate, 
 - Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure.
 - Uprawnienia do rejestrowania aplikacji Azure Active Directory.
 
-Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
+Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
 
 1. W Azure Portal Wyszukaj "subskrypcje", a w obszarze **usługi**wybierz pozycję **subskrypcje**.
 
@@ -76,7 +76,18 @@ Skonfiguruj konto, za pomocą którego urządzenie może uzyskiwać dostęp do w
 
 - W przypadku serwerów z systemem Windows należy skonfigurować konto użytkownika lokalnego na wszystkich serwerach z systemem Windows, które mają zostać uwzględnione w odnajdywaniu. Dodaj konto użytkownika do następujących grup: — Użytkownicy zarządzania zdalnego — użytkownicy monitora wydajności — Użytkownicy dzienników wydajności.
  - W przypadku serwerów systemu Linux potrzebujesz konta głównego na serwerach systemu Linux, które mają być odnajdywane.
-
+- Azure Migrate używa uwierzytelniania hasła podczas odnajdywania wystąpień AWS. Wystąpienia AWS domyślnie nie obsługują uwierzytelniania hasła. Aby można było odnaleźć wystąpienie, należy włączyć uwierzytelnianie hasła.
+    - W przypadku maszyn z systemem Windows Zezwól na port WinRM 5985 (HTTP). Pozwala to na zdalne wywołania WMI.
+    - Komputery z systemem Linux:
+        1. Zaloguj się do każdej maszyny z systemem Linux.
+        2. Otwórz plik sshd_config: VI/etc/ssh/sshd_config
+        3. W pliku Znajdź linię **PasswordAuthentication** i zmień wartość na **tak**.
+        4. Zapisz plik i zamknij go. Uruchom ponownie usługę SSH.
+    - Jeśli używasz użytkownika root do odnajdywania maszyn wirtualnych z systemem Linux, upewnij się, że na maszynach wirtualnych jest dozwolone logowanie główne.
+        1. Zaloguj się do każdej maszyny z systemem Linux
+        2. Otwórz plik sshd_config: VI/etc/ssh/sshd_config
+        3. W pliku Znajdź linię **PermitRootLogin** i zmień wartość na **tak**.
+        4. Zapisz plik i zamknij go. Uruchom ponownie usługę SSH.
 
 ## <a name="set-up-a-project"></a>Konfigurowanie projektu
 
@@ -118,7 +129,7 @@ Aby skonfigurować urządzenie:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
 
-1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
+1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
 2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **fizyczne lub inne (AWS, GCP, Xen itp.)**.
 3. W obszarze **1: generowanie klucza projektu Azure Migrate**Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania serwerów fizycznych lub wirtualnych. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
 1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
@@ -244,7 +255,7 @@ Spowoduje to uruchomienie odnajdywania. Aby metadane wykrytego serwera pojawiły
 
 Po zakończeniu odnajdywania możesz sprawdzić, czy serwery są wyświetlane w portalu.
 
-1. Otwórz pulpit nawigacyjny Azure Migrate.
+1. Otwórz pulpit nawigacyjny usługi Azure Migrate.
 2. W **Azure Migrate serwery**  >  **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 
 ## <a name="next-steps"></a>Następne kroki

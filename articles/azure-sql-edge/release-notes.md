@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900589"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284486"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Informacje o wersji usługi Azure SQL Edge 
 
@@ -23,17 +23,23 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge — 1.0.0 (RTM)
 
-### <a name="sql-engine-build-number---15020001549"></a>Numer kompilacji aparatu SQL — 15.0.2000.1549
+### <a name="sql-engine-build-number---15020001552"></a>Numer kompilacji aparatu SQL — 15.0.2000.1552
 
-### <a name="whats-new"></a>Co nowego
+### <a name="whats-new"></a>Co nowego?
 1. Ubuntu 18,04 na podstawie obrazów kontenerów. 
 2. Obsługa `IGNORE NULL` składni i `RESPECT NULL` funkcji oraz `LAST_VALUE()` `FIRST_VALUE()` . 
 3. Udoskonalenia niezawodności dla przewidywania za pomocą ONNX.
-4. Obsługa oczyszczania opartych na zasadach przechowywania danych.      
-   - Obsługa zoptymalizowanego oczyszczania dla klastrowanych indeksów magazynu kolumn.
+4. Obsługa oczyszczania opartych na zasadach przechowywania danych.
+   - Obsługa buforu pierścieniowego dla zadania oczyszczania przechowywania w celu rozwiązywania problemów.
 5. Obsługa nowych funkcji 
    - Szybkie odzyskiwanie
    - Autodostrajanie zapytań
+   - Włącz równoległe scenariusze wykonywania
+6. Udoskonalenia oszczędzania energii dla trybu niskiego zużycia energii
+7. Obsługa przesyłania strumieniowego nowych funkcji 
+   - [Okna migawek](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : nowe okno typu pozwalające na grupowanie zdarzeń w tym samym czasie. 
+   - Włącz [TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) i [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) jako funkcję analityczną, dzięki czemu będzie można zwracać rekordy uporządkowane według wybranej kolumny, bez konieczności części okna. 
+   - Ulepszenia [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
 
 ### <a name="fixes"></a>Poprawki
 1. Dodatkowe komunikaty o błędach i szczegółowe informacje dotyczące rozwiązywania problemów z operacjami TSQL Streaming. 
@@ -41,14 +47,18 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 3. Poprawki aparatu przesyłania strumieniowego TSQL: 
    - Czyszczenie dla zatrzymywanego zadania przesyłania strumieniowego 
    - Poprawki dotyczące poprawy obsługi lokalizacji i formatu Unicode
+   - Zwiększ możliwość debugowania dla programu Edge TSQL — przesyłanie strumieniowe, zezwól użytkownikom na wykonywanie zapytań o błędy błędów zadań z get_streaming_job.
 4. Oczyszczanie oparte na zasadach przechowywania danych
    - Poprawki dotyczące scenariuszy tworzenia i oczyszczania zasad przechowywania.
 5. Poprawki dotyczące zadań czasomierza w tle w celu zwiększenia oszczędności w trybie niskiego zużycia baterii.
 
+### <a name="known-issues"></a>Znane problemy 
+1. Nie można użyć funkcji T-SQL Date_Bucket w kolumnie obliczanej.
+
 
 ## <a name="ctp-23"></a>CTP 2,3
 ### <a name="sql-engine-build-number---15020001549"></a>Numer kompilacji aparatu SQL — 15.0.2000.1549
-### <a name="whats-new"></a>Co nowego
+### <a name="whats-new"></a>Co nowego?
 1. Obsługa niestandardowych źródeł w funkcji Date_Bucket (). 
 2. Obsługa plików BacPac w ramach wdrożenia programu SQL Server.
 3. Obsługa oczyszczania opartych na zasadach przechowywania danych.      
@@ -66,7 +76,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 ## <a name="ctp-22"></a>CTP 2,2
 ### <a name="sql-engine-build-number---15020001546"></a>Numer kompilacji aparatu SQL — 15.0.2000.1546
-### <a name="whats-new"></a>Co nowego
+### <a name="whats-new"></a>Co nowego?
 1. Obsługa kontenerów innych niż główne 
 2. Obsługa zbierania danych użycia i diagnostyki 
 3. Aktualizacje przesyłania strumieniowego T-SQL
@@ -88,7 +98,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 ## <a name="ctp-20"></a>CTP 2,0 
 ### <a name="sql-engine-build-number---15020001401"></a>Numer kompilacji aparatu SQL — 15.0.2000.1401
-### <a name="whats-new"></a>Co nowego
+### <a name="whats-new"></a>Co nowego?
 1.  Nazwa produktu została zaktualizowana do "Azure SQL Edge"
 1.  Funkcja Date_bucket
 
@@ -117,7 +127,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
 
 ## <a name="ctp-15"></a>CTP 1,5
 ### <a name="sql-engine-build-number---15020001331"></a>Numer kompilacji aparatu SQL — 15.0.2000.1331
-### <a name="whats-new"></a>Co nowego
+### <a name="whats-new"></a>Co nowego?
 1. Funkcja Date_bucket
     
     i. Obsługa typu DateTimeOffset
@@ -127,7 +137,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
  
 ## <a name="ctp-14"></a>CTP 1,4
 ### <a name="sql-engine-build-number---15020001247"></a>Numer kompilacji aparatu SQL — 15.0.2000.1247
-### <a name="whats-new"></a>Co nowego
+### <a name="whats-new"></a>Co nowego?
 1.  PRZEWIDYWANie przy użyciu modeli ONNX
  
     i.  Obsługa varchar
@@ -147,7 +157,7 @@ W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każd
  
 ## <a name="ctp-13"></a>CTP 1,3
 ### <a name="sql-engine-build-number---15020001147"></a>Numer kompilacji aparatu SQL — 15.0.2000.1147
-### <a name="whats-new"></a>Co nowego
+### <a name="whats-new"></a>Co nowego?
 1. Wdrożenie portalu Azure IOT 
 
     i.   Obsługa wdrażania obrazów AMD64 i ARM

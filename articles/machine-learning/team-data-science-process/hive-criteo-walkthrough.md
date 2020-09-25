@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dc05722ee79f72b2931cb1fa6106f742c5bc0e15
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274207"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336653"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proces nauki danych zespołu w akcji — Używanie klastra Azure HDInsight Hadoop w zestawie danych o pojemności 1 TB
 
@@ -67,7 +67,7 @@ Skonfiguruj środowisko nauki danych platformy Azure do tworzenia rozwiązań an
 
    * Połącz konto magazynu utworzone w kroku 1 z klastrem usługi HDInsight podczas jego tworzenia. To konto magazynu służy do uzyskiwania dostępu do danych, które mogą być przetwarzane w klastrze.
    * Włącz dostęp zdalny do węzła głównego klastra po jego utworzeniu. Zapamiętaj poświadczenia dostępu zdalnego określone w tym miejscu (inne niż poświadczenia określone podczas tworzenia klastra): wykonaj następujące procedury.
-3. [Utwórz obszar roboczy Azure Machine Learning Studio (klasyczny)](../studio/create-workspace.md): ten Azure Machine Learning obszar roboczy jest używany do kompilowania modeli uczenia maszynowego po początkowej eksploracji danych i pobraniu próbek w klastrze usługi HDInsight.
+3. [Utwórz obszar roboczy Azure Machine Learning Studio (klasyczny)](../classic/create-workspace.md): ten Azure Machine Learning obszar roboczy jest używany do kompilowania modeli uczenia maszynowego po początkowej eksploracji danych i pobraniu próbek w klastrze usługi HDInsight.
 
 ## <a name="get-and-consume-data-from-a-public-source"></a><a name="getdata"></a>Pobieranie danych z publicznego źródła i korzystanie z nich
 Dostęp do zestawu danych [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) można uzyskać, klikając link, akceptując warunki użytkowania i podając nazwę. Migawkę przedstawiono tutaj:
@@ -98,7 +98,7 @@ Po lewej stronie jest "wiersz polecenia usługi Hadoop", który jest nasz WorkHo
 
 Teraz wszystko jest gotowe do rozpoczęcia pierwszej części przewodnika: Eksploracja danych przy użyciu usługi Hive i przygotowywania danych do Azure Machine Learning.
 
-## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a>Tworzenie bazy danych i tabel programu Hive
+## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Tworzenie bazy danych i tabel programu Hive
 Aby utworzyć tabele Hive dla naszego zestawu danych Criteo, Otwórz ***wiersz polecenia Hadoop*** na pulpicie węzła głównego, a następnie wprowadź katalog Hive, wprowadzając polecenie
 
 ```console
@@ -208,7 +208,7 @@ criteo_train
 Time taken: 1.437 seconds, Fetched: 4 row(s)
 ```
 
-## <a name="data-exploration-in-hive"></a><a name="exploration"></a>Eksploracja danych w usłudze Hive
+## <a name="data-exploration-in-hive"></a><a name="exploration"></a> Eksploracja danych w usłudze Hive
 Teraz wszystko jest gotowe do wykonania pewnej podstawowej eksploracji danych w usłudze Hive. Zacznij od policzania przykładów w tabelach uczenie i dane testowe.
 
 ### <a name="number-of-train-examples"></a>Liczba przykładów pouczenia
@@ -402,7 +402,7 @@ e5f3fd8d        a0aaffa6        792250
 Time taken: 560.22 seconds, Fetched: 15 row(s)
 ```
 
-## <a name="down-sample-the-datasets-for-azure-machine-learning"></a><a name="downsample"></a>Przykładowe zestawy danych dla Azure Machine Learning
+## <a name="down-sample-the-datasets-for-azure-machine-learning"></a><a name="downsample"></a> Przykładowe zestawy danych dla Azure Machine Learning
 Zapoznanie się z zestawami danych i przedstawienie sposobu tego typu eksploracji dla wszelkich zmiennych (w tym kombinacji), a następnie w dół, aby umożliwić skompilowanie modeli w Azure Machine Learning. Należy odwołać się, aby skoncentrować się na problemie: nadano zestaw przykładowych atrybutów (wartości funkcji z Col2-Col40), przewidywanie, jeśli Kol1 jest 0 (nie kliknięcia) lub 1 (kliknij).
 
 Aby w dół próbkować i testować zestawy danych do 1% oryginalnego rozmiaru, użyj natywnej funkcji RAND (). Następny skrypt, [przykład&#95;hive&#95;criteo&#95;próbkowania w dół&#95;pociąg&#95;zestaw danych. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) to dla zestawu danych szkolenia:
@@ -471,7 +471,7 @@ Dzięki temu możesz przystąpić do użycia naszego przykładowego szkolenia i 
 
 Przed przejściem do Azure Machine Learning należy uzyskać końcowy składnik, który dotyczy tabeli Count. W następnej podsekcji tabela Count została omówiona szczegółowo.
 
-## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a>Krótka dyskusja w tabeli Count
+## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a> Krótka dyskusja w tabeli Count
 Zgodnie z oczekiwaniami kilka zmiennych kategorii ma wysoką wymiar. W przewodniku zaprezentowano zaawansowaną technikę o nazwie [uczenie się z licznikami](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) , aby zakodować te zmienne w efektywny, niezawodny sposób. Więcej informacji na temat tej techniki znajduje się w podanym łączu.
 
 >[!NOTE]
@@ -480,7 +480,7 @@ Zgodnie z oczekiwaniami kilka zmiennych kategorii ma wysoką wymiar. W przewodni
 
 Aby skompilować liczbę tabel z danymi liczbowymi, użyj danych w folderze RAW/Count. W sekcji modelowanie użytkownicy są pokazani, jak kompilować te tabele liczb dla funkcji kategorii od podstaw, lub też użyć wstępnie skompilowanej tabeli Count dla swoich eksploracji. W poniższych tematach, gdy "wstępnie skompilowane tabele zliczania" są określane przy użyciu dostarczonych tabel Count. Szczegółowe instrukcje dotyczące uzyskiwania dostępu do tych tabel znajdują się w następnej sekcji.
 
-## <a name="build-a-model-with-azure-machine-learning"></a><a name="aml"></a>Kompilowanie modelu przy użyciu Azure Machine Learning
+## <a name="build-a-model-with-azure-machine-learning"></a><a name="aml"></a> Kompilowanie modelu przy użyciu Azure Machine Learning
 Nasz proces kompilowania modelu w Azure Machine Learning wykonuje następujące czynności:
 
 1. [Pobierz dane z tabel programu Hive do Azure Machine Learning](#step1)
@@ -491,7 +491,7 @@ Nasz proces kompilowania modelu w Azure Machine Learning wykonuje następujące 
 
 Teraz możesz przystąpić do kompilowania modeli w programie Azure Machine Learning Studio. Nasze przykładowe dane są zapisywane jako tabele Hive w klastrze. Użyj modułu Azure Machine Learning **Importuj dane** , aby odczytać te dane. Poświadczenia dostępu do konta magazynu tego klastra są podane w poniższych tematach.
 
-### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a>Krok 1. Pobieranie danych z tabel programu Hive do Azure Machine Learning przy użyciu modułu Importuj dane i wybieranie go dla eksperymentu uczenia maszynowego
+### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a> Krok 1. Pobieranie danych z tabel programu Hive do Azure Machine Learning przy użyciu modułu Importuj dane i wybieranie go dla eksperymentu uczenia maszynowego
 Zacznij od wybrania **+ nowego**  ->  **eksperymentu**  ->  **Blank Experiment**. Następnie w polu **wyszukiwania** w lewym górnym rogu Wyszukaj pozycję "Importuj dane". Przeciągnij i upuść moduł **Importuj dane** na kanwę eksperymentu (środkową część ekranu), aby użyć modułu do uzyskiwania dostępu do danych.
 
 Oto, jak wyglądają **dane importu** podczas pobierania danych z tabeli programu Hive:
@@ -525,7 +525,7 @@ Aby wybrać zapisany zestaw danych do użycia w doświadczeniu uczenia maszynowe
 >
 >
 
-### <a name="step-2-create-an-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a>Krok 2. Tworzenie eksperymentu w Azure Machine Learning w celu przewidywania kliknięć/kliknięcia
+### <a name="step-2-create-an-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a> Krok 2. Tworzenie eksperymentu w Azure Machine Learning w celu przewidywania kliknięć/kliknięcia
 Nasz Azure Machine Learning Studio (klasyczny) wygląda następująco:
 
 ![Machine Learning eksperyment](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -602,7 +602,7 @@ Ten fragment pokazuje, że w odniesieniu do kolumn, które są zliczane, otrzymu
 
 Teraz można przystąpić do kompilowania modelu Azure Machine Learning przy użyciu tych przekształconych zestawów danych. W następnej sekcji pokazano, jak to zrobić.
 
-### <a name="step-3-build-train-and-score-the-model"></a><a name="step3"></a>Krok 3. kompilowanie, uczenie i Ocena modelu
+### <a name="step-3-build-train-and-score-the-model"></a><a name="step3"></a> Krok 3. kompilowanie, uczenie i Ocena modelu
 
 #### <a name="choice-of-learner"></a>Wybór
 Najpierw musisz wybrać naukę. Korzystaj z dwuklasowego drzewa decyzyjnego. Poniżej przedstawiono domyślne opcje tego rozwiązania:
@@ -611,17 +611,17 @@ Najpierw musisz wybrać naukę. Korzystaj z dwuklasowego drzewa decyzyjnego. Pon
 
 Na potrzeby eksperymentu wybierz wartości domyślne. Wartości domyślne są zrozumiałe i dobrym sposobem na uzyskanie szybkich linii bazowych względem wydajności. Można zwiększyć wydajność przez odczyszczenie parametrów, jeśli wybierzesz opcję po utworzeniu linii bazowej.
 
-#### <a name="train-the-model"></a>Szkolenie modelu
+#### <a name="train-the-model"></a>Trenowanie modelu
 W przypadku szkolenia po prostu wywołaj moduł **uczenia modelu** . Dwa dane wejściowe do niego to informacje o podwyższej klasie i zestawie danych szkolenia. Jest to pokazane tutaj:
 
 ![Moduł uczenia modelu](./media/hive-criteo-walkthrough/2bZDZTy.png)
 
-#### <a name="score-the-model"></a>Ocena modelu
+#### <a name="score-the-model"></a>Ocenianie modelu
 Gdy masz model szkolony, możesz przystąpić do oceny zestawu danych testowych i oszacować jego wydajność. W tym celu należy użyć modułu oceny **wyniku** pokazanego na poniższym rysunku, wraz z modułem **Oceń model** :
 
 ![Moduł Score Model (Generowanie wyników przez model)](./media/hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step-4-evaluate-the-model"></a><a name="step4"></a>Krok 4. oszacowanie modelu
+### <a name="step-4-evaluate-the-model"></a><a name="step4"></a> Krok 4. oszacowanie modelu
 Na koniec należy analizować wydajność modelu. Zwykle w przypadku problemów klasyfikacji dwóch klas (binarnych) dobrym środkiem jest AUC. Aby wizualizować tę krzywą, Połącz moduł **modelu** oceny z modułem **oceny modelu** . Kliknięcie przycisku **Wizualizuj** w module **Oceń model** daje grafikę podobną do następującej:
 
 ![Oceń model BDT modułu](./media/hive-criteo-walkthrough/0Tl0cdg.png)
@@ -630,7 +630,7 @@ W przypadku problemów klasyfikacji w postaci binarnej (lub dwóch klas) dobrym 
 
 ![Wizualizuj ocenę modułu modelu](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step-5-publish-the-model-as-a-web-service"></a><a name="step5"></a>Krok 5. Publikowanie modelu jako usługi sieci Web
+### <a name="step-5-publish-the-model-as-a-web-service"></a><a name="step5"></a> Krok 5. Publikowanie modelu jako usługi sieci Web
 Możliwość opublikowania Azure Machine Learning modelu jako usług sieci Web z co najmniej Fuss jest cenną funkcją do zapewnienia, że jest ona szeroko dostępna. Gdy wszystko będzie gotowe, każdy może wykonywać wywołania usługi sieci Web z danymi wejściowymi, dla których są potrzebne przewidywania, a usługa sieci Web używa modelu do zwrócenia tych prognoz.
 
 Najpierw Zapisz nasz model przeszkolony jako obiekt modelu nauczonego przez kliknięcie prawym przyciskiem myszy modułu **uczenie modelu** i użycie opcji **Zapisz jako przeszkolony model** .
@@ -695,4 +695,3 @@ Domyślny klucz interfejsu API został zastąpiony kluczem interfejsu API usług
 W przypadku dwóch przykładowych testów pożądanych w strukturze JSON skryptu w języku Python otrzymujesz odpowiedzi w formie "etykiet oceny", co oznacza prawdopodobieństwa ". W takim przypadku wartości domyślne zostały wybrane, że kod wstępnie przewidziany przez program zapewnia (0 dla wszystkich kolumn liczbowych i ciąg "value" dla wszystkich kolumn kategorii).
 
 W naszym przewodniku przedstawiono sposób obsługi zestawu danych na dużą skalę przy użyciu Azure Machine Learning. Zaczynasz od terabajta danych, konstruujesz model przewidywania i wdrożono go jako usługę sieci Web w chmurze.
-

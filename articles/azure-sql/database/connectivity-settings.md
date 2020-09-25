@@ -7,14 +7,14 @@ titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data W
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: f664ffbfc9aa38dcf8eb7736b28613efb95bde63
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 431d7ff2631f9b4a0a20db82c40b512c41209b7e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325372"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Ustawienia łączności usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,7 +31,7 @@ Ustawienia łączności są dostępne z ekranu **zapory i sieci wirtualne** , ja
 > [!NOTE]
 > Po zastosowaniu tych ustawień **zaczną obowiązywać od razu** i mogą spowodować utratę połączenia dla klientów, jeśli nie spełnią wymagań dla poszczególnych ustawień.
 
-## <a name="deny-public-network-access"></a>Odmów dostępu do sieci publicznej
+## <a name="deny-public-network-access"></a>Odmowa dostępu do sieci publicznej
 
 Gdy ustawienie **Odmów dostępu do sieci publicznej** ma wartość **tak**, dozwolone są tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie jest ustawione na wartość **nie** (domyślnie), klienci mogą łączyć się przy użyciu publicznych punktów końcowych (reguł zapory opartych na protokole IP, reguł zapory opartych na sieci wirtualnej) lub prywatnych punktów końcowych (za pomocą prywatnego linku), jak opisano w temacie [dostęp sieciowy](network-access-controls-overview.md). 
 
@@ -76,7 +76,7 @@ Poniższy skrypt programu PowerShell przedstawia sposób `Get` i `Set` Właściw
 # Update Public Network Access to Disabled
 $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 
-Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Enabled"
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Disabled"
 ```
 
 ## <a name="change-public-network-access-via-cli"></a>Zmień dostęp do sieci publicznej za pomocą interfejsu wiersza polecenia

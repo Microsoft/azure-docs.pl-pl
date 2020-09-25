@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: 61cb5384fd4d935ef4038c18b391b5da5fbc96b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e03850dcc75e639c0436ceea339da5f2da5df4b3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516694"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277873"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Samouczek: tworzenie użytkowników usługi Azure AD przy użyciu aplikacji usługi Azure AD
 
@@ -167,11 +167,11 @@ Aby poznać podobne podejście do sposobu ustawiania uprawnienia **czytelników 
 
     Upewnij się, że dodano **uprawnienia aplikacji** oraz **uprawnienia delegowane**.
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="AAD — aplikacje":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Zrzut ekranu przedstawiający stronę Rejestracje aplikacji dla Azure Active Directory. Aplikacja o nazwie wyświetlanej AppSP jest wyróżniona.":::
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="Interfejs API — uprawnienia":::
 
-2. Należy również utworzyć klucz tajny klienta do logowania. Postępuj zgodnie z przewodnikiem w tym miejscu, aby [przekazać certyfikat lub utworzyć wpis tajny do logowania](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in).
+2. Należy również utworzyć klucz tajny klienta do logowania. Postępuj zgodnie z przewodnikiem w tym miejscu, aby [przekazać certyfikat lub utworzyć wpis tajny do logowania](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
 3. Zapisz poniższe elementy z rejestracji aplikacji. Powinien być dostępny w okienku **Przegląd** :
     - **Identyfikator aplikacji**

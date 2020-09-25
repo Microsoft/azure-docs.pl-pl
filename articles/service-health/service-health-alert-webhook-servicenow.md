@@ -3,13 +3,13 @@ title: Wysyłanie alertów usługi Azure Service Health z usługi ServiceNow
 description: Uzyskaj spersonalizowane powiadomienia o zdarzeniach kondycji usługi do wystąpienia usługi ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 68175dc17c1601eab097b94d4eefaa2706731f5c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: f120e9d950cc349d0331a476dbfbfe9d7e599f0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432523"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307572"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Wysyłanie alertów usługi Azure Service Health za pomocą usługi ServiceNow przy użyciu elementów webhook
 
@@ -43,9 +43,9 @@ W tym artykule pokazano, jak zintegrować alerty usługi Azure Service Health z 
 
     >[!NOTE]
     >Należy zaktualizować `<secret>` `<group>` wartości, i `<email>` w poniższym skrypcie.
-    >* `<secret>`powinien być ciągiem losowym, takim jak identyfikator GUID
-    >* `<group>`powinna być grupą usługi ServiceNow, do której chcesz przypisać zdarzenie
-    >* `<email>`musi być określoną osobą, do której ma zostać przypisane zdarzenie (opcjonalnie)
+    >* `<secret>` powinien być ciągiem losowym, takim jak identyfikator GUID
+    >* `<group>` powinna być grupą usługi ServiceNow, do której chcesz przypisać zdarzenie
+    >* `<email>` musi być określoną osobą, do której ma zostać przypisane zdarzenie (opcjonalnie)
     >
 
     ```javascript
