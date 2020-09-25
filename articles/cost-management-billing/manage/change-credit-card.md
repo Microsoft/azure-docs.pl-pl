@@ -7,20 +7,22 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2020
 ms.author: banders
-ms.openlocfilehash: c7622c4916b186a39aad9dafb54a1e2404458794
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 0f1b4751ae2448b519387d57e4dbfa1eecf8a576
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569360"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984287"
 ---
-# <a name="add-update-or-remove-a-credit-card-for-azure"></a>Dodawanie, aktualizowanie lub usuwanie karty kredytowej dla platformy Azure
+# <a name="add-or-update-a-credit-card-for-azure"></a>Dodawanie lub aktualizowanie karty kredytowej dla platformy Azure
 
 Ten dokument dotyczy klientów, którzy zarejestrowali się na platformie Azure w trybie online przy użyciu karty kredytowej.
 
-W witrynie Azure Portal możesz zmienić domyślną formę płatności na nową kartę kredytową, zaktualizować informacje o karcie kredytowej i usunąć karty kredytowe, których nie używasz. Musisz być [administratorem konta](billing-subscription-transfer.md#whoisaa), aby wprowadzić te zmiany.
+W witrynie Azure Portal możesz zmienić domyślną formę płatności na nową kartę kredytową i zaktualizować informacje o karcie kredytowej. Musisz być [administratorem konta](billing-subscription-transfer.md#whoisaa), aby wprowadzić te zmiany.
+
+Jeśli chcesz usunąć kartę kredytową, zapoznaj się z tematem [Usuwanie metody płatności dla rozliczeń na platformie Azure](delete-azure-payment-method.md).
 
 Obsługiwane formy płatności dla platformy Microsoft Azure to karty kredytowe i czek/przelew. Aby uzyskać zgodę na płatność za pomocą czeku/przelewu, zobacz [Płatność za subskrypcje platformy Azure przy użyciu faktury](pay-by-invoice.md).
 
@@ -30,32 +32,24 @@ W przypadku Umowy z Klientem Microsoft formy płatności są skojarzone z profil
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Zarządzanie kartami kredytowymi dla subskrypcji platformy Azure
 
-Poniższe sekcje dotyczą klientów, którzy mają konto rozliczeniowe programu Microsoft Online Services. Dowiedz się, jak [sprawdzić typ konta rozliczeniowego](#check-the-type-of-your-account). Jeśli typ konta rozliczeniowego to Program Microsoft Online Services, formy płatności są skojarzone z poszczególnymi subskrypcjami platformy Azure. Jeśli po dodaniu karty kredytowej wystąpi błąd, zobacz [Karta kredytowa została odrzucona podczas tworzenia konta platformy Azure](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
+Poniższe sekcje dotyczą klientów, którzy mają konto rozliczeniowe programu Microsoft Online Services. Dowiedz się, jak [sprawdzić typ konta rozliczeniowego](#check-the-type-of-your-account). Jeśli typ konta rozliczeniowego to Program Microsoft Online Services, formy płatności są skojarzone z poszczególnymi subskrypcjami platformy Azure. Jeśli po dodaniu karty kredytowej wystąpi błąd, zobacz [Karta kredytowa została odrzucona podczas tworzenia konta platformy Azure](/troubleshoot-declined-card.md).
 
 ### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Zmienianie karty kredytowej dla subskrypcji przez dodanie nowej karty kredytowej
 
-Możesz zmienić domyślną kartę kredytową platformy Azure na nową lub wcześniej zapisaną w witrynie Azure Portal. Aby zmienić kartę kredytową, musisz być administratorem konta. Jeśli więcej niż jedna subskrypcja ma aktywną tę samą formę płatności, zmiana aktywnej formy płatności dowolnej z tych subskrypcji spowoduje także zaktualizowanie aktywnej formy płatności pozostałych subskrypcji.
-
+Możesz zmienić domyślną kartę kredytową platformy Azure na nową lub wcześniej zapisaną w witrynie Azure Portal. Aby zmienić kartę kredytową, musisz być administratorem konta. Jeśli wiele subskrypcji ma aktywną tę samą formę płatności, zmiana aktywnej formy płatności dowolnej z tych subskrypcji spowoduje także zaktualizowanie aktywnej formy płatności pozostałych subskrypcji.
 
 Możesz zmienić domyślną kartę kredytową subskrypcji na nową, wykonując następujące kroki:
 
 1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) jako administrator konta.
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
-
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
     ![Zrzut ekranu przedstawiający wyszukiwanie](./media/change-credit-card/search.png)
-
 1. Wybierz subskrypcję, do której chcesz dodać kartę kredytową.
-1. Wybierz pozycję **Formy płatności**.
-
-    ![Zrzut ekranu przedstawiający wybraną opcję Zarządzaj metodami płatności.](./media/change-credit-card/payment-methods-blade-x.png)
-
+1. Wybierz pozycję **Formy płatności**.  
+    ![Zrzut ekranu przedstawiający wybraną opcję Zarządzaj metodami płatności](./media/change-credit-card/payment-methods-blade-x.png)
 1. W lewym górnym rogu wybierz pozycję „+”, aby dodać kartę. Po prawej stronie zostanie wyświetlony formularz karty kredytowej.
-1. Podaj szczegółowe informacje dotyczące karty kredytowej.
-
-    ![Zrzut ekranu pokazujący dodawanie nowej karty.](./media/change-credit-card/sub-add-new-x.png)
-
+1. Podaj szczegółowe informacje dotyczące karty kredytowej.  
+    ![Zrzut ekranu pokazujący dodawanie nowej karty](./media/change-credit-card/sub-add-new-x.png)
 1. Aby ustawić tę kartę jako aktywną formę płatności, zaznacz pole wyboru obok pola **Ustaw jako moją aktywną formę płatności** znajdującego się powyżej formularza. Ta karta stanie się aktywnym instrumentem płatniczym dla wszystkich subskrypcji używających tej karty jako wybranej subskrypcji.
-
 1. Wybierz opcję **Dalej**.
 
 ### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>Zmienianie karty kredytowej dla subskrypcji na wcześniej zapisaną kartę kredytową
@@ -63,18 +57,14 @@ Możesz zmienić domyślną kartę kredytową subskrypcji na nową, wykonując n
 Możesz również zmienić domyślną kartę kredytową subskrypcji na taką, która jest już zapisana na koncie, wykonując następujące kroki:
 
 1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) jako administrator konta.
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
-
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
     ![Zrzut ekranu przedstawiający wyszukiwanie](./media/change-credit-card/search.png)
-
 1. Wybierz subskrypcję, do której chcesz dodać kartę kredytową.
 1. Wybierz pozycję **Formy płatności**.
-
-    ![Zrzut ekranu przedstawiający wybraną opcję Zarządzaj metodami płatności.](./media/change-credit-card/payment-methods-blade-x.png)
-
+    ![Zrzut ekranu przedstawiający wybraną opcję Zarządzaj metodami płatności](./media/change-credit-card/payment-methods-blade-x.png)
 1. Zaznacz pole obok karty, którą chcesz ustawić jako aktywną formę płatności.
-1. Kliknij pozycję **Ustaw aktywną**.
-    ![Zrzut ekranu przedstawiający wybraną i aktywowaną kartę kredytową.](./media/change-credit-card/sub-change-active-x.png)
+1. Wybierz pozycję **Ustaw aktywną**.
+    ![Zrzut ekranu przedstawiający wybraną i aktywowaną kartę kredytową](./media/change-credit-card/sub-change-active-x.png)
 
 ### <a name="edit-credit-card-details"></a>Edytowanie szczegółowych informacji o karcie kredytowej
 
@@ -82,35 +72,13 @@ Jeśli karta kredytowa jest odnawiana, a numer pozostaje taki sam, zaktualizuj i
 
 1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) jako administrator konta.
 1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
-
     ![Zrzut ekranu przedstawiający wyszukiwanie](./media/change-credit-card/search.png)
-
 1. Wybierz pozycję **Formy płatności**.
-
-    ![Zrzut ekranu przedstawiający wybraną opcję Zarządzaj metodami płatności.](./media/change-credit-card/payment-methods-blade-x.png)
-
-1. Kliknij kartę kredytową, którą chcesz edytować. Po prawej stronie zostanie wyświetlony formularz karty kredytowej.
-
-    ![Zrzut ekranu przedstawiający wybraną kartę kredytową.](./media/change-credit-card/edit-card-x.png)
-
+    ![Zrzut ekranu przedstawiający wybraną opcję Zarządzaj metodami płatności](./media/change-credit-card/payment-methods-blade-x.png)
+1. Wybierz kartę kredytową, którą chcesz edytować. Po prawej stronie zostanie wyświetlony formularz karty kredytowej.
+    ![Zrzut ekranu przedstawiający wybraną kartę kredytową](./media/change-credit-card/edit-card-x.png)
 1. Zaktualizuj szczegółowe informacje o karcie kredytowej.
 1. Wybierz pozycję **Zapisz**.
-
-### <a name="delete-a-credit-card-from-the-account"></a>Usuwanie karty kredytowej z konta
-
-1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) jako administrator konta.
-1. Wybierz pozycję **Zarządzanie kosztami i rozliczenia** w lewej części strony.
-
-    ![Zrzut ekranu przedstawiający wyszukiwanie](./media/change-credit-card/search.png)
-
-1. W obszarze **Rozliczenia** wybierz pozycję **Formy płatności**.
-
-    ![Zrzut ekranu przedstawiający wybraną opcję Zarządzaj metodami płatności.](./media/change-credit-card/payment-methods-blade-x.png)
-
-1. Zaznacz pole wyboru obok karty, którą chcesz usunąć.
-1. Kliknij polecenie **Usuń**.
-
-Jeśli karta kredytowa jest aktywną formą płatności dla którejkolwiek z subskrypcji firmy Microsoft, nie możesz usunąć jej z konta platformy Azure. Zmień aktywną formę płatności dla wszystkich subskrypcji połączonych z tą kartą kredytową i spróbuj ponownie.
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Zarządzanie kartami kredytowymi dla Umowy z Klientem Microsoft
 
@@ -126,53 +94,38 @@ Aby zmienić kartę kredytową, wykonaj następujące kroki:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
-1. W menu po lewej stronie kliknij pozycję **Profile rozliczeniowe**.
+1. W menu po lewej stronie wybierz pozycję **Profile rozliczeniowe**.
 1. Wybierz profil rozliczeniowy.
-1. W menu po lewej stronie wybierz pozycję **Formy płatności**.
-
+1. W menu po lewej stronie wybierz pozycję **Formy płatności**.  
    ![Zrzut ekranu przedstawiający formy płatności w menu](./media/change-credit-card/payment-methods-tab-mca.png)
+1. W sekcji **Domyślna forma płatności** wybierz pozycję **Zamień**.  
+    :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Zrzut ekranu pokazujący opcję zamiany" :::
+1. W nowym obszarze po prawej stronie wybierz istniejącą kartę z listy rozwijanej lub dodaj nową, wybierając niebieski link **Dodaj nową formę płatności**.
 
-1. W sekcji **Domyślna forma płatności** kliknij pozycję **Zmień**.
+### <a name="edit-a-credit-card"></a>Edytowanie karty kredytowej
 
-    ![Zrzut ekranu pokazujący przycisk zmiany](./media/change-credit-card/change-payment-method-mca.png)
+Możesz edytować szczegóły kart kredytowych (na przykład zaktualizować datę wygaśnięcia) w witrynie Azure Portal. 
 
-1. W nowym bloku po prawej stronie wybierz istniejącą kartę z listy rozwijanej lub dodaj nową, klikając niebieski link „Dodaj nową formę płatności”.
-
-### <a name="edit-or-delete-a-credit-card"></a>Edytowanie lub usuwanie karty kredytowej
-
-Możesz edytować szczegóły kart kredytowych (na przykład zaktualizować datę wygaśnięcia) i usuwać karty kredytowe ze swojego konta w witrynie Azure Portal. Kartę kredytową możesz usunąć tylko wtedy, gdy nie jest skojarzona z żadną subskrypcją platformy Azure ani profilem rozliczeniowym. Jeśli jest ona skojarzona z wyłączoną subskrypcją platformy Azure, z usunięciem karty kredytowej musisz zaczekać, aż subskrypcja zostanie usunięta (od 30 do 90 dni po anulowaniu).
-
-Aby edytować lub usunąć kartę kredytową, wykonaj następujące kroki:
+Aby edytować kartę kredytową, wykonaj następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
-1. W menu po lewej stronie kliknij pozycję **Profile rozliczeniowe**.
+1. W menu po lewej stronie wybierz pozycję **Profile rozliczeniowe**.
 1. Wybierz profil rozliczeniowy.
-1. W menu po lewej stronie wybierz pozycję **Formy płatności**.
-
+1. W menu po lewej stronie wybierz pozycję **Formy płatności**.  
    ![Zrzut ekranu przedstawiający formy płatności w menu](./media/change-credit-card/payment-methods-tab-mca.png)
-
-1. W sekcji **Twoje karty kredytowe** znajdź kartę kredytową, którą chcesz edytować lub usunąć.
-1. Kliknij wielokropek (`...`) na końcu wiersza.
-
-    ![Zrzut ekranu przedstawiający wielokropek](./media/change-credit-card/edit-delete-credit-card-mca.png)
-
+1. W sekcji **Twoje karty kredytowe** znajdź kartę kredytową, którą chcesz edytować.
+1. Kliknij wielokropek (`...`) na końcu wiersza.  
+    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Zrzut ekranu przedstawiający wielokropek" :::
 1. Aby edytować szczegóły karty kredytowej, wybierz pozycję **Edytuj** z menu kontekstowego.
-1. Aby usunąć kartę kredytową, wybierz pozycję **Usuń** z menu kontekstowego.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Nie obsługujemy kart wirtualnych i przedpłaconych. Jeśli podczas dodawania lub aktualizowania ważnej karty kredytowej pojawiają się błędy, spróbuj otworzyć przeglądarkę w trybie prywatnym.
+Platforma Azure nie obsługuje kart wirtualnych i przedpłaconych. Jeśli podczas dodawania lub aktualizowania ważnej karty kredytowej pojawiają się błędy, spróbuj otworzyć przeglądarkę w trybie prywatnym.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 W poniższych sekcjach zamieszczono odpowiedzi na często zadawane pytania dotyczące zmiany danych karty kredytowej.
-
-### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>Moja subskrypcja jest wyłączona. Dlaczego nie mogę teraz usunąć karty kredytowej?
-
-Po wyłączeniu lub anulowaniu subskrypcji czekamy 90 dni przed trwałym usunięciem subskrypcji. W okresie przechowywania zachowujemy informację o formie płatności na wypadek ponownego aktywowania subskrypcji. Po tym okresie subskrypcja zostanie trwale usunięta.
-
-Jeśli musisz usunąć kartę kredytową przed upływem 90-dniowego okresu przechowywania, [aktywuj ponownie swoją subskrypcję](subscription-disabled.md). Jeśli nie możesz przeprowadzić ponownej aktywacji, [ skontaktuj się z pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Dlaczego ciągle otrzymuję komunikat „Twoja sesja wygasła. Kliknij tutaj, aby ponownie się zalogować.”?
 
@@ -203,3 +156,4 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się z [rezerwacjami platformy Azure](../reservations/save-compute-costs-reservations.md), aby dowiedzieć się, czy możesz oszczędzić pieniądze.
+- Jeśli chcesz usunąć kartę kredytową, zapoznaj się z tematem [Usuwanie metody płatności dla rozliczeń na platformie Azure](delete-azure-payment-method.md).
