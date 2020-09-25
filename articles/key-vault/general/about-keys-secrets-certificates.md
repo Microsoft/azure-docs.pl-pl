@@ -1,5 +1,5 @@
 ---
-title: Omówienie interfejsu API REST Azure Key Vault
+title: Azure Key Vault klucze, wpisy tajne i certyfikaty — Omówienie
 description: Omówienie Azure Key Vault interfejsu REST i szczegółów dla deweloperów kluczy, wpisów tajnych i certyfikatów.
 services: key-vault
 author: msmbaldwin
@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b2d3753cd31b54c500b2757520f2634eb1b2794a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983284"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296841"
 ---
-# <a name="azure-key-vault-rest-api-overview"></a>Omówienie interfejsu API REST Azure Key Vault
+# <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Azure Key Vault klucze, wpisy tajne i certyfikaty — Omówienie
 
 Azure Key Vault umożliwia aplikacjom Microsoft Azure i użytkownikom przechowywanie i używanie kilku typów danych tajnych/kluczy. Dostawca zasobów Key Vault obsługuje dwa typy zasobów: magazyny i zarządzane sprzętowych modułów zabezpieczeń.
 

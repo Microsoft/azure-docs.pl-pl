@@ -4,12 +4,12 @@ description: Informacje na temat włączania i wyświetlania dzienników dla wę
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: a0207ebbb1596e41ad65e21a769d7041a239f767
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4d4485848bb81f9b745081bd999b3cd3e8101b41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004871"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299075"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Włączanie i wyświetlanie dzienników węzła master platformy Kubernetes w usłudze Azure Kubernetes Service
 
@@ -72,16 +72,18 @@ Włączenie i wyświetlenie dzienników diagnostycznych może potrwać kilka min
 Po lewej stronie wybierz pozycję **dzienniki**. Aby wyświetlić dzienniki *inspekcji polecenia* , w polu tekstowym wprowadź następujące zapytanie:
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
+AzureDiagnostics
+| where Category == "kube-audit"
+| project log_s
 ```
 
 Jest możliwe zwrócenie wielu dzienników. Aby przekroczyć zakres zapytania, aby wyświetlić dzienniki dotyczące NGINX powyżej utworzonego w poprzednim kroku, Dodaj dodatkową instrukcję *WHERE* , aby wyszukać *Nginx* , jak pokazano w poniższym przykładowym zapytaniu:
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
-| where Name contains "nginx"
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
 ```
 
 Aby uzyskać więcej informacji na temat wykonywania zapytań i filtrowania danych dziennika, zobacz [Wyświetlanie lub analizowanie danych zbieranych za pomocą wyszukiwania dzienników usługi log Analytics][analyze-log-analytics].
@@ -91,6 +93,7 @@ Aby uzyskać więcej informacji na temat wykonywania zapytań i filtrowania dany
 AKS rejestruje następujące zdarzenia:
 
 * [AzureActivity][log-schema-azureactivity]
+* [AzureDiagnostics][log-schema-azurediagnostics]
 * [AzureMetrics][log-schema-azuremetrics]
 * [ContainerImageInventory][log-schema-containerimageinventory]
 * [ContainerInventory][log-schema-containerinventory]
@@ -133,6 +136,7 @@ W tym artykule przedstawiono sposób włączania i przeglądania dzienników dla
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
+[log-schema-azurediagnostics]: /azure/azure-monitor/reference/tables/azurediagnostics
 [log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics
 [log-schema-containerimageinventory]: /azure/azure-monitor/reference/tables/containerimageinventory
 [log-schema-containerinventory]: /azure/azure-monitor/reference/tables/containerinventory

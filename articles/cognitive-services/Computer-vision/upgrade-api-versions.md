@@ -1,5 +1,5 @@
 ---
-title: Uaktualnij do wersji 3.0 interfejs API przetwarzania obrazów
+title: Uaktualnij do wersji v 3.0 interfejs API przetwarzania obrazów
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak przeprowadzić uaktualnienie do interfejsu API odczytu przetwarzanie obrazów v 3.0 z wersji 2.0/v 2.1.
 services: cognitive-services
@@ -11,59 +11,71 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6e695fcfacac19ca82273d84d049bdb2afe14b54
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5910c40729d07d5a759b2e5cc7b7a4272524c150
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214188"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253857"
 ---
-# <a name="upgrade-to-computer-vision-v30-read-api-from-v20v21"></a>Uaktualnij do interfejsu API odczytu przetwarzanie obrazów v 3.0 z wersji 2.0/v 2.1
+# <a name="upgrade-from-read-v2x-to-read-v3x"></a>Uaktualnij z odczytu v2. x, aby odczytać v3. x
 
-W tym przewodniku pokazano, jak uaktualnić istniejący kod interfejsu API REST programu przetwarzanie obrazów v 2.0 lub v 2.1 do operacji odczytu w wersji 3.0. 
+W tym przewodniku pokazano, jak uaktualnić istniejący kontener lub kod interfejsu API chmury z odczytu v2. x, aby przeczytać artykuł v 3.0 i v 3.1 Preview.
 
-## <a name="upgrade-batch-read-file-to-read"></a>Uaktualnij `Batch Read File` do programu `Read`
+## <a name="determine-your-api-path"></a>Określanie ścieżki interfejsu API
+Skorzystaj z poniższej tabeli, aby określić **ciąg wersji** w ścieżce interfejsu API na podstawie wersji do odczytu 3. x, do której jest przeprowadzana migracja.
 
+|Typ produktu| Wersja | Ciąg wersji w ścieżce interfejsu API 3. x |
+|:-----|:----|:----|
+|Usługa | Przeczytaj 3,0 | **wersja 3.0** |
+|Kontener | Przeczytaj Podgląd 3,0 | **wersja 3.0** |
+|Usługa/kontener | Przeczytaj Podgląd 3,1 | **v 3.1 — wersja zapoznawcza. 2** |
 
-1. Zmień ścieżkę interfejsu API dla `Batch Read File` 2. x w następujący sposób:
+Następnie skorzystaj z poniższych sekcji, aby zawęzić operacje i zastąpić **ciąg wersji** w ścieżce interfejsu API wartością z tabeli. Na przykład w przypadku wersji **zapoznawczej** w chmurze i wersjach zapoznawczych, zaktualizuj ścieżkę interfejsu API do **protokołu https://{Endpoint}/Vision/v 3.1 — wersja zapoznawcza. 2/Odczytaj/Analizuj [? język]**.
 
+## <a name="servicecontainer"></a>Usługa/kontener
 
-    |Przeczytaj 2. x |Przeczytaj 3,0  |
-    |----------|-----------|
-    |https://{Endpoint}/Vision/**v 2.0/Read/Core/asyncBatchAnalyze**     |https://{Endpoint}/Vision/**v 3.0/Read/Analizuj**[? language]|
+### `Batch Read File`
+
+|Przeczytaj 2. x |Przeczytaj 3. x  |
+|----------|-----------|
+|https://{Endpoint}/Vision/**v 2.0/Read/Core/asyncBatchAnalyze**     |ciąg https://{Endpoint}/wersja wizji/<**wersji**>/Read/analyze [? language]|
     
-    Dostępny jest nowy opcjonalny parametr _języka_ . Jeśli nie znasz języka dokumentu lub plik może być wielojęzyczny, nie dołączaj go. 
+Dostępny jest nowy opcjonalny parametr _języka_ . Jeśli nie znasz języka dokumentu lub plik może być wielojęzyczny, nie dołączaj go. 
 
-2. Zmień ścieżkę interfejsu API dla `Get Read Results` programu w 2. x w następujący sposób:
+### `Get Read Results`
 
-    |Przeczytaj 2. x |Przeczytaj 3,0  |
-    |----------|-----------|
-    |https://{Endpoint}/Vision/**v 2.0**/Read/**Operations**/{operationId}     |https://{Endpoint}/Vision/**v 3.0**/Read/**analyzeResults**/{operationId}|
+|Przeczytaj 2. x |Przeczytaj 3. x  |
+|----------|-----------|
+|https://{Endpoint}/Vision/**v 2.0/Read/Operations**/{operationId}     |ciąg https://{Endpoint}/ **wersja** vision/<>/Read/analyzeresults/{operationId}|
 
-3. Zmień kod służący do sprawdzania wyników w formacie JSON z elementu `Get Read Operation Result` . Gdy wywołanie `Get Read Operation Result` powiedzie się, zwraca pole ciągu stanu w treści JSON. Następujące wartości z wersji 2.0 zostały zmienione w celu lepszego dopasowania z innymi interfejsami API REST usługi poznawczej. 
+### <a name="get-read-operation-result-status-flag"></a>`Get Read Operation Result` Flaga stanu
+
+Gdy wywołanie `Get Read Operation Result` powiedzie się, zwraca pole ciągu stanu w treści JSON.
  
-    |Przeczytaj 2. x |Przeczytaj 3,0  |
-    |----------|-----------|
-    |`"NotStarted"` |   `"notStarted"`|
-    |`"Running"` | `"running"`|
-    |`"Failed"` | `"failed"`|
-    |`"Succeeded"` | `"succeeded"`|
+|Przeczytaj 2. x |Przeczytaj 3. x  |
+|----------|-----------|
+|`"NotStarted"` |   `"notStarted"`|
+|`"Running"` | `"running"`|
+|`"Failed"` | `"failed"`|
+|`"Succeeded"` | `"succeeded"`|
     
-4. Zmień kod, aby interpretować końcowy wynik kodu JSON z `Get Read Operation Result` . 
+### <a name="api-response-json"></a>Odpowiedź interfejsu API (JSON) 
 
-    Zwróć uwagę na następujące zmiany w kodzie JSON:
+Zwróć uwagę na następujące zmiany w kodzie JSON:
+* W wersji 2. x `Get Read Operation Result` zwróci kod JSON rozpoznawania OCR, gdy stan to `Succeeded"` . W wersji 3.0 to pole jest `succeeded` .
+* Aby uzyskać pierwiastek dla tablicy stronicowej, Zmień hierarchię JSON z `recognitionResults` na `analyzeResult` / `readResults` . Hierarchia JSON dla wiersza i słów jest niezmieniona, więc nie są wymagane żadne zmiany w kodzie.
+* `clockwiseOrientation`Zmieniono nazwę kąta strony na `angle` , a zakres został zmieniony z 0-360 stopni do-180 do 180 stopni. W zależności od kodu, może być konieczne wprowadzenie zmian, ponieważ większość funkcji matematycznych może obsłużyć każdy zakres.
+
+W interfejsie API programu v 3.0 wprowadzono również następujące udoskonalenia:
+* `createdDateTime` i `lastUpdatedDateTime` są dodawane, aby można było śledzić czas przetwarzania. Aby uzyskać więcej informacji, zobacz dokumentację. 
+* `version` informuje o wersji interfejsu API używanej do generowania wyników
+* Dodano słowo dla każdego wyrazu `confidence` . Ta wartość jest skalibrowane, aby wartość 0,95 oznaczała, że występuje 95% prawdopodobieństwa, że rozpoznawanie jest poprawne. Za pomocą oceny zaufania można wybrać tekst do wysłania do recenzji przez człowieka. 
     
-    - W wersji 2. x `"Get Read Operation Result"` zwróci kod JSON rozpoznawania OCR, gdy stan to `"Succeeded"` . W wersji 3.0 to pole jest `"succeeded"` .
-    - Aby uzyskać pierwiastek dla tablicy stronicowej, Zmień hierarchię JSON z `"recognitionResults"` na `"analyzeResult"` / `"readResults"` . Hierarchia JSON dla wiersza i słów jest niezmieniona, więc nie są wymagane żadne zmiany w kodzie.
-    -   `"clockwiseOrientation"`Zmieniono nazwę kąta strony na `"angle"` , a zakres został zmieniony z 0-360 stopni do-180 do 180 stopni. W zależności od kodu, może być konieczne wprowadzenie zmian, ponieważ większość funkcji matematycznych może obsłużyć każdy zakres.
-    -   W interfejsie API programu v 3.0 wprowadzono również następujące udoskonalenia, które można opcjonalnie wykorzystać:- `"createdDateTime"` i `"lastUpdatedDateTime"` są dodawane, aby można było śledzić czas przetwarzania. Aby uzyskać więcej informacji, zobacz dokumentację. 
-        - `"version"` informuje o wersji interfejsu API używanej do generowania wyników
-        - Dodano słowo dla każdego wyrazu `"confidence"` . Ta wartość jest skalibrowane, aby wartość 0,95 oznaczała, że występuje 95% prawdopodobieństwa, że rozpoznawanie jest poprawne. Za pomocą oceny zaufania można wybrać tekst do wysłania do recenzji przez człowieka. 
     
+W 2. X format danych wyjściowych jest następujący: 
     
-        W 2. X format danych wyjściowych jest następujący: 
-    
-    ```json
+```json
     {
         {
                 "status": "Succeeded",
@@ -104,12 +116,12 @@ W tym przewodniku pokazano, jak uaktualnić istniejący kod interfejsu API REST 
                             },
             // The rest of result is omitted for brevity 
             
-    }
-    ```
+}
+```
     
-    W programie v 3.0 został dostosowany:
+W programie v 3.0 został dostosowany:
     
-    ```json
+```json
     {
         {
             "status": "succeeded",
@@ -156,56 +168,56 @@ W tym przewodniku pokazano, jak uaktualnić istniejący kod interfejsu API REST 
         // The rest of result is omitted for brevity 
         
     }
-    ```
+```
 
-## <a name="upgrade-from-recognize-text-to-read"></a>Uaktualnij z `Recognize Text` programu do wersji `Read`
+## <a name="service-only"></a>Tylko usługa
+
+### `Recognize Text`
 `Recognize Text` jest operacją w *wersji zapoznawczej* , która jest *przestarzała we wszystkich wersjach interfejs API przetwarzania obrazów*. Należy przeprowadzić migrację z `Recognize Text` programu do `Read` wersji (v 3.0) lub `Batch Read File` (v 2.0, v 2.1). Wersja 3.0 systemu `Read` zawiera nowsze, lepsze modele na potrzeby rozpoznawania tekstu i dodatkowych funkcji, więc jest zalecana. Aby uaktualnić z `Recognize Text` programu do wersji `Read` :
 
-1. Zmień ścieżkę interfejsu API dla `Recognize Text` wersji 2. x w następujący sposób:
-
-
-    |Rozpoznawanie tekstu 2. x |Przeczytaj 3,0  |
-    |----------|-----------|
-    |https://{Endpoint}/Vision/**v 2.0/recognizeText [? Mode]**|https://{Endpoint}/Vision/**v 3.0/Read/Analizuj**[? language]|
+|Rozpoznawanie tekstu 2. x |Przeczytaj 3. x  |
+|----------|-----------|
+|https://{Endpoint}/Vision/**v 2.0/recognizeText [? Mode]**|ciąg https://{Endpoint}/wersja wizji/<**wersji**>/Read/analyze [? language]|
     
-    Parametr _mode_ nie jest obsługiwany w programie `Read` . Tekst ręcznie i drukowany są automatycznie obsługiwane.
+Parametr _mode_ nie jest obsługiwany w programie `Read` . Tekst ręcznie i drukowany są automatycznie obsługiwane.
     
-    Nowy opcjonalny parametr _języka_ jest dostępny w wersji 3.0. Jeśli nie znasz języka dokumentu lub plik może być wielojęzyczny, nie dołączaj go. 
+Nowy opcjonalny parametr _języka_ jest dostępny w wersji 3.0. Jeśli nie znasz języka dokumentu lub plik może być wielojęzyczny, nie dołączaj go. 
 
-2. Zmień ścieżkę interfejsu API dla `Get Recognize Text Operation Result` wersji 2. x w następujący sposób:
+### `Get Recognize Text Operation Result`
 
-    |Rozpoznawanie tekstu 2. x |Przeczytaj 3,0  |
-    |----------|-----------|
-    |https://{Endpoint}/Vision/**v 2.0/Textoperations/**{operationId}|https://{Endpoint}/Vision/**v 3.0/Read/analyzeResults**/{operationId}|
+|Rozpoznawanie tekstu 2. x |Przeczytaj 3. x  |
+|----------|-----------|
+|https://{Endpoint}/Vision/**v 2.0/Textoperations/**{operationId}|ciąg https://{Endpoint}/ **wersja** vision/<>/Read/analyzeresults/{operationId}|
 
-3. Zmień kod służący do sprawdzania wyników w formacie JSON z elementu `Get Recognize Text Operation Result` . Gdy wywołanie `Get Read Operation Result` powiedzie się, zwraca pole ciągu stanu w treści JSON. 
+### <a name="get-recognize-text-operation-result-status-flags"></a>`Get Recognize Text Operation Result` flagi stanu
+Gdy wywołanie `Get Recognize Text Operation Result` powiedzie się, zwraca pole ciągu stanu w treści JSON. 
  
-    |Rozpoznawanie tekstu 2. x |Przeczytaj 3,0  |
-    |----------|-----------|
-    |`"NotStarted"` |   `"notStarted"`|
-    |`"Running"` | `"running"`|
-    |`"Failed"` | `"failed"`|
-    |`"Succeeded"` | `"succeeded"`|
+|Rozpoznawanie tekstu 2. x |Przeczytaj 3. x  |
+|----------|-----------|
+|`"NotStarted"` |   `"notStarted"`|
+|`"Running"` | `"running"`|
+|`"Failed"` | `"failed"`|
+|`"Succeeded"` | `"succeeded"`|
+
+### <a name="api-response-json"></a>Odpowiedź interfejsu API (JSON)
+
+Zwróć uwagę na następujące zmiany w kodzie JSON:    
+* W wersji 2. x `Get Read Operation Result` zwróci kod JSON rozpoznawania OCR, gdy stan to `Succeeded` . W wersji 3. x to pole jest `succeeded` .
+* Aby uzyskać pierwiastek dla tablicy stronicowej, Zmień hierarchię JSON z `recognitionResult` na `analyzeResult` / `readResults` . Hierarchia JSON dla wiersza i słów jest niezmieniona, więc nie są wymagane żadne zmiany w kodzie.
+
+W interfejsie API programu v 3.0 wprowadzono również następujące udoskonalenia, które można opcjonalnie wykorzystać. Aby uzyskać więcej informacji, zobacz informacje o interfejsie API:
+* `createdDateTime` i `lastUpdatedDateTime` są dodawane, aby można było śledzić czas przetwarzania. Aby uzyskać więcej informacji, zobacz dokumentację. 
+* `version` informuje o wersji interfejsu API używanej do generowania wyników
+* Dodano słowo dla każdego wyrazu `confidence` . Ta wartość jest skalibrowane, aby wartość 0,95 oznaczała, że występuje 95% prawdopodobieństwa, że rozpoznawanie jest poprawne. Za pomocą oceny zaufania można wybrać tekst do wysłania do recenzji przez człowieka. 
+* `angle` Ogólna Orientacja tekstu w kierunku zgodnym z ruchem, mierzona w stopniach od (-180, 180).
+* `width` i `"height"` dostarczają wymiary dokumentu i `"unit"` udostępnia jednostkę dla wymiarów (piksele lub cale, w zależności od typu dokumentu).
+* `page` Obsługiwane są dokumenty wielostronicowe
+* `language` język wejściowy dokumentu (z opcjonalnego parametru _Language_ ).
 
 
-4. Zmień kod, aby interpretował dane JSON końcowego wyniku rozpoznawania z `Get Recognize Text Operation Result` do obsługi `Get Read Operation Result` .
-
-    Zwróć uwagę na następujące zmiany w kodzie JSON:    
-
-    - W wersji 2. x `"Get Read Operation Result"` zwróci kod JSON rozpoznawania OCR, gdy stan to `"Succeeded"` . W wersji 3.0 to pole jest `"succeeded"` .
-    - Aby uzyskać pierwiastek dla tablicy stronicowej, Zmień hierarchię JSON z `"recognitionResult"` na `"analyzeResult"` / `"readResults"` . Hierarchia JSON dla wiersza i słów jest niezmieniona, więc nie są wymagane żadne zmiany w kodzie.
-    -   W interfejsie API programu v 3.0 wprowadzono również następujące udoskonalenia, które można opcjonalnie wykorzystać. Aby uzyskać więcej informacji, zobacz informacje o interfejsie API:- `"createdDateTime"` i `"lastUpdatedDateTime"` są dodawane, aby można było śledzić czas przetwarzania. Aby uzyskać więcej informacji, zobacz dokumentację. 
-        - `"version"` informuje o wersji interfejsu API używanej do generowania wyników
-        - Dodano słowo dla każdego wyrazu `"confidence"` . Ta wartość jest skalibrowane, aby wartość 0,95 oznaczała, że występuje 95% prawdopodobieństwa, że rozpoznawanie jest poprawne. Za pomocą oceny zaufania można wybrać tekst do wysłania do recenzji przez człowieka. 
-        - `"angle"` Ogólna Orientacja tekstu w kierunku zgodnym z ruchem, mierzona w stopniach od (-180, 180).
-        -  `"width"` i `"height"` dostarczają wymiary dokumentu i `"unit"` udostępnia jednostkę dla wymiarów (piksele lub cale, w zależności od typu dokumentu).
-        - `"page"` Obsługiwane są dokumenty wielostronicowe
-        - `"language"` język wejściowy dokumentu (z opcjonalnego parametru _Language_ ).
-
-
-    W 2. X format danych wyjściowych jest następujący: 
+W 2. X format danych wyjściowych jest następujący: 
     
-    ```json
+```json
     {
         {
                 "status": "Succeeded",
@@ -241,11 +253,11 @@ W tym przewodniku pokazano, jak uaktualnić istniejący kod interfejsu API REST 
             // The rest of result is omitted for brevity 
             
     }
-    ```
+```
     
-    W programie v 3.0 został dostosowany:
+W wersji 3. x został dostosowany:
     
-    ```json
+```json
     {
         {
             "status": "succeeded",
@@ -291,8 +303,12 @@ W tym przewodniku pokazano, jak uaktualnić istniejący kod interfejsu API REST 
         // The rest of result is omitted for brevity 
         
     }
-    ```
-    
-## <a name="all-other-operations"></a>Wszystkie inne operacje
+```
 
-Nie istnieją żadne inne istotne zmiany między wersjami 2. X i v 3.0 dla interfejs API przetwarzania obrazów. Możesz po prostu zmodyfikować ścieżkę interfejsu API, aby zastąpić ją `v2.0` `v3.0` .
+## <a name="container-only"></a>Tylko kontener
+
+### `Synchronous Read`
+
+|Przeczytaj 2,0 |Przeczytaj 3. x  |
+|----------|-----------|
+|https://{Endpoint}/Vision/**v 2.0/Read/Core/Analizuj**     |ciąg https://{Endpoint}/wersja wizji/<**wersji**>/Read/syncanalyze [? language]|

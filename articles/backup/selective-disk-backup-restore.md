@@ -4,19 +4,16 @@ description: W tym artykule poznasz informacje o kopii zapasowej i przywracaniu 
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: fa5ab60481b431971abb1e3fcb5c85492eb5b22a
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: ce7e53bc740882a819e8a21e3ac95ab47d3b876a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506699"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271379"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektywne tworzenie kopii zapasowych i przywracanie dysków dla maszyn wirtualnych platformy Azure
 
 Azure Backup obsługuje tworzenie kopii zapasowych wszystkich dysków (systemu operacyjnego i danych) w maszynie wirtualnej przy użyciu rozwiązania do tworzenia kopii zapasowych maszyn wirtualnych. Teraz korzystając z funkcji tworzenia kopii zapasowych i przywracania dysków selektywnych, można utworzyć kopię zapasową podzbioru dysków danych w maszynie wirtualnej. Zapewnia to wydajne i ekonomiczne rozwiązanie dla potrzeb tworzenia kopii zapasowych i przywracania. Każdy punkt odzyskiwania zawiera tylko te dyski, które są uwzględnione w operacji tworzenia kopii zapasowej. Pozwala to na dalsze przywrócenie podzestawu dysków z danego punktu odzyskiwania podczas operacji przywracania. Dotyczy to zarówno przywracania z migawek, jak i magazynu.
-
->[!NOTE]
->Selektywne tworzenie kopii zapasowych i przywracanie dysków dla maszyn wirtualnych platformy Azure jest dostępne w publicznej wersji zapoznawczej we wszystkich regionach.
 
 ## <a name="scenarios"></a>Scenariusze
 
@@ -62,7 +59,7 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 Jeśli maszyna wirtualna nie znajduje się w tej samej grupie zasobów, co magazyn **, a następnie** Grupa zasobów odwołuje się do niej, w której utworzono magazyn. Zamiast nazwy maszyny wirtualnej podaj identyfikator maszyny wirtualnej, jak pokazano poniżej.
 
 ```azurecli
-az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
+az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id --output tsv) --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
 ```
 
 ### <a name="modify-protection-for-already-backed-up-vms-with-azure-cli"></a>Modyfikowanie ochrony dla już utworzonych kopii zapasowych maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -86,7 +83,7 @@ az backup protection update-for-vm --resource-group {resourcegroup} --vault-name
 ### <a name="restore-disks-with-azure-cli"></a>Przywracanie dysków za pomocą interfejsu wiersza polecenia platformy Azure
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
 ```
 
 ### <a name="restore-only-os-disk-with-azure-cli"></a>Przywróć tylko dysk systemu operacyjnego za pomocą interfejsu wiersza polecenia platformy Azure
@@ -289,11 +286,32 @@ Funkcja tworzenia kopii zapasowych dysków selektywnych nie jest obsługiwana w 
 
 Opcje przywracania służące do **tworzenia nowej maszyny wirtualnej** i **zastępowania istniejących** nie są obsługiwane dla maszyny wirtualnej, dla której włączono funkcję tworzenia kopii zapasowych na dyskach selektywnych.
 
+Obecnie kopia zapasowa maszyny wirtualnej platformy Azure nie obsługuje maszyn wirtualnych z dyskami o najwyższej lub podłączonym dysku udostępnionym. W takich przypadkach nie można użyć selektywnej kopii zapasowej dysku, który wyklucza dysk i kopię zapasową maszyny wirtualnej.
+
 ## <a name="billing"></a>Rozliczenia
 
 Kopia zapasowa maszyny wirtualnej platformy Azure jest zgodna z istniejącym modelem cen, szczegółowo wyjaśnioną [tutaj](https://azure.microsoft.com/pricing/details/backup/).
 
-**Koszt chronionego wystąpienia (PI)** jest obliczany dla dysku systemu operacyjnego tylko w przypadku, gdy użytkownik zdecyduje się utworzyć kopię zapasową przy użyciu opcji **tylko dysk systemu operacyjnego** .  W przypadku skonfigurowania kopii zapasowej i wybrania co najmniej jednego dysku z danymi koszt PI zostanie obliczony dla wszystkich dysków dołączonych do maszyny wirtualnej. **Koszt magazynu kopii zapasowych** jest obliczany na podstawie tylko dołączonych dysków, dzięki czemu można zaoszczędzić koszt magazynu. **Koszt migawki** jest zawsze obliczany dla wszystkich dysków w maszynie wirtualnej (dysków dołączonych i wykluczonych).  
+**Koszt chronionego wystąpienia (PI)** jest obliczany dla dysku systemu operacyjnego tylko w przypadku, gdy użytkownik zdecyduje się utworzyć kopię zapasową przy użyciu opcji **tylko dysk systemu operacyjnego** .  W przypadku skonfigurowania kopii zapasowej i wybrania co najmniej jednego dysku z danymi koszt PI zostanie obliczony dla wszystkich dysków dołączonych do maszyny wirtualnej. **Koszt magazynu kopii zapasowych** jest obliczany na podstawie tylko dołączonych dysków, dzięki czemu można zaoszczędzić koszt magazynu. **Koszt migawki** jest zawsze obliczany dla wszystkich dysków w maszynie wirtualnej (dysków dołączonych i wykluczonych).
+
+Jeśli wybrano funkcję przywracania między regionami (CRR), [Cennik CRR](https://azure.microsoft.com/pricing/details/backup/) dotyczy kosztów magazynu kopii zapasowych po wykluczeniu dysku.
+
+## <a name="frequently-asked-questions"></a>Często zadawane pytania
+
+### <a name="how-is-protected-instance-pi-cost-calculated-for-only-os-disk-backup-in-windows-and-linux"></a>Jak koszt wystąpienia chronionego (PI) jest obliczany tylko dla kopii zapasowej dysku systemu operacyjnego w systemach Windows i Linux?
+
+Koszt PI jest obliczany na podstawie rzeczywistego (używanego) rozmiaru maszyny wirtualnej.
+
+- W przypadku systemu Windows: użycie obliczenia miejsca jest oparte na dysku, na którym jest przechowywany system operacyjny (zazwyczaj jest to C:).
+- W przypadku systemu Linux: użycie obliczenia miejsca jest oparte na urządzeniu, na którym jest zainstalowany główny system plików (/).
+
+### <a name="i-have-configured-only-os-disk-backup-why-is-the-snapshot-happening-for-all-the-disks"></a>Mam skonfigurowaną kopię zapasową dysku systemu operacyjnego, dlaczego migawka jest taka sama dla wszystkich dysków?
+
+Funkcje tworzenia kopii zapasowych na dysku selektywnym pozwalają zaoszczędzić koszt magazynowania magazynu kopii zapasowych przez ograniczenie funkcjonalności dołączonych dysków, które są częścią kopii zapasowej. Jednak migawka jest wykonywana dla wszystkich dysków dołączonych do maszyny wirtualnej. W związku z tym koszt migawki jest zawsze obliczany dla wszystkich dysków w maszynie wirtualnej (dysków dołączonych i wykluczonych). Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
+
+### <a name="i-cant-configure-backup-for-the-azure-virtual-machine-by-excluding-ultra-disk-or-shared-disks-attached-to-the-vm"></a>Nie mogę skonfigurować tworzenia kopii zapasowej maszyny wirtualnej platformy Azure, wykluczając dysk Ultra lub udostępnione dyski dołączone do maszyny wirtualnej
+
+Funkcja tworzenia kopii zapasowych na dysku selektywnym jest funkcją oferowaną w ramach rozwiązania do tworzenia kopii zapasowych maszyny wirtualnej platformy Azure. Obecnie kopia zapasowa maszyny wirtualnej platformy Azure nie obsługuje maszyn wirtualnych z dołączonym dyskiem o wysokiej lub dysku udostępnionym.
 
 ## <a name="next-steps"></a>Następne kroki
 

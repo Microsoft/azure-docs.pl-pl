@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: f97aab59d38e9b15838a78d0227bc2848615cd92
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3442c3b6023edcde97aabcb13e91120ba6811027
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504368"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323077"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Szybki Start: Tworzenie członka usługi Azure łańcucha bloków Service łańcucha bloków przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -30,21 +30,21 @@ Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym gór
 
 Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.51 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne jest zainstalowanie lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-## <a name="prepare-your-environment"></a>Przygotowanie środowiska
+## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
 1. Zaloguj się.
 
-    Zaloguj się przy użyciu polecenia [AZ login](/cli/azure/reference-index#az-login) , jeśli używasz lokalnej instalacji interfejsu wiersza polecenia.
+    Jeśli używasz lokalnej instalacji interfejsu wiersza polecenia, zaloguj się przy użyciu polecenia [az login](/cli/azure/reference-index#az-login).
 
     ```azurecli
     az login
     ```
 
-    Postępuj zgodnie z instrukcjami wyświetlanymi w terminalu, aby ukończyć proces uwierzytelniania.
+    Wykonaj kroki wyświetlane w terminalu, aby ukończyć proces uwierzytelniania.
 
 1. Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure.
 
-    Podczas pracy z odwołaniami do rozszerzeń dla interfejsu wiersza polecenia platformy Azure należy najpierw zainstalować rozszerzenie.  Rozszerzenia interfejsu wiersza polecenia platformy Azure umożliwiają dostęp do poleceń eksperymentalnych i w wersji wstępnej, które nie zostały jeszcze wysłane jako część podstawowego interfejsu wiersza polecenia.  Aby dowiedzieć się więcej na temat rozszerzeń, w tym aktualizacji i odinstalowywania, zobacz [używanie rozszerzeń z interfejsem wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
+    Aby pracować z odwołaniami do rozszerzenia dla interfejsu wiersza polecenia platformy Azure, należy najpierw zainstalować rozszerzenie.  Rozszerzenia interfejsu wiersza polecenia platformy Azure dają dostęp do poleceń eksperymentalnych i w wersji wstępnej, które nie zostały jeszcze dostarczone jako część podstawowego interfejsu wiersza polecenia.  Aby dowiedzieć się więcej na temat rozszerzeń, w tym aktualizacji i odinstalowywania, zobacz [Używanie rozszerzeń z interfejsem wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
 
     Zainstaluj [rozszerzenie usługi Azure łańcucha bloków](/cli/azure/ext/blockchain/blockchain) , uruchamiając następujące polecenie:
 
@@ -95,7 +95,7 @@ az blockchain member create \
 
 Utworzenie elementu członkowskiego łańcucha bloków i obsłudze zasobów trwa około 10 minut.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz użyć elementu członkowskiego łańcucha bloków utworzonego dla następnego przewodnika Szybki start lub samouczka. Gdy zasoby nie będą już potrzebne, można je usunąć przez usunięcie `myResourceGroup` grupy zasobów utworzonej dla przewodnika Szybki Start.
 

@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, devx-track-javascript
-ms.openlocfilehash: 4613e22193de8dc374d1a9e1a293c317fb9c1b9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: 7a136c03db6e27763a22d92d2c335f23c616856e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311550"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256810"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji jednostronicowej JavaScript (SPA) przy użyciu przepływu kodu uwierzytelniania
 
@@ -325,7 +325,7 @@ Zmodyfikuj wartości w `msalConfig` sekcji zgodnie z opisem w tym miejscu:
 - `Enter_the_Cloud_Instance_Id_Here`: Wystąpienie w chmurze platformy Azure, w którym zarejestrowano aplikację.
   - W przypadku głównej (lub *globalnej*) chmury platformy Azure wprowadź wartość `https://login.microsoftonline.com` .
   - W przypadku chmur **narodowych** (na przykład Chin) można znaleźć odpowiednie wartości w [chmurach krajowych](authentication-national-cloud.md).
-- `Enter_the_Tenant_info_here`powinien być jednym z następujących:
+- `Enter_the_Tenant_info_here` powinien być jednym z następujących:
   - Jeśli aplikacja obsługuje *konta w tym katalogu organizacji*, Zamień tę wartość na **Identyfikator dzierżawy** lub **nazwę dzierżawy**. Na przykład `contoso.microsoft.com`.
   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość wartością `organizations` .
   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość wartością `common` .
@@ -350,7 +350,7 @@ const graphConfig = {
 
 Zmodyfikuj wartości w `graphConfig` sekcji zgodnie z opisem w tym miejscu:
 
-- `Enter_the_Graph_Endpoint_Here`jest wystąpieniem interfejsu API Microsoft Graph, z którym aplikacja ma się komunikować.
+- `Enter_the_Graph_Endpoint_Here` jest wystąpieniem interfejsu API Microsoft Graph, z którym aplikacja ma się komunikować.
   - W przypadku **globalnego** punktu końcowego interfejsu API Microsoft Graph Zastąp oba wystąpienia tego ciągu ciągiem `https://graph.microsoft.com` .
   - W przypadku punktów końcowych w ramach wdrożeń w chmurze **krajowej** zapoznaj się z dokumentacją dotyczącą [wdrożeń w chmurze krajowej](https://docs.microsoft.com/graph/deployments) w dokumentacji Microsoft Graph.
 
@@ -567,7 +567,7 @@ Wywołanie `acquireTokenPopup` powoduje otwarcie okna podręcznego (lub `acquire
 
 #### <a name="get-a-user-token-silently"></a>Dyskretne pobieranie tokenu użytkownika
 
-`acquireTokenSilent`Metoda obsługuje pozyskiwanie i odnawianie tokenów bez żadnej interakcji z użytkownikiem. Gdy `loginPopup` (lub `loginRedirect` ) jest wykonywane po raz pierwszy, `acquireTokenSilent` jest to metoda często używana do uzyskiwania tokenów używanych w celu uzyskiwania dostępu do chronionych zasobów dla kolejnych wywołań. (Wywołania żądania lub odnawiania tokenów są wykonywane w trybie dyskretnym). `acquireTokenSilent`może zakończyć się niepowodzeniem w niektórych przypadkach. Na przykład hasło użytkownika mogło wygasnąć. Aplikacja może obsłużyć ten wyjątek na dwa sposoby:
+`acquireTokenSilent`Metoda obsługuje pozyskiwanie i odnawianie tokenów bez żadnej interakcji z użytkownikiem. Gdy `loginPopup` (lub `loginRedirect` ) jest wykonywane po raz pierwszy, `acquireTokenSilent` jest to metoda często używana do uzyskiwania tokenów używanych w celu uzyskiwania dostępu do chronionych zasobów dla kolejnych wywołań. (Wywołania żądania lub odnawiania tokenów są wykonywane w trybie dyskretnym). `acquireTokenSilent` może zakończyć się niepowodzeniem w niektórych przypadkach. Na przykład hasło użytkownika mogło wygasnąć. Aplikacja może obsłużyć ten wyjątek na dwa sposoby:
 
 1. Utwórz wywołanie natychmiast, `acquireTokenPopup` Aby wyzwolić monit logowania użytkownika. Ten wzorzec jest często używany w aplikacjach online, w których aplikacja nie ma dostępnej nieuwierzytelnionej zawartości. Przykład generowany przez tę konfigurację z przewodnikiem używa tego wzorca.
 1. Wizualnie wskazuje użytkownikowi, że logowanie interaktywne jest wymagane, aby użytkownik mógł wybrać odpowiedni czas na zalogowanie się, a aplikacja może ponowić próbę `acquireTokenSilent` w późniejszym czasie. Ta technika jest często używana, gdy użytkownik może korzystać z innych funkcji aplikacji bez zakłócania pracy. Na przykład w aplikacji może być dostępna nieuwierzytelniona zawartość. W takiej sytuacji użytkownik może zdecydować się na zalogowanie się w celu uzyskania dostępu do chronionego zasobu lub odświeżenie nieaktualnych informacji.

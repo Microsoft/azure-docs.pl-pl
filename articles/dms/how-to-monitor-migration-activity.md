@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77648516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297474"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorowanie aktywności migracji przy użyciu Azure Database Migration Service
 W tym artykule dowiesz się, jak monitorować postęp migracji zarówno na poziomie bazy danych, jak i na poziomie tabeli.
@@ -42,7 +42,7 @@ W poniższej tabeli wymieniono pola w bloku na poziomie bazy danych i opisano r�
   <tbody>
     <tr>
       <td rowspan="3" class="ActivityStatus"><strong>Stan działania</strong></td>
-      <td>Działanie</td>
+      <td>Uruchomienie</td>
       <td>Działanie migracji jest uruchomione.</td>
     </tr>
     <tr>
@@ -59,7 +59,7 @@ W poniższej tabeli wymieniono pola w bloku na poziomie bazy danych i opisano r�
       <td>DMS konfiguruje potok migracji.</td>
     </tr>
     <tr>
-      <td>Działanie</td>
+      <td>Uruchomienie</td>
       <td>Potok DMS jest uruchomiony i przeprowadza migrację.</td>
     </tr>
     <tr>
@@ -133,7 +133,7 @@ W poniższej tabeli opisano pola, które przedstawiono w postęp migracji na poz
 | ------------- | ------------- |
 | **Stan — synchronizacja**      | Działa ciągła synchronizacja. |
 | **Insert**      | Liczba wstawek operacji przechwytywania w wierszach zastosowanych do celu.      |
-| **Aktualizacja** | Liczba aktualizacji przechwytywania zmian w wierszach zastosowanych do celu.      |
+| **Aktualizowanie** | Liczba aktualizacji przechwytywania zmian w wierszach zastosowanych do celu.      |
 | **Usuwanie**      | Liczba usunięć danych przechwytywania w wierszach zastosowanych do celu. |
 | **Suma zastosowania**      | Łączna liczba aktualizacji, wstawianych i usuwanych obiektów przestawnych w wierszach zastosowanych do celu. |
 | **Błędy danych** | Liczba błędów danych w tej tabeli. Przykłady błędów to *511: nie można utworzyć wiersza o rozmiarze% d, który jest większy niż dozwolony maksymalny rozmiar wiersza równy% d, 8114: błąd podczas konwertowania typu danych% ls na% ls.*  Klient powinien wykonać zapytanie z tabeli dms_apply_exceptions w elemencie docelowym platformy Azure, aby wyświetlić szczegóły błędu.    |

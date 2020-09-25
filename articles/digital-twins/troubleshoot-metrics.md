@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: f2dc93767457bfb96a9457a73adb83c0ed965308
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 084a823571281c91419a56b6212ddf6c44dd80bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069751"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322635"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: metryki
 
@@ -22,7 +22,7 @@ Metryki są domyślnie włączone. Możesz wyświetlić metryki usługi Azure Di
 
 ## <a name="how-to-view-azure-digital-twins-metrics"></a>Jak wyświetlić metryki usługi Azure Digital bliźniaczych reprezentacji
 
-1. Utwórz wystąpienie usługi Azure Digital bliźniaczych reprezentacji. Instrukcje dotyczące sposobu konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji można znaleźć w temacie [*jak to zrobić: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-scripted.md).
+1. Utwórz wystąpienie usługi Azure Digital bliźniaczych reprezentacji. Instrukcje dotyczące sposobu konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji można znaleźć w temacie [*jak to zrobić: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md).
 
 2. Znajdź wystąpienie usługi Azure Digital bliźniaczych reprezentacji w [Azure Portal](https://portal.azure.com) (możesz otworzyć stronę, wpisując jej nazwę na pasku wyszukiwania portalu). 
 
@@ -69,7 +69,7 @@ Metryki mające na celu rozliczanie:
 | Metryka | Nazwa wyświetlana metryki | Jednostka | Typ agregacji| Opis | Wymiary |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operacje interfejsu API rozliczeń (wersja zapoznawcza) | Liczba | Łącznie | Metryka rozliczeń dla wszystkich żądań interfejsu API w usłudze Azure Digital bliźniaczych reprezentacji. | Identyfikator miernika |
-| BillingMessagesProcessed | Przetworzone komunikaty rozliczeń (wersja zapoznawcza) | Liczba | Łącznie | Metryka rozliczania dla liczby komunikatów wysyłanych z usługi Azure Digital bliźniaczych reprezentacji do zewnętrznych punktów końcowych. | Identyfikator miernika |
+| BillingMessagesProcessed | Przetworzone komunikaty rozliczeń (wersja zapoznawcza) | Liczba | Łącznie | Metryka rozliczania dla liczby komunikatów wysyłanych z usługi Azure Digital bliźniaczych reprezentacji do zewnętrznych punktów końcowych.<br><br>Aby można było traktować pojedynczy komunikat do celów rozliczania, ładunek nie może być większy niż 1 KB. Ładunki większe niż ten będą zliczane jako dodatkowe komunikaty w przyrostach 1 KB (więc komunikat z przedziału od 1 do 2 KB będzie liczony jako 2 komunikaty, między 2 a 3 KB będzie 3 komunikaty itd.).<br>To ograniczenie ma zastosowanie również do odpowiedzi, więc wywołanie zwracające wartość 1,5 KB w treści odpowiedzi, na przykład, będzie rozliczane jako dwie operacje. | Identyfikator miernika |
 | BillingQueryUnits | Jednostki zapytań rozliczeń (wersja zapoznawcza) | Liczba | Łącznie | Liczba jednostek zapytania, wewnętrznie obliczona miara użycia zasobów usługi używana do wykonywania zapytań. Dostępny jest również pomocnik interfejsu API do mierzenia jednostek zapytania: [Klasa QueryChargeHelper](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | Identyfikator miernika |
 
 #### <a name="ingress-metrics"></a>Metryki transferu danych przychodzących

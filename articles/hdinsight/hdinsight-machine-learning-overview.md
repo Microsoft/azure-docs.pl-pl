@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 6c7f50e4ba3803b5cb929b75f5ad1127f7f063d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3c050b414e322f08fd45a569a22cea2db591b99
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75931683"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302693"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Uczenie maszynowe w usłudze HDInsight
 
@@ -41,7 +41,7 @@ Azure Machine Learning udostępnia narzędzia do modelowania analizy predykcyjne
 
 ![Microsoft Azure omówienie uczenia maszynowego](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
-Tworzenie funkcji dla danych w klastrze usługi HDInsight Hadoop przy użyciu [zapytań programu Hive](../machine-learning/team-data-science-process/create-features-hive.md). *Inżynieria funkcji* próbuje zwiększyć predykcyjne algorytmy uczenia, tworząc funkcje z danych pierwotnych, które ułatwiają proces uczenia się. Za pomocą [modułu Importuj dane](../machine-learning/studio/import-data.md)można uruchamiać zapytania HiveQL z Azure Machine Learning Studio (klasycznego) i uzyskiwać dostęp do danych przetworzonych w programie Hive i przechowywanych w usłudze BLOB Storage.
+Tworzenie funkcji dla danych w klastrze usługi HDInsight Hadoop przy użyciu [zapytań programu Hive](../machine-learning/team-data-science-process/create-features-hive.md). *Inżynieria funkcji* próbuje zwiększyć predykcyjne algorytmy uczenia, tworząc funkcje z danych pierwotnych, które ułatwiają proces uczenia się. Za pomocą [modułu Importuj dane](../machine-learning/classic/import-data.md)można uruchamiać zapytania HiveQL z Azure Machine Learning Studio (klasycznego) i uzyskiwać dostęp do danych przetworzonych w programie Hive i przechowywanych w usłudze BLOB Storage.
 
 ## <a name="microsoft-cognitive-toolkit"></a>Zestaw narzędzi usług Microsoft Cognitive
 
@@ -49,7 +49,7 @@ Tworzenie funkcji dla danych w klastrze usługi HDInsight Hadoop przy użyciu [z
 
 Aby pomóc w zapoznaniu się z swoją działalnością w ramach uczenia głębokiego, firma Microsoft opracowała bezpłatną, łatwą w użyciu, [Microsoft Cognitive Toolkitę](https://www.microsoft.com/en-us/cognitive-toolkit/)Open Source. Ten zestaw narzędzi jest używany przez różne produkty firmy Microsoft, przedsiębiorstwa na całym świecie, z potrzebą wdrożenia głębokiej uczenia na dużą skalę i studentów zainteresowanych najnowszymi algorytmami i technikami.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 ### <a name="scenarios"></a>Scenariusze
 

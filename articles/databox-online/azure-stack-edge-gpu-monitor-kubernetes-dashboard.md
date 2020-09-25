@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/29/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 137cff47d49be1405f60bc47cd16f7f027ab63a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899192"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320833"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Korzystanie z pulpitu nawigacyjnego Kubernetes do monitorowania urządzenia z procesorem GPU w Azure Stack Edge
 
@@ -114,9 +114,9 @@ Można również filtrować według określonej przestrzeni nazw. W poniższym p
 
 ![Wyświetlanie użycia procesora i pamięci dla wdrożeń usługi Azure Arc](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
 
-Serwer metryk Kubernetes zapewnia potoki skalowania automatycznego, podobnie jak w przypadku [automatycznego skalowania w poziomie](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+Serwer metryk Kubernetes zapewnia potoki skalowania automatycznego, takie jak [poziome skalowanie w poziomie](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak rozwiązywać problemy z Kubernetes <!--insert link-->.
+Dowiedz się, jak [rozwiązywać problemy z urządzeniem](azure-stack-edge-gpu-troubleshoot.md).

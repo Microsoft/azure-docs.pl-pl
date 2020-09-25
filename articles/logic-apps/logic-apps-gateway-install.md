@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322516"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalowanie lokalnej bramy danych dla usługi Azure Logic Apps
 
@@ -41,7 +41,7 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
 
   * Po zainstalowaniu bramy Zaloguj się przy użyciu konta platformy Azure, które łączy instalację bramy z kontem platformy Azure i tylko z tym kontem. Nie można połączyć tej samej instalacji bramy na wielu kontach platformy Azure ani dzierżawach usługi Azure AD.
 
-  * W dalszej części Azure Portal musisz użyć tego samego konta platformy Azure, aby utworzyć zasób bramy platformy Azure, który łączy się z instalacją bramy. Do siebie można połączyć tylko jedną instalację bramy i jeden zasób bramy platformy Azure. Jednak Twoje konto platformy Azure może połączyć się z różnymi instalacjami bramy, które są skojarzone z zasobem bramy platformy Azure. Aplikacje logiki mogą następnie używać tego zasobu bramy w wyzwalaczach i akcjach, które mogą uzyskać dostęp do lokalnych źródeł danych.
+  * W dalszej części Azure Portal musisz użyć tego samego konta platformy Azure, aby utworzyć zasób bramy platformy Azure, który łączy się z instalacją bramy. Do siebie można połączyć tylko jedną instalację bramy i jeden zasób bramy platformy Azure. Konto platformy Azure może jednak łączyć się z różnymi instalacjami bramy, które są skojarzone z zasobem bramy platformy Azure. Aplikacje logiki mogą następnie używać tego zasobu bramy w wyzwalaczach i akcjach, które mogą uzyskać dostęp do lokalnych źródeł danych.
 
 * Poniżej przedstawiono wymagania dotyczące komputera lokalnego:
 
@@ -114,7 +114,7 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
 
    Zwróć uwagę na to, że można **dodać do istniejącego klastra bramy**, który wybierasz podczas instalacji dodatkowych bram w [scenariuszach wysokiej dostępności](#high-availability).
 
-1. Sprawdź region usługi bramy w chmurze i [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) używany przez instalację bramy. Domyślnie ten region jest taka sama jak lokalizacja dzierżawy usługi Azure AD dla Twojego konta platformy Azure.
+1. Sprawdź region dla usługi bramy w chmurze i [wystąpienia obsługi komunikatów Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) , który jest używany przez instalację bramy. Domyślnie ten region jest taka sama jak lokalizacja dzierżawy usługi Azure AD dla Twojego konta platformy Azure.
 
    ![Potwierdź region usługi bramy i usługi Service Bus](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
@@ -140,7 +140,7 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
 
 ## <a name="check-or-adjust-communication-settings"></a>Sprawdzanie lub Dostosowywanie ustawień komunikacji
 
-Lokalna Brama danych zależy od [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) łączności z chmurą i ustanawiania odpowiednich połączeń wychodzących do skojarzonego z nią regionu platformy Azure. Jeśli środowisko pracy wymaga, aby ruch przechodzi przez serwer proxy lub zaporę w celu uzyskania dostępu do Internetu, to ograniczenie może uniemożliwić lokalnej bramie danych nawiązanie połączenia z usługą bramy w chmurze i Azure Service Bus. Brama ma kilka ustawień komunikacji, które można dostosować. Więcej informacji można znaleźć w następujących tematach:
+Lokalna Brama danych zależy od [Azure Service Bus komunikatów](../service-bus-messaging/service-bus-messaging-overview.md) na potrzeby łączności z chmurą i ustanawiania odpowiednich połączeń wychodzących do skojarzonego z nią regionu platformy Azure. Jeśli środowisko pracy wymaga, aby ruch przechodzi przez serwer proxy lub zaporę w celu uzyskania dostępu do Internetu, to ograniczenie może uniemożliwić lokalnej bramie danych łączenie się z usługą bramy w chmurze i Azure Service Bus Messaging. Brama ma kilka ustawień komunikacji, które można dostosować. Więcej informacji można znaleźć w następujących tematach:
 
 * [Dostosowywanie ustawień komunikacji dla lokalnej bramy danych](/data-integration/gateway/service-gateway-communication)
 * [Konfigurowanie ustawień serwera proxy dla lokalnej bramy danych](/data-integration/gateway/service-gateway-proxy)
@@ -206,7 +206,7 @@ Użytkownicy w organizacji mogą uzyskiwać dostęp do danych lokalnych, do któ
 
 Brama ułatwia szybsze i bardziej bezpieczną komunikację w tle. Ta komunikacja odbywa się między użytkownikiem w chmurze, usługą bramy w chmurze i lokalnym źródłem danych. Usługa bramy w chmurze szyfruje i przechowuje poświadczenia źródła danych oraz szczegóły bramy. Usługa kieruje także zapytania i ich wyniki między użytkownikiem, bramą i lokalnym źródłem danych.
 
-Brama współpracuje z zaporami i używa tylko połączeń wychodzących. Cały ruch pochodzący z agenta bramy jest zabezpieczonym ruchem wychodzącym. Brama przekazuje dane ze źródeł lokalnych w zaszyfrowanej kanale za pośrednictwem [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Ta usługa Service Bus tworzy kanał między bramą a usługą wywołującą, ale nie przechowuje żadnych danych. Wszystkie dane przesyłane przez bramę są szyfrowane.
+Brama współpracuje z zaporami i używa tylko połączeń wychodzących. Cały ruch pochodzący z agenta bramy jest zabezpieczonym ruchem wychodzącym. Brama wysyła dane ze źródeł lokalnych w zaszyfrowanej kanale za pośrednictwem [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md). Ta usługa Service Bus tworzy kanał między bramą a usługą wywołującą, ale nie przechowuje żadnych danych. Wszystkie dane przesyłane przez bramę są szyfrowane.
 
 ![Architektura bramy danych lokalnych](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -217,9 +217,9 @@ W tych krokach opisano, co się dzieje w przypadku korzystania z elementu połą
 
 1. Usługa w chmurze tworzy zapytanie wraz z zaszyfrowanymi poświadczeniami dla źródła danych. Następnie usługa wysyła zapytanie i poświadczenia do kolejki bramy w celu przetworzenia.
 
-1. Usługa bramy w chmurze analizuje zapytanie i wypycha żądanie do usługi Azure Service Bus.
+1. Usługa bramy w chmurze analizuje zapytanie i wypycha żądanie do Azure Service Bus Messaging.
 
-1. Usługa Azure Service Bus wysyła żądania oczekujące do bramy.
+1. Azure Service Bus Messaging wysyła żądania oczekujące do bramy.
 
 1. Brama pobiera zapytanie, odszyfrowuje poświadczenia i nawiązuje połączenie z co najmniej jednym źródłem danych przy użyciu tych poświadczeń.
 

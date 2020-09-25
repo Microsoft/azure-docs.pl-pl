@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 70356fd3856e517ca8fb3414a4ae2a8ccf28326e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602391"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336636"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -48,7 +48,7 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 
 [Łuk systemu Azure](../../azure-arc/index.yml):
 
-- Zarządzanie serwerami hybrydowymi w skali — [serwery z obsługą usługi Azure ARC (wersja zapoznawcza)](../../azure-arc/servers/overview.md):
+- Zarządzanie serwerami hybrydowymi w skali — [serwery z obsługą usługi Azure Arc](../../azure-arc/servers/overview.md):
   - [Zarządzanie maszynami z systemem Windows Server lub Linux poza platformą Azure, które są połączone](../../azure-arc/servers/onboard-portal.md) z delegowanymi subskrypcjami i/lub grupami zasobów na platformie Azure
   - Zarządzanie połączonymi maszynami przy użyciu konstrukcji platformy Azure, takich jak Azure Policy i tagowanie
   - Upewnij się, że ten sam zestaw zasad jest stosowany w środowiskach hybrydowych klientów

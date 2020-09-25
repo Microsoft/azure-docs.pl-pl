@@ -1,21 +1,21 @@
 ---
-title: Tworzenie map wewnętrznych przy użyciu kreatora
-description: Użyj Kreatora Azure Maps, aby utworzyć mapy wewnętrzne.
+title: 'Samouczek: Tworzenie map wewnętrznych przy użyciu kreatora'
+description: Samouczek dotyczący używania Kreatora Azure Maps do tworzenia map pomieszczeń
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/29/2020
-ms.topic: conceptual
+ms.date: 09/22/2020
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 01182343fb0c96040ec8e86ddf915050ba68cf9f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469919"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335215"
 ---
-# <a name="use-creator-to-create-indoor-maps"></a>Tworzenie map wewnętrznych przy użyciu kreatora
+# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Samouczek: Tworzenie map wewnętrznych przy użyciu kreatora
 
 W tym samouczku pokazano, jak utworzyć mapy wewnętrzne. W tym samouczku dowiesz się, jak używać interfejsu API w celu:
 
@@ -404,43 +404,11 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 
 [Interfejs API Get States funkcji](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) umożliwia pobranie stanu funkcji przy użyciu jej funkcji `ID` . Stateset i jego zasoby można także usunąć za pomocą [interfejsu API usuwania stanu funkcji](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 
+Aby dowiedzieć się więcej na temat różnych usług Azure Maps Creator omówionych w tym artykule [, zobacz](creator-indoor-maps.md).
+
 ## <a name="next-steps"></a>Następne kroki
 
-W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
-
-> [!div class="checklist"]
-> * Przekaż swój pakiet rysowania mapy w postaci pomieszczeń
-> * Konwertuj pakiet rysowania na dane mapy
-> * Tworzenie zestawu danych na podstawie danych mapy
-> * Utwórz element tileset na podstawie danych w zestawie danych
-> * Wykonaj zapytanie dotyczące usługi WFS Azure Maps, aby dowiedzieć się więcej na temat funkcji mapy
-> * Tworzenie funkcji stateset przy użyciu funkcji mapy i danych w zestawie danych
-> * Aktualizowanie funkcji stateset
-
-Teraz masz odpowiednie umiejętności, które należy wykonać, aby przejść do kolejnych przewodników:
+Aby dowiedzieć się, jak używać modułu Maps (mapy wewnętrzne), zobacz
 
 > [!div class="nextstepaction"]
 > [Korzystanie z modułu Maps (mapy wewnętrzne)](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [Implementowanie dynamicznego ustawiania stylów dla map pomieszczeń](indoor-map-dynamic-styling.md)
-
-Dowiedz się więcej na temat różnych Azure Maps usług omówionych w tym artykule:
-
-> [!div class="nextstepaction"]
-> [Przekazywanie danych](creator-indoor-maps.md#upload-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Konwersja danych](creator-indoor-maps.md#convert-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Zestaw danych](creator-indoor-maps.md#datasets)
-
-> [!div class="nextstepaction"]
-> [Tileset](creator-indoor-maps.md#tilesets)
-
-> [!div class="nextstepaction"]
-> [Zestaw stanu funkcji](creator-indoor-maps.md#feature-statesets)
-
-> [!div class="nextstepaction"]
-> [Usługa WFS](creator-indoor-maps.md#web-feature-service-api)

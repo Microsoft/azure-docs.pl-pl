@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: cf32938b534272a13af5891d6a31e64b8136a528
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271192"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Wywoływanie punktów końcowych REST przy użyciu Azure Logic Apps
 
@@ -54,17 +54,17 @@ Ten wbudowany wyzwalacz wysyła żądanie HTTP do adresu URL pliku struktury Swa
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Wprowadź adres URL dla punktu końcowego struktury Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Zrzut ekranu przedstawiający projektanta aplikacji logiki z wyzwalaczem "H T T P + Swagger" oraz Właściwość "punkt końcowy struktury Swagger U R L" ustawioną na wartość U R L.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. Gdy Projektant pokazuje operacje opisane przez plik Swagger, wybierz operację, której chcesz użyć.
 
-   ![Operacje w pliku struktury Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
+   ![Zrzut ekranu przedstawiający projektanta aplikacji logiki z wyzwalaczem "H T T P + Swagger" oraz listę wyświetlającą operacje programu Swagger.](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
 1. Podaj wartości parametrów wyzwalacza, które różnią się w zależności od wybranej operacji, która ma zostać uwzględniona w wywołaniu punktu końcowego. Skonfiguruj Cykl dla tego, jak często wyzwalacz ma wywołać punkt końcowy.
 
    Ten przykład zmienia nazwę wyzwalacza na "wyzwalacz HTTP + struktura Swagger: wykrywanie kroju i", aby krok miał bardziej opisową nazwę.
 
-   ![Szczegóły operacji](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
+   ![Zrzut ekranu przedstawiający projektanta aplikacji logiki z wyzwalaczem "H T T P + Swagger", w którym jest wyświetlana operacja "wykrywanie kroju".](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
 1. Aby dodać inne dostępne parametry, Otwórz listę **Dodaj nowy parametr** i wybierz żądane parametry.
 

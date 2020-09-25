@@ -10,18 +10,18 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8a6fc1291615760320deb488511fdd9d964d25d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227869"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266313"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Samouczek: podstawowe środowisko Active Directory
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia podstawowego środowiska Active Directory. 
 
-![Utwórz](media/tutorial-single-forest/diagram1.png)
+![Diagram przedstawiający podstawowe środowisko Azure A D.](media/tutorial-single-forest/diagram1.png)
 
 Możesz użyć środowiska utworzonego w samouczku, aby przetestować różne aspekty scenariuszy tożsamości hybrydowych i będzie to konieczne w przypadku niektórych samouczków.  Jeśli masz już istniejące Środowisko Active Directory, możesz użyć go jako substytutu.  Te informacje są udostępniane osobom, które nie zaczynają się od niczego.
 
@@ -200,7 +200,7 @@ Teraz musisz utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniza
 2. Wybierz **ikonę plusa (+)** i wyszukaj pozycję **Azure Active Directory**.
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
 4. Wybierz przycisk **Utwórz**.</br>
-![Tworzenie](media/tutorial-single-forest/create1.png)</br>
+![Zrzut ekranu przedstawiający stronę Azure Active Directory w Azure Portal.](media/tutorial-single-forest/create1.png)</br>
 5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz przycisk **Utwórz**. Spowoduje to utworzenie katalogu.
 6. Po zakończeniu kliknij link **tutaj**, aby zarządzać katalogiem.
 
@@ -208,7 +208,7 @@ Teraz musisz utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniza
 Teraz, gdy masz już dzierżawę usługi Azure AD, utworzysz konto administratora globalnego.  Aby utworzyć konto administratora globalnego, wykonaj następujące czynności.
 
 1.  W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.</br>
-![Tworzenie](media/tutorial-single-forest/administrator1.png)</br>
+![Zrzut ekranu pokazujący menu "przegląd" z wybranymi "użytkownikami".](media/tutorial-single-forest/administrator1.png)</br>
 2.  Wybierz pozycję **Wszyscy użytkownicy**, a następnie pozycję **+ Nowy użytkownik**.
 3.  Podaj nazwę i nazwę użytkownika dla tego użytkownika. Będzie to administrator globalny dzierżawy. Zmień też **rolę Katalog** na **Administrator globalny**. Możesz również wyświetlić hasło tymczasowe. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.</br>
 ![Tworzenie](media/tutorial-single-forest/administrator2.png)</br>

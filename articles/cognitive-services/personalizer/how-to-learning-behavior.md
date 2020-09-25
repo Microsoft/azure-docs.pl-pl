@@ -1,14 +1,16 @@
 ---
 title: Skonfiguruj zachowanie uczenia
 description: Tryb współdziałania zapewnia zaufanie do usługi personalizowania i jej możliwości uczenia maszynowego, a także udostępnia metryki, z którymi usługa jest wysyłana — bez ryzyka związanego z ruchem online.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: af38500fc439964f9928cdd08aae2380ee0d0a8a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 10e98cd2f0ad4793aa43f9bb3316c522b44f1d2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303543"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Skonfiguruj zachowanie uczenia personalizacji
 
@@ -69,4 +71,4 @@ Nie musisz wprowadzać żadnych zmian w wywołaniach interfejsu API rangi i nagr
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzaj ustawieniami modelu i uczenia](how-to-manage-model.md)
+* [Zarządzanie ustawieniami uczenia i modelu](how-to-manage-model.md)

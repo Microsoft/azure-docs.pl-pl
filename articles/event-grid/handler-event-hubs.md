@@ -3,12 +3,12 @@ title: Centrum zdarzeń jako program obsługi zdarzeń dla zdarzeń Azure Event 
 description: Opisuje, jak można użyć centrów zdarzeń jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fa8fdd66eb153f6a972753eb359261100f19cd15
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5e6a84c1737c6b8a575f47576aeb1d3d9efae6eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105833"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322567"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Centrum zdarzeń jako program obsługi zdarzeń dla zdarzeń Azure Event Grid
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Program obsługi wykonuje akcję, aby przetworzyć zdarzenie. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń, a **platforma azure Event Hubs** jest jednym z nich. 
@@ -24,7 +24,7 @@ Zobacz poniższe przykłady:
 | [Szablon Menedżer zasobów: Tworzenie Event Grid niestandardowego tematu i wysyłanie zdarzeń do centrum zdarzeń](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Szablon Menedżer zasobów, który tworzy subskrypcję tematu niestandardowego. Wysyła zdarzenia do Event Hubs platformy Azure. |
 
 ## <a name="message-properties"></a>Właściwości komunikatu
-W przypadku używania **centrum zdarzeń** jako programu obsługi zdarzeń w przypadku zdarzeń z Event Grid ustaw następujące nagłówki komunikatów: 
+W przypadku używania **centrum zdarzeń** jako programu obsługi zdarzeń w przypadku zdarzeń z Event Grid są to właściwości otrzymane w nagłówkach wiadomości: 
 
 | Nazwa właściwości | Opis |
 | ------------- | ----------- | 
@@ -81,6 +81,9 @@ W przypadku używania **centrum zdarzeń** jako programu obsługi zdarzeń w prz
     }
 }
 ```
+
+> [!NOTE]
+> Dostarczanie zdarzeń do centrum zdarzeń platformy Azure w **innej dzierżawie** nie jest obsługiwane. 
 
 ## <a name="next-steps"></a>Następne kroki
 Listę obsługiwanych programów obsługi zdarzeń zawiera artykuł [obsługi zdarzeń](event-handlers.md) . 

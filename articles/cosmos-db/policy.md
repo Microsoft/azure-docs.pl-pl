@@ -1,23 +1,26 @@
 ---
 title: Używanie Azure Policy do implementowania ładu i kontroli dla zasobów Azure Cosmos DB
 description: Dowiedz się, jak używać Azure Policy do implementowania ładu i kontroli dla zasobów Azure Cosmos DB.
-author: plzm
-ms.author: paelaz
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320901"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Używanie Azure Policy do implementowania ładu i kontroli dla zasobów Azure Cosmos DB
 
 [Azure Policy](../governance/policy/overview.md) pomaga wymuszać standardy ładu organizacyjnego, oceniać zgodność zasobów i implementować automatyczne korygowanie. Typowe przypadki użycia obejmują zabezpieczenia, zarządzanie kosztami i spójność konfiguracji.
 
 Azure Policy udostępnia wbudowane definicje zasad. Można utworzyć niestandardowe definicje zasad dla scenariuszy, które nie są rozwiązywane przez wbudowane definicje zasad. Więcej informacji można znaleźć w [dokumentacji Azure Policy](../governance/policy/overview.md) .
+
+> [!IMPORTANT]
+> Azure Policy jest wymuszane na poziomie dostawcy zasobów dla usług platformy Azure. Cosmos DB zestawy SDK mogą wykonywać większość operacji zarządzania w bazie danych, kontenerze i przepływności, które pomijają dostawcę zasobów Cosmos DB, co powoduje zignorowanie wszelkich zasad utworzonych przy użyciu Azure Policy. Aby zapewnić wymuszanie zasad, zobacz temat [zapobieganie zmianom](role-based-access-control.md#prevent-sdk-changes) w zestawach SDK Azure Cosmos DB
 
 ## <a name="assign-a-built-in-policy-definition"></a>Przypisywanie wbudowanej definicji zasad
 

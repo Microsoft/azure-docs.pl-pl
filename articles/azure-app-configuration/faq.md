@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: b1483230313b9e1b8e59cafea478b14ba0dfcc70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 10510774409a6b75687086290b32885b30d9131a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587348"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335385"
 ---
 # <a name="azure-app-configuration-faq"></a>Konfiguracja aplikacji platformy Azure — często zadawane pytania
 
@@ -42,6 +42,10 @@ Można utworzyć wartości konfiguracji aplikacji, które odwołują się do wpi
 ## <a name="does-app-configuration-encrypt-my-data"></a>Czy konfiguracja aplikacji szyfruje moje dane?
 
 Tak. Konfiguracja aplikacji szyfruje wszystkie przechowywane wartości klucza i szyfruje komunikację sieciową. Nazwy kluczy i etykiety są używane jako indeksy do pobierania danych konfiguracji i nie są szyfrowane.
+
+## <a name="where-does-data-stored-in-app-configuration-reside"></a>Gdzie znajdują się dane przechowywane w konfiguracji aplikacji? 
+
+Dane klienta przechowywane w konfiguracji aplikacji znajdują się w regionie, w którym utworzono magazyn konfiguracji aplikacji klienta. Konfiguracja aplikacji może replikować dane do [sparowanych regionów](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) pod kątem odporności danych, ale nie replikuje ani nie przenosi danych klienta poza ich geograficzną, zgodnie z definicją [zamieszkania danych na platformie Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Klienci i użytkownicy końcowi mogą w całości przenosić, kopiować lub uzyskiwać dostęp do danych klienta z lokalizacji.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>Czym różni się konfiguracja aplikacji od ustawień Azure App Service?
 

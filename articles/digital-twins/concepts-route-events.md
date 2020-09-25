@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 96da89fa8d7e4783afa11807534bbaeba52b79fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334263"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -69,15 +69,22 @@ Interfejsy API punktu końcowego dostępne w płaszczyźnie sterującej są nast
 
 ## <a name="create-an-event-route"></a>Tworzenie trasy zdarzeń
  
-Trasy zdarzeń są tworzone w aplikacji klienckiej przy użyciu następującego wywołania [zestawu SDK platformy .NET (C#)](how-to-use-apis-sdks.md) : 
+Trasy zdarzeń są tworzone w aplikacji klienckiej. Jednym ze sposobów wykonania tej czynności jest wywołanie `CreateEventRoute` [zestawu SDK platformy .NET (C#)](how-to-use-apis-sdks.md) : 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
-* `endpoint-name`Identyfikuje punkt końcowy, taki jak centrum zdarzeń, Event Grid lub Service Bus. Te punkty końcowe muszą zostać utworzone w subskrypcji i dołączone do usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsów API płaszczyzny kontroli przed wykonaniem tego wywołania.
+1. Najpierw `EventRoute` tworzony jest obiekt, a Konstruktor przyjmuje nazwę punktu końcowego. To `endpointName` pole identyfikuje punkt końcowy, taki jak centrum zdarzeń, Event Grid lub Service Bus. Te punkty końcowe muszą zostać utworzone w subskrypcji i dołączone do usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsów API płaszczyzny kontroli przed wykonaniem tego wywołania.
 
-Obiekt trasy zdarzenia przeszedł do `EventRoutes.Add` również przyjmuje parametr [ **filtru** ](./how-to-manage-routes-apis-cli.md#filter-events), który może służyć do ograniczania typów zdarzeń, które są zgodne z tą trasą.
+2. Obiekt trasy zdarzeń ma także pole [**filtru**](./how-to-manage-routes-apis-cli.md#filter-events) , które może służyć do ograniczania typów zdarzeń, które są zgodne z tą trasą. Filtr `true` włącza trasę bez dodatkowych filtrowania (filtr `false` wyłącza trasę). 
+
+3. Ten obiekt trasy zdarzeń jest następnie przesyłany do `CreateEventRoute` , wraz z nazwą trasy.
+
+> [!TIP]
+> Wszystkie funkcje zestawu SDK są w wersji synchronicznej i asynchronicznej.
 
 Trasy można także tworzyć za pomocą [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 

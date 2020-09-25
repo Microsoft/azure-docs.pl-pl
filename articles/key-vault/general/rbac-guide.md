@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4f943b11830c19ebb69dd501827deb158cecadf0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972261"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336755"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)
 
@@ -45,6 +45,8 @@ Więcej informacji na temat wytycznych dotyczących zarządzania Azure Key Vault
 - [Limity usługi Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Wbudowane role platformy Azure dla operacji Key Vault płaszczyzny danych (wersja zapoznawcza)
+> [!NOTE]
+> `Key Vault Contributor` Rola dotyczy operacji płaszczyzny zarządzania w celu zarządzania magazynami kluczy. Nie zezwala na dostęp do kluczy, wpisów tajnych i certyfikatów.
 
 | Wbudowana rola | Opis | ID (Identyfikator) |
 | --- | --- | --- |

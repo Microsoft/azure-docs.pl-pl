@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004905"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334552"
 ---
 # <a name="business-card-concepts"></a>Pojęcia dotyczące wizytówek
 
@@ -88,8 +88,8 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON: węzeł "readResults"
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-                "lines": 
-                          {
+                   "lines": 
+                             {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,
@@ -387,9 +387,11 @@ Dane wyodrębnione za pomocą interfejsu API kart służbowych mogą służyć d
 
 Interfejs API kart służbowych zapewnia również [funkcję przetwarzania karty biznesowej AIBuilder](https://docs.microsoft.com/ai-builder/prebuilt-business-card).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-- Skorzystaj z przewodnika Szybki Start, aby rozpocząć pracę z [kartami biznesowymi interfejs API Python](./quickstarts/python-business-cards.md)
-- Dowiedz się więcej o [interfejsie API REST aparatu rozpoznawania formularzy](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
-- Dowiedz się więcej o [aparacie rozpoznawania formularzy](overview.md)
+- Postępuj zgodnie z [przewodnikiem Szybki Start dotyczący kart służbowych](./quickstarts/python-business-cards.md) w języku Python, aby rozpocząć rozpoznawanie kart służbowych.
 
+## <a name="see-also"></a>Zobacz też
+
+* [Co to jest rozpoznawanie formularzy?](./overview.md)
+* [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)

@@ -1,18 +1,18 @@
 ---
 title: Konfigurowanie ochrony bot dla zapory aplikacji sieci Web za pomocą platformy Azure — drzwi (wersja zapoznawcza)
-description: Poznaj zaporę aplikacji sieci Web (WAF).
+description: Dowiedz się, jak skonfigurować regułę ochrony bot w zaporze aplikacji sieci Web platformy Azure (WAF) dla drzwi zewnętrznych przy użyciu Azure Portal.
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: f48b683044bc727cda461fb64a743c055188962a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2357c51f47bcb9bd8bbc6c408cb6d8edbab4d10e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76934647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267010"
 ---
 # <a name="configure-bot-protection-for-web-application-firewall-preview"></a>Konfigurowanie ochrony bot dla zapory aplikacji sieci Web (wersja zapoznawcza)
 W tym artykule opisano sposób konfigurowania reguły ochrony bot w zaporze aplikacji sieci Web platformy Azure (WAF) dla drzwi zewnętrznych przy użyciu Azure Portal. Regułę ochrony bot można także skonfigurować przy użyciu szablonu interfejsu wiersza polecenia, Azure PowerShell lub Azure Resource Manager.

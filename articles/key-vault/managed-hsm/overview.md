@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 9eee3d5bc53ebe40ba4462f394ffe30cea6b70fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91000957"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320561"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Co to jest Azure Key Vault zarządzanym modułem HSM (wersja zapoznawcza)?
 
@@ -33,7 +33,7 @@ Azure Key Vault zarządzanym modułem HSM jest w pełni zarządzana usługa w ch
 
 - **Scentralizowane zarządzanie kluczami**: Zarządzaj kluczami o krytycznym znaczeniu w organizacji w jednym miejscu. Z szczegółowymi uprawnieniami na klucz, kontrolują dostęp do każdego klucza w zasadzie "najmniej uprzywilejowany dostęp".
 - **Izolowana kontrola dostępu**: zarządzany model modułu HSM "Local RBAC" modelu kontroli dostępu umożliwia Wyznaczeni administratorom klastrów modułu HSM pełną kontrolę nad sprzętowych modułów zabezpieczeńem, że nawet Administratorzy grupy zarządzania, subskrypcji lub grupy zasobów nie mogą przesłonić.
-- **Fips 140-2 Level 3 sprawdzony sprzętowych modułów zabezpieczeń**: Chroń dane i spełniaj wymagania dotyczące zgodności z FIPS ((Federal Information Protection standard)) 140-2 zweryfikowane sprzętowych modułów zabezpieczeń poziomu 3. Zarządzane sprzętowych modułów zabezpieczeń korzystają z rodziny sprzętowych modułów zabezpieczeń firmy Marvell LiquidSecurity.
+- **Fips 140-2 Level 3 sprawdzony sprzętowych modułów zabezpieczeń**: Chroń dane i spełniaj wymagania dotyczące zgodności z FIPS ((Federal Information Protection standard)) 140-2 zweryfikowane sprzętowych modułów zabezpieczeń poziomu 3. Zarządzane sprzętowych modułów zabezpieczeń używają kart HSM LiquidSecurity firmy Marvell.
 - **Monitorowanie i inspekcja**: w pełni zintegrowana z usługą Azure monitor. Pobierz pełne dzienniki wszystkich działań za pośrednictwem Azure Monitor. Użyj usługi Azure Log Analytics na potrzeby analiz i alertów.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integracja z platformą Azure i usługami Microsoft PaaS/SaaS 

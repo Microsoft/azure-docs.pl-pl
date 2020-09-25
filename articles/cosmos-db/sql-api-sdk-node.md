@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 76671ba2dec2590baf4f3df38325b4cfb0129e8d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-js
+ms.openlocfilehash: 8334f8bbbdb6cad210839fc724c46834f559bf91
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586107"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324371"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.locfileid: "88586107"
 |Dokumentacja interfejsu API  |  [Dokumentacja referencyjna języka JavaScript SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
 |Instrukcje dotyczące instalacji zestawu SDK  |  [Instrukcje instalacji](https://github.com/Azure/azure-sdk-for-js)
 |Współtworzenie zestawu SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
-| Samples | [ Przykłady koduNode.js](sql-api-nodejs-samples.md)
+| Przykłady | [ Przykłady koduNode.js](sql-api-nodejs-samples.md)
 | Wprowadzenie — samouczek | [Wprowadzenie do zestawu SDK języka JavaScript](sql-api-nodejs-get-started.md)
 | Samouczek aplikacji sieci Web | [Tworzenie aplikacji sieci Web Node.js przy użyciu Azure Cosmos DB](sql-api-nodejs-application.md)
 | Bieżąca obsługiwana platforma | [Node.js V12. x](https://nodejs.org/en/blog/release/v12.7.0/) -SDK w wersji 3. x. x<br/>[Node.js v10. x](https://nodejs.org/en/blog/release/v10.6.0/) -SDK w wersji 3. x. x<br/>[Node.js V8. x](https://nodejs.org/en/blog/release/v8.16.0/) -SDK w wersji 3. x. x<br/>[Node.js V6. x](https://nodejs.org/en/blog/release/v6.10.3/) -SDK w wersji 2. x. x<br/>[Node.js v 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)— zestaw SDK w wersji 1. x. x<br/> [Node.js v 0.12](https://nodejs.org/en/blog/release/v0.12.0/)— zestaw SDK w wersji 1. x. x<br/> [Node.js v 0.10](https://nodejs.org/en/blog/release/v0.10.0/)— zestaw SDK w wersji 1. x. x
@@ -236,7 +236,7 @@ Nie zawsze są to najbardziej widoczne zmiany, ale pomagają naszym zespołowi w
 * Usuwanie usterki w sygnaturze typu executeNext ()
 * Poprawki pisowni
 
-### <a name="211"></a><a name="2.1.1"></a>2.1.1
+### <a name="211"></a><a name="2.1.1"></a>pkt
 * Restrukturyzacja kompilacji. Zezwala na ściąganie wersji zestawu SDK w czasie kompilacji.
 
 ### <a name="210"></a><a name="2.1.0"></a>2.1.0
@@ -427,7 +427,7 @@ Firma Microsoft zapewnia powiadomienie co najmniej **12 miesięcy** przed WYCOFA
 | [2.1.4](#2.1.4) |15 marca 2019 |--- |
 | [2.1.3](#2.1.3) |8 marca 2019 |--- |
 | [2.1.2](#2.1.2) |28 stycznia 2019 |--- |
-| [2.1.1](#2.1.1) |5 grudnia 2018 |--- |
+| [pkt](#2.1.1) |5 grudnia 2018 |--- |
 | [2.1.0](#2.1.0) |4 grudnia 2018 r. |--- |
 | [2.0.5](#2.0.5) |7 listopada 2018 |--- |
 | [2.0.4](#2.0.4) |30 października 2018 |--- |

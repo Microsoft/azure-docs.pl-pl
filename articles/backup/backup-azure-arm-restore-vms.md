@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: d2b5c00df9f9b5b41877fe21181f11ea7fe76084
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 90179ee78569f1c7b0a7bdf4b4da031c26f01783
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986541"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271872"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -163,9 +163,6 @@ Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regio
 ![Wybierz punkt przywracania](./media/backup-azure-arm-restore-vms/sec-rp.png)
 
 ![Przywróć konfigurację](./media/backup-azure-arm-restore-vms/rest-config.png)
-
->[!NOTE]
->Sieć wirtualną w regionie pomocniczym musi być przypisana unikatowa i nie może być używana dla żadnych innych maszyn wirtualnych w tej grupie zasobów.
 
 ![Powiadomienie o wyzwoleniu przywracania w toku](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 

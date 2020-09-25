@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: b43fd5c432b06902de0a898fc4bb0f114143b3ba
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 0e0f6ff89f59b862ea15148124f44abc3ed196bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254351"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -65,7 +65,7 @@ Prywatne punkty końcowe umożliwiają bezpieczne nawiązywanie połączenia z s
 
 ### <a name="nsg-tags"></a>Tagi sieciowej grupy zabezpieczeń
 
-Jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), Użyj znacznika usługi *AzureBackup* , aby zezwolić na dostęp wychodzący do Azure Backup. Oprócz znacznika Azure Backup należy również zezwolić na połączenie z uwierzytelnianiem i transferem danych, tworząc podobne [reguły sieciowej grupy zabezpieczeń](../virtual-network/security-overview.md#service-tags) dla *usługi Azure AD* i *usługi Azure Storage*.  Poniższe kroki opisują proces tworzenia reguły dla tagu Azure Backup:
+Jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), Użyj znacznika usługi *AzureBackup* , aby zezwolić na dostęp wychodzący do Azure Backup. Oprócz znacznika Azure Backup należy również zezwolić na połączenie z uwierzytelnianiem i transferem danych, tworząc podobne [reguły sieciowej grupy zabezpieczeń](../virtual-network/security-overview.md#service-tags) dla usługi Azure AD (*usługi azureactivedirectory*) i usługi Azure Storage (*Magazyn*). Poniższe kroki opisują proces tworzenia reguły dla tagu Azure Backup:
 
 1. W obszarze **wszystkie usługi**przejdź do pozycji **sieciowe grupy zabezpieczeń** i wybierz grupę zabezpieczeń sieci.
 
@@ -75,7 +75,7 @@ Jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), U
 
 1. Wybierz pozycję **Dodaj**  , aby zapisać nowo utworzoną regułę zabezpieczeń dla ruchu wychodzącego.
 
-W podobny sposób można tworzyć reguły zabezpieczeń wychodzące sieciowej grupy zabezpieczeń dla usługi Azure Storage i usługi Azure AD. Aby uzyskać więcej informacji na temat tagów usługi, zobacz [ten artykuł](../virtual-network/service-tags-overview.md).
+W podobny sposób można tworzyć [reguły zabezpieczeń wychodzące sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) dla usługi Azure Storage i usługi Azure AD. Aby uzyskać więcej informacji na temat tagów usługi, zobacz [ten artykuł](../virtual-network/service-tags-overview.md).
 
 ### <a name="azure-firewall-tags"></a>Tagi zapory platformy Azure
 
@@ -139,7 +139,7 @@ Aby utworzyć magazyn Usług odzyskiwania:
 
    ![Wybieranie pozycji Wszystkie usługi](./media/tutorial-backup-sap-hana-db/all-services.png)
 
-3. W oknie dialogowym **Wszystkie usługi** wprowadź frazę **Recovery Services**. Lista filtrów zasobów zgodnie z danymi wejściowymi. Na liście zasobów wybierz pozycję **magazyny Recovery Services**.
+3. W oknie dialogowym **Wszystkie usługi** wprowadź frazę **Recovery Services**. Lista zasobów jest filtrowana zgodnie z danymi wejściowymi. Na liście zasobów wybierz pozycję **Magazyny usługi Recovery Services**.
 
    ![Wybierz Recovery Services magazyny](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
 
@@ -147,15 +147,15 @@ Aby utworzyć magazyn Usług odzyskiwania:
 
    ![Dodaj magazyn Recovery Services](./media/tutorial-backup-sap-hana-db/add-vault.png)
 
-   Zostanie otwarte okno dialogowe **magazyn Recovery Services** . Podaj wartości dla **nazwy, subskrypcji, grupy zasobów** i **lokalizacji**
+   Zostanie otwarte okno dialogowe **Magazyn usługi Recovery Services**. Podaj wartości dla **nazwy, subskrypcji, grupy zasobów** i **lokalizacji**
 
    ![Tworzenie magazynu usługi Recovery Services](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-   * **Nazwa**: nazwa jest używana do identyfikowania magazynu Recovery Services i musi być unikatowa dla subskrypcji platformy Azure. Określ nazwę, która ma co najmniej dwa znaki, ale nie więcej niż 50 znaków. Nazwa musi rozpoczynać się od litery i zawierać tylko litery, cyfry i łączniki. W tym samouczku użyto nazwy **SAPHanaVault**.
-   * **Subskrypcja**: wybierz subskrypcję do użycia. Jeśli jesteś członkiem tylko jednej subskrypcji, zobaczysz tę nazwę. Jeśli nie masz pewności, której subskrypcji użyć, Użyj domyślnej (sugerowanej) subskrypcji. Istnieje wiele opcji, które są dostępne tylko wtedy, gdy konto służbowe jest skojarzone z więcej niż jedną subskrypcją platformy Azure. W tym miejscu użyto subskrypcji **subskrypcji SAP HANA Solution Lab** .
-   * **Grupa zasobów**: Użyj istniejącej grupy zasobów lub Utwórz nową. W tym miejscu użyto **SAPHANADemo**.<br>
+   * **Nazwa**: nazwa jest używana do identyfikowania magazynu Recovery Services i musi być unikatowa dla subskrypcji platformy Azure. Określ nazwę, która ma co najmniej dwa znaki, ale nie więcej niż 50 znaków. Nazwa musi rozpoczynać się od litery i składać się tylko z liter, cyfr i łączników. W tym samouczku użyto nazwy **SAPHanaVault**.
+   * **Subskrypcja**: Wybierz subskrypcję, która ma zostać użyta. Jeśli jesteś członkiem tylko jednej subskrypcji, zostanie wyświetlona jej nazwa. Jeśli nie masz pewności, której subskrypcji użyć, wybierz domyślną (sugerowaną). Większa liczba opcji do wyboru jest dostępna tylko w przypadku, gdy konto służbowe jest skojarzone z więcej niż jedną subskrypcją platformy Azure. W tym miejscu użyto subskrypcji **subskrypcji SAP HANA Solution Lab** .
+   * **Grupa zasobów**: Użyj istniejącej grupy zasobów lub utwórz nową. W tym miejscu użyto **SAPHANADemo**.<br>
    Aby wyświetlić listę dostępnych grup zasobów w ramach subskrypcji, wybierz pozycję **Użyj istniejącej**, a następnie wybierz zasób z listy rozwijanej. Aby utworzyć nową grupę zasobów, wybierz pozycję **Utwórz nową** i wprowadź nazwę. Aby uzyskać pełne informacje na temat grup zasobów, zobacz [Azure Resource Manager przegląd](../azure-resource-manager/management/overview.md).
-   * **Lokalizacja**: Wybierz region geograficzny magazynu. Magazyn musi znajdować się w tym samym regionie co maszyna wirtualna, na której działa SAP HANA. Użyto **Wschodnie stany USA 2**.
+   * **Lokalizacja**: Wybierz region geograficzny dla magazynu. Magazyn musi znajdować się w tym samym regionie co maszyna wirtualna, na której działa SAP HANA. Użyto **Wschodnie stany USA 2**.
 
 5. Wybierz pozycję **Recenzja + Utwórz**.
 

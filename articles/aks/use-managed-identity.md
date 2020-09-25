@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 8c5c4a6e5d8b2997d80c7263ba17a705d3846ed8
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 4e970f242d1c51218865fe459b8012f97add3d02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987396"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299293"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
@@ -18,7 +18,7 @@ Obecnie klaster usługi Azure Kubernetes Service (AKS) (w odróżnieniu od dosta
 
 *Tożsamości zarządzane* są zasadniczo otoką dla podmiotów usługi i upraszczają zarządzanie nimi. Rotacja poświadczeń dla mnie odbywa się automatycznie co 46 dni zgodnie z ustawieniami domyślnymi Azure Active Directory. AKS używa typów zarządzanych tożsamości przypisanych do systemu i przypisanych przez użytkownika. Te tożsamości są obecnie niezmienne. Aby dowiedzieć się więcej, Przeczytaj o [zarządzanych tożsamościach dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Musisz mieć zainstalowany następujący zasób:
 
@@ -38,7 +38,7 @@ AKS używa kilku zarządzanych tożsamości dla wbudowanych usług i dodatków.
 | Tożsamość                       | Nazwa    | Przypadek użycia | Uprawnienia domyślne | Korzystanie z własnej tożsamości
 |----------------------------|-----------|----------|
 | Płaszczyzna sterowania | niewidoczne | Używane przez AKS do zarządzanych zasobów sieciowych, w tym usług równoważenia obciążenia i AKS zarządzanych adresów IP | Rola współautora dla grupy zasobów węzła | Wersja zapoznawcza
-| Kubelet | Nazwa klastra AKS — nieznanej obiektu agentpool | Uwierzytelnianie za pomocą Azure Container Registry (ACR) | Rola czytnika dla grupy zasobów węzła | Nie jest obecnie obsługiwana.
+| Kubelet | Nazwa klastra AKS — nieznanej obiektu agentpool | Uwierzytelnianie za pomocą Azure Container Registry (ACR) | NA (dla Kubernetes v 1.15 +) | Nie jest obecnie obsługiwana.
 | Dodatek | AzureNPM | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
 | Dodatek | Monitorowanie sieci AzureCNI | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
 | Dodatek | azurepolicy (strażnik) | Żadna tożsamość nie jest wymagana | Nie dotyczy | Nie
@@ -49,7 +49,7 @@ AKS używa kilku zarządzanych tożsamości dla wbudowanych usług i dodatków.
 | Dodatek | Brama aplikacji przychodzącej | Zarządza wymaganymi zasobami sieciowymi| Rola współautora dla grupy zasobów węzła | Nie
 | Dodatek | omsagent | Służy do wysyłania metryk AKS do Azure Monitor | Rola wydawcy metryk monitorowania | Nie
 | Dodatek | Węzeł wirtualny (ACIConnector) | Zarządza wymaganymi zasobami sieci dla Azure Container Instances (ACI) | Rola współautora dla grupy zasobów węzła | Nie
-
+| Projekt OSS | AAD — pod — tożsamość | Umożliwia aplikacjom bezpieczne uzyskiwanie dostępu do zasobów w chmurze za pomocą usługi Azure Active Directory (AAD) | Nie dotyczy | Procedura przyznawania uprawnień w https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Tworzenie klastra AKS z tożsamościami zarządzanymi
 
@@ -132,13 +132,13 @@ az extension list
 az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
 ```
 
-Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
 ```
 
-Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
+Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -204,9 +204,9 @@ Pomyślne utworzenie klastra przy użyciu tożsamości zarządzanych zawiera inf
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Użyj [szablonów Azure Resource Manager (ARM)][aks-arm-template] , aby utworzyć Klastry obsługujące tożsamość zarządzaną.
+* Użyj [szablonów Azure Resource Manager (ARM) ][aks-arm-template] , aby utworzyć Klastry obsługujące tożsamość zarządzaną.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az-identity-create
-[az-identity-list]: /cli/azure/identity?view=azure-cli-latest#az-identity-list
+[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az-identity-create&preserve-view=true
+[az-identity-list]: /cli/azure/identity?view=azure-cli-latest#az-identity-list&preserve-view=true

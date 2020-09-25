@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 81c4558bde3ffdbec72a756562b972c2eed4a1ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273045"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Utwórz kontroler danych usługi Azure Arc
 
@@ -45,7 +45,7 @@ Obecnie obsługiwana Lista usług Kubernetes Services i dystrybucji jest następ
 > [!NOTE]
 > Jeśli korzystasz z platformy OpenShift w systemie Red Hat na platformie Azure, zalecamy użycie najnowszej dostępnej wersji.
 
-W zależności od wybranej opcji _wymagane_są pewne narzędzia, ale zaleca się [zainstalowanie wszystkich narzędzi klienta](install-client-tools.md) przed rozpoczęciem tworzenia kontrolera danych usługi Azure Arc.
+W zależności od wybranej opcji _wymagane_są pewne narzędzia, ale zaleca się [zainstalowanie wszystkich narzędzi klienta](./install-client-tools.md) przed rozpoczęciem tworzenia kontrolera danych usługi Azure Arc.
 
 Bez względu na wybraną opcję, podczas procesu tworzenia należy podać następujące informacje:
 
@@ -53,7 +53,7 @@ Bez względu na wybraną opcję, podczas procesu tworzenia należy podać nastę
 - **Nazwa użytkownika kontrolera danych** — dowolna nazwa użytkownika administratora kontrolera danych.
 - **Hasło kontrolera danych** — hasło dla użytkownika administratora kontrolera danych.
 - **Nazwa przestrzeni nazw Kubernetes** — nazwa przestrzeni nazw Kubernetes, w której ma zostać utworzony kontroler danych.
-- **Tryb łączności** — [tryb łączności](connectivity.md) z klastrem. Obecnie jest obsługiwana tylko wartość "pośredni".
+- **Tryb łączności** — [tryb łączności](./connectivity.md) z klastrem. Obecnie jest obsługiwana tylko wartość "pośredni".
 - **Identyfikator subskrypcji platformy Azure** — identyfikator GUID subskrypcji platformy Azure, dla którego ma zostać utworzony zasób kontrolera danych na platformie Azure.
 - **Nazwa grupy zasobów platformy Azure** — nazwa grupy zasobów, w której ma zostać utworzony zasób kontrolera danych na platformie Azure.
 - **Lokalizacja platformy Azure** — lokalizacja platformy Azure, w której będą przechowywane metadane zasobów kontrolera danych na platformie Azure. Aby uzyskać listę dostępnych regionów, zobacz [globalna infrastruktura/produkty platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -68,5 +68,5 @@ Istnieje wiele opcji tworzenia kontrolera danych usługi Azure ARC:
 - [Tworzenie kontrolera danych przy użyciu interfejsu wiersza polecenia platformy Azure (azdata)](create-data-controller-using-azdata.md)
 - [Tworzenie kontrolera danych przy użyciu Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Utwórz kontroler danych z Azure Portal za pośrednictwem notesu Jupyter w programie Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
-- [Tworzenie kontrolera danych przy użyciu narzędzi Kubernetes, takich jak polecenia kubectl lub OC](create-data-controller-using-k8s-native-tools.md)
+- [Tworzenie kontrolera danych przy użyciu narzędzi Kubernetes, takich jak polecenia kubectl lub OC](create-data-controller-using-kubernetes-native-tools.md)
 - [Tworzenie kontrolera danych przy użyciu usługi Azure Arc szybko Rozpocznij pracę na potrzeby przyspieszonego środowiska wdrożenia testowego](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)

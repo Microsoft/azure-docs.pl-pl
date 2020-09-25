@@ -1,5 +1,5 @@
 ---
-title: Przykładowa Grupa wywołująca Hero
+title: Połączenia grupowe — przykład dużego obrazu
 titleSuffix: An Azure Communication Services sample overview
 description: Omówienie wywoływania przykładu Hero przy użyciu usług Azure Communication Services, aby umożliwić deweloperom dowiedzieć się więcej o wewnętrznych działaniach przykładu.
 author: ddematheu
@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: caee5686695594604f49dcbade54342a9134abc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9bd203586d6a9da974604099d361d2908a39e1d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947485"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297995"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Wprowadzenie do grupy wywołującej przykład Hero
 
@@ -30,7 +30,7 @@ ms.locfileid: "90947485"
 W tym przykładowym samouczku szybki start dowiesz się, jak działa przykład przed uruchomieniem przykładu na komputerze lokalnym. Następnie zainstalujemy przykład na platformie Azure przy użyciu własnych zasobów usług Azure Communications Services.
 
 > [!IMPORTANT]
-> [Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples)
+> [Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
 ## <a name="overview"></a>Omówienie
 
@@ -54,7 +54,7 @@ Składniki głównego ekranu wywołującego:
 - **Nagłówek**: to miejsce, w którym znajdują się podstawowe kontrolki wywołania, aby przełączać ustawienia i pasek boczny uczestnika, włączać lub wyłączać i mieszać zawartość ekranu oraz pozostawiać wywołanie.
 - **Pasek boczny**: to miejsce, w którym informacje o uczestnikach i ustawieniach są wyświetlane po przełączeniu przy użyciu kontrolek w nagłówku. Składnik może zostać odrzucony przy użyciu "X" w prawym górnym rogu. Na pasku bocznym uczestników zostanie wyświetlona lista uczestników i link pozwalający zaprosić więcej użytkowników do rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie ustawień mikrofonu i aparatu.
 
-Poniżej znajdziesz więcej informacji na temat wymagań wstępnych, kroki konfigurowania przykładu oraz Samouczki krok po kroku, które ułatwiają zapoznanie się z różnymi składnikami.
+Poniżej znajdziesz więcej informacji na temat wymagań wstępnych i kroków związanych z konfigurowaniem przykładu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -72,23 +72,17 @@ Jeśli chcemy wdrożyć lokalnie, musimy uruchomić obie aplikacje. Gdy aplikacj
 
 Możesz przetestować przykład lokalnie, otwierając wiele sesji przeglądarki z adresem URL wywołania w celu symulowania wywołania z wieloma użytkownikami.
 
-### <a name="before-running-the-sample-for-the-first-time"></a>Przed uruchomieniem przykładu po raz pierwszy
+## <a name="before-running-the-sample-for-the-first-time"></a>Przed uruchomieniem przykładu po raz pierwszy
 
 1. Otwórz wystąpienie programu PowerShell, terminalu systemu Windows, wiersza polecenia lub równoważne i przejdź do katalogu, do którego chcesz sklonować przykład.
-2. `git clone`
-3. Przejdź do **folderu calling/ClientApp** i uruchom `npm run setup`
-   1. Jeśli zobaczysz błąd 1, poszukaj powyżej w danych wyjściowych dla adresu URL, na którym musisz przejść do autoryzacji klienta. (Adres URL będzie wyglądać następująco: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...` ) Po odwiedzeniu adresu URL w przeglądarce Skopiuj polecenie z okna przeglądarki i uruchom je.
-   2. Uruchom polecenie `npm run setup-vsts-auth` ponownie po wykonaniu poprzedniego kroku.
-4. Pobierz `Connection String` z Azure Portal. Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [Tworzenie zasobów usługi Azure Communication](../quickstarts/create-communication-resource.md)
-5. Po otrzymaniu parametrów połączenia Dodaj parametry połączenia do **wywołania/appsetting.jsw** pliku znalezionym w folderze usługi .NET. Wprowadź parametry połączenia w zmiennej: `ResourceConnectionString` .
+2. `git clone https://github.com/Azure/Communication.git`
+3. Pobierz `Connection String` z Azure Portal. Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [Tworzenie zasobów usługi Azure Communication](../quickstarts/create-communication-resource.md)
+4. Po otrzymaniu `Connection String` Dodaj parametry połączenia do **wywołania/appsetting.jsw** pliku znalezionym w folderze Service .NET. Wprowadź parametry połączenia w zmiennej: `ResourceConnectionString` .
 
 ### <a name="local-run"></a>Uruchomienie lokalne
 
-1. Przejdź do folderu wywołującego
-2. Otwórz `Calling.csproj` rozwiązanie w programie Visual Studio
-2. Uruchom `Calling` projekt *
-
-* Przeglądarka zostanie otwarta w lokalizacji `localhost:5000` (gdzie węzeł wdraża aplikację kliencką). Aplikacja nie jest obsługiwana w programie Internet Explorer.
+1. Przejdź do folderu wywołującego i Otwórz `Calling.csproj` rozwiązanie w programie Visual Studio
+2. Uruchom `Calling` projekt. Przeglądarka zostanie otwarta przy użyciu nazwy localhost: 5001
 
 #### <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -102,11 +96,14 @@ Możesz przetestować przykład lokalnie, otwierając wiele sesji przeglądarki 
 2. Utwórz nowy profil publikowania i wybierz subskrypcję platformy Azure.
 3. Przed opublikowaniem Dodaj parametry połączenia z `Edit App Service Settings` i wypełnij `ResourceConnectionString` jako klucz i podaj parametry połączenia (skopiowane z appsettings.json) jako wartość.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów. Dowiedz się więcej o [czyszczeniu zasobów](../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Następne kroki
+
+>[!div class="nextstepaction"] 
+>[Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
@@ -116,7 +113,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 ## <a name="additional-reading"></a>Materiały uzupełniające
 
-- [Azure Communication Preview](https://github.com/Azure/communication-preview) — aby dowiedzieć się więcej o wywołującym zestawie SDK sieci Web
+- [Azure Communication GitHub](https://github.com/Azure/communication) — Znajdź więcej przykładów i informacji na oficjalnej stronie GitHub
 - [Redux](https://redux.js.org/) — zarządzanie stanem po stronie klienta
 - [FluentUI](https://developer.microsoft.com/fluentui#/) — Biblioteka interfejsu użytkownika zasilanego przez firmę Microsoft
 - [Reagowanie](https://reactjs.org/) — Biblioteka do tworzenia interfejsów użytkownika

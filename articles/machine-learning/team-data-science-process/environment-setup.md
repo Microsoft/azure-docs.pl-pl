@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6d1185e13397b3e466bd1e8d609a46f2f68bf390
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b5571f24cc7acfd35cf2979318110ba2eecbb0e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80063937"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320544"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Konfigurowanie środowisk analizy danych do użytku w zespołowym przetwarzaniu danych dla celów naukowych
 Proces nauki danych zespołu używa różnych środowisk analizy danych do przechowywania, przetwarzania i analizy danych. Obejmują one platformę Azure Blob Storage, kilka typów klastrów Azure Virtual Machines, HDInsight (Hadoop) i Azure Machine Learning obszarów roboczych. Decyzja o tym, które środowisko ma być używane, zależy od typu i ilości danych, które mają być modelowane, oraz docelowej lokalizacji danych w chmurze. 
@@ -28,7 +28,7 @@ W poniższych artykułach opisano, jak skonfigurować różne środowiska do nau
 
 * [Magazyn Azure — konto](../../storage/common/storage-account-create.md)
 * [Klaster usługi HDInsight (Hadoop)](customize-hadoop-cluster.md)
-* [Obszar roboczy Azure Machine Learning Studio (klasyczny)](../studio/create-workspace.md)
+* [Obszar roboczy Azure Machine Learning Studio (klasyczny)](../classic/create-workspace.md)
 
 **Program Microsoft Data Science Virtual Machine (DSVM)** jest również dostępny jako obraz maszyny wirtualnej platformy Azure. Ta maszyna wirtualna jest wstępnie zainstalowana i skonfigurowana za pomocą kilku popularnych narzędzi, które są często używane do analizy danych i uczenia maszynowego. DSVM jest dostępna zarówno w systemie Windows, jak i Linux. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Data Science Virtual Machine opartej na chmurze dla systemów Linux i Windows](../data-science-virtual-machine/overview.md).
 

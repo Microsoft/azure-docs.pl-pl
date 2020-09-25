@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658748"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295026"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki Start
 
@@ -125,7 +125,7 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
 1. Otwórz narzędzie Edytor zarządzania zasadami grupy.
 2. Edytuj zasady grupy, które są stosowane do niektórych lub wszystkich użytkowników. Ten przykład używa **domyślnych zasad domeny**.
 3. Przejdź do strony zasady **konfiguracji użytkownika**  >  **Policy**  >  **Szablony administracyjne**  >  **składniki systemu Windows**Internet  >  **Explorer**internetowy  >  **Panel sterowania**Internet  >  **Security Page**. Następnie wybierz pozycję **lokacja do przypisywania stref**.
-    ![Logowanie jednokrotne](./media/how-to-connect-sso-quick-start/sso6.png)
+    ![Zrzut ekranu pokazujący "stronę zabezpieczeń" z wybraną pozycją "Lista przypisań do strefy".](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Włącz zasady, a następnie wprowadź następujące wartości w oknie dialogowym:
    - **Nazwa wartości**: adres URL usługi Azure AD, gdzie są przekazywane bilety protokołu Kerberos.
    - **Wartość** (dane): **1** wskazuje strefę intranetową.
@@ -142,15 +142,15 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
 
 5. Wybierz przycisk **OK**, a następnie ponownie wybierz przycisk **OK**.
 
-    ![Logowanie jednokrotne](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Zrzut ekranu pokazujący okno "Pokaż zawartość" z wybranym przypisaniem strefy.](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. Przejdź do obszaru zasady **konfiguracji użytkownika**  >  **Policy**  >  **Szablony administracyjne**  >  **składniki systemu Windows**Internet  >  **Explorer**internetowy  >  **Panel sterowania**Internet  >  **Web Strona**  >  **sieci intranet**. Następnie wybierz pozycję **Zezwalaj na aktualizacje na pasku stanu za pomocą skryptu**.
 
-    ![Logowanie jednokrotne](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Zrzut ekranu przedstawiający stronę "strefa intranetowa" z wybraną opcją "Zezwalaj na aktualizacje na pasek stanu za pomocą skryptu".](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Włącz ustawienie zasad, a następnie wybierz przycisk **OK**.
 
-    ![Logowanie jednokrotne](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Zrzut ekranu przedstawiający okno "Zezwalaj na aktualizacje do paska stanu za pośrednictwem skryptu" z włączonym ustawieniem zasad.](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>Opcja "preferencja zasad grupy" — szczegółowe kroki
 
@@ -158,7 +158,7 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
 2. Edytuj zasady grupy, które są stosowane do niektórych lub wszystkich użytkowników. Ten przykład używa **domyślnych zasad domeny**.
 3. Przejdź do pozycji Preferencje **konfiguracji użytkownika**  >  **Preferences**  >  **rejestr ustawień systemu Windows**  >  **Registry**  >  **Nowy**  >  **element rejestru**.
 
-    ![Logowanie jednokrotne](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Zrzut ekranu pokazujący wybraną pozycję "Rejestr" i "element rejestru".](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Wprowadź następujące wartości w odpowiednich polach, a następnie kliknij przycisk **OK**.
    - **Ścieżka klucza**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon***
@@ -166,7 +166,7 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
    - **Typ wartości**: ***REG_DWORD***
    - **Dane wartości**: ***00000001***
  
-     ![Logowanie jednokrotne](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Zrzut ekranu przedstawiający okno "nowe właściwości rejestru".](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![Logowanie jednokrotne](./media/how-to-connect-sso-quick-start/sso17.png)
 

@@ -8,14 +8,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: douglas, carlrab, sstein
+ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 0d5390beff6c3e0045c6b887f0262a54a737a851
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e805de26b7d2e5ec8d29801a05291acfe086bb1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181769"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323162"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania użytkownika na wystąpienie zarządzane SQL
 
@@ -94,7 +94,7 @@ Poniższe polecenie interfejsu wiersza polecenia służy do przełączenia w try
 az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableSecondary
 ```
 
-### <a name="using-rest-api"></a>Korzystanie z interfejsu API REST
+### <a name="using-rest-api"></a>Korzystanie z interfejsu API
 
 Użytkownicy zaawansowani, którzy chcą potrzebować zautomatyzować pracę w trybie failover swoich wystąpień zarządzanych przez SQL w celu zaimplementowania potoku ciągłego testowania lub zautomatyzowanego łagodzenia wydajności, ta funkcja może być realizowana poprzez inicjowanie trybu failover za poorednictwem wywołania interfejsu API. Aby uzyskać szczegółowe informacje, zobacz [wystąpienia zarządzane — interfejs API REST trybu failover](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) .
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e57da384253912a875bacbc5f43aa9f9b99b45b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601592"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265990"
 ---
 # <a name="conditional-access-block-access"></a>Dostęp warunkowy: Blokuj dostęp
 
@@ -38,7 +38,7 @@ Zasady dostępu warunkowego to zaawansowane narzędzia, dlatego zalecamy wyklucz
 
 ## <a name="create-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
-Poniższe kroki ułatwią utworzenie zasad dostępu warunkowego w celu zablokowania dostępu do wszystkich aplikacji z wyjątkiem [pakietu Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) , jeśli użytkownicy nie znajdują się w zaufanej sieci. Te zasady są umieszczane w [trybie tylko do raportowania](howto-conditional-access-insights-reporting.md) w celu uruchomienia, aby administratorzy mogli ustalić wpływ, jaki będzie miał na istniejących użytkowników. Gdy Administratorzy są niewoli, że zasady są stosowane w miarę ich założeń, mogą przełączać **je do programu**.
+Poniższe kroki ułatwią utworzenie zasad dostępu warunkowego w celu zablokowania dostępu do wszystkich aplikacji z wyjątkiem [pakietu Office 365](concept-conditional-access-cloud-apps.md#office-365) , jeśli użytkownicy nie znajdują się w zaufanej sieci. Te zasady są umieszczane w [trybie tylko do raportowania](howto-conditional-access-insights-reporting.md) w celu uruchomienia, aby administratorzy mogli ustalić wpływ, jaki będzie miał na istniejących użytkowników. Gdy Administratorzy są niewoli, że zasady są stosowane w miarę ich założeń, mogą przełączać **je do programu**.
 
 Pierwsze zasady blokują dostęp do wszystkich aplikacji z wyjątkiem aplikacji Microsoft 365, jeśli nie znajduje się w zaufanej lokalizacji.
 
@@ -52,7 +52,7 @@ Pierwsze zasady blokują dostęp do wszystkich aplikacji z wyjątkiem aplikacji 
    1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**wybierz następujące opcje:
    1. W obszarze **dołączanie**wybierz pozycję **wszystkie aplikacje w chmurze**.
-   1. W obszarze **Wyklucz**wybierz pozycję **Office 365 (wersja zapoznawcza)**, wybierz pozycję **Wybierz**, a następnie wybierz pozycję **gotowe**.
+   1. W obszarze **Wyklucz**wybierz pozycję **Office 365**, wybierz pozycję **Wybierz**, a następnie wybierz pozycję **gotowe**.
 1. W **warunkach**:
    1. W **Conditions**obszarze  >  **Lokalizacja**warunków.
       1. Ustaw **wartość** **tak**
@@ -72,7 +72,7 @@ Druga zasada jest tworzona poniżej, aby wymagać uwierzytelniania wieloskładni
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
    1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**wybierz pozycję **Wybierz aplikacje**, wybierz **Office 365 (wersja zapoznawcza)** i wybierz pozycję **Wybierz**, a następnie pozycję **gotowe**.
+1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**wybierz pozycję **Wybierz aplikacje**, wybierz **Office 365**i wybierz pozycję **Wybierz**, a następnie pozycję **gotowe**.
 1. W obszarze **Kontrola dostępu**  >  **Przyznaj**wybierz pozycję **Udziel dostępu**.
    1. Wybierz opcję **Wymagaj uwierzytelniania wieloskładnikowego** i **Wymagaj, aby urządzenie było oznaczone jako zgodne** wybierz pozycję **Wybierz**.
    1. Upewnij się, że wybrano **wszystkie wybrane kontrolki** .

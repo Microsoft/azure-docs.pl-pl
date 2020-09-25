@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: af0cdb814433b739b15d79bec9cb399cf0a2fef7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1b1cf90efa14345fa8395f5f62fd80934b922352
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939926"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273011"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Utwórz skalowanie PostgreSQL z użyciem usługi Azure ARC przy użyciu Azure Data Studio
 
@@ -42,6 +42,19 @@ Password:
 Namespace: arc
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
+
+## <a name="preliminary-and-temporary-step-for-openshift-users-only"></a>Wstępny i tymczasowy krok dotyczący tylko użytkowników OpenShift
+
+Przed przejściem do następnego kroku Zaimplementuj ten krok. Aby wdrożyć grupę serwerów PostgreSQL na platformie Red Hat OpenShift w projekcie innym niż domyślny, należy wykonać następujące polecenia w odniesieniu do klastra w celu zaktualizowania ograniczeń zabezpieczeń. To polecenie przyznaje odpowiednie uprawnienia do kont usług, które będą uruchamiać grupę serwerów PostgreSQL. Łuk ograniczenia kontekstu zabezpieczeń (SCC) **_— Data-SCC_** to ten, który został dodany podczas wdrażania kontrolera danych usługi Azure Arc.
+
+```console
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
+```
+
+_**Server-Group-Name** to nazwa grupy serwerów, która zostanie wdrożona w następnym kroku._
+   
+Aby uzyskać więcej informacji na temat SCCs w OpenShift, zapoznaj się z [dokumentacją OpenShift](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
+Teraz można zaimplementować następny krok.
 
 ## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Tworzenie grupy serwerów PostgreSQL z funkcją Azure Arc
 
@@ -80,6 +93,5 @@ W ciągu kilku minut tworzenie powinno zakończyć się pomyślnie.
 
 - [Skalowanie grupy serwerów Azure Database for PostgreSQL w poziomie](scale-out-postgresql-hyperscale-server-group.md)
 - [Konfiguracja magazynu i pojęcia dotyczące magazynu Kubernetes](storage-configuration.md)
-- [Rozszerzanie trwałych oświadczeń woluminu](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Model zasobów Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 

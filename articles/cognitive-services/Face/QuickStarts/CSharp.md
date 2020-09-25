@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: fe6def8a935fcc6f093c4489409a3bcde829ac10
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 8c1e47db4f5f5bb64c31d16c26f6c3860b5bcb29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294938"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323060"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST rozpoznawania twarzy i języka C#
 
@@ -75,7 +75,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>Odbieranie danych wejściowych obrazu
 
-Dodaj poniższy kod do metody **Main** w klasie **Program**. Ten kod zapisuje monit do konsoli programu z prośbą o wprowadzenie adresu URL obrazu. Następnie wywołuje inną metodę, **MakeAnalysisRequest**, aby przetworzyć obraz w tej lokalizacji.
+Dodaj poniższy kod do metody **Main** w klasie **Program**. Ten kod zapisuje monit do konsoli z prośbą o wprowadzenie przez użytkownika ścieżki lokalnego pliku obrazu. Następnie wywołuje inną metodę, **MakeAnalysisRequest**, aby przetworzyć obraz w tej lokalizacji.
 
 ```csharp
         static void Main(string[] args)
@@ -159,7 +159,7 @@ Metody pomocnicze zostaną zdefiniowanie w poniższych krokach.
 
 ### <a name="process-the-input-image-data"></a>Przetwarzanie danych obrazu wejściowego
 
-Dodaj następującą metodę do klasy **Program**. Ta metoda konwertuje obraz pod określonym adresem URL na tablicę bajtów.
+Dodaj następującą metodę do klasy **Program**. Ta metoda konwertuje obraz z określonej ścieżki pliku do tablicy bajtów.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.

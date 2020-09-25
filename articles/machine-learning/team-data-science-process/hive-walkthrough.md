@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cb144aa7b6c717ada3a51fe3286f349bc3d8b325
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 991e81c46a0cd6c587ac3366b63ba4da6a07f7e7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273918"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336517"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proces nauki danych zespołu w działaniu: Użyj klastrów Azure HDInsight Hadoop
 W tym instruktażu będziemy używać [procesu nauki o danych zespołowych (przetwarzania TDSP)](overview.md) w kompleksowym scenariuszu. Korzystamy z [klastra Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) do przechowywania, eksplorowania i tworzenia funkcji danych z dostępnych publicznie zestawów danych [podróży NYCych](https://www.andresmh.com/nyctaxitrips/) w postaci pośrednich oraz do próbkowania danych. Aby obsłużyć wieloklasowe i wieloklasy klasyfikacje i regresje zadań predykcyjnych, tworzymy modele danych za pomocą Azure Machine Learning. 
@@ -89,7 +89,7 @@ Określ rodzaj prognoz, które chcesz utworzyć na podstawie analizy danych, aby
    
    * Pamiętaj, aby połączyć konto magazynu utworzone w kroku 1 z klastrem usługi HDInsight podczas jego tworzenia. To konto magazynu uzyskuje dostęp do danych przetworzonych w ramach klastra.
    * Po utworzeniu klastra Włącz dostęp zdalny do węzła głównego klastra. Przejdź do karty **Konfiguracja** i wybierz pozycję **Włącz zdalne**. Ten krok określa poświadczenia użytkownika służące do logowania zdalnego.
-3. [Utwórz obszar roboczy Azure Machine Learning](../studio/create-workspace.md): ten obszar roboczy służy do kompilowania modeli uczenia maszynowego. To zadanie jest rozkierowane po zakończeniu początkowej eksploracji danych i pobraniu próbek przy użyciu klastra usługi HDInsight.
+3. [Utwórz obszar roboczy Azure Machine Learning](../classic/create-workspace.md): ten obszar roboczy służy do kompilowania modeli uczenia maszynowego. To zadanie jest rozkierowane po zakończeniu początkowej eksploracji danych i pobraniu próbek przy użyciu klastra usługi HDInsight.
 
 ## <a name="get-the-data-from-a-public-source"></a><a name="getdata"></a>Pobieranie danych z publicznego źródła
 > [!NOTE]
@@ -639,7 +639,7 @@ hdfs dfs -mkdir wasb:///queryoutputdir
 hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 ```
 
-Wyniki zapytania są zapisywane do dziewięciu obiektów blob platformy Azure (**queryoutputdir/000000 \_ 0** do **queryoutputdir/000008 \_ 0**) w obszarze domyślnego kontenera klastra Hadoop.
+Wyniki zapytania są zapisywane do dziewięciu obiektów blob platformy Azure (**queryoutputdir/000000 \_ 0** do  **queryoutputdir/000008 \_ 0**) w obszarze domyślnego kontenera klastra Hadoop.
 
 Aby wyświetlić rozmiar poszczególnych obiektów blob, uruchom następujące polecenie w wierszu polecenia katalogu Hive:
 
@@ -654,7 +654,7 @@ hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 ```
 
 > [!WARNING]
-> `copyToLocal`mogą być bardzo wolne dla dużych plików i nie jest zalecane do użycia z nimi.  
+> `copyToLocal` mogą być bardzo wolne dla dużych plików i nie jest zalecane do użycia z nimi.  
 > 
 > 
 
@@ -894,7 +894,7 @@ Teraz możesz przystąpić do tworzenia modeli i wdrażania modelu w [Machine Le
 
   b. Na potrzeby tego eksperymentu używamy niezmienionej macierzy, aby przyjrzeć się dokładnościom przewidywania, jak pokazano poniżej:
 
-  ![Zamieszanie macierzy](./media/hive-walkthrough/cxFmErM.png)
+  ![Macierz pomyłek](./media/hive-walkthrough/cxFmErM.png)
 
   Chociaż nieścisłości klas w przypadku znanych klas są dobre, model nie wykonuje dobrego zadania "Uczenie się" na klasach rzadkich.
 
@@ -915,17 +915,17 @@ Teraz możesz przystąpić do tworzenia modeli i wdrażania modelu w [Machine Le
   W tym miejscu współczynnika wyznaczania jest 0,709, co oznacza, że około 71 procent wariancji jest wyjaśniony przez współczynniki modelu.
 
 > [!IMPORTANT]
-> Aby dowiedzieć się więcej na temat Machine Learning i sposobu uzyskiwania dostępu do niego i używania go, zobacz [co to jest Machine Learning](../studio/what-is-machine-learning.md). Ponadto [Azure AI Gallery](https://gallery.cortanaintelligence.com/) obejmuje gamę eksperymentów i zapewnia szczegółowe wprowadzenie do zakresu możliwości Machine Learning.
+> Aby dowiedzieć się więcej na temat Machine Learning i sposobu uzyskiwania dostępu do niego i używania go, zobacz [co to jest Machine Learning](../classic/index.yml). Ponadto [Azure AI Gallery](https://gallery.cortanaintelligence.com/) obejmuje gamę eksperymentów i zapewnia szczegółowe wprowadzenie do zakresu możliwości Machine Learning.
 > 
 > 
 
 ## <a name="license-information"></a>Informacje o licencji
 Ten przykładowy przewodnik i towarzyszące mu skrypty są udostępniane przez firmę Microsoft w ramach licencji MIT. Aby uzyskać więcej informacji, zobacz plik **LICENSE.txt** w katalogu przykładowego kodu w witrynie GitHub.
 
-## <a name="references"></a>Dokumentacja
-• [Strona pobierania Andrés MONROY NYC TRIPS](https://www.andresmh.com/nyctaxitrips/)  
-• [Dane dotyczące podróży z NYCą w folii przez Krzysztof Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [Badania i statystyka NYCych taksówki oraz Komisji Limousine](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+## <a name="references"></a>Odwołania
+•    [Strona pobierania Andrés MONROY NYC TRIPS](https://www.andresmh.com/nyctaxitrips/)  
+•    [Dane dotyczące podróży z NYCą w folii przez Krzysztof Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Badania i statystyka NYCych taksówki oraz Komisji Limousine](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png
@@ -937,6 +937,3 @@ Ten przykładowy przewodnik i towarzyszące mu skrypty są udostępniane przez f
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-

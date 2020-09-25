@@ -1,6 +1,6 @@
 ---
 title: Szablony stron na platformie Azure API Management | Microsoft Docs
-description: Dowiedz się, jak dostosować zawartość stron portalu dla deweloperów przy użyciu zestawu szablonów w usłudze Azure API Management.
+description: Dowiedz się, jak dostosować zawartość szablonów stron portalu dla deweloperów w usłudze Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 78866804f10d12beda46f1fab9c8c78509a5a0b2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 24d026785025dba4ae45de404edec67c2cf3871a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249975"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335589"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Szablony stron na platformie Azure API Management
 Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu dla deweloperów przy użyciu zestawu szablonów, które konfigurują ich zawartość. Korzystając z składni [DotLiquid](http://dotliquidmarkup.org/) i wybranego edytora, takiego jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i dostępnego zestawu zlokalizowanych [zasobów ciągów](api-management-template-resources.md#strings), [zasobów glifów](api-management-template-resources.md#glyphs)i [kontrolek stron](api-management-page-controls.md), masz doskonałą elastyczność konfigurowania zawartości stron w miarę, w jakiej są one widoczne przy użyciu tych szablonów.  
@@ -38,7 +38,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="sign-in"></a><a name="SignIn"></a>Rejestrowanie  
+##  <a name="sign-in"></a><a name="SignIn"></a> Rejestrowanie  
  Szablon **logowania** umożliwia dostosowanie strony logowania w portalu dla deweloperów.  
   
  ![Strona logowania](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM — szablony portalu dla deweloperów")  
@@ -137,7 +137,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 }
 ```  
   
-##  <a name="sign-up"></a><a name="SignUp"></a>Zarejestruj się  
+##  <a name="sign-up"></a><a name="SignUp"></a> Zarejestruj się  
  Szablon **rejestracji** umożliwia dostosowanie strony rejestracji w portalu dla deweloperów.  
   
  ![Strona rejestracji](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM rejestracji — szablony portalu dla deweloperów")  
@@ -185,7 +185,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 }  
 ```  
   
-##  <a name="page-not-found"></a><a name="PageNotFound"></a>Nie znaleziono strony  
+##  <a name="page-not-found"></a><a name="PageNotFound"></a> Nie znaleziono strony  
  Szablon **nie znaleziono strony** pozwala na dostosowanie strony, która nie została znaleziona w portalu dla deweloperów.  
   
  ![Strona nie została znaleziona](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Nie znaleziono APIM szablonów portalu dla deweloperów")  
@@ -230,7 +230,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
 |referenceCode|ciąg|Kod wygenerowany, jeśli ta strona była wyświetlana jako wynik błędu wewnętrznego.|  
-|Kodzie|ciąg|Kod wygenerowany, jeśli ta strona była wyświetlana jako wynik błędu wewnętrznego.|  
+|errorCode|ciąg|Kod wygenerowany, jeśli ta strona była wyświetlana jako wynik błędu wewnętrznego.|  
 |emailBody|ciąg|Treść wiadomości e-mail wygenerowanej, jeśli ta strona była wyświetlana jako wynik błędu wewnętrznego.|  
 |requestedUrl|ciąg|Adres URL żądany, gdy strona nie została znaleziona.|  
 |referrerUrl|ciąg|Adres URL odwołującego się do żądanego adresu URL.|  

@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Blueprints
 description: Dowiedz się, w jaki sposób usługa Azure Plans umożliwia tworzenie, Definiowanie i wdrażanie artefaktów w środowisku platformy Azure.
 ms.date: 08/27/2020
 ms.topic: overview
-ms.openlocfilehash: e5c08f4211f03ddc6d2f48eee4fc84a824732e43
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a687bcbaff56fa1229794b6977e3565070c56e2a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050781"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302676"
 ---
 # <a name="what-is-azure-blueprints"></a>Czym jest usługa Azure Blueprints?
 
@@ -78,7 +78,9 @@ Do istniejącej subskrypcji można przypisać każdą **opublikowaną** **wersj�
 
 ## <a name="permissions-in-azure-blueprints"></a>Uprawnienia w usłudze Azure Blueprints
 
-Aby móc korzystać ze strategii, użytkownik musi mieć udzielone uprawnienia za pośrednictwem [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md). Aby użytkownik mógł tworzyć strategie, jego konto musi mieć następujące uprawnienia:
+Aby móc korzystać ze strategii, użytkownik musi mieć udzielone uprawnienia za pośrednictwem [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md). Aby odczytać lub wyświetlić plan w Azure Portal, Twoje konto musi mieć dostęp do odczytu do zakresu, w którym znajduje się definicja planu.
+
+Aby użytkownik mógł tworzyć strategie, jego konto musi mieć następujące uprawnienia:
 
 - `Microsoft.Blueprint/blueprints/write` — tworzenie definicji strategii
 - `Microsoft.Blueprint/blueprints/artifacts/write` — tworzenie artefaktów w definicji strategii

@@ -1,17 +1,17 @@
 ---
 title: Skonfiguruj zestaw skalowania maszyn wirtualnych przy użyciu istniejącego Azure Load Balancer-Azure Portal
-description: Dowiedz się, jak skonfigurować zestaw skalowania maszyn wirtualnych przy użyciu istniejącego Azure Load Balancer.
+description: Dowiedz się, jak skonfigurować zestaw skalowania maszyn wirtualnych za pomocą istniejącego Azure Load Balancer przy użyciu Azure Portal.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 8e55b2a87813da802ec1b00c610b33da4461c008
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e12532107ed554385ccf38531bb95b7b70298934
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809443"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333889"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Skonfiguruj zestaw skalowania maszyn wirtualnych za pomocą istniejącego Azure Load Balancer przy użyciu Azure Portal
 
@@ -38,7 +38,7 @@ W tej sekcji utworzysz zestaw skalowania maszyn wirtualnych w Azure Portal z ist
 
 1. W lewym górnym rogu ekranu kliknij pozycję **Utwórz zasób**  >  **Oblicz**  >  **zestaw skalowania maszyn wirtualnych** lub Wyszukaj **zestaw skalowania maszyn wirtualnych** w obszarze wyszukiwania w portalu Marketplace.
 
-2. Wybierz pozycję **Utwórz**.
+2. Wybierz przycisk **Utwórz**.
 
 3. W obszarze **Tworzenie zestawu skalowania maszyn wirtualnych**wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
@@ -52,8 +52,8 @@ W tej sekcji utworzysz zestaw skalowania maszyn wirtualnych w Azure Portal z ist
     | Region                         | Wybierz **Wschodnie stany USA 2**                                                                                    |
     | Strefa dostępności              | Nie zaznaczaj **niczego**                                                                                       |
     | **Szczegóły wystąpienia**           |                                                                                                       |
-    | Obraz                          | Wybierz **serwer Ubuntu 18,04 LTS**                                                                    |
-    | Wystąpienie usługi Azure spot            | Wybierz pozycję **nie**                                                                                         |
+    | Image (Obraz)                          | Wybierz **serwer Ubuntu 18,04 LTS**                                                                    |
+    | Wystąpienie usługi Azure Spot            | Wybierz pozycję **nie**                                                                                         |
     | Rozmiar                           | Pozostaw domyślnie                                                                                      |
     | **Konto administratora**      |                                                                                                       |
     | Typ uwierzytelniania            | Wybieranie **hasła**                                                                                   |
@@ -73,7 +73,7 @@ W tej sekcji utworzysz zestaw skalowania maszyn wirtualnych w Azure Portal z ist
     | **Konfiguracja Virtual Network** |                                                          |
     | Sieć wirtualna                   | Wybierz **myVNet** lub istniejącą sieć wirtualną.      |
     | **Równoważenie obciążenia**                |                                                          |
-    | Korzystanie z modułu równoważenia obciążenia               | Wybierz opcję **tak**                                           |
+    | Korzystanie z modułu równoważenia obciążenia               | Wybierz pozycję **Tak**                                           |
     | **Ustawienia równoważenia obciążenia**       |                                                          |
     | Opcje równoważenia obciążenia            | Wybieranie **modułu równoważenia obciążenia platformy Azure**                           |
     | Wybierz moduł równoważenia obciążenia            | Wybierz **myLoadBalancer** lub istniejący moduł równoważenia obciążenia |

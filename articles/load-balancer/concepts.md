@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 96b91c08e0bf9a176af2ed844cd63a2cfa1e233d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 9765f685f2fccc9332a2f07d907aac415aa2c57f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589643"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333923"
 ---
 # <a name="azure-load-balancer-concepts"></a>Koncepcje Azure Load Balancer
 
@@ -83,9 +83,9 @@ Na poziomie platformy Azure Load Balancer zawsze działa w topologii przepływu 
 Bez zmiennoprzecinkowych adresów IP platforma Azure udostępnia tradycyjny schemat mapowania adresów IP na potrzeby łatwego użytkowania ("adres IP wystąpień maszyn wirtualnych"). Włączenie pływającego adresu IP powoduje zmianę mapowania adresów IP na adres IP frontonu usługi równoważenia obciążenia w celu zapewnienia dodatkowej elastyczności. Dowiedz się więcej [tutaj](load-balancer-multivip-overview.md).
 
 
-## <a name="limitations"></a><a name = "limitations"></a>Limity
+## <a name="limitations"></a><a name = "limitations"></a>Ograniczenia
 
-- Zmienny adres IP nie jest obecnie obsługiwany w konfiguracjach pomocniczych adresów IP dla wewnętrznych scenariuszy równoważenia obciążenia.
+- Zmienny adres IP nie jest obecnie obsługiwany w konfiguracjach pomocniczych adresów IP dla wewnętrznych scenariuszy równoważenia obciążenia lub publicznych scenariuszy równoważenia obciążenia.
 
 - Reguła modułu równoważenia obciążenia nie może obejmować dwóch sieci wirtualnych.  Frontony i ich wystąpienia zaplecza muszą znajdować się w tej samej sieci wirtualnej.  
 

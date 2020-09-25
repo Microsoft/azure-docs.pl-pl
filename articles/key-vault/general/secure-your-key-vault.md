@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 2c5340b37d6b277c156189b1b99cb3143a5c3b15
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 9516a32e89b9ad671cf705c8f520c73e28801c19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650743"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320595"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bezpieczny dostęp do magazynu kluczy
 
@@ -33,9 +33,9 @@ Obie płaszczyzny używają Azure Active Directory (Azure AD) do uwierzytelniani
 
 Podczas tworzenia magazynu kluczy w ramach subskrypcji platformy Azure jest on automatycznie kojarzony z dzierżawą usługi Azure AD subskrypcji. Wszystkie obiekty wywołujące w obu płaszczyznach muszą rejestrować się w tej dzierżawie i uwierzytelniać się w celu uzyskania dostępu do magazynu kluczy. W obu przypadkach aplikacje mogą uzyskiwać dostęp do Key Vault na dwa sposoby:
 
-- **Tylko aplikacja**: aplikacja reprezentuje zadanie usługi lub w tle. Ta tożsamość jest najbardziej typowym scenariuszem dla aplikacji, które wymagają okresowego dostępu do certyfikatów, kluczy lub wpisów tajnych z magazynu kluczy. Aby ten scenariusz działał, `objectId` aplikacja musi być określona w zasadach dostępu, a `applicationId` _nie_ może być określona lub musi być `null` .
+- **Tylko aplikacja**: aplikacja reprezentuje zadanie usługi lub w tle. Ta tożsamość jest najbardziej typowym scenariuszem dla aplikacji, które okresowo potrzebują do uzyskiwania dostępu do certyfikatów, kluczy lub wpisów tajnych z magazynu kluczy. Aby ten scenariusz działał, `objectId` aplikacja musi być określona w zasadach dostępu i `applicationId` _nie_ może być określona lub musi być `null` .
 - **Tylko użytkownik**: użytkownik uzyskuje dostęp do magazynu kluczy z dowolnej aplikacji zarejestrowanej w dzierżawie. Przykłady tego typu dostępu obejmują Azure PowerShell i Azure Portal. Aby ten scenariusz działał, `objectId` użytkownik musi być określony w zasadach dostępu i `applicationId` _nie_ może być określony lub musi być `null` .
-- **Aplikacja-Plus — użytkownik** (czasami określany jako _tożsamość złożona_): użytkownik jest zobowiązany do uzyskania dostępu do magazynu kluczy z określonej aplikacji _, a_ aplikacja musi używać przepływu uwierzytelniania w imieniu (OBO) do personifikacji użytkownika. Aby ten scenariusz działał, oba `applicationId` i `objectId` muszą być określone w zasadach dostępu. `applicationId`Identyfikuje wymaganą aplikację i `objectId` identyfikuje użytkownika. Ta opcja jest obecnie niedostępna dla płaszczyzny danych Azure RBAC (wersja zapoznawcza)
+- **Aplikacja-Plus — użytkownik** (czasami określany jako _tożsamość złożona_): użytkownik jest zobowiązany do uzyskania dostępu do magazynu kluczy z określonej aplikacji _, a_ aplikacja musi używać przepływu uwierzytelniania w imieniu (OBO) do personifikacji użytkownika. Aby ten scenariusz działał, oba `applicationId` i `objectId` muszą być określone w zasadach dostępu. `applicationId`Identyfikuje wymaganą aplikację i `objectId` identyfikuje użytkownika. Obecnie ta opcja jest niedostępna w przypadku płaszczyzny danych Azure RBAC (wersja zapoznawcza).
 
 W przypadku wszystkich typów dostępu aplikacja uwierzytelnia się za pomocą usługi Azure AD. Aplikacja używa dowolnej [obsługiwanej metody uwierzytelniania](../../active-directory/develop/authentication-scenarios.md) na podstawie typu aplikacji. Aplikacja uzyskuje token dla zasobu na płaszczyźnie, aby udzielić dostępu. Zasób jest punktem końcowym w obszarze zarządzania lub płaszczyzny danych w oparciu o środowisko platformy Azure. Aplikacja używa tokenu i wysyła żądanie interfejsu API REST do Key Vault. Aby dowiedzieć się więcej, zapoznaj się z [całym przepływem uwierzytelniania](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 

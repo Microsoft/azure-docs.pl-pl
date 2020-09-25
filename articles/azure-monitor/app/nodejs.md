@@ -3,13 +3,13 @@ title: Monitorowanie usług Node.js za pomocą usługi Azure Application Insight
 description: Monitoruj wydajność i diagnozuj problemy w usługach Node.js za pomocą usługi Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 982adf6c6d7cd825d185802321ce30a04bd2f216
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323298"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorowanie usług i aplikacji Node.js za pomocą usługi Application Insights
 
@@ -32,7 +32,7 @@ Przed rozpoczęciem upewnij się, że masz subskrypcję platformy Azure, lub [be
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
-### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a>Konfigurowanie zasobu Application Insights
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Konfigurowanie zasobu Application Insights
 
 1. Zaloguj się w witrynie [Azure Portal][portal].
 2. [Tworzenie zasobu Application Insights](create-new-resource.md)
@@ -59,7 +59,7 @@ Uwzględnij zestaw SDK w aplikacji, aby mógł zbierać dane.
    ```javascript
    let appInsights = require('applicationinsights');
    ```
-4.  Można też podać iKey za pośrednictwem zmiennej środowiskowej `APPINSIGHTS_INSTRUMENTATIONKEY` , zamiast przekazywać ją ręcznie do `setup()` lub `new appInsights.TelemetryClient()` . Takie podejście umożliwia oddzielenie kluczy ikey od zatwierdzonego kodu źródłowego i określenie różnych kluczy ikey dla różnych środowisk. Aby skonfigurować ręczne wywoływanie `appInsights.setup('[your ikey]');` .
+4.  Można też podać iKey za pośrednictwem zmiennej środowiskowej `APPINSIGHTS_INSTRUMENTATIONKEY` , zamiast przekazywać ją ręcznie do  `setup()` lub `new appInsights.TelemetryClient()` . Takie podejście umożliwia oddzielenie kluczy ikey od zatwierdzonego kodu źródłowego i określenie różnych kluczy ikey dla różnych środowisk. Aby skonfigurować ręczne wywoływanie `appInsights.setup('[your ikey]');` .
 
     Dodatkowe opcje konfiguracji opisano w poniższych sekcjach.
 
@@ -67,7 +67,7 @@ Uwzględnij zestaw SDK w aplikacji, aby mógł zbierać dane.
 
 5. Rozpocznij automatyczne zbieranie i wysyłanie danych przez wywołanie metody `appInsights.start();` .
 
-### <a name="monitor-your-app"></a><a name="monitor"></a>Monitorowanie aplikacji
+### <a name="monitor-your-app"></a><a name="monitor"></a> Monitorowanie aplikacji
 
 Zestaw SDK automatycznie zbiera dane telemetryczne dotyczące środowiska uruchomieniowego Node.js i niektórych popularnych modułów innych firm. Użyj swojej aplikacji, aby wygenerować niektóre z tych danych.
 
@@ -110,7 +110,7 @@ Istnieją pewne zmiany między wersjami wcześniejszymi niż wersja 0,22 i póź
 Ogólnie rzecz biorąc, można przeprowadzić migrację za pomocą następujących czynności:
 
 - Zastąp odwołania `appInsights.client` do `appInsights.defaultClient` .
-- Zastąp odwołania `appInsights.getClient()` do`new appInsights.TelemetryClient()`
+- Zastąp odwołania `appInsights.getClient()` do `new appInsights.TelemetryClient()`
 - Zamień wszystkie argumenty na wartość Client. Track * metody z pojedynczym obiektem zawierającym nazwane właściwości jako argumenty. Zapoznaj się ze wskazówką typu wbudowanego dla środowiska IDE lub [TelemetryTypes](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes) dla każdego typu telemetrii.
 
 Jeśli uzyskujesz dostęp do funkcji konfiguracji zestawu SDK bez łączenia ich z usługą `appInsights.setup()` , możesz teraz znaleźć te funkcje na `appInsights.Configurations` (na przykład `appInsights.Configuration.setAutoCollectDependencies(true)` ). Przejrzyj zmiany w konfiguracji domyślnej w następnej sekcji.

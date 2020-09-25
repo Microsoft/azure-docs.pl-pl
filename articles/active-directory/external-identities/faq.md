@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 03/19/2020
+ms.date: 09/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274048"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory często zadawane pytania dotyczące współpracy B2B
 
@@ -70,7 +70,7 @@ Tak! Można utworzyć zasady dostępu warunkowego, które blokują dostęp do Az
 5. Na **nowej** stronie, w polu tekstowym **Nazwa** wprowadź nazwę zasad (na przykład "Blokuj Gościom dostęp do portalu").
 6. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
 7. Na karcie **Dołącz** wybierz **pozycję Użytkownicy i grupy**, a następnie wybierz pozycję **Wszyscy użytkownicy i Goście (wersja zapoznawcza)**.
-9. Kliknij **Gotowe**.
+9. Wybierz pozycję **Gotowe**.
 10. Na stronie **Nowy** w sekcji **przypisania** wybierz pozycję **aplikacje w chmurze lub akcje**.
 11. Na stronie **aplikacje lub akcje w chmurze** wybierz **pozycję Wybierz aplikacje**, a następnie wybierz **pozycję Wybierz**.
 12. Na stronie **Wybieranie** wybierz pozycję **Microsoft Azure Management**, a następnie wybierz pozycję **Wybierz**.
@@ -116,6 +116,9 @@ Jeśli partner ma dzierżawcę usługi Azure AD, który jest federacyjny dla lok
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Uważam, że usługa Azure AD B2B nie akceptuje adresów e-mail gmail.com i outlook.com, a B2C została użyta dla tych rodzajów kont?
 Usuwamy różnice między współpracy B2B i Business-to-Consumer (B2C) pod względem tego, które tożsamości są obsługiwane. Użyta tożsamość nie jest dobrym powodem do wyboru między korzystaniem z usługi B2B lub B2C. Aby uzyskać informacje na temat wybierania opcji współpracy, zobacz [porównanie współpracy B2B i B2C w Azure Active Directory](compare-with-b2c.md).
+
+### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>Czy Azure AD B2C konta lokalnego można zaprosić do dzierżawy usługi Azure AD na potrzeby współpracy B2B?
+Nie. Konta lokalnego Azure AD B2C można używać tylko do logowania się do dzierżawy Azure AD B2C. Nie można użyć konta do logowania się do dzierżawy usługi Azure AD. Zapraszanie konta lokalnego Azure AD B2C do dzierżawy usługi Azure AD w celu współpracy B2B nie jest obsługiwane.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Jakie aplikacje i usługi obsługują użytkowników systemu Azure B2B?
 Wszystkie aplikacje zintegrowane z usługą Azure AD mogą obsługiwać użytkowników Gości systemu Azure B2B, ale muszą używać punktu końcowego skonfigurowanego jako dzierżawca do uwierzytelniania użytkowników-Gości. Może być również konieczne [dostosowanie oświadczeń](claims-mapping.md) w tokenie SAML, które są wydawane, gdy użytkownik-Gość uwierzytelnia się w aplikacji. 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 4599346cd4538151f6c758253f1f1bf29bafdcbf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d9faa9dcd664f5dc8b7b0b633eedd19431a4b826
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322210"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dotyczące Azure Database for MySQL
 
@@ -30,6 +30,7 @@ Nowy certyfikat zostanie użyty od 26 października 2020 (10/26/2020). Jeśli po
 Wszystkie aplikacje korzystające z protokołu SSL/TLS i sprawdź, czy certyfikat główny musi zaktualizować certyfikat główny. Możesz określić, czy Twoje połączenia weryfikują certyfikat główny, przeglądając parametry połączenia.
 -   Jeśli parametry połączenia obejmują `sslmode=verify-ca` lub `sslmode=verify-full` , należy zaktualizować certyfikat.
 -   Jeśli parametry połączenia obejmują `sslmode=disable` , `sslmode=allow` , `sslmode=prefer` , lub `sslmode=require` , nie trzeba aktualizować certyfikatów. 
+-  Jeśli używanie łączników języka Java i parametrów połączenia zawiera useSSL = false lub requireSSL = false, nie trzeba aktualizować certyfikatów.
 -   Jeśli parametry połączenia nie określają sslmode, nie trzeba aktualizować certyfikatów.
 
 Jeśli używasz klienta, który dzieli parametry połączenia, przejrzyj dokumentację klienta, aby dowiedzieć się, czy weryfikuje certyfikaty.

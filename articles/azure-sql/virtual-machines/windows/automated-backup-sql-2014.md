@@ -7,18 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8e563e53ad0d5ec90fb9b728c8ffe2d239cf0763
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 25f3b1e6a01ba190dffaa8c43534a5e23b7d9b23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920604"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299123"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Zautomatyzowana kopia zapasowa maszyn wirtualnych SQL Server 2014 (Menedżer zasobów)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -126,7 +126,7 @@ New-AzSqlVM  -Name $vmname `
 > [!IMPORTANT]
 > Jeśli rozszerzenie nie jest jeszcze zainstalowane, instalacja rozszerzenia zostanie ponownie uruchomiona SQL Server.
 
-### <a name="verify-current-settings"></a><a id="verifysettings"></a>Weryfikuj bieżące ustawienia
+### <a name="verify-current-settings"></a><a id="verifysettings"></a> Weryfikuj bieżące ustawienia
 
 Jeśli podczas aprowizacji włączono funkcję automatycznego tworzenia kopii zapasowych, można sprawdzić bieżącą konfigurację przy użyciu programu PowerShell. Uruchom polecenie **Get-AzVMSqlServerExtension** i przejrzyj Właściwość **AutoBackupSettings** :
 

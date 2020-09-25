@@ -3,12 +3,12 @@ title: Format promocji — QnA Maker
 description: Poniżej znajduje się lista formatów promocji, których można użyć w tekście odpowiedzi QnA Maker.
 ms.topic: reference
 ms.date: 03/19/2020
-ms.openlocfilehash: 38532783c38263b3f1364e30125414958eab1394
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d5bf8342b3e595ed4b381ec5104a0c82f0d7ecc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652751"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321037"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Format promocji jest obsługiwany w QnA Maker tekstowym odpowiedzi
 
@@ -38,7 +38,7 @@ Nowy wiersz między 2 zdaniami.|`\n\n`|`How can I create a bot with \n\n QnA Mak
 |Pogrubienie i kursywa|`***text***`|`How can I create a ***QnA Maker*** bot?`|![Format dla pogrubienia i kursywy](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |Pogrubienie adresu URL dla linku|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![Format pogrubionego adresu URL](./media/qnamaker-concepts-datasources/format-bold-url.png)|
 |Adres URL w postaci kursywy dla linku|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![Format adresu URL kursywy](./media/qnamaker-concepts-datasources/format-url-italics.png)|
-|Symbole promocji z przeznaczeniem|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![Format adresu URL kursywy](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
+|Symbole promocji z przeznaczeniem|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![Format symboli o niedrogiej promocji.](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Lista uporządkowana|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>W poprzednim przykładzie funkcja automatycznego numerowania została wbudowana w funkcję promocji.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>W poprzednim przykładzie jest stosowane jawne numerowanie.|![Format listy uporządkowanej](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
 |Listy nieuporządkowane|`\n * item1 \n * item2`<br>lub<br>`\n - item1 \n - item2`|`This is an unordered list: \n * List item 1 \n * List item 2`|![Format listy nieuporządkowanej](./media/qnamaker-concepts-datasources/format-unordered-list.png)|
 |Listy zagnieżdżone|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Uporządkowane i nieuporządkowane listy można zagnieżdżać razem. Karta, `\t` ,, wskazuje poziom wcięcia elementu podrzędnego.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![Format zagnieżdżonej listy nieuporządkowanej](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![Format zagnieżdżonej listy uporządkowanej](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
@@ -49,8 +49,8 @@ Jeśli chcesz dodać zawartość przy użyciu funkcji aktualizacji/zastępowania
 
 | Zachowaj kod HTML  | Reprezentacja w żądaniu interfejsu API  | Reprezentacja w KB |
 |-----------|---------|-------------------------|
-| Yes | \&lt; br \& gt; | &lt;br&gt; |
-| Yes | \&lt; H3 \& gt; nagłówek \& lt;/H3 \& gt; | &lt;&gt;/H3 nagłówka &lt; H3&gt; |
+| Tak | \&lt; br \& gt; | &lt;br&gt; |
+| Tak | \&lt; H3 \& gt; nagłówek \& lt;/H3 \& gt; | &lt;&gt;/H3 nagłówka &lt; H3&gt; |
 
 Ponadto znak CR LF (\r\n) jest konwertowany na \n w KB. Znaki LF (\n) są utrzymywane w postaci, w jakiej jest. Jeśli chcesz wypróbować dowolną sekwencję ucieczki, taką jak \t lub \n, możesz użyć ukośnika odwrotnego, na przykład: " \\ \\ r \\ \\ n" i " \\ \\ t"
 

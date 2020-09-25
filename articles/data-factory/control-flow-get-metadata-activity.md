@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: c761cf1265ad61517a9d0123b932d31b27d157dd
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e32115c590d73f5c93f322d3bd542096f2964a4c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613492"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297610"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Działanie pobierania metadanych w Azure Data Factory
 
@@ -35,7 +35,7 @@ W przepływie sterowania jest dostępna następująca funkcja:
 
 ## <a name="capabilities"></a>Możliwości
 
-Działanie Get Metadata Pobiera zestaw danych jako dane wejściowe i zwraca informacje o metadanych jako dane wyjściowe. Obecnie obsługiwane są następujące łączniki i odpowiednie metadane do pobierania. Maksymalny rozmiar zwracanych metadanych wynosi 2 MB.
+Działanie Get Metadata Pobiera zestaw danych jako dane wejściowe i zwraca informacje o metadanych jako dane wyjściowe. Obecnie obsługiwane są następujące łączniki i odpowiednie metadane do pobierania. Maksymalny rozmiar zwracanych metadanych wynosi około 4 MB.
 
 >[!NOTE]
 >W przypadku uruchomienia działania Get Metadata w środowisku środowiska Integration Runtime (samodzielne) najnowsze funkcje są obsługiwane w wersji 3,6 lub nowszej.
@@ -87,7 +87,7 @@ Aby pobrać odpowiednie informacje, możesz określić następujące typy metada
 | contentMD5 | MD5 pliku. Dotyczy tylko plików. |
 | — struktura | Struktura danych w tabeli pliku lub relacyjnej bazy danych. Zwracana wartość to lista nazw kolumn i typów kolumn. |
 | Kolumn | Liczba kolumn w pliku lub tabeli relacyjnej. |
-| istniejący| Czy istnieje plik, folder lub tabela. Należy pamiętać, że jeśli `exists` program jest określony na liście Pobierz metadane, działanie nie powiedzie się, nawet jeśli plik, folder lub tabela nie istnieją. Zamiast tego, `exists: false` jest zwracany w danych wyjściowych. |
+| istniejący| Czy istnieje plik, folder lub tabela. Jeśli `exists` jest określony na liście Pobieranie metadanych pola, działanie nie powiedzie się, nawet jeśli plik, folder lub tabela nie istnieją. Zamiast tego, `exists: false` jest zwracany w danych wyjściowych. |
 
 >[!TIP]
 >Aby sprawdzić, czy istnieje plik, folder lub tabela, należy określić `exists` na liście pól Pobieranie metadanych. Następnie można sprawdzić `exists: true/false` wynik w danych wyjściowych działania. Jeśli `exists` nie zostanie określony na liście pól, działanie Pobierz metadane zakończy się niepowodzeniem, jeśli nie zostanie znaleziony obiekt.

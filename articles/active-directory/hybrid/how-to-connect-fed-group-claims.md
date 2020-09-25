@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359963"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265473"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurowanie oświadczeń grupy dla aplikacji z Azure Active Directory
 
@@ -78,11 +78,11 @@ Aby skonfigurować oświadczenia grupy dla galerii lub aplikacji SAML innej niż
 
 Kliknij pozycję **Dodaj zgłoszenie do grupy**  
 
-![Interfejs użytkownika oświadczeń](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+![Zrzut ekranu przedstawiający stronę "atrybuty użytkownika & oświadczenia" z wybraną pozycją "Dodaj oświadczenie grupy".](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 Użyj przycisków radiowych, aby wybrać grupy do uwzględnienia w tokenie
 
-![Interfejs użytkownika oświadczeń](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+![Zrzut ekranu pokazujący okno "oświadczenia grupy" z wybranymi grupami zabezpieczeń.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | Zaznaczenie | Opis |
 |----------|-------------|
@@ -93,15 +93,15 @@ Użyj przycisków radiowych, aby wybrać grupy do uwzględnienia w tokenie
 
 Na przykład, aby wyemitować wszystkie grupy zabezpieczeń, których użytkownik jest członkiem, wybierz pozycję grupy zabezpieczeń
 
-![Interfejs użytkownika oświadczeń](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+![Zrzut ekranu pokazujący okno "oświadczenia grupy" z wybraną opcją "grupy zabezpieczeń" i otwarte menu rozwijane "atrybut źródłowy".](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 Aby emitować grupy przy użyciu atrybutów Active Directory synchronizowanych z Active Directory zamiast obiektów objectID usługi Azure AD wybierz wymagany format z listy rozwijanej. Oświadczenia będą uwzględniane tylko w przypadku grup synchronizowanych z Active Directory.
 
-![Interfejs użytkownika oświadczeń](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+![Zrzut ekranu pokazujący menu rozwijane "atrybut źródłowy" jest otwarty.](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 Aby emitować tylko grupy przypisane do aplikacji, wybierz **grupy przypisane do aplikacji**
 
-![Interfejs użytkownika oświadczeń](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+![Zrzut ekranu przedstawiający okno "oświadczenia grupy" z wybraną opcją "grupy przypisane do aplikacji".](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
 Grupy przypisane do aplikacji zostaną uwzględnione w tokenie.  Inne grupy, do których należy użytkownik, zostaną pominięte.  W przypadku tej opcji grupy zagnieżdżone nie są uwzględniane, a użytkownik musi być bezpośrednim członkiem grupy przypisanej do aplikacji.
 
@@ -115,11 +115,11 @@ Sposób emitowania oświadczeń grup można modyfikować przez ustawienia w obsz
 
 Dostosuj nazwę oświadczenia grupy: w przypadku wybrania dla oświadczeń grupy można określić inny typ oświadczenia.   Wprowadź typ zgłoszenia w polu Nazwa i opcjonalną przestrzeń nazw dla żądania w polu przestrzeń nazw.
 
-![Interfejs użytkownika oświadczeń](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+![Zrzut ekranu przedstawiający sekcję "Opcje zaawansowane" z wprowadzonymi wartościami "Dostosuj nazwę żądania grupy" wybrane i "nazwa" oraz "Przestrzeń nazw".](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 Niektóre aplikacje wymagają, aby informacje o członkostwie w grupie były wyświetlane w ramach roszczeń "role". Opcjonalnie można emitować grupy użytkownika jako role, zaznaczając pole "Emituj grupy jako oświadczenia roli".
 
-![Interfejs użytkownika oświadczeń](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+![Zrzut ekranu przedstawiający sekcję "Opcje zaawansowane" z wybraną opcją "Dostosowywanie nazwy oświadczenia grupy" i "Emituj grupy jako oświadczenia roli".](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
 > Jeśli opcja wyemituj dane grupy jako role są używane, w ramach żądania roli będą wyświetlane tylko grupy.  Wszystkie role aplikacji, do których użytkownik jest przypisany, nie będą wyświetlane w ramach roszczeń ról.
@@ -147,7 +147,7 @@ Prawidłowe wartości:
 | **"DirectoryRole** | Jeśli użytkownik ma przypisane role katalogu, są emitowane jako wids ' (nie będą wysyłane żądania grup) |
 | **"Aplikacja** | Emituje tylko te grupy, które są jawnie przypisane do aplikacji, a użytkownik jest członkiem |
 
-   Przykład:
+   Na przykład:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

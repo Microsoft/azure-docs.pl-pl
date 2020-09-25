@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2b7acb1ad6fbe0beb4d79ee2a833561f0829664c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 392ecff2ab120e713a07d130493a4a8339dae5ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423035"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296199"
 ---
 # <a name="options"></a>Opcje #
 
@@ -51,7 +51,7 @@ Jeśli Autoodtwarzanie ma wartość true, wideo rozpocznie się po załadowaniu 
 > [!NOTE]
 > Ta opcja nie jest obsługiwana przez urządzenia przenośne, takie jak Windows Phone, Apple iOS i Android. Urządzenia przenośne blokują funkcję autoodtwarzania, aby zapobiec korzystaniu z miesięcznych planów taryfowych danych użytkownika (często kosztownych). Aby można było uruchomić wideo, w tym przypadku jest wymagane dotknięcie lub kliknięcie.
 
-`<video autoplay ...>`oraz`{ "autoplay": true }`
+`<video autoplay ...>`oraz `{ "autoplay": true }`
 
 ### <a name="poster"></a>ogłaszając ###
 Atrybut plakatu ustawia obraz wyświetlany przed rozpoczęciem odtwarzania wideo. Jest to często ramka wideo lub ekran tytułu niestandardowego. Zaraz po kliknięciu przycisku Odtwórz obraz zostanie odsunięty.
@@ -93,11 +93,11 @@ Ustawienie tej opcji na true elementu wideo spowoduje pełną szerokość konten
 
 `<video ... data-setup='{"fluid": true}'>`
 
-`fluid`Opcja przesłania jawne `width` i `height` Ustawienia. Ta opcja jest dostępna tylko w wersji Azure Media Player `2.0.0` i nowszych.
+`fluid` Opcja przesłania jawne `width` i `height` Ustawienia. Ta opcja jest dostępna tylko w wersji Azure Media Player `2.0.0` i nowszych.
 
 ### <a name="playbackspeed"></a>playbackSpeed ###
 
-`playbackSpeed`Opcja steruje kontrolką playbackSpeed i zestawem ustawień szybkości odtwarzania dostępnych dla użytkownika. `playbackSpeed`przyjmuje obiekt. Aby włączyć kontrolę szybkości odtwarzania na pasku sterowania, właściwość `enabled` obiektu musi być ustawiona na wartość true. Przykład włączania szybkości odtwarzania w znaczniku:
+`playbackSpeed` Opcja steruje kontrolką playbackSpeed i zestawem ustawień szybkości odtwarzania dostępnych dla użytkownika. `playbackSpeed` przyjmuje obiekt. Aby włączyć kontrolę szybkości odtwarzania na pasku sterowania, właściwość `enabled` obiektu musi być ustawiona na wartość true. Przykład włączania szybkości odtwarzania w znaczniku:
 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 

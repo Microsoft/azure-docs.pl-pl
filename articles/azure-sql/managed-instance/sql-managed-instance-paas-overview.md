@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 3d8bf3f087592a7d629a247b1c10721237699fdc
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ce86f4e6ed5f29be3e36959e0f9db76edaab4982
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273028"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Co to jest wystąpienie zarządzane Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

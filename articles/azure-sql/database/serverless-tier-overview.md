@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
-ms.date: 9/8/2020
-ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.reviewer: sstein
+ms.date: 9/17/2020
+ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565093"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321411"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ W przeciwieństwie do baz danych obliczeniowych, pamięć z pamięci podręcznej
 
 W przypadku baz danych obliczeniowych bezserwerowych i inicjowanych, wpisy pamięci podręcznej mogą zostać wykluczone, jeśli jest używana cała dostępna pamięć.
 
-Należy pamiętać, że gdy użycie procesora CPU jest niskie, użycie aktywnej pamięci podręcznej może być wysokie w zależności od wzorca użycia i uniemożliwić odzyskiwanie pamięci.  Ponadto może istnieć dodatkowe opóźnienie po zatrzymaniu działania użytkownika przed odzyskaniem pamięci, ponieważ okresowe procesy w tle odpowiadają na poprzednie działania użytkownika.  Na przykład operacje usuwania generują rekordy widma, które są oznaczone do usunięcia, ale nie są fizycznie usuwane do momentu uruchomienia procesu oczyszczania duplikowania, które mogą polegać na odczytywaniu stron danych w pamięci podręcznej.
+Należy pamiętać, że gdy użycie procesora CPU jest niskie, użycie aktywnej pamięci podręcznej może być wysokie w zależności od wzorca użycia i uniemożliwić odzyskiwanie pamięci.  Ponadto może istnieć dodatkowe opóźnienie po zatrzymaniu działania użytkownika przed odzyskaniem pamięci, ponieważ okresowe procesy w tle odpowiadają na poprzednie działania użytkownika.  Na przykład operacje usuwania operacji i oczyszczania QDS generują rekordy widma, które są oznaczone do usunięcia, ale nie są fizycznie usuwane do momentu uruchomienia procesu oczyszczania duplikowania, które mogą polegać na odczytywaniu stron danych w pamięci podręcznej.
 
 #### <a name="cache-hydration"></a>Odwodnienie pamięci podręcznej
 

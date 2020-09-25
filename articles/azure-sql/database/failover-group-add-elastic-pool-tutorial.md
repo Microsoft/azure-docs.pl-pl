@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 80fa5b7264d675317fba3cc12fa5049bdea76906
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0c4a3c97649f168d339f5209cc10a46f56e97381
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042581"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335181"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Samouczek: Dodawanie Azure SQL Database elastycznej puli do grupy trybu failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -147,7 +147,7 @@ Utwórz grupę trybu failover przy użyciu Azure Portal.
     - **Nazwa grupy trybu failover**: wpisz unikatową nazwę grupy trybu failover, taką jak `failovergrouptutorial` .
     - **Serwer pomocniczy**: wybierz opcję *konfigurowania wymaganych ustawień* , a następnie wybierz pozycję **Utwórz nowy serwer**. Alternatywnie można wybrać istniejący serwer jako serwer pomocniczy. Po wprowadzeniu następujących wartości dla nowego serwera pomocniczego wybierz pozycję **Wybierz**.
         - **Nazwa serwera**: wpisz unikatową nazwę serwera pomocniczego, na przykład `mysqlsecondary` .
-        - **Identyfikator logowania administratora serwera**: typ`azureuser`
+        - **Identyfikator logowania administratora serwera**: typ `azureuser`
         - **Hasło**: wpisz złożone hasło spełniające wymagania dotyczące haseł.
         - **Lokalizacja**: Wybierz lokalizację z listy rozwijanej, na przykład `East US` . Ta lokalizacja nie może być taka sama jak lokalizacja serwera podstawowego.
 
@@ -355,7 +355,7 @@ Wyczyść zasoby, usuwając grupę zasobów.
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Przejdź do grupy zasobów w [Azure Portal](https://portal.azure.com).
-1. Wybierz pozycję **Usuń grupę zasobów** , aby usunąć wszystkie zasoby w grupie, a także samą grupę zasobów.
+1. Wybierz pozycję  **Usuń grupę zasobów** , aby usunąć wszystkie zasoby w grupie, a także samą grupę zasobów.
 1. Wpisz nazwę grupy zasobów, `myResourceGroup` w polu tekstowym, a następnie wybierz pozycję **Usuń** , aby usunąć grupę zasobów.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)

@@ -5,15 +5,15 @@ description: Ten artykuł zawiera omówienie zapory aplikacji sieci Web (WAF) na
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267027"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Co to jest Zapora aplikacji sieci Web platformy Azure w usłudze Azure Application Gateway?
 
@@ -36,7 +36,7 @@ Ulepszenia zabezpieczeń Application Gateway obejmują zarządzanie zasadami pro
 
 W tej sekcji opisano podstawowe korzyści, które WAF na Application Gateway.
 
-### <a name="protection"></a>Protection
+### <a name="protection"></a>Ochrona
 
 * Ochrona aplikacji sieci Web przed lukami w zabezpieczeniach i atakami w sieci Web bez konieczności modyfikowania kodu zaplecza.
 
@@ -75,9 +75,21 @@ W tej sekcji opisano podstawowe korzyści, które WAF na Application Gateway.
 - Ruch w filtrach geograficznych, aby zezwalać na dostęp do aplikacji lub blokować je określonym krajom/regionom. (wersja zapoznawcza)
 - Chroń aplikacje przed botów za pomocą zestawu reguł ograniczenia bot. (wersja zapoznawcza)
 
-## <a name="waf-policy"></a>Zasady WAF
+## <a name="waf-policy-and-rules"></a>Zasady i reguły WAF
 
-Aby włączyć zaporę aplikacji sieci Web na Application Gateway, należy utworzyć zasady WAFymi. Ta zasada polega na tym, że istnieją wszystkie reguły zarządzane, reguły niestandardowe, wykluczenia i inne dostosowania, takie jak limit przekazywania plików. 
+Aby włączyć zaporę aplikacji sieci Web na Application Gateway, należy utworzyć zasady WAFymi. Ta zasada polega na tym, że istnieją wszystkie reguły zarządzane, reguły niestandardowe, wykluczenia i inne dostosowania, takie jak limit przekazywania plików.
+
+Można skonfigurować zasady WAF i skojarzyć te zasady z co najmniej jedną bramą aplikacji do ochrony. Zasady WAF obejmują dwa typy reguł zabezpieczeń:
+
+- Niestandardowe reguły, które tworzysz
+
+- Zarządzane zestawy reguł, które są zbiorem wstępnie skonfigurowanego zestawu reguł zarządzanego przez platformę Azure
+
+Gdy obie są obecne, reguły niestandardowe są przetwarzane przed przetworzeniem reguł w zarządzanym zestawie reguł. Reguła zawiera warunek dopasowania, priorytet i akcję. Obsługiwane typy akcji to: Zezwalaj, Blokuj i Rejestruj. Można utworzyć w pełni dostosowane zasady spełniające określone wymagania dotyczące ochrony aplikacji przez połączenie reguł zarządzanych i niestandardowych.
+
+Reguły w ramach zasad są przetwarzane w kolejności priorytetów. Priorytet jest unikatową liczbą całkowitą, która definiuje kolejność reguł do przetworzenia. Mniejsza wartość całkowita oznacza wyższy priorytet, a reguły są oceniane przed regułami o wyższej wartości całkowitej. Po dopasowaniu reguły odpowiednia akcja zdefiniowana w regule zostanie zastosowana do żądania. Gdy takie dopasowanie zostanie przetworzone, reguły o niższych priorytetach nie są przetwarzane więcej.
+
+W aplikacji sieci Web dostarczonej przez Application Gateway mogą być skojarzone zasady WAF na poziomie globalnym, na poziomie poszczególnych lokacji lub na poziomie poszczególnych identyfikatorów URI.
 
 ### <a name="core-rule-sets"></a>Podstawowe zestawy reguł
 
@@ -159,6 +171,11 @@ Korzystając z wbudowanego skoroszytu WAF zdarzeń zapory platformy Azure, może
 
 
 ![Skoroszyt zdarzeń zapory platformy Azure WAF](../media/ag-overview/sentinel.png)
+
+
+#### <a name="azure-monitor-workbook-for-waf"></a>Azure Monitor skoroszyt dla WAF
+
+Ten skoroszyt umożliwia niestandardowe wizualizacje zdarzeń WAF związanych z zabezpieczeniami w kilku panelach z możliwością filtrowania. Działa ze wszystkimi typami WAF, w tym Application Gateway, z przodu i sieci CDN, i można je filtrować na podstawie typu WAF lub określonego wystąpienia WAF. Importowanie za pomocą szablonu ARM lub szablonu galerii. Aby wdrożyć ten skoroszyt, zobacz [skoroszyt WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Rejestrowanie
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 890bf60ac794740716817094a60f2b4cb4ba5835
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: ab6eb4851b9f2574fc235056f8f512edcb2054bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282793"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321785"
 ---
 # <a name="connect-to-a-wfs-service"></a>Nawiązywanie połączenia z usługą WFS
 
@@ -22,7 +22,7 @@ Usługa funkcji sieci Web (WFS) to usługa sieci Web służąca do wykonywania z
 
 Klasa obsługuje następujące funkcje `WfsClient` :
 
-- Obsługiwane wersje: `1.0.0` , `1.1.0` i`2.0.0`
+- Obsługiwane wersje: `1.0.0` , `1.1.0` i `2.0.0`
 - Obsługiwane operatory filtrów: porównania binarne, logika, Math, wartość i `bbox` .
 - Żądania są wykonywane tylko przy użyciu programu `HTTP GET` .
 - Obsługiwane operacje:

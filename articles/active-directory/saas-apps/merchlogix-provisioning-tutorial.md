@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: 6fe256660dc73aa411cf06e2b56ce9ef26934e2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9be2205ad0664d58c7a2ef0c07481b1c7aa02402
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273351"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MerchLogix na potrzeby automatycznego aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w MerchLogix i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup do MerchLogix.
 
 > [!NOTE]
-> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,7 +55,7 @@ Przed skonfigurowaniem usługi MerchLogix do automatycznego aprowizacji użytkow
 
 5. W panelu wyników wybierz pozycję **MerchLogix**, a następnie kliknij przycisk **Dodaj** , aby dodać MerchLogix do listy aplikacji SaaS.
 
-    ![Inicjowanie obsługi MerchLogix][4]
+    ![Zrzut ekranu przedstawiający dodanie z sekcji Korekta szpaltowa z polem tekstowym wprowadź nazwę o nazwie.][4]
 
 ## <a name="assigning-users-to-merchlogix"></a>Przypisywanie użytkowników do MerchLogix
 
@@ -84,11 +84,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 2. Wybierz pozycję MerchLogix z listy aplikacji SaaS.
 
-3. Wybierz kartę **aprowizacji** .
+3. Wybierz kartę **Aprowizacja**.
 
-4. Ustaw **tryb aprowizacji** na **automatyczny**.
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    ![Inicjowanie obsługi MerchLogix](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
+    ![Zrzut ekranu przedstawiający sekcję MerchLogix-Prisioning z opcją aprowizacji o nazwie out, tryb aprowizacji ustawiony na automatyczny i opcję połączenia testowego wywołana.](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
 5. W sekcji **poświadczenia administratora** :
 
@@ -112,7 +112,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 13. Aby włączyć usługę Azure AD Provisioning dla MerchLogix, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-14. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
+14. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
 
 Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w witrynie MerchLogix.
 
@@ -120,12 +120,12 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: common/select-azuread.png

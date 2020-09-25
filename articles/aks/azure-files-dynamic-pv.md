@@ -5,12 +5,12 @@ description: Dowiedz się, jak dynamicznie tworzyć wolumin trwały z Azure File
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 0c11748c6faa0b94ff84dfc944e475116a2a1bd4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 515994f07e524685df014a784309cd692a9491b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299273"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamiczne tworzenie i używanie woluminu trwałego z Azure Files w usłudze Azure Kubernetes Service (AKS)
 
@@ -33,6 +33,7 @@ Klasa magazynu służy do definiowania sposobu tworzenia udziału plików platfo
 * Magazyn strefowo nadmiarowy *Standard_ZRS* (ZRS)
 * *Standard_RAGRS* — standardowy magazyn Geograficznie nadmiarowy do odczytu (RA-GRS)
 * Magazyn lokalnie nadmiarowy *Premium_LRS* w warstwie Premium (LRS)
+* Magazyn strefowo nadmiarowy *Premium_ZRS* (ZRS)
 
 > [!NOTE]
 > Azure Files obsługują magazyn Premium Storage w klastrach AKS z systemem Kubernetes 1,13 lub nowszym, minimalny udział plików w warstwie Premium to 100 GB

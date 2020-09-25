@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982970"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322193"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -23,11 +23,7 @@ Czasami podczas [łączenia konta magazynu](../how-tos/create-an-account.md#link
 
 ## <a name="client-cant-connect-to-server"></a>Klient nie może nawiązać połączenia z serwerem
 
-Upewnij się, że zapory (na urządzeniu, wewnątrz routerów itp.) nie blokują następujących portów:
-
-* **50051 (TCP)** — wymagane do początkowego połączenia (uzgadnianie http)
-* **8266 (TCP + UDP)** — wymagane do transferu danych
-* **5000 (TCP)**, **5433 (tcp)**, **8443 (TCP)** — wymagane dla [ArrInspector](tools/arr-inspector.md)
+Upewnij się, że zapory (na urządzeniu, wewnątrz routerów itp.) nie blokują portów wymienionych w [wymaganiach systemowych](../overview/system-requirements.md#network-ports).
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Błąd " `Disconnected: VideoFormatNotAvailable` "
 
@@ -152,7 +148,7 @@ W przypadku tego pola ograniczenia mogą występować dwa problemy, które prowa
 
 Renderowanie zdalne na platformie Azure jest podłączane do potoku renderowania aparatu Unity, aby wykonać transkompozycję ramki z filmem wideo i przeprojektować. Aby sprawdzić, czy te punkty zaczepie istnieją, otwórz menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Włącz ją i upewnij się, że `HolographicRemotingCallbackPass` w potoku istnieją dwa wpisy:
 
-![Debuger ramki aparatu Unity](./media/troubleshoot-unity-pipeline.png)
+![Potok renderowania aparatu Unity](./media/troubleshoot-unity-pipeline.png)
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Wzór szachownicy jest renderowany po załadowaniu modelu
 
@@ -184,6 +180,12 @@ Wystąpił błąd fałszywe podczas próby skompilowania przykładów aparatu Un
 ### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Kompilacje Arm64 dla projektów Unity nie powiodły się, ponieważ brakuje AudioPluginMsHRTF.dll
 
 Obiekt `AudioPluginMsHRTF.dll` for Arm64 został dodany do pakietu *Windows Mixed Reality* *(com. Unity. XR. windowsmr. Metro)* w wersji 3.0.1. Upewnij się, że masz zainstalowaną wersję 3.0.1 lub nowszą za pośrednictwem Menedżera pakietów aparatu Unity. Na pasku menu aparatu Unity przejdź do *okna > Menedżer pakietów* i Wyszukaj pakiet *rzeczywistości mieszanej systemu Windows* .
+
+## <a name="native-c-based-application-does-not-compile"></a>Natywna aplikacja oparta na języku C++ nie kompiluje
+
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Błąd "nie znaleziono biblioteki" dla aplikacji platformy UWP lub biblioteki DLL
+
+W pakiecie NuGet języka C++ istnieje `microsoft.azure.remoterendering.Cpp.targets` plik pliku, który definiuje, który z elementów binarnych ma być używany. Aby zidentyfikować `UWP` warunki w pliku, należy sprawdzić `ApplicationType == 'Windows Store'` . Dlatego należy upewnić się, że ten typ jest ustawiony w projekcie. Tak jak w przypadku tworzenia aplikacji platformy UWP lub biblioteki DLL za pomocą Kreatora projektu programu Visual Studio.
 
 ## <a name="unstable-holograms"></a>Niestabilne hologramy
 

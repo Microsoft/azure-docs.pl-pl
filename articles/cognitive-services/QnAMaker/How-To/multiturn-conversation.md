@@ -3,12 +3,12 @@ title: Konwersacje wieloetapowe — QnA Maker
 description: Użyj wskazówek i kontekstu, aby zarządzać wielokrotnymi przepisaniami, nazywanymi wieloma przełączanymi, dla bot z jednego pytania do innego. Funkcja wielodostępna umożliwia konwersację z poprzednią i przechodzącą, w której kontekście poprzedniego pytania ma wpływ na następne pytanie i odpowiedź.
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: eff2eccac55bc05784636ecd9d2dfb784f86c4ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229350"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322839"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Tworzenie wielu etapów konwersacji za pomocą dodatkowych monitów
 
@@ -52,7 +52,7 @@ Po wybraniu tej opcji QnA Maker wyodrębnia hierarchię obecną w strukturze dok
 
 Strukturę wielostopniową można wywnioskować tylko na podstawie adresów URL, plików PDF lub plików DOCX. Aby zapoznać się z przykładem struktury, Wyświetl obraz [ręcznego pliku PDF użytkownika powierzchniowego](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![! [Przykład struktury w podręczniku użytkownika] (.. /Media/conversational-Context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+:::image type="content" source="../media/conversational-context/import-file-with-conversational-structure.png" alt-text="Zrzut ekranu przedstawia przykład struktury w podręczniku użytkownika." lightbox="../media/conversational-context/import-file-with-conversational-structure.png":::
 
 ### <a name="building-your-own-multi-turn-document"></a>Tworzenie własnego dokumentu wielostopniowego
 
@@ -92,7 +92,7 @@ Wybierz pozycję **Wyświetl opcje**, a następnie wybierz pozycję **Pokaż kon
 
 Kontekst wielowłączany jest wyświetlany w pierwszej kolumnie.
 
-![! [Kolumna "kontekstowa (wersja zapoznawcza)"] (.. /Media/conversational-Context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Zrzut ekranu przedstawia podświetloną sekcję kontekstową." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 Na powyższym obrazie **#1** oznacza pogrubiony tekst w kolumnie, co oznacza bieżące pytanie. Pytanie nadrzędne to pierwszy element w wierszu. Wszystkie pytania poniżej są połączonymi parami pytań i odpowiedzi. Elementy te są wybierane, dzięki czemu można od razu przejść do innych elementów kontekstu.
 
@@ -167,7 +167,7 @@ Po dodaniu nowej pary pytań i odpowiedzi do bazy wiedzy każda para powinna by�
 
     Pytanie nadrzędne wyświetla nowe pytanie jako jedną z opcji.
 
-    ![! [Kolumna kontekstowa, dla obu pytań, wskazuje, że relacja monitu zostanie zaobserwuj] (.. /Media/conversational-Context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Zrzut ekranu przedstawia kolumnę kontekstową dla obu pytań wskazuje, że jest to relacja monitu." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Po dodaniu monitu kliknij pozycję **Zapisz i pouczenie** na górnym pasku nawigacyjnym.
 

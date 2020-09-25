@@ -1,6 +1,6 @@
 ---
 title: Tworzenie usługi Azure Data Factory przy użyciu zestawu SDK platformy .NET
-description: Tworzenie fabryki danych platformy Azure w celu skopiowania danych między lokalizacjami w usłudze Azure Blob Storage.
+description: Tworzenie usługi Azure Data Factory i potoku przy użyciu zestawu SDK platformy .NET do kopiowania danych z jednej lokalizacji w usłudze Azure Blob Storage do innej lokalizacji.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: d4652ca62a82d14c7e44466161ae9b463818a71f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433983"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322890"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Szybki start: Tworzenie fabryki danych i potoku przy użyciu zestawu SDK .NET
 
@@ -49,7 +49,7 @@ W sekcjach w sekcji *jak: korzystanie z portalu do tworzenia aplikacji usługi A
 
 1. W obszarze [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)Utwórz aplikację reprezentującą aplikację platformy .NET, którą tworzysz w tym samouczku. W przypadku adresu URL logowania możesz podać fikcyjny adres URL, jak pokazano w artykule (`https://contoso.org/exampleapp`).
 2. W polu [Pobierz wartości do logowania](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Pobierz **Identyfikator aplikacji** i **Identyfikator dzierżawy**, a następnie zanotuj te wartości, które są używane w dalszej części tego samouczka. 
-3. W obszarze [Certyfikaty i wpisy tajne](../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in)Pobierz **klucz uwierzytelniania**i zanotuj tę wartość, która jest używana w dalszej części tego samouczka.
+3. W obszarze [Certyfikaty i wpisy tajne](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)Pobierz **klucz uwierzytelniania**i zanotuj tę wartość, która jest używana w dalszej części tego samouczka.
 4. W polu [Przypisz aplikację do roli](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) **współautor** na poziomie subskrypcji, aby aplikacja mogła tworzyć fabryki danych w subskrypcji.
 
 ## <a name="create-a-visual-studio-project"></a>Tworzenie projektu programu Visual Studio

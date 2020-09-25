@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 330c1b74a46b0f18af1068797d080e903f516ea6
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d845e7589b57bf76d3da48c48fa0a520b09e1f94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089874"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299310"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Korzystanie ze sterowników interfejsu magazynu kontenera Azure Files (CSI) w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -194,16 +194,98 @@ Filesystem                                                                      
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  200G  128K  200G   1% /mnt/azurefile
 ```
 
+
+## <a name="nfs-file-shares"></a>Udziały plików NFS
+[Azure Files teraz obsługuje protokół NFS v 4.1](../storage/files/storage-files-how-to-create-nfs-shares.md). Obsługa systemu plików NFS 4,1 dla Azure Files zapewnia w pełni zarządzany system plików NFS jako usługę utworzoną na wysokiej dostępności i wysoce trwałej platformie rozproszonej pamięci masowej.
+
+ Ta opcja jest zoptymalizowana pod kątem obciążeń dostępu losowego za pomocą aktualizacji danych w miejscu i zapewnia pełną obsługę systemu plików POSIX. W tej sekcji pokazano, jak używać udziałów NFS z sterownikiem usługi Azure File CSI w klastrze AKS.
+
+Pamiętaj o sprawdzeniu [ograniczeń](../storage/files/storage-files-compare-protocols.md#limitations) i [dostępności regionów](../storage/files/storage-files-compare-protocols.md#regional-availability) w fazie zapoznawczej.
+
+### <a name="register-the-allownfsfileshares-preview-feature"></a>Rejestrowanie `AllowNfsFileShares` funkcji w wersji zapoznawczej
+
+Aby utworzyć udział plików, który wykorzystuje system plików NFS 4,1, należy włączyć `AllowNfsFileShares` flagę funkcji w subskrypcji.
+
+Zarejestruj `AllowNfsFileShares` flagę funkcji za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
+```
+
+Wyświetlenie stanu *rejestracji*może potrwać kilka minut. Sprawdź stan rejestracji za pomocą polecenia [AZ Feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
+```
+
+Gdy wszystko będzie gotowe, Odśwież rejestrację dostawcy zasobów *Microsoft. Storage* przy użyciu polecenia [AZ Provider Register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Storage
+```
+
+### <a name="create-a-storage-account-for-the-nfs-file-share"></a>Tworzenie konta magazynu dla udziału plików NFS
+
+[Utwórz `Premium_LRS` Konto usługi Azure Storage](../storage/files/storage-how-to-create-premium-fileshare.md) z następującymi konfiguracjami do obsługi udziałów NFS:
+- rodzaj konta: FileStorage
+- wymagany bezpieczny transfer (Włącz tylko ruch HTTPS): FAŁSZ
+- Wybierz sieć wirtualną węzłów agenta w obszarze zapory i sieci wirtualne
+
+### <a name="create-nfs-file-share-storage-class"></a>Utwórz klasę magazynu udziału plików NFS
+
+Zapisz `nfs-sc.yaml` plik z manifestem poniżej, edytując odpowiednie symbole zastępcze.
+
+```yml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azurefile-csi
+provisioner: file.csi.azure.com
+parameters:
+  resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, required only when storage account is not in the same resource group as your agent nodes
+  storageAccount: EXISTING_STORAGE_ACCOUNT_NAME
+  protocol: nfs
+```
+
+Po edytowaniu i zapisaniu pliku Utwórz klasę magazynu za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] :
+
+```console
+$ kubectl apply -f nfs-sc.yaml
+
+storageclass.storage.k8s.io/azurefile-csi created
+```
+
+### <a name="create-a-deployment-with-an-nfs-backed-file-share"></a>Tworzenie wdrożenia z udziałem plików z kopią zapasową NFS
+Można wdrożyć przykładowy [zestaw stanowy](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) , który zapisuje sygnatury czasowe do pliku `data.txt` , wdrażając następujące polecenie za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] :
+
+ ```console
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+
+statefulset.apps/statefulset-azurefile created
+```
+
+Sprawdź poprawność zawartości woluminu, uruchamiając następujące elementy:
+
+```console
+$ kubectl exec -it statefulset-azurefile-0 -- df -h
+
+Filesystem      Size  Used Avail Use% Mounted on
+...
+/dev/sda1                                                                                 29G   11G   19G  37% /etc/hosts
+accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-556606f5da38  100G     0  100G   0% /mnt/azurefile
+...
+```
+
 ## <a name="windows-containers"></a>Kontenery systemu Windows
 
-Sterownik Azure Files CSI obsługuje również węzły i kontenery systemu Windows. Jeśli chcesz użyć kontenerów systemu Windows, postępuj zgodnie z [samouczkiem kontenery systemu](windows-container-cli.md) Windows, aby dodać pulę węzłów systemu Windows.
+Sterownik Azure Files CSI obsługuje również węzły i kontenery systemu Windows. Jeśli chcesz użyć kontenerów systemu Windows, postępuj zgodnie z [samouczkiem kontenery systemu Windows](windows-container-cli.md) , aby dodać pulę węzłów systemu Windows.
 
 Po utworzeniu puli węzłów systemu Windows należy użyć wbudowanych klas magazynu, takich jak `azurefile-csi` lub utworzyć niestandardowe. Można wdrożyć przykładowy [zestaw stanowy oparty na systemie Windows](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) , który zapisuje sygnatury czasowe do pliku `data.txt` , wdrażając następujące polecenie za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] :
 
  ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
 
-statefulset.apps/busybox-azuredisk created
+statefulset.apps/busybox-azurefile created
 ```
 
 Sprawdź poprawność zawartości woluminu, uruchamiając następujące elementy:
@@ -248,10 +330,10 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
-[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md

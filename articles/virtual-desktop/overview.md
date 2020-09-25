@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527177"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322057"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop?
 
@@ -101,6 +101,8 @@ W celu uzyskania optymalnej wydajności upewnij się, że sieć spełnia następ
 * Ruch sieciowy może przepływać poza granicami kraju/regionu, gdy maszyny wirtualne, które obsługują komputery stacjonarne i aplikacje, łączą się z usługą zarządzania.
 * Aby zoptymalizować pod kątem wydajności sieci, zalecamy zapoznanie się z maszynami wirtualnymi hosta sesji w tym samym regionie platformy Azure co usługa zarządzania.
 
+Typową konfigurację architektury pulpitu wirtualnego systemu Windows dla przedsiębiorstwa można zobaczyć w naszej [architekturze zawiera](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
+
 ## <a name="supported-remote-desktop-clients"></a>Obsługiwani klienci Pulpit zdalny
 
 Następujący klienci Pulpit zdalny obsługują pulpit wirtualny systemu Windows:
@@ -134,14 +136,14 @@ Dostępne opcje automatyzacji i wdrażania zależą od wybranego systemu operacy
 
 |System operacyjny|Galeria obrazów platformy Azure|Ręczne wdrożenie maszyny wirtualnej|Integracja z szablonem Azure Resource Manager|Inicjowanie obsługi pul hostów w witrynie Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 Enterprise (wiele sesji), wersja 2004|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise (wiele sesji), wersja 1909|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise (wiele sesji), wersja 1903|Yes|Yes|Nie|Nie|
-|Windows 10 Enterprise (wiele sesji), wersja 1809|Yes|Yes|Nie|Nie|
-|Windows 7 Enterprise|Yes|Yes|Nie|Nie|
-|Windows Server 2019|Yes|Yes|Nie|Nie|
-|Windows Server 2016|Tak|Yes|Yes|Yes|
-|Windows Server 2012 z dodatkiem R2|Tak|Yes|Nie|Nie|
+|Windows 10 Enterprise (wiele sesji), wersja 2004|Tak|Tak|Tak|Tak|
+|Windows 10 Enterprise (wiele sesji), wersja 1909|Tak|Tak|Tak|Tak|
+|Windows 10 Enterprise (wiele sesji), wersja 1903|Tak|Tak|Nie|Nie|
+|Windows 10 Enterprise (wiele sesji), wersja 1809|Tak|Tak|Nie|Nie|
+|Windows 7 Enterprise|Tak|Tak|Nie|Nie|
+|Windows Server 2019|Tak|Tak|Nie|Nie|
+|Windows Server 2016|Tak|Tak|Tak|Tak|
+|Windows Server 2012 z dodatkiem R2|Tak|Tak|Nie|Nie|
 
 ## <a name="next-steps"></a>Następne kroki
 

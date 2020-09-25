@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 0818ab782710e6a102d2034790ff8d997cd54f8e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808443"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305755"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Dodawanie aplikacji do dzierżawy usługi Azure Active Directory (Azure AD)
 
@@ -47,22 +47,33 @@ Aby dodać aplikację do dzierżawy usługi Azure AD:
 3. W okienku **aplikacje dla przedsiębiorstw** wybierz pozycję **Nowa aplikacja**. 
     ![Wybierz pozycję Nowa aplikacja, aby dodać aplikację galerii do swojej dzierżawy](media/add-application-portal/new-application.png)
 4. Przejdź do nowego środowiska w wersji zapoznawczej galerii: na transparencie w górnej części **strony Dodawanie aplikacji**wybierz link, który znajduje się w **tym miejscu, aby wypróbować nową i udoskonaloną galerię aplikacji**.
-5. Zostanie otwarte okienko **Przeglądaj Galerię usługi Azure AD (wersja zapoznawcza)** , w którym są wyświetlane kafelki dla platform chmurowych, aplikacji lokalnych i polecanych aplikacji. Aplikacje wymienione w sekcji **Polecane aplikacje** mają ikony wskazujące, czy obsługują one funkcję federacyjnego logowania jednokrotnego (SSO) i aprowizacji.
+5. Zostanie otwarte okienko **Przeglądaj Galerię usługi Azure AD (wersja zapoznawcza)** , w którym są wyświetlane kafelki dla platform chmurowych, aplikacji lokalnych i polecanych aplikacji. Aplikacje wymienione w sekcji **Polecane aplikacje** mają ikony wskazujące, czy obsługują one funkcję federacyjnego logowania jednokrotnego (SSO) i aprowizacji. 
     ![Wyszukaj aplikację według nazwy lub kategorii](media/add-application-portal/browse-gallery.png)
-6. Możesz przeglądać galerię aplikacji, którą chcesz dodać, lub wyszukać aplikację, wprowadzając jej nazwę w polu wyszukiwania. Następnie wybierz aplikację z wyników. W formularzu można edytować nazwę aplikacji w celu dopasowania jej do potrzeb organizacji. W tym przykładzie wybrano witrynę GitHub i zmieniono nazwę na **GitHub-test**.
-    ![Pokazuje, jak dodać aplikację z galerii](media/add-application-portal/create-application.png)
-    >[!TIP]
-    >Jeśli szukana aplikacja nie znajduje się w galerii, możesz kliknąć link **Utwórz własną aplikację** , a następnie w obszarze **co chcesz zrobić z aplikacją?** wybierz opcję **Zintegruj każdą inną aplikację, której nie ma w galerii**. Firma Microsoft pracowała już z wieloma deweloperami aplikacji w celu wstępnego skonfigurowania ich do pracy z usługą Azure AD. Są to aplikacje, które są wyświetlane w galerii. Jeśli jednak aplikacja, którą chcesz dodać, nie znajduje się na liście, możesz utworzyć nową, ogólną, niestandardową aplikację, a następnie skonfigurować ją samodzielnie lub przy użyciu wskazówek utworzonych przez dewelopera.
-7. Wybierz przycisk **Utwórz**. Zostanie wyświetlona strona wprowadzenia z opcjami konfigurowania aplikacji w organizacji.
+6. Możesz przeglądać galerię aplikacji, którą chcesz dodać, lub wyszukać aplikację, wprowadzając jej nazwę w polu wyszukiwania. Następnie wybierz aplikację z wyników. 
+7. Następny krok zależy od sposobu, w jaki Deweloper aplikacji zaimplementował Logowanie jednokrotne (SSO). Logowanie jednokrotne może być implementowane przez deweloperów aplikacji na cztery sposoby. Cztery sposoby to SAML, OpenID Connect Connect, Password i Linked. Po dodaniu aplikacji można wybrać filtrowanie i wyświetlanie tylko aplikacji przy użyciu określonej implementacji logowania jednokrotnego, jak pokazano na zrzucie ekranu. Na przykład popularnym standardem do implementowania logowania jednokrotnego jest nazywana SAML (SAML). Innym popularnym standardem jest nazywa się OpenID Connect Connect (OIDC). Sposób konfigurowania logowania jednokrotnego przy użyciu tych standardów jest różny, więc Zanotuj Typ logowania jednokrotnego, który jest implementowany przez dodawaną aplikację.
+
+    :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Zrzut ekranu przedstawia Selektor typów logowania jednokrotnego." lightbox="media/add-application-portal/sso-types.png":::
+
+    - Jeśli deweloper aplikacji użył **standardu OIDC** na potrzeby rejestracji jednokrotnej, wybierz pozycję **Utwórz konto**. Zostanie wyświetlona strona konfiguracji. Następnie przejdź do przewodnika Szybki Start dotyczącego konfigurowania logowania jednokrotnego opartego na usłudze OIDC.
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Zrzut ekranu przedstawia Dodawanie aplikacji SSO opartej na OIDC.":::
+
+    - Jeśli deweloper aplikacji użył protokołu **SAML Standard** dla logowania jednokrotnego, wybierz pozycję **Utwórz**. Zostanie wyświetlona strona wprowadzenia z opcjami konfigurowania aplikacji w organizacji. W formularzu można edytować nazwę aplikacji w celu dopasowania jej do potrzeb organizacji. Następnie przejdź do przewodnika Szybki Start dotyczącego konfigurowania logowania jednokrotnego opartego na protokole SAML.
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Zrzut ekranu przedstawia Dodawanie aplikacji SSO opartej na protokole SAML.":::
+
+
+> [!IMPORTANT]
+> Istnieją pewne kluczowe różnice między implementacjami SSO opartymi na protokole SAML i OIDC. W przypadku aplikacji opartych na protokole SAML można dodać wiele wystąpień tej samej aplikacji. Na przykład GitHub1, GitHub2 itd. W przypadku aplikacji opartych na OIDC można dodać tylko jedno wystąpienie aplikacji. Jeśli dodano już aplikację opartą na OIDC i próbujesz ponownie dodać tę samą aplikację i udostępnić ją dwukrotnie, nie zostanie ona ponownie dodana w dzierżawie.
+
+Jeśli szukana aplikacja nie znajduje się w galerii, możesz wybrać link **Utwórz własną aplikację** , a następnie w obszarze **co chcesz zrobić z aplikacją?** wybierz opcję **Zintegruj każdą inną aplikację, której nie ma w galerii**. Firma Microsoft pracowała już z wieloma deweloperami aplikacji w celu wstępnego skonfigurowania ich do pracy z usługą Azure AD. Wstępnie skonfigurowane aplikacje są wyświetlane w galerii. Jeśli jednak aplikacja, którą chcesz dodać, nie znajduje się na liście, możesz utworzyć nową, ogólną, niestandardową aplikację, a następnie skonfigurować ją samodzielnie lub przy użyciu wskazówek utworzonych przez dewelopera.
 
 Ukończono dodawanie aplikacji. W następnym przewodniku szybki start pokazano, jak zmienić logo i edytować inne właściwości aplikacji.
 
 > [!TIP]
 > Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli nie chcesz kontynuować korzystania z serii szybkiego startu, Rozważ usunięcie aplikacji w celu oczyszczenia dzierżawy testowej. Usuwanie aplikacji jest omówione w ostatnim przewodniku szybki start w tej serii, zobacz [usuwanie aplikacji](delete-application-portal.md).
+Jeśli nie chcesz kontynuować serii szybkiego startu, Rozważ usunięcie aplikacji w celu oczyszczenia dzierżawy testowej. Usuwanie aplikacji jest omówione w ostatnim przewodniku szybki start w tej serii, zobacz [usuwanie aplikacji](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: e32f2bf6f353e32fe96cd3c8b109d698cd3d40ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f53a08a12c5afda8dbc3f25d9102f52b870ceea4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344581"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321666"
 ---
 # <a name="performing-disaster-recovery-drills"></a>Wykonywanie operacji przechodzenia do odzyskiwania po awarii
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Aby zapobiec utracie danych podczas przechodzenia do szczegółów odzyskiwania 
 
 Aby symulować awarię, można zmienić nazwę źródłowej bazy danych. Ta zmiana nazwy powoduje błędy łączności aplikacji.
 
-### <a name="recovery"></a>Odzyskiwanie
+### <a name="recovery"></a>Odzyskiwania
 
 * Wykonaj operację przywracania geograficznego bazy danych na innym serwerze, zgodnie z opisem w [tym miejscu](disaster-recovery-guidance.md).
 * Zmień konfigurację aplikacji, aby połączyć się z odzyskaną bazą danych, a następnie postępuj zgodnie z przewodnikiem [Konfigurowanie bazy danych po odzyskaniu](disaster-recovery-guidance.md) .
@@ -56,7 +56,7 @@ W przypadku bazy danych, która jest chroniona za pomocą grup trybu failover, �
 
 Aby symulować awarię, można wyłączyć aplikację sieci Web lub maszynę wirtualną połączonej z bazą danych. Ta symulacja przestoju skutkuje błędami łączności dla klientów sieci Web.
 
-### <a name="recovery"></a>Odzyskiwanie
+### <a name="recovery"></a>Odzyskiwania
 
 * Upewnij się, że konfiguracja aplikacji w regionie DR wskazuje poprzednią pomocniczą, która jest w pełni dostępną nową podstawową.
 * Zainicjuj [zaplanowaną pracę w trybie failover](scripts/setup-geodr-and-failover-database-powershell.md) grupy trybu failover z serwera pomocniczego.

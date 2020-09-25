@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: de475cbd7cbb0d8dbcda026109b0387da14bedff
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386796"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335135"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Obsługa mapy źródłowej dla aplikacji JavaScript
 
 Application Insights obsługuje przekazywanie map źródłowych do własnego kontenera obiektów BLOB konta magazynu.
-Mapy źródłowe mogą służyć do unminify stosów wywołań znajdujących się na stronie szczegółów transakcji końca do końca. Każdy wyjątek wysyłany przez [zestaw SDK języka JavaScript][ApplicationInsights-JS] lub [zestawNode.js SDK][ApplicationInsights-Node.js] może być unminified z mapami źródłowymi.
+Mapy źródłowe mogą służyć do unminify stosów wywołań znajdujących się na stronie szczegółów transakcji końca do końca. Każdy wyjątek wysyłany przez [zestaw SDK języka JavaScript][ApplicationInsights-JS] lub [ zestawNode.js SDK][ApplicationInsights-Node.js] może być unminified z mapami źródłowymi.
 
 ![Unminify stos wywołań przez połączenie z kontem magazynu](./media/source-map-support/details-unminify.gif)
 
@@ -78,7 +78,7 @@ Każdy użytkownik w portalu korzystający z tej funkcji musi być co najmniej p
 
 1. Sprawdź, czy odpowiednia mapa źródłowa jest przekazywana do poprawnego kontenera obiektów BLOB
 2. Sprawdź, czy plik mapy źródłowej jest nazwany po pliku JavaScript, do którego jest mapowany, z sufiksem `.map` .
-    - Na przykład program przeszuka `/static/js/main.4e2ca5fa.chunk.js` Wyszukiwanie obiektu BLOB o nazwie`main.4e2ca5fa.chunk.js.map`
+    - Na przykład program przeszuka `/static/js/main.4e2ca5fa.chunk.js` Wyszukiwanie obiektu BLOB o nazwie `main.4e2ca5fa.chunk.js.map`
 3. Sprawdź konsolę przeglądarki, aby sprawdzić, czy występują błędy. Uwzględnij ją w dowolnym biletu pomocy technicznej.
 
 ## <a name="next-steps"></a>Następne kroki

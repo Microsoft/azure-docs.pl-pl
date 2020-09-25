@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e69a03cd142fdbcc5864ee38a4843e1c2e44a124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fe11b20ff8e96bc4b0d997c49201aafdd2e2cac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477157"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320527"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Wykonywanie zadań naukowych dotyczących danych: eksploracja, modelowanie i wdrażanie
 
@@ -70,7 +70,7 @@ W pliku YAML można także zmodyfikować liczbę algorytmów, liczbę założeni
 
 Aby uzyskać więcej informacji, zobacz [zautomatyzowane narzędzia do modelowania i raportowania w przetwarzania TDSP narzędzia do nauki o danych](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling).
 
-### <a name="model-management"></a>Zarządzanie modelami
+### <a name="model-management"></a>Zarządzanie modelem
 Po skompilowaniu wielu modeli zwykle trzeba mieć system do rejestrowania modeli i zarządzania nimi. Zwykle potrzebna jest kombinacja skryptów lub interfejsów API, bazy danych zaplecza lub systemu przechowywania wersji. Poniżej przedstawiono kilka opcji, które można wziąć pod uwagę w przypadku następujących zadań zarządzania:
 
 1. [Usługa zarządzania modelami Azure Machine Learning](../index.yml)
@@ -98,11 +98,11 @@ Istnieją różne podejścia i platformy umożliwiające umieszczanie modeli w �
 Dalsze przykłady są dostępne w przewodnikach, które pokazują wszystkie kroki procesu dla **konkretnych scenariuszy**. Są one wyświetlane i połączone z opisami miniatur w artykule [przykładowe instruktaże](walkthroughs.md) . Ilustrują one sposób łączenia chmur, narzędzi lokalnych i usług w przepływ pracy lub potoku w celu utworzenia inteligentnej aplikacji.
 
 > [!NOTE]
-> Aby uzyskać wdrożenie przy użyciu Azure Machine Learning Studio, zobacz [wdrażanie usługi sieci web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+> Aby uzyskać wdrożenie przy użyciu Azure Machine Learning Studio, zobacz [wdrażanie usługi sieci web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 >
 >
 
-### <a name="ab-testing"></a>Testowanie A/B
+### <a name="ab-testing"></a>Testowanie A/B:
 Gdy wiele modeli jest w środowisku produkcyjnym, przydatne może być przeprowadzenie [testowania A/B](https://en.wikipedia.org/wiki/A/B_testing) w celu porównania wydajności modeli. 
 
  
@@ -111,5 +111,3 @@ Gdy wiele modeli jest w środowisku produkcyjnym, przydatne może być przeprowa
 [Śledź postęp projektów analizy danych](track-progress.md) pokazuje, jak analityk danych może śledzić postęp projektu analizy danych.
 
 [Operacja modelowa i ciągłe/CD](ci-cd-flask.md) pokazują, jak Ci/CD można wykonać z rozwiniętymi modelami.
-
-

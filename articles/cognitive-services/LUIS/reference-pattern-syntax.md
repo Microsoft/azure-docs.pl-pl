@@ -1,15 +1,17 @@
 ---
 title: Odwołanie do składni wzorca — LUIS
 description: Utwórz jednostki, aby wyodrębnić dane z wyrażenia długości użytkownika w aplikacjach Language Understanding (LUIS). Wyodrębnione dane są używane przez aplikację kliencką.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 533dc87e50abc5a689d1157b294070ece39dab9f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322822"
 ---
 # <a name="pattern-syntax"></a>Składnia wzorca
 
@@ -24,17 +26,17 @@ Składnia wzorca obsługuje następującą składnię:
 
 |Funkcja|Składnia|Poziom zagnieżdżenia|Przykład|
 |--|--|--|--|
-|jednostka| {}— nawiasy klamrowe|2|Gdzie jest formularz {Entity-Name}?|
+|jednostka| {} — nawiasy klamrowe|2|Gdzie jest formularz {Entity-Name}?|
 |optional|[] — nawiasy kwadratowe<BR><BR>Istnieje limit 3 na poziomach zagnieżdżenia dowolnej kombinacji opcjonalne i grupowania |2|Znak zapytania jest opcjonalny [?]|
 |grouping|() — nawiasy|2|jest (a \| b)|
-|lub| \|-pionowy pasek (potok)<br><br>Istnieje limit 2 na pionowych paskach (lub) w jednej grupie |-|WHERE jest formularzem ({form-Name-Short} &#x7c; {forma-Name-Long} &#x7c; {form-Number})|
+|lub| \| -pionowy pasek (potok)<br><br>Istnieje limit 2 na pionowych paskach (lub) w jednej grupie |-|WHERE jest formularzem ({form-Name-Short} &#x7c; {forma-Name-Long} &#x7c; {form-Number})|
 |Początek i/lub koniec elementu wypowiedź|^ — karetka|-|^ Rozpocznij wypowiedź<br>wypowiedź wykonuje ^<br>{ścisłe dopasowanie literału dla całej wypowiedź z {Number} jednostką ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>Zagnieżdżanie składni w wzorcach
 
 **Opcjonalna** składnia, z nawiasami kwadratowymi, może być zagnieżdżona na dwa poziomy. Na przykład: `[[this]is] a new form`. Ten przykład umożliwia korzystanie z następujących wyrażenia długości:
 
-|Zagnieżdżony opcjonalny przykład wypowiedź|Wyjaśnienie|
+|Zagnieżdżony opcjonalny przykład wypowiedź|Objaśnienie|
 |--|--|
 |to jest nowy formularz|dopasowuje wszystkie wyrazy we wzorcu|
 |jest nowym formularzem|dopasowuje zewnętrzne słowo opcjonalne i słowa inne niż opcjonalne we wzorcu|
@@ -44,7 +46,7 @@ Składnia **grupowania** z nawiasami może być zagnieżdżona na dwa poziomy. N
 
 Jeśli jednostki Entity1 jest lokalizacją z rolami, takimi jak Origin (Seattle) i Destination (Kair), a Entity 2 to znana nazwa budynku z jednostki listy (RedWest-C), następująca wyrażenia długości zostałaby zamapowana na ten wzorzec:
 
-|Przykład zagnieżdżonej wypowiedź grupowania|Wyjaśnienie|
+|Przykład zagnieżdżonej wypowiedź grupowania|Objaśnienie|
 |--|--|
 |RedWest-C|dopasowuje zewnętrzną jednostkę grupowania|
 |Seattle|dopasowuje jedną z wewnętrznych jednostek grupowania|
@@ -56,7 +58,7 @@ Kombinacja **grupowania** z **opcjonalną** składnią ma limit 3 poziomów zagn
 
 |Dozwolone|Przykład|
 |--|--|
-|Yes|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
+|Tak|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
 |Nie|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limity zagnieżdżania dla grup ze składnią lub-w
@@ -65,7 +67,7 @@ Kombinacja **grupowania** z składnią **lub-** w ma limit 2 pionowych słupków
 
 |Dozwolone|Przykład|
 |--|--|
-|Yes|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
+|Tak|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
 |Nie|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Składnia służąca do dodawania jednostki do szablonu wzorca
@@ -126,7 +128,7 @@ Oznacz opcjonalny tekst w wypowiedź przy użyciu składni nawiasu kwadratowego 
 
 |Wzorzec z opcjonalnym tekstem|Znaczenie|
 |--|--|
-|`[find] email about {subject} [from {person}]`|`find`i `from {person}` są opcjonalne|
+|`[find] email about {subject} [from {person}]`|`find` i `from {person}` są opcjonalne|
 |"Czy jesteś w stanie pomóc mi [?]|Znak interpunkcyjny jest opcjonalny|
 
 Znaki interpunkcyjne ( `?` , `!` , `.` ) powinny być ignorowane i należy je zignorować przy użyciu składni nawiasów kwadratowych w wzorcach.

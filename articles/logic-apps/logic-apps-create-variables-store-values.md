@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 02e9426c7fc537a43fadddb5e2c34fd9c311d69b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b486b94a74d98f5630bd0bf40ebf0864c2ec5ab8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753266"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333906"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Przechowywanie wartości i zarządzanie nimi przy użyciu zmiennych w usłudze Azure Logic Apps
 
@@ -55,7 +55,7 @@ Można utworzyć zmienną i zadeklarować jej typ danych i wartość początkow�
 
    * Aby dodać akcję w ostatnim kroku, wybierz pozycję **nowy krok**.
 
-     ![Dodawanie akcji](./media/logic-apps-create-variables-store-values/add-action.png)
+     ![Zrzut ekranu pokazujący akcję "nowy krok" wybraną na stronie "projektant aplikacji logiki".](./media/logic-apps-create-variables-store-values/add-action.png)
 
    * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak plus ( **+** ). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
@@ -72,7 +72,7 @@ Można utworzyć zmienną i zadeklarować jej typ danych i wartość początkow�
    | **Wartość** | Nie | <*wartość początkowa*> | Początkowa wartość zmiennej <p><p>**Porada**: Chociaż opcjonalna, ustaw tę wartość jako najlepsze rozwiązanie, aby zawsze znać wartość początkową dla zmiennej. |
    |||||
 
-   Przykład:
+   Na przykład:
 
    ![Zainicjuj zmienną](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -211,7 +211,7 @@ Aby *zwiększyć lub zwiększyć* zmienną przez wartość stałą, Dodaj akcję
    | **Wartość** | Nie | <*wartość przyrostu*> | Wartość używana do zwiększania wartości zmiennej. Wartość domyślna to 1. <p><p>**Porada**: Chociaż opcjonalna, ustaw tę wartość jako najlepsze rozwiązanie, aby zawsze znać konkretną wartość zwiększania zmiennej. |
    ||||
 
-   Przykład:
+   Na przykład:
 
    ![Przykład wartości przyrostu](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
@@ -423,7 +423,7 @@ Poniżej przedstawiono właściwości **dołączania do...** akcje:
 | **Wartość** | Tak | <*Dołącz wartość*> | Wartość, która ma zostać dołączona, która może mieć dowolny typ |
 |||||
 
-Jeśli przełączysz projektanta z edytorem widoku kodu, w tym miejscu zostanie wyświetlona Akcja **Dołącz do zmiennej tablicowej** w definicji aplikacji logiki, która jest w formacie JSON. Ten przykład tworzy zmienną tablicową i dodaje kolejną wartość jako ostatni element w tablicy. Wynik jest zaktualizowaną zmienną, która zawiera tę tablicę:`[1,2,3,"red"]`
+Jeśli przełączysz projektanta z edytorem widoku kodu, w tym miejscu zostanie wyświetlona Akcja **Dołącz do zmiennej tablicowej** w definicji aplikacji logiki, która jest w formacie JSON. Ten przykład tworzy zmienną tablicową i dodaje kolejną wartość jako ostatni element w tablicy. Wynik jest zaktualizowaną zmienną, która zawiera tę tablicę: `[1,2,3,"red"]`
 
 ```json
 "actions": {

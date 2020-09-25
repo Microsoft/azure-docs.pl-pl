@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0be99a673fe3d062e114f375891f3c821c118d76
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 76e94e3c1571f865b41acd488ee1e868043427b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499504"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321950"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Nieoczekiwany błąd podczas wyrażania zgody na aplikację
 
@@ -77,6 +77,14 @@ Te błędy są wykonywane, gdy aplikacja, którą użytkownik próbuje wyrazić 
     -   Przyznawanie uprawnień aplikacji za pośrednictwem Azure Portal
 
     -   Dodawanie aplikacji z galerii aplikacji usługi Azure AD
+
+## <a name="risky-app-error-and-warning"></a>Ryzykowny błąd i ostrzeżenie aplikacji
+* Ta aplikacja może być ryzykowna. Jeśli ufasz tej aplikacji, poproś administratora o przyznanie Ci dostępu.
+* Ta aplikacja może być ryzykowna. Kontynuuj tylko wtedy, gdy ufasz tej aplikacji.
+
+Oba te komunikaty będą wyświetlane, gdy firma Microsoft ustaliła, że żądanie zgody może być ryzykowne. Może się to zdarzyć, gdy [zweryfikowany Wydawca](../develop/publisher-verification-overview.md) nie został dodany do rejestracji aplikacji wśród różnych czynników. Pierwszy komunikat będzie pokazywany użytkownikom końcowym, gdy [przepływ pracy zgody administratora](configure-admin-consent-workflow.md) jest wyłączony. Drugi komunikat będzie pokazywany użytkownikom końcowym, gdy przepływ pracy zgody administratora jest włączony i dla administratorów. 
+
+Użytkownicy końcowi nie będą mogli przyznawać zgody na aplikacje, które zostały wykryte jako ryzykowne. Administratorzy są w stanie, ale powinni bardzo uważnie oszacować aplikację i zachować ostrożność. Jeśli aplikacja jest podejrzana o dalsze przegląd, można zgłosić ją firmie Microsoft na ekranie zgody. 
 
 ## <a name="next-steps"></a>Następne kroki 
 

@@ -3,12 +3,12 @@ title: Ustalanie przyczyn niezgodności
 description: Jeśli zasób nie jest zgodny, istnieje wiele możliwych przyczyn. Dowiedz się, co spowodowało niezgodność.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 102a1a6a9573c73b4c1158a3c412be233e1a12b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648566"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334178"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Ustalanie przyczyn niezgodności
 
@@ -36,7 +36,7 @@ Aby wyświetlić szczegóły zgodności, wykonaj następujące kroki:
 
 1. Na karcie **zgodność zasobów** na stronie **zgodność z zasadami** kliknij prawym przyciskiem myszy lub wybierz wielokropek zasobu w **stanie zgodności** , który jest _niezgodny_. Następnie wybierz pozycję **Wyświetl szczegóły zgodności**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Zrzut ekranu przedstawiający link Wyświetl szczegóły zgodności na karcie Zgodność zasobów." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Zrzut ekranu przedstawiający link "Wyświetl szczegóły zgodności" na karcie Zgodność zasobów." border="false":::
 
 1. W okienku **szczegóły zgodności** są wyświetlane informacje z najnowszej wersji ewaluacyjnej zasobu do bieżącego przypisania zasad. W tym przykładzie można znaleźć wartość pola **Microsoft. SQL/Server/version** na _12,0_ , gdy oczekiwano definicji zasad _14,0_. Jeśli zasób nie jest zgodny z wieloma przyczynami, każda z nich jest wymieniona w tym okienku.
 
@@ -106,9 +106,15 @@ Poniższa macierz odwzorowuje każdy możliwy _powód_ do [warunku](../concepts/
 
 ## <a name="compliance-details-for-guest-configuration"></a>Szczegóły zgodności dla konfiguracji gościa
 
-W przypadku zasad _auditIfNotExistsymi_ w kategorii _Konfiguracja gościa_ może istnieć wiele ustawień ocenianych wewnątrz maszyny wirtualnej i trzeba będzie wyświetlić szczegółowe informacje na temat ustawień. Na przykład jeśli przeprowadzasz inspekcję listy zasad haseł, a tylko jeden z nich ma stan _niezgodny_, musisz wiedzieć, które zasady haseł nie są zgodne i dlaczego.
+W przypadku zasad _auditIfNotExistsymi_ w kategorii _Konfiguracja gościa_ może istnieć wiele ustawień ocenianych wewnątrz maszyny wirtualnej i konieczne będzie wyświetlenie szczegółowych informacji na temat ustawień. Na przykład jeśli przeprowadzasz inspekcję listy zasad haseł, a tylko jeden z nich ma stan _niezgodny_, musisz wiedzieć, które zasady haseł nie są zgodne i dlaczego.
 
-Użytkownik może również nie mieć dostępu do bezpośredniego logowania się do maszyny wirtualnej, ale należy zgłosić, dlaczego maszyna wirtualna nie jest _zgodna_.
+Użytkownik może również nie mieć dostępu do bezpośredniego logowania się do maszyny wirtualnej, ale należy zgłosić, dlaczego maszyna wirtualna _nie jest zgodna_.
+
+## <a name="compliance-details-for-resource-provider-modes"></a>Szczegóły zgodności dla trybów dostawcy zasobów
+
+W przypadku przypisań z [trybem dostawcy zasobów](../concepts/definition-structure.md#resource-manager-modes)wybierz _niezgodny_ zasób, aby otworzyć widok bardziej szczegółowy. Na karcie **zgodność składników** są dodatkowe informacje specyficzne dla trybu dostawcy zasobów dla przypisanych zasad, które pokazują _niezgodny_ **składnik** i **Identyfikator składnika**.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Zrzut ekranu przedstawiający kartę zgodność składników i szczegóły zgodności dla przypisania trybu dostawcy zasobów." border="false":::
 
 ### <a name="azure-portal"></a>Azure Portal
 

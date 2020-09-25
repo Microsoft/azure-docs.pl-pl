@@ -1,14 +1,16 @@
 ---
 title: Uaktualnienie jednostki złożonej — LUIS
 description: Uaktualnij jednostkę złożoną do jednostki uczenia maszynowego z procesem uaktualniania w portalu LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 58b546a27c1ff1e90e1b70026f430063a47a09e8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 5c3ac14af6eb863daa9eadd32727f4fb53d2185f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684089"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322861"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>Uaktualnianie jednostki złożonej do jednostki Uczenie maszynowe
 

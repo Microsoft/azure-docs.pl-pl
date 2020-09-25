@@ -4,14 +4,14 @@ description: Dowiedz się, jak korzystać z zasobów Kubernetes, aby zarządzać
 services: container-service
 author: laurenhughes
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: lahugh
-ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661354"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335606"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Dostęp do zasobów Kubernetes z Azure Portal (wersja zapoznawcza)
 
@@ -75,11 +75,25 @@ Ta sekcja dotyczy typowych problemów i kroków związanych z rozwiązywaniem pr
 
 Aby uzyskać dostęp do zasobów Kubernetes, musisz mieć dostęp do klastra AKS, interfejsu API Kubernetes oraz obiektów Kubernetes. Upewnij się, że jesteś administratorem klastra lub użytkownikiem z odpowiednimi uprawnieniami dostępu do klastra AKS. Aby uzyskać więcej informacji na temat zabezpieczeń klastra, zobacz [Opcje dostępu i tożsamości dla AKS][concepts-identity].
 
+>[!NOTE]
+> Widok zasobów Kubernetes w witrynie Azure Portal jest obsługiwany tylko przez [Klastry z obsługą usługi AAD](managed-aad.md) lub klastry z obsługą usługi AAD. W przypadku korzystania z klastra z włączoną obsługą usługi AAD użytkownik lub tożsamość muszą mieć odpowiednie role/powiązania ról umożliwiające dostęp do interfejsu API Kubernetes, a także uprawnienia do ściągania [użytkownika `kubeconfig` ](control-kubeconfig-access.md).
+
 ### <a name="enable-resource-view"></a>Włącz widok zasobów
 
 W przypadku istniejących klastrów może być konieczne włączenie widoku zasobów Kubernetes. Aby włączyć widok zasobów, postępuj zgodnie z monitami w portalu dla klastra.
 
 :::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Azure Portal komunikat, aby włączyć widok zasobów Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+
+> [!TIP]
+> Można dodać funkcję AKS dla [**dozwolonych zakresów adresów IP serwera interfejsu API**](api-server-authorized-ip-ranges.md) , aby ograniczyć dostęp serwera API tylko do publicznego punktu końcowego zapory. Inna opcja dla takich klastrów jest aktualizowana `--api-server-authorized-ip-ranges` w celu uwzględnienia dostępu do lokalnego komputera klienckiego lub zakresu adresów IP (z którego portalu jest przeglądany). Aby zezwolić na ten dostęp, potrzebny jest publiczny adres IPv4 komputera. Ten adres można znaleźć za pomocą poniższego polecenia lub przez wyszukiwanie w przeglądarce internetowej "co to jest mój adres IP".
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

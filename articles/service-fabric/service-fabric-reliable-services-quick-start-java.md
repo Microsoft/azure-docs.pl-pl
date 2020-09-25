@@ -1,17 +1,17 @@
 ---
 title: Tworzenie pierwszej niezawodnej usługi w języku Java
-description: Wprowadzenie do tworzenia aplikacji Microsoft Azure Service Fabric przy użyciu usług bezstanowych i stanowych.
+description: Wprowadzenie do tworzenia aplikacji Microsoft Azure Service Fabric przy użyciu usług bezstanowych i stanowych w języku Java.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-java
 ms.author: suhuruli
-ms.openlocfilehash: 30797e68081e346ee0f31f77da15f820776337a0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f74265c7b774e4b471c8621e99377a009f939ee1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324509"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250100"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Wprowadzenie do Reliable Services w języku Java
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Platforma wywołuje tę metodę, gdy wystąpienie usługi jest umieszczane i got
 
 Ta aranżacja jest zarządzana przez Service Fabric w celu zapewnienia wysokiej dostępności i prawidłowego zrównoważenia usługi.
 
-`runAsync()`nie powinien blokować synchronicznie. Implementacja runAsync powinna zwrócić CompletableFuture, aby umożliwić kontynuowanie działania środowiska uruchomieniowego. Jeśli obciążenie wymaga zaimplementowania długotrwałego zadania, które należy wykonać w CompletableFuture.
+`runAsync()` nie powinien blokować synchronicznie. Implementacja runAsync powinna zwrócić CompletableFuture, aby umożliwić kontynuowanie działania środowiska uruchomieniowego. Jeśli obciążenie wymaga zaimplementowania długotrwałego zadania, które należy wykonać w CompletableFuture.
 
 #### <a name="cancellation"></a>Anulowanie
 Anulowanie obciążenia jest wysiłkiem w ramach współpracy zorganizowanej przy użyciu podanego tokenu anulowania. System czeka na zakończenie zadania (po pomyślnym ukończeniu, anulowania lub błędu) przed przekazaniem. Ważne jest, aby honorować token anulowania, zakończyć pracę i zakończyć działanie `runAsync()` tak szybko, jak to możliwe, gdy system żąda anulowania. W poniższym przykładzie pokazano, jak obsłużyć zdarzenie anulowania:
@@ -184,7 +184,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()`działa podobnie do usług stanowych i bezstanowych. Jednak w usłudze stanowej platforma wykonuje dodatkową prace w Twoim imieniu, zanim zostanie wykonana `RunAsync()` . To działanie może obejmować upewnienie się, że niezawodny Menedżer stanu i niezawodne kolekcje są gotowe do użycia.
+`RunAsync()` działa podobnie do usług stanowych i bezstanowych. Jednak w usłudze stanowej platforma wykonuje dodatkową prace w Twoim imieniu, zanim zostanie wykonana `RunAsync()` . To działanie może obejmować upewnienie się, że niezawodny Menedżer stanu i niezawodne kolekcje są gotowe do użycia.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Niezawodne kolekcje i Menedżer niezawodnego stanu
 ```java

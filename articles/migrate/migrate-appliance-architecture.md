@@ -3,12 +3,12 @@ title: Architektura urządzenia usługi Azure Migrate
 description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514575"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322261"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architektura urządzenia usługi Azure Migrate
 
@@ -72,7 +72,7 @@ Urządzenie komunikuje się z serwerami vCenter i hostami/klastrami funkcji Hype
 2. **Zbierz dane dotyczące metadanych i wydajności**:
     - Urządzenie używa sesji model wspólnych informacji (CIM) do zbierania danych maszyny wirtualnej funkcji Hyper-V z hosta funkcji Hyper-V na porcie 5985.
     - Urządzenie domyślnie komunikuje się z portem 443, aby zebrać dane maszyn wirtualnych VMware z vCenter Server.
-3. **Wyślij dane**: urządzenie wysyła zebrane dane w celu Azure Migrate oceny serwera i migracji serwera Azure Migrate przez port SSL 443. Urządzenie może połączyć się z platformą Azure za pośrednictwem Internetu lub można użyć usługi ExpressRoute z usługą komunikacji równorzędnej Public/Microsoft.
+3. **Wyślij dane**: urządzenie wysyła zebrane dane w celu Azure Migrate oceny serwera i migracji serwera Azure Migrate przez port SSL 443. Urządzenie może nawiązać połączenie z platformą Azure za pośrednictwem Internetu lub za pośrednictwem ExpressRoute (wymaga komunikacji równorzędnej firmy Microsoft).
     - W przypadku danych dotyczących wydajności urządzenie zbiera dane użycia w czasie rzeczywistym.
         - Dane dotyczące wydajności są zbierane co 20 sekund dla programu VMware i co 30 sekund dla funkcji Hyper-V dla każdej metryki wydajności.
         - Zebrane dane są zestawiane w celu utworzenia jednego punktu danych przez 10 minut.

@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 757646a1630443f297d4b7c538721e9facdc130c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897428"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322363"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretowanie modeli w Azure Machine Learning (wersja zapoznawcza)
 
@@ -39,20 +39,11 @@ Umożliwienie wyjaśnienia modelu uczenia maszynowego jest ważne w przypadku dw
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretowanie przy użyciu Azure Machine Learning
 
-Klasy z możliwością interpretacji są udostępniane za pomocą wielu pakietów SDK: (Dowiedz się, jak [zainstalować pakiety SDK dla Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
+Klasy interpretacji są udostępniane za pomocą następującego pakietu SDK: (Dowiedz się, jak [zainstalować pakiety SDK dla Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
 
-* `azureml.interpret`Pakiet główny zawierający funkcje obsługiwane przez firmę Microsoft.
+* `azureml.interpret`Program zawiera funkcje obsługiwane przez firmę Microsoft.
 
-* `azureml.contrib.interpret`, wersja zapoznawcza i eksperymentalne funkcje, które można wypróbować.
-
-Użyj `pip install azureml-interpret` i `pip install azureml-contrib-interpret` do ogólnego użytku.
-
-
-> [!IMPORTANT]
-> Zawartość w `contrib` przestrzeni nazw nie jest w pełni obsługiwana. Gdy eksperymentalne funkcje stają się dojrzałe, zostaną stopniowo przenoszone do głównej przestrzeni nazw.
-.
-
-
+Użyj `pip install azureml-interpret` do ogólnego użytku.
 
 ## <a name="how-to-interpret-your-model"></a>Jak interpretować model
 

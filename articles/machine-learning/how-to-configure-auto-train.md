@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/10/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: c5e81b07bf43b86543af546ab5453563e7cf4004
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3194198447f024154c369d519d6ff55ee8ee699
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886219"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296692"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -179,8 +179,29 @@ Oto niektóre przykłady:
 
 Automatyczne Uczenie maszynowe próbuje różne modele i algorytmy podczas procesu automatyzacji i dostrajania. Jako użytkownik nie ma potrzeby określania algorytmu. 
 
-Trzy różne `task` wartości parametrów (trzeci typ zadania to `forecasting` , i używa podobnej puli algorytmu jako `regression` zadania) określają listę algorytmów, modeli, które mają zostać zastosowane. Użyj `allowed_models` parametrów lub, `blocked_models` Aby kontynuować modyfikowanie iteracji z dostępnymi modelami do dołączania lub wykluczania. Listę obsługiwanych modeli można znaleźć w [klasie SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) na potrzeby [klasyfikacji](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [prognozowania](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)i [regresji](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression).
+Trzy różne `task` wartości parametrów określają listę algorytmów lub modeli, które mają zostać zastosowane. Użyj `allowed_models` parametrów lub, `blocked_models` Aby kontynuować modyfikowanie iteracji z dostępnymi modelami do dołączania lub wykluczania. 
 
+Poniższa tabela zawiera podsumowanie obsługiwanych modeli według typu zadania. 
+
+> [!NOTE]
+> Jeśli planujesz eksportować modele utworzone przez funkcję automl do [modelu ONNX](concept-onnx.md), tylko te algorytmy wskazywane przez * są możliwe do przekonwertowania na format ONNX. Dowiedz się więcej o [konwertowaniu modeli na ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Należy również pamiętać, że w tym momencie ONNX obsługuje tylko zadania klasyfikacji i regresji. 
+
+Klasyfikacja | Regresja | Prognozowanie szeregów czasowych
+|-- |-- |--
+[Regresja logistyczna](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)* | [Sieć elastyczna](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)* | [Sieć elastyczna](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+[Lekki GBM](https://lightgbm.readthedocs.io/en/latest/index.html)* |[Lekki GBM](https://lightgbm.readthedocs.io/en/latest/index.html)*|[Lekki GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[Zwiększanie gradientu](https://scikit-learn.org/stable/modules/ensemble.html#classification)* |[Zwiększanie gradientu](https://scikit-learn.org/stable/modules/ensemble.html#regression)* |[Zwiększanie gradientu](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[Drzewo decyzyjne](https://scikit-learn.org/stable/modules/tree.html#decision-trees)* |[Drzewo decyzyjne](https://scikit-learn.org/stable/modules/tree.html#regression)* |[Drzewo decyzyjne](https://scikit-learn.org/stable/modules/tree.html#regression)
+[Najbliższe sąsiednie sąsiedzi](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[Najbliższe sąsiednie sąsiedzi](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[Najbliższe sąsiednie sąsiedzi](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[Liniowy SVC](https://scikit-learn.org/stable/modules/svm.html#classification)* |[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* |[LARS/Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[Klasyfikacja wektorów pomocy technicznej (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[Stochastycznego gradientu (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)* |[Stochastycznego gradientu (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Las losowy](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Las losowy](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Las losowy](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+[Skrajnie losowe drzewa](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Skrajnie losowe drzewa](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Skrajnie losowe drzewa](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
+[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
+[Klasyfikator średniej Perceptron](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)|[Gradient online z Regresorem](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest&preserve-view=true) |[AutoARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Algorytm Bayesa Bayesa](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Szybka Regresor liniowa](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest&preserve-view=true)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[Stochastycznego gradientu (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
+|[Klasyfikator liniowy SVM](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)*||
 
 ### <a name="primary-metric"></a>Metryka podstawowa
 `primary metric`Parametr określa metrykę, która ma być używana podczas uczenia modelu na potrzeby optymalizacji. Dostępne metryki, które można wybrać, są określane przez wybrany typ zadania, a w poniższej tabeli przedstawiono prawidłowe Podstawowe metryki dla każdego typu zadania.
@@ -329,7 +350,6 @@ Aby uzyskać podsumowanie cechowania i zrozumieć, jakie funkcje zostały dodane
 ## <a name="register-and-deploy-models"></a>Rejestrowanie i wdrażanie modeli
 
 Aby uzyskać szczegółowe informacje na temat pobierania lub rejestrowania modelu wdrożenia w usłudze sieci Web, zobacz [jak i gdzie wdrożyć model](how-to-deploy-and-where.md).
-
 
 <a name="explain"></a>
 

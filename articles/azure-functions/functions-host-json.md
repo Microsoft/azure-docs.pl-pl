@@ -3,12 +3,12 @@ title: host.jsw odwołaniu dla Azure Functions 2. x
 description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym w wersji 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055291"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321853"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Dokumentacja pliku host.json dla usługi Azure Functions w wersji 2.x lub nowszej 
 
@@ -145,7 +145,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 > [!NOTE]
 > Próbkowanie dziennika może spowodować, że niektóre wykonania nie są wyświetlane w bloku monitora Application Insights. Aby uniknąć próbkowania dziennika, Dodaj `excludedTypes: "Request"` do `samplingSettings` wartości.
 
-| Właściwość | Domyślne | Opis |
+| Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
 | samplingSettings | nie dotyczy | Zobacz [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Włącza zbieranie metryk na żywo. |
@@ -157,23 +157,23 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|Właściwość | Domyślne | Opis |
+|Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
 | isEnabled | true | Włącza lub wyłącza próbkowanie. | 
 | maxTelemetryItemsPerSecond | 20 | Docelowa liczba elementów telemetrii zarejestrowanych na sekundę na każdym hoście serwera. Jeśli aplikacja działa na wielu hostach, Zmniejsz tę wartość, aby pozostała w ogólnym docelowym wskaźniku ruchu. | 
 | evaluationInterval | 01:00:00 | Interwał, w którym bieżąca stawka danych telemetrycznych jest przeszacowana. Obliczanie jest wykonywane jako średnia przenoszona. Możesz chcieć skrócić ten interwał, jeśli dane telemetryczne są odpowiedzialne za nagłe rozerwania. |
-| initialSamplingPercentage| 1.0 | Procent początkowej próbki stosowany na początku procesu próbkowania, aby dynamicznie zmieniać wartość procentową. Nie Redukuj wartości podczas debugowania. |
+| initialSamplingPercentage| 100,0 | Procent początkowej próbki stosowany na początku procesu próbkowania, aby dynamicznie zmieniać wartość procentową. Nie Redukuj wartości podczas debugowania. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | Gdy wartość procentowa próbkowania ulegnie zmianie, ta właściwość określa, jak wkrótce Application Insights może ponownie wywołać procent próbkowania, aby przechwycić więcej danych. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | Gdy wartość procentowa próbkowania ulegnie zmianie, ta właściwość określa, jak wkrótce później Application Insights można ponownie obniżyć procent próbkowania, aby przechwycić mniejszą ilość danych. |
-| minSamplingPercentage | 0.1 | W miarę jak procent próbkowania różni się, ta właściwość określa minimalny dozwolony procent próbkowania. |
-| maxSamplingPercentage | 0.1 | W miarę jak procent próbkowania różni się, ta właściwość określa maksymalny dozwolony procent próbkowania. |
-| movingAverageRatio | 1.0 | Przy obliczaniu średniej przenoszonej waga przypisana do najnowszej wartości. Użyj wartości równej lub mniejszej od 1. Mniejsze wartości sprawiają, że algorytm jest mniej aktywny w nagłych zmianach. |
+| minSamplingPercentage | 0,1 | W miarę jak procent próbkowania różni się, ta właściwość określa minimalny dozwolony procent próbkowania. |
+| maxSamplingPercentage | 100,0 | W miarę jak procent próbkowania różni się, ta właściwość określa maksymalny dozwolony procent próbkowania. |
+| movingAverageRatio | 1,0 | Przy obliczaniu średniej przenoszonej waga przypisana do najnowszej wartości. Użyj wartości równej lub mniejszej od 1. Mniejsze wartości sprawiają, że algorytm jest mniej aktywny w nagłych zmianach. |
 | excludedTypes | wartość null | Rozdzielana średnikami lista typów, które nie mają być próbkowane. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` i `Trace` . Wszystkie wystąpienia określonych typów są przesyłane; typy, które nie są określone, są próbkowane. |
 | includedTypes | wartość null | Rozdzielana średnikami lista typów, które mają być próbkowane; pusta lista implikuje wszystkie typy. Typ wymieniony w liście `excludedTypes` typów przesłonięcia w tym miejscu. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` i `Trace` . Wystąpienia określonych typów są próbkowane; typy, które nie są określone lub implikowane są przesyłane bez próbkowania. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Właściwość | Domyślne | Opis |
+|Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Włącza lub wyłącza rozszerzone informacje żądania HTTP dla wyzwalaczy HTTP: nagłówki korelacji żądań przychodzących, obsługa kluczy wielu instrumentacji, metoda HTTP, ścieżka i odpowiedź. |
 | enableW3CDistributedTracing | true | Włącza lub wyłącza obsługę protokołu śledzenia rozproszonego W3C (i włącza starszą wersję schematu korelacji). Domyślnie włączone, jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość true. Jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość false, ta flaga ma zastosowanie tylko do żądań wychodzących, a nie do żądań przychodzących. |
@@ -183,7 +183,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 
 Aby uzyskać więcej informacji na temat migawek, zobacz [debugowanie migawek na wyjątkach w aplikacjach .NET](../azure-monitor/app/snapshot-debugger.md) i [Rozwiązywanie problemów z włączaniem Application Insights Snapshot Debugger lub wyświetlania migawek](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Właściwość | Domyślne | Opis |
+|Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
 | agentEndpoint | wartość null | Punkt końcowy używany do nawiązywania połączenia z usługą Application Insights Snapshot Debugger. Jeśli wartość jest równa null, używany jest domyślny punkt końcowy. |
 | captureSnapshotMemoryWeight | 0,5 | Waga określona dla bieżącego rozmiaru pamięci procesu podczas sprawdzania, czy jest wystarczająca ilość pamięci, aby wykonać migawkę. Oczekiwana wartość jest większa niż 0 prawidłowy ułamek (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -275,7 +275,7 @@ Ustawienia konfiguracji dla [monitora kondycji hosta](https://github.com/Azure/a
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |enabled|true|Określa, czy funkcja jest włączona. | 
 |healthCheckInterval|10 sekund|Przedział czasu między okresowymi kontrolami kondycji w tle. | 
@@ -307,7 +307,7 @@ Steruje zachowaniem rejestrowania aplikacji funkcji, w tym Application Insights.
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Określa, jaki poziom rejestrowania plików jest włączony.  Dostępne opcje to `never` , `always` , `debugOnly` . |
 |logLevel|nie dotyczy|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. W wersji 2. x i nowszych postępuj zgodnie z układem ASP.NET Core dla filtrowania kategorii dzienników. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) w dokumentacji ASP.NET Core. |
@@ -330,7 +330,7 @@ To ustawienie jest elementem podrzędnym [rejestrowania](#logging). Kontroluje R
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |isEnabled|fałsz|Włącza lub wyłącza rejestrowanie konsoli.| 
 
@@ -374,7 +374,7 @@ Ustawienia konfiguracji dla zachowania pojedynczej blokady. Aby uzyskać więcej
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Okres, w którym są wykonywane blokady poziomu funkcji. Blokady autorenew.| 
 |listenerLockPeriod|00:01:00|Okres, w którym są wykonywane blokady odbiornika.| 
@@ -382,7 +382,7 @@ Ustawienia konfiguracji dla zachowania pojedynczej blokady. Aby uzyskać więcej
 |lockAcquisitionTimeout|00:01:00|Maksymalny czas, przez jaki środowisko uruchomieniowe podejmie próbę uzyskania blokady.| 
 |lockAcquisitionPollingInterval|nie dotyczy|Interwał między kolejnymi próbami przejęcia blokady.| 
 
-## <a name="version"></a>version
+## <a name="version"></a>Wersja
 
 Ta wartość wskazuje wersję schematu host.jsna. Ciąg wersji `"version": "2.0"` jest wymagany dla aplikacji funkcji, która jest przeznaczona dla środowiska uruchomieniowego v2 lub nowszej wersji. Nie ma host.jszmian schematu między wersjami 2 i v3.
 

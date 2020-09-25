@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: 12e6ae9dd14ebafb1da6bfbcfef64e2d65e876d8
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e0fadf4ac8cea1c8804b17f5549a99bc360e2950
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531716"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334297"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Format XML w Azure Data Factory
 
@@ -30,8 +30,8 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 | Właściwość         | Opis                                                  | Wymagane |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **XML**. | Yes      |
-| location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . **Zobacz szczegóły w sekcji łącznik — > właściwości zestawu danych**. | Yes      |
+| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **XML**. | Tak      |
+| location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . **Zobacz szczegóły w sekcji łącznik — > właściwości zestawu danych**. | Tak      |
 | encodingName     | Typ kodowania używany do odczytu/zapisu plików testowych. <br>Dozwolone wartości są następujące: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Nie       |
 | nullValue | Określa reprezentację ciągu wartości null.<br/>Wartość domyślna to **pusty ciąg**. | Nie |
 | kompresja | Grupa właściwości do konfigurowania kompresji plików. Skonfiguruj tę sekcję, jeśli chcesz przeprowadzić kompresję/dekompresowanie podczas wykonywania działania. | Nie |
@@ -75,7 +75,7 @@ W sekcji *** \* Źródło \* *** działania kopiowania są obsługiwane następu
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Właściwość Type źródła działania Copy musi mieć wartość **XMLSource**. | Yes      |
+| typ          | Właściwość Type źródła działania Copy musi mieć wartość **XMLSource**. | Tak      |
 | formatSettings | Grupa właściwości. Zapoznaj się z tabelą **ustawień odczytu XML** poniżej. | Nie       |
 | storeSettings | Grupa właściwości do odczytywania danych z magazynu danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia odczytu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
 
@@ -83,9 +83,11 @@ Obsługiwane **Ustawienia odczytu XML** w obszarze `formatSettings` :
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ formatSettings musi być ustawiony na **XmlReadSettings**. | Yes      |
+| typ          | Typ formatSettings musi być ustawiony na **XmlReadSettings**. | Tak      |
 | Walidacja | Określa, czy ma być sprawdzana Walidacja schematu XML.<br>Dozwolone wartości to **none** (domyślne, bez sprawdzania poprawności), **XSD** (Validate using XSD), **DTD** (Walidacja przy użyciu DTD). | Nie |
+| przestrzeni | Określa, czy należy włączyć przestrzeń nazw podczas analizowania plików XML. Dozwolone wartości to: **true** (wartość domyślna), **Fałsz**. | Nie |
 | namespacePrefixes | Identyfikator URI przestrzeni nazw do mapowania prefiksów, który jest używany do nazwy pól podczas analizowania pliku XML.<br/>Jeśli plik XML ma przestrzeń nazw i przestrzeń nazw jest włączona, domyślnie nazwa pola jest taka sama jak w dokumencie XML.<br>Jeśli istnieje element zdefiniowany dla identyfikatora URI przestrzeni nazw w tej mapie, nazwa pola to `prefix:fieldName` . | Nie |
+| detectDataType | Określa, czy mają być wykrywane typy danych Integer, Double i Boolean. Dozwolone wartości to: **true** (wartość domyślna), **Fałsz**.| Nie |
 | compressionProperties | Grupa właściwości na temat sposobu dekompresowania danych dla danego kodera kompresji. | Nie       |
 | preserveZipFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `ZipDeflateReadSettings` *)  | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **ZipDeflate** . Wskazuje, czy podczas kopiowania zachować nazwę źródłowego pliku zip jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje niespakowane pliki do `<path specified in dataset>/<folder named as source zip file>/` .<br>-Po ustawieniu na **wartość false**Data Factory zapisuje niespakowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych źródłowych plikach ZIP, aby uniknąć wyścigów lub nieoczekiwanych zachowań.  | Nie |
 | preserveCompressionFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `TarGZipReadSettings` *) | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **TarGzip** . Wskazuje, czy podczas kopiowania zachować źródłową nazwę pliku skompresowanego jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje zdekompresować pliki do `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Po ustawieniu na **wartość false**Data Factory zapisuje dekompresowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych plikach źródłowych, aby uniknąć wyścigów lub nieoczekiwanych zachowań. | Nie |
@@ -109,6 +111,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez Źródło XM
 | Tryb walidacji | Określa, czy ma być sprawdzana Walidacja schematu XML. | Nie | `None` (domyślnie bez sprawdzania poprawności)<br>`xsd` (Weryfikuj przy użyciu XSD)<br>`dtd` (Sprawdź poprawność przy użyciu DTD). | Walidacja |
 | Przestrzenie nazw | Określa, czy należy włączyć przestrzeń nazw podczas analizowania plików XML. | Nie | `true` (ustawienie domyślne) lub `false` | przestrzeni |
 | Pary prefiksów przestrzeni nazw | Identyfikator URI przestrzeni nazw do mapowania prefiksów, który jest używany do nazwy pól podczas analizowania pliku XML.<br/>Jeśli plik XML ma przestrzeń nazw i przestrzeń nazw jest włączona, domyślnie nazwa pola jest taka sama jak w dokumencie XML.<br>Jeśli istnieje element zdefiniowany dla identyfikatora URI przestrzeni nazw w tej mapie, nazwa pola to `prefix:fieldName` . | Nie | Tablica ze wzorcem`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>Przykład skryptu źródłowego XML
 
