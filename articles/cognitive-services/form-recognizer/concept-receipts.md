@@ -10,14 +10,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: fd0a782fc0c54cf14db9cac07712dea6d8f2e523
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 00709ca5e842e51edbf5b26c53fe0a18e80bb896
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751975"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262352"
 ---
-# <a name="receipt-concepts"></a>Pojęcia dotyczące odbioru
+# <a name="receipt-concepts"></a>Pojęcia dotyczące rachunków
 
 Aparat rozpoznawania formularzy platformy Azure może analizować potwierdzenia przy użyciu jednego ze wstępnie skompilowanych modeli. Interfejs API paragonu wyodrębnia najważniejsze informacje z przyjęć sprzedaży w języku angielskim, takie jak nazwa handlowa, Data transakcji, Suma transakcji, elementy wiersza itd. 
 
@@ -74,14 +74,11 @@ Interfejs API paragonu zwraca również następujące informacje:
   > Dane wejściowe języka 
   >
   > Wstępnie utworzone przyjęcie — wersja zapoznawcza. 1 ma opcjonalny parametr żądania, aby określić ustawienia regionalne odbioru z dodatkowych rynków w języku angielskim. W przypadku przyjęć sprzedaży w języku angielskim z Australii (EN-AU), Kanada (EN-CA), Wielka Brytania (en-GB) i Indie (EN-IN) można określić ustawienia regionalne, aby uzyskać ulepszone wyniki. Jeśli nie określono ustawień regionalnych w wersji 2.1-Preview. 1, model będzie domyślnie modelem EN-US.
-  
- ### <a name="input-requirements"></a>Wymagania wejściowe 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-receipt-operation"></a>Operacja analizy przychodu
 
-[Przeanalizuj potwierdzenie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) pobiera obraz lub plik PDF z paragonu jako dane wejściowe i wyodrębnia wartości intrest i Text. Wywołanie zwraca pole nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator wynik do użycia w następnym kroku.
+[Przeanalizuj potwierdzenie](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) pobiera obraz lub plik PDF z paragonu jako dane wejściowe i wyodrębnia wartości zainteresowań i tekstu. Wywołanie zwraca pole nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator wynik do użycia w następnym kroku.
 
 |Nagłówek odpowiedzi| Adres URL wyniku |
 |:-----|:----|
@@ -456,7 +453,10 @@ Interfejs API paragonów zapewnia również [funkcję przetwarzania AIBuilder](h
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Postępuj zgodnie z przewodnikiem Szybki Start, aby rozpocząć pracę z [interfejsem API](./quickstarts/python-receipts.md)w języku Python
-- Dowiedz się więcej o [interfejsie API REST aparatu rozpoznawania formularzy](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api).
-- Dowiedz się więcej o [aparacie rozpoznawania formularzy](overview.md).
+- Wykonaj kroki z [przewodnikiem Szybki Start dla biblioteki klienta aparatu rozpoznawania](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji do przetwarzania paragonów za pomocą aparatu rozpoznawania formularzy w wybranym języku.
+- Lub postępuj zgodnie z [przewodnikiem Szybki start interfejsu API usługi Paragon](./quickstarts/python-receipts.md) , aby rozpoznawać potwierdzenia przy użyciu interfejsu API REST.
 
+## <a name="see-also"></a>Zobacz też
+
+* [Co to jest rozpoznawanie formularzy?](./overview.md)
+* [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)

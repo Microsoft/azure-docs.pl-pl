@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 464d945708fba83877fe6cef9ec1b64ec444bd95
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 7b1030c816bff5b50c0c47a16fa5f1812bb16b15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650421"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250831"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Wyzwalaj aplikacje, procesy lub przepływy pracy ciągłej integracji/ciągłego wdrażania w oparciu o zdarzenia Azure Machine Learning (wersja zapoznawcza)
 
@@ -62,7 +62,7 @@ Te zdarzenia są publikowane za poorednictwem Azure Event Grid. Korzystając z A
 
 Podczas konfigurowania zdarzeń można zastosować filtry tylko do wyzwalania tylko dla określonych danych zdarzeń. W poniższym przykładzie dla zdarzeń zmiany stanu uruchomienia można filtrować według typów uruchomienia. Zdarzenie jest wyzwalane tylko wtedy, gdy kryteria są spełnione. Zapoznaj się z [schematem siatki zdarzeń Azure Machine Learning](/azure/event-grid/event-schema-machine-learning) , aby dowiedzieć się więcej o danych zdarzeń, które można filtrować według. 
 
-Subskrypcje dla zdarzeń Azure Machine Learning są chronione za pomocą kontroli dostępu opartej na rolach (RBAC). Tylko [współautor lub właściciel](how-to-assign-roles.md#default-roles) obszaru roboczego może tworzyć, aktualizować i usuwać subskrypcje zdarzeń.  Filtry mogą być stosowane do subskrypcji zdarzeń podczas [tworzenia](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) subskrypcji zdarzeń lub w późniejszym czasie. 
+Subskrypcje dla zdarzeń Azure Machine Learning są chronione za pomocą kontroli dostępu opartej na rolach (RBAC). Tylko [współautor lub właściciel](how-to-assign-roles.md#default-roles) obszaru roboczego może tworzyć, aktualizować i usuwać subskrypcje zdarzeń.  Filtry mogą być stosowane do subskrypcji zdarzeń podczas [tworzenia](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) subskrypcji zdarzeń lub w późniejszym czasie. 
 
 
 1. Przejdź do Azure Portal, wybierz nową subskrypcję lub istniejącą. 
@@ -126,14 +126,14 @@ Azure Event Grid umożliwia klientom tworzenie niepołączonych programów obsł
 
 1. Wybierz punkt końcowy, do którego ma zostać opublikowane wydarzenie. Na poniższym zrzucie ekranu __centrum zdarzeń__ jest wybranym punktem końcowym:
 
-    ![Procedura obsługi zaznaczania zdarzeń](./media/how-to-use-event-grid/select-event-handler.png)
+    ![Obsługa zdarzeń](./media/how-to-use-event-grid/select-event-handler.png)
 
 Po potwierdzeniu wyboru, kliknij przycisk __Utwórz__. Po zakończeniu konfiguracji te zdarzenia zostaną wypchnięte do punktu końcowego.
 
 
 ### <a name="set-up-with-the-cli"></a>Konfigurowanie przy użyciu interfejsu wiersza polecenia
 
-Możesz zainstalować najnowszy [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)lub użyć Azure Cloud Shell dostarczanego w ramach subskrypcji platformy Azure.
+Możesz zainstalować najnowszy [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)lub użyć Azure Cloud Shell dostarczanego w ramach subskrypcji platformy Azure.
 
 Aby zainstalować rozszerzenie Event Grid, należy użyć następującego polecenia w interfejsie CLI:
 
@@ -164,15 +164,15 @@ Użyj [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) , aby sko
 
 1. W Azure Portal przejdź do obszaru roboczego Azure Machine Learning i wybierz kartę zdarzenia na pasku po lewej stronie. W tym miejscu wybierz pozycję __Aplikacje logiki__. 
 
-    ![SELECT-Logic-AP](./media/how-to-use-event-grid/select-logic-ap.png)
+    ![SELECT-Logic-App](./media/how-to-use-event-grid/select-logic-ap.png)
 
 1. Zaloguj się do interfejsu użytkownika aplikacji logiki i wybierz usługę Machine Learning jako typ tematu. 
 
-    ![Wybierz typ tematu](./media/how-to-use-event-grid/select-topic-type.png)
+    ![Typ tematu](./media/how-to-use-event-grid/select-topic-type.png)
 
 1. Wybierz zdarzenia do powiadomienia. Na przykład poniższy zrzut ekranu __RunCompleted__.
 
-    ![SELECT-Event-runcomplete](./media/how-to-use-event-grid/select-event-runcomplete.png)
+    ![SELECT-Event-Run-Complete](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
 1. Możesz użyć metody filtrowania w powyższej sekcji lub dodać filtry, aby wyzwolić aplikację logiki tylko w podzestawie typów zdarzeń. Na poniższym zrzucie ekranu jest używany __Filtr prefiksu__ __/datadriftID/runs/__ .
 
@@ -180,15 +180,15 @@ Użyj [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) , aby sko
 
 1. Następnie należy dodać krok, aby użyć tego zdarzenia i wyszukać adres e-mail. Istnieje kilka różnych kont poczty, za pomocą których można odbierać zdarzenia. Możesz również skonfigurować warunki na momentu wysłania alertu e-mail.
 
-    ![Wybieranie — wiadomość e-mail — akcja](./media/how-to-use-event-grid/select-email-action.png)
+    ![Poczta e-mail — akcja](./media/how-to-use-event-grid/select-email-action.png)
 
 1. Wybierz pozycję __Wyślij wiadomość e-mail__ i wypełnij parametry. W temacie można uwzględnić __Typ zdarzenia__ i __temat__ w celu ułatwienia filtrowania zdarzeń. Możesz również dołączyć link do strony obszaru roboczego dla przebiegów w treści wiadomości. 
 
-    ![Konfigurowanie adresu e-mail — treść](./media/how-to-use-event-grid/configure-email-body.png)
+    ![Konfiguracja — poczta e-mail](./media/how-to-use-event-grid/configure-email-body.png)
 
 1. Aby zapisać tę akcję, wybierz pozycję **Zapisz jako** w lewym rogu strony. Na wyświetlonym prawym pasku potwierdź utworzenie tej akcji.
 
-    ![potwierdzenie-Logic-App-Create](./media/how-to-use-event-grid/confirm-logic-app-create.png)
+    ![potwierdzenie-Logic-Tworzenie aplikacji](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
 ### <a name="example-data-drift-triggers-retraining"></a>Przykład: przeszkolenie z zakresu dryfowania danych
@@ -204,7 +204,7 @@ Przed rozpoczęciem wykonaj następujące czynności:
 
 W tym przykładzie prosty potok Data Factory jest używany do kopiowania plików do magazynu obiektów blob i uruchamiania potoku opublikowanego Machine Learning. Aby uzyskać więcej informacji na temat tego scenariusza, zobacz Jak skonfigurować [Machine Learning krok w Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)
 
-![ADF — mlpipeline — etap](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
+![ADF — mlpipeline](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
 
 1. Zacznij od utworzenia aplikacji logiki. Przejdź do [Azure Portal](https://portal.azure.com), wyszukaj pozycję Logic Apps, a następnie wybierz pozycję Utwórz.
 
@@ -212,31 +212,31 @@ W tym przykładzie prosty potok Data Factory jest używany do kopiowania plików
 
 1. Wprowadź żądane informacje. Aby uprościć środowisko pracy, Użyj tej samej subskrypcji i grupy zasobów co potok Azure Data Factory i Azure Machine Learning obszar roboczy.
 
-    ![Konfiguracja usługi Logic-App-for-ADF](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
+    ![Konfiguracja — moduł ADF](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
 
 1. Po utworzeniu aplikacji logiki wybierz opcję __gdy wystąpi zdarzenie zasobów Event Grid__. 
 
-    ![SELECT-Event-Grid-Trigger](./media/how-to-use-event-grid/select-event-grid-trigger.png)
+    ![SELECT-eventgrid-Trigger](./media/how-to-use-event-grid/select-event-grid-trigger.png)
 
 1. Zaloguj się i wprowadź szczegóły zdarzenia. W polu __nazwa zasobu__ Ustaw nazwę obszaru roboczego. Ustaw __Typ zdarzenia__ na __DatasetDriftDetected__.
 
-    ![Logowanie i Dodawanie zdarzenia](./media/how-to-use-event-grid/login-and-add-event.png)
+    ![Logowanie — Dodawanie zdarzenia](./media/how-to-use-event-grid/login-and-add-event.png)
 
 1. Dodaj nowy krok i Wyszukaj __Azure Data Factory__. Wybierz pozycję __Utwórz uruchomienie potoku__. 
 
-    ![Create-adfpipeline-Run](./media/how-to-use-event-grid/create-adfpipeline-run.png)
+    ![Tworzenie — ADF — uruchomienie potoku](./media/how-to-use-event-grid/create-adfpipeline-run.png)
 
 1. Zaloguj się i określ opublikowany potok Azure Data Factory do uruchomienia.
 
-    ![Określ-ADF — potok](./media/how-to-use-event-grid/specify-adf-pipeline.png)
+    ![Określ-adfpipeline](./media/how-to-use-event-grid/specify-adf-pipeline.png)
 
 1. Zapisz i Utwórz aplikację logiki przy użyciu przycisku **Zapisz** znajdującego się w lewym górnym rogu strony. Aby wyświetlić aplikację, przejdź do obszaru roboczego w [Azure Portal](https://portal.azure.com) i kliknij pozycję **zdarzenia**.
 
-    ![show-Logic-App-webhook](./media/how-to-use-event-grid/show-logic-app-webhook.png)
+    ![show-logicapp-webhook](./media/how-to-use-event-grid/show-logic-app-webhook.png)
 
 Teraz potok fabryki danych jest wyzwalany, gdy nastąpi dryf. Wyświetl szczegóły dotyczące przebiegu dryfowania danych i potoku uczenia maszynowego w [nowym portalu obszaru roboczego](https://ml.azure.com). 
 
-![Widok w obszarze roboczym](./media/how-to-use-event-grid/view-in-workspace.png)
+![Widok — obszar roboczy](./media/how-to-use-event-grid/view-in-workspace.png)
 
 ### <a name="example-deploy-a-model-based-on-tags"></a>Przykład: Wdrażanie modelu na podstawie tagów
 

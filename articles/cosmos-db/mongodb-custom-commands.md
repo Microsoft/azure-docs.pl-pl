@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: lbosq
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7b0ac1e301705b24d706638deb3ee0a15d49c87b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 4b069dea3f07477fcbca21e08166cdfad8cad2cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326732"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Użyj poleceń rozszerzenia MongoDB, aby zarządzać danymi przechowywanymi w interfejsie API Azure Cosmos DB dla MongoDB 
 
@@ -26,14 +26,14 @@ Interfejs API Azure Cosmos DB dla MongoDB jest zgodny z serwerem MongoDB w wersj
 
 Następujące polecenia rozszerzeń zapewniają możliwość tworzenia i modyfikowania zasobów specyficznych dla Azure Cosmos DB za pośrednictwem żądań bazy danych:
 
-* [Tworzenie bazy danych](#create-database)
+* [Utwórz bazę danych](#create-database)
 * [Aktualizowanie bazy danych](#update-database)
 * [Pobieranie bazy danych](#get-database)
 * [Utwórz kolekcję](#create-collection)
 * [Aktualizowanie kolekcji](#update-collection)
 * [Pobierz kolekcję](#get-collection)
 
-## <a name="create-database"></a><a id="create-database"></a>Utwórz bazę danych
+## <a name="create-database"></a><a id="create-database"></a> Utwórz bazę danych
 
 Polecenie CREATE DATABASE Extension tworzy nową bazę danych MongoDB. Nazwa bazy danych może być używana z poziomu kontekstu bazy danych ustawionego za pomocą `use database` polecenia. W poniższej tabeli opisano parametry w poleceniu:
 
@@ -86,7 +86,7 @@ use test
 db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughput: 20000 } });
 ```
 
-## <a name="update-database"></a><a id="update-database"></a>Aktualizowanie bazy danych
+## <a name="update-database"></a><a id="update-database"></a> Aktualizowanie bazy danych
 
 Polecenie Aktualizuj rozszerzenie bazy danych aktualizuje właściwości skojarzone z określoną bazą danych. W poniższej tabeli opisano parametry w poleceniu:
 
@@ -129,7 +129,7 @@ db.runCommand({customAction: "UpdateDatabase", autoScaleSettings: { maxThroughpu
 ```
 
 
-## <a name="get-database"></a><a id="get-database"></a>Pobieranie bazy danych
+## <a name="get-database"></a><a id="get-database"></a> Pobieranie bazy danych
 
 Polecenie Get Database Extension zwraca obiekt bazy danych. Nazwa bazy danych jest używana z kontekstu bazy danych, względem którego jest wykonywane polecenie.
 
@@ -154,7 +154,7 @@ Jeśli polecenie zakończy się pomyślnie, odpowiedź zawiera dokument o nastę
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Stan odpowiedzi. 1 = = sukces. 0 = = niepowodzenie.      |
 | `database`    |    `string`        |   Nazwa bazy danych.      |
-|   `provisionedThroughput`  |    `int`      |    Elastyczna przepływność ustawiona dla bazy danych, jeśli baza danych korzysta z [ręcznej przepływności na poziomie bazy danych](set-throughput.md#set-throughput-on-a-database)     |
+|   `provisionedThroughput`  |    `int`      |    Elastyczna przepływność ustawiona dla bazy danych, jeśli baza danych korzysta z  [ręcznej przepływności na poziomie bazy danych](set-throughput.md#set-throughput-on-a-database)     |
 | `autoScaleSettings` | `Object` | Ten obiekt zawiera parametry pojemności skojarzone z bazą danych, jeśli używa [trybu skalowania automatycznego](provision-throughput-autoscale.md). `maxThroughput`Wartość opisuje największą liczbę jednostek żądania, które zostaną zwiększone do dynamicznej bazy danych. |
 
 Jeśli polecenie nie powiedzie się, zostanie zwrócona domyślna odpowiedź na polecenie niestandardowe. Zobacz [domyślne dane wyjściowe](#default-output) polecenia niestandardowego dla parametrów w danych wyjściowych.
@@ -195,7 +195,7 @@ Jeśli baza danych ma skojarzoną [przepływność skalowania automatycznego na 
 }
 ```
 
-## <a name="create-collection"></a><a id="create-collection"></a>Utwórz kolekcję
+## <a name="create-collection"></a><a id="create-collection"></a> Utwórz kolekcję
 
 Polecenie CREATE Collection Extension tworzy nową kolekcję MongoDB. Nazwa bazy danych jest używana z kontekstu baz danych ustawionych przez `use database` polecenie. Format polecenia CreateCollection jest następujący:
 
@@ -288,7 +288,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", shardKey: "a.b", autoScaleSettings: { maxThroughput: 20000 }});
 ```
 
-## <a name="update-collection"></a><a id="update-collection"></a>Aktualizowanie kolekcji
+## <a name="update-collection"></a><a id="update-collection"></a> Aktualizowanie kolekcji
 
 Polecenie rozszerzenia kolekcji aktualizacji aktualizuje właściwości skojarzone z określoną kolekcją.
 
@@ -324,7 +324,7 @@ use test
 db.runCommand({customAction: "UpdateCollection", collection: "testCollection", offerThroughput: 1200 });
 ```
 
-## <a name="get-collection"></a><a id="get-collection"></a>Pobierz kolekcję
+## <a name="get-collection"></a><a id="get-collection"></a> Pobierz kolekcję
 
 Polecenie Pobierz kolekcję niestandardową zwraca obiekt kolekcji.
 
@@ -413,7 +413,7 @@ Jeśli kolekcja udostępnia [przepływność na poziomie bazy danych](set-throug
 ```
 
 
-## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a>Domyślne dane wyjściowe polecenia niestandardowego
+## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a> Domyślne dane wyjściowe polecenia niestandardowego
 
 Jeśli nie zostanie określony, niestandardowa odpowiedź zawiera dokument z następującymi polami:
 

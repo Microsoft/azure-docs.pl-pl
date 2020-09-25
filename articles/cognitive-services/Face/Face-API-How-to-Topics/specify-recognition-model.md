@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da34c2aa8a178a99f325bef8beb4a7e7685b3cbc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d250fc005c5760a3eecc2793d02b6f2a9161e663
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283041"
 ---
 # <a name="specify-a-face-recognition-model"></a>Określanie modelu rozpoznawania twarzy
 
@@ -35,10 +35,11 @@ Przeczytaj, aby dowiedzieć się, jak określić wybrany model w różnych opera
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Należy zapoznać się z pojęciami wykrywania i identyfikacji elementu AI. Jeśli nie, zapoznaj się z następującymi przewodnikami:
+Należy zapoznać się z pojęciami wykrywania i identyfikacji elementu AI. Jeśli nie, zobacz następujące przewodniki po raz pierwszy:
 
+* [Pojęcia dotyczące wykrywania czołowego](../concepts/face-detection.md)
+* [Pojęcia dotyczące rozpoznawania](../concepts/face-recognition.md)
 * [Jak wykrywać twarze w obrazie](HowtoDetectFacesinImage.md)
-* [Jak identyfikować twarze na obrazie](HowtoIdentifyFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>Wykrywanie twarzy z określonym modelem
 

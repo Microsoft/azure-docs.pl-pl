@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: c31cf0e5c655f53e8838c92f5463d3a85c2f6f65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836825"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250661"
 ---
 # <a name="feature-engineering-in-data-science"></a>Inżynieria funkcji w dziedzinie analizy danych
 
-Ten artykuł zawiera informacje na temat inżynierii funkcji i jej roli w celu ulepszania danych w usłudze Machine Learning. Dowiedz się więcej na temat przykładów przykładowych pobranych z eksperymentów [Azure Machine Learning Studio (klasycznych)](../studio/what-is-ml-studio.md) . 
+Ten artykuł zawiera informacje na temat inżynierii funkcji i jej roli w celu ulepszania danych w usłudze Machine Learning. Dowiedz się więcej na temat przykładów przykładowych pobranych z eksperymentów [Azure Machine Learning Studio (klasycznych)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) . 
 
 * **Inżynieria funkcji**: proces tworzenia nowych funkcji z danych pierwotnych w celu zwiększenia mocy predykcyjnej algorytmu uczenia. Wbudowane funkcje powinny przechwytywać dodatkowe informacje, które nie są łatwo widoczne w oryginalnym zestawie funkcji.
 * **Wybór funkcji**: proces wybierania podzbioru kluczy funkcji w celu zmniejszenia liczby problemów szkoleniowych.
@@ -74,7 +74,7 @@ Porównanie wyników wydajności czterech modeli jest podsumowane w poniższej t
 
 Najlepsze wyniki są wyświetlane na podstawie funkcji A + B + C. Współczynnik błędów zmniejsza się, gdy w danych szkoleniowych uwzględniono dodatkowy zestaw funkcji. Sprawdza domniemanie, że zestaw funkcji B, C zapewnia dodatkowe istotne informacje dla zadania regresji. Jednak dodanie funkcji D nie zapewnia dodatkowego zmniejszenia liczby błędów.
 
-## <a name="example-2-create-features-for-text-mining"></a><a name="example2"></a>Przykład 2: Tworzenie funkcji wyszukiwania tekstu
+## <a name="example-2-create-features-for-text-mining"></a><a name="example2"></a> Przykład 2: Tworzenie funkcji wyszukiwania tekstu
 
 Inżynieria funkcji jest szeroko stosowana w zadaniach związanych z górnictwem tekstu, takim jak Klasyfikacja dokumentu i analiza tonacji. Ponieważ pojedyncze fragmenty tekstu pierwotnego zwykle stanowią dane wejściowe, proces inżynierii funkcji jest wymagany do tworzenia funkcji obejmujących częstotliwość wyrazów/fraz.
 

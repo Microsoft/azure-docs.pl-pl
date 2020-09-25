@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 8e48a5c896c4927b82f7d77f31b7f1c47fd156c5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 089cf07854f1f29eda7028db614edb1028e5d66a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940862"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311567"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Usługa Azure automanage dla maszyn wirtualnych
 
@@ -43,12 +43,11 @@ Przed próbą włączenia usługi Azure automanage na maszynach wirtualnych nale
 
 - Tylko maszyny wirtualne z systemem Windows Server
 - Maszyny wirtualne muszą być uruchomione
-- Tylko maszyny wirtualne z zestawami nieskalowanymi
 - Maszyny wirtualne muszą znajdować się w obsługiwanym regionie
 - Użytkownik musi mieć odpowiednie uprawnienia
 - Maszyny wirtualne nie mogą łączyć się z obszarem roboczym usługi log Analytics w innej subskrypcji
 
-Następujące uprawnienie RBAC jest konieczne, aby włączyć Autozarządzanie: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
+Musisz mieć rolę **współautor** , aby włączyć Autozarządzanie przy użyciu istniejącego konta autozarządzania. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
 
 Należy również pamiętać, że Autozarządzanie obsługuje tylko maszyny wirtualne z systemem Windows, które znajdują się w następujących regionach: Europa Zachodnia, Wschodnie stany USA, zachodnie stany USA 2, Kanada środkowa, zachodnio-środkowe stany USA.
 
@@ -105,7 +104,7 @@ Konto autozarządzaj jest kontekstem zabezpieczeń lub tożsamością, w której
 W Azure Portal środowiska, gdy włączasz funkcję autozarządzania na maszynach wirtualnych, istnieje zaawansowana lista rozwijana w bloku **Włączanie usługi Azure VM Best Practice** , który umożliwia przypisanie lub ręczne utworzenie konta Autozarządzanie.
 
 > [!NOTE]
-> Następujące uprawnienie RBAC jest konieczne, aby włączyć Autozarządzanie: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
+> Musisz mieć rolę **współautor** , aby włączyć Autozarządzanie przy użyciu istniejącego konta autozarządzania. Jeśli włączysz Autozarządzanie przy użyciu nowego konta Autozarządzanie, potrzebne są następujące uprawnienia: rola **właściciela** lub **współautor** wraz z rolami **administratora dostępu użytkowników** .
 
 
 ## <a name="status-of-vms"></a>Stan maszyn wirtualnych

@@ -11,14 +11,17 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c664d4859a306387b4eafa2f19ab5877ccf6eb1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a4b65195488f101d36aaf73956f1422bfccbbf9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81686959"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282140"
 ---
 # <a name="run-opc-publisher"></a>Uruchamianie wydawcy OPC
+
+> [!IMPORTANT]
+> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
 
 W tym artykule opisano sposób uruchamiania wydawcy usługi AD Debug OPC. Rozwiązuje również problemy z wydajnością i pamięcią.
 
@@ -375,7 +378,7 @@ Aby dodać wydawcę OPC jako moduł do wdrożenia IoT Edge, przejdź do ustawie�
 1. Wybierz pozycję **Ustaw moduły**.
 1. Wybierz pozycję **Dodaj** w obszarze **moduły wdrażania** , a następnie **IoT Edge module**.
 1. W polu **Nazwa** wprowadź wartość **Wydawca**.
-1. W polu **Identyfikator URI obrazu** wprowadź`mcr.microsoft.com/iotedge/opc-publisher:<tag>`
+1. W polu **Identyfikator URI obrazu** wprowadź `mcr.microsoft.com/iotedge/opc-publisher:<tag>`
 1. Dostępne znaczniki można znaleźć w [centrum platformy Docker](https://hub.docker.com/_/microsoft-iotedge-opc-publisher)
 1. Wklej następujący kod JSON do pola **Opcje tworzenia kontenera** :
 
@@ -519,7 +522,7 @@ Domyślny typ magazynu dla wszystkich magazynów certyfikatów to system plików
 
 - Uruchamianie natywne w systemie Windows nie można użyć magazynu certyfikatów aplikacji typu, `Directory` ponieważ dostęp do klucza prywatnego kończy się niepowodzeniem. W takim przypadku należy użyć opcji `--at X509Store` .
 - Uruchomiona jako kontener platformy Docker systemu Linux można mapować magazyny certyfikatów na system plików hosta z opcją uruchomienia platformy Docker `-v <hostdirectory>:/appdata` . Ta opcja powoduje, że certyfikat jest trwały w przypadku uruchamiania aplikacji.
-- Uruchomiona jako kontener platformy Docker systemu Linux i chcesz użyć magazynu x509 dla certyfikatu aplikacji, użyj opcji uruchamiania platformy Docker `-v x509certstores:/root/.dotnet/corefx/cryptography/x509stores` i opcji aplikacji`--at X509Store`
+- Uruchomiona jako kontener platformy Docker systemu Linux i chcesz użyć magazynu x509 dla certyfikatu aplikacji, użyj opcji uruchamiania platformy Docker `-v x509certstores:/root/.dotnet/corefx/cryptography/x509stores` i opcji aplikacji `--at X509Store`
 
 ## <a name="performance-and-memory-considerations"></a>Zagadnienia dotyczące wydajności i pamięci
 
@@ -531,9 +534,9 @@ Po uruchomieniu programu OPC Publisher należy znać wymagania dotyczące wydajn
 
 Pamięć i wydajność są wzajemnie zależne i są zależne od konfiguracji liczby węzłów skonfigurowanych do opublikowania. Upewnij się, że następujące parametry spełniają Twoje wymagania:
 
-- IoT Hub wysyła interwał:`--si`
-- Rozmiar komunikatu IoT Hub (wartość domyślna `1` ):`--ms`
-- Pojemność kolejki monitorowanych elementów:`--mq`
+- IoT Hub wysyła interwał: `--si`
+- Rozmiar komunikatu IoT Hub (wartość domyślna `1` ): `--ms`
+- Pojemność kolejki monitorowanych elementów: `--mq`
 
 `--mq`Parametr steruje górną granicą pojemności kolejki wewnętrznej, która buforuje wszystkie powiadomienia o zmianie wartości węzła OPC. Jeśli program OPC Publisher nie może wysyłać komunikatów do IoT Hub wystarczająco szybko, ta Kolejka buforuje powiadomienia. Parametr ustawia liczbę powiadomień, które mogą być buforowane. Jeśli zobaczysz liczbę elementów w tej kolejce rosnących w przebiegach testowych, aby uniknąć utraty komunikatów, należy:
 

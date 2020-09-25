@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 27e8eaa7b8171d6ccc43f6abc8a4b3d1017d30cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804400"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311601"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrowanie usługi Azure Application Gateway i zapory aplikacji sieci Web z wersji 1 do wersji 2
 
@@ -36,6 +36,8 @@ Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności
 
 * Nowa brama V2 ma nowe publiczne i prywatne adresy IP. Nie można przenieść adresów IP skojarzonych z istniejącą bramą w wersji 1 do wersji 2. Istnieje jednak możliwość przydzielenia istniejącego (nieprzydzielony) publicznego lub prywatnego adresu IP do nowej bramy v2.
 * Musisz podać przestrzeń adresów IP dla innej podsieci w sieci wirtualnej, w której znajduje się Brama v1. Skrypt nie może utworzyć bramy v2 w żadnej istniejącej podsieci, która ma już bramę w wersji 1. Jeśli jednak istniejąca podsieć ma już bramę w wersji 2, to może nadal mieć miejsce, gdzie jest wystarczająca przestrzeń adresów IP.
+* Jeśli masz sieciową grupę zabezpieczeń lub trasy zdefiniowane przez użytkownika skojarzone z podsiecią bramy v2, upewnij się, że spełniają one [wymagania sieciowej grupy zabezpieczeń](../application-gateway/configuration-infrastructure.md#network-security-groups) i [UDR wymagania](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) dotyczące pomyślnej migracji
+* [Zasady punktu końcowego usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoint-policies-overview.md) nie są obecnie obsługiwane w podsieci Application Gateway.
 * Aby przeprowadzić migrację konfiguracji protokołu TLS/SSL, należy określić wszystkie certyfikaty protokołu TLS/SSL używane w bramie w wersji 1.
 * Jeśli włączono tryb FIPS dla bramy V1, nie zostanie on zmigrowany do nowej bramy v2. Tryb FIPS nie jest obsługiwany w wersji 2.
 * V2 nie obsługuje protokołu IPv6, więc nie są migrowane bramy w wersji 1 obsługującej protokół IPv6. Uruchomienie skryptu może nie być możliwe.
@@ -44,7 +46,7 @@ Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności
 
 ## <a name="download-the-script"></a>Pobierz skrypt
 
-Pobierz skrypt migracji z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzureAppGWMigration).
+Pobierz skrypt migracji z  [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzureAppGWMigration).
 
 ## <a name="use-the-script"></a>Używanie skryptu
 

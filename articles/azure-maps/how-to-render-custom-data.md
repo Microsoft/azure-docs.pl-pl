@@ -4,17 +4,17 @@ description: Dowiedz się, jak dodawać pinezki, etykiety i kształty geometrycz
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/23/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d5dcc2701a0b77509868471ec97c45917b2ccf42
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: ec62461e5a12f0c566becdfc7d9a1464433ee656
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037375"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311023"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderowanie niestandardowych danych na mapie rastrowej
 
@@ -148,7 +148,7 @@ Możesz również uzyskać informacje o ścieżce i lokalizacji numeru PIN przy 
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Aby uzyskać udId, Otwórz nową kartę w aplikacji Poster. Na karcie Konstruktor wybierz pozycję Pobierz metodę HTTP. Wprowadź żądanie GET w identyfikatorze URI stanu. Jeśli przekazywanie danych zakończyło się pomyślnie, otrzymasz udId w treści odpowiedzi. Skopiuj udId.
+6. Aby uzyskać udId, Otwórz nową kartę w aplikacji Poster. Wybierz pozycję Pobierz metodę HTTP na karcie Konstruktor. Wprowadź żądanie GET w identyfikatorze URI stanu. Jeśli przekazywanie danych zakończyło się pomyślnie, otrzymasz udId w treści odpowiedzi. Skopiuj udId.
 
    ```JSON
    {

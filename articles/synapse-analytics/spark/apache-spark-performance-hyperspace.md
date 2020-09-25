@@ -10,33 +10,35 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 3d65a7771ff2bd8807a5f02278b0455ee103dbd6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f25aae64e117452cd689b68c5478e7431d1a21bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526344"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249369"
 ---
-# <a name="hyperspace---an-indexing-subsystem-for-apache-spark"></a>Hiperprzestrzeni — podsystem indeksowania dla Apache Spark
+# <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>Hiperprzestrzeni: podsystem indeksowania dla Apache Spark
 
-Funkcja hiperprzestrzeni umożliwia Apache Spark użytkownikom tworzenie indeksów w ich zestawach danych (np. CSV, JSON, Parquet itp.) i korzystanie z nich do potencjalnego przyspieszania zapytań i obciążeń.
+Hiperprzestrzeni wprowadza możliwość Apache Spark użytkownikom na tworzenie indeksów w ich zestawach danych, takich jak CSV, JSON i Parquet, i używanie ich do potencjalnego przyspieszania zapytań i obciążeń.
 
-W tym artykule wykorzystamy podstawy hiperprzestrzeni, podkreślając się na jego prostotę i pokazują, jak mogą one być używane przez siebie tylko przez siebie.
+W tym artykule wykorzystamy podstawy hiperprzestrzeni, podkreślamy jego prostotę i pokazują, jak może on być używany przez same osoby.
 
-Zastrzeżenie: hiperprzestrzeni umożliwia przyspieszenie obciążeń/zapytań w dwóch okolicznościach:
+Zastrzeżenie: hiperprzestrzeni umożliwia przyspieszenie obciążeń lub zapytań w dwóch okolicznościach:
 
-* Zapytania zawierają filtry dla predykatów o wysokiej wartości selektywnej (na przykład, chcesz wybrać 100 pasujące wiersze z miliona wierszy kandydujących)
-* Zapytania zawierają sprzężenie wymagające dużego rozłożenia (na przykład chcesz dołączyć zestaw danych 100 GB z zestawem danych o pojemności 10 GB)
+* Zapytania zawierają filtry dotyczące predykatów o wysokiej wartości selektywnej. Na przykład możesz chcieć wybrać 100 pasujących wierszy z miliona wierszy kandydujących.
+* Zapytania zawierają sprzężenie wymagające dużych losowo. Na przykład możesz chcieć dołączyć zestaw danych 100 GB z zestawem danych o pojemności 10 GB.
 
 Warto uważnie monitorować obciążenia i określać, czy indeksowanie pomaga w poszczególnych przypadkach.
 
-Ten dokument jest również dostępny w formie notesu dla języka [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)dla [języków C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb) i [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
+Ten dokument jest również dostępny w formie notesu dla języków [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb), [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)i [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
 
 ## <a name="setup"></a>Konfigurowanie
 
-Aby rozpocząć od, Rozpocznij nową sesję platformy Spark. Ponieważ ten dokument jest samouczkiem tylko do zilustrowania, jakie miejsce może zaoferować, należy wprowadzić zmianę konfiguracji, która pozwala na wyróżnienie tego, jakie miejsce jest wykonywane na małych zestawach danych. Domyślnie platforma Spark używa sprzężenia emisji, aby zoptymalizować zapytania sprzężenia, gdy rozmiar danych jednej ze stron sprzężenia jest mały (czyli w przypadku przykładowych danych używanych w tym samouczku). W związku z tym wyłączamy sprzężenia emisji, tak aby później, gdy uruchomimy zapytania sprzężenia, platforma Spark używa sprzężenia Sort-merge. Jest to głównie pokazuje, jak indeksy hiperprzestrzeni byłyby stosowane na dużą skalę w celu przyspieszenia zapytań do sprzężeń.
+Aby rozpocząć od, Rozpocznij nową sesję platformy Spark. Ponieważ ten dokument jest samouczkiem tylko do zilustrowania, jakie miejsce może zaoferować, należy wprowadzić zmianę konfiguracji, która pozwala na wyróżnienie tego, jakie miejsce jest wykonywane na małych zestawach danych. 
 
-Dane wyjściowe w poniższej komórce zawierają odwołanie do pomyślnie utworzonej sesji platformy Spark i drukuje "-1" jako wartość zmodyfikowanej konfiguracji dołączania, która wskazuje, że sprzężenie emisji zostało pomyślnie wyłączone.
+Domyślnie platforma Spark używa sprzężenia emisji, aby zoptymalizować zapytania sprzężenia, gdy rozmiar danych jednej ze stron sprzężenia jest mały (czyli w przypadku przykładowych danych używanych w tym samouczku). W związku z tym wyłączamy sprzężenia emisji, tak aby później, gdy uruchomimy zapytania sprzężenia, platforma Spark używa sprzężenia Sort-merge. Jest to głównie pokazuje, jak indeksy hiperprzestrzeni byłyby stosowane na dużą skalę w celu przyspieszenia zapytań do sprzężeń.
+
+Dane wyjściowe w następującej komórce zawierają odwołanie do pomyślnie utworzonej sesji platformy Spark i drukuje "-1" jako wartość zmodyfikowanej konfiguracji dołączania, która wskazuje, że sprzężenie emisji zostało pomyślnie wyłączone.
 
 :::zone pivot = "programming-language-scala"
 
@@ -44,7 +46,7 @@ Dane wyjściowe w poniższej komórce zawierają odwołanie do pomyślnie utworz
 // Start your Spark session
 spark
 
-// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently hyperspace indexes utilize SortMergeJoin to speed up query.
+// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
 
 // Verify that BroadcastHashJoin is set correctly
@@ -57,10 +59,10 @@ println(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
 :::zone pivot = "programming-language-python"
 
 ```python
-# Start your Spark session
+# Start your Spark session.
 spark
 
-# Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently Hyperspace indexes utilize SortMergeJoin to speed up query.
+# Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
 
 # Verify that BroadcastHashJoin is set correctly 
@@ -72,10 +74,10 @@ print(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-// Disable BroadcastHashJoin, so Spark™ will use standard SortMergeJoin. Currently hyperspace indexes utilize SortMergeJoin to speed up query.
+// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.Conf().Set("spark.sql.autoBroadcastJoinThreshold", -1);
 
-// Verify that BroadcastHashJoin is set correctly 
+// Verify that BroadcastHashJoin is set correctly.
 Console.WriteLine(spark.Conf().Get("spark.sql.autoBroadcastJoinThreshold"));
 ```
 
@@ -90,11 +92,11 @@ res3: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@297e
 
 ## <a name="data-preparation"></a>Przygotowywanie danych
 
-Aby przygotować środowisko, utworzysz przykładowe rekordy danych i Zapisz je jako pliki danych Parquet. Podczas gdy Parquet jest używany na potrzeby ilustracji, można użyć innych formatów, takich jak CSV. W kolejnych komórkach zobaczysz, jak utworzyć kilka indeksów hiperprzestrzeni dla tego przykładowego zestawu danych i jak można użyć ich przy uruchamianiu zapytań.
+Aby przygotować środowisko, utworzysz przykładowe rekordy danych i Zapisz je jako pliki danych Parquet. Parquet jest używany na potrzeby ilustracji, ale można również użyć innych formatów, takich jak CSV. W kolejnych komórkach zobaczysz, jak utworzyć kilka indeksów hiperprzestrzeni dla tego przykładowego zestawu danych i użyć ich przy uruchamianiu zapytań.
 
 Przykładowe rekordy odnoszą się do dwóch zestawów danych: działu i pracownika. Należy skonfigurować ścieżki "empLocation" i "deptLocation", aby na koncie magazynu wskazywały żądaną lokalizację w celu zapisania wygenerowanych plików danych.
 
-Dane wyjściowe uruchomionej poniżej komórki pokazują zawartość naszych zestawów danych jako listy Triplets, a następnie odwołania do ramek dataframes utworzonych w celu zapisania zawartości każdego zestawu danych w naszym preferowanej lokalizacji.
+W danych wyjściowych w poniższej komórce przedstawiono zawartość naszych zestawów danych jako listy Triplets, a następnie odwołania do ramek dataframes utworzonych w celu zapisania zawartości każdego zestawu danych w naszym preferowanej lokalizacji.
 
 :::zone pivot = "programming-language-scala"
 
@@ -240,9 +242,9 @@ empLocation: String = /your-path/employees.parquet
 deptLocation: String = /your-path/departments.parquet  
 ```
 
-Sprawdźmy zawartość plików Parquet utworzonych powyżej, aby upewnić się, że zawierają one oczekiwane rekordy w poprawnym formacie. Później używamy tych plików danych do tworzenia indeksów hiperprzestrzeni i uruchamiania przykładowych zapytań.
+Sprawdźmy zawartość utworzonych przez siebie plików Parquet, aby upewnić się, że zawierają one oczekiwane rekordy w poprawnym formacie. Później będziemy używać tych plików danych do tworzenia indeksów hiperprzestrzeni i uruchamiania przykładowych zapytań.
 
-Uruchomienie poniższej komórki spowoduje wyświetlenie wierszy w ramkach danych pracownika i działu w formie tabelarycznej. Powinna istnieć 14 pracowników i 4 działy, każdy pasujący do jednego z Triplets utworzonych w poprzedniej komórce.
+Uruchomienie następującej komórki powoduje utworzenie i wyjście, które wyświetla wiersze w ramkach danych pracownika i działu w formie tabelarycznej. Powinna istnieć 14 pracowników i 4 działy, każdy pasujący do jednego z Triplets utworzonych w poprzedniej komórce.
 
 :::zone pivot = "programming-language-scala"
 
@@ -262,7 +264,7 @@ deptDF.show()
 
 ```python
 
-# emp_Location and dept_Location are the user defined locations above to save parquet files
+# emp_Location and dept_Location are the user-defined locations above to save parquet files
 emp_DF = spark.read.parquet(emp_Location)
 dept_DF = spark.read.parquet(dept_Location)
 
@@ -278,7 +280,7 @@ dept_DF.show()
 
 ```csharp
 
-// empLocation and deptLocation are the user defined locations above to save parquet files
+// empLocation and deptLocation are the user-defined locations above to save parquet files
 DataFrame empDF = spark.Read().Parquet(empLocation);
 DataFrame deptDF = spark.Read().Parquet(deptLocation);
 
@@ -329,18 +331,22 @@ deptDF: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 mo
 
 ## <a name="indexes"></a>Indeksy
 
-Hiperprzestrzeni umożliwia tworzenie indeksów dla rekordów skanowanych z utrwalonych plików danych. Po pomyślnym utworzeniu wpis odpowiadający indeksowi zostanie dodany do metadanych hiperprzestrzeni. Te metadane są później używane przez optymalizator Apache Spark (z naszymi rozszerzeniami) podczas przetwarzania zapytań w celu znalezienia i użycia właściwych indeksów.
+Hiperprzestrzeni umożliwia tworzenie indeksów dla rekordów skanowanych z utrwalonych plików danych. Po ich pomyślnym utworzeniu wpis, który odpowiada indeksowi, zostanie dodany do metadanych hiperprzestrzeni. Te metadane są później używane przez optymalizator Apache Spark (z naszymi rozszerzeniami) podczas przetwarzania zapytań w celu znalezienia i użycia właściwych indeksów.
 
 Po utworzeniu indeksów można wykonać kilka akcji:
 
+* **Odśwież, jeśli dane bazowe zmienią się.** Można odświeżyć istniejący indeks, aby przechwycić zmiany.
+* **Usuń, jeśli indeks nie jest wymagany.** Można wykonać nietrwałe usunięcie, czyli indeks nie został fizycznie usunięty, ale jest oznaczony jako "usunięty", aby nie był już używany w obciążeniach.
+* **Próżniowy, jeśli indeks nie jest już wymagany.** Można próżniowo indeks, co wymusza fizyczne usunięcie zawartości indeksu i skojarzonych metadanych całkowicie z metadanych hiperprzestrzeni.
+
 Odświeżanie, jeśli dane bazowe zmienią się, można odświeżyć istniejący indeks w celu przechwycenia.
 Usuń Jeśli indeks nie jest wymagany, można wykonać usuwanie nietrwałe, czyli indeks nie został fizycznie usunięty, ale jest oznaczony jako "usunięty", więc nie jest już używany w obciążeniach.
-Próżniowy Jeśli indeks nie jest już wymagany, można go próżniowo, co wymusza fizyczne usunięcie zawartości indeksu i powiązanych metadanych całkowicie z metadanych hiperprzestrzeni.
+
 W poniższych sekcjach pokazano, jak takie operacje zarządzania indeksami można wykonać w miejscu.
 
 Najpierw należy zaimportować wymagane biblioteki i utworzyć wystąpienie hiperprzestrzeni. Później użyjesz tego wystąpienia, aby wywoływać różne interfejsy API hiperprzestrzeni do tworzenia indeksów na przykładowych danych i modyfikować te indeksy.
 
-Dane wyjściowe uruchomionej poniżej komórki pokazują odwołanie do utworzonego wystąpienia hiperprzestrzeni.
+Wyjście z uruchamiania następującej komórki pokazuje odwołanie do utworzonego wystąpienia hiperprzestrzeni.
 
 :::zone pivot = "programming-language-scala"
 
@@ -388,9 +394,10 @@ hyperspace: com.microsoft.hyperspace.Hyperspace = com.microsoft.hyperspace.Hyper
 
 Aby utworzyć indeks hiperprzestrzeni, należy podać dwie informacje:
 
-Ramka Dataframe, która odwołuje się do danych, które mają być indeksowane.
-Obiekt konfiguracji indeksu: IndexConfig, który określa nazwę indeksu, indeksowane i uwzględnione kolumny indeksu.
-Zacznij od tworzenia trzech indeksów hiperprzestrzeni na naszych przykładowych danych: dwa indeksy w zestawie danych działu o nazwie "deptIndex1" i "deptIndex2" oraz jeden indeks w zestawie danych pracownika o nazwie "empIndex". Dla każdego indeksu potrzebna jest odpowiednia IndexConfig do przechwycenia nazwy wraz z listami kolumn dla indeksowanych i uwzględnionych kolumn. Uruchomienie poniższej komórki powoduje utworzenie tych indexConfigs i ich danych wyjściowych.
+* Ramka Dataframe, która odwołuje się do danych, które mają być indeksowane.
+* Obiekt konfiguracji indeksu, IndexConfig, który określa nazwę indeksu i indeksowane i uwzględnione kolumny indeksu.
+
+Zacznij od tworzenia trzech indeksów hiperprzestrzeni na naszych przykładowych danych: dwa indeksy w zestawie danych działu o nazwie "deptIndex1" i "deptIndex2" oraz jeden indeks w zestawie danych pracownika o nazwie "empIndex". Dla każdego indeksu potrzebna jest odpowiednia IndexConfig do przechwycenia nazwy wraz z listami kolumn dla indeksowanych i uwzględnionych kolumn. Uruchomienie następującej komórki powoduje utworzenie tych IndexConfigs i wyświetlenie ich w danych wyjściowych.
 
 > [!Note]
 > Kolumna indeksu to kolumna, która pojawia się w filtrach lub w warunkach sprzężenia. Kolumna uwzględniona jest kolumną wyświetlaną w ramach wyboru/projektu.
@@ -454,8 +461,7 @@ empIndexConfig: com.microsoft.hyperspace.index.IndexConfig = [indexName: empInde
 deptIndexConfig1: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex1; indexedColumns: deptid; includedColumns: deptname]  
 deptIndexConfig2: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex2; indexedColumns: location; includedColumns: deptname]  
 ```
-
-Teraz utworzysz trzy indeksy przy użyciu konfiguracji indeksu. W tym celu należy wywołać polecenie "CreateInstance" w naszym wystąpieniu hiperprzestrzeni. To polecenie wymaga konfiguracji indeksu i ramki danych zawierającej wiersze do indeksowania. Uruchomienie poniższej komórki powoduje utworzenie trzech indeksów.
+Teraz utworzysz trzy indeksy przy użyciu konfiguracji indeksu. W tym celu należy wywołać polecenie "CreateInstance" w naszym wystąpieniu hiperprzestrzeni. To polecenie wymaga konfiguracji indeksu i ramki danych zawierającej wiersze do indeksowania. Uruchomienie następującej komórki powoduje utworzenie trzech indeksów.
 
 :::zone pivot = "programming-language-scala"
 
@@ -505,14 +511,17 @@ import com.microsoft.hyperspace.index.Index
 
 ## <a name="list-indexes"></a>Indeksy listy
 
-Poniższy kod pokazuje, jak można wyświetlić listę wszystkich dostępnych indeksów w wystąpieniu hiperprzestrzeni. Używa interfejsu API "Indexs", który zwraca informacje o istniejących indeksach jako element Dataframe, aby można było wykonać dodatkowe operacje. Na przykład można wywołać prawidłowe operacje dla tej ramki danych w celu sprawdzenia jej zawartości lub przeanalizowania jej w dalszej części (na przykład filtrowanie określonych indeksów lub grupowanie ich zgodnie z określoną żądaną właściwością).
+Poniższy kod pokazuje, jak można wyświetlić listę wszystkich dostępnych indeksów w wystąpieniu hiperprzestrzeni. Używa interfejsu API "Indexs", który zwraca informacje o istniejących indeksach jako element Dataframe, aby można było wykonać dodatkowe operacje. 
 
-W komórce poniżej zostanie użyta akcja "Pokaż" ramki danych w celu pełnego wydrukowania wierszy i wyświetlenia szczegółów naszych indeksów w formie tabelarycznej. Dla każdego indeksu można zobaczyć wszystkie miejsca, w których zapisano wszystkie informacje w metadanych. Natychmiast Zwróć uwagę na następujące kwestie:
+Na przykład można wywołać prawidłowe operacje dla tej ramki danych w celu sprawdzenia jej zawartości lub przeanalizowania jej w dalszej części (na przykład filtrowanie określonych indeksów lub grupowanie ich zgodnie z określoną żądaną właściwością).
 
-* "config. IndexName", "config. indexedColumns", "config. includedColumns" i "status. status" to pola, do których użytkownik zwykle się odwołuje.
-* "dfSignature" jest generowany automatycznie przez hiperprzestrzeni i jest unikatowy dla każdego indeksu. Hiperprzestrzeni używa tej sygnatury wewnętrznie, aby zachować indeks i wykorzystać go w czasie wykonywania zapytania.
+W poniższej komórce jest stosowana akcja "Pokaż" ramki danych w celu pełnego wydrukowania wierszy i wyświetlenia szczegółów naszych indeksów w formie tabelarycznej. Dla każdego indeksu można zobaczyć wszystkie miejsca, w których zapisano wszystkie informacje w metadanych. Natychmiast Zwróć uwagę na następujące kwestie:
 
-W danych wyjściowych, wszystkie trzy indeksy powinny mieć wartość "aktywny" jako stan i ich nazwę, kolumny indeksowane i uwzględnione kolumny powinny być zgodne z ustawieniami zdefiniowanymi w powyższych konfiguracjach indeksu.
+* config. IndexName, config. indexedColumns, config. includedColumns i status. status są polami, do których użytkownik zwykle się odwołuje.
+* dfSignature jest generowany automatycznie przez hiperprzestrzeni i jest unikatowy dla każdego indeksu. Hiperprzestrzeni używa tej sygnatury wewnętrznie, aby zachować indeks i wykorzystać go w czasie wykonywania zapytania.
+
+
+W poniższych danych wyjściowych wszystkie trzy indeksy powinny mieć wartość "ACTIVE" jako stan, a ich nazwy, kolumny indeksowane i uwzględnione kolumny powinny być zgodne z informacjami zdefiniowanymi w powyższych konfiguracjach indeksu.
 
 :::zone pivot = "programming-language-scala"
 
@@ -554,9 +563,11 @@ Wyniki w:
 
 ## <a name="delete-indexes"></a>Usuwanie indeksów
 
-Istniejący indeks można usunąć za pomocą interfejsu API "deleteIndex" i podając nazwę indeksu. Usuwanie indeksu wykonuje usuwanie nietrwałe: polega głównie na aktualizowaniu stanu indeksu w metadanych hiperprzestrzeni z "aktywne" do "usunięte". Spowoduje to wykluczenie usuniętego indeksu z jakichkolwiek przyszłych optymalizacji zapytań i hiperprzestrzeni nie będą już wybierane tego indeksu dla jakichkolwiek zapytań. Jednak pliki indeksów dla usuniętego indeksu nadal pozostają dostępne (ponieważ jest to usuwanie nietrwałe), dzięki czemu można przywrócić indeks, jeśli zostanie wyświetlony monit użytkownika.
+Istniejący indeks można usunąć za pomocą interfejsu API "deleteIndex" i podając nazwę indeksu. Usuwanie indeksu wykonuje usuwanie nietrwałe: polega głównie na aktualizowaniu stanu indeksu w metadanych hiperprzestrzeni z "aktywne" do "usunięte". Spowoduje to wykluczenie usuniętego indeksu z jakichkolwiek przyszłych optymalizacji zapytań i hiperprzestrzeni nie będą już wybierane tego indeksu dla jakichkolwiek zapytań. 
 
-W komórce poniżej zostanie usunięty indeks o nazwie "deptIndex2" i lista metadanych hiperprzestrzeni. Dane wyjściowe powinny być podobne do powyższej komórki dla "indeksy list" z wyjątkiem "deptIndex2", który teraz powinien zmienić jego stan na "usunięty".
+Jednak pliki indeksów dla usuniętego indeksu nadal pozostają dostępne (ponieważ jest to usuwanie nietrwałe), dzięki czemu można przywrócić indeks, jeśli zostanie wyświetlony monit użytkownika.
+
+Poniższa komórka usuwa indeks o nazwie "deptIndex2" i wyświetla listę metadanych hiperprzestrzeni po tym elemencie. Dane wyjściowe powinny być podobne do powyższej komórki dla "indeksy list" z wyjątkiem "deptIndex2", który teraz powinien zmienić jego stan na "usunięty".
 
 :::zone pivot = "programming-language-scala"
 
@@ -666,9 +677,9 @@ Wyniki w:
 
 ## <a name="vacuum-indexes"></a>Indeksy próżniowe
 
-Możesz wykonać twarde usunięcie, czyli całkowicie usunąć pliki i wpis metadanych dla usuniętego indeksu przy użyciu polecenia "vacuumIndex". Po wykonaniu tej czynności ta akcja jest nieodwracalna, ponieważ fizycznie usuwa wszystkie pliki indeksu (co jest przyczyną trwałego usunięcia).
+Można wykonać twarde usuwanie, czyli całkowicie usunąć pliki i wpis metadanych dla usuniętego indeksu przy użyciu polecenia **vacuumIndex** . Ta akcja jest nieodwracalna. Fizycznie usuwa wszystkie pliki indeksu, co oznacza, że jest to trudne do usunięcia.
 
-W komórce poniżej próżniowo indeks "deptIndex2" i przedstawiono metadane hiperprzestrzeni po podciśnieniu. Należy wyświetlić wpisy metadanych dla dwóch indeksów "deptIndex1" i "empIndex", zarówno w stanie "ACTIVE", jak i bez wpisu dla "deptIndex2".
+W poniższej komórce przepróżniuje indeks "deptIndex2" i wyświetla metadane hiperprzestrzeni po podciśnieniu. Należy wyświetlić wpisy metadanych dla dwóch indeksów "deptIndex1" i "empIndex", zarówno w stanie "ACTIVE", jak i bez wpisu dla "deptIndex2".
 
 :::zone pivot = "programming-language-scala"
 
@@ -711,13 +722,14 @@ Wyniki w:
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
 ```
 
-## <a name="enabledisable-hyperspace"></a>Włącz/Wyłącz hiperprzestrzeni
+## <a name="enable-or-disable-hyperspace"></a>Włącz lub Wyłącz hiperprzestrzeni
 
 Hiperprzestrzeni udostępnia interfejsy API umożliwiające Włączanie lub wyłączanie użycia indeksów przy użyciu platformy Spark.
 
-Za pomocą polecenia "enableHyperspace" reguły optymalizacji hiperprzestrzeni stają się widoczne dla Optymalizatora Spark i będą korzystały z istniejących indeksów hiperprzestrzeni w celu optymalizowania zapytań użytkownika.
-Korzystając z polecenia "disableHyperspace", reguły hiperprzestrzeni nie są już stosowane podczas optymalizacji zapytania. Należy zauważyć, że wyłączenie hiperprzestrzeni nie ma wpływu na utworzone indeksy, ponieważ pozostają nienaruszone.
-W poniższej komórce pokazano, jak można użyć tych poleceń do włączenia lub wyłączenia hiperprzestrzeni. Dane wyjściowe po prostu pokazują odwołanie do istniejącej sesji platformy Spark, której konfiguracja została zaktualizowana.
+* Za pomocą polecenia **enableHyperspace** reguły optymalizacji hiperprzestrzeni stają się widoczne dla Optymalizatora Spark i wykorzystują istniejące indeksy hiperprzestrzeni do optymalizowania zapytań użytkowników.
+* Przy użyciu polecenia **disableHyperspace** reguły hiperprzestrzeni nie są już stosowane podczas optymalizacji zapytania. Wyłączenie obszaru hiperprzestrzeni nie ma wpływu na utworzone indeksy, ponieważ pozostają nienaruszone.
+
+W poniższej komórce pokazano, jak można użyć tych poleceń do włączenia lub wyłączenia hiperprzestrzeni. Dane wyjściowe zawierają odwołanie do istniejącej sesji platformy Spark, której konfiguracja została zaktualizowana.
 
 :::zone pivot = "programming-language-scala"
 
@@ -768,9 +780,9 @@ res51: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@
 
 ## <a name="index-usage"></a>Użycie indeksu
 
-Aby zapewnić, że platforma Spark używa indeksów hiperprzestrzeni podczas przetwarzania zapytania, należy upewnić się, że funkcja hiperprzestrzeni jest włączona.
+Aby zapewnić, że platforma Spark użyje indeksów hiperprzestrzeni podczas przetwarzania zapytania, należy upewnić się, że funkcja hiperprzestrzeni jest włączona.
 
-W poniższej komórce można utworzyć miejsce i tworzyć dwie ramki Dataframe zawierające przykładowe rekordy danych, które służą do uruchamiania przykładowych zapytań. Dla każdej ramki danych drukowane są kilka przykładowych wierszy.
+W poniższej komórce jest włączona funkcja hiperprzestrzeni i tworzone są dwie ramki danych zawierające dane przykładowe rekordy, które służą do uruchamiania przykładowych zapytań. Dla każdej ramki danych drukowane są kilka przykładowych wierszy.
 
 :::zone pivot = "programming-language-scala"
 
@@ -857,11 +869,11 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 Obecnie hiperprzestrzeni ma reguły umożliwiające wykorzystanie indeksów dla dwóch grup zapytań:
 
 * Zapytania wyboru z predykatami filtrowania wyboru zakresu
-* Sprzęganie zapytań przy użyciu predykatu sprzężenia równości (czyli Equi-joins).
+* Dołącz zapytania z predykatem sprzężenia równości (czyli equijoins).
 
 ## <a name="indexes-for-accelerating-filters"></a>Indeksy na potrzeby przyspieszania filtrów
 
-Pierwsze przykładowe zapytanie wykonuje wyszukiwanie rekordów działu (patrz poniżej komórka). W programie SQL to zapytanie wygląda następująco:
+Pierwsze przykładowe zapytanie wykonuje wyszukiwanie rekordów działu, jak pokazano w poniższej komórce. W programie SQL to zapytanie wygląda podobnie do poniższego przykładu:
 
 ```sql
 SELECT deptName
@@ -869,12 +881,12 @@ FROM departments
 WHERE deptId = 20
 ```
 
-Poniżej przedstawiono dane wyjściowe uruchomionej komórki poniżej:
+W danych wyjściowych w poniższej komórce przedstawiono następujące elementy:
 
 * Wynik zapytania, który jest nazwą pojedynczego działu.
 * Plan zapytania, który jest używany do uruchamiania zapytania przez platformę Spark.
 
-W planie zapytania operator "FileScan" w dolnej części planu pokazuje źródło danych, z którego zostały odczytane rekordy. Lokalizacja tego pliku wskazuje ścieżkę do najnowszej wersji indeksu "deptIndex1". Pokazuje to, że zgodnie z kwerendą i przy użyciu reguł optymalizacji hiperprzestrzeni, platforma Spark zdecydowała się wykorzystać właściwy indeks w czasie wykonywania.
+W planie zapytania operator **FileScan** w dolnej części planu wskazuje źródło danych, z którego zostały odczytane rekordy. Lokalizacja tego pliku wskazuje ścieżkę do najnowszej wersji indeksu "deptIndex1". Te informacje pokazują, że zgodnie z kwerendą i przy użyciu reguł optymalizacji hiperprzestrzeni, platforma Spark zdecydowała się wykorzystać właściwy indeks w czasie wykonywania.
 
 :::zone pivot = "programming-language-scala"
 
@@ -954,7 +966,7 @@ Project [deptName#534]
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), EqualTo(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
 
-Drugim przykładem jest zapytanie wyboru zakresu dla rekordów działu. W programie SQL to zapytanie wygląda następująco:
+Drugim przykładem jest zapytanie wyboru zakresu dla rekordów działu. W programie SQL to zapytanie wygląda podobnie do poniższego przykładu:
 
 ```sql
 SELECT deptName
@@ -962,7 +974,7 @@ FROM departments
 WHERE deptId > 20
 ```
 
-Podobnie jak w przypadku pierwszego przykładu dane wyjściowe z poniższej komórki pokazują wyniki zapytania (nazwy dwóch działów) i plan zapytania. Lokalizacja pliku danych w operatorze FileScan pokazuje, że do uruchomienia zapytania użyto elementu "deptIndex1".
+Podobnie jak w przypadku pierwszego przykładu, dane wyjściowe następującej komórki przedstawiają wyniki zapytania (nazwy dwóch działów) i plan zapytania. Lokalizacja pliku danych w operatorze **FileScan** pokazuje, że do uruchomienia zapytania użyto elementu "deptIndex1".
 
 :::zone pivot = "programming-language-scala"
 
@@ -1041,16 +1053,14 @@ Project [deptName#534]
 +- *(1) Filter (isnotnull(deptId#533) && (deptId#533 > 20))
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
-
-Trzeci przykład to zapytanie łączące dział i rekordy pracowników na identyfikator działu. Poniżej przedstawiono równoważną instrukcję SQL:
+Trzeci przykład to zapytanie łączące dział i rekordy pracowników na identyfikator działu. Równoważna instrukcja SQL jest pokazana w następujący sposób:
 
 ```sql
 SELECT employees.deptId, empName, departments.deptId, deptName
 FROM   employees, departments
 WHERE  employees.deptId = departments.deptId
 ```
-
-W danych wyjściowych w poniższej komórce przedstawiono wyniki zapytania, czyli nazwy 14 pracowników i nazwy działów, w których pracuje każdy pracownik. Plan zapytania jest również uwzględniony w danych wyjściowych. Zwróć uwagę, jak lokalizacje plików dwóch operatorów FileScan pokazują, że platforma Spark użyła indeksów "empIndex" i "deptIndex1", aby uruchomić zapytanie.
+Wyjście z następującej komórki pokazuje wyniki zapytania, czyli nazwy 14 pracowników i nazwę działu, w którym pracuje każdy pracownik. Plan zapytania jest również uwzględniony w danych wyjściowych. Zwróć uwagę, jak lokalizacje plików dwóch operatorów **FileScan** pokazują, że platforma Spark użyła indeksów "empIndex" i "deptIndex1", aby uruchomić zapytanie.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1286,7 +1296,7 @@ Project [empName#528, deptName#534]
 
 ## <a name="explain-api"></a>Wyjaśnij interfejs API
 
-Indeksy są wspaniałe, ale jak wiesz, czy są używane? Hiperprzestrzeni pozwala użytkownikom porównać ich oryginalny plan z zaktualizowanym planem zależnym od indeksu przed uruchomieniem zapytania. Możesz wybrać opcję z HTML/zwykłego tekstu/konsoli, aby wyświetlić dane wyjściowe polecenia.
+Indeksy są doskonałe, ale jak wiesz, czy są one używane? Hiperprzestrzeni umożliwia użytkownikom porównanie ich oryginalnego planu z zaktualizowanym planem zależnym od indeksu przed uruchomieniem zapytania. Istnieje możliwość wyboru z trybu HTML, zwykłego tekstu lub konsoli, aby wyświetlić dane wyjściowe polecenia.
 
 W poniższej komórce przedstawiono przykład o kodzie HTML. Wyróżniona sekcja reprezentuje różnicę między oryginalnymi i zaktualizowanymi planami wraz z używanymi indeksami.
 
@@ -1367,12 +1377,12 @@ empIndex:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/<container>/i
 
 ## <a name="refresh-indexes"></a>Odśwież indeksy
 
-Jeśli oryginalne dane, na których utworzono indeks, zostały zmienione, indeks nie będzie już przechwytywać najnowszego stanu danych. Można odświeżyć taki nieodświeżony indeks za pomocą polecenia "refreshIndex". Powoduje to, że indeks zostanie całkowicie odbudowany i zaktualizowany zgodnie z najnowszymi rekordami danych (nie martw się, zobaczymy, jak stopniowo odświeżać indeks w innych notesach).
+Jeśli oryginalne dane, na których został utworzony indeks, nie będą już przechwytywać najnowszego stanu danych. Można odświeżyć stary indeks przy użyciu polecenia **refreshIndex** . To polecenie powoduje, że indeks zostanie całkowicie odbudowany i zaktualizowany zgodnie z najnowszymi rekordami danych. Pokażemy, jak stopniowo odświeżyć indeks w innych notesach.
 
-W poniższych dwóch komórkach pokazano przykład dla tego scenariusza:
+W poniższych dwóch komórkach przedstawiono przykład dla tego scenariusza:
 
-* Pierwsza komórka dodaje do danych pierwotnych działów dwa więcej działów. Odczytuje i drukuje listę działów, aby sprawdzić, czy nowe działy są prawidłowo dodawane. Dane wyjściowe przedstawiają sześć wydziałów łącznie: cztery stare i dwa nowe. Wywoływanie "refreshIndex" aktualizuje "deptIndex1", co spowoduje, że indeks przechwytuje nowe działy.
-* W drugiej komórce jest uruchamiany nasz przykład zapytania wyboru zakresu. Wyniki powinny teraz zawierać cztery działy: dwa są tymi, które są widoczne przed uruchomieniem zapytania powyżej, i dwa to nowo dodane przez nas nowe działy.
+* Pierwsza komórka dodaje do danych pierwotnych działów dwa więcej działów. Odczytuje i drukuje listę działów, aby sprawdzić, czy nowe działy są prawidłowo dodawane. Dane wyjściowe przedstawiają sześć wydziałów łącznie: cztery stare i dwa nowe. Wywoływanie aktualizacji **refreshIndex** "deptIndex1", aby indeks przechwytł nowe działy.
+* W drugiej komórce jest uruchamiany nasz przykład zapytania wyboru zakresu. Wyniki powinny teraz zawierać cztery działy: dwa są tymi, które były widoczne przed uruchomieniem powyższego zapytania, a dwa to nowe dodane działy.
 
 ### <a name="specific-index-refresh"></a>Odświeżenie indeksu
 

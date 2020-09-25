@@ -3,12 +3,12 @@ title: Przekaż plik VHD do Azure DevTest Labs przy użyciu Eksplorator usługi 
 description: Przekaż plik VHD do konta magazynu laboratorium przy użyciu Eksplorator usługi Microsoft Azure Storage
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282531"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Przekaż plik VHD do konta magazynu laboratorium przy użyciu Eksplorator usługi Microsoft Azure Storage
 
@@ -90,13 +90,13 @@ Poniższe kroki przeprowadzą Cię przez proces przekazywania pliku VHD do DevTe
 
     1. W okienku Eksplorator usługi Storage po prawej stronie powinna zostać wyświetlona lista obiektów BLOB w kontenerze obiektów BLOB **przekazywania** dla konta magazynu laboratorium. Na pasku narzędzi Edytora obiektów BLOB wybierz pozycję **Przekaż** . 
         
-        ![Przycisk Przekaż][6]
+        ![Zrzut ekranu przedstawiający okienko Eksplorator usługi Storage po prawej stronie z wybranym przyciskiem "Przekaż".][6]
     
     1. Z menu rozwijanego **Przekaż** wybierz pozycję **Przekaż pliki.**...
     
     1. W oknie dialogowym **przekazywanie plików** wybierz wielokropek.
         
-        ![Wybierz plik][8]  
+        ![Zrzut ekranu pokazujący okno dialogowe "przekazywanie plików" z wybranym wielokropkiem.][8]  
 
     1. W oknie dialogowym **Wybieranie plików do przekazania** przejdź do żądanego pliku VHD, zaznacz go, a następnie wybierz pozycję **Otwórz**.
     

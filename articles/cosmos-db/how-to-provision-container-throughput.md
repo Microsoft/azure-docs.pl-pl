@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cf2bd616fc739d233826769baaa14298d0fcec2d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 8c4259383196734c6e15c4ea261092938b1dd404
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017128"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282820"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Inicjowanie obsługi przepływności standardowej (ręcznej) w kontenerze usługi Azure Cosmos
 
@@ -30,7 +30,7 @@ W tym artykule wyjaśniono, jak zainicjować standardową (ręczną) przepływno
    * Wprowadź identyfikator kontenera (lub tabeli lub grafu).
    * Wprowadź wartość klucza partycji (na przykład `/userid`).
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Kliknij przycisk **OK**.
+   * Wybierz przycisk **OK**.
 
     :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png" alt-text="Zrzut ekranu okienka usługi Data Explorer z wyróżnioną pozycją Nowa kolekcja":::
 
@@ -141,7 +141,7 @@ session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throug
 ```
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zobacz następujące artykuły, aby dowiedzieć się więcej na temat aprowizowania przepływności w usłudze Azure Cosmos DB:
 

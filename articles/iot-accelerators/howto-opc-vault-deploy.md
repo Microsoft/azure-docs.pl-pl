@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307932"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282027"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Kompilowanie i wdrażanie usługi zarządzania certyfikatami magazynu OPC
+
+> [!IMPORTANT]
+> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
 
 W tym artykule opisano sposób wdrażania usługi zarządzania certyfikatami magazynu OPC na platformie Azure.
 
@@ -75,9 +78,9 @@ Skrypt programu PowerShell zapewnia łatwy sposób wdrażania mikrousług magazy
    > [!NOTE]
    > W razie problemów zapoznaj się z sekcją "Rozwiązywanie problemów z błędami wdrażania" w dalszej części artykułu.
 
-8. Otwórz ulubioną przeglądarkę i Otwórz stronę aplikacji:`https://myResourceGroup.azurewebsites.net`
+8. Otwórz ulubioną przeglądarkę i Otwórz stronę aplikacji: `https://myResourceGroup.azurewebsites.net`
 8. Nadajesz aplikacji sieci Web i mikrousługom magazynu OPC kilka minut, aby rozgrzać po wdrożeniu. Strona główna sieci Web może przestać odpowiadać przy pierwszym użyciu, przez maksymalnie minutę, aż do momentu otrzymania pierwszych odpowiedzi.
-11. Aby zapoznać się z interfejsem API struktury Swagger, Otwórz:`https://myResourceGroup-service.azurewebsites.net`
+11. Aby zapoznać się z interfejsem API struktury Swagger, Otwórz: `https://myResourceGroup-service.azurewebsites.net`
 13. Aby uruchomić lokalny serwer GDS z programem dotnet, uruchom polecenie `.\myResourceGroup-gds.cmd` . Przy użyciu platformy Docker Uruchom polecenie `.\myResourceGroup-dockergds.cmd` .
 
 Można ponownie wdrożyć kompilację z dokładnie tymi samymi ustawieniami. Należy pamiętać, że taka operacja odnawia wszystkie wpisy tajne aplikacji i może zresetować niektóre ustawienia w rejestracjach aplikacji Azure Active Directory (Azure AD).

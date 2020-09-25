@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/06/2020
 tags: connectors
-ms.openlocfilehash: e500f678d2066d24de12a04f28ccbdb3f76eda3a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326783"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatyzowanie przepływów pracy dla bazy danych SQL przy użyciu Azure Logic Apps
 
@@ -74,12 +74,12 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
    | Authentication | Opis |
    |----------------|-------------|
    | [**Integracja z usługą Azure AD**](../azure-sql/database/authentication-aad-overview.md) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej tożsamości w usłudze Azure Active Directory (Azure AD), która ma dostęp do bazy danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL — uwierzytelnianie zintegrowane z usługą Azure AD](../azure-sql/database/authentication-aad-overview.md) |
-   | [**Uwierzytelnianie programu SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w bazie danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**Uwierzytelnianie SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w bazie danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    Ten przykład jest kontynuowany z **integracją z usługą Azure AD**:
 
-   ![Wybierz typ uwierzytelniania do użycia](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
+   ![Zrzut ekranu przedstawiający okno połączenia "SQL Server" z otwartą listą "typ uwierzytelniania" i wybraną opcją "Azure AD Integrated".](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
 1. Po wybraniu opcji **integracja z usługą Azure AD**wybierz pozycję **Zaloguj**. W zależności od tego, czy używasz Azure SQL Database, czy z wystąpienia zarządzanego Azure SQL, wybierz poświadczenia użytkownika na potrzeby uwierzytelniania.
 
@@ -87,9 +87,9 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
 
    | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
-   | **Nazwa serwera** | Tak | Adres serwera SQL, na przykład`Fabrikam-Azure-SQL.database.windows.net` |
-   | **Nazwa bazy danych** | Tak | Nazwa bazy danych SQL, na przykład`Fabrikam-Azure-SQL-DB` |
-   | **Nazwa tabeli** | Tak | Tabela, której chcesz użyć, na przykład`SalesLT.Customer` |
+   | **Nazwa serwera** | Yes | Adres serwera SQL, na przykład `Fabrikam-Azure-SQL.database.windows.net` |
+   | **Nazwa bazy danych** | Tak | Nazwa bazy danych SQL, na przykład `Fabrikam-Azure-SQL-DB` |
+   | **Nazwa tabeli** | Tak | Tabela, której chcesz użyć, na przykład `SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -118,7 +118,7 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
    | Authentication | Opis |
    |----------------|-------------|
    | [**Uwierzytelnianie systemu Windows**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Obsługuje tylko ISE łącznik SQL Server, który wymaga zasobu bramy danych, który został wcześniej utworzony na platformie Azure dla połączenia, niezależnie od tego, czy używasz wielodostępnej platformy Azure, czy ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i hasła systemu Windows w celu potwierdzenia tożsamości za pomocą konta systemu Windows. <p>Aby uzyskać więcej informacji, zobacz [uwierzytelnianie systemu Windows](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
-   | [**Uwierzytelnianie programu SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w SQL Server. <p>Aby uzyskać więcej informacji, zobacz [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**Uwierzytelnianie SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w SQL Server. <p>Aby uzyskać więcej informacji, zobacz [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
    Ten przykład jest kontynuowany z **uwierzytelnianiem systemu Windows**:
@@ -129,8 +129,8 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
 
    | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
-   | **Nazwa serwera SQL** | Tak | Adres serwera SQL, na przykład`Fabrikam-Azure-SQL.database.windows.net` |
-   | **SQL database name** (nazwa bazy danych SQL) | Tak | Nazwa bazy danych SQL Server, na przykład`Fabrikam-Azure-SQL-DB` |
+   | **Nazwa serwera SQL** | Tak | Adres serwera SQL, na przykład `Fabrikam-Azure-SQL.database.windows.net` |
+   | **SQL database name** (nazwa bazy danych SQL) | Tak | Nazwa bazy danych SQL Server, na przykład `Fabrikam-Azure-SQL-DB` |
    | **Nazwa użytkownika** | Tak | Nazwa użytkownika serwera SQL i bazy danych |
    | **Hasło** | Tak | Hasło do programu SQL Server i bazy danych |
    | **Subskrypcja** |  Tak, na potrzeby uwierzytelniania systemu Windows | Subskrypcja platformy Azure dla zasobu bramy danych, który został wcześniej utworzony na platformie Azure |

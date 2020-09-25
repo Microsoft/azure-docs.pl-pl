@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 86b15b0059c2e3466ef65daeb53780798b3882d0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c959231826125349ecd6a62afe529248f7ac2eec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079255"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326800"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Szyfruj aparat rozpoznawania danych w czasie spoczynku
 
-Aparat rozpoznawania formularzy platformy Azure automatycznie szyfruje dane po utrwaleniu ich w chmurze. Szyfrowanie aparatu rozpoznawania formularzy chroni dane i pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji.
+Aparat rozpoznawania formularzy platformy Azure automatycznie szyfruje dane podczas ich utrwalania w chmurze. Szyfrowanie aparatu rozpoznawania formularzy chroni dane, aby pomóc spełnić wymagania dotyczące zabezpieczeń i zgodności w organizacji.
 
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 

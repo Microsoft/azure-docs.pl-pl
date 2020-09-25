@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 32684ea72df63de5b82941b3ef44e9d579d09eb4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131892"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282616"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Use Job Browser and Job View for Azure Data Lake Analytics (Korzystanie z przeglądarki zadań i widoku zadań dla usługi Azure Data Lake Analytics)
 Usługi Azure Data Lake Analytics archiwizują przesłane zadania w magazynie zapytań. W tym artykule dowiesz się, jak używać przeglądarki zadań i widoku zadań w Azure Data Lake Tools for Visual Studio, aby znaleźć historyczne informacje o zadaniu. 
@@ -38,7 +38,7 @@ Widok zadania zawiera:
     
       Stan zadania przedstawia etapy zadania:
     
-      ![Stan faz zadania Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
+      ![Zrzut ekranu przedstawiający etapy zadania Azure Data Lake Analytics.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Przygotowywanie: Przekaż skrypt do chmury, kompilując i optymalizując skrypt za pomocą usługi kompilacji.
     * W kolejce: zadania są umieszczane w kolejce, gdy oczekują na wystarczającą ilość zasobów lub zadania przekraczają maksymalną liczbę współbieżnych zadań na konto. Ustawienie priorytetu Określa sekwencję zadań w kolejce — niższy numer, tym wyższy priorytet.
@@ -50,7 +50,7 @@ Widok zadania zawiera:
     
       Podstawowe informacje o zadaniu są wyświetlane w dolnej części panelu podsumowanie zadania.
     
-      ![Stan faz zadania Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
+      ![Zrzut ekranu pokazujący podsumowanie zadania z opisami w polach tekstowych.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
     * Wynik zadania: powodzenie lub niepowodzenie. Zadanie może zakończyć się niepowodzeniem w każdej fazie.
     * Łączny czas trwania: czas zegara ściany (czas trwania) między przesłaniem czasu a czasem zakończenia.
@@ -60,10 +60,10 @@ Widok zadania zawiera:
     * Konto: konto Data Lake Analytics używane do uruchamiania zadania.
     * Autor: użytkownik, który przesłał zadanie, może być kontem osoby rzeczywistej lub kontem systemowym.
     * Priorytet: priorytet zadania. Im niższa wartość, tym wyższy priorytet. Ma to wpływ tylko na sekwencję zadań w kolejce. Ustawienie wyższego priorytetu nie powoduje przełożonego uruchomionych zadań.
-    * Równoległość: żądana Maksymalna liczba współbieżnych Azure Data Lake Analytics jednostek (ADLAUs), aliasów. Obecnie jeden wierzchołek jest równy jednej maszynie wirtualnej z dwoma rdzeniami wirtualnymi i sześć GB pamięci RAM, chociaż może to zostać uaktualnione w przyszłości Data Lake Analytics aktualizacje.
+    * Równoległość: żądana Maksymalna liczba równoczesnych Azure Data Lake Analytics jednostek (ADLAUs), znana również jako wierzchołki. Obecnie jeden wierzchołek jest równy jednej maszynie wirtualnej z dwoma rdzeniami wirtualnymi i sześć GB pamięci RAM, chociaż może to zostać uaktualnione w przyszłości Data Lake Analytics aktualizacje.
     * Bajty pozostawione: bajty, które muszą zostać przetworzone do momentu ukończenia zadania.
     * Bajty do odczytu/zapisu: Bajty odczytane/zapisywana od momentu uruchomienia zadania.
-    * Łączna liczba wierzchołków: zadanie jest podzielone na wiele elementów pracy, każda część pracy jest nazywana wierzchołkiem. Ta wartość opisuje, ile elementów pracy składa się z zadania. Można rozważyć użycie wierzchołka jako podstawowej jednostki procesu, aliasu Azure Data Lake Analytics Unit (ADLAU), a wierzchołków można uruchamiać równolegle. 
+    * Łączna liczba wierzchołków: zadanie jest podzielone na wiele elementów pracy, każda część pracy jest nazywana wierzchołkiem. Ta wartość opisuje, ile elementów pracy składa się z zadania. Można wziąć pod uwagę wierzchołek jako podstawową jednostkę procesową, znaną również jako jednostka Azure Data Lake Analytics (ADLAU), a wierzchołki mogą być uruchamiane równolegle. 
     * Zakończono/uruchomiono/niepowodzenie — liczba wierzchołków ukończonych/uruchomionych/zakończonych niepowodzeniem. Wierzchołki mogą kończyć się niepowodzeniem z powodu błędów kodu użytkownika i systemu, ale automatyczne ponawianie prób w systemie nie powiodło się. Jeśli wierzchołk nadal nie powiedzie się po ponowieniu próby, całe zadanie zakończy się niepowodzeniem.
 * Wykres zadania
   
@@ -71,7 +71,7 @@ Widok zadania zawiera:
   
     ![Stan faz zadania Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    Zadanie jest podzielone na wiele elementów pracy. Każda część pracy nazywa się wierzchołkiem. Wierzchołki są pogrupowane jako indeks górny (czyli etap) i wizualizowane jako Graf zadań. W wykresach zadań zielonych etapów są wyświetlane etapy.
+    Zadanie jest podzielone na wiele elementów pracy. Każda część pracy nazywa się wierzchołkiem. Wierzchołki są pogrupowane jako indeks górny (nazywany również etapem) i wizualizowane jako Graf zadania. W wykresach zadań zielonych etapów są wyświetlane etapy.
   
     Każdy wierzchołek w fazie ma ten sam rodzaj pracy z różnymi fragmentami tych samych danych. Na przykład, jeśli masz plik z jedną TB danych, a z niego odczytane są setki wierzchołków, każda z nich odczytuje fragment. Te wierzchołki są pogrupowane w tym samym etapie i działają na różnych fragmentach tego samego pliku wejściowego.
   

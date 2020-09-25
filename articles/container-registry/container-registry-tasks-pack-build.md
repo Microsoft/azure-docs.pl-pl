@@ -3,13 +3,13 @@ title: Kompilowanie obrazu za pomocą natywnej chmury Buildpack
 description: Użyj polecenia AZ ACR Pack Build, aby skompilować obraz kontenera z aplikacji i wypchnąć do Azure Container Registry bez użycia pliku dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f99175165e01a9287a66c59957fc7a239b00393a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js
+ms.openlocfilehash: cad7d5c066dd8c8a7468833cb67e6085f067417a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077224"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262114"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Kompilowanie i wypychanie obrazu z aplikacji przy użyciu natywnej Buildpack w chmurze
 
@@ -31,7 +31,7 @@ Podczas uruchamiania należy określić co najmniej następujące elementy `az a
 * Jedna z [obsługiwanych lokalizacji kontekstu](container-registry-tasks-overview.md#context-locations) dla zadań ACR, takich jak katalog lokalny, repozytorium GitHub lub zdalne plik tar
 * Nazwa obrazu programu Buildpack Builder odpowiednie dla Twojej aplikacji. Azure Container Registry pamięci podręcznej obrazów konstruktora, takich jak `cloudfoundry/cnb:0.0.34-cflinuxfs3` w przypadku szybszych kompilacji.  
 
-`az acr pack build`obsługuje inne funkcje poleceń ACR Tasks, w tym [uruchamiania zmiennych](container-registry-tasks-reference-yaml.md#run-variables) i [dzienników uruchamiania zadań](container-registry-tasks-logs.md) , które są przesyłane strumieniowo, a także zapisane do późniejszego pobrania.
+`az acr pack build` obsługuje inne funkcje poleceń ACR Tasks, w tym [uruchamiania zmiennych](container-registry-tasks-reference-yaml.md#run-variables) i [dzienników uruchamiania zadań](container-registry-tasks-logs.md) , które są przesyłane strumieniowo, a także zapisane do późniejszego pobrania.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Przykład: kompilowanie obrazu Node.js za pomocą konstruktora Cloud Foundry
 

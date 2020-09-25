@@ -6,20 +6,24 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+keywords: usługi poznawcze, analiza poznawcze, rozwiązania poznawcze, usługi AI
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 36e21a131181831c2a87c0c6d2c24c9aa6e0acf7
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 41dc99c206fb66aa87ccca6e40d6e9488f801a22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245013"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262437"
 ---
-# <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Tworzenie zasobu Cognitive Services przy użyciu interfejsu wiersza polecenia platformy Azure (CLI)
+# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu interfejsu wiersza polecenia platformy Azure (CLI)
 
-Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć pracę z usługą Azure Cognitive Services przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Cognitive Services są reprezentowane przez [zasoby](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) platformy Azure utworzone w ramach subskrypcji platformy Azure. Po utworzeniu zasobu Użyj kluczy i punktu końcowego wygenerowanego do uwierzytelniania aplikacji.
+Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć pracę z usługą Azure Cognitive Services przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
+Usługa Azure Cognitive Services to usługi w chmurze z interfejsami API REST, a także dostępne zestawy SDK dla deweloperów, które ułatwiają deweloperom tworzenie analiz poznawczych w aplikacjach, bez konieczności bezpośredniego sztucznej analizy danych lub wiedzy. Dzięki platformie Azure Cognitive Services deweloperzy mogą łatwo dodawać funkcje poznawcze do swoich aplikacji przy użyciu rozwiązań poznawczych, które widzą, słyszą, mówią, wiedzą, a nawet z przyczyn.
+
+Cognitive Services są reprezentowane przez [zasoby](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) platformy Azure utworzone w ramach subskrypcji platformy Azure. Po utworzeniu zasobu Użyj kluczy i punktu końcowego wygenerowanego do uwierzytelniania aplikacji.
 
 W tym przewodniku szybki start dowiesz się, jak zarejestrować się w usłudze Azure Cognitive Services i utworzyć konto z subskrypcją pojedynczego lub wielousługowego za pomocą [interfejsu wiersza polecenia (CLI) platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Te usługi są reprezentowane przez [zasoby](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)platformy Azure, które umożliwiają nawiązywanie połączenia z co najmniej jedną interfejsy API usług Cognitive Services platformy Azure.
 
@@ -50,7 +54,7 @@ Aby utworzyć zasób, potrzebna jest jedna z lokalizacji platformy Azure dostęp
 
 > [!IMPORTANT]
 > * Zapamiętaj swoją lokalizację platformy Azure, ponieważ będzie ona potrzebna podczas wywoływania Cognitive Services platformy Azure.
-> * Dostępność niektórych Cognitive Services może różnić się w zależności od regionu. Aby uzyskać więcej informacji, zobacz [produkty platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).  
+> * Dostępność niektórych Cognitive Services może różnić się w zależności od regionu. Aby uzyskać więcej informacji, zobacz [produkty platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).
 
 ```azurecli-interactive
 az account list-locations \
@@ -84,7 +88,7 @@ Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być u
 > [!NOTE]
 > Wiele Cognitive Services poniżej ma bezpłatną warstwę, której można użyć do wypróbowania usługi. Aby skorzystać z warstwy Bezpłatna, użyj `F0` jako jednostki SKU dla zasobu.
 
-### <a name="vision"></a>Obraz
+### <a name="vision"></a>Wizja
 
 | Usługa                    | Rodzaj                      |
 |----------------------------|---------------------------|
@@ -95,7 +99,7 @@ Podczas tworzenia nowego zasobu należy znać "rodzaj" usługi, która ma być u
 | Rozpoznawanie formularzy            | `FormRecognizer`          |
 | Rozpoznawanie pisma odręcznego             | `InkRecognizer`           |
 
-### <a name="search"></a>Wyszukiwanie
+### <a name="search"></a>Wyszukaj
 
 | Usługa            | Rodzaj                  |
 |--------------------|-----------------------|

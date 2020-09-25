@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: ed97f7861f5dd959fd41ac22b4e497f492dbc3a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fa24c0db398c4c799d218ff5e8ec8e3d3e321742
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311550"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Często zadawane pytania dotyczące usługi Azure automanage dla maszyn wirtualnych
 
@@ -36,7 +36,9 @@ Poniżej przedstawiono wymagania wstępne dotyczące włączania usługi Azure a
 
 **Jakie uprawnienie RBAC jest potrzebne do włączenia autozarządzania?**
 
-Użytkownicy muszą mieć rolę właściciela. Użytkownicy mogą również mieć rolę współautor i rolę administratora dostępu użytkowników w celu zastosowania autozarządzania.
+Jeśli włączysz Autozarządzanie na maszynie wirtualnej z istniejącym kontem autozarządzania, musisz mieć rolę współautora dla grupy zasobów, w której znajduje się maszyna wirtualna. 
+
+Jeśli podczas włączania korzystasz z nowego konta Autozarządzanie, użytkownicy muszą mieć rolę właściciela lub mieć rolę administratora dostępu współautor i użytkownika dla subskrypcji.
 
 
 **Jakie regiony są obsługiwane?**
@@ -82,6 +84,11 @@ Tak, mamy wbudowane zasady, które będą automatycznie stosowały Autozarządza
 **Co to jest konto Autozarządzanie?**
 
 Konto automanage to plik MSI (tożsamość usługi zarządzanej), który zapewnia kontekst zabezpieczeń lub tożsamość, w ramach której występują operacje zautomatyzowane.
+
+
+**Czy włączenie autozarządzania ma wpływ na wszystkie dodatkowe maszyny wirtualne oprócz wybranych maszyn wirtualnych?**
+
+Jeśli maszyna wirtualna jest połączona z istniejącym obszarem roboczym Log Analytics, użyjemy tego obszaru roboczego do zastosowania następujących rozwiązań: Change Tracking, spisu i Update Management. Dla wszystkich maszyn wirtualnych połączonych z tym obszarem roboczym będą dostępne te rozwiązania. 
 
 
 **Czy mogę zmienić profil konfiguracji mojej maszyny wirtualnej?**

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 89013e3b6ec9a0a6112e8b7fdcde4870be331d79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468712"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282310"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -25,6 +25,15 @@ Pozostała część tego artykułu zawiera przykłady sposobu korzystania z tych
 ## <a name="query-syntax"></a>Składnia zapytań
 
 Ta sekcja zawiera przykładowe zapytania, które ilustrują strukturę języka zapytań i wykonują możliwe operacje zapytań na [bliźniaczych reprezentacji cyfrowym](concepts-twins-graph.md).
+
+### <a name="show-all-existing-digital-twins"></a>Pokaż wszystkie istniejące bliźniaczych reprezentacji cyfrowe
+
+Oto podstawowe zapytanie, które zwróci listę wszystkich bliźniaczych reprezentacji cyfrowych w wystąpieniu:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+```
 
 ### <a name="select-top-items"></a>Wybierz pierwsze elementy
 
@@ -208,8 +217,8 @@ Obsługiwane są następujące funkcje ciągów:
 
 | Funkcja | Opis |
 | -------- | ----------- |
-| STARTS_WITH (x, y) | Zwraca wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu zaczyna się od drugiego. |
-| ENDS_WITH (x, y) | Zwraca wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu ma kończyć się drugim. |
+| STARTSWITH (x, y) | Zwraca wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu zaczyna się od drugiego. |
+| ENDSWITH (x, y) | Zwraca wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu ma kończyć się drugim. |
 
 ## <a name="run-queries-with-an-api-call"></a>Uruchom zapytania z wywołaniem interfejsu API
 

@@ -1,6 +1,6 @@
 ---
 title: Pracuj z mapami pomieszczeń w Azure Maps Creator
-description: W tym artykule przedstawiono pojęcia dotyczące Azure Maps twórców usług.
+description: W tym artykule przedstawiono pojęcia dotyczące Azure Maps twórców usług
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 05/18/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d55a0726000a6ed55f049ac4a4146f66421a7085
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ad1b7ae08e74f455190c44a813dde44b0b683014
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242580"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311363"
 ---
 # <a name="creator-for-indoor-maps"></a>Kreator dla map pomieszczeń
 
@@ -65,7 +65,7 @@ Oprócz danych wektorowych tileset zawiera metadane dla optymalizacji renderowan
 
 Po utworzeniu tileset można go pobrać za pomocą [usługi renderowania w wersji 2](#render-v2-service).
 
-Jeśli tileset stanie się nieaktualna i nie jest już przydatna, można usunąć tileset. Aby uzyskać więcej informacji na temat usuwania tilesets, zobacz temat [konserwacja danych](#data-maintenance).
+Jeśli tileset stanie się nieaktualna i nie jest już przydatna, można usunąć tileset. Aby uzyskać więcej informacji na temat usuwania tilesets, zobacz temat  [konserwacja danych](#data-maintenance).
 
 >[!NOTE]
 >Element tileset jest niezależny od zestawu danych, z którego został utworzony. Jeśli utworzysz tilesets z zestawu danych, a następnie zaktualizujesz ten zestaw danych, tilesets nie zostanie zaktualizowany. Aby odzwierciedlić zmiany w zestawie danych, należy utworzyć nowy tilesets. Podobnie po usunięciu elementu tileset nie ma to żadnego oddziaływania na zestaw danych.

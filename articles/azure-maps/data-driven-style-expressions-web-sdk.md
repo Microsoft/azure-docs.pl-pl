@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089449"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311380"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Wyrażenia stylów oparte na danych (zestaw SDK sieci Web)
 
@@ -90,14 +90,16 @@ Wyrażenia danych zapewniają dostęp do danych właściwości w funkcji.
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Pobiera element z tablicy. |
 | `['geometry-type']` | ciąg | Pobiera typ geometrii funkcji: punkt, MultiPoint, LineString, MultiLineString, Wielokąt, MultiPolygon. |
-| `['get', string]` | Wartość | Pobiera wartość właściwości z właściwości bieżącej funkcji. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
-| `['get', string, object]` | Wartość | Pobiera wartość właściwości z właściwości podanego obiektu. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
+| `['get', string]` | wartość | Pobiera wartość właściwości z właściwości bieżącej funkcji. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
+| `['get', string, object]` | wartość | Pobiera wartość właściwości z właściwości podanego obiektu. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
 | `['has', string]` | boolean | Określa, czy właściwości funkcji mają określoną właściwość. |
 | `['has', string, object]` | boolean | Określa, czy właściwości obiektu mają określoną właściwość. |
-| `['id']` | Wartość | Pobiera identyfikator funkcji, jeśli ma. |
+| `['id']` | wartość | Pobiera identyfikator funkcji, jeśli ma. |
 | `['length', string | array]` | liczba | Pobiera długość ciągu lub tablicy. |
 | `['in', boolean | string | number, array]` | boolean | Określa, czy element istnieje w tablicy |
 | `['in', substring, string]` | boolean | Określa, czy podciąg istnieje w ciągu |
+| `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | liczba | Zwraca pierwszą pozycję, w której element można znaleźć w tablicy lub podciąg można znaleźć w ciągu lub w `-1` przypadku, gdy nie można znaleźć danych wejściowych. Akceptuje opcjonalny indeks z lokalizacji, w której ma zostać rozpoczęte wyszukiwanie. |
+| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | `string`\|Tablica | Zwraca element z tablicy lub podciągu z ciągu z określonego indeksu początkowego lub między indeksem początkowym i indeksem końcowym, jeśli został ustawiony. Wartość zwracana jest włącznie z indeksem początkowym, ale nie indeksem końcowym. |
 
 **Przykłady**
 
@@ -151,8 +153,11 @@ Oto kilka dodatkowych przykładów użycia wyrażeń danych:
 //Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
 ['at', 1, ['at', 0, ['get', 'array2d']]]
 
-//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+//Check to see if a value is in an array "properties.abcArray.indexOf('a') !== -1" = true
 ['in', 'a', ['get', 'abcArray']]
+
+//Gets the index of the value 'b' in an array "properties.abcArray.indexOf('b')" = 1
+['index-of', 'b', ['get', 'abcArray']]
 
 //Get the length of an array "properties.abcArray.length" = 3
 ['length', ['get', 'abcArray']]
@@ -162,6 +167,12 @@ Oto kilka dodatkowych przykładów użycia wyrażeń danych:
 
 //Check that "fillColor" exists as a subproperty of "_style".
 ['has', 'fillColor', ['get', '_style']]
+
+//Slice an array starting at index 2 "properties.abcArray.slice(2)" = ['c']
+['slice', ['get', 'abcArray'], 2]
+
+//Slice a string from index 0 to index 4 "properties.entityType.slice(0, 4)" = 'rest'
+['slice', ['get', 'entityType'], 0, 4]
 ```
 
 ## <a name="math-expressions"></a>Wyrażenia matematyczne
@@ -225,8 +236,8 @@ Porównując wartości, porównanie jest ściśle wpisane. Wartości różnych t
 
 | Wyrażenie | Typ zwracany | Opis |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | Negacja logiczna. Zwraca wartość `true` , jeśli dane wejściowe to `false` , i `false` Jeśli dane wejściowe to `true` . |
-| `['!= ', value, value]` | boolean | Zwraca wartość `true` , jeśli wartości wejściowe nie są równe `false` . w przeciwnym razie. |
+| `['!', boolean]` | boolean | Negacja logiczna. Zwraca wartość `true` , jeśli dane wejściowe to `false` , i `false` Jeśli dane wejściowe to `true` . |
+| `['!=', value, value]` | boolean | Zwraca wartość `true` , jeśli wartości wejściowe nie są równe `false` . w przeciwnym razie. |
 | `['<', value, value]` | boolean | Zwraca `true` czy pierwsze dane wejściowe są absolutnie mniejsze od drugiego, `false` w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
 | `['<=', value, value]` | boolean | Zwraca wartość `true` , jeśli pierwsze dane wejściowe są mniejsze lub równe sekundzie, `false` w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |
 | `['==', value, value]` | boolean | Zwraca wartość `true` , jeśli wartości wejściowe są równe `false` . w przeciwnym razie. Argumenty muszą być zarówno ciągami, jak i obiema numerami. |

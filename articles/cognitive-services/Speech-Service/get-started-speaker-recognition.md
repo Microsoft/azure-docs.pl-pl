@@ -12,12 +12,12 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Rozpoznawanie osoby mówiącej, biometry głosu
-ms.openlocfilehash: f22eb02e6812bef73133b1778484f9f4640245cd
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: dd77de482289037764eb6c442502ef71cc594729
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89410855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326987"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Wprowadzenie do rozpoznawanie osoby mówiącej
 
@@ -283,7 +283,7 @@ public static async Task SpeakerIdentification(SpeechConfig config, List<VoicePr
 
     Console.WriteLine("Speak some text to identify who it is from your list of enrolled speakers.");
     var result = await speakerRecognizer.RecognizeOnceAsync(model);
-    Console.WriteLine($"The most similiar voice profile is {profileMapping[result.ProfileId]} with similiarity score {result.Score}");
+    Console.WriteLine($"The most similar voice profile is {profileMapping[result.ProfileId]} with similarity score {result.Score}");
 }
 ```
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 989496885445a8a0a8d3bbc1a789975a2875c6e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2aed3ea48935a62d68f739594a265649a2e1292d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939914"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311533"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Tworzenie wystąpienia zarządzanego SQL — Azure ARC przy użyciu Azure Data Studio
 
@@ -48,7 +48,8 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - Azure Data Studio uruchamiania
 - Na karcie połączenia kliknij trzy kropki w lewym górnym rogu i wybierz pozycję "nowe wdrożenie".
 - Z opcji wdrożenia wybierz pozycję **wystąpienie zarządzane Azure SQL — Azure Arc** 
-  > **Uwaga:** Może zostać wyświetlony monit o zainstalowanie interfejsu wiersza polecenia azdata w tym miejscu, jeśli nie jest on aktualnie zainstalowany.
+  > [!NOTE]
+  > Może zostać wyświetlony monit o zainstalowanie interfejsu wiersza polecenia azdata w tym miejscu, jeśli nie jest on aktualnie zainstalowany.
 - Zaakceptuj postanowienia dotyczące prywatności i licencji, a następnie kliknij pozycję **Wybierz** u dołu
 
 

@@ -2,14 +2,16 @@
 title: Wdróż rozwiązanie VMware dla platformy Azure
 description: Procedura wdrażania rozwiązania VMware dla platformy Azure przy użyciu Azure Portal.
 ms.topic: include
-ms.date: 09/07/2020
-ms.openlocfilehash: bd839cf81e6f28f2db973a0dd604ba241caf2128
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.date: 09/21/2020
+ms.openlocfilehash: 4fa2925cf284871c4a168d2b69d4fbd3a81de878
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512377"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254646"
 ---
+<!-- Used in avs-deployment.md and tutorial-create-private-cloud.md -->
+
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Wybierz pozycję **Utwórz nowy zasób**. W polu tekstowym **Wyszukaj w witrynie Marketplace** `Azure VMware Solution` , a następnie wybierz pozycję **Azure VMware Solution** z listy. W oknie **rozwiązanie platformy Azure VMware** wybierz pozycję **Utwórz** .
@@ -23,7 +25,7 @@ ms.locfileid: "89512377"
    | **Lokalizacja** | Wybierz lokalizację, na przykład **Wschodnie stany USA**.|
    | **Nazwa zasobu** | Nazwa chmury prywatnej rozwiązania Azure VMware. |
    | **SKU** | Wybierz następującą wartość jednostki SKU: AV36 |
-   | **Pracując** | Liczba hostów do dodania do klastra chmury prywatnej. Wartość domyślna to 3, która może zostać podniesiona lub obniżona po wdrożeniu.  |
+   | **Hosts** | Liczba hostów do dodania do klastra chmury prywatnej. Wartość domyślna to 3, która może zostać podniesiona lub obniżona po wdrożeniu.  |
    | **hasło administratora vCenter** | Wprowadź hasło administratora chmury. |
    | **Hasło Menedżera NSX-T** | Wprowadź hasło administratora NSX-T. |
    | **Blok adresów** | Wprowadź blok adresów IP dla sieci CIDR dla chmury prywatnej, na przykład 10.175.0.0/22. |

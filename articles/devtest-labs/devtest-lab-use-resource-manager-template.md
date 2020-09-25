@@ -3,12 +3,12 @@ title: Wyświetlanie i używanie szablonu Azure Resource Manager maszyny wirtual
 description: Dowiedz się, jak utworzyć inne maszyny wirtualne przy użyciu szablonu Azure Resource Manager z maszyny wirtualnej
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e58b54d61653f1edba3c3893edb902a94fbf9f2b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7f969abe1ca903a226e73c5c70781dce512c2926
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272695"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282497"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Tworzenie maszyn wirtualnych przy użyciu szablonu Azure Resource Manager 
 
@@ -23,7 +23,7 @@ Istnieją dwa sposoby tworzenia maszyn wirtualnych w DevTest Labs przy użyciu s
 
 - Menedżer zasobów szablonów używających typu zasobu Microsoft. wspólny/Labs/virtualmachines (zgodnie z deklaracją w właściwości "Resource" w szablonie) mogą udostępniać poszczególne maszyny wirtualne laboratorium. Każda maszyna wirtualna jest następnie wyświetlana jako pojedynczy element na liście maszyn wirtualnych DevTest Labs:
 
-   ![Lista maszyn wirtualnych jako pojedyncze elementy na liście DevTest Labs](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
+   ![Zrzut ekranu przedstawiający listę maszyn wirtualnych jako pojedyncze elementy na liście maszyn wirtualnych DevTest Labs.](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
    Ten typ szablonu Menedżer zasobów można zainicjować za pomocą polecenia Azure PowerShell **New-AzResourceGroupDeployment** lub przy użyciu interfejsu wiersza polecenia platformy Azure **AZ Group Deployment Create**. Wymaga uprawnień administratora, więc użytkownicy, którzy są przypisani przy użyciu roli użytkownika DevTest Labs, nie mogą wykonać wdrożenia. 
 
@@ -40,7 +40,7 @@ W pozostałej części tego artykułu omówiono Menedżer zasobów szablonów ko
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Wyświetlanie i zapisywanie szablonu Menedżer zasobów maszyny wirtualnej
 1. Wykonaj kroki opisane w temacie [Tworzenie pierwszej maszyny wirtualnej w laboratorium,](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) aby rozpocząć tworzenie maszyny wirtualnej.
 1. Wprowadź wymagane informacje dotyczące maszyny wirtualnej i Dodaj dowolne artefakty dla tej maszyny wirtualnej.
-1. Przełącznik na kartę **Ustawienia zaawansowane** . 
+1. Przejdź do karty **Ustawienia zaawansowane** . 
 1. W dolnej części okna Konfigurowanie ustawień wybierz pozycję **Wyświetl szablon ARM**.
 1. Skopiuj i Zapisz szablon Menedżer zasobów, aby później utworzyć inną maszynę wirtualną.
 

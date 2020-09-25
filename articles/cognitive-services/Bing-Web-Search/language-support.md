@@ -1,7 +1,7 @@
 ---
 title: Obsługa języka — interfejs API wyszukiwania w sieci Web Bing
 titleSuffix: Azure Cognitive Services
-description: Lista języków naturalnych, krajów i regionów, które są obsługiwane przez interfejs API wyszukiwania wiadomości Bing.
+description: Lista języków naturalnych, krajów i regionów, które są obsługiwane przez interfejs API wyszukiwania w sieci Web Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e378bc88d28173eaed0308db3034a54236d63098
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68882689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262828"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania w sieci Web Bing
 
 Interfejs API wyszukiwania w sieci Web Bing obsługuje ponad trzy dziesiątki krajów lub regionów, wiele z więcej niż jednym językiem. Określenie kraju lub regionu z zapytaniem ułatwia dokładne wyniki wyszukiwania w zależności od danego kraju lub regionu zainteresowania. Wyniki mogą zawierać linki do usługi Bing, a te linki mogą lokalizować środowisko użytkownika Bing w zależności od określonego kraju/regionu lub języka.
 
-Możesz określić kraj lub region przy użyciu parametru `cc` zapytania. W przypadku określenia kraju lub regionu należy określić jeden lub więcej kodów języka z [ `Accept-Language` nagłówkiem](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Skorzystaj z [tabeli rynków](#markets) , aby zapoznać się z listą języków obsługiwanych na poszczególnych rynkach.
+Możesz określić kraj lub region przy użyciu `cc` parametru zapytania. W przypadku określenia kraju lub regionu należy określić jeden lub więcej kodów języka z [ `Accept-Language` nagłówkiem](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Skorzystaj z [tabeli rynków](#markets) , aby zapoznać się z listą języków obsługiwanych na poszczególnych rynkach.
 
-Alternatywnie można określić rynek z parametrem `mkt` zapytania i kodem z tabeli **rynków** . Określenie rynku jednocześnie określa kraj lub region i preferowany język. Można jawnie ustawić język przy użyciu parametru `setLang` zapytania.
+Alternatywnie można określić rynek z `mkt` parametrem zapytania i kodem z tabeli **rynków** . Określenie rynku jednocześnie określa kraj lub region i preferowany język. Można jawnie ustawić język przy użyciu `setLang` parametru zapytania.
 
 ## <a name="countriesregions"></a>Kraje/regiony
 
-|Kraj/region|Code|
+|Kraj/region|Kod|
 |-------|----|
 |Argentyna|AR|
 |Australia|AU|
@@ -42,7 +42,7 @@ Alternatywnie można określić rynek z parametrem `mkt` zapytania i kodem z tab
 |Niemcy|DE|
 |SRA Hongkong|HK|
 |Indie|IN|
-|Indonezja|ID|
+|Indonezja|ID (Identyfikator)|
 |Włochy|IT|
 |Japonia|JP|
 |Korea|KR|
@@ -63,7 +63,7 @@ Alternatywnie można określić rynek z parametrem `mkt` zapytania i kodem z tab
 |Szwajcaria|CH|
 |Tajwan|TW|
 |Turcja|TR|
-|Wielka Brytania|GB|
+|Zjednoczone Królestwo|GB|
 |Stany Zjednoczone|USA|
 
 ## <a name="markets"></a>Wprowadza
@@ -72,23 +72,23 @@ Alternatywnie można określić rynek z parametrem `mkt` zapytania i kodem z tab
 |-------|--------|-----------|
 |Argentyna|Hiszpański|ES-AR|
 |Australia|Angielski|en-AU|
-|Austria|niemiecki|de-AT|
+|Austria|Niemiecki|de-AT|
 |Belgia|Niderlandzki|NL-to|
 |Belgia|Francuski|fr — należy|
 |Brazylia|Portugalski|pt-BR|
 |Kanada|Angielski|EN-CA|
 |Kanada|Francuski|fr — CA|
 |Chile|Hiszpański|ES — CL|
-|Dania|duński|da-DK|
-|Finlandia|fiński|fi-FI|
+|Dania|Duński|da-DK|
+|Finlandia|Fiński|fi-FI|
 |Francja|Francuski|fr-FR|
-|Niemcy|niemiecki|de-DE|
+|Niemcy|Niemiecki|de-DE|
 |SRA Hongkong|Chiński tradycyjny|zh-HK|
 |Indie|Angielski|dodatek EN-IN|
 |Indonezja|Angielski|pl-ID|
 |Włochy|Włoski|it-IT|
 |Japonia|japoński|ja-JP|
-|Korea|koreański|ko-KR|
+|Korea|Koreański|ko-KR|
 |Malezja|Angielski|pl — MY|
 |Meksyk|Hiszpański|es — MX|
 |Holandia|Niderlandzki|nl-NL|
@@ -102,12 +102,12 @@ Alternatywnie można określić rynek z parametrem `mkt` zapytania i kodem z tab
 |Arabia Saudyjska|Arabski|ar-SA|
 |Republika Południowej Afryki|Angielski|pl-za|
 |Hiszpania|Hiszpański|es-ES|
-|Szwecja|szwedzki|sv-SE|
+|Szwecja|Szwedzki|sv-SE|
 |Szwajcaria|Francuski|fr-CH|
-|Szwajcaria|niemiecki|Usuń CH|
+|Szwajcaria|Niemiecki|Usuń CH|
 |Tajwan|Chiński tradycyjny|zh-TW|
 |Turcja|Turecki|tr-TR|
-|Wielka Brytania|Angielski|en-GB|
+|Zjednoczone Królestwo|Angielski|en-GB|
 |Stany Zjednoczone|Angielski|pl-PL|
 |Stany Zjednoczone|Hiszpański|es — US|
 

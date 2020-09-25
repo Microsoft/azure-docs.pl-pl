@@ -10,26 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js
 keywords: Tłumaczenie mowy
-ms.openlocfilehash: da321e2f259ae6e994cddcb928cc139a28c6d9ae
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 855e999feddfa9c87f10115866f9b393e6cecc96
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394877"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326939"
 ---
 # <a name="get-started-with-speech-translation"></a>Wprowadzenie do tłumaczenia mowy
-
-Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania mowy przez człowieka i przetłumaczenia jej na inne języki. W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania translacji mowy o wysokiej jakości. Ten przewodnik Szybki Start obejmuje następujące tematy:
-
-* Tłumaczenie zamiany mowy na tekst
-* Tłumaczenie mowy na wiele języków docelowych
-* Wykonywanie bezpośredniego tłumaczenia mowy na mowę
-
-> [!TIP]
-> Jeśli chcesz pominąć prosty kod przykładowy, zobacz [przykłady szybkiego startu](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) w witrynie GitHub.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-csharp.md)]

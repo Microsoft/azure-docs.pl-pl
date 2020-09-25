@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d005b3a4712cfff0321e7a16f49c0e882cc9e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73824116"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282123"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Wdróż bliźniaczy OPC do istniejącego projektu
+
+> [!IMPORTANT]
+> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
 
 Moduł OPC bliźniaczy działa na IoT Edge i oferuje kilka usług granicznych dla usług OPC i rejestrów.
 

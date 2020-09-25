@@ -4,16 +4,16 @@ description: Azure Portal można użyć do zarządzania kontem mapy Microsoft Az
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: dce65eaf4ac9b7918b1217a268bedf807d4253ce
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8e62734e039d0f6ceff836947519ef71ee9b8497
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126826"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311057"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Zarządzaj warstwą cenową konta Azure Maps
 

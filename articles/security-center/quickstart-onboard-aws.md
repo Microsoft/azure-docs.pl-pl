@@ -3,16 +3,16 @@ title: Połącz swoje konto AWS z Azure Security Center
 description: Monitorowanie zasobów AWS z poziomu Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ee1b8fe6ed97f3b71cda418cce9e432f7c045447
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 33ff6748eba9d0349df244e70f07ad178f258373
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940243"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250288"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Połącz konta AWS z Azure Security Center
 
@@ -81,7 +81,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
     - **Wymagaj zewnętrznego identyfikatora** — należy wybrać
     - **Identyfikator zewnętrzny** — wprowadź identyfikator subskrypcji, jak pokazano na stronie łącznika AWS w Security Center 
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. W sekcji **Dołącz zasady uprawnień** wybierz następujące zasady:
 
     - SecurityAudit
@@ -89,7 +89,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
     - AWSSecurityHubReadOnlyAccess
 
 1. Opcjonalnie dodaj Tagi. Dodawanie tagów do użytkownika nie ma wpływu na połączenie.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 1. Na liście role Wybierz utworzoną rolę
 
@@ -137,7 +137,7 @@ Jako **właściciel** subskrypcji, której chcesz użyć na potrzeby dołączani
             LUB
 
         - Wybierz pozycję **poświadczenia** i wklej **klucz dostępu** i **klucz tajny** z pliku CSV zapisanego w temacie [Create a AWS User for Security Center](#create-an-aws-user-for-security-center).
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Skonfiguruj opcje na karcie **Konfiguracja usługi Azure Arc** :
 
     Security Center odnajduje wystąpienia EC2 na połączonym koncie AWS i używa program SSM, aby dołączyć je do usługi Azure Arc. 

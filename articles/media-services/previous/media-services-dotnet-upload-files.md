@@ -1,6 +1,6 @@
 ---
 title: Przekazywanie plików na konto Media Services przy użyciu platformy .NET | Microsoft Docs
-description: Dowiedz się, jak pobrać zawartość multimedialną do Media Services przez utworzenie i przekazanie zasobów.
+description: Dowiedz się, jak pobrać zawartość multimedialną do Media Services przez utworzenie i przekazanie zasobów przy użyciu platformy .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 51f6b40fc4cafad16ef6f6ca92fafa7ba1378c4a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 83e9b0278e99867cafa7e633bc382e490ec273c1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255941"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250545"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Przekazywanie plików na konto usługi Media Services na platformie .NET
 
@@ -311,7 +311,7 @@ Możesz także używać usługi Azure Functions do wyzwalania zadania kodowania 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Następny krok

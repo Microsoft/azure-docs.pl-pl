@@ -17,13 +17,13 @@ ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d9b914c631c829c2e3dc71940a171cdb3dc81960
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js
+ms.openlocfilehash: 34962686ae36764a6dc16b164e91004be9ef038d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077496"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250423"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Wysyłanie powiadomień wypychanych za pomocą usługi Azure Notification Hubs i Node.js
 
@@ -96,10 +96,10 @@ Uzyskaj wartość połączenia `connectionstring` z [Azure Portal] , wykonując 
 
 `NotificationHubService`Obiekt uwidacznia następujące wystąpienia obiektów do wysyłania powiadomień wypychanych do określonych urządzeń i aplikacji:
 
-- **Android** — Użyj `GcmService` obiektu, który jest dostępny w`notificationHubService.gcm`
-- **iOS** — Użyj `ApnsService` obiektu, który jest dostępny w`notificationHubService.apns`
-- **Windows Phone** — Użyj `MpnsService` obiektu, który jest dostępny w`notificationHubService.mpns`
-- **Platforma uniwersalna systemu Windows** — Użyj `WnsService` obiektu, który jest dostępny w`notificationHubService.wns`
+- **Android** — Użyj `GcmService` obiektu, który jest dostępny w `notificationHubService.gcm`
+- **iOS** — Użyj `ApnsService` obiektu, który jest dostępny w `notificationHubService.apns`
+- **Windows Phone** — Użyj `MpnsService` obiektu, który jest dostępny w `notificationHubService.mpns`
+- **Platforma uniwersalna systemu Windows** — Użyj `WnsService` obiektu, który jest dostępny w `notificationHubService.wns`
 
 ### <a name="how-to-send-push-notifications-to-android-applications"></a>Instrukcje: wysyłanie powiadomień wypychanych do aplikacji systemu Android
 
@@ -155,7 +155,7 @@ notificationHubService.apns.send(null, payload, function(error){
 
 - **Tagi** — identyfikator tagu. Jeśli żaden tag nie jest podany, powiadomienie jest wysyłane do wszystkich klientów.
 - **Ładunek** — ładunek XML komunikatu.
-- **Docelowa**  -  `toast` w przypadku powiadomień wyskakujących. `token`dla powiadomień kafelków.
+- **Docelowa**  -  `toast` w przypadku powiadomień wyskakujących. `token` dla powiadomień kafelków.
 - **NotificationClass** — priorytet powiadomienia. Zapoznaj się z sekcją **elementy nagłówka HTTP** w [powiadomieniach wypychanych z dokumentu serwera](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) , aby uzyskać prawidłowe wartości.
 - **Opcje** — opcjonalne nagłówki żądań.
 - **Wywołanie zwrotne** — funkcja wywołania zwrotnego.

@@ -4,16 +4,16 @@ description: Dowiedz się, jak dodać kształty do map. Zobacz przykłady kodu, 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9dd8718a6a96627781a578edb514d797e40f01fb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037426"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311312"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Dodawanie kształtu do mapy przy użyciu Azure Maps Android SDK
 
@@ -238,7 +238,7 @@ Jeśli aplikacja zostanie uruchomiona teraz, na mapie powinna zostać wyświetlo
     });
     ```
 
-    Poniższy fragment kodu uzyskuje Azure Maps wystąpienia kontrolki mapy za pomocą metody wywołania zwrotnego **()** . Następnie tworzy obiekt źródła danych przy użyciu klasy **DataSource** i dodaje go do mapy. Obiekt **wielokątny** jest następnie tworzony na podstawie listy obiektów **punktu** i jest dodawany do źródła danych. **Warstwa wielokątów** renderuje dane opakowane w źródle danych na mapie. Następnie tworzy warstwę wielokątów, aby renderować obszar wielokąta i dodaje do niego źródło danych. **Warstwa linii** renderuje obiekty liniowe otoczone w źródle danych. Ostatnia część fragmentu kodu tworzy warstwę linii w celu renderowania konspektu wielokąta i dodaje do niego źródło danych.
+    Poniższy fragment kodu uzyskuje Azure Maps wystąpienia kontrolki mapy za pomocą metody wywołania zwrotnego **()** . Następnie tworzy obiekt źródła danych przy użyciu klasy **DataSource** i dodaje go do mapy. Obiekt **wielokątny** jest następnie tworzony na podstawie listy obiektów **punktu**  i jest dodawany do źródła danych. **Warstwa wielokątów** renderuje dane opakowane w źródle danych na mapie. Następnie tworzy warstwę wielokątów, aby renderować obszar wielokąta i dodaje do niego źródło danych. **Warstwa linii** renderuje obiekty liniowe otoczone w źródle danych. Ostatnia część fragmentu kodu tworzy warstwę linii w celu renderowania konspektu wielokąta i dodaje do niego źródło danych.
 
     Po dodaniu fragmentu kodu powyżej `MainActivity.java` powinien wyglądać tak jak poniżej:
 

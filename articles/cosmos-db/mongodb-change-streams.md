@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 47f1fb4414b26ca9edbd992826a383ca65772ae7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 97a887b9fbb0edd4b1574d3e68399ea83fe11451
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003817"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326749"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Zmień strumienie w interfejsie API Azure Cosmos DB dla MongoDB
 
@@ -150,7 +150,7 @@ Podczas używania strumieni zmian są obsługiwane następujące kody błędów 
 
 * **NamespaceNotFound (OperationType unvalidate)** — w przypadku uruchomienia strumienia zmian w kolekcji, która nie istnieje lub jeśli kolekcja została porzucona, `NamespaceNotFound` zwracany jest błąd. Ponieważ `operationType` Właściwość nie może zostać zwrócona w dokumencie wyjściowym, a nie w przypadku `operationType Invalidate` błędu, `NamespaceNotFound` zwracany jest błąd.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Użyj czasu wygaśnięcia, aby automatycznie wygasać dane w interfejsie API Azure Cosmos DB MongoDB](mongodb-time-to-live.md)
 * [Indeksowanie w interfejsie API Azure Cosmos DB dla MongoDB](mongodb-indexing.md)

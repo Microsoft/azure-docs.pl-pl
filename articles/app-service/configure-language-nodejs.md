@@ -1,23 +1,23 @@
 ---
 title: Konfigurowanie aplikacji Node.js
-description: Dowiedz się, jak skonfigurować aplikację Node.js w natywnych wystąpieniach systemu Windows lub w kontenerze z wstępnie skompilowanym systemem Linux w programie Azure App Service. W tym artykule przedstawiono najczęstsze zadania konfiguracyjne.
-ms.custom: devx-track-javascript
+description: Dowiedz się, jak skonfigurować aplikację Node.js w natywnych wystąpieniach systemu Windows lub w kontenerze z wstępnie skompilowanym systemem Linux w programie Azure App Service. W tym artykule przedstawiono najczęściej wykonywane zadania konfiguracji.
+ms.custom: devx-track-js
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e6daf176504427c96f8dce0a4e9a6b6d5e999a0a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080117"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311839"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Konfigurowanie aplikacji Node.js dla Azure App Service
 
 Aplikacje Node.js muszą być wdrożone ze wszystkimi wymaganymi zależnościami NPM. Aparat wdrażania App Service jest automatycznie uruchamiany `npm install --production` podczas wdrażania [repozytorium git](deploy-local-git.md)lub [pakietu zip](deploy-zip.md) z włączonym automatyzacją kompilacji. W przypadku wdrażania plików przy użyciu [protokołu FTP/S](deploy-ftp.md)należy jednak ręcznie przekazać wymagane pakiety.
 
-Ten przewodnik zawiera najważniejsze pojęcia i instrukcje dla Node.js deweloperów, którzy wdrażają program w celu App Service. Jeśli nie korzystasz z Azure App Service, postępuj zgodnieNode.js z przewodnikiem [Szybki Start](quickstart-nodejs.md) i [Node.js z samouczkiem MongoDB](tutorial-nodejs-mongodb-app.md) .
+Ten przewodnik zawiera najważniejsze pojęcia i instrukcje dla Node.js deweloperów, którzy wdrażają program w celu App Service. Jeśli nie korzystasz z Azure App Service, postępuj zgodnieNode.js z przewodnikiem [ Szybki Start](quickstart-nodejs.md) i [Node.js z samouczkiem MongoDB](tutorial-nodejs-mongodb-app.md) .
 
 ## <a name="show-nodejs-version"></a>Pokaż wersję Node.js
 
@@ -98,9 +98,9 @@ Jeśli aplikacja zostanie wdrożona za pomocą usługi Git lub zip z włączonym
 1. Uruchom skrypt niestandardowy, jeśli został określony przez `POST_BUILD_SCRIPT_PATH` .
 
 > [!NOTE]
-> Zgodnie z opisem w dokumentacji [npm](https://docs.npmjs.com/misc/scripts), skrypty o nazwie `prebuild` i `postbuild` uruchomione przed i po nim `build` odpowiednio, jeśli zostały określone. `preinstall`i `postinstall` działają odpowiednio przed i po `install` .
+> Zgodnie z opisem w dokumentacji [npm](https://docs.npmjs.com/misc/scripts), skrypty o nazwie `prebuild` i `postbuild` uruchomione przed i po nim `build` odpowiednio, jeśli zostały określone. `preinstall` i `postinstall` działają odpowiednio przed i po `install` .
 
-`PRE_BUILD_COMMAND`i `POST_BUILD_COMMAND` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND` . Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND` .
+`PRE_BUILD_COMMAND` i `POST_BUILD_COMMAND` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND` . Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND` .
 
 W poniższym przykładzie określono dwie zmienne do szeregu poleceń, oddzielone przecinkami.
 
@@ -199,7 +199,7 @@ Po zakończeniu debugowania Zatrzymaj debuger, wybierając pozycję **Rozłącz*
 
 ## <a name="access-environment-variables"></a>Uzyskiwanie dostępu do zmiennych środowiskowych
 
-W App Service można [ustawić ustawienia aplikacji](configure-common.md) poza kodem aplikacji. Następnie możesz uzyskać do nich dostęp przy użyciu standardowego wzorca Node.js. Aby na przykład uzyskać dostęp do ustawienia aplikacji o nazwie `NODE_ENV`, użyj następującego kodu:
+W usłudze App Service można [określić ustawienia aplikacji](configure-common.md) poza kodem aplikacji. Następnie możesz uzyskać do nich dostęp przy użyciu standardowego wzorca Node.js. Aby na przykład uzyskać dostęp do ustawienia aplikacji o nazwie `NODE_ENV`, użyj następującego kodu:
 
 ```javascript
 process.env.NODE_ENV
@@ -337,7 +337,7 @@ Gdy działająca aplikacja Node.js działa inaczej w App Service lub zawiera bł
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux — często zadawane pytania](faq-app-service-linux.md)
+> [App Service dla systemu Linux — często zadawane pytania](faq-app-service-linux.md)
 
 ::: zone-end
 

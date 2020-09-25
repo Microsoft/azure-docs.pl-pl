@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: d09f13a65a72c6c856a7fcd3d943ec116f3da43f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f60b62faa36352ab1221b23332fca695f32a3d74
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721867"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250644"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Ściągawka dotycząca zautomatyzowanego potoku danych dla prognoz usługi Azure Machine Learning
 **Arkusz Ściągawka zautomatyzowanych potoków danych** ułatwia nawigowanie po technologii, z której można korzystać w celu uzyskania danych do usługi Machine Learning sieci Web, w której może być wyliczony przez model analizy predykcyjnej. Microsoft Azure Machine Learning
@@ -35,7 +35,6 @@ Pobierz arkusz Ściągawka tutaj: ** [Microsoft Azure Machine Learning zautomaty
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Więcej pomocy na temat usługi Machine Learning Studio
-* Aby zapoznać się z omówieniem Microsoft Azure Machine Learning, zobacz [wprowadzenie do uczenia maszynowego na Microsoft Azure](../studio/what-is-machine-learning.md).
-* Aby uzyskać informacje na temat sposobu wdrażania usługi sieci Web oceniania, zobacz [wdrażanie usługi sieci web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
-* Aby zapoznać się z omówieniem sposobu korzystania z usługi sieci Web oceniania, zobacz [jak korzystać z usługi sieci web Azure Machine Learning](../studio/consume-web-services.md).
-
+* Aby zapoznać się z omówieniem Microsoft Azure Machine Learning, zobacz [wprowadzenie do uczenia maszynowego na Microsoft Azure](../classic/index.yml).
+* Aby uzyskać informacje na temat sposobu wdrażania usługi sieci Web oceniania, zobacz [wdrażanie usługi sieci web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
+* Aby zapoznać się z omówieniem sposobu korzystania z usługi sieci Web oceniania, zobacz [jak korzystać z usługi sieci web Azure Machine Learning](../classic/consume-web-services.md).

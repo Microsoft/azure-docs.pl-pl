@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3f9064c25581523167918b84a2d0027747e32bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297471"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282378"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
@@ -166,7 +166,7 @@ Wynik wywołania `object result = await client.DigitalTwins.GetByIdAsync("my-moo
 Zdefiniowane właściwości dwucyfrowej dwuosiowej są zwracane jako właściwości najwyższego poziomu na dwuosiowej cyfrowej. Metadane lub informacje o systemie, które nie są częścią definicji DTDL, są zwracane z `$` prefiksem. Właściwości metadanych obejmują:
 * Identyfikator wielocyfrowej dwuosiowej w tym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji `$dtId` .
 * `$etag`Standardowe pole HTTP przypisane przez serwer sieci Web
-* Inne właściwości w `$metadata` sekcji. Należą do nich następujące elementy:
+* Inne właściwości w `$metadata` sekcji. Należą do nich:
     - DTMI modelu dwuosiowy cyfrowo.
     - Stan synchronizacji dla każdej właściwości zapisywalnej. Jest to najbardziej przydatne w przypadku urządzeń, w których możliwe jest, że usługa i urządzenie mają rozbieżność stanu (na przykład gdy urządzenie jest w trybie offline). Obecnie ta właściwość dotyczy tylko urządzeń fizycznych podłączonych do IoT Hub. Za pomocą danych w sekcji metadanych można zrozumieć pełny stan właściwości, a także sygnaturę czasową ostatniej modyfikacji. Aby uzyskać więcej informacji na temat stanu synchronizacji, zobacz [ten IoT Hub samouczek](../iot-hub/tutorial-device-twins.md) dotyczący synchronizowania stanu urządzenia.
     - Metadane dotyczące usługi, takie jak IoT Hub lub Azure Digital bliźniaczych reprezentacji. 
@@ -383,6 +383,17 @@ Aby zapoznać się z przykładem sposobu usuwania wszystkich bliźniaczych repre
 Bliźniaczych reprezentacji można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [*opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md).
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
+## <a name="view-all-digital-twins"></a>Wyświetl wszystkie bliźniaczych reprezentacji cyfrowe
+
+Aby wyświetlić wszystkie bliźniaczych reprezentacji cyfrowe w wystąpieniu, użyj [zapytania](how-to-query-graph.md). Zapytanie można uruchomić za pomocą [interfejsów API zapytań](how-to-use-apis-sdks.md) lub [poleceń interfejsu wiersza polecenia](how-to-use-cli.md).
+
+Poniżej znajduje się treść zapytania podstawowego, które zwróci listę wszystkich bliźniaczych reprezentacji cyfrowych w wystąpieniu:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="next-steps"></a>Następne kroki
 

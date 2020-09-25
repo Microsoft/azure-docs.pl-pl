@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 904355b28af93d4a277f2158b1548517118a67ba
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e2729a5dca54bb7e65e9504f89bd203f9928b120
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90529421"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251647"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów przy użyciu dwóch zestawów poświadczeń uwierzytelniania
 
@@ -67,6 +67,8 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 ```
 
 ## <a name="create-and-deploy-storage-account-key-rotation-function"></a>Utwórz i Wdróż funkcję rotacji klucza konta magazynu
+> [!IMPORTANT]
+> Poniższy szablon wymaga Key Vault, konto usługi Azure Storage i funkcja platformy Azure, aby znajdować się w tej samej grupie zasobów
 
 Następnie Utwórz aplikację funkcji z tożsamością zarządzaną przez system, a także z innymi wymaganymi składnikami i Wdróż funkcje rotacji kluczy konta magazynu
 
@@ -203,7 +205,7 @@ az storage account keys list -n akvrotationstorage
 - [Konto magazynu](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
 - [Pamięć podręczna Redis](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Więcej informacji
 - Przegląd: [monitorowanie Key Vault z Azure Event Grid](../general/event-grid-overview.md)
 - Instrukcje: [Tworzenie pierwszej funkcji w Azure Portal](../../azure-functions/functions-create-first-azure-function.md)
 - Instrukcje: [otrzymywanie wiadomości e-mail po zmianie wpisu tajnego magazynu kluczy](../general/event-grid-logicapps.md)

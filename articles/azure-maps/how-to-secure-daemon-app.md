@@ -5,16 +5,16 @@ description: Użyj Azure Portal, aby zarządzać uwierzytelnianiem w celu skonfi
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2b09163137bbfb6b8a7b0e2b8ddd6d7cccc52cc5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e445f26458d13d28dd4ef50c6c17d434554d9fd5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311074"
 ---
 # <a name="secure-a-daemon-application"></a>Zabezpieczanie aplikacji demona
 
@@ -120,14 +120,14 @@ W przypadku korzystania z tożsamości zarządzanych w środowisku innym niż Az
     > ![Udzielanie dostępu przy użyciu funkcji RBAC platformy Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. Na karcie **przypisania ról** **Dodaj** przypisanie roli. 
-    
+
     > [!div class="mx-imgBorder"]
     > ![Dodaj przypisanie roli](./media/how-to-manage-authentication/add-role-assignment.png)
 
-3. Wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisz dostęp do**wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi** lub tożsamość zarządzana z przypisaną przez **użytkownika**zarządzaną tożsamością  /  **System assigned Managed identity**. Wybierz podmiot zabezpieczeń. Następnie wybierz pozycję **Zapisz**.
+3. Wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisz dostęp do**wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi** lub tożsamość zarządzana z przypisaną przez **użytkownika**zarządzaną tożsamością  /  **System assigned Managed identity**. Wybierz podmiot zabezpieczeń. Następnie wybierz przycisk **Zapisz**.
 
     > [!div class="mx-imgBorder"]
-    > ![Dodaj przypisanie roli](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
+    > ![Jak dodać przypisanie roli](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
 
 4. Można potwierdzić, że przypisanie roli zostało zastosowane na karcie przypisanie roli.
 
@@ -139,7 +139,7 @@ Po skonfigurowaniu zarządzanej tożsamości dla zasobu hostingu Użyj zestawu A
 
 Po zarejestrowaniu aplikacji i skojarzeniu jej z Azure Maps można zażądać tokenów dostępu.
 
-* Identyfikator zasobu usługi Azure AD`https://atlas.microsoft.com/`
+* Identyfikator zasobu usługi Azure AD `https://atlas.microsoft.com/`
 * Identyfikator aplikacja usługi Azure AD
 * Identyfikator dzierżawy usługi Azure AD
 * Klucz tajny klienta rejestracji aplikacja usługi Azure AD

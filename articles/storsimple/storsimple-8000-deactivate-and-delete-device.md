@@ -1,6 +1,6 @@
 ---
 title: Dezaktywowanie i usuwanie urządzenia z serii StorSimple 8000 | Microsoft Docs
-description: Opisuje sposób usuwania urządzenia StorSimple z usługi przez jego dezaktywowanie, a następnie jego usunięcie.
+description: Dowiedz się, jak dezaktywować i usuwać Urządzenie StorSimple połączone z usługą StorSimple Menedżer urządzeń.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 825a10bec7a9d415bdcf76e5b6f28f04060bb411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64163011506380eec87457a2d8a2f699ec56dc68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514030"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249641"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Dezaktywacja i usuwanie urządzenia StorSimple
 

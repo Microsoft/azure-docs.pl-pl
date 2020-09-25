@@ -4,19 +4,19 @@ description: Odpowiedź na zdarzenie usługi Azure Security test w wersji 2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2dbdb1af139472d5c7f4537399d434e045bb05cb
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 172607a7f8f036bbfb68e8d15e77b2a3e3fb5377
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059288"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326392"
 ---
-# <a name="security-control-incident-response"></a>Kontrola zabezpieczeń: odpowiedź na zdarzenie
+# <a name="security-control-v2-incident-response"></a>Kontrola zabezpieczeń v2: odpowiedź na zdarzenie
 
-Reagowanie na zdarzenia obejmuje kontrolki dotyczące cyklu życia reakcji na zdarzenia, wykrywania i analizy, zawierania i działania po zdarzeniu. Obejmuje to korzystanie z usług platformy Azure, takich jak Azure Security Center i wskaźnik kontrolny, w celu zautomatyzowania procesu reagowania na zdarzenia.
+Reagowanie na zdarzenia obejmuje kontrolę w cyklu życia odpowiedzi na zdarzenia — przygotowanie, wykrywanie i analiza, zawieranie i działania po zdarzeniu. Obejmuje to korzystanie z usług platformy Azure, takich jak Azure Security Center i wskaźnik kontrolny, w celu zautomatyzowania procesu reagowania na zdarzenia.
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: przygotowanie — aktualizacja procesu reagowania na incydenty dla platformy Azure
 
@@ -28,13 +28,13 @@ Upewnij się, że organizacja ma procesy reagowania na zdarzenia związane z bez
 
 - [Implementowanie zabezpieczeń w środowisku przedsiębiorstwa](https://aka.ms/AzSec4)
 
-- [Przewodnik odwołuje się do odpowiedzi na zdarzenia](https://aka.ms/IRRG)
+- [Przewodnik odwołuje się do odpowiedzi na zdarzenia](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operacje zabezpieczeń (SecOP)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Przygotowywanie zdarzeń](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -52,9 +52,9 @@ Skonfiguruj informacje kontaktowe dotyczące zdarzenia zabezpieczeń w Azure Sec
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operacje zabezpieczeń (SecOP)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Przygotowywanie zdarzeń](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -78,9 +78,9 @@ Eksportuj alerty i zalecenia dotyczące Azure Security Center przy użyciu funkc
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operacje zabezpieczeń (SecOP)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Przygotowywanie zdarzeń](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -92,17 +92,19 @@ Eksportuj alerty i zalecenia dotyczące Azure Security Center przy użyciu funkc
 |--|--|--|--|
 | IR — 4 | 19 | IR — 4 |
 
-Upewnij się, że analitycy mogą wykonywać zapytania i używać różnorodnych źródeł danych podczas badania potencjalnych zdarzeń, aby zbudować pełny wgląd w to, co się stało. Zadbaj o to, aby szczegółowe informacje i uczenia były przechwytywane do innych analityków i w przyszłości. 
+Upewnij się, że analitycy mogą wykonywać zapytania i używać różnorodnych źródeł danych podczas badania potencjalnych zdarzeń, aby zbudować pełny wgląd w to, co się stało. Należy zebrać różne dzienniki, aby śledzić działania potencjalnej osoby atakującej w łańcuchu kasowania, aby uniknąć niewidomych plamek.  Należy również upewnić się, że szczegółowe informacje i uczenia są przechwytywane dla innych analityków i w przyszłości.  
 
 Źródła danych do zbadania obejmują scentralizowane źródła rejestrowania, które są już zbierane z usług w zakresie i działających systemów, ale mogą również obejmować:
 
-Dane sieci — używanie dzienników przepływów sieciowych grup zabezpieczeń, platformy Azure Network Watcher i Azure Monitor do przechwytywania dzienników przepływu sieci i innych informacji analitycznych. Migawki uruchomionych systemów: 
+- Dane sieci — używanie dzienników przepływów sieciowych grup zabezpieczeń, platformy Azure Network Watcher i Azure Monitor do przechwytywania dzienników przepływu sieci i innych informacji analitycznych. 
 
--   Użyj funkcji migawek maszyny wirtualnej platformy Azure, aby utworzyć migawkę dysku działającego systemu. 
+- Migawki uruchomionych systemów: 
 
--   Użyj możliwości natywnego zrzutu pamięci systemu operacyjnego, aby utworzyć migawkę pamięci uruchomionego systemu.
+    - Użyj funkcji migawek maszyny wirtualnej platformy Azure, aby utworzyć migawkę dysku działającego systemu. 
 
--   Użyj funkcji Snapshot w ramach usług platformy Azure lub własnej funkcji oprogramowania, aby utworzyć migawki uruchomionych systemów.
+    - Użyj możliwości natywnego zrzutu pamięci systemu operacyjnego, aby utworzyć migawkę pamięci uruchomionego systemu.
+
+    - Użyj funkcji Snapshot w ramach usług platformy Azure lub własnej funkcji oprogramowania, aby utworzyć migawki uruchomionych systemów.
 
 Platforma Azure — wskaźnik przedstawia szeroką analizę danych w praktycznie dowolnym źródle dziennika i portalu zarządzania przypadkami do zarządzania pełnym cyklem życia zdarzeń. Informacje o analizie podczas badania mogą być powiązane ze zdarzeniami w celu śledzenia i raportowania. 
 
@@ -116,9 +118,9 @@ Platforma Azure — wskaźnik przedstawia szeroką analizę danych w praktycznie
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operacje zabezpieczeń (SecOP)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Przygotowywanie zdarzeń](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -134,7 +136,7 @@ Zapewnienie kontekstu analitykom, na których zdarzenia mają być skoncentrowan
 
 Azure Security Center przypisuje ważność do każdego alertu, aby pomóc w ustaleniu, które alerty należy najpierw zbadać. Ważność jest oparta na tym, jak dobrze Security Center znajduje się w wyszukiwaniu lub analitycznym używanym do wystawiania alertu, a także poziom pewności, że istniało złośliwy wpływ na działanie, które spowodowało wygenerowanie alertu.
 
-Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system nazewnictwa, aby identyfikować i klasyfikować zasoby platformy Azure, szczególnie te, które przetwarzają poufne dane.  Odpowiedzialność za korygowanie alertów zależy od zagrożenia dla zasobów platformy Azure i środowiska, w którym wystąpiło zdarzenie.
+Ponadto należy oznaczyć zasoby przy użyciu tagów i utworzyć system nazewnictwa, aby identyfikować i klasyfikować zasoby platformy Azure, szczególnie te, które przetwarzają dane poufne.  Odpowiedzialność za korygowanie alertów zależy od zagrożenia dla zasobów platformy Azure i środowiska, w którym wystąpiło zdarzenie.
 
 - [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](../../security-center/security-center-alerts-overview.md)
 
@@ -142,9 +144,9 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operacje zabezpieczeń (SecOP)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Przygotowywanie zdarzeń](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -166,9 +168,9 @@ Automatyzuj ręczne powtarzające się zadania w celu przyspieszenia czasu reakc
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operacje zabezpieczeń (SecOP)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Przygotowywanie zdarzeń](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 

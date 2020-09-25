@@ -3,12 +3,12 @@ title: Tworzenie harmonogramu dla laboratoriów zajęć w Azure Lab Services | M
 description: Dowiedz się, jak tworzyć harmonogramy dla laboratoriów stacjonarnych w Azure Lab Services tak, aby maszyny wirtualne w laboratoriach były uruchamiane i zamykane w określonym czasie.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d6dcdd8d09c2c71c2d41aebd358639883ccfb33d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445784"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326443"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Twórz harmonogramy dla laboratoriów stacjonarnych w Azure Lab Services i zarządzaj nimi 
 Harmonogramy umożliwiają skonfigurowanie laboratorium klasy w taki sposób, aby maszyny wirtualne w laboratorium były automatycznie uruchamiane i zamykane w określonym czasie. Można zdefiniować harmonogram jednorazowy lub cykliczny. Poniższe procedury umożliwiają tworzenie harmonogramów dla laboratorium zajęć i zarządzanie nimi: 
@@ -27,7 +27,7 @@ Utwórz zaplanowane zdarzenie dla laboratorium, aby maszyny wirtualne w laborato
 
 1. Przejdź do strony **harmonogramy** , a następnie wybierz pozycję **Dodaj wydarzenie zaplanowane** na pasku narzędzi. 
 
-    ![Przycisk dodawania harmonogramu na stronie harmonogramów](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Zrzut ekranu przedstawiający stronę "Harmonogram" Azure Lab Services z wybranym przyciskiem Dodaj harmonogram.](./media/how-to-create-schedules/add-schedule-button.png)
 2. Upewnij się, że w polu **Standardowy** wybrano **Typ zdarzenia**. Wybierz pozycję **Rozpocznij tylko** , aby określić tylko godzinę rozpoczęcia dla maszyn wirtualnych. Wybierz pozycję **Zatrzymaj tylko** , aby określić tylko czas zatrzymania dla maszyn wirtualnych. 
 7. W sekcji **Repeat (powtarzanie** ) wybierz bieżący harmonogram. 
 

@@ -1,6 +1,6 @@
 ---
 title: Wdrażanie usługi StorSimple Menedżer urządzeń na platformie Azure | Microsoft Docs
-description: Wyjaśnia, jak utworzyć i usunąć usługę StorSimple Menedżer urządzeń w Azure Portal, a także opis sposobu zarządzania kluczem rejestracji usługi.
+description: Poznaj kroki wymagane do tworzenia, usuwania, migracji usługi i zarządzania kluczem rejestracji usługi.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847109"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249556"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Wdrażanie usługi StorSimple Menedżer urządzeń dla urządzeń z serii StorSimple 8000
 
@@ -177,12 +177,12 @@ Wykonaj następujące kroki, aby zaktualizować szyfrowanie danych usługi na ur
 
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Aby zaktualizować klucz szyfrowania danych usługi na urządzeniach fizycznych
 1. Użyj program Windows PowerShell dla usługi StorSimple, aby nawiązać połączenie z konsolą programu. Wybierz opcję 1, aby zalogować się z pełnymi prawami dostępu.
-2. W wierszu polecenia wpisz:`Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+2. W wierszu polecenia wpisz:  `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. Podaj klucz szyfrowania danych usługi uzyskany w [kroku 2: użyj program Windows PowerShell dla usługi StorSimple do zainicjowania zmiany klucza szyfrowania danych usługi](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Aby zaktualizować klucz szyfrowania danych usługi na wszystkich urządzeniach chmury 8010/8020
 1. Pobierz i skonfiguruj [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) skrypt programu PowerShell. 
-2. Otwórz program PowerShell i w wierszu polecenia wpisz:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
+2. Otwórz program PowerShell i w wierszu polecenia wpisz:  `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 Ten skrypt zapewni, że klucz szyfrowania danych usługi jest ustawiony na wszystkich urządzeniach chmury 8010/8020 w ramach Menedżera urządzeń.
 

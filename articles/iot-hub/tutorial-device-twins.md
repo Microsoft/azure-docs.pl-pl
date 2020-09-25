@@ -13,13 +13,13 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-- devx-track-javascript
-ms.openlocfilehash: f3dad81a5cba9dd817e0d4e75590d374fe059358
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: 0aee3fef5c2b9e7e1d8cdd8c3d27192b17161351
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424107"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251885"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -247,7 +247,7 @@ Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji zaplecza i wyró�
 
 ![Aplikacja zaplecza](./media/tutorial-device-twins/BackEnd2.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz ukończyć następny samouczek, pozostaw grupę zasobów i centrum IoT Hub, aby użyć ich później.
 

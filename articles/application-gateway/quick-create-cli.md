@@ -8,13 +8,13 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
-ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: b6b2077a71870d619c023b0d66c37ebc043aa3f3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: fb577947942ffce640f91daf0050f6796f93222b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961758"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311669"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Szybki start: bezpośredni ruch internetowy w usłudze Azure Application Gateway — interfejs wiersza polecenia platformy Azure
 
@@ -195,7 +195,7 @@ Gdy nie potrzebujesz już zasobów utworzonych przy użyciu bramy aplikacji, uż
 az group delete --name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [zarządzanie ruchem internetowym przy użyciu bramy aplikacji za pomocą interfejsu wiersza polecenia platformy Azure](./tutorial-manage-web-traffic-cli.md)
