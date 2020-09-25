@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 50ca6eacc7e75a3ff391401e7ced0e3583f1a285
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661524"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357577"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Zamiana mowy na tekst często zadawanych pytań
 
@@ -29,7 +29,7 @@ Odp **.: model**linii bazowej został przeszkolony przy użyciu danych należąc
 
 **P: co mogę zrobić, jeśli chcę użyć modelu linii bazowej?**
 
-Odp **.: najpierw**Pobierz [klucz subskrypcji](get-started.md). Jeśli chcesz, aby wywołania REST były nawiązywane w ramach prewdrażanych modeli bazowych, zobacz [interfejsy API REST](rest-apis.md). Jeśli chcesz używać obiektów WebSockets, [Pobierz zestaw SDK](speech-sdk.md).
+Odp **.: najpierw**Pobierz [klucz subskrypcji](overview.md#try-the-speech-service-for-free). Jeśli chcesz, aby wywołania REST były nawiązywane w ramach prewdrażanych modeli bazowych, zobacz [interfejsy API REST](rest-apis.md). Jeśli chcesz używać obiektów WebSockets, [Pobierz zestaw SDK](speech-sdk.md).
 
 **P: Czy zawsze muszę utworzyć niestandardowy model mowy?**
 

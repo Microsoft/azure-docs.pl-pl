@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 446517f56d1f5ba6fa32408489f07411ee1a3e02
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442909"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356812"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analiza wielu dzierżawców z użyciem wyodrębnionych danych — aplikacji z wieloma dzierżawcami
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > - Zbadaj bazę danych analizy.
 > - Użyj Power BI do wizualizacji danych, aby wyróżnić trendy w danych dzierżawy i zaleceń dotyczących ulepszeń.
 
-![architectureOverView](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
+![Diagram przedstawia przegląd architektury używanej w tym artykule.](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>Wzorzec analizy dzierżawy w trybie offline
 
@@ -53,7 +53,7 @@ Następnie zagregowane dane są Shredded do zestawu tabel ze [schematem gwiazdy]
 
 Tabele centralne i wymiary umożliwiają wydajne przetwarzanie analityczne. Schemat gwiazdy używany w tym samouczku jest wyświetlany na poniższej ilustracji:
  
-![StarSchema](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
+![Diagram bazy danych pokazuje cztery obiekty bazy danych połączone z centralnym obiektem bazy danych.](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
 
 Na koniec są badane zapytania dotyczące tabel schematu gwiazdy. Wyniki zapytania są wyświetlane wizualnie, aby wyróżnić szczegółowe informacje o zachowaniu dzierżawy i ich użyciu. Za pomocą tego schematu gwiazdy można uruchamiać zapytania, które ułatwiają odnajdywanie elementów, takich jak następujące:
 
@@ -111,7 +111,7 @@ Zobacz następujące elementy bazy danych w narzędziu SSMS Eksplorator obiektó
 - Tabele schematu gwiazdy to **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**i **dim_Dates**.
 - **Sp_ShredRawExtractedData** procedury składowanej służy do wypełniania tabel schematu gwiazdy z nieprzetworzonych tabel danych.
 
-![tenantAnalytics](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
+![Zrzut ekranu przedstawia Eksplorator obiektów S s S dla węzła magazyn analityczny, w tym tabele, widoki i węzły.](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
 
 ## <a name="data-extraction"></a>Wyodrębnianie danych 
 
@@ -139,7 +139,7 @@ Każde zadanie wyodrębnia swoje dane i zapisuje je w sklepie analitycznym. Oddz
 4. Naciśnij klawisz **F5** , aby uruchomić skrypt, który tworzy i uruchamia zadanie wyodrębniające bilety i dane klientów z każdej bazy danych dzierżaw. Zadanie zapisuje dane w sklepie analizy.
 5. Wykonaj zapytanie dotyczące tabeli TicketsRawData w bazie danych tenantanalytics, aby upewnić się, że tabela została wypełniona informacjami o biletach ze wszystkich dzierżawców.
 
-![ticketExtracts](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
+![Zrzut ekranu przedstawia bazę danych ExtractTickets z TicketsRawDataą d b o wybranym w Eksplorator obiektów.](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
 
 Powtórz powyższe kroki, z wyjątkiem tego, że Zastąp **\ExtractTickets.SQL** with **\ExtractVenuesEvents.SQL** w kroku 2.
 
@@ -159,7 +159,7 @@ W tej części samouczka zdefiniujesz i uruchomisz zadanie, które scala wyodrę
 4. Poczekaj, aż zadanie zostanie pomyślnie uruchomione.
     - Sprawdź kolumnę **cykl życia** zadania. jobs_execution tabeli dla stanu zadania. Przed kontynuowaniem upewnij się, że zadanie **zakończyło się pomyślnie** . Pomyślne uruchomienie wyświetla dane podobne do poniższego wykresu:
 
-![shreddingJob](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
+![Zrzut ekranu przedstawia pomyślne uruchomienie procedury sp_ShredRawExtractedData.](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
 ## <a name="data-exploration"></a>Eksploracja danych
 
@@ -174,11 +174,11 @@ Wykonaj następujące kroki, aby nawiązać połączenie z usługą Power BI i z
 3. W oknie **pobieranie danych** wybierz pozycję Azure SQL Database.
 4. W oknie Logowanie do bazy danych wprowadź nazwę serwera (Catalog-MT- \<User\> . Database.Windows.NET). Wybierz pozycję **Importuj** dla **trybu łączności danych**, a następnie kliknij przycisk OK. 
 
-    ![powerBISignIn](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
+    ![Zrzut ekranu przedstawia okno dialogowe SQL Server Database, w którym można wprowadzić serwer i bazę danych.](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
 5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper*i wprowadź hasło = *P \@ ssword1*. Kliknij przycisk **Połącz**.  
 
-    ![DatabaseSignIn](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
+    ![Zrzut ekranu przedstawia okno dialogowe baza danych SQL Server, w którym można wprowadzić nazwę użytkownika i hasło.](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
 6. W okienku **Nawigator** w obszarze baza danych analizy wybierz tabele ze schematem gwiazdy: fact_Tickets, dim_Events, dim_Venues, dim_Customers i dim_Dates. Następnie wybierz pozycję **Załaduj**. 
 
@@ -186,13 +186,13 @@ Gratulacje! Dane zostały pomyślnie załadowane do Power BI. Teraz możesz zacz
 
 Zacznij od analizowania danych sprzedaży biletów, aby zobaczyć zmiany w użyciu w miejscu. Wybierz poniższe opcje w Power BI, aby wyświetlić wykres słupkowy łącznej liczby biletów sprzedawanych przez każdy z miejsc. Ze względu na losową odmianę generatora biletów wyniki mogą się różnić.
  
-![TotalTicketsByVenues](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
+![Zrzut ekranu przedstawia wizualizację i kontrolki dla wizualizacji danych po prawej stronie.](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
 
 Powyższy wykres potwierdza, że liczba biletów sprzedawanych przez każdy z miejsc jest różna. Miejsca, w których sprzedawane są więcej biletów, są bardziej silniej niż miejsca, w których sprzedawane są mniejsze bilety. W tym miejscu może istnieć możliwość dostosowywania alokacji zasobów zgodnie z różnymi potrzebami dzierżawców.
 
 Możesz przeanalizować dane, aby zobaczyć, w jaki sposób sprzedaż biletów różni się w miarę upływu czasu. Wybierz poniższe opcje w Power BI, aby wykreślić łączną liczbę biletów sprzedawanych każdego dnia przez okres 60 dni.
  
-![SaleVersusDate](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
+![Zrzut ekranu przedstawia wizualizację B I o tytule dystrybucja sprzedaży biletów I dzień sprzedaży.](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
 
 Powyższy wykres przedstawia wzrost sprzedaży biletów dla niektórych miejsc. Te szczyty wzmacniają, że niektóre miejsca mogą zużywać zasoby systemowe w nieproporcjonalnym charakterze. Do tej pory nie ma żadnego oczywistego wzorca podczas wystąpienia.
 

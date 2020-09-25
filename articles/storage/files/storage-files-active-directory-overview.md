@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 3f2fd9f2b75faeeb2d40bd71d074a929e86eebdf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561827"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358376"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Azure Files Omówienie opcji uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -114,7 +114,7 @@ Poniższy diagram przedstawia przepływ pracy na potrzeby uwierzytelniania usłu
 
 - Najpierw nie trzeba tworzyć tożsamości na platformie Azure AD DS, aby reprezentować konto magazynu. Jest to wykonywane przez proces włączania w tle.
 
-- Po drugie wszyscy użytkownicy znajdujący się w usłudze Azure AD mogą być uwierzytelniani i autoryzowani. Użytkownik może być tylko w chmurze lub hybrydowym. Synchronizacja z usługi Azure AD do platformy Azure AD DS jest zarządzana przez platformę bez konieczności konfigurowania użytkownika. Jednak klient musi być przyłączony do domeny w usłudze Azure AD DS, nie może być przyłączony lub zarejestrowany w usłudze Azure AD. 
+- Po drugie, wszyscy użytkownicy, którzy istnieją w usłudze Azure AD, mogą być uwierzytelniani i autoryzowani. Użytkownik może być tylko w chmurze lub hybrydowym. Synchronizacja z usługi Azure AD do platformy Azure AD DS jest zarządzana przez platformę bez konieczności konfigurowania użytkownika. Jednak klient musi być przyłączony do domeny w usłudze Azure AD DS, nie może być przyłączony lub zarejestrowany w usłudze Azure AD. 
 
 :::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="4b":::
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8d71f6e71a7cd6033e570742a23016df0c25dd27
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: cfe440cb8ac98518547248485201b85dc0d0076d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542250"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356829"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Wdróż i Eksploruj wielodostępną aplikację SaaS, która używa wzorca bazy danych na dzierżawcę z Azure SQL Database
 
@@ -225,7 +225,7 @@ Po rozpoczęciu pracy z kolekcją dzierżawców Przyjrzyjmy się pewnym zasobom,
 1. W [Azure Portal](https://portal.azure.com)przejdź do listy serwerów SQL. Następnie otwórz **katalog-DPT- &lt; User &gt; ** Server.
     - Serwer wykazu zawiera dwie bazy danych: **tenantcatalog** i **basetenantdb** (baza danych szablonów, która została skopiowana w celu utworzenia nowych dzierżawców).
 
-   ![Bazy danych](./media/saas-dbpertenant-get-started-deploy/databases.png)
+   ![Zrzut ekranu przedstawia stronę omówienia serwera wykazu z dwiema bazami danych.](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Wróć do listy serwerów SQL.
 

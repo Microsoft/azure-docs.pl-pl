@@ -1,6 +1,6 @@
 ---
 title: Schematy Azure Event Grid dla zdarzeń Media Services
-description: Opisuje właściwości, które są dostępne dla zdarzeń Media Services z Azure Event Grid
+description: Dowiedz się więcej o właściwościach, które są dostępne dla zdarzeń Media Services z Azure Event Grid.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f7c9f3b000973868c003477e58de14634b139cae
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 47ba1af15101ae68cf5311ed73f7078bf9fc7f35
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267670"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336432"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schematy Azure Event Grid dla zdarzeń Media Services
 

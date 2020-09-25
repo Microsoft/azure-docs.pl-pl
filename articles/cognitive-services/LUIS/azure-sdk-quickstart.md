@@ -3,15 +3,17 @@ title: 'Szybki Start: Language Understanding (LUIS) biblioteki klienckie zestawu
 description: Utwórz i Zbadaj aplikację LUIS za pomocą bibliotek klienckich SDK LUIS w tym przewodniku Szybki Start przy użyciu języka C#, Python lub JavaScript.
 ms.topic: quickstart
 ms.date: 09/14/2020
+ms.service: cognitive-services
+ms.subservice: language-understanding
 keywords: Azure, sztuczna inteligencja, AI, przetwarzanie języka naturalnego, NLP, LUIS, Azure Luis, zrozumienie języka naturalnego, AI chatbot, chatbot Maker, zrozumienie języka naturalnego
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 64288bbffa2d2c24e2f719477d98426f52da4070
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972611"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327294"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Szybki Start: Language Understanding (LUIS) Biblioteka klienta zestawu SDK do tworzenia i wysyłania zapytań do aplikacji LUIS
 
@@ -33,7 +35,7 @@ Language Understanding (LUIS) umożliwia stosowanie przetwarzania języka natura
 [!INCLUDE [LUIS development with Python SDK](./includes/sdk-python.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz usunąć aplikację z [portalu Luis](https://www.luis.ai) i usunąć zasoby platformy Azure z [Azure Portal](https://portal.azure.com/).
 

@@ -7,18 +7,18 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 00a20ece2358f0054e4490ffb914f78b82d9c509
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 236b69b1e10eb80b9c0a5e27b213eb3972209346
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594263"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361045"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Sterowanie ruchem wychodzącym węzłów klastra w usłudze Azure Kubernetes Service (AKS)
 
 Ten artykuł zawiera informacje niezbędne do zabezpieczenia ruchu wychodzącego z usługi Azure Kubernetes Service (AKS). Zawiera wymagania dotyczące klastra dla podstawowego wdrożenia AKS oraz dodatkowe wymagania dotyczące opcjonalnych dodatków i funkcji. Na [końcu tego przykładu zostanie dostarczona procedura konfigurowania tych wymagań za pomocą zapory platformy Azure](#restrict-egress-traffic-using-azure-firewall). Można jednak zastosować te informacje do dowolnej metody lub urządzenia ograniczenia ruchu wychodzącego.
 
-## <a name="background"></a>Informacje dodatkowe
+## <a name="background"></a>Tło
 
 Klastry AKS są wdrażane w sieci wirtualnej. Ta sieć może być zarządzana (utworzona przez AKS) lub niestandardową (wstępnie skonfigurowaną przez użytkownika wcześniej). W obu przypadkach klaster ma zależności **wychodzące** od usług spoza tej sieci wirtualnej (usługa nie ma zależności przychodzących).
 
@@ -766,7 +766,7 @@ Przejdź do adresu IP frontonu zapory platformy Azure w przeglądarce, aby spraw
 Powinna zostać wyświetlona aplikacja do głosowania AKS. W tym przykładzie publiczny adres IP zapory był `52.253.228.132` .
 
 
-![AKS — zagłosuj](media/limit-egress-traffic/aks-vote.png)
+![Zrzut ekranu przedstawia aplikację do głosowania K S z przyciskami dla kotów, psów i resetowania oraz sum.](media/limit-egress-traffic/aks-vote.png)
 
 
 ### <a name="clean-up-resources"></a>Czyszczenie zasobów

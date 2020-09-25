@@ -1,24 +1,24 @@
 ---
-title: Połącz maszynę hybrydową z serwerami z obsługą usługi Azure ARC (wersja zapoznawcza)
-description: Dowiedz się, jak nawiązać połączenie i zarejestrować maszynę hybrydową przy użyciu serwerów z włączoną funkcją Azure ARC (wersja zapoznawcza)
+title: Połącz maszynę hybrydową z serwerami z obsługą usługi Azure Arc
+description: Dowiedz się, jak nawiązać połączenie i zarejestrować maszynę hybrydową przy użyciu serwerów z obsługą usługi Azure Arc.
 ms.topic: quickstart
-ms.date: 08/12/2020
-ms.openlocfilehash: eacf75871b1f7cc7fc3b703d8859338578e43456
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/23/2020
+ms.openlocfilehash: b57f30821a105a99041d8187716b75096116ea8e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213603"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327888"
 ---
-# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers-preview"></a>Szybki Start: łączenie maszyny hybrydowej z serwerami z obsługą usługi Azure ARC (wersja zapoznawcza)
+# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Szybki Start: łączenie maszyny hybrydowej z serwerami z obsługą usługi Azure Arc
 
-[Serwery z obsługą usługi Azure Arc](../overview.md) (wersja zapoznawcza) umożliwiają zarządzanie maszynami z systemami Windows i Linux, które znajdują się w środowiskach lokalnych, brzegowych i wielochmurowych. W tym przewodniku szybki start wdrożono i skonfigurujesz agenta podłączonego maszyny na komputerze z systemem Windows lub Linux hostowanym poza platformą Azure na potrzeby zarządzania przez serwery z włączonym łukiem (wersja zapoznawcza).
+[Serwery z obsługą usługi Azure Arc](../overview.md) umożliwiają zarządzanie maszynami z systemami Windows i Linux hostowanymi w środowiskach lokalnych, w granicach i w chmurze. W tym przewodniku Szybki Start zostanie wdrożony i skonfigurowany Agent połączonej maszyny na komputerze z systemem Windows lub Linux hostowanym poza platformą Azure na potrzeby zarządzania przez serwery z włączonym łukiem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Wdrożenie serwera z włączoną funkcją ARC (wersja zapoznawcza) Agent maszyny połączonej hybrydowo musi mieć uprawnienia administratora na tym komputerze, aby zainstalować i skonfigurować agenta. W systemie Linux przy użyciu konta głównego i w systemie Windows z kontem, które jest członkiem lokalnej grupy administratorów.
+* Wdrożenie serwerów z włączonym Łukem hybrydowego agenta maszyny połączonej wymaga uprawnień administratora na komputerze, aby zainstalować i skonfigurować agenta. W systemie Linux przy użyciu konta głównego i w systemie Windows z kontem, które jest członkiem lokalnej grupy administratorów.
 
 * Przed rozpoczęciem należy zapoznać się z [wymaganiami wstępnymi](../agent-overview.md#prerequisites) dotyczącymi agenta i sprawdzić następujące kwestie:
 
@@ -28,13 +28,13 @@ ms.locfileid: "88213603"
 
     * Jeśli komputer nawiązuje połączenie za pośrednictwem zapory lub serwera proxy w celu komunikacji przez Internet, upewnij się, że [wymienione](../agent-overview.md#networking-configuration) adresy URL nie są blokowane.
 
-    * Serwery z obsługą usługi Azure ARC (wersja zapoznawcza) obsługują tylko regiony określone w [tym miejscu](../overview.md#supported-regions).
+    * Serwery z obsługą usługi Azure Arc obsługują tylko regiony określone w [tym miejscu](../overview.md#supported-regions).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="register-azure-resource-providers"></a>Rejestrowanie dostawców zasobów platformy Azure
 
-Serwery z obsługą usługi Azure ARC (wersja zapoznawcza) są zależne od następujących dostawców zasobów platformy Azure w ramach subskrypcji, aby można było korzystać z tej usługi:
+Serwery z obsługą usługi Azure Arc są zależne od następujących dostawców zasobów platformy Azure w ramach subskrypcji, aby można było korzystać z tej usługi:
 
 * Microsoft. HybridCompute
 * Microsoft. GuestConfiguration
@@ -97,7 +97,7 @@ Skrypt służący do automatyzowania pobierania, instalacji i nawiązywania poł
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Weryfikowanie połączenia z usługą Azure Arc
 
-Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z serwerami z obsługą usługi Azure ARC (wersja zapoznawcza) przejdź do Azure Portal, aby sprawdzić, czy serwer pomyślnie nawiązał połączenie. Zapoznaj się z maszyną w [Azure Portal](https://aka.ms/hybridmachineportal).
+Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połączenia z serwerami z obsługą usługi Azure Arc przejdź do Azure Portal, aby sprawdzić, czy serwer pomyślnie nawiązał połączenie. Zapoznaj się z maszyną w [Azure Portal](https://aka.ms/hybridmachineportal).
 
 :::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Pomyślne połączenie z maszyną" border="false":::
 
@@ -105,7 +105,7 @@ Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połą
 
 Teraz, gdy włączono maszynę hybrydową z systemem Linux lub Windows i pomyślnie nawiązano połączenie z usługą, możesz włączyć Azure Policy, aby zrozumieć zgodność na platformie Azure.
 
-Aby dowiedzieć się, jak zidentyfikować komputer z włączoną obsługą usługi Azure ARC (wersja zapoznawcza), na którym nie zainstalowano agenta Log Analytics, przejdź do samouczka:
+Aby dowiedzieć się, jak identyfikować maszynę z włączonymi serwerami z obsługą usługi Azure ARC, na których nie zainstalowano agenta Log Analytics, przejdź do samouczka:
 
 > [!div class="nextstepaction"]
 > [Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów](tutorial-assign-policy-portal.md)

@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: cae0ec1daed8277d1e7e4f3c5cbc701965ac00b8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: b272426f865636640e0a2fafde46cbebbe6eb363
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661760"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327497"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Dokumentacja aparatu reguł standardowych dla usługi Azure CDN
 
@@ -40,7 +40,7 @@ Uwzględniony w tym limicie jest domyślną *regułą globalną*. Reguła global
 
 Każdy punkt końcowy Azure CDN może mieć do 25 reguł. Każda reguła może mieć do dziesięciu warunków dopasowania i pięć akcji. Cennik aparatu reguł ma następujące wymiary: 
 - Reguły: $1 na regułę miesięcznie 
-- Przetworzone żądania: $0,60 na milion requets
+- Przetworzone żądania: $0,60 na milion żądań
 - Pierwsze 5 reguł pozostanie bezpłatnie
 
 ## <a name="syntax"></a>Składnia

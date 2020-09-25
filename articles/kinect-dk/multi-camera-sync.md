@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, urządzenia Kinect, specyfikacje, sprzęt, DK, możliwości, Głębokość, kolor, RGB, IMU, tablica, Głębokość, wiele, synchronizacja
-ms.openlocfilehash: e22f42a69e7d9b8283ec2f2da478dde0c27ce4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85277576"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361164"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Synchronizowanie wielu urządzeń z usługą Azure urządzenia Kinect DK
 
@@ -26,7 +26,7 @@ Istnieje wiele powodów, dla których można korzystać z wielu urządzeń usłu
 
 - Wypełnij pole Occlusions. Mimo że przekształcenia danych na platformie Azure urządzenia Kinect są wytwarzane na jednym obrazie, dwie aparaty (głębokości i RGB) są w rzeczywistości niewielką odległością od siebie. Przesunięcie sprawia, że Occlusions to możliwe. Zamknięcia występuje, gdy obiekt pierwszego planu blokuje widok części obiektu tła dla jednej z dwóch kamer na urządzeniu. W wyniku obrazu koloru obiekt pierwszego planu wydaje się rzutować cień obiektu tła.  
    Na przykład na poniższym diagramie aparat po lewej stronie widzi szary piksel "P2". Jednak biały obiekt pierwszego planu blokuje lampę podczerwieni po prawej stronie. Kamerę po prawej stronie nie ma danych dla "P2".  
-   ![Zamknięcia](./media/occlusion.png)  
+   ![Diagram przedstawia dwie kamery kierowane w tym samym momencie, gdy jeden z nich jest zablokowany.](./media/occlusion.png)  
    Dodatkowe synchronizowane urządzenia mogą udostępniać dane zamknięte.
 - Skanuj obiekty w trzech wymiarach.
 - Zwiększ obowiązującą szybkość klatek do wartości większej niż 30 klatek na sekundę (FPS).

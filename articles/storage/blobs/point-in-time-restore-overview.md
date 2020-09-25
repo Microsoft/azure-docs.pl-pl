@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 32d0c44abed2d4ace4c8896922ed7f6ed8b596ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987040"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326103"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB
 
@@ -36,13 +36,6 @@ Usługa Azure Storage analizuje wszystkie zmiany wprowadzone w określonych obie
 Jednocześnie można uruchomić tylko jedną operację przywracania na koncie magazynu. Nie można anulować operacji przywracania, gdy jest w toku, ale w celu cofnięcia pierwszej operacji można wykonać drugą operację przywracania.
 
 Operacja **przywracania zakresów obiektów BLOB** zwraca identyfikator przywracania, który jednoznacznie identyfikuje operację. Aby sprawdzić stan przywracania do punktu w czasie, wywołaj operację **Pobierz stan przywracania** z identyfikatorem przywracania zwróconym z operacji **przywracania zakresów obiektów BLOB** .
-
-Należy pamiętać o następujących ograniczeniach dotyczących operacji przywracania:
-
-- Blok, który został przekazany za pośrednictwem bloku [Put](/rest/api/storageservices/put-block) lub [Put z adresu URL](/rest/api/storageservices/put-block-from-url), ale nie został przekazany za pośrednictwem [listy bloków Put](/rest/api/storageservices/put-block-list), nie jest częścią obiektu BLOB i dlatego nie jest przywracany jako część operacji przywracania.
-- Nie można przywrócić obiektu BLOB z aktywną dzierżawą. Jeśli obiekt BLOB z aktywną dzierżawą znajduje się w zakresie obiektów BLOB do przywrócenia, operacja przywracania zakończy się niepowodzeniem.
-- Migawki nie są tworzone ani usuwane w ramach operacji przywracania. Tylko podstawowy obiekt BLOB zostanie przywrócony do poprzedniego stanu.
-- Jeśli obiekt BLOB został przeniesiony między warstwami gorąca i chłodna w okresie między obecnym chwilą a punktem przywracania, obiekt BLOB zostanie przywrócony do poprzedniej warstwy. Jednak obiekt BLOB przeniesiony do warstwy archiwum nie zostanie przywrócony.
 
 > [!IMPORTANT]
 > Podczas wykonywania operacji przywracania usługa Azure Storage blokuje operacje na danych w obiektach Blob w zakresach przywracanych przez czas trwania operacji. Operacje odczytu, zapisu i usuwania są blokowane w lokalizacji podstawowej. Z tego powodu operacje, takie jak kontenery list w Azure Portal, mogą nie działać zgodnie z oczekiwaniami podczas operacji przywracania.
@@ -76,9 +69,12 @@ Aby zainicjować operację przywracania, klient musi mieć uprawnienia do zapisu
 
 Przywracanie do punktu w czasie dla blokowych obiektów BLOB ma następujące ograniczenia i znane problemy:
 
-- Tylko blokowe obiekty blob w standardowym koncie magazynu ogólnego przeznaczenia w wersji 2 można przywrócić w ramach operacji przywracania do punktu w czasie. Nie są przywracane obiekty blob, stronicowe obiekty blob i blokowe obiekty blob w warstwie Premium. Jeśli kontener został usunięty w okresie przechowywania, ten kontener nie zostanie przywrócony z operacją przywracania do punktu w czasie. Aby dowiedzieć się więcej o ochronie kontenerów, zobacz [usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md).
-- W ramach operacji przywracania do momentu można przywrócić tylko blokowe obiekty blob w warstwach gorąca lub chłodna. Przywracanie blokowych obiektów BLOB w warstwie archiwum nie jest obsługiwane. Na przykład jeśli obiekt blob z warstwy Gorąca został przeniesiony do warstwy Archiwum dwa dni temu, a operacja przywracania spowodowała jego przywrócenie do punktu sprzed trzech dni, obiekt blob nie zostanie przywrócony do warstwy Gorąca. Aby przywrócić zarchiwizowany obiekt BLOB, najpierw przenieś go z warstwy archiwum.
-- Jeśli blokowy obiekt BLOB w zakresie, który ma zostać przywrócony, ma aktywną dzierżawę, operacja przywracania do punktu w czasie zakończy się niepowodzeniem. Przerwij wszystkie aktywne dzierżawy przed zainicjowaniem operacji przywracania.
+- Tylko blokowe obiekty blob w standardowym koncie magazynu ogólnego przeznaczenia w wersji 2 można przywrócić w ramach operacji przywracania do punktu w czasie. Nie są przywracane obiekty blob, stronicowe obiekty blob i blokowe obiekty blob w warstwie Premium. 
+- Jeśli kontener został usunięty w okresie przechowywania, ten kontener nie zostanie przywrócony z operacją przywracania do punktu w czasie. Jeśli podjęto próbę przywrócenia zakresu obiektów blob, które zawierają obiekty blob w usuniętym kontenerze, operacja przywracania do punktu w czasie zakończy się niepowodzeniem. Aby dowiedzieć się więcej o ochronie kontenerów, zobacz [usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md).
+- Jeśli obiekt BLOB został przeniesiony między warstwami gorąca i chłodna w okresie między obecnym chwilą a punktem przywracania, obiekt BLOB zostanie przywrócony do poprzedniej warstwy. Przywracanie blokowych obiektów BLOB w warstwie archiwum nie jest obsługiwane. Na przykład jeśli obiekt blob z warstwy Gorąca został przeniesiony do warstwy Archiwum dwa dni temu, a operacja przywracania spowodowała jego przywrócenie do punktu sprzed trzech dni, obiekt blob nie zostanie przywrócony do warstwy Gorąca. Aby przywrócić zarchiwizowany obiekt BLOB, najpierw przenieś go z warstwy archiwum. Aby uzyskać więcej informacji, zobacz informacje o [rehydratacji danych obiektów blob z warstwy archiwum](storage-blob-rehydration.md).
+- Blok, który został przekazany za pośrednictwem bloku [Put](/rest/api/storageservices/put-block) lub [Put z adresu URL](/rest/api/storageservices/put-block-from-url), ale nie został przekazany za pośrednictwem [listy bloków Put](/rest/api/storageservices/put-block-list), nie jest częścią obiektu BLOB i dlatego nie jest przywracany jako część operacji przywracania.
+- Nie można przywrócić obiektu BLOB z aktywną dzierżawą. Jeśli obiekt BLOB z aktywną dzierżawą znajduje się w zakresie obiektów BLOB do przywrócenia, operacja przywracania zakończy się niepowodzeniem. Przerwij wszystkie aktywne dzierżawy przed zainicjowaniem operacji przywracania.
+- Migawki nie są tworzone ani usuwane w ramach operacji przywracania. Tylko podstawowy obiekt BLOB zostanie przywrócony do poprzedniego stanu.
 - Przywracanie Azure Data Lake Storage Gen2 płaskich i hierarchicznych przestrzeni nazw nie jest obsługiwane.
 
 > [!IMPORTANT]

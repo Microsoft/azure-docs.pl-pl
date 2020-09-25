@@ -11,12 +11,12 @@ ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e46c6d1c14d226522a1d534418b91076efeaaccf
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f1c4fe8268d24026609f55d76a102a5c9a4e8295
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070721"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356320"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Typy połączeń usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,14 +27,14 @@ W tym artykule wyjaśniono, jak klienci nawiązują połączenie z wystąpieniem
 
 Wystąpienie zarządzane Azure SQL obsługuje następujące dwa typy połączeń:
 
-- **Przekierowanie (zalecane):** Klienci nawiązują połączenia bezpośrednio z węzłem hostującym bazę danych. Aby włączyć łączność przy użyciu przekierowania, należy otworzyć aplet zapory i sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń) w celu zezwolenia na dostęp na portach 1433 i 11000-11999. Pakiety przejdźą bezpośrednio do bazy danych, w związku z czym istnieją ulepszenia dotyczące opóźnień i wydajności przepływności przy użyciu przekierowania przez serwer proxy.
-- **Serwer proxy (domyślnie):** W tym trybie wszystkie połączenia korzystają z składnika bramy proxy. Aby włączyć łączność, należy otworzyć tylko port 1433 dla sieci prywatnych i port 3342 dla połączenia publicznego. Wybranie tego trybu może skutkować większym opóźnieniem i niższą przepływność, w zależności od rodzaju obciążenia. Zdecydowanie zalecamy użycie zasad połączenia przekierowania przez zasady połączenia serwera proxy dla najmniejszego opóźnienia i najwyższej przepływności.
+- **Przekierowanie (zalecane):** Klienci nawiązują połączenia bezpośrednio z węzłem hostującym bazę danych. Aby włączyć łączność przy użyciu przekierowania, należy otworzyć zapory i sieciowe grupy zabezpieczeń w celu zezwolenia na dostęp w portach 1433 i 11000-11999. Pakiety trafiają bezpośrednio do bazy danych i w związku z tym występują opóźnienia oraz ulepszenia wydajności przepływności przy użyciu przekierowania przez serwer proxy.
+- **Serwer proxy (domyślnie):** W tym trybie wszystkie połączenia korzystają z składnika bramy proxy. Aby włączyć łączność, należy otworzyć tylko port 1433 dla sieci prywatnych i port 3342 dla połączenia publicznego. Wybranie tego trybu może skutkować większym opóźnieniem i niższą przepływnością, w zależności od charakteru obciążenia. Zdecydowanie zalecamy korzystanie z zasad przekierowania połączeń zamiast zasad połączenia serwera proxy dla najmniejszego opóźnienia i najwyższej przepływności.
 
 ## <a name="redirect-connection-type"></a>Przekieruj typ połączenia
 
 W polu Typ połączenia przekierowania po ustanowieniu sesji protokołu TCP dla aparatu SQL sesja klienta uzyskuje docelowy wirtualny adres IP węzła klastra wirtualnego z modułu równoważenia obciążenia. Kolejne pakiety przepływają bezpośrednio do węzła klastra wirtualnego, pomijając bramę. Na poniższym diagramie przedstawiono ten przepływ ruchu.
 
-![redirect.png](./media/connection-types-overview/redirect.png)
+![Diagram przedstawia sieć lokalną z przekierowania-Find-DB połączoną z bramą w sieci wirtualnej platformy Azure oraz z zapytaniem redirect połączonym z węzłem podstawowym bazy danych w sieci wirtualnej.](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
 > Typ połączenia przekierowania aktualnie działa tylko dla prywatnego punktu końcowego. Niezależnie od ustawienia typu połączenia połączenia przechodzące przez publiczny punkt końcowy byłyby za pomocą serwera proxy.
@@ -43,7 +43,7 @@ W polu Typ połączenia przekierowania po ustanowieniu sesji protokołu TCP dla 
 
 W przypadku typu połączenia serwera proxy sesja TCP zostaje ustanowiona przy użyciu bramy i wszystkie kolejne pakiety przepływają przez nią. Na poniższym diagramie przedstawiono ten przepływ ruchu.
 
-![proxy.png](./media/connection-types-overview/proxy.png)
+![Diagram przedstawia sieć lokalną z serwerem proxy podłączonym do bramy w sieci wirtualnej platformy Azure, a następnie nawiązuje połączenie z podstawowym węzłem bazy danych w sieci wirtualnej.](./media/connection-types-overview/proxy.png)
 
 ## <a name="changing-connection-type"></a>Zmienianie typu połączenia
 

@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: Dokumentacja usługi Azure Machine Learning Studio (klasycznej)
+summary: Usługa Machine Learning Studio (klasyczna) to narzędzie obsługiwane metodą „przeciągnij i upuść”, które służy do tworzenia, testowania i wdrażania rozwiązań z zakresu analizy predykcyjnej.
+metadata:
+  title: Dokumentacja usługi Machine Learning Studio (klasycznej) — Azure
+  description: Usługa Machine Learning Studio (klasyczna) to narzędzie obsługiwane metodą „przeciągnij i upuść”, które służy do tworzenia, testowania i wdrażania rozwiązań z zakresu analizy predykcyjnej.
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: studio
+  ms.topic: landing-page
+  ms.collection: collection
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 03/05/2020
+  ms.openlocfilehash: e31651c07cc9567af0deac8311b2321ad6dee4ba
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91337534"
+landingContent:
+- title: Wprowadzenie do usługi Studio (klasycznej)
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Co to jest usługa Studio (klasyczna)?
+      url: studio-classic-overview.md
+    - text: Tworzenie pierwszego eksperymentu uczenia maszynowego
+      url: create-experiment.md
+    - text: Tworzenie rozwiązania do analizy predykcyjnej
+      url: tutorial-part1-credit-risk.md
+- title: Eksplorowanie zawartości referencyjnej
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Moduły programu PowerShell
+      url: powershell-module.md
+    - text: Algorytmy i moduły
+      url: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index
+    - text: Interfejsy API zarządzania — REST
+      url: https://docs.microsoft.com/rest/api/machinelearning/
+    - text: Kody błędów usługi internetowej
+      url: web-service-error-codes.md
+- title: Więcej technologii usługi Azure ML
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure Machine Learning
+      url: /azure/machine-learning/
+    - text: Maszyna wirtualna do analizy danych
+      url: /azure/machine-learning/data-science-virtual-machine
+    - text: Porównanie naszych produktów do uczenia maszynowego
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context

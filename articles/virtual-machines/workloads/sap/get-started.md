@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 986e4fd8c7043f5c01868302ffc2b554e2ce76f7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: f778e996eeda0f2b850864c9c90cd522c411b032
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328024"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -82,6 +82,7 @@ W tej sekcji znajdują się informacje dotyczące konfigurowania logowania jedno
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 09/02/2020: Dodaj nowe certyfikowane jednostki SKU dla elementu HLI w dostępnych jednostkach [SKU dla elementu HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 
 - 09/08/2020: Zmień [wysoką dostępność SAP HANA na maszynach wirtualnych platformy Azure w systemie SLES](./sap-hana-high-availability.md) , aby wyjaśnić definicje stonith
 - 09/03/2020: Zmień [konfigurację magazynu maszyn wirtualnych platformy Azure na SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) , aby dostosowywać do minimalnej liczby operacji wejścia/wyjścia o pojemności 1 GB przy użyciu Ultra Disk
 - 09/02/2020: Zmień [dostępne jednostki SKU dla elementu HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) , aby uzyskać bardziej przejrzyste informacje o jednostkach SKU z CERTYFIKATem Hana

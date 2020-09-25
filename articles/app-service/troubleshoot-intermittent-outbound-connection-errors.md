@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: 467f7b3525883e16e57a06ff97cf4fd386279d22
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: b38ba59b3efc7e5869eecbc84879a6c0a4ce7369
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958239"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360212"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Rozwiązywanie problemów sporadyczne błędy połączenia wychodzącego w Azure App Service
 
@@ -32,7 +32,7 @@ Aplikacje i funkcje hostowane w usłudze Azure App Service mogą mieć co najmni
 Główną przyczyną tych objawów jest fakt, że wystąpienie aplikacji nie może otworzyć nowego połączenia z zewnętrznym punktem końcowym, ponieważ osiągnęło jeden z następujących limitów:
 
 * Połączenia TCP: istnieje limit liczby połączeń wychodzących, które mogą zostać wykonane. Jest to związane z rozmiarem używanego procesu roboczego.
-* Porty protokołu Resources: jak opisano w [połączeniach wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md), platforma Azure korzysta z translatora adresów sieciowych (Resources) i Load Balancer (nieujawnione klientom) do komunikowania się z punktami końcowymi poza platformą Azure w publicznej przestrzeni adresów IP. Każde wystąpienie w usłudze Azure App Service początkowo uzyskało wstępnie przydzieloną liczbę portów przydziałów adresów sieciowych **128** . Ten limit wpływa na otwieranie połączeń z tym samym hostem i kombinacją portów. Jeśli aplikacja tworzy połączenia z kombinacją kombinacji adresów i portów, nie będziesz używać portów. Porty przyłączone do nich są używane, gdy powtórzone wywołania tego samego adresu i kombinacji portów. Gdy port zostanie wystawiony, port będzie dostępny do ponownego użycia w razie potrzeby. Moduł równoważenia obciążenia sieci platformy Azure ponownie przejmuje port z zamkniętych połączeń dopiero po upływie 4 minut.
+* Porty protokołu wiązania adresów sieciowych: jak opisano w [połączeniach wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md), platforma Azure korzysta z translatora adresów sieciowych (Resources) i Load Balancer (nieujawnionych dla klientów) do komunikowania się z punktami końcowymi poza platformą Azure w publicznej przestrzeni adresów IP, a także punktom końcowym wewnętrznym na platformie Azure, które nie korzystają z punktów końcowych usługi. Każde wystąpienie w usłudze Azure App Service początkowo uzyskało wstępnie przydzieloną liczbę portów przydziałów adresów sieciowych **128** . Ten limit wpływa na otwieranie połączeń z tym samym hostem i kombinacją portów. Jeśli aplikacja tworzy połączenia z kombinacją kombinacji adresów i portów, nie będziesz używać portów. Porty przyłączone do nich są używane, gdy powtórzone wywołania tego samego adresu i kombinacji portów. Gdy port zostanie wystawiony, port będzie dostępny do ponownego użycia w razie potrzeby. Moduł równoważenia obciążenia sieci platformy Azure ponownie przejmuje port z zamkniętych połączeń dopiero po upływie 4 minut.
 
 Gdy aplikacje lub funkcje szybko otwierają nowe połączenie, mogą szybko wyczerpać wstępnie przydzieloną liczbę portów 128. Są one następnie blokowane do momentu udostępnienia nowego portu protokołu reportowego, poprzez dynamiczne przydzielanie dodatkowych portów lub ponowne użycie odnoszącego się do niego portu. Aplikacje lub funkcje, które są blokowane z powodu niemożności utworzenia nowych połączeń, zostaną uruchomione co najmniej jednego problemu opisanego w sekcji **objawy** tego artykułu.
 

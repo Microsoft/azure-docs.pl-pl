@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 368843cf9b6e59497fe00e69433ae0d14b3f3398
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb962efd4bcf82518a80eb120579db7835e7115c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042813"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356778"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Dowiedz się, jak zainicjować obsługę nowych dzierżawców i zarejestrować je w wykazie
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Aby zrozumieć, w jaki sposób aplikacja biletów Wingtip implementuje nową obs
 
 2. Aby dodać punkt przerwania, umieść kursor w dowolnym miejscu w wierszu informującym o *nowym dzierżawie*. Następnie naciśnij klawisz F9.
 
-   ![Punkt](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Zrzut ekranu przedstawia skrypt z wyróżnioną nową dzierżawą w celu dodania punktu przerwania.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Aby uruchomić skrypt, naciśnij klawisz F5.
 

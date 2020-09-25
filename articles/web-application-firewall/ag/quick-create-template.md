@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie usługi Azure WAF V2 na Application Gateway — Azure Resource Manager szablon'
 titleSuffix: Azure Application Gateway
-description: Dowiedz się, jak używać szablonu Azure Resource Manager (szablon ARM) do tworzenia zapory aplikacji sieci Web V2 na platformie Azure Application Gateway.
+description: Dowiedz się, w jaki sposób używać szablonu szybkiego startu Azure Resource Manager (szablon ARM) do tworzenia zapory aplikacji sieci Web V2 na platformie Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 04/02/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: b0a430ebfb19ca529ae96698173df27d18e6dd10
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 036503f95a7dc1aaa5690bacc01d07034e6d162f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266959"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Szybki Start: Tworzenie usługi Azure WAF V2 na Application Gateway przy użyciu szablonu ARM
 
@@ -85,7 +85,7 @@ Użyj usług do przetestowania bramy aplikacji:
 
    Wielokrotnie Odświeżaj przeglądarkę i powinny być widoczne połączenia zarówno myVM1, jak i myVM2.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych przy użyciu bramy aplikacji, Usuń grupę zasobów. Spowoduje to usunięcie bramy aplikacji i wszystkich powiązanych zasobów.
 

@@ -3,12 +3,12 @@ title: Odnajdź właściwości zasobów
 description: Opisuje sposób wyszukiwania właściwości zasobów.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 75c089ac9d0ca08c788fea1ac9011f018ef0195e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057079"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327752"
 ---
 # <a name="discover-resource-properties"></a>Odnajdź właściwości zasobów
 
@@ -74,7 +74,7 @@ Eksplorator zasobów jest osadzony w Azure Portal. Przed użyciem tej metody mus
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W polu wyszukiwania wprowadź nazwę **Eksplorator zasobów**, a następnie wybierz pozycję **Eksplorator zasobów**.
 
-    ![Azure Portal Eksplorator zasobów](./media/view-resources/azure-portal-resource-explorer.png)
+    ![Zrzut ekranu przedstawia wyszukiwanie Eksplorator zasobów w Azure Portal.](./media/view-resources/azure-portal-resource-explorer.png)
 
 1. W obszarze po lewej stronie rozwiń pozycję **subskrypcje**, a następnie rozwiń swoją subskrypcję platformy Azure. Konto magazynu można znaleźć w obszarze **dostawcy** lub **ResourceGroups**.
 

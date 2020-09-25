@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 66f22fa2781fb4c0f4caa07323b3de8cac1ef9fd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437449"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361113"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Eksploruj SaaS Analytics, korzystając z Azure SQL Database, Azure Synapse Analytics, Data Factory i Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -111,7 +111,7 @@ W Eksplorator obiektów:
     1. Tabele schematu gwiazdy to **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**i **dim_Dates**.
     1. Procedura składowana **sp_transformExtractedData** służy do przekształcania danych i ładowania ich do tabel schematu gwiazdy.
 
-![DWtables](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
+![Zrzut ekranu przedstawia Eksplorator obiektów z rozwiniętymi tabelami, aby pokazać różne obiekty bazy danych.](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
 
 #### <a name="blob-storage"></a>Blob Storage
 
@@ -167,7 +167,7 @@ Odpowiadające trzem połączonym usługom istnieją trzy zestawy danych, które
   
 ### <a name="data-warehouse-pattern-overview"></a>Wzorzec magazynu danych — przegląd
 
-Usługa Azure Synapse (dawniej SQL Data Warehouse) jest używana jako magazyn analityczny do przeprowadzania agregacji danych dzierżawy. W tym przykładzie baza jest używana do ładowania danych do magazynu danych. Dane pierwotne są ładowane do tabel przemieszczania, które mają kolumnę tożsamości, aby śledzić wiersze, które zostały przekształcone w tabele schematu gwiazdy. Na poniższej ilustracji przedstawiono wzorzec ładowania: ![ loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+Usługa Azure Synapse (dawniej SQL Data Warehouse) jest używana jako magazyn analityczny do przeprowadzania agregacji danych dzierżawy. W tym przykładzie baza jest używana do ładowania danych do magazynu danych. Dane pierwotne są ładowane do tabel przemieszczania, które mają kolumnę tożsamości, aby śledzić wiersze, które zostały przekształcone w tabele schematu gwiazdy. Na poniższej ilustracji przedstawiono wzorzec ładowania: ![ diagram przedstawia wzorzec ładowania tabel bazy danych.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 W tym przykładzie użyto wolno zmieniającego się tabel wymiarów typu 1 (SCD). Każdy wymiar ma klucz zastępczy zdefiniowany przy użyciu kolumny tożsamości. Najlepszym rozwiązaniem jest wstępne wypełnienie tabeli wymiarów daty w celu zaoszczędzenia czasu. W przypadku innych tabel wymiarów CREATE TABLE jako wybrane... (CTAS) służy do tworzenia tymczasowej tabeli zawierającej istniejące zmodyfikowane i niemodyfikowane wiersze wraz z kluczami zastępczymi. Jest to realizowane z IDENTITY_INSERT = ON. Nowe wiersze są następnie wstawiane do tabeli przy użyciu IDENTITY_INSERT = OFF. W celu zapewnienia łatwego wycofywania Nazwa istniejącej tabeli wymiarów jest zmieniana, a nazwa tabeli tymczasowej zostanie zmieniona, aby stała się nową tabelą wymiarów. Przed każdym uruchomieniem, stara tabela wymiarów zostanie usunięta.
 
@@ -181,14 +181,14 @@ Wykonaj poniższe kroki, aby uruchomić kompletny potok wyodrębniania, ładowan
 
 1. Na karcie **autor** w interfejsie użytkownika ADF wybierz pozycję potok **SQLDBToDW** w okienku po lewej stronie.
 1. Kliknij pozycję **wyzwalacz** i w menu rozwijanym kliknij pozycję **Wyzwól teraz**. Ta akcja powoduje natychmiastowe uruchomienie potoku. W scenariuszu produkcyjnym należy zdefiniować harmonogram uruchamiania potoku w celu odświeżenia danych zgodnie z harmonogramem.
-  ![adf_trigger](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
+  ![Zrzut ekranu przedstawia zasoby fabryki dla potoku o nazwie S Q L D B do D w z opcją wyzwalacza rozwinięte i wyzwalane teraz.](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
 1. Na stronie **uruchomienie potoku** kliknij przycisk **Zakończ**.
 
 ### <a name="monitor-the-pipeline-run"></a>Monitorowanie działania potoku
 
 1. W interfejsie użytkownika usługi ADF przejdź do karty **monitor** z menu po lewej stronie.
 1. Kliknij przycisk **Odśwież** , dopóki stan potoku SQLDBToDW **zakończył się pomyślnie**.
-  ![adf_monitoring](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
+  ![Zrzut ekranu przedstawia potok S p D B do D W potoku ze stanem powodzenie.](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
 1. Połącz się z magazynem danych za pomocą programu SSMS i zbadaj tabele schematu gwiazdy, aby sprawdzić, czy dane zostały załadowane w tych tabelach.
 
 Po zakończeniu potoku tabela faktów zawiera dane sprzedaży biletów dla wszystkich miejsc, a tabele wymiarów są wypełniane odpowiednimi miejscami, zdarzeniami i klientami.

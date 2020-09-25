@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: ca330357e88ff6f4824c74a6048769638542cc29
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d6c447deedbdcc4f2439fc069f368db88b3560b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556445"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278043"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Samouczek: Przypisywanie roli czytelnicy katalogów do grupy usługi Azure AD i zarządzanie przypisaniami ról
 
@@ -55,7 +55,7 @@ Aby uzyskać więcej informacji na temat korzyści z przypisywania roli czytelni
 
 Aby sprawdzić utworzoną grupę i zarządzać nią, Wróć do okienka **grupy** w Azure Portal i wyszukaj nazwę grupy. Po wybraniu grupy można dodać dodatkowych właścicieli i członków z menu **właściciele** i **Członkowie** w obszarze **Zarządzanie** ustawieniami. Można również przejrzeć **przypisane role** dla grupy.
 
-:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="usługa Azure-AD-utworzona grupa":::
+:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="Zrzut ekranu okienka grupy z linkami otwierającymi menu Ustawienia dla elementów członkowskich, właściciele i przypisane role (wersja zapoznawcza) wyróżnione.":::
 
 ### <a name="add-azure-sql-managed-identity-to-the-group"></a>Dodaj tożsamość zarządzaną Azure SQL do grupy
 
@@ -68,17 +68,17 @@ W przypadku kolejnych kroków Administrator globalny lub administrator ról uprz
 
 1. Znajdź nazwę zasobu **wystąpienia zarządzanego SQL** w Azure Portal.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="Azure-AD-Managed-instance":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="Zrzut ekranu przedstawiający ekran wystąpienia zarządzane SQL z nazwą wystąpienia SQL ssomitest i podświetloną nazwą podsieci ManagedInstance.":::
 
    Podczas tworzenia wystąpienia zarządzanego SQL utworzono tożsamość platformy Azure dla danego wystąpienia. Utworzona tożsamość ma taką samą nazwę jak prefiks nazwy wystąpienia zarządzanego SQL. Jednostkę usługi dla tożsamości wystąpienia zarządzanego SQL, która została utworzona jako aplikacja usługi Azure AD, można znaleźć, wykonując następujące czynności:
 
     - Przejdź do zasobu **Azure Active Directory** . W obszarze Ustawienia **zarządzania** wybierz pozycję **aplikacje dla przedsiębiorstw**. **Identyfikator obiektu** jest tożsamością wystąpienia.
     
-    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="Azure-AD-Managed-instance-Service-Principal":::
+    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="Zrzut ekranu strony aplikacje dla przedsiębiorstw dla zasobu Azure Active Directory z IDENTYFIKATORem obiektu wyróżnionego wystąpienia zarządzanego SQL.":::
 
 1. Przejdź do zasobu **Azure Active Directory** . W obszarze **zarządzane**przejdź do pozycji **grupy**. Wybierz utworzoną grupę. W obszarze Ustawienia **zarządzane** grupy wybierz pozycję **Członkowie**. Wybierz pozycję **Dodaj członków** i Dodaj jednostkę usługi wystąpienia zarządzanego SQL jako element członkowski grupy, wyszukując znalezioną powyżej nazwę.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="Azure-AD-Add-Managed-instance-Service-Principal":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="Zrzut ekranu strony członkowie dla zasobu Azure Active Directory z opcjami wyróżnionymi w celu dodania wystąpienia zarządzanego SQL jako nowego elementu członkowskiego.":::
 
 > [!NOTE]
 > Propagowanie uprawnień głównych usługi za pomocą systemu Azure i Zezwalanie na dostęp do usługi Azure AD interfejs API programu Graph może potrwać kilka minut. Może być konieczne odczekanie kilku minut przed udostępnieniem usługi Azure AD Admin dla wystąpienia zarządzanego SQL.

@@ -1,51 +1,51 @@
 ---
-title: Monitorowanie wirtualnej sieci WAN platformy Azure przy użyciu usługi Azure Monitor Insights
-description: Informacje o monitorowaniu wirtualnej sieci WAN przy użyciu usługi Azure Monitor Insights
+title: Monitorowanie wirtualnej sieci WAN przy użyciu usługi Azure Monitor Insights
+description: Ten artykuł zawiera informacje na temat monitorowania wirtualnej sieci WAN platformy Azure przy użyciu usługi Azure Monitor Insights.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3316b4a2255652972a0b9deef813f894f993589
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 47e9b616a2a686a7ce82a592ee81966041371048
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328007"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>Azure Monitor szczegółowych informacji dotyczących wirtualnej sieci WAN (wersja zapoznawcza)
 
-[Azure monitor szczegółowe informacje](../azure-monitor/insights/network-insights-overview.md) dotyczące wirtualnej sieci WAN umożliwiają użytkownikom i operatorom Wyświetlanie stanu i stanu wirtualnej sieci WAN, prezentowanej za pomocą autoodnajdywanej mapy topologiczny. Stan i stan zasobu są nadmiarowe na mapie, aby zapewnić widok migawki ogólnej kondycji wirtualnej sieci WAN. Nawigowanie po zasobach jest włączane na mapie za pomocą dostępu jednego kliknięcia do stron konfiguracji zasobów wirtualnego portalu sieci WAN.
+Usługa [Azure monitor Insights](../azure-monitor/insights/network-insights-overview.md) w usłudze Azure Virtual WAN zapewnia użytkownikom i operatorom możliwość wyświetlania stanu i stanu wirtualnej sieci WAN prezentowanej za pomocą autoodnajdywanej mapy topologiczny. Nakładki stanów i Stanów zasobów na mapie zapewniają widok migawki ogólnej kondycji wirtualnej sieci WAN. Na stronie Konfiguracja zasobów portalu sieci WAN można nawigować na mapie za pomocą jednego kliknięcia.
 
-Metryki wirtualnego poziomu zasobów sieci WAN są zbierane i prezentowane za pośrednictwem wstępnie spakowanego skoroszytu metryk wirtualnych sieci WAN, który pokazuje metryki na poziomie wirtualnej sieci WAN, centrum, bramy i połączenia. W tym artykule przedstawiono kroki umożliwiające używanie Azure Monitor szczegółowych informacji dotyczących wirtualnej sieci WAN do wyświetlania topologii wirtualnej sieci WAN i metryk wszystkich w jednym miejscu.
+Metryki na poziomie zasobów wirtualnej sieci WAN są zbierane i prezentowane za pośrednictwem wstępnie spakowanego skoroszytu metryk wirtualnych sieci WAN. W skoroszycie są wyświetlane metryki na poziomie wirtualnej sieci WAN, koncentratora, bramy i połączenia. W tym artykule przedstawiono kroki umożliwiające używanie Azure Monitor szczegółowych informacji dotyczących wirtualnej sieci WAN do wyświetlania topologii wirtualnej sieci WAN i metryk wszystkich w jednym miejscu.
 
 > [!NOTE]
-> Opcja menu Insights w portalu wirtualnej sieci WAN jest w trakcie wdrażania. Podczas wycofywania menu Insights dla wirtualnej sieci WAN można bezpośrednio uzyskać dostęp do dostępnej topologii i skoroszytu sieci WAN przy użyciu platformy Azure dla sieci. Zobacz [Azure monitor Insights](../azure-monitor/insights/network-insights-overview.md) , aby uzyskać więcej informacji. 
+> Opcja menu **Insights** w portalu wirtualnej sieci WAN jest obecnie wdrażana. Podczas wycofywania tego menu możesz uzyskać dostęp do skoroszytu topologii i metryk wirtualnych sieci WAN przy użyciu Azure Monitor sieci. Aby uzyskać więcej informacji, zobacz [Azure monitor dla sieci](../azure-monitor/insights/network-insights-overview.md). 
 >
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W krokach w tym artykule przyjęto założenie, że wirtualna sieć WAN została już wdrożona z co najmniej jednym koncentratorem. Aby utworzyć nową wirtualną sieć WAN i nowe centrum, wykonaj czynności opisane w następujących artykułach:
+Aby wykonać kroki opisane w tym artykule, musisz mieć wirtualną sieć WAN z co najmniej jednym koncentratorem. Aby utworzyć wirtualną sieć WAN i centrum, wykonaj kroki opisane w następujących artykułach:
 
 * [Tworzenie wirtualnej sieci WAN](virtual-wan-site-to-site-portal.md#openvwan)
 * [Tworzenie koncentratora](virtual-wan-site-to-site-portal.md#hub)
 
 ## <a name="view-vwan-topology"></a><a name="topology"></a>Wyświetl topologię VWAN
 
-W **Azure Portal->wirtualnej sieci WAN**z menu **monitor** po lewej stronie wybierz pozycję **Insights (wersja zapoznawcza)**. Spowoduje to **wyświetlenie widoku szczegółowych**informacji, w którym jest wyświetlana mapa zależności wirtualnej sieci WAN i minie Źródło metryk.
+Przejdź do **Azure Portal**  >  **wirtualnej sieci WAN**. W menu **monitor** w lewym okienku wybierz pozycję **Insights (wersja zapoznawcza)**. Zostanie wyświetlony widok **szczegółowe informacje** . Pokazuje on mapę zależności wirtualnej sieci WAN i minimalny skoroszyt z **metrykami** wysokiego poziomu.
 
-**Rysunek 1. menu monitorowanie szczegółowe**
+**Rysunek 1. menu monitorowanie > Insights**
 
-:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="poznać" lightbox="./media/azure-monitor-insights/monitor-menu.png":::
+:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="Zrzut ekranu pokazujący opcję menu Insights." lightbox="./media/azure-monitor-insights/monitor-menu.png":::
 
-W widoku **wglądu w szczegółowe** dane można wyświetlić wykryte przez siebie wirtualne zasoby sieci WAN, takie jak centra, bramy, zapory, połączenia i szprychy sieci wirtualnych, inne urządzeń WUS i gałęzie w sieci wirtualnej typu end-to-end, jak pokazano na **rysunku 2**.
+W widoku **wglądu w szczegółowe** dane można wyświetlić wykryte zasoby wirtualnej sieci WAN. Te zasoby obejmują centra, bramy, zapory, połączenia i sieci wirtualne szprych, urządzeń WUS innych firm i gałęzie w kompleksowej wirtualnej sieci WAN. Aby zapoznać się z przykładem, zobacz **rysunek 2**.
 
-Stan i **stan** **zasobu** są kodowane kolorami i nałożone na ikony zasobów na mapie. Metryki wysokiego poziomu sieci WAN, takie jak pojemność koncentratora i użycie bramy, są wyświetlane po prawej stronie za pośrednictwem minipaska skoroszytów.
+Stan i stan zasobu są kodowane kolorami i nałożone na ikony zasobów na mapie. Metryki wirtualnych sieci WAN wysokiego poziomu, takie jak pojemność centrów i użycie bramy, są wyświetlane po prawej stronie okna w postaci minipaska.
 
 **Rysunek 2: widok szczegółowych informacji**
 
-:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="poznać" lightbox="./media/azure-monitor-insights/insights-view.png":::
+:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="Zrzut ekranu pokazujący widok informacji szczegółowych." lightbox="./media/azure-monitor-insights/insights-view.png":::
 
 ## <a name="dependency-view"></a><a name="dependency"></a>Widok zależności
 
@@ -53,39 +53,39 @@ Widok **zależności** wirtualnej sieci WAN pomaga wizualizować połączony wid
 
 **Rysunek 3: widok zależności VWAN**
 
-:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="Mapa zależności" lightbox="./media/azure-monitor-insights/dependency-map.png":::
+:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="Zrzut ekranu pokazujący widok zależności." lightbox="./media/azure-monitor-insights/dependency-map.png":::
 
-Mapa widoku zależności przedstawia następujące zasoby jako połączone wykresy:
+Mapa widoku **zależności** przedstawia następujące zasoby jako połączone wykresy:
 
 * Wirtualne centra sieci WAN w różnych regionach świadczenia usługi Azure.
-* Szprycha sieci wirtualnych, która jest bezpośrednio podłączona do centrum.
-* Lokacje oddziałów sieci VPN i ExpressRoute oraz użytkownicy P2S połączeni z każdym koncentratorem za pośrednictwem odpowiednich połączeń ExpressRoute, S2S i P2S oraz bram sieci wirtualnej.
-* Zapory platformy Azure (w tym serwery proxy zapory innej firmy) wdrożone w centrum (zabezpieczonym koncentratorze).
-* URZĄDZENIE WUS inne firmy (wirtualne urządzenia sieciowe), które są wdrożone w szprychie sieci wirtualnych.
+* Sieci wirtualne szprych połączone bezpośrednio z centrum.
+* Lokacje oddziałów sieci VPN i usługi Azure ExpressRoute oraz użytkownicy P2S połączeni z każdym koncentratorem za pośrednictwem odpowiednich połączeń ExpressRoute, S2S i P2S oraz bramy sieci wirtualnej.
+* Zapory platformy Azure (w tym serwery proxy zapory innych firm) wdrożone w centrum (zabezpieczonym koncentratorze).
+* Urządzeń WUS innych firm (wirtualne urządzenia sieciowe) wdrożone w sieciach wirtualnych szprych.
 
-Mapa zależności zawiera również bezpośrednio połączone sieci wirtualnych (sieć wirtualną, która jest równorzędna z wirtualną szprychą sieci WAN sieci wirtualnych).
+Mapa zależności zawiera również powiązane sieci wirtualne (sieci wirtualne, które są połączone za pomocą komunikacji równorzędnej z wirtualnymi sieciami WAN szprych).
 
-Mapa zależności umożliwia łatwe nawigowanie do ustawień konfiguracji poszczególnych zasobów. Na przykład możesz umieścić wskaźnik myszy nad zasobem centrum, aby wyświetlić podstawową konfigurację zasobów, taką jak region centrum i prefiks centrum. Kliknij prawym przyciskiem myszy, aby uzyskać dostęp do strony Azure Portal zasobu centrum.
+Mapa zależności umożliwia łatwe nawigowanie do ustawień konfiguracji poszczególnych zasobów. Na przykład możesz umieścić wskaźnik myszy nad zasobem centrum, aby wyświetlić podstawową konfigurację zasobów, np. region centrum i prefiks centrum. Kliknij prawym przyciskiem myszy, aby uzyskać dostęp do strony Azure Portal zasobu centrum.
 
 **Ilustracja 4. przechodzenie do informacji dotyczących zasobów**
 
-:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="Informacje o zasobach":::
+:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="Zrzut ekranu pokazujący sposób nawigowania do informacji specyficznych dla zasobów.":::
 
-Wyszukiwanie i pasek filtru w widoku zależności umożliwiają łatwe przeszukiwanie grafu. Różne filtry zapewniają pomoc w zawężaniu wyszukiwania do określonej ścieżki i stanu.
+Wyszukiwanie i pasek filtru w widoku **zależności** zapewnia łatwy sposób wyszukiwania w grafie. Różne filtry zapewniają pomoc w zawężaniu wyszukiwania do określonej ścieżki i stanu.
 
 **Rysunek 5. wyszukiwanie i filtrowanie**
 
-:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="Wyszukiwanie i pasek filtru" lightbox="./media/azure-monitor-insights/search-filter.png":::
+:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="Zrzut ekranu pokazujący pasek wyszukiwania i paska filtru." lightbox="./media/azure-monitor-insights/search-filter.png":::
 
 ## <a name="detailed-metrics"></a><a name="detailed"></a>Szczegółowe metryki
 
-Możesz wybrać opcję **Wyświetl szczegółowe metryki** , aby uzyskać dostęp do strony **metryki** szczegółowych. Strona metryki jest pulpitem nawigacyjnym, który jest wstępnie skonfigurowany z osobnymi kartami zapewniającymi przydatny wgląd w pojemność zasobów wirtualnej sieci WAN, wydajność i wykorzystanie na poziomie wirtualnego poziomu sieci WAN, na poziomie centrum i poszczególnych połączeń.
+Możesz wybrać opcję **Wyświetl szczegółowe metryki** , aby uzyskać dostęp do strony **metryki** szczegółowych. Strona **metryki** to pulpit nawigacyjny, który jest wstępnie skonfigurowany przy użyciu oddzielnych kart. Te karty zapewniają wgląd w wydajność wirtualnej sieci WAN, wydajność i wykorzystanie zasobów na poziomie sieci wirtualnej i na poziomie centrum oraz na poziomie poszczególnych połączeń.
 
 **Ilustracja 6. szczegółowy pulpit nawigacyjny metryk**
 
-:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="szczegółowe metryki" lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
+:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="Zrzut ekranu pokazujący szczegółowy pulpit nawigacyjny metryk." lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o metrykach w Azure Monitor, zobacz [metryki w Azure monitor](../azure-monitor/platform/data-platform-metrics.md).
+* Aby dowiedzieć się więcej, zobacz [metryki w Azure monitor](../azure-monitor/platform/data-platform-metrics.md).
 * Pełny opis wszystkich metryk wirtualnych sieci WAN zawiera temat [wirtualne dzienniki i metryki sieci WAN](logs-metrics.md).
