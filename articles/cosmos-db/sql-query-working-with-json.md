@@ -1,21 +1,21 @@
 ---
-title: Praca z JSON w Azure Cosmos DB
+title: Praca z formatem JSON w usłudze Azure Cosmos DB
 description: Dowiedz się więcej na temat zapytań i dostępu do zagnieżdżonych właściwości JSON oraz używania znaków specjalnych w Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 355f73d46215aa9e05f4ea6d91bb173c77509b63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83699126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270858"
 ---
-# <a name="working-with-json-in-azure-cosmos-db"></a>Praca z JSON w Azure Cosmos DB
+# <a name="working-with-json-in-azure-cosmos-db"></a>Praca z formatem JSON w usłudze Azure Cosmos DB
 
-W interfejsie API SQL (rdzeń) Azure Cosmos DB elementy są przechowywane jako dane JSON. System typów i wyrażenia są ograniczone do obsługi tylko typów JSON. Aby uzyskać więcej informacji, zobacz [specyfikację JSON](https://www.json.org/).
+W podstawowym interfejsie API SQL usługi Azure Cosmos DB elementy są przechowywane jako dane JSON. System typów i wyrażenia są ograniczone do obsługi tylko typów JSON. Aby uzyskać więcej informacji, zobacz [specyfikację JSON](https://www.json.org/).
 
 Podsumowującmy kilka ważnych aspektów pracy z danymi JSON:
 
@@ -138,6 +138,34 @@ WHERE EXISTS(
     WHERE n.checkingAccount < 0
 )
 ```
+
+## <a name="difference-between-null-and-undefined"></a>Różnica między wartościami null i niezdefiniowanymi
+
+Jeśli właściwość nie jest zdefiniowana w elemencie, jego wartość to `undefined` . Właściwość o wartości `null` musi być jawnie zdefiniowana i mieć przypisaną `null` wartość.
+
+Rozważmy na przykład ten przykładowy element:
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "address": {
+      "state": "WA",
+      "county": "King",
+      "city": "Seattle"
+      },
+  "creationDate": null
+}
+```
+
+W tym przykładzie właściwość `isRegistered` ma wartość, `undefined` ponieważ jest pomijana z elementu. Właściwość `creationDate` ma `null` wartość.
+
+Azure Cosmos DB obsługuje dwie pomocne funkcje systemowe sprawdzania typu dla `null` i `undefined` Właściwości:
+
+* [IS_NULL](sql-query-is-null.md) — sprawdza, czy wartość właściwości to `null`
+* [IS_DEFINED](sql-query-is-defined.md) — sprawdza, czy wartość właściwości jest zdefiniowana
+
+Możesz uzyskać informacje na temat [obsługiwanych operatorów](sql-query-operators.md) i ich zachowań `null` oraz `undefined` wartości.
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Zastrzeżone słowa kluczowe i znaki specjalne w formacie JSON
 
@@ -263,7 +291,7 @@ Wyniki są następujące:
 
 Nie można użyć aliasu, aby zaprojektować wartość jako nazwę właściwości ze spacją, znakiem specjalnym lub słowem zastrzeżonym. Jeśli chcesz zmienić projekcję wartości na przykład, jeśli ma nazwę właściwości z spacją, możesz użyć [wyrażenia JSON](#json-expressions).
 
-Przykład:
+Oto przykład:
 
 ```sql
     SELECT

@@ -5,24 +5,24 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 94d970390f62107a82dc586605d34dd61cae0c26
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: abb6f8bcaa3b8e356bea00185702bc0ae783e071
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996129"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270275"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Twórz stanowe lub bezstanowe przepływy pracy w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)
 
 > [!IMPORTANT]
 > Ta funkcja jest dostępna w publicznej wersji zapoznawczej, która jest oferowana bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Aby utworzyć przepływy pracy aplikacji logiki, które integrują się między aplikacjami, danymi, usługami w chmurze i systemami, można użyć rozszerzenia Visual Studio Code i Azure Logic Apps (wersja zapoznawcza) do kompilowania i uruchamiania [przepływów pracy aplikacji logiki *stanowych* i *bezstanowych* ](#stateful-stateless).
+Aby utworzyć przepływy pracy aplikacji logiki, które integrują się między aplikacjami, danymi, usługami w chmurze i systemami, można użyć rozszerzenia Visual Studio Code i Azure Logic Apps (wersja zapoznawcza) do kompilowania i uruchamiania [przepływów pracy aplikacji logiki *stanowych* i *bezstanowych* ](#stateful-stateless) w środowisku deweloperskim.
 
 ![Zrzut ekranu pokazujący Visual Studio Code i przepływ pracy aplikacji logiki.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-Aplikacje logiki tworzone za pomocą rozszerzenia publicznej wersji zapoznawczej używają nowego typu zasobu **aplikacji logiki (wersja zapoznawcza)** i są obsługiwane przez środowisko uruchomieniowe [Azure Functions](../azure-functions/functions-overview.md) . Ten nowy typ zasobu może obejmować wiele przepływów pracy i jest podobny na kilka sposobów do **aplikacja funkcji** typu zasobu, który może zawierać wiele funkcji.
+Aplikacje logiki tworzone za pomocą rozszerzenia publicznej wersji zapoznawczej używają nowego typu zasobu **aplikacji logiki (wersja zapoznawcza)** i są obsługiwane przez środowisko uruchomieniowe [Azure Functions](../azure-functions/functions-overview.md) w środowisku lokalnym. Ten nowy typ zasobu może obejmować wiele przepływów pracy i jest podobny na kilka sposobów do **aplikacja funkcji** typu zasobu, który może zawierać wiele funkcji.
 
 W tym czasie oryginalny typ zasobu **Logic Apps** nadal istnieje do utworzenia i użycia w Visual Studio Code i w Azure Portal. Jednak środowiska dla oryginalnego typu zasobu są oddzielone od nowego typu zasobu. W tej chwili oba typy zasobów **Logic Apps** i **Logic App (wersja zapoznawcza)** mogą znajdować się w tym samym czasie w Visual Studio Code i w Azure Portal. Możesz wyświetlać i uzyskiwać dostęp do wszystkich wdrożonych aplikacji logiki w ramach subskrypcji platformy Azure, ale są one wyświetlane i są przechowywane oddzielnie w swoich własnych kategoriach i sekcjach.
 
@@ -34,6 +34,8 @@ Ten artykuł zawiera [Ogólne omówienie tej publicznej wersji zapoznawczej](#wh
 
 * Jak utworzyć nowe przepływy pracy **aplikacji logiki (wersja zapoznawcza)** , [tworząc projekt i wybierając szablon przepływu pracy](#create-project).
 
+* Jak lokalnie uruchamiać i debugować nowe aplikacje logiki w Visual Studio Code.
+
 * Jak opublikować te nowe aplikacje logiki bezpośrednio z Visual Studio Code [na platformie Azure](#publish-azure) lub [kontenera Docker](#deploy-docker) , który można uruchomić w dowolnym miejscu. Aby uzyskać więcej informacji na temat platformy Docker, zobacz [co to jest platforma Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)?
 
 <a name="whats-new"></a>
@@ -42,14 +44,14 @@ Ten artykuł zawiera [Ogólne omówienie tej publicznej wersji zapoznawczej](#wh
 
 Rozszerzenie Azure Logic Apps (wersja zapoznawcza) udostępnia wiele bieżących i dodatkowych funkcji Logic Apps do lokalnego środowiska programistycznego w Visual Studio Code, na przykład:
 
-* Twórz aplikacje logiki do obsługi przepływów pracy integracji i automatyzacji z [ponad 300 łączników](/connectors/connector-reference/connector-reference-logicapps-connectors) dla aplikacji typu "oprogramowanie jako usługa" (SaaS) i "platforma jako usługa" (PaaS) oraz łączników dla systemów lokalnych.
+* Twórz aplikacje logiki do obsługi przepływów pracy integracji i automatyzacji z programu [390 i łączników](/connectors/connector-reference/connector-reference-logicapps-connectors) w przypadku aplikacji typu "oprogramowanie jako usługa" (SaaS) i "platforma jako usługa" (PaaS) oraz łączników dla systemów lokalnych.
 
   * Niektóre zarządzane łączniki, takie jak Azure Service Bus, Azure Event Hubs i SQL Server działają podobnie jak wbudowane wyzwalacze natywne i akcje, takie jak akcja HTTP.
 
   * Twórz i wdrażaj aplikacje logiki, które można uruchamiać w dowolnym miejscu, ponieważ usługa Azure Logic Apps generuje parametry połączenia sygnatury dostępu współdzielonego, które mogą być używane przez aplikacje logiki do wysyłania żądań do punktu końcowego środowiska uruchomieniowego połączenia w chmurze. Usługa Logic Apps zapisuje te parametry połączenia przy użyciu innych ustawień aplikacji, dzięki czemu można łatwo przechowywać te wartości w Azure Key Vault podczas wdrażania na platformie Azure.
 
     > [!NOTE]
-    > Domyślnie zasób **aplikacji logiki (wersja zapoznawcza)** ma automatycznie włączoną [tożsamość przypisaną przez system](../logic-apps/create-managed-service-identity.md) w celu uwierzytelniania połączeń w czasie wykonywania. Ta tożsamość różni się od poświadczeń uwierzytelniania lub parametrów połączenia, które są używane podczas tworzenia połączenia. Jeśli wyłączysz tę tożsamość, połączenia nie będą działały w czasie wykonywania.
+    > Domyślnie dla zasobu **aplikacji logiki (wersja zapoznawcza)** jest automatycznie włączona [tożsamość zarządzana przypisana przez system](../logic-apps/create-managed-service-identity.md) w celu uwierzytelniania połączeń w czasie wykonywania. Ta tożsamość różni się od poświadczeń uwierzytelniania lub parametrów połączenia, które są używane podczas tworzenia połączenia. Jeśli wyłączysz tę tożsamość, połączenia nie będą działały w czasie wykonywania.
 
 * Twórz bezstanowe Aplikacje logiki, które są uruchamiane tylko w pamięci, aby kończyły się szybciej, reagować na szybsze, mieć wyższą przepływność i tańsze do uruchomienia, ponieważ w przypadku uruchamiania historii i danych między akcjami nie są zachowywane w magazynie zewnętrznym. Opcjonalnie można włączyć historię uruchamiania, aby ułatwić debugowanie. Aby uzyskać więcej informacji, zobacz [stanowe i bezstanowe Aplikacje logiki](#stateful-stateless).
 
@@ -104,7 +106,7 @@ Aby uzyskać więcej informacji na temat modelu cen, które są stosowane do teg
 
   Jeśli zdecydujesz się użyć innego [łącznika poczty e-mail, który jest obsługiwany przez Azure Logic Apps](/connectors/), na przykład Outlook.com lub [Gmail](../connectors/connectors-google-data-security-privacy-policy.md), możesz nadal postępować zgodnie z przykładem, a ogólna ogólna procedura jest taka sama, ale interfejs użytkownika i opcje mogą się różnić. Jeśli na przykład używasz łącznika Outlook.com, zamiast tego Zaloguj się przy użyciu osobistego konto Microsoft.
 
-### <a name="tools"></a>Narzędzia
+### <a name="tools"></a>narzędzia
 
 * [Visual Studio Code 1.30.1 (styczeń 2019) lub nowszy](https://code.visualstudio.com/), który jest bezpłatny. Ponadto Pobierz i zainstaluj te dodatkowe narzędzia dla Visual Studio Code, jeśli nie są jeszcze:
 
@@ -130,13 +132,13 @@ Aby uzyskać więcej informacji na temat modelu cen, które są stosowane do teg
     >
     > * Folder **Microsoft. Azure. Functions. ExtensionBundle.** workflows, który zawiera poprzednie zbiory rozszerzeń i znajduje się w ścieżce w tym miejscu:
     >
-    >   * `C:\Users\<username>\AppData\Local\Temp\Functions\ExtensionBundles`
+    >   * `C:\Users\{userName}\AppData\Local\Temp\Functions\ExtensionBundles`
     >
-    >   * `C:\Users\<username>.azure-functions-core-tools\Functions\ExtensionBundles`
+    >   * `C:\Users\{userName}.azure-functions-core-tools\Functions\ExtensionBundles`
     >
     > * Folder **Microsoft. Azure. Workflows. WebJobs. Extension** , który jest pamięcią podręczną [NuGet](/nuget/what-is-nuget) dla rozszerzenia prywatnej wersji zapoznawczej i znajduje się w tej ścieżce:
     >
-    >   `C:\Users\<username>\.nuget\packages`
+    >   `C:\Users\{userName}\.nuget\packages`
 
     Aby zainstalować rozszerzenie **Azure Logic Apps (wersja zapoznawcza)** , wykonaj następujące kroki:
 
@@ -154,7 +156,7 @@ Aby uzyskać więcej informacji na temat modelu cen, które są stosowane do teg
 
 ### <a name="storage-requirements"></a>Wymagania dotyczące magazynu
 
-Obecnie Tworzenie nowego zasobu **aplikacji logiki (wersja zapoznawcza)** nie jest dostępne na Mac OS. Jednak w przypadku systemu Windows lub innego systemu operacyjnego, takiego jak Linux, należy skonfigurować to wymaganie dotyczące magazynu.
+Obecnie Tworzenie nowego zasobu **aplikacji logiki (wersja zapoznawcza)** nie jest dostępne w witrynie macOS. Jednak w przypadku systemu Windows lub innego systemu operacyjnego, takiego jak Linux, należy skonfigurować to wymaganie dotyczące magazynu.
 
 1. Pobierz i zainstaluj [emulator usługi Azure Storage 5,10](https://go.microsoft.com/fwlink/p/?linkid=717179).
 
@@ -223,9 +225,22 @@ Obecnie Tworzenie nowego zasobu **aplikacji logiki (wersja zapoznawcza)** nie je
 
 ## <a name="create-a-local-project"></a>Utwórz projekt lokalny
 
-Przed utworzeniem aplikacji logiki Utwórz projekt lokalny, aby móc zarządzać i wdrażać aplikację logiki z poziomu Visual Studio Code. Projekt źródłowy jest bardzo podobny do projektu Azure Functions, znanego również jako projekt aplikacji funkcji.
+Przed utworzeniem aplikacji logiki Utwórz projekt lokalny, aby móc zarządzać i wdrażać aplikację logiki z poziomu Visual Studio Code. Projekt źródłowy jest podobny do projektu Azure Functions, zwanego także projektem aplikacji funkcji. Jednak te typy projektów są niezależne od siebie, więc przepływy pracy i funkcje logiki aplikacji nie mogą istnieć w tym samym projekcie.
 
 1. Na komputerze Utwórz *pusty* folder lokalny do użycia w projekcie, który zostanie później utworzony w Visual Studio Code.
+
+   Jeśli zainstalowano zestaw .NET Core SDK 5,0, należy utworzyć **global.js** pliku, który odwołuje się do dowolnego środowiska uruchomieniowego .NET Core w wersji 3. x, które jest późniejsze niż 3.1.201, na przykład:
+
+   ```json
+   {
+      "sdk": {
+         "version": "3.1.8",
+         "rollForward": "disable"
+      }
+   }
+   ```
+
+   Później, po utworzeniu projektu, ale przed podjęciem próby otworzenia **workflow.jsw** pliku w Projektancie aplikacji logiki, należy dodać ten **global.js** do pliku do lokalizacji głównej projektu.
 
 1. W Visual Studio Code Zamknij wszystkie otwarte foldery i wszystkie.
 
@@ -255,11 +270,16 @@ Przed utworzeniem aplikacji logiki Utwórz projekt lokalny, aby móc zarządzać
 
    ![Zrzut ekranu pokazujący okno Eksploratora z folderem projektu, folderem przepływu pracy i plikiem "workflow.json".](./media/create-stateful-stateless-workflows-visual-studio-code/local-project-created.png)
 
-Następnie otwórz **workflow.jsna** pliku w Projektancie aplikacji logiki.
+1. Jeśli zainstalowano zestaw .NET Core SDK 5,0 i utworzono **global.js** pliku, który odwołuje się do środowiska uruchomieniowego .NET Core w wersji 3. x, które jest późniejsze niż 3.1.201, należy dodać ten **global.js** do lokalizacji głównej projektu z Visual Studio Code.
 
-### <a name="open-the-workflow-definition-file-in-logic-app-designer"></a>Otwórz plik definicji przepływu pracy w Projektancie aplikacji logiki
+   > [!NOTE]
+   > Upewnij się, że wykonano ten krok przed podjęciem próby otwarcia **workflow.jsw** pliku, który zawiera podstawową definicję JSON przepływu pracy w Projektancie aplikacji logiki. W przeciwnym razie Projektant nie zostanie otwarty.
 
-Przed rozpoczęciem próby otwarcia pliku definicji przepływu pracy w projektancie, jeśli Visual Studio Code jest uruchomiony w systemie Windows lub Linux, upewnij się, że emulator usługi Azure Storage jest uruchomiony. Aby uzyskać więcej informacji, zapoznaj się z [wymaganiami wstępnymi](#prerequisites).
+<a name="open-workflow-definition-designer"></a>
+
+## <a name="open-the-workflow-definition-file-in-logic-app-designer"></a>Otwórz plik definicji przepływu pracy w Projektancie aplikacji logiki
+
+1. Jeśli Visual Studio Code jest uruchomiony w systemie Windows lub Linux, upewnij się, że emulator usługi Azure Storage jest uruchomiony. Aby uzyskać więcej informacji, zapoznaj się z [wymaganiami wstępnymi](#prerequisites).
 
 1. Rozwiń folder projektu dla przepływu pracy. Otwórz menu skrótów pliku **workflow.js** i wybierz polecenie **Otwórz w projektancie**.
 
@@ -278,8 +298,8 @@ Przed rozpoczęciem próby otwarcia pliku definicji przepływu pracy w projektan
    1. Przejrzyj dane wyjściowe i sprawdź, czy ten komunikat o błędzie jest wyświetlany:
 
       ```text
-      A host error has occurred during startup operation '<operation-ID>'.
-      System.Private.CoreLib: The file 'C:\Users\<your-username>\AppData\Local\Temp\Functions\
+      A host error has occurred during startup operation '{operationID}'.
+      System.Private.CoreLib: The file 'C:\Users\{userName}\AppData\Local\Temp\Functions\
       ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\1.1.1\bin\
       DurableTask.AzureStorage.dll' already exists.
       Value cannot be null. (Parameter 'provider')
@@ -303,10 +323,10 @@ Przed rozpoczęciem próby otwarcia pliku definicji przepływu pracy w projektan
 
    ![Zrzut ekranu przedstawiający okienko Eksploratora i pole nazwy grupy zasobów.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
-1. Z listy lokalizacje Znajdź i wybierz region świadczenia usługi Azure, który ma zostać użyty do utworzenia grupy zasobów i zasobów. W tym przykładzie używane jest **zachodnie środkowe stany USA**.
+1. Z listy lokalizacje Znajdź i wybierz [obsługiwany region platformy Azure](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) , który ma być używany do tworzenia grupy zasobów i zasobów. W tym przykładzie używane jest **zachodnie środkowe stany USA**.
 
-   > [!NOTE]
-   > Obecnie nie wszystkie regiony są obsługiwane, chociaż aktualizacje są w toku. Aby uzyskać więcej informacji, zapoznaj się ze [stroną usługi GitHub znane problemy](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)z rozszerzeniem podglądu.
+   > [!IMPORTANT]
+   > Nie wszystkie regiony są obecnie obsługiwane, ale trwają aktualizacje dodawania większej liczby regionów. Wybranie nieobsługiwanego regionu może spowodować problemy, takie jak tworzenie połączeń. W przypadku aktualnie obsługiwanych regionów zapoznaj się ze stroną usługi [GitHub znane problemy](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)z rozszerzeniem podglądu.
 
    ![Zrzut ekranu pokazujący okienko Eksploratora z listą lokalizacji i wybraną pozycją "zachodnio-środkowe stany USA".](./media/create-stateful-stateless-workflows-visual-studio-code/select-azure-region.png)
 
@@ -374,6 +394,9 @@ W tym przykładzie przepływ pracy aplikacji logiki używa tego wyzwalacza i nas
 
    ![Zrzut ekranu przedstawiający projektanta aplikacji logiki i * * Wyślij wiadomość e-mail (v2) * * z wybraną opcją "Zaloguj się".](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-sign-in.png)
 
+   > [!NOTE]
+   > Jeśli wystąpi błąd, `Failed to create connection...` możesz wybrać aktualnie nieobsługiwany region dla aplikacji logiki. Trwa aktualizacja dodawania większej liczby regionów. W tym przypadku w przypadku aktualnie obsługiwanych regionów Sprawdź [stronę znane problemy dotyczące](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)rozszerzenia podglądu w witrynie GitHub.
+
 1. Gdy Visual Studio Code zostanie wyświetlony komunikat z prośbą o zgodę na dostęp do Twojego konta e-mail, wybierz pozycję **Otwórz**.
 
    ![Zrzut ekranu pokazujący monit Visual Studio Code, aby zezwolić na dostęp.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-open-external-website.png)
@@ -392,6 +415,8 @@ W tym przykładzie przepływ pracy aplikacji logiki używa tego wyzwalacza i nas
 
    > [!TIP]
    > Aby zapobiec wyświetlaniu w przyszłości, wybierz opcję **nie Monituj ponownie dla tego rozszerzenia**.
+
+   Po Visual Studio Code utworzeniu połączenia niektóre łączniki pokazują komunikat informujący o `The connection will be valid for {n} days only.` tym, że ten limit czasu dotyczy tylko czasu trwania podczas tworzenia aplikacji logiki w programie Visual Studio Code. Po wdrożeniu ten limit nie obowiązuje, ponieważ aplikacja logiki może uwierzytelnić się w czasie wykonywania przy użyciu automatycznie włączonej [tożsamości zarządzanej przypisanej przez system](../logic-apps/create-managed-service-identity.md). Ta tożsamość zarządzana różni się od poświadczeń uwierzytelniania lub parametrów połączenia, które są używane podczas tworzenia połączenia. Jeśli wyłączysz tę tożsamość zarządzaną przypisaną przez system, połączenia nie będą działały w czasie wykonywania.
 
 1. W projektancie, jeśli Akcja **Wyślij wiadomość e-mail** nie jest zaznaczona, wybierz tę akcję.
 
@@ -551,7 +576,7 @@ W Visual Studio Code można wdrożyć projekt bezpośrednio na platformie Azure,
 * [Skalowanie w górę w Azure App Service](../app-service/manage-scale-up.md)
 * [Skalowanie i hosting usługi Azure Functions](../azure-functions/functions-scale.md)
 
-Aplikację logiki można opublikować jako nowy zasób, co spowoduje automatyczne utworzenie wszelkich dodatkowych zasobów, takich jak [konto usługi Azure Storage, podobnie jak w przypadku wymagań aplikacji funkcji](../azure-functions/storage-considerations.md). Możesz również opublikować aplikację logiki w wcześniej wdrożonym zasobie **aplikacji logiki (wersja zapoznawcza)** , którą proces wdrażania zastępuje na platformie Azure.
+Aplikację logiki można opublikować jako nowy zasób, co spowoduje automatyczne utworzenie wszelkich dodatkowych zasobów, takich jak [konto usługi Azure Storage, podobnie jak w przypadku wymagań aplikacji funkcji](../azure-functions/storage-considerations.md). Możesz również opublikować aplikację logiki w wcześniej wdrożonym zasobie **aplikacji logiki (wersja zapoznawcza)** , która zastępuje tę aplikację logiki.
 
 ### <a name="publish-as-a-new-logic-app-preview-resource"></a>Publikuj jako nowy zasób aplikacji logiki (wersja zapoznawcza)
 
@@ -573,7 +598,7 @@ Aplikację logiki można opublikować jako nowy zasób, co spowoduje automatyczn
 
 1. Aby utworzyć nowy zasób **aplikacji logiki (wersja zapoznawcza)** , wykonaj następujące kroki:
 
-   1. Podaj globalnie unikatową nazwę nowej aplikacji logiki, która jest nazwą używaną dla zasobu **aplikacji logiki (wersja zapoznawcza)** .
+   1. Podaj globalnie unikatową nazwę nowej aplikacji logiki, która jest nazwą używaną dla zasobu **aplikacji logiki (wersja zapoznawcza)** . Ten przykład używa `example-logic-app-preview` .
 
       ![Zrzut ekranu przedstawiający okienko "Azure: Logic Apps (wersja zapoznawcza)" oraz monit o podanie nazwy nowej aplikacji logiki do utworzenia.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
@@ -639,21 +664,13 @@ Aplikację logiki można opublikować jako nowy zasób, co spowoduje automatyczn
 
    Gratulacje, Twoja aplikacja logiki jest teraz aktywna na platformie Azure i domyślnie włączona.
 
-Następnie Dowiedz się, [jak znaleźć wdrożoną aplikację logiki w Azure Portal](#find-manage-deployed-workflows-portal) lub [Visual Studio Code](#find-manage-deployed-workflows-vs-code).
+Następnie można dowiedzieć się, jak wykonywać następujące zadania:
 
-### <a name="enable-monitoring-for-deployed-logic-app-preview-resources"></a>Włącz monitorowanie dla zasobów wdrożonej aplikacji logiki (wersja zapoznawcza)
+* [Znajdź wdrożoną aplikację logiki w Azure Portal](#find-manage-deployed-workflows-portal) lub [Visual Studio Code](#find-manage-deployed-workflows-vs-code).
 
-Aby włączyć historię uruchamiania i monitorowanie dla zasobu wdrożonej **aplikacji logiki (wersja zapoznawcza)** , wykonaj następujące kroki:
+* [Włącz historię uruchamiania w przepływach pracy aplikacji logiki bezstanowej](#run-history).
 
-1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz zasób wdrożonej **aplikacji logiki (wersja zapoznawcza)** .
-
-1. W menu tego zasobu w obszarze **interfejs API**wybierz pozycję **CORS**.
-
-1. W okienku **CORS** w obszarze **dozwolone źródła**Dodaj symbol wieloznaczny (*).
-
-1. Gdy skończysz, na pasku narzędzi **CORS** wybierz pozycję **Zapisz**.
-
-   ![Zrzut ekranu przedstawiający Azure Portal ze wdrożonym zasobem Logic Apps (wersja zapoznawcza). W menu zasób jest zaznaczone polecenie "CORS" z nowym wpisem "dozwolone źródła" ustawione na symbol wieloznaczny "*".](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
+* [Włącz monitorowanie dla zasobu wdrożonej **aplikacji logiki (wersja zapoznawcza)** ](#enable-monitoring).
 
 <a name="find-manage-deployed-workflows-vs-code"></a>
 
@@ -669,7 +686,17 @@ W Visual Studio Code można wyświetlić wszystkie wdrożone Aplikacje logiki w 
 
    ![Zrzut ekranu, który pokazuje Visual Studio Code z otwartym okienkiem rozszerzenia "Azure Logic Apps (wersja zapoznawcza)" i wdrożonym przepływem pracy.](./media/create-stateful-stateless-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. Aby otworzyć wdrożoną aplikację logiki w Azure Portal, w Visual Studio Code, otwórz menu skrótów aplikacji logiki i wybierz polecenie **Otwórz w portalu**.
+1. Aby wyświetlić wszystkie przepływy pracy w aplikacji logiki, rozwiń aplikację logiki, a następnie rozwiń węzeł **przepływy pracy** .
+
+1. Aby wyświetlić konkretny przepływ pracy, otwórz menu skrótów przepływu pracy i wybierz polecenie **Otwórz w projektancie**, co spowoduje otwarcie przepływu pracy w trybie tylko do odczytu.
+
+   Aby edytować przepływ pracy, dostępne są następujące opcje:
+
+   * W Visual Studio Code Otwórz **workflow.jsprojektu na** pliku w Projektancie aplikacji logiki, wprowadź zmiany i Wdróż ponownie aplikację logiki na platformie Azure.
+
+   * W Azure Portal [Znajdź i Otwórz aplikację logiki](#find-manage-deployed-workflows-portal). Znajdź, Edytuj i Zapisz przepływ pracy.
+
+1. Aby otworzyć wdrożoną aplikację logiki w Azure Portal, otwórz menu skrótów aplikacji logiki i wybierz polecenie **Otwórz w portalu**.
 
    Azure Portal zostanie otwarta w przeglądarce, program automatycznie zaloguje się do portalu, jeśli zalogujesz się do Visual Studio Code i zobaczysz aplikację logiki.
 
@@ -742,6 +769,73 @@ Za pomocą Azure Portal można dodać puste przepływy pracy do zasobu **aplikac
 
    ![Zrzut ekranu przedstawiający projektanta aplikacji logiki i pusty przepływ pracy.](./media/create-stateful-stateless-workflows-visual-studio-code/opened-blank-workflow-designer.png)
 
+<a name="run-history"></a>
+
+## <a name="run-history-for-stateless-logic-app-workflows"></a>Historia uruchamiania przepływów pracy aplikacji logiki bezstanowej
+
+Aby łatwiej debugować przepływ pracy bezstanowej aplikacji logiki, można włączyć historię uruchamiania dla tego przepływu pracy w Visual Studio Code lub w Azure Portal, a następnie wyłączyć historię uruchamiania po zakończeniu.
+
+### <a name="for-a-stateless-logic-app-workflow-in-visual-studio-code"></a>Dla przepływu pracy aplikacji logiki bezstanowej w Visual Studio Code
+
+Jeśli pracujesz lokalnie w Visual Studio Code przepływ pracy aplikacji logiki bezstanowej, wykonaj następujące czynności:
+
+1. W projekcie Znajdź i rozwiń folder **Workflow-DesignTime** . Znajdź i Otwórz **local.settings.js** pliku.
+
+1. Dodaj `Workflows.{yourWorkflowName}.operationOptions` Właściwość i ustaw wartość na, na `WithStatelessRunHistory` przykład:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+         "Workflows.{yourWorkflowName}.OperationOptions": "WithStatelessRunHistory"
+      }
+   }
+   ```
+
+1. Aby wyłączyć historię uruchamiania po zakończeniu, Usuń `Workflows.{yourWorkflowName}.OperationOptions` Właściwość i jej wartość lub ustaw właściwość na `None` .
+
+### <a name="for-a-stateless-logic-app-workflow-in-the-azure-portal"></a>Dla przepływu pracy aplikacji logiki bezstanowej w Azure Portal
+
+Jeśli projekt został już wdrożony na Azure Portal, wykonaj następujące kroki:
+
+1. W [Azure Portal](https://portal.azure.com)Znajdź i Otwórz zasób **aplikacji logiki (wersja zapoznawcza)** .
+
+1. W menu aplikacji logiki w obszarze **Ustawienia**wybierz pozycję **Konfiguracja**.
+
+1. Na karcie **Ustawienia aplikacji** wybierz pozycję **nowe ustawienie aplikacji**.
+
+1. W okienku **Dodawanie/Edytowanie ustawienia aplikacji** w polu **Nazwa** wprowadź tę nazwę opcji operacji: 
+
+   `Workflows.{yourWorkflowName}.OperationOptions`
+
+1. W polu **wartość** Wprowadź następującą wartość: `WithStatelessRunHistory`
+
+   Na przykład:
+
+   ![Zrzut ekranu pokazujący zasób Azure Portal i Logic App (wersja zapoznawcza) z otwartym okienkiem "Konfiguracja" > "nowe ustawienie aplikacji" < "Dodaj/Edytuj ustawienie aplikacji" i "przepływy pracy". {yourWorkflowName}. Opcja "OperationOptions" ma wartość "WithStatelessRunHistory".](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
+
+1. Gdy skończysz, wybierz opcję **OK**. W okienku **Konfiguracja** wybierz pozycję **Zapisz**.
+
+Aby włączyć monitorowanie wdrożonego zasobu aplikacji logiki (wersja zapoznawcza), przejdź do następnej sekcji.
+
+<a name="enable-monitoring"></a>
+
+## <a name="enable-monitoring-for-deployed-logic-app-preview-resources"></a>Włącz monitorowanie dla zasobów wdrożonej aplikacji logiki (wersja zapoznawcza)
+
+Aby włączyć monitorowanie dla wdrożonego zasobu **aplikacji logiki (wersja zapoznawcza)** , wykonaj następujące kroki:
+
+1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz zasób wdrożonej **aplikacji logiki (wersja zapoznawcza)** .
+
+1. W menu tego zasobu w obszarze **interfejs API**wybierz pozycję **CORS**.
+
+1. W okienku **CORS** w obszarze **dozwolone źródła**Dodaj symbol wieloznaczny (*).
+
+1. Gdy skończysz, na pasku narzędzi **CORS** wybierz pozycję **Zapisz**.
+
+   ![Zrzut ekranu przedstawiający Azure Portal ze wdrożonym zasobem Logic Apps (wersja zapoznawcza). W menu zasób jest zaznaczone polecenie "CORS" z nowym wpisem "dozwolone źródła" ustawione na symbol wieloznaczny "*".](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
+
 <a name="deploy-docker"></a>
 
 ## <a name="deploy-to-docker-container"></a>Wdróż w kontenerze platformy Docker
@@ -769,9 +863,16 @@ Za pomocą [Narzędzia .NET Core Command Line Interface (CLI)](/dotnet/core/tool
 
    `docker build --tag local/workflowcontainer .`
 
-   Na przykład poniżej przedstawiono przykładowy plik platformy Docker dla przepływu pracy programu .NET, ale Zastąp wartość <*Storage-account-connection-string*> wartością z wcześniej zapisanymi parametrami połączenia konta usługi Azure Storage, które wyglądają podobnie do tego przykładu:
+   Na przykład poniżej znajduje się przykładowy plik platformy Docker, który wdraża aplikację logiki stanowej i określa parametry połączenia dla konta usługi Azure Storage, które zostało użyte do opublikowania aplikacji logiki w Azure Portal. Aby znaleźć i skopiować parametry połączenia konta magazynu w Azure Portal, przejrzyj temat [Zarządzanie kluczami konta magazynu](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys).
 
-   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey=<access-key>;EndpointSuffix=core.windows.net`
+   ![Zrzut ekranu przedstawiający Azure Portal z kluczami dostępu do konta magazynu i skopiowanymi parametrami połączenia.](./media/create-stateful-stateless-workflows-visual-studio-code/find-storage-account-connection-string.png)
+
+   Parametry połączenia wyglądają podobnie jak w przypadku tego przykładu:
+
+   `DefaultEndpointsProtocol=https;AccountName=fabrikamstorageaccount;AccountKey={access-key};EndpointSuffix=core.windows.net`
+
+   Oto format pliku platformy Docker:
+
 
    ```text
    FROM mcr.microsoft.com/azure-functions/dotnet:3.0.14492-appservice
@@ -786,6 +887,8 @@ Za pomocą [Narzędzia .NET Core Command Line Interface (CLI)](/dotnet/core/tool
    ```
 
    Aby uzyskać więcej informacji, zobacz [Docker Build](https://docs.docker.com/engine/reference/commandline/build/).
+
+1. Zapisz ciąg w bezpiecznym miejscu, aby później można było dodać ciąg do **local.settings.jsw** plikach w projekcie używanym do tworzenia aplikacji logiki w programie Visual Studio Code.
 
 1. Uruchom kontener lokalnie za pomocą tego polecenia:
 
@@ -810,55 +913,6 @@ Za pomocą [Narzędzia .NET Core Command Line Interface (CLI)](/dotnet/core/tool
      <...>
    }
    ```
-
-<a name="run-history"></a>
-
-## <a name="run-history-for-stateless-logic-app-workflows"></a>Historia uruchamiania przepływów pracy aplikacji logiki bezstanowej
-
-Aby łatwiej debugować przepływ pracy bezstanowej aplikacji logiki, możesz włączyć historię uruchamiania dla tego przepływu pracy, a następnie wyłączyć historię uruchamiania po zakończeniu.
-
-### <a name="for-a-stateless-logic-app-workflow-in-visual-studio-code"></a>Dla przepływu pracy aplikacji logiki bezstanowej w Visual Studio Code
-
-Jeśli pracujesz lokalnie w Visual Studio Code przepływ pracy aplikacji logiki bezstanowej, wykonaj następujące czynności:
-
-1. W projekcie Znajdź i rozwiń folder **Workflow-DesignTime** . Znajdź i Otwórz **local.settings.js** pliku.
-
-1. Dodaj `Workflow.<yourWorkflowName>.operationOptions` Właściwość i ustaw wartość na, na `WithStatelessRunHistory` przykład:
-
-   ```json
-   {
-      "IsEncrypted": false,
-      "Values": {
-         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-         "Workflow.<yourWorkflowName>.OperationOptions": "WithStatelessRunHistory"
-      }
-   }
-   ```
-
-1. Aby wyłączyć historię uruchamiania po zakończeniu, Usuń `Workflow.<yourWorkflowName>.OperationOptions` Właściwość i jej wartość lub ustaw właściwość na `None` .
-
-### <a name="for-a-stateless-logic-app-workflow-in-the-azure-portal"></a>Dla przepływu pracy aplikacji logiki bezstanowej w Azure Portal
-
-Jeśli projekt został już wdrożony na Azure Portal, wykonaj następujące kroki:
-
-1. W [Azure Portal](https://portal.azure.com)Znajdź i Otwórz zasób **aplikacji logiki (wersja zapoznawcza)** .
-
-1. W menu aplikacji logiki w obszarze **Ustawienia**wybierz pozycję **Konfiguracja**.
-
-1. Na karcie **Ustawienia aplikacji** wybierz pozycję **nowe ustawienie aplikacji**.
-
-1. W okienku **Dodawanie/Edytowanie ustawienia aplikacji** w polu **Nazwa** wprowadź tę nazwę opcji operacji: 
-
-   `Workflow.<yourWorkflowName>.OperationOptions`
-
-1. W polu **wartość** Wprowadź następującą wartość: `WithStatelessRunHistory`
-
-   Przykład:
-
-   ![Zrzut ekranu pokazujący zasób Azure Portal i Logic App (wersja zapoznawcza) z otwartym okienkiem "Konfiguracja" > "nowe ustawienie aplikacji" < "Dodaj/Edytuj ustawienie aplikacji" i wybierz opcję "Workflow. <yourWorkflowName>OperationOptions" "WithStatelessRunHistory".](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
-
-1. Gdy skończysz, wybierz opcję **OK**. W okienku **Konfiguracja** wybierz pozycję **Zapisz**.
 
 <a name="nested-behavior"></a>
 
@@ -886,7 +940,7 @@ Ta tabela określa zachowanie podrzędnego przepływu pracy w zależności od te
 
 | Nadrzędny przepływ pracy | Podrzędny przepływ pracy | Zachowanie elementu podrzędnego |
 |-----------------|----------------|----------------|
-| Stanowe | Stanowe | Asynchroniczne lub synchroniczne z `operationOptions=DisableSynPattern` ustawieniem |
+| Stanowe | Stanowe | Asynchroniczne lub synchroniczne z `"operationOptions": "DisableAsyncPattern"` ustawieniem |
 | Stanowe | Bezstanowe | Wyzwalaj i czekaj |
 | Bezstanowe | Stanowe | Synchronous |
 | Bezstanowe | Bezstanowe | Wyzwalaj i czekaj |
@@ -910,15 +964,13 @@ Chociaż liczne [istniejące limity dla Azure Logic Apps](../logic-apps/logic-ap
 
 W przypadku tej publicznej wersji zapoznawczej te funkcje nie są dostępne lub nie są obsługiwane:
 
-* Tworzenie nowego zasobu **aplikacji logiki (wersja zapoznawcza)** jest obecnie niedostępne w Mac OS.
+* Tworzenie nowego zasobu **aplikacji logiki (wersja zapoznawcza)** jest obecnie niedostępne w macOS.
 
-* Łączniki niestandardowe, wyzwalacze oparte na elementach webhook i wyzwalacz okna przesuwania nie są obsługiwane w tej wersji zapoznawczej.
+* Łączniki niestandardowe, wyzwalacze oparte na elementach webhook i wyzwalacz okna przesuwania nie są obsługiwane w tej wersji zapoznawczej. W przypadku przepływów pracy bezstanowych aplikacji logiki można dodawać tylko akcje dla [łączników zarządzanych](../connectors/apis-list.md#managed-api-connectors), a nie wyzwalaczy. Aby uruchomić przepływ pracy, użyj [wbudowanego żądania, Event Hubs lub wyzwalacza Service Bus](../connectors/apis-list.md#built-ins).
 
-* W przypadku przepływów pracy bezstanowych aplikacji logiki można dodawać tylko akcje dla [łączników zarządzanych](../connectors/apis-list.md#managed-api-connectors), a nie wyzwalaczy. Aby uruchomić przepływ pracy, użyj [wbudowanego żądania, Event Hubs lub wyzwalacza Service Bus](../connectors/apis-list.md#built-ins).
+* Nowy typ zasobu **aplikacji logiki (wersja zapoznawcza)** można wdrożyć tylko [w planie usług w warstwie Premium lub App Service na platformie Azure](#publish-azure) lub w [kontenerze platformy Docker](#deploy-docker), a nie w [środowiskach usługi integracji (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Plany hostingu **zużycia** nie są obsługiwane ani nie są dostępne do wdrożenia tego typu zasobu.
 
 * W Azure Portal nie można tworzyć nowych aplikacji logiki przy użyciu nowego typu zasobu **aplikacji logiki (wersja zapoznawcza)** . Te aplikacje logiki można tworzyć tylko w Visual Studio Code. Jednak po wdrożeniu aplikacji logiki przy użyciu tego typu zasobu z Visual Studio Code na platformie Azure można [dodać do nich Nowe przepływy pracy](#add-workflows).
-
-* Plany hostingu **zużycia** nie są obsługiwane w przypadku wdrażania aplikacji logiki.
 
 ## <a name="next-steps"></a>Następne kroki
 

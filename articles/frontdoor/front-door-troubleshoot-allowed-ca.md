@@ -1,6 +1,6 @@
 ---
 title: Dozwolony urząd certyfikacji do włączania niestandardowego protokołu HTTPS na platformie Azure front-drzwi
-description: Jeśli używasz własnego certyfikatu do włączenia protokołu HTTPS w domenie niestandardowej, musisz użyć dozwolonego urzędu certyfikacji (CA), aby go utworzyć.
+description: Jeśli używasz własnego certyfikatu do włączenia protokołu HTTPS w domenie 0custom z przodu platformy Azure, musisz użyć dozwolonego urzędu certyfikacji, aby go utworzyć.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: duau
-ms.openlocfilehash: 7bdef37561687b49b030d8237472c0d35f945c13
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 973df2505eefc2a46aa105b874f32b61fe6e8b36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399127"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269809"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door"></a>Dozwolone urzędy certyfikacji do włączania niestandardowego protokołu HTTPS na platformie Azure front-drzwi
 

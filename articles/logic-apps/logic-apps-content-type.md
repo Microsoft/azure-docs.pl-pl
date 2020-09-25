@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a71c78dcbaa5fb02927e9a2cfdea40cd5b26130
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75666877"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269101"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Obsługa typów zawartości w Azure Logic Apps
 
@@ -59,9 +59,9 @@ Logic Apps oferuje możliwość generowania tokenów przyjaznych dla użytkownik
   
   1. W wyzwalaczu żądania wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.  
   
-  2. W obszarze **wprowadzanie lub wklejanie przykładowego ładunku JSON**Podaj przykładowy ładunek, a następnie wybierz pozycję **gotowe**. Przykład: 
+  2. W obszarze **wprowadzanie lub wklejanie przykładowego ładunku JSON**Podaj przykładowy ładunek, a następnie wybierz pozycję **gotowe**. Na przykład: 
 
-     ![Podaj przykładowy ładunek JSON](./media/logic-apps-content-type/request-trigger.png)
+     ![Zrzut ekranu przedstawiający okno "po odebraniu żądania HTTP" z przykładowym ładunkiem JSON.](./media/logic-apps-content-type/request-trigger.png)
 
      Wygenerowany schemat zostanie wyświetlony w wyzwalaczu.
 
@@ -136,13 +136,13 @@ Aby zachować niektóre typy danych, Logic Apps konwertuje zawartość na binarn
 
 Ta lista zawiera opis sposobu, w jaki Logic Apps konwertuje zawartość podczas korzystania z tych [funkcji](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: Rzutuje dane na`application/json`
-* `xml()`: Rzutuje dane na`application/xml`
-* `binary()`: Rzutuje dane na`application/octet-stream`
-* `string()`: Rzutuje dane na`text/plain`
+* `json()`: Rzutuje dane na `application/json`
+* `xml()`: Rzutuje dane na `application/xml`
+* `binary()`: Rzutuje dane na `application/octet-stream`
+* `string()`: Rzutuje dane na `text/plain`
 * `base64()`: Konwertuje zawartość na ciąg zakodowany w formacie base64
-* `base64toString()`: Konwertuje ciąg szyfrowany algorytmem Base64 na`text/plain`
-* `base64toBinary()`: Konwertuje ciąg szyfrowany algorytmem Base64 na`application/octet-stream`
+* `base64toString()`: Konwertuje ciąg szyfrowany algorytmem Base64 na `text/plain`
+* `base64toBinary()`: Konwertuje ciąg szyfrowany algorytmem Base64 na `application/octet-stream`
 * `dataUri()`: Konwertuje ciąg na identyfikator URI danych
 * `dataUriToBinary()`: Konwertuje identyfikator URI danych na ciąg binarny
 * `dataUriToString()`: Konwertuje identyfikator URI danych na ciąg

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: cccc45f182f3ae826440df8bc163080b82226c9f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172085"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269764"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blokuj połączenia utworzone przez łączniki w Azure Logic Apps
 
@@ -121,7 +121,7 @@ Aby całkowicie zablokować Tworzenie połączenia w aplikacji logiki, wykonaj n
 
 1. W obszarze **Definicja zasad**podaj informacje dotyczące definicji zasad w oparciu o właściwości opisane w przykładzie:
 
-   ![Właściwości definicji zasad](./media/block-connections-connectors/policy-definition-create-connections-1.png)
+   ![Zrzut ekranu przedstawiający właściwości "Definicja zasad".](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
@@ -129,7 +129,7 @@ Aby całkowicie zablokować Tworzenie połączenia w aplikacji logiki, wykonaj n
    | **Nazwa** | Tak | <*Policy-Definicja-name*> | Nazwa do użycia w definicji zasad |
    | **Opis** | Nie | <*Policy-Definicja-name*> | Opis definicji zasad |
    | **Kategoria** | Tak | **Aplikacje logiki** | Nazwa istniejącej kategorii lub nowej kategorii dla definicji zasad |
-   | **Egzekwowanie zasad** | Tak | **Włączono** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
+   | **Egzekwowanie zasad** | Tak | **Włączone** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
    ||||
 
 1. W obszarze **reguła zasad**pole edycji JSON jest wstępnie wypełnione szablonem definicji zasad. Zastąp ten szablon [definicją zasad](../governance/policy/concepts/definition-structure.md) w oparciu o właściwości opisane w poniższej tabeli i następującą składnią:
@@ -155,7 +155,7 @@ Aby całkowicie zablokować Tworzenie połączenia w aplikacji logiki, wykonaj n
    | `mode` | `All` | Tryb określający typy zasobów, które są obliczane przez zasady. <p><p>W tym scenariuszu jest ustawiana `mode` `All` wartość, która stosuje zasady do grup zasobów platformy Azure, subskrypcji i wszystkich typów zasobów. <p><p>Aby uzyskać więcej informacji, zobacz temat [Struktura definicji zasad — tryb](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | Warunek określający, kiedy należy wymusić zasadę zasad <p><p>W tym scenariuszu program `{condition-to-evaluate}` określa, czy `api.id` wartość w jest `Microsoft.Web/connections/api.id` zgodna z wartością `*managedApis/{connector-name}` , która określa symbol wieloznaczny (*). <p><p>Aby uzyskać więcej informacji, zobacz [Struktura definicji zasad — reguła zasad](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `field` | `Microsoft.Web/connections/api.id` | `field`Wartość do porównania z warunkiem <p><p>W tym scenariuszu `field` używa [*alias*](../governance/policy/concepts/definition-structure.md#aliases), `Microsoft.Web/connections/api.id` , aby uzyskać dostęp do wartości we właściwości łącznika `api.id` . |
-   | `like` | `*managedApis/{connector-name}` | Operator logiczny i wartość do użycia podczas porównywania `field` wartości <p><p>W tym scenariuszu `like` operator i znak symbolu wieloznacznego (*) Upewnij się, że reguła działa niezależnie od regionu, a ciąg, `*managedApis/{connector-name}` , jest wartością do dopasowania, gdzie `{connector-name}` jest identyfikatorem łącznika, który ma zostać zablokowany. <p><p>Załóżmy na przykład, że chcesz zablokować tworzenie połączeń do platform mediów społecznościowych lub baz danych: <p><p>Ekran`twitter` <br>Usługi Instagram`instagram` <br>Serwis`facebook` <br>Pinterest`pinterest` <br>-SQL Server lub Azure SQL:`sql` <p><p>Aby znaleźć te identyfikatory łączników, zobacz sekcję [Znajdź identyfikator odwołania do łącznika](#connector-reference-ID) wcześniej w tym temacie. |
+   | `like` | `*managedApis/{connector-name}` | Operator logiczny i wartość do użycia podczas porównywania `field` wartości <p><p>W tym scenariuszu `like` operator i znak symbolu wieloznacznego (*) Upewnij się, że reguła działa niezależnie od regionu, a ciąg, `*managedApis/{connector-name}` , jest wartością do dopasowania, gdzie `{connector-name}` jest identyfikatorem łącznika, który ma zostać zablokowany. <p><p>Załóżmy na przykład, że chcesz zablokować tworzenie połączeń do platform mediów społecznościowych lub baz danych: <p><p>Ekran `twitter` <br>Usługi Instagram `instagram` <br>Serwis `facebook` <br>Pinterest `pinterest` <br>-SQL Server lub Azure SQL: `sql` <p><p>Aby znaleźć te identyfikatory łączników, zobacz sekcję [Znajdź identyfikator odwołania do łącznika](#connector-reference-ID) wcześniej w tym temacie. |
    | `then` | `{effect-to-apply}` | Efekt do zastosowania, gdy `if` warunek jest spełniony <p><p>W tym scenariuszu `{effect-to-apply}` jest blokowane i niepowodzenie żądania lub operacji, które nie są zgodne z zasadami. <p><p>Aby uzyskać więcej informacji, zobacz [Struktura definicji zasad — reguła zasad](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `effect` | `deny` | `effect`Jest to blok żądania, który polega na utworzeniu określonego połączenia <p><p>Aby uzyskać więcej informacji, zobacz [opis Azure Policy efektów — Odmów](../governance/policy/concepts/effects.md#deny). |
    ||||
@@ -180,7 +180,7 @@ Aby całkowicie zablokować Tworzenie połączenia w aplikacji logiki, wykonaj n
 
    Oto sposób wyświetlania pola **reguła zasad** :
 
-   ![Reguła definicji zasad](./media/block-connections-connectors/policy-definition-create-connections-2.png)
+   ![Zrzut ekranu przedstawiający pole "reguła zasad" z przykładem reguły zasad.](./media/block-connections-connectors/policy-definition-create-connections-2.png)
 
    Dla wielu łączników można dodać więcej warunków, na przykład:
 
@@ -250,7 +250,7 @@ Po utworzeniu połączenia wewnątrz aplikacji logiki to połączenie istnieje j
    | **Nazwa** | Tak | <*Policy-Definicja-name*> | Nazwa do użycia w definicji zasad |
    | **Opis** | Nie | <*Policy-Definicja-name*> | Opis definicji zasad |
    | **Kategoria** | Tak | **Aplikacje logiki** | Nazwa istniejącej kategorii lub nowej kategorii dla definicji zasad |
-   | **Egzekwowanie zasad** | Tak | **Włączono** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
+   | **Egzekwowanie zasad** | Tak | **Włączone** | To ustawienie określa, czy należy włączyć lub wyłączyć definicję zasad podczas zapisywania pracy. |
    ||||
 
 1. W obszarze **reguła zasad**pole edycji JSON jest wstępnie wypełnione szablonem definicji zasad. Zastąp ten szablon [definicją zasad](../governance/policy/concepts/definition-structure.md) w oparciu o właściwości opisane w poniższej tabeli i następującą składnią:
@@ -276,7 +276,7 @@ Po utworzeniu połączenia wewnątrz aplikacji logiki to połączenie istnieje j
    | `mode` | `All` | Tryb określający typy zasobów, które są obliczane przez zasady. <p><p>W tym scenariuszu jest ustawiana `mode` `All` wartość, która stosuje zasady do grup zasobów platformy Azure, subskrypcji i wszystkich typów zasobów. <p><p>Aby uzyskać więcej informacji, zobacz temat [Struktura definicji zasad — tryb](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | Warunek określający, kiedy należy wymusić zasadę zasad <p><p>W tym scenariuszu program `{condition-to-evaluate}` określa, czy ciąg wyjściowy z `[string(field('Microsoft.Logic/workflows/parameters'))]` , zawiera ciąg, `{connector-name}` . <p><p>Aby uzyskać więcej informacji, zobacz [Struktura definicji zasad — reguła zasad](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `value` | `[string(field('Microsoft.Logic/workflows/parameters'))]` | Wartość do porównania z warunkiem <p><p>W tym scenariuszu `value` jest ciągiem wyjściowym `[string(field('Microsoft.Logic/workflows/parameters'))]` , który konwertuje `$connectors` obiekt wewnątrz `Microsoft.Logic/workflows/parameters` obiektu na ciąg. |
-   | `contains` | `{connector-name}` | Operator logiczny i wartość do porównania z `value` właściwością <p><p>W tym scenariuszu `contains` operator sprawdza, czy reguła działa niezależnie od tego, gdzie `{connector-name}` pojawia się, gdzie String, `{connector-name}` jest identyfikatorem łącznika, który ma zostać ograniczony lub zablokowany. <p><p>Załóżmy na przykład, że chcesz zablokować używanie połączeń z platformami mediów społecznościowych lub bazami danych: <p><p>Ekran`twitter` <br>Usługi Instagram`instagram` <br>Serwis`facebook` <br>Pinterest`pinterest` <br>-SQL Server lub Azure SQL:`sql` <p><p>Aby znaleźć te identyfikatory łączników, zobacz sekcję [Znajdź identyfikator odwołania do łącznika](#connector-reference-ID) wcześniej w tym temacie. |
+   | `contains` | `{connector-name}` | Operator logiczny i wartość do porównania z `value` właściwością <p><p>W tym scenariuszu `contains` operator sprawdza, czy reguła działa niezależnie od tego, gdzie `{connector-name}` pojawia się, gdzie String, `{connector-name}` jest identyfikatorem łącznika, który ma zostać ograniczony lub zablokowany. <p><p>Załóżmy na przykład, że chcesz zablokować używanie połączeń z platformami mediów społecznościowych lub bazami danych: <p><p>Ekran `twitter` <br>Usługi Instagram `instagram` <br>Serwis `facebook` <br>Pinterest `pinterest` <br>-SQL Server lub Azure SQL: `sql` <p><p>Aby znaleźć te identyfikatory łączników, zobacz sekcję [Znajdź identyfikator odwołania do łącznika](#connector-reference-ID) wcześniej w tym temacie. |
    | `then` | `{effect-to-apply}` | Efekt do zastosowania, gdy `if` warunek jest spełniony <p><p>W tym scenariuszu `{effect-to-apply}` jest to zablokowanie i niepowodzenie żądania lub operacji, które nie są zgodne z zasadami. <p><p>Aby uzyskać więcej informacji, zobacz [Struktura definicji zasad — reguła zasad](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `effect` | `deny` | `effect`To `deny` lub Zablokuj żądanie zapisania aplikacji logiki korzystającej z określonego połączenia <p><p>Aby uzyskać więcej informacji, zobacz [opis Azure Policy efektów — Odmów](../governance/policy/concepts/effects.md#deny). |
    ||||

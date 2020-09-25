@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5ff2fe74a0dd5064232fcef3178aec2967ef6812
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5d0835114844069d4ebdc992b872f9be1f0b3ca6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259224"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania Onfido z Azure Active Directory B2C
 
@@ -94,7 +94,7 @@ Ustawienia aplikacji można skonfigurować w [usłudze App Service na platformie
 
 1. Konfigurowanie [kontenera magazynu obiektów BLOB na koncie magazynu](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 
-2. Zapisz pliki interfejsu użytkownika z folderu UI do kontenera obiektów BLOB.
+2. Zapisz pliki interfejsu użytkownika z [folderu UI](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) do kontenera obiektów BLOB.
 
 3. Zezwól na dostęp mechanizmu CORS do kontenera magazynu utworzonego przez następujące instrukcje:
 
@@ -124,7 +124,7 @@ Ustawienia aplikacji można skonfigurować w [usłudze App Service na platformie
 
 #### <a name="replace-the-configuration-values"></a>Zastąp wartości konfiguracyjne
 
-W podanych zasadach niestandardowych Znajdź następujące symbole zastępcze i zamień je na odpowiednie wartości z danego wystąpienia.
+W podanych [zasadach niestandardowych](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies)Znajdź następujące symbole zastępcze i zamień je na odpowiednie wartości z danego wystąpienia.
 
 | Symbol zastępczy | Zamień na wartość | Przykład  |
 |:---------------|:----------------|:-------------------|
@@ -138,7 +138,7 @@ W podanych zasadach niestandardowych Znajdź następujące symbole zastępcze i 
 |{your_ui_file_base_url}| Adres URL lokalizacji, w której znajdują się foldery **ocean_blue**, **ROZKŁ**i **Assets** interfejsu użytkownika | https://yourstorage.blob.core.windows.net/UI/|
 | {your_app_service_URL}                                 | Adres URL skonfigurowanej usługi App Service                                             | `https://yourapp.azurewebsites.net`          |
 
-* Szczegółowe informacje o aplikacji mogą znajdować się w innej dzierżawie. Ten krok jest opcjonalny. Usuń odpowiednie TechnicalProfiles i OrchestrationSteps, jeśli nie jest to trzeba.
+* Szczegółowe informacje o aplikacji mogą znajdować się w innej dzierżawie. Ta czynność jest opcjonalna. Usuń odpowiednie TechnicalProfiles i OrchestrationSteps, jeśli nie jest to trzeba.
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>Część 4 — Konfigurowanie zasad Azure AD B2C
 

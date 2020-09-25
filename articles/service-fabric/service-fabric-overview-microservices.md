@@ -4,12 +4,12 @@ description: Omówienie przyczyn kompilowania aplikacji w chmurze z podejściem 
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: b8fbe5096014b116c3d5c5deaa7615874135d001
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4345c919e73e57667fb3b9c90c42224326bc3552
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300772"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Dlaczego warto stosować podejście mikrousług do kompilowania aplikacji
 
@@ -139,6 +139,9 @@ Platforma Azure Service Fabric wystąpiła, gdy firma Microsoft przeszedł z dos
 
 ***Celem Service Fabric jest rozwiązanie problemów twardych kompilowania i uruchamiania usługi oraz wydajne korzystanie z zasobów infrastruktury, dzięki czemu zespoły mogą rozwiązywać problemy biznesowe za pomocą podejścia mikrousług.***
 
+Ten krótki klip wideo zawiera wprowadzenie do usługi Service Fabric i mikrousług:
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
+
 Service Fabric pomaga tworzyć aplikacje korzystające z rozwiązań mikrousług, zapewniając:
 
 * Platforma udostępniająca usługi systemowe do wdrażania, uaktualniania, wykrywania i ponownego uruchamiania usług zakończonych niepowodzeniem, odnajdywania usług, przesyłania komunikatów, zarządzania stanem i monitorowania kondycji.
@@ -163,7 +166,7 @@ Pamiętaj, że możesz *uruchomić i zatrzymać na dowolnym z tych etapów*. Nie
 
 Przyjrzyjmy się przykładom dla każdego z tych etapów.
 
-**Migracja**  
+**Migrate**  
 Z dwóch powodów wiele firm migruje istniejące aplikacje monolityczne do kontenerów:
 
 * Obniżka kosztów — z powodu konsolidacji i usuwania istniejącego sprzętu lub w przypadku uruchamiania aplikacji z większą gęstością.

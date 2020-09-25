@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 82462af3f1fc939cb30730360f75303cb1be9432
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cf90065ad40ca46068700473ad71b598619764ec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301469"
 ---
 # <a name="billing-questions"></a>Pytania dotyczące rozliczeń
 
@@ -27,7 +27,7 @@ Security Center jest oferowana z usługą Azure Defender i bez niej:
 
 - **Bez usługi Azure Defender**Security Center zapewnia wgląd w stan zabezpieczeń zasobów platformy Azure, podstawowe zasady zabezpieczeń, zalecenia dotyczące zabezpieczeń i integrację z produktami i usługami zabezpieczeń z partnerów.
 
-- **Usługa Azure Defender** dodaje funkcje ochrony przed zagrożeniami, w tym alerty zabezpieczeń, analizy zagrożeń, analizę zachowań, wykrywanie anomalii i raporty dotyczące autorstwa zagrożeń. Możesz zacząć korzystać z bezpłatnej 30-dniowej wersji próbnej usługi Azure Defender. W celu uaktualnienia wybierz pozycję [warstwa cenowa](https://docs.microsoft.com/azure/security-center/security-center-pricing) w obszarze Zasady zabezpieczeń. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/security-center/).
+- **Usługa Azure Defender** dodaje funkcje ochrony przed zagrożeniami, w tym alerty zabezpieczeń, analizy zagrożeń, analizę zachowań, wykrywanie anomalii i raporty dotyczące autorstwa zagrożeń. Możesz zacząć korzystać z bezpłatnej 30-dniowej wersji próbnej usługi Azure Defender. [Dowiedz się więcej o uaktualnianiu](security-center-pricing.md).
 
 ## <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>Jak mogę śledzić, kto w mojej organizacji włączył zmiany w usłudze Azure Defender w Azure Security Center
 Subskrypcje platformy Azure mogą mieć wielu administratorów z uprawnieniami do zmiany ustawień cen. Aby dowiedzieć się, który użytkownik wykonał zmianę, użyj dziennika aktywności platformy Azure. 

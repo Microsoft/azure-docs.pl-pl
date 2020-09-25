@@ -3,13 +3,13 @@ title: Uwierzytelnianie dostępu do usługi Azure Event Hubs przy użyciu sygnat
 description: W tym artykule opisano sposób uwierzytelniania dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: bf1f42020237c0907ec7656735adfa46a21370f9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: f0cdf37963e40d871ad1079e9ccd5d0eb61fa2c0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008322"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270104"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Uwierzytelnianie dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego (SAS)
 Sygnatura dostępu współdzielonego (SAS) zapewnia szczegółową kontrolę nad typem dostępu przyznanym klientom, którzy mają sygnaturę dostępu współdzielonego. Poniżej przedstawiono niektóre kontrolki, które można ustawić w sygnaturze dostępu współdzielonego: 
@@ -218,7 +218,7 @@ Na przykład w celu zdefiniowania reguł autoryzacji objętych zakresem do wysy�
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Uwierzytelnianie Event Hubs użytkowników przy użyciu sygnatury dostępu współdzielonego 
 Aby uwierzytelniać aplikacje zaplecza, które wykorzystują dane wygenerowane przez producentów Event Hubs, uwierzytelnianie tokenów Event Hubs wymaga, aby klienci mieli uprawnienia do **zarządzania** prawami lub **nasłuchiwanie** przypisane do jego przestrzeni nazw Event Hubs lub wystąpienia centrum zdarzeń lub tematu. Dane są używane z Event Hubs przy użyciu grup odbiorców. Chociaż zasady SAS dają szczegółowy zakres, ten zakres jest definiowany tylko na poziomie jednostki, a nie na poziomie odbiorcy. Oznacza to, że uprawnienia zdefiniowane na poziomie przestrzeni nazw lub wystąpieniu centrum zdarzeń lub poziomie tematu zostaną zastosowane do grup odbiorców tej jednostki.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
 
 - [Autoryzuj przy użyciu sygnatury dostępu współdzielonego](authenticate-shared-access-signature.md)

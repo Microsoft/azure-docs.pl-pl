@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b54cff85da02415bbc9dfa9ead037ced48cb58f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204085"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259445"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny OAuth1 w zasadach niestandardowych Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Atrybut **name** elementu **Protocol** musi być ustawiony na `OAuth1` . Na przy
 
 ## <a name="input-claims"></a>Oświadczenia wejściowe
 
-Elementy **InputClaims** i **InputClaimsTransformations** są puste lub nie są obecne.
+Elementy **InputClaims** i **InputClaimsTransformations**  są puste lub nie są obecne.
 
 ## <a name="output-claims"></a>Oświadczenia wyjściowe
 
@@ -88,23 +88,8 @@ Element **CryptographicKeys** zawiera następujący atrybut:
 
 ## <a name="redirect-uri"></a>Identyfikator URI przekierowania
 
-Podczas konfigurowania adresu URL przekierowania dostawcy tożsamości wprowadź wartość `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp` . Pamiętaj o zamianie **dzierżawy** na nazwę dzierżawy (na przykład contosob2c.onmicrosoft.com) i **policyId** z identyfikatorem zasad (na przykład b2c_1a_policy). Identyfikator URI przekierowania musi zawierać tylko małe litery. Dodaj adres URL przekierowania dla wszystkich zasad korzystających z logowania dostawcy tożsamości.
-
-Jeśli używasz domeny **b2clogin.com** zamiast **login.microsoftonline.com** upewnij się, że używasz b2clogin.com zamiast login.microsoftonline.com.
+Podczas konfigurowania identyfikatora URI przekierowania dostawcy tożsamości wprowadź wartość `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/{policy-id}/oauth1/authresp` . Pamiętaj, aby zamienić na `{tenant-name}` nazwę dzierżawy (na przykład contosob2c) i `{policy-id}` identyfikatorem zasad (na przykład b2c_1a_policy). Identyfikator URI przekierowania musi zawierać tylko małe litery. Dodaj adres URL przekierowania dla wszystkich zasad korzystających z logowania dostawcy tożsamości.
 
 Przykłady:
 
 - [Dodawanie usługi Twitter jako dostawcy tożsamości OAuth1 przy użyciu zasad niestandardowych](identity-provider-twitter-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

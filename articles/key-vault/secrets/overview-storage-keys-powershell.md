@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 8e8479179aa74f2fb2ead41dec28d247de9657c3
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: dd54dd17e5a9a828935ad0d6ac3d713aaedd9535
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585104"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251596"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Zarządzanie kluczami konta magazynu przy użyciu Key Vault i Azure PowerShell
 
@@ -75,7 +75,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>Ustaw zmienne
 
-Najpierw Ustaw zmienne, które będą używane przez polecenia cmdlet programu PowerShell w poniższych krokach. Pamiętaj, aby zaktualizować <YourResourceGroupName> <YourStorageAccountName> <YourKeyVaultName> symbole zastępcze, i i ustawić $keyVaultSpAppId na `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (zgodnie z opisem w [identyfikatorze aplikacji głównej usługi](#service-principal-application-id), powyżej).
+Najpierw Ustaw zmienne, które będą używane przez polecenia cmdlet programu PowerShell w poniższych krokach. Pamiętaj, aby zaktualizować symbole zastępcze "YourResourceGroupName", "YourStorageAccountName" i "YourKeyVaultName", a następnie ustaw $keyVaultSpAppId na `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (zgodnie z opisem w [identyfikatorze aplikacji nazwy głównej usługi](#service-principal-application-id)).
 
 Będziemy również Azure PowerShell używać poleceń cmdlet [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) i [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) w celu uzyskania identyfikatora użytkownika i kontekstu konta usługi Azure Storage.
 

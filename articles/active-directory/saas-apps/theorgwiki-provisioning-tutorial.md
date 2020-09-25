@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 5959ccd2699ef1162779a4a1d90ab6bb8af1bbbf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544853"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255849"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie TheOrgWiki na potrzeby automatycznego aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w TheOrgWiki i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup do TheOrgWiki.
 
 > [!NOTE]
-> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -55,23 +55,23 @@ Przed skonfigurowaniem usługi TheOrgWiki na potrzeby automatycznego inicjowania
 
 1. Zaloguj się do [konsoli administracyjnej TheOrgWiki](https://www.theorgwiki.com/login/). Kliknij pozycję **Konsola administracyjna**.
 
-    ![TheOrgWiki Dodaj Standard scim](media/theorgwiki-provisioning-tutorial/login.png)
+    ![Zrzut ekranu organizacji wiki z awatarem użytkownika i konsolą administracyjną o nazwie "out".](media/theorgwiki-provisioning-tutorial/login.png)
 
 2. W konsoli administracyjnej programu kliknij **kartę Ustawienia**. 
 
-    ![TheOrgWiki Dodaj Standard scim](media/theorgwiki-provisioning-tutorial/settings.png)
+    ![Zrzut ekranu przedstawiający konsolę administracyjną organizacji wiki z kartą Ustawienia o nazwie.](media/theorgwiki-provisioning-tutorial/settings.png)
     
 3. Przejdź do **konta usługi**.
 
-    ![TheOrgWiki Dodaj Standard scim](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
+    ![Zrzut ekranu strony konta usług w konsoli administracyjnej typu wiki organizacji.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
 4. Kliknij pozycję **+ konto usługi**. W obszarze **Typ konta usługi**wybierz pozycję **oparty na tokenach**. Kliknij pozycję **Zapisz**.
 
-    ![TheOrgWiki Dodaj Standard scim](media/theorgwiki-provisioning-tutorial/auth.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe nowe konto usługi z opcjami typ konta usługi, oparte na tokenach i Zapisz.](media/theorgwiki-provisioning-tutorial/auth.png)
 
 5.  Skopiuj **aktywne tokeny**. Ta wartość zostanie wprowadzona w polu token tajny na karcie aprowizacji aplikacji TheOrgWiki w Azure Portal.
      
-    ![TheOrgWiki Dodaj Standard scim](media/theorgwiki-provisioning-tutorial/token.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe zarządzanie tokenami dla programu a M Provisioning.](media/theorgwiki-provisioning-tutorial/token.png)
 
 ## <a name="add-theorgwiki-from-the-gallery"></a>Dodaj TheOrgWiki z galerii
 
@@ -95,15 +95,15 @@ Aby skonfigurować TheOrgWiki automatycznej aprowizacji użytkowników w usłudz
 
 5. Wybierz przycisk **Utwórz konto w usłudze TheOrgWiki** , który przekieruje Cię do strony logowania usługi TheOrgWiki. 
 
-    ![TheOrgWiki Dodaj Standard scim](media/theorgwiki-provisioning-tutorial/image00.png)
+    ![Zrzut ekranu strony logowania do witryny typu wiki organizacji z adresem URL o nazwie](media/theorgwiki-provisioning-tutorial/image00.png)
 
 6.  W prawym górnym rogu wybierz pozycję **Zaloguj**.
 
-    ![TheOrgWiki Dodaj Standard scim](media/theorgwiki-provisioning-tutorial/image02.png)
+    ![Zrzut ekranu przedstawiający prawy górny róg strony logowania z opcją logowania o nazwie out.](media/theorgwiki-provisioning-tutorial/image02.png)
 
 7. Ponieważ TheOrgWiki jest aplikacją OpenIDConnect, wybierz logowanie do OrgWiki przy użyciu konta służbowego firmy Microsoft.
 
-    ![TheOrgWiki Dodaj Standard scim](media/theorgwiki-provisioning-tutorial/image03.png)
+    ![Zrzut ekranu przedstawiający stronę logowania do witryny typu wiki organizacji z opcją Zaloguj się przy użyciu konta Microsoft wywołana.](media/theorgwiki-provisioning-tutorial/image03.png)
     
 8. Po pomyślnym uwierzytelnieniu aplikacja zostanie automatycznie dodana do dzierżawy i nastąpi przekierowanie do konta TheOrgWiki.
 
@@ -116,7 +116,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-theorgwiki-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla TheOrgWiki w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -124,13 +124,13 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Link OrgWiki na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **aprowizacji** .
+3. Wybierz kartę **Aprowizacja**.
 
-    ![Karta aprowizacji](common/provisioning.png)
+    ![Zrzut ekranu przedstawiający opcje zarządzania z opcją aprowizacji o nazwie out.](common/provisioning.png)
 
-4. Ustaw **tryb aprowizacji** na **automatyczny**.
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    ![Karta aprowizacji](common/provisioning-automatic.png)
+    ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
 5. W sekcji **poświadczenia administratora** wprowadź `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` **adres URL dzierżawy**. 
 
@@ -145,7 +145,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 7. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
 
-    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
+    ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
 8. Kliknij pozycję **Zapisz**.
 
@@ -157,17 +157,17 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![TheOrgWiki atrybuty użytkownika](media/theorgwiki-provisioning-tutorial/userattribute.png).
 
-11. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. Aby włączyć usługę Azure AD Provisioning dla TheOrgWiki, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
+    ![Stan aprowizacji — przełącznik w pozycji włączonej](common/provisioning-toggle-on.png)
 
 13. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić OrgWiki, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-14. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
+14. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
@@ -178,7 +178,7 @@ Możesz użyć bieżącej sekcji **stanu** , aby monitorować postęp i postępo
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

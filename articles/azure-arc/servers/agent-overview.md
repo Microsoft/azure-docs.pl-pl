@@ -1,14 +1,14 @@
 ---
 title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 990b5999a8483c6417049ac5ab965843c2b13659
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 01f1b291fee57d94b95bdeeef5f9f24b011e9fca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908169"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255047"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -131,6 +131,9 @@ Dostawców zasobów można zarejestrować w Azure Portal, wykonując czynności 
 
 Łączenie maszyn w środowisku hybrydowym bezpośrednio z platformą Azure można wykonać przy użyciu różnych metod, w zależności od wymagań. W poniższej tabeli przedstawiono każdą metodę, aby określić, która działa najlepiej dla Twojej organizacji.
 
+> [!IMPORTANT]
+> Nie można zainstalować agenta połączonej maszyny na maszynie wirtualnej z systemem Windows Azure. Jeśli zostanie podjęta próba instalacji, program wykryje to i wróci.
+
 | Metoda | Opis |
 |--------|-------------|
 | Interaktywnie | Ręcznie Zainstaluj agenta na jednej lub małej liczbie maszyn, wykonując kroki opisane w temacie [Connect Machines from Azure Portal](onboard-portal.md).<br> Z Azure Portal można wygenerować skrypt i wykonać go na maszynie w celu zautomatyzowania kroków instalacji i konfiguracji agenta.|
@@ -228,7 +231,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane na
     |/opt/logs/dsc.log |Rejestruje szczegółowe informacje o aktywności usługi DSC,<br> w szczególności łączność między usługą himds i Azure Policy.|
     |/opt/Logs/dsc.telemetry.txt |Rejestruje szczegółowe informacje o telemetrii usługi DSC i pełnym rejestrowaniu.|
     |/var/lib/GuestConfig/ext_mgr_logs |Rejestruje szczegółowe informacje o składniku agenta rozszerzeń.|
-    |/var/log/GuestConfig/extension_logs|Rejestruje szczegółowe informacje z zainstalowanego rozszerzenia.|
+    |/var/lib/GuestConfig/extension_logs|Rejestruje szczegółowe informacje z zainstalowanego rozszerzenia.|
 
 * Podczas instalacji agenta tworzone są następujące zmienne środowiskowe. Te zmienne są ustawione w `/lib/systemd/system.conf.d/azcmagent.conf` .
 
@@ -244,4 +247,6 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane na
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć ocenianie serwerów z obsługą usługi Azure ARC, wykonaj czynności opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal](onboard-portal.md).
+* Aby rozpocząć ocenianie serwerów z obsługą usługi Azure ARC, wykonaj czynności opisane w artykule [łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal](onboard-portal.md).
+
+* Informacje dotyczące rozwiązywania problemów można znaleźć w [przewodniku Rozwiązywanie problemów z agentem podłączonych komputerów](troubleshoot-agent-onboard.md).

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 09/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f1e97c8a53604edca7b803933139362a763a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c6592add5e33ba240c0f1d9fdbd23d82adfe5229
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419737"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258612"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Co to są zależności usługi w Azure Active Directory dostęp warunkowy? 
 
@@ -25,7 +25,7 @@ Za pomocą zasad dostępu warunkowego można określić wymagania dostępu do wi
 W przypadku bezpośredniego dostępu do witryny lub usługi, wpływ powiązanych zasad jest zwykle łatwy do oceny. Jeśli na przykład masz zasady, które wymagają uwierzytelniania wieloskładnikowego (MFA) dla usługi SharePoint Online, uwierzytelnianie wieloskładnikowe jest wymuszane dla każdego logowania do portalu sieci Web programu SharePoint. Nie zawsze jest to jednak proste, aby ocenić wpływ zasad, ponieważ istnieją aplikacje w chmurze z zależnościami od innych aplikacji w chmurze. Na przykład firma Microsoft Teams może zapewnić dostęp do zasobów w usłudze SharePoint Online. W związku z tym podczas uzyskiwania dostępu do programu Microsoft Teams w naszym bieżącym scenariuszu podlegają one również zasadom MFA programu SharePoint. 
 
 > [!TIP]
-> Użycie aplikacji [office 365 (wersja zapoznawcza)](concept-conditional-access-cloud-apps.md#office-365-preview) umożliwi wszystkim aplikacjom pakietu Office uniknięcie problemów z zależnościami między usługą w stosie pakietu Office.
+> Korzystanie z aplikacji [pakietu office 365](concept-conditional-access-cloud-apps.md#office-365) będzie ukierunkowane na wszystkie aplikacje pakietu Office, aby uniknąć problemów z zależnościami między usługą w stosie pakietu Office.
 
 ## <a name="policy-enforcement"></a>Wymuszanie zasad 
 
@@ -40,7 +40,7 @@ Na poniższym diagramie przedstawiono zależności usługi MS Teams. Pełne strz
 
 Najlepszym rozwiązaniem jest skonfigurowanie w miarę możliwości wspólnych zasad w ramach powiązanych aplikacji i usług. Posiadanie spójnej stan zabezpieczeń zapewnia najlepsze środowisko użytkownika. Na przykład ustawienie wspólnych zasad w usłudze Exchange Online, SharePoint Online, Microsoft Teams i Skype dla firm znacznie zmniejsza nieoczekiwane komunikaty, które mogą wynikać z różnych zasad stosowanych do usług podrzędnych. 
 
-Znakomitym sposobem osiągnięcia tego działania w aplikacjach w stosie pakietu Office jest użycie [pakietu office 365 (wersja zapoznawcza)](concept-conditional-access-cloud-apps.md#office-365-preview) , a nie kierowanie poszczególnych aplikacji.
+Znakomitym sposobem osiągnięcia tego działania w aplikacjach w stosie pakietu Office jest korzystanie z [aplikacji pakietu office 365](concept-conditional-access-cloud-apps.md#office-365) zamiast określania poszczególnych aplikacji.
 
 W poniższej tabeli wymieniono dodatkowe zależności usługi, w przypadku których aplikacje klienckie muszą być zgodne  
 

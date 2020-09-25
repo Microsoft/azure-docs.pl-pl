@@ -1,8 +1,8 @@
 ---
 title: Wysyłanie powiadomień wypychanych do określonych użytkowników przy użyciu usługi Azure Notification Hubs | Microsoft Docs
-description: Dowiedz się, jak wysyłać powiadomienia push do konkretnych użytkowników przy użyciu usługi Azure Notification Hubs.
+description: Dowiedz się, jak wysyłać powiadomienia wypychane do określonych użytkowników systemu iOS przy użyciu usługi Azure Notification Hubs.
 documentationcenter: ios
-author: sethm
+author: sethmanheim
 manager: femila
 services: notification-hubs
 ms.service: notification-hubs
@@ -14,12 +14,12 @@ ms.date: 08/07/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0d53709a9fd7cb3f40f540e1bb96c2be12b75f2c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 167c666c536ee33531fd069dbd1edb530331a9f3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004173"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302193"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do określonych użytkowników przy użyciu usługi Azure Notification Hubs
 
@@ -312,7 +312,7 @@ Jeśli chcesz użyć Mobile Apps jako usługi wewnętrznej bazy danych, zapoznaj
     ```
 
     > [!NOTE]
-    > Poniższy fragment kodu nie jest bezpiecznym schematem uwierzytelniania, należy zastąpić implementację `createAndSetAuthenticationHeaderWithUsername:AndPassword:` z określonym mechanizmem uwierzytelniania, który generuje token uwierzytelniania, który ma być używany przez klasę klienta rejestru, np. OAuth, Active Directory.
+    > Poniższy fragment kodu nie jest bezpiecznym schematem uwierzytelniania, należy zastąpić implementację    `createAndSetAuthenticationHeaderWithUsername:AndPassword:` z określonym mechanizmem uwierzytelniania, który generuje token uwierzytelniania, który ma być używany przez klasę klienta rejestru, np. OAuth, Active Directory.
 
 10. Następnie w `@implementation` sekcji `ViewController.m` , Dodaj następujący kod, który dodaje implementację dla ustawienia token urządzenia i nagłówek uwierzytelniania.
 

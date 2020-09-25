@@ -3,16 +3,16 @@ title: Elementy webhook odpowiadające na akcje rejestru
 description: Dowiedz się, jak używać elementów webhook do wyzwalania zdarzeń w przypadku akcji wypychania lub ściągania w repozytoriach rejestru.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 3d0a12b6e742b0209cbb746a70686423f2fb5627
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83685035"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253398"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Używanie Azure Container Registry elementów webhook
 
-Rejestr kontenera platformy Azure przechowuje prywatne obrazy kontenerów platformy Docker i zarządza nimi podobnie, jak koncentrator platformy Docker przechowuje publiczne obrazy platformy Docker. Może również hostować repozytoria dla [wykresów Helm](container-registry-helm-repos.md) (wersja zapoznawcza) — format pakietu do wdrażania aplikacji w Kubernetes. Elementów webhook można użyć do wyzwalania zdarzeń, gdy pewne akcje są wykonywane w jednym z repozytoriów rejestru. Elementy webhook mogą reagować na zdarzenia na poziomie rejestru lub mogą być ograniczone do określonego tagu repozytorium. W przypadku rejestru z [replikacją geograficzną](container-registry-geo-replication.md) należy skonfigurować każdy element webhook w celu reagowania na zdarzenia w określonej replice regionalnej.
+Rejestr kontenera platformy Azure przechowuje prywatne obrazy kontenerów platformy Docker i zarządza nimi podobnie, jak koncentrator platformy Docker przechowuje publiczne obrazy platformy Docker. Może również hostować repozytoria dla [wykresów Helm](container-registry-helm-repos.md) (wersja zapoznawcza) — format pakietu do wdrażania aplikacji w Kubernetes. Elementów webhook można użyć do wyzwalania zdarzeń, gdy pewne akcje są wykonywane w jednym z repozytoriów rejestru. Elementy webhook mogą reagować na zdarzenia na poziomie rejestru lub mogą być ograniczone do określonego tagu repozytorium. W przypadku rejestru z  [replikacją geograficzną](container-registry-geo-replication.md) należy skonfigurować każdy element webhook w celu reagowania na zdarzenia w określonej replice regionalnej.
 
 Aby uzyskać szczegółowe informacje o żądaniach elementu webhook, zobacz [Azure Container Registry odwołanie do schematu elementu webhook](container-registry-webhook-reference.md).
 
@@ -41,7 +41,7 @@ Aby uzyskać szczegółowe informacje o żądaniach elementu webhook, zobacz [Az
 
 Przykładowy formularz elementu webhook:
 
-![Interfejs użytkownika tworzenia elementu webhook ACR w Azure Portal](./media/container-registry-webhook/webhook.png)
+![Zrzut ekranu przedstawiający tworzenie elementu webhook ACR U I w Azure Portal.](./media/container-registry-webhook/webhook.png)
 
 ## <a name="create-webhook---azure-cli"></a>Tworzenie elementu webhook — interfejs wiersza polecenia platformy Azure
 

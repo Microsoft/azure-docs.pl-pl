@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/23/2020
-ms.openlocfilehash: 987537d8497b3d8f2728941334d8328320ec6997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80289604"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254809"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Jak utworzyć alerty z Azure Monitor dla maszyn wirtualnych
 [Alerty w usłudze Azure monitor](../platform/alerts-overview.md) aktywnie powiadamiać o interesujących danych i wzorcach danych monitorowania. Azure Monitor dla maszyn wirtualnych nie obejmuje wstępnie skonfigurowanych reguł alertów, ale można je utworzyć na podstawie zbieranych danych. Ten artykuł zawiera wskazówki dotyczące tworzenia reguł alertów, w tym zestawu przykładowych zapytań.
@@ -22,8 +22,8 @@ Azure Monitor ma [różne typy reguł alertów](../platform/alerts-overview.md#w
 
 Istnieją dwa typy alertów dziennika w Azure Monitor:
 
-- [Liczba alertów z wynikami](../platform/alerts-unified-log.md#number-of-results-alert-rules) tworzenia pojedynczego alertu, gdy zapytanie zwróci co najmniej określoną liczbę rekordów. Są one idealne dla danych nieliczbowych, takich jak zdarzenia systemu Windows i dziennika systemowego zbierane przez [agenta log Analytics](../platform/log-analytics-agent.md) lub do analizowania trendów wydajności na wielu komputerach.
-- [Alerty pomiarów metryk](../platform/alerts-unified-log.md#metric-measurement-alert-rules) tworzą osobny alert dla każdego rekordu w zapytaniu, który ma wartość, która przekracza próg zdefiniowany w regule alertu. Te reguły alertów są idealne dla danych wydajności zbieranych przez Azure Monitor dla maszyn wirtualnych, ponieważ mogą tworzyć indywidualne alerty dla każdego komputera.
+- [Liczba alertów z wynikami](../platform/alerts-unified-log.md#count-of-the-results-table-rows) tworzenia pojedynczego alertu, gdy zapytanie zwróci co najmniej określoną liczbę rekordów. Są one idealne dla danych nieliczbowych, takich jak zdarzenia systemu Windows i dziennika systemowego zbierane przez [agenta log Analytics](../platform/log-analytics-agent.md) lub do analizowania trendów wydajności na wielu komputerach.
+- [Alerty pomiarów metryk](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) tworzą osobny alert dla każdego rekordu w zapytaniu, który ma wartość, która przekracza próg zdefiniowany w regule alertu. Te reguły alertów są idealne dla danych wydajności zbieranych przez Azure Monitor dla maszyn wirtualnych, ponieważ mogą tworzyć indywidualne alerty dla każdego komputera.
 
 
 ## <a name="alert-rule-walkthrough"></a>Przewodnik po regule alertu

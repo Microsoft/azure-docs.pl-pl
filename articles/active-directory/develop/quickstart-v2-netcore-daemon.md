@@ -1,7 +1,7 @@
 ---
-title: Pobieranie & wywołań tokenu Microsoft Graph z tożsamością aplikacji konsoli | Azure
+title: 'Szybki Start: uzyskiwanie Microsoft Graph & wywołań tokenu w aplikacji konsoli | Azure'
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak uzyskać token i wywołać chroniony Microsoft Graph API z użyciem aplikacji platformy .NET Core
+description: W tym przewodniku szybki start dowiesz się, w jaki sposób Przykładowa aplikacja .NET Core może używać przepływu poświadczeń klienta, aby uzyskać token i wywoływać Microsoft Graph.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: e33b912ab65a3565e42c294388949a5c55b4ee8a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6f4f4c2de3b1030c4d14cb74e562954a3d3d1144
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257830"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API przy użyciu tożsamości aplikacji konsoli
 
@@ -170,12 +170,7 @@ MSAL ([Microsoft. Identity. Client](https://www.nuget.org/packages/Microsoft.Ide
 
  Platformę MSAL.NET można zainstalować, uruchamiając następujące polecenie w **konsoli menedżera pakietów** programu Visual Studio:
 
-```powershell
-Install-Package Microsoft.Identity.Client
-```
-
-Jeśli nie używasz programu Visual Studio, możesz również uruchomić następujące polecenie, aby dodać bibliotekę MSAL do projektu:
-
+```powershell twhitney
 ```console
 dotnet add package Microsoft.Identity.Client
 ```
@@ -204,7 +199,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > | `config.ClientId` | Jest **identyfikatorem aplikacji (klienta)** dla aplikacji zarejestrowanej w witrynie Azure Portal. Tę wartość można znaleźć na stronie **Przegląd** aplikacji w witrynie Azure Portal. |
 > | `config.Authority`    | (Opcjonalnie) Punkt końcowy usługi STS umożliwiający uwierzytelnienia użytkownika. W chmurze publicznej jest to zwykle `https://login.microsoftonline.com/{tenant}`, gdzie {tenant} jest nazwą dzierżawy lub identyfikatorem dzierżawy.|
 
-Więcej informacji można znaleźć w [dokumentacji dotyczącej metody `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
+Więcej informacji można znaleźć w [dokumentacji dotyczącej metody `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication)
 
 ### <a name="requesting-tokens"></a>Przesyłanie żądań tokenów
 
@@ -219,28 +214,13 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | Zawiera żądane zakresy. W przypadku klientów poufnych format powinien być podobny do `{Application ID URI}/.default`, aby wskazać, że żądane zakresy są zdefiniowane statycznie w obiekcie aplikacji ustawionym w witrynie Azure Portal (w przypadku programu Microsoft Graph element `{Application ID URI}` wskazuje na adres `https://graph.microsoft.com`). W przypadku niestandardowych interfejsów API sieci Web `{Application ID URI}` jest zdefiniowany w sekcji **UWIDACZNIANIE interfejsu API** w rejestracji aplikacji w witrynie Azure Portal (wersja zapoznawcza). |
 
-Więcej informacji można znaleźć w [dokumentacji dotyczącej metody `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
+Więcej informacji można znaleźć w [dokumentacji dotyczącej metody `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat aplikacji demonów, zobacz stronę docelową scenariusza
+Aby dowiedzieć się więcej na temat aplikacji demonów, zobacz Omówienie scenariusza:
 
 > [!div class="nextstepaction"]
 > [Aplikacja demona, która wywołuje interfejsy API sieci Web](scenario-daemon-overview.md)
-
-Aby zapoznać się z samouczkiem aplikacji demona, zobacz:
-
-> [!div class="nextstepaction"]
-> [Samouczek dotyczący konsoli demona .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
-
-Dowiedz się więcej na temat uprawnień i wyrażania zgody:
-
-> [!div class="nextstepaction"]
-> [Uprawnienia i zgoda](v2-permissions-and-consent.md)
-
-Aby dowiedzieć się więcej na temat przepływu autoryzacji w tym scenariuszu, zapoznaj się z przepływem poświadczeń klienta OAuth 2.0:
-
-> [!div class="nextstepaction"]
-> [Client credentials Oauth flow (Przepływ OAuth poświadczeń klienta)](v2-oauth2-client-creds-grant-flow.md)

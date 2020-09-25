@@ -1,6 +1,6 @@
 ---
 title: Optymalizowanie zadań platformy Spark pod kątem wydajności
-description: Ten artykuł zawiera wprowadzenie do Apache Spark usługi Azure Synapse Analytics i różnych koncepcji.
+description: Ten artykuł zawiera wprowadzenie do Apache Spark w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 89040057798ec4c909cac584ed96c187e79b5581
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089264"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249471"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optymalizowanie Apache Spark zadań (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Starsze wersje platformy Spark używają odporne do danych abstrakcyjnych, Spark
 
 Platforma Spark obsługuje wiele formatów, takich jak CSV, JSON, XML, Parquet, Orc i Avro. Platforma Spark może zostać rozszerzona w celu obsługi wielu formatów z zewnętrznymi źródłami danych — Aby uzyskać więcej informacji, zobacz [Apache Spark Packages](https://spark-packages.org).
 
-Najlepszym formatem wydajności jest Parquet z *kompresją przyciągania*, która jest wartością domyślną w platformie Spark 2. x. Parquet przechowuje dane w formacie kolumnowym i jest wysoce zoptymalizowany w Spark. Ponadto *kompresja przyciągania* może spowodować zwiększenie ilości plików niż w przypadku kompresji gzip. Ze względu na podzieloną naturę tych plików, będą one w szybszym czasie.
+Najlepszym formatem wydajności jest Parquet z *kompresją przyciągania*, która jest wartością domyślną w platformie Spark 2. x. Parquet przechowuje dane w formacie kolumnowym i jest wysoce zoptymalizowany w Spark. Ponadto *kompresja przyciągania* może spowodować zwiększenie ilości plików niż w przypadku kompresji gzip. Ze względu na rodzaj podzielenia tych plików, będą one zdekompresować szybciej]
 
 ## <a name="use-the-cache"></a>Korzystanie z pamięci podręcznej
 

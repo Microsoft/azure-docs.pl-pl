@@ -1,20 +1,18 @@
 ---
-title: 'Samouczek: skalowanie chmury prywatnej'
-description: W tym samouczku użyjesz Azure Portal do skalowania prywatnej chmury rozwiązania Azure VMware w wersji zapoznawczej.
+title: Samouczek — skalowanie chmury prywatnej
+description: W tym samouczku użyjesz Azure Portal, aby skalować chmurę prywatną rozwiązania Azure VMware.
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: dddfbddd57f3ad6b541d11c360aeadea4383044a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: e1226eb98607a34869bda1f998c7cecea2e50919
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750432"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254418"
 ---
-# <a name="tutorial-scale-an-azure-vmware-solution-preview-private-cloud"></a>Samouczek: skalowanie chmury prywatnej w wersji zapoznawczej rozwiązania Azure VMware
+# <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>Samouczek: skalowanie chmury prywatnej rozwiązania Azure VMware
 
-Aby maksymalnie wykorzystać możliwości środowiska chmury prywatnej w wersji zapoznawczej platformy Azure VMware, Skaluj klastry i hosty w celu odzwierciedlenia potrzebnych obciążeń. Ponieważ rozwiązanie Azure VMware nie obsługuje lokalnego programu vCenter w trakcie korzystania z wersji zapoznawczej, należy użyć tego, co zostało już utworzone za pomocą Azure Portal.
-
-Liczbę klastrów i liczbę hostów w chmurze prywatnej można skalować zgodnie z wymaganiami obciążeń aplikacji. Ograniczenia dotyczące wydajności i dostępności dla określonych usług muszą być rozpatrywane w przypadku w przypadku, gdy chodzi o wielkość liter w środowisku chmury programu Azure VMware w wersji zapoznawczej. Limity klastrów i hostów w chmurze prywatnej są dostępne w artykule dotyczącym [koncepcji chmury prywatnej](concepts-private-clouds-clusters.md).
+Aby maksymalnie wykorzystać możliwości chmury prywatnej rozwiązań VMware platformy Azure, Skaluj klastry i hosty w celu odzwierciedlenia potrzebnych obciążeń. Liczbę klastrów i liczbę hostów w chmurze prywatnej można skalować zgodnie z wymaganiami obciążeń aplikacji. Ograniczenia dotyczące wydajności i dostępności dla określonych usług muszą być rozpatrywane w przypadku, gdy chodzi o wielkość liter w środowisku chmury prywatnej rozwiązania VMware platformy Azure. Limity klastrów i hostów znajdują się w artykule dotyczącym [koncepcji chmury prywatnej](concepts-private-clouds-clusters.md) .
 
 W tym samouczku użyjesz Azure Portal, aby:
 
@@ -24,7 +22,7 @@ W tym samouczku użyjesz Azure Portal, aby:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka potrzebna jest chmura prywatna. Jeśli jeszcze nie utworzono chmury prywatnej, Skorzystaj z [samouczka Tworzenie chmury prywatnej](tutorial-create-private-cloud.md) , aby utworzyć chmurę prywatną i skonfigurować sieć dla swojej chmury prywatnej VMware na platformie Azure, tak aby skonfigurować wymaganą sieć wirtualną.
+Do ukończenia tego samouczka potrzebna jest chmura prywatna. Jeśli jeszcze nie utworzono chmury prywatnej, Skorzystaj z [samouczka Tworzenie chmury prywatnej](tutorial-create-private-cloud.md) , aby utworzyć i skonfigurować sieć dla chmury prywatnej VMware na platformie Azure w celu skonfigurowania wymaganej sieci wirtualnej.
 
 ## <a name="add-a-new-cluster"></a>Dodawanie nowego klastra
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7e0701cc5a9bb14800a48e2281dba1eb6ea0cf72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab0b74ffbcd8167613c6a8470e2f9102566edc60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257235"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Internetowy interfejs API, który wywołuje interfejsy API sieci Web: uzyskiwanie tokenu dla aplikacji
 
@@ -27,7 +27,10 @@ Po skompilowaniu obiektu aplikacji klienckiej Użyj go, aby uzyskać token, któ
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Oto przykład kodu używającego elementu Microsoft. Identity. Web, który jest wywoływany w akcjach kontrolerów interfejsu API. Wywołuje podrzędny interfejs API o nazwie *todolist*. Aby uzyskać token wywołujący podrzędny interfejs API, należy wstrzyknąć `ITokenAcquisition` usługę przez wstrzyknięcie do niego w konstruktorze (lub w konstruktorze strony, jeśli używasz Blazor), i używać jej w akcjach kontrolera, pobierając token dla użytkownika ( `GetAccessTokenForUserAsync` ) lub aplikacji ( `GetAccessTokenForAppAsync` ) w przypadku scenariusza demona.
+*Microsoft. Identity. Web* dodaje metody rozszerzające, które zapewniają wygodne usługi do wywoływania Microsoft Graph lub podrzędnego interfejsu API sieci Web. Te metody są szczegółowo opisane w [interfejsie API sieci Web, który wywołuje interfejsy API sieci Web: wywoływanie interfejsu API](scenario-web-api-call-api-call-api.md). Przy użyciu tych metod pomocniczych nie trzeba ręcznie uzyskać tokenu.
+
+Jeśli jednak chcesz ręcznie uzyskać token, poniższy kod przedstawia przykład użycia *Microsoft. Identity. Web* , aby to zrobić w kontrolerze interfejsu API. Wywołuje podrzędny interfejs API o nazwie *todolist*.
+Aby uzyskać token wywołujący podrzędny interfejs API, należy wstrzyknąć `ITokenAcquisition` usługę przez wstrzyknięcie do niego w konstruktorze (lub w konstruktorze strony, jeśli używasz Blazor), i używać jej w akcjach kontrolera, pobierając token dla użytkownika ( `GetAccessTokenForUserAsync` ) lub aplikacji ( `GetAccessTokenForAppAsync` ) w przypadku scenariusza demona.
 
 ```csharp
 [Authorize]
@@ -58,7 +61,7 @@ public class MyApiController : Controller
 }
 ```
 
-Aby uzyskać szczegółowe informacje na temat `callTodoListService` metody, zobacz [internetowy interfejs API, który wywołuje interfejsy API sieci Web: wywoływanie interfejsu API](scenario-web-api-call-api-call-api.md).
+Aby uzyskać szczegółowe informacje na temat `callTodoListService` metody, zobacz  [internetowy interfejs API, który wywołuje interfejsy API sieci Web: wywoływanie interfejsu API](scenario-web-api-call-api-call-api.md).
 
 # <a name="java"></a>[Java](#tab/java)
 Oto przykład kodu, który jest wywoływany w akcjach kontrolerów interfejsu API. Wywołuje podrzędny interfejs API-Microsoft Graph.
@@ -83,7 +86,7 @@ public class ApiController {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Interfejs API sieci Web w języku Python będzie musiał użyć oprogramowania pośredniczącego w celu zweryfikowania tokenu okaziciela otrzymanego od klienta. Interfejs API sieci Web może następnie uzyskać token dostępu dla podrzędnego interfejsu API przy użyciu biblioteki języka Python MSAL, wywołując [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) metodę. Przykład pokazujący ten przepływ przy użyciu języka MSAL Python nie jest jeszcze dostępny.
+Interfejs API sieci Web w języku Python wymaga użycia oprogramowania pośredniczącego do weryfikowania tokenu okaziciela otrzymanego od klienta. Interfejs API sieci Web może następnie uzyskać token dostępu dla podrzędnego interfejsu API przy użyciu biblioteki języka Python MSAL przez wywołanie [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) metody. Przykład pokazujący ten przepływ za pomocą MSAL Python nie jest jeszcze dostępny.
 
 ---
 

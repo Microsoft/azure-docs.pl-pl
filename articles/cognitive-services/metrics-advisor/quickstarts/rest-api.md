@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 08/19/2020
+ms.date: 09/23/2020
 ms.author: aahi
-ms.openlocfilehash: feab867414c2420378922e1f8c651b43238473c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2376ea01190d619a5d1b6368a17e55c09806a406
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947434"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253749"
 ---
 # <a name="quickstart-use-the-rest-apis-to-customize-your-solution"></a>Szybki Start: korzystanie z interfejsów API REST w celu dostosowania rozwiązania
 
@@ -31,7 +31,7 @@ Użyj klasyfikatora metryk do wykonania:
 
 [!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

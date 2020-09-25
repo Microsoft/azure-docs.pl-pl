@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 09/24/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486741"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259547"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Dostosowywanie interfejsu użytkownika w Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Jeśli używasz [przepływów użytkownika](user-flow-overview.md), możesz zmie
 Użyj [Azure Portal](tutorial-customize-ui.md) , aby skonfigurować Dostosowywanie interfejsu użytkownika dla przepływów użytkowników.
 
 > [!TIP]
-> Jeśli chcesz zmodyfikować tylko logo transparentu, obraz tła i kolor tła stron przepływu użytkownika, możesz wypróbować funkcję [znakowania firmowego (wersja zapoznawcza)](#company-branding-preview) opisaną w dalszej części tego artykułu.
+> Jeśli chcesz zmodyfikować tylko logo transparentu, obraz tła i kolor tła stron przepływu użytkownika, możesz wypróbować funkcję [znakowania firmowego](#company-branding) opisaną w dalszej części tego artykułu.
 
 ### <a name="custom-policies"></a>Zasady niestandardowe
 
@@ -156,15 +156,13 @@ W poniższej tabeli wymieniono fragmenty kodu HTML, które Azure AD B2C scalane 
 | Konto społecznościowe — Rejestracja | Może pojawić się podczas rejestracji przy użyciu istniejącego konta od dostawcy tożsamości społecznościowej, takiego jak Facebook lub Google. Jest on używany, gdy dodatkowe informacje muszą być zbierane z klienta przy użyciu formularza tworzenia konta. |
 | Ujednolicone rejestrowanie lub logowanie | Obsługuje zarówno rejestrowanie, jak i logowanie klientów, którzy mogą korzystać z dostawców tożsamości społecznościowych, takich jak Facebook, Google lub konta lokalnego. |
 | Uwierzytelnianie wieloskładnikowe | Klienci mogą weryfikować numery telefonów (przy użyciu tekstu lub głosu) podczas rejestracji lub logowania. |
-| Błąd | Zawiera informacje o błędach dla klienta. |
+| Error | Zawiera informacje o błędach dla klienta. |
 
-## <a name="company-branding-preview"></a>Znakowanie firmowe (wersja zapoznawcza)
+## <a name="company-branding"></a>Znakowanie firmowe
 
 Możesz dostosować strony przepływu użytkownika za pomocą logo transparentu, obrazu tła i koloru tła, używając Azure Active Directory [znakowania firmowego](../active-directory/fundamentals/customize-branding.md).
 
 Aby dostosować strony przepływu użytkownika, należy najpierw skonfigurować znakowanie firmowe w Azure Active Directory, a następnie włączyć je w układach stron przepływów użytkownika w Azure AD B2C.
-
-[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
 
 ### <a name="configure-company-branding"></a>Konfigurowanie oznaczenia marką firmy
 

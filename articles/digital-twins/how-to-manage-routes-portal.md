@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 87b674a9c6b7f7d591b39f1baf54c4d54082f306
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987311"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252837"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -27,7 +27,7 @@ Punkty końcowe i trasy można także zarządzać za pomocą [interfejsów API E
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Musisz mieć **konto platformy Azure** (możesz skonfigurować je bezpłatnie w [tym miejscu](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* W subskrypcji platformy Azure będzie potrzebne **wystąpienie usługi Azure Digital bliźniaczych reprezentacji** . Jeśli nie masz już wystąpienia, możesz je utworzyć, wykonując kroki opisane w temacie [*jak to zrobić: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-scripted.md). Skorzystaj z następujących wartości z Instalatora, które są przydatne w dalszej części tego artykułu:
+* W subskrypcji platformy Azure będzie potrzebne **wystąpienie usługi Azure Digital bliźniaczych reprezentacji** . Jeśli nie masz już wystąpienia, możesz je utworzyć, wykonując kroki opisane w temacie [*jak to zrobić: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md). Skorzystaj z następujących wartości z Instalatora, które są przydatne w dalszej części tego artykułu:
     - Nazwa wystąpienia
     - Grupa zasobów
 
@@ -58,7 +58,7 @@ Po utworzeniu tematu można połączyć go z usługą Azure Digital bliźniaczyc
 
 Z menu wystąpienie wybierz pozycję _punkty końcowe_. Następnie na stronie *punkty końcowe* wybierz pozycję *+ Utwórz punkt końcowy*. 
 
-Na stronie *Tworzenie punktu końcowego* , który zostanie otwarty, można utworzyć punkt końcowy typu _Event Grid_ , wybierając odpowiedni przycisk radiowy. Uzupełnij inne szczegóły: Wprowadź nazwę punktu końcowego w polu _Nazwa_ , wybierz swoją _subskrypcję_ z listy rozwijanej i wybierz wstępnie utworzony _temat Event Grid_ z trzeciej listy rozwijanej.
+Na stronie *Tworzenie punktu końcowego* , który zostanie otwarty, można utworzyć punkt końcowy typu _Event Grid_ , wybierając odpowiedni przycisk radiowy. Uzupełnij inne szczegóły: Wprowadź nazwę punktu końcowego w polu _Nazwa_ , wybierz swoją _subskrypcję_ z listy rozwijanej i wybierz wstępnie utworzony  _temat Event Grid_ z trzeciej listy rozwijanej.
 
 Następnie Utwórz punkt końcowy, naciskając pozycję _Zapisz_.
 
@@ -133,8 +133,8 @@ Definicja trasy zdarzeń zawiera następujące elementy:
 * Nazwa trasy, która ma być używana
 * Nazwa punktu końcowego, który ma być używany
 * Filtr określający, które zdarzenia są wysyłane do punktu końcowego.
-    - Aby wyłączyć trasę, aby nie były wysyłane żadne zdarzenia, użyj wartości filtru`false`
-    - Aby włączyć trasę, która nie ma określonego filtrowania, użyj wartości filtru`true`
+    - Aby wyłączyć trasę, aby nie były wysyłane żadne zdarzenia, użyj wartości filtru `false`
+    - Aby włączyć trasę, która nie ma określonego filtrowania, użyj wartości filtru `true`
     - Aby uzyskać szczegółowe informacje na temat dowolnego innego typu filtru, zobacz sekcję [*filtrowanie zdarzeń*](#filter-events) poniżej.
 
 Pojedyncza trasa może zezwalać na wybranie wielu powiadomień i typów zdarzeń.

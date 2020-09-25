@@ -3,16 +3,16 @@ title: Zwalnianie zasobu z Azure Security Center zaleceń dotyczących zabezpiec
 description: Dowiedz się, jak wykluczać zasób z zaleceń dotyczących zabezpieczeń i uzyskać bezpieczny wynik
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b4d043812800bec1070624382755aeb355ea595a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3ac2f82882dfd7eb1e15e9a5287cf1d6f5b32d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940262"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301537"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Zwalnianie zasobu z rekomendacji i bezpiecznego oceny
 
@@ -62,7 +62,7 @@ Zasób będzie wyświetlany jako nie dotyczy i powód zostanie wyświetlony jako
 
     :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modyfikowanie wykluczenia":::
 
-    Przyczyną każdego wykluczenia jest dołączenie do tabeli. 
+    Przyczyną każdego wykluczenia jest dołączenie do tabeli (1).
 
     Aby zmodyfikować lub usunąć wykluczenie, wybierz menu wielokropka ("..."), jak pokazano (2).
 

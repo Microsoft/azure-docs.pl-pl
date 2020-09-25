@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: 1a16283f3d04c9ad331a04c3a36b49055635d76e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e43e20ceb5e84d652fee9ca4db6d5dc871ed1e4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906495"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268456"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Szybki Start: Tworzenie grupy serwerów ze skalą (Citus) w Azure Portal
 
@@ -25,7 +25,7 @@ Azure Database for PostgreSQL to usługa zarządzana, która służy do uruchami
 
 Po nawiązaniu połączenia z węzłem koordynatora ze skalowaniem za pomocą PSQL można wykonać niektóre podstawowe zadania.
 
-Na serwerach z skalowaniem istnieją trzy typy tabel:
+Na serwerach z Citus) Istnieją trzy typy tabel:
 
 - Rozproszone lub podzielonej na fragmenty tabele (rozproszenie w celu ułatwienia skalowania pod kątem wydajności i przetwarzanie równoległe)
 - Tabele odwołań (obsługiwane są wiele kopii)
@@ -71,7 +71,7 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Następnie zajmiemy się tymi tabelami Postgres na węźle koordynatora i przekażemy je do fragmentui przez pracowników. W tym celu uruchomimy zapytanie dla każdej tabeli, określając klucz, na który fragmentu. W bieżącym przykładzie będziemy fragmentu zarówno tabelę zdarzeń, jak i użytkowników `user_id` :
+Następnie zajmiemy się tymi tabelami Postgres na węźle koordynatora i przekażemy funkcję Citus, aby fragmentu je przez pracowników. W tym celu uruchomimy zapytanie dla każdej tabeli, określając klucz, na który fragmentu. W bieżącym przykładzie będziemy fragmentu zarówno tabelę zdarzeń, jak i użytkowników `user_id` :
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -117,7 +117,7 @@ ORDER BY hour;
 
 Dotychczas zapytania dotyczyły wyłącznie wydarzeń usługi GitHub \_ , ale możemy połączyć te informacje z użytkownikami usługi GitHub \_ . Ze względu na to, że podzielonej na fragmenty zarówno użytkowników, jak i zdarzenia w tym samym identyfikatorze ( `user_id` ), wiersze obu tabel ze zgodnymi identyfikatorami użytkowników będą [współzlokalizowane](concepts-hyperscale-colocation.md) w tych samych węzłach bazy danych i można je łatwo dołączyć.
 
-Jeśli dołączymy `user_id` się, funkcja skalowania może wypchnąć wykonywanie sprzężenia do fragmentów w celu wykonania równolegle w węzłach procesu roboczego. Załóżmy na przykład, że użytkownicy, którzy utworzyli największą liczbę repozytoriów:
+Jeśli dołączymy `user_id` się, funkcja Citus może wypchnąć wykonywanie operacji JOIN do fragmentów na potrzeby wykonywania równolegle w węzłach procesu roboczego. Załóżmy na przykład, że użytkownicy, którzy utworzyli największą liczbę repozytoriów:
 
 ```sql
 SELECT gu.login, count(*)
@@ -130,7 +130,7 @@ SELECT gu.login, count(*)
  ORDER BY count(*) DESC;
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W poprzednich krokach zostały utworzone zasoby platformy Azure w grupie serwerów. Jeśli nie chcesz potrzebować tych zasobów w przyszłości, Usuń grupę serwerów. Naciśnij przycisk **Usuń** na stronie **Przegląd** dla swojej grupy serwerów. Po wyświetleniu monitu na stronie podręcznej Potwierdź nazwę grupy serwerów, a następnie kliknij przycisk **Usuń** końcowego.
 

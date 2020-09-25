@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395438"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252633"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorowanie, metryki i alerty usługi ExpressRoute
 
@@ -40,10 +40,10 @@ Po wybraniu metryki zostanie zastosowana domyślna agregacja. Opcjonalnie można
 |Liczba pakietów na sekundę|Wydajność| <ui><li>Wystąpienie</ui></li>|ExpressRoute Virtual Network Gateway|
 |GlobalReachBitsInPerSecond|Ruch|<ui><li>Skey obwodu równorzędnego (klucz usługi)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|Ruch|<ui><li>Skey obwodu równorzędnego (klucz usługi)</ui></li>|Global Reach|
-|AdminState|Łączność fizyczna|Link|Usługa ExpressRoute Direct|
-|LineProtocol|Łączność fizyczna|Link|Usługa ExpressRoute Direct|
-|RxLightLevel|Łączność fizyczna|<ui><li>Powiązań</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
-|TxLightLevel|Łączność fizyczna|<ui><li>Powiązań</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
+|AdminState|Łączność fizyczna|Łącze|Usługa ExpressRoute Direct|
+|LineProtocol|Łączność fizyczna|Łącze|Usługa ExpressRoute Direct|
+|RxLightLevel|Łączność fizyczna|<ui><li>Łącze</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
+|TxLightLevel|Łączność fizyczna|<ui><li>Łącze</ui></li><ui><li>Ścieżka</ui></li>|Usługa ExpressRoute Direct|
 >[!NOTE]
 >Użycie *GlobalGlobalReachBitsInPerSecond* i *GlobalGlobalReachBitsOutPerSecond* będzie widoczne tylko wtedy, gdy zostanie nawiązane co najmniej jedno połączenie Global REACH.
 >
@@ -154,6 +154,19 @@ Można wyświetlać pakiety na sekundę przechodzące przez bramę.
 W **kryteriach alertów**możesz wybrać pozycję **Dziennik aktywności** dla typu sygnału i wybrać sygnał.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="Dzienniki aktywności":::
+
+## <a name="additional-metrics-in-log-analytics"></a>Dodatkowe metryki w Log Analytics
+
+Możesz również wyświetlić metryki ExpressRoute, przechodząc do zasobu obwodu ExpressRoute i wybierając kartę *dzienniki* . W przypadku wszystkich metryk, które wykonuje kwerenda, dane wyjściowe będą zawierać poniższe kolumny.
+
+|**Kolumna**|**Typ**|**Opis**|
+| --- | --- | --- |
+|TimeGrain|ciąg|PT1M (wartości metryk są wypychane co minutę)|
+|Liczba|liczba rzeczywista|Zwykle równe 2 (każdy MSEE wypychanie pojedynczej wartości metryki co minutę)|
+|Minimum|liczba rzeczywista|Minimum dwóch wartości metryk wypychanych przez dwa MSEE|
+|Maksimum|liczba rzeczywista|Maxiumum z dwóch wartości metryk wypychanych przez dwa MSEE|
+|Średnia|liczba rzeczywista|Równe (minimum + maksimum)/2|
+|Łącznie|liczba rzeczywista|Suma dwóch wartości metryk z obu MSEE (wartość główna, na którą ma zostać nadana koncentracja dla metryki zapytania)|
   
 ## <a name="next-steps"></a>Następne kroki
 

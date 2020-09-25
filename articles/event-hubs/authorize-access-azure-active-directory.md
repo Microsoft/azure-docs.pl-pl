@@ -3,12 +3,12 @@ title: Autoryzacja dostępu za pomocą usługi Azure Active Directory
 description: Ten artykuł zawiera informacje dotyczące autoryzowania dostępu do zasobów Event Hubs przy użyciu Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 101e40420493156c7b1a0c3c5b767eda023e62c6
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d26838831964b66beea4ed1e3c6e9873cfce247e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831842"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270036"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory
 Usługa Azure Event Hubs obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań Event Hubs zasobów. Za pomocą usługi Azure AD można używać kontroli dostępu opartej na rolach (RBAC) do udzielania uprawnień podmiotowi zabezpieczeń, który może być użytkownikiem lub podmiotem usługi aplikacji. Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
@@ -33,9 +33,13 @@ Gdy rola platformy Azure zostanie przypisana do podmiotu zabezpieczeń usługi A
 ## <a name="azure-built-in-roles-for-azure-event-hubs"></a>Wbudowane role platformy Azure dla usługi Azure Event Hubs
 Platforma Azure udostępnia następujące wbudowane role platformy Azure do autoryzowania dostępu do danych Event Hubs przy użyciu usługi Azure AD i uwierzytelniania OAuth:
 
-- [Właściciel danych Event Hubs platformy Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Użyj tej roli, aby zapewnić pełen dostęp do zasobów Event Hubs.
-- [Nadawca danych Event Hubs platformy Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Ta rola umożliwia nadanie dostępu Event Hubs do zasobów.
-- [Usługa Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Użyj tej roli, aby przyznać dostęp do zasobów Event Hubs i odbierać do nich.
+| Rola | Opis | 
+| ---- | ----------- | 
+[Właściciel danych Event Hubs platformy Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | Ta rola umożliwia pełen dostęp do zasobów Event Hubs. |
+| [Nadawca danych Event Hubs platformy Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Ta rola służy do nadawania dostępu Event Hubs do zasobów. |
+| [Usługa Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | Ta rola umożliwia nadanie dostępu do zasobów Event Hubs lub otrzymywanie do nich. |
+| Czytnik rejestru schematu (wersja zapoznawcza) | Odczytuj i wyświetlaj listę grup i schematów rejestru schematu. |
+| Współautor rejestru schematu (wersja zapoznawcza) | Odczytuj, zapisuj i usuwaj grupy i schematy rejestru schematu. |
 
 ## <a name="resource-scope"></a>Zakres zasobu 
 Przed przypisaniem roli platformy Azure do podmiotu zabezpieczeń należy określić zakres dostępu, który powinien mieć podmiot zabezpieczeń. Najlepsze rozwiązania określają, że zawsze najlepiej jest przyznać tylko najwęższy możliwy zakres.
@@ -57,7 +61,7 @@ Aby uzyskać więcej informacji na temat sposobu definiowania wbudowanych ról, 
 
 
 
-## <a name="samples"></a>Samples
+## <a name="samples"></a>Przykłady
 - [Przykłady Microsoft. Azure. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
     Te przykłady używają starej biblioteki **Microsoft. Azure. EventHubs** , ale można ją łatwo zaktualizować do korzystania z najnowszej biblioteki **Azure. Messaging. EventHubs** . Aby przenieść przykład z używania starej biblioteki do nowej, zapoznaj się z [przewodnikiem migrowania z Microsoft. Azure. EventHubs do platformy Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).

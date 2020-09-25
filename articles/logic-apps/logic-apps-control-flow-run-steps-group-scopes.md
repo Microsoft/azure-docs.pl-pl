@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef8862ebbcdd1ee79178af56b7c6cc81c7a68a43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520905"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269288"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Uruchamianie akcji na podstawie stanu grupy przy użyciu zakresów w Azure Logic Apps
 
@@ -21,7 +21,7 @@ Aby sprawdzić stan zakresu, można użyć tych samych kryteriów, które są u�
 
 Na przykład poniżej znajduje się aplikacja logiki wysokiego poziomu, która używa zakresu do uruchamiania określonych akcji i warunku do sprawdzenia stanu zakresu. Jeśli jakiekolwiek akcje w zakresie zakończą się niepowodzeniem lub kończą się nieoczekiwanie, zakres jest oznaczony odpowiednio "Niepowodzenie" lub "przerwane", a aplikacja logiki wysyła komunikat "zakres nie powiódł się". Jeśli wszystkie akcje w zakresie zostały wykonane pomyślnie, aplikacja logiki wyśle komunikat "zakres został pomyślnie".
 
-![Konfigurowanie wyzwalacza "harmonogram-cykl"](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![Diagram przedstawia przepływ zakresu aplikacji logiki z przykładami "zakres nie powiodło się" i "zakres zakończony powodzeniem".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -143,7 +143,7 @@ Aplikację logiki można zapisać w dowolnym momencie, dlatego Zapisz swoją sł
    1. Gdy wszystko będzie gotowe, wybierz pozycję **OK**.
 
    <!-- markdownlint-disable MD038 -->
-   1. Po rozpoczęciu wyrażenia Dodaj ten tekst z wiodącym miejscem:``` minutes```
+   1. Po rozpoczęciu wyrażenia Dodaj ten tekst z wiodącym miejscem: ``` minutes```
   
        Pole **treści** wygląda teraz następująco:
 
@@ -192,7 +192,7 @@ Następnie Dodaj zakres, aby można było grupować określone akcje i oszacowa�
    
       `result('Scope')[0]['status']`
 
-      ![Dodaj wyrażenie, które sprawdza stan zakresu](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Zrzut ekranu pokazujący okno "Dodawanie wyrażenia" z wyróżnionym wyrażeniem wynikowym.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. Dla obu wierszy wybierz opcję **jest równa** operatorowi. 
    

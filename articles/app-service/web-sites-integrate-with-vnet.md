@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8f356cb935f1cf63408b6fbc604f139439022a4f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 433d519cc71b8bb218569679c94142658f3c9416
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255256"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrowanie aplikacji z usługą Azure Virtual Network
 
@@ -54,6 +54,10 @@ Aplikacje w App Service są hostowane na rolach procesów roboczych. Plany cenow
 
 Gdy włączona jest regionalna Integracja sieci wirtualnej, aplikacja wykonuje wywołania wychodzące do Internetu za pomocą tych samych kanałów co normalny. Adresy wychodzące, które są wyświetlane w portalu właściwości aplikacji, to adresy nadal używane przez aplikację. Jakie zmiany w aplikacji są wywołaniami zabezpieczonych usług punktu końcowego usługi lub adresy RFC 1918, przejdź do sieci wirtualnej. Jeśli WEBSITE_VNET_ROUTE_ALL jest ustawiona na 1, cały ruch wychodzący może być wysyłany do sieci wirtualnej.
 
+> [!NOTE]
+> `WEBSITE_VNET_ROUTE_ALL` nie jest obecnie obsługiwane w kontenerach systemu Windows.
+> 
+
 Funkcja obsługuje tylko jeden interfejs wirtualny na proces roboczy. Jeden wirtualny interfejs na proces roboczy oznacza jedną regionalną integrację sieci wirtualnej na App Service plan. Wszystkie aplikacje w tym samym planie App Service mogą korzystać z tej samej integracji sieci wirtualnej. Jeśli potrzebujesz aplikacji do łączenia się z dodatkową siecią wirtualną, musisz utworzyć kolejny plan App Service. Używany interfejs wirtualny nie jest zasobem, do którego klienci mają bezpośredni dostęp.
 
 Ze względu na to, jak działa ta technologia, ruch używany z integracją sieci wirtualnej nie jest wyświetlany w usłudze Azure Network Watcher ani w dziennikach przepływów sieciowej grupy zabezpieczeń.
@@ -72,7 +76,8 @@ Integracja sieci wirtualnej wymagana przez bramę obsługuje łączenie z sieci�
 Nie można używać integracji sieci wirtualnej wymaganej przez bramę:
 
 * Z siecią wirtualną połączoną z usługą Azure ExpressRoute.
-* Z poziomu aplikacji systemu Linux
+* Z poziomu aplikacji systemu Linux.
+* Z [kontenera systemu Windows](quickstart-custom-container.md).
 * Aby uzyskać dostęp do zabezpieczonych zasobów punktu końcowego usługi.
 * Z bramą współistnienia obsługującą zarówno ExpressRoute, jak i sieci VPN typu lokacja-lokacja.
 
@@ -147,7 +152,7 @@ Trzy opłaty są związane z korzystaniem z funkcji integracji sieci wirtualnej 
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 Obsługa interfejsu wiersza polecenia jest dostępna dla integracji regionalnej sieci wirtualnej. Aby uzyskać dostęp do poniższych poleceń, [Zainstaluj interfejs wiersza polecenia platformy Azure][installCLI].
 

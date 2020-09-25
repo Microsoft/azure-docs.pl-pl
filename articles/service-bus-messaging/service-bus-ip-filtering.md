@@ -3,12 +3,12 @@ title: Konfigurowanie reguł zapory adresów IP dla Azure Service Bus
 description: Jak używać reguł zapory do zezwalania na połączenia z określonych adresów IP do Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 699ece2e78ff0605ff4076b09c023d14e289b1f7
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2ba6b1902213af8d968b220a387e419e56e8aa67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300959"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Zezwalaj na dostęp do przestrzeni nazw Azure Service Bus z określonych adresów IP lub zakresów
 Domyślnie obszary nazw Service Bus są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -51,7 +51,7 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć reguły zapory IP d
     
     W przypadku wybrania opcji **wszystkie sieci** Service Bus przestrzeń nazw akceptuje połączenia z dowolnego adresu IP. To ustawienie domyślne jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0. 
 
-    ![Zapora — wybrana opcja Wszystkie sieci](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+    ![Zrzut ekranu przedstawiający stronę sieci Azure Portal. Opcja zezwalania na dostęp ze wszystkich sieci jest zaznaczona na karcie zapory i sieci wirtualne.](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
 1. Aby zezwolić na dostęp tylko z określonego adresu IP, wybierz opcję **wybrane sieci** , jeśli nie została jeszcze wybrana. W sekcji **Zapora** wykonaj następujące kroki:
     1. Wybierz opcję **Dodaj adres IP klienta** , aby zapewnić bieżącemu adresowi IP klienta dostęp do przestrzeni nazw. 
     2. W polu **zakres adresów**wprowadź określony adres IPv4 lub zakres adresów IPv4 w notacji CIDR. 
@@ -60,7 +60,7 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć reguły zapory IP d
         > [!WARNING]
         > Jeśli wybierzesz opcję **wybrane sieci** i nie określisz adresu IP lub zakresu adresów, usługa zezwoli na ruch ze wszystkich sieci. 
 
-        ![Zapora — wybrana opcja Wszystkie sieci](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
+        ![Zrzut ekranu przedstawiający stronę sieci Azure Portal. Zaznaczona jest opcja zezwalania na dostęp z wybranych sieci, a sekcja Zapora jest wyróżniona.](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienia. Poczekaj kilka minut, aż potwierdzenie będzie widoczne na powiadomieniach portalu.
 
     > [!NOTE]
@@ -84,7 +84,7 @@ Parametry szablonu:
 > ```json
 > "defaultAction": "Allow"
 > ```
-> na
+> na wartość
 > ```json
 > "defaultAction": "Deny"
 > ```

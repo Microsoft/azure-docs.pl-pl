@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ed6beec63114f1f157bb24354d77e50ecdaa8255
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 9694dd06b67219e0f02c3fe1c7c53d1fc103a0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601641"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258629"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory często zadawane pytania dotyczące dostępu warunkowego
 
@@ -31,11 +31,11 @@ Zasady są wymuszane dla użytkowników współpracy między firmami (B2B). Jedn
 
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>Czy zasady usługi SharePoint Online mają zastosowanie również w usłudze OneDrive dla firm?
 
-Tak. Zasady SharePoint Online dotyczą również usługi OneDrive dla firm. Aby uzyskać więcej informacji, zobacz artykuł, [zależności usługi dostępu warunkowego](service-dependencies.md) i Rozważ użycie zasad docelowej dla [aplikacji pakietu Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) .
+Tak. Zasady SharePoint Online dotyczą również usługi OneDrive dla firm. Aby uzyskać więcej informacji, zobacz artykuł, [zależności usługi dostępu warunkowego](service-dependencies.md) i Rozważ użycie zasad docelowej dla [aplikacji pakietu Office 365](concept-conditional-access-cloud-apps.md#office-365) .
 
 ## <a name="why-cant-i-set-a-policy-directly-on-client-apps-like-word-or-outlook"></a>Dlaczego nie mogę ustawić zasad bezpośrednio w aplikacjach klienckich, takich jak Word czy Outlook?
 
-Zasady dostępu warunkowego określają wymagania dotyczące uzyskiwania dostępu do usługi. Jest wymuszany, gdy następuje uwierzytelnianie w usłudze. Zasady nie są ustawiane bezpośrednio w aplikacji klienckiej. Zamiast tego jest stosowany, gdy klient wywołuje usługę. Na przykład zestaw zasad w programie SharePoint ma zastosowanie do klientów wywołujących program SharePoint. Zestaw zasad dla programu Exchange ma zastosowanie do programu Outlook. Aby uzyskać więcej informacji, zobacz artykuł, [zależności usługi dostępu warunkowego](service-dependencies.md) i Rozważ użycie zasad docelowej dla [aplikacji pakietu Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) .
+Zasady dostępu warunkowego określają wymagania dotyczące uzyskiwania dostępu do usługi. Jest wymuszany, gdy następuje uwierzytelnianie w usłudze. Zasady nie są ustawiane bezpośrednio w aplikacji klienckiej. Zamiast tego jest stosowany, gdy klient wywołuje usługę. Na przykład zestaw zasad w programie SharePoint ma zastosowanie do klientów wywołujących program SharePoint. Zestaw zasad dla programu Exchange ma zastosowanie do programu Outlook. Aby uzyskać więcej informacji, zobacz artykuł, [zależności usługi dostępu warunkowego](service-dependencies.md) i Rozważ użycie zasad docelowej dla [aplikacji pakietu Office 365](concept-conditional-access-cloud-apps.md#office-365) .
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>Czy zasady dostępu warunkowego są stosowane do kont usług?
 
@@ -53,7 +53,7 @@ Usługa Microsoft Teams jest również obsługiwana osobno jako aplikacja w chmu
 
 Klienci stacjonarni Microsoft Teams dla systemów Windows i Mac obsługują nowoczesne uwierzytelnianie. Nowoczesne uwierzytelnianie umożliwia logowanie oparte na bibliotece uwierzytelniania Azure Active Directory (ADAL) do Microsoft Office aplikacji klienckich na różnych platformach.
 
-Aby uzyskać więcej informacji, zobacz artykuł, [zależności usługi dostępu warunkowego](service-dependencies.md) i Rozważ użycie zasad docelowej dla [aplikacji pakietu Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) .
+Aby uzyskać więcej informacji, zobacz artykuł, [zależności usługi dostępu warunkowego](service-dependencies.md) i Rozważ użycie zasad docelowej dla [aplikacji pakietu Office 365](concept-conditional-access-cloud-apps.md#office-365) .
 
 ## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>Dlaczego niektóre karty nie działają w programie Microsoft Teams po włączeniu zasad dostępu warunkowego?
 

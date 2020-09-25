@@ -1,6 +1,6 @@
 ---
 title: Uwierzytelnianie obsługiwane przez brokera w systemie Android | Azure
-titlesuffix: Microsoft identity platform
+titleSuffix: Microsoft identity platform
 description: Omówienie uwierzytelniania obsługiwanego przez brokera & autoryzacji dla systemu Android na platformie tożsamości firmy Microsoft
 services: active-directory
 author: shoatman
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/25/2020
+ms.date: 09/17/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: 9042318d29b9a7fc8c2064bdf845d6f0d5a4f3e8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2bb48971e86c2b61742735020469865fa969bee3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258415"
 ---
 # <a name="brokered-authentication-in-android"></a>Uwierzytelnianie obsługiwane przez brokera w systemie Android
 
@@ -33,14 +33,11 @@ Musisz użyć jednego z brokerów uwierzytelniania firmy Microsoft, aby wziąć 
   -  za pomocą konta Android AccountManager & ustawienia konta
   - "Konto służbowe" — typ konta niestandardowego
 
-W systemie Android Broker uwierzytelniania firmy Microsoft jest składnikiem zawartym w [aplikacji Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) i [Intune — portal firmy](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)
-
-> [!TIP]
-> Tylko jedna aplikacja, która hostuje brokera, będzie aktywna jako Broker w danym momencie. Która aplikacja jest aktywna jako Broker jest określona przez kolejność instalacji na urządzeniu. Pierwszy, który ma zostać zainstalowany, lub ostatni obecny na urządzeniu, jest aktywnym brokerem.
+W systemie Android Broker uwierzytelniania firmy Microsoft jest składnikiem zawartym w [Microsoft Authenticator aplikacji](https://play.google.com/store/apps/details?id=com.azure.authenticator) i [Intune — portal firmy](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal).
 
 Na poniższym diagramie przedstawiono relację między aplikacją, biblioteką uwierzytelniania firmy Microsoft (MSAL) i brokerami uwierzytelniania firmy Microsoft.
 
-![Diagram wdrażania brokera](./media/brokered-auth/brokered-deployment-diagram.png)
+![Diagram przedstawiający sposób odnoszący się do MSAL, aplikacji brokera i Menedżera kont systemu Android.](./media/brokered-auth/brokered-deployment-diagram.png)
 
 ## <a name="installing-apps-that-host-a-broker"></a>Instalowanie aplikacji obsługujących brokera
 
@@ -58,11 +55,15 @@ Jeśli na urządzeniu nie ma jeszcze zainstalowanej aplikacji brokera, MSAL naka
 
 Gdy na urządzeniu jest zainstalowany Broker, wszystkie kolejne żądania tokenu interakcyjnego (wywołania do `acquireToken()` ) są obsługiwane przez brokera, a nie lokalnie przez MSAL. Wszystkie Stany logowania jednokrotnego, wcześniej dostępne dla MSAL, nie są dostępne dla brokera. W związku z tym użytkownik będzie musiał ponownie przeprowadzić uwierzytelnienie lub wybrać konto z istniejącej listy kont znanych urządzeniu.
 
-Zainstalowanie brokera nie wymaga ponownego zalogowania użytkownika. Tylko wtedy, gdy użytkownik musi rozpoznać `MsalUiRequiredException` żądanie, zostanie przejdzie do brokera. `MsalUiRequiredException` jest zgłaszany z kilku powodów i musi zostać rozwiązany interaktywnie. Oto najczęstsze przyczyny:
+Zainstalowanie brokera nie wymaga ponownego zalogowania użytkownika. Tylko wtedy, gdy użytkownik musi rozpoznać `MsalUiRequiredException` żądanie, zostanie przejdzie do brokera. `MsalUiRequiredException` mogą być zgłaszane z kilku powodów i muszą zostać rozwiązane interaktywnie. Na przykład:
 
 - Użytkownik zmienił hasło skojarzone z kontem.
 - Konto użytkownika nie spełnia już zasad dostępu warunkowego.
 - Użytkownik odwołał swoją zgodę na skojarzenie aplikacji ze swoim kontem.
+
+#### <a name="multiple-brokers"></a>Wiele brokerów
+
+Jeśli na urządzeniu zainstalowano wiele brokerów, najpierw jest on zawsze aktywnym brokerem. Tylko jeden Broker może być aktywny na urządzeniu.
 
 ### <a name="when-a-broker-is-uninstalled"></a>Po odinstalowaniu brokera
 
@@ -74,40 +75,46 @@ Jeśli Intune — Portal firmy jest zainstalowana i działa jako aktywny Broker,
 
 ### <a name="generating-a-redirect-uri-for-a-broker"></a>Generowanie identyfikatora URI przekierowania dla brokera
 
-Należy zarejestrować identyfikator URI przekierowania, który jest zgodny z brokerem. Identyfikator URI przekierowania dla brokera musi zawierać nazwę pakietu aplikacji, a także reprezentację sygnatury zakodowanej w formacie base64.
+Należy zarejestrować identyfikator URI przekierowania, który jest zgodny z brokerem. Identyfikator URI przekierowania dla brokera powinien zawierać nazwę pakietu aplikacji i reprezentację w formacie base64 aplikacji.
 
 Format identyfikatora URI przekierowania to: `msauth://<yourpackagename>/<base64urlencodedsignature>`
 
-Wygeneruj podpis kodowany przez adres URL w formacie base64 przy użyciu kluczy podpisywania aplikacji. Oto kilka przykładowych poleceń korzystających z kluczy podpisywania debugowania:
+Za pomocą [Narzędzia](https://manpages.debian.org/buster/openjdk-11-jre-headless/keytool.1.en.html) klucza można wygenerować skrót sygnatury kodowany algorytmem Base64 przy użyciu kluczy podpisywania aplikacji, a następnie użyć Azure Portal do WYGENEROWANIA identyfikatora URI przekierowania przy użyciu tego skrótu.
 
-#### <a name="macos"></a>macOS
+Linux i macOS:
 
 ```bash
 keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-#### <a name="windows"></a>Windows
+W systemie Windows:
 
 ```powershell
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-Aby uzyskać informacje na temat podpisywania aplikacji, zobacz [Podpisz swoją aplikację](https://developer.android.com/studio/publish/app-signing) .
+Po wygenerowaniu skrótu podpisu za pomocą *Narzędzia*klucza Użyj Azure Portal, aby wygenerować identyfikator URI przekierowania:
+
+1. Zaloguj się do [Azure Portal](https://protal.azure.com) i wybierz swoją aplikację dla systemu Android w **rejestracje aplikacji**.
+1. Wybierz pozycję **uwierzytelnianie**  >  **Dodaj platformę**  >  **Android**.
+1. W otwartym okienku **Konfiguracja aplikacji systemu Android** wprowadź **skrót sygnatury** wygenerowany wcześniej i **nazwę pakietu**.
+1. Wybierz przycisk **Konfiguruj** .
+
+Azure Portal generuje identyfikator URI przekierowania dla Ciebie i wyświetla go w polu **URI przekierowania** okienka **konfiguracji systemu Android** .
+
+Aby uzyskać więcej informacji na temat podpisywania aplikacji, zobacz [Podpisz swoją aplikację](https://developer.android.com/studio/publish/app-signing) w podręczniku użytkownika Android Studio.
 
 > [!IMPORTANT]
 > Użyj Twojego produkcyjnego klucza podpisywania dla wersji produkcyjnej aplikacji.
 
 ### <a name="configure-msal-to-use-a-broker"></a>Konfigurowanie MSAL do korzystania z brokera
 
-Aby korzystać z brokera w aplikacji, należy zaświadczać, że skonfigurowano przekierowanie brokera. Na przykład Uwzględnij identyfikator URI przekierowania z włączoną obsługą brokera--i wskaż, że został on zarejestrowany — przez uwzględnienie następujących danych w pliku konfiguracji MSAL:
+Aby korzystać z brokera w aplikacji, należy zaświadczać, że skonfigurowano przekierowanie brokera. Na przykład Uwzględnij identyfikator URI przekierowania z włączoną obsługą brokera i wskaż, że został on zarejestrowany przez dołączenie następujących ustawień w pliku konfiguracji MSAL:
 
-```javascript
+```json
 "redirect_uri" : "<yourbrokerredirecturi>",
 "broker_redirect_uri_registered": true
 ```
-
-> [!TIP]
-> Nowy interfejs użytkownika rejestracji aplikacji Azure Portal pomaga wygenerować identyfikator URI przekierowania brokera. Jeśli aplikacja została zarejestrowana przy użyciu starszego środowiska lub w portalu rejestracji aplikacji firmy Microsoft, może być konieczne wygenerowanie identyfikatora URI przekierowania i ręczne zaktualizowanie listy identyfikatorów URI przekierowania w portalu.
 
 ### <a name="broker-related-exceptions"></a>Wyjątki związane z brokerem
 
@@ -116,7 +123,7 @@ MSAL komunikuje się z brokerem na dwa sposoby:
 - Usługa powiązana z brokerem
 - Konto systemu Android
 
-MSAL najpierw używa usługi powiązanej z brokerem, ponieważ wywołanie tej usługi nie wymaga żadnych uprawnień systemu Android. Jeśli wiązanie do powiązanej usługi zakończy się niepowodzeniem, MSAL będzie używać interfejsu API konta systemu Android. MSAL to zrobić tylko wtedy, gdy aplikacja ma już przyznane `"READ_CONTACTS"` uprawnienia.
+MSAL najpierw używa usługi powiązanej z brokerem, ponieważ wywołanie tej usługi nie wymaga żadnych uprawnień systemu Android. Jeśli wiązanie do powiązanej usługi zakończy się niepowodzeniem, MSAL będzie używać interfejsu API konta systemu Android. MSAL tylko wtedy, gdy Twoja aplikacja ma już przyznane `"READ_CONTACTS"` uprawnienia.
 
 Jeśli zostanie wyświetlony `MsalClientException` Kod błędu `"BROKER_BIND_FAILURE"` , dostępne są dwie opcje:
 
@@ -131,3 +138,7 @@ Może nie być od razu jasne, że integracja z brokerem działa, ale można wyko
 1. W ustawieniach na urządzeniu z systemem Android Wyszukaj nowo utworzone konto odpowiadające kontu uwierzytelnionemu przez użytkownika. Konto powinno być kontem typu *służbowego*.
 
 Jeśli chcesz powtórzyć test, możesz usunąć konto z ustawień.
+
+## <a name="next-steps"></a>Następne kroki
+
+[Tryb udostępnionego urządzenia dla urządzeń z systemem Android](msal-android-shared-devices.md) umożliwia skonfigurowanie urządzenia z systemem Android w taki sposób, aby można je było łatwo udostępnić wielu pracownikom.

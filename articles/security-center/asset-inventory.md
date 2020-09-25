@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: e62973c83db90df2857186fe6a556278a3c41a7d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977457"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302047"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów i narzędzi do zarządzania
 
@@ -54,7 +54,7 @@ Na stronie spisu dostępne są następujące narzędzia:
 - **Podsumowania** — przed zdefiniowaniem filtrów, widoczny pasek wartości w górnej części widoku spisu pokazuje:
 
     - **Łączna liczba zasobów**: łączną liczbę zasobów podłączonych do Security Center.
-    - **Zasoby w złej kondycji**: zasoby z zaleceniami dotyczącymi zabezpieczeń. [Dowiedz się więcej o zaleceniach dotyczących zabezpieczeń](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+    - **Zasoby w złej kondycji**: zasoby z zaleceniami dotyczącymi zabezpieczeń. [Dowiedz się więcej o zaleceniach dotyczących zabezpieczeń](security-center-recommendations.md).
     - **Niemonitorowane zasoby**: zasoby z problemami związanymi z monitorowaniem agentów — mają wdrożony Agent log Analytics, ale agent nie wysyła danych lub ma inne problemy z kondycją.
 
 - **Filtry** — wiele filtrów w górnej części strony umożliwia szybkie udoskonalenie listy zasobów na podstawie pytania, na które próbujesz odpowiedzieć. Na przykład jeśli chcesz odpowiedzieć na pytanie, *które z moich maszyn z tagiem "produkcja" brakuje agenta log Analytics?* można połączyć filtr **monitorowania agentów** z filtrem **tagów** , jak pokazano w następującym klipie:

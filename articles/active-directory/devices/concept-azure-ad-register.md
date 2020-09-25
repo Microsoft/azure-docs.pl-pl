@@ -1,6 +1,6 @@
 ---
 title: Co to są zarejestrowane urządzenia usługi Azure AD?
-description: Dowiedz się, jak zarządzanie tożsamościami urządzeń może ułatwić zarządzanie urządzeniami, które uzyskują dostęp do zasobów w danym środowisku.
+description: Dowiedz się, w jaki sposób zarejestrowane urządzenia usługi Azure AD zapewniają użytkownikom pomoc techniczną dla scenariuszy tworzenia własnych urządzeń (BYOD) lub urządzeń przenośnych.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1ce0723c0064cee711e851d16f4080a722e7539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72c40b7962090492f8b4b85e555a947130c3628d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256442"
 ---
 # <a name="azure-ad-registered-devices"></a>Urządzenia zarejestrowane w usłudze Azure AD
 
@@ -61,5 +61,5 @@ Inny użytkownik chce uzyskać dostęp do swojej organizacyjnej poczty e-mail na
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie tożsamościami urządzeń przy użyciu Azure Portal](device-management-azure-portal.md)
+- [Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure Portal](device-management-azure-portal.md)
 - [Zarządzanie nieaktywnymi urządzeniami w usłudze Azure AD](manage-stale-devices.md)

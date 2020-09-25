@@ -3,12 +3,12 @@ title: Włączanie graficznego pulpitu zdalnego dla systemu Linux w Azure Lab Se
 description: Dowiedz się, jak włączyć pulpit zdalny dla maszyn wirtualnych z systemem Linux w laboratorium w Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4f50510adf978aeb63b2b5337d21e6f9dec76196
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445767"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251613"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Włączanie graficznego pulpitu zdalnego dla maszyn wirtualnych z systemem Linux w Azure Lab Services
 W tym artykule przedstawiono sposób wykonywania następujących zadań:
@@ -46,7 +46,7 @@ Ten krok jest wymagany tylko w celu nawiązania połączenia przy użyciu protok
 
 1.  Podczas tworzenia laboratorium instruktor może **włączyć Podłączanie pulpitu zdalnego**.  Instruktor musi **włączyć** tę opcję, aby otworzyć port na maszynie wirtualnej z systemem Linux, która jest wymagana dla sesji pulpitu zdalnego RDP.  W przeciwnym razie, jeśli ta opcja zostanie **wyłączona**, zostanie otwarty tylko port dla protokołu SSH.
   
-    ![Włączanie połączenia pulpitu zdalnego dla obrazu systemu Linux](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+    ![Zrzut ekranu pokazujący okno "nowe laboratorium" z opcją "Włącz Podłączanie pulpitu zdalnego".](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
 2. W oknie dialogowym **Włączanie komunikatu Podłączanie pulpitu zdalnego** wybierz pozycję **Kontynuuj z pulpit zdalny**. 
 

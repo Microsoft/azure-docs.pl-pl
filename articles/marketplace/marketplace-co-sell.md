@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/15/2020
-ms.openlocfilehash: 41dd683bb0ff5be4a48cd05f24663dd51c66a15b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984628"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268727"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
@@ -36,7 +36,7 @@ Oferty, które uzyskują dostęp **do usługi Azure IP zachęcani** , mają doda
 * Opłata za usługę Marketplace jest zmniejszana z 20% do 10%. Ten Rabat dotyczy oferty IaaS lub SaaS sprzedawanej za pomocą komercyjnej witryny Marketplace. Aby uzyskać więcej informacji, zobacz [ograniczoną opłatą za usługę](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) .
 * Partnerzy dostawcy rozwiązań w chmurze (CSP) otrzymują zachętę 10% do sprzedaży oferty IaaS lub SaaS. Dowiedz się więcej na temat programu CSP w [programie Cloud Solution Provider](cloud-solution-providers.md).
 * Sprzedaż oferty za pomocą komercyjnej witryny Marketplace przyczynia się do realizacji zobowiązań dotyczących użycia platformy Azure przez klientów. Uprawnieni klienci będą widzieć ofertę oznaczoną jako **"kwalifikujące się do korzystania z platformy Azure"** w witrynie Azure Portal. Aby uzyskać więcej informacji, zobacz [korzyść z tytułu zobowiązania dotyczącego użycia platformy Azure](azure-consumption-commitment-benefit.md) .
-* Twoja oferta będzie otrzymywać wskaźnik **"preferowanych rozwiązań"** w obszarze witryny sklepu. Wskaźnik umożliwia promowanie jakości, wydajności i możliwości związanych z ofertami klientów w przypadku niektórych branżowych obszarów pionowych lub rozwiązań. Dowiedz się więcej na temat [preferowanych rozwiązań w Microsoft AppSource i witrynie Azure Marketplace](preferred-solutions.md).
+* Oferty mające na celu osiągnięcie **zachęcani usługi Azure IP do współdzielenia** lub **Business Applications współsprzedażowego stanu zachęcani** będą otrzymywać wskaźnik **"preferowanych rozwiązań"** w lokalizacjach w sklepie. Wskaźnik promuje jakość, wydajność i możliwość zaspokajania potrzeb klientów w pewnym regionie lub obszarze rozwiązania. Dowiedz się więcej na temat [preferowanych rozwiązań w Microsoft AppSource i witrynie Azure Marketplace](preferred-solutions.md).
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Współsprzedażowe kroki i wymagania dotyczące publikowania
 

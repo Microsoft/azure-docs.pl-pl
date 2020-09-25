@@ -11,31 +11,26 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 60e4ca80faa2c8787a13d87ab06cad9243299e50
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291958"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257320"
 ---
 # <a name="scenario-single-page-application"></a>Scenariusz: aplikacja jednostronicowa
 
 Dowiedz się wszystkiego, co musisz zrobić, aby skompilować aplikację jednostronicową (SPA).
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>Wprowadzenie
 
-Możesz utworzyć swoją pierwszą aplikację, postępując zgodnie z przewodnikiem Autostart JavaScript:
+Jeśli jeszcze tego nie zrobiono, Utwórz swoją pierwszą aplikację, wykonując skrypt JavaScript SPA:
 
-> [!div class="nextstepaction"]
-> [Szybki Start: aplikacja jednostronicowa](./quickstart-v2-javascript.md)
+[Szybki Start: aplikacja jednostronicowa](./quickstart-v2-javascript.md)
 
 ## <a name="overview"></a>Omówienie
 
-Wiele nowoczesnych aplikacji sieci Web jest skompilowanych jako aplikacje jednostronicowe po stronie klienta. Deweloperzy zapisują je przy użyciu języka JavaScript lub środowiska SPA, takiego jak kątowy, Vue i reagują. Aplikacje te działają w przeglądarce internetowej i mają inne cechy uwierzytelniania niż tradycyjne aplikacje sieci Web po stronie serwera. 
+Wiele nowoczesnych aplikacji sieci Web jest skompilowanych jako aplikacje jednostronicowe po stronie klienta. Deweloperzy zapisują je przy użyciu języka JavaScript lub środowiska SPA, takiego jak kątowy, Vue i reagują. Aplikacje te działają w przeglądarce internetowej i mają inne cechy uwierzytelniania niż tradycyjne aplikacje sieci Web po stronie serwera.
 
 Platforma tożsamości firmy Microsoft udostępnia **dwie** opcje umożliwiające użytkownikom logowanie jednostronicowe aplikacji oraz uzyskiwanie tokenów dostępu do usług zaplecza lub interfejsów API sieci Web:
 
@@ -57,7 +52,11 @@ Aby włączyć ten scenariusz dla aplikacji, potrzebne są:
 * Konfiguracja aplikacji z zarejestrowanymi właściwościami aplikacji, takimi jak identyfikator aplikacji.
 * Użycie biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js) w celu przeprowadzenia przepływu uwierzytelniania w celu zalogowania się i uzyskania tokenów.
 
+## <a name="recommended-reading"></a>Zalecany odczyt
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Rejestrowanie aplikacji](scenario-spa-app-registration.md)
+> [Rejestracja aplikacji](scenario-spa-app-registration.md)

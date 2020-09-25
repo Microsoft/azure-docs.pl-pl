@@ -3,12 +3,12 @@ title: Zarządzanie kontami laboratorium w Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak utworzyć konto laboratorium, wyświetlić wszystkie konta laboratorium lub usunąć konto laboratorium w ramach subskrypcji platformy Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 13b477504833b8d72845735304563eef334c49ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33e5e42f65fdd34bb37b12947b5173700ad7970c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445495"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251664"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Tworzenie kont laboratoriów i zarządzanie nimi
 W Azure Lab Services konto laboratorium jest kontenerem dla zarządzanych typów laboratorium, takich jak pracownie. Administrator konfiguruje konto laboratorium przy użyciu Azure Lab Services i zapewnia dostęp do właścicieli laboratorium, którzy mogą tworzyć laboratoria na koncie. W tym artykule opisano sposób tworzenia konta laboratorium, wyświetlania wszystkich kont laboratorium lub usuwania konta laboratorium.
@@ -41,9 +41,9 @@ Następujące kroki ilustrują tworzenie konta laboratorium w usłudze Azure Lab
         > Właściwość **zakres adresów** ma zastosowanie tylko wtedy, gdy dla laboratorium jest włączona **równorzędna Sieć wirtualna** .
 
         ![Utwórz konto laboratorium — > zaawansowane](./media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
-6. Wybierz pozycję **Dalej: Tagi** w dolnej części strony, aby przełączyć się na kartę **Tagi** . Dodaj Tagi, które chcesz skojarzyć z kontem laboratorium. Tagi to pary nazwa/wartość, które umożliwiają kategoryzowanie zasobów i wyświetlanie skonsolidowanych rozliczeń przez zastosowanie tego samego tagu dla wielu zasobów i grup zasobów. Aby uzyskać więcej informacji, zobacz [Używanie tagów do organizowania zasobów platformy Azure](../azure-resource-manager/management/tag-resources.md).
+6. Wybierz pozycję **Dalej: Tagi** w dolnej części strony, aby przełączyć się na kartę **Tagi** . Dodaj wszystkie Tagi, które chcesz skojarzyć z kontem laboratorium. Tagi to pary nazwa/wartość, które umożliwiają kategoryzowanie zasobów i wyświetlanie skonsolidowanych rozliczeń przez zastosowanie tego samego tagu dla wielu zasobów i grup zasobów. Aby uzyskać więcej informacji, zobacz [Używanie tagów do organizowania zasobów platformy Azure](../azure-resource-manager/management/tag-resources.md).
 
-    ![Utwórz konto laboratorium — > Tagi](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
+    ![Zrzut ekranu przedstawiający stronę "Tworzenie konta laboratorium" z wyróżnioną kartą znaczników.](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
 7. Wybierz pozycję **Recenzja + Utwórz** u dołu strony, aby przełączyć się na kartę **Recenzja + tworzenie** . 
 4. Przejrzyj informacje podsumowujące na tej stronie i wybierz pozycję **Utwórz**. 
 

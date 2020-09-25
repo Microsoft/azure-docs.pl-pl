@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 424a05d6a096538aa296bb11863702b816410fb9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0eed3b6d68e8bfe62e9589b2ef4074df92445095
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480649"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258783"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Jak działają relacje zaufania dla lasów zasobów w Azure Active Directory Domain Services
 
@@ -99,12 +99,12 @@ Na przykład w przypadku utworzenia jednokierunkowe zaufania lasu między *lasem
 Aby można było utworzyć relację zaufania lasu, należy sprawdzić, czy jest zainstalowana właściwa infrastruktura systemu nazw domen (DNS). Relacje zaufania lasów można utworzyć tylko wtedy, gdy jest dostępna jedna z następujących konfiguracji DNS:
 
 * Pojedynczy główny serwer DNS jest głównym serwerem DNS dla obu przestrzeni nazw DNS lasu — Strefa główna zawiera delegowania dla każdej przestrzeni nazw DNS i główne wskazówki wszystkich serwerów DNS obejmują główny serwer DNS.
-* Jeśli nie istnieje udostępniony główny serwer DNS, a główne serwery DNS dla każdego obszaru nazw DNS lasu używają usług przesyłania warunkowego DNS dla każdej przestrzeni nazw DNS do routingu zapytań dla nazw w innej przestrzeni nazw.
+* Jeśli nie istnieje udostępniony główny serwer DNS i główne serwery DNS w każdym z nazw DNS lasu, użyj warunkowego przesyłania dalej DNS dla każdej przestrzeni nazw DNS, aby kierować zapytania dla nazw w innej przestrzeni nazw.
 
     > [!IMPORTANT]
     > Las zasobów Azure AD Domain Services musi korzystać z tej konfiguracji DNS. Hostowanie przestrzeni nazw DNS innej niż przestrzeń nazw DNS lasu zasobów nie jest funkcją Azure AD Domain Services. Usługa przesyłania dalej warunkowego jest poprawną konfiguracją.
 
-* Jeśli nie istnieje udostępniony główny serwer DNS, a głównym serwerem DNS dla każdego obszaru nazw DNS lasu są używane strefy pomocnicze DNS są konfigurowane w każdym obszarze nazw DNS, aby kierować zapytania dla nazw w innej przestrzeni nazw.
+* Jeśli nie istnieje udostępniony główny serwer DNS, a główne serwery DNS w każdym obszarze nazw DNS lasu są używane strefy pomocnicze DNS są konfigurowane w każdym obszarze nazw DNS, aby kierować zapytania dla nazw w innej przestrzeni nazw.
 
 Aby utworzyć zaufanie lasu, musisz być członkiem grupy Administratorzy domeny (w domenie głównej lasu) lub grupy Administratorzy przedsiębiorstwa w Active Directory. Każdemu zaufania przypisano hasło, które muszą znać Administratorzy w obu lasach. Członkowie grupy Administratorzy przedsiębiorstwa w obu lasach mogą tworzyć relacje zaufania w obu lasach jednocześnie i w tym scenariuszu hasło, które jest kryptograficznie losowo, jest automatycznie generowane i zapisywane w obu lasach.
 

@@ -1,14 +1,16 @@
 ---
 title: Zdarzenia aktywne i nieaktywne — Personalizacja
 description: W tym artykule omówiono użycie aktywnych i nieaktywnych zdarzeń w ramach usługi personalizacji.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: a8f27542208965e2b820b9fc45cfcc5353a7f193
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d1044d02ceba1f3d0996b1fe1c8a9a44b31049b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624254"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253653"
 ---
 # <a name="active-and-inactive-events"></a>Zdarzenia aktywne i nieaktywne
 
@@ -37,9 +39,9 @@ W dalszej części logiki biznesowej, jeśli aplikacja używa informacji z wywo�
 
 ## <a name="inactive-events"></a>Zdarzenia nieaktywne
 
-Aby wyłączyć szkolenie dla zdarzenia, zadzwoń do rangi `learningEnabled = False`przy użyciu.
+Aby wyłączyć szkolenie dla zdarzenia, zadzwoń do rangi przy użyciu `learningEnabled = False` .
 
-W przypadku nieaktywnego zdarzenia uczenie jest niejawnie aktywowane w przypadku wysłania nagrody dla eventId lub `activate` wywołania interfejsu API dla tego EventId.
+W przypadku nieaktywnego zdarzenia uczenie jest niejawnie aktywowane w przypadku wysłania nagrody dla eventId lub wywołania `activate` interfejsu API dla tego EventId.
 
 ## <a name="next-steps"></a>Następne kroki
 

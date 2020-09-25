@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 9d3c5a914fe472dd7e4f797cb633e65951bf07e7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a3d7386e976551d70fbbc08930b2ab5603aa5d50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269050"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Przegląd: Automatyzowanie wdrażania Azure Logic Apps przy użyciu szablonów Azure Resource Manager
 
@@ -34,12 +34,14 @@ Aby uzyskać więcej informacji na temat szablonów Menedżer zasobów, zobacz n
 * [Najlepsze rozwiązania dotyczące szablonów usługi Azure Resource Manager](../azure-resource-manager/templates/template-best-practices.md)
 * [Opracowywanie szablonów usługi Azure Resource Manager pozwalających zachować spójność w chmurze](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
+Aby zapoznać się z informacjami o zasobach, które są specyficzne dla aplikacji logiki, kont integracji, artefaktów konta integracji i środowisk usługi integracji, zobacz [Microsoft. Logic — typy zasobów](/azure/templates/microsoft.logic/allversions).
+
 Przykładowe szablony aplikacji logiki można znaleźć w następujących przykładach:
 
 * [Pełny szablon](#full-example-template) , który jest używany w przykładach tego tematu
 * [Przykładowy szablon aplikacji logiki szybkiego startu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) w usłudze GitHub
 
-Informacje o zasobach szablonu specyficzne dla aplikacji logiki, kont integracji i artefaktów konta integracji można znaleźć w temacie [typy zasobów Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
+Aby uzyskać informacje na temat interfejsu API REST Logic Apps, należy rozpocząć od usługi [Azure Logic Apps API REST](/rest/api/logic).
 
 <a name="template-structure"></a>
 
@@ -280,7 +282,7 @@ Aby uzyskać ogólne informacje na temat zasobów szablonów i ich atrybutów, z
 
 ### <a name="logic-app-resource-definition"></a>Definicja zasobu aplikacji logiki
 
-Definicja zasobu aplikacji logiki zaczyna się od `properties` obiektu, który zawiera następujące informacje:
+[Definicja zasobu przepływu pracy aplikacji logiki w szablonie](/azure/templates/microsoft.logic/workflows) rozpoczyna się od `properties` obiektu, który zawiera następujące informacje:
 
 * Stan aplikacji logiki przy wdrożeniu
 * Identyfikator dowolnego konta integracji używanego przez aplikację logiki
@@ -329,12 +331,36 @@ Poniżej znajdują się atrybuty specyficzne dla definicji zasobu aplikacji logi
 |-----------|----------|------|-------------|
 | `state` | Tak | Ciąg | Stan aplikacji logiki przy wdrożeniu, gdzie `Enabled` oznacza, że aplikacja logiki działa i `Disabled` oznacza, że aplikacja logiki jest nieaktywna. Jeśli na przykład nie masz gotowości do działania aplikacji logiki, ale chcesz wdrożyć wersję roboczą, możesz użyć `Disabled` opcji. |
 | `integrationAccount` | Nie | Obiekt | Jeśli aplikacja logiki korzysta z konta integracji, które przechowuje artefakty dla scenariuszy biznes-to-Business (B2B), ten obiekt zawiera `id` atrybut, który określa identyfikator konta integracji. |
-| `definition` | Yes | Obiekt | Podstawowa definicja przepływu pracy aplikacji logiki, która jest tym samym obiektem, który pojawia się w widoku kodu i jest w pełni opisana w [dokumentacji schematu dotyczącej języka definicji przepływu pracy](../logic-apps/logic-apps-workflow-definition-language.md) . W tej definicji przepływu pracy `parameters` obiekt deklaruje parametry dla wartości, które mają być używane w środowisku uruchomieniowym aplikacji logiki. Aby uzyskać więcej informacji, zobacz [definicji i parametrów przepływu pracy](#workflow-definition-parameters). <p><p>Aby wyświetlić atrybuty w definicji przepływu pracy aplikacji logiki, przejdź od "Widok projektu" do "Widok kodu" w Azure Portal lub Visual Studio lub za pomocą narzędzia, takiego jak [Azure Resource Explorer](https://resources.azure.com). |
+| `definition` | Tak | Obiekt | Podstawowa definicja przepływu pracy aplikacji logiki, która jest tym samym obiektem, który pojawia się w widoku kodu i jest w pełni opisana w [dokumentacji schematu dotyczącej języka definicji przepływu pracy](../logic-apps/logic-apps-workflow-definition-language.md) . W tej definicji przepływu pracy `parameters` obiekt deklaruje parametry dla wartości, które mają być używane w środowisku uruchomieniowym aplikacji logiki. Aby uzyskać więcej informacji, zobacz [definicji i parametrów przepływu pracy](#workflow-definition-parameters). <p><p>Aby wyświetlić atrybuty w definicji przepływu pracy aplikacji logiki, przejdź od "Widok projektu" do "Widok kodu" w Azure Portal lub Visual Studio lub za pomocą narzędzia, takiego jak [Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | Nie | Obiekt | [Wartości parametrów definicji przepływu pracy](#workflow-definition-parameters) do użycia w środowisku uruchomieniowym aplikacji logiki. Definicje parametrów dla tych wartości są wyświetlane w [obiekcie parametrów definicji przepływu pracy](#workflow-definition-parameters). Ponadto, jeśli aplikacja logiki korzysta z [łączników zarządzanych](../connectors/apis-list.md) do uzyskiwania dostępu do innych usług i systemów, ten obiekt zawiera `$connections` obiekt, który ustawia wartości połączenia do użycia w czasie wykonywania. |
 | `accessControl` | Nie | Obiekt | Do określania atrybutów zabezpieczeń aplikacji logiki, takich jak ograniczanie dostępu do adresów IP do wyzwalaczy żądań lub uruchamianie historii danych wejściowych i wyjściowych. Aby uzyskać więcej informacji, zobacz [bezpieczny dostęp do usługi Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-Informacje o zasobach szablonu specyficzne dla aplikacji logiki, kont integracji i artefaktów konta integracji można znaleźć w temacie [typy zasobów Microsoft. Logic](/azure/templates/microsoft.logic/allversions).
+Aby uzyskać więcej informacji na temat definicji zasobów dla tych Logic Apps obiektów, zobacz [Microsoft. Logic — typy zasobów](/azure/templates/microsoft.logic/allversions):
+
+* [Definicja zasobu przepływu pracy](/azure/templates/microsoft.logic/workflows)
+* [Definicja zasobu środowiska usługi integracji](/azure/templates/microsoft.logic/integrationserviceenvironments)
+* [Definicja zasobu zarządzanego interfejsu API środowiska usługi integracji](/azure/templates/microsoft.logic/integrationserviceenvironments/managedapis)
+
+* [Definicja zasobu konta integracji](/azure/templates/microsoft.logic/integrationaccounts)
+
+* Artefakty konta integracji:
+
+  * [Definicja zasobu umowy](/azure/templates/microsoft.logic/integrationaccounts/agreements)
+
+  * [Definicja zasobu zestawu](/azure/templates/microsoft.logic/integrationaccounts/assemblies)
+
+  * [Definicja zasobu konfiguracji partii](/azure/templates/microsoft.logic/integrationaccounts/batchconfigurations)
+
+  * [Definicja zasobu certyfikatu](/azure/templates/microsoft.logic/integrationaccounts/certificates)
+
+  * [Definicja zasobu mapy](/azure/templates/microsoft.logic/integrationaccounts/maps)
+
+  * [Definicja zasobu partnera](/azure/templates/microsoft.logic/integrationaccounts/partners)
+
+  * [Definicja zasobu schematu](/azure/templates/microsoft.logic/integrationaccounts/schemas)
+
+  * [Definicja zasobu sesji](/azure/templates/microsoft.logic/integrationaccounts/sessions)
 
 <a name="workflow-definition-parameters"></a>
 

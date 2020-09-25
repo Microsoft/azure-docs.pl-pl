@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: 373629c86f2d842ad2e02dd2b66739f3963bf7ed
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 6366824b8dc7f63f99ebda2a542d95d3eb1c6146
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064557"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301109"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Jak zintegrować RabbitMQ z Azure Service Bus
 
@@ -98,7 +98,7 @@ W tym miejscu Zadzwoń do Shovel `azure` i wybierz `AMQP 0.9.1` jako protokół 
 
 Po stronie kolejki rzeczy można użyć `azure` jako nazwy kolejki. Jeśli ta kolejka nie istnieje, RabbitMQ utworzy ją. Możesz również wybrać nazwę kolejki, która już istnieje. Pozostałe opcje można pozostawić domyślnie.
 
-Następnie po `destination` stronie elementów wybierz opcję `AMQP 1.0` jako protokół. W `URI` polu wprowadź ciąg łączący, który został uzyskany z poprzedniego kroku, przeprowadzono konwersję parametrów połączenia platformy Azure do formatu RabbitMQ. Powinno ono wyglądać następująco:
+Następnie po `destination` stronie elementów wybierz opcję `AMQP 1.0` jako protokół. W `URI` polu wprowadź ciąg łączący, który został uzyskany z poprzedniego kroku, przeprowadzono konwersję parametrów połączenia platformy Azure do formatu RabbitMQ. Powinien on wyglądać następująco:
 
 ```
 amqps://rabbitmq-shovel:StringOfRandomChars@rabbitmq.servicebus.windows.net:5671/?sasl=plain
@@ -112,7 +112,7 @@ W interfejsie RabbitMQ Management można przejść do obszaru `Queues` , wybrać
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Opublikuj pierwszy komunikat":::
 
-Wróć do platformy Azure i sprawdź kolejkę. Kliknij `Service Bus Explorer` w lewym panelu. Jeśli wszystko poszło dobrze, zobaczysz, że kolejka zawiera jeden komunikat. Yay, gratulacje!
+Wróć do platformy Azure i sprawdź kolejkę. Kliknij `Service Bus Explorer` w lewym panelu, a następnie kliknij przycisk _wgląd_ . Jeśli wszystko poszło dobrze, zobaczysz, że kolejka zawiera jeden komunikat. Yay, gratulacje!
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Kolejka Azure Service Bus":::
 
@@ -136,3 +136,8 @@ Gratulacje! Osiągnięto dużo! Możesz zarządzać komunikatami od RabbitMQ do 
 Zgodnie z poprzednimi krokami zintegrowane obszary organizacji, które znajdowały się poza platformą Azure. Wtyczka Shovel zezwala na wysyłanie komunikatów z usługi RabbitMQ do Azure Service Bus. Ma to olbrzymią zaletę, ponieważ teraz można umożliwić zaufanym podmiotom trzecim łączenie ich aplikacji z wdrożeniem platformy Azure.
 
 Na końcu wiadomości dotyczące włączania połączeń i z tą techniką właśnie otwieramy nową.
+
+## <a name="next-steps"></a>Następne kroki
+
+- Dowiedz się więcej o [Azure Service Bus](./service-bus-messaging-overview.md)
+- Dowiedz się więcej o [obsłudze AMQP 1,0 w Service Bus](./service-bus-amqp-overview.md)

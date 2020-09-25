@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 9dafb702117a7e171ff88b3c77d7b8b79503636f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3514ce966e1de9af1741de6b966964aca2599610
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066457"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269237"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Utwórz lub Przyłącz gałęzie równoległe dla akcji przepływu pracy w Azure Logic Apps
 
@@ -47,7 +47,7 @@ Aplikacja logiki czeka na zakończenie wszystkich gałęzi przed kontynuowaniem 
 
 1. W polu wyszukiwania Znajdź i wybierz żądaną akcję.
 
-   ![Znajdź i wybierz żądaną akcję](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   ![Zrzut ekranu przedstawiający okno "Wybieranie akcji" w Projektancie aplikacji logiki.](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
    Wybrana akcja będzie teraz widoczna w gałęzi równoległej, na przykład:
 
@@ -59,7 +59,7 @@ Aplikacja logiki czeka na zakończenie wszystkich gałęzi przed kontynuowaniem 
 
 1. W polu wyszukiwania Znajdź i wybierz żądaną akcję.
 
-   ![Znajdź i wybierz akcję sekwencyjną](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe "Wybieranie akcji" i pole wyszukiwania w Projektancie aplikacji logiki.](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
 
    Wybrana akcja będzie teraz wyświetlana w bieżącej gałęzi, na przykład:
 

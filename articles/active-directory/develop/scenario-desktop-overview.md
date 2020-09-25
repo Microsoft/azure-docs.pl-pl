@@ -12,38 +12,28 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6cbb574245c7b11d2437693d60fd952becedba3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83771863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257558"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenariusz: aplikacja klasyczna, która wywołuje interfejsy API sieci Web
 
 Dowiedz się wszystkiego, co jest potrzebne do utworzenia aplikacji klasycznej, która wywołuje interfejsy API sieci Web.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Jeśli jeszcze tego nie zrobiono, Utwórz swoją pierwszą aplikację, postępując zgodnie z przewodnikiem Szybki Start dla programu .NET, platforma uniwersalna systemu Windows (platformy UWP) — szybki start lub natywną aplikację macOS do przewodnika Szybki Start:
+Jeśli jeszcze tego nie zrobiono, Utwórz swoją pierwszą aplikację, wykonując Przewodnik Szybki Start:
 
-> [!div class="nextstepaction"]
-> [Szybki start: uzyskiwanie tokenu i wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji klasycznej w systemie Windows](./quickstart-v2-windows-desktop.md)
-
-
-> [!div class="nextstepaction"]
-> [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z poziomu aplikacji platformy UWP](./quickstart-v2-uwp.md)
-
-> [!div class="nextstepaction"]
-> [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z natywnej aplikacji macOS](./quickstart-v2-ios.md)
+- [Szybki start: uzyskiwanie tokenu i wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji klasycznej w systemie Windows](./quickstart-v2-windows-desktop.md)
+- [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z poziomu aplikacji platformy UWP](./quickstart-v2-uwp.md)
+- [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z natywnej aplikacji macOS](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>Omówienie
 
-Napisz aplikację klasyczną i chcesz zalogować użytkowników do aplikacji i wywoływać interfejsy API sieci Web, takie jak Microsoft Graph, inne interfejsy API firmy Microsoft lub własny internetowy interfejs API. Masz kilka możliwości:
+Napisz aplikację klasyczną i chcesz zalogować użytkowników do aplikacji i wywoływać interfejsy API sieci Web, takie jak Microsoft Graph, inne interfejsy API firmy Microsoft lub własny internetowy interfejs API. Istnieje kilka rozwiązań:
 
 - Możesz użyć pozyskiwania tokenów interaktywnych:
 
@@ -64,6 +54,10 @@ Napisz aplikację klasyczną i chcesz zalogować użytkowników do aplikacji i w
 ## <a name="specifics"></a>Szczegółowych informacji
 
 Aplikacje klasyczne mają pewne różne wartości. Są one zależne od tego, czy aplikacja korzysta z uwierzytelniania interaktywnego, czy nie.
+
+## <a name="recommended-reading"></a>Zalecany odczyt
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

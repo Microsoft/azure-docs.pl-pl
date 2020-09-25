@@ -13,31 +13,24 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1f90f7f23fbdf10b91d8dfc7cd00cca83cd32fbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70ddc2191cc06a1bede87adc5940e0f7dea63384
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882577"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257541"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenariusz: aplikacja mobilna, która wywołuje interfejsy API sieci Web
 
 Dowiedz się, jak utworzyć aplikację mobilną, która wywołuje interfejsy API sieci Web.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>Wprowadzenie
 
-Utwórz pierwszą aplikację mobilną i wypróbuj Przewodnik Szybki Start.
+Jeśli jeszcze tego nie zrobiono, Utwórz swoją pierwszą aplikację, wykonując Przewodnik Szybki Start:
 
-> [!div class="nextstepaction"]
-> [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z poziomu aplikacji systemu Android](./quickstart-v2-android.md)
->
-> [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z poziomu aplikacji systemu iOS](./quickstart-v2-ios.md)
->
-> [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z aplikacji platformy Xamarin dla systemu iOS lub Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+- [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z poziomu aplikacji systemu Android](./quickstart-v2-android.md)
+- [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z poziomu aplikacji systemu iOS](./quickstart-v2-ios.md)
+- [Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z aplikacji platformy Xamarin dla systemów iOS i Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) (GitHub)
 
 ## <a name="overview"></a>Omówienie
 
@@ -60,7 +53,11 @@ Podczas tworzenia aplikacji mobilnej na platformie Microsoft Identity należy pa
 - W systemach iOS i Android MSAL może używać zewnętrznej przeglądarki do logowania użytkowników. Zewnętrzna przeglądarka może pojawić się na wierzchu swojej aplikacji.
 - Nigdy nie używaj wpisu tajnego w aplikacji mobilnej. W tych aplikacjach wpisy tajne są dostępne dla wszystkich użytkowników.
 
+## <a name="recommended-reading"></a>Zalecany odczyt
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Rejestrowanie aplikacji](scenario-mobile-app-registration.md)
+> [Rejestracja aplikacji](scenario-mobile-app-registration.md)

@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256589"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft Identity platform i OpenID Connect Connect Protocol
 
@@ -37,9 +37,9 @@ Najbardziej podstawowy przepływ logowania zawiera kroki przedstawione na nastę
 
 OpenID Connect Connect zawiera opis dokumentu metadanych [(RFC)](https://openid.net/specs/openid-connect-discovery-1_0.html) , który zawiera większość informacji wymaganych do zalogowania się do aplikacji. Obejmuje to takie informacje, jak adresy URL, które mają być używane, oraz lokalizację publicznych kluczy podpisywania usługi. Ten dokument można znaleźć, dołączając ścieżkę dokumentu odnajdywania do adresu URL urzędu:
 
-Ścieżka dokumentu odnajdywania:`/.well-known/openid-configuration`
+Ścieżka dokumentu odnajdywania: `/.well-known/openid-configuration`
 
-Uwierzytelniania`https://login.microsoftonline.com/{tenant}/v2.0`
+Uwierzytelniania `https://login.microsoftonline.com/{tenant}/v2.0`
 
 `{tenant}`Może przyjmować jedną z czterech wartości:
 
@@ -101,7 +101,7 @@ Gdy aplikacja sieci Web wymaga uwierzytelnienia użytkownika, może kierować u�
 > [!IMPORTANT]
 > Aby pomyślnie zażądać tokenu identyfikatora z punktu końcowego/Authorization, Rejestracja aplikacji w [portalu rejestracji](https://portal.azure.com) musi mieć niejawne przyznanie id_tokens włączony na karcie uwierzytelnianie (która ustawia `oauth2AllowIdTokenImplicitFlow` flagę w [manifeście aplikacji](reference-app-manifest.md) na `true` ). Jeśli nie jest włączona, `unsupported_response` zostanie zwrócony błąd: "podana wartość parametru wejściowego" response_type "nie jest dozwolona dla tego klienta. Oczekiwana wartość to "Code" "
 
-Przykład:
+Na przykład:
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -249,7 +249,7 @@ Parametry odpowiedzi oznaczają te same elementy, niezależnie od przepływu uż
 
 | Parametr | Opis |
 | --- | --- |
-| `token` | Token, który będzie używany do wywoływania punktu końcowego UserInfo.|
+| `access_token` | Token, który będzie używany do wywoływania punktu końcowego UserInfo.|
 | `token_type` | Zawsze "Bearer" |
 | `expires_in`| Czas wygaśnięcia tokenu dostępu (w sekundach). |
 | `scope` | Uprawnienia przyznane tokenowi dostępu.  Należy pamiętać, że ponieważ punkt końcowy UserInfo jest hostowany w programie MS Graph, w tym miejscu mogą znajdować się dodatkowe zakresy grafu (np. User. Read), jeśli zostały one wcześniej przyznane do aplikacji.  Wynika to z faktu, że token dla danego zasobu zawsze zawiera wszystkie uprawnienia aktualnie przyznane klientowi.  |

@@ -3,12 +3,12 @@ title: Przekazuj połączenie hybrydowe jako procedurę obsługi zdarzeń dla zd
 description: Opisuje, w jaki sposób można użyć Azure Relay połączeń hybrydowych jako programów obsługi zdarzeń Azure Event Grid zdarzeń.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 38233a2e103600f07837ce9a1ad8d63fe7e4fb99
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3807e2d125d652b8f5ed7c9dec1b972d69f699f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105715"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270206"
 ---
 # <a name="relay-hybrid-connection-as-an-event-handler-for-azure-event-grid-events"></a>Przekazuj połączenie hybrydowe jako procedurę obsługi zdarzeń dla zdarzeń Azure Event Grid
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń, a **Azure Relay** jest jednym z nich. 
@@ -40,6 +40,9 @@ Zapoznaj się z poniższym samouczkiem, aby zapoznać się z przykładem użycia
     }
 }
 ```
+
+> [!NOTE]
+> Dostarczanie zdarzeń do Azure Relay połączenia hybrydowego w **innej dzierżawie** nie jest obsługiwane. 
 
 ## <a name="next-steps"></a>Następne kroki
 Listę obsługiwanych programów obsługi zdarzeń zawiera artykuł [obsługi zdarzeń](event-handlers.md) . 

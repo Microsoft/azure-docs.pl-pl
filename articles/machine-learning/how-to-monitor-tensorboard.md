@@ -5,17 +5,17 @@ description: Uruchom TensorBoard, aby wizualizować historie uruchamiania eksper
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: maxluk
-ms.author: maxluk
+author: minxia
+ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: da5c128b9e0befd69e1ded6b47644a3c64b8f657
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b6d4ac2727e558ed3d4538b6d325b7304d7928f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905051"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250882"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Wizualizuj przebiegi eksperymentu i metryki za pomocą TensorBoard i Azure Machine Learning
 
@@ -25,7 +25,7 @@ Ten artykuł zawiera informacje na temat sposobu wyświetlania przebiegów ekspe
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) to pakiet aplikacji sieci Web służący do sprawdzania i analizowania struktury eksperymentów oraz wydajności.
 
 Sposób uruchamiania programu TensorBoard z Azure Machine Learning eksperymenty są zależne od typu eksperymentu:
-+ Jeśli eksperyment natywnie wyprowadza pliki dziennika, które są konsumowane przez TensorBoard, takie jak PyTorch, Łańcucher i TensorFlow eksperymenty, można [uruchomić TensorBoard bezpośrednio](#direct) z historii przebiegów eksperymentu. 
++ Jeśli eksperyment natywnie wyprowadza pliki dziennika, które są konsumowane przez TensorBoard, takie jak PyTorch, Łańcucher i TensorFlow eksperymenty, można [uruchomić TensorBoard bezpośrednio](#launch-tensorboard) z historii przebiegów eksperymentu. 
 
 + W przypadku eksperymentów, które nie umożliwiają natywnego wyprowadzania plików TensorBoard, takich jak Scikit-nauka lub Azure Machine Learning eksperymenty, użyj [ `export_to_tensorboard()` metody](#export) do eksportowania historii uruchamiania jako TensorBoard dzienników i uruchamiania TensorBoard z tego miejsca. 
 
@@ -35,30 +35,22 @@ Sposób uruchamiania programu TensorBoard z Azure Machine Learning eksperymenty 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Aby uruchomić TensorBoard i wyświetlić historie uruchamiania eksperymentów, eksperymenty muszą mieć wcześniej włączone rejestrowanie, aby śledzić metryki i wydajność.  
-
 * Kod w tym dokumencie można uruchomić w dowolnym z następujących środowisk: 
-
     * Wystąpienie obliczeniowe Azure Machine Learning — nie jest wymagane pobieranie ani instalacja
-
         * Ukończ [Samouczek: Zainstaluj środowisko i obszar roboczy](tutorial-1st-experiment-sdk-setup.md) , aby utworzyć dedykowany serwer notesu wstępnie załadowany z zestawem SDK i przykładowym repozytorium.
-
         * W folderze Samples na serwerze notesu Znajdź dwa ukończone i rozwinięte notesy, przechodząc do następujących katalogów:
             * **jak to zrobić — Uczenie maszynowe > uczenie — w przypadku głębokiej nauki > eksportu-Run-History-to-tensorboard > Export-Run-History-to-tensorboard. ipynb**
-
             * **Instrukcje-to-use-Azure > śledzenie i monitorowanie eksperymentów > tensorboard. ipynb**
-
     * Własny serwer notesu Juptyer
        * [Zainstaluj zestaw SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) z `tensorboard` dodatkowymi
         * [Utwórz obszar roboczy Azure Machine Learning](how-to-manage-workspace.md).  
         * [Utwórz plik konfiguracji obszaru roboczego](how-to-configure-environment.md#workspace).
-  
-<a name="direct"></a>
 
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>Opcja 1: bezpośrednie wyświetlanie historii uruchamiania w TensorBoard
 
 Ta opcja działa w przypadku eksperymentów, które natywnie wyprowadzają pliki dzienników TensorBoard, takie jak PyTorch, Łańcucher i eksperymenty TensorFlow. Jeśli nie jest to przypadek eksperymentu, zamiast tego użyj [ `export_to_tensorboard()` metody](#export) .
 
-Poniższy przykładowy kod używa [eksperymentu demonstracyjnego mnist ręcznie](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) z repozytorium TensorFlow w zdalnym miejscu docelowym obliczeń Azure Machine Learning COMPUTE. Następnie pouczymy nasz model z niestandardowym [TensorFlow szacowaniaem](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true)zestawu SDK, a następnie Zacznijmy TensorBoard z tego eksperymentu TensorFlow, czyli eksperymentu, który natywnie wyprowadza pliki zdarzeń.
+Poniższy przykładowy kod używa [eksperymentu demonstracyjnego mnist ręcznie](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) z repozytorium TensorFlow w zdalnym miejscu docelowym obliczeń Azure Machine Learning COMPUTE. Następnie skonfigurujemy i uruchomimy przebieg do uczenia modelu TensorFlow, a następnie zaczniemy TensorBoard na ten eksperyment TensorFlow.
 
 ### <a name="set-experiment-name-and-create-project-folder"></a>Ustawianie nazwy eksperymentu i tworzenie folderu projektu
 
@@ -92,9 +84,9 @@ W pliku kodu mnist ręcznie mnist_with_summaries. PR należy zauważyć, że ist
 
  ### <a name="configure-experiment"></a>Konfigurowanie eksperymentu
 
-W poniższej tabeli skonfigurujemy eksperyment i konfigurujesz katalogi dla dzienników i danych. Te dzienniki zostaną przekazane do usługi artefaktów, która TensorBoard później dostęp do nich.
+W poniższej tabeli skonfigurujemy eksperyment i konfigurujesz katalogi dla dzienników i danych. Te dzienniki zostaną przekazane do historii uruchamiania, która TensorBoard później dostęp do nich.
 
->[!Note]
+> [!Note]
 > Na potrzeby tego przykładu TensorFlow należy zainstalować TensorFlow na komputerze lokalnym. Ponadto moduł TensorBoard (to jest, który jest dołączony do TensorFlow) musi być dostępny dla jądra tego notesu, ponieważ komputer lokalny jest uruchomionym TensorBoard.
 
 ```Python
@@ -113,9 +105,9 @@ if not path.exists(data_dir):
 
 os.environ["TEST_TMPDIR"] = data_dir
 
-# Writing logs to ./logs results in their being uploaded to Artifact Service,
+# Writing logs to ./logs results in their being uploaded to the run history,
 # and thus, made accessible to our TensorBoard instance.
-script_params = ["--log_dir", logs_dir]
+args = ["--log_dir", logs_dir]
 
 # Create an experiment
 exp = Experiment(ws, experiment_name)
@@ -127,7 +119,7 @@ Dla tego eksperymentu tworzymy klaster AmlCompute, jednak eksperymenty mogą by�
 ```Python
 from azureml.core.compute import ComputeTarget, AmlCompute
 
-cluster_name = "cpucluster"
+cluster_name = "cpu-cluster"
 
 cts = ws.compute_targets
 found = False
@@ -151,19 +143,23 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-### <a name="submit-run-with-tensorflow-estimator"></a>Prześlij przebieg z TensorFlow szacowania
+### <a name="configure-and-submit-training-run"></a>Konfigurowanie i przesyłanie przebiegu szkoleniowego
 
-TensorFlow szacowania zapewnia prosty sposób uruchamiania zadania szkolenia TensorFlow na obiekcie docelowym obliczeń. Jest to implementowane za pomocą [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py&preserve-view=true) klasy generycznej, która może służyć do obsługi dowolnej struktury. Aby uzyskać więcej informacji o modelach szkoleniowych przy użyciu generycznej szacowania, zobacz [uczenie modeli Azure Machine Learning przy](how-to-train-ml-models.md) użyciu usługi szacowania
+Skonfiguruj zadanie szkoleniowe, tworząc obiekt ScriptRunConfig.
 
 ```Python
-from azureml.train.dnn import TensorFlow
+from azureml.core import ScriptRunConfig
+from azureml.core import Environment
 
-tf_estimator = TensorFlow(source_directory=exp_dir,
-                          compute_target=compute_target,
-                          entry_script='mnist_with_summaries.py',
-                          script_params=script_params)
+# Here we will use the TensorFlow 2.2 curated environment
+tf_env = Environment.get(ws, 'AzureML-TensorFlow-2.2-GPU')
 
-run = exp.submit(tf_estimator)
+src = ScriptRunConfig(source_directory=exp_dir,
+                      script='mnist_with_summaries.py',
+                      arguments=args,
+                      compute_target=compute_target,
+                      environment=tf_env)
+run = exp.submit(src)
 ```
 
 ### <a name="launch-tensorboard"></a>Uruchom TensorBoard
@@ -184,8 +180,8 @@ tb.start()
 tb.stop()
 ```
 
->[!Note]
- W tym przykładzie użyto TensorFlow, TensorBoard może być łatwo używany z modelami PyTorch i łańcucha. TensorFlow musi być dostępny na maszynie z systemem TensorBoard, ale nie jest to konieczne na maszynie wykonującej obliczenia PyTorch lub łańcucha. 
+> [!Note]
+> W tym przykładzie użyto TensorFlow, TensorBoard może być łatwo używany z PyTorchem lub łańcuchem. TensorFlow musi być dostępny na maszynie z systemem TensorBoard, ale nie jest to konieczne na maszynie wykonującej obliczenia PyTorch lub łańcucha. 
 
 
 <a name="export"></a>
@@ -273,11 +269,11 @@ export_to_tensorboard(root_run, logdir)
 root_run.complete()
 ```
 
->[!Note]
- Można również wyeksportować konkretny przebieg do TensorBoard przez określenie nazwy przebiegu  `export_to_tensorboard(run_name, logdir)`
+> [!Note]
+> Można również wyeksportować konkretny przebieg do TensorBoard przez określenie nazwy przebiegu  `export_to_tensorboard(run_name, logdir)`
 
 ### <a name="start-and-stop-tensorboard"></a>Uruchamianie i zatrzymywanie TensorBoard
-Gdy nasza historia przebiegu tego eksperymentu zostanie wyeksportowana, można uruchomić TensorBoard z użyciem metody [Start ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#&preserve-view=truestart-start-browser-false-) . 
+Gdy nasza historia przebiegu tego eksperymentu zostanie wyeksportowana, można uruchomić TensorBoard z użyciem metody [Start ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-start-browser-false-) . 
 
 ```Python
 from azureml.tensorboard import Tensorboard
@@ -289,7 +285,7 @@ tb = Tensorboard([], local_root=logdir, port=6006)
 tb.start()
 ```
 
-Gdy skończysz, pamiętaj, aby wywołać metodę [stop ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#&preserve-view=truestop--) obiektu TensorBoard. W przeciwnym razie TensorBoard będzie nadal działać do momentu wyłączenia jądra notesu. 
+Gdy skończysz, pamiętaj, aby wywołać metodę [stop ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true#&preserve-view=truestop--) obiektu TensorBoard. W przeciwnym razie TensorBoard będzie nadal działać do momentu wyłączenia jądra notesu. 
 
 ```python
 tb.stop()

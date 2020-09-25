@@ -11,20 +11,16 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c01724340df7e0efffe9847b49e1fe9d444ee01
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253124"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257626"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenariusz: aplikacja demona, która wywołuje interfejsy API sieci Web
 
 Dowiedz się, co należy zrobić, aby utworzyć aplikację demona, która wywołuje interfejsy API sieci Web.
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="overview"></a>Omówienie
 
@@ -58,6 +54,10 @@ Dla deweloperów kompleksowe środowisko dla tego scenariusza ma następujące a
 - Podczas [rejestracji aplikacji](./scenario-daemon-app-registration.md)identyfikator URI odpowiedzi nie jest wymagany. Musisz udostępnić wpisy tajne lub certyfikaty lub potwierdzenia z usługą Azure AD. Musisz również zażądać uprawnień aplikacji i udzielić zgody administratorowi na korzystanie z tych uprawnień aplikacji.
 - [Konfiguracja aplikacji](./scenario-daemon-app-configuration.md) wymaga podania poświadczeń klienta jako współużytkowanych z usługą Azure AD podczas rejestracji aplikacji.
 - [Zakres](scenario-daemon-acquire-token.md#scopes-to-request) używany do uzyskiwania tokenu z przepływem poświadczeń klienta musi być zakresem statycznym.
+
+## <a name="recommended-reading"></a>Zalecany odczyt
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

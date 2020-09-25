@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 332c33ce46298e5338587cd4d001466d30c1a9e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 138b3b35633b432193a1972421f05d0a8e52b90a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937192"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301367"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Ochrona obciążeń Kubernetes
 
@@ -95,11 +95,15 @@ Azure Security Center obejmuje pakiet zaleceń, które są dostępne po zainstal
     1. Wybierz pozycję **Zapisz**.
 
 
-1. Aby wymusić dowolne zalecenia, ustaw **odmowę** na karcie **parametry** zasad zabezpieczeń Security Center:
+1. Aby wymusić dowolne zalecenia, 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opcja odmowy dla parametru Azure Policy":::
+    1. Otwórz stronę szczegóły rekomendacji i wybierz pozycję **Odmów**:
 
-    Spowoduje to odmowę wszelkich niezgodnych żądań do klastrów AKS
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opcja odmowy dla parametru Azure Policy":::
+
+        Spowoduje to otwarcie okienka, w którym ustawisz zakres. 
+
+    1. Po ustawieniu zakresu wybierz pozycję **Zmień na Odmów**.
 
 1. Aby zobaczyć, które zalecenia dotyczą klastrów:
 

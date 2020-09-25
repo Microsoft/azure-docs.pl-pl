@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 30f9f1998ee133c2546c9f4de7a99c51feb8740f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5ec419be5c7549553788d009f09fa3e0fb8655e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166199"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258289"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicjuj aplikacje klienckie przy użyciu MSAL.NET
 W tym artykule opisano sposób inicjowania publicznego klienta i poufnych aplikacji klienckich przy użyciu biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET).  Aby dowiedzieć się więcej na temat typów aplikacji klienta i opcji konfiguracji aplikacji, zapoznaj się z [omówieniem](msal-client-applications.md).
@@ -98,7 +98,7 @@ Modyfikatory, które można ustawić dla klienta publicznego lub poufnego konstr
 
 |Modyfikator | Opis|
 |--------- | --------- |
-|`.WithAuthority()`7 zastąpień | Ustawia domyślny urząd certyfikacji usługi Azure AD, z możliwością wyboru chmury platformy Azure, odbiorców, dzierżawy (identyfikatora dzierżawy lub nazwy domeny) lub bezpośredniego przekazywania identyfikatora URI urzędu certyfikacji.|
+|`.WithAuthority()` 7 zastąpień | Ustawia domyślny urząd certyfikacji usługi Azure AD, z możliwością wyboru chmury platformy Azure, odbiorców, dzierżawy (identyfikatora dzierżawy lub nazwy domeny) lub bezpośredniego przekazywania identyfikatora URI urzędu certyfikacji.|
 |`.WithAdfsAuthority(string)` | Ustawia domyślny urząd aplikacji jako urząd usług ADFS.|
 |`.WithB2CAuthority(string)` | Ustawia domyślny urząd aplikacji jako urząd Azure AD B2C.|
 |`.WithClientId(string)` | Zastępuje identyfikator klienta.|
@@ -137,7 +137,7 @@ Załóżmy, że Twoja aplikacja jest aplikacją biznesową, która jest tylko dl
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzurePublic, tenantId)
+        .WithAuthority(AzureCloudInstance.AzurePublic, tenantId)
         .Build();
 ```
 
@@ -146,7 +146,7 @@ W takim przypadku Programowanie dla chmur narodowych jest teraz uproszczone. Je�
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
+        .WithAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
 ```
 

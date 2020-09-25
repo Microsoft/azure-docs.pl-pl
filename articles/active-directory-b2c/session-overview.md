@@ -1,6 +1,6 @@
 ---
 title: Sesje logowania jednokrotnego w Azure Active Directory B2C | Microsoft Docs
-description: Skonfiguruj zachowanie sesji w Azure Active Directory B2C.
+description: Omówienie konfigurowania zachowania sesji w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0004c874a2011a78bb5cfe67ff0a840224d47bbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82927041"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258969"
 ---
 # <a name="azure-ad-b2c-session"></a>Sesja Azure AD B2C
 

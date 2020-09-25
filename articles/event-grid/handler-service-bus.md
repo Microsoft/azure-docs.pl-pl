@@ -3,12 +3,12 @@ title: Service Bus kolejek i tematów jako programów obsługi zdarzeń dla zdar
 description: Opisuje, w jaki sposób można używać kolejek Service Bus i tematów jako programów obsługi zdarzeń Azure Event Grid zdarzeń.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 00f937a66ff17c2d5f502fe976675c999ee02a58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440800"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270172"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus kolejek i tematów jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń, a **Azure Service Bus** jest jednym z nich. 
@@ -51,7 +51,7 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="message-properties"></a>Właściwości komunikatu
-Jeśli używasz **tematu Service Bus lub kolejki** jako programu obsługi zdarzeń dla zdarzeń z Event Grid, ustaw następujące nagłówki komunikatów: 
+Jeśli używasz **tematu Service Bus lub kolejki** jako programu obsługi zdarzeń dla zdarzeń z Event Grid, są to właściwości, które otrzymujesz w nagłówkach wiadomości: 
 
 | Nazwa właściwości | Opis |
 | ------------- | ----------- | 
@@ -156,6 +156,9 @@ Wewnętrzny identyfikator systemu dla wiadomości będzie utrzymywany przez pono
     }
 }
 ```
+
+> [!NOTE]
+> Dostarczanie zdarzeń do kolejki lub tematu usługi Azure Serval Bus w **innej dzierżawie** nie jest obsługiwane. 
 
 ## <a name="next-steps"></a>Następne kroki
 Listę obsługiwanych programów obsługi zdarzeń zawiera artykuł [obsługi zdarzeń](event-handlers.md) . 

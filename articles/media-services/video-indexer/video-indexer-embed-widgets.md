@@ -10,13 +10,13 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/10/2020
 ms.author: juliako
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5f418384d4ec1272600df2488dc71d2102d6a24d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js
+ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011807"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268625"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Osadź Video Indexer widżety w aplikacjach
 
@@ -59,7 +59,7 @@ Za pomocą widżetu edytora można tworzyć nowe projekty i zarządzać szczegó
 
 |Nazwa|Definicja|Opis|
 |---|---|---|
-|`accessToken`<sup>*</sup> | Ciąg | Zapewnia dostęp do filmów wideo, które są tylko na koncie używanym do osadzenia widżetu.<br> Widżet edytora wymaga `accessToken` parametru. |
+|`accessToken`<sup>*</sup> | String | Zapewnia dostęp do filmów wideo, które są tylko na koncie używanym do osadzenia widżetu.<br> Widżet edytora wymaga `accessToken` parametru. |
 |`language` | Kod języka | Kontroluje język odtwarzacza. Wartość domyślna to `en-US`.<br/>Przykład: `language=de-DE`. |
 |`locale` | Kod w języku krótkim | Steruje językiem usługi Insights. Wartość domyślna to `en`.<br/>Przykład: `language=de`. |
 |`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru.| 
@@ -304,7 +304,7 @@ Zobacz repozytorium [przykłady kodu](https://github.com/Azure-Samples/media-ser
 | `url-generator`                   | Generuje niestandardowy adres URL osadzania widżetów na podstawie opcji określonych przez użytkownika.             |
 | `html5-player`                    | Osadź plik VI Insights przy użyciu domyślnego odtwarzacza wideo HTML5.                           |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać informacje na temat sposobu wyświetlania i edytowania Video Indexer szczegółowych informacji, zobacz [Wyświetlanie i edytowanie Video Indexer szczegółowych](video-indexer-view-edit.md)informacji.
 

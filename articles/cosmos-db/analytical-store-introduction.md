@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900270"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253195"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
 
@@ -60,7 +60,7 @@ Nie ma to wpływu na wydajność obciążeń transakcyjnych ze względu na zapyt
 
 ### <a name="auto-sync"></a>Autosynchronizacja
 
-Automatyczna synchronizacja dotyczy w pełni zarządzanej funkcji Azure Cosmos DB, w której operacje wstawiania, aktualizacji i usuwania danych operacyjnych są automatycznie synchronizowane z magazynu transakcyjnego do magazynu analitycznego niemal w czasie rzeczywistym w ciągu 5 minut.
+Automatyczna synchronizacja dotyczy w pełni zarządzanej funkcji Azure Cosmos DB, w której operacje wstawiania, aktualizacji i usuwania danych operacyjnych są automatycznie synchronizowane z magazynu transakcyjnego do magazynu analitycznego w czasie niemal rzeczywistym. Opóźnienie autosynchronizacji jest zwykle w ciągu 2 minut. W przypadku udostępnionej bazy danych przepływności o dużej liczbie kontenerów czas oczekiwania na synchronizację poszczególnych kontenerów może być większy i potrwać do 5 minut. Chcielibyśmy dowiedzieć się więcej o tym, jak to opóźnienie pasuje do Twoich scenariuszy. W tym celu skontaktuj się z [zespołem Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 Funkcja autosynchronizacji wraz z magazynem analitycznym zapewnia następujące korzyści:
 
@@ -138,7 +138,7 @@ salary: 1000000
 }
 ```
 
-Właściwość liścia `streetName` w obiekcie zagnieżdżonym `address` będzie reprezentowana w schemacie magazynu analitycznego jako kolumna `address.object.streetName.int32` . Typ danych jest dodawany jako sufiks do kolumny. W ten sposób, jeśli inny dokument zostanie dodany do magazynu transakcyjnego, w którym Właściwość liścia `streetNo` ma wartość "123" (należy zauważyć, że jest to ciąg), schemat magazynu analitycznego jest automatycznie rozwijany bez zmiany typu wcześniej zapisanej kolumny. Nowa kolumna dodana do magazynu analitycznego, w `address.object.streetName.string` której jest przechowywana ta wartość "123".
+Właściwość liścia `streetNo` w obiekcie zagnieżdżonym `address` będzie reprezentowana w schemacie magazynu analitycznego jako kolumna `address.object.streetNo.int32` . Typ danych jest dodawany jako sufiks do kolumny. W ten sposób, jeśli inny dokument zostanie dodany do magazynu transakcyjnego, w którym Właściwość liścia `streetNo` ma wartość "123" (należy zauważyć, że jest to ciąg), schemat magazynu analitycznego jest automatycznie rozwijany bez zmiany typu wcześniej zapisanej kolumny. Nowa kolumna dodana do magazynu analitycznego, w `address.object.streetNo.string` której jest przechowywana ta wartość "123".
 
 **Typ danych na mapę sufiksów**
 
@@ -155,7 +155,7 @@ Oto mapa wszystkich typów danych właściwości i ich reprezentacje sufiksów w
 |Zero   | ". null"   | wartość null|
 |String|    ". ciąg" | "ABC"|
 |Timestamp |    ". timestamp" |  Sygnatura czasowa (0, 0)|
-|DateTime   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
+|Data i godzina   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
 |ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|
 |Dokument   |". Object" |    {"a": "a"}|
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5d1aa4ff87b272911e4e39076f337ea249b962d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705694"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256606"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 
@@ -48,15 +48,15 @@ W przypadku uwierzytelniania OAuth 2,0 te typy uprawnień są nazywane *zakresam
 * Zapisywanie w kalendarzu użytkownika przy użyciu `Calendars.ReadWrite`
 * Wyślij wiadomość jako użytkownika używaną przez `Mail.Send`
 
-Aplikacja najczęściej żąda tych uprawnień, określając zakresy w żądaniach do autoryzowanego punktu końcowego platformy tożsamości firmy Microsoft. Jednak pewne uprawnienia o wysokim poziomie uprawnień mogą być udzielane tylko przez zgodę administratora i wymagane/udzielone za pomocą [punktu końcowego zgody administratora](v2-permissions-and-consent.md#admin-restricted-permissions). Przeczytaj, aby dowiedzieć się więcej.
+Aplikacja najczęściej żąda tych uprawnień, określając zakresy w żądaniach do autoryzowanego punktu końcowego platformy tożsamości firmy Microsoft. Jednak pewne uprawnienia o wysokim poziomie uprawnień mogą być udzielane tylko przez zgodę administratora i wymagane/udzielone za pomocą [punktu końcowego zgody administratora](#admin-restricted-permissions). Przeczytaj, aby dowiedzieć się więcej.
 
 ## <a name="permission-types"></a>Typy uprawnień
 
 Platforma tożsamości firmy Microsoft obsługuje dwa typy uprawnień: **delegowane uprawnienia** i **uprawnienia do aplikacji**.
 
-* **Delegowane uprawnienia** są używane przez aplikacje, które mają obecny zalogowany użytkownik. W przypadku tych aplikacji użytkownik lub administrator wyraża zgodę na uprawnienia, które aplikacja żąda, a aplikacja jest delegowana do działania jako zalogowany użytkownik podczas wykonywania wywołań do zasobu docelowego. Niektóre uprawnienia delegowane mogą być przydzielone przez użytkowników niebędących administratorami, ale niektóre uprawnienia z wyższymi uprawnieniami wymagają [zgody administratora](v2-permissions-and-consent.md#admin-restricted-permissions). Aby dowiedzieć się, które role administratorów mogą wyrazić zgodę na delegowane uprawnienia, zobacz [uprawnienia roli administratora w usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Delegowane uprawnienia** są używane przez aplikacje, które mają obecny zalogowany użytkownik. W przypadku tych aplikacji użytkownik lub administrator wyraża zgodę na uprawnienia, które aplikacja żąda, a aplikacja jest delegowana do działania jako zalogowany użytkownik podczas wykonywania wywołań do zasobu docelowego. Niektóre uprawnienia delegowane mogą być przydzielone przez użytkowników niebędących administratorami, ale niektóre uprawnienia z wyższymi uprawnieniami wymagają [zgody administratora](#admin-restricted-permissions). Aby dowiedzieć się, które role administratorów mogą wyrazić zgodę na delegowane uprawnienia, zobacz [uprawnienia roli administratora w usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-* **Uprawnienia aplikacji** są używane przez aplikacje, które są uruchamiane bez zalogowanego użytkownika. na przykład aplikacje, które działają jako usługi lub demony w tle.  Uprawnienia aplikacji mogą być [wysyłane tylko przez administratora](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+* **Uprawnienia aplikacji** są używane przez aplikacje, które są uruchamiane bez zalogowanego użytkownika. na przykład aplikacje, które działają jako usługi lub demony w tle.  Uprawnienia aplikacji mogą być [wysyłane tylko przez administratora](#requesting-consent-for-an-entire-tenant).
 
 _Czynne uprawnienia_ to uprawnienia, które aplikacja będzie miała podczas wykonywania żądań do zasobu docelowego. Ważne jest, aby zrozumieć różnicę między uprawnieniami delegowanymi i aplikacjami, do których przyznano aplikację, a jej obowiązującymi uprawnieniami podczas wykonywania wywołań do zasobu docelowego.
 
@@ -302,6 +302,16 @@ response_type=token            //code or a hybrid flow is also possible here
 
 Spowoduje to wyświetlenie ekranu zgody na wszystkie zarejestrowane uprawnienia (jeśli dotyczy to na podstawie powyższych opisów wyrazów zgody i `/.default` ), a następnie zwraca id_token, a nie token dostępu.  Takie zachowanie istnieje w przypadku niektórych starszych klientów przechodzących z biblioteki ADAL do MSAL i **nie powinny** być używane przez nowych klientów przeznaczonych dla punktu końcowego platformy tożsamości firmy Microsoft.
 
+### <a name="client-credentials-grant-flow-and-default"></a>Przepływ i/.default przydzielenia poświadczeń klienta
+
+Innym sposobem korzystania z programu `./default` jest żądanie uprawnień aplikacji (lub *ról*) w aplikacji nieinterakcyjnej, takiej jak aplikacja demona, która używa przepływu przydzielenia [poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md) do wywoływania internetowego interfejsu API.
+
+Aby utworzyć uprawnienia aplikacji (role) dla internetowego interfejsu API, zobacz [jak: Dodawanie ról aplikacji w aplikacji](howto-add-app-roles-in-azure-ad-apps.md).
+
+Żądania poświadczeń klienta w aplikacji klienckiej **muszą** zawierać `scope={resource}/.default` , gdzie `{resource}` jest interfejs API sieci Web, w którym aplikacja ma być wywoływana. Wystawianie żądania poświadczeń klienta przy użyciu poszczególnych uprawnień aplikacji (ról) **nie** jest obsługiwane. Wszystkie uprawnienia aplikacji (role) przyznane dla tego internetowego interfejsu API zostaną uwzględnione w zwróconym tokenie dostępu.
+
+Aby udzielić dostępu do zdefiniowanych uprawnień aplikacji, w tym przyznawania zgody administratora aplikacji, zobacz [Szybki Start: Konfigurowanie aplikacji klienckiej w celu uzyskania dostępu do internetowego interfejsu API](quickstart-configure-app-access-web-apis.md).
+
 ### <a name="trailing-slash-and-default"></a>Końcowe ukośniki i/.default
 
 Niektóre identyfikatory URI zasobów mają końcowy ukośnik ( `https://contoso.com/` w przeciwieństwie do `https://contoso.com` ), co może spowodować problemy z walidacją tokenu.  Może to wystąpić przede wszystkim podczas żądania tokenu dla usługi Azure Resource Management ( `https://management.azure.com/` ), który ma końcowy ukośnik w identyfikatorze URI zasobu i wymaga, aby był obecny w momencie żądania tokenu.  W takim przypadku podczas żądania tokenu dla `https://management.azure.com/` i używania należy `/.default` zażądać `https://management.azure.com//.default` — należy zwrócić uwagę na podwójny ukośnik!
@@ -311,3 +321,8 @@ Ogólnie — Jeśli sprawdzono, czy token jest wystawiony, a token jest odrzucan
 ## <a name="troubleshooting-permissions-and-consent"></a>Rozwiązywanie problemów z uprawnieniami i zgodą
 
 Jeśli użytkownik lub Twoja aplikacja widzi nieoczekiwane błędy w trakcie procesu wyrażania zgody, zapoznaj się z artykułem dotyczącym rozwiązywania problemów: [nieoczekiwany błąd podczas wyrażania zgody aplikacji](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+
+## <a name="next-steps"></a>Następne kroki
+
+* [IDENTYFIKATORY tokenów | Platforma tożsamości firmy Microsoft](id-tokens.md)
+* [Tokeny dostępu | Platforma tożsamości firmy Microsoft](access-tokens.md)

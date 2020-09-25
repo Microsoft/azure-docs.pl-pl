@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683882"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259377"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Samouczek dotyczący konfigurowania Experian z Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ W tym przykładowym samouczku przedstawiono wskazówki dotyczące integrowania A
 
 W tym przykładzie jest używana zintegrowana tożsamość cyfrowa Experian i ryzyko oszustwa **CrossCore** . CrossCore jest usługą weryfikacji identyfikatora, która jest używana do weryfikacji tożsamości użytkownika. Jest to analiza ryzyka oparta na kilku informacjach dostarczonych przez użytkownika podczas przepływu rejestracji. CrossCore służy do określenia, czy użytkownik powinien być uprawniony do dalszej rejestracji. Następujące atrybuty mogą być używane w analizie ryzyka CrossCore:
 
-- E-mail
+- Poczta e-mail
 - Adres IP
 - Imię
 - Drugie imię
@@ -77,7 +77,7 @@ Na poniższym diagramie architektury przedstawiono implementację.
 
 ### <a name="part-1---deploy-the-api"></a>Część 1 — wdrażanie interfejsu API
 
-Wdróż podany kod interfejsu API w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Wdróż podany [kod interfejsu API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) w usłudze platformy Azure. Kod można opublikować z programu Visual Studio, postępując zgodnie z tymi [instrukcjami](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Aby skonfigurować usługę Azure AD przy użyciu wymaganych ustawień, należy podać adres URL wdrożonej usługi.
@@ -117,7 +117,7 @@ Zapoznaj się z tym [dokumentem](https://docs.microsoft.com/azure/active-directo
 
 ### <a name="part-5---replace-the-configuration-values"></a>Część 5 — zastępowanie wartości konfiguracyjnych
 
-W podanych zasadach niestandardowych Znajdź następujące symbole zastępcze i zastąp je odpowiednimi wartościami z Twojego wystąpienia
+W podanych [zasadach niestandardowych](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy)Znajdź następujące symbole zastępcze i zastąp je odpowiednimi wartościami z Twojego wystąpienia
 
 |                      Symbol zastępczy                       |                                   Zamień na wartość                                 |                   Przykład                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |

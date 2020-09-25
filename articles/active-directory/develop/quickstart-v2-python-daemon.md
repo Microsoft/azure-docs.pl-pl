@@ -1,6 +1,7 @@
 ---
-title: Demon platformy Microsoft Identity platform Python | Azure
-description: Dowiedz się, w jaki sposób proces Python może uzyskać token dostępu i wywołać interfejs API chroniony przez punkt końcowy platformy tożsamości firmy Microsoft przy użyciu własnej tożsamości aplikacji
+title: 'Szybki Start: wywoływanie Microsoft Graph z demona języka Python | Azure'
+titleSuffix: Microsoft identity platform
+description: W tym przewodniku szybki start dowiesz się, jak proces języka Python może uzyskać token dostępu i wywołać interfejs API chroniony przez punkt końcowy platformy tożsamości firmy Microsoft przy użyciu własnej tożsamości aplikacji
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 0969afa95009255981381d41268f416a615dd9f3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2c280b8241819155f32942a399caa7f916db3827
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683747"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257745"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API z aplikacji konsolowej języka Python przy użyciu tożsamości aplikacji
 
@@ -224,18 +225,3 @@ Aby dowiedzieć się więcej na temat aplikacji demonów, zobacz stronę docelow
 
 > [!div class="nextstepaction"]
 > [Aplikacja demona, która wywołuje interfejsy API sieci Web](scenario-daemon-overview.md)
-
-Aby zapoznać się z samouczkiem aplikacji demona, zobacz:
-
-> [!div class="nextstepaction"]
-> [Samouczek z konsolą Python demona](https://github.com/Azure-Samples/ms-identity-python-daemon)
-
-Dowiedz się więcej na temat uprawnień i wyrażania zgody:
-
-> [!div class="nextstepaction"]
-> [Uprawnienia i zgoda](v2-permissions-and-consent.md)
-
-Aby dowiedzieć się więcej na temat przepływu autoryzacji w tym scenariuszu, zapoznaj się z przepływem poświadczeń klienta OAuth 2.0:
-
-> [!div class="nextstepaction"]
-> [Client credentials Oauth flow (Przepływ OAuth poświadczeń klienta)](v2-oauth2-client-creds-grant-flow.md)

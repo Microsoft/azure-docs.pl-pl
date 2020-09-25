@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 75c434b5c1927251940a691a16069425b4cc88a3
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.date: 09/19/2020
+ms.openlocfilehash: 8023f3d7730a617ec502c8f181bad1fc27627694
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500406"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269169"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
@@ -75,6 +75,8 @@ Każdy adres URL zawiera `sp` `sv` parametr, i, `sig` zgodnie z opisem w tej tab
 | `sig` | Określa podpis, który ma być używany do uwierzytelniania dostępu do wyzwalacza. Ta sygnatura jest generowana przy użyciu algorytmu SHA256 z kluczowym kluczem dostępu dla wszystkich ścieżek URL i właściwości. Nie jest nigdy narażony ani publikowany, ten klucz jest przechowywany w postaci zaszyfrowanej i przechowywanej w aplikacji logiki. Aplikacja logiki autoryzuje tylko te wyzwalacze, które zawierają prawidłowy podpis utworzony przy użyciu klucza tajnego. |
 |||
 
+Wywołania przychodzące do punktu końcowego żądania mogą korzystać tylko z jednego schematu autoryzacji lub uwierzytelniania SAS lub [Azure Active Directory Open Authentication](#enable-oauth). Chociaż użycie jednego schematu nie powoduje wyłączenia innego schematu, użycie obu tych schematów w tym samym czasie powoduje błąd, ponieważ usługa nie wie, który schemat wybrać.
+
 Aby uzyskać więcej informacji na temat zabezpieczania dostępu za pomocą SAS, zobacz następujące sekcje w tym temacie:
 
 * [Generowanie ponowne kluczy dostępu](#access-keys)
@@ -121,62 +123,62 @@ W treści należy uwzględnić `KeyType` Właściwość jako `Primary` lub `Seco
 
 ### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Włącz Azure Active Directory Otwórz uwierzytelnianie (Azure AD OAuth)
 
-Jeśli aplikacja logiki rozpoczyna się od [wyzwalacza żądania](../connectors/connectors-native-reqres.md), można włączyć [Azure Active Directory otwartego uwierzytelniania (Azure AD OAuth)](../active-directory/develop/index.yml) przez zdefiniowanie lub dodanie zasad autoryzacji dla wywołań przychodzących do wyzwalacza żądania.
+W przypadku wywołań przychodzących do punktu końcowego, który jest tworzony przez wyzwalacz oparty na żądaniach, można włączyć [Azure Active Directory Otwórz uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml) przez zdefiniowanie lub dodanie zasad autoryzacji dla aplikacji logiki. W ten sposób wywołania przychodzące używają [tokenów dostępu](../active-directory/develop/access-tokens.md) OAuth do autoryzacji.
 
-Przed włączeniem tego uwierzytelniania zapoznaj się z następującymi kwestiami:
+Gdy aplikacja logiki odbiera żądanie przychodzące, które zawiera token dostępu OAuth, usługa Azure Logic Apps porównuje oświadczenia tokenu względem oświadczeń określonych przez poszczególne zasady autoryzacji. Jeśli istnieje dopasowanie między oświadczeniami tokenu a wszystkimi oświadczeniami w co najmniej jednym z zasad, autoryzacja powiedzie się dla żądania przychodzącego. Token może mieć więcej oświadczeń niż liczba określona przez zasady autoryzacji.
 
-* Wywołanie przychodzące do wyzwalacza żądania może używać tylko jednego schematu autoryzacji, uwierzytelniania OAuth usługi Azure AD przy użyciu tokenu uwierzytelniania, który jest obsługiwany tylko dla wyzwalacza żądania lub przy użyciu [adresu URL sygnatury dostępu współdzielonego (SAS)](#sas) , nie można używać obu tych schematów.
+Przed włączeniem protokołu OAuth usługi Azure AD zapoznaj się z następującymi kwestiami:
 
-  Chociaż użycie jednego schematu nie powoduje wyłączenia innego schematu, użycie obu jednocześnie powoduje błąd, ponieważ usługa nie wie, który schemat wybrać. Ponadto dla tokenów uwierzytelniania OAuth są obsługiwane tylko schematy autoryzacji [typu okaziciela](../active-directory/develop/active-directory-v2-protocols.md#tokens) , które są obsługiwane tylko dla wyzwalacza żądania. Token uwierzytelniania musi być określony `Bearer-type` w nagłówku autoryzacji.
+* Wywołanie przychodzące do punktu końcowego żądania może korzystać tylko z jednego schematu autoryzacji, uwierzytelniania OAuth usługi Azure AD lub [sygnatury dostępu współdzielonego (SAS)](#sas). Chociaż użycie jednego schematu nie powoduje wyłączenia innego schematu, użycie obu tych schematów w tym samym czasie powoduje błąd, ponieważ usługa Logic Apps nie wie, który schemat wybrać.
+
+* Tylko schematy autoryzacji [typu okaziciela](../active-directory/develop/active-directory-v2-protocols.md#tokens) są obsługiwane w przypadku tokenów dostępu OAuth usługi Azure AD, co oznacza, że `Authorization` nagłówek tokenu dostępu musi określać `Bearer` Typ.
 
 * Twoja aplikacja logiki jest ograniczona do maksymalnej liczby zasad autoryzacji. Każda zasada autoryzacji ma również maksymalną liczbę [oświadczeń](../active-directory/develop/developer-glossary.md#claim). Aby uzyskać więcej informacji, zobacz [limity i konfiguracja dla Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
-* Zasady autoryzacji muszą zawierać co najmniej element Claim **wystawcy** , który ma wartość rozpoczynającą się od znaku `https://sts.windows.net/` lub `https://login.microsoftonline.com/` (OAuth v2) jako identyfikator wystawcy usługi Azure AD. Aby uzyskać więcej informacji o tokenach dostępu, zobacz [tokeny dostępu platformy tożsamości firmy Microsoft](../active-directory/develop/access-tokens.md).
+* Zasady autoryzacji muszą zawierać co najmniej wystąpienie **wystawcy** , które ma wartość rozpoczynającą się od `https://sts.windows.net/` lub `https://login.microsoftonline.com/` (OAuth v2) jako identyfikator wystawcy usługi Azure AD.
 
-Gdy aplikacja logiki odbiera żądanie przychodzące, które zawiera token uwierzytelniania OAuth, Azure Logic Apps porównuje oświadczenia tokenu dotyczące oświadczeń w poszczególnych zasadach autoryzacji. Jeśli istnieje dopasowanie między oświadczeniami tokenu a wszystkimi oświadczeniami w co najmniej jednym z zasad, autoryzacja powiedzie się dla żądania przychodzącego. Token może mieć więcej oświadczeń niż liczba określona przez zasady autoryzacji.
+  Załóżmy na przykład, że aplikacja logiki ma zasady autoryzacji, które wymagają dwóch typów, **odbiorców** i **wystawcy**. Ta przykładowa [sekcja ładunku](../active-directory/develop/access-tokens.md#payload-claims) dla zdekodowanego tokenu dostępu zawiera typy zgłoszeń `aud` , gdzie jest wartością **odbiorców** i `iss` jest wartością **wystawcy** :
 
-Załóżmy na przykład, że aplikacja logiki ma zasady autoryzacji, które wymagają dwóch typów, **wystawców** i **odbiorców**. Ten przykładowy zdekodowany [token dostępu](../active-directory/develop/access-tokens.md) obejmuje zarówno te typy roszczeń:
-
-```json
-{
-   "aud": "https://management.core.windows.net/",
-   "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
-   "iat": 1582056988,
-   "nbf": 1582056988,
-   "exp": 1582060888,
-   "_claim_names": {
-      "groups": "src1"
-   },
-   "_claim_sources": {
-      "src1": {
-         "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
-    }
-   },
-   "acr": "1",
-   "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
-   "amr": [
-      "rsa",
-      "mfa"
-   ],
-   "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
-   "appidacr": "2",
-   "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
-   "family_name": "Sophia Owen",
-   "given_name": "Sophia Owen (Fabrikam)",
-   "ipaddr": "167.220.2.46",
-   "name": "sophiaowen",
-   "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
-   "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
-   "puid": "1003000000098FE48CE",
-   "scp": "user_impersonation",
-   "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
-   "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-   "unique_name": "SophiaOwen@fabrikam.com",
-   "upn": "SophiaOwen@fabrikam.com",
-   "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
-   "ver": "1.0"
-}
-```
+  ```json
+  {
+      "aud": "https://management.core.windows.net/",
+      "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
+      "iat": 1582056988,
+      "nbf": 1582056988,
+      "exp": 1582060888,
+      "_claim_names": {
+         "groups": "src1"
+      },
+      "_claim_sources": {
+         "src1": {
+            "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
+         }
+      },
+      "acr": "1",
+      "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
+      "amr": [
+         "rsa",
+         "mfa"
+      ],
+      "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
+      "appidacr": "2",
+      "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
+      "family_name": "Sophia Owen",
+      "given_name": "Sophia Owen (Fabrikam)",
+      "ipaddr": "167.220.2.46",
+      "name": "sophiaowen",
+      "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
+      "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
+      "puid": "1003000000098FE48CE",
+      "scp": "user_impersonation",
+      "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
+      "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "unique_name": "SophiaOwen@fabrikam.com",
+      "upn": "SophiaOwen@fabrikam.com",
+      "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
+      "ver": "1.0"
+   }
+   ```
 
 <a name="define-authorization-policy-portal"></a>
 
@@ -190,14 +192,14 @@ Aby włączyć usługę Azure AD OAuth dla aplikacji logiki w Azure Portal, wyko
 
    ![Wybierz pozycję "Autoryzacja" > "Dodaj zasady"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
-1. Podaj informacje o zasadach autoryzacji, określając typy i wartości [zgłoszeń](../active-directory/develop/developer-glossary.md#claim) , których oczekuje aplikacja logiki w tokenie uwierzytelniania przedstawionym przez każde wywołanie przychodzące do wyzwalacza żądania:
+1. Podaj informacje dotyczące zasad autoryzacji, określając [typy](../active-directory/develop/developer-glossary.md#claim) i wartości, które aplikacja logiki oczekuje w tokenie dostępu przedstawionym przez każde wywołanie przychodzące do wyzwalacza żądania:
 
    ![Podaj informacje dotyczące zasad autoryzacji](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
 
    | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
    | **Nazwa zasad** | Tak | Nazwa, która ma być używana dla zasad autoryzacji |
-   | **Roszczenia** | Tak | Typy i wartości zgłoszeń akceptowane przez aplikację logiki z wywołań przychodzących. Oto dostępne typy zgłoszeń: <p><p>- **Issuer** <br>- **Publiczn** <br>- **Temat** <br>- **Identyfikator JWT** (Identyfikator tokenu sieci Web JSON) <p><p>Na liście **oświadczeń** musi znajdować się oświadczenie **wystawcy** , które ma wartość rozpoczynającą się od `https://sts.windows.net/` lub `https://login.microsoftonline.com/` jako identyfikator wystawcy usługi Azure AD. Aby uzyskać więcej informacji na temat tych typów oświadczeń, zobacz [oświadczenia w tokenach zabezpieczeń usługi Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Możesz również określić własny typ i wartość zgłoszenia. |
+   | **Roszczenia** | Tak | Typy i wartości zgłoszeń akceptowane przez aplikację logiki z wywołań przychodzących. Oto dostępne typy zgłoszeń: <p><p>- **Issuer** <br>- **Publiczn** <br>- **Temat** <br>- **Identyfikator JWT** (Identyfikator tokenu sieci Web JSON) <p><p>Co najmniej lista **oświadczeń** musi zawierać oświadczenie **wystawcy** , które ma wartość rozpoczynającą się od `https://sts.windows.net/` lub `https://login.microsoftonline.com/` jako identyfikator wystawcy usługi Azure AD. Aby uzyskać więcej informacji na temat tych typów oświadczeń, zobacz [oświadczenia w tokenach zabezpieczeń usługi Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Możesz również określić własny typ i wartość zgłoszenia. |
    |||
 
 1. Aby dodać kolejną pozycję, wybierz jedną z następujących opcji:
@@ -210,14 +212,27 @@ Aby włączyć usługę Azure AD OAuth dla aplikacji logiki w Azure Portal, wyko
 
 1. Po zakończeniu wybierz pozycję **Zapisz**.
 
+1. Aby dołączyć `Authorization` Nagłówek z tokenu dostępu w danych wyjściowych wyzwalacza opartego na żądaniach, zobacz [Dołącz nagłówek "Autoryzacja" w danych wyjściowych wyzwalacza żądania](#include-auth-header).
+
 <a name="define-authorization-policy-template"></a>
 
 #### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Definiowanie zasad autoryzacji w szablonie Azure Resource Manager
 
-Aby włączyć usługę Azure AD OAuth w szablonie ARM na potrzeby wdrażania aplikacji logiki, w `properties` sekcji [definicji zasobu aplikacji logiki](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)należy dodać `accessControl` obiekt, jeśli nie istnieje, który zawiera `triggers` obiekt. W `triggers` obiekcie Dodaj obiekt, w `openAuthenticationPolicies` którym zdefiniowano co najmniej jedną zasadę autoryzacji, wykonując następującą składnię:
+Aby włączyć usługę Azure AD OAuth w szablonie ARM w celu wdrożenia aplikacji logiki, wykonaj następujące kroki i Poniższa składnia:
 
-> [!NOTE]
-> `claims`Tablica musi zawierać `iss` wartość, która jest wartością rozpoczynającą się od `https://sts.windows.net/` lub `https://login.microsoftonline.com/` jako identyfikatorem wystawcy usługi Azure AD. Aby uzyskać więcej informacji na temat tych typów oświadczeń, zobacz [oświadczenia w tokenach zabezpieczeń usługi Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Możesz również określić własny typ i wartość zgłoszenia.
+1. W `properties` sekcji [definicji zasobu aplikacji logiki](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)Dodaj `accessControl` obiekt, jeśli nie istnieje, który zawiera `triggers` obiekt.
+
+   Aby uzyskać więcej informacji na temat `accessControl` obiektu, zobacz [ograniczanie zakresów adresów IP dla ruchu przychodzącego w szablonie Azure Resource Manager](#restrict-inbound-ip-template) i [Dokumentacja szablonu przepływów pracy Microsoft. Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
+
+1. W `triggers` obiekcie Dodaj `openAuthenticationPolicies` obiekt zawierający obiekt, w `policies` którym zdefiniowano co najmniej jedną zasadę autoryzacji.
+
+1. Podaj nazwę zasad autoryzacji, ustaw typ zasad na `AAD` , a `claims` następnie Dołącz tablicę, w której określisz jeden lub więcej typów roszczeń.
+
+   Co najmniej `claims` Tablica musi zawierać typ wystąpienia wystawcy, w którym Właściwość Claim zostanie ustawiona `name` na wartość i ustawiona na wartość `iss` `value` Rozpocznij od `https://sts.windows.net/` lub `https://login.microsoftonline.com/` jako identyfikator wystawcy usługi Azure AD. Aby uzyskać więcej informacji na temat tych typów oświadczeń, zobacz [oświadczenia w tokenach zabezpieczeń usługi Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Możesz również określić własny typ i wartość zgłoszenia.
+
+1. Aby dołączyć `Authorization` Nagłówek z tokenu dostępu w danych wyjściowych wyzwalacza opartego na żądaniach, zobacz [Dołącz nagłówek "Autoryzacja" w danych wyjściowych wyzwalacza żądania](#include-auth-header).
+
+Oto składnia do obserwowania:
 
 ```json
 "resources": [
@@ -256,7 +271,30 @@ Aby włączyć usługę Azure AD OAuth w szablonie ARM na potrzeby wdrażania ap
 ],
 ```
 
-Aby uzyskać więcej informacji na temat `accessControl` sekcji, zobacz [ograniczanie zakresów adresów IP dla ruchu przychodzącego w szablonie Azure Resource Manager](#restrict-inbound-ip-template) i [Dokumentacja szablonu przepływów pracy Microsoft. Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
+<a name="include-auth-header"></a>
+
+#### <a name="include-authorization-header-in-request-trigger-outputs"></a>Uwzględnij nagłówek "Authorization" w danych wyjściowych wyzwalacza żądania
+
+W przypadku aplikacji logiki, które [umożliwiają Azure Active Directory Otwórz uwierzytelnianie (Azure AD OAuth)](#enable-oauth) do autoryzowania wywołań przychodzących do wyzwalaczy opartych na żądaniach, można włączyć wyzwalacz żądania lub wyjściowe wyzwalacza http elementu webhook w celu uwzględnienia `Authorization` nagłówka z tokenu dostępu OAuth. W podstawowej definicji JSON wyzwalacza Dodaj i ustaw `operationOptions` Właściwość na `IncludeAuthorizationHeadersInOutputs` . Oto przykład dla wyzwalacza żądania:
+
+```json
+"triggers": {
+   "manual": {
+      "inputs": {
+         "schema": {}
+      },
+      "kind": "Http",
+      "type": "Request",
+      "operationOptions": "IncludeAuthorizationHeadersInOutputs"
+   }
+}
+```
+
+Więcej informacji można znaleźć w następujących tematach:
+
+* [Odwołanie do schematu dla wyzwalaczy i typów akcji — wyzwalacz żądania](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)
+* [Odwołanie do schematu dla typów wyzwalaczy i akcji — wyzwalacz elementu webhook protokołu HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
+* [Odwołanie do schematu dla typów wyzwalaczy i akcji — opcje operacji](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options)
 
 <a name="azure-api-management"></a>
 
@@ -825,7 +863,7 @@ Jeśli opcja [podstawowa](../active-directory-b2c/secure-rest-api.md) jest dost�
 
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Tak | Podstawowe | Typ uwierzytelniania do użycia |
+| **Authentication** | `type` | Tak | Podstawowy | Typ uwierzytelniania do użycia |
 | **Nazwa użytkownika** | `username` | Tak | <*Nazwa użytkownika*>| Nazwa użytkownika służąca do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
 | **Hasło** | `password` | Tak | <*hasło*> | Hasło do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
 ||||||
@@ -896,12 +934,12 @@ Wyzwalacze żądań umożliwiają uwierzytelnianie wywołań przychodzących po 
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Tak | **Active Directory OAuth** <br>lub <br>`ActiveDirectoryOAuth` | Typ uwierzytelniania do użycia. Logic Apps jest obecnie zgodny z [protokołem OAuth 2,0](../active-directory/develop/v2-overview.md). |
-| **Urząd** | `authority` | Nie | <*Adres URL-urząd-token-wystawca*> | Adres URL urzędu dostarczającego token uwierzytelniania. Domyślnie ta wartość to `https://login.windows.net` . |
+| **Urząd** | `authority` | Nie | <*Adres URL-urząd-token-wystawca*> | Adres URL urzędu dostarczającego token dostępu. Domyślnie ta wartość to `https://login.windows.net` . |
 | **Dzierżawa** | `tenant` | Tak | <*Identyfikator dzierżawy*> | Identyfikator dzierżawy dla dzierżawy usługi Azure AD |
 | **Grupy odbiorców** | `audience` | Tak | <*zasób do autoryzacji*> | Zasób, który ma być używany na potrzeby autoryzacji, na przykład `https://management.core.windows.net/` |
 | **Identyfikator klienta** | `clientId` | Tak | <*Identyfikator klienta*> | Identyfikator klienta aplikacji żądającej autoryzacji |
 | **Typ poświadczeń** | `credentialType` | Tak | Certyfikat <br>lub <br>Wpis tajny | Typ poświadczeń, którego klient używa do żądania autoryzacji. Ta właściwość i wartość nie pojawiają się w podstawowej definicji aplikacji logiki, ale określają właściwości, które są wyświetlane dla wybranego typu poświadczenia. |
-| **Wpisu** | `secret` | Tak, ale tylko dla typu poświadczeń "wpis tajny" | <*Klient-klucz tajny*> | Wpis tajny klienta na potrzeby żądania autoryzacji |
+| **Wpis tajny** | `secret` | Tak, ale tylko dla typu poświadczeń "wpis tajny" | <*Klient-klucz tajny*> | Wpis tajny klienta na potrzeby żądania autoryzacji |
 | **PFX** | `pfx` | Tak, ale tylko dla typu poświadczeń "certyfikat" | <*zakodowany plik PFX — zawartość*> | Zawartość zakodowana algorytmem Base64 z pliku wymiany informacji osobistych (PFX) |
 | **Hasło** | `password` | Tak, ale tylko dla typu poświadczeń "certyfikat" | <*hasło dla pliku PFX*> | Hasło do uzyskiwania dostępu do pliku PFX |
 |||||

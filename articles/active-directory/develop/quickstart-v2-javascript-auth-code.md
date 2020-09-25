@@ -1,7 +1,7 @@
 ---
 title: Logowanie użytkowników w języku JavaScript aplikacje jednostronicowe (SPA) z kodem uwierzytelniania | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, w jaki sposób aplikacja JavaScript może wywołać interfejs API, który wymaga tokenów dostępu przy użyciu platformy tożsamości firmy Microsoft.
+description: Dowiedz się, jak aplikacja obsługująca skrypty JavaScript (single-page) może logować użytkowników z kont osobistych, kont służbowych i szkolnych przy użyciu przepływu kodu autoryzacji.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 461f05b90b79852194d657a5dcbc3ba7583cff8d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.openlocfilehash: 224ce2ea64016db7b632ac36193f39e679c8da4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115190"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257983"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA przy użyciu przepływu kodu uwierzytelniania
 
@@ -44,7 +44,7 @@ Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. A
 > 1. Wybierz pozycję [Rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
 > 1. Wprowadź nazwę aplikacji.
 > 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
-> 1. Wybierz pozycję **Rejestruj**.
+> 1. Wybierz pozycję **Zarejestruj**.
 > 1. Przejdź do okienka szybkiego startu i postępuj zgodnie z instrukcjami, aby pobrać i automatycznie skonfigurować nową aplikację.
 >
 > ### <a name="option-2-manual-register-and-manually-configure-your-application-and-code-sample"></a>Opcja 2 (ręczna): Zarejestruj i ręcznie skonfiguruj aplikację oraz przykład kodu
@@ -57,7 +57,7 @@ Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. A
 > 1. Wybierz pozycję **Nowa rejestracja**.
 > 1. Po wyświetleniu strony **Rejestrowanie aplikacji** wprowadź nazwę aplikacji.
 > 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
-> 1. Wybierz pozycję **Rejestruj**. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
+> 1. Wybierz pozycję **Zarejestruj**. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 > 1. W lewym okienku zarejestrowanej aplikacji wybierz pozycję **uwierzytelnianie**.
 > 1. W obszarze **Konfiguracja platformy**wybierz pozycję **Dodaj platformę**. W otwartym okienku wybierz pozycję **aplikacja jednostronicowa**.
 > 1. Ustaw wartość **identyfikatora URI przekierowania** na `http://localhost:3000/` .
@@ -111,9 +111,9 @@ Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. A
 >
 > Zmodyfikuj wartości w `msalConfig` sekcji zgodnie z opisem w tym miejscu:
 >
-> - `Enter_the_Application_Id_Here`to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji.
-> - `Enter_the_Cloud_Instance_Id_Here`jest wystąpieniem chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź wartość `https://login.microsoftonline.com/` . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](authentication-national-cloud.md).
-> - `Enter_the_Tenant_info_here`jest ustawiony na jedną z następujących wartości:
+> - `Enter_the_Application_Id_Here` to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji.
+> - `Enter_the_Cloud_Instance_Id_Here` jest wystąpieniem chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź wartość `https://login.microsoftonline.com/` . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](authentication-national-cloud.md).
+> - `Enter_the_Tenant_info_here` jest ustawiony na jedną z następujących wartości:
 >   - Jeśli aplikacja obsługuje *konta w tym katalogu organizacji*, Zamień tę wartość na **Identyfikator dzierżawy** lub **nazwę dzierżawy**. Na przykład `contoso.microsoft.com`.
 >   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość wartością `organizations` .
 >   - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość wartością `common` . **W tym przewodniku szybki start Użyj programu** `common` .
@@ -152,7 +152,7 @@ Ten przewodnik Szybki Start używa MSAL.js 2,0 z przepływem kodu autoryzacji. A
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here`jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API Main (Global) Microsoft Graph wprowadź `https://graph.microsoft.com/` wartość (Dołącz końcowy ukośnik do przodu). Aby uzyskać więcej informacji na temat Microsoft Graph w chmurach narodowych, zobacz [wdrażanie w chmurze krajowej](/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here` jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API Main (Global) Microsoft Graph wprowadź `https://graph.microsoft.com/` wartość (Dołącz końcowy ukośnik do przodu). Aby uzyskać więcej informacji na temat Microsoft Graph w chmurach narodowych, zobacz [wdrażanie w chmurze krajowej](/graph/deployments).
 >
 > `graphMeEndpoint`Wartości i `graphMailEndpoint` w pliku *graphConfig.js* powinny wyglądać podobnie do poniższego, jeśli używasz głównej (globalnej) usługi interfejsu API Microsoft Graph:
 >
@@ -202,4 +202,4 @@ npm install @azure/msal-browser
 Aby uzyskać bardziej szczegółowy przewodnik krok po kroku dotyczący tworzenia aplikacji używanej w ramach tego przewodnika Szybki Start, zobacz następujący samouczek:
 
 > [!div class="nextstepaction"]
-> [Samouczek, aby zalogować się i wywoływać >MS Graph](./tutorial-v2-javascript-auth-code.md)
+> [Samouczek, aby zalogować się i wywoływać >MS Graph ](./tutorial-v2-javascript-auth-code.md)

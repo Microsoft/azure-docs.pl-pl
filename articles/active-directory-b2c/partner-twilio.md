@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 840d2afa72de290d5534adc766f8634efa6926e8
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 953653a758577ed3d48ca2d81403b4cb363ea294
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170058"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259072"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Integrowanie Twilio Weryfikuj aplikację z Azure Active Directory B2C
 
@@ -34,8 +34,8 @@ Aby rozpocząć, musisz:
 
 Następujące składniki tworzą rozwiązanie Twilio:
 
-- Aplikacja internetowa demonstracyjna .NET PSD2, która umożliwia logowanie się lub rejestrowanie i wykonywanie fikcyjnej transakcji o wysokim ryzyku.
-- Azure AD B2C połączone zasady logowania i rejestrowania się.
+- [Aplikacja internetowa demonstracyjna .NET PSD2](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/source-code/PSD2%20Demo%20App), która umożliwia logowanie się lub rejestrowanie i wykonywanie fikcyjnej transakcji o wysokim ryzyku.
+- Azure AD B2C połączone [zasady logowania i rejestrowania](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/policy)się.
 - Zasady Azure AD B2C zintegrowane z usługą Twilio weryfikują interfejs API przy użyciu polecenia `id_token_hint` .
 - Aplikacja sieci Web platformy .NET, która hostuje `.well-known` punkt końcowy OpenIdConnect, aby umożliwić weryfikację `id_token_hint` .
 
@@ -73,7 +73,7 @@ Następujące składniki tworzą rozwiązanie Twilio:
    <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
    ```
 
-2. Aplikacja sieci Web hostuje również generator podpowiedzi tokenu identyfikatora i punkt końcowy metadanych.
+2. [Aplikacja sieci Web](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/source-code/PSD2%20Demo%20App) hostuje również generator podpowiedzi tokenu identyfikatora i punkt końcowy metadanych.
    - Utwórz certyfikat podpisywania zgodnie z opisem w tym [przykładowym opisie](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#creating-a-signing-certificate).
    - Zaktualizuj następujące wiersze na podstawie certyfikatu w web.config:
    
@@ -86,7 +86,7 @@ Następujące składniki tworzą rozwiązanie Twilio:
 
 4. Aby zaktualizować rejestrację aplikacji Azure AD B2C, Dodaj adres URL odpowiedzi równy adresowi URL, pod którym jest hostowana aplikacja.
 
-5. Otwórz pliki zasad i Zastąp wszystkie wystąpienia  `contoso` nazwą dzierżawy.
+5. Otwórz [pliki zasad](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/policy) i Zastąp wszystkie wystąpienia  `contoso` nazwą dzierżawy.
 
 6. Znajdź profil techniczny interfejsu API REST Twilio **Custom-SMS — Rejestracja**. Zaktualizuj  `ServiceURL`   program za pomocą Twilio AccountSID i numeru od do zakupionego numeru telefonu.
 

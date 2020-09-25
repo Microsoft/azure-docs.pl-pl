@@ -1,7 +1,7 @@
 ---
 title: Weryfikowanie zakresów i chronionych interfejsów API sieci Web dla ról aplikacji | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak utworzyć chroniony internetowy interfejs API i skonfigurować kod aplikacji.
+description: Sprawdź, czy interfejs API jest wywoływany tylko przez aplikacje w imieniu użytkowników, którzy mają odpowiednie zakresy i aplikacje demona, które mają odpowiednie role aplikacji.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3cf8bfd2810e9c26a6f65c50c1a22baeec892af
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 1e5c8b788f1abbfbd46c4dfe6c7bb9d87adcee86
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855473"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257270"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>Chroniony internetowy interfejs API: weryfikowanie zakresów i ról aplikacji
 

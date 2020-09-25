@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd198a132f64c26f775a8212c22b77201d579260
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657144"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299914"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect opcje logowania użytkownika
 Program Azure Active Directory (Azure AD) Connect umożliwia użytkownikom logowanie do zasobów w chmurze i lokalnych przy użyciu tych samych haseł. W tym artykule opisano kluczowe koncepcje dotyczące poszczególnych modeli tożsamości, które ułatwiają wybranie tożsamości, która ma być używana do logowania się do usługi Azure AD.
@@ -155,7 +155,7 @@ Aby uzyskać poniższe informacje, Załóżmy, że będziemy zainteresowani cont
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Ustawienia ekspresowe/synchronizacja skrótów haseł
 
-| Stan | Wpływ na środowisko logowania użytkownika platformy Azure |
+| State | Wpływ na środowisko logowania użytkownika platformy Azure |
 |:---:|:--- |
 | Nie dodano |W takim przypadku żadna domena niestandardowa dla contoso.com nie została dodana do katalogu usługi Azure AD. Użytkownicy posiadający nazwę UPN lokalną z sufiksem @contoso.com nie będą mogli korzystać z lokalnej nazwy UPN do logowania się do platformy Azure. Zamiast tego będą musieli używać nowej nazwy UPN udostępnionej przez usługę Azure AD, dodając sufiks dla domyślnego katalogu usługi Azure AD. Na przykład Jeśli synchronizujesz użytkowników z katalogiem usługi Azure AD azurecontoso.onmicrosoft.com, wówczas użytkownik lokalny user@contoso.com otrzyma nazwę UPN user@azurecontoso.onmicrosoft.com . |
 | Niezweryfikowane |W tym przypadku mamy niestandardową contoso.com domeny, która jest dodawana do katalogu usługi Azure AD. Nie jest on jednak jeszcze zweryfikowany. Jeśli przejdziesz do synchronizacji użytkowników bez weryfikowania domeny, użytkownicy otrzymają nową nazwę UPN przez usługę Azure AD, podobnie jak w przypadku scenariusza "nie dodano". |
@@ -166,7 +166,7 @@ Nie można utworzyć Federacji z domyślną domeną. onmicrosoft.com w usłudze 
 
 W przypadku wybrania Federacji opcji logowania użytkownika **z AD FS**należy mieć domenę niestandardową, aby kontynuować tworzenie federacji w usłudze Azure AD. W naszej dyskusji oznacza to, że w katalogu usługi Azure AD powinna zostać dodana niestandardowa contoso.com domeny.
 
-| Stan | Wpływ na środowisko logowania użytkownika platformy Azure |
+| State | Wpływ na środowisko logowania użytkownika platformy Azure |
 |:---:|:--- |
 | Nie dodano |W takim przypadku Azure AD Connect nie znalazł pasującej domeny niestandardowej dla sufiksu UPN contoso.com w katalogu usługi Azure AD. Aby użytkownicy mogli się zalogować przy użyciu AD FS z lokalną nazwą UPN (na przykład), należy dodać niestandardową domenę contoso.com user@contoso.com . |
 | Niezweryfikowane |W takim przypadku Azure AD Connect wyświetli odpowiednie informacje o tym, jak można zweryfikować domenę na późniejszym etapie. |
@@ -179,7 +179,7 @@ Można zmienić metodę logowania użytkownika z Federacji, synchronizacji skró
 
 Na następnej stronie jest wyświetlany monit o podanie poświadczeń dla usługi Azure AD.
 
-![Łączenie z usługą Azure AD](./media/plan-connect-user-signin/changeusersignin2.png)
+![Zrzut ekranu pokazujący, gdzie należy wpisać poświadczenia dla usługi Azure AD.](./media/plan-connect-user-signin/changeusersignin2.png)
 
 Na stronie **logowania użytkownika** wybierz żądane Logowanie użytkownika.
 

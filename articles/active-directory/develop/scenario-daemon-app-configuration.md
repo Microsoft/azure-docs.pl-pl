@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/08/2020
+ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ad5c2ad76f9ab98a6ad284a0bb50f3a611dc9a00
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206036"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257677"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — konfiguracja kodu
 
@@ -51,16 +51,13 @@ W bibliotekach MSAL poświadczenia klienta (klucz tajny lub certyfikat) są prze
 
 Plik konfiguracji definiuje:
 
-- Urząd lub wystąpienie w chmurze i identyfikator dzierżawy.
+- Wystąpienie w chmurze i identyfikator dzierżawy, które razem składają się na *Urząd*.
 - Identyfikator klienta, który został uzyskany z rejestracji aplikacji.
 - Wpis tajny klienta lub certyfikat.
 
-> [!NOTE]
-> Fragmenty kodu platformy .NET w pozostałej części [konfiguracji](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs) odwołania do artykułu pochodzą z przykładu [Active-Directory-dotnetcore-demo-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
-
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[appsettings.jsna](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) podstawie przykładu [demona konsoli .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
+Oto przykład definiowania konfiguracji w [*appsettings.js*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) pliku. Ten przykład jest pobierany z programu z przykładu kodu [demona konsoli .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) w witrynie GitHub.
 
 ```json
 {
@@ -124,9 +121,9 @@ Odwołuje się do pakietu MSAL w kodzie aplikacji.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Dodaj pakiet NuGet [Microsoft. IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) do swojej aplikacji.
+Dodaj pakiet NuGet [Microsoft. Identity. Client](https://www.nuget.org/packages/Microsoft.Identity.Client) do swojej aplikacji, a następnie Dodaj do `using` niego dyrektywę w kodzie.
+
 W programie MSAL.NET poufna aplikacja kliencka jest reprezentowana przez `IConfidentialClientApplication` interfejs.
-Użyj przestrzeni nazw MSAL.NET w kodzie źródłowym.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -167,6 +164,23 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
            .Build();
+```
+
+`Authority`Jest to połączenie wystąpienia chmury i identyfikatora dzierżawy, na przykład `https://login.microsoftonline.com/contoso.onmicrosoft.com` lub `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd` . W *appsettings.js* w pliku przedstawionym w sekcji [plik konfiguracyjny](#configuration-file) są one reprezentowane `Instance` odpowiednio przez i `Tenant` wartości.
+
+W przykładowym kodzie, z którego pochodzi poprzedni fragment kodu, `Authority` jest właściwością klasy  [AuthenticationConfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) i jest zdefiniowana jako taka:
+
+```csharp
+/// <summary>
+/// URL of the authority
+/// </summary>
+public string Authority
+{
+    get
+    {
+        return String.Format(CultureInfo.InvariantCulture, Instance, Tenant);
+    }
+}
 ```
 
 # <a name="python"></a>[Python](#tab/python)

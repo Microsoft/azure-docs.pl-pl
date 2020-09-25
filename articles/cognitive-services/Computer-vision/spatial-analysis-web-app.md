@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 440f901f06e431c371b7445f4a04499c475c9aa1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5ffa5398143bff4e24d81a28a541e16c44700c99
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940586"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254027"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Instrukcje: wdrażanie aplikacji sieci Web zliczanie osób
 
@@ -181,8 +181,8 @@ Po wprowadzeniu powyższych parametrów kliknij pozycję **Recenzja + Utwórz** 
 
 Poczekaj na zakończenie instalacji i przejdź do zasobu w Azure Portal. Przejdź do sekcji **Konfiguracja** i Dodaj następujące dwa **Ustawienia aplikacji**.
 
-* `EventHubConsumerGroup` — Nazwa ciągu grupy odbiorców z usługi Azure IoT Hub, można utworzyć nową grupę odbiorców w centrum IoT Hub lub użyć grupy domyślnej. 
-* `IotHubConnectionString` — Parametry połączenia z usługą Azure IoT Hub, które można pobrać z sekcji klucze zasobu usługi Azure IoT Hub ![ Konfiguracja parametrów](./media/spatial-analysis/solution-app-config-page.png)
+* `EventHubConsumerGroup` — Nazwa ciągu grupy odbiorców z usługi Azure IoT Hub, można utworzyć nową grupę odbiorców w IoT Hub lub użyć grupy domyślnej. 
+* `IotHubConnectionString` — Parametry połączenia z IoT Hubem platformy Azure, które można pobrać z sekcji klucze zasobów usługi Azure IoT Hub ![ skonfigurować parametry](./media/spatial-analysis/solution-app-config-page.png)
 
 Po dodaniu tych 2 ustawień kliknij przycisk **Zapisz**. Następnie w menu nawigacji po lewej stronie kliknij pozycję **uwierzytelnianie/autoryzacja** i zaktualizuj ją na żądanym poziomie uwierzytelniania. Zalecamy korzystanie z usługi Azure Active Directory (Azure AD) Express. 
 

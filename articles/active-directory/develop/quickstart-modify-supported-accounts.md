@@ -1,6 +1,6 @@
 ---
-title: Modyfikowanie firmy Microsoft identyfikacja kont aplikacji platformy | Azure
-description: Konfigurowanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft pod kątem zmiany zbioru osób (kont) z dostępem do aplikacji.
+title: 'Szybki Start: modyfikowanie firmy Microsoft identyfikacja kont aplikacji platformy | Azure'
+description: Ten przewodnik Szybki Start umożliwia skonfigurowanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft w celu zmiany użytkownika lub konta, które mogą uzyskiwać dostęp do aplikacji.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d143bde9c22bc726f00b5c209d1b7fbc131905b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258017"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Szybki Start: modyfikowanie kont obsługiwanych przez aplikację
 
@@ -27,11 +27,7 @@ Z tego przewodnika Szybki start dowiesz się, jak zmodyfikować konfigurację ap
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem pracy upewnij się, że są spełnione następujące wymagania wstępne:
-
-* Znasz obsługiwane [uprawnienia i zgody](v2-permissions-and-consent.md), ponieważ ich znajomość jest istotna podczas tworzenia aplikacji, które mają być używane przez innych użytkowników lub aplikacje.
-* Masz dzierżawę z zarejestrowanymi w niej aplikacjami.
-  * Jeśli nie masz zarejestrowanych aplikacji, [dowiedz się, jak zarejestrować aplikacje za pomocą platformy tożsamości firmy Microsoft](quickstart-register-app.md).
+* Kończenie [szybkiego startu: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md)
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logowanie do witryny Azure Portal i wybranie aplikacji
 
@@ -78,13 +74,5 @@ Domyślnie niejawne udzielenie protokołu OAuth 2.0 jest wyłączone dla aplikac
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat innych powiązanych przewodników Szybki start dotyczących zarządzania aplikacjami:
-
-* [Rejestrowanie aplikacji za pomocą platformy tożsamości firmy Microsoft](quickstart-register-app.md)
-* [Konfigurowanie aplikacji klienckiej na potrzeby uzyskiwania dostępu do internetowych interfejsów API](quickstart-configure-app-access-web-apis.md)
-* [Konfigurowanie aplikacji w celu uwidocznienia internetowych interfejsów API](quickstart-configure-app-expose-web-apis.md)
-* [Usuwanie aplikacji zarejestrowanej za pomocą platformy tożsamości firmy Microsoft](quickstart-remove-app.md)
-
-Aby dowiedzieć się więcej na temat dwóch obiektów usługi Azure AD, które reprezentują zarejestrowaną aplikację i związek między nimi, zobacz [Application objects and service principal objects](app-objects-and-service-principals.md) (Obiekty aplikacji i obiekty jednostek usługi).
-
-Aby dowiedzieć się więcej o wytycznych dotyczących oznaczania marką, które należy stosować podczas opracowywania aplikacji przy użyciu usługi Azure Active Directory, zobacz [Wytyczne dotyczące oznaczania aplikacji marką](howto-add-branding-in-azure-ad-apps.md).
+> [!div class="nextstepaction"]
+> [Wytyczne dotyczące oznaczania aplikacji marką](howto-add-branding-in-azure-ad-apps.md)

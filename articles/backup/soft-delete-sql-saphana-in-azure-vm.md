@@ -3,59 +3,18 @@ title: Nietrwałe usuwanie dla programu SQL Server na maszynie wirtualnej platfo
 description: Dowiedz się, jak usuwanie nietrwałe dla programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure zwiększa bezpieczeństwo kopii zapasowych.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2a442997d426ff0bf4c74b0b45f7657cc0593b82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022296"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254299"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Nietrwałe usuwanie dla programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure
 
 Azure Backup teraz zapewnia nietrwałe usuwanie programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure. Jest to dodatek do już obsługiwanego [scenariusza usuwania nietrwałego maszyny wirtualnej platformy Azure](soft-delete-virtual-machines.md).
 
 [Usuwanie nietrwałe](backup-azure-security-feature-cloud.md) to funkcja zabezpieczeń, która pomaga chronić dane kopii zapasowej nawet po usunięciu. W przypadku usuwania nietrwałego, nawet jeśli złośliwy aktor usuwa kopię zapasową bazy danych (lub dane kopii zapasowej są przypadkowo usuwane), dane kopii zapasowej są przechowywane przez 14 dodatkowych dni. Pozwala to na odzyskanie tego elementu kopii zapasowej bez utraty danych. To dodatkowe przechowywanie danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiąże się z żadnym kosztem dla klienta.
-
->[!NOTE]
->Po włączeniu wersji zapoznawczej dla subskrypcji nie można wyłączyć usuwania nietrwałego tylko dla programu SQL Server lub SAP HANA baz danych przy włączonej obsłużyniu maszyn wirtualnych w tym samym magazynie. Można utworzyć oddzielne magazyny dla szczegółowej kontroli.
-
-## <a name="steps-to-enroll-in-preview"></a>Procedura rejestrowania w wersji zapoznawczej
-
-1. Zaloguj się do konta platformy Azure.
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-2. Wybierz subskrypcję, która ma zostać zarejestrowana w wersji zapoznawczej:
-
-   ```powershell
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-   ```
-
-3. Zarejestruj tę subskrypcję w programie w wersji zapoznawczej:
-
-   ```powershell
-   Register-AzureRMProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-4. Poczekaj 30 minut, aż subskrypcja zostanie zarejestrowana w wersji zapoznawczej.
-
-5. Aby sprawdzić stan, uruchom następujące polecenia cmdlet:
-
-   ```powershell
-   Get-AzureRmProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-6. Gdy subskrypcja zostanie wyświetlona jako zarejestrowana, uruchom następujące polecenie:
-
-   ```powershell
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
->[!NOTE]
->Za każdym razem, gdy nowy magazyn/magazyny są tworzone w ramach subskrypcji z włączoną obsługą usuwania nietrwałego, należy ponownie uruchomić następujące polecenie, aby włączyć funkcję dla nowo utworzonych magazynów.<BR>
-> `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 ## <a name="soft-delete-for-sql-server-in-azure-vm-using-azure-portal"></a>Usuwanie nietrwałe dla programu SQL Server na maszynie wirtualnej platformy Azure przy użyciu Azure Portal
 
@@ -129,7 +88,7 @@ Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -
 
 Wyłączenie tej funkcji nie jest zalecane. Jedyną okolicznością, w której należy rozważyć wyłączenie usuwania nietrwałego, jest to, że planujesz przeniesienie chronionych elementów do nowego magazynu i nie będzie można odczekać 14 dni przed usunięciem i ponownym włączeniem ochrony (na przykład w środowisku testowym). Aby uzyskać instrukcje dotyczące sposobu wyłączania usuwania nietrwałego, zobacz [Włączanie i wyłączanie usuwania nietrwałego](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj [często zadawane pytania](backup-azure-security-feature-cloud.md#frequently-asked-questions) dotyczące usuwania nietrwałego
 - Przeczytaj o wszystkich [funkcjach zabezpieczeń w programie Azure Backup](security-overview.md)

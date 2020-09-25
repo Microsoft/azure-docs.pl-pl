@@ -4,12 +4,12 @@ description: Opisuje kolejki utraconych wiadomości w Azure Service Bus. Kolejki
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5f7fb65a2a1a6d6529177cd20a85a6d845c119d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4dbd1216d3ff81e785f16ebed6ceabfa5d5897db
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301027"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Przegląd Service Busych kolejek utraconych
 
@@ -62,7 +62,7 @@ Wygasłe komunikaty są przeczyszczane i przenoszone do DLQ, gdy istnieje co naj
 
 ## <a name="errors-while-processing-subscription-rules"></a>Błędy podczas przetwarzania reguł subskrypcji
 
-Gdy właściwość [SubscriptionDescription. EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) jest włączona dla subskrypcji, wszelkie błędy występujące podczas wykonywania reguły filtru SQL subskrypcji są przechwytywane w DLQ wraz z komunikatem o błędzie.
+Gdy właściwość [SubscriptionDescription. EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) jest włączona dla subskrypcji, wszelkie błędy występujące podczas wykonywania reguły filtru SQL subskrypcji są przechwytywane w DLQ wraz z komunikatem o błędzie. Nie należy używać tej opcji w środowisku produkcyjnym, w którym nie wszystkie typy komunikatów mają Subskrybenci.
 
 ## <a name="application-level-dead-lettering"></a>Utraconych wiadomości na poziomie aplikacji
 
@@ -110,7 +110,7 @@ Możesz uzyskać dostęp do kolejki utraconych wiadomości za pomocą następuj�
 Jeśli używasz zestawu SDK platformy .NET, możesz uzyskać ścieżkę do kolejki utraconych wiadomości za pomocą metody SubscriptionClient. FormatDeadLetterPath (). Ta metoda przyjmuje nazwę tematu/nazwę subskrypcji i sufiksy z **/$DeadLetterQueue**.
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Więcej informacji o kolejkach Service Bus można znaleźć w następujących artykułach:
 

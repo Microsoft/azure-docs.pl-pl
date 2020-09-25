@@ -1,14 +1,16 @@
 ---
 title: Zasady uczenia — Personalizacja
 description: Ustawienia uczenia określają *Parametry* szkolenia modelu. Dwa modele tych samych danych, które są przeszkolone przy użyciu różnych ustawień uczenia, będą kończyć się różnymi.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 1d2038e3796df843736eb80f7e5645f4141c82f4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84700736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253636"
 ---
 # <a name="learning-policy-and-settings"></a>Zasady i ustawienia uczenia
 
