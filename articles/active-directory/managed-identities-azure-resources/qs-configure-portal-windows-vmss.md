@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie tożsamości zarządzanych w usłudze Azure VMSS — Azure AD
+title: Konfigurowanie tożsamości zarządzanych w usłudze VMSS — Azure AD
 description: Instrukcje krok po kroku dotyczące konfigurowania tożsamości zarządzanych dla zasobów platformy Azure w zestawie skalowania maszyn wirtualnych przy użyciu Azure Portal.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ab1adeac5f8c67e06682f49fdded88e6a350e7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 43b986b6bb25dff1227247b1d249ce565553877a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329137"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Skonfiguruj zarządzane tożsamości dla zasobów platformy Azure w zestawie skalowania maszyn wirtualnych przy użyciu Azure Portal
 
@@ -59,7 +59,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system na zestawie sk
 
 3. W obszarze **przypisano system**, **stan**, wybierz opcję **włączone** , a następnie kliknij przycisk **Zapisz**:
 
-   ![Zrzut ekranu strony konfiguracji](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
+   ![Zrzut ekranu przedstawia stronę "tożsamość (wersja zapoznawcza)" z wybraną pozycją "przypisany system", stan "włączone" i "Zapisz".](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
 ### <a name="remove-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Usuwanie tożsamości zarządzanej przypisanej przez system z zestawu skalowania maszyn wirtualnych
 
@@ -88,7 +88,7 @@ Obecnie Azure Portal nie obsługuje przypisywania tożsamości zarządzanej przy
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure, która zawiera zestaw skalowania maszyn wirtualnych.
 2. Przejdź do żądanego zestawu skalowania maszyn wirtualnych, a następnie kliknij pozycję **tożsamość**, **przypisane przez użytkownika** , a następnie ** \+ Dodaj**.
 
-   ![Dodawanie tożsamości przypisanej do użytkownika do VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
+   ![Zrzut ekranu pokazujący stronę "tożsamość" z wybraną pozycją "użytkownik przypisany" oraz wyróżniony przycisk "Dodaj".](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 
 3. Kliknij tożsamość przypisaną przez użytkownika, którą chcesz dodać do zestawu skalowania maszyn wirtualnych, a następnie kliknij przycisk **Dodaj**.
    

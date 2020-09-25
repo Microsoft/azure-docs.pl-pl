@@ -1,6 +1,6 @@
 ---
 title: Wysoka dostępność maszyn wirtualnych platformy Azure dla oprogramowania SAP NW na RHEL z Azure NetApp Files | Microsoft Docs
-description: Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux
+description: Ustanów wysoką dostępność dla oprogramowania SAP NW na maszynach wirtualnych platformy Azure RHEL z Azure NetApp Files.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 5ba5ebcb68ed206bab038f0a892e24834ddb0f22
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 51da96ab5c42c0b48f53969139bd8b87690b8319
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653430"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329282"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux z Azure NetApp Files dla aplikacji SAP
 
@@ -158,7 +158,7 @@ Architektura SAP NetWeaver w tym artykule używa puli pojemności Azure NetApp F
   
 W tym przykładzie użyto Azure NetApp Files dla wszystkich systemów plików SAP NetWeaver, aby zademonstrować, jak Azure NetApp Files może być używany. Systemy plików SAP, które nie muszą być instalowane za pośrednictwem systemu plików NFS, można również wdrożyć jako [usługę Azure Disk Storage](../../disks-types.md#premium-ssd) . W tym przykładzie <b>a-e</b> musi znajdować się w Azure NetApp Files i <b>f-g</b> (czyli/usr/SAP/<b>QAS</b>/d<b>02</b>,/usr/SAP/<b>QAS</b>/d<b>03</b>) można wdrożyć jako usługę Azure Disk Storage. 
 
-### <a name="important-considerations"></a>Istotne zagadnienia
+### <a name="important-considerations"></a>Ważne zagadnienia
 
 Rozważając Azure NetApp Files dla architektury SAP NetWeaver w systemie SUSE wysokiej dostępności, weź pod uwagę następujące ważne zagadnienia:
 

@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych baz danych programu SQL Server na platformie A
 description: W tym artykule opisano sposób tworzenia kopii zapasowych SQL Server na platformie Azure. W artykule objaśniono również proces odzyskiwania programu SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 3627162ef2f4330a4b6a78625b5e07bdcf56419b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 510d9637031928e31abaa5f82a5bf58c6ef44719
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376540"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316849"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informacje o kopii zapasowej programu SQL Server na maszynach wirtualnych platformy Azure
 
@@ -27,13 +27,13 @@ To rozwiązanie wykorzystuje natywne interfejsy API SQL do wykonywania kopii zap
 
 * Po określeniu maszyny wirtualnej SQL Server, która ma być chroniona, i zapytania dotyczącej baz danych, usługa Azure Backup Service zainstaluje rozszerzenie kopii zapasowej obciążenia na maszynie wirtualnej o `AzureBackupWindowsWorkload` rozszerzeniu nazwy.
 * To rozszerzenie składa się z koordynatora i wtyczki SQL. Chociaż koordynator jest odpowiedzialny za wyzwalanie przepływów pracy dla różnych operacji, takich jak konfigurowanie kopii zapasowej, tworzenie kopii zapasowej i przywracanie, wtyczka jest odpowiedzialna za rzeczywisty przepływ danych.
-* Aby móc odnajdywać bazy danych na tej maszynie wirtualnej, Azure Backup tworzy konto `NT SERVICE\AzureWLBackupPluginSvc` . To konto jest używane na potrzeby tworzenia kopii zapasowych i przywracania oraz wymaga uprawnień administratora systemu SQL. `NT SERVICE\AzureWLBackupPluginSvc`Konto jest [kontem usługi wirtualnej](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)i nie wymaga zarządzania hasłami. Azure Backup używa `NT AUTHORITY\SYSTEM` konta do odnajdywania/wyszukiwania bazy danych, więc to konto musi być publicznym logowaniem na serwerze SQL. Jeśli maszyna wirtualna SQL Server nie została utworzona z poziomu portalu Azure Marketplace, może zostać wyświetlony komunikat o błędzie **UserErrorSQLNoSysadminMembership**. W takim przypadku [wykonaj te instrukcje](#set-vm-permissions).
+* Aby móc odnajdywać bazy danych na tej maszynie wirtualnej, Azure Backup tworzy konto `NT SERVICE\AzureWLBackupPluginSvc` . To konto jest używane na potrzeby tworzenia kopii zapasowych i przywracania oraz wymaga uprawnień administratora systemu SQL. `NT SERVICE\AzureWLBackupPluginSvc`Konto jest [kontem usługi wirtualnej](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)i nie wymaga zarządzania hasłami. Azure Backup używa `NT AUTHORITY\SYSTEM` konta do odnajdywania/wyszukiwania bazy danych, więc to konto musi być publicznym logowaniem na serwerze SQL. Jeśli nie utworzono maszyny wirtualnej programu SQL Server z witryny Azure Marketplace, może wystąpić błąd **UserErrorSQLNoSysadminMembership**. W takim przypadku [wykonaj te instrukcje](#set-vm-permissions).
 * Po zainicjowaniu konfigurowania ochrony dla wybranych baz danych usługa tworzenia kopii zapasowych konfiguruje koordynatora przy użyciu harmonogramów tworzenia kopii zapasowych i innych szczegółów zasad, które są buforowane lokalnie na maszynie wirtualnej.
 * W zaplanowanym czasie koordynator komunikuje się z wtyczką i zaczyna przesyłać strumieniowo dane kopii zapasowej z programu SQL Server przy użyciu infrastruktury VDI.  
 * Wtyczka wysyła dane bezpośrednio do magazynu Recovery Services, co eliminuje konieczność lokalizacji tymczasowej. Dane są szyfrowane i przechowywane przez usługę Azure Backup na kontach magazynu.
 * Po zakończeniu transferu danych koordynator potwierdza zatwierdzenie w usłudze kopii zapasowej.
 
-  ![Architektura kopii zapasowych SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
+  ![Architektura kopii zapasowych SQL](./media/backup-azure-sql-database/azure-backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 

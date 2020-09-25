@@ -10,16 +10,16 @@ ms.devlang: python
 ms.topic: quickstart
 author: garyericson
 ms.author: garye
-ms.reviewer: davidph, carlrab
+ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: adc3cbd7b98d915a0b598227b459891cb0e0bfff
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 3a939c816cac44ed85802ecfa591564effc1ee73
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328838"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Szybki Start: używanie języka R z Azure SQL Database Machine Learning Services (wersja zapoznawcza) w celu wykonywania zapytań względem bazy danych 
 
@@ -47,7 +47,7 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Przejdź do strony **bazy danych SQL** lub **wystąpienia zarządzane SQL** .
+2. Przejdź do strony **bazy danych SQL**  lub **wystąpienia zarządzane SQL** .
 
 3. Na stronie **Przegląd** Sprawdź w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera obok **hosta** dla wystąpienia zarządzanego w wystąpieniu zarządzanym Azure SQL. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
 

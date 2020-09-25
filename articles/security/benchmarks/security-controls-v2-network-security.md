@@ -4,17 +4,17 @@ description: Zabezpieczenia usługi Azure Security test w wersji 2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 184416794011d259af3568c81e4648d822a2c4a5
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 9833f63d999ab7c24174853bd37f4e7a76f6dfbf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059348"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329435"
 ---
-# <a name="security-control-network-security"></a>Kontrola zabezpieczeń: zabezpieczenia sieci
+# <a name="security-control-v2-network-security"></a>Kontrola zabezpieczeń v2: zabezpieczenia sieci
 
 Zabezpieczenia sieci obejmują kontrolki zabezpieczające i chroniące sieci platformy Azure. Obejmuje to Zabezpieczanie sieci wirtualnych, nawiązywanie połączeń prywatnych, zapobieganie i łagodzenie ataków zewnętrznych oraz Zabezpieczanie systemu DNS.
 
@@ -30,15 +30,19 @@ Na podstawie aplikacji i strategii segmentacji przedsiębiorstwa należy ogranic
 
 Aby zalecać konfiguracje sieciowych grup zabezpieczeń, które ograniczają liczbę portów i źródłowych adresów IP na podstawie odwołań do zewnętrznych reguł ruchu sieciowego, należy użyć Azure Security Center.
 
+Za pomocą wskaźnikowego platformy Azure można wykrywać użycie starszych, niezabezpieczonych protokołów, takich jak SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, niepodpisane powiązania LDAP oraz słabe szyfry w protokole Kerberos.
+
 - [Jak utworzyć sieciową grupę zabezpieczeń z regułami zabezpieczeń](../../virtual-network/tutorial-filter-network-traffic.md)
 
 - [Jak wdrożyć i skonfigurować zaporę platformy Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
 - [Adaptacyjne Zabezpieczanie sieci w Azure Security Center](../../security-center/security-center-adaptive-network-hardening.md)
 
+- [Skoroszyt niezabezpieczonych protokołów na platformie Azure](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
+
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -54,7 +58,7 @@ Aby zalecać konfiguracje sieciowych grup zabezpieczeń, które ograniczają lic
 
 Użyj usługi Azure ExpressRoute lub wirtualnej sieci prywatnej (VPN) platformy Azure do tworzenia prywatnych połączeń między centrami danych platformy Azure i infrastrukturą lokalną w środowisku z różnymi lokalizacjami. Połączenia ExpressRoute nie przechodzą przez publiczny Internet i oferują większą niezawodność, większe szybkości i krótsze opóźnienia niż typowe połączenia z Internetem. W przypadku połączeń sieci VPN typu punkt-lokacja i sieci VPN typu lokacja-lokacja można połączyć lokalne urządzenia lub sieci z siecią wirtualną przy użyciu dowolnej kombinacji tych opcji sieci VPN i usługi Azure ExpressRoute.
 
-Aby połączyć co najmniej dwie sieci wirtualne na platformie Azure, użyj komunikacji równorzędnej sieci wirtualnej. Ruch sieciowy między równorzędnymi sieciami wirtualnymi jest prywatny i jest przechowywany w sieci szkieletowej platformy Azure. 
+Aby połączyć co najmniej dwie sieci wirtualne na platformie Azure, użyj komunikacji równorzędnej sieci wirtualnej lub łącza prywatnego. Ruch sieciowy między równorzędnymi sieciami wirtualnymi jest prywatny i jest przechowywany w sieci szkieletowej platformy Azure. 
 
 - [Co to są modele łączności ExpressRoute](../../expressroute/expressroute-connectivity-models.md) 
 
@@ -62,9 +66,11 @@ Aby połączyć co najmniej dwie sieci wirtualne na platformie Azure, użyj komu
 
 - [Komunikacja równorzędna sieci wirtualnych](../../virtual-network/virtual-network-peering-overview.md)
 
+- [Link prywatny platformy Azure](../../private-link/private-link-service-overview.md)
+
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -88,7 +94,7 @@ Dostęp prywatny to dodatkowa ochrona w miarę jak funkcja uwierzytelniania i za
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -108,6 +114,7 @@ Ochrona zasobów platformy Azure przed atakami z sieci zewnętrznych, w tym atak
 -   Korzystanie z funkcji zapory aplikacji sieci Web (WAF) na platformie Azure Application Gateway, na platformie Azure z przodu i na platformie Azure Content Delivery Network (CDN) w celu ochrony aplikacji, usług i interfejsów API przed atakami z warstwy aplikacji. 
 
 -   Chroń zasoby przed atakami DDoS, włączając ochronę standardową DDoS w sieciach wirtualnych platformy Azure. 
+-   Użyj Azure Security Center do wykrywania niepowodowanych problemów z konfiguracją, związanych z powyższym. 
 
 - [Dokumentacja usługi Azure Firewall](/azure/firewall/)
 
@@ -117,7 +124,7 @@ Ochrona zasobów platformy Azure przed atakami z sieci zewnętrznych, w tym atak
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 Brak
 
@@ -139,7 +146,7 @@ Uwaga: Jeśli masz przepisy prawne lub inne wymagania dotyczące używania ident
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -165,7 +172,7 @@ Można również użyć grup zabezpieczeń aplikacji do uproszczenia złożonej 
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -191,7 +198,7 @@ Gdy Azure DNS jest używany jako autorytatywna usługa DNS, upewnij się, że st
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

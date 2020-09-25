@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 07/27/2020
 tags: azure-synapse
-ms.openlocfilehash: b2d179121b05d7bf3493937a9ff72e302fd31f3d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15289727c3ee4d498fa50058ef98f0ae5b3d1b12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281144"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277805"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Korzystanie z uwierzytelniania wieloskładnikowego Azure Active Directory
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,7 +29,7 @@ Azure SQL Database, wystąpienie zarządzane usługi Azure SQL i usługa Azure S
 
 Aby zapoznać się ze wszystkimi funkcjami omówionymi w tym artykule, należy użyć co najmniej 2017 lipca w wersji 17,2. Ostatnie połączenie okno dialogowe powinno wyglądać podobnie do poniższej ilustracji:
 
-  ![1mfa — połączenie uniwersalne](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "Kończy działanie pola Nazwa użytkownika.")  
+  ![Zrzut ekranu okna dialogowego Łączenie z serwerem w SQL Server Management Studio, pokazujący ustawienia Typ serwera, nazwa serwera i uwierzytelnianie.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
 
 ## <a name="authentication-options"></a>Opcje uwierzytelniania
 
@@ -57,11 +57,11 @@ Wszyscy użytkownicy-Goście, którzy chcą być uwierzytelniani przy użyciu uw
 1. Otwórz połączenie w programie SSMS. Wprowadź nazwę serwera, a następnie wybierz pozycję **Azure Active Directory — uniwersalna przy użyciu uwierzytelniania MFA** . Dodaj **nazwę użytkownika** , za pomocą którego chcesz się zalogować.
 1. Zaznacz pole **opcji** i przejdź do karty **Właściwości połączenia** . W oknie dialogowym **łączenie z bazą danych** wypełnij okno dialogowe bazy danych. Sprawdź **nazwę domeny usługi AD lub pole Identyfikator dzierżawy** , a następnie podaj urząd uwierzytelniający, taki jak nazwa domeny (**contosotest.onmicrosoft.com**) lub identyfikator GUID identyfikatora dzierżawy. 
 
-   ![MFA — dzierżawca — SSMS](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
+   ![Zrzut ekranu przedstawiający kartę właściwości połączenia z wyróżnioną ustawieniami połączenia z bazą danych i nazwą domeny usługi AD lub IDENTYFIKATORem dzierżawy.](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
 Jeśli używasz programu SSMS 18. x lub nowszego, nazwa domeny lub identyfikator dzierżawy usługi AD nie są już potrzebne dla użytkowników-Gości, ponieważ program automatycznie rozpoznaje ją.
 
-   ![MFA — dzierżawca — SSMS](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
+   ![Zrzut ekranu karty właściwości połączenia w oknie dialogowym Łączenie z serwerem w S S M S. w polu Połącz z bazą danych jest wybrana wartość "Moja baza danych".](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Obsługa usługi Azure AD Business dla firm
 
@@ -97,4 +97,4 @@ Po utworzeniu użytkownika bazy danych użytkownik `steve@gmail.com` może zalog
 - [Importowanie pliku BACPAC do nowej bazy danych](database-import.md)  
 - [Eksportowanie bazy danych do pliku BACPAC](database-export.md)  
 - Interfejs C# interfejsu [IUniversalAuthProvider](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
-- W przypadku korzystania **z Azure Active Directory — uniwersalne z** uwierzytelnianiem MFA, śledzenie ADAL jest dostępne od programu [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Domyślnie wyłączone jest śledzenie ADAL przy użyciu **narzędzi**, menu **opcji** , w obszarze **usługi platformy Azure**, **Azure Cloud**, **ADAL okno dane wyjściowe poziom śledzenia**, a następnie przez włączenie **danych wyjściowych** w menu **Widok** . Ślady są dostępne w oknie danych wyjściowych w przypadku wybrania **opcji Azure Active Directory**.  
+- W przypadku korzystania **z Azure Active Directory — uniwersalne z** uwierzytelnianiem MFA, śledzenie ADAL jest dostępne od programu [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Domyślnie wyłączone jest śledzenie ADAL przy użyciu **narzędzi**, menu **opcji** , w obszarze **usługi platformy Azure**, **Azure Cloud**, **ADAL okno dane wyjściowe poziom śledzenia**, a następnie przez włączenie **danych wyjściowych**  w menu **Widok** . Ślady są dostępne w oknie danych wyjściowych w przypadku wybrania **opcji Azure Active Directory**.  

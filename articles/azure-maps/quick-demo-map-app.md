@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: interakcyjne wyszukiwanie map przy użyciu Azure Maps'
-description: Dowiedz się, jak tworzyć interaktywne, z możliwością wyszukiwania mapy. Zobacz jak utworzyć konto Azure Maps, pobrać klucz podstawowy i użyć zestawu SDK sieci Web, aby skonfigurować aplikacje map.
+description: 'Szybki Start: Dowiedz się, jak tworzyć interaktywne, z możliwością wyszukiwania mapy. Zobacz Tworzenie konta Azure Maps, uzyskiwanie klucza podstawowego i używanie zestawu SDK sieci Web do konfigurowania aplikacji map'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/10/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fa5cab35416f2629d39ec04803f90fae1a2e5f6d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 99257b7bef83d0acef484118c7d53aea8eda168c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031051"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264290"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Szybki Start: Tworzenie mapy wyszukiwania interaktywnego za pomocą Azure Maps
 
@@ -92,17 +92,15 @@ Jeśli nie planujesz kontynuować korzystania z samouczków, wykonaj następują
 2. Przejdź do strony Azure Portal. Wybierz pozycję **wszystkie zasoby** na stronie portalu głównego. Lub kliknij ikonę menu w lewym górnym rogu. Wybierz pozycję **Wszystkie zasoby**.
 3. Kliknij konto Azure Maps. W górnej części strony kliknij pozycję **Usuń**.
 
+Aby uzyskać dodatkowe przykłady kodu i zapoznać się z interaktywnym środowiskiem kodowania, przejrzyj następujące przewodniki:
+
+[Znajdź adres za pomocą usługi Azure Maps Search](how-to-search-for-address.md)
+
+[Użyj kontrolka mapy Azure Maps](how-to-use-map-control.md)
+
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start utworzono konto Azure Maps i utworzono aplikację demonstracyjną. Zapoznaj się z następującymi samouczkami, aby dowiedzieć się więcej na temat Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Przeszukaj bliskie punkty zainteresowania przy użyciu Azure Maps](tutorial-search-location.md)
-
-Aby uzyskać dodatkowe przykłady kodu i zapoznać się z interaktywnym środowiskiem kodowania, przejrzyj następujące przewodniki:
-
-> [!div class="nextstepaction"]
-> [Znajdź adres za pomocą usługi Azure Maps Search](how-to-search-for-address.md)
-
-> [!div class="nextstepaction"]
-> [Użyj kontrolka mapy Azure Maps](how-to-use-map-control.md)

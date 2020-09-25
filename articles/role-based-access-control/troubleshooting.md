@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/28/2020
+ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e504a3ed2d9193bdc85fc08b3ea91c4f4f2c160c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382580"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329508"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferowanie subskrypcji do innego katalogu
 
-- Jeśli potrzebujesz kroków dotyczących sposobu transferowania subskrypcji do innego katalogu usługi Azure AD, zobacz [przenoszenie własności subskrypcji platformy Azure na inne konto](../cost-management-billing/manage/billing-subscription-transfer.md).
+- Jeśli potrzebujesz kroków dotyczących sposobu transferowania subskrypcji do innego katalogu usługi Azure AD, zobacz [transfer subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)](transfer-subscription.md).
 - Jeśli przeniesiesz subskrypcję do innego katalogu usługi Azure AD, wszystkie przypisania ról zostaną **trwale** usunięte ze źródłowego katalogu usługi Azure AD i nie zostaną zmigrowane do docelowego katalogu usługi Azure AD. Musisz ponownie utworzyć przypisania roli w katalogu docelowym. Należy również ręcznie odtworzyć zarządzane tożsamości dla zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz [często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Jeśli jesteś administratorem globalnym usługi Azure AD i nie masz dostępu do subskrypcji po przeniesieniu między katalogami, użyj przełącznika **Zarządzanie dostępem do zasobów platformy Azure** , aby tymczasowo [podnieść poziom dostępu](elevate-access-global-admin.md) w celu uzyskania dostępu do subskrypcji.
 
@@ -99,11 +99,17 @@ $ras.Count
 - Jeśli otrzymujesz błąd przypisania „Klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji w zakresie (kod: AuthorizationFailed)” podczas próby utworzenia zasobu, upewnij się, że obecnie logujesz się jako użytkownik mający przypisaną rolę, która ma uprawnienia zapisu do zasobu w wybranym zakresie. Na przykład do zarządzania maszynami wirtualnymi w grupie zasobów musisz mieć rolę [Współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) w grupie zasobów (lub zakresie nadrzędnym). Listę uprawnień dla każdej roli wbudowanej można znaleźć [w temacie Role wbudowane platformy Azure](built-in-roles.md).
 - Jeśli zostanie wyświetlony komunikat o błędzie "nie masz uprawnień do utworzenia żądania pomocy technicznej" podczas próby utworzenia lub zaktualizowania biletu pomocy technicznej, sprawdź, czy jesteś zalogowanym użytkownikiem, do którego przypisano rolę z `Microsoft.Support/supportTickets/write` uprawnieniem, takim jak [współautor żądania pomocy technicznej](built-in-roles.md#support-request-contributor).
 
+## <a name="move-resources-with-role-assignments"></a>Przenoszenie zasobów z przypisaniami ról
+
+W przypadku przeniesienia zasobu z rolą platformy Azure przypisaną bezpośrednio do zasobu (lub zasobu podrzędnego) przypisanie roli nie zostanie przeniesione i zostanie oddzielone. Po przeniesieniu należy ponownie utworzyć przypisanie roli. Ostatecznie przypisanie oddzielonej roli zostanie automatycznie usunięte, ale najlepszym rozwiązaniem jest usunięcie przypisania roli przed przeniesieniem zasobu.
+
+Informacje o sposobie przenoszenia zasobów znajdują się w temacie [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 ## <a name="role-assignments-with-identity-not-found"></a>Nie znaleziono przypisań ról o tożsamości
 
 Na liście przypisań ról dla Azure Portal można zauważyć, że podmiot zabezpieczeń (użytkownika, Grupa, nazwa główna usługi lub tożsamość zarządzana) jest wymieniony jako **tożsamość nie została znaleziona** z **nieznanym** typem.
 
-![Grupa zasobów aplikacji sieci Web](./media/troubleshooting/unknown-security-principal.png)
+![Nie znaleziono tożsamości wymienionej w przypisaniach ról platformy Azure](./media/troubleshooting/unknown-security-principal.png)
 
 Tożsamość może nie zostać znaleziona z dwóch powodów:
 
@@ -242,5 +248,5 @@ Czytelnik może kliknąć kartę **funkcje platformy** , a następnie kliknąć 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Rozwiązywanie problemów z użytkownikami-Gośćmi](role-assignments-external-users.md#troubleshoot)
-- [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](role-assignments-portal.md)
 - [Wyświetlanie dzienników aktywności dla zmian RBAC platformy Azure](change-history-report.md)

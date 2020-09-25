@@ -2,41 +2,37 @@
 title: Pojęcia — łączność z siecią
 description: Dowiedz się więcej na temat kluczowych aspektów i przypadków użycia sieci i połączeń z platformą Azure VMware.
 ms.topic: conceptual
-ms.date: 07/23/2020
-ms.openlocfilehash: 3420f6aa61ced7632175f3e12edda9de72639517
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: 4ffcdd8ea42df127ee1480927f4fdf2eb8f137b8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750568"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316901"
 ---
-# <a name="azure-vmware-solution-preview-networking-and-interconnectivity-concepts"></a>Rozwiązanie Azure VMware w wersji zapoznawczej — koncepcje dotyczące sieci i międzyłączności
+# <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware rozwiązanie dotyczące sieci i międzyłączności
 
-Rozwiązanie VMware dla platformy Azure (Automatyczna synchronizacja) oferuje środowisko chmury prywatnej VMware dostępne dla użytkowników i aplikacji ze środowisk lokalnych i opartych na platformie Azure. Usługi, takie jak Azure ExpressRoute i połączenia sieci VPN, zapewniają łączność. Te usługi wymagają określonych zakresów adresów sieciowych i portów zapory do włączenia usług.  
+[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
 
-Podczas wdrażania chmury prywatnej można utworzyć sieci prywatne do zarządzania, aprowizacji i vMotion. Są one używane do uzyskiwania dostępu do Menedżera vCenter i NSX-T oraz do vMotion lub wdrożenia maszyny wirtualnej. Wszystkie sieci prywatne są dostępne z sieci wirtualnej na platformie Azure lub w środowiskach lokalnych. ExpressRoute Global Reach służy do łączenia chmur prywatnych z środowiskami lokalnymi, a to połączenie wymaga sieci wirtualnej z obwodem usługi ExpressRoute w ramach subskrypcji.
+Przydatną perspektywą dotyczącą międzyłączności jest rozważenie dwóch typów implementacji chmury prywatnej rozwiązania Azure VMware:
 
-Ponadto podczas wdrażania chmury prywatnej dostęp do Internetu i usług platformy Azure są obsługiwane i udostępniane, aby maszyny wirtualne w sieciach produkcyjnych mogły je wykorzystać.  Domyślnie dostęp do Internetu jest wyłączony dla nowych chmur prywatnych i w dowolnym momencie może być włączony lub wyłączony.
+1. [**Podstawowa platforma Azure — tylko łączność międzyfirmowa**](#azure-virtual-network-interconnectivity) umożliwia zarządzanie chmurą prywatną i korzystanie z niej tylko przy użyciu jednej sieci wirtualnej na platformie Azure. Ta implementacja najlepiej nadaje się w przypadku ocen lub implementacji rozwiązań VMware platformy Azure, które nie wymagają dostępu ze środowisk lokalnych.
 
-Przydatną perspektywą dotyczącą międzyłączności jest uwzględnienie dwóch typów implementacji chmury prywatnej na potrzeby automatycznej synchronizacji:
-
-1. [**Podstawowa platforma Azure — tylko łączność międzyfirmowa**](#azure-virtual-network-interconnectivity) umożliwia zarządzanie chmurą prywatną i korzystanie z niej tylko przy użyciu jednej sieci wirtualnej na platformie Azure. Ta implementacja najlepiej nadaje się do oceny lub implementacji automatycznej synchronizacji, które nie wymagają dostępu ze środowisk lokalnych.
-
-1. Funkcja międzyusługowa [**w chmurze z obsługą chmury prywatnej**](#on-premises-interconnectivity) obejmuje podstawową implementację wyłącznie platformy Azure w celu uwzględnienia wzajemnej łączności między chmurami prywatnymi lokalnymi i automatyczna.
+1. Funkcja międzyusługowa [**w chmurze z chmurą prywatną pozwala**](#on-premises-interconnectivity) rozszerzyć podstawową implementację wyłącznie platformy Azure w celu uwzględnienia wzajemnej łączności między chmurami prywatnymi i rozwiązaniami VMware platformy Azure.
  
-W tym artykule omówiono kilka najważniejszych koncepcji, które nawiązują połączenie sieciowe i międzysieciowe, w tym wymagania i ograniczenia. Podajemy również więcej informacji na temat dwóch typów implementacji samołączności chmury prywatnej. Ten artykuł zawiera informacje potrzebne do poprawnego skonfigurowania sieci do pracy z programem automatycznej synchronizacji.
+W tym artykule omówiono kilka najważniejszych koncepcji, które nawiązują połączenie sieciowe i międzysieciowe, w tym wymagania i ograniczenia. Podajemy również więcej informacji na temat dwóch typów implementacji międzyłączności chmury prywatnej rozwiązań VMware platformy Azure. Ten artykuł zawiera informacje potrzebne do poprawnego skonfigurowania sieci do pracy z rozwiązaniem VMware platformy Azure.
 
-## <a name="avs-private-cloud-use-cases"></a>Automatyczna synchronizacja przypadków użycia chmury prywatnej
+## <a name="azure-vmware-solution-private-cloud-use-cases"></a>Scenariusze użycia chmury prywatnej dla rozwiązań VMware platformy Azure
 
-W przypadku użycia w przypadku chmur prywatnych w ramach automatycznej synchronizacji należą:
+Przypadki użycia dla chmur prywatnych rozwiązania Azure VMware obejmują:
 - Nowe obciążenia maszyn wirtualnych VMware w chmurze
-- Obciążenie maszyny wirtualnej w chmurze (tylko w środowisku lokalnym do automatycznej synchronizacji)
-- Migracja obciążenia maszyny wirtualnej do chmury (tylko w środowisku lokalnym do automatycznej synchronizacji)
-- Odzyskiwanie po awarii (Automatyczna synchronizacja z automatyczna i automatyczna synchronizacja)
+- Obciążenie pracą maszyny wirtualnej w chmurze (tylko rozwiązanie firmy Microsoft do platformy Azure VMware)
+- Migracja obciążenia maszyn wirtualnych do chmury (tylko rozwiązanie do oprogramowania VMware na platformie Azure)
+- Odzyskiwanie po awarii (rozwiązanie VMware platformy Azure do rozwiązania VMware platformy Azure lub w środowisku lokalnym do rozwiązania Azure VMware)
 - Użycie usług platformy Azure
 
 > [!TIP]
-> Wszystkie przypadki użycia usługi automatycznej synchronizacji są włączone z łącznością lokalną z chmurą prywatną.
+> Wszystkie przypadki użycia usługi Azure VMware Solution są włączane z łącznością lokalną z chmurą prywatną.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Łączność z siecią wirtualną platformy Azure
 
@@ -61,10 +57,10 @@ Na poniższym diagramie przedstawiono międzyfirmowe łączenie z chmurą prywat
 
 W celu uzyskania pełnej łączności z chmurą prywatną należy włączyć ExpressRoute Global Reach a następnie zażądać klucza autoryzacji i prywatnego identyfikatora komunikacji równorzędnej dla Global Reach w Azure Portal. Klucz autoryzacji i identyfikator komunikacji równorzędnej są używane do ustanawiania Global Reach między obwodem usługi ExpressRoute w ramach subskrypcji i obwodem usługi ExpressRoute dla nowej chmury prywatnej. Po połączeniu te dwa obwody usługi ExpressRoute kierują ruchem sieciowym między środowiskami lokalnymi a chmurą prywatną.  Zapoznaj się z [samouczkiem dotyczącym tworzenia ExpressRoute Global REACH komunikacji równorzędnej z chmurą prywatną](tutorial-expressroute-global-reach-private-cloud.md) w celu uzyskania procedur żądania i używania klucza autoryzacji i identyfikatora komunikacji równorzędnej.
 
-## <a name="next-steps"></a>Następne kroki 
 
-- Dowiedz się więcej o [zagadnieniach i wymaganiach dotyczących łączności sieciowej](tutorial-network-checklist.md). 
-- Zapoznaj się z [pojęciami dotyczącymi magazynu w chmurze prywatnej](concepts-storage.md).
+
+## <a name="next-steps"></a>Następne kroki 
+Zapoznaj się z [pojęciami dotyczącymi magazynu w chmurze prywatnej](concepts-storage.md).
 
 
 <!-- LINKS - external -->

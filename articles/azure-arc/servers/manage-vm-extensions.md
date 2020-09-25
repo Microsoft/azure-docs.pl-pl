@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie rozszerzeniami maszyny wirtualnej za pomocą serwerów z obsługą usługi Azure Arc
 description: Serwery z obsługą usługi Azure Arc mogą zarządzać wdrożeniem rozszerzeń maszyn wirtualnych, które zapewniają konfigurację po wdrożeniu i zadania automatyzacji z maszynami wirtualnymi spoza platformy Azure.
-ms.date: 09/02/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 988c4d7b2fcbffb95932fe70d8014de74dd33343
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1c3d50f407f4412a14201dfe669334dbb083d323
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887726"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329078"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Zarządzanie rozszerzeniami maszyn wirtualnych za pomocą serwerów z obsługą usługi Azure Arc
 
@@ -34,7 +34,7 @@ Funkcjonalność rozszerzenia maszyny wirtualnej jest dostępna tylko na liście
 
 ## <a name="extensions"></a>Rozszerzenia
 
-W tej wersji zapoznawczej obsługiwane są następujące rozszerzenia maszyn wirtualnych na komputerach z systemem Windows i Linux.
+W tej wersji obsługiwane są następujące rozszerzenia maszyn wirtualnych na komputerach z systemem Windows i Linux.
 
 |Rozszerzenie |System operacyjny |Publisher |Dodatkowe informacje |
 |----------|---|----------|-----------------------|
@@ -66,10 +66,7 @@ Rozszerzenie maszyny wirtualnej agenta Log Analytics dla systemu Linux wymaga za
 
 Sprawdź, czy maszyna jest zgodna z [obsługiwanymi wersjami](agent-overview.md#supported-operating-systems) systemu operacyjnego Windows i Linux dla agenta połączonego z platformą Azure.
 
-Minimalna wersja agenta połączonej maszyny obsługiwana w przypadku tej funkcji to:
-
-* Windows-0.7. x
-* Linux-0,8. x
+Minimalna wersja agenta połączonej maszyny obsługiwana w przypadku tej funkcji w systemie Windows i Linux to wersja 1,0.
 
 Aby uaktualnić maszynę do wymaganej wersji agenta, zobacz [upgrade Agent](manage-agent.md#upgrading-agent).
 
@@ -77,7 +74,7 @@ Aby uaktualnić maszynę do wymaganej wersji agenta, zobacz [upgrade Agent](mana
 
 Rozszerzenia maszyny wirtualnej mogą być stosowane do Twojego łuku dla maszyny zarządzanej przez serwer za pomocą Azure Portal.
 
-1. W przeglądarce przejdź do [Azure Portal](https://aka.ms/arcserver-preview).
+1. W przeglądarce przejdź do [Azure Portal](https://portal.azure.com).
 
 2. W portalu przejdź do opcji **serwery — Azure Arc** i wybierz maszynę hybrydową z listy.
 
@@ -719,22 +716,10 @@ Usunięcie jednego lub większej liczby rozszerzeń z serwera z włączonym Łuk
 
 4. Wybierz pozycję **Odinstaluj** , a po wyświetleniu monitu o potwierdzenie wybierz pozycję **tak** , aby wykonać operację.
 
-## <a name="troubleshooting"></a>Rozwiązywanie problemów
-
-Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal.
-
-Poniższe kroki rozwiązywania problemów dotyczą wszystkich rozszerzeń maszyn wirtualnych.
-
-1. Aby sprawdzić dziennik agenta gościa, należy zapoznać się z działaniem w przypadku aprowizacji rozszerzenia w `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` systemie Windows oraz dla systemu Linux `/var/lib/GuestConfig/ext_mgr_logs` .
-
-2. Aby uzyskać więcej informacji na temat systemu Windows, Sprawdź dzienniki rozszerzeń pod kątem określonego rozszerzenia `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` . Dane wyjściowe rozszerzenia są rejestrowane w pliku dla każdego rozszerzenia zainstalowanego w systemie Linux w systemie `/var/lib/GuestConfig/extension_logs` .
-
-3. Sprawdź sekcje dotyczące rozwiązywania problemów z dokumentacją dotyczącą kodów błędów, znanych problemów itp. Dodatkowe informacje dotyczące rozwiązywania problemów dla każdego rozszerzenia można znaleźć w sekcji **Rozwiązywanie problemów i pomoc techniczna** w temacie Omówienie rozszerzenia. Obejmuje to opis kodów błędów zapisywana w dzienniku. Artykuły o rozszerzeniu są łączone w [tabeli rozszerzeń](#extensions) znajdującej się wcześniej w tym artykule.
-
-4. Sprawdź dzienniki systemu. Sprawdź inne operacje, które mogły mieć wpływ na rozszerzenie, takie jak długotrwała instalacja innej aplikacji wymagającej wyłącznego dostępu do Menedżera pakietów.
-
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, włącz monitorowanie za pomocą [Azure monitor z maszynami wirtualnymi](../../azure-monitor/insights/vminsights-enable-policy.md)i wiele więcej.
+* Informacje dotyczące rozwiązywania problemów można znaleźć w [podręczniku Rozwiązywanie problemów z maszynami](troubleshoot-vm-extensions.md)wirtualnymi.
 
-- Dowiedz się więcej o [[log Analytics agencie]](../../azure-monitor/platform/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy chcesz zbierać dane monitorowania systemu operacyjnego i obciążenia, zarządzać nimi za pomocą elementów Runbook lub funkcji usługi Automation, takich jak Update Management, lub korzystać z innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-intro.md).
+* Dowiedz się, jak zarządzać maszyną za pomocą [Azure Policy](../../governance/policy/overview.md), na przykład w [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md)maszyny wirtualnej, sprawdzając, czy komputer jest raportowany do oczekiwanego log Analytics obszaru roboczego, włącz monitorowanie za pomocą [Azure monitor z maszynami wirtualnymi](../../azure-monitor/insights/vminsights-enable-policy.md)i wiele więcej.
+
+* Dowiedz się więcej o [agencie log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy chcesz zbierać dane monitorowania systemu operacyjnego i obciążenia, zarządzać nimi za pomocą elementów Runbook lub funkcji usługi Automation, takich jak Update Management, lub korzystać z innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-intro.md).

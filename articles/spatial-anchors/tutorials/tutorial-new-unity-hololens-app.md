@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 365fe8c330cadcc01fcd24de28b663cd80b55117
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: cd4ec60691344cef4030472b474a82e84c70244f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535886"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261179"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Samouczek: instrukcje krok po kroku dotyczące tworzenia nowej aplikacji HoloLens Unity przy użyciu kotwic przestrzennych platformy Azure
 
@@ -204,11 +204,11 @@ Przed przeprowadzeniem dalszych dalszych czynności należy utworzyć konto zako
 
 Gdy masz swój identyfikator konta, klucz i domenę usługi Azure przestrzenny, przejdź i wklej do `Account Id` `SpatialAnchorsAccountId` , do `Account Key` `SpatialAnchorsAccountKey` , i do `Account Domain` `SpatialAnchorsAccountDomain` .
 
-Na koniec przychodźmy wszystko razem. W `SpawnNewAnchoredObject()` metodzie Dodaj następujący kod. Wywołanie metody będzie możliwe zaraz po `CreateAnchorAsync()` utworzeniu sfery. Po powrocie metody kod poniżej zaktualizuje sferę po raz ostatni, zmieniając jej kolor na niebieską.
+Na koniec przychodźmy wszystko razem. W `CreateAndSaveSphere()` metodzie Dodaj następujący kod. Wywołanie metody będzie możliwe zaraz po `CreateAnchorAsync()` utworzeniu sfery. Po powrocie metody kod poniżej zaktualizuje sferę po raz ostatni, zmieniając jej kolor na niebieską.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Uruchom aplikację z **programu Visual Studio** jeszcze raz. Poruszaj się po głowie, a następnie naciśnij pozycję Air, aby umieścić swoją sferę. Gdy mamy wystarczającą liczbę ramek, sfera zmieni kolor na żółty i rozpocznie się przekazywanie w chmurze. Po zakończeniu przekazywania sfera zmieni kolor na niebieski. Opcjonalnie można również użyć okna danych wyjściowych w **programie Visual Studio** do monitorowania komunikatów dziennika wysyłanych przez aplikację. Możesz obejrzeć `RecommendedForCreateProgress` , a po zakończeniu przekazywania będzie można zobaczyć identyfikator kotwicy zwrócony z chmury.
+Uruchom aplikację z **programu Visual Studio** jeszcze raz. Poruszaj się po głowie, a następnie naciśnij pozycję Air, aby umieścić swoją sferę. Gdy mamy wystarczającą liczbę ramek, sfera zmieni kolor na żółty i rozpocznie się przekazywanie w chmurze. Po zakończeniu przekazywania sfera zmieni kolor na niebieski. Opcjonalnie można również użyć [okna dane wyjściowe](https://docs.microsoft.com/visualstudio/ide/reference/output-window) podczas debugowania w **programie Visual Studio** , aby monitorować komunikaty dziennika wysyłane przez aplikację. Możesz obejrzeć `RecommendedForCreateProgress` , a po zakończeniu przekazywania będzie można zobaczyć identyfikator kotwicy zwrócony z chmury.
 
 > [!NOTE]
 > Jeśli zostanie wyświetlony element "DllNotFoundException —: nie można załadować biblioteki DLL" AzureSpatialAnchors ": nie można odnaleźć określonego modułu." należy **wyczyścić** i **skompilować** rozwiązanie ponownie.

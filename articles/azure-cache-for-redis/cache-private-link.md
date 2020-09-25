@@ -1,38 +1,73 @@
 ---
 title: Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (wersja zapoznawcza)
-description: Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który łączy prywatnie i bezpiecznie do usługi Azure cache for Redis z obsługą prywatnego linku platformy Azure. W tym artykule przedstawiono sposób tworzenia pamięci podręcznej platformy Azure, sieci wirtualnej platformy Azure i prywatnego punktu końcowego przy użyciu Azure Portal.
+description: Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który łączy prywatnie i bezpiecznie do usługi Azure cache for Redis z obsługą prywatnego linku platformy Azure. W tym artykule dowiesz się, jak utworzyć pamięć podręczną platformy Azure, Virtual Network platformy Azure i prywatny punkt końcowy przy użyciu Azure Portal.
 author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 5db756b60330cdac4e43e13bfe29d9397f87af50
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 09/22/2020
+ms.openlocfilehash: 932d138a4b594aa51b73c365cc3e753f49f886f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421658"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328995"
 ---
-# <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (wersja zapoznawcza)
+# <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Usługa Azure cache for Redis z linkiem prywatnym platformy Azure (publiczna wersja zapoznawcza)
+W tym artykule dowiesz się, jak utworzyć sieć wirtualną i usługę Azure cache for Redis z prywatnym punktem końcowym przy użyciu Azure Portal. Dowiesz się również, jak dodać prywatny punkt końcowy do istniejącej usługi Azure cache for Redis.
+
 Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który łączy prywatnie i bezpiecznie do usługi Azure cache for Redis z obsługą prywatnego linku platformy Azure. 
-
-W tym artykule opisano sposób tworzenia pamięci podręcznej platformy Azure, sieci wirtualnej platformy Azure i prywatnego punktu końcowego przy użyciu Azure Portal.  
-
-> [!IMPORTANT]
-> Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure. 
-> 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-> Ta funkcja jest obecnie dostępna w wersji zapoznawczej — [skontaktuj się z nami](mailto:azurecache@microsoft.com) , jeśli chcesz.
+> Ta funkcja jest obecnie dostępna w publicznej wersji zapoznawczej dla ograniczonych regionów. Jeśli nie masz opcji tworzenia prywatnego punktu końcowego, [skontaktuj się z nami](mailto:azurecache@microsoft.com). Aby używać prywatnych punktów końcowych, należy utworzyć wystąpienie usługi Azure cache for Redis po 28 lipca 2020.
+>
+> Regiony z dostępem do publicznej wersji zapoznawczej obecnie: zachodnio-środkowe stany USA, Północno-środkowe stany USA, zachodnie stany USA, Wschodnie stany USA 2, Norwegia Wschodnia, Europa Północna, Azja Wschodnia, Japonia Wschodnia i Indie Środkowe.
 >
 
-## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
-1. Aby utworzyć pamięć podręczną, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**. 
+## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Tworzenie prywatnego punktu końcowego przy użyciu nowej usługi Azure cache for Redis 
+
+W tej sekcji utworzysz nowe wystąpienie usługi Azure cache for Redis z prywatnym punktem końcowym.
+
+### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej 
+
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**.
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Wybierz pozycję Utwórz zasób.":::
+
+2. Na stronie **Nowy** wybierz pozycję **Sieć** , a następnie wybierz pozycję **Sieć wirtualna**.
+
+3. Wybierz pozycję **Dodaj** , aby utworzyć sieć wirtualną.
+
+4. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie **podstawowe** :
+
+   | Ustawienie      | Sugerowana wartość  | Opis |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Subskrypcja** | Lista rozwijana i wybierz swoją subskrypcję. | Subskrypcja, w ramach której ma zostać utworzona ta sieć wirtualna. | 
+   | **Grupa zasobów** | Rozwiń i wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona sieć wirtualna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
+   | **Nazwa** | Wprowadź nazwę sieci wirtualnej. | Nazwa musi zaczynać się literą lub cyfrą, kończyć literą, cyfrą lub znakiem podkreślenia i może zawierać tylko litery, cyfry, podkreślenia, kropki lub łączniki. | 
+   | **Region** | Lista rozwijana i wybierz region. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z sieci wirtualnej. |
+
+5. Wybierz kartę **adresy IP** lub kliknij przycisk **Dalej: adresy IP** w dolnej części strony.
+
+6. Na karcie **adresy IP** Określ **przestrzeń adresową IPv4** jako co najmniej jeden prefiks adresów w notacji CIDR (np. 192.168.1.0/24).
+
+7. W obszarze **Nazwa podsieci**kliknij opcję **domyślne** , aby edytować właściwości podsieci.
+
+8. W okienku **Edytowanie podsieci** Podaj **nazwę podsieci** oraz **zakres adresów podsieci**. Zakres adresów podsieci powinien być w notacji CIDR (np. 192.168.1.0/24). Musi ona być zawarta w przestrzeni adresowej sieci wirtualnej.
+
+9. Wybierz pozycję **Zapisz**.
+
+10. Wybierz kartę **Recenzja + tworzenie** lub kliknij przycisk **Recenzja + tworzenie** .
+
+11. Sprawdź, czy wszystkie informacje są poprawne, a następnie kliknij przycisk **Utwórz** , aby zainicjować obsługę administracyjną sieci wirtualnej.
+
+### <a name="create-an-azure-cache-for-redis-instance-with-a-private-endpoint"></a>Tworzenie pamięci podręcznej platformy Azure dla wystąpienia Redis z prywatnym punktem końcowym
+Aby utworzyć wystąpienie pamięci podręcznej, wykonaj następujące kroki.
+
+1. Wróć do strony głównej Azure Portal lub Otwórz menu paska bocznego, a następnie wybierz pozycję **Utwórz zasób**. 
    
 1. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis**.
 
@@ -47,114 +82,114 @@ W tym artykule opisano sposób tworzenia pamięci podręcznej platformy Azure, s
    | **Grupa zasobów** | Rozwiń i wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
    | **Lokalizacja** | Lista rozwijana i wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
    | **Warstwa cenowa** | Lista rozwijana i wybierz [warstwę cenową](https://azure.microsoft.com/pricing/details/cache/). |  Warstwa cenowa decyduje o rozmiarze, wydajności i funkcjach dostępnych dla pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Omówienie pamięci podręcznej Azure Cache for Redis](cache-overview.md). |
-   
-1. Wybierz pozycję **Utwórz**. 
-   
-    :::image type="content" source="media/cache-private-link/3-new-cache.png" alt-text="Utwórz pamięć podręczną platformy Azure dla Redis.":::
-   
-   Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd** usługi Azure cache for Redis. Gdy **stan** jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia.
+
+1. Wybierz kartę **Sieć** lub kliknij przycisk **sieci** w dolnej części strony.
+
+1. Na karcie **Sieć** wybierz pozycję **prywatny punkt końcowy** dla metody łączności.
+
+1. Kliknij przycisk **Dodaj** , aby utworzyć prywatny punkt końcowy.
+
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="W obszarze Sieć Dodaj prywatny punkt końcowy.":::
+
+1. Na stronie **Tworzenie prywatnego punktu końcowego** Skonfiguruj ustawienia dla prywatnego punktu końcowego, korzystając z sieci wirtualnej i podsieci utworzonej w ostatniej sekcji, a następnie wybierz **przycisk OK**. 
+
+1. Wybierz kartę **Dalej: Zaawansowane** lub kliknij przycisk **Dalej: Zaawansowane** w dolnej części strony.
+
+1. Na karcie **Zaawansowane** dla podstawowego lub standardowego wystąpienia pamięci podręcznej wybierz opcję Włącz przełącznik, jeśli chcesz włączyć port inny niż TLS.
+
+1. Na karcie **Zaawansowane** wystąpienia pamięci podręcznej Premium Skonfiguruj ustawienia dla portu niezwiązanego z protokołem TLS, klastrowanie i trwałość danych.
+
+
+1. Wybierz kartę **następne: Tagi** lub kliknij przycisk **Dalej: Tagi** w dolnej części strony.
+
+1. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób. 
+
+1. Wybierz pozycję **Recenzja + Utwórz**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
+
+1. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz**.
+
+Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd**usługi Azure cache for Redis   . Gdy **stan**   jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia. 
     
-    :::image type="content" source="media/cache-private-link/4-status.png" alt-text="Utworzono pamięć podręczną platformy Azure dla Redis.":::
 
-## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
+## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Utwórz prywatny punkt końcowy z istniejącą usługą Azure cache for Redis 
 
-W tej sekcji utworzysz sieć wirtualną i podsieć.
+W tej sekcji dodasz prywatny punkt końcowy do istniejącej usługi Azure cache for Redis. 
 
-1. Wybierz pozycję **Utwórz zasób**.
+### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej 
+Aby utworzyć sieć wirtualną, wykonaj następujące kroki.
 
-    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Wybierz pozycję Utwórz zasób.":::
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**.
 
 2. Na stronie **Nowy** wybierz pozycję **Sieć** , a następnie wybierz pozycję **Sieć wirtualna**.
 
-    :::image type="content" source="media/cache-private-link/5-select-vnet.png" alt-text="Utwórz sieć wirtualną.":::
+3. Wybierz pozycję **Dodaj** , aby utworzyć sieć wirtualną.
 
-3. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie **podstawowe** :
+4. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
-    | **Ustawienie**          | **Wartość**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Szczegóły projektu**  |                                                                 |
-    | Subskrypcja     | Lista rozwijana i wybierz swoją subskrypcję.                                  |
-    | Grupa zasobów   | Lista rozwijana i wybierz grupę zasobów. |
-    | **Szczegóły wystąpienia** |                                                                 |
-    | Nazwa             | Wejść**\<virtual-network-name>**                                    |
-    | Region           | Zaznaczenia**\<region-name>** |
+   | Ustawienie      | Sugerowana wartość  | Opis |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Subskrypcja** | Lista rozwijana i wybierz swoją subskrypcję. | Subskrypcja, w ramach której ma zostać utworzona ta sieć wirtualna. | 
+   | **Grupa zasobów** | Rozwiń i wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona sieć wirtualna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
+   | **Nazwa** | Wprowadź nazwę sieci wirtualnej. | Nazwa musi zaczynać się literą lub cyfrą, kończyć literą, cyfrą lub znakiem podkreślenia i może zawierać tylko litery, cyfry, podkreślenia, kropki lub łączniki. | 
+   | **Region** | Lista rozwijana i wybierz region. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z sieci wirtualnej. |
 
-4. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
+5. Wybierz kartę **adresy IP** lub kliknij przycisk **Dalej: adresy IP** w dolnej części strony.
 
-5. Na karcie **adresy IP** wprowadź następujące informacje:
+6. Na karcie **adresy IP** Określ **przestrzeń adresową IPv4** jako co najmniej jeden prefiks adresów w notacji CIDR (np. 192.168.1.0/24).
 
-    | Ustawienie            | Wartość                      |
-    |--------------------|----------------------------|
-    | Przestrzeń adresów IPv4 | Wejść**\<IPv4-address-space>** |
+7. W obszarze **Nazwa podsieci**kliknij opcję **domyślne** , aby edytować właściwości podsieci.
 
-6. W obszarze **Nazwa podsieci**wybierz pozycję **domyślny**wyraz.
+8. W okienku **Edytowanie podsieci** Podaj **nazwę podsieci** oraz **zakres adresów podsieci**. Zakres adresów podsieci powinien być w notacji CIDR (np. 192.168.1.0/24). Musi ona być zawarta w przestrzeni adresowej sieci wirtualnej.
 
-7. W obszarze **Edytuj podsieć**wprowadź następujące informacje:
+9. Wybierz pozycję **Zapisz**.
 
-    | Ustawienie            | Wartość                      |
-    |--------------------|----------------------------|
-    | Nazwa podsieci | Wejść**\<subnet-name>** |
-    | Zakres adresów podsieci | Wejść**\<subnet-address-range>**
+10. Wybierz kartę **Recenzja + tworzenie** lub kliknij przycisk **Recenzja + tworzenie** .
 
-8. Wybierz pozycję **Zapisz**.
+11. Sprawdź, czy wszystkie informacje są poprawne, a następnie kliknij przycisk **Utwórz** , aby zainicjować obsługę administracyjną sieci wirtualnej.
 
-9. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
+### <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego 
 
-10. Wybierz pozycję **Utwórz**.
+Aby utworzyć prywatny punkt końcowy, wykonaj następujące kroki.
 
+1. W Azure Portal Wyszukaj **usługę Azure cache for Redis** i naciśnij klawisz ENTER lub wybierz ją z sugestii wyszukiwania.
 
-## <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego 
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Wyszukaj usługę Azure cache for Redis.":::
 
-W tej sekcji utworzysz prywatny punkt końcowy i nawiążesz połączenie z utworzoną wcześniej pamięcią podręczną.
+2. Wybierz wystąpienie pamięci podręcznej, do którego chcesz dodać prywatny punkt końcowy.
 
-1. Wyszukaj **link prywatny** i naciśnij klawisz ENTER lub wybierz go z sugestii wyszukiwania.
+3. Po lewej stronie ekranu wybierz pozycję **(wersja zapoznawcza) prywatny punkt końcowy**.
 
-    :::image type="content" source="media/cache-private-link/7-create-private-link.png" alt-text="Wyszukaj link prywatny.":::
+4. Kliknij przycisk **prywatny punkt końcowy** , aby utworzyć prywatny punkt końcowy.
 
-2. Po lewej stronie ekranu wybierz pozycję **prywatne punkty końcowe**.
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Dodaj prywatny punkt końcowy.":::
 
-    :::image type="content" source="media/cache-private-link/8-select-private-endpoint.png" alt-text="Wybierz łącze prywatne.":::
+5. Na **stronie Tworzenie prywatnego punktu końcowego**Skonfiguruj ustawienia dla prywatnego punktu końcowego.
 
-3. Wybierz przycisk **+ Dodaj** , aby utworzyć prywatny punkt końcowy. 
+   | Ustawienie      | Sugerowana wartość  | Opis |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Subskrypcja** | Lista rozwijana i wybierz swoją subskrypcję. | Subskrypcja, w ramach której ma zostać utworzony prywatny punkt końcowy. | 
+   | **Grupa zasobów** | Rozwiń i wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzony prywatny punkt końcowy i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
+   | **Nazwa** | Wprowadź nazwę prywatnego punktu końcowego. | Nazwa musi zaczynać się literą lub cyfrą, kończyć literą, cyfrą lub znakiem podkreślenia i może zawierać tylko litery, cyfry, podkreślenia, kropki lub łączniki. | 
+   | **Region** | Lista rozwijana i wybierz region. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystały z prywatnego punktu końcowego. |
 
-    :::image type="content" source="media/cache-private-link/9-add-private-endpoint.png" alt-text="Dodaj prywatny link.":::
+6. Kliknij przycisk **Dalej: zasób** w dolnej części strony.
 
-4. Na **stronie Tworzenie prywatnego punktu końcowego**Skonfiguruj ustawienia dla prywatnego punktu końcowego.
+7. Na karcie **zasób** wybierz swoją subskrypcję, wybierz typ zasobu jako `Microsoft.Cache/Redis` , a następnie wybierz pamięć podręczną, do której ma zostać podłączony prywatny punkt końcowy.
 
-    | Ustawienie | Wartość |
-    | ------- | ----- |
-    | **SZCZEGÓŁY PROJEKTU** | |
-    | Subskrypcja | Lista rozwijana i wybierz swoją subskrypcję. |
-    | Grupa zasobów | Lista rozwijana i wybierz grupę zasobów. |
-    | **SZCZEGÓŁY WYSTĄPIENIA** |  |
-    | Nazwa |Wprowadź nazwę prywatnego punktu końcowego.  |
-    | Region |Lista rozwijana i wybierz lokalizację. |
-    |||
+8. Kliknij przycisk **Dalej: Konfiguracja** w dolnej części strony.
 
-5. Wybierz przycisk **Dalej: zasób** w dolnej części strony.
+9. Na karcie **Konfiguracja** wybierz sieć wirtualną i podsieć utworzoną w poprzedniej sekcji.
 
-6. Na karcie **zasób** wybierz swoją subskrypcję, wybierz typ zasobu jako Microsoft. cache/Redis, a następnie wybierz pamięć podręczną utworzoną w poprzedniej sekcji.
+10. Kliknij przycisk **Dalej: Tagi** w dolnej części strony.
 
-    :::image type="content" source="media/cache-private-link/10-resource-private-endpoint.png" alt-text="Zasoby dla linku prywatnego.":::
+11. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób.
 
-7. Wybierz przycisk **Dalej: Konfiguracja** w dolnej części strony.
+12. Wybierz pozycję **Recenzja + Utwórz**. Nastąpi przekierowanie do karty **Recenzja + tworzenie**, w   której platforma Azure weryfikuje konfigurację.
 
-8. Na karcie **Konfiguracja** wybierz sieć wirtualną i podsieć utworzoną w poprzedniej sekcji.
-
-    :::image type="content" source="media/cache-private-link/11-configuration-private-endpoint.png" alt-text="Konfiguracja linku prywatnego.":::
-
-9. Wybierz przycisk **Następny: Tagi** w dolnej części strony.
-
-10. Na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz poklasyfikować zasób. Ten krok jest opcjonalny.
-
-    :::image type="content" source="media/cache-private-link/12-tags-private-endpoint.png" alt-text="Tagi dla linku prywatnego.":::
-
-11. Wybierz pozycję **Recenzja + Utwórz**. Nastąpi przekierowanie do karty **Recenzja + tworzenie**, w   której platforma Azure weryfikuje konfigurację.
-
-12. Po wyświetleniu komunikatu o **przekazaniu** zielonych weryfikacji kliknij przycisk **Utwórz**.
+13. Po wyświetleniu komunikatu o pomyślnym **sprawdzeniu poprawności** , wybierz pozycję **Utwórz**.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat linku prywatnego, zapoznaj się z [dokumentacją prywatnego linku do platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-overview). 
+Aby dowiedzieć się więcej o łączu prywatnym platformy Azure, zobacz [dokumentację linku prywatnego platformy Azure](https://docs.microsoft.com/azure/private-link/private-link-overview). 
 

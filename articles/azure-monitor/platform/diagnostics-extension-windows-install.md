@@ -1,6 +1,6 @@
 ---
 title: Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)
-description: Dowiedz się, jak zbierać dane diagnostyczne platformy Azure na koncie usługi Azure Storage, aby można było wyświetlać je za pomocą jednego z kilku dostępnych narzędzi.
+description: Dowiedz się więcej o instalowaniu i konfigurowaniu rozszerzenia diagnostyki systemu Windows. Dowiedz się również, w jaki sposób są przechowywane dane oraz konto usługi Azure Storage.
 services: azure-monitor
 author: bwren
 ms.subservice: diagnostic-extension
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 46234f3b4bfd467db9b5754b5590603ff3d42915
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e6ccba27fb599cb26da86e94d3500f4f806ecb76
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328874"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)
 [Rozszerzenie diagnostyki Azure](diagnostics-extension-overview.md) to agent w Azure monitor, który zbiera dane monitorowania z systemu operacyjnego gościa i obciążeń maszyn wirtualnych platformy Azure i innych zasobów obliczeniowych. Ten artykuł zawiera szczegółowe informacje na temat instalowania i konfigurowania rozszerzenia Diagnostyka systemu Windows oraz opis sposobu przechowywania danych w usłudze i koncie usługi Azure Storage.
@@ -194,17 +194,17 @@ W poniższej tabeli wymieniono różne typy danych zbieranych z rozszerzenia dia
 
 | Dane | Typ magazynu | Opis |
 |:---|:---|:---|
-| WADDiagnosticInfrastructureLogsTable | Tabela | Monitor diagnostyczny i zmiany konfiguracji. |
-| WADDirectoriesTable | Tabela | Katalogi monitorowane przez Monitor diagnostyczny.  Dotyczy to również dzienników usług IIS, dzienników żądań zakończonych niepowodzeniem i katalogów niestandardowych.  Lokalizacja pliku dziennika obiektów BLOB jest określona w polu kontenera, a nazwa obiektu BLOB znajduje się w polu RelativePath.  Pole AbsolutePath wskazuje lokalizację i nazwę pliku, która istniała na maszynie wirtualnej platformy Azure. |
-| WadLogsTable | Tabela | Dzienniki zapisane w kodzie przy użyciu odbiornika śledzenia. |
-| WADPerformanceCountersTable | Tabela | Liczniki wydajności. |
-| WADWindowsEventLogsTable | Tabela | Dzienniki zdarzeń systemu Windows. |
+| WADDiagnosticInfrastructureLogsTable | tabela | Monitor diagnostyczny i zmiany konfiguracji. |
+| WADDirectoriesTable | tabela | Katalogi monitorowane przez Monitor diagnostyczny.  Dotyczy to również dzienników usług IIS, dzienników żądań zakończonych niepowodzeniem i katalogów niestandardowych.  Lokalizacja pliku dziennika obiektów BLOB jest określona w polu kontenera, a nazwa obiektu BLOB znajduje się w polu RelativePath.  Pole AbsolutePath wskazuje lokalizację i nazwę pliku, która istniała na maszynie wirtualnej platformy Azure. |
+| WadLogsTable | tabela | Dzienniki zapisane w kodzie przy użyciu odbiornika śledzenia. |
+| WADPerformanceCountersTable | tabela | Liczniki wydajności. |
+| WADWindowsEventLogsTable | tabela | Dzienniki zdarzeń systemu Windows. |
 | funkcji wad-IIS-failedreqlogfiles | Obiekt blob | Zawiera informacje z dzienników żądań nieudanych usług IIS. |
 | funkcji wad-IIS-LogFiles | Obiekt blob | Zawiera informacje o dziennikach usług IIS. |
 | celnej | Obiekt blob | Niestandardowy kontener oparty na konfigurowaniu katalogów monitorowanych przez Monitor diagnostyczny.  Nazwa tego kontenera obiektów BLOB zostanie określona w WADDirectoriesTable. |
 
 ## <a name="tools-to-view-diagnostic-data"></a>Narzędzia do wyświetlania danych diagnostycznych
-Dostępnych jest kilka narzędzi do wyświetlania danych po ich przeniesieniu do magazynu. Przykład:
+Dostępnych jest kilka narzędzi do wyświetlania danych po ich przeniesieniu do magazynu. Na przykład:
 
 * Eksplorator serwera w programie Visual Studio — Jeśli zainstalowano narzędzia platformy Azure dla Microsoft Visual Studio, można użyć węzła usługi Azure Storage w Eksplorator serwera, aby wyświetlić dane obiektów BLOB tylko do odczytu i tabele z kont usługi Azure Storage. Możesz wyświetlić dane z lokalnego konta emulatora magazynu, a także z kont magazynu utworzonych dla platformy Azure. Aby uzyskać więcej informacji, zobacz [przeglądanie zasobów magazynu i zarządzanie nimi za pomocą Eksplorator serwera](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Eksplorator usługi Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md) jest aplikacją autonomiczną, która umożliwia łatwe współdziałanie z danymi usługi Azure Storage w systemach Windows, OSX i Linux.

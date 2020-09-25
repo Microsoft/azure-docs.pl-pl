@@ -1,5 +1,5 @@
 ---
-title: Dodawanie, usuwanie i wyświetlanie grup w jednostce administracyjnej (wersja zapoznawcza) — Azure Active Directory | Microsoft Docs
+title: Dodawanie, usuwanie i wyświetlanie grup w jednostce administracyjnej — Azure Active Directory | Microsoft Docs
 description: Zarządzanie grupami i ich uprawnieniami roli w jednostce administracyjnej w Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 06/23/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76026313eea8c8fbb2f3e55321e2e4ebbe5dcfc7
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 324d0ff0659270c6f2e90c0456ded83344f73936
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850919"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265040"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Dodawanie grup i zarządzanie nimi w jednostkach administracyjnych w Azure Active Directory
 
@@ -31,7 +31,7 @@ Aby dowiedzieć się, jak przygotować się do korzystania z programu PowerShell
 
 ### <a name="azure-portal"></a>Azure Portal
 
-W wersji zapoznawczej można przypisywać grupy tylko pojedynczo do jednostki administracyjnej. Nie ma możliwości zbiorczego przypisywania grup do jednostki administracyjnej. Grupę można przypisać do jednostki administracyjnej w jeden z dwóch sposobów w portalu:
+Grupy można przypisywać pojedynczo do jednostki administracyjnej. Nie ma możliwości przypisywania grup zbiorczo do jednostki administracyjnej. Grupę można przypisać do jednostki administracyjnej w jeden z dwóch sposobów w portalu:
 
 1. Na stronie **grupy > usługi Azure AD**
 

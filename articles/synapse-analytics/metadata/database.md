@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 409311594cc26680217948e2394420fdaea29024
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015377"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260856"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Udostępniona baza danych usługi Azure Synapse Analytics
 
@@ -23,7 +23,7 @@ Usługa Azure Synapse Analytics umożliwia różnym aparatom obszarów roboczych
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Baza danych utworzona za pomocą zadania Spark stanie się widoczna z tą samą nazwą dla wszystkich bieżących i przyszłych pul platformy Spark (wersja zapoznawcza) w obszarze roboczym, a także aparatu SQL na żądanie.
+Baza danych utworzona za pomocą zadania platformy Spark będzie widoczna z tą samą nazwą dla wszystkich bieżących i przyszłych pul platformy Spark (wersja zapoznawcza) w obszarze roboczym, w tym aparatu SQL na żądanie.
 
 Domyślna baza danych Spark, wywołana `default` , będzie również widoczna w kontekście SQL na żądanie jako baza danych o nazwie `default` .
 
@@ -74,7 +74,7 @@ SELECT * FROM sys.databases;
 
 Sprawdź, czy `mytestdb` jest uwzględniony w wynikach.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się więcej o udostępnionych metadanych usługi Azure Synapse Analytics](overview.md)
 - [Dowiedz się więcej o udostępnionych tabelach metadanych usługi Azure Synapse Analytics](table.md)

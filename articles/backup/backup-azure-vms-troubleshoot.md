@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316736"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -105,7 +105,7 @@ Komunikat o błędzie: operacja migawki nie powiodła się z powodu nieprawidło
 
 Ten błąd występuje z powodu nieprawidłowego stanu składników zapisywania usługi VSS. Rozszerzenia Azure Backup współpracują z składnikami zapisywania usługi VSS w celu wykonania migawek dysków. Aby rozwiązać ten problem, wykonaj poniższe czynności:
 
-Uruchom ponownie składniki zapisywania usługi VSS, które są w złej kondycji.
+Krok 1. ponowne uruchomienie składników zapisywania usługi VSS w nieprawidłowym stanie.
 - W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie ```vssadmin list writers``` .
 - Dane wyjściowe zawierają wszystkie składniki zapisywania usługi VSS i ich stan. W przypadku każdego składnika zapisywania usługi VSS o stanie nieprzekraczającym **[1]** należy ponownie uruchomić usługę składnika zapisywania usługi VSS. 
 - Aby ponownie uruchomić usługę, uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
@@ -117,12 +117,20 @@ Uruchom ponownie składniki zapisywania usługi VSS, które są w złej kondycji
 > Ponowne uruchomienie niektórych usług może mieć wpływ na środowisko produkcyjne. Upewnij się, że proces zatwierdzania jest przestrzegany, a usługa zostanie uruchomiona ponownie po zaplanowanym przestoju.
  
    
-Jeśli ponowne uruchomienie składnika zapisywania usługi VSS nie rozwiązało problemu, a problem nadal występuje z powodu przekroczenia limitu czasu, wówczas:
-- Uruchom następujące polecenie w wierszu polecenia z podwyższonym poziomem uprawnień (jako administrator), aby zapobiec tworzeniu wątków dla migawek obiektów BLOB.
+Krok 2. Jeśli ponowne uruchomienie składnika zapisywania usługi VSS nie rozwiązało problemu, uruchom następujące polecenie w wierszu polecenia z podwyższonym poziomem uprawnień (jako administrator), aby zapobiec tworzeniu wątków dla migawek obiektów BLOB.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+Krok 3. Jeśli kroki 1 i 2 nie rozwiążą problemu, przyczyną błędu może być niepowodzenie zapisywania usługi VSS z powodu ograniczonych operacji we/wy na sekundę.<br>
+
+Aby sprawdzić, przejdź do opcji ***system i Podgląd zdarzeń Dzienniki aplikacji*** i Sprawdź następujący komunikat o błędzie:<br>
+*Przekroczono limit czasu dostawcy kopiowania w tle podczas przechowywania zapisu do woluminu skopiowanego w tle. Jest to prawdopodobnie spowodowane nadmiernym działaniem woluminu przez aplikację lub usługę systemową. Spróbuj ponownie później, gdy aktywność woluminu zostanie zmniejszona.*<br>
+
+Rozwiązanie:
+- Sprawdź, czy są możliwe rozproszenie obciążenia między dyskami maszyn wirtualnych. Spowoduje to zmniejszenie obciążenia pojedynczych dysków. Ograniczenie liczby operacji we [/wy można sprawdzić przez włączenie metryk diagnostycznych na poziomie magazynu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+- Zmień zasady tworzenia kopii zapasowych, aby wykonywać kopie zapasowe w godzinach szczytu, gdy obciążenie maszyny wirtualnej jest najniższe.
+- Uaktualnij dyski platformy Azure, aby obsługiwać wyższe liczby operacji we/wy. [Dowiedz się więcej tutaj](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState — operacja migawki nie powiodła się z powodu nieprawidłowego stanu usługi VSS (kopiowania woluminów w tle)
 
@@ -306,6 +314,13 @@ Jeśli masz Azure Policy, które [regulują Tagi w środowisku](../governance/po
 | Wykonanie kopii zapasowej nie powiodło się: <br>Poczekaj na zakończenie zadania. |Brak |
 
 ## <a name="restore"></a>Przywracanie
+
+#### <a name="disks-appear-offline-after-file-restore"></a>Dyski są wyświetlane w trybie offline po przywróceniu plików
+
+Jeśli po przywróceniu, Zauważ, że dyski są w trybie offline, a następnie: 
+* Sprawdź, czy komputer, na którym skrypt jest wykonywany, spełnia wymagania systemu operacyjnego. [Dowiedz się więcej](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
+* Upewnij się, że nie są przywracane do tego samego źródła, [Dowiedz się więcej](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+
 
 | Szczegóły błędu | Obejście |
 | --- | --- |

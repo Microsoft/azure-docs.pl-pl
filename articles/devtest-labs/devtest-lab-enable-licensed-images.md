@@ -3,12 +3,12 @@ title: Włącz licencjonowany obraz w laboratorium w Azure DevTest Labs | Micros
 description: Dowiedz się, jak włączyć licencjonowany obraz w Azure DevTest Labs przy użyciu Azure Portal
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2b6e495be2257548782143517f5a970b424860c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276360"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Włącz licencjonowany obraz w laboratorium w Azure DevTest Labs
 
@@ -47,7 +47,7 @@ Można włączyć wdrażanie programistyczne dla licencjonowanego obrazu, wykonu
 
 1. Zidentyfikuj obraz licencjonowany, do którego użytkownicy mają mieć dostęp, ale którego warunki nie zostały zaakceptowane. Na przykład może zostać wyświetlony Data Science Virtual Machine, który pokazuje stan **zaakceptowanych warunków** lub **przegląd warunków**.
 
-    ![Konfigurowanie okna wdrożenia programowego](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
+    ![Zrzut ekranu przedstawiający Data Science Virtual Machine obrazy z statusem oferty "" warunków zaakceptowanych "i" wymaganym przeglądem warunków "](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
    > Maszyny wirtualne do nauki o danych to obrazy maszyn wirtualnych platformy Azure, wstępnie zainstalowane, skonfigurowane i przetestowane przy użyciu kilku popularnych narzędzi, które są często używane do analizy danych, uczenia maszynowego i szkolenia AI. [Wprowadzenie do usługi Azure Data Science Virtual Machine dla systemów Linux i Windows](../machine-learning/data-science-virtual-machine/overview.md) to świetna okazja do uzyskania informacji na temat DSVMs.

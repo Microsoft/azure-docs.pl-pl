@@ -3,14 +3,14 @@ title: Dzienniki Update Management Azure Automation zapytań
 description: W tym artykule opisano sposób wykonywania zapytań w dziennikach pod kątem Update Management w obszarze roboczym Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 290fb0165038eea8740361a12a6d4bfe2c1bf138
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 777d794716c7c17caf8d4c73007b91a625f40043
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264307"
 ---
 # <a name="query-update-management-logs"></a>Wykonywanie zapytań względem dzienników rozwiązania Update Management
 
@@ -55,7 +55,7 @@ Tworzony jest rekord typu `Update` , który reprezentuje dostępne aktualizacje 
 | Computer (Komputer) | W pełni kwalifikowana nazwa domeny komputera raportowania. |
 | ComputerEnvironment | Naturalne. Możliwe wartości to Azure lub non-Azure. |
 | MSRCBulletinID | Numer IDENTYFIKACYJNy biuletynu zabezpieczeń. |
-| MSRCSeverity | Klasyfikacja ważności luki w zabezpieczeniach. Wartości to:<br> Krytyczne<br> Ważne<br> Umiarkowane<br> Małe |  
+| MSRCSeverity | Klasyfikacja ważności luki w zabezpieczeniach. Wartości to:<br> Krytyczne<br> Ważne<br> Umiarkowane<br> Niski |  
 | KBID | Identyfikator artykułu bazy wiedzy dla usługi Windows Update. |
 | ManagementGroupName | Nazwa grupy zarządzania Operations Manager lub Log Analytics obszaru roboczego. |
 | UpdateID | Unikatowy identyfikator aktualizacji oprogramowania. |
@@ -110,9 +110,9 @@ Tworzony jest rekord typu `UpdateRunProgress` , który zapewnia stan wdrożenia 
 | Computer (Komputer) | W pełni kwalifikowana nazwa domeny komputera raportowania. |
 | ComputerEnvironment | Naturalne. Wartości to Azure lub non-Azure. |
 | CorrelationId | Unikatowy identyfikator zadania elementu Runbook uruchomionego dla aktualizacji. |
-| EndTime | Godzina, o której zakończył się proces synchronizacji. |
+| EndTime | Godzina, o której zakończył się proces synchronizacji. *Ta właściwość nie jest obecnie używana. Zobacz TimeGenerated.* |
 | ErrorResult | Windows Update wygenerowany kod błędu, jeśli instalacja aktualizacji nie powiedzie się. |
-| InstallationStatus | Możliwe stany instalacji aktualizacji na komputerze klienckim,<br> `NotStarted`-zadanie nie zostało jeszcze wyzwolone.<br> `FailedToStart`-nie można uruchomić zadania na komputerze.<br> `Failed`— zadanie zostało uruchomione, ale nie powiodło się z powodu wyjątku.<br> `InProgress`— zadanie jest w toku.<br> `MaintenanceWindowExceeded`-Jeśli wykonywanie pozostało, ale osiągnięto interwał okna obsługi.<br> `Succeeded`— zadanie zakończyło się pomyślnie.<br> `InstallFailed`-nie można pomyślnie zainstalować aktualizacji.<br> `NotIncluded`<br> `Excluded` |
+| InstallationStatus | Możliwe stany instalacji aktualizacji na komputerze klienckim,<br> `NotStarted` -zadanie nie zostało jeszcze wyzwolone.<br> `FailedToStart` -nie można uruchomić zadania na komputerze.<br> `Failed` — zadanie zostało uruchomione, ale nie powiodło się z powodu wyjątku.<br> `InProgress` — zadanie jest w toku.<br> `MaintenanceWindowExceeded` -Jeśli wykonywanie pozostało, ale osiągnięto interwał okna obsługi.<br> `Succeeded` — zadanie zakończyło się pomyślnie.<br> `InstallFailed` -nie można pomyślnie zainstalować aktualizacji.<br> `NotIncluded`<br> `Excluded` |
 | KBID | Identyfikator artykułu bazy wiedzy dla usługi Windows Update. |
 | ManagementGroupName | Nazwa grupy zarządzania Operations Manager lub Log Analytics obszaru roboczego. |
 | OSType | Typ systemu operacyjnego. Wartości to Windows lub Linux. |
@@ -123,8 +123,8 @@ Tworzony jest rekord typu `UpdateRunProgress` , który zapewnia stan wdrożenia 
 | ResourceType | Typ zasobu. |
 | SourceComputerId | Unikatowy identyfikator reprezentujący komputer źródłowy. |
 | SourceSystem | System źródłowy dla rekordu. Wartość to `OperationsManager`. |
-| StartTime | Godzina, o której zaplanowano zainstalowanie aktualizacji. |
-| SubscriptionId | Unikatowy identyfikator subskrypcji platformy Azure. | 
+| StartTime | Godzina, o której zaplanowano zainstalowanie aktualizacji. *Ta właściwość nie jest obecnie używana. Zobacz TimeGenerated.* |
+| SubscriptionId | Unikatowy identyfikator subskrypcji platformy Azure. |
 | SucceededOnRetry | Wartość wskazująca, czy wykonanie aktualizacji nie powiodło się przy pierwszej próbie, a bieżąca operacja jest ponowieniem próby. |
 | TimeGenerated | Data i godzina utworzenia rekordu. |
 | Tytuł | Tytuł aktualizacji. |
@@ -209,7 +209,7 @@ Aby upewnić się, że Operations Manager grupy zarządzania komunikuje się z d
 
 ### <a name="single-azure-vm-assessment-queries-windows"></a>Pojedyncze zapytania oceny maszyny wirtualnej platformy Azure (system Windows)
 
-Zastąp wartość VMUUID wartością GUID maszyny wirtualnej, która jest używana do wykonywania zapytań. Możesz znaleźć VMUUID, które powinny być używane, uruchamiając następujące zapytanie w Azure Monitor dziennikach:`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Zastąp wartość VMUUID wartością GUID maszyny wirtualnej, która jest używana do wykonywania zapytań. Możesz znaleźć VMUUID, które powinny być używane, uruchamiając następujące zapytanie w Azure Monitor dziennikach: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Brakujące podsumowanie aktualizacji
 
@@ -238,7 +238,7 @@ Update
 
 ### <a name="single-azure-vm-assessment-queries-linux"></a>Pojedyncze zapytania oceny maszyny wirtualnej platformy Azure (Linux)
 
-W przypadku niektórych dystrybucje systemu Linux występuje niezgodność [bajtów](https://en.wikipedia.org/wiki/Endianness) z wartością VMUUID, która pochodzi z Azure Resource Manager i co jest przechowywane w dziennikach Azure monitor. Poniższe zapytanie sprawdza zgodność z dowolną przyciągiem. Zastąp wartości VMUUID wartościami formatu big-endian i little-endian identyfikatora GUID, aby prawidłowo zwrócić wyniki. Możesz znaleźć VMUUID, które powinny być używane, uruchamiając następujące zapytanie w Azure Monitor dziennikach:`Update | where Computer == "<machine name>"
+W przypadku niektórych dystrybucje systemu Linux występuje niezgodność [bajtów](https://en.wikipedia.org/wiki/Endianness) z wartością VMUUID, która pochodzi z Azure Resource Manager i co jest przechowywane w dziennikach Azure monitor. Poniższe zapytanie sprawdza zgodność z dowolną przyciągiem. Zastąp wartości VMUUID wartościami formatu big-endian i little-endian identyfikatora GUID, aby prawidłowo zwrócić wyniki. Możesz znaleźć VMUUID, które powinny być używane, uruchamiając następujące zapytanie w Azure Monitor dziennikach: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Brakujące podsumowanie aktualizacji

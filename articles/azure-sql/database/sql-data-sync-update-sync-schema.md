@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/14/2018
-ms.openlocfilehash: 4d0800d109d17c1233a18966d84a498596e8e834
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b42624506b3fe3a40cd19353c0dc25ecd8a5da02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188206"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328806"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatyzowanie replikacji zmian schematu w usłudze Azure SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -173,7 +173,7 @@ Zmiana nazw kolumn lub tabel powoduje, że synchronizacja danych przestanie dzia
 
 W przypadku innych typów zmian schematu — na przykład tworzenie procedur składowanych lub usuwanie indeksu-aktualizowanie schematu synchronizacji nie jest wymagane.
 
-## <a name="troubleshoot-automated-schema-change-replication"></a><a name="troubleshoot"></a>Rozwiązywanie problemów z automatyczną replikacją zmian schematu
+## <a name="troubleshoot-automated-schema-change-replication"></a><a name="troubleshoot"></a> Rozwiązywanie problemów z automatyczną replikacją zmian schematu
 
 Logika replikacji opisana w tym artykule przestaje działać w niektórych sytuacjach — na przykład w przypadku zmiany schematu w lokalnej bazie danych, która nie jest obsługiwana w Azure SQL Database. W takim przypadku synchronizacja tabeli śledzenia zmian schematu kończy się niepowodzeniem. Ten problem należy rozwiązać ręcznie:
 
@@ -201,7 +201,7 @@ Logika replikacji opisana w tym artykule przestaje działać w niektórych sytua
 
 Jeśli chcesz wyczyścić rekordy w tabeli śledzenia zmian schematu, użyj polecenia DELETE zamiast Truncate. Nigdy nie należy odpełniać kolumny Identity w tabeli śledzenia zmian schematu przy użyciu DBCC CHECKIDENT. Można utworzyć nowe tabele śledzenia zmian schematu i zaktualizować nazwę tabeli w wyzwalaczu DDL, jeśli jest wymagane ponowne umieszczanie.
 
-## <a name="other-considerations"></a><a name="other"></a>Inne zagadnienia
+## <a name="other-considerations"></a><a name="other"></a> Inne zagadnienia
 
 -   Użytkownicy baz danych, którzy konfigurują centrum i bazy danych elementów członkowskich, muszą mieć wystarczające uprawnienia do wykonywania poleceń zmiany schematu.
 

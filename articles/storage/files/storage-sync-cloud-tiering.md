@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6678f64802dc497de6cf0a70ba5ff0bbcaf44e1c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9df06a9d81ef3c9fbe3380bab88325a586981db9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329316"
 ---
 # <a name="cloud-tiering-overview"></a>Omówienie obsługi warstw w chmurze
 Obsługa warstw w chmurze jest opcjonalną funkcją Azure File Sync, w której często używane pliki są buforowane lokalnie na serwerze, podczas gdy wszystkie inne pliki są warstwami do Azure Files na podstawie ustawień zasad. Gdy plik jest warstwowy, filtr systemu plików Azure File Sync (StorageSync.sys) zastępuje plik lokalnie za pomocą wskaźnika lub punktu ponownej analizy. Punkt ponownej analizy reprezentuje adres URL pliku w Azure Files. Plik warstwowy ma zarówno atrybut "offline", jak i atrybut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS ustawiony w systemie plików NTFS, aby aplikacje innych firm mogły bezpiecznie identyfikować pliki warstwowe.
@@ -40,7 +40,7 @@ Obsługa warstw w chmurze nie zależy od funkcji NTFS do śledzenia czasu ostatn
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Jaki jest minimalny rozmiar pliku do warstwy?
 
-W przypadku agenta w wersji 9 i nowszych minimalny rozmiar pliku do warstwy jest oparty na rozmiarze klastra systemu plików. Minimalny rozmiar pliku kwalifikującego się do obsługi warstw w chmurze jest obliczany przez 2. rozmiar klastra i co najmniej 8 KB. W poniższej tabeli przedstawiono minimalne rozmiary plików, które mogą być warstwowe, w oparciu o rozmiar klastra objętościowego:
+W przypadku agenta w wersji 12 i nowszej minimalny rozmiar pliku do warstwy jest oparty na rozmiarze klastra systemu plików. Minimalny rozmiar pliku kwalifikującego się do obsługi warstw w chmurze jest obliczany przez 2. rozmiar klastra i co najmniej 8 KB. W poniższej tabeli przedstawiono minimalne rozmiary plików, które mogą być warstwowe, w oparciu o rozmiar klastra objętościowego:
 
 |Rozmiar klastra objętościowego (w bajtach) |Pliki o tym rozmiarze lub większe mogą być warstwowe  |
 |----------------------------|---------|
@@ -48,9 +48,9 @@ W przypadku agenta w wersji 9 i nowszych minimalny rozmiar pliku do warstwy jest
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
-|64 KB (65536)               | 128 KB  |
+|64 KB (65536) i większych    | 128 KB  |
 
-W przypadku systemu Windows Server 2019 i agenta Azure File Sync w wersji 12 i nowszej obsługiwane są również rozmiary klastrów o rozmiarze do 2 MB, a warstwa dla większych rozmiarów klastrów działa w ten sam sposób. Starsze wersje systemów operacyjnych i agentów obsługują rozmiary klastrów do 64 KB.
+W przypadku systemu Windows Server 2019 i agenta Azure File Sync w wersji 12 i nowszej obsługiwane są również rozmiary klastrów o rozmiarze do 2 MB, a warstwa dla większych rozmiarów klastrów działa w ten sam sposób. Starsze wersje systemów operacyjnych i agentów obsługują rozmiary klastrów nawet do 64 KB, ale nie działają.
 
 Wszystkie systemy plików, które są używane przez system Windows, organizują dysk twardy w oparciu o rozmiar klastra (nazywany także rozmiarem jednostki alokacji). Rozmiar klastra reprezentuje najmniejszą ilość miejsca na dysku, która może być użyta do przechowywania pliku. Gdy rozmiary plików nie są dostępne nawet dla wielu rozmiarów klastra, należy użyć dodatkowego miejsca do przechowywania plików do kolejnej wielokrotności rozmiaru klastra.
 
@@ -85,11 +85,23 @@ Jeśli na woluminie znajduje się więcej niż jeden punkt końcowy serwera, pr�
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Jak działają zasady obsługi warstw dat w połączeniu z zasadami obsługi poziomów wolnego miejsca na woluminie? 
 Podczas włączania obsługi warstw w chmurze w punkcie końcowym serwera ustawia się zasady wolnego miejsca na woluminie. Zawsze ma pierwszeństwo przed innymi zasadami, w tym zasadami daty. Opcjonalnie można włączyć zasady daty dla każdego punktu końcowego serwera na tym woluminie. Te zasady umożliwiają zarządzanie tylko tymi plikami, do których dostęp (czyli odczyt lub zapis) w zakresie dni, w ramach których te zasady są przechowywane lokalnie. Nie można uzyskać dostępu do plików z określoną liczbą dni, zostanie warstwowa. 
 
-Obsługa warstw w chmurze polega na określeniu, które pliki powinny być warstwowe. Sterownik filtru obsługi warstw w chmurze (storagesync.sys) śledzi czas ostatniego dostępu i rejestruje informacje w magazynie ciepła w warstwach w chmurze. Magazyn ciepła można zobaczyć przy użyciu lokalnego polecenia cmdlet programu PowerShell.
+Obsługa warstw w chmurze polega na określeniu, które pliki powinny być warstwowe. Sterownik filtru obsługi warstw w chmurze (storagesync.sys) śledzi czas ostatniego dostępu i rejestruje informacje w magazynie ciepła w warstwach w chmurze. Magazyn ciepła można pobrać i zapisać w pliku CSV za pomocą polecenia cmdlet programu PowerShell na serwerze lokalnym.
 
 ```powershell
+# There is a single heat store for files on a volume / server endpoint / individual file.
+# The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number
+
+# Import the PS module:
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
-Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+
+# VOLUME FREE SPACE: To get the order in which files will be tiered using the volume free space policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrder
+
+# DATE POLICY: To get the order in which files will be tiered using the date policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrderV2
+
+# Find the heat store information for a particular file:
+Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
 ```
 
 > [!IMPORTANT]
@@ -158,10 +170,10 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 Parametry opcjonalne:
-* `-Order CloudTieringPolicy`najpierw przywróci ostatnio zmodyfikowane lub dostęp do plików, które są dozwolone przez bieżące zasady dotyczące warstw. 
+* `-Order CloudTieringPolicy` najpierw przywróci ostatnio zmodyfikowane lub dostęp do plików, które są dozwolone przez bieżące zasady dotyczące warstw. 
     * Jeśli skonfigurowano zasady wolnego miejsca na woluminie, pliki zostaną odwołane do momentu osiągnięcia ustawienia zasad wolnego miejsca na woluminie. Jeśli na przykład ustawienie zasad wolnego woluminu to 20%, odwołanie zostanie zatrzymane, gdy ilość wolnego miejsca woluminu osiągnie 20%.  
     * W przypadku skonfigurowania ilości wolnego miejsca i zasad dotyczących ilości danych zostaną one odwołane, dopóki nie zostanie osiągnięty limit ilości wolnego miejsca lub ustawienia zasad daty. Jeśli na przykład ustawienie zasad wolnego woluminu to 20%, a zasady dat to 7 dni, funkcja odwoływania zostanie zatrzymana, gdy ilość wolnego miejsca na woluminie osiągnie 20%, a wszystkie pliki, do których dostęp lub zmodyfikowano w ciągu 7 dni, będą lokalne.
-* `-ThreadCount`Określa, ile plików można wielokrotnie odwoływać.
+* `-ThreadCount` Określa, ile plików można wielokrotnie odwoływać.
 * `-PerFileRetryCount`Określa, jak często zostanie podjęta próba odwołania pliku, który jest aktualnie zablokowany.
 * `-PerFileRetryDelaySeconds`Określa czas (w sekundach) między ponownymi próbami odwołania i powinna być zawsze używana w połączeniu z poprzednim parametrem.
 
@@ -196,7 +208,7 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Dlaczego moje pliki warstwowe nie pokazują miniatur lub podglądów w Eksploratorze Windows?
 W przypadku plików warstwowych miniatury i podglądy nie będą widoczne w punkcie końcowym serwera. To zachowanie jest oczekiwane, ponieważ funkcja pamięci podręcznej miniatur w systemie Windows celowo pomija odczytywanie plików z atrybutem offline. Po włączeniu obsługi warstw w chmurze odczytywanie za pomocą plików warstwowych spowodowałoby ich pobranie (są one wywoływane).
 
-To zachowanie nie jest specyficzne dla Azure File Sync, Eksplorator Windows wyświetla "szary X" dla wszystkich plików, które mają ustawiony atrybut offline. Podczas uzyskiwania dostępu do plików za pośrednictwem protokołu SMB zobaczysz ikonę X. Szczegółowe wyjaśnienie tego zachowania można znaleźć w[https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+To zachowanie nie jest specyficzne dla Azure File Sync, Eksplorator Windows wyświetla "szary X" dla wszystkich plików, które mają ustawiony atrybut offline. Podczas uzyskiwania dostępu do plików za pośrednictwem protokołu SMB zobaczysz ikonę X. Szczegółowe wyjaśnienie tego zachowania można znaleźć w [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
 <a id="afs-tiering-disabled"></a>
 ### <a name="i-have-cloud-tiering-disabled-why-are-there-tiered-files-in-the-server-endpoint-location"></a>Mam wyłączone warstwy chmury, dlaczego istnieją pliki warstwowe w lokalizacji punktu końcowego serwera?

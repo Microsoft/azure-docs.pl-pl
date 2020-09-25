@@ -10,13 +10,13 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c3515d6dc7556995c990180330212bffb1445ad2
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 2bdd51218c098dcd778d9a72a98fe42b96357b4e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406235"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328721"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Samouczek: jednostronicowa aplikacja wyszukiwania wideo
 Interfejs API wyszukiwania wideo Bing umożliwia wyszukiwanie w Internecie i uzyskiwanie wyników wideo odpowiadających zapytaniu wyszukiwania. W tym samouczku utworzymy jednostronicową aplikację internetową, która wyświetla wyniki wyszukiwania na stronie przy użyciu interfejsu API wyszukiwania Bing. Aplikacja zawiera składniki HTML, CSS i JavaScript.
@@ -307,7 +307,7 @@ Wyniki wyszukiwania są zwracane jako obiekt `value` najwyższego poziomu w odpo
 }
 ```
 
-Interfejs API wyszukiwania wiadomości Bing zwraca maksymalnie cztery różne rodzaje powiązanych wyników, każdy we własnym obiekcie najwyższego poziomu. Oto one:
+Interfejs API wyszukiwania wiadomości Bing zwraca maksymalnie cztery różne rodzaje powiązanych wyników, każdy we własnym obiekcie najwyższego poziomu. Są to:
 
 |Relacja|Opis|
 |-|-|

@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak za pomocą usługi Azure Kubernetes Service (AKS) używać uwierzytelniania RBAC platformy Azure dla Kubernetes.
 services: container-service
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c1222f671c95d4475de93b9c9e085a94f864b2ae
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003083"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329095"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
 
@@ -21,14 +21,13 @@ Ta funkcja zwalnia z konieczności oddzielnego zarządzania tożsamościami i po
 
 W tym dokumencie opisano nowe podejście, które pozwala na ujednolicone zarządzanie i kontrolę dostępu między zasobami platformy Azure, AKS i zasobami Kubernetes.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Możliwość zarządzania RBAC dla zasobów Kubernetes z platformy Azure umożliwia zarządzanie RBAC dla zasobów klastra przy użyciu platformy Azure lub natywnych mechanizmów Kubernetes. Po włączeniu nazwy główne usługi Azure AD będą weryfikowane wyłącznie przez funkcję RBAC platformy Azure, podczas gdy regularni Użytkownicy i konta usług Kubernetes są weryfikowane wyłącznie przez Kubernetes RBAC. Aby uzyskać więcej informacji na temat uwierzytelniania, autoryzacji i RBAC w witrynie AKS, zobacz [tutaj](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="prerequisites"></a>Wymagania wstępne 
-- Utwórz konto w wersji zapoznawczej <https://aka.ms/aad-rbac-sign-up-form> .
 - Upewnij się, że masz interfejs wiersza polecenia platformy Azure w wersji 2.9.0 lub nowszej
 - Upewnij się, że `EnableAzureRBACPreview` Flaga funkcji jest włączona.
 - Upewnij się, że jest `aks-preview` zainstalowany [interfejs wiersza polecenia][az-extension-add] w wersji 0.4.55 lub nowszej
@@ -44,7 +43,7 @@ Zarejestruj `EnableAzureRBACPreview` flagę funkcji za pomocą polecenia [AZ Fea
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
 ```
 
-Przed pomyślnym zarejestrowaniem flagi należy uzyskać zatwierdzenie po przesłaniu powyższego formularza. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
+ Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
@@ -188,7 +187,7 @@ Teraz, gdy masz definicję roli, możesz ją przypisać do użytkownika lub inne
 az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
 ```
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes przy użyciu`kubectl`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes przy użyciu `kubectl`
 
 > [!NOTE]
 > Upewnij się, że masz najnowszą polecenia kubectl, uruchamiając następujące polecenie:
@@ -222,7 +221,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes przy użyciu`kubelogin`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Korzystanie z usługi Azure RBAC na potrzeby autoryzacji Kubernetes przy użyciu `kubelogin`
 
 Aby odblokować dodatkowe scenariusze, takie jak logowania nieinterakcyjne, starsze `kubectl` wersje lub korzystające z logowania JEDNOkrotnego w wielu klastrach bez konieczności logowania się do nowego klastra, nadano, że token jest nadal ważny, AKS utworzyć wtyczkę exec o nazwie [`kubelogin`](https://github.com/Azure/kubelogin) .
 
@@ -285,4 +284,4 @@ az group delete -n MyResourceGroup
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true

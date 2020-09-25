@@ -1,7 +1,7 @@
 ---
 title: 'Szybki Start: uzyskiwanie szczegółowych informacji o obrazach przy użyciu interfejsu API REST i Node.js — wyszukiwanie wizualne Bing'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak przekazać obraz do interfejsu API wyszukiwania wizualnego Bing i uzyskać szczegółowe informacje na jego temat.
+description: Dowiedz się, jak przekazywać obraz przy użyciu interfejs API wyszukiwania wizualnego Bing i Node.js, a następnie uzyskiwać szczegółowe informacje o obrazie.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,13 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1e5594fab6e4b1758e8e3cd722c053b9d3d301ce
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: e96ff9173d920208e067988602323626767d9017
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404023"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277096"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Szybki Start: uzyskiwanie szczegółowych informacji o obrazach przy użyciu interfejsu API REST wyszukiwanie wizualne Bing i Node.js
 

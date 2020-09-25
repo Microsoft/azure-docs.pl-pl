@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c357720c937a5b63944b7fc598eaff428f85bfb6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: d6222c9275dfe022e897bb6324df5bb30e1a8905
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706810"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276819"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Wysoka dostępność w usłudze Azure Cosmos DB
 
@@ -93,8 +93,8 @@ Poniższa tabela zawiera podsumowanie możliwości wysokiej dostępności różn
 |Cena | Stawka rozliczenia w jednym regionie | Stawka rozliczenia strefy dostępności pojedynczego regionu | Wieloregionowa stawka rozliczeniowa |
 |Awarie stref — utrata danych | Utrata danych | Brak utraty danych | Brak utraty danych |
 |Awarie stref — dostępność | Utrata dostępności | Brak utraty dostępności | Brak utraty dostępności |
-|Opóźnienie odczytu | Między regionami | Między regionami | Małe |
-|Opóźnienie zapisu | Między regionami | Między regionami | Małe |
+|Opóźnienie odczytu | Między regionami | Między regionami | Niski |
+|Opóźnienie zapisu | Między regionami | Między regionami | Niski |
 |Awaria regionalna — utrata danych | Utrata danych |  Utrata danych | Utrata danych <br/><br/> W przypadku używania ograniczonej spójności niezgodności z wieloma regionami zapisu i więcej niż jednym regionem utrata danych jest ograniczona do ograniczenia nieaktualnego skonfigurowanego na Twoim koncie. <br /><br />Można uniknąć utraty danych podczas regionalnej awarii, konfigurując silną spójność z wieloma regionami. Ta opcja ma wpływ na dostępność i wydajność. Można ją skonfigurować tylko na kontach, które są skonfigurowane do zapisu w jednym regionie. |
 |Awaria regionalna — dostępność | Utrata dostępności | Utrata dostępności | Brak utraty dostępności |
 |Przepływność | X RU/s zainicjowana przepływność | X RU/s zainicjowana przepływność | przepustowość z obsługą jednostki RU/s <br/><br/> Ten tryb konfiguracji wymaga dwukrotnej ilości przepływności w porównaniu do jednego regionu z Strefy dostępności, ponieważ istnieją dwa regiony. |
@@ -129,6 +129,8 @@ Strefy dostępności można włączyć przy użyciu Azure Portal podczas tworzen
 
 ## <a name="building-highly-available-applications"></a>Tworzenie aplikacji o wysokiej dostępności
 
+- Zapoznaj się z oczekiwanym [zachowaniem zestawów SDK usługi Azure Cosmos](troubleshoot-sdk-availability.md) w ramach tych zdarzeń, które są konfiguracjami, które mają na nie wpływ.
+
 - Aby zapewnić wysoką dostępność i odczyt, skonfiguruj konto usługi Azure Cosmos tak, aby obejmowało co najmniej dwa regiony z regionami wielokrotnego zapisu. Ta konfiguracja zapewnia najwyższą dostępność, najniższy czas oczekiwania i najlepszą skalowalność dla operacji odczytu i zapisu, które są obsługiwane przez umowy SLA. Aby dowiedzieć się więcej, zobacz jak [skonfigurować konto platformy Azure Cosmos z wieloma regionami zapisu](tutorial-global-distribution-sql-api.md).
 
 - Dla wieloregionowych kont usługi Azure Cosmos, które są skonfigurowane za pomocą regionu jednokrotnego zapisu, [Włącz automatyczne przełączanie do trybu failover przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure Portal](how-to-manage-database-account.md#automatic-failover). Po włączeniu automatycznego trybu failover, gdy wystąpi awaria regionalna, Cosmos DB automatycznie przejdzie w tryb failover na koncie.  
@@ -146,3 +148,4 @@ Następnie możesz zapoznać się z następującymi artykułami:
 - [Dystrybucja globalna — szczegóły działania](global-dist-under-the-hood.md)
 - [Poziomy spójności w usłudze Azure Cosmos DB](consistency-levels.md)
 - [Jak skonfigurować konto Cosmos z wieloma regionami zapisu](how-to-multi-master.md)
+- [Zachowanie zestawu SDK w środowiskach wieloregionowych](troubleshoot-sdk-availability.md)

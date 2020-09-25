@@ -1,6 +1,6 @@
 ---
 title: Rola czytelnicy Directory w Azure Active Directory dla usługi Azure SQL
-description: Aplikacje usługi Azure AD (jednostki usługi) obsługują tworzenie użytkowników w usłudze Azure AD w Azure SQL Database, wystąpieniu zarządzanym SQL Azure i analizą usługi Azure Synapse
+description: Dowiedz się więcej o roli czytnika katalogów w usłudze Azure AD dla usługi Azure SQL.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: a517a4b14a64be2b9bf12270eef3d08e14d8f3c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5a6fb2c1c539c5b8e353f5c3720cb9d001dcbbc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556326"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277956"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Rola czytelnicy Directory w Azure Active Directory dla usługi Azure SQL
 

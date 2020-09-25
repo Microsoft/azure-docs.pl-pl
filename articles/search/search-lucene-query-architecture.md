@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2d5b4758f80d07516500c663762d7c8607e2a30
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917962"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329486"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze
 
@@ -51,7 +51,7 @@ Na poniższym diagramie przedstawiono składniki używane do przetwarzania żąd
 
 Poniższy przykład to żądanie wyszukiwania, które może zostać wysłane do usługi Azure Wyszukiwanie poznawcze przy użyciu [interfejsu API REST](/rest/api/searchservice/search-documents).  
 
-~~~~
+```
 POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
@@ -61,7 +61,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
 }
-~~~~
+```
 
 W przypadku tego żądania aparat wyszukiwania wykonuje następujące czynności:
 
@@ -76,9 +76,9 @@ Większość tego artykułu dotyczy przetwarzania *zapytania wyszukiwania*: `"Sp
 
 Jak wspomniano, ciąg zapytania jest pierwszym wierszem żądania: 
 
-~~~~
+```
  "search": "Spacious, air-condition* +\"Ocean view\"", 
-~~~~
+```
 
 Analizator zapytań oddziela operatory (takie jak `*` i `+` w przykładzie) z wyszukiwanych terminów i dekonstruuje zapytanie wyszukiwania w *podzapytaniach* obsługiwanego typu: 
 
@@ -104,9 +104,9 @@ Innym parametrem żądania wyszukiwania, który ma wpływ na analizowanie, jest 
 
 Gdy `searchMode=any` jest to domyślny, ogranicznik odstępu między Spacious i warunkiem obpowietrzanym jest lub ( `||` ), co oznacza, że przykładowy tekst zapytania odpowiada: 
 
-~~~~
+```
 Spacious,||air-condition*+"Ocean view" 
-~~~~
+```
 
 Jawne operatory, takie jak `+` w `+"Ocean view"` , są niejednoznaczne w konstrukcji zapytania logicznego (termin *musi* być zgodny). Mniej oczywiste to sposób interpretacji pozostałych warunków: Spacious i stanu powietrza. Czy aparat wyszukiwania powinien znaleźć dopasowania w widoku oceanu *i* Spacious *i* warunkach powietrza? Lub powinien znaleźć widok oceanu i *jedno* z pozostałych warunków? 
 
@@ -114,9 +114,9 @@ Domyślnie ( `searchMode=any` ) aparat wyszukiwania przyjmuje szersze interpreta
 
 Załóżmy, że teraz ustawimy `searchMode=all` . W takim przypadku miejsce jest interpretowane jako operacja "i". Każdy z pozostałych warunków musi być obecny w dokumencie, aby można go było zakwalifikować jako odpowiednik. Wyniki przykładowego zapytania byłyby interpretowane w następujący sposób: 
 
-~~~~
+```
 +Spacious,+air-condition*+"Ocean view"
-~~~~
+```
 
 Zmodyfikowane drzewo zapytań dla tego zapytania byłoby następujące, gdzie pasujący dokument jest częścią wspólną wszystkich trzech podzapytań: 
 
@@ -152,16 +152,16 @@ Gdy domyślny Analizator przetwarza termin, będzie pisany małymi literami "Oce
 
 Zachowanie analizatora można przetestować za pomocą [interfejsu API analizy](/rest/api/searchservice/test-analyzer). Podaj tekst, który chcesz analizować, aby zobaczyć, jakie terminy zostaną wygenerowane przez analizator. Na przykład aby zobaczyć, jak Analizator standardowy przetworzy tekst "warunek powietrza", można wydać następujące żądanie:
 
-~~~~
+```json
 {
     "text": "air-condition",
     "analyzer": "standard"
 }
-~~~~
+```
 
 Analizator standardowy dzieli tekst wejściowy na następujące dwa tokeny, dodając do nich adnotacje, takie jak początkowe i końcowe przesunięcia (używane do wyróżniania trafień), a także ich położenie (używane do dopasowywania fraz):
 
-~~~~
+```json
 {
   "tokens": [
     {
@@ -178,7 +178,7 @@ Analizator standardowy dzieli tekst wejściowy na następujące dwa tokeny, doda
     }
   ]
 }
-~~~~
+```
 
 <a name="exceptions"></a>
 
@@ -192,7 +192,7 @@ Analiza leksykalna dotyczy tylko typów zapytań, które wymagają pełnych waru
 
 Pobieranie dokumentów odnosi się do znajdowania dokumentów z pasującymi terminami w indeksie. Ten etap jest zrozumiały dla przykładu. Zacznijmy od indeksu hoteli o następującym prostym schemacie: 
 
-~~~~
+```json
 {
     "name": "hotels",
     "fields": [
@@ -201,11 +201,11 @@ Pobieranie dokumentów odnosi się do znajdowania dokumentów z pasującymi term
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
-~~~~
+```
 
 Należy założyć, że ten indeks zawiera cztery następujące dokumenty: 
 
-~~~~
+```json
 {
     "value": [
         {
@@ -230,7 +230,7 @@ Należy założyć, że ten indeks zawiera cztery następujące dokumenty:
         }
     ]
 }
-~~~~
+```
 
 **Jak są indeksowane terminy**
 
@@ -251,7 +251,7 @@ Jest to typowy, ale nie jest wymagany, aby używać tych samych analizatorów dl
 
 Powracamy do naszego przykładu dla pola **title** indeks odwrócony wygląda następująco:
 
-| Okres | Lista dokumentów |
+| Termin | Lista dokumentów |
 |------|---------------|
 | atman | 1 |
 | sekwencje | 2 |
@@ -265,7 +265,7 @@ W polu title tylko *Hotel* pojawia się w dwóch dokumentach: 1, 3.
 
 W przypadku pola **Description** indeks jest następujący:
 
-| Okres | Lista dokumentów |
+| Termin | Lista dokumentów |
 |------|---------------|
 | dmuchaw | 3
 | oraz | 4
@@ -321,10 +321,12 @@ Każdy dokument w zestawie wyników wyszukiwania ma przypisany wynik istotności
 ### <a name="scoring-example"></a>Przykład oceniania
 
 Odwołaj trzy dokumenty, które pasują do naszego przykładowego zapytania:
-~~~~
+
+```
 search=Spacious, air-condition* +"Ocean view"  
-~~~~
-~~~~
+```
+
+```json
 {
   "value": [
     {
@@ -347,7 +349,7 @@ search=Spacious, air-condition* +"Ocean view"
     }
   ]
 }
-~~~~
+```
 
 Dokument 1 najlepiej pasuje do zapytania, ponieważ w polu Opis występuje zarówno termin *Spacious* , jak i wymagany *Widok oceanu* frazy. Dwa następne dokumenty pasują tylko do widoku "oznaczenie *oceanu*". Może być zaskakujące, że Ocena istotności dla dokumentów 2 i 3 różni się, nawet jeśli pasują do zapytania w ten sam sposób. Wynika to z faktu, że formuła oceniania zawiera więcej składników niż tylko TF/IDF. W takim przypadku dokument 3 został przyznany nieco większym wynikiem, ponieważ jego opis jest krótszy. Dowiedz się więcej na temat [praktycznej formuły oceniania](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) , aby zrozumieć, jak długość pola i inne czynniki mogą mieć wpływ na ocenę istotności.
 

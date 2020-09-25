@@ -3,12 +3,12 @@ title: Zwiększ niezawodność aplikacji za pomocą usługi Advisor
 description: Użyj Azure Advisor, aby zapewnić i poprawić niezawodność wdrożeń na platformie Azure o kluczowym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0d96974e53f24d5a01eeee8b08eee578177a9ad2
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 3e556f8bc672705e6c83daced2c82a884e3ddf46
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264596"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Zwiększ niezawodność aplikacji przy użyciu Azure Advisor
 
@@ -76,7 +76,7 @@ Maszyny wirtualne znajdujące się w zestawie dostępności z dyskami, które ws
 
 ## <a name="repair-invalid-log-alert-rules"></a>Napraw nieprawidłowe reguły alertów dziennika
 
-Azure Advisor wykrywa reguły alertów, które mają nieprawidłowe zapytania określone w sekcji warunku. Reguły alertów dzienników można tworzyć w Azure Monitor i używać ich do uruchamiania zapytań analitycznych w określonych odstępach czasu. Wyniki zapytania określają, czy alert musi zostać wyzwolony. Zapytania analityczne mogą stać się nieprawidłowe w miarę upływu czasu ze względu na zmiany w przywoływanych zasobach, tabelach lub poleceniach. Usługa Advisor zaleca poprawienie zapytania w regule alertu, aby zapobiec jego automatycznemu wyłączaniu i zapewnić monitorowanie zasobów na platformie Azure. [Dowiedz się więcej o rozwiązywaniu problemów z regułami alertów.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor wykrywa reguły alertów dziennika, które mają nieprawidłowe zapytania określone w sekcji warunku. Reguły alertów dziennika Azure Monitor uruchamiają zapytania z określoną częstotliwością i wyzwalają alerty na podstawie wyników. Zapytania mogą stać się nieprawidłowe w miarę upływu czasu ze względu na zmiany w przywoływanych zasobach, tabelach lub poleceniach. Usługa Advisor zaleca poprawki dla zapytań dotyczących alertów, aby zapobiec automatycznemu wyłączaniu reguł oraz w celu zapewnienia pokrycia monitorowania. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z regułami alertów](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Skonfiguruj spójny tryb indeksowania w kolekcji Azure Cosmos DB
 

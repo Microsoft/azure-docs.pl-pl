@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d00232d602ce7b2de0db4e06ef3c7456f552833e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6b9835cf5de28fbd515a214554f723d99e8e8fe4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018743"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260735"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabele udostępnione metadanych usługi Azure Synapse Analytics
 
@@ -105,7 +105,7 @@ Utwórz zarządzaną tabelę Spark za pomocą SparkSQL, uruchamiając następuj�
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-Spowoduje to utworzenie tabeli `myParquetTable` w bazie danych `mytestdb` . Po krótkim opóźnieniu można zobaczyć tabelę w SQL na żądanie. Na przykład Uruchom poniższą instrukcję z poziomu usługi SQL na żądanie.
+To polecenie tworzy tabelę `myParquetTable` w bazie danych `mytestdb` . Po krótkim opóźnieniu można zobaczyć tabelę w SQL na żądanie. Na przykład Uruchom poniższą instrukcję z poziomu usługi SQL na żądanie.
 
 ```sql
     USE mytestdb;
@@ -191,7 +191,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się więcej o udostępnionych metadanych usługi Azure Synapse Analytics](overview.md)
 - [Dowiedz się więcej o udostępnionej bazie danych metadanych usługi Azure Synapse Analytics](database.md)

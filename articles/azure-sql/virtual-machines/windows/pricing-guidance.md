@@ -8,19 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b1d07b3ff41c16ff2145311a0b42d8c57a8e7b82
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 7d18273d07cda3a6fe3517c47c9be12a2d236438
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141962"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316940"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Wskazówki dotyczące cen dla SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,8 +58,8 @@ W przypadku nielekkiego obciążenia produkcyjnego należy użyć jednej z nast�
 | Wydanie programu SQL Server | Obciążenie |
 |-----|-----|
 | Sieć Web | Małe witryny sieci Web |
-| Standardowa (Standard) | Małe i średnie obciążenia |
-| Enterprise | Duże lub krytyczne dla działalności obciążenia|
+| Standardowa | Małe i średnie obciążenia |
+| Przedsiębiorstwa | Duże lub krytyczne dla działalności obciążenia|
 
 Dostępne są dwie opcje płacenia za SQL Server Licencjonowanie dla następujących wersji: *płatność za użycie* lub dostarczenie *własnej licencji (BYOL)*.
 
@@ -94,7 +94,7 @@ Aby utworzyć maszynę wirtualną platformy Azure z systemem SQL Server 2017 prz
 > [!NOTE]
 > Teraz można zmienić model licencjonowania z opcji płatność za użycie, aby zapewnić własną licencję (BYOL) i z powrotem. Aby uzyskać więcej informacji, zobacz [How to Change the Licensing model for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
-## <a name="bring-your-own-license-byol"></a><a id="byol"></a>Bring your own license (BYOL)
+## <a name="bring-your-own-license-byol"></a><a id="byol"></a> Bring your own license (BYOL)
 
 Udostępnienie **własnej SQL Server licencji za pośrednictwem Przenośność licencji**, nazywanego również **BYOL**, oznacza użycie istniejącej licencji zbiorczej SQL Server z programem Software Assurance na maszynie wirtualnej platformy Azure. Maszyna wirtualna w SQL Server przy użyciu usługi BYOL nalicza opłaty tylko za koszt działania maszyny wirtualnej, a nie do licencjonowania SQL Server, zważywszy, że licencje i program Software Assurance zostały już nabyte za pośrednictwem programu licencjonowania zbiorowego.
 
@@ -134,7 +134,7 @@ Aby utworzyć maszynę wirtualną platformy Azure z systemem SQL Server 2017 prz
 
 Aby uniknąć niepotrzebnych kosztów, wybierz optymalny rozmiar maszyny wirtualnej i rozważ sporadyczne zamknięcia dla obciążeń nieciągłych.
 
-### <a name="correctly-size-your-vm"></a><a id="machinesize"></a>Prawidłowe dopasowanie rozmiaru maszyny wirtualnej
+### <a name="correctly-size-your-vm"></a><a id="machinesize"></a> Prawidłowe dopasowanie rozmiaru maszyny wirtualnej
 
 Koszt licencjonowania SQL Server jest bezpośrednio związany z liczbą procesorów wirtualnych vCPU. Wybierz rozmiar maszyny wirtualnej odpowiadający oczekiwanym potrzebom dotyczącym przepustowości procesora CPU, pamięci, magazynu i operacji we/wy. Aby uzyskać pełną listę opcji rozmiaru maszyn, zobacz [rozmiary maszyn wirtualnych systemu Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) i [rozmiary maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)z systemem Linux.
 

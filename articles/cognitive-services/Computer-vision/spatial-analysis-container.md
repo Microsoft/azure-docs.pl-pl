@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: b17e2618cd87c0689fa531e893149a1b2fab8d20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987187"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277295"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalowanie i uruchamianie kontenera analizy przestrzennej (wersja zapoznawcza)
 
@@ -30,7 +30,7 @@ Kontener analizy przestrzennej umożliwia analizowanie wideo przesyłania strumi
 
 ### <a name="spatial-analysis-container-requirements"></a>Wymagania kontenera analizy przestrzennej
 
-Aby można było uruchomić kontener analizy przestrzennej, potrzebne jest urządzenie obliczeniowe z [procesorem GPU typu NVIDIA Tesla T4](https://www.nvidia.com/data-center/tesla-t4/). Zalecamy używanie [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) z PRZYSPIESZENIEM procesora GPU, ale kontener jest uruchamiany na dowolnej innej maszynie stacjonarnej, która spełnia wymagania minimalne. Odwołujemy się do tego urządzenia jako komputera-hosta.
+Aby można było uruchomić kontener analizy przestrzennej, potrzebne jest urządzenie obliczeniowe z [procesorem GPU typu NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). Zalecamy używanie [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) z PRZYSPIESZENIEM procesora GPU, ale kontener jest uruchamiany na dowolnej innej maszynie stacjonarnej, która spełnia wymagania minimalne. Odwołujemy się do tego urządzenia jako komputera-hosta.
 
 #### <a name="azure-stack-edge-device"></a>[Urządzenie brzegowe Azure Stack](#tab/azure-stack-edge)
 
@@ -71,7 +71,7 @@ W tym artykule zostaną pobrane i zainstalowane następujące pakiety oprogramow
 
 ## <a name="request-approval-to-run-the-container"></a>Żądaj zatwierdzenia do uruchomienia kontenera
 
-Wypełnij i prześlij [formularz żądania](https://aka.ms/cognitivegate) , aby zażądać zatwierdzenia do uruchomienia kontenera. 
+Wypełnij i prześlij [formularz żądania](https://aka.ms/csgate) , aby zażądać zatwierdzenia do uruchomienia kontenera.
 
 Formularz żąda informacji o użytkowniku, firmie i scenariuszu użytkownika, dla którego będziesz używać kontenera. Po przesłaniu formularza zespół usługi Azure Cognitive Services sprawdzi go i wyśle wiadomość e-mail z decyzją.
 
@@ -116,7 +116,8 @@ Kliknij pozycję **Utwórz**. Tworzenie zasobów IoT Hub może potrwać kilka mi
 Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe Azure IoT Edge będzie już uruchomione na urządzeniu IoT Edge.            
 
 > [!NOTE]
-> Obecnie tylko platforma systemu Linux jest dostępna dla urządzeń IoT Edge. Aby uzyskać pomoc w rozwiązywaniu problemów z urządzeniem brzegowym Azure Stack, zobacz artykuł [Rejestrowanie i rozwiązywanie problemów](spatial-analysis-logging.md) .
+> * Obecnie tylko platforma systemu Linux jest obsługiwana w przypadku urządzeń IoT Edge. Aby uzyskać pomoc w rozwiązywaniu problemów z urządzeniem brzegowym Azure Stack, zobacz artykuł [Rejestrowanie i rozwiązywanie problemów](spatial-analysis-logging.md) .
+> * Aby dowiedzieć się więcej o konfigurowaniu IoT Edge urządzenia do komunikowania się za pomocą serwera proxy, zobacz [Konfigurowanie urządzenia IoT Edge do komunikowania się za pomocą serwera proxy](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Włącz MP na Azure Stack Edge 
 
@@ -260,13 +261,14 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Jeśli komputer hosta nie jest Azure Stack urządzeniem brzegowym, należy zainstalować program [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) Version 1.0.8. Wykonaj następujące kroki, aby pobrać poprawną wersję: Ubuntu Server 18,04:
+Jeśli komputer hosta nie jest Azure Stack urządzeniem brzegowym, należy zainstalować program [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) Version 1.0.8. Wykonaj następujące kroki, aby pobrać poprawną wersję:
+
+Ubuntu Server 18,04:
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
 ```
 
 Skopiuj wygenerowaną listę.
-
 ```bash
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 ```
@@ -324,8 +326,8 @@ W poniższej tabeli przedstawiono różne zmienne środowiskowe używane przez m
 | ARCHON_NODES_LOG_LEVEL | Informacje Pełne | Poziom rejestrowania, wybierz jedną z dwóch wartości|
 | OMP_WAIT_POLICY | CHODZĄC | Nie Modyfikuj|
 | QT_X11_NO_MITSHM | 1 | Nie Modyfikuj|
-| API_KEY | Klucz interfejsu API| Zbierz tę wartość z Azure Portal z zasobu przetwarzanie obrazów. Można je znaleźć w sekcji **Key i Endpoint** dla zasobu w Azure Portal. |
-| BILLING_ENDPOINT | Identyfikator URI punktu końcowego| Zbierz tę wartość z Azure Portal z zasobu przetwarzanie obrazów. Można je znaleźć w sekcji **Key i Endpoint** dla zasobu w Azure Portal.|
+| API_KEY | Klucz interfejsu API| Zbierz tę wartość z Azure Portal z zasobu przetwarzanie obrazów. Można je znaleźć w sekcji **klucz i punkt końcowy** zasobu. |
+| BILLING_ENDPOINT | Identyfikator URI punktu końcowego| Zbierz tę wartość z Azure Portal z zasobu przetwarzanie obrazów. Można je znaleźć w sekcji **klucz i punkt końcowy** zasobu.|
 | UMOWY | odebrać | Ta wartość musi być ustawiona na *Zaakceptuj* , aby można było uruchomić kontener |
 | WYŚWIETLANY | : 1 | Ta wartość musi być taka sama jak w danych wyjściowych `echo $DISPLAY` na komputerze-hoście. Urządzenia brzegowe Azure Stack nie są wyświetlane. To ustawienie nie ma zastosowania|
 
@@ -339,7 +341,6 @@ Po zaktualizowaniu przykładowej [DeploymentManifest.jsw](https://go.microsoft.c
 az login
 az extension add --name azure-iot
 az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
-
 ```
 
 |Parametr  |Opis  |

@@ -9,28 +9,22 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 7affc5aad89fd79e6ba6480f7bf10d37f90dc5e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5cb8119e5429c4684030aaee2e6ffa99c92e2d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260941"
 ---
 # <a name="get-started-with-azure-synapse-analytics"></a>Rozpoczynanie pracy z usługą Azure Synapse Analytics
 
 Ten samouczek to przewodnik krok po kroku dotyczący głównych obszarów funkcji usługi Azure Synapse Analytics. Samouczek to idealny punkt wyjścia dla kogoś, kto chce zapoznać się z przewodnikiem w najważniejszych scenariuszach analizy usługi Azure Synapse. Po wykonaniu kroków opisanych w samouczku będziesz mieć w pełni funkcjonalny obszar roboczy Synapse, w którym można rozpocząć analizowanie danych przy użyciu SQL, SQL na żądanie i Apache Spark.
 
-Dowiesz się:
-* Udostępnianie obszaru roboczego Synapse w ramach subskrypcji platformy Azure
-* Konfigurowanie kontroli dostępu na koncie ADLSGEN2, dzięki czemu bezproblemowo współpracuje z obszarem roboczym Synapse
-* Ładowanie przykładowych danych NYCTaxi do obszaru roboczego Synapse, dzięki czemu mogą one być używane przez SQL, SQL na żądanie i Spark
-* Edytuj i uruchamiaj skrypty SQL i notesy Synapse przy użyciu programu Synapse Studio
-* Kwerenda tabel SQL i tabel platformy Spark
-* Ładowanie danych z tabel SQL do usługi Spark dataframes
-* Ładowanie danych do tabel SQL z programu Spark dataframes
-* Eksplorowanie zawartości konta ADLSGEN2
-* Analizowanie Parquet datafiles na kontach ADLSGEN2 przy użyciu platformy Spark i SQL na żądanie 
-* Tworzenie potoku danych, który automatycznie uruchamia Notes Synapse co godzinę
+
+
+
+
+
 
 Wykonaj *kroki opisane poniżej, aby skorzystać* z wielu możliwości i dowiedzieć się, jak korzystać z podstawowych funkcji programu.
 
@@ -41,3 +35,5 @@ Wykonaj *kroki opisane poniżej, aby skorzystać* z wielu możliwości i dowiedz
 * [Krok 5 — analizowanie danych na koncie magazynu](get-started-analyze-storage.md)
 * [Krok 6 — organizowanie przy użyciu potoków](get-started-pipelines.md)
 * [Krok 7. Wizualizacja danych za pomocą Power BI](get-started-visualize-power-bi.md)
+* [Krok 8 — monitorowanie działań](get-started-monitor.md)
+* [Krok 9. Eksplorowanie centrum wiedzy](get-started-knowledge-center.md)

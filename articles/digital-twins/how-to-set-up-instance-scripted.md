@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90562994"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328647"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (skrypty)
 
@@ -26,15 +26,19 @@ Ta wersja tego artykułu wykonuje te kroki, uruchamiając przykładowy [ **skryp
 
 [!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
+## <a name="prerequisites-download-the-script"></a>Wymagania wstępne: pobieranie skryptu
+
+Przykładowy skrypt jest zapisywana w programie PowerShell. Jest częścią [**bliźniaczych reprezentacji cyfrowych platformy Azure**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), którą można pobrać na maszynę, przechodząc do tego linku, a następnie wybierając przycisk *Pobierz zip* poniżej tytułu.
+
+Spowoduje to pobranie przykładowego projektu do maszyny jako _**Azure_Digital_Twins_samples.zip**_. Przejdź do folderu na swoim komputerze i rozpakuj go, aby wyodrębnić pliki.
+
+W folderze rozpakowanym skrypt wdrożenia znajduje się w _Azure_Digital_Twins_samples > skrypty > **deploy.ps1** _.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="run-the-deployment-script"></a>Uruchamianie skryptu wdrażania
 
 W tym artykule używamy przykładowego kodu usługi Azure Digital bliźniaczych reprezentacji, aby wdrożyć wystąpienie usługi Azure Digital bliźniaczych reprezentacji i wymagane częściowo uwierzytelnianie. Może również służyć jako punkt wyjścia do pisania własnych interakcji ze skryptami.
-
-Przykładowy skrypt jest zapisywana w programie PowerShell. Jest częścią [bliźniaczych reprezentacji cyfrowych platformy Azure](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), którą można pobrać na maszynę, przechodząc do tego linku, a następnie wybierając przycisk *Pobierz zip* poniżej tytułu.
-
-W folderze pobrane przykładowe skrypt wdrożenia znajduje się w _Azure_Digital_Twins_samples.zip > skrypty > **deploy.ps1** _.
 
 Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
 1. Przejdź do okna [Azure Cloud Shell](https://shell.azure.com/) w przeglądarce. Zaloguj się przy użyciu tego polecenia:
@@ -43,13 +47,23 @@ Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
     ```
     Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, spowoduje to załadowanie strony logowania platformy Azure. W przeciwnym razie Otwórz stronę przeglądarki pod adresem *https://aka.ms/devicelogin* i wprowadź kod autoryzacji wyświetlany w terminalu.
  
-2. Po zalogowaniu się przejdź do paska ikon okna Cloud Shell. Wybierz ikonę "przekazywanie/pobieranie plików" i wybierz pozycję "Przekaż".
+2. Na pasku ikon Cloud Shell upewnij się, że Cloud Shell jest ustawiony do uruchamiania wersji programu PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Okno Cloud Shell pokazujące wybór opcji przekazywania":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell":::
 
-    Przejdź do pliku _**deploy.ps1**_ na swojej maszynie i naciśnij pozycję "Otwórz". Spowoduje to przekazanie pliku do Cloud Shell, aby można było uruchomić go w oknie Cloud Shell.
+1. Wybierz ikonę "przekazywanie/pobieranie plików" i wybierz pozycję "Przekaż".
 
-3. Uruchom skrypt, wysyłając `./deploy.ps1` polecenie w oknie Cloud Shell. Gdy skrypt jest uruchamiany w ramach kroków instalacji zautomatyzowanej, zostanie wyświetlony monit o podanie następujących wartości:
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Okno Cloud Shell pokazujące wybór ikony przekazywania":::
+
+    Przejdź do pliku _**deploy.ps1**_ na komputerze (w _Azure_Digital_Twins_samples > skrypty > **deploy.ps1** _) i naciśnij klawisz "Otwórz". Spowoduje to przekazanie pliku do Cloud Shell, aby można było uruchomić go w oknie Cloud Shell.
+
+4. Uruchom skrypt, wysyłając `./deploy.ps1` polecenie w oknie Cloud Shell. (Odwołaj się do wklejenia do Cloud Shell, możesz użyć **klawiszy Ctrl + Shift + v** w systemach Windows i Linux lub **cmd + Shift + v** w systemie macOS. Możesz również użyć menu po kliknięciu prawym przyciskiem myszy.
+
+    ```azurecli
+    ./deploy.ps1
+    ```
+
+    Gdy skrypt jest uruchamiany w ramach kroków instalacji zautomatyzowanej, zostanie wyświetlony monit o podanie następujących wartości:
     * Dla wystąpienia: *Identyfikator subskrypcji* subskrypcji platformy Azure do użycia
     * Dla wystąpienia: *Lokalizacja* , w której chcesz wdrożyć wystąpienie. Aby zobaczyć, które regiony obsługują usługę Azure Digital bliźniaczych reprezentacji, odwiedź stronę [*usługi Azure dostępne według regionów*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * Dla wystąpienia: nazwa *grupy zasobów* . Możesz użyć istniejącej grupy zasobów lub wprowadzić nową nazwę, która ma zostać utworzona.
@@ -107,9 +121,15 @@ Zanotuj *Identyfikator* *aplikacji (klienta)* na stronie **użytkownika** . Jeś
 
 Jeśli chcesz sprawdzić tworzenie zasobów i uprawnień skonfigurowanych przez skrypt, możesz przyjrzeć się im w [Azure Portal](https://portal.azure.com).
 
+Jeśli nie możesz zweryfikować sukcesu któregokolwiek z kroków, spróbuj ponownie wykonać ten krok. Kroki te można wykonać indywidualnie przy użyciu instrukcji [Azure Portal](how-to-set-up-instance-portal.md) lub [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md) .
+
 ### <a name="verify-instance"></a>Weryfikuj wystąpienie
 
-Aby sprawdzić, czy wystąpienie zostało utworzone, przejdź do [strony Digital bliźniaczych reprezentacji na platformie Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) w Azure Portal. Ta strona zawiera listę wszystkich wystąpień usługi Azure Digital bliźniaczych reprezentacji. Wyszukaj nazwę nowo utworzonego wystąpienia na liście.
+Aby sprawdzić, czy wystąpienie zostało utworzone, przejdź do [strony Digital bliźniaczych reprezentacji na platformie Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) w Azure Portal. Możesz uzyskać dostęp do tej strony, wyszukując pozycję *Azure Digital bliźniaczych reprezentacji* na pasku wyszukiwania portalu.
+
+Ta strona zawiera listę wszystkich wystąpień usługi Azure Digital bliźniaczych reprezentacji. Wyszukaj nazwę nowo utworzonego wystąpienia na liście.
+
+Jeśli weryfikacja nie powiodła się, można ponowić próbę utworzenia wystąpienia przy użyciu [portalu](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) lub [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
 
 ### <a name="verify-user-role-assignment"></a>Weryfikuj przypisanie roli użytkownika
 
@@ -117,16 +137,18 @@ Aby sprawdzić, czy wystąpienie zostało utworzone, przejdź do [strony Digital
 
 > [!NOTE]
 > Odwołaj, że skrypt aktualnie przypisuje tę wymaganą rolę temu samemu użytkownikowi, który uruchamia skrypt z Cloud Shell. Jeśli musisz przypisać tę rolę osobie, która będzie zarządzać wystąpieniem, możesz to zrobić teraz za pomocą Azure Portal ([instrukcje](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) lub interfejsu wiersza polecenia ([instrukcje](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
->
-> Możesz również użyć portalu lub interfejsu wiersza polecenia, aby ponownie wykonać własne przypisanie roli w przypadku wystąpienia problemów z konfiguracją skryptu.
+
+Jeśli weryfikacja nie powiodła się, możesz również ponownie wykonać własne przypisanie roli przy użyciu [portalu](how-to-set-up-instance-portal.md#set-up-user-access-permissions) lub [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
 ### <a name="verify-app-registration"></a>Weryfikowanie rejestracji aplikacji
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-Najpierw sprawdź, czy ustawienia uprawnień Digital bliźniaczych reprezentacji systemu Azure zostały prawidłowo ustawione podczas rejestracji. W tym celu wybierz pozycję *manifest* z paska menu, aby wyświetlić kod manifestu rejestracji aplikacji. Przewiń w dół okna kod i poszukaj tych pól w obszarze `requiredResourceAccess` . Wartości powinny być zgodne z poniższymi zrzutu ekranu:
+Następnie sprawdź, czy ustawienia uprawnień Digital bliźniaczych reprezentacji systemu Azure zostały prawidłowo ustawione podczas rejestracji. W tym celu wybierz pozycję *manifest* z paska menu, aby wyświetlić kod manifestu rejestracji aplikacji. Przewiń w dół okna kod i poszukaj tych pól w obszarze `requiredResourceAccess` . Wartości powinny być zgodne z poniższymi zrzutu ekranu:
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+
+Jeśli co najmniej jeden z tych kroków weryfikacyjnych zakończy się niepowodzeniem, spróbuj utworzyć rejestrację aplikacji za pomocą instrukcji [portalu](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) lub [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) .
 
 ## <a name="other-possible-steps-for-your-organization"></a>Inne możliwe kroki dla organizacji
 
@@ -135,7 +157,7 @@ Najpierw sprawdź, czy ustawienia uprawnień Digital bliźniaczych reprezentacji
 ## <a name="next-steps"></a>Następne kroki
 
 Przetestuj poszczególne wywołania interfejsu API REST w wystąpieniu przy użyciu poleceń interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji: 
-* [odwołanie AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [odwołanie AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md)
 
 Lub zapoznaj się z tematem jak połączyć aplikację kliencką z wystąpieniem, pisząc kod uwierzytelniania aplikacji klienta:

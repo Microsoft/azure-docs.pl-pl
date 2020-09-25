@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8dfcdd8195824cb732df2c0c70c338e69630c5cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c39a24664d36e4a69a44b7fe06835572e0cfe75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753116"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329248"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrowanie do usługi Azure Virtual WAN
 

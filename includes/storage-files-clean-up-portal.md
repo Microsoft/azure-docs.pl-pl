@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 2ddf171090ab4a9e3dbe4506a399cbdbd2621bdd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 842c08ec36730eaab1c37fe61d3855f9e2ddd245
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67183305"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329463"
 ---
 Gdy skończysz, możesz usunąć grupę zasobów. Usunięcie grupy zasobów powoduje usunięcie konta magazynu, udziału plików platformy Azure i innych zasobów wdrożonych w grupie zasobów.
 
 1. W menu po lewej stronie wybierz pozycję **Grupy zasobów**.
-2. Kliknij prawym przyciskiem myszy grupę zasobów, a następnie wybierz polecenie **Usuń grupę zasobów**. Zostanie otwarte okno zawierające ostrzeżenie dotyczące zasobów, które zostaną usunięte razem z grupą zasobów.
-3. Wprowadź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
+1. Kliknij prawym przyciskiem myszy grupę zasobów, a następnie wybierz polecenie **Usuń grupę zasobów**. Zostanie otwarte okno zawierające ostrzeżenie dotyczące zasobów, które zostaną usunięte razem z grupą zasobów.
+1. Wprowadź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.

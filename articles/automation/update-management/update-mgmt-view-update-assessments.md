@@ -3,46 +3,52 @@ title: Wyświetl oceny aktualizacji Azure Automation
 description: W tym artykule opisano sposób wyświetlania ocen aktualizacji dla wdrożeń Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 92861304a946e357b2b265cd825eceb8e22f7d2d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2e32fc7c1872bf18b7f1c995f281a9b09ec45dc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450404"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264484"
 ---
-# <a name="view-update-assessments"></a>Wyświetlanie ocen aktualizacji
+# <a name="view-update-assessments-in-update-management"></a>Wyświetlanie ocen aktualizacji w Update Management
 
-W Update Management można wyświetlić informacje o maszynach, braku aktualizacji, wdrożeniach aktualizacji i zaplanowanych wdrożeniach aktualizacji.
+W Update Management można wyświetlić informacje o maszynach, braku aktualizacji, wdrożeniach aktualizacji i zaplanowanych wdrożeniach aktualizacji. Można wyświetlić informacje o ocenie z zakresu wybranej maszyny wirtualnej platformy Azure, z wybranego serwera z obsługą łuku lub z konta usługi Automation na wszystkich skonfigurowanych maszynach i serwerach.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
 ## <a name="view-update-assessment"></a>Wyświetlanie oceny aktualizacji
 
-W Update Management można wyświetlić informacje o maszynach, braku aktualizacji, wdrożeniach aktualizacji i zaplanowanych wdrożeniach aktualizacji.
+Aby wyświetlić ocenę aktualizacji z poziomu maszyny wirtualnej platformy Azure, przejdź do **Virtual Machines** i wybierz maszynę wirtualną z listy. W menu po lewej stronie wybierz pozycję **gość + aktualizacje hosta**, a następnie wybierz pozycję **Przejdź do Update Management** na stronę **gość + aktualizacje hosta** .
+
+W Update Management można wyświetlić informacje o komputerze, brakujące aktualizacje, wdrożenia aktualizacji i zaplanowane wdrożenia aktualizacji.
+
+[![Widok oceny Update Management dla maszyny wirtualnej platformy Azure](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm.png)](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
+
+Aby wyświetlić ocenę aktualizacji z serwera z obsługą łuku, przejdź do opcji **serwery — Azure Arc** i wybierz serwer z listy. Z menu po lewej stronie wybierz pozycję **gość i aktualizacje hosta**. Na stronie **gość + aktualizacje hosta** wybierz pozycję **Przejdź do Update Management**.
+
+W Update Management można wyświetlić informacje o komputerze z obsługą łuku, brakujących aktualizacji, wdrożeniach aktualizacji i zaplanowanych wdrożeniach aktualizacji.
+
+[![Widok oceny Update Management dla serwerów z obsługą łuku](./media/update-mgmt-view-update-assessments/update-assessment-arc-server.png)](./media/update-mgmt-view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+
+Aby wyświetlić ocenę aktualizacji na wszystkich komputerach, w tym na serwerach z obsługą ARC z poziomu konta usługi Automation, przejdź do **konta usługi Automation** i wybierz konto usługi Automation z włączonym Update Management z listy. Na koncie usługi Automation wybierz pozycję **Update Management** w menu po lewej stronie.
+
+Aktualizacje środowiska są wyświetlane na stronie **Update Management** . Jeśli jakieś aktualizacje zostały zidentyfikowane jako brakujące, lista ich zostanie wyświetlona na karcie **brakujące aktualizacje** .
 
 [![Update Management widoku domyślnego](./media/update-mgmt-overview/update-management-view.png)](./media/update-mgmt-overview/update-management-view-expanded.png#lightbox)
 
-Aby wyświetlić ocenę aktualizacji, wykonaj następujące czynności.
+W kolumnie **zgodność** można zobaczyć czas ostatniego oceny maszyny. W kolumnie **Aktualizacja gotowości agenta** można sprawdzić kondycję agenta aktualizacji. Jeśli wystąpił problem, wybierz link, aby przejść do dokumentacji dotyczącej rozwiązywania problemów, która może pomóc w rozwiązaniu problemu.
 
-1. W Azure Portal przejdź do **konta usługi Automation** i wybierz konto usługi Automation z włączoną opcją Update Management z listy.
+W obszarze **link do informacji**wybierz link do aktualizacji, aby otworzyć artykuł pomocy technicznej, który zawiera ważne informacje o aktualizacji.
 
-2. Na koncie usługi Automation wybierz pozycję **Update Management** w okienku po lewej stronie.
+[![Wyświetl stan aktualizacji](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
 
-3. Aktualizacje środowiska są wyświetlane na stronie **Update Management** . Jeśli jakieś aktualizacje zostały zidentyfikowane jako brakujące, lista ich zostanie wyświetlona na karcie **brakujące aktualizacje** .
+Kliknij w dowolnym miejscu w obszarze aktualizacji, aby otworzyć okienko przeszukiwanie dzienników. Zapytanie dotyczące przeszukiwania dzienników jest wstępnie zdefiniowane dla tej określonej aktualizacji. Możesz zmodyfikować to zapytanie lub utworzyć własne zapytanie, aby wyświetlić szczegółowe informacje.
 
-   W kolumnie **zgodność** można zobaczyć czas ostatniego oceny maszyny. W kolumnie **Aktualizacja gotowości agenta** można sprawdzić kondycję agenta aktualizacji. Jeśli wystąpił problem, wybierz link, aby przejść do dokumentacji dotyczącej rozwiązywania problemów, która może pomóc w rozwiązaniu problemu.
-
-4. W obszarze **link do informacji**wybierz link do aktualizacji, aby otworzyć artykuł pomocy technicznej, który zawiera ważne informacje o aktualizacji.
-
-     [![Wyświetl stan aktualizacji](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
-
-5. Kliknij w dowolnym miejscu w obszarze aktualizacji, aby otworzyć okienko przeszukiwanie dzienników. Zapytanie dotyczące przeszukiwania dzienników jest wstępnie zdefiniowane dla tej określonej aktualizacji. Możesz zmodyfikować to zapytanie lub utworzyć własne zapytanie, aby wyświetlić szczegółowe informacje.
-
-    [![Wyświetl wyniki zapytania dziennika](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
+[![Wyświetl wyniki zapytania dziennika](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
 
 ## <a name="view-missing-updates"></a>Wyświetl brakujące aktualizacje
 

@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523319"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276668"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurowanie Azure-SSIS Integration Runtime na potrzeby wysokiej wydajności
 
@@ -122,8 +122,7 @@ Oś y to liczba pakietów, które ukończyły wykonywanie w ciągu godziny. Nale
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Gdy używasz już zaawansowanego węzła procesu roboczego do uruchamiania pakietów, zwiększenie **AzureSSISMaxParallelExecutionsPerNode** może zwiększyć ogólną przepływność środowiska Integration Runtime. W przypadku węzłów Standard_D1_v2 obsługiwane są 1-4 wykonania równoległe na węzeł. Dla wszystkich innych typów węzłów, obsługiwane są maksymalnie 1-maksymalne (2 x liczba rdzeni, 8) wykonywanie równoległe na węzeł. Jeśli potrzebujesz **AzureSSISMaxParallelExecutionsPerNode** poza maksymalną obsługiwaną przez nas wartością, możesz otworzyć bilet pomocy technicznej i możemy zwiększyć maksymalną wartość dla Ciebie, a następnie użyć programu Azure PowerShell do aktualizacji **AzureSSISMaxParallelExecutionsPerNode**.
-Można oszacować odpowiednią wartość w oparciu o koszt pakietu oraz następujące konfiguracje dla węzłów procesu roboczego. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych ogólnego przeznaczenia](../virtual-machines/windows/sizes-general.md).
+Gdy używasz już zaawansowanego węzła procesu roboczego do uruchamiania pakietów, zwiększenie **AzureSSISMaxParallelExecutionsPerNode** może zwiększyć ogólną przepływność środowiska Integration Runtime. Jeśli chcesz zwiększyć maksymalną wartość, musisz użyć Azure PowerShell, aby zaktualizować **AzureSSISMaxParallelExecutionsPerNode**. Można oszacować odpowiednią wartość w oparciu o koszt pakietu oraz następujące konfiguracje dla węzłów procesu roboczego. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych ogólnego przeznaczenia](../virtual-machines/windows/sizes-general.md).
 
 | Rozmiar             | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|

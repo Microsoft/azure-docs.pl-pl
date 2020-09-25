@@ -6,18 +6,19 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 09/21/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b3aadab1b4af80f98c57a279b69606a02846e996
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 081d19cc845750f1392e2c1a14229a51d0df4cbc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716847"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276467"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Sparametryzuj połączone usługi w Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Teraz można Sparametryzuj połączonej usługi i przekazywać wartości dynamiczne w czasie wykonywania. Na przykład jeśli chcesz nawiązać połączenie z różnymi bazami danych na tym samym logicznym serwerze SQL, możesz teraz Sparametryzuj nazwę bazy danych w definicji połączonej usługi. Zapobiega to konieczności tworzenia połączonej usługi dla każdej bazy danych na serwerze logicznym programu SQL Server. Można Sparametryzuj inne właściwości w definicji połączonej usługi, jak również na przykład *Nazwa użytkownika.*
@@ -33,7 +34,8 @@ Aby zapoznać się z wprowadzeniem do siedmiu minut i demonstracją tej funkcji,
 
 ## <a name="supported-data-stores"></a>Obsługiwane magazyny danych
 
-W tej chwili parametryzacja połączonej usługi jest obsługiwany w interfejsie użytkownika Data Factory dla następujących magazynów danych. W przypadku wszystkich innych magazynów danych można Sparametryzuj połączoną usługę, wybierając ikonę **kodu** na karcie **połączenia** i używając edytora JSON.
+Możesz Sparametryzuj dowolny typ połączonej usługi.
+Podczas tworzenia połączonej usługi w interfejsie użytkownika Data Factory zapewnia wbudowane środowisko parametryzacja dla następujących typów łączników. W bloku Tworzenie/edytowanie połączonej usługi można znaleźć opcje nowych parametrów i dodać zawartość dynamiczną.
 
 - Amazon Redshift
 - Azure Cosmos DB (interfejs API SQL)
@@ -45,6 +47,13 @@ W tej chwili parametryzacja połączonej usługi jest obsługiwany w interfejsie
 - SQL Server
 - Ogólne HTTP
 - Ogólne REST
+
+W przypadku innych typów można Sparametryzuj połączoną usługę, edytując kod JSON w interfejsie użytkownika:
+
+- W obszarze Tworzenie/edytowanie połączonej usługi — > rozwiń pozycję "Zaawansowane" w > polu wyboru "Określ zawartość dynamiczną w formacie JSON"-> Określ ładunek JSON połączonej usługi. 
+- Lub po utworzeniu połączonej usługi bez parametryzacja w [centrum zarządzania](author-visually.md#management-hub) — > połączone usługi — > znaleźć określoną połączoną usługę-> kliknij "kod" (przycisk " {} "), aby edytować plik JSON. 
+
+Zapoznaj się z [przykładem JSON](#json) , aby dodać ` parameters` sekcję do definiowania parametrów i odwoływania się do parametru przy użyciu ` @{linkedService().paraName} ` .
 
 ## <a name="data-factory-ui"></a>Interfejs użytkownika usługi Data Factory
 
