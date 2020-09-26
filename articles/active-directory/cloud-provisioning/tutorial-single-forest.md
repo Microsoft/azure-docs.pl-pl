@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a63bd6be9b21a506054ab5a02fa7f5d6751f303a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1b91763c275e4fd091b7c1554699e5d6f35a6f55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266330"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Samouczek: Integrowanie pojedynczego lasu z jedną dzierżawą usługi Azure AD
 
@@ -61,16 +61,16 @@ Możesz użyć środowiska utworzonego w tym samouczku do testowania lub w celu 
 5. Uruchom Azure AD Connect agenta aprowizacji.
 6. Na ekranie powitalnym **Zaakceptuj** postanowienia licencyjne, a następnie kliknij przycisk **Instaluj**.
 
-   ![Ekran powitalny](media/how-to-install/install1.png)
+   ![Zrzut ekranu przedstawiający ekran powitalny "Microsoft Azure A D Connecting Package Agent".](media/how-to-install/install1.png)
 
 7. Po zakończeniu tej operacji zostanie uruchomiony Kreator konfiguracji.  Zaloguj się przy użyciu konta administratora globalnego usługi Azure AD.  Należy pamiętać, że jeśli masz włączone rozszerzone zabezpieczenia programu IE, spowoduje to zablokowanie logowania.  W takim przypadku Zamknij instalację, wyłącz zaawansowane zabezpieczenia programu IE w Menedżer serwera, a następnie kliknij **Kreatora agenta aprowizacji usługi AAD Connect** , aby ponownie uruchomić instalację.
 8. Na ekranie **połącz Active Directory** kliknij pozycję **Dodaj katalog** , a następnie zaloguj się przy użyciu konta administratora domeny Active Directory.  Uwaga: konto administratora domeny nie powinno mieć wymagań dotyczących zmiany hasła. W przypadku wygaśnięcia lub zmiany hasła należy ponownie skonfigurować agenta przy użyciu nowych poświadczeń. Ta operacja spowoduje dodanie katalogu lokalnego.  Kliknij przycisk **Dalej**.
 
-   ![Ekran powitalny](media/how-to-install/install3.png)
+   ![Zrzut ekranu przedstawiający ekran "Połącz Active Directory".](media/how-to-install/install3.png)
 
 9. Na ekranie **Konfiguracja ukończona** kliknij przycisk **Potwierdź**.  Ta operacja spowoduje zarejestrowanie i ponowne uruchomienie agenta.
 
-   ![Ekran powitalny](media/how-to-install/install4.png)
+   ![Zrzut ekranu przedstawiający ekran "Konfiguracja ukończona".](media/how-to-install/install4.png)
 
 10. Po zakończeniu tej operacji powinna zostać wyświetlona informacja: **Konfiguracja agenta została pomyślnie zweryfikowana.**  Możesz kliknąć przycisk **Zakończ**.</br>
 ![Ekran powitalny](media/how-to-install/install5.png)</br>
@@ -83,7 +83,7 @@ Weryfikacja agenta odbywa się w Azure Portal i na serwerze lokalnym, na którym
 ### <a name="azure-portal-agent-verification"></a>Weryfikacja agenta Azure Portal
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następujące kroki:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 2. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 

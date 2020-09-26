@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c4667b810e4d3d5f13e13572e2420880da5a8a0b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931628"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332393"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Przykład: korzystanie z funkcji dużej skali
 
@@ -31,7 +31,7 @@ Przykłady są zapisywane w języku C# przy użyciu biblioteki klienckiej usług
 
 ## <a name="step-1-initialize-the-client-object"></a>Krok 1. inicjowanie obiektu klienta
 
-W przypadku korzystania z biblioteki klienta programu Front Key i punkt końcowy subskrypcji są przesyłane za pomocą konstruktora klasy FaceClient. Przykład:
+W przypadku korzystania z biblioteki klienta programu Front Key i punkt końcowy subskrypcji są przesyłane za pomocą konstruktora klasy FaceClient. Na przykład:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -64,7 +64,7 @@ Dodaj wszystkie powierzchnie i osoby z tej osoby do nowego LargePersonGroup. Aby
 
 | Interfejsy API listy FaceList | Interfejsy API listy LargeFaceList |
 |:---:|:---:|
-| Tworzenie | Utwórz |
+| Utwórz | Utwórz |
 | Usuń | Usuń |
 | Get | Get |
 | Lista | Lista |
@@ -260,7 +260,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-Aby uzyskać więcej informacji na temat zarządzania danymi i implementacji związanych z identyfikacją, zobacz [Dodawanie](how-to-add-faces.md) twarzy i [Identyfikowanie twarzy na obrazie](HowtoIdentifyFacesinImage.md).
+Aby uzyskać więcej informacji na temat zarządzania danymi i implementacji związanych z identyfikacją, zobacz [Dodawanie](how-to-add-faces.md)twarzy.
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -271,7 +271,7 @@ W tym przewodniku przedstawiono sposób migrowania istniejącej osoby lub kodu F
 
 ## <a name="next-steps"></a>Następne kroki
 
-Postępuj zgodnie z przewodnikiem, aby dowiedzieć się, jak dodać twarzy do osoby lub wykonać operację identyfikowania w ramach danej osoby.
+Postępuj zgodnie z przewodnikiem, aby dowiedzieć się, jak dodać twarzy do osoby lub napisać skrypt, aby wykonać operację identyfikowania w ramach danej osoby.
 
 - [Dodawanie twarzy](how-to-add-faces.md)
-- [Identyfikowanie twarzy na obrazie](HowtoIdentifyFacesinImage.md)
+- [Przewodnik Szybki Start dotyczący biblioteki klienta](../Quickstarts/client-libraries.md)

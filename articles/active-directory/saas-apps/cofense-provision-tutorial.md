@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie Cofense dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
-description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD do Cofense.
+title: 'Samouczek: Konfigurowanie synchronizacji adresatów Cofense dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD do synchronizacji adresatów Cofense.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: d1ef09e34e44a8a4f39fb5e9c140f138d3da8d86
-ms.sourcegitcommit: 4ce82b6df65ebd81157b6168d3aa4e7323355022
+ms.openlocfilehash: 53176114e8236ac8d8d38b1cf4c7472b0c18c08d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90761523"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305600"
 ---
-# <a name="tutorial-configure-cofense-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Cofense na potrzeby automatycznego aprowizacji użytkowników
+# <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie synchronizacji adresatów Cofense na potrzeby automatycznej aprowizacji użytkowników
 
-W tym samouczku opisano kroki, które należy wykonać w programie Cofense i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. W przypadku skonfigurowania usługi Azure AD automatycznie inicjuje i usuwają użytkowników, aby [Cofense](https://cofense.com/) przy użyciu usługi Azure AD Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../manage-apps/user-provisioning.md). 
+W tym samouczku opisano kroki, które należy wykonać zarówno w przypadku synchronizacji Cofense adresatów, jak i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje i cofa obsługę administracyjną użytkowników w celu [Cofense synchronizacji odbiorców](https://cofense.com/) przy użyciu usługi Azure AD Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Obsługiwane możliwości
 > [!div class="checklist"]
-> * Tworzenie użytkowników w Cofense
-> * Usuń użytkowników w Cofense, gdy nie wymagają już dostępu
-> * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD i Cofense
+> * Tworzenie użytkowników w synchronizacji adresatów Cofense
+> * Usuń użytkowników w synchronizacji adresatów Cofense, gdy nie wymagają już dostępu
+> * Utrzymywanie synchronizacji atrybutów użytkowników między synchronizacją usługi Azure AD i Cofense adresatów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,70 +42,70 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 * Konto operatora standardowego w programie Cofense PhishMe.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
-1. Dowiedz się [, jak działa usługa aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Określ, kto będzie [objęty zakresem aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Określ, które dane mają być [mapowane między usługą Azure AD i Cofense](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Dowiedz się więcej na temat [sposobu działania usługi aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Określ, kto znajdzie się [w zakresie aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Określ, które dane mają być [mapowane między usługą Azure AD a synchronizacją Cofense adresatów](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-cofense-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie Cofense w celu obsługi aprowizacji za pomocą usługi Azure AD
+## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie synchronizacji adresatów Cofense w celu obsługi aprowizacji za pomocą usługi Azure AD
 
-1. Zaloguj się do Cofense PhishMe. Przejdź do adresatów > synchronizacji adresatów. 
-2. Zaakceptuj warunki i postanowienia, a następnie kliknij pozycję Rozpocznij.
+1. Zaloguj się do Cofense PhishMe. Przejdź do **adresatów > synchronizacji adresatów**. 
+2. Zaakceptuj warunki i postanowienia, a następnie kliknij pozycję **Rozpocznij**.
 
     ![Recepient synchronizacji TNC](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. Skopiuj wartości z pól adresu URL i tokenu.
+3. Skopiuj wartości z pól **adresu URL** i **tokenu**.
 
     ![Recepient synchronizacji](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 
 
-## <a name="step-3-add-cofense-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie Cofense z galerii aplikacji usługi Azure AD
+## <a name="step-3-add-cofense-recipient-sync-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie synchronizacji adresatów Cofense z galerii aplikacji usługi Azure AD
 
-Dodaj Cofense z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do Cofense. Jeśli wcześniej skonfigurowano Cofense na potrzeby logowania jednokrotnego, możesz użyć tej samej aplikacji. Jednak zaleca się utworzenie osobnej aplikacji podczas wstępnego testowania integracji. Dowiedz się więcej o dodawaniu aplikacji z galerii [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Dodaj synchronizację adresatów Cofense z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie obsługą do synchronizacji adresatów Cofense. Jeśli wcześniej skonfigurowano synchronizację adresata Cofense na potrzeby logowania jednokrotnego, możesz użyć tej samej aplikacji. Zalecane jest jednak utworzenie osobnej aplikacji na potrzeby początkowych testów integracji. Więcej informacji o dodawaniu aplikacji z galerii znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Zdefiniuj, kto będzie w zakresie aprowizacji 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Określenie, kto znajdzie się w zakresie aprowizacji 
 
-Usługa Azure AD Provisioning umożliwia określenie zakresu użytkowników, którzy będą obsługiwani w oparciu o przypisanie do aplikacji i lub na podstawie atrybutów użytkownika/grupy. Jeśli wybierzesz zakres, który zostanie zainicjowany do aplikacji na podstawie przypisania, możesz wykonać następujące [kroki](../manage-apps/assign-user-or-group-access-portal.md) , aby przypisać użytkowników i grupy do aplikacji. Jeśli zdecydujesz się na określenie zakresu, który zostanie zainicjowany na podstawie atrybutów użytkownika lub grupy, możesz użyć filtru określania zakresu, zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podstawie przypisania do aplikacji lub na podstawie atrybutów użytkownika/grupy. Jeśli zdecydujesz się na określenie zakresu aprowizacji w aplikacji na podstawie przypisania, możesz skorzystać z następujących [instrukcji](../manage-apps/assign-user-or-group-access-portal.md) w celu przypisania użytkowników i grup do aplikacji. Jeśli zdecydujesz się na określenie zakresu aprowizacji wyłącznie na podstawie atrybutów użytkownika lub grupy, możesz użyć filtra zakresu zgodnie z opisem zamieszczonym [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Podczas przypisywania użytkowników i grup do Cofense należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji i zostaną oznaczeni jako nieskutecznie uprawnieni do dzienników aprowizacji. Jeśli jedyną rolą dostępną w aplikacji jest domyślna rola dostępu, można [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) , aby dodać dodatkowe role. 
+* Podczas przypisywania użytkowników i grup do synchronizacji adresatów Cofense należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps), aby dodać więcej ról. 
 
-* Zacznij od małych. Przetestuj przy użyciu małego zestawu użytkowników i grup przed przekazaniem ich do wszystkich osób. W przypadku wybrania dla zakresu aprowizacji przypisanych użytkowników i grup można kontrolować ten sposób, przypisując do aplikacji jednego lub dwóch użytkowników lub grupy. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [Filtr określania zakresu na podstawie atrybutu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Zacznij od mniejszej skali. Przeprowadź test z użyciem mniejszego zestawu użytkowników i grup, zanim wdrożysz to rozwiązanie dla wszystkich. W przypadku ustawienia zakresu aprowizacji na przypisanych użytkowników i grupy możesz w tym celu przypisać do aplikacji jednego czy dwóch użytkowników bądź jedną lub dwie grupy. W przypadku ustawienia zakresu na wszystkich użytkowników i wszystkie grupy, możesz określić [filtrowanie zakresu na podstawie atrybutów](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-cofense"></a>Krok 5. Konfigurowanie automatycznej aprowizacji użytkowników do Cofense 
+## <a name="step-5-configure-automatic-user-provisioning-to-cofense-recipient-sync"></a>Krok 5. Skonfiguruj automatyczne Inicjowanie obsługi administracyjnej użytkowników w celu Cofense synchronizacji adresatów 
 
-Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników w programie Cofense w oparciu o użytkownika w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników w ramach synchronizacji adresatów Cofense na podstawie użytkownika w usłudze Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-cofense-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Cofense w usłudze Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-cofense-recipient-sync-in-azure-ad"></a>Aby skonfigurować automatyczną obsługę administracyjną dla synchronizacji adresatów Cofense w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **Cofense**.
+2. Na liście Aplikacje wybierz pozycję **Synchronizacja adresatów Cofense**.
 
     ![Link Cofense na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **aprowizacji** .
+3. Wybierz kartę **Aprowizacja**.
 
-    ![Karta aprowizacji](common/provisioning.png)
+    ![Karta Aprowizacja](common/provisioning.png)
 
-4. Ustaw **tryb aprowizacji** na **automatyczny**.
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
     ![Automatyczne Inicjowanie obsługi kart](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź wartość w polu **podstawowy adres URL Standard scim 2,0 i token uwierzytelniania Standard scim** pobrane wcześniej z kroku 2. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą Cofense. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Cofense ma uprawnienia administratora, a następnie spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź wartość w polu **podstawowy adres URL Standard scim 2,0 i token uwierzytelniania Standard scim** pobrane wcześniej z kroku 2. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z synchronizacją Cofense Jeśli połączenie nie powiedzie się, upewnij się, że konto synchronizacji odbiorcy Cofense ma uprawnienia administratora i spróbuj ponownie.
 
     ![Token adresu URL dzierżawy](common/provisioning-testconnection-tenanturltoken.png)
 
-6. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail po wystąpieniu błędu** .
+6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 
-    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
+    ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
 7. Wybierz pozycję **Zapisz**.
 
-8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Cofense**.
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy, aby Cofense synchronizację adresatów**.
 
-9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do Cofense w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie Cofense for Updates.  Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
+9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do synchronizacji adresatów Cofense w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowywania kont użytkowników w synchronizacji Cofense adresatów dla operacji aktualizacji.  Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
    |Atrybut|Typ|
    |---|---|
@@ -114,66 +114,66 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |aktywne|Wartość logiczna|
    |displayName|Ciąg|
    |Nazwa. sformatowana|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |Name. honorificSuffix|Ciąg|
-   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
-   |numer telefonu [typ EQ "Home"]. Value|Ciąg|
-   |braky [Type EQ "Other"]. Value|Ciąg|
-   |numer telefonu [typ EQ "pager"]. wartość|Ciąg|
-   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
-   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
-   |adresy [Type EQ "Other"]. sformatowane|Ciąg|
-   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
-   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
-   |adresy [typ EQ "Work"]. locale|Ciąg|
-   |addresss [Type EQ "Work"]. region|Ciąg|
-   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+   |name.givenName|Ciąg|
+   |name.familyName|Ciąg|
+   |Name. honorificSuffix|String|
+   |numer telefonu [typ EQ "Work"]. wartość|String|
+   |numer telefonu [typ EQ "Home"]. Value|String|
+   |braky [Type EQ "Other"]. Value|String|
+   |numer telefonu [typ EQ "pager"]. wartość|String|
+   |numer telefonu [typ EQ "Mobile"]. Value|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |adresy [Type EQ "Other"]. sformatowane|String|
+   |adresy [typ EQ "Work"]. sformatowane|String|
+   |adresy [typ EQ "Work"]. streetAddress|String|
+   |adresy [typ EQ "Work"]. locale|String|
+   |addresss [Type EQ "Work"]. region|String|
+   |addresss [Type EQ "Work"]. KodPocztowy|String|
    |addresss [Type EQ "Work"]. Country|Ciąg|
    |title|Ciąg|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |wiadomości e-mail [Type EQ "Home"]. Value|Ciąg|
-   |wiadomości e-mail [Type EQ "Other"]. Value|Ciąg|
+   |emails[type eq "work"].value|Ciąg|
+   |wiadomości e-mail [Type EQ "Home"]. Value|String|
+   |wiadomości e-mail [Type EQ "Other"]. Value|String|
    |preferredLanguage|Ciąg|
-   |Pseudonim|Ciąg|
+   |nickName|Ciąg|
    |userType|Ciąg|
    |locale|Ciąg|
-   |TimeZone|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |timezone|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
 
-10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Aby włączyć usługę Azure AD Provisioning dla Cofense, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
+11. Aby włączyć usługę Azure AD Provisioning dla synchronizacji adresatów Cofense, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
+    ![Stan aprowizacji — przełącznik w pozycji włączonej](common/provisioning-toggle-on.png)
 
-12. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić Cofense, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
+12. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić do Cofense synchronizacji adresatów, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-13. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
+13. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja uruchamia początkowy cykl synchronizacji wszystkich użytkowników i grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Cykl początkowy trwa dłużej niż kolejne cykle, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. 
+Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia**. Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
-Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
+Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, aby monitorować wdrożenie:
 
-1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
-2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
-3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs), aby określić, których użytkowników udało się lub nie udało aprowizować
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
+3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../manage-apps/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../manage-apps/check-status-user-account-provisioning.md)

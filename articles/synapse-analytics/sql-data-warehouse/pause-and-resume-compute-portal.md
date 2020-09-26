@@ -11,16 +11,16 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 25f12d038b2a83688c12d95adefef3d4fb39be43
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: aa86161bce0b52eb1043d792fb2f4770df0992ee
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369420"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Szybki Start: Wstrzymywanie i wznawianie obliczeń w Synapse puli SQL za pośrednictwem Azure Portal
 
-Za pomocą Azure Portal można wstrzymywać i wznawiać zasoby obliczeniowe puli SQL (Data Warehouse) Synapse. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Za pomocą Azure Portal można wstrzymywać i wznawiać zasoby obliczeniowe puli SQL (Data Warehouse) Synapse. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -46,10 +46,10 @@ Wykonaj następujące kroki, aby wstrzymać pulę SQL:
     ![Oblicz w trybie online](././media/pause-and-resume-compute-portal/compute-online.png)
 
 4. Aby wstrzymać pulę SQL, kliknij przycisk **Wstrzymaj** . 
-5. Zostanie wyświetlone pytanie z prośbą o potwierdzenie, czy chcesz kontynuować. Kliknij przycisk **tak**.
+5. Zostanie wyświetlone pytanie z prośbą o potwierdzenie, czy chcesz kontynuować. Kliknij przycisk **Yes** (Tak).
 6. Poczekaj chwilę, a następnie sprawdź, czy **stan** jest **wstrzymywany**.
 
-    ![Wstrzymywanie](./media/pause-and-resume-compute-portal/pausing.png)
+    ![Zrzut ekranu przedstawia Azure Portal dla przykładowego magazynu danych z wartością stanu wstrzymywanie.](./media/pause-and-resume-compute-portal/pausing.png)
 
 7. Po zakończeniu operacji wstrzymania stan jest **wstrzymany** i przycisk opcji zostaje **wznowiony**.
 8. Zasoby obliczeniowe dla puli SQL są teraz w trybie offline. Nie zostanie naliczona opłata za obliczenia, dopóki usługa nie zostanie wznowiona.
@@ -68,10 +68,10 @@ Wykonaj następujące kroki, aby wznowić pulę SQL.
     ![Oblicz w trybie offline](././media/pause-and-resume-compute-portal/compute-offline.png)
 
 4. Aby wznowić pulę SQL, kliknij przycisk **Wznów**. 
-5. Zostanie wyświetlone pytanie z prośbą o potwierdzenie, czy chcesz zacząć. Kliknij przycisk **tak**.
+5. Zostanie wyświetlone pytanie z prośbą o potwierdzenie, czy chcesz zacząć. Kliknij przycisk **Yes** (Tak).
 6. Zauważ, że **stan** jest **wznawiany**.
 
-    ![Wznawianie](./media/pause-and-resume-compute-portal/resuming.png)
+    ![Zrzut ekranu przedstawia Azure Portal dla przykładowego magazynu danych z wybranym przyciskiem Start i wartością stanu wznawiania.](./media/pause-and-resume-compute-portal/resuming.png)
 
 7. Gdy pula SQL jest w trybie online, stan jest w **trybie online** i przycisk opcji jest **wstrzymany**.
 8. Zasoby obliczeniowe dla puli SQL są teraz w trybie online i można korzystać z tej usługi. Opłaty za obliczenia zostały wznowione.

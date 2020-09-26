@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 3b68df1b3fc2f03d7659205fe03fdae09ecc3f7a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4ac748c606d8ec3c8ba754c34d9c9e7512344a83
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827375"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292715"
 ---
 ## <a name="configure-the-sample-project"></a>Konfigurowanie przykładowego projektu
 
-Następnie skonfiguruj przykładową aplikację kliencką, która będzie współpracująca z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Jeśli nie pobrano jeszcze przykładowego projektu, Pobierz go teraz ze strony docelowej [*próbek Digital bliźniaczych reprezentacji na platformie Azure*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) , wybierając przycisk *Pobierz zip* poniżej tytułu.
+Następnie skonfiguruj przykładową aplikację kliencką, która będzie współpracująca z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji.
 
-Przejdź do pobranego pliku na maszynie i rozpakuj go.
+Przejdź na swoją maszynę do pliku pobranego wcześniej z [*przykładów usługi Azure Digital bliźniaczych reprezentacji*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) (i rozpakuj go, jeśli jeszcze nie zostało to zrobione).
 
-Po umieszczeniu wewnątrz folderu niespakowanego przejdź do _AdtSampleApp_. Otwórz _**AdtE2ESample. sln**_ w programie Visual Studio 2019. 
+Po umieszczeniu w folderze przejdź do _AdtSampleApp_. Otwórz _**AdtE2ESample. sln**_ w programie Visual Studio 2019. 
 
 W programie Visual Studio użyj okienka *Eksplorator rozwiązań* , aby utworzyć kopię _serviceConfig.js> SampleClientApp **na. Plik szablonu** _ (możesz użyć menu z prawym przyciskiem myszy w celu skopiowania i wklejenia). Zmień nazwę *serviceConfig.jskopii na*. Będzie to stanowić wstępnie ustawiony plik JSON z niezbędnymi zmiennymi konfiguracyjnymi do uruchomienia projektu.
 

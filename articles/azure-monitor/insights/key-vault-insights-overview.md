@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278621"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitorowanie usługi magazynu kluczy za pomocą Azure Monitor dla Key Vault
 Azure Monitor dla Key Vault oferuje kompleksowe monitorowanie Twoich magazynów kluczy, udostępniając ujednolicony widok żądań, wydajności, niepowodzeń i opóźnień Key Vault.
@@ -25,21 +25,6 @@ Przed przechodzeniem do środowiska należy zrozumieć, jak prezentuje i wizuali
 -    **Dostosowywalne** miejsce, w którym można zmienić metryki, które mają być wyświetlane, zmodyfikować lub ustawić progi, które są wyrównane z limitami, i zapisać własny skoroszyt. Wykresy w skoroszycie można przypinać do pulpitów nawigacyjnych platformy Azure.
 
 Azure Monitor Key Vault łączy zarówno dzienniki, jak i metryki, aby zapewnić globalne rozwiązanie do monitorowania. Wszyscy użytkownicy mogą uzyskać dostęp do danych monitorowania opartych na metrykach, jednak dołączenie wizualizacji opartych na dziennikach może wymagać od użytkowników [umożliwienia użytkownikom rejestrowania ich Azure Key Vault](../../key-vault/general/logging.md).
-
-## <a name="configuring-your-key-vaults-for-monitoring"></a>Konfigurowanie magazynów kluczy do monitorowania
-
-> [!NOTE]
-> Włączenie dzienników jest usługą płatną, która zapewnia dodatkowe możliwości monitorowania.
-
-1. Karta czas oczekiwania & operacji pomaga określić, ile i które magazyny kluczy są włączone. Aby rozpocząć zbieranie, wybierz przycisk **Włącz** . spowoduje to przejście do oddzielnego skoroszytu zawierającego listę magazynów kluczy, które wymagają włączenia dzienników diagnostycznych.
-
-    ![Zrzut ekranu przedstawiający operacje i kartę opóźnienia z wyświetlonym niebieskim przyciskiem włączania](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. Aby włączyć dzienniki diagnostyczne, kliknij link **Włącz** poniżej kolumny akcje i Utwórz nowe ustawienie diagnostyczne, które wysyła dzienniki do obszaru roboczego log Analytics. Zaleca się wysłanie wszystkich dzienników do tego samego obszaru roboczego.
-
-3. Po zapisaniu ustawień diagnostycznych będzie można wyświetlić wszystkie wykresy i wizualizacje oparte na dziennikach poniżej Key Vault szczegółowych informacji. Zapełnianie dzienników może potrwać kilka minut.
-
-4. Aby uzyskać dodatkową pomoc dotyczącą sposobu włączania dzienników diagnostycznych dla usługi Key Vault, Przeczytaj [Pełny przewodnik](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Wyświetl od Azure Monitor
 
@@ -165,10 +150,6 @@ Istnieje limit 200 magazynów kluczy, które można wybrać i wyświetlić. Bez 
 Wyświetlamy tylko te subskrypcje, które zawierają magazyny kluczy, wybrane z wybranego filtru subskrypcji, które są wybrane w "katalogu i subskrypcji" w nagłówku Azure Portal.
 
 ![Zrzut ekranu filtru subskrypcji](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Otrzymuję komunikat o błędzie informujący o tym, że "zapytanie przekracza maksymalną dozwoloną liczbę obszarów roboczych/regionów", co zrobić teraz
-
-Obecnie istnieje ograniczenie do 25 regionów i 200 obszarów roboczych, aby wyświetlić dane, należy zmniejszyć liczbę subskrypcji i/lub grup zasobów.
 
 ### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Chcę wprowadzić zmiany lub dodać dodatkowe wizualizacje do Key Vault szczegółowych informacji, jak to zrobić
 

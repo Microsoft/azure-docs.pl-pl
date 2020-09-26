@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 55b5b5419734999ebd50ca364251602112e29987
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5b2bb50fc2ad8084d79097fe7acb449821d0a4da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594292"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331067"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowaniami zewnętrznymi przy użyciu Azure PowerShell
 
@@ -156,9 +156,4 @@ W przeglądarce powinny być widoczne *Bing.com* .
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule zawarto informacje na temat wykonywania następujących czynności:
-
-> [!div class="checklist"]
-> * Konfigurowanie sieci
-> * Tworzenie reguły odbiornika i przekierowywania
-> * Tworzenie bramy aplikacji
+- [Tworzenie bramy aplikacji z przekierowaniami wewnętrznymi przy użyciu Azure PowerShell](redirect-internal-site-powershell.md)

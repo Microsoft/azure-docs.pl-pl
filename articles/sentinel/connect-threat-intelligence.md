@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d794b0a33eabedd3e6e309f291543ba23bc40f79
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769877"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362750"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Łączenie danych od dostawców analizy zagrożeń
 
@@ -59,13 +59,13 @@ Za pomocą jednego z produktów zintegrowanej platformy do analizy zagrożeń (T
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Połącz wskaźnik platformy Azure z platformą analizy zagrożeń
 
-## <a name="prerequisites"></a>Wymagania wstępne  
+### <a name="prerequisites"></a>Wymagania wstępne  
 
 - Rola usługi Azure AD administratora globalnego lub administratora zabezpieczeń umożliwiająca Przyznawanie uprawnień do produktu TIP lub aplikacji niestandardowej korzystającej Microsoft Graph z bezpośredniej integracji z interfejsem API tiIndicators zabezpieczeń.
 
 - Uprawnienia do odczytu i zapisu do obszaru roboczego wskaźnikowego platformy Azure w celu przechowywania wskaźników zagrożeń.
 
-## <a name="instructions"></a>Instrukcje
+### <a name="instructions"></a>Instrukcje
 
 1. [Zarejestruj aplikację](/graph/auth-v2-service#1-register-your-app) w Azure Active Directory, aby uzyskać identyfikator aplikacji, klucz tajny aplikacji i identyfikator dzierżawy Azure Active Directory. Te wartości są potrzebne podczas konfigurowania zintegrowanego produktu lub aplikacji TIP, która korzysta Microsoft Graph z bezpośredniej integracji z interfejsem API tiIndicators zabezpieczeń.
 
@@ -89,13 +89,13 @@ Za pomocą jednego z produktów zintegrowanej platformy do analizy zagrożeń (T
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Łączenie z serwerem TAXII platformy Azure
 
-## <a name="prerequisites"></a>Wymagania wstępne  
+### <a name="prerequisites"></a>Wymagania wstępne
 
 - Uprawnienia do odczytu i zapisu do obszaru roboczego wskaźnikowego platformy Azure w celu przechowywania wskaźników zagrożeń.
 
 - Adres URI serwera TAXII 2,0 i identyfikator kolekcji.
 
-## <a name="instructions"></a>Instrukcje
+### <a name="instructions"></a>Instrukcje
 
 1. W Azure Portal przejdź do łączników **danych wskaźnikowych platformy Azure**,  >  **Data connectors** a następnie wybierz łącznik **analizy zagrożeń — TAXII (wersja zapoznawcza)** .
 

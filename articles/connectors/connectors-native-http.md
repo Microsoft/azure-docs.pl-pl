@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526754"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292459"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub HTTPS z usługi Azure Logic Apps
 
@@ -108,7 +108,7 @@ Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacz
 |----------|------|-------------|
 | `headers` | Obiekt JSON | Nagłówki żądania |
 | `body` | Obiekt JSON | Obiekt z zawartością treści z żądania |
-| `status code` | Liczba całkowita | Kod stanu z żądania |
+| `status code` | Integer | Kod stanu z żądania |
 |||
 
 | Kod stanu | Opis |
@@ -247,7 +247,7 @@ Niektóre punkty końcowe, usługi, systemy lub interfejsy API zwracają odpowie
 
 Jeśli wyzwalacz lub akcja HTTP zawiera te nagłówki, Logic Apps usuwa te nagłówki z wygenerowanego komunikatu żądania bez wyświetlania ostrzeżenia lub błędu:
 
-* `Accept-*`
+* `Accept-*` nagłówki z wyjątkiem `Accept-version`
 * `Allow`
 * `Content-*` z następującymi wyjątkami: `Content-Disposition` , `Content-Encoding` , i `Content-Type`
 * `Cookie`

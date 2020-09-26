@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fad7ca60e98dcaabc5f6fc106e0d2c1b77085d67
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0516947ff134992d684aa6826999c4d65bba1457
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227886"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369080"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specyfikacje szablonu Azure Resource Manager (wersja zapoznawcza)
 
-Specyfikacja szablonu to nowy typ zasobu do przechowywania szablonu Azure Resource Manager (szablon ARM) na platformie Azure na potrzeby późniejszego wdrożenia. Ten typ zasobu umożliwia udostępnianie szablonów ARM innym użytkownikom w organizacji. Podobnie jak w przypadku dowolnego innego zasobu platformy Azure, można użyć kontroli dostępu opartej na rolach (RBAC) do udostępniania specyfikacji szablonu.
+Specyfikacja szablonu to nowy typ zasobu do przechowywania szablonu Azure Resource Manager (szablon ARM) na platformie Azure na potrzeby późniejszego wdrożenia. Ten typ zasobu umożliwia udostępnianie szablonów ARM innym użytkownikom w organizacji. Podobnie jak w przypadku dowolnego innego zasobu platformy Azure, możesz użyć kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby udostępnić specyfikację szablonu.
 
 **Microsoft. resources/templateSpecs** to nowy typ zasobu dla specyfikacji szablonu. Składa się z szablonu głównego i dowolnej liczby połączonych szablonów. Platforma Azure bezpiecznie przechowuje specyfikacje szablonu w grupach zasobów. Specyfikacje szablonu obsługują [przechowywanie wersji](#versioning).
 
@@ -27,7 +27,7 @@ Do wdrożenia specyfikacji szablonu można używać standardowych narzędzi plat
 
 Jeśli masz obecnie szablony w repozytorium GitHub lub koncie magazynu, będziesz mieć kilka wyzwań podczas próby udostępnienia szablonów i używania ich. Aby użytkownik mógł wdrożyć ten szablon, musi być on lokalny lub adres URL szablonu musi być dostępny publicznie. Aby obejść to ograniczenie, można udostępnić kopie szablonu użytkownikom, którzy muszą je wdrożyć, lub otworzyć dostęp do repozytorium lub konta magazynu. Gdy użytkownicy są właścicielami lokalnych szablonów, te kopie mogą ostatecznie zależeć od oryginalnego szablonu. W przypadku udostępnienia publicznie repozytorium lub konta magazynu możesz zezwolić niektórym użytkownikom na dostęp do tego szablonu.
 
-Zaletą korzystania z specyfikacji szablonów jest możliwość tworzenia szablonów kanonicznych i udostępniania ich zespołom w organizacji. Specyfikacje szablonu są bezpieczne, ponieważ są dostępne do Azure Resource Manager do wdrożenia, ale nie są dostępne dla użytkowników bez uprawnień RBAC. Użytkownicy potrzebują tylko dostępu do odczytu specyfikacji szablonu, aby wdrożyć jej szablon, dzięki czemu można udostępnić szablon bez zezwalania innym osobom na jego Modyfikowanie.
+Zaletą korzystania z specyfikacji szablonów jest możliwość tworzenia szablonów kanonicznych i udostępniania ich zespołom w organizacji. Specyfikacje szablonu są bezpieczne, ponieważ są dostępne do Azure Resource Manager do wdrożenia, ale nie są dostępne dla użytkowników bez uprawnień Azure RBAC. Użytkownicy potrzebują tylko dostępu do odczytu specyfikacji szablonu, aby wdrożyć jej szablon, dzięki czemu można udostępnić szablon bez zezwalania innym osobom na jego Modyfikowanie.
 
 Szablony zawarte w specyfikacji szablonu powinny być weryfikowane przez administratorów w organizacji, aby przestrzegać wymagań i wskazówek dotyczących organizacji.
 

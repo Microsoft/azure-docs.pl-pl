@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae8bb66141e4cc4e67f1502b208cf519d37c0374
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278791"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Włączanie zewnętrznej współpracy B2B i zarządzanie osobami, które mogą zapraszać gości
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób włączania współpracy B2B Azure Active Directo
 
 Domyślnie wszyscy użytkownicy i Goście w katalogu mogą zapraszać Gości, nawet jeśli nie są przypisani do roli administratora. Ustawienia współpracy zewnętrznej pozwalają włączać lub wyłączać zaproszenia gościa dla różnych typów użytkowników w organizacji. Możesz również delegować zaproszenia do poszczególnych użytkowników, przypisując role zezwalające im na zapraszanie Gości.
 
-Usługa Azure AD pozwala ograniczyć liczbę użytkowników, którzy zewnętrzni mogą zobaczyć w katalogu usługi Azure AD. Domyślnie użytkownicy-Goście są ustawiani z ograniczonym poziomem uprawnień, który blokuje ich wyliczanie użytkowników, grup lub innych zasobów katalogu, ale pozwala im na wyświetlanie członkostwa w grupach nieukrytych. Nowe ustawienie wersji zapoznawczej pozwala jeszcze bardziej ograniczyć dostęp gościa, aby Goście mogli tylko wyświetlać własne informacje o profilu. 
+Usługa Azure AD pozwala ograniczyć liczbę użytkowników, którzy zewnętrzni mogą zobaczyć w katalogu usługi Azure AD. Domyślnie użytkownicy-Goście są ustawiani z ograniczonym poziomem uprawnień, który blokuje ich wyliczanie użytkowników, grup lub innych zasobów katalogu, ale pozwala im na wyświetlanie członkostwa w grupach nieukrytych. Nowe ustawienie wersji zapoznawczej pozwala jeszcze bardziej ograniczyć dostęp gościa, aby Goście mogli tylko wyświetlać własne informacje o profilu. Aby uzyskać szczegółowe informacje, zobacz [ograniczanie uprawnień dostępu gościa (wersja zapoznawcza)](../users-groups-roles/users-restrict-guest-permissions.md).
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Konfigurowanie ustawień współpracy zewnętrznej B2B
 
@@ -44,9 +44,6 @@ Domyślnie wszyscy użytkownicy, w tym Goście, mogą zapraszać użytkowników-
 3. Wybierz pozycję **tożsamości zewnętrzne**  >  **Ustawienia współpracy zewnętrznej**.
 
 4. W obszarze **ograniczenia dostępu użytkowników-Gości (wersja zapoznawcza)** wybierz poziom dostępu, który mają mieć użytkownicy-Goście:
-
-   > [!IMPORTANT]
-   > Przez krótki czas te nowe kontrolki portalu dla uprawnień użytkownika-gościa będą widoczne tylko przy użyciu adresu URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . Aby uzyskać więcej informacji, zobacz [ograniczanie uprawnień dostępu gościa (wersja zapoznawcza)](https://aka.ms/exid-users-restrict-guest-permissions).
 
    - **Użytkownicy-Goście mają taki sam dostęp jak członkowie (z największym**uwzględnieniem): Ta opcja zapewnia Gościom taki sam dostęp do zasobów usługi Azure AD i danych katalogu jako użytkowników-członków.
 

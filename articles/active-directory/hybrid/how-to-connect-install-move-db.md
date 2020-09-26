@@ -11,12 +11,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc8b68206161abdd1782561c904d4e670ecca22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94710e99fa7d04d757f2ad5fd7b2d3f6e01371d1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306346"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Przenoszenie bazy danych programu Azure AD Connect z serwera SQL Server Express do serwera SQL Server 
 
@@ -41,13 +41,13 @@ Wykonaj następujące kroki, aby przenieść bazę danych programu Azure AD Conn
 
 8. Po dołączeniu bazy danych wróć do serwera programu Azure AD Connect i zainstaluj program Azure AD Connect.
 9. Po zakończeniu instalacji pliku MSI kreator programu Azure AD Connect rozpocznie instalację w trybie ekspresowym. Zamknij ekran, klikając ikonę zakończenia.
-   ![Powitanie](./media/how-to-connect-install-move-db/db1.png)
+   ![Zrzut ekranu przedstawiający stronę "Witamy w usłudze Azure A D Connect" z opcją "Ustawienia ekspresowe" w wyróżnionym menu po lewej stronie.](./media/how-to-connect-install-move-db/db1.png)
 10. Uruchom nowy wiersz polecenia lub sesję programu PowerShell. Przejdź do folderu \<drive>\program files\Microsoft Azure AD Connect. Uruchom polecenie .\AzureADConnect.exe /useexistingdatabase w celu uruchomienia kreatora programu Azure AD Connect w trybie instalacji „Użyj istniejącej bazy danych”.
     ![Program PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Zobaczysz ekran powitalny programu Azure AD Connect. Gdy zaakceptujesz postanowienia licencyjne i uwagi na temat ochrony prywatności, kliknij pozycję **Kontynuuj**.
-    ![Powitanie](./media/how-to-connect-install-move-db/db3.png)
-12. Na ekranie **Instalowanie wymaganych składników** włączona jest opcja **Użyj istniejącego serwera SQL Server**. Określ nazwę serwera SQL Server hostującego bazę danych programu ADSync. Jeśli wystąpienie aparatu SQL używane do hostowania bazy danych programu ADSync nie jest domyślnym wystąpieniem serwera SQL Server, musisz określić nazwę wystąpienia aparatu SQL. Ponadto jeśli nie jest włączone przeglądanie SQL, musisz też określić numer portu wystąpienia aparatu SQL. Przykład:         
-    ![Powitanie](./media/how-to-connect-install-move-db/db4.png)           
+    ![Zrzut ekranu przedstawiający stronę "Witamy w usłudze Azure A D Connect"](./media/how-to-connect-install-move-db/db3.png)
+12. Na ekranie **Instalowanie wymaganych składników** włączona jest opcja **Użyj istniejącego serwera SQL Server**. Określ nazwę serwera SQL Server hostującego bazę danych programu ADSync. Jeśli wystąpienie aparatu SQL używane do hostowania bazy danych programu ADSync nie jest domyślnym wystąpieniem serwera SQL Server, musisz określić nazwę wystąpienia aparatu SQL. Ponadto jeśli nie jest włączone przeglądanie SQL, musisz też określić numer portu wystąpienia aparatu SQL. Na przykład:         
+    ![Zrzut ekranu przedstawiający stronę "Instalowanie składników wymaganych".](./media/how-to-connect-install-move-db/db4.png)           
 
 13. Na ekranie **Łączenie z usługą Azure AD** musisz podać poświadczenia administratora globalnego katalogu usługi Azure AD. Zaleca się użycie konta w domyślnej domenie onmicrosoft.com. To konto służy tylko do tworzenia konta usługi w usłudze Azure AD i nie jest używane po zakończeniu pracy kreatora.
     ![Połączenie](./media/how-to-connect-install-move-db/db5.png)
@@ -57,11 +57,11 @@ Wykonaj następujące kroki, aby przenieść bazę danych programu Azure AD Conn
  
 
 15. W wyskakującym oknie dialogowym możesz albo (i) podać poświadczenia administratora przedsiębiorstwa i pozwolić programowi Azure AD Connect utworzyć konto usługi AD DS, albo (ii) samodzielnie utworzyć konto usługi AD DS i podać jego poświadczenia w programie Azure AD Connect. Po wybraniu opcji i podaniu niezbędnych poświadczeń kliknij przycisk **OK** w celu zamknięcia wyskakującego okna dialogowego.
-    ![Powitanie](./media/how-to-connect-install-move-db/db7.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "konto lasu w D" z wybraną opcją "Utwórz nowe konto D".](./media/how-to-connect-install-move-db/db7.png)
  
 
 16. Po podaniu poświadczeń ikona czerwonego krzyżyka jest zastępowana ikoną zielonego znacznika wyboru. Kliknij przycisk **Dalej**.
-    ![Powitanie](./media/how-to-connect-install-move-db/db8.png)
+    ![Zrzut ekranu przedstawiający stronę "łączenie katalogów" po wprowadzeniu poświadczeń konta.](./media/how-to-connect-install-move-db/db8.png)
  
 
 17. Na ekranie **gotowy do konfiguracji** kliknij przycisk **Instaluj**.

@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 08/31/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a861a038cefec56dfaaed1aca443f494dc82680
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c65d77d2cf50a59f18f0007e809e9913c3a5ae13
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304224"
 ---
-# <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
+# <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia roli administratora w usłudze Azure Active Directory
 
 Za pomocą Azure Active Directory (Azure AD) można wyznaczyć ograniczonych administratorów do zarządzania zadaniami tożsamości w rolach z niższymi uprawnieniami. Administratorzy mogą być przypisani do takich celów, jak dodawanie lub zmiana użytkowników, przypisywanie ról administracyjnych, resetowanie haseł użytkowników, zarządzanie licencjami użytkowników i zarządzanie nazwami domen. [Domyślne uprawnienia użytkownika](../fundamentals/users-default-permissions.md) można zmienić tylko w ustawieniach użytkownika w usłudze Azure AD.
 
@@ -155,8 +155,6 @@ W | Można wykonać
 ### <a name="conditional-access-administrator"></a>[Administrator dostępu warunkowego](#conditional-access-administrator-permissions)
 
 Użytkownicy z tą rolą mają możliwość zarządzania ustawieniami dostępu warunkowego Azure Active Directory.
-> [!NOTE]
-> Aby wdrożyć zasady dostępu warunkowego programu Exchange ActiveSync na platformie Azure, użytkownik musi być również administratorem globalnym.
 
 ### <a name="customer-lockbox-access-approver"></a>[Osoba zatwierdzająca Skrytka klienta dostępu](#customer-lockbox-access-approver-permissions)
 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/03/2019
+ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 5040fca85857cd131731d67c543c08fb1114ccee
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235228"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266704"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -276,8 +276,8 @@ Wykonaj poniższe kroki, aby zainicjować obsługę ról dla użytkownika w apli
 ## <a name="provisioning-a-multi-value-attribute"></a>Inicjowanie obsługi atrybutu wielowartościowego
 Niektóre atrybuty, takie jak numery telefonu i wiadomości e-mail, są atrybutami wielowartościowymi, w których może być konieczne określenie różnych typów numerów telefonów lub wiadomości e-mail. Użyj poniższego wyrażenia dla atrybutów wielowartościowych. Umożliwia określenie typu atrybutu i mapy do odpowiedniego atrybutu użytkownika usługi Azure AD dla tej wartości. 
 
-* numer telefonu [typ EQ "Work"]. wartość
-* numer telefonu [typ EQ "Mobile"]. Value
+* phoneNumbers[type eq "work"].value
+* phoneNumbers[type eq "mobile"].value
 * numer telefonu [typ EQ "Fax"]. wartość
 
    ```json
@@ -316,6 +316,7 @@ Wybranie tej opcji spowoduje skuteczną ponowną synchronizację wszystkich uży
 - Usługa Azure AD Provisioning nie obsługuje inicjowania obsługi wartości null.
 - Klucz podstawowy, zazwyczaj "ID", nie powinien być uwzględniany jako atrybut docelowy w mapowaniu atrybutów. 
 - Atrybut role zwykle musi być mapowany przy użyciu wyrażenia, a nie bezpośredniego mapowania. Więcej szczegółów dotyczących mapowania ról znajduje się w powyższej sekcji. 
+- Chociaż można wyłączyć grupy z mapowań, wyłączenie użytkowników nie jest obsługiwane. 
 
 ## <a name="next-steps"></a>Następne kroki
 

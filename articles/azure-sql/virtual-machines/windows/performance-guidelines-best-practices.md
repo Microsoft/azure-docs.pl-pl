@@ -9,18 +9,18 @@ tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9abc6574117b194a626c2697f5297a13566e0447
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: d720fdd05a4356b8fec2c007a4e5a3d1ea1cf00b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89481794"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293309"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Wytyczne dotyczące wydajności programu SQL Server na maszynach wirtualnych Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0b7e277518337072659bf5ccddd3436c05ff5201
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 0db39884ef54310db849abcef1062adbaeb9f22e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563815"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292713"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -85,6 +85,16 @@ Możesz sprawdzić bliźniaczych reprezentacji, które zostały utworzone, uruch
 ```cmd/sh
 Query
 ```
+
+>[!TIP]
+> Ta uproszczona Metoda jest udostępniana jako część projektu _**AdtE2ESample**_ . Poza kontekstem tego przykładowego kodu można w dowolnym momencie wykonać zapytanie o wszystkie bliźniaczych reprezentacji w wystąpieniu przy użyciu [interfejsów API zapytań](how-to-use-apis-sdks.md) lub [poleceń interfejsu wiersza polecenia](how-to-use-cli.md).
+>
+> Oto pełna treść zapytania, aby pobrać wszystkie bliźniaczych reprezentacji cyfrowe w wystąpieniu:
+> 
+> ```sql
+> SELECT *
+> FROM DIGITALTWINS
+> ``` 
 
 Następnie można zatrzymać uruchamianie projektu. Zachowaj otwarte rozwiązanie w programie Visual Studio, ponieważ będziesz nadal korzystać z niego w całym samouczku.
 
@@ -255,13 +265,13 @@ Następnie skonfiguruj symulator urządzenia, aby wysyłał dane do wystąpienia
 Zacznij od pobrania *parametrów połączenia usługi IoT Hub* za pomocą tego polecenia:
 
 ```azurecli
-az iot hub show-connection-string -n <your-IoT-hub-name>
+az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
 Następnie Pobierz *Parametry połączenia z urządzeniem* za pomocą tego polecenia:
 
 ```azurecli
-az iot hub device-identity show-connection-string --device-id thermostat67 --hub-name <your-IoT-hub-name>
+az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
 Te wartości zostaną podłączone do kodu symulatora urządzeń w projekcie lokalnym, aby połączyć symulatora z tym urządzeniem IoT Hub i IoT Hub.
@@ -436,7 +446,7 @@ Oto przegląd scenariusza, który został utworzony w tym samouczku.
 
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć. 
 
-Za pomocą [Azure Cloud Shell](https://shell.azure.com)można usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Spowoduje to usunięcie grupy zasobów. wystąpienie usługi Azure Digital bliźniaczych reprezentacji; Centrum IoT i Rejestracja urządzenia Hub; temat dotyczący siatki zdarzeń i skojarzonych subskrypcji; i aplikacja Azure Functions, w tym funkcje i powiązane zasoby, takie jak magazyn.
+Za pomocą [Azure Cloud Shell](https://shell.azure.com)można usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) . Spowoduje to usunięcie grupy zasobów. wystąpienie usługi Azure Digital bliźniaczych reprezentacji; Centrum IoT i Rejestracja urządzenia Hub; temat dotyczący siatki zdarzeń i skojarzonych subskrypcji; i aplikacja Azure Functions, w tym funkcje i powiązane zasoby, takie jak magazyn.
 
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4060dbe936af8ff1f9dd8c958f64834cb06525de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0967c5e354c3b0e433753cf89d830dc2101741af
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77615081"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363124"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Konfigurowanie wysokiej dostępności w systemie SUSE przy użyciu urządzenia STONITH
 Ten dokument zawiera szczegółowe instrukcje krok po kroku dotyczące konfigurowania wysokiej dostępności systemu operacyjnego SUSE przy użyciu urządzenia STONITH.
@@ -73,7 +73,7 @@ iqn.1996-04.de.suse:01:<Tenant><Location><SID><NodeNumber>
 
 Usługa Microsoft Service Management udostępnia ten ciąg. Zmodyfikuj plik w **obu** węzłach, ale numer węzła różni się w każdym węźle.
 
-![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
+![Zrzut ekranu przedstawia plik inicjatora z wartościami Inicjatorname dla węzła.](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
 1,2 Modify */etc/iSCSI/iscsid.conf*: Ustaw *Node. Session. Timeo. replacement_timeout = 5* i *Node. Startup = Automatic*. Zmodyfikuj plik w **obu** węzłach.
 
@@ -83,21 +83,21 @@ Usługa Microsoft Service Management udostępnia ten ciąg. Zmodyfikuj plik w **
 iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 ```
 
-![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
+![Zrzut ekranu przedstawia okno konsoli z wynikami polecenia odnajdywania isciadm.](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
 1,4 wykonanie polecenia, aby zalogować się do urządzenia iSCSI, pokazuje cztery sesje. Uruchom ją na **obu** węzłach.
 
 ```
 iscsiadm -m node -l
 ```
-![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
+![Zrzut ekranu przedstawia okno konsoli z wynikami polecenia węzła iscsiadm.](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
 1,5 wykonanie skryptu ponownego skanowania: *rescan-SCSI-Bus.sh*.  Ten skrypt przedstawia nowe utworzone dyski.  Uruchom ją na obu węzłach. Powinna zostać wyświetlona liczba numerów LUN większa od zera (na przykład: 1, 2 itd.)
 
 ```
 rescan-scsi-bus.sh
 ```
-![rescanscsibus.png](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
+![Zrzut ekranu przedstawia okno konsoli z wynikami skryptu.](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
 1,6 Aby uzyskać nazwę urządzenia, uruchom polecenie *fdisk – l*. Uruchom ją na obu węzłach. Wybierz urządzenie o rozmiarze **178 MIB**.
 
@@ -105,7 +105,7 @@ rescan-scsi-bus.sh
   fdisk –l
 ```
 
-![fdisk-l.png](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
+![Zrzut ekranu przedstawia okno konsoli z wynikami polecenia dysku f.](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
 
 ## <a name="2---initialize-the-sbd-device"></a>2. zainicjuj urządzenie SBD
 
@@ -114,7 +114,7 @@ rescan-scsi-bus.sh
 ```
 sbd -d <SBD Device Name> create
 ```
-![sbdcreate.png](media/HowToHLI/HASetupWithStonith/sbdcreate.png)
+![Zrzut ekranu przedstawia okno konsoli z wynikiem polecenia s b d Create.](media/HowToHLI/HASetupWithStonith/sbdcreate.png)
 
 2,2 Sprawdź, co zostało zapisaną na urządzeniu. Zrób to na **obu** węzłach
 
@@ -130,38 +130,40 @@ W tej sekcji opisano kroki konfigurowania klastra z systemem SUSE HA.
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
 ```
-![zypperpatternha_sles.png](media/HowToHLI/HASetupWithStonith/zypperpatternha_sles.png)
- ![zypperpatternSAPHANASR-doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
+![Zrzut ekranu przedstawia okno konsoli z wynikiem polecenia wzorca. ](media/HowToHLI/HASetupWithStonith/zypperpatternha_sles.png)
+ ![ Zrzut ekranu przedstawia okno konsoli z wynikiem polecenia SAPHanaSR-doc.](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### <a name="32-setting-up-the-cluster"></a>3,2 konfigurowania klastra
 3.2.1 można użyć polecenia *"ha-Cluster-init* " lub użyć Kreatora YaST2, aby skonfigurować klaster. W takim przypadku używany jest Kreator YaST2. Ten krok jest wykonywany **tylko w węźle podstawowym**.
 
-Obserwuj YaST2> wysokiej dostępności > klastra ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
- ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
+Obserwuj YaST2> wysokiej dostępności > ![ zrzut ekranu przedstawia centrum sterowania YaST o wysokiej dostępności i wybranym klastrze. ](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
+ ![ Zrzut ekranu przedstawia okno dialogowe z opcjami instalacji i anulowania.](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
 Kliknij przycisk **Anuluj** , ponieważ pakiet halk2 jest już zainstalowany.
 
-![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
+![Zrzut ekranu przedstawia komunikat dotyczący opcji anulowania.](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
 Kliknij przycisk **Kontynuuj** .
 
-Oczekiwana wartość = Liczba wdrożonych węzłów (w tym przypadku 2) ![yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) kliknij przycisk **dalej** 
- ![yast-cluster-configure-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) Dodaj nazwy węzłów, a następnie kliknij pozycję "Dodaj sugerowane pliki".
+Oczekiwana wartość = Liczba wdrożonych węzłów (w tym przypadku 2) ![ zrzut ekranu przedstawia zabezpieczenia klastra z polem wyboru Włącz uwierzytelnianie zabezpieczeń.](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png)
+Kliknij przycisk **dalej** 
+ ![ zrzut ekranu przedstawia okno Konfigurowanie klastra z hostem synchronizacji i listy plików synchronizacji.](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png)
+Dodaj nazwy węzłów, a następnie kliknij pozycję "Dodaj sugerowane pliki"
 
 Kliknij pozycję "Włącz csync2 na"
 
 Kliknij pozycję "Generuj klucze wstępne", co spowoduje wyświetlenie poniższego okna podręcznego
 
-![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
+![Zrzut ekranu przedstawia komunikat informujący o wygenerowaniu klucza.](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
 Kliknij przycisk **OK** .
 
 Uwierzytelnianie odbywa się przy użyciu adresów IP i kluczy wstępnych udostępnianych w programie Csync2. Plik klucza jest generowany z csync2-k/etc/csync2/key_hagroup. Plik key_hagroup powinien być kopiowany do wszystkich elementów członkowskich klastra ręcznie po jego utworzeniu. **Upewnij się, że plik jest kopiowany z węzła 1 do Węzeł2**.
 
-![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
+![Zrzut ekranu przedstawia okno dialogowe Konfigurowanie klastra z opcjami wymaganymi do skopiowania klucza do wszystkich elementów członkowskich klastra.](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
 Kliknij przycisk **dalej** 
- ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
+ ![ zrzut ekranu przedstawia okno usługa klastra.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 W przypadku opcji domyślnej rozruch jest wyłączony, zmień go na "on", więc Pacemaker jest uruchamiany przy rozruchu. Wybór można wybrać na podstawie wymagań dotyczących instalacji.
 Kliknij przycisk **dalej** , a konfiguracja klastra została ukończona.
@@ -173,49 +175,49 @@ W tej sekcji opisano konfigurację licznika alarmowego (softdog).
 ```
 modprobe softdog
 ```
-![modprobe-softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
+![Zrzut ekranu przedstawia plik rozruchowy z dodanym wierszem softdog.](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
 
 4,2 Zaktualizuj plik */etc/sysconfig/SBD* na **obu** węzłach w następujący sposób:
 ```
 SBD_DEVICE="<SBD Device Name>"
 ```
-![sbd-device.png](media/HowToHLI/HASetupWithStonith/sbd-device.png)
+![Zrzut ekranu przedstawia plik s b d z dodaną wartością S B D_DEVICE.](media/HowToHLI/HASetupWithStonith/sbd-device.png)
 
 4,3 Załaduj moduł jądra na **obu** węzłach, uruchamiając następujące polecenie
 ```
 modprobe softdog
 ```
-![modprobe-softdog-command.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
+![Zrzut ekranu przedstawia część okna konsoli z poleceniem modprobe softdog.](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
 
 4,4 Sprawdź i upewnij się, że softdog działa jak na **obu** węzłach:
 ```
 lsmod | grep dog
 ```
-![lsmod-grep-dog.png](media/HowToHLI/HASetupWithStonith/lsmod-grep-dog.png)
+![Zrzut ekranu przedstawia część okna konsoli z wynikiem uruchomienia polecenia mod l.](media/HowToHLI/HASetupWithStonith/lsmod-grep-dog.png)
 
 4,5 uruchom urządzenie SBD na **obu** węzłach
 ```
 /usr/share/sbd/sbd.sh start
 ```
-![sbd-sh-start.png](media/HowToHLI/HASetupWithStonith/sbd-sh-start.png)
+![Zrzut ekranu przedstawia część okna konsoli z poleceniem Start.](media/HowToHLI/HASetupWithStonith/sbd-sh-start.png)
 
 4,6 Przetestuj demona SBD na **obu** węzłach. Po skonfigurowaniu **obu** węzłów są wyświetlane dwa wpisy
 ```
 sbd -d <SBD Device Name> list
 ```
-![sbd-list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
+![Zrzut ekranu przedstawia część okna konsoli zawierającej dwa wpisy.](media/HowToHLI/HASetupWithStonith/sbd-list.png)
 
 4,7. Wyślij wiadomość testową do **jednego** z węzłów
 ```
 sbd  -d <SBD Device Name> message <node2> <message>
 ```
-![sbd-list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
+![Zrzut ekranu przedstawia część okna konsoli zawierającej dwa wpisy.](media/HowToHLI/HASetupWithStonith/sbd-list.png)
 
 4,8 w **drugim** węźle (Węzeł2) można sprawdzić stan komunikatu
 ```
 sbd  -d <SBD Device Name> list
 ```
-![sbd-list-message.png](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
+![Zrzut ekranu przedstawia część okna konsoli z jednym z elementów członkowskich wyświetlających wartość testową dla drugiego elementu członkowskiego.](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
 
 4,9 aby przyjąć konfigurację SBD, zaktualizuj plik */etc/sysconfig/SBD* w następujący sposób. Aktualizuj plik na **obu** węzłach
 ```
@@ -229,7 +231,7 @@ SBD_OPTS=""
 ```
 systemctl start pacemaker
 ```
-![start-pacemaker.png](media/HowToHLI/HASetupWithStonith/start-pacemaker.png)
+![Zrzut ekranu przedstawia okno konsoli z wyświetlonym stanem po uruchomieniu Pacemaker.](media/HowToHLI/HASetupWithStonith/start-pacemaker.png)
 
 Jeśli usługa Pacemaker *nie powiedzie*się, zapoznaj się z *scenariuszem 5: usługa Pacemaker kończy się niepowodzeniem*
 
@@ -251,13 +253,14 @@ Aby sprawdzić i opcjonalnie uruchomić klaster po raz pierwszy w **obu** węzł
 systemctl status pacemaker
 systemctl start pacemaker
 ```
-![systemctl-status-pacemaker.png](media/HowToHLI/HASetupWithStonith/systemctl-status-pacemaker.png)
+![Zrzut ekranu przedstawia okno konsoli ze stanem Pacemaker.](media/HowToHLI/HASetupWithStonith/systemctl-status-pacemaker.png)
 ### <a name="62-monitor-the-status"></a>6,2 monitorowanie stanu
 Uruchom polecenie *crm_mon* , aby upewnić się, że **oba** węzły są w trybie online. Można uruchomić ją na **dowolnym węźle** klastra
 ```
 crm_mon
 ```
-![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) można także zalogować się do Hawk w celu sprawdzenia stanu klastra *https:// \<node IP> : 7630*. Domyślny użytkownik to hacluster, a hasło to Linux. W razie konieczności można zmienić hasło za pomocą polecenia *passwd* .
+![Zrzut ekranu przedstawia okno konsoli z wynikami języka c r m_mon.](media/HowToHLI/HASetupWithStonith/crm-mon.png)
+Możesz również zalogować się do Hawk, aby sprawdzić stan klastra *https:// \<node IP> : 7630*. Domyślny użytkownik to hacluster, a hasło to Linux. W razie konieczności można zmienić hasło za pomocą polecenia *passwd* .
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Konfigurowanie właściwości i zasobów klastra 
 W tej sekcji opisano kroki konfigurowania zasobów klastra.
@@ -288,7 +291,7 @@ Dodaj konfigurację do klastra.
 ```
 crm configure load update crm-bs.txt
 ```
-![crm-configure-crmbs.png](media/HowToHLI/HASetupWithStonith/crm-configure-crmbs.png)
+![Zrzut ekranu przedstawia część okna konsoli z uruchomionym poleceniem c r m.](media/HowToHLI/HASetupWithStonith/crm-configure-crmbs.png)
 
 ### <a name="72-stonith-device"></a>7,2 urządzenie STONITH
 Dodaj STONITH zasobów. Utwórz plik i dodaj go w następujący sposób.
@@ -320,11 +323,11 @@ crm configure load update crm-vip.txt
 ### <a name="74-validate-the-resources"></a>7,4 sprawdzanie poprawności zasobów
 
 Po uruchomieniu polecenia *crm_mon*można zobaczyć te dwa zasoby.
-![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
+![Zrzut ekranu przedstawia okno konsoli z dwoma zasobami.](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
 Ponadto stan można zobaczyć na stronie *https:// \<node IP address> : 7630/CIB/Live/State*
 
-![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
+![Zrzut ekranu przedstawia stan dwóch zasobów.](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
 ## <a name="8-testing-the-failover-process"></a>8. testowanie procesu przełączania do trybu failover
 Aby przetestować proces trybu failover, Zatrzymaj usługę Pacemaker na Węzeł1 i zasoby trybu failover z systemem Węzeł2.
@@ -334,11 +337,11 @@ Service pacemaker stop
 Teraz Zatrzymaj usługę Pacemaker na **Węzeł2** i zasoby przełączone w tryb failover do **Węzeł1**
 
 **Przed przejściem w tryb failover**  
-![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+![Zrzut ekranu przedstawia stan dwóch zasobów przed przejściem w tryb failover.](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
 
 **Po przejściu w tryb failover**  
-![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
-![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
+![Zrzut ekranu przedstawia stan dwóch zasobów po przejściu do trybu failover.](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![Zrzut ekranu przedstawia okno konsoli ze stanem zasobów po przejściu do trybu failover.](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## <a name="9-troubleshooting"></a>9. Rozwiązywanie problemów
@@ -373,11 +376,11 @@ Graficzny ekran YaST2 służy do konfigurowania klastra o wysokiej dostępności
 
 **Błąd**
 
-![yast2-qt-gui-error.png](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
+![Zrzut ekranu przedstawia część okna konsoli z komunikatem o błędzie.](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 
 **Oczekiwane dane wyjściowe**
 
-![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
+![Zrzut ekranu przedstawia centrum sterowania YaST z wyróżnioną wysoką dostępnością i klastrem.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 
 Jeśli YaST2 nie jest otwarty w widoku graficznym, wykonaj poniższe czynności.
 
@@ -387,19 +390,19 @@ Aby zainstalować pakiety, użyj programu YaST>Software>Management Software>zale
 >[!NOTE]
 >Należy wykonać kroki na obu węzłach, aby można było uzyskać dostęp do widoku graficznego YaST2 z obu węzłów.
 
-![yast-sofwaremanagement.png](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
+![Zrzut ekranu przedstawia okno konsoli z centrum sterowania YaST.](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
 
-W obszarze zależności wybierz opcję "Zainstaluj zalecane pakiety" ![yast-dependencies.png](media/HowToHLI/HASetupWithStonith/yast-dependencies.png)
+W obszarze zależności wybierz opcję "Zainstaluj zalecane pakiety", aby ![ wyświetlić okno konsoli z wybranymi zalecanymi pakietami instalacji.](media/HowToHLI/HASetupWithStonith/yast-dependencies.png)
 
 Przejrzyj zmiany i naciśnij przycisk OK
 
 ![yast](media/HowToHLI/HASetupWithStonith/yast-automatic-changes.png)
 
-Instalacja pakietu przebiega ![yast-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
+Zrzut ekranu kontynuowania instalacji pakietu ![ wyświetla okno konsoli z postępem instalacji.](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
 
 Kliknij przycisk Dalej
 
-![yast-installation-report.png](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
+![Zrzut ekranu przedstawia okno konsoli z komunikatem o powodzeniu.](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
 
 Kliknij przycisk Zakończ
 
@@ -407,13 +410,14 @@ Należy również zainstalować pakiety libqt4 i libyui-QT.
 ```
 zypper -n install libqt4
 ```
-![zypper-install-libqt4.png](media/HowToHLI/HASetupWithStonith/zypper-install-libqt4.png)
+![Zrzut ekranu przedstawia okno konsoli instalujące pakiet libqt4.](media/HowToHLI/HASetupWithStonith/zypper-install-libqt4.png)
 ```
 zypper -n install libyui-qt
 ```
-![zypper-install-ligyui.png](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui.png)
- ![zypper-install-ligyui_part2.png](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui_part2.png) Yast2 powinna być w stanie otworzyć widok graficzny teraz, jak pokazano poniżej.
-![yast2-control-center.png](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
+![Zrzut ekranu przedstawia okno konsoli instalujące pakiet libyui-QT. ](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui.png)
+ ![ Zrzut ekranu przedstawia okno konsoli instalujące pakiet libyui-QT, kontynuowane.](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui_part2.png)
+Yast2 powinien być w stanie otworzyć widok graficzny teraz, jak pokazano poniżej.
+![Zrzut ekranu przedstawia centrum sterowania YaST z wybranym oprogramowaniem i aktualizacją online.](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
 
 ### <a name="scenario-3-yast2-does-not-high-availability-option"></a>Scenariusz 3: YaST2 nie ma opcji wysokiej dostępności
 Aby opcja wysokiej dostępności była widoczna w centrum sterowania YaST2, należy zainstalować dodatkowe pakiety.
@@ -429,33 +433,33 @@ Na poniższym ekranie przedstawiono kroki instalacji wzorców.
 
 Korzystanie z programu YaST2 > oprogramowania > zarządzania oprogramowaniem
 
-![yast2-control-center.png](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
+![Zrzut ekranu przedstawia centrum sterowania YaST z wybranym oprogramowaniem i aktualizacją online, aby rozpocząć instalację.](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
 
 Wybierz wzorce
 
-![yast-pattern1.png](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
- ![yast-pattern2.png](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
+![Zrzut ekranu pokazuje wybór pierwszego wzorca w kompilatorze C/C++ i elemencie Tools. ](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
+ ![ Zrzut ekranu pokazuje wybór drugiego wzorca w kompilatorze C/C++ i narzędziu.](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
 
 Kliknij przycisk **Akceptuj**
 
-![yast-changed-packages.png](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
+![Zrzut ekranu przedstawia okno dialogowe zmienione pakiety z pakietami zmienionymi w celu rozpoznawania zależności.](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
 
 Kliknij przycisk **Kontynuuj** .
 
-![yast2-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
+![Zrzut ekranu przedstawia stronę stan instalacji.](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
 Po zakończeniu instalacji kliknij przycisk **dalej** .
 
-![yast2-installation-report.png](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
+![Zrzut ekranu przedstawia raport instalacji.](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 
 ### <a name="scenario-4-hana-installation-fails-with-gcc-assemblies-error"></a>Scenariusz 4: instalacja platformy HANA kończy się niepowodzeniem z powodu błędu zestawów w usłudze w zatoce
 Instalacja platformy HANA kończy się niepowodzeniem z powodu następującego błędu.
 
-![Hana-installation-error.png](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
+![Zrzut ekranu przedstawia komunikat o błędzie informujący o tym, że system operacyjny nie jest gotowy do wykonywania zestawów g + c 5.](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
 
 Aby rozwiązać ten problem, należy zainstalować biblioteki (libgcc_sl i libstdc + + 6) w następujący sposób.
 
-![zypper-install-lib.png](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
+![Zrzut ekranu przedstawia okno konsoli instalujące wymagane biblioteki.](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
 
 ### <a name="scenario-5-pacemaker-service-fails"></a>Scenariusz 5: usługa Pacemaker kończy się niepowodzeniem
 
@@ -506,7 +510,7 @@ Aby rozwiązać ten problem, usuń następujący wiersz z pliku */usr/lib/system
 Persistent=true
 ```
 
-![Persistent.png](media/HowToHLI/HASetupWithStonith/Persistent.png)
+![Zrzut ekranu przedstawia plik przycinania f s z wartością persistent = true, która ma zostać usunięta.](media/HowToHLI/HASetupWithStonith/Persistent.png)
 
 ### <a name="scenario-6-node-2-unable-to-join-the-cluster"></a>Scenariusz 6: węzeł 2 nie może dołączyć do klastra
 
@@ -516,7 +520,7 @@ Podczas dołączania Węzeł2 do istniejącego klastra przy użyciu polecenia *h
 ERROR: Can’t retrieve SSH keys from <Primary Node>
 ```
 
-![ha-cluster-join-error.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-error.png)
+![Zrzut ekranu przedstawia okno konsoli z komunikatem o błędzie nie można pobrać kluczy S s z adresu I P.](media/HowToHLI/HASetupWithStonith/ha-cluster-join-error.png)
 
 Aby rozwiązać ten problem, uruchom następujące polecenie na obu węzłach.
 
@@ -525,13 +529,13 @@ ssh-keygen -q -f /root/.ssh/id_rsa -C 'Cluster Internal' -N ''
 cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 ```
 
-![ssh-keygen-node1.PNG](media/HowToHLI/HASetupWithStonith/ssh-keygen-node1.PNG)
+![Zrzut ekranu przedstawia część okna konsoli, na którym uruchomiono polecenie w pierwszym węźle.](media/HowToHLI/HASetupWithStonith/ssh-keygen-node1.PNG)
 
-![ssh-keygen-node2.PNG](media/HowToHLI/HASetupWithStonith/ssh-keygen-node2.PNG)
+![Zrzut ekranu przedstawia część okna konsoli, na którym uruchomiono polecenie w drugim węźle.](media/HowToHLI/HASetupWithStonith/ssh-keygen-node2.PNG)
 
 Po powyższej poprawki Węzeł2 powinien zostać dodany do klastra
 
-![ha-cluster-join-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
+![Zrzut ekranu przedstawia okno konsoli z pomyślnym poleceniem z funkcją ha-Cluster-Join.](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
 ## <a name="10-general-documentation"></a>10. ogólna dokumentacja
 Więcej informacji na temat konfiguracji SUSE HA można znaleźć w następujących artykułach: 

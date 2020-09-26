@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 051d88494049662891e1891f900aa580a005ffe4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 00771f950271cfbc86994c01b6d866c5983f1b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278672"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Często zadawane pytania dotyczące aplikacji Microsoft Authenticator
 
@@ -29,6 +29,7 @@ Aplikacja Microsoft Authenticator została zastąpiona aplikacją Azure Authenti
 
 | Pytanie | Odpowiedź |
 | -------- | ------ |
+| Dlaczego mam problemy z Apple Watch w systemu watchOS 7? | Wystąpił problem z zatwierdzaniem powiadomień w programie systemu watchOS 7. Firma Microsoft współpracuje z firmą Apple w celu uzyskania tego stałego. W międzyczasie wszystkie powiadomienia, które wymagają aplikacji Microsoft Authenticator systemu watchOS, powinny być zatwierdzone na telefonie.  |
 | Czy zarejestrowanie urządzenia w celu udzielenia firmie lub usłudze dostępu do mojego urządzenia? | Zarejestrowanie urządzenia zapewnia dostęp do usług organizacji i nie zezwala na dostęp organizacji do Twojego urządzenia. |
 | Co to jest blokada aplikacji i jak można jej użyć, aby zwiększyć bezpieczeństwo? | Blokada aplikacji pozwala zachować bezpieczeństwo jednorazowych kodów dostępu, informacji o aplikacji i ustawień aplikacji. Gdy blokada aplikacji jest włączona, użytkownik zostanie poproszony o uwierzytelnienie przy użyciu numeru PIN urządzenia lub biometrycznego za każdym razem, gdy zostanie otwarty wystawca uwierzytelnienia. Blokada aplikacji pomaga również upewnić się, że jesteś jedyną osobą, która może zatwierdzać powiadomienia, monitując o kod PIN lub biometryczny podczas zatwierdzania powiadomienia logowania. Blokadę aplikacji można włączać lub wyłączać na stronie ustawień uwierzytelniania. Domyślnie blokada aplikacji jest włączona, gdy konfigurujesz kod PIN lub biometryczny na urządzeniu.<br><br>Niestety, nie ma gwarancji, że blokada aplikacji uniemożliwi dostęp do uwierzytelnienia. Wynika to z faktu, że rejestracja urządzenia może wystąpić w innych lokalizacjach poza wystawcą uwierzytelnienia, na przykład w ustawieniach konta systemu Android lub w aplikacji Portal firmy. |
 | Mam urządzenie z systemem Windows Mobile, a Microsoft Authenticator w systemie Windows Mobile jest przestarzały. Czy mogę kontynuować uwierzytelnianie przy użyciu aplikacji? | Wszystkie uwierzytelnienia przy użyciu Microsoft Authenticator w systemie Windows Mobile zostaną wycofane po 15 lipca 2020. Zdecydowanie zalecamy użycie alternatywnej metody uwierzytelniania, aby uniknąć zablokowania konta.<br>Alternatywne opcje dla użytkowników korporacyjnych obejmują:<br><ul><li>Konfigurowanie Microsoft Authenticator dla [systemu Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) lub [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>[Konfigurowanie wiadomości SMS](multi-factor-authentication-setup-phone-number.md) do otrzymywania kodów weryfikacyjnych.</li><li>Konfigurowanie numeru telefonu do odbierania [połączeń telefonicznych w celu zweryfikowania tożsamości](multi-factor-authentication-setup-office-phone.md).</li></ul><br>Alternatywne opcje dla użytkowników indywidualnych konto Microsoft są następujące:<br><ul><li>Konfigurowanie Microsoft Authenticator dla [systemu Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) lub [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Konfigurowanie alternatywnej metody logowania (SMS lub poczty e-mail), aktualizując informacje zabezpieczające na [stronie zabezpieczenia konta Microsoft](https://account.microsoft.com/security/).</li></ul> |

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 09/24/2020
 ms.author: iainfou
-ms.openlocfilehash: de27ee713caae0310f185cd717d5db2095feff32
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ef05704ea03316ef0c95510e27ee630ddcfb0b44
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054293"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266908"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Przeprowadź migrację Azure Active Directory Domain Services z modelu klasycznej sieci wirtualnej do Menedżer zasobów
 
@@ -87,7 +87,7 @@ Kroki wysokiego poziomu związane z tym przykładem scenariusza migracji obejmuj
 1. Skonfiguruj komunikację równorzędną sieci wirtualnych między klasyczną siecią wirtualną i nową Menedżer zasobów sieci wirtualnej.
 1. Później należy [przeprowadzić migrację dodatkowych zasobów][migrate-iaas] z klasycznej sieci wirtualnej zgodnie z wymaganiami.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Podczas przygotowywania i migrowania domeny zarządzanej istnieją pewne kwestie dotyczące dostępności usług uwierzytelniania i zarządzania. Domena zarządzana jest niedostępna przez pewien czas podczas migracji. Aplikacje i usługi, które opierają się na usłudze Azure AD DS na czas przestoju podczas migracji.
 
@@ -139,6 +139,14 @@ Istnieją pewne ograniczenia dotyczące sieci wirtualnych, do których można mi
 
 Aby uzyskać więcej informacji o wymaganiach dotyczących sieci wirtualnej, zobacz temat [zagadnienia dotyczące projektowania sieci wirtualnej i opcje konfiguracji][network-considerations].
 
+Należy również utworzyć sieciową grupę zabezpieczeń, aby ograniczyć ruch w sieci wirtualnej dla domeny zarządzanej. Moduł równoważenia obciążenia w warstwie Standardowa platformy Azure jest tworzony podczas procesu migracji, który wymaga wprowadzenia tych reguł. Ta sieciowa Grupa zabezpieczeń zabezpiecza AD DS platformy Azure i jest wymagana do poprawnego działania domeny zarządzanej.
+
+Aby uzyskać więcej informacji na temat wymaganych reguł, zobacz [Azure AD DS Network Security Groups and Required Ports](network-considerations.md#network-security-groups-and-required-ports).
+
+### <a name="ldaps-and-tlsssl-certificate-expiration"></a>LDAPs i TLS/wygaśnięcia certyfikatu SSL
+
+Jeśli Twoja domena zarządzana została skonfigurowana pod kątem LDAPs, potwierdź, że bieżący certyfikat TLS/SSL jest ważny przez ponad 30 dni. Certyfikat wygaśnie w ciągu następnych 30 dni powoduje niepowodzenie procesów migracji. W razie potrzeby odnów certyfikat i zastosuj go do domeny zarządzanej, a następnie rozpocznij proces migracji.
+
 ## <a name="migration-steps"></a>Kroki migracji
 
 Migracja do modelu wdrażania Menedżer zasobów i sieci wirtualnej jest podzielona na 5 głównych kroków:
@@ -166,7 +174,9 @@ Przed rozpoczęciem procesu migracji wykonaj następujące wstępne sprawdzenia 
 
     Upewnij się, że ustawienia sieci nie blokują wymaganych portów wymaganych przez usługę Azure AD DS. Porty muszą być otwarte zarówno w klasycznej sieci wirtualnej, jak i w sieci wirtualnej Menedżer zasobów. Te ustawienia obejmują tabele tras (chociaż nie zaleca się używania tabel tras) i sieciowych grup zabezpieczeń.
 
-    Aby wyświetlić wymagane porty, zobacz [sieciowe grupy zabezpieczeń i wymagane porty][network-ports]. Aby zminimalizować problemy z komunikacją z sieci, zaleca się zaczekanie i zastosowanie sieciowej grupy zabezpieczeń lub tabeli tras do Menedżer zasobów sieci wirtualnej po pomyślnym zakończeniu migracji.
+    Aby zabezpieczyć porty wymagane dla domeny zarządzanej i zablokować cały ruch przychodzący, usługa Azure AD DS wymaga sieciowej grupy zabezpieczeń. Ta sieciowa Grupa zabezpieczeń działa jako dodatkowa warstwa ochrony w celu blokowania dostępu do domeny zarządzanej. Aby wyświetlić wymagane porty, zobacz [sieciowe grupy zabezpieczeń i wymagane porty][network-ports].
+
+    W przypadku używania bezpiecznego protokołu LDAP Dodaj regułę do sieciowej grupy zabezpieczeń, aby zezwalać na ruch przychodzący dla portu *TCP* *636*. Aby uzyskać więcej informacji, zobacz [blokowanie bezpiecznego dostępu do protokołu LDAP za pośrednictwem Internetu](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet) .
 
     Zanotuj tę docelową grupę zasobów, docelową sieć wirtualną i docelową podsieć sieci wirtualnej. Te nazwy zasobów są używane podczas procesu migracji.
 
@@ -265,9 +275,9 @@ Gdy jest dostępny co najmniej jeden kontroler domeny, wykonaj następujące czy
 
 Teraz Przetestuj połączenie z siecią wirtualną i rozpoznawanie nazw. Na maszynie wirtualnej, która jest połączona z siecią wirtualną Menedżer zasobów lub z nią komunikacji równorzędnej, wypróbuj następujące testy komunikacji sieciowej:
 
-1. Sprawdź, czy można wysłać polecenie ping do adresu IP jednego z kontrolerów domeny, takich jak`ping 10.1.0.4`
+1. Sprawdź, czy można wysłać polecenie ping do adresu IP jednego z kontrolerów domeny, takich jak `ping 10.1.0.4`
     * Adresy IP kontrolerów domeny są wyświetlane na stronie **Właściwości** dla domeny zarządzanej w Azure Portal.
-1. Sprawdź rozpoznawanie nazw domen zarządzanych, takich jak`nslookup aaddscontoso.com`
+1. Sprawdź rozpoznawanie nazw domen zarządzanych, takich jak `nslookup aaddscontoso.com`
     * Określ nazwę DNS dla własnej domeny zarządzanej, aby sprawdzić, czy ustawienia DNS są poprawne i rozwiązuje.
 
 Drugi kontroler domeny powinien być dostępny 1-2 godzin po zakończeniu migracji. Aby sprawdzić, czy drugi kontroler domeny jest dostępny, sprawdź na stronie **Właściwości** dla domeny zarządzanej w Azure Portal. Jeśli pokazane są dwa adresy IP, drugi kontroler domeny jest gotowy.
@@ -295,13 +305,6 @@ W razie potrzeby można zaktualizować szczegółowe zasady haseł w taki sposó
 1. Jeśli maszyna wirtualna jest dostępna w Internecie, przejrzyj nazwy kont ogólnych, takich jak *administrator*, *użytkownik*lub *gość* z dużymi próbami logowania. Jeśli to możliwe, zaktualizuj te maszyny wirtualne tak, aby używały mniej ogólnych nazw kont.
 1. Użyj funkcji śledzenia sieci na maszynie wirtualnej, aby zlokalizować źródło ataków i zablokować te adresy IP, aby umożliwić podejmowanie prób logowania.
 1. W przypadku wystąpienia minimalnych problemów z blokadą należy zaktualizować szczegółowe zasady haseł, aby były tak restrykcyjne, jak to konieczne.
-
-### <a name="creating-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
-
-Aby zabezpieczyć porty wymagane dla domeny zarządzanej i zablokować cały ruch przychodzący, usługa Azure AD DS wymaga sieciowej grupy zabezpieczeń. Ta sieciowa Grupa zabezpieczeń działa jako dodatkowa warstwa ochrony w celu blokowania dostępu do domeny zarządzanej i nie jest tworzona automatycznie. Aby utworzyć grupę zabezpieczeń sieci i otworzyć wymagane porty, zapoznaj się z następującymi krokami:
-
-1. W Azure Portal wybierz zasób AD DS platformy Azure. Na stronie Przegląd zostanie wyświetlony przycisk, aby utworzyć grupę zabezpieczeń sieci, jeśli nie ma żadnych skojarzonych z Azure AD Domain Services.
-1. W przypadku używania bezpiecznego protokołu LDAP Dodaj regułę do sieciowej grupy zabezpieczeń, aby zezwalać na ruch przychodzący dla portu *TCP* *636*. Aby uzyskać więcej informacji, zobacz [Konfigurowanie bezpiecznego protokołu LDAP][secure-ldap].
 
 ## <a name="roll-back-and-restore-from-migration"></a>Wycofywanie i przywracanie z migracji
 

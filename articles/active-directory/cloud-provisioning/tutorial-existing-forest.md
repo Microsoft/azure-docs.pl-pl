@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25e70809becd59ceeb3c45867b9e35119df497a3
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 4b247009669d6008644c9beb54fb687138b81716
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526922"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266415"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrowanie istniejącego i nowego lasu z jedną dzierżawą usługi Azure AD
 
@@ -60,14 +60,14 @@ W tym scenariuszu istnieje synchronizowanie istniejącego lasu przy użyciu Azur
 4. Kliknij pozycję "Pobierz agenta"
 5. Uruchom agenta aprowizacji Azure AD Connect
 6. Na ekranie powitalnym **Zaakceptuj** postanowienia licencyjne, a następnie kliknij przycisk **Instaluj**.</br>
-![Ekran powitalny](media/how-to-install/install1.png)</br>
+![Zrzut ekranu przedstawiający ekran powitalny "Microsoft Azure AD łączenie pakietu agenta aprowizacji".](media/how-to-install/install1.png)</br>
 
 7. Po zakończeniu tej operacji zostanie uruchomiony Kreator konfiguracji.  Zaloguj się przy użyciu konta administratora globalnego usługi Azure AD.  Należy pamiętać, że jeśli masz włączone rozszerzone zabezpieczenia programu IE, spowoduje to zablokowanie logowania.  W takim przypadku Zamknij instalację, wyłącz zaawansowane zabezpieczenia programu IE w Menedżer serwera, a następnie kliknij **Kreatora agenta aprowizacji usługi AAD Connect** , aby ponownie uruchomić instalację.
 8. Na ekranie **połącz Active Directory** kliknij pozycję **Dodaj katalog** , a następnie zaloguj się przy użyciu konta administratora domeny Active Directory.  Uwaga: konto administratora domeny nie powinno mieć wymagań dotyczących zmiany hasła. W przypadku wygaśnięcia lub zmiany hasła należy ponownie skonfigurować agenta przy użyciu nowych poświadczeń. Ta operacja spowoduje dodanie katalogu lokalnego.  Kliknij przycisk **Dalej**.</br>
-![Ekran powitalny](media/how-to-install/install3.png)</br>
+![Zrzut ekranu przedstawiający ekran "Connect Active Directory".](media/how-to-install/install3.png)</br>
 
 9. Na ekranie **Konfiguracja ukończona** kliknij przycisk **Potwierdź**.  Ta operacja spowoduje zarejestrowanie i ponowne uruchomienie agenta.</br>
-![Ekran powitalny](media/how-to-install/install4.png)</br>
+![Zrzut ekranu przedstawiający ekran "Konfiguracja ukończona".](media/how-to-install/install4.png)</br>
 
 10. Po zakończeniu tej operacji powinna zostać wyświetlona informacja: **Konfiguracja agenta została pomyślnie zweryfikowana.**  Możesz kliknąć przycisk **Zakończ**.</br>
 ![Ekran powitalny](media/how-to-install/install5.png)</br>

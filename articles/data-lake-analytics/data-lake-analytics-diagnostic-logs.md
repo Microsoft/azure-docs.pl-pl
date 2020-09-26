@@ -5,12 +5,12 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: c8c24134c4694a9a2df36ac278452a532a5125ad
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132606"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331934"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostic logs for Azure Data Lake Analytics (Dostęp do dzienników diagnostycznych usługi Azure Data Lake Analytics)
 
@@ -26,7 +26,7 @@ Rejestrowanie diagnostyczne umożliwia zbieranie dzienników inspekcji dostępu 
 
 2. Otwórz konto Data Lake Analytics i wybierz pozycję **dzienniki diagnostyczne** z sekcji __monitorowanie__ . Następnie wybierz pozycję __Włącz diagnostykę__.
 
-    ![Włącz diagnostykę, aby zbierać dzienniki inspekcji i żądań](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![Zrzut ekranu pokazujący wybraną akcję "dzienniki diagnostyczne" i "Włącz diagnostykę, aby zebrać następujące dzienniki".](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
 3. W obszarze __Ustawienia diagnostyki__wprowadź __nazwę__ tej konfiguracji rejestrowania, a następnie wybierz pozycję Opcje rejestrowania.
 
@@ -128,13 +128,13 @@ Oto przykładowy wpis w dzienniku żądań w formacie JSON. Każdy obiekt BLOB m
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| time |String (ciąg) |Sygnatura czasowa (w formacie UTC) dziennika |
-| resourceId |String (ciąg) |Identyfikator zasobu, w którym wykonano operację |
-| category |String (ciąg) |Kategoria dziennika. Na przykład **żądania**. |
-| operationName |String (ciąg) |Nazwa rejestrowanej operacji. Na przykład GetAggregatedJobHistory. |
-| resultType |String (ciąg) |Stan operacji, na przykład 200. |
-| callerIpAddress |String (ciąg) |Adres IP klienta wysyłającego żądanie |
-| correlationId |String (ciąg) |Identyfikator dziennika. Ta wartość może służyć do grupowania zestawu powiązanych wpisów dziennika. |
+| time |String |Sygnatura czasowa (w formacie UTC) dziennika |
+| resourceId |String |Identyfikator zasobu, w którym wykonano operację |
+| category |String |Kategoria dziennika. Na przykład **żądania**. |
+| operationName |String |Nazwa rejestrowanej operacji. Na przykład GetAggregatedJobHistory. |
+| resultType |String |Stan operacji, na przykład 200. |
+| callerIpAddress |String |Adres IP klienta wysyłającego żądanie |
+| correlationId |String |Identyfikator dziennika. Ta wartość może służyć do grupowania zestawu powiązanych wpisów dziennika. |
 | identity |Obiekt |Tożsamość, która wygenerowała dziennik. |
 | properties |JSON |Aby uzyskać szczegółowe informacje, zobacz następną sekcję (schemat właściwości dziennika żądań) |
 
@@ -142,12 +142,12 @@ Oto przykładowy wpis w dzienniku żądań w formacie JSON. Każdy obiekt BLOB m
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| HttpMethod |String (ciąg) |Metoda HTTP użyta dla operacji. Na przykład Pobierz. |
-| Ścieżka |String (ciąg) |Ścieżka, na której wykonano operację |
+| HttpMethod |String |Metoda HTTP użyta dla operacji. Na przykład Pobierz. |
+| Ścieżka |String |Ścieżka, na której wykonano operację |
 | RequestContentLength |int |Długość zawartości żądania HTTP |
-| Identyfikatorem żądania klienta |String (ciąg) |Identyfikator, który jednoznacznie identyfikuje to żądanie |
-| StartTime |String (ciąg) |Godzina, o której serwer odebrał żądanie |
-| EndTime |String (ciąg) |Godzina, o której serwer wysłał odpowiedź |
+| Identyfikatorem żądania klienta |String |Identyfikator, który jednoznacznie identyfikuje to żądanie |
+| StartTime |String |Godzina, o której serwer odebrał żądanie |
+| EndTime |String |Godzina, o której serwer wysłał odpowiedź |
 
 ### <a name="audit-logs"></a>Dzienniki inspekcji
 
@@ -178,13 +178,13 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB 
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| time |String (ciąg) |Sygnatura czasowa (w formacie UTC) dziennika |
-| resourceId |String (ciąg) |Identyfikator zasobu, w którym wykonano operację |
-| category |String (ciąg) |Kategoria dziennika. Na przykład **Inspekcja**. |
-| operationName |String (ciąg) |Nazwa rejestrowanej operacji. Na przykład JobSubmitted. |
-| resultType |String (ciąg) |Podstan zadania (OperationName). |
-| resultSignature |String (ciąg) |Dodatkowe szczegóły dotyczące stanu zadania (OperationName). |
-| identity |String (ciąg) |Użytkownik, który zażądał operacji. Na przykład susan@contoso.com. |
+| time |String |Sygnatura czasowa (w formacie UTC) dziennika |
+| resourceId |String |Identyfikator zasobu, w którym wykonano operację |
+| category |String |Kategoria dziennika. Na przykład **Inspekcja**. |
+| operationName |String |Nazwa rejestrowanej operacji. Na przykład JobSubmitted. |
+| resultType |String |Podstan zadania (OperationName). |
+| resultSignature |String |Dodatkowe szczegóły dotyczące stanu zadania (OperationName). |
+| identity |String |Użytkownik, który zażądał operacji. Na przykład susan@contoso.com. |
 | properties |JSON |Aby uzyskać szczegółowe informacje, zobacz następną sekcję (schemat właściwości dziennika inspekcji) |
 
 > [!NOTE]
@@ -196,13 +196,13 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB 
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| JobId |String (ciąg) |Identyfikator przypisany do zadania |
-| JobName |String (ciąg) |Nazwa podana dla zadania |
-| JobRunTime |String (ciąg) |Środowisko uruchomieniowe używane do przetwarzania zadania |
-| SubmitTime |String (ciąg) |Czas (UTC) przesłania zadania |
-| StartTime |String (ciąg) |Czas uruchomienia zadania po jego przejściu (w formacie UTC) |
-| EndTime |String (ciąg) |Godzina zakończenia zadania |
-| Równoległości |String (ciąg) |Liczba jednostek Data Lake Analytics żądana dla tego zadania podczas przesłania |
+| JobId |String |Identyfikator przypisany do zadania |
+| JobName |String |Nazwa podana dla zadania |
+| JobRunTime |String |Środowisko uruchomieniowe używane do przetwarzania zadania |
+| SubmitTime |String |Czas (UTC) przesłania zadania |
+| StartTime |String |Czas uruchomienia zadania po jego przejściu (w formacie UTC) |
+| EndTime |String |Godzina zakończenia zadania |
+| Równoległości |String |Liczba jednostek Data Lake Analytics żądana dla tego zadania podczas przesłania |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **Endtime**i **Parallel** zapewniają informacje dotyczące operacji. Te wpisy zawierają wartość tylko wtedy, gdy ta operacja została rozpoczęta lub ukończona. Na przykład **SubmitTime** zawiera tylko wartość po **operacji** , która ma wartość **JobSubmitted**.

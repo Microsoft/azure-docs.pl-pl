@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 705c7dd602d9c908ec9048d131ba66b21c5b2103
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 34d76d7c85a478b5e31a692e653752aa1653884c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293666"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Wprowadzenie SQL Server zawsze dostępnych grup dostępności na platformie Azure Virtual Machines
 
@@ -76,6 +76,6 @@ Możesz również samodzielnie tworzyć maszyny wirtualne bez szablonu. Najpierw
 
 - [Utwórz zawsze włączona Grupa dostępności, aby zwiększyć dostępność i odzyskiwanie po awarii](availability-group-manually-configure-tutorial.md)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [SQL Server Skonfiguruj zawsze dostępną grupę dostępności na platformie Azure Virtual Machines w różnych regionach](availability-group-manually-configure-multiple-regions.md)

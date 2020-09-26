@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0e24c08c9689394fa6efdbc03d960c597496e8ad
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: b1bb22b702cae77ba40fbeeaca1c11c9063bffe8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231252"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331611"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Podstawy zabezpieczeń platformy Azure dla Azure DDoS Protection Standard
 
@@ -96,7 +96,7 @@ Dołączanie obszaru roboczego Log Analytics do funkcji wskaźnikowej platformy 
 
 Ponadto Azure Active Directory (AD) ma wbudowane role, które muszą być jawnie przypisane i są queryable. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
-- [Informacje o uprawnieniach w usłudze Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md#permissions)
+- [Informacje o uprawnieniach w usłudze Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md#permissions-and-restrictions)
 
 - [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 

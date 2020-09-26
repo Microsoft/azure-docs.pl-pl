@@ -3,12 +3,12 @@ title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 3f916be4431aa6b2b100967465450447ecc1d626
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 4f788af065db5ef5f23f9a8e96c2d45405959614
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468678"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369199"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -235,10 +235,10 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. Relay/przestrzenie nazw/WcfRelays/reguł autoryzacji | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
 | Microsoft. Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/adminkeys/get) |
 | Microsoft. Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/querykeys/listbysearchservice) |
-| Microsoft. ServiceBus/przestrzenie nazw/reguł autoryzacji | [listkeys](/rest/api/servicebus/namespaces/listkeys) |
-| Microsoft. ServiceBus/Namespaces/disasterRecoveryConfigs/reguł autoryzacji | [listkeys](/rest/api/servicebus/disasterrecoveryconfigs/listkeys) |
-| Microsoft. ServiceBus/przestrzenie nazw/kolejki/reguł autoryzacji | [listkeys](/rest/api/servicebus/queues/listkeys) |
-| Microsoft. ServiceBus/przestrzenie nazw/tematy/reguł autoryzacji | [listkeys](/rest/api/servicebus/topics/listkeys) |
+| Microsoft. ServiceBus/przestrzenie nazw/reguł autoryzacji | [listkeys](/rest/api/servicebus/stable/namespaces%20-%20authorization%20rules/listkeys) |
+| Microsoft. ServiceBus/Namespaces/disasterRecoveryConfigs/reguł autoryzacji | [listkeys](/rest/api/servicebus/stable/disasterrecoveryconfigs/listkeys) |
+| Microsoft. ServiceBus/przestrzenie nazw/kolejki/reguł autoryzacji | [listkeys](/rest/api/servicebus/stable/queues%20-%20authorization%20rules/listkeys) |
+| Microsoft. ServiceBus/przestrzenie nazw/tematy/reguł autoryzacji | [listkeys](/rest/api/servicebus/stable/topics%20–%20authorization%20rules/listkeys) |
 | Microsoft. SignalRService/sygnalizujący | [listkeys](/rest/api/signalr/signalr/listkeys) |
 | Microsoft. Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft. Storage/storageAccounts | [listkeys](/rest/api/storagerp/storageaccounts/listkeys) |
@@ -979,10 +979,10 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| sameRGOutput | Ciąg | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | Ciąg | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | Ciąg | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Ciąg | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>subskrypcja
 

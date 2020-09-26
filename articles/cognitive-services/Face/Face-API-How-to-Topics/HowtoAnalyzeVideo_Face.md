@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9de803789b7ec11a971cf9a79a5c4665ac372cb4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f9d9fa461291b2fe72e9d69928163bb54e9e1be0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928143"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303815"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Przykład: jak analizować filmy wideo w czasie rzeczywistym
 
@@ -204,7 +204,7 @@ Aby zacząć pracę z tym przykładem, wykonaj następujące kroki:
 
 1. Utwórz [konto platformy Azure](https://azure.microsoft.com/free/cognitive-services/). Jeśli masz już taki, możesz przejść do następnego kroku.
 2. Utwórz zasoby dla przetwarzanie obrazów i w Azure Portal, aby uzyskać klucz i punkt końcowy. Upewnij się, że podczas instalacji wybrano warstwę bezpłatna (F0).
-   - [przetwarzanie obrazów](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [Przetwarzanie obrazów](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
    - [Do rozpoznawania](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Po wdrożeniu zasobów kliknij pozycję **Przejdź do zasobu** , aby zebrać klucz i punkt końcowy dla każdego zasobu. 
 3. Klonuj repozytorium [poznawcze-przykłady-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub.
 4. Otwórz przykład w programie Visual Studio i skompiluj i uruchom przykładowe aplikacje:
@@ -221,5 +221,4 @@ W tym przewodniku pokazano, jak przeprowadzać analizę niemal w czasie rzeczywi
 Zachęcamy do przekazywania opinii i sugestii w [repozytorium GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) lub, w przypadku bardziej obszernych informacji zwrotnych dotyczących interfejsów API, w naszej [witrynie UserVoice](https://cognitive.uservoice.com/).
 
 ## <a name="related-topics"></a>Tematy pokrewne
-- [How to Identify Faces in Image](HowtoIdentifyFacesinImage.md) (Jak identyfikować twarze na obrazie)
 - [Wykrywanie twarzy na obrazie](HowtoDetectFacesinImage.md)

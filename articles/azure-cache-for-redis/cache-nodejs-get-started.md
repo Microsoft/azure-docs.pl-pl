@@ -7,13 +7,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
-ms.openlocfilehash: 89a5a911cc0de82afa704c43226d7dca0c9f98a9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
+ms.openlocfilehash: ce570475617236bb99f1bca7a07dc95e1f3285aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330999"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z Node.js
 
@@ -109,7 +109,7 @@ W poniższym przykładzie widać, że klucz `Message` miał już w pamięci podr
 
 ![Zakończono działanie aplikacji Redis Cache](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do kolejnego samouczka, możesz zachować zasoby utworzone w tym przewodniku Szybki start i użyć ich ponownie.
 

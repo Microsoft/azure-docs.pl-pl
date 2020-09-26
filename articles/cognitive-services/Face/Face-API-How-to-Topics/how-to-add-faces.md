@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06c353cf5fbd5c2b1058d99e7f91e9fcc3853cb1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3643fad1c9e821a78df6d78edeede2341ec79ea8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929048"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303765"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Dodawanie twarzy do osoby
 
@@ -61,7 +61,7 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>Krok 2: Autoryzowanie wywołania interfejsu API
 
-W przypadku korzystania z biblioteki klienta należy przekazać klucz subskrypcji do konstruktora klasy **FaceClient** . Przykład:
+W przypadku korzystania z biblioteki klienta należy przekazać klucz subskrypcji do konstruktora klasy **FaceClient** . Na przykład:
 
 ```csharp
 private readonly IFaceClient faceClient = new FaceClient(
@@ -138,6 +138,5 @@ Objaśniono i przedstawiono następujące funkcje:
 
 ## <a name="related-topics"></a>Powiązane tematy
 
-- [Identyfikowanie twarzy na obrazie](HowtoIdentifyFacesinImage.md)
 - [Wykrywanie twarzy na obrazie](HowtoDetectFacesinImage.md)
 - [Korzystanie z funkcji na dużą skalę](how-to-use-large-scale.md)

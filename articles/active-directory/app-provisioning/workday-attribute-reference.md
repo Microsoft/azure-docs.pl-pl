@@ -1,6 +1,6 @@
 ---
 title: Dokumentacja atrybutów rozwiązania Workday
-description: Dowiedz się, jakie atrybuty z SuccessFactors są obsługiwane przez inicjowanie obsługi SuccessFactors-HR
+description: Dowiedz się, które atrybuty można pobrać z produktu Workday przy użyciu zapytań XPATH.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 4d6e5fb765125a4cf68c4939e7350feb84509bf2
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068102"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266568"
 ---
 # <a name="workday-attribute-reference"></a>Dokumentacja atrybutów rozwiązania Workday
 

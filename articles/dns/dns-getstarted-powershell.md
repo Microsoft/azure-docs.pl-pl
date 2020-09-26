@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 120cb86e1bacfefdd9242d8fa766b391983e9c81
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7361f58247019584d7fb3d60cdd7f76b2e62a212
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069491"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355486"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Szybki start — tworzenie strefy i rekordu usługi Azure DNS przy użyciu programu Azure PowerShell
 
@@ -90,7 +90,7 @@ Po utworzeniu testowej strefy DNS z rekordem „A” możesz przetestować rozpo
 
    Powinna zostać wyświetlona treść podobna do tej na następującym ekranie:
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![Zrzut ekranu przedstawia okno wiersza polecenia z n s poleceniem wyszukiwania i wartości dla opcji serwer, adres, nazwa i adres.](media/dns-getstarted-portal/nslookup.PNG)
 
 Nazwa hosta **www \. contoso. xyz** jest rozpoznawana jako **10.10.10.10**, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie.
 

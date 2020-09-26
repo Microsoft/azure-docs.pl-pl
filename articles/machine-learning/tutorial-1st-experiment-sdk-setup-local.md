@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: wprowadzenie do uczenia maszynowego — Python'
 titleSuffix: Azure Machine Learning
-description: W ramach tego samouczka nastąpi rozpoczęcie pracy z zestawem SDK środowiska Azure Machine Learning Python uruchomionym w osobistym środowisku programistycznym.
+description: W ramach tego samouczka nastąpi rozpoczęcie pracy z zestawem SDK Azure Machine Learning dla języka Python działającego w osobistym środowisku programistycznym.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,75 +11,75 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 48edc138e7ab16e712339d6291db52a4a2b36b32
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c0fe3c3808709de732bec8ce0599d380094405e8
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946569"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368485"
 ---
-# <a name="tutorial-get-started-with-azure-machine-learning-on-your-development-environment-part-1-of-4"></a>Samouczek: wprowadzenie do Azure Machine Learning w środowisku deweloperskim (część 1 z 4)
+# <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Samouczek: wprowadzenie do Azure Machine Learning w środowisku programistycznym (część 1 z 4)
 
-W tej **serii samouczków z czterema częściami**przedstawiono podstawowe informacje o Azure Machine Learning i ukończeniu zadań w języku Python ml opartych na zadaniach w chmurze platformy Azure, w tym:
+W tej *serii samouczków z czterema częściami*przedstawiono podstawy Azure Machine Learning i kończenia zadań uczenia maszynowego w języku Python na platformie Azure w chmurze. Do zadań tych należą:
 
-1. Skonfiguruj obszar roboczy i środowisko deweloperskie lokalnego uczenia maszynowego.
-2. Uruchom kod w chmurze przy użyciu zestawu SDK języka Python Azure Machine Learning.
+1. Skonfiguruj obszar roboczy i lokalne środowisko deweloperskie na potrzeby uczenia maszynowego.
+2. Uruchom kod w chmurze za pomocą zestawu SDK Azure Machine Learning dla języka Python.
 3. Zarządzaj środowiskiem Python używanym do szkolenia modeli.
 4. Przekazuj dane na platformę Azure i korzystaj z nich w szkoleniu.
 
-W **części 1 tej serii samouczków**będziesz:
+W części 1 tej serii samouczków będziesz:
 
 > [!div class="checklist"]
-> * Instalowanie zestawu SDK Azure Machine Learning
-> * Konfigurowanie struktury katalogów dla kodu
-> * Tworzenie obszaru roboczego usługi Azure Machine Learning
-> * Konfigurowanie lokalnego środowiska programistycznego
-> * Konfigurowanie klastra obliczeniowego
+> * Zainstaluj zestaw SDK Azure Machine Learning.
+> * Skonfiguruj strukturę katalogów dla kodu.
+> * Utwórz obszar roboczy Azure Machine Learning.
+> * Skonfiguruj lokalne środowisko deweloperskie.
+> * Skonfiguruj klaster obliczeniowy.
 
 >[!NOTE]
-> W tej serii samouczków omówiono Azure Machine Learning koncepcje dostosowane do zadań uczenia maszynowego __opartych na zadaniach__ w języku Python, które są pracochłonne i/lub wymagają odtwarzalności. Jeśli zadania uczenia maszynowego nie pasują do tego profilu, użyj [funkcji Jupyter lub RStudio na wystąpieniu obliczeniowym Azure Machine Learning](tutorial-1st-experiment-sdk-setup.md) , aby dołączyć do Azure Machine Learning.
+> W tej serii samouczków omówiono Azure Machine Learning koncepcje dostosowane do zadań uczenia maszynowego *opartych na zadaniach* w języku Python, które są pracochłonne i/lub wymagają odtwarzalności. Jeśli zadania uczenia maszynowego nie pasują do tego profilu, użyj [funkcji Jupyter lub RStudio na wystąpieniu obliczeniowym Azure Machine Learning](tutorial-1st-experiment-sdk-setup.md) , aby przenieść się do Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
-- Znajomość [pojęć związanych](concept-azure-machine-learning-architecture.md)z językiem Python i Machine Learning. Na przykład środowiska, szkolenia, ocenianie i tak dalej.
-- Lokalne środowisko programistyczne — laptop z zainstalowaną funkcją Python i Twoje ulubione środowisko IDE (na przykład: programu vscode, platformy PyCharm itd, Jupyter itd.).
+- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Spróbuj [Azure Machine Learning](https://aka.ms/AMLFree).
+- Znajomość [pojęć związanych](concept-azure-machine-learning-architecture.md)z językiem Python i Machine Learning. Przykłady obejmują środowiska, szkolenia i ocenianie.
+- Lokalne środowisko programistyczne: laptop z zainstalowaną funkcją Python i Twoje ulubione środowisko IDE (na przykład Visual Studio Code, platformy PyCharm itd lub Jupyter).
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Instalowanie zestawu SDK Azure Machine Learning
 
-W tym samouczku użyjemy Azure Machine Learning zestawu SDK języka Python.
+W tym samouczku użyjemy zestawu Azure Machine Learning SDK dla języka Python.
 
-Możesz korzystać z najpopularniejszych narzędzi — na przykład: Conda, PIP i tak dalej — w celu skonfigurowania środowiska do użycia w tym samouczku. Zainstaluj środowisko Azure Machine Learning zestawu SDK języka Python za pomocą narzędzia PIP:
+Możesz użyć najpopularniejszych narzędzi (na przykład Conda i PIP), aby skonfigurować środowisko do użycia w tym samouczku. Zainstaluj środowisko Azure Machine Learning zestawu SDK dla języka Python za pomocą narzędzia PIP:
 
 ```bash
 pip install azureml-sdk
 ```
 
-## <a name="create-directory-structure-for-code"></a>Tworzenie struktury katalogów dla kodu
-Zalecamy, aby dla tego samouczka był skonfigurowany następujący prosty katalog:
+## <a name="create-a-directory-structure-for-code"></a>Tworzenie struktury katalogów dla kodu
+Zalecamy skonfigurowanie następującej prostej struktury katalogów dla tego samouczka:
 
 ```markdown
 tutorial
 └──.azureml
 ```
 
-- **samouczek** (katalog najwyższego poziomu projektu)
-- **. Azure** (ukryty podkatalog): `.azureml` katalog jest używany do przechowywania plików konfiguracji Azure Machine Learning.
+- `tutorial`: Katalog najwyższego poziomu projektu.
+- `.azureml`: Ukryty podkatalog do przechowywania plików konfiguracji Azure Machine Learning.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Tworzenie Obszar roboczy usługi Azure Machine Learning
+## <a name="create-an-azure-machine-learning-workspace"></a>Tworzenie obszaru roboczego usługi Azure Machine Learning
 
 Obszar roboczy jest zasobem najwyższego poziomu dla Azure Machine Learning i jest scentralizowanym miejscem do wykonania:
 
-- Zarządzanie zasobami, takimi jak obliczenia
-- Przechowywanie zasobów, takich jak notesy, środowiska, zestawy danych, potoki, modele, punkty końcowe itd.
-- Współpraca z innymi członkami zespołu
+- Zarządzaj zasobami, takimi jak obliczenia.
+- Przechowuj zasoby, takie jak notesy, środowiska, zestawy danych, potoki, modele i punkty końcowe.
+- Współpracuj z innymi członkami zespołu.
 
-W katalogu najwyższego poziomu nadrzędnego — `tutorial` Dodaj nowy plik w języku Python o nazwie `01-create-workspace.py` z poniższym kodem. Dostosowuj parametry (nazwę, Identyfikator subskrypcji, grupę zasobów i [lokalizację](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service) z preferencjami.
+W katalogu najwyższego poziomu `tutorial` Dodaj nowy plik Python o nazwie przy `01-create-workspace.py` użyciu następującego kodu. Dostosuj parametry (nazwa, Identyfikator subskrypcji, Grupa zasobów i [Lokalizacja](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service)) z preferencjami.
 
-Kod można uruchomić w sesji interaktywnej lub jako plik języka Python.
+Kod można uruchomić w sesji interaktywnej lub w postaci pliku języka Python.
 
 >[!NOTE]
-> W przypadku korzystania z lokalnego środowiska projektowego (np. laptop) użytkownik zostanie poproszony o uwierzytelnienie w obszarze roboczym przy użyciu *kodu urządzenia* podczas pierwszego wykonywania poniższego kodu. Wykonaj instrukcje wyświetlane na ekranie.
+> Jeśli używasz lokalnego środowiska programistycznego (na przykład laptopu), zostanie wyświetlony monit o uwierzytelnienie w obszarze roboczym przy użyciu *kodu urządzenia* przy pierwszym uruchomieniu poniższego kodu. Wykonaj instrukcje wyświetlane na ekranie.
 
 ```python
 # tutorial/01-create-workspace.py
@@ -102,7 +102,7 @@ cd <path/to/tutorial>
 python ./01-create-workspace.py
 ```
 
-Po uruchomieniu powyższego fragmentu kodu struktura folderów będzie wyglądać następująco:
+Po uruchomieniu poprzedniego fragmentu kodu struktura folderów będzie wyglądać następująco:
 
 ```markdown
 tutorial
@@ -111,15 +111,16 @@ tutorial
 └──01-create-workspace.py
 ```
 
-Plik `.azureml/config.json` zawiera metadane niezbędne do nawiązania połączenia z obszarem roboczym Azure Machine Learning — w tym identyfikator subskrypcji, grupę zasobów i nazwę obszaru roboczego. 
+Plik `.azureml/config.json` zawiera metadane niezbędne do nawiązania połączenia z obszarem roboczym Azure Machine Learning. A mianowicie zawiera identyfikator subskrypcji, grupę zasobów i nazwę obszaru roboczego. 
 
 > [!NOTE]
-> Zawartość `config.json` nie jest tajemnicą — dobrze jest udostępnić te szczegóły.
+> Zawartość `config.json` nie jest wpisami tajnymi. Warto udostępnić te szczegóły.
+>
 > Uwierzytelnianie jest nadal wymagane do współdziałania z obszarem roboczym Azure Machine Learning.
 
 ## <a name="create-an-azure-machine-learning-compute-cluster"></a>Tworzenie klastra obliczeniowego Azure Machine Learning
 
-Utwórz skrypt języka Python w `tutorial` katalogu najwyższego poziomu o nazwie `02-create-compute.py` i wypełnij przy użyciu następującego kodu, aby utworzyć Azure Machine Learning klaster obliczeniowy, który będzie automatycznie skalowany między zerem i czterema węzłami:
+Utwórz skrypt języka Python w `tutorial` katalogu najwyższego poziomu o nazwie `02-create-compute.py` . Wypełnij następujący kod, aby utworzyć Azure Machine Learning klaster obliczeniowy, który będzie automatycznie skalowany między zerem i czterema węzłami:
 
 ```python
 # tutorial/02-create-compute.py
@@ -127,12 +128,12 @@ from azureml.core import Workspace
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
 
-ws = Workspace.from_config() # this automatically looks for a directory .azureml
+ws = Workspace.from_config() # This automatically looks for a directory .azureml
 
 # Choose a name for your CPU cluster
 cpu_cluster_name = "cpu-cluster"
 
-# Verify that cluster does not exist already
+# Verify that the cluster does not exist already
 try:
     cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
     print('Found existing cluster, use it.')
@@ -153,7 +154,7 @@ python ./02-create-compute.py
 
 
 > [!NOTE]
-> Po utworzeniu klastra nie będzie dostępna żadna z nich węzły. W związku z tym **klaster nie** ponosi kosztów, dopóki nie zostanie przesłane zadanie. Ten klaster zostanie przeskalowany w dół, gdy będzie bezczynny przez 2400 sekund (40 minut).
+> Po utworzeniu klastra zostanie zainicjowana obsługa 0 węzłów. W klastrze *nie są* naliczane koszty, dopóki nie zostanie przesłane zadanie. Ten klaster zostanie przeskalowany w dół, gdy będzie bezczynny przez 2 400 sekund (40 minut).
 
 Struktura folderów będzie teraz wyglądać następująco:
 
@@ -167,13 +168,13 @@ tutorial
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku Instalatora:
+W tym samouczku instalacji masz:
 
-- Utworzono obszar roboczy Azure Machine Learning
-- Konfigurowanie lokalnego środowiska programistycznego
+- Utworzono obszar roboczy Azure Machine Learning.
+- Skonfiguruj lokalne środowisko programistyczne.
 - Utworzono klaster obliczeniowy Azure Machine Learning.
 
 W następnym samouczku pokazano, jak przesłać skrypt do klastra obliczeniowego Azure Machine Learning.
 
 > [!div class="nextstepaction"]
-> [Samouczek: uruchamianie skryptu Python "Hello world" na platformie Azure](tutorial-1st-experiment-hello-world.md)
+> [Samouczek: uruchamianie "Hello World!" Skrypt języka Python na platformie Azure](tutorial-1st-experiment-hello-world.md)

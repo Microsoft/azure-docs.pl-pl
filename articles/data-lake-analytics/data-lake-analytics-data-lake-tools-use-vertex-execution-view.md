@@ -6,12 +6,12 @@ ms.service: data-lake-analytics
 ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: how-to
 ms.date: 10/13/2016
-ms.openlocfilehash: 2fdce38b19cd38439baa5d640707d159cd713657
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b8688af24e2b67f0e21de8344188b9a946f3258b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125620"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331951"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Korzystanie z widoku wykonywania wierzchołków w narzędziach Data Lake Tools for Visual Studio
 Dowiedz się, jak za pomocą widoku wykonywania wierzchołków przeegzaminować Data Lake Analytics zadania.
@@ -20,20 +20,20 @@ Dowiedz się, jak za pomocą widoku wykonywania wierzchołków przeegzaminować 
 ## <a name="open-the-vertex-execution-view"></a>Otwórz widok wykonywania wierzchołka
 Otwórz zadanie U-SQL w Data Lake narzędzia dla programu Visual Studio. Kliknij **Widok wykonywania wierzchołka** w lewym dolnym rogu. Może zostać wyświetlony monit o załadowanie profilów w pierwszej kolejności i może upłynąć trochę czasu w zależności od łączności sieciowej.
 
-![Widok wykonywania wierzchołków narzędzi Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
+![Zrzut ekranu pokazujący widok wykonywania wierzchołka narzędzi Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 
 ## <a name="understand-vertex-execution-view"></a>Opis widoku wykonywania wierzchołków
 Widok wykonywania wierzchołka ma trzy części:
 
-![Widok wykonywania wierzchołków narzędzi Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
+![Zrzut ekranu pokazujący widok wykonywania wierzchołka z wyróżnionymi okienkami "selektor wierzchołków" i Wyśrodkuj i Wyśrodkuj w dół.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
 
 **Selektor wierzchołka** po lewej stronie umożliwia wybranie wierzchołków według funkcji (takich jak 10 pierwszych danych odczytywanych lub wybór według etapów). Jednym z najczęściej używanych filtrów jest wyświetlenie **wierzchołków ścieżki krytycznej**. **Ścieżka krytyczna** to najdłuższy łańcuch wierzchołków zadania U-SQL. Zrozumienie ścieżki krytycznej jest przydatne w przypadku optymalizowania zadań przez sprawdzenie, który wierzchołek zajmuje najdłuższy czas.
   
-![Widok wykonywania wierzchołków narzędzi Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
+![Zrzut ekranu pokazujący Górne okienko widoku wykonywania wierzchołka, które wyświetla "stan działania wszystkich wierzchołków".](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
 Górne okienko przedstawia **stan uruchomienia wszystkich wierzchołków**.
   
-![Widok wykonywania wierzchołków narzędzi Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
+![Zrzut ekranu pokazujący dolne okienko widoku wykonywania wierzchołka, które wyświetla informacje o każdym wierzchołku.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
 W środkowym okienku wyświetlane są informacje o każdym wierzchołku:
 * Nazwa procesu: nazwa wystąpienia wierzchołka. Składa się z różnych części w fazie Stage | Wierzchołekname | VertexRunInstance. Na przykład, SV7_Split [62]. v1 to drugie uruchomione wystąpienie (. v1, zaczynające się od 0) o numerze wierzchołka 62 na etapie SV7_Split.
