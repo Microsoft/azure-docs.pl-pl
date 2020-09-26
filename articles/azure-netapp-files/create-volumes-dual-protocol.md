@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 8/11/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: dcdb3e8ce545227bc11cc60e3885c1a985ed34f4
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 972f9b1ac96ca180aa6eaeead7cde51b60ec0e93
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460001"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278496"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
@@ -51,7 +51,7 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 
         Nazwa woluminu musi być unikatowa w ramach każdej puli pojemności. Musi zawierać co najmniej trzy znaki. Można użyć dowolnych znaków alfanumerycznych.   
 
-        Nie można użyć `default` jako nazwy woluminu.
+        Nie można użyć `default` lub `bin` jako nazwy woluminu.
 
     * **Pula pojemności**  
         Określ pulę pojemności, w której ma zostać utworzony wolumin.
@@ -60,6 +60,11 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
         Określ wielkość magazynu logicznego, który zostanie przydzielony do woluminu.  
 
         W polu **Dostępny limit przydziału** jest wyświetlana ilość nieużywanego miejsca w wybranej puli pojemności, które można wykorzystać do utworzenia nowego woluminu. Rozmiar nowego woluminu nie może przekraczać dostępnego limitu przydziału.  
+
+    * **Przepływność (MiB/S)**   
+        Jeśli wolumin jest tworzony w ręcznej puli pojemności usługi QoS, określ przepływność dla danego woluminu.   
+
+        Jeśli wolumin jest tworzony w puli pojemności usługi autoqos, wartość wyświetlana w tym polu to (przepływność na poziomie usługi).   
 
     * **Sieć wirtualna**  
         Określ sieć wirtualną platformy Azure, z której chcesz uzyskać dostęp do woluminu.  

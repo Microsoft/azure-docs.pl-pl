@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/21/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12aa400d6ca44043d3d90e78a93ae49d97a927e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270295"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265797"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Model rozliczeń dla tożsamości zewnętrznych usługi Azure AD
 
@@ -43,11 +43,11 @@ Warstwa cenowa stosowana dla użytkowników-Gości korzysta z najwyższej warstw
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>Łączenie dzierżawy usługi Azure AD z subskrypcją
 
-Dzierżawa usługi Azure AD musi być połączona z subskrypcją platformy Azure w celu uzyskania odpowiednich rozliczeń i dostępu do funkcji.
+Dzierżawa usługi Azure AD musi być połączona z subskrypcją platformy Azure w celu uzyskania odpowiednich rozliczeń i dostępu do funkcji. Jeśli katalog nie ma już subskrypcji, z którą możesz się połączyć, możesz dodać ją w trakcie tego procesu.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure, do którego przypisano co najmniej rolę [współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) w ramach subskrypcji lub grupy zasobów w ramach subskrypcji.
 
-2. Wybierz katalog, który zawiera subskrypcję: na Azure Portal pasku narzędzi wybierz ikonę **katalog i subskrypcja** , a następnie wybierz katalog, który zawiera subskrypcję.
+2. Wybierz katalog, który chcesz połączyć: na pasku narzędzi Azure Portal wybierz ikonę katalog i **subskrypcja** , a następnie wybierz katalog.
 
     ![Wybierz ikonę katalogu i subskrypcji](media/external-identities-pricing/portal-mau-pick-directory.png)
 
@@ -62,6 +62,9 @@ Dzierżawa usługi Azure AD musi być połączona z subskrypcją platformy Azure
     ![Wybierz dzierżawcę i Połącz subskrypcję](media/external-identities-pricing/linked-subscriptions.png)
 
 7. W okienku Połącz subskrypcję wybierz **subskrypcję** i **grupę zasobów**. Następnie wybierz przycisk **Zastosuj**.
+
+   > [!NOTE]
+   > Jeśli na liście nie ma żadnych subskrypcji, możesz [skojarzyć subskrypcję z dzierżawcą](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Możesz też dodać nową subskrypcję, wybierając link, **Jeśli nie masz jeszcze subskrypcji, którą możesz utworzyć tutaj**.
 
     ![Wybierz subskrypcję i grupę zasobów](media/external-identities-pricing/link-subscription-resource.png)
 

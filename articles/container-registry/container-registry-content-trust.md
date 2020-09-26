@@ -3,12 +3,12 @@ title: Zarządzaj podpisanymi obrazami
 description: Informacje o sposobie włączania zaufania zawartości dla usługi Azure Container Registry oraz wypychania i ściągania obrazów ze znakiem. Zaufanie zawartości to funkcja warstwy Premium usługi.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 36d2a8ddef184804facdace2d517d7e2fdf1b24c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076845"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253483"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Zaufanie do zawartości w usłudze Azure Container Registry
 
@@ -40,7 +40,7 @@ Pierwszym krokiem jest włączenie zaufania do zawartości na poziomie rejestru.
 
 Aby włączyć zaufanie do zawartości dla rejestru, najpierw przejdź do rejestru w witrynie Azure Portal. W obszarze **zasady**wybierz **Content Trust**pozycję  >  **Enabled**  >  **Zaoszczędź**zawartość włączona. Można również użyć polecenia [AZ ACR config Content-Trust Update][az-acr-config-content-trust-update] w interfejsie użytkownika platformy Azure.
 
-![Włączanie zaufania do zawartości dla rejestru w witrynie Azure Portal][content-trust-01-portal]
+![Zrzut ekranu przedstawia Włączanie zaufania zawartości dla rejestru w Azure Portal.][content-trust-01-portal]
 
 ## <a name="enable-client-content-trust"></a>Włączanie zaufania do zawartości klienta
 
@@ -76,7 +76,7 @@ Tylko użytkownicy lub systemy, którym udzielono uprawnień, mogą wypychać za
 
 Szczegóły dotyczące przydzielania roli `AcrImageSigner` w witrynie Azure Portal i interfejsie wiersza polecenia platformy Azure znajdują się poniżej.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Przejdź do rejestru w Azure Portal, a następnie wybierz pozycję **Kontrola dostępu (IAM)**  >  **Dodaj przypisanie roli**. W obszarze **Dodawanie przypisania roli** wybierz pozycję `AcrImageSigner` w obszarze **Rola**, a następnie **wybierz** co najmniej jednego użytkownika lub jedną jednostkę usługi, po czym wybierz pozycję **Zapisz**.
 

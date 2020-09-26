@@ -1,6 +1,6 @@
 ---
 title: Dostawcy tożsamości dla tożsamości zewnętrznych — Azure AD
-description: Azure Active Directory współpracy B2B obsługuje uwierzytelnianie wieloskładnikowe (MFA) na potrzeby selektywnego dostępu do aplikacji firmowych
+description: Dowiedz się, jak używać usługi Azure AD jako domyślnego dostawcy tożsamości na potrzeby udostępniania użytkownikom zewnętrznym.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2284d015b451872753dd0855cac42e6f1926545c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a61eca3340985886ef782b28a59a1283c5f473ce
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909386"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265718"
 ---
 # <a name="identity-providers-for-external-identities"></a>Dostawcy tożsamości dla tożsamości zewnętrznych
 
