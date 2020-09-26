@@ -3,14 +3,14 @@ title: Wprowadzenie
 description: Poznaj funkcje i korzyści płynące z rozwiązań VMware platformy Azure w celu wdrażania obciążeń opartych na oprogramowaniu VMware na platformie Azure i zarządzania nimi.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c01f7a21b4a7c46469c3b6a63b0c426715da896d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005058"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332801"
 ---
-# <a name="what-is-azure-vmware-solution-preview"></a>Co to jest wersja zapoznawcza rozwiązania Azure VMware?
+# <a name="what-is-azure-vmware-solution"></a>Co to jest usługa Azure VMware Solution?
 
 Rozwiązanie VMware firmy Azure udostępnia chmurę prywatną na platformie Azure. Chmury prywatne zawierają klastry vSphere, zbudowane z dedykowanej infrastruktury platformy Azure bez systemu operacyjnego. Klastry chmury prywatnej można skalować z 3 do 16 hostów, z możliwością posiadania wielu klastrów w jednej chmurze prywatnej. Obsługiwane są wszystkie chmury prywatne z vCenter Server, sieci vSAN, vSphere i NSX-T. Można migrować obciążenia ze środowisk lokalnych, tworzyć i wdrażać nowe maszyny wirtualne oraz korzystać z usług platformy Azure z chmur prywatnych.
 
@@ -28,9 +28,7 @@ Nowe chmury prywatne są wdrażane za pomocą Azure Portal lub interfejsu wiersz
 
 ## <a name="networking"></a>Networking
 
-Gdy Chmura prywatna jest wdrożona, tworzone są sieci prywatne do zarządzania, aprowizacji i vMotion. Te sieci prywatne są używane do uzyskiwania dostępu do Menedżera vCenter i NSX-T oraz dla maszyny wirtualnej vMotion lub wdrożenia. Wszystkie sieci prywatne są dostępne z sieci wirtualnej na platformie Azure lub w środowiskach lokalnych. ExpressRoute Global Reach służy do łączenia chmur prywatnych z środowiskami lokalnymi, a to połączenie wymaga sieci wirtualnej z obwodem usługi ExpressRoute w ramach subskrypcji.
-
-Dostęp do Internetu i usług platformy Azure jest inicjowany podczas wdrażania chmury prywatnej. Dostępny jest dostęp, dzięki czemu maszyny wirtualne w sieciach obciążeń produkcyjnych mogą korzystać z platformy Azure lub usług internetowych. Dostęp do Internetu jest domyślnie wyłączony w przypadku nowych chmur prywatnych i można go włączyć lub wyłączyć w dowolnym momencie.
+[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
 
 Aby uzyskać więcej informacji na temat sieci i międzyłączności, zobacz artykuł dotyczący [pojęć dotyczących sieci](concepts-networking.md) .
 
@@ -46,9 +44,9 @@ Regularne uaktualnianie chmury prywatnej i oprogramowania VMware na platformie A
 
 ## <a name="monitoring-your-private-cloud"></a>Monitorowanie chmury prywatnej
 
-Korzystając z [dzienników w Azure monitor](../azure-monitor/overview.md) , można zbierać dzienniki na maszynach wirtualnych działających w chmurze prywatnej rozwiązania Azure VMware. [Agenta MMA można pobrać i zainstalować](../azure-monitor/platform/log-analytics-agent.md#installation-options) na maszynach wirtualnych z systemem Linux i Windows uruchomionym w chmurach prywatnych rozwiązań VMware platformy Azure, korzystając z tych samych zapytań, które są uruchamiane na lokalnych maszynach wirtualnych. Można uruchamiać te same zapytania, które normalnie są uruchamiane na maszynach wirtualnych. Aby dowiedzieć się więcej na temat tworzenia zapytań, zobacz [jak pisać zapytania](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+Po wdrożeniu rozwiązania Azure VMware w ramach subskrypcji [Azure monitor dzienniki](../azure-monitor/overview.md) są generowane automatycznie. Ponadto można zbierać dzienniki na poszczególnych maszynach wirtualnych w chmurze prywatnej. [Agenta MMA można pobrać i zainstalować](../azure-monitor/platform/log-analytics-agent.md#installation-options) na maszynach wirtualnych z systemem Linux i Windows uruchomionym w chmurach prywatnych rozwiązań VMware platformy Azure, a także włączyć [rozszerzenie Diagnostyka Azure](../azure-monitor/platform/diagnostics-extension-overview.md). Można nawet uruchamiać te same zapytania, które są normalnie uruchamiane na maszynach wirtualnych. Aby dowiedzieć się więcej na temat tworzenia zapytań, zobacz [jak pisać zapytania](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries). Wzorce monitorowania w ramach rozwiązania VMware platformy Azure są podobne do usługi Azure Virtual Machines w ramach platformy IaaS. Aby uzyskać dodatkowe informacje i porady, zobacz [monitorowanie maszyn wirtualnych platformy Azure przy użyciu Azure monitor](../azure-monitor/insights/monitor-vm-azure.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Następnym krokiem jest zapoznanie się z najważniejszymi [pojęciami dotyczącymi chmury prywatnej i klastra](concepts-private-clouds-clusters.md).
 

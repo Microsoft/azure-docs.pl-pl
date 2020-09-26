@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 93b0547ba25f6534593a0a016ebfa5cbe4d2be2e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940795"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331016"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Uzyskaj punkty końcowe połączenia i ciągi połączeń formularzy dla grupy serwerów PostgreSQL na potrzeby skalowania w poziomie
 
@@ -64,7 +64,7 @@ Użyj następujących punktów końcowych:
 - Formularz połączenia i nawiązywanie połączenia z narzędziami lub aplikacjami klienckimi
 - Dostęp do pulpitów nawigacyjnych Grafana i Kibana z przeglądarki
 
-Na przykład można użyć punktu końcowego o nazwie _PostgreSQL wystąpienie_ do nawiązania połączenia z PSQL z grupą serwerów. Przykład:
+Na przykład można użyć punktu końcowego o nazwie _PostgreSQL wystąpienie_ do nawiązania połączenia z PSQL z grupą serwerów. Na przykład:
 ```console
 psql postgresql://postgres:MyPassworkd@12.345.123.456:1234
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
@@ -77,7 +77,7 @@ postgres=#
 ```
 > [!NOTE]
 >
-> - Hasło użytkownika _PostgreSQL_ wskazane w punkcie końcowym o nazwie "_PostgreSQL instance_ " to hasło wybrane podczas tworzenia grupy serwerów.
+> - Hasło użytkownika _Postgres_ wskazane w punkcie końcowym o nazwie "_PostgreSQL instance_" to hasło wybrane podczas wdrażania grupy serwerów.
 > - Informacje o azdata: dzierżawa skojarzona z połączeniem trwa około 10 godzin. Po tym celu należy ponownie nawiązać połączenie. Jeśli Twoja Dzierżawa wygasła, podczas próby wykonania polecenia z azdata (innego niż azdata login) zostanie wyświetlony następujący komunikat o błędzie: _błąd: (401)_ 
 >  _Przyczyna: nieautoryzowane_ 
 >  _nagłówki odpowiedzi http: HTTPHeaderDict ({"date": "Sun, 06 SEP 2020 16:58:38 GMT", "Content-Length": "0", "www-Authenticate": "_ 

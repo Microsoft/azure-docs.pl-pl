@@ -1,6 +1,6 @@
 ---
 title: Kopiuj dane z MongoDB przy użyciu starszej wersji
-description: Informacje o kopiowaniu danych z usługi Mongo DB do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
+description: Informacje o kopiowaniu danych z usługi Mongo DB do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w starszym potoku Azure Data Factory.
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: ce1419c7dbb2cdecfd653995707fd1ece7798557
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf4be078a7bee0bedbeac4326acb9ca290cde88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558179"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331985"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Kopiowanie danych z MongoDB przy użyciu Azure Data Factory (starsza wersja)
 
@@ -167,7 +167,7 @@ W sekcji **Źródło** działania kopiowania są obsługiwane następujące wła
 ```
 
 > [!TIP]
-> W przypadku określenia zapytania SQL należy zwrócić uwagę na format daty i godziny. Na przykład: `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` lub, aby użyć parametru`SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
+> W przypadku określenia zapytania SQL należy zwrócić uwagę na format daty i godziny. Na przykład: `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` lub, aby użyć parametru `SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
 
 ## <a name="schema-by-data-factory"></a>Schemat według Data Factory
 
@@ -181,7 +181,7 @@ Podczas kopiowania danych z MongoDB następujące mapowania są używane z typó
 |:--- |:--- |
 | Binarne |Byte [] |
 | Boolean (wartość logiczna) |Wartość logiczna |
-| Date |DateTime |
+| Date |Data i godzina |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
@@ -208,14 +208,14 @@ Tabele wirtualne odwołują się do danych w rzeczywistej tabeli, umożliwiając
 
 Na przykład przykładem jest tabela MongoDB, która zawiera jedną kolumnę z tablicą obiektów w każdej komórce — faktury i jedną kolumnę z tablicą typów skalarnych — klasyfikacje.
 
-| _id | Nazwa klienta | Faktury | Poziom usług | Klasyfikacje |
+| _id | Nazwa klienta | Faktury | Poziom usługi | Klasyfikacje |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: "123", Item: "wyskakujący", Cena: "456", Rabat: "0,2"}, {invoice_id: "124", Item: "piekarnik", Cena: "1235", Rabat: "0,2"}] |Srebrny |[5, 6] |
 | 2222 |XYZ |[{invoice_id: "135", element: "lodówki", Cena: "12543", Rabat: "0,0"}] |Złoty |[1, 2] |
 
 Sterownik generuje wiele tabel wirtualnych do reprezentowania tej pojedynczej tabeli. Pierwsza tabela wirtualna jest tabelą podstawową o nazwie "Przykładowe", pokazana w przykładzie. Tabela podstawowa zawiera wszystkie dane oryginalnej tabeli, ale dane z tablic zostały pominięte i rozwinięte w tabelach wirtualnych.
 
-| _id | Nazwa klienta | Poziom usług |
+| _id | Nazwa klienta | Poziom usługi |
 | --- | --- | --- |
 | 1111 |ABC |Srebrny |
 | 2222 |XYZ |Złoty |

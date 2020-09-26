@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 17a3d0364f3085e4baf4e0faa40f117d9fbbb04f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268166"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -229,4 +229,4 @@ Niektóre funkcje, które są dostępne w interfejsie API REST:
 W tym dokumencie przedstawiono sposób korzystania z adaptacyjnej kontroli aplikacji w Azure Security Center, aby zdefiniować listę dozwolonych aplikacji uruchomionych na maszynach na platformie Azure i poza platformą Azure. Aby dowiedzieć się więcej na temat innych funkcji ochrony obciążeń w chmurze Security Center, zobacz:
 
 * [Zrozumienie dostępu do maszyny wirtualnej just-in-Time (JIT)](just-in-time-explained.md)
-* [Zabezpieczanie klastrów usługi Azure Kubernetes](azure-kubernetes-service-integration.md)
+* [Zabezpieczanie klastrów usługi Azure Kubernetes](defender-for-kubernetes-introduction.md)

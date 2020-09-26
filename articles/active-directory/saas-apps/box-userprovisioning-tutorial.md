@@ -10,19 +10,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 76c0f4f021646b4cbf1a09559e085176353a4a3c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525616"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312910"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie pola do automatycznej aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w usłudze Box i usłudze Azure AD w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników z usługi Azure AD w usłudze Box.
 
 > [!NOTE]
-> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -91,19 +91,19 @@ Celem tej sekcji jest utworzenie konspektu, jak włączyć obsługę administrac
 
 3. Wybierz swoje wystąpienie pola, a następnie wybierz kartę **aprowizacji** .
 
-4. Ustaw **tryb aprowizacji** na **automatyczny**. 
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**. 
 
-    ![aprowizacji](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawiający kartę Inicjowanie obsługi dla pola w Azure Portal. Tryb aprowizacji jest ustawiony na automatyczny, a Autoryzacja jest wyróżniona w poświadczeniach administratora.](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. W sekcji **poświadczenia administratora** kliknij przycisk **Autoryzuj** , aby otworzyć okno dialogowe logowania do pola w nowym oknie przeglądarki.
 
 6. Na stronie **Zaloguj się, aby udzielić dostępu do pola** podaj wymagane poświadczenia, a następnie kliknij przycisk **Autoryzuj**. 
    
-    ![Włącz automatyczne Inicjowanie obsługi użytkowników](./media/box-userprovisioning-tutorial/IC769546.png "Włącz automatyczne Inicjowanie obsługi użytkowników")
+    ![Zrzut ekranu przedstawiający ekran Zaloguj się, aby udzielić dostępu do pola, pokazujący wpis dla wiadomości E-mail i hasła oraz przycisk Autoryzuj.](./media/box-userprovisioning-tutorial/IC769546.png "Włącz automatyczne Inicjowanie obsługi użytkowników")
 
 7. Kliknij przycisk **Udziel dostępu do pola** , aby autoryzować tę operację i powrócić do Azure Portal. 
    
-    ![Włącz automatyczne Inicjowanie obsługi użytkowników](./media/box-userprovisioning-tutorial/IC769549.png "Włącz automatyczne Inicjowanie obsługi użytkowników")
+    ![Zrzut ekranu przedstawiający ekran Autoryzuj dostęp w usłudze Box, który pokazuje komunikat objaśniający i przycisk Udziel dostępu do pola.](./media/box-userprovisioning-tutorial/IC769549.png "Włącz automatyczne Inicjowanie obsługi użytkowników")
 
 8. W Azure Portal kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją usługi Box. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Box ma uprawnienia administratora zespołu i spróbuj ponownie wykonać krok **"Autoryzuj"** .
 
@@ -130,6 +130,6 @@ W dzierżawie w usłudze Box zsynchronizowani użytkownicy są wyświetlani w ob
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurowanie logowania jednokrotnego](box-tutorial.md)

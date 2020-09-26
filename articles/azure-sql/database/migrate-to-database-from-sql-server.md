@@ -1,5 +1,5 @@
 ---
-title: SQL Server migrację bazy danych do Azure SQL Database
+title: Migracja bazy danych programu SQL Server do usługi Azure SQL Database
 description: Dowiedz się więcej o SQL Server migracji bazy danych do Azure SQL Database.
 keywords: migracja bazy danych,migracja bazy danych programu sql server,narzędzia migracji bazy danych,migracja bazy danych,migracja bazy danych sql
 services: sql-database
@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 02/11/2019
-ms.openlocfilehash: 106337fb4756052ee682624290620093bf4a70b3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 275ad3f2dfa04241b1f2a5687cb5dc32b7a31e75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333175"
 ---
-# <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server migrację bazy danych do Azure SQL Database
+# <a name="sql-server-database-migration-to-azure-sql-database"></a>Migracja bazy danych programu SQL Server do usługi Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 W tym artykule przedstawiono podstawowe metody migrowania bazy danych SQL Server 2005 lub nowszej do Azure SQL Database. Aby uzyskać informacje na temat migracji do wystąpienia zarządzanego usługi Azure SQL, zobacz [Migrowanie wystąpienia SQL Server do wystąpienia zarządzanego usługi Azure SQL](../managed-instance/migrate-to-instance-from-sql-server.md). Informacje o migracji z innych platform znajdują się w temacie [Przewodnik po migracji bazy danych Azure](https://datamigration.microsoft.com/).

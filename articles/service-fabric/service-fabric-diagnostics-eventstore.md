@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: e2fcbd07c105885da4180b06fa27ec13045940a6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0b6258e160794eaf7d0c05775f8fd3b796e3ba47
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247646"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354823"
 ---
 # <a name="eventstore-overview"></a>EventStore — Omówienie
 
@@ -26,7 +26,7 @@ EventStore jest usługą stanową Service Fabric, która przechowuje zdarzenia z
 * Upewnij się, że akcje zarządzania wykonywane w klastrze są przetwarzane prawidłowo
 * Uzyskiwanie "migawki" sposobu, w jaki Service Fabric współdziała z konkretną jednostką
 
-![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
+![Zrzut ekranu przedstawia kartę zdarzenia w okienku węzły kilka zdarzeń, w tym zdarzenia NodeDown.](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 Aby wyświetlić pełną listę zdarzeń dostępnych w EventStore, zobacz [zdarzenia Service Fabric](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -36,15 +36,15 @@ Aby wyświetlić pełną listę zdarzeń dostępnych w EventStore, zobacz [zdarz
 Usługa EventStore może być kwerendą dla zdarzeń, które są dostępne dla każdego typu jednostki i jednostki w klastrze. Oznacza to, że można wykonywać zapytania o zdarzenia na następujących poziomach:
 * Klaster: zdarzenia specyficzne dla samego klastra (np. uaktualnienie klastra)
 * Węzły: wszystkie zdarzenia na poziomie węzła
-* Węzeł: zdarzenia specyficzne dla jednego węzła identyfikowane przez`nodeName`
+* Węzeł: zdarzenia specyficzne dla jednego węzła identyfikowane przez `nodeName`
 * Aplikacje: wszystkie zdarzenia na poziomie aplikacji
-* Aplikacja: zdarzenia specyficzne dla jednej aplikacji identyfikowanej przez`applicationId`
+* Aplikacja: zdarzenia specyficzne dla jednej aplikacji identyfikowanej przez `applicationId`
 * Usługi: zdarzenia ze wszystkich usług w klastrach
-* Usługa: zdarzenia z określonej usługi identyfikowane przez`serviceId`
+* Usługa: zdarzenia z określonej usługi identyfikowane przez `serviceId`
 * Partycje: zdarzenia ze wszystkich partycji
-* Partycja: zdarzenia z określonej partycji identyfikowanej przez`partitionId`
-* Repliki partycji: zdarzenia ze wszystkich replik/wystąpień w określonej partycji identyfikowanej przez`partitionId`
-* Replika partycji: zdarzenia z określonej repliki/wystąpienia identyfikowane przez `replicaId` i`partitionId`
+* Partycja: zdarzenia z określonej partycji identyfikowanej przez `partitionId`
+* Repliki partycji: zdarzenia ze wszystkich replik/wystąpień w określonej partycji identyfikowanej przez `partitionId`
+* Replika partycji: zdarzenia z określonej repliki/wystąpienia identyfikowane przez `replicaId` i `partitionId`
 
 Aby dowiedzieć się więcej na temat interfejsu API, zobacz [Dokumentacja interfejsu API EventStore](/rest/api/servicefabric/sfclient-index-eventsstore).
 

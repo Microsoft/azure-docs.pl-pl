@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 83f518326b38e9832c46997a0a2791eb9f35705e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371638"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333260"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Rozwiązywanie problemów z błędem ładowania zestawu SDK dla aplikacji sieci Web JavaScript
 
@@ -115,7 +115,7 @@ Jeśli podczas korzystania z tej minimalnej konfiguracji nadal widzisz wyjątek 
 
 Jeśli wyjątek zniknie, przyczyną problemu jest prawdopodobnie niezgodność typów lub Nieoczekiwana wartość. Zacznij dodawać do siebie opcje konfiguracji pojedynczo i test, dopóki wyjątek nie wystąpi ponownie. Następnie zapoznaj się z dokumentacją dla elementu powodującego problem. Jeśli dokumentacja jest niejasne lub potrzebujesz pomocy, Zaproś o [problem w serwisie GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues).
 
-Jeśli Twoja konfiguracja została wcześniej wdrożona i działa, ale właśnie została uruchomiona, to w przypadku zgłoszenia tego wyjątku może wystąpić problem z nowo wdrożoną wersją, sprawdzić, czy ma to wpływ tylko na niewielki zestaw użytkowników/przeglądarki, a także podać [problem w usłudze GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues) lub [utworzyć nowy bilet pomocy technicznej](https://azure.microsoft.com/support/create-ticket/).
+Jeśli Twoja konfiguracja została wcześniej wdrożona i działa, ale właśnie została uruchomiona, to w przypadku zgłoszenia tego wyjątku może wystąpić problem z nowo wdrożoną wersją, sprawdzić, czy ma to wpływ tylko na niewielki zestaw użytkowników/przeglądarki, a także podać [problem w usłudze GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues) lub  [utworzyć nowy bilet pomocy technicznej](https://azure.microsoft.com/support/create-ticket/).
 
 ### <a name="enable-console-debugging"></a>Włącz debugowanie konsoli
 

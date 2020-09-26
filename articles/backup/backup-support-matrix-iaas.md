@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: c50a19acceeb68ead4d86a59bbe8275ae97ecb5f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019593"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332733"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
 
@@ -76,7 +76,7 @@ Tworzenie kopii zapasowych maszyn wirtualnych systemu Linux platformy Azure przy
 
 ## <a name="operating-system-support-linux"></a>Obsługa systemu operacyjnego (Linux)
 
-W przypadku kopii zapasowych w systemie Linux dla maszyny wirtualnej platformy Azure Azure Backup obsługuje listę [dystrybucji systemu Linux potwierdzonych przez platformę Azure](../virtual-machines/linux/endorsed-distros.md). Pamiętaj o następujących kwestiach:
+W przypadku kopii zapasowych w systemie Linux dla maszyny wirtualnej platformy Azure Azure Backup obsługuje listę [dystrybucji systemu Linux potwierdzonych przez platformę Azure](../virtual-machines/linux/endorsed-distros.md). . Weź pod uwagę następujące kwestie:
 
 - Azure Backup nie obsługuje podstawowego systemu operacyjnego Linux.
 - Usługa Azure Backup nie obsługuje 32-bitowych systemów operacyjnych.
@@ -107,7 +107,7 @@ Punkty odzyskiwania na dysku programu DPM/usługi MABS | 64 dla serwerów plikó
 
 ## <a name="support-for-file-level-restore"></a>Obsługa przywracania na poziomie plików
 
-**Przywróć** | **Obsługiwał**
+**Przywróć** | **Obsługiwane**
 --- | ---
 Przywracanie plików w różnych systemach operacyjnych | Można przywracać pliki na dowolnym komputerze, który ma ten sam (lub zgodny) system operacyjny, co maszyna wirtualna z kopią zapasową. Zobacz [tabelę zgodnych systemów operacyjnych](backup-azure-restore-files-from-vm.md#system-requirements).
 Przywracanie plików z szyfrowanych maszyn wirtualnych | Nieobsługiwane.
@@ -120,7 +120,7 @@ Przywracanie plików przy użyciu specjalnych ustawień sieci | Przywracanie nie
 
 Poniższa tabela zawiera podsumowanie obsługi kopii zapasowych podczas zadań zarządzania maszyną wirtualną, takich jak dodawanie lub zastępowanie dysków maszyn wirtualnych.
 
-**Przywróć** | **Obsługiwał**
+**Przywróć** | **Obsługiwane**
 --- | ---
 Przywróć w ramach subskrypcji/regionu/strefy. | Nieobsługiwane.
 Przywracanie do istniejącej maszyny wirtualnej | Użyj opcji Zamień dysk.
@@ -155,7 +155,7 @@ Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure z blokadami | Nieo
 
 **Składnik** | **Pomoc techniczna**
 --- | ---
-Dyski z danymi maszyn wirtualnych platformy Azure | Obsługa kopii zapasowych maszyn wirtualnych platformy Azure z maksymalnie 32 dyskami jest w publicznej wersji zapoznawczej we wszystkich regionach.<br><br> Obsługa kopii zapasowych maszyn wirtualnych platformy Azure z dyskami niezarządzanymi lub klasycznymi maszynami wirtualnymi odbywa się tylko do 16 dysków.
+Dyski z danymi maszyn wirtualnych platformy Azure | Obsługa tworzenia kopii zapasowych maszyn wirtualnych platformy Azure z maksymalnie 32 dyskami.<br><br> Obsługa kopii zapasowych maszyn wirtualnych platformy Azure z dyskami niezarządzanymi lub klasycznymi maszynami wirtualnymi odbywa się tylko do 16 dysków.
 Rozmiar dysku danych | Rozmiar poszczególnych dysków może należeć do 32 TB i maksymalnie 256 TB łączny dla wszystkich dysków w maszynie wirtualnej.
 Typ magazynu | HDD w warstwie Standardowa, SSD w warstwie Standardowa, SSD w warstwie Premium.
 Dyski zarządzane | Obsługiwane.
@@ -180,7 +180,7 @@ Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) na karcie sieciowej
 Statyczny adres IP | Nieobsługiwane.<br/><br/> Nowa maszyna wirtualna utworzona na podstawie punktu przywracania ma przypisany dynamiczny adres IP.<br/><br/> W przypadku klasycznych maszyn wirtualnych nie można utworzyć kopii zapasowej maszyny wirtualnej z zastrzeżonym adresem IP i bez zdefiniowanego punktu końcowego.
 Dynamiczny adres IP |Obsługiwane.<br/><br/> Jeśli karta sieciowa na źródłowej maszynie wirtualnej używa dynamicznego adresowania IP, domyślnie karta sieciowa na przywróconej maszynie wirtualnej będzie używać tego programu.
 Azure Traffic Manager| Obsługiwane.<br/><br/>Jeśli kopia zapasowa maszyny wirtualnej znajduje się w Traffic Manager, ręcznie Dodaj przywróconą maszynę wirtualną do tego samego wystąpienia Traffic Manager.
-Azure DNS |Obsługiwane.
+System DNS platformy Azure |Obsługiwane.
 Niestandardowe DNS |Obsługiwane.
 Łączność wychodząca za pośrednictwem serwera proxy HTTP | Obsługiwane.<br/><br/> Uwierzytelniony serwer proxy nie jest obsługiwany.
 Punkty końcowe usługi dla sieci wirtualnej| Obsługiwane.<br/><br/> Ustawienia zapory i konta magazynu sieci wirtualnej powinny zezwalać na dostęp ze wszystkich sieci.
@@ -214,7 +214,7 @@ Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z usługą MABS | ![
 
 ## <a name="vm-compression-support"></a>Obsługa kompresji maszyny wirtualnej
 
-Funkcja Backup obsługuje kompresję ruchu kopii zapasowej, jak przedstawiono w poniższej tabeli. Pamiętaj o następujących kwestiach:
+Funkcja Backup obsługuje kompresję ruchu kopii zapasowej, jak przedstawiono w poniższej tabeli. . Weź pod uwagę następujące kwestie:
 
 - W przypadku maszyn wirtualnych platformy Azure rozszerzenie maszyny wirtualnej odczytuje dane bezpośrednio z konta usługi Azure Storage w sieci magazynowania. Nie jest konieczne kompresowanie tego ruchu.
 - Jeśli używasz programu DPM lub serwera usługi MAB, możesz zaoszczędzić przepustowość, kompresując dane przed utworzeniem ich kopii zapasowej w programie DPM/serwera usługi MAB.

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 33e67df5ad68a78cc35f7168813716d1d794d527
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: be7b6349a7bf51a4fb99e3604a04f9d95403b74f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442806"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359328"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Rozwiązywanie problemów z połączeniami sieci VPN typu punkt-lokacja z Mac OS X klientów sieci VPN
 
@@ -34,7 +34,7 @@ Ten artykuł pomaga rozwiązywać problemy z połączeniem typu punkt-lokacja z 
 4. **Lokalny identyfikator** powinien być taki sam jak **podmiot** certyfikatu klienta.
 5. Kliknij pozycję **Ustawienia uwierzytelniania** , aby otworzyć stronę Ustawienia uwierzytelniania.
 
-   ![Ustawienia uwierzytelniania](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![Zrzut ekranu przedstawia okno dialogowe Ustawienia uwierzytelniania z wybranym certyfikatem.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. Upewnij się, że wybrano **certyfikat** z listy rozwijanej.
 7. Kliknij przycisk **Wybierz** i sprawdź, czy wybrano prawidłowy certyfikat. Kliknij przycisk **OK** , aby zapisać zmiany.
 
@@ -48,7 +48,7 @@ Ten artykuł pomaga rozwiązywać problemy z połączeniem typu punkt-lokacja z 
 4. **Identyfikator lokalny** może być pusty.
 5. Kliknij przycisk **Ustawienia uwierzytelniania** i sprawdź, czy wybrano pozycję "username" z listy rozwijanej.
 
-   ![Ustawienia uwierzytelniania](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
+   ![Zrzut ekranu przedstawia okno dialogowe Ustawienia uwierzytelniania z wybraną nazwą użytkownika.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Sprawdź, czy wprowadzono poprawne poświadczenia.
 
 ## <a name="additional-steps"></a><a name="additional"></a>Dodatkowe kroki

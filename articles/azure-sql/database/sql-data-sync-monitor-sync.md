@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 307e501743d01b94cfca3692cc09c05cc90ed3ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd2f0a3e41508dd41dc0e5b62532e21677987845
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343238"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332937"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorowanie SQL Data Sync przy użyciu dzienników Azure Monitor 
 
@@ -85,7 +85,7 @@ Aby uzyskać więcej informacji na temat tworzenia elementu Runbook, zobacz [pie
 
 4.  W obszarze **plik Runbook**Użyj danego `DataSyncLogPowerShellRunbook` pliku. Ustaw **Typ elementu Runbook** jako `PowerShell` . Nadaj elementowi Runbook nazwę.
 
-5.  Wybierz pozycję **Utwórz**. Masz teraz element Runbook.
+5.  Wybierz przycisk **Utwórz**. Masz teraz element Runbook.
 
 6.  W obszarze konto Azure Automation wybierz kartę **zmienne** w obszarze zasoby udostępnione.
 
@@ -123,7 +123,7 @@ Aby zaplanować element Runbook:
 
 5.  Ustaw **cykl** na cykliczny i Ustaw żądany interwał. Użyj tego samego interwału w skrypcie i w Azure Monitor dziennikach.
 
-6.  Wybierz pozycję **Utwórz**.
+6.  Wybierz przycisk **Utwórz**.
 
 ### <a name="check-the-automation"></a>Sprawdź automatyzację
 
@@ -135,7 +135,7 @@ Aby utworzyć alert korzystający z dzienników Azure Monitor, wykonaj następuj
 
 1.  W Azure Portal wybierz pozycję **przeszukiwanie dzienników**.
 
-2.  Utwórz zapytanie, aby wybrać błędy i ostrzeżenia według grupy synchronizacji w wybranym interwale. Przykład:
+2.  Utwórz zapytanie, aby wybrać błędy i ostrzeżenia według grupy synchronizacji w wybranym interwale. Na przykład:
 
     `DataSyncLog_CL | where LogLevel_s != "Success" | summarize AggregatedValue = count() by bin(TimeGenerated,60m),SyncGroupName_s`
 

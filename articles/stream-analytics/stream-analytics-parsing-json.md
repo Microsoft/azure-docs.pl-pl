@@ -6,13 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: ff3ae9a787586a4d3f7c27353aca37326be32448
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 67bcd6fbf04cb92deaae034d289990dfec309fe6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280015"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analizowanie danych JSON i Avro w Azure Stream Analytics
 
@@ -65,7 +65,7 @@ FROM input
 
 Wynik:
 
-|Identyfikator|Usługę|Długo|Temperature|Wersja|
+|Identyfikator|Usługę|Długo|Temperatura|Wersja|
 |-|-|-|-|-|
 |12345|47|122|80|1.2.45|
 
@@ -148,7 +148,7 @@ Wynik:
 
 |Identyfikator|Czujnikname|Określony komunikat alarmu|
 |-|-|-|
-|12345|Temperature|80|
+|12345|Temperatura|80|
 |12345|Wilgotność|70|
 |12345|CustomSensor01|5|
 |12345|CustomSensor02|99|
