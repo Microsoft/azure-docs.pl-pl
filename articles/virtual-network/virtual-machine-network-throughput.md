@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 4fed883c8fa92df77af432e1e4a4b3acca72a0d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f0bad935c7c3d44f57dd171f714f31856bc2089c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265118"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361317"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Przepustowość sieci maszyny wirtualnej
 
@@ -64,7 +64,7 @@ Obecnie stos sieci platformy Azure obsługuje 250 000 łączne przepływy siecio
 
 Metryki są dostępne w [Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) , aby śledzić liczbę przepływów sieciowych i szybkość tworzenia przepływu na maszynach wirtualnych lub wystąpieniach VMSS.
 
-![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![Zrzut ekranu przedstawia stronę metryki Azure Monitor z wykresem liniowym i całkowitymi przepływami ruchu przychodzącego i wychodzącego.](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
 Stawki za połączenia i zwolnienia mogą również wpływać na wydajność sieci, ponieważ ustanowienie połączenia i zakończenie współużytkują procesor z procedurami przetwarzania pakietów. Firma Microsoft zaleca, aby przeprowadzić testy porównawcze względem oczekiwanych wzorców ruchu i odpowiednio skalować obciążenia w celu dopasowania do potrzeb związanych z wydajnością. 
 

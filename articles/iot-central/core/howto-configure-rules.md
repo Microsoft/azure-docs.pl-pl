@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8391202e991c240b03bd79b947c1c3c6dcc9afd7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659358"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362541"
 ---
 # <a name="configure-rules"></a>Konfigurowanie reguł
 
@@ -33,7 +33,7 @@ Warunki są wyzwalane przez reguły. Obecnie po dodaniu wielu warunków do regu�
 
 Na poniższym zrzucie ekranu warunki sprawdzają, kiedy temperatura jest większa niż 70 &deg; F, a wilgotność jest mniejsza niż 10. Gdy obie te instrukcje są spełnione, reguła zwraca wartość true i wyzwala akcję.
 
-![Warunki](media/howto-configure-rules/conditions.png)
+![Zrzut ekranu przedstawia monitor chłodziark z warunkami określonymi dla temperatury i wilgotności.](media/howto-configure-rules/conditions.png)
 
 ### <a name="use-a-cloud-property-in-a-value-field"></a>Używanie właściwości chmury w polu wartości
 

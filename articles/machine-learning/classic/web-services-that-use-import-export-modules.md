@@ -11,16 +11,16 @@ ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7b1d8f939e403c795effeca14943791d1554742f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a963a9f10ee23c50f50e66191e92f0839c457d9c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347538"
+ms.locfileid: "91362852"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Wdrażanie usług sieci Web Azure Machine Learning Studio (klasycznych), które używają modułów importowania danych i eksportu danych
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Podczas tworzenia eksperymentu predykcyjnego zazwyczaj dodawane są dane wejściowe i wyjściowe usługi sieci Web. Podczas wdrażania eksperymentu klienci mogą wysyłać i odbierać dane z usługi sieci Web za pośrednictwem danych wejściowych i wyjściowych. W przypadku niektórych aplikacji dane użytkownika mogą być dostępne ze strumieniowego źródła danych lub już znajdują się w zewnętrznym źródle danych, takim jak Azure Blob Storage. W takich przypadkach nie potrzebują danych odczytu i zapisu przy użyciu wejściowych i wyjściowych usług sieci Web. Mogą zamiast tego używać usługi wykonywania wsadowego (BES) do odczytywania danych ze źródła danych przy użyciu modułu Importuj dane i zapisywania wyników oceniania w innej lokalizacji danych przy użyciu modułu eksport danych.

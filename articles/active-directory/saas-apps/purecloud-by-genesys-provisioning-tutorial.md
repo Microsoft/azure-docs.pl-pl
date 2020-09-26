@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 8917343175dd5ed8f82c1929683de98034323163
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8548e6c4c3e2b31d9fb16273bcc441ca38127831
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321921"
+ms.locfileid: "91361827"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie PureCloud przez Genesys w celu automatycznego aprowizacji użytkowników
 
@@ -88,7 +88,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź odpowiednio adres URL interfejsu API usługi PureCloud według Genesys i token OAuth w polach **adres URL dzierżawy** i **token klucza tajnego** . Adres URL interfejsu API będzie miał strukturę " `{{API Url}}/api/v2/scim/v2` przy użyciu adresu URL interfejsu API dla regionu PureCloud z [Centrum deweloperów PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z PureCloud przez Genesys. Jeśli połączenie nie powiedzie się, upewnij się, że konto PureCloud przez Genesys ma uprawnienia administratora i spróbuj ponownie.
 
-    ![aprowizacji](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawia okno dialogowe poświadczenia administratora, w którym można wprowadzić dzierżawę U R L i wpis tajny.](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
 6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 
