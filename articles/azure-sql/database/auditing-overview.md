@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040584"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333192"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -119,7 +119,7 @@ Aby skonfigurować zapisywanie dzienników inspekcji do obszaru roboczego Log An
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Aby uzyskać więcej informacji na temat obszarów roboczych dzienników Azure Monitor, zobacz [projektowanie Azure monitor dzienników wdrożenia](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
+Aby uzyskać więcej informacji na temat Azure Monitor Log Analytics obszarze roboczym, zobacz [projektowanie dzienników Azure monitor Deployment](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Inspekcja w miejscu docelowym centrum zdarzeń
 
@@ -150,7 +150,7 @@ W przypadku wybrania opcji zapisania dzienników inspekcji do Azure Monitor dzie
     ![Log Analytics szczegółowe informacje o zabezpieczeniach](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - Alternatywnie można również uzyskać dostęp do dzienników inspekcji w bloku Log Analytics. Otwórz obszar roboczy Log Analytics i w sekcji **Ogólne** kliknij pozycję **dzienniki**. Możesz zacząć od prostego zapytania, takiego jak: *Search "SQLSecurityAuditEvents"* , aby wyświetlić dzienniki inspekcji.
-    W tym miejscu możesz również użyć [dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md) , aby uruchomić zaawansowane wyszukiwania w danych dziennika inspekcji. Dzienniki Azure Monitor udostępniają usługi operacyjne w czasie rzeczywistym przy użyciu zintegrowanego wyszukiwania i niestandardowych pulpitów nawigacyjnych, które umożliwiają łatwe analizowanie milionów rekordów na wszystkich obciążeniach i serwerach. Aby uzyskać dodatkowe informacje dotyczące Azure Monitor języka i poleceń wyszukiwania dzienników, zobacz artykuł [Azure monitor Logs Search Reference](../../azure-monitor/log-query/log-query-overview.md).
+    W tym miejscu możesz również użyć [dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md)  , aby uruchomić zaawansowane wyszukiwania w danych dziennika inspekcji. Dzienniki Azure Monitor udostępniają usługi operacyjne w czasie rzeczywistym przy użyciu zintegrowanego wyszukiwania i niestandardowych pulpitów nawigacyjnych, które umożliwiają łatwe analizowanie milionów rekordów na wszystkich obciążeniach i serwerach. Aby uzyskać dodatkowe informacje dotyczące Azure Monitor języka i poleceń wyszukiwania dzienników, zobacz artykuł [Azure monitor Logs Search Reference](../../azure-monitor/log-query/log-query-overview.md).
 
 W przypadku wybrania opcji zapisania dzienników inspekcji do centrum zdarzeń:
 
@@ -169,7 +169,7 @@ W przypadku wybrania opcji zapisania dzienników inspekcji na koncie usługi Azu
 
   - Aby wyświetlić określone daty, kliknij pozycję **Filtruj** w górnej części strony **Rejestrowanie inspekcji** .
   - Można przełączać się między rekordami inspekcji, które zostały utworzone przez *zasady inspekcji serwera* i *zasad inspekcji bazy danych* przez przełączenie **źródła inspekcji**.
-  - Można wyświetlić tylko rekordy inspekcji powiązane z iniekcją SQL, zaznaczając pole wyboru **Pokaż tylko rekordy inspekcji dla iniekcji kodu SQL** .
+  - Można wyświetlić tylko rekordy inspekcji powiązane z iniekcją SQL, zaznaczając pole wyboru  **Pokaż tylko rekordy inspekcji dla iniekcji kodu SQL** .
 
        ![Okienko nawigacji]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 

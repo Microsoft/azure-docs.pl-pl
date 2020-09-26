@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb81e5a72ff1f5a8d4442e6e1f211ad2368f6277
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 10c396c4e4b4eac83f08ae0cbbe565f8621688a4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206291"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354976"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Rozwiązywanie problemów Azure Active Directory współpracy B2B
 
@@ -106,6 +106,20 @@ Od 18 listopada 2019 użytkownicy-Goście w katalogu (zdefiniowani jako konta u�
 ## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>W dzierżawie platformy Azure USA nie można zaprosić użytkownika-gościa współpracy B2B
 
 W chmurze platformy Azure dla instytucji rządowych USA współpraca B2B jest obecnie obsługiwana tylko między dzierżawcami, które są zarówno w chmurze platformy Azure USA, jak i obsługują współpracę B2B. Jeśli użytkownik zostanie uczestnikiem dzierżawy, który nie jest częścią chmury dla instytucji rządowych usługi Azure USA lub nie obsługuje jeszcze współpracy B2B, zostanie wyświetlony komunikat o błędzie. Aby uzyskać więcej informacji i ograniczeń, zobacz [Azure Active Directory — wersja Premium odmian P1 i P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+
+## <a name="i-receive-the-error-that-azure-ad-cannot-find-the-aad-extensions-app-in-my-tenant"></a>Otrzymuję komunikat o błędzie z informacją, że usługa Azure AD nie może znaleźć aplikacji AAD-Extensions-App w mojej dzierżawie
+
+W przypadku korzystania z funkcji samoobsługowego tworzenia nowego konta, takich jak niestandardowe atrybuty użytkownika lub przepływy użytkownika, wywoływana `aad-extensions-app. Do not modify. Used by AAD for storing user data.` jest automatycznie utworzona aplikacja. Są one używane przez tożsamości zewnętrzne usługi Azure AD do przechowywania informacji o użytkownikach, którzy rejestrują i pobierają atrybuty niestandardowe.
+
+Jeśli przypadkowo usunięto `aad-extensions-app` program, masz 30 dni na jego odzyskanie. Aplikację można przywrócić przy użyciu modułu Azure AD PowerShell.
+
+1. Uruchom moduł Azure AD PowerShell i uruchom program `Connect-AzureAD` .
+1. Zaloguj się jako Administrator globalny dzierżawy usługi Azure AD, dla którego chcesz odzyskać usuniętą aplikację.
+1. Uruchom polecenie programu PowerShell `Get-AzureADDeletedApplication` .
+1. Znajdź aplikację na liście, w której rozpoczyna się nazwa wyświetlana `aad-extensions-app` , i skopiuj jej `ObjectId` wartość właściwości.
+1. Uruchom polecenie programu PowerShell `Restore-AzureADDeletedApplication -ObjectId {id}` . Zamień `{id}` część polecenia na `ObjectId` z poprzedniego kroku.
+
+Przywrócona aplikacja powinna teraz zostać wyświetlona w Azure Portal.
 
 ## <a name="next-steps"></a>Następne kroki
 

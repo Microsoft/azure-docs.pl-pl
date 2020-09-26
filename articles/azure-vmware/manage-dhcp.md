@@ -3,12 +3,12 @@ title: Jak utworzyć serwer DHCP i zarządzać nim
 description: W tym artykule opisano sposób zarządzania serwerem DHCP w rozwiązaniu VMware platformy Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ba7c3983f55ed729c77d2f24d3ef311a00522148
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 2c059918f57b7f01058a031f1bf281b243855661
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069564"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332835"
 ---
 # <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Tworzenie i zarządzanie serwerem DHCP w rozwiązaniu VMWare platformy Azure
 
@@ -24,7 +24,7 @@ W programie NSX Manager przejdź do karty **Sieć** , a następnie wybierz pozyc
 
 ### <a name="connect-dhcp-server-to-the-tier-1-gateway"></a>Połącz serwer DHCP z bramą warstwy 1.
 
-1. Wybierz pozycję **bramy warstwy 1**, wybierz bramę i wybierz pozycję **Edytuj** .
+1. Wybierz pozycję **bramy warstwy 1**, bramę, a następnie wybierz pozycję **Edytuj** .
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Wybierz bramę do użycia" border="true":::
 
@@ -56,7 +56,7 @@ Po utworzeniu serwera DHCP należy dodać do niego segmenty sieci.
 
 ## <a name="create-dhcp-relay-service"></a>Tworzenie usługi przekaźnika DHCP
 
-1. W oknie NSX-T wybierz kartę **Sieć** , a następnie w obszarze **Zarządzanie IP**wybierz pozycję **DHCP**. Wybierz pozycję **Dodaj serwer**. W polu **Typ serwera** wybierz opcję przekaźnik DHCP, a następnie wprowadź nazwę serwera i adres IP serwera przekazywania. Wybierz przycisk **Zapisz**, aby zapisać zmiany.
+1. W oknie NXT-T wybierz kartę **Sieć** , a następnie w obszarze **Zarządzanie IP**wybierz pozycję **DHCP**. Wybierz pozycję **Dodaj serwer**. W polu **Typ serwera** wybierz opcję przekaźnik DHCP, a następnie wprowadź nazwę serwera i adres IP serwera przekazywania. Wybierz przycisk **Zapisz**, aby zapisać zmiany.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Utwórz serwer przekazywania DHCP" border="true":::
 

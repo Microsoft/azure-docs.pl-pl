@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d378e1526d5b253853fd306c8a1b7a8982436b8d
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 6b3bb3648fff6bc893ea07204fad79d2830a1b47
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115909"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355097"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Dostosowanie języka w Azure Active Directory B2C
 
@@ -105,7 +105,7 @@ Zamień na `<ExtensionAttributeValue>` Nowy ciąg, który ma być wyświetlany.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Podaj listę wartości za pomocą LocalizedCollections
 
-Jeśli chcesz podać listę wartości odpowiedzi, musisz utworzyć `LocalizedCollections` atrybut. `LocalizedCollections`jest tablicą `Name` par i `Value` . Kolejność dla elementów będzie kolejność, w jakiej są wyświetlane. Aby dodać `LocalizedCollections` , użyj następującego formatu:
+Jeśli chcesz podać listę wartości odpowiedzi, musisz utworzyć `LocalizedCollections` atrybut. `LocalizedCollections` jest tablicą `Name` par i `Value` . Kolejność dla elementów będzie kolejność, w jakiej są wyświetlane. Aby dodać `LocalizedCollections` , użyj następującego formatu:
 
 ```json
 {
@@ -129,9 +129,9 @@ Jeśli chcesz podać listę wartości odpowiedzi, musisz utworzyć `LocalizedCol
 }
 ```
 
-* `ElementId`jest atrybutem użytkownika, do którego ten `LocalizedCollections` atrybut jest odpowiedzią.
-* `Name`jest wartością pokazywaną użytkownikowi.
-* `Value`to co jest zwracane w ramach żądania, gdy ta opcja jest zaznaczona.
+* `ElementId` jest atrybutem użytkownika, do którego ten `LocalizedCollections` atrybut jest odpowiedzią.
+* `Name` jest wartością pokazywaną użytkownikowi.
+* `Value` to co jest zwracane w ramach żądania, gdy ta opcja jest zaznaczona.
 
 ### <a name="upload-your-changes"></a>Przekaż zmiany
 
@@ -204,56 +204,56 @@ Azure AD B2C obejmuje obsługę następujących języków. Języki przepływu u�
 
 | Język              | Kod języka | Przepływy użytkowników         | Powiadomienia usługi MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
-| Arabski                | ty            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Bułgarski             | BG            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Języku                | mld USD            | ![tak](./media/user-flow-language-customization/yes.png) | ![nie](./media/user-flow-language-customization/no.png) |
-| Kataloński               | urzędu certyfikacji            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Czeski                 | Rejestr            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Duński                | da            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Niemiecki                | de            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Grecki                 | Colon            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Angielski               | pl            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Hiszpański               | Tak            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Estoński              | staw            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Baskijski                | Europejska            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Fiński               | fi            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Francuski                | fr            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Galicyjski              | GL            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Gudżarati              | gu            | ![tak](./media/user-flow-language-customization/yes.png) | ![nie](./media/user-flow-language-customization/no.png) |
-| Hebrajski                | Przewodniczący            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Hindi                 | Cześć            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Chorwacki              | godz.            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Węgierski             | Węgry            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Indonezyjski            | identyfikator            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Włoski               | it            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Japoński              | ja            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Kazachski                | kk            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Kannada               | kN            | ![tak](./media/user-flow-language-customization/yes.png) | ![nie](./media/user-flow-language-customization/no.png) |
-| Koreański                | Ko            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Litewski            | lt            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Łotewski               | LV            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Malayalam             | ml            | ![tak](./media/user-flow-language-customization/yes.png) | ![nie](./media/user-flow-language-customization/no.png) |
-| Marathi               | Pan            | ![tak](./media/user-flow-language-customization/yes.png) | ![nie](./media/user-flow-language-customization/no.png) |
-| Malajski                 | Arial            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Norweski (Bokmal)      | sesja            | ![tak](./media/user-flow-language-customization/yes.png) | ![nie](./media/user-flow-language-customization/no.png) |
-| Niderlandzki                 | nl            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Norweski             | nie            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Pendżabski               | biur            | ![tak](./media/user-flow-language-customization/yes.png) | ![nie](./media/user-flow-language-customization/no.png) |
-| Polski                | zysków            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Portugalski (Brazylia)   | pt-br         | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Portugalski (Portugalia) | pt-pt         | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Rumuński              | ro            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Rosyjski               | ru            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Słowacki                | SK            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Słoweński             | SL            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Serbski – cyrylica    | Wirtualizacja SR-cryl-CS    | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Serbski – łaciński       | Wirtualizacja sr-latn-cs    | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Szwedzki               | sv            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Tamilski                 | Ta            | ![tak](./media/user-flow-language-customization/yes.png) | ![nie](./media/user-flow-language-customization/no.png) |
-| Telugu                | Usuń            | ![tak](./media/user-flow-language-customization/yes.png) | ![nie](./media/user-flow-language-customization/no.png) |
-| Tajlandzki                  | th            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Turecki               | zdawczy            | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Ukraiński             | Południowe Zjednoczone Królestwo            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Wietnamski            | VI            | ![nie](./media/user-flow-language-customization/no.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Chiński – uproszczony  | zh-Hans       | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
-| Chiński – tradycyjny | zh-Hant       | ![tak](./media/user-flow-language-customization/yes.png) | ![tak](./media/user-flow-language-customization/yes.png) |
+| Arabski                | ty            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Bułgarski             | BG            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Języku                | mld USD            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
+| Kataloński               | urzędu certyfikacji            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Czeski                 | Rejestr            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Duński                | da            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Niemiecki                | de            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Grecki                 | Colon            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Angielski               | en            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Hiszpański               | es            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Estoński              | staw            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Baskijski                | Europejska            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Fiński               | fi            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Francuski                | fr            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Galicyjski              | GL            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Gudżarati              | gu            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
+| Hebrajski                | Przewodniczący            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Hindi                 | Cześć            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Chorwacki              | godz.            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Węgierski             | Węgry            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Indonezyjski            | identyfikator            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Włoski               | it            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| japoński              | ja            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Kazachski                | kk            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Kannada               | kN            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
+| Koreański                | Ko            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Litewski            | lt            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Łotewski               | LV            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Malayalam             | ml            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
+| Marathi               | Pan            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
+| Malajski                 | Arial            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Norweski (Bokmal)      | sesja            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
+| Niderlandzki                 | nl            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Norweski             | nie            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Pendżabski               | biur            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
+| Polski                | zysków            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Portugalski (Brazylia)   | pt-br         | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Portugalski (Portugalia) | pt-pt         | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Rumuński              | ro            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Rosyjski               | ru            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Słowacki                | SK            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Słoweński             | SL            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Serbski – cyrylica    | Wirtualizacja SR-cryl-CS    | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Serbski – łaciński       | Wirtualizacja sr-latn-cs    | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Szwedzki               | sv            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Tamilski                 | Ta            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
+| Telugu                | Usuń            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) |
+| Tajlandzki                  | th            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Turecki               | zdawczy            | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Ukraiński             | Południowe Zjednoczone Królestwo            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Wietnamski            | VI            | ![Znak X wskazujący nie.](./media/user-flow-language-customization/no.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Chiński – uproszczony  | zh-Hans       | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |
+| Chiński – tradycyjny | zh-Hant       | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) | ![Zielony znacznik wyboru.](./media/user-flow-language-customization/yes.png) |

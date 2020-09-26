@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 17c0b7bd802d4a50343f88b9517313489943e10c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 146b867f1075a7eac1b6817f5fc8dbcd7ba04b02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799489"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333413"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Przyłącz urządzenie służbowe do sieci organizacji
 Dołącz do sieci swojej organizacji swoje urządzenie z systemem Windows 10, aby uzyskać dostęp do zasobów, które mogą być ograniczone.
@@ -54,7 +54,7 @@ Jeśli urządzenie jest marki nowe i nie zostało jeszcze skonfigurowane, możes
 
     Urządzenie jest teraz przyłączone do sieci organizacji.
 
-## <a name="to-make-sure-youre-joined"></a>Aby upewnić się, że jesteś przyłączony
+## <a name="to-make-sure-youre-joined-new-device"></a>Aby upewnić się, że nastąpiło przyłączenie (nowe urządzenie)
 Możesz upewnić się, że są one przyłączone do Twoich ustawień.
 
 1. Otwórz pozycję **Ustawienia**, a następnie wybierz pozycję **konta**.

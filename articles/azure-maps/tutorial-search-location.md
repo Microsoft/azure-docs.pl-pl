@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: wyszukiwanie lokalizacji w pobliżu mapy | Mapy Microsoft Azure'
-description: Dowiedz się, jak wyszukiwać punkty orientacyjne na mapie. Zobacz, jak używać zestawu SDK sieci Web Azure Maps, aby dodawać możliwości wyszukiwania i interaktywne okna podręczne do mapy.
+description: Samouczek dotyczący wyszukiwania punktów orientacyjnych na mapie. Zobacz, jak używać zestawu SDK sieci Web Azure Maps, aby dodawać możliwości wyszukiwania i interaktywne okna podręczne do mapy.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 6ed463cbda3ceb560f907529dc8de54a772932ea
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 4d6728d4fbde4b7d6cc8ed06e961642264ad31bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085080"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321700"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Samouczek: Wyszukiwanie punktów orientacyjnych w pobliżu za pomocą Azure Maps
 
@@ -26,44 +26,14 @@ W tym samouczku przedstawiono konfigurowanie konta przy użyciu usługi Azure Ma
 > * Tworzenie nowej strony internetowej przy użyciu interfejsu API kontrolki mapy
 > * Wyszukiwanie pobliskiego punktu orientacyjnego przy użyciu usługi wyszukiwania Maps
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-
-## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
-
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+## <a name="prerequisites"></a>Wymagania wstępne
 
 <a id="createaccount"></a>
-
-## <a name="create-an-account-with-azure-maps"></a>Tworzenie konta przy użyciu usługi Azure Maps
-
-Utwórz nowe konto usługi Maps, wykonując następujące czynności:
-
-1. W lewym górnym rogu witryny [Azure Portal](https://portal.azure.com) kliknij przycisk **Utwórz zasób**.
-2. W polu *Wyszukaj w portalu Marketplace* wpisz **Maps**.
-3. Z listy *Wyniki* wybierz pozycję **Maps**. Kliknij przycisk **Utwórz** znajdujący się poniżej mapy.
-4. Na stronie **Tworzenie konta usługi Maps** wprowadź następujące wartości:
-    * *Subskrypcja*, która ma być używana dla tego konta.
-    * Nazwa *grupy zasobów* dla tego konta. Można wybrać pozycję *Utwórz nowe* lub *Użyj istniejącego* dla grupy zasobów.
-    * *Nazwa* nowego konta.
-    * *Warstwa cenowa* dla tego konta.
-    * Zapoznaj się z *Licencją* oraz *Zasadami zachowania poufności informacji* i zaznacz pole wyboru, aby zaakceptować warunki.
-    * Kliknij przycisk **Utwórz**.
-
-![Utwórz konto Azure Maps w Azure Portal](./media/tutorial-search-location/create-account.png)
-
 <a id="getkey"></a>
 
-## <a name="get-the-primary-key-for-your-account"></a>Pobieranie klucza podstawowego konta
-
-Po pomyślnym utworzeniu konta usługi Maps pobierz klucz, który umożliwia wysyłanie zapytań do interfejsów API usługi Maps. Podczas wywoływania usług Azure Maps zalecamy użycie klucza podstawowego Twojego konta jako klucza subskrypcji.
-
-1. Otwórz konto usługi Maps w portalu.
-2. W sekcji Ustawienia wybierz pozycję **uwierzytelnianie**.
-3. Skopiuj **klucz podstawowy** do schowka. Zapisz go lokalnie — będzie używany w dalszej części tego samouczka.
-
-![Pobierz klucz podstawowy w Azure Portal](./media/tutorial-search-location/get-key.png)
-
-Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+2. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
@@ -275,21 +245,9 @@ W wynikach wyszukiwania na utworzonej mapie są używane tylko dane o długości
 
     ![Kontrolka mapy platformy Azure i usługa Search Service](./media/tutorial-search-location/popup-map.png)
 
+Aby wyświetlić pełny kod dla tego samouczka, kliknij [tutaj](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). Aby wyświetlić przykład na żywo, kliknij [tutaj](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest) .
+
 ## <a name="next-steps"></a>Następne kroki
-
-W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
-
-> [!div class="checklist"]
-> * Tworzenie konta przy użyciu usługi Azure Maps
-> * Pobieranie klucza podstawowego konta
-> * Tworzenie nowej strony internetowej przy użyciu interfejsu API kontrolki mapy
-> * Wyszukiwanie punktu orientacyjnego w pobliżu przy użyciu usługi Search Service
-
-> [!div class="nextstepaction"]
-> [Wyświetl pełny kod źródłowy](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-> [!div class="nextstepaction"]
-> [Wyświetl przykład na żywo](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 Następny samouczek przedstawia sposób wyświetlenia trasy między dwiema lokalizacjami.
 

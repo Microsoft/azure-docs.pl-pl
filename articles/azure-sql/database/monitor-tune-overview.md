@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 6e17e2a6e5c9151080facc3a2dd8c1a18c0580fe
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 36a1be4f802292e62c98098508927b06a5851afa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982172"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333090"
 ---
-# <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitorowanie i dostrajanie wydajności w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
+# <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitorowanie i dostrajanie wydajności usługi Azure SQL Database i wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Aby monitorować wydajność bazy danych w Azure SQL Database i wystąpieniu zarządzanym Azure SQL, Zacznij od monitorowania zasobów procesora i operacji we/wy używanych przez obciążenie względem poziomu wydajności bazy danych wybranej w ramach wybierania określonej warstwy usług i poziomu wydajności. Aby to osiągnąć, Azure SQL Database i wyemituj metryki zasobów wystąpienia zarządzanego Azure SQL, które mogą być wyświetlane w Azure Portal lub przy użyciu jednego z następujących narzędzi do zarządzania SQL Server: [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) lub [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 8033e64924b5faa1cfdc9c04cdd8711850185dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74fc317dbb97c14c27e6355e100a6e6b5e767363
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333022"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Agent synchronizacji danych dla SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -48,7 +48,7 @@ msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\
 
 Aby skonfigurować agenta synchronizacji danych, dzięki czemu można synchronizować dane z co najmniej jedną SQL Server bazami danych, zobacz [dodawanie SQL Server Database](sql-data-sync-sql-server-configure.md#add-on-prem).
 
-## <a name="data-sync-agent-faq"></a><a name="agent-faq"></a>Agent synchronizacji danych — często zadawane pytania
+## <a name="data-sync-agent-faq"></a><a name="agent-faq"></a> Agent synchronizacji danych — często zadawane pytania
 
 ### <a name="why-do-i-need-a-client-agent"></a>Dlaczego jest potrzebny agent klienta
 
@@ -80,7 +80,7 @@ Jeśli chcesz uruchomić agenta lokalnego z innego komputera niż aktualnie wł�
 4. Poczekaj, aż agent klienta pobierze listę lokalnych baz danych, które zostały zarejestrowane wcześniej.
 5. Podaj poświadczenia bazy danych dla wszystkich baz danych, które są wyświetlane jako nieosiągalne. Te bazy danych muszą być dostępne na nowym komputerze, na którym jest zainstalowany agent programu.
 
-## <a name="troubleshoot-data-sync-agent-issues"></a><a name="agent-tshoot"></a>Rozwiązywanie problemów z agentem synchronizacji danych
+## <a name="troubleshoot-data-sync-agent-issues"></a><a name="agent-tshoot"></a> Rozwiązywanie problemów z agentem synchronizacji danych
 
 - [Instalacja, dezinstalacja lub naprawa agenta klienta kończy się niepowodzeniem](#agent-install)
 
@@ -96,18 +96,18 @@ Jeśli chcesz uruchomić agenta lokalnego z innego komputera niż aktualnie wł�
 
 - [Aplikacja agenta synchronizacji lokalnej nie może nawiązać połączenia z lokalną usługą synchronizacji](#agent-connect)
 
-### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a>Instalacja, dezinstalacja lub naprawa agenta klienta kończy się niepowodzeniem
+### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a> Instalacja, dezinstalacja lub naprawa agenta klienta kończy się niepowodzeniem
 
 - **Przyczyna**. Przyczyną tego błędu może być wiele scenariuszy. Aby ustalić konkretną przyczynę tego błędu, należy zapoznać się z dziennikami.
 
 - **Rozwiązanie**. Aby znaleźć konkretną przyczynę niepowodzenia, wygeneruj i poszukaj dzienników Instalator Windows. Rejestrowanie można włączyć w wierszu polecenia. Na przykład, jeśli pobrany plik instalacyjny to `SQLDataSyncAgent-2.0-x86-ENU.msi` , wygeneruj i Przejrzyj pliki dziennika przy użyciu następujących wierszy poleceń:
 
-  - W przypadku instalacji:`msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
-  - W przypadku dezinstalacji:`msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - W przypadku instalacji: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - W przypadku dezinstalacji: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     Możesz również włączyć rejestrowanie dla wszystkich instalacji, które są wykonywane przez Instalator Windows. Artykuł z bazy wiedzy Microsoft Knowledge Base, [jak włączyć rejestrowanie Instalator Windows](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) , udostępnia rozwiązanie z jednym kliknięciem umożliwiające włączenie rejestrowania Instalator Windows. Zawiera również lokalizację dzienników.
 
-### <a name="the-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a><a name="agent-uninstall"></a>Agent klienta nie działa po anulowaniu dezinstalacji
+### <a name="the-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a><a name="agent-uninstall"></a> Agent klienta nie działa po anulowaniu dezinstalacji
 
 Agent klienta nie działa, nawet po anulowaniu jego dezinstalacji.
 
@@ -118,7 +118,7 @@ Agent klienta nie działa, nawet po anulowaniu jego dezinstalacji.
     -   Użyj programu Services. msc, aby ponownie wprowadzić poświadczenia dla agenta klienta.
     -   Odinstaluj tego agenta klienta, a następnie zainstaluj nowy. Pobierz i zainstaluj najnowszego agenta klienta z [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=27693).
 
-### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a>Moja baza danych nie znajduje się na liście agentów
+### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a> Moja baza danych nie znajduje się na liście agentów
 
 Podczas próby dodania istniejącej bazy danych SQL Server do grupy synchronizacji baza danych nie zostanie wyświetlona na liście agentów.
 
@@ -137,7 +137,7 @@ Te scenariusze mogą spowodować wystąpienie tego problemu:
 
     Lokalny agent pobiera listę skojarzonych baz danych tylko przy pierwszym przesyłaniu klucza agenta. Nie pobiera listy skojarzonych baz danych przy kolejnych przesłanych kluczach agentów. Bazy danych zarejestrowane podczas przenoszenia agenta nie są wyświetlane w oryginalnym wystąpieniu agenta.
 
-### <a name="client-agent-doesnt-start-error-1069"></a><a name="agent-start"></a>Nie uruchomiono agenta klienta (Błąd 1069)
+### <a name="client-agent-doesnt-start-error-1069"></a><a name="agent-start"></a> Nie uruchomiono agenta klienta (Błąd 1069)
 
 Użytkownik stwierdzi, że Agent nie jest uruchomiony na komputerze, który hostuje SQL Server. Podczas próby ręcznego uruchomienia agenta zostanie wyświetlone okno dialogowe z komunikatem "Błąd 1069: usługa nie została uruchomiona z powodu błędu logowania".
 
@@ -161,7 +161,7 @@ Użytkownik stwierdzi, że Agent nie jest uruchomiony na komputerze, który host
   1. W oknie **usługi** kliknij prawym przyciskiem myszy usługę **Agent SQL Data Sync** , a następnie kliknij polecenie **Uruchom**.
   1. Zamknij okno **usługi** .
 
-### <a name="i-cant-submit-the-agent-key"></a><a name="agent-key"></a>Nie mogę przesłać klucza agenta
+### <a name="i-cant-submit-the-agent-key"></a><a name="agent-key"></a> Nie mogę przesłać klucza agenta
 
 Po utworzeniu lub ponownym utworzeniu klucza agenta Próbujesz przesłać klucz za pomocą aplikacji SqlAzureDataSyncAgent. Nie można ukończyć przesłania.
 
@@ -197,7 +197,7 @@ Po utworzeniu lub ponownym utworzeniu klucza agenta Próbujesz przesłać klucz 
   1. Wybierz przycisk **OK**.
   1. Zamknij program.
 
-### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a><a name="agent-delete"></a>Nie można usunąć agenta klienta z portalu, jeśli skojarzona z nim lokalna baza danych jest nieosiągalna
+### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a><a name="agent-delete"></a> Nie można usunąć agenta klienta z portalu, jeśli skojarzona z nim lokalna baza danych jest nieosiągalna
 
 Jeśli lokalny punkt końcowy (czyli baza danych) zarejestrowany przy użyciu agenta klienta SQL Data Sync jest niedostępny, nie można usunąć agenta klienta.
 
@@ -208,7 +208,7 @@ Jeśli lokalny punkt końcowy (czyli baza danych) zarejestrowany przy użyciu ag
 > [!NOTE]
 > Jeśli tabele metadanych synchronizacji pozostają po "Wymuś usunięcie", użyj, `deprovisioningutil.exe` Aby wyczyścić je.
 
-### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a>Aplikacja agenta synchronizacji lokalnej nie może nawiązać połączenia z lokalną usługą synchronizacji
+### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a> Aplikacja agenta synchronizacji lokalnej nie może nawiązać połączenia z lokalną usługą synchronizacji
 
 - **Rozwiązanie**. Spróbuj wykonać następujące kroki:
 

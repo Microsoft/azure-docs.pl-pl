@@ -1,34 +1,34 @@
 ---
-title: Wyszukaj zawartość usługi Azure Blob Storage
+title: Konfigurowanie indeksatora obiektów BLOB
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak indeksować dokumenty na platformie Azure Blob Storage i wyodrębnić tekst z dokumentów za pomocą usługi Azure Wyszukiwanie poznawcze.
+description: Skonfiguruj indeksator usługi Azure BLOB do automatyzowania indeksowania zawartości obiektów BLOB dla operacji wyszukiwania pełnotekstowego w usłudze Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: mgottein
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2ba511d3747ba308ae04ab1bbe3dcb89bca6a8a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 9fccd731cee5044b36de9a0dba4a408a9a5b9a49
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328296"
+ms.locfileid: "91355282"
 ---
-# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Jak indeksować dokumenty w usłudze Azure Blob Storage przy użyciu usługi Azure Wyszukiwanie poznawcze
+# <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Jak skonfigurować indeksator obiektów BLOB na platformie Azure Wyszukiwanie poznawcze
 
-W tym artykule pokazano, jak za pomocą usługi Azure Wyszukiwanie poznawcze indeksować dokumenty (takie jak pliki PDF, dokumenty Microsoft Office i inne popularne formaty) przechowywane w usłudze Azure Blob Storage. Najpierw objaśnia podstawowe informacje na temat konfigurowania i konfigurowania indeksatora obiektów BLOB. Następnie oferuje dokładniejszą eksplorację zachowań i scenariuszy, które prawdopodobnie napotkasz.
+W tym artykule pokazano, jak za pomocą usługi Azure Wyszukiwanie poznawcze indeksować dokumenty tekstowe (takie jak pliki PDF, dokumenty Microsoft Office i inne popularne formaty) przechowywane w usłudze Azure Blob Storage. Najpierw objaśnia podstawowe informacje na temat konfigurowania i konfigurowania indeksatora obiektów BLOB. Następnie oferuje dokładniejszą eksplorację zachowań i scenariuszy, które prawdopodobnie napotkasz.
 
 <a name="SupportedFormats"></a>
 
-## <a name="supported-document-formats"></a>Obsługiwane formaty dokumentów
+## <a name="supported-formats"></a>Obsługiwane formaty
+
 Indeksator obiektów BLOB może wyodrębnić tekst z następujących formatów dokumentu:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## <a name="setting-up-blob-indexing"></a>Konfigurowanie indeksowania obiektów BLOB
+## <a name="set-up-blob-indexing"></a>Konfigurowanie indeksowania obiektów BLOB
 Można skonfigurować usługę Azure Blob Storage indeksator przy użyciu:
 
 * [Witryna Azure Portal](https://ms.portal.azure.com)
@@ -130,7 +130,7 @@ Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w t
 
 <a name="how-azure-search-indexes-blobs"></a>
 
-## <a name="how-azure-cognitive-search-indexes-blobs"></a>Jak usługa Azure Wyszukiwanie poznawcze indeksuje obiekty blob
+## <a name="how-blobs-are-indexed"></a>Jak są indeksowane obiekty blob
 
 W zależności od [konfiguracji indeksatora](#PartsOfBlobToIndex)indeksator obiektów BLOB może indeksować tylko metadane magazynu (przydatne w przypadku ponoszenia informacji o metadanych i braku potrzeby indeksowania zawartości obiektów BLOB), magazynu i metadanych zawartości, a także metadanych i zawartości tekstowej. Domyślnie indeksator wyodrębnia zarówno metadane, jak i zawartość.
 
@@ -170,7 +170,7 @@ W usłudze Azure Wyszukiwanie poznawcze klucz dokumentu jednoznacznie identyfiku
 
 Należy uważnie rozważyć, które wyodrębnione pole powinno być mapowane na pole klucza dla indeksu. Kandydaci są:
 
-* ** \_ \_ Nazwa magazynu metadanych** — może to być wygodny kandydat, ale należy zauważyć, że 1) nazwy mogą nie być unikatowe, ponieważ mogą istnieć obiekty blob o takiej samej nazwie w różnych folderach i 2) nazwa może zawierać znaki, które są nieprawidłowe w kluczach dokumentów, takich jak łączniki. Za pomocą funkcji mapowania pól można zajmować się nieprawidłowymi znakami `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) — Jeśli to zrobisz, pamiętaj, aby zakodować klucze dokumentu podczas przekazywania ich w wywołaniach interfejsu API, takich jak odnośnik. (Na przykład w programie .NET można użyć w tym celu [metody UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) ).
+* ** \_ \_ Nazwa magazynu metadanych** — może to być wygodny kandydat, ale należy zauważyć, że 1) nazwy mogą nie być unikatowe, ponieważ mogą istnieć obiekty blob o takiej samej nazwie w różnych folderach i 2) nazwa może zawierać znaki, które są nieprawidłowe w kluczach dokumentów, takich jak łączniki. Za pomocą funkcji mapowania pól można zajmować się nieprawidłowymi znakami `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) — Jeśli to zrobisz, pamiętaj, aby zakodować klucze dokumentu podczas przekazywania ich w wywołaniach interfejsu API, takich jak odnośnik. (Na przykład w programie .NET można użyć w tym celu [metody UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode) ).
 * ** \_ \_ ścieżka magazynu metadanych** — przy użyciu pełnej ścieżki zapewnia unikatowość, ale ścieżka w nieskończoność zawiera `/` znaki, które są [nieprawidłowe w kluczu dokumentu](/rest/api/searchservice/naming-rules).  Jak powyżej, można zakodować klucze przy użyciu `base64Encode` [funkcji](search-indexer-field-mappings.md#base64EncodeFunction).
 * Jeśli żadna z powyższych opcji nie zadziałała, możesz dodać niestandardową Właściwość metadanych do obiektów BLOB. Ta opcja wymaga jednak, aby proces przekazywania obiektów BLOB mógł dodać tę właściwość metadanych do wszystkich obiektów BLOB. Ponieważ klucz jest wymaganą właściwością, wszystkie obiekty blob, które nie mają tej właściwości, będą kończyć się niepowodzeniem.
 
@@ -231,10 +231,12 @@ Istnieją przypadki, gdy musisz użyć zakodowanej wersji pola, takiego jak meta
     }
 ```
 <a name="WhichBlobsAreIndexed"></a>
-## <a name="controlling-which-blobs-are-indexed"></a>Kontrolowanie, które obiekty blob są indeksowane
+## <a name="index-by-file-type"></a>Indeksuj według typu pliku
+
 Można kontrolować, które obiekty blob są indeksowane i które są pomijane.
 
-### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indeksuj tylko obiekty blob z określonymi rozszerzeniami plików
+### <a name="include-blobs-having-specific-file-extensions"></a>Uwzględnij obiekty blob z określonymi rozszerzeniami plików
+
 Można indeksować tylko obiekty blob z rozszerzeniami nazw plików, które można określić za pomocą `indexedFileNameExtensions` parametru konfiguracji indeksatora. Wartość jest ciągiem zawierającym listę rozszerzeń plików rozdzielanych przecinkami (z kropką wiodącą). Na przykład, aby zindeksować tylko. PDF i. Pliki BLOB DOCX, wykonaj następujące czynności:
 
 ```http
@@ -248,7 +250,8 @@ Można indeksować tylko obiekty blob z rozszerzeniami nazw plików, które moż
     }
 ```
 
-### <a name="exclude-blobs-with-specific-file-extensions"></a>Wyklucz obiekty blob z określonymi rozszerzeniami plików
+### <a name="exclude-blobs-having-specific-file-extensions"></a>Wyklucz obiekty blob z określonymi rozszerzeniami plików
+
 Można wykluczyć obiekty blob z określonymi rozszerzeniami nazw plików z indeksowania przy użyciu `excludedFileNameExtensions` parametru konfiguracji. Wartość jest ciągiem zawierającym listę rozszerzeń plików rozdzielanych przecinkami (z kropką wiodącą). Na przykład, aby indeksować wszystkie obiekty blob z wyjątkiem. PNG i. Rozszerzenia JPEG, wykonaj następujące czynności:
 
 ```http
@@ -265,7 +268,7 @@ Można wykluczyć obiekty blob z określonymi rozszerzeniami nazw plików z inde
 Jeśli oba `indexedFileNameExtensions` `excludedFileNameExtensions` Parametry i są obecne, platforma Azure wyszukiwanie poznawcze najpierw wyszukać `indexedFileNameExtensions` , a następnie na `excludedFileNameExtensions` . Oznacza to, że jeśli to samo rozszerzenie pliku znajduje się na obu listach, zostanie wyłączone z indeksowania.
 
 <a name="PartsOfBlobToIndex"></a>
-## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Kontrolowanie, które części obiektu BLOB są indeksowane
+## <a name="index-parts-of-a-blob"></a>Indeksowanie części obiektu BLOB
 
 Można kontrolować, które fragmenty obiektów BLOB są indeksowane przy użyciu `dataToExtract` parametru konfiguracji. Może przyjmować następujące wartości:
 
@@ -296,7 +299,8 @@ Opisane powyżej parametry konfiguracji dotyczą wszystkich obiektów BLOB. Czas
 | AzureSearch_SkipContent |oznacza |Jest to odpowiednik `"dataToExtract" : "allMetadata"` Ustawienia opisanego [powyżej](#PartsOfBlobToIndex) w zakresie określonego obiektu BLOB. |
 
 <a name="DealingWithErrors"></a>
-## <a name="dealing-with-errors"></a>Rozpatrywanie błędów
+
+## <a name="handle-errors"></a>Obsługa błędów
 
 Domyślnie indeksator obiektu BLOB jest zatrzymywany zaraz po napotkaniu obiektu BLOB z nieobsługiwanym typem zawartości (na przykład obrazem). Możesz użyć `excludedFileNameExtensions` parametru, aby pominąć niektóre typy zawartości. Jednak może być konieczne indeksowanie obiektów Blob bez znajomości wszystkich możliwych typów zawartości z wyprzedzeniem. Aby kontynuować indeksowanie, gdy zostanie napotkany nieobsługiwany typ zawartości, ustaw `failOnUnsupportedContentType` parametr konfiguracji na `false` :
 
@@ -466,7 +470,7 @@ Domyślnie `UTF-8` jest założono kodowanie. Aby określić inne kodowanie, uż
 ## <a name="content-type-specific-metadata-properties"></a>Właściwości metadanych specyficznych dla typu zawartości
 Poniższa tabela zawiera podsumowanie przetwarzania dla każdego formatu dokumentu oraz opis właściwości metadanych wyodrębnionych przez usługę Azure Wyszukiwanie poznawcze.
 
-| Format dokumentu/typ zawartości | Właściwości metadanych specyficznych dla typu zawartości | Szczegóły przetwarzania |
+| Format dokumentu/typ zawartości | Wyodrębnione metadane | Szczegóły przetwarzania |
 | --- | --- | --- |
 | HTML (tekst/HTML) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Rozpakowywanie znacznika HTML i wyodrębnienie tekstu |
 | PDF (aplikacja/PDF) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Wyodrębnij tekst, w tym osadzone dokumenty (z wyjątkiem obrazów) |

@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 94a795ad91be1d648ad025287f5c5bc6f1d8d07e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332716"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -39,6 +39,7 @@ W poniższej tabeli opisano funkcje magazynów Recovery Services:
 **Przenoszenie magazynów** | [Magazyny można przenosić](./backup-azure-move-recovery-services-vault.md) między subskrypcjami lub między grupami zasobów w ramach tej samej subskrypcji. Jednak przeniesienie magazynów między regionami nie jest obsługiwane.
 **Przenoszenie danych między magazynami** | Przeniesienie danych kopii zapasowej między magazynami nie jest obsługiwane.
 **Modyfikuj typ magazynu magazynów** | Możesz zmodyfikować typ replikacji magazynu (magazyn Geograficznie nadmiarowy lub Magazyn lokalnie nadmiarowy) dla magazynu przed zapisaniem kopii zapasowych. Po rozpoczęciu wykonywania kopii zapasowych w magazynie nie można zmienić typu replikacji.
+**Magazyn strefowo nadmiarowy (ZRS)** | Dostępne w regionach Południowe Zjednoczone Królestwo (UKS) i Południowej Azja Wschodnia (SEA).
 
 ## <a name="on-premises-backup-support"></a>Obsługa lokalnych kopii zapasowych
 
@@ -150,9 +151,9 @@ Azure Backup dodano funkcję przywracania między regionami w celu wzmocnienia d
 | Typ zarządzania kopiami zapasowymi | Obsługiwane                                                    | Obsługiwane regiony |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Maszyna wirtualna platformy Azure               | Tak.   Obsługiwane dla szyfrowanych maszyn wirtualnych i maszyn wirtualnych z dyskami o pojemności mniejszej niż 4 TB | Wszystkie regiony publiczne i suwerenne chmury platformy Azure.  |
-| SQL/SAP HANA | Tak                                                          | Wszystkie regiony publiczne i suwerenne chmury platformy Azure.             |
-| Agent MARS/lokalnie  | Nie                                                           | Brak               |
-| AFS                    | Nie                                                           | Brak               |
+| SQL/SAP HANA | Tak                                                          | Zachodnie stany USA 2 (WUS2), zachodnio-środkowe stany USA (WCUS), Kanada Środkowa (CNC), Kanada Wschodnia (CNE), Wschodnie stany USA (EUS), zachodnie stany USA (WUS), Japonia Wschodnia (JPE), Japonia Wschodnia (JPE) |
+| Agent MARS/lokalnie  | Nie                                                           | Nie dotyczy               |
+| AFS (udziały plików platformy Azure)                 | Nie                                                           | Nie dotyczy               |
 
 ## <a name="next-steps"></a>Następne kroki
 

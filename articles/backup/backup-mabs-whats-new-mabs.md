@@ -3,12 +3,12 @@ title: Co nowego w usłudze Microsoft Azure Backup Server
 description: Serwer Microsoft Azure Backup zapewnia ulepszone możliwości tworzenia kopii zapasowych w celu ochrony maszyn wirtualnych, plików i folderów, obciążeń i nie tylko.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: ca06e52c81b909bb19008fdccfe4b3fdeb7e6248
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182143"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332767"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Co nowego w programie Microsoft Azure Backup Server (serwera usługi MAB)
 
@@ -23,7 +23,7 @@ Serwer Microsoft Azure Backup (serwera usługi MAB) w wersji 3 UR1 to najnowsza 
 
 SERWERA usługi MAB v2 wprowadził [nowoczesny magazyn kopii zapasowych](backup-mabs-add-storage.md) (MB), zwiększając wykorzystanie magazynu i wydajność. MB korzysta z systemu plików ReFS jako bazowego i jest przeznaczony do korzystania z magazynu hybrydowego, takiego jak magazyn warstwowy.
 
-Aby osiągnąć skalę i wydajność, MB zalecamy użycie małego procentu (4% całkowitego magazynu) w usłudze Flash Storage (SSD) z serwera usługi MAB v3 UR1 jako woluminu warstwowego w połączeniu z magazynem dysków twardych programu DPM. SERWERA usługi MAB v3 UR1 z magazynem warstwowym zapewnia 50-70% szybszych kopii zapasowych. Zapoznaj się z artykułem DPM [set up MB with Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) , aby uzyskać instrukcje dotyczące konfigurowania magazynu warstwowego.
+Aby osiągnąć skalę i wydajność, MB zalecamy użycie małego procentu (4% całkowitego magazynu) w usłudze Flash Storage (SSD) z serwera usługi MAB v3 UR1 jako woluminu warstwowego w połączeniu z magazynem dysków twardych programu DPM. SERWERA usługi MAB v3 UR1 z magazynem warstwowym zapewnia 50-70% szybszych kopii zapasowych. Zapoznaj się z artykułem DPM [set up MB with Tiered Storage](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage) , aby uzyskać instrukcje dotyczące konfigurowania magazynu warstwowego.
 
 ### <a name="support-for-refs-volumes"></a>Obsługa woluminów ReFS
 

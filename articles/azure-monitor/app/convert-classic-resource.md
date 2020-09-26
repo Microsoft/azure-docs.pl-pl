@@ -4,19 +4,19 @@ description: Informacje o krokach wymaganych do uaktualnienia Azure Monitor Appl
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: caaf5469eace891f2996a565af183b411ad1d740
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938275"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333345"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrowanie do zasobów Application Insights opartych na obszarze roboczym
 
 Ten przewodnik przeprowadzi Cię przez proces migrowania klasycznego zasobu Application Insights do zasobów opartych na obszarze roboczym. Zasoby oparte na obszarze roboczym obsługują pełną integrację między Application Insights i Log Analytics. Zasoby oparte na obszarze roboczym wysyłają Application Insights dane telemetryczne do wspólnego Log Analytics obszaru roboczego, dzięki czemu można uzyskiwać dostęp do [najnowszych funkcji Azure monitor](#new-capabilities) podczas utrzymywania dzienników aplikacji, infrastruktury i platformy w pojedynczej skonsolidowanej lokalizacji.
 
-Zasoby oparte na obszarze roboczym umożliwiają korzystanie z wspólnych Access Control opartych na rolach (RBAC) w ramach zasobów i eliminuje konieczność wykonywania zapytań między aplikacjami i obszarami roboczymi.
+Zasoby oparte na obszarze roboczym umożliwiają wspólne Access Control oparte na rolach (RBAC) w ramach Twoich zasobów i eliminuje konieczność wykonywania zapytań między aplikacjami i obszarami roboczymi.
 
 **Zasoby oparte na obszarze roboczym są obecnie dostępne we wszystkich regionach komercyjnych i dla instytucji rządowych USA platformy Azure**
 
@@ -34,12 +34,11 @@ Application Insights oparte na obszarze roboczym pozwala korzystać ze wszystkic
 
 Podczas migracji do zasobów opartych na obszarze roboczym nie są przesyłane żadne dane z magazynu zasobów klasycznych do nowego magazynu opartego na obszarze roboczym. Wybranie migracji spowoduje zmianę lokalizacji, w której nowe dane są zapisywane w obszarze roboczym Log Analytics przy zachowaniu dostępu do klasycznych danych zasobów. 
 
-Twoje klasyczne dane zasobów będą utrwalane i podlegają ustawieniom przechowywania w czasie jego pozyskiwania. Wszystkie nowe dane pozyskiwane po migracji będą podlegać ustawieniom przechowywania skojarzonego obszaru roboczego Log Analytics. 
-
+Twoje klasyczne dane zasobów będą utrwalane i podlegają ustawieniom przechowywania dla klasycznego zasobu Application Insights. Wszystkie nowe dane pozyskiwane po migracji będą podlegać [ustawieniom przechowywania](../platform/manage-cost-storage.md#change-the-data-retention-period) skojarzonego obszaru roboczego log Analytics, który również obsługuje [różne ustawienia przechowywania według typu danych](../platform/manage-cost-storage.md#retention-by-data-type).
 Proces migracji jest **trwały i nie można go cofnąć**. Po przeprowadzeniu migracji zasobu do Application Insights opartego na obszarze roboczym zawsze będzie to zasób oparty na obszarze roboczym. Jednak po przeprowadzeniu migracji można zmienić docelowy obszar roboczy tak często, jak jest to konieczne. 
 
 > [!NOTE]
-> Pozyskiwanie i przechowywanie danych dla zasobów Application Insights opartych na obszarze roboczym jest rozliczane za pośrednictwem Log Analytics obszaru roboczego, w którym znajdują się dane. [Dowiedz się więcej]( ./pricing.md#workspace-based-application-insights) o rozliczeniach dla zasobów Application Insights opartych na obszarze roboczym. (Dane zasobów klasycznych Application Insights pozyskiwane przed migracją będą w dalszym ciągu objęte Application Insights przechowywaniem/cenami przez czas, w którym dane są przechowywane). 
+> Pozyskiwanie i przechowywanie danych dla zasobów Application Insights opartych na obszarze roboczym jest [rozliczane za pośrednictwem log Analytics obszaru roboczego](../platform/manage-cost-storage.md) , w którym znajdują się dane. W przypadku wybrania przechowywania danych przez ponad 90 dni przed rozpoczęciem migracji dane pobrane do klasycznego Application Insights zasobów i przechowywania danych będą nadal rozliczane w ramach tego zasobu Application Insights. [Dowiedz się więcej]( ./pricing.md#workspace-based-application-insights) o rozliczeniach dla zasobów Application Insights opartych na obszarze roboczym.
 
 Jeśli nie musisz migrować istniejącego zasobu i chcesz utworzyć nowy zasób Application Insights oparty na obszarze roboczym, użyj [przewodnika tworzenia zasobów opartego na obszarze roboczym](create-workspace-resource.md).
 

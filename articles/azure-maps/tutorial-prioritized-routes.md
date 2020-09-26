@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Znajdowanie i wyświetlanie tras dla określonych trybów podróży przy użyciu map Microsoft Azure'
-description: Dowiedz się, jak używać Azure Maps do znajdowania i wyświetlania tras dla określonych trybów podróży.
+title: 'Samouczek: Znajdowanie wielu tras według trybu podróży | Mapy Microsoft Azure'
+description: Samouczek dotyczący sposobu użycia Azure Maps, aby znaleźć trasy dla określonych trybów podróży do punktów zainteresowania. Zobacz, jak wyświetlić wiele tras na mapach.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: a5b8dba920db0227c400e62ef7ddaf718d27c78a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085063"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321751"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Samouczek: Znajdowanie i wyświetlanie tras dla różnych trybów podróży przy użyciu Azure Maps
 
@@ -160,11 +160,13 @@ W tym samouczku na mapie zostaną obliczone i wyrenderowane dwie trasy. Pierwsza
 
     ```
 
+
     W programie obsługi zdarzeń kontrolki mapy `ready` jest tworzone źródło danych służące do przechowywania trasy od początku do końca. [Wyrażenia](data-driven-style-expressions-web-sdk.md) są używane do pobierania szerokości linii i koloru z właściwości w funkcji linia trasy. Aby upewnić się, że linia trasy nie obejmuje etykiet drogi, przeszedł drugi parametr z wartością `'labels'` .
 
     Następnie zostanie utworzona i dołączona do źródła danych. Ta warstwa określa sposób renderowania punktów początkowych i końcowych. Dodano wyrażenia, aby pobrać obraz ikony i informacje o etykiecie tekstowej z właściwości dla każdego obiektu punktu. Aby dowiedzieć się więcej na temat wyrażeń, zobacz [oparte na danych wyrażenia stylów](data-driven-style-expressions-web-sdk.md).
 
 2. Ustaw punkt początkowy jako fikcyjną firmę w Seattle o nazwie Fabrikam i punkt końcowy jako pakiet Microsoft Office.  W programie obsługi zdarzeń kontrolki mapy `ready` Dodaj następujący kod.
+
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -279,7 +281,11 @@ W tej sekcji pokazano, jak za pomocą usługi Azure Maps Route uzyskać wskazów
 
     Trasa ciężarówki jest wyświetlana przy użyciu grubego niebieskiego wiersza. Trasa samochodowa jest wyświetlana przy użyciu cienkiej linii purpurowej. Trasa samochodowa odbywa się w jeziorach Waszyngton za pośrednictwem I-90, przekazując tunele do obszarów mieszkalnych. Ze względu na to, że tunele znajdują się blisko obszarów mieszkalnych, odpadi z odpadów niebezpiecznych są ograniczone. Trasa ciężarówki, która określa `USHazmatClass2` Typ ładunku, jest skierowana do korzystania z innego autostrady.
 
-    W [tym miejscu](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)możesz uzyskać pełny kod źródłowy dla przykładu. Przykład na żywo można znaleźć [tutaj](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+W [tym miejscu](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)możesz uzyskać pełny kod źródłowy dla przykładu. Przykład na żywo można znaleźć [tutaj](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel).
+
+Można również [użyć wyrażeń stylów opartych na danych](data-driven-style-expressions-web-sdk.md)
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

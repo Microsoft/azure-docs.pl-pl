@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 7f5ce25edfc4c3afd8a30528396f1f285b9af571
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f7d2351fdc39ec4600cbca2e436cdcd527157275
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080698"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332968"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -115,7 +115,7 @@ Synchronizacja danych używa wyzwalaczy INSERT, Update i DELETE do śledzenia zm
 
 Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia grupy synchronizacji, aktualizacji i usuwania może również mieć wpływ na wydajność bazy danych.
 
-## <a name="requirements-and-limitations"></a><a name="sync-req-lim"></a>Wymagania i ograniczenia
+## <a name="requirements-and-limitations"></a><a name="sync-req-lim"></a> Wymagania i ograniczenia
 
 ### <a name="general-requirements"></a>Wymagania ogólne
 

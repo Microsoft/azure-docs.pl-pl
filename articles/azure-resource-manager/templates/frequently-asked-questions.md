@@ -2,15 +2,15 @@
 title: Często zadawane pytania dotyczące szablonu ARM
 description: Często zadawane pytania dotyczące szablonów Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327263"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333124"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Często zadawane pytania dotyczące szablonów ARM
 
@@ -88,7 +88,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * **Słyszę, że pracujesz nad nowym szablonem szablonu. Gdzie mogę dowiedzieć się więcej na ten temat?**
 
-  Aby dowiedzieć się więcej o nowym języku szablonów, [zarejestruj się w celu otrzymywania powiadomień](https://aka.ms/armLangUpdates).
+  Aby wyświetlić podgląd nowego języka, zobacz [repozytorium Project Bicep](https://github.com/Azure/bicep). Aby otrzymywać informacje o nowym języku, [zarejestruj się w celu otrzymywania powiadomień](https://aka.ms/armLangUpdates).
 
 * **Czy istnieje plan obsługi tworzenia szablonów w programie YAML?**
 
@@ -118,7 +118,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * **Czy specyfikacje szablonu mogą być współużytkowane przez subskrypcje?**
 
-  Tak, mogą one być używane w różnych subskrypcjach, o ile użytkownik ma dostęp do odczytu do specyfikacji szablonu. specyfikacje szablonu nie mogą być używane między dzierżawcami.
+  Tak, mogą one być używane w różnych subskrypcjach, o ile użytkownik ma dostęp do odczytu do specyfikacji szablonu. Specyfikacje szablonu nie mogą być używane między dzierżawcami.
 
 ## <a name="scripts-in-templates"></a>Skrypty w szablonach
 
@@ -154,7 +154,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * **Gdy używam co to zrobić, widzę zmiany właściwości, które nie znajdują się w szablonie. Czy jest oczekiwany "szum"?**
 
-  Co to jest wersja zapoznawcza. Pracujemy nad zmniejszeniem szumów. Pomóż nam udoskonalić przez przesłanie problemów w naszym repozytorium GitHub tutaj:https://aka.ms/WhatIfIssues
+  Co to jest wersja zapoznawcza. Pracujemy nad zmniejszeniem szumów. Pomóż nam udoskonalić przez przesłanie problemów w naszym repozytorium GitHub tutaj: https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>Wizualizator szablonu
 

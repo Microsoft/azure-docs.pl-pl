@@ -7,19 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e315f49cb0b78e13c4b6132f844397d1261ff0f9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7cd15bab0b26a13f9ffb818aa29e8e262c0bd06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652020"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332920"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Jak za pomocą Azure Portal zainicjować obsługę administracyjną maszyny wirtualnej z systemem Windows za pomocą SQL Server
 
@@ -56,7 +56,7 @@ Podczas tworzenia maszyny wirtualnej SQL Server można wybrać jeden z kilku wst
    > Aby uzyskać więcej informacji na temat tych opcji, zobacz [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
 
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 
 ## <a name="1-configure-basic-settings"></a>1. Skonfiguruj ustawienia podstawowe
@@ -69,7 +69,7 @@ Na karcie **podstawowe** podaj następujące informacje:
   ![Subskrypcja](./media/create-sql-vm-portal/basics-project-details.png)
 
   > [!NOTE]
-  > Nowa grupa zasobów jest przydatna, jeśli tylko testujesz lub poznajesz wdrożenia programu SQL Server na platformie Azure. Po zakończeniu testu usuń grupę zasobów, aby automatycznie usunąć maszynę wirtualną i wszystkie skojarzone z nią zasoby. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../../../active-directory-b2c/overview.md).
+  > Nowa grupa zasobów jest przydatna, jeśli tylko testujesz lub poznajesz wdrożenia programu SQL Server na platformie Azure. Po zakończeniu testu usuń grupę zasobów, aby automatycznie usunąć maszynę wirtualną i wszystkie skojarzone z nią zasoby. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Azure Resource Manager przegląd](../../../active-directory-b2c/overview.md).
 
 
 * W obszarze **szczegóły wystąpienia**:
@@ -85,7 +85,7 @@ Na karcie **podstawowe** podaj następujące informacje:
 > [!IMPORTANT]
 > Szacowany koszt miesięczny wyświetlany w oknie **Wybieranie rozmiaru** nie uwzględnia kosztów licencjonowania programu SQL Server. To oszacowanie jest kosztem samej maszyny wirtualnej. W przypadku wersji Express i Developer SQL Server tym oszacowaniem jest całkowity szacowany koszt. W przypadku innych wersji zobacz [cennik maszyn wirtualnych z systemem Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) i wybierz docelową wersję programu SQL Server. Zapoznaj się również ze [wskazówkami dotyczącymi cen dla SQL Server](pricing-guidance.md) maszyn [wirtualnych i rozmiarów](../../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)platformy Azure.
 
-* W obszarze **konto administratora**Podaj nazwę użytkownika i hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+* W obszarze **konto administratora**Podaj nazwę użytkownika i hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
    ![Konto administratora](./media/create-sql-vm-portal/basics-administrator-account.png)
 
@@ -115,7 +115,7 @@ Na karcie **Sieć** Skonfiguruj opcje sieci.
 
 * Utwórz nową **sieć wirtualną** lub Użyj istniejącej sieci wirtualnej dla maszyny wirtualnej SQL Server. Wyznacz również **podsieć** . 
 
-* W obszarze **sieciowe grupy zabezpieczeń kart sieciowych**wybierz podstawową grupę zabezpieczeń lub zaawansowaną grupę zabezpieczeń. Wybranie opcji podstawowa umożliwia wybranie portów ruchu przychodzącego dla maszyny wirtualnej SQL Server, które są te same wartości skonfigurowane na karcie **podstawowa** . wybranie opcji Zaawansowane umożliwia wybranie istniejącej sieciowej grupy zabezpieczeń lub utworzenie nowej. 
+* W obszarze **sieciowe grupy zabezpieczeń kart sieciowych**wybierz podstawową grupę zabezpieczeń lub zaawansowaną grupę zabezpieczeń. Wybranie opcji podstawowa umożliwia wybranie portów ruchu przychodzącego dla SQL Server maszyny wirtualnej, które są te same wartości skonfigurowanych na karcie **podstawowa** . Wybranie opcji Zaawansowane umożliwia wybranie istniejącej sieciowej grupy zabezpieczeń lub utworzenie nowej. 
 
 * Możesz wprowadzić inne zmiany w ustawieniach sieci lub zachować wartości domyślne.
 
@@ -138,7 +138,7 @@ Na karcie **ustawienia SQL Server** Skonfiguruj określone ustawienia i optymali
 - [Łączność](#connectivity)
 - [Authentication](#authentication)
 - [Integracja Azure Key Vault](#azure-key-vault-integration)
-- [Konfiguracja magazynu](#storage-configuration)
+- [Konfiguracja usługi Storage](#storage-configuration)
 - [Automatyczne stosowanie poprawek](#automated-patching)
 - [Automatyczna kopia zapasowa](#automated-backup)
 - [Machine Learning Services](#machine-learning-services)

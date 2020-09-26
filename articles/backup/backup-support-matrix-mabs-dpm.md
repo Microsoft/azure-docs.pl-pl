@@ -3,12 +3,12 @@ title: Macierz obsługi programu serwera usługi MAB & System Center DPM
 description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej w przypadku używania serwera Microsoft Azure Backup (serwera usługi MAB) lub programu System Center DPM do tworzenia kopii zapasowych zasobów lokalnych i maszyn wirtualnych platformy Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332699"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Macierz obsługi dla tworzenia kopii zapasowych za pomocą serwera Microsoft Azure Backup lub programu System Center DPM
 
@@ -24,7 +24,7 @@ SERWERA usługi MAB jest oparta na programie System Center DPM i oferuje podobn�
 
 - Do uruchomienia serwera usługi MAB nie jest wymagana żadna licencja programu System Center.
 - W przypadku programów serwera usługi MAB i DPM platforma Azure zapewnia długoterminowe przechowywanie kopii zapasowych. Ponadto program DPM umożliwia tworzenie kopii zapasowych danych w celu przechowywania długoterminowego na taśmie. SERWERA usługi MAB nie zapewnia tej funkcji.
-- [Można utworzyć kopię zapasową podstawowego serwera DPM przy użyciu pomocniczego serwera programu DPM](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). Serwer pomocniczy będzie chronić bazę danych serwera podstawowego i repliki źródła danych przechowywane na serwerze podstawowym. W razie awarii serwera podstawowego serwer pomocniczy może nadal chronić obciążenia chronione przez serwer podstawowy do czasu, aż serwer podstawowy stanie się ponownie dostępny.  SERWERA usługi MAB nie zapewnia tej funkcji.
+- [Można utworzyć kopię zapasową podstawowego serwera DPM przy użyciu pomocniczego serwera programu DPM](/system-center/dpm/back-up-the-dpm-server). Serwer pomocniczy będzie chronić bazę danych serwera podstawowego i repliki źródła danych przechowywane na serwerze podstawowym. W razie awarii serwera podstawowego serwer pomocniczy może nadal chronić obciążenia chronione przez serwer podstawowy do czasu, aż serwer podstawowy stanie się ponownie dostępny.  SERWERA usługi MAB nie zapewnia tej funkcji.
 
 Pobierasz serwera usługi MAB z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Może być uruchamiany lokalnie lub na maszynie wirtualnej platformy Azure.
 
@@ -158,7 +158,7 @@ Brak łączności przez ponad 15 dni | Wygasłe lub anulowano obsługę administ
 |Wymaganie |Szczegóły |
 |---------|---------|
 |Domena    | Serwer DPM/serwera usługi MAB powinien znajdować się w domenie systemu Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012.        |
-|Zaufanie domeny   |  Program DPM/serwera usługi MAB obsługuje ochronę danych w różnych lasach, pod warunkiem, że ustanawiane jest zaufanie dwukierunkowe między oddzielnymi lasami.   <BR><BR>   Program DPM/serwera usługi MAB może chronić serwery i stacje robocze w domenach w lesie, który ma ustanowioną dwukierunkową relację zaufania z domeną serwera DPM/serwera usługi MAB. Aby chronić komputery w grupach roboczych lub domenach niezaufanych, zobacz [wykonywanie kopii zapasowych i przywracanie obciążeń w grupach roboczych i domenach niezaufanych.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
+|Zaufanie domeny   |  Program DPM/serwera usługi MAB obsługuje ochronę danych w różnych lasach, pod warunkiem, że ustanawiane jest zaufanie dwukierunkowe między oddzielnymi lasami.   <BR><BR>   Program DPM/serwera usługi MAB może chronić serwery i stacje robocze w domenach w lesie, który ma ustanowioną dwukierunkową relację zaufania z domeną serwera DPM/serwera usługi MAB. Aby chronić komputery w grupach roboczych lub domenach niezaufanych, zobacz [wykonywanie kopii zapasowych i przywracanie obciążeń w grupach roboczych i domenach niezaufanych.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
 
 ## <a name="dpmmabs-storage-support"></a>Obsługa magazynu programu DPM/serwera usługi MAB
 
@@ -185,7 +185,7 @@ Aby uzyskać informacje na temat różnych serwerów i obciążeń, które możn
 
 ## <a name="supported-backups-to-dpm"></a>Obsługiwane kopie zapasowe w programie DPM
 
-Aby uzyskać informacje na temat różnych serwerów i obciążeń, które można chronić za pomocą Data Protection Manager, zapoznaj się z artykułem [co można wykonać w programie DPM?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
+Aby uzyskać informacje na temat różnych serwerów i obciążeń, które można chronić za pomocą Data Protection Manager, zapoznaj się z artykułem [co można wykonać w programie DPM?](/system-center/dpm/dpm-protection-matrix).
 
 - Klastrowane obciążenia tworzone w ramach programu DPM/serwera usługi MAB powinny znajdować się w tej samej domenie co program DPM/serwera usługi MAB lub w domenie podrzędnej/zaufanej.
 - Przy użyciu uwierzytelniania NTLM/Certificate można tworzyć kopie zapasowe danych w niezaufanych domenach lub grupach roboczych.

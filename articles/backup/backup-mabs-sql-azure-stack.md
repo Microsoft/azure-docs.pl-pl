@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych obciążeń SQL Server na Azure Stack
 description: W tym artykule dowiesz się, jak skonfigurować serwer Microsoft Azure Backup (serwera usługi MAB) w celu ochrony SQL Serverymi bazami danych w Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 912e6f10b689217303786b20ec6315fca595a8c2
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376336"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332818"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Tworzenie kopii zapasowej SQL Server na Azure Stack
 
@@ -24,10 +24,10 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
 
 * Jeśli Twoja baza danych ma pliki w zdalnym udziale plików, ochrona zakończy się niepowodzeniem z błędem o identyfikatorze 104. SERWERA usługi MAB nie obsługuje ochrony danych SQL Server w zdalnym udziale plików.
 * SERWERA usługi MAB nie chroni baz danych przechowywanych w zdalnych udziałach SMB.
-* Upewnij się, że [repliki grupy dostępności są skonfigurowane jako tylko do odczytu](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Upewnij się, że [repliki grupy dostępności są skonfigurowane jako tylko do odczytu](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * Należy jawnie dodać konto System **systemowe NTAUTHORITY\SYSTEM** do grupy sysadmin na SQL Server.
-* W przypadku przeprowadzania odzyskiwania do lokalizacji alternatywnej dla częściowo zawartej bazy danych należy upewnić się, że docelowe wystąpienie programu SQL Server ma włączoną funkcję [zawarte bazy danych](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) .
-* W przypadku przeprowadzania odzyskiwania alternatywnej lokalizacji bazy danych strumieni plików należy upewnić się, że docelowe wystąpienie programu SQL Server ma włączoną funkcję [bazy danych strumienia plików](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) .
+* W przypadku przeprowadzania odzyskiwania do lokalizacji alternatywnej dla częściowo zawartej bazy danych należy upewnić się, że docelowe wystąpienie programu SQL Server ma włączoną funkcję [zawarte bazy danych](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) .
+* W przypadku przeprowadzania odzyskiwania alternatywnej lokalizacji bazy danych strumieni plików należy upewnić się, że docelowe wystąpienie programu SQL Server ma włączoną funkcję [bazy danych strumienia plików](/sql/relational-databases/blob/enable-and-configure-filestream) .
 * Ochrona programu SQL Server z włączoną funkcją AlwaysOn:
   * SERWERA usługi MAB wykrywa grupy dostępności podczas uruchamiania zapytania podczas tworzenia grupy ochrony.
   * SERWERA usługi MAB wykrywa tryb failover i kontynuuje ochronę bazy danych.
@@ -45,7 +45,7 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
     * Jeśli kopia zapasowa nie powiedzie się w wybranym węźle, operacja tworzenia kopii zapasowej zakończy się niepowodzeniem.
     * Odzyskiwanie do oryginalnej lokalizacji nie jest obsługiwane.
 * SQL Server 2014 lub więcej problemów z kopią zapasową:
-  * Program SQL Server 2014 dodał nową funkcję w celu utworzenia [bazy danych dla SQL Server lokalnych w usłudze Windows Azure Blob Storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). Nie można użyć serwera usługi MAB do ochrony tej konfiguracji.
+  * Program SQL Server 2014 dodał nową funkcję w celu utworzenia [bazy danych dla SQL Server lokalnych w usłudze Windows Azure Blob Storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). Nie można użyć serwera usługi MAB do ochrony tej konfiguracji.
   * Istnieją znane problemy z preferencjami "Preferuj pomocnicze" kopii zapasowych dla opcji SQL AlwaysOn. SERWERA usługi MAB zawsze wykonuje kopię zapasową z elementu pomocniczego. Jeśli nie można znaleźć żadnych dodatkowych, kopia zapasowa kończy się niepowodzeniem.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
@@ -60,7 +60,7 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
 
     ![Utwórz grupę ochrony](./media/backup-azure-backup-sql/protection-group.png)
 
-    Azure Backup Server uruchamia Kreatora grupy ochrony, który prowadzi użytkownika przez proces tworzenia **grupy ochrony**. Wybierz pozycję **Next** (Dalej).
+    Azure Backup Server uruchamia Kreatora grupy ochrony, który prowadzi użytkownika przez proces tworzenia **grupy ochrony**. Wybierz opcję **Dalej**.
 
 3. Na ekranie **Wybierz typ grupy ochrony** wybierz pozycję **serwery**.
 
@@ -87,9 +87,9 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
    >
    >
 
-7. Na ekranie **Przejrzyj przydział dysku** Sprawdź, czy dostępna jest ogólna ilość dostępnego miejsca do magazynowania i ilość miejsca na dysku. Wybierz pozycję **Next** (Dalej).
+7. Na ekranie **Przejrzyj przydział dysku** Sprawdź, czy dostępna jest ogólna ilość dostępnego miejsca do magazynowania i ilość miejsca na dysku. Wybierz opcję **Dalej**.
 
-8. W **Wybierz metodę tworzenia repliki**wybierz sposób tworzenia pierwszego punktu odzyskiwania. Początkową kopię zapasową można przenieść ręcznie (wyłączyć sieć), aby uniknąć przeciążenia przepustowości lub sieci. Jeśli zdecydujesz się na przeniesienie pierwszej kopii zapasowej, możesz określić godzinę wstępnego transferu. Wybierz pozycję **Next** (Dalej).
+8. W **Wybierz metodę tworzenia repliki**wybierz sposób tworzenia pierwszego punktu odzyskiwania. Początkową kopię zapasową można przenieść ręcznie (wyłączyć sieć), aby uniknąć przeciążenia przepustowości lub sieci. Jeśli zdecydujesz się na przeniesienie pierwszej kopii zapasowej, możesz określić godzinę wstępnego transferu. Wybierz opcję **Dalej**.
 
     ![Metoda replikacji początkowej](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -163,13 +163,13 @@ Poniższe kroki są wymagane do odzyskania chronionej jednostki (SQL Server Data
 2. Kliknij prawym przyciskiem myszy nazwę bazy danych i wybierz polecenie **Odzyskaj**.
 
     ![Odzyskaj z platformy Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. SERWERA usługi MAB wyświetla szczegóły punktu odzyskiwania. Wybierz pozycję **Next** (Dalej). Aby zastąpić bazę danych, wybierz typ odzyskiwania **Odzyskaj do oryginalnego wystąpienia SQL Server**. Wybierz pozycję **Next** (Dalej).
+3. SERWERA usługi MAB wyświetla szczegóły punktu odzyskiwania. Wybierz opcję **Dalej**. Aby zastąpić bazę danych, wybierz typ odzyskiwania **Odzyskaj do oryginalnego wystąpienia SQL Server**. Wybierz opcję **Dalej**.
 
     ![Odzyskaj do oryginalnej lokalizacji](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     W tym przykładzie serwera usługi MAB odzyskuje bazę danych do innego wystąpienia SQL Server lub do autonomicznego folderu sieciowego.
 
-4. Na ekranie **Określ opcje odzyskiwania** możesz wybrać opcje odzyskiwania, takie jak ograniczanie przepustowości sieci, aby ograniczyć przepustowość używaną przez funkcję odzyskiwania. Wybierz pozycję **Next** (Dalej).
+4. Na ekranie **Określ opcje odzyskiwania** możesz wybrać opcje odzyskiwania, takie jak ograniczanie przepustowości sieci, aby ograniczyć przepustowość używaną przez funkcję odzyskiwania. Wybierz opcję **Dalej**.
 
 5. Na ekranie **Podsumowanie** widoczne są wszystkie konfiguracje odzyskiwania. Wybierz pozycję **Odzyskaj**.
 

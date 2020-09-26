@@ -10,27 +10,28 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: 982c7a41f1e05c34ddf0fbae9f944df4a4d08fa5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ce8ff8bedc6f6e4f99a940bbdb26bd3fafc930d8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893371"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296777"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 
 
 W tym artykule dowiesz się, jak skonfigurować i przeszkolić model regresji do prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego AutoML [Azure Machine Learning w zestawie SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
+W tym celu wykonasz następujące czynności: 
+
+> [!div class="checklist"]
+> * Przygotowywanie danych do modelowania szeregów czasowych.
+> * Skonfiguruj określone parametry szeregów czasowych w [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) obiekcie.
+> * Uruchamiaj przewidywania z danymi szeregów czasowych.
+
 Aby zapoznać się z małym doświadczeniem w kodzie, zobacz [Samouczek: prognozowanie popytu na automatyczne Uczenie maszynowe](tutorial-automated-ml-forecast.md) na potrzeby prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego w [Azure Machine Learning Studio](https://ml.azure.com/).
 
 W przeciwieństwie do klasycznych metod szeregów czasowych, w zautomatyzowanych ML, przeszłe wartości szeregów czasowych są "przestawne", aby stać się dodatkowymi wymiarami regresor wraz z innymi predykcyjnymi. Takie podejście obejmuje wiele zmiennych kontekstowych i ich relacji ze sobą podczas uczenia się. Ze względu na to, że wiele czynników ma wpływ na prognozę, ta metoda wyrównuje siebie dobrze z rzeczywistymi scenariuszami prognozowania. Na przykład podczas prognozowania sprzedaży, interakcji z tendencjami historycznymi, kursów wymiany i ceny wszystkie wspólnie łączą wynik sprzedaży. 
-
-W poniższych przykładach pokazano, jak:
-
-* Przygotowywanie danych do modelowania szeregów czasowych
-* Konfigurowanie określonych parametrów szeregów czasowych w [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) obiekcie
-* Uruchamianie prognoz z danymi szeregów czasowych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -118,52 +119,20 @@ automl_config = AutoMLConfig(task='forecasting',
 Dowiedz się więcej o tym, jak AutoML stosuje krzyżowe sprawdzanie poprawności, aby [uniknąć nadmiernego dopasowania modeli](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ## <a name="configure-experiment"></a>Konfigurowanie eksperymentu
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)Obiekt definiuje ustawienia i dane niezbędne do automatycznego zadania uczenia maszynowego. Konfiguracja dla modelu prognozowania jest podobna do konfiguracji standardowego modelu regresji, ale niektóre kroki cechowania i opcje konfiguracji istnieją w odniesieniu do danych szeregów czasowych. 
 
-### <a name="featurization-steps"></a>Cechowania kroki
+[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)Obiekt definiuje ustawienia i dane niezbędne do automatycznego zadania uczenia maszynowego. Konfiguracja dla modelu prognozowania jest podobna do konfiguracji standardowego modelu regresji, ale niektóre modele, opcje konfiguracji i cechowania czynności istnieją w odniesieniu do danych szeregów czasowych. 
 
-W każdym automatycznym doświadczeniu uczenia maszynowego automatyczne skalowanie i techniki normalizacji są domyślnie stosowane do danych. Techniki te są typami **cechowania** , które pomagają *określonym* algorytmom, które są wrażliwe na funkcje w różnych skali. Dowiedz się więcej o domyślnych krokach cechowania w [cechowania w AutoML](how-to-configure-auto-features.md#automatic-featurization)
+### <a name="supported-models"></a>Obsługiwane modele
+Automatyczne Uczenie maszynowe automatycznie próbuje różne modele i algorytmy w ramach procesu tworzenia i dostrajania modelu. Jako użytkownik nie ma potrzeby określania algorytmu. Do prognozowania eksperymentów zarówno natywna seria czasowa, jak i modele uczenia głębokiego są częścią systemu rekomendacji. W poniższej tabeli zestawiono ten podzbiór modeli. 
 
-Jednakże następujące kroki są wykonywane tylko w przypadku `forecasting` typów zadań:
+>[!Tip]
+> Tradycyjne modele regresji są również testowane jako część systemu rekomendacji do prognozowania eksperymentów. Pełną listę modeli można znaleźć w [tabeli obsługiwanej modelu](how-to-configure-auto-train.md#supported-models) . 
 
-* Wykrywaj częstotliwość próbkowania szeregów czasowych (na przykład co godzinę, codziennie, co tydzień) i Utwórz nowe rekordy dla nieobecnych punktów czasowych, aby zapewnić ciągłość serii.
-* Nie ma wartości w elemencie docelowym (za pośrednictwem przekazywania) i kolumn funkcji (przy użyciu wartości kolumn mediany).
-* Tworzenie funkcji opartych na identyfikatorach szeregów czasowych w celu włączenia stałych efektów w różnych seriach
-* Tworzenie funkcji opartych na czasie, które ułatwiają uczenie wzorców sezonowych
-* Koduj zmienne kategorii na liczby liczbowe
-
-Aby uzyskać podsumowanie, jakie funkcje są tworzone w wyniku tych kroków, zobacz [przezroczystość cechowania](how-to-configure-auto-features.md#featurization-transparency)
-
-> [!NOTE]
-> Zautomatyzowane kroki cechowania uczenia maszynowego (normalizacja funkcji, obsługa brakujących danych, konwertowanie tekstu na liczbowe itp.) staje się częścią modelu źródłowego. Korzystając z modelu dla prognoz, te same kroki cechowania stosowane podczas uczenia są automatycznie stosowane do danych wejściowych.
-
-#### <a name="customize-featurization"></a>Dostosuj cechowania
-
-Istnieje również możliwość dostosowania ustawień cechowania, aby upewnić się, że dane i funkcje, które są używane do uczenia modelu ML, powodują odpowiednie przewidywania. 
-
-Obsługiwane dostosowania `forecasting` zadań obejmują:
-
-|Dostosowywanie|Definicja|
-|--|--|
-|**Aktualizacja celu kolumny**|Przesłoń automatyczne wykrywanie typu funkcji dla określonej kolumny.|
-|**Aktualizacja parametru Transformer** |Zaktualizuj parametry dla określonej funkcji przekształcania. Obecnie obsługuje *program* obsługujący program (fill_value i mediana).|
-|**Upuszczanie kolumn** |Określa kolumny do porzucenia z featurized.|
-
-Aby dostosować featurizations z zestawem SDK, określ `"featurization": FeaturizationConfig` w `AutoMLConfig` obiekcie. Dowiedz się więcej na temat [niestandardowych featurizations](how-to-configure-auto-features.md#customize-featurization).
-
-```python
-featurization_config = FeaturizationConfig()
-# `logQuantity` is a leaky feature, so we remove it.
-featurization_config.drop_columns = ['logQuantitity']
-# Force the CPWVOL5 feature to be of numeric type.
-featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
-# Fill missing values in the target column, Quantity, with zeroes.
-featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
-# Fill mising values in the `INCOME` column with median value.
-featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
-```
-
-Jeśli używasz programu Azure Machine Learning Studio dla eksperymentu, zobacz [jak dostosować cechowania w programie Studio](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+Modele| Opis | Korzyści
+----|----|---
+Prophet (wersja zapoznawcza)|Prophet działa najlepiej z seriami czasowymi, które mają silne skutki sezonowe i kilka sezonów danych historycznych. Aby skorzystać z tego modelu, zainstaluj go lokalnie przy użyciu `pip install fbprophet` . | Dokładne & szybka, niezawodna do wartości odstających, brakujących danych i znaczących zmian w szeregach czasowych.
+AutoARIMA (wersja zapoznawcza)|Funkcja autoregresywnych zintegrowanej średniej ruchomej (ARIMA) sprawdza się najlepiej, gdy dane są nieruchome. Oznacza to, że właściwości statystyczne, takie jak średnia i Wariancja, są stałe dla całego zestawu. Na przykład, jeśli przerzucasz monety, prawdopodobieństwo uzyskania głów wynosi 50%, bez względu na to, że przewracasz dzisiaj, jutro lub w następnym roku.| Świetnie dla serii univariate, ponieważ przeszłe wartości są używane do przewidywania przyszłych wartości.
+ForecastTCN (wersja zapoznawcza)| ForecastTCN to model sieci neuronowych zaprojektowany z myślą o najbardziej wymagających zadaniach prognozowania, przechwytującym nieliniowe i globalne trendy w danych, a także relacje między seriami czasowymi.|Można wykorzystać złożone trendy w danych i łatwo skalować je do największych z nich.
 
 ### <a name="configuration-settings"></a>Ustawienia konfiguracji
 
@@ -221,6 +190,51 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="featurization-steps"></a>Cechowania kroki
+
+W każdym automatycznym doświadczeniu uczenia maszynowego automatyczne skalowanie i techniki normalizacji są domyślnie stosowane do danych. Techniki te są typami **cechowania** , które pomagają *określonym* algorytmom, które są wrażliwe na funkcje w różnych skali. Dowiedz się więcej o domyślnych krokach cechowania w [cechowania w AutoML](how-to-configure-auto-features.md#automatic-featurization)
+
+Jednakże następujące kroki są wykonywane tylko w przypadku `forecasting` typów zadań:
+
+* Wykrywaj częstotliwość próbkowania szeregów czasowych (na przykład co godzinę, codziennie, co tydzień) i Utwórz nowe rekordy dla nieobecnych punktów czasowych, aby zapewnić ciągłość serii.
+* Nie ma wartości w elemencie docelowym (za pośrednictwem przekazywania) i kolumn funkcji (przy użyciu wartości kolumn mediany).
+* Tworzenie funkcji opartych na identyfikatorach szeregów czasowych w celu włączenia stałych efektów w różnych seriach
+* Tworzenie funkcji opartych na czasie, które ułatwiają uczenie wzorców sezonowych
+* Koduj zmienne kategorii na liczby liczbowe
+
+Aby uzyskać podsumowanie, jakie funkcje są tworzone w wyniku tych kroków, zobacz [przezroczystość cechowania](how-to-configure-auto-features.md#featurization-transparency)
+
+> [!NOTE]
+> Zautomatyzowane kroki cechowania uczenia maszynowego (normalizacja funkcji, obsługa brakujących danych, konwertowanie tekstu na liczbowe itp.) staje się częścią modelu źródłowego. Korzystając z modelu dla prognoz, te same kroki cechowania stosowane podczas uczenia są automatycznie stosowane do danych wejściowych.
+
+#### <a name="customize-featurization"></a>Dostosuj cechowania
+
+Istnieje również możliwość dostosowania ustawień cechowania, aby upewnić się, że dane i funkcje, które są używane do uczenia modelu ML, powodują odpowiednie przewidywania. 
+
+Obsługiwane dostosowania `forecasting` zadań obejmują:
+
+|Dostosowywanie|Definicja|
+|--|--|
+|**Aktualizacja celu kolumny**|Przesłoń automatyczne wykrywanie typu funkcji dla określonej kolumny.|
+|**Aktualizacja parametru Transformer** |Zaktualizuj parametry dla określonej funkcji przekształcania. Obecnie obsługuje *program* obsługujący program (fill_value i mediana).|
+|**Upuszczanie kolumn** |Określa kolumny do porzucenia z featurized.|
+
+Aby dostosować featurizations z zestawem SDK, określ `"featurization": FeaturizationConfig` w `AutoMLConfig` obiekcie. Dowiedz się więcej na temat [niestandardowych featurizations](how-to-configure-auto-features.md#customize-featurization).
+
+```python
+featurization_config = FeaturizationConfig()
+# `logQuantity` is a leaky feature, so we remove it.
+featurization_config.drop_columns = ['logQuantitity']
+# Force the CPWVOL5 feature to be of numeric type.
+featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+# Fill missing values in the target column, Quantity, with zeroes.
+featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+# Fill mising values in the `INCOME` column with median value.
+featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+```
+
+Jeśli używasz programu Azure Machine Learning Studio dla eksperymentu, zobacz [jak dostosować cechowania w programie Studio](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+
 ## <a name="optional-configurations"></a>Konfiguracje opcjonalne
 
 Dodatkowe konfiguracje opcjonalne są dostępne do prognozowania zadań, takich jak Włączanie głębokiej uczenia i określanie docelowej agregacji okna. 
@@ -250,17 +264,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 Aby włączyć DNN dla eksperymentu AutoML utworzonego w Azure Machine Learning Studio, zapoznaj się z [ustawieniami typu zadania w programie Studio How to-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-
-Automatyczna ML zapewnia użytkownikom zarówno natywne, jak i bogate modele uczenia w ramach systemu rekomendacji. 
-
-Modele| Opis | Korzyści
-----|----|---
-Prophet (wersja zapoznawcza)|Prophet działa najlepiej z seriami czasowymi, które mają silne skutki sezonowe i kilka sezonów danych historycznych. Aby skorzystać z tego modelu, zainstaluj go lokalnie przy użyciu `pip install fbprophet` . | Dokładne & szybka, niezawodna do wartości odstających, brakujących danych i znaczących zmian w szeregach czasowych.
-AutoARIMA (wersja zapoznawcza)|Funkcja autoregresywnych zintegrowanej średniej ruchomej (ARIMA) sprawdza się najlepiej, gdy dane są nieruchome. Oznacza to, że właściwości statystyczne, takie jak średnia i Wariancja, są stałe dla całego zestawu. Na przykład, jeśli przerzucasz monety, prawdopodobieństwo uzyskania głów wynosi 50%, bez względu na to, że przewracasz dzisiaj, jutro lub w następnym roku.| Świetnie dla serii univariate, ponieważ przeszłe wartości są używane do przewidywania przyszłych wartości.
-ForecastTCN (wersja zapoznawcza)| ForecastTCN to model sieci neuronowych zaprojektowany z myślą o najbardziej wymagających zadaniach prognozowania, przechwytującym nieliniowe i globalne trendy w danych, a także relacje między seriami czasowymi.|Można wykorzystać złożone trendy w danych i łatwo skalować je do największych z nich.
-
 Aby zapoznać się ze szczegółowym przykładem kodu korzystającego z DNNs, zobacz [Notes prognozowania produkcji napojów](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) .
-
 
 ### <a name="target-rolling-window-aggregation"></a>Agregacja stopniowego okna docelowego
 Często najlepszą informacją, jaką może mieć Prognoza, jest Ostatnia wartość elementu docelowego.  Agregacje przedziałów okien docelowych umożliwiają dodanie kroczącej agregacji wartości danych jako funkcji. Generowanie i używanie tych dodatkowych funkcji jako dodatkowych danych kontekstowych ułatwia dokładność modelu uczenia.
@@ -283,7 +287,7 @@ experiment = Experiment(ws, "forecasting_example")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
-
+ 
 ## <a name="forecasting-with-best-model"></a>Prognozowanie przy użyciu najlepszego modelu
 
 Użyj najlepszej iteracji modelu do prognozowania wartości dla zestawu danych testowych.

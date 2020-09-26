@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5e6afef70ee3d4f4d84cb6b867a916ae57da5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 854931273ffebd653615a44dbfa9ce1b846655c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356308"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333430"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Agent uwierzytelniania Pass-through usługi Azure AD: historia wersji 
  
@@ -55,21 +55,16 @@ Poniżej przedstawiono tematy pokrewne:
 ## <a name="154050"></a>1.5.405.0 
 ### <a name="release-status"></a>Stan wydania 
 1/31/2018: wydano do pobrania  
-### <a name="fixed-issues"></a>Rozwiązane problemy 
-
+### <a name="fixed-issues"></a>Naprawione problemy 
 - Naprawiono usterkę, która spowodowała wystąpienie przecieków pamięci w agencie. 
 - Zaktualizowano wersję Azure Service Bus, która obejmuje rozwiązywanie problemów z przekroczeniem limitu czasu łącznika. 
- 
-## <a name="154050"></a>1.5.405.0 
-### <a name="release-status"></a>Stan wydania 
-11/26/2017: wydano do pobrania  
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia 
-- Dodano obsługę połączeń opartych na protokole WebSocket między agentem a usługami Azure AD w celu zwiększenia odporności połączenia 
+- Dodano obsługę połączeń opartych na protokole WebSocket między agentem a usługami Azure AD w celu zwiększenia odporności połączenia
 
 ## <a name="154020"></a>1.5.402.0 
 ### <a name="release-status"></a>Stan wydania 
 11/25/2017: wydano do pobrania  
-### <a name="fixed-issues"></a>Rozwiązane problemy 
+### <a name="fixed-issues"></a>Naprawione problemy 
 - Naprawione usterki związane z pamięcią podręczną DNS dla domyślnych scenariuszy serwera proxy 
  
 ## <a name="153890"></a>1.5.389.0 

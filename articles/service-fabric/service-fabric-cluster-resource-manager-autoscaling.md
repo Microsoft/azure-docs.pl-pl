@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f57e5079543a3112b4fa59f26ba0ae27c24b79a2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 060bb9dcdd504846c76ab4c782b2857fdddfa394
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005517"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354806"
 ---
 # <a name="introduction-to-auto-scaling"></a>Wprowadzenie do automatycznego skalowania
 Skalowanie automatyczne to dodatkowa funkcja Service Fabric do dynamicznego skalowania usług na podstawie obciążenia, które usługi są raportowane lub na podstawie ich użycia. Skalowanie automatyczne zapewnia doskonałą elastyczność i umożliwia obsługę dodatkowych wystąpień lub partycji usługi na żądanie. Cały proces skalowania automatycznego jest zautomatyzowany i przejrzysty, a po skonfigurowaniu zasad w ramach usługi nie ma potrzeby ręcznego skalowania operacji na poziomie usługi. Skalowanie automatyczne może być włączane podczas tworzenia usługi lub w dowolnym momencie przez aktualizację usługi.
@@ -51,7 +51,7 @@ Jedynym mechanizmem, który może być używany z tym wyzwalaczem jest Partition
 * _Maksymalna liczba wystąpień_ definiuje górny limit skalowania. Jeśli liczba wystąpień partycji osiągnie ten limit, usługa nie będzie skalowana w poziomie, niezależnie od obciążenia. Można pominąć ten limit, określając wartość-1, a w takim przypadku usługa zostanie przeskalowana w poziomie możliwie największej liczby węzłów, które są dostępne w klastrze.
 * _Minimalna liczba wystąpień_ definiuje dolny limit skalowania. Jeśli liczba wystąpień partycji osiągnie ten limit, usługa nie będzie skalowana w przypadku, gdy jest to możliwe.
 
-## <a name="setting-auto-scaling-policy"></a>Ustawianie zasad automatycznego skalowania
+## <a name="setting-auto-scaling-policy-for-instance-based-scaling"></a>Ustawianie zasad automatycznego skalowania dla skalowania opartego na wystąpieniach
 
 ### <a name="using-application-manifest"></a>Korzystanie z manifestu aplikacji
 ``` xml
@@ -133,7 +133,7 @@ Analogicznie jak w przypadku mechanizmu, który używa skalowania poprzez dodawa
 > [!WARNING] 
 > Gdy AddRemoveIncrementalNamedPartitionScalingMechanism jest używany z usługami stanowymi, Service Fabric doda lub usunie partycje **bez powiadomienia lub ostrzeżenia**. Ponowne Partycjonowanie danych nie zostanie wykonane, gdy zostanie wyzwolony mechanizm skalowania. W przypadku operacji skalowania w poziomie nowe partycje będą puste i w przypadku operacji skalowania **partycja zostanie usunięta wraz ze wszystkimi danymi, które zawiera**.
 
-## <a name="setting-auto-scaling-policy"></a>Ustawianie zasad automatycznego skalowania
+## <a name="setting-auto-scaling-policy-for-partition-based-scaling"></a>Ustawianie zasad skalowania automatycznego dla skalowania na podstawie partycji
 
 ### <a name="using-application-manifest"></a>Korzystanie z manifestu aplikacji
 ``` xml
@@ -202,5 +202,5 @@ Aby umożliwić skalowanie usługi Monitor zasobów na podstawie rzeczywistych z
 Istnieją dwie metryki reprezentujące rzeczywiste zasoby fizyczne. Jednym z nich jest element servicefabric:/_CpuCores reprezentujący rzeczywiste użycie procesora CPU (więc 0,5 reprezentuje połowę rdzenia), a drugi to w przypadku elementu servicefabric:/_MemoryInMB, który reprezentuje użycie pamięci w MB.
 ResourceMonitorService jest odpowiedzialny za śledzenie użycia procesora i pamięci przez usługi użytkownika. Ta usługa będzie stosowała ważoną średnią przesunięcia w celu uwzględnienia potencjalnych gwałtownych skoków. Monitorowanie zasobów jest obsługiwane w przypadku aplikacji kontenerowych i niekontenerowych w systemie Windows oraz dla kontenerów w systemie Linux. Skalowanie automatyczne na zasobach jest włączone tylko dla usług aktywowanych w [modelu procesów wyłącznych](service-fabric-hosting-model.md#exclusive-process-model).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o [skalowalności aplikacji](service-fabric-concepts-scalability.md).

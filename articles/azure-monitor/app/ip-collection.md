@@ -2,14 +2,14 @@
 title: Kolekcja adresów IP Application Insights platformy Azure | Microsoft Docs
 description: Zrozumienie, jak adresy IP i geolokalizacja są obsługiwane za pomocą usługi Azure Application Insights
 ms.topic: conceptual
-ms.date: 09/11/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: b702494347874a1b4977179ba882490223bdf924
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.date: 09/23/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032830"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333311"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Obsługa geolokalizacji i adresów IP
 
@@ -62,9 +62,7 @@ Aby umożliwić zbieranie i przechowywanie adresów IP, `DisableIpMasking` Wła�
 
 Jeśli musisz zmodyfikować zachowanie dla pojedynczego zasobu Application Insights, użyj Azure Portal. 
 
-1. Przejdź do **Settings**  >  **szablonu eksportu** ustawień > zasobów Application Insights 
-
-    ![Eksportuj szablon](media/ip-collection/export-template.png)
+1. Przejdź do szablonu eksportu > **usługi Automatyzacja**zasobów Application Insights  >  **Export Template** 
 
 2. Wybierz pozycję **Wdróż**
 
