@@ -4,20 +4,20 @@ titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak dynamicznie tworzyć wolumin trwały za pomocą dysków platformy Azure w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
-ms.openlocfilehash: 06aad076836c0f6fdc59c4ed5d0116231080d15c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/21/2020
+ms.openlocfilehash: fd2bc698a107599dccf8f142b0d318400b40aaf3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299327"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dynamiczne tworzenie i używanie woluminu trwałego z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
 Wolumin trwały reprezentuje część magazynu, która została zainicjowana do użycia z Kubernetes. Wolumin trwały może być używany przez jeden lub wiele zasobników i może być dynamicznie lub statycznie inicjowany. W tym artykule opisano sposób dynamicznego tworzenia woluminów trwałych za pomocą dysków platformy Azure do użycia przez jeden element w klastrze usługi Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Dysk platformy Azure można zainstalować tylko w *trybie dostępu* typu *ReadWriteOnce*, który udostępnia tylko jeden pod w AKS. Jeśli musisz udostępnić wolumin trwały w wielu zasobnikach, użyj [Azure Files][azure-files-pvc].
+> Dysk platformy Azure można zainstalować tylko przy użyciu typu *trybu dostępu* *ReadWriteOnce*, który sprawia, że jest dostępny dla jednego węzła w AKS. Jeśli musisz udostępnić wolumin trwały w wielu węzłach, użyj [Azure Files][azure-files-pvc].
 
 Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz [Opcje magazynu dla aplikacji w AKS][concepts-storage].
 

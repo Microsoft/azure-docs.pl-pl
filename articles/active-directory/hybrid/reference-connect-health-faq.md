@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15b12b758adbf99ddabc88eb06be9daba1ece3e
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276205"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299769"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health często zadawane pytania
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące programu Azure Active Directory (Azure AD) Connect Health. W tych często zadawanych pytań zawarto informacje na temat sposobu korzystania z usługi, która obejmuje model rozliczeń, możliwości, ograniczenia i pomoc techniczną.
@@ -129,6 +129,10 @@ Możesz odtworzyć z obrazu serwer lub utworzyć nowy serwer z takimi samymi inf
 
 W takim przypadku należy ręcznie usunąć wpis, który należy do starszego serwera. Dane dla tego serwera powinny być nieaktualne.
 
+**P: Czy można zainstalować agenta Azure AD Connect Health w systemie Windows Server Core?**
+
+Nie.  Instalacja w trybie Server Core nie jest obsługiwana.
+
 ## <a name="health-agent-registration-and-data-freshness"></a>Rejestracja agenta kondycji i aktualność danych
 
 **P: Jakie są typowe przyczyny błędów rejestracji agenta kondycji i rozwiązywania problemów?**
@@ -198,6 +202,7 @@ Użyj polecenia cmdlet <i>Get-ADFSProperties-AuditLevel</i> programu PowerShell,
 
 **P: Kiedy certyfikat agenta będzie automatycznie odnawiany przed wygaśnięciem?**
 Certyfikacja agenta zostanie automatycznie odnowiona na **sześć miesięcy** przed datą wygaśnięcia. Jeśli nie, upewnij się, że połączenie sieciowe agenta jest stabilne. Należy ponownie uruchomić usługi agenta lub zaktualizować do najnowszej wersji, aby rozwiązać problem.
+
 
 
 ## <a name="related-links"></a>Linki pokrewne

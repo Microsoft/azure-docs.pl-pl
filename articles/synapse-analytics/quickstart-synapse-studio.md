@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a45c98192eccdb320814f88f7f4823603357f528
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.reviewer: jrasnick
+ms.openlocfilehash: a80a87cf595ff8f47d1f14d50cd3af0a1519b694
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031759"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260397"
 ---
 # <a name="quickstart-use-synapse-studio-preview"></a>Szybki Start: korzystanie z programu Synapse Studio (wersja zapoznawcza)
 

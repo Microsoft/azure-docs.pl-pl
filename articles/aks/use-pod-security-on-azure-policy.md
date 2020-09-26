@@ -3,22 +3,23 @@ title: Zabezpieczanie zasobników z Azure Policy w usłudze Azure Kubernetes Ser
 description: Dowiedz się, jak zabezpieczyć Azure Policy program Kubernetes w usłudze Azure AKS
 services: container-service
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: e1c5f32e8e5df69a9c4b1eeeda46caf9d8b51f6e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ebd12777c32a9415eeb1b77d9cd487b0f23eb29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440880"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299157"
 ---
-# <a name="secure-pods-with-azure-policy-preview"></a>Zabezpieczanie zasobników z Azure Policy (wersja zapoznawcza)
+# <a name="secure-pods-with-azure-policy"></a>Zabezpieczanie zasobników z Azure Policy
 
 Aby zwiększyć bezpieczeństwo klastra AKS, można kontrolować, jakie funkcje są przyznawane i czy wszystkie są uruchomione względem zasad firmy. Ten dostęp jest definiowany za pomocą wbudowanych zasad udostępnianych przez [dodatek Azure Policy dla AKS][kubernetes-policy-reference]. Dzięki zapewnieniu dodatkowej kontroli nad aspektami zabezpieczeń w zakresie specyfikacji, takich jak uprawnienia główne, zapewnia ściślejszy poziom bezpieczeństwa i wgląd w to, co jest wdrażane w klastrze. Jeśli pod warunkiem nie spełniają warunków określonych w zasadach, Azure Policy może nie zezwalać na uruchamianie lub Flagowanie naruszenia. W tym artykule opisano sposób użycia Azure Policy w celu ograniczenia wdrożenia w programie AKS.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
+
+> [!IMPORTANT]
+> Ogólna dostępność Azure Policy w AKS jest aktywnie zwalniana we wszystkich regionach. Oczekiwane globalne zakończenie wydania GA to 9/29/2020. Użycie w regionach bez wersji GA wymaga wykonania czynności rejestracji w wersji zapoznawczej. Jednak zostanie ona automatycznie zaktualizowana do wersji GA, gdy będzie dostępna w regionie.
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -29,11 +30,10 @@ Aby zabezpieczyć AKS z wykorzystaniem Azure Policy, należy zainstalować Azure
 W tym dokumencie założono, że masz następujące elementy, które zostały wdrożone w powiązanym powyższym przewodniku.
 
 * Zarejestrowano `Microsoft.ContainerService` `Microsoft.PolicyInsights` dostawców zasobów i przy użyciu polecenia `az provider register`
-* Zarejestrowano `AKS-AzurePolicyAutoApprove` flagę funkcji w wersji zapoznawczej przy użyciu `az feature register`
-* Interfejs wiersza polecenia platformy Azure został zainstalowany z `aks-preview` rozszerzeniem w wersji 0.4.53 lub nowszej
-* Klaster AKS w obsługiwanej wersji 1,15 lub nowszej z dodatkiem Azure Policy
+* Interfejs wiersza polecenia platformy Azure 2,12 lub nowszej
+* Klaster AKS w wersji 1,15 lub nowszej z dodatkiem Azure Policy
 
-## <a name="overview-of-securing-pods-with-azure-policy-for-aks-preview"></a>Omówienie zabezpieczania zasobników z Azure Policy for AKS (wersja zapoznawcza)
+## <a name="overview-of-securing-pods-with-azure-policy-for-aks"></a>Omówienie zabezpieczania zasobników za pomocą Azure Policy dla AKS
 
 >[!NOTE]
 > Ten dokument zawiera szczegółowe informacje na temat używania Azure Policy do zabezpieczania zasobników, które są następnikiem [funkcji zasad zabezpieczeń Kubernetes pod w wersji zapoznawczej](use-pod-security-policies.md).
@@ -45,33 +45,61 @@ W klastrze AKS kontroler przyjmowania jest używany do przechwytywania żądań 
 
 Wcześniej [zasady zabezpieczeń funkcji (wersja zapoznawcza)](use-pod-security-policies.md) zostały włączone w projekcie Kubernetes, aby ograniczyć, jakie elementy można wdrożyć.
 
-Za pomocą dodatku Azure Policy, klaster AKS może używać wbudowanych zasad platformy Azure, które zabezpieczają te i inne zasoby Kubernetes podobne do zasad zabezpieczeń na poziomie. Dodatek Azure Policy dla AKS instaluje zarządzane wystąpienie [strażnika](https://github.com/open-policy-agent/gatekeeper), sprawdzając kontroler dopuszczenia. Azure Policy dla Kubernetes jest oparty na otwartym agencie "open source", który opiera się na [języku zasad rego](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
+Za pomocą dodatku Azure Policy, klaster AKS może używać wbudowanych zasad platformy Azure, które zabezpieczają zasoby i inne Kubernetes podobne do zasad zabezpieczeń na poziomie. Dodatek Azure Policy dla AKS instaluje zarządzane wystąpienie [strażnika](https://github.com/open-policy-agent/gatekeeper), sprawdzając kontroler dopuszczenia. Azure Policy dla Kubernetes jest oparty na otwartym agencie zasad Open Source, który opiera się na [języku zasad rego](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
 
 Ten dokument zawiera szczegółowe informacje na temat sposobu używania Azure Policy do zabezpieczania zasobników w klastrze AKS i poinstruować o tym, jak przeprowadzić migrację z zasad zabezpieczeń (wersja zapoznawcza).
 
 ## <a name="limitations"></a>Ograniczenia
 
-* W trakcie okresu zapoznawczego limit 200 z 20 Azure Policy dla zasad Kubernetes można uruchomić w jednym klastrze.
-* [Niektóre systemowe przestrzenie nazw](#namespace-exclusion) zawierające zarządzane AKS są wykluczone z oceny zasad.
-* System Windows nie [obsługuje kontekstów zabezpieczeń](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods), więc wiele zasad platformy Azure stosuje się tylko do zasobników z systemem Linux, na przykład niezezwalanie na uprawnienia główne, których nie można eskalować w przypadku systemu Windows.
-* Nie można jednocześnie włączyć zasad zabezpieczeń pod i Azure Policy dodatku dla AKS. Jeśli zainstalowano dodatek Azure Policy w klastrze z włączonymi zasadami zabezpieczeń na poziomie, należy wyłączyć zasady zabezpieczeń pod [poniższymi instrukcjami](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster).
+Następujące ograniczenia ogólne mają zastosowanie do Azure Policy dodatku dla klastrów Kubernetes:
+
+- Dodatek Azure Policy dla Kubernetes jest obsługiwany w Kubernetes w wersji **1,14** lub nowszej.
+- Dodatek Azure Policy dla Kubernetes można wdrożyć tylko w pulach węzłów systemu Linux
+- Obsługiwane są tylko wbudowane definicje zasad
+- Maksymalna liczba niezgodnych rekordów na zasady dla klastra: **500**
+- Maksymalna liczba niezgodnych rekordów na subskrypcję: **1 000 000**
+- Instalacje strażnika poza dodatkiem Azure Policy nie są obsługiwane. Przed włączeniem dodatku Azure Policy Odinstaluj wszystkie składniki zainstalowane przez poprzednią instalację strażnika.
+- [Przyczyny braku zgodności](../governance/policy/how-to/determine-non-compliance.md#compliance-reasons) nie są dostępne dla tego [trybu dostawcy zasobów](../governance/policy/concepts/definition-structure.md#resource-provider-modes)
+
+Następujące ograniczenia mają zastosowanie tylko do Azure Policy dodatku dla AKS:
+
+- Nie można jednocześnie włączyć [zasad zabezpieczeń AKS (wersja zapoznawcza)](use-pod-security-policies.md) i dodatku Azure Policy dla AKS. 
+- Obszary nazw są automatycznie wykluczane przez Azure Policy dodatku do oceny: _polecenia-system_, _strażnik-system_i _AKS-Periscope_.
+
+### <a name="recommendations"></a>Zalecenia
+
+Poniżej przedstawiono ogólne zalecenia dotyczące używania dodatku Azure Policy:
+
+- Aby można było uruchomić dodatek Azure Policy, wymagane są 3 składniki strażnika: 1 podelementy inspekcji w ramach i 2 replik. Te składniki zużywają więcej zasobów, ponieważ liczba zasobów Kubernetes i przypisań zasad zwiększa się w klastrze, który wymaga operacji inspekcji i wymuszania.
+
+  - W przypadku mniej niż 500 zasobników w jednym klastrze z maksymalnie 20 ograniczeniami: 2 procesorów wirtualnych vCPU i 350 MB pamięci na składnik.
+  - Ponad 500 zasobników w jednym klastrze z maksymalnie 40 ograniczeniami: 3 procesorów wirtualnych vCPU i 600 MB pamięci na składnik.
+
+Poniższe zalecenie dotyczy tylko AKS i dodatku Azure Policy:
+
+- Użyj puli węzłów systemu z funkcją `CriticalAddonsOnly` zmiany harmonogramu, aby zaplanować zasobniki strażników. Aby uzyskać więcej informacji, zobacz [Korzystanie z pul węzłów systemowych](use-system-pools.md#system-and-user-node-pools).
+- Zabezpiecz ruch wychodzący z klastrów AKS. Aby uzyskać więcej informacji, zobacz [Kontrola ruchu wychodzącego dla węzłów klastra](limit-egress-traffic.md).
+- Jeśli klaster został `aad-pod-identity` włączony, w WĘŹLE NMI (tożsamość zarządzana) są modyfikowane węzły dołączenie iptables do przechwytywania wywołań do punktu końcowego metadanych wystąpienia platformy Azure. Ta konfiguracja oznacza, że wszystkie żądania wysłane do punktu końcowego metadanych są przechwytywane przez NMI, nawet jeśli nie są używane `aad-pod-identity` . AzurePodIdentityException CRD można skonfigurować w taki sposób `aad-pod-identity` , aby informował, że wszelkie żądania kierowane do punktu końcowego metadanych pochodzące z elementu pod, które pasują do etykiet zdefiniowanych w CRD, powinny być przekazywane z serwerem proxy bez żadnego przetwarzania w NMI. Systemowy `kubernetes.azure.com/managedby: aks` wymiarname z etykietą w _polecenia —_ przestrzeń nazw systemu powinna zostać wykluczona w `aad-pod-identity` ramach konfigurowania AzurePodIdentityException CRD. Aby uzyskać więcej informacji, zobacz temat [wyłączanie usługi AAD-pod-Identity dla określonego elementu lub aplikacji](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  Aby skonfigurować wyjątek, Zainstaluj polecenie [MIC-Exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
+
+Dodatek Azure Policy wymaga zasobów procesora i pamięci do działania. Te wymagania zwiększają się wraz ze wzrostem rozmiaru klastra. Zapoznaj się z [zaleceniami Azure Policy][policy-recommendations] , aby uzyskać ogólne wskazówki dotyczące korzystania z Azure Policy dodatku.
 
 ## <a name="azure-policies-to-secure-kubernetes-pods"></a>Zasady platformy Azure do zabezpieczania Kubernetesch
 
 Po zainstalowaniu dodatku Azure Policy domyślnie nie są stosowane żadne zasady.
 
-Dostępne są jedenaście (11) wbudowanych zasad platformy Azure i dwóch (2) wbudowanych inicjatyw, które w pełni zabezpieczają w klastrze AKS.
+Istnieją 11 wbudowanych zasad platformy Azure oraz dwie wbudowane inicjatywy, które w pełni zabezpieczają w klastrze AKS.
 Poszczególne zasady można dostosować przy użyciu efektu. W [tym miejscu znajduje się pełna lista zasad AKS i ich obsługiwane efekty][policy-samples]. Przeczytaj więcej na temat [Azure Policy efektów](../governance/policy/concepts/effects.md).
 
 Zasady platformy Azure można stosować na poziomie grupy zarządzania, subskrypcji lub grupy zasobów. Podczas przypisywania zasad na poziomie grupy zasobów upewnij się, że docelowa Grupa zasobów klastra AKS została wybrana w zakresie zasad. Każdy klaster w przypisanym zakresie z zainstalowanym dodatkiem Azure Policy jest w zakresie dla zasad.
 
-Jeśli korzystasz z [zasad zabezpieczeń (wersja zapoznawcza)](use-pod-security-policies.md), Dowiedz się, jak [przeprowadzić migrację do Azure Policy i inne różnice w zachowaniu](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
+Jeśli korzystasz z [zasad zabezpieczeń (wersja zapoznawcza) ](use-pod-security-policies.md), Dowiedz się, jak [przeprowadzić migrację do Azure Policy i inne różnice w zachowaniu](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
 
 ### <a name="built-in-policy-initiatives"></a>Wbudowane inicjatywy zasad
 
 Inicjatywa w Azure Policy to zbiór definicji zasad, które są dostosowane do osiągnięcia pojedynczego przełożonego celu. Korzystanie z inicjatyw może uprościć zarządzanie i przypisywanie zasad w klastrach AKS. Inicjatywa istnieje jako pojedynczy obiekt, Dowiedz się więcej o [inicjatywach Azure Policy](../governance/policy/overview.md#initiative-definition).
 
-Azure Policy for Kubernetes oferuje dwie wbudowane inicjatywy, które zabezpieczają podstawowe, [bazowe](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) i [ograniczone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00).
+Azure Policy for Kubernetes oferuje dwie wbudowane inicjatywy, w których znajdują się bezpieczne, [podstawowe](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) i [ograniczone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00).
 
 Obie wbudowane inicjatywy są zbudowane z definicji używanych w ramach [zasad zabezpieczeń na poziomie z Kubernetes](https://github.com/kubernetes/website/blob/master/content/en/examples/policy/baseline-psp.yaml).
 
@@ -132,7 +160,7 @@ Usługa AKS wymaga, aby w klastrze działały systemowe w celu zapewnienia kryty
 1. Azure — łuk
 1. AKS — Periscope
 
-Dodatkowe niestandardowe przestrzenie nazw mogą być wykluczone z oceny podczas tworzenia, aktualizowania i inspekcji. Ta wartość powinna być używana, jeśli masz wyspecjalizowane zasobniki, które są uruchamiane w zaakceptowanej oficjalnie przestrzeni nazw, i chcesz uniknąć wyzwalania naruszeń inspekcji.
+Dodatkowe niestandardowe przestrzenie nazw mogą być wykluczone z oceny podczas tworzenia, aktualizowania i inspekcji. Te wykluczenia należy stosować w przypadku wyspecjalizowanych zasobników, które są uruchamiane w oficjalnie zaakceptowanej przestrzeni nazw i chcą uniknąć wyzwalania naruszeń inspekcji.
 
 ## <a name="apply-the-baseline-initiative"></a>Zastosuj inicjatywę bazową
 
@@ -292,7 +320,7 @@ Poniżej znajduje się podsumowanie zachowania zmian między zasadami zabezpiecz
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule pokazano, jak zastosować zasady platformy Azure, które ograniczają możliwości wdrażania uprzywilejowanych, aby uniemożliwić korzystanie z uprzywilejowanego dostępu. Istnieje wiele zasad, które można zastosować, takich jak te, które ograniczają użycie woluminów. Aby uzyskać więcej informacji na temat dostępnych opcji, zapoznaj się z tematem [Azure Policy dokumentacja Kubernetes][kubernetes-policy-reference].
+W tym artykule pokazano, jak zastosować zasady platformy Azure, które ograniczają możliwości wdrażania uprzywilejowanych, aby uniemożliwić korzystanie z uprzywilejowanego dostępu. Istnieje wiele zasad, które można zastosować, takich jak zasady ograniczające użycie woluminów. Aby uzyskać więcej informacji na temat dostępnych opcji, zapoznaj się z tematem [Azure Policy dokumentacja Kubernetes][kubernetes-policy-reference].
 
 Aby uzyskać więcej informacji na temat ograniczania ruchu sieciowego, zobacz [bezpieczny ruch między jednostkami z użyciem zasad sieciowych w AKS][network-policies].
 
@@ -304,8 +332,12 @@ Aby uzyskać więcej informacji na temat ograniczania ruchu sieciowego, zobacz [
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[aad-pod-identity]: https://github.com/Azure/aad-pod-identity
+[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
 
 <!-- LINKS - internal -->
+[policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md
+[policy-limitations]: ../governance/policy/concepts/policy-for-kubernetes.md?#limitations
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
 [policy-samples]: policy-samples.md#microsoftcontainerservice
 [aks-quickstart-cli]: kubernetes-walkthrough.md

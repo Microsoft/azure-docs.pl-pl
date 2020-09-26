@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 80d444e9887a3aaa48262ccf59350b0108d7d709
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f71a9fa1151a1df2ae04fe47afd6bf36861aa2e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543639"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Samouczek: integracja Azure Active Directory z programem RStudio Connect
 
@@ -126,7 +126,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu RS
 
 ### <a name="configure-rstudio-connect-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze RStudio
 
-Aby skonfigurować Logowanie jednokrotne w usłudze **RStudio Connect**, należy użyć **adresu URL metadanych federacji aplikacji** oraz **adresu serwera** użytego powyżej. Jest to wykonywane w pliku konfiguracji RStudio Connect w lokalizacji `/etc/rstudio-connect.rstudio-connect.gcfg` .
+Aby skonfigurować Logowanie jednokrotne w usłudze **RStudio Connect**, należy użyć **adresu URL metadanych federacji aplikacji** oraz **adresu serwera** użytego powyżej. Jest to wykonywane w pliku konfiguracji RStudio Connect w lokalizacji `/etc/rstudio-connect/rstudio-connect.gcfg` .
 
 Jest to przykładowy plik konfiguracji:
 
@@ -179,7 +179,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -221,7 +221,7 @@ Po kliknięciu kafelka RStudio Connect w panelu dostępu należy automatycznie z
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
