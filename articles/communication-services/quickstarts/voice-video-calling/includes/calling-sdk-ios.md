@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: fa7fd73a7d8019919a89dd9e9522b7389dc9c18f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 31f7e348a805c86964a8856fb81b83831c611de5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940063"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377521"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,7 +31,7 @@ W Xcode Utwórz nowy projekt dla systemu iOS i wybierz szablon **aplikacji pojed
 Dodaj do projektu bibliotekę klienta wywołującą usługi Azure Communication Services oraz jej zależności (AzureCore. Framework i AzureCommunication. Framework).
 
 > [!NOTE]
-> Wraz z wydaniem zestawu AzureCommunicationCalling SDK znajdziesz skrypt bash `BuildAzurePackages.sh` . Skrypt, gdy zostanie uruchomiony, `sh ./BuildAzurePackages.sh` zapewnia ścieżkę do wygenerowanych pakietów platformy, które należy zaimportować do przykładowej aplikacji w następnym kroku. Należy pamiętać, że konieczne będzie skonfigurowanie narzędzi wiersza polecenia Xcode, jeśli nie zostało to zrobione przed uruchomieniem skryptu: Start Xcode, wybierz pozycję "Preferencje-> lokalizacje". Wybierz wersję Xcode dla narzędzi wiersza polecenia.
+> Wraz z wydaniem zestawu AzureCommunicationCalling SDK znajdziesz skrypt bash `BuildAzurePackages.sh` . Skrypt, gdy zostanie uruchomiony, `sh ./BuildAzurePackages.sh` zapewnia ścieżkę do wygenerowanych pakietów platformy, które należy zaimportować do przykładowej aplikacji w następnym kroku. Należy pamiętać, że konieczne będzie skonfigurowanie narzędzi wiersza polecenia Xcode, jeśli nie zostało to zrobione przed uruchomieniem skryptu: Start Xcode, wybierz pozycję "Preferencje-> lokalizacje". Wybierz wersję Xcode dla narzędzi wiersza polecenia. **Należy zauważyć, że skrypt BuildAzurePackages.sh działa tylko z Xcode 11,5 i nowszymi.**
 
 1. Pobierz bibliotekę kliencką klienta usługi Azure Communications Services dla systemu iOS.
 2. W Xcode kliknij plik projektu i wybierz miejsce docelowe kompilacji, aby otworzyć Edytor ustawień projektu.

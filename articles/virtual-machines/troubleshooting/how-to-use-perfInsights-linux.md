@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: ce60f360a6839d43b0cbc209242a1385a0984c9d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d4d25d8e79c30933546af2b823e328a652f482eb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088548"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360535"
 ---
 # <a name="how-to-use-perfinsights"></a>Korzystanie z narzędzia PerfInsights
 
@@ -78,12 +78,12 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
   - Profilowanie przechwytywania użycia procesora CPU i procesów w 5-sekundowych interwałach
   - Profilowanie przechwytywania procesów użycia pamięci w przedziale czasu 5 sekund
 
-- Sieć  
+- Networking  
   - Lista kart sieciowych z statystykami kart
   - Tabela routingu sieciowego
   - Otwarte porty i stan
 
-- Magazyn
+- Storage
   - Lista zablokowanych urządzeń
   - Lista partycji
   - Lista punktów instalacji
@@ -218,8 +218,8 @@ W pliku **PerformanceDiagnostics \_ rrrr-mm-dd \_ hh-mm-SS-FFF. tar. gz** można
 
 Karta **Przegląd** zawiera podstawowe informacje dotyczące uruchamiania i maszyn wirtualnych. Karta **wyniki** zawiera podsumowanie zaleceń ze wszystkich różnych sekcji raportu że program perfinsights.
 
-![Zrzut ekranu przedstawiający raport że program perfinsights](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![Zrzut ekranu przedstawiający raport że program perfinsights](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![Zrzut ekranu przedstawiający kartę Przegląd raportu że program perfinsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![Zrzut ekranu przedstawiający kartę systemu Linux raportu że program perfinsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > Ustalenia sklasyfikowane jako duże są znanymi problemami, które mogą powodować problemy z wydajnością. Ustalenia sklasyfikowane jako średnie reprezentują nieoptymalne konfiguracje, które nie muszą powodować problemów z wydajnością. Ustalenia sklasyfikowane jako niskie są tylko w instrukcjach informacyjnych.

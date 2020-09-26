@@ -9,23 +9,22 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: d9234d4a184a0a09ff8c4a7c08e4035668870e22
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3760213c7f469dfe89599c0f01afe98168efde2d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304098"
+ms.locfileid: "91376687"
 ---
 Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć wyszukiwanie wiadomości za pomocą biblioteki klienta wyszukiwanie wiadomości Bing dla języka JavaScript. Chociaż wyszukiwanie wiadomości Bing ma interfejs API REST zgodny z większością języków programowania, Biblioteka klienta zapewnia łatwy sposób integracji usługi z aplikacjami. Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Node.js](https://nodejs.org/en/)
-
-Aby skonfigurować aplikację konsolową przy użyciu biblioteki klienta wyszukiwanie wiadomości Bing:
-1. Uruchom polecenie `npm install ms-rest-azure` w środowisku programistycznym.
-2. Uruchom polecenie `npm install azure-cognitiveservices-newssearch` w środowisku programistycznym.
-
+* Najnowsza wersja środowiska [Node.js](https://nodejs.org/en/download/).
+* [Zestaw wyszukiwanie wiadomości Bing SDK dla języka JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch)
+     *  Aby go zainstalować, uruchom polecenie `npm install @azure/cognitiveservices-newssearch`
+* `CognitiveServicesCredentials`Klasa z `@azure/ms-rest-azure-js` pakietu do uwierzytelniania klienta.
+     * Aby go zainstalować, uruchom polecenie `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -34,7 +33,7 @@ Aby skonfigurować aplikację konsolową przy użyciu biblioteki klienta wyszuki
 1. Utwórz wystąpienie elementu `CognitiveServicesCredentials`. Utwórz zmienne dla klucza subskrypcji i wyszukiwanego terminu.
 
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
     let search_term = 'Winter Olympics'
     ```
@@ -42,7 +41,7 @@ Aby skonfigurować aplikację konsolową przy użyciu biblioteki klienta wyszuki
 2. Utwórz wystąpienie klienta:
     
     ```javascript
-    const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
+    const NewsSearchAPIClient = require('@azure/cognitiveservices-newssearch');
     let client = new NewsSearchAPIClient(credentials);
     ```
 

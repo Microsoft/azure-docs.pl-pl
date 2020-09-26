@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89570246"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377028"
 ---
 Umieszczanie maszyn wirtualnych w jednym regionie zmniejsza odległość fizyczną między wystąpieniami. Umieszczenie ich w ramach pojedynczej strefy dostępności spowoduje również, że zostaną one fizycznie bliżej siebie. Jednak w miarę zwiększania się rozmiaru platformy Azure jedna strefa dostępności może obejmować wiele fizycznych centrów danych, co może skutkować opóźnieniami sieciowymi wpływającymi na aplikację. 
 
@@ -47,6 +47,39 @@ Grupy umieszczania w sąsiedztwie oferują wspólną lokalizację w tym samym ce
 -   W przypadku obciążeń elastycznych, w których Dodawanie i usuwanie wystąpień maszyn wirtualnych, które mają ograniczenie grupy umieszczania bliskości w danym wdrożeniu, może spowodować niepowodzenie spełnienia żądania w wyniku błędu **AllocationFailure** . 
 - Zatrzymywanie (cofanie alokacji) i uruchamianie maszyn wirtualnych zgodnie z potrzebami jest innym sposobem osiągnięcia elastyczności. Ponieważ pojemność nie jest zachowywana po zatrzymaniu (cofnięciu alokacji) maszyny wirtualnej, uruchomienie jej ponownie może spowodować wystąpienie błędu **AllocationFailure** .
 
+## <a name="planned-maintenance-and-proximity-placement-groups"></a>Planowana konserwacja i grupy umieszczania w sąsiedztwie
+
+Zdarzenia planowanej konserwacji, takie jak likwidowanie sprzętu w centrum danych platformy Azure, mogą mieć wpływ na wyrównanie zasobów w grupach umieszczania sąsiedztwa. Zasoby mogą być przenoszone do innego centrum danych, zakłócając oczekiwania i oczekiwania na opóźnienia związane z grupą położenia sąsiedztwa.
+
+### <a name="check-the-alignment-status"></a>Sprawdź stan wyrównania
+
+Aby sprawdzić stan wyrównania dla grup umieszczania sąsiedztwa, można wykonać następujące czynności.
+
+
+- Stan wspólnej lokalizacji grupy umieszczania sąsiedztwa można wyświetlić przy użyciu portalu, interfejsu wiersza polecenia i programu PowerShell.
+
+    -   W przypadku korzystania z programu PowerShell stan wspólnej lokalizacji można uzyskać za pomocą polecenia cmdlet Get-AzProximityPlacementGroup poprzez dołączenie opcjonalnego parametru "-ColocationStatus".
+
+    -   W przypadku korzystania z interfejsu wiersza polecenia stan wspólnej lokalizacji można uzyskać za pomocą polecenia, `az ppg show` dołączając opcjonalny parametr "--include-sublocation-status".
+
+- Dla każdej grupy położenia zbliżeniowe Właściwość **stanu wspólnej lokalizacji** zawiera podsumowanie bieżącego stanu wyrównania pogrupowanych zasobów. 
+
+    - **Wyrównany**: zasób znajduje się w tym samym przedziale czasu oczekiwania dla grupy umieszczania sąsiedztwa.
+
+    - **Nieznany**: cofnięto przydział co najmniej jednej z zasobów maszyny wirtualnej. Po pomyślnym uruchomieniu tych stanów należy wrócić do pozycji **wyrównany**.
+
+    - **Niewyrównane**: co najmniej jeden zasób maszyny wirtualnej nie jest wyrównany do grupy umieszczania sąsiedztwa. Określone zasoby, które nie są wyrównane, również zostaną wywołane osobno w sekcji członkostwo
+
+- W przypadku zestawów dostępności można wyświetlić informacje o wyrównaniu poszczególnych maszyn wirtualnych na stronie Przegląd zestawu dostępności.
+
+- W przypadku zestawów skalowania informacje o wyrównaniu poszczególnych wystąpień można zobaczyć na karcie **wystąpienia** na stronie **Przegląd** zestawu skalowania. 
+
+
+### <a name="re-align-resources"></a>Ponowne wyrównywanie zasobów 
+
+Jeśli grupa umieszczania jest bliska `Not Aligned` , można stop\deallocate, a następnie ponownie uruchomić zasoby, których to dotyczy. Jeśli maszyna wirtualna znajduje się w zestawie dostępności lub zestawu skalowania, przed ponownym uruchomieniem programu należy najpierw stopped\deallocated wszystkie maszyny wirtualne w zestawie dostępności lub w zestawie skalowania.
+
+W przypadku niepowodzenia alokacji ze względu na ograniczenia wdrożenia może być konieczne stop\deallocate wszystkich zasobów w grupie umieszczania, w których dotyczy problem, a następnie ich ponowne uruchomienie w celu przywrócenia wyrównania.
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania 
 - W przypadku najmniejszego opóźnienia należy używać grup umieszczania sąsiedztwa wraz z przyspieszoną siecią. Aby uzyskać więcej informacji, zobacz [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu przyspieszonej sieci](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [Tworzenie maszyny wirtualnej z systemem Windows przy użyciu przyspieszonej sieci](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

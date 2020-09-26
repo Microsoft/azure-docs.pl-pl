@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afef3d41212c9366aa696bfcd0abff6c8cfc4eb3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3e85d2ef9d75bbff6357466e76ffcf60e3716e78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662422"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273678"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migruj z Federacji do synchronizacji skrótów haseł dla Azure Active Directory
 
@@ -302,7 +302,7 @@ Najpierw Zmień metodę logowania:
 
 5. Na stronie **Włącz logowanie jednokrotne** wprowadź poświadczenia konta administratora domeny, a następnie wybierz przycisk **dalej**.
 
-   ![Zrzut ekranu przedstawiający stronę Włączanie logowania jednokrotnego](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
+   ![Zrzut ekranu przedstawiający stronę Włączanie logowania jednokrotnego, na której można wprowadzić poświadczenia konta administratora domeny.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
    > [!NOTE]
    > Aby umożliwić bezproblemowe logowanie jednokrotne, wymagane są poświadczenia konta administratora domeny. Proces wykonuje następujące akcje, które wymagają podniesionych uprawnień. Poświadczenia konta administratora domeny nie są przechowywane w Azure AD Connect ani w usłudze Azure AD. Poświadczenia konta administratora domeny są używane tylko w celu włączenia tej funkcji. Poświadczenia są odrzucane po pomyślnym zakończeniu procesu.
@@ -324,7 +324,7 @@ Najpierw Zmień metodę logowania:
    * **Bezproblemowe logowanie jednokrotne** jest ustawione na **włączone**.
    * **Synchronizacja haseł** jest ustawiona na wartość **włączone**.<br /> 
 
-   ![Zrzut ekranu pokazujący ustawienia w sekcji logowania użytkownika](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Zrzut ekranu pokazujący ustawienia w sekcji Logowanie użytkownika w portalu usługi Azure AD.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Przejdź do [testowania i następnych kroków](#testing-and-next-steps).
 

@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: c0213b050745712a5c77d4861b9cfba4fc953dfd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aec9d2049a69aebc7102a70274e5fb2a3ef865a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376647"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -81,8 +81,8 @@ DeviceManage deviceManager = await callClient.getDeviceManager().get();
 
 ## <a name="place-an-outgoing-call-and-join-a-group-call"></a>Umieść połączenie wychodzące i Dołącz do wywołania grupy
 
-Aby utworzyć i uruchomić wywołanie, należy wywołać `CallClient.call()` metodę i podać `Identifier` elementy wywoływane.
-Aby przyłączyć się do wywołania grupy, należy wywołać `CallClient.join()` metodę i podać identyfikator GroupID. Identyfikatory grup muszą być w formacie GUID lub UUID.
+Aby utworzyć i uruchomić wywołanie, należy wywołać `CallAgent.call()` metodę i podać `Identifier` elementy wywoływane.
+Aby przyłączyć się do wywołania grupy, należy wywołać `CallAgent.join()` metodę i podać identyfikator GroupID. Identyfikatory grup muszą być w formacie GUID lub UUID.
 
 Tworzenie i uruchamianie wywołań jest synchroniczne. Wystąpienie wywołania pozwala subskrybować wszystkie zdarzenia w wywołaniu.
 
@@ -106,7 +106,7 @@ PhoneNumber acsUser2 = new PhoneNumber("<PHONE_NUMBER>");
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser1, acsUser2 };
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-Call groupCall = callClient.call(participants, startCallOptions);
+Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
 ### <a name="place-a-11-call-with-with-video-camera"></a>Umieść wywołanie 1:1 z kamerą wideo
@@ -266,7 +266,7 @@ Po pomyślnym zarejestrowaniu komunikatu o błędzie powiadomień wypychanych, a
 
 ### <a name="unregister-push-notification"></a>Wyrejestruj Powiadomienie wypychane
 
-- Aplikacje mogą wyrejestrować powiadomienia wypychane w dowolnym momencie. Po prostu wywołaj `unregisterPushNotification()` metodę w callAgent.
+- Aplikacje mogą wyrejestrować powiadomienia wypychane w dowolnym momencie. Wywołaj `unregisterPushNotification()` metodę w callAgent, aby wyrejestrować.
 
 ```java
 try {
@@ -300,12 +300,12 @@ CommunicationIdentifier callerId = call.getCallerId();
 ```java
 CallState callState = call.getState();
 ```
-Zwraca ciąg reprensting bieżący stan wywołania:
+Zwraca ciąg reprezentujący bieżący stan wywołania:
 * "Brak" — stan wywołania początkowego
 * "Przychodzące" — wskazuje, że wywołanie jest przychodzące, musi zostać zaakceptowane lub odrzucone
 * "Łączenie" — stan przejścia początkowego po zainicjowaniu lub zaakceptowaniu wywołania
 * "Dzwonienie" — dla wywołania wychodzącego — wskazuje, że wywołanie jest sygnalizowane dla uczestników zdalnych, jest to "przychodzące"
-* "EarlyMedia" — wskazuje stan, w którym zostanie nawiązane ogłaszanie przed połączeniem połączenia
+* "EarlyMedia" — wskazuje stan, w którym jest odtwarzany anons przed połączeniem połączenia
 * "Połączone" — połączenie jest połączone
 * "Hold" — wywołanie jest wstrzymane, żaden nośnik nie przepływa między lokalnym punktem końcowym i uczestnikami zdalnymi
 * "Rozłączanie"-stan przejścia przed przejściem do stanu "Rozłączono"
@@ -354,7 +354,7 @@ Future startVideoFuture = call.startVideo(currentVideoStream);
 startVideoFuture.get();
 ```
 
-Po pomyślnym uruchomieniu wysyłania wideo `LocalVideoStream` wystąpienie zostanie dodane do `localVideoStreams` kolekcji w wystąpieniu wywołania.
+Po pomyślnym rozpoczęciu wysyłania wideo `LocalVideoStream` wystąpienie zostanie dodane do `localVideoStreams` kolekcji w wystąpieniu wywołania.
 ```java
 currentVideoStream == call.getLocalVideoStreams().get(0);
 ```
@@ -385,7 +385,7 @@ Każdy uczestnik zdalny ma skojarzoną z nim zestaw właściwości i kolekcji:
 * Pobierz identyfikator dla tego uczestnika zdalnego.
 Tożsamość to jeden z typów identyfikatora
 ```java
-CommunicationIdentifier participantIdentity = remoteParticipant.getId();
+CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
 ```
 
 * Pobierz stan tego uczestnika zdalnego.
@@ -397,7 +397,7 @@ Stan może być jednym z
 * "Łączenie" — stan przejścia, gdy uczestnik nawiązuje połączenie z wywołaniem
 * "Połączone" — uczestnik jest połączony z wywołaniem
 * "Hold" — uczestnik jest wstrzymany
-* "EarlyMedia" — zawiadomienie jest odtwarzany przed połączeniem uczestnika z wywołaniem
+* "EarlyMedia" — anons jest odtwarzany przed połączeniem uczestnika z wywołaniem
 * "Rozłączono" — stan końcowy — uczestnik jest odłączony od wywołania
 
 

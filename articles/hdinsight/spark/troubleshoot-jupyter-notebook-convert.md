@@ -1,18 +1,18 @@
 ---
 title: Nie można utworzyć notesu Jupyter w usłudze Azure HDInsight
-description: Opisuje kroki rozwiązywania problemów i możliwe rozwiązania problemów występujących podczas pracy z klastrami usługi Azure HDInsight.
+description: Zapoznaj się z krokami rozwiązywania problemów i możliwymi rozwiązaniami dotyczącymi problemów podczas pracy z klastrami usługi Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 61e7cd8d37108b8f4eea88c4f6b6b2a8cdbfd605
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4f4fcfa52733ec8f1f0ceedc669b8307efabf3c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77186799"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324012"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Nie można utworzyć notesu Jupyter w usłudze Azure HDInsight
 

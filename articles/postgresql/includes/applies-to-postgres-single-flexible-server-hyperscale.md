@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 745ac3831def524326b5483eeb8da05cff701caf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4d61bc5d608b865802d216c0a056867a79eacb90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376805"
 ---
-<Token>**Dotyczy:** :::image type="content" source="../media/applies-to/yes.png" alt-text="tak — jeden":::serwer Azure Database for PostgreSQL — jeden serwer :::image type="content" source="../media/applies-to/yes.png" alt-text="tak-elastyczny-serwer":::Azure Database for PostgreSQL-elastyczny serwer :::image type="content" source="../media/applies-to/yes.png" alt-text="tak-":::-------------Azure Database for PostgreSQL-------</Token>
+<Token>**dotyczy:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Database for PostgreSQL — pojedynczy serwer :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Database for PostgreSQL — elastyczny serwer :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Database for PostgreSQL-skalowanie</Token>

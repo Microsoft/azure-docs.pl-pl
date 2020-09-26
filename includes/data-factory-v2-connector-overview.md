@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 08/18/2020
 ms.author: jingwang
-ms.openlocfilehash: 83d230badb69fd970476cb39bf54e48d36866d53
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 13ca9ea43f1f89f835ee7dd95a3265f229247df0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376979"
 ---
 | Kategoria              | Magazyn danych                                                   | [Działanie kopiowania](../articles/data-factory/copy-activity-overview.md)  (Źródło/ujścia) | [Mapowanie przepływu danych](../articles/data-factory/concepts-data-flow-overview.md) (Źródło/ujścia) | [Działanie wyszukiwania](../articles/data-factory/control-flow-lookup-activity.md) | [Działanie](../articles/data-factory/control-flow-get-metadata-activity.md) / pobierania metadanych [Działanie walidacji](../articles/data-factory/control-flow-validation-activity.md) | [Usuń działanie](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -62,7 +62,7 @@ ms.locfileid: "89181985"
 | &nbsp;                | [System plików](../articles/data-factory/connector-file-system.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [FTP](../articles/data-factory/connector-ftp.md)             | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [Google Cloud Storage](../articles/data-factory/connector-google-cloud-storage.md) | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
-| &nbsp;                | [HDFS](../articles/data-factory/connector-hdfs.md)           | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [HDFS](../articles/data-factory/connector-hdfs.md)           | ✓/−                                                          |                                                              | ✓                                                            |                                                              | ✓                                                             |
 | &nbsp;                | [SFTP](../articles/data-factory/connector-sftp.md)           | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | **Protokół ogólny**  | [Ogólne HTTP](../articles/data-factory/connector-http.md)   | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Ogólne OData](../articles/data-factory/connector-odata.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

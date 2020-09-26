@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3a8cafa907cb66832faf033f7b62e68bf859097
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918829"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360127"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integracja z aplikacją kliencką przy użyciu zestawu Speech SDK
 
@@ -34,7 +34,7 @@ Do wykonania tego artykułu jest wymagana aplikacja poleceń niestandardowych. J
 Wymagane są również:
 > [!div class = "checklist"]
 > * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) lub nowszy. Ten przewodnik jest oparty na programie Visual Studio 2019.
-> * Klucz subskrypcji platformy Azure dla usługi Speech Services. [Pobierz bezpłatnie](get-started.md) lub utwórz je na [Azure Portal](https://portal.azure.com)
+> * Klucz subskrypcji platformy Azure dla usługi Speech Services. [Pobierz bezpłatnie](overview.md#try-the-speech-service-for-free) lub utwórz je na [Azure Portal](https://portal.azure.com)
 > * [Włącz Programowanie na urządzeniu](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Krok 1. publikowanie aplikacji poleceń niestandardowych
@@ -404,7 +404,7 @@ Dodaj źródło związane z kodem w następujący sposób:
 
 1. Na pasku menu wybierz kolejno opcje **plik**  >  **Zapisz wszystko** , aby zapisać zmiany.
 
-## <a name="try-it-out"></a>Czas to wypróbować
+## <a name="try-it-out"></a>Wypróbowywanie działania
 
 1. Na pasku menu wybierz polecenie **Kompiluj**  >  **kompilację rozwiązania** , aby skompilować aplikację. Kod powinien zostać skompilowany bez błędów.
 
