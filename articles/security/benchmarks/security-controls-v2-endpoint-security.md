@@ -4,17 +4,17 @@ description: Zabezpieczenia usługi Azure Security test w wersji 2 Endpoint Secu
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c04e4233ded34ceaeec9cd9afb240d3d1ac864e0
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 3eab0080f80b26fc7074d8a64885148c0568d8b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059258"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280626"
 ---
-# <a name="security-control-endpoint-security"></a>Kontrola zabezpieczeń: zabezpieczenia punktu końcowego
+# <a name="security-control-v2-endpoint-security"></a>Kontrola zabezpieczeń v2: zabezpieczenia punktu końcowego
 
 Zabezpieczenia punktu końcowego obejmują kontrolki wykrywania i reagowania punktów końcowych. Obejmuje to korzystanie z wykrywania i reagowania punktów końcowych (EDR) oraz usługi chroniącej przed złośliwym kodem dla punktów końcowych w środowiskach platformy Azure.
 
@@ -36,7 +36,7 @@ Funkcja zaawansowanej ochrony przed zagrożeniami w usłudze Microsoft Defender 
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia infrastruktury i punktu końcowego](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -64,7 +64,7 @@ Program Microsoft chroniący przed złośliwym kodem dla platformy Azure Cloud S
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia infrastruktury i punktu końcowego](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -88,7 +88,7 @@ Postępuj zgodnie z zaleceniami w Azure Security Center: "COMPUTE &amp; Apps", a
 
 **Odpowiedzialność**: klient
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia infrastruktury i punktu końcowego](/azure/cloud-adoption-framework/organize/cloud-security)
 

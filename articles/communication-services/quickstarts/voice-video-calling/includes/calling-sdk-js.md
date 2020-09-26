@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 6922ab2aac8529da8ba55a98f465e3c0e3123b53
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5542ca2f50152e7588f32e9ac8717f691fdb4d63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376315"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -80,11 +80,11 @@ Zasób usług komunikacyjnych musi być skonfigurowany tak, aby zezwalał na naw
 
 const userCallee = { communicationUserId: <ACS_USER_ID> }
 const pstnCallee = { phoneNumber: <PHONE_NUMBER>};
-const groupCall = callClient.call([userCallee, pstnCallee], placeCallOptions);
+const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 
 ```
 
-### <a name="place-a-11-call-with-with-video-camera"></a>Umieść wywołanie 1:1 z kamerą wideo
+### <a name="place-a-11-call-with-video-camera"></a>Umieszczanie wywołania 1:1 z kamerą wideo
 > [!WARNING]
 > Nie może istnieć więcej niż jeden wychodzący lokalny strumień wideo.
 Aby umieścić połączenie wideo, należy wyliczyć aparaty lokalne przy użyciu `getCameraList` interfejsu API urządzenia.
@@ -95,7 +95,7 @@ const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
 localVideoStream = new LocalVideoStream(videoDeviceInfo);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
-const call = callClient.call(['acsUserId'], placeCallOptions);
+const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
@@ -104,7 +104,7 @@ Aby rozpocząć nowe wywołanie grupy lub dołączyć do trwającego wywołania 
 ```js
 
 const context = { groupId: <GUID>}
-const call = callClient.join(context);
+const call = callAgent.join(context);
 
 ```
 
@@ -113,19 +113,19 @@ const call = callClient.join(context);
 Można uzyskać dostęp do właściwości wywołania i wykonać różne operacje w trakcie wywołania zarządzania ustawieniami związanymi z wideo i dźwiękiem.
 
 ### <a name="call-properties"></a>Właściwości wywołania
-* Pobierz unikatowy identyfikator dla tego wywołania.
+* Pobierz unikatowy identyfikator (ciąg) dla tego wywołania.
 ```js
 
 const callId: string = call.id;
 
 ```
 
-* Aby dowiedzieć się więcej o innych uczestnikach wywołania, zbadaj `remoteParticipant` kolekcję na tym `call` wystąpieniu.
+* Aby dowiedzieć się więcej o innych uczestnikach wywołania, zbadaj `remoteParticipant` kolekcję na tym `call` wystąpieniu. Tablica zawiera `RemoteParticipant` obiekty list
 ```js
-const remoteParticipants: RemoteParticipants = call.remoteParticipants;
+const remoteParticipants = call.remoteParticipants;
 ```
 
-* Tożsamość obiektu wywołującego, jeśli wywołanie jest przychodzące.
+* Tożsamość obiektu wywołującego, jeśli wywołanie jest przychodzące. Tożsamość jest jednym z `Identifier` typów
 ```js
 
 const callerIdentity = call.callerIdentity;
@@ -135,7 +135,7 @@ const callerIdentity = call.callerIdentity;
 * Pobierz stan wywołania.
 ```js
 
-const callState: CallState = call.state;
+const callState = call.state;
 
 ```
 Zwraca ciąg reprezentujący bieżący stan wywołania:
@@ -153,35 +153,34 @@ Zwraca ciąg reprezentujący bieżący stan wywołania:
 * Aby zobaczyć dlaczego dane wywołanie zostało zakończone, sprawdź `callEndReason` Właściwość.
 ```js
 
-const callEndReason: CallEndReason = call.callEndReason;
+const callEndReason = call.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* Aby dowiedzieć się, czy bieżące wywołanie jest wywołaniem przychodzącym, zbadaj `isIncoming` Właściwość, która zwraca wartość `Boolean` .
+```js
+const isIncoming = call.isIncoming;
+```
+
+*  Aby sprawdzić, czy bieżący mikrofon jest wyciszony, sprawdź `muted` , czy właściwość zwraca `Boolean` .
+```js
+
+const muted = call.isMicrophoneMuted;
 
 ```
 
-* Aby dowiedzieć się, czy bieżące wywołanie jest wywołaniem przychodzącym, zbadaj `isIncoming` Właściwość
+* Aby sprawdzić, czy strumień udostępniania ekranu jest wysyłany z danego punktu końcowego, sprawdź `isScreenSharingOn` Właściwość, która zwraca wartość `Boolean` .
 ```js
 
-const isIncoming: boolean = call.isIncoming;
+const isScreenSharingOn = call.isScreenSharingOn;
 
 ```
 
-*  Aby sprawdzić, czy bieżący mikrofon jest wyciszony, sprawdź `muted` Właściwość:
+* Aby sprawdzić aktywne strumienie wideo, sprawdź `localVideoStreams` , czy kolekcja zawiera `LocalVideoStream` obiekty
 ```js
 
-const muted: boolean = call.isMicrophoneMuted;
-
-```
-
-* Aby sprawdzić, czy strumień udostępniania ekranu jest wysyłany z danego punktu końcowego, sprawdź `isScreenSharingOn` Właściwość:
-```js
-
-const isScreenSharingOn: boolean = call.isScreenSharingOn;
-
-```
-
-* Aby sprawdzić aktywne strumienie wideo, zapoznaj się z `localVideoStreams` kolekcją:
-```js
-
-const localVideoStreams: LocalVideoStream[] = call.localVideoStreams;
+const localVideoStreams = call.localVideoStreams;
 
 ```
 
@@ -194,7 +193,7 @@ Aby wyciszyć lub wyłączyć lokalny punkt końcowy, można użyć `mute` i `un
 //mute local device 
 await call.mute();
 
-//unmute device 
+//unmute local device 
 await call.unmute();
 
 ```
@@ -206,7 +205,7 @@ Aby uruchomić wideo, należy wyliczyć aparaty fotograficzne przy użyciu `getC
 
 
 ```js
-const localVideoStream = new SDK.LocalVideoStream(videoDeviceInfo);
+const localVideoStream = new LocalVideoStream(videoDeviceInfo);
 await call.startVideo(localVideoStream);
 
 ```
@@ -254,49 +253,49 @@ Uczestnik zdalny ma skojarzoną z nim zestaw właściwości i kolekcji
 * Pobierz identyfikator dla tego uczestnika zdalnego.
 Tożsamość jest jednym z typów identyfikatora:
 ```js
-
-const identity: CommunicationUser | PhoneNumber | CallingApplication | UnknownIdentifier;
-
+const identifier = remoteParticipant.identifier;
+//It can be one of:
+// { communicationUserId: '<ACS_USER_ID'> } - object representing ACS User
+// { phoneNumber: '<E.164>' } - object representing phone number in E.164 format
 ```
 
 * Pobierz stan tego uczestnika zdalnego.
 ```js
 
-const state: RemoteParticipantState = remoteParticipant.state;
+const state = remoteParticipant.state;
 ```
 Stan może być jednym z
 * "Bezczynne" — stan początkowy
 * "Łączenie" — stan przejścia, gdy uczestnik nawiązuje połączenie z wywołaniem
 * "Połączone" — uczestnik jest połączony z wywołaniem
 * "Hold" — uczestnik jest wstrzymany
-* "EarlyMedia" — zawiadomienie jest odtwarzany przed połączeniem uczestnika z wywołaniem
+* "EarlyMedia" — anons jest odtwarzany przed połączeniem uczestnika z wywołaniem
 * "Rozłączono" — stan końcowy — uczestnik jest odłączony od wywołania
 
 Aby dowiedzieć się, dlaczego uczestnik pozostawił wywołanie, zbadaj `callEndReason` Właściwość:
 ```js
 
-const callEndReason: CallEndReason = remoteParticipant.callEndReason;
+const callEndReason = remoteParticipant.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* Aby sprawdzić, czy ten Uczestnik zdalny jest wyciszony, zbadaj `isMuted` Właściwość, zwraca `Boolean`
+```js
+const isMuted = remoteParticipant.isMuted;
+```
+
+* Aby sprawdzić, czy ten Uczestnik zdalny mówi, czy nie, sprawdź, czy `isSpeaking` Właściwość zwraca `Boolean`
+```js
+
+const isSpeaking = remoteParticipant.isSpeaking;
 
 ```
 
-* Aby sprawdzić, czy ten Uczestnik zdalny jest wyciszony, zbadaj `isMuted` Właściwość:
+* Aby sprawdzić wszystkie strumienie wideo wysyłane przez danego uczestnika w ramach tego wywołania, sprawdź `videoStreams` kolekcję, zawiera `RemoteVideoStream` obiekty
 ```js
 
-const isMuted: boolean = remoteParticipant.isMuted;
-
-```
-
-* Aby sprawdzić, czy ten Uczestnik zdalny mówi lub nie, sprawdź `isSpeaking` Właściwość:
-```js
-
-const isSpeaking: boolean = remoteParticipant.isSpeaking;
-
-```
-
-* Aby sprawdzić wszystkie strumienie wideo wysyłane przez danego uczestnika w ramach tego wywołania, sprawdź `videoStreams` kolekcję:
-```js
-
-const videoStreams: RemoteVideoStream[] = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
 
 ```
 
@@ -312,7 +311,6 @@ const userIdentifier = { communicationUserId: <ACS_USER_ID> };
 const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
 const remoteParticipant = call.addParticipant(userIdentifier);
 const remoteParticipant = call.addParticipant(pstnIdentifier);
-
 ```
 
 ### <a name="remove-participant-from-a-call"></a>Usuń uczestnika z wywołania
@@ -333,7 +331,6 @@ await call.removeParticipant(pstnIdentifier);
 Aby wyświetlić listę strumieni wideo i strumieni udostępniania ekranu dla uczestników zdalnych, należy sprawdzić `videoStreams` Kolekcje:
 
 ```js
-
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.type;
 ```

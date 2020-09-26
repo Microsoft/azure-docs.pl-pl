@@ -3,12 +3,12 @@ title: Reguły zapory Event Hubs platformy Azure | Microsoft Docs
 description: Użyj reguł zapory, aby zezwolić na połączenia z określonych adresów IP z platformą Azure Event Hubs.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: fbf3e67cdde43dbe3d5e02cd4b044d5473f409ac
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ab7f835187a33b5e4d95c160831337172a5ed74e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185132"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318538"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Zezwalaj na dostęp do przestrzeni nazw platformy Azure Event Hubs z określonych adresów IP lub zakresów
 Domyślnie obszary nazw Event Hubs są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -43,7 +43,7 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć reguły zapory IP d
 
     W przypadku wybrania opcji **wszystkie sieci** centrum zdarzeń akceptuje połączenia z dowolnego adresu IP (przy użyciu klucza dostępu). To ustawienie jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0. 
 
-    ![Zapora — wybrana opcja Wszystkie sieci](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+    ![Zrzut ekranu przedstawiający stronę "Zapora i sieci wirtualne" z wybraną opcją "wszystkie sieci".](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Aby ograniczyć dostęp do określonych adresów IP, upewnij się, że wybrano opcję **wybrane sieci** . W sekcji **Zapora** wykonaj następujące kroki:
     1. Wybierz opcję **Dodaj adres IP klienta** , aby zapewnić bieżącemu adresowi IP klienta dostęp do przestrzeni nazw. 
     2. W polu **zakres adresów**wprowadź określony adres IPv4 lub zakres adresów IPv4 w notacji CIDR. 
@@ -77,7 +77,7 @@ Parametry szablonu:
 > ```json
 > "defaultAction": "Allow"
 > ```
-> na
+> na wartość
 > ```json
 > "defaultAction": "Deny"
 > ```

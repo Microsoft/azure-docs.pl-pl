@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 73036ba1a72d657fd07a826bbee8651781f70e9b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 706379649b47846b5c020dc76493a98e346c4a8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317688"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal
 
 Informacje na temat włączania i wyłączania rozproszonej ochrony typu "odmowa usługi" (DDoS) oraz używania telemetrii w celu ograniczenia ataku DDoS przy użyciu standardu Azure DDoS Protection. DDoS Protection Standard chroni zasoby platformy Azure, takie jak maszyny wirtualne, moduły równoważenia obciążenia i bramy aplikacji z przypisanym [publicznym adresem IP](virtual-network-public-ip-address.md) platformy Azure. Aby dowiedzieć się więcej na temat DDoS Protection Standard i jego możliwości, zobacz [omówienie DDoS Protection Standard](ddos-protection-overview.md).
 
-Przed wykonaniem kroków opisanych w tym samouczku Zaloguj się do Azure Portal przy https://portal.azure.com użyciu konta przypisanego do roli [współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) lub do [roli niestandardowej](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , do której przypisano odpowiednie akcje wymienione w obszarze [uprawnienia](#permissions).
+Przed wykonaniem kroków opisanych w tym samouczku Zaloguj się do Azure Portal przy https://portal.azure.com użyciu konta przypisanego do roli [współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) lub do [roli niestandardowej](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , do której przypisano odpowiednie akcje wymienione w obszarze [uprawnienia](#permissions-and-restrictions).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -39,7 +39,7 @@ Tworzenie więcej niż jednego planu nie jest wymagane w przypadku większości 
 
 1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal.
 2. Wyszukaj *DDoS*. Po pojawieniu się **planu ochrony DDoS** w wynikach wyszukiwania zaznacz je.
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 4. Wprowadź lub wybierz własne wartości albo wprowadź lub wybierz poniższe przykładowe wartości, a następnie wybierz pozycję **Utwórz**:
 
     |Ustawienie        |Wartość                                              |
@@ -191,7 +191,7 @@ Za pomocą dzienników przepływów zaradczych ataków można zapoznać się z p
     - **Archiwizowanie na koncie magazynu**: dane są zapisywane na koncie usługi Azure Storage. Aby dowiedzieć się więcej na temat tej opcji, zobacz [Archiwizowanie dzienników zasobów](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Przesyłaj strumieniowo do centrum zdarzeń**: umożliwia odbiornikowi dziennika pobieranie dzienników przy użyciu centrum zdarzeń platformy Azure. Centra zdarzeń umożliwiają integrację z systemem Splunk lub innymi systemami SIEM. Aby dowiedzieć się więcej na temat tej opcji, zobacz [przesyłanie strumieniowe dzienników zasobów do centrum zdarzeń](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Wyślij do log Analytics**: zapisuje dzienniki w usłudze Azure monitor. Aby dowiedzieć się więcej na temat tej opcji, zobacz [zbieranie dzienników do użycia w dziennikach Azure monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-1. Aby wyświetlić dane dzienników przepływu na pulpicie nawigacyjnym usługi Azure Analytics, można zaimportować przykładowego pulpitu nawigacyjnego z https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
+1. Aby wyświetlić dane dzienników przepływów w skoroszycie usługi Azure Analytics, możesz zaimportować przykładowy pulpit nawigacyjny z https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook
 
 Dzienniki przepływów będą zawierać następujące pola: 
 - Źródłowy adres IP
@@ -225,11 +225,11 @@ Aby wyświetlić alerty, Otwórz **Security Center** w Azure Portal. W obszarze 
 
 Alerty obejmują ogólne informacje o publicznym adresie IP, który jest objęty atakiem, informacjami o analizie geograficznym i zagrożeń oraz kroki zaradcze.
 
-## <a name="permissions"></a>Uprawnienia
+## <a name="permissions-and-restrictions"></a>Uprawnienia i ograniczenia
 
 Aby można było korzystać z planów ochrony DDoS, Twoje konto musi być przypisane do roli [współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) lub do roli [niestandardowej](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , do której przypisano odpowiednie działania wymienione w poniższej tabeli:
 
-| Akcja                                            | Name (Nazwa)                                     |
+| Akcja                                            | Nazwa                                     |
 | ---------                                         | -------------                            |
 | Microsoft. Network/ddosProtectionPlans/odczyt        | Odczytaj plan ochrony DDoS              |
 | Microsoft. Network/ddosProtectionPlans/Write       | Utwórz lub zaktualizuj plan ochrony DDoS  |
@@ -237,6 +237,9 @@ Aby można było korzystać z planów ochrony DDoS, Twoje konto musi być przypi
 | Microsoft. Network/ddosProtectionPlans/Join/Action | Dołącz do planu ochrony DDoS              |
 
 Aby włączyć ochronę DDoS dla sieci wirtualnej, konto musi również mieć przypisane odpowiednie [działania dotyczące sieci wirtualnych](manage-virtual-network.md#permissions).
+
+### <a name="azure-policy"></a>Azure Policy
+W przypadku klientów, którzy mają różne subskrypcje i którzy chcą mieć pewność, że jeden plan dla Azure DDoS Protection standard został wdrożony w ramach swojej dzierżawy w celu kontroli kosztów, można użyć Azure Policy, aby [ograniczyć tworzenie Azure DDoS Protection planów standardowych](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Restrict%20creation%20of%20Azure%20DDoS%20Protection%20Standard%20Plans%20with%20Azure%20Policy). Te zasady będą blokować tworzenie wszelkich planów DDoS, chyba że subskrypcja została wcześniej oznaczona jako wyjątek. W tych zasadach zostanie również wyświetlona lista wszystkich subskrypcji, które mają wdrożony plan DDoS, ale nie powinny być oznaczane jako niezgodne. 
 
 ## <a name="next-steps"></a>Następne kroki
 

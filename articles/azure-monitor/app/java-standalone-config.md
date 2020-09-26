@@ -4,12 +4,12 @@ description: Monitorowanie wydajności aplikacji bezkodowej dla aplikacji Java d
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 561a6405a49d8f15affbf6d8d4de1a7f4886826a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 93b0b89cff7e48ddc4eb9173c9423961f96ec4bb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056102"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371307"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opcje konfiguracji — autonomiczny Agent Java dla Azure Monitor Application Insights
 
@@ -49,7 +49,18 @@ Jest to wymagane. Parametry połączenia można znaleźć w zasobie Application 
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights parametry połączenia":::
 
+
+```json
+{
+  "instrumentationSettings": {
+    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
 Parametry połączenia można również ustawić przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_CONNECTION_STRING` .
+
+Ustawienie parametrów połączenia spowoduje wyłączenie agenta Java.
 
 ## <a name="cloud-role-name"></a>Nazwa roli w chmurze
 
@@ -93,7 +104,7 @@ Możesz również ustawić wystąpienie roli w chmurze przy użyciu zmiennej śr
 
 Application Insights Java 3,0 Preview automatycznie przechwytuje rejestrowanie aplikacji za pośrednictwem Log4J, Logback i Java. util. Logging.
 
-Domyślnie zostanie przechwycone rejestrowanie wykonane na `WARN` poziomie lub wyższym.
+Domyślnie zostanie przechwycone rejestrowanie wykonane na `INFO` poziomie lub wyższym.
 
 Jeśli chcesz zmienić ten próg:
 
@@ -103,13 +114,15 @@ Jeśli chcesz zmienić ten próg:
     "preview": {
       "instrumentation": {
         "logging": {
-          "threshold": "ERROR"
+          "threshold": "WARN"
         }
       }
     }
   }
 }
 ```
+
+Można również ustawić próg rejestrowania przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_LOGGING_THRESHOLD` .
 
 Są to prawidłowe `threshold` wartości, które można określić w `ApplicationInsights.json` pliku i jak są one odnoszące się do poziomów rejestrowania w różnych strukturach rejestrowania:
 
@@ -136,9 +149,9 @@ Jeśli masz pewne JMX metryki, które chcesz przechwytywać:
     "preview": {
       "jmxMetrics": [
         {
-          "objectName": "java.lang:type=ClassLoading",
-          "attribute": "LoadedClassCount",
-          "display": "Loaded Class Count"
+          "objectName": "java.lang:type=Runtime",
+          "attribute": "Uptime",
+          "display": "JVM uptime (millis)"
         },
         {
           "objectName": "java.lang:type=MemoryPool,name=Code Cache",
@@ -150,6 +163,10 @@ Jeśli masz pewne JMX metryki, które chcesz przechwytywać:
   }
 }
 ```
+
+Metryki JMX można również ustawić przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_JMX_METRICS` .
+
+Ta zmienna środowiskowa zawartości musi być danymi JSON pasującymi do powyższej struktury, np. `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Code Cache", "attribute": "Usage.used", "display": "Code Cache Used"}]`
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer (w tym metryki z siłownika rozruchu sprężynowego)
 
@@ -214,6 +231,8 @@ Oto przykład sposobu ustawiania próbkowania do **10% wszystkich transakcji** �
   }
 }
 ```
+
+Możesz również ustawić procent próbkowania przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
 
 ## <a name="http-proxy"></a>Serwer proxy HTTP
 

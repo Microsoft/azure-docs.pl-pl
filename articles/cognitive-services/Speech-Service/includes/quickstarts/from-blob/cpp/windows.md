@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: trbye
-ms.openlocfilehash: 629fc5e3bc41377fe852a1648680d77b22395d02
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e1d2493474736ebbcdb54aeb697716e1dc7d6ee6
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400932"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376960"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -17,7 +17,7 @@ Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
 > * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
-> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../overview.md#try-the-speech-service-for-free)
 > * [Przekazywanie pliku źródłowego do obiektu blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="open-your-project-in-visual-studio"></a>Otwieranie projektu w programie Visual Studio
@@ -25,7 +25,7 @@ Przed rozpoczęciem upewnij się, że:
 Pierwszym krokiem jest upewnienie się, że projekt jest otwarty w programie Visual Studio.
 
 1. Uruchom program Visual Studio 2019.
-2. Załaduj projekt i Otwórz `helloworld.cpp`go.
+2. Załaduj projekt i otwórz go `helloworld.cpp` .
 
 ## <a name="add-a-references"></a>Dodaj odwołania
 
@@ -53,17 +53,17 @@ Dodajmy kod, który działa jako szkielet dla projektu.
 Jako że żądania API REST w formacie JSON i zwracają wyniki w kodzie JSON, możemy z nich korzystać tylko przy użyciu ciągów, ale nie jest to zalecane.
 Aby ułatwić zarządzanie żądaniami i odpowiedziami, deklarujemy kilka klas do użycia na potrzeby serializowania/deserializacji kodu JSON i niektórych metod, aby pomóc nlohmann/JSON.
 
-Przejdź dalej i umieść ich deklaracje `recognizeSpeech` przed.
+Przejdź dalej i umieść ich deklaracje przed `recognizeSpeech` .
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=33-185)]
 
 ## <a name="create-and-configure-an-http-client"></a>Tworzenie i Konfigurowanie klienta http
 Najpierw musimy być klientem http z prawidłowym podstawowym adresem URL i zestawem uwierzytelniania.
-Wstaw ten kod w`recognizeSpeech`
+Wstaw ten kod w `recognizeSpeech`
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)]
 
 ## <a name="generate-a-transcription-request"></a>Generuj żądanie transkrypcji
-Następnie wygenerujemy żądanie transkrypcji. Dodaj ten kod do`recognizeSpeech`
+Następnie wygenerujemy żądanie transkrypcji. Dodaj ten kod do `recognizeSpeech`
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
 

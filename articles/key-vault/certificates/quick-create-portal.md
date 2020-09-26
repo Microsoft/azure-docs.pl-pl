@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec1d02cefcdb443a74fab52496cd9428a852139f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0a2c1b39f5688b4fc544e5456666ccb8b4801517
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169971"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281053"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Szybki Start: Ustawianie i pobieranie certyfikatu z Azure Key Vault przy użyciu Azure Portal
 
@@ -45,7 +45,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 Zanotuj dwie poniższe właściwości:
 
 * **Nazwa magazynu**: w tym przykładzie **przykład-magazyn**. Użyjesz tej nazwy w innych krokach.
-* **Identyfikator URI magazynu**: w tym przykładzie jest to https://example-vault.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+* **Identyfikator URI magazynu**: w tym przykładzie jest to `https://example-vault.vault.azure.net/`. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania operacji na tym nowym magazynie.
 
@@ -61,7 +61,7 @@ Aby dodać certyfikat do magazynu, wystarczy wykonać kilka dodatkowych kroków.
     - **Metoda tworzenia certyfikatu**: generate.
     - **Nazwa certyfikatu**: ExampleCertificate.
     - **Podmiot**: CN = ExampleDomain
-    - Dla pozostałych opcji zostaw wartości domyślne. Kliknij przycisk **Utwórz**.
+    - Dla pozostałych opcji zostaw wartości domyślne. Kliknij pozycję **Utwórz**.
 
 Po otrzymaniu komunikatu o pomyślnym utworzeniu certyfikatu można go kliknąć na liście. Zostaną wtedy wyświetlone niektóre jego właściwości. Jeśli klikniesz bieżącą wersję, zostanie wyświetlona wartość określona w poprzednim kroku.
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296454"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemy i rozwiązania podczas certyfikacji maszyny wirtualnej 
 
@@ -33,6 +33,9 @@ Aby rozwiązać ten problem, pobierz obraz z witryny Azure Marketplace i wprowad
 
 - [Obrazy systemu Linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Obrazy systemu Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+
+> [!Note]
+> Jeśli używasz podstawowego obrazu systemu Linux, który nie został pobrany z witryny Marketplace, możesz przesunąć pierwszą partycję o 2048 KB. Pozwala to na niesformatowane miejsce na dodanie nowych informacji dotyczących rozliczeń i umożliwi korzystanie z platformy Azure z publikowaniem maszyny wirtualnej w portalu Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Niepowodzenie rozszerzenia maszyny wirtualnej
 
@@ -270,9 +273,12 @@ Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podcza
 |6|Nagłówek warunkowy HTTP|Adres URL sygnatury dostępu współdzielonego jest nieprawidłowy.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
 |7|Nieprawidłowa nazwa wirtualnego dysku twardego|Sprawdź, czy znaki specjalne, takie jak znak procentu (%) lub znaki cudzysłowu (") istnieją w nazwie wirtualnego dysku twardego.|Zmień nazwę pliku VHD, usuwając znaki specjalne.|
 
-## <a name="first-1-mb-partition"></a>Pierwsza partycja z 1 MB
+## <a name="first-mb-2048-kb-partition-only-for-linux"></a>Partycja pierwszej pamięci (2048 KB) (tylko dla systemu Linux)
 
-Podczas przesyłania wirtualnego dysku twardego upewnij się, że pierwsza partycja dysku VHD z 1 MB jest pusta. W przeciwnym razie Twoje żądanie zakończy się niepowodzeniem.
+Podczas przesyłania wirtualnego dysku twardego upewnij się, że pierwsze 2048 KB dysku VHD jest puste. W przeciwnym razie Twoje żądanie zakończy się niepowodzeniem *.
+
+>[!NOTE]
+>* W przypadku niektórych obrazów specjalnych, takich jak te, które zostały utworzone na podstawie obrazów podstawowych systemu Windows Azure z portalu Azure Marketplace, sprawdzimy tag rozliczania i zignorujesz partycję MB, jeśli tag rozliczania jest obecny i jest zgodny z naszymi wewnętrznymi dostępnymi wartościami.
 
 ## <a name="default-credentials"></a>Poświadczenia domyślne
 

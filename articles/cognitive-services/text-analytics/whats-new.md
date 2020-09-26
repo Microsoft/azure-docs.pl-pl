@@ -10,16 +10,40 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 436d64583184ca2cd59b4ddf33056922c746fb34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930914"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271175"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
 Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktualność dzięki najnowszym zmianom, ten artykuł zawiera informacje o nowych wersjach i funkcjach.
+
+## <a name="september-2020"></a>Wrzesień 2020
+
+### <a name="general-api-updates"></a>Ogólne aktualizacje interfejsu API
+
+* Wydanie nowego adresu URL dla publicznej wersji zapoznawczej analiza tekstu v 3.1 do obsługi aktualizacji następujących nazwanych punktów końcowych rozpoznawania jednostek: 
+    * `/pii` punkt końcowy zawiera teraz nową `redactedText` Właściwość w formacie JSON odpowiedzi, w której wykryte jednostki danych wejściowych są zastępowane przez `*` dla każdego znaku tych jednostek.
+    * `/linking` punkt końcowy zawiera teraz `bingID` Właściwość w formacie JSON odpowiedzi dla połączonych jednostek.
+* Analiza tekstu następujące punkty końcowe interfejsu API w wersji zapoznawczej zostały wycofane 4 września 2020:
+    * v 2.1 — wersja zapoznawcza
+    * Wersja 3.0 (wersja zapoznawcza)
+    * v 3.0 — wersja zapoznawcza 1
+    
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej na temat interfejs API analizy tekstu v 3.1 — wersja zapoznawcza. 2](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Languages)
+
+### <a name="text-analytics-for-health-container-updates"></a>analiza tekstu aktualizacji kontenera kondycji
+
+Następujące aktualizacje są specyficzne dla wydania września analiza tekstu tylko dla kontenera kondycji.
+* Nowy obraz kontenera z `1.1.013530001-amd64-preview` nowym modelem w wersji `2020-09-03` został ogłoszony do repozytorium containerpreview. 
+* Ta wersja modelu zapewnia ulepszenia rozpoznawania jednostek, wykrywania skrótów i ulepszeń opóźnienia.
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej na temat analiza tekstu na potrzeby kondycji](how-tos/text-analytics-for-health.md)
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -31,7 +55,7 @@ Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktual
 * W przypadku żądań interfejsu API v3, które przekraczają opublikowane [limity danych](concepts/data-limits.md), zostanie teraz zwrócony błąd HTTP 400. 
 * Punkty końcowe zwracające przesunięcie obsługują teraz opcjonalny `stringIndexType` parametr, który dostosowuje zwrócone `offset` i `length` wartości zgodne z obsługiwanym [schematem indeksu ciągu](concepts/text-offsets.md).
 
-### <a name="text-analytics-for-health-container-august-updates"></a>analiza tekstu dla aktualizacji kontenera kondycji sierpnia
+### <a name="text-analytics-for-health-container-updates"></a>analiza tekstu aktualizacji kontenera kondycji
 
 Następujące aktualizacje są specyficzne dla wydania z sierpnia analiza tekstu tylko dla kontenera kondycji.
 
@@ -147,11 +171,11 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
     * Czy
 
 * Rozpoznawanie następujących typów jednostek informacji osobistych (tylko w języku angielskim):
-    * Person (Osoba)
+    * Osoba
     * Organizacja
     * Wiek jako podtyp w ramach ilości
     * Data jako podtyp w obszarze DateTime
-    * Wiadomość e-mail 
+    * Poczta e-mail 
     * Numer telefonu (tylko Stany Zjednoczone)
     * Adres URL
     * Adres IP

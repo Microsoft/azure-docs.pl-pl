@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 66335548381a6f7e3ebf93c97eb212255639644c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604091"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280570"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web w Azure Portal
 
@@ -37,9 +37,9 @@ Po utworzeniu repozytorium można utworzyć statyczną aplikację sieci Web na p
 1. Wybierz **Web Apps statyczny (wersja zapoznawcza)**
 1. Wybierz pozycję **Utwórz**
 
-Na karcie _podstawowe_ Zacznij od skonfigurowania nowej aplikacji i powiązania jej z repozytorium GitHub.
+W sekcji _podstawowe_ Zacznij od skonfigurowania nowej aplikacji i powiązania jej z repozytorium GitHub.
 
-:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Karta Podstawowe":::
+:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Sekcja podstawy":::
 
 1. Wybierz swoją _subskrypcję platformy Azure_
 1. Wybierz lub Utwórz nową _grupę zasobów_

@@ -3,18 +3,18 @@ title: Zainstaluj program VMware HCX
 description: Skonfiguruj rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.openlocfilehash: a101712f2d80e0d8e70d37bd5b7b08931f62ba3d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: cdeffa41db5aac597d8dfcf3a735cbeb7f0d8a8e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356557"
+ms.locfileid: "91370848"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Zainstaluj program HCX for Azure VMware Solution
 
 W tym artykule omówiono procedury konfigurowania rozwiązania VMWare HCX dla chmury prywatnej rozwiązania Azure VMWare. HCX umożliwia migrowanie obciążeń oprogramowania VMware do chmury oraz inne połączone Lokacje za pomocą różnych wbudowanych typów migracji obsługiwanych przez program HCX.
 
-HCX Advanced — instalacja domyślna obsługuje maksymalnie trzy połączenia z lokacją (lokalnie lub w chmurze do chmury). Jeśli wymagane są więcej niż trzy połączenia z lokacją, klienci mają możliwość włączenia dodatku HCX Enterprise w ramach pomocy technicznej, która jest obecnie dostępna w wersji zapoznawczej. Firma HCX Enterprise wykonuje dodatkowe opłaty dla klientów po ogólnej dostępności (GA), ale udostępnia [dodatkowe funkcje](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced — instalacja domyślna obsługuje maksymalnie trzy połączenia z lokacją (lokalnie lub w chmurze do chmury). Jeśli wymagane są więcej niż trzy połączenia witryny lub HCX [funkcje przedsiębiorstwa](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) , klienci mogą korzystać z opcji włączenia dodatku Enterprise HCX w wersji zapoznawczej. Program HCX EE jest dostępny z funkcją automatycznej synchronizacji jako funkcji/usługi w wersji zapoznawczej. Podczas gdy HCX EE for replika jest w wersji zapoznawczej, jest to bezpłatna funkcja/usługa, która podlega zapewnieniu warunków i postanowień usługi. Po rozpoczęciu usługi HCX EE uzyskasz 30-dniowy okres, w którym rozliczenia zostaną przełączone. Dostępna jest również opcja przełączania/rezygnacji z usługi.
 
 
 [Przed rozpoczęciem](#before-you-begin)należy dokładnie zapoznać się z [wymaganiami dotyczącymi wersji oprogramowania](#software-version-requirements)i [wymaganiami wstępnymi](#prerequisites) . 
@@ -63,17 +63,15 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 
 * Lokalne HCX IX i NE urządzenia powinny być w stanie dotrzeć do infrastruktury vCenter i ESXi.
 
-* Aby można było wdrożyć urządzenie WAN Interconnect (oprócz bloku adresów sieciowych/22) używanego do wdrażania SDDC w Azure Portal, HCX wymaga bloku/29. Upewnij się, że to wymaganie należy wziąć pod uwagę w planowaniu sieci.
+* Aby można było wdrożyć urządzenie WAN Interconnect, określone zakresy CIDR są już przydzieleni od klienta dostarczonego przez \ 22 dla tworzenia chmury prywatnej.
 
 ## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>Wdrażanie programu VMware HCX komórki jajowe w środowisku lokalnym
 
 1. Zaloguj się do usługi Azure VMware Solution HCX Manager na `https://x.x.x.9` porcie 443 przy użyciu poświadczeń użytkownika **cloudadmin** , a następnie przejdź do **pomocy technicznej**.
 
-1. Wybierz link pobierania dla pliku komórek jajowych programu VMware HCX. 
+1. Wybierz link pobierania dla pliku komórek jajowych programu VMware HCX, który ma zostać wdrożony w programie vCenter.
 
-1. Zaloguj się do rozwiązania Azure VMware SDDC vCenter i wybierz pozycję **HCX**.
-   
-1. Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter.  
+1. Przejdź do lokalnego programu vCenter i wybierz nowo pobrany szablon OVF do wdrożenia w lokalnym programie vCenter.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Następnie przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter.":::
 

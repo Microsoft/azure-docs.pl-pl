@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1111b56a08343f1e12c3b2d582e350907ab37b46
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a6df1347eab57a6971fe2e39c0a55869c8f23939
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276035"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317491"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Rozwiązywanie problemów z atrybutem, który nie jest synchronizowany w Azure AD Connect
 
@@ -67,7 +67,7 @@ Przed badaniem problemów z synchronizacją atrybutów, przyjrzyjmy się proceso
 
 * Kliknij dwukrotnie **łącznik Active Directory** , aby wyświetlić atrybuty **przestrzeni łącznika** . Kliknij przycisk **Podgląd** , w następującym oknie dialogowym kliknij przycisk **Generuj Podgląd** .
 
-  ![Atrybuty przestrzeni łącznika](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
+  ![Zrzut ekranu pokazujący ekran właściwości obiektu obszaru łącznika z wyróżnionym przyciskiem Podgląd.](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
 
 * Teraz kliknij kolejno opcje **Importuj przepływ**atrybutów, który pokazuje przepływ atrybutów z **Active Directory miejsca łącznika** do **Metaverse**. Kolumna **reguły synchronizacji** pokazuje, która **reguła synchronizacji** przyczyniła ten atrybut. Kolumna **Źródło danych** pokazuje atrybuty **obszaru łącznika**. Kolumna **atrybutu Metaverse** zawiera atrybuty w obiekcie **Metaverse**. Ten atrybut nie jest synchronizowany w tym miejscu. Jeśli nie znajdziesz tutaj atrybutu, nie jest on mapowany i trzeba utworzyć nową niestandardową **regułę synchronizacji** w celu zamapowania atrybutu.
 
@@ -75,7 +75,7 @@ Przed badaniem problemów z synchronizacją atrybutów, przyjrzyjmy się proceso
 
 * Kliknij **przepływ atrybutu Export** w lewym okienku, aby wyświetlić przepływ **atrybutów z** wycofywania do **Active Directory obszaru łącznika** przy użyciu **reguł synchronizacji danych wychodzących**.
 
-  ![Atrybuty przestrzeni łącznika](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
+  ![Zrzut ekranu pokazujący przepływ atrybutów z Metaverse z powrotem do Active Directory obszaru łącznika przy użyciu reguł synchronizacji danych wychodzących.](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
 
 * Podobnie można wyświetlić obiekt **obszaru łącznika Azure Active Directory** i wygenerować **Podgląd** do wyświetlania przepływu atrybutów z **Metaverse** do **obszaru łącznika i na** odwrót, w ten sposób można zbadać dlaczego atrybut nie jest synchronizowany.
 

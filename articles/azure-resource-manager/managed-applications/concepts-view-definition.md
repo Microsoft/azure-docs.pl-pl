@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81391692"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371613"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Wyświetl artefakt definicji w Azure Managed Applications
 
@@ -131,7 +131,7 @@ Po udostępnieniu tego widoku w **viewDefinition.js**on zastępuje domyślną st
 |description|Nie|Opis aplikacji zarządzanej.|
 |polecenia|Nie|Tablica dodatkowych przycisków paska narzędzi na stronie Przegląd, zobacz [polecenia](#commands).|
 
-![Omówienie](./media/view-definition/overview.png)
+![Zrzut ekranu przedstawia przegląd aplikacji zarządzanej z kontrolką akcji testowej w celu uruchomienia aplikacji demonstracyjnej.](./media/view-definition/overview.png)
 
 ## <a name="metrics"></a>Metryki
 
@@ -167,7 +167,7 @@ Widok metryki umożliwia zbieranie i agregowanie danych z zasobów aplikacji zar
 |Właściwość|Wymagane|Opis|
 |---------|---------|---------|
 |displayName|Nie|Wyświetlany tytuł widoku.|
-|version|Nie|Wersja platformy używana do renderowania widoku.|
+|Wersja|Nie|Wersja platformy używana do renderowania widoku.|
 |schematy|Tak|Tablica wykresów na stronie metryk.|
 
 ### <a name="chart"></a>Wykres
@@ -178,17 +178,17 @@ Widok metryki umożliwia zbieranie i agregowanie danych z zasobów aplikacji zar
 |wykrestype|Nie|Wizualizacja, która ma być używana na potrzeby tego wykresu. Domyślnie używa wykresu liniowego. Obsługiwane typy wykresów: `Bar, Line, Area, Scatter` .|
 |metrics|Tak|Tablica metryk do wykreślenia na tym wykresie. Aby dowiedzieć się więcej o metrykach obsługiwanych w Azure Portal, zobacz temat [obsługiwane metryki z Azure monitor](../../azure-monitor/platform/metrics-supported.md)|
 
-### <a name="metric"></a>Metric
+### <a name="metric"></a>Metryka
 
 |Właściwość|Wymagane|Opis|
 |---------|---------|---------|
 |name|Tak|Nazwa metryki.|
-|agregacja|Tak|Typ agregacji, który ma być używany dla tej metryki. Obsługiwane typy agregacji:`none, sum, min, max, avg, unique, percentile, count`|
+|agregacja|Tak|Typ agregacji, który ma być używany dla tej metryki. Obsługiwane typy agregacji: `none, sum, min, max, avg, unique, percentile, count`|
 |namespace|Nie|Dodatkowe informacje do użycia podczas określania poprawnego dostawcy metryk.|
 |resourceTagFilter|Nie|Tablica tagów zasobów (zostanie oddzielona od `or` słowa), dla której będą wyświetlane metryki. Dotyczy filtru typu zasobu.|
 |resourceType|Tak|Typ zasobu, dla którego będą wyświetlane metryki.|
 
-![Metryki](./media/view-definition/metrics.png)
+![Zrzut ekranu przedstawia stronę monitorowania o nazwie mój widok metryki dla aplikacji zarządzanej.](./media/view-definition/metrics.png)
 
 ## <a name="custom-resources"></a>Zasoby niestandardowe
 
@@ -227,14 +227,14 @@ W tym widoku można wykonywać operacje GET, PUT, DELETE i POST dla niestandardo
 |Właściwość|Wymagane|Opis|
 |---------|---------|---------|
 |displayName|Tak|Wyświetlany tytuł widoku. Tytuł powinien być **unikatowy** dla każdego widoku CustomResources w **viewDefinition.js**.|
-|version|Nie|Wersja platformy używana do renderowania widoku.|
+|Wersja|Nie|Wersja platformy używana do renderowania widoku.|
 |resourceType|Tak|Niestandardowy typ zasobu. Musi być **unikatowym** niestandardowym typem zasobu niestandardowego dostawcy.|
 |ikona|Nie|Ikona widoku. Lista przykładowych ikon jest zdefiniowana w [schemacie JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|Nie|Utwórz schemat definicji interfejsu użytkownika dla polecenia Utwórz zasób niestandardowy. Wprowadzenie do tworzenia definicji interfejsu użytkownika można znaleźć w temacie [wprowadzenie do CreateUiDefinition](create-uidefinition-overview.md)|
 |polecenia|Nie|Tablica dodatkowych przycisków paska narzędzi widoku CustomResources, zobacz [polecenia](#commands).|
 |columns|Nie|Tablica kolumn zasobu niestandardowego. Jeśli nie zdefiniowano `name` kolumny, będzie ona wyświetlana domyślnie. Kolumna musi zawierać `"key"` i `"displayName"` . W polu klucz Podaj klucz właściwości, która ma być wyświetlana w widoku. Jeśli jest zagnieżdżony, użyj kropki jako ogranicznika, na przykład `"key": "name"` lub `"key": "properties.property1"` . W polu Nazwa wyświetlana Podaj nazwę wyświetlaną właściwości, która ma być wyświetlana w widoku. Możesz również podać `"optional"` Właściwość. Po ustawieniu na wartość true kolumna jest domyślnie ukryta w widoku.|
 
-![CustomResources](./media/view-definition/customresources.png)
+![Zrzut ekranu przedstawia stronę zasobów o nazwie test niestandardowy typ zasobu i akcję kontrolki niestandardowe kontekstu.](./media/view-definition/customresources.png)
 
 ## <a name="commands"></a>Polecenia
 
@@ -256,7 +256,7 @@ Polecenia to tablica dodatkowych przycisków paska narzędzi, które są wyświe
 |Właściwość|Wymagane|Opis|
 |---------|---------|---------|
 |displayName|Tak|Wyświetlana nazwa przycisku polecenia.|
-|ścieżka|Tak|Nazwa akcji dostawcy niestandardowego. Akcja musi być zdefiniowana w **mainTemplate.jsna**.|
+|path|Tak|Nazwa akcji dostawcy niestandardowego. Akcja musi być zdefiniowana w **mainTemplate.jsna**.|
 |ikona|Nie|Ikona przycisku polecenia. Lista przykładowych ikon jest zdefiniowana w [schemacie JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|Nie|Utwórz schemat definicji interfejsu użytkownika dla polecenia. Wprowadzenie do tworzenia definicji interfejsu użytkownika można znaleźć w temacie [wprowadzenie do CreateUiDefinition](create-uidefinition-overview.md).|
 
@@ -283,7 +283,7 @@ W tym widoku można rozłożyć istniejące zasoby platformy Azure na podstawie 
 |Właściwość|Wymagane|Opis|
 |---------|---------|---------|
 |displayName|Tak|Wyświetlany tytuł widoku. Tytuł powinien być **unikatowy** dla każdego widoku skojarzenia w **viewDefinition.jsna**.|
-|version|Nie|Wersja platformy używana do renderowania widoku.|
+|Wersja|Nie|Wersja platformy używana do renderowania widoku.|
 |targetResourceType|Tak|Docelowy typ zasobu. Jest to typ zasobu, który będzie wyświetlany na potrzeby dołączania do zasobów.|
 |createUIDefinition|Nie|Utwórz schemat definicji interfejsu użytkownika dla polecenia Utwórz zasób skojarzenia. Wprowadzenie do tworzenia definicji interfejsu użytkownika można znaleźć w temacie [wprowadzenie do CreateUiDefinition](create-uidefinition-overview.md)|
 

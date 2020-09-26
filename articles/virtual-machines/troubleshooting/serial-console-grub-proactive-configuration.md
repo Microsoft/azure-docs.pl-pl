@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: c48ef0321ece2e7e0ffcdfcb8c0907c5f839e738
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aba47500400004c1d6a7044a266bad6f20d5d9c9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831366"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360552"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Proaktywne zagwarantowanie, że masz dostęp do GRUB i sysrq mogą zaoszczędzić znaczną część czasu
 
@@ -57,9 +57,9 @@ Za pomocą konsoli szeregowej platformy Azure można korzystać z maszyny wirtua
 
 Można manipulować wieloma plikami konfiguracji, w tym w przypadku uruchamiania jądra. 
 
-Im bardziej doświadczeni administratorzy systemu Linux/UNIX, będą wdzięczni z **jednego użytkownika** i **trybu awaryjnego** , który jest dostępny za pośrednictwem konsoli szeregowej platformy Azure, dzięki czemu wymiana dysków i usunięcie maszyny wirtualnej są nieznacznie nadmiarowe.
+Im bardziej doświadczeni administratorzy systemu Linux/UNIX, będą wdzięczni z **jednego użytkownika** i  **trybu awaryjnego** , który jest dostępny za pośrednictwem konsoli szeregowej platformy Azure, dzięki czemu wymiana dysków i usunięcie maszyny wirtualnej są nieznacznie nadmiarowe.
 
-Metoda odzyskiwania zależy od napotkanego problemu, na przykład utraconych lub nieprawidłowych haseł można resetować za pomocą opcji Azure Portal — > **resetowania hasła**. Funkcja **resetowania hasła** jest znana jako rozszerzenie i komunikuje się z agentem gościa systemu Linux.
+Metoda odzyskiwania zależy od napotkanego problemu, na przykład utraconych lub nieprawidłowych haseł można resetować za pomocą opcji Azure Portal — >  **resetowania hasła**. Funkcja **resetowania hasła** jest znana jako rozszerzenie i komunikuje się z agentem gościa systemu Linux.
 
 Dostępne są inne rozszerzenia, takie jak skrypt niestandardowy, ale te opcje wymagają, aby **waagent** systemu Linux był w dobrej kondycji, co nie zawsze jest w przypadku.
 
@@ -117,7 +117,7 @@ Aby dynamicznie skonfigurować parametr jądra
 
 Jeśli nie masz dostępu do **katalogu głównego** lub sudo jest uszkodzony, nie będzie możliwe skonfigurowanie sysrq z poziomu wiersza powłoki.
 
-Sysrq w tym scenariuszu można włączyć przy użyciu Azure Portal. Ta metoda może być korzystna, jeśli plik **sudo. d/waagent** uległ uszkodzeniu lub został usunięty.
+Sysrq w tym scenariuszu można włączyć przy użyciu Azure Portal. Ta metoda może być korzystna, jeśli plik  **sudo. d/waagent** uległ uszkodzeniu lub został usunięty.
 
 Za pomocą funkcji Azure Portal Operations-> Run > funkcja RunShellScript wymaga, aby proces waagent działał prawidłowo, a następnie wstrzyknąć to polecenie, aby włączyć sysrq
 
@@ -210,11 +210,11 @@ Przerywanie procesu rozruchu i menu GRUB dostępu
 
 Wybierz opcje zaawansowane dla Ubuntu i naciśnij klawisz ENTER
 
-![ubunturec1](./media/virtual-machines-serial-console/ubunturec1.png)
+![Zrzut ekranu przedstawia Konsola szeregowa wybrane opcje zaawansowane dla Ubuntu.](./media/virtual-machines-serial-console/ubunturec1.png)
 
 Wybierz wyświetlanie linii *(tryb odzyskiwania)* nie naciskaj klawisza ENTER, ale naciśnij klawisz "e"
 
-![ubunturec2](./media/virtual-machines-serial-console/ubunturec2.png)
+![Zrzut ekranu przedstawia Konsola szeregowa z wybraną wersją trybu odzyskiwania.](./media/virtual-machines-serial-console/ubunturec2.png)
 
 Znajdź wiersz, który załaduje jądro i Zastąp ostatni parametr **nomodeset** z miejscem docelowym jako **Console = ttyS0**
 
@@ -226,12 +226,12 @@ change to
 linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb57e97 ro recovery console=ttyS0
 ```
 
-![ubunturec3](./media/virtual-machines-serial-console/ubunturec3.png)
+![Zrzut ekranu przedstawia Konsola szeregowa o zmienionej wartości.](./media/virtual-machines-serial-console/ubunturec3.png)
 
 Naciśnij **kombinację klawiszy Ctrl-x** , aby uruchomić i załadować jądro.
 Jeśli wszystko przebiegnie prawidłowo, zobaczysz te dodatkowe opcje, które mogą ułatwić przeprowadzenie innych opcji odzyskiwania
 
-![ubunturec4](./media/virtual-machines-serial-console/ubunturec4.png)
+![Zrzut ekranu przedstawia Konsola szeregowa w menu odzyskiwanie, które oferuje dodatkowe opcje odzyskiwania.](./media/virtual-machines-serial-console/ubunturec4.png)
 
 
 ## <a name="red-hat-grub-configuration"></a>Konfiguracja GRUB Red Hat
@@ -335,13 +335,13 @@ terminal --timeout=5 serial console
 ```
 
 
-Ostatni wiersz *terminala — timeout = 5 Konsola szeregowa* zwiększy limit czasu **grub** przez dodanie monitu o 5 sekund w **celu kontynuowania.**
+Ostatni wiersz  *terminala — timeout = 5 Konsola szeregowa* zwiększy limit czasu **grub** przez dodanie monitu o 5 sekund w **celu kontynuowania.**
 
-![RH6-1](./media/virtual-machines-serial-console/rh6-1.png)
+![Zrzut ekranu przedstawia konsolę z danymi wyjściowymi.](./media/virtual-machines-serial-console/rh6-1.png)
 
 Menu GRUB powinno pojawić się na ekranie dla skonfigurowanego limitu czasu = 15 bez konieczności naciskania klawisza ESC. Upewnij się, że kliknij w konsoli programu w przeglądarce, aby uaktywnić menu i wybrać wymagane jądro
 
-![RH6-2](./media/virtual-machines-serial-console/rh6-2.png)
+![Zrzut ekranu przedstawia konsolę z dwiema opcjami systemu Linux.](./media/virtual-machines-serial-console/rh6-2.png)
 
 ## <a name="suse"></a>Szło
 
@@ -405,18 +405,18 @@ Będziesz uzyskiwać dostęp do powłoki bez konieczności wprowadzania hasła. 
 Posiadanie dostępu do usługi GRUB umożliwia przerwanie procesu inicjowania tej interakcji jest przydatne w przypadku wielu procedur odzyskiwania.
 Jeśli nie masz hasła głównego, a pojedynczy użytkownik wymaga posiadania hasła głównego, możesz uruchomić jądro zastępujące program init z monitem bash — to przerwanie można osiągnąć przez dołączenie init =/bin/bash do wiersza rozruchu jądra
 
-![bash1](./media/virtual-machines-serial-console/bash1.png)
+![Zrzut ekranu przedstawia konsolę z zaktualizowanym wierszem rozruchowym.](./media/virtual-machines-serial-console/bash1.png)
 
 Zainstaluj ponownie system plików/(root) RW przy użyciu polecenia
 
 `mount -o remount,rw /`
 
-![bash2](./media/virtual-machines-serial-console/bash2.png)
+![Zrzut ekranu przedstawia konsolę z akcją ponownego zainstalowania.](./media/virtual-machines-serial-console/bash2.png)
 
 
 Teraz można przeprowadzić zmianę hasła głównego lub wiele innych zmian konfiguracji systemu Linux
 
-![bash3](./media/virtual-machines-serial-console/bash3.png)
+![Zrzut ekranu przedstawia konsolę, w której można zmienić hasło główne i inną konfigurację.](./media/virtual-machines-serial-console/bash3.png)
 
 Uruchom ponownie maszynę wirtualną za pomocą 
 

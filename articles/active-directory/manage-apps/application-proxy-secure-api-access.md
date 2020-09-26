@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5db76f0258eb08f6b1f8ed102dc29e26c8d8bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e72129b1f391996f6d5b085fe602adb35a3aecbe
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206448"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371222"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Bezpieczny dostęp do lokalnych interfejsów API przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -43,7 +43,7 @@ Ponieważ uwierzytelnianie i autoryzacja w usłudze Azure serwer proxy aplikacji
 Aby wykonać czynności opisane w tym instruktażu, potrzebne są:
 
 - Dostęp administratora do katalogu platformy Azure przy użyciu konta, które może tworzyć i rejestrować aplikacje
-- Przykładowy internetowy interfejs API i natywne aplikacje klienckie z[https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp)
+- Przykładowy internetowy interfejs API i natywne aplikacje klienckie z [https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp)
 
 ## <a name="publish-the-api-through-application-proxy"></a>Publikowanie interfejsu API za pomocą serwera proxy aplikacji
 
@@ -185,7 +185,7 @@ Aby skonfigurować aplikację natywną do nawiązywania połączenia z Azure Act
 
 Po skonfigurowaniu parametrów Skompiluj i uruchom aplikację natywną. Po wybraniu przycisku **Zaloguj** aplikacja umożliwi zalogowanie się, a następnie wyświetli ekran sukcesu, aby potwierdzić pomyślne połączenie z SecretAPI.
 
-![Powodzenie](./media/application-proxy-secure-api-access/success.png)
+![Zrzut ekranu przedstawia komunikat o powodzeniu i przycisk OK.](./media/application-proxy-secure-api-access/success.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

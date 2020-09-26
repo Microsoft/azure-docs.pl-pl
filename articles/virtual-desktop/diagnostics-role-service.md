@@ -3,15 +3,15 @@ title: Problemy dotyczące diagnostyki pulpitu wirtualnego systemu Windows — A
 description: Jak zdiagnozować problemy przy użyciu funkcji diagnostyki pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 70676bd1a07acdfcbba071a906b390ed66d70074
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121412"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279862"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identyfikowanie i diagnozowanie problemów z pulpitem wirtualnym systemu Windows
 
@@ -24,10 +24,10 @@ Połączenia, które nie docierają do pulpitu wirtualnego systemu Windows, nie 
 
 ## <a name="common-error-scenarios"></a>Typowe scenariusze błędów
 
-Scenariusze błędów są kategoryzowane w wewnętrznej usłudze i na pulpicie wirtualnym systemu Windows.
+Tabela WVDErrors śledzi błędy dla wszystkich typów działań. Kolumna o nazwie "serviceerror" zawiera dodatkową flagę oznaczoną jako "true" lub "false". Ta flaga wskazuje, czy błąd jest związany z usługą.
 
-* Problem wewnętrzny: określa scenariusze, które nie mogą zostać skorygowane przez klienta i muszą zostać rozwiązane jako problem z pomocą techniczną. Przekazując informacje zwrotne za pomocą [społeczności technicznej pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), należy uwzględnić identyfikator korelacji i przybliżony czas, w którym wystąpił problem.
-* Problem zewnętrzny: odnosi się do scenariuszy, które mogą zostać skorygowane przez klienta. Są one zewnętrzne dla pulpitu wirtualnego systemu Windows.
+* Jeśli wartość jest równa "true", zespół usługi mógł już zbadać ten problem. Jeśli ma to wpływ na środowisko użytkownika i występuje dużą liczbę razy, zalecamy przesłanie biletu pomocy technicznej dla pulpitu wirtualnego systemu Windows.
+* Jeśli wartość jest równa "false", może to być błędna konfiguracja, którą można samodzielnie naprawić. Komunikat o błędzie może zawierać wskazówki dotyczące miejsca, w którym należy zacząć.
 
 W poniższej tabeli wymieniono typowe błędy, w których administratorzy mogą pracować.
 
@@ -46,7 +46,7 @@ W poniższej tabeli wymieniono typowe błędy, w których administratorzy mogą 
 |Nie można anulować przypisania użytkownika z grupy aplikacji|Nie można anulować publikacji grupy aplikacji dla użytkownika. Sprawdź, czy użytkownik jest dostępny w usłudze Azure AD. Sprawdź, czy użytkownik jest członkiem grupy użytkowników, w której jest publikowana Grupa aplikacji. |
 |Wystąpił błąd podczas pobierania dostępnych lokalizacji |Sprawdź lokalizację maszyny wirtualnej używaną w Kreatorze tworzenia puli hostów. Jeśli obraz nie jest dostępny w tej lokalizacji, Dodaj do niej obraz lub wybierz inną lokalizację maszyny wirtualnej. |
 
-### <a name="external-connection-error-codes"></a>Kody błędów połączenia zewnętrznego
+### <a name="connection-error-codes"></a>Kody błędów połączeń
 
 |Kod liczbowy|Kod błędu|Sugerowane rozwiązanie|
 |---|---|---|

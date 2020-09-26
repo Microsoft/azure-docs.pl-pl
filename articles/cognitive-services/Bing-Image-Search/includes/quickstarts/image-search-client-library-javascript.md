@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 4312864d692d8f9027accfa2dff2b94df41d8bd3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 72c520b0ff135e9f48cd74f0024197ae8606f206
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327423"
+ms.locfileid: "91376348"
 ---
 Ten przewodnik Szybki Start umożliwia przeszukiwanie pierwszego obrazu przy użyciu biblioteki klienta wyszukiwanie obrazów Bing, która jest otoką dla interfejsu API i zawiera te same funkcje. Ta prosta aplikacja JavaScript wysyła zapytanie dotyczące wyszukania obrazu, analizuje odpowiedź w formacie JSON i wyświetla adres URL pierwszego zwróconego obrazu.
 
@@ -22,10 +22,11 @@ Kod źródłowy dla tego przykładu jest dostępny w usłudze [GitHub](https://g
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Zestaw Cognitive Services Image Search SDK dla środowiska Node.js](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
-    * Zainstaluj przy użyciu polecenia `npm install @azure/cognitiveservices-imagesearch`
-* Moduł [Node.js Azure Rest](https://www.npmjs.com/package/ms-rest-azure)
-    * Zainstaluj przy użyciu polecenia `npm install ms-rest-azure`
+* Najnowsza wersja środowiska [Node.js](https://nodejs.org/en/download/).
+* [Zestaw wyszukiwanie obrazów Bing SDK dla języka JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
+     *  Aby go zainstalować, uruchom polecenie `npm install @azure/cognitiveservices-imagesearch`
+* `CognitiveServicesCredentials`Klasa z `@azure/ms-rest-azure-js` pakietu do uwierzytelniania klienta.
+     * Aby go zainstalować, uruchom polecenie `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -36,7 +37,7 @@ Kod źródłowy dla tego przykładu jest dostępny w usłudze [GitHub](https://g
     ```javascript
     'use strict';
     const ImageSearchAPIClient = require('@azure/cognitiveservices-imagesearch');
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     ```
 
 2. W metodzie głównej projektu utwórz zmienne dla swojego ważnego klucza subskrypcji, wyników obrazów do zwrócenia przez usługę Bing i terminu wyszukiwania. Następnie utwórz wystąpienie klienta wyszukiwania obrazów za pomocą klucza.

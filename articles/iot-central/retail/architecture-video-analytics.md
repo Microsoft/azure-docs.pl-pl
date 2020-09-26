@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 087c5e5716a4c8c640faebd7470905fde85d0136
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 916d491c45a2979c59580328a721c11bd79d49c0
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038269"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372208"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>Analiza wideo — architektura aplikacji wykrywania obiektów i ruchu
 
 Szablon aplikacja do **wykrywania filmów wideo — obiekt i ruch** umożliwia tworzenie rozwiązań IoT, które obejmują możliwości analizy filmów wideo na żywo.
 
-:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Architektura":::
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Diagram przedstawiający elementy analizy wideo i składniki wykrywania ruchu.":::
 
 Najważniejsze składniki rozwiązania do analizy wideo obejmują:
 

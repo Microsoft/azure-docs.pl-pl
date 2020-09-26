@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: d017a741213317c886f88a75f33e7f49056f6a8e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 92fb6bb470c6ab9c1a8f1f0542c26a8fef07e6b3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327061"
+ms.locfileid: "91377451"
 ---
 Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania konwersji wysokiej jakości zamiany mowy na tekst.
 
@@ -21,7 +21,7 @@ Jeśli chcesz pominąć prosty kod przykładowy, zobacz [przykłady przewodnika 
 
 W tym artykule przyjęto założenie:
 
-* Masz konto platformy Azure i subskrypcję usługi mowy. Jeśli nie masz konta i subskrypcji — [Wypróbuj usługę mowy bezpłatnie](../../../get-started.md).
+* Masz konto platformy Azure i subskrypcję usługi mowy. Jeśli nie masz konta i subskrypcji — [Wypróbuj usługę mowy bezpłatnie](../../../overview.md#try-the-speech-service-for-free).
 
 ## <a name="install-and-import-the-speech-sdk"></a>Instalowanie i importowanie zestawu Speech SDK
 

@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f39aa76e4bd2ce3d298e555f56b09d0218ef0862
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2d5637be547b28c231ef757b5dd4355692dab88f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937867"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318827"
 ---
-# <a name="client-libraries-and-rest-apis"></a>Biblioteki klienckie i interfejsy API REST
+# <a name="client-libraries-and-rest-apis"></a>Biblioteki klienta i interfejsy API REST
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -28,7 +28,7 @@ Możliwości usług Azure Communication Services są koncepcyjnie zorganizowane 
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Otwórz            | Azure. ResourceManager. Komunikacja | Udostępnianie zasobów usług komunikacyjnych i zarządzanie nimi             |
 | Wspólne                 | REST | Otwórz               | Azure. Communications. Common          | Udostępnia typy podstawowe dla innych bibliotek klienta |
-| Administracja         | REST |                | Azure. Communications. Administration  | Zarządzanie użytkownikami, tokenami dostępu i numerami telefonów, przydzielanie zgodnych ze standardami STUN i włączanie serwerów |
+| Administracja         | REST | Otwórz               | Azure. Communications. Administration  | Zarządzanie użytkownikami, tokenami dostępu i numerami telefonów, przydzielanie zgodnych ze standardami STUN i włączanie serwerów |
 | Czat                   | Zastąp zastrzeżonym sygnalizowaniem | Otwórz za pomocą pakietu zamkniętego źródła sygnału źródłowego    | Azure. Communications. Chat            | Dodawanie rozmowy na podstawie tekstu w czasie rzeczywistym do aplikacji  |
 | SMS                    | REST | Otwórz              | Azure. Communications. SMS             | Wysyłanie i odbieranie wiadomości SMS |
 | Rozmów                | Transport własnościowy | Zamknięte |Azure. komunikacja. wywoływanie         | Wykorzystywanie głosu, wideo, udostępniania ekranu i innych możliwości komunikacji danych w czasie rzeczywistym          |

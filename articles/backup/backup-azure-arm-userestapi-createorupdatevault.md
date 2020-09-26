@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak zarządzać operacją tworzenia ko
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: d0baac97b7a1bfb5ac55ee8cacc40dc8f13994a5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a37808548ec58977b7d6af16c75b94b7b5efe446
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012606"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271600"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Tworzenie magazynu Recovery Services platformy Azure przy użyciu interfejsu API REST
 
@@ -23,7 +23,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Utwórz żądanie
 
-Aby można było utworzyć żądanie *Put* , `{subscription-id}` parametr jest wymagany. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Należy zdefiniować `{resourceGroupName}` i `{vaultName}` dla zasobów wraz z `api-version` parametrem. W tym artykule `api-version=2016-06-01` .
+Aby można było utworzyć żądanie *Put* , `{subscription-id}` parametr jest wymagany. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](/cli/azure/manage-azure-subscriptions-azure-cli). Należy zdefiniować `{resourceGroupName}` i `{vaultName}` dla zasobów wraz z `api-version` parametrem. W tym artykule `api-version=2016-06-01` .
 
 Wymagane są następujące nagłówki:
 
@@ -40,8 +40,8 @@ Następujące typowe definicje są używane do kompilowania treści żądania:
 
 |Nazwa  |Wymagany  |Typ  |Opis  |
 |---------|---------|---------|---------|
-|Element ETag     |         |   Ciąg      |  Opcjonalny element eTag       |
-|location     |  true       |Ciąg         |   Lokalizacja zasobu      |
+|Element ETag     |         |   String      |  Opcjonalny element eTag       |
+|location     |  true       |String         |   Lokalizacja zasobu      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Właściwości magazynu       |
 |sku     |         |  [Magazyn](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identyfikuje unikatowy identyfikator systemowy dla poszczególnych zasobów platformy Azure     |
 |tags     |         | Obiekt        |     Tagi zasobów    |
@@ -92,7 +92,7 @@ Skrócona odpowiedź *201 utworzona* na podstawie poprzedniego przykładowej tre
 }
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Utwórz zasady tworzenia kopii zapasowej dla tworzenia kopii zapasowej maszyny wirtualnej platformy Azure w tym magazynie](backup-azure-arm-userestapi-createorupdatepolicy.md).
 
