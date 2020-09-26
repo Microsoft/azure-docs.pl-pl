@@ -2,30 +2,38 @@
 title: dołączanie pliku
 description: dołączanie pliku
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: e52433cfae1e889f07818f582fc3aef0752932ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79952ad04df4780e1b30eb9cf5c7a35f49cc34c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74482471"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257077"
 ---
-Przed przeczytaniem tego artykułu należy zapoznać się z następującymi pojęciami:
+Jeśli dopiero zaczynasz korzystać z funkcji zarządzania tożsamościami i dostępem (IAM) z uwierzytelnianiem OAuth 2,0 i OpenID Connect, a nawet dopiero zaczynasz od razu na platformie Microsoft Identity platform, poniższy zestaw artykułów powinien być wysoki na liście do czytania.
 
-- [Microsoft Identity platform — Omówienie](../articles/active-directory/develop/v2-overview.md)
-- [Podstawowe informacje o uwierzytelnianiu](../articles/active-directory/develop/authentication-scenarios.md)
-- [Odbiorców](../articles/active-directory/develop/v2-supported-account-types.md)
-- [Nazwy główne aplikacji i usługi](../articles/active-directory/develop/app-objects-and-service-principals.md)
-- [Uprawnienia i wyrażanie zgody](../articles/active-directory/develop/v2-permissions-and-consent.md)
-- [Tokeny identyfikatorów](../articles/active-directory/develop/id-tokens.md) i [tokeny dostępu](../articles/active-directory/develop/access-tokens.md)
+Chociaż nie jest wymagane odczytywanie przed ukończeniem pierwszego przewodnika Szybki start lub samouczka, obejmują tematy integralne dla danej platformy, a znajomość tych informacji pomoże Ci w rozpoczęciu tworzenia bardziej złożonych scenariuszy.
+
+:::row:::
+    :::column:::
+        **Uwierzytelnianie i autoryzacja**
+
+        - [Podstawowe informacje o uwierzytelnianiu](../articles/active-directory/develop/authentication-vs-authorization.md)
+        - [Tokeny identyfikatorów](../articles/active-directory/develop/id-tokens.md)
+        - [Tokeny dostępu](../articles/active-directory/develop/access-tokens.md)
+    :::column-end:::
+    :::column:::
+        **Platforma tożsamości firmy Microsoft**
+
+        - [Odbiorców](../articles/active-directory/develop/v2-supported-account-types.md)
+        - [Aplikacje i jednostki usługi](../articles/active-directory/develop/app-objects-and-service-principals.md)
+        - [Uprawnienia i wyrażanie zgody](../articles/active-directory/develop/v2-permissions-and-consent.md)
+    :::column-end:::
+:::row-end:::

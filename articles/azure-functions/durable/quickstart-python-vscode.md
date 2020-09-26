@@ -1,16 +1,16 @@
 ---
 title: Tworzenie pierwszej trwałej funkcji na platformie Azure przy użyciu języka Python
-description: Utwórz i opublikuj funkcję trwałą platformy Azure przy użyciu programu Visual Studio Code.
+description: Utwórz i Opublikuj funkcję trwałej platformy Azure w języku Python przy użyciu Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: c9ca6d52bd71683344115004ec17a981b03f0a24
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 5d624027259212d804ced26a6daaffb853984a98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85199207"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294879"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Tworzenie pierwszej trwałej funkcji w języku Python
 
@@ -24,7 +24,7 @@ W tym artykule przedstawiono użycie rozszerzenia programu Visual Studio Code dl
 
 W celu ukończenia tego samouczka:
 
-* Zainstaluj narzędzie [Visual Studio Code](https://code.visualstudio.com/download).
+* Zainstaluj [Visual Studio Code](https://code.visualstudio.com/download).
 
 * Zainstaluj rozszerzenie VS Code [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) .
 
@@ -213,7 +213,7 @@ Gdy będziesz mieć pewność, że funkcja działa poprawnie na komputerze lokal
 
 ## <a name="test-your-function-in-azure"></a>Testowanie funkcji na platformie Azure
 
-1. Skopiuj adres URL wyzwalacza HTTP z panelu **Dane wyjściowe**. Adres URL, który wywołuje funkcję wyzwalaną przez protokół HTTP, powinien mieć następujący format:`http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Skopiuj adres URL wyzwalacza HTTP z panelu **Dane wyjściowe**. Adres URL, który wywołuje funkcję wyzwalaną przez protokół HTTP, powinien mieć następujący format: `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
 
 2. Wklej nowy adres URL żądania HTTP na pasku adresu przeglądarki. Podczas korzystania z opublikowanej aplikacji powinna zostać zwrócona taka sama odpowiedź dotycząca stanu.
 

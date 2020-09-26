@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 1126c218f8e80b7d89183746890a3fae1357d29d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: f38006e83be47142a6d7a6db25eefb3daccd0d92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307589"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Rozszerzenia PostgreSQL na serwerze elastycznym Azure Database for PostgreSQL
 
@@ -33,6 +33,8 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > [!div class="mx-tableFixed"]
 > | **Wewnętrzny**| **Wersja rozszerzenia** | **Opis** |
 > |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | Służy do analizowania adresu w elementach składowych. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Przykład dotyczący zestawu danych standaryzacji z nami|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1,2             | funkcje sprawdzania integralności relacji|
 > |[lotem](https://www.postgresql.org/docs/12/bloom.html)                    | 1,0             | Metoda dostępu rozwiniętego — indeks oparty na pliku sygnatury|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | Obsługa indeksowania wspólnych typów danych w ĄTEK|
@@ -61,7 +63,11 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1,2             | Pokaż informacje o blokowaniu na poziomie wiersza|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Pokaż statystyki na poziomie krotki|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1,0             | Język proceduralny PL/pgSQL|
-> |[postgis](https://www.postgis.net/)                      | 3.0.0           | PostGIS geometrii, Geografia i typy przestrzenne i funkcje rastrowe|
+> |[postgis](https://www.postgis.net/)                      | 3.0.0           | PostGIS geometrii, Geografia |
+> |[postgis_raster](https://www.postgis.net/)               | 3.0.0           | PostGIS i funkcje rastrowe| 
+> |[postgis_sfcgal](https://www.postgis.net/)               | 3.0.0           | PostGIS funkcje SFCGAL|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.0.0           | PostGIS geokodera Tiger i odwrotna geokod|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.0.0           | Typy i funkcje przestrzenne topologii PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1,0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1,2             | Informacje o certyfikatach SSL|
 > |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1,0             |  Metoda reklasy, która akceptuje liczbę wierszy jako limit|
@@ -76,6 +82,8 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > [!div class="mx-tableFixed"]
 > | **Wewnętrzny**| **Wersja rozszerzenia** | **Opis** |
 > |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Służy do analizowania adresu w elementach składowych. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Przykład dotyczący zestawu danych standaryzacji z nami|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1,1             | funkcje sprawdzania integralności relacji|
 > |[lotem](https://www.postgresql.org/docs/11/bloom.html)                    | 1,0             | Metoda dostępu rozwiniętego — indeks oparty na pliku sygnatury|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | Obsługa indeksowania wspólnych typów danych w ĄTEK|
@@ -105,6 +113,9 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Pokaż statystyki na poziomie krotki|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1,0             | Język proceduralny PL/pgSQL|
 > |[postgis](https://www.postgis.net/)                      | 2.5.1           | PostGIS geometrii, Geografia i typy przestrzenne i funkcje rastrowe|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | PostGIS funkcje SFCGAL|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | PostGIS geokodera Tiger i odwrotna geokod|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Typy i funkcje przestrzenne topologii PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1,0             | otoka danych obcych dla zdalnych serwerów PostgreSQL|
 > |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1,2             | Informacje o certyfikatach SSL|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1,0             | funkcje, które manipulują całymi tabelami, w tym krzyżowo|
@@ -114,9 +125,21 @@ Następujące rozszerzenia są dostępne na serwerach Azure Database for Postgre
 > |[identyfikator UUID — OSSP](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1,1             | Generuj unikatowe identyfikatory uniwersalne (UUID)|
 
 
+## <a name="dblink-and-postgres_fdw"></a>dblink i postgres_fdw
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) i [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) umożliwiają łączenie się z jednego serwera PostgreSQL z innym lub z inną bazą danych na tym samym serwerze. Serwer wysyłający musi zezwalać na połączenia wychodzące z serwerem otrzymującym. Serwer otrzymujący musi zezwalać na połączenia z serwera wysyłającego.
+
+Zalecamy wdrożenie serwerów z [integracją sieci wirtualnej](concepts-networking.md) , jeśli planujesz używać tych dwóch rozszerzeń. Domyślnie Integracja sieci wirtualnej umożliwia nawiązywanie połączeń między serwerami w sieci wirtualnej. Aby dostosować dostęp, można również użyć [grup zabezpieczeń sieci wirtualnej](../../virtual-network/manage-network-security-group.md) .
+
+
 ## <a name="pg_prewarm"></a>pg_prewarm
 
 Rozszerzenie pg_prewarm ładuje dane relacyjne do pamięci podręcznej. Przedgrzane pamięci podręczne oznacza, że zapytania mają większe czasy reakcji podczas pierwszego uruchomienia po ponownym uruchomieniu. Funkcja autouzupełniania nie jest obecnie dostępna w Azure Database for PostgreSQL-elastycznym serwerze.
+
+## <a name="pg_stat_statements"></a>pg_stat_statements
+[Pg_stat_statements rozszerzenie](https://www.postgresql.org/docs/current/pgstatstatements.html) jest wstępnie załadowane na każdym Azure Database for PostgreSQL elastycznym serwerze, aby zapewnić możliwość śledzenia statystyk wykonywania instrukcji SQL.
+Ustawienie `pg_stat_statements.track` , które kontroluje, jakie instrukcje są zliczane przez rozszerzenie, domyślnie to `top` , oznacza, że wszystkie instrukcje wydawane bezpośrednio przez klientów są śledzone. Dwa inne poziomy śledzenia to `none` i `all` . To ustawienie jest konfigurowalne jako parametr serwera.
+
+Istnieje kompromis między informacjami o wykonywaniu zapytania pg_stat_statements zapewnia i wpływ na wydajność serwera podczas rejestrowania każdej instrukcji SQL. Jeśli nie korzystasz aktywnie z rozszerzenia pg_stat_statements, zalecamy ustawienie wartości `pg_stat_statements.track` `none` . Zwróć uwagę na to, że niektóre usługi monitorowania innych firm mogą polegać na pg_stat_statements w celu dostarczenia szczegółowych informacji o wydajności zapytań, więc Potwierdź, czy tak się dzieje.
 
 
 ## <a name="next-steps"></a>Następne kroki

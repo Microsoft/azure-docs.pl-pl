@@ -3,12 +3,12 @@ title: Zabezpieczanie Azure Functions
 description: Dowiedz się więcej na temat sposobu, w jaki kod funkcji działający na platformie Azure jest bezpieczniejszy przed typowymi atakami.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e48991788307a47d0e01a7921e0c94d77ddcd5ad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850716"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294754"
 ---
 # <a name="securing-azure-functions"></a>Zabezpieczanie Azure Functions
 
@@ -128,6 +128,8 @@ Domyślnie przechowywane są parametry połączenia i wpisy tajne używane przez
 Na przykład każda aplikacja funkcji wymaga skojarzonego konta magazynu, które jest używane przez środowisko uruchomieniowe. Domyślnie połączenie z tym kontem magazynu jest przechowywane w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .
 
 Ustawienia aplikacji i parametry połączenia są przechowywane na platformie Azure. Są one odszyfrowywane tylko przed wstrzyknięciem do pamięci procesu aplikacji podczas uruchamiania aplikacji. Klucze szyfrowania są regularnie obracane. Jeśli wolisz zarządzać bezpiecznym magazynem wpisów tajnych, należy zamiast tego użyć ustawienia aplikacji do Azure Key Vault. 
+
+Podczas tworzenia funkcji na komputerze lokalnym można także szyfrować domyślnie ustawienia w pliku local.settings.js. Aby dowiedzieć się więcej, zobacz `IsEncrypted` Właściwość w [pliku ustawień lokalnych](functions-run-local.md#local-settings-file).  
 
 #### <a name="key-vault-references"></a>Odwołania Key Vault
 

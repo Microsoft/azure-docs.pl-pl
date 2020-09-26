@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/28/2019
-ms.openlocfilehash: a02583825f4a1ef15992aa2307e7f666d5abeaba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: b3eda2c8de8319552f32938f20ff98af0e0a49fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136460"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314831"
 ---
 # <a name="nodes-and-tables-in-azure-database-for-postgresql--hyperscale-citus"></a>Węzły i tabele w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
 
@@ -24,7 +24,7 @@ Typ hostujący (Citus) Azure Database for PostgreSQL umożliwia współrzędnie 
 
 Każda grupa serwerów ma węzeł koordynatora i wielu procesów roboczych. Aplikacje wysyłają swoje zapytania do węzła koordynatora, który przekazuje go do odpowiednich pracowników i gromadzi wyniki. Aplikacje nie mogą łączyć się bezpośrednio z pracownikami.
 
-Funkcja Citus) umożliwia administratorowi bazy danych *dystrybuowanie* tabel, przechowując różne wiersze w różnych węzłach procesu roboczego. Tabele rozproszone są kluczem do skalowania wydajności. Niepowodzenie dystrybucji tabel pozostawia je w całości w węźle koordynatora i nie może korzystać z równoległości między maszynami.
+Funkcja Citus) umożliwia administratorowi bazy danych *dystrybuowanie* tabel, przechowując różne wiersze w różnych węzłach procesu roboczego. Tabele rozproszone to wydajność klucza do przedskalowania (Citus). Niepowodzenie dystrybucji tabel pozostawia je w całości w węźle koordynatora i nie może korzystać z równoległości między maszynami.
 
 Dla każdego zapytania w tabelach rozproszonych koordynator kieruje go do jednego węzła procesu roboczego lub parallelizes go w kilka w zależności od tego, czy wymagane dane znajdują się na jednym lub wielu węzłach. Koordynator decyduje o tym, co należy zrobić, aby poznać tabele metadanych. Te tabele śledzą nazwy DNS i kondycję węzłów procesu roboczego oraz dystrybucję danych między węzłami.
 

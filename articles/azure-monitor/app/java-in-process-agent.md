@@ -3,12 +3,12 @@ title: Monitoruj aplikacje Java w dowolnym środowisku — Azure Monitor Applica
 description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku bez Instrumentacji aplikacji. Śledzenie rozproszone i mapa aplikacji.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: e1442d1b1fb1bf8fbef82354b8aa1d2354640aa9
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902086"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370038"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitorowanie aplikacji bezkodowej Java Azure Monitor Application Insights — publiczna wersja zapoznawcza
 
@@ -20,15 +20,17 @@ Dodawanie Application Insights Java SDK do aplikacji nie jest już wymagane, pon
 
 Nadal możesz wysyłać niestandardowe dane telemetryczne z aplikacji. Agent 3,0 będzie śledził i skorelowany wraz z całą zebraną telemetrię.
 
+Agent 3,0 obsługuje środowisko Java 8 i nowsze.
+
 ## <a name="quickstart"></a>Szybki start
 
 **1. Pobierz agenta**
 
-Pobierz [ApplicationInsights-Agent-3.0.0-Preview. 5. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
+Pobierz [ApplicationInsights-Agent-3.0.0-Preview. 7. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar)
 
 **2. wskaż JVM do agenta**
 
-Dodaj `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` do ARGUMENTÓW JVM aplikacji
+Dodaj `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.7.jar` do ARGUMENTÓW JVM aplikacji
 
 Typowe argumenty JVM obejmują `-Xmx512m` i `-XX:+UseG1GC` . Jeśli wiesz, gdzie je dodać, już wiesz, gdzie je dodać.
 
@@ -44,7 +46,7 @@ Wskaż agenta Application Insights zasobem, ustawiając zmienną środowiskową:
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Lub tworząc plik konfiguracji o nazwie `ApplicationInsights.json` i umieszczając go w tym samym katalogu, co `applicationinsights-agent-3.0.0-PREVIEW.5.jar` , z następującą zawartością:
+Lub tworząc plik konfiguracji o nazwie `ApplicationInsights.json` i umieszczając go w tym samym katalogu, co `applicationinsights-agent-3.0.0-PREVIEW.7.jar` , z następującą zawartością:
 
 ```json
 {
@@ -225,6 +227,8 @@ Można również użyć Application Insights Java SDK 2. x:
 ## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Uaktualnianie z Application Insights Java SDK 2. x
 
 Jeśli używasz już Application Insights Java SDK 2. x w aplikacji, nie musisz go usunąć. Agent Java 3,0 wykryje go i przechwytuje i skorelowanie wszelkich niestandardowych danych telemetrycznych wysyłanych za pośrednictwem zestawu Java SDK 2. x, pomijając wszystkie autokolekcje wykonywane przez zestaw Java SDK 2. x, aby zapobiec duplikowaniu przechwytywania.
+
+Jeśli używasz agenta Application Insights 2. x, musisz usunąć `-javaagent:` argument JVM, który wskazuje na agenta 2. x.
 
 > [!NOTE]
 > Uwaga: zestaw Java SDK 2. x TelemetryInitializers i TelemetryProcessors nie zostanie uruchomiony w przypadku korzystania z agenta 3,0.

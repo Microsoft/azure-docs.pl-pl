@@ -5,15 +5,15 @@ description: Informacje na temat konfigurowania zasad zapory aplikacji sieci Web
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 01/24/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7e40370421214ebe026090007122a641a216c256
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 340b184ac56d4734431b154ec647e5e7af19ea16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143934"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267248"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Konfigurowanie zasad WAFymi dla poszczególnych witryn przy użyciu Azure PowerShell
 
@@ -25,14 +25,13 @@ Stosując zasady WAFymi do odbiornika, można skonfigurować ustawienia WAF dla 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Konfigurowanie sieci
-> * Tworzenie zasad WAF
-> * Tworzenie bramy aplikacji z włączoną zaporą aplikacji internetowych
-> * Zastosowanie zasad WAF globalnie dla poszczególnych witryn i dla poszczególnych identyfikatorów URI (wersja zapoznawcza)
-> * Tworzenie zestawu skalowania maszyn wirtualnych
-> * Tworzenie konta magazynu i konfigurowanie diagnostyki
-> * Testowanie bramy aplikacji
+* Konfigurowanie sieci
+* Tworzenie zasad WAF
+* Tworzenie bramy aplikacji z włączoną zaporą aplikacji internetowych
+* Zastosowanie zasad WAF globalnie dla poszczególnych witryn i dla poszczególnych identyfikatorów URI (wersja zapoznawcza)
+* Tworzenie zestawu skalowania maszyn wirtualnych
+* Tworzenie konta magazynu i konfigurowanie diagnostyki
+* Testowanie bramy aplikacji
 
 ![Przykład zapory aplikacji internetowych](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 

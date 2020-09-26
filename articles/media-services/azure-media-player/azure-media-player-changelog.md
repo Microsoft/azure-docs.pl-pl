@@ -5,15 +5,29 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 07/27/2020
-ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 09/23/2020
+ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432662"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315086"
 ---
-# <a name="changelog"></a>Dziennik zmian #
+# <a name="changelog"></a>Dziennik zmian
+
+## <a name="236-official-update-september-21-2020"></a>2.3.6 (oficjalna aktualizacja: Wrzesień 21 2020)
+
+### <a name="features-236"></a>2.3.6 funkcji
+
+Dodano obsługę tylko audio dla azureHtml5JS Tech (PAUZa) obsługa opóźnionego rozpoczęcia transkrypcji na żywo zmiany języka
+
+### <a name="bug-fixes-236"></a>Poprawki błędów 2.3.6
+
+W przypadku korzystania z funkcji "playsinline" w przypadku odtwarzania HLS na urządzeniach firmy Apple kliknięcie przycisku "LIVE" spowoduje ponowne uruchomienie wideo obrazu plakatu AMP, czasami powoduje, że podczas odtwarzania tego elementu nie zdefiniowano przycisku woluminu, gdy jest używana klawiatura HLS FairPlay [Accessibility] 1 na pasku postępu [ułatwienia dostępu] fokus klawiatury czasami nie wraca do przycisku jakości wideo kontrolki [ułatwienia dostępu] nie są widoczne dla filmu wideo uniemożliwia narratorowi znalezienie ich
+
+### <a name="changes-236"></a>Zmiany 2.3.6
+
+Zwrócenie znaczących błędów dostarczania do aplikacji wywołujących
 
 ## <a name="235-official-update-june-1-2020"></a>2.3.5 (oficjalna Aktualizacja z czerwca 1 2020)
 

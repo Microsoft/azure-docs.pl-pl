@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 99f3c2c05117fb537527f2a2bcb52f0f9843385a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 41dddd677b2060c6d5d605867adde3eb27a9a5eb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329639"
+ms.locfileid: "91369862"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Samouczek: używanie Video Indexer z aplikacją logiki i automatyzacją
 
@@ -54,7 +54,7 @@ Aby skonfigurować pierwszy przepływ, należy podać klucz interfejsu API Video
 ![Nazwa połączenia i klucz interfejsu API](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
 > [!TIP]
-> Jeśli wcześniej połączono Video Indexer lub konto magazynu w Logic Apps, Twoje szczegóły połączenia są przechowywane i nastąpi automatyczne połączenie. Połączenie można edytować, klikając pozycję **Zmień połączenie** u dołu każdej akcji.
+> Jeśli wcześniej połączono konto usługi Azure Storage lub konto Video Indexer z aplikacją logiki, szczegóły połączenia są przechowywane i nastąpi automatyczne połączenie. <br/>Połączenie można edytować, klikając pozycję **Zmień połączenie** u dołu usługi Azure Storage (okno magazyn) lub Video Indexer (okno odtwarzacza).
 
 Po nawiązaniu połączenia z usługą Azure Storage i kontami Video Indexer można znaleźć i wybrać wyzwalacz "gdy obiekt BLOB zostanie dodany lub zmodyfikowany" w **projektancie Logic Apps**.
 
@@ -80,7 +80,7 @@ Adres URL wywołania zwrotnego pozostanie pusty dla tej pory. Dodasz ją dopiero
 
 Można użyć wartości domyślnej dla innych parametrów lub ustawić je zgodnie z potrzebami. 
 
-Kliknij przycisk "Zapisz" i przejdźmy, aby skonfigurować drugi przepływ, aby wyodrębnić szczegółowe informacje po zakończeniu przekazywania i indeksowania. 
+Kliknij przycisk **Zapisz**i przejdźmy, aby skonfigurować drugi przepływ, aby wyodrębnić szczegółowe informacje po zakończeniu przekazywania i indeksowania. 
 
 ## <a name="set-up-the-second-flow---json-extraction"></a>Konfigurowanie drugiego wyciągania przepływu — JSON  
 

@@ -1,17 +1,17 @@
 ---
 title: Usuwanie projektu usługi Azure Migrate
-description: Opisuje sposób tworzenia projektu Azure Migrate i dodawania narzędzia do oceny/migracji.
+description: W tym artykule dowiesz się, jak usunąć projekt Azure Migrate przy użyciu Azure Portal.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: raynew
-ms.openlocfilehash: 4fd6285c3d22c8e0bdddbbe47366e6ae9428e7d8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c58081e7cf88ac4820aa7d4f367b7344f3340a77
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307878"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Usuwanie projektu usługi Azure Migrate
 
