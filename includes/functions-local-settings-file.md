@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: 47e1c509e8b7b60e889e1202b49b1a145c68162c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929498"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376629"
 ---
 ## <a name="local-settings-file"></a>Plik ustawień lokalnych
 
@@ -40,7 +40,7 @@ Te ustawienia są obsługiwane podczas lokalnego uruchamiania projektów:
 
 | Ustawienie      | Opis                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Gdy to ustawienie jest ustawione na `true` , wszystkie wartości są szyfrowane za pomocą klucza komputera lokalnego. Używany z `func settings` poleceniami. Wartość domyślna to `false` . |
+| **`IsEncrypted`** | Gdy to ustawienie jest ustawione na `true` , wszystkie wartości są szyfrowane za pomocą klucza komputera lokalnego. Używany z `func settings` poleceniami. Wartość domyślna to `false` . Możesz chcieć zaszyfrować local.settings.jspliku na komputerze lokalnym, jeśli zawiera on klucze tajne, takie jak parametry połączenia usługi. Host automatycznie odszyfrowuje ustawienia podczas jego uruchamiania. Użyj `func settings decrypt` polecenia przed próbą odczytania ustawień zaszyfrowanych lokalnie. |
 | **`Values`** | Tablica ustawień aplikacji i parametrów połączenia używanych, gdy projekt jest uruchomiony lokalnie. Pary klucz-wartość (String-String) odpowiadają ustawieniom aplikacji w aplikacji funkcji na platformie Azure, takich jak [`AzureWebJobsStorage`] . Wiele wyzwalaczy i powiązań ma właściwość, która odwołuje się do ustawienia aplikacji parametrów połączenia, takiego jak `Connection` dla [wyzwalacza usługi BLOB Storage](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration). Dla tych właściwości potrzebne jest ustawienie aplikacji zdefiniowane w `Values` tablicy. Lista najczęściej używanych ustawień znajduje się w dalszej części tabeli. <br/>Wartości muszą być ciągami, a nie obiektami JSON ani tablicami. Nazwy ustawień nie mogą zawierać dwukropka ( `:` ) ani podwójnego podkreślenia ( `__` ). Znaki podwójnego podkreślenia są zarezerwowane przez środowisko uruchomieniowe, a dwukropek jest zarezerwowany do obsługi [iniekcji zależności](../articles/azure-functions/functions-dotnet-dependency-injection.md#working-with-options-and-settings). |
 | **`Host`** | Ustawienia w tej sekcji dostosowują proces hosta funkcji w przypadku uruchamiania projektów lokalnie. Te ustawienia są oddzielone od host.jsw ustawieniach, które również są stosowane podczas uruchamiania projektów na platformie Azure. |
 | **`LocalHttpPort`** | Ustawia domyślny port używany podczas uruchamiania hosta funkcji lokalnych ( `func host start` i `func run` ). `--port`Opcja wiersza polecenia ma pierwszeństwo przed tym ustawieniem. |

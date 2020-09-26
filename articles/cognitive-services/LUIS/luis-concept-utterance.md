@@ -1,14 +1,16 @@
 ---
 title: Dobry przykład wyrażenia długości-LUIS
 description: Wypowiedzi to dane wejściowe od użytkownika, które Twoja aplikacja musi zinterpretować. Zbierz frazy, które będą wprowadzane przez użytkowników. Uwzględnij wyrażenia długości, które oznaczają te same czynności, ale są konstruowane inaczej niż długość słowa i umieszczanie wyrazów.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685275"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316396"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Dowiedz się, co to jest dobry wyrażenia długości dla aplikacji LUIS
 
@@ -70,7 +72,7 @@ Lepiej zacząć od kilku wyrażenia długościów, a następnie [przejrzeć punk
 
 Normalizacja wypowiedź jest procesem ignorowania efektów typów tekstu, takich jak Interpunkcja i znaki diakrytyczne, podczas uczenia i przewidywania.
 
-Ustawienia normalizacji wypowiedź są domyślnie wyłączone. Należą do nich następujące ustawienia:
+Ustawienia normalizacji wypowiedź są domyślnie wyłączone. takie jak:
 
 * Formularze programu Word
 * Znaki diakrytyczne
@@ -103,7 +105,7 @@ Interpunkcja jest osobnym tokenem w LUIS. Wypowiedź, który zawiera kropkę na 
 
 Jeśli interpunkcja nie jest znormalizowana, LUIS nie ignoruje znaków interpunkcyjnych, domyślnie, ponieważ niektóre aplikacje klienckie mogą umieścić istotny wpływ na te znaki. Upewnij się, że przykład wyrażenia długości używać interpunkcji i bez znaków interpunkcyjnych, aby oba style zwracały te same wyniki względne.
 
-Upewnij się, że model obsługuje interpunkcję w przykład wyrażenia długości (bez znaków interpunkcyjnych) lub w [wzorcach](luis-concept-patterns.md) , w których jest łatwiejsze ignorowanie interpunkcji przy użyciu specjalnej składni:`I am applying for the {Job} position[.]`
+Upewnij się, że model obsługuje interpunkcję w przykład wyrażenia długości (bez znaków interpunkcyjnych) lub w [wzorcach](luis-concept-patterns.md) , w których jest łatwiejsze ignorowanie interpunkcji przy użyciu specjalnej składni: `I am applying for the {Job} position[.]`
 
 Jeśli interpunkcja nie ma określonego znaczenia w aplikacji klienckiej, należy wziąć pod uwagę [Ignorowanie interpunkcji](#utterance-normalization) przez normalizowanie interpunkcji.
 

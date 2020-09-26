@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jgao
-ms.openlocfilehash: 9519b9a5dec898a0905310de02ef9fad3d282a65
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5c72dd234cf6d8558fb49882170fe33bac1900dd
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290535"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372140"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Zarządzanie grupami zasobów Azure Resource Manager przy użyciu Azure PowerShell
 
@@ -212,7 +212,7 @@ Aby uzyskać więcej informacji, zobacz [Eksportowanie jednego i wielu zasobów 
 
 ## <a name="manage-access-to-resource-groups"></a>Zarządzanie dostępem do grup zasobów
 
-[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem przy użyciu RBAC i Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

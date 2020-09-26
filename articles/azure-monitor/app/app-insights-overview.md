@@ -4,12 +4,12 @@ description: Zarządzanie wydajnością aplikacji i śledzenie użycia działaj�
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 4576c8a7657ea3da1f8a732c2efd38302f33300c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f00eea37c43fba10e0a89498dd81366630852db7
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974047"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371385"
 ---
 # <a name="what-is-application-insights"></a>Co to jest usługa Application Insights?
 Application Insights, funkcja [Azure monitor](../overview.md), to rozszerzalna usługa zarządzania wydajnością aplikacji (APM) dla deweloperów i informatyków DevOps. Służy do monitorowania aplikacji na żywo. Automatycznie wykryje anomalie wydajności i oferuje zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie, jakie użytkownicy faktycznie są w tej aplikacji.  Usługa ta pomaga w ciągłym doskonaleniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node.js, Java i Python hostowanych lokalnie, hybrydowych lub dowolnej chmurze publicznej. Integruje się ona z procesem DevOps i ma punkty połączenia z szeroką gamą narzędzi programistycznych. Może monitorować i analizować dane telemetryczne z aplikacji mobilnych dzięki integracji z usługą Visual Studio App Center.
@@ -58,7 +58,7 @@ Istnieje wiele sposobów eksploracji danych. Zapoznaj się z następującymi art
 | [**Pulpity nawigacyjne**](./overview-dashboard.md)<br/>Połącz dane z wielu zasobów i udostępnij innym osobom. Opcja ta doskonale nadaje się dla aplikacji wieloskładnikowych i ciągłego wyświetlania w pomieszczeniu zespołu. |![Przykładowy pulpit nawigacyjny](./media/app-insights-overview/dashboard-tn.png) |
 | [**Transmisja strumieniowa metryk na żywo**](./live-stream.md)<br/>Podczas wdrażania nowej kompilacji obejrzyj te wskaźniki wydajności prawie w czasie rzeczywistym, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami. |![Przykładowe metryki na żywo](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analiza**](../log-query/log-query-overview.md)<br/>Odpowiedz na trudne pytania dotyczące wydajności i użycia Twojej aplikacji za pomocą tego zaawansowanego języka zapytań. |![Przykładowa analiza](./media/app-insights-overview/analytics-tn.png) |
-| [**Program Visual Studio**](./visual-studio.md)<br/>Zobacz dane dotyczące wydajności w kodzie. Przejdź do kodu ze śladów stosu.|![Zrzut ekranu przedstawia szczegóły wyjątku w programie Visual Studio i przykład przechodzenie do kodu ze śladów stosu.](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Visual Studio**](./visual-studio.md)<br/>Zobacz dane dotyczące wydajności w kodzie. Przejdź do kodu ze śladów stosu.|![Zrzut ekranu przedstawia szczegóły wyjątku w programie Visual Studio i przykład przechodzenie do kodu ze śladów stosu.](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Debuger migawek**](./snapshot-debugger.md)<br/>Debuguje próbki migawek pobrane z operacji na żywo, używając wartości parametrów.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](./export-power-bi.md)<br/>Integruje metryki użycia z innymi analizami biznesowymi.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**Interfejs API REST**](https://dev.applicationinsights.io/)<br/>Napisz kod, aby uruchamiać zapytania dla swoich metryk i danych pierwotnych.| ![Interfejs API REST](./media/app-insights-overview/rest-tn.png) |
@@ -87,7 +87,7 @@ Po odebraniu alertu lub odnalezieniu problemu:
 * Zapisz niestandardową telemetrię do kodu.
 * Oprzyj następny cyklu rozwoju na twardych dowodach ze swojej telemetrii.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 Usługa Application Insights jest jedną z wielu usług hostowanych na platformie Microsoft Azure, a dane telemetryczne są przesyłane do analizy i prezentacji. Dlatego przed wykonaniem jakichkolwiek innych czynności będzie potrzebna subskrypcja platformy [Microsoft Azure](https://azure.com). Rejestracja jest bezpłatna, a jeśli wybierzesz podstawowy [plan cenowy](https://azure.microsoft.com/pricing/details/application-insights/) usługi Application Insights, nie będzie opłat do chwili, gdy aplikacja rozrośnie się na tyle, aby mieć znaczne wykorzystanie. Jeśli Twoja organizacja ma już subskrypcję, może ona dodać do niej Twoje konto Microsoft.
 
 Istnieje kilka sposobów, aby rozpocząć. Zacznij od tego, co najlepiej sprawdza się w Twoim przypadku. Resztę możesz dodać później.
@@ -122,6 +122,7 @@ Rozpocznij pracę w czasie programowania za pomocą rozwiązań:
 * [Java](./java-get-started.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
+* [JavaScript](./javascript.md)
 
 
 ## <a name="support-and-feedback"></a>Pomoc techniczna i opinie

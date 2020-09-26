@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434235"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370882"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -53,7 +53,7 @@ Po zidentyfikowaniu wąskiego gardła przepływu danych należy skorzystać z po
 
 Karta **Optymalizacja** zawiera ustawienia umożliwiające skonfigurowanie schematu partycjonowania klastra Spark. Ta karta istnieje w każdej transformacji przepływu danych i określa, czy chcesz ponownie podzielić dane **po** zakończeniu transformacji. Dostosowanie partycjonowania zapewnia kontrolę nad dystrybucją danych między węzłami obliczeniowymi i optymalizacją lokalizacji danych, które mogą mieć pozytywne i negatywne skutki dla ogólnej wydajności przepływu danych.
 
-![Optymalizacja](media/data-flow/optimize.png "Optymalizacja")
+![Zrzut ekranu przedstawia kartę Optymalizacja, która zawiera opcję partycji, typ partycji i liczbę partycji.](media/data-flow/optimize.png)
 
 Domyślnie należy zaznaczyć opcję *Użyj bieżącego partycjonowania* , która instruuje Azure Data Factory zachować bieżące partycjonowanie danych wyjściowych transformacji. Gdy trwa ponowne Partycjonowanie danych, należy *użyć bieżącego partycjonowania* w większości scenariuszy. Scenariusze, w których może być konieczne ponowne Partycjonowanie danych, to między innymi agregacje i sprzężenia, które znacząco pochylają dane lub w przypadku korzystania z partycjonowania źródła w bazie danych SQL.
 

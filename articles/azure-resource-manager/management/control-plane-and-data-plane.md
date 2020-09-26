@@ -3,12 +3,12 @@ title: Operacje płaszczyzny kontroli i płaszczyzny danych
 description: Opisuje różnicę między operacjami płaszczyzny kontroli i płaszczyzny danych. Operacje płaszczyzny kontroli są obsługiwane przez Azure Resource Manager. Operacje płaszczyzny danych są obsługiwane przez usługę.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: a0575c37c80417d9859ef36366dc9f26cdb4dbe4
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90039111"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371273"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Płaszczyzna danych i płaszczyzna kontroli platformy Azure
 
@@ -41,7 +41,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Azure Resource Manager obsługuje wszystkie żądania płaszczyzny kontroli. Automatycznie stosuje funkcje platformy Azure, które zostały wdrożone w celu zarządzania zasobami, takie jak:
 
-* [Access Control oparte na rolach (RBAC) na platformie Azure](../../role-based-access-control/overview.md)
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Azure Policy](../../governance/policy/overview.md)
 * [Blokady zarządzania](lock-resources.md)
 * [Dzienniki aktywności](view-activity-logs.md)

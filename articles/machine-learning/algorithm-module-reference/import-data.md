@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 85a54ce7c8b3beea102fad7c3adb58f92c8574dd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907933"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372599"
 ---
 # <a name="import-data-module"></a>Importuj moduł danych
 
@@ -56,7 +56,7 @@ Jeśli dane źródłowe zmienią się, można odświeżyć zestaw danych i doda�
 
 1. Wybierz pozycję **Źródło danych**i wybierz typ źródła danych. Może to być HTTP lub magazyn danych.
 
-    Jeśli wybierzesz pozycję Magazyn danych, możesz wybrać istniejące magazyny danych, które zostały już zarejestrowane w obszarze roboczym Azure Machine Learning, lub utworzyć nowy magazyn danych. Następnie należy zdefiniować ścieżkę danych do zaimportowania w magazynie danych. Możesz łatwo przeglądać ścieżkę, klikając kolejno pozycje **Przeglądaj ścieżka** ![ Importuj-dane-ścieżka](media/module/import-data-path.png)
+    Jeśli wybierzesz pozycję Magazyn danych, możesz wybrać istniejące magazyny danych, które zostały już zarejestrowane w obszarze roboczym Azure Machine Learning, lub utworzyć nowy magazyn danych. Następnie należy zdefiniować ścieżkę danych do zaimportowania w magazynie danych. Możesz łatwo przeglądać ścieżkę, klikając pozycję **Przeglądaj ścieżka** ![ zrzut ekranu pokazuje link Przeglądaj ścieżkę, który otwiera okno dialogowe wybór ścieżki.](media/module/import-data-path.png)
 
 1. Wybierz schemat podglądu, aby odfiltrować kolumny, które chcesz dołączyć. Możesz również zdefiniować ustawienia zaawansowane, takie jak ogranicznik w opcjach analizy.
 

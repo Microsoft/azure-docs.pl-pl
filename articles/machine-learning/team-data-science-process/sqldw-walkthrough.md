@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e48261c4c6aeb75556663e1bf77c675557bcd1b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440205"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315494"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Proces nauki danych zespołu w działaniu: korzystanie z usługi Azure Synapse Analytics
 W ramach tego samouczka przeprowadzimy Cię przez proces tworzenia i wdrażania modelu uczenia maszynowego przy użyciu usługi Azure Synapse Analytics dla publicznie dostępnego zestawu danych — zestawu danych [podróży NYC z taksówkami](https://www.andresmh.com/nyctaxitrips/) . Model klasyfikacji binarnej skonstruowany przewiduje, czy Porada jest płatna za podróż.  Modele obejmują klasyfikację wieloklasową (bez względu na to, czy jest to Porada) i regresję (dystrybucja dla płatnych sum).
@@ -117,7 +117,7 @@ BEGIN CATCH
 END CATCH;
 ```
 
-**Utwórz obszar roboczy Azure Machine Learning w ramach subskrypcji platformy Azure.** Aby uzyskać instrukcje, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](../studio/create-workspace.md).
+**Utwórz obszar roboczy Azure Machine Learning w ramach subskrypcji platformy Azure.** Aby uzyskać instrukcje, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](../classic/create-workspace.md).
 
 ## <a name="load-the-data-into-azure-synapse-analytics"></a><a name="getdata"></a>Ładowanie danych do usługi Azure Synapse Analytics
 Otwórz konsolę poleceń programu Windows PowerShell. Uruchom następujące polecenia programu PowerShell, aby pobrać przykładowe pliki skryptów SQL udostępniane w usłudze GitHub do katalogu lokalnego określonego za pomocą parametru *-DESTDIR*. Wartość parametru *-DESTDIR* można zmienić na dowolny katalog lokalny. Jeśli *DESTDIR* nie istnieje, zostanie utworzony przez skrypt programu PowerShell.
@@ -805,7 +805,7 @@ pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
 ![Wykres słupkowy][3]
 
-and
+oraz
 
 ```sql
 pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
@@ -941,9 +941,9 @@ Teraz możemy przystąpić do tworzenia modeli i wdrażania modeli w [Azure Mach
 2. **Klasyfikacja wieloklasowa**: aby przewidzieć zakres płatnej porady zgodnie z wcześniej zdefiniowanymi klasami.
 3. **Zadanie regresji**: przewidywanie kwoty Porada płatnej dla podróży.
 
-Aby rozpocząć ćwiczenie modelowania, zaloguj się do obszaru roboczego **Azure Machine Learning (klasycznego)** . Jeśli nie utworzono jeszcze obszaru roboczego uczenia maszynowego, zobacz [Tworzenie obszaru roboczego Azure Machine Learning Studio (klasycznego)](../studio/create-workspace.md).
+Aby rozpocząć ćwiczenie modelowania, zaloguj się do obszaru roboczego **Azure Machine Learning (klasycznego)** . Jeśli nie utworzono jeszcze obszaru roboczego uczenia maszynowego, zobacz [Tworzenie obszaru roboczego Azure Machine Learning Studio (klasycznego)](../classic/create-workspace.md).
 
-1. Aby rozpocząć pracę z Azure Machine Learning, zobacz [co to jest Azure Machine Learning Studio (klasyczny)?](../studio/what-is-ml-studio.md)
+1. Aby rozpocząć pracę z Azure Machine Learning, zobacz [co to jest Azure Machine Learning Studio (klasyczny)?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Zaloguj się do [Azure Machine Learning Studio (klasyczne)](https://studio.azureml.net).
 3. Strona główna Machine Learning Studio (klasyczna) zawiera wiele informacji, filmów wideo, samouczków, linków do odwołań do modułów i innych zasobów. Aby uzyskać więcej informacji na temat Azure Machine Learning, zobacz [centrum dokumentacji Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -983,7 +983,7 @@ Przykładem eksperymentu klasyfikacji binarnej odczytującego dane bezpośrednio
 >
 
 ## <a name="deploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Wdrażanie modeli w Azure Machine Learning
-Gdy model jest gotowy, możesz go łatwo wdrożyć jako usługę sieci Web bezpośrednio z eksperymentu. Aby uzyskać więcej informacji na temat wdrażania usług sieci Web Azure ML, zobacz [wdrażanie usługi sieci web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+Gdy model jest gotowy, możesz go łatwo wdrożyć jako usługę sieci Web bezpośrednio z eksperymentu. Aby uzyskać więcej informacji na temat wdrażania usług sieci Web Azure ML, zobacz [wdrażanie usługi sieci web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 
 Aby wdrożyć nową usługę sieci Web, należy:
 
@@ -1012,7 +1012,7 @@ Aby podsumowanie, co zostało zrobione w tym samouczku instruktażu, utworzono �
 ### <a name="license-information"></a>Informacje o licencji
 Ten przykładowy przewodnik i towarzyszące mu skrypty i notesy IPython są udostępniane przez firmę Microsoft w ramach licencji MIT. Aby uzyskać więcej informacji, zapoznaj się z plikiem LICENSE.txt w katalogu przykładowego kodu w witrynie GitHub.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 - [Strona pobierania podróży z Andrés Monroy NYC](https://www.andresmh.com/nyctaxitrips/)
 - [Dane o podróży z taksówką NYC przez Krzysztof Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
 - [Badania i dane statystyczne dotyczące NYC taksówki i Limousine Komisji](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)

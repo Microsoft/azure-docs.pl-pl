@@ -3,12 +3,12 @@ title: Usuwanie w trybie pełnym
 description: Pokazuje, jak typy zasobów obsługują usuwanie w trybie pełnym w szablonach Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: e288d3af080a96616026e94ac7be352a7684c181
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1e27960953aeb16486f893054c7653edb98bbdbc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327667"
+ms.locfileid: "91372465"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Usuwanie zasobów platformy Azure na potrzeby wdrożeń w trybie pełnym
 
@@ -1502,11 +1502,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | obszary robocze | Tak |
-> | obszary robocze/codeJobs | Nie |
 > | obszary robocze/obliczenia | Nie |
 > | obszary robocze/eventGridFilters | Nie |
-> | obszary robocze/inferenceEndpoints | Tak |
-> | obszary robocze/inferenceEndpoints/wdrożenia | Tak |
 > | obszary robocze/linkedServices | Nie |
 
 ## <a name="microsoftmaintenance"></a>Microsoft. Maintenance

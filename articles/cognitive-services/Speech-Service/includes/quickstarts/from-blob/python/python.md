@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 3ca50a9bad36e0174dc4ee0059c9d01fcc18a5f1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d69cb782b3be7035b7571653dcb434e44d22da93
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81401001"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376857"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -17,7 +17,7 @@ Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
 > * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
-> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../overview.md#try-the-speech-service-for-free)
 > * [Przekazywanie pliku źródłowego do obiektu blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="download-and-install-the-api-client-library"></a>Pobieranie i Instalowanie biblioteki klienta interfejsu API
@@ -26,14 +26,14 @@ Aby wykonać przykład potrzebny do wygenerowania biblioteki języka Python dla 
 
 Wykonaj następujące kroki instalacji:
 
-1. Przejdź do witryny https://editor.swagger.io.
+1. Przejdź do adresu https://editor.swagger.io.
 1. Kliknij pozycję **plik**, a następnie kliknij pozycję **Importuj adres URL**.
-1. Wprowadź adres URL programu Swagger, w tym Region subskrypcji usługi mowy: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
+1. Wprowadź adres URL programu Swagger, w tym Region subskrypcji usługi mowy: `https://<your-region>.cris.ai/docs/v2.0/swagger` .
 1. Kliknij przycisk **Generuj klienta** i wybierz język **Python**.
 1. Zapisz bibliotekę kliencką.
-1. Wyodrębnij pobrane Python-Client-generated. zip w systemie plików.
-1. Instalowanie wyodrębnionego modułu Python-Client w środowisku języka Python przy użyciu narzędzia `pip install path/to/package/python-client`PIP:.
-1. Zainstalowany pakiet ma nazwę `swagger_client`. Możesz sprawdzić, czy instalacja działała przy użyciu polecenia `python -c "import swagger_client"`.
+1. Wyodrębnij pobrane python-client-generated.zip gdzieś w systemie plików.
+1. Instalowanie wyodrębnionego modułu Python-Client w środowisku języka Python przy użyciu narzędzia PIP: `pip install path/to/package/python-client` .
+1. Zainstalowany pakiet ma nazwę `swagger_client` . Możesz sprawdzić, czy instalacja działała przy użyciu polecenia `python -c "import swagger_client"` .
 
 > [!NOTE]
 > Ze względu na [znaną usterkę w autogeneracji struktury Swagger](https://github.com/swagger-api/swagger-codegen/issues/7541)mogą wystąpić błędy podczas importowania `swagger_client` pakietu.
@@ -45,7 +45,7 @@ Wykonaj następujące kroki instalacji:
 > ```py
 > from swagger_client.models.inner_error import InnerError  # noqa: F401,E501
 > ```
-> z pliku `swagger_client/models/inner_error.py` w zainstalowanym pakiecie. Zostanie wyświetlony komunikat o błędzie z informacją o tym, gdzie znajdują się te pliki na potrzeby instalacji.
+> z pliku w `swagger_client/models/inner_error.py` zainstalowanym pakiecie. Zostanie wyświetlony komunikat o błędzie z informacją o tym, gdzie znajdują się te pliki na potrzeby instalacji.
 
 ## <a name="install-other-dependencies"></a>Instalowanie innych zależności
 
@@ -89,7 +89,7 @@ W tym miejscu zostanie pobrany kod JSON wyniku i zostanie on wyświetlony.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=95-98)]
 
 ## <a name="check-your-code"></a>Sprawdź swój kod
-W tym momencie kod powinien wyglądać następująco: (dodaliśmy Komentarze do tej wersji)[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-118)]
+W tym momencie kod powinien wyglądać następująco: (dodaliśmy Komentarze do tej wersji) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-118)]
 
 ## <a name="build-and-run-your-app"></a>Kompilowanie i uruchamianie aplikacji
 

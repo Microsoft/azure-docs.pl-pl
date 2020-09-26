@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 069387b5c761d502d960d0284d156b4ee6431a55
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: d95bf9ed50f819c5a92c7945827ee82a2c6ecdc9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357016"
+ms.locfileid: "91371783"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Odzyskiwanie przy użyciu zautomatyzowanych kopii zapasowych bazy danych — Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -196,7 +196,7 @@ W przypadku skryptu programu PowerShell, który pokazuje, jak przeprowadzić prz
 Nie można wykonać przywracania do punktu w czasie dla pomocniczej bazy danych. Można to zrobić tylko w podstawowej bazie danych. Aby uzyskać szczegółowe informacje o używaniu przywracania geograficznego w celu odzyskania sprawności przed awarią, zobacz [odzyskiwanie po awarii](../../key-vault/general/disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> Przywracanie geograficzne to najbardziej podstawowe rozwiązanie do odzyskiwania po awarii dostępne w przypadku wystąpienia zarządzanego SQL Database i SQL. Polega on na automatycznym tworzeniu kopii zapasowych replikowanych geograficznie z celem punktu odzyskiwania (RPO) równym 1 godzinie i szacowanym czasem odzyskiwania do 12 godzin. Nie gwarantuje to, że region docelowy będzie miał zdolność do przywrócenia baz danych po awarii regionalnej, ponieważ prawdopodobnie jest to gwałtowny wzrost popytu. Jeśli aplikacja używa stosunkowo małych baz danych i nie ma znaczenia dla działalności firmy, Funkcja przywracania geograficznego jest odpowiednim rozwiązaniem do odzyskiwania po awarii. 
+> Przywracanie geograficzne to najbardziej podstawowe rozwiązanie do odzyskiwania po awarii dostępne w przypadku wystąpienia zarządzanego SQL Database i SQL. Polega on na automatycznym tworzeniu kopii zapasowych replikowanych geograficznie z celem punktu odzyskiwania (RPO) do 1 godziny i szacowanym czasem odzyskiwania do 12 godzin. Nie gwarantuje to, że region docelowy będzie miał zdolność do przywrócenia baz danych po awarii regionalnej, ponieważ prawdopodobnie jest to gwałtowny wzrost popytu. Jeśli aplikacja używa stosunkowo małych baz danych i nie ma znaczenia dla działalności firmy, Funkcja przywracania geograficznego jest odpowiednim rozwiązaniem do odzyskiwania po awarii. 
 >
 > W przypadku aplikacji o krytycznym znaczeniu dla firmy, które wymagają dużych baz danych i muszą zapewnić ciągłość działania, należy użyć [grup z obsługą trybu failover](auto-failover-group-overview.md). Oferuje on znacznie niższy cel punktu odzyskiwania i odzyskania, a pojemność jest zawsze gwarantowana. 
 >

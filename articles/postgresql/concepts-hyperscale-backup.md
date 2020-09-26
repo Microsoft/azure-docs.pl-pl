@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 22bc3d6efca24a88b28217b2e06ac79d33f16b2e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2d781ca7293d4bd95ae62eadc50295ca14c2d381
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030083"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314934"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
@@ -35,7 +35,7 @@ Aktualną cenę magazynu kopii zapasowych można znaleźć na [stronie z cenniki
 W Azure Database for PostgreSQL przywracanie klastra Citus (prescaleing) powoduje utworzenie nowego klastra z kopii zapasowych pierwotnych węzłów. 
 
 > [!IMPORTANT]
->Można przywrócić tylko klaster w ramach tej samej subskrypcji i grupy zasobów oraz inną nazwę klastra.
+>Można przywrócić tylko klaster ze skalowaniem (Citus) w ramach tej samej subskrypcji i grupy zasobów oraz inną nazwę klastra.
 
 
 > [!IMPORTANT]

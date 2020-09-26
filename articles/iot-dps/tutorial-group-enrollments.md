@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 80efd92560bc7fb5c8bf16b524752e7dbfcdc74b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: db5a1a2994a6202f7bbe95716534bfd68e3e1a7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526667"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316056"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Samouczek: Tworzenie i Inicjowanie symulowanego urządzenia X. 509 za pomocą zestawu SDK urządzeń i usług Java oraz rejestracji grup dla IoT Hub Device Provisioning Service
 
@@ -23,7 +23,7 @@ Te kroki pokazują, jak zasymulować urządzenie X.509 na maszynie deweloperskie
 Pamiętaj, aby wcześniej wykonać kroki przedstawione w części [Konfigurowanie usługi IoT Hub Device Provisioning za pomocą witryny Azure Portal](./quick-setup-auto-provision.md).
 
 
-## <a name="prepare-the-environment"></a>Przygotowywanie środowiska 
+## <a name="prerequisites"></a>Wymagania wstępne
 
 1. Upewnij się, że na maszynie zainstalowano środowisko [Java SE Development Kit 8](https://aka.ms/azure-jdks).
 

@@ -1,14 +1,16 @@
 ---
 title: Funkcje uczenia maszynowego z LUIS
 description: Dodaj funkcje do modelu języka, aby przedstawić wskazówki dotyczące sposobu rozpoznawania danych wejściowych, które mają być oznaczone etykietami lub klasyfikacją.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/22/2020
+ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075176"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372028"
 ---
 # <a name="machine-learning-features"></a>Funkcje uczenia maszynowego
 
@@ -20,12 +22,10 @@ Funkcję można opisać jako funkcję, na przykład f (x) = y. W przykładzie wy
 
 ## <a name="types-of-features"></a>Typy funkcji
 
-LUIS obsługuje zarówno listę fraz, jak i modele jako funkcje:
+Funkcje są niezbędną częścią projektu schematu. LUIS obsługuje zarówno listę fraz, jak i modele jako funkcje:
 
-* Funkcja listy fraz 
+* Funkcja listy fraz
 * Model (cel lub jednostka) jako funkcja
-
-Funkcje powinny być uważane za niezbędne części projektu schematu.
 
 ## <a name="find-features-in-your-example-utterances"></a>Znajdź funkcje w Twoim przykładowym wyrażenia długości
 
@@ -43,32 +43,6 @@ Określ, czy tekst, ponieważ odróżnia cechę, musi:
 * Dopasowuje dokładne słowo lub frazę: rozważ dodanie jednostki wyrażenia regularnego lub jednostki listy jako funkcji do obiektu lub zamiaru.
 * Dopasowuje dobrze znaną koncepcję, takie jak daty, godziny lub nazwiska osób: Użyj wstępnie skompilowanej jednostki jako funkcji dla jednostki lub zamiaru.
 * Poznaj nowe przykłady z biegiem czasu: Użyj listy frazy niektórych przykładów koncepcji jako funkcji dla jednostki lub zamiaru.
-
-## <a name="combine-features"></a>Połącz funkcje
-
-Aby opisać cechę lub koncepcję, można użyć więcej niż jednej funkcji. Typowym parowaniem jest użycie funkcji listy fraz i typu jednostki, która jest często używana jako funkcja:
-
- * wstępnie utworzona jednostka
- * Jednostka wyrażenia regularnego
- * Jednostka listy
-
-### <a name="ticket-booking-entity-example"></a>Przykład jednostki rezerwacji biletu
-
-Najpierw rozważmy aplikację do rezerwacji lotu z zamiarem rezerwacji lotów i jednostką rezerwacji biletów.
-
-Jednostka rezerwacji biletów jest jednostką uczenia maszynowego dla miejsca docelowego lotu. Aby ułatwić wyodrębnienie lokalizacji, użyj dwóch funkcji, aby uzyskać pomoc:
-
-* Lista wyrazów ważnych słów, takich jak, **płaszczyzna**, **lot**, **rezerwacja**lub **bilet**
-* Wbudowana jednostka **geographyV2** jako funkcja do jednostki
-
-### <a name="pizza-entity-example"></a>Przykład jednostki Pizza
-
-Innym przykładem jest rozważenie aplikacji do porządkowania Pizza, która ma cel Create-Pizza-Order i Pizza Entity.
-
-Jednostka Pizza jest jednostką uczenia maszynowego dla szczegółów Pizza. Aby ułatwić wyodrębnienie szczegółów, użyj dwóch funkcji, aby uzyskać pomoc:
-
-* Lista wyrazów ważnych słów, takich jak **ser**, **Crust**, **Pepperoni**lub **ananasy**
-* Wbudowana jednostka **numeru** jako funkcja do jednostki
 
 ## <a name="create-a-phrase-list-for-a-concept"></a>Tworzenie listy fraz dla koncepcji
 
@@ -176,12 +150,12 @@ Kontynuując przykład adresu wysyłkowego:
 
 Adres wysyłkowy (poznanie maszynowe)
 
- * Numer ulicy (podjednostka) 
- * Ulica (podjednostka) 
- * Nazwa ulicy (podjednostka) 
- * Miasto (podjednostka) 
- * Województwo (podjednostka) 
- * Kraj/region (podjednostka) 
+ * Numer ulicy (podjednostka)
+ * Ulica (podjednostka)
+ * Nazwa ulicy (podjednostka)
+ * Miasto (podjednostka)
+ * Województwo (podjednostka)
+ * Kraj/region (podjednostka)
  * Kod pocztowy (podjednostka)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Wymagana funkcja przy użyciu wstępnie utworzonych jednostek
@@ -217,6 +191,59 @@ Chociaż najbardziej typowym zastosowaniem jest zastosowanie funkcji do określo
 Najbardziej typowym zastosowaniem funkcji globalnej jest dodanie do aplikacji dodatkowego słownika. Na przykład jeśli klienci korzystają z języka podstawowego, ale oczekuje się, że będzie można użyć innego języka w ramach tego samego wypowiedź, można dodać funkcję, która zawiera wyrazy z języka pomocniczego.
 
 Ponieważ użytkownik oczekuje na użycie języka pomocniczego w dowolnym zamiarze lub jednostce, Dodaj wyrazy z języka dodatkowego do listy fraz. Skonfiguruj listę fraz jako funkcję globalną.
+
+## <a name="combine-features-for-added-benefit"></a>Łączenie funkcji w celu dodania korzyści
+
+Aby opisać cechę lub koncepcję, można użyć więcej niż jednej funkcji. Typowym parowaniem jest użycie:
+
+* Funkcja listy fraz: można użyć wielu list fraz jako funkcji dla tego samego modelu.
+* Model jako funkcja: [prekompilowana](luis-reference-prebuilt-entities.md)jednostka, [wyrażenie regularne](reference-entity-regular-expression.md), [Lista jednostek](reference-entity-list.md). 
+
+### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>Przykład: funkcje jednostki rezerwacji biletów dla aplikacji podróży  
+
+Jako podstawowy przykład rozważmy aplikację do rezerwacji lotu z _zamiarem_ rezerwacji lotu i _jednostką_rezerwacji biletów. Jednostka rezerwacja biletów przechwytuje informacje w celu zaksięgowania biletu samolotowego w systemie rezerwacji. 
+
+Jednostka uczenia maszynowego dla księgi biletów ma dwie podjednostki, aby przechwycić lokalizację początkową i docelową. Funkcje należy dodać do każdej podjednostki, a nie jednostki najwyższego poziomu.
+
+:::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="Schemat jednostki Ticketbooking":::
+
+Jednostka rezerwacji biletów jest jednostką uczenia maszynowego, z podjednostkami, w tym _źródła_ i _miejsca docelowego_. Te podjednostki wskazują lokalizację geograficzną. Aby ułatwić wyodrębnienie lokalizacji i odróżnienie między elementami _początkowymi_ i _docelowymi_, każda podjednostka powinna mieć funkcje.
+
+|Typ|Podjednostka pochodzenie |Podjednostka docelowa|
+|--|--|--|
+|Model jako funkcja|wstępnie utworzona jednostka [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|wstępnie utworzona jednostka [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|
+|Lista fraz|**Słowa źródłowe**: `start at` , `begin from` , `leave`|**Słowa docelowe**: `to` ,,,,, `arrive` `land at` `go` `going` `stay` , `heading`|
+|Lista fraz|Kody portów lotniczych — ta sama lista dla źródła i miejsca docelowego|Kody portów lotniczych — ta sama lista dla źródła i miejsca docelowego|
+|Lista fraz|Nazwy portów lotniczych — ta sama lista dla źródła i miejsca docelowego|Kody portów lotniczych — ta sama lista dla źródła i miejsca docelowego|
+
+Jeśli przewidujesz, że osoby używają kodów portów lotniczych i nazw portów lotniczych, niż LUIS powinny mieć listy fraz używające obu typów fraz. Kody portów lotniczych mogą być bardziej typowe w przypadku tekstu wprowadzonego w chatbot, podczas gdy nazwy portów lotniczych mogą być bardziej popularne przy użyciu konwersacji mówionych, takich jak chatbot z obsługą mowy.
+
+Pasujące Szczegóły funkcji są zwracane tylko dla modeli, nie dla list fraz, ponieważ w kodzie JSON przewidywania są zwracane tylko modele.
+
+#### <a name="ticket-booking-labeling-in-the-intent"></a>Rezerwacja biletów w zamiarach
+
+Po utworzeniu jednostki uczenia maszynowego należy dodać przykład wyrażenia długości do zamiaru i oznaczyć jednostkę nadrzędną oraz wszystkie podjednostki.
+
+W przypadku przykładowego rezerwacji biletu etykieta przykład wyrażenia długości w zamierzeniu z `TicketBooking` jednostką i podjednostkami w tekście.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Przykład etykiety wyrażenia długości":::
+
+### <a name="example-pizza-ordering-app"></a>Przykład: Pizza Porządkowanie aplikacji
+
+W drugim przykładzie Rozważmy aplikację dla restauracji Pizza, która otrzymuje zamówienia Pizza, w tym szczegóły typu innej osoby. Każda Szczegółowa Pizza powinna zostać wyodrębniona, jeśli to możliwe, w celu ukończenia przetwarzania zamówień.
+
+Jednostka uczenia maszynowego w tym przykładzie jest bardziej złożona z zagnieżdżonymi podjednostkami, listami fraz, wstępnie skompilowanymi jednostkami i jednostkami niestandardowymi.
+
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schemat jednostki Pizza Order":::
+
+W tym przykładzie są stosowane funkcje na poziomie podjednostki i element podrzędny elementu podrzędnego poziomu. Na poziomie tego, jakiego rodzaju Lista wyrazów lub model jako funkcja jest istotną częścią projektu jednostki.
+
+Chociaż jednostki podjednostek mogą mieć wiele list fraz jako funkcje, które ułatwiają wykrycie jednostki, każda podjednostka ma tylko jeden model jako funkcję. W tej [aplikacji Pizza](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)te modele są wymieniane głównie.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="ZaPizza kolejności z etykietami przykład wyrażenia długości":::
+
+Prawidłowo oznaczony przykład wyrażenia długości jest wyświetlany w sposób, aby pokazać, jak jednostki są zagnieżdżone. 
+
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 

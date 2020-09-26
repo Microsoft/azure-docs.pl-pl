@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 65f6c239f34775efff6a2ea2e399064a7702606a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 8882625d28871135223dd30e3fd96a385a13e8fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664149"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376536"
 ---
 ![Dokumentacja Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -85,3 +85,9 @@ Metryki pomagające zdiagnozować limitów operacji we/wy dysku:
 - **Procent zużywanej przepustowości dysku danych** — wartość procentowa obliczona przez przepływność dysku danych ukończona w ramach przepływności dysku danych z zainicjowaną obsługą. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonej do limitu przepustowości dysku danych.
 - **Procent zużywanych** operacji we/wy dysku systemu operacyjnego — procent obliczony przez operacje we/wy dysku systemu operacyjnego zakończony przez operacje we/wy na dysku systemu operacyjnego. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach limitu liczby operacji we/wy na dysku systemu operacyjnego.
 - **Procent zużytej przepustowości dysku systemu operacyjnego** — wartość procentowa obliczona przez przepływność dysku systemu operacyjnego zakończona przez zainicjowaną przepływność dysku systemu operacyjnego. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach limitu przepustowości dysku systemu operacyjnego.
+
+Metryki pomagające zdiagnozować limitów operacji we/wy maszyny wirtualnej:
+- **Procent użycia buforowanej** liczby operacji we/wy w trybie failover — wartość procentowa obliczona przez łączną liczbę IOPS zakończonych w ramach maksymalnego limitu liczby IOPS pamięci w trybie Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonego limitu liczby IOPs w pamięci podręcznej maszyny wirtualnej.
+- **Procent wykorzystania przepustowości w pamięci podręcznej maszyny** wirtualnej — wartość procentowa obliczona przez łączną przepływność dysku zakończyła się w maksymalnej przepływności pamięci podręcznej. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonej do limitu przepustowości pamięci podręcznej maszyny wirtualnej.
+- **Procent użycia operacji wejścia/wyjścia w pamięci podręcznej maszyny** wirtualnej — wartość procentowa obliczona przez łączną liczbę IOPS na maszynę wirtualną zakończyła się przez maksymalną wartość limitu liczby IOPS niebuforowanej maszyny wirtualnej. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonego limitu liczby IOPs niebuforowanej maszyny wirtualnej.
+- **Procent wykorzystania przepustowości niebuforowanej przez maszynę** wirtualną — wartość procentowa obliczona przez łączną przepływność dysku na maszynie wirtualnej została zakończona przez maksymalną przepływność maszyny wirtualnej, która została zainicjowana. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonej do limitu przepustowości dla maszyny wirtualnej.

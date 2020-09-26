@@ -3,12 +3,12 @@ title: Wdrażanie zasobów w ramach subskrypcji
 description: Opisuje sposób tworzenia grupy zasobów w szablonie Azure Resource Manager. Przedstawiono w nim również sposób wdrażania zasobów w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: cd1d0a05fc1039d8e99b0af6fc8019face4516bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 29a35715115816d742103bd7556ded19f22b316e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284792"
+ms.locfileid: "91372412"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Tworzenie grup zasobów i zasobów na poziomie subskrypcji
 
@@ -37,7 +37,7 @@ W przypadku zasad platformy Azure Użyj:
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [korygowania](/azure/templates/microsoft.policyinsights/remediations)
 
-W przypadku kontroli dostępu opartej na rolach należy użyć:
+W przypadku kontroli dostępu opartej na rolach platformy Azure (RBAC) Użyj:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)

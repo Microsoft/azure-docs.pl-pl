@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e75cb7d13fb74d32191ab7f076d73ad66976503d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7d0286b63703c165dda6cd12bb625fc64272aac1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90606253"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377227"
 ---
 Azure Files oferuje cztery różne warstwy magazynu, Premium, zoptymalizowane, gorąca i chłodna, aby umożliwić dostosowanie Twoich udziałów do wymagań dotyczących wydajności i cen w Twoim scenariuszu:
 
@@ -26,4 +26,5 @@ Udziały plików w warstwie Premium są dostępne tylko w modelu rozliczania z o
 
 Gorące i chłodne udziały plików są dostępne we wszystkich regionach publicznych i Azure Government platformy Azure. Udziały plików zoptymalizowane pod kątem transakcji są dostępne we wszystkich regionach świadczenia usługi Azure, w tym w Chinach platformy Azure i regionach platformy Azure
 
-Aby wdrożyć gorącą lub chłodną część pliku, zobacz [Tworzenie gorącego lub chłodnego udziału plików](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 
+> [!Important]  
+> Udziały plików można przenosić między warstwami w ramach typów kont magazynu GPv2 (zoptymalizowane pod kątem transakcji, gorąca i chłodna). Udział przenoszony między warstwami pociąga za sobą transakcje: przeniesienie z warstwy hotter do warstwy chłodnicy spowoduje naliczenie opłaty za transakcje zapisu warstwy dla każdego pliku w udziale, podczas gdy przejście z warstwy z chłodnicy do warstwy hotter spowoduje naliczenie opłaty za transakcje odczytu warstwy chłodnej dla każdego pliku.

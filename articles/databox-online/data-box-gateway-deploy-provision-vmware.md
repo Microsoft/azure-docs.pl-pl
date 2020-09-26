@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 6488871067416b2cee533561bae47874413d9012
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892120"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371290"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Samouczek: Inicjowanie obsługi Azure Data Box Gateway w oprogramowaniu VMware
 
@@ -23,7 +23,7 @@ W tym samouczku opisano sposób aprowizacji usługi Data Box Gateway w systemie 
 
 Do aprowizowania urządzenia wirtualnego i nawiązania z nim połączenia wymagane są uprawnienia administratora. Aprowizacja i wstępna konfiguracja może zająć około 10 minut. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Sprawdzanie, czy host spełnia minimalne wymagania dotyczące urządzenia
@@ -194,7 +194,7 @@ Wykonaj poniższe kroki, aby uruchomić urządzenie wirtualne i nawiązać z nim
 
    ![Wprowadź hasło urządzenia wirtualnego](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. Kroki od 5 do 7 mają zastosowanie tylko w przypadku uruchamiania w środowisku bez protokołu DHCP. W przypadku środowiska z protokołem DHCP pomiń te kroki i przejdź do kroku 8. Jeśli urządzenie zostało uruchomione w środowisku bez protokołu DHCP, zostanie wyświetlony komunikat podobny do następującego: **Use the Set-HcsIPAddress cmdlet to configure the network** (Skonfiguruj sieć za pomocą polecenia cmdlet Set-HcsIPAddress). 
+6. Kroki od 6 do 8 mają zastosowanie tylko w przypadku uruchamiania w środowisku bez protokołu DHCP. W przypadku środowiska protokołu DHCP należy pominąć te kroki i przejść do kroku 9. Jeśli urządzenie zostało uruchomione w środowisku bez protokołu DHCP, zostanie wyświetlony komunikat podobny do następującego: **Use the Set-HcsIPAddress cmdlet to configure the network** (Skonfiguruj sieć za pomocą polecenia cmdlet Set-HcsIPAddress). 
    
 7. Aby skonfigurować sieć, w wierszu polecenia wydaj polecenie `Get-HcsIpAddress` w celu wyświetlenia listy interfejsów sieciowych włączonych na urządzeniu wirtualnym. Jeśli urządzenie ma włączony jeden interfejs sieciowy, jego domyślną nazwą jest `Ethernet`.
 

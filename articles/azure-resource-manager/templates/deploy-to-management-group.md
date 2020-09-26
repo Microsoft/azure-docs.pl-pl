@@ -3,12 +3,12 @@ title: Wdrażanie zasobów w grupie zarządzania
 description: Opisuje sposób wdrażania zasobów w zakresie grupy zarządzania w szablonie Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: 0c5ed8d2427a9e0329db6ebd7f0aa48aa4912a48
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 23f86d7d0b7e1f882cf3fb74adc484e0fe47db87
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284826"
+ms.locfileid: "91372429"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Tworzenie zasobów na poziomie grupy zarządzania
 
@@ -32,7 +32,7 @@ W przypadku zasad platformy Azure Użyj:
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [korygowania](/azure/templates/microsoft.policyinsights/remediations)
 
-W przypadku kontroli dostępu opartej na rolach należy użyć:
+W przypadku kontroli dostępu opartej na rolach platformy Azure (RBAC) Użyj:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)

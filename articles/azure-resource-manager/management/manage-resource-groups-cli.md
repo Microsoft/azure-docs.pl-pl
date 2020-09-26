@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c64e7166d154d8f37af7a64777e2c36181b7195b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: abab1a6a65f3cc45bcd88dc7aed89e18e4e28d5b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290501"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371239"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Zarządzanie grupami zasobów Azure Resource Manager przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -141,7 +141,7 @@ Aby uzyskać więcej informacji, zobacz [Eksportowanie jednego i wielu zasobów 
 
 ## <a name="manage-access-to-resource-groups"></a>Zarządzanie dostępem do grup zasobów
 
-[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem przy użyciu funkcji RBAC i interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md).
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,12 +3,12 @@ title: Wyświetlanie dzienników aktywności platformy Azure w celu monitorowani
 description: Użyj dzienników aktywności, aby przejrzeć akcje i błędy użytkownika. Pokazuje Azure Portal PowerShell, interfejs wiersza polecenia platformy Azure i REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827065"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371596"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Wyświetlanie dzienników aktywności w celu monitorowania akcji dotyczących zasobów
 
@@ -20,7 +20,7 @@ Za pomocą dzienników aktywności można określić:
 * stan operacji
 * wartości innych właściwości, które mogą pomóc w zbadaniu operacji
 
-Dziennik aktywności zawiera wpisy dla wszystkich operacji zapisu (PUT, POST, DELETE) dotyczących zasobów. Nie obejmuje on operacji odczytu (GET). Aby zapoznać się z listą akcji zasobów, zobacz [Azure Resource Manager operacje dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md). Dzienników aktywności można użyć do znalezienia błędu podczas rozwiązywania problemów lub do monitorowania sposobu, w jaki zasób został zmodyfikowany przez użytkownika w organizacji.
+Dziennik aktywności zawiera wpisy dla wszystkich operacji zapisu (PUT, POST, DELETE) dotyczących zasobów. Nie obejmuje on operacji odczytu (GET). Listę akcji zasobów można znaleźć w temacie [operacje dostawcy zasobów platformy Azure](../../role-based-access-control/resource-provider-operations.md). Dzienników aktywności można użyć do znalezienia błędu podczas rozwiązywania problemów lub do monitorowania sposobu, w jaki zasób został zmodyfikowany przez użytkownika w organizacji.
 
 Dzienniki aktywności są przechowywane przez 90 dni. Możesz wykonać zapytanie dotyczące dowolnego zakresu dat, jednak data początkowa nie może być wcześniejsza od daty bieżącej o więcej niż 90 dni.
 
@@ -195,4 +195,4 @@ Operacje REST do pracy z dziennikiem aktywności są częścią [interfejsu API 
 * Aby wyświetlić więcej szczegółów o zmianach w aplikacjach z warstwy infrastruktury we wszystkich sposobach wdrażania aplikacji, zobacz [Korzystanie z analizy zmian aplikacji w Azure monitor](../../azure-monitor/app/change-analysis.md).
 * Aby dowiedzieć się więcej na temat poleceń do wyświetlania operacji wdrażania, zobacz [Wyświetlanie operacji wdrażania](../templates/deployment-history.md).
 * Aby dowiedzieć się, jak uniemożliwić usuwanie zasobów dla wszystkich użytkowników, zobacz temat [blokowanie zasobów przy użyciu Azure Resource Manager](lock-resources.md).
-* Aby wyświetlić listę operacji dostępnych dla każdego Microsoft Azure dostawcy Menedżer zasobów, zobacz [Azure Resource Manager operacje dostawcy zasobów](../../role-based-access-control/resource-provider-operations.md)
+* Aby wyświetlić listę operacji dostępnych dla każdego Microsoft Azure dostawcy Menedżer zasobów, zobacz [operacje dostawcy zasobów platformy Azure](../../role-based-access-control/resource-provider-operations.md)

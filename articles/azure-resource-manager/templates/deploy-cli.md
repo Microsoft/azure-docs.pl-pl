@@ -3,12 +3,12 @@ title: Wdrażanie zasobów przy użyciu interfejsu wiersza polecenia platformy A
 description: Użyj Azure Resource Manager i interfejsu wiersza polecenia platformy Azure, aby wdrożyć zasoby na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 7e8ae7e8c568f5f0ebb85f434e33f142b5fe94e8
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 8d033bb9ad1c841614ee1e48aa7edc6b8fe18550
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566164"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372174"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure
 
@@ -130,7 +130,7 @@ Poprzedni przykład wymaga publicznie dostępnego identyfikatora URI dla szablon
 
 ## <a name="deploy-template-spec"></a>Wdróż specyfikację szablonu
 
-Zamiast wdrażać szablon lokalny lub zdalny, można utworzyć [specyfikację szablonu](template-specs.md). Specyfikacja szablonu jest zasobem w subskrypcji platformy Azure, który zawiera szablon ARM. Ułatwia to bezpieczne udostępnianie szablonu użytkownikom w organizacji. Za pomocą kontroli dostępu opartej na rolach (RBAC) można udzielić dostępu do specyfikacji szablonu. Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
+Zamiast wdrażać szablon lokalny lub zdalny, można utworzyć [specyfikację szablonu](template-specs.md). Specyfikacja szablonu jest zasobem w subskrypcji platformy Azure, który zawiera szablon ARM. Ułatwia to bezpieczne udostępnianie szablonu użytkownikom w organizacji. Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można udzielić dostępu do specyfikacji szablonu. Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
 
 W poniższych przykładach pokazano, jak utworzyć i wdrożyć specyfikację szablonu. Te polecenia są dostępne tylko wtedy, gdy [zarejestrowano się w celu uzyskania podglądu](https://aka.ms/templateSpecOnboarding).
 

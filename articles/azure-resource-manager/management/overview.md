@@ -4,14 +4,14 @@ description: Opis wdrażania zasobów na platformie Azure, kontrolowania dostęp
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293952"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372276"
 ---
-# <a name="what-is-azure-resource-manager"></a>Co to jest Azure Resource Manager?
+# <a name="what-is-azure-resource-manager"></a>Co to jest usługa Azure Resource Manager?
 
 Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia ona warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów na koncie platformy Azure. Za pomocą funkcji zarządzania, takich jak kontrola dostępu, blokady i Tagi, można zabezpieczyć i zorganizować zasoby po wdrożeniu.
 
@@ -49,7 +49,7 @@ Za pomocą Menedżer zasobów można:
 
 * Zdefiniuj zależności między zasobami, aby zostały wdrożone w odpowiedniej kolejności.
 
-* Zastosuj kontrolę dostępu do wszystkich usług, ponieważ Access Control oparte na rolach (RBAC) są natywnie zintegrowane z platformą zarządzania.
+* Zastosuj kontrolę dostępu do wszystkich usług, ponieważ kontrola dostępu oparta na rolach na platformie Azure (RBAC) jest natywnie zintegrowana z platformą zarządzania.
 
 * Zastosuj Tagi do zasobów, aby logicznie organizować wszystkie zasoby w subskrypcji.
 
@@ -83,7 +83,7 @@ Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
 
    Jeśli region grupy zasobów jest tymczasowo niedostępny, nie można zaktualizować zasobów w grupie zasobów, ponieważ metadane są niedostępne. Zasoby w innych regionach będą nadal działać zgodnie z oczekiwaniami, ale nie można ich zaktualizować. Aby uzyskać więcej informacji na temat tworzenia niezawodnych aplikacji, zobacz [projektowanie niezawodnych aplikacji platformy Azure](/azure/architecture/checklist/resiliency-per-service).
 
-* Grupa zasobów może służyć do określania zakresu kontroli dostępu na potrzeby działań administracyjnych. Do zarządzania grupą zasobów można przypisywać [Zasady platformy Azure](../../governance/policy/overview.md), [role RBAC](../../role-based-access-control/role-assignments-portal.md)lub [blokady zasobów](lock-resources.md).
+* Grupa zasobów może służyć do określania zakresu kontroli dostępu na potrzeby działań administracyjnych. Do zarządzania grupą zasobów można przypisywać [Zasady platformy Azure](../../governance/policy/overview.md), [role platformy Azure](../../role-based-access-control/role-assignments-portal.md)lub [blokady zasobów](lock-resources.md).
 
 * Możesz [zastosować Tagi](tag-resources.md) do grupy zasobów. Zasoby w grupie zasobów nie dziedziczą tych tagów.
 

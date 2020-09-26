@@ -4,19 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: d9bc744292922fd127e983392199fa21554d3c62
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4db81bcb65077de8cb923117905daebd80532685
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377298"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
-> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../overview.md#try-the-speech-service-for-free)
 > * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
@@ -26,7 +26,7 @@ Przed rozpoczęciem upewnij się, że:
 Pierwszym krokiem jest upewnienie się, że projekt jest otwarty w programie Visual Studio.
 
 1. Uruchom program Visual Studio 2019.
-2. Załaduj projekt i Otwórz `Program.cs`go.
+2. Załaduj projekt i otwórz go `Program.cs` .
 3. Pobierz plik <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike. wav <span class="docon docon-download x-hidden-focus"></span> </a> i dodaj go do projektu.
     - Zapisz plik *whatstheweatherlike. wav* obok `Program.cs` pliku.
     - W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt, wybierz pozycję **Dodaj > istniejący element**.
@@ -36,7 +36,7 @@ Pierwszym krokiem jest upewnienie się, że projekt jest otwarty w programie Vis
 
 ## <a name="start-with-some-boilerplate-code"></a>Zacznij od pewnego kodu standardowego
 
-Dodajmy kod, który działa jako szkielet dla projektu. Należy pamiętać, że utworzono metodę asynchroniczną o nazwie `RecognizeSpeechAsync()`.
+Dodajmy kod, który działa jako szkielet dla projektu. Należy pamiętać, że utworzono metodę asynchroniczną o nazwie `RecognizeSpeechAsync()` .
 
 ```csharp
 using System;
@@ -65,7 +65,7 @@ namespace HelloWorld
 Aby można było zainicjować `SpeechRecognizer` obiekt, należy utworzyć konfigurację korzystającą z klucza subskrypcji i regionu subskrypcji. Wstaw ten kod w `RecognizeSpeechAsync()` metodzie.
 
 > [!NOTE]
-> Ten przykład używa `FromSubscription()` metody do skompilowania `SpeechConfig`. Aby uzyskać pełną listę dostępnych metod, zobacz [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+> Ten przykład używa `FromSubscription()` metody do skompilowania `SpeechConfig` . Aby uzyskać pełną listę dostępnych metod, zobacz [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 > Zestaw Speech SDK będzie domyślnie rozpoznawał użycie języka en-us w celu uzyskania informacji na temat wybierania [języka źródłowego.](../../../../how-to-specify-source-language.md)
 
 ```csharp
@@ -85,7 +85,7 @@ using (var audioInput = AudioConfig.FromWavFileInput("whatstheweatherlike.wav"))
 
 ## <a name="initialize-a-speechrecognizer"></a>Inicjowanie elementu SpeechRecognizer
 
-Teraz Utwórzmy `SpeechRecognizer` Obiekt przy użyciu utworzonych wcześniej obiektów `SpeechConfig` i `AudioConfig` . Ten obiekt jest również tworzony wewnątrz instrukcji using, aby zapewnić odpowiednią wersję niezarządzanych zasobów. Wstaw ten kod w `RecognizeSpeechAsync()` metodzie wewnątrz instrukcji using, która otacza ```AudioConfig``` obiekt.
+Teraz Utwórzmy `SpeechRecognizer` Obiekt przy użyciu `SpeechConfig` `AudioConfig` utworzonych wcześniej obiektów i. Ten obiekt jest również tworzony wewnątrz instrukcji using, aby zapewnić odpowiednią wersję niezarządzanych zasobów. Wstaw ten kod w `RecognizeSpeechAsync()` metodzie wewnątrz instrukcji using, która otacza ```AudioConfig``` obiekt.
 
 ```csharp
 using (var recognizer = new SpeechRecognizer(config, audioInput))
@@ -108,7 +108,7 @@ var result = await recognizer.RecognizeOnceAsync();
 
 Gdy usługa mowy zwróci wynik rozpoznawania, należy wykonać coś z nim. Zajmiemy się tym, że będzie on prosty i będzie drukował wynik do konsoli.
 
-Wewnątrz instrukcji using poniżej `RecognizeOnceAsync()`Dodaj następujący kod:
+Wewnątrz instrukcji using poniżej `RecognizeOnceAsync()` Dodaj następujący kod:
 
 ```csharp
 switch (result.Reason)
@@ -197,8 +197,8 @@ namespace HelloWorld
 
 Teraz wszystko jest gotowe do skompilowania aplikacji i przetestowania rozpoznawania mowy przy użyciu usługi mowy.
 
-1. Kompiluj kod: na pasku menu programu *Visual Studio*wybierz opcję **Kompiluj** > **kompilację rozwiązania**.
-2. Uruchom aplikację: na pasku menu wybierz **Debuguj** > **Rozpocznij debugowanie** lub naciśnij klawisz **F5**.
+1. Kompiluj kod: na pasku menu programu *Visual Studio*wybierz opcję **Kompiluj**  >  **kompilację rozwiązania**.
+2. Uruchom aplikację: na pasku menu wybierz **Debuguj**  >  **Rozpocznij debugowanie** lub naciśnij klawisz **F5**.
 3. Rozpocznij rozpoznawanie: plik audio jest wysyłany do usługi mowy, uzyskanego jako tekst i renderowany w konsoli programu.
 
    ```console

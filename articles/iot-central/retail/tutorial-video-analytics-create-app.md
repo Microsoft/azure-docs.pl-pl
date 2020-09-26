@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: c7ddff70d24fe87380c4bf1439811042418ac76a
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762781"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369573"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do wykrywania filmów i obiektów wideo na platformie Azure IoT Central
 
@@ -24,7 +24,7 @@ Przykładowa aplikacja zawiera dwa symulowane urządzenia i jedną bramę IoT Ed
 * Utwórz bramę IoT Edge na maszynie wirtualnej platformy Azure i podłącz symulowany aparat.
 * Utwórz bramę IoT Edge na rzeczywistym urządzeniu, takim jak Intel NUC, i podłącz rzeczywistą kamerę.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie aplikacji dla sklepu detalicznego za pomocą szablonu aplikacji Azure IoT Central Video Analytics
 > * Dostosowywanie ustawień aplikacji
@@ -119,7 +119,7 @@ W dalszej części tego samouczka podczas konfigurowania bramy IoT Edge wymagane
 
 W sekcji **Administracja** wybierz **aplikację** i zanotuj **adres URL aplikacji** oraz **Identyfikator aplikacji** w pliku *scratchpad.txt* :
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Administracja":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Zrzut ekranu przedstawia okienko Administracja na stronie Analiza wideo z wyróżnioną aplikacją U R L i aplikacją I D.":::
 
 Wybierz pozycję **tokeny interfejsu API** i Wygeneruj nowy token o nazwie **LVAEdgeToken** dla roli **operatora** :
 
@@ -250,7 +250,7 @@ W szablonie urządzenia **bramy LVA Edge** w obszarze **moduły/LVA krawędź br
 |Detektor ruchu LVA Edge   |Używanie wartości domyślnej   |Urządzenie czujnika ruchu LVA Edge |
 |LVA — detektor obiektów krawędzi   |Używanie wartości domyślnej   |Urządzenie do wykrywania obiektów brzegowych LVA |
 
-Następnie wybierz pozycję **Zapisz**.
+Następnie wybierz przycisk **Zapisz**.
 
 :::image type="content" source="media/tutorial-video-analytics-create-app/relationships.png" alt-text="Dodaj relacje":::
 

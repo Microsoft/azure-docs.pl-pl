@@ -4,12 +4,12 @@ description: Opisuje sposób rozwiązywania typowych błędów podczas wdrażani
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650945"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372242"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Usuwanie typowych błędów wdrożeń na platformie Azure przy użyciu usługi Azure Resource Manager
 
@@ -34,6 +34,7 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 | DeploymentNameLengthLimitExceeded | Nazwy wdrożeń są ograniczone do 64 znaków.  | |
 | DeploymentFailed | Błąd DeploymentFailed jest ogólnym błędem, który nie zawiera szczegółów potrzebnych do rozwiązania błędu. Aby uzyskać więcej informacji, zobacz szczegóły błędu dotyczące kodu błędu. | [Znajdź kod błędu](#find-error-code) |
 | DeploymentQuotaExceeded | Jeśli osiągnięto limit 800 wdrożeń dla każdej grupy zasobów, należy usunąć wdrożenia z historii, które nie są już potrzebne. | [Usuń błąd, gdy liczba wdrożeń przekracza 800](deployment-quota-exceeded.md) |
+| DeploymentSizeExceeded | Uprość szablon, aby zmniejszyć rozmiar. | [Rozwiązywanie błędów rozmiaru szablonu](error-job-size-exceeded.md) |
 | DnsRecordInUse | Nazwa rekordu DNS musi być unikatowa. Wprowadź inną nazwę. | |
 | ImageNotFound | Sprawdź ustawienia obrazu maszyny wirtualnej. |  |
 | InUseSubnetCannotBeDeleted | Ten błąd może wystąpić podczas próby zaktualizowania zasobu, a żądanie jest przetwarzane przez usunięcie i utworzenie zasobu. Upewnij się, że określono wszystkie niezmienione wartości. | [Aktualizowanie zasobu](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,6 +50,7 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 | InvalidSubscriptionRegistrationState | Zarejestruj swoją subskrypcję u dostawcy zasobów. | [Rozwiązywanie rejestracji](error-register-resource-provider.md) |
 | InvalidTemplate | Sprawdź składnię szablonu pod kątem błędów. | [Rozwiąż nieprawidłowy szablon](error-invalid-template.md) |
 | InvalidTemplateCircularDependency | Usuń niepotrzebne zależności. | [Rozwiązywanie zależności cyklicznych](error-invalid-template.md#circular-dependency) |
+| JobSizeExceeded | Uprość szablon, aby zmniejszyć rozmiar. | [Rozwiązywanie błędów rozmiaru szablonu](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | Sprawdź, czy Twoje konto należy do tej samej dzierżawy, w której znajduje się grupa zasobów, w której jest wdrażana. | |
 | LinkedInvalidPropertyId | Identyfikator zasobu dla zasobu nie jest rozpoznawany prawidłowo. Upewnij się, że podano wszystkie wymagane wartości dla identyfikatora zasobu, w tym identyfikator subskrypcji, nazwę grupy zasobów, typ zasobu, nadrzędną nazwę zasobu (w razie potrzeby) i nazwę zasobu. | |
 | LocationRequired | Podaj lokalizację zasobu. | [Ustawianie lokalizacji](resource-location.md) |
@@ -88,7 +90,7 @@ Istnieją dwa typy błędów, które mogą wystąpić:
 
 Błędy weryfikacji wynikają z sytuacji, które można rozpoznać przed przystąpieniem do wdrożenia. Są to na przykład błędy składniowe w szablonie lub próby wdrożenia zasobów, które przekraczają limity przydziału w ramach subskrypcji. Błędy wdrażania wynikają z warunków, które mają miejsce podczas procesu wdrażania. Obejmują one próby uzyskania dostępu do zasobu, który jest wdrażany równolegle.
 
-Oba rodzaje błędów zwracają kod błędu, którego należy użyć do rozwiązania problemów z wdrożeniem. Oba typy błędów pojawiają się w [dzienniku aktywności](../management/view-activity-logs.md). Błędy weryfikacji nie są jednak wyświetlane w historii wdrażania, ponieważ wdrożenie nie jest w takim przypadku rozpoczynane.
+Oba rodzaje błędów zwracają kod błędu, którego należy użyć do rozwiązania problemów z wdrożeniem. Oba rodzaje błędów są wyświetlane w [dzienniku aktywności](../management/view-activity-logs.md). Błędy weryfikacji nie są jednak wyświetlane w historii wdrażania, ponieważ wdrożenie nie jest w takim przypadku rozpoczynane.
 
 ### <a name="validation-errors"></a>Błędy walidacji
 

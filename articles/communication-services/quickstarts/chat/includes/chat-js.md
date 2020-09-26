@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: a50f09dd52ccf4d35fd3803967898a4a25e3299f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d0754ea2d7e8f8f59ec475be8e27fcffd058c11f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947569"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376682"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że:
@@ -90,6 +90,8 @@ Utwórz plik w katalogu głównym projektu o nazwie **client.js** , aby zawiera�
 ### <a name="create-a-chat-client"></a>Tworzenie klienta czatu
 
 Aby utworzyć klienta programu chat w aplikacji sieci Web, należy użyć punktu końcowego usługi komunikacyjnej i tokenu dostępu, który został wygenerowany w ramach kroków wymagań wstępnych. Tokeny dostępu użytkowników umożliwiają tworzenie aplikacji klienckich, które bezpośrednio uwierzytelniają się w usłudze Azure Communications Services. Po wygenerowaniu tych tokenów na serwerze Przekaż je z powrotem do urządzenia klienckiego. Musisz użyć `AzureCommunicationUserCredential` klasy z, `Common client library` Aby przekazać token do klienta czatu.
+
+Utwórz plik **client.js** w katalogu głównym projektu. Użyjemy tego pliku, aby dodać możliwość rozmowy przy użyciu biblioteki klienckiej usługi Azure Communication Chat dla języka JavaScript.
 
 ```JavaScript
 

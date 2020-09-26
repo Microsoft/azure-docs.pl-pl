@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80117152"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376305"
 ---
 ## <a name="use-custom-page-content"></a>Użyj niestandardowej zawartości strony
 
@@ -140,11 +140,11 @@ Aby utworzyć kontener publiczny w usłudze BLOB Storage, wykonaj następujące 
 
 #### <a name="22-upload-your-custom-page-content-files"></a>2,2 przekazywanie niestandardowych plików zawartości strony
 
-1. Wybierz przycisk **Przekaż**.
+1. Wybierz pozycję **Przekaż**.
 1. Wybierz ikonę folderu obok pozycji **Wybierz plik**.
 1. Przejdź do i wybierz **customize-ui.html**, który został utworzony wcześniej w sekcji Dostosowywanie interfejsu użytkownika strony.
 1. Jeśli chcesz przekazać do podfolderu, rozwiń pozycję **Zaawansowane** i wprowadź nazwę folderu w polu **Przekaż do folderu**.
-1. Wybierz przycisk **Przekaż**.
+1. Wybierz pozycję **Przekaż**.
 1. Wybierz przekazany obiekt BLOB **customize-ui.html** .
 1. Z prawej strony pola tekstowego **adres URL** wybierz ikonę **Kopiuj do schowka** , aby skopiować adres URL do Schowka.
 1. W przeglądarce internetowej przejdź do adresu URL skopiowanego w celu zweryfikowania dostępności przekazanego obiektu BLOB. Jeśli jest niedostępny, na przykład jeśli wystąpi `ResourceNotFound` błąd, upewnij się, że typ dostępu do kontenera jest ustawiony na **obiekt BLOB**.
@@ -165,9 +165,9 @@ Skonfiguruj magazyn obiektów BLOB dla udostępniania zasobów między źródła
 
 Sprawdź, czy wszystko jest gotowe, wykonując następujące czynności:
 
-1. Powtórz krok konfigurowania mechanizmu CORS. Dla **dozwolonych źródeł**wpisz`https://www.test-cors.org`
+1. Powtórz krok konfigurowania mechanizmu CORS. Dla **dozwolonych źródeł**wpisz `https://www.test-cors.org`
 1. Przejdź do [www.test-CORS.org](https://www.test-cors.org/) 
-1. W polu **zdalny adres URL** Wklej adres URL pliku HTML. Na przykład: `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
+1. W polu **zdalny adres URL** Wklej adres URL pliku HTML. Na przykład `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Wybierz pozycję **Wyślij żądanie**.
     Powinien być wynikiem `XHR status: 200` . 
     Jeśli wystąpi błąd, upewnij się, że ustawienia mechanizmu CORS są poprawne. Może być również konieczne wyczyszczenie pamięci podręcznej przeglądarki lub otwarcie sesji przeglądania w trybie prywatnym przez naciśnięcie klawiszy Ctrl + Shift + P.

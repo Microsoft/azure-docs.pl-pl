@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom: references_regions
-ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: a650c6d5aeea28e800b1a4ce9db325a52d60d5cc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145757"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372225"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Azure Functions Premium
 
@@ -122,7 +122,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień.  Opłaty zostaną naliczone za łączną liczbę rdzeni i zużywaną pamięć na sekundę.  Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.  
 
-|SKU|Rdzenie|Pamięć|Magazyn|
+|SKU|Rdzenie|Pamięć|Storage|
 |--|--|--|--|
 |EP1|1|3,5 GB|250|
 |EP2|2|7GB|250|
@@ -141,13 +141,15 @@ Zapoznaj się z pełną regionalną dostępnością funkcji tutaj: [Azure.com](h
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Australia Środkowa| 20 | Niedostępny |
-|Australia Środkowa 2| 20 | Niedostępny |
+|Australia Środkowa| 100 | Niedostępny |
+|Australia Środkowa 2| 100 | Niedostępny |
 |Australia Wschodnia| 100 | 20 |
 |Australia Południowo-Wschodnia | 100 | 20 |
-|Brazil South| 60 | 20 |
+|Brazil South| 100 | 20 |
 |Kanada Środkowa| 100 | 20 |
-|Central US| 100 | 20 |
+|Środkowe stany USA| 100 | 20 |
+|Chiny Wschodnie 2| 100 | 20 |
+|Chiny Północne 2| 100 | 20 |
 |Azja Wschodnia| 100 | 20 |
 |East US | 100 | 20 |
 |Wschodnie stany USA 2| 100 | 20 |
@@ -156,17 +158,24 @@ Zapoznaj się z pełną regionalną dostępnością funkcji tutaj: [Azure.com](h
 |Japan East| 100 | 20 |
 |Japonia Zachodnia| 100 | 20 |
 |Korea Środkowa| 100 | 20 |
+|Korea Południowa| Niedostępny | 20 |
 |Północno-środkowe stany USA| 100 | 20 |
 |Europa Północna| 100 | 20 |
-|Norwegia Wschodnia| 20 | 20 |
+|Norwegia Wschodnia| 100 | 20 |
 |South Central US| 100 | 20 |
 |Indie Południowe | 100 | Niedostępny |
 |Southeast Asia| 100 | 20 |
+|Szwajcaria Północna| 100 | Niedostępny |
+|Szwajcaria Zachodnia| 100 | Niedostępny |
 |Południowe Zjednoczone Królestwo| 100 | 20 |
 |Zachodnie Zjednoczone Królestwo| 100 | 20 |
+|USGov Arizona| 100 | 20 |
+|USGov Wirginia| 100 | 20 |
+|USNat wschód| 100 | Niedostępny |
+|USNat zachodni| 100 | Niedostępny |
 |West Europe| 100 | 20 |
 |Indie Zachodnie| 100 | 20 |
-|Zachodnio-środkowe stany USA| 20 | 20 |
+|Zachodnio-środkowe stany USA| 100 | 20 |
 |Zachodnie stany USA| 100 | 20 |
 |Zachodnie stany USA 2| 100 | 20 |
 

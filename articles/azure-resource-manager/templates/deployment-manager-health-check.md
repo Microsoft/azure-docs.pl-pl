@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jgao
-ms.openlocfilehash: a6925ef8f72615cc3868c8b5cd4ea030ed3c3c40
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 63879350eba897cfe5a793309e5129323fe8bbde
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278071"
+ms.locfileid: "91372378"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Wprowadzanie wdrożenia integracji z kondycją na platformie Azure Menedżer wdrażania (publiczna wersja zapoznawcza)
 
@@ -41,7 +41,7 @@ Przepływ pobierania Instalatora przy użyciu usługi Azure Menedżer wdrażania
     1. Informacje o uwierzytelnianiu. Obecnie obsługiwane jest tylko uwierzytelnianie w stylu kluczowym interfejsu API. W przypadku Azure Monitor typ uwierzytelniania powinien być ustawiony jako "RolloutIdentity", ponieważ tożsamość zarządzana przypisana przez użytkownika używana na potrzeby wdrożenia Menedżer wdrażania platformy Azure rozszerza się dla Azure Monitor.
     1. [Kody stanu HTTP](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) lub wyrażenia regularne, które definiują dobrą odpowiedź. Należy zauważyć, że można podać wyrażenia regularne, które wszystkie muszą być zgodne, aby można je było traktować w dobrej kondycji, lub podać wyrażenia, które muszą być zgodne, aby odpowiedź została uznana za prawidłową. Obsługiwane są obie metody.
 
-    Poniższy kod JSON umożliwia integrację Azure Monitor z usługą Azure Menedżer wdrażania, która korzysta z RolloutIdentity i ustanawia kontrolę kondycji, w której wdrożenie jest przeprowadzane, gdy nie ma żadnych alertów. Jedyne obsługiwane Azure Monitor API: [alerty — Pobierz wszystko](/rest/api/monitor/alertsmanagement/alerts/getall.md).
+    Poniższy kod JSON umożliwia integrację Azure Monitor z usługą Azure Menedżer wdrażania, która korzysta z RolloutIdentity i ustanawia kontrolę kondycji, w której wdrożenie jest przeprowadzane, gdy nie ma żadnych alertów. Jedyne obsługiwane Azure Monitor API: [alerty — Pobierz wszystko](/rest/api/monitor/alertsmanagement/alerts/getall).
 
     ```json
     {

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/27/2020
-ms.openlocfilehash: 1feb4432111ce517d49396eb2cb516b0463268d8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/21/2020
+ms.openlocfilehash: 0d8965fcbde799ff4f48c320fe796746545eeea7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883037"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315647"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -30,7 +30,14 @@ Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji przy użyciu szabl
 
 * **Subskrypcja platformy Azure**. Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Aby użyć szablonu z interfejsu wiersza polecenia, musisz mieć [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) lub [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Aby użyć szablonu z interfejsu wiersza polecenia, musisz mieć [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) lub [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+
+* Niektóre scenariusze wymagają otwarcia biletu pomocy technicznej. Te scenariusze są następujące:
+
+    * __Prywatny obszar roboczy z obsługą linku z kluczem zarządzanym przez klienta (CMK)__
+    * __Azure Container Registry obszaru roboczego za siecią wirtualną__
+
+    Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="workspace-resource-manager-template"></a>Szablon Menedżer zasobów obszaru roboczego
 
@@ -272,7 +279,21 @@ Ustawiając `vnetOption` wartość parametru na `new` lub `existing` , można ut
 Jeśli skojarzone zasoby nie znajdują się za siecią wirtualną, można ustawić parametr **privateEndpointType** na `AutoAproval` lub `ManualApproval` wdrożyć obszar roboczy za prywatnym punktem końcowym. Można to zrobić w przypadku nowych i istniejących obszarów roboczych. Podczas aktualizowania istniejącego obszaru roboczego Wypełnij parametry szablonu informacjami z istniejącego obszaru roboczego.
 
 > [!IMPORTANT]
-> Korzystanie z prywatnego linku platformy Azure do tworzenia prywatnego punktu końcowego dla Azure Machine Learning obszaru roboczego jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna tylko w regionach **Wschodnie stany USA**, **Południowo-środkowe**stany USA i **zachodnie** stany USA 2. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Korzystanie z prywatnego linku platformy Azure do tworzenia prywatnego punktu końcowego dla Azure Machine Learning obszaru roboczego jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna tylko w następujących regionach:
+>
+> * **East US**
+> * **South Central US**
+> * **Zachodnie stany USA**
+> * **Zachodnie stany USA 2**
+> * **Kanada środkowa**
+> * **Southeast Asia**
+> * **Japan East**
+> * **Europa Północna**
+> * **Australia Wschodnia**
+> * **Południowe Zjednoczone Królestwo**
+>
+> Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
 

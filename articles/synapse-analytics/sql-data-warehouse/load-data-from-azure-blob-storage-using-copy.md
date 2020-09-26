@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 67392f965b3fddec7fc7a03bd328a224dad42208
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371528"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Samouczek: Załaduj zestaw danych Taxicab Nowego Jorku
 
@@ -91,7 +91,7 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych.
 
 11. Na pasku narzędzi wybierz pozycję **Powiadomienia**, aby monitorować proces wdrażania.
   
-     ![powiadomienie](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![Zrzut ekranu przedstawia Azure Portal z otwartym okienkiem powiadomień z wdrożeniem w toku.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Tworzenie reguły zapory na poziomie serwera
 

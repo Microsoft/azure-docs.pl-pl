@@ -6,25 +6,23 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 658aaf018dd4c231b9bc9fc8c6dda78b2a6f05c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 93037d1e1c56e280458a91ae5723502bff27995b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947672"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376725"
 ---
-W tym przewodniku szybki start dowiesz się, jak zacząć wywoływanie przy użyciu biblioteki klienckiej klienta usługi Azure Communications Services dla systemu Android.
+W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy użyciu biblioteki klienta wywołującej usługi Azure Communications Services dla systemu Android.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), aby utworzyć aplikację dla systemu Android.
-- [Token dostępu użytkownika](../../access-tokens.md) dla usługi komunikacyjnej platformy Azure.
 - Wdrożony zasób usług komunikacyjnych. [Utwórz zasób usług komunikacyjnych](../../create-communication-resource.md).
-
+- [Token dostępu użytkownika](../../access-tokens.md) dla usługi komunikacyjnej platformy Azure.
 
 ## <a name="setting-up"></a>Konfigurowanie
-
 
 ### <a name="create-an-android-app-with-an-empty-activity"></a>Tworzenie aplikacji dla systemu Android z pustym działaniem
 
@@ -126,9 +124,9 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
     
 ```
 
-### <a name="setup-the-layout-for-the-app"></a>Skonfiguruj układ aplikacji
+### <a name="set-up-the-layout-for-the-app"></a>Konfigurowanie układu aplikacji
 
-Są potrzeby dwa dane wejściowe: tekst wejściowy dla identyfikatora wywoływanego i przycisk służący do umieszczania wywołania. Mogą one być dodawane przez projektanta lub przez edycję kodu XML układu. Utwórz przycisk o identyfikatorze `call_button` i tekście wejściowym `callee_id` . Przejdź do ( `app/src/main/res/layout/activity_main.xml` ) i Zastąp zawartość pliku następującym:
+Są potrzeby dwa dane wejściowe: tekst wejściowy dla identyfikatora wywoływanego i przycisk służący do umieszczania wywołania. Mogą one być dodawane przez projektanta lub przez edycję kodu XML układu. Utwórz przycisk o IDENTYFIKATORze `call_button` i tekście wejściowym `callee_id` . Przejdź do ( `app/src/main/res/layout/activity_main.xml` ) i Zastąp zawartość pliku następującym:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -269,7 +267,7 @@ Następujące klasy i interfejsy obsługują niektóre główne funkcje bibliote
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Tworzenie agenta na podstawie tokenu dostępu użytkownika
 
-Za pomocą tokenu użytkownika można utworzyć wystąpienie agenta wywołania uwierzytelnionego. Zazwyczaj ten token zostanie wygenerowany z usługi z uwierzytelnianiem specyficznym dla aplikacji. Aby uzyskać więcej informacji na temat tokenów użytkownika umożliwiającego dostęp, sprawdź Przewodnik po [tokenach dostępu użytkownika](../../access-tokens.md) . Na potrzeby przewodnika Szybki Start Zastąp `<User_Access_Token>` token dostępu użytkownika wygenerowany dla zasobu usługi Azure Communications Service.
+Za pomocą tokenu użytkownika można utworzyć wystąpienie agenta wywołania uwierzytelnionego. Zazwyczaj ten token zostanie wygenerowany z usługi z uwierzytelnianiem specyficznym dla aplikacji. Aby uzyskać więcej informacji o tokenach dostępu użytkowników, sprawdź Przewodnik po [tokenach dostępu użytkownika](../../access-tokens.md) . Na potrzeby przewodnika Szybki Start Zastąp `<User_Access_Token>` token dostępu użytkownika wygenerowany dla zasobu usługi Azure Communications Service.
 
 ```java
 
@@ -316,3 +314,7 @@ private void startCall() {
 Aplikację można teraz uruchomić przy użyciu przycisku "Uruchom aplikację" na pasku narzędzi (Shift + F10). Sprawdź, czy masz możliwość nawiązywania wywołań przez wywołanie metody `8:echo123` . Zostanie odtworzony wstępnie zarejestrowany komunikat, a następnie powtórzony komunikat z powrotem.
 
 :::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Zrzut ekranu przedstawiający ukończoną aplikację.":::
+
+## <a name="sample-code"></a>Przykładowy kod
+
+Możesz pobrać przykładową aplikację z usługi [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java)

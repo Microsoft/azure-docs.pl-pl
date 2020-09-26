@@ -1,15 +1,17 @@
 ---
 title: Zmiany przewidywanych punktów końcowych w interfejsie API v3
 description: Interfejsy API funkcji przewidywania zapytań w wersji 3 zostały zmienione. Skorzystaj z tego przewodnika, aby zrozumieć, jak przeprowadzić migrację do interfejsów API punktu końcowego w wersji 3.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 3e4567eea02b3b7db9514f4e03c7f7f36496449b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610884"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309437"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Zmiany przewidywanych punktów końcowych dla wersji 3
 
@@ -39,14 +41,14 @@ Wersja 3 wprowadziła następujące zmiany w ramach przechodzenia do wersji GA:
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
     * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
-    * Wymierna nazwa klucza jednostki z `units` do`unit`
+    * Wymierna nazwa klucza jednostki z `units` do `unit`
 
 * Zmiana JSON treści żądania:
-    * od `preferExternalEntities` do`preferExternalEntities`
+    * od `preferExternalEntities` do `preferExternalEntities`
     * opcjonalny `score` parametr dla jednostek zewnętrznych
 
 * Zmiany JSON treści odpowiedzi:
-    * `normalizedQuery`usunięte
+    * `normalizedQuery` usunięte
 
 ## <a name="suggested-adoption-strategy"></a>Sugerowana strategia wdrażania
 
@@ -77,7 +79,7 @@ Interfejs API przewidywania w wersji 2 nie będzie przestarzały przez co najmni
 
 Jeśli chcesz wykonać zapytanie według wersji, musisz najpierw [opublikować za pośrednictwem interfejsu API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) w usłudze `"directVersionPublish":true` . Zbadaj punkt końcowy odwołujący się do identyfikatora wersji zamiast nazwy gniazda.
 
-|Prawidłowe wartości dla`SLOT-NAME`|
+|Prawidłowe wartości dla `SLOT-NAME`|
 |--|
 |`production`|
 |`staging`|
@@ -104,10 +106,10 @@ Jeśli chcesz wykonać zapytanie według wersji, musisz najpierw [opublikować z
 
 |Właściwość|Typ|Wersja|Domyślny|Przeznaczenie|
 |--|--|--|--|--|
-|`dynamicLists`|tablica|Tylko wersja 3|Niewymagane.|[Listy dynamiczne](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) umożliwiają rozbudowa istniejącej, przeszkolonej i opublikowanej jednostki listy, już w aplikacji Luis.|
-|`externalEntities`|tablica|Tylko wersja 3|Niewymagane.|[Jednostki zewnętrzne](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) zapewniają aplikacji Luis możliwość identyfikowania i etykietowania jednostek podczas środowiska uruchomieniowego, które mogą być używane jako funkcje istniejących jednostek. |
+|`dynamicLists`|array|Tylko wersja 3|Niewymagane.|[Listy dynamiczne](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) umożliwiają rozbudowa istniejącej, przeszkolonej i opublikowanej jednostki listy, już w aplikacji Luis.|
+|`externalEntities`|array|Tylko wersja 3|Niewymagane.|[Jednostki zewnętrzne](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) zapewniają aplikacji Luis możliwość identyfikowania i etykietowania jednostek podczas środowiska uruchomieniowego, które mogą być używane jako funkcje istniejących jednostek. |
 |`options.datetimeReference`|ciąg|Tylko wersja 3|Brak domyślnego|Służy do określania [przesunięcia datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Format datetimeReference to [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
-|`options.preferExternalEntities`|wartość logiczna|Tylko wersja 3|fałsz|Określa, czy jest używana [Jednostka zewnętrzna użytkownika (o takiej samej nazwie jak istniejąca jednostka)](schema-change-prediction-runtime.md#override-existing-model-predictions) lub istniejąca jednostka w modelu jest używana do przewidywania. |
+|`options.preferExternalEntities`|boolean|Tylko wersja 3|fałsz|Określa, czy jest używana [Jednostka zewnętrzna użytkownika (o takiej samej nazwie jak istniejąca jednostka)](schema-change-prediction-runtime.md#override-existing-model-predictions) lub istniejąca jednostka w modelu jest używana do przewidywania. |
 |`query`|ciąg|Tylko wersja 3|Wymagany.|**W wersji 2**wypowiedź do przewidywania jest `q` parametrem. <br><br>**W wersji 3**funkcja jest przenoszona do `query` parametru.|
 
 ## <a name="response-changes"></a>Zmiany odpowiedzi

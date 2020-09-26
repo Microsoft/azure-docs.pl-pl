@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 3e7469f0d53a154f605480b811d36937e3d4ad6c
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c74f2ef9eed25719e722970671406c850b6a59b2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361861"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Rozwiązywanie problemów z błędami usuwania zasobów klasycznego magazynu
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów w przypadku wystąpienia jednego z następujących błędów podczas próby usunięcia klasycznego konta magazynu, kontenera lub pliku obiektu blob platformy Azure. 
@@ -36,7 +36,7 @@ Zasób "dysk" służy do instalowania pliku BLOB stronicowania *. VHD na maszyn�
 
 1. Usuń klasyczną maszynę wirtualną.
 2. Jeśli zaznaczone jest pole wyboru "dyski", **dzierżawa dysku** (pokazana w powyższym obrazie) skojarzona ze stroną obiektów BLOB *. VHD jest uszkodzona. Rzeczywisty plik obiektu BLOB na stronie *. VHD nadal będzie istnieć na koncie magazynu.
-![Zrzut ekranu przedstawiający Portal z otwartym okienkiem błędu "Usuń" maszyny wirtualnej (klasycznej)](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
+![Zrzut ekranu przedstawia okno dialogowe, w którym można potwierdzić usunięcie maszyny wirtualnej.](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
 
 3. Gdy dzierżawa dysku zostanie przerwana, można usunąć elementy BLOB strony. Konto magazynu lub kontener można usunąć, gdy wszystkie znajdujące się w nich zasoby "dysk" zostaną usunięte.
 
@@ -52,7 +52,7 @@ Użytkownik przechodzi do klasycznego konta magazynu na [Azure Portal](https://p
 
 Z dyskami "dołączonymi" do maszyny wirtualnej
 
-![Zrzut ekranu przedstawiający Portal z otwartym okienkiem błędu "Usuń" maszyny wirtualnej (klasycznej)](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
+![Zrzut ekranu przedstawia komunikat wyjaśniający, dlaczego nie można usunąć konta magazynu.](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
 
 
 Z dyskami "niedołączone" do maszyny wirtualnej
@@ -93,12 +93,12 @@ Po usunięciu maszyny wirtualnej platformy Azure użytkownik próbuje usunąć p
 W portalu mogą znajdować się dwa środowiska w zależności od listy obiektów BLOB wybranych do usunięcia.
 
 1. Jeśli wybrano tylko "dzierżawione" obiekty blob, przycisk Usuń nie jest wyświetlany.
-![Zrzut ekranu przedstawiający Portal z otwartym okienkiem obiektu BLOB kontenera "list"](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
+![Zrzut ekranu portalu z otwartym okienkiem listy obiektów BLOB kontenera i wybraną opcją tylko dzierżawione obiekty blob.](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
 
 
 2. Jeśli wybrano kombinację "dzierżawionych" i "dostępne" obiektów blob, zostanie wyświetlony przycisk "Usuń". Natomiast operacja "Delete" pozostawi za stronicowymi obiektami BLOB, które mają na nich dzierżawę. 
-![Zrzut ekranu portalu z otwartym okienkiem obiektów BLOB kontenera "Lista" ](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
- ![ powoduje otwarcie zrzutu ekranu portalu z otwartym okienkiem "Usuń" wybranego obiektu BLOB](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
+![Zrzut ekranu przedstawiający Portal z otwartym okienkiem listy obiektów BLOB kontenera i zaznaczonymi obiektami BLOB, które są dzierżawione i dostępne. ](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
+ ![ Zrzut ekranu portalu z otwartym okienkiem "Usuń" wybranego obiektu BLOB](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Jeśli użytkownik zdecyduje się na usunięcie przy użyciu programu PowerShell, spowoduje to wyświetlenie następującego błędu. 
@@ -114,10 +114,10 @@ Jeśli użytkownik zdecyduje się na usunięcie przy użyciu programu PowerShell
 Wykonaj następujące kroki na Azure Portal:
 1.  Przejdź do [Azure Portal](https://portal.azure.com).
 2.  Przejdź do dysków (klasyczne). 
-3.  Kliknij kartę dyski. ![ Zrzut ekranu przedstawiający Portal z otwartym okienkiem obiektu BLOB kontenera "list"](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  Kliknij kartę dyski. ![ Zrzut ekranu przedstawia wybrane Azure Portal z dyskami (klasycznymi) oraz klasycznej nazwy dysku i konta magazynu.](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Wybierz dysk danych, a następnie kliknij polecenie Usuń dysk.
- ![Zrzut ekranu przedstawiający Portal z otwartym okienkiem obiektu BLOB kontenera "list"](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
+ ![Zrzut ekranu przedstawia wybrane Azure Portal z dyskami (klasyczny) z wybranym dyskiem danych i opcją usunięcia.](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
  
 5.  Spróbuj ponownie wykonać operację usuwania, która zakończyła się niepowodzeniem.
 6.  Nie można usunąć konta magazynu lub kontenera, o ile ma on jeden dysk.
