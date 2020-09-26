@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 7b78bdb070cdf1364fe7fbdc75f175be7ce145ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43679c52727f8cc84c7292592b68dddae7f1ea68
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656448"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362082"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrowanie z rozpoznawanie mowy Bing do usługi mowy
 
@@ -37,7 +37,7 @@ Pojedynczy klucz subskrypcji usługi mowy umożliwia dostęp do następujących 
 
 Usługa mowy jest w dużym stopniu podobna do rozpoznawanie mowy Bing, z następującymi różnicami.
 
-| Funkcja | Rozpoznawanie mowy Bing | Usługa rozpoznawania mowy | Szczegóły |
+| Cechy | Rozpoznawanie mowy Bing | Usługa rozpoznawania mowy | Szczegóły |
 |--|--|--|--|
 | Zestaw SDK języka C# | :heavy_check_mark: | :heavy_check_mark: | Usługa Speech obsługuje systemy Windows 10, platforma uniwersalna systemu Windows (platformy UWP) i .NET Standard 2,0. |
 | ZESTAW SDK JĘZYKA C++ | : heavy_minus_sign: | :heavy_check_mark: | Usługa Speech obsługuje systemy Windows i Linux. |
@@ -51,7 +51,7 @@ Usługa mowy jest w dużym stopniu podobna do rozpoznawanie mowy Bing, z następ
 | Proste rozpoznawanie intencji | : heavy_minus_sign: | :heavy_check_mark: |
 | Transkrypcja partii długich plików audio | : heavy_minus_sign: | :heavy_check_mark: |
 | Tryb rozpoznawania | Ręczne za pomocą identyfikatora URI punktu końcowego | Automatyczny | Tryb rozpoznawania nie jest dostępny w usłudze Speech. |
-| Miejscowość punktu końcowego | Globalny | Regionalny | Regionalne punkty końcowe poprawiają opóźnienia. |
+| Miejscowość punktu końcowego | Globalnie | Regionalne | Regionalne punkty końcowe poprawiają opóźnienia. |
 | Interfejsy API REST | :heavy_check_mark: | :heavy_check_mark: | Interfejsy API REST usługi Speech są zgodne z rozpoznawanie mowy Bing (inny punkt końcowy). Interfejsy API REST obsługują funkcję zamiany tekstu na mowę i ograniczoną funkcjonalność zamiany mowy na tekst. |
 | Protokoły WebSockets | :heavy_check_mark: | :heavy_check_mark: | Interfejs API usługi WebSockets w usłudze Speech jest zgodny z rozpoznawanie mowy Bing (inny punkt końcowy). W miarę możliwości Migruj do zestawu Speech SDK, aby uprościć swój kod. |
 | Wywołania interfejsu API między usługami | :heavy_check_mark: | : heavy_minus_sign: | Dostępne w rozpoznawanie mowy Bing za pośrednictwem biblioteki usług C#. |
@@ -87,10 +87,10 @@ Aby uzyskać pomoc techniczną dotyczącą usługi mowy, zestawu SDK i interfejs
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wypróbuj bezpłatnie usługę mowy](get-started.md)
+* [Wypróbuj bezpłatnie usługę mowy](overview.md#try-the-speech-service-for-free)
 * [Szybki Start: Rozpoznawanie mowy w aplikacji platformy UWP przy użyciu zestawu Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Informacje o wersji usługi mowy](releasenotes.md)
 * [Co to jest usługa mowy](overview.md)
 * [Dokumentacja usługi mowy i zestawu Speech SDK](speech-sdk.md#get-the-speech-sdk)

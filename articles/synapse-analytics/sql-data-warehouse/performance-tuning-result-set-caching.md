@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 2c29ad48e8dc626617786e519e84c92875bc6170
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378529"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362269"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Strojenie wydajności za pomocą buforowania zestawu wyników
 
@@ -56,11 +56,11 @@ WHERE request_id  = <'request_id'>;
 
 Oto przykładowe dane wyjściowe zapytania wykonanego z wyłączonym buforowaniem zestawu wyników.
 
-![Zapytanie-kroki-with-RSC-disabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+![Zrzut ekranu przedstawia wyniki zapytania, w tym typ lokalizacji i polecenie.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
 
 Oto przykładowe dane wyjściowe zapytania wykonywanego z włączonym buforowaniem zestawu wyników.
 
-![Zapytanie-kroki-with-RSC-Enabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
+![Zrzut ekranu przedstawia wyniki zapytania z wybranym poleceniem * z [D W ResultCache D b] kropką d b o nazwie wywoływanej.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## <a name="when-cached-results-are-used"></a>Gdy są używane buforowane wyniki
 

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f46ed1890bb62acc92eea28c55bf9abd6153e8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13b0dc3af524b16430408f8a920c7477c412414d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208692"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362733"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics — Monitorowanie portal zarządzania obciążeń
 
@@ -58,8 +58,9 @@ WITH ( WORKLOAD_GROUP = 'wgPriority'
 Poniższy wykres jest skonfigurowany w następujący sposób:<br>
 Metric 1: *efektywny minimalny procent zasobów* (średnia agregacji, `blue line` )<br>
 Metryka 2: *alokacja grupy obciążeń według wartości procentowej systemu* (średnia agregacja, `purple line` )<br>
-Filtr: [Grupa obciążeń] =`wgPriority`<br>
-![underutilized-wg.png](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) Wykres pokazuje, że w przypadku korzystania z 25% obciążania obciążenia jest używana średnio 10%.  W takim przypadku `MIN_PERCENTAGE_RESOURCE` wartość parametru może być obniżona do zakresu od 10 do 15, a inne obciążenia w systemie zużywają zasoby.
+Filtr: [Grupa obciążeń] = `wgPriority`<br>
+![Zrzut ekranu przedstawia wykres z dwiema metrykami i filtrem.](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png)
+Wykres pokazuje, że za pomocą 25% obciążania obciążenia jest używana średnio 10%.  W takim przypadku `MIN_PERCENTAGE_RESOURCE` wartość parametru może być obniżona do zakresu od 10 do 15, a inne obciążenia w systemie zużywają zasoby.
 
 ### <a name="workload-group-bottleneck"></a>Wąskie gardła grupy obciążeń
 
@@ -80,8 +81,9 @@ Poniższy wykres jest skonfigurowany w następujący sposób:<br>
 Metryka 1: *procent efektywnego zasobu zakończenia* (średnia agregacji, `blue line` )<br>
 Metryka 2: *alokacja grupy obciążeń według maksymalnego procentu zasobów* (średnia agregacja, `purple line` )<br>
 Metryka 3: *grupowanie zadań w kolejce* (agregacja SUM, `turquoise line` )<br>
-Filtr: [Grupa obciążeń] =`wgDataAnalyst`<br>
-![Przewężenie butelek — według ](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) wykresu pokazuje, że w przypadku zasobów zostanie wyświetlona wartość 9%, Grupa obciążeń jest równa 90% + (od *przydziału grupy obciążenia przez maksymalną wartość procentową zasobu*).  Istnieje stała kolejkowanie zapytań, jak pokazano w *kolejce metryki zapytań grupy obciążenia*.  W takim przypadku zwiększenie `CAP_PERCENTAGE_RESOURCE` do wartości większej niż 9% umożliwi wykonywanie większej liczby zapytań jednocześnie.  Zwiększenie `CAP_PERCENTAGE_RESOURCE` zakłada, że dostępna jest wystarczająca ilość zasobów i nie jest izolowany przez inne grupy obciążeń.  Sprawdź, czy limit wzrostu został zwiększony przez sprawdzenie *metryki procentowej zasobu limitu*.  Jeśli jest wymagana większa przepływność, należy również rozważyć zwiększenie `REQUEST_MIN_RESOURCE_GRANT_PERCENT` do wartości większej niż 3.  Zwiększenie możliwego `REQUEST_MIN_RESOURCE_GRANT_PERCENT` do szybszego działania zapytań.
+Filtr: [Grupa obciążeń] = `wgDataAnalyst`<br>
+![Zrzut ekranu przedstawia wykres z trzema metrykami i filtrem.](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png)
+Na wykresie widać, że dla zasobów zostanie wyświetlona wartość 9%, grupa obciążenia jest 90% + wykorzystana (z *metryki przydziału grupy obciążeń według maksymalnej wartości procentowej zasobu*).  Istnieje stała kolejkowanie zapytań, jak pokazano w *kolejce metryki zapytań grupy obciążenia*.  W takim przypadku zwiększenie `CAP_PERCENTAGE_RESOURCE` do wartości większej niż 9% umożliwi wykonywanie większej liczby zapytań jednocześnie.  Zwiększenie `CAP_PERCENTAGE_RESOURCE` zakłada, że dostępna jest wystarczająca ilość zasobów i nie jest izolowany przez inne grupy obciążeń.  Sprawdź, czy limit wzrostu został zwiększony przez sprawdzenie *metryki procentowej zasobu limitu*.  Jeśli jest wymagana większa przepływność, należy również rozważyć zwiększenie `REQUEST_MIN_RESOURCE_GRANT_PERCENT` do wartości większej niż 3.  Zwiększenie możliwego `REQUEST_MIN_RESOURCE_GRANT_PERCENT` do szybszego działania zapytań.
 
 ## <a name="next-steps"></a>Następne kroki
 
