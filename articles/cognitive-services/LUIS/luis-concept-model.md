@@ -1,14 +1,16 @@
 ---
 title: Projektowanie przy użyciu modeli — LUIS
 description: Informacje o języku zawierają kilka typów modeli. Niektóre modele mogą być używane w więcej niż jeden sposób.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 576ba945018d13db9cd24888f3c41a2215857694
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316515"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Projektowanie przy użyciu modeli zamierzeń i jednostek
 
@@ -24,7 +26,7 @@ Metodologia nauczania maszynowego LUIS umożliwia łatwe uczenie koncepcji na ko
 
 <a name="v3-authoring-model-decomposition"></a>
 
-## <a name="intents-classify-utterances"></a>Klasyfikacja wyrażenia długości
+## <a name="intents-classify-utterances"></a>Intencje — klasyfikowanie wypowiedzi
 
 Celem jest klasyfikowanie przykładu wyrażenia długości w celu uczenia LUIS na temat zamiaru. Przykład wyrażenia długości w ramach intencji jest używany jako pozytywne przykłady wypowiedź. Te same wyrażenia długości są używane jako przykłady negatywne we wszystkich innych intencjach.
 
@@ -34,7 +36,7 @@ Następujący wypowiedź to **pozytywny przykład** dla `OrderBook` zamiaru i **
 
 `Buy the top-rated book on bot architecture.`
 
-## <a name="entities-extract-data"></a>Jednostki wyodrębniające dane
+## <a name="entities-extract-data"></a>Jednostki — wyodrębnianie danych
 
 Jednostka reprezentuje jednostkę danych, które mają zostać wyodrębnione z wypowiedź. Jednostka uczenia maszynowego jest jednostką najwyższego poziomu zawierającą podjednostki, które są również jednostkami uczenia maszynowego.
 

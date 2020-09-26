@@ -3,12 +3,12 @@ title: Używanie Azure Service Bus Explorer do wykonywania operacji na danych na
 description: Ten artykuł zawiera informacje dotyczące korzystania z Eksploratora Azure Service Bus opartego na portalu w celu uzyskania dostępu do Azure Service Bus danych.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340547"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295604"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Używanie Service Bus Explorer do wykonywania operacji na danych na Service Bus (wersja zapoznawcza)
 
@@ -104,7 +104,7 @@ Aby odebrać komunikat z kolejki (lub podkolejki utraconych wiadomości)
 
 Po pomyślnym przeprowadzeniu operacji odbierania szczegóły komunikatu będą wyświetlane w siatce poniżej. Możesz wybrać komunikat z siatki, aby wyświetlić jego szczegóły.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Zrzut ekranu okna kolejki w Eksploratorze Azure Service Bus z informacjami o komunikacie wyświetlanymi dla aktywnej wiadomości wybranej w kolejce.":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>Wgląd do wiadomości z kolejki
@@ -156,7 +156,7 @@ Podobnie jak w przypadku kolejki, operację ***odbierania*** można wykonać w o
 
 Po pomyślnym przeprowadzeniu operacji odbierania odebrany komunikat zostanie wyświetlony w siatce poniżej. Aby wyświetlić szczegóły komunikatu, kliknij komunikat.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Zrzut ekranu przedstawiający kartę Odbierz w Eksploratorze Azure Service Bus z informacjami o komunikacie wyświetlanymi dla aktywnej wiadomości, która została odebrana.":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Wgląd do wiadomości z subskrypcji
 

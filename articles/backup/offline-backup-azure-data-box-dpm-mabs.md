@@ -3,12 +3,12 @@ title: Kopia zapasowa offline z Azure Data Boxami dla programu DPM i serwera us�
 description: Za pomocą Azure Data Box można wypełniać początkowe dane kopii zapasowej w trybie offline z programu DPM i serwera usługi MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177690"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271498"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Używanie Azure Data Box dla programu DPM i serwera usługi MAB (wersja zapoznawcza)
 
@@ -110,7 +110,7 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Transferowanie danych początkowej kopii zapasowej do urządzeń Azure Data Box
 
-1. Na serwerze DPM/serwera usługi MAB postępuj zgodnie z instrukcjami, aby [utworzyć nową grupę ochrony](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Jeśli dodajesz ochronę w trybie online do istniejącej grupy ochrony, kliknij prawym przyciskiem myszy istniejącą grupę ochrony, a następnie wybierz pozycję **Dodaj ochronę w trybie online** i zacznij od **kroku 8**.
+1. Na serwerze DPM/serwera usługi MAB postępuj zgodnie z instrukcjami, aby [utworzyć nową grupę ochrony](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Jeśli dodajesz ochronę w trybie online do istniejącej grupy ochrony, kliknij prawym przyciskiem myszy istniejącą grupę ochrony, a następnie wybierz pozycję **Dodaj ochronę w trybie online** i zacznij od **kroku 8**.
 2. Na stronie **Wybierz członków grupy** Określ komputery i źródła, dla których chcesz utworzyć kopię zapasową.
 3. Na stronie **Wybierz metodę ochrony danych** Określ sposób obsługi krótkoterminowej i długoterminowej kopii zapasowej. Upewnij się, że wybrano opcję **Chcę chronić w trybie online.**
 
@@ -149,7 +149,7 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
           — Azure. Storage       *4.6.1*<br>
      >  - Aplikacja usługi Azure AD jest zarejestrowana *jako \<object GUID of the user> AzureOfflineBackup_*.
 
-13. Wybierz prawidłową kolejność pól danych, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysk. Wybierz pozycję **Dalej**.
+13. Wybierz prawidłową kolejność pól danych, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysk. Wybierz opcję **Dalej**.
 
     ![Wybierz DATAbox](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 
@@ -165,7 +165,7 @@ Określ alternatywne źródło: *wim: D: \Sources\Install.wim: 4*
     > Na przykład jeśli ścieżka dysku to `\\mydomain\myserver\disk1\` i *disk1* zawiera katalog o nazwie *PageBlob*, ścieżka do podanego w Kreatorze serwera DPM/serwera usługi MAB jest `\\mydomain\myserver\disk1\` .
     > W przypadku [skonfigurowania urządzenia z Azure Data Box 100 TB](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box#setup-azure-data-box)należy podać następujące elementy jako ścieżkę sieciową do urządzenia `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` .
 
-15. Wybierz pozycję **Dalej**. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz grupę**.
+15. Wybierz opcję **Dalej**. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz grupę**.
 
     ![Wykrywanie DATAbox](./media/offline-backup-azure-data-box-dpm-mabs/detect-databox.png)
 

@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 80796d852c07952b7100c6dd7802bc9279f3218c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feef35ef86a933f32949468366fea85eb87d4866
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84199000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315783"
 ---
 # <a name="bring-your-own-key-specification"></a>Specyfikacja używania własnego klucza
 
@@ -119,7 +119,7 @@ Jeśli CKM_RSA_AES_KEY_WRAP_PAD jest używany, serializacji JSON obiektu BLOB tr
 
 ```
 
-* dziecko = identyfikator klucza KEK. W przypadku Key Vault kluczy wygląda to następująco:https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621
+* dziecko = identyfikator klucza KEK. W przypadku Key Vault kluczy wygląda to następująco: https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621
 * alg = algorytm. 
 * dir = tryb bezpośredni, tj. dziecko, do którego się odwołuje, jest używane do bezpośredniej ochrony tekstu szyfrowanego, który jest dokładną reprezentacją CKM_RSA_AES_KEY_WRAP
 * Generator = pole informacyjne, które oznacza nazwę i wersję narzędzia BYOK oraz źródłowego producenta i modelu modułu HSM. Te informacje są przeznaczone do użycia w rozwiązywaniu problemów i obsłudze.
@@ -159,19 +159,7 @@ Treść żądania:
 wartość "key_hsm" to cała zawartość KeyTransferPackage-ContosoFirstHSMkey. BYOK zakodowana w formacie base64.
 
 ## <a name="references"></a>Odwołania
-
-### <a name="azure-key-vault-rest-api"></a>Interfejsy API REST usługi Azure Key Vault
-
-* [Utwórz klucz](https://docs.microsoft.com/rest/api/keyvault/createkey/createkey)
-* [Pobierz klucz (tylko atrybuty klucza i klucz publiczny)](https://docs.microsoft.com/rest/api/keyvault/getkey/getkey)
-* [Importuj klucz](https://docs.microsoft.com/rest/api/keyvault/importkey/importkey)
-
-
-### <a name="azure-cli-commands"></a>Polecenia interfejsu wiersza polecenia platformy Azure
-* [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create)
-* [AZ Key magazynu, pobieranie](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download)
-* [AZ Key magazynu kluczy import](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import)
-
+- [Przewodnik dewelopera usługi Key Vault](../general/developers-guide.md)
 
 ## <a name="next-steps"></a>Następne kroki
 * Instrukcje krok po kroku: [Importowanie kluczy chronionych przez moduł HSM do Key Vault (BYOK)](hsm-protected-keys-byok.md)

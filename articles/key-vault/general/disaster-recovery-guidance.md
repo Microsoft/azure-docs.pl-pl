@@ -1,6 +1,6 @@
 ---
-title: Co zrobić, jeśli przerwanie działania usługi platformy Azure ma wpływ na Azure Key Vault-Azure Key Vault | Microsoft Docs
-description: Dowiedz się, co należy zrobić, aby obsłużyć Azure Key Vault przerwy w działaniu usługi platformy Azure.
+title: Azure Key Vault dostępności i nadmiarowości — Azure Key Vault | Microsoft Docs
+description: Dowiedz się więcej o dostępności Azure Key Vault i nadmiarowości.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: 27d8d4de308fe7cf6e6f36dd33f33bb73c495073
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6ccd127a35ea0d6a135a4b345297988cfdd8015b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983226"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315817"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Dostępność i nadmiarowość w usłudze Azure Key Vault
 

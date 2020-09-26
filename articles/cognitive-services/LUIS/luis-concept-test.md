@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 25b360f90a0920aad2ea5e68cda31a68be5d37a9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ccd732c644cf0a5641099a9731f65dd7b03bf374
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73486686"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316413"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Przykład testowania wyrażenia długości w LUIS
 
 Testowanie jest procesem zapewniania przykładowej wyrażenia długości do LUIS i uzyskiwania odpowiedzi na LUIS, które są uznawane za intencje i jednostki. 
 
-Możesz testować LUIS interaktywnie, jeden wypowiedź w danym momencie lub udostępnić wyrażenia długości. Podczas testowania można porównać bieżącą odpowiedź predykcyjną aktywnego modelu z odpowiedzią przewidywania opublikowanego modelu. 
+Możesz testować LUIS interaktywnie, jeden wypowiedź w danym momencie lub udostępnić zestaw wyrażenia długości. Podczas testowania można porównać bieżącą odpowiedź predykcyjną aktywnego modelu z odpowiedzią przewidywania opublikowanego modelu. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -43,7 +43,7 @@ Możesz testować przy użyciu [punktu końcowego](luis-glossary.md#endpoint) z 
 Wszystkie testy punktów końcowych są wliczane do limitu przydziału użycia. 
 
 ## <a name="do-not-log-tests"></a>Nie rejestruj testów
-Jeśli testujesz względem punktu końcowego i nie chcesz rejestrować wypowiedź, pamiętaj, aby użyć konfiguracji ciągu `logging=false` zapytania.
+Jeśli testujesz względem punktu końcowego i nie chcesz rejestrować wypowiedź, pamiętaj, aby użyć `logging=false` konfiguracji ciągu zapytania.
 
 ## <a name="where-to-find-utterances"></a>Gdzie można znaleźć wyrażenia długości
 LUIS przechowuje wszystkie zarejestrowane wyrażenia długości w dzienniku zapytań, dostępne do pobrania w portalu LUIS na stronie listy **aplikacje** , a także [interfejsy API tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087)Luis. 

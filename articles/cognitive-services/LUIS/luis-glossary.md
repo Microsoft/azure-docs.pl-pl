@@ -1,14 +1,16 @@
 ---
 title: Słownik — LUIS
 description: Słownik objaśnia warunki, które mogą wystąpić podczas pracy z usługą interfejsu API LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836415"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309493"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Słownik dotyczący typowego słownictwa i koncepcji
 W słowniku Language Understanding (LUIS) objaśniono warunki, które mogą wystąpić podczas pracy z usługą LUIS.
@@ -283,9 +285,9 @@ W [jednostkach listy](reference-entity-list.md)Luis można utworzyć znormalizow
 
 |Nomalized wartość| Synonimy|
 |--|--|
-|Mała| nieco jeden, 8 uncji|
+|Mały| nieco jeden, 8 uncji|
 |Średniaa| regularne, 12 uncji|
-|Duża| Big, 16 uncji|
+|Duży| Big, 16 uncji|
 |Xtra duże| największy jeden, 24 uncje|
 
 Model zwróci wartość znormalizowaną dla jednostki, gdy którykolwiek z synonimów jest widoczny w danych wejściowych.
@@ -309,7 +311,7 @@ W przypadku **języka angielskiego**token jest ciągłym zakresem (bez spacji i 
 |--|--|--|
 |`Dog`|1|Pojedynczy wyraz bez znaków interpunkcyjnych ani spacji.|
 |`RMT33W`|1|Numer lokalizatora rekordu. Może zawierać cyfry i litery, ale nie ma żadnych znaków interpunkcyjnych.|
-|`425-555-5555`|5|Numer telefonu. Każdy znak interpunkcji jest pojedynczym tokenem, więc będzie `425-555-5555` miał 5 tokenów:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
+|`425-555-5555`|5|Numer telefonu. Każdy znak interpunkcji jest pojedynczym tokenem, więc będzie  `425-555-5555` miał 5 tokenów:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
 |`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
 ## <a name="train"></a>Szkolenie

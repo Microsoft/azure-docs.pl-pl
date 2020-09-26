@@ -1,14 +1,16 @@
 ---
 title: Przeglądanie użytkownika wypowiedź — LUIS
 description: Dzięki aktywnej uczeniu punkt końcowy recenzji wyrażenia długości się w celu poprawnego zamiaru i jednostki. LUIS wybiera punkt końcowy wyrażenia długości nie ma pewności.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 82f228d5e6f801539c549e16faea371782ad4b59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80546847"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316447"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Pojęcia dotyczące włączania aktywnego uczenia przez przeglądanie punktu końcowego wyrażenia długości
 Usługa Active uczenie jest jedną z trzech strategii, aby poprawić dokładność przewidywania i najłatwiej ją wdrożyć. Dzięki aktywnej uczeniu punkt końcowy recenzji wyrażenia długości się w celu poprawnego zamiaru i jednostki. LUIS wybiera punkt końcowy wyrażenia długości nie ma pewności.
@@ -35,7 +37,7 @@ Użyj interfejsu API **[usuwania bez etykiet wyrażenia długości](https://west
 
 ## <a name="enable-active-learning"></a>Włącz aktywną naukę
 
-Aby włączyć aktywną naukę, należy zarejestrować zapytania użytkownika. Jest to realizowane przez wywołanie [zapytania punktu końcowego](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) z parametrem `log=true` QueryString i wartością.
+Aby włączyć aktywną naukę, należy zarejestrować zapytania użytkownika. Jest to realizowane przez wywołanie [zapytania punktu końcowego](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) z `log=true` parametrem QueryString i wartością.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 169a3149a2d8d02d486bc126071b17e9a4f7ed72
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9825e5e85c8da27b0f3fc2b9d78fcc9ca3513389
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167474"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281698"
 ---
 # <a name="what-is-opc-twin"></a>Co to jest OPC bliźniaczy?
+
+> [!IMPORTANT]
+> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
 
 OPC bliźniaczy składa się z mikrousług, które używają Azure IoT Edge i IoT Hub do łączenia chmur i sieci fabryki. Przędza OPCa zapewnia odnajdywanie, rejestrację i zdalne sterowanie urządzeniami przemysłowymi za poorednictwem interfejsów API REST. OPC bliźniaczy nie wymaga zestawu SDK OPC Unified Architecture (OPC UA), jest językiem programowania niezależny od i może być dołączany do bezserwerowego przepływu pracy. W tym artykule opisano kilka OPC przypadków użycia.
 
@@ -28,7 +31,7 @@ OPC bliźniaczy umożliwia operatorom fabryki skanowanie sieci fabrycznej, co um
 ### <a name="simple-control"></a>Kontrolka prosta
 OPC bliźniaczy umożliwia operatorom fabryki reagowanie na zdarzenia i ponowne konfigurowanie maszyn piętra fabryki z chmury automatycznie lub ręcznie na bieżąco. OPC bliźniaczy udostępnia interfejsy API REST umożliwiające wywoływanie usług na serwerze OPC UA, przeglądanie przestrzeni adresowej, a także odczytywanie i zapisywanie zmiennych oraz wykonywanie metod. Na przykład, kocioł używa wskaźnika KPI temperatury do sterowania linią produkcyjną. Czujnik temperatury publikuje zmiany danych przy użyciu wydawcy OPC. Operator fabryki odbiera alert informujący o osiągnięciu progu przez temperaturę. Wiersz produkcji jest automatycznie chłodny za pomocą sznurka OPC. Operator fabryki jest powiadamiany o schłodzeniu.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 Możesz użyć sznurka OPC do prostego uwierzytelniania i dla prostego środowiska programistycznego.
 
 ### <a name="simple-authentication"></a>Proste uwierzytelnianie 
@@ -41,5 +44,4 @@ OPC sznury mogą być używane z aplikacjami zapisanymi w dowolnym języku progr
 
 Teraz, kiedy znasz już OPCy i jej zastosowania, Oto sugerowany następny krok:
 
-> [!div class="nextstepaction"]
-> [Co to jest magazyn OPC](overview-opc-vault.md)
+[Co to jest magazyn OPC](overview-opc-vault.md)

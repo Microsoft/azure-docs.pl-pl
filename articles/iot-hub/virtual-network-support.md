@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: fadcefb0b802ec3064ac917ab98320f61f24ae5c
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033527"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281254"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub obsługa sieci wirtualnych z linkiem prywatnym i tożsamością zarządzaną
 
@@ -236,7 +236,7 @@ Funkcja przekazywania plików IoT Hub umożliwia urządzeniom przekazywanie plik
 
 4. Na stronie zasobów IoT Hub przejdź do karty **przekazywanie plików** .
 
-5. Na wyświetlonej stronie Wybierz kontener, który ma być używany w magazynie obiektów blob, w razie potrzeby skonfiguruj **Ustawienia powiadomień dotyczących plików**, **czas wygaśnięcia sygnatury dostępu współdzielonego**, **domyślny czas wygaśnięcia**i **maksymalną liczbę dostaw** . Wybierz pozycję **tożsamość** jako **Typ uwierzytelniania** w punkcie końcowym magazynu. Kliknij przycisk **Utwórz**.
+5. Na wyświetlonej stronie Wybierz kontener, który ma być używany w magazynie obiektów blob, w razie potrzeby skonfiguruj **Ustawienia powiadomień dotyczących plików**, **czas wygaśnięcia sygnatury dostępu współdzielonego**, **domyślny czas wygaśnięcia**i **maksymalną liczbę dostaw** . Wybierz pozycję **tożsamość** jako **Typ uwierzytelniania** w punkcie końcowym magazynu. Kliknij przycisk **Utwórz**. Jeśli w tym kroku zostanie wyświetlony błąd, tymczasowo Ustaw konto magazynu tak, aby zezwalało na dostęp ze **wszystkich sieci**, a następnie spróbuj ponownie. Po zakończeniu konfigurowania przekazywania plików można skonfigurować zaporę na koncie magazynu.
 
 Teraz punkt końcowy magazynu dla przekazywania plików jest skonfigurowany do korzystania z tożsamości przypisanej do systemu centrum i ma uprawnienia dostępu do zasobu magazynu pomimo ograniczeń zapory.
 

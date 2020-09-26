@@ -3,18 +3,18 @@ title: Żądanie dostępu just in time
 description: Opisuje, w jaki sposób wydawcy Azure Managed Applications żądania dostępu just in Time do zarządzanej aplikacji.
 author: MSEvanhi
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: 7f475774828bcaecd471e13de994b156041323ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e1a929924e2c291e0044da99f3ae5d7d1c3b894
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651386"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371573"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Włącz i Żądaj dostępu just in Time do Azure Managed Applications
 
-Odbiorcy aplikacji zarządzanej mogą być zniechęcić w celu udzielenia użytkownikowi stałego dostępu do zarządzanej grupy zasobów. Jako Wydawca aplikacji Menedżera możesz preferować, aby klienci wiedzieli się dokładnie, gdy trzeba uzyskać dostęp do zarządzanych zasobów. Aby zapewnić konsumentom większą kontrolę nad udzieleniem dostępu do zarządzanych zasobów, Azure Managed Applications zapewnia funkcję o nazwie dostęp just-in-Time (JIT), która jest obecnie dostępna w wersji zapoznawczej.
+Odbiorcy aplikacji zarządzanej mogą być zniechęcić w celu udzielenia użytkownikowi stałego dostępu do zarządzanej grupy zasobów. Jako Wydawca aplikacji Menedżera możesz preferować, aby klienci wiedzieli się dokładnie, gdy trzeba uzyskać dostęp do zarządzanych zasobów. Aby zapewnić konsumentom większą kontrolę nad udzieleniem dostępu do zarządzanych zasobów, Azure Managed Applications zapewnia funkcję o nazwie dostęp just-in-Time (JIT). Ta funkcja jest obecnie w wersji zapoznawczej.
 
 Dostęp JIT umożliwia żądanie dostępu z podwyższonym poziomem uprawnień do zasobów aplikacji zarządzanej w celu rozwiązywania problemów lub konserwacji. Zawsze masz dostęp tylko do odczytu do zasobów, ale przez określony okres możesz mieć większy dostęp.
 
@@ -34,9 +34,7 @@ Ten artykuł koncentruje się na akcjach podejmowanych przez wydawców w celu w�
 
 ## <a name="add-jit-access-step-to-ui"></a>Dodaj krok dostępu JIT do interfejsu użytkownika
 
-CreateUiDefinition.jsw pliku jest dokładnie taki sam jak plik interfejsu użytkownika tworzony na potrzeby stałego dostępu, z wyjątkiem tego, że należy uwzględnić krok, który umożliwia klientom włączenie dostępu JIT. Aby dowiedzieć się więcej o publikowaniu pierwszej oferty zarządzanej aplikacji w portalu Azure Marketplace, zobacz [Azure Managed Applications w portalu Marketplace](publish-marketplace-app.md).
-
-Aby zapewnić obsługę funkcji JIT dla oferty, Dodaj następującą zawartość do CreateUiDefinition.jsw pliku:
+W CreateUiDefinition.jspliku należy uwzględnić krok, który umożliwia klientom włączenie dostępu JIT. Aby zapewnić obsługę funkcji JIT dla oferty, Dodaj następującą zawartość do CreateUiDefinition.jspliku.
 
 W obszarze "kroki":
 
@@ -58,7 +56,7 @@ W obszarze "kroki":
     ]
 }
 ```
- 
+
 W obszarze "dane wyjściowe":
 
 ```json
@@ -70,15 +68,17 @@ W obszarze "dane wyjściowe":
 
 ## <a name="enable-jit-access"></a>Włącz dostęp JIT
 
-Podczas definiowania oferty w portalu Marketplace upewnij się, że włączono dostęp JIT.
+W przypadku tworzenia oferty w centrum partnerskim upewnij się, że włączono dostęp JIT.
 
-1. Zaloguj się do [portalu publikowania partnerów w chmurze](https://cloudpartner.azure.com).
+1. Zaloguj się do komercyjnego portalu Marketplace w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-1. Podaj wartości, aby opublikować zarządzaną aplikację w portalu Marketplace. Wybierz opcję **tak** , aby **włączyć dostęp JIT?**
+1. Aby uzyskać wskazówki dotyczące tworzenia nowej aplikacji zarządzanej, wykonaj kroki opisane w temacie [Tworzenie oferty aplikacji platformy Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
-   ![Włącz dostęp just in Time](./media/request-just-in-time-access/marketplace-enable.png)
+1. Na stronie **konfiguracja techniczna** zaznacz pole wyboru **Włącz dostęp just-in-Time (JIT)** .
 
-Dodano krok konfiguracji JIT do interfejsu użytkownika i włączono dostęp JIT w ofercie Marketplace. Gdy użytkownicy wdrażają aplikację zarządzaną, mogą [włączyć dostęp JIT dla swojego wystąpienia](approve-just-in-time-access.md#enable-during-deployment).
+   :::image type="content" source="./media/request-just-in-time-access/enable-just-in-time-access.png" alt-text="Włącz dostęp just in Time":::
+
+Dodano krok konfiguracji JIT do interfejsu użytkownika i włączono dostęp JIT do komercyjnej oferty portalu Marketplace. Gdy użytkownicy wdrażają aplikację zarządzaną, mogą [włączyć dostęp JIT dla swojego wystąpienia](approve-just-in-time-access.md#enable-during-deployment).
 
 ## <a name="request-access"></a>Żądanie dostępu
 

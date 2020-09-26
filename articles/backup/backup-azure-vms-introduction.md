@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej maszyny wirtualnej platformy Azure
 description: W tym artykule dowiesz się, jak usługa Azure Backup wykonuje kopie zapasowe maszyn wirtualnych platformy Azure oraz jak postępować zgodnie z najlepszymi rozwiązaniami.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58079cba9a65ab4df3632bb641397ba10496ae81
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014646"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371511"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Omówienie kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -106,6 +106,13 @@ Te typowe scenariusze mogą mieć wpływ na łączny czas wykonywania kopii zapa
 - Zmiany **dysku:** W przypadku dysków chronionych, które przechodzą przyrostową kopię zapasową, można wykonać codzienne zmiany o ponad 200 GB, a wykonywanie kopii zapasowej może trwać długo (więcej niż osiem godzin).
 - **Wersje kopii zapasowej:** Najnowsza wersja kopii zapasowej (znana jako wersja natychmiastowego przywracania) używa bardziej zoptymalizowanego procesu niż porównanie sum kontrolnych w celu identyfikowania zmian. Ale jeśli używasz natychmiastowego przywracania i usunięto migawkę kopii zapasowej, kopia zapasowa przełączy się do porównania sum kontrolnych. W takim przypadku operacja tworzenia kopii zapasowej będzie przekroczyć 24 godziny (lub zakończyć się niepowodzeniem).
 
+### <a name="restore-performance"></a>Przywracanie wydajności
+
+Te typowe scenariusze mogą mieć wpływ na łączny czas przywracania:
+
+- Łączny czas przywracania zależy od operacji wejścia/wyjścia na sekundę (IOPS) oraz przepływności konta magazynu.
+- Łączny czas przywracania może być narażony, jeśli docelowe konto magazynu zostanie załadowane z innymi operacjami odczytu i zapisu aplikacji. Aby ulepszyć operację przywracania, wybierz konto magazynu, które nie zostało załadowane z innymi danymi aplikacji.
+
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
 Podczas konfigurowania kopii zapasowych maszyn wirtualnych sugerujemy następujące rozwiązania:
@@ -138,6 +145,6 @@ Dysk danych 2 | 32 TB | 0 GB
 
 Rzeczywistą wielkością maszyny wirtualnej w tym przypadku jest 17 GB + 30 GB + 0 GB = 47 GB. Ten rozmiar chronionego wystąpienia (47 GB) stanowi podstawę dla rachunku miesięcznego. Wraz ze wzrostem ilości danych w maszynie wirtualnej rozmiar chronionego wystąpienia używany do zmiany rozliczeń jest zgodny.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Przygotowanie do tworzenia kopii zapasowej maszyny wirtualnej platformy Azure](backup-azure-arm-vms-prepare.md).

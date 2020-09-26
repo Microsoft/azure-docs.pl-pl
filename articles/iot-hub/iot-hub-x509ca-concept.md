@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019907"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308116"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Omówienie pojęć związanych z certyfikatami urzędu certyfikacji X. 509 w branży IoT
 
@@ -87,7 +87,7 @@ Proces przekazywania certyfikatu X. 509 urzędu certyfikacji polega na tym, że 
 
 ### <a name="proof-of-possession-of-the-certificate"></a>Potwierdzenie posiadania certyfikatu
 
-Certyfikat certyfikatu X. 509 urzędu certyfikacji, podobnie jak każdy certyfikat cyfrowy, to informacje publiczne, które są podatne na podsłuchiwanie. W związku z tym osoba przechwytująca może przechwycić certyfikat i spróbować go przekazać jako własny. W naszym przykładzie IoT Hub chcemy upewnić się, że certyfikat urzędu certyfikacji firma-X jest przekazywany w rzeczywistości do firmy-X. Robi to przez wyzwanie firmy-X, aby udowodnić, że w rzeczywistości posiadają certyfikat za pomocą [przepływu dowodu posiadania (pop)](https://tools.ietf.org/html/rfc5280#section-3.1). Przepływ dowodu posiadania wiąże się z IoT Hub wygenerowaniem losowej liczby do podpisania przez firmę-X przy użyciu jego klucza prywatnego. Jeśli spełnione są najlepsze rozwiązania związane z infrastrukturą kluczy publicznych w firmie X, a klucz prywatny jest chroniony, tylko w celu poprawnego reagowania na wyzwanie dowodu posiadania. IoT Hub przechodzi do rejestru urzędu certyfikacji X. 509 po pomyślnej reakcji na wyzwanie dowodu posiadania.
+Certyfikat certyfikatu X. 509 urzędu certyfikacji, podobnie jak każdy certyfikat cyfrowy, to informacje publiczne, które są podatne na podsłuchiwanie. W związku z tym osoba przechwytująca może przechwycić certyfikat i spróbować go przekazać jako własny. W naszym przykładzie IoT Hub chcemy upewnić się, że certyfikat urzędu certyfikacji firma-X jest przekazywany w rzeczywistości do firmy-X. Robi to przez wyzwanie firmy-X, aby udowodnić, że w rzeczywistości posiadają certyfikat poprzez [przepływ dowodu posiadania (pop)](https://tools.ietf.org/html/rfc5280#section-3.1). Przepływ dowodu posiadania wiąże się z IoT Hub wygenerowaniem losowej liczby do podpisania przez firmę-X przy użyciu jego klucza prywatnego. Jeśli spełnione są najlepsze rozwiązania związane z infrastrukturą kluczy publicznych w firmie X, a klucz prywatny jest chroniony, tylko w celu poprawnego reagowania na wyzwanie dowodu posiadania. IoT Hub przechodzi do rejestru urzędu certyfikacji X. 509 po pomyślnej reakcji na wyzwanie dowodu posiadania.
 
 Pomyślna odpowiedź na wyzwanie związane z dowodem posiadania z IoT Hub kończy rejestrację urzędu certyfikacji X. 509.
 

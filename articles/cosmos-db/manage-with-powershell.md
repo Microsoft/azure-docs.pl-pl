@@ -4,15 +4,15 @@ description: Użyj Azure PowerShell zarządzania kontami, bazami danych, kontene
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 09/18/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: d17d7e03c1a0fff642edbac912e596ecb030706d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: fa3d044bbbce2a8c85f01517b918ffc57c10c759
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316209"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Zarządzanie Azure Cosmos DB zasobami interfejsu API SQL przy użyciu programu PowerShell
 
@@ -25,7 +25,7 @@ W przypadku zarządzania różnymi platformami Azure Cosmos DB można użyć `Az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started"></a>Wprowadzenie
 
 Postępuj zgodnie z instrukcjami w temacie [jak zainstalować i skonfigurować Azure PowerShell][powershell-install-configure] , aby zainstalować i zalogować się do konta platformy Azure w programie PowerShell.
 
@@ -46,22 +46,24 @@ W poniższych sekcjach pokazano, jak zarządzać kontem usługi Azure Cosmos, w 
 * [Wyzwalanie ręcznego przełączania do trybu failover dla konta usługi Azure Cosmos](#trigger-manual-failover)
 * [Wyświetlanie listy blokad zasobów na koncie Azure Cosmos DB](#list-account-locks)
 
-### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Utwórz konto usługi Azure Cosmos
+### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a> Utwórz konto usługi Azure Cosmos
 
 To polecenie tworzy konto bazy danych Azure Cosmos DB z [wieloma regionami][distribute-data-globally], [automatycznym trybem failover](how-to-manage-database-account.md#automatic-failover) i ograniczonymi [zasadami spójności](consistency-levels.md).
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
-$locations = @("West US 2", "East US 2")
 $accountName = "mycosmosaccount"
 $apiKind = "Sql"
 $consistencyLevel = "BoundedStaleness"
 $maxStalenessInterval = 300
 $maxStalenessPrefix = 100000
+$locations = @()
+$locations += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locations += New-AzCosmosDBLocationObject -LocationName "West US" -FailoverPriority 1 -IsZoneRedundant 0
 
 New-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
-    -Location $locations `
+    -LocationObject $locations `
     -Name $accountName `
     -ApiKind $apiKind `
     -EnableAutomaticFailover:$true `
@@ -70,15 +72,15 @@ New-AzCosmosDBAccount `
     -MaxStalenessPrefix $maxStalenessPrefix
 ```
 
-* `$resourceGroupName`Grupa zasobów platformy Azure, w której ma zostać wdrożone konto Cosmos. Musi już istnieć.
-* `$locations`Regiony konta bazy danych, począwszy od regionu zapisu i uporządkowane według priorytetu trybu failover.
-* `$accountName`Nazwa konta usługi Azure Cosmos. Musi być unikatowa, mała, zawierać tylko znaki alfanumeryczne i znak "-" oraz długość od 3 do 31 znaków.
-* `$apiKind`Typ konta Cosmos do utworzenia. Aby uzyskać więcej informacji, zobacz [interfejsy API w Cosmos DB](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis).
+* `$resourceGroupName` Grupa zasobów platformy Azure, w której ma zostać wdrożone konto Cosmos. Musi już istnieć.
+* `$locations` Regiony konta bazy danych, region z `FailoverPriority 0` jest regionem zapisu.
+* `$accountName` Nazwa konta usługi Azure Cosmos. Musi być unikatowa, mała, zawierać tylko znaki alfanumeryczne i znak "-" oraz długość od 3 do 31 znaków.
+* `$apiKind` Typ konta Cosmos do utworzenia. Aby uzyskać więcej informacji, zobacz [interfejsy API w Cosmos DB](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis).
 * `$consistencyPolicy`, `$maxStalenessInterval` i `$maxStalenessPrefix` domyślny poziom spójności oraz ustawienia konta usługi Azure Cosmos. Aby uzyskać więcej informacji, zobacz [poziomy spójności w Azure Cosmos DB](consistency-levels.md).
 
 Konta usługi Azure Cosmos można skonfigurować za pomocą zapory IP, punktów końcowych usługi Virtual Network i prywatnych punktów końcowych. Aby uzyskać informacje dotyczące sposobu konfigurowania zapory protokołu IP dla Azure Cosmos DB, zobacz [Konfigurowanie zapory IP](how-to-configure-firewall.md). Aby uzyskać informacje na temat włączania punktów końcowych usługi dla Azure Cosmos DB, zobacz [Konfigurowanie dostępu z sieci wirtualnych](how-to-configure-vnet-service-endpoint.md). Aby uzyskać informacje na temat włączania prywatnych punktów końcowych dla Azure Cosmos DB, zobacz [Konfigurowanie dostępu z prywatnych punktów końcowych](how-to-configure-private-endpoints.md).
 
-### <a name="list-all-azure-cosmos-accounts-in-a-resource-group"></a><a id="list-accounts"></a>Wyświetl listę wszystkich kont usługi Azure Cosmos w grupie zasobów
+### <a name="list-all-azure-cosmos-accounts-in-a-resource-group"></a><a id="list-accounts"></a> Wyświetl listę wszystkich kont usługi Azure Cosmos w grupie zasobów
 
 To polecenie wyświetla listę wszystkich kont usługi Azure Cosmos w grupie zasobów.
 
@@ -88,7 +90,7 @@ $resourceGroupName = "myResourceGroup"
 Get-AzCosmosDBAccount -ResourceGroupName $resourceGroupName
 ```
 
-### <a name="get-the-properties-of-an-azure-cosmos-account"></a><a id="get-account"></a>Pobierz właściwości konta usługi Azure Cosmos
+### <a name="get-the-properties-of-an-azure-cosmos-account"></a><a id="get-account"></a> Pobierz właściwości konta usługi Azure Cosmos
 
 To polecenie umożliwia uzyskanie właściwości istniejącego konta usługi Azure Cosmos.
 
@@ -99,7 +101,7 @@ $accountName = "mycosmosaccount"
 Get-AzCosmosDBAccount -ResourceGroupName $resourceGroupName -Name $accountName
 ```
 
-### <a name="update-an-azure-cosmos-account"></a><a id="update-account"></a>Aktualizowanie konta usługi Azure Cosmos
+### <a name="update-an-azure-cosmos-account"></a><a id="update-account"></a> Aktualizowanie konta usługi Azure Cosmos
 
 To polecenie umożliwia zaktualizowanie właściwości konta bazy danych Azure Cosmos DB. Dostępne są następujące właściwości:
 
@@ -117,33 +119,33 @@ To polecenie umożliwia zaktualizowanie właściwości konta bazy danych Azure C
 ```azurepowershell-interactive
 # Create account with two regions
 $resourceGroupName = "myResourceGroup"
-$locations = @("West US 2", "East US 2")
 $accountName = "mycosmosaccount"
 $apiKind = "Sql"
 $consistencyLevel = "Session"
 $enableAutomaticFailover = $true
+$locations = @()
+$locations += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locations += New-AzCosmosDBLocationObject -LocationName "West US" -FailoverPriority 1 -IsZoneRedundant 0
 
 # Create the Cosmos DB account
 New-AzCosmosDBAccount `
     -ResourceGroupName $resourceGroupName `
-    -Location $locations `
+    -LocationObject $locations `
     -Name $accountName `
     -ApiKind $apiKind `
     -EnableAutomaticFailover:$enableAutomaticFailover `
     -DefaultConsistencyLevel $consistencyLevel
 
 # Add a region to the account
-$locations2 = @("West US 2", "East US 2", "South Central US")
-$locationObjects2 = @()
-$i = 0
-ForEach ($location in $locations2) {
-    $locationObjects2 += @{ locationName = "$location"; failoverPriority = $i++ }
-}
+$locationObject2 = @()
+$locationObject2 += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locationObject2 += New-AzCosmosDBLocationObject -LocationName "West US" -FailoverPriority 1 -IsZoneRedundant 0
+$locationObject2 += New-AzCosmosDBLocationObject -LocationName "South Central US" -FailoverPriority 2 -IsZoneRedundant 0
 
 Update-AzCosmosDBAccountRegion `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
-    -LocationObject $locationObjects2
+    -LocationObject $locationObject2
 
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
@@ -151,23 +153,20 @@ Write-Host "When region was added, press any key to continue."
 $HOST.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") | OUT-NULL
 $HOST.UI.RawUI.Flushinputbuffer()
 
-# Remove a region from the account
-$locations3 = @("West US 2", "South Central US")
-$locationObjects3 = @()
-$i = 0
-ForEach ($location in $locations3) {
-    $locationObjects3 += @{ locationName = "$location"; failoverPriority = $i++ }
-}
+# Remove West US region from the account
+$locationObject3 = @()
+$locationObject3 += New-AzCosmosDBLocationObject -LocationName "East US" -FailoverPriority 0 -IsZoneRedundant 0
+$locationObject3 += New-AzCosmosDBLocationObject -LocationName "South Central US" -FailoverPriority 1 -IsZoneRedundant 0
 
 Update-AzCosmosDBAccountRegion `
     -ResourceGroupName $resourceGroupName `
     -Name $accountName `
-    -LocationObject $locationObjects3
+    -LocationObject $locationObject3
 
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
 ```
-### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-master"></a>Włącz wiele regionów zapisu dla konta usługi Azure Cosmos
+### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-master"></a> Włącz wiele regionów zapisu dla konta usługi Azure Cosmos
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -189,7 +188,7 @@ Update-AzCosmosDBAccount `
     -EnableMultipleWriteLocations:$enableMultiMaster
 ```
 
-### <a name="delete-an-azure-cosmos-account"></a><a id="delete-account"></a>Usuwanie konta usługi Azure Cosmos
+### <a name="delete-an-azure-cosmos-account"></a><a id="delete-account"></a> Usuwanie konta usługi Azure Cosmos
 
 To polecenie usuwa istniejące konto usługi Azure Cosmos.
 
@@ -203,7 +202,7 @@ Remove-AzCosmosDBAccount `
     -PassThru:$true
 ```
 
-### <a name="update-tags-of-an-azure-cosmos-account"></a><a id="update-tags"></a>Aktualizowanie tagów konta usługi Azure Cosmos
+### <a name="update-tags-of-an-azure-cosmos-account"></a><a id="update-tags"></a> Aktualizowanie tagów konta usługi Azure Cosmos
 
 To polecenie ustawia [Tagi zasobów platformy Azure][azure-resource-tags] dla konta usługi Azure Cosmos. Tagi można ustawić zarówno podczas tworzenia konta `New-AzCosmosDBAccount` , jak i w przypadku aktualizacji konta przy użyciu `Update-AzCosmosDBAccount` .
 
@@ -218,7 +217,7 @@ Update-AzCosmosDBAccount `
     -Tag $tags
 ```
 
-### <a name="list-account-keys"></a><a id="list-keys"></a>Wyświetl listę kluczy konta
+### <a name="list-account-keys"></a><a id="list-keys"></a> Wyświetl listę kluczy konta
 
 Podczas tworzenia konta usługi Azure Cosmos Usługa generuje dwa główne klucze dostępu, których można użyć do uwierzytelniania podczas uzyskiwania dostępu do konta usługi Azure Cosmos. Klucze tylko do odczytu do uwierzytelniania operacji tylko do odczytu są również generowane.
 Dostarczając dwa klucze dostępu, Azure Cosmos DB umożliwia ponowne generowanie i obracanie jednego klucza w czasie bez przerw na koncie usługi Azure Cosmos.
@@ -234,7 +233,7 @@ Get-AzCosmosDBAccountKey `
     -Type "Keys"
 ```
 
-### <a name="list-connection-strings"></a><a id="list-connection-strings"></a>Wyświetlanie listy parametrów połączenia
+### <a name="list-connection-strings"></a><a id="list-connection-strings"></a> Wyświetlanie listy parametrów połączenia
 
 Następujące polecenie pobiera parametry połączenia w celu połączenia aplikacji z kontem Cosmos DB.
 
@@ -248,7 +247,7 @@ Get-AzCosmosDBAccountKey `
     -Type "ConnectionStrings"
 ```
 
-### <a name="regenerate-account-keys"></a><a id="regenerate-keys"></a>Ponowne generowanie kluczy konta
+### <a name="regenerate-account-keys"></a><a id="regenerate-keys"></a> Ponowne generowanie kluczy konta
 
 Aby zapewnić bezpieczeństwo połączeń, należy okresowo generować klucze dostępu do konta usługi Azure Cosmos. Podstawowy i pomocniczy klucz dostępu są przypisane do konta. Pozwala to klientom na zachowanie dostępu podczas ponownego generowania jednego klucza w danym momencie.
 Istnieją cztery typy kluczy dla konta usługi Azure Cosmos (podstawowa, pomocnicza, PrimaryReadonly i SecondaryReadonly)
@@ -264,7 +263,7 @@ New-AzCosmosDBAccountKey `
     -KeyKind $keyKind
 ```
 
-### <a name="enable-automatic-failover"></a><a id="enable-automatic-failover"></a>Włącz automatyczną pracę w trybie failover
+### <a name="enable-automatic-failover"></a><a id="enable-automatic-failover"></a> Włącz automatyczną pracę w trybie failover
 
 Następujące polecenie ustawia konto Cosmos DB w celu automatycznego przełączenia w tryb failover do jego regionu pomocniczego, jeśli region podstawowy staje się niedostępny.
 
@@ -288,7 +287,7 @@ Update-AzCosmosDBAccount `
     -EnableAutomaticFailover:$enableAutomaticFailover
 ```
 
-### <a name="modify-failover-priority"></a><a id="modify-failover-priority"></a>Modyfikowanie priorytetu trybu failover
+### <a name="modify-failover-priority"></a><a id="modify-failover-priority"></a> Modyfikowanie priorytetu trybu failover
 
 W przypadku kont skonfigurowanych z automatycznym trybem failover można zmienić kolejność, w jakiej Cosmos replikę pomocniczą na podstawową, gdyby podstawowy stał się niedostępny.
 
@@ -308,7 +307,7 @@ Update-AzCosmosDBAccountFailoverPriority `
     -FailoverPolicy $locations
 ```
 
-### <a name="trigger-manual-failover"></a><a id="trigger-manual-failover"></a>Wyzwalanie ręcznego przełączania do trybu failover
+### <a name="trigger-manual-failover"></a><a id="trigger-manual-failover"></a> Wyzwalanie ręcznego przełączania do trybu failover
 
 W przypadku kont skonfigurowanych z ręcznym trybem failover można przełączyć wszystkie repliki pomocnicze na podstawowe przez zmianę na `failoverPriority=0` . Ta operacja może służyć do inicjowania testowania odzyskiwania po awarii w celu zaplanowania odzyskiwania po awarii.
 
@@ -328,7 +327,7 @@ Update-AzCosmosDBAccountFailoverPriority `
     -FailoverPolicy $locations
 ```
 
-### <a name="list-resource-locks-on-an-azure-cosmos-db-account"></a><a id="list-account-locks"></a>Wyświetlanie listy blokad zasobów na koncie Azure Cosmos DB
+### <a name="list-resource-locks-on-an-azure-cosmos-db-account"></a><a id="list-account-locks"></a> Wyświetlanie listy blokad zasobów na koncie Azure Cosmos DB
 
 Blokadę zasobów można umieścić na Azure Cosmos DB zasobów, w tym baz danych i kolekcji. W poniższym przykładzie pokazano, jak wyświetlić listę wszystkich blokad zasobów platformy Azure na koncie Azure Cosmos DB.
 

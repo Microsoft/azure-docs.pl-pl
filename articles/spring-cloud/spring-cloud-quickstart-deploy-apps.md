@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 94caa879aa005f8f41e44b8a56400e87f6174247
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d67b0c89fbec8da9a3057164aa59d458a85c41d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908340"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280593"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Szybki Start: kompilowanie i wdrażanie aplikacji w chmurze Azure wiosennej
 
@@ -162,7 +162,7 @@ Aby przetestować aplikację, Wyślij żądanie HTTP GET do `solar-system-weathe
 
 ## <a name="test-the-application"></a>Testowanie aplikacji
 
-Wyślij żądanie GET do `solar-system-weather` aplikacji. W przeglądarce przejdź do publicznego adresu URL z `/weatherforecast` dołączonym do końca. Przykład:
+Wyślij żądanie GET do `solar-system-weather` aplikacji. W przeglądarce przejdź do publicznego adresu URL z `/weatherforecast` dołączonym do końca. Na przykład:
 
 ```
 https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast
@@ -353,23 +353,9 @@ Możesz również przejść do Azure Portal, aby znaleźć adres URL.
 
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-
-Jeśli zamierzasz kontynuować do następnego przewodnika Szybki Start w tej serii, Pomiń ten krok.
-
-W tych przewodnikach szybki start utworzono zasoby platformy Azure, które będą nadal naliczane opłaty, jeśli pozostaną w ramach subskrypcji. Jeśli nie planujesz kontynuować pracy z następnym przewodnikiem Szybki Start, a nie będziesz potrzebować tych zasobów w przyszłości, Usuń grupę zasobów za pomocą portalu lub uruchamiając następujące polecenie w Cloud Shell:
-
-```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
-```
-
-W poprzednim przewodniku szybki start określono również domyślną nazwę grupy zasobów. Jeśli nie planujesz kontynuować pracy z następnym przewodnikiem Szybki Start, wyczyść to ustawienie domyślne, uruchamiając następujące polecenie interfejsu wiersza polecenia:
-
-```azurecli
-az configure --defaults group=
-```
-
 ## <a name="next-steps"></a>Następne kroki
+
+W tym przewodniku szybki start utworzono zasoby platformy Azure, które będą nadal naliczane opłaty, jeśli pozostaną w ramach subskrypcji. Jeśli nie planujesz kontynuować pracy z następnym przewodnikiem Szybki Start, zobacz [Oczyszczanie zasobów](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). W przeciwnym razie przejdź do następnego przewodnika Szybki Start:
+
 > [!div class="nextstepaction"]
 > [Dzienniki, metryki i śledzenie](spring-cloud-quickstart-logs-metrics-tracing.md)
-

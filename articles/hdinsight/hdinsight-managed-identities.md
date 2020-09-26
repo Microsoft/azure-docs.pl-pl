@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 07a8c26f7fc314680c51270ebafe03d4e3a84757
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 098c0a85dc6c0fac8b78f344c4c8559b168b9114
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371341"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Zarządzane tożsamości w usłudze Azure HDInsight
 
@@ -27,7 +27,7 @@ Istnieją dwa typy tożsamości zarządzanych: przypisane przez użytkownika i p
 
 W usłudze Azure HDInsight zarządzane tożsamości są używane tylko przez usługę HDInsight dla składników wewnętrznych. Obecnie nie jest obsługiwana metoda generowania tokenów dostępu przy użyciu tożsamości zarządzanych zainstalowanych w węzłach klastra usługi HDInsight na potrzeby uzyskiwania dostępu do usług zewnętrznych. W przypadku niektórych usług platformy Azure, takich jak maszyny wirtualne obliczeniowe, tożsamości zarządzane są implementowane za pomocą punktu końcowego, którego można użyć do uzyskania tokenów dostępu. Ten punkt końcowy nie jest obecnie dostępny w węzłach usługi HDInsight.
 
-Jeśli musisz załadować aplikacje, aby uniknąć umieszczania kluczy tajnych/haseł w zadaniach analitycznych (np. zadania SCALA), możesz distrubte własne certyfikaty do węzłów klastra za pomocą akcji skryptu, a następnie użyć tego certyfikatu do pozyskać tokenu dostępu (na przykład w celu uzyskania dostępu do usługi Azure kluczy).
+Jeśli zachodzi potrzeba uruchamiania aplikacji w celu uniknięcia umieszczania kluczy tajnych/haseł w zadaniach analitycznych (np. zadania SCALA), można dystrybuować własne certyfikaty do węzłów klastra przy użyciu akcji skryptu, a następnie użyć tego certyfikatu w celu uzyskania tokenu dostępu (na przykład w celu uzyskania dostępu do magazynu kluczy Azure).
 
 ## <a name="create-a-managed-identity"></a>Tworzenie tożsamości zarządzanej
 
@@ -47,6 +47,15 @@ Tożsamości zarządzane są używane w usłudze Azure HDInsight w wielu scenari
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
 * [Pakiet Enterprise Security](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Szyfrowanie dysków za pomocą klucza zarządzanego przez klienta](disk-encryption.md)
+
+Usługa HDInsight automatycznie odnawia certyfikaty dla tożsamości zarządzanych używanych w tych scenariuszach. Istnieje jednak ograniczenie, że w przypadku długotrwałych klastrów używane są różne tożsamości zarządzane, odnowienie certyfikatu może nie działać zgodnie z oczekiwaniami dla wszystkich zarządzanych tożsamości. Ze względu na to ograniczenie, jeśli planujesz używać długotrwałych klastrów (np. ponad 60 dni), zalecamy używanie tej samej tożsamości zarządzanej we wszystkich powyższych scenariuszach. 
+
+Jeśli utworzono już długotrwały klaster z wieloma różnymi tożsamościami zarządzanymi i są one uruchamiane w jednym z następujących problemów:
+ * W klastrach ESP usługi klastra kończą się niepowodzeniem lub skalowanie w górę i inne operacje kończą się niepowodzeniem z błędami uwierzytelniania.
+ * W klastrach ESP, gdy zmieniany jest certyfikat usługi AAD-DS LDAPs, certyfikat LDAPs nie jest automatycznie aktualizowany, dlatego synchronizacja LDAP i skalowanie nie powiodą się.
+ * Nie można rozpocząć dostępu do pliku MSI do ADLS Gen2.
+ * Nie można obrócić kluczy szyfrowania w scenariuszu CMK.
+Następnie należy przypisać wymagane role i uprawnienia dla powyższych scenariuszy do wszystkich zarządzanych tożsamości używanych w klastrze. Na przykład, jeśli użyto różnych tożsamości zarządzanych dla ADLS Gen2 i klastrów ESP, obie z nich powinny mieć przypisane role "właściciel danych magazynu obiektów BLOB" i "Współautor usług domenowych w usłudze HDInsight", aby uniknąć wykonywania tych problemów.
 
 ## <a name="faq"></a>Często zadawane pytania
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 2a95aa9e9fccdb7047c2c0901f4349fecfbab672
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 4b196818ade1e703e24ed1ced6ebac1b44d0b083
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009583"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372072"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migrowanie do usługi Azure Cache for Redis
 W tym artykule opisano szereg metod migracji istniejącej pamięci podręcznej Redis działającej lokalnie lub w innej usłudze w chmurze do usługi Azure cache dla Redis.
@@ -34,7 +34,7 @@ Istnieją różne sposoby przełączania z jednej pamięci podręcznej na inną.
    | ------------ | ---------- | ------------- |
    | Tworzenie nowej pamięci podręcznej | Najprostsza do zaimplementowania. | Należy ponownie wypełnić dane do nowej pamięci podręcznej, co może nie współpracować z wieloma aplikacjami. |
    | Eksportuj i Importuj dane za pomocą pliku RDB | Ogólnie zgodne z dowolnymi Redis pamięci podręcznej. | Niektóre dane mogą zostać utracone, jeśli są zapisywane w istniejącej pamięci podręcznej po wygenerowaniu pliku RDB. | 
-   | Podwójne zapis danych do dwóch pamięci podręcznych | Brak utraty danych lub centrum. Nieprzerwane operacje istniejącej pamięci podręcznej. Łatwiejsze testowanie nowej pamięci podręcznej. | Potrzebuje dwóch pamięci podręcznych przez dłuższy czas. | 
+   | Podwójne zapis danych do dwóch pamięci podręcznych | Brak utraty danych ani przestojów. Nieprzerwane operacje istniejącej pamięci podręcznej. Łatwiejsze testowanie nowej pamięci podręcznej. | Potrzebuje dwóch pamięci podręcznych przez dłuższy czas. | 
    | Programistyczne Migrowanie danych | Pełna kontrola nad sposobem przenoszenia danych. | Wymaga kodu niestandardowego. | 
 
 ### <a name="create-a-new-azure-cache-for-redis"></a>Tworzenie nowej pamięci podręcznej platformy Azure dla usługi Redis
@@ -115,4 +115,4 @@ Ogólna procedura implementowania tej opcji to:
 Dowiedz się więcej o funkcjach usługi Azure cache for Redis.
 
 * [Pamięć podręczna platformy Azure dla warstw usług Redis](cache-overview.md#service-tiers)
-* [Importuj dane](cache-how-to-import-export-data.md#import)
+* [Importowanie danych](cache-how-to-import-export-data.md#import)

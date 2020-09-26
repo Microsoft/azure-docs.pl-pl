@@ -10,12 +10,13 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: c2858d5f9bca662cbbcd48b2345a7dc2c7ae48b2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: a77d3d5c1225fdd85e27db20cdae23e0c77a5e28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73718546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271362"
 ---
 # <a name="how-to-improve-your-classifier"></a>Jak poprawić swój klasyfikator
 
@@ -65,7 +66,7 @@ Aby rozwiązać ten problem, należy dołączyć różne obrazy, aby upewnić si
 
     ![Obraz przedstawiający rozmiar próbek](./media/getting-started-improving-your-classifier/size.png)
 
-* __Kąt kamery:__ Dostarczaj obrazy z różnymi kątami aparatu. Alternatywnie, jeśli wszystkie zdjęcia muszą zostać pobrane przy użyciu stałych kamer (takich jak aparaty nadzoru), należy przypisać inną etykietę do każdego regularnego obiektu, aby uniknąć zamontowania&mdash;interpretowania niepowiązanych obiektów (takich jak lampposts) jako funkcji klucza.
+* __Kąt kamery:__ Dostarczaj obrazy z różnymi kątami aparatu. Alternatywnie, jeśli wszystkie zdjęcia muszą zostać pobrane przy użyciu stałych kamer (takich jak aparaty nadzoru), należy przypisać inną etykietę do każdego regularnego obiektu, aby uniknąć zamontowania &mdash; interpretowania niepowiązanych obiektów (takich jak lampposts) jako funkcji klucza.
 
     ![Obraz przykładów kątowych](./media/getting-started-improving-your-classifier/angle.png)
 

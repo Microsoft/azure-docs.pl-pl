@@ -1,14 +1,16 @@
 ---
 title: Testowanie dla DevOps aplikacji LUIS
 description: Testowanie aplikacji Language Understanding (LUIS) w środowisku DevOpsu.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: 2556d2e904aff720bc02e4c7d58bf5a72af4d413
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c41e9fe1f197334bce27241ab9f28309c92f7e0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316549"
 ---
 # <a name="testing-for-luis-devops"></a>Testowanie pod kątem LUIS DevOps
 

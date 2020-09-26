@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 84f5a8f638e4a9525b330277ff1eaa26ba035e1a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907406"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295740"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie użytkowników w Azure Database for PostgreSQL-Citus
 
@@ -28,7 +28,7 @@ Aparat PostgreSQL używa [ról](https://www.postgresql.org/docs/current/sql-crea
 * `postgres`
 * `citus`
 
-Ze względu na to, że jest to zarządzana usługa PaaS, tylko firma Microsoft może zalogować się przy użyciu `postgres` roli administratora. W przypadku ograniczonego dostępu administracyjnego funkcja przedskalowania udostępnia `citus` rolę.
+Ze względu na to, że funkcja Citus jest zarządzaną usługą PaaS, tylko firma Microsoft może zalogować się przy użyciu `postgres` roli administratora. W przypadku ograniczonego dostępu administracyjnego funkcja przeskalowania (Citus) zapewnia `citus` rolę.
 
 Uprawnienia dla `citus` roli:
 
@@ -46,7 +46,7 @@ W szczególności `citus` rola ma pewne ograniczenia:
 
 Jak wspomniano wcześniej, `citus` konto administratora nie ma uprawnień do tworzenia dodatkowych użytkowników. Aby dodać użytkownika, użyj interfejsu Azure Portal.
 
-1. Przejdź do strony **role** dla swojej grupy serwerów w ramach skalowania i kliknij pozycję **+ Dodaj**:
+1. Przejdź do strony **role** dla grupy serwerów moja skala (Citus), a następnie kliknij pozycję **+ Dodaj**:
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="Strona role":::
 
@@ -75,7 +75,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Jak usunąć rolę użytkownika lub zmienić hasło
 
-Aby zaktualizować użytkownika, odwiedź stronę **role** dla swojej grupy serwerów w skali i kliknij wielokropek **...** obok użytkownika. Wielokropek spowoduje otwarcie menu w celu usunięcia użytkownika lub zresetowania hasła.
+Aby zaktualizować użytkownika, odwiedź stronę **role** dla grupy serwerów moja skala (Citus), a następnie kliknij przycisk wielokropka **...** obok użytkownika. Wielokropek spowoduje otwarcie menu w celu usunięcia użytkownika lub zresetowania hasła.
 
    :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Edytowanie roli":::
 
