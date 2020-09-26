@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 25ab7d275957aff03ad76bf2e946a98fc6cd8821
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: fecb78b240f5c983580d4bdb34535a879ffe3e2e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032966"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289280"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maksymalizuj jakość grupy wierszy dla wydajności indeksu magazynu kolumn
 
@@ -26,7 +26,7 @@ Jakość grupy wierszy jest określana na podstawie liczby wierszy w grupy wiers
 
 Ponieważ indeks magazynu kolumn skanuje tabelę przez skanowanie segmentów kolumn poszczególnych RowGroups, maksymalizacja liczby wierszy w każdej grupy wierszy zwiększa wydajność zapytań. Gdy RowGroups ma dużą liczbę wierszy, kompresja danych zwiększa się, co oznacza, że do odczytu z dysku są mniejsze dane.
 
-Aby uzyskać więcej informacji na temat RowGroups, zobacz [Przewodnik po indeksach magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Aby uzyskać więcej informacji na temat RowGroups, zobacz [Przewodnik po indeksach magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="target-size-for-rowgroups"></a>Rozmiar docelowy dla RowGroups
 
@@ -34,15 +34,15 @@ W celu uzyskania najlepszej wydajności zapytań celem jest maksymalizacja liczb
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>RowGroups może zostać przycięty podczas kompresji
 
-Podczas ponownej kompilacji lub ponownego kompilowania indeksu magazynu kolumn czasami brak wystarczającej ilości pamięci do skompresowania wszystkich wierszy wyznaczono dla każdego grupy wierszyu. W przypadku wykorzystania pamięci indeksy magazynu kolumn przycinania rozmiary grupy wierszy, dzięki czemu kompresja do magazynu kolumn może zakończyć się powodzeniem.
+Podczas ponownej kompilacji lub ponownego kompilowania indeksu magazynu kolumn czasami nie jest dostępna wystarczająca ilość pamięci, aby skompresować wszystkie wiersze Wyznaczeni dla każdego grupy wierszyu. W przypadku wykorzystania pamięci indeksy magazynu kolumn przycinania rozmiary grupy wierszy, dzięki czemu kompresja do magazynu kolumn może zakończyć się powodzeniem.
 
 Gdy jest za mało pamięci, aby skompresować co najmniej 10 000 wierszy w każdym grupy wierszy, zostanie wygenerowany błąd.
 
-Aby uzyskać więcej informacji na temat ładowania zbiorczego, zobacz [ładowanie zbiorcze do klastrowanego indeksu magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk ).
+Aby uzyskać więcej informacji na temat ładowania zbiorczego, zobacz [ładowanie zbiorcze do klastrowanego indeksu magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk&preserve-view=true ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Jak monitorować jakość grupy wierszy
 
-DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) zawiera definicję widoku zgodną z bazą danych SQL), która udostępnia przydatne informacje, takie jak liczba wierszy w rowgroups i powód przycinania w przypadku przycinania. Aby uzyskać informacje na temat przycinania grupy wierszy, można utworzyć następujący widok jako wygodny sposób wykonywania zapytania dotyczącego tego DMV.
+DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) zawiera definicję widoku zgodną z bazą danych SQL), która udostępnia przydatne informacje, takie jak liczba wierszy w rowgroups i powód przycinania w przypadku przycinania. Aby uzyskać informacje na temat przycinania grupy wierszy, można utworzyć następujący widok jako wygodny sposób wykonywania zapytania dotyczącego tego DMV.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -77,14 +77,15 @@ Trim_reason_desc informuje o tym, czy grupy wierszy został przycięty (trim_rea
 
 ## <a name="how-to-estimate-memory-requirements"></a>Jak oszacować wymagania dotyczące pamięci
 
-Maksymalna wymagana ilość pamięci do skompresowania jednego grupy wierszy jest około
+Maksymalna wymagana ilość pamięci do skompresowania jednego grupy wierszy jest w przybliżeniu następująca:
 
 - 72 MB +
 - \#wiersze \* \# kolumn \* 8 bajtów +
 - \#wiersze \* \# krótkie-String — kolumny \* 32 bajtów +
 - \#długi ciąg — kolumny \* 16 MB dla słownika kompresji
 
-gdzie kolumny krótkie-String używają typów danych typu String <= 32 bajtów i kolumn długich-String, należy użyć ciągów o typach danych > 32 bajtów.
+> [!NOTE]
+> Gdzie kolumny krótkie-String używają typów danych typu String <= 32 bajtów i kolumn długich-String, należy użyć ciągów o typach danych > 32 bajtów.
 
 Długie ciągi są kompresowane przy użyciu metody kompresji zaprojektowanej do kompresowania tekstu. Ta metoda kompresji używa *słownika* do przechowywania wzorców tekstu. Maksymalny rozmiar słownika wynosi 16 MB. Istnieje tylko jeden słownik dla każdej długiej kolumny ciągu w grupy wierszy.
 

@@ -3,33 +3,24 @@ title: Łączenie z pulpitem wirtualnym systemu Windows 10 lub 7 — Azure
 description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows przy użyciu klienta pulpitu systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0e4f41cb23ec4a9463b983049f5f37d09d1b8c71
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c9da2acac0957d7fe06d0249775fbed73b5f458d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287342"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Łączenie się z klientem klasycznym systemu Windows
 
-> Dotyczy: Windows 7, Windows 10 i Windows 10 IoT Enterprise
+> Dotyczy: Windows 10, Windows 10 IoT Enterprise i Windows 7
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy pulpitu wirtualnego systemu Windows z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego) bez Azure Resource Manager obiektów, zobacz [ten artykuł](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 
-Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows na urządzeniach z systemem Windows 7, Windows 10 i Windows 10 IoT Enterprise przy użyciu klienta klasycznego systemu Windows. Klient nie obsługuje programu Window 8 ani Windows 8.1.
-
->[!NOTE]
->Klient systemu Windows automatycznie domyślnie używa pulpitu wirtualnego systemu Windows (klasycznego). Jeśli jednak klient wykryje, że użytkownik ma także zasoby Azure Resource Manager, automatycznie doda zasoby lub powiadomi użytkownika, że są one dostępne.
-
-> [!IMPORTANT]
-> Pulpit wirtualny systemu Windows nie obsługuje klienta połączenia programów RemoteApp i pulpitu (RADC) ani klienta Podłączanie pulpitu zdalnego (MSTSC).
-
-> [!IMPORTANT]
-> Pulpit wirtualny systemu Windows obecnie nie obsługuje klienta Pulpit zdalny ze sklepu Windows.
+Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows na urządzeniach z systemem Windows 10, Windows 10 IoT Enterprise i Windows 7 przy użyciu klienta klasycznego systemu Windows. Klient nie obsługuje programu Window 8 ani Windows 8.1.
 
 ## <a name="install-the-windows-desktop-client"></a>Instalowanie klienta klasycznego systemu Windows
 
@@ -42,6 +33,9 @@ Wybierz klienta zgodnego z Twoją wersją systemu Windows:
 Klienta programu można zainstalować dla bieżącego użytkownika, który nie wymaga uprawnień administratora, lub administrator może zainstalować i skonfigurować klienta tak, aby wszyscy użytkownicy na urządzeniu mogli uzyskać do niego dostęp.
 
 Po zainstalowaniu klienta programu można uruchomić z menu Start, wyszukując **pulpit zdalny**.
+
+> [!IMPORTANT]
+> Pulpit wirtualny systemu Windows nie obsługuje klienta połączenia programów RemoteApp i pulpitu (RADC) ani klienta Podłączanie pulpitu zdalnego (MSTSC).
 
 ## <a name="subscribe-to-a-workspace"></a>Subskrybowanie obszaru roboczego
 
@@ -56,6 +50,9 @@ Istnieją dwa sposoby subskrybowania obszaru roboczego. Klient może próbować 
 2. Po wyświetleniu monitu zaloguj się przy użyciu konta użytkownika.
 3. Zasoby będą widoczne w centrum połączenia i są pogrupowane według obszaru roboczego.
 
+>[!NOTE]
+>Klient systemu Windows automatycznie domyślnie używa pulpitu wirtualnego systemu Windows (klasycznego). Jeśli jednak klient wykryje, że użytkownik ma także zasoby Azure Resource Manager, automatycznie doda zasoby lub powiadomi użytkownika, że są one dostępne.
+
 ### <a name="subscribe-with-a-url"></a>Subskrybowanie przy użyciu adresu URL
 
 1. Na stronie głównej klienta wybierz opcję **Subskrybuj z adresem URL**.
@@ -65,7 +62,7 @@ Istnieją dwa sposoby subskrybowania obszaru roboczego. Klient może próbować 
      - Pulpit wirtualny systemu Windows: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
      - Pulpit wirtualny systemu Windows (US Gov): `https://rdweb.wvd.azure.us/api/arm/feeddiscovery`
    - Jeśli zamiast tego używasz pola **e-mail** , wprowadź swój adres e-mail. Oznacza to, że klient może wyszukać adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował [odnajdywanie poczty e-mail](/windows-server/remote/remote-desktop-services/rds-email-discovery).
-3. Wybierz pozycję **Dalej**.
+3. Wybierz opcję **Dalej**.
 4. Po wyświetleniu monitu zaloguj się przy użyciu konta użytkownika.
 5. Zasoby powinny być wyświetlane w centrum połączeń pogrupowane według obszaru roboczego.
 

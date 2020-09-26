@@ -9,20 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 07/31/2020
-ms.openlocfilehash: 39869e74fcb3e8f3deae1273721093f3f85e8d78
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.reviewer: ''
+ms.date: 09/16/2020
+ms.openlocfilehash: 41760eb91d2a8406d4deb52cd8e247731239e2b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309867"
 ---
-# <a name="scale-single-database-resources-in-azure-sql-database"></a>Skalowanie zasobów pojedynczej bazy danych w Azure SQL Database
+# <a name="scale-single-database-resources-in-azure-sql-database"></a>Skalowanie zasobów pojedynczej bazy danych w usłudze Azure SQL Database
 
 W tym artykule opisano, jak skalować zasoby obliczeniowe i magazynowe dostępne dla Azure SQL Database w warstwie obliczeniowej zainicjowanej. Alternatywnie [warstwa obliczeń bezserwerowych](serverless-tier-overview.md) oferuje Skalowanie automatyczne i opłaty za użycie obliczeń na sekundę.
 
-Po początkowym wybraniu liczby rdzeni wirtualnych lub DTU można dynamicznie skalować pojedynczą bazę danych w górę lub w dół na podstawie rzeczywistego środowiska przy użyciu [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), interfejsu [wiersza polecenia platformy Azure](/cli/azure/sql/db#az-sql-db-update)lub [interfejsu API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+Po początkowym wybraniu liczby rdzeni wirtualnych lub DTU można dynamicznie skalować pojedynczą bazę danych w górę lub w dół na podstawie rzeczywistego środowiska przy użyciu [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), interfejsu [wiersza polecenia platformy Azure](/cli/azure/sql/db#az-sql-db-update)lub [interfejsu API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Poniższy film wideo pokazuje dynamicznie zmieniające się warstwy usług i rozmiar obliczeń, aby zwiększyć dostępne DTU dla pojedynczej bazy danych.
 
@@ -50,17 +50,17 @@ Zmiana warstwy usług lub rozmiaru obliczeniowego głównie obejmuje usługę wy
 
 Szacowane opóźnienie zmiany warstwy usług, skalowanie wielkości obliczeniowej pojedynczej bazy danych lub puli elastycznej, przenoszenie bazy danych do puli elastycznej lub przenoszenie bazy danych między pulami elastycznymi jest opisane w następujący sposób:
 
-|Warstwa usług|Podstawowa pojedyncza baza danych,</br>Standard (S0-S1)|Podstawowa Pula elastyczna,</br>Standardowa (S2-S12), </br>Ogólnego przeznaczenia pojedynczej bazy danych lub puli elastycznej|Premium lub Krytyczne dla działania firmy pojedynczą bazę danych lub pulę elastyczną|Hiperskala
+|Warstwa usługi|Podstawowa pojedyncza baza danych,</br>Standard (S0-S1)|Podstawowa Pula elastyczna,</br>Standardowa (S2-S12), </br>Ogólnego przeznaczenia pojedynczej bazy danych lub puli elastycznej|Premium lub Krytyczne dla działania firmy pojedynczą bazę danych lub pulę elastyczną|Hiperskala
 |:---|:---|:---|:---|:---|
 |**Podstawowa pojedyncza baza danych, </br> Standard (S0-S1)**|&bull;&nbsp;Stałe opóźnienie czasu niezależne od użytego miejsca</br>&bull;&nbsp;Zwykle, mniej niż 5 minut|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|
-|**Podstawowa Pula elastyczna, </br> standardowa (S2-S12), </br> ogólnego przeznaczenia pojedyncza baza danych lub Pula elastyczna**|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Stałe opóźnienie czasu niezależne od użytego miejsca</br>&bull;&nbsp;Zwykle, mniej niż 5 minut|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|
+|**Podstawowa Pula elastyczna, </br> standardowa (S2-S12), </br> ogólnego przeznaczenia pojedyncza baza danych lub Pula elastyczna**|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Dla pojedynczych baz danych, stałe opóźnienie czasu niezależne od użytego miejsca</br>&bull;&nbsp;Zwykle mniej niż 5 minut dla pojedynczych baz danych</br>&bull;&nbsp;W przypadku pul elastycznych proporcjonalnie do liczby baz danych|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|
 |**Premium lub Krytyczne dla działania firmy pojedynczą bazę danych lub pulę elastyczną**|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|
 |**Hiperskala**|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|&bull;&nbsp;Stałe opóźnienie czasu niezależne od użytego miejsca</br>&bull;&nbsp;Zwykle, mniej niż 2 minuty|
 
 > [!NOTE]
 > Ponadto w przypadku warstwy Standardowa (S2-S12) i Ogólnego przeznaczenia bazy danych opóźnienie przeniesienia bazy danych z puli elastycznej lub między pulami elastycznymi będzie proporcjonalne do rozmiaru bazy danych, jeśli baza danych korzysta z magazynu Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)).
 >
-> Aby określić, czy baza danych korzysta z magazynu PFS, wykonaj następujące zapytanie w kontekście bazy danych. Jeśli wartość w kolumnie AccountType to `PremiumFileStorage` , baza danych korzysta z magazynu PFS.
+> Aby określić, czy baza danych korzysta z magazynu PFS, wykonaj następujące zapytanie w kontekście bazy danych. Jeśli wartość w kolumnie AccountType to `PremiumFileStorage` lub `PremiumFileStorage-ZRS` , baza danych korzysta z magazynu PFS.
  
 ```sql
 SELECT s.file_id,
@@ -122,9 +122,9 @@ Opłaty są naliczane za każdą godzinę, gdy baza danych istnieje przy użyciu
 ### <a name="vcore-based-purchasing-model"></a>Model zakupów oparty na rdzeniach wirtualnych
 
 - Magazyn może być inicjowany do limitu maksymalnego rozmiaru magazynu danych przy użyciu przyrostów 1 GB. Minimalny konfigurowalny magazyn danych to 1 GB. Zobacz strony dokumentacji limitu zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md) dla limitów maksymalny rozmiar magazynu danych w każdym celu usługi.
-- Przechowywanie danych dla pojedynczej bazy danych może być obsługiwane przez zwiększenie lub zmniejszenie maksymalnego rozmiaru przy użyciu [Azure Portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), interfejsu [wiersza polecenia platformy Azure](/cli/azure/sql/db#az-sql-db-update)lub [API REST](https://docs.microsoft.com/rest/api/sql/databases/update). Jeśli wartość maksymalnego rozmiaru jest określona w bajtach, musi być wielokrotnością 1 GB (1073741824 bajtów).
+- Przechowywanie danych dla pojedynczej bazy danych może być obsługiwane przez zwiększenie lub zmniejszenie maksymalnego rozmiaru przy użyciu [Azure Portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), interfejsu [wiersza polecenia platformy Azure](/cli/azure/sql/db#az-sql-db-update)lub [API REST](https://docs.microsoft.com/rest/api/sql/databases/update). Jeśli wartość maksymalnego rozmiaru jest określona w bajtach, musi być wielokrotnością 1 GB (1073741824 bajtów).
 - Ilość danych, które mogą być przechowywane w plikach danych bazy danych, jest ograniczona przez skonfigurowany maksymalny rozmiar magazynu danych. Oprócz tego magazynu Azure SQL Database automatycznie przydziela więcej niż 30% więcej miejsca do użycia w dzienniku transakcji.
-- Azure SQL Database automatycznie przydzieli 32 GB na rdzeń wirtualny dla `tempdb` bazy danych. `tempdb`znajduje się w lokalnym magazynie dysków SSD we wszystkich warstwach usługi.
+- Azure SQL Database automatycznie przydzieli 32 GB na rdzeń wirtualny dla `tempdb` bazy danych. `tempdb` znajduje się w lokalnym magazynie dysków SSD we wszystkich warstwach usługi.
 - Cena magazynu dla pojedynczej bazy danych lub puli elastycznej to suma ilości magazynu danych i magazynu dzienników transakcji pomnożona przez cenę jednostkową magazynu dla warstwy usług. Koszt `tempdb` jest uwzględniony w cenie. Aby uzyskać szczegółowe informacje na temat ceny magazynu, zobacz [Cennik usługi Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -133,7 +133,7 @@ Opłaty są naliczane za każdą godzinę, gdy baza danych istnieje przy użyciu
 ### <a name="dtu-based-purchasing-model"></a>Model zakupu oparty na jednostkach DTU
 
 - Cena jednostek DTU dla pojedynczej bazy danych obejmuje pewną ilość miejsca w magazynie bez dodatkowych kosztów. Dodatkowy magazyn poza uwzględnioną ilością można zainicjować w celu uzyskania dodatkowego kosztu do maksymalnego limitu rozmiaru w przyrostach wynoszących 250 GB do 1 TB, a następnie w przyrostach wynoszących 256 GB poza 1 TB. W przypadku uwzględnionych kwot magazynu i maksymalnych limitów rozmiaru zobacz [pojedyncza baza danych: rozmiary magazynu i rozmiary obliczeń](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Dodatkowy magazyn dla pojedynczej bazy danych może być inicjowany przez zwiększenie jego maksymalnego rozmiaru przy użyciu Azure Portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), interfejsu [wiersza polecenia platformy Azure](/cli/azure/sql/db#az-sql-db-update)lub [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Dodatkowy magazyn dla pojedynczej bazy danych może być inicjowany przez zwiększenie jego maksymalnego rozmiaru przy użyciu Azure Portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), interfejsu [wiersza polecenia platformy Azure](/cli/azure/sql/db#az-sql-db-update)lub [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 - Cena dodatkowego magazynu dla pojedynczej bazy danych to ilość dodatkowego magazynu pomnożona przez dodatkową cenę jednostkową magazynu warstwy usług. Aby uzyskać szczegółowe informacje na temat ceny dodatkowego magazynu, zobacz [Cennik usługi Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]

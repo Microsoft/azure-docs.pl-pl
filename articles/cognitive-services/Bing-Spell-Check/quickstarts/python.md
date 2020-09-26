@@ -1,7 +1,7 @@
 ---
 title: 'Szybki Start: sprawdzanie pisowni za pomocą interfejsu API REST i języka Python — sprawdzanie pisowni Bing'
 titleSuffix: Azure Cognitive Services
-description: Rozpocznij pracę z interfejsem API REST sprawdzanie pisowni Bing, aby sprawdzić pisownię i gramatykę w tym przewodniku Szybki Start.
+description: Zacznij korzystać z interfejsu API REST sprawdzanie pisowni Bing i języka Python, aby sprawdzić pisownię i gramatykę.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: e121aaf6725c179189b25dff6534b019c5de730c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cb07b105cedc9b017eb99212f3225c4f9d43511e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852739"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330676"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Szybki Start: sprawdzanie pisowni za pomocą interfejsu API REST sprawdzanie pisowni Bing i języka Python
 

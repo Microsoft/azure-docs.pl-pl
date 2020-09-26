@@ -1,6 +1,6 @@
 ---
 title: Tworzenie zestawu skalowania na podstawie uogólnionego obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Utwórz zestaw skalowania przy użyciu uogólnionego obrazu w galerii obrazów udostępnionych.
+description: Utwórz zestaw skalowania przy użyciu uogólnionego obrazu w udostępnionej galerii obrazów przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3cde06b652befa8fbb655273c19f65bd2f38e850
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 841247c03d9f3b151a0c75430715c03b009d831a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069845"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287070"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Tworzenie zestawu skalowania na podstawie uogólnionego obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -63,4 +63,4 @@ Możesz również utworzyć zasób udostępnionej galerii obrazów przy użyciu 
 - [Tworzenie definicji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Tworzenie wersji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Omówienie](shared-image-galleries.md). Jeśli występują problemy, zobacz temat [Rozwiązywanie problemów z udostępnionymi galeriami obrazów](troubleshooting-shared-images.md).
+Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Omówienie](shared-image-galleries.md). Jeśli występują problemy, zobacz temat [Rozwiązywanie problemów z udostępnionymi galeriami obrazów](../virtual-machines/troubleshooting-shared-images.md).

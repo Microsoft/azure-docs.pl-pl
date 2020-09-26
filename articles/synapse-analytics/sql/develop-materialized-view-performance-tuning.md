@@ -1,6 +1,6 @@
 ---
 title: Strojenie wydajności za pomocą zmaterializowanych widoków
-description: Zalecenia i zagadnienia, które należy znać w przypadku używania widoków z materiałami, aby zwiększyć wydajność zapytań.
+description: Zalecenia i zagadnienia dotyczące widoków przeznaczonych do poprawienia wydajności zapytań.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495696"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289042"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Strojenie wydajności za pomocą zmaterializowanych widoków
 
@@ -29,7 +29,7 @@ Widok standardowy oblicza swoje dane za każdym razem, gdy widok jest używany. 
 
 Widok z materiałami umożliwia wstępne obliczenie, przechowywanie i przechowywanie danych w puli SQL w taki sam sposób jak tabela.  Obliczenia nie są wymagane za każdym razem, gdy jest używany widok z materiałami.  Dlatego, że zapytania wykorzystujące wszystkie lub podzbiór danych w widokach w postaci większej wydajności mogą zwiększyć wydajność.  Jeszcze lepsze zapytania mogą korzystać z widoku z materiałami bez bezpośredniego odniesienia do niego, dlatego nie trzeba zmieniać kodu aplikacji.  
 
-Większość standardowych wymagań widoku nadal ma zastosowanie do widoku z materiałami. Aby uzyskać szczegółowe informacje na temat składniowe widoku i innych wymagań, zapoznaj się z tematem [Tworzenie przykładowego widoku jako wyboru](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Większość standardowych wymagań widoku nadal ma zastosowanie do widoku z materiałami. Aby uzyskać szczegółowe informacje na temat składniowe widoku i innych wymagań, zapoznaj się z tematem [Tworzenie przykładowego widoku jako wyboru](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 | Porównanie                     | Widok                                         | Zmaterializowany widok
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -55,8 +55,8 @@ Właściwie zaprojektowany widok z materiałami zapewnia następujące korzyści
 W porównaniu z innymi dostawcami magazynu danych, widoki w postaci materiałów wdrożone w puli SQL oferują również następujące dodatkowe korzyści:
 
 - Automatyczne i synchroniczne odświeżanie danych ze zmianami danych w tabelach podstawowych. Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika.
-- Szeroka Obsługa funkcji agregujących. Zobacz [Tworzenie widoku z materiałami jako Select (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
-- Wsparcie dla zalecenia dotyczącego widoku z materiałami specyficznymi dla zapytań.  Zobacz [wyjaśnienie (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Szeroka Obsługa funkcji agregujących. Zobacz [Tworzenie widoku z materiałami jako Select (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Wsparcie dla zalecenia dotyczącego widoku z materiałami specyficznymi dla zapytań.  Zobacz [wyjaśnienie (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Typowe scenariusze  
 
@@ -143,13 +143,17 @@ Optymalizator magazynu danych może automatycznie używać wdrożonych widoków 
 
 **Monitorowanie widoków z materiałami**
 
-Widok z materiałami jest przechowywany w magazynie danych, podobnie jak tabela z klastrowanym indeksem magazynu kolumn (WIK).  Odczytywanie danych z widoku z materiałami obejmuje skanowanie indeksu i stosowanie zmian z magazynu różnicowego.  Gdy liczba wierszy w magazynie różnic jest zbyt duża, rozpoznawanie zapytania z widoku z materiałami może trwać dłużej niż bezpośrednio zapytania w tabelach bazowych.  Aby uniknąć obniżenia wydajności zapytań, dobrym sposobem jest uruchomienie [polecenia DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) w celu monitorowania overhead_ratio widoku (total_rows/base_view_row).  Jeśli overhead_ratio jest zbyt wysoka, rozważ odbudowanie widoku z materiałami, aby wszystkie wiersze w magazynie różnicowym były przenoszone do indeksu magazynu kolumn.  
+Widok z materiałami jest przechowywany w magazynie danych, podobnie jak tabela z klastrowanym indeksem magazynu kolumn (WIK).  Odczytywanie danych z widoku z materiałami obejmuje skanowanie indeksu i stosowanie zmian z magazynu różnicowego.  Gdy liczba wierszy w magazynie różnic jest zbyt duża, rozpoznawanie zapytania z widoku z materiałami może trwać dłużej niż bezpośrednio zapytania w tabelach bazowych.  
+
+Aby uniknąć obniżenia wydajności zapytań, dobrym sposobem jest uruchomienie [polecenia DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) w celu monitorowania overhead_ratio widoku (total_rows/base_view_row).  Jeśli overhead_ratio jest zbyt wysoka, rozważ odbudowanie widoku z materiałami, aby wszystkie wiersze w magazynie różnicowym były przenoszone do indeksu magazynu kolumn.  
 
 **Widok materiałowy i buforowanie zestawu wyników**
 
 Te dwie funkcje są wprowadzane w puli SQL w tym samym czasie na potrzeby dostrajania wydajności zapytań. Buforowanie zestawu wyników służy do osiągania dużej współbieżności i krótszych czasów odpowiedzi z powtarzalnych zapytań dotyczących danych statycznych.  
 
-Aby można było użyć buforowanego wyniku, formularz żądania pamięci podręcznej musi pasować do zapytania, które spowodowało wytworzenie pamięci podręcznej.  Ponadto, buforowany wynik musi dotyczyć całego zapytania.  Widoki z materiałami umożliwiają wprowadzanie zmian w tabelach podstawowych.  Dane w widokach z materiałami mogą być stosowane do fragmentu zapytania.  Obsługuje to te same widoki, które mogą być używane przez różne zapytania, które udostępniają pewne obliczenia w celu zwiększenia wydajności.
+Aby można było użyć buforowanego wyniku, formularz żądania pamięci podręcznej musi pasować do zapytania, które spowodowało wytworzenie pamięci podręcznej.  Ponadto, buforowany wynik musi dotyczyć całego zapytania.  
+
+Widoki z materiałami umożliwiają wprowadzanie zmian w tabelach podstawowych.  Dane w widokach z materiałami mogą być stosowane do fragmentu zapytania.  Obsługuje to te same widoki, które mogą być używane przez różne zapytania, które udostępniają pewne obliczenia w celu zwiększenia wydajności.
 
 ## <a name="example"></a>Przykład
 
@@ -352,7 +356,7 @@ GROUP BY c_customer_id
 
 ```
 
-Sprawdź ponownie plan wykonania oryginalnego zapytania.  Teraz liczba sprzężeń zmienia się z 17 na 5 i nie ma już trybu losowego.  Kliknij ikonę operacji filtrowania w planie. Jego lista wyjściowa pokazuje, że dane są odczytywane z widoków z materiałami, a nie z tabel podstawowych.  
+Sprawdź ponownie plan wykonania oryginalnego zapytania.  Teraz liczba sprzężeń zmienia się z 17 na 5 i nie ma już trybu losowego.  Wybierz ikonę operacji filtrowania w planie. Jego lista wyjściowa pokazuje, że dane są odczytywane z widoków z materiałami, a nie z tabel podstawowych.  
 
  ![Plan_Output_List_with_Materialized_Views](./media/develop-materialized-view-performance-tuning/output-list.png)
 

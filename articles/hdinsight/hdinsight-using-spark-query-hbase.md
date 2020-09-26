@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/12/2020
-ms.openlocfilehash: 9454cb83d535d97a3dd95cd9f5d0636769797d08
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: eb62cf099d7ccc133a207a843a8be3debf5c5454
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166947"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308422"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Odczytywanie i zapisywanie danych w bazie danych Apache HBase za pomocą platformy Apache Spark
 
@@ -98,7 +98,7 @@ __Uwaga__: przed kontynuowaniem upewnij się, że dodano konto magazynu klastra 
     |Parametry|`-s SECONDARYS_STORAGE_URL`|
     |Trwały|tak|
 
-    * `SECONDARYS_STORAGE_URL`jest adresem URL magazynu domyślnego po stronie platformy Spark. Przykład parametru:`-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
+    * `SECONDARYS_STORAGE_URL` jest adresem URL magazynu domyślnego po stronie platformy Spark. Przykład parametru: `-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
 
 
 2.  Użyj akcji skryptu w klastrze Spark, aby zastosować zmiany z uwzględnieniem następujących zagadnień:
@@ -107,7 +107,7 @@ __Uwaga__: przed kontynuowaniem upewnij się, że dodano konto magazynu klastra 
     |---|---|
     |Identyfikator URI skryptu bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
     |Typy węzłów|Kierownik, proces roboczy, dozorcy|
-    |Parametry|`-s "SPARK-CRON-SCHEDULE"`(opcjonalnie) `-h "HBASE-CRON-SCHEDULE"` obowiązkowe|
+    |Parametry|`-s "SPARK-CRON-SCHEDULE"` (opcjonalnie) `-h "HBASE-CRON-SCHEDULE"` obowiązkowe|
     |Trwały|tak|
 
 
@@ -162,8 +162,8 @@ Na przykład poniższa tabela zawiera listę dwóch wersji i odpowiednich polece
 
     |Wersja platformy Spark| Wersja HDI HBase  | Wersja SHC    |  Polecenie  |
     | :-----------:| :----------: | :-----------: |:----------- |
-    |      2.1    | HDI 3,6 (HBase 1,1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
-    |      2,4    | HDI 4,0 (HBase 2,0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+    |      2.1    | HDI 3,6 (HBase 1,1) | 1.1.1-2.1-s_2.11    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
+    |      2,4    | HDI 4,0 (HBase 2,0) | 1.1.0.3.1.2.2-1  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
 
 2. Pozostaw otwarte wystąpienie powłoki Spark i Kontynuuj [Definiowanie wykazu i zapytania](#define-a-catalog-and-query). Jeśli nie znajdziesz Jars, który odpowiada Twoim wersjom w głównym repozytorium SHC, Kontynuuj odczytywanie. 
 

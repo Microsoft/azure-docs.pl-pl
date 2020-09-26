@@ -1,16 +1,16 @@
 ---
 title: Narzędzie do obsługi zasobów usługi Azure Remote Rendering
-description: Link do repozytorium GitHub, w którym znajduje się aplikacja pokazu
+description: Dowiedz się więcej na temat narzędzia zawartości zdalnego renderowania platformy Azure (ARRT), które jest aplikacją klasyczną dla środowiska "open source" opracowaną w języku C++/QT.
 author: mafranc
 ms.author: mafranc
 ms.date: 06/09/2020
 ms.topic: sample
-ms.openlocfilehash: c02bb46cfdfa37fed7f9c9cc2ad3c2a426547ce8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e20d21f1f8b58b69ee760fd4e95d6f194e13105a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84637150"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322176"
 ---
 # <a name="azure-remote-rendering-asset-tool-arrt"></a>Narzędzie zasobów renderowania zdalnego na platformie Azure (ARRT)
 
