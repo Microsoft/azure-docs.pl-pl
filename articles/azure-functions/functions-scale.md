@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80bb59527f416afd78b992fb12a4ef72956f91b7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: c5dd703851054b058d96440a3a994b9d10eecfa3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587229"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372667"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skalowanie i hosting usługi Azure Functions
 
@@ -34,7 +34,7 @@ Aby uzyskać szczegółowe porównanie między różnymi planami hostingu (w tym
 
 Gdy używasz planu zużycia, wystąpienia hosta Azure Functions są dynamicznie dodawane i usuwane na podstawie liczby zdarzeń przychodzących. Ten plan bezserwerowy wykorzystuje automatyczne skalowanie, a opłaty są naliczane za zasoby obliczeniowe tylko wtedy, gdy funkcje są uruchamiane. W ramach Planu użycia limit czasu wykonywania funkcji zostaje przekroczony po konfigurowalnym okresie czasu.
 
-Rozliczenia zależą od liczby wykonań, czasu wykonania oraz użytej pamięci. Rozliczenia są agregowane ze wszystkich funkcji w aplikacji funkcji. Aby uzyskać więcej informacji, zobacz [stronę z cennikiem Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+Rozliczenia zależą od liczby wykonań, czasu wykonania oraz użytej pamięci. Użycie jest agregowane we wszystkich funkcjach w ramach aplikacji funkcji. Aby uzyskać więcej informacji, zobacz [stronę z cennikiem Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 Plan zużycia jest domyślnym planem hostingu i oferuje następujące korzyści:
 
@@ -58,7 +58,7 @@ W przypadku korzystania z planu Premium wystąpienia hosta Azure Functions są d
 
 Aby dowiedzieć się, jak utworzyć aplikację funkcji w planie Premium, zobacz [Azure Functions plan Premium](functions-premium-plan.md).
 
-Zamiast naliczania opłat za wykonanie i zużywaną pamięć rozliczenia dla planu Premium są oparte na liczbie podstawowych sekund i ilości pamięci używanej w ramach wymaganych i wstępnie rozgrzanych wystąpień. Co najmniej jedno wystąpienie musi być aktywne przez cały czas dla każdego planu. Oznacza to, że jest minimalny miesięczny koszt dla aktywnego planu, niezależnie od liczby wykonań. Należy pamiętać, że wszystkie aplikacje funkcji w planie Premium udostępniają wstępnie rozgrzane i aktywne wystąpienia.
+Zamiast naliczania opłat za wykonanie i zużywaną pamięć, rozliczenia dla planu Premium bazują na liczbie podstawowych sekund i ilości pamięci przydzieloną między wystąpieniami.  Z planem Premium nie jest naliczana opłata za wykonanie. Co najmniej jedno wystąpienie musi być przydzieloną przez cały czas dla każdego planu. Powoduje to minimalny miesięczny koszt według aktywnego planu, niezależnie od tego, czy funkcja jest aktywna, czy bezczynna. Należy pamiętać, że wszystkie aplikacje funkcji w planie Premium współdzielą wystąpienia przydzielono.
 
 Zapoznaj się z planem Azure Functions Premium w następujących sytuacjach:
 
@@ -79,12 +79,12 @@ Należy wziąć pod uwagę plan App Service w następujących sytuacjach:
 
 Płacisz za aplikacje funkcji w planie App Service, tak jak w przypadku innych zasobów App Service, takich jak aplikacje sieci Web. Aby uzyskać szczegółowe informacje na temat działania planu App Service, zobacz [szczegółowe Omówienie planów Azure App Service](../app-service/overview-hosting-plans.md).
 
-Plan App Service umożliwia ręczne skalowanie w poziomie przez dodanie większej liczby wystąpień maszyn wirtualnych. Możesz również włączyć automatyczne skalowanie. Aby uzyskać więcej informacji, zobacz [Ręczne lub automatyczne skalowanie liczby wystąpień](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Możesz również skalować w górę, wybierając inny plan App Service. Aby uzyskać więcej informacji, zobacz [skalowanie w górę aplikacji na platformie Azure](../app-service/manage-scale-up.md). 
+Korzystając z planu App Service, można ręcznie skalować w poziomie, dodając więcej wystąpień maszyn wirtualnych. Możesz również włączyć funkcję automatycznego skalowania, chociaż automatyczne skalowanie będzie wolniejsze niż elastyczne skalowanie planu Premium. Aby uzyskać więcej informacji, zobacz [Ręczne lub automatyczne skalowanie liczby wystąpień](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Możesz również skalować w górę, wybierając inny plan App Service. Aby uzyskać więcej informacji, zobacz [skalowanie w górę aplikacji na platformie Azure](../app-service/manage-scale-up.md). 
 
 Podczas uruchamiania funkcji JavaScript w planie App Service należy wybrać plan, który ma mniej procesorów wirtualnych vCPU. Aby uzyskać więcej informacji, zobacz [Wybieranie planów App Service z pojedynczym rdzeniem](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-Uruchamianie w [App Service Environment](../app-service/environment/intro.md) (ASE) pozwala w pełni izolować funkcje i korzystać z dużej skali.
+Uruchamianie w [App Service Environment](../app-service/environment/intro.md) (ASE) pozwala w pełni izolować funkcje i korzystać z większej liczby wystąpień niż plan App Service.
 
 ### <a name="always-on"></a><a name="always-on"></a> Zawsze włączone
 
@@ -121,6 +121,12 @@ Istnieje możliwość udostępnienia tego samego konta magazynu dla wielu aplika
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 Aby dowiedzieć się więcej na temat typów kont magazynu, zobacz [wprowadzenie do usług Azure Storage](../storage/common/storage-introduction.md#core-storage-services).
+
+### <a name="in-region-data-residency"></a>W miejscu zamieszkania danych regionu
+
+Gdy to konieczne, aby wszystkie dane klienta pozostawały w jednym regionie, konto magazynu skojarzone z aplikacją funkcji musi być jednym z [nadmiarowości w regionie](../storage/common/storage-redundancy.md).  Konto magazynu nadmiarowego w regionie musi być również używane z [usługą Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection) dla Durable Functions.
+
+Inne dane klienta zarządzane przez platformę będą przechowywane w regionie tylko podczas hostowania w ramach wewnętrznego Load Balancer App Service Environment (lub ILB ASE).  Szczegóły można znaleźć w obszarze [nadmiarowości stref środowiska ASE](../app-service/environment/zone-redundancy.md#in-region-data-residency).
 
 ## <a name="how-the-consumption-and-premium-plans-work"></a>Jak działają plany Zużycie i Premium
 
@@ -185,7 +191,7 @@ W poniższej tabeli porównawczej przedstawiono wszystkie ważne aspekty pomocne
 |**[Plan Zużycie](#consumption-plan)**| Skaluj automatycznie i płacisz tylko za zasoby obliczeniowe, gdy funkcje są uruchomione. W planie zużycia wystąpienia hosta funkcji są dynamicznie dodawane i usuwane na podstawie liczby zdarzeń przychodzących.<br/> ✔ Domyślnego planu hostingu.<br/>✔ Płacisz tylko wtedy, gdy funkcje są uruchomione.<br/>Automatyczne skalowanie ✔, nawet w okresach dużego obciążenia.|  
 |**[Plan Premium](#premium-plan)**|Podczas automatycznego skalowania na podstawie popytu należy używać wstępnie rozgrzanych procesów roboczych do uruchamiania aplikacji bez opóźnień, uruchamiać się na bardziej wydajnych wystąpieniach i łączyć się z sieci wirtualnych. Oprócz wszystkich funkcji planu App Service należy wziąć pod uwagę plan Azure Functions Premium w następujących sytuacjach: <br/>✔ Aplikacje funkcji działają ciągle lub niemal ciągle.<br/>✔ Masz dużą liczbę niewielkich wykonań i masz rozliczenie o dużym obciążeniu, ale niski GB drugiego rachunku w planie zużycia.<br/>✔ Potrzebujesz więcej opcji procesora lub pamięci niż to, co jest dostępne w ramach planu zużycia.<br/>✔ Kod musi być uruchomiony dłużej niż maksymalny dozwolony czas wykonywania w planie zużycia.<br/>✔ Wymagane są funkcje, które są dostępne tylko w planie Premium, takie jak łączność z siecią wirtualną.|  
 |**[Dedykowany plan](#app-service-plan)**<sup>1</sup>|Uruchamiaj swoje funkcje w ramach planu App Service według regularnych App Service stawek planu. Dobrze pasuje do długotrwałych operacji, a także wtedy, gdy są wymagane bardziej przewidywalne skalowanie i koszty. Należy wziąć pod uwagę plan App Service w następujących sytuacjach:<br/>✔ Masz istniejące, nieużywane maszyny wirtualne, na których działają już inne wystąpienia App Service.<br/>✔ Chcesz udostępnić niestandardowy obraz, na którym będą uruchamiane funkcje.|  
-|**[ASE](#app-service-plan)**<sup>1</sup>|App Service Environment (ASE) to funkcja App Service, która zapewnia w pełni izolowane i dedykowane środowisko do bezpiecznego uruchamiania aplikacji App Service na dużą skalę. Środowisk ASE są odpowiednie dla obciążeń aplikacji, które wymagają: <br/>✔ Bardzo wysoka Skala.<br/>✔ Izolacja i bezpieczny dostęp do sieci.<br/>✔ Wysokie wykorzystanie pamięci.|  
+|**[ASE](#app-service-plan)**<sup>1</sup>|App Service Environment (ASE) to funkcja App Service, która zapewnia w pełni izolowane i dedykowane środowisko do bezpiecznego uruchamiania aplikacji App Service na dużą skalę. Środowisk ASE są odpowiednie dla obciążeń aplikacji, które wymagają: <br/>✔ Bardzo wysoka Skala.<br/>✔ Pełna izolacja obliczeniowa i bezpieczny dostęp do sieci.<br/>✔ Wysokie wykorzystanie pamięci.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes zapewnia w pełni izolowane i dedykowane środowisko działające w oparciu o platformę Kubernetes.  Kubernetes jest odpowiednie dla obciążeń aplikacji, które wymagają: <br/>✔ Niestandardowe wymagania sprzętowe.<br/>✔ Izolacja i bezpieczny dostęp do sieci.<br/>✔ Możliwość uruchamiania w środowisku hybrydowym lub w chmurze.<br/>✔ Uruchamiane razem z istniejącymi aplikacjami i usługami Kubernetes.|  
 
 <sup>1</sup> Aby uzyskać określone limity dla różnych opcji planu App Service, zobacz [limity App Service planu](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).

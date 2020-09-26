@@ -3,13 +3,13 @@ title: Usługa Azure Application Insights przesłania domyślne punkty końcowe 
 description: Zmodyfikuj domyślne Azure Monitor Application Insights punktów końcowych zestawu SDK dla regionów takich jak Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.custom: references_regions, devx-track-javascript
-ms.openlocfilehash: 22f81b327c161df4f6605cfcb64b48b8d75beed3
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: references_regions, devx-track-js
+ms.openlocfilehash: d6cea9044cd4898480fcc30532a05e6c8a407012
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373134"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333294"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights Przesłanianie domyślnych punktów końcowych
 
@@ -79,7 +79,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 W przypadku Azure Functions teraz zaleca się używanie [parametrów połączenia](./sdk-connection-string.md?tabs=net) ustawionych w ustawieniach aplikacji funkcji. Aby uzyskać dostęp do ustawień aplikacji dla funkcji, w okienku funkcje wybierz pozycję **Ustawienia**  >  **Konfiguracja**  >  **aplikacji ustawienia**. 
 
-Nazwa: `APPLICATIONINSIGHTS_CONNECTION_STRING` wartość:`Connection String Value`
+Nazwa: `APPLICATIONINSIGHTS_CONNECTION_STRING` wartość: `Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 

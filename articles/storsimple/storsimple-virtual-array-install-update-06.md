@@ -1,6 +1,6 @@
 ---
 title: Zainstaluj aktualizację 0,6 w macierzy wirtualnej StorSimple | Microsoft Docs
-description: Opisuje sposób użycia interfejsu użytkownika sieci Web macierzy wirtualnej StorSimple do zastosowania aktualizacji przy użyciu metody Azure Portal i poprawki
+description: Opisuje sposób użycia interfejsu użytkownika sieci Web macierzy wirtualnej StorSimple do zastosowania aktualizacji 0,6 przy użyciu metody Azure Portal i Hot Fix.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 02b85cb90948f35cb6f6c855cfbe81fd58301de0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 917af7ea1789394ddba5d349d631018e2b620216
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513588"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295689"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Zainstaluj aktualizację 0,6 w macierzy wirtualnej StorSimple
 
@@ -99,7 +99,7 @@ Ta metoda służy do instalowania aktualizacji na urządzeniu z oprogramowaniem 
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
-2. W polu **ścieżka pliku aktualizacji**wprowadź nazwę pliku aktualizacji lub poprawki. Możesz również przejść do pliku instalacyjnego aktualizacji lub poprawek, jeśli znajduje się on w udziale sieciowym. Kliknij przycisk **Zastosuj**.
+2. W polu **ścieżka pliku aktualizacji**wprowadź nazwę pliku aktualizacji lub poprawki. Możesz również przejść do pliku instalacyjnego aktualizacji lub poprawek, jeśli znajduje się on w udziale sieciowym. Kliknij pozycję **Zastosuj**.
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-05/update2m.png)
 

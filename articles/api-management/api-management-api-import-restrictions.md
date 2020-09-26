@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86ed7f3941965bcac525a2ba71786d20a4753489
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513375"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335504"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Ograniczenia importu interfejsu API i znane problemy
 
@@ -34,15 +34,15 @@ Jeśli otrzymujesz błędy podczas importowania dokumentu OpenAPI, upewnij się,
 ### <a name="general"></a><a name="open-api-general"> </a>Ogólne
 
 -   Wymagane parametry w ścieżce i zapytaniu muszą mieć unikatowe nazwy. (W OpenAPI Nazwa parametru musi być unikatowa w obrębie lokalizacji, na przykład Path, Query, header. Jednakże w API Management zezwalamy na rozróżnienie operacji przy użyciu parametrów Path i Query (które nie są obsługiwane przez OpenAPI). Dlatego wymagamy, aby nazwy parametrów były unikatowe w ramach całego szablonu adresu URL.
--   `\$ref`wskaźniki nie mogą odwoływać się do zewnętrznych plików.
--   `x-ms-paths`i `x-servers` są jedynymi obsługiwanymi rozszerzeniami.
+-   `\$ref` wskaźniki nie mogą odwoływać się do zewnętrznych plików.
+-   `x-ms-paths` i `x-servers` są jedynymi obsługiwanymi rozszerzeniami.
 -   Rozszerzenia niestandardowe są ignorowane podczas importowania i nie są zapisywane ani zachowywane do eksportu.
--   `Recursion`-API Management nie obsługuje definicji zdefiniowanych cyklicznie (na przykład schematów odwołujących się do siebie).
+-   `Recursion` -API Management nie obsługuje definicji zdefiniowanych cyklicznie (na przykład schematów odwołujących się do siebie).
 -   Adres URL pliku źródłowego (jeśli jest dostępny) jest stosowany do względnych adresów URL serwera.
 -   Definicje zabezpieczeń zostały zignorowane.
 -   Wbudowane definicje schematu dla operacji interfejsu API nie są obsługiwane. Definicje schematu są zdefiniowane w zakresie interfejsu API i można do nich odwoływać się w zakresach żądań lub odpowiedzi operacji interfejsu API.
 -   Określony parametr adresu URL musi być częścią szablonu adresu URL.
--   `Produces`słowo kluczowe, które opisuje typy MIME zwracane przez interfejs API, nie jest obsługiwane. 
+-   `Produces` słowo kluczowe, które opisuje typy MIME zwracane przez interfejs API, nie jest obsługiwane. 
 
 ### <a name="openapi-version-2"></a><a name="open-api-v2"> </a>Openapi wersja 2
 
@@ -51,13 +51,17 @@ Jeśli otrzymujesz błędy podczas importowania dokumentu OpenAPI, upewnij się,
 ### <a name="openapi-version-3"></a><a name="open-api-v3"> </a>Openapi wersja 3
 
 -   Jeśli `servers` określono wiele, API Management spróbuje wybrać pierwszy adres URL https. Jeśli nie ma żadnych adresów URL HTTPs — pierwszy adres URL protokołu HTTP. Jeśli nie ma adresów URL protokołu HTTP, adres URL serwera będzie pusty.
--   `Examples`nie jest obsługiwana, ale `example` jest.
+-   `Examples` nie jest obsługiwana, ale `example` jest.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>OpenAPI mechanizmy importowania, aktualizowania i eksportowania
 
+### <a name="general"></a><a name="open-import-export-general"> </a>Ogólne
+
+-   Definicje interfejsu API wyeksportowane z usługi API Management są przeznaczone głównie dla aplikacji zewnętrznych dla API Management usługi, które wymagają wywołania interfejsu API hostowanego w usłudze API Management. Definicje wyeksportowanych interfejsów API nie są przeznaczone do zaimportowania do tej samej lub innej usługi API Management. Aby zarządzać konfiguracją interfejsu API defiitions w różnych usługach/envionments, zapoznaj się z dokumentacją dotyczącą korzystania z usługi API Management z usługą git. 
+
 ### <a name="add-new-api-via-openapi-import"></a>Dodawanie nowego interfejsu API za pomocą importu OpenAPI
 
-Dla każdej operacji znalezionej w dokumencie OpenAPI zostanie utworzona nowa operacja z nazwą zasobu platformy Azure, a nazwa wyświetlana zostanie ustawiona na `operationId` `summary` odpowiednio. `operationId`wartość jest znormalizowana po zasadach opisanych poniżej. `summary`wartość jest zaimportowana jako-is, a jej długość jest ograniczona do 300 znaków.
+Dla każdej operacji znalezionej w dokumencie OpenAPI zostanie utworzona nowa operacja z nazwą zasobu platformy Azure, a nazwa wyświetlana zostanie ustawiona na `operationId` `summary` odpowiednio. `operationId` wartość jest znormalizowana po zasadach opisanych poniżej. `summary` wartość jest zaimportowana jako-is, a jej długość jest ograniczona do 300 znaków.
 
 Jeśli `operationId` nie zostanie określony (oznacza to, że nie jest obecny, `null` lub pusty), wartość nazwy zasobu platformy Azure zostanie wygenerowana przez połączenie metody http i szablonu ścieżki, na przykład `get-foo` .
 
@@ -86,12 +90,12 @@ Reguły normalizacji dla operationId
 
 - Konwertuj na małe litery.
 - Zastąp każdą sekwencję znaków innych niż alfanumeryczne pojedynczą kreską, na przykład, `GET-/foo/{bar}?buzz={quix}` zostanie przekształcona w `get-foo-bar-buzz-quix-` .
-- Przycinanie łączników na obu stronach, na przykład, `get-foo-bar-buzz-quix-` stanie się`get-foo-bar-buzz-quix`
+- Przycinanie łączników na obu stronach, na przykład, `get-foo-bar-buzz-quix-` stanie się `get-foo-bar-buzz-quix`
 - Obcinaj do 76 znaków, cztery znaki poniżej maksymalnego limitu dla nazwy zasobu.
 - Użyj pozostałych czterech znaków dla sufiksu deduplikacji, w razie potrzeby, w postaci `-1, -2, ..., -999` .
 
 
-## <a name="wsdl"></a><a name="wsdl"> </a>WSDL
+## <a name="wsdl"></a><a name="wsdl"> </a>Język WSDL
 
 Pliki WSDL są używane do tworzenia protokołu SOAP przekazującego i interfejsów API protokołu SOAP-to-REST.
 

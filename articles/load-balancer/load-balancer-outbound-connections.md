@@ -1,52 +1,116 @@
 ---
-title: Połączenia wychodzące na platformie Azure
+title: Połączenia wychodzące
 titleSuffix: Azure Load Balancer
 description: W tym artykule opisano, jak platforma Azure umożliwia maszynom wirtualnym komunikowanie się z publicznymi usługami internetowymi.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
-ms.custom: seodec18
+ms.custom: contperfq1
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/24/2020
+ms.date: 09/24/2020
 ms.author: allensu
-ms.openlocfilehash: 4368a025ecc158afa1ee78b8abd86bd6db42ba75
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 79399d0890f61d723f371528408d226f6a192ce4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438669"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336500"
 ---
-# <a name="outbound-connections-in-azure"></a>Połączenia wychodzące na platformie Azure
+# <a name="outbound-connections"></a>Połączenia wychodzące
 
-Azure Load Balancer zapewnia łączność wychodzącą za pośrednictwem różnych mechanizmów. W tym artykule opisano scenariusze i sposoby zarządzania nimi. Jeśli występują problemy z łącznością wychodzącą za pośrednictwem Azure Load Balancer, zobacz [Przewodnik rozwiązywania problemów dla połączeń wychodzących](../load-balancer/troubleshoot-outbound-connection.md).
+Azure Load Balancer zapewnia łączność wychodzącą za pośrednictwem różnych mechanizmów. W tym artykule opisano scenariusze i sposoby zarządzania nimi. 
 
->[!NOTE]
->W tym artykule opisano Menedżer zasobów wdrożeniach. Firma Microsoft zaleca Menedżer zasobów do obciążeń produkcyjnych.
+## <a name="outbound-connections-scenario-overview"></a><a name="scenarios"></a>Omówienie scenariusza połączeń wychodzących
 
-## <a name="terminology"></a>Terminologia
+Terminy używane w tych scenariuszach. Aby uzyskać więcej informacji, zobacz [terminologia](#terms):
 
-| Okres | Odpowiednie protokoły | Szczegóły|
-| ---------|---------| -------|
-| Translator adresów sieciowych (Resources) | TCP, UDP | Wdrożenie na platformie Azure może komunikować się z punktami końcowymi poza platformą Azure w publicznej przestrzeni adresów IP. Gdy wystąpienie inicjuje przepływ wychodzący do miejsca docelowego w publicznej przestrzeni adresów IP, platforma Azure dynamicznie mapuje prywatny adres IP na publiczny adres IP. Po utworzeniu tego mapowania ruch powrotny dla tego wychodzącego przepływu może również dotrzeć do prywatnego adresu IP, z którego pochodzi przepływ. Na platformie Azure do wykonania tej funkcji jest stosowany **translator adresów sieciowych (Resources)** .|
-| Przymaskowany port do podszywającego się| TCP, UDP |  Gdy wiele prywatnych adresów IP jest rozliczanych za pojedynczym publicznym adresem IP, platforma Azure korzysta z **translacji adresów portu (** w celu zamaskowanego/ukrycia prywatnych adresów IP). Porty tymczasowe są używane na potrzeby usługi i są [wstępnie przydzieloną](#preallocatedports) na podstawie rozmiaru puli. Gdy publiczny zasób Load Balancer jest skojarzony z wystąpieniami maszyn wirtualnych, które nie mają dedykowanych publicznych adresów IP, wszystkie źródła połączenia wychodzącego zostaną ponownie napisana. Źródło jest ponownie zapisywane z prywatnej przestrzeni adresowej IP sieci wirtualnej na publiczny adres IP frontonu modułu równoważenia obciążenia. W publicznej przestrzeni adresowej IP, 5-krotka przepływu (źródłowy adres IP, port źródłowy, protokół transportu IP, docelowy adres IP, port docelowy) musi być unikatowa. Za pomocą protokołów TCP lub UDP można używać adresów IP maskujących port. Porty tymczasowe (porty IP) są używane do osiągnięcia tego po zapisaniu prywatnego źródłowego adresu IP, ponieważ wiele przepływów pochodzi z jednego publicznego adresu IP. Algorytm podrzędnego podszywającego się portu przydziela porty protokołu podrzędnego inaczej dla połączeń UDP i TCP.|
-| Porty źródłowego translatora adresów sieciowych| TCP | Porty IP to tymczasowe porty dostępne dla określonego publicznego adresu IP. Jeden port strumienia adresów sieciowych jest używany w przepływie na jeden docelowy adres IP, port. W przypadku wielu przepływów TCP na ten sam docelowy adres IP, port i protokół każdy przepływ TCP zużywa pojedynczy port. Gwarantuje to, że przepływy są unikatowe, gdy pochodzą z tego samego publicznego adresu IP i przejdź do tego samego docelowego adresu IP, portu i protokołu. Wiele przepływów, każdy do innego docelowego adresu IP, portu i protokołu, współużytkuje jeden port. Docelowy adres IP, port i protokół sprawiają, że przepływy są unikatowe bez konieczności stosowania dodatkowych portów źródłowych do rozróżnienia przepływów w publicznej przestrzeni adresów IP.|
-|Porty źródłowego translatora adresów sieciowych | UDP | Porty przyłączone do protokołu UDP są zarządzane przez inny algorytm niż porty protokołu podlegającego TCP.  Load Balancer używa algorytmu znanego jako "Protokół NAT z ograniczeniami portu" dla protokołu UDP.  Jeden port dla każdego przepływu, niezależnie od docelowego adresu IP, portu.|
-| Wyczerpania | - | W przypadku wyczerpania zasobów portów współdziałania przepływy wychodzące kończą się niepowodzeniem, dopóki istniejące przepływy nie zwolnią portów. Load Balancer przejmowanie portów protokołu równorzędnego, gdy przepływ zostanie zamknięty i korzysta z [4-minutowego limitu czasu bezczynności](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) w przypadku odzyskiwania portów ze STRUMIENIAMI adresów sieciowych z bezczynnych przepływów. Porty protokołu przesyłania adresów sieciowych UDP zwykle są znacznie szybsze niż porty protokołu przesyłania adresów sieciowych TCP ze względu na różnice w używanym algorytmie. Należy zaprojektować i skalować test z uwzględnieniem tej różnicy.|
-| Zachowanie wersji portu przez przytranslatora adresów sieciowych | TCP | Jeśli serwer/klient wysyła FINACK, port podu zostanie wydaną po 240 sekundach. Jeśli jest widoczny parametr RST, port elementu poddanego zostanie wystawiony po 15 sekundach. Po osiągnięciu limitu czasu bezczynności port zostanie wystawiony.|
-| Zachowanie wersji portu przez przytranslatora adresów sieciowych | UDP |Po osiągnięciu limitu czasu bezczynności port zostanie wystawiony.|
-| Ponowne użycie portu dla translatora adresów sieciowych | TCP, UDP | Gdy port zostanie wystawiony, port będzie dostępny do ponownego użycia w razie potrzeby.  Porty w ramach usługi reportowe można traktować jako sekwencję od najniższego do najwyższego dostępnego dla danego scenariusza, a pierwszy dostępny port jest używany dla nowych połączeń.|
+* [Translator adresów sieciowych (Resources)](#snat)
+* [Zamaskowane portów](#pat)
+* Transmission Control Protocol (TCP)
+* User Datagram Protocol (UDP)
+* Translator adresów sieciowych
+* Protokół komunikatów kontroli Internetu
+* Hermetyzacja protokołu zabezpieczeń
 
-### <a name="port-allocation-algorithm"></a><a name="preallocatedports"></a>Algorytm alokacji portów
+### <a name="scenarios"></a>Scenariusze
 
-Platforma Azure używa algorytmu, aby określić liczbę wstępnie przyalokowanych portów podzestawów adresów sieciowych dostępnych na podstawie rozmiaru puli zaplecza podczas korzystania z usługi. Dla każdego publicznego adresu IP skojarzonego z modułem równoważenia obciążenia dostępne są 64 000 portów jako porty dla każdego protokołu transportu IP. Ta sama liczba portów przydziałów adresów sieciowych jest wstępnie przypisana odpowiednio do protokołów UDP i TCP i zużywana niezależnie na protokół transportowy IP.  Niemniej jednak w zależności od tego, czy przepływ ma wartość UDP czy TCP, jest różne użycie portów. Gdy przepływy wychodzące są tworzone, te porty są używane dynamicznie (do wstępnie przydzielonych limitów) i wydawane, gdy następuje zamknięcie przepływu lub [przekroczenie limitu czasu bezczynności](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) . Porty są używane tylko wtedy, gdy konieczne jest przeprowadzenie unikatowych przepływów.
+* [Scenariusz 1](#scenario1) — maszyna wirtualna z publicznym adresem IP.
+* [Scenariusz 2](#scenario2) — maszyna wirtualna bez publicznego adresu IP.
+* [Scenariusz 3](#scenario3) — maszyna wirtualna bez publicznego adresu IP i bez standardowej usługi równoważenia obciążenia.
 
-#### <a name="dynamic-snat-ports-allocated"></a><a name="snatporttable"></a> Przydzielono porty dynamicznego translatora adresów sieciowych
+### <a name="scenario-1---virtual-machine-with-public-ip"></a><a name="scenario1"></a>Scenariusz 1 — maszyna wirtualna z publicznym adresem IP
 
-W poniższej tabeli przedstawiono alokacje wstępne portów adresów sieciowych dla warstw rozmiaru puli zaplecza:
+| Związku | Metoda | Protokoły IP |
+| ---------- | ------ | ------------ |
+| Publiczny moduł równoważenia obciążenia lub autonomiczny | [SNAT](#snat) </br> Nie użyto [zamaskowanego portu](#pat) . | TCP </br> UDP </br> ICMP </br> ESP |
+
+#### <a name="description"></a>Opis
+
+Platforma Azure używa publicznego adresu IP przypisanego do konfiguracji protokołu IP karty sieciowej wystąpienia dla wszystkich przepływów wychodzących. Dla tego wystąpienia są dostępne wszystkie porty tymczasowe. Nie ma znaczenia, czy maszyna wirtualna ma Równoważenie obciążenia, czy nie. Ten scenariusz ma pierwszeństwo przed innymi. 
+
+Publiczny adres IP przypisany do maszyny wirtualnej jest relacją 1:1 (a nie 1: wiele) i zaimplementowaną jako bezstanowe urządzenie NAT 1:1.
+
+### <a name="scenario-2---virtual-machine-without-public-ip"></a><a name="scenario2"></a>Scenariusz 2 — maszyna wirtualna bez publicznego adresu IP
+
+| Związku | Metoda | Protokoły IP |
+| ------------ | ------ | ------------ |
+| Publiczny moduł równoważenia obciążenia | Użycie usługi równoważenia obciążenia frontonu dla [elementu](#snat) [reportowego z zamaskowanem portu (Binding)](#pat).| TCP </br> UDP |
+
+#### <a name="description"></a>Opis
+
+Zasób modułu równoważenia obciążenia jest skonfigurowany z regułą modułu równoważenia obciążenia. Ta reguła służy do tworzenia linku między publicznym serwerem frontonu IP a pulą zaplecza. 
+
+Jeśli ta konfiguracja reguły nie zostanie ukończona, zachowanie jest zgodne z opisem w scenariuszu 3. 
+
+Reguła z odbiornikiem nie jest wymagana do pomyślnego przeprowadzenia sondy kondycji.
+
+Gdy maszyna wirtualna tworzy przepływ wychodzący, platforma Azure tłumaczy źródłowy adres IP na publiczny adres IP frontonu modułu równoważenia obciążenia. To tłumaczenie odbywa [się za](#snat)pośrednictwem protokołu NAT. 
+
+Porty tymczasowe publicznego adresu IP frontonu modułu równoważenia obciążenia są używane do rozróżniania poszczególnych przepływów pochodzących z maszyny wirtualnej. W przypadku tworzenia przepływów ruchu wychodzącego w ramach strumienia danych dynamicznie [przydzielono wstępnie przydzieloną porty](#preallocatedports) tymczasowe. 
+
+W tym kontekście porty, które są używane do przystawcy adresów sieciowych, są nazywane portami. Porty przydziałów adresów sieciowych są wstępnie przydzielone zgodnie z opisem w [tabeli alokacji domyślnych portów](#snatporttable).
+
+### <a name="scenario-3---virtual-machine-without-public-ip-and-without-standard-load-balancer"></a><a name="scenario3"></a> Scenariusz 3 — maszyna wirtualna bez publicznego adresu IP i bez usługi równoważenia obciążenia w warstwie Standardowa
+
+| Związku | Metoda | Protokoły IP |
+| ------------ | ------ | ------------ |
+|Brak </br> Podstawowa usługa równoważenia obciążenia | Reportcy [adresów sieciowych](#snat) z [zamaskowanem portów](#pat)| TCP </br> UDP | 
+
+#### <a name="description"></a>Opis
+
+Gdy maszyna wirtualna tworzy przepływ wychodzący, platforma Azure tłumaczy źródłowy adres IP przepływu wychodzącego na publiczny źródłowy adres IP. Ten publiczny adres IP **nie jest konfigurowalny** i nie można go zarezerwować. Ten adres nie jest liczony pod względem limitu zasobów publicznego adresu IP subskrypcji. 
+
+Publiczny adres IP zostanie wywnioskowany, a w przypadku ponownego wdrożenia: 
+
+* Maszyna wirtualna
+* Zestaw dostępności
+* Zestaw skalowania maszyn wirtualnych  
+
+Nie należy używać tego scenariusza do dodawania adresów IP do listy dozwolonych. Użyj scenariusza 1 lub 2, gdzie jawnie deklarujesz zachowanie wychodzące. Porty podrzędnego [translatora adresów sieciowych](#snat) są wstępnie przydzielone zgodnie z opisem w [tabeli alokacji domyślnych portów](#snatporttable).
+
+
+
+## <a name="port-allocation-algorithm"></a><a name="preallocatedports"></a>Algorytm alokacji portów
+
+Platforma Azure używa algorytmu w celu określenia liczby dostępnych wstępnie [przyznanych](#snat) portów. Algorytm opiera się na liczbie portów w rozmiarze puli zaplecza. 
+
+Dla każdego publicznego adresu IP skojarzonego z modułem równoważenia obciążenia [64 000 porty są dostępne jako porty](#snat) . Ta sama liczba portów przydziałów [adresów sieciowych](#snat) jest wstępnie przydzielna dla protokołów UDP i TCP. Porty są używane niezależnie od protokołu IP. 
+
+Użycie [portu przez](#snat) przychodzący ruch jest różny w zależności od tego, czy przepływ to UDP, czy TCP. 
+
+Porty są używane dynamicznie do wstępnie przydzielonych limitów.  Porty są uwalniane po zamknięciu przepływu lub przekroczeniu limitu czasu bezczynności.
+
+Aby uzyskać więcej informacji na temat limitów czasu bezczynności, zobacz [Rozwiązywanie połączeń wychodzących w Azure Load Balancer](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) 
+
+Porty są używane tylko wtedy, gdy konieczne jest przeprowadzenie unikatowych przepływów.
+
+### <a name="dynamic-snat-ports-preallocation"></a><a name="snatporttable"></a> Wstępne przydzielanie portów dynamicznego translatora adresów sieciowych
+
+W poniższej tabeli przedstawiono alokacje wstępne portów [adresów sieciowych](#snat) dla warstw rozmiaru puli zaplecza:
 
 | Rozmiar puli (wystąpienia maszyn wirtualnych) | Wstępnie przydzielony porty dla konfiguracji protokołu IP |
 | --- | --- |
@@ -59,91 +123,346 @@ W poniższej tabeli przedstawiono alokacje wstępne portów adresów sieciowych 
 
 Zmiana rozmiaru puli zaplecza może mieć wpływ na niektóre ustanowione przepływy:
 
-- Jeśli rozmiar puli zaplecza zwiększy się i przejdzie do następnej warstwy, połowa wstępnie przydzielonego portu ze współdzielonym zestawem danych jest odzyskiwana podczas przejścia do następnej większej warstwy puli zaplecza. Przepływy skojarzone z odwiązanym portem wiązania adresów sieciowych przekroczą limit czasu i muszą zostać ponownie nawiązane. Jeśli zostanie podjęta próba nowego przepływu, przepływ zakończy się pomyślnie, o ile dostępne są wstępnie przydzieloną porty.
-- W przypadku zmniejszenia rozmiaru puli zaplecza i przejścia do niższej warstwy liczba dostępnych portów podzestawów adresów sieciowych wzrasta. W takim przypadku nie ma to wpływ na istniejące przyłączone porty i ich przepływy.
+- Rozmiar puli zaplecza zwiększa przejścia wyzwalacza do następnej warstwy. Połowa wstępnie przydzielonych [SNAT](#snat) portów podlegającego przydzieleniu zostanie ododzyskiwana podczas przejścia do następnej warstwy. 
 
-## <a name="outbound-connections-scenario-overview"></a><a name="scenarios"></a>Omówienie scenariusza połączeń wychodzących
+- Przepływy skojarzone z przekroczeniem limitu czasu i zamknięcia portu połączonego strumienia [adresów](#snat) . Należy ponownie nawiązać te przepływy. Jeśli zostanie podjęta próba nowego przepływu, przepływ zakończy się pomyślnie, o ile dostępne są wstępnie przydzieloną porty.
 
-| Scenariusz | Metoda | Protokoły IP | Opis |
-|  --- | --- | --- | --- |
-|  1. maszyna wirtualna z publicznym adresem IP (z Azure Load Balancer lub bez niej) | Reportcy adresów sieciowych, nie użyto zamaskowanego portu | TCP, UDP, ICMP, ESP | Platforma Azure używa publicznego adresu IP przypisanego do konfiguracji protokołu IP karty sieciowej wystąpienia dla wszystkich przepływów wychodzących. Dla tego wystąpienia są dostępne wszystkie porty tymczasowe. Nie ma znaczenia, czy maszyna wirtualna ma Równoważenie obciążenia, czy nie. Ten scenariusz ma pierwszeństwo przed innymi. Publiczny adres IP przypisany do maszyny wirtualnej jest relacją 1:1 (a nie 1: wiele) i zaimplementowaną jako bezstanowe urządzenie NAT 1:1. |
-| 2. publiczne Load Balancer skojarzone z maszyną wirtualną (brak publicznego adresu IP na maszynie wirtualnej/wystąpieniu) | Reportcy adresów sieciowych z użyciem zamaskowanego portu przy użyciu Load Balancer frontonów | TCP, UDP | W tym scenariuszu zasób Load Balancer musi być skonfigurowany za pomocą reguły modułu równoważenia obciążenia, aby utworzyć łącze między publicznym serwerem frontonu IP a pulą zaplecza. Jeśli ta konfiguracja reguły nie zostanie ukończona, zachowanie jest zgodne z opisem w scenariuszu 3. Aby sonda kondycji zakończyła się powodzeniem, nie trzeba mieć działającego odbiornika w puli zaplecza. Gdy maszyna wirtualna tworzy przepływ wychodzący, platforma Azure tłumaczy prywatny adres IP przepływu wychodzącego na publiczny adres IP publicznego frontonu Load Balancerego za pośrednictwem protokołu resourceer. Tymczasowe porty dla publicznego adresu IP frontonu modułu równoważenia obciążenia są używane do rozróżniania poszczególnych przepływów pochodzących z maszyny wirtualnej. W przypadku tworzenia przepływów ruchu wychodzącego w ramach strumienia danych dynamicznie [przydzielono wstępnie przydzieloną porty](#preallocatedports) tymczasowe. W tym kontekście porty, które są używane do przystawcy adresów sieciowych, są nazywane portami. Porty przydziałów adresów sieciowych są wstępnie przydzielonymi zgodnie z opisem w [tabeli domyślnych przyznanych portów](#snatporttable). |
-| 3. maszyna wirtualna (bez Load Balancer, brak publicznego adresu IP) lub maszyna wirtualna skojarzona z podstawowym Load Balancer wewnętrznym | Reportcy adresów sieciowych z zamaskowanem portów | TCP, UDP | Gdy maszyna wirtualna tworzy przepływ wychodzący, platforma Azure tłumaczy prywatny adres IP przepływu wychodzącego na publiczny źródłowy adres IP. Ten publiczny adres IP **nie jest konfigurowalny**, nie można go zarezerwować i nie jest uwzględniany w limicie limitu zasobów publicznego adresu IP subskrypcji. Po ponownym wdrożeniu maszyny wirtualnej lub zestawu dostępności lub zestawu skalowania maszyn wirtualnych ten publiczny adres IP zostanie wyznaczony i będzie wymagany nowy publiczny adres IP. Nie należy używać tego scenariusza dla listy dozwolonych adresów IP. Zamiast tego należy użyć scenariusza 1 lub 2, gdzie jawnie deklaruje zachowanie wychodzące. Porty przydziałów adresów sieciowych są wstępnie przydzielonymi zgodnie z opisem w [tabeli domyślnych przyznanych portów](#snatporttable).
+- Jeśli rozmiar puli zaplecza obniży się i przechodzi do niższej warstwy, zwiększa się liczba [dostępnych portów](#snat) . Nie ma to wpływu na [istniejące porty i](#snat) ich odpowiednie przepływy.
 
 ## <a name="outbound-rules"></a><a name="outboundrules"></a>Reguły ruchu wychodzącego
 
- Reguły ruchu wychodzącego ułatwiają konfigurowanie wychodzącej translacji adresów sieciowych [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md)publicznej.  Masz pełną kontrolę deklaratywną nad łącznością wychodzącą w celu skalowania i dostrajania tej możliwości do konkretnych potrzeb. W tej sekcji opisano scenariusz 2 (B) opisany powyżej.
+ Reguły ruchu wychodzącego umożliwiają konfigurację wychodzącej translacji adresów sieciowych publicznego [modułu równoważenia obciążenia](load-balancer-standard-overview.md).  
 
-![Load Balancer reguły ruchu wychodzącego](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
+> [!NOTE]
+> **Usługa Azure Virtual Network translator adresów sieciowych** może zapewnić łączność wychodzącą dla maszyn wirtualnych w sieci wirtualnej.  Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Virtual Network translator adresów sieciowych?](../virtual-network/nat-overview.md)
 
-Korzystając z reguł ruchu wychodzącego, można definiować wychodzące NAT od podstaw za pomocą Load Balancer. Możesz również skalować i dostrajać zachowanie istniejącego wychodzącego translatora adresów sieciowych.
+Masz pełną kontrolę deklaratywną nad łącznością wychodzącą, która umożliwia skalowanie i dostosowanie tej możliwości do Twoich potrzeb. Ta sekcja rozwija scenariusz 2, jak opisano powyżej.
+
+![Reguły ruchu wychodzącego modułu równoważenia obciążenia](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
+
+Przy użyciu reguł ruchu wychodzącego można użyć modułu równoważenia obciążenia, aby zdefiniować wychodzące NAT od podstaw. Możesz również skalować i dostrajać zachowanie istniejącego wychodzącego translatora adresów sieciowych.
 
 Reguły ruchu wychodzącego umożliwiają sterowanie:
 
-- które maszyny wirtualne powinny być tłumaczone na które publiczne adresy IP.
-- sposób przydzielenia portów wychodzącego ruchu źródłowego.
-- protokoły, dla których ma zostać przewidziane tłumaczenie wychodzące.
-- czas trwania okresu bezczynności połączenia wychodzącego (4-120 minut).
+- Które maszyny wirtualne powinny być tłumaczone na które publiczne adresy IP.
+- Jak należy określić porty wychodzącego ruchu [źródłowego](#snat) .
+- Protokoły, dla których ma zostać przewidziane tłumaczenie wychodzące.
+- Czas trwania okresu bezczynności połączenia wychodzącego (4-120 minut).
 - Czy należy wysyłać Resetowanie protokołu TCP po upływie limitu czasu bezczynności
-- protokoły transportowe TCP i UDP z pojedynczą regułą
+- Protokoły transportowe TCP i UDP z pojedynczą regułą
 
 ### <a name="outbound-rule-definition"></a>Definicja reguły ruchu wychodzącego
 
-Podobnie jak w przypadku wszystkich reguł Load Balancer, reguły wychodzące mają taką samą znaną składnię jak równoważenie **frontend**obciążenia i reguły NAT dla ruchu przychodzącego:  +  **parameters**  +  **Pula zaplecza**parametrów frontonu. Reguła ruchu wychodzącego konfiguruje wychodzące NAT dla _wszystkich maszyn wirtualnych identyfikowanych przez pulę zaplecza_ , które mają zostać przetłumaczone na _fronton_.  _Parametry_ zapewniają dodatkową kontrolę nad algorytmem NAT dla ruchu wychodzącego.
+Reguły ruchu wychodzącego są zgodne z tą samą znajomą składnią jak **frontend**Równoważenie obciążenia i reguły NAT dla ruchu przychodzącego:  +  **parameters**  +  **baza danych**frontonu. Reguła ruchu wychodzącego konfiguruje wychodzące NAT dla _wszystkich maszyn wirtualnych identyfikowanych przez pulę zaplecza_ , które mają zostać przetłumaczone na _fronton_.  _Parametry_ zapewniają dodatkową kontrolę nad algorytmem NAT dla ruchu wychodzącego.
 
 ### <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a> Skalowanie ruchu wychodzącego NAT z wieloma adresami IP
 
-Każdy dodatkowy adres IP dostarczony przez fronton zapewnia dodatkowe 64 000 Load Balancer portów tymczasowych, które mają być używane jako porty IP. Można użyć wielu adresów IP do zaplanowania scenariuszy o dużej skali i można użyć reguł ruchu wychodzącego, aby wyeliminować wzorce podatności na ruch [wydechowy](troubleshoot-outbound-connection.md#snatexhaust) .  
+Każdy dodatkowy adres IP dostarczony przez fronton oferuje dodatkowe 64 000 portów tymczasowych dla modułu równoważenia obciążenia, które mogą być używane jako porty protokołu źródłowego. 
 
-Można również użyć [publicznego prefiksu adresu IP](https://aka.ms/lbpublicipprefix) bezpośrednio z regułą wychodzącą.  Używanie publicznego prefiksu adresu IP zapewnia łatwiejsze skalowanie i uproszczone Wyświetlanie listy przepływów pochodzących ze wdrożenia platformy Azure. Konfigurację adresu IP frontonu można skonfigurować w ramach zasobu Load Balancer, aby odwoływać się bezpośrednio do prefiksu publicznego adresu IP.  Pozwala to Load Balancer wyłącznej kontroli nad publicznym prefiksem adresu IP, a reguła wychodząca automatycznie będzie używać wszystkich publicznych adresów IP zawartych w publicznym prefiksie adresu IP dla połączeń wychodzących.  Każdy adres IP w ramach publicznego prefiksu IP zapewnia dodatkowe 64 000 portów tymczasowych dla każdego adresu IP, aby Load Balancer używać jako portów protokołu reportowego.
+Użyj wielu adresów IP do zaplanowania scenariuszy o dużej skali. Użyj reguł ruchu wychodzącego, aby ograniczyć [wyczerpanie adresów](troubleshoot-outbound-connection.md#snatexhaust). 
+
+Można również użyć [publicznego prefiksu adresu IP](https://aka.ms/lbpublicipprefix) bezpośrednio z regułą wychodzącą. 
+
+Publiczny prefiks adresu IP zwiększa skalowanie wdrożenia. Prefiks można dodać do listy dozwolonych przepływów pochodzących z zasobów platformy Azure. Konfigurację adresu IP frontonu można skonfigurować w ramach modułu równoważenia obciążenia, aby odwoływać się do prefiksu publicznego adresu IP.  
+
+Moduł równoważenia obciążenia ma kontrolę nad publicznym prefiksem adresu IP. Reguła ruchu wychodzącego automatycznie będzie używać wszystkich publicznych adresów IP zawartych w publicznym prefiksie adresu IP dla połączeń wychodzących. 
+
+Każdy adres IP w ramach publicznego prefiksu IP zapewnia dodatkowe 64 000 portów tymczasowych na adres IP dla usługi równoważenia obciążenia, które mają być używane jako porty protokołu źródłowego.
 
 ### <a name="outbound-flow-idle-timeout-and-tcp-reset"></a><a name="idletimeout"></a> Limit czasu bezczynności przepływu ruchu wychodzącego i Resetowanie protokołu TCP
 
-Reguły ruchu wychodzącego zapewniają parametr konfiguracji służący do kontrolowania limitu czasu bezczynności przepływu wychodzącego i dopasowania go do potrzeb aplikacji. Domyślnie wychodzące limity czasu bezczynności to 4 minuty. Możesz dowiedzieć się, jak [skonfigurować limity czasu bezczynności](load-balancer-tcp-idle-timeout.md#tcp-idle-timeout). Domyślnym zachowaniem Load Balancer jest odrzucanie przepływu w trybie dyskretnym, gdy osiągnięto limit czasu bezczynności wychodzący.  Za pomocą `enableTCPReset` parametru można włączyć bardziej przewidywalne zachowanie aplikacji i kontrolować, czy należy wysyłać dwukierunkowe Resetowanie protokołu TCP (TCP RST) w czasie poza limit czasu bezczynności ruchu wychodzącego. Przejrzyj informacje [o limicie czasu bezczynności na potrzeby resetowania protokołu TCP](https://aka.ms/lbtcpreset) , co obejmuje dostępność regionów.
+Reguły ruchu wychodzącego zapewniają parametr konfiguracji służący do kontrolowania limitu czasu bezczynności przepływu wychodzącego i dopasowania go do potrzeb aplikacji. Domyślnie wychodzące limity czasu bezczynności to 4 minuty. Aby uzyskać więcej informacji, zobacz [Konfigurowanie limitów czasu bezczynności](load-balancer-tcp-idle-timeout.md#tcp-idle-timeout). 
+
+Domyślnym zachowaniem usługi równoważenia obciążenia jest odrzucanie przepływu w trybie dyskretnym, gdy osiągnięto limit czasu bezczynności dla ruchu wychodzącego. `enableTCPReset`Parametr umożliwia przewidywalną kontrolę i zachowanie aplikacji. Parametr określa, czy należy wysyłać dwukierunkowe Resetowanie TCP (TCP RST) przy limicie czasu limitu czasu bezczynności ruchu wychodzącego. 
+
+Przejrzyj informacje [o limicie czasu bezczynności na potrzeby resetowania protokołu TCP](https://aka.ms/lbtcpreset) , co obejmuje dostępność regionów.
 
 ### <a name="preventing-outbound-connectivity"></a><a name="preventoutbound"></a>Zapobieganie łączności wychodzącej
 
-Reguły równoważenia obciążenia zapewniają automatyczne Programowanie dla wychodzącego translatora adresów sieciowych. Jednak niektóre scenariusze mogą korzystać z funkcji automatycznego programowania wychodzącego NAT przez regułę równoważenia obciążenia, co pozwala na kontrolowanie lub Uściślanie zachowania.  
+Reguły równoważenia obciążenia zapewniają automatyczne Programowanie dla wychodzącego translatora adresów sieciowych. Niektóre scenariusze korzyści lub wymagają wyłączenia automatycznego programowania wychodzącego NAT przez regułę równoważenia obciążenia. Wyłączenie za pośrednictwem reguły pozwala kontrolować lub ograniczać zachowanie.  
+
 Tego parametru można użyć na dwa sposoby:
 
-1. Opcjonalne pomijanie przy użyciu przychodzącego adresu IP dla wychodzącego elementu Reloader poprzez wyłączenie wychodzącego przystawcy dla reguły równoważenia obciążenia
+1. Zapobieganie przychodzącemu adresowi IP dla wychodzącego odruchu. Wyłącz wychodzący magazyn danych w regule równoważenia obciążenia.
   
-2. Dostosuj parametry wychodzącego ruchu źródłowego dla adresu IP używanego do ruchu przychodzącego i wychodzącego jednocześnie.  Automatyczne wychodzące programowanie NAT musi być wyłączone, aby zezwolić regule wychodzącej na przejęcie kontroli.  Na przykład w celu zmiany alokacji portu podrzędnego adresu reportowego używany również dla ruchu przychodzącego `disableOutboundSnat` parametr musi być ustawiony na wartość true.  Jeśli podjęto próbę użycia reguły wychodzącej w celu ponownego zdefiniowania parametrów adresu IP używanego do obsługi ruchu przychodzącego i nie wydano wychodzącego programowania NAT dla reguły równoważenia obciążenia, operacja konfigurowania reguły wychodzącej zakończy się niepowodzeniem.
+2. Dostosuj parametry wychodzącego ruchu [źródłowego](#snat) dla adresu IP używanego do ruchu przychodzącego i wychodzącego jednocześnie. Automatyczne wychodzące NAT musi być wyłączone, aby zezwolić regule wychodzącej na przejęcie kontroli. Aby zmienić przydzieloną portów adresów sieciowych dla ruchu przychodzącego, `disableOutboundSnat` należy także ustawić wartość true dla parametru. 
+
+Operacja konfigurowania reguły wychodzącej zakończy się niepowodzeniem w przypadku próby ponownego zdefiniowania adresu IP używanego do obsługi ruchu przychodzącego.  Najpierw wyłącz wychodzące NAT reguły równoważenia obciążenia.
 
 >[!IMPORTANT]
 > Jeśli ustawisz ten parametr na wartość true, maszyna wirtualna nie będzie mogła mieć łączności wychodzącej, aby zdefiniować łączność wychodzącą.  Niektóre operacje związane z maszyną wirtualną lub aplikacją mogą zależeć od dostępnego połączenia wychodzącego. Zadbaj o to, aby zrozumieć zależności danego scenariusza i wziąć pod uwagę wpływ wprowadzania tej zmiany.
 
-Czasami jest niepożądane, aby maszyna wirtualna mogła utworzyć przepływ wychodzący. Może być również wymagane, aby można było zarządzać miejscami docelowymi z przepływami wychodzącymi lub które mogą zaczynać przepływy przychodzące. W takim przypadku można użyć [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md) do zarządzania miejscami docelowymi, do których maszyna wirtualna może uzyskać dostęp. Można również użyć sieciowych grup zabezpieczeń do zarządzania tym, które publiczne miejsce docelowe może inicjować przepływy przychodzące.
+Czasami jest niepożądane, aby maszyna wirtualna mogła utworzyć przepływ wychodzący. Może istnieć wymóg, aby zarządzać miejscem, w którym znajdują się przepływy wychodzące, lub które miejsca docelowe zaczynają przepływy przychodzące. Użyj [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md) , aby zarządzać miejscami docelowymi, do których dojdzie maszyna wirtualna. Użyj sieciowych grup zabezpieczeń, aby zarządzać, które publiczne miejsca docelowe zaczynają przepływy przychodzące.
 
-Po zastosowaniu sieciowej grupy zabezpieczeń do maszyny wirtualnej z równoważeniem obciążenia należy zwrócić uwagę na [Tagi usługi](../virtual-network/security-overview.md#service-tags) i [domyślne reguły zabezpieczeń](../virtual-network/security-overview.md#default-security-rules). Musisz się upewnić, że maszyna wirtualna może odbierać żądania sondowania kondycji z Azure Load Balancer.
+Po zastosowaniu sieciowej grupy zabezpieczeń do maszyny wirtualnej z równoważeniem obciążenia należy zwrócić uwagę na [Tagi usługi](../virtual-network/security-overview.md#service-tags) i [domyślne reguły zabezpieczeń](../virtual-network/security-overview.md#default-security-rules). Upewnij się, że maszyna wirtualna może odbierać żądania sondowania kondycji z Azure Load Balancer.
 
 Jeśli sieciowej grupy zabezpieczeń blokuje żądania sondy kondycji z domyślnego tagu AZURE_LOADBALANCER, sonda kondycji maszyny wirtualnej kończy się niepowodzeniem, a maszyna wirtualna jest oznaczona jako wyłączona. Load Balancer przestaje wysyłać Nowe przepływy do tej maszyny wirtualnej.
 
 ## <a name="scenarios-with-outbound-rules"></a>Scenariusze z regułami ruchu wychodzącego
 
-| # | Scenariusz| Szczegóły|
-|---|---|---|
-| I | Oczyść połączenia wychodzące do określonego zestawu publicznych adresów IP| Możesz użyć reguły ruchu wychodzącego, aby przetworzyć połączenia wychodzące w taki sposób, aby były wyświetlane z określonego zestawu publicznych adresów IP w celu ułatwienia listy dozwolonych scenariuszy.  Ten źródłowy publiczny adres IP może być taki sam, jak używany przez regułę równoważenia obciążenia lub inny zestaw publicznych adresów IP, niż jest używany przez regułę równoważenia obciążenia.  1. Utwórz [publiczny prefiks adresu IP](https://aka.ms/lbpublicipprefix) (lub publiczne adresy IP z prefiksu publicznego adresu IP) 2. Utwórz publiczną usługa Load Balancer w warstwie Standardowa 3. Utwórz frontony odwołujące się do publicznego prefiksu IP (lub publicznych adresów IP), których chcesz użyć 4. Użyj ponownie puli zaplecza lub Utwórz pulę zaplecza i umieść maszyny wirtualne w puli zaplecza Load Balancer publicznej 5. Skonfiguruj regułę ruchu wychodzącego na Load Balancer publicznej, aby zaprogramować wychodzącą translację NAT dla tych maszyn wirtualnych przy użyciu frontonów. Jeśli nie chcesz, aby reguła równoważenia obciążenia była używana dla ruchu wychodzącego, należy wyłączyć wychodzące elementu reźródłowego dla reguły równoważenia obciążenia.
-| II | Modyfikuj przydział portu dla współdzielonego| Korzystając z reguł ruchu wychodzącego, można dostroić [automatyczną alokację portu z użyciem puli zaplecza](load-balancer-outbound-connections.md#preallocatedports). Na przykład jeśli masz dwie maszyny wirtualne, które współużytkują jeden publiczny adres IP dla wychodzącego translatora adresów sieciowych, możesz zwiększyć liczbę portów przyznanych z domyślnych portów 1024, jeśli występuje wyczerpanie. Każdy publiczny adres IP może współtworzyć maksymalnie 64 000 portów tymczasowych.  W przypadku skonfigurowania reguły wychodzącej z jednym frontonem publicznego adresu IP można rozpowszechnić łącznie 64 000 portów do maszyn wirtualnych w puli zaplecza.  W przypadku dwóch maszyn wirtualnych maksymalnie 32 000 portów przydziałów adresów sieciowych można przydzielyć za pomocą reguły ruchu wychodzącego (2x 32 000 = 64 000). Za pomocą reguł ruchu wychodzącego można dostroić porty przydzielone domyślnie. Przydzieli się więcej lub mniej niż domyślna alokacja portu przydziałów adresów sieciowych. Każdy publiczny adres IP ze wszystkich frontonów reguły wychodzącej współużytkuje do 64 000 tymczasowych portów do użycia jako porty protokołu reportowego.  Load Balancer przydziela porty przystawek adresów sieciowych w wielokrotnościach 8. Jeśli podano wartość, która nie jest podzielna przez 8, operacja konfiguracji zostanie odrzucona.  Jeśli podjęto próbę przydzielenia większej liczby portów ze standardem adresów IP, które są dostępne w oparciu o liczbę publicznych adresów, operacja konfiguracji zostanie odrzucona.  Na przykład w przypadku przydzielenia 10 000 portów na maszynę wirtualną i 7 maszyn wirtualnych w puli zaplecza współużytkują jeden publiczny 64 000 > 10 000 adres IP  Aby włączyć ten scenariusz, można dodać więcej publicznych adresów IP do frontonu reguły ruchu wychodzącego. Można przywrócić [domyślną alokację portu na podstawie rozmiaru puli zaplecza](load-balancer-outbound-connections.md#preallocatedports) , określając 0 dla liczby portów. W takim przypadku pierwsze wystąpienia maszyn wirtualnych 50 będą mieć 1024 portów, a 51-100 wystąpienia maszyn wirtualnych otrzymają 512 i tak dalej, zgodnie z [tabelą](#snatporttable).|
-| IV| Włącz tylko wychodzące | Aby zapewnić wychodzące NAT dla grupy maszyn wirtualnych, można użyć usługa Load Balancer w warstwie Standardowa publicznej. W tym scenariuszu można użyć reguły wychodzącej sama przez siebie bez potrzeby stosowania dodatkowych reguł.|
-| V | Wychodzące NAT tylko dla maszyn wirtualnych (bez ruchu przychodzącego) | Zdefiniuj usługa Load Balancer w warstwie Standardowa publiczny, umieść maszyny wirtualne w puli zaplecza i skonfiguruj regułę ruchu wychodzącego w celu zaprogramowania wychodzących NAT i oczyść połączenia wychodzące z określonego publicznego adresu IP. Możesz również użyć publicznego prefiksu IP Uprość białe, aby wyświetlić listę źródeł połączeń wychodzących. 1. Utwórz publiczną usługa Load Balancer w warstwie Standardowa. 2. Utwórz pulę zaplecza i umieść maszyny wirtualne w puli zaplecza Load Balancer publicznej. 3. Skonfiguruj regułę ruchu wychodzącego na Load Balancer publicznej w celu zaprogramowania wychodzącego translatora adresów sieciowych dla tych maszyn wirtualnych.
-| V| Wychodzące translatory adresów sieciowych dla wewnętrznych scenariuszy usługa Load Balancer w warstwie Standardowa| W przypadku korzystania z usługa Load Balancer w warstwie Standardowa wewnętrznego, wychodzący NAT nie jest dostępny do momentu jawnego zadeklarowania łączności wychodzącej. Możesz zdefiniować łączność wychodzącą przy użyciu reguły wychodzącej, aby utworzyć łączność wychodzącą dla maszyn wirtualnych za wewnętrzną usługa Load Balancer w warstwie Standardowa, wykonując następujące kroki: 1. Utwórz publiczną usługa Load Balancer w warstwie Standardowa. 2. Utwórz pulę zaplecza i umieść maszyny wirtualne w puli zaplecza Load Balancer publicznej oprócz wewnętrznego Load Balancer. 3. Skonfiguruj regułę ruchu wychodzącego na Load Balancer publicznej w celu zaprogramowania wychodzącego translatora adresów sieciowych dla tych maszyn wirtualnych. Więcej informacji o tym scenariuszu można znaleźć w [tym przykładzie](https://docs.microsoft.com/azure/load-balancer/egress-only). |
-| VI | Włącz protokoły UDP & protokołu TCP dla ruchu wychodzącego NAT z usługa Load Balancer w warstwie Standardowa publiczny | W przypadku korzystania z usługa Load Balancer w warstwie Standardowa publicznego automatyczne wychodzące programowanie NAT jest zgodne z protokołem transportu reguły równoważenia obciążenia. 1. Wyłącz przychodzący magazyn danych w regule równoważenia obciążenia. 2. Skonfiguruj regułę wychodzącą na tym samym Load Balancer. 3. Ponownie Użyj puli zaplecza już używanej przez maszyny wirtualne. 4. Określ "Protokół": "All" jako część reguły ruchu wychodzącego. Gdy są używane tylko reguły NAT dla ruchu przychodzącego, nie jest dostarczany wychodzący translator adresów sieciowych. 1. Umieść maszyny wirtualne w puli zaplecza. 2. Zdefiniuj co najmniej jedną konfigurację adresu IP frontonu z publicznymi adresami IP lub publicznym prefiksem adresu IP 3. Skonfiguruj regułę wychodzącą na tym samym Load Balancer. 4. Określ "Protocol": "All" jako część reguły ruchu wychodzącego |
+### <a name="outbound-rules-scenarios"></a>Scenariusze reguł ruchu wychodzącego
 
+* [Scenariusz 1](#scenario1out) — Konfigurowanie połączeń wychodzących do określonego zestawu publicznych adresów IP lub prefiksu.
+* [Scenariusz 2](#scenario2out) — modyfikowanie alokacji portów podrzędnego kodu [źródłowego](#snat) .
+* [Scenariusz 3](#scenario3out) — Włącz tylko wychodzące.
+* [Scenariusz 4](#scenario4out) — wychodzące NAT dla maszyn wirtualnych (bez ruchu przychodzącego).
+* [Scenariusz 5](#scenario5out) — wychodzące NAT dla wewnętrznego modułu równoważenia obciążenia.
+* [Scenariusz 6](#scenario6out) — włączenie protokołów UDP & TCP dla ruchu wychodzącego NAT za pomocą publicznego standardowego modułu równoważenia obciążenia.
+
+### <a name="scenario-1"></a><a name="scenario1out"></a>Scenariusz 1
+
+| Scenariusz |
+| -------- |
+| Konfigurowanie połączeń wychodzących do określonego zestawu publicznych adresów IP lub prefiksu|
+
+#### <a name="details"></a>Szczegóły
+
+Ten scenariusz służy do dostosowywania połączeń wychodzących, które pochodzą z zestawu publicznych adresów IP. Dodaj publiczne adresy IP lub prefiksy do listy dozwolonych lub zablokowanych w oparciu o pochodzenie.
+
+Ten publiczny adres IP lub prefiks może być taki sam, jak używany przez regułę równoważenia obciążenia. 
+
+Aby użyć innego publicznego adresu IP lub prefiksu niż używany przez regułę równoważenia obciążenia:  
+
+1. Utwórz publiczny prefiks adresu IP lub publiczny adres IP.
+2. Tworzenie publicznego, standardowego modułu równoważenia obciążenia 
+3. Utwórz fronton odwołujący się do publicznego prefiksu adresu IP lub publicznego adresu IP, którego chcesz użyć. 
+4. Ponowne użycie puli zaplecza lub utworzenie puli zaplecza i umieszczenie maszyn wirtualnych w puli zaplecza publicznego modułu równoważenia obciążenia
+5. Skonfiguruj regułę ruchu wychodzącego w publicznym module równoważenia obciążenia, aby włączyć wychodzące NAT dla maszyn wirtualnych przy użyciu frontonu. Jeśli nie chcesz, aby reguła równoważenia obciążenia była używana dla ruchu wychodzącego, wyłącz wychodzący program do odczytu z reguły równoważenia obciążenia.
+
+### <a name="scenario-2"></a><a name="scenario2out"></a>Scenariusz 2
+
+| Scenariusz |
+| -------- |
+| Modyfikuj [przydział](#snat) portu dla współdzielonego |
+
+#### <a name="details"></a>Szczegóły
+
+Korzystając z reguł ruchu wychodzącego, można dostroić [automatyczną alokację portu z użyciem puli zaplecza](load-balancer-outbound-connections.md#preallocatedports). 
+
+Jeśli masz problemy z wyczerpaniem, Zwiększ liczbę portów przyciągania [adresów sieciowych](#snat) z uwzględnieniem wartości domyślnej 1024. 
+
+Każdy publiczny adres IP współtworzy do 64 000 portów tymczasowych. Liczba maszyn wirtualnych w puli zaplecza określa liczbę portów dystrybuowanych do każdej maszyny wirtualnej. Jedna maszyna wirtualna w puli zaplecza ma dostęp do maksymalnie 64 000 portów. Dla dwóch maszyn wirtualnych można uzyskać [maksymalnie 32 000 portów](#snat) z użyciem reguły ruchu wychodzącego (2x 32 000 = 64 000). 
+
+Korzystając z reguł ruchu wychodzącego, można dostrajać porty przydzielone domyślnie. Przydajesz więcej lub mniej niż jest to domyślna alokacja portu przydziałów [adresów sieciowych](#snat) . Każdy publiczny adres IP z frontonu reguły wychodzącej współużytkuje do 64 000 portów tymczasowych na potrzeby używania [jako portów](#snat) protokołu reportowego.  
+
+Moduł równoważenia obciążenia oferuje porty podzbiorów [adresów](#snat) w wielokrotnościach 8. Jeśli podano wartość, która nie jest podzielna przez 8, operacja konfiguracji zostanie odrzucona. 
+
+Jeśli podjęto próbę przyznania [więcej portów](#snat) protokołu reportowego, niż jest dostępne w oparciu o liczbę publicznych adresów IP, operacja konfiguracji zostanie odrzucona.
+
+W przypadku nadania 10 000 portów na maszynę wirtualną i siedmiu maszyn wirtualnych w puli zaplecza mają jeden publiczny adres IP, konfiguracja zostanie odrzucona. Siedem pomnożone przez 10 000 przekracza limit portów 64 000. Dodaj więcej publicznych adresów IP do frontonu reguły ruchu wychodzącego, aby włączyć scenariusz. 
+
+Przywróć [domyślną alokację portu](load-balancer-outbound-connections.md#preallocatedports) , określając wartość 0 dla liczby portów. Pierwsze wystąpienie maszyny wirtualnej 50 spowoduje uzyskanie portów 1024 51-100, a w przypadku wystąpienia maszyn wirtualnych zostanie 512 wyświetlonych co najwyżej Maksymalna liczba wystąpień.  Aby uzyskać więcej informacji na temat domyślnej alokacji portów podrzędnego adresów sieciowych, zobacz [powyżej](#snatporttable).
+
+### <a name="scenario-3"></a><a name="scenario3out"></a>Scenariusz 3
+
+| Scenariusz |
+| -------- |
+| Włącz tylko wychodzące |
+
+#### <a name="details"></a>Szczegóły
+
+Możesz użyć publicznego, standardowego modułu równoważenia obciążenia, aby zapewnić wychodzące NAT dla grupy maszyn wirtualnych. W tym scenariuszu należy użyć reguły ruchu wychodzącego, bez konieczności stosowania dodatkowych reguł.
+
+> [!NOTE]
+> **Usługa Azure Virtual Network translator adresów sieciowych** może zapewnić łączność wychodzącą dla maszyn wirtualnych bez potrzeby modułu równoważenia obciążenia.  Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Virtual Network translator adresów sieciowych?](../virtual-network/nat-overview.md)
+
+### <a name="scenario-4"></a><a name="scenario4out"></a>Scenariusz 4
+
+| Scenariusz |
+| -------- |
+| Wychodzące NAT tylko dla maszyn wirtualnych (bez ruchu przychodzącego) |
+
+> [!NOTE]
+> **Usługa Azure Virtual Network translator adresów sieciowych** może zapewnić łączność wychodzącą dla maszyn wirtualnych bez potrzeby modułu równoważenia obciążenia.  Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Virtual Network translator adresów sieciowych?](../virtual-network/nat-overview.md)
+
+#### <a name="details"></a>Szczegóły
+
+W tym scenariuszu:
+
+1. Utwórz publiczny adres IP lub prefiks.
+2. Utwórz publiczny standardowy moduł równoważenia obciążenia. 
+3. Utwórz fronton związany z publicznym adresem IP lub prefiksem dedykowanym dla ruchu wychodzącego.
+4. Utwórz pulę zaplecza dla maszyn wirtualnych.
+5. Umieść maszyny wirtualne w puli zaplecza.
+6. Skonfiguruj regułę ruchu wychodzącego, aby włączyć wychodzące NAT.
+
+Użyj prefiksu lub publicznego adresu IP do [skalowania](#snat) portów. Dodaj źródło połączeń wychodzących do listy dozwolonych lub zablokowanych.
+
+### <a name="scenario-5"></a><a name="scenario5out"></a>Scenariusz 5
+
+| Scenariusz |
+| -------- |
+| Wychodzące NAT dla wewnętrznej usługi równoważenia obciążenia w warstwie Standardowa |
+
+> [!NOTE]
+> **Usługa Azure Virtual Network translator adresów sieciowych** może zapewnić łączność wychodzącą dla maszyn wirtualnych korzystających z wewnętrznego, standardowego modułu równoważenia obciążenia.  Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Virtual Network translator adresów sieciowych?](../virtual-network/nat-overview.md)
+
+#### <a name="details"></a>Szczegóły
+
+Łączność wychodząca jest niedostępna dla wewnętrznego modułu równoważenia obciążenia, dopóki nie zostanie jawnie zadeklarowana. 
+
+Aby uzyskać więcej informacji, zobacz [Konfiguracja modułu równoważenia obciążenia tylko dla ruchu wychodzącego](https://docs.microsoft.com/azure/load-balancer/egress-only).
+
+
+### <a name="scenario-6"></a><a name="scenario6out"></a>Scenariusz 6
+
+| Scenariusz |
+| -------- |
+| Włącz protokoły UDP & protokołu TCP dla ruchu wychodzącego NAT z publicznym standardowym modułem równoważenia obciążenia |
+
+#### <a name="details"></a>Szczegóły
+
+W przypadku korzystania z publicznej standardowej usługi równoważenia obciążenia usługa automatycznego wychodzącego NAT jest zgodna z protokołem transportu reguły równoważenia obciążenia. 
+
+1. Wyłącz [przychodzący](#snat) magazyn danych w regule równoważenia obciążenia. 
+2. Skonfiguruj regułę ruchu wychodzącego w tym samym module równoważenia obciążenia.
+3. Ponownie Użyj puli zaplecza już używanej przez maszyny wirtualne. 
+4. Określ "Protokół": "All" jako część reguły ruchu wychodzącego. 
+
+Gdy są używane tylko reguły NAT dla ruchu przychodzącego, nie jest dostarczany wychodzący translator adresów sieciowych. 
+
+1. Umieść maszyny wirtualne w puli zaplecza.
+2. Zdefiniuj co najmniej jedną konfigurację adresu IP frontonu z publicznymi adresami IP lub prefiksem publicznego adresu IP 
+3. Skonfiguruj regułę ruchu wychodzącego w tym samym module równoważenia obciążenia. 
+4. Określ "Protocol": "All" jako część reguły ruchu wychodzącego
+
+## <a name="terminology"></a><a name="terms"></a> Terminologia
+
+### <a name="source-network-address-translation"></a><a name="snat"></a>Translacja adresów sieci źródłowej
+
+| Odpowiednie protokoły |
+|------------------------|
+| TCP </br> UDP          |
+
+#### <a name="details"></a>Szczegóły
+
+Wdrożenie na platformie Azure może komunikować się z punktami końcowymi poza platformą Azure w publicznej przestrzeni adresów IP.
+
+Gdy wystąpienie uruchamia ruch wychodzący do miejsca docelowego z publicznym adresem IP, platforma Azure dynamicznie mapuje prywatny adres IP zasobu na publiczny adres IP. 
+
+Po utworzeniu tego mapowania ruch powrotny dla tego wychodzącego przepływu zostanie osiągnięty jako prywatny adres IP, z którego pochodzi przepływ. 
+
+Platforma Azure używa **translatora adresów sieciowych** w celu wykonania tej funkcji.
+
+### <a name="port-masquerading-snat-pat"></a><a name="pat"></a>Przymaskowany port do podszywającego się
+
+| Odpowiednie protokoły |
+|------------------------|
+| TCP </br> UDP          |
+
+#### <a name="details"></a>Szczegóły
+
+Gdy prywatne adresy IP znajdują się za pojedynczym publicznym adresem, platforma Azure korzysta z **translacji adresów portu (** w celu ukrycia prywatnych adresów IP). 
+
+Porty tymczasowe są używane na potrzeby usługi i są [wstępnie przydzieloną](#preallocatedports) na podstawie rozmiaru puli. 
+
+Gdy publiczny moduł równoważenia obciążenia jest skojarzony z maszynami wirtualnymi bez publicznych adresów IP, każde źródło połączenia wychodzącego jest ponownie zapisywane. 
+
+Źródło jest ponownie zapisywane z prywatnego adresu IP sieci wirtualnej do publicznego adresu IP frontonu modułu równoważenia obciążenia. 
+
+W publicznej przestrzeni adresów IP pięć krotek poniższego przepływu musi być unikatowa:
+
+* Źródłowy adres IP
+* Port źródłowy
+* Protokół transportu IP
+* Docelowy adres IP
+* Port docelowy 
+
+Za pomocą protokołów TCP lub UDP może być używany podszywający się port. Porty protokołu Resources są używane po przepisaniu prywatnego źródła adresu IP, ponieważ wiele przepływów pochodzi z jednego publicznego adresu IP. Algorytm podszywający się pod względem portów nie jest różny dla połączeń UDP i TCP.
+
+### <a name="snat-ports-tcp"></a>Porty protokołu źródłowego (TCP)
+
+| Odpowiednie protokoły |
+|------------------------|
+| TCP |
+
+#### <a name="details"></a>Szczegóły
+
+Porty IP to tymczasowe porty dostępne dla publicznego adresu IP. Jeden port strumienia adresów sieciowych jest używany w przepływie na pojedynczy docelowy adres IP i port. 
+
+W przypadku wielu przepływów TCP na ten sam docelowy adres IP, port i protokół każdy przepływ TCP zużywa pojedynczy port. 
+
+To zużycie gwarantuje, że przepływy są unikatowe, gdy pochodzą z tego samego publicznego adresu IP i podróżują do:
+
+* Ten sam docelowy adres IP
+* Port
+* Protokół 
+
+Wiele przepływów współużytkuje jeden port. 
+
+Docelowy adres IP, port i protokół sprawiają, że przepływy są unikatowe bez konieczności stosowania dodatkowych portów źródłowych do rozróżnienia przepływów w publicznej przestrzeni adresów IP.
+
+
+### <a name="snat-ports-udp"></a>Porty protokołu źródłowego (UDP)
+
+| Odpowiednie protokoły |
+|------------------------|
+| UDP |
+
+#### <a name="details"></a>Szczegóły
+
+Porty przyłączone do protokołu UDP są zarządzane przez inny algorytm niż porty protokołu podlegającego TCP.  Moduł równoważenia obciążenia używa algorytmu o nazwie port z ograniczeniami NAT dla protokołu UDP.
+
+Jeden port źródłowego adresu IP jest używany dla każdego docelowego i każdego z portów.
+
+
+### <a name="exhaustion"></a><a name="exhaustion"></a>Wyczerpania
+
+| Odpowiednie protokoły |
+|------------------------|
+| Nie dotyczy |
+
+#### <a name="details"></a>Szczegóły
+
+W przypadku wyczerpania zasobów portów współdziałania przepływy wychodzące kończą się niepowodzeniem, dopóki istniejące przepływy nie zwolnią portów. Moduł równoważenia obciążenia odzyskuje porty dla translatora adresów sieciowych podczas zamykania przepływu.
+
+[Limit czasu bezczynności](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) wynoszący 4 minuty jest używany przez moduł równoważenia obciążenia do odzyskiwania portów protokołu reportowego.
+
+Porty protokołu przesyłania adresów sieciowych UDP zwykle są znacznie szybsze niż porty protokołu przesyłania adresów sieciowych TCP ze względu na różnice w używanym algorytmie. Testowanie projektu i skalowania z powodu tej różnicy.
+
+### <a name="snat-port-release-behavior-tcp"></a>Zachowanie wersji portu protokołu reportowego (TCP)
+
+| Odpowiednie protokoły |
+|------------------------|
+| TCP |
+
+#### <a name="details"></a>Szczegóły
+
+Gdy serwer lub klient wysyła FINACK, port dla tego elementu jest wydawany po 240 sekund. W przypadku zdarzenia o parametrze RST zostanie wystawiony port dla tego elementu po upływie 15 sekund. Jeśli limit czasu bezczynności został osiągnięty, port zostanie wystawiony.
+
+### <a name="snat-port-release-behavior-udp"></a>Zachowanie wersji portu protokołu reportowego (UDP)
+
+| Odpowiednie protokoły |
+|------------------------|
+| TCP |
+
+#### <a name="details"></a>Szczegóły
+
+Po osiągnięciu limitu czasu bezczynności port zostanie wystawiony.
+
+### <a name="snat-port-reuse"></a>Ponowne użycie portu dla translatora adresów sieciowych
+
+| Odpowiednie protokoły |
+|------------------------|
+| TCP </br> UDP |
+
+#### <a name="details"></a>Szczegóły
+
+Gdy port zostanie wystawiony, port jest dostępny do ponownego użycia. Porty usługi reportowe są sekwencją od najniższego do najwyższego dostępnego dla danego scenariusza, a pierwszy dostępny port jest używany dla nowych połączeń.
 
 ## <a name="limitations"></a>Ograniczenia
 
 - Maksymalna liczba użytecznych portów tymczasowych na adres IP frontonu to 64 000.
 - Zakres konfigurowalnego limitu czasu bezczynności wynosi od 4 do 120 minut (240 do 7200 sekund).
-- Load Balancer nie obsługuje protokołu ICMP dla wychodzącego translatora adresów sieciowych.
+- Moduł równoważenia obciążenia nie obsługuje protokołu ICMP dla wychodzącego translatora adresów sieciowych.
 - Reguły ruchu wychodzącego mogą być stosowane tylko do podstawowej konfiguracji adresu IP karty sieciowej.  Nie można utworzyć reguły ruchu wychodzącego dla pomocniczego adresu IP maszyny wirtualnej lub urządzenie WUS. Obsługiwane są wiele kart sieciowych.
-- Role procesów roboczych sieci Web bez sieci wirtualnej i innych usług platformy firmy Microsoft mogą być dostępne, gdy jest używany tylko wewnętrzny usługa Load Balancer w warstwie Standardowa ze względu na efekt uboczny od sposobu, w jaki działają usługi frontonu i inne usługi platformy. Nie należy polegać na tym efekcie ubocznym, ponieważ sama sama usługa lub bazowa platforma mogą ulec zmianie bez powiadomienia. Zawsze należy założyć, że konieczne jest utworzenie połączenia wychodzącego jawnie, jeśli jest to potrzebne, przy użyciu tylko wewnętrznego usługa Load Balancer w warstwie Standardowa. Scenariusz 3 opisany w tym artykule nie jest dostępny.
+- Role procesów roboczych sieci Web bez sieci wirtualnej i innych usług platformy firmy Microsoft mogą być dostępne, gdy jest używany wewnętrzny standardowy moduł równoważenia obciążenia. Ten dostęp jest spowodowany skutkami ubocznymi działania usług przedsieci VNet i innych usług platformy. Nie należy polegać na tym efekcie ubocznym, ponieważ odpowiednia sama usługa lub bazowa platforma mogą ulec zmianie bez powiadomienia. Zawsze zakładaj, że musisz utworzyć łączność wychodzącą jawnie, jeśli potrzebujesz, gdy używasz tylko wewnętrznego modułu równoważenia obciążenia. Scenariusz 3 opisany w tym artykule nie jest dostępny.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [usłudze Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md).
+Jeśli występują problemy z łącznością wychodzącą za pośrednictwem Azure Load Balancer, zobacz [Przewodnik rozwiązywania problemów dla połączeń wychodzących](../load-balancer/troubleshoot-outbound-connection.md).
+
+- Dowiedz się więcej na temat usługi [równoważenia obciążenia w warstwie Standardowa](load-balancer-standard-overview.md).
 - Zapoznaj się z [często zadawanymi pytaniami dotyczącymi Azure Load Balancer](load-balancer-faqs.md).
-- Dowiedz się więcej o [regułach ruchu wychodzącego](load-balancer-outbound-rules-overview.md) dla standardowej Load Balancer publicznej.
-- Dowiedz się więcej o [Load Balancer](load-balancer-overview.md).
-- Dowiedz się więcej na temat [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md).
-- Poznaj inne kluczowe [możliwości sieciowe](../networking/networking-overview.md) na platformie Azure.
+- Dowiedz się więcej o [regułach ruchu wychodzącego](load-balancer-outbound-rules-overview.md) dla standardowego publicznego modułu równoważenia obciążenia.
+

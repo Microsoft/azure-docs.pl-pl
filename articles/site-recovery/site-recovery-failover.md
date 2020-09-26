@@ -4,12 +4,12 @@ description: Jak przenieść maszyny wirtualne/serwery fizyczne do trybu failove
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 481e7c692be24bbebd14584f8158740a5b7043ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317892"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Przechodzenie w tryb failover z lokacji lokalnej do platformy Azure
 
@@ -46,7 +46,7 @@ Uruchom tryb failover planu odzyskiwania w następujący sposób:
 1. W magazynie Site Recovery wybierz pozycję **plany odzyskiwania**  >  *recoveryplan_name*.
 2. Kliknij pozycję **tryb failover**.
 
-    ![Zrzut ekranu przedstawia okienko ADRP z trybem failover wybranym z menu więcej.](./media/site-recovery-failover/Failover.png)
+    ![Zrzut ekranu z Azure Site Recovery wyświetlenia okienka ADRP z trybem failover wybranym z menu więcej.](./media/site-recovery-failover/Failover.png)
 
 3. W polu kierunek pracy awaryjnej **trybu**failover  >  **Failover direction**pozostaw wartość domyślną, jeśli wykonujesz replikację do platformy Azure.
 4. W obszarze **tryb failover**wybierz **punkt odzyskiwania** , do którego ma zostać przełączona praca awaryjna.
@@ -81,7 +81,7 @@ Można uruchomić planowane przejście w tryb failover dla maszyn wirtualnych fu
 
 Istnieje wiele zadań skojarzonych z trybem failover.
 
-![Tryb failover](./media/site-recovery-failover/FailoverJob.png)
+![Zrzut ekranu przedstawiający stronę zadań z listą zadań z grupą 1: Start (1) rozwiniętą w kolumnie Nazwa. Wiersz zadania programu SQLServer zostanie wyróżniony.](./media/site-recovery-failover/FailoverJob.png)
 
 - **Sprawdzanie wymagań wstępnych**: zapewnia spełnienie wszystkich warunków wymaganych do przejścia w tryb failover.
 - **Tryb failover**: przetwarza dane, aby można było z niej utworzyć maszynę wirtualną platformy Azure. W przypadku wybrania **najnowszego** punktu odzyskiwania punkt odzyskiwania jest tworzony na podstawie danych, które zostały wysłane do usługi.

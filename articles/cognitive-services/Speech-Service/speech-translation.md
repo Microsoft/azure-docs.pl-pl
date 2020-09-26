@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Tłumaczenie mowy
-ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e4bc2f07fce3917bfa59f79305498bb91889344d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401218"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359804"
 ---
 # <a name="what-is-speech-translation"></a>Co to jest tłumaczenie mowy?
 
@@ -63,5 +63,5 @@ Jeśli Twoje aplikacje, narzędzia lub produkty używają [interfejs API tłumac
 ## <a name="next-steps"></a>Następne kroki
 
 * Ukończ Tłumaczenie mowy — [Szybki Start](get-started-speech-translation.md)
-* [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](get-started.md)
+* [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](overview.md#try-the-speech-service-for-free)
 * [Pobieranie zestawu Speech SDK](speech-sdk.md)

@@ -1,6 +1,6 @@
 ---
 title: Rozszerzenia i funkcje maszyny wirtualnej platformy Azure dla systemu Linux
-description: Dowiedz się, jakie rozszerzenia są dostępne dla usługi Azure Virtual Machines, pogrupowane według ich udostępniania lub usprawnienia.
+description: Dowiedz się, jakie rozszerzenia są dostępne dla usługi Azure Virtual Machines w systemie Linux, pogrupowane według ich udostępniania lub usprawnienia.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: bc29a62f469b0b9d091fcdef2488afba764a09fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b61bbacf889df23455266fb81124e14ef44388d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080356"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336126"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Linux
 
@@ -105,7 +105,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Rozszerzenia maszyn wirtualnych można stosować do istniejącej maszyny wirtualnej za pomocą Azure Portal. Wybierz maszynę wirtualną w portalu, wybierz pozycję **rozszerzenia**, a następnie wybierz pozycję **Dodaj**. Wybierz odpowiednie rozszerzenie z listy dostępnych rozszerzeń i postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze.
 
@@ -231,7 +231,7 @@ Wydawcy udostępniają aktualizacje regionom w różnym czasie, więc możliwe j
 
 #### <a name="agent-updates"></a>Aktualizacje agenta
 
-Agent maszyny wirtualnej systemu Linux zawiera kod *agenta aprowizacji* i *kod obsługi rozszerzenia* w jednym pakiecie, którego nie można oddzielić. *Agenta aprowizacji* można wyłączyć, jeśli chcesz zainicjować obsługę administracyjną na platformie Azure przy użyciu funkcji Cloud-init. Aby to zrobić, zobacz [using Cloud-init](../linux/using-cloud-init.md).
+Agent maszyny wirtualnej systemu Linux zawiera kod *agenta aprowizacji* i *kod obsługi rozszerzenia*  w jednym pakiecie, którego nie można oddzielić. *Agenta aprowizacji* można wyłączyć, jeśli chcesz zainicjować obsługę administracyjną na platformie Azure przy użyciu funkcji Cloud-init. Aby to zrobić, zobacz [using Cloud-init](../linux/using-cloud-init.md).
 
 Obsługiwane wersje agentów mogą korzystać z funkcji aktualizacji automatycznych. Jedyny kod, który można zaktualizować, to *kod obsługi rozszerzenia*, a nie kod aprowizacji. *Kod agenta aprowizacji* jest uruchamiany jednokrotnie.
 

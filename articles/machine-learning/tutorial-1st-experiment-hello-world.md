@@ -1,7 +1,7 @@
 ---
-title: 'Samouczek: uruchamianie skryptu Python "Hello world"'
+title: 'Samouczek: uruchamianie "Hello World!" Skrypt języka Python'
 titleSuffix: Azure Machine Learning
-description: Część 2 serii Rozpoczynanie pracy z usługą Azure ML pokazuje, jak przesłać prosty skrypt języka Python "Hello World" do chmury.
+description: Część 2 szeregu Azure Machine Learning Get-Started pokazuje, jak przesłać prosty "Hello World!" Skrypt języka Python do chmury.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,39 +11,38 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 52a9932db4fc261b8f3d740a316af3e852559a32
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 980347c658c65a0c08dfc50c08f50741fb9a00fd
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320493"
+ms.locfileid: "91372548"
 ---
-# <a name="tutorial-run-hello-world-python-script-part-2-of-4"></a>Samouczek: uruchamianie skryptu Python "Hello world" (część 2 z 4)
+# <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Samouczek: uruchamianie "Hello World!" Skrypt języka Python (część 2 z 4)
 
-W tym samouczku dowiesz się, jak używać zestawu SDK języka Python Azure Machine Learning do przesyłania i uruchamiania skryptu języka Python "Hello world".
+W ramach tego samouczka nauczysz się używać zestawu SDK Azure Machine Learning dla języka Python do przesyłania i uruchamiania języka Python "Hello World!" napisy.
 
-Ten samouczek jest **drugą częścią serii samouczków z czterema częściami** , w której przedstawiono podstawowe informacje na temat Azure Machine Learning i zakończenia zadań uczenia maszynowego opartych na zadaniach na platformie Azure. Ten samouczek kompiluje pracę wykonaną w [samouczku część 1: Skonfiguruj maszynę lokalną do Azure Machine Learning](
-tutorial-1st-experiment-sdk-setup-local.md).
+Ten samouczek jest *częścią 2 serii samouczków* , w której przedstawiono podstawowe informacje na temat Azure Machine Learning i zakończenia zadań uczenia maszynowego opartych na zadaniach na platformie Azure. W tym samouczku przedstawiono pracę wykonaną w [części 1: Skonfiguruj maszynę lokalną do Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md).
 
-W tym samouczku wykonasz następujące instrukcje:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
-> * Tworzenie i uruchamianie skryptu języka Python "Hello world" lokalnie
-> * Utwórz skrypt kontrolny języka Python, aby przesłać "Hello World" do Azure Machine Learning
-> * Zrozumienie Azure Machine Learning koncepcji w skrypcie kontroli
-> * Prześlij i uruchom "Hello world"
-> * Wyświetlanie danych wyjściowych kodu w chmurze
+> * Utwórz i uruchom "Hello World!" Skrypt języka Python lokalnie.
+> * Utwórz skrypt kontrolny języka Python, aby przesłać "Hello World!" do Azure Machine Learning.
+> * Zapoznaj się z pojęciami Azure Machine Learning w skrypcie kontroli.
+> * Prześlij i uruchom "Hello World!" napisy.
+> * Wyświetlanie danych wyjściowych kodu w chmurze.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Ukończ [część 1 samouczka dotyczącego konfiguracji komputera lokalnego](tutorial-1st-experiment-sdk-setup-local.md) , jeśli nie masz jeszcze obszaru roboczego Azure Machine Learning.
+- Zakończenie [części 1](tutorial-1st-experiment-sdk-setup-local.md) , jeśli nie masz jeszcze obszaru roboczego Azure Machine Learning.
 - Wstępna wiedza dotycząca języka Python i przepływów pracy uczenia maszynowego.
-- Lokalne środowisko programistyczne. Obejmuje to, ale nie jest ograniczony do Visual Studio Code, Jupyter lub platformy PyCharm itd.
-- Python (wersja 3.5-3.7).
+- Lokalne środowisko programistyczne, takie jak Visual Studio Code, Jupyter lub platformy PyCharm itd.
+- Python (wersja 3,5 do 3,7).
 
 ## <a name="create-and-run-a-python-script-locally"></a>Tworzenie i uruchamianie skryptu języka Python lokalnie
 
-Utwórz nowy podkatalog o nazwie `src` w `tutorial` katalogu do przechowywania kodu, który ma być uruchamiany w klastrze obliczeniowym Azure Machine Learning. W `src` podkatalogu Utwórz skrypt języka `hello.py` Python:
+Utwórz nowy podkatalog o nazwie `src` w `tutorial` katalogu do przechowywania kodu, który ma być uruchamiany w klastrze obliczeniowym Azure Machine Learning. W `src` podkatalogu Utwórz `hello.py` skrypt języka Python:
 
 ```python
 # src/hello.py
@@ -64,7 +63,7 @@ tutorial
 
 ### <a name="test-your-script-locally"></a>Lokalne testowanie skryptu
 
-Kod można uruchomić lokalnie, który ma zalety interaktywnego debugowania kodu przy użyciu ulubionego środowiska IDE lub za pośrednictwem terminalu:
+Kod można uruchomić lokalnie, korzystając z ulubionego środowiska IDE lub terminalu. Uruchamianie kodu lokalnie ma zalety interaktywnego debugowania kodu.
 
 ```bash
 cd <path/to/tutorial>
@@ -73,9 +72,9 @@ python ./src/hello.py
 
 ## <a name="create-a-control-script"></a>Utwórz skrypt kontrolny
 
-*Skrypt kontrolny* umożliwia uruchomienie `hello.py` skryptu w chmurze.  Skrypt kontrolny pozwala kontrolować, jak i gdzie jest uruchamiany kod uczenia maszynowego.  
+*Skrypt kontrolny* umożliwia uruchomienie `hello.py` skryptu w chmurze. Skrypt kontrolny służy do kontrolowania sposobu i miejsca uruchomienia kodu uczenia maszynowego.  
 
-W katalogu samouczka Utwórz nowy plik w języku Python o nazwie `03-run-hello.py` i Skopiuj poniższy kod do tego pliku:
+W katalogu samouczka Utwórz nowy plik w języku Python o nazwie `03-run-hello.py` i skopiuj/wklej następujący kod do tego pliku:
 
 ```python
 # tutorial/03-run-hello.py
@@ -116,7 +115,7 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) otacza `hello.py` kod i przekazuje go do obszaru roboczego. Jak sugeruje nazwa, można użyć tej klasy, aby _skonfigurować_ sposób _uruchamiania_ _skryptu_ w Azure Machine Learning. Określa również miejsce docelowe obliczeń, na których będzie wykonywany skrypt.  W tym kodzie obiektem docelowym jest klaster obliczeniowy utworzony w [samouczku Instalatora](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) otacza `hello.py` kod i przekazuje go do obszaru roboczego. Jak sugeruje nazwa, można użyć tej klasy, aby _skonfigurować_ sposób _uruchamiania_ _skryptu_ w Azure Machine Learning. Określa również miejsce docelowe obliczeń, w których będzie wykonywany skrypt. W tym kodzie obiektem docelowym jest klaster obliczeniowy utworzony w [samouczku Instalatora](tutorial-1st-experiment-sdk-setup-local.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -124,7 +123,7 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Przesyła skrypt. To przesyłanie jest nazywane [przebiegiem](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).  Przebieg hermetyzuje pojedyncze wykonanie kodu. Użyj przebiegu, aby monitorować postęp skryptu, przechwycić dane wyjściowe, analizować wyniki, wizualizować metryki i nie tylko.
+       Przesyła skrypt. To przesyłanie jest nazywane [przebiegiem](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true). Przebieg hermetyzuje pojedyncze wykonanie kodu. Użyj przebiegu, aby monitorować postęp skryptu, przechwycić dane wyjściowe, analizować wyniki, wizualizować metryki i nie tylko.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -144,11 +143,11 @@ Uruchom skrypt kontrolny, który z kolei zostanie uruchomiony w `hello.py` klast
 python 03-run-hello.py
 ```
 
-## <a name="monitor-your-code-in-the-cloud-using-studio"></a>Monitoruj kod w chmurze przy użyciu programu Studio
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Monitoruj kod w chmurze za pomocą programu Studio
 
-Dane wyjściowe będą zawierać linki do Azure Machine Learning Studio, które wyglądają następująco: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>` .
+Dane wyjściowe będą zawierać linki do programu Studio, które wyglądają następująco: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>` .
 
-Postępuj zgodnie z linkiem i przejdź do karty dane **wyjściowe i dzienniki** . Można wyświetlić plik `70_driver_log.txt` podobny do tego:
+Postępuj zgodnie z linkiem i przejdź do karty dane **wyjściowe i dzienniki** . Zobaczysz `70_driver_log.txt` plik, który wygląda następująco:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.
@@ -174,11 +173,11 @@ Postępuj zgodnie z linkiem i przejdź do karty dane **wyjściowe i dzienniki** 
 
 W wierszu 8 zobaczysz "Hello World!" rozdzielczości.
 
-`70_driver_log.txt`Plik zawiera standardowe dane wyjściowe z przebiegu. Ten plik może być przydatny podczas debugowania zdalnych przebiegów w chmurze.
+`70_driver_log.txt`Plik zawiera standardowe dane wyjściowe z przebiegu. Ten plik może być przydatny w przypadku debugowania zdalnych przebiegów w chmurze.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono prosty skrypt "Hello World" i uruchomiono go na platformie Azure. Dowiesz się, jak nawiązać połączenie z obszarem roboczym Azure Machine Learning, utworzyć eksperyment i przesłać `hello.py` kod do chmury.
+W tym samouczku utworzysz prostą "Hello World!" skrypt i uruchomiono go na platformie Azure. Dowiesz się, jak nawiązać połączenie z obszarem roboczym Azure Machine Learning, utworzyć eksperyment i przesłać `hello.py` kod do chmury.
 
 W następnym samouczku utworzysz te informacje, uruchamiając coś bardziej interesującego niż `print("Hello world!")` .
 
@@ -186,4 +185,4 @@ W następnym samouczku utworzysz te informacje, uruchamiając coś bardziej inte
 > [Tutorial: Train a model](tutorial-1st-experiment-sdk-train.md) (Samouczek: uczenie modelu)
 
 >[!NOTE] 
-> Jeśli chcesz zakończyć serię samouczków, a nie postępować w następnym kroku, pamiętaj o [oczyszczeniu zasobów](tutorial-1st-experiment-bring-data.md#clean-up-resources)
+> Jeśli chcesz zakończyć serię samouczków, a nie postępować w następnym kroku, pamiętaj, aby [wyczyścić zasoby](tutorial-1st-experiment-bring-data.md#clean-up-resources).

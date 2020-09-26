@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2512602b0c8c00c696253a708af13278bc513a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602068"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258748"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Dostęp warunkowy: aplikacje lub akcje w chmurze
 
@@ -31,9 +31,9 @@ Aplikacje w chmurze lub akcje są kluczowym sygnałem w zasadach dostępu warunk
 
 Wiele z istniejących aplikacji w chmurze firmy Microsoft znajduje się na liście aplikacji, z których można wybierać. 
 
-Administratorzy mogą przypisywać zasady dostępu warunkowego do następujących aplikacji w chmurze firmy Microsoft. Niektóre aplikacje, takie jak pakiet Office 365 (wersja zapoznawcza) i zarządzanie Microsoft Azure obejmują wiele powiązanych aplikacji lub usług podrzędnych. Poniższa lista nie jest wyczerpująca i może ulec zmianie.
+Administratorzy mogą przypisywać zasady dostępu warunkowego do następujących aplikacji w chmurze firmy Microsoft. Niektóre aplikacje, takie jak pakiety Office 365 i zarządzanie Microsoft Azure, obejmują wiele powiązanych aplikacji lub usług podrzędnych. Poniższa lista nie jest wyczerpująca i może ulec zmianie.
 
-- [Office 365 (wersja zapoznawcza)](#office-365-preview)
+- [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
 - [Usługi Azure SQL Database i Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
@@ -67,15 +67,15 @@ Administratorzy mogą przypisywać zasady dostępu warunkowego do następującyc
 - Wirtualna sieć prywatna (VPN)
 - Zaawansowana ochrona przed zagrożeniami w usłudze Windows Defender
 
-### <a name="office-365-preview"></a>Office 365 (wersja zapoznawcza)
+### <a name="office-365"></a>Office 365
 
 Microsoft 365 zapewnia oparte na chmurze usługi do pracy i współpracy, takie jak Exchange, SharePoint i Microsoft Teams. Usługi w chmurze Microsoft 365 są głęboko zintegrowane w celu zapewnienia bezproblemowego i wspólnego środowiska. Ta integracja może spowodować pomyłkę podczas tworzenia zasad, ponieważ niektóre aplikacje, takie jak Microsoft Teams, mają zależności od innych, takich jak SharePoint lub Exchange.
 
-Aplikacja pakietu Office 365 (wersja zapoznawcza) umożliwia wszystkim wszystkim kierowanie tych usług jednocześnie. Zalecamy używanie nowej aplikacji pakietu Office 365 (wersja zapoznawcza), a nie kierowanie poszczególnych aplikacji w chmurze w celu uniknięcia problemów z [zależnościami usług](service-dependencies.md). Kierowanie do tej grupy aplikacji pozwala uniknąć problemów, które mogą wystąpić z powodu niespójnych zasad i zależności.
+Aplikacja pakietu Office 365 umożliwia wszystkim wszystkim kierowanie tych usług jednocześnie. Zalecamy używanie nowej aplikacji pakietu Office 365, a nie kierowanie poszczególnych aplikacji w chmurze, aby uniknąć problemów z [zależnościami usług](service-dependencies.md). Kierowanie do tej grupy aplikacji pozwala uniknąć problemów, które mogą wystąpić z powodu niespójnych zasad i zależności.
 
-Administratorzy mogą zdecydować się na wykluczenie określonych aplikacji z zasad, jeśli chcą, dołączając aplikację Office 365 (wersja zapoznawcza) i wykluczając wybrane aplikacje w ramach zasad.
+Administratorzy mogą zdecydować się na wykluczenie określonych aplikacji z zasad, jeśli chcą, dołączając aplikację Office 365 i wykluczając wybrane aplikacje w ramach zasad.
 
-Najważniejsze aplikacje, które są zawarte w aplikacji klienckiej pakietu Office 365 (wersja zapoznawcza):
+Najważniejsze aplikacje, które są zawarte w aplikacji klienckiej pakietu Office 365:
 
    - Microsoft Flow
    - Microsoft Forms

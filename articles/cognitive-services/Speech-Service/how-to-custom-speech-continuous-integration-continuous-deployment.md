@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 463f5d5360e19fdd7f49139aea4c6dc65baf903c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081191"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357475"
 ---
-# <a name="cicd-for-custom-speech"></a>Ciągłej integracji/ciągłego wdrażania Custom Speech
+# <a name="cicd-for-custom-speech"></a>Ciągła integracja/ciągłe wdrażanie dla usługi Custom Speech
 
 Zaimplementuj zautomatyzowane szkolenia, testowanie i zarządzanie wydaniami, aby umożliwić ciągłe ulepszanie modeli Custom Speech podczas stosowania aktualizacji do szkoleń i testowania danych. Dzięki efektywnej implementacji przepływów pracy ciągłej integracji/ciągłego dostępu można upewnić się, że punkt końcowy najlepszego Custom Speech modelu jest zawsze dostępny.
 
@@ -74,7 +74,7 @@ Większość zespołów wymaga ręcznego przeglądu i procesu zatwierdzania wdro
 Użyj następujących narzędzi dla przepływów pracy usługi CI/CD Automation dla Custom Speech:
 
 - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) do tworzenia uwierzytelniania jednostki usługi platformy Azure, wykonywania zapytań dotyczących subskrypcji platformy Azure i zapisywania wyników testów w obiekcie blob platformy Azure.
-- [Interfejs wiersza polecenia usługi Azure Speech](https://github.com/msimecek/Azure-Speech-CLI) do współpracy z usługą mowy z poziomu wiersza poleceń lub zautomatyzowanego przepływu pracy.
+- [Interfejs wiersza polecenia usługi Azure Speech](spx-overview.md) do współpracy z usługą mowy z poziomu wiersza poleceń lub zautomatyzowanego przepływu pracy.
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>DevOps rozwiązanie do Custom Speech przy użyciu akcji GitHub
 

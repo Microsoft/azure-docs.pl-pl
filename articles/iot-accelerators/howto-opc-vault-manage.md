@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71203655"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281919"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Zarządzanie usługą certyfikatów magazynu OPC
+
+> [!IMPORTANT]
+> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
 
 W tym artykule opisano zadania administracyjne dotyczące usługi zarządzania certyfikatami magazynu OPC na platformie Azure. Zawiera informacje o sposobach odnawiania certyfikatów urzędu certyfikacji wystawcy, jak odnowić listę odwołania certyfikatów (CRL) i sposób udzielania dostępu do użytkowników i odwoływania się do nich.
 
@@ -27,7 +30,7 @@ Po wdrożeniu magazynu OPC należy utworzyć certyfikat głównego urzędu certy
 
 1. Otwórz usługę certyfikatów pod adresem `https://myResourceGroup-app.azurewebsites.net` i zaloguj się.
 2. Przejdź do pozycji **grupy certyfikatów**.
-3. Na liście znajduje się jedna domyślna grupa certyfikatów. Wybierz pozycję **Edytuj**.
+3. Na liście znajduje się jedna domyślna grupa certyfikatów. Kliknij pozycję **Edytuj**.
 4. W obszarze **Edytuj szczegóły grupy certyfikatów**możesz zmodyfikować nazwę podmiotu i okres istnienia urzędu certyfikacji i certyfikatów aplikacji. Temat i okresy istnienia powinny być ustawiane tylko raz przed wystawieniem pierwszego certyfikatu urzędu certyfikacji. Zmiany okresu istnienia podczas operacji mogą spowodować niespójne okresy istnienia wystawionych certyfikatów i list CRL.
 5. Wprowadź prawidłowy temat (na przykład `CN=My CA Root, O=MyCompany, OU=MyDepartment` ).<br>
    > [!IMPORTANT]
@@ -35,7 +38,7 @@ Po wdrożeniu magazynu OPC należy utworzyć certyfikat głównego urzędu certy
 6. Wybierz pozycję **Zapisz**.
 7. Jeśli w tym momencie napotkasz błąd "zabronione", poświadczenia użytkownika nie mają uprawnienia administratora do modyfikowania lub tworzenia nowego certyfikatu głównego. Domyślnie użytkownik, który wdrożył usługę, ma role administratora i podpisywania usługi. Inni użytkownicy muszą zostać dodani do ról osoby zatwierdzającej, składnika zapisywania lub administratora, odpowiednio do rejestracji aplikacji Azure Active Directory (Azure AD).
 8. Wybierz pozycję **szczegóły**. Powinno to spowodować wyświetlenie zaktualizowanych informacji.
-9. Wybierz pozycję **odnów certyfikat urzędu certyfikacji** , aby wystawić certyfikat pierwszego wystawcy urzędu certyfikacji lub odnowić certyfikat wystawcy. Następnie wybierz pozycję **OK**.
+9. Wybierz pozycję **odnów certyfikat urzędu certyfikacji** , aby wystawić certyfikat pierwszego wystawcy urzędu certyfikacji lub odnowić certyfikat wystawcy. Następnie wybierz przycisk **OK**.
 10. Po kilku sekundach zobaczysz **Szczegóły certyfikatu**. Aby pobrać najnowszy certyfikat urzędu certyfikacji i listę CRL na potrzeby dystrybucji do aplikacji OPC UA, wybierz **wystawcę** lub **listę CRL**.
 
 Teraz usługa zarządzania certyfikatami OPC UA jest gotowa do wystawiania certyfikatów dla aplikacji OPC UA.
@@ -63,7 +66,7 @@ Zarządzanie rolami użytkowników dla mikrousługi magazynu OPC w aplikacji Azu
 
 Domyślnie uwierzytelniony użytkownik w dzierżawie może zalogować się w usłudze jako czytelnik. Wyższe role uprzywilejowane wymagają ręcznego zarządzania w Azure Portal lub przy użyciu programu PowerShell.
 
-### <a name="add-user"></a>Dodawanie użytkownika
+### <a name="add-user"></a>Dodaj użytkownika
 
 1. Otwórz witrynę Azure Portal.
 2. Przejdź do pozycji **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**.

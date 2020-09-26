@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 1a517b5eeac12f7d1ff342206300831d7c38ed28
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: f64cad731998fefb2cfa694314e42f0dfb629eb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563407"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322074"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Omówienie lokalnego uwierzytelniania Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure
 
@@ -24,7 +24,7 @@ Jeśli dopiero zaczynasz korzystanie z udziałów plików platformy Azure, zalec
 
 - AD DS tożsamości używanych do Azure Files lokalnego uwierzytelniania AD DS należy synchronizować z usługą Azure AD. Synchronizacja skrótów haseł jest opcjonalna. 
 - Obsługuje udziały plików platformy Azure zarządzane przez Azure File Sync.
-- Obsługuje uwierzytelnianie Kerberos za pomocą usługi AD z szyfrowaniem RC4-HMAC i AES 256. Szyfrowanie AES 128 Kerberos nie jest jeszcze obsługiwane.
+- Obsługuje uwierzytelnianie Kerberos za pomocą usługi AD z szyfrowaniem RC4-HMAC i [AES 256](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). Szyfrowanie AES 128 Kerberos nie jest jeszcze obsługiwane.
 - Obsługuje logowanie jednokrotne.
 - Obsługiwane tylko na klientach z systemem operacyjnym w wersji nowszej niż Windows 7 lub Windows Server 2008 R2.
 - Obsługiwane tylko w przypadku lasu usługi AD, do którego jest zarejestrowana konto magazynu. Można uzyskać dostęp tylko do udziałów plików platformy Azure z poświadczeniami AD DS z pojedynczego lasu. Jeśli potrzebujesz dostępu do udziału plików platformy Azure z innego lasu, upewnij się, że skonfigurowano odpowiednie zaufanie lasu, aby uzyskać szczegółowe informacje, zobacz [często zadawane pytania](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) .

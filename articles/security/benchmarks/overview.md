@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2be5df88a665c800f55f773b2470cc095fa27b2b
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: fb6813875858ab6cc438df5abb78a75391adfeac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058686"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280661"
 ---
-# <a name="overview-of-the-azure-security-benchmark"></a>Omówienie testu porównawczego zabezpieczeń platformy Azure
+# <a name="overview-of-the-azure-security-benchmark-v2"></a>Omówienie testu porównawczego zabezpieczeń platformy Azure (wersja 2)
 
 Produkt Azure Security test (ASB) zawiera najlepsze rozwiązania i zalecenia ułatwiające zwiększenie bezpieczeństwa obciążeń, danych i usług na platformie Azure.
 
@@ -24,6 +24,7 @@ Ten test porównawczy jest częścią zestawu całościowej wskazówki dotycząc
 - **Struktura wdrażania w chmurze** — wskazówki dotyczące zabezpieczeń, w tym [strategia](/azure/cloud-adoption-framework/strategy/define-security-strategy), [role i obowiązki](/azure/cloud-adoption-framework/organize/cloud-security), [najlepsze rozwiązania dotyczące zabezpieczeń i 10 systemu Azure](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)oraz [implementację referencyjną](/azure/cloud-adoption-framework/ready/enterprise-scale/).
 - **Architektura platformy Azure** — wskazówki dotyczące [zabezpieczania obciążeń](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) na platformie Azure.
 - **Najlepsze rozwiązania w zakresie zabezpieczeń firmy Microsoft** — [zalecenia](/security/compass/microsoft-security-compass-introduction) dotyczące przykładów na platformie Azure.
+
  Test porównawczy zabezpieczeń platformy Azure koncentruje się na obszarach formantów skoncentrowanych na chmurze. Te kontrolki są spójne z dobrze znanymi standardami zabezpieczeń, takimi jak te opisane w formantach Center for Internet Security (CIS), wersja 7,1 i National Institute of Standards and Technology (NIST) SP800-53.
 Do testu porównawczego zabezpieczeń platformy Azure należą następujące kontrolki:
 
@@ -52,7 +53,7 @@ Każde zalecenie zawiera następujące informacje:
 - **NIST SP800-53 R4 ID**: kontrolki NIST SP800-53 R4 (umiarkowane), które odpowiadają temu rekomendacji.
 - **Szczegóły**: uzasadnienie zalecenia i linki do wskazówek dotyczących sposobu jego wdrożenia. Jeśli zalecenie jest obsługiwane przez Azure Security Center, te informacje będą również wyświetlane.
 - **Odpowiedzialność**: niezależnie od tego, czy klient, dostawca usług lub obie te osoby są odpowiedzialne za wdrożenie tego zalecenia. Obowiązki związane z zabezpieczeniami są udostępniane w chmurze publicznej. Niektóre funkcje kontroli zabezpieczeń są dostępne tylko dla dostawcy usług w chmurze, dlatego dostawca jest odpowiedzialny za adresowanie. Są to ogólne obserwacje — w przypadku niektórych poszczególnych usług odpowiedzialność będzie różna od tego, co jest wymienione w teście zabezpieczeń platformy Azure. Te różnice opisano w podstawowych zaleceniach dotyczących poszczególnych usług.
-- **Uczestnicy zabezpieczeń klientów**: funkcje zabezpieczeń w organizacji klienta, którzy mogą być odpowiedzialni, zobowiązani lub konsultowane w celu zapewnienia odpowiedniej kontroli. Może się to różnić od organizacji do organizacji, w zależności od struktury organizacji zabezpieczeń firmy oraz ról i obowiązków skonfigurowanych dla zabezpieczeń platformy Azure.
+- **Uczestnicy zabezpieczeń klientów**: [funkcje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security#security-functions) w organizacji klienta, którzy mogą być odpowiedzialni, zobowiązani lub konsultowane w celu zapewnienia odpowiedniej kontroli. Może się to różnić od organizacji do organizacji, w zależności od struktury organizacji zabezpieczeń firmy oraz ról i obowiązków skonfigurowanych dla zabezpieczeń platformy Azure.
 
 > [!NOTE]
 > Mapowania formantów między testami ASB i branżowymi (takimi jak NIST i CIS) wskazują tylko, że konkretna funkcja platformy Azure może być używana do całkowitego lub częściowo rozwiązania wymagania kontroli zdefiniowanego w NIST lub WNP. Należy pamiętać, że taka implementacja nie musi być przetłumaczyć na pełną zgodność odpowiedniej kontroli w WNP lub NIST.

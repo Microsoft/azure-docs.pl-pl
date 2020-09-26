@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
 ms.author: arremana
-ms.openlocfilehash: 079574ab4c5846eae6266d1e13240baf99428a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed355f82b88f460ff4b372484a690f166a15550
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449247"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359515"
 ---
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>Uaktualnij maszynę wirtualną platformy Azure z SLES 12 do SLES 15 SP1
 
@@ -66,11 +66,11 @@ Bieżąca wersja SLES musi mieć wartość SLES 12 SP4 lub 12 SP5, aby można by
 
 6. Przejdź do [Azure Portal](https://portal.azure.com), wybierz maszynę wirtualną, a następnie wybierz pozycję **konsola szeregowa**. Zobaczysz, że system zatrzyma się o "ponownym uruchomieniu systemu". Ten proces powinien trwać około 15-45 minut. W przypadku maszyny wirtualnej 2. generacji może być ona zablokowana na ekranie "ponowne uruchamianie systemu". W takim przypadku poczekaj na 45 minut. Jeśli nadal nie będzie postępować dalej, przejdź do strony **przeglądu** maszyny wirtualnej w Azure Portal, Zatrzymaj maszynę wirtualną, a następnie uruchom ją ponownie.
 
-     ![Zrzut ekranu dotyczący komunikatów w konsoli szeregowej](./media/linux-upgrade-suse-15sp1/reboot-message.png)
+     ![Zrzut ekranu dotyczący komunikatów w konsoli szeregowej.](./media/linux-upgrade-suse-15sp1/reboot-message.png)
 
 8. Po ponownym uruchomieniu systemu przy użyciu nowego jądra zostanie wyświetlony następujący komunikat.
 
-     ![Zrzut ekranu dotyczący komunikatów w konsoli szeregowej](./media/linux-upgrade-suse-15sp1/output-message.png)
+     ![Zrzut ekranu dotyczący komunikatów w konsoli szeregowej po ponownym uruchomieniu systemu przy użyciu nowego jądra.](./media/linux-upgrade-suse-15sp1/output-message.png)
 9. Sprawdź wersję jądra i systemu operacyjnego, aby sprawdzić, czy system został pomyślnie uaktualniony.
 
     ```
@@ -85,4 +85,4 @@ Aby sprawdzić wersję generacji, można użyć jednej z następujących metod:
 - W terminalu SLES Uruchom polecenie `dmidecode | grep -i hyper` . Jeśli jest to maszyna wirtualna z systemem 1. generacji, nie są zwracane żadne dane wyjściowe. W przypadku maszyn wirtualnych generacji v2 zostaną wyświetlone następujące dane wyjściowe:
 
      ![Zrzut ekranu przedstawiający dane wyjściowe dla maszyny wirtualnej generacji 2](./media/linux-upgrade-suse-15sp1/output-gen2.png)
-- W [Azure Portal](https://portal.azure.com)przejdź do **Właściwości** maszyny wirtualnej, a następnie sprawdź pole **generacji maszyny wirtualnej** .
+- W [Azure Portal](https://portal.azure.com)przejdź do **Właściwości**  maszyny wirtualnej, a następnie sprawdź pole **generacji maszyny wirtualnej** .

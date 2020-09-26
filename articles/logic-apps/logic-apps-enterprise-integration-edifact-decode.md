@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: c32b3ee5c4689e960834d543de1ca377e918751d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b36641677dbf36402c7f578b9b1887c52f441afd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82106291"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322482"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Dekodowanie komunikatów EDIFACT dla Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
 
@@ -84,13 +84,13 @@ Oto elementy, których potrzebujesz:
   * Sprawdza numer kontroli zestawu transakcji dla innych numerów kontroli zestawu transakcji w tej grupie.
 * Dzieli wymianę na zestawy transakcji lub zachowuje całą transakcję wymiany:
   * Rozdziel wymianę jako zestawy transakcji — Zawieś zestawy transakcji w przypadku błędu: dzieli wymianę na zestawy transakcji i analizuje poszczególne zestawy transakcji. 
-  Akcja dekodowania X12 wyprowadza tylko te zestawy transakcji, których Walidacja nie powiodła się `badMessages` , i wyprowadza pozostałe zestawy transakcji do `goodMessages` .
+  Akcja dekodowania EDIFACT wyprowadza tylko te zestawy transakcji, których Walidacja nie powiodła się `badMessages` , i wyprowadza pozostałe zestawy transakcji do `goodMessages` .
   * Rozdziel wymianę jako zestawy transakcji — Zawieś wymianę w przypadku błędu: dzieli wymianę na zestawy transakcji i analizuje poszczególne zestawy transakcji. 
-  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania X12 wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages` .
+  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania EDIFACT wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages` .
   * Zachowaj zestawy transakcji zawieszania wymiany w przypadku błędu: Zachowaj wymianę i przetwórz całą partię zbiorczą. 
-  Akcja dekodowania X12 wyprowadza tylko te zestawy transakcji, których Walidacja nie powiodła się `badMessages` , i wyprowadza pozostałe zestawy transakcji do `goodMessages` .
+  Akcja dekodowania EDIFACT wyprowadza tylko te zestawy transakcji, których Walidacja nie powiodła się `badMessages` , i wyprowadza pozostałe zestawy transakcji do `goodMessages` .
   * Zachowaj wymianę — Wstrzymaj wymianę w przypadku błędu: Zachowaj wymianę i przetwórz całą partię zbiorczą. 
-  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania X12 wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages` .
+  Jeśli co najmniej jeden zestaw transakcji w ramach walidacji niepowodzenia wymiany, Akcja dekodowania EDIFACT wyprowadza wszystkie zestawy transakcji w tej wymianie do `badMessages` .
 * Generuje techniczne (kontrolkę) i/lub potwierdzenie funkcjonalności (jeśli są skonfigurowane).
   * Potwierdzenie techniczne lub potwierdzenie CONTRL raportują wyniki sprawdzania składniowego kompletnej otrzymanej wymiany.
   * Potwierdzenie funkcjonalne potwierdza akceptowanie lub odrzucanie odebranej wymiany lub grupy

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c99aa1bdb246d242c4c1cbd33672367b66f923ea
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f2f01e2b58c997db08ad4427de7eef1ee3760c4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229977"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323504"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Konfigurowanie modułu programu PowerShell dla pulpitu wirtualnego systemu Windows
 
@@ -41,7 +41,8 @@ Następnie uruchom następujące polecenie cmdlet, aby nawiązać połączenie z
 Connect-AzAccount
 ```
 
->! WAŻNE Jeśli łączysz się z portalem US Gov, Uruchom to polecenie cmdlet:
+>[!IMPORTANT]
+>Jeśli łączysz się z portalem US Gov, Uruchom to polecenie cmdlet:
 > 
 > ```powershell
 > Connect-AzAccount -EnvironmentName AzureUSGovernment

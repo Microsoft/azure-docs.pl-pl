@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659535"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294872"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiowanie hybrydowej strategii wdrażania tożsamości
 W tym zadaniu zdefiniujemy hybrydową strategię wdrażania tożsamości dla hybrydowego rozwiązania do obsługi tożsamości, aby spełnić wymagania biznesowe omówione w temacie:
@@ -55,7 +55,7 @@ W poniższej tabeli przedstawiono zalety i wady każdej z następujących strate
 | Strategia | Zalety | Wady |
 | --- | --- | --- |
 | **Tożsamości w chmurze** |Łatwiejsze zarządzanie małymi organizacjami. <br> Nie ma nic do zainstalowania w środowisku lokalnym. Nie jest wymagany żaden dodatkowy sprzęt<br>Łatwo wyłączyć, jeśli użytkownik opuści firmę |Użytkownicy będą musieli zalogować się podczas uzyskiwania dostępu do obciążeń w chmurze <br> Hasła mogą lub nie być takie same w przypadku tożsamości w chmurze i lokalnych |
-| **Zsynchronizować** |Hasło lokalne uwierzytelnia zarówno katalogi lokalne, jak i w chmurze <br>Łatwiejsze zarządzanie małymi, średnimi lub dużymi organizacjami <br>Użytkownicy mogą korzystać z logowania jednokrotnego (SSO) dla niektórych zasobów <br> Preferowana metoda firmy Microsoft do synchronizacji <br> Łatwiejsze zarządzanie |Niektórzy klienci mogą być zniechęcić do synchronizowania swoich katalogów z zasadami określonymi przez daną firmę w chmurze |
+| **Zsynchronizować** |Hasło lokalne uwierzytelnia zarówno katalogi lokalne, jak i w chmurze <br>Łatwiejsze zarządzanie małymi, średnimi lub dużymi organizacjami <br>Użytkownicy mogą korzystać z logowania jednokrotnego (SSO) dla niektórych zasobów <br> Preferowana metoda firmy Microsoft do synchronizacji <br> Łatwiejsze zarządzanie |Niektórzy klienci mogą być zniechęcić do synchronizowania swoich katalogów z zasadami obowiązującymi w chmurze dla określonych firm |
 | **Federacyjni** |Użytkownicy mogą mieć Logowanie jednokrotne (SSO) <br>Jeśli użytkownik zostanie przerwany lub opuszcza, konto może zostać natychmiast wyłączone i dostęp zostaje odwołany.<br> Obsługuje zaawansowane scenariusze, które nie mogą być wykonywane z synchronizacją |Więcej kroków konfigurowania i konfigurowania <br> Wyższa konserwacja <br> Może wymagać dodatkowego sprzętu dla infrastruktury STS <br> Może wymagać dodatkowego sprzętu, aby zainstalować serwer federacyjny. Jeśli jest używane AD FS, wymagane jest dodatkowe oprogramowanie <br> Wymagaj rozbudowanej konfiguracji logowania jednokrotnego <br> Krytyczny punkt awarii, jeśli serwer federacyjny nie działa, użytkownicy nie będą mogli się uwierzytelnić |
 
 ### <a name="client-experience"></a>Środowisko pracy klienta
@@ -192,7 +192,7 @@ Mimo że można rozliczyć rozwiązanie dla danej strategii, nadal musisz użyć
 
 | Lokalizacja użytkownika | Preferowana opcja projektowania |
 | --- | --- |
-| Usługa Azure Active Directory |Wiele FactorAuthentication w chmurze |
+| Azure Active Directory |Wiele FactorAuthentication w chmurze |
 | Usługa Azure AD i lokalna usługa AD przy użyciu federacji z usługami AD FS |Oba |
 | Azure AD i lokalna usługa AD przy użyciu Azure AD Connect bez synchronizacji haseł |Oba |
 | Usługa Azure AD i lokalna przy użyciu Azure AD Connect z synchronizacją haseł |Oba |
@@ -213,6 +213,6 @@ Uwierzytelnianie wieloskładnikowe jest domyślnie dostępne dla administratoró
 ## <a name="next-steps"></a>Następne kroki
 [Określanie wymagań dotyczących ochrony danych](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 [Omówienie zagadnień dotyczących projektowania](plan-hybrid-identity-design-considerations-overview.md)
 

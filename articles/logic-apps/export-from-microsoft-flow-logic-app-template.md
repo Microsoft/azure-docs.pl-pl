@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269560"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Eksportowanie przepływów z usługi Power Automate i wdrażanie w usłudze Azure Logic Apps
 
@@ -96,7 +96,7 @@ Aby uzyskać więcej informacji, zobacz [zwiększanie do Azure Logic Apps](https
 
    1. Dla każdego kroku wymagającego autoryzowanego połączenia rozwiń ten krok, a następnie wybierz pozycję **Dodaj nowy**.
 
-      ![Dodaj nowe połączenie](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![Zrzut ekranu pokazujący przycisk "Dodaj nowy" wybrany w oknie "połączenia" programu Outlook.](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. Zaloguj się do każdej usługi lub podaj poświadczenia niezbędne do autoryzowania połączenia.
 

@@ -5,15 +5,15 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 7d1d7f9759fc8e2826da6232981eb3a389576c07
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: b0957219308dfaab2d375fb7c23926a13c745344
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937245"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314678"
 ---
-# <a name="monitor-metrics-azure-database-for-postgresql---flexible-server"></a>Monitorowanie metryk Azure Database for PostgreSQL — elastyczny serwer
+# <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Monitorowanie metryk na serwerze elastycznym Azure Database for PostgreSQL
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL — serwer elastyczny jest w wersji zapoznawczej
@@ -29,6 +29,7 @@ Następujące metryki są dostępne dla PostgreSQL elastyczny serwer:
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Opis|
 |---|---|---|---|
+| active_connections | Aktywne połączenia | Liczba | Liczba połączeń z serwerem. | 
 | backup_storage_used | Używany magazyn kopii zapasowych | Bajty | Ilość używanych magazynów kopii zapasowych. Ta Metryka przedstawia sumę magazynu zużywanego przez wszystkie pełne kopie zapasowe bazy danych, różnicowe kopie zapasowe i kopie zapasowe dzienników przechowywane na podstawie okresu przechowywania kopii zapasowej ustawionego dla serwera. Częstotliwość wykonywania kopii zapasowych jest zarządzana przez usługę. W przypadku magazynu geograficznie nadmiarowego użycie magazynu kopii zapasowych jest dwa razy większe niż magazyn lokalnie nadmiarowy. |
 | connections_failed | Połączenia zakończone niepowodzeniem | Liczba | Połączenia zakończone niepowodzeniem. |
 | connections_succeeded | Połączenia zakończone powodzeniem | Liczba | Połączenia zakończone powodzeniem. |

@@ -3,12 +3,12 @@ title: Ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z samouczka dot
 description: W tym samouczku dowiesz się, jak używać usługi Azure Live Video Analytics na Azure IoT Edge, aby ciągle rejestrować wideo w chmurze i przesyłać strumieniowo dowolną część tego filmu wideo przy użyciu Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a5cb857dcd5f457a68b947d2ece5d78c158e78f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566804"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336483"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z chmury
 
@@ -146,7 +146,7 @@ Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzego
     * Analiza wideo na żywo na IoT Edge (Nazwa modułu: **lvaEdge**)
     * Symulator RTSP (Nazwa modułu **rtspsim**)
  
-    ![Usługa IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
+    ![IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
 
 ## <a name="prepare-to-monitor-the-modules"></a>Przygotowanie do monitorowania modułów 
 
@@ -164,7 +164,7 @@ Gdy korzystasz z modułu IoT Edge analizy filmów wideo na żywo, aby nagrać st
 1. W węźle **GraphTopologySet** Edytuj następujące elementy:
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
-1. Następnie w węzłach **GraphInstanceSet** i **GraphTopologyDelete** upewnij się, że wartość **topologyname** pasuje do wartości właściwości **name** w poprzedniej topologii grafu:
+1. Następnie w węźle **GraphInstanceSet** upewnij się, że wartość **topologyname** pasuje do wartości właściwości **name** w poprzedniej topologii wykresu:
 
     `"topologyName" : "CVRToAMSAsset"`  
 1. Otwórz [topologię](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) w przeglądarce i zapoznaj się z tematem assetNamePattern. Aby upewnić się, że masz element zawartości o unikatowej nazwie, możesz chcieć zmienić nazwę wystąpienia grafu w operations.jsw pliku (z wartości domyślnej przykład-Graph-1).

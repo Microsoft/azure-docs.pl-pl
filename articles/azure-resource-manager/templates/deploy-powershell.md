@@ -3,12 +3,12 @@ title: Wdrażanie zasobów przy użyciu programu PowerShell i szablonu
 description: Użyj Azure Resource Manager i Azure PowerShell do wdrożenia zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: ef2ff71430f0dcaca660666bb9a6c015c923da3f
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: e47de54558962215fe3be78f5b9c45c8d46c54a3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372446"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell
 
@@ -124,7 +124,7 @@ Poprzedni przykład wymaga publicznie dostępnego identyfikatora URI dla szablon
 
 ## <a name="deploy-template-spec"></a>Wdróż specyfikację szablonu
 
-Zamiast wdrażać szablon lokalny lub zdalny, można utworzyć [specyfikację szablonu](template-specs.md). Specyfikacja szablonu jest zasobem w subskrypcji platformy Azure, który zawiera szablon ARM. Ułatwia to bezpieczne udostępnianie szablonu użytkownikom w organizacji. Za pomocą kontroli dostępu opartej na rolach (RBAC) można udzielić dostępu do specyfikacji szablonu. Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
+Zamiast wdrażać szablon lokalny lub zdalny, można utworzyć [specyfikację szablonu](template-specs.md). Specyfikacja szablonu jest zasobem w subskrypcji platformy Azure, który zawiera szablon ARM. Ułatwia to bezpieczne udostępnianie szablonu użytkownikom w organizacji. Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można udzielić dostępu do specyfikacji szablonu. Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
 
 W poniższych przykładach pokazano, jak utworzyć i wdrożyć specyfikację szablonu. Te polecenia są dostępne tylko wtedy, gdy [zarejestrowano się w celu uzyskania podglądu](https://aka.ms/templateSpecOnboarding).
 

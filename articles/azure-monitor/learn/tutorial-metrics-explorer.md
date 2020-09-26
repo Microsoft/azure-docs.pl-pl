@@ -1,17 +1,17 @@
 ---
 title: Samouczek — Tworzenie wykresu metryk w Azure Monitor
-description: Dowiedz się, jak utworzyć pierwszy wykres metryki za pomocą Eksploratora metryk platformy Azure.
+description: Dowiedz się, jak utworzyć wykres metryki za pomocą Eksploratora metryk platformy Azure.
 author: bwren
 ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 72f90918afa275e56528016539ecb2eec93d5db0
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 26b155484dafac4a63fe2a6c7ff292ee8bbacbc0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317212"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Samouczek: Tworzenie wykresu metryk w Azure Monitor
 Eksplorator metryk jest funkcją Azure Monitor w Azure Portal, która umożliwia tworzenie wykresów z wartości metryk, wizualnie skorelowanych trendów oraz badanie skoków i wartości w metrykach. Użyj Eksploratora metryk, aby zbadać kondycję i wykorzystanie zasobów platformy Azure lub wykresy z metryk niestandardowych. 

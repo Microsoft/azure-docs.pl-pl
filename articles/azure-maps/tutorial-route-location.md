@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: jak wyświetlać kierunki tras przy użyciu usługi mapy Microsoft Azure Maps i kontroli mapy'
-description: Dowiedz się, jak wyświetlać kierunki tras za pomocą usługi Routes Maps Microsoft Azure map i kontroli mapy.
+title: 'Samouczek: Znajdowanie trasy do lokalizacji | Mapy Microsoft Azure'
+description: Samouczek dotyczący znajdowania trasy do punktu orientacyjnego. Zapoznaj się z tematem Ustawianie współrzędnych adresów i wykonywanie zapytań dotyczących usługi Azure Maps Route w celu uzyskania wskazówek dotyczących punktu.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 35a3f6d1e7894eec9baa4ea5432a8e3fec138a21
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085046"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321717"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Samouczek: jak wyświetlić kierunki tras za pomocą usługi Azure Maps Route i kontrolki mapy
 
@@ -218,7 +218,7 @@ W tej sekcji pokazano, jak za pomocą interfejsu API wskazówek dotyczących tra
 
      :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Kontrolka mapy platformy Azure i usługa Route Service":::
 
-    W [tym miejscu](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)możesz uzyskać pełny kod źródłowy dla przykładu. Przykład na żywo można znaleźć [tutaj](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
+W [tym miejscu](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)możesz uzyskać pełny kod źródłowy dla przykładu. Przykład na żywo można znaleźć [tutaj](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
 ## <a name="next-steps"></a>Następne kroki
 

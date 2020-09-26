@@ -3,14 +3,14 @@ title: Łączenie Azure Functions z usługą Azure Storage przy użyciu Visual S
 description: Dowiedz się, jak połączyć Azure Functions z kolejką usługi Azure Storage, dodając powiązanie danych wyjściowych do projektu Visual Studio Code.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: ee10adea181c187bd630b5d334e4768545f4f6c8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 4f4733a52d1d58cbec4413140a613a93c8074188
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845378"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323433"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Łączenie Azure Functions z usługą Azure Storage przy użyciu Visual Studio Code
 
@@ -199,7 +199,7 @@ Teraz można ponownie opublikować zaktualizowaną aplikację funkcji na platfor
 
 1. Ponownie [Wyświetl komunikat w kolejce magazynu](#examine-the-output-queue) , aby sprawdzić, czy powiązanie danych wyjściowych ponownie generuje nowy komunikat w kolejce.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Na platformie Azure *zasoby* odnoszą się do aplikacji funkcji, funkcji, kont magazynu i tak dalej. Są one pogrupowane w *grupy zasobów*, a wszystkie elementy w grupie można usunąć, usuwając grupę.
 

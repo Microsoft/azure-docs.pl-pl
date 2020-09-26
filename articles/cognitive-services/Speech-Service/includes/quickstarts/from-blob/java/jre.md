@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: trbye
-ms.openlocfilehash: 804cc2213379364002a093509f2393e375c3971b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2a8deaa76c02e86c9304c2221c0617041ae2e138
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376301"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -17,7 +17,7 @@ Przed rozpoczęciem upewnij się, że:
 
 > [!div class="checklist"]
 > * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [Tworzenie zasobu usługi Azure Speech](../../../../get-started.md)
+> * [Tworzenie zasobu usługi Azure Speech](../../../../overview.md#try-the-speech-service-for-free)
 > * [Przekazywanie pliku źródłowego do obiektu blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 
@@ -26,12 +26,12 @@ Przed rozpoczęciem upewnij się, że:
 Pierwszym krokiem jest upewnienie się, że projekt jest otwarty w przezaćmieniu.
 
 1. Uruchamianie programu Eclipse
-2. Załaduj projekt i Otwórz `Main.java`go.
+2. Załaduj projekt i otwórz go `Main.java` .
 
 ## <a name="add-a-reference-to-gson"></a>Dodaj odwołanie do Gson
 W tym przewodniku szybki start będziemy używać zewnętrznego serializatora JSON/deserializacji. W przypadku języka Java została wybrana [Gson](https://github.com/google/gson).
 
-Otwórz plik pliku pom. XML i Dodaj następujące odwołanie.
+Otwórz pom.xml i Dodaj następujące odwołanie.
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
@@ -48,7 +48,7 @@ Dodajmy kod, który działa jako szkielet dla projektu.
 Jako że żądania API REST w formacie JSON i zwracają wyniki w kodzie JSON, możemy z nich korzystać tylko przy użyciu ciągów, ale nie jest to zalecane.
 Aby ułatwić zarządzanie żądaniami i odpowiedziami, deklarujemy kilka klas do użycia na potrzeby serializowania/deserializacji kodu JSON.
 
-Przejdź dalej i umieść ich deklaracje `Main`przed.
+Przejdź dalej i umieść ich deklaracje przed `Main` .
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=15-93)]
 
 ## <a name="create-and-configure-an-http-client"></a>Tworzenie i Konfigurowanie klienta http

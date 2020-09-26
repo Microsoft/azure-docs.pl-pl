@@ -3,12 +3,12 @@ title: Azure Service Bus odzyskiwania po awarii geograficznej | Microsoft Docs
 description: Jak używać regionów geograficznych do przełączania do trybu failover i odzyskiwania po awarii w Azure Service Bus
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372527"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geograficznie — odzyskiwanie po awarii
 
@@ -107,7 +107,7 @@ Jeśli popełniono błąd; na przykład podczas początkowej konfiguracji sparow
 
 Jeśli masz scenariusz, w którym nie można zmienić połączeń producentów i konsumentów, możesz ponownie użyć nazwy przestrzeni nazw jako aliasu. Zapoznaj się z [przykładowym kodem w witrynie GitHub tutaj](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
-## <a name="samples"></a>Samples
+## <a name="samples"></a>Przykłady
 
 [Przykłady w witrynie GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) pokazują, jak skonfigurować i zainicjować tryb failover. Te przykłady przedstawiają następujące koncepcje:
 
@@ -117,7 +117,7 @@ Jeśli masz scenariusz, w którym nie można zmienić połączeń producentów i
 - Kroki umożliwiające Alternatywnie umożliwienie odzyskiwania po awarii geograficznej za pomocą programu PowerShell lub interfejsu wiersza polecenia.
 - [Wyślij i Odbierz](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) z bieżącej podstawowej lub pomocniczej przestrzeni nazw przy użyciu aliasu.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Należy zwrócić uwagę na następujące kwestie, które należy wziąć pod uwagę w tej wersji:
 
@@ -149,7 +149,7 @@ Jeśli spróbujesz utworzyć parowanie między podstawową przestrzenią nazw z 
 > [!NOTE]
 > Podczas próby sparowania podstawowej przestrzeni nazw z prywatnym punktem końcowym i pomocniczą przestrzenią nazw proces sprawdzania poprawności sprawdza tylko, czy prywatny punkt końcowy istnieje w pomocniczej przestrzeni nazw. Nie sprawdza ona, czy punkt końcowy działa lub będzie działać po przejściu do trybu failover. Odpowiedzialność za zapewnienie, że pomocnicza przestrzeń nazw z prywatnym punktem końcowym będzie działała zgodnie z oczekiwaniami po przejściu do trybu failover.
 >
-> Aby sprawdzić, czy konfiguracje prywatnych punktów końcowych są takie same, Wyślij żądanie [Get Queues](/rest/api/servicebus/queues/get) do pomocniczej przestrzeni nazw spoza sieci wirtualnej i sprawdź, czy jest wyświetlany komunikat o błędzie z usługi.
+> Aby sprawdzić, czy konfiguracje prywatnych punktów końcowych są takie same, Wyślij żądanie [Get Queues](/rest/api/servicebus/stable/queues/get) do pomocniczej przestrzeni nazw spoza sieci wirtualnej i sprawdź, czy jest wyświetlany komunikat o błędzie z usługi.
 
 ### <a name="existing-pairings"></a>Istniejące pary
 Jeśli parowanie między podstawową i pomocniczą przestrzenią nazw już istnieje, tworzenie prywatnego punktu końcowego w podstawowej przestrzeni nazw zakończy się niepowodzeniem. Aby rozwiązać ten problem, należy najpierw utworzyć prywatny punkt końcowy w pomocniczej przestrzeni nazw, a następnie utworzyć jeden dla podstawowej przestrzeni nazw.
@@ -168,7 +168,7 @@ Załóżmy, że masz dwie sieci wirtualne: Sieć wirtualna 1, Sieć wirtualna 2 
 ![Prywatne punkty końcowe i sieci wirtualne](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
 
 
-Zaletą tego podejścia jest to, że przełączenie w tryb failover może wystąpić w przypadku warstwy aplikacji niezależnej od Service Bus przestrzeni nazw. Rozważ następujące scenariusze: 
+Zaletą tego podejścia jest to, że przełączenie w tryb failover może wystąpić w przypadku warstwy aplikacji niezależnej od Service Bus przestrzeni nazw. Rozważmy następujące scenariusze: 
 
 **Tryb failover tylko w aplikacji:** W tym miejscu aplikacja nie będzie istnieć w sieci wirtualnej 1, ale przejdzie do sieci VNET-2. Ponieważ zarówno prywatne punkty końcowe są skonfigurowane zarówno w sieci wirtualnej, jak i wirtualnej — 2 dla podstawowych i pomocniczych przestrzeni nazw, aplikacja będzie działać. 
 
@@ -179,7 +179,7 @@ Service Bus przełączenia w **tryb failover tylko dla obszaru nazw**: w tym mie
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [Informacje o interfejsie API REST](/rest/api/servicebus/disasterrecoveryconfigs)odzyskiwania po awarii geograficznej w tym miejscu.
+- Zobacz [Informacje o interfejsie API REST](/rest/api/servicebus/stable/disasterrecoveryconfigs)odzyskiwania po awarii geograficznej w tym miejscu.
 - Uruchom przykład odzyskiwania geograficznego po awarii [w serwisie GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
 - Zobacz przykład odzyskiwania geograficznego po awarii [, który wysyła komunikaty do aliasu](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1).
 

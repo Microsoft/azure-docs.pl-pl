@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: c8868cd6f5c50b84f263155518ee553145afcfa9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a25f28b19e0f00830fd0290ff0296c317b9a5ed9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602420"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371756"
 ---
 **Wolumin zbierania danych i ich przechowywanie** 
 
@@ -70,20 +70,30 @@ Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klie
 
 W przypadku wysyłania danych do obszaru roboczego o współczynniku ilościowym wyższym niż 80% wartości progowej skonfigurowanej w obszarze roboczym, zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. Gdy ilość pozyskiwanych woluminów jest wyższa niż wartość progowa, niektóre dane są porzucane, a zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. W przypadku przekroczenia progu przez okres pozyskiwania lub oczekujesz, że zostanie on wkrótce osiągnięty, możesz poprosić o zwiększenie go, otwierając żądanie pomocy technicznej. 
 
-Aby otrzymywać powiadomienia o approching lub osiągnięciu limitu liczby wolumenów pozyskiwania w Twoim obszarze roboczym, Utwórz [regułę alertu dziennika](../articles/azure-monitor/platform/alerts-log.md) przy użyciu następującego zapytania z podstawą logiki alertu na liczbie wyników w ciągu 5 minut i częstotliwości 5 minut.
+Aby otrzymywać powiadomienia o zbliżaniu się lub osiągnięciu limitu ilości woluminu pozyskiwania w obszarze roboczym, należy utworzyć [regułę alertu dziennika](../articles/azure-monitor/platform/alerts-log.md) przy użyciu następującego zapytania z podstawą logiki alertu na liczbie wyników w ciągu 5 minut i częstotliwości 5 minut.
 
-Współczynnik wolumenu pozyskiwania osiągnął 80% wartości progowej:
+Współczynnik wolumenu pozyskiwania przekroczył próg
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Error"
 ```
 
-Próg ilości woluminu pozyskiwania:
+Współczynnik objętości pozyskiwania przekraczający 80% wartości progowej
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Warning"
+```
+
+Współczynnik objętości pozyskiwania przekraczający 70% wartości progowej
+```Kusto
+Operation
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Info"
 ```
 
 >[!NOTE]

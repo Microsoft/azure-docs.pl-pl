@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: 4b4e454532dec31cbcc92269d63c8be1ff92a9f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 25a50a2841a03929804be45be8012f9b5d0457ff
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247527"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357135"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorowanie i Diagnostyka dla Service Fabric platformy Azure
 
@@ -39,7 +39,7 @@ Service Fabric zapewnia kompleksowy zestaw zdarzeń z pola. Do tych [zdarzeń Se
 
 * EventStore — EventStore to funkcja oferowana przez platformę, która zapewnia Service Fabric zdarzenia platformy dostępne w Service Fabric Explorer i za pomocą interfejsu API REST. Możesz zobaczyć widok migawki tego, co się dzieje w klastrze dla każdej jednostki, na przykład węzeł, usługa, aplikacja i zapytanie na podstawie czasu zdarzenia. Więcej informacji na temat EventStore można także znaleźć na stronie [Przegląd EventStore](service-fabric-diagnostics-eventstore.md).    
 
-![EventStore](media/service-fabric-diagnostics-overview/eventstore.png)
+![Zrzut ekranu przedstawia kartę zdarzenia w okienku węzły kilka zdarzeń, w tym zdarzenia NodeDown.](media/service-fabric-diagnostics-overview/eventstore.png)
 
 Dostarczona Diagnostyka ma postać kompleksowego zestawu zdarzeń z pola. Te [zdarzenia Service Fabric](service-fabric-diagnostics-events.md) ilustrują akcje wykonywane przez platformę w różnych jednostkach, takich jak węzły, aplikacje, usługi, partycje itd. W poprzednim scenariuszu, jeśli węzeł został przeszedł w dół, platforma wyemituje zdarzenie, `NodeDown` a użytkownik może otrzymywać powiadomienia natychmiast za pomocą wybranego przez siebie narzędzia do monitorowania. Inne typowe przykłady obejmują `ApplicationUpgradeRollbackStarted` lub `PartitionReconfigured` podczas pracy w trybie failover. **Te same zdarzenia są dostępne zarówno w klastrach systemu Windows, jak i Linux.**
 

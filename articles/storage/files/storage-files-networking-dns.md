@@ -1,18 +1,18 @@
 ---
 title: Konfigurowanie przekazywania DNS dla Azure Files | Microsoft Docs
-description: Omówienie opcji sieciowych dla Azure Files.
+description: Dowiedz się, jak skonfigurować przekazywanie DNS dla Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6404115e64ba0ac1f65ba1cfc8d26604f1ce9cfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509969"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320272"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurowanie przekazywania DNS dla usługi Azure Files
 Azure Files umożliwia tworzenie prywatnych punktów końcowych dla kont magazynu zawierających udziały plików. Mimo że jest to przydatne w przypadku wielu różnych aplikacji, prywatne punkty końcowe są szczególnie przydatne do łączenia się z udziałami plików platformy Azure z sieci lokalnej przy użyciu połączenia VPN lub ExpressRoute za pomocą komunikacji równorzędnej. 
@@ -151,7 +151,7 @@ Jeśli skonfigurowano już połączenie sieci VPN lub ExpressRoute, można równ
 Test-NetConnection -ComputerName storageaccount.file.core.windows.net -CommonTCPPort SMB
 ```
 
-## <a name="see-also"></a>Zobacz także
-- [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
+## <a name="see-also"></a>Zobacz też
+- [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
 - [Zagadnienia dotyczące sieci Azure Files](storage-files-networking-overview.md)
 - [Konfigurowanie punktów końcowych sieci Azure Files](storage-files-networking-endpoints.md)

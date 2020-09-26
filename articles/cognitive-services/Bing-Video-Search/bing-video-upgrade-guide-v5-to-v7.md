@@ -1,7 +1,7 @@
 ---
 title: Uaktualnij interfejs API wyszukiwania wideo Bing V5 do wersji 7
 titleSuffix: Azure Cognitive Services
-description: Identyfikuje części aplikacji, które należy zaktualizować, aby użyć wersji 7.
+description: Identyfikuje części aplikacji wyszukiwanie wideo Bing, które należy zaktualizować, aby użyć wersji 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5dc4c870ae8dbe9f082456d738836aced1271732
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3f02b671d73f49fd085cf4486e0fe5887e499fcd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68500729"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316600"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Przewodnik uaktualniania wyszukiwanie wideo API
 
 Ten przewodnik uaktualniania identyfikuje zmiany między wersjami 5 i 7 interfejs API wyszukiwania wideo Bing. Skorzystaj z tego przewodnika, aby ułatwić identyfikację części aplikacji, które należy zaktualizować, aby użyć wersji 7.
 
-## <a name="breaking-changes"></a>Fundamentalne zmiany
+## <a name="breaking-changes"></a>Zmiany powodujące niezgodność
 
 ### <a name="endpoints"></a>Punkty końcowe
 
@@ -29,7 +29,7 @@ Ten przewodnik uaktualniania identyfikuje zmiany między wersjami 5 i 7 interfej
 
 ### <a name="error-response-objects-and-error-codes"></a>Obiekty odpowiedzi błędów i kody błędów
 
-- Wszystkie żądania zakończone niepowodzeniem powinny teraz `ErrorResponse` zawierać obiekt w treści odpowiedzi.
+- Wszystkie żądania zakończone niepowodzeniem powinny teraz zawierać `ErrorResponse` obiekt w treści odpowiedzi.
 
 - Dodano następujące pola do `Error` obiektu.  
   - `subCode`&mdash;Dzieli kod błędu do zasobników dyskretnych, o ile to możliwe
@@ -38,12 +38,12 @@ Ten przewodnik uaktualniania identyfikuje zmiany między wersjami 5 i 7 interfej
 
 - Zamieniono kody błędów v5 z następującymi możliwymi `code` wartościami i `subCode` .
 
-|Code|Podkod|Opis
+|Kod|Podkod|Opis
 |-|-|-
 |Błąd servererror|UnexpectedError<br/>ResourceError<br/>Nie zaimplementowano|Bing zwraca błąd servererror w każdym wystąpieniu kodu podrzędnego. Odpowiedź zawiera te błędy, jeśli kod stanu HTTP to 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Zablokowane|Bing zwraca InvalidRequest, gdy jakakolwiek część żądania jest nieprawidłowa. Na przykład brakuje wymaganego parametru lub wartość parametru jest nieprawidłowa.<br/><br/>Jeśli błąd to ParameterMissing lub ParameterInvalidValue, kod stanu HTTP to 400.<br/><br/>Jeśli błąd to HttpNotAllowed, kod stanu HTTP 410.
 |RateLimitExceeded||Bing zwraca RateLimitExceeded za każdym razem, gdy przekroczą limit przydziału zapytań na sekundę (zapytań) lub zapytania miesięcznie (QPM).<br/><br/>Bing zwraca kod stanu HTTP 429 w przypadku przekroczenia zapytań i 403 w przypadku przekroczenia QPM.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing zwraca InvalidAuthorization, gdy Bing nie może uwierzytelnić obiektu wywołującego. Na przykład brakuje `Ocp-Apim-Subscription-Key` nagłówka lub klucz subskrypcji jest nieprawidłowy.<br/><br/>Nadmiarowość występuje, jeśli określono więcej niż jedną metodę uwierzytelniania.<br/><br/>Jeśli błąd to InvalidAuthorization, kod stanu HTTP to 401.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing zwraca InvalidAuthorization, gdy Bing nie może uwierzytelnić obiektu wywołującego. Na przykład `Ocp-Apim-Subscription-Key` brakuje nagłówka lub klucz subskrypcji jest nieprawidłowy.<br/><br/>Nadmiarowość występuje, jeśli określono więcej niż jedną metodę uwierzytelniania.<br/><br/>Jeśli błąd to InvalidAuthorization, kod stanu HTTP to 401.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Usługa Bing zwraca InsufficientAuthorization, gdy obiekt wywołujący nie ma uprawnień dostępu do zasobu. Taka sytuacja może wystąpić, jeśli klucz subskrypcji został wyłączony lub wygasł. <br/><br/>Jeśli błąd to InsufficientAuthorization, kod stanu HTTP to 403.
 
 - Poniżej przedstawiono mapowanie poprzednich kodów błędów do nowych kodów. Jeśli pobrano zależność od kodów błędów w programie V5, zaktualizuj kod odpowiednio.
@@ -55,7 +55,7 @@ RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
 ResourceAccessDenied|InsufficientAuthorization
 ExceededVolume|RateLimitExceeded
 ExceededQpsLimit|RateLimitExceeded
-Disabled (Wyłączony)|InsufficientAuthorization.AuthorizationDisabled
+Disabled|InsufficientAuthorization.AuthorizationDisabled
 UnexpectedError|Błąd servererror. UnexpectedError
 DataSourceErrors|Błąd servererror. ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
@@ -71,11 +71,11 @@ Zablokowane|InvalidRequest. zablokowane
 
 ### <a name="query-parameters"></a>Parametry zapytania
 
-- Nazwa parametru `modulesRequested` zapytania została zmieniona na [moduły](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
+- Nazwa `modulesRequested` parametru zapytania została zmieniona na [moduły](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
 
 ### <a name="object-changes"></a>Zmiany obiektów
 
-- Zmieniono nazwę `nextOffsetAddCount` pola [wideo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) na `nextOffset`. Sposób korzystania z przesunięcia również został zmieniony. Wcześniej należy ustawić parametr zapytania [przesunięcia](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) na `nextOffset` wartość i poprzednią wartość przesunięcia oraz liczbę filmów wideo w wyniku. Teraz możesz po prostu ustawić parametr `offset` zapytania na `nextOffset` wartość.  
+- Zmieniono nazwę `nextOffsetAddCount` pola [wideo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) na `nextOffset` . Sposób korzystania z przesunięcia również został zmieniony. Wcześniej należy ustawić parametr zapytania [przesunięcia](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) na `nextOffset` wartość i poprzednią wartość przesunięcia oraz liczbę filmów wideo w wyniku. Teraz możesz po prostu ustawić `offset` parametr zapytania na `nextOffset` wartość.  
   
-- Zmieniono typ `relatedVideos` danych pola `Video[]` z na [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (zobacz [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).
+- Zmieniono typ danych `relatedVideos` pola z `Video[]` na [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (zobacz [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).
 

@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: d89bc33b0ddd0793a3c55dbd64bef9678bd723e7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9d6592ccfb3ba5236a660d689d8b5d2cd1600c48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920147"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283194"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Samouczek: Konfigurowanie replikacji transakcyjnej między wystąpieniem zarządzanym usługi Azure SQL i SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -85,7 +85,7 @@ Utwórz SQL Server maszynę wirtualną przy użyciu [Azure Portal](https://porta
 - Nazwa: `sql-vm-sub`
 - Obraz: SQL Server 2016 lub większy
 - Grupa zasobów: taka sama jak w przypadku wystąpienia zarządzanego
-- Sieć wirtualna:`sql-vm-sub-vnet`
+- Sieć wirtualna: `sql-vm-sub-vnet`
 
 Aby uzyskać więcej informacji na temat wdrażania SQL Server maszyny wirtualnej na platformie Azure, zobacz [Szybki Start: Tworzenie maszyny wirtualnej SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
@@ -155,7 +155,7 @@ Prywatna strefa DNS umożliwia routing DNS między wystąpieniami zarządzanymi 
 
    ![Utwórz prywatną strefę DNS](./media/replication-two-instances-and-sql-server-configure-tutorial/create-private-dns-zone.png)
 
-1. Wybierz pozycję **Przegląd + utwórz**. Przejrzyj parametry prywatnej strefy DNS, a następnie wybierz pozycję **Utwórz** , aby utworzyć zasób.
+1. Wybierz pozycję **Przeglądanie + tworzenie**. Przejrzyj parametry prywatnej strefy DNS, a następnie wybierz pozycję **Utwórz** , aby utworzyć zasób.
 
 ### <a name="create-an-a-record"></a>Tworzenie rekordu A
 
@@ -184,11 +184,11 @@ Prywatna strefa DNS umożliwia routing DNS między wystąpieniami zarządzanymi 
 
 [Utwórz konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) dla katalogu roboczego, a następnie Utwórz [udział plików](../../storage/files/storage-how-to-create-file-share.md) na koncie magazynu.
 
-Skopiuj ścieżkę udziału plików w formacie:`\\storage-account-name.file.core.windows.net\file-share-name`
+Skopiuj ścieżkę udziału plików w formacie: `\\storage-account-name.file.core.windows.net\file-share-name`
 
 Przykład: `\\replstorage.file.core.windows.net\replshare`
 
-Skopiuj parametry połączenia klucza dostępu do magazynu w formacie:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Skopiuj parametry połączenia klucza dostępu do magazynu w formacie: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
 Przykład: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
@@ -285,12 +285,12 @@ Po skonfigurowaniu dystrybucji możesz teraz utworzyć publikację. Aby to zrobi
 1. Nawiąż połączenie z `sql-mi-publisher` wystąpieniem zarządzanym.
 1. W **Eksplorator obiektów**rozwiń węzeł **replikacja** , a następnie kliknij prawym przyciskiem myszy folder **publikacja lokalna** . Wybierz **nową publikację.**..
 1. Wybierz pozycję **dalej** , aby przejść poza stronę powitalną.
-1. Na stronie **baza danych publikacji** wybierz `ReplTutorial` utworzoną wcześniej bazę danych. Wybierz pozycję **Dalej**.
-1. Na stronie **Typ publikacji** wybierz pozycję **publikacja transakcyjna**. Wybierz pozycję **Dalej**.
-1. Na stronie **artykuły** zaznacz pole wyboru obok pozycji **tabele**. Wybierz pozycję **Dalej**.
+1. Na stronie **baza danych publikacji** wybierz `ReplTutorial` utworzoną wcześniej bazę danych. Wybierz opcję **Dalej**.
+1. Na stronie **Typ publikacji** wybierz pozycję **publikacja transakcyjna**. Wybierz opcję **Dalej**.
+1. Na stronie **artykuły** zaznacz pole wyboru obok pozycji **tabele**. Wybierz opcję **Dalej**.
 1. Na stronie **Filtruj wiersze tabeli** wybierz pozycję **dalej** bez dodawania filtrów.
-1. Na stronie **Agent migawek** zaznacz pole wyboru obok pozycji **Utwórz migawkę natychmiast i Zachowaj dostępność migawki w celu zainicjowania subskrypcji**. Wybierz pozycję **Dalej**.
-1. Na stronie **zabezpieczenia agenta** wybierz pozycję **Ustawienia zabezpieczeń..**.. Podaj poświadczenia logowania SQL Server, które mają być używane dla agenta migawek, i Połącz się z wydawcą. Wybierz **przycisk OK** , aby zamknąć stronę **zabezpieczenia agenta migawek** . Wybierz pozycję **Dalej**.
+1. Na stronie **Agent migawek** zaznacz pole wyboru obok pozycji **Utwórz migawkę natychmiast i Zachowaj dostępność migawki w celu zainicjowania subskrypcji**. Wybierz opcję **Dalej**.
+1. Na stronie **zabezpieczenia agenta** wybierz pozycję **Ustawienia zabezpieczeń..**.. Podaj poświadczenia logowania SQL Server, które mają być używane dla agenta migawek, i Połącz się z wydawcą. Wybierz **przycisk OK** , aby zamknąć stronę **zabezpieczenia agenta migawek** . Wybierz opcję **Dalej**.
 
    ![Konfiguruj zabezpieczenia agenta migawek](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
@@ -377,8 +377,8 @@ Jest to możliwe, ponieważ port 445 jest zamknięty w zaporze platformy Azure, 
 
 Użycie ukośnika zamiast ukośnika odwrotnego w ścieżce pliku dla udziału plików może spowodować wystąpienie tego błędu.
   
-  - Jest to dobry sposób:`\\replstorage.file.core.windows.net\replshare`
-  - Może to spowodować błąd systemu operacyjnego 55:`'\\replstorage.file.core.windows.net/replshare'`
+  - Jest to dobry sposób: `\\replstorage.file.core.windows.net\replshare`
+  - Może to spowodować błąd systemu operacyjnego 55: `'\\replstorage.file.core.windows.net/replshare'`
 
 ### <a name="could-not-connect-to-subscriber"></a>Nie można nawiązać połączenia z subskrybentem
 

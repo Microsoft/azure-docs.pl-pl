@@ -9,14 +9,14 @@ ms.devlang: azurecli
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/16/2019
-ms.openlocfilehash: 965e6fe3546630713f3fee2774c70aebd1ed2ae7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5814bfe3bd6ec2d97a068ea8ce71fa7ffea8ec0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086085"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323587"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Dodawanie Azure SQL Database elastycznej puli do grupy trybu failover przy użyciu interfejsu wiersza polecenia
 
@@ -55,7 +55,7 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Opis |
 |---|---|
 | [AZ SQL Elastic-Pool](/cli/azure/sql/elastic-pool) | Polecenia puli elastycznej. |
-| [AZ SQL failover-Group](/cli/azure/sql/failover-group) | Polecenia grupy trybu failover. |
+| [AZ SQL failover-Group ](/cli/azure/sql/failover-group) | Polecenia grupy trybu failover. |
 
 ## <a name="next-steps"></a>Następne kroki
 

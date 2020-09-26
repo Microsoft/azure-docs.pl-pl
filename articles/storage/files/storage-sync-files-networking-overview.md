@@ -1,18 +1,18 @@
 ---
 title: Zagadnienia dotyczące sieci Azure File Sync | Microsoft Docs
-description: Omówienie opcji sieciowych dla Azure File Sync.
+description: Dowiedz się, jak skonfigurować sieć do korzystania z Azure File Sync w celu buforowania plików w środowisku lokalnym.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: af5561a010ca1c2d45cf10a37a3b302d5e224158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512574"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267792"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Zagadnienia dotyczące sieci Azure File Sync
 Możesz połączyć się z udziałem plików platformy Azure na dwa sposoby:
@@ -142,7 +142,7 @@ TimeToExpiration       : 2419200
 DefaultTTL             : 300
 ```
 
-Jeśli uruchomisz to samo polecenie z lokalnego, zobaczysz, że ta sama nazwa konta magazynu jest rozpoznawana jako publiczny adres IP konta magazynu; `storageaccount.file.core.windows.net`jest rekordem CNAME dla `storageaccount.privatelink.file.core.windows.net` , który z kolei jest rekordem CNAME dla klastra usługi Azure Storage obsługującego konto magazynu:
+Jeśli uruchomisz to samo polecenie z lokalnego, zobaczysz, że ta sama nazwa konta magazynu jest rozpoznawana jako publiczny adres IP konta magazynu; `storageaccount.file.core.windows.net` jest rekordem CNAME dla `storageaccount.privatelink.file.core.windows.net` , który z kolei jest rekordem CNAME dla klastra usługi Azure Storage obsługującego konto magazynu:
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -170,6 +170,6 @@ Połączenia wykonane z agenta Azure File Sync do udziału plików platformy Azu
 
 Aby uzyskać więcej informacji na temat szyfrowania podczas przesyłania, zobacz [wymaganie bezpiecznego transferu w usłudze Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)
-- [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)

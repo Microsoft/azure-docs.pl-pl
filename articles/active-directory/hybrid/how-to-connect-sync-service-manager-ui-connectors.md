@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a013af680ecc84a2a981341ba4bb95148adc799f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357260"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319881"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Używanie łączników z synchronizacją Azure AD Connect Service Manager
 
-![Service Manager synchronizacji](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
+![Zrzut ekranu, który pokazuje Service Manager synchronizacji.](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
 
 Karta łączniki służy do zarządzania wszystkimi systemami, do których jest podłączony aparat synchronizacji.
 
@@ -47,7 +47,7 @@ Karta łączniki służy do zarządzania wszystkimi systemami, do których jest 
 
 ### <a name="delete"></a>Usuń
 Akcja usuwania jest używana dla dwóch różnych rzeczy.  
-![Service Manager synchronizacji](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
+![Zrzut ekranu pokazujący okno "Usuwanie łącznika" z wybraną opcją "Usuń tylko przestrzeń łącznika".](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
 Opcja **Usuń spację łącznika usuwa tylko** wszystkie dane, ale zachowuje konfigurację.
 
@@ -58,17 +58,17 @@ Obie opcje synchronizują wszystkie obiekty i aktualizują obiekty Metaverse. Ta
 ### <a name="configure-run-profiles"></a>Skonfiguruj profile uruchamiania
 Ta opcja umożliwia wyświetlenie profilów uruchamiania skonfigurowanych dla łącznika.
 
-![Service Manager synchronizacji](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
+![Zrzut ekranu pokazujący okno "Konfigurowanie profilów uruchamiania" z wybraną pozycją "import zmian".](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
 
 ### <a name="search-connector-space"></a>Wyszukaj w obszarze łącznika
 Akcja obszaru łącznika wyszukiwania jest przydatna do znajdowania obiektów i rozwiązywania problemów z danymi.
 
-![Service Manager synchronizacji](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
+![Zrzut ekranu przedstawiający okno "obszar łącznika wyszukiwania".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
 Zacznij od wybrania **zakresu**. Można wyszukiwać na podstawie danych (RDN, DN, kotwicy, poddrzewa) lub stanu obiektu (wszystkie inne opcje).  
-![Service Manager synchronizacji](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
+![Zrzut ekranu pokazujący menu rozwijane "zakres".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
 Jeśli na przykład przeszukasz drzewo podrzędne, uzyskasz wszystkie obiekty w jednej jednostce organizacyjnej.  
-![Service Manager synchronizacji](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
+![Zrzut ekranu przedstawiający przykład wyszukiwania "poddrzewo".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Z tej siatki możesz wybrać obiekt, wybrać **Właściwości**i [postępować](tshoot-connect-object-not-syncing.md) od obszaru łącznika źródłowego, za pośrednictwem funkcji Metaverse oraz do docelowego miejsca łącznika.
 
 ### <a name="changing-the-ad-ds-account-password"></a>Zmienianie hasła konta usług AD DS

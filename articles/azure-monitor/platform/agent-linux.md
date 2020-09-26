@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294533"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalowanie agenta Log Analytics na komputerach z systemem Linux
 Ten artykuł zawiera szczegółowe informacje dotyczące instalowania agenta Log Analytics na komputerach z systemem Linux przy użyciu następujących metod:
@@ -102,10 +102,10 @@ Agent Log Analytics dla systemu Linux składa się z wielu pakietów. Plik Relea
 
 **Pakiet** | **Wersja** | **Opis**
 ----------- | ----------- | --------------
-omsagent | 1.12.15 | Agent Log Analytics dla systemu Linux
+omsagent | 1.13.9 | Agent Log Analytics dla systemu Linux
 omsconfig | 1.1.1 | Agent konfiguracji agenta Log Analytics
-OMI | 1.6.3 | Open Management Infrastructure (OMI) — uproszczony serwer modelu wspólnych informacji. *Należy pamiętać, że OMI wymaga dostępu głównego do uruchomienia zadania firmy CRONUS niezbędnego do funkcjonowania usługi*
-SCX | 1.6.3 | OMI dostawców CIM dla metryk wydajności systemu operacyjnego
+OMI | 1.6.4 | Open Management Infrastructure (OMI) — uproszczony serwer modelu wspólnych informacji. *Należy pamiętać, że OMI wymaga dostępu głównego do uruchomienia zadania firmy CRONUS niezbędnego do funkcjonowania usługi*
+SCX | 1.6.4 | OMI dostawców CIM dla metryk wydajności systemu operacyjnego
 Apache-cimprov | 1.0.1 | Dostawca monitorowania wydajności serwera Apache HTTP Server dla OMI. Instalowane tylko w przypadku wykrycia serwera Apache HTTP.
 MySQL — cimprov | 1.0.1 | Dostawca monitorowania wydajności serwera MySQL dla OMI. Zainstalowane tylko w przypadku wykrycia serwera MySQL/MariaDB.
 Docker-cimprov | 1.0.0 | Dostawca platformy Docker dla usługi OMI. Instalowane tylko w przypadku wykrycia platformy Docker.

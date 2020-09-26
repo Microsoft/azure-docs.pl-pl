@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: e75dde14cf7182f5153b3a42b26f1c7e8a4e78ac
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2a251ef426d41413cf81f46ca05b11640f01e87a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258031"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333787"
 ---
 # <a name="azure-media-services-concepts"></a>Koncepcje Azure Media Services
 
@@ -103,12 +103,11 @@ Media Services zapewnia dynamiczne pakowanie, które pozwala na dostarczanie zaw
 
 Aby korzystać z funkcji [dynamicznego tworzenia pakietów](media-services-dynamic-packaging-overview.md), należy zakodować plik Mezzanine (Source) do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów lub z adaptacyjną szybkością transmisji bitów Smooth Streaming plików i mieć co najmniej jeden punkt końcowy przesyłania strumieniowego w warstwie Standardowa lub Premium.
 
-Media Services obsługuje następujące kodery na żądanie, które zostały opisane w tym artykule:
+Media Services obsługuje następujący koder na żądanie, który został opisany w tym artykule:
 
 * [Usługa Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Przepływ pracy usługi Media Encoder w warstwie Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Aby uzyskać informacje na temat obsługiwanych koderów, zobacz [kodery](media-services-encode-asset.md).
+Aby uzyskać informacje na temat tego obsługiwanego kodera, zobacz [koder](media-services-encode-asset.md).
 
 ## <a name="live-streaming"></a>Transmisja strumieniowa na żywo
 W Azure Media Services kanał reprezentuje potok służący do przetwarzania zawartości przesyłania strumieniowego na żywo. Kanał odbiera strumienie wejściowe na żywo na jeden z dwóch sposobów:
@@ -237,5 +236,5 @@ http: \/ /testendpoint-testaccount.Streaming.MediaServices.Windows.NET/fecebb23-
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

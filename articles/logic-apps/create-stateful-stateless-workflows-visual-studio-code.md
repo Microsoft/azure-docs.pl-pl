@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: abb6f8bcaa3b8e356bea00185702bc0ae783e071
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/25/2020
+ms.openlocfilehash: 1f67d7228da8529699a26539f20efd55f9a20c27
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270275"
+ms.locfileid: "91370984"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Twórz stanowe lub bezstanowe przepływy pracy w Visual Studio Code z rozszerzeniem Azure Logic Apps (wersja zapoznawcza)
 
@@ -72,11 +72,11 @@ Rozszerzenie Azure Logic Apps (wersja zapoznawcza) udostępnia wiele bieżących
 
 * *Bezstanowe*
 
-  Twórz bezstanowe Aplikacje logiki, gdy nie musisz zapisywać, przeglądać ani odwoływać się do danych z poprzednich zdarzeń. Te aplikacje logiki przechowują dane wejściowe i wyjściowe dla każdej akcji i Stany przepływu pracy tylko w pamięci, a nie przesyłają tych informacji do magazynu zewnętrznego. W związku z tym bezstanowe Aplikacje logiki mają krótsze uruchomienia, które zwykle nie są dłuższe niż 5 minut, krótszą wydajność dzięki szybszym czasom reakcji, wyższą przepływność i obniżone koszty działania, ponieważ szczegóły i historia przebiegu nie są przechowywane w magazynie zewnętrznym. Jeśli jednak wystąpi awaria, przerwane uruchomienia nie są automatycznie przywracane, więc wywołujący musi ręcznie ponownie przesłać przerwane uruchomienia. Aby ułatwić debugowanie, można [włączyć historię uruchamiania](#run-history) dla bezstanowych aplikacji logiki.
+  Twórz bezstanowe Aplikacje logiki, gdy nie musisz zapisywać, przeglądać ani odwoływać danych z poprzednich zdarzeń w magazynie zewnętrznym do późniejszego przeglądu. Te aplikacje logiki przechowują dane wejściowe i wyjściowe dla każdej akcji i Stany przepływu pracy tylko w pamięci, a nie przesyłają tych informacji do magazynu zewnętrznego. W związku z tym bezstanowe Aplikacje logiki mają krótsze uruchomienia, które zwykle nie są dłuższe niż 5 minut, krótszą wydajność dzięki szybszym czasom reakcji, wyższą przepływność i obniżone koszty działania, ponieważ szczegóły i historia przebiegu nie są przechowywane w magazynie zewnętrznym. Jeśli jednak wystąpi awaria, przerwane uruchomienia nie są automatycznie przywracane, więc wywołujący musi ręcznie ponownie przesłać przerwane uruchomienia. Te aplikacje logiki można uruchamiać synchronicznie, a w celu łatwiejszego debugowania można [włączyć historię uruchamiania](#run-history), która ma wpływ na wydajność.
 
   Bezstanowe przepływy pracy obsługują obecnie tylko akcje dotyczące [łączników zarządzanych](../connectors/apis-list.md#managed-api-connectors), a nie wyzwalaczy. Aby uruchomić przepływ pracy, wybierz [wyzwalacz wbudowane żądanie, Event Hubs lub Service Bus](../connectors/apis-list.md#built-ins). Aby uzyskać więcej informacji na temat nieobsługiwanych wyzwalaczy, akcji i łączników, zobacz [nieobsługiwane możliwości](#unsupported).
 
-Aby poznać różnice między aplikacjami logiki między Stanami i bezstanowymi, zobacz [zagnieżdżone różnice w zachowaniu między stanowymi i bezstanowymi aplikacjami logiki](#nested-behavior).
+Aby uzyskać informacje o tym, jak zagnieżdżone Aplikacje logiki działają inaczej niż aplikacje logiki stanowych i bezstanowych, zobacz [zagnieżdżone różnice między aplikacjami logiki stanowych i bezstanowych](#nested-behavior).
 
 <a name="pricing-model"></a>
 
@@ -918,7 +918,7 @@ Za pomocą [Narzędzia .NET Core Command Line Interface (CLI)](/dotnet/core/tool
 
 ## <a name="nested-behavior-differences-between-stateful-and-stateless-logic-apps"></a>Różnice w zachowaniu zagnieżdżonych aplikacji logiki stanowej i bezstanowej
 
-[Przepływ pracy aplikacji logiki można wywołać](../logic-apps/logic-apps-http-endpoint.md) z innych przepływów pracy aplikacji logiki przy użyciu wyzwalacza [żądania](../connectors/connectors-native-reqres.md) , wyzwalacza [elementu webhook protokołu HTTP](../connectors/connectors-native-webhook.md) lub wyzwalaczy łączników zarządzanych, które mają [Typ ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) i mogą odbierać żądania HTTPS.
+[Przepływ pracy aplikacji logiki można wywołać](../logic-apps/logic-apps-http-endpoint.md) z innych przepływów pracy aplikacji logiki, które istnieją w tym samym zasobie **logiki (wersja zapoznawcza)** przy użyciu wyzwalacza [żądania](../connectors/connectors-native-reqres.md) , wyzwalacza [elementu webhook protokołu HTTP](../connectors/connectors-native-webhook.md) lub wyzwalaczy łączników zarządzanych, które mają [Typ ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) i mogą odbierać żądania HTTPS.
 
 Poniżej przedstawiono wzorce zachowania, które mogą występować w zagnieżdżonych przepływach pracy aplikacji logiki po wystąpieniu nadrzędnego przepływu pracy wywołującego podrzędny przepływ pracy:
 
@@ -930,7 +930,7 @@ Poniżej przedstawiono wzorce zachowania, które mogą występować w zagnieżd�
 
   Element podrzędny potwierdza wywołanie przez natychmiastowe zwrócenie `202 ACCEPTED` odpowiedzi, a element nadrzędny kontynuuje następną akcję bez czekania na wyniki z elementu podrzędnego. Zamiast tego obiekt nadrzędny otrzymuje wyniki po zakończeniu działania elementu podrzędnego. Podrzędne bezstanowe przepływy pracy, które nie zawierają akcji odpowiedzi, zawsze podążają za wzorcem synchronicznym. Dla podrzędnych przepływów pracy, historia przebiegów jest dostępna do przejrzenia.
 
-  Aby włączyć to zachowanie, w definicji JSON przepływu pracy Ustaw `OperationOptions` Właściwość na `DisableAsyncPattern` . Aby uzyskać więcej informacji, zobacz [typy wyzwalaczy i akcji — opcje operacji](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  Aby włączyć to zachowanie, w definicji JSON przepływu pracy Ustaw `operationOptions` Właściwość na `DisableAsyncPattern` . Aby uzyskać więcej informacji, zobacz [typy wyzwalaczy i akcji — opcje operacji](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Wyzwalaj i czekaj
 
@@ -966,7 +966,9 @@ W przypadku tej publicznej wersji zapoznawczej te funkcje nie są dostępne lub 
 
 * Tworzenie nowego zasobu **aplikacji logiki (wersja zapoznawcza)** jest obecnie niedostępne w macOS.
 
-* Łączniki niestandardowe, wyzwalacze oparte na elementach webhook i wyzwalacz okna przesuwania nie są obsługiwane w tej wersji zapoznawczej. W przypadku przepływów pracy bezstanowych aplikacji logiki można dodawać tylko akcje dla [łączników zarządzanych](../connectors/apis-list.md#managed-api-connectors), a nie wyzwalaczy. Aby uruchomić przepływ pracy, użyj [wbudowanego żądania, Event Hubs lub wyzwalacza Service Bus](../connectors/apis-list.md#built-ins).
+* Aby uruchomić przepływ pracy, użyj [wyzwalacza żądanie, http, Event Hubs lub Service Bus](../connectors/apis-list.md). Obecnie w tej wersji zapoznawczej nie są obsługiwane [Łączniki przedsiębiorstwa](../connectors/apis-list.md#enterprise-connectors), wyzwalacze [lokalnych bram danych](../connectors/apis-list.md#on-premises-connectors), wyzwalacze oparte na elementach webhook, wyzwalacz okna przesuwania, [Łączniki niestandardowe](../connectors/apis-list.md#custom-apis-and-connectors), konta integracji, ich artefakty i [Łączniki](../connectors/apis-list.md#integration-account-connectors) . Funkcja "wywołaj funkcję platformy Azure" jest niedostępna, dlatego użyj *akcji* http, aby wywołać adres URL żądania dla funkcji platformy Azure.
+
+  Przepływy pracy aplikacji logiki bezstanowej mogą używać tylko akcji dla [łączników zarządzanych](../connectors/apis-list.md#managed-api-connectors), a nie wyzwalaczy. Oprócz wcześniej określonych wyzwalaczy przepływy pracy stanowych mogą używać obu wyzwalaczy i akcji dla łączników zarządzanych.
 
 * Nowy typ zasobu **aplikacji logiki (wersja zapoznawcza)** można wdrożyć tylko [w planie usług w warstwie Premium lub App Service na platformie Azure](#publish-azure) lub w [kontenerze platformy Docker](#deploy-docker), a nie w [środowiskach usługi integracji (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Plany hostingu **zużycia** nie są obsługiwane ani nie są dostępne do wdrożenia tego typu zasobu.
 
