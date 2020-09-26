@@ -3,13 +3,13 @@ title: Monitorowanie wydajności usługi Azure App Services | Microsoft Docs
 description: Monitorowanie wydajności aplikacji dla usług Azure App Services. Załaduj wykres i czas odpowiedzi, informacje o zależnościach i ustaw alerty wydajności.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-javascript, devx-track-dotnet
-ms.openlocfilehash: 952cd9669ecc3fb5ff1326d15aef25e1a1524ca5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-js, devx-track-dotnet
+ms.openlocfilehash: 2ac5466e280bb7dd835314561f565ca72be2743c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979431"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321819"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -355,7 +355,7 @@ Poniżej przedstawiono Przewodnik rozwiązywania problemów krok po kroku dotycz
 1. Sprawdź, czy aplikacja jest monitorowana za pośrednictwem programu `ApplicationInsightsAgent` .
     * Sprawdź, czy `ApplicationInsightsAgent_EXTENSION_VERSION` ustawienie aplikacji ma ustawioną wartość "~ 2".
 2. Upewnij się, że aplikacja spełnia wymagania, które mają być monitorowane.
-    * Przejdź na stronę `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    * Przejdź do `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
     ![Zrzut ekranu przedstawiający https://yoursitename.scm.azurewebsites/applicationinsights stronę wyników](./media/azure-web-apps/app-insights-sdk-status.png)
 

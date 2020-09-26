@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086799"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358937"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -223,7 +223,7 @@ Po zakończeniu wykonywania polecenia należy uzyskać następujące wyniki:
     - `<resourceGroupName>`
     - `<VM-basename>`
     - `<availabilitySetName>`
-    - `<VM-Size>`— Przykładem może być "Standard_D16_v3"
+    - `<VM-Size>` — Przykładem może być "Standard_D16_v3"
     - `<username>`
     - `<adminPassword>`
 
@@ -485,7 +485,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
 ### <a name="register-a-new-application-in-azure-active-directory"></a>Zarejestruj nową aplikację w Azure Active Directory
  
  1. Przejdź do strony https://portal.azure.com
- 2. Otwórz [blok Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Przejdź do pozycji właściwości i Zapisz identyfikator katalogu. Jest to`tenant ID`
+ 2. Otwórz [blok Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Przejdź do pozycji właściwości i Zapisz identyfikator katalogu. Jest to `tenant ID`
  3. Kliknij [ **rejestracje aplikacji**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Kliknij pozycję **Nowa rejestracja**
  5. Wprowadź **nazwę** , na przykład `<resourceGroupName>-app` , wybierz **konta tylko w tym katalogu organizacji**
@@ -493,7 +493,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  7. Wybierz pozycję **Certyfikaty i wpisy tajne** dla nowej rejestracji aplikacji, a następnie kliknij pozycję **nowy klucz tajny klienta** .
  8. Wprowadź opis nowego klucza (klucz tajny klienta), wybierz pozycję **nigdy nie wygasa** , a następnie kliknij przycisk **Dodaj** .
  9. Zapisz wartość klucza tajnego. Służy jako hasło dla nazwy głównej usługi
-10. Wybierz pozycję **Przegląd**. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (identyfikator logowania w poniższych krokach) nazwy głównej usługi
+10. Wybierz pozycję **Omówienie**. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (identyfikator logowania w poniższych krokach) nazwy głównej usługi
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Utwórz rolę niestandardową dla agenta ogranicznika
 
@@ -570,7 +570,7 @@ Przypisz rolę niestandardową `Linux Fence Agent Role-<username>` utworzoną w 
 4. Kliknij pozycję **Kontrola dostępu (IAM)**
 5. Kliknij pozycję **Dodaj przypisanie roli**
 6. Wybierz rolę `Linux Fence Agent Role-<username>` z listy **ról**
-7. Z listy **Wybierz** wprowadź nazwę utworzonej aplikacji,`<resourceGroupName>-app`
+7. Z listy **Wybierz** wprowadź nazwę utworzonej aplikacji, `<resourceGroupName>-app`
 8. Kliknij pozycję **Zapisz**
 9. Powtórz powyższe kroki dla węzła wszystkie klastry.
 
@@ -908,7 +908,7 @@ Na wszystkich wystąpieniach SQL Server Zapisz poświadczenia używane do logowa
 
 1. Po przyłączeniu replik pomocniczych można je zobaczyć w programie SSMS Eksplorator obiektów, rozszerzając węzeł **Always On High Availability** :
 
-    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![Zrzut ekranu przedstawia podstawową i pomocniczą replikę dostępności.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### <a name="add-a-database-to-the-availability-group"></a>Dodawanie bazy danych do grupy dostępności
 

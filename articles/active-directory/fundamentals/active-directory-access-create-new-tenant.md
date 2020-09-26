@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d6341aeb6db89d43ef887a3ae50c4439e3867e6
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2c7225adcfe970d17f8f86afdd15e36e2ba76de3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318611"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287019"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Szybki Start: Tworzenie nowej dzierżawy w Azure Active Directory
 Wszystkie zadania administracyjne, w tym tworzenie nowej dzierżawy dla swojej organizacji, możesz wykonywać przy użyciu portalu usługi Azure Active Directory (Azure AD). 
@@ -37,7 +37,7 @@ Po zalogowaniu się do witryny Azure Portal możesz utworzyć nową dzierżawę 
 
     ![Azure Active Directory utworzyć strony](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
-1. Wybierz pozycję **tożsamość**, a następnie wybierz pozycję **Azure Active Directory**.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
     Zostanie wyświetlona strona **Tworzenie katalogu**.
 

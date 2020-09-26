@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie usługi Azure IoT Hub Device Provisioning przy użyciu szablonu Azure Resource Manager
+title: Szybki Start — Konfigurowanie IoT Hub Device Provisioning platformy Azure przy użyciu szablonu Azure Resource Manager
 description: Przewodnik Szybki Start platformy Azure — Konfigurowanie usługi Azure IoT Hub Device Provisioning Service (DPS) przy użyciu szablonu
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74969585"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297151"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Szybki Start: Konfigurowanie IoT Hub Device Provisioning Service przy użyciu szablonu Azure Resource Manager
 
@@ -22,7 +22,7 @@ Przy użyciu usługi [Azure Resource Manager](https://docs.microsoft.com/azure/a
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ten przewodnik Szybki Start wymaga lokalnego uruchomienia interfejsu wiersza polecenia platformy Azure. Musi być zainstalowany wiersz polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja interfejsu wiersza polecenia lub jego uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
@@ -272,7 +272,7 @@ Szablon zdefiniowany w ostatnim kroku używa parametrów, aby określić nazwę 
 
    ```
 
-4. Dodaj wartość **hubLocation** do sekcji parametrów. Ta wartość określa również lokalizację centrum IoT i usługi aprowizacji. Ta wartość musi odpowiadać jednej z lokalizacji określonej w kolekcji **allowedValues** w definicji parametrów w pliku szablonu. Ta kolekcja ogranicza wartości do lokalizacji platformy Azure, które obsługują centra IoT i usługi aprowizacji. Aby uzyskać listę obsługiwanych lokalizacji dla usługi Device Provisioning, możesz uruchomić polecenie `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table`lub przejść na stronę [stanu platformy Azure](https://azure.microsoft.com/status/) i wyszukać "usługa Device Provisioning".
+4. Dodaj wartość **hubLocation** do sekcji parametrów. Ta wartość określa również lokalizację centrum IoT i usługi aprowizacji. Ta wartość musi odpowiadać jednej z lokalizacji określonej w kolekcji **allowedValues** w definicji parametrów w pliku szablonu. Ta kolekcja ogranicza wartości do lokalizacji platformy Azure, które obsługują centra IoT i usługi aprowizacji. Aby uzyskać listę obsługiwanych lokalizacji dla usługi Device Provisioning, możesz uruchomić polecenie `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` lub przejść na stronę [stanu platformy Azure](https://azure.microsoft.com/status/) i wyszukać "usługa Device Provisioning".
 
    ```json
     "parameters": {
@@ -296,11 +296,11 @@ Szablon zdefiniowany w ostatnim kroku używa parametrów, aby określić nazwę 
 > Centrum IoT i usługa aprowizacji będą publicznie wykrywalne jako punkty końcowe DNS, dlatego unikaj wprowadzania jakichkolwiek poufnych informacji podczas nadawania im nazw.
 >
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Użyj następujących poleceń interfejsu wiersza polecenia Azure, aby wdrożyć szablony i zweryfikować wdrożenie.
 
-1. Aby wdrożyć szablon, przejdź do folderu zawierającego pliki szablonu i parametrów, a następnie uruchom następujące [polecenie, aby rozpocząć wdrożenie](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+1. Aby wdrożyć szablon, przejdź do folderu zawierającego pliki szablonu i parametrów, a następnie uruchom następujące [polecenie, aby rozpocząć wdrożenie](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -311,14 +311,14 @@ Użyj następujących poleceń interfejsu wiersza polecenia Azure, aby wdrożyć
    ![Dane wyjściowe aprowizacji](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Aby zweryfikować wdrożenie, uruchom następujące [polecenie w celu wyświetlenia listy zasobów](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) i wyszukaj nową usługę aprowizacji i centrum IoT w danych wyjściowych:
+2. Aby zweryfikować wdrożenie, uruchom następujące [polecenie w celu wyświetlenia listy zasobów](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) i wyszukaj nową usługę aprowizacji i centrum IoT w danych wyjściowych:
 
     ```azurecli
      az resource list -g {your resource group name}
     ```
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start lub samouczkami, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, możesz użyć interfejsu wiersza polecenia platformy Azure, aby [usunąć poszczególne zasoby][lnk-az-resource-command], takie jak centrum IoT lub usługa aprowizacji, lub usunąć grupę zasobów i wszystkie jej zasoby.
 

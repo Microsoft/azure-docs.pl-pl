@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: f354cb25c93826b50c0094e75ef7a1756f7625b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434405"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278179"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
 
@@ -89,19 +89,19 @@ Aby udzielić uprawnienia do odczytu wystąpienia zarządzanego usługi SQL AD p
 
 3. Przejdź do wystąpienia zarządzanego SQL, którego chcesz użyć do integracji z usługą Azure AD.
 
-   ![AAD](./media/authentication-aad-configure/aad.png)
+   ![Zrzut ekranu przedstawiający Azure Portal wyświetlenia strony administratora Active Directory otwartej dla wybranego wystąpienia zarządzanego SQL.](./media/authentication-aad-configure/aad.png)
 
 4. Wybierz transparent w górnej części strony administratora Active Directory i Udziel uprawnienia bieżącemu użytkownikowi.
 
-    ![Przyznawanie uprawnień — Portal](./media/authentication-aad-configure/grant-permissions.png)
+    ![Zrzut ekranu okna dialogowego, w którym można udzielić uprawnień do wystąpienia zarządzanego SQL na potrzeby uzyskiwania dostępu Active Directory. Wybrano przycisk Udziel uprawnień.](./media/authentication-aad-configure/grant-permissions.png)
 
 5. Po pomyślnym zakończeniu operacji następujące powiadomienie zostanie wyświetlone w prawym górnym rogu:
 
-    ![powodzenie](./media/authentication-aad-configure/success.png)
+    ![Zrzut ekranu powiadomienia z potwierdzeniem, że uprawnienia do odczytu usługi Active Directory zostały pomyślnie zaktualizowane dla wystąpienia zarządzanego.](./media/authentication-aad-configure/success.png)
 
 6. Teraz możesz wybrać administratora usługi Azure AD dla wystąpienia zarządzanego SQL. W tym celu na stronie Administrator Active Directory wybierz pozycję **Ustaw polecenie administracyjne** .
 
-    ![Ustawianie — administrator](./media/authentication-aad-configure/set-admin.png)
+    ![Zrzut ekranu przedstawiający polecenie Ustaw administrator wyróżnione na stronie Administrator Active Directory dla wybranego wystąpienia zarządzanego SQL.](./media/authentication-aad-configure/set-admin.png)
 
 7. Na stronie administrator usługi Azure AD Wyszukaj użytkownika, wybierz użytkownika lub grupę, który ma być administratorem, a następnie wybierz pozycję **Wybierz**.
 
@@ -111,7 +111,7 @@ Aby udzielić uprawnienia do odczytu wystąpienia zarządzanego usługi SQL AD p
 
 8. W górnej części strony Administrator Active Directory wybierz pozycję **Zapisz**.
 
-    ![zapisywanie](./media/authentication-aad-configure/save.png)
+    ![Zrzut ekranu strony administratora Active Directory z przyciskiem Zapisz w górnym wierszu obok przycisków ustaw administratora i Usuń administratora.](./media/authentication-aad-configure/save.png)
 
     Proces zmiany administratora może potrwać kilka minut. Nowy administrator pojawi się w polu Administrator usługi Active Directory.
 

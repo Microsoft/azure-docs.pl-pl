@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 8645e8c1f1f371f1416a998af41104ebb6867eea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 44005dafb1e3eee60f163f80ad2e4282147233e4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334888"
+ms.locfileid: "91355622"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Zarządzanie uaktualnieniami stopniowymi aplikacji w chmurze za pomocą SQL Database aktywnej replikacji geograficznej
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Jeśli aplikacja korzysta z automatycznych kopii zapasowych bazy danych i używa
 > [!NOTE]
 > Te kroki przygotowawcze nie wpłyną na środowisko produkcyjne, które może działać w trybie pełnego dostępu.
 
-![SQL Database konfigurację replikacji geograficznej na potrzeby odzyskiwania po awarii w chmurze.](./media/manage-application-rolling-upgrade/option1-1.png)
+![Na diagramie przedstawiono konfigurację replikacji geograficznej SQL Database na potrzeby odzyskiwania po awarii w chmurze.](./media/manage-application-rolling-upgrade/option1-1.png)
 
 Po zakończeniu kroków przygotowania aplikacja jest gotowa do rzeczywistego uaktualnienia. Na następnym diagramie przedstawiono kroki związane z procesem uaktualniania:
 
@@ -48,7 +48,7 @@ Po zakończeniu kroków przygotowania aplikacja jest gotowa do rzeczywistego uak
 2. Odłączanie pomocniczej bazy danych przy użyciu trybu planowanego zakończenia (4). Ta akcja tworzy w pełni zsynchronizowaną, niezależną kopię podstawowej bazy danych. Ta baza danych zostanie uaktualniona.
 3. Zmień pomocniczą bazę danych w tryb do odczytu i zapisu, a następnie uruchom skrypt uaktualnienia (5).
 
-![SQL Database konfigurację replikacji geograficznej na potrzeby odzyskiwania po awarii w chmurze.](./media/manage-application-rolling-upgrade/option1-2.png)
+![Diagram przedstawia SQL Database konfigurację replikacji geograficznej w przypadku odzyskiwania po awarii w chmurze, w którym jest uruchamiany skrypt uaktualnienia.](./media/manage-application-rolling-upgrade/option1-2.png)
 
 Jeśli uaktualnienie zakończyło się pomyślnie, możesz teraz przystąpić do przełączania użytkowników do uaktualnionej kopii aplikacji, która stanie się środowiskiem produkcyjnym. Przełączenie obejmuje kilka dodatkowych kroków, jak pokazano na następnym diagramie:
 
@@ -67,7 +67,7 @@ W tym momencie aplikacja jest w pełni funkcjonalna i można powtórzyć kroki u
 > [!NOTE]
 > Wycofanie nie wymaga zmian w systemie DNS, ponieważ nie wykonano jeszcze operacji zamiany.
 
-![SQL Database konfigurację replikacji geograficznej na potrzeby odzyskiwania po awarii w chmurze.](./media/manage-application-rolling-upgrade/option1-4.png)
+![Diagram przedstawia SQL Database konfigurację replikacji geograficznej w przypadku odzyskiwania po awarii w chmurze z zlikwidowanym środowiskiem przejściowym.](./media/manage-application-rolling-upgrade/option1-4.png)
 
 Główną zaletą tej opcji jest możliwość uaktualnienia aplikacji w jednym regionie, zgodnie z zestawem prostych kroków. Koszt dolara uaktualnienia jest stosunkowo niski. 
 
@@ -98,7 +98,7 @@ Aby umożliwić wycofanie uaktualnienia, należy utworzyć środowisko przejści
 > [!NOTE]
 > Te kroki przygotowawcze nie wpłyną na aplikację w środowisku produkcyjnym. Będzie on w pełni funkcjonalny w trybie do odczytu i zapisu.
 
-![SQL Database konfigurację replikacji geograficznej na potrzeby odzyskiwania po awarii w chmurze.](./media/manage-application-rolling-upgrade/option2-1.png)
+![Diagram przedstawia SQL Database konfigurację replikacji geograficznej na potrzeby odzyskiwania po awarii w chmurze z w pełni zsynchronizowaną kopią aplikacji.](./media/manage-application-rolling-upgrade/option2-1.png)
 
 Po zakończeniu czynności przygotowawczych środowisko przejściowe jest gotowe do uaktualnienia. Na następnym diagramie przedstawiono następujące kroki uaktualniania:
 
@@ -120,14 +120,14 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 3. Uruchom skrypt uaktualnienia w odniesieniu do `contoso-1-staging.azurewebsites.net` , `contoso-dr-staging.azurewebsites.net` i tymczasowej podstawowej bazy danych (12). Zmiany w bazie danych zostaną zreplikowane automatycznie do tymczasowego pomocniczego.
 
-![SQL Database konfigurację replikacji geograficznej na potrzeby odzyskiwania po awarii w chmurze.](./media/manage-application-rolling-upgrade/option2-2.png)
+![Diagram przedstawia SQL Database konfigurację replikacji geograficznej na potrzeby odzyskiwania po awarii w chmurze z uwzględnieniem zmian w bazie danych replikowanych do przemieszczania.](./media/manage-application-rolling-upgrade/option2-2.png)
 
 Jeśli uaktualnienie zakończyło się pomyślnie, możesz teraz przystąpić do przełączania użytkowników do wersji v2 aplikacji. Następny diagram ilustruje następujące czynności:
 
 1. Aktywuj operację wymiany między środowiskami produkcyjnymi i tymczasowymi aplikacji sieci Web w regionie podstawowym (13) i w regionie kopii zapasowej (14). Wersja 2 aplikacji jest teraz środowiskiem produkcyjnym z nadmiarową kopią w regionie kopii zapasowej.
 2. Jeśli aplikacja V1 (15 i 16) nie jest już potrzebna, można zlikwidować środowisko przejściowe.
 
-![SQL Database konfigurację replikacji geograficznej na potrzeby odzyskiwania po awarii w chmurze.](./media/manage-application-rolling-upgrade/option2-3.png)
+![Diagram przedstawia SQL Database konfigurację replikacji geograficznej na potrzeby odzyskiwania po awarii w chmurze z opcjonalnym likwidowaniem środowiska przejściowego.](./media/manage-application-rolling-upgrade/option2-3.png)
 
 Jeśli proces uaktualniania zakończy się niepowodzeniem (na przykład ze względu na błąd w skrypcie uaktualnienia), należy wziąć pod uwagę, że środowisko przejściowe będzie w stanie niespójnym. Aby wycofać aplikację do stanu sprzed uaktualnienia, powróć do korzystania z wersji 1 aplikacji w środowisku produkcyjnym. Wymagane kroki są wyświetlane na następnym diagramie:
 
@@ -139,7 +139,7 @@ W tym momencie aplikacja jest w pełni funkcjonalna i można powtórzyć kroki u
 > [!NOTE]
 > Wycofanie nie wymaga zmian w systemie DNS, ponieważ nie wykonano operacji zamiany.
 
-![SQL Database konfigurację replikacji geograficznej na potrzeby odzyskiwania po awarii w chmurze.](./media/manage-application-rolling-upgrade/option2-4.png)
+![Diagram przedstawia SQL Database konfigurację replikacji geograficznej w przypadku odzyskiwania po awarii w chmurze z wycofywanym procesem uaktualniania.](./media/manage-application-rolling-upgrade/option2-4.png)
 
 Zaletą tej opcji jest możliwość uaktualnienia zarówno aplikacji, jak i jej geograficznie nadmiarowej kopii bez naruszania ciągłości działalności biznesowej podczas uaktualniania.
 

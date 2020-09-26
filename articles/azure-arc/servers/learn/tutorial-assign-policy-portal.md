@@ -2,18 +2,18 @@
 title: Samouczek — nowe przypisanie zasad z Azure Portal
 description: W tym samouczku użyto Azure Portal do utworzenia przypisania Azure Policy w celu zidentyfikowania niezgodnych zasobów.
 ms.topic: tutorial
-ms.date: 08/12/2020
-ms.openlocfilehash: 4ba301b066137dbdb85ccea0a02ffcac88128e6b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/23/2020
+ms.openlocfilehash: fbfe7090db1b4e1a8f802b30fdf749466ea26f1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213241"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321870"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Samouczek: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów
 
 Pierwszym krokiem do zrozumienia pojęcia zgodności na platformie Azure jest określenie obecnej sytuacji dotyczącej Twoich zasobów.
-Ten samouczek przeprowadzi Cię przez proces tworzenia przypisania zasad w celu zidentyfikowania maszyn z obsługą usługi Azure ARC (wersja zapoznawcza) i zidentyfikowania maszyn, na których nie zainstalowano agenta Log Analytics na maszynach z obsługą usługi Azure Arc.
+Ten samouczek przeprowadzi Cię przez proces tworzenia przypisania zasad w celu zidentyfikowania komputerów z włączonym usługą Azure Arc i zidentyfikowania maszyn, na których nie zainstalowano agenta Log Analytics na maszynach z włączonym funkcją Azure Arc.
 
 Po zakończeniu tego procesu pomyślnie zidentyfikujesz maszyny, na których nie zainstalowano agenta Log Analytics dla systemu Windows lub Linux. Są one _niezgodne_ z przypisaniem zasad.
 
@@ -96,8 +96,7 @@ Aby usunąć utworzone przypisanie, wykonaj następujące kroki:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przypisano definicję zasad do zakresu i oceniono raport zgodności.
-Definicja zasady zawiera sprawdzenie, czy wszystkie zasoby w ramach zakresu są zgodne, oraz określenie niezgodnych zasobów. Teraz możesz przystąpić do monitorowania maszyny z obsługą usługi Azure ARC (wersja zapoznawcza) przy użyciu Azure Monitor dla maszyn wirtualnych.
+W tym samouczku przypisano definicję zasad do zakresu i oceniono raport zgodności. Definicja zasady zawiera sprawdzenie, czy wszystkie zasoby w ramach zakresu są zgodne, oraz określenie niezgodnych zasobów. Teraz możesz przystąpić do monitorowania maszyny z włączonymi serwerami usługi Azure ARC przy użyciu Azure Monitor dla maszyn wirtualnych.
 
 Aby dowiedzieć się, jak monitorować i wyświetlać wydajność, uruchomiony proces i ich zależności z komputera, przejdź do samouczka:
 

@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: fe85dfb39a9787376221cb9beeea11bec35293f4
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: a6db1866c42dbb90d6ea0f288aceed4672424fe0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604465"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321985"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zasad dla automatycznego aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie kroków, które należy wykonać w temacie moje zasady i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup do zasad.
 
 > [!NOTE]
-> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -87,7 +87,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-mypolicies-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi administracyjnej użytkowników w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -95,13 +95,13 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Link moje zasady na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **aprowizacji** .
+3. Wybierz kartę **Aprowizacja**.
 
-    ![Karta aprowizacji](common/provisioning.png)
+    ![Zrzut ekranu przedstawiający opcje zarządzania z opcją aprowizacji o nazwie out.](common/provisioning.png)
 
-4. Ustaw **tryb aprowizacji** na **automatyczny**.
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    ![Karta aprowizacji automatyczna](common/provisioning-automatic.png)
+    ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
 5. W sekcji **poświadczenia administratora** wprowadź `https://<myPoliciesCustomDomain>.mypolicies.com/scim` **adres URL dzierżawy** , gdzie `<myPoliciesCustomDomain>` jest domeną niestandardową dla zasad. Możesz pobrać domenę klienta moje zasady z adresu URL.
 Przykład: `<demo0-qa>` . mypolicies.com.
@@ -112,7 +112,7 @@ Przykład: `<demo0-qa>` . mypolicies.com.
 
 7. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
 
-    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
+    ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
 8. Kliknij pozycję **Zapisz**.
 
@@ -126,26 +126,26 @@ Przykład: `<demo0-qa>` . mypolicies.com.
    |---|---|
    |userName|Ciąg|
    |aktywne|Wartość logiczna|
-   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
-   |Nazwa. imię|Ciąg|
-   |Nazwa. rodzina|Ciąg|
-   |Nazwa. sformatowana|Ciąg|
+   |emails[type eq "work"].value|Ciąg|
+   |name.givenName|Ciąg|
+   |name.familyName|Ciąg|
+   |Nazwa. sformatowana|String|
    |externalId|Ciąg|
-   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |addresss [Type EQ "Work"]. Country|String|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Tematy pomocy|
 
 
-11. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. Aby włączyć usługę Azure AD Provisioning dla zasad moje zasady, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
+    ![Stan aprowizacji — przełącznik w pozycji włączonej](common/provisioning-toggle-on.png)
 
 13. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić zasadom, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-14. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
+14. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
@@ -162,11 +162,11 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 * 09/15/2020 — dodano obsługę atrybutu "Country" dla użytkowników.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a154f9a75a70ed46155424d676d2b2cd8c6df3bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987134"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277975"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurowanie grupy trybu failover dla Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -382,7 +382,7 @@ Utwórz bramę podstawowej sieci wirtualnej przy użyciu Azure Portal.
     | --- | --- |
     | **Subskrypcja** |  Subskrypcja, w której znajduje się główne wystąpienie zarządzane. |
     | **Nazwa** | Nazwa bramy sieci wirtualnej. |
-    | **Okolicy** | Region, w którym znajduje się główne wystąpienie zarządzane. |
+    | **Region** | Region, w którym znajduje się główne wystąpienie zarządzane. |
     | **Typ bramy** | wybierz pozycję **VPN**. |
     | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
     | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |
@@ -444,7 +444,7 @@ W poniższej tabeli przedstawiono wartości niezbędne dla bramy dla pomocniczeg
    | --- | --- |
    | **Subskrypcja** |  Subskrypcja, w której znajduje się pomocnicze wystąpienie zarządzane. |
    | **Nazwa** | Nazwa bramy sieci wirtualnej, na przykład `secondary-mi-gateway` . |
-   | **Okolicy** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
+   | **Region** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
    | **Typ bramy** | wybierz pozycję **VPN**. |
    | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
    | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |

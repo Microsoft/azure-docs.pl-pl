@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące migracji Azure Migrate serwera
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące korzystania z migracji Azure Migrate serwera w celu migrowania maszyn.
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: b0ae28fc387125b198bed202d857c3b9ecdd44bb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 80334bb2f0d6c0284c9031a99c0eb469b348873d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050662"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275544"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migracja serwera Azure Migrate: typowe pytania
 
@@ -18,6 +18,28 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 - Pytania dotyczące [urządzenia Azure Migrate](common-questions-appliance.md)
 - Pytania dotyczące [odnajdywania, oceny i wizualizacji zależności](common-questions-discovery-assessment.md)
 - Uzyskaj odpowiedzi na pytania na [forum Azure Migrate](https://aka.ms/AzureMigrateForum)
+
+## <a name="does-azure-migrate-convert-uefi-based-machines-to-bios-based-machines-and-migrate-them-to-azure-as-azure-generation-1-vms"></a>Czy Azure Migrate skonwertować maszyny oparte na interfejsie UEFI na maszyny z systemem BIOS i migrować je na platformę Azure jako maszyny wirtualne generacji 1 platformy Azure?
+Azure Migrate: Narzędzie do migracji serwera migruje wszystkie maszyny oparte na interfejsie UEFI na platformę Azure jako maszyny wirtualne generacji 2 platformy Azure. Nie obsługujemy już konwersji maszyn wirtualnych opartych na interfejsie UEFI do maszyn wirtualnych opartych na systemie BIOS. Należy pamiętać, że wszystkie maszyny z systemem BIOS są migrowane do platformy Azure tylko w przypadku maszyn wirtualnych platformy Azure generacji 1.
+
+## <a name="how-can-i-migrate-uefi-based-machines-to-azure-as-azure-generation-1-vms"></a>Jak przeprowadzić migrację maszyn opartych na interfejsie UEFI na platformę Azure jako maszyny wirtualne Azure Generation 1?
+Azure Migrate: Narzędzie migracji serwera migruje maszyny oparte na interfejsie UEFI na platformę Azure jako maszyny wirtualne 2. generacji platformy Azure. Aby przeprowadzić migrację do maszyn wirtualnych usługi Azure Generation 1, przed rozpoczęciem replikacji przekonwertuj typ rozruchu na system BIOS, a następnie użyj narzędzia do migracji Azure Migrate: serwera, aby przeprowadzić migrację na platformę Azure.
+ 
+## <a name="which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure"></a>Które systemy operacyjne są obsługiwane na potrzeby migracji maszyn opartych na interfejsie UEFI na platformę Azure?
+
+| **Systemy operacyjne obsługiwane w przypadku komputerów z interfejsem UEFI** | **VMware bez agentów do platformy Azure**                                                                                                             | **Funkcja Hyper-V bez agentów na platformie Azure** | **Oparty na agencie oprogramowanie VMware, fizyczne i inne chmury na platformie Azure** |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
+| Windows Server 2019, 2016, 2012 R2, 201                 | T                                                                                                                                         | T                              | T                                                          |
+| Windows 10 Pro, Windows 10 Enterprise                   | T                                                                                                                                         | T                              | T                                                          |
+| SUSE Linux Enterprise Server 15 SP1                     | T                                                                                                                                         | T                              | T                                                          |
+| SUSE Linux Enterprise Server 12 SP4                     | T                                                                                                                                         | T                              | T                                                          |
+| Ubuntu Server 16,04, 18,04, 19,04, 19,10                | T                                                                                                                                         | T                              | T                                                          |
+| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | Y<br>                 _RHEL 8. x wymaga [ręcznego przygotowania](https://go.microsoft.com/fwlink/?linkid=2143939)_   | T                              | T                                                          |
+| Cent OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | Y<br>_Cent OS 8. x wymaga [przygotowania ręcznego](https://go.microsoft.com/fwlink/?linkid=2143939)_ | T                              | T                                                          |
+| Oracle Linux 7,7, 7,7-CI                                |  T                                                                                                                                        | T                              | T                                                          |
+
+## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>Czy mogę używać magazynu usługi Recovery Services utworzonego przez Azure Migrate na potrzeby scenariuszy odzyskiwania po awarii?
+Nie zalecamy korzystania z magazynu usługi Recovery Services utworzonego przez Azure Migrate na potrzeby scenariuszy odzyskiwania po awarii. Wykonanie tej czynności może skutkować uruchomieniem niepowodzeń replikacji w Azure Migrate. 
 
 ## <a name="where-should-i-install-the-replication-appliance-for-agent-based-migrations"></a>Gdzie należy zainstalować urządzenie replikacji dla migracji opartych na agencie?
 
@@ -200,11 +222,6 @@ Możliwości migracji serwera Azure Migrate obsługują takie jak obecnie migrac
 
 Replikacja bez wykorzystania agentów powoduje pewien wpływ na wydajność na hostach VMware vCenter Server i VMware ESXi. Ponieważ replikacja bezagentowa używa migawek, zużywa ona operacje we/wy na sekundę, więc wymagana jest pewna przepustowość magazynu IOPS. Nie zalecamy korzystania z replikacji bez wykorzystania agentów, jeśli istnieją ograniczenia dotyczące magazynu lub operacji we/wy na sekundę w danym środowisku.
 
-## <a name="can-i-do-agentless-migration-of-uefi-vms-to-azure-gen-2"></a>Czy można przeprowadzić migrację maszyn wirtualnych UEFI do usługi Azure Gen 2 bez wykorzystania agentów?
-
-Nie. W celu migrowania tych maszyn wirtualnych do maszyn wirtualnych platformy Azure w generacji 2 można użyć opcji migracji [opartej na agencie VMware](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware-agent), [migracji funkcji Hyper-V](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines)lub [serwerów fizycznych](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) .
-
-***Uwaga:*** Upewnij się, że wybrano odpowiedni rozmiar maszyny wirtualnej obsługujący interfejs UEFI 2 generacji na platformie Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

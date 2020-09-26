@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: b185f29cea61b9c366714a1af72648aeee35b61c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017935"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286654"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors
 Celem tego samouczka jest przedstawienie kroków związanych z zapisywaniem atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors Employee Central. 
@@ -125,68 +125,97 @@ Skontaktuj się z zespołem administracyjnym SuccessFactors lub partnerem implem
 
 ## <a name="preparing-for-successfactors-writeback"></a>Przygotowywanie do zapisywania zwrotnego SuccessFactors
 
-Aplikacja do obsługi funkcji zapisywania zwrotnego SuccessFactors używa pewnych wartości *kodu* do ustawiania poczty e-mail i numerów telefonów w centrali. Te wartości *kodu* są ustawiane jako wartości stałe w tabeli mapowania atrybutów i różnią się dla każdego wystąpienia SuccessFactors. Ta sekcja używa programu [Poster](https://www.postman.com/downloads/) do pobrania wartości kodu. Aby wysyłać żądania HTTP, można użyć [zwinięcie](https://curl.haxx.se/), [programu Fiddler](https://www.telerik.com/fiddler) lub innego podobnego narzędzia. 
+Aplikacja do obsługi funkcji zapisywania zwrotnego SuccessFactors używa pewnych wartości *kodu* do ustawiania poczty e-mail i numerów telefonów w centrali. Te wartości *kodu* są ustawiane jako wartości stałe w tabeli mapowania atrybutów i różnią się dla każdego wystąpienia SuccessFactors. Ta sekcja zawiera kroki umożliwiające przechwycenie tych wartości *kodu* .
 
-### <a name="download-and-configure-postman-with-your-successfactors-tenant"></a>Pobieranie i Konfigurowanie programu Poster przy użyciu dzierżawy SuccessFactors
+   > [!NOTE]
+   > Aby wykonać kroki opisane w tej sekcji, skontaktuj się z administratorem SuccessFactors. 
 
-1. Pobierz [notkę](https://www.postman.com/downloads/)
-1. Utwórz nową kolekcję w aplikacji Poster. Zadzwoń do niego "SuccessFactors". 
+### <a name="identify-email-and-phone-number-picklist-names"></a>Identyfikowanie nazw list wyboru adresów E-mail i numerów telefonów 
+
+W programie SAP SuccessFactors *Lista wyboru* jest konfigurowalnym zestawem opcji, z których użytkownik może dokonać wyboru. Różne typy poczty e-mail i numeru telefonu (np. Business, Personal, Other) są reprezentowane przy użyciu listy wyboru. W tym kroku określimy listę wyboru skonfigurowanych w dzierżawie SuccessFactors do przechowywania wartości poczty e-mail i numerów telefonów. 
+ 
+1. W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzanie konfiguracją biznesową*. 
 
    > [!div class="mx-imgBorder"]
-   > ![Nowa kolekcja ogłoszeń](./media/sap-successfactors-inbound-provisioning/new-postman-collection.png)
+   > ![Zarządzanie konfiguracją biznesową](./media/sap-successfactors-inbound-provisioning/manage-business-config.png)
 
-1. Na karcie "Autoryzacja" Wprowadź poświadczenia użytkownika interfejsu API skonfigurowane w poprzedniej sekcji. Skonfiguruj typ jako "uwierzytelnianie podstawowe". 
+1. W obszarze **HRIS elementy**wybierz pozycję **EmailInfo** i kliknij *szczegóły* pola **Typ wiadomości e-mail** .
 
    > [!div class="mx-imgBorder"]
-   > ![Autoryzacja po wydaniu](./media/sap-successfactors-inbound-provisioning/postman-authorization.png)
+   > ![Pobierz informacje e-mail](./media/sap-successfactors-inbound-provisioning/get-email-info.png)
 
-1. Zapisz konfigurację. 
+1. Na stronie Szczegóły **typu wiadomości e-mail** Zanotuj nazwę listy wyboru skojarzonej z tym polem. Domyślnie jest to **ecEmailType**. Może się jednak różnić w dzierżawie. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Zidentyfikuj listę wyboru wiadomości e-mail](./media/sap-successfactors-inbound-provisioning/identify-email-picklist.png)
+
+1. W obszarze **HRIS elementy**wybierz pozycję **PhoneInfo** i kliknij *szczegóły* dla pola **Typ telefonu** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Uzyskaj informacje o telefonie](./media/sap-successfactors-inbound-provisioning/get-phone-info.png)
+
+1. Na stronie Szczegóły **typu telefonu** Zanotuj nazwę listy wyboru skojarzonej z tym polem. Domyślnie jest to **ecPhoneType**. Może się jednak różnić w dzierżawie. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Zidentyfikuj listę wyboru telefonu](./media/sap-successfactors-inbound-provisioning/identify-phone-picklist.png)
 
 ### <a name="retrieve-constant-value-for-emailtype"></a>Pobieranie stałej wartości dla elementu poczty e-mail
 
-1. W programie Poster kliknij przycisk wielokropka (...) skojarzony z kolekcją SuccessFactors i Dodaj "nowe żądanie" o nazwie "Pobierz typy poczty E-mail", jak pokazano poniżej. 
+1. W centrum administracyjnym SuccessFactors, Wyszukaj i Otwórz *centrum list wyboru*. 
+1. Użyj nazwy listy wyboru wiadomości e-mail przechwyconej w poprzedniej sekcji (np. ecEmailType), aby znaleźć listę wyboru wiadomości e-mail. 
 
    > [!div class="mx-imgBorder"]
-   > ![Wyślij żądanie e-mail ](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
+   > ![Znajdź listę wyboru typu wiadomości e-mail](./media/sap-successfactors-inbound-provisioning/find-email-type-picklist.png)
 
-1. Otwórz panel żądania "Pobierz typ wiadomości E-mail". 
-1. W adresie URL GET Dodaj następujący adres URL, zastępując `successFactorsAPITenantName` go dzierżawą interfejsu API dla wystąpienia usługi SuccessFactors. 
-   `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecEmailType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
+1. Otwórz listę wyboru aktywnych wiadomości e-mail. 
 
    > [!div class="mx-imgBorder"]
-   > ![Typ wiadomości e-mail dla wpisu](./media/sap-successfactors-inbound-provisioning/postman-get-email-type.png)
+   > ![Otwórz listę wyboru typu aktywnej wiadomości e-mail](./media/sap-successfactors-inbound-provisioning/open-active-email-type-picklist.png)
 
-1. Karta "Autoryzacja" odziedziczy uwierzytelnianie skonfigurowane dla kolekcji. 
-1. Kliknij przycisk "Wyślij", aby wywołać wywołanie interfejsu API. 
-1. W treści odpowiedzi Wyświetl zestaw wyników JSON i poszukaj identyfikatora odpowiadającego elementowi `externalCode = B` . 
+1. Na stronie listy wyboru typu wiadomości e-mail wybierz pozycję *służbowy* adres e-mail.
 
    > [!div class="mx-imgBorder"]
-   > ![Odpowiedź na typ wiadomości e-mail w programie Poster](./media/sap-successfactors-inbound-provisioning/postman-email-type-response.png)
+   > ![Wybierz typ służbowego adresu e-mail](./media/sap-successfactors-inbound-provisioning/select-business-email-type.png)
 
-1. Zanotuj tę wartość jako stałą, która ma być używana z identyfikatorem *poczty e-mail* w tabeli mapowania atrybutów.
+1. Zanotuj **Identyfikator opcji** skojarzony z *biznesową* pocztą e-mail. Jest to kod, który będzie używany z *wiadomościami e-mailtype* w tabeli mapowania atrybutów.
+
+   > [!div class="mx-imgBorder"]
+   > ![Pobierz kod typu adresu e-mail](./media/sap-successfactors-inbound-provisioning/get-email-type-code.png)
+
+   > [!NOTE]
+   > Porzuć znak przecinka podczas kopiowania na wartość. Na przykład jeśli wartość **identyfikatora opcji** to *8 448*, należy ustawić numer *poczty e-mail* w usłudze Azure AD na stałą liczbę *8448* (bez znaku przecinka). 
 
 ### <a name="retrieve-constant-value-for-phonetype"></a>Pobieranie stałej wartości dla telefonutype
 
-1. W programie Poster kliknij przycisk wielokropka (...) skojarzony z kolekcją SuccessFactors i Dodaj "nowe żądanie" o nazwie "Pobierz typy telefonów", jak pokazano poniżej. 
+1. W centrum administracyjnym SuccessFactors, Wyszukaj i Otwórz *centrum list wyboru*. 
+1. Użyj nazwy listy wyboru telefonu przechwyconej w poprzedniej sekcji, aby znaleźć listę wyboru telefonu. 
 
    > [!div class="mx-imgBorder"]
-   > ![Żądanie post dla telefonu](./media/sap-successfactors-inbound-provisioning/postman-phone-request.png)
+   > ![Znajdź listę wyboru typu telefonu](./media/sap-successfactors-inbound-provisioning/find-phone-type-picklist.png)
 
-1. Otwórz panel żądania "Pobierz typ telefonu". 
-1. W adresie URL GET Dodaj następujący adres URL, zastępując `successFactorsAPITenantName` go dzierżawą interfejsu API dla wystąpienia usługi SuccessFactors. 
-   `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecPhoneType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
+1. Otwórz listę wyboru aktywnego telefonu. 
 
    > [!div class="mx-imgBorder"]
-   > ![Typ telefonu do pobrania](./media/sap-successfactors-inbound-provisioning/postman-get-phone-type.png)
+   > ![Otwórz listę wyboru aktywnego typu telefonu](./media/sap-successfactors-inbound-provisioning/open-active-phone-type-picklist.png)
 
-1. Karta "Autoryzacja" odziedziczy uwierzytelnianie skonfigurowane dla kolekcji. 
-1. Kliknij przycisk "Wyślij", aby wywołać wywołanie interfejsu API. 
-1. W treści odpowiedzi Wyświetl zestaw wyników JSON i poszukaj *identyfikatora* odpowiadającego `externalCode = B` i `externalCode = C` . 
+1. Na stronie listy wyboru typu telefonu Przejrzyj różne typy telefonów wymienione w obszarze **wartości listy wyboru**.
 
    > [!div class="mx-imgBorder"]
-   > ![Wpis na telefonie](./media/sap-successfactors-inbound-provisioning/postman-phone-type-response.png)
+   > ![Przejrzyj typy telefonów](./media/sap-successfactors-inbound-provisioning/review-phone-types.png)
 
-1. Zanotuj te wartości jako stałe, które mają być używane z *businessPhoneType* i *cellPhoneType* w tabeli mapowania atrybutów.
+1. Zanotuj **Identyfikator opcji** skojarzony z telefonem *służbowym* . Jest to kod, który będzie używany z *businessPhoneType* w tabeli mapowania atrybutów.
+
+   > [!div class="mx-imgBorder"]
+   > ![Pobierz służbowy kod telefonu](./media/sap-successfactors-inbound-provisioning/get-business-phone-code.png)
+
+1. Zanotuj **Identyfikator opcji** skojarzony z numerem telefonu *komórkowego* . Jest to kod, który będzie używany z *cellPhoneType* w tabeli mapowania atrybutów.
+
+   > [!div class="mx-imgBorder"]
+   > ![Pobierz kod telefonu komórkowego](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
+
+   > [!NOTE]
+   > Porzuć znak przecinka podczas kopiowania na wartość. Na przykład jeśli **Identyfikator opcji** ma wartość *10 606*, ustaw *cellPhoneType* w usłudze Azure AD na stałą numer *10606* (bez znaku przecinka). 
+
 
 ## <a name="configuring-successfactors-writeback-app"></a>Konfigurowanie aplikacji zapisywania zwrotnego SuccessFactors
 
@@ -313,7 +342,7 @@ Zapoznaj się z [sekcją scenariusze zapisywania zwrotnego](../app-provisioning/
 ## <a name="next-steps"></a>Następne kroki
 
 * [Szczegółowe informacje na temat integracji usług Azure AD i SAP SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md)
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 * [Dowiedz się, jak skonfigurować Logowanie jednokrotne między SuccessFactors i Azure Active Directory](successfactors-tutorial.md)
 * [Dowiedz się, jak zintegrować inne aplikacje SaaS z Azure Active Directory](tutorial-list.md)
 * [Dowiedz się, jak eksportować i importować konfiguracje aprowizacji](../app-provisioning/export-import-provisioning-configuration.md)

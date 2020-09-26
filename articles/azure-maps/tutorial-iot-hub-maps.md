@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: implementowanie analizy przestrzennej IoT przy użyciu map Microsoft Azure'
-description: Integruj IoT Hub z interfejsami API usługi Azure Maps.
+title: 'Samouczek: implementowanie analizy przestrzennej usługi IoT | Mapy Microsoft Azure'
+description: Samouczek dotyczący sposobu integrowania IoT Hub z interfejsami API usługi Maps Microsoft Azure
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 25665e75a361fbaa5479e2717d5e6aa9290c3d3a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3eb405783b16d1bb7de27f6638dba394457601c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056572"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321836"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Samouczek: implementowanie analizy przestrzennej IoT przy użyciu Azure Maps
 
@@ -153,7 +153,7 @@ Wykonaj następujące kroki, aby przekazać geoogrodzenie przy użyciu interfejs
       }
       ```
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 IoT Hub umożliwia bezpieczną i niezawodną komunikację dwukierunkową między aplikacją IoT i zarządzanymi urządzeniami. Na potrzeby tego samouczka chcesz uzyskać informacje z urządzenia w pojeździe w celu określenia lokalizacji samochodu wynajmu. W tej sekcji utworzysz Centrum IoT Hub w grupie zasobów *ContosoRental* . Centrum będzie odpowiedzialne za publikowanie zdarzeń telemetrii urządzenia.
 
@@ -182,7 +182,7 @@ Teraz Skonfiguruj funkcję platformy Azure.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Zrzut ekranu przedstawiający tworzenie aplikacji funkcji.":::
 
-1. W polu **konto magazynu**wybierz konto magazynu utworzone w [ramach tworzenia konta usługi Azure Storage](#create-an-azure-storage-account). Wybierz pozycję **Przejrzyj i utwórz**.
+1. W polu **konto magazynu**wybierz konto magazynu utworzone w [ramach tworzenia konta usługi Azure Storage](#create-an-azure-storage-account). Wybierz pozycję **Przeglądanie + tworzenie**.
 
 1. Przejrzyj szczegóły aplikacji funkcji i wybierz pozycję **Utwórz**.
 
@@ -214,7 +214,7 @@ Teraz Skonfiguruj funkcję platformy Azure.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="Zrzut ekranu przedstawiający subskrypcję zdarzeń tworzenia.":::
 
-1. Przejrzyj ustawienia. Upewnij się, że punkt końcowy określa funkcję utworzoną na początku tej sekcji. Wybierz pozycję **Utwórz**.
+1. Przejrzyj ustawienia. Upewnij się, że punkt końcowy określa funkcję utworzoną na początku tej sekcji. Wybierz przycisk **Utwórz**.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="Zrzut ekranu przedstawiający potwierdzenie tworzenia subskrypcji zdarzeń.":::
 
@@ -253,6 +253,7 @@ Gdy funkcja platformy Azure jest uruchomiona, można teraz wysyłać dane teleme
     dotnet run
     ```
 
+
   Terminal lokalny powinien wyglądać podobnie do przedstawionego poniżej.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Zrzut ekranu przedstawiający dane wyjściowe terminalu.":::
@@ -276,8 +277,6 @@ Aby uzyskać pełną listę Azure Maps interfejsów API REST, zobacz:
 
 * [Interfejsy API REST Azure Maps](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
 
-Aby dowiedzieć się więcej na temat Plug and Play IoT, zobacz:
-
 * [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
 
 Aby uzyskać listę urządzeń z certyfikatem platformy Azure dla IoT, odwiedź stronę:
@@ -287,6 +286,7 @@ Aby uzyskać listę urządzeń z certyfikatem platformy Azure dla IoT, odwiedź 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej o sposobach przesyłania danych telemetrycznych z urządzenia do chmury oraz inne sposoby na ich temat, zobacz:
+
 
 > [!div class="nextstepaction"]
 > [Wysyłanie danych telemetrycznych z urządzenia](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
