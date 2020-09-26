@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z rolami przypisanymi do grupy chmury — często zadawane pytania — Azure Active Directory | Microsoft Docs
-description: Przypisz rolę usługi Azure AD do grupy przypisanej do roli w Azure Portal, PowerShell lub interfejs API programu Graph.
+description: Poznaj typowe pytania i porady dotyczące rozwiązywania problemów dotyczących przypisywania ról do grup w Azure Active Directory.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3f2a23da5baa3a5d1955b10d18411fcedc3acd1
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7acbb9aa443cde8df7016d3f2a38d58002b98dcd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798299"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317399"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Rozwiązywanie problemów z rolami przypisanymi do grup w chmurze
 
