@@ -9,18 +9,18 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 677b54a09a446ef8af0b410faea9f94b71634712
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b445787c44efca4eb6bdee3e61eb39735e5c6b14
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999041"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259904"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Korzystanie z platformy .NET dla Apache Spark przy użyciu usługi Azure Synapse Analytics
 
 [Platforma .NET dla Apache Spark](https://dot.net/spark) zapewnia bezpłatną, niezależną i międzyplatformową obsługę platformy .NET dla platformy Spark. 
 
-Zawiera powiązania platformy .NET dla platformy Spark, które umożliwiają dostęp do interfejsów API platformy Spark za poorednictwem języka C# i F #. Za pomocą platformy .NET dla Apache Spark można również pisać i uruchamiać funkcje zdefiniowane przez użytkownika dla platformy Spark napisanych w środowisku .NET. Interfejsy API platformy .NET dla platformy Spark umożliwiają dostęp do wszystkich aspektów dataframes platformy Spark, które pomagają analizować dane, w tym Spark SQL, Delta Lake i strukturalne przesyłanie strumieniowe.
+Zapewnia powiązania .NET dla platformy Spark, co umożliwia dostęp do interfejsów API platformy Spark za poorednictwem języka C# i F #. Za pomocą platformy .NET dla Apache Spark można również pisać i uruchamiać funkcje zdefiniowane przez użytkownika dla platformy Spark napisanych w środowisku .NET. Interfejsy API platformy .NET dla platformy Spark umożliwiają dostęp do wszystkich aspektów dataframes platformy Spark, które pomagają analizować dane, w tym Spark SQL, Delta Lake i strukturalne przesyłanie strumieniowe.
 
 Dane można analizować za pomocą platformy .NET dla Apache Spark za pomocą definicji zadań wsadowych platformy Spark lub interakcyjnych notesów usługi Azure Synapse Analytics. W tym artykule dowiesz się, jak używać platformy .NET do Apache Spark z usługą Azure Synapse przy użyciu obu tych technik.
 
@@ -45,11 +45,13 @@ Zapoznaj się z samouczkiem, aby dowiedzieć się, jak [utworzyć Apache Spark d
 
 ## <a name="net-for-apache-spark-in-azure-synapse-analytics-notebooks"></a>Platforma .NET dla Apache Spark w notesach usługi Azure Synapse Analytics 
 
-Notesy są świetną opcją tworzenia prototypów platformy .NET na potrzeby potoków Apache Spark i scenariuszy. Możesz szybko i wydajnie zacząć pracować z, zrozumieć, filtrować, wyświetlać i wizualizować dane. Inżynierowie ds. ds. danych, analityków biznesowych i inżynierów uczenia maszynowego mogą współpracować nad udostępnionym, interaktywnym dokumentem. Zobaczysz natychmiastowe wyniki z eksploracji danych i można wizualizować dane w tym samym notesie.
+Notesy są świetną opcją tworzenia prototypów platformy .NET na potrzeby potoków Apache Spark i scenariuszy. Możesz szybko i wydajnie zacząć pracować z, zrozumieć, filtrować, wyświetlać i wizualizować dane. 
+
+Inżynierowie ds. ds. danych, analityków biznesowych i inżynierów uczenia maszynowego mogą współpracować nad udostępnionym, interaktywnym dokumentem. Zobaczysz natychmiastowe wyniki z eksploracji danych i można wizualizować dane w tym samym notesie.
 
 ### <a name="how-to-use-net-for-apache-spark-notebooks"></a>Jak używać platformy .NET do Apache Spark notesów
 
-Podczas tworzenia nowego notesu należy wybrać jądro języka, które ma być używane do prowadzenia logiki biznesowej. Obsługa jądra w kilku językach, w tym C#.
+Podczas tworzenia nowego notesu należy wybrać jądro języka, które ma być używane do prowadzenia logiki biznesowej. Obsługa jądra jest dostępna w kilku językach, w tym w języku C#.
 
 Aby używać platformy .NET do Apache Spark w notesie usługi Azure Synapse Analytics, wybierz opcję **.NET Spark (C#)** jako jądro i Dołącz Notes do istniejącej puli platformy Spark.
 

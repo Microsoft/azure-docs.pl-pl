@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 96a97b9b141d434f201da4c7e36f6715186a652e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a5b4d0591f58d2ce4d3d2e9055c70fdc7118e123
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903088"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326256"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Szybki Start: monitorowanie aplikacji w chmurze platformy Azure z użyciem dzienników, metryk i śledzenia
 
@@ -63,7 +63,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ### <a name="log-analytics"></a>Log Analytics
 
-1. Przejdź do **usługi | ** Na stronie Omówienie i wybierz pozycję **dzienniki** w sekcji **monitorowanie** . Wybierz pozycję **Uruchom** na jednym z przykładowych zapytań dotyczących chmury wiosennej platformy Azure.
+1. W Azure Portal przejdź do **usługi | ** Na stronie Omówienie i wybierz pozycję **dzienniki** w sekcji **monitorowanie** . Wybierz pozycję **Uruchom** na jednym z przykładowych zapytań dotyczących chmury wiosennej platformy Azure.
 
    [![Wpis ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) usługi Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -75,7 +75,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ## <a name="metrics"></a>Metryki
 
-1. W Azure Portal przejdź do **usługi | ** Na stronie Przegląd wybierz pozycję **metryki** w sekcji **monitorowanie** . Dodaj pierwszą metrykę, wybierając `system.cpu.usage` opcję **Metryka** i `Avg` **agregację** , aby wyświetlić oś czasu dla ogólnego użycia procesora.
+1. W Azure Portal przejdź do **usługi | ** Na stronie Przegląd wybierz pozycję **metryki** w sekcji **monitorowanie** . Dodaj pierwszą metrykę, wybierając jedną z metryk platformy .NET w obszarze **wydajność (.NET)** lub **żądanie (.NET)** na liście rozwijanej **Metryka** , a następnie pozycję `Avg` **agregacji** , aby wyświetlić oś czasu dla tej metryki.
 
    [![Wpis metryk — steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
     
@@ -87,7 +87,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [![Zastosuj podział w metrykach — steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png#lightbox)
 
-## <a name="distributed-tracing"></a>Rozproszone śledzenie
+## <a name="distributed-tracing"></a>Śledzenie rozproszone
 
 1. W Azure Portal przejdź do **usługi | ** Na stronie Omówienie i wybierz opcję **śledzenie rozproszone** w sekcji **monitorowanie** . Następnie wybierz kartę **Wyświetl mapę aplikacji** po prawej stronie.
 
@@ -183,7 +183,7 @@ Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 
    [![Zastosuj podział w metrykach ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png#lightbox)
 
-## <a name="distributed-tracing"></a>Rozproszone śledzenie
+## <a name="distributed-tracing"></a>Śledzenie rozproszone
 
 1. Przejdź do **usługi | ** Na stronie Omówienie i wybierz opcję **śledzenie rozproszone** w sekcji **monitorowanie** . Następnie kliknij kartę **Wyświetl mapę aplikacji** po prawej stronie.
 
@@ -203,7 +203,7 @@ Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W tych przewodnikach szybki start utworzono zasoby platformy Azure, które będą nadal naliczane opłaty, jeśli pozostaną w ramach subskrypcji. Jeśli nie chcesz potrzebować tych zasobów w przyszłości, Usuń grupę zasobów za pomocą portalu lub uruchamiając następujące polecenie w Cloud Shell:
 
@@ -224,6 +224,6 @@ Aby poznać więcej możliwości monitorowania chmury wiosennej platformy Azure,
 > [!div class="nextstepaction"]
 > [Usługi diagnostyczne](diagnostic-services.md)
 >
-> [Rozproszone śledzenie](spring-cloud-tutorial-distributed-tracing.md)
+> [Śledzenie rozproszone](spring-cloud-tutorial-distributed-tracing.md)
 >
 > [Rejestrowanie strumieni w czasie rzeczywistym](spring-cloud-howto-log-streaming.md)

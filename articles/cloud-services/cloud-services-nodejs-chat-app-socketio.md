@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f3c19e77739ac8dbc503e51408b9b7830a8b5aa5
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.custom: devx-track-js
+ms.openlocfilehash: a3f661aa31511c5f1cf35d2e3c0429af6ab0c997
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327531"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Tworzenie aplikacji czatu Node.js przy użyciu usługi Socket.IO w usłudze w chmurze platformy Azure
 
@@ -169,7 +169,7 @@ Aplikacja działa teraz na platformie Azure i może przekazywać wiadomości cza
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku przedstawiono sposób tworzenia podstawowej aplikacji czatu hostowanej w usłudze w chmurze platformy Azure. Aby dowiedzieć się, jak hostować tę aplikację w witrynie sieci Web platformy Azure, zobacz [Node.js Kompilowanie aplikacji Socket.IO Chat przy użyciu usługi Website w witrynie internetowej platformy Azure][chatwebsite].
 
-Aby uzyskać więcej informacji, zobacz również [Centrum deweloperówNode.js](https://docs.microsoft.com/azure/developer/javascript/).
+Aby uzyskać więcej informacji, zobacz również [ Centrum deweloperówNode.js](https://docs.microsoft.com/azure/developer/javascript/).
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 

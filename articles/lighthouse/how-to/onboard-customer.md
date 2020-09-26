@@ -1,14 +1,14 @@
 ---
 title: Dołączanie klienta do usługi Azure Lighthouse
 description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, umożliwiając dostęp do zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure.
-ms.date: 08/20/2020
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 4de31a0ad2cdc3134cd61654a71ebe803982b52e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0b941c82c2ba0e98f524587f5ef4c4ecf86249eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483800"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336551"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
 
@@ -19,7 +19,7 @@ W tym artykule wyjaśniono, jak usługodawca może dołączyć klienta do usług
 
 Proces dołączania można powtórzyć dla wielu klientów. Gdy użytkownik z odpowiednimi uprawnieniami loguje się do dzierżawy zarządzającej, ten użytkownik może być autoryzowany w zakresach dzierżawy klienta w celu wykonywania operacji zarządzania, bez konieczności logowania się do każdej indywidualnej dzierżawy klienta.
 
-Aby śledzić wpływ na zaangażowanie klientów i odbierać rozpoznawanie, skojarz swój identyfikator Microsoft Partner Network (MPN) z co najmniej jednym kontem użytkownika, które ma dostęp do każdej z dołączanych subskrypcji. Musisz wykonać to skojarzenie w dzierżawie dostawcy usług. Zalecamy utworzenie konta nazwy głównej usługi w dzierżawie skojarzonej z IDENTYFIKATORem MPN, a następnie użycie tej jednostki usługi przy każdym dołączeniu klienta. Aby uzyskać więcej informacji, zobacz [łączenie identyfikatora partnera, aby umożliwić partnerowi uzyskiwanie środków na zasoby delegowane](partner-earned-credit.md).
+Aby śledzić wpływ na zaangażowanie klientów i odbierać rozpoznawanie, skojarz swój identyfikator Microsoft Partner Network (MPN) z co najmniej jednym kontem użytkownika, które ma dostęp do każdej z dołączanych subskrypcji. Musisz wykonać to skojarzenie w dzierżawie dostawcy usług. Zalecamy utworzenie konta nazwy głównej usługi w dzierżawie skojarzonej z IDENTYFIKATORem MPN, a następnie użycie tej jednostki usługi przy każdym dołączeniu klienta. Aby uzyskać więcej informacji, zobacz [łączenie identyfikatora partnera, aby umożliwić partnerowi uzyskiwanie środków na zasoby delegowane.
 
 > [!NOTE]
 > Klienci mogą również zostać dołączeni do usługi Azure Lighthouse, gdy kupują ofertę usługi zarządzanej (publiczną lub prywatną) [publikowaną w witrynie Azure Marketplace](publish-managed-services-offers.md). Możesz również użyć procesu dołączania opisanego tutaj razem z ofertami opublikowanymi w witrynie Azure Marketplace.
@@ -33,9 +33,6 @@ Aby dołączyć dzierżawcę klienta, musi on mieć aktywną subskrypcję platfo
 - Identyfikator dzierżawy dzierżawy dostawcy usług (gdzie będziesz zarządzać zasobami klienta)
 - Identyfikator dzierżawy dzierżawy klienta (który będzie mieć zasoby zarządzane przez dostawcę usługi)
 - Identyfikatory subskrypcji dla każdej określonej subskrypcji w dzierżawie klienta, która będzie zarządzana przez dostawcę usług (lub zawierający grupy zasobów, które będą zarządzane przez dostawcę usług).
-
-> [!NOTE]
-> Nawet jeśli chcesz tylko dodać jedną lub więcej grup zasobów w ramach subskrypcji, wdrożenie musi odbywać się na poziomie subskrypcji, więc potrzebujesz identyfikatora subskrypcji.
 
 Jeśli nie masz już tych wartości identyfikatorów, możesz je pobrać w jeden z następujących sposobów. Upewnij się, że te dokładne wartości są używane w danym wdrożeniu.
 
@@ -128,6 +125,11 @@ Aby dołączyć klienta, musisz utworzyć szablon [Azure Resource Manager](../..
 
 Proces dołączania wymaga szablonu Azure Resource Manager (dostępnego w naszym [repozytorium przykładów](https://github.com/Azure/Azure-Lighthouse-samples/)) i odpowiedniego pliku parametrów modyfikowanego w celu dopasowania do konfiguracji i zdefiniowania autoryzacji.
 
+> [!IMPORTANT]
+> Opisany tutaj proces wymaga oddzielnego wdrożenia dla każdej subskrypcji, która jest dołączana, nawet w przypadku dołączania subskrypcji w tej samej dzierżawie klienta. W przypadku dołączania wielu grup zasobów w ramach różnych subskrypcji w tej samej dzierżawie klienta wymagane są również oddzielne wdrożenia. Istnieje jednak możliwość dołączania wielu grup zasobów w ramach jednej subskrypcji w jednym wdrożeniu.
+>
+> Oddzielne wdrożenia są również wymagane dla wielu ofert, które są stosowane do tej samej subskrypcji (lub grup zasobów w ramach subskrypcji). Każda zastosowana oferta musi używać innego **mspOfferName**.
+
 Wybrany szablon będzie zależeć od tego, czy dołączysz całą subskrypcję, grupę zasobów lub wiele grup zasobów w ramach subskrypcji. Udostępniamy również szablon, który może być używany dla klientów, którzy kupili ofertę usługi zarządzanej opublikowaną w portalu Azure Marketplace, jeśli wolisz dołączyć swoje subskrypcje w ten sposób.
 
 |Aby dołączyć to  |Użyj tego szablonu Azure Resource Manager  |I zmodyfikuj ten plik parametrów |
@@ -137,10 +139,8 @@ Wybrany szablon będzie zależeć od tego, czy dołączysz całą subskrypcję, 
 |Wiele grup zasobów w ramach subskrypcji   |[multipleRgDelegatedResourceManagement.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |Subskrypcja (w przypadku korzystania z oferty opublikowanej w portalu Azure Marketplace)   |[marketplaceDelegatedResourceManagement.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
-> [!IMPORTANT]
-> Opisany tutaj proces wymaga oddzielnego wdrożenia dla każdej subskrypcji, która jest dołączana, nawet w przypadku dołączania subskrypcji w tej samej dzierżawie klienta. W przypadku dołączania wielu grup zasobów w ramach różnych subskrypcji w tej samej dzierżawie klienta wymagane są również oddzielne wdrożenia. Istnieje jednak możliwość dołączania wielu grup zasobów w ramach jednej subskrypcji w jednym wdrożeniu.
->
-> Oddzielne wdrożenia są również wymagane dla wielu ofert, które są stosowane do tej samej subskrypcji (lub grup zasobów w ramach subskrypcji). Każda zastosowana oferta musi używać innego **mspOfferName**.
+> [!TIP]
+> Chociaż nie można dołączyć całej grupy zarządzania w jednym wdrożeniu, można [wdrożyć zasady na poziomie grupy zarządzania](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). Zasady te sprawdzają, czy każda subskrypcja w grupie zarządzania została oddelegowana do określonej dzierżawy zarządzającej, a jeśli nie, program utworzy przypisanie na podstawie podanych wartości.
 
 Poniższy przykład przedstawia zmodyfikowaną **delegatedResourceManagement.parameters.jsw** pliku, którego można użyć do dołączenia subskrypcji. Pliki parametrów grupy zasobów (znajdujące się w folderze [RG-delegowani-Resource-Management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) ) są podobne, ale zawierają także parametr **rgName** w celu zidentyfikowania określonych grup zasobów, które mają zostać dołączone.
 

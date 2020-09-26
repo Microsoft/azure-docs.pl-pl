@@ -4,16 +4,16 @@ description: Informacje o warstwach wydajności dla dysków zarządzanych oraz o
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: aa188babf56d4a825059fe6103e2e07745eb134f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 3d6b243ab517f3663f779d01569acf3d46ad8411
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974130"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328126"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Warstwy wydajności dla dysków zarządzanych (wersja zapoznawcza)
 
@@ -21,7 +21,9 @@ Azure Disk Storage obecnie oferuje wbudowaną funkcję tworzenia serii, aby osi�
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Podczas pierwszego wdrażania lub inicjowania obsługi administracyjnej dysku podstawowa warstwa wydajności dla tego dysku jest ustawiana na podstawie rozmiaru dysku. Można wybrać wyższą warstwę wydajności, aby spełnić wyższe zapotrzebowanie i, gdy ta wydajność nie jest już wymagana, można powrócić do początkowej warstwy wydajności. Na przykład jeśli zainicjujesz dysk P10 (128 GiB), warstwa wydajności linii bazowej zostanie ustawiona jako P10 (500 IOPS i 100 MB/s). Warstwę można zaktualizować tak, aby odpowiadała wydajności P50 (liczba IOPS 7500 i 250 MB/s) bez zwiększania rozmiaru dysku i powrotu do P10, gdy wyższa wydajność nie jest już wymagana.
+Podczas pierwszego wdrażania lub inicjowania obsługi administracyjnej dysku podstawowa warstwa wydajności dla tego dysku jest ustawiana na podstawie rozmiaru dysku. Można wybrać wyższą warstwę wydajności, aby spełnić wyższe zapotrzebowanie i, gdy ta wydajność nie jest już wymagana, można powrócić do początkowej warstwy wydajności.
+
+Zmiany w rozliczeniach są zmieniane w miarę zmiany warstwy. Na przykład jeśli zainicjujesz dysk P10 (128 GiB), warstwa wydajności linii bazowej zostanie ustawiona jako P10 (500 IOPS i 100 MB/s) i zostanie naliczona stawka za P10. Możesz zaktualizować warstwę, aby odpowiadała wydajności P50 (liczba IOPS 7500 i 250 MB/s) bez zwiększania rozmiaru dysku, w tym czasie będzie naliczana stawka za P50. Gdy wyższa wydajność nie jest już potrzebna, można powrócić do warstwy P10, a dysk zostanie ponownie rozliczony według stawki P10.
 
 | Rozmiar dysku | Warstwa wydajności linii bazowej | Można uaktualnić do programu |
 |----------------|-----|-------------------------------------|
@@ -40,70 +42,63 @@ Podczas pierwszego wdrażania lub inicjowania obsługi administracyjnej dysku po
 | 16 TiB | P70 | P80 |
 | 32 TiB | P80 | Brak |
 
+Aby uzyskać informacje dotyczące rozliczeń, zobacz [Cennik dysku zarządzanego](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 ## <a name="restrictions"></a>Ograniczenia
 
 - Obecnie obsługiwane tylko w przypadku wersji Premium dysków SSD.
 - Przed zmianą warstw należy odłączyć dyski od uruchomionej maszyny wirtualnej.
 - Użycie warstw wydajności P60, P70 i P80 jest ograniczone do dysków o 4096 GiB lub większych.
+- Warstwę wydajności dysków można zmienić tylko raz na 24 godziny.
 
 ## <a name="regional-availability"></a>Dostępność regionalna
 
 Dostosowanie warstwy wydajności dysku zarządzanego jest obecnie dostępne tylko dla dysków SSD Premium w następujących regionach:
 
 - Zachodnio-środkowe stany USA 
-- Wschodnie stany USA 2 
-- Europa Zachodnia
-- Australia Wschodnia 
-- Australia Południowo-Wschodnia 
-- Indie Południowe
 
-## <a name="createupdate-a-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Utwórz/zaktualizuj dysk danych o warstwie wyższej niż warstwa bazowa
+## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Utwórz pusty dysk danych o warstwie wyższej niż warstwa bazowa
 
-1. Utwórz pusty dysk danych o warstwie wyższej niż warstwa bazowa lub zaktualizuj warstwę dysku wyższą niż warstwa bazowa przy użyciu przykładowego szablonu [CreateUpdateDataDiskWithTier.jsna](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json)
+```azurecli
+subscriptionId=<yourSubscriptionIDHere>
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+diskSize=<yourDiskSizeHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
 
-     ```cli
-     subscriptionId=<yourSubscriptionIDHere>
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     diskSize=<yourDiskSizeHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az login
-    
-     az account set --subscription $subscriptionId
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateDataDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
-     ```
+az login
 
-1. Potwierdź warstwę dysku
+az account set --subscription $subscriptionId
 
-    ```cli
-    az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+az disk create -n $diskName -g $resourceGroupName -l $region --sku Premium_LRS --size-gb $diskSize --tier $performanceTier
+```
+## <a name="create-an-os-disk-with-a-tier-higher-than-the-baseline-tier-from-an-azure-marketplace-image"></a>Tworzenie dysku systemu operacyjnego z warstwą wyższą niż warstwa bazowa z obrazu portalu Azure Marketplace
 
-## <a name="createupdate-an-os-disk-with-a-tier-higher-than-the-baseline-tier"></a>Utwórz/zaktualizuj dysk systemu operacyjnego za pomocą warstwy wyższej niż warstwa podstawowa
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
+image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
 
-1. Utwórz dysk systemu operacyjnego na podstawie obrazu z witryny Marketplace lub zaktualizuj warstwę dysku systemu operacyjnego wyższego niż warstwa bazowa przy użyciu przykładowego szablonu [CreateUpdateOSDiskWithTier.jsna](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateOSDiskWithTier.json)
+az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
+```
+     
+## <a name="update-the-tier-of-a-disk"></a>Aktualizowanie warstwy dysku
 
-     ```cli
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateOSDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier"
-     ```
- 
- 1. Potwierdź warstwę dysku
- 
-     ```cli
-     az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+
+az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
+```
+## <a name="show-the-tier-of-a-disk"></a>Pokaż warstwę dysku
+
+```azurecli
+az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,19 +9,28 @@ ms.devlang: ''
 ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a6d95bbcb0873086a799dcf216beab4a6b0d33de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c679b6bb0f5645ea7a972be03ba3621b824a501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344700"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327633"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Szybsze odzyskiwanie bazy danych w usłudze Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-**Szybsze odzyskiwanie bazy danych (ADR)** to funkcja aparatu bazy danych SQL Server, która znacznie zwiększa dostępność bazy danych, szczególnie w przypadku długotrwałych transakcji, przez przeprojektowanie procesu odzyskiwania aparatu SQL Server Database. Usługa ADR jest obecnie dostępna dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL, SQL Server na maszynie wirtualnej platformy Azure oraz baz danych w usłudze Azure Synapse Analytics (obecnie w wersji zapoznawczej). Podstawowe korzyści wynikające z ADR są następujące:
+**Szybsze odzyskiwanie bazy danych (ADR)** to funkcja aparatu bazy danych SQL Server, która znacznie zwiększa dostępność bazy danych, szczególnie w przypadku długotrwałych transakcji, przez przeprojektowanie procesu odzyskiwania aparatu SQL Server Database. 
+
+Usługa ADR jest obecnie dostępna dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL, baz danych w usłudze Azure Synapse Analytics (obecnie w wersji zapoznawczej) i SQL Server na maszynach wirtualnych platformy Azure, począwszy od SQL Server 2019. 
+
+> [!NOTE] 
+> Funkcja ADR jest domyślnie włączona w Azure SQL Database i wystąpienie zarządzane SQL platformy Azure i wyłączanie reguły ADR dla każdego produktu nie jest obsługiwane. 
+
+## <a name="overview"></a>Omówienie
+
+Podstawowe korzyści wynikające z ADR są następujące:
 
 - **Szybkie i spójne odzyskiwanie bazy danych**
 

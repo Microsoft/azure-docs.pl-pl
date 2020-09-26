@@ -2,15 +2,15 @@
 title: Włączanie Update Management Azure Automation z poziomu maszyny wirtualnej platformy Azure
 description: W tym artykule opisano sposób włączania Update Management z maszyny wirtualnej platformy Azure.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/16/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 27832190125840e367edbfb2db8e4134f98b192d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dead4649635bebd9f73f79937dea1d24565f273e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327808"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Włączanie rozwiązania Update Management z poziomu maszyny wirtualnej platformy Azure
 
@@ -35,13 +35,15 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Wybierz maszynę wirtualną, dla której chcesz włączyć Update Management. Maszyny wirtualne mogą znajdować się w dowolnym regionie, niezależnie od lokalizacji konta usługi Automation. Ty
 
-3. Na stronie maszyna wirtualna w obszarze **operacje**wybierz pozycję **Update Management**.
+3. Na stronie maszyna wirtualna w obszarze **operacje**wybierz pozycję **gość + aktualizacje hosta**.
+
+    ![Wybierz pozycję Gość + aktualizacje hosta z okienka po lewej stronie](media/update-mgmt-enable-vm/select-guest-and-os-updates.png)
 
 4. Musisz mieć `Microsoft.OperationalInsights/workspaces/read` uprawnienie do określenia, czy maszyna wirtualna jest włączona dla obszaru roboczego. Aby dowiedzieć się więcej o dodatkowych uprawnieniach, które są wymagane, zobacz [uprawnienia wymagane do włączania maszyn](../automation-role-based-access-control.md#feature-setup-permissions). Aby dowiedzieć się, jak jednocześnie włączyć wiele komputerów, zobacz [włączanie Update Management z konta usługi Automation](update-mgmt-enable-automation-account.md).
 
-5. Wybierz obszar roboczy Log Analytics i konto usługi Automation, a następnie kliknij pozycję **Włącz** , aby włączyć Update Management. Po włączeniu Update Management może upłynąć około 15 minut, zanim będzie możliwe wyświetlenie oceny aktualizacji z maszyny wirtualnej.
+5. Na stronie Włączanie Update Management wybierz obszar roboczy Log Analytics i konto usługi Automation, a następnie kliknij pozycję **Włącz** , aby włączyć Update Management. Po włączeniu Update Management może upłynąć około 15 minut, zanim będzie możliwe wyświetlenie oceny aktualizacji z maszyny wirtualnej.
 
-    ![Włączanie rozwiązania Update Management](media/update-mgmt-enable-vm/manageupdates-update-enable.png)
+    ![Włączanie rozwiązania Update Management](media/update-mgmt-enable-vm/enable-update-management.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

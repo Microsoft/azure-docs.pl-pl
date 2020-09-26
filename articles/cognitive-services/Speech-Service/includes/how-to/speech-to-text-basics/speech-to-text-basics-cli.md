@@ -4,13 +4,15 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/08/2020
 ms.author: trbye
-ms.openlocfilehash: 9c2c46040dd741253e9a68855c4dca89c1dc9a9a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 905eacc3751b3d5d6c66a2fdb0e1391a747ab895
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89570604"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327128"
 ---
+Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym przewodniku szybki start dowiesz się, jak korzystać z interfejsu wiersza polecenia mowy w aplikacjach i produktach do wykonywania konwersji wysokiej jakości zamiany mowy na tekst.
+
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
 ## <a name="speech-to-text-from-microphone"></a>Zamiana mowy na tekst z mikrofonu

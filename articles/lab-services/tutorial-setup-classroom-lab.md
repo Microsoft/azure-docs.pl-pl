@@ -3,12 +3,12 @@ title: Konfigurowanie laboratorium na potrzeby zajęć przy użyciu usługi Azur
 description: W tym samouczku użyjesz Azure Lab Services, aby skonfigurować laboratorium zajęć z maszynami wirtualnymi, które są używane przez uczniów w klasie.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: bc1b23b92c6af902797a9be354fe6514b4e225af
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85445138"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336738"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Samouczek: konfigurowanie laboratorium na potrzeby zajęć 
 W tym samouczku skonfigurujesz laboratorium na potrzeby zajęć z maszynami wirtualnymi używanymi przez uczniów podczas zajęć.  
@@ -37,7 +37,7 @@ W tym kroku utworzysz laboratorium dla swojej klasy na platformie Azure.
 2. Wybierz pozycję **Zaloguj się** i wprowadź swoje poświadczenia. Usługa Azure Lab Services obsługuje konta organizacji i konta Microsoft. 
 3. Wybierz pozycję **nowe laboratorium**. 
     
-    ![Tworzenie laboratorium na potrzeby zajęć](./media/tutorial-setup-classroom-lab/new-lab-button.png)
+    ![Zrzut ekranu pokazujący "Azure Lab Services" z wybranym przyciskiem "nowy Lab".](./media/tutorial-setup-classroom-lab/new-lab-button.png)
 4. W oknie **Nowe laboratorium** wykonaj następujące czynności: 
     1. Określ **nazwę** laboratorium i wybierz pozycję **dalej**.  
 
@@ -90,7 +90,7 @@ Utwórz zaplanowane zdarzenie dla laboratorium, aby maszyny wirtualne w laborato
 
 1. Przejdź do strony **harmonogramy** , a następnie wybierz pozycję **Dodaj wydarzenie zaplanowane** na pasku narzędzi. 
 
-    ![Przycisk dodawania harmonogramu na stronie harmonogramów](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Zrzut ekranu pokazujący przycisk "Dodaj zaplanowane zdarzenie" na stronie "harmonogramy".](./media/how-to-create-schedules/add-schedule-button.png)
 2. Na stronie **Dodawanie zaplanowanego zdarzenia** wykonaj następujące czynności:
     1. Upewnij się, że w polu **Standardowy** wybrano **Typ zdarzenia**.  
     2. Wybierz **datę początkową** klasy. 

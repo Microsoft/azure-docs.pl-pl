@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 31b1ff3324c610c385ad793f124735be30cab9f9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177747"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327718"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optymalizowanie zapytań dzienników w Azure Monitor
 Dzienniki Azure Monitor korzystają z [usługi Azure Eksplorator danych (ADX)](/azure/data-explorer/) do przechowywania danych dziennika i uruchamiania zapytań w celu analizowania tych danych. Tworzy, zarządza i obsługuje klastry ADX oraz optymalizuje je do obciążeń analizy dzienników. Po uruchomieniu zapytania jest on zoptymalizowany i kierowany do odpowiedniego klastra ADX, który przechowuje dane obszaru roboczego. Zarówno dzienniki Azure Monitor, jak i Azure Eksplorator danych korzystają z wielu automatycznych mechanizmów optymalizacji zapytań. Chociaż Optymalizacja automatyczna zapewnia znaczący wzrost, w niektórych przypadkach można znacznie poprawić wydajność zapytań. W tym artykule opisano zagadnienia dotyczące wydajności i kilka technik rozwiązywania tych problemów.
@@ -98,18 +98,34 @@ Na przykład następujące zapytania dają dokładnie ten sam wynik, ale druga j
 
 ```Kusto
 //less efficient
-Heartbeat 
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| where IPRegion == "WestCoast"
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| extend Msg = strcat("Syslog: ",SyslogMessage)
+| where  Msg  has "Error"
+| count 
 ```
 ```Kusto
 //more efficient
-Heartbeat 
-| where RemoteIPLongitude  < -94
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| where  SyslogMessage  has "Error"
+| count 
 ```
+
+W niektórych przypadkach Szacowana kolumna jest tworzona niejawnie przez enine przetwarzania zapytania, ponieważ filtrowanie jest wykonywane nie tylko w polu:
+```Kusto
+//less efficient
+SecurityEvent
+| where tolower(Process) == "conhost.exe"
+| count 
+```
+```Kusto
+//more efficient
+SecurityEvent
+| where Process =~ "conhost.exe"
+| count 
+```
+
+
+
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Użyj efektywnych poleceń agregacji i wymiarów w podsumowaniu i przyłączaniu
 
@@ -279,7 +295,7 @@ SecurityEvent
 | distinct FilePath, CallerProcessName1
 ```
 
-Gdy powyższe nie zezwala na unikanie korzystania z podzapytań, inna technika jest wskazówką do aparatu zapytań, że w każdym z nich użyto [funkcji zmaterializowania ()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Jest to przydatne, gdy dane źródłowe pochodzą z funkcji, która jest używana kilka razy w ramach zapytania.
+Gdy powyższe nie zezwala na unikanie korzystania z podzapytań, inna technika jest wskazówką do aparatu zapytań, że w każdym z nich użyto [funkcji zmaterializowania ()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Jest to przydatne, gdy dane źródłowe pochodzą z funkcji, która jest używana kilka razy w ramach zapytania. Zmaterializowania obowiązuje, gdy dane wyjściowe podzapytania są znacznie mniejsze niż dane wejściowe. Aparat zapytań będzie buforować i ponownie używać danych wyjściowych we wszystkich wystąpieniach.
 
 
 

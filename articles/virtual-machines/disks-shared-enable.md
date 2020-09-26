@@ -4,16 +4,16 @@ description: Skonfiguruj dysk zarządzany przez platformę Azure z dyskami udost
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 09/22/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ad70aa1d044649a0ca61060fff9880d4ef1e34c1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 447380c7aed7e765695ea5389f0b3f2973a16b0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752053"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328143"
 ---
 # <a name="enable-shared-disk"></a>Włączanie dysku udostępnionego
 
@@ -147,7 +147,7 @@ Przed użyciem następującego szablonu Zastąp wartości,,,,,, `[parameters('da
 Po wdrożeniu udostępnionego dysku za pomocą programu możesz `maxShares>1` zainstalować dysk na co najmniej jednej z maszyn wirtualnych.
 
 > [!NOTE]
-> W przypadku wdrażania programu Ultra Disk upewnij się, że jest on zgodny z wymaganymi wymaganiami. Szczegółowe informacje znajdują się w sekcji [programu PowerShell](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) lub [interfejsu wiersza polecenia](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) w artykule dotyczącym usługi Ultra Disk.
+> W przypadku wdrażania programu Ultra Disk upewnij się, że jest on zgodny z wymaganymi wymaganiami. Aby uzyskać szczegółowe informacje, zobacz [Korzystanie z usługi Azure Ultra disks](disks-enable-ultra-ssd.md) .
 
 ```azurepowershell-interactive
 

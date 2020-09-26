@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 746243336d74aefc55df48872fe9dd21e9cd99a5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6ccb74fe58742974798732605b4a017a06777bcc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268224"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328177"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Konfigurowanie LVM i RAID na zaszyfrowanych urządzeniach
 
@@ -459,4 +459,5 @@ df -h
 ```
 ## <a name="next-steps"></a>Następne kroki
 
+- [Zmień rozmiar urządzeń z zarządzaniem woluminami logicznymi zaszyfrowanymi za pomocą Azure Disk Encryption](how-to-resize-encrypted-lvm.md)
 - [Rozwiązywanie problemów z usługą Azure Disk Encryption](disk-encryption-troubleshooting.md)

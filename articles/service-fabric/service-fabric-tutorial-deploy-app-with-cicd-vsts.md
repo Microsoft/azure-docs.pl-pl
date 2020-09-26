@@ -4,12 +4,12 @@ description: Z tego samouczka dowiesz się, jak skonfigurować ciągłą integra
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 302ad1dcfaa93564d70fab739726787ef09c79df
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: a26cfaca466e01b154c65b27895f3004f6320e5d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563934"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326341"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Samouczek: wdrażanie aplikacji przy użyciu ciągłej integracji/ciągłego wdrażania w klastrze usługi Service Fabric
 
@@ -65,11 +65,11 @@ Utwórz nowe lokalne repozytorium git dla projektu, wybierając pozycję **Dodaj
 
 W widoku **Wypychanie** w programie **Team Explorer** wybierz przycisk **Opublikuj repozytorium Git** w obszarze **Wypychanie do usługi Azure DevOps**.
 
-![Wypychanie repozytorium Git][push-git-repo]
+![Zrzut ekranu okna synchronizacja Team Explorer w programie Visual Studio. Przycisk Publikuj w repozytorium git jest wyróżniony w obszarze wypychanie do usługi Azure DevOps.][push-git-repo]
 
 Sprawdź swój adres e-mail i z listy rozwijanej **Domena usługi Azure DevOps** wybierz swoje konto. Wprowadź nazwę repozytorium i wybierz polecenie **Publikuj repozytorium**.
 
-![Wypychanie repozytorium Git][publish-code]
+![Zrzut ekranu przedstawiający ustawienia wypychania do platformy Azure DevOps z wyróżnionym przyciskiem Poczta E-mail, konto, Nazwa repozytorium i publikowanie repozytorium.][publish-code]
 
 Opublikowanie repozytorium powoduje utworzenie nowego projektu na Twoim koncie o takiej samej nazwie co lokalne repozytorium. Aby utworzyć repozytorium w istniejącym projekcie, kliknij pozycję **Zaawansowane** obok pola **Nazwa repozytorium**, a następnie wybierz projekt. Aby wyświetlić kod w Internecie, wybierz polecenie **Wyświetl w Internecie**.
 
@@ -155,7 +155,7 @@ Aby sprawdzić postęp kompilacji, przejdź do karty **Kompilacje** modułu **Te
 
 Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja została uruchomiona w klastrze.  Otwórz przeglądarkę internetową i przejdź pod adres `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Zwróć uwagę na wersję aplikacji. W tym przykładzie jest to „1.0.0.20170815.3”.
 
-![Service Fabric Explorer][sfx1]
+![Zrzut ekranu aplikacji do głosowania w Service Fabric Explorer uruchomiony w oknie przeglądarki. Zostanie wyświetlona wersja aplikacji "1.0.0.20170815.3".][sfx1]
 
 ## <a name="update-the-application"></a>Aktualizowanie aplikacji
 
@@ -163,11 +163,11 @@ Wprowadź zmiany w kodzie aplikacji.  Zapisz i zatwierdź zmiany, postępując z
 
 Po rozpoczęciu uaktualnienia aplikacji możesz obserwować jego postęp w narzędziu Service Fabric Explorer:
 
-![Service Fabric Explorer][sfx2]
+![Zrzut ekranu aplikacji do głosowania w Service Fabric Explorer. Zostanie wyróżniony komunikat o stanie "uaktualnienie" i "uaktualnienie w toku".][sfx2]
 
 Uaktualnianie aplikacji może potrwać kilka minut. Po zakończeniu uaktualniania aplikacja zostanie uruchomiona w następnej wersji.  W tym przykładzie „1.0.0.20170815.4”.
 
-![Service Fabric Explorer][sfx3]
+![Zrzut ekranu aplikacji do głosowania w Service Fabric Explorer uruchomiony w oknie przeglądarki. Zostanie wyświetlona zaktualizowana wersja aplikacji "1.0.0.20170815.4".][sfx3]
 
 ## <a name="next-steps"></a>Następne kroki
 

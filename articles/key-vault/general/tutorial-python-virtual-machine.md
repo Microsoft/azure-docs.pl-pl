@@ -1,6 +1,6 @@
 ---
 title: Samouczek — używanie Azure Key Vault z maszyną wirtualną w języku Python | Microsoft Docs
-description: W tym samouczku skonfigurujesz aplikację ASP.NET Core w celu odczytu wpisu tajnego z magazynu kluczy.
+description: W tym samouczku skonfigurujesz maszynę wirtualną aplikacji w języku Python w celu odczytu wpisu tajnego z magazynu kluczy.
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: c0f98f8c77e4a9cd4271511e0169f07da1c52baa
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 8980505ac34e32a29403060a7cf3cfaec077d8af
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336704"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Samouczek: używanie Azure Key Vault z maszyną wirtualną w języku Python
 
@@ -37,7 +37,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Dla systemów Windows, Mac i Linux:
-  * [Narzędzia](https://git-scm.com/downloads)
+  * [Git](https://git-scm.com/downloads)
   * Ten samouczek wymaga uruchomienia interfejsu wiersza polecenia platformy Azure lokalnie. Musisz mieć zainstalowany interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja wiersza polecenia lub jego uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
@@ -63,8 +63,8 @@ Utwórz maszynę wirtualną o nazwie **myVM** przy użyciu jednej z następując
 | Linux | Windows |
 |--|--|
 | [Interfejs wiersza polecenia platformy Azure](../../virtual-machines/linux/quick-create-cli.md) | [Interfejs wiersza polecenia platformy Azure](../../virtual-machines/windows/quick-create-cli.md) |
-| [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
-| [Witryna Azure Portal](../../virtual-machines/linux/quick-create-portal.md) | [Azure Portal](../../virtual-machines/windows/quick-create-portal.md) |
+| [Program PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [Program PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
+| [Witryna Azure Portal](../../virtual-machines/linux/quick-create-portal.md) | [Witryna Azure Portal](../../virtual-machines/windows/quick-create-portal.md) |
 
 Aby utworzyć maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ VM Create](/cli/azure/vm) .  Poniższy przykład dodaje konto użytkownika o nazwie *azureuser*. Parametr `--generate-ssh-keys` jest używany, aby automatycznie wygenerować klucz SSH i umieścić go w domyślnej lokalizacji klucza (*~/.ssh*). 
 
@@ -156,7 +156,7 @@ python3 sample.py
 The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie są już potrzebne, Usuń maszynę wirtualną i Magazyn kluczy.  Możesz to zrobić szybko, usuwając grupę zasobów, do której należą:
 

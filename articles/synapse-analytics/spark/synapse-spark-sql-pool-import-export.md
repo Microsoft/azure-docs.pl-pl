@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 58c52649750ae03f19188a025fa4baa16a55ae05
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590085"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259922"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
@@ -30,7 +30,7 @@ Pula Apache Spark platformy Azure Synapse do Synapse SQL Connector jest implemen
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Uwierzytelnianie w usłudze Azure Synapse Analytics
 
-Uwierzytelnianie między systemami odbywa się bezproblemowo w usłudze Azure Synapse Analytics. Istnieje usługa tokenów, która łączy się z Azure Active Directory, aby uzyskać tokeny zabezpieczające do użycia podczas uzyskiwania dostępu do konta magazynu lub serwera magazynu danych.
+Uwierzytelnianie między systemami odbywa się bezproblemowo w usłudze Azure Synapse Analytics. Usługa tokenów nawiązuje połączenie z Azure Active Directory, aby uzyskać tokeny zabezpieczające, które mają być używane podczas uzyskiwania dostępu do konta magazynu lub serwera magazynu danych.
 
 Z tego powodu nie ma potrzeby tworzenia poświadczeń ani określania ich w interfejsie API łącznika, o ile uwierzytelnianie AAD jest skonfigurowane na koncie magazynu i na serwerze magazynu danych. W przeciwnym razie można określić uwierzytelnianie SQL. Więcej szczegółów znajduje się w sekcji [użycie](#usage) .
 
@@ -91,14 +91,14 @@ Powyższy interfejs API będzie działał zarówno wewnętrznie (zarządzany), j
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-Interfejs API zapisu tworzy tabelę w puli SQL, a następnie wywołuje bazę do ładowania danych.  Tabela nie może istnieć w puli SQL lub zostanie zwrócona wartość błędu z informacją o tym, że istnieje już obiekt o nazwie.
+Interfejs API zapisu tworzy tabelę w puli SQL, a następnie wywołuje bazę do ładowania danych.  Tabela nie może istnieć w puli SQL lub zostanie zwrócony błąd z informacją o tym, że "istnieje już obiekt o nazwie..."
 
 Wartości tabletype
 
 - Stałe. tabela zarządzana wewnętrznie w puli SQL
 - Stałe. zewnętrzna — tabela zewnętrzna w puli SQL
 
-Tabela zarządzana puli SQL
+Tabela zarządzana przez pulę SQL
 
 ```scala
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
@@ -106,7 +106,7 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 Tabela zewnętrzna puli SQL
 
-Aby można było zapisywać w tabeli zewnętrznej puli SQL, zewnętrzne źródło danych i zewnętrzny FORMAT pliku muszą istnieć w puli SQL.  Aby uzyskać więcej informacji, przeczytaj artykuł [Tworzenie zewnętrznych źródeł danych](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) i [zewnętrznych formatów plików](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) w puli SQL.  Poniżej znajdują się przykłady tworzenia zewnętrznego źródła danych i zewnętrznych formatów plików w puli SQL.
+Aby można było zapisywać w tabeli zewnętrznej puli SQL, zewnętrzne źródło danych i zewnętrzny FORMAT pliku muszą istnieć w puli SQL.  Aby uzyskać więcej informacji, przeczytaj artykuł [Tworzenie zewnętrznych źródeł danych](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) i [zewnętrznych formatów plików](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) w puli SQL.  Poniżej znajdują się przykłady tworzenia zewnętrznego źródła danych i zewnętrznych formatów plików w puli SQL.
 
 ```sql
 --For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:

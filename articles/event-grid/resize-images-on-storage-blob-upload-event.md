@@ -3,12 +3,12 @@ title: 'Samouczek: automatyczne zmienianie rozmiarów przekazanych obrazów przy
 description: 'Samouczek: Azure Event Grid mogą wyzwalać operacje przekazywania obiektów BLOB w usłudze Azure Storage. W ten sposób można wysyłać obrazy przekazane do usługi Azure Storage do innych usług, takich jak Azure Functions, zmieniać ich rozmiar i wprowadzać inne ulepszenia.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 19dfffdcee0fb95ae867b1b26fa51e702658445d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86105816"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326596"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Samouczek: Automatyzowanie zmiany rozmiarów załadowanych obrazów przy użyciu Event Grid
 
@@ -20,11 +20,11 @@ Aby dodać funkcję zmiany rozmiaru do istniejącej aplikacji do przekazywania o
 
 # <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
 
-![Opublikowana aplikacja internetowa w przeglądarce](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Zrzut ekranu przedstawiający opublikowaną aplikację sieci Web w przeglądarce dla \. zestawu NET V12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Zestaw Node.js V10 SDK](#tab/nodejsv10)
 
-![Opublikowana aplikacja internetowa w przeglądarce](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+![Zrzut ekranu przedstawiający opublikowaną aplikację sieci Web w przeglądarce dla \. zestawu NET v10 SDK.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -301,7 +301,7 @@ Kliknij region **Upload photos** (Przekazywanie zdjęć), aby wybrać i przekaza
 
 Zwróć uwagę, że po usunięciu przekazanego obrazu zostanie wyświetlona kopia przekazanego obrazu w karuzeli z **wygenerowanymi miniaturkami** . Rozmiar obrazu został zmieniony przez funkcję, obraz został dodany do kontenera *thumbnails* i pobrany przez klienta internetowego.
 
-![Opublikowana aplikacja internetowa w przeglądarce](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Zrzut ekranu przedstawiający opublikowaną aplikację sieci Web zatytułowaną "ImageResizer" w przeglądarce dla \. zestawu NET V12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Zestaw Node.js V10 SDK](#tab/nodejsv10)
 

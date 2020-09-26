@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: a95ec76c63a35c29b061c2fddff67a28e0f8f553
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ee64343a040f4ed3288f8c4addb64c1ef2437cc1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883667"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326188"
 ---
 # <a name="how-to-launch-your-spring-cloud-application-from-source-code"></a>Jak uruchomić aplikację w chmurze wiosennej z kodu źródłowego
 
@@ -101,13 +101,13 @@ Aby wdrożyć aplikację z poziomu systemu JAR skompilowanego na komputerze loka
 Aby wdrożyć plik FAT-JAR w aktywnym wdrożeniu
 
 ```azurecli
-az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR>
+az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 Aby wdrożyć plik FAT-JAR w określonym wdrożeniu
 
 ```azurecli
-az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-built-jar>
+az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 ### <a name="deploy-from-source-code"></a>Wdróż z kodu źródłowego

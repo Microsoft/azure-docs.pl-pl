@@ -7,17 +7,17 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 7e62e414182d95a445f37c1c97cdef8aff6a587a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965552"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272504"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Przygotowywanie maszyn wirtualnych do FCI (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ Aby dowiedzieć się więcej, zobacz Omówienie [FCI z SQL Server na maszynach w
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-- Subskrypcję platformy Microsoft Azure. Zacznij korzystać [bezpłatnie](https://azure.microsoft.com/free/). 
+- Subskrypcja platformy Microsoft Azure. Zacznij korzystać [bezpłatnie](https://azure.microsoft.com/free/). 
 - Domena systemu Windows na maszynach wirtualnych platformy Azure lub lokalne centrum danych rozszerzone na platformę Azure z parowaniem sieci wirtualnej.
 - Konto, które ma uprawnienia do tworzenia obiektów w usłudze Azure Virtual Machines i w Active Directory.
 - Sieć wirtualna platformy Azure i podsieć z wystarczającą przestrzenią adresową IP dla tych składników:

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501920"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260159"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza)
 
@@ -97,8 +97,8 @@ Obszar roboczy Synapse wymaga dostępu do STG1 i CNT1, aby można było uruchami
 
 - Otwórz witrynę Azure Portal
 - Przejdź do WS1
-- W obszarze **Ustawienia**kliknij pozycję **SQL Active Directory administrator**
-- Kliknij pozycję **Ustaw administratora** i wybierz pozycję WS1 \_ sqladmins
+- W obszarze **Ustawienia**wybierz pozycję **SQL Active Directory administrator**
+- Wybierz pozycję **Ustaw administratora** i wybierz pozycję WS1 \_ sqladmins
 
 ## <a name="step-6-maintain-access-control"></a>Krok 6. Obsługa kontroli dostępu
 
@@ -123,8 +123,9 @@ Użytkownicy w każdej roli muszą wykonać następujące czynności:
 
 > [!NOTE]
 > [1] aby utworzyć pule SQL lub Spark, użytkownik musi mieć co najmniej rolę współautor w obszarze roboczym Synapse.
-> [!TIP]
 >
+ 
+>[!TIP]
 > - Niektóre kroki zostaną celowo zabronione w zależności od roli.
 > - Należy pamiętać, że niektóre zadania mogą się nie powieść, jeśli zabezpieczenia nie zostały w pełni skonfigurowane. Te zadania są wymienione w tabeli.
 

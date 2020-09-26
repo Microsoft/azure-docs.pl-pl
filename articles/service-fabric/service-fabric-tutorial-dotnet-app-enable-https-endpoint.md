@@ -4,12 +4,12 @@ description: W ramach tego samouczka dowiesz się, jak dodać punkt końcowy HTT
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c675f8ece8369bcfc0055343221ac82aea59dec1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326239"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Samouczek: Dodawanie punktu końcowego HTTPS do usługi frontonu internetowego interfejsu API platformy ASP.NET Core za pomocą usługi Kestrel
 
@@ -354,7 +354,7 @@ W Eksplorator rozwiązań wybierz aplikację do **głosowania** i ustaw właści
 
 Zapisz wszystkie pliki i naciśnij klawisz F5, aby uruchomić aplikację lokalnie.  Po wdrożeniu aplikacji zostanie otwarta przeglądarka sieci Web https: \/ /localhost: 443. Jeśli używasz certyfikatu z podpisem własnym, zobaczysz ostrzeżenie, że komputer nie ufa zabezpieczeniom tej witryny internetowej.  Kontynuuj przechodzenie do strony internetowej.
 
-![Aplikacja do głosowania][image2]
+![Zrzut ekranu przykładowej aplikacji do głosowania Service Fabric w oknie przeglądarki z adresem URL https://localhost/ .][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Instalowanie certyfikatu w węzłach klastra
 
@@ -371,7 +371,7 @@ Następnie Zainstaluj certyfikat w klastrze zdalnym, korzystając z [tych dostar
 > [!Warning]
 > Certyfikat z podpisem własnym jest wystarczający w przypadku programowania i testowania aplikacji. W przypadku aplikacji produkcyjnych należy użyć certyfikatu z [certyfikatu urzędu certyfikacji](https://wikipedia.org/wiki/Certificate_authority) zamiast certyfikatu z podpisem własnym.
 
-## <a name="open-port-443-in-the-azure-load-balancer"></a>Otwieranie portu 443 w module równoważenia obciążenia platformy Azure
+## <a name="open-port-443-in-the-azure-load-balancer-and-virtual-network"></a>Otwórz port 443 w module równoważenia obciążenia platformy Azure i w sieci wirtualnej
 
 Jeśli jeszcze tego nie zrobiono, otwórz port 443 w module równoważenia obciążenia.
 
@@ -396,13 +396,33 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 $slb | Set-AzLoadBalancer
 ```
 
+Wykonaj te same czynności dla skojarzonej sieci wirtualnej.
+
+```powershell
+$rulename="allowAppPort$port"
+$nsgname="voting-vnet-security"
+$RGname="voting_RG"
+$port=443
+
+# Get the NSG resource
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
+
+# Add the inbound security rule.
+$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
+    -Protocol * -Direction Inbound -Priority 3891 -SourceAddressPrefix "*" -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange $port
+
+# Update the NSG.
+$nsg | Set-AzNetworkSecurityGroup
+```
+
 ## <a name="deploy-the-application-to-azure"></a>Wdrożenie aplikacji na platformie Azure
 
 Zapisz wszystkie pliki, przełącz z debugowania na wydanie i naciśnij klawisz F6, aby ponownie skompilować rozwiązanie.  W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Voting (Głosowanie)** i wybierz polecenie **Opublikuj**. Wybierz punkt końcowy połączenia klastra utworzonego w sekcji [Wdrażanie aplikacji w klastrze](service-fabric-tutorial-deploy-app-to-party-cluster.md) lub wybierz inny klaster.  Kliknij pozycję **Opublikuj**, aby opublikować aplikację w klastrze zdalnym.
 
 Po wdrożeniu aplikacji otwórz przeglądarkę internetową i przejdź do strony `https://mycluster.region.cloudapp.azure.com:443` (zaktualizuj adres URL przy użyciu punktu końcowego połączenia dla klastra). Jeśli używasz certyfikatu z podpisem własnym, zobaczysz ostrzeżenie, że komputer nie ufa zabezpieczeniom tej witryny internetowej.  Kontynuuj przechodzenie do strony internetowej.
 
-![Aplikacja do głosowania][image3]
+![Zrzut ekranu przykładowej aplikacji do głosowania Service Fabric w oknie przeglądarki z adresem URL https://mycluster.region.cloudapp.azure.com:443 .][image3]
 
 ## <a name="next-steps"></a>Następne kroki
 

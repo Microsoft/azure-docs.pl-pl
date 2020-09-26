@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 09181a28edf21f0a4da11a244d3c094469446ab5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6726dab6f1037f01eda316968e3c5b503aa9dbfb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983457"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326584"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integracja z usługą Logic Apps przy użyciu łącznika niestandardowego
 
@@ -28,7 +28,7 @@ Ten artykuł zawiera [Azure Portal](https://portal.azure.com) do **tworzenia ł�
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem **Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ** .
 Zaloguj się do [Azure Portal](https://portal.azure.com) za pomocą tego konta. 
 
-Pozostała część tej sekcji przeprowadzi Cię przez następujące kroki:
+Należy również wykonać następujące czynności w ramach konfiguracji wymagań wstępnych. Pozostała część tej sekcji przeprowadzi Cię przez następujące kroki:
 - Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 - Pobierz klucz tajny klienta rejestracji aplikacji
 - Dodaj dwuosiową cyfrę
@@ -37,9 +37,9 @@ Pozostała część tej sekcji przeprowadzi Cię przez następujące kroki:
 
 Aby połączyć Logic Apps wystąpienie usługi Azure Digital bliźniaczych reprezentacji w tym artykule, musisz mieć już skonfigurowane **wystąpienie usługi Azure Digital bliźniaczych reprezentacji** . 
 
-Jeśli konieczne jest skonfigurowanie nowego wystąpienia teraz, najprostszym sposobem, aby to zrobić, jest uruchomienie przykładowego skryptu wdrażania automatycznego. Postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Konfiguracja wystąpienia i uwierzytelniania (skrypty)*](how-to-set-up-instance-scripted.md) , aby skonfigurować nowe wystąpienie i wymaganą rejestrację aplikacji usługi Azure AD. Instrukcje zawierają również kroki umożliwiające zweryfikowanie, czy każdy krok został pomyślnie ukończony i jest gotowy do przejścia do korzystania z nowego wystąpienia.
+Najpierw skonfiguruj wystąpienie usługi Azure Digital bliźniaczych reprezentacji i wymagane uwierzytelnianie, aby móc z nich korzystać. Aby to zrobić, postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md). W zależności od preferowanego środowiska, artykuł instalacyjny jest oferowany dla [przykładowego skryptu wdrażania](how-to-set-up-instance-scripted.md) [Azure Portal](how-to-set-up-instance-portal.md), [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md)lub Cloud Shell. Wszystkie wersje instrukcji zawierają również kroki umożliwiające sprawdzenie, czy każdy krok został pomyślnie wykonany i jest gotowy do przejścia do korzystania z nowego wystąpienia.
 
-W tym samouczku podczas konfigurowania wystąpienia będą potrzebne następujące wartości. Aby ponownie zebrać te wartości, Skorzystaj z poniższych linków, aby znaleźć je w [Azure Portal](https://portal.azure.com).
+W tym samouczku będziesz potrzebować kilku wartości z podczas konfigurowania wystąpienia. Aby ponownie zebrać te wartości, Skorzystaj z poniższych linków, aby znaleźć je w [Azure Portal](https://portal.azure.com).
 * **_Nazwa hosta_** wystąpienia usługi Azure Digital bliźniaczych reprezentacji ([Znajdź w portalu](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * Identyfikator aplikacji rejestracji aplikacji usługi Azure AD **_(klient)_** ([Znajdź w portalu](how-to-set-up-instance-portal.md#collect-important-values))
 * Identyfikator rejestracji w usłudze Azure AD ( **_dzierżawa)_** ([Znajdź w portalu](how-to-set-up-instance-portal.md#collect-important-values))
@@ -160,13 +160,13 @@ Teraz po skonfigurowaniu łącznika niestandardowego, który będzie mógł uzys
 
 Następnie utworzysz aplikację logiki, która będzie używać nowego łącznika do automatyzowania aktualizacji usługi Azure Digital bliźniaczych reprezentacji.
 
-Przejdź do strony [Logic Apps (użycie)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) w Azure Portal (możesz użyć tego linku lub poszukać go na pasku wyszukiwania portalu). Naciśnij przycisk *Dodaj* , aby utworzyć aplikację logiki.
+W [Azure Portal](https://portal.azure.com)Wyszukaj *Aplikacje logiki* na pasku wyszukiwania portalu. Wybranie tej opcji powinno spowodować przejście na stronę *Aplikacje logiki* . Naciśnij przycisk *Utwórz aplikację logiki* , aby utworzyć nową aplikację logiki.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Strona "Logic Apps (zużycie)" w Azure Portal. Naciśnij przycisk "Dodaj"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Strona "Logic Apps" w Azure Portal. Naciśnij przycisk "Dodaj"":::
 
-Na stronie usługi *Logic Apps (użycie)* wpisz swoją subskrypcję, grupę zasobów. Ponadto wybierz nazwę aplikacji logiki i wybierz lokalizację.
+Na stronie *aplikacja logiki* poniżej wprowadź subskrypcję i grupę zasobów. Ponadto wybierz nazwę aplikacji logiki i wybierz lokalizację wdrożenia.
 
-Wybierz przycisk _Recenzja + Utwórz_ .
+Naciśnij przycisk _Recenzja + Utwórz_ .
 
 Spowoduje to przejście do karty *Recenzja i tworzenie* , gdzie można przejrzeć szczegóły i kliknąć przycisk *Utwórz* u dołu, aby utworzyć zasób.
 

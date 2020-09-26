@@ -1,6 +1,6 @@
 ---
 title: Samouczek — używanie Azure Key Vault z maszyną wirtualną w programie .NET | Microsoft Docs
-description: W tym samouczku skonfigurujesz aplikację ASP.NET Core w celu odczytu wpisu tajnego z magazynu kluczy.
+description: W tym samouczku skonfigurujesz maszynę wirtualną aplikacji ASP.NET Core w celu odczytywania wpisu tajnego z magazynu kluczy.
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b4f832750f7a94a6a60cbb1d3ba630925dd4fff2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e1abc26296b1e3bd16bebf95d3489a4e95595e1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021735"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336721"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Samouczek: używanie Azure Key Vault z maszyną wirtualną w programie .NET
 
@@ -201,7 +201,7 @@ Dodaj te wiersze, aktualizując identyfikator URI w celu odzwierciedlenia `vault
 
 Gdy nie są już potrzebne, Usuń maszynę wirtualną i Magazyn kluczy.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Interfejsy API REST usługi Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)

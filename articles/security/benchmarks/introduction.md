@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 53473b6be9e91adb636c3c9528e97ec644616115
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328262"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Wprowadzenie do usługi Azure Security test
 
@@ -23,8 +23,8 @@ Firma Microsoft stwierdziła, że korzystanie z *testów porównawczych zabezpie
 
 Test porównawczy zabezpieczeń platformy Azure obejmuje kolekcję zaleceń dotyczących zabezpieczeń o dużym wpływie, których można użyć w celu zabezpieczenia usług używanych na platformie Azure:
 
-- Kontrolki zabezpieczeń: te zalecenia są zwykle stosowane w ramach dzierżawy platformy Azure i usług platformy Azure. Każde zalecenie określa listę uczestników, którzy zwykle są zaangażowani w planowanie, zatwierdzanie lub implementację testu porównawczego. 
-- Linie bazowe usługi: te elementy są stosowane do poszczególnych usług platformy Azure w celu zapewnienia zaleceń dotyczących konfiguracji zabezpieczeń tej usługi.
+- **Kontrolki zabezpieczeń**: te zalecenia są zwykle stosowane w ramach dzierżawy platformy Azure i usług platformy Azure. Każde zalecenie określa listę uczestników, którzy zwykle są zaangażowani w planowanie, zatwierdzanie lub implementację testu porównawczego. 
+- **Linie bazowe usługi**: te elementy są stosowane do poszczególnych usług platformy Azure w celu zapewnienia zaleceń dotyczących konfiguracji zabezpieczeń tej usługi.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implementowanie testu porównawczego zabezpieczeń platformy Azure
 - **Zaplanuj** implementację testu porównawczego zabezpieczeń platformy Azure, przeglądając [dokumentację](overview.md) dla kontrolek przedsiębiorstwa i linii bazowych specyficznych dla usługi, aby zaplanować strukturę kontroli i sposób mapowania na wskazówki, takie jak CIS (Controls v 7.1) i NIST (SP800-53).
@@ -46,7 +46,7 @@ Usługa Azure Security test jest często używana do rozwiązywania tych typowyc
 Warunki "kontrola", "wzorzec" i "linia bazowa" są często używane w dokumentacji usługi Azure Security test i ważne jest, aby zrozumieć, w jaki sposób platforma Azure korzysta z tych warunków.
 
 
-| Okres | Opis | Przykład |
+| Termin | Opis | Przykład |
 |--|--|--|
 | Kontrola | Kontrolka to ogólny opis funkcji lub działania, które muszą zostać rozkierowane i nie jest specyficzny dla technologii lub implementacji. | Ochrona danych jest jedną z formantów zabezpieczeń. Ta kontrolka zawiera określone akcje, które należy rozwiązać, aby zapewnić ochronę danych. |
 | Punkt odniesienia | Wzorzec porównawczy zawiera zalecenia dotyczące zabezpieczeń dla określonej technologii, takich jak Azure. Zalecenia są podzielone według kontrolki, do której należą. | Test porównawczy zabezpieczeń platformy Azure obejmuje zalecenia dotyczące zabezpieczeń specyficzne dla platformy Azure |

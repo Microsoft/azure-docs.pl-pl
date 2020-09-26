@@ -5,13 +5,23 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: d04a13dae78057dfca52ed82bed278a8b132ded1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: df9ef2610b0a51489c5f752e67fa146cd181fad8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375007"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326973"
 ---
+Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania mowy przez człowieka i przetłumaczenia jej na inne języki. W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania translacji mowy o wysokiej jakości. Ten przewodnik Szybki Start obejmuje następujące tematy:
+
+* Tłumaczenie zamiany mowy na tekst
+* Tłumaczenie mowy na wiele języków docelowych
+* Wykonywanie bezpośredniego tłumaczenia mowy na mowę
+
+## <a name="skip-to-samples-on-github"></a>Przejdź do przykładów w witrynie GitHub
+
+Jeśli chcesz pominąć prosty kod przykładowy, zobacz [przykłady przewodnika Szybki Start dla języka Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre/translate-speech-to-text) w witrynie GitHub.
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 W tym artykule przyjęto założenie, że masz konto platformy Azure i subskrypcję usługi mowy. Jeśli nie masz konta i subskrypcji, [Wypróbuj usługę mowy bezpłatnie](../../../get-started.md).
@@ -22,7 +32,7 @@ Przed wykonaniem jakichkolwiek czynności należy zainstalować zestaw Speech SD
 
 ## <a name="import-dependencies"></a>Importowanie zależności
 
-Aby uruchomić przykłady z tego artykułu, należy uwzględnić następujące `import` instrukcje w górnej części znaku **. *Plik kodu Java.
+Aby uruchomić przykłady z tego artykułu, należy uwzględnić następujące `import` instrukcje w górnej części znaku **. * Plik kodu Java.
 
 ```java
 package speech;

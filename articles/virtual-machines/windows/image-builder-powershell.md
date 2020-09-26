@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e25b2b53acdfb05af8572a01109961bf3002e429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499436"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328109"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Wersja zapoznawcza: Tworzenie maszyny wirtualnej z systemem Windows za pomocą narzędzia Azure Image Builder przy użyciu programu PowerShell
 
@@ -24,7 +24,7 @@ W tym artykule pokazano, jak utworzyć dostosowany obraz systemu Windows przy u�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -271,7 +271,7 @@ W tle Konstruktor obrazów tworzy również tymczasową grupę zasobów w ramach
 
 Jeśli usługa zgłasza błąd podczas przesłania szablonu konfiguracji obrazu:
 
-- Zobacz [Rozwiązywanie problemów z błędami kompilacji obrazu maszyny wirtualnej platformy Azure (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting).
+- Zobacz [Rozwiązywanie problemów z błędami kompilacji obrazu maszyny wirtualnej platformy Azure (AIB)](../linux/image-builder-troubleshoot.md).
 - Przed ponowieniem próby Usuń szablon przy użyciu poniższego przykładu.
 
 ```azurepowershell-interactive
@@ -288,7 +288,7 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 Poczekaj na zakończenie procesu kompilacji obrazu. Ten krok może potrwać do godziny.
 
-Jeśli wystąpią błędy, przejrzyj [temat Rozwiązywanie problemów z błędami kompilacji obrazu maszyny wirtualnej platformy Azure (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+Jeśli wystąpią błędy, przejrzyj [temat Rozwiązywanie problemów z błędami kompilacji obrazu maszyny wirtualnej platformy Azure (AIB)](../linux/image-builder-troubleshoot.md).
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 

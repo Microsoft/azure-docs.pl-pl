@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135371"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336209"
 ---
-# <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Rozwiązywanie problemów z replikacją dla maszyn wirtualnych VMware i serwerów fizycznych
+# <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Rozwiązywanie problemów z replikacją związanych z maszynami wirtualnymi VMware i serwerami fizycznymi
 
 W tym artykule opisano niektóre typowe problemy i konkretne błędy, które mogą wystąpić w przypadku replikowania lokalnych maszyn wirtualnych VMware i serwerów fizycznych na platformę Azure przy użyciu [Site Recovery](site-recovery-overview.md).
 
@@ -192,6 +192,24 @@ Sprawdź, czy typ uruchamiania usługi dostawcy VSS jest ustawiony na wartość 
         - Usługa VSS
         - Azure Site Recovery dostawcę usługi VSS
         - Usługa VDS
+
+## <a name="error-id-95001---insufficient-permissions-found"></a>Identyfikator błędu 95001 — nie znaleziono wystarczających uprawnień
+
+Ten błąd występuje podczas próby włączenia replikacji, a foldery aplikacji nie mają wystarczających uprawnień.
+
+**Jak naprawić**: Aby rozwiązać ten problem, upewnij się, że użytkownik IUSR ma rolę właściciela dla wszystkich wymienionych poniżej folderów —
+
+- *C\ProgramData\Microsoft witryny Azure Recovery\private*
+- Katalog instalacji. Na przykład, jeśli katalog instalacyjny to dysk F, wprowadź odpowiednie uprawnienia do-
+    - *F:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems*
+- Folder *\pushinstallsvc* w katalogu instalacyjnym. Na przykład jeśli katalog instalacyjny to dysk F, podaj odpowiednie uprawnienia do-
+    - *F:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc*
+- Folder *\etc* w katalogu instalacyjnym. Na przykład jeśli katalog instalacyjny to dysk F, podaj odpowiednie uprawnienia do-
+    - *F:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\etc*
+- *C:\Temp*
+- *C:\thirdparty\php5nts*
+- Wszystkie elementy pod poniższą ścieżką —
+    - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: bd32bbb5957832629fa19eb756b95356c0292ef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887691"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358291"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Poprawianie wydajności poprzez kompresowanie plików w usłudze Azure CDN
 Kompresja plików to prosta i skuteczna metoda zwiększania szybkości transferu plików i zwiększania wydajności ładowania strony poprzez zmniejszenie rozmiaru pliku przed jego wysłaniem z serwera. Kompresja plików pozwala zmniejszyć koszty przepustowości i zapewnić użytkownikom większą wydajność.
@@ -53,12 +53,12 @@ Warstwy usługi CDN w warstwie Standardowa i Premium zapewniają te same funkcje
     Zostanie otwarta strona punkt końcowy usługi CDN.
 2. Wybierz opcję **kompresja**.
 
-    ![Wybór kompresji sieci CDN](./media/cdn-file-compression/cdn-compress-select-std.png)
+    ![Zrzut ekranu przedstawia punkt końcowy z kompresją wybraną z menu Portal.](./media/cdn-file-compression/cdn-compress-select-std.png)
 
     Zostanie otwarta strona kompresja.
 3. Wybierz pozycję **włączone** , aby włączyć kompresję.
 
-    ![Opcje kompresji plików CDN](./media/cdn-file-compression/cdn-compress-standard.png)
+    ![Zrzut ekranu przedstawia włączenie kompresji.](./media/cdn-file-compression/cdn-compress-standard.png)
 4. Użyj domyślnych typów MIME lub zmodyfikuj listę przez dodanie lub usunięcie typów MIME.
 
    > [!TIP]
@@ -165,6 +165,6 @@ W przypadku punktów końcowych włączonych do Media Services przesyłania stru
 - adres URL aplikacji/vnd.apple.mpeg
 - Application/f4m + XML 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Rozwiązywanie problemów związanych z kompresją pliku CDN](cdn-troubleshoot-compression.md)    
 

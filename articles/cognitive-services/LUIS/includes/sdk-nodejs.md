@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: dołączanie pliku
+description: dołączanie pliku
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 09/01/2020
 ms.topic: include
-ms.custom: include file, devx-track-javascript, cog-serv-seo-aug-2020
+ms.custom: include file, devx-track-js, cog-serv-seo-aug-2020
 ms.author: diberry
-ms.openlocfilehash: b961bb0598a1f6e9cdc7b4df27af50e7af1d9d81
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: d3e4a95845f499e74c9e10fb5a6ff72c9f2f80a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323245"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327293"
 ---
 Użyj bibliotek klienckich Language Understanding (LUIS), aby Node.js do:
 
@@ -188,7 +188,7 @@ Metody tworzenia dla jednostek są częścią klasy [modelu](https://docs.micros
 
 Kod tworzenia jednostki tworzy jednostkę uczenia maszynowego z podjednostkami i funkcjami zastosowanymi do `Quantity` podjednostek.
 
-:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="Zrzut ekranu częściowego z portalu pokazującego utworzoną jednostkę, jednostkę uczenia maszynowego z podjednostkami i funkcjami zastosowanymi do podjednostek ilooć.":::
+:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="Zrzut ekranu częściowego z portalu pokazującego utworzoną jednostkę, jednostkę uczenia maszynowego z podjednostkami i funkcjami zastosowanymi do podjednostek "ilooć".":::
 
 [!code-javascript[Create entities for the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddEntities)]
 

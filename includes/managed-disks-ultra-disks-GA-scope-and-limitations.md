@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 546c21802d275fe99ed2acbf00e32d37db3603f2
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: db377a933507f9a25b377ba52ebd956416a1dfd2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225204"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328227"
 ---
 Na razie Ultra dyski mają dodatkowe ograniczenia, są następujące:
 
@@ -24,26 +24,28 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
 > [!NOTE]
 > Jeśli region na poniższej liście nie ma stref dostępności obsługujących dysk, należy wdrożyć maszyny wirtualne w tym regionie bez żadnych opcji nadmiarowości infrastruktury w celu dołączenia dysku Ultra.
 
-|Regiony  |Liczba stref dostępności obsługujących Ultra disks  |
+|Regiony  |Opcje nadmiarowości  |
 |---------|---------|
-|US Gov Wirginia     |Brak         |
-|US Gov Arizona     |Brak         |
-|South Central US     |Brak         |
-|Central US     |Trzy strefy         |
-|Zachodnie stany USA     |Brak         |
-|Zachodnie stany USA 2    |Trzy strefy         |
-|East US     |Trzy strefy         |
-|Wschodnie stany USA 2     |Trzy strefy         |
-|Azja Południowo-Wschodnia     |Trzy strefy         |
-|Azja Wschodnia     |Brak         |
-|Europa Północna     |Trzy strefy          |
-|West Europe     |Trzy strefy          |
-|Południowe Zjednoczone Królestwo     |Trzy strefy          |
-|Japan East     |Trzy strefy         |
-|Francja Środkowa    |Dwie strefy        |
-|Brazil South    |Brak        |
-|Australia Wschodnia    |Trzy strefy        |
-|Kanada środkowa *    |Trzy strefy        |
+|Brazil South     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
+|Indie Środkowe     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
+|Azja Wschodnia     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
+|Niemcy Środkowo-Zachodnie     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
+|Korea Środkowa     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
+|South Central US    |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
+|US Gov Arizona     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
+|US Gov Wirginia     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)|
+|Zachodnie stany USA     |Tylko pojedyncze maszyny wirtualne (zbiory dostępności i zestawy skalowania maszyn wirtualnych nie są obsługiwane)        |
+|Australia Wschodnia     |Trzy strefy dostępności         |
+|Kanada środkowa *     |Trzy strefy dostępności          |
+|Środkowe stany USA     |Trzy strefy dostępności          |
+|East US     |Trzy strefy dostępności          |
+|Wschodnie stany USA 2     |Trzy strefy dostępności         |
+|Francja Środkowa    |Dwie strefy dostępności        |
+|Japan East    |Trzy strefy dostępności        |
+|Europa Północna    |Trzy strefy dostępności        |
+|Południowe Zjednoczone Królestwo    |Trzy strefy dostępności        |
+|West Europe    | Trzy strefy dostępności|
+|Zachodnie stany USA 2    |Trzy strefy dostępności|
 
 \* Skontaktuj się z pomocą techniczną platformy Azure, aby uzyskać dostęp do Strefy dostępności w tym regionie.
 
@@ -53,16 +55,20 @@ W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające i
     - [Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series)
     - [Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series)
     - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
+    - [Dasv4](../articles/virtual-machines/dav4-dasv4-series.md#dasv4-series)
+    - [Ddsv4](../articles/virtual-machines/ddv4-ddsv4-series.md#ddsv4-series)
+    - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-- Nie każdy rozmiar maszyny wirtualnej jest dostępny w każdym obsługiwanym regionie za pomocą Ultra disks
-- Są dostępne tylko jako dyski danych i obsługują tylko rozmiar sektora fizycznego 4 KB. Ze względu na rozmiar sektora macierzystego 4K dla Ultra dysku istnieją aplikacje, które nie będą zgodne z Ultra Disks. Przykładem może być Oracle Database, który wymaga wersji 12,2 lub nowszej, aby można było obsługiwać Ultra Disks.  
-- Można utworzyć tylko jako puste dyski  
-- Obecnie nie obsługuje migawek dysków, obrazów maszyn wirtualnych, zestawów dostępności, dedykowanych hostów platformy Azure ani usługi Azure Disk Encryption
-- Program nie obsługuje obecnie integracji z Azure Backup ani Azure Site Recovery
-- Obsługuje tylko odczyty z pamięci podręcznej i zapisywanie w pamięci podręcznej
+- Nie każdy rozmiar maszyny wirtualnej jest dostępny w każdym obsługiwanym regionie przy użyciu Ultra Disks.
+- Są dostępne tylko jako dyski danych. 
+- Domyślnie Obsługuj rozmiar sektora fizycznego 4 KB. rozmiar sektora 512E jest dostępny jako oferta ogólnie dostępna, ale należy [utworzyć konto](https://aka.ms/ultradisk512e). Większość aplikacji jest zgodna z rozmiarami sektorów 4K, ale niektóre wymagają 512 bajtów sektorów. Przykładem może być Oracle Database, który wymaga wersji 12,2 lub nowszej w celu obsługi dysków natywnych 4K. W przypadku starszych wersji Oracle DB wymagany jest rozmiar sektora bajtów 512.
+- Można utworzyć tylko jako puste dyski.
+- Obecnie nie obsługuje migawek dysków, obrazów maszyn wirtualnych, zestawów dostępności, dedykowanych hostów platformy Azure ani usługi Azure Disk Encryption.
+- Program nie obsługuje obecnie integracji z Azure Backup ani Azure Site Recovery.
+- Obsługuje tylko odczyty z pamięci podręcznej i zapisywanie w pamięci podręcznej.
 - Bieżący maksymalny limit liczby operacji we/wy na maszynach wirtualnych "GA" to 80 000.
 
 Usługa Azure Ultra disks domyślnie oferuje do 16 TiB na region dla każdej subskrypcji, ale niezwykle wysokie pojemności są obsługiwane przez żądanie. Aby zażądać zwiększenia wydajności, skontaktuj się z pomocą techniczną platformy Azure.

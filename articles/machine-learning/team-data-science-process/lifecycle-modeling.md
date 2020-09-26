@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720473"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336449"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modelowanie etapów cyklu życia zespołowego procesu nauki danych
 
@@ -45,7 +45,7 @@ W tym etapie istnieją trzy główne zadania:
   * **Uczenie modeli**: Znajdź model, który odbierze najbardziej dokładne wyniki, porównując ich metryki sukcesu.
   * Ustal, czy model jest **odpowiedni dla środowiska produkcyjnego.**
 
-### <a name="feature-engineering"></a>Inżynieria funkcji
+### <a name="feature-engineering"></a>Inżynieria cech
 Inżynieria funkcji obejmuje dołączenie, agregację i transformację zmiennych nieprzetworzonych w celu utworzenia funkcji używanych w analizie. Jeśli chcesz uzyskać wgląd w to, co ma wpływ na model, musisz zrozumieć, w jaki sposób funkcje są ze sobą powiązane, i jak algorytmy uczenia maszynowego mają korzystać z tych funkcji. 
 
 Ten krok wymaga twórczej kombinacji wiedzy o domenie i szczegółowych informacji uzyskanych z kroku eksploracji danych. Inżynieria funkcji to funkcja równoważenia obciążenia, która umożliwia znajdowanie i uwzględnianie zmiennych, ale jednocześnie próbuje uniknąć zbyt wielu niepowiązanych zmiennych. Zmienne informacyjne ulepszają wynik; zmienne niepowiązane wprowadzają niepotrzebny szum do modelu. Należy również generować te funkcje dla nowych danych uzyskanych podczas oceniania. W związku z tym generowanie tych funkcji może być zależne tylko od danych, które są dostępne w momencie oceniania. 
@@ -53,7 +53,7 @@ Ten krok wymaga twórczej kombinacji wiedzy o domenie i szczegółowych informac
 Aby uzyskać wskazówki techniczne dotyczące inżynierii funkcjonalnej w przypadku korzystania z różnych technologii danych platformy Azure, zobacz [Inżynieria funkcji w procesie analizy danych](create-features.md). 
 
 ### <a name="model-training"></a>Trenowanie modelu
-W zależności od typu pytania, które próbujesz odpowiedzieć, dostępnych jest wiele algorytmów modelowania. Aby uzyskać wskazówki dotyczące wybierania algorytmów, zobacz [jak wybrać algorytmy dla Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Chociaż w tym artykule są używane Azure Machine Learning, wskazówki, które zapewnia, są przydatne w przypadku wszystkich projektów uczenia maszynowego. 
+W zależności od typu pytania, które próbujesz odpowiedzieć, dostępnych jest wiele algorytmów modelowania. Aby uzyskać wskazówki dotyczące wybierania algorytmów, zobacz [jak wybrać algorytmy dla Microsoft Azure Machine Learning](../how-to-select-algorithms.md). Chociaż w tym artykule są używane Azure Machine Learning, wskazówki, które zapewnia, są przydatne w przypadku wszystkich projektów uczenia maszynowego. 
 
 Proces szkolenia modelu obejmuje następujące kroki: 
 

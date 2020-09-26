@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 23898969f254063ee9e5385fee577661871ccf45
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 0eb814ea0d941ca01d3a21db1cb507ef273a1a18
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298984"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328347"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Przesyłanie strumieniowe na żywo z Azure Media Services v3
 
@@ -60,7 +60,7 @@ Filtrowanie dynamiczne służy do kontrolowania liczby ścieżek, formatów, szy
 
 ### <a name="pass-through"></a>Przekazywanie
 
-![Przekazywanie](./media/live-streaming/pass-through.svg)
+![Diagram przedstawiający sposób pozyskiwania i przetwarzania kanałów informacyjnych wideo i audio ze zdarzenia Pass-through na żywo.](./media/live-streaming/pass-through.svg)
 
 Korzystając ze zdarzenia Pass-through **Live**, można polegać na lokalnym koderie na żywo w celu wygenerowania strumienia wideo o wielu szybkościach transmisji bitów i wysłania go jako źródła strumieniowego do zdarzenia na żywo (przy użyciu protokołu wejścia/wyjścia w formacie RTMP lub fragmentacji). Zdarzenie na żywo przeprowadzi następnie przez przychodzące strumienie wideo do Pakowarki dynamicznego (punkt końcowy przesyłania strumieniowego) bez konieczności dalszej transkodowania. Takie zdarzenie przekazywania na żywo jest zoptymalizowane pod kątem długotrwałych wydarzeń na żywo lub 24x365 liniowe przesyłanie strumieniowe na żywo. 
 

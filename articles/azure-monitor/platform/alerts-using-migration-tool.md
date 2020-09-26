@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 5e811e487856ea38f96b669ccb12cabda655a8cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852127"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358665"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Migrowanie klasycznych reguł alertów za pomocą narzędzia do migracji dobrowolnej
 
@@ -49,7 +49,7 @@ Aby wyzwolić migrację klasycznych reguł alertów w Azure Portal, wykonaj nast
 
 1. Wybierz pozycję **Migruj do nowych reguł** , aby przejść do strony docelowej migracji. Ta strona zawiera listę wszystkich subskrypcji i ich stan migracji:
 
-    ![Migracja — spocznik](media/alerts-migration/migration-landing.png "Migrowanie reguł")
+    ![Zrzut ekranu przedstawia stronę Migrowanie reguł alertów.](media/alerts-migration/migration-landing.png "Migrowanie reguł")
 
     Wszystkie subskrypcje, które można migrować za pomocą narzędzia, są oznaczone jako **gotowe do migracji**.
 
@@ -60,7 +60,7 @@ Aby wyzwolić migrację klasycznych reguł alertów w Azure Portal, wykonaj nast
 
     Na stronie wyniki zostaną wyświetlone szczegóły klasycznych reguł alertów, które będą migrowane w ramach jednej subskrypcji w danym momencie. Możesz również wybrać pozycję **Pobierz szczegóły migracji dla tej subskrypcji** , aby uzyskać szczegółowe informacje w formacie CSV.
 
-    ![Migracja — wersja zapoznawcza](media/alerts-migration/migration-preview.png "Wersja zapoznawcza migracji")
+    ![Zrzut ekranu przedstawia stronę Migrowanie reguł alertów z linkiem umożliwiającym pobranie szczegółów migracji dla tej subskrypcji, a także określenie wiadomości e-mail do powiadomienia o migracji.](media/alerts-migration/migration-preview.png "Wersja zapoznawcza migracji")
 
 1. Określ co najmniej jeden adres e-mail, aby otrzymywać powiadomienia o stanie migracji. Otrzymasz wiadomość e-mail po zakończeniu migracji lub gdy będzie potrzebna jakakolwiek akcja.
 
@@ -69,7 +69,7 @@ Aby wyzwolić migrację klasycznych reguł alertów w Azure Portal, wykonaj nast
     > [!IMPORTANT]
     > Po zainicjowaniu migracji subskrypcji nie będzie można edytować ani tworzyć klasycznych reguł alertów dla tej subskrypcji. To ograniczenie gwarantuje, że zmiany w klasycznych regułach alertów nie zostaną utracone podczas migracji do nowych reguł. Mimo że nie będzie można zmienić klasycznych reguł alertów, nadal będą one działać i aby zapewnić alerty do momentu migracji. Po zakończeniu migracji subskrypcji nie można już używać klasycznych reguł alertów.
 
-    ![Migracja — Potwierdź](media/alerts-migration/migration-confirm.png "Potwierdź uruchomienie migracji")
+    ![Zrzut ekranu przedstawia monit o potwierdzenie migracji, w tym ważne informacje z linkami, aby dowiedzieć się więcej przed kontynuowaniem.](media/alerts-migration/migration-confirm.png "Potwierdź uruchomienie migracji")
 
 1. Po zakończeniu migracji lub po wykonaniu akcji wymagane jest wysłanie wiadomości e-mail na podstawie podanych wcześniej adresów. Możesz również okresowo sprawdzać stan na stronie docelowej migracji w portalu.
 

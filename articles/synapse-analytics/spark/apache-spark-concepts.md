@@ -1,6 +1,6 @@
 ---
 title: Podstawowe pojęcia Apache Spark
-description: Ten artykuł zawiera wprowadzenie do Apache Spark usługi Azure Synapse Analytics i różnych koncepcji.
+description: Wprowadzenie do Apache Spark usługi Azure Synapse Analytics i różnych koncepcji.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 806f4dff49e9650dba073721109e7d54a18ecbbe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 74e85906742207d6cde0b7c4cc5c021c23ee4c7b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052340"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260142"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark w podstawowych pojęciach dotyczących usługi Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Usługa Azure Synapse ułatwia tworzenie i Konfigurowanie funkcji platformy Spar
 
 ## <a name="spark-pools-preview"></a>Pule Spark (wersja zapoznawcza)
 
-W Azure Portal zostanie utworzona Pula Spark (wersja zapoznawcza). Jest to definicja puli platformy Spark, która w przypadku wystąpienia jest używana do tworzenia wystąpienia platformy Spark, które przetwarza dane. Po utworzeniu puli platformy Spark istnieje ona tylko jako metadane; żadne zasoby nie są używane, nie są uruchamiane ani obciążane opłatami. Pula platformy Spark ma serię właściwości kontrolujących charakterystykę wystąpienia platformy Spark; te cechy obejmują, ale nie są ograniczone do nazw, rozmiarów, zachowania skalowania, czasu wygaśnięcia.
+W Azure Portal zostanie utworzona Pula Spark (wersja zapoznawcza). Jest to definicja puli platformy Spark, która podczas tworzenia wystąpienia jest używana do tworzenia wystąpienia platformy Spark, które przetwarza dane. Po utworzeniu puli platformy Spark istnieje ona tylko jako metadane i żadne zasoby nie są używane, nie są uruchamiane ani obciążane opłatami. Pula platformy Spark ma serię właściwości kontrolujących charakterystykę wystąpienia platformy Spark. Te cechy obejmują, ale nie są ograniczone do nazwy, rozmiaru, zachowania skalowania, czasu wygaśnięcia.
 
 Ponieważ nie ma dolarów ani kosztu zasobów związanych z tworzeniem pul platformy Spark, można utworzyć dowolną liczbę z dowolną liczbą różnych konfiguracji. Uprawnienia mogą być również stosowane do pul platformy Spark, co pozwala użytkownikom tylko na dostęp do niektórych i innych osób.
 
@@ -36,7 +36,7 @@ Możesz zapoznać się z artykułem jak utworzyć pulę platformy Spark i zobacz
 
 Wystąpienia platformy Spark są tworzone podczas łączenia się z pulą platformy Spark, tworzenia sesji i uruchamiania zadania. Ponieważ wielu użytkowników może mieć dostęp do pojedynczej puli platformy Spark, dla każdego z nich zostanie utworzone nowe wystąpienie platformy Spark. 
 
-Po przesłaniu drugiego zadania, jeśli istnieje pojemność w puli, istniejące wystąpienie platformy Spark ma również pojemność, a istniejące wystąpienie przetworzy zadanie. Jeśli nie, a na poziomie puli istnieje pojemność, zostanie utworzone nowe wystąpienie platformy Spark.
+W przypadku przesłania drugiego zadania, jeśli istnieje pojemność w puli, istniejące wystąpienie platformy Spark ma również pojemność. Następnie istniejące wystąpienie będzie przetwarzać zadanie. W przeciwnym razie, jeśli pojemność jest dostępna na poziomie puli, zostanie utworzone nowe wystąpienie platformy Spark.
 
 ## <a name="examples"></a>Przykłady
 
@@ -58,7 +58,7 @@ Po przesłaniu drugiego zadania, jeśli istnieje pojemność w puli, istniejące
 - Tworzysz pulę platformy Spark o nazwie SP1; ma stały rozmiar klastra 20 węzłów.
 - Przesyłasz zadanie notesu, J1, które używa 10 węzłów, wystąpienie platformy Spark, SI1 jest tworzone w celu przetworzenia zadania.
 - Inny użytkownik, U2, przesyła zadanie, J3, które używa 10 węzłów, nowe wystąpienie platformy Spark, SI2, zostało utworzone w celu przetworzenia zadania.
-- Teraz przesyłamy kolejne zadanie, j2, które korzysta z 10 węzłów, ponieważ nadal istnieje pojemność puli i wystąpienie, j2, jest przetwarzane przez SI1.
+- Teraz przesyłamy kolejne zadanie, j2, które korzysta z 10 węzłów, ponieważ nadal pojemność puli i wystąpienie, j2, jest przetwarzana przez SI1.
 
 ## <a name="next-steps"></a>Następne kroki
 

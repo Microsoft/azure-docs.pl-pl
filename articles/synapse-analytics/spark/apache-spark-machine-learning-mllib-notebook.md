@@ -4,21 +4,21 @@ description: Dowiedz się, jak za pomocą Apache Spark MLlib utworzyć aplikacj�
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: e1ece0add7b0749cfd808b0a3ec7962dd43a302d
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 2b641075a45db29c07b96c1934d4540f4c3292dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719346"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259989"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tworzenie aplikacji Machine Learning za pomocą Apache Spark MLlib i analizy Synapse Azure
 
-W tym artykule dowiesz się, jak za pomocą Apache Spark [MLlib](https://spark.apache.org/mllib/) utworzyć aplikację uczenia maszynowego, która wykonuje prostą analizę predykcyjną w otwartym zestawie danych platformy Azure. Platforma Spark udostępnia wbudowane biblioteki uczenia maszynowego. W tym przykładzie stosowana jest *Klasyfikacja* przy użyciu regresji logistycznej.
+W tym artykule dowiesz się, jak za pomocą programu Apache Spark [MLlib](https://spark.apache.org/mllib/) utworzyć aplikację uczenia maszynowego, która wykonuje prostą analizę predykcyjną w otwartym zestawie danych platformy Azure. Platforma Spark udostępnia wbudowane biblioteki uczenia maszynowego. W tym przykładzie stosowana jest *Klasyfikacja* przy użyciu regresji logistycznej.
 
 MLlib to podstawowa Biblioteka Spark, która udostępnia wiele narzędzi, które są przydatne w przypadku zadań uczenia maszynowego, w tym narzędzi, które są odpowiednie dla:
 
@@ -193,7 +193,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Tworzenie modelu regresji logistycznej
 
-Ostatnim zadaniem jest przekonwertowanie etykiet danych na format, który może być analizowany przez regresję logistyczną. Wejście do algorytmu regresji logistycznej musi być zestawem *par wektorów funkcji etykiet*, gdzie *wektor funkcji* jest wektorem liczb reprezentujących punkt wejściowy. Dlatego musimy przekonwertować kolumny kategorii na liczby. `trafficTimeBins`Kolumny i `weekdayString` muszą być konwertowane na reprezentacje typu Integer. Istnieje wiele metod wykonywania konwersji, ale podejście wykonywane w tym przykładzie to *OneHotEncoding*, typowe podejście.
+Ostatnim zadaniem jest przekonwertowanie etykiet danych na format, który może być analizowany przez regresję logistyczną. Wejście do algorytmu regresji logistycznej musi być zestawem *par wektorów funkcji etykiet*, gdzie *wektor funkcji* jest wektorem liczb reprezentujących punkt wejściowy. Dlatego musimy przekonwertować kolumny kategorii na liczby. `trafficTimeBins`Kolumny i `weekdayString` wymagają konwersji na reprezentacje typu Integer. Istnieje wiele metod wykonywania konwersji, ale podejście wykonywane w tym przykładzie to *OneHotEncoding*, typowe podejście.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
@@ -206,7 +206,7 @@ en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayV
 encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
 ```
 
-Powoduje to nową ramkę danych ze wszystkimi kolumnami w odpowiednim formacie do uczenia modelu.
+Ta akcja powoduje, że Nowa ramka danych ze wszystkimi kolumnami w odpowiednim formacie do uczenia modelu.
 
 ## <a name="train-a-logistic-regression-model"></a>Uczenie modelu regresji logistycznej
 
@@ -278,7 +278,7 @@ plt.show()
 
 Po zakończeniu uruchamiania aplikacji Zamknij Notes, aby zwolnić zasoby, zamykając kartę lub wybierz pozycję **Zakończ sesję** w panelu stanu w dolnej części notesu.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Przegląd: Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)
 

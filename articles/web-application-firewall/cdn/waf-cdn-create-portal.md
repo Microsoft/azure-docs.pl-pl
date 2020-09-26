@@ -5,20 +5,20 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c5505b9437a4bd8dced6a090817b17d5e29374f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82608817"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327942"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Samouczek: Tworzenie zasad WAF na Azure CDN przy użyciu Azure Portal
 
 W tym samouczku pokazano, jak utworzyć podstawowe zasady zapory aplikacji sieci Web (WAF) platformy Azure i zastosować je do punktu końcowego w usłudze Azure Content Delivery Network (CDN).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie zasad WAF
@@ -72,17 +72,22 @@ Aby utworzyć regułę niestandardową, wybierz pozycję **Dodaj regułę** nies
 
 Poniższy zrzut ekranu przedstawia niestandardową regułę dopasowania w celu zablokowania żądania, jeśli ciąg zapytania zawiera wartość **blockme**.
 
-![Zmień tryb zasad WAF](../media/waf-cdn-create-portal/custommatch.png)
+![Dodaj niestandardową regułę dopasowania](../media/waf-cdn-create-portal/custommatch.png)
 
 Reguły limitu szybkości wymagają dwóch dodatkowych pól: **Limit szybkości trwania** i **próg limitu szybkości (żądania)** , jak pokazano w następującym przykładzie:
 
-![Zmień tryb zasad WAF](../media/waf-cdn-create-portal/customrate.png)
+![Dodaj regułę limitu szybkości](../media/waf-cdn-create-portal/customrate.png)
 
 ### <a name="default-rule-set-drs"></a>Domyślny zestaw reguł (DRS)
 
 Zestaw reguł domyślnych zarządzanych przez platformę Azure jest domyślnie włączony. Aby wyłączyć pojedynczą regułę w grupie reguł, rozwiń reguły w tej grupie reguł, zaznacz pole wyboru przed numerem reguły, a następnie na karcie powyżej wybierz pozycję **Wyłącz** . Aby zmienić typy akcji dla poszczególnych reguł w zestawie reguł, zaznacz pole wyboru przed numerem reguły, a następnie wybierz powyższą kartę **Zmień akcję** .
 
  ![Zmień zestaw reguł WAF](../media/waf-cdn-create-portal/managed2.png)
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je.
+
 
 ## <a name="next-steps"></a>Następne kroki
 

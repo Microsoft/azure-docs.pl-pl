@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 2a06c182f1f37942ac0921db254bf63bf177fec2
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 29033cbabfcfa00c9f8458cbc161af67df5806cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595737"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325967"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Rozmiary maszyn wirtualnych o wysokiej wydajności obliczeniowej
 
-Maszyny wirtualne z serii H platformy Azure zaprojektowano w celu zapewnienia wydajności klasy lidera, skalowalności MPI i efektywności kosztów dla różnych rzeczywistych obciążeń platformy HPC.
+Maszyny wirtualne z serii H platformy Azure zostały zaprojektowane w celu zapewnienia wydajności, skalowalności i efektywności klasy lidera dla różnych rzeczywistych obciążeń platformy HPC.
 
 [Seria HBv2](hbv2-series.md) Maszyny wirtualne są zoptymalizowane pod kątem aplikacji opartych na przepustowości pamięci, takich jak dynamika płynów, skończona analiza elementów i symulacja zbiornika. HBv2 maszyny wirtualne z funkcją 120 AMD EPYC 7742 rdzeni procesora, 4 GB pamięci RAM na rdzeń procesora CPU i bez jednoczesnego wielowątkowości. Każda maszyna wirtualna w HBv2 zapewnia do 340 GB/s przepustowości pamięci oraz do 4 teraflopa obliczeń FP64.
 
@@ -31,22 +31,23 @@ Funkcja maszyn wirtualnych HBv2 200 GB/s — karta Mellanox HDR InfiniBand, podc
 [Seria H](h-series.md) Maszyny wirtualne są zoptymalizowane pod kątem aplikacji z wysoką częstotliwością procesora CPU lub dużą ilością pamięci na podstawowe wymagania. Maszyny wirtualne serii H funkcja 8 lub 16 rdzeni procesora Intel Xeon E5 2667 v3, 7 lub 14 GB pamięci RAM na rdzeń procesora CPU i bez wielowątkowości. Funkcja serii H 56 GB/s karta Mellanox FDR InfiniBand w nieblokującej konfiguracji drzewa FAT dla spójnej wydajności RDMA. Maszyny wirtualne z serii H obsługują technologię Intel MPI 5. x i MS-MPI.
 
 > [!NOTE]
-> Maszyny wirtualne A8 – A11 są planowane do wycofania w dniu 3/2021. Aby uzyskać więcej informacji, zobacz [Przewodnik migracji HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> [Maszyny wirtualne A8 – A11](./sizes-previous-gen.md#a-series---compute-intensive-instances) są planowane do wycofania w dniu 3/2021. Aby uzyskać więcej informacji, zobacz [Przewodnik migracji HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 ## <a name="rdma-capable-instances"></a>Wystąpienia z obsługą technologii RDMA
 
-Większość rozmiarów maszyn wirtualnych HPC (HBv2, HB, HC, H16r, H16mr, A8 i A9) ma interfejs sieciowy do łączności z funkcją zdalnego bezpośredniego dostępu do pamięci (RDMA). Wybrane rozmiary [serii N](./nc-series.md) oznaczone przy użyciu funkcji "r" (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 i NC24r) również obsługują funkcję RDMA. Ten interfejs jest poza standardowym interfejsem sieciowym platformy Azure dostępnym w innych rozmiarach maszyn wirtualnych.
+Większość rozmiarów maszyn wirtualnych HPC (HBv2, HB, HC, H16r, H16mr, A8 i A9) ma interfejs sieciowy do łączności z funkcją zdalnego bezpośredniego dostępu do pamięci (RDMA). Wybrane rozmiary [serii N](./nc-series.md) oznaczone przy użyciu funkcji "r" (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 i NC24r) również obsługują funkcję RDMA. Ten interfejs jest poza standardowym interfejsem sieciowym sieci Ethernet platformy Azure dostępnym w innych rozmiarach maszyn wirtualnych.
 
 Ten interfejs umożliwia wystąpieniom z obsługą funkcji RDMA komunikowanie się za pośrednictwem sieci InfiniBand (IB), co pozwala na korzystanie z stawek za HBv2, EDR stawek za HB, HC, NDv2, FDR dla H16r, H16mr i innych maszyn wirtualnych z serii N z obsługą funkcji RDMA, a następnie częstotliwości QDR dla maszyn wirtualnych A8 i A9. Te możliwości RDMA umożliwiają zwiększenie skalowalności i wydajności niektórych aplikacji MPI (Message Passing Interface).
 
 > [!NOTE]
 > W systemie Azure HPC istnieją dwie klasy maszyn wirtualnych w zależności od tego, czy są włączone Wirtualizacja SR-IOV dla InfiniBand. Obecnie maszyna wirtualna SR-IOV dla maszyn wirtualnych z włączoną funkcją InfiniBand to: HBv2, HB, HC, Seria NCV3 i NDv2. Pozostałe maszyny wirtualne z włączoną funkcją InfiniBand nie mają obecnie włączonej funkcji SR-IOV.
-> Funkcja RDMA przez IB jest obsługiwana dla wszystkich maszyn wirtualnych z obsługą funkcji RDMA.
+> Funkcja RDMA jest włączona tylko przez sieć InfiniBand (IB) i jest obsługiwana dla wszystkich maszyn wirtualnych z obsługą funkcji RDMA.
 > Protokół IP over IB jest obsługiwany tylko na maszynach wirtualnych z włączoną funkcją SR-IOV.
+> Funkcja RDMA nie jest włączona w sieci Ethernet.
 
 - **System operacyjny** — Linux jest bardzo dobrze obsługiwany dla maszyn wirtualnych HPC; dystrybucje, takie jak CentOS, RHEL, Ubuntu, SUSE są powszechnie używane. W przypadku pomocy technicznej systemu Windows system Windows Server 2016 i nowsze wersje są obsługiwane we wszystkich maszynach wirtualnych z serii HPC. System Windows Server 2012 R2, Windows Server 2012 są również obsługiwane na maszynach wirtualnych z obsługą wirtualizacji SR-IOV (H16r, H16mr, A8 i A9). Należy pamiętać, że [system Windows Server 2012 R2 nie jest obsługiwany na HBv2 i innych maszynach wirtualnych z ponad 64 (wirtualnym lub fizycznym) rdzeniami](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Zobacz [obrazy maszyn wirtualnych](./workloads/hpc/configure.md) , aby zapoznać się z listą obsługiwanych obrazów maszyn wirtualnych w witrynie Marketplace oraz jak można odpowiednio je skonfigurować.
 
-- **Sterowniki InfiniBand i RDMA** — na maszynach wirtualnych z włączoną funkcją InfiniBand wymagane są odpowiednie sterowniki, aby włączyć funkcję RDMA. W systemie Linux dla maszyn wirtualnych z obsługą wirtualizacji SR-IOV i bez wirtualizacji SR-IOV obrazy maszyn wirtualnych CentOS-HPC w portalu Marketplace są wstępnie skonfigurowane przy użyciu odpowiednich sterowników. Obrazy maszyn wirtualnych Ubuntu można skonfigurować za pomocą odpowiednich sterowników, korzystając z [instrukcji](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)przedstawionych tutaj. Zobacz [Konfigurowanie i optymalizowanie maszyn wirtualnych dla systemu operacyjnego Linux,](./workloads/hpc/configure.md) Aby uzyskać więcej szczegółowych informacji o gotowych do użycia obrazach systemu operacyjnego Linux dla maszyn wirtualnych.
+- **InfiniBand i sterowniki** — na maszynach wirtualnych z włączoną funkcją InfiniBand wymagane są odpowiednie sterowniki, aby włączyć funkcję RDMA. W systemie Linux dla maszyn wirtualnych z obsługą wirtualizacji SR-IOV i bez wirtualizacji SR-IOV obrazy maszyn wirtualnych CentOS-HPC w portalu Marketplace są wstępnie skonfigurowane przy użyciu odpowiednich sterowników. Obrazy maszyn wirtualnych Ubuntu można skonfigurować za pomocą odpowiednich sterowników, korzystając z [instrukcji](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)przedstawionych tutaj. Zobacz [Konfigurowanie i optymalizowanie maszyn wirtualnych dla systemu operacyjnego Linux,](./workloads/hpc/configure.md) Aby uzyskać więcej szczegółowych informacji o gotowych do użycia obrazach systemu operacyjnego Linux dla maszyn wirtualnych.
 
    W systemie Linux [rozszerzenie maszyny wirtualnej InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) może służyć do instalowania sterowników Mellanox OFED i włączania InfiniBand na maszynach wirtualnych z serii H i l z obsługą wirtualizacji SR-IOV. Dowiedz się więcej na temat włączania funkcji InfiniBand na maszynach wirtualnych obsługujących funkcję RDMA w [obciążeniach HPC](./workloads/hpc/enable-infiniband.md).
 

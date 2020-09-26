@@ -1,17 +1,17 @@
 ---
 title: Omówienie dedykowanych hostów platformy Azure dla maszyn wirtualnych
-description: Dowiedz się więcej o tym, jak można używać dedykowanych hostów platformy Azure do wdrażania maszyn wirtualnych.
+description: Dowiedz się więcej na temat tego, jak dedykowane hosty platformy Azure mogą służyć do wdrażania maszyn wirtualnych z systemem Linux.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: cynthn
-ms.openlocfilehash: 97e65528a7f049c213ec077c83da1b7672469d90
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: acf79448c0dcb81bbe644be822414a7e51b0ee36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388173"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328160"
 ---
 # <a name="azure-dedicated-hosts-for-virtual-machines"></a>Dedykowane hosty platformy Azure dla maszyn wirtualnych
 

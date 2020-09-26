@@ -3,13 +3,13 @@ title: Tworzenie aplikacji .NET na Service Fabric na platformie Azure
 description: W tym samouczku znajdziesz informacje o sposobie tworzenia aplikacji za pomocą frontonu platformy ASP.NET Core i niezawodnej stanowej usługi zaplecza, a także o sposobie wdrażania aplikacji w klastrze.
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.custom: mvc, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 847bd2e30977c5a14f8294f6709cbd6d376a8211
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: mvc, devx-track-js, devx-track-csharp
+ms.openlocfilehash: e9014f2f5e4d0149d1b0c37c9dbf007358242189
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016278"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326375"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Samouczek: tworzenie i wdrażanie aplikacji przy użyciu usługi frontonu platformy ASP.NET Core z internetowym interfejsem API oraz stanowej usługi zaplecza
 
@@ -630,7 +630,7 @@ Aby zobaczyć, co się stanie w kodzie, wykonaj następujące kroki:
 
 Aby zatrzymać sesję debugowania, naciśnij klawisze **Shift+F5**.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tej części samouczka zawarto informacje na temat wykonywania następujących czynności:
 
