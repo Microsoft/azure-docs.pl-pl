@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
-ms.openlocfilehash: ad7c7fb5111ce700a5725336b7c9db788e178c4c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098630"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313777"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Informacje o urządzeniu wirtualnym sieci w centrum sieci wirtualnej platformy Azure (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ Barracuda Networks to pierwszy partner, który udostępnia ofertę urządzenie W
 > [!NOTE]
 > Tylko oferty urządzenie WUS dostępne do wdrożenia w wirtualnym koncentratorze sieci WAN można wdrożyć w wirtualnym koncentratorze sieci WAN. Nie można ich wdrożyć w ramach dowolnej sieci wirtualnej na platformie Azure.
 
-## <a name="how-does-it-work"></a><a name="how"></a>Jak działa?
+## <a name="how-does-it-work"></a><a name="how"></a>Jak to działa?
 
 Urządzeń WUS, które są dostępne do wdrożenia bezpośrednio w wirtualnym Centrum sieci WAN platformy Azure, są przeznaczone do użycia w koncentratorze wirtualnym. Oferta urządzenie WUS jest publikowana w witrynie Azure Marketplace jako aplikacja zarządzana, a klienci mogą wdrożyć ofertę bezpośrednio z witryny Azure Marketplace lub wdrożyć ofertę z poziomu koncentratora wirtualnego za pośrednictwem Azure Portal.
 

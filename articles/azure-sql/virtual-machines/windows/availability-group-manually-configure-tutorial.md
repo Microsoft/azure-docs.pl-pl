@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 22240c61b2341999528dcb477308990133042fa0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 30c7d525f821b828dcc4c389c32a27123b79a56b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286848"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360926"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Samouczek: ręcznie skonfiguruj grupę dostępności SQL Server na platformie Azure Virtual Machines
 
@@ -41,13 +41,13 @@ W poniższej tabeli wymieniono wymagania wstępne, które należy wykonać przed
 
 | Wymaganie |Opis |
 |----- |----- |----- |
-|![Kwadratowe ](./media/availability-group-manually-configure-tutorial/square.png) **dwa wystąpienia SQL Server**    | — W zestawie dostępności platformy Azure <br/> — W pojedynczej domenie <br/> — Z zainstalowaną funkcją klaster trybu failover |
-|![Kwadratowy ](./media/availability-group-manually-configure-tutorial/square.png) **serwer systemu Windows**    | Udział plików dla monitora klastra |  
-|![](./media/availability-group-manually-configure-tutorial/square.png)**Konto usługi SQL Server** kwadratowej    | Konto domeny |
-|![](./media/availability-group-manually-configure-tutorial/square.png)**Konto usługi agenta SQL Server** kwadratowego    | Konto domeny |  
-|![](./media/availability-group-manually-configure-tutorial/square.png)**Otwarte porty zapory** kwadratowej    | -SQL Server: **1433** dla domyślnego wystąpienia <br/> -Punkt końcowy dublowania bazy danych: **5022** lub dowolny dostępny port <br/> -Sonda kondycji adresu IP modułu równoważenia obciążenia grupy dostępności: **59999** lub dowolny dostępny port <br/> — Sonda kondycji adresu IP podstawowego modułu równoważenia obciążenia klastra: **58888** lub dowolny dostępny port |
-|![](./media/availability-group-manually-configure-tutorial/square.png)**Dodaj funkcję Klaster trybu failover** do kwadratu    | Oba wystąpienia SQL Server wymagają tej funkcji |
-|![](./media/availability-group-manually-configure-tutorial/square.png)**Konto domeny instalacji** kwadratowej    | -Administrator lokalny na każdym SQL Server <br/> -Składowa SQL Server stałej roli serwera sysadmin dla każdego wystąpienia SQL Server  |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Dwa wystąpienia SQL Server** | — W zestawie dostępności platformy Azure <br/> — W pojedynczej domenie <br/> — Z zainstalowaną funkcją klaster trybu failover |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Windows Server** | Udział plików dla monitora klastra |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Konto usługi SQL Server** | Konto domeny |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Konto usługi SQL Server Agent** | Konto domeny |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Otwarte porty zapory** | -SQL Server: **1433** dla domyślnego wystąpienia <br/> -Punkt końcowy dublowania bazy danych: **5022** lub dowolny dostępny port <br/> -Sonda kondycji adresu IP modułu równoważenia obciążenia grupy dostępności: **59999** lub dowolny dostępny port <br/> — Sonda kondycji adresu IP podstawowego modułu równoważenia obciążenia klastra: **58888** lub dowolny dostępny port |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Dodawanie funkcji klaster trybu failover** | Oba wystąpienia SQL Server wymagają tej funkcji |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Konto domeny instalacji** | -Administrator lokalny na każdym SQL Server <br/> -Składowa SQL Server stałej roli serwera sysadmin dla każdego wystąpienia SQL Server  |
 
 
 Przed rozpoczęciem tego samouczka należy [spełnić wymagania wstępne dotyczące tworzenia zawsze dostępnych grup dostępności na platformie Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). Jeśli te wymagania wstępne zostały już wykonane, możesz przejść do [tworzenia klastra](#CreateCluster).
@@ -109,7 +109,7 @@ Dodaj inne SQL Server do klastra.
 
 1. W **Kreatorze dodawania węzłów**wybierz pozycję **dalej**. Na stronie **Wybierz serwery** dodaj drugą SQL Server. Wpisz nazwę serwera w polu **Wprowadź nazwę serwera** , a następnie wybierz pozycję **Dodaj**. Gdy skończysz, wybierz pozycję **dalej**.
 
-1. Na stronie **ostrzeżenie dotyczące sprawdzania poprawności** wybierz pozycję **nie** (w scenariuszu produkcyjnym należy wykonać testy weryfikacyjne). Następnie wybierz przycisk **dalej**.
+1. Na stronie **ostrzeżenie dotyczące sprawdzania poprawności** wybierz pozycję **nie** (w scenariuszu produkcyjnym należy wykonać testy weryfikacyjne). Następnie wybierz pozycję **Dalej**.
 
 8. W przypadku korzystania z funkcji miejsca do magazynowania na stronie **potwierdzenie** Usuń zaznaczenie pola wyboru **Dodaj wszystkie odpowiednie magazyny do klastra.**
 
@@ -119,7 +119,7 @@ Dodaj inne SQL Server do klastra.
    >Jeśli używasz funkcji miejsca do magazynowania i nie zaznaczaj **żadnych opcji Dodaj wszystkie odpowiednie magazyny do klastra**, system Windows odłącza dyski wirtualne podczas procesu klastrowania. W związku z tym nie są one wyświetlane w Menedżerze dysków ani w Eksploratorze, dopóki nie zostaną usunięte miejsca do magazynowania z klastra i ponownie dołączone przy użyciu programu PowerShell. Funkcja miejsca do magazynowania grupuje wiele dysków w puli magazynów. Aby uzyskać więcej informacji, zobacz [miejsca do magazynowania](https://technet.microsoft.com/library/hh831739).
    >
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 1. Wybierz pozycję **Zakończ**.
 
@@ -143,9 +143,9 @@ W tym przykładzie klaster systemu Windows korzysta z udziału plików w celu ut
 
    Użyj **Kreatora tworzenia folderu udostępnionego** , aby utworzyć udział.
 
-1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego. Wybierz pozycję **Dalej**.
+1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego. Wybierz opcję **Dalej**.
 
-1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz pozycję **Dalej**.
+1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz opcję **Dalej**.
 
 1. W obszarze **uprawnienia do folderu udostępnionego** Ustaw **uprawnienia do dostosowywania**. Wybierz **niestandardową...**.
 
@@ -181,9 +181,9 @@ Następnie skonfiguruj kworum klastra.
    >System Windows Server 2016 obsługuje monitor w chmurze. W przypadku wybrania tego typu monitora nie jest potrzebny monitor udostępniania plików. Aby uzyskać więcej informacji, zobacz [wdrażanie monitora chmury dla klastra trybu failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). W tym samouczku jest używany monitor udostępniania plików, który jest obsługiwany przez poprzednie systemy operacyjne.
    >
 
-1. Na **skonfigurować Monitor udostępniania plików**, wpisz ścieżkę dla utworzonego udziału. Wybierz pozycję **Dalej**.
+1. Na **skonfigurować Monitor udostępniania plików**, wpisz ścieżkę dla utworzonego udziału. Wybierz opcję **Dalej**.
 
-1. Sprawdź ustawienia w obszarze **potwierdzenie**. Wybierz pozycję **Dalej**.
+1. Sprawdź ustawienia w obszarze **potwierdzenie**. Wybierz opcję **Dalej**.
 
 1. Wybierz pozycję **Zakończ**.
 
@@ -234,7 +234,7 @@ Repeat these steps on the second SQL Server.
 7. W **Eksplorator obiektów**kliknij prawym przyciskiem myszy pozycję **bazy danych** , a następnie wybierz pozycję **Nowa baza danych**.
 8. W polu **Nazwa bazy danych**wpisz **MyDB1**, a następnie wybierz przycisk **OK**.
 
-### <a name="create-a-backup-share"></a><a name="backupshare"></a>Utwórz udział kopii zapasowych
+### <a name="create-a-backup-share"></a><a name="backupshare"></a> Utwórz udział kopii zapasowych
 
 1. Na pierwszej SQL Server w **Menedżer serwera**wybierz pozycję **Narzędzia**. Otwórz **przystawkę Zarządzanie komputerem**.
 
@@ -246,9 +246,9 @@ Repeat these steps on the second SQL Server.
 
    Użyj **Kreatora tworzenia folderu udostępnionego** , aby utworzyć udział.
 
-1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego kopii zapasowej bazy danych. Wybierz pozycję **Dalej**.
+1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego kopii zapasowej bazy danych. Wybierz opcję **Dalej**.
 
-1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz pozycję **Dalej**.
+1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz opcję **Dalej**.
 
 1. W obszarze **uprawnienia do folderu udostępnionego** Ustaw **uprawnienia do dostosowywania**. Wybierz **niestandardową...**.
 
@@ -285,7 +285,7 @@ Teraz można przystąpić do konfigurowania grupy dostępności, wykonując nast
 
     ![Uruchom Kreatora nowej grupy dostępności](./media/availability-group-manually-configure-tutorial/56-newagwiz.png)
 
-2. Na stronie **wprowadzenie** wybierz pozycję **dalej**. Na stronie **Określ nazwę grupy dostępności** wpisz nazwę grupy dostępności w polu **Nazwa grupy dostępności**. Na przykład **AG1**. Wybierz pozycję **Dalej**.
+2. Na stronie **wprowadzenie** wybierz pozycję **dalej**. Na stronie **Określ nazwę grupy dostępności** wpisz nazwę grupy dostępności w polu **Nazwa grupy dostępności**. Na przykład **AG1**. Wybierz opcję **Dalej**.
 
     ![Kreator nowej grupy dostępności, Określanie nazwy grupy dostępności](./media/availability-group-manually-configure-tutorial/58-newagname.png)
 
@@ -311,7 +311,7 @@ Teraz można przystąpić do konfigurowania grupy dostępności, wykonując nast
 
     ![Kreator nowej grupy dostępności, wybieranie początkowej synchronizacji danych](./media/availability-group-manually-configure-tutorial/66-endpoint.png)
 
-8. Na stronie **Wybierz początkową synchronizację danych** wybierz pozycję **pełna** i określ udostępnioną lokalizację sieciową. Dla lokalizacji Użyj [utworzonego udziału kopii zapasowej](#backupshare). W tym przykładzie ** \\ \\<pierwsze SQL Server \> \Backup \\ **. Wybierz pozycję **Dalej**.
+8. Na stronie **Wybierz początkową synchronizację danych** wybierz pozycję **pełna** i określ udostępnioną lokalizację sieciową. Dla lokalizacji Użyj [utworzonego udziału kopii zapasowej](#backupshare). W tym przykładzie ** \\ \\<pierwsze SQL Server \> \Backup \\ **. Wybierz opcję **Dalej**.
 
    >[!NOTE]
    >Pełna synchronizacja pobiera pełną kopię zapasową bazy danych przy pierwszym wystąpieniu SQL Server i przywraca ją do drugiego wystąpienia. W przypadku dużych baz danych nie zaleca się stosowania pełnej synchronizacji, ponieważ może to zająć dużo czasu. Możesz skrócić ten czas, ręcznie pobierając kopię zapasową bazy danych i przywracając ją z `NO RECOVERY` . Jeśli baza danych została już przywrócona przy użyciu `NO RECOVERY` programu na drugim SQL Server przed skonfigurowaniem grupy dostępności, wybierz pozycję **tylko Dołącz**. Jeśli chcesz wykonać kopię zapasową po skonfigurowaniu grupy dostępności, wybierz pozycję **Pomiń początkową synchronizację danych**.
@@ -376,7 +376,7 @@ Moduł równoważenia obciążenia na platformie Azure może być usługa Load B
    | **Typ** |Wewnętrzny |
    | **Sieć wirtualna** |Użyj nazwy sieci wirtualnej platformy Azure. |
    | **Podsieć** |Użyj nazwy podsieci, w której znajduje się maszyna wirtualna.  |
-   | **Przypisanie adresu IP** |Statyczny |
+   | **Przypisanie adresu IP** |Static |
    | **Adres IP** |Użyj dostępnego adresu z podsieci. Użyj tego adresu dla odbiornika grupy dostępności. Należy zauważyć, że różni się to od adresu IP klastra.  |
    | **Subskrypcja** |Użyj tej samej subskrypcji co maszyna wirtualna. |
    | **Lokalizacja** |Użyj tej samej lokalizacji co maszyna wirtualna. |
@@ -490,7 +490,7 @@ Adres IP usługi WSFC musi również znajdować się w usłudze równoważenia o
 
 1. Wybierz **przycisk OK** , aby ustawić reguły równoważenia obciążenia.
 
-## <a name="configure-the-listener"></a><a name="configure-listener"></a>Konfigurowanie odbiornika
+## <a name="configure-the-listener"></a><a name="configure-listener"></a> Konfigurowanie odbiornika
 
 Następnym krokiem jest skonfigurowanie odbiornika grupy dostępności w klastrze trybu failover.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 047915874dfd81fdf68dc97ac217274b2439d726
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331900"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proces nauki danych zespołu w działaniu: używanie SQL Server
 W tym samouczku przedstawiono proces kompilowania i wdrażania modelu uczenia maszynowego przy użyciu SQL Server i publicznie dostępnego zestawu danych — zestawu danych [podróży NYC z taksówkami](https://www.andresmh.com/nyctaxitrips/) . Procedura jest zgodna ze standardowym przepływem nauki o danych: pozyskiwanie i Eksplorowanie danych, inżynierów w celu ułatwienia uczenia się, a następnie kompilowania i wdrażania modelu.
@@ -83,14 +83,14 @@ W tym samouczku przedstawimy równoległy import zbiorczy danych do SQL Server, 
 Aby skonfigurować środowisko nauki danych platformy Azure:
 
 1. [Tworzenie konta magazynu](../../storage/common/storage-account-create.md)
-2. [Tworzenie obszaru roboczego Azure Machine Learning](../studio/create-workspace.md)
+2. [Tworzenie obszaru roboczego usługi Azure Machine Learning](../classic/create-workspace.md)
 3. [Zapewnij Data Science Virtual Machine](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), który udostępnia SQL Server i serwer notesu IPython.
    
    > [!NOTE]
    > Przykładowe skrypty i notesy IPython zostaną pobrane do maszyny wirtualnej do nauki o danych podczas procesu instalacji. Po zakończeniu działania skryptu po instalacji na maszynie wirtualnej przykłady będą znajdować się w bibliotece dokumentów maszyny wirtualnej:  
    > 
-   > * Przykładowe skrypty:`C:\Users\<user_name>\Documents\Data Science Scripts`  
-   > * Przykładowe notesy IPython:`C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+   > * Przykładowe skrypty: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+   > * Przykładowe notesy IPython: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
    >   gdzie `<user_name>` to nazwa logowania systemu Windows maszyny wirtualnej. Będziemy odwoływać się do przykładowych folderów jako **przykładowe skrypty** i **przykładowe notesy IPython**.
    > 
    > 
@@ -175,8 +175,8 @@ W tej sekcji zapiszemy ostateczną kwerendę, aby wyodrębnić i próbkować dan
 
 Aby uzyskać szybką weryfikację liczby wierszy i kolumn w tabelach wypełnionych wcześniej przy użyciu równoległego importowania zbiorczego,
 
-- Zgłoś liczbę wierszy w tabeli nyctaxi_trip bez skanowania tabeli:`SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
-- Raportuj liczbę kolumn w tabeli nyctaxi_trip:`SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
+- Zgłoś liczbę wierszy w tabeli nyctaxi_trip bez skanowania tabeli: `SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
+- Raportuj liczbę kolumn w tabeli nyctaxi_trip: `SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>Eksploracja: dystrybucja podróży według Medallion
 W tym przykładzie zidentyfikowano Medallion (liczby taksówki) z ponad 100 podróży w danym okresie. Zapytanie jest korzystne z poziomu dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem schematu partycji typu ** \_ DateTime**. Wykonywanie zapytania dotyczącego pełnego zestawu danych spowoduje również użycie partycjonowanej tabeli i/lub skanowania indeksu.
@@ -626,9 +626,9 @@ Teraz możemy przystąpić do tworzenia modeli i wdrażania modeli w [Azure Mach
 3. Zadanie regresji: przewidywanie kwoty Porada płatnej dla podróży.  
 
 ## <a name="building-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Kompilowanie modeli w Azure Machine Learning
-Aby rozpocząć ćwiczenie modelowania, zaloguj się do obszaru roboczego Azure Machine Learning. Jeśli nie utworzono jeszcze obszaru roboczego uczenia maszynowego, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](../studio/create-workspace.md).
+Aby rozpocząć ćwiczenie modelowania, zaloguj się do obszaru roboczego Azure Machine Learning. Jeśli nie utworzono jeszcze obszaru roboczego uczenia maszynowego, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](../classic/create-workspace.md).
 
-1. Aby rozpocząć pracę z Azure Machine Learning, zobacz [co to jest Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
+1. Aby rozpocząć pracę z Azure Machine Learning, zobacz [co to jest Azure Machine Learning Studio?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Zaloguj się do [Azure Machine Learning Studio](https://studio.azureml.net).
 3. Strona główna programu Studio zawiera mnóstwo informacji, filmów wideo, samouczków, linków do odwołań do modułów i innych zasobów. Aby uzyskać więcej informacji na temat Azure Machine Learning, zapoznaj się z [centrum dokumentacji Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -651,7 +651,7 @@ W tym ćwiczeniu zostały już omówione i zaprojektowane dane w SQL Server i po
    
     ![Azure Machine Learning Importuj dane][17]
 2. Wybierz **Azure SQL Database** jako **Źródło danych** w panelu **Właściwości** .
-3. Wprowadź nazwę DNS bazy danych w polu **Nazwa serwera bazy danych** . Formatowanie`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Wprowadź nazwę DNS bazy danych w polu **Nazwa serwera bazy danych** . Formatowanie `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Wprowadź **nazwę bazy danych** w odpowiednim polu.
 5. Wprowadź **nazwę użytkownika SQL** w polu **nazwa konta użytkownika serwera**i **hasło** w polu **hasło konta użytkownika serwera**.
 7. W obszarze tekst **kwerendy bazy danych** Edytuj zapytanie, które wyodrębnia niezbędne pola bazy danych (w tym wszystkie pola obliczane, takie jak etykiety), i w dół próbkuje dane do żądanego rozmiaru próbki.
@@ -668,7 +668,7 @@ Przykładem eksperymentu klasyfikacji binarnej odczytującego dane bezpośrednio
 > 
 
 ## <a name="deploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Wdrażanie modeli w Azure Machine Learning
-Gdy model jest gotowy, możesz go łatwo wdrożyć jako usługę sieci Web bezpośrednio z eksperymentu. Aby uzyskać więcej informacji na temat wdrażania usług sieci Web Azure Machine Learning, zobacz [wdrażanie usługi sieci web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+Gdy model jest gotowy, możesz go łatwo wdrożyć jako usługę sieci Web bezpośrednio z eksperymentu. Aby uzyskać więcej informacji na temat wdrażania usług sieci Web Azure Machine Learning, zobacz [wdrażanie usługi sieci web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 
 Aby wdrożyć nową usługę sieci Web, należy:
 
@@ -697,9 +697,9 @@ Do Podsumowanie w tym samouczku przedstawiono tworzenie środowiska nauki o dany
 Ten przykładowy przewodnik i towarzyszące mu skrypty i notesy IPython są udostępniane przez firmę Microsoft w ramach licencji MIT. Aby uzyskać więcej informacji, zapoznaj się z plikiem LICENSE.txt w katalogu przykładowego kodu w witrynie GitHub.
 
 ### <a name="references"></a>Odwołania
-• [Strona pobierania Andrés MONROY NYC TRIPS](https://www.andresmh.com/nyctaxitrips/)  
-• [Dane dotyczące podróży z NYCą w folii przez Krzysztof Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [Badania i statystyka NYCych taksówki oraz Komisji Limousine](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+•    [Strona pobierania Andrés MONROY NYC TRIPS](https://www.andresmh.com/nyctaxitrips/)  
+•    [Dane dotyczące podróży z NYCą w folii przez Krzysztof Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Badania i statystyka NYCych taksówki oraz Komisji Limousine](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sql-walkthrough/sql-walkthrough_28_1.png

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c3e4b1c97c5fcc86a863313c2d6f54d93f26390e
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055045"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360875"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Ponowne włączanie ochrony maszyn wirtualnych platformy Azure w regionie podstawowym po przełączeniu w tryb failover
 
@@ -31,7 +31,7 @@ Po przełączeniu maszyn wirtualnych platformy Azure w [tryb failover](site-reco
 
 1. W **Vault**obszarze  >  **zreplikowane elementy**magazynu kliknij prawym przyciskiem myszy maszynę wirtualną w trybie failover, a następnie wybierz pozycję **Włącz ponownie ochronę**. Kierunek ochrony powinien być pokazywany z poziomu pomocniczego do podstawowego.
 
-   ![Ponowne włączanie ochrony](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Zrzut ekranu przedstawia maszynę wirtualną z menu kontekstowym z wybranym ponownie ochroną.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 1. Przejrzyj grupę zasobów, Sieć, magazyn i zestawy dostępności. Następnie kliknij przycisk **OK**. Jeśli istnieją jakieś zasoby oznaczone jako nowe, są one tworzone w ramach procesu ponownego ochrony.
 1. Zadanie odochrony odsiewa lokację docelową z najnowszymi danymi. Po zakończeniu zadania replikacja różnicowa odbywa się. Następnie można przejść w tryb failover z powrotem do lokacji głównej. Można wybrać konto magazynu lub sieć, która ma być używana podczas ponownego włączania ochrony, przy użyciu opcji Dostosuj.

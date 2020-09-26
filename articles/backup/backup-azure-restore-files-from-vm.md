@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: fd68c33e4425d717837923b90119d42569a1f003
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178524"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292969"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -303,16 +303,16 @@ W przypadku uruchamiania skryptu na komputerze z ograniczonym dostępem upewnij 
 
 - `download.microsoft.com`
 - Adresy URL usługi odzyskiwania (geograficzne nazwy odnoszą się do regionu, w którym znajduje się magazyn Recovery Services)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (W przypadku regionów publicznych platformy Azure)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (W przypadku platformy Azure — Chiny)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Dla instytucji rządowych USA platformy Azure)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (W przypadku platformy Azure (Niemcy)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (W przypadku regionów publicznych platformy Azure)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (W przypadku platformy Azure — Chiny)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (Dla instytucji rządowych USA platformy Azure)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (W przypadku platformy Azure (Niemcy)
 - Porty wychodzące 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
-> - Pobrana nazwa pliku skryptu będzie miała **nazwę geograficzną** , która ma zostać wypełniona w adresie URL. Na przykład: pobrana Nazwa skryptu rozpoczyna się od \' VMName \' \_ \' geoname \' _ \' GUID \' , tak jak *ContosoVM_wcus_12345678*
-> - Adres URL miałaby wartość <https://pod01-rec2.wcus.backup.windowsazure.com> "
+> Plik skryptu pobrany w kroku 5 [powyższym](#mount-the-volume-and-copy-files) będzie mieć **nazwę geograficzną** w nazwie pliku. Użyj tej **nazwy geograficznej** , aby wypełnić adres URL. Nazwa pobranego skryptu rozpocznie się od: \' VMName \' \_ \' geoname \' _ \' GUID \' .<br><br>
+> Na przykład jeśli nazwa pliku skryptu jest *ContosoVM_wcus_12345678*, **Nazwa geograficzna** to *wcus* , a adres URL to:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
 >
 
 W przypadku systemu Linux skrypt wymaga składników "Open-iSCSI" i "lshw", aby nawiązać połączenie z punktem odzyskiwania. Jeśli składniki nie istnieją na komputerze, na którym skrypt jest uruchamiany, skrypt monituje o zgodę na zainstalowanie składników programu. Wyrażanie zgody na zainstalowanie niezbędnych składników.

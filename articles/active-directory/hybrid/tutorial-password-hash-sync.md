@@ -14,12 +14,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ea92e18fc6efb8b375a22cc34baf1d33b78802
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b82dcc633f0f2bb13cb84f80873117f9eb94a24f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313166"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Samouczek: Integrowanie pojedynczego lasu usługi AD przy użyciu funkcji synchronizacji skrótów haseł (PHS)
 
@@ -184,7 +184,7 @@ Teraz należy utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniz
 2. Wybierz **ikonę plusa (+)** i wyszukaj pozycję **Azure Active Directory**.
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
 4. Wybierz przycisk **Utwórz**.</br>
-![Tworzenie](media/tutorial-password-hash-sync/create1.png)</br>
+![Zrzut ekranu pokazujący sposób tworzenia dzierżawy usługi Azure AD.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz przycisk **Utwórz**. Spowoduje to utworzenie katalogu.
 6. Po zakończeniu kliknij link **tutaj**, aby zarządzać katalogiem.
 
@@ -192,10 +192,10 @@ Teraz należy utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniz
 Dzierżawa usługi Azure AD jest już gotowa. Utworzymy konto administratora globalnego.  To konto posłuży do utworzenia konta Azure AD Connector podczas instalacji programu Azure AD Connect.  Konto łącznika usługi Azure AD służy do zapisywania informacji w usłudze Azure AD.   Aby utworzyć konto administratora globalnego, wykonaj następujące czynności.
 
 1.  W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.</br>
-![Tworzenie](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Zrzut ekranu pokazujący opcję użytkownika wybraną w sekcji Zarządzanie, w której tworzysz administratora globalnego w usłudze Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Wybierz pozycję **Wszyscy użytkownicy**, a następnie pozycję **+ Nowy użytkownik**.
 3.  Podaj nazwę i nazwę użytkownika dla tego użytkownika. Będzie to administrator globalny dzierżawy. Zmień też **rolę Katalog** na **Administrator globalny**. Możesz również wyświetlić hasło tymczasowe. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.</br>
-![Tworzenie](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Zrzut ekranu pokazujący przycisk tworzenia wybierany podczas tworzenia administratora globalnego w usłudze Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Po zakończeniu otwórz nowe okno przeglądarki internetowej i zaloguj się na stronie myapps.microsoft.com przy użyciu nowego konta administratora globalnego oraz hasła tymczasowego.
 5. Zmień hasło administratora globalnego na inne, które zapamiętasz.
 
@@ -206,7 +206,7 @@ Nadszedł czas, aby pobrać i zainstalować program Azure AD Connect.  Po zainst
 2. Przejdź do pozycji **AzureADConnect.msi** i kliknij ją dwukrotnie.
 3. Na ekranie powitalnym zaznacz pole wyrażenia zgody na warunki licencji i kliknij pozycję **Kontynuuj**.  
 4. Na ekranie Ustawienia ekspresowe kliknij polecenie **Użyj ustawień ekspresowych**.</br>  
-![Tworzenie](media/tutorial-password-hash-sync/express1.png)</br>
+![Zrzut ekranu, na którym jest wyświetlany ekran Ustawienia ekspresowe i przycisk Użyj ustawień ekspresowych.](media/tutorial-password-hash-sync/express1.png)</br>
 5. Na ekranie Łączenie z usługą Azure AD podaj nazwę użytkownika i hasło administratora globalnego usługi Azure AD. Kliknij przycisk **Dalej**.  
 6. Na ekranie Łączenie z usługami AD DS wprowadź nazwę użytkownika i hasło konta administratora przedsiębiorstwa. Kliknij przycisk **Dalej**.  
 7. Na ekranie Wszystko gotowe do skonfigurowania kliknij pozycję **Zainstaluj**.

@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 75633521474ec3bcbc35cea49ea7a2da6a271e01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83872492"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362584"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Azure CDN z referencyjnego aparatu reguł Verizon Premium
 
@@ -41,7 +41,7 @@ Składa się z:
 - Zestaw funkcji, które definiują, w jaki sposób Usługa CDN będzie obsługiwać powyższe żądania.
 Te elementy są identyfikowane na poniższej ilustracji.
 
-![Przepływ pracy wdrażania zasad](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
+![Zrzut ekranu z etykietami zawiera wyrażenie warunkowe, dopasowanie i funkcje reguły.](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
 
 ### <a name="policy"></a>Zasady
 Zasada, która składa się z zestawu reguł tylko do odczytu, zapewnia:
@@ -95,7 +95,7 @@ Tekst, który jest interpretowany jako wartość symbolu wieloznacznego, przypis
 
 Znak | Opis
 ----------|------------
-\ | Ukośnik odwrotny jest używany do ucieczki znaków określonych w tej tabeli. Ukośnik odwrotny musi być określony bezpośrednio przed znakiem specjalnym, który powinien zostać zmieniony.<br/>Na przykład następująca składnia wyprowadza gwiazdkę:`\*`
+\ | Ukośnik odwrotny jest używany do ucieczki znaków określonych w tej tabeli. Ukośnik odwrotny musi być określony bezpośrednio przed znakiem specjalnym, który powinien zostać zmieniony.<br/>Na przykład następująca składnia wyprowadza gwiazdkę: `\*`
 % | Symbol procentu jest używany do wskazania kodowania adresów URL (na przykład `%20` ).
 \* | Gwiazdka jest symbolem wieloznacznym reprezentującym jeden lub więcej znaków.
 Miejsce | Znak spacji wskazuje, że warunek dopasowania może być spełniony przez jedną z określonych wartości lub wzorców.
@@ -107,7 +107,7 @@ Wyrażenia regularne definiują wzorzec, który jest wyszukiwany w obrębie wart
 
 Znak specjalny | Opis
 ------------------|------------
-\ | Ukośnik odwrotny oznacza znak, który powoduje, że ten znak jest traktowany jako wartość literału, a nie przy jego wyrażeniu regularnym. Na przykład następująca składnia wyprowadza gwiazdkę:`\*`
+\ | Ukośnik odwrotny oznacza znak, który powoduje, że ten znak jest traktowany jako wartość literału, a nie przy jego wyrażeniu regularnym. Na przykład następująca składnia wyprowadza gwiazdkę: `\*`
 % | Znaczenie symbolu procentu zależy od jego użycia.<br/><br/> `%{HTTPVariable}`: Ta składnia identyfikuje zmienną HTTP.<br/>`%{HTTPVariable%Pattern}`: Ta składnia używa symbolu procentu do identyfikacji zmiennej HTTP i jako ogranicznika.<br />`\%`: Ucieczki symbolu procentu pozwala na użycie go jako wartości literału lub wskazywanie kodowania adresu URL (na przykład `\%20` ).
 \* | Gwiazdka umożliwia dopasowanie znaku poprzedzającego zero lub więcej razy.
 Miejsce | Znak spacji jest zwykle traktowany jako znak literału.
@@ -119,7 +119,7 @@ Dopasuj warunki i funkcje, które obsługują wyrażenia regularne akceptują wz
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Warunki dopasowań aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Warunki dopasowania aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Wyrażenia warunkowe aparatu reguł](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Funkcje aparatu reguł](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Zastępowanie zachowania HTTP przy użyciu aparatu reguł](cdn-verizon-premium-rules-engine.md)

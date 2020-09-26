@@ -4,17 +4,17 @@ description: Azure Security Test — Data Protection w wersji 2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e377c6669b1db96f549958173aded4f29bae6713
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059255"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314321"
 ---
-# <a name="security-control-data-protection"></a>Kontrola zabezpieczeń: Ochrona danych
+# <a name="security-control-v2-data-protection"></a>Kontrola zabezpieczeń v2: Ochrona danych
 
 Ochrona danych obejmuje kontrolę nad ochroną danych w czasie spoczynku, w tranzycie oraz za pomocą autoryzowanych mechanizmów dostępu. Obejmuje to odnajdywanie, klasyfikowanie, ochronę i monitorowanie poufnych zasobów danych przy użyciu funkcji kontroli dostępu, szyfrowania i rejestrowania na platformie Azure.
 
@@ -22,7 +22,7 @@ Ochrona danych obejmuje kontrolę nad ochroną danych w czasie spoczynku, w tran
 
 | Identyfikator platformy Azure | IDENTYFIKATORY formantów usługi CIS: v 7.1 | NIST SP800-53 identyfikatory () |
 |--|--|--|--|
-| DP-1 | 14,5, 14,7 | SI-4, SC-28 |
+| DP-1 | 13,1, 14,5, 14,7 | SC — 28 |
 
 Odkryj, klasyfikuj i Oznacz poufne dane, aby umożliwić projektowanie odpowiednich kontrolek w celu zapewnienia, że poufne informacje są przechowywane, przetwarzane i przesyłane bezpiecznie przez systemy technologiczne organizacji. 
 
@@ -36,7 +36,7 @@ Możesz użyć usługi Azure SQL Information Protection, aby pomóc w klasyfikac
 
 **Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -62,7 +62,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -90,9 +90,9 @@ Jeśli jest to wymagane do zapewnienia zgodności ochrony przed utratą danych (
 
 **Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Centrum operacji zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security) 
+- [Operacje zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security) 
 
 - [Zabezpieczenia aplikacji i DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -118,7 +118,7 @@ Domyślnie platforma Azure zapewnia szyfrowanie danych przesyłanych między cen
 
 **Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -148,7 +148,7 @@ Platforma Azure zapewnia szyfrowanie danych przechowywanych domyślnie. W przypa
 
 **Odpowiedzialność**: udostępnione
 
-**Uczestnicy zabezpieczeń klientów**:
+**Uczestnicy zabezpieczeń klientów** ([Dowiedz się więcej](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architektura zabezpieczeń](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
