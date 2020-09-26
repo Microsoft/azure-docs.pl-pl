@@ -3,12 +3,12 @@ title: Zainstaluj program VMware HCX
 description: Skonfiguruj rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.openlocfilehash: 76a7432b78ec2141039dcdc5dd1d7572335b18e1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a101712f2d80e0d8e70d37bd5b7b08931f62ba3d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263205"
+ms.locfileid: "91356557"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Zainstaluj program HCX for Azure VMware Solution
 
@@ -40,7 +40,7 @@ Po zakończeniu instalacji możesz wykonać czynności opisane w kolejnych kroka
 
 Ustalanie rozmiarów obciążeń związanych z zasobami obliczeniowymi i magazynem jest ważnym etapem planowania podczas przygotowywania do korzystania z rozwiązania HCX chmury prywatnej w chmurze platformy Azure. Zaadresuj krok zmiany wielkości w ramach wstępnego planowania środowiska chmury prywatnej. 
 
-Możesz również zmienić rozmiar obciążeń, wykonując [ocenę rozwiązań VMware platformy Azure](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) w portalu Azure Migrate.
+Możesz również zmienić rozmiar obciążeń, wykonując [ocenę rozwiązań VMware platformy Azure](../migrate/how-to-create-azure-vmware-solution-assessment.md) w portalu Azure Migrate.
 
 ## <a name="software-version-requirements"></a>Wymagania dotyczące wersji oprogramowania
 

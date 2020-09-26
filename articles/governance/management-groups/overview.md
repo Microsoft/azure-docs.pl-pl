@@ -1,14 +1,15 @@
 ---
 title: Organizowanie zasobów przy użyciu grup zarządzania — Zarządzanie platformą Azure
 description: Dowiedz się więcej na temat grup zarządzania, sposobu działania ich uprawnień i korzystania z nich.
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: d259f44b8424afa9fcfc94b3f1812a0485ab2993
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.custom: contperfq1
+ms.openlocfilehash: e0404cdc934771f8ebc0125ce9e21559739aee35
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659236"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334161"
 ---
 # <a name="what-are-azure-management-groups"></a>Co to są grupy zarządzania systemu Azure?
 
@@ -22,7 +23,7 @@ Na przykład możesz zastosować do grupy zarządzania zasady ograniczające reg
 Można utworzyć elastyczną strukturę grup zarządzania i subskrypcji w celu organizowania zasobów w hierarchię na potrzeby ujednoliconego zarządzania zasadami i dostępem. Na poniższym diagramie przedstawiono przykład tworzenia hierarchii dla nadzoru przy użyciu grup zarządzania.
 
 :::image type="complex" source="./media/tree.png" alt-text="Diagram hierarchii przykładowej grupy zarządzania." border="false":::
-   Diagram głównej grupy zarządzania przechowującej zarówno grupy zarządzania, jak i subskrypcje. W przypadku niektórych podrzędnych grup zarządzania są przechowywane grupy zarządzania, pewne subskrypcje i pewne. Jednym z przykładów w hierarchii przykładowej jest 4 poziomy grup zarządzania z poziomem podrzędnym wszystkich subskrypcji.
+   Diagram głównej grupy zarządzania przechowującej zarówno grupy zarządzania, jak i subskrypcje. W przypadku niektórych podrzędnych grup zarządzania są przechowywane grupy zarządzania, pewne subskrypcje i pewne. Jednym z przykładów w hierarchii przykładowej są cztery poziomy grup zarządzania z poziomem podrzędnym wszystkich subskrypcji.
 :::image-end:::
 
 Możesz utworzyć hierarchię stosującą zasady, na przykład ograniczające lokalizacje maszyn wirtualnych do regionu Zachodnie stany USA w grupie o nazwie „Produkcja”. Te zasady będą dziedziczyły wszystkie subskrypcje Umowa Enterprise (EA), które są elementami podrzędnymi tej grupy zarządzania i będą miały zastosowanie do wszystkich maszyn wirtualnych w ramach tych subskrypcji. Te zasady zabezpieczeń nie mogą zostać zmienione przez właściciela zasobu lub subskrypcji, co zapewnia ulepszony nadzór.
@@ -74,7 +75,7 @@ W przypadku niektórych katalogów, które rozpoczęły korzystanie z grup zarz�
 Istnieją dwie opcje rozwiązania tego problemu.
 
 - Usuń wszystkie przypisania ról i zasad z głównej grupy zarządzania
-  - Usunięcie wszystkich przypisań ról i zasad z głównej grupy zarządzania spowoduje wypełnienie hierarchii przez usługę wszystkimi subskrypcjami podczas następnego cyklu nocnego. Ten proces ma na celu zapewnienie, że nie został przypadkowo udzielony dostęp lub nie przypisano przypadkowo zasad do wszystkich subskrypcji dzierżawy.
+  - Usunięcie wszystkich zasad i przypisań ról z głównej grupy zarządzania powoduje, że usługa uzupełnia wszystkie subskrypcje w hierarchii do następnego noclegowego cyklu. Ten proces ma na celu zapewnienie, że nie został przypadkowo udzielony dostęp lub nie przypisano przypadkowo zasad do wszystkich subskrypcji dzierżawy.
   - Najlepszym sposobem wykonania tego procesu bez wpływu na usługi jest zastosowanie przypisań ról lub zasad na poziomie o jeden niższym niż główna grupa zarządzania. Wtedy będzie można usunąć wszystkie przypisania z zakresu głównego.
 - Bezpośrednio wywołaj interfejs API, aby rozpocząć proces wypełniania
   - Każdy klient w katalogu może wywołać interfejs API _TenantBackfillStatusRequest_ lub _StartTenantBackfillRequest_. Wywołanie interfejsu API StartTenantBackfillRequest powoduje rozpoczęcie procesu początkowej konfiguracji, który polega na przeniesieniu wszystkich subskrypcji do hierarchii. Ten proces rozpoczyna również wymuszanie dodawania wszystkich nowych subskrypcji jako elementu podrzędnego głównej grupy zarządzania.
@@ -108,7 +109,7 @@ Obsługa ról niestandardowych platformy Azure dla grup zarządzania jest obecni
 
 ### <a name="example-definition"></a>Przykładowa definicja
 
-[Definiowanie i tworzenie roli niestandardowej](../../role-based-access-control/custom-roles.md) nie zmienia się wraz z uwzględnieniem grup zarządzania. Użyj pełnej ścieżki, aby zdefiniować grupę zarządzania **/providers/Microsoft.Management/managementgroups/{GroupID}**.
+[Definiowanie i tworzenie roli niestandardowej](../../role-based-access-control/custom-roles.md) nie zmienia się wraz z włączeniem grup zarządzania. Użyj pełnej ścieżki, aby zdefiniować grupę zarządzania **/providers/Microsoft.Management/managementgroups/{GroupID}**.
 
 Użyj identyfikatora grupy zarządzania, a nie nazwy wyświetlanej grupy zarządzania. Ten typowy błąd występuje, ponieważ obie są polami niestandardowymi podczas tworzenia grupy zarządzania.
 
@@ -167,7 +168,7 @@ Istnieje kilka różnych opcji umożliwiających rozwiązanie tego scenariusza:
 
 Istnieją ograniczenia, które istnieją podczas korzystania z ról niestandardowych w grupach zarządzania. 
 
- - Można zdefiniować tylko jedną grupę zarządzania w przypisywanych zakresach nowej roli. To ograniczenie jest stosowane w celu zmniejszenia liczby sytuacji, w których definicje ról i przypisania ról są rozłączone. Ta sytuacja występuje, gdy subskrypcja lub Grupa zarządzania z przypisaniem roli jest przenoszona do innego elementu nadrzędnego, który nie ma definicji roli.  
+ - Można zdefiniować tylko jedną grupę zarządzania w przypisywanych zakresach nowej roli. To ograniczenie jest stosowane w celu zmniejszenia liczby sytuacji, w których definicje ról i przypisania ról są rozłączone. Taka sytuacja występuje, gdy subskrypcja lub Grupa zarządzania z przypisaniem roli przenosi się do innego elementu nadrzędnego, który nie ma definicji roli.  
  - Akcje płaszczyzny danych RBAC nie mogą być zdefiniowane w rolach niestandardowych grupy zarządzania. To ograniczenie ma miejsce w przypadku, gdy występuje problem z opóźnieniami akcji RBAC aktualizujących dostawców zasobów płaszczyzny danych.
    Ten problem opóźnienia jest opracowywany, a akcje te zostaną wyłączone z definicji roli w celu ograniczenia ryzyka.
  - Azure Resource Manager nie sprawdza poprawności istnienia grupy zarządzania w zakresie możliwym do przypisania definicji roli. Jeśli na liście występuje literówka lub nieprawidłowy identyfikator grupy zarządzania, definicja roli nadal zostanie utworzona.  

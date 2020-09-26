@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 5a0a158f91695bb0aba07aa412f5ba234906d493
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 889ad3b74a2f7c0baa006a0c45e3f14664d6cd0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707700"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325882"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Szybki Start: przypisywanie użytkowników do aplikacji używającej usługi Azure AD jako dostawcy tożsamości
 
@@ -55,8 +55,7 @@ Aby przypisać użytkowników do aplikacji dodanej do dzierżawy usługi Azure A
     > Jeśli aplikacja nie obsługuje wyboru roli, zostanie przypisana domyślna rola dostępu. W takim przypadku aplikacja zarządza poziomem dostępu dostępnym dla użytkowników.
 9. W okienku **Dodaj przypisanie** wybierz przycisk **Przypisz** w dolnej części okienka.
 
-> [!NOTE]
-> Możesz cofnąć przypisanie użytkowników lub grup, korzystając z tej samej procedury. Wybierz użytkownika lub grupę, którą chcesz cofnąć przypisania, a następnie wybierz pozycję **Usuń**. Niektóre aplikacje Microsoft 365 i Office 365 wymagają użycia programu PowerShell. 
+Możesz cofnąć przypisanie użytkowników lub grup, korzystając z tej samej procedury. Wybierz użytkownika lub grupę, którą chcesz cofnąć przypisania, a następnie wybierz pozycję **Usuń**. Niektóre aplikacje Microsoft 365 i Office 365 wymagają użycia programu PowerShell. 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -66,4 +65,9 @@ Po zakończeniu korzystania z przewodnika Szybki Start Rozważ usunięcie aplika
 
 Przejdź do następnego artykułu, aby dowiedzieć się, jak skonfigurować Logowanie jednokrotne dla aplikacji.
 > [!div class="nextstepaction"]
-> [Konfigurowanie logowania jednokrotnego](add-application-portal-setup-sso.md)
+> [Konfigurowanie logowania jednokrotnego opartego na protokole SAML](add-application-portal-setup-sso.md)
+
+LUB
+
+> [!div class="nextstepaction"]
+> [Konfigurowanie logowania jednokrotnego opartego na OIDC](add-application-portal-setup-oidc-sso.md)

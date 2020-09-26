@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: d2ad302042b277cf29b3a7b22af88b662686b3fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90995952"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289773"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Konfigurowanie usługi Azure Defender dla magazynu
 
@@ -23,11 +23,11 @@ Usługa Azure Defender dla magazynu oferuje dodatkową warstwę analizy zabezpie
 
 Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alerty zabezpieczeń są zintegrowane z usługą [Azure Security Center](https://azure.microsoft.com/services/security-center/)i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń.
 
-Usługa pobiera dzienniki zasobów żądań odczytu, zapisu i usuwania do usługi BLOB Storage oraz do Azure Files (wersja zapoznawcza) na potrzeby wykrywania zagrożeń. Aby zbadać alerty z usługi Azure Defender, można wyświetlić powiązane działanie magazynu za pomocą rejestrowania analityka magazynu. Aby uzyskać więcej informacji, zobacz **Konfigurowanie rejestrowania** w obszarze [Monitorowanie konta magazynu w Azure Portal](storage-monitor-storage-account.md#configure-logging).
+Usługa pozyskuje dzienniki zasobów żądań odczytu, zapisu i usuwania do magazynu obiektów blob oraz Azure Files na potrzeby wykrywania zagrożeń. Aby zbadać alerty z usługi Azure Defender, można wyświetlić powiązane działanie magazynu za pomocą rejestrowania analityka magazynu. Aby uzyskać więcej informacji, zobacz **Konfigurowanie rejestrowania** w obszarze [Monitorowanie konta magazynu w Azure Portal](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="availability"></a>Dostępność
 
-Usługa Azure Defender for Storage jest obecnie dostępna dla magazynu obiektów blob, Azure Files (wersja zapoznawcza) i Azure Data Lake Storage Gen2 (wersja zapoznawcza). Typy kont obsługujące usługę Azure Defender obejmują konta ogólnego przeznaczenia w wersji 2, blokowych obiektów blob i magazynu obiektów BLOB. Usługa Azure Defender for Storage jest dostępna we wszystkich chmurach publicznych i chmurach dla instytucji rządowych USA, ale nie w innych regionach w chmurze lub Azure Government.
+Usługa Azure Defender for Storage jest obecnie dostępna dla magazynu obiektów blob, Azure Files i Azure Data Lake Storage Gen2. Typy kont obsługujące usługę Azure Defender obejmują konta ogólnego przeznaczenia w wersji 2, blokowych obiektów blob i magazynu obiektów BLOB. Usługa Azure Defender for Storage jest dostępna we wszystkich chmurach publicznych i chmurach dla instytucji rządowych USA, ale nie w innych regionach w chmurze lub Azure Government.
 
 Konta z hierarchicznymi przestrzeniami nazw, w których włączono obsługę Data Lake Storage transakcji przy użyciu zarówno interfejsów API usługi Azure Blob Storage, jak i interfejsów API Data Lake Storage. Udziały plików platformy Azure obsługują transakcje za pośrednictwem protokołu SMB.
 
@@ -37,8 +37,8 @@ Poniższa lista zawiera podsumowanie dostępności usługi Azure Defender dla ma
 
 - Stan wydania:
   - [BLOB Storage](https://azure.microsoft.com/services/storage/blobs/) (ogólna dostępność)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (wersja zapoznawcza obsługuje transakcje SMB i REST)
-  - Azure Data Lake Storage Gen2 (wersja zapoznawcza)
+  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (ogólna dostępność)
+  - Azure Data Lake Storage Gen2 (ogólna dostępność)
 - Połączeń<br>
     ✔ Chmury komercyjne<br>
     ✔ US Gov<br>

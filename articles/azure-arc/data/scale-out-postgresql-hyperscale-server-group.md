@@ -9,19 +9,19 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e267a30d6f73b48f825c4b61b3bc1106133b8cdf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285387"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>Skalowanie w poziomie grupy serwerów PostgreSQL na platformie Azure
 W tym dokumencie wyjaśniono, jak skalować w poziomie grupę serwerów PostgreSQL na platformie Azure z włączonym skalowaniem. Robi to, przechodząc przez scenariusz. **Jeśli nie chcesz wykonywać w scenariuszu i chcesz przeczytać o sposobie skalowania w poziomie, przejdź do [skalowania w poziomie](#scale-out)**.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 Jeśli znasz już model skalowania usługi Azure ARC z włączonym PostgreSQLm skalowania lub Azure Database for PostgreSQLm skalowania (Citus), możesz pominąć ten akapit. W przeciwnym razie zaleca się rozpoczęcie od odczytu tego modelu skalowania na stronie dokumentacji Azure Database for PostgreSQL Citus. Azure Database for PostgreSQL Citus) to taka sama technologia, która jest hostowana jako usługa na platformie Azure (platforma jako usługa znana również jako PAAS), a nie oferowana jako część usługi Azure ARC z włączonymi Data Services:
 - [Węzły i tabele](../../postgresql/concepts-hyperscale-nodes.md)
 - [Określanie typu aplikacji](../../postgresql/concepts-hyperscale-app-type.md)
@@ -46,7 +46,7 @@ Połącz się z grupą serwerów PostgreSQL z usługą Azure ARC, wybierając na
 ```console
 azdata arc postgres endpoint list -n <server name>
 ```
-Przykład:
+Na przykład:
 ```console
 azdata arc postgres endpoint list -n postgres01
 ```
@@ -151,12 +151,16 @@ Ogólny format polecenia skalowania w poziomie:
 azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
 ```
 
-Na przykład Zwiększ liczbę węzłów procesu roboczego z 2 do 4, uruchamiając następujące polecenie:
+> [!CAUTION]
+> Wersja zapoznawcza nie obsługuje skalowania do tyłu. Na przykład nie jest jeszcze możliwe zmniejszenie liczby węzłów procesu roboczego. Jeśli trzeba to zrobić, należy wyodrębnić/utworzyć kopię zapasową danych, porzucić grupę serwerów, stworzyć nową grupę serwerów z mniejszymi węzłami roboczymi, a następnie zaimportować dane.
+
+W tym przykładzie zwiększamy liczbę węzłów procesu roboczego z 2 do 4, uruchamiając następujące polecenie:
+
 ```console
 azdata arc postgres server edit -n postgres01 -w 4
 ```
 
-Po dodaniu węzłów zostanie wyświetlony stan oczekiwania dla grupy serwerów. Przykład:
+Po dodaniu węzłów zostanie wyświetlony stan oczekiwania dla grupy serwerów. Na przykład:
 ```console
 azdata arc postgres server list
 ```
@@ -178,7 +182,7 @@ Uruchom polecenie:
 azdata arc postgres server list
 ```
 
-Zwraca listę grup serwerów utworzonych w przestrzeni nazw i wskazuje liczbę węzłów procesu roboczego. Przykład:
+Zwraca listę grup serwerów utworzonych w przestrzeni nazw i wskazuje liczbę węzłów procesu roboczego. Na przykład:
 ```console
 Name        State    Workers
 ----------  -------  ---------
@@ -191,12 +195,13 @@ Uruchom polecenie:
 kubectl get postgresql-12
 ```
 
-Zwraca listę grup serwerów utworzonych w przestrzeni nazw i wskazuje liczbę węzłów procesu roboczego. Przykład:
+Zwraca listę grup serwerów utworzonych w przestrzeni nazw i wskazuje liczbę węzłów procesu roboczego. Na przykład:
 ```console
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
-> **Uwaga:** Jeśli utworzono grupę serwerów w wersji 11 PostgreSQL zamiast 12, uruchom następujące polecenie zamiast: _polecenia kubectl Get PostgreSQL-11_
+> [!NOTE]
+> Jeśli utworzono grupę serwerów w wersji 11 PostgreSQL zamiast 12, uruchom następujące polecenie zamiast: _polecenia kubectl Get PostgreSQL-11_
 
 #### <a name="with-a-sql-query"></a>Za pomocą zapytania SQL:
 Połącz się z grupą serwerów za pomocą wybranego przez siebie narzędzia klienta i uruchom następujące zapytanie:
@@ -230,7 +235,6 @@ Zanotuj czas wykonywania.
 >* [Wysoka wydajność HTAP za pomocą usługi Azure PostgreSQL do skalowania (Citus)](https://www.youtube.com/watch?v=W_3e07nGFxY)
 >* [Kompilowanie aplikacji HTAP przy użyciu języka Python & PostgreSQL platformy Azure (Citus)](https://www.youtube.com/watch?v=YDT8_riLLs0)
 
-> Wersja zapoznawcza nie obsługuje skalowania do tyłu. Na przykład nie jest jeszcze możliwe zmniejszenie liczby węzłów procesu roboczego. Jeśli trzeba to zrobić, należy wyodrębnić/utworzyć kopię zapasową danych, porzucić grupę serwerów, stworzyć nową grupę serwerów z mniejszymi węzłami roboczymi, a następnie zaimportować dane.
 
 ## <a name="next-steps"></a>Następne kroki
 

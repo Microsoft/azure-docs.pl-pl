@@ -3,12 +3,12 @@ title: Ustawianie haseł dla maszyn wirtualnych w Azure Lab Services | Microsoft
 description: Dowiedz się, jak ustawiać i resetować hasła dla maszyn wirtualnych w laboratorium z klasą Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6012123b729bd1be6b4ff0fdb00d71aca56cfa09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443778"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334076"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurowanie puli maszyn wirtualnych i zarządzanie nią 
 W tym artykule przedstawiono sposób wykonywania następujących zadań:
@@ -24,7 +24,7 @@ Aby zwiększyć lub zmniejszyć wydajność laboratorium (liczbę maszyn wirtual
 2. Wprowadź nową **liczbę maszyn wirtualnych** , które mają być w laboratorium. Ta wartość musi być większa lub równa liczbie użytkowników zarejestrowanych w laboratorium. 
 3. Następnie wybierz pozycję **Zapisz**. 
 
-    ![Przycisk Uruchom wszystko](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
+    ![Zrzut ekranu przedstawiający okno "pojemność laboratorium" z wybranym przyciskiem "Maksymalna liczba maszyn w laboratorium" i "Zapisz".](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
 4. W przypadku zwiększenia pojemności można zobaczyć utworzoną maszynę wirtualną lub maszyny wirtualne. Jeśli nowa maszyna wirtualna nie jest widoczna na liście, Odśwież stronę. 
 
     ![Maszyna wirtualna jest tworzona](./media/how-to-set-virtual-machine-passwords/vm-being-created.png)

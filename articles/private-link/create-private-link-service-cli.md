@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 4312c6b89a7ba3e56e39050d76c673aa532f6f92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cfc746d883b565fe7a082a316ce314f385225df
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737346"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358178"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Tworzenie prywatnej usługi linkowej przy użyciu interfejsu wiersza polecenia platformy Azure
 W tym artykule opisano sposób tworzenia usługi linku prywatnego na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
@@ -88,7 +88,7 @@ Usługa link prywatny wymaga adresu IP z dowolnej podsieci wybranej w ramach sie
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
 ```
  
-## <a name="create-a-private-link-service"></a>Tworzenie usługi łącza prywatnego  
+## <a name="create-a-private-link-service-using-standard-load-balancer"></a>Tworzenie usługi linku prywatnego przy użyciu usługa Load Balancer w warstwie Standardowa 
  
 Utwórz usługę linku prywatnego przy użyciu konfiguracji adresu IP frontonu usługa Load Balancer w warstwie Standardowa za pomocą polecenia [AZ Network Private-Link-Service Create](/cli/azure/network/private-link-service#az-network-private-link-service-create). W tym przykładzie tworzona jest usługa linku prywatnego o nazwie *myPLS* przy użyciu usługa Load Balancer w warstwie Standardowa o nazwie *myLoadBalancer* w grupie zasobów o nazwie Moja *resourceName*. 
  

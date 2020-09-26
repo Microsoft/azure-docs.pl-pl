@@ -1,18 +1,18 @@
 ---
-title: Włącz dodatek transferu danych przychodzących dla istniejącego klastra AKS z istniejącym Application Gateway platformy Azure
+title: 'Samouczek: Włączanie dodatku transferu danych przychodzących dla istniejącego klastra AKS z istniejącym Application Gateway platformy Azure'
 description: Skorzystaj z tego samouczka, aby włączyć dodatek usługi transferu danych przychodzących dla istniejącego klastra AKS z istniejącym Application Gateway
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 35d9396ac1f4569002b95549a8752745537621cf
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595975"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285660"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Samouczek: Włączanie dodatku Application Gateway transferu danych przychodzących dla istniejącego klastra AKS z istniejącym Application Gateway za pomocą interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
 
@@ -28,6 +28,8 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Komunikacja równorzędna Application Gateway sieci wirtualnej z siecią wirtualną klastra AKS
 > * Wdrażanie przykładowej aplikacji przy użyciu usługi AGIC na potrzeby ruchu przychodzącego w klastrze AKS
 > * Sprawdź, czy aplikacja jest dostępna za pomocą Application Gateway
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -151,7 +153,6 @@ az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się więcej na temat wyłączania dodatku AGIC](./ingress-controller-disable-addon.md)
-* [Dowiedz się więcej o tym, które adnotacje są obsługiwane przez AGIC](./ingress-controller-annotations.md)
-* [Rozwiązywanie problemów z usługą AGIC](./ingress-controller-troubleshoot.md)
 
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej na temat wyłączania dodatku AGIC](./ingress-controller-disable-addon.md)

@@ -1,6 +1,6 @@
 ---
 title: Konsola szeregowa platformy Azure dla systemu Windows | Microsoft Docs
-description: Dwukierunkowa konsola szeregowa dla Virtual Machines i Virtual Machine Scale Sets platformy Azure.
+description: Dwukierunkowa konsola szeregowa dla platformy Azure Virtual Machines i Virtual Machine Scale Sets przy użyciu przykładu systemu Windows.
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c30999a5f0239e60c842084b60b44c165fb7182e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c5c139cb94358d70d1f23b68f2a369adb953da08
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424004"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325984"
 ---
 # <a name="azure-serial-console-for-windows"></a>Konsola szeregowa platformy Azure dla systemu Windows
 
@@ -194,27 +194,27 @@ Wklejanie długich ciągów nie działa. | Konsola szeregowa ogranicza długoś�
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-**P. Jak mogę wysłać opinię?**
+**Pytania. Jak mogę wysłać opinię?**
 
 A. Prześlij opinię, tworząc problem w usłudze GitHub w witrynie https://aka.ms/serialconsolefeedback . Alternatywnie (mniej preferowany) można wysłać opinię za pośrednictwem azserialhelp@microsoft.com lub w kategorii maszyna wirtualna https://feedback.azure.com .
 
-**P. czy konsola szeregowa obsługuje kopiowanie/wklejanie?**
+**Pytania. Czy konsola szeregowa obsługuje kopiowanie/wklejanie?**
 
 A. Tak. Użyj **klawiszy CTRL** + **SHIFT** + **C** i **Ctrl** + **SHIFT** + **V** , aby skopiować i wkleić do terminalu.
 
-**P. kto może włączyć lub wyłączyć konsolę szeregową dla mojej subskrypcji?**
+**Pytania. Kto może włączyć lub wyłączyć konsolę szeregową dla mojej subskrypcji?**
 
 A. Aby włączyć lub wyłączyć konsolę szeregową na poziomie całej subskrypcji, musisz mieć uprawnienia do zapisu dla subskrypcji. Role, które mają uprawnienia do zapisu, obejmują role administratora lub właściciela. Role niestandardowe mogą mieć również uprawnienia do zapisu.
 
-**P. kto może uzyskać dostęp do konsoli szeregowej dla mojej maszyny wirtualnej?**
+**Pytania. Kto może uzyskać dostęp do konsoli szeregowej dla mojej maszyny wirtualnej?**
 
 A. Aby maszyna wirtualna mogła uzyskać dostęp do konsoli szeregowej maszyny wirtualnej, musi mieć rolę współautora maszyn wirtualnych lub wyższą.
 
-**P. Moja konsola szeregowa nie wyświetla niczego, co mam zrobić?**
+**Pytania. Moja konsola szeregowa nie wyświetla niczego, co mam zrobić?**
 
 A. Obraz jest prawdopodobnie błędnie skonfigurowany na potrzeby dostępu do konsoli szeregowej. Aby uzyskać informacje o konfigurowaniu obrazu w celu włączenia konsoli szeregowej, zobacz [Włączanie konsoli szeregowej w obrazie niestandardowym lub starszym](#enable-the-serial-console-in-custom-or-older-images).
 
-**P. czy konsola szeregowa jest dostępna dla zestawów skalowania maszyn wirtualnych?**
+**Pytania. Czy konsola szeregowa jest dostępna dla zestawów skalowania maszyn wirtualnych?**
 
 A. Tak! Zobacz [konsolę szeregowa dla Virtual Machine Scale Sets](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 

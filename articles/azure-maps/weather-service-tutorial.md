@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Dołączanie danych z czujników z danymi prognoz pogody przy użyciu Azure Notebooks (Python) | Mapy Microsoft Azure'
-description: W tym samouczku pokazano, jak sprzęgać dane czujników z danymi prognoz pogody z Microsoft Azure Maps usługi Pogoda przy użyciu Azure Notebooks (Python).
+description: Samouczek dotyczący sposobu sprzęgania danych czujników z danymi prognoz pogodowych od Microsoft Azure Maps usługi Pogoda przy użyciu Azure Notebooks (Python).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/29/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 4ec51bc84041008c0b843a8549e299747c3134a3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 717cb600f1bdae228f45409cb271ab04d1d51a19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851649"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310105"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Samouczek: Dołączanie danych z czujników z danymi prognoz pogody przy użyciu Azure Notebooks (Python)
 
@@ -182,9 +182,6 @@ Poniższe wykresy przedstawiają wizualizację danych prognoz. Aby zmienić szyb
 
 ![Kierunek wiatru — wykres ](./media/weather-service-tutorial/speed-date-plot.png) ![ kierunku wiatru](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
-
-## <a name="next-steps"></a>Następne kroki
-
 W tym samouczku przedstawiono sposób wywoływania Azure Maps interfejsów API REST w celu uzyskania danych prognozy pogody. Wiesz również, jak wizualizować dane na wykresach.
 
 Aby dowiedzieć się więcej o sposobie wywoływania Azure Maps interfejsów API REST w programie Azure Notebooks, zobacz [Routing EV przy użyciu Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
@@ -196,4 +193,9 @@ Aby poznać Azure Maps interfejsów API, które są używane w tym samouczku, zo
 
 Aby uzyskać pełną listę Azure Maps interfejsów API REST, zobacz [Azure Maps interfejsów API REST](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
-Aby dowiedzieć się więcej na temat Azure Notebooks, zobacz [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+## <a name="next-steps"></a>Następne kroki
+
+Aby dowiedzieć się więcej na temat Azure Notebooks, zobacz
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

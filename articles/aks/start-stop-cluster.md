@@ -3,24 +3,33 @@ title: Uruchamianie i zatrzymywanie usługi Azure Kubernetes Service (AKS)
 description: Dowiedz się, jak zatrzymać lub uruchomić klaster usługi Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 44c33aa018971cc2b2f5eb215597a63e8b55c853
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 460b592924a19449d77ce8d45f470f3e3129f4a6
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278570"
+ms.locfileid: "91357951"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Zatrzymywanie i uruchamianie klastra usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
-Obciążenia AKS mogą nie być wykonywane w sposób ciągły, na przykład w przypadku klastra programistycznego, który jest używany tylko w godzinach pracy. Prowadzi to do czasu, w którym klaster usługi Azure Kubernetes Service (AKS) może być bezczynny, co nie działa dłużej niż składniki systemowe. Można zmniejszyć rozmiary klastra, przeskalowane [wszystkie `User` Pule węzłów na 0](scale-cluster.md#scale-user-node-pools-to-0), ale [ `System` Pula](use-system-pools.md) jest nadal wymagana do uruchamiania składników systemowych, gdy klaster jest uruchomiony. Aby zoptymalizować koszty w ciągu tych okresów, można całkowicie wyłączyć (zatrzymać) klaster. Ta akcja spowoduje całkowite zatrzymanie płaszczyzny kontroli i węzłów agenta, co pozwala zaoszczędzić na wszystkich kosztach obliczeniowych, zachowując jednocześnie wszystkie obiekty i stan klastra przechowywane dla momentu ponownego uruchomienia. Pozwala to na wybranie miejsca, w którym zakończysz pracę po weekend lub czy klaster działa tylko podczas uruchamiania zadań wsadowych.
+Obciążenia AKS mogą nie być wykonywane w sposób ciągły, na przykład w przypadku klastra programistycznego, który jest używany tylko w godzinach pracy. Prowadzi to do czasu, w którym klaster usługi Azure Kubernetes Service (AKS) może być bezczynny, co nie działa dłużej niż składniki systemowe. Można zmniejszyć rozmiary klastra, przeskalowane [wszystkie `User` Pule węzłów na 0](scale-cluster.md#scale-user-node-pools-to-0), ale [ `System` Pula](use-system-pools.md) jest nadal wymagana do uruchamiania składników systemowych, gdy klaster jest uruchomiony. Aby zoptymalizować koszty w ciągu tych okresów, można całkowicie wyłączyć (zatrzymać) klaster. Ta akcja spowoduje całkowite zatrzymanie płaszczyzny kontroli i węzłów agenta, co pozwala zaoszczędzić na wszystkich kosztach obliczeniowych, zachowując jednocześnie wszystkie obiekty i stan klastra przechowywane dla momentu ponownego uruchomienia. Następnie możesz wybrać odpowiednie miejsce po zakończeniu weekendu lub, aby klaster działał tylko podczas wykonywania zadań wsadowych.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
+
+
+### <a name="limitations"></a>Ograniczenia
+
+W przypadku korzystania z funkcji uruchamiania/zatrzymywania klastra obowiązują następujące ograniczenia:
+
+- Ta funkcja jest obsługiwana tylko w przypadku Virtual Machine Scale Sets klastrów.
+- Stan klastra zatrzymanego klastra AKS jest zachowywany przez maksymalnie 12 miesięcy. Jeśli klaster jest zatrzymany przez ponad 12 miesięcy, nie można odzyskać stanu klastra. Aby uzyskać więcej informacji, zobacz [zasady pomocy technicznej AKS](support-policies.md).
+- Można uruchomić lub usunąć zatrzymany klaster AKS. Aby wykonać dowolną operację, taką jak skalowanie lub uaktualnianie, najpierw należy uruchomić klaster.
 
 ### <a name="install-the-aks-preview-azure-cli"></a>Instalowanie `aks-preview` interfejsu wiersza polecenia platformy Azure 
 
@@ -33,11 +42,6 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ``` 
-
-> [!WARNING]
-> Stan klastra zatrzymanego klastra AKS jest zachowywany przez maksymalnie 12 miesięcy. Jeśli klaster jest zatrzymany przez ponad 12 miesięcy, nie można odzyskać stanu klastra. Aby uzyskać więcej informacji, zobacz [zasady pomocy technicznej AKS](support-policies.md).
-> Można uruchomić lub usunąć zatrzymany klaster AKS. Aby wykonać dowolną operację, taką jak skalowanie lub uaktualnianie, najpierw należy uruchomić klaster.
-
 
 ### <a name="register-the-startstoppreview-preview-feature"></a>Rejestrowanie `StartStopPreview` funkcji w wersji zapoznawczej
 

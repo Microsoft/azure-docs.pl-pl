@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 5dce7cde3c46fbcf3f764819f730f42cace4a74c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0c5f91f1423bc20b2202589c488c9b225ed3fbaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333855"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure
 
@@ -56,8 +56,7 @@ Na przykład, jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zab
 
 ## <a name="access-data-using-the-studio"></a>Uzyskiwanie dostępu do danych przy użyciu programu Studio
 
-Jeśli dane są przechowywane w sieci wirtualnej, należy skonfigurować konta magazynu do korzystania z [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) w celu udzielenia dostępu do danych w programie Studio.
-
+Po [dodaniu konta usługi Azure Storage do sieci wirtualnej](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)należy skonfigurować konto magazynu do korzystania z [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) w celu udzielenia dostępu do danych w programie Studio. Studio obsługuje konta magazynu skonfigurowane do korzystania z punktów końcowych usługi lub prywatnych punktów końcowych. Konta magazynu domyślnie korzystają z punktów końcowych usługi. Aby włączyć prywatne punkty końcowe dla magazynu, zobacz [Używanie prywatnych punktów końcowych usługi Azure Storage](../storage/common/storage-private-endpoints.md)
 
 Jeśli nie włączysz tożsamości zarządzanej, zostanie wyświetlony następujący błąd, co `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` spowoduje wyłączenie następujących operacji:
 
@@ -72,7 +71,6 @@ Program Virtual Machines obsługuje odczytywanie danych z następujących typów
 * Usługa Azure Data Lake Storage 1. generacji
 * Usługa Azure Data Lake Storage 2. generacji
 * Azure SQL Database
-
 
 ### <a name="configure-datastores-to-use-managed-identity"></a>Konfigurowanie magazynów danych do korzystania z tożsamości zarządzanej
 

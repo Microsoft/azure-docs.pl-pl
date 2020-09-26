@@ -1,6 +1,6 @@
 ---
 title: Tworzenie sieci wirtualnej dla aplikacji wielowarstwowych — przykład skryptu Azure PowerShell
-description: Przykładowy skrypt programu Azure PowerShell — tworzenie sieci wirtualnej dla aplikacji wielowarstwowych.
+description: Tworzenie sieci wirtualnej dla aplikacji wielowarstwowych — przykład skryptu Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1c592681cc2aeb900a5b7e370277aa0d148bb37e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 51cafb0a344c5b6226b3b033d8c60327eaf2c05f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078490"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267959"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Przykładowy skrypt służący do tworzenia sieci dla aplikacji wielowarstwowych
 

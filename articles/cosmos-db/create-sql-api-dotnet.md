@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c76a6666be805aa088bab7c5716ffd88a30519c1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6b506f3ad184e5b7f0b56fe6cf26ffc9d8f9844a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002083"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334450"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Szybki Start: Tworzenie aplikacji konsolowej .NET do zarządzania Azure Cosmos DB zasobów interfejsu API SQL
 
@@ -22,6 +22,7 @@ ms.locfileid: "89002083"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK 4](create-sql-api-java.md)
+> * [Wiosenne dane v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -483,7 +484,7 @@ Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platfor
 az group delete -g "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start przedstawiono sposób tworzenia konta usługi Azure Cosmos, tworzenia bazy danych i kontenera przy użyciu aplikacji platformy .NET Core. Teraz możesz zaimportować dodatkowe dane do konta usługi Azure Cosmos za pomocą instrukcji int w następującym artykule. 
 

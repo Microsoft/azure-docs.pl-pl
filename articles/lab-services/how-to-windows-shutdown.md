@@ -3,12 +3,12 @@ title: Przewodnik dotyczący kontrolowania zachowania zamykania systemu Windows 
 description: Procedura automatycznego zamykania bezczynnej maszyny wirtualnej z systemem Windows i usuwania polecenia zamykania systemu Windows.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e17f6e79c3d18d82dd206954dcfb0e06b02b4d53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c20bc2bb79faf53c4f3fbd113c18c5c6d923e59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445172"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334025"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Przewodnik kontrolowania zachowania zamykania systemu Windows
 
@@ -61,7 +61,7 @@ Lub można wykonać następujące czynności ręcznie przy użyciu szablonu masz
 
 1. Przejdź do pozycji **Konfiguracja komputera > Szablony administracyjne > składniki systemu Windows > usługi pulpitu zdalnego > pulpit zdalny Host sesji > limity czasu sesji**.  
 
-    ![Edytor lokalnych zasad grupy](./media/how-to-windows-shutdown/group-policy-idle.png)
+    ![Zrzut ekranu pokazujący "Edytor lokalnych zasad grupy" z wybraną opcją "limity czasu sesji".](./media/how-to-windows-shutdown/group-policy-idle.png)
    
 1. Kliknij prawym przyciskiem myszy pozycję **Ustaw limit czasu dla aktywnych, ale bezczynnych sesji usługi pulpitu zdalnego**, a następnie kliknij pozycję **Edytuj**.
 

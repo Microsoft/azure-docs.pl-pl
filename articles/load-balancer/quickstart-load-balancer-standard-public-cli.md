@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/23/2020
 ms.author: allensu
-ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: b437bfa205833594c9e76c6f0d8ff1923f51f117
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 0b6973f50e4d51c1c94e262a08681ec0431f511e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762712"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333995"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki start: tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 

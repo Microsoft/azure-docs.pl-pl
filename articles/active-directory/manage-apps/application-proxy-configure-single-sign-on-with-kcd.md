@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae642df48fbd18d8ead439d89ced88aa3da327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317529"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299752"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Ograniczone delegowanie protokołu Kerberos na potrzeby logowania jednokrotnego do aplikacji przy użyciu serwera proxy aplikacji
 
@@ -32,7 +32,7 @@ Możesz włączyć logowanie jednokrotne do aplikacji przy użyciu zintegrowaneg
 ## <a name="how-single-sign-on-with-kcd-works"></a>Jak działa Logowanie jednokrotne za pomocą KCD
 Ten diagram wyjaśnia przepływ, gdy użytkownik próbuje uzyskać dostęp do aplikacji lokalnej korzystającej z IWA.
 
-![Diagram przepływu uwierzytelniania usługi Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Diagram przepływu uwierzytelniania usługi Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/authdiagram.png)
 
 1. Użytkownik wprowadza adres URL w celu uzyskania dostępu do lokalnej aplikacji za pomocą serwera proxy aplikacji.
 2. Serwer proxy aplikacji przekierowuje żądanie do usług uwierzytelniania usługi Azure AD w celu wstępnego uwierzytelnienia. W tym momencie usługa Azure AD stosuje wszelkie odpowiednie zasady uwierzytelniania i autoryzacji, takie jak uwierzytelnianie wieloskładnikowe. Jeśli użytkownik jest zweryfikowany, usługa Azure AD tworzy token i wysyła go do użytkownika.
@@ -62,7 +62,7 @@ Konfiguracja Active Directory różni się w zależności od tego, czy łącznik
 5. Wybierz pozycję **Użyj dowolnego protokołu uwierzytelniania**.
 6. W obszarze **usługi, do których to konto może przedstawić delegowane poświadczenia** Dodaj wartość dla tożsamości nazwy SPN serwera aplikacji. Dzięki temu łącznik serwera proxy aplikacji może personifikować użytkowników w usłudze AD przed aplikacjami zdefiniowanymi na liście.
 
-   ![Łącznik — zrzut ekranu okno Właściwości SVR](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
+   ![Łącznik — zrzut ekranu okno Właściwości SVR](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Łącznik i serwer aplikacji w różnych domenach
 1. Aby uzyskać listę wymagań wstępnych dotyczących pracy z usługą KCD w różnych domenach, zobacz [ograniczone delegowanie protokołu Kerberos między domenami](https://technet.microsoft.com/library/hh831477.aspx).
@@ -97,7 +97,6 @@ Konfiguracja Active Directory różni się w zależności od tego, czy łącznik
 
    ![Zaawansowana konfiguracja aplikacji](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
-
 ## <a name="sso-for-non-windows-apps"></a>Logowanie jednokrotne dla aplikacji innych niż systemu Windows
 
 Przepływ delegowania protokołu Kerberos w usłudze Azure serwer proxy aplikacji usługi Azure AD jest uruchamiany, gdy usługa Azure AD uwierzytelnia użytkownika w chmurze. Gdy żądanie zostanie odebrane lokalnie, łącznik usługi Azure serwer proxy aplikacji usługi Azure AD wystawia bilet protokołu Kerberos w imieniu użytkownika, współpracując z lokalnym Active Directory. Ten proces jest określany jako ograniczone delegowanie protokołu Kerberos (KCD). 
@@ -106,7 +105,7 @@ W następnej fazie żądanie jest wysyłane do aplikacji zaplecza przy użyciu t
 
 Istnieje kilka mechanizmów, które definiują sposób wysyłania biletu protokołu Kerberos w takich żądaniach. Większość serwerów spoza systemu Windows oczekuje, że otrzymuje je w postaci tokenu SPNEGO. Ten mechanizm jest obsługiwany przez usługę Azure serwer proxy aplikacji usługi Azure AD, ale jest domyślnie wyłączony. Łącznik można skonfigurować dla SPNEGO lub standardowego tokenu Kerberos, ale nie obu.
 
-W przypadku skonfigurowania maszyny łącznika dla SPNEGO upewnij się, że wszystkie inne łączniki w tej grupie łączników zostały również skonfigurowane z SPNEGO. Aplikacje oczekujejące standardowego tokenu Kerberos powinny być kierowane przez inne łączniki, które nie są skonfigurowane dla SPNEGO.
+W przypadku skonfigurowania maszyny łącznika dla SPNEGO upewnij się, że wszystkie inne łączniki w tej grupie łączników zostały również skonfigurowane z SPNEGO. Aplikacje oczekujejące standardowego tokenu Kerberos powinny być kierowane przez inne łączniki, które nie są skonfigurowane dla SPNEGO. Niektóre aplikacje sieci Web akceptują oba formaty bez konieczności wprowadzania zmian w konfiguracji. 
  
 
 Aby włączyć SPNEGO:
@@ -129,13 +128,15 @@ Ta funkcja pozwala wielu organizacjom, które mają różne tożsamości lokalne
 * Wewnętrznie z wieloma domenami ( joe@us.contoso.com , joe@eu.contoso.com ) i jedną domeną w chmurze ( joe@contoso.com ).
 * Zawiera wewnętrznie nazwę domeny bez obsługi routingu ( joe@contoso.usa ) i prawną jedną w chmurze.
 * Nie używaj wewnętrznie nazw domen (Jan)
-* Używaj różnych aliasów lokalnie i w chmurze. Na przykład joe-johns@contoso.com ajoej@contoso.com  
+* Używaj różnych aliasów lokalnie i w chmurze. Na przykład joe-johns@contoso.com a joej@contoso.com  
 
 Za pomocą serwera proxy aplikacji możesz wybrać tożsamość do użycia w celu uzyskania biletu Kerberos. To ustawienie dotyczy każdej aplikacji. Niektóre z tych opcji są odpowiednie dla systemów, które nie akceptują formatu adresu e-mail, inne są przeznaczone do alternatywnej nazwy logowania.
 
 ![Zrzut ekranu parametru tożsamości delegowanej nazwy logowania](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_upn.png)
 
 Jeśli zostanie użyta delegowana tożsamość logowania, wartość może nie być unikatowa we wszystkich domenach lub lasach w organizacji. Można uniknąć tego problemu, publikując te aplikacje dwukrotnie przy użyciu dwóch różnych grup łączników. Ponieważ każda aplikacja ma innych odbiorców użytkowników, można przyłączyć łączniki do innej domeny.
+
+Jeśli **nazwa lokalnego konta sam** jest używana jako tożsamość logowania, komputer hostujący Łącznik należy dodać do domeny, w której znajduje się konto użytkownika.
 
 ### <a name="configure-sso-for-different-identities"></a>Konfigurowanie logowania jednokrotnego dla różnych tożsamości
 1. Skonfiguruj ustawienia Azure AD Connect, aby główna tożsamość była adresem e-mail (pocztą). Odbywa się to w ramach procesu dostosowywania, zmieniając pole **głównej nazwy użytkownika** w ustawieniach synchronizacji. Te ustawienia określają również sposób logowania użytkowników do usługi Office 365, Windows10 urządzeń i innych aplikacji korzystających z usług Azure AD jako ich magazynu tożsamości.  

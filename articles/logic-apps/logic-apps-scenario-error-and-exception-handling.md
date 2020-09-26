@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76902706"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322431"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenariusz: Obsługa wyjątków i rejestrowanie błędów na potrzeby aplikacji logiki
 
@@ -103,15 +103,15 @@ Należy zarejestrować źródło (żądanie) rekordu pacjenta z portalu usługi 
 
    **Wstaw wpis dziennika**
 
-   ![Wstaw wpis dziennika](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Zrzut ekranu z projektanta aplikacji logiki przedstawiający ustawienia konfiguracji InsertLogEntry.](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **Wstaw wpis błędu**
 
-   ![Wstaw wpis dziennika](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Zrzut ekranu z projektanta aplikacji logiki przedstawiający ustawienia konfiguracji CreateErrorRecord.](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **Sprawdź, czy nie powiodło się utworzenie rekordu**
 
-   ![Warunek](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Zrzut ekranu przedstawiający ekran CreateErrorRecord w Projektancie aplikacji logiki, pokazujący pola służące do tworzenia wpisu błędu.](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Kod źródłowy aplikacji logiki
 

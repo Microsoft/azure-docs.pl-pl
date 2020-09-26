@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 7b4a85077c8e0147f926f9a86fc8a003591ec8ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 469620456fecb7c0cb398988c4a4fc25da97f863
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277737"
+ms.locfileid: "91357713"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -153,7 +153,7 @@ Aby można było przełączyć grupę trybu failover, należy uzyskać dostęp d
 
 Grupa autotrybu failover musi być skonfigurowana na serwerze podstawowym i nawiązać połączenie z serwerem pomocniczym w innym regionie świadczenia usługi Azure. Grupy mogą obejmować wszystkie lub niektóre bazy danych na tych serwerach. Na poniższym diagramie przedstawiono typową konfigurację aplikacji w chmurze nadmiarowej geograficznie przy użyciu wielu baz danych i grupy automatycznej pracy awaryjnej.
 
-![Tryb failover](./media/auto-failover-group-overview/auto-failover-group.png)
+![Diagram przedstawia typową konfigurację aplikacji w chmurze nadmiarowej geograficznie przy użyciu wielu baz danych i grupy automatycznej pracy awaryjnej.](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
 > Zobacz [dodawanie SQL Database do grupy trybu failover](failover-group-add-single-database-tutorial.md) w celu uzyskania szczegółowego samouczka krok po kroku Dodawanie bazy danych w SQL Database do grupy trybu failover.

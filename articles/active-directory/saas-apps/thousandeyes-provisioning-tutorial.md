@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: a009361267a364f04237716f3623921c892e2708
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7958ef9195c9dcef65fab70fbf48edf2021ff94b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546427"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355826"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie ThousandEyes na potrzeby automatycznego aprowizacji użytkowników
 
@@ -23,7 +23,7 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać w T
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
+W scenariuszu opisanym w tym samouczku założono, że masz już następujące elementy:
 
 * Dzierżawa usługi Azure Active Directory
 * Dzierżawa ThousandEyes z [planem standardowym](https://www.thousandeyes.com/pricing) lub lepsza 
@@ -61,13 +61,13 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
 3. Wybierz wystąpienie elementu ThousandEyes, a następnie wybierz kartę **Inicjowanie obsługi** .
 
-4. Ustaw **tryb aprowizacji** na **automatyczny**.
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    ![Inicjowanie obsługi ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+    ![Zrzut ekranu przedstawia kartę aprowizacji dla ThousandEyes z automatycznym wybranym trybem aprowizacji.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
 5. W sekcji **poświadczenia administratora**  wprowadź **token okaziciela OAuth** wygenerowany przez konto ThousandEyes (możesz znaleźć i wygenerować token w sekcji **profilu** konta ThousandEyes).
 
-    ![Inicjowanie obsługi ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
+    ![Zrzut ekranu przedstawia miejsce znalezienia linku Ustawienia konta dla bieżącej grupy kont.](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
 6. W Azure Portal kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją ThousandEyes. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi ThousandEyes ma uprawnienia administratora, a następnie spróbuj ponownie wykonać krok 5.
 
@@ -89,9 +89,9 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)

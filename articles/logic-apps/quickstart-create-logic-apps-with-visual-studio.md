@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/07/2020
-ms.openlocfilehash: 0a985e7a4a0a332d3824f9cffa2a191429cfdb33
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: cdc4dfe23cce7c2f58e4c9b44f2cea46e2337e00
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029617"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322448"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Szybki start: Tworzenie automatycznych zadań, procesów i przepływów pracy przy użyciu usługi Azure Logic Apps — Visual Studio
 
@@ -22,7 +22,7 @@ Jeśli dopiero zaczynasz Azure Logic Apps i chcesz tylko uzyskać podstawowe kon
 
 W tym przewodniku szybki start utworzysz tę samą aplikację logiki przy użyciu programu Visual Studio, co Azure Portal przewodniku Szybki Start. Ta aplikacja logiki monitoruje kanał informacyjny RSS witryny sieci Web i wysyła wiadomość e-mail dla każdego nowego elementu w tym źródle danych. Gotowa aplikacja logiki wygląda jak ten przepływ pracy wysokiego poziomu:
 
-![Ukończona aplikacja logiki](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
+![Zrzut ekranu pokazujący przepływ pracy wysokiego poziomu gotowej aplikacji logiki.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
 <a name="prerequisites"></a>
 
@@ -111,9 +111,9 @@ Aby rozpocząć, utwórz [projekt grupy zasobów platformy Azure](../azure-resou
 
    Jeśli używasz programu Visual Studio 2019, wykonaj następujące kroki:
 
-   1. W polu **Utwórz nowy projekt** wybierz projekt **Grupa zasobów platformy Azure** dla programu Visual C# lub Visual Basic. Wybierz pozycję **Next** (Dalej).
+   1. W polu **Utwórz nowy projekt** wybierz projekt **Grupa zasobów platformy Azure** dla programu Visual C# lub Visual Basic. Wybierz opcję **Dalej**.
 
-   1. Podaj nazwę grupy zasobów platformy Azure, której chcesz użyć, i inne informacje o projekcie. Wybierz pozycję **Utwórz**.
+   1. Podaj nazwę grupy zasobów platformy Azure, której chcesz użyć, i inne informacje o projekcie. Wybierz przycisk **Utwórz**.
 
 1. Z listy szablon wybierz szablon **aplikacji logiki** . Wybierz przycisk **OK**.
 

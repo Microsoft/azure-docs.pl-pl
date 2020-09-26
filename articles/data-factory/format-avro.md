@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 7be92289d293798393ead3562c39721d46ce561b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7d61121b4c80b7b89ec29ade4ab1bfab91a660d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334348"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Format Avro w Azure Data Factory
 
@@ -30,8 +30,8 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 | Właściwość         | Opis                                                  | Wymagane |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **Avro**. | Yes      |
-| location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . **Zobacz szczegóły w sekcji łącznik — > właściwości zestawu danych**. | Yes      |
+| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **Avro**. | Tak      |
+| location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . **Zobacz szczegóły w sekcji łącznik — > właściwości zestawu danych**. | Tak      |
 | avroCompressionCodec | Koder-dekoder kompresji do użycia podczas zapisywania w plikach Avro. Podczas odczytywania z plików Avro Data Factory automatycznie określa koder-dekoder kompresji na podstawie metadanych pliku.<br>Obsługiwane typy to "**none**" (wartość domyślna), "**Wklęśnięcie**", "**przyciąganie**". Działanie kopiowania obecnie nie obsługuje przyciągania w przypadku plików Avro odczytu/zapisu. | Nie       |
 
 > [!NOTE]
@@ -71,7 +71,7 @@ W sekcji *** \* Źródło \* *** działania kopiowania są obsługiwane następu
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AvroSource**. | Yes      |
+| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AvroSource**. | Tak      |
 | storeSettings | Grupa właściwości do odczytywania danych z magazynu danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia odczytu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
 
 ### <a name="avro-as-sink"></a>Avro jako ujścia
@@ -80,7 +80,7 @@ W sekcji *** \* ujścia \* *** działania kopiowania są obsługiwane następuj�
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AvroSink**. | Yes      |
+| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **AvroSink**. | Tak      |
 | formatSettings          | Grupa właściwości. Zapoznaj się z tabelą **ustawień zapisu Avro** poniżej.| Nie      |
 | storeSettings | Grupa właściwości do zapisywania danych w magazynie danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia zapisu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
 
@@ -88,7 +88,7 @@ Obsługiwane **Ustawienia zapisu Avro** w obszarze `formatSettings` :
 
 | Właściwość      | Opis                                                  | Wymagane                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Typ formatSettings musi być ustawiony na **AvroWriteSettings**. | Yes                                                   |
+| typ          | Typ formatSettings musi być ustawiony na **AvroWriteSettings**. | Tak                                                   |
 | maxRowsPerFile | Podczas zapisywania danych w folderze można wybrać opcję zapisu w wielu plikach i określić maksymalną liczbę wierszy na plik.  | Nie |
 | fileNamePrefix | Ma zastosowanie, gdy `maxRowsPerFile` jest skonfigurowany.<br> Określ prefiks nazwy pliku podczas zapisywania danych do wielu plików, co spowodowało następujący wzorzec: `<fileNamePrefix>_00000.<fileExtension>` . Jeśli nie zostanie określony, prefiks nazwy pliku zostanie wygenerowany automatycznie. Ta właściwość nie ma zastosowania, gdy źródło jest magazynem opartym na plikach lub [z magazynem danych z włączoną opcją partycji](copy-activity-performance-features.md).  | Nie |
 
@@ -103,11 +103,12 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło Av
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Ścieżki symboli wieloznacznych | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | nie | Ciąg [] | wildcardPaths |
-| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie | Ciąg | partitionRootPath |
+| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie | String | partitionRootPath |
 | Lista plików | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie | `true` lub `false` | fileList |
-| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | nie | Ciąg | rowUrlColumn |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | nie | String | rowUrlColumn |
 | Po zakończeniu | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie | Usuń: `true` lub `false` <br> Przenieś `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie | Timestamp | modifiedAfter <br> modifiedBefore |
+| Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
 
 ### <a name="sink-properties"></a>Właściwości ujścia
 

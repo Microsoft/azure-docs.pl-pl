@@ -4,12 +4,12 @@ description: 'Szybki Start: Ten artykuł zawiera Przewodnik dotyczący tworzenia
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e3f8aee3480f5200a23344553268da1864f892c7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ea3ad7e90a947269833a03a4cacf3d4fe76a6620
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021293"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334280"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Szybki Start: wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu .NET Framework
 Azure Event Hubs to platforma do pozyskiwania i strumieniowego przesyłania danych, która umożliwia odbieranie i przetwarzanie milionów zdarzeń na sekundę. Usługa Event Hubs pozwala przetwarzać i przechowywać zdarzenia, dane lub dane telemetryczne generowane przez rozproszone oprogramowanie i urządzenia. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania. Aby zapoznać się ze szczegółowym omówieniem usługi Event Hubs, zobacz [Omówienie usługi Event Hubs](event-hubs-about.md) i [Funkcje usługi Event Hubs](event-hubs-features.md).
@@ -29,7 +29,7 @@ W tej sekcji przedstawiono sposób tworzenia .NET Framework aplikacji konsolowej
 
 W programie Visual Studio utwórz nowy projekt aplikacji klasycznej Visual C# za pomocą szablonu projektu **Aplikacja konsoli**. Nazwij projekt **Nadawca**.
    
-![Tworzenie aplikacji konsolowej](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
+![Zrzut ekranu przedstawiający okno "nowy projekt" z wybraną pozycją "Aplikacja konsolowa (.NET Framework)", a nazwa projektu "nadawca" i "OK" są wyróżniony.](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Dodawanie pakietu NuGet usługi Event Hubs
 
@@ -203,7 +203,7 @@ W programie Visual Studio Utwórz nowy projekt aplikacji klasycznej Visual C# za
     
 3. Uruchom program i upewnij się, że nie ma w nim żadnych błędów.
   
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Przeczytaj następujące artykuły: 
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)

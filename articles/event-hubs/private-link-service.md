@@ -1,14 +1,14 @@
 ---
 title: Integrowanie Event Hubs platformy Azure z usługą prywatnych linków platformy Azure
 description: Dowiedz się, jak zintegrować usługę Azure Event Hubs z usługą Azure Private Link Service
-ms.date: 07/29/2020
+ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716795"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334246"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Zezwalaj na dostęp do przestrzeni nazw platformy Azure Event Hubs za pośrednictwem prywatnych punktów końcowych 
 Usługa link prywatny platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Event Hubs, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
@@ -24,7 +24,6 @@ Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link?]
 > 
 > Poniżej wymieniono niektóre usługi, które nie mogą uzyskać dostępu do zasobów Event Hubs po włączeniu prywatnych punktów końcowych. Należy zauważyć, że lista **nie** jest wyczerpująca.
 >
-> - Usługa Azure Stream Analytics
 > - Trasy usługi Azure IoT Hub
 > - Device Explorer usługi Azure IoT
 > - Azure Event Grid
@@ -211,7 +210,7 @@ Istnieją cztery Stany aprowizacji:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do Portalu Azure.
 2. Na pasku wyszukiwania wpisz w **centrach zdarzeń**.
 3. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 4. Wybierz kartę **Sieć** .

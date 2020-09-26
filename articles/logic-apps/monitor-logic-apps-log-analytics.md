@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 2a39e27c0a9fc7999d7f363767ad62513d383192
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/24/2020
+ms.openlocfilehash: 5df596560e97ea9dba38dca4d4ca58e38caabd37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333957"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Konfigurowanie Azure Monitor dzienników i zbieranie danych diagnostycznych dla Azure Logic Apps
 
@@ -19,7 +19,7 @@ Aby uzyskać bogatsze informacje o debugowaniu aplikacji logiki w czasie wykonyw
 
 Aby skonfigurować rejestrowanie dla aplikacji logiki, możesz [włączyć log Analytics podczas tworzenia aplikacji logiki](#logging-for-new-logic-apps)lub [zainstalować rozwiązanie do zarządzania Logic Apps](#install-management-solution) w obszarze roboczym log Analytics dla istniejących aplikacji logiki. To rozwiązanie zawiera zagregowane informacje o uruchomieniach aplikacji logiki i zawiera szczegółowe informacje, takie jak stan, czas wykonywania, stan ponownego przesłania i identyfikatory korelacji. Następnie, aby włączyć rejestrowanie i utworzyć zapytania dotyczące tych informacji, [Skonfiguruj dzienniki Azure monitor](#set-up-resource-logs).
 
-W tym artykule pokazano, jak włączyć Log Analytics podczas tworzenia aplikacji logiki, jak zainstalować i skonfigurować rozwiązanie do zarządzania Logic Apps oraz jak skonfigurować i utworzyć zapytania dla dzienników Azure Monitor.
+W tym artykule pokazano, jak włączyć Log Analytics w nowych aplikacjach logiki i istniejących aplikacjach logiki, jak zainstalować i skonfigurować rozwiązanie do zarządzania Logic Apps oraz jak skonfigurować i utworzyć zapytania dla dzienników Azure Monitor.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -89,6 +89,9 @@ Jeśli włączono Log Analytics podczas tworzenia aplikacji logiki, Pomiń ten k
 
 Podczas przechowywania informacji o zdarzeniach i danych środowiska uruchomieniowego w [dziennikach Azure monitor](../azure-monitor/platform/data-platform-logs.md)można utworzyć [zapytania dziennika](../azure-monitor/log-query/log-query-overview.md) , które ułatwiają znajdowanie i przeglądanie tych informacji.
 
+> [!NOTE]
+> Po włączeniu ustawień diagnostycznych dane diagnostyczne mogą nie przepływać przez maksymalnie 30 minut do dzienników w określonym miejscu docelowym, na przykład Log Analytics, centrum zdarzeń lub koncie magazynu. To opóźnienie oznacza, że dane diagnostyczne z tego okresu mogą nie być dostępne do przeglądu. Ukończone zdarzenia i [śledzone właściwości](#extend-data) mogą nie być wyświetlane w obszarze roboczym Log Analytics przez 10-15 minut.
+
 1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz aplikację logiki.
 
 1. W menu aplikacji logiki w obszarze **monitorowanie**wybierz pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienie diagnostyczne**.
@@ -140,13 +143,12 @@ Po uruchomieniu aplikacji logiki można wyświetlić dane dotyczące tych przebi
 
    ![Wyświetlanie uruchomień i stanu aplikacji logiki](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
+   > [!NOTE]
+   > Możliwość ponownego **przesłania** na tej stronie jest obecnie niedostępna.
+
    W przypadku akcji, w których można [skonfigurować śledzone właściwości](#extend-data), można także wyświetlić te właściwości, wybierając pozycję **Widok** w kolumnie **śledzone właściwości** . Aby wyszukać śledzone właściwości, Użyj filtru kolumn.
 
    ![Wyświetlanie śledzonych właściwości aplikacji logiki](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
-
-   > [!NOTE]
-   > Śledzone właściwości lub zdarzenia ukończone mogą wystąpić 10-15 minut opóźnienia, zanim pojawią się w obszarze roboczym Log Analytics.
-   > Ponadto możliwość ponownego **przesłania** na tej stronie jest obecnie niedostępna.
 
 1. Aby filtrować wyniki, można wykonać filtrowanie po stronie klienta i po stronie serwera.
 

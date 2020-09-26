@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: b2917c10e13f110d7ac9784da16a10fc61eb9298
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 192780f1340b09cd2579e31f4023acb101d0e1f9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288864"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358087"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Tworzenie oceny rozwiązania Azure VMware (Automatyczna synchronizacja)
 
@@ -33,8 +33,8 @@ Istnieją dwa typy ocen, które można utworzyć przy użyciu Azure Migrate: Oce
 
 **Typ oceny** | **Szczegóły**
 --- | --- 
-**Maszyna wirtualna platformy Azure** | Ocenianie migracji serwerów lokalnych do usługi Azure Virtual Machines. <br/><br/> Możesz ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny. [Dowiedz się więcej](concepts-assessment-calculation.md)
-**Rozwiązanie Azure VMware (AVS)** | Ocenianie migracji serwerów lokalnych do [rozwiązania Azure VMware (Automatyczna synchronizacja)](../azure-vmware/introduction.md). <br/><br/> Za pomocą tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) na potrzeby migracji do rozwiązania Azure VMware (Automatyczna synchronizacja). [Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
+**Maszyna wirtualna platformy Azure** | Oceny umożliwiające migrację serwerów lokalnych do maszyn wirtualnych platformy Azure. <br/><br/> Możesz ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md), [maszyny wirtualne funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md)i [serwery fizyczne](how-to-set-up-appliance-physical.md) do migracji na platformę Azure przy użyciu tego typu oceny. [Dowiedz się więcej](concepts-assessment-calculation.md)
+**Rozwiązanie Azure VMware (AVS)** | Oceny umożliwiające migrację serwerów lokalnych do usługi [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Przy użyciu tego typu oceny można ocenić lokalne [maszyny wirtualne VMware](how-to-set-up-appliance-vmware.md) pod kątem migracji do usługi Azure VMware Solution (AVS).[Dowiedz się więcej](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
 > Ocena rozwiązań VMware (wersja zapoznawcza) systemu Azure jest obecnie dostępna w wersji zapoznawczej i można ją utworzyć tylko dla maszyn wirtualnych VMware.
@@ -44,7 +44,7 @@ Istnieją dwa typy kryteriów ustalania rozmiarów, których można użyć do tw
 
 **Ocena** | **Szczegóły** | **Dane**
 --- | --- | ---
-**Oparta na wydajności** | Ocenia na podstawie zebranych danych wydajności lokalnych maszyn wirtualnych. | **Zalecany rozmiar węzła**: w oparciu o dane użycia procesora CPU i pamięci oraz typ węzła, typ magazynu i ustawienie FTT wybrane do oceny.
+**Na podstawie wydajności** | Ocenia na podstawie zebranych danych wydajności lokalnych maszyn wirtualnych. | **Zalecany rozmiar węzła**: w oparciu o dane użycia procesora CPU i pamięci oraz typ węzła, typ magazynu i ustawienie FTT wybrane do oceny.
 **Jako lokalne** | Oceny oparte na wymiarach lokalnych. | **Zalecany rozmiar węzła**: na podstawie rozmiaru lokalnego maszyny wirtualnej wraz z typem węzła, typem magazynu i USTAWIENIEm FTT, które zostało wybrane do oceny.
 
 
@@ -52,31 +52,31 @@ Istnieją dwa typy kryteriów ustalania rozmiarów, których można użyć do tw
 
 Uruchom ocenę rozwiązania Azure VMware (Automatyczna synchronizacja) w następujący sposób:
 
-1. Zapoznaj się z [najlepszymi rozwiązaniami](best-practices-assessment.md) dotyczącymi tworzenia ocen.
+1. Przejrzyj [najlepsze rozwiązania](best-practices-assessment.md) dotyczące tworzenia ocen.
 
 2. Na karcie **serwery** w **Azure Migrate: kafelek Ocena serwera** kliknij pozycję **Oceń**.
 
-    ![Ocena](./media/how-to-create-assessment/assess.png)
+    ![Zrzut ekranu przedstawia Azure Migrate serwery z oceną wybraną w obszarze narzędzia do oceny.](./media/how-to-create-assessment/assess.png)
 
 3. W obszarze **ocenianie serwerów**wybierz typ oceny jako "rozwiązanie Azure VMware (Automatyczna synchronizacja)", wybierz źródło odnajdywania i określ nazwę oceny.
 
-    ![Podstawowe informacje o ocenie](./media/how-to-create-avs-assessment/assess-servers-avs.png)
+    ![Podstawowe informacje dotyczące oceny](./media/how-to-create-avs-assessment/assess-servers-avs.png)
 
 4. Kliknij pozycję **Wyświetl wszystko**, aby sprawdzić właściwości oceny.
 
     ![Właściwości oceny automatycznej synchronizacji](./media/how-to-create-avs-assessment/avs-view-all.png)
 
-5. Kliknij przycisk **dalej** , aby **wybrać maszyny do oceny**. W obszarze **Wybierz lub Utwórz grupę**wybierz pozycję **Utwórz nową**, a następnie określ nazwę grupy. Grupa zbiera co najmniej jedną maszynę wirtualną w celu oceny.
+5. Kliknij pozycję **Dalej**, aby **wybrać maszyny do oceny**. W obszarze **Wybierz lub utwórz grupę** wybierz pozycję **Utwórz nową** i określ nazwę grupy. Grupa zbiera jedną lub więcej maszyn wirtualnych w celu oceny.
 
 6. W obszarze **Dodawanie maszyn do grupy**Wybierz Maszyny wirtualne, które mają zostać dodane do grupy.
 
-7. Kliknij przycisk **dalej** , aby **przejrzeć i utworzyć ocenę** , aby przejrzeć szczegóły oceny.
+7. Kliknij przycisk **Dalej**, aby przejść do pozycji **Przejrzyj i utwórz ocenę**, aby przejrzeć szczegóły dotyczące oceny.
 
 8. Kliknij pozycję **Utwórz ocenę** , aby utworzyć grupę, i uruchom ocenę.
 
     ![Tworzenie oceny w usłudze AVS](./media/how-to-create-avs-assessment/avs-assessment-create.png)
 
-9. Po utworzeniu oceny Wyświetl ją w obszarze **serwery**  >  **Azure Migrate: oceny oceny serwera**  >  **Assessments**.
+9. Po utworzeniu oceny możesz ją wyświetlić w pozycji **Serwery** > **Azure Migrate: Server Assessment** > **Oceny**.
 
 10. Kliknij polecenie **Eksportuj ocenę**, aby pobrać ocenę jako plik programu Excel.
 
@@ -91,7 +91,7 @@ Ocena rozwiązania Azure VMware (Automatyczna synchronizacja) zawiera opis:
 - **Oszacowanie kosztów miesięcznych**: szacowane miesięczne koszty wszystkich węzłów platformy Azure VMware (Automatyczna synchronizacja) z uruchomionymi lokalnymi maszynami wirtualnymi.
 
 
-### <a name="view-an-assessment"></a>Wyświetlanie oceny
+### <a name="view-an-assessment"></a>Widok oceny
 
 1. W obszarze serwery **celów migracji**  >   **Servers**kliknij pozycję **oceny** w **Azure Migrate: Ocena serwera**.
 
@@ -117,7 +117,7 @@ Ocena rozwiązania Azure VMware (Automatyczna synchronizacja) zawiera opis:
 
 
 
-### <a name="review-cost-details"></a>Przejrzyj szczegóły kosztów
+### <a name="review-cost-details"></a>Przegląd szczegółów dotyczących kosztów
 
 Ten widok przedstawia szacowany koszt uruchamiania maszyn wirtualnych w usłudze Azure VMware Solution (Automatyczna synchronizacja).
 

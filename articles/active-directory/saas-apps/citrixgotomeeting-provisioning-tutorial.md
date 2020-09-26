@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 23af7ff9e4740b88d3d1f8cffb3d79a46c8d0d61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6cb2c90658a69f3e63e9ebe08db41eea0a9bc7fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299701"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie spotkanie GoToMeeting na potrzeby automatycznego aprowizacji użytkowników
 
@@ -23,7 +23,7 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać w s
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
+W scenariuszu opisanym w tym samouczku założono, że masz już następujące elementy:
 
 *   Dzierżawa usługi Azure Active Directory.
 *   Subskrypcja z włączonym logowaniem jednokrotnym w usłudze spotkanie GoToMeeting.
@@ -60,7 +60,7 @@ Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprow
 
 1. Ustaw tryb **aprowizacji** na **automatyczny**. 
 
-    ![aprowizacji](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawiający kartę aprowizacji dla spotkanie GoToMeeting w Azure Portal. Tryb aprowizacji jest ustawiony na automatyczny, a nazwa użytkownika administratora, hasło i połączenie testowe są wyróżnione.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. W sekcji poświadczenia administratora wykonaj następujące czynności:
    
@@ -88,8 +88,8 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurowanie logowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 

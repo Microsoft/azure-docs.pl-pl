@@ -1,14 +1,14 @@
 ---
 title: Jak uzyskać dostęp do laboratorium w usłudze Azure Lab Services | Microsoft Docs
-description: W tym samouczku uzyskujesz dostęp do maszyn wirtualnych w laboratorium klasy, które zostało skonfigurowane przez nauczycieli.
+description: Dowiedz się, jak zarejestrować się w laboratorium zajęć, wyświetlić wszystkie laboratoria, do których można uzyskać dostęp, uruchomić/zatrzymać maszynę wirtualną w laboratorium i połączyć się z maszyną wirtualną.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 34b61be1ca3fc938032b75358842f2067e5c011c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd06bfc2dff27f1ef1bc84f01b001b8dbd282cf4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443574"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334059"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Jak uzyskać dostęp do laboratorium w usłudze Azure Lab Services
 W tym artykule opisano sposób rejestracji w laboratorium zajęć, wyświetlania wszystkich laboratoriów, do których można uzyskać dostęp, uruchamiania/zatrzymywania maszyny wirtualnej w laboratorium oraz nawiązywania połączenia z maszyną wirtualną. 

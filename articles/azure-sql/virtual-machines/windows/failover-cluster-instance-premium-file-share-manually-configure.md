@@ -8,17 +8,17 @@ editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.custom: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: cbc6b2af98905a09324a58c92cafca0075d8a01d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055145"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298715"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Tworzenie FCI z udziałem plików w warstwie Premium (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -90,15 +90,15 @@ Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykona
 
 1. W obszarze **Menedżer serwera**wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
 1. W obszarze **Menedżer klastra trybu failover**wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
-1. Wybierz pozycję **Next** (Dalej).
+1. Wybierz opcję **Dalej**.
 1. W obszarze **Wybierz serwery lub klaster**wprowadź nazwy obu maszyn wirtualnych.
 1. W obszarze **opcje testowania**wybierz opcję **Uruchom tylko wybrane testy**. 
-1. Wybierz pozycję **Next** (Dalej).
+1. Wybierz opcję **Dalej**.
 1. W obszarze **wybór testu**zaznacz wszystkie testy z wyjątkiem **magazynu** i **bezpośrednie miejsca do magazynowania**, jak pokazano poniżej:
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Wybierz testy weryfikacji klastra":::
 
-1. Wybierz pozycję **Next** (Dalej).
+1. Wybierz opcję **Dalej**.
 1. W obszarze **potwierdzenie**wybierz pozycję **dalej**.
 
 Kreator **weryfikacji konfiguracji** uruchamia testy weryfikacyjne.

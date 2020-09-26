@@ -4,12 +4,12 @@ description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji .NET
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1bf41eb5ef5b43a59330d1735086ca595d7604b5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 639be20b1d87dec3a7c85e5fcccc0c483337c5b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010586"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334229"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs — .NET (Azure. Messaging. EventHubs) 
 W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu biblioteki platformy .NET **Azure. Messaging. EventHubs** . 
@@ -39,7 +39,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji konsolowej .NET Core w ce
     1. Wybierz język **C#** dla języka programowania.
     1. Wybierz pozycję **konsola** dla typu aplikacji. 
     1. Wybierz pozycję **aplikacja konsoli (.NET Core)** z listy wyników. 
-    1. Następnie wybierz przycisk **dalej**. 
+    1. Następnie wybierz pozycję **Dalej**. 
 
         ![Okno dialogowe Nowy projekt](./media/getstarted-dotnet-standard-send-v2/new-send-project.png)    
 1. Wprowadź **EventHubsSender** dla nazwy projektu, **EventHubsQuickStart** dla nazwy rozwiązania, a następnie wybierz przycisk **OK** , aby utworzyć projekt. 
@@ -196,7 +196,7 @@ W tym przewodniku szybki start użyjesz usługi Azure Storage jako magazynu punk
         static async Task ProcessEventHandler(ProcessEventArgs eventArgs)
         {
             // Write the body of the event to the console window
-            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+            Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.Array, eventArgs.Data.Body.Offset, eventArgs.Data.Body.Count));
 
             // Update checkpoint in the blob storage so that the app receives only new events the next time it's run
             await eventArgs.UpdateCheckpointAsync(eventArgs.CancellationToken);
@@ -222,7 +222,7 @@ W tym przewodniku szybki start użyjesz usługi Azure Storage jako magazynu punk
     Te zdarzenia to trzy zdarzenia, które zostały wysłane do centrum zdarzeń wcześniej przez uruchomienie programu nadawcy. 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z przykładami w witrynie GitHub. 
 
 - [Przykłady Event Hubs w witrynie GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)

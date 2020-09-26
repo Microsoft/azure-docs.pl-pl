@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 44ed9c0d19b6e0034b49e36448765d098d575273
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f3c7c166b72a43b6b11dc1830643332b032abad2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325321"
+ms.locfileid: "91356897"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Używanie przywracania geograficznego do odzyskiwania wielodostępnej aplikacji SaaS z kopii zapasowych bazy danych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 W tym samouczku przedstawiono scenariusz pełnego odzyskiwania po awarii dla wielodostępnej aplikacji SaaS wdrożonej z użyciem bazy danych na model dzierżawy. Funkcja [przywracania geograficznego](recovery-using-backups.md) umożliwia odzyskanie danych wykazu i dzierżawców z automatycznie obsługiwanych geograficznie nadmiarowych kopii zapasowych w innym regionie odzyskiwania. Po rozwiązaniu awarii należy używać [replikacji geograficznej](active-geo-replication-overview.md) do wycofywania zmienionych baz danych do ich oryginalnego regionu.
 
-![Architektura przywracania geograficznego](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![Na diagramie przedstawiono oryginalne i pierwotne regiony, w których są dostępne aplikacje, wykazy, oryginalne lub lustrzane obrazy serwerów i pul, automatyczne kopie zapasowe w magazynie, z regionem odzyskiwania akceptującym replikację geograficzną kopii zapasowej oraz serwer i pulę dla nowych dzierżawców.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 Przywracanie geograficzne to najtańsze rozwiązanie do odzyskiwania po awarii dla Azure SQL Database. Jednak przywracanie z kopii zapasowych nadmiarowych może skutkować utratą danych nawet o godzinę. Może to potrwać pewien czas, w zależności od rozmiaru każdej bazy danych. 
 
