@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 878b3d4a522fd2b7567ed6005283d041064d9fe5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, has-adal-ref, devx-track-js
+ms.openlocfilehash: 0650b1c6364a187447ea3a378675df9d76eef4d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885983"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275731"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy
 
@@ -77,7 +77,7 @@ Aby można było korzystać z uwierzytelniania przy użyciu nazwy głównej usł
 >
 > Przyczyną uzyskania najmniejszego dostępu jest fakt, że nazwa główna usługi używa hasła do uwierzytelniania, a hasło może być przechowywane jako część skryptu automatyzacji. W przypadku przecieku hasła, gdy minimalny dostęp wymagany do określonych zadań minimalizuje złośliwe użycie programu SP.
 
-Najprostszym sposobem utworzenia SP i udzielenia dostępu do obszaru roboczego jest użycie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Aby utworzyć jednostkę usługi i udzielić jej dostępu do obszaru roboczego, wykonaj następujące czynności:
+Najprostszym sposobem utworzenia SP i udzielenia dostępu do obszaru roboczego jest użycie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Aby utworzyć jednostkę usługi i udzielić jej dostępu do obszaru roboczego, wykonaj następujące czynności:
 
 > [!NOTE]
 > Aby wykonać wszystkie te kroki, musisz być administratorem w ramach subskrypcji.
@@ -92,7 +92,7 @@ Najprostszym sposobem utworzenia SP i udzielenia dostępu do obszaru roboczego j
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    Aby poznać inne metody uwierzytelniania, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Aby poznać inne metody uwierzytelniania, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 1. Zainstaluj rozszerzenie Azure Machine Learning:
 
@@ -190,7 +190,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Używanie jednostki usługi w interfejsie wiersza polecenia platformy Azure
 
-Można użyć jednostki usługi dla poleceń interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Logowanie przy użyciu nazwy głównej usługi](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
+Można użyć jednostki usługi dla poleceń interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Logowanie przy użyciu nazwy głównej usługi](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Korzystanie z jednostki usługi przy użyciu interfejsu API REST (wersja zapoznawcza)
 

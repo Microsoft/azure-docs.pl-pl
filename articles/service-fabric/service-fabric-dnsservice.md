@@ -4,12 +4,12 @@ description: Użyj usługi DNS Service Fabric do odnajdywania mikrousług z wewn
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a05669bbd6de44447d7eb11a0b9941d18e8048d1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f7f06920820cdc73f8d3101ab24ee46625931ee4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021276"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268047"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS Service in Azure Service Fabric (Usługa DNS w usłudze Azure Service Fabric)
 Usługa DNS to opcjonalna usługa systemowa, którą można włączyć w klastrze w celu odnajdywania innych usług przy użyciu protokołu DNS. 
@@ -18,7 +18,7 @@ Wiele usług, szczególnie usługi kontenerowe, są adresowane za pomocą wstęp
 
 Usługa DNS mapuje nazwy DNS na nazwy usług, które z kolei są rozwiązywane przez Usługa nazewnictwa w celu zwrócenia punktu końcowego usługi. Nazwa DNS usługi jest udostępniana w momencie tworzenia. Na poniższym diagramie przedstawiono, w jaki sposób usługa DNS działa w przypadku usług bezstanowych.
 
-![punkty końcowe usługi](./media/service-fabric-dnsservice/stateless-dns.png)
+![Diagram przedstawiający sposób mapowania nazw DNS na nazwy usług przez usługę DNS dla usług bezstanowych.](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Począwszy od Service Fabric w wersji 6,3, Service Fabric protokół DNS został rozszerzony w celu uwzględnienia schematu do adresowania podzielonych usług stanowych. Te rozszerzenia umożliwiają rozpoznawanie określonych adresów IP partycji przy użyciu kombinacji nazw DNS usługi stanowej i nazwy partycji. Obsługiwane są wszystkie trzy schematy partycjonowania:
 
@@ -28,7 +28,7 @@ Począwszy od Service Fabric w wersji 6,3, Service Fabric protokół DNS został
 
 Na poniższym diagramie przedstawiono, w jaki sposób usługa DNS działa w przypadku partycjonowanych usług stanowych.
 
-![punkty końcowe usługi stanowej](./media/service-fabric-dnsservice/stateful-dns.png)
+![Diagram przedstawiający sposób mapowania nazw DNS na nazwy usług przez usługę DNS dla partycjonowanych usług bezstanowych.](./media/service-fabric-dnsservice/stateful-dns.png)
 
 Porty dynamiczne nie są obsługiwane przez usługę DNS. Aby rozwiązać usługi udostępniane na portach dynamicznych, użyj [usługi zwrotnego serwera proxy](./service-fabric-reverseproxy.md).
 
@@ -252,5 +252,5 @@ public class ValuesController : Controller
 
 * Usługa DNS dla usług Service Fabric Services nie jest jeszcze obsługiwana w systemie Linux. Usługa DNS jest obsługiwana w przypadku kontenerów w systemie Linux. Rozwiązaniem ręcznym przy użyciu programu Fabric Client/ServicePartitionResolver jest dostępna alternatywa.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o komunikacji usługi w ramach klastra przy użyciu  [usługi Connect i Komunikuj się z usługami](service-fabric-connect-and-communicate-with-services.md)

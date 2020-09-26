@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: d8da8bcf3d2bb6b2af2b5c69ce003289d83d3884
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 517fed0dd9eb1736344546bde9f79e52ee17182f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939391"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333107"
 ---
 # <a name="troubleshooting-azure-sql-edge-deployments"></a>Rozwiązywanie problemów z wdrożeniami usługi Azure SQL Edge 
 
@@ -58,7 +58,7 @@ Jeśli nie można uruchomić kontenera programu SQL Edge, spróbuj wykonać nast
 
 - Jeśli używasz wdrożenia opartego na platformie Docker lub Kubernetes, upewnij się, że `docker run` polecenie jest poprawnie sformułowane. Aby uzyskać więcej informacji, zobacz [wdrażanie usługi Azure SQL Edge przy użyciu platformy Docker](disconnected-deployment.md) i [wdrażanie kontenera usługi Azure SQL Edge w Kubernetes](deploy-kubernetes.md).
 
-- Jeśli wystąpi błąd, na przykład, próbujesz `failed to create endpoint CONTAINER_NAME on network bridge. Error starting proxy: listen tcp 0.0.0.0:1433 bind: address already in use.` zmapować port kontenera 1433 na port, który jest już używany. Może się tak zdarzyć, jeśli używasz programu SQL Edge lokalnie na komputerze-hoście. Może się również zdarzyć, gdy uruchomisz dwa kontenery programu SQL Edge i spróbujesz zmapować je na ten sam port hosta. W takim przypadku należy użyć `-p` parametru, aby zmapować port kontenera 1433 na inny port hosta. Przykład: 
+- Jeśli wystąpi błąd, na przykład, próbujesz `failed to create endpoint CONTAINER_NAME on network bridge. Error starting proxy: listen tcp 0.0.0.0:1433 bind: address already in use.` zmapować port kontenera 1433 na port, który jest już używany. Może się tak zdarzyć, jeśli używasz programu SQL Edge lokalnie na komputerze-hoście. Może się również zdarzyć, gdy uruchomisz dwa kontenery programu SQL Edge i spróbujesz zmapować je na ten sam port hosta. W takim przypadku należy użyć `-p` parametru, aby zmapować port kontenera 1433 na inny port hosta. Na przykład: 
 
     ```bash
     sudo docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge-developer.
@@ -138,32 +138,12 @@ docker exec -it <Container ID> /bin/bash
 
 Teraz można uruchamiać polecenia tak, jakby były uruchamiane w terminalu wewnątrz kontenera. Po zakończeniu wpisz polecenie `exit` . Spowoduje to wyjście z sesji polecenia interaktywnego, ale nadal będzie można uruchomić kontener.
 
-## <a name="troubleshooting-issues-with-data-streaming"></a>Rozwiązywanie problemów z przesyłaniem strumieniowym danych
-
-Domyślnie dzienniki aparatu przesyłania strumieniowego usługi Azure SQL Edge są zapisywane w pliku o nazwie `current` w katalogu **/var/opt/MSSQL/log/Services/00000001-0000-0000-0000-000000000000** . Dostęp do pliku można uzyskać bezpośrednio za pomocą mapowanego woluminu lub kontenera woluminów danych albo uruchamiając interaktywną sesję wiersza polecenia do kontenera programu SQL Edge. 
-
-Ponadto, jeśli można nawiązać połączenie z wystąpieniem programu SQL Edge przy użyciu narzędzi klienckich, można użyć następującego polecenia T-SQL, aby uzyskać dostęp do bieżącego dziennika aparatu przesyłania strumieniowego. 
-
-```sql
-
-select value as log, try_convert(DATETIME2, substring(value, 0, 26)) as timestamp 
-from 
-    STRING_SPLIT
-    (
-        (
-            select BulkColumn as logs
-            FROM OPENROWSET (BULK '/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000/current', SINGLE_CLOB) MyFile
-        ),
-        CHAR(10)
-    ) 
-where datalength(value) > 0
-
-```
-
 ### <a name="enabling-verbose-logging"></a>Włączanie pełnego rejestrowania
 
 Jeśli domyślny poziom rejestrowania dla aparatu przesyłania strumieniowego nie zapewnia wystarczającej ilości informacji, rejestrowanie debugowania dla aparatu przesyłania strumieniowego może być włączone w programie SQL Edge. Aby włączyć rejestrowanie debugowania, Dodaj `RuntimeLogLevel=debug` zmienną środowiskową do wdrożenia programu SQL Edge. Po włączeniu rejestrowania debugowania spróbuj odtworzyć problem i Sprawdź dzienniki pod kątem odpowiednich komunikatów lub wyjątków. 
 
+> [!NOTE]
+> Opcja pełnego rejestrowania powinna być używana tylko w celu rozwiązywania problemów, a nie do regularnego obciążenia produkcyjnego. 
 
 
 ## <a name="next-steps"></a>Następne kroki

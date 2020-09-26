@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: d1258786ec6f611bea5f73f3cb1c176738733acd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 3a67f16b53c2754e2ac5ae1df467aac7726f358e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919067"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321003"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Uzyskaj odpowiedź przy użyciu interfejsu API GenerateAnswer i metadanych
 
@@ -267,7 +267,7 @@ Możesz przeszukiwać opublikowaną KB, używając `isTest=false` lub test KB pr
 
 ## <a name="common-http-errors"></a>Typowe błędy HTTP
 
-|Kod|Wyjaśnienie|
+|Kod|Objaśnienie|
 |:--|--|
 |2xx|Powodzenie|
 |400|Parametry żądania są niepoprawne, co oznacza, że brakuje wymaganych parametrów, są źle sformułowane lub zbyt duże|

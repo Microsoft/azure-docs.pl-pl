@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7f25d4156c3d2671e1a15a1253ed7ba22265af0
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354874"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Wprowadzenie do modelu zasobów usługi Service Fabric
 
@@ -66,7 +66,7 @@ Zasoby tajne są wdrażane niezależnie od zasobów aplikacji lub usług, które
 
 Kontenery często udostępniają dyski tymczasowe. Dyski tymczasowe są nieulotne, jednak dzięki temu otrzymujesz nowy dysk tymczasowy i utracisz informacje w przypadku awarii kontenera. Trudno jest również udostępniać informacje na dyskach tymczasowych innym kontenerom. Woluminy są katalogami, które są instalowane w ramach wystąpień kontenera, których można użyć do utrwalania stanu. Woluminy zapewniają magazyn plików ogólnego przeznaczenia i umożliwiają odczytywanie i zapisywanie plików przy użyciu standardowych interfejsów API plików we/wy dysku. Zasób woluminu jest deklaratywnym sposobem opisywania sposobu, w jaki katalog jest zainstalowany, oraz magazynu zapasowego dla niego (Azure Files wolumin lub Service Fabric niezawodny wolumin).  Aby uzyskać więcej informacji, przeczytaj artykuł [przechowywanie stanu](service-fabric-mesh-storing-state.md#volumes).
 
-![Woluminy][Image3]
+![Diagram przedstawia usługę przepływające do woluminu dysku, który przepływa do obu Service Fabric niezawodny wolumin, następnie do zreplikowanego dysku lokalnego oraz do Azure Files woluminu, do magazynu sieciowego.][Image3]
 
 ## <a name="programming-models"></a>Modele programowania
 Zasób usługi wymaga tylko obrazu kontenera do uruchomienia, do którego odwołuje się pakiet kodu skojarzony z zasobem. Można uruchomić dowolny kod, który jest pisany w dowolnym języku, przy użyciu dowolnych struktur wewnątrz kontenera, bez konieczności znajomości i używania interfejsów API specyficznych dla Service Fabric siatki. 

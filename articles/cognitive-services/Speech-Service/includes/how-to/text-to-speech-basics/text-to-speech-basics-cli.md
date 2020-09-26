@@ -4,13 +4,24 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: bee28c946242ecf227287fb36b5b03aa6defb1c2
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b68025c1b33a94f03e2d84693a7d6407a18abd88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88173136"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332466"
 ---
+W tym przewodniku szybki start przedstawiono typowe wzorce projektowania służące do wykonywania syntezy zamiany tekstu na mowę przy użyciu zestawu Speech SDK. Najpierw należy wykonać podstawowe czynności konfiguracyjne i synteza, a następnie przejść do bardziej zaawansowanych przykładów tworzenia aplikacji niestandardowych, takich jak:
+
+* Uzyskiwanie odpowiedzi jako strumieni w pamięci
+* Dostosowywanie szybkości próbkowania danych wyjściowych i szybkości transmisji bitów
+* Przesyłanie żądań syntezy przy użyciu SSML (język oznaczeń syntezy mowy)
+* Korzystanie z głosów neuronowych
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+W tym artykule przyjęto założenie, że masz konto platformy Azure i subskrypcję usługi mowy. Jeśli nie masz konta i subskrypcji, [Wypróbuj usługę mowy bezpłatnie](../../../overview.md#try-the-speech-service-for-free).
+
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
 ## <a name="synthesize-speech-to-a-speaker"></a>Syntetyzowanie mowy przy użyciu głośnika

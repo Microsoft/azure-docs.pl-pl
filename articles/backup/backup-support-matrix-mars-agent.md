@@ -3,12 +3,12 @@ title: Macierz obsługi dla agenta MARS
 description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej podczas tworzenia kopii zapasowej maszyn, na których jest uruchomiony agent Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b11a2e3ec2fdf3a46b324dcc0f95d4666a84c179
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332682"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Macierz obsługi kopii zapasowej za pomocą agenta Microsoft Azure Recovery Services (MARS)
 
@@ -67,6 +67,15 @@ I na te adresy IP:
 
 Dostęp do wszystkich adresów URL i adresów IP wymienionych powyżej używa protokołu HTTPS na porcie 443.
 
+Podczas tworzenia kopii zapasowych plików i folderów z maszyn wirtualnych platformy Azure przy użyciu agenta MARS należy również skonfigurować usługę Azure Virtual Network tak, aby zezwalała na dostęp. Jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), Użyj znacznika usługi *AzureBackup* , aby zezwolić na dostęp wychodzący do Azure Backup. Oprócz znacznika Azure Backup należy również zezwolić na połączenie z uwierzytelnianiem i transferem danych, tworząc podobne [reguły sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) dla usługi Azure AD (*usługi azureactivedirectory*) i usługi Azure Storage (*Magazyn*). Poniższe kroki opisują proces tworzenia reguły dla tagu Azure Backup:
+
+1. W obszarze **wszystkie usługi**przejdź do pozycji **sieciowe grupy zabezpieczeń** i wybierz grupę zabezpieczeń sieci.
+2. W obszarze **Ustawienia**wybierz pozycję **reguły zabezpieczeń dla ruchu wychodzącego** .
+3. Wybierz pozycję **Dodaj**. Wprowadź wszystkie wymagane szczegóły dotyczące tworzenia nowej reguły zgodnie z opisem w [ustawieniach reguły zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Upewnij się, że opcja **miejsce docelowe** jest ustawiona na *tag usługi* i **znacznik usługi docelowej** jest ustawiony na *AzureBackup*.
+4. Wybierz pozycję **Dodaj** , aby zapisać nowo utworzoną regułę zabezpieczeń dla ruchu wychodzącego.
+
+W podobny sposób można tworzyć reguły zabezpieczeń wychodzące sieciowej grupy zabezpieczeń dla usługi Azure Storage i usługi Azure AD. Aby uzyskać więcej informacji na temat tagów usługi, zobacz [ten artykuł](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+
 ### <a name="azure-expressroute-support"></a>Pomoc techniczna platformy Azure ExpressRoute
 
 Możesz tworzyć kopie zapasowe danych za pośrednictwem usługi Azure ExpressRoute za pomocą publicznej komunikacji równorzędnej (dostępne dla starych obwodów) i komunikacji równorzędnej firmy Microsoft. Tworzenie kopii zapasowej za pośrednictwem prywatnej komunikacji równorzędnej nie jest obsługiwane.
@@ -81,11 +90,11 @@ Przy użyciu publicznej komunikacji równorzędnej: Upewnij się, że dostęp do
 
 W przypadku komunikacji równorzędnej firmy Microsoft wybierz następujące usługi/regiony i odpowiednie wartości społeczności:
 
+- Azure Backup (zgodnie z lokalizacją magazynu Recovery Services)
 - Azure Active Directory (12076:5060)
-- Region Microsoft Azure (zgodnie z lokalizacją magazynu Recovery Services)
 - Azure Storage (zgodnie z lokalizacją magazynu Recovery Services)
 
-Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRoute](../expressroute/expressroute-routing.md).
+Aby uzyskać więcej informacji, zobacz [wymagania dotyczące routingu ExpressRoute](../expressroute/expressroute-routing.md#bgp).
 
 >[!NOTE]
 >Publiczna Komunikacja równorzędna jest przestarzała dla nowych obwodów.
@@ -180,7 +189,7 @@ Strumień rozrzedzony| Nieobsługiwane. Pominięto.
 OneDrive (synchronizowane pliki to strumienie rozrzedzone)| Nieobsługiwane.
 Foldery z włączonym Replikacja systemu plików DFS | Nieobsługiwane.
 
-\*Upewnij się, że Agent MARS ma dostęp do wymaganych certyfikatów, aby uzyskać dostęp do zaszyfrowanych plików. Niedostępne pliki zostaną pominięte.
+\* Upewnij się, że Agent MARS ma dostęp do wymaganych certyfikatów, aby uzyskać dostęp do zaszyfrowanych plików. Niedostępne pliki zostaną pominięte.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Obsługiwane dyski lub woluminy na potrzeby tworzenia kopii zapasowych
 

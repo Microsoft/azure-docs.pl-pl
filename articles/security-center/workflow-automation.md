@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7933cc692ebc3b40e5f608a917dce51f5298fbe3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3a1dc716e4db51d9d8b488bd98fc254f8dad842
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904640"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322159"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Tworzenie automatycznych odpowiedzi na alerty i zalecenia z automatyzacją przepływu pracy
 
@@ -67,14 +67,12 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 
     W Projektancie aplikacji logiki są obsługiwane następujące wyzwalacze z łączników Security Center:
 
-    * **Po utworzeniu lub wyzwoleniu rekomendacji Azure Security Center**
-    * **Po utworzeniu lub wyzwoleniu alertu Azure Security Center** 
-    
-    > [!TIP]
-    > Możesz dostosować wyzwalacz, aby odnosił się tylko do alertów z poziomami ważności, które Cię interesują.
+    * **Po utworzeniu lub wyzwoleniu rekomendacji Azure Security Center** — Jeśli aplikacja logiki korzysta z rekomendacji, która jest przestarzała lub zastępowana, Automatyzacja przestanie działać i konieczne będzie zaktualizowanie wyzwalacza. Aby śledzić zmiany w zaleceniach, zobacz [Azure Security Center informacji o wersji](release-notes.md).
+
+    * **Po utworzeniu lub wyzwoleniu alertu Azure Security Center** można dostosować wyzwalacz, aby odnosił się tylko do alertów z poziomami ważności, które Cię interesują.
     
     > [!NOTE]
-    > Jeśli używasz starszego wyzwalacza "gdy zostanie wyzwolona odpowiedź na Azure Security Center alertu", Logic Apps nie zostanie uruchomiona przez funkcję automatyzacji przepływu pracy. Zamiast tego należy użyć dowolnego wyzwalacza wymienionego powyżej. 
+    > Jeśli używasz starszego wyzwalacza "gdy zostanie wyzwolona odpowiedź na Azure Security Center alertu", Aplikacje logiki nie będą uruchamiane przez funkcję automatyzacji przepływu pracy. Zamiast tego należy użyć dowolnego wyzwalacza wymienionego powyżej. 
 
     [![Przykładowa aplikacja logiki](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 

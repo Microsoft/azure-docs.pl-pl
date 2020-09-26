@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c4aa9c22a0350c5d946d2fd45a983eac34681512
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309309"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320935"
 ---
 # <a name="language-support-for-immersive-reader"></a>Obsługa języków w czytniku immersyjny
 
@@ -30,7 +30,8 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Arabski (Arabia Saudyjska) | ar-SA |
 | Bułgarski | BG |
 | Bułgarski (Bułgaria) | bg-BG |
-| Kataloński | ca-ES |
+| Kataloński | urzędu certyfikacji |
+| Kataloński (kataloński) | ca-ES |
 | Chiński | zh |
 | Chiński (Chiny) | zh-CN |
 | Chiński (Hongkong SAR) | zh-HK |
@@ -40,7 +41,8 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Chiński (uproszczony) | zh-Hans |
 | Chiński uproszczony (Chiny) | zh-Hans-CN |
 | Chiński uproszczony (Singapur) | zh-Hans-SG |
-| Chiński (tradycyjny) | zh-Hant-CN |
+| Chiński (tradycyjny) | zh-Hant |
+| Chiński tradycyjny (Chiny) | zh-Hant-CN |
 | Chiński tradycyjny (Hongkong SAR) | zh-Hant-HK |
 | Chiński tradycyjny (Makau SAR) | zh-Hant-MO |
 | Chiński tradycyjny (Tajwan) | zh-Hant-TW |
@@ -52,7 +54,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Duński (Dania) | da-DK |
 | Niderlandzki | nl |
 | Niderlandzki (Holandia) | nl-NL |
-| Angielski | pl |
+| Angielski | en |
 | Angielski (Australia) | en-AU |
 | Angielski (Kanada) | EN-CA |
 | Angielski (Hongkong SAR) | EN-HK |
@@ -83,14 +85,14 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Indonezyjski (Indonezja) | id-ID |
 | Włoski | it |
 | Włoski (Włochy) | it-IT |
-| Japoński | ja |
+| japoński | ja |
 | Japoński (Japonia) | ja-JP |
 | Koreański | Ko |
 | Koreański (Korea) | ko-KR |
 | Malajski | Arial |
 | Malajski (Malezja) | ms-MY |
 | Norweski (Bokmal)| sesja |
-| Norweski (Norwegia) | nb-NO |
+| Norweski, Bokmal (Norwegia) | nb-NO |
 | Polski | zysków |
 | Polski (Polska) | pl-PL |
 | Portugalski | pkt. |
@@ -103,8 +105,8 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Słowacki | SK |
 | Słowacki (Słowacja) | sk-SK |
 | Słoweński | SL |
-| Słoweński (Słowenia) | SL — SL |
-| Hiszpański | Tak |
+| Słoweński (Słowenia) | sl-SI |
+| Hiszpański | es |
 | Hiszpański (Ameryka Łacińska) | ES — 419 |
 | Hiszpański (Meksyk) | es — MX |
 | hiszpański (Hiszpania) | es-ES |
@@ -126,13 +128,15 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Język | Tag |
 |----------|-----|
 | Afrikaans | AF |
+| Arabski | ty |
 | Arabski (Egipt) | AR-EG |
 | Arabski (Arabia Saudyjska) | ar-SA |
 | Języku | mld USD |
 | Bośniacki | BS |
 | Bułgarski | BG |
 | Bułgarski (Bułgaria) | bg-BG |
-| Kataloński | ca-ES |
+| Kataloński | urzędu certyfikacji |
+| Kataloński (kataloński) | ca-ES |
 | Chiński | zh |
 | Chiński (Chiny) | zh-CN |
 | Chiński (Hongkong SAR) | zh-HK |
@@ -142,7 +146,8 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Chiński (uproszczony) | zh-Hans |
 | Chiński uproszczony (Chiny) | zh-Hans-CN |
 | Chiński uproszczony (Singapur) | zh-Hans-SG |
-| Chiński (tradycyjny) | zh-Hant-CN |
+| Chiński (tradycyjny) | zh-Hant |
+| Chiński tradycyjny (Chiny) | zh-Hant-CN |
 | Chiński tradycyjny (Hongkong SAR) | zh-Hant-HK |
 | Chiński tradycyjny (Makau SAR) | zh-Hant-MO |
 | Chiński tradycyjny (Tajwan) | zh-Hant-TW |
@@ -152,9 +157,10 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Czeski (Czechy) | cs-CZ |
 | Duński | da |
 | Duński (Dania) | da-DK |
+| Dari (Afganistan) | żądań ściągnięcia |
 | Niderlandzki | nl |
 | Niderlandzki (Holandia) | nl-NL |
-| Angielski | pl |
+| Angielski | en |
 | Angielski (Australia) | en-AU |
 | Angielski (Kanada) | EN-CA |
 | Angielski (Hongkong SAR) | EN-HK |
@@ -176,6 +182,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Niemiecki (Austria) | de-AT |
 | Niemiecki (Niemcy) | de-DE |
 | Niemiecki (Szwajcaria)| Usuń CH |
+| Gudżarati | gu |
 | Grecki | Colon |
 | Grecki (Grecja) | el-GR |
 | Kreolski (haitański) | rawej |
@@ -192,12 +199,14 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Irlandzki | powszechne |
 | Włoski | it |
 | Włoski (Włochy) | it-IT |
-| Japoński | ja |
+| japoński | ja |
 | Japoński (Japonia) | ja-JP |
 | Kannada | kN |
-| Kiswahili | EPP |
+| Kiswahili | sw |
 | Koreański | Ko |
 | Koreański (Korea) | ko-KR |
+| Kurdyjski (środkowe) | ku |
+| Kurdyjski (północny) | kmr |
 | Łotewski | LV |
 | Litewski | lt |
 | Madagaskaru | mg |
@@ -206,8 +215,11 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Malayalam | ml |
 | Maltański | Arial |
 | Maoryjski | mi |
+| Marathi | Pan |
 | Norweski (Bokmal)| sesja |
-| Norweski (Norwegia) | nb-NO |
+| Norweski, Bokmal (Norwegia) | nb-NO |
+| Orija | lub |
+| Paszto (Afganistan) | iloczyn |
 | Perski | FA |
 | Polski | zysków |
 | Polski (Polska) | pl-PL |
@@ -227,8 +239,8 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Słowacki | SK |
 | Słowacki (Słowacja) | sk-SK |
 | Słoweński | SL |
-| Słoweński (Słowenia) | SL — SL |
-| Hiszpański | Tak |
+| Słoweński (Słowenia) | sl-SI |
+| Hiszpański | es |
 | Hiszpański (Ameryka Łacińska) | ES — 419 |
 | Hiszpański (Meksyk) | es — MX |
 | hiszpański (Hiszpania) | es-ES |
@@ -241,7 +253,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Telugu (Indie) | te — IN |
 | Tajlandzki | th |
 | Tajski (Tajlandia) | th-TH |
-| Tonga | na |
+| Tonga | na wartość |
 | Turecki | zdawczy |
 | Turecki (Turcja) | tr-TR |
 | Ukraiński | Południowe Zjednoczone Królestwo |
@@ -257,12 +269,14 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 
 | Język | Tag |
 |----------|-----|
+| Arabski | ty |
 | Arabski (Egipt) | AR-EG |
 | Arabski (Arabia Saudyjska) | ar-SA |
 | Baskijski | Europejska |
 | Bułgarski | BG |
 | Bułgarski (Bułgaria) | bg-BG |
-| Kataloński | ca-ES |
+| Kataloński | urzędu certyfikacji |
+| Kataloński (kataloński) | ca-ES |
 | Chiński (uproszczony) | zh-Hans |
 | Chiński uproszczony (Chiny) | zh-Hans-CN |
 | Chiński uproszczony (Singapur) | zh-Hans-SG |
@@ -278,7 +292,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Duński (Dania) | da-DK |
 | Niderlandzki | nl |
 | Niderlandzki (Holandia) | nl-NL |
-| Angielski | pl |
+| Angielski | en |
 | Angielski (Australia) | en-AU |
 | Angielski (Kanada) | EN-CA |
 | Angielski (Hongkong SAR) | EN-HK |
@@ -312,7 +326,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Indonezyjski (Indonezja) | id-ID |
 | Włoski | it |
 | Włoski (Włochy) | it-IT |
-| Japoński | ja |
+| japoński | ja |
 | Japoński (Japonia) | ja-JP |
 | Kazachski | kk |
 | Koreański | Ko |
@@ -322,7 +336,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Malajski | Arial |
 | Malajski (Malezja) | ms-MY |
 | Norweski (Bokmal)| sesja |
-| Norweski (Norwegia) | nb-NO |
+| Norweski, Bokmal (Norwegia) | nb-NO |
 | Norweski Nynorsk | nn |
 | Polski | zysków |
 | Polski (Polska) | pl-PL |
@@ -338,8 +352,8 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Słowacki | SK |
 | Słowacki (Słowacja) | sk-SK |
 | Słoweński | SL |
-| Słoweński (Słowenia) | SL — SL |
-| Hiszpański | Tak |
+| Słoweński (Słowenia) | sl-SI |
+| Hiszpański | es |
 | Hiszpański (Ameryka Łacińska) | ES — 419 |
 | Hiszpański (Meksyk) | es — MX |
 | hiszpański (Hiszpania) | es-ES |
@@ -365,7 +379,8 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Baskijski | Europejska |
 | Bułgarski | BG |
 | Bułgarski (Bułgaria) | bg-BG |
-| Kataloński | ca-ES |
+| Kataloński | urzędu certyfikacji |
+| Kataloński (kataloński) | ca-ES |
 | Chorwacki | godz. |
 | Chorwacki (Chorwacja) | hr-HR |
 | Czeski | Rejestr |
@@ -374,7 +389,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Duński (Dania) | da-DK |
 | Niderlandzki | nl |
 | Niderlandzki (Holandia) | nl-NL |
-| Angielski | pl |
+| Angielski | en |
 | Angielski (Australia) | en-AU |
 | Angielski (Kanada) | EN-CA |
 | Angielski (Hongkong SAR) | EN-HK |
@@ -406,7 +421,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Łotewski | LV |
 | Litewski | lt |
 | Norweski (Bokmal)| sesja |
-| Norweski (Norwegia) | nb-NO |
+| Norweski, Bokmal (Norwegia) | nb-NO |
 | Norweski Nynorsk | nn |
 | Polski | zysków |
 | Polski (Polska) | pl-PL |
@@ -423,8 +438,8 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Słowacki | SK |
 | Słowacki (Słowacja) | sk-SK |
 | Słoweński | SL |
-| Słoweński (Słowenia) | SL — SL |
-| Hiszpański | Tak |
+| Słoweński (Słowenia) | sl-SI |
+| Hiszpański | es |
 | Hiszpański (Ameryka Łacińska) | ES — 419 |
 | Hiszpański (Meksyk) | es — MX |
 | hiszpański (Hiszpania) | es-ES |
@@ -443,7 +458,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Duński (Dania) | da-DK |
 | Niderlandzki | nl |
 | Niderlandzki (Holandia) | nl-NL |
-| Angielski | pl |
+| Angielski | en |
 | Angielski (Australia) | en-AU |
 | Angielski (Kanada) | EN-CA |
 | Angielski (Hongkong SAR) | EN-HK |
@@ -464,19 +479,19 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Niemiecki (Szwajcaria)| Usuń CH |
 | Włoski | it |
 | Włoski (Włochy) | it-IT |
-| Japoński | ja |
+| japoński | ja |
 | Japoński (Japonia) | ja-JP |
 | Koreański | Ko |
 | Koreański (Korea) | ko-KR |
 | Norweski (Bokmal)| sesja |
-| Norweski (Norwegia) | nb-NO |
+| Norweski, Bokmal (Norwegia) | nb-NO |
 | Polski | zysków |
 | Polski (Polska) | pl-PL |
 | Portugalski | pkt. |
 | Portugalski (Brazylia) | pt-BR |
 | Rosyjski | ru |
 | Rosyjski (Rosja) | ru-RU |
-| Hiszpański | Tak |
+| Hiszpański | es |
 | Hiszpański (Ameryka Łacińska) | ES — 419 |
 | Hiszpański (Meksyk) | es — MX |
 | hiszpański (Hiszpania) | es-ES |
@@ -493,7 +508,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Duński (Dania) | da-DK |
 | Niderlandzki | nl |
 | Niderlandzki (Holandia) | nl-NL |
-| Angielski | pl |
+| Angielski | en |
 | Angielski (Australia) | en-AU |
 | Angielski (Kanada) | EN-CA |
 | Angielski (Hongkong SAR) | EN-HK |
@@ -514,12 +529,12 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Niemiecki (Szwajcaria)| Usuń CH |
 | Włoski | it |
 | Włoski (Włochy) | it-IT |
-| Japoński | ja |
+| japoński | ja |
 | Japoński (Japonia) | ja-JP |
 | Koreański | Ko |
 | Koreański (Korea) | ko-KR |
 | Norweski (Bokmal)| sesja |
-| Norweski (Norwegia) | nb-NO |
+| Norweski, Bokmal (Norwegia) | nb-NO |
 | Norweski Nynorsk | nn |
 | Polski | zysków |
 | Polski (Polska) | pl-PL |
@@ -527,7 +542,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Portugalski (Brazylia) | pt-BR |
 | Rosyjski | ru |
 | Rosyjski (Rosja) | ru-RU |
-| Hiszpański | Tak |
+| Hiszpański | es |
 | Hiszpański (Ameryka Łacińska) | ES — 419 |
 | Hiszpański (Meksyk) | es — MX |
 | hiszpański (Hiszpania) | es-ES |
@@ -538,7 +553,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 
 | Język | Tag |
 |----------|-----|
-| Angielski | pl |
+| Angielski | en |
 | Angielski (Australia) | en-AU |
 | Angielski (Kanada) | EN-CA |
 | Angielski (Hongkong SAR) | EN-HK |
@@ -557,7 +572,7 @@ W tym artykule przedstawiono listę obsługiwanych języków ludzkich dla funkcj
 | Niemiecki (Szwajcaria)| Usuń CH |
 | Włoski | it |
 | Włoski (Włochy) | it-IT |
-| Hiszpański | Tak |
+| Hiszpański | es |
 | Hiszpański (Ameryka Łacińska) | ES — 419 |
 | Hiszpański (Meksyk) | es — MX |
 | hiszpański (Hiszpania) | es-ES |

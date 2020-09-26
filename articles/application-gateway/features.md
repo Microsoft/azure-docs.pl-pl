@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: bbb78fd879bc5c6bb8c2624329a23d7137b11660
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651992"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355741"
 ---
 # <a name="azure-application-gateway-features"></a>Funkcje Application Gateway platformy Azure
 
@@ -147,15 +147,15 @@ Aby uzyskać więcej informacji, zobacz [Zapisywanie nagłówków HTTP i adresó
 
 ## <a name="sizing"></a>Ustalanie rozmiaru
 
-Standard_v2 Application Gateway można skonfigurować na potrzeby wdrożeń skalowania automatycznego lub stałego rozmiaru. Ta jednostka SKU nie oferuje różnych rozmiarów wystąpień. Aby uzyskać więcej informacji na temat wydajności i cen w wersji 2, zobacz [Skalowanie automatyczne w wersji 2](application-gateway-autoscaling-zone-redundant.md) i [Informacje o cenach](understanding-pricing.md).
+Standard_v2 Application Gateway można skonfigurować na potrzeby wdrożeń skalowania automatycznego lub stałego rozmiaru. Jednostka SKU v2 nie oferuje różnych rozmiarów wystąpień. Aby uzyskać więcej informacji na temat wydajności i cen w wersji 2, zobacz [Skalowanie automatyczne w wersji 2](application-gateway-autoscaling-zone-redundant.md) i [Informacje o cenach](understanding-pricing.md).
 
-Standard Application Gateway jest oferowany w trzech rozmiarach: **małych**, **średnich**i **dużych**. Rozmiary małych wystąpień są przeznaczone na potrzeby programowania i scenariuszy testowania.
+Standard Application Gateway (v1) jest oferowany w trzech rozmiarach: **małych**, **średnich**i **dużych**. Rozmiary małych wystąpień są przeznaczone na potrzeby programowania i scenariuszy testowania.
 
 Pełna lista limitów usługi Application Gateway znajduje się na stronie [ograniczeń usługi Application Gateway](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 W poniższej tabeli przedstawiono średnią przepływność wydajności dla każdego wystąpienia usługi Application Gateway V1 z włączonym odciążeniem SSL:
 
-| Średni rozmiar odpowiedzi strony zaplecza | Mała | Średniaa | Duża |
+| Średni rozmiar odpowiedzi strony zaplecza | Mały | Średniaa | Duży |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mb/s |13 Mb/s |50 Mb/s |
 | 100 KB |35 Mb/s |100 Mb/s |200 Mb/s |

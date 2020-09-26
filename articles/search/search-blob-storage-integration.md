@@ -1,39 +1,42 @@
 ---
-title: Dodawanie wyszukiwania pełnotekstowego do usługi Azure Blob Storage
+title: Wyszukaj zawartość usługi Azure Blob Storage
 titleSuffix: Azure Cognitive Search
-description: Wyodrębnij zawartość i Dodaj strukturę do obiektów blob platformy Azure podczas kompilowania indeksu wyszukiwania pełnotekstowego na platformie Azure Wyszukiwanie poznawcze.
+description: Dowiedz się więcej o wyodrębnianiu tekstu z obiektów blob platformy Azure i przeszukiwaniu tekstu pełnotekstowego w indeksie Wyszukiwanie poznawcze platformy Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 72d00b70cf3568466715668aa441ee295614c740
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/23/2020
+ms.openlocfilehash: f61bf635cc61a2153a7bb016ef4b4711d7ba7391
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935249"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355299"
 ---
-# <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Dodawanie wyszukiwania pełnotekstowego do danych obiektów blob platformy Azure przy użyciu usługi Azure Wyszukiwanie poznawcze
+# <a name="search-over-azure-blob-storage-content"></a>Wyszukaj zawartość usługi Azure Blob Storage
 
-Wyszukiwanie w różnych typach zawartości przechowywanych w usłudze Azure Blob Storage może być trudnym problemem do rozwiązania. Można jednak indeksować i przeszukiwać zawartość obiektów BLOB za pomocą zaledwie kilku kliknięć przy użyciu [usługi Azure wyszukiwanie poznawcze](search-what-is-azure-search.md). Usługa Azure Wyszukiwanie poznawcze ma wbudowaną integrację do indeksowania poza magazynem obiektów BLOB za pomocą [*indeksatora obiektów BLOB*](search-howto-indexing-azure-blob-storage.md) , który dodaje możliwości rozpoznawania źródła danych do indeksowania.
+Wyszukiwanie w różnych typach zawartości przechowywanych w usłudze Azure Blob Storage może być trudnym problemem do rozwiązania. W tym artykule zapoznaj się z podstawowym przepływem pracy dotyczącym wyodrębniania zawartości i metadanych z obiektów blob i wysyłania jej do indeksu wyszukiwania w usłudze Azure Wyszukiwanie poznawcze. Indeks otrzymany można zbadać przy użyciu wyszukiwania pełnotekstowego.
+
+> [!NOTE]
+> Znasz już przepływ pracy i kompozycję? [Jak skonfigurować indeksator obiektów BLOB](search-howto-indexing-azure-blob-storage.md) .
 
 ## <a name="what-it-means-to-add-full-text-search-to-blob-data"></a>Co oznacza Dodawanie wyszukiwania pełnotekstowego do danych obiektów BLOB
 
-Azure Wyszukiwanie poznawcze to usługa wyszukiwania w chmurze, która udostępnia aparaty indeksowania i zapytań, które działają przez zdefiniowane przez użytkownika indeksy hostowane w usłudze wyszukiwania. Wspólne lokalizowanie zawartości z możliwością wyszukiwania za pomocą aparatu zapytań w chmurze jest niezbędne w celu uzyskania wydajności, zwracając wyniki z szybkością szukania przez użytkowników.
+Azure Wyszukiwanie poznawcze to usługa wyszukiwania obsługująca obciążenia indeksowania i zapytań w przypadku indeksów zdefiniowanych przez użytkownika, które zawierają zawartość, którą można przeszukiwać zdalnie hostowaną w chmurze. Współlokalizowanie zawartości z możliwością wyszukiwania za pomocą aparatu zapytań jest niezbędne w celu zapewnienia wydajności, zwracając wyniki w szybkości od zapytań wyszukiwania.
 
-Platforma Azure Wyszukiwanie poznawcze integruje się z usługą Azure Blob Storage w warstwie indeksowania, importując zawartość obiektu BLOB jako dokumenty wyszukiwania indeksowane w odnośników *odwróconych* i innych strukturach zapytań, które obsługują kwerendy tekstu w postaci nieodpłatnej i wyrażenia filtru. Ponieważ zawartość obiektu BLOB jest indeksowana do indeksu wyszukiwania, dostęp do zawartości obiektu BLOB może korzystać z pełnego zakresu funkcji zapytania w usłudze Azure Wyszukiwanie poznawcze.
+Wyszukiwanie poznawcze integruje się z usługą Azure Blob Storage w warstwie indeksowania, importując zawartość obiektu BLOB jako dokumenty wyszukiwania indeksowane w *odwróconych indeksach* i innych strukturach zapytań, które obsługują kwerendy tekstowe w postaci nieodpłatnej i wyrażenia filtru. Ponieważ zawartość obiektu BLOB jest indeksowana do indeksu wyszukiwania, możesz użyć pełnego zakresu funkcji zapytania w usłudze Azure Wyszukiwanie poznawcze, aby znaleźć informacje o zawartości obiektu BLOB.
 
-Po utworzeniu i wypełnieniu indeksu istnieje on niezależnie od kontenera obiektów blob, ale można ponownie uruchomić operacje indeksowania, aby odświeżyć indeks z uwzględnieniem zmian w źródłowym kontenerze. Informacje o znacznikach czasu dla poszczególnych obiektów BLOB są używane na potrzeby wykrywania zmian. Można wybrać opcję zaplanowanego wykonania lub indeksowania na żądanie jako mechanizmu odświeżania.
-
-Dane wejściowe są obiektami BLOB w jednym kontenerze w usłudze Azure Blob Storage. Obiekty blob mogą być niemal dowolnym rodzajem danych tekstowych. Jeśli obiekty blob zawierają obrazy, można dodać [wzbogacanie AI do indeksowania obiektów BLOB ](search-blob-ai-integration.md) w celu utworzenia i wyodrębnienia tekstu z obrazów.
+Dane wejściowe są obiektami BLOB w jednym kontenerze w usłudze Azure Blob Storage. Obiekty blob mogą być niemal dowolnym rodzajem danych tekstowych. Jeśli obiekty blob zawierają obrazy, można dodać [wzbogacanie AI do indeksowania obiektów BLOB](search-blob-ai-integration.md) w celu utworzenia i wyodrębnienia tekstu z obrazów.
 
 Dane wyjściowe są zawsze indeksem Wyszukiwanie poznawcze platformy Azure, używanym do szybkiego wyszukiwania tekstu, pobierania i eksploracji w aplikacjach klienckich. W obszarze między jest architekturą potoku indeksowania. Potok jest oparty na funkcji *indeksatora* omówionej w dalszej sekcji tego artykułu.
 
-## <a name="start-with-services"></a>Zacznij od usług
+Po utworzeniu i wypełnieniu indeksu istnieje on niezależnie od kontenera obiektów blob, ale można ponownie uruchomić operacje indeksowania, aby odświeżyć indeks na podstawie zmienionych dokumentów. Informacje o znacznikach czasu dla poszczególnych obiektów BLOB są używane na potrzeby wykrywania zmian. Można wybrać opcję zaplanowanego wykonania lub indeksowania na żądanie jako mechanizmu odświeżania.
 
-Potrzebujesz platformy Azure Wyszukiwanie poznawcze i usługi Azure Blob Storage. W magazynie obiektów BLOB wymagany jest kontener, który udostępnia zawartość źródłową.
+## <a name="required-resources"></a>Wymagane zasoby
+
+Potrzebujesz zarówno usługi Azure Wyszukiwanie poznawcze, jak i usługi Azure Blob Storage. W magazynie obiektów BLOB wymagany jest kontener, który udostępnia zawartość źródłową.
 
 Możesz rozpocząć bezpośrednio na stronie portalu konta magazynu. Na lewej stronie nawigacyjnej w obszarze **BLOB Service** kliknij pozycję **Dodaj wyszukiwanie poznawcze platformy Azure** , aby utworzyć nową usługę, lub wybierz istniejącą. 
 
@@ -41,7 +44,7 @@ Po dodaniu Wyszukiwanie poznawcze platformy Azure do konta magazynu można wykon
 
 ## <a name="use-a-blob-indexer"></a>Używanie indeksatora obiektów BLOB
 
-*Indeksator* to podusługa z obsługą źródła danych, która jest wyposażona w wewnętrzną logikę do próbkowania danych, odczytywanie danych metadanych, pobieranie danych i Serializowanie danych z formatów natywnych do dokumentów JSON w celu późniejszego zaimportowania. 
+*Indeksator* to podusługa z uwzględnieniem źródła danych w wyszukiwanie poznawcze, wyposażona w wewnętrzną logikę do próbkowania danych, odczytywanie danych metadanych, pobieranie danych i Serializowanie danych z formatów natywnych do dokumentów JSON w celu późniejszego zaimportowania. 
 
 Obiekty blob w usłudze Azure Storage są indeksowane przy użyciu [indeksatora usługi azure wyszukiwanie poznawcze BLOB Storage](search-howto-indexing-azure-blob-storage.md). Można wywołać ten indeksator przy użyciu kreatora **importu danych** , interfejsu API REST lub zestawu .NET SDK. W kodzie, używasz tego indeksatora, ustawiając typ i dostarczając informacje o połączeniu, które obejmują konto usługi Azure Storage wraz z kontenerem obiektów BLOB. Obiekty blob można podzbiórować przez utworzenie katalogu wirtualnego, który można następnie przekazać jako parametr lub przez filtrowanie według rozszerzenia typu pliku.
 
@@ -65,11 +68,12 @@ Typowym scenariuszem, który ułatwia sortowanie za pomocą obiektów BLOB dowol
 > Aby dowiedzieć się więcej na temat indeksu obiektów blob, zobacz temat [Zarządzanie danymi i znajdowanie ich w usłudze Azure Blob Storage przy użyciu indeksu obiektów BLOB](../storage/blobs/storage-manage-find-blobs.md).
 
 ### <a name="indexing-json-blobs"></a>Indeksowanie obiektów BLOB JSON
+
 Indeksatory można skonfigurować do wyodrębniania zawartości strukturalnej znalezionej w obiektach Blob, które zawierają kod JSON. Indeksator może odczytywać obiekty blob JSON i analizować zawartość strukturalną do odpowiednich pól dokumentu wyszukiwania. Indeksatory mogą również przyjmować obiekty blob, które zawierają tablicę obiektów JSON i mapują każdy element do oddzielnego dokumentu wyszukiwania. Można ustawić tryb analizowania, który ma wpływ na typ obiektu JSON utworzonego przez indeksator.
 
 ## <a name="search-blob-content-in-a-search-index"></a>Wyszukaj zawartość obiektu BLOB w indeksie wyszukiwania 
 
-Dane wyjściowe indeksowania to indeks wyszukiwania używany do interaktywnej eksploracji przy użyciu dowolnego tekstu i filtrowanych zapytań w aplikacji klienckiej. W przypadku początkowej eksploracji i weryfikacji zawartości zalecamy rozpoczęcie pracy z [Eksploratorem wyszukiwania](search-explorer.md) w portalu, aby sprawdzić strukturę dokumentu. Możesz użyć [prostej składni zapytania](query-simple-syntax.md), [pełnej składni zapytania](query-lucene-syntax.md)i [składni wyrażenia filtru](query-odata-filter-orderby-syntax.md) w Eksploratorze wyszukiwania.
+Dane wyjściowe indeksatora są indeksem wyszukiwania używanym do interaktywnej eksploracji przy użyciu dowolnego tekstu i filtrowanych zapytań w aplikacji klienckiej. W przypadku początkowej eksploracji i weryfikacji zawartości zalecamy rozpoczęcie pracy z [Eksploratorem wyszukiwania](search-explorer.md) w portalu, aby sprawdzić strukturę dokumentu. Możesz użyć [prostej składni zapytania](query-simple-syntax.md), [pełnej składni zapytania](query-lucene-syntax.md)i [składni wyrażenia filtru](query-odata-filter-orderby-syntax.md) w Eksploratorze wyszukiwania.
 
 Bardziej trwałe rozwiązanie polega na zebraniu danych wejściowych zapytania i zaprezentowaniu odpowiedzi jako wyników wyszukiwania w aplikacji klienckiej. W poniższym samouczku w języku C# opisano sposób tworzenia aplikacji wyszukiwania: [Tworzenie pierwszej aplikacji na platformie Azure wyszukiwanie poznawcze](tutorial-csharp-create-first-app.md).
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/26/2019
-ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541706"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321360"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Warstwy usług w modelu zakupów opartym na jednostkach DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,10 +39,10 @@ Wybór warstwy usług zależy głównie od ciągłości biznesowej, magazynu i w
 |**Docelowe obciążenie**|Programowanie i produkcja|Programowanie i produkcja|Programowanie i produkcja|
 |**Umowa SLA dla czasu działania**|99,99%|99,99%|99,99%|
 |**Maksymalne przechowywanie kopii zapasowych**|7 dni|35 dni|35 dni|
-|**Procesor CPU**|Małe|Niski, średni, wysoki|Średni, wysoki|
+|**Procesor CPU**|Niski|Niski, średni, wysoki|Średni, wysoki|
 |**Przepływność we/wy (przybliżona)** |1-5 operacji we/wy na jednostkę DTU| 1-5 operacji we/wy na jednostkę DTU | 25 operacji we/wy na jednostkę DTU|
 |**Opóźnienie we/wy (przybliżone)**|5 ms (odczyt), 10 ms (zapis)|5 ms (odczyt), 10 ms (zapis)|2 ms (odczyt i zapis)|
-|**Indeksowanie magazynu kolumn** |Brak|S3 i nowsze|Obsługiwane|
+|**Indeksowanie magazynu kolumn** |Nie dotyczy|S3 i nowsze|Obsługiwane|
 |**Przetwarzanie OLTP w pamięci**|NIE DOTYCZY|NIE DOTYCZY|Obsługiwane|
 
 > [!IMPORTANT]
@@ -68,7 +68,7 @@ Rozmiary obliczeń są wyrażone w kategoriach jednostek transakcji bazy danych 
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Limity liczby jednostek eDTU puli elastycznej, magazynu i bazy danych w puli
 
-|| **Podstawowa** | **Standardowa** | **Tytułu** |
+|| **Podstawowa** | **Standardowa** | **Premium** |
 | :-- | --: | --: | --: |
 | **Maksymalny rozmiar magazynu na bazę danych**  | 2 GB | 1 TB | 1 TB |
 | **Maksymalny rozmiar magazynu na pulę** | 156 GB | 4 TB | 4 TB |
@@ -171,7 +171,7 @@ Kluczowe metryki testu porównawczego to przepływność i czas odpowiedzi.
 | Klasa usługi | Pomiar przepływności | Wymagany czas odpowiedzi |
 | --- | --- | --- |
 | Premium |Liczba transakcji na sekundę |używany 95. percentyl o 0,5 sekund |
-| Standard |Liczba transakcji na minutę |90 percentyl o 1,0 s |
+| Standardowa |Liczba transakcji na minutę |90 percentyl o 1,0 s |
 | Podstawowy |Liczba transakcji na godzinę |80th percentyl o 2,0 sekund |
 
 ## <a name="next-steps"></a>Następne kroki

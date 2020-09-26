@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 5bb244796414c828e1535e4874fc85aa83f182dc
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dffd12f319bd2766decda5874299cd7115f0502b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300072"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309204"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Instrukcje: korzystanie z analiza tekstu na potrzeby kondycji (wersja zapoznawcza)
 
@@ -73,7 +73,7 @@ Analiza tekstu dla kondycji obsługuje tylko dokumenty w języku angielskim.
 
 ## <a name="request-access-to-the-container-registry"></a>Zażądaj dostępu do rejestru kontenerów
 
-Wypełnij i prześlij [formularz żądania Cognitive Services kontenerów](https://aka.ms/cognitivegate) , aby zażądać dostępu do kontenera. Obecnie nie są naliczane opłaty za analiza tekstu za użycie kondycji. 
+Wypełnij i prześlij [formularz żądania Cognitive Services kontenerów](https://aka.ms/csgate) , aby zażądać dostępu do kontenera. Obecnie nie są naliczane opłaty za analiza tekstu za użycie kondycji. 
 
 [!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -417,7 +417,7 @@ Dane wyjściowe wyodrębniania relacji zawierają odwołania identyfikatora URI 
 ]
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Kategorie nazwanych jednostek](../named-entity-types.md)

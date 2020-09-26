@@ -3,12 +3,12 @@ title: Określanie punktów końcowych usługi Service Fabric
 description: Jak opisać zasoby punktu końcowego w manifeście usługi, w tym sposób konfigurowania punktów końcowych HTTPS
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 8fdd95a7c0390c987b7c59663e0ee12e4a4a968e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267809"
+ms.locfileid: "91354763"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Określanie zasobów w manifeście usługi
 ## <a name="overview"></a>Omówienie
@@ -227,9 +227,9 @@ Załóżmy, że określono nieprawidłową wartość. Załóżmy, że port okre�
 W tym artykule wyjaśniono, jak definiować punkty końcowe w manifeście usługi Service Fabric. Aby uzyskać bardziej szczegółowe przykłady, zobacz:
 
 > [!div class="nextstepaction"]
-> [Przykłady manifestu aplikacji i usługi](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+> [Przykłady manifestu aplikacji i usługi](service-fabric-manifest-examples.md)
 
 Aby zapoznać się z przewodnikiem tworzenia pakietów i wdrażania istniejącej aplikacji w klastrze Service Fabric, zobacz:
 
 > [!div class="nextstepaction"]
-> [Pakowanie i wdrażanie istniejącego pliku wykonywalnego do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)
+> [Pakowanie i wdrażanie istniejącego pliku wykonywalnego do Service Fabric](service-fabric-deploy-existing-app.md)

@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: f0a9e36113226a40f4bd21a7b171ca7a65930f95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 7ee876b1d65e71657cb1af857cdad9f62a32100e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987241"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333057"
 ---
-# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorowanie wydajności Microsoft Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL przy użyciu dynamicznych widoków zarządzania
+# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorowanie wydajności usługi Microsoft Azure SQL Database i Azure SQL Managed Instance przy użyciu dynamicznych widoków zarządzania
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Microsoft Azure SQL Database i wystąpienie zarządzane usługi Azure SQL umożliwiają podzbiór dynamicznych widoków zarządzania do diagnozowania problemów z wydajnością, które mogą być spowodowane przez zablokowane lub długotrwałe zapytania, wąskie gardła zasobów, słabe plany zapytań i tak dalej. Ten temat zawiera informacje dotyczące wykrywania typowych problemów z wydajnością przy użyciu dynamicznych widoków zarządzania.
@@ -529,7 +529,7 @@ Możesz również monitorować użycie przy użyciu następujących widoków:
 - Wystąpienie zarządzane Azure SQL: [sys. server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
 - Zarówno Azure SQL Database, jak i wystąpienie zarządzane usługi Azure SQL: [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdm_db_resource_stats"></a>sys. dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 W każdej bazie danych można użyć widoku [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) . Widok **sys. dm_db_resource_stats** pokazuje ostatnie dane użycia zasobów względem warstwy usług. Średnia wartość procentowa dla procesora CPU, operacji we/wy danych, zapisów dziennika i pamięci są rejestrowane co 15 sekund i są przechowywane przez 1 godzinę.
 
@@ -550,7 +550,7 @@ FROM sys.dm_db_resource_stats;
 
 Inne zapytania można znaleźć w przykładach w tabeli [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### <a name="sysserver_resource_stats"></a>sys. server_resource_stats
+### <a name="sysserver_resource_stats"></a>sys.server_resource_stats
 
 Można użyć wykazu [sys. server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database) , aby zwrócić użycie procesora CPU, we/wy i dane magazynu dla wystąpienia zarządzanego Azure SQL. Dane są zbierane i agregowane w ciągu pięciu minut. Każde 15-sekundowe raportowanie ma jeden wiersz. Zwrócone dane obejmują użycie procesora CPU, rozmiar magazynu, użycie we/wy i jednostkę SKU wystąpienia zarządzanego. Dane historyczne są przechowywane przez około 14 dni.
 
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Wprowadzenie do Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL](sql-database-paas-overview.md)

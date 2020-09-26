@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/23/2020
+ms.openlocfilehash: a5856d85b6a967f49fd651942ca6e4596bf15e7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531223"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320984"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -212,13 +212,17 @@ Jeśli fabryka programistyczna ma skojarzone repozytorium git, można zastąpić
 * Używasz zautomatyzowanej ciągłej integracji/ciągłego dostarczania i chcesz zmienić niektóre właściwości podczas wdrażania Menedżer zasobów, ale właściwości nie są domyślnie sparametryzowane.
 * Fabryka jest tak duża, że domyślny szablon Menedżer zasobów jest nieprawidłowy, ponieważ ma więcej niż maksymalna dozwolona liczba parametrów (256).
 
-Aby zastąpić domyślny szablon parametryzacja, Utwórz plik o nazwie **arm-template-parameters-definition.js** w folderze głównym gałęzi git. Należy użyć tej dokładnej nazwy pliku.
+Aby zastąpić domyślny szablon parametryzacja, przejdź do centrum zarządzania i wybierz **szablon parametryzacja** w sekcji Kontrola źródła. Wybierz pozycję **Edytuj szablon** , aby otworzyć Edytor kodu szablonu parametryzacja. 
 
-   ![Plik parametrów niestandardowych](media/continuous-integration-deployment/custom-parameters.png)
+![Zarządzanie parametrami niestandardowymi](media/author-management-hub/management-hub-custom-parameters.png)
+
+Tworzenie niestandardowego szablonu parametryzacja tworzy plik o nazwie **arm-template-parameters-definition.js** w folderze głównym gałęzi git. Należy użyć tej dokładnej nazwy pliku.
+
+![Plik parametrów niestandardowych](media/continuous-integration-deployment/custom-parameters.png)
 
 W przypadku publikowania z gałęzi współpracy Data Factory odczyta ten plik i użyje jego konfiguracji do wygenerowania właściwości, które zostaną pobrane. Jeśli plik nie zostanie znaleziony, zostanie użyty szablon domyślny.
 
-Podczas eksportowania szablonu Menedżer zasobów, Data Factory odczytuje ten plik z niezależnej gałęzi, nad którą pracujesz, a nie tylko z gałęzi współpracy. Można utworzyć lub edytować plik z gałęzi prywatnej, gdzie można testować zmiany, wybierając pozycję **Eksportuj szablon ARM** w interfejsie użytkownika. Następnie można scalić plik z gałęzią współpracy.
+Podczas eksportowania szablonu Menedżer zasobów, Data Factory odczytuje ten plik z niezależnej gałęzi, nad którą pracujesz, a nie z gałęzią współpracy. Można utworzyć lub edytować plik z gałęzi prywatnej, gdzie można testować zmiany, wybierając pozycję **Eksportuj szablon ARM** w interfejsie użytkownika. Następnie można scalić plik z gałęzią współpracy.
 
 > [!NOTE]
 > Niestandardowy szablon parametryzacja nie zmienia limitu parametru szablonu ARM 256. Umożliwia wybór i zmniejszenie liczby właściwości sparametryzowanych.
@@ -305,7 +309,7 @@ Oto przykład tego, jak może wyglądać szablon parametryzacja:
 ```
 Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu, podzielonego na typ zasobu.
 
-#### <a name="pipelines"></a>Potoki
+#### <a name="pipelines"></a>Pipelines
     
 * Wszystkie właściwości w ścieżce `activities/typeProperties/waitTimeInSeconds` są sparametryzowane. Wszystkie działania w potoku, który ma właściwość poziomu kodu o nazwie `waitTimeInSeconds` (na przykład `Wait` działanie), są sparametryzowane jako liczba z nazwą domyślną. Ale nie będzie on miał wartości domyślnej w szablonie Menedżer zasobów. Będzie to obowiązkowe wejście podczas wdrażania Menedżer zasobów.
 * Podobnie właściwość o nazwie `headers` (na przykład w `Web` działaniu) ma wartość sparametryzowane z typem `object` (JObject). Ma wartość domyślną, która jest taka sama jak wartość dla fabryki źródłowej.

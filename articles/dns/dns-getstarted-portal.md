@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 3b34b45cba805d748dcc8a0c31340cd8116e1c80
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93d9ce50a451221c86f5336107dba30695af159f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355367"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Szybki Start: Tworzenie strefy Azure DNS i rekordu przy użyciu Azure Portal
 
@@ -28,7 +28,7 @@ Podczas pracy z tym przewodnikiem Szybki start utworzysz domenę testową, a nas
 You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 W przypadku wszystkich kroków wykonywanych w portalu należy się zalogować do [witryny Azure Portal](https://portal.azure.com).
 
@@ -67,7 +67,7 @@ Wpisy, czyli rekordy, DNS tworzy się dla domeny w strefie DNS. Utwórz nowy rek
    - **Typ**: Wybierz **A**. Rekordy "A" są najczęściej używane, ale istnieją inne typy rekordów dla serwerów poczty ("MX"), adresów IP w wersji 6 ("AAAA") itd. 
    - **Czas wygaśnięcia**: wpisz wartość *1*. *Czas wygaśnięcia* żądania DNS określa, jak długo serwery i klienci DNS mogą buforować odpowiedź.
    - **Jednostka czasu wygaśnięcia**: wybierz opcję **Godziny**. Jest to jednostka czasu dla wartości **Czas wygaśnięcia**. 
-   - **Adres IP**: dla tego przykładu przewodnika Szybki start wpisz *10.10.10.10*. Ta wartość to adres IP rozpoznawany w przypadku nazwy rekordu. W rzeczywistym scenariuszu byłby to na przykład publiczny adres IP serwera internetowego.
+   - **Adres IP**: dla tego przykładu przewodnika Szybki start wpisz *10.10.10.10*. Ta wartość to adres IP rozpoznawany w przypadku nazwy rekordu. W rzeczywistym scenariuszu należy wprowadzić publiczny adres IP swojego serwera internetowego.
 
 Ponieważ ten przewodnik Szybki Start jest tylko do celów szybkiego testowania, nie ma potrzeby konfigurowania serwerów nazw Azure DNS w rejestratorze nazw domen. W przypadku rzeczywistej domeny produkcyjnej wszyscy użytkownicy Internetu mogą rozpoznać nazwę hosta w celu nawiązania połączenia z serwerem lub aplikacją sieci Web. Odwiedzisz rejestratora nazw domen, aby zastąpić rekordy serwera nazw serwerami nazw usługi Azure DNS. Aby uzyskać więcej informacji, zobacz [Samouczek: hostowanie własnej domeny w usłudze Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
@@ -89,7 +89,7 @@ Po utworzeniu testowej strefy DNS z rekordem „A” możesz przetestować rozpo
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Przykład:
+   Na przykład:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.
@@ -97,11 +97,11 @@ Po utworzeniu testowej strefy DNS z rekordem „A” możesz przetestować rozpo
 
    Powinna zostać wyświetlona treść podobna do tej na następującym ekranie:
 
-   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+   ![Zrzut ekranu przedstawia okno wiersza polecenia z n s poleceniem wyszukiwania i wartości dla opcji serwer, adres, nazwa i adres.](media/dns-getstarted-portal/nslookup.PNG)
 
-Nazwa hosta **www\.contoso. xyz** jest rozpoznawana jako **10.10.10.10**, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie. 
+Nazwa hosta **www \. contoso. xyz** jest rozpoznawana jako **10.10.10.10**, tak jak została skonfigurowana. Taki wynik potwierdza, że rozpoznawanie nazw działa poprawnie. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby utworzone w tym przewodniku Szybki Start nie są już potrzebne, usuń je, usuwając **grupę zasobów.** Otwórz grupę **zasobów zasobu** i wybierz pozycję **Usuń grupę zasobów**.
 

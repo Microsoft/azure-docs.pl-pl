@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 79e2726e26ff7883d5022e57fff8fa8961af2c98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 3277fefb5615fd492b2859b741ef8e6f991eaf23
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163683"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355478"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Wdrażanie do Azure Functions za pomocą DevOps Starter
 
@@ -95,7 +95,7 @@ DevOps Starter automatycznie konfiguruje potok ciągłej integracji/ciągłego w
 
 1. Kliknij hiperlink w obszarze **kompilacja**. Zostanie wyświetlona karta przeglądarki z potokiem kompilacji dla nowego projektu.
 
-    ![Kompilacja](_img/azure-devops-project-functions/build.png)
+    ![Zrzut ekranu przedstawia pulpit nawigacyjny Azure Portal DevOps Starter ze strzałką wskazującą link w obszarze kompilacja w potoku C I/C D.](_img/azure-devops-project-functions/build.png)
 
 1. Kliknij pozycję **Edytuj**. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
 

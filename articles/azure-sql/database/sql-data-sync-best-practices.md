@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: a45fc5f4e56ff3a5d7f0be167c5d758aa0e47caf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196365"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332988"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Best practices for Azure SQL Data Sync (Najlepsze rozwiązania dotyczące korzystania z usługi Azure SQL Data Sync) 
 
@@ -29,7 +29,7 @@ Omówienie usługi SQL Data Sync zawiera temat [Sync data across multiple cloud 
 > [!IMPORTANT]
 > W tej chwili usługa Azure SQL Data Sync **nie** obsługuje wystąpienia zarządzanego usługi Azure SQL.
 
-## <a name="security-and-reliability"></a><a name="security-and-reliability"></a>Bezpieczeństwo i niezawodność
+## <a name="security-and-reliability"></a><a name="security-and-reliability"></a> Bezpieczeństwo i niezawodność
 
 ### <a name="client-agent"></a>Agent klienta
 
@@ -54,7 +54,7 @@ Azure SQL Database obsługuje tylko jeden zestaw poświadczeń. Aby wykonać te 
 
 ## <a name="setup"></a>Konfigurowanie
 
-### <a name="database-considerations-and-constraints"></a><a name="database-considerations-and-constraints"></a>Zagadnienia i ograniczenia dotyczące bazy danych
+### <a name="database-considerations-and-constraints"></a><a name="database-considerations-and-constraints"></a> Zagadnienia i ograniczenia dotyczące bazy danych
 
 #### <a name="database-size"></a>Rozmiar bazy danych
 
@@ -63,7 +63,7 @@ Podczas tworzenia nowej bazy danych ustaw maksymalny rozmiar, tak aby był zawsz
 > [!IMPORTANT]
 > SQL Data Sync przechowuje dodatkowe metadane dla każdej bazy danych. Upewnij się, że te metadane są używane podczas obliczania wymaganego miejsca. Ilość dodanego obciążenia jest powiązana z szerokością tabel (na przykład wąskich tabel wymaga większego nakładu pracy) i ilości ruchu.
 
-### <a name="table-considerations-and-constraints"></a><a name="table-considerations-and-constraints"></a>Zagadnienia i ograniczenia dotyczące tabeli
+### <a name="table-considerations-and-constraints"></a><a name="table-considerations-and-constraints"></a> Zagadnienia i ograniczenia dotyczące tabeli
 
 #### <a name="selecting-tables"></a>Wybieranie tabel
 
@@ -79,7 +79,7 @@ Przed użyciem SQL Data Sync w środowisku produkcyjnym Przetestuj początkową 
 
 Puste tabele zapewniają najlepszą wydajność w czasie inicjacji. Jeśli tabela docelowa jest pusta, synchronizacja danych używa operacji wstawiania zbiorczego w celu załadowania danych. W przeciwnym razie synchronizacja danych wykonuje porównanie wierszy po wierszu i wstawianie w celu sprawdzenia konfliktów. Jeśli jednak wydajność nie jest istotna, można skonfigurować synchronizację między tabelami, które zawierają już dane.
 
-### <a name="provisioning-destination-databases"></a><a name="provisioning-destination-databases"></a>Inicjowanie obsługi administracyjnej baz danych
+### <a name="provisioning-destination-databases"></a><a name="provisioning-destination-databases"></a> Inicjowanie obsługi administracyjnej baz danych
 
 SQL Data Sync zapewnia podstawowe Inicjowanie obsługi bazy danych.
 
@@ -103,7 +103,7 @@ SQL Data Sync ma następujące ograniczenia dotyczące autoaprowizacji:
 -   Użyj funkcji autoaprowizacji SQL Data Sync tylko podczas próby wykonania usługi.  
 -   Dla środowiska produkcyjnego Zainicjuj obsługę administracyjną schematu bazy danych.
 
-### <a name="where-to-locate-the-hub-database"></a><a name="locate-hub"></a>Gdzie można znaleźć bazę danych centrum
+### <a name="where-to-locate-the-hub-database"></a><a name="locate-hub"></a> Gdzie można znaleźć bazę danych centrum
 
 #### <a name="enterprise-to-cloud-scenario"></a>Scenariusz między przedsiębiorstwami a chmurą
 
@@ -120,7 +120,7 @@ Zastosuj powyższe wskazówki do złożonych konfiguracji grup synchronizacji, t
 
 ## <a name="sync"></a>Synchronizuj
 
-### <a name="avoid-slow-and-costly-initial-sync"></a><a name="avoid-a-slow-and-costly-initial-synchronization"></a>Unikaj powolnej i kosztownej synchronizacji początkowej
+### <a name="avoid-slow-and-costly-initial-sync"></a><a name="avoid-a-slow-and-costly-initial-synchronization"></a> Unikaj powolnej i kosztownej synchronizacji początkowej
 
 W tej sekcji omówiono początkową synchronizację grupy synchronizacji. Dowiedz się, jak zapobiegać dłuższej i bardziej kosztownej synchronizacji początkowej, niż jest to konieczne.
 
@@ -134,13 +134,13 @@ Jeśli bazy danych znajdują się w różnych centrach, każdy wiersz musi się 
 
 Jeśli to możliwe, Zacznij od danych tylko w jednej z baz danych grupy synchronizacji.
 
-### <a name="design-to-avoid-sync-loops"></a><a name="design-to-avoid-synchronization-loops"></a>Zaprojektuj, aby uniknąć pętli synchronizacji
+### <a name="design-to-avoid-sync-loops"></a><a name="design-to-avoid-synchronization-loops"></a> Zaprojektuj, aby uniknąć pętli synchronizacji
 
 Pętla synchronizacji występuje, gdy istnieją odwołania cykliczne w obrębie grupy synchronizacji. W tym scenariuszu każda zmiana w jednej bazie danych jest nieskończonie i cyklicznie replikowana przez bazy danych w grupie synchronizacji.   
 
 Upewnij się, że nie są używane pętle synchronizacji, ponieważ powodują spadek wydajności i znacząco zwiększają koszty.
 
-### <a name="changes-that-fail-to-propagate"></a><a name="handling-changes-that-fail-to-propagate"></a>Zmiany, które nie są propagowane
+### <a name="changes-that-fail-to-propagate"></a><a name="handling-changes-that-fail-to-propagate"></a> Zmiany, które nie są propagowane
 
 #### <a name="reasons-that-changes-fail-to-propagate"></a>Przyczyny niepowodzenia propagacji zmian
 
@@ -166,7 +166,7 @@ Regularnie Monitoruj grupę synchronizacji i kondycję bazy danych za pomocą po
 
 ## <a name="maintenance"></a>Konserwacja
 
-### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a>Unikaj nieaktualnych baz danych i grup synchronizacji
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> Unikaj nieaktualnych baz danych i grup synchronizacji
 
 Grupa synchronizacji lub baza danych w grupie synchronizacji mogą stać się nieaktualne. Gdy stan grupy synchronizacji jest **nieaktualny**, przestaje działać. Jeśli stan bazy **danych jest nieaktualny,** dane mogą zostać utracone. Najlepszym rozwiązaniem jest uniknięcie tego scenariusza zamiast próby odzyskania z niego.
 
@@ -191,7 +191,7 @@ Aby zapobiec nieaktualnym grupom synchronizacji:
 -   Zaktualizuj wartości klucza obcego, aby uwzględnić wartości, które są zawarte w wierszach zakończonych niepowodzeniem.
 -   Zaktualizuj wartości danych w wierszu zakończonym niepowodzeniem, aby były zgodne ze schematem lub kluczami obcym w docelowej bazie danych.
 
-### <a name="avoid-deprovisioning-issues"></a><a name="avoid-deprovisioning-issues"></a>Unikaj anulowania aprowizacji
+### <a name="avoid-deprovisioning-issues"></a><a name="avoid-deprovisioning-issues"></a> Unikaj anulowania aprowizacji
 
 W niektórych okolicznościach Wyrejestrowanie bazy danych z agentem klienta może spowodować niepowodzenie synchronizacji.
 
@@ -212,7 +212,7 @@ Aby odzyskać sprawność z tego scenariusza:
 2. Dodaj bazę danych z powrotem do każdej grupy synchronizacji, z której został usunięty.  
 3. Wdróż każdą przydaną grupę synchronizacji (Ta akcja dotyczy bazy danych).  
 
-### <a name="modifying-a-sync-group"></a><a name="modifying-your-sync-group"></a>Modyfikowanie grupy synchronizacji
+### <a name="modifying-a-sync-group"></a><a name="modifying-your-sync-group"></a> Modyfikowanie grupy synchronizacji
 
 Nie należy próbować usunąć bazy danych z grupy synchronizacji, a następnie edytować grupy synchronizacji bez wcześniejszego wdrożenia jednej ze zmian.
 
