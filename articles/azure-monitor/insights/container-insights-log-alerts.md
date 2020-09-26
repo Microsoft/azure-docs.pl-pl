@@ -3,12 +3,12 @@ title: Rejestrowanie alertów z Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób tworzenia niestandardowych alertów dziennika dla pamięci i wykorzystania procesora CPU z Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 2d86edc5994070ba909c6e3a0da2cf76e8359773
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8c02442fef9b174075065e7852b7a25233899c48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973726"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294550"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Jak utworzyć alerty dzienników z Azure Monitor dla kontenerów
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Tworzenie reguły alertu
 
-Ta sekcja zawiera szczegółowe instrukcje dotyczące tworzenia reguły alertu pomiaru metryk przy użyciu danych wydajności z Azure Monitor dla kontenerów. Możesz użyć tego podstawowego procesu z wieloma kwerendami dzienników, aby otrzymywać alerty dotyczące różnych liczników wydajności. Użyj jednej z zapytań przeszukiwania dzienników podanych wcześniej, aby zacząć od. Aby utworzyć szablon przy użyciu szablonu ARM, zobacz [Przykładowy dziennik tworzenia alertu przy użyciu szablonu zasobów platformy Azure](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
+Ta sekcja zawiera szczegółowe instrukcje dotyczące tworzenia reguły alertu pomiaru metryk przy użyciu danych wydajności z Azure Monitor dla kontenerów. Możesz użyć tego podstawowego procesu z wieloma kwerendami dzienników, aby otrzymywać alerty dotyczące różnych liczników wydajności. Użyj jednej z zapytań przeszukiwania dzienników podanych wcześniej, aby zacząć od. Aby utworzyć przy użyciu szablonu ARM, zobacz [przykłady tworzenia alertów dziennika przy użyciu szablonu zasobów platformy Azure](../platform/alerts-log-create-templates.md).
 
 >[!NOTE]
 >Poniższa procedura umożliwia utworzenie reguły alertu dotyczącego użycia zasobów kontenera. w tym celu należy przełączyć się do nowego interfejsu API alertów dziennika, zgodnie z opisem w [preferencjach przełącznika interfejsu API dla alertów dzienników](../platform/alerts-log-api-switch.md).

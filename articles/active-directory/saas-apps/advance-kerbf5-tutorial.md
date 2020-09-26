@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym za pomocą klawisza F5 | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i F5.
+description: W tym artykule przedstawiono kroki, które należy wykonać, aby zintegrować F5 z Azure Active Directory (Azure AD).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e0e727e73fa1eff21a4b2e481738be49306676a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cbcbcb6a649969c5348c3ad445ff43f10372faeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306192"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Samouczek: integracja logowania jednokrotnego (SSO) w usłudze Azure Active Directory (AD) za pomocą klawisza F5
 
@@ -39,8 +39,9 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Klawisz F5 obsługuje funkcję SSO zainicjowaną przez usługę **SP i dostawcy tożsamości**
-* F5 SSO można skonfigurować na trzy różne sposoby.
+Klawisz F5 obsługuje funkcję SSO zainicjowaną przez usługę **SP i dostawcy tożsamości** .
+
+F5 SSO można skonfigurować na trzy różne sposoby:
 
 - [Konfigurowanie logowania jednokrotnego w przypadku zaawansowanej aplikacji Kerberos](#configure-f5-single-sign-on-for-advanced-kerberos-application)
 
@@ -113,7 +114,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -167,7 +168,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Konfiguracja F5 (Advanced Kerberos)](./media/advance-kerbf5-tutorial/configure08.png)
  
-1. Kliknij pozycję **OK**.
+1. Kliknij przycisk **OK**.
 
 1. Wybierz konfigurację SP i kliknij pozycję **Powiązywanie/Usuwanie powiązania dostawcy tożsamości łączników**.
 
@@ -325,7 +326,7 @@ Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować si�
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

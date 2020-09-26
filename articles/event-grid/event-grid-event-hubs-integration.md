@@ -4,12 +4,12 @@ description: 'Samouczek: zawiera opis sposobu używania Azure Event Grid i Event
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d45fcedb570e384b851a7ac815ca175c67cc00a0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435035"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270563"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Samouczek: przesyłanie strumieniowe danych Big Data do magazynu danych
 Usługa Azure [Event Grid](overview.md) jest inteligentną usługą routingu zdarzeń, która umożliwia reagowanie na powiadomienia (zdarzenia) z aplikacji i usług. Może na przykład spowodować, że funkcja platformy Azure będzie przetwarzać dane centrum zdarzeń, które zostały przechwycone przez usługę Azure Blob Storage lub usługę Azure Data Lake Storage, a także przeprowadzać migrację danych do innych repozytoriów danych. Ten [Event Hubs i Event Grid integracji](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) pokazują, jak używać Event Hubs z Event Grid, aby bezproblemowo migrować przechwycone dane Event Hubs z magazynu obiektów BLOB do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
@@ -66,7 +66,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
 4. Jeśli w usłudze Cloud Shell zostaną wyświetlone opcje **Bash** i **PowerShell** do wyboru, wybierz pozycję **Bash**. 
 5. Jeśli używasz usługi Cloud Shell po raz pierwszy, utwórz konto magazynu, wybierając pozycję **Utwórz magazyn**. Usługa Azure Cloud Shell wymaga konta magazynu platformy Azure do przechowywania niektórych plików. 
 
-    ![Tworzenie magazynu dla usługi Cloud Shell](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "nie masz zainstalowanego magazynu" z wybranym przyciskiem Utwórz magazyn.](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
 6. Zaczekaj na zainicjowanie usługi Cloud Shell. 
 
     ![Tworzenie magazynu dla usługi Cloud Shell](media/event-grid-event-hubs-integration/cloud-shell-initialized.png)
@@ -209,7 +209,7 @@ Utwórz tabelę w swoim magazynie danych, uruchamiając skrypt [CreateDataWareho
    ![Publikowanie aplikacji funkcji](media/event-grid-event-hubs-integration/publish-function-app.png)
 4. Jeśli zostanie wyświetlony poniższy ekran, wybierz pozycję **Uruchom**. 
 
-   ![Przycisk uruchamiania publikowania](media/event-grid-event-hubs-integration/start-publish-button.png) 
+   ![Zrzut ekranu przedstawiający program Visual Studios z przyciskiem "Start" w sekcji Publikuj.](media/event-grid-event-hubs-integration/start-publish-button.png) 
 5. W oknie dialogowym **Publikowanie** wybierz pozycję **Azure** for **Target**, a następnie wybierz pozycję **dalej**. 
 
    ![Przycisk uruchamiania publikowania](media/event-grid-event-hubs-integration/publish-select-azure.png)

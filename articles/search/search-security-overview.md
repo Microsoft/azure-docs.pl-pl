@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 24e631b3ddb25cc8bed20b432ff2ba31fd331f37
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979600"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314731"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
@@ -35,6 +35,8 @@ Obejrzyj ten krótki film wideo, aby zapoznać się z omówieniem architektury z
 ## <a name="encrypted-transmissions-and-storage"></a>Zaszyfrowane transmisja i magazyn
 
 Na platformie Azure Wyszukiwanie poznawcze szyfrowanie rozpoczyna się z połączeniami i transmisjami oraz rozciąga się na zawartość przechowywaną na dysku. W przypadku usług wyszukiwania w publicznej sieci Internet usługa Azure Wyszukiwanie poznawcze nasłuchuje na porcie HTTPS 443. Wszystkie połączenia klient-usługa korzystają z szyfrowania TLS 1,2. Wcześniejsze wersje (1,0 lub 1,1) nie są obsługiwane.
+
+:::image type="content" source="media/search-security-overview/encryption-at-rest-cmk.png" alt-text="Diagram przedstawiający różne typy zabezpieczeń na każdym poziomie zaangażowania usługi":::
 
 W przypadku danych obsługiwanych wewnętrznie przez usługę wyszukiwania w poniższej tabeli opisano [modele szyfrowania danych](../security/fundamentals/encryption-models.md). Niektóre funkcje, takie jak magazyn wiedzy, wzbogacanie przyrostowe i indeksowanie oparte na indeksatorach, odczytywanie i zapisywanie struktur danych w innych usługach platformy Azure. Te usługi mają własne poziomy obsługi szyfrowania oddzielone od Wyszukiwanie poznawcze platformy Azure.
 
@@ -92,6 +94,8 @@ Dla każdego żądania wymagane jest uwierzytelnianie, gdzie każde żądanie sk
 
 Aby dodatkowo kontrolować dostęp do usługi wyszukiwania, można utworzyć reguły zapory dla ruchu przychodzącego, które zezwalają na dostęp do określonego adresu IP lub zakresu adresów IP. Wszystkie połączenia klientów muszą mieć dozwolony adres IP lub nastąpi odmowa połączenia.
 
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="Przykładowy diagram architektury dla ograniczonego dostępu do adresów IP":::
+
 Za pomocą portalu można [skonfigurować dostęp przychodzący](service-configure-firewall.md).
 
 Alternatywnie możesz użyć interfejsów API REST zarządzania. Począwszy od interfejsu API w wersji 2020-03-13, przy użyciu parametru [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) można ograniczyć dostęp do usługi, IDENTYFIKUJĄC adresy IP pojedynczo lub w zakresie, który ma udzielić dostępu do usługi wyszukiwania.
@@ -101,6 +105,8 @@ Alternatywnie możesz użyć interfejsów API REST zarządzania. Począwszy od i
 [Prywatny punkt końcowy](../private-link/private-endpoint-overview.md) dla systemu Azure wyszukiwanie poznawcze umożliwia klientowi w [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) bezpieczne uzyskiwanie dostępu do danych w indeksie wyszukiwania za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md).
 
 Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej na potrzeby połączeń z usługą wyszukiwania. Ruch sieciowy między klientem a usługą wyszukiwania odbywa się za pośrednictwem sieci wirtualnej i łączy prywatnych w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Sieć wirtualna umożliwia bezpieczną komunikację między zasobami, z siecią lokalną oraz Internetem.
+
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="Przykładowy diagram architektury dla dostępu do prywatnego punktu końcowego":::
 
 Chociaż to rozwiązanie jest najbezpieczniejsze, korzystanie z dodatkowych usług jest kosztem dodatkowym, dlatego należy upewnić się, że masz jasne zrozumienie korzyści przed nadaniem się do niego. lub więcej informacji o kosztach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/private-link/). Aby uzyskać więcej informacji o tym, jak te składniki współpracują ze sobą, Obejrzyj wideo w górnej części tego artykułu. Pokrycie opcji prywatnego punktu końcowego zaczyna się od 5:48 do wideo. Aby uzyskać instrukcje dotyczące sposobu konfigurowania punktu końcowego, zobacz [Tworzenie prywatnego punktu końcowego dla wyszukiwanie poznawcze platformy Azure](service-create-private-endpoint.md).
 

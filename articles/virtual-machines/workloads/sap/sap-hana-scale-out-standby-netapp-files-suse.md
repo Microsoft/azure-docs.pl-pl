@@ -1,6 +1,6 @@
 ---
 title: SAP HANA skalowanie w poziomie przy użyciu funkcji wstrzymywania i Azure NetApp Files na SLES | Microsoft Docs
-description: Przewodnik wysokiej dostępności dla oprogramowania SAP NetWeaver na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP
+description: Dowiedz się, jak wdrożyć system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files w SUSE Linux Enterprise Server.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: adc57b213a177e227fe446a4dd24e53dea1cd2fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21d4af6985dbe246e60fe95f8f03de7f8aa0501b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314066"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Wdróż system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na SUSE Linux Enterprise Server 
 
@@ -106,10 +106,10 @@ Woluminy usługi Azure NetApp znajdują się w osobnej podsieci [delegowanej do 
 
 W tej przykładowej konfiguracji podsieci są następujące:  
 
-  - `client`10.23.0.0/24  
-  - `storage`10.23.2.0/24  
-  - `hana`10.23.3.0/24  
-  - `anf`10.23.1.0/26  
+  - `client` 10.23.0.0/24  
+  - `storage` 10.23.2.0/24  
+  - `hana` 10.23.3.0/24  
+  - `anf` 10.23.1.0/26  
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Konfigurowanie infrastruktury Azure NetApp Files 
 
@@ -149,7 +149,7 @@ W poniższych instrukcjach przyjęto założenie, że [usługa Azure Virtual Net
    
    W tym przykładzie użyto oddzielnego woluminu Azure NetApp Files dla każdego woluminu danych i dziennika platformy HANA. Aby uzyskać bardziej zoptymalizowaną pod względem kosztów konfigurację w mniejszych lub nieproduktywnych systemach, można umieścić wszystkie instalacje danych i wszystkie dzienniki instalacji na pojedynczym woluminie.  
 
-### <a name="important-considerations"></a>Istotne zagadnienia
+### <a name="important-considerations"></a>Ważne zagadnienia
 
 Podczas tworzenia Azure NetApp Files dla oprogramowania SAP NetWeaver w architekturze wysokiej dostępności systemu SUSE należy pamiętać o następujących kwestiach:
 
@@ -236,7 +236,7 @@ W następnych instrukcjach przyjęto założenie, że utworzono już grupę zaso
 
 3. Utwórz trzy interfejsy sieciowe — jeden dla każdej maszyny wirtualnej dla `storage` podsieci sieci wirtualnej (w tym przykładzie **hanadb1-Storage**, **hanadb2-** Storage i **hanadb3-Storage**).  
 
-4. Utwórz trzy interfejsy sieciowe — jeden dla każdej maszyny wirtualnej dla `hana` podsieci sieci wirtualnej (w tym przykładzie **hanadb1-Hana**, **hanadb2-Hana**i **hanadb3-Hana**).  
+4. Utwórz trzy interfejsy sieciowe — jeden dla każdej maszyny wirtualnej dla `hana`  podsieci sieci wirtualnej (w tym przykładzie **hanadb1-Hana**, **hanadb2-Hana**i **hanadb3-Hana**).  
 
 5. Dołącz nowo utworzone interfejsy sieci wirtualnej do odpowiednich maszyn wirtualnych, wykonując następujące czynności:  
 
@@ -250,7 +250,7 @@ W następnych instrukcjach przyjęto założenie, że utworzono już grupę zaso
     
     e. Wybierz pozycję **Zapisz**. 
  
-    f. Powtórz kroki od b do e dla pozostałych maszyn wirtualnych (w naszym przykładzie **hanadb2** i **hanadb3**).
+    f. Powtórz kroki od b do e dla pozostałych maszyn wirtualnych (w naszym przykładzie  **hanadb2** i **hanadb3**).
  
     przykład Pozostaw teraz maszyny wirtualne w stanie zatrzymania. Następnie włączysz [przyspieszoną sieć](../../../virtual-network/create-vm-accelerated-networking-cli.md) dla wszystkich nowo dołączonych interfejsów sieciowych.  
 
@@ -561,7 +561,7 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
      * Aby **dodać nazwy hostów rozdzielane przecinkami**: wpisz **hanadb2, hanadb3**
      * Dla **nazwy użytkownika głównego** [root]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną
      * Dla **hasła użytkownika root**: wprowadź hasło użytkownika root
-     * W przypadku ról dla hosta hanadb2: wprowadź **1** (dla procesu roboczego)
+     * W przypadku ról dla hosta hanadb2: wprowadź **1**  (dla procesu roboczego)
      * Dla **grupy hostów trybu failover hosta** hanadb2 [domyślnie]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną
      * **Numer partycji magazynu** dla hanadb2 hosta [<<assign automatically>>]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną
      * Dla **grupy procesów roboczych** dla hosta hanadb2 [domyślnie]: naciśnij klawisz ENTER, aby zaakceptować wartość domyślną

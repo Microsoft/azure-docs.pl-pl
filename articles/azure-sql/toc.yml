@@ -1210,6 +1210,8 @@
           href: database/database-import-export-hang.md
     - name: Aktualizacje usług
       items:
+        - name: Certyfikat główny SSL wygasa
+          href: updates/ssl-root-certificate-expiring.md
         - name: Aktualizacje adresu IP bramy
           href: database/gateway-migration.md
         - name: Zdarzenia okresowej konserwacji

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9295b1d8a54d9c3c1a138a54f4b3706bd39227fd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e8a35902c198412f6e41c0cf39162836deb5e443
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280100"
 ---
 # <a name="list-blobs-with-net"></a>Wyświetlanie listy obiektów BLOB przy użyciu platformy .NET
 
@@ -59,7 +59,7 @@ W kodzie Sprawdź wartość tokenu kontynuacji, aby określić, czy ma ona warto
 
 ### <a name="filter-results-with-a-prefix"></a>Filtruj wyniki przy użyciu prefiksu
 
-Aby odfiltrować listę kontenerów, Określ ciąg dla `prefix` parametru. Ciąg prefiksu może zawierać jeden lub więcej znaków. Usługa Azure Storage zwraca tylko obiekty blob, których nazwy zaczynają się od tego prefiksu.
+Aby odfiltrować listę obiektów blob, Określ ciąg dla `prefix` parametru. Ciąg prefiksu może zawierać jeden lub więcej znaków. Usługa Azure Storage zwraca tylko obiekty blob, których nazwy zaczynają się od tego prefiksu.
 
 ### <a name="return-metadata"></a>Metadane zwrotne
 
@@ -244,7 +244,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Wyświetl listę obiektów BLOB](/rest/api/storageservices/list-blobs)
 - [Wyliczanie zasobów obiektów BLOB](/rest/api/storageservices/enumerating-blob-resources)

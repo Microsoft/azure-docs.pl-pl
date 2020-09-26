@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 6c3ad5fff6958bce72f876e3ff4701cf081abe60
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c8251eb2a89a7481ebc981f2b89668c363651b39
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940483"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315018"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-mysql--flexible-server"></a>Zarządzanie ustawieniami zaplanowanej konserwacji dla Azure Database for MySQL — elastyczny serwer
  
@@ -31,9 +31,9 @@ Aby ukończyć ten przewodnik, musisz:
  
 ## <a name="notifications-about-scheduled-maintenance-events"></a>Powiadomienia o zdarzeniach zaplanowanej konserwacji
  
-Za pomocą Azure Service Health można [wyświetlać powiadomienia](/azure/service-health/service-notifications.md) o nadchodzącej i zaplanowanej konserwacji na serwerze elastycznym. Możesz również [skonfigurować](/azure/service-health/resource-health-alert-monitor-guide.md) alerty w Azure Service Health, aby otrzymywać powiadomienia o zdarzeniach konserwacji.
+Za pomocą Azure Service Health można [wyświetlać powiadomienia](../../service-health/service-notifications.md) o nadchodzącej i zaplanowanej konserwacji na serwerze elastycznym. Możesz również [skonfigurować](../../service-health/resource-health-alert-monitor-guide.md) alerty w Azure Service Health, aby otrzymywać powiadomienia o zdarzeniach konserwacji.
  
 ## <a name="next-steps"></a>Następne kroki  
  
 * Informacje o [zaplanowanej konserwacji w Azure Database for MySQL — elastyczny serwer](concepts-maintenance.md)
-* Pochylenie o [Azure Service Health](/azure/service-health/overview.md)
+* Pochylenie o [Azure Service Health](../../service-health/overview.md)

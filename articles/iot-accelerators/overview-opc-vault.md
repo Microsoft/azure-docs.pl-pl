@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 66a322d4f60d9553a68207136ae609c1f9b50dbc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 715ed204e28d6260c28fa099b40fc78aa12de44d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73826214"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281545"
 ---
 # <a name="what-is-opc-vault"></a>Co to jest magazyn OPC?
+
+> [!IMPORTANT]
+> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
 
 Magazyn OPC to mikrousługa, która pozwala konfigurować, rejestrować i zarządzać cyklem życia certyfikatu dla serwera OPC UA i aplikacji klienckich w chmurze. W tym artykule opisano proste przypadki użycia magazynu OPC.
 
@@ -35,5 +38,4 @@ Na poniższym diagramie przedstawiono kompletną architekturę magazynu OPC.
 
 Teraz, kiedy znasz już magazyn OPC i jego zastosowania, Oto sugerowany następny krok:
 
-> [!div class="nextstepaction"]
-> [Architektura magazynu OPC](overview-opc-vault-architecture.md)
+[Architektura magazynu OPC](overview-opc-vault-architecture.md)

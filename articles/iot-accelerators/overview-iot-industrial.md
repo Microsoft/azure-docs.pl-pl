@@ -8,14 +8,17 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3c474b57533cb6165ce7fe77defccd4cb7042b06
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3df10c9d7630e9db76994e8e508f30adb986e0d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82189926"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281817"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>Co to jest przemysł IoT (IIoT)
+
+> [!IMPORTANT]
+> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
 
 IIoT jest przemysłem Internet rzeczyowym. IIoT zwiększa efektywność przemysłową dzięki zastosowaniu IoT w branży produkcyjnej. 
 
@@ -49,5 +52,4 @@ Magazyn OPC to implementacja serwera wykrywania globalnego OPC UA (GDS), który 
 
 Teraz, gdy już masz wprowadzenie do przemysłu IoT i jego składników, Oto sugerowany następny krok:
 
-> [!div class="nextstepaction"]
-> [Co to jest bliźniacza reprezentacja OPC](overview-opc-twin.md)
+[Co to jest bliźniacza reprezentacja OPC](overview-opc-twin.md)

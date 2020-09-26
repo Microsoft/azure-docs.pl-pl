@@ -10,13 +10,13 @@ ms.custom: troubleshooting
 ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 07/16/2020
-ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 7866f2dcaebe396759eb7f6315c457bfce307723
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889997"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315579"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Debugowanie i rozwiązywanie problemów z elementem ParallelRunStep
 
@@ -35,13 +35,17 @@ Na przykład plik dziennika `70_driver_log.txt` zawiera informacje z kontrolera,
 
 Ze względu na dystrybuowany charakter zadań ParallelRunStep istnieją dzienniki z kilku różnych źródeł. Jednak tworzone są dwa skonsolidowane pliki, które udostępniają informacje wysokiego poziomu:
 
-- `~/logs/overview.txt`: Ten plik zawiera ogólne informacje o liczbie pośrednich partii (nazywanych również zadaniami) utworzonych do tej pory oraz liczbę partii, które zostały przetworzone do tej pory. Na tym końcu zostanie wyświetlony wynik zadania. Jeśli zadanie nie powiodło się, zostanie wyświetlony komunikat o błędzie i miejsce, w którym należy rozpocząć rozwiązywanie problemów.
+- `~/logs/job_progress_overview.txt`: Ten plik zawiera ogólne informacje o liczbie pośrednich partii (nazywanych również zadaniami) utworzonych do tej pory oraz liczbę partii, które zostały przetworzone do tej pory. Na tym końcu zostanie wyświetlony wynik zadania. Jeśli zadanie nie powiodło się, zostanie wyświetlony komunikat o błędzie i miejsce, w którym należy rozpocząć rozwiązywanie problemów.
 
-- `~/logs/sys/master.txt`: Ten plik udostępnia węzeł główny (znany również jako koordynator) w uruchomionym zadaniu. Obejmuje tworzenie zadań, monitorowanie postępu, wynik uruchomienia.
+- `~/logs/sys/master_role.txt`: Ten plik udostępnia węzeł główny (znany również jako koordynator) w uruchomionym zadaniu. Obejmuje tworzenie zadań, monitorowanie postępu, wynik uruchomienia.
 
 Dzienniki wygenerowane ze skryptu wprowadzania przy użyciu pomocnika EntryScript i instrukcje Print są dostępne w następujących plikach:
 
-- `~/logs/user/<ip_address>/<node_name>.log.txt`: Te pliki są dziennikami zapisanymi na podstawie entry_script przy użyciu pomocnika EntryScript. Zawiera również instrukcję Print Statement (stdout) z entry_script.
+- `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: Te pliki są dziennikami zapisanymi na podstawie entry_script przy użyciu pomocnika EntryScript.
+
+- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: Te pliki są dziennikami z strumienia stdout (np. Print statement) entry_script.
+
+- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`: Te pliki są dziennikami z stderr dla entry_script.
 
 Zwięzłe zrozumienie błędów w skrypcie:
 
@@ -49,17 +53,17 @@ Zwięzłe zrozumienie błędów w skrypcie:
 
 Aby uzyskać więcej informacji o błędach w skrypcie, istnieje:
 
-- `~/logs/user/error/`: Zawiera wszystkie zgłoszone błędy i pełne ślady stosu uporządkowane według węzła.
+- `~/logs/user/error/`: Zawiera pełne ślady stosu dla wyjątków zgłoszonych podczas ładowania i uruchamiania skryptu wprowadzania.
 
 Jeśli potrzebujesz pełnego zrozumieć, jak każdy węzeł wykonał skrypt wynikowy, sprawdź poszczególne dzienniki procesów dla każdego węzła. Dzienniki procesów można znaleźć w `sys/node` folderze pogrupowanym według węzłów procesu roboczego:
 
-- `~/logs/sys/node/<node_name>.txt`: Ten plik zawiera szczegółowe informacje o każdej z grup minimalnej, które są pobierane lub wykonywane przez proces roboczy. Dla każdej grupy mini-Batch ten plik zawiera:
+- `~/logs/sys/node/<ip_address>/<process_name>.txt`: Ten plik zawiera szczegółowe informacje o każdej z grup minimalnej, które są pobierane lub wykonywane przez proces roboczy. Dla każdej grupy mini-Batch ten plik zawiera:
 
     - Adres IP i Identyfikator PID procesu roboczego. 
     - Całkowita liczba elementów, liczba pomyślnie przetworzonych elementów i liczba elementów zakończonych niepowodzeniem.
     - Czas rozpoczęcia, czas trwania, czas procesu i Metoda uruchomienia.
 
-Możesz również znaleźć informacje o użyciu zasobów procesów dla każdego pracownika. Te informacje są w formacie CSV i znajdują się w lokalizacji `~/logs/sys/perf/overview.csv` . Informacje o każdym procesie są dostępne w sekcji `~logs/sys/processes.csv` .
+Możesz również znaleźć informacje o użyciu zasobów procesów dla każdego pracownika. Te informacje są w formacie CSV i znajdują się w lokalizacji `~/logs/sys/perf/<ip_address>/node_resource_usage.csv` . Informacje o każdym procesie są dostępne w sekcji `~logs/sys/perf/<ip_address>/processes_resource_usage.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Jak mogę dziennika ze skryptu użytkownika ze zdalnego kontekstu?
 ParallelRunStep może uruchamiać wiele procesów na jednym węźle na podstawie process_count_per_node. Aby zorganizować dzienniki z każdego procesu w węźle i połączyć je z instrukcją Print i log, zalecamy użycie rejestratora ParallelRunStep, jak pokazano poniżej. Uzyskasz Rejestrator z usługi EntryScript i Wyrejestruj dzienniki w folderze **Logs/User** w portalu.
@@ -112,6 +116,28 @@ parser.add_argument('--labels_dir', dest="labels_dir", required=True)
 args, _ = parser.parse_known_args()
 
 labels_path = args.labels_dir
+```
+
+### <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>Jak używać wejściowych zestawów danych z uwierzytelnianiem jednostki usługi?
+
+Użytkownik może przekazać wejściowe zestawy danych z uwierzytelnianiem jednostki usługi używanym w obszarze roboczym. Użycie takiego zestawu danych w ParallelRunStep wymaga zarejestrowania zestawu danych w celu skonstruowania konfiguracji ParallelRunStep.
+
+```python
+service_principal = ServicePrincipalAuthentication(
+    tenant_id="***",
+    service_principal_id="***",
+    service_principal_password="***")
+ 
+ws = Workspace(
+    subscription_id="***",
+    resource_group="***",
+    workspace_name="***",
+    auth=service_principal
+    )
+ 
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
+ds = Dataset.File.from_files(default_blob_store, '**path***')
+registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>Następne kroki
