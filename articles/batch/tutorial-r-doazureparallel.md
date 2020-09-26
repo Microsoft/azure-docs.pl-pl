@@ -5,12 +5,12 @@ ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.custom: mvc
-ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 2c988075031be326f01e02bceff1c948295d5845
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84418181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292867"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Samouczek: równoległe uruchamianie symulacji języka R w usłudze Azure Batch 
 
@@ -193,7 +193,7 @@ hist(closingPrices_s)
 
 Dane wyjściowe będą podobne do następujących:
 
-![Rozkład cen zamknięcia](media/tutorial-r-doazureparallel/closing-prices-local.png)
+![Zrzut ekranu przedstawia histogram cen zamknięcia](media/tutorial-r-doazureparallel/closing-prices-local.png)
   
 Lokalna symulacja zostanie wykonana w maksymalnie kilka sekund:
 
@@ -242,7 +242,7 @@ difftime(end_p, start_p, unit = "min")
 
 Uruchomienie symulacji w puli usługi Batch powinno spowodować zauważalne zwiększenie wydajności i skrócenie czasu w porównaniu z lokalnym wykonywaniem symulacji. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Zadanie zostanie automatycznie usunięte po zakończeniu. Jeśli klaster nie będzie już potrzebny, wywołaj funkcję `stopCluster` w pakiecie doAzureParallel, aby go usunąć:
 

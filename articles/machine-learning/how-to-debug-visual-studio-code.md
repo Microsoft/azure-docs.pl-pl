@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 3c2934c92be668d4b4c05f97a98395e2e219b7dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a16a8432f61e39a3e36aeb748cabfa2c4b60d796
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315358"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Interaktywny debugowanie za pomocą Visual Studio Code
 
@@ -281,7 +281,7 @@ Zapisz `ip_address` wartość. Jest on używany w następnej sekcji.
 W niektórych przypadkach może być konieczne interaktywne Debugowanie kodu w języku Python zawartego we wdrożeniu modelu. Na przykład, jeśli skrypt wejścia kończy się niepowodzeniem i powód nie może być określony przez dodatkowe rejestrowanie. Za pomocą VS Code i debugpy można dołączyć do kodu działającego wewnątrz kontenera Docker.
 
 > [!IMPORTANT]
-> Ta metoda debugowania nie działa w przypadku `Model.deploy()` `LocalWebservice.deploy_configuration` lokalnego wdrażania modelu i. Zamiast tego należy utworzyć obraz przy użyciu metody [model. Package ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) .
+> Ta metoda debugowania nie działa w przypadku `Model.deploy()` `LocalWebservice.deploy_configuration` lokalnego wdrażania modelu i. Zamiast tego należy utworzyć obraz przy użyciu metody [model. Package ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) .
 
 Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker w systemie lokalnym. Aby uzyskać więcej informacji na temat korzystania z platformy Docker, zapoznaj się z [dokumentacją platformy Docker](https://docs.docker.com/). Należy pamiętać, że podczas pracy z wystąpieniami obliczeniowymi program Docker jest już zainstalowany.
 
@@ -416,7 +416,7 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
 
 W tym momencie VS Code nawiązuje połączenie z usługą debugpy wewnątrz kontenera Docker i zostanie zatrzymane na ustawionym wcześniej punkcie przerwania. Teraz można przechodzić przez kod w trakcie jego uruchamiania, wyświetlać zmienne itp.
 
-Aby uzyskać więcej informacji na temat używania VS Code do debugowania języka Python, zobacz [Debugowanie kodu](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019)w języku Python.
+Aby uzyskać więcej informacji na temat używania VS Code do debugowania języka Python, zobacz [Debugowanie kodu](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019&preserve-view=true)w języku Python.
 
 ### <a name="stop-the-container"></a>Zatrzymywanie kontenera
 

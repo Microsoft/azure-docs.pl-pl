@@ -8,13 +8,13 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 47e175a47d3548962f63e283c80abe8333e9ecc4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 1ceac6edf6cadd380d6eeec545a85c4822748d3a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421624"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316124"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Wdróż Node.js aplikacje obsługiwane przez Azure Cosmos DB z DevOps Starter
 
@@ -101,7 +101,7 @@ DevOps Starter automatycznie konfiguruje potok ciągłej integracji/ciągłego w
 
     ![Okienko kompilacji](_img/azure-devops-project-cosmos-db/build.png)
 
-1. Wybierz pozycję **Edytuj**. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
+1. Kliknij pozycję **Edytuj**. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. Kompilacja wykonuje różne zadania, takie jak pobieranie kodu źródłowego z repozytorium git, tworzenie aplikacji, uruchamianie testów jednostkowych i publikowanie danych wyjściowych, które są używane do wdrożeń.
 
 1. Wybierz pozycję **Wyzwalacze**. DevOps Starter automatycznie tworzy wyzwalacz CI i każde zatwierdzenie repozytorium uruchamia nową kompilację. Możesz dołączać lub wykluczać gałęzie z procesu CI elementu konfiguracji.
 
@@ -119,7 +119,7 @@ DevOps Starter automatycznie tworzy i konfiguruje kroki niezbędne do wdrożenia
 
 1. Przejdź do pozycji **potoki** i wybierz pozycję **wersje**.
 
-1. Wybierz pozycję **Edytuj**.
+1. Kliknij pozycję **Edytuj**.
 
 1. W obszarze **Artefakty** wybierz polecenie **Porzuć**. Potok kompilacji przedstawiony w poprzednich krokach generuje dane wyjściowe używane na potrzeby artefaktu.
 
@@ -150,7 +150,7 @@ Teraz możesz przystąpić do współpracy z zespołem w aplikacji przy użyciu 
 
      Po kilku sekundach kompilacja rozpocznie się w usłudze Azure DevOps i zostanie wykonana wersja w celu wdrożenia zmian. Monitoruj stan kompilacji na pulpicie nawigacyjnym DevOps Starter lub w przeglądarce za pomocą swojej organizacji usługi Azure DevOps.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń powiązane zasoby, które zostały utworzone, gdy nie są już potrzebne. Użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
 
@@ -165,7 +165,7 @@ Możesz zmodyfikować potoki kompilacji i wydania, aby dopasować je do potrzeb 
 > * Badanie potoku ciągłej integracji
 > * Badanie potoku ciągłego wdrażania
 > * Zatwierdzanie zmian w usłudze Git i automatyczne wdrażanie ich na platformie Azure
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Aby uzyskać więcej informacji, zobacz sekcję [Definiowanie potoku ciągłego wdrażania wieloetapowego (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) i następnych kroków.
 

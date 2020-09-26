@@ -1,22 +1,22 @@
 ---
 title: Wybieranie kolumn dystrybucji — skalowanie (Citus) — Azure Database for PostgreSQL
-description: Dowiedz się, jak wybierać kolumny dystrybucji w typowych scenariuszach w ramach skalowania w Azure Database for PostgreSQL.
+description: Dowiedz się, jak wybierać kolumny dystrybucji w typowych scenariuszach w Azure Database for PostgreSQL-Citus.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975673"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314916"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Wybieranie kolumn dystrybucji w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
 
-Wybranie kolumny dystrybucji każdej tabeli jest jednym z najważniejszych decyzji dotyczących modelowania. Azure Database for PostgreSQL — funkcja Citus) przechowuje wiersze w fragmentów na podstawie wartości kolumny dystrybucji wierszy.
+Wybór kolumny dystrybucji w poszczególnych tabelach jest jedną z najważniejszych decyzji, jakie podejmujesz podczas modelowania. Azure Database for PostgreSQL — funkcja Citus) przechowuje wiersze w fragmentów na podstawie wartości kolumny dystrybucji wierszy.
 
 Poprawne grupy wyboru są powiązane z danymi w tych samych węzłach fizycznych, co sprawia, że zapytania są szybko dodawane i obsługują wszystkie funkcje SQL. Niepoprawny wybór sprawia, że system działa wolno i nie obsługuje wszystkich funkcji SQL w różnych węzłach.
 

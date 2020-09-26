@@ -14,14 +14,14 @@ ms.custom:
 - seo-javascript-october2019
 - mqtt
 - 'Role: Cloud Development'
-- devx-track-javascript
+- devx-track-js
 ms.date: 06/21/2019
-ms.openlocfilehash: 5f3064b9be35d9b9d02be3e18469ed12b33757a6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 13baface2bce9e98f08e37b8a16ba1e2b435205a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421556"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281580"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Szybki Start: używanie Node.js do sterowania urządzeniem podłączonym do usługi Azure IoT Hub
 
@@ -57,7 +57,7 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 Jeśli ukończono poprzedni przewodnik [Szybki start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT](quickstart-send-telemetry-node.md), możesz pominąć ten krok.
 
@@ -159,7 +159,7 @@ Aplikacja zaplecza łączy się z punktem końcowym po stronie usługi w usłudz
 
     ![Dane wyjściowe w przypadku zmiany w symulowanym kliencie](./media/quickstart-control-device-node/simulated-device-message-change.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

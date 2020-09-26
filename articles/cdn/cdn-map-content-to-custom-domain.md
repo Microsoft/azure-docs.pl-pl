@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4ca601a3f149d8287137265665379d407d10b988
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 08bbe1000d457cc4f4d6b655051ec640d4dcecf4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192696"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362099"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Samouczek: dodawanie domeny niestandardowej do punktu końcowego usługi Azure CDN
 W tym samouczku przedstawiono sposób dodawania domeny niestandardowej do punktu końcowego usługi Azure Content Delivery Network (CDN). W przypadku dostarczania zawartości przy użyciu punktu końcowego usługi CDN domena niestandardowa jest niezbędna, jeśli chcesz, aby nazwa Twojej domeny była widoczna w adresie URL usługi CDN. Widoczna nazwa domeny może być wygodna dla klientów i przydatna dla celów związanych ze znakowaniem. 
@@ -66,7 +66,7 @@ Aby utworzyć rekord CNAME z poziomu poddomeny cdnverify:
 
 3. Utwórz wpis rekordu CNAME dla domeny niestandardowej, a następnie wypełnij pola, tak jak pokazano w poniższej tabeli (nazwy pól mogą być inne):
 
-    | Źródło                    | Typ  | Element docelowy                     |
+    | Element źródłowy                    | Typ  | Element docelowy                     |
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
@@ -90,7 +90,7 @@ Na przykład procedura rejestratora domen GoDaddy wygląda następująco:
 
 5. Wypełnij następujące pola wpisu CNAME:
 
-    ![Wpis CNAME](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
+    ![Zrzut ekranu przedstawia wpis nazwy C z typem, hostem, punktami do i T T L wartości dla tymczasowej domeny podrzędnej cdnverify.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
     - Typ: pozostaw wybraną pozycję *CNAME*.
 
@@ -104,7 +104,7 @@ Na przykład procedura rejestratora domen GoDaddy wygląda następująco:
  
     Wpis CNAME jest dodawany do tabeli rekordów DNS.
 
-    ![Tabela rekordów DNS](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
+    ![Zrzut ekranu pokazuje, że wpis nazwy języka C został dodany do tabeli rekordów w sieci D dla tymczasowej domeny podrzędnej cdnverify.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
 
 
 ## <a name="associate-the-custom-domain-with-your-cdn-endpoint"></a>Tworzenie skojarzenia domeny niestandardowej z punktem końcowym usługi CDN
@@ -160,7 +160,7 @@ Aby utworzyć rekord CNAME dla domeny niestandardowej:
 
 3. Utwórz wpis rekordu CNAME dla domeny niestandardowej, a następnie wypełnij pola, tak jak pokazano w poniższej tabeli (nazwy pól mogą być inne):
 
-    | Źródło          | Typ  | Element docelowy           |
+    | Element źródłowy          | Typ  | Element docelowy           |
     |-----------------|-------|-----------------------|
     | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
@@ -188,7 +188,7 @@ Na przykład procedura rejestratora domen GoDaddy wygląda następująco:
 
 5. Wypełnij pola wpisu CNAME:
 
-    ![Wpis CNAME](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
+    ![Zrzut ekranu przedstawia wpis nazwy C z typem, hostem, punktami do i T T L wartości dla stałej domeny niestandardowej.](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
     - Typ: pozostaw wybraną pozycję *CNAME*.
 
@@ -202,7 +202,7 @@ Na przykład procedura rejestratora domen GoDaddy wygląda następująco:
  
     Wpis CNAME jest dodawany do tabeli rekordów DNS.
 
-    ![Tabela rekordów DNS](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
+    ![Zrzut ekranu pokazuje, że wpis nazwy języka C został dodany do tabeli rekordów w D/S dla stałej domeny niestandardowej.](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
 
 7. Jeśli masz rekord CNAME cdnverify, wybierz ikonę ołówka obok niej, a następnie wybierz ikonę kosza.
 

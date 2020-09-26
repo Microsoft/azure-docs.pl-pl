@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8cab2e3490703cbf955ed1ed5c6e753a3ccfc753
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78252744"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361436"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Samouczek: tworzenie pakietów kontenerów i wdrażanie ich jako aplikacji usługi Service Fabric za pomocą usługi Yeoman
 
@@ -278,7 +278,7 @@ Otwórz przeglądarkę i przejdź do Service Fabric Explorer przy użyciu protok
 
 Aby połączyć się z uruchomioną aplikacją, Otwórz przeglądarkę internetową i przejdź do adresu URL klastra — na przykład http: \/ /containertestcluster.eastus.cloudapp.Azure.com:80. W przeglądarce powinien zostać wyświetlony internetowy interfejs użytkownika.
 
-![votingapp][votingapp]
+![Zrzut ekranu przedstawia aplikację do głosowania na platformie Azure z przyciskami dla kotów, psów i resetowania oraz sum.][votingapp]
 
 ## <a name="clean-up"></a>Czyszczenie
 

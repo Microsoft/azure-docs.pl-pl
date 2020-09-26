@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7efe58081604708ff090d28f7274c738406c5007
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 665e4870619751bbda062473d0c2549b26352d94
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255926"
+ms.locfileid: "91361606"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie konsoli infrastruktury w chmurze firmy Oracle do automatycznego aprowizacji użytkowników
 
@@ -108,7 +108,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** w formacie `https://<IdP ID>.identity.oraclecloud.com/admin/v1` . Na przykład: `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Wprowadź wcześniej pobraną wartość tokenu tajnego w polu **token tajny**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z konsolą infrastruktury firmy Oracle. Jeśli połączenie nie powiedzie się, upewnij się, że konto konsoli infrastruktury w chmurze firmy Oracle ma uprawnienia administratora, a następnie spróbuj ponownie.
 
-    ![aprowizacji](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawia okno dialogowe poświadczenia administratora, w którym można wprowadzić dzierżawę U R L i wpis tajny.](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
 
 6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 

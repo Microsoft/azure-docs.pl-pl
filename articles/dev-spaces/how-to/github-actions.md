@@ -6,13 +6,13 @@ ms.topic: conceptual
 description: Przejrzyj i przetestuj zmiany z żądania ściągnięcia bezpośrednio w usłudze Azure Kubernetes za pomocą akcji usługi GitHub i Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery, akcje GitHub, Helm, Siatka usług, routing w sieci usług, polecenia kubectl, k8s
 manager: gwallace
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5e3417f16791b71d53a0eec9263532219c779440
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: devx-track-js
+ms.openlocfilehash: 25cb0de10e83069514c7918a5a2cdac019fe1ebb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316107"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Akcje GitHub & usługi Azure Kubernetes (wersja zapoznawcza)
 
@@ -149,7 +149,7 @@ git push origin bike-images
 
 Po zakończeniu wypychania przejdź do repozytorium z rozwidleniem w witrynie GitHub, aby utworzyć żądanie ściągnięcia z gałęzią *główną* w repozytorium rozwidlenia jako gałąź bazową w porównaniu z gałęzią *rower-images* .
 
-Gdy żądanie ściągnięcia zostanie otwarte, przejdź do karty *Akcje* . Sprawdź, czy nowa akcja została uruchomiona i kompiluje usługę *Bikes* .
+Po otwarciu żądania ściągnięcia przejdź do karty *Akcje* . Sprawdź, czy nowa akcja została uruchomiona i kompiluje usługę *Bikes* .
 
 ## <a name="view-the-child-space-with-your-changes"></a>Wyświetl obszar podrzędny ze zmianami
 

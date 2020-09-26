@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: bc503213169f909850460edf5e50ed3f1b34fbe2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 52964c906df7a96685c8eb80c1d23ef9a9efc6e1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288600"
+ms.locfileid: "91361844"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Korzystanie z uwierzytelniania wieloskładnikowego usługi AAD za pomocą Synapse SQL (Obsługa programu SSMS dla usługi MFA)
 
@@ -26,7 +26,7 @@ W tym artykule omówiono różnice między różnymi opcjami uwierzytelniania, a
 
 Aby zapoznać się ze wszystkimi funkcjami omówionymi w tym artykule, należy użyć co najmniej 2017 lipca w wersji 17,2.  Ostatnie połączenie okno dialogowe powinno wyglądać podobnie do poniższej ilustracji:
 
-![1mfa — połączenie uniwersalne](./media/mfa-authentication/1mfa-universal-connect.png "Kończy działanie pola Nazwa użytkownika.")  
+![Zrzut ekranu przedstawia okno dialogowe łączenie z serwerem, w którym można wybrać nazwę serwera i opcję uwierzytelniania.](./media/mfa-authentication/1mfa-universal-connect.png "Kończy działanie pola Nazwa użytkownika.")  
 
 ## <a name="the-five-authentication-options"></a>Pięć opcji uwierzytelniania  
 
@@ -63,7 +63,7 @@ Aby wprowadzić parametr (począwszy od programu SSMS w wersji 17,2), w oknie di
 
 Sprawdź **nazwę domeny usługi AD lub pole Identyfikator dzierżawy** , a następnie podaj urząd uwierzytelniający, taki jak nazwa domeny (**contosotest.onmicrosoft.com**) lub identyfikator GUID identyfikatora dzierżawy.  
 
-   ![MFA — dzierżawca — SSMS](./media/mfa-authentication/mfa-tenant-ssms.png)
+   ![Zrzut ekranu przedstawia pozycję Połącz z serwerem na karcie Właściwości połączenia z wprowadzonymi wartościami.](./media/mfa-authentication/mfa-tenant-ssms.png)
 
 W przypadku korzystania z programu SSMS 18. x lub nowszego, nazwa domeny usługi AD lub identyfikator dzierżawy nie są już potrzebne dla użytkowników-Gości, ponieważ program automatycznie rozpoznaje ją.
 

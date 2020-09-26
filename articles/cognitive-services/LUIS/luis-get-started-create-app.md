@@ -1,14 +1,16 @@
 ---
 title: 'Szybki Start: Tworzenie aplikacji — LUIS'
 description: W tym przewodniku szybki start pokazano, jak utworzyć aplikację LUIS, która używa wbudowanej domeny `HomeAutomation` do włączania i wyłączania świateł i urządzeń. Ta wstępnie utworzona domena zapewnia intencje, jednostki i przykładowe wypowiedzi. Po zakończeniu samouczka punkt końcowy usługi LUIS będzie działał w chmurze.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/05/2020
-ms.openlocfilehash: cefa9d5995f876ef3f07cc32324e747125e9cbf7
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 28bf79b61c0278a3f45820a23cd2c69f0b609700
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701290"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316493"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Szybki start: używanie wstępnie utworzonej aplikacji Home Automation
 
@@ -27,7 +29,7 @@ Tworzenie aplikacji i zarządzanie nimi jest możliwe w obszarze **My Apps** (Mo
 1. Wybierz **angielską** jako kulturę.
 1. Wprowadź opcjonalny opis.
 1. Nie wybieraj zasobu predykcyjnego, jeśli zasób nie został jeszcze utworzony. Aby użyć punktu końcowego przewidywania aplikacji (przemieszczanie lub produkcja), należy przypisać zasób predykcyjny.
-1. Wybierz pozycję **Done** (Gotowe).
+1. Wybierz pozycję **Gotowe**.
 
     LUIS tworzy aplikację.
 

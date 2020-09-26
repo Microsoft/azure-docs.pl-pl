@@ -9,16 +9,16 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: dfc959984147d89ca5bfe68ed103a89b22f75501
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0064509c1158d8b016413046cb528bfd125b5f2f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347189"
+ms.locfileid: "91362320"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Ponowne uczenie i wdrażanie klasycznej usługi sieci Web (klasycznej)
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Zielony znacznik wyboru. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ X wskazujący nie.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Przeszkolenie modeli uczenia maszynowego jest jednym ze sposobów upewnienia się, że są one dokładne i oparte na najbardziej przydatnych dostępnych danych. W tym artykule przedstawiono sposób ponownego uczenia klasycznej usługi sieci Web (klasycznej). Aby zapoznać się z przewodnikiem dotyczącym ponownego uczenia nowej usługi sieci Web programu Studio (klasycznej), [Zobacz ten artykuł.](retrain-machine-learning-model.md)

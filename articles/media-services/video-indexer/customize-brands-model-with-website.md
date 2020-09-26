@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: kumud
-ms.openlocfilehash: c3223bed6c8335a31b1bfb918e6d44e3b54a7787
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5bd88493324867dc957922a732506f5cfb8bbc20
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047263"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361238"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Dostosowywanie modelu marek przy użyciu witryny sieci Web Video Indexer
 
@@ -42,7 +42,7 @@ Możesz określić, czy chcesz wykryć marki z bazy danych marek Bing. Aby ustaw
 
 3. Aby edytować marki, wybierz kartę **marki** .
 
-    ![Dostosuj model marek w Video Indexer](./media/customize-brand-model/customize-brand-model.png)
+    ![Zrzut ekranu przedstawia kartę marki okna dialogowego Dostosowywanie modelu zawartości.](./media/customize-brand-model/customize-brand-model.png)
 
 4. Zaznacz opcję **Pokaż marki sugerowane przez Bing** , jeśli chcesz, aby Video Indexer wykrywać marki sugerowane przez usługę Bing, pozostawiając opcję niezaznaczone, jeśli nie.
 
@@ -54,7 +54,7 @@ Sekcja **include marek** reprezentuje znaki niestandardowe, które mają być wy
 
 1. Wybierz pozycję **+ Dodaj markę**.
 
-    ![Dostosuj model marek w Video Indexer](./media/customize-brand-model/add-brand.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Dołączanie marek, w którym można dodawać marki.](./media/customize-brand-model/add-brand.png)
 
     Podaj nazwę (wymagane), kategorię (opcjonalnie), opis (opcjonalnie) i adres URL odwołania (opcjonalnie).
     Pole kategoria ma pomóc w oznaczeniu marki. To pole jest wyświetlane jako *Tagi* marki przy użyciu interfejsów API Video Indexer. Na przykład znak "Azure" może być oznaczony jako "Chmura" lub skategoryzowany.

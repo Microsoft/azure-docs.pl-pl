@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d2e7be89b3319445a69d5b91990e9888cccd484a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b0bff0c6b3ef7934188b548bd06c35d83b323fde
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268625"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359600"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Jak kodować element zawartości przy użyciu Media Encoder Standard
 
@@ -101,7 +101,7 @@ Poniższy przykład pokazuje, jak ustawić atrybut assetname:
 { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}`
 ```
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 * Właściwości TaskBody — muszą używać literału XML do definiowania liczby zasobów wejściowych lub wyjściowych, które są używane przez zadanie. Artykuł zadania zawiera definicję schematu XML dla kodu XML.
 * W definicji TaskBody — każda wartość wewnętrzna dla `<inputAsset>` i `<outputAsset>` musi być ustawiona jako JobInputAsset (wartość) lub JobOutputAsset (wartość).
 * Zadanie może mieć wiele elementów zawartości wyjściowej. Jeden JobOutputAsset (x) może być używany tylko raz jako dane wyjściowe zadania w zadaniu.
@@ -289,7 +289,7 @@ HTTP/1.1 201 Created
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki

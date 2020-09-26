@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d692a884688d81fdf16261edff816fa8f0215877
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 81660bee32cace458424c9975c74ca7980148e29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316192"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Znajdź koszt jednostkowy żądania w Azure Cosmos DB
 
@@ -119,7 +119,7 @@ Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie aplikacji Java 
 
 ### <a name="use-the-nodejs-sdk"></a>Korzystanie z zestawu SDK Node.js
 
-Obiekty, które są zwracane z [zestawuNode.js SDK](https://www.npmjs.com/package/@azure/cosmos) uwidaczniają `headers` podobiekt, który mapuje wszystkie nagłówki zwracane przez podstawowy interfejs API protokołu HTTP. Opłata za żądanie jest dostępna pod `x-ms-request-charge` kluczem:
+Obiekty, które są zwracane z [ zestawuNode.js SDK](https://www.npmjs.com/package/@azure/cosmos) uwidaczniają `headers` podobiekt, który mapuje wszystkie nagłówki zwracane przez podstawowy interfejs API protokołu HTTP. Opłata za żądanie jest dostępna pod `x-ms-request-charge` kluczem:
 
 ```javascript
 const item = await client

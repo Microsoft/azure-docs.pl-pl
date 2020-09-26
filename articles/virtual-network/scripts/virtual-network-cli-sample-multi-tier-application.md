@@ -1,6 +1,6 @@
 ---
 title: Tworzenie sieci wirtualnej dla aplikacji wielowarstwowych — przykład skryptu interfejsu wiersza polecenia platformy Azure
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — tworzenie sieci wirtualnej dla aplikacji wielowarstwowych.
+description: Tworzenie sieci wirtualnej dla aplikacji wielowarstwowych — przykład skryptu interfejsu wiersza polecenia platformy Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 44b60d7b3a303e833d6915591cc1475751582e97
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 54ad2327af40041c7bde07095e7f5d8ed1375015
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87492568"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313930"
 ---
 # <a name="create-a-virtual-network-for-multi-tier-applications-using-an-azure-cli-script-sample"></a>Tworzenie sieci wirtualnej dla aplikacji wielowarstwowych przy użyciu przykładowego skryptu interfejsu wiersza polecenia platformy Azure
 

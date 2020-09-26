@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: c98d265f2d21c1e16ca787d4055eb4c2b1a89133
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5d5a00488321c9c67dd1469b1d8476636675aa8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269088"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281018"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Omówienie koderów multimediów na żądanie na platformie Azure
 
@@ -36,12 +36,11 @@ Media Services zapewnia dynamiczne pakowanie, które pozwala na dostarczanie zaw
 
 Po utworzeniu konta Media Services zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. Rozliczanie punktów końcowych przesyłania strumieniowego odbywa się za każdym razem, gdy punkt końcowy jest w stanie **uruchomienia** .
 
-Media Services obsługuje następujące kodery na żądanie, które zostały opisane w tym artykule:
+Media Services obsługuje następujący koder na żądanie:
 
 * [Usługa Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Przepływ pracy usługi Media Encoder w warstwie Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Ten artykuł zawiera krótkie omówienie koderów multimediów na żądanie oraz linki do artykułów, które zawierają bardziej szczegółowe informacje. Temat zawiera również porównanie koderów.
+Ten artykuł zawiera krótkie omówienie koderów multimedialnych na żądanie oraz linki do artykułów z bardziej szczegółowymi informacjami.
 
 Domyślnie każde konto Media Services może mieć jedno aktywne zadanie kodowania jednocześnie. Można zarezerwować jednostki kodowania, które umożliwiają współbieżne uruchamianie wielu zadań kodowania, jeden dla każdej zakupionej zarezerwowanej jednostki kodowania. Aby uzyskać więcej informacji, zobacz [skalowanie jednostek kodowania](media-services-scale-media-processing-overview.md).
 
@@ -73,22 +72,13 @@ Aby uzyskać więcej informacji, zobacz [jak utworzyć nakładki przy użyciu Me
 ### <a name="see-also"></a>Zobacz też
 [Blog Media Services](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
-## <a name="media-encoder-premium-workflow"></a>Przepływ pracy usługi Media Encoder w warstwie Premium
-### <a name="overview"></a>Omówienie
-[Wprowadzenie kodowania Premium w Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
-
-### <a name="how-to-use"></a>Sposób użycia
-Media Encoder Premium Workflow jest skonfigurowany przy użyciu złożonych przepływów pracy. Pliki przepływu pracy można utworzyć i zaktualizować za pomocą narzędzia [Projektant przepływu pracy](media-services-workflow-designer.md) .
-
-[Jak używać kodowania Premium w Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
-
 ### <a name="known-issues"></a>Znane problemy
 Jeśli wejściowy film wideo nie zawiera napisów kodowanych, element zawartości wyjściowej nadal będzie zawierał pusty plik TTML.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Pokrewne artykuły:

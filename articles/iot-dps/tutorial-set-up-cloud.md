@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 925d1178ad630699cfd3d9e48677c0f029fc75af
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f45c3def84c548ba12221efa59e9ebbd4699df71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74976727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316073"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Samouczek: Konfigurowanie zasobów w chmurze na potrzeby aprowizacji urządzeń przy użyciu IoT Hub Device Provisioning Service
 
-Ten samouczek przedstawia konfigurowanie chmury pod kątem automatycznego aprowizowania urządzeń za pomocą usługi IoT Hub Device Provisioning. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek przedstawia konfigurowanie chmury pod kątem automatycznego aprowizowania urządzeń za pomocą usługi IoT Hub Device Provisioning. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Użycie witryny Azure Portal do utworzenia usługi IoT Hub Device Provisioning i pobrania zakresu identyfikatorów
@@ -27,7 +27,7 @@ Ten samouczek przedstawia konfigurowanie chmury pod kątem automatycznego aprowi
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
-## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
@@ -52,7 +52,7 @@ Wykonaj następujące kroki, aby utworzyć nowe wystąpienie usługi Device Prov
 
    ![Wprowadzanie podstawowych informacji o usłudze Device Provisioning Service w portalu](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Kliknij przycisk **Utwórz**. Po kilku chwilach wystąpienie usługi Device Provisioning zostaje utworzone i wyświetlana jest strona **Przegląd**.
+5. Kliknij pozycję **Utwórz**. Po kilku chwilach wystąpienie usługi Device Provisioning zostaje utworzone i wyświetlana jest strona **Przegląd**.
 
 6. Na stronie **Przegląd** nowego wystąpienia usługi skopiuj wartość **Zakres identyfikatorów** do późniejszego użycia. Ta wartość służy do określania identyfikatorów rejestracji i daje gwarancję, że identyfikator rejestracji jest unikatowy.
 

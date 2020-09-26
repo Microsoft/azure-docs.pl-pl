@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
-ms.openlocfilehash: b56dd81cd0cdc5d9a6917b0bf43c3fceeff63c4a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1e0ab1d6c1266b37dfcba461fbbdc373fc526783
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84216542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362167"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Samouczek: projektowanie relacyjnej bazy danych w Azure SQL Database przy użyciu programu SSMS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -92,14 +92,14 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych.
 
 9. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
 
-   ![powiadomienie](./media/design-first-database-tutorial/notification.png)
+   ![Zrzut ekranu przedstawia menu powiadomienia z wdrożeniem w toku.](./media/design-first-database-tutorial/notification.png)
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Tworzenie reguły zapory bazującej na adresach IP na poziomie serwera
 
 Azure SQL Database tworzy zaporę IP na poziomie serwera. Ta zapora uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem i wszelkimi bazami danych na tym serwerze, chyba że reguła zapory zezwala na przechodzenie ruchu z ich adresów IP przez zaporę. Aby włączyć łączność zewnętrzną z bazą danych, należy najpierw dodać regułę zapory IP dla adresu IP (lub zakresu adresów IP). Wykonaj następujące kroki, aby utworzyć [regułę zapory adresów IP na poziomie serwera](firewall-configure.md).
 
 > [!IMPORTANT]
-> Azure SQL Database komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z tą usługą z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z bazą danych, chyba że administrator otworzy port 1433.
+> Usługa Azure SQL Database komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z tą usługą z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z bazą danych, chyba że administrator otworzy port 1433.
 
 1. Po zakończeniu wdrożenia wybierz opcję **bazy danych SQL** z menu Azure Portal lub Wyszukaj i wybierz pozycję *bazy danych SQL* z dowolnej strony.  
 
@@ -135,7 +135,7 @@ Użyj [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Typ serwera** | Aparat bazy danych | Ta wartość jest wymagana. |
    | **Nazwa serwera** | W pełni kwalifikowana nazwa serwera | Przykład: *yourserver.database.windows.net*. |
-   | **Uwierzytelnianie** | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
+   | **Authentication** | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
    | **Zaloguj się** | Konto administratora serwera | Konto określone podczas tworzenia serwera. |
    | **Hasło** | Hasło konta administratora serwera | Hasło określone podczas tworzenia serwera. |
 
@@ -145,7 +145,7 @@ Użyj [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms
 
     ![nawiązywanie połączenia z bazą danych na serwerze](./media/design-first-database-tutorial/options-connect-to-db.png)  
 
-4. Kliknij przycisk **Podłącz**. W programie SSMS zostanie otwarte okno **Eksplorator obiektów**.
+4. Kliknij przycisk **Połącz**. W programie SSMS zostanie otwarte okno **Eksplorator obiektów**.
 
 5. W **Eksploratorze obiektów** rozwiń pozycję **Bazy danych**, a następnie rozwiń pozycję *yourDatabase*, aby wyświetlić obiekty w przykładowej bazie danych.
 
@@ -155,7 +155,7 @@ Użyj [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms
 
 Utwórz schemat bazy danych z czterema tabelami, które modelują system zarządzania studentami dla uczelni wyższych, korzystając z języka [Transact-SQL](/sql/t-sql/language-reference):
 
-- Person (Osoba)
+- Osoba
 - Kurs
 - Uczeń
 - Środki

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 82b0b53b1933a7ca08163a12b2b7649b7b9538f4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134534"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361640"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Użyj ponownego uruchomienia maszyny wirtualnej infrastruktury platformy Azure, aby uzyskać "wyższą dostępność" systemu SAP
 
@@ -210,7 +210,7 @@ ms.locfileid: "86134534"
 
 > Ta sekcja ma zastosowanie do:
 >
-> ![Windows][Logo_Windows] System Windows i ![Linux][Logo_Linux] Linux
+> ![Logo Windows.][Logo_Windows] System Windows i ![Logo systemu Linux.][Logo_Linux] Linux
 >
 
 Jeśli użytkownik zdecyduje się nie używać takich funkcji jak Windows Server Failover Clustering (WSFC) lub Pacemaker w systemie Linux (obecnie obsługiwane tylko w SUSE Linux Enterprise Server [SLES] 12 i nowszych), zostanie wykorzystane ponowne uruchomienie maszyny wirtualnej platformy Azure. Program chroni systemy SAP przed planowanymi i nieplanowanymi przestojami infrastruktury serwera fizycznego platformy Azure i ogólną podstawową platformą platformy Azure.

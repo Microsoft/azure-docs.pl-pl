@@ -3,12 +3,12 @@ title: Użyj Nowoczesny magazyn kopii zapasowych z Azure Backup Server
 description: Dowiedz się więcej o nowych funkcjach w Azure Backup Server. W tym artykule opisano sposób uaktualniania instalacji serwera kopii zapasowej.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 997b2052751473d095b6534ef0bcbe3ed6a099ad
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: b077296e58e1193e454a686a392d802e905500a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378240"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292901"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Dodawanie magazynu do usługi Azure Backup Server
 
@@ -18,7 +18,7 @@ Azure Backup Server v2 i nowszych obsługuje Nowoczesny magazyn kopii zapasowych
 > Aby korzystać z Nowoczesny magazyn kopii zapasowych, należy uruchomić polecenie Backup Server v2 lub V3 w systemie Windows Server 2016 lub V3 w systemie Windows Server 2019.
 > W przypadku uruchomienia programu Backup Server v2 w starszej wersji systemu Windows Server Azure Backup Server nie może korzystać z Nowoczesny magazyn kopii zapasowych. Zamiast tego chroni obciążenia w taki sposób, w jaki działa serwer zapasowy v1. Aby uzyskać więcej informacji, zobacz [macierz ochrony](backup-mabs-protection-matrix.md)wersji serwera kopii zapasowej.
 >
-> Aby osiągnąć ulepszone wykonywanie kopii zapasowych, zalecamy wdrożenie serwera usługi MAB v3 z magazynem warstwowym w systemie Windows Server 2019. Aby uzyskać instrukcje dotyczące konfigurowania magazynu warstwowego, zapoznaj się z artykułem programu DPM "[set up the MB with Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)".
+> Aby osiągnąć ulepszone wykonywanie kopii zapasowych, zalecamy wdrożenie serwera usługi MAB v3 z magazynem warstwowym w systemie Windows Server 2019. Aby uzyskać instrukcje dotyczące konfigurowania magazynu warstwowego, zapoznaj się z artykułem programu DPM "[set up the MB with Tiered Storage](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage)".
 
 ## <a name="volumes-in-backup-server"></a>Woluminy na serwerze kopii zapasowej
 

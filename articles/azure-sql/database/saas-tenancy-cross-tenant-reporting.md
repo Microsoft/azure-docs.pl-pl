@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: fe4b25dfd8bf96d1ed6dab189543e0e1b810ecd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3542bb502bbb0d41ff6a35902bc38262c26876de
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042120"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361776"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Raportowanie krzyżowe przy użyciu zapytań rozproszonych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -93,7 +93,7 @@ Aby sprawdzić definicję widoku *miejsc* :
 
 1. W **Eksplorator obiektów**rozwiń węzeł **contosoconcerthall**  >  **widoki**contosoconcerthall:
 
-   ![widoki](./media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Zrzut ekranu przedstawia zawartość węzła widoki, w tym cztery typy miejsc d b.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Kliknij prawym przyciskiem myszy pozycję **dbo. Miejsc**.
 3. Wybierz **Widok skryptu jako**  >  **Utwórz do**  >  **nowego okna edytora zapytań**

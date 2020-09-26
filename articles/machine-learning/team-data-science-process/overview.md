@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 711c4ce8af613181d35d2850393c6c24d795c280
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: fc9a5e604e6ac52eb0e853725123272ca924fa36
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799268"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362235"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Co to jest zespołowe przetwarzanie danych?
 
@@ -51,7 +51,7 @@ Cykl życia przedstawia główne etapy, które są zwykle wykonywane przez proje
 
 Poniżej przedstawiono wizualną reprezentację **cyklu życia zespołowego procesu nauki danych**. 
 
-![PRZETWARZANIA TDSP — Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
+![Na diagramie przedstawiono cykl życia analizy danych, w tym zrozumienie biznesowe, pozyskiwanie i zrozumienie danych, modelowanie i wdrażanie.](./media/overview/tdsp-lifecycle2.png) 
 
 Artefakty cele, zadania i dokumentacja dotyczące poszczególnych etapów cyklu życia w programie przetwarzania TDSP są opisane w temacie [cykl życia procesu nauki o danych zespołowych](lifecycle.md) . Te zadania i artefakty są skojarzone z rolami projektu:
 
@@ -70,7 +70,7 @@ Na poniższym diagramie przedstawiono widok siatki zadań (niebieski) i artefakt
 
 Jeśli wszystkie projekty współdzielą strukturę katalogów i używają szablonów dokumentów projektu, ułatwiają członkom zespołu znalezienie informacji o ich projektach. Cały kod i dokumenty są przechowywane w systemie kontroli wersji (VCS), takim jak Git, TFS lub Subversion, aby umożliwić współpracę zespołową. Śledzenie zadań i funkcji w systemie monitorowania projektu Agile, takich jak JIRA, Rally i Azure DevOps, umożliwia bliższe śledzenie kodu dla poszczególnych funkcji. Takie śledzenie umożliwia również zespołom uzyskanie lepszych szacunków kosztów. PRZETWARZANIA TDSP zaleca utworzenie oddzielnego repozytorium dla każdego projektu w systemie VCS na potrzeby obsługi wersji, bezpieczeństwa informacji i współpracy. Struktura znormalizowana dla wszystkich projektów pomaga w tworzeniu instytucjonalnej wiedzy w całej organizacji.
 
-Udostępniamy szablony dla struktury folderów i wymaganych dokumentów w standardowych lokalizacjach. Ta struktura folderów organizuje pliki, które zawierają kod służący do eksploracji danych i wyodrębniania funkcji oraz te iteracje modelu rekordu. Te szablony ułatwiają członkom zespołu zrozumienie pracy wykonywanej przez inne osoby i dodawanie nowych członków do zespołów. Można łatwo wyświetlać i aktualizować szablony dokumentów w formacie promocji. Użyj szablonów, aby podać listy kontrolne z kluczowymi pytaniami dla każdego projektu, aby upewnić się, że problem jest dobrze zdefiniowany i że dostarczane dane spełniają wymagania jakości. Przykłady obejmują:
+Udostępniamy szablony dla struktury folderów i wymaganych dokumentów w standardowych lokalizacjach. Ta struktura folderów organizuje pliki, które zawierają kod służący do eksploracji danych i wyodrębniania funkcji oraz te iteracje modelu rekordu. Te szablony ułatwiają członkom zespołu zrozumienie pracy wykonywanej przez inne osoby i dodawanie nowych członków do zespołów. Można łatwo wyświetlać i aktualizować szablony dokumentów w formacie promocji. Użyj szablonów, aby podać listy kontrolne z kluczowymi pytaniami dla każdego projektu, aby upewnić się, że problem jest dobrze zdefiniowany i że dostarczane dane spełniają wymagania jakości. Przykłady:
 
 - Karta projektu do udokumentowania problemu biznesowego i zakresu projektu
 - Raporty danych umożliwiające udokumentowanie struktury i statystyk danych pierwotnych

@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226211"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361912"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Samouczek: Konfigurowanie Kreatora usługi log Analytics
 
@@ -72,7 +72,7 @@ Konfigurowanie obszaru roboczego usługi log Analytics składa się z dwóch gł
 
 3. Na stronie obszary robocze usługi log Analytics kliknij pozycję **Dodaj**.
 
-    ![Dodaj](./media/tutorial-log-analytics-wizard/add.png)
+    ![Zrzut ekranu przedstawia przycisk Dodaj na stronie obszary robocze usługi log Analytics.](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  Na stronie **tworzenie log Analytics obszaru roboczego** wykonaj następujące czynności:
 
@@ -248,7 +248,7 @@ Ta procedura pokazuje, jak wysyłać alerty w przypadku używania konta breakgla
 
     2. Jako **częstotliwość (w minutach)** wybierz pozycję **5**.
 
-    3. Kliknij przycisk **Gotowe**. 
+    3. Kliknij pozycję **Gotowe**. 
 
 12. W obszarze **Grupa akcji**kliknij pozycję **Wybierz grupę akcji**. 
 
@@ -268,7 +268,7 @@ Ta procedura pokazuje, jak wysyłać alerty w przypadku używania konta breakgla
 
     3. Kliknij pozycję **Przejrzyj i utwórz**. 
 
-    4. Kliknij przycisk **Utwórz**.
+    4. Kliknij pozycję **Utwórz**.
 
 
 15. W obszarze **Dostosowywanie akcji**wykonaj następujące czynności:
@@ -305,7 +305,7 @@ Ta procedura pokazuje, jak utworzyć nowy skoroszyt przy użyciu szablonu szybki
 
 3. W sekcji **monitorowanie** kliknij pozycję **skoroszyty**.
 
-    ![Skoroszyty](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Zrzut ekranu przedstawia monitorowanie w menu Azure Portal z wybranymi skoroszytami.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. W sekcji **Szybki Start** kliknij przycisk **pusty**.
 
@@ -357,7 +357,7 @@ Ta procedura pokazuje, jak dodać zapytanie do istniejącego szablonu skoroszytu
 
 3. W sekcji **monitorowanie** kliknij pozycję **skoroszyty**.
 
-    ![Skoroszyty](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Zrzut ekranu przedstawia monitorowanie w menu z wybranymi skoroszytami.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. W sekcji **dostęp warunkowy** kliknij pozycję **szczegółowe informacje i raportowanie dostępu warunkowego**.
 

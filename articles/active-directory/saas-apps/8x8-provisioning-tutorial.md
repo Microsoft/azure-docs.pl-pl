@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 41ffd7606cb4c01cd8c2da56898b67cf177c358e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 850db53cbf88968a413d72527d76463e17aa8f5d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329180"
+ms.locfileid: "91361708"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 8x8 na potrzeby automatycznego aprowizacji użytkowników
 
@@ -104,7 +104,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** Skopiuj **adres url 8x8** z Configuration Manager na **adres URL dzierżawy**. Skopiuj **token interfejsu API 8x8** z Configuration Manager do **tokenu tajnego**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą 8x8. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi 8x8 ma uprawnienia administratora, a następnie spróbuj ponownie.
 
-    ![Aprowizowanie](./media/8x8-provisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawia okno dialogowe poświadczenia administratora, w którym można wprowadzić dzierżawę U R L i wpis tajny.](./media/8x8-provisioning-tutorial/provisioning.png)
 
 6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 

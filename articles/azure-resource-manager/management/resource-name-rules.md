@@ -2,13 +2,13 @@
 title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.date: 09/23/2020
+ms.openlocfilehash: 0ee19140d3105e101c44ce70d77ccc9427600aa0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235982"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317093"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -174,8 +174,8 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Galerie/obrazy/wersje | image (obraz) | 32-bitowa liczba całkowita | Liczby i kropki. |
 > | images | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
 > | Migawki | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
-> | virtualMachines | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
-> | virtualMachineScaleSets | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
+> | virtualMachines | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć spacji ani następujących znaków:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
+> | virtualMachineScaleSets | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć spacji ani następujących znaków:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
 
 > [!NOTE]
 > Maszyny wirtualne platformy Azure mają dwie odrębne nazwy: nazwę zasobu i nazwę hosta. Podczas tworzenia maszyny wirtualnej w portalu ta sama wartość jest używana dla obu nazw. Ograniczenia w powyższej tabeli dotyczą nazwy hosta. Rzeczywista nazwa zasobu może mieć długość maksymalnie 64 znaków.
@@ -653,7 +653,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | storageAccounts/managementPolicies | konto magazynu |  | Musi być `default` . |
 > | blob | kontener | 1-1024 | Wszystkie znaki adresu URL, z uwzględnieniem wielkości liter |
 > | kolejka | konto magazynu | 3-63 | Małe litery, cyfry i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. Nie można używać kolejnych łączników. |
-> | table | konto magazynu | 3-63 | Znaki alfanumeryczne.<br><br>Zacznij od litery. |
+> | table (stolik) | konto magazynu | 3-63 | Znaki alfanumeryczne.<br><br>Zacznij od litery. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft. StorageSync
 

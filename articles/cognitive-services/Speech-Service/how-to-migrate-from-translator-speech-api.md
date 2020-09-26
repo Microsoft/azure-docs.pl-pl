@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: 305242e13dab23b6a003c5d864073372a052601a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d6b1085d51d7345b233087986127cbc97c0597e1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362065"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrowanie z interfejs API tłumaczenia mowy w usłudze Translator do usługi mowy
 
@@ -61,10 +61,10 @@ Jeśli ty lub Twoja organizacja ma aplikacje w programowaniu lub środowisku pro
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wypróbuj bezpłatnie usługę mowy](get-started.md)
+* [Wypróbuj bezpłatnie usługę mowy](overview.md#try-the-speech-service-for-free)
 * [Szybki Start: Rozpoznawanie mowy w aplikacji platformy UWP przy użyciu zestawu Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest usługa mowy](overview.md)
 * [Dokumentacja usługi mowy i zestawu Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

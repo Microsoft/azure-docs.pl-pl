@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 1524e51fff64b00a798f15425973145feee730fe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 67ab15a6b890bc5f28cd18fca8a35adbc7437778
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280984"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -291,12 +291,12 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **ModuleErrors (Brak modułu o nazwie)**: Jeśli korzystasz z programu ModuleErrors podczas przesyłania eksperymentów na platformie Azure ml, oznacza to, że skrypt szkoleniowy oczekuje na zainstalowanie pakietu, ale nie został dodany. Po podaniu nazwy pakietu usługa Azure ML instaluje pakiet w środowisku używanym do pracy z szkoleniiem. 
 
-    Jeśli używasz [szacowania](concept-azure-machine-learning-architecture.md#estimators) do przesyłania eksperymentów, możesz określić nazwę pakietu za pośrednictwem `pip_packages` lub `conda_packages` parametru w szacowania, na podstawie którego źródła chcesz zainstalować pakiet. Można również określić plik yml ze wszystkimi zależnościami przy użyciu `conda_dependencies_file` lub wyświetlić wszystkie wymagania dotyczące PIP w pliku txt przy użyciu `pip_requirements_file` parametru. Jeśli masz własny obiekt środowiska usługi Azure ML, który chcesz przesłonić domyślny obraz używany przez szacowania, możesz określić to środowisko za pośrednictwem `environment` parametru konstruktora szacowania.
+    Jeśli używasz szacowania do przesyłania eksperymentów, możesz określić nazwę pakietu za pośrednictwem `pip_packages` lub `conda_packages` parametru w szacowania, na podstawie którego źródła chcesz zainstalować pakiet. Można również określić plik yml ze wszystkimi zależnościami przy użyciu `conda_dependencies_file` lub wyświetlić wszystkie wymagania dotyczące PIP w pliku txt przy użyciu `pip_requirements_file` parametru. Jeśli masz własny obiekt środowiska usługi Azure ML, który chcesz przesłonić domyślny obraz używany przez szacowania, możesz określić to środowisko za pośrednictwem `environment` parametru konstruktora szacowania.
 
     Platforma Azure ML udostępnia również specyficzne dla platformy szacowania dla TensorFlow, PyTorch, łańcucha i skryptu sklearn. Przy użyciu tych szacowania upewnij się, że podstawowe zależności programu są zainstalowane w Twoim imieniu w środowisku używanym do uczenia się. Istnieje możliwość określenia dodatkowych zależności, jak opisano powyżej. 
  
     Platforma Azure ML obsługuje obrazy platformy Docker i ich zawartość można zobaczyć w [kontenerach usługi Azure](https://github.com/Azure/AzureML-Containers).
-    Zależności specyficzne dla platformy są wymienione w odpowiedniej strukturze dokumentacji programu — [łańcucha](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#&preserve-view=trueremarks), [skryptu sklearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#&preserve-view=trueremarks).
+    Zależności specyficzne dla platformy są wymienione w odpowiedniej strukturze dokumentacji programu — [łańcucha](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [skryptu sklearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks).
 
     > [!Note]
     > Jeśli uważasz, że określony pakiet jest wystarczająco powszechny do dodania do obrazów i środowisk konserwowanych platformy Azure, zgłoś problem w usłudze GitHub w [kontenerach usługi Azure](https://github.com/Azure/AzureML-Containers)ml. 
@@ -305,7 +305,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod został zamknięty**: w większości przypadków, jeśli wystąpi "AbortedError: Horovod zostało zamknięte" ten wyjątek oznacza, że wystąpił podstawowy wyjątek w jednym z procesów, które spowodowały zamknięcie Horovod. Każda ranga w zadaniu MPI pobiera własny dedykowany plik dziennika w usłudze Azure ML. Te dzienniki mają nazwę `70_driver_logs` . W przypadku szkolenia rozproszonego nazwy dzienników są sufiksem, `_rank` Aby ułatwić odróżnienie dzienników. Aby znaleźć dokładny błąd, który spowodował zamknięcie Horovod, przejdź przez wszystkie pliki dziennika i Znajdź na `Traceback` końcu plików driver_log. Jeden z tych plików daje rzeczywisty wyjątek podstawowy. 
 
-* **Usuwanie przebiegu lub eksperymentu**: eksperymenty można archiwizować przy użyciu metody [eksperyment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truearchive--) lub w widoku karty eksperymenty w programie Azure Machine Learning Studio Client za pośrednictwem przycisku "Archiwizuj eksperyment". Ta akcja ukrywa eksperyment z zapytań i widoków list, ale nie usuwa go.
+* **Usuwanie przebiegu lub eksperymentu**: eksperymenty można archiwizować przy użyciu metody [eksperyment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) lub w widoku karty eksperymenty w programie Azure Machine Learning Studio Client za pośrednictwem przycisku "Archiwizuj eksperyment". Ta akcja ukrywa eksperyment z zapytań i widoków list, ale nie usuwa go.
 
     Trwałe usuwanie pojedynczych eksperymentów lub przebiegów nie jest obecnie obsługiwane. Aby uzyskać więcej informacji na temat usuwania zasobów obszaru roboczego, zobacz [Eksportowanie lub usuwanie danych obszaru roboczego usługi Machine Learning](how-to-export-delete-data.md).
 
@@ -320,7 +320,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Zautomatyzowane uczenie maszynowe
 
-* **Ostatnie uaktualnienie zależności AutoML do nowszych wersji spowoduje przerwanie compatibilitity**: w przypadku wersji 1.13.0 zestawu SDK modele nie będą ładowane w starszych zestawach SDK ze względu na niezgodność między starszymi wersjami przypiętymi w naszych poprzednich pakietach i nowszymi wersjami. Zobaczysz błąd, taki jak:
+* **Ostatnie uaktualnienie zależności AutoML do nowszych wersji spowoduje uszkodzenie zgodności**: w przypadku wersji 1.13.0 zestawu SDK modele nie będą ładowane w starszych zestawach SDK ze względu na niezgodność między starszymi wersjami przypiętymi w naszych poprzednich pakietach i nowszymi wersjami. Zobaczysz błąd, taki jak:
   * Nie znaleziono modułu: ex. `No module named 'sklearn.decomposition._truncated_svd` ,
   * Błędy importowania: ex. `ImportError: cannot import name 'RollingOriginValidator'` ,
   * Błędy atrybutów: ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
@@ -340,7 +340,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade scikit-learn==0.20.3
   ```
  
-* **Ocena prognozy R2 jest zawsze zerowa**: ten problem występuje, jeśli dostarczone dane szkoleniowe mają serię czasową, która zawiera tę samą wartość dla ostatnich `n_cv_splits`  +  `forecasting_horizon` punktów danych. Jeśli ten wzorzec jest oczekiwany w szeregach czasowych, można przełączyć podstawową metrykę na znormalizowany błąd kwadratowy średnika.
+* **Ocena prognozy R2 jest zawsze zerowa**: ten problem występuje, jeśli dostarczone dane szkoleniowe mają serię czasową, która zawiera tę samą wartość dla ostatnich `n_cv_splits`  +  `forecasting_horizon` punktów danych. Jeśli ten wzorzec jest oczekiwany w szeregach czasowych, można przełączyć podstawową metrykę na znormalizowany błąd średnika głównego.
  
 * **TensorFlow**: w wersji 1.5.0 zestawu SDK automatyczne Uczenie maszynowe nie domyślnie instaluje modeli TensorFlow. Aby zainstalować TensorFlow i używać go z zautomatyzowanymi eksperymentami ML, zainstaluj TensorFlow = = 1.12.0 za pośrednictwem CondaDependecies. 
  
@@ -366,7 +366,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     * Upewnij się, że Conda 64-bit jest zainstalowany, a nie 32-bit, uruchamiając `conda info` polecenie. `platform`Powinien być `win-64` dla systemu Windows lub `osx-64` dla komputerów Mac.
     * Upewnij się, że zainstalowano Conda 4.4.10 lub nowszą. Możesz sprawdzić wersję za pomocą polecenia `conda -V` . Jeśli masz zainstalowaną poprzednią wersję, możesz ją zaktualizować za pomocą polecenia: `conda update conda` .
     * System `gcc: error trying to exec 'cc1plus'`
-      *  Jeśli wystąpi `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` błąd, zainstaluj program Build Essentials przy użyciu polecenia symulacja `sudo apt-get install build-essential` .
+      *  Jeśli wystąpi `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` błąd, zainstaluj program Build Essentials przy użyciu polecenia `sudo apt-get install build-essential` .
       * Przekaż nową nazwę jako pierwszy parametr do automl_setup, aby utworzyć nowe środowisko Conda. Wyświetlanie istniejących środowisk Conda `conda env list` i usuwanie ich z programu `conda env remove -n <environmentname>` .
       
 * **automl_setup_linux. sh nie powiodło się**: Jeśli automl_setup_linus. sh kończy się niepowodzeniem na Ubuntu Linux z powodu błędu: `unable to execute 'gcc': No such file or directory`-
@@ -376,7 +376,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   4. Uruchom `automl_setup_linux.sh` ponownie
 
 * **Konfiguracja. ipynb kończy się niepowodzeniem**:
-  * W przypadku lokalnego Conda upewnij się, że automl_setup ma susccessfully uruchomiony.
+  * W przypadku lokalnego Conda upewnij się, że automl_setup został pomyślnie uruchomiony.
   * Upewnij się, że subscription_ida jest poprawna. Znajdź subscription_id w witrynie Azure Portal, wybierając pozycję Wszystkie usługi, a następnie pozycję subskrypcje. Znaki "<" i ">" nie powinny być uwzględnione w wartości subscription_id. Na przykład `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` ma prawidłowy format.
   * Upewnij się, że współautor lub właściciel ma dostęp do subskrypcji.
   * Sprawdź, czy region jest jednym z obsługiwanych regionów:,,,,,, `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` , `southcentralus` .
@@ -390,15 +390,15 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   3. Jeśli jest używana nowa subskrypcja, Grupa zasobów, obszar roboczy lub region, pamiętaj, aby `configuration.ipynb` ponownie uruchomić Notes. Zmiana config.jsna bezpośrednio będzie działała tylko wtedy, gdy obszar roboczy już istnieje w grupie zasobów określonej w ramach określonej subskrypcji.
   4. Jeśli chcesz zmienić region, Zmień obszar roboczy, grupę zasobów lub subskrypcję. `Workspace.create` Program nie utworzy ani nie zaktualizuje obszaru roboczego, jeśli już istnieje, nawet jeśli określony region jest inny.
   
-* **Przykładowy Notes kończy się niepowodzeniem**: Jeśli przykładowy Notes kończy się niepowodzeniem z powodu błędu, który nie istnieje, metoda lub biblioteka jest niedostępna:
-  * Upewnij się, że w notesie Jupyter wybrano jądro correctcorrect. Jądro jest wyświetlane w prawym górnym rogu strony Notes. Wartość domyślna to azure_automl. Należy zauważyć, że jądro jest zapisywany jako część notesu. Dlatego w przypadku przełączenia do nowego środowiska Conda należy wybrać nowe jądro w notesie.
+* **Przykładowy Notes kończy się niepowodzeniem**: w przypadku niepowodzenia przykładowego notesu Wystąpił błąd, że właściwość, metoda lub biblioteka nie istnieje:
+  * Upewnij się, że wybrano poprawne jądro w notesie Jupyter. Jądro jest wyświetlane w prawym górnym rogu strony Notes. Wartość domyślna to azure_automl. Należy zauważyć, że jądro jest zapisywany jako część notesu. Dlatego w przypadku przełączenia do nowego środowiska Conda należy wybrać nowe jądro w notesie.
       * W przypadku Azure Notebooks powinna być to Python 3,6. 
-      * W przypadku lokalnych środowisk Conda powinna być nazwą Conda envioronment, która została określona w automl_setup.
+      * W przypadku lokalnych środowisk Conda powinna to być nazwa środowiska Conda określona w automl_setup.
   * Upewnij się, że Notes dotyczy używanej wersji zestawu SDK. Możesz sprawdzić wersję zestawu SDK, wykonując ją `azureml.core.VERSION` w komórce notesu Jupyter. Możesz pobrać poprzednią wersję przykładowych notesów z usługi GitHub, klikając `Branch` przycisk, wybierając `Tags` kartę, a następnie wybierając wersję.
 
 * **Importowanie numpy kończy się niepowodzeniem w systemie Windows**: niektóre środowiska systemu Windows zapoznają się z błędem ładowania numpy z najnowszą wersją języka Python 3.6.8. Jeśli widzisz ten problem, Wypróbuj wersję Python 3.6.7.
 
-* **Numpy importowania nie powiodła się**: Sprawdź wersję tensorflow w zautomatyzowanym środowisku Conda ml. Obsługiwane wersje to < 1,13. Odinstaluj tensorflow ze środowiska, jeśli wersja jest >= 1,13 możesz sprawdzić wersję tensorflow i odinstalować ją w następujący sposób:
+* **Numpy importowania nie powiodła się**: Sprawdź wersję TensorFlow w zautomatyzowanym środowisku Conda ml. Obsługiwane wersje to < 1,13. Odinstaluj TensorFlow ze środowiska, jeśli wersja jest >= 1,13 możesz sprawdzić wersję TensorFlow i odinstalować ją w następujący sposób:
   1. Uruchom powłokę poleceń, Aktywuj środowisko Conda, w którym są zainstalowane zautomatyzowane pakiety ml.
   2. Wprowadź `pip freeze` i Wyszukaj `tensorflow` , jeśli znaleziono, wyświetlana wersja powinna być < 1,13
   3. Jeśli wyświetlana wersja nie jest obsługiwaną wersją, `pip uninstall tensorflow` w powłoce poleceń i wprowadź y w celu potwierdzenia.
@@ -407,7 +407,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 Wykonaj następujące akcje dla następujących błędów:
 
-|Błąd  | Rozwiązanie  |
+|Error  | Rozwiązanie  |
 |---------|---------|
 |Niepowodzenie kompilowania obrazu podczas wdrażania usługi sieci Web     |  Dodaj "pynacl = = 1.2.1" jako zależność PIP do pliku Conda na potrzeby konfiguracji obrazu       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Zmień jednostkę SKU dla maszyn wirtualnych używanych we wdrożeniu na taką, która ma więcej pamięci. |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/14/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7031bc0398e77dc308f9c08180338975831b411e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c8934e1344ff2d7df97c3854f4e025f19fb37f1e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321938"
+ms.locfileid: "91361623"
 ---
 # <a name="tutorial-configure-new-relic-by-organization-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie nowych Relic według organizacji na potrzeby automatycznego aprowizacji użytkowników
 
@@ -97,7 +97,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź `https://scim-provisioning.service.newrelic.com/scim/v2` adres URL dzierżawy. Wprowadź wartość tokenu uwierzytelniania Standard scim pobraną wcześniej w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z nowym Relic. Jeśli połączenie nie powiedzie się, upewnij się, że nowe konto usługi Relic ma uprawnienia administratora, i spróbuj ponownie.
 
-    ![aprowizacji](./media/new-relic-by-organization-provisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawia okno dialogowe poświadczenia administratora, w którym można wprowadzić dzierżawę U R L i wpis tajny.](./media/new-relic-by-organization-provisioning-tutorial/provisioning.png)
 
 6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 

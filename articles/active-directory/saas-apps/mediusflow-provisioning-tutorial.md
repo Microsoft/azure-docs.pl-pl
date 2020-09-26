@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 03fa13e31724110e2b832cf490af325b8b570807
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fae6c9f76f5c502d3a31c76330bd5b348d523e37
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312298"
+ms.locfileid: "91360620"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MediusFlow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -143,7 +143,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź wartość adresu URL dzierżawy pobraną wcześniej w **adresie URL dzierżawy**. Wprowadź wcześniej pobraną wartość tokenu tajnego w polu **token tajny**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą MediusFlow. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi MediusFlow ma uprawnienia administratora, a następnie spróbuj ponownie.
 
-      ![aprowizacji](./media/mediusflow-provisioning-tutorial/provisioning.png)
+      ![Zrzut ekranu przedstawia okno dialogowe poświadczenia administratora, w którym można wprowadzić dzierżawę U R L i wpis tajny.](./media/mediusflow-provisioning-tutorial/provisioning.png)
 
 6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80293943"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361368"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Łącznik SAP LaMa dla platformy Azure
 
@@ -124,12 +124,12 @@ W konfiguracji łącznika SAP LaMa Azure wybierz opcję "Użyj tożsamości zarz
 
 ### <a name="create-a-new-connector-in-sap-lama"></a>Tworzenie nowego łącznika w programie SAP LaMa
 
-Otwórz witrynę sieci Web SAP LaMa i przejdź do infrastruktury. Przejdź do karty menedżerowie chmury i kliknij przycisk Dodaj. Wybierz Adapter chmury Microsoft Azure i kliknij przycisk Dalej. Wprowadź następujące informacje.
+Otwórz witrynę sieci Web SAP LaMa i przejdź do infrastruktury. Przejdź do karty menedżerowie chmury i kliknij przycisk Dodaj. Wybierz Adapter chmury Microsoft Azure i kliknij przycisk Dalej. Wprowadź następujące informacje:
 
 * Etykieta: wybierz nazwę wystąpienia łącznika
 * Nazwa użytkownika: Identyfikator aplikacji głównej usługi lub identyfikator przypisanej do użytkownika tożsamości maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [używanie tożsamości przypisanej do systemu lub użytkownika
 * Hasło: klucz główny usługi/hasło. To pole można pozostawić puste, jeśli używasz tożsamości przypisanej do systemu lub użytkownika.
-* Adres URL: Zachowaj wartość domyślną`https://management.azure.com/`
+* Adres URL: Zachowaj wartość domyślną `https://management.azure.com/`
 * Interwał monitorowania (w sekundach): powinien wynosić co najmniej 300
 * Użyj tożsamości zarządzanej: rozwiązanie SAP LaMa może używać tożsamości przypisanej do systemu lub użytkownika do uwierzytelniania w interfejsie API platformy Azure. [Aby uzyskać dostęp do interfejsu API platformy Azure](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) w tym przewodniku, zobacz rozdział korzystanie z tożsamości zarządzanej.
 * Identyfikator subskrypcji: Identyfikator subskrypcji platformy Azure
@@ -260,14 +260,14 @@ W poniższych przykładach przyjęto założenie, że instalujesz SAP HANA z IDE
 
 Przed uruchomieniem Menedżera aprowizacji oprogramowania SAP (SWPM) należy zainstalować adres IP wirtualnej nazwy hosta ASCS. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest instalowany przy użyciu sapacext, należy ponownie zainstalować adres IP po ponownym uruchomieniu.
 
-![Linux][Logo_Linux] Linux
+![Logo systemu Linux.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Logo Windows.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -276,7 +276,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 
 Uruchom SWPM i Użyj *AH1-ASCS* dla *nazwy hosta wystąpienia ASCS*.
 
-![Linux ][Logo_Linux] Linux  
+![Logo systemu Linux.][Logo_Linux] Linux  
 Dodaj następujący parametr profilu do profilu agenta hosta SAP, który znajduje się w/usr/SAP/hostctrl/exe/host_profile. Aby uzyskać więcej informacji, zobacz temat SAP Note [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
@@ -387,14 +387,14 @@ Uruchom instalację wystąpienia bazy danych SWPM na maszynie wirtualnej serwera
 
 Przed uruchomieniem Menedżera aprowizacji oprogramowania SAP (SWPM) należy zainstalować adres IP wirtualnej nazwy hosta serwera aplikacji. Zalecanym sposobem jest użycie sapacext. Jeśli adres IP jest instalowany przy użyciu sapacext, należy ponownie zainstalować adres IP po ponownym uruchomieniu.
 
-![Linux][Logo_Linux] Linux
+![Logo systemu Linux.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Logo Windows.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>

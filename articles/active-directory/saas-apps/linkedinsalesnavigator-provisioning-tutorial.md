@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: ef87a1c7163825fcee8f4a27408719839d8a6d43
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e908c8d19a4640995c536580b6584558212ada3e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549708"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361579"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie nawigatora sprzedaży serwisu LinkedIn na potrzeby automatycznej aprowizacji użytkowników
 
@@ -23,7 +23,7 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać w N
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
+W scenariuszu opisanym w tym samouczku założono, że masz już następujące elementy:
 
 * Dzierżawa usługi Azure Active Directory
 * Dzierżawa w usłudze LinkedIn Sales Navigator 
@@ -71,12 +71,12 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
     > [!NOTE]
     > Gdy nie włączono licencji autoassign, oznacza to, że synchronizowane są tylko dane użytkownika.
 
-    ![Inicjowanie obsługi nawigatora sprzedaży w serwisie LinkedIn](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
+    ![Zrzut ekranu przedstawia ustawienia globalne centrum konta LinkedIn.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
 
     > [!NOTE]
     > Gdy jest włączone przypisanie autolicencji, należy zanotować wystąpienie aplikacji i typ licencji. Licencje są przypisywane w pierwszej kolejności, w pierwszej kolejności do momentu, aż zostaną wykonane wszystkie licencje.
 
-    ![Inicjowanie obsługi nawigatora sprzedaży w serwisie LinkedIn](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
+    ![Zrzut ekranu przedstawia stronę instalatora S C I M.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
 
 5. Kliknij przycisk **Generuj token**. Token dostępu powinien zostać wyświetlony w polu **token dostępu** .
 
@@ -88,9 +88,9 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
 
 9. Wybierz wystąpienie z nawigatora sprzedaży w serwisie LinkedIn, a następnie wybierz kartę **aprowizacji** .
 
-10. Ustaw **tryb aprowizacji** na **automatyczny**.
+10. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    ![Inicjowanie obsługi nawigatora sprzedaży w serwisie LinkedIn](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
+    ![Zrzut ekranu przedstawia stronę podwyższanie poziomu udostępniania w serwisie LinkedIn.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
 11. Wypełnij następujące pola w obszarze **poświadczenia administratora** :
 
@@ -106,7 +106,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
 
 14. W sekcji **mapowania atrybutów** Przejrzyj atrybuty użytkowników i grup, które zostaną zsynchronizowane z usługi Azure AD w usłudze LinkedIn Sales Navigator. Należy zauważyć, że atrybuty wybrane jako **pasujące** właściwości będą używane w celu dopasowania do kont użytkowników i grup w Nawigatorze sprzedaży LinkedIn dla operacji aktualizacji. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
 
-    ![Inicjowanie obsługi nawigatora sprzedaży w serwisie LinkedIn](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
+    ![Zrzut ekranu przedstawia mapowania, w tym mapowania atrybutów.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
 
 15. Aby włączyć usługę Azure AD Provisioning dla nawigatora sprzedaży w serwisie LinkedIn, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
@@ -118,5 +118,5 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

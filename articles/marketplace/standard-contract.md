@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/20/2020
-ms.openlocfilehash: f7327079e365bcd8a99a8274828f7c14e2337a34
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3487b5a069b1862ec302a979318ea78722b1433c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121558"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361691"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Umowa standardowa dla portalu komercyjnego firmy Microsoft
 
@@ -21,7 +21,7 @@ Firma Microsoft oferuje standardową umowę na potrzeby portalu komercyjnego fir
 Warunki i postanowienia oferty są definiowane podczas tworzenia oferty w centrum partnerskim. Możesz wybrać opcję użycia standardowej umowy dla komercyjnej witryny Marketplace firmy Microsoft zamiast podawania własnych niestandardowych warunków i postanowień.
 
 >[!Note]
->Po opublikowaniu oferty przy użyciu standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft nie będziesz w stanie korzystać ze swoich niestandardowych warunków i postanowień. Jest to scenariusz "lub". Możesz zaoferować swoje rozwiązanie w ramach standardowej umowy *lub* własnych warunków i postanowień. Jeśli chcesz zmodyfikować warunki kontraktu standardowego, możesz to zrobić za pomocą standardowych poprawek kontraktu.
+>Po opublikowaniu oferty przy użyciu standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft nie będziesz w stanie korzystać ze swoich niestandardowych warunków i postanowień. Możesz zaoferować swoje rozwiązanie w ramach standardowej umowy *lub* własnych warunków i postanowień. Niestandardowe warunki i postanowienia są definiowane na poziomie oferty i są stosowane do wszystkich planów; Napisz niestandardowe warunki i postanowienia na stronie **Właściwości** oferty w centrum partnerskim. Jeśli chcesz zmodyfikować warunki standardowego kontraktu, możesz to zrobić za pomocą standardowych poprawek kontraktu.
 
 ## <a name="standard-contract-amendments"></a>Standardowe zmiany kontraktu
 

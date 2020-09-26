@@ -1,14 +1,16 @@
 ---
 title: Typ jednostki wyrażenia regularnego — LUIS
 description: Wyrażenie regularne jest najlepsze dla nieprzetworzonego tekstu wypowiedź. Ignoruje wielkość liter i ignoruje odmianę kulturową.  Dopasowanie wyrażenia regularnego jest stosowane po zmianach sprawdzania pisowni na poziomie znaku, a nie na poziomie tokenu.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 90260fca10fc087225f6b1286e9fa2dd6d17c836
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0c8d4a5013f23a805c22dc5c44444de6b10ab369
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316243"
 ---
 # <a name="regular-expression-entity"></a>Jednostka wyrażenia regularnego
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 079d187f66cf77585121198df06cabafc454fea1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324151"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362133"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replikacja do Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ Istnieją różne [typy replikacji](https://docs.microsoft.com/sql/relational-da
 | [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Tak | 
 | [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Tak|
 | [**Replikacja scalająca**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nie | Nie|
-| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nie | Nie|
+| [**Równorzędny**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nie | Nie|
 | [**Kierunk**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Tak|
 | [**Aktualizowalne subskrypcje**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nie | Nie|
 | &nbsp; | &nbsp; | &nbsp; |
@@ -78,7 +78,7 @@ Istnieją różne [typy replikacji](https://docs.microsoft.com/sql/relational-da
 
 ## <a name="replication-architecture"></a>Architektura replikacji  
 
-![replikacja do bazy danych SQL](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![Na diagramie przedstawiono architekturę replikacji z Azure SQL Database, która zawiera kilka klastrów subskrybentów w różnych regionach i lokalnych maszyn wirtualnych platformy Azure, które zawierają pliki wykonywalne wydawcy, LogRead i, które łączą się z klastrami zdalnymi.](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## <a name="scenarios"></a>Scenariusze  
 

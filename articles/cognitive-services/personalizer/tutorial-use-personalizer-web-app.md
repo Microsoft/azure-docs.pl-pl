@@ -4,18 +4,18 @@ description: Dostosuj aplikację sieci Web w języku C# przy użyciu pętli pers
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9ce4c433a038008b1ffd75dc6c4b2f9d0b57fde
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 59881a749676f4f5408c1ffc87b3bcf75c512e1e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935623"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316226"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Samouczek: Dodawanie personalizacji do aplikacji sieci Web platformy .NET
 
 Dostosuj aplikację sieci Web w języku C# przy użyciu pętli personalizacji, aby zapewnić użytkownikowi poprawną zawartość na podstawie akcji (z funkcjami) i funkcji kontekstu.
 
-**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
+**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -254,7 +254,7 @@ Kompiluj i uruchamiaj HttpRequestFeaturesExample przy użyciu jednej z następuj
 Za pośrednictwem przeglądarki sieci Web można wysłać żądanie rangi i żądanie nagrody oraz zobaczyć ich odpowiedzi, a także funkcje żądania HTTP wyodrębnione ze środowiska.
 
 > [!div class="mx-imgBorder"]
-> ![Kompiluj i uruchamiaj projekt HTTPRequestFeaturesExample. Otworzy się okno przeglądarki, aby wyświetlić aplikację jednostronicową.](./media/tutorial-web-app/web-app-single-page.png)
+> ![Zrzut ekranu przedstawia przykład funkcji żądania HTTP w przeglądarce internetowej.](./media/tutorial-web-app/web-app-single-page.png)
 
 ## <a name="demonstrate-the-personalizer-loop"></a>Zademonstrowanie pętli personalizacji
 
@@ -267,7 +267,7 @@ Za pośrednictwem przeglądarki sieci Web można wysłać żądanie rangi i żą
 1. Ustaw wartość nagrody, a następnie wybierz przycisk **Wyślij żądanie nagrody** . Jeśli wartość nagrody nie zostanie zmieniona, aplikacja kliencka zawsze wyśle wartość `1` do personalizacji.
 
     > [!div class="mx-imgBorder"]
-    > ![Kompiluj i uruchamiaj projekt HTTPRequestFeaturesExample. Otworzy się okno przeglądarki, aby wyświetlić aplikację jednostronicową.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![Zrzut ekranu przedstawia sekcję żądanie nagrody.](./media/tutorial-web-app/reward-score-api-call.png)
 
     W przypadku własnej przyszłej aplikacji generowanie wyniku odnoszącego się do nagrody może wystąpić po zebraniu informacji z zachowania użytkownika na kliencie wraz z logiką biznesową na serwerze.
 

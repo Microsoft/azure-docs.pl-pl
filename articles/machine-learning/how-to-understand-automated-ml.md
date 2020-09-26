@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 42b2ff0b7c2d43beb1d5f0b2136a97e67c0143a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a38d65e66debd8e718964efdce27fe42772d8e0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905060"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315545"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Opis wyników zautomatyzowanego uczenia maszynowego
 
@@ -226,8 +226,8 @@ Następujące metryki są zapisywane w każdej iteracji uruchomienia dla zadania
 
 |Metryka|Opis|Obliczenia|Dodatkowe parametry
 --|--|--|--|
-explained_variance|Wyjaśniono wariancję to proporcja, do której model matematyczny jest przeznaczony dla odmiany danego zestawu danych. Jest to procentowy spadek wariancji oryginalnych danych do wariancji błędów. Gdy średnią z błędów jest 0, jest równa objaśnionej wariancji.|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Brak|
-r2_score|R2 to współczynnik wyznaczania lub procent redukcji w przypadku błędów kwadratowych w porównaniu z modelem bazowym, który wyprowadza średnią. |[Podstaw](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Brak|
+explained_variance|Wyjaśniono wariancję to proporcja, do której model matematyczny jest przeznaczony dla odmiany danego zestawu danych. Jest to procentowy spadek wariancji oryginalnych danych do wariancji błędów. Gdy średnią z błędów jest 0, jest równa współczynnikowi wyznaczania (patrz r2_score poniżej).|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Brak|
+r2_score|R ^ 2 to współczynnik wyznaczania lub procent redukcji w przypadku błędów kwadratowych w porównaniu z modelem bazowym, który wyprowadza średnią. |[Podstaw](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Brak|
 spearman_correlation|Korelacja Spearman jest miarą nieparametryczną monotonicity relacji między dwoma zestawami danych. W przeciwieństwie do korelacji Pearsona korelacja Spearman nie zakłada, że oba zestawy danych są zwykle dystrybuowane. Podobnie jak inne Współczynniki korelacji, ta wartość różni się od-1 do + 1 i 0 oznacza brak korelacji. Korelacje-1 lub + 1 implikują dokładną relację monotoniczny. Korelacje pozytywne implikują, że w miarę wzrostu x, więc jest to wartość y. Korelacje negatywne oznacza, że w miarę wzrostu x zmniejsza się wartość y.|[Podstaw](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Brak|
 mean_absolute_error|Średni błąd bezwzględny jest oczekiwaną wartością bezwzględną różnicy między obiektem docelowym a prognozą|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Brak|
 normalized_mean_absolute_error|Znormalizowany błąd bezwzględny oznacza błąd bezwzględny podzielony przez zakres danych|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Dzielenie według zakresu danych|

@@ -1,21 +1,23 @@
 ---
 title: 'Samouczek: Language Understanding bot C# v4'
 description: Przy użyciu języka C# twórz czatbot zintegrowany z usługą Language Understanding (LUIS). Bot jest tworzona przy użyciu platformy bot Framework w wersji 4 i usługi Azure Web App bot.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 820cdeb692dffbf80a0e85c9d3dd86b703a4cae3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 57a9186033b8df71d1972289fe33b0fe654690f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931271"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316430"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Samouczek: używanie bot aplikacji sieci Web z włączonym Language Understanding w języku C #
 
 Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją interpretacji języka (LUIS). Bot jest tworzona przy użyciu [aplikacji sieci Web](https://docs.microsoft.com/azure/bot-service/) platformy Azure bot Resource i [bot Framework w wersji](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
-**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
+**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie bota aplikacji internetowej. Ten proces tworzy nową aplikację usługi LUIS.
@@ -32,7 +34,7 @@ Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją int
 
 1. W witrynie [Azure Portal](https://portal.azure.com) wybierz polecenie **Utwórz nowy zasób**.
 
-1. W polu wyszukiwania wyszukaj i wybierz pozycję **Web App Bot** (Bot aplikacji internetowej). Wybierz pozycję **Utwórz**.
+1. W polu wyszukiwania wyszukaj i wybierz pozycję **Web App Bot** (Bot aplikacji internetowej). Wybierz przycisk **Utwórz**.
 
 1. W polu **Bot Service** (Usługa bota) podaj wymagane informacje:
 
@@ -57,7 +59,7 @@ Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją int
     |Język zestawu SDK|Język programowania bota|**C#**|
     |Bot|Typ bota|**Bot podstawowy**|
 
-1. Wybierz pozycję **Utwórz**. To powoduje utworzenie i wdrożenie usługi bota na platformie Azure. W ramach tego procesu jest tworzona nowa aplikacja usługi LUIS o nazwie `luis-csharp-bot-XXXX`. Ta nazwa jest oparta na nazwie aplikacji usługi/Azure bot.
+1. Wybierz przycisk **Utwórz**. To powoduje utworzenie i wdrożenie usługi bota na platformie Azure. W ramach tego procesu jest tworzona nowa aplikacja usługi LUIS o nazwie `luis-csharp-bot-XXXX`. Ta nazwa jest oparta na nazwie aplikacji usługi/Azure bot.
 
     > [!div class="mx-imgBorder"]
     > [![Tworzenie bot aplikacji sieci Web](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
@@ -320,12 +322,12 @@ W programie Visual Studio 2019 Uruchom bot. Zostanie otwarte okno przeglądarki 
 
 1. W emulatorze bot wprowadź `Book a flight from Seattle to Berlin tomorrow` i uzyskaj taką samą odpowiedź dla podstawowego bot, jak w przypadku **testu w rozmowie w sieci Web** w poprzedniej sekcji.
 
-    [![Podstawowa odpowiedź bot w emulatorze](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
+    [![Zrzut ekranu przedstawia emulator bot Framework z podstawową odpowiedzią bot.](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Wybierz pozycję **Tak**. Bot reaguje z podsumowaniem jego akcji.
 1. Z dziennika emulatora bot wybierz wiersz, który zawiera `<- trace LuisV3 Trace` . Spowoduje to wyświetlenie odpowiedzi JSON z LUIS dla zamiar i jednostek wypowiedź.
 
-    [![Podstawowa odpowiedź bot w emulatorze](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+    [![Zrzut ekranu przedstawia podstawową odpowiedź bot z wybranym śladem LuisV3 i wyróżnioną odpowiedzią JSON.](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
