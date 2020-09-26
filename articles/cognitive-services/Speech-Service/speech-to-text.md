@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: Zamiana mowy na tekst, oprogramowanie zamiany mowy na tekst
-ms.openlocfilehash: 804acd17f3df91cc3df949d6d9ccac0450bb225f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: f4392881c2f572b1e53d7c283ef5c1debc1d20ea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569224"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359940"
 ---
 # <a name="what-is-speech-to-text"></a>Co to jest zamiana mowy na tekst?
 
@@ -50,7 +50,7 @@ Przykładowy kod dla zestawu Speech SDK jest dostępny w witrynie GitHub. Te prz
 
 Oprócz standardowego modelu usługi mowy można tworzyć modele niestandardowe. Dostosowanie pomaga w przezwyciężeniu barier rozpoznawania mowy, takich jak styl mowy, słownictwo i hałas w tle, zobacz [Custom Speech](how-to-custom-speech.md). Opcje dostosowywania różnią się w zależności od języka/ustawień regionalnych, zobacz [obsługiwane języki](supported-languages.md) , aby sprawdzić pomoc techniczną.
 
-## <a name="batch-transcription"></a>Transkrypcja wsadowa
+## <a name="batch-transcription"></a>Transkrypcja mowy
 
 Transkrypcja usługi Batch to zestaw operacji interfejsu API REST, które umożliwiają transkrypcja dużej ilości danych audio w magazynie. Możesz wskazać pliki audio z identyfikatorem URI sygnatury dostępu współdzielonego (SAS) i asynchronicznie otrzymywać wyniki transkrypcji. Zobacz [instrukcje](batch-transcription.md) , aby uzyskać więcej informacji na temat korzystania z interfejsu API transkrypcji usługi Batch.
 
@@ -58,5 +58,5 @@ Transkrypcja usługi Batch to zestaw operacji interfejsu API REST, które umożl
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](get-started.md)
+- [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](overview.md#try-the-speech-service-for-free)
 - [Pobieranie zestawu Speech SDK](speech-sdk.md)

@@ -12,12 +12,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cd70d534cebf35938285208dc76bd4a6d94533
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 3d9f59906c566d80344891c0796a85b0a4972e68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279010"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313097"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Samouczek: Konfigurowanie PHS jako kopii zapasowej AD FS w Azure AD Connect
 
@@ -74,7 +74,7 @@ Teraz pokażemy, jak przejść na synchronizację skrótów haseł. Przed rozpoc
 
 1. Przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Zaloguj się przy użyciu konta użytkownika utworzonego w nowej dzierżawie.  Należy zalogować się przy użyciu następującego formatu: (user@domain.onmicrosoft.com). Użyj tego samego hasła, za pomocą którego użytkownik loguje się lokalnie.</br>
-   ![Weryfikacja](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Zrzut ekranu, który wyświetla komunikat o pomyślnym przetestowaniu logowania. ](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="switch-back-to-federation"></a>Przełącz z powrotem do Federacji
 Teraz pokażemy, jak przełączyć się z powrotem do Federacji.  W tym celu wykonaj następujące czynności:
@@ -91,7 +91,7 @@ Teraz pokażemy, jak przełączyć się z powrotem do Federacji.  W tym celu wyk
 10. Po zakończeniu konfiguracji kliknij przycisk **dalej**.
 ![Konfigurowanie](media/tutorial-phs-backup/backup4.png)</br>
 11. Na stronie **Weryfikowanie łączności federacyjnej** kliknij przycisk **Weryfikuj**.  W celu pomyślnego wykonania tej czynności może być konieczne skonfigurowanie rekordów DNS (Dodaj rekordy a i AAAA).
-![Weryfikacja](media/tutorial-phs-backup/backup5.png)</br>
+![Zrzut ekranu przedstawiający ekran Weryfikowanie łączności federacyjnej i przycisk Weryfikuj.](media/tutorial-phs-backup/backup5.png)</br>
 12. Kliknij przycisk **Zakończ**.
 
 ## <a name="reset-the-ad-fs-and-azure-trust"></a>Zresetuj AD FS i zaufanie platformy Azure
@@ -106,7 +106,7 @@ Teraz musimy zresetować zaufanie między AD FS i platformą Azure.
 6.  Na ekranie **Połącz z AD FS** wprowadź nazwę użytkownika i hasło contoso\administrator, a następnie kliknij przycisk **Dalej.**
 7.  Na ekranie **Certyfikaty** kliknij przycisk **dalej**.
 
-## <a name="test-signing-in-with-one-of-our-users"></a>Testowanie logowania się przy użyciu jednego z kont użytkowników
+## <a name="test-signing-in-with-a-user"></a>Testowanie logowania za pomocą użytkownika
 
 1.  Przejdź do [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Zaloguj się przy użyciu konta użytkownika utworzonego w nowej dzierżawie.  Należy zalogować się przy użyciu następującego formatu: (user@domain.onmicrosoft.com). Użyj tego samego hasła, za pomocą którego użytkownik loguje się lokalnie.

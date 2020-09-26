@@ -1,6 +1,6 @@
 ---
 title: Przyrostowe kopiowanie wielu tabel przy użyciu Azure Portal
-description: W tym samouczku utworzysz potok Azure Data Factory, który przyrostowo kopiuje dane różnicowe z wielu tabel w bazie danych SQL Server do bazy danych w Azure SQL Database.
+description: W tym samouczku utworzysz fabrykę danych platformy Azure z potokiem, który ładuje dane różnicowe z wielu tabel w bazie danych SQL Server do bazy danych w Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: c215c2cb256ab37bcb096c018aefb3a410ab1e4f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 83c29740bd535d9508e5458a66fc8592500ceaf3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85251155"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320977"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Przyrostowe ładowanie danych z wielu tabel w SQL Server do bazy danych w Azure SQL Database przy użyciu Azure Portal
 
@@ -254,7 +254,7 @@ END
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 6. Wybierz opcję **V2** w obszarze **Wersja**.
 7. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
-8. Kliknij przycisk **Utwórz**.      
+8. Kliknij pozycję **Utwórz**.      
 9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych**, jak pokazano na poniższej ilustracji.
    
    ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
@@ -479,8 +479,8 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
 
         | Nazwa | Typ | Wartość | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | Ciąg | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | LastModifiedtime | Data i godzina | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Wybierz pozycję **Opublikuj wszystkie** , aby opublikować utworzone jednostki w usłudze Data Factory. 

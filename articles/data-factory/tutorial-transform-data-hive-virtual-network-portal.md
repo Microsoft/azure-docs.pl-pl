@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: 18f72ff32b29ff5832c363601ed63280339079df
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 52fba5064d656158a53ba71fec194cfa4f360df5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86083070"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360297"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Przekształcanie danych na platformie Azure Virtual Network przy użyciu działania programu Hive w Azure Data Factory przy użyciu Azure Portal
 
@@ -94,7 +94,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 4. Wybierz opcję **V2** w obszarze **Wersja**.
 5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście są wyświetlane tylko lokalizacje obsługiwane na potrzeby tworzenia fabryk danych.
 6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
-7. Kliknij przycisk **Utwórz**.
+7. Kliknij pozycję **Utwórz**.
 8. Na pulpicie nawigacyjnym jest widoczny następujący kafelek ze stanem: **wdrażanie fabryki danych**. 
 
      ![kafelek Wdrażanie fabryki danych](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
@@ -233,7 +233,7 @@ Pamiętaj o następujących kwestiach:
         ![Argumenty skryptu](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Aby opublikować artefakty do usługi Data Factory, kliknij pozycję **Opublikuj**.
 
-    ![Publikowanie](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
+    ![Zrzut ekranu przedstawia opcję opublikowania w Data Factory.](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Wyzwalanie uruchomienia potoku
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 226e35452e4b266c3c0a698505d47ab9a53b9761
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280474"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Wykonaj przywracanie do punktu w czasie dla danych blokowych obiektów BLOB
 
@@ -54,9 +54,7 @@ Na poniższej ilustracji przedstawiono konto magazynu skonfigurowane do przywrac
 
 Aby skonfigurować przywracanie do punktu w czasie za pomocą programu PowerShell, najpierw zainstaluj moduł [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) w wersji 2.6.0 lub nowszej. Następnie Wywołaj polecenie Enable-AzStorageBlobRestorePolicy, aby włączyć przywracanie do punktu w czasie dla konta magazynu.
 
-Poniższy przykład włącza nietrwałe usuwanie i ustawia okres przechowywania nietrwałego, włącza Źródło zmian, a następnie włącza przywracanie do punktu w czasie. Przed uruchomieniem tego przykładu Użyj szablonu Azure Portal lub Azure Resource Manager, aby włączyć obsługę wersji obiektów BLOB.
-
-Podczas uruchamiania przykładu Pamiętaj, aby zastąpić wartości w nawiasach ostrych własnymi wartościami:
+Poniższy przykład włącza nietrwałe usuwanie i ustawia okres przechowywania nietrwałego, umożliwia tworzenie źródła zmian i przechowywanie wersji, a następnie włącza przywracanie do punktu w czasie.    Podczas uruchamiania przykładu Pamiętaj, aby zastąpić wartości w nawiasach ostrych własnymi wartościami:
 
 ```powershell
 # Sign in to your Azure account.
@@ -71,10 +69,11 @@ Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
 
-# Enable change feed.
+# Enable change feed and versioning.
 Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -EnableChangeFeed $true
+    -EnableChangeFeed $true `
+    -IsVersioningEnabled $true
 
 # Enable point-in-time restore with a retention period of 7 days.
 # The retention period for point-in-time restore must be at least

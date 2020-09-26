@@ -8,20 +8,18 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4526e4916a89b53ae13a31bcdef6cd4715dd7e8c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8c6cb08f8236ab6164a71b710656951203be3d19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979588"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314577"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
 Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
-## <a name="feature-announcements-in-2020"></a>Anonse funkcji w 2020
-
-### <a name="september-2020"></a>Wrzesień 2020
+## <a name="september-2020"></a>Wrzesień 2020
 
 Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie użyj uprawnień RBAC, aby przyznać tożsamości tylko do odczytu dla źródeł danych platformy Azure. Opcjonalnie można wybrać opcję [zaufanego wyjątku usługi](search-indexer-howto-access-trusted-service-exception.md) , jeśli nie są dostępne reguły adresów IP.
 
@@ -34,13 +32,13 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 | [Interfejs API REST zarządzania (2020-08-01 — wersja zapoznawcza)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Dodaje udostępnione zasoby linku prywatnego dla baz danych Azure Functions i Azure SQL dla programu MySQL. | Publiczna wersja zapoznawcza. |
 | [Zestaw .NET SDK 4,0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | Zestaw SDK .NET | Aktualizacja zestawu Azure SDK dla zestawu SDK zarządzania, interfejs API REST w wersji 2020-08-01. | Ogólnie dostępna. |
 
-### <a name="august-2020"></a>Sierpień 2020 r.
+## <a name="august-2020"></a>Sierpień 2020 r.
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
 | [podwójne szyfrowanie](search-security-overview.md#encryption) | Zabezpieczenia | Włącz podwójne szyfrowanie w warstwie magazynowania, konfigurując szyfrowanie klucza zarządzanego przez klienta (CMK) w nowych usługach wyszukiwania. Utwórz nową usługę, [Skonfiguruj i Zastosuj klucze zarządzane przez klienta](search-security-manage-encryption-keys.md) do indeksów lub map synonimów, a następnie skorzystaj z podwójnego szyfrowania nad tą zawartością. | Ogólnie dostępna we wszystkich usługach wyszukiwania utworzonych po 1 sierpnia 2020 w następujących regionach: zachodnie stany USA 2, Wschodnie stany USA, Południowo-środkowe stany USA, US Gov Wirginia, US Gov Arizona. Tworzenie usługi przy użyciu portalu, interfejsów API REST zarządzania lub zestawów SDK. |
 
-### <a name="july-2020"></a>Lipiec 2020 r.
+## <a name="july-2020"></a>Lipiec 2020 r.
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
@@ -48,7 +46,7 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 | [azure.search.docBiblioteka kliencka uments](/python/api/overview/azure/search-documents-readme)  | Zestaw Azure SDK dla środowiska Python| Biblioteka klienta języka Python wydana przez zespół zestawu Azure SDK, zaprojektowany pod kątem spójności z innymi bibliotekami klienta języka Python. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania — wersja = 2020-06-30. | Ogólnie dostępna. </br> Zainstaluj [pakiet Azure-Search-Documents](https://pypi.org/project/azure-search-documents/) z PyPI. |
 | [@azure/search-documents Biblioteka kliencka](/javascript/api/overview/azure/search-documents-readme)  | Zestaw Azure SDK dla języka JavaScript | Biblioteka kliencka języka JavaScript wydana przez zespół zestawu Azure SDK, zaprojektowana pod kątem spójności z innymi bibliotekami klientów JavaScript. <br/><br/>Wersja 11 wskazuje interfejs API REST wyszukiwania — wersja = 2020-06-30. | Ogólnie dostępna. </br> Zainstaluj [ @azure/search-documents pakiet](https://www.npmjs.com/package/@azure/search-documents) z npm. |
 
-### <a name="june-2020"></a>Czerwiec 2020 r.
+## <a name="june-2020"></a>Czerwiec 2020 r.
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
@@ -57,7 +55,7 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 | [**Algorytm zgodności Okapi BM25**](https://en.wikipedia.org/wiki/Okapi_BM25) | Zapytanie | Nowy algorytm klasyfikacji istotności jest automatycznie używany dla wszystkich nowych usług wyszukiwania utworzonych po 15 lipca. W przypadku utworzonych wcześniej usług możesz wybrać wartość `similarity` właściwości dla pól indeksu. | Ogólnie dostępna. </br> Użyj [interfejsu API REST usługi Search 2020-06-30](/rest/api/searchservice/) lub nowszego lub interfejsu api REST 2019-05-06. |
 | **executionEnvironment** | Zabezpieczenia (indeksatory) | Jawnie ustaw tę właściwość konfiguracji indeksatora na `private` , aby wymusić wszystkie połączenia z zewnętrznymi źródłami danych za pośrednictwem prywatnego punktu końcowego. Dotyczy tylko usług wyszukiwania, które korzystają z prywatnego linku platformy Azure. | Ogólnie dostępna. </br> Użyj [interfejsu API REST usługi Search 2020-06-30](/rest/api/searchservice/) , aby ustawić ten ogólny parametr konfiguracji. |
 
-### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft Build)
+## <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft Build)
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
@@ -68,21 +66,21 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 | [**parametr zapytania SessionID**](index-similarity-and-scoring.md), [scoringStatistics = Global](index-similarity-and-scoring.md#scoring-statistics) | Zapytanie (istotność) | Dodaj identyfikator sesji do zapytania, aby ustanowić sesję do obliczania wyników wyszukiwania, z scoringStatistics = Global, aby zebrać wyniki ze wszystkich fragmentów, aby uzyskać bardziej spójne obliczenia wyników wyszukiwania. | Ogólnie dostępna. </br> Użyj [interfejsu API REST usługi Search 2020-06-30](/rest/api/searchservice/) lub nowszego lub interfejsu api REST 2019-05-06. |
 | [**Features (wersja zapoznawcza)**](index-similarity-and-scoring.md#featuresMode-param) | Zapytanie | Dodaj ten parametr zapytania, aby rozwinąć ocenę istotności, aby pokazać więcej szczegółów: wynik podobieństwa pola, częstotliwość poszczególnych pól i dla każdego pola numer unikatowych tokenów. Te punkty danych można wykorzystać w niestandardowych algorytmach oceniania. Aby uzyskać przykład demonstrujący tę możliwość, zobacz [Dodawanie uczenia maszynowego (LearnToRank) w celu wyszukania istotności](https://github.com/Azure-Samples/search-ranking-tutorial). | Publiczna wersja zapoznawcza. </br> Użyj [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) lub interfejs api REST 2019-05-06 — wersja zapoznawcza. |
 
-### <a name="march-2020"></a>Marzec 2020 r.
+## <a name="march-2020"></a>Marzec 2020 r.
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
 | [**Natywne usuwanie nietrwałego obiektu BLOB (wersja zapoznawcza)**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexers (Indeksatory) | Indeksator usługi Azure Blob Storage na platformie Azure Wyszukiwanie poznawcze będzie rozpoznawał obiekty blob w stanie nietrwałego usunięcia, a następnie usuwa odpowiedni dokument wyszukiwania podczas indeksowania. | Publiczna wersja zapoznawcza. </br> Użyj [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) i interfejs api REST 2019-05-06 — wersja zapoznawcza, za pomocą indeksatora uruchamiania dla źródła danych obiektów blob platformy Azure, które ma włączone natywnie "usuwanie nietrwałe". |
 | [**Interfejs API REST zarządzania (2020-03-13)**](/rest/api/searchmanagement/management-api-versions) | REST | Nowy stabilny interfejs API REST do tworzenia usługi wyszukiwania i zarządzania nią. Dodaje zaporę IP i obsługę linków prywatnych | Ogólnie dostępna. |
 
-### <a name="february-2020"></a>Luty 2020 r.
+## <a name="february-2020"></a>Luty 2020 r.
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
 | [**Wykrywanie przez dane OSOBowe (wersja zapoznawcza)**](cognitive-search-skill-pii-detection.md) | Wzbogacanie sztucznej inteligencji | Nowa umiejętność, która jest używana podczas indeksowania, która wyodrębnia dane osobowe z tekstu wejściowego i umożliwia maskowanie tego tekstu na różne sposoby. | Publiczna wersja zapoznawcza. </br> Użyj portalu lub [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) lub interfejs api REST 2019-05-06 — wersja zapoznawcza. |
 | [**Wyszukiwanie jednostek niestandardowych (wersja zapoznawcza)**](cognitive-search-skill-custom-entity-lookup.md )| Wzbogacanie sztucznej inteligencji | Nowa umiejętność, która szuka tekstu na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykieta wszystkie dokumenty z dowolnymi zgodnymi jednostkami. Umiejętność obsługuje również stopień dopasowywania rozmytego, który można zastosować, aby znaleźć dopasowania, które są podobne, ale nie dokładnie. | Publiczna wersja zapoznawcza. </br> Użyj portalu lub [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) lub interfejs api REST 2019-05-06 — wersja zapoznawcza. |
 
-### <a name="january-2020"></a>Styczeń 2020 r.
+## <a name="january-2020"></a>Styczeń 2020 r.
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
@@ -90,7 +88,7 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 | [**Reguły adresów IP dla obsługiwanej zapory (wersja zapoznawcza)**](service-configure-firewall.md) | Zabezpieczenia | Ogranicz dostęp do punktu końcowego usługi wyszukiwania do określonych adresów IP. Interfejs API w wersji zapoznawczej zawiera nowe właściwości **IpRule** i **NetworkRuleSet** w [interfejsie API metodę createorupdate](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Ta funkcja w wersji zapoznawczej jest dostępna w wybranych regionach. |  Publiczna wersja zapoznawcza przy użyciu interfejsu API-Version = 2019-10 -01 — wersja zapoznawcza.  |
 | [**Prywatny link do prywatnego punktu końcowego wyszukiwania (wersja zapoznawcza)**](service-create-private-endpoint.md) | Zabezpieczenia| Włącz ochronę usługi wyszukiwania z publicznej sieci Internet, uruchamiając ją jako zasób linku prywatnego, dostępny tylko dla aplikacji klienckich i innych usług platformy Azure w tej samej sieci wirtualnej. | Publiczna wersja zapoznawcza przy użyciu interfejsu API-Version = 2019-10 -01 — wersja zapoznawcza.  |
 
-## <a name="feature-announcements-in-2019"></a>Anonse funkcji w 2019
+## <a name="features-in-2019"></a>Funkcje w 2019
 
 ### <a name="december-2019"></a>Grudzień 2019 r.
 

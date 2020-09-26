@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651164"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359685"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
 
@@ -48,7 +48,7 @@ Gdy wszystko będzie gotowe do użycia danych w rozwiązaniu do magazynowania w 
 
 Na poniższym diagramie przedstawiono wizualizację tego zalecanego przepływu pracy.
 
-![Diagram koncepcji danych](./media/concept-data/data-concept-diagram.svg)
+![Na diagramie przedstawiono usługę Azure Storage, która jest przesyłana do magazynu danych, który jest przesyłany do elementu DataSet. Zestaw danych przenosi do szkolenia modelu, który przechodzi do dryfu danych, który przechodzi z powrotem do zestawu danych.](./media/concept-data/data-concept-diagram.svg)
 
 ## <a name="datastores"></a>Magazyny danych
 

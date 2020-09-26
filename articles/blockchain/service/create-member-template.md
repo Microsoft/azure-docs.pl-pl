@@ -5,13 +5,13 @@ services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, references_regions
-ms.date: 07/16/2020
-ms.openlocfilehash: b9d1e3319aaaafded44d25c91720a0d72dcb86f3
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.date: 09/16/2020
+ms.openlocfilehash: e9893336f2e6633519853aceecc945ee6bf0bf4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642014"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292765"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Szybki Start: Tworzenie elementu członkowskiego usługi Azure łańcucha bloków przy użyciu szablonu ARM
 
@@ -49,14 +49,16 @@ Zasoby platformy Azure zdefiniowane w szablonie:
     --------|------------
     Subskrypcja | Wybierz subskrypcję platformy Azure, która ma być używana dla usługi. Jeśli masz wiele subskrypcji, wybierz tę, w ramach której są naliczane opłaty za ten zasób.
     Grupa zasobów | Utwórz nową nazwę grupy zasobów lub wybierz istniejącą z subskrypcji.
-    Lokalizacja | Wybierz lokalizację, w której ma zostać utworzony element członkowski. Wszyscy członkowie konsorcjum muszą znajdować się w tej samej lokalizacji. Dostępne lokalizacje wdrożenia to *westeurope, wschodnie, southeastasia, westeurope, northeurope, westus2*i *japaneast*. Funkcje mogą być niedostępne w niektórych regionach. Usługa Azure łańcucha bloków Data Manager jest dostępna w następujących regionach świadczenia usługi Azure: Wschodnie stany USA i Europa Zachodnia.
-    Nazwa elementu członkowskiego | Wybierz unikatową nazwę elementu członkowskiego usługi Azure łańcucha bloków. Nazwa elementu członkowskiego łańcucha bloków może zawierać tylko małe litery i cyfry. Pierwszy znak musi być literą. Wartość musi mieć długość od 2 do 20 znaków.
+    Region | Wybierz region, aby utworzyć grupę zasobów. Wszyscy członkowie konsorcjum muszą znajdować się w tej samej lokalizacji. Dostępne lokalizacje wdrożenia to *westeurope, wschodnie, southeastasia, westeurope, northeurope, westus2*i *japaneast*. Funkcje mogą być niedostępne w niektórych regionach. Usługa Azure łańcucha bloków Data Manager jest dostępna w następujących regionach świadczenia usługi Azure: Wschodnie stany USA i Europa Zachodnia.
+    Nazwa elementu członkowskiego BC | Wybierz unikatową nazwę elementu członkowskiego usługi Azure łańcucha bloków. Nazwa elementu członkowskiego łańcucha bloków może zawierać tylko małe litery i cyfry. Pierwszy znak musi być literą. Wartość musi mieć długość od 2 do 20 znaków.
     Nazwa konsorcjum | Wprowadź unikatową nazwę. Aby uzyskać więcej informacji na temat konsorcjów, zobacz [Azure łańcucha bloków Service Consortium](consortium.md).
-    Hasło elementu członkowskiego | Hasło konta elementu członkowskiego służy do szyfrowania klucza prywatnego dla konta Ethereum utworzonego dla elementu członkowskiego. Do zarządzania konsorcjum używasz konta elementu członkowskiego i hasła konta elementu członkowskiego.
+    Hasło elementu członkowskiego | Hasło dla domyślnego węzła transakcji elementu członkowskiego. Użyj hasła uwierzytelniania podstawowego podczas nawiązywania połączenia z domyślnym punktem końcowym węzła transakcji elementu członkowskiego łańcucha bloków.
+    Hasło konta zarządzania konsorcjum | Hasło konta konsorcjum służy do szyfrowania klucza prywatnego dla konta Ethereum utworzonego dla elementu członkowskiego. Służy do zarządzania konsorcjum.
     Warstwa SKU | Warstwa cenowa nowej usługi. Wybierz warstwę **standardowa** i **podstawowa** . Skorzystaj z warstwy *podstawowa* na potrzeby tworzenia, testowania i sprawdzania poprawności koncepcji. Użyj warstwy *standardowa* dla wdrożeń klasy produkcyjnej. W przypadku korzystania z łańcucha bloków Data Manager lub wysyłania dużej liczby transakcji prywatnych należy również użyć warstwy *standardowa* . Zmiana warstwy cenowej między podstawowa i Standardowa po utworzeniu elementu członkowskiego nie jest obsługiwana.
-    Nazwa jednostki SKU | Konfiguracja węzła i koszt nowej usługi.
+    Nazwa jednostki SKU | Konfiguracja węzła i koszt nowej usługi. Użyj **B0** dla warstwy Podstawowa i **S0** dla warstwy Standardowa.
+    Lokalizacja | Wybierz lokalizację, w której ma zostać utworzony element członkowski. Domyślnie używana jest lokalizacja grupy zasobów `[resourceGroup().location]` . Wszyscy członkowie konsorcjum muszą znajdować się w tej samej lokalizacji. Dostępne lokalizacje wdrożenia to *westeurope, wschodnie, southeastasia, westeurope, northeurope, westus2*i *japaneast*. Funkcje mogą być niedostępne w niektórych regionach. Usługa Azure łańcucha bloków Data Manager jest dostępna w następujących regionach świadczenia usługi Azure: Wschodnie stany USA i Europa Zachodnia.
 
-1. Wybierz pozycję **Kup** , aby wdrożyć szablon.
+1. Wybierz pozycję **Przegląd + Utwórz** , aby sprawdzić i wdrożyć szablon.
 
   Azure Portal jest używany tutaj do wdrożenia szablonu. Można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -66,7 +68,7 @@ Za pomocą Azure Portal można wyświetlić szczegóły wdrożonego elementu cz�
 
 ![Wdrożono szczegóły przeglądu elementu członkowskiego usługi Azure łańcucha bloków w Azure Portal](./media/create-member-template/deployed-member.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz użyć elementu członkowskiego łańcucha bloków utworzonego dla następnego przewodnika Szybki start lub samouczka. Gdy zasoby nie będą już potrzebne, można je usunąć przez usunięcie grupy zasobów utworzonej dla przewodnika Szybki Start.
 

@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251777"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360841"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centrum wdrażania dla usługi Azure Kubernetes
 
@@ -54,7 +54,7 @@ W tym samouczku wykonasz następujące czynności:
 
 1. Wybierz klaster AKS, a następnie wybierz pozycję **centrum wdrażania (wersja zapoznawcza)** w lewym bloku. Wybierz pozycję **Rozpocznij**.
 
-   ![ustawienia](media/deployment-center-launcher/settings.png)
+   ![Zrzut ekranu przedstawia Azure Portal ze strzałką wskazującą centrum wdrażania.](media/deployment-center-launcher/settings.png)
 
 1. Wybierz lokalizację kodu i wybierz pozycję **dalej**. Następnie wybierz jedną z obecnie obsługiwanych repozytoriów: **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** lub **GitHub**.
 
@@ -66,7 +66,7 @@ W tym samouczku wykonasz następujące czynności:
 
     - **GitHub**: Autoryzuj i wybieraj repozytorium dla konta usługi GitHub.
 
-        ![GitHub](media/deployment-center-launcher/github.gif)
+        ![Animacja przedstawia proces w serwisie GitHub wybierania usługi GitHub jako źródła, a następnie wybraniu repozytorium.](media/deployment-center-launcher/github.gif)
 
 
 1. Centrum wdrażania analizuje repozytorium i wykrywa pliku dockerfile. Jeśli chcesz zaktualizować pliku dockerfile, możesz edytować określony numer portu.
@@ -75,7 +75,7 @@ W tym samouczku wykonasz następujące czynności:
 
     Jeśli repozytorium nie zawiera pliku dockerfile, system wyświetli komunikat, aby go zatwierdzić.
 
-    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
+    ![Zrzut ekranu przedstawia centrum wdrażania z komunikatem nie można odnaleźć pliku dockerfile w repozytorium.](media/deployment-center-launcher/dockerfile.png)
 
 1. Wybierz istniejący rejestr kontenerów lub utwórz go, a następnie wybierz pozycję **Zakończ**. Potok jest tworzony automatycznie i kolejkuje kompilację w [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
 
@@ -87,7 +87,7 @@ W tym samouczku wykonasz następujące czynności:
 
 1. Po zakończeniu wdrażania zostaną wyświetlone pomyślne dzienniki.
 
-    ![Dzienniki](media/deployment-center-launcher/logs.png)
+    ![Zrzut ekranu przedstawia centrum wdrażania z wydaniami 1, które jest oznaczone zielonym znacznikiem wyboru.](media/deployment-center-launcher/logs.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Badanie potoku ciągłej integracji
 

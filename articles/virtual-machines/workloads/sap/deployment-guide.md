@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 6b66db639e0b22a7e0c45486465a1fa395aba33d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359617"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -425,7 +425,7 @@ Najprostszym sposobem tworzenia nowej maszyny wirtualnej przy użyciu obrazu z w
 1.  Wybierz pozycję **obliczenia**, a następnie wybierz typ systemu operacyjnego, który chcesz wdrożyć. Na przykład: Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7,2 (RHEL 7,2) lub Oracle Linux 7,2. W widoku listy domyślnej nie są wyświetlane wszystkie obsługiwane systemy operacyjne. Aby uzyskać pełną listę, wybierz pozycję **Zobacz wszystko** . Aby uzyskać więcej informacji o obsługiwanych systemach operacyjnych na potrzeby wdrażania oprogramowania SAP, zobacz temat SAP Note [1928533].
 1.  Na następnej stronie Przejrzyj warunki i postanowienia.
 1.  W polu **Wybierz model wdrażania** wybierz pozycję **Menedżer zasobów**.
-1.  Wybierz pozycję **Utwórz**.
+1.  Wybierz przycisk **Utwórz**.
 
 Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w celu utworzenia maszyny wirtualnej, a także wszystkich wymaganych zasobów, takich jak interfejsy sieciowe i konta magazynu. Niektóre z tych parametrów są następujące:
 
@@ -543,11 +543,11 @@ Ponieważ różne wersje systemu operacyjnego lub DBMS mają różne wymagania d
 Aby utworzyć prywatny obraz dla systemu Linux, należy wykonać różne czynności.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > Aby przygotować obraz systemu Windows, którego można użyć do wdrożenia wielu maszyn wirtualnych, ustawienia systemu Windows (takie jak identyfikator SID systemu Windows i nazwa hosta) muszą być abstrakcyjne lub uogólnione na lokalnej maszynie wirtualnej. W tym celu można użyć [narzędzia Sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10)) .
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo systemu Linux.][Logo_Linux] Linux
 >
 > Aby przygotować obraz systemu Linux, którego można użyć do wdrożenia wielu maszyn wirtualnych, niektóre ustawienia systemu Linux muszą być abstrakcyjne lub uogólnione na lokalnej maszynie wirtualnej. W tym celu można użyć `waagent -deprovision`  w tym celu. Aby uzyskać więcej informacji, zobacz [przechwytywanie maszyny wirtualnej z systemem Linux działającej na platformie Azure][virtual-machines-linux-capture-image] i [Podręcznik użytkownika agenta platformy Azure dla systemu Linux][virtual-machines-linux-agent-user-guide-command-line-options].
 >
@@ -683,11 +683,11 @@ W tym scenariuszu Agent maszyny wirtualnej **nie** jest automatycznie instalowan
 Aby uzyskać więcej informacji na temat agenta maszyny wirtualnej platformy Azure, zobacz następujące zasoby.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 > [Omówienie agenta maszyny wirtualnej platformy Azure][virtual-machines-windows-agent-user-guide]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logo systemu Linux.][Logo_Linux] Linux
 >
 > [Przewodnik użytkownika Agenta platformy Azure dla systemu Linux][virtual-machines-linux-agent-user-guide]
 >
@@ -861,7 +861,7 @@ Aby można było uzyskać dostęp do Internetu, należy prawidłowo skonfigurowa
 1. Wyczyść pole wyboru **Automatycznie wykryj ustawienia**.
 1. Zaznacz pole wyboru **Użyj serwera proxy dla sieci LAN** , a następnie wprowadź adres i port serwera proxy.
 1. Wybierz przycisk **Zaawansowane** .
-1. W polu **wyjątki** wprowadź adres IP **168.63.129.16**. Kliknij **OK**.
+1. W polu **wyjątki** wprowadź adres IP **168.63.129.16**. Wybierz przycisk **OK**.
 
 #### <a name="linux"></a>Linux
 
@@ -1309,7 +1309,7 @@ Jeśli niektóre dane infrastruktury nie zostały prawidłowo dostarczone zgodni
 > [!NOTE]
 > Istnieją dwie wersje rozszerzenia maszyny wirtualnej. Ten rozdział obejmuje domyślne rozszerzenie maszyny wirtualnej. Jeśli zainstalowano nowe rozszerzenie maszyny wirtualnej, zobacz rozdział [Rozwiązywanie problemów z nowym rozszerzeniem platformy Azure dla oprogramowania SAP][deployment-guide-5.3-new].
 
-#### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Liczniki wydajności platformy Azure nie są wyświetlane w ogóle
+#### <a name="windows-logologo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Logo Windows.][Logo_Windows] Liczniki wydajności platformy Azure nie są wyświetlane w ogóle
 
 Usługa AzureEnhancedMonitoring systemu Windows zbiera metryki wydajności na platformie Azure. Jeśli usługa nie została prawidłowo zainstalowana lub nie jest uruchomiona na maszynie wirtualnej, nie można zbierać metryk wydajności.
 
@@ -1350,13 +1350,13 @@ Usługa AzureEnhancedMonitoring systemu Windows istnieje i jest włączona, ale 
 
 Konfiguracja jest nieprawidłowa. Uruchom ponownie rozszerzenie platformy Azure dla oprogramowania SAP na maszynie wirtualnej zgodnie z opisem w temacie [Konfigurowanie rozszerzenia platformy Azure dla oprogramowania SAP][deployment-guide-4.5].
 
-#### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Brakuje niektórych liczników wydajności platformy Azure
+#### <a name="windows-logologo_windows-some-azure-performance-counters-are-missing"></a>![Logo Windows.][Logo_Windows] Brakuje niektórych liczników wydajności platformy Azure
 
 Usługa AzureEnhancedMonitoring systemu Windows zbiera metryki wydajności na platformie Azure. Usługa pobiera dane z kilku źródeł. Niektóre dane konfiguracji są zbierane lokalnie, a niektóre metryki wydajności są odczytywane z Diagnostyka Azure. Liczniki magazynu są używane w ramach rejestrowania na poziomie subskrypcji magazynu.
 
 Jeśli Rozwiązywanie problemów przy użyciu uwagi SAP [1999351] nie rozwiąże problemu, uruchom ponownie `Set-AzVMAEMExtension` skrypt konfiguracji. Może być konieczne odczekanie godziny, ponieważ liczniki usługi Storage Analytics lub Diagnostics mogą nie zostać utworzone natychmiast po ich włączeniu. Jeśli problem będzie nadal występował, Otwórz komunikat obsługa klienta SAP na składniku BC-OP-NT-AZR dla systemu Windows lub BC-OP-LNX-AZR dla maszyny wirtualnej z systemem Linux.
 
-#### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Liczniki wydajności platformy Azure nie są wyświetlane w ogóle
+#### <a name="linux-logologo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Logo systemu Linux.][Logo_Linux] Liczniki wydajności platformy Azure nie są wyświetlane w ogóle
 
 Metryki wydajności na platformie Azure są zbierane przez demona. Jeśli Demon nie jest uruchomiony, nie można zbierać metryk wydajności.
 
@@ -1389,7 +1389,7 @@ Wykonanie azperfli.exe zgodnie z wcześniejszym opisem pozwala uzyskać wynik ws
 Komunikaty są spowodowane przez fakt, że standardowa Managed Disks nie dostarcza interfejsów API używanych przez rozszerzenie SAP dla SAP do sprawdzania statystyk standardowych kont usługi Azure Storage. Nie jest to kwestia problemu. Powód wprowadzenia danych zbierających dla standardowych kont Disk Storage było ograniczeniem liczby wejść i wyjść, które wystąpiły często. W przypadku dysków zarządzanych będzie możliwe uniknięcie tego ograniczenia przez ograniczenie liczby dysków na koncie magazynu. W związku z tym ten typ danych nie jest krytyczny.
 
 
-#### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Brakuje niektórych liczników wydajności platformy Azure
+#### <a name="linux-logologo_linux-some-azure-performance-counters-are-missing"></a>![Logo systemu Linux.][Logo_Linux] Brakuje niektórych liczników wydajności platformy Azure
 
 Metryki wydajności na platformie Azure są zbierane przez demon, który pobiera dane z kilku źródeł. Niektóre dane konfiguracji są zbierane lokalnie, a niektóre metryki wydajności są odczytywane z Diagnostyka Azure. Liczniki magazynu pochodzą z dzienników w ramach subskrypcji magazynu.
 
@@ -1402,7 +1402,7 @@ Jeśli Rozwiązywanie problemów przy użyciu programu SAP Note [1999351] nie ro
 > [!NOTE]
 > Istnieją dwie wersje rozszerzenia maszyny wirtualnej. Ten rozdział obejmuje nowe rozszerzenie maszyny wirtualnej. Jeśli zainstalowano domyślne rozszerzenie maszyny wirtualnej, zobacz rozdział [Rozwiązywanie problemów z rozszerzeniem platformy Azure dla oprogramowania SAP][deployment-guide-5.3].
 
-#### <a name="windowslogo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Liczniki wydajności platformy Azure nie są wyświetlane w ogóle
+#### <a name="windows-logologo_windows-azure-performance-counters-do-not-show-up-at-all"></a>![Logo Windows.][Logo_Windows] Liczniki wydajności platformy Azure nie są wyświetlane w ogóle
 
 Proces AzureEnhancedMonitoring zbiera metryki wydajności na platformie Azure. Jeśli proces nie jest uruchomiony na maszynie wirtualnej, nie można zbierać metryk wydajności.
 
@@ -1416,13 +1416,13 @@ Katalog instalacyjny C: \\ pakiety \\ dodatki \\ Microsoft. AzureCAT. AzureEnhan
 
 Rozszerzenie nie jest zainstalowane. Ustal, czy jest to problem z serwerem proxy (zgodnie z wcześniejszym opisem). Może być konieczne ponowne uruchomienie komputera lub ponowne zainstalowanie rozszerzenia maszyny wirtualnej.
 
-#### <a name="windowslogo_windows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Brakuje niektórych liczników wydajności platformy Azure
+#### <a name="windows-logologo_windows-some-azure-performance-counters-are-missing"></a>![Logo Windows.][Logo_Windows] Brakuje niektórych liczników wydajności platformy Azure
 
 Proces systemu Windows AzureEnhancedMonitoring zbiera metryki wydajności na platformie Azure. Proces pobiera dane z kilku źródeł. Niektóre dane konfiguracji są zbierane lokalnie, a niektóre metryki wydajności są odczytywane z Azure Monitor.
 
 Jeśli Rozwiązywanie problemów przy użyciu programu SAP Note [1999351] nie rozwiąże problemu, Otwórz komunikat obsługi klienta SAP na składniku BC-op-NT-AZR dla systemu Windows lub BC-op-LNX-AZR dla maszyny wirtualnej z systemem Linux. Dołącz plik dziennika C: \\ pakiety \\ dodatki \\ Microsoft. AzureCAT. AzureEnhancedMonitoring. MonitorX64Windows \\ &lt; w wersji>\\logapp.txt do zdarzenia.
 
-#### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Liczniki wydajności platformy Azure nie są wyświetlane w ogóle
+#### <a name="linux-logologo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Logo systemu Linux.][Logo_Linux] Liczniki wydajności platformy Azure nie są wyświetlane w ogóle
 
 Metryki wydajności na platformie Azure są zbierane przez demona. Jeśli Demon nie jest uruchomiony, nie można zbierać metryk wydajności.
 
@@ -1436,7 +1436,7 @@ Metryki wydajności na platformie Azure są zbierane przez demona. Jeśli Demon 
 
 Rozszerzenie nie jest zainstalowane. Ustal, czy jest to problem z serwerem proxy (zgodnie z wcześniejszym opisem). Może być konieczne ponowne uruchomienie komputera i/lub ponowne zainstalowanie rozszerzenia maszyny wirtualnej.
 
-#### <a name="linuxlogo_linux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Brakuje niektórych liczników wydajności platformy Azure
+#### <a name="linux-logologo_linux-some-azure-performance-counters-are-missing"></a>![Logo systemu Linux.][Logo_Linux] Brakuje niektórych liczników wydajności platformy Azure
 
 Metryki wydajności na platformie Azure są zbierane przez demon, który pobiera dane z kilku źródeł. Niektóre dane konfiguracji są zbierane lokalnie, a niektóre metryki wydajności są odczytywane z Azure Monitor.
 
@@ -1495,7 +1495,7 @@ Wykonaj kroki opisane w rozdziale [Konfigurowanie rozszerzenia platformy Azure d
 
 Jeśli błędy nie znikną, [skontaktuj się z pomocą techniczną][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Kontakt z pomocą techniczną
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Skontaktuj się z pomocą techniczną
 
 Nieoczekiwany błąd lub nie ma znanego rozwiązania. Zbierz plik AzureEnhancedMonitoring_service. log znajdujący się w folderze C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \Drop (Windows) lub/var/log/Azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) i skontaktuj się z pomocą TECHNICZNą SAP w celu uzyskania dalszej pomocy.
 

@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 4f24a061f94cc61cb915d088606a61ede3fb247f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a2e371ea49b9b2a0e7bd14e91a0b80c54f6c21ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084921"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321497"
 ---
 # <a name="use-powershell-to-sync-data-between-multiple-databases-in-azure-sql-database"></a>Synchronizowanie danych między wieloma bazami danych w Azure SQL Database przy użyciu programu PowerShell
 

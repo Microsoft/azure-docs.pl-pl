@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: af07894fcbfae386849d32492be9d2718a3adcc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1dd3781b18f82a96f388b0e619ce62b45752a870
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947497"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292476"
 ---
-# <a name="chat-concepts"></a>Koncepcje rozmowy
+# <a name="chat-concepts"></a>Pojęcia dotyczące czatu
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -28,7 +28,7 @@ Zobacz [Omówienie biblioteki klienta rozmowy usług komunikacyjnych](./sdk-feat
 
 Konwersacje rozmowy odbywają się w wątkach rozmowy. Wątek rozmowy może zawierać wiele komunikatów i wielu użytkowników. Każdy komunikat należy do pojedynczego wątku, a użytkownik może być częścią jednego lub wielu wątków. 
 
-Każdy użytkownik w wątku rozmowy jest nazywany członkiem. W wątku czatu mogą znajdować się maksymalnie 250 członków. Tylko członkowie wątku mogą wysyłać i odbierać komunikaty lub dodawać/usuwać członków w wątku rozmowy. Maksymalny dozwolony rozmiar komunikatu to około 28KB. Usługi komunikacyjne przechowują historię rozmowy do momentu wykonania operacji usuwania w wątku rozmowy. Można pobrać wszystkie komunikaty w wątku rozmowy przy użyciu `List/Get Messages` operacji.
+Każdy użytkownik w wątku rozmowy jest nazywany członkiem. W wątku czatu mogą znajdować się maksymalnie 250 członków. Tylko członkowie wątku mogą wysyłać i odbierać komunikaty lub dodawać/usuwać członków w wątku rozmowy. Maksymalny dozwolony rozmiar komunikatu to około 28KB. Można pobrać wszystkie komunikaty w wątku rozmowy przy użyciu `List/Get Messages` operacji. Usługi komunikacyjne przechowują historię rozmowy do momentu wykonania operacji usuwania w wątku lub komunikacie rozmowy lub do momentu, w którym żaden element członkowski nie jest pozostały w wątku rozmowy, w którym jest oddzielony i przetworzony do usunięcia.   
 
 W przypadku wątków rozmowy z więcej niż 20 elementami członkowskimi, odczyty i funkcje wskaźnika pisania są wyłączone. 
 
@@ -47,7 +47,7 @@ Istnieją dwa podstawowe części dla architektury czatu: 1) usługa zaufana i 2
 Czat usług komunikacyjnych udostępnia komunikaty generowane przez użytkownika, a także komunikaty generowane przez system, nazywane **działaniami wątków**. Działania wątków są generowane, gdy wątek rozmowy zostanie zaktualizowany. W przypadku wywołania `List Messages` lub `Get Messages` w wątku rozmowy wynik będzie zawierać komunikaty tekstowe generowane przez użytkownika, a także komunikaty systemowe w kolejności chronologicznej. Dzięki temu można określić, kiedy element członkowski został dodany lub usunięty albo kiedy temat wątku rozmowy został zaktualizowany. Obsługiwane typy komunikatów:  
 
  - `Text`: Rzeczywisty komunikat tworzony i wysyłany przez użytkownika w ramach konwersacji rozmowy. 
- - `ThreadActivity/AddMember`: Komunikat systemowy wskazujący, że co najmniej jeden element członkowski został dodany do wątku rozmowy. Przykład:
+ - `ThreadActivity/AddMember`: Komunikat systemowy wskazujący, że co najmniej jeden element członkowski został dodany do wątku rozmowy. Na przykład:
 
 ```xml
 
@@ -72,7 +72,7 @@ Czat usług komunikacyjnych udostępnia komunikaty generowane przez użytkownika
 
 ```  
 
-- `ThreadActivity/DeleteMember`: Komunikat systemowy wskazujący, że element członkowski został usunięty z wątku rozmowy. Przykład:
+- `ThreadActivity/DeleteMember`: Komunikat systemowy wskazujący, że element członkowski został usunięty z wątku rozmowy. Na przykład:
 
 ```xml
 
@@ -92,7 +92,7 @@ Czat usług komunikacyjnych udostępnia komunikaty generowane przez użytkownika
 
 ```
 
-- `ThreadActivity/TopicUpdate`: Komunikat systemowy wskazujący, że Zaktualizowano temat. Przykład:
+- `ThreadActivity/TopicUpdate`: Komunikat systemowy wskazujący, że Zaktualizowano temat. Na przykład:
 
 ```xml
 

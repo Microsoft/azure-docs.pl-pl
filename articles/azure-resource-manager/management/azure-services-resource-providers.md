@@ -3,12 +3,12 @@ title: Dostawcy zasobów według usług platformy Azure
 description: Wyświetla listę wszystkich przestrzeni nazw dostawcy zasobów dla Azure Resource Manager i pokazuje usługę platformy Azure dla tej przestrzeni nazw.
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 34b2476b8194b8ad6f8e7e86e2644a1c0d0bbb4b
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b740c8ee7c28bfeeaecc42121d0c7ce4a323ab3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330829"
 ---
 # <a name="resource-providers-for-azure-services"></a>Dostawcy zasobów dla usług platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | --------------------------- | ------------- |
 | Microsoft. AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft. Dodatki | Procesor |
-| Microsoft. ADHybridHealthService<sup>1</sup> | [Usługa Azure Active Directory](../../active-directory/index.yml) |
+| Microsoft. ADHybridHealthService<sup>1</sup> | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft. Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft. AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
@@ -55,7 +55,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. ClassicSubscription<sup>1</sup> | Klasyczny model wdrażania |
 | Microsoft. CognitiveServices | [Cognitive Services](../../cognitive-services/index.yml) |
 | Microsoft. Commerce<sup>1</sup> | Procesor |
-| Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Zestawy skali maszyn wirtualnych](../../virtual-machine-scale-sets/index.yml) |
+| Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) |
 | Microsoft. zużycie<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft. ContainerInstance | [Container Instances](../../container-instances/index.yml) |
 | Microsoft. ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
@@ -98,7 +98,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. HealthcareApis | [Interfejs API platformy Azure dla standardu FHIR](../../healthcare-apis/index.yml) |
 | Microsoft. HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft. HybridData | [StorSimple](../../storsimple/index.yml) |
-| Microsoft. HybridNetwork  | Obsługa krawędzi stosu |
+| Microsoft. HybridNetwork  | [Prywatne strefy brzegowe](../../networking/edge-zones-overview.md) |
 | Microsoft. ImportExport | [Usługa Azure Import/Export](../../storage/common/storage-import-export-service.md) |
 | Microsoft. Insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
@@ -126,7 +126,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. Migrowanie | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft. MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft. NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[Azure DNS](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Link prywatny platformy Azure](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[System DNS platformy Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Link prywatny platformy Azure](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
 | Microsoft. notesy | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 | Microsoft. NotificationHubs | [Notification Hubs](../../notification-hubs/index.yml) |
 | Microsoft. ObjectStore | Magazyn obiektów |
@@ -158,7 +158,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. servicefabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft. ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
 | Microsoft. Services | Procesor |
-| Microsoft. SignalRService | [Azure SignalR Service](../../azure-signalr/index.yml) |
+| Microsoft. SignalRService | [Usługa Azure SignalR Service](../../azure-signalr/index.yml) |
 | Microsoft. SoftwarePlan | Licencja |
 | Microsoft. Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
 | Microsoft.Sql | [Azure SQL Database](../../azure-sql/database/index.yml)<br /> [Wystąpienie zarządzane Azure SQL](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
@@ -188,4 +188,4 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji o dostawcach zasobów, w tym o sposobie rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i typy](resource-providers-and-types.md)
+Aby uzyskać więcej informacji o dostawcach zasobów, w tym o sposobie rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](resource-providers-and-types.md).

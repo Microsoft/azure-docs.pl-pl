@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
-ms.date: 7/31/2020
-ms.openlocfilehash: d8055c89af8adcb88a2055e617e27c030e05d5ae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: sstein
+ms.date: 09/16/2020
+ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504385"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330710"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skalowanie zasobów puli elastycznej w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,12 +44,12 @@ Zmiana warstwy usług lub rozmiaru obliczeniowego puli elastycznej odbywa się z
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Opóźnienie zmiany warstwy usług lub ponowne skalowanie rozmiaru obliczeń
 
-Szacowane opóźnienie zmiany warstwy usług lub ponowne skalowanie wielkości obliczeniowej pojedynczej bazy danych lub puli elastycznej jest opisane w następujący sposób:
+Szacowane opóźnienie zmiany warstwy usług, skalowanie wielkości obliczeniowej pojedynczej bazy danych lub puli elastycznej, przenoszenie bazy danych do puli elastycznej lub przenoszenie bazy danych między pulami elastycznymi jest opisane w następujący sposób:
 
-|Warstwa usług|Podstawowa pojedyncza baza danych,</br>Standard (S0-S1)|Podstawowa Pula elastyczna,</br>Standardowa (S2-S12), </br>Ogólnego przeznaczenia pojedynczej bazy danych lub puli elastycznej|Premium lub Krytyczne dla działania firmy pojedynczą bazę danych lub pulę elastyczną|Hiperskala
+|Warstwa usługi|Podstawowa pojedyncza baza danych,</br>Standard (S0-S1)|Podstawowa Pula elastyczna,</br>Standardowa (S2-S12), </br>Ogólnego przeznaczenia pojedynczej bazy danych lub puli elastycznej|Premium lub Krytyczne dla działania firmy pojedynczą bazę danych lub pulę elastyczną|Hiperskala
 |:---|:---|:---|:---|:---|
 |**Podstawowa pojedyncza baza danych, </br> Standard (S0-S1)**|&bull;&nbsp;Stałe opóźnienie czasu niezależne od użytego miejsca</br>&bull;&nbsp;Zwykle, mniej niż 5 minut|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|
-|**Podstawowa Pula elastyczna, </br> standardowa (S2-S12), </br> ogólnego przeznaczenia pojedyncza baza danych lub Pula elastyczna**|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Stałe opóźnienie czasu niezależne od użytego miejsca</br>&bull;&nbsp;Zwykle, mniej niż 5 minut|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|
+|**Podstawowa Pula elastyczna, </br> standardowa (S2-S12), </br> ogólnego przeznaczenia pojedyncza baza danych lub Pula elastyczna**|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Dla pojedynczych baz danych, stałe opóźnienie czasu niezależne od użytego miejsca</br>&bull;&nbsp;Zwykle mniej niż 5 minut dla pojedynczych baz danych</br>&bull;&nbsp;W przypadku pul elastycznych proporcjonalnie do liczby baz danych|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|
 |**Premium lub Krytyczne dla działania firmy pojedynczą bazę danych lub pulę elastyczną**|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|
 |**Hiperskala**|NIE DOTYCZY|NIE DOTYCZY|NIE DOTYCZY|&bull;&nbsp;Stałe opóźnienie czasu niezależne od użytego miejsca</br>&bull;&nbsp;Zwykle, mniej niż 2 minuty|
 
@@ -57,7 +57,7 @@ Szacowane opóźnienie zmiany warstwy usług lub ponowne skalowanie wielkości o
 >
 > - W przypadku zmiany warstwy usług lub ponownego skalowania obliczeń dla puli elastycznej w celu obliczenia oszacowania należy użyć podsumowania miejsca używanego dla wszystkich baz danych w puli.
 > - W przypadku przeniesienia bazy danych do/z puli elastycznej tylko miejsce używane przez bazę danych wpływa na opóźnienie, a nie miejsce używane przez pulę elastyczną.
-> - W przypadku pul elastycznych w warstwie Standardowa i Ogólnego przeznaczenia opóźnienie przeniesienia bazy danych do puli elastycznej lub między pulami elastycznymi będzie proporcjonalne do rozmiaru bazy danych, jeśli Pula elastyczna korzysta z magazynu Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)). Aby określić, czy pula korzysta z magazynu PFS, wykonaj następujące zapytanie w kontekście każdej bazy danych w puli. Jeśli wartość w kolumnie AccountType to `PremiumFileStorage` , Pula korzysta z magazynu PFS.
+> - W przypadku pul elastycznych w warstwie Standardowa i Ogólnego przeznaczenia opóźnienie przeniesienia bazy danych do puli elastycznej lub między pulami elastycznymi będzie proporcjonalne do rozmiaru bazy danych, jeśli Pula elastyczna korzysta z magazynu Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)). Aby określić, czy pula korzysta z magazynu PFS, wykonaj następujące zapytanie w kontekście każdej bazy danych w puli. Jeśli wartość w kolumnie AccountType to `PremiumFileStorage` lub `PremiumFileStorage-ZRS` , Pula korzysta z magazynu PFS.
 
 ```sql
 SELECT s.file_id,

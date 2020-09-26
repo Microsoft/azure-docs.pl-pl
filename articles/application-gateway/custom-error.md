@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 953be98de855162127fd8b8b8273fe9817668db7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ff3e9db4dcfe0bedc348323dbbddd1e66124fc5d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360161"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Tworzenie niestandardowych stron błędów Application Gateway
 
@@ -48,7 +48,7 @@ Po określeniu strony błędu Brama aplikacji pobiera ją z lokalizacji obiektu 
 
 1. Przejdź do Application Gateway w portalu i wybierz bramę aplikacji.
 
-    ![AG — Omówienie](media/custom-error/ag-overview.png)
+    ![Zrzut ekranu przedstawia stronę przegląd bramy aplikacji.](media/custom-error/ag-overview.png)
 2. Kliknij pozycję **detektory** i przejdź do określonego odbiornika, gdzie chcesz określić stronę błędu.
 
     ![Application Gateway detektory](media/custom-error/ag-listener.png)

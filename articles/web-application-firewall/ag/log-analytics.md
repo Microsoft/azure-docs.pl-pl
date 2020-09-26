@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: victorh
-ms.openlocfilehash: 22273cf23e48de62d99a8c149ae3e2b1c05db3af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 733a9af589718e9abe8736491023003744428cd6
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005433"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361056"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-waf-logs"></a>Używanie Log Analytics do badania dzienników Application Gateway zapory aplikacji sieci Web (WAF)
 
@@ -79,7 +79,7 @@ AzureDiagnostics
 
 Po utworzeniu zapytania można je dodać do pulpitu nawigacyjnego.  Wybierz pozycję **Przypnij do pulpitu nawigacyjnego** w prawym górnym rogu obszaru roboczego usługi log Analytics. Dzięki powyższym czteremu zapytaniom przypiętym do przykładowego pulpitu nawigacyjnego są to dane, które można wyświetlić w skrócie:
 
-![Pulpit nawigacyjny](../media/log-analytics/dashboard.png)
+![Zrzut ekranu przedstawia pulpit nawigacyjny platformy Azure, w którym można dodać zapytanie.](../media/log-analytics/dashboard.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

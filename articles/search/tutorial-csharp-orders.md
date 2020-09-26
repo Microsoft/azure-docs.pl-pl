@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 9819615039a6dd6aceec796a3ec1c7338f6f3968
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: a6114791a1909a0cd02b96a4cdcc4c133b8e662e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998530"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280848"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Samouczek: kolejność wyników wyszukiwania przy użyciu zestawu .NET SDK
 
@@ -22,7 +22,7 @@ W górę do tego momentu w naszej serii samouczków wyniki są zwracane i wyświ
 
 Aby można było łatwo porównać zwracanych wyników, ten projekt jest kompilowany do nieskończonego projektu przewijania utworzonego w [samouczku języka C#: wyniki wyszukiwania stronicowanie — Samouczek platformy Azure wyszukiwanie poznawcze](tutorial-csharp-paging.md) .
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Kolejność wyników na podstawie jednej właściwości
 > * Kolejność wyników na podstawie wielu właściwości
@@ -971,7 +971,7 @@ Rozważmy następujący wnioski z tego projektu:
 * Jest to naturalne dla niektórych wyników, które mają być uporządkowane w kolejności rosnącej (mówimy, odległość od punktu), a niektóre w kolejności malejącej (na przykład Ocena gościa).
 * Profile oceniania można definiować, gdy porównania liczbowe są niedostępne lub nie są wystarczająco inteligentne dla zestawu danych. Ocenianie każdego wyniku może ułatwić uporządkowanie i wyświetlanie wyników.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Ta seria samouczków języka C# została ukończona — należy uzyskać cenne informacje dotyczące interfejsów API Wyszukiwanie poznawcze platformy Azure.
 

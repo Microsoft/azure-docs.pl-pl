@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: Konfigurowanie wymuszonego tunelowania — połączenia między lokacjami: klasyczny'
-description: Jak przekierować lub "Wymuś" cały ruch związany z Internetem z powrotem do lokalizacji lokalnej.
+description: Dowiedz się, jak skonfigurować Wymuszone tunelowanie dla sieci wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: fe06257127ff352f68fb27d3507cee0229e31498
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5999ef8431ce1e128c3775450eedf13644505918
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201581"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313539"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Konfigurowanie wymuszonego tunelowania przy użyciu klasycznego modelu wdrażania
 
