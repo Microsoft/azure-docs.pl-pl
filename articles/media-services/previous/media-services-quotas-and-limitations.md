@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 09/16/2020
 ms.author: juliako
-ms.openlocfilehash: bb217efabbbc50bf5d52b8ee02407ce1beb42756
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a2e80fa8eaec1dbf4137ba72662dfb178b6c9b1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329668"
 ---
 # <a name="quotas-and-limitations"></a>Przydziały i ograniczenia
 
@@ -39,6 +39,6 @@ W Azure Portal przejdź do [pomocy i obsługi technicznej](https://portal.azure.
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

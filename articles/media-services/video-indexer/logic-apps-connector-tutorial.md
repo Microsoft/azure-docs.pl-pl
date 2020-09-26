@@ -7,13 +7,13 @@ ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/01/2020
-ms.openlocfilehash: 2d89782b836db0daaf75c0337ad3b7f475824177
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/21/2020
+ms.openlocfilehash: 99f3c2c05117fb537527f2a2bcb52f0f9843385a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882878"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329639"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Samouczek: używanie Video Indexer z aplikacją logiki i automatyzacją
 
@@ -21,7 +21,7 @@ ms.locfileid: "90882878"
 
 Aby ułatwić integrację, obsługujemy łączniki [Logic Apps](https://azure.microsoft.com/services/logic-apps/)   i [automatyzacji](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/),   które są zgodne z naszym interfejsem API. Łączników można użyć do skonfigurowania niestandardowych przepływów pracy w celu efektywnego indeksowania i wyodrębnienia szczegółowych informacji z dużej ilości plików wideo i audio, bez konieczności pisania jednego wiersza kodu. Ponadto przy użyciu łączników integracji zapewnia lepszy wgląd w kondycję przepływu pracy oraz łatwą możliwość jego debugowania.  
 
-Aby pomóc szybko rozpocząć pracę z łącznikami Video Indexer, zajmiemy się przykładową aplikacją logiki i rozwiązaniem automatyzacji, które można skonfigurować. W tym samouczku pokazano, jak skonfigurować przepływy przy użyciu Logic Apps.
+Aby pomóc szybko rozpocząć pracę z łącznikami Video Indexer, zajmiemy się przykładową aplikacją logiki i rozwiązaniem automatyzacji, które można skonfigurować. W tym samouczku pokazano, jak skonfigurować przepływy przy użyciu Logic Apps. Jednak edytory i możliwości są prawie identyczne w obu rozwiązaniach, więc diagramy i wyjaśnienia dotyczą zarówno Logic Apps, jak i automatyzacji.
 
 Scenariusz "Przekaż i Indeksuj wideo automatycznie", który został omówiony w tym samouczku, składa się z dwóch różnych przepływów, które współpracują ze sobą. 
 * Pierwszy przepływ jest wyzwalany po dodaniu lub zmodyfikowaniu obiektu BLOB na koncie usługi Azure Storage. Przekazuje nowy plik do Video Indexer przy użyciu adresu URL wywołania zwrotnego, aby wysłać powiadomienie po zakończeniu operacji indeksowania. 
@@ -53,7 +53,12 @@ Aby skonfigurować pierwszy przepływ, należy podać klucz interfejsu API Video
 
 ![Nazwa połączenia i klucz interfejsu API](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-Po nawiązaniu połączenia z usługą Azure Storage i kontami Video Indexer można znaleźć i wybrać wyzwalacz "gdy obiekt BLOB zostanie dodany lub zmodyfikowany" w **projektancie Logic Apps**. Wybierz kontener, w którym zostaną umieszczone pliki wideo. 
+> [!TIP]
+> Jeśli wcześniej połączono Video Indexer lub konto magazynu w Logic Apps, Twoje szczegóły połączenia są przechowywane i nastąpi automatyczne połączenie. Połączenie można edytować, klikając pozycję **Zmień połączenie** u dołu każdej akcji.
+
+Po nawiązaniu połączenia z usługą Azure Storage i kontami Video Indexer można znaleźć i wybrać wyzwalacz "gdy obiekt BLOB zostanie dodany lub zmodyfikowany" w **projektancie Logic Apps**.
+
+Wybierz kontener, w którym zostaną umieszczone pliki wideo. 
 
 ![Zrzut ekranu przedstawia okno dialogowe gdy obiekt BLOB jest dodawany lub modyfikowany, w którym można wybrać kontener.](./media/logic-apps-connector-tutorial/container.png)
 
@@ -115,7 +120,7 @@ Upewnij się, że oba przepływy są zapisane i że wszystko jest gotowe!
 
 Wypróbuj nowo utworzoną aplikację logiki lub rozwiązanie do automatyzowania, dodając wideo do kontenera obiektów blob platformy Azure i wróć kilka minut później, aby zobaczyć, że szczegółowe dane pojawiają się w folderze docelowym. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym samouczkiem możesz korzystać z tej aplikacji logiki lub rozwiązania do automatyzowania i działania w razie potrzeby. Jeśli jednak nie chcesz zachować tego działania i nie chcesz otrzymywać opłat, Wyłącz oba przepływy, jeśli używasz automatyzacji. Wyłącz oba przepływy, jeśli używasz Logic Apps. 
 

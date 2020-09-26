@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: be113fec596d4730d55403b6ce4dbd6d2709e273
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260074"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329581"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Informacje o strefie Edge platformy Azure w wersji zapoznawczej
 
@@ -74,7 +74,7 @@ Typowe przypadki użycia obejmują:
 
 Strefy brzegowe będą oferowane w ramach partnerstwa z następującymi operatorami:
 
-- W&T (Atlanta, Dallas i Los Angeles) 
+- W&T (Atlanta, Dallas i Los Angeles)
 
 Niezależni dostawcy oprogramowania pracującego nad zoptymalizowanymi i skalowalnymi aplikacjami połączonymi z sieciami 5Gymi mogą teraz używać nowej lokalizacji w wersji zapoznawczej&usługi Los Zarejestruj się, aby uzyskać dostęp do programu wczesnego zastosowania, aby korzystać z bezpiecznej łączności o wysokiej przepustowości.
 
@@ -86,9 +86,9 @@ Aby uzyskać więcej informacji [, skontaktuj się z zespołem strefy brzegowej]
 
 Prywatne strefy brzegowe platformy Azure to małe rozszerzenia platformy Azure, które są umieszczane lokalnie. Strefa usługi Azure Private Edge jest oparta na [Azure Stackej platformie brzegowej](https://azure.microsoft.com/products/azure-stack/edge/) . Zapewnia ona dostęp do małych opóźnień do usług obliczeniowych i magazynowych wdrożonych lokalnie. Prywatne strefy brzegowe umożliwiają również wdrażanie aplikacji od niezależnych dostawców oprogramowania i zwirtualizowanych funkcji sieciowych (VNFs) jako [aplikacji zarządzanych przez platformę Azure](https://azure.microsoft.com/services/managed-applications/) wraz z maszynami wirtualnymi i kontenerami lokalnymi. VNFs te mogą obejmować rdzenie pakietów mobilnych, routery, zapory i urządzenia SD-WAN. Prywatna strefa brzegowa platformy Azure obejmuje rozwiązanie aranżacji w chmurze, które pozwala zarządzać cyklami życia VNFs i aplikacji z Azure Portal.
 
-Strefa usługi Azure Private Edge umożliwia tworzenie i wdrażanie aplikacji lokalnych przy użyciu tych samych znanych narzędzi, które są używane do kompilowania i wdrażania aplikacji na platformie Azure. 
+Strefa usługi Azure Private Edge umożliwia tworzenie i wdrażanie aplikacji lokalnych przy użyciu tych samych znanych narzędzi, które są używane do kompilowania i wdrażania aplikacji na platformie Azure.
 
-Umożliwia także: 
+Umożliwia także:
 
 - Uruchom prywatne sieci mobilne (prywatna LTE, 5G prywatny).
 - Zaimplementuj funkcje zabezpieczeń, takie jak zapory.
@@ -113,6 +113,7 @@ Mamy rozbudowany ekosystem dostawców VNF, niezależnych dostawcy oprogramowania
 ##### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>Zwirtualizowane rozwijające się rdzeń pakietu (vEPC) dla sieci mobilnych
 
 - [Potwierdzone sieci](https://www.affirmednetworks.com/)
+- [Celona](https://www.celona.io/azure-edge)
 - [Druid oprogramowanie](https://www.druidsoftware.com/)
 - [Expeto](https://www.expeto.io/)
 - [Mavenir](https://mavenir.com/)
@@ -121,12 +122,15 @@ Mamy rozbudowany ekosystem dostawców VNF, niezależnych dostawcy oprogramowania
 
 ##### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>Przenośne partnerzy radiowi
 
+- [Celona](https://www.celona.io/azure-edge)
 - [Commscope Ruckus](https://support.ruckuswireless.com/)
 
 ##### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>Dostawcy SD-WAN
 
+- [128 Technology](https://www.128technology.com/)
 - [Znaleźliśmy](https://netfoundry.io/)
 - [Nuage sieci z firmy Nokia](https://www.nuagenetworks.net/)
+- [Sieci odwracające](https://www.versa-networks.com/)
 - [VMware SD-WAN według Velocloud](https://www.velocloud.com/)
 
 ##### <a name="router-vendors"></a><a name="router-vendors"></a>Dostawcy routera
@@ -158,10 +162,10 @@ Aby uzyskać informacje na temat sposobu, w jaki stał się partnerem [, skontak
 
 ![Prywatna sieć mobilna w strefach prywatnych krawędzi](./media/edge-zones-overview/mobile-networks.png "Prywatna sieć mobilna w strefach prywatnych krawędzi")
 
-Teraz można wdrożyć prywatną sieć mobilną w strefach prywatnych krawędzi. Prywatne sieci mobilne umożliwiają niezwykle małe opóźnienia, wysoką pojemność i niezawodną i bezpieczną sieć bezprzewodową wymaganą przez aplikacje o znaczeniu krytycznym. 
+Teraz można wdrożyć prywatną sieć mobilną w strefach prywatnych krawędzi. Prywatne sieci mobilne umożliwiają niezwykle małe opóźnienia, wysoką pojemność i niezawodną i bezpieczną sieć bezprzewodową wymaganą przez aplikacje o znaczeniu krytycznym.
 
-Prywatne sieci komórkowe mogą umożliwiać scenariusze, takie jak: 
-- Polecenie i kontrola zautomatyzowanych pojazdów z przewodnikiem (AGVs) w magazynach. 
+Prywatne sieci komórkowe mogą umożliwiać scenariusze, takie jak:
+- Polecenie i kontrola zautomatyzowanych pojazdów z przewodnikiem (AGVs) w magazynach.
 - Komunikacja między robotami w czasie rzeczywistym.
 - Aplikacje o zwiększonej rzeczywistości i wirtualnej rzeczywistości.
 
@@ -174,7 +178,7 @@ Firma Microsoft zapewnia ekosystem partnera, który może pomóc we wszystkich a
 #### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge"></a>SD-WAN w strefach prywatnych krawędzi
 
 ![SD-WAN w strefach prywatnych krawędzi](./media/edge-zones-overview/sd-wan.png "SD-WAN w strefach prywatnych krawędzi")
- 
+
 SD-WAN umożliwia tworzenie sieci rozległych (WAN) klasy korporacyjnej z następującymi korzyściami:
 
 - Zwiększona przepustowość
@@ -183,7 +187,7 @@ SD-WAN umożliwia tworzenie sieci rozległych (WAN) klasy korporacyjnej z nastę
 - Niezawodność
 - Zarządzanie zasadami
 - Rozległa widoczność sieci
-    
+
 SD-WAN zapewnia bezproblemową łączność z oddziałami firmy, która jest podłączona z nadmiarowych kontrolerów centralnych przy niższych kosztach użytkowania.
 Usługa SD-WAN w strefach prywatnych krawędzi umożliwia przejście z modelu skoncentrowanego na CAPEX do modelu oprogramowanie jako usługa (SaaS) w celu ograniczenia budżetów IT. Możesz użyć własnego wyboru partnerów SD-WAN, Orchestrator lub Controller, aby włączyć nowe usługi i natychmiast propagować je w całej sieci.
 

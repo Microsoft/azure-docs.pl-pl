@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56eee39a9e99e9d6752d1b4f6eb7182043ff14d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230589"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358903"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalowanie i Używanie widoków usługi log Analytics na potrzeby Azure Active Directory
 
@@ -56,7 +56,7 @@ Aby można było korzystać z widoków usługi log Analytics, potrzebne są:
 
 3. Wybierz jeden z tych widoków, aby przejść do poszczególnych raportów. Możesz również ustawić alerty dla dowolnego parametru raportu. Na przykład Skonfigurujmy alert za każdym razem, gdy wystąpi błąd logowania. Aby to zrobić, najpierw wybierz widok **zdarzenia logowania** , wybierz pozycję **Błędy logowania** w raporcie czas, a następnie wybierz pozycję **Analiza** , aby otworzyć stronę szczegóły z rzeczywistym zapytaniem za raport. 
 
-    ![Szczegóły](./media/howto-install-use-log-analytics-views/details.png)
+    ![Zrzut ekranu przedstawia stronę szczegółów analizy, która zawiera zapytanie dotyczące raportu.](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. Wybierz pozycję **Ustaw Alert**, a następnie wybierz pozycję za każdym razem, gdy w sekcji **kryteria alertu** **jest &lt; &gt; zdefiniowana logika wyszukiwanie w dzienniku niestandardowym** . Ponieważ chcemy alertować zawsze, gdy wystąpi błąd logowania, ustaw **próg** domyślnej logiki alertu na **1** , a następnie wybierz pozycję **gotowe**. 

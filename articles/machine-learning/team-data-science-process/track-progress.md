@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8cf1e5a4d97b882e7a8d0c81041bbcde709760d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78a543fabadcc0d4e1766af1bc5c65aac0dadebe
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864200"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358929"
 ---
 # <a name="track-the-progress-of-data-science-projects"></a>Śledzenie postępu projektów analizy danych
 
@@ -46,7 +46,7 @@ Oto prosty przykładowy pulpit nawigacyjny, który śledzi działania przebiegu 
 
 - **Wykres burnup** pokazuje ukończoną pracę w porównaniu do łącznej ilości pracy w przebiegu.
 
-![Pulpit nawigacyjny](./media/track-progress/dashboard.png)
+![Zrzut ekranu przedstawia przykład pulpitu nawigacyjnego usługi Azure DevOps.](./media/track-progress/dashboard.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

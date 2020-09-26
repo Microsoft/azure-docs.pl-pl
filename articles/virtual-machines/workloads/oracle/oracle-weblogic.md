@@ -1,6 +1,6 @@
 ---
-title: Serwer Oracle webWebLogicc w rozwiązaniach platformy Azure
-description: Dowiedz się, jak uruchomić serwer Oracle WebLogic na Microsoft Azure.
+title: Co to są rozwiązania do uruchamiania programu Oracle webWebLogicc Server na platformie Azure Virtual Machines
+description: Dowiedz się, jak uruchomić serwer Oracle WebLogic na Microsoft Azure Virtual Machines.
 services: virtual-machines-linux
 documentationcenter: ''
 author: rezar
@@ -11,16 +11,16 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2020
+ms.date: 09/23/2020
 ms.author: rezar
-ms.openlocfilehash: e408f9e245fb78b475a194bc0db6f1edfdf85b41
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: e8f1b115f8a52b4352478f91dd5849c45bfebdc1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069729"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274371"
 ---
-# <a name="solutions-for-running-oracle-weblogic-server-on-azure"></a>Rozwiązania do uruchamiania programu Oracle webWebLogicc Server na platformie Azure
+# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Co to są rozwiązania do uruchamiania programu Oracle webWebLogicc Server na platformie Azure Virtual Machines?
 
 Na tej stronie opisano rozwiązania do uruchamiania programu Oracle webWebLogicc Server (WLS) na maszynach wirtualnych platformy Azure. Te rozwiązania są wspólnie opracowywane przez oprogramowanie Oracle i firmę Microsoft.
 

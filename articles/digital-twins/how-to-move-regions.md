@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e2cb8ee282666d7a9a567ca04762b26de3b3b9bd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443045"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328500"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Przenoszenie wystąpienia usługi Azure Digital bliźniaczych reprezentacji do innego regionu platformy Azure
 
@@ -88,7 +88,7 @@ Teraz aplikacja Przykładowa ADT Explorer jest uruchamiana w przeglądarce na ko
 
 Aby zweryfikować połączenie, możesz nacisnąć przycisk *Uruchom zapytanie* , aby uruchomić domyślne zapytanie, które wyświetla wszystkie bliźniaczych reprezentacji i relacje w grafie w oknie *Eksplorator grafów* .
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Zostanie wyróżniony przycisk odczytu uruchom zapytanie w górnej części okna" lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Zostanie wyróżniony przycisk odczytu "uruchom zapytanie" w górnej części okna" lightbox="media/how-to-move-regions/run-query.png":::
 
 Możesz pozostawić uruchomiony program ADT Explorer, ponieważ będzie on używany ponownie w dalszej części tego artykułu, aby ponownie przekazać te elementy do nowego wystąpienia w regionie docelowym.
 
@@ -113,7 +113,7 @@ Następnie zakończy się "Przenieś" wystąpienia, tworząc nowe wystąpienie w
 
 ### <a name="create-a-new-instance"></a>Utwórz nowe wystąpienie
 
-Najpierw **Utwórz nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie docelowym**. Aby to zrobić, wykonaj kroki opisane w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-scripted.md), pamiętając o następujących wskaźnikach:
+Najpierw **Utwórz nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie docelowym**. Aby to zrobić, wykonaj kroki opisane w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md), pamiętając o następujących wskaźnikach:
 * Tę samą nazwę można zachować, **Jeśli** znajduje się ona w innej grupie zasobów. Jeśli musisz użyć tej samej grupy zasobów, która zawiera oryginalne wystąpienie, nowe wystąpienie będzie potrzebować własnej odrębnej nazwy.
 * Wprowadź nowy region docelowy po wyświetleniu monitu o lokalizację.
 * Rejestracja aplikacji **nie jest konieczna** . Nowe wystąpienie może korzystać z tej samej rejestracji aplikacji, która już istnieje.
@@ -168,7 +168,7 @@ Program ADT Explorer przekaże teraz modele i Graf (w tym bliźniaczych reprezen
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Okno dialogowe informujące o powodzeniu importowania grafu. Plik Import został pomyślnie odczytany. zaimportowano 2 modele. 4 bliźniaczych reprezentacji zaimportowano. zaimportowano 2 relacje ." lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Okno dialogowe informujące o powodzeniu importowania grafu. Plik "Import" został pomyślnie odczytany. zaimportowano 2 modele. 4 bliźniaczych reprezentacji zaimportowano. zaimportowano 2 relacje "." lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -178,11 +178,11 @@ Program ADT Explorer przekaże teraz modele i Graf (w tym bliźniaczych reprezen
 
 Aby sprawdzić, czy wszystko zostało przekazane pomyślnie, kliknij przycisk *Uruchom zapytanie* w oknie *Eksplorator grafu* , aby uruchomić domyślne zapytanie, które wyświetla wszystkie bliźniaczych reprezentacji i relacje na grafie. Spowoduje to również odświeżenie listy modeli w *widoku model*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Zaznacz dookoła tego samego przycisku uruchom zapytanie od wcześniej w górnej części okna" lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Zaznacz dookoła tego samego przycisku "uruchom zapytanie" od wcześniej w górnej części okna" lightbox="media/how-to-move-regions/run-query.png":::
 
 Powinien zostać wyświetlony wykres ze wszystkimi bliźniaczych reprezentacji i relacjami wyświetlanymi w oknie *Eksplorator grafów* . W polu *Widok modelu* powinny również być widoczne modele.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Widok Eksploratora ADT przedstawiający 2 modele wyróżnione w polu model widoku i wykres wyróżniony w polu Eksplorator grafu" lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Widok Eksploratora ADT przedstawiający 2 modele wyróżnione w polu "model widoku" i wykres wyróżniony w polu "Eksplorator grafu"" lightbox="media/how-to-move-regions/post-upload.png":::
 
 To potwierdza, że modele, bliźniaczych reprezentacji i Graf zostały ponownie przekazane do nowego wystąpienia w regionie docelowym.
 
