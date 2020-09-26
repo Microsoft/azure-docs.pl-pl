@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python
-ms.openlocfilehash: 264976fdfe514a8778c60fe9242ac555f268718d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 54e4ce409eb9f2a6bedd7861b3e268311f886b49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962574"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273249"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie do App Service przy użyciu akcji usługi GitHub
 
@@ -23,6 +23,22 @@ Dzięki [akcjom GitHub](https://help.github.com/en/articles/about-github-actions
 > 
 
 Przepływ pracy jest definiowany przez plik YAML (. yml) w `/.github/workflows/` ścieżce w repozytorium. Ta definicja zawiera różne kroki i parametry wchodzące w skład przepływu pracy.
+
+## <a name="use-the-deployment-center"></a>Korzystanie z centrum wdrażania
+
+Możesz szybko rozpocząć pracę z akcjami usługi GitHub za pomocą centrum wdrażania App Service. Spowoduje to automatyczne wygenerowanie pliku przepływu pracy na podstawie stosu aplikacji i zatwierdzenie go do repozytorium GitHub w prawidłowym katalogu.
+
+1. Przejdź do webapp w witrynie Azure Portal
+1. Po lewej stronie kliknij pozycję **centrum wdrażania** .
+1. W obszarze **ciągłe wdrażanie (Ci/CD)** wybierz pozycję **GitHub**
+1. Następnie wybierz pozycję **Akcje GitHub**
+1. Użyj listy rozwijanej, aby wybrać repozytorium GitHub, gałąź i stos aplikacji
+    - Jeśli wybrana gałąź jest chroniona, nadal możesz dodać plik przepływu pracy. Przed kontynuowaniem należy zapoznać się z ochroną oddziałów.
+1. Na ekranie końcowym można przejrzeć wybrane opcje i wyświetlić podgląd pliku przepływu pracy, który zostanie przekazany do repozytorium. Jeśli wybrane opcje są poprawne, kliknij przycisk **Zakończ** .
+
+Spowoduje to zatwierdzenie pliku przepływu pracy do repozytorium. Przepływ pracy do kompilowania i wdrażania aplikacji rozpocznie się natychmiast.
+
+## <a name="add-the-workflow-manually"></a>Ręczne dodawanie przepływu pracy
 
 W przypadku przepływu pracy Azure App Service plik ma trzy sekcje:
 
@@ -212,7 +228,7 @@ W poniższych przykładach przedstawiono część przepływu pracy, który kompi
 
 Aby wdrożyć kod w aplikacji App Service, użyj `azure/webapps-deploy@v2` akcji. Ta akcja ma cztery parametry:
 
-| **Parametr**  | **Wyjaśnienie**  |
+| **Parametr**  | **Objaśnienie**  |
 |---------|---------|
 | **Nazwa aplikacji** | Potrzeb Nazwa aplikacji App Service | 
 | **Publikuj — profil** | Obowiązkowe Publikuj zawartość pliku profilu za pomocą wpisów tajnych Web Deploy |
@@ -298,7 +314,7 @@ jobs:
 
 ---
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zestaw akcji można znaleźć w różnych repozytoriach w usłudze GitHub, z których każda zawiera dokumentację i przykłady ułatwiające korzystanie z usługi GitHub w przypadku ciągłej integracji/ciągłego wdrażania oraz wdrażanie aplikacji na platformie Azure.
 

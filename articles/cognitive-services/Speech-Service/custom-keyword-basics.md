@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 188824b9c43387cf106a3cdd53a09fd6bcb198b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919016"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360671"
 ---
 # <a name="custom-keyword-basics"></a>Podstawy niestandardowych słów kluczowych
 
@@ -24,7 +24,7 @@ W tym artykule przedstawiono podstawowe informacje dotyczące pracy z niestandar
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Kroki opisane w tym artykule wymagają subskrypcji mowy i zestawu Speech SDK. Jeśli nie masz jeszcze subskrypcji, [Wypróbuj usługę mowy bezpłatnie](get-started.md). Aby uzyskać zestaw SDK, zobacz [Przewodnik instalacji](quickstarts/setup-platform.md) dla danej platformy.
+Kroki opisane w tym artykule wymagają subskrypcji mowy i zestawu Speech SDK. Jeśli nie masz jeszcze subskrypcji, [Wypróbuj usługę mowy bezpłatnie](overview.md#try-the-speech-service-for-free). Aby uzyskać zestaw SDK, zobacz [Przewodnik instalacji](quickstarts/setup-platform.md) dla danej platformy.
 
 ## <a name="create-a-keyword-in-speech-studio"></a>Tworzenie słowa kluczowego w programie Speech Studio
 

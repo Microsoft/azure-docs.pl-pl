@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4ab403ebafbf078accd2ee2256c0c5bb69548e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c837a4020ab1aaad1798d6b19e72e09edafea1f5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360356"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architektura i scenariusze wysokiej dostępności dla oprogramowania SAP NetWeaver
 
@@ -320,7 +320,7 @@ Aby uzyskać więcej informacji, zobacz [Replikacja usługi Azure Storage][azure
 ### <a name="azure-managed-disks"></a>Dyski zarządzane platformy Azure
 Managed Disks jest typem zasobu w Azure Resource Manager zalecanym do użycia zamiast wirtualnych dysków twardych (VHD), które są przechowywane na kontach usługi Azure Storage. Dyski zarządzane są automatycznie wyrównane z zestawem dostępności platformy Azure, do którego są dołączone. Zwiększają one dostępność maszyny wirtualnej i usługi, które działają na niej.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Managed disks][azure-storage-managed-disks-overview].
+Aby uzyskać więcej informacji, zobacz  [Omówienie usługi Azure Managed disks][azure-storage-managed-disks-overview].
 
 Zalecamy używanie dysków zarządzanych, ponieważ upraszczają one wdrażanie maszyn wirtualnych i zarządzanie nimi.
 
@@ -332,7 +332,7 @@ Jeśli zdecydujesz się nie używać takich funkcji jak WSFC lub Pacemaker w sys
 
 Aby uzyskać więcej informacji na temat tego podejścia, zobacz temat [Korzystanie z ponownego uruchamiania infrastruktury platformy Azure w celu uzyskania wyższej dostępności systemu SAP][sap-higher-availability].
 
-## <a name="high-availability-of-sap-applications-on-azure-iaas"></a><a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Wysoka dostępność aplikacji SAP na platformie Azure IaaS
+## <a name="high-availability-of-sap-applications-on-azure-iaas"></a><a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Wysoka dostępność aplikacji SAP na platformie Azure IaaS
 
 Aby zapewnić pełną dostępność systemu SAP, należy chronić wszystkie krytyczne składniki systemu SAP. Na przykład:
   * Nadmiarowe serwery aplikacji SAP.
@@ -344,7 +344,7 @@ W następnych sekcjach omówiono, jak uzyskać wysoką dostępność dla wszystk
 
 > Ta sekcja ma zastosowanie do:
 >
-> ![Windows][Logo_Windows] System Windows i ![Linux][Logo_Linux] Linux
+> ![Logo Windows.][Logo_Windows] System Windows i ![Logo systemu Linux.][Logo_Linux] Linux
 >
 
 Zwykle nie jest potrzebne konkretne rozwiązanie wysokiej dostępności dla serwera aplikacji SAP i wystąpień okna dialogowego. Wysoką dostępność można osiągnąć dzięki nadmiarowości i można skonfigurować wiele wystąpień okna dialogowego w różnych wystąpieniach maszyn wirtualnych platformy Azure. W dwóch wystąpieniach maszyn wirtualnych platformy Azure należy zainstalować co najmniej dwa wystąpienia aplikacji SAP.
@@ -382,7 +382,7 @@ Aby uzyskać więcej informacji, zobacz sekcję [zestawy dostępności platformy
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Architektura wysokiej dostępności dla wystąpienia oprogramowania SAP ASCS/SCS w systemie Windows
 
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 
 Do ochrony wystąpienia SAP ASCS/SCS można użyć rozwiązania WSFC. Rozwiązanie ma dwa warianty:
@@ -395,7 +395,7 @@ Do ochrony wystąpienia SAP ASCS/SCS można użyć rozwiązania WSFC. Rozwiązan
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Architektura wysokiej dostępności dla wystąpienia oprogramowania SAP ASCS/SCS w systemie Linux
 
-> ![Linux][Logo_Linux] Linux
+> ![Logo systemu Linux.][Logo_Linux] Linux
 > 
 > Aby uzyskać więcej informacji na temat klastrowania wystąpienia SAP ASCS/SCS przy użyciu platformy klastra SLES, zobacz [wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server dla aplikacji SAP][sap-suse-ascs-ha]. W przypadku alternatywnej architektury HA w systemie SLES, która nie wymaga systemu plików NFS o wysokiej dostępności, zobacz temat [High Availability w systemie SAP NetWeaver na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP][sap-suse-ascs-ha-anf].
 
@@ -404,7 +404,7 @@ Aby uzyskać więcej informacji na temat klastrowania wystąpienia SAP ASCS/SCS 
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Konfiguracja protokołu SAP NetWeaver o wiele identyfikatorów SID dla klastrowanego wystąpienia SAP ASCS/SCS
 
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 > 
 > Wiele identyfikatorów SID jest obsługiwanych w usłudze WSFC przy użyciu udziału plików i dysku udostępnionego.
 > 
@@ -414,7 +414,7 @@ Aby uzyskać więcej informacji na temat klastrowania wystąpienia SAP ASCS/SCS 
 
 * [Rozwiązanie SAP ASCS/SCS o wysokiej dostępności dla klastra trybu failover z systemem Windows Server i dysku udostępnionego][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
-> ![Linux][Logo_Linux] Linux
+> ![Logo systemu Linux.][Logo_Linux] Linux
 > 
 > Klastrowanie z obsługą wiele identyfikatorów SID jest obsługiwane w klastrach Pacemaker systemu Linux dla oprogramowania SAP ASCS/wykres WYWOŁUJĄCYCH, co jest ograniczone do **pięciu** identyfikatorów SID SAP w tym samym klastrze.
 > Aby uzyskać więcej informacji na temat architektury wysokiej dostępności w systemie Linux, zobacz:

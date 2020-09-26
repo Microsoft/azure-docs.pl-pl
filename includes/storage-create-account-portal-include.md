@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/24/2020
+ms.date: 09/25/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 9eff9b5356f3201f151cc959a96b070d2afaa267
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bed8475e5d6c7bf26003672b6cf9ce51a82384ad
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283460"
+ms.locfileid: "91377522"
 ---
 Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w witrynie Azure Portal, wykonaj następujące kroki:
 
@@ -27,7 +27,7 @@ Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w witrynie Azure
 1. Ustaw wartość pola **rodzaj konta** na *Magazyn v2 (ogólnego przeznaczenia w wersji 2)*.
 1. Określ sposób replikowania konta magazynu. Domyślna opcja replikacji to *Magazyn Geograficznie nadmiarowy do odczytu (RA-GRS)*. Aby uzyskać więcej informacji na temat dostępnych opcji replikacji, zobacz [nadmiarowość usługi Azure Storage](../articles/storage/common/storage-redundancy.md).
 1. Określ warstwę dostępu dla obiektów BLOB na koncie magazynu. Warstwa domyślna to *gorąca*. Aby uzyskać więcej informacji na temat warstw dostępu do obiektów blob, zobacz [warstwy dostępu gorąca, chłodna i archiwalna dla obiektów BLOB](../articles/storage/blobs/storage-blob-storage-tiers.md).
-1. Aby użyć [Azure Data Lake Storage](/services/storage/data-lake-storage/), wybierz kartę **Zaawansowane** , a następnie ustaw **hierarchiczną przestrzeń nazw** na wartość **włączone**.
+1. Aby użyć Azure Data Lake Storage, wybierz kartę **Zaawansowane** , a następnie ustaw **hierarchiczną przestrzeń nazw** na wartość **włączone**. Aby uzyskać więcej informacji, zobacz [wprowadzenie Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md)
 1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
 1. Wybierz przycisk **Utwórz**.
 

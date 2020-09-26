@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: 9397c5f075c1d6653920d19766d5d6a740294ec7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68d0459153fbdb34216c1313f70e292119b93a7c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67330756"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269810"
 ---
 Podczas tworzenia własnego certyfikatu można używać następujących urzędów certyfikacji:
 
@@ -23,6 +23,7 @@ Podczas tworzenia własnego certyfikatu można używać następujących urzędó
 - AZWA infrastruktura urzędu certyfikacji 02
 - Ameroot
 - APCA-DM3P
+- ATOS TrustedRoot 2011
 - Główny urząd certyfikacji autopilotażu
 - Baltimore CyberTrust, główny
 - Publiczny podstawowy urząd certyfikacji klasy 3
@@ -52,8 +53,12 @@ Podczas tworzenia własnego certyfikatu można używać następujących urzędó
 - Główny urząd certyfikacji GlobalSign
 - Przejdź do głównego urzędu certyfikacji Daddy — G2
 - Przejdź do Daddy bezpiecznego urzędu certyfikacji — G2
+- Szyfrujmy Źródło x3
 - QuoVadis główny CA2 G3
 - RapidSSL RSA CA 2018
+- RootCA1 komunikacji zabezpieczeń
+- RootCA2 komunikacji zabezpieczeń
+- RootCA3 komunikacji zabezpieczeń
 - Symantec Class 3 EV — urząd certyfikacji SSL-G3
 - Symantec Class 3 Secure Server CA-G4
 - Główny certyfikat firmy Symantec Enterprise Mobile dla firmy Microsoft

@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: e40808d5bd4f7ff2f0933a87da2bf0e9b850e82b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 87df1e29ff7d625497d47d5805912128f7371693
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884606"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377135"
 ---
-<Token>**Dotyczy:** :::image type="content" source="../media/applies-to/yes.png" alt-text="tak — jeden":::serwer Azure Database for MySQL — jeden serwer :::image type="content" source="../media/applies-to/yes.png" alt-text="tak-elastyczny — serwer":::Azure Database for MySQL — elastyczny serwer </Token>
+<Token>**dotyczy:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Database for MySQL — pojedynczy serwer :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Database for MySQL — elastyczny serwer </Token>
