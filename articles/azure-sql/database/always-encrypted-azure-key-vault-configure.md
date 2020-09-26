@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa60d6127a42f0118df152e5b3081751c595dbcf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087966"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362635"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurowanie Always Encrypted przy użyciu Azure Key Vault 
 
@@ -183,7 +183,7 @@ Możesz zaszyfrować kolumny teraz lub zapisać skrypt programu PowerShell, aby 
 
 Sprawdź, czy ustawienia są poprawne, a następnie kliknij przycisk **Zakończ** , aby ukończyć konfigurację Always Encrypted.
 
-![Podsumowanie](./media/always-encrypted-azure-key-vault-configure/summary.png)
+![Zrzut ekranu przedstawia stronę wyników z zadaniami oznaczonymi jako zakończone.](./media/always-encrypted-azure-key-vault-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Weryfikuj działania kreatora
 
@@ -606,7 +606,7 @@ Po skonfigurowaniu bazy danych do korzystania z Always Encrypted można wykonać
 ## <a name="related-information"></a>Informacje pokrewne
 
 - [Always Encrypted (Programowanie klienta)](https://msdn.microsoft.com/library/mt147923.aspx)
-- [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
+- [Przezroczyste szyfrowanie danych](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Szyfrowanie SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Kreator Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog Always Encrypted](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

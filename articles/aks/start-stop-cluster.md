@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 460b592924a19449d77ce8d45f470f3e3129f4a6
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 4a814d575e0879daec64ebfdabc1539219bea250
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357951"
+ms.locfileid: "91368944"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Zatrzymywanie i uruchamianie klastra usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -28,6 +28,7 @@ W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli p
 W przypadku korzystania z funkcji uruchamiania/zatrzymywania klastra obowiązują następujące ograniczenia:
 
 - Ta funkcja jest obsługiwana tylko w przypadku Virtual Machine Scale Sets klastrów.
+- W trakcie okresu zapoznawczego ta funkcja nie jest obsługiwana w przypadku klastrów prywatnych.
 - Stan klastra zatrzymanego klastra AKS jest zachowywany przez maksymalnie 12 miesięcy. Jeśli klaster jest zatrzymany przez ponad 12 miesięcy, nie można odzyskać stanu klastra. Aby uzyskać więcej informacji, zobacz [zasady pomocy technicznej AKS](support-policies.md).
 - Można uruchomić lub usunąć zatrzymany klaster AKS. Aby wykonać dowolną operację, taką jak skalowanie lub uaktualnianie, najpierw należy uruchomić klaster.
 

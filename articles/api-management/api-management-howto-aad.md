@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: edbe202350b0912372aad822c8530c5f79c76384
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254830"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363209"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoryzowanie kont deweloperów przy użyciu usługi Azure Active Directory w usłudze Azure API Management
 
@@ -34,7 +34,7 @@ W tym artykule opisano sposób włączania dostępu do portalu dla deweloperów 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autoryzuj konta dewelopera przy użyciu usługi Azure AD
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
-2. Wybierz ![strzałkę](./media/api-management-howto-aad/arrow.png).
+2. Wybierz pozycję ![Ikona strzałki.](./media/api-management-howto-aad/arrow.png).
 3. Wpisz w polu wyszukiwania **interfejs API** .
 4. Wybierz pozycję **API Management Services**.
 5. Wybierz swoje wystąpienie usługi API Management.
@@ -103,7 +103,7 @@ Po dodaniu zewnętrznej grupy usługi Azure AD można przejrzeć i skonfigurowa�
  
 Użytkownicy ze skonfigurowanego wystąpienia usługi Azure AD mogą teraz logować się do portalu dla deweloperów. Mogą oni wyświetlać i subskrybować wszystkie grupy, do których mają wgląd.
 
-## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a>Portal dla deweloperów — Dodawanie uwierzytelniania konta usługi Azure AD
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a> Portal dla deweloperów — Dodawanie uwierzytelniania konta usługi Azure AD
 
 W portalu dla deweloperów logowanie za pomocą usługi AAD jest możliwe za pomocą **przycisku logowania: widżet uwierzytelniania OAuth** . Element widget jest już uwzględniony na stronie logowania domyślnej zawartości portalu deweloperów.
 

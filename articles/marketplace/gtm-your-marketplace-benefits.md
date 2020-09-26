@@ -4,21 +4,21 @@ description: Usługi na rynku — w tej sekcji opisano zasoby firmy Microsoft, k
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 09/24/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 0a98bf7d6a035dbf293bda5d8afe5d0e1130f58f
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: da3194559ef5ec4c325f7dc15591f57c0d9c38c9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705558"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368296"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Twoje komercyjne korzyści z witryny Marketplace
 
-Opublikowano do komercyjnego portalu Microsoft Marketplace. teraz chcesz zobaczyć, że Twoja oferta zakończyła się pomyślnie. Firma Microsoft oferuje korzyści — sprzedaż, techniczne i Marketing — należy przyspieszyć rozwój oferty.
+Opublikowano do komercyjnego portalu Microsoft Marketplace. teraz chcesz zobaczyć, że Twoja oferta zakończyła się pomyślnie. Firma Microsoft oferuje korzyści związane z sprzedażą, techniczne i marketingową, które są potrzebne do przyspieszenia wzrostu oferty.
 
-Po zaoferowaniu oferty na żywo w witrynie Microsoft AppSource lub Azure Marketplace przejdź do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) , aby uzyskać dostęp do odpowiednich korzyści marketingowych, handlowych i technicznych oraz aktywować je. Korzyści z witryny Marketplace są naliczane w oparciu o zaangażowanie i sprzedaż komercyjnej witryny Marketplace. Im więcej jest Ci zaangażowanych, tym więcej.
+Po zaoferowaniu oferty na żywo w witrynie Microsoft AppSource lub Azure Marketplace przejdź do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) , aby uzyskać dostęp do odpowiednich korzyści marketingowych, handlowych i technicznych oraz aktywować je. Obejrzyj [klip wideo z pokazem](https://partner.microsoft.com/asset/detail/marketplace-rewards-demo-mp4) z portalu Marketplace, aby zapoznać się z omówieniem rejestrowania w witrynie Marketplace nagrody i aktywować korzyści w centrum partnerskim. Korzyści z witryny Marketplace są naliczane w oparciu o zaangażowanie i sprzedaż komercyjnej witryny Marketplace. Im więcej jest Ci zaangażowanych, tym więcej.
 
 ## <a name="marketplace-rewards"></a>Program Marketplace Rewards
 
@@ -44,13 +44,12 @@ Wprowadzenie jest proste:
 2. Przejdź do obszaru [korzyści z witryny Marketplace](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) w centrum partnerskim i wybierz pozycję **zarejestruj w programie nagrody Marketplace**.
 3. Aby aktywować korzyści związane z sprzedażą i marketingiem, przypisz kontakt z działu marketingu firmy. Ta osoba kontaktowa będzie otrzymywać uzupełniające informacje o programie Marketplace Rewards.
 4. Aby dodać lub zaktualizować informacje kontaktowe dotyczące marketingu, przejdź do górnej części karty korzyści sprzedaży i marketingu na stronie nagrody w witrynie Marketplace, a następnie wybierz pozycję **Dodaj, zaktualizuj lub Zmień**.  Następnie wykonaj poniższe czynności:
-
     1. Wybierz użytkownika z listy. Jeśli użytkownik, którego chcesz przypisać, nie znajduje się na liście, możesz dodać nowych użytkowników w **ustawieniach konta**.
     1. Podaj adres e-mail użytkownika, który jest inny niż adres e-mail skojarzony z firmowym kontem Centrum partnerskiego. Na wyznaczony adres e-mail osoby kontaktowej ds. marketingu zostaną wysłane instrukcje dotyczące używania korzyści programu Marketplace Rewards.
     1. Podaj numer telefonu i preferowany język osoby kontaktowej ds. marketingu. Po zakończeniu wprowadzania tych informacji wybierz pozycję **Przypisz użytkownika**.
     1. Po zaktualizowaniu kontaktu marketingowego wybierz pozycję **Aktywuj** , aby skorzystać z korzyści, którą chcesz zacząć używać. Po aktywowaniu korzyści członek zespołu ds. programu Rewards skontaktuje się z wyznaczoną osobą w ciągu tygodnia.
 
-**Korzyści techniczne**
+### <a name="technical-benefits"></a>Korzyści techniczne
 
 1. Możesz skorzystać z korzyści technicznych, aby zażądać pomocy technicznej w fazie opracowywania aplikacji w chmurze i rozwiązaniach hybrydowych. Aby poprosić o pomoc, Wypełnij formularz żądania, a następnie wybierz pozycję **Prześlij żądanie**.
 2. Korzystanie z korzyści sponsorowanych przez platformę Azure będzie udostępniane za pośrednictwem poczty e-mail podczas odblokowywania tych korzyści.
@@ -79,7 +78,7 @@ Gdy będziesz korzystać z oferty transakcyjnej w Microsoft AppSource lub witryn
 
 Te korzyści są przeznaczone do obsługi działań marketingowych, handlowych i technicznych, a tym samym pomagają Ci uzyskać więcej odwiedzających, uzyskać więcej potencjalnych klientów i przekonwertować większą działalność.
 
-Wszyscy partnerzy, którzy posiadają ofertę na żywo, mogą współpracować z dedykowanym menedżerem zaangażowania w celu wybrania działań najwyższej wartości dla portfela komercyjnych ofert w portalu Marketplace. To zaangażowanie jest Evergreen na ofertę, co oznacza, że możesz wybrać swoje działania i czas trwania tych działań, aby dostosować się do czasu, w którym te działania mają być wyrównane do szerszej strategii marketingowej i sprzedaży firmy. 
+Wszyscy partnerzy, którzy posiadają ofertę na żywo, mogą współpracować z dedykowanym menedżerem zaangażowania w celu wybrania działań najwyższej wartości dla portfela komercyjnych ofert w portalu Marketplace. To zaangażowanie jest Evergreen na ofertę, co oznacza, że możesz wybrać swoje działania i czas trwania tych działań, aby dostosować się do czasu, w którym te działania mają być wyrównane do szerszej strategii marketingowej i sprzedaży firmy.
 
 ![Korzyści marketingowe](./media/marketplace-publishers-guide/marketing-benefit.png)
 
@@ -97,23 +96,23 @@ Oprócz korzyści płynących partnerzy biznesowi korzystający z systemu Dynami
 
 ### <a name="publisher-agreement"></a>Umowa wydawcy
 
-Wszystkie działania opisane na tej stronie są objęte [umową wydawcy portalu Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) i są zgodne z uzupełnieniem programu świadczeń komercyjnych.
+Wszystkie działania opisane na tej stronie są objęte [umową wydawcy](https://go.microsoft.com/fwlink/?LinkID=699560) firmy Microsoft i są zgodne z aneksem do programu świadczeń komercyjnych.
 
 ### <a name="cancellation-policy"></a>Zasady anulowania
 
-Wydawcy [list i wersji próbnych](determine-your-listing-type.md) mogą zrezygnować z działań lub zrezygnować z nich na publikację oferty. Partnerzy mogą zrezygnować z jakiegokolwiek zaangażowania w dowolnym momencie. 
+Wydawcy [list i wersji próbnych](determine-your-listing-type.md) mogą zrezygnować z działań lub zrezygnować z nich na publikację oferty. Partnerzy mogą zrezygnować z jakiegokolwiek zaangażowania w dowolnym momencie.
 
-Firma Microsoft zastrzega sobie prawo do odwoływania i kończenia korzyści z tytułu witryny Marketplace dla wydawców, którzy: 
+Firma Microsoft zastrzega sobie prawo do odwoływania i kończenia korzyści z tytułu witryny Marketplace dla wydawców, którzy:
 
 * Zaangażuj się w nielegalną aktywność przy użyciu swojej listy Marketplace.
 * Otrzymaj zakup, który jest znany lub uznany za fałszywy.
-* Znajdują się na liście z komercyjnej witryny Marketplace. 
+* Znajdują się na liście z komercyjnej witryny Marketplace.
 * Skorzystaj z oferty, aby pokazać marketing lub inną zawartość, która narusza prawa autorskie lub znaki towarowe.
 * Naruszanie zasad [programu sponsorowania platformy Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), w tym, ale nie ograniczone do, przy użyciu funduszy sponsorowanych przez platformę Azure w ramach własnych operacji wewnętrznych lub Bitcoin.
 
 Firma Microsoft zastrzega sobie prawo do odwoływania i kończenia nagrody Marketplace w przypadku:
 
-* Klient dokonujący zakupu przypadkowo zażądał anulowania zakupu. 
+* Klient dokonujący zakupu przypadkowo zażądał anulowania zakupu.
 * Klient anulował działanie przed użyciem produktu partnera.
 
 ### <a name="offer-availability"></a>Dostępność oferty
@@ -124,10 +123,7 @@ Transakcje, które są udowodnione jako fałszywe, nie będą wliczane do warstw
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) , aby utworzyć lub skonfigurować ofertę.
-
-Aktywuj korzyści z tytułu witryny Marketplace w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
-
-Przejrzyj [zasoby samoobsługowe dostępne dla Ciebie](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
-
-Zarejestruj się, aby uzyskać informacje na temat [Microsoft AppSource i forum społeczności w witrynie Azure Marketplace](https://aka.ms/MarketplaceCommunity) oraz zapoznać się z odpowiednimi tematami lub dołączać do dyskusji.
+- Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) , aby utworzyć lub skonfigurować ofertę.
+- Aktywuj korzyści z tytułu witryny Marketplace w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+- Przejrzyj [zasoby samoobsługowe dostępne dla Ciebie](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+- Zarejestruj się, aby uzyskać informacje na temat [Microsoft AppSource i forum społeczności w witrynie Azure Marketplace](https://aka.ms/MarketplaceCommunity) oraz zapoznać się z odpowiednimi tematami lub dołączać do dyskusji.
