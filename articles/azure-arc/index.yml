@@ -10,12 +10,12 @@ metadata:
   author: MGoedtel
   ms.author: magoedte
   ms.date: 09/23/2020
-  ms.openlocfilehash: ea57cbb94a45339c6de58ba1abdaa864ddc43186
-  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+  ms.openlocfilehash: 2ebc8329466df4fba7963a2838c19e2b7a1c539f
+  ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
   ms.translationtype: HT
   ms.contentlocale: pl-PL
   ms.lasthandoff: 09/25/2020
-  ms.locfileid: "91317246"
+  ms.locfileid: "91357832"
 highlightedContent:
   items:
   - title: Informacje o usłudze Azure Arc
@@ -32,7 +32,7 @@ highlightedContent:
     url: ./data/overview.md
   - title: Program SQL Server z obsługą usługi Azure Arc (wersja zapoznawcza)
     itemType: overview
-    url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+    url: /sql/sql-server/azure-arc/overview
 productDirectory:
   title: Usługi współdziałające z usługą Azure Arc
   summary: Zobacz, jak uruchamiać usługi w dowolnym miejscu.
@@ -48,7 +48,7 @@ productDirectory:
       text: Łączenie maszyn z platformą Azure przy użyciu rozszerzenia DSC programu PowerShell
     - url: ./servers/index.yml
       text: Zobacz więcej...
-  - title: Platforma Kubernetes z włączoną usługą Azure Arc
+  - title: Platforma Kubernetes z obsługą usługi Azure Arc (wersja zapoznawcza)
     imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
     links:
     - url: ./kubernetes/connect-cluster.md
@@ -71,9 +71,9 @@ productDirectory:
   - title: Program SQL Server z obsługą usługi Azure Arc (wersja zapoznawcza)
     imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
     links:
-    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/assess
+    - url: /sql/sql-server/azure-arc/assess
       text: Ocenianie wystąpień SQL
-    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+    - url: /sql/sql-server/azure-arc/overview
       text: Zobacz więcej...
 conceptualContent:
   title: Rozpoczęcie pracy

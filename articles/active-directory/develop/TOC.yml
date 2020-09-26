@@ -81,6 +81,8 @@
       items:
         - name: ASP.NET
           href: tutorial-v2-asp-webapp.md
+        - name: Serwer Blazor
+          href: tutorial-blazor-server.md
     - name: Aplikacje mobilne i klasyczne
       items:
         - name: Android

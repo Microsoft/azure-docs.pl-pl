@@ -90,6 +90,8 @@
       href: service-bus-throttling.md
     - name: Zabezpieczenia
       items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
         - name: Uwierzytelnianie i autoryzacja
           href: service-bus-authentication-and-authorization.md
           items:
