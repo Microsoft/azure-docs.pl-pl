@@ -68,7 +68,7 @@
             - name: Podstawy
               href: data-lake-analytics-u-sql-get-started.md
             - name: Dokumentacja języka
-              href: 'https://msdn.microsoft.com/library/azure/mt591959'
+              href: 'https://docs.microsoft.com/u-sql/'
             - name: Wykaz
               href: data-lake-analytics-u-sql-catalog.md
             - name: Operatory definiowane przez użytkownika

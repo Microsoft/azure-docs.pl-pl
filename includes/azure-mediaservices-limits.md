@@ -2,14 +2,14 @@
 author: rothja
 ms.service: media-services
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: e24c345bfee216dd240f0c283402ad43c8f45c29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c315c071aeb36eea0bd1af84b1344cf2fef5f703
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85838944"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329667"
 ---
 >[!NOTE]
 >W przypadku zasobów, które nie zostały naprawione, należy otworzyć bilet pomocy technicznej w celu poproszenia o zwiększenie limitów przydziału. Nie należy tworzyć dodatkowych kont Azure Media Services próbujących uzyskać wyższe limity.
@@ -29,7 +29,7 @@ ms.locfileid: "85838944"
 | Programy w stanie działania na kanał |3|
 | Punkty końcowe przesyłania strumieniowego, które są zatrzymane lub uruchomione dla konta Media Services|2|
 | Jednostki przesyłania strumieniowego na punkt końcowy przesyłania strumieniowego |10 |
-| Konta magazynu | 1 000<sup>5</sup> (stałe) |
+| Konta magazynu | 100<sup>5</sup> (stałe) |
 | Zasady | 1 000 000<sup>6</sup> |
 | Rozmiar pliku| W niektórych scenariuszach obowiązuje limit maksymalnego rozmiaru pliku, który jest obsługiwany przez przetwarzanie w Media Services. <sup>7</sup> |
 

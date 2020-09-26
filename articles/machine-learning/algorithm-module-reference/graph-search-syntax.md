@@ -1,5 +1,5 @@
 ---
-title: Składnia zapytania wyszukiwania grafu
+title: Składnia zapytań wyszukiwania w usłudze Graph
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak użyć składni zapytania wyszukiwania, aby wyszukać węzły na wykresie potoku.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 122da78206ef2055b4867727b174293e74133c05
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 166b87159b5ac2434c3ce7a7c66529a4b61ee565
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817551"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290504"
 ---
-# <a name="graph-search-query-syntax"></a>Składnia zapytania wyszukiwania grafu
+# <a name="graph-search-query-syntax"></a>Składnia zapytań wyszukiwania w usłudze Graph
 
 Ten artykuł zawiera informacje o składni zapytań wyszukiwania grafu w Azure Machine Learning. Funkcja wyszukiwania grafów pozwala wyszukiwać węzeł według jego nazwy i właściwości. 
 
@@ -49,7 +49,7 @@ Wyszukiwanie grafów używa prostego zapytania "Lucene" jako składni wyszukiwan
  
 - Dopasowanie symboli wieloznacznych: 
     - `machi?e learning`
-    -   `mach*ing`
+    - `mach*ing`
  
 >[!NOTE]
 > Nie można uruchomić zapytania Lucene ze znakiem "*".
@@ -59,7 +59,7 @@ Wyszukiwanie grafów używa prostego zapytania "Lucene" jako składni wyszukiwan
  
 Zapytania filtru używają następującego wzorca:
  
-    **[key1] [operator1] [value1]; [key2] [operator1] [value2];**
+`**[key1] [operator1] [value1]; [key2] [operator1] [value2];**`
 
  
 Można użyć następujących właściwości węzła jako kluczy:

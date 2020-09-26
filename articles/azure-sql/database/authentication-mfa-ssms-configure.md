@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: b1dbd66e34790599020233c5b1249593a4c0472d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8f72b9e9dfc2aa35960f9f81219a4c8973e2fe5b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442653"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277926"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurowanie uwierzytelniania wieloskładnikowego dla SQL Server Management Studio i usługi Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -40,22 +40,22 @@ Poniższe kroki pokazują, jak nawiązać połączenie przy użyciu najnowszego 
 
 1. Aby nawiązać połączenie przy użyciu uwierzytelniania uniwersalnego, w oknie dialogowym **łączenie z serwerem** w SQL Server Management Studio (SSMS) wybierz pozycję **Active Directory — uniwersalna z obsługą usługi MFA**. (Jeśli widzisz **Active Directory uniwersalnego uwierzytelniania** , nie jesteś w najnowszej wersji programu SSMS).
 
-   ![1mfa — połączenie uniwersalne](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
+   ![Zrzut ekranu karty właściwości połączenia w oknie dialogowym Łączenie z serwerem w S S M S. "Moja baza danych" została wybrana z listy rozwijanej Połącz z bazą danych.](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
 2. Wypełnij pole **Nazwa użytkownika** z poświadczeniami Azure Active Directory w formacie `user_name@domain.com` .
 
-   ![1mfa — połączenie uniwersalne — użytkownik](./media/authentication-mfa-ssms-configure/1mfa-universal-connect-user.png)
+   ![Zrzut ekranu przedstawiający ustawienia okna dialogowego Łączenie z serwerem dla typu serwera, nazwy serwera, uwierzytelniania i nazwy użytkownika.](./media/authentication-mfa-ssms-configure/1mfa-universal-connect-user.png)
 3. Jeśli łączysz się jako użytkownik-Gość, nie musisz już kończyć pola nazwy domeny usługi AD lub identyfikatora dzierżawy dla użytkowników-Gości, ponieważ program SSMS 18. x lub nowszy automatycznie go rozpoznaje. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie uniwersalne przy użyciu SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse (Obsługa programu SSMS)](../database/authentication-mfa-ssms-overview.md).
 
-   ![MFA — brak dzierżawy — SSMS](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)
+   ![Zrzut ekranu karty właściwości połączenia w oknie dialogowym Łączenie z serwerem w S S M S. "Moja baza danych" została wybrana z listy rozwijanej Połącz z bazą danych.](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)
 
    Jeśli jednak łączysz się jako użytkownik Gość przy użyciu programu SSMS 17. x lub starszej wersji, musisz kliknąć przycisk **Opcje**, a następnie w oknie dialogowym **Właściwości połączenia** wprowadzić wartość w polu **nazwa domeny usługi AD lub identyfikator dzierżawy** .
 
-   ![MFA — dzierżawca — SSMS](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
+   ![Zrzut ekranu karty właściwości połączenia w oknie dialogowym Łączenie z serwerem w S S M S. opcja nazwa domeny usługi AD lub właściwość identyfikatora dzierżawy jest wypełniana.](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
 
 4. Wybierz **Opcje** i określ bazę danych w oknie dialogowym **Opcje** . (Jeśli połączony użytkownik jest użytkownikiem-gościem (tj. joe@outlook.com ), należy zaznaczyć pole wyboru i dodać bieżącą nazwę domeny usługi AD lub identyfikator dzierżawy jako część opcji. Zobacz [uwierzytelnianie uniwersalne przy użyciu SQL Database i usługi Azure Synapse Analytics (Obsługa programu SSMS dla usług MFA)](../database/authentication-mfa-ssms-overview.md). Następnie kliknij przycisk **Connect** (Połącz).  
 5. Gdy pojawi się okno dialogowe **Logowanie do konta** , podaj konto i hasło tożsamości Azure Active Directory. Jeśli użytkownik jest częścią domeny federacyjnej z usługą Azure AD, nie jest wymagane hasło.
 
-   ![2mfa — logowanie](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  
+   ![Zrzut ekranu przedstawiający okno dialogowe logowania do konta dla Azure SQL Database i magazynu danych. Konto i hasło są wypełnione.](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  
 
    > [!NOTE]
    > W przypadku uwierzytelniania uniwersalnego przy użyciu konta, które nie wymaga uwierzytelniania MFA, można nawiązać połączenie w tym punkcie. W przypadku użytkowników wymagających uwierzytelniania wieloskładnikowego wykonaj następujące czynności:
@@ -63,14 +63,14 @@ Poniższe kroki pokazują, jak nawiązać połączenie przy użyciu najnowszego 
 
 6. Mogą pojawić się dwa okna dialogowe konfiguracji usługi MFA. Ta operacja jednorazowa zależy od ustawienia administratora usługi MFA i dlatego może być opcjonalna. W przypadku domeny z obsługą usługi MFA ten krok jest czasami wstępnie zdefiniowany (na przykład domena wymaga od użytkowników korzystania z karty inteligentnej i numeru PIN).
 
-   ![3mfa — konfiguracja](./media/authentication-mfa-ssms-configure/3mfa-setup.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe logowania do konta dla Azure SQL Database i magazynu danych z monitem o skonfigurowanie dodatkowej weryfikacji zabezpieczeń.](./media/authentication-mfa-ssms-configure/3mfa-setup.png)
   
 7. Drugie możliwe okno dialogowe jednorazowe pozwala wybrać szczegóły metody uwierzytelniania. Możliwe opcje są konfigurowane przez administratora.
 
-   ![4mfa — Weryfikuj-1](./media/authentication-mfa-ssms-configure/4mfa-verify-1.png)  
+   ![Zrzut ekranu przedstawiający okno dialogowe dodatkowa Weryfikacja zabezpieczeń z opcjami wyboru i konfigurowania metody uwierzytelniania.](./media/authentication-mfa-ssms-configure/4mfa-verify-1.png)  
 8. Azure Active Directory wysyła do Ciebie informacje potwierdzające. Po otrzymaniu kodu weryfikacyjnego wprowadź go w polu **Wprowadź kod weryfikacyjny** , a następnie kliknij przycisk **Zaloguj**.
 
-   ![5mfa — Weryfikuj-2](./media/authentication-mfa-ssms-configure/5mfa-verify-2.png)  
+   ![Zrzut ekranu przedstawiający okno dialogowe logowania do konta dla Azure SQL Database i magazynu danych z monitem o wprowadzenie kodu weryfikacyjnego.](./media/authentication-mfa-ssms-configure/5mfa-verify-2.png)  
 
 Po zakończeniu weryfikacji program SSMS nawiązuje połączenie zwykle z założeniem prawidłowych poświadczeń i dostępu do zapory.
 

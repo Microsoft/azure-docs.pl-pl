@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie usługi Azure IoT Hub Device Provisioning Service przy użyciu interfejsu wiersza polecenia platformy Azure
+title: Szybki Start — Konfigurowanie IoT Hub Device Provisioning Service platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Szybki Start — Konfigurowanie usługi Azure IoT Hub Device Provisioning Service (DPS) przy użyciu interfejsu wiersza polecenia platformy Azure
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 64250863e5bab4776c129935e56db190e5bd36ee
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 157bd0a0a40ce6a935d13bb10a84c814ba1018bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602680"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330251"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Szybki Start: Konfigurowanie IoT Hub Device Provisioning Service przy użyciu interfejsu wiersza polecenia platformy Azure
 

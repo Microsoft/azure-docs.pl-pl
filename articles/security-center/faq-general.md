@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783218"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301452"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Często zadawane pytania — ogólne pytania dotyczące Azure Security Center
 
-## <a name="what-is-azure-security-center"></a>Co to jest Centrum zabezpieczeń Azure?
+## <a name="what-is-azure-security-center"></a>Co to jest usługa Azure Security Center?
 Azure Security Center pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie dzięki zwiększonej widoczności i kontroli nad bezpieczeństwem zasobów. Umożliwia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami dla wszystkich subskrypcji, pomaga wykrywać zagrożenia, które w przeciwnym razie mogłyby pozostać niezauważone, a także współpracuje z szerokim ekosystemem rozwiązań zabezpieczających.
 
 Security Center używa agenta Log Analytics do zbierania i przechowywania danych. Szczegółowe informacje znajdują się w temacie [zbieranie danych w Azure Security Center](security-center-enable-data-collection.md).
@@ -70,7 +70,6 @@ Usługa Azure Security Center analizuje stan zabezpieczeń zasobów platformy Az
 Tutaj są wyświetlane tylko zalecenia włączone w zasadach zabezpieczeń.
 
 
-
 ## <a name="what-triggers-a-security-alert"></a>Co wyzwala alert zabezpieczeń?
 Azure Security Center automatycznie gromadzi, analizuje i odrzuca dane dzienników z zasobów platformy Azure, sieci i rozwiązań partnerskich, takich jak oprogramowanie chroniące przed złośliwym kodem i zapory. Po wykryciu zagrożenia tworzony jest alert zabezpieczeń. Przykłady obejmują wykrywanie:
 
@@ -78,10 +77,6 @@ Azure Security Center automatycznie gromadzi, analizuje i odrzuca dane dziennik�
 * Wykryto zaawansowane złośliwe oprogramowanie korzystające z raportowania błędów systemu Windows
 * Ataków siłowych wobec maszyn wirtualnych
 * Alerty zabezpieczeń z zintegrowanych rozwiązań zabezpieczeń partnerów, takich jak zapory chroniące przed złośliwym oprogramowaniem lub aplikacje sieci Web
-
-
-## <a name="why-did-secure-score-values-change"></a>Dlaczego zostały zmienione wartości oceny? <a name="secure-score-faq"></a>
-Od lutego 2019 Security Center skorygowany wynik kilku zaleceń w celu lepszego dopasowania ich ważności. W wyniku tej korekty mogą wystąpić zmiany ogólnych, bezpiecznych wartości oceny.  Aby uzyskać więcej informacji na temat zabezpieczeń oceny, zobacz [ulepszony bezpieczny wynik w Azure Security Center](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Jaka jest różnica między zagrożeniami wykrytymi przez centrum Microsoft Security Response Center a Azure Security Centerymi

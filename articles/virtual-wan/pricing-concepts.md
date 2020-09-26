@@ -6,15 +6,15 @@ services: virtual-wan
 author: reyandap
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: 2d2234ec333746c6f1da59346bdb74247deb616c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568716"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327961"
 ---
 # <a name="about-virtual-wan-pricing"></a>Informacje o cenach wirtualnych sieci WAN
 
@@ -30,7 +30,7 @@ Cena każdej usługi w wirtualnej sieci WAN jest naliczana. W związku z tym nie
 
 ### <a name="what-is-a-scale-unit"></a><a name="scale-unit"></a>Co to jest jednostka skalowania?
 
-**Jednostka skalowania** zapewnia jednostkę zagregowanej pojemności sieci typu lokacja-lokacja (S2S), punkt-lokacja (P2S) i EXPRESSROUTE (er) w koncentratorze wirtualnym. Przykład:
+**Jednostka skalowania** zapewnia jednostkę zagregowanej pojemności sieci typu lokacja-lokacja (S2S), punkt-lokacja (P2S) i EXPRESSROUTE (er) w koncentratorze wirtualnym. Na przykład:
 
 * **1 jednostka skalowania sieci VPN S2S** implikuje łączną pojemność bramy sieci VPN 500 MB/s (dwa wystąpienia są wdrażane w celu odporności) w koncentratorze wirtualnym o kosztach $0.361/godzinę.
 * **1 jednostka skalowania er** oznacza łączną liczbę 2 GB/s bramy modułu tworzenia w koncentratorze wirtualnym.
@@ -38,7 +38,7 @@ Cena każdej usługi w wirtualnej sieci WAN jest naliczana. W związku z tym nie
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>Co to jest jednostka połączenia?
 
-**Jednostka połączenia** ma zastosowanie do każdego lokalnego punktu końcowego/innego niż Microsoft, który nawiązuje połączenie z bramami platformy Azure. W przypadku sieci VPN typu lokacja-lokacja to oznacza gałęzie. W przypadku sieci VPN użytkownika (punkt-lokacja) to oznacza użytkowników zdalnych. W przypadku ExpressRoute to oznacza połączenia obwodu usługi ExpressRoute.<br>Przykład:
+**Jednostka połączenia** ma zastosowanie do każdego lokalnego punktu końcowego/innego niż Microsoft, który nawiązuje połączenie z bramami platformy Azure. W przypadku sieci VPN typu lokacja-lokacja to oznacza gałęzie. W przypadku sieci VPN użytkownika (punkt-lokacja) to oznacza użytkowników zdalnych. W przypadku ExpressRoute to oznacza połączenia obwodu usługi ExpressRoute.<br>Na przykład:
 
 * Jedno połączenie z gałęzią łączące się z siecią VPN platformy Azure w ramach kosztów koncentratora wirtualnego $0,05/HR. W związku z tym 100 połączenia rozgałęzienia łączące się z usługą Azure Virtual Hub byłyby kosztem $0,05 * 100/HR.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dcbaaeb2868a421a41227e1b5d9fdd84a96248eb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6c8e6fee2b9f01b8d7ab48990760aa4c4d6e11b2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852365"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361504"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Dostęp do zestawów danych z językiem Python za pomocą biblioteki klienta Python usługi Azure Machine Learning
 Wersja zapoznawcza Microsoft Azure Machine Learning Biblioteka kliencka języka Python umożliwia bezpieczny dostęp do Azure Machine Learning zestawów danych ze środowiska lokalnego języka Python oraz umożliwia tworzenie zestawów danych i zarządzanie nimi w obszarze roboczym.
@@ -38,7 +38,7 @@ Ma zależność od następujących pakietów:
 
 * żądań
 * Python — dateutil
-* pandas
+* Pandas
 
 Zalecamy używanie dystrybucji języka Python, takiej jak [Anaconda](https://www.anaconda.com/) lub [koroner](https://store.enthought.com/downloads/), która jest dostarczana z zainstalowanymi w języku Python, IPython i trzema wymienionymi powyżej pakietami. Chociaż IPython nie jest ściśle wymagane, jest to doskonałe środowisko do interaktywnego manipulowania danymi i wizualizacji danych.
 
@@ -71,7 +71,7 @@ Fragmenty kodu udostępniane przez Azure Machine Learning Studio (klasyczne) do 
 
 Ze względów bezpieczeństwa funkcja fragmentu kodu jest dostępna tylko dla użytkowników, którzy mają ustawioną rolę **właściciel** dla obszaru roboczego. Twoja rola jest wyświetlana w Azure Machine Learning Studio (klasyczny) na stronie **Użytkownicy** w obszarze **Ustawienia**.
 
-![Zabezpieczenia][security]
+![Zrzut ekranu przedstawia ustawienia na stronie użytkownicy Azure Machine Learning Studio.][security]
 
 Jeśli rola nie jest ustawiona jako **właściciel**, możesz wysłać żądanie do osoby, która ma zostać zaproszona jako właściciel, lub poprosić właściciela obszaru roboczego o udostępnienie fragmentu kodu.
 
@@ -92,7 +92,7 @@ Tokeny autoryzacji są zarządzane na stronie **tokeny autoryzacji** w obszarze 
 2. Wybierz zestaw danych, do którego chcesz uzyskać dostęp. Możesz wybrać dowolny z zestawów danych z listy **moje zbiory danych** lub z listy **przykładów** .
 3. Na dolnym pasku narzędzi kliknij pozycję **Generuj kod dostępu do danych**. Jeśli dane są w formacie niezgodnym z biblioteką klienta języka Python, ten przycisk jest wyłączony.
    
-    ![Zestawy danych][datasets]
+    ![Zrzut ekranu przedstawia zestawy danych z GENEROWANIEm kodu dostępu z danymi.][datasets]
 4. Wybierz fragment kodu z wyświetlonego okna i skopiuj go do Schowka.
    
     ![Przycisk generowania kodu dostępu do danych][dataset-access-code]
@@ -348,7 +348,7 @@ print(ws.datasets['existing dataset'].name)    # IndexError
 
 `data_type_id` `name` `description` Parametry i są opcjonalne i domyślne dla ich poprzedniej wartości. `dataframe`Parametr jest zawsze wymagany.
 
-Jeśli dane są już serializowane, użyj `update_from_raw_data` zamiast `update_from_dataframe` . Jeśli przeszedł po prostu `raw_data` , zamiast `dataframe` , działa w podobny sposób.
+Jeśli dane są już serializowane, użyj `update_from_raw_data` zamiast `update_from_dataframe` . Jeśli przeszedł po prostu `raw_data` , zamiast  `dataframe` , działa w podobny sposób.
 
 <!-- Images -->
 [security]:./media/python-data-access/security.png

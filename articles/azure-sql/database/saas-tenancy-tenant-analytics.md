@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cd80f0b2a5e2ad1fd4c2cff73728d57a2beafc7e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437398"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361521"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analiza wielu dzierżawców przy użyciu wyodrębnionych aplikacji z jedną dzierżawą
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > - Zbadaj bazę danych analizy.
 > - Użyj Power BI do wizualizacji danych, aby wyróżnić trendy w danych dzierżawy i zaleceń dotyczących ulepszeń.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
+![Diagram przedstawia przegląd architektury używanej w tym artykule.](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>Wzorzec analizy dzierżawy w trybie offline
 
@@ -138,7 +138,7 @@ Każde zadanie wyodrębnia swoje dane i zapisuje je w sklepie analitycznym. Oddz
 4. Naciśnij klawisz F5, aby uruchomić skrypt, który tworzy i uruchamia zadanie wyodrębniające bilety i dane klientów z każdej bazy danych dzierżaw. Zadanie zapisuje dane w sklepie analizy.
 5. Wykonaj zapytanie dotyczące tabeli TicketsRawData w bazie danych tenantanalytics, aby upewnić się, że tabela została wypełniona informacjami o biletach ze wszystkich dzierżawców.
 
-![ticketExtracts](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
+![Zrzut ekranu przedstawia bazę danych ExtractTickets z TicketsRawDataą d b o wybranym w Eksplorator obiektów.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 Powtórz powyższe kroki, z wyjątkiem tego, że Zastąp **\ExtractTickets.SQL** with **\ExtractVenuesEvents.SQL** w kroku 2.
 
@@ -177,7 +177,7 @@ Wykonaj następujące kroki, aby nawiązać połączenie z usługą Power BI i z
 
 5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper*i wprowadź hasło = *P \@ ssword1*. Kliknij przycisk **Połącz**.  
 
-    ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![Zrzut ekranu przedstawia okno dialogowe baza danych SQL Server, w którym można wprowadzić nazwę użytkownika i hasło.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. W okienku **Nawigator** w obszarze baza danych analizy wybierz tabele ze schematem gwiazdy: fact_Tickets, dim_Events, dim_Venues, dim_Customers i dim_Dates. Następnie wybierz pozycję **Załaduj**. 
 
@@ -185,13 +185,13 @@ Gratulacje! Dane zostały pomyślnie załadowane do Power BI. Teraz możesz zacz
 
 Zacznij od analizowania danych sprzedaży biletów, aby zobaczyć zmiany w użyciu w miejscu. Wybierz poniższe opcje w Power BI, aby wyświetlić wykres słupkowy łącznej liczby biletów sprzedawanych przez każdy z miejsc. Ze względu na losową odmianę generatora biletów wyniki mogą się różnić.
  
-![TotalTicketsByVenues](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
+![Zrzut ekranu przedstawia wizualizację i kontrolki dla wizualizacji danych po prawej stronie.](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
 Powyższy wykres potwierdza, że liczba biletów sprzedawanych przez każdy z miejsc jest różna. Miejsca, w których sprzedawane są więcej biletów, są bardziej silniej niż miejsca, w których sprzedawane są mniejsze bilety. W tym miejscu może istnieć możliwość dostosowywania alokacji zasobów zgodnie z różnymi potrzebami dzierżawców.
 
 Możesz przeanalizować dane, aby zobaczyć, w jaki sposób sprzedaż biletów różni się w miarę upływu czasu. Wybierz poniższe opcje w Power BI, aby wykreślić łączną liczbę biletów sprzedawanych każdego dnia przez okres 60 dni.
  
-![SaleVersusDate](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
+![Zrzut ekranu przedstawia wizualizację B I o tytule dystrybucja sprzedaży biletów I dzień sprzedaży.](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
 Powyższy wykres przedstawia wzrost sprzedaży biletów dla niektórych miejsc. Te szczyty wzmacniają, że niektóre miejsca mogą zużywać zasoby systemowe w nieproporcjonalnym charakterze. Do tej pory nie ma żadnego oczywistego wzorca podczas wystąpienia.
 
@@ -217,7 +217,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 Wybierz poniższe opcje wizualizacji, aby wykreślić bilety procentowe sprzedane przez każdy z nich, aby określić ich względną skuteczność.
 
-![AvgTicketsByVenues](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
+![Zrzut ekranu przedstawia wizualizację B I o średniej bilety sprzedawanej przez każdy z miejsc.](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
 Powyższy wykres pokazuje, że mimo że większość miejsc sprzedaje ponad 80% swoich biletów, niektóre z nich zoptymalizowaniem się, aby wypełnić więcej niż połowę stanowisk. Zanotuj wszystkie wartości, aby wybrać maksymalną lub minimalną stawkę procentową biletów sprzedawanych w każdym miejscu.
 

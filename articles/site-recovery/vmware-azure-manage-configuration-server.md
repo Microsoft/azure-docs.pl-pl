@@ -6,14 +6,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134822"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361487"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii maszyny wirtualnej lub serwera fizycznego
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii maszyny wirtualnej VMware/serwera fizycznego
 
 Lokalny serwer konfiguracji można skonfigurować w przypadku korzystania z [Azure Site Recovery](site-recovery-overview.md) na potrzeby odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure. Serwer konfiguracji koordynuje komunikację między lokalnym programem VMware i platformą Azure i zarządza replikacją danych. Ten artykuł zawiera podsumowanie typowych zadań związanych z zarządzaniem serwerem konfiguracji po jego wdrożeniu.
 
@@ -71,7 +71,7 @@ Jeśli pominięto Dodawanie poświadczeń podczas OVF wdrażania serwera konfigu
 
 1. Po [zalogowaniu](#access-configuration-server)wybierz pozycję **Zarządzaj poświadczeniami maszyny wirtualnej**.
 2. Kliknij pozycję **Dodaj poświadczenia maszyny wirtualnej**.
-    ![Dodawanie-mobilność — poświadczenia](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![Zrzut ekranu przedstawia okienko zarządzanie poświadczeniami maszyny wirtualnej za pomocą linku Dodawanie poświadczeń maszyny wirtualnej.](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Wprowadź nowe poświadczenia i kliknij przycisk **Dodaj**.
 
 Możesz również dodać poświadczenia za CSPSConfigtool.exe.
@@ -164,7 +164,7 @@ Jeśli zachodzi taka potrzeba, można ponownie zarejestrować serwer konfiguracj
 
 ## <a name="upgrade-the-configuration-server"></a>Uaktualnij serwer konfiguracji
 
-Aby zaktualizować serwer konfiguracji, należy uruchomić pakiet zbiorczy aktualizacji. Aktualizacje mogą być stosowane do wersji N-4. Przykład:
+Aby zaktualizować serwer konfiguracji, należy uruchomić pakiet zbiorczy aktualizacji. Aktualizacje mogą być stosowane do wersji N-4. Na przykład:
 
 - Jeśli uruchomisz 9,7, 9,8, 9,9 lub 9,10, możesz przeprowadzić uaktualnienie bezpośrednio do wersji 9,11.
 - Jeśli zostanie uruchomiony system 9,6 lub starszy i chcesz przeprowadzić uaktualnienie do wersji 9,11, musisz najpierw przeprowadzić uaktualnienie na wersję 9,7. przed 9,11.

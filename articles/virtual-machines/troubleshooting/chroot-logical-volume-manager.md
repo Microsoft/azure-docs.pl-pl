@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361470"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Linux w przypadku braku dostępu do konsoli szeregowej platformy Azure, a układ dysku używa LVM (Menedżer woluminów logicznych)
 
@@ -88,7 +88,7 @@ lsblk
 
 Znajdź ścieżkę do zainstalowania woluminu logicznego, który zawiera partycję/(root). Zawiera pliki konfiguracji, takie jak/etc/default/grub
 
-W tym przykładzie pobieranie danych wyjściowych z poprzedniego polecenia **lsblk** **rootvg-rootlv** jest poprawnym **głównym** LV do zainstalowania i może być używane w następnym poleceniu.
+W tym przykładzie pobieranie danych wyjściowych z poprzedniego polecenia **lsblk**  **rootvg-rootlv** jest poprawnym **głównym** LV do zainstalowania i może być używane w następnym poleceniu.
 
 W danych wyjściowych następnego polecenia zostanie wyświetlona ścieżka do instalacji dla **głównego** LV
 
@@ -143,7 +143,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 Polecenia mogą służyć do instalowania, usuwania i aktualizacji oprogramowania. Rozwiązywanie problemów z maszynami wirtualnymi w celu naprawienia błędów.
 
 
-Wykonaj polecenie lsblk, a/Rescue jest teraz/,/Rescue/Boot to/boot ![ chrooted](./media/chroot-logical-volume-manager/chrooted.png)
+Wykonaj polecenie lsblk, a/Rescue jest teraz/,/Rescue/Boot to/boot ![ zrzut ekranu przedstawia okno konsoli z poleceniem l s BLK i jego drzewem wyjściowym.](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Wykonaj poprawki
 
@@ -169,7 +169,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *Instruktaż*
 
 Polecenie **grep** wyświetla listę jądra, które są świadome **grub. cfg** .
-![Jądra](./media/chroot-logical-volume-manager/kernels.png)
+![Zrzut ekranu przedstawia okno konsoli z wynikami wyszukiwania GREP dla jądra.](./media/chroot-logical-volume-manager/kernels.png)
 
 **grub2-editenv wyświetla listę** , które jądro zostanie załadowane przy następnym rozruchu ![ jądra domyślnego](./media/chroot-logical-volume-manager/kernel-default.png)
 
@@ -190,7 +190,7 @@ Uruchom polecenie **LVS** , aby sprawdzić, które **LVS** są dostępne do zain
 
 Wyjdź z środowiska **chroot** Zainstaluj wymagane **LV**
 
-![Zaawansowane](./media/chroot-logical-volume-manager/advanced.png)
+![Zrzut ekranu przedstawia okno konsoli z poleceniem l-s, a następnie zainstalowanie L V.](./media/chroot-logical-volume-manager/advanced.png)
 
 Teraz ponownie Uzyskuj dostęp do środowiska **chroot** , uruchamiając
 
@@ -198,11 +198,11 @@ Teraz ponownie Uzyskuj dostęp do środowiska **chroot** , uruchamiając
 
 Wszystkie LVs powinny być widoczne jako zainstalowane partycje
 
-![Zaawansowane](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Zaawansowany](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Wykonywanie zapytania dotyczącego zainstalowanego **jądra**
 
-![Zaawansowane](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Zaawansowany](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 W razie konieczności Usuń lub Uaktualnij **jądro** 
  ![ Zaawansowane](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: 1493a15a97ca88d0ed914f78b1906088c03dff10
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a0cc70f5bf994e03088511a0d10796746a434bd7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037413"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300313"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Skalowanie zadania Stream Analytics za pomocą funkcji Azure Machine Learning Studio (klasycznych)
 
@@ -25,7 +25,7 @@ W tym artykule omówiono sposób efektywnego skalowania Azure Stream Analytics z
 
 Funkcja Machine Learning w Stream Analytics może być używana jak zwykłe wywołanie funkcji w języku zapytań Stream Analytics. W tle te wywołania funkcji są jednak w rzeczywistości Azure Machine Learning żądania usługi sieci Web.
 
-Można zwiększyć przepływność Machine Learning żądań usługi sieci Web przez "wsadowe" wiele wierszy razem w tym samym wywołaniu interfejsu API usługi sieci Web. Ta grupa jest nazywana mini-Batch. Aby uzyskać więcej informacji, zobacz [Azure Machine Learning Studio (klasyczne) usługi sieci Web](../machine-learning/studio/consume-web-services.md). Obsługa Azure Machine Learning Studio (klasyczny) w Stream Analytics jest w wersji zapoznawczej.
+Można zwiększyć przepływność Machine Learning żądań usługi sieci Web przez "wsadowe" wiele wierszy razem w tym samym wywołaniu interfejsu API usługi sieci Web. Ta grupa jest nazywana mini-Batch. Aby uzyskać więcej informacji, zobacz [Azure Machine Learning Studio (klasyczne) usługi sieci Web](../machine-learning/classic/consume-web-services.md). Obsługa Azure Machine Learning Studio (klasyczny) w Stream Analytics jest w wersji zapoznawczej.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Konfigurowanie zadania Stream Analytics za pomocą funkcji Machine Learning
 
@@ -58,7 +58,7 @@ Ogólnie rzecz biorąc, ***B*** dla rozmiaru partii, ***L*** dla opóźnienia us
 
 Możesz również skonfigurować "maksymalną liczbę współbieżnych wywołań" w usłudze sieci Web Machine Learning. Zalecane jest ustawienie dla tego parametru wartości maksymalnej (200 obecnie).
 
-Aby uzyskać więcej informacji na temat tego ustawienia, zapoznaj się z [artykułem skalowanie dla Machine Learning usług sieci Web](../machine-learning/studio/create-endpoint.md).
+Aby uzyskać więcej informacji na temat tego ustawienia, zapoznaj się z [artykułem skalowanie dla Machine Learning usług sieci Web](../machine-learning/classic/create-endpoint.md).
 
 ## <a name="example--sentiment-analysis"></a>Przykład — analiza tonacji
 Poniższy przykład obejmuje zadanie Stream Analytics przy użyciu funkcji Machine Learning analizy tonacji, zgodnie z opisem w [samouczku integracji Stream Analytics Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
@@ -106,12 +106,12 @@ Poniżej znajduje się tabela przepływności zadania Stream Analytics dla róż
 
 | rozmiar wsadu (opóźnienie w ML) | 500 (200 ms) | 1 000 (200 ms) | 5 000 (250 MS) | 10 000 (300 ms) | 25 000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 SU** |2500 |5000 |20 000 |30 000 |50 000 |
-| **3 usługi SUs** |2500 |5000 |20 000 |30 000 |50 000 |
-| **6 usługi SUs** |2500 |5000 |20 000 |30 000 |50 000 |
+| **1 SU** |2500 |5000 |20 000 |30 000 |50 000 |
+| **3 usługi SUs** |2500 |5000 |20 000 |30 000 |50 000 |
+| **6 usługi SUs** |2500 |5000 |20 000 |30 000 |50 000 |
 | **12 usług SUs** |5000 |10 000 |40 000 |60 000 |100 000 |
 | **18 usług SUs** |7500 |15 000 |60 000 |90 000 |150 000 |
-| **24 usługi SUs** |10 000 |20 000 |80 000 |120 000 |200,000 |
+| **24 usługi SUs** |10 000 |20 000 |80 000 |120 000 |200,000 |
 | **…** |… |… |… |… |… |
 | **60 usługi SUs** |25 000 |50 000 |200,000 |300 000 |500 000 |
 

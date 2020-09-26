@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820130"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290691"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Skonfiguruj Akcelerator rozwiązania połączonej fabryki
+
+> [!IMPORTANT]
+> Gdy aktualizujemy ten artykuł, zobacz [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) , aby uzyskać najbardziej aktualną zawartość.
 
 Akcelerator rozwiązania połączonej fabryki pokazuje symulowany pulpit nawigacyjny dla fikcyjnej firmy Contoso. Ta firma ma fabryki w wielu globalnych lokalizacjach globalnie.
 
@@ -109,13 +112,13 @@ Typowe właściwości,,  `<global_configuration>` `<factory_configuration>` `<p
 
   Jednoznacznie identyfikuje węzeł topologii.
 
-`<factory_configuration>`ma właściwość:
+`<factory_configuration>` ma właściwość:
 
 * **Lokalizacja** (typ `<location_definition>` )
 
   Określa miejsce, w którym znajduje się fabryka.
 
-`<station_configuration>`ma właściwości:
+`<station_configuration>` ma właściwości:
 
 * **OpcUri** (ciąg typu)
 
@@ -124,7 +127,7 @@ Typowe właściwości,,  `<global_configuration>` `<factory_configuration>` `<p
 
 * **OpcNodes**, które są tablicą węzłów OPC UA (typ `<opc_node_description>` )
 
-`<location_definition>`ma właściwości:
+`<location_definition>` ma właściwości:
 
 * **Miasto** (ciąg typu)
 
@@ -142,7 +145,7 @@ Typowe właściwości,,  `<global_configuration>` `<factory_configuration>` `<p
 
   Długość geograficzna lokalizacji
 
-`<performance_definition>`ma właściwości:
+`<performance_definition>` ma właściwości:
 
 * **Minimum** (typ Double)
 
@@ -188,7 +191,7 @@ Typowe właściwości,,  `<global_configuration>` `<factory_configuration>` `<p
   * **CallOpcMethod**: informacje o węźle i parametry metody OPC UA do wywołania w formacie "nodeID węzła nadrzędnego, NodeId metody do wywołania, identyfikator URI serwera OPC UA".
   * **OpenWebPage**: adres URL, który ma być wyświetlany w oknie przeglądarki.
 
-`<opc_node_description>`zawiera informacje o węzłach OPC UA na stacji (OPC UA). Węzły, które nie reprezentują istniejących węzłów OPC UA, ale są używane jako magazyn w logiki obliczeniowej połączonej fabryki, są również prawidłowe. Ma następujące właściwości:
+`<opc_node_description>` zawiera informacje o węzłach OPC UA na stacji (OPC UA). Węzły, które nie reprezentują istniejących węzłów OPC UA, ale są używane jako magazyn w logiki obliczeniowej połączonej fabryki, są również prawidłowe. Ma następujące właściwości:
 
 * **NodeId** (ciąg typu)
 
@@ -262,11 +265,11 @@ Wszystkie właściwości używane w pliku konfiguracji można grupować w różn
 
 ### <a name="visual-appearance"></a>Wygląd wizualizacji
 
-Właściwości w tej kategorii definiują wygląd pulpitu nawigacyjnego połączonej fabryki. Przykłady obejmują:
+Właściwości w tej kategorii definiują wygląd pulpitu nawigacyjnego połączonej fabryki. Przykłady:
 
 * Nazwa
 * Opis
-* Obraz
+* Image (Obraz)
 * Lokalizacja
 * Lekcji
 * Widoczne
@@ -291,7 +294,7 @@ Obiekty węzłów OPC UA na stacjach umożliwiają znakowanie użycia w obliczen
 Połączona fabryka obsługuje prosty, minimalny/maksymalny mechanizm generowania alertów opartych na progach. Istnieje wiele wstępnie zdefiniowanych akcji, które można skonfigurować w odpowiedzi na te alerty. Następujące właściwości sterują tym mechanizmem:
 
 * Maksimum
-* Minimalne
+* Minimum
 * MaximumAlertActions
 * MinimumAlertActions
 

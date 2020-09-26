@@ -1,5 +1,5 @@
 ---
-title: Dodawanie, usuwanie i wyświetlanie listy użytkowników w jednostce administracyjnej (wersja zapoznawcza) — Azure Active Directory | Microsoft Docs
+title: Dodawanie, usuwanie i wyświetlanie listy użytkowników w jednostce administracyjnej — Azure Active Directory | Microsoft Docs
 description: Zarządzanie użytkownikami i ich uprawnieniami roli w jednostce administracyjnej w Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9b76ac103b873026dce3d3f8f92e54dc3afc14c
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 37e1ac36df35fabb9709cfecadcfb0e7330df5da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850932"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265134"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Dodawanie użytkowników i zarządzanie nimi w jednostce administracyjnej w Azure Active Directory
 
@@ -35,11 +35,11 @@ Użytkowników można przypisywać do jednostek administracyjnych na dwa sposoby
 
 1. Przypisanie indywidualne
 
-    1. Możesz przejść do usługi Azure AD w portalu i wybrać opcję Użytkownicy i wybrać użytkownika, który ma zostać przypisany do jednostki administracyjnej. Następnie możesz wybrać jednostki administracyjne w lewym panelu. Użytkownika można przypisać do co najmniej jednej jednostki administracyjnej, klikając pozycję Przypisz do jednostki administracyjnej i wybierając jednostki administracyjne, do których użytkownik ma zostać przypisany.
+    1. Możesz przejść do usługi Azure AD w portalu i wybrać opcję Użytkownicy i wybrać użytkownika, który ma zostać przypisany do jednostki administracyjnej. Następnie możesz wybrać jednostki administracyjne w lewym panelu. Użytkownika można przypisać do co najmniej jednej jednostki administracyjnej, klikając pozycję * * Przypisz do jednostki administracyjnej i wybierając jednostki administracyjne, do których użytkownik ma zostać przypisany.
 
        ![Wybierz pozycję Dodaj, a następnie wprowadź nazwę jednostki administracyjnej](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. Możesz przejść do usługi Azure AD w portalu i wybrać jednostki administracyjne w lewym okienku, a następnie wybrać jednostkę administracyjną, do której użytkownicy mają być przypisani. W lewym okienku wybierz pozycję Wszyscy użytkownicy, a następnie wybierz pozycję Dodaj członka. Następnie można wybrać co najmniej jednego użytkownika, który ma zostać przypisany do jednostki administracyjnej z okienka po prawej stronie.
+    1. Możesz przejść do usługi Azure AD w portalu i wybrać jednostki administracyjne w lewym okienku, a następnie wybrać jednostkę administracyjną, do której użytkownicy mają być przypisani. Wybierz pozycję **Wszyscy użytkownicy** , a następnie wybierz pozycję **Dodaj członka**. Następnie można wybrać co najmniej jednego użytkownika, który ma zostać przypisany do jednostki administracyjnej z okienka po prawej stronie.
 
         ![Wybierz jednostkę administracyjną, a następnie wybierz pozycję Dodaj członka](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
@@ -82,13 +82,15 @@ Przykład:
 
 ### <a name="azure-portal"></a>Azure Portal
 
-W Azure Portal można otworzyć profil użytkownika, przechodząc do usługi Azure AD > użytkownicy. Kliknij użytkownika, aby otworzyć profil użytkownika.
+W Azure Portal można otworzyć profil użytkownika według:
 
-![Otwórz profil użytkownika w Azure Active Directory](./media/roles-admin-units-add-manage-users/user-profile-admin-units.png)
+1. Otwieranie użytkowników usługi **Azure AD**  >  **Users**.
 
-Na panelu po lewej stronie wybierz pozycję **jednostki administracyjne** , aby wyświetlić listę jednostek administracyjnych, do których użytkownik został przypisany.
+1. Wybierz użytkownika, aby otworzyć profil użytkownika.
 
-![Wyświetl listę jednostek administracyjnych dla użytkownika](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
+1. Wybierz pozycję **jednostki administracyjne** , aby wyświetlić listę jednostek administracyjnych, do których użytkownik został przypisany.
+
+   ![Wyświetl listę jednostek administracyjnych dla użytkownika](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 
