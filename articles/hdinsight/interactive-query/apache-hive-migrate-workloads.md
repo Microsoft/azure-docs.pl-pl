@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 313b6afb8bd96f8ae507118cd552110d5f07ff78
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087523"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308388"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrowanie obciążeń platformy Azure HDInsight 3,6 do usługi HDInsight 4,0
 
@@ -70,7 +70,7 @@ Aby uzyskać więcej informacji na temat dodawania kont magazynu do klastrów us
 
 Tabele zarządzane muszą być domyślnie zgodne z KWASem w usłudze HDInsight 4,0. Po zakończeniu migracji magazynu metadanych Uruchom narzędzie po uaktualnieniu, aby zapewnić, że tabele zarządzane w systemie innym niż kwas nie są zgodne z klastrem usługi HDInsight 4,0. To narzędzie zastosuje następującą konwersję:
 
-|3,6 |4.0 |
+|3,6 |4,0 |
 |---|---|
 |Tabele zewnętrzne|Tabele zewnętrzne|
 |Zarządzane tabele niebędące KWASami|Tabele zewnętrzne z właściwością "External. Table. przeczyszczanie" = "true"|
@@ -79,7 +79,7 @@ Tabele zarządzane muszą być domyślnie zgodne z KWASem w usłudze HDInsight 4
 Uruchom narzędzie Hive po uaktualnieniu z klastra usługi HDInsight 4,0 przy użyciu powłoki SSH:
 
 1. Nawiąż połączenie z klastrem węzła głównego przy użyciu protokołu SSH. Aby uzyskać instrukcje, zobacz [nawiązywanie połączenia z usługą HDInsight przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
-1. Otwórz powłokę logowania jako użytkownika programu Hive, uruchamiając`sudo su - hive`
+1. Otwórz powłokę logowania jako użytkownika programu Hive, uruchamiając `sudo su - hive`
 1. Wykonaj następujące polecenie w powłoce.
 
     ```bash
@@ -103,7 +103,7 @@ Klastry HDInsight 3,6 i 4,0 muszą korzystać z tego samego konta magazynu.
 >
 > * Po zakończeniu tego skryptu zakłada się, że stary klaster nie będzie już używany do uzyskiwania dostępu do dowolnych tabel lub baz danych, do których odwołuje się w skrypcie.
 >
-> * Wszystkie tabele zarządzane staną się transakcyjne w usłudze HDInsight 4,0. Opcjonalnie należy zachować tabelę nietransakcyjną przez wyeksportowanie danych do tabeli zewnętrznej z właściwością "External. Table. przeczyszczanie" = "true". Na przykład
+> * Wszystkie tabele zarządzane staną się transakcyjne w usłudze HDInsight 4,0. Opcjonalnie należy zachować tabelę nietransakcyjną przez wyeksportowanie danych do tabeli zewnętrznej z właściwością "External. Table. przeczyszczanie" = "true". Przykład:
 >
 >    ```SQL
 >    create table tablename_backup like tablename;
@@ -208,30 +208,9 @@ Po potwierdzeniu, że wydanie jest kompletne i w pełni funkcjonalne, można usu
 
 ## <a name="query-execution-across-hdinsight-versions"></a>Wykonywanie zapytania w wersjach usługi HDInsight
 
-Istnieją dwa sposoby wykonywania i debugowania zapytań Hive/LLAP w klastrze usługi HDInsight 3,6. HiveCLI udostępnia środowisko wiersza polecenia, a widok tez/Hive zawiera przepływ pracy oparty na graficznym interfejsie użytkownika.
+Istnieją dwa sposoby wykonywania i debugowania zapytań Hive/LLAP w klastrze usługi HDInsight 3,6. HiveCLI udostępnia środowisko wiersza polecenia, a widok [tez/Hive](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) zawiera przepływ pracy oparty na graficznym interfejsie użytkownika.
 
-W usłudze HDInsight 4,0 HiveCLI został zastąpiony Z usługi Beeline. HiveCLI to Thrift Client for Hiveserver 1, a Z usługi Beeline to klient JDBC, który zapewnia dostęp do Hiveserver 2. Z usługi Beeline może również służyć do nawiązywania połączenia z dowolnym innym punktem końcowym bazy danych zgodnym z JDBC. Usługa z usługi Beeline jest dostępna w przypadku usługi HDInsight 4,0 bez konieczności instalacji.
-
-W usłudze HDInsight 3,6 klient z graficznym interfejsem użytkownika służący do współdziałania z serwerem Hive jest widokiem Ambari Hive. Usługa HDInsight 4,0 nie jest dostarczana z widokiem Ambari. Firma Microsoft udostępniła klientom możliwość korzystania z usługi Data Analytics Studio (DAS), która nie jest podstawową usługą HDInsight. DAS nie jest dostarczana z klastrami usługi HDInsight, które są wbudowane i nie jest oficjalnie obsługiwanym pakietem. Program DAS można jednak zainstalować w klastrze za pomocą [akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md) w następujący sposób:
-
-|Właściwość | Wartość |
-|---|---|
-|Typ skryptu|-Niestandardowe|
-|Nazwa|URZĄDZEŃ|
-|Identyfikator URI skryptu bash|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
-|Typy węzłów|Head|
-
-Odczekaj od 10 do 15 minut, a następnie uruchom program Data Analytics Studio przy użyciu tego adresu URL: `https://CLUSTERNAME.azurehdinsight.net/das/` .
-
-Przed uzyskaniem dostępu do obiektu DAS może być wymagane odświeżenie interfejsu użytkownika Ambari i/lub ponowne uruchomienie wszystkich składników programu Ambari.
-
-Jeśli nie widzisz zapytań, które zostały uruchomione w podglądzie zapytań, należy wykonać następujące czynności:
-
-1. Ustaw konfiguracje dla programu Hive, tez i DAS, jak opisano w [tym przewodniku dotyczące rozwiązywania problemów z instalacją Das](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Upewnij się, że następujące konfiguracje katalogów usługi Azure Storage są stronicowymi obiektami BLOB i są wyświetlane w obszarze `fs.azure.page.blob.dirs` :
-    * `hive.hook.proto.base-directory`
-    * `tez.history.logging.proto-base-dir`
-3. Uruchom ponownie System HDFS, Hive, tez i DAS na obu węzłów głównychach.
+W usłudze HDInsight 4,0 HiveCLI został zastąpiony Z usługi Beeline. Widok tez/Hive zawiera przepływ pracy oparty na graficznym interfejsie użytkownika. HiveCLI to Thrift Client for Hiveserver 1, a Z usługi Beeline to klient JDBC, który zapewnia dostęp do Hiveserver 2. Z usługi Beeline również może służyć do nawiązywania połączenia z dowolnym innym punktem końcowym bazy danych zgodnym z JDBC. Usługa z usługi Beeline jest dostępna w przypadku usługi HDInsight 4,0 bez konieczności instalacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

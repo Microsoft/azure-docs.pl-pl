@@ -13,13 +13,13 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-- devx-track-javascript
-ms.openlocfilehash: 2e2d66e113c855830f841761cb11a70e4f26c19d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: fe6c7f10ce64e25f46444cd2db8b67aab4ae2135
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415078"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308320"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Samouczek: wdrażanie procesu aktualizacji oprogramowania układowego urządzenia
 
@@ -194,7 +194,7 @@ Ponieważ automatyczne konfiguracje urządzeń są uruchamiane podczas tworzenia
 
 ![Wyświetlanie konfiguracji w portalu](./media/tutorial-firmware-update/portalview.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz ukończyć następny samouczek, pozostaw grupę zasobów i centrum IoT Hub, aby użyć ich później.
 

@@ -1,6 +1,6 @@
 ---
 title: Wysyłanie powiadomień wypychanych do systemu Android przy użyciu usługi Azure Notification Hubs i zestawu SDK Firebase w wersji 0,6 | Microsoft Docs
-description: W tym samouczku dowiesz się, jak wysyłać powiadomienia wypychane do urządzeń z systemem Android przy użyciu usług Azure Notification Hubs i Google Firebase Cloud Messaging.
+description: W tym samouczku dowiesz się, jak wysyłać powiadomienia wypychane do 0,6 urządzeń z systemem Android przy użyciu usług Azure Notification Hubs i Google Firebase Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
 keywords: powiadomienia wypychane, powiadomienie wypychane, powiadomienia wypychane w systemie android, firebase cloud messaging
@@ -16,12 +16,12 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 3b32a61dcf8dfe403a44af236afad830472d1b8d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7e68e93e8a103ccf92c949df779d929ac4095d92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268829"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Samouczek: wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu zestawu Firebase SDK w wersji 0,6
 
@@ -542,7 +542,7 @@ Powiadomienia wypychane można wysyłać z [Azure Portal] , wykonując następuj
 
 1. W Azure Portal na stronie Centrum powiadomień centrum, wybierz pozycję **Testuj Wyślij** w sekcji **Rozwiązywanie problemów** .
 3. W pozycji **Platformy** wybierz opcję **Android**.
-4. Wybierz pozycję **Send** (Wyślij).  Nie zobaczysz jeszcze powiadomienia na urządzeniu z systemem Android, ponieważ na nim nie uruchomiono aplikacji mobilnej. Po uruchomieniu aplikacji mobilnej ponownie wybierz przycisk **Wyślij** , aby zobaczyć komunikat powiadomienia.
+4. Wybierz pozycję **Wyślij**.  Nie zobaczysz jeszcze powiadomienia na urządzeniu z systemem Android, ponieważ na nim nie uruchomiono aplikacji mobilnej. Po uruchomieniu aplikacji mobilnej ponownie wybierz przycisk **Wyślij** , aby zobaczyć komunikat powiadomienia.
 5. Zobacz wynik operacji na liście u dołu.
 
     ![Azure Notification Hubs — Wysyłanie testowe](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)

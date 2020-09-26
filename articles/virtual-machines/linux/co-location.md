@@ -1,18 +1,18 @@
 ---
 title: Wspólne lokalizowanie maszyn wirtualnych z systemem Linux
-description: Dowiedz się więcej na temat sposobu lokalizowania zasobów maszyn wirtualnych platformy Azure w celu zwiększenia opóźnienia.
+description: Dowiedz się więcej na temat sposobu lokalizowania zasobów maszyn wirtualnych platformy Azure dla systemu Linux.
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: 000c8c8955314060ae9bdedb96b086a509fb3e96
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6bf01f4da6ce96b413c87b81c14a998603cebd6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368646"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279727"
 ---
-# <a name="co-locate-resources-for-improved-latency"></a>Wspólne Lokalizowanie zasobów w celu uzyskania lepszych opóźnień
+# <a name="co-locate-resources-for-improved-latency"></a>Wspólne lokalizowanie zasobów w celu ulepszenia opóźnień
 
 Podczas wdrażania aplikacji na platformie Azure rozproszenie wystąpień między regionami lub strefami dostępności tworzy opóźnienie sieci, co może mieć wpływ na ogólną wydajność aplikacji. 
 

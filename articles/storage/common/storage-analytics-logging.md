@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 7010e47dd9272ce620f8e057fbfb36e1fd5b26c9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5b4e2fa95b9a5eebf393d7c64feecd3997b7ecfd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280032"
 ---
 # <a name="azure-storage-analytics-logging"></a>Rejestrowanie analizy usługi Azure Storage
 
@@ -206,9 +206,9 @@ azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Log
 
 Aby dowiedzieć się więcej o pobieraniu określonych plików, zobacz [pobieranie określonych plików](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
-Po pobraniu danych dziennika można wyświetlić wpisy dziennika w plikach. Te pliki dzienników używają rozdzielanego formatu tekstu, który umożliwia przeanalizowanie wielu narzędzi do odczytywania dzienników, w tym programu Microsoft Message Analyzer (Aby uzyskać więcej informacji, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Różne narzędzia mają różne pomieszczenia do formatowania, filtrowania, sortowania, wyszukiwania w usłudze AD zawartości plików dziennika. Aby uzyskać więcej informacji na temat formatu i zawartości pliku dziennika rejestrowania magazynu, zobacz [analityka magazynu format dziennika](/rest/api/storageservices/storage-analytics-log-format) i [analityka magazynu zarejestrowanych operacji i komunikatów o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
+Po pobraniu danych dziennika można wyświetlić wpisy dziennika w plikach. Te pliki dzienników używają rozdzielanego formatu tekstu, który umożliwia przeanalizowanie wielu narzędzi do odczytywania dzienników (Aby uzyskać więcej informacji, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Różne narzędzia mają różne pomieszczenia do formatowania, filtrowania, sortowania, wyszukiwania w usłudze AD zawartości plików dziennika. Aby uzyskać więcej informacji na temat formatu i zawartości pliku dziennika rejestrowania magazynu, zobacz [analityka magazynu format dziennika](/rest/api/storageservices/storage-analytics-log-format) i [analityka magazynu zarejestrowanych operacji i komunikatów o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [analityka magazynu format dziennika](/rest/api/storageservices/storage-analytics-log-format)
 * [analityka magazynu zarejestrowane operacje i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)

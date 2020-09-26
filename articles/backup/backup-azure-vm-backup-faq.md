@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377322"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370831"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -20,6 +20,12 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące tworzenia
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Które obrazy maszyn wirtualnych można włączyć do tworzenia kopii zapasowych podczas ich tworzenia?
 
 Podczas tworzenia maszyny wirtualnej można włączyć tworzenie kopii zapasowych dla maszyn wirtualnych z [obsługiwanymi systemami operacyjnymi](backup-support-matrix-iaas.md#supported-backup-actions).
+
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Dlaczego początkowa kopia zapasowa trwa dużo czasu?
+
+Początkowa kopia zapasowa to zawsze pełna kopia zapasowa, która będzie zależała od rozmiaru danych i czasu przetwarzania kopii zapasowej. <br>
+Aby zwiększyć wydajność tworzenia kopii zapasowych, zobacz [najlepsze rozwiązania w zakresie tworzenia kopii zapasowych](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices). [Uwagi dotyczące tworzenia kopii zapasowych](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) i [wydajności kopii zapasowych](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+Mimo że łączny czas wykonywania przyrostowych kopii zapasowych jest krótszy niż 24 godziny, może to nie dotyczyć pierwszej kopii zapasowej.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Czy koszt kopii zapasowej obejmuje koszt maszyny wirtualnej?
 
@@ -154,6 +160,10 @@ Operacje, takie jak odzyskiwanie awaryjne/klucze, nie wymagają tego kroku, a te
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Czy mogę uzyskać dostęp do maszyny wirtualnej po jej przywróceniu, ponieważ maszyna wirtualna ma przerwane relacje z kontrolerem domeny?
 
 Tak, można uzyskać dostęp do maszyny wirtualnej po jej przywróceniu, ponieważ maszyna wirtualna ma przerwane relacje z kontrolerem domeny. Aby uzyskać więcej informacji, zobacz ten [artykuł](./backup-azure-arm-restore-vms.md#post-restore-steps)
+
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Dlaczego ukończenie operacji przywracania trwa długo?
+
+Łączny czas przywracania zależy od operacji wejścia/wyjścia na sekundę (IOPS) oraz przepływności konta magazynu. Łączny czas przywracania może być narażony, jeśli docelowe konto magazynu zostanie załadowane z innymi operacjami odczytu i zapisu aplikacji. Aby ulepszyć operację przywracania, wybierz konto magazynu, które nie zostało załadowane z innymi danymi aplikacji.
 
 ## <a name="manage-vm-backups"></a>Zarządzanie kopiami zapasowymi maszyn wirtualnych
 
