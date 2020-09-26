@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 897c0f3c51d6d9bea1f90a66ccf50aa51e22f118
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088310"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317516"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Rozwiązywanie problemów z łącznością z usługą Azure AD
 W tym artykule wyjaśniono, jak działa połączenie między Azure AD Connect i usługą Azure AD oraz jak rozwiązywać problemy z łącznością. Te problemy najprawdopodobniej będą widoczne w środowisku z serwerem proxy.
@@ -85,7 +85,7 @@ Aby sprawdzić, czy serwer Azure AD Connect ma rzeczywistą łączność z serwe
 
 Program PowerShell używa konfiguracji w pliku machine.config do kontaktowania się z serwerem proxy. Ustawienia w usłudze winhttp/netsh nie powinny mieć wpływu na te polecenia cmdlet.
 
-Jeśli serwer proxy jest prawidłowo skonfigurowany, powinien zostać wyświetlony stan sukces: ![ proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+Jeśli serwer proxy jest prawidłowo skonfigurowany, powinien zostać wyświetlony stan sukces: ![ zrzut ekranu przedstawiający stan powodzenia, gdy serwer proxy jest prawidłowo skonfigurowany.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
 Jeśli zostanie wyświetlony komunikat **nie można nawiązać połączenia z serwerem zdalnym**, program PowerShell próbuje wykonać bezpośrednie wywołanie bez użycia serwera proxy lub usługa DNS nie jest poprawnie skonfigurowana. Upewnij się, że plik **machine.config** jest prawidłowo skonfigurowany.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
@@ -93,7 +93,7 @@ Jeśli zostanie wyświetlony komunikat **nie można nawiązać połączenia z se
 Jeśli serwer proxy nie został prawidłowo skonfigurowany, zostanie wyświetlony komunikat o błędzie: ![ proxy200 ](./media/tshoot-connect-connectivity/invokewebrequest403.png)
  ![ proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
-| Błąd | Tekst błędu | Komentarz |
+| Error | Tekst błędu | Komentarz |
 | --- | --- | --- |
 | 403 |Forbidden |Serwer proxy nie został otwarty dla żądanego adresu URL. Ponownie odwiedź konfigurację serwera proxy i upewnij się, że [adresy URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) zostały otwarte. |
 | 407 |Wymagane jest uwierzytelnianie serwera proxy |Serwer proxy wymaga logowania, ale nie został podany. Jeśli serwer proxy wymaga uwierzytelnienia, upewnij się, że to ustawienie jest skonfigurowane w machine.config. Upewnij się również, że używasz kont domeny dla użytkownika, który uruchamia kreatora i dla konta usługi. |

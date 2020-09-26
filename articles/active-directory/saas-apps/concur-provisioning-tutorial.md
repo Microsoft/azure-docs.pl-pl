@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 678b7571d54c8938c163801a584ad813c6e5963f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317450"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Concur na potrzeby automatycznego aprowizacji użytkowników
 
@@ -23,7 +23,7 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać w C
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
+W scenariuszu opisanym w tym samouczku założono, że masz już następujące elementy:
 
 *   Dzierżawa usługi Azure Active Directory.
 *   Subskrypcja z włączonym logowaniem jednokrotnym w usłudze Concur.
@@ -94,9 +94,9 @@ Z następujących powodów ta akcja nie powinna być wykonywana przy użyciu pro
 
 8. Wybierz wystąpienie elementu Concur, a następnie wybierz kartę **Inicjowanie obsługi** .
 
-9. Ustaw **tryb aprowizacji** na **automatyczny**. 
+9. Ustaw **Tryb aprowizacji** na **Automatyczny**. 
  
-    ![aprowizacji](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawiający kartę aprowizacji dla Concur w Azure Portal. Tryb aprowizacji jest ustawiony na automatyczny, a przycisk Testuj połączenie jest wyróżniony.](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. W sekcji **poświadczenia administratora** wprowadź **nazwę użytkownika** i **hasło** administratora Concur.
 
@@ -118,7 +118,7 @@ Możesz teraz utworzyć konto testowe. Poczekaj aż do 20 minut, aby sprawdzić,
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurowanie logowania jednokrotnego](concur-tutorial.md)
 

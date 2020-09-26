@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5b4e74d5db2d1454360370c05d75cdf826875143
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d56f9890396d0381d24676964dabc57e2020ec28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535938"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317433"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie DocuSign na potrzeby automatycznego aprowizacji użytkowników
 
@@ -23,7 +23,7 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać w D
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
+W scenariuszu opisanym w tym samouczku założono, że masz już następujące elementy:
 
 *   Dzierżawa usługi Azure Active Directory.
 *   Subskrypcja z włączonym logowaniem jednokrotnym w usłudze DocuSign.
@@ -63,9 +63,9 @@ Celem tej sekcji jest zaprojektowanie sposobu włączania obsługi administracyj
 
 1. Wybierz wystąpienie elementu DocuSign, a następnie wybierz kartę **Inicjowanie obsługi** .
 
-1. Ustaw **tryb aprowizacji** na **automatyczny**. 
+1. Ustaw **Tryb aprowizacji** na **Automatyczny**. 
 
-    ![aprowizacji](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawiający kartę aprowizacji dla DocuSign w Azure Portal. Tryb aprowizacji jest ustawiony na automatyczny, a nazwa użytkownika administratora, hasło i połączenie testowe są wyróżnione.](./media/docusign-provisioning-tutorial/provisioning.png)
 
 1. W sekcji **poświadczenia administratora** podaj następujące ustawienia konfiguracji:
    
@@ -96,6 +96,6 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurowanie logowania jednokrotnego](docusign-tutorial.md)

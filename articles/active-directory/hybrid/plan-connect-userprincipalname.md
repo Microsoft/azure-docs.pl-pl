@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 58b4bbcac110398ee4ff132b76ce8c4868ee17f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279605"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317595"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Wypełnianie wartości UserPrincipalName w usłudze Azure AD
 
@@ -25,7 +25,7 @@ Wartość atrybutu UserPrincipalName to nazwa użytkownika usługi Azure AD dla 
 ## <a name="upn-terminology"></a>Terminologia UPN
 W tym artykule jest używana następująca terminologia:
 
-|Okres|Opis|
+|Termin|Opis|
 |-----|-----|
 |Domena początkowa|Domena domyślna (onmicrosoft.com) w dzierżawie usługi Azure AD. Na przykład contoso.onmicrosoft.com.|
 |Adres E-mail usługi Microsoft Online (MOERA)|Usługa Azure AD oblicza MOERA z atrybutu MailNickName usługi Azure AD i domeny początkowej usługi Azure AD jako &lt; &gt; &lt; domeny początkowej MailNickName&#64;&gt; .|
@@ -54,7 +54,7 @@ Alternatywny identyfikator logowania umożliwia skonfigurowanie środowiska logo
 
 Aby włączyć alternatywny identyfikator logowania w usłudze Azure AD, podczas korzystania z Azure AD Connect nie są wymagane żadne dodatkowe czynności konfiguracyjne. Można skonfigurować alternatywne identyfikator bezpośrednio z kreatora. Zapoznaj się z tematem Konfiguracja logowania usługi Azure AD dla użytkowników w sekcji Synchronizacja. Z listy rozwijanej **główna nazwa użytkownika** Wybierz atrybut alternatywnego identyfikatora logowania.
 
-![Niezweryfikowane domeny](./media/plan-connect-userprincipalname/altloginid.png)  
+![Zrzut ekranu, który wyróżnia listę głównych nazw użytkowników, w których wybierasz alternatywny atrybut identyfikatora logowania.](./media/plan-connect-userprincipalname/altloginid.png)  
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie alternatywnego identyfikatora logowania](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) i [konfiguracji logowania usługi Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 

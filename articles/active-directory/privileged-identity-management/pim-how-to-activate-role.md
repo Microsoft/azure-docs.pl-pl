@@ -14,12 +14,12 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 2a2c3c112183e102f6c3c4a0bebb83376c7e8d85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055456"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317542"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Aktywowanie ról usługi Azure AD w usłudze PIM
 
@@ -40,7 +40,7 @@ Od listopada 2019 część Privileged Identity Management ról usługi Azure AD 
 
 # <a name="new-version"></a>[Nowa wersja](#tab/new)
 
-## <a name="activate-a-role"></a>Aktywuj rolę
+## <a name="activate-a-role-for-new-version"></a>Aktywuj rolę dla nowej wersji
 
 Jeśli musisz założyć rolę usługi Azure AD, możesz poprosić o aktywację, otwierając **Moje role** w Privileged Identity Management.
 
@@ -80,7 +80,7 @@ Jeśli musisz założyć rolę usługi Azure AD, możesz poprosić o aktywację,
 
     ![Żądanie aktywacji oczekuje na powiadomienie o zatwierdzeniu](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests"></a>Wyświetlanie stanu żądań
+## <a name="view-the-status-of-your-requests-for-new-version"></a>Wyświetlanie stanu żądań dla nowej wersji
 
 Można wyświetlić stan oczekujących żądań, które należy aktywować.
 
@@ -92,7 +92,7 @@ Można wyświetlić stan oczekujących żądań, które należy aktywować.
 
 1. Przewiń w prawo, aby wyświetlić kolumnę **stan żądania** .
 
-## <a name="cancel-a-pending-request"></a>Anulowanie oczekującego żądania
+## <a name="cancel-a-pending-request-for-new-version"></a>Anulowanie oczekującego żądania dla nowej wersji
 
 Jeśli nie wymagasz aktywacji roli wymagającej zatwierdzenia, możesz w dowolnym momencie anulować oczekujące żądanie.
 
@@ -106,7 +106,7 @@ Jeśli nie wymagasz aktywacji roli wymagającej zatwierdzenia, możesz w dowolny
 
    ![Lista moje żądania z wyróżnioną akcją anulowania](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshoot-for-new-version"></a>Rozwiązywanie problemów dotyczących nowej wersji
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Nie udzielono uprawnień po aktywowaniu roli
 

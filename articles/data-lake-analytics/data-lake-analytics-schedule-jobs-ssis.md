@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: ac747b87cf1a0f2d7c85d05975a31f953bfa5aae
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a5c7b9fb6a3431534d743f1ebd0b21f1da9fab7b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132504"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318708"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Planowanie zadań U-SQL przy użyciu SQL Server Integration Services (SSIS)
 
@@ -56,7 +56,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby skonfigurować połączenie mi
 
 W widoku projektu pakietu usług SSIS Dodaj **zadanie systemu plików Azure Data Lake Store**, **kontenera pętli foreach** i **zadania Azure Data Lake Analytics** w kontenerze pętli Foreach. Zadanie Azure Data Lake Store File System ułatwia pobranie plików U-SQL na koncie ADLS do folderu tymczasowego. Kontener pętli Foreach i zadanie Azure Data Lake Analytics pomagają przesłać każdy plik U-SQL w folderze tymczasowym do konta Azure Data Lake Analytics jako zadanie U-SQL.
 
-![Używanie plików U-SQL w Azure Data Lake Store](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
+![Diagram przedstawiający zadanie systemu plików Azure Data Lake Store dodawane do kontenera pętli Foreach.](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
 
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>Azure Data Lake Store zadanie konfigurowania systemu plików
 
@@ -77,7 +77,7 @@ W widoku projektu pakietu usług SSIS Dodaj **zadanie systemu plików Azure Data
 
 3. Ustaw **pliki** w obszarze **Konfiguracja modułu wyliczającego** na `*.usql` tak, aby kontener pętli przechwytywał tylko pliki kończące się na `.usql` .
 
-    ![Konfigurowanie kontenera pętli Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
+    ![Zrzut ekranu, który pokazuje Edytor pętli Foreach z wybraną pozycją "Kolekcja" oraz wyróżnione sekcje konfiguracji modułu wyliczającego i modułu wyliczającego.](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
 4. Na stronie **mapowania zmiennych** Dodaj zmienną zdefiniowaną przez użytkownika w celu pobrania nazwy pliku dla każdego pliku U-SQL. Ustaw **indeks** na wartość 0, aby uzyskać nazwę pliku. W tym przykładzie Zdefiniuj zmienną o nazwie `User::FileName` . Ta zmienna zostanie użyta do dynamicznego pobrania połączenia pliku skryptu U-SQL i ustawienia nazwy zadania U-SQL w Azure Data Lake Analytics zadania.
 
@@ -94,7 +94,7 @@ W widoku projektu pakietu usług SSIS Dodaj **zadanie systemu plików Azure Data
    1. Wybierz **\<New Connection...>** ustawienie w FileConnection.
    2. Ustaw **Typ użycia** na **istniejący plik**i ustaw **plik** na ścieżkę pliku istniejącego pliku.
 
-       ![Konfigurowanie kontenera pętli Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Zrzut ekranu przedstawiający Edytor Menedżera połączeń plików z wybranym elementem "typ użycia".](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
    3. W widoku **menedżerów połączeń** kliknij prawym przyciskiem myszy utworzone połączenie plików, a następnie wybierz polecenie **Właściwości**.
 

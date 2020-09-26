@@ -1,16 +1,16 @@
 ---
 title: Tworzenie pierwszej trwałej funkcji w Azure Functions przy użyciu programu PowerShell
-description: Utwórz i opublikuj funkcję trwałą platformy Azure przy użyciu programu Visual Studio Code.
+description: Utwórz i Opublikuj funkcję trwałej platformy Azure w programie PowerShell przy użyciu Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 08/10/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 11ae695a898e011fd287730d894394eff013a0ca
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: edd02085abe63b124082255247362f096248ba82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88273403"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317263"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>Tworzenie pierwszej trwałej funkcji w programie PowerShell
 
@@ -40,7 +40,7 @@ W tej sekcji użyto Visual Studio Code do utworzenia projektu Azure Functions lo
 
 1. W Visual Studio Code naciśnij klawisz F1 (lub Ctrl/Cmd + Shift + P), aby otworzyć paletę poleceń. W palecie poleceń Wyszukaj i wybierz `Azure Functions: Create New Project...` .
 
-    ![Create, funkcja](media/quickstart-js-vscode/functions-create-project.png)
+    ![Tworzenie funkcji](media/quickstart-js-vscode/functions-create-project.png)
 
 1. Wybierz pustą lokalizację folderu dla projektu i wybierz **pozycję Wybierz**.
 

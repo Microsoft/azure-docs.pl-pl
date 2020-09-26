@@ -11,12 +11,12 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 450d0675f81f161e68a207fbe0460c68fcafef29
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e3fce15cdeb1792749224299167b52fc2311d04e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526378"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318282"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprowizowanie urządzeń za pomocą usługi Azure IoT Hub Device Provisioning Service
 Platforma Microsoft Azure zapewnia bogaty zestaw zintegrowanych usług w chmurze publicznej spełniający wszelkie potrzeby rozwiązania IoT. IoT Hub Device Provisioning Service (DPS) to usługa pomocnika dla IoT Hub, która umożliwia zainicjowanie obsługi "just in Time" do odpowiedniego centrum IoT Hub bez konieczności interwencji człowieka. Usługa DPS umożliwia bezpieczne i skalowalne Inicjowanie obsługi milionów urządzeń.
@@ -123,7 +123,9 @@ Usługa DPS automatyzuje Inicjowanie obsługi urządzeń za pomocą usługi Azur
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz ogólnie wiesz, na czym polega aprowizowanie urządzeń IoT na platformie Azure. Następnym krokiem jest wypróbowanie kompletnego scenariusza IoT.
-> [!div class="nextstepaction"]
-> [Skonfiguruj IoT Hub Device Provisioning Service przy użyciu Azure Portal](quick-setup-auto-provision.md) 
->  [Tworzenie i Inicjowanie obsługi symulowanego urządzenia](quick-create-simulated-device.md) 
->  [Konfigurowanie urządzenia na potrzeby aprowizacji](tutorial-set-up-device.md)
+
+[Skonfiguruj IoT Hub Device Provisioning Service przy użyciu Azure Portal](quick-setup-auto-provision.md)
+
+[Tworzenie i Inicjowanie obsługi symulowanego urządzenia](quick-create-simulated-device.md)
+
+[Set up device for provisioning (Konfigurowanie urządzenia pod kątem aprowizacji)](tutorial-set-up-device.md)

@@ -1,17 +1,22 @@
 ---
-title: Azure Event Hubs — wyjątki
+title: Azure Event Hubs — wyjątki (starsza wersja)
 description: Ten artykuł zawiera listę wyjątków i sugerowanych akcji usługi Azure Event Hubs Messaging.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b3a7023dc44d7280284fec1eccf00a3dbe88b7ec
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5a7ca32893a106cd59df548ae3118665acaea654
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908376"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318487"
 ---
-# <a name="event-hubs-messaging-exceptions---net"></a>Event Hubs wyjątki komunikatów — .NET
+# <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs wyjątki komunikatów — .NET (starsza wersja)
 Ta sekcja zawiera listę wyjątków platformy .NET wygenerowanych przez interfejsy API .NET Framework. 
+
+> [!IMPORTANT]
+> Niektóre wyjątki wymienione w artykule dotyczą tylko starszej wersji biblioteki Event Hubs .NET. Na przykład: Microsoft. ServiceBus. * Exceptions.
+> 
+> Aby uzyskać informacje na temat EventHubsException wywoływanej przez nową bibliotekę .NET, zobacz [EventHubsException-.NET](exceptions-dotnet.md)
 
 ## <a name="exception-categories"></a>Kategorie wyjątków
 

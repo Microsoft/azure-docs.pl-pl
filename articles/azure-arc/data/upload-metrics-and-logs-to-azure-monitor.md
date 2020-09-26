@@ -1,5 +1,5 @@
 ---
-title: Przekazywanie spisu zasobów, danych użycia, metryk i dzienników do Azure Monitor
+title: Przekazywanie danych użycia, metryk i dzienników do Azure Monitor
 description: Przekazywanie spisu zasobów, danych użycia, metryk i dzienników do Azure Monitor
 services: azure-arc
 ms.service: azure-arc
@@ -9,25 +9,59 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ac6ffd2b5bf48079db6a0cd261dbe2535e1821ac
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7c8e92604cc6188d17411a266f8b27db55c8fbad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939106"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317280"
 ---
-# <a name="upload-resource-inventory-usage-data-metrics-and-logs-to-azure-monitor"></a>Przekazywanie spisu zasobów, danych użycia, metryk i dzienników do Azure Monitor
+# <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Przekazywanie danych użycia, metryk i dzienników do Azure Monitor
 
-Dzięki usłudze Azure Arc Data Services możesz *Opcjonalnie* przekazać metryki i dzienniki do Azure monitor, aby można było agregować i analizować metryki, dzienniki, zgłaszać alerty, wysyłać powiadomienia lub wyzwalać zautomatyzowane akcje. Wysyłanie danych do Azure Monitor umożliwia również przechowywanie danych monitorowania i dzienników poza lokacją oraz na dużą skalę w celu umożliwienia długoterminowego przechowywania danych na potrzeby zaawansowanej analizy.  Jeśli masz wiele witryn z usługą Azure Arc Data Services, możesz użyć Azure Monitor jako centralnej lokalizacji, aby zebrać wszystkie dzienniki i metryki w witrynach.
+Monitorowanie to jedna z wielu wbudowanych funkcji, które są dostępne dla usług danych platformy Azure. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+## <a name="upload-usage-data"></a>Przekazywanie danych użycia
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+Informacje dotyczące użycia, takie jak spis i użycie zasobów, można przekazać do platformy Azure w następujący dwuetapowy sposób:
+
+1. Wyeksportuj dane użycia za pomocą ```azdata export``` polecenia w następujący sposób:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #run the export command
+   azdata arc dc export --type usage --path usage.json
+   ```
+   To polecenie tworzy `usage.json` plik ze wszystkimi zasobami danych z obsługą usługi Azure ARC, takimi jak wystąpienia zarządzane SQL i wystąpieniami PostgreSQL, które są tworzone na kontrolerze danych.
+
+2. Przekazywanie danych użycia za pomocą ```azdata upload``` polecenia
+
+   > [!NOTE]
+   > Przed uruchomieniem przekazywania zaczekaj co najmniej 24 godziny od momentu utworzenia kontrolera danych usługi Azure Arc
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #run the upload command
+   azdata arc dc upload --path usage.json
+   ```
+
+## <a name="upload-metrics-and-logs"></a>Przekazywanie metryk i dzienników
+
+Dzięki usługom danych usługi Azure Arc można opcjonalnie przekazać metryki i dzienniki do Azure Monitor, aby można było agregować i analizować metryki, dzienniki, zgłaszać alerty, wysyłać powiadomienia lub wyzwalać akcje automatyczne. 
+
+Wysyłanie danych do Azure Monitor umożliwia także przechowywanie danych monitorowania i dzienników poza lokacją oraz na dużą skalę w celu umożliwienia długoterminowego przechowywania danych na potrzeby zaawansowanej analizy.
+
+Jeśli masz wiele witryn z usługą Azure Arc Data Services, możesz użyć Azure Monitor jako centralnej lokalizacji, aby zebrać wszystkie dzienniki i metryki w witrynach.
+
+### <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Istnieje kilka jednorazowych kroków konfiguracji wymaganych do włączenia scenariuszy przesyłania dzienników i metryk:
 
-1) Utwórz aplikację główną usługi/Azure Active Directory, w tym tworzenie klucza tajnego dostępu klienta, i Przypisz jednostkę usługi do roli "Monitoruj metryki wydawcy" w subskrypcjach, w których znajdują się zasoby wystąpienia bazy danych.
-2) Utwórz obszar roboczy usługi log Analytics i Pobierz klucze i Ustaw informacje w zmiennych środowiskowych.
+1. Utwórz aplikację główną usługi/Azure Active Directory, w tym tworzenie klucza tajnego dostępu klienta, i Przypisz jednostkę usługi do roli "Monitoruj metryki wydawcy" w subskrypcjach, w których znajdują się zasoby wystąpienia bazy danych.
+2. Utwórz obszar roboczy usługi log Analytics i Pobierz klucze i Ustaw informacje w zmiennych środowiskowych.
 
 Pierwszy element jest wymagany do przekazywania metryk, a drugi jest wymagany do przekazania dzienników.
 
@@ -51,7 +85,7 @@ az ad sp create-for-rbac --name <a name you choose>
 
 Przykładowe dane wyjściowe:
 
-```console
+```output
 "appId": "2e72adbf-de57-4c25-b90d-2f73f126e123",
 "displayName": "azure-arc-metrics",
 "name": "http://azure-arc-metrics",
@@ -59,36 +93,47 @@ Przykładowe dane wyjściowe:
 "tenant": "72f988bf-85f1-41af-91ab-2d7cd01ad1234"
 ```
 
-Zapisz wartości appId i dzierżawców w zmiennej środowiskowej, aby użyć jej później:
+Zapisz wartości appId i dzierżawców w zmiennej środowiskowej, aby użyć jej później. 
 
-```console
-#PowerShell
+Aby zapisać wartości appId i dzierżawy za pomocą programu PowerShell, wykonaj następujące czynności:
 
+```powershell
 $Env:SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
 $Env:SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
 $Env:SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
-
-#Linux/macOS
-
-export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
-export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
-export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
-
-#Example (using Linux):
-export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
-export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
-export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
 ```
+
+Alternatywnie w systemie Linux lub macOS można zapisać wartości appId i dzierżawy z poniższym przykładem:
+
+   ```console
+   export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
+   export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
+   export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
+
+   #Example (using Linux):
+   export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
+   export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
+   export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
+   ```
 
 Uruchom to polecenie, aby przypisać jednostkę usługi do roli "monitorowanie" wydawcy metryk w subskrypcji, w której znajdują się zasoby wystąpienia bazy danych:
 
+
+> [!NOTE]
+> Podczas uruchamiania ze środowiska systemu Windows należy użyć podwójnych cudzysłowów dla nazw ról.
+
+
 ```console
-az role assignment create --assignee <appId value from output above> --role 'Monitoring Metrics Publisher' --scope subscriptions/<sub ID>
+az role assignment create --assignee <appId value from output above> --role "Monitoring Metrics Publisher" --scope subscriptions/<sub ID>
 az role assignment create --assignee <appId value from output above> --role 'Contributor' --scope subscriptions/<sub ID>
 
 #Example:
-#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Monitoring Metrics Publisher' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 #az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Contributor' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+
+#On Windows environment
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Contributor" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 ```
 
 Przykładowe dane wyjściowe:
@@ -96,12 +141,12 @@ Przykładowe dane wyjściowe:
 ```console
 {
   "canDelegate": null,
-  "id": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
+  "id": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
   "name": "f82b7dc6-17bd-4e78-93a1-3fb733b9d123",
   "principalId": "5901025f-0353-4e33-aeb1-d814dbc5d123",
   "principalType": "ServicePrincipal",
-  "roleDefinitionId": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c39005123",
-  "scope": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123",
+  "roleDefinitionId": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c39005123",
+  "scope": "/subscriptions/<Subscription ID>",
   "type": "Microsoft.Authorization/roleAssignments"
 }
 ```
@@ -114,19 +159,19 @@ Następnie wykonaj następujące polecenia, aby utworzyć obszar roboczy Log Ana
 > Pomiń ten krok, jeśli masz już obszar roboczy.
 
 ```console
-az monitor log-analytics workspace create --resource-group <resource group name> --name <some name you choose>
+az monitor log-analytics workspace create --resource-group <resource group name> --workspace-name <some name you choose>
 
 #Example:
-#az monitor log-analytics workspace create --resource-group MyResourceGroup --name MyLogsWorkpace
+#az monitor log-analytics workspace create --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
 ```
 
 Przykładowe dane wyjściowe:
 
-```console
+```output
 {
   "customerId": "d6abb435-2626-4df1-b887-445fe44a4123",
   "eTag": null,
-  "id": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/resourcegroups/user-arc-demo/providers/microsoft.operationalinsights/workspaces/user-logworkspace",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/user-arc-demo/providers/microsoft.operationalinsights/workspaces/user-logworkspace",
   "location": "eastus",
   "name": "user-logworkspace",
   "portalUrl": null,
@@ -162,7 +207,7 @@ export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' c
 To polecenie spowoduje wydrukowanie kluczy dostępu wymaganych do nawiązania połączenia z obszarem roboczym usługi log Analytics:
 
 ```console
-az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --name MyLogsWorkpace
+az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
 ```
 
 Przykładowe dane wyjściowe:
@@ -222,25 +267,61 @@ echo $SPN_AUTHORITY
 
 ## <a name="upload-metrics-to-azure-monitor"></a>Przekaż metryki do Azure Monitor
 
-Aby przekazać metryki dla wystąpień zarządzanych usługi Azure SQL i Azure Database for PostgreSQL grupy serwerów z funkcją skalowania w poziomie, wykonaj następujące polecenia CLI:
+Aby przekazać metryki dla wystąpień zarządzanych SQL z obsługą usługi Azure Arc i usługi Azure ARC z włączonymi PostgreSQL grupy serwerów, należy wykonać następujące polecenia interfejsu CLI:
 
-Spowoduje to wyeksportowanie wszystkich metryk do określonego pliku:
+1. Eksportuj wszystkie metryki do określonego pliku:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #export the metrics
+   azdata arc dc export --type metrics --path metrics.json
+   ```
+
+2. Przekaż metryki do usługi Azure Monitor:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #upload the metrics
+   azdata arc dc upload --path metrics.json
+   ```
+
+   >[!NOTE]
+   >Poczekaj co najmniej 30 minut po utworzeniu wystąpień danych z włączonym Łukem platformy Azure podczas pierwszego przekazywania
+   >
+   >Upewnij się `upload` , że metryki od razu po `export` jako Azure monitor akceptują tylko metryki w ciągu ostatnich 30 minut. [Dowiedz się więcej](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)
+
+
+Jeśli widzisz błędy wskazujące "Niepowodzenie uzyskiwania informacji o metrykach" podczas eksportowania, sprawdź, czy zbieranie danych jest ustawione na ```true``` , uruchamiając następujące polecenie:
 
 ```console
-azdata arc dc export -t metrics --path metrics.json
+azdata arc dc config show
 ```
 
-Spowoduje to przekazanie metryk do usługi Azure Monitor:
+i poszukaj w sekcji "zabezpieczenia".
 
-```console
-azdata arc dc upload --path metrics.json
+```output
+ "security": {
+      "allowDumps": true,
+      "allowNodeMetricsCollection": true,
+      "allowPodMetricsCollection": true,
+      "allowRunAsRoot": false
+    },
 ```
+
+Sprawdź, czy `allowNodeMetricsCollection` `allowPodMetricsCollection` właściwości i są ustawione na `true` .
 
 ## <a name="view-the-metrics-in-the-portal"></a>Wyświetlanie metryk w portalu
 
-Po przekazaniu metryk powinno być możliwe ich wizualizowanie z poziomu witryny Azure Portal.
+Po przekazaniu metryk można je wyświetlić z poziomu Azure Portal.
+> [!NOTE]
+> Należy pamiętać, że przetworzenie przekazanych danych może potrwać kilka minut, zanim będzie można wyświetlić metryki w portalu.
 
-Aby wyświetlić metryki w portalu, użyj tego linku specjalnego, aby otworzyć Portal: <https://portal.azure.com> następnie wyszukaj wystąpienie bazy danych według nazwy na pasku wyszukiwania:
+
+Aby wyświetlić metryki w portalu, użyj tego linku, aby otworzyć Portal: <https://portal.azure.com> następnie wyszukaj wystąpienie bazy danych według nazwy na pasku wyszukiwania:
 
 Użycie procesora CPU na stronie Przegląd lub aby uzyskać bardziej szczegółowe metryki, kliknij pozycję metryki w lewym panelu nawigacyjnym.
 
@@ -255,19 +336,27 @@ Zmień częstotliwość na ostatnie 30 minut:
 
 ## <a name="upload-logs-to-azure-monitor"></a>Przekazywanie dzienników do usługi Azure Monitor
 
- Aby przekazać dzienniki dla wystąpień zarządzanych usługi Azure SQL i Azure Database for PostgreSQL grupy serwerów z możliwością skalowania, uruchom następujące polecenia interfejsu CLI:
+ Aby przekazać dzienniki dla wystąpień zarządzanych SQL z włączonym funkcją Azure Arc i AzureArc z włączonymi grupami serwerów PostgreSQL w celu uruchomienia następujących poleceń interfejsu wiersza polecenia —
 
-Spowoduje to wyeksportowanie wszystkich dzienników do określonego pliku:
+1. Eksportuj wszystkie dzienniki do określonego pliku:
 
-```console
-azdata arc dc export -t logs --path logs.json
-```
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
 
-Spowoduje to przekazanie dzienników do obszaru roboczego usługi Azure Monitor Log Analytics:
+   #export the logs
+   azdata arc dc export --type logs --path logs.json
+   ```
 
-```console
-azdata arc dc upload --path logs.json
-```
+2. Przekaż dzienniki do obszaru roboczego usługi log Analytics w usłudze Azure Monitor:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #Upload the logs
+   azdata arc dc upload --path logs.json
+   ```
 
 ## <a name="view-your-logs-in-azure-portal"></a>Wyświetlanie dzienników w Azure Portal
 
@@ -276,18 +365,18 @@ Po przekazaniu dzienników powinno być możliwe wykonywanie do nich zapytań za
 1. Otwórz Azure Portal a następnie wyszukaj swój obszar roboczy według nazwy na pasku wyszukiwania u góry, a następnie wybierz go.
 2. Kliknij pozycję Dzienniki w lewym panelu
 3. Kliknij pozycję Rozpocznij (lub kliknij linki na stronie Wprowadzenie, aby dowiedzieć się więcej na temat Log Analytics, jeśli jesteś nowym).
-4. Postępuj zgodnie z samouczkiem, aby dowiedzieć się więcej na temat Log Analytics, jeśli jest to Twoje pierwsze
+4. Postępuj zgodnie z samouczkiem, aby dowiedzieć się więcej na temat Log Analytics, jeśli używasz Log Analytics
 5. Rozwiń pozycję Dzienniki niestandardowe u dołu listy tabel, aby zobaczyć tabelę o nazwie „sql_instance_logs_CL”.
 6. Kliknij ikonę „oka” obok nazwy tabeli
 7. Kliknij przycisk „Wyświetl w edytorze zapytań”
-8. W edytorze zapytań będzie teraz dostępne zapytanie wyświetlające 10 ostatnich zdarzeń w dzienniku
+8. W edytorze zapytań znajdziesz teraz zapytanie, które będzie zawierać najnowsze 10 zdarzeń w dzienniku
 9. W tym miejscu możesz poeksperymentować z wykonywaniem zapytań w dziennikach przy użyciu edytora zapytań, ustawianiem alertów itd.
 
-## <a name="automating-metrics-and-logs-uploads-optional"></a>Automatyzowanie metryk i dzienników przekazywania (opcjonalnie)
+## <a name="automating-uploads-optional"></a>Automatyzacja przekazywania (opcjonalnie)
 
-Jeśli chcesz stale przekazywać metryki i dzienniki, możesz utworzyć skrypt i uruchomić go w czasomierzu co kilka minut.  Poniżej znajduje się przykład automatyzacji przekazywania przy użyciu skryptu powłoki systemu Linux.
+Jeśli chcesz przekazać metryki i dzienniki zgodnie z harmonogramem, możesz utworzyć skrypt i uruchomić go w czasomierzu co kilka minut. Poniżej znajduje się przykład automatyzacji przekazywania przy użyciu skryptu powłoki systemu Linux.
 
-W ulubionym edytorze tekstu/kodu Dodaj następujące elementy do zawartości skryptu do pliku i Zapisz jako plik wykonywalny skryptu, taki jak. sh (Linux/Mac) lub. cmd,. bat,. ps1.
+W ulubionym edytorze tekstu/kodu Dodaj następujący skrypt do pliku i Zapisz jako plik wykonywalny skryptu, taki jak. sh (Linux/Mac) lub. cmd,. bat,. ps1.
 
 ```console
 azdata arc dc export --type metrics --path metrics.json --force
@@ -300,10 +389,24 @@ Utwórz plik skryptu wykonywalnego
 chmod +x myuploadscript.sh
 ```
 
-Uruchom skrypt co 2 minuty:
+Uruchom skrypt co 20 minut:
 
 ```console
-watch -n 120 ./myuploadscript.sh
+watch -n 1200 ./myuploadscript.sh
 ```
 
 Można również użyć harmonogramu zadań, takiego jak CRONUS lub Windows Harmonogram zadań lub do programu Orchestrator, takiego jak rozwiązania ansible, Puppet lub Chef.
+
+## <a name="general-guidance-on-exporting-and-uploading-usage-metrics"></a>Ogólne wskazówki dotyczące eksportowania i przekazywania użycia, metryk
+
+Operacje tworzenia, odczytu, aktualizacji i usuwania (CRUD) w usługach danych z obsługą usługi Azure Arc są rejestrowane na potrzeby rozliczeń i monitorowania. Istnieją usługi w tle, które monitorują te operacje CRUD i odpowiednio obliczają zużycie. Rzeczywiste obliczenie użycia lub zużycia odbywa się zgodnie z harmonogramem i jest wykonywane w tle. 
+
+W trakcie okresu zapoznawczego ten proces odbywa się nocnie. Ogólne wskazówki to przekazywanie użycia tylko raz dziennie. Gdy informacje o użyciu zostaną wyeksportowane i przekazane wiele razy w tym samym okresie 24 godzin, tylko spis zasobów zostanie zaktualizowany w Azure Portal ale nie w przypadku użycia zasobów.
+
+W przypadku przekazywania metryk usługa Azure monitor akceptuje tylko ostatnie 30 minut danych ([Dowiedz się więcej](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). Wskazówki dotyczące przekazywania metryk polegają na przekazaniu metryk bezpośrednio po utworzeniu pliku eksportu, aby można było wyświetlić cały zestaw danych w Azure Portal. Na przykład jeśli zostały wyeksportowane metryki o godzinie 2:00 PM i uruchomiono polecenie przekazywania o godzinie 2:50 PM. Ponieważ Azure Monitor akceptuje tylko dane z ostatnich 30 minut, w portalu mogą nie być widoczne żadne dane. 
+
+## <a name="next-steps"></a>Następne kroki
+
+[Przekaż dane dotyczące rozliczeń na platformę Azure i Wyświetl je w Azure Portal](view-billing-data-in-azure.md)
+
+[Wyświetlanie zasobu usługi Azure Arc Data Controller w Azure Portal](view-data-controller-in-azure-portal.md)
