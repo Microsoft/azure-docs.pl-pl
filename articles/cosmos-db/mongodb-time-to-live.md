@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f2168338031b8c5b81fd1998f71adf47dcadc44e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: ec7f233db34b00ad3904a0bb117b2a97c6512e34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020715"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322720"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Wygasanie danych za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
 
@@ -77,6 +77,6 @@ Funkcję czasu wygaśnięcia poszczególnych dokumentów można aktywować za po
 
 :::image type="content" source="./media/mongodb-ttl/mongodb_portal_ttl.png" alt-text="Zrzut ekranu aktywacji funkcji czasu wygaśnięcia dla dokumentu w portalu":::
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md) (Automatyczne wygasanie danych w usłudze Azure Cosmos DB przy użyciu czasu wygaśnięcia)
 * [Indexing your Cosmos database configured with Azure Cosmos DB's API for MongoDB](../cosmos-db/mongodb-indexing.md) (Indeksowanie bazy danych usługi Cosmos skonfigurowanej przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB)

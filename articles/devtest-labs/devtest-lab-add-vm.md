@@ -3,12 +3,12 @@ title: Dodawanie maszyny wirtualnej do laboratorium w Azure DevTest Labs | Micro
 description: Dowiedz się, jak za pomocą Azure Portal dodać maszynę wirtualną do laboratorium w Azure DevTest Labs. Można wybrać podstawę, która jest obrazem niestandardowym lub formułą.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c61e6e685a52ac3658cb9b9ca37f64fc51f3ce1e
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 07efcf93b963009494021b90e6c730c4615301ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270720"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297627"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Dodawanie maszyny wirtualnej do laboratorium w Azure DevTest Labs
 Jeśli masz już [utworzoną pierwszą maszynę wirtualną](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), możesz to zrobić z wstępnie załadowanego [obrazu z portalu Marketplace](devtest-lab-configure-marketplace-images.md). Teraz, jeśli chcesz dodać kolejne maszyny wirtualne do laboratorium, możesz również wybrać *podstawę* , która jest [obrazem niestandardowym](devtest-lab-create-template.md) lub [formułą](devtest-lab-manage-formulas.md). W tym samouczku pokazano, jak za pomocą Azure Portal dodać maszynę wirtualną do laboratorium w DevTest Labs.
@@ -30,7 +30,7 @@ W tym artykule pokazano również, jak zarządzać artefaktami dla maszyny wirtu
     2. Wprowadź **nazwę użytkownika** , który ma przyznane uprawnienia administratora na maszynie wirtualnej. **Nazwa użytkownika** dla maszyny jest wstępnie wypełniona unikatową automatycznie wygenerowaną nazwą. Nazwa odpowiada nazwie użytkownika w adresie e-mail. Ta funkcja umożliwia zaoszczędzenie czasu na podjęcie decyzji dotyczącej nazwy użytkownika za każdym razem, gdy tworzysz nową maszynę. Jeśli chcesz, możesz przesłonić to pole automatycznie wypełnione przez wybraną nazwę użytkownika. Aby zastąpić automatycznie wypełnioną wartość dla nazwy użytkownika, wprowadź wartość w polu tekstowym **Nazwa użytkownika** . Ten użytkownik ma uprawnienia **administratora** na maszynie wirtualnej.
     3. Jeśli tworzysz pierwszą maszynę wirtualną w laboratorium, wprowadź **hasło** dla użytkownika. Aby zapisać to hasło jako domyślne hasło w magazynie kluczy Azure skojarzonym z laboratorium, wybierz opcję **Zapisz jako hasło domyślne**. Domyślne hasło jest zapisywane w magazynie kluczy o nazwie: **VmPassword**. Gdy próbujesz utworzyć kolejne maszyny wirtualne w laboratorium, **VmPassword** jest automatycznie wybierane dla **hasła**. Aby zastąpić wartość, wyczyść pole wyboru **Użyj zapisanego wpisu tajnego** , a następnie wprowadź hasło.
 
-        ![Wybieranie bazy](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+        ![Zrzut ekranu przedstawiający stronę "Tworzenie zasobu laboratorium" z wybraną opcją "Ustawienia podstawowe" i wprowadzone wartości "Ustawienia użytkownika".](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 
         Możesz również najpierw zapisać wpisy tajne w magazynie kluczy, a następnie użyć go podczas tworzenia maszyny wirtualnej w laboratorium. Aby uzyskać więcej informacji, zobacz [zapisywanie wpisów tajnych w magazynie kluczy](devtest-lab-store-secrets-in-key-vault.md). Aby użyć hasła przechowywanego w magazynie kluczy, wybierz opcję **Użyj zapisanego klucza tajnego**i określ kluczową wartość odpowiadającą hasłu (hasło).
     4. W sekcji **więcej opcji** wybierz pozycję **Zmień rozmiar**. Wybierz jeden ze wstępnie zdefiniowanych elementów, które określają rdzenie procesora, rozmiar pamięci RAM i rozmiar dysku twardego maszyny wirtualnej do utworzenia.

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef04be1891eac35577a5f4cb18d5b83b8d0f301
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 6dba592417ca07d1858a7942b162b4dfa6a85680
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669386"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273997"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Dodaj firmę Google jako dostawcę tożsamości dla użytkowników gościa B2B
 
@@ -78,14 +78,14 @@ Najpierw utwórz nowy projekt w konsoli firmy Google Developers w celu uzyskania
 
 11. W obszarze **Typ aplikacji**wybierz pozycję **aplikacja sieci Web** i nadaj aplikacji odpowiednią nazwę, na przykład "Azure AD B2B", a następnie w obszarze **autoryzowane identyfikatory URI przekierowania**wprowadź następujące identyfikatory URI:
     - `https://login.microsoftonline.com` 
-    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(gdzie `<directory id>` jest identyfikatorem katalogu)
+    - `https://login.microsoftonline.com/te/<tenant id>/oauth2/authresp` <br>(gdzie `<tenant id>` jest identyfikator dzierżawy)
    
     > [!NOTE]
-    > Aby znaleźć identyfikator katalogu, przejdź do https://portal.azure.com , a w obszarze **Azure Active Directory**wybierz pozycję **Właściwości** i skopiuj **Identyfikator katalogu**.
+    > Aby znaleźć swój identyfikator dzierżawy, przejdź do https://portal.azure.com , a w obszarze **Azure Active Directory**wybierz pozycję **Właściwości** i skopiuj **Identyfikator dzierżawy**.
 
     ![Zrzut ekranu przedstawiający sekcję autoryzowane identyfikatory URI przekierowania](media/google-federation/google-create-oauth-client-id.png)
 
-12. Wybierz pozycję **Utwórz**. Skopiuj identyfikator klienta i klucz tajny klienta, który będzie używany podczas dodawania dostawcy tożsamości w portalu usługi Azure AD.
+12. Wybierz przycisk **Utwórz**. Skopiuj identyfikator klienta i klucz tajny klienta, który będzie używany podczas dodawania dostawcy tożsamości w portalu usługi Azure AD.
 
     ![Zrzut ekranu przedstawiający identyfikator klienta OAuth i klucz tajny klienta](media/google-federation/google-auth-client-id-secret.png)
 

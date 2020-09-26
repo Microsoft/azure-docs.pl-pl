@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a0f3e517e60037de6456bc3a549e072e58e2fa67
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3ed5c3f8232047787c6f05628f1eef35a7533999
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89244742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285422"
 ---
 # <a name="claim-and-claim-rules"></a>Reguły dotyczące roszczeń i roszczeń
 
@@ -60,7 +60,7 @@ Warunek jest uporządkowany jako:
 Identifier:[ClaimPropertyCondition, ClaimPropertyCondition,…]
 ```
 
-Warunek składa się z pojedynczych warunków na różnych właściwościach żądania. Warunek może mieć opcjonalny identyfikator, który może służyć do odwoływania się do roszczeń/s, które spełniają warunek. To odwołanie może być używane w innych warunkach lub akcji tej samej reguły.
+Lista warunków składa się z poszczególnych warunków na różnych właściwościach żądania. Warunek może mieć opcjonalny identyfikator, który może służyć do odwoływania się do roszczeń/s, które spełniają warunek. To odwołanie może być używane w innych warunkach lub akcji tej samej reguły.
 
 Na przykład
 
@@ -78,9 +78,9 @@ Poniżej znajdują się operatory, których można użyć do sprawdzenia warunk�
 
 | Polach | Obsługiwane operacje |
 |--|--|
-| Liczba całkowita | = = (Equals), \! = (nie równa się), <= (mniejsze niż lub równe), < (mniejsze niż), >= (większe lub równe), > (większe niż) |
+| Integer | = = (Equals), \! = (nie równa się), <= (mniejsze niż lub równe), < (mniejsze niż), >= (większe lub równe), > (większe niż) |
 | String | = = (Equals), \! = (nie równa się) |
-| Wartość logiczna | = = (Equals), \! = (nie równa się) |
+| Boolean | = = (Equals), \! = (nie równa się) |
 
 Ocena listy warunków:
 

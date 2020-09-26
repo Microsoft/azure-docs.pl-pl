@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 09/24/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 359c2a27099ca298076edc255b8c30e226af0a18
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 07f5fef0103e674af1c5f73b3f09bdf759e592cb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355979"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska Azure Machine Learning inferencing z sieciami wirtualnymi
 
@@ -108,11 +108,24 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Po zakończeniu procesu tworzenia można uruchomić wnioskowanie lub ocenianie modelu w klastrze AKS za siecią wirtualną. Aby uzyskać więcej informacji, zobacz [How to Deploy to AKS](how-to-deploy-and-where.md).
 
-## <a name="private-aks-cluster"></a>Prywatny klaster AKS
+## <a name="secure-vnet-traffic"></a>Bezpieczny ruch sieci wirtualnej
+
+Istnieją dwa podejścia do izolowania ruchu do i z klastra AKS do sieci wirtualnej:
+
+* __Prywatny klaster AKS__: to podejście używa prywatnego linku platformy Azure do utworzenia prywatnego punktu końcowego dla klastra AKS w sieci wirtualnej.
+* __Wewnętrzny moduł równoważenia obciążenia AKS__: takie podejście umożliwia skonfigurowanie modułu równoważenia obciążenia dla klastra do używania wewnętrznego adresu IP w sieci wirtualnej.
+
+> [!WARNING]
+> Obie konfiguracje są różnymi sposobami osiągnięcia tego samego celu (Zabezpieczanie ruchu do klastra AKS w sieci wirtualnej). **Użyj jednego lub drugiego, ale nie obu jednocześnie**.
+
+### <a name="private-aks-cluster"></a>Prywatny klaster AKS
 
 Domyślnie klastry AKS mają płaszczyznę kontroli lub serwer interfejsu API z publicznymi adresami IP. Można skonfigurować AKS do korzystania z prywatnej płaszczyzny kontroli, tworząc prywatny klaster AKS. Aby uzyskać więcej informacji, zobacz [Tworzenie prywatnego klastra usługi Azure Kubernetes Service](../aks/private-clusters.md).
 
 Po utworzeniu prywatnego klastra AKS [Dołącz klaster do sieci wirtualnej](how-to-create-attach-kubernetes.md) , aby używać go z Azure Machine Learning.
+
+> [!IMPORTANT]
+> Przed użyciem linku prywatnego z włączonym klastrem AKS z Azure Machine Learning należy otworzyć zdarzenie obsługi, aby włączyć tę funkcję. Aby uzyskać więcej informacji, zobacz [Zarządzanie i zwiększanie limitów przydziału](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="internal-aks-load-balancer"></a>Wewnętrzny moduł równoważenia obciążenia AKS
 
@@ -120,7 +133,7 @@ Domyślnie wdrożenia AKS używają [publicznego modułu równoważenia obciąż
 
 Prywatny moduł równoważenia obciążenia jest włączony przez skonfigurowanie AKS do korzystania z _wewnętrznego modułu równoważenia obciążenia_. 
 
-### <a name="network-contributor-role"></a>Rola współautor sieci
+#### <a name="network-contributor-role"></a>Rola współautor sieci
 
 > [!IMPORTANT]
 > Jeśli utworzysz lub dołączysz klaster AKS, dostarczając wcześniej utworzoną sieć wirtualną, należy przyznać jednostce usługi (SP) lub tożsamość zarządzaną dla klastra AKS rolę _współautor sieci_ do grupy zasobów zawierającej sieć wirtualną. Należy to zrobić przed podjęciem próby zmiany wewnętrznego modułu równoważenia obciążenia na prywatny adres IP.
@@ -152,16 +165,17 @@ Prywatny moduł równoważenia obciążenia jest włączony przez skonfigurowani
     ```
 Aby uzyskać więcej informacji na temat używania wewnętrznego modułu równoważenia obciążenia z programem AKS, zobacz [Korzystanie z wewnętrznego modułu równoważenia obciążenia z usługą Azure Kubernetes Service](/azure/aks/internal-lb).
 
-### <a name="enable-private-load-balancer"></a>Włączanie prywatnego modułu równoważenia obciążenia
+#### <a name="enable-private-load-balancer"></a>Włączanie prywatnego modułu równoważenia obciążenia
 
 > [!IMPORTANT]
-> Nie można włączyć prywatnego adresu IP podczas tworzenia klastra usługi Azure Kubernetes. Musi być włączona jako aktualizacja istniejącego klastra.
+> Nie można włączyć prywatnego adresu IP podczas tworzenia klastra usługi Azure Kubernetes w programie Azure Machine Learning Studio. Możesz utworzyć jeden z wewnętrznym modułem równoważenia obciążenia, korzystając z zestawu SDK języka Python lub rozszerzenia interfejsu wiersza polecenia platformy Azure do uczenia maszynowego.
 
-Poniższy fragment kodu przedstawia sposób __tworzenia nowego klastra AKS__, a następnie aktualizowania go do korzystania z prywatnego modułu równoważenia obciążenia IP/wewnętrznego:
+W poniższych przykładach pokazano, jak __utworzyć nowy klaster AKS z prywatnym adresem IP/wewnętrznym modułem równoważenia obciążenia__ za pomocą zestawu SDK i interfejsu wiersza polecenia:
+
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 import azureml.core
-from azureml.core.compute.aks import AksUpdateConfiguration
 from azureml.core.compute import AksCompute, ComputeTarget
 
 # Verify that cluster does not exist already
@@ -175,7 +189,7 @@ except:
     # Subnet to use for AKS
     subnet_name = "default"
     # Create AKS configuration
-    prov_config = AksCompute.provisioning_configuration(location = "eastus2")
+    prov_config=AksCompute.provisioning_configuration(load_balancer_type="InternalLoadBalancer")
     # Set info for existing virtual network to create the cluster in
     prov_config.vnet_resourcegroup_name = "myvnetresourcegroup"
     prov_config.vnet_name = "myvnetname"
@@ -188,44 +202,21 @@ except:
     aks_target = ComputeTarget.create(workspace = ws, name = "myaks", provisioning_configuration = prov_config)
     # Wait for the operation to complete
     aks_target.wait_for_completion(show_output = True)
-    
-    # Update AKS configuration to use an internal load balancer
-    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
-    aks_target.update(update_config)
-    # Wait for the operation to complete
-    aks_target.wait_for_completion(show_output = True)
 ```
 
-__Interfejs wiersza polecenia platformy Azure__
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-```azurecli-interactive
-az rest --method put --uri https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/computes/<compute>?api-version=2018-11-19 --body @body.json
+```azurecli
+az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
-Zawartość `body.json` pliku, do którego odwołuje się polecenie, jest podobna do następującego dokumentu JSON:
+Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Create AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) Reference.
 
-```json
-{ 
-    "location": "<region>", 
-    "properties": { 
-        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-name>", 
-        "computeType": "AKS", 
-        "provisioningState": "Succeeded", 
-        "properties": { 
-            "loadBalancerType": "InternalLoadBalancer", 
-            "agentCount": <agent-count>, 
-            "agentVmSize": "vm-size", 
-            "clusterFqdn": "<cluster-fqdn>" 
-        } 
-    } 
-} 
-```
+---
 
-W przypadku __dołączania istniejącego klastra__ do obszaru roboczego należy poczekać, aż po zakończeniu operacji dołączania usługa równoważenia obciążenia zostanie skonfigurowana.
+W przypadku __dołączania istniejącego klastra__ do obszaru roboczego należy poczekać, aż po zakończeniu operacji dołączania usługa równoważenia obciążenia zostanie skonfigurowana. Aby uzyskać informacje na temat dołączania klastra, zobacz [dołączanie istniejącego klastra AKS](how-to-create-attach-kubernetes.md).
 
-Aby uzyskać informacje na temat dołączania klastra, zobacz [dołączanie istniejącego klastra AKS](how-to-create-attach-kubernetes.md).
-
-Po dołączeniu istniejącego klastra można zaktualizować klaster tak, aby korzystał z prywatnego adresu IP.
+Po dołączeniu istniejącego klastra można zaktualizować klaster tak, aby korzystał z wewnętrznego modułu równoważenia obciążenia/prywatnego adresu IP:
 
 ```python
 import azureml.core
@@ -260,7 +251,7 @@ Aby użyć ACI w sieci wirtualnej z obszarem roboczym, wykonaj następujące czy
     > [!IMPORTANT]
     > Podczas włączania delegowania Użyj `Microsoft.ContainerInstance/containerGroups` wartości jako __delegowanej podsieci do usługi__ .
 
-2. Wdróż model przy użyciu [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), użyj `vnet_name` parametrów i `subnet_name` . Ustaw te parametry na nazwę sieci wirtualnej i podsieć, w której włączono delegowanie.
+2. Wdróż model przy użyciu [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), użyj `vnet_name` parametrów i `subnet_name` . Ustaw te parametry na nazwę sieci wirtualnej i podsieć, w której włączono delegowanie.
 
 
 ## <a name="next-steps"></a>Następne kroki

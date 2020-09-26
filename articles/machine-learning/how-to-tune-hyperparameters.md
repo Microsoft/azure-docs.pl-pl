@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 04942c745548903a5f8092bc5b04ea2152029726
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 44616d5d90f9c5c3a4f3abf8b8cf2128dc4f0585
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885922"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333804"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Dostrajanie parametrów dla modelu za pomocą Azure Machine Learning
 
@@ -167,7 +167,7 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Zoptymalizuj przebiegi w celu zmaksymalizowania "dokładności".  Upewnij się, że ta wartość jest zarejestrowana w skrypcie szkoleniowym.
 
-### <a name="specify-primary-metric"></a><a name="log-metrics-for-hyperparameter-tuning"></a> Określ metrykę podstawową
+### <a name="log-metrics-for-hyperparameter-tuning"></a><a name="log-metrics-for-hyperparameter-tuning"></a>Metryki dzienników dla strojenia parametru
 
 Skrypt szkoleniowy dla Twojego modelu musi rejestrować odpowiednie metryki podczas uczenia modelu. Podczas konfigurowania dostrajania parametru należy określić metrykę główną, która będzie używana do oceny wydajności uruchamiania. (Zobacz [Określ metrykę podstawową do optymalizacji](#specify-primary-metric-to-optimize)).  W skrypcie szkoleniowym należy zarejestrować tę metrykę, aby była dostępna dla procesu strojenia parametru.
 
@@ -194,7 +194,7 @@ Azure Machine Learning obsługuje następujące zasady wczesnego zakończenia.
 
 ### <a name="bandit-policy"></a>Zasady Bandit
 
-[Bandit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py#&preserve-view=truedefinition) to zasady zakończenia na podstawie wartości współczynnika zapasu/zapasu czasu i interwału ewaluacji. Zasady wczesnie kończą wszystkie uruchomienia, w których podstawowa Metryka nie mieści się w określonym współczynniku zapasu/zapasu czasu, w odniesieniu do najlepszego przebiegu szkoleniowego. Przyjmuje następujące parametry konfiguracji:
+[Bandit](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py&preserve-view=true#&preserve-view=truedefinition) to zasady zakończenia na podstawie wartości współczynnika zapasu/zapasu czasu i interwału ewaluacji. Zasady wczesnie kończą wszystkie uruchomienia, w których podstawowa Metryka nie mieści się w określonym współczynniku zapasu/zapasu czasu, w odniesieniu do najlepszego przebiegu szkoleniowego. Przyjmuje następujące parametry konfiguracji:
 
 * `slack_factor` lub `slack_amount` : zapasowy, który jest dozwolony w odniesieniu do najlepszego przebiegu szkoleniowego. `slack_factor` Określa dopuszczalny zapas czasu jako współczynnik. `slack_amount` Określa dozwolony czas zapasowy jako ilość bezwzględną, a nie współczynnik.
 
@@ -285,29 +285,29 @@ Ten kod umożliwia skonfigurowanie eksperymentu strojenia parametrów w celu uż
 
 ## <a name="configure-experiment"></a>Konfigurowanie eksperymentu
 
-[Skonfiguruj eksperyment strojenia parametrów](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py&preserve-view=true) przy użyciu zdefiniowanego miejsca wyszukiwania z parametrami, zasad wczesnego zakończenia, metryki podstawowej i alokacji zasobów w powyższych sekcjach. Ponadto podaj, `estimator` że zostanie wywołana przy użyciu parametrów z próbkami. W tym `estimator` artykule opisano uruchamianie skryptu szkoleniowego, zasobów na zadanie (pojedynczego lub wieloprocesorowy) i celu obliczeń do użycia. Ponieważ współbieżność eksperymentu strojenia parametrów jest zależna od dostępnych zasobów, upewnij się, że obiekt docelowy obliczeń określony w obszarze `estimator` ma wystarczające zasoby dla żądanego współbieżności. (Aby uzyskać więcej informacji na temat szacowania, zobacz [jak uczenie modeli](how-to-train-ml-models.md)).
+[Skonfiguruj eksperyment strojenia parametrów](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py&preserve-view=true) przy użyciu zdefiniowanego miejsca wyszukiwania z parametrami, zasad wczesnego zakończenia, metryki podstawowej i alokacji zasobów w powyższych sekcjach. Ponadto Podaj ScriptRunConfig `src` dla przebiegu, który zostanie wywołany przy użyciu parametrów z próbkami. ScriptRunConfig definiuje skrypt szkoleniowy do uruchomienia, zasoby na zadanie (jeden lub wiele węzłów) oraz miejsce docelowe obliczeń do użycia. Ponieważ współbieżność eksperymentu strojenia parametrów jest zależna od dostępnych zasobów, upewnij się, że obiekt docelowy obliczeń określony w `src` ma wystarczające zasoby dla żądanego współbieżności. (Aby uzyskać więcej informacji na temat ScriptRunConfig, zobacz [Konfigurowanie przebiegów szkoleniowych](how-to-set-up-training-targets.md)).
 
 Konfigurowanie eksperymentu strojenia parametrów:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
-hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
-                          hyperparameter_sampling=param_sampling, 
-                          policy=early_termination_policy,
-                          primary_metric_name="accuracy", 
-                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
-                          max_total_runs=100,
-                          max_concurrent_runs=4)
+hd_config = HyperDriveConfig(run_config=src,
+                             hyperparameter_sampling=param_sampling,
+                             policy=early_termination_policy,
+                             primary_metric_name="accuracy",
+                             primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                             max_total_runs=100,
+                             max_concurrent_runs=4)
 ```
 
 ## <a name="submit-experiment"></a>Prześlij eksperyment
 
-Po zdefiniowaniu konfiguracji strojenia parametru [Prześlij eksperyment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-):
+Po zdefiniowaniu konfiguracji strojenia parametru [Prześlij eksperyment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truesubmit-config--tags-none----kwargs-):
 
 ```Python
 from azureml.core.experiment import Experiment
 experiment = Experiment(workspace, experiment_name)
-hyperdrive_run = experiment.submit(hyperdrive_run_config)
+hyperdrive_run = experiment.submit(hd_config)
 ```
 
 `experiment_name` jest nazwą przypisaną do eksperymentu strojenia parametrów i `workspace` jest obszarem roboczym, w którym chcesz utworzyć eksperyment (Aby uzyskać więcej informacji na temat eksperymentów, zobacz [jak działa Azure Machine Learning?](concept-azure-machine-learning-architecture.md))
@@ -341,15 +341,15 @@ Możesz skonfigurować eksperyment strojenia parametrów, aby rozpocząć pracę
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
 
-hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
-                          hyperparameter_sampling=param_sampling, 
-                          policy=early_termination_policy,
-                          resume_from=warmstart_parents_to_resume_from, 
-                          resume_child_runs=child_runs_to_resume,
-                          primary_metric_name="accuracy", 
-                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
-                          max_total_runs=100,
-                          max_concurrent_runs=4)
+hd_config = HyperDriveConfig(run_config=src,
+                             hyperparameter_sampling=param_sampling,
+                             policy=early_termination_policy,
+                             resume_from=warmstart_parents_to_resume_from,
+                             resume_child_runs=child_runs_to_resume,
+                             primary_metric_name="accuracy",
+                             primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                             max_total_runs=100,
+                             max_concurrent_runs=4)
 ```
 
 ## <a name="visualize-experiment"></a>Wizualizacja eksperymentu
@@ -377,7 +377,7 @@ Możesz również wizualizować wszystkie przebiegi strojenia parametrów w port
 
 ## <a name="find-the-best-model"></a>Znajdź najlepszy model
 
-Po zakończeniu wszystkich przebiegów strojenia parametrów należy [zidentyfikować najlepszą wykonywaną konfigurację](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#&preserve-view=trueget-best-run-by-primary-metric-include-failed-true--include-canceled-true--include-resume-from-runs-true-----typing-union-azureml-core-run-run--nonetype-) oraz odpowiednie wartości parametrów:
+Po zakończeniu wszystkich przebiegów strojenia parametrów należy [zidentyfikować najlepszą wykonywaną konfigurację](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-best-run-by-primary-metric-include-failed-true--include-canceled-true--include-resume-from-runs-true-----typing-union-azureml-core-run-run--nonetype-) oraz odpowiednie wartości parametrów:
 
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
@@ -393,7 +393,7 @@ print('\n batch size:',parameter_values[7])
 
 ## <a name="sample-notebook"></a>Przykładowy Notes
 Zapoznaj się z notesem uczenia-*-* w tym folderze:
-* [Jak korzystać z platformy Azure/szkolenia — z uczeniem](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
+* [Jak używać — platforma Azure/ml — platformy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

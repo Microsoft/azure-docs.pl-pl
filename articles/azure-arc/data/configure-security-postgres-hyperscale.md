@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b166348031e9f72e8005e866a198855db9c01a9c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939211"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273204"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Skonfiguruj zabezpieczenia dla grupy serwerów PostgreSQL na potrzeby usługi Azure Arc
 
@@ -117,7 +117,7 @@ Dane wyjściowe:
 - Nazwa użytkownika: Me
 - USERpassword: $1 $ Uc7jzZOp $ NTfcGo7F10zGOkXOwjHy31
 
-Po nawiązaniu połączenia z moją aplikacją i przekazaniem hasła będzie ono znajdować się w `mysecrets` tabeli i zwróci nazwę użytkownika w przypadku dopasowania hasła dostarczonego do aplikacji i haseł przechowywanych w tabeli. Przykład:
+Po nawiązaniu połączenia z moją aplikacją i przekazaniem hasła będzie ono znajdować się w `mysecrets` tabeli i zwróci nazwę użytkownika w przypadku dopasowania hasła dostarczonego do aplikacji i haseł przechowywanych w tabeli. Na przykład:
 
 - Podano nieprawidłowe hasło:
    ```console
@@ -156,14 +156,66 @@ Możesz użyć standardowego Postgres, aby utworzyć użytkowników lub role. Je
 Usługa Azure ARC z możliwością skalowania w PostgreSQL jest dostępna ze standardowym użytkownikiem administracyjnym Postgres _Postgres_ , dla którego można ustawić hasło podczas tworzenia grupy serwerów.
 Ogólny format polecenia zmiany hasła:
 ```console
-azdata arc postgres server edit --name <server group name> --admin-password <new password>
+azdata arc postgres server edit --name <server group name> --admin-password
 ```
-Jeśli istnieje, hasło zostanie ustawione na wartość zmiennej środowiskowej **sesji**AZDATA_PASSWORD. Jeśli nie, użytkownik zostanie poproszony o podanie wartości.
-Aby sprawdzić, czy zmienna środowiskowa sesji AZDATA_PASSWORD istnieje i/lub do jakiej wartości jest ustawiona, uruchom polecenie:
-```console
-printenv AZDATA_PASSWORD
-```
-Możesz chcieć usunąć jego wartość, jeśli wolisz monitować o wprowadzenie nowego hasła.
+
+Gdzie--Admin-Password jest wartością logiczną, która odnosi się do obecności wartości w zmiennej środowiskowej **sesji**AZDATA_PASSWORD.
+Jeśli zmienna środowiskowa **sesji**AZDATA_PASSWORD istnieje i ma wartość, uruchomienie powyższego polecenia spowoduje ustawienie hasła użytkownika Postgres na wartość tej zmiennej środowiskowej.
+
+Jeśli zmienna środowiskowa **sesji**AZDATA_PASSWORD istnieje, ale nie ma wartości lub zmienna środowiskowa **sesji**AZDATA_PASSWORD nie istnieje, uruchomienie powyższego polecenia spowoduje wyświetlenie monitu o wprowadzenie hasła w trybie interaktywnym
+
+#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Zmiana hasła użytkownika administracyjnego Postgres w sposób interaktywny:
+1. Usuń zmienną środowiskową **sesji**AZDATA_PASSWORD lub Usuń jej wartość
+2. Uruchom polecenie:
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   Na przykład
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   Zostanie wyświetlony monit o podanie hasła i potwierdzenie:
+   ```console
+   Postgres Server password:
+   Confirm Postgres Server password:
+   ```
+   W miarę aktualizowania hasła dane wyjściowe polecenia przedstawiają:
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+   
+#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>Zmiana hasła użytkownika administracyjnego Postgres przy użyciu zmiennej środowiskowej **sesji**AZDATA_PASSWORD:
+1. Ustaw wartość zmiennej środowiskowej **sesji**AZDATA_PASSWORD na to, co chcesz mieć hasło.
+2. Uruchom polecenie:
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   Na przykład
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   
+   W miarę aktualizowania hasła dane wyjściowe polecenia przedstawiają:
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+
+> [!NOTE]
+> Aby sprawdzić, czy zmienna środowiskowa sesji AZDATA_PASSWORD istnieje i jaka jest jej wartość, uruchom polecenie:
+> - Na kliencie z systemem Linux:
+> ```console
+> printenv AZDATA_PASSWORD
+> ```
+>
+> - Na kliencie systemu Windows przy użyciu programu PowerShell:
+> ```console
+> echo $env:AZDATA_PASSWORD
+> ```
+
 
 
 ## <a name="next-steps"></a>Następne kroki

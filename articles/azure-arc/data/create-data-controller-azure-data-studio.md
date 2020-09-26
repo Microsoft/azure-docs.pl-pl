@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71678977f899b910a97dbb552233f36ca5a51f26
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939998"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273147"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Utwórz kontroler danych w Azure Data Studio
 
@@ -42,7 +42,7 @@ Wykonaj następujące kroki, aby utworzyć kontroler danych usługi Azure ARC pr
 9. Wprowadź nazwę kontrolera danych i dla przestrzeni nazw, w której zostanie utworzony kontroler danych.  
 
 > [!NOTE]
-> Jeśli przestrzeń nazw już istnieje, zostanie użyta, jeśli przestrzeń nazw nie zawiera jeszcze innych Kubernetes obiektów — pory itd.  Jeśli przestrzeń nazw nie istnieje, zostanie podjęta próba utworzenia przestrzeni nazw.  Tworzenie przestrzeni nazw w klastrze Kubernetes wymaga uprawnień administratora klastra Kubernetes.  Jeśli nie masz uprawnień administratora klastra Kubernetes, poproszenie administratora klastra Kubernetes o wykonanie kilku pierwszych kroków z artykułu [Tworzenie kontrolera danych przy użyciu narzędzia Kubernetes-Native Tools](./create-data-controller-using-k8s-native-tools.md) , które są wymagane do wykonania przez administratora Kubernetes przed ukończeniem tego kreatora.
+> Jeśli przestrzeń nazw już istnieje, zostanie użyta, jeśli przestrzeń nazw nie zawiera jeszcze innych Kubernetes obiektów — pory itd.  Jeśli przestrzeń nazw nie istnieje, zostanie podjęta próba utworzenia przestrzeni nazw.  Tworzenie przestrzeni nazw w klastrze Kubernetes wymaga uprawnień administratora klastra Kubernetes.  Jeśli nie masz uprawnień administratora klastra Kubernetes, poproszenie administratora klastra Kubernetes o wykonanie kilku pierwszych kroków z artykułu [Tworzenie kontrolera danych przy użyciu narzędzia Kubernetes-Native Tools](./create-data-controller-using-kubernetes-native-tools.md) , które są wymagane do wykonania przez administratora Kubernetes przed ukończeniem tego kreatora.
 
 > [!NOTE]
 > Uwaga: kontroler danych i nazwa przestrzeni nazw będą używane do tworzenia zasobów niestandardowych w klastrze Kubernetes, aby musiały one być zgodne z [konwencjami nazewnictwa Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).

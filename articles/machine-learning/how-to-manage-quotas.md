@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a25dcc187c1bb172106a3972c1cb57dfd473bc2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897408"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322380"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
 
@@ -85,7 +85,7 @@ W przypadku [potoków Azure Machine Learning](concept-ml-pipelines.md)obowiązuj
 Istnieje również ograniczenie liczby wystąpień kontenerów, które można uruchomić w danym okresie (co godzinę) lub w całej subskrypcji.
 Limity można znaleźć w temacie [Container Instances limitów](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 Istnieje limit liczby kont magazynu na region, jak również w danej subskrypcji. Domyślny limit to 250 i obejmuje konta standardowe i Premium Storage. Jeśli potrzebujesz więcej niż 250 kont magazynu w danym regionie, Przekształć żądanie przez [Pomoc techniczną platformy Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Zespół usługi Azure Storage sprawdzi swój przypadek biznesowy i może zatwierdzić do 250 kont magazynu dla danego regionu.
 
 
@@ -136,6 +136,29 @@ Podczas żądania zwiększenia limitu przydziału należy wybrać usługę żąd
 
 > [!NOTE]
 > [Bezpłatne subskrypcje wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p) nie kwalifikują się do zwiększenia limitu przydziału. Jeśli masz [bezpłatną subskrypcję wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p), możesz przeprowadzić uaktualnienie do subskrypcji [płatnej zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem. Aby uzyskać więcej informacji, zobacz [uaktualnianie bezpłatnej wersji próbnej platformy Azure do usługi płatność zgodnie z rzeczywistym](../billing/billing-upgrade-azure-subscription.md) użyciem i  [subskrypcji bezpłatnej wersji próbnej](https://azure.microsoft.com/free/free-account-faq).
+
+## <a name="private-endpoint-and-private-dns-quota-increases"></a>Wzrost przydziału prywatnego punktu końcowego i prywatnego systemu DNS
+
+Istnieją ograniczenia dotyczące liczby prywatnych punktów końcowych i prywatnych stref DNS, które można utworzyć w ramach subskrypcji. Podczas Azure Machine Learning tworzenia zasobów w ramach subskrypcji (klienta) istnieje kilka scenariuszy, które tworzą zasoby należące do firmy Microsoft. W następujących scenariuszach może być konieczne zażądanie limitu przydziału w ramach subskrypcji firmy Microsoft:
+
+* __Prywatny obszar roboczy z obsługą linku z kluczem zarządzanym przez klienta (CMK)__
+* __Azure Container Registry obszaru roboczego za siecią wirtualną__
+* __Dołączanie do obszaru roboczego klastra usługi Azure Kubernetes Service z włączonym linkiem prywatnym__.
+
+Aby zażądać przydziału dla tych scenariuszy, wykonaj następujące czynności:
+
+1. [Utwórz żądanie pomocy technicznej platformy Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) i wybierz następujące opcje z sekcji __podstawowe informacje__ :
+
+    | Pole | Wybór |
+    | ----- | ----- |
+    | Typ problemu | Techniczny |
+    | Usługa | Moje usługi. Na liście rozwijanej wybierz pozycję __Machine Learning__ . |
+    | Typ problemu | Konfiguracja obszaru roboczego, zestaw SDK i interfejs wiersza polecenia |
+    | Podtyp problemu | Problem z aprowizacją obszaru roboczego lub zarządzaniem nim |
+
+2. W sekcji __szczegóły__ Użyj pola __Opis__ , aby podać region platformy Azure, który ma być używany, i scenariusz, którego planujesz użyć. Jeśli trzeba będzie zażądać zwiększenia limitu przydziału dla wielu subskrypcji, należy również wyświetlić identyfikatory subskrypcji w tym polu.
+
+3. Utwórz żądanie przy użyciu __Create__ .
 
 ## <a name="next-steps"></a>Następne kroki
 

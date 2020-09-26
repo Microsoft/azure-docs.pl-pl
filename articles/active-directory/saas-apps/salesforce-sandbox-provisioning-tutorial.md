@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Konfigurowanie piaskownicy usługi Salesforce na potrzeby automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i piaskownicą usługi Salesforce.
+description: Informacje o krokach, które należy wykonać w piaskownicy usługi Salesforce i usłudze Azure AD w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników z usługi Azure AD do piaskownicy usług Salesforce.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5fa40e954c84d4d2d70974bc799a198c6bf7d3e9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ae8bc3ce5822b8d49db0fdc6e611badd75b0d27b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979751"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273317"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie piaskownicy usługi Salesforce na potrzeby automatycznego aprowizacji użytkowników
 
@@ -105,7 +105,7 @@ Rozpocznie się początkową synchronizację wszystkich użytkowników i/lub gru
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

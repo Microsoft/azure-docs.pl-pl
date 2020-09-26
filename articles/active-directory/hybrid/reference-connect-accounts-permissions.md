@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a1efafd353bea20ea1ada0b5e92a9e6df00deb78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662341"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273604"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konta i uprawnienia
 
@@ -115,7 +115,7 @@ W przypadku instalacji ustawień niestandardowych Kreator oferuje więcej opcji 
 
 Poniżej znajduje się podsumowanie stron kreatora instalacji niestandardowej, zebranych poświadczeń i ich użycia.
 
-![Instalacja ekspresowa](./media/reference-connect-accounts-permissions/customize.png)
+![Zrzut ekranu pokazujący strony Kreatora instalacji niestandardowej.](./media/reference-connect-accounts-permissions/customize.png)
 
 | Strona Kreatora | Zebrane poświadczenia | Wymagane uprawnienia | Używane dla |
 | --- | --- | --- | --- |
@@ -208,7 +208,7 @@ Legenda:
 #### <a name="virtual-service-account"></a>Konto usługi wirtualnej
 Konto usługi wirtualnej jest specjalnym typem konta, które nie ma hasła i jest zarządzane przez system Windows.
 
-![ATRYBUTU](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
+![Zrzut ekranu przedstawiający konto usługi wirtualnej (VSA).](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
 Atrybut VSA ma być używany w scenariuszach, w których aparat synchronizacji i SQL znajdują się na tym samym serwerze. Jeśli używasz zdalnego SQL, zalecamy użycie konta usługi zarządzanej przez grupę.
 
@@ -241,7 +241,7 @@ Konto ma również przyznane uprawnienia do plików, kluczy rejestru i innych ob
 ### <a name="azure-ad-connector-account"></a>Konto łącznika usługi Azure AD
 Konto w usłudze Azure AD jest tworzone na potrzeby użycia usługi synchronizacji. To konto może być identyfikowane przez jego nazwę wyświetlaną.
 
-![Konto usługi AD](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
+![Zrzut ekranu przedstawiający konto usługi Azure AD.](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
 
 Nazwę serwera, na którym konto jest używane, można zidentyfikować w drugiej części nazwy użytkownika. Na obrazie nazwa serwera to DC1. W przypadku serwerów przemieszczania każdy serwer ma swoje własne konto.
 
@@ -259,7 +259,7 @@ Aby uzyskać dodatkowe informacje na temat sposobu zarządzania lub resetowania 
 ## <a name="related-documentation"></a>Dokumentacja pokrewna
 Jeśli nie odczytano dokumentacji dotyczącej [integrowania tożsamości lokalnych z Azure Active Directory](whatis-hybrid-identity.md), Poniższa tabela zawiera linki do powiązanych tematów.
 
-|Temat |Link|  
+|Temat |Łącze|  
 | --- | --- |
 |Pobieranie programu Azure AD Connect | [Pobieranie programu Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Instalowanie przy użyciu ustawień ekspresowych | [Ekspresowa instalacja programu Azure AD Connect](how-to-connect-install-express.md)|

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a1dc42815167da308fd87b541c0f21d02b47329b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b6f2e8ff6689a3817ecf9eb43c7cea4a0632fc25
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022517"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297672"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Samouczek: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
@@ -219,8 +219,8 @@ Możesz również sprawdzić relacje z dowolnym z poniższych poleceń, które w
     ```
 * Aby wykonać zapytanie dotyczące tych relacji pojedynczo, 
     ```cmd/sh
-    GetRelationship floor0 contains relationship0
-    GetRelationship floor1 contains relationship1
+    GetRelationship floor0 relationship0
+    GetRelationship floor1 relationship1
     ```
 
 Bliźniaczych reprezentacji i relacje, które zostały skonfigurowane w tym samouczku, tworzą następujący wykres koncepcyjny:
@@ -242,7 +242,7 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Częściowe wyniki zapytania bliźniaczyego, pokazujące room0 i floor1":::
 
     >[!NOTE]
-    >Polecenie `Query` bez żadnych dodatkowych argumentów jest odpowiednikiem `Query SELECT * FROM DIGITALTWINS` .
+    >W przykładowym projekcie polecenie `Query` bez żadnych dodatkowych argumentów jest równoważne `Query SELECT * FROM DIGITALTWINS` . Aby wykonać zapytanie dotyczące wszystkich bliźniaczych reprezentacji w wystąpieniu przy użyciu [interfejsów API zapytań](how-to-use-apis-sdks.md) lub [poleceń interfejsu wiersza polecenia](how-to-use-cli.md), użyj dłuższego (kompletnego) zapytania.
 
 * **Jakie są wszystkie pokoje w moim środowisku?** (zapytanie według modelu)
 
@@ -293,7 +293,7 @@ Projekt w tym samouczku stanowi podstawę dla następnego samouczka, [*Samouczek
 
 Na koniec Usuń folder przykładowego projektu pobrany na komputer lokalny.
 
-## <a name="next-steps"></a>Kolejne kroki 
+## <a name="next-steps"></a>Następne kroki 
 
 W tym samouczku przedstawiono rozpoczęcie pracy z usługą Azure Digital bliźniaczych reprezentacji przez skonfigurowanie wystąpienia i aplikacji klienckiej w celu korzystania z tego wystąpienia. Aplikacja kliencka została użyta do eksplorowania usługi Azure Digital bliźniaczych reprezentacji, tworzenia modeli, cyfrowego bliźniaczych reprezentacji i relacji. W rozwiązaniu uruchomiono również pewne zapytania, aby poznać, jakie rodzaje pytań można znaleźć w usłudze Azure Digital bliźniaczych reprezentacji.
 

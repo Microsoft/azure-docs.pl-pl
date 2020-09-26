@@ -1,18 +1,18 @@
 ---
-title: Włącz dodatek transferu danych przychodzących dla nowego klastra AKS z nowym wystąpieniem usługi Azure Application Gateway
-description: Dowiedz się, jak korzystać z interfejsu wiersza polecenia platformy Azure, aby włączyć dodatek usługi transferu danych przychodzących dla nowego klastra AKS z nowym wystąpieniem Application Gateway.
+title: 'Samouczek: Włączanie dodatku usług przychodzących dla nowego klastra AKS z nowym wystąpieniem usługi Azure Application Gateway'
+description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak korzystać z interfejsu wiersza polecenia platformy Azure w celu włączenia dodatku do kontrolera usług przychodzących dla nowego klastra AKS z nowym wystąpieniem Application Gateway.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 620fe5851f9dbde01b2206595fa79b61f62deb66
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595924"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285591"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Samouczek: Włączanie dodatku usługi transferu danych przychodzących (wersja zapoznawcza) dla nowego klastra AKS z nowym wystąpieniem Application Gateway
 
@@ -30,11 +30,12 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Wdróż przykładową aplikację przy użyciu usługi AGIC na potrzeby ruchu przychodzącego w klastrze AKS.
 > * Sprawdź, czy aplikacja jest dostępna za pomocą Application Gateway.
 
+## <a name="prerequisites"></a>Wymagania wstępne
+
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
@@ -134,7 +135,7 @@ az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się więcej na temat wyłączania dodatku AGIC](./ingress-controller-disable-addon.md)
-* [Dowiedz się, które adnotacje są obsługiwane przez AGIC](./ingress-controller-annotations.md)
-* [Rozwiązywanie problemów z usługą AGIC](./ingress-controller-troubleshoot.md)
+
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej na temat wyłączania dodatku AGIC](./ingress-controller-disable-addon.md)
 

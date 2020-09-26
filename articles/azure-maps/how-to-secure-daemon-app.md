@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e445f26458d13d28dd4ef50c6c17d434554d9fd5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5af7645db662a238099e013f84b0dc0fee2af62c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311074"
+ms.locfileid: "91355860"
 ---
 # <a name="secure-a-daemon-application"></a>Zabezpieczanie aplikacji demona
 
@@ -122,7 +122,7 @@ W przypadku korzystania z tożsamości zarządzanych w środowisku innym niż Az
 2. Na karcie **przypisania ról** **Dodaj** przypisanie roli. 
 
     > [!div class="mx-imgBorder"]
-    > ![Dodaj przypisanie roli](./media/how-to-manage-authentication/add-role-assignment.png)
+    > ![Zrzut ekranu przedstawia przydziały rzutowania z dodatkiem Dodaj.](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. Wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisz dostęp do**wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi** lub tożsamość zarządzana z przypisaną przez **użytkownika**zarządzaną tożsamością  /  **System assigned Managed identity**. Wybierz podmiot zabezpieczeń. Następnie wybierz przycisk **Zapisz**.
 

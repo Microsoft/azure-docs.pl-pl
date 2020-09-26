@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
-ms.openlocfilehash: a3a8c065c226d1cc94d79b44d16f288fab205a56
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 09ea3ceb15c9b175b8366bf3ac57a61e468ab72a
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356030"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Wysyłanie komunikatów do serwera MQTT
 
@@ -55,7 +55,7 @@ Rozwiń sekcję **przykłady Arduino** lewej strony, przejdź do **przykładów 
 
 Wpisz `Ctrl+P` (macOS: `Cmd+P` ), aby uruchomić `task device-upload` . Po zakończeniu przekazywania DevKit ponownie uruchamia i uruchamia szkic.
 
-![przekazywanie urządzenia](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
+![Zrzut ekranu przedstawia okno wiersza polecenia, które przekazuje i uruchamia szkic Arduino.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
 > Może zostać wyświetlony komunikat o błędzie "błąd: AZ3166: nieznany pakiet". Ten błąd występuje, gdy indeks pakietu tablicy nie został poprawnie odświeżony. Aby rozwiązać ten problem, zapoznaj się z [sekcją opracowywanie często ZAdawanych pytań dotyczących IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
@@ -64,15 +64,15 @@ Wpisz `Ctrl+P` (macOS: `Cmd+P` ), aby uruchomić `task device-upload` . Po zako�
 
 W VS Code wykonaj następującą procedurę, aby otworzyć i skonfigurować Monitor seryjny:
 
-1. Kliknij `COM[X]` słowo na pasku stanu, aby ustawić prawidłowy port COM za pomocą polecenia `STMicroelectronics` : ![ Set-com-port](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
+1. Kliknij `COM[X]` słowo na pasku stanu, aby ustawić prawidłowy port com z `STMicroelectronics` : ![ zrzut ekranu przedstawia Visual Studio Code z wybraną COM8 S mikroelektroniką.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
 
-2. Kliknij ikonę zasilania na pasku stanu, aby otworzyć Monitor szeregowy: ![ Serial-Monitor](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
+2. Kliknij ikonę zasilania na pasku stanu, aby otworzyć Monitor seryjny: ![ zrzut ekranu przedstawia podsumowanie wydania i ikonę dodatku zasilania na pasku stanu.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
   
-3. Na pasku stanu kliknij liczbę reprezentującą szybkość transmisji i ustaw ją na `115200` : ![ Set-bodów-rate](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
+3. Na pasku stanu kliknij liczbę reprezentującą szybkość transmisji i ustaw ją na `115200` : ![ zrzut ekranu przedstawia Ustawianie szybkości transmisji w Visual Studio Code.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
 
 W monitorze seryjnym są wyświetlane wszystkie komunikaty wysyłane przez przykładowy szkic. Szkic łączy DevKit z siecią Wi-Fi. Po pomyślnym nawiązaniu połączenia Wi-Fi szkic wyśle wiadomość do brokera usługi MQTT. Następnie przykład wielokrotnie wysyła dwa komunikaty "iot.eclipse.org" przy użyciu ustawień QoS 0 i QoS 1.
 
-![dane wyjściowe](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
+![Zrzut ekranu przedstawia monitor seryjny wyświetlający komunikaty wysyłane przez szkic.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
 ## <a name="problems-and-feedback"></a>Problemy i opinie
 
@@ -81,7 +81,7 @@ Jeśli wystąpią problemy, zapoznaj się z tematem [często zadawanych pytań d
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Łączenie usługi IoT DevKit AZ3166 z platformą Azure IoT Hub w chmurze](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [Wstrząsanie i wstrząsanie tweetu](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)

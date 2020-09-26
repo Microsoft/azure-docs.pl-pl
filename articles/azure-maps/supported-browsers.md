@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 73d875e32f4fcf22551cf6b0946e49c2f826e523
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 5b186901551e421ba365b97a6de6a55ff791e5e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085029"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310190"
 ---
 # <a name="web-sdk-supported-browsers"></a>Przeglądarki obsługiwane przez zestaw Web SDK
 
@@ -29,7 +29,7 @@ if (!atlas.isSupported()) {
 }
 ```
 
-## <a name="desktop"></a>Klasyczna
+## <a name="desktop"></a>Komputery
 
 Azure Maps Web SDK obsługuje następujące przeglądarki pulpitu:
 
@@ -76,8 +76,6 @@ Zobacz pióro <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + ul
 
 Dowiedz się więcej na temat Azure Maps Web SDK:
 
-> [!div class="nextstepaction"]
-> [Kontrolka mapy](how-to-use-map-control.md)
+[Kontrolka mapy](how-to-use-map-control.md)
 
-> [!div class="nextstepaction"]
-> [Moduł usług](how-to-use-services-module.md)
+[Moduł usług](how-to-use-services-module.md)

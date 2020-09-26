@@ -9,13 +9,13 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4b39c32da04efa3782cb2166c8e1137029b21258
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-js
+ms.openlocfilehash: 9b1dc7d7eee263b781d39c4beccf9388efbaa3d8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334141"
 ---
 # <a name="deploy-javascript-app-to-read-data-from-fhir-service"></a>Wdróż aplikację JavaScript w celu odczytania danych z usługi FHIR
 W tym samouczku zostanie wdrożona mała aplikacja JavaScript, która odczytuje dane z usługi FHIR. Kroki opisane w tym samouczku:

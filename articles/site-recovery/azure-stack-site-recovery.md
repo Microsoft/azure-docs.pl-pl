@@ -3,12 +3,12 @@ title: Replikowanie Azure Stack maszyn wirtualnych na platformę Azure przy uży
 description: Dowiedz się, jak skonfigurować odzyskiwanie po awarii na platformie Azure dla maszyn wirtualnych Azure Stack przy użyciu usługi Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 5bc78dc5b01bb4790190268b303cb894de2b6f71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564313"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333719"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikowanie maszyn wirtualnych usługi Azure Stack na platformie Azure
 
@@ -164,13 +164,13 @@ Skonfiguruj maszynę serwera konfiguracji, zarejestruj ją w magazynie i Wykryj 
 1. Kliknij pozycję **Przygotuj**  >  **Źródło**infrastruktury.
 2. W obszarze **Przygotowywanie źródła** kliknij pozycję **+ Serwer konfiguracji**.
 
-    ![Konfiguracja źródła](./media/azure-stack-site-recovery/plus-config-srv.png)
+    ![Zrzut ekranu okna dialogowego + serwera konfiguracji z komunikatem "kliknij pozycję + Serwer konfiguracji na pasku poleceń powyżej, aby skonfigurować jeden...".](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. W obszarze **Dodawanie serwera**Sprawdź, czy **serwer konfiguracji** jest wyświetlany w polu **Typ serwera**.
 5. Pobierz plik instalacyjny programu Site Recovery Unified Setup.
 6. Pobierz klucz rejestracji magazynu. Po uruchomieniu ujednoliconej konfiguracji wymagany jest klucz rejestracji. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 
-    ![Konfiguracja źródła](./media/azure-stack-site-recovery/set-source2.png)
+    ![Zrzut ekranu okna dialogowego Dodawanie serwera z ustawioną pozycją serwer konfiguracji i przycisk Pobierz klucz rejestracji magazynu.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### <a name="run-azure-site-recovery-unified-setup"></a>Uruchom Azure Site Recovery ujednoliconą konfigurację

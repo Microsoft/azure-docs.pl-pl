@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 4adec4579cf1a413aeac54782b4f9a833d557ad9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334093"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Samouczek: Automatyzowanie zadań do przetwarzania wiadomości e-mail przy użyciu Azure Logic Apps, Azure Functions i usługi Azure Storage
 
@@ -323,7 +323,7 @@ Teraz dodaj warunek, który powoduje wybranie tylko wiadomości e-mail z załąc
 
    1. W pierwszym wierszu w obszarze **Oraz** kliknij wewnątrz pola po lewej stronie. Z wyświetlonej listy zawartości dynamicznej wybierz właściwość **Ma załącznik**.
 
-      ![Kompilowanie warunku](./media/tutorial-process-email-attachments-workflow/build-condition.png)
+      ![Zrzut ekranu, na którym jest wyświetlana właściwość "i" dla warunku oraz wybrana Właściwość "ma załącznik".](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
    1. W środkowym polu zachowaj operator **jest równe**.
 
@@ -389,7 +389,7 @@ Ten krok powoduje dodanie wcześniej utworzonej funkcji platformy Azure do aplik
 
    ![Wnętrze warunku „W przypadku wartości true”, dodawanie akcji](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. W polu wyszukiwania znajdź frazę „azure functions” i wybierz następującą akcję: **Wybierz funkcję platformy Azure — Azure Functions**
+1. W polu wyszukiwania Znajdź pozycję "Azure Functions" i wybierz tę akcję: **Wybierz funkcję platformy Azure — Azure Functions**
 
    ![Wybieranie akcji dla pozycji „Wybierz funkcję platformy Azure”](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -458,7 +458,7 @@ Następnie dodaj akcję, która utworzy obiekt blob w kontenerze magazynu, co um
 
    Gdy wszystko będzie gotowe, akcja będzie wyglądać jak następujący przykład:
 
-   ![Zakończona akcja „Utwórz obiekt blob”](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   ![Zrzut ekranu przedstawiający przykład gotowej akcji "Utwórz obiekt BLOB".](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 1. Zapisz aplikację logiki.
 
@@ -603,7 +603,7 @@ Następnie dodaj akcję, dzięki której aplikacja logiki będzie wysyłać wiad
    | ------- | ----- | ----- |
    | **Działanie** | <*odbiorca — adres e-mail*> | Do celów testowych możesz użyć własnego adresu e-mail. |
    | **Temat**  | ```ASAP - Review applicant for position:``` **Temat** | Temat wiadomości e-mail, który chcesz uwzględnić. Kliknij wewnątrz tego pola, wprowadź przykładowy tekst i z dynamicznej listy zawartości wybierz pole **Temat** w obszarze **Po nadejściu nowej wiadomości e-mail**. |
-   | **Treść** | ```Please review new applicant:``` <p>```Applicant name:```**Od** <p>```Application file location:``` **Ścieżka** <p>```Application email content:``` **Treść** | Treść wiadomości e-mail. Kliknij wewnątrz tego pola, wprowadź przykładowy tekst i z dynamicznej listy zawartości wybierz następujące pola: <p>– Pole **Od** w obszarze **Po nadejściu nowej wiadomości e-mail** </br>– Pole **Ścieżka** w obszarze **Utwórz obiekt blob na potrzeby treści wiadomości e-mail** </br>– Pole **Treść** w obszarze **Wywołaj funkcję RemoveHTMLFunction, aby wyczyścić treść wiadomości e-mail** |
+   | **Treść** | ```Please review new applicant:``` <p>```Applicant name:```**Od** <p>```Application file location:```**Ścieżka** <p>```Application email content:``` **Treść** | Treść wiadomości e-mail. Kliknij wewnątrz tego pola, wprowadź przykładowy tekst i z dynamicznej listy zawartości wybierz następujące pola: <p>– Pole **Od** w obszarze **Po nadejściu nowej wiadomości e-mail** </br>– Pole **Ścieżka** w obszarze **Utwórz obiekt blob na potrzeby treści wiadomości e-mail** </br>– Pole **Treść** w obszarze **Wywołaj funkcję RemoveHTMLFunction, aby wyczyścić treść wiadomości e-mail** |
    ||||
 
    > [!NOTE]

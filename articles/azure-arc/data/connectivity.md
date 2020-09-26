@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 44c1c1860cbea20a7a00da5a396e4d82d79efd8b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4364ed916e2b2783ab09f9d61ae63197d001ad42
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940003"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273185"
 ---
 # <a name="connectivity-modes-and-requirements"></a>Tryby i wymagania dotyczące łączności
 
@@ -86,6 +86,7 @@ Obecnie w fazie zapoznawczej jest obsługiwany tylko tryb połączony bezpośred
 |**Interfejsy API Azure Resource Manager**|Komputer z systemem Azure Data Studio, Azure Data CLI lub interfejs wiersza polecenia platformy Azure, który nawiązuje połączenie z platformą Azure.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`san-af-eastus-prod.azurewebsites.net`<br/>`san-af-eastus2-prod.azurewebsites.net`<br/>`san-af-australiaeast-prod.azurewebsites.net`<br/>`san-af-centralus-prod.azurewebsites.net`<br/>`san-af-westus2-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-southeastasia-prod.azurewebsites.net`<br/>`san-af-koreacentral-prod.azurewebsites.net`<br/>`san-af-northeurope-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-uksouth-prod.azurewebsites.net`<br/>`san-af-francecentral-prod.azurewebsites.net`|HTTPS|443|Tak|Azure Active Directory|Azure Data Studio, interfejs wiersza polecenia platformy Azure i interfejs wiersza polecenia platformy Azure łączą się z interfejsami API Azure Resource Manager w celu wysyłania i pobierania danych do i z platformy Azure w przypadku niektórych funkcji.|
 |**Interfejsy API Azure Monitor**|Komputer z uruchomionym interfejsem wiersza polecenia platformy Azure lub interfejsem wiersza polecenia platformy Azure, który przekazuje metryki monitorowania lub dzienniki do Azure Monitor.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com`|HTTPS|443|Tak|Azure Active Directory|Azure Data Studio, interfejs wiersza polecenia platformy Azure i interfejs wiersza polecenia platformy Azure łączą się z interfejsami API Azure Resource Manager w celu wysyłania i pobierania danych do i z platformy Azure w przypadku niektórych funkcji.|
 
-> **Uwaga:** Teraz wszystkie połączenia HTTPS/443 przeglądarki z pulpitów nawigacyjnych Grafana i Kibana oraz z interfejsu wiersza polecenia platformy Azure z interfejsem API usługi Data Controller są szyfrowane SSL przy użyciu certyfikatów z podpisem własnym.  W przyszłości będzie dostępna funkcja, która umożliwia udostępnianie własnych certyfikatów na potrzeby szyfrowania tych połączeń SSL.
+> [!NOTE]
+> Teraz wszystkie połączenia HTTPS/443 przeglądarki z pulpitów nawigacyjnych Grafana i Kibana oraz z interfejsu wiersza polecenia platformy Azure z interfejsem API usługi Data Controller są szyfrowane SSL przy użyciu certyfikatów z podpisem własnym.  W przyszłości będzie dostępna funkcja, która umożliwia udostępnianie własnych certyfikatów na potrzeby szyfrowania tych połączeń SSL.
 
 Połączenie z usługi Azure Data Studio i interfejsu wiersza polecenia Azure Data CLI z serwerem interfejsu API Kubernetes korzysta z ustalonego uwierzytelniania Kubernetes i szyfrowania.  Każdy użytkownik, który używa Azure Data Studio i interfejsu wiersza polecenia platformy Azure, musi mieć uwierzytelnione połączenie z interfejsem API Kubernetes, aby wykonać wiele akcji związanych z usługami danych usługi Azure ARC z włączoną obsługą.

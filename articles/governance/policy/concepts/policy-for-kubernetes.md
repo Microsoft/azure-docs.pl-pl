@@ -1,16 +1,16 @@
 ---
-title: Wersja zapoznawcza — Dowiedz się Azure Policy Kubernetes
-description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie. Jest to funkcja w wersji zapoznawczej.
-ms.date: 08/07/2020
+title: Dowiedz się Azure Policy Kubernetes
+description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie.
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: a824548cb45f886bcf82bedad6e5d5c216bb7fea
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: dbe7257b577f0526e0d34c13e0102305e58cc656
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645593"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322465"
 ---
-# <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Opis Azure Policy klastrów Kubernetes (wersja zapoznawcza)
+# <a name="understand-azure-policy-for-kubernetes-clusters"></a>Opis usługi Azure Policy dla klastrów Kubernetes
 
 Azure Policy rozszerza [strażnik](https://github.com/open-policy-agent/gatekeeper) v3, _element webhook kontrolera Admission_ dla programu [Open Policy Agent](https://www.openpolicyagent.org/) (nieprzez), aby zastosować wymuszanie i zabezpieczenia w klastrach w scentralizowany, spójny sposób. Azure Policy umożliwia zarządzanie stanem zgodności klastrów Kubernetes w jednym miejscu oraz ich raportowanie. Dodatek wprowadza następujące funkcje:
 
@@ -25,7 +25,7 @@ Azure Policy for Kubernetes obsługuje następujące środowiska klastra:
 - [Aparat AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Azure Policy dla Kubernetes jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej ze skutkami **EnforceOPAConstraint** i **EnforceRegoPolicy** oraz pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć trybu _inspekcji_ efektów i _Odmów_ przy użyciu dostawcy zasobów `Microsoft.Kubernetes.Data` .
+> Dodatki dla aparatu AKS i Kubernetes z funkcją Arc są w **wersji zapoznawczej**. Azure Policy for Kubernetes obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej ze skutkami **EnforceOPAConstraint** i **EnforceRegoPolicy** oraz pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć trybu _inspekcji_ efektów i _Odmów_ przy użyciu dostawcy zasobów `Microsoft.Kubernetes.Data` .
 
 ## <a name="overview"></a>Omówienie
 
@@ -45,29 +45,57 @@ Aby włączyć i użyć Azure Policy z klastrem Kubernetes, wykonaj następując
 
 1. [Zaczekaj na weryfikację](#policy-evaluation)
 
+## <a name="limitations"></a>Ograniczenia
+
+Następujące ograniczenia ogólne mają zastosowanie do Azure Policy dodatku dla klastrów Kubernetes:
+
+- Dodatek Azure Policy dla Kubernetes jest obsługiwany w Kubernetes w wersji **1,14** lub nowszej.
+- Dodatek Azure Policy dla Kubernetes można wdrożyć tylko w pulach węzłów systemu Linux
+- Obsługiwane są tylko wbudowane definicje zasad
+- Maksymalna liczba niezgodnych rekordów na zasady dla klastra: **500**
+- Maksymalna liczba niezgodnych rekordów na subskrypcję: **1 000 000**
+- Instalacje strażnika poza dodatkiem Azure Policy nie są obsługiwane. Przed włączeniem dodatku Azure Policy Odinstaluj wszystkie składniki zainstalowane przez poprzednią instalację strażnika.
+- [Przyczyny niezgodności](../how-to/determine-non-compliance.md#compliance-reasons) nie są dostępne dla `Microsoft.Kubernetes.Data` 
+   [trybu dostawcy zasobów](./definition-structure.md#resource-provider-modes)
+
+Następujące ograniczenia mają zastosowanie tylko do Azure Policy dodatku dla AKS:
+
+- Nie można jednocześnie włączyć [zasad zabezpieczeń AKS](../../../aks/use-pod-security-policies.md) na poziomie i dodatku Azure Policy dla AKS. Aby uzyskać więcej informacji, zobacz [AKS pod kątem zabezpieczeń](../../../aks/use-pod-security-on-azure-policy.md#limitations).
+- Obszary nazw są automatycznie wykluczane przez Azure Policy dodatku do oceny: _polecenia-system_, _strażnik-system_i _AKS-Periscope_.
+
+## <a name="recommendations"></a>Zalecenia
+
+Poniżej przedstawiono ogólne zalecenia dotyczące używania dodatku Azure Policy:
+
+- Aby można było uruchomić dodatek Azure Policy, wymagane są 3 składniki strażnika: 1 podelementy inspekcji w ramach i 2 replik. Te składniki zużywają więcej zasobów, ponieważ liczba zasobów Kubernetes i przypisań zasad zwiększa się w klastrze, który wymaga operacji inspekcji i wymuszania.
+
+  - W przypadku mniej niż 500 zasobników w jednym klastrze z maksymalnie 20 ograniczeniami: 2 procesorów wirtualnych vCPU i 350 MB pamięci na składnik.
+  - Ponad 500 zasobników w jednym klastrze z maksymalnie 40 ograniczeniami: 3 procesorów wirtualnych vCPU i 600 MB pamięci na składnik.
+
+- System Windows [nie obsługuje kontekstów zabezpieczeń](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods).
+  W związku z tym niektóre definicje Azure Policy, na przykład niezezwalanie na uprawnienia główne, nie mogą być eskalacją w ramach systemu Windows i mają zastosowanie tylko do zasobników z systemem Linux.
+
+Poniższe zalecenie dotyczy tylko AKS i dodatku Azure Policy:
+
+- Użyj puli węzłów systemu z funkcją `CriticalAddonsOnly` zmiany harmonogramu, aby zaplanować zasobniki strażników. Aby uzyskać więcej informacji, zobacz [Korzystanie z pul węzłów systemowych](../../../aks/use-system-pools.md#system-and-user-node-pools).
+- Zabezpiecz ruch wychodzący z klastrów AKS. Aby uzyskać więcej informacji, zobacz [Kontrola ruchu wychodzącego dla węzłów klastra](../../../aks/limit-egress-traffic.md).
+- Jeśli klaster został `aad-pod-identity` włączony, w WĘŹLE NMI (tożsamość zarządzana) są modyfikowane węzły dołączenie iptables do przechwytywania wywołań do punktu końcowego metadanych wystąpienia platformy Azure. Ta konfiguracja oznacza, że wszystkie żądania wysłane do punktu końcowego metadanych są przechwytywane przez NMI, nawet jeśli nie są używane `aad-pod-identity` . AzurePodIdentityException CRD można skonfigurować w taki sposób `aad-pod-identity` , aby informował, że wszelkie żądania kierowane do punktu końcowego metadanych pochodzące z elementu pod, które pasują do etykiet zdefiniowanych w CRD, powinny być przekazywane z serwerem proxy bez żadnego przetwarzania w NMI. Systemowy `kubernetes.azure.com/managedby: aks` wymiarname z etykietą w _polecenia —_ przestrzeń nazw systemu powinna zostać wykluczona w `aad-pod-identity` ramach konfigurowania AzurePodIdentityException CRD. Aby uzyskać więcej informacji, zobacz temat [wyłączanie usługi AAD-pod-Identity dla określonego elementu lub aplikacji](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  Aby skonfigurować wyjątek, Zainstaluj polecenie [MIC-Exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
+
 ## <a name="install-azure-policy-add-on-for-aks"></a>Zainstaluj dodatek Azure Policy dla AKS
 
 Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji usługi subskrypcja musi włączyć dostawców zasobów **Microsoft. ContainerService** i **Microsoft. PolicyInsights** .
 
-1. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.62 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+> [!IMPORTANT]
+> Ogólna dostępność Azure Policy w AKS jest aktywnie zwalniana we wszystkich regionach. Oczekiwane globalne zakończenie wydania GA to 9/29/2020. Użycie w regionach bez wersji GA wymaga wykonania czynności rejestracji w wersji zapoznawczej. Jednak zostanie ona automatycznie zaktualizowana do wersji GA, gdy będzie dostępna w regionie.
+
+1. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.12.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 1. Zarejestruj dostawców zasobów i funkcje w wersji zapoznawczej.
 
    - Azure Portal:
 
-     1. Zarejestruj dostawców zasobów **Microsoft. ContainerService** i **Microsoft. PolicyInsights** . Aby uzyskać instrukcje, zobacz [dostawcy zasobów i ich typy](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
-
-     1. Uruchom usługę Azure Policy w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **zasady**.
-
-        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad w wszystkich usługach." border="false":::
-
-     1. Wybierz pozycję **Dołącz podgląd** w lewej części strony Azure Policy.
-
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Zrzut ekranu przedstawiający węzeł Join Preview na stronie zasad." border="false":::
-
-     1. Wybierz wiersz subskrypcji, która ma zostać dodana do wersji zapoznawczej.
-
-     1. Wybierz przycisk **zgody** w górnej części listy subskrypcji.
+     Zarejestruj dostawców zasobów **Microsoft. ContainerService** i **Microsoft. PolicyInsights** . Aby uzyskać instrukcje, zobacz [dostawcy zasobów i ich typy](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
    - Interfejs wiersza polecenia platformy Azure:
 
@@ -79,18 +107,9 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
 
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
-
-     # Feature register: enables installing the add-on
-     az feature register --namespace Microsoft.ContainerService --name AKS-AzurePolicyAutoApprove
-
-     # Use the following to confirm the feature has registered
-     az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-AzurePolicyAutoApprove')].   {Name:name,State:properties.state}"
-
-     # Once the above shows 'Registered' run the following to propagate the update
-     az provider register -n Microsoft.ContainerService
      ```
 
-1. Jeśli zainstalowano ograniczone definicje zasad wersji zapoznawczej, Usuń dodatek z przyciskiem **Wyłącz** w klastrze AKS na stronie **zasady (wersja zapoznawcza)** .
+1. Jeśli zainstalowano ograniczone definicje zasad wersji zapoznawczej, Usuń dodatek z przyciskiem **Wyłącz** w klastrze AKS na stronie **zasady** .
 
 1. Klaster AKS musi mieć wersję _1,14_ lub nowszą. Aby sprawdzić poprawność wersji klastra AKS, użyj następującego skryptu:
 
@@ -101,20 +120,7 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
    az aks list
    ```
 
-1. Zainstaluj wersję _0.4.0_ rozszerzenia wiersza polecenia platformy Azure w wersji zapoznawczej dla AKS, `aks-preview` :
-
-   ```azurecli-interactive
-   # Log in first with az login if you're not using Cloud Shell
-
-   # Install/update the preview extension
-   az extension add --name aks-preview
-
-   # Validate the version of the preview extension
-   az extension show --name aks-preview --query [version]
-   ```
-
-   > [!NOTE]
-   > Jeśli wcześniej zainstalowano rozszerzenie _AKS-Preview_ , zainstaluj wszystkie aktualizacje za pomocą `az extension update --name aks-preview` polecenia.
+1. Zainstaluj wersję _2.12.0_ lub nowszą interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 Po zakończeniu powyższych kroków wymagań wstępnych Zainstaluj dodatek Azure Policy w klastrze AKS, którym chcesz zarządzać.
 
@@ -124,19 +130,16 @@ Po zakończeniu powyższych kroków wymagań wstępnych Zainstaluj dodatek Azure
 
   1. Wybierz jeden z klastrów AKS.
 
-  1. Wybierz pozycję **zasady (wersja zapoznawcza)** po lewej stronie usługi Kubernetes.
-
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Zrzut ekranu przedstawiający węzeł zasady (wersja zapoznawcza) na stronie usługi Kubernetes." border="false":::
+  1. Wybierz pozycję **zasady** po lewej stronie usługi Kubernetes.
 
   1. Na stronie głównej wybierz przycisk **Włącz dodatek** .
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Zrzut ekranu przedstawiający przycisk Włącz dodatek na stronie Dołączanie do Azure Policy dla usług Azure Kubernetes Services (A K S).":::
-
      <a name="migrate-from-v1"></a>
      > [!NOTE]
-     > Jeśli przycisk **Włącz dodatek** jest wyszarzony, subskrypcja nie została jeszcze dodana do wersji zapoznawczej. Jeśli przycisk **Wyłącz dodatek** jest włączony i zostanie wyświetlony komunikat z ostrzeżeniem o migracji w wersji 2, zostanie zainstalowany dodatek V1 i należy go usunąć przed przypisaniem definicji zasad w wersji 2. _Przestarzały_ dodatek V1 zostanie automatycznie zastąpiony przez dodatek v2 od dnia 24 sierpnia 2020. Należy następnie przypisać nowe wersje systemu v2 definicji zasad. Aby przeprowadzić uaktualnienie teraz, wykonaj następujące kroki:
+     > Jeśli przycisk **Wyłącz dodatek** jest włączony i zostanie wyświetlony komunikat z ostrzeżeniem o migracji w wersji 2, zostanie zainstalowany dodatek V1 i należy go usunąć przed przypisaniem definicji zasad w wersji 2. _Przestarzały_ dodatek V1 zostanie automatycznie zamieniony na dodatek v2 od początku sierpnia,
+     > 2020. Należy następnie przypisać nowe wersje systemu v2 definicji zasad. Aby przeprowadzić uaktualnienie teraz, wykonaj następujące kroki:
      >
-     > 1. Sprawdź, czy klaster AKS ma zainstalowany dodatek V1, odwiedzając stronę **zasady (wersja zapoznawcza)** w klastrze AKS i ma "bieżący klaster używa dodatku Azure Policy..." Komunikat.
+     > 1. Sprawdź, czy klaster AKS ma zainstalowany dodatek V1, odwiedzając stronę **zasady** w klastrze AKS i ma "bieżący klaster używa dodatku Azure Policy w wersji 1..." Komunikat.
      > 1. [Usuń dodatek](#remove-the-add-on-from-aks).
      > 1. Wybierz przycisk **Włącz dodatek** , aby zainstalować wersję v2 dodatku.
      > 1. [Przypisywanie wersji systemu v2 wbudowanych definicji zasad w wersji 1](#assign-a-built-in-policy-definition)
@@ -173,11 +176,11 @@ Na koniec sprawdź, czy najnowszy dodatek został zainstalowany, uruchamiając t
 }
 ```
 
-## <a name="install-azure-policy-add-on-for-azure-arc-enabled-kubernetes"></a>Zainstaluj Azure Policy dodatek dla usługi Azure ARC z włączonym Kubernetes
+## <a name="install-azure-policy-add-on-for-azure-arc-enabled-kubernetes-preview"></a><a name="install-azure-policy-add-on-for-azure-arc-enabled-kubernetes"></a>Zainstaluj dodatek Azure Policy dla usługi Azure ARC z włączonym Kubernetes (wersja zapoznawcza)
 
 Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji usługi subskrypcja musi włączyć dostawcę zasobów **Microsoft. PolicyInsights** i utworzyć przypisanie roli dla jednostki usługi klastra.
 
-1. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.62 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+1. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.12.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 1. Aby włączyć dostawcę zasobów, postępuj zgodnie z instrukcjami w obszarze [dostawcy zasobów i typy](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) lub Uruchom interfejs wiersza polecenia platformy Azure lub Azure PowerShell polecenie:
 
@@ -277,7 +280,7 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-## <a name="install-azure-policy-add-on-for-aks-engine"></a>Zainstaluj dodatek Azure Policy dla aparatu AKS
+## <a name="install-azure-policy-add-on-for-aks-engine-preview"></a><a name="install-azure-policy-add-on-for-aks-engine"></a>Zainstaluj dodatek Azure Policy dla aparatu AKS (wersja zapoznawcza)
 
 Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji usługi subskrypcja musi włączyć dostawcę zasobów **Microsoft. PolicyInsights** i utworzyć przypisanie roli dla jednostki usługi klastra.
 
@@ -404,13 +407,13 @@ Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą
 
    - **Wyłączone** — nie Wymuszaj zasad w klastrze. Żądania odmowy Kubernetes z naruszeniami nie są odrzucane. Wyniki oceny zgodności są nadal dostępne. Podczas wdrażania nowych definicji zasad do uruchamiania klastrów, opcja _wyłączone_ jest przydatna do testowania definicji zasad, ponieważ żądania dopuszczenia z naruszeniami nie są odrzucane.
 
-1. Wybierz pozycję **Next** (Dalej).
+1. Wybierz opcję **Dalej**.
 
 1. Ustaw **wartości parametrów**
 
    - Aby wykluczyć przestrzenie nazw Kubernetes z oceny zasad, określ listę przestrzeni nazw w **wykluczeniach przestrzeni nazw**parametrów. Zaleca się wykluczenie: _polecenia-system_, _strażnik-system_i _Azure-Arc_.
 
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 
 Alternatywnie możesz znaleźć i przypisać zasady Kubernetes przy użyciu [przystawki przypisywanie zasad —](../assign-policy-portal.md) szybki start dla portalu. Wyszukaj definicję zasad Kubernetes zamiast przykładu "Inspekcja maszyn wirtualnych".
 
@@ -430,7 +433,7 @@ W klastrze Kubernetes, jeśli przestrzeń nazw ma jedną z następujących etyki
 > [!NOTE]
 > Administrator klastra może mieć uprawnienia do tworzenia i aktualizowania szablonów ograniczeń oraz zasobów ograniczeń instalowanych przez dodatek Azure Policy, ale nie są to obsługiwane scenariusze, ponieważ ręczne aktualizacje są zastępowane. Strażnik kontynuuje ocenę zasad, które istniały przed zainstalowaniem dodatku i przypisanie definicji zasad Azure Policy.
 
-Co 15 minut, dodatek wywołuje pełne skanowanie klastra. Po zebraniu szczegółowych informacji o pełnym skanowaniu i wszystkich ocenach w czasie rzeczywistym przez strażnika podjętych zmian w klastrze dodatek zgłasza wyniki z powrotem do Azure Policy w celu uwzględnienia informacji o [zgodności](../how-to/get-compliance-data.md) , takich jak wszystkie Azure Policy przypisania. W cyklu inspekcji są zwracane tylko wyniki aktywnych przypisań zasad. Wyniki inspekcji mogą być również widoczne jako [naruszenia](https://github.com/open-policy-agent/gatekeeper#audit) wymienione w polu Stan niepowodzenia ograniczenia.
+Co 15 minut, dodatek wywołuje pełne skanowanie klastra. Po zebraniu szczegółowych informacji o pełnym skanowaniu i wszystkich ocenach w czasie rzeczywistym przez strażnika podjętych zmian w klastrze dodatek zgłasza wyniki z powrotem do Azure Policy w celu uwzględnienia informacji o [zgodności](../how-to/get-compliance-data.md) , takich jak wszystkie Azure Policy przypisania. W cyklu inspekcji są zwracane tylko wyniki aktywnych przypisań zasad. Wyniki inspekcji mogą być również widoczne jako [naruszenia](https://github.com/open-policy-agent/gatekeeper#audit) wymienione w polu Stan niepowodzenia ograniczenia. Aby uzyskać szczegółowe informacje dotyczące _niezgodnych_ zasobów, zobacz [szczegóły zgodności dla trybów dostawcy zasobów](../how-to/determine-non-compliance.md#compliance-details-for-resource-provider-modes).
 
 > [!NOTE]
 > Każdy raport zgodności w Azure Policy dla klastrów Kubernetes obejmuje wszystkie naruszenia w ciągu ostatnich 45 minut. Sygnatura czasowa wskazuje, kiedy wystąpiło naruszenie.
@@ -464,13 +467,9 @@ Aby usunąć dodatek Azure Policy z klastra AKS, użyj Azure Portal lub interfej
 
   1. Wybierz klaster AKS, w którym chcesz wyłączyć dodatek Azure Policy.
 
-  1. Wybierz pozycję **zasady (wersja zapoznawcza)** po lewej stronie usługi Kubernetes.
-
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Zrzut ekranu przedstawiający węzeł zasady (wersja zapoznawcza) na stronie usługi Kubernetes." border="false":::
+  1. Wybierz pozycję **zasady** po lewej stronie usługi Kubernetes.
 
   1. Na stronie głównej wybierz przycisk **Wyłącz dodatek** .
-
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Zrzut ekranu przedstawiający przycisk Wyłącz dodatek na stronie Dołączanie do Azure Policy dla usług Azure Kubernetes Services (A K S)." border="false":::
 
 - Interfejs wiersza polecenia platformy Azure
 

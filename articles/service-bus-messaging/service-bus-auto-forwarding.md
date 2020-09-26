@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób łańcucha kolejki Azure Service Bus
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: af1c8a8e043ae964c4917a58ea67275e8379817f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 34b73967813abdcb811221aa4a3a4ac96dce0664
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021718"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333685"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Łączenie Service Bus jednostek z funkcją autoprzesyłania dalej
 
@@ -29,11 +29,11 @@ Jednostka docelowa musi istnieć w momencie utworzenia jednostki źródłowej. J
 
 Do skalowania poszczególnych tematów można użyć funkcji automatycznego przesyłania dalej. Service Bus ogranicza [liczbę subskrypcji dla danego tematu](service-bus-quotas.md) do 2 000. Dodatkowe subskrypcje można obsłużyć, tworząc tematy drugiego poziomu. Nawet jeśli nie powiążesz się z ograniczeniem Service Bus liczby subskrypcji, dodanie drugiego poziomu tematów może poprawić ogólną przepływność tematu.
 
-![Scenariusz autoprzekazywania][0]
+![Diagram scenariusza autoprzesyłania dalej przedstawiający komunikat przetworzony w temacie Orders, który może odgałęziać się do któregokolwiek z trzech tematów zamówień drugiego poziomu.][0]
 
 Można również użyć autoprzesyłania dalej do rozdzielania nadawców komunikatów od odbiorników. Rozważmy na przykład system ERP obejmujący trzy moduły: przetwarzanie zamówień, zarządzanie zapasami i zarządzanie relacjami z klientami. Każdy z tych modułów generuje komunikaty, które znajdują się w kolejce do odpowiedniego tematu. Alicja i Robert to przedstawiciele handlowi zainteresowani wszystkimi wiadomościami odnoszącymi się do klientów. Aby otrzymywać te komunikaty, Alicja i Robert tworzą kolejkę osobistą i subskrypcję w każdym z tematów ERP, które automatycznie przekazują wszystkie komunikaty do ich kolejki.
 
-![Scenariusz autoprzekazywania][1]
+![Diagram scenariusza autoprzesyłania dalej przedstawiający trzy moduły przetwarzania wysyłające komunikaty przez trzy odpowiednie tematy do dwóch oddzielnych kolejek.][1]
 
 Jeśli Alicja przechodzi do urlopu, jego kolejki osobistej, a nie tematu ERP, wypełnia. W tym scenariuszu, ponieważ przedstawiciel handlowy nie otrzymał żadnych komunikatów, żaden z tych tematów nie osiągnął limitu przydziału.
 
@@ -53,7 +53,7 @@ Service Bus weksle jednej operacji dla każdego przesyłanego dalej komunikatu. 
 
 Aby utworzyć subskrypcję, która jest łańcuchem do innej kolejki lub tematu, twórca subskrypcji musi mieć uprawnienia do **zarządzania** zarówno dla jednostki źródłowej, jak i docelowej. Wysyłanie komunikatów do tematu źródłowego wymaga tylko uprawnień do **wysyłania** w temacie źródłowym.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać szczegółowe informacje na temat autoprzesyłania dalej, zobacz następujące tematy dotyczące odwołań:
 

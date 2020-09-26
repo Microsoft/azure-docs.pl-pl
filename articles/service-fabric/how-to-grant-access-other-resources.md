@@ -3,14 +3,14 @@ title: Udzielanie aplikacji dostępu do innych zasobów platformy Azure
 description: W tym artykule wyjaśniono, jak udzielić zarządzanej tożsamości Service Fabric dostępu do innych zasobów platformy Azure obsługujących uwierzytelnianie oparte na Azure Active Directory.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 638176ca2665146a64fb7a6bd83253eba3434a7f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a1d963c49f9522000028b00c138b2e5731a9ccca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258956"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333634"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Udzielanie zarządzanej tożsamości aplikacji Service Fabric do zasobów platformy Azure (wersja zapoznawcza)
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Udzielanie zarządzanej tożsamości aplikacji Service Fabric do zasobów platformy Azure
 
 Aby aplikacja mogła korzystać z tożsamości zarządzanej w celu uzyskania dostępu do innych zasobów, należy przyznać uprawnienia do tej tożsamości w chronionym dostępnym zasobach platformy Azure. Przyznawanie uprawnień jest zazwyczaj akcją zarządzania w ramach "płaszczyzny kontroli" usługi platformy Azure będącej właścicielem chronionego zasobu kierowanego za pośrednictwem Azure Resource Manager, który będzie wymuszać wszelkie stosowne sprawdzanie dostępu oparte na rolach.
 

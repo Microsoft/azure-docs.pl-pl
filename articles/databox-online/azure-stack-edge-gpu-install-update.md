@@ -6,21 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/24/2020
 ms.author: alkohli
-ms.openlocfilehash: 107485277e28a44841b0d71fef686f0bcbf52216
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8b733d1e5eae9cae01233fda4be078bd188e07c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334365"
 ---
-# <a name="update-your-azure-stack-edge-pro-with-gpu"></a>Aktualizowanie Azure Stack Edge z użyciem procesora GPU 
+# <a name="update-your-azure-stack-edge-pro-gpu"></a>Aktualizowanie procesora GPU w Azure Stack Edge 
 
-W tym artykule opisano kroki wymagane do zainstalowania aktualizacji na Azure Stack Edge z procesorem GPU przy użyciu lokalnego interfejsu użytkownika sieci Web i za pośrednictwem Azure Portal. Aktualizacje lub poprawki oprogramowania są stosowane w celu zachowania aktualności urządzenia Azure Stack Edge i powiązanego cluaster Kubernetes na urządzeniu. 
+W tym artykule opisano kroki wymagane do zainstalowania aktualizacji na Azure Stack Edge z procesorem GPU przy użyciu lokalnego interfejsu użytkownika sieci Web i za pośrednictwem Azure Portal. Zastosowanie aktualizacji lub poprawek oprogramowania w celu zapewnienia aktualności urządzenia Azure Stack Edge i skojarzonego z nim klastra Kubernetes. 
+
+Procedura opisana w tym artykule została wykonana przy użyciu innej wersji oprogramowania, ale proces pozostaje taki sam dla bieżącej wersji oprogramowania.
 
 > [!IMPORTANT]
-> - Aktualizacja **2008** jest zgodna z wersją oprogramowania **2.1.1328.1904** na urządzeniu. Aby uzyskać informacje na temat tej aktualizacji, przejdź do informacji o [wersji](azure-stack-edge-gpu-2008-release-notes.md).
+> - Aktualizacja **2009** jest zgodna z wersją oprogramowania **2.1.1358.2075** na urządzeniu. Aby uzyskać informacje na temat tej aktualizacji, przejdź do informacji o [wersji](azure-stack-edge-gpu-2009-release-notes.md).
 >
 > - Należy pamiętać, że zainstalowanie aktualizacji lub poprawki powoduje ponowne uruchomienie urządzenia. Ta aktualizacja wymaga sekwencyjnego zastosowania dwóch aktualizacji. Najpierw należy zastosować aktualizacje oprogramowania urządzenia, a następnie Kubernetes aktualizacje. Mając na względzie, że Azure Stack EDGE Pro jest urządzeniem jednego węzła, wszystkie we/wy w toku są zakłócane, a urządzenie będzie miało czas przestoju do 30 minut na aktualizację oprogramowania.
 

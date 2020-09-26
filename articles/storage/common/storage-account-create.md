@@ -1,27 +1,27 @@
 ---
 title: Tworzenie konta magazynu
 titleSuffix: Azure Storage
-description: Dowiedz się, jak utworzyć konto magazynu przy użyciu Azure Portal, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Konto usługi Azure Storage zapewnia unikatową przestrzeń nazw w Microsoft Azure do przechowywania danych i uzyskiwania do nich dostępu.
+description: Dowiedz się, jak utworzyć konto magazynu do przechowywania obiektów blob, plików, kolejek i tabel. Konto usługi Azure Storage zapewnia unikatową przestrzeń nazw w Microsoft Azure do odczytywania i zapisywania danych.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/07/2020
+ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8b6f5f302465d075b7a0bcb0e6b12c75b1379bb5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069844"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333583"
 ---
-# <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
+# <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
 Konto usługi Azure Storage zawiera wszystkie obiekty danych usługi Azure Storage: obiektów blob, plików, kolejek, tabel i dysków. Konto magazynu zapewnia unikatową przestrzeń nazw dla danych usługi Azure Storage, która jest dostępna z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. Dane na koncie usługi Azure Storage są trwałe i wysoce dostępne, bezpieczne i skalowalne.
 
-W tym artykule z tego artykułu dowiesz się, jak utworzyć konto magazynu przy użyciu [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)lub [szablonu Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+W tym artykule z tego artykułu dowiesz się, jak utworzyć konto magazynu przy użyciu [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)lub [szablonu Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ Przycisk uruchamia interaktywną powłokę, której można użyć, aby wykonać 
 
 ### <a name="install-the-cli-locally"></a>Instalowanie interfejsu wiersza polecenia lokalnie
 
-Interfejs wiersza polecenia platformy Azure możesz również zainstalować i używać lokalnie. Ten artykuł z artykułu wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). 
+Interfejs wiersza polecenia platformy Azure możesz również zainstalować i używać lokalnie. Przykłady w tym artykule wymagają interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom `az --version` , aby znaleźć zainstalowaną wersję. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 # <a name="template"></a>[Szablon](#tab/template)
 
@@ -104,11 +104,9 @@ Nie dotyczy
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Teraz możesz przystąpić do utworzenia konta magazynu.
-
 Każde konto magazynu musi należeć do grupy zasobów platformy Azure. Grupa zasobów to logiczny kontener przeznaczony do grupowania usług platformy Azure. Podczas tworzenia konta magazynu masz możliwość utworzenia nowej grupy zasobów lub użycia istniejącej grupy zasobów. W tym artykule pokazano, jak utworzyć nową grupę zasobów.
 
-Konto magazynu **ogólnego przeznaczenia, wersja 2** zapewnia dostęp do wszystkich usług magazynu Azure Storage: obiektów blob, plików, kolejek, tabel i dysków. Kroki opisane tutaj tworzą konto magazynu ogólnego przeznaczenia w wersji 2, ale kroki tworzenia dowolnego typu konta magazynu są podobne.
+Konto magazynu **ogólnego przeznaczenia, wersja 2** zapewnia dostęp do wszystkich usług magazynu Azure Storage: obiektów blob, plików, kolejek, tabel i dysków. Kroki opisane tutaj tworzą konto magazynu ogólnego przeznaczenia w wersji 2, ale kroki tworzenia dowolnego typu konta magazynu są podobne. Aby uzyskać więcej informacji na temat typów kont magazynu i innych ustawień konta magazynu, zobacz [Azure storage account overview (Omówienie kont usługi Azure Storage)](storage-account-overview.md).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -186,7 +184,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> Jeśli planujesz używać [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), Dołącz `--enable-hierarchical-namespace true` do tej listy parametrów. 
+> Jeśli planujesz używać [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), Dołącz `--enable-hierarchical-namespace true` do tej listy parametrów.
 
 Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 z inną opcją replikacji, należy zastąpić żądaną wartość w poniższej tabeli dla parametru **SKU** .
 
@@ -230,8 +228,6 @@ Aby dowiedzieć się, jak zmodyfikować ten szablon lub utworzyć nowe, zobacz:
 - [Dodatkowe przykłady szablonów kont magazynu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
-
-Aby uzyskać więcej informacji na temat dostępnych opcji replikacji, zobacz [Storage replication options (Opcje replikacji danych usługi Storage)](storage-redundancy.md).
 
 ## <a name="delete-a-storage-account"></a>Usuwanie konta magazynu
 
@@ -287,26 +283,6 @@ Alternatywnie można usunąć grupę zasobów, która spowoduje usunięcie konta
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule z tego artykułu opisano tworzenie standardowego konta magazynu ogólnego przeznaczenia w wersji 2. Aby dowiedzieć się, jak przekazywać i pobierać obiekty blob do i z konta magazynu, przejdź do jednego z przewodników szybki start dla usługi BLOB Storage.
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
-> [!div class="nextstepaction"]
-> [Praca z obiektami blob za pomocą witryny Azure Portal](../blobs/storage-quickstart-blobs-portal.md)
-
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
-
-> [!div class="nextstepaction"]
-> [Praca z obiektami blob za pomocą programu PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
-
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-> [!div class="nextstepaction"]
-> [Praca z obiektami blob za pomocą interfejsu wiersza polecenia platformy Azure](../blobs/storage-quickstart-blobs-cli.md)
-
-# <a name="template"></a>[Szablon](#tab/template)
-
-> [!div class="nextstepaction"]
-> [Praca z obiektami blob za pomocą witryny Azure Portal](../blobs/storage-quickstart-blobs-portal.md)
-
----
+- [Przegląd konta magazynu](storage-account-overview.md)
+- [Uaktualnienie konta magazynu ogólnego przeznaczenia do wersji 2](storage-account-upgrade.md)
+- [Przenoszenie konta usługi Azure Storage do innego regionu](storage-account-move.md)

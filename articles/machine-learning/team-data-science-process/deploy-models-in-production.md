@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e3e2ef3340ca836f56176c21cf3d221f0bf172b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a44ead4f0e7c9fcd8dfd19f562b453e600ed6a31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722241"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333755"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Wdrażaj modele w środowisku produkcyjnym, aby odgrywać aktywną rolę w podejmowaniu decyzji handlowych
 
@@ -34,10 +34,10 @@ Istnieją różne podejścia i platformy umożliwiające umieszczanie modeli w �
 >
 
 >[!NOTE]
->Aby uzyskać wdrożenie przy użyciu Azure Machine Learning Studio, zobacz [wdrażanie usługi sieci web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+>Aby uzyskać wdrożenie przy użyciu Azure Machine Learning Studio, zobacz [wdrażanie usługi sieci web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 >
 
-## <a name="ab-testing"></a>Testowanie A/B
+## <a name="ab-testing"></a>Testowanie A/B:
 
 Gdy wiele modeli jest w środowisku produkcyjnym, [testy A/B](https://en.wikipedia.org/wiki/A/B_testing) mogą służyć do porównywania wydajności modelu. 
  

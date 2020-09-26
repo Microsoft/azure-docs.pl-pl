@@ -1,17 +1,17 @@
 ---
 title: Powiązanie danych wyjściowych usługi Azure Blob Storage dla Azure Functions
-description: Dowiedz się, jak dostarczyć dane usługi Azure Blob Storage do funkcji platformy Azure.
+description: Dowiedz się, jak udostępniać dane wyjściowe powiązań usługi Azure Blob Storage do funkcji platformy Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 9596e6a6fd32994f782125c9bd4b8ca6d5a94b03
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 56d8078347b5de775b30c8db2c9412598070046c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213063"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285370"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych usługi Azure Blob Storage dla Azure Functions
 
@@ -355,7 +355,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Wprowadź** | nie dotyczy | Musi być ustawiony na `blob` . |
 |**wskazywa** | nie dotyczy | Musi być ustawiona na `out` dla powiązania danych wyjściowych. Wyjątki są zanotowane w sekcji [użycie](#usage) . |
 |**Nazwij** | nie dotyczy | Nazwa zmiennej, która reprezentuje obiekt BLOB w kodzie funkcji.  Ustaw, aby `$return` odwoływać się do zwracanej wartości funkcji.|
-|**path** |**Blobpath ścieżką** | Ścieżka do kontenera obiektów BLOB. |
+|**ścieżka** |**Blobpath ścieżką** | Ścieżka do kontenera obiektów BLOB. |
 |**połączenia** |**Połączenie**| Nazwa ustawienia aplikacji, które zawiera parametry połączenia magazynu, które będą używane dla tego powiązania. Jeśli nazwa ustawienia aplikacji zaczyna się od "AzureWebJobs", w tym miejscu możesz określić tylko resztę nazwy. Jeśli na przykład ustawisz opcję `connection` "Moja magazyn", środowisko uruchomieniowe funkcji wyszukuje ustawienie aplikacji o nazwie "AzureWebJobsMyStorage". Jeśli pozostawisz `connection` puste, środowisko uruchomieniowe funkcji używa domyślnych parametrów połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage` .<br><br>Parametry połączenia muszą być kontem magazynu ogólnego przeznaczenia, a nie [kontem magazynu obsługującym tylko obiekty blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |nie dotyczy | **Dostęp** | Wskazuje, czy będą odczytywane i zapisywane. |
 

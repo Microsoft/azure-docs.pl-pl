@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ddd1f61ada539ebb00341dd83919f1c851a0f3e1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 16bdb0d8ed421763895e61a6e1173fc7c5a48d4d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816375"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297950"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -38,7 +38,8 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 
 **wersja 2.0** obejmuje następujące aktualizacje:
--   [Biblioteki klienckie](quickstarts/client-library.md) dla języków NET, Python, Java i JavaScript zostały ogólnie dostępne. 
+
+- [Biblioteki klienckie](quickstarts/client-library.md) dla języków NET, Python, Java i JavaScript zostały ogólnie dostępne. 
 
 
 **Nowe przykłady** są dostępne w serwisie GitHub. 
@@ -176,4 +177,8 @@ Odpowiedzi JSON dla wszystkich wywołań interfejsu API mają nowe formaty. Niek
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ukończ [Przewodnik Szybki Start](quickstarts/curl-train-extract.md) , aby rozpocząć pracę z [interfejsami API aparatu rozpoznawania formularzy](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).
+Ukończ [Przewodnik Szybki Start dla biblioteki klienta](quickstarts/client-library.md) , aby rozpocząć pisanie aplikacji przetwarzania formularzy przy użyciu aparatu rozpoznawania formularzy w wybranym języku.
+
+## <a name="see-also"></a>Zobacz też
+
+* [Co to jest rozpoznawanie formularzy?](./overview.md)

@@ -2,16 +2,16 @@
 title: Informacje o usłudze Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak usługa Lab Services może ułatwić tworzenie i zabezpieczanie laboratoriów z maszynami wirtualnymi, które mogą być używane przez deweloperów, testerów, nauczycieli, uczniów itd., a także zarządzanie tymi laboratoriami.
 ms.topic: overview
-ms.date: 06/26/2020
-ms.openlocfilehash: 7661b26d16eb2c2acd53c30889ea791689c1eec0
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.date: 09/16/2020
+ms.openlocfilehash: ad17ebb3a803a15d1ac9ef8cb71cf8ca7976243b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85442809"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333940"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Wprowadzenie do usługi Azure Lab Services
-**Azure Lab Services** umożliwia tworzenie laboratoriów, których infrastruktura jest zarządzana przez platformę Azure. Obecnie laboratorium klasy jest jedynym typem zarządzanego laboratorium, które jest obsługiwane przez Azure Lab Services. Sama usługa obsługuje wszystkie zarządzanie infrastrukturą dla zarządzanego typu laboratorium, od nadawania maszyn wirtualnych do obsługi błędów i skalowania infrastruktury. Po utworzeniu przez administratora IT konta laboratorium w Azure Lab Services instruktor może szybko skonfigurować laboratorium dla klasy, określić liczbę i typ maszyn wirtualnych, które są potrzebne do ćwiczeń w klasie, i dodać użytkowników do klasy. Gdy użytkownik rejestruje się w klasie, użytkownik może uzyskać dostęp do maszyny wirtualnej w celu wykonania ćwiczeń dla klasy.  
+**Azure Lab Services** umożliwia tworzenie laboratoriów, których infrastruktura jest zarządzana przez platformę Azure. Obecnie laboratorium klasy jest jedynym typem zarządzanego laboratorium, które jest obsługiwane przez Azure Lab Services. Sama usługa obsługuje wszystkie zarządzanie infrastrukturą dla zarządzanego typu laboratorium, od nadawania maszyn wirtualnych do obsługi błędów i skalowania infrastruktury. Po utworzeniu przez administratora IT konta laboratorium w Azure Lab Services instruktor może szybko skonfigurować laboratorium dla klasy, określić liczbę i typ maszyn wirtualnych, które są niezbędne do ćwiczeń w klasie, i dodać użytkowników do klasy. Gdy użytkownik rejestruje się w klasie, użytkownik może uzyskać dostęp do maszyny wirtualnej w celu wykonania ćwiczeń dla klasy.  
 
 ## <a name="key-capabilities"></a>Najważniejsze możliwości
 Usługa Azure Lab Services obsługuje następujące kluczowe możliwości/funkcje:

@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: dc07d2826d3c27fad1eee644da36cb7b4f85ea3c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c23522911bd0c8dc9726a62cced839a1c4be37a6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897473"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333838"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Korzystanie z pakietu do interpretacji w celu wyjaśnienia modeli ML & prognoz w języku Python (wersja zapoznawcza)
 
@@ -42,10 +42,9 @@ Aby uzyskać więcej informacji na temat obsługiwanych technik interpretacji i 
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generuj wartość ważności funkcji na komputerze osobistym 
 Poniższy przykład pokazuje, jak używać pakietu interpretera na komputerze osobistym bez kontaktowania się z usługami platformy Azure.
 
-1. Zainstaluj `azureml-interpret` `azureml-contrib-interpret` pakiety i.
+1. Zainstaluj pakiet `azureml-interpret`.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 
 2. Uczenie przykładowego modelu w lokalnym notesie Jupyter.
@@ -239,15 +238,14 @@ Poniższy przykład pokazuje, jak można użyć klasy, `ExplanationClient` Aby w
 * Użyj `ExplanationClient` w zdalnym przebiegu do przekazania kontekstu interpretacji.
 * Pobierz kontekst później w środowisku lokalnym.
 
-1. Zainstaluj `azureml-interpret` `azureml-contrib-interpret` pakiety i.
+1. Zainstaluj pakiet `azureml-interpret`.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 1. Utwórz skrypt szkoleniowy w lokalnym notesie Jupyter. Na przykład `train_explain.py`.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     from azureml.core.run import Run
     from interpret.ext.blackbox import TabularExplainer
 
@@ -280,7 +278,7 @@ Poniższy przykład pokazuje, jak można użyć klasy, `ExplanationClient` Aby w
 1. Pobierz wyjaśnienie w lokalnym notesie Jupyter.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     
     client = ExplanationClient.from_run(run)
     
@@ -332,29 +330,12 @@ Możesz załadować wykres dotyczący ważności funkcji dla dowolnego punktu da
 
 [![Wizualizacje — wykresy z lodem](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
-> [!NOTE]
-> Przed rozpoczęciem jądra Jupyter upewnij się, że włączono rozszerzenia widżetu dla pulpitu nawigacyjnego Wizualizacja.
-
-* Notesy programu Jupyter
-
-    ```shell
-    jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize
-    jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
-    ```
-
-* JupyterLab
-
-    ```shell
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
-    jupyter labextension install microsoft-mli-widget
-    ```
-
 Aby załadować pulpit nawigacyjny wizualizacji, użyj poniższego kodu.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, dataset=x_test)
+ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Wizualizacja w programie Azure Machine Learning Studio
@@ -370,7 +351,7 @@ Aby uzyskać dostęp do pulpitu nawigacyjnego wizualizacji w programie Azure Mac
   1. Wybierz konkretny eksperyment, aby wyświetlić wszystkie uruchomienia w tym eksperymentie.
   1. Wybierz przebieg, a następnie kartę **wyjaśnienia** do pulpitu nawigacyjnego wizualizacji z wyjaśnieniem.
 
-   [![Ważność funkcji lokalnej pulpitu nawigacyjnego wizualizacji](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Ważność funkcji lokalnej pulpitu nawigacyjnego wizualizacji w programie Azure Studio w eksperymentach](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Okienko **modele**
   1. Jeśli Twój oryginalny model został zarejestrowany przez wykonanie kroków opisanych w temacie [Wdrażanie modeli przy użyciu Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), możesz wybrać **modele** w lewym okienku, aby je wyświetlić.

@@ -2,13 +2,13 @@
 title: Dostarczanie bezpiecznego elementu webhook za pomocą usługi Azure AD w Azure Event Grid
 description: Opisuje sposób dostarczania zdarzeń do punktów końcowych HTTPS chronionych przez Azure Active Directory przy użyciu Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 90d06f203bc93177101a87a7a774d816b11b16f6
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.date: 09/23/2020
+ms.openlocfilehash: e4a6e08f3e28b84198346efb7de09b202b884575
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460715"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322550"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publikowanie zdarzeń w punktach końcowych chronionych przez usługę Azure Active Directory
 
@@ -16,7 +16,6 @@ W tym artykule opisano, jak korzystać z Azure Active Directory, aby zabezpieczy
 
 W tym artykule jest używana Azure Portal dla demonstracji, jednak funkcja ta może być również włączona przy użyciu interfejsu wiersza polecenia, programu PowerShell lub zestawów SDK.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-an-azure-ad-application"></a>Tworzenie aplikacji usługi Azure AD
 

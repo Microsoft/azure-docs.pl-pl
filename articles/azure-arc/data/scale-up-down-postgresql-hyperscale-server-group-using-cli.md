@@ -9,18 +9,18 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b96f38d04fe3e3cb59fa75424ae588fe0e38f510
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dc77b3c8bc357b63047d20afa9493bbaaff77113
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285319"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Skalowanie w górę i w dół grupy serwerów z Azure Database for PostgreSQLm skalowaniem przy użyciu interfejsu wiersza polecenia (azdata lub polecenia kubectl)
 
 
 
-Czasami może zajść potrzeba zmiany charakterystyki lub definicji grupy serwerów. Przykład:
+Czasami może zajść potrzeba zmiany charakterystyki lub definicji grupy serwerów. Na przykład:
 
 - Skalowanie w górę lub w dół liczby rdzeni wirtualnych, które są używane przez każdego koordynatora lub węzły procesu roboczego
 - Skalowanie w górę lub w dół pamięci używanej przez każdy koordynator lub węzły procesu roboczego
@@ -84,7 +84,7 @@ W domyślnej konfiguracji tylko minimalna ilość pamięci jest ustawiana na 256
 
 Ustawienia, które należy skonfigurować, muszą być uwzględniane w konfiguracji ustawionej dla klastra Kubernetes. Upewnij się, że nie są ustawione wartości, które nie będą mogły być spełnione przez klaster Kubernetes. Może to prowadzić do błędów lub nieprzewidywalne zachowanie. Jeśli na przykład stan grupy serwerów pozostaje w trakcie _aktualizacji_ przez długi czas po zmianie konfiguracji, może to oznaczać, że następujące parametry są ustawiane na wartości, których nie może spełnić klaster Kubernetes. W takim przypadku Przywróć zmianę lub Odczytaj _troubleshooting_section.
 
-Załóżmy, że chcesz skalować w górę definicję grupy serwerów, aby:
+Załóżmy na przykład, że chcesz skalować w górę definicję grupy serwerów, aby:
 
 - Min rdzeń wirtualny = 2
 - Maksymalna rdzeń wirtualny = 4
@@ -94,6 +94,13 @@ Załóżmy, że chcesz skalować w górę definicję grupy serwerów, aby:
 Należy użyć jednej z następujących metod:
 
 ### <a name="cli-with-azdata"></a>Interfejs wiersza polecenia z azdata
+
+```console
+azdata arc postgres server edit -n <name of your server group> --cores-request <# core-request>  --cores-limit <# core-limit>  --memory-request <# memory-request>Mi  --memory-limit <# memory-limit>Mi
+```
+
+> [!CAUTION]
+> Poniżej przedstawiono przykład przedstawiający sposób użycia polecenia. Przed wykonaniem polecenia Edit upewnij się, że parametry są ustawione na wartości, które może obsłużyć klaster Kubernetes.
 
 ```console
 azdata arc postgres server edit -n <name of your server group> --cores-request 2  --cores-limit 4  --memory-request 512Mi  --memory-limit 1024Mi
@@ -116,6 +123,10 @@ kubectl edit postgresql-12/<server group name> [-n <namespace name>]
 
 Spowoduje to przejście do edytora VI, w którym można nawigować i zmieniać konfigurację. Aby zmapować odpowiednie ustawienie na nazwę pola w specyfikacji, użyj następujących elementów:
 
+> [!CAUTION]
+> Poniżej przedstawiono przykład przedstawiający sposób edytowania konfiguracji. Przed aktualizacją konfiguracji należy ustawić parametry na wartości, które może obsłużyć klaster Kubernetes.
+
+Na przykład:
 - Min rdzeń wirtualny = 2-> scheduling\default\resources\requests\cpu
 - Max rdzeń wirtualny = 4-> scheduling\default\resources\limits\cpu
 - Minimalna pamięć = 512 MB-> scheduling\default\resources\requests\cpu

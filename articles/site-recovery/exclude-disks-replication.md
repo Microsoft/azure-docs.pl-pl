@@ -3,12 +3,12 @@ title: Wyklucz dyski z replikacji za pomocą Azure Site Recovery
 description: Jak wykluczać dyski z replikacji na platformę Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 778bb030d9768c5fbe1cb8aeba0becfc68c00629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333668"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Wyklucz dyski z odzyskiwania po awarii
 
@@ -24,7 +24,7 @@ W tym artykule opisano, jak wykluczać dyski z replikacji podczas odzyskiwania p
 
 Dyski można wykluczać z replikacji, co zostało podsumowane w tabeli.
 
-**Azure–Azure** | **Z programu VMware do platformy Azure** | **Z funkcji Hyper-V do platformy Azure** | **Serwer fizyczny do platformy Azure**
+**Azure–Azure** | **Z programu VMware do platformy Azure** | **Funkcja Hyper-V do platformy Azure** | **Serwer fizyczny do platformy Azure**
 --- | --- | --- | ---
 Tak | Tak | Tak | Tak
 
@@ -207,7 +207,7 @@ DB-Disk3 | Dysk3 | F:\ | Dane użytkowników 2
 
 Nasze ustawienia pliku stronicowania na źródłowej maszynie wirtualnej są następujące:
 
-![Ustawienia pliku stronicowania na źródłowej maszynie wirtualnej](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![Zrzut ekranu przedstawiający okno dialogowe pamięć wirtualna z wyróżnioną linią D: Drive [wolumin stronicowania] z wyświetlonym rozmiarem pliku stronicowania (MB) 3000-7000.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. Włączamy replikację dla maszyny wirtualnej.
 2. Wyłączono bazę danych disk1 z replikacji.
@@ -260,12 +260,12 @@ DB-Disk3 | Dysk3 | F:\ | Dane użytkowników 2
 
 Nasze ustawienia pliku stronicowania na maszynie wirtualnej platformy Azure są następujące:
 
-![Ustawienia pliku stronicowania na maszynie wirtualnej platformy Azure](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+![Zrzut ekranu okna dialogowego pamięć wirtualna z wyróżnioną linią C: Drive wyświetlającą ustawienie rozmiaru pliku stronicowania "zarządzane przez system".](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat wytycznych dotyczących tymczasowego dysku magazynu:
     - [Dowiedz się więcej o](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) korzystaniu z dysków SSD na maszynach wirtualnych platformy Azure do przechowywania SQL Server tempdb i rozszerzeń puli buforów
-    - [Przejrzyj](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) najlepsze rozwiązania dotyczące wydajności SQL Server na maszynach wirtualnych platformy Azure.
+    - [Przejrzyj ](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) najlepsze rozwiązania dotyczące wydajności SQL Server na maszynach wirtualnych platformy Azure.
 - Po skonfigurowaniu i uruchomieniu wdrożenia [dowiedz się więcej](failover-failback-overview.md) o różnych typach trybu failover.

@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.custom: devx-track-javascript
-ms.openlocfilehash: deb0ca935cd01a0d86eea007711f65e439d4da00
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 5a1a3b28e7bf0ef5d6aa7c3339925d4f66f1e3a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322669"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Tworzenie aplikacji przy użyciu środowiska Node.js i interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB 
 > [!div class="op_single_selector"]
