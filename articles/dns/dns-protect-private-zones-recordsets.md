@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1bbb410b3aac7d1e30db075003eb30ec27b11a38
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 20e20968b6367e0a8c0131d6e7e8d15e56c06d63
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363226"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Ochrona prywatnych stref i rekordów DNS
 
@@ -102,9 +102,9 @@ Uprawnienia są stosowane na poziomie zestawu rekordów.  Użytkownik otrzymuje 
 
 Uprawnienia RBAC na poziomie rekordu można skonfigurować za pomocą Azure Portal przy użyciu przycisku **Access Control (IAM)** na stronie zestawu rekordów:
 
-![Ustawianie kontroli RBAC na poziomie rekordu za pośrednictwem Azure Portal](./media/dns-protect-private-zones-recordsets/rbac3.png)
+![Zrzut ekranu przedstawia przycisk Access Control (I M).](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
-![Ustawianie kontroli RBAC na poziomie rekordu za pośrednictwem Azure Portal](./media/dns-protect-private-zones-recordsets/rbac4.png)
+![Zrzut ekranu przedstawia Access Control z wybraną pozycją Dodaj przypisanie roli.](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
 Na poziomie zestawu rekordów można także udzielić uprawnień RBAC [przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -164,8 +164,8 @@ Poniższy przykład przedstawia definicję roli niestandardowej do zarządzania 
 
 Właściwość Actions definiuje następujące uprawnienia specyficzne dla systemu DNS:
 
-* `Microsoft.Network/privateDnsZones/CNAME/*`przyznaje pełną kontrolę nad rekordami CNAME
-* `Microsoft.Network/privateDNSZones/read`przyznaje uprawnienia do odczytu stref prywatnych DNS, ale nie do ich modyfikacji, umożliwiając wyświetlenie strefy, w której jest tworzony rekord CNAME.
+* `Microsoft.Network/privateDnsZones/CNAME/*` przyznaje pełną kontrolę nad rekordami CNAME
+* `Microsoft.Network/privateDNSZones/read` przyznaje uprawnienia do odczytu stref prywatnych DNS, ale nie do ich modyfikacji, umożliwiając wyświetlenie strefy, w której jest tworzony rekord CNAME.
 
 > [!NOTE]
 > Korzystanie z roli niestandardowej platformy Azure w celu uniemożliwienia usuwania zestawów rekordów, mimo że nie zezwala na ich aktualizację, nie jest skuteczną kontrolą. Zapobiega to usuwaniu zestawów rekordów, ale nie uniemożliwia ich modyfikacji.  Dozwolone modyfikacje obejmują dodawanie i usuwanie rekordów z zestawu rekordów, włącznie z usunięciem wszystkich rekordów, aby pozostawić pusty zestaw rekordów. Ma to taki sam efekt jak usunięcie zestawu rekordów z punktu widzenia rozpoznawania nazw DNS.

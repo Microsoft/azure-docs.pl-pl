@@ -5,15 +5,16 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: de3c7b46c048ff5575f3e9890b3c736ed7c71a61
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 65568132a3684112006c8267e46ce95b7c5acfcd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418065"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316382"
 ---
 [Dokumentacja](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)  |  referencyjna [Przykład](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-predict-with-rest/Predict.java)
 
@@ -44,7 +45,7 @@ Użyj języka Java, aby wykonać zapytanie dotyczące [punktu końcowego przewid
 
 1. Zastąp wartości zaczynające się od `YOUR-` własnymi wartościami.
 
-    |Informacje|Przeznaczenie|
+    |Informacyjny|Przeznaczenie|
     |--|--|
     |`YOUR-APP-ID`|Identyfikator aplikacji. Na stronie Ustawienia aplikacji Portal LUIS dla aplikacji.
     |`YOUR-PREDICTION-KEY`|Klucz predykcyjny dla 32 znaków. Znajdujący się w portalu LUIS, stronie zasobów platformy Azure dla Twojej aplikacji.
@@ -52,13 +53,13 @@ Użyj języka Java, aby wykonać zapytanie dotyczące [punktu końcowego przewid
 
 1. Kompiluj program Java z wiersza polecenia.
 
-    * Jeśli używasz systemu Windows, użyj tego polecenia:`javac -cp ";lib/*" Predict.java`
-    * Jeśli używasz macOS lub Linux, użyj tego polecenia:`javac -cp ":lib/*" Predict.java`
+    * Jeśli używasz systemu Windows, użyj tego polecenia: `javac -cp ";lib/*" Predict.java`
+    * Jeśli używasz macOS lub Linux, użyj tego polecenia: `javac -cp ":lib/*" Predict.java`
 
 1. Uruchom program Java z wiersza polecenia:
 
-    * Jeśli używasz systemu Windows, użyj tego polecenia:`java -cp ";lib/*" Predict`
-    * Jeśli używasz macOS lub Linux, użyj tego polecenia:`java -cp ":lib/*" Predict`
+    * Jeśli używasz systemu Windows, użyj tego polecenia: `java -cp ";lib/*" Predict`
+    * Jeśli używasz macOS lub Linux, użyj tego polecenia: `java -cp ":lib/*" Predict`
 
 1. Przejrzyj odpowiedź przewidywania zwracaną jako kod JSON:
 
@@ -228,7 +229,7 @@ Użyj języka Java, aby wykonać zapytanie dotyczące [punktu końcowego przewid
     }
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym przewodnikiem Szybki Start Usuń folder projektu z systemu plików.
 

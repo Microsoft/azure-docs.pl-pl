@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
-ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8309b625a590131c5f521335e180967ab2c2667c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77565582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363158"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Samouczek: zarządzanie połączonymi urządzeniami w trybie zbiorczym
 
@@ -147,7 +147,7 @@ Użyj swojego konta usługi Azure Storage do hostowania nowego pliku oprogramowa
 
 1. Po zakończeniu przekazywania następuje ponowne uruchomienie urządzenia IoT DevKit. Po zakończeniu ponownego uruchamiania na ekranie urządzenia IoT DevKit widać komunikat **FW version: 1.0.0** (Oprogramowanie układowe — wersja: 1.0.0) oraz komunikat o sprawdzaniu dostępności nowego oprogramowania układowego:
 
-    ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
+    ![Na zdjęciu jest wyświetlane urządzenie DevKit I o, na którym jest wyświetlana wersja oprogramowania układowego i sprawdzanie nowego oprogramowania układowego.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Tworzenie konfiguracji urządzenia
 
@@ -248,23 +248,23 @@ W tej sekcji utworzysz i wykonasz wdrożenie, które zastosuje konfigurację urz
 
 Po kilku minutach urządzenie IoT DevKit uzyska informacje o nowym oprogramowaniu układowym i rozpocznie jego pobieranie:
 
-![ota-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
+![Na zdjęciu jest wyświetlane urządzenie z DevKit I o.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
 
 W zależności od szybkości sieci pobieranie może potrwać kilka minut. Po pobraniu oprogramowania układowego urządzenie sprawdza rozmiar pliku oraz wartość CRC. Na ekranie urządzenia MXChip wyświetlany jest komunikat **passed** (zakończone pomyślnie), jeśli weryfikacja zakończy się powodzeniem.
 
-![ota-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
+![Na zdjęciu jest wyświetlane urządzenie z DevKit I o, na którym jest wyświetlana wersja oprogramowania układowego i przekazana do powodzenia weryfikacji.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
 
 Jeśli sprawdzenie zakończy się pomyślnie, nastąpi ponowne uruchomienie urządzenia. Przed rozpoczęciem ponownego uruchamiania nastąpi odliczanie od **5** do **0**.
 
-![ota-4](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
+![Na zdjęciu zostanie wyświetlone urządzenie DevKit I na urządzeniu, które zostanie przygotowane do ponownego uruchomienia.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
 
 Po ponownym uruchomieniu program inicjujący urządzenia IoT DevKit uaktualnia oprogramowanie układowe do nowej wersji. Uaktualnienie może potrwać kilka sekund. Na tym etapie dioda LED RGB urządzenia świeci na czerwono, a ekran pozostaje pusty.
 
-![ota-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
+![Na zdjęciu zostanie wyświetlone urządzenie z DevKitem I, które wykonuje uaktualnienie. Nie ma wyświetlania, ale występuje czerwony poświata R G B L E D.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
 
 Po zakończeniu ponownego uruchamiania na urządzeniu IoT DevKit będzie działało oprogramowanie układowe w wersji 1.0.1.
 
-![ota-6](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
+![Na zdjęciu jest wyświetlane urządzenie z DevKit I o.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
 
 Na stronie **Wdrożenia** kliknij wdrożenie, aby wyświetlić stan urządzeń po ich aktualizacji. Zobaczysz stan poszczególnych urządzeń w grupie urządzeń i zdefiniowane metryki niestandardowe.
 

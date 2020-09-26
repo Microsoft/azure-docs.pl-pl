@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 4f594f663267de7ed746082e77ae603e5592e721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c229fe6c1ccc7e2ce8e4f46ece51f315c8b7a90
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84047566"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362618"
 ---
 # <a name="elastic-database-tools-glossary"></a>Słownik narzędzi Elastic Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,7 +67,7 @@ Poniżej przedstawiono reprezentację baz danych o pojedynczej **podzielonej na 
 
 **Menedżer mapy fragmentu**: obiekt zarządzania i magazyn danych, który zawiera mapy fragmentu, lokalizacje fragmentu i mapowania dla co najmniej jednego zestawu fragmentu.
 
-![Mapowania][2]
+![Diagram przedstawia Menedżera mapy fragmentu skojarzony z shardmaps_global, shards_global i shard_mappings_global.][2]
 
 ## <a name="verbs"></a>zlecenia
 **Skalowanie w poziomie**: czynność skalowania (lub w) kolekcji fragmentów przez dodanie lub usunięcie fragmentów do mapy fragmentu, jak pokazano poniżej.

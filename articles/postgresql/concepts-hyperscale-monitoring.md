@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: dcce4485e00415f9caa706966cac1c936c1f15f6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9a6d8843acf27a53e261d9c7180906b15d05cc33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690412"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314814"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitorowanie i dostrajanie Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
@@ -32,7 +32,7 @@ Te metryki są dostępne dla węzłów ze skalowaniem (Citus):
 |---|---|---|---|
 |active_connections|Aktywne połączenia|Liczba|Liczba aktywnych połączeń z serwerem.|
 |cpu_percent|Procent użycia procesora CPU|Procent|Procent użycia procesora CPU.|
-|Wejścia|Liczba operacji we/wy na sekundę|Liczba|Zobacz [definicję IOPS](../virtual-machines/premium-storage-performance.md#iops) i [przepływność w ramach skalowania](concepts-hyperscale-configuration-options.md)|
+|Wejścia|Liczba operacji we/wy na sekundę|Liczba|Zobacz przepływność [definicji](../virtual-machines/premium-storage-performance.md#iops) i [skalowania IOPS (Citus).](concepts-hyperscale-configuration-options.md)|
 |memory_percent|Procent pamięci|Procent|Procent używanej pamięci.|
 |network_bytes_ingress|Sieć — wejście|Bajty|Sieć w ramach aktywnych połączeń.|
 |network_bytes_egress|Sieć — wyjście|Bajty|Nawiązywanie połączeń sieciowych między aktywnymi połączeniami.|

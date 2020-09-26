@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: 008274c86944b06b168bf52ca501c655bbe78434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bde4c11e9dc34be13efb25864fe75054d22bddb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610629"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363107"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integracja usługi Azure Firewall z usługą Azure Load Balancer w warstwie Standardowa
 
 Zaporę platformy Azure można zintegrować z siecią wirtualną przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa (publicznej lub wewnętrznej). 
 
-Preferowanym projektem jest zintegrowanie wewnętrznego modułu równoważenia obciążenia z zaporą platformy Azure, ponieważ jest to znacznie prostsze projektowanie. Możesz użyć publicznego modułu równoważenia obciążenia, jeśli masz już wdrożenie i chcesz zachować jego miejsce. Należy jednak pamiętać o problemie związanym z routingiem, który może spowodować przerwanie działania z scenariuszem publicznego modułu równoważenia obciążenia.
+Preferowanym projektem jest zintegrowanie wewnętrznego modułu równoważenia obciążenia z zaporą platformy Azure, ponieważ taki projekt jest znacznie prostszy. Możesz użyć publicznego modułu równoważenia obciążenia, jeśli masz już jeden wdrożony i chcesz zachować go na miejscu. Należy jednak pamiętać o problemie związanym z routingiem asymetrycznym, który może wpłynąć na funkcjonowanie w scenariuszu z publicznym modułem równoważenia obciążenia.
 
 Aby uzyskać więcej informacji na temat Azure Load Balancer, zobacz [co to jest Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
@@ -64,6 +64,10 @@ W przypadku wewnętrznego modułu równoważenia obciążenia moduł równoważe
 W tym scenariuszu nie ma żadnego asymetrycznego problemu z routingiem. Pakiety przychodzące docierają do publicznego adresu IP zapory, są tłumaczone na prywatny adres IP usługi równoważenia obciążenia, a następnie wraca do prywatnego adresu IP zapory przy użyciu tej samej ścieżki zwracanej.
 
 Tak więc można wdrożyć ten scenariusz podobny do scenariusza publicznego modułu równoważenia obciążenia, ale bez potrzeby trasy hosta publicznego adresu IP zapory.
+
+>[!NOTE]
+>Maszyny wirtualne w puli zaplecza nie będą miały wychodzącej łączności z Internetem przy użyciu tej konfiguracji. </br> Aby uzyskać więcej informacji na temat zapewniania łączności wychodzącej, zobacz: </br> **[Połączenia wychodzące na platformie Azure](../load-balancer/load-balancer-outbound-connections.md)**</br> Opcje zapewniania łączności: </br> **[Konfiguracja modułu równoważenia obciążenia tylko dla ruchu wychodzącego](../load-balancer/egress-only.md)** </br> [**Co to jest Virtual Network translator adresów sieciowych?**](../virtual-network/nat-overview.md)
+
 
 ## <a name="additional-security"></a>Dodatkowe zabezpieczenia
 

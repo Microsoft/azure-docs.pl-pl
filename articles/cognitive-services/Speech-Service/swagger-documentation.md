@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e42d9713d1d61bb681c0ee51e46cc52eb0bcc807
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77430809"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363192"
 ---
 # <a name="swagger-documentation"></a>Dokumentacja platformy Swagger
 
@@ -32,7 +32,7 @@ Musisz ustawić strukturę Swagger na ten sam region, w którym znajduje się su
 
 1. Przejdź do strony https://editor.swagger.io
 2. Kliknij pozycję **plik**, a następnie kliknij pozycję **Importuj** .
-3. Wprowadź adres URL programu Swagger, w tym Region subskrypcji usługi mowy`https://<your-region>.cris.ai/docs/v2.0/swagger`
+3. Wprowadź adres URL programu Swagger, w tym Region subskrypcji usługi mowy `https://<your-region>.cris.ai/docs/v2.0/swagger`
 4. Kliknij pozycję **Generuj klienta** i wybierz pozycję Python
 5. Zapisz bibliotekę kliencką
 
@@ -47,4 +47,4 @@ Możesz użyć biblioteki języka Python wygenerowanej w [przykładach usługi m
 ## <a name="next-steps"></a>Następne kroki
 
 * [Przykłady usługi mowy w witrynie GitHub](https://aka.ms/csspeech/samples).
-* [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](get-started.md)
+* [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](overview.md#try-the-speech-service-for-free)
