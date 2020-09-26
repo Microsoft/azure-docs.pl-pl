@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807608"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317569"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Rozwiązywanie problemów z synchronizacją skrótów haseł za pomocą usługi synchronizacji programu Azure AD Connect
 
@@ -120,7 +120,7 @@ Każdy lokalny łącznik Active Directory ma własny kanał synchronizacji skró
 
 Jeśli użycie konta AD DS, które jest używane przez łącznik On-Premises Active Directory do synchronizowania skrótów haseł nie ma odpowiednich uprawnień, zwracany jest następujący błąd:
 
-![Nieprawidłowe poświadczenie](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![Zrzut ekranu pokazujący błąd zwracany, gdy konto AD DS ma niepoprawną nazwę użytkownika lub hasło.](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>Nieprawidłowa nazwa użytkownika lub hasło konta AD DS
 
@@ -235,7 +235,7 @@ Aby rozwiązać problemy, gdy żadne hasła nie są synchronizowane dla użytkow
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
 
-   Przykład:
+   Na przykład:
 
    ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
@@ -338,11 +338,11 @@ Możesz łatwo rozwiązywać problemy z synchronizacją skrótów haseł, przegl
 
     i. Kliknij pozycję **właściwości obiektu metaverse** , aby wyświetlić listę atrybutów użytkownika.  
 
-    ![Informacje o magazynie Metaverse](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![Zrzut ekranu pokazujący listę atrybutów użytkownika dla właściwości obiektu Metaverse.](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
     Sprawdź, czy nie ma atrybutu **cloudFiltered** . Upewnij się, że atrybuty domeny (domainFQDN i domainNetBios) mają oczekiwane wartości.
 
-    j. Kliknij kartę **Łączniki** . Upewnij się, że są widoczne łączniki zarówno dla Active Directory lokalnych, jak i usługi Azure AD.
+    j. Kliknij kartę **Łączniki** . Upewnij się, że łączniki są widoczne zarówno dla Active Directory lokalnych, jak i usługi Azure AD.
 
     ![Informacje o magazynie Metaverse](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
@@ -362,7 +362,7 @@ Kolumna stan może mieć następujące wartości:
 | SourceConnectorNotPresent |Nie znaleziono obiektu w lokalnym obszarze łącznika Active Directory. |
 | TargetNotExportedToDirectory |Obiekt w obszarze łącznika usługi Azure AD nie został jeszcze wyeksportowany. |
 | MigratedCheckDetailsForMoreInfo |Wpis dziennika został utworzony przed kompilacją 1.0.9125.0 i jest wyświetlany w jego starszym stanie. |
-| Błąd |Usługa zwróciła nieznany błąd. |
+| Error |Usługa zwróciła nieznany błąd. |
 | Nieznane |Wystąpił błąd podczas próby przetworzenia partii skrótów haseł.  |
 | Brakattribute |Określone atrybuty (na przykład skrót protokołu Kerberos) wymagane przez Azure AD Domain Services są niedostępne. |
 | RetryRequestedByTarget |Określone atrybuty (na przykład skrót protokołu Kerberos) wymagane przez Azure AD Domain Services nie były wcześniej dostępne. Podjęto próbę ponownego zsynchronizowania skrótu hasła użytkownika. |

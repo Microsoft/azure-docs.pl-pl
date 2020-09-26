@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 41fdc342d82b07e82bb6e7b32e1a4f98f94d2a8e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/25/2020
+ms.openlocfilehash: 49248575cb10f3df746b9ba484244e4702fb5d72
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647544"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369012"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Nawiązywanie połączenia z sieciami wirtualnymi platformy Azure z Azure Logic Apps przy użyciu środowiska usługi integracji (ISE)
 
@@ -133,7 +133,7 @@ W tej tabeli opisano porty, które ISE muszą być dostępne, i przeznaczenie dl
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Komunikacja między podsieciami w ramach sieci wirtualnej | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Wymagany do przepływu ruchu *między* podsieciami w sieci wirtualnej. <p><p>**Ważne**: w przypadku ruchu między *składnikami* w poszczególnych podsieciach upewnij się, że otwarto wszystkie porty w każdej podsieci. |
 | Komunikacja z aplikacji logiki | **VirtualNetwork** | * | Różni się w zależności od miejsca docelowego | 80, 443 | Lokalizacja docelowa zależy od punktów końcowych usługi zewnętrznej, z którą aplikacja logiki musi się komunikować. |
-| Usługa Azure Active Directory | **VirtualNetwork** | * | **Usługi azureactivedirectory** | 80, 443 ||
+| Azure Active Directory | **VirtualNetwork** | * | **Usługi azureactivedirectory** | 80, 443 ||
 | Zależność usługi Azure Storage | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
 | Zarządzanie połączeniami | **VirtualNetwork** | * | **AppService** | 443 ||
 | Publikowanie dzienników diagnostycznych & metryki | **VirtualNetwork** | * | **AzureMonitor** | 443 ||
@@ -167,6 +167,8 @@ Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE ko�
 * [Adresy zarządzania Traffic Manager platformy Azure](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
 
 * [Logic Apps adresy przychodzące i wychodzące dla regionu ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+
+* [Adresy IP platformy Azure dla łączników w regionie ISE, które znajdują się w tym pliku do pobrania](https://www.microsoft.com/download/details.aspx?id=56519)
 
 * Należy włączyć punkty końcowe usługi dla usług Azure SQL, Storage, Service Bus i Event Hub, ponieważ nie można wysyłać ruchu przez zaporę do tych usług.
 
@@ -282,6 +284,21 @@ Jeśli nie zezwolisz na dostęp do tych zależności, wdrożenie usługi ISE ko�
 
    > [!IMPORTANT]
    > Zarządzane łączniki ISE, które staną się dostępne po utworzeniu ISE, nie są automatycznie wyświetlane w selektorze łącznika w Projektancie aplikacji logiki. Aby można było używać tych łączników ISE, należy ręcznie [dodać te łączniki do ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) , aby były wyświetlane w Projektancie aplikacji logiki.
+
+   > [!IMPORTANT]
+   > Zarządzane łączniki ISE obecnie nie obsługują [tagów](../azure-resource-manager/management/tag-support.md). W przypadku skonfigurowania zasad, które wymuszają znakowanie, próba dodania łączników ISE  
+   > może zakończyć się niepowodzeniem z błędem podobnym do tego przykładu: 
+   > 
+   > ```json
+   > {
+   >    "error": { 
+   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+   >       "message": "The tags are not supported in the managed API 'azureblob'."
+   >    }
+   > }
+   > ```
+   > Aby dodać łączniki ISE, należy wyłączyć lub usunąć zasady.
+   > 
 
 ## <a name="next-steps"></a>Następne kroki
 

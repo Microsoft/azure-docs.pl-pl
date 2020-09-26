@@ -1,6 +1,6 @@
 ---
 title: Samouczek `:` Używanie tożsamości zarządzanej do uzyskiwania dostępu do usługi Azure Storage za pośrednictwem klucza dostępu — Linux — Azure AD
-description: Samouczek przedstawiający proces użycia przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Storage.
+description: Samouczek, który przeprowadzi Cię przez proces używania tożsamości zarządzanej przypisanej przez system z systemem Linux do uzyskiwania dostępu do usługi Azure Storage za pośrednictwem klucza dostępu.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/04/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 312ca5f693c42d70ecb5e210ef0d30df5c9739bb
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e99a199fcc5f43f3710fe2e2fcfe55b7e624987b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90968701"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317467"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Samouczek: uzyskiwanie dostępu do usługi Azure Storage za pośrednictwem klucza dostępu przy użyciu przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux
 

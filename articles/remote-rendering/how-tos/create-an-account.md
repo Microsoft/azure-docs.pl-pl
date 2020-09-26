@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057674"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318096"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Tworzenie konta usługi Azure Remote Rendering
 
@@ -57,7 +57,7 @@ Wartości dla **`arrAccountId`** i **`arrAccountKey`** można znaleźć w portal
 
 ![Filtr subskrypcji](./media/azure-subscription-filter.png)
 
-Kliknięcie konta spowoduje przejście do tego ekranu, który będzie od razu widoczny dla **identyfikatora konta** :
+Kliknięcie konta spowoduje przejście do tego ekranu, który będzie od razu widoczny dla  **identyfikatora konta** :
 
 ![Identyfikator konta platformy Azure](./media/azure-account-id.png)
 
@@ -83,7 +83,7 @@ Teraz zakładasz, że masz konto magazynu. Przejdź do konta magazynu w portalu 
 
  Kliknij przycisk **Dodaj** na kafelku "Dodawanie przypisania roli", aby dodać pierwszą rolę:
 
-![Konto magazynu w usłudze IAM](./media/azure-add-role-assignment.png)
+![Konto magazynu IAM Dodawanie przypisania roli](./media/azure-add-role-assignment.png)
 
 * Pierwszą rolą do przypisania jest **właściciel** , jak pokazano na poniższym zrzucie ekranu.
 * Wybierz opcję **konto renderowania zdalnego** z listy rozwijanej **Przypisz dostęp do** .
@@ -95,11 +95,13 @@ Teraz zakładasz, że masz konto magazynu. Przejdź do konta magazynu w portalu 
 Powtórz Dodaj nowe role dwa razy dla odpowiednich opcji z listy rozwijanej **rola** :
 
 * **Współautor konta magazynu**
-* **Współautor danych obiektu blob magazynu**
+* **Współautor danych obiektu blob usługi Storage**
 
 Inne listy rozwijane są wybierane jako pierwszy krok.
 
 Jeśli dodano wszystkie trzy role, konto renderowania zdalnego platformy Azure ma dostęp do konta magazynu przy użyciu tożsamości usługi zarządzanej przypisanej przez system.
+> [!IMPORTANT]
+> Przypisania ról platformy Azure są przechowywane w pamięci podręcznej przez usługę Azure Storage, co może wiązać się z opóźnieniem do 30 minut między przypisaniem zdalnego konta renderowania i użyciem go w celu uzyskania dostępu do konta magazynu. Szczegółowe informacje znajdują się w [dokumentacji podstawowej kontroli dostępu](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected) .
 
 ## <a name="next-steps"></a>Następne kroki
 

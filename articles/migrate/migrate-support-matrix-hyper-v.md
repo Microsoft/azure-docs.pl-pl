@@ -3,12 +3,12 @@ title: Obsługa oceny funkcji Hyper-V w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny funkcji Hyper-V dzięki ocenie serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641827"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318181"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Macierz obsługi dla oceny funkcji Hyper-V
 
@@ -23,7 +23,7 @@ Aby skonfigurować ocenę maszyn wirtualnych funkcji Hyper-V, należy utworzyć 
 --- | ---
 **Limity oceny** | Do 35 000 maszyn wirtualnych funkcji Hyper-V można odkrywać i oceniać w jednym [Azure Migrate projekcie](migrate-support-matrix.md#azure-migrate-projects).
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure. Oprócz maszyn wirtualnych funkcji Hyper-V projekt może obejmować maszyny wirtualne VMware i serwery fizyczne, a także limity oceny dla każdego z nich.
-**Odnajdywanie** | Urządzenie Azure Migrate może odnajdywać maksymalnie 5000 maszyn wirtualnych funkcji Hyper-V.<br/><br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.
+**Odnajdowa** | Urządzenie Azure Migrate może odnajdywać maksymalnie 5000 maszyn wirtualnych funkcji Hyper-V.<br/><br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.
 **Ocena** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> Można ocenić do 35 000 maszyn wirtualnych w ramach pojedynczej oceny dla grupy.
 
 [Dowiedz się więcej](concepts-assessment-calculation.md) na temat ocen.
@@ -46,7 +46,7 @@ Aby skonfigurować ocenę maszyn wirtualnych funkcji Hyper-V, należy utworzyć 
 | :----------------------------- | :------------------- |
 | **System operacyjny** | Wszystkie systemy operacyjne można ocenić pod kątem migracji.  |
 | **Integration Services**       | [Usługi integracji funkcji Hyper-V](/virtualization/hyper-v-on-windows/reference/integration-services) muszą być uruchomione na maszynach wirtualnych, które oceniasz, aby przechwycić informacje o systemie operacyjnym. |
-
+| **Storage** | Dysk lokalny, DAS, JBOD, miejsca do magazynowania, CSV, SMB. Ten magazyn hosta funkcji Hyper-V, na którym są przechowywane pliki VHD/VHDX, jest obsługiwany. <br/> Obsługiwane są kontrolery wirtualne IDE i SCSI| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Wymagania urządzenia usługi Azure Migrate
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 33d1e73523ca85a21c032729b6537ee3297ea23e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f54245013b6a57c02120c0e97ecf5f39094148b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020835"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317739"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integracja Azure Machine Learning Studio (klasyczny) w Stream Analytics (wersja zapoznawcza)
 Stream Analytics obsługuje funkcje zdefiniowane przez użytkownika, które wywołują Azure Machine Learning Studio (klasyczne) punkty końcowe. Obsługa interfejsu API REST dla tej funkcji jest szczegółowa w [bibliotece interfejsu API rest Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Ten artykuł zawiera dodatkowe informacje, które są odpowiednie do pomyślnej implementacji tej możliwości w Stream Analytics. Samouczek został również ogłoszony i jest dostępny w [tym miejscu](stream-analytics-machine-learning-integration-tutorial.md).
@@ -25,7 +25,7 @@ Microsoft Azure Machine Learning Studio (klasyczny) to narzędzie do współprac
 * **Punkt końcowy**: *punkty końcowe* są obiektem Azure Machine Learning Studio (klasycznym) używanym do podejmowania funkcji jako danych wejściowych, stosowania określonego modelu uczenia maszynowego i zwracania oceny danych wyjściowych.
 * **Ocenianie**usługi sieci Web: usługa sieci *Web oceniania* jest kolekcją punktów końcowych, jak wspomniano powyżej.
 
-Każdy punkt końcowy ma interfejsy API do wykonywania wsadowego i wykonywania synchronicznego. Stream Analytics używa wykonywania synchronicznego. Określona usługa nosi nazwę [usługi żądanie/odpowiedź](../machine-learning/studio/consume-web-services.md) w Azure Machine Learning Studio (klasyczny).
+Każdy punkt końcowy ma interfejsy API do wykonywania wsadowego i wykonywania synchronicznego. Stream Analytics używa wykonywania synchronicznego. Określona usługa nosi nazwę [usługi żądanie/odpowiedź](../machine-learning/classic/consume-web-services.md) w Azure Machine Learning Studio (klasyczny).
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Machine Learning zasobów wymaganych do Stream Analytics zadań
 Na potrzeby przetwarzania zadań Stream Analytics, punkt końcowy żądania/odpowiedzi, [apikey](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services)i Definicja struktury Swagger są niezbędne do pomyślnego wykonania. Stream Analytics ma dodatkowy punkt końcowy, który konstruuje adres URL dla punktu końcowego struktury Swagger, wyszukuje interfejs i zwraca domyślną definicję UDF do użytkownika.

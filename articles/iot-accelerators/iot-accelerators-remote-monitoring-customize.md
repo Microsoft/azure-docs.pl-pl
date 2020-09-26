@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 412254f47a2700f77003f7db661f0ade214a1e23
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 2789ed642979616a4491a61d146d8468552ec2e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423205"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318470"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Dostosowywanie akceleratora rozwiązania do monitorowania zdalnego
 

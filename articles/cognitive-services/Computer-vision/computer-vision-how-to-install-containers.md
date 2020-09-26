@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 310a7578fe9d3af8c4600968178cb677658feaa6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 326d3a4783b058855d86e17198cbe8d7492feba2
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254333"
+ms.locfileid: "91370644"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalowanie i uruchamianie kontenerów odczytu (wersja zapoznawcza)
 
@@ -172,11 +172,11 @@ Kontener udostępnia oparte na interfejsie REST interfejsy API punktu końcowego
 
 # <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
 
-Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę Swagger można wyświetlić w: `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json` .
+Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę Swagger można wyświetlić w: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
 
 # <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
 
-Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę Swagger można wyświetlić w: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
+Użyj hosta `http://localhost:5000` dla interfejsów API kontenera. Ścieżkę Swagger można wyświetlić w: `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json` .
 
 ---
 

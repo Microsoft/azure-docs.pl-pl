@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 782a046b92c9d6cf755bfea0551d7f8153faa859
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939191"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317331"
 ---
 # <a name="storage-configuration"></a>Konfiguracja usługi Storage
 
@@ -151,10 +151,11 @@ Ważne czynniki, które należy wziąć pod uwagę podczas wybierania klasy maga
 
 - Aby zapewnić trwałość danych, **należy** użyć zdalnej, współdzielonej klasy magazynu, dzięki czemu w przypadku, gdy program lub węzeł jest uważany, że po utworzeniu kopii zapasowej można ponownie nawiązać połączenie z woluminem trwałym.
 - Dane zapisywane w wystąpieniu SQL Server, w bazie danych metryk i w bazie danych dzienników są zwykle dość małe i nie są wrażliwe na opóźnienia, co sprawia, że magazyn o wysokiej wydajności nie jest krytyczny. Jeśli masz użytkowników, którzy często korzystają z interfejsów Grafana i Kibana i masz dużą liczbę wystąpień bazy danych, użytkownicy mogą korzystać z szybszego przechowywania.
-- Wymagana pojemność magazynu jest zmienna wraz z liczbą wdrożonych wystąpień bazy danych, ponieważ dzienniki i metryki są zbierane dla każdego wystąpienia bazy danych. Dane są przechowywane w bazie danych dzienników i metryk przez 2 tygodnie przed przeczyszczeniem. Do zrobienia: ile miejsca do magazynowania jest wymagane na wystąpienie bazy danych?
+- Wymagana pojemność magazynu jest zmienna wraz z liczbą wdrożonych wystąpień bazy danych, ponieważ dzienniki i metryki są zbierane dla każdego wystąpienia bazy danych. Dane są przechowywane w bazie danych dzienników i metryk przez 2 tygodnie przed przeczyszczeniem. 
 - Zmiana klasy magazynu po wdrożeniu jest bardzo trudna, nie jest udokumentowana i nie jest obsługiwana. Upewnij się, że Klasa magazynu została prawidłowo wybrana w czasie wdrażania.
 
-> **Uwaga:** Jeśli nie określono klasy magazynu, zostanie użyta domyślna Klasa magazynu. Może istnieć tylko jedna domyślna Klasa magazynu na klaster Kubernetes. Można [zmienić domyślną klasę magazynu](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
+> [!NOTE]
+> Jeśli nie określono klasy magazynu, zostanie użyta domyślna Klasa magazynu. Może istnieć tylko jedna domyślna Klasa magazynu na klaster Kubernetes. Można [zmienić domyślną klasę magazynu](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
 
 ### <a name="database-instance-storage-configuration"></a>Konfiguracja magazynu wystąpienia bazy danych
 
@@ -162,7 +163,8 @@ Każde wystąpienie bazy danych ma dane, dzienniki i woluminy trwałe kopii zapa
 
 Podczas tworzenia wystąpienia przy użyciu `azdata arc sql mi create` `azdata arc postgres server create` polecenia lub istnieją dwa parametry, których można użyć do ustawiania klas magazynu:
 
-> **Uwaga:** Niektóre z tych parametrów są opracowywane i staną się dostępne w `azdata arc sql mi create` `azdata arc postgres server create` przyszłych wersjach.
+> [!NOTE]
+> Niektóre z tych parametrów są opracowywane i staną się dostępne w `azdata arc sql mi create` `azdata arc postgres server create` przyszłych wersjach.
 
 |Nazwa parametru, krótka nazwa|Sposób użycia|
 |---|---|

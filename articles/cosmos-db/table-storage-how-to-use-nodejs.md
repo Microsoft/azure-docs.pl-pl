@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z usługi Azure Table Storage lub interfejs API tabel Azure Cosmos DB w Node.js
-description: Przechowywanie danych strukturalnych w chmurze za pomocą usługi Azure Table Storage lub interfejsu Table API usługi Azure Cosmos DB.
+description: Przechowuj dane strukturalne w chmurze przy użyciu usługi Azure Table Storage lub interfejs API tabel Azure Cosmos DB w Node.js.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cfcb5645a6284214e233758705537486f32967c6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js
+ms.openlocfilehash: 6ce4354faec73f8fe42a936e677bee473796701d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079301"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318776"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu platformy Node.js
 
@@ -192,10 +192,10 @@ Przykładowa odpowiedź:
 
 Istnieje kilka metod aktualizowania istniejącej jednostki:
 
-* `replaceEntity`-Aktualizuje istniejącą jednostkę, zastępując ją.
-* `mergeEntity`-Aktualizuje istniejącą jednostkę, łącząc nowe wartości właściwości z istniejącą jednostką.
-* `insertOrReplaceEntity`-Aktualizuje istniejącą jednostkę, zastępując ją. Jeśli żadna jednostka nie istnieje, zostanie wstawiona nowa jednostka.
-* `insertOrMergeEntity`-Aktualizuje istniejącą jednostkę, łącząc nowe wartości właściwości z istniejącymi. Jeśli żadna jednostka nie istnieje, zostanie wstawiona nowa jednostka.
+* `replaceEntity` -Aktualizuje istniejącą jednostkę, zastępując ją.
+* `mergeEntity` -Aktualizuje istniejącą jednostkę, łącząc nowe wartości właściwości z istniejącą jednostką.
+* `insertOrReplaceEntity` -Aktualizuje istniejącą jednostkę, zastępując ją. Jeśli żadna jednostka nie istnieje, zostanie wstawiona nowa jednostka.
+* `insertOrMergeEntity` -Aktualizuje istniejącą jednostkę, łącząc nowe wartości właściwości z istniejącymi. Jeśli żadna jednostka nie istnieje, zostanie wstawiona nowa jednostka.
 
 Poniższy przykład ilustruje aktualizowanie jednostki przy użyciu `replaceEntity` :
 

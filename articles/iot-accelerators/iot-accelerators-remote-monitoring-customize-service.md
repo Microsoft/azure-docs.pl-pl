@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c214e9f8df88d6f48968e485b23d80c778d4d7ab
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 6689a6d8a19dd690aa19aeecd29ead35ef6c2db1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422678"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318351"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Dodawanie niestandardowej usługi do interfejsu użytkownika sieci Web akceleratora rozwiązania do monitorowania zdalnego
 
@@ -31,7 +31,7 @@ W aplikacji reagującej usługa zazwyczaj współdziała z usługą zaplecza. Pr
 
 Aby wykonać kroki opisane w tym przewodniku, musisz zainstalować następujące oprogramowanie na lokalnym komputerze deweloperskim:
 
-- [Narzędzia](https://git-scm.com/downloads)
+- [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem

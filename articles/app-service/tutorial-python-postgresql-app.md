@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 255f4e28cf4f3ed3f6e99afa0333989a2afffd95
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a630387a41b6def67141a423249c3347ff034e2e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311720"
+ms.locfileid: "91369624"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Samouczek: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL w Azure App Service
 
@@ -188,15 +188,13 @@ To polecenie wykonuje następujące akcje, co może potrwać kilka minut:
 - Utwórz aplikację App Service, jeśli nie istnieje.
 - Włącz domyślne rejestrowanie dla aplikacji, jeśli nie została jeszcze włączona.
 - Przekaż repozytorium przy użyciu wdrożenia ZIP z włączonym automatyzacją kompilacji.
+- Buforuj typowe parametry, takie jak nazwa grupy zasobów i planu App Service, do pliku *. Azure/config*. W związku z tym nie trzeba określać wszystkich parametrów z nowszymi poleceniami. Na przykład aby ponownie wdrożyć aplikację po wprowadzeniu zmian, można po prostu uruchomić polecenie `az webapp up` bez żadnych parametrów. Polecenia, które pochodzą z rozszerzeń CLI, takie jak `az postgres up` , nie są już używane do korzystania z pamięci podręcznej, dlatego należy określić grupę zasobów i lokalizację z początkowym użyciem `az webapp up` .
 
 Po pomyślnym wdrożeniu polecenie generuje dane wyjściowe JSON podobne do poniższego przykładu:
 
 ![Przykład AZ webapp up dane wyjściowe polecenia](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
 [Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
-
-> [!TIP]
-> Wiele poleceń interfejsu wiersza polecenia platformy Azure buforuje typowe parametry, takie jak nazwa grupy zasobów i plan App Service, do pliku *. Azure/config*. W związku z tym nie trzeba określać wszystkich parametrów z nowszymi poleceniami. Na przykład aby ponownie wdrożyć aplikację po wprowadzeniu zmian, można po prostu uruchomić polecenie `az webapp up` bez żadnych parametrów. Polecenia, które pochodzą z rozszerzeń CLI, takie jak `az postgres up` , nie są już używane do korzystania z pamięci podręcznej, dlatego należy określić grupę zasobów i lokalizację w tym miejscu przy użyciu `az webapp up` .
 
 > [!NOTE]
 > Jeśli spróbujesz odwiedzić adres URL aplikacji w tym momencie, wystąpi błąd "DisallowedHost at/". Ten błąd występuje, ponieważ aplikacja nie została jeszcze skonfigurowana do używania ustawień produkcyjnych omówionych wcześniej w poniższej sekcji.
@@ -253,6 +251,8 @@ Migracja baz danych Django upewnij się, że schemat w PostgreSQL w bazie danych
     ```
     
 1. `createsuperuser`Polecenie prosi o poświadczenia administratora. Na potrzeby tego samouczka Użyj domyślnej nazwy użytkownika `root` , naciśnij klawisz **Enter** , aby adres e-mail pozostawić puste, a następnie wprowadź `Pollsdb1` hasło.
+
+1. Jeśli zostanie wyświetlony komunikat o błędzie, że baza danych jest zablokowana, upewnij się, że uruchomiono `az webapp settings` polecenie w poprzedniej sekcji. Bez tych ustawień polecenie migracji nie może komunikować się z bazą danych, co spowodowało błąd.
 
 [Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
     

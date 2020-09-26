@@ -1,6 +1,6 @@
 ---
 title: Wysyłanie powiadomień wypychanych do systemu iOS przy użyciu usługi Azure Notification Hubs i zestawu iOS SDK w wersji 2.0.4
-description: W tym samouczku dowiesz się, jak wysyłać powiadomienia wypychane do urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs i usług powiadomień wypychanych firmy Apple.
+description: W tym samouczku dowiesz się, jak wysyłać powiadomienia wypychane do urządzeń z systemem iOS za pomocą usług Azure Notification Hubs i Apple Push Notification Service (wersja 2.0.4).
 author: sethmanheim
 ms.author: sethm
 ms.date: 06/19/2020
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: d89d46e3365a97d9deea8a89de2d9a1d5799cb72
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ffa562a734e0e6f898aaff89622362080bf1a053
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836058"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318198"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-204"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs (wersja 2.0.4)
 

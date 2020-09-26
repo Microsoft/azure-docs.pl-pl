@@ -4,13 +4,13 @@ description: Dowiedz się, jak opracowywać funkcje przy użyciu języka JavaScr
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6ff56ba6dc85901c8cdc7a9b06fbc261feb8792d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.custom: devx-track-js
+ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055332"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317180"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
 
@@ -203,9 +203,9 @@ Kontekst przekazaną do funkcji uwidacznia `executionContext` Właściwość, kt
 
 | Nazwa właściwości  | Typ  | Opis |
 |---------|---------|---------|
-| `invocationId` | Ciąg | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
-| `functionName` | Ciąg | Zawiera nazwę działającej funkcji |
-| `functionDirectory` | Ciąg | Udostępnia katalog aplikacji usługi Functions. |
+| `invocationId` | String | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
+| `functionName` | String | Zawiera nazwę działającej funkcji |
+| `functionDirectory` | String | Udostępnia katalog aplikacji usługi Functions. |
 
 Poniższy przykład pokazuje, jak zwrócić `invocationId` .
 

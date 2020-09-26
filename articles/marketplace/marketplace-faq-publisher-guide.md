@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: fa8ee205952d1bd39e932ca6c91e3cffe608bf95
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5bf94faff86edf954c687ca3024c63229829ca04
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032116"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369726"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
 
@@ -229,7 +229,7 @@ Konto użytkownika musi mieć uprawnienia *właściciela* lub *współautora* w 
 
 Klienci mogą uzyskać rozwiązania z komercyjnej witryny Marketplace w 141 lokalizacji na całym świecie.
 
-Aby przejrzeć listę lokalizacji, przejdź do [szczegółów podatku dla komercyjnych wydawców portalu Marketplace](partner-center-portal/tax-details-paid-transactions.md).
+Aby przejrzeć listę lokalizacji, przejdź do [szczegółów podatku dla komercyjnych wydawców portalu Marketplace](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
 
 ### <a name="what-currencies-are-supported-with-the-commercial-marketplace"></a>Które waluty są obsługiwane w komercyjnym portalu Marketplace?
 
@@ -274,32 +274,32 @@ Klienci są zwykle rozliczani miesięcznie za jakiekolwiek zakupy w poprzednim c
 
 ### <a name="how-often-will-i-receive-payouts-for-sales-through-the-commercial-marketplace"></a>Jak często otrzymuję wypłaty za sprzedaż za pomocą komercyjnej witryny Marketplace?
 
-Wypłaty wypłaty są comiesięczne. Aby uzyskać szczegółowe informacje na temat harmonogramów płatności, można znaleźć nadchodzące wypłaty w centrum partnerskim i sposób postępowania z niepłatami klientów, zobacz [Szczegóły zasad wypłaty](partner-center-portal/payout-policy-details.md).
+Wypłaty wypłaty są comiesięczne. Aby uzyskać szczegółowe informacje na temat harmonogramów płatności, można znaleźć nadchodzące wypłaty w centrum partnerskim i sposób postępowania z niepłatami klientów, zobacz [Szczegóły zasad wypłaty](/partner-center/payout-policy-details?context=/azure/marketplace/context/context).
 
 - W przypadku transakcji, w których Klient użył Umowa Enterprise, wypłaty wypłaty są wydawane w następnym cyklu wypłaty 30 dni. 
 - W przypadku transakcji, w których Klient użył karty kredytowej, po otrzymaniu płatności w celu zagwarantowania, że nie ma żadnych obciążeń zwrotnychych lub niejawnych oszustw, występuje dodatkowy 30-dniowy okres płatności.
 
 Wypłaty są wystawiane tylko wtedy, gdy sprzedaż osiągnęła minimalną łączną wartość $50,00.
 
-Aby uzyskać więcej informacji, zobacz [progi płatności, metody i klatki czasowe](partner-center-portal/payment-thresholds-methods-timeframes.md).
+Aby uzyskać więcej informacji, zobacz [progi płatności, metody i klatki czasowe](/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context).
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>W jakich krajach/regionach są podatki zarządzane w moim imieniu?
 
 Klienci mogą znaleźć rozwiązania z komercyjnej witryny Marketplace na całym świecie i zarządzać podatkami w wielu lokalizacjach. 
 
-Aby zapoznać się z pełną listą lokalizacji, przejdź do [szczegółów podatku dla komercyjnych wydawców portalu Marketplace](partner-center-portal/tax-details-paid-transactions.md).
+Aby zapoznać się z pełną listą lokalizacji, przejdź do [szczegółów podatku dla komercyjnych wydawców portalu Marketplace](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
 
 ### <a name="where-can-i-find-payout-reporting-for-the-commercial-marketplace"></a>Gdzie mogę znaleźć płatne raporty dotyczące komercyjnej witryny Marketplace?
 
 W centrum partnerskim użytkownik z uprawnieniami *właściciela* lub *finansów finansowych* może wyświetlać raportowanie wypłaty. Ci użytkownicy mogą uzyskiwać dostęp do raportów w prawym górnym rogu, wybierając ikonę pokazującą dłoń z rozliczeniami.
 
-Aby uzyskać więcej informacji, zobacz [raportowanie wypłat](partner-center-portal/payout-summary.md).
+Aby uzyskać więcej informacji, zobacz [instrukcje wypłaty](/partner-center/payout-statement?context=/azure/marketplace/context/context).
 
 ### <a name="how-do-i-configure-my-payout-method-and-destination"></a>Jak mogę skonfigurować metodę my wypłaty i miejsce docelowe?
 
 W centrum partnerskim użytkownicy z uprawnieniami *właściciela* mogą konfigurować konto wypłaty i formularze podatkowe. Można to zrobić, wybierając przycisk **Ustawienia** (ikonę koła zębatego) w prawym górnym rogu.
 
-Aby uzyskać więcej informacji, przejdź do pozycji [wypłata i formularze podatkowe](partner-center-portal/set-up-your-payout-account-tax-forms.md).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie konta wypłaty i formularzy podatkowych](/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context).
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Czy są zwracane i zwroty obsługiwane przez komercyjne witryny Marketplace?
 

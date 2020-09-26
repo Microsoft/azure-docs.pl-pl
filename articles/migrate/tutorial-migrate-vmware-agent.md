@@ -4,12 +4,12 @@ description: Dowiedz się, jak uruchomić migrację maszyn wirtualnych VMware z 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: bf33c61783b6d7399cd880f53009033a97625bca
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f437c0f3b9f786863d3b58f10d1a7384b0f1e8ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296148"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (oparte na agentach)
 
@@ -27,7 +27,7 @@ W tym artykule opisano sposób migrowania lokalnych maszyn wirtualnych programu 
 > * Uruchom pełną migrację na platformę Azure.
 
 > [!NOTE]
-> Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Samouczki korzystają z domyślnych opcji, jeśli jest to możliwe, i nie wyświetlają wszystkich możliwych ustawień i ścieżek. 
+> Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Jeśli to możliwe, samouczki używają opcji domyślnych i nie przedstawiają wszystkich możliwych ustawień i ścieżek. 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -42,7 +42,7 @@ Wykonaj zadania w tabeli, aby przygotować platformę Azure do migracji opartej 
 
 **Zadanie** | **Szczegóły**
 --- | ---
-**Tworzenie projektu Azure Migrate** | Twoje konto platformy Azure wymaga uprawnień współautora lub właściciela do utworzenia projektu.
+**Tworzenie projektu usługi Azure Migrate** | Twoje konto platformy Azure wymaga uprawnień współautora lub właściciela do utworzenia projektu.
 **Weryfikowanie uprawnień konta platformy Azure** | Twoje konto platformy Azure wymaga uprawnień do utworzenia maszyny wirtualnej i zapisu na dysku zarządzanym platformy Azure.
 **Konfiguracja sieci platformy Azure** | Skonfiguruj sieć, do której będą dołączane maszyny wirtualne platformy Azure po migracji.
 
@@ -50,12 +50,12 @@ Wykonaj zadania w tabeli, aby przygotować platformę Azure do migracji opartej 
 Jeśli nie masz projektu Azure Migrate, Sprawdź uprawnienia, aby je utworzyć.
 
 
-1. W Azure Portal Otwórz subskrypcję i wybierz pozycję **Kontrola dostępu (IAM)**.
+1. W witrynie Azure Portal otwórz daną subskrypcję i wybierz pozycję **Kontrola dostępu (IAM)** .
 2. W obszarze **Sprawdź dostęp**Znajdź odpowiednie konto i kliknij je, aby wyświetlić uprawnienia.
 3. Sprawdź, czy masz uprawnienia **współautora** lub **właściciela** .
 
-    - Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicielem subskrypcji.
-    - Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać rolę.
+    - Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji.
+    - Jeśli nie jesteś właścicielem subskrypcji, poproś właściciela o przypisanie roli.
     
 ### <a name="assign-azure-account-permissions"></a>Przypisywanie uprawnień konta platformy Azure
 
@@ -156,7 +156,7 @@ Jeśli masz projekt, Dodaj narzędzie w następujący sposób:
 2. W obszarze **Projekt migracji**wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.
 3. W obszarze **Szczegóły projektu** określ nazwę projektu i lokalizację geograficzną, w której chcesz utworzyć projekt, a następnie kliknij przycisk **Dalej**. Przejrzyj obsługiwane lokalizacje geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
-    ![Tworzenie projektu Azure Migrate](./media/tutorial-migrate-vmware-agent/migrate-project.png)
+    ![Tworzenie projektu usługi Azure Migrate](./media/tutorial-migrate-vmware-agent/migrate-project.png)
 
 
 4. W obszarze **Wybierz narzędzie oceny**, wybierz pozycję **Pomiń teraz dodawanie narzędzia oceny** > **Dalej**.
@@ -223,7 +223,7 @@ Zakończ Konfigurowanie i rejestrowanie urządzenia replikacji.
 
 1. W obszarze Konfiguracja urządzenia wybierz pozycję **Instalacja łączność**.
 2. Wybierz kartę sieciową (domyślnie istnieje tylko jedna karta sieciowa), którą urządzenie replikacji używa do odnajdywania maszyn wirtualnych, a następnie wykonaj instalację wypychaną usługi mobilności na maszynach źródłowych.
-3. Wybierz kartę sieciową używaną przez urządzenie do replikacji na potrzeby łączności z platformą Azure. Następnie wybierz pozycję **Zapisz**. Po skonfigurowaniu tego ustawienia nie można go zmienić.
+3. Wybierz kartę sieciową używaną przez urządzenie do replikacji na potrzeby łączności z platformą Azure. Następnie wybierz przycisk **Zapisz**. Po skonfigurowaniu tego ustawienia nie można go zmienić.
 4. Jeśli urządzenie znajduje się za serwerem proxy, należy określić ustawienia serwera proxy.
     - Określ nazwę serwera proxy jako **http://ip-address** lub **http://FQDN** . Serwery proxy HTTPS nie są obsługiwane.
 5. Po wyświetleniu monitu o subskrypcję, grupy zasobów i szczegóły magazynu należy dodać szczegóły zanotowane podczas pobraniu szablonu urządzenia.
@@ -251,7 +251,7 @@ Wybierz Maszyny wirtualne do migracji.
 
 1. Na **serwerach**Azure Migrate project > **Azure Migrate: Migracja serwera**, kliknij przycisk **replikacja**.
 
-    ![Replikowanie maszyn wirtualnych](./media/tutorial-migrate-vmware-agent/select-replicate.png)
+    ![Zrzut ekranu przedstawiający ekran serwery w Azure Migrate. Przycisk replikacja została wybrana w Azure Migrate: Migracja serwera w obszarze Narzędzia migracji.](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
 2. W obszarze **Replikacja** > **Ustawienia źródła** > **Czy maszyny są zwirtualizowane** wybierz pozycję **Tak, z funkcją VMware vSphere Hypervisor**.
 3. W **urządzeniu lokalnym**wybierz nazwę skonfigurowanego urządzenia Azure Migrate.
@@ -259,7 +259,7 @@ Wybierz Maszyny wirtualne do migracji.
 5. W obszarze **serwer przetwarzania**wybierz nazwę urządzenia replikacji.
 6. W obszarze **poświadczenia gościa**Określ konto administratora maszyny wirtualnej, które będzie używane do instalacji wypychanej usługi mobilności. Następnie kliknij przycisk **Dalej: maszyny wirtualne**.
 
-    ![Replikowanie maszyn wirtualnych](./media/tutorial-migrate-vmware-agent/source-settings.png)
+    ![Zrzut ekranu przedstawiający kartę Ustawienia źródła na ekranie replikacja. Zostanie wyróżnione pole poświadczenia gościa, a wartość jest ustawiona na VM-admin-account.](./media/tutorial-migrate-vmware-agent/source-settings.png)
 
 7. W **Virtual Machines**wybierz maszyny, które chcesz replikować.
 

@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: bb05a817ae553872fa1a6c364da4c075ae454e1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369097"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Samouczek: ładowanie danych do puli SQL usługi Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ W tym samouczku pokazano, jak załadować magazyn danych WideWorldImportersDW z 
 > * Generowanie roku danych w wymiarze danych i tabelach faktów sprzedaży
 > * Tworzenie statystyk dotyczących nowo załadowanych danych
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -83,7 +83,7 @@ Wykonaj następujące kroki, aby utworzyć pustą pulę SQL.
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia, a następnie wybierz pozycję **Utwórz** , aby utworzyć magazyn danych. Postęp można monitorować, otwierając stronę **wdrożenia w toku** z menu **powiadomienia** .
 
-     ![powiadomienie](./media/load-data-wideworldimportersdw/notification.png)
+     ![Zrzut ekranu przedstawia powiadomienia z wdrożeniem w toku.](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Tworzenie reguły zapory na poziomie serwera
 
@@ -133,13 +133,13 @@ Ta sekcja używa [SQL Server Management Studio](/sql/ssms/download-sql-server-ma
     | ------------ | --------------- | ----------- |
     | Typ serwera | Aparat bazy danych | Ta wartość jest wymagana |
     | Nazwa serwera | W pełni kwalifikowana nazwa serwera | Na przykład **sqlpoolservername.Database.Windows.NET** to w pełni kwalifikowana nazwa serwera. |
-    | Authentication | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
+    | Uwierzytelnianie | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
     | Zaloguj się | Konto administratora serwera | To konto określono podczas tworzenia serwera. |
     | Hasło | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
 
     ![łączenie z serwerem](./media/load-data-wideworldimportersdw/connect-to-server.png)
 
-3. Kliknij pozycję **Połącz**. W programie SSMS zostanie otwarte okno Eksplorator obiektów.
+3. Kliknij przycisk **Połącz**. W programie SSMS zostanie otwarte okno Eksplorator obiektów.
 
 4. W Eksploratorze obiektów rozwiń pozycję **Bazy danych**. Następnie rozwiń węzły **Systemowe bazy danych** i **master**, aby wyświetlić obiekty w bazie danych master.  Rozwiń węzeł **SampleDW** , aby wyświetlić obiekty w nowej bazie danych.
 
@@ -190,7 +190,7 @@ Pierwszym krokiem do załadowania danych jest zalogowanie się jako użytkownik 
 
 2. Wprowadź w pełni kwalifikowaną nazwę serwera i jako nazwę logowania wprowadź identyfikator **LoaderRC60**.  Wprowadź hasło dla użytkownika LoaderRC60.
 
-3. Kliknij pozycję **Połącz**.
+3. Kliknij przycisk **Połącz**.
 
 4. Gdy połączenie będzie gotowe, w Eksploratorze obiektów zobaczysz dwa połączenia z serwerem. Jedno połączenie jako ServerAdmin i jedno połączenie jako LoaderRC60.
 

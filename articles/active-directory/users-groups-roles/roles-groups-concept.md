@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2932bfc2f9606326ae38711237e5e10912d41aca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 1c3143dac79b37ff6dac04856311394440dec9a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053773"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317416"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Zarządzanie przypisaniami ról w programie Azure Active Directory przy użyciu grup chmurowych (wersja zapoznawcza)
 
@@ -64,7 +64,7 @@ Następujące scenariusze nie są obecnie obsługiwane:
   - Godzina zakończenia przypisywania roli może być błędnie wyświetlana.
   - W portalu PIM **role** mogą wyświetlać tylko jedno przypisanie roli bez względu na liczbę metod, do których przypisano przypisanie (za pomocą jednej lub kilku grup i bezpośrednio).
 - *Tylko licencjonowani klienci usługi Azure AD P2* Nawet po usunięciu grupy nadal jest widoczny uprawniony członek roli w interfejsie użytkownika PIM. Funkcjonalnie nie ma problemu; jest to tylko problem z pamięcią podręczną w Azure Portal.  
-- Centrum administracyjne programu Exchange nie rozpoznaje jeszcze członkostwa w roli za pośrednictwem grupy, ale działa polecenie cmdlet programu PowerShell.
+- Użyj nowego [Centrum administracyjnego programu Exchange](https://admin.exchange.microsoft.com/) do przypisywania ról za pośrednictwem członkostwa w grupie. Stare centrum administracyjne programu Exchange nie obsługuje jeszcze tej funkcji. Polecenia cmdlet programu Exchange PowerShell będą działały zgodnie z oczekiwaniami.
 - Portal Azure Information Protection (Portal klasyczny) nie rozpoznaje jeszcze członkostwa w roli za pośrednictwem grupy. Można [przeprowadzić migrację na platformę o ujednoliconej czułości](/azure/information-protection/configure-policy-migrate-labels) , a następnie użyć Centrum zgodności z pakietem Office 365 Security &, aby użyć przypisań grup do zarządzania rolami.
 
 Naprawiamy te problemy.

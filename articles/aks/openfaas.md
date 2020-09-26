@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 98b1842f81703041f419850be17c0c05a24b7c6b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: a4834ece4741b14981c08721e28bf528cab1da89
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440902"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368893"
 ---
 # <a name="using-openfaas-on-aks"></a>Korzystanie z OpenFaaS na AKS
 
@@ -134,7 +134,7 @@ Teraz, gdy OpenFaaS działa, Utwórz funkcję przy użyciu portalu OpenFaas.
 
 Kliknij pozycję **Wdróż nową funkcję** i Wyszukaj **FIGlet**. Wybierz funkcję FIGlet, a następnie kliknij pozycję **Wdróż**.
 
-![Figlet](media/container-service-serverless/figlet.png)
+![Zrzut ekranu przedstawia okno dialogowe Wdróż nową funkcję z tekstem FIGlet w wierszu wyszukiwania.](media/container-service-serverless/figlet.png)
 
 Użyj zwinięciea, aby wywołać funkcję. W poniższym przykładzie Zastąp adres IP używany przez bramę OpenFaas.
 

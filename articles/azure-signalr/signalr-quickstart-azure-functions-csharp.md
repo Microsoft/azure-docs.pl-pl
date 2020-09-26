@@ -6,14 +6,14 @@ ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 03/04/2019
+ms.date: 09/25/2020
 ms.author: zhshang
-ms.openlocfilehash: 02a9ed6b0e11aeb4f50b145cff6c747f09f1c2bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: be26fdafe0a8a52669fe41fd5514c808f10df745
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294040"
+ms.locfileid: "91369131"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Szybki Start: Tworzenie pokoju rozmów z usługami Azure Functions i sygnalizacyjnymi przy użyciu języka C\#
 
@@ -21,11 +21,11 @@ Usługa Azure SignalR Service umożliwia łatwe dodawanie funkcji czasu rzeczywi
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2019, możesz pobrać i korzystać **bezpłatnie** z programu [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
+Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2019, możesz pobrać i korzystać **bezpłatnie** z programu [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads). Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
 
 Ten samouczek można również uruchomić w wierszu polecenia (macOS, Windows lub Linux) przy użyciu [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing), [zestaw .NET Core SDK](https://dotnet.microsoft.com/download)i ulubionego edytora kodu.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Jeśli nie masz subskrypcji platformy Azure, [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/dotnet) przed rozpoczęciem.
 
 [Masz problemy? Daj nam znać.](https://aka.ms/asrs/qscsharp)
 
@@ -55,13 +55,13 @@ Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> prz
 
 1. Zaznacz i skopiuj podstawowe parametry połączenia.
 
-1. W programie Visual Studio w Eksploratorze rozwiązań zmień nazwę pliku *local.settings.sample.json* na *local.settings.json*.
+1. Wróć do programu Visual Studio — **Eksplorator rozwiązań**zmień nazwę *local.settings.sample.jsna* , aby *local.settings.js*.
 
-1. W pliku **local.settings.json** wklej parametry połączenia jako wartość ustawienia **AzureSignalRConnectionString**. Zapisz plik.
+1. W pliku *local.settings.json* wklej parametry połączenia jako wartość ustawienia **AzureSignalRConnectionString**. Zapisz plik.
 
-1. Otwórz plik **Functions.cs**. W tej aplikacji funkcji znajdują się dwie funkcje wyzwalane przez protokół HTTP:
+1. Otwórz plik *Functions.cs*. W tej aplikacji funkcji znajdują się dwie funkcje wyzwalane przez protokół HTTP:
 
-    - **GetSignalRInfo** — ta funkcja generuje i zwraca informacje o prawidłowym połączeniu przy użyciu danych wejściowych powiązania *SignalRConnectionInfo*.
+    - **GetSignalRInfo** — używa `SignalRConnectionInfo` powiązania danych wejściowych do generowania i zwracania prawidłowych informacji o połączeniu.
     - **SendMessage** — ta funkcja otrzymuje wiadomość rozmowy w treści żądania i używa powiązania danych wyjściowych usługi *SignalR* do rozpowszechnienia komunikatu do wszystkich połączonych aplikacji klienckich.
 
 1. Użyj jednej z następujących opcji, aby lokalnie uruchomić aplikację funkcji platformy Azure.

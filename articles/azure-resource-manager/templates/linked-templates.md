@@ -3,12 +3,12 @@ title: Łączenie szablonów do wdrożenia
 description: Opisuje, jak używać połączonych szablonów w szablonie Azure Resource Manager, aby utworzyć modularne rozwiązanie szablonów. Pokazuje, jak przekazać wartości parametrów, określić plik parametrów i dynamicznie tworzone adresy URL.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535562"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369318"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Używanie połączonych i zagnieżdżonych szablonów podczas wdrażania zasobów platformy Azure
 
@@ -369,7 +369,7 @@ Nie można użyć obu parametrów wbudowanych i linku do pliku parametrów. Wdro
 
 ## <a name="template-specs"></a>Specyfikacje szablonu
 
-Zamiast utrzymywać połączone szablony w dostępnym punkcie końcowym, można utworzyć [specyfikację szablonu](template-specs.md) , która pakuje szablon główny i jego połączone szablony w jedną jednostkę, którą można wdrożyć. Specyfikacja szablonu jest zasobem w ramach subskrypcji platformy Azure. Ułatwia to bezpieczne udostępnianie szablonu użytkownikom w organizacji. Za pomocą kontroli dostępu opartej na rolach (RBAC) można udzielić dostępu do specyfikacji szablonu. Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
+Zamiast utrzymywać połączone szablony w dostępnym punkcie końcowym, można utworzyć [specyfikację szablonu](template-specs.md) , która pakuje szablon główny i jego połączone szablony w jedną jednostkę, którą można wdrożyć. Specyfikacja szablonu jest zasobem w ramach subskrypcji platformy Azure. Ułatwia to bezpieczne udostępnianie szablonu użytkownikom w organizacji. Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można udzielić dostępu do specyfikacji szablonu. Ta funkcja jest obecnie dostępna w wersji zapoznawczej.
 
 Aby uzyskać więcej informacji, zobacz:
 
@@ -731,7 +731,7 @@ Plik parametrów można także ograniczyć do dostępu za pomocą tokenu SAS.
 Obecnie nie można połączyć się z szablonem na koncie magazynu, które znajduje się za [zaporą usługi Azure Storage](../../storage/common/storage-network-security.md).
 
 > [!IMPORTANT]
-> Zamiast zabezpieczać połączony szablon przy użyciu tokenu sygnatury dostępu współdzielonego, rozważ utworzenie [specyfikacji szablonu](template-specs.md). Specyfikacja szablonu bezpiecznie przechowuje szablon główny i jego połączone szablony jako zasób w ramach subskrypcji platformy Azure. Funkcja RBAC służy do udzielania dostępu użytkownikom, którzy muszą wdrożyć szablon.
+> Zamiast zabezpieczać połączony szablon przy użyciu tokenu sygnatury dostępu współdzielonego, rozważ utworzenie [specyfikacji szablonu](template-specs.md). Specyfikacja szablonu bezpiecznie przechowuje szablon główny i jego połączone szablony jako zasób w ramach subskrypcji platformy Azure. Korzystając z usługi Azure RBAC, Udziel dostępu użytkownikom, którzy muszą wdrożyć szablon.
 
 Poniższy przykład pokazuje, jak przekazać token SAS podczas tworzenia połączenia z szablonem:
 
@@ -801,7 +801,7 @@ W poniższych przykładach przedstawiono typowe zastosowania połączonych szabl
 
 |Szablon główny  |Połączony szablon |Opis  |
 |---------|---------| ---------|
-|[Witaj, świecie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[połączony szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Zwraca ciąg z połączonego szablonu. |
+|[Hello world](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[połączony szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Zwraca ciąg z połączonego szablonu. |
 |[Load Balancer z publicznym adresem IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[połączony szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Zwraca publiczny adres IP z połączonego szablonu i ustawia tę wartość w module równoważenia obciążenia. |
 |[Wiele adresów IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [połączony szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Tworzy kilka publicznych adresów IP w połączonym szablonie.  |
 

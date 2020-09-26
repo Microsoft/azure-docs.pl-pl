@@ -1,19 +1,19 @@
 ---
-title: Wdrażanie maszyn wirtualnych z systemem Linux na dedykowanych hostach przy użyciu interfejsu wiersza polecenia
-description: Wdróż maszyny wirtualne na dedykowanych hostach przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Wdrażanie maszyn wirtualnych i wystąpień zestawów skalowania do dedykowanych hostów przy użyciu interfejsu wiersza polecenia
+description: Wdróż maszyny wirtualne i wystąpienia zestawów skalowania na dedykowanych hostach przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 09/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 9435764d99476584680734817d55086f47e8216b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a85f5cb9cc519b180354445ca9ca2f8dd0354c23
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373627"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370203"
 ---
-# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Wdrażanie maszyn wirtualnych na dedykowanych hostach przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Wdrażanie na dedykowanych hostach przy użyciu interfejsu wiersza polecenia platformy Azure
  
 
 W tym artykule opisano sposób tworzenia [dedykowanego hosta](dedicated-hosts.md) platformy Azure do hostowania maszyn wirtualnych. 
@@ -23,22 +23,22 @@ Upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w we
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Zestawy skalowania maszyn wirtualnych nie są obecnie obsługiwane na dedykowanych hostach.
 - Rozmiary i typy sprzętu dostępne dla dedykowanych hostów różnią się w zależności od regionu. Więcej informacji można znaleźć na [stronie cennika](https://aka.ms/ADHPricing) hosta.
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów 
 Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów za pomocą AZ Group Create. Poniższy przykład tworzy grupę zasobów o nazwie *myDHResourceGroup* w lokalizacji *Wschodnie stany USA* .
 
-```bash
+```azurecli-interactive
 az group create --name myDHResourceGroup --location eastus 
 ```
  
 ## <a name="list-available-host-skus-in-a-region"></a>Wyświetlanie dostępnych jednostek SKU hosta w regionie
+
 Nie wszystkie jednostki SKU hosta są dostępne we wszystkich regionach i strefach dostępności. 
 
 Wyświetlanie listy dostępności hosta i ograniczeń oferty przed rozpoczęciem aprowizacji dedykowanych hostów. 
 
-```bash
+```azurecli-interactive
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table  
 ```
  
@@ -52,9 +52,10 @@ W obu przypadkach należy podać liczbę domen błędów dla grupy hostów. Jeś
 
 Możesz również zdecydować się na korzystanie ze stref dostępności i domen błędów. 
 
+
 W tym przykładzie użyjemy polecenia [AZ VM Host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) , aby utworzyć grupę hostów przy użyciu stref dostępności i domen błędów. 
 
-```bash
+```azurecli-interactive
 az vm host group create \
    --name myHostGroup \
    -g myDHResourceGroup \
@@ -62,11 +63,22 @@ az vm host group create \
    --platform-fault-domain-count 2 
 ``` 
 
+Dodaj `--automatic-placement true` parametr, aby maszyny wirtualne i wystąpienia zestawu skalowania były automatycznie umieszczane na hostach w grupie hostów. Aby uzyskać więcej informacji, zobacz sekcję [ręczne i automatyczne umieszczanie ](../dedicated-hosts.md#manual-vs-automatic-placement).
+
+> [!IMPORTANT]
+> Automatyczne umieszczanie jest obecnie w publicznej wersji zapoznawczej.
+>
+> Aby wziąć udział w wersji zapoznawczej, wypełnij ankietę dołączania w wersji zapoznawczej pod adresem [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
+>
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+>
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ### <a name="other-examples"></a>Inne przykłady
 
 Można również użyć [AZ VM Host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) , aby utworzyć grupę hostów w strefie dostępności 1 (i bez domen błędów).
 
-```bash
+```azurecli-interactive
 az vm host group create \
    --name myAZHostGroup \
    -g myDHResourceGroup \
@@ -76,7 +88,7 @@ az vm host group create \
  
 Poniższe zastosowania: [AZ VM Host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) , aby utworzyć grupę hostów przy użyciu tylko domen błędów (do użycia w regionach, w których strefy dostępności nie są obsługiwane). 
 
-```bash
+```azurecli-interactive
 az vm host group create \
    --name myFDHostGroup \
    -g myDHResourceGroup \
@@ -91,7 +103,7 @@ Aby uzyskać więcej informacji o jednostkach SKU i cenach hosta, zobacz [Cennik
 
 Użyj [AZ VM Host Create](/cli/azure/vm/host#az-vm-host-create) , aby utworzyć hosta. Jeśli ustawisz liczbę domen błędów dla grupy hostów, zostanie wyświetlony monit o określenie domeny błędów dla hosta.  
 
-```bash
+```azurecli-interactive
 az vm host create \
    --host-group myHostGroup \
    --name myHost \
@@ -105,28 +117,57 @@ az vm host create \
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej 
 Utwórz maszynę wirtualną na dedykowanym hoście za pomocą polecenia [AZ VM Create](/cli/azure/vm#az-vm-create). Jeśli podczas tworzenia grupy hostów została określona strefa dostępności, należy użyć tej samej strefy podczas tworzenia maszyny wirtualnej.
 
-```bash
+```azurecli-interactive
 az vm create \
    -n myVM \
    --image debian \
-   --generate-ssh-keys \
    --host-group myHostGroup \
-   --host myHost \
    --generate-ssh-keys \
    --size Standard_D4s_v3 \
    -g myDHResourceGroup \
    --zone 1
 ```
+
+Aby umieścić maszynę wirtualną na określonym hoście, użyj `--host` zamiast określania grupy hostów w programie `--host-group` .
  
 > [!WARNING]
 > Jeśli utworzono maszynę wirtualną na hoście, który nie ma wystarczającej ilości zasobów, maszyna wirtualna zostanie utworzona w stanie niepowodzenia. 
+
+## <a name="create-a-scale-set-preview"></a>Tworzenie zestawu skalowania (wersja zapoznawcza)
+
+> [!IMPORTANT]
+> Virtual Machine Scale Sets na dedykowanych hostach jest obecnie w publicznej wersji zapoznawczej.
+>
+> Aby wziąć udział w wersji zapoznawczej, wypełnij ankietę dołączania w wersji zapoznawczej pod adresem [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
+>
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+>
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Podczas wdrażania zestawu skalowania należy określić grupę hostów.
+
+```azurecli-interactive
+az vmss create \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
+  --image UbuntuLTS \
+  --upgrade-policy-mode automatic \
+  --admin-username azureuser \
+  --host-group myHostGroup \
+  --generate-ssh-keys \
+  --size Standard_D4s_v3 \
+  -g myDHResourceGroup \
+  --zone 1
+```
+
+Jeśli chcesz ręcznie wybrać host, na którym ma zostać wdrożony zestaw skalowania, Dodaj `--host` i nazwę hosta.
 
 
 ## <a name="check-the-status-of-the-host"></a>Sprawdź stan hosta
 
 Można sprawdzić stan kondycji hosta oraz liczbę maszyn wirtualnych, które można wdrożyć na hoście za pomocą polecenia [AZ VM Host Get-instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view).
 
-```bash
+```azurecli-interactive
 az vm host get-instance-view \
    -g myDHResourceGroup \
    --host-group myHostGroup \
@@ -233,7 +274,7 @@ az vm host get-instance-view \
 ## <a name="export-as-a-template"></a>Eksportowanie jako szablon 
 Możesz wyeksportować szablon, jeśli chcesz teraz utworzyć dodatkowe środowisko programistyczne z tymi samymi parametrami lub środowiskiem produkcyjnym, które je dopasowuje. Menedżer zasobów używa szablonów JSON, które definiują wszystkie parametry środowiska. Wszystkie środowiska można tworzyć, odwołując się do tego szablonu JSON. Szablony JSON można kompilować ręcznie lub wyeksportować istniejące środowisko, aby utworzyć szablon JSON. Użyj [AZ Group Export](/cli/azure/group#az-group-export) , aby wyeksportować grupę zasobów.
 
-```bash
+```azurecli-interactive
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
@@ -241,7 +282,7 @@ To polecenie tworzy `myDHResourceGroup.json` plik w bieżącym katalogu roboczym
  
 Aby utworzyć środowisko na podstawie szablonu, użyj [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create).
 
-```bash
+```azurecli-interactive
 az group deployment create \ 
     --resource-group myNewResourceGroup \ 
     --template-file myDHResourceGroup.json 
@@ -254,25 +295,25 @@ Opłaty są naliczane za dedykowane hosty nawet wtedy, gdy nie wdrożono żadnyc
 
 Hosta można usunąć tylko wtedy, gdy nie ma dłużej używanych maszyn wirtualnych. Usuń maszyny wirtualne za pomocą polecenia [AZ VM Delete](/cli/azure/vm#az-vm-delete).
 
-```bash
+```azurecli-interactive
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
 Po usunięciu maszyn wirtualnych można usunąć hosta za pomocą polecenia [AZ VM Host Delete](/cli/azure/vm/host#az-vm-host-delete).
 
-```bash
+```azurecli-interactive
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
 Po usunięciu wszystkich hostów można usunąć grupę hostów za pomocą polecenia [AZ VM Host Group Delete](/cli/azure/vm/host/group#az-vm-host-group-delete).  
  
-```bash
+```azurecli-interactive
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  
 ```
  
 Możesz również usunąć całą grupę zasobów w pojedynczym poleceniu. Spowoduje to usunięcie wszystkich zasobów utworzonych w grupie, w tym wszystkich maszyn wirtualnych, hostów i grup hostów.
  
-```bash
+```azurecli-interactive
 az group delete -n myDHResourceGroup 
 ```
 

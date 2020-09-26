@@ -3,14 +3,14 @@ title: Omówienie Start/Stop VMs during off-hours Azure Automation
 description: W tym artykule opisano funkcję Start/Stop VMs during off-hours, która uruchamia lub wstrzymuje maszyny wirtualne zgodnie z harmonogramem i aktywnie monitoruje je z dzienników Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/04/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064449"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317365"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
 
@@ -37,13 +37,15 @@ Poniżej przedstawiono ograniczenia związane z bieżącą funkcją:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Funkcja elementów Runbook dla maszyn wirtualnych uruchamiania/zatrzymywania w trakcie godzin pracy działa z [kontem Uruchom jako platformy Azure](./manage-runas-account.md). Konto Uruchom jako jest preferowaną metodą uwierzytelniania, ponieważ używa uwierzytelniania certyfikatu zamiast hasła, które może wygasnąć lub zmienić.
+- Funkcja elementów Runbook dla maszyn wirtualnych uruchamiania/zatrzymywania w trakcie godzin pracy działa z [kontem Uruchom jako platformy Azure](./manage-runas-account.md). Konto Uruchom jako jest preferowaną metodą uwierzytelniania, ponieważ używa uwierzytelniania certyfikatu zamiast hasła, które może wygasnąć lub zmienić.
 
-Zalecamy używanie oddzielnego konta usługi Automation do pracy z maszynami wirtualnymi z włączoną funkcją Start/Stop VMs during off-hours. Wersje modułów platformy Azure są często uaktualniane i ich parametry mogą ulec zmianie. Funkcja nie została uaktualniona na tym samym erze i może nie współpracować z nowszymi wersjami poleceń cmdlet, których używa. Zalecane jest przetestowanie aktualizacji modułu na koncie automatyzacji testów przed zaimportowaniem ich do kont automatyzacji produkcji.
+- Połączone konto usługi Automation i obszar roboczy Log Analytics muszą znajdować się w tej samej grupie zasobów.
+
+- Zalecamy używanie oddzielnego konta usługi Automation do pracy z maszynami wirtualnymi z włączoną funkcją Start/Stop VMs during off-hours. Wersje modułów platformy Azure są często uaktualniane i ich parametry mogą ulec zmianie. Funkcja nie została uaktualniona na tym samym erze i może nie współpracować z nowszymi wersjami poleceń cmdlet, których używa. Zalecane jest przetestowanie aktualizacji modułu na koncie automatyzacji testów przed zaimportowaniem ich do kont automatyzacji produkcji.
 
 ## <a name="permissions"></a>Uprawnienia
 
-Aby włączyć maszyny wirtualne dla funkcji Start/Stop VMs during off-hours, musisz mieć pewne uprawnienia. Uprawnienia są różne w zależności od tego, czy funkcja używa wstępnie utworzonego konta usługi Automation i obszaru roboczego Log Analytics, czy tworzy nowe konto i obszar roboczy. 
+Aby włączyć maszyny wirtualne dla funkcji Start/Stop VMs during off-hours, musisz mieć pewne uprawnienia. Uprawnienia są różne w zależności od tego, czy funkcja używa wstępnie utworzonego konta usługi Automation i obszaru roboczego Log Analytics, czy tworzy nowe konto i obszar roboczy.
 
 Nie musisz konfigurować uprawnień, jeśli jesteś współautorem subskrypcji i administratorem globalnym w dzierżawie usługi Azure Active Directory (AD). Jeśli nie masz tych praw lub musisz skonfigurować rolę niestandardową, upewnij się, że masz uprawnienia opisane poniżej.
 
@@ -107,7 +109,7 @@ Wszystkie nadrzędne elementy Runbook zawierają `WhatIf` parametr. Po ustawieni
 |Element Runbook | Parametry | Opis|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Wywoływana z nadrzędnego elementu Runbook. Ten element Runbook tworzy alerty dotyczące poszczególnych zasobów dla scenariusza automatycznie zatrzymywania.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true lub false  | Tworzy lub aktualizuje reguły alertów platformy Azure na maszynach wirtualnych w ramach dostosowanej subskrypcji lub grup zasobów. <br> `VMList`jest rozdzielaną przecinkami listą maszyn wirtualnych (bez odstępów), na przykład `vm1,vm2,vm3` .<br> `WhatIf`Włącza weryfikację logiki elementu Runbook bez wykonywania operacji.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true lub false  | Tworzy lub aktualizuje reguły alertów platformy Azure na maszynach wirtualnych w ramach dostosowanej subskrypcji lub grup zasobów. <br> `VMList` jest rozdzielaną przecinkami listą maszyn wirtualnych (bez odstępów), na przykład `vm1,vm2,vm3` .<br> `WhatIf` Włącza weryfikację logiki elementu Runbook bez wykonywania operacji.|
 |AutoStop_Disable | Brak | Wyłącza alerty autozatrzymaj i domyślny harmonogram.|
 |AutoStop_VM_Child | WebHookData | Wywoływana z nadrzędnego elementu Runbook. Reguły alertów wywołują ten element Runbook, aby zatrzymać klasyczną maszynę wirtualną.|
 |AutoStop_VM_Child_ARM | WebHookData |Wywoływana z nadrzędnego elementu Runbook. Reguły alertów wywołują ten element Runbook, aby zatrzymać maszynę wirtualną.  |
@@ -148,7 +150,7 @@ Poniższa tabela zawiera listę zmiennych utworzonych na koncie usługi Automati
 >[!NOTE]
 >Dla zmiennej `External_WaitTimeForVMRetryInSeconds` wartość domyślna została zaktualizowana z 600 do 2100. 
 
-We wszystkich scenariuszach zmienne `External_Start_ResourceGroupNames` , `External_Stop_ResourceGroupNames` i `External_ExcludeVMNames` są niezbędne do określania docelowych maszyn wirtualnych, z wyjątkiem list maszyn wirtualnych rozdzielonych przecinkami dla elementów runbook **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**i **ScheduledStartStop_Parent** . Oznacza to, że maszyny wirtualne muszą należeć do docelowych grup zasobów, aby akcje uruchamiania i zatrzymywania zostały wykonane. Logika działa podobnie jak Azure Policy, w którym można kierować do subskrypcji lub grupy zasobów, a akcje są dziedziczone przez nowo utworzone maszyny wirtualne. Takie podejście pozwala uniknąć konieczności utrzymania oddzielnego harmonogramu dla każdej maszyny wirtualnej i zarządzanie rozpoczęciem i zatrzymaniem w skali.
+We wszystkich scenariuszach zmienne `External_Start_ResourceGroupNames` ,  `External_Stop_ResourceGroupNames` i `External_ExcludeVMNames` są niezbędne do określania docelowych maszyn wirtualnych, z wyjątkiem list maszyn wirtualnych rozdzielonych przecinkami dla elementów runbook **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**i **ScheduledStartStop_Parent** . Oznacza to, że maszyny wirtualne muszą należeć do docelowych grup zasobów, aby akcje uruchamiania i zatrzymywania zostały wykonane. Logika działa podobnie jak Azure Policy, w którym można kierować do subskrypcji lub grupy zasobów, a akcje są dziedziczone przez nowo utworzone maszyny wirtualne. Takie podejście pozwala uniknąć konieczności utrzymania oddzielnego harmonogramu dla każdej maszyny wirtualnej i zarządzanie rozpoczęciem i zatrzymaniem w skali.
 
 ### <a name="schedules"></a>Harmonogramy
 

@@ -3,12 +3,12 @@ title: Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbe7257b577f0526e0d34c13e0102305e58cc656
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bb4345426eddb8b0b5250980eb46cf0509a22cff
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322465"
+ms.locfileid: "91369998"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Opis usługi Azure Policy dla klastrów Kubernetes
 
@@ -85,9 +85,6 @@ Poniższe zalecenie dotyczy tylko AKS i dodatku Azure Policy:
 ## <a name="install-azure-policy-add-on-for-aks"></a>Zainstaluj dodatek Azure Policy dla AKS
 
 Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji usługi subskrypcja musi włączyć dostawców zasobów **Microsoft. ContainerService** i **Microsoft. PolicyInsights** .
-
-> [!IMPORTANT]
-> Ogólna dostępność Azure Policy w AKS jest aktywnie zwalniana we wszystkich regionach. Oczekiwane globalne zakończenie wydania GA to 9/29/2020. Użycie w regionach bez wersji GA wymaga wykonania czynności rejestracji w wersji zapoznawczej. Jednak zostanie ona automatycznie zaktualizowana do wersji GA, gdy będzie dostępna w regionie.
 
 1. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.12.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 

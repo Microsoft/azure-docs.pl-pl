@@ -1,20 +1,20 @@
 ---
 title: 'Szybki Start: Biblioteka klienta aparatu rozpoznawania formularzy dla platformy .NET'
-description: W tym przewodniku szybki start Rozpocznij pracę z biblioteką klienta aparatu rozpoznawania dla platformy .NET.
+description: Za pomocą biblioteki klienta aparatu rozpoznawania formularzy dla platformy .NET można utworzyć aplikację przetwarzającej formularze, która wyodrębnia pary klucz/wartość i dane tabeli z dokumentów niestandardowych.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/17/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.openlocfilehash: f924347b99d270ac97da5f6d6f4edf7a13efacee
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: fc7b435d3abdd2e04f8beabf35b7ed337c5ff68b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89449613"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318930"
 ---
 > [!IMPORTANT]
 > * Zestaw SDK aparatu rozpoznawania formularzy obecnie jest przeznaczony dla wersji v 2.0 z usługi rozpoznawania.
@@ -105,7 +105,8 @@ Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy kl
 
 Zapoznaj się z przykładami dotyczącymi [uczenia modelu](#train-a-custom-model) i zarządzania modelami [niestandardowymi](#manage-custom-models).
 
-Należy pamiętać, że modele można również przeszkolić przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do etykietowania aparatów rozpoznawania formularzy](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> [!NOTE]
+> Modele mogą być również przeszkolone przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do etykietowania aparatów rozpoznawania formularzy](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## <a name="code-examples"></a>Przykłady kodu
 
@@ -138,13 +139,13 @@ static private FormRecognizerClient AuthenticateClient(){
 }
 ```
 
-## <a name="assets-for-testing"></a>Zasoby do testowania 
+## <a name="get-assets-for-testing"></a>Pobierz zasoby do testowania 
 
 Fragmenty kodu w tym przewodniku korzystają z formularzy zdalnych, do których uzyskuje dostęp za pomocą adresów URL. Jeśli zamiast tego chcesz przetworzyć lokalne dokumenty formularzy, zapoznaj się z odpowiednimi metodami w [dokumentacji referencyjnej](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) i [przykładami](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 Należy również dodać odwołania do adresów URL dla danych szkoleniowych i testowych.
 
-* Aby pobrać adres URL sygnatury dostępu współdzielonego dla danych szkolenia modelu niestandardowego, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener, a następnie wybierz pozycję **Pobierz sygnaturę dostępną**. Upewnij się, że uprawnienia do **odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+* Aby pobrać adres URL sygnatury dostępu współdzielonego dla danych szkolenia modelu niestandardowego, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener, a następnie wybierz pozycję **Pobierz sygnaturę dostępną**. Upewnij się, że uprawnienia do **odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna ona mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Skorzystaj z obrazów przykładowych z i paragonów zawartych w poniższych przykładach (dostępnych również w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) ) lub wykonaj powyższe kroki, aby uzyskać adres URL sygnatury dostępu współdzielonego pojedynczego dokumentu w usłudze BLOB Storage. 
 
 > [!NOTE]
@@ -620,6 +621,19 @@ static async Task RecognizeContentCustomModel()
 
             Console.WriteLine($"    Value: '{field.ValueData.Text}");
             Console.WriteLine($"    Confidence: '{field.Confidence}");
+        }
+        Console.WriteLine("Table data:");
+        foreach (FormPage page in form.Pages.Values)
+        {
+            for (int i = 0; i < page.Tables.Count; i++)
+            {
+                FormTable table = page.Tables[i];
+                Console.WriteLine($"Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+                foreach (FormTableCell cell in table.Cells)
+                {
+                    Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) contains {(cell.IsHeader ? "header" : "text")}: '{cell.Text}'");
+                }
+            }
         }
     }
 }
