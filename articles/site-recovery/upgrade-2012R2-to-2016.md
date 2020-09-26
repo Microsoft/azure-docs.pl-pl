@@ -1,6 +1,6 @@
 ---
 title: Uaktualnij system Windows Server/System Center VMM 2012 R2 do systemu Windows Server 2016 — Azure Site Recovery
-description: Dowiedz się, jak skonfigurować odzyskiwanie po awarii na platformie Azure dla maszyn wirtualnych Azure Stack przy użyciu usługi Azure Site Recovery.
+description: Dowiedz się, jak uaktualnić system Windows Server 2012 R2 hosts & SCVMM 2012 R2 skonfigurowany przy użyciu Azure Site Recovery, do systemu Windows Server 2016 & SCVMM 2016.
 services: site-recovery
 author: Sharmistha-Rai
 manager: gaggupta
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: sharrai
-ms.openlocfilehash: 82e178d37074b22cd170d6b2478525dd2ea7ddf1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b9869ae7dfbf5afd6b8d3b870a2ad4e56fd54c1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424328"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250073"
 ---
 # <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Uaktualnij system Windows Server Server/System Center 2012 R2 VMM do systemu Windows Server/VMM 2016 
 
@@ -78,7 +78,7 @@ Przed uaktualnieniem hostów z systemem Windows Server 2012 R2 należy uaktualni
 3. W obszarze **Dodaj/Usuń programy**wybierz pozycję Odinstaluj **programu VMM**  >  **Uninstall**. b. Wybierz pozycję **Usuń funkcje**, a następnie wybierz kolejno opcje**serwer zarządzania i konsola programu VMM**. c. W **opcji bazy danych**wybierz opcję **Zachowaj bazę danych**. d. Przejrzyj podsumowanie, a następnie kliknij przycisk **Odinstaluj**.
 
 4. [Instalowanie programu VMM 2016](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016)
-5. Uruchom SCVMM i sprawdź stan każdego hosta na karcie sieci **szkieletowej** . kliknij pozycję **Odśwież** , aby uzyskać najnowszy stan. Powinna zostać wyświetlona wartość status jako "wymaga uwagi". 
+5. Uruchom SCVMM i sprawdź stan każdego hosta na karcie sieci **szkieletowej** . Kliknij przycisk **Odśwież** , aby uzyskać najnowszy stan. Powinna zostać wyświetlona wartość status jako "wymaga uwagi". 
 17. Zainstaluj najnowszego [dostawcę Site Recovery Microsoft Azure](https://aka.ms/downloaddra) w programie SCVMM.
 16. Zainstaluj najnowszą wersję [agenta usługi odzyskiwania Microsoft Azure (MARS)](https://aka.ms/latestmarsagent) na każdym hoście klastra. Odśwież, aby upewnić się, że program SCVMM pomyślnie bada hosty.
 
@@ -96,7 +96,7 @@ Przed uaktualnieniem hostów z systemem Windows Server 2012 R2 należy uaktualni
 
 1.  Odinstaluj dostawcę usługi ASR, przechodząc do panelu sterowania — > programy — > programy i funkcje — >Microsoft Azure Site Recovery, a następnie klikając pozycję Odinstaluj
 2. Wykonaj kroki opisane w [tym miejscu](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#upgrade-a-standalone-vmm-server) na podstawie trybu uaktualniania, które chcesz wykonać.
-3. Uruchom konsolę SCVMM i sprawdź stan każdego hosta na karcie sieci **szkieletowej** . kliknij pozycję **Odśwież** , aby uzyskać najnowszy stan. Powinna zostać wyświetlona wartość status jako "wymaga uwagi".
+3. Uruchom konsolę SCVMM i sprawdź stan każdego hosta na karcie sieci **szkieletowej** . Kliknij przycisk **Odśwież** , aby uzyskać najnowszy stan. Powinna zostać wyświetlona wartość status jako "wymaga uwagi".
 4. Zainstaluj najnowszego [dostawcę Site Recovery Microsoft Azure](https://aka.ms/downloaddra) w programie SCVMM.
 5. Zaktualizuj najnowszą wersję [agenta usługi odzyskiwania Microsoft Azure (MARS)](https://aka.ms/latestmarsagent) na każdym hoście klastra. Odśwież, aby upewnić się, że SC VMM może pomyślnie zbadać hosty.
 

@@ -4,17 +4,17 @@ description: Ten przewodnik Szybki Start przedstawia sposób używania narzędzi
 services: synapse-analytics
 author: euangMS
 ms.author: euang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 4ca718db8d2d2d57c73e8e492e2edbee221cb3ec
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aca58328ada4f01072cf3779735bcd5cb518ef0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049812"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260771"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Szybki Start: Tworzenie puli Apache Spark w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web
 
@@ -49,7 +49,7 @@ Notes to interaktywny środowisko obsługujące różne języki programowania. N
 4. W oknie **Właściwości** Podaj nazwę notesu.
 5. Na pasku narzędzi kliknij przycisk **Publikuj**.
 6. Jeśli w obszarze roboczym istnieje tylko jedna pula Apache Spark, zostanie ona domyślnie wybrana. Użyj listy rozwijanej, aby wybrać poprawną pulę Apache Spark, jeśli żadna nie została wybrana.
-7. Kliknij przycisk **Dodaj kod**. Język domyślny to `Pyspark` . Zamierzasz używać kombinacji Pyspark i Spark SQL, więc wybór domyślny jest prawidłowy.
+7. Kliknij przycisk **Dodaj kod**. Język domyślny to `Pyspark` . Zamierzasz używać kombinacji Pyspark i Spark SQL, więc wybór domyślny jest prawidłowy. Inne obsługiwane języki to Scala i .NET for Spark.
 8. Następnie utworzysz prosty obiekt Dataframe platformy Spark do manipulowania. W takim przypadku należy utworzyć go z poziomu kodu. Istnieją trzy wiersze i trzy kolumny:
 
    ```python

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081312"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360807"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -217,7 +217,7 @@ Jeśli wymagana jest kopia historyczna oraz kopia przyrostowa lub tylko kopia pr
 
    Można zwiększyć liczbę równoległych uruchomionych procesów roboczych SAP dla DTP:
 
-   ![Create-SAP-BW-OHD-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![Zrzut ekranu przedstawia ustawienia przetwarzania równoległego, w którym można wybrać liczbę procesów równoległych dla D T P.](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Zaplanuj DTP w łańcuchach procesów.
 

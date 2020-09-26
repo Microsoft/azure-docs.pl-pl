@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z wirtualną macierzą StorSimple | Microsoft Docs
-description: W tym artykule opisano możliwości diagnostyki Menedżer urządzeń StorSimple i wyjaśniono, jak używać jej do rozwiązywania problemów z wirtualną tablicą StorSimple.
+description: Dowiedz się więcej na temat możliwości samoobsługowego rozwiązywania problemów w ramach usługi StorSimple Menedżer urządzeń.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 684554c5eaf3f5fa2701bad2d49c082595552adb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6cb78a7042ca3acbb27f510207783b97f733cfb0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515179"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249539"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Use the StorSimple Device Manager service to troubleshoot the StorSimple Virtual Array (Rozwiązywanie problemów z macierzą wirtualną StorSimple za pomocą Menedżera urządzeń StorSimple)
 ## <a name="overview"></a>Omówienie

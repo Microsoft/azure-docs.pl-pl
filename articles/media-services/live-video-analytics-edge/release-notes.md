@@ -3,12 +3,12 @@ title: Analiza filmów wideo na żywo na IoT Edge informacji o wersji — Azure
 description: Ten temat zawiera informacje o wersji analizy wideo na żywo na temat wydań IoT Edge, ulepszeń, poprawek błędów i znanych problemów.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0bdf11cd99d99067dc53dde7d55fd37b96a382c9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e33a62891f9503a4f2ff907585316c3737c876e6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250474"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Analiza filmów wideo na żywo na IoT Edge informacji o wersji
 
@@ -36,7 +36,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ### <a name="module-updates"></a>Aktualizacje modułu
 
-* Nowy węzeł rozszerzenia grafu, [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) jest dostępny do integracji z [modułem analizy przestrzennej](spatial-analysis-tutorial.md)(wersja zapoznawcza) z Cognitive Services.
+* Nowy węzeł rozszerzenia grafu, [MediaGraphCognitiveServicesVisionExtension](spatial-analysis-tutorial.md) jest dostępny do integracji z modułem [analizy przestrzennej](https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview)(wersja zapoznawcza) z Cognitive Services.
 * Dodano obsługę urządzeń z systemem Linux ARM64 — należy użyć [ręcznych kroków](deploy-iot-edge-device.md) do wdrożenia na takich urządzeniach.
 
 ### <a name="documentation-updates"></a>Aktualizacje dokumentacji

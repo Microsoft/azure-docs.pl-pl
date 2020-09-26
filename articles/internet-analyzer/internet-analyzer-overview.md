@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 3d9d1240e31d40a3d9c75d56314acc1721d90b99
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2512092c69390ce604c26ab6c5dd000afafc7c05
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73501946"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360892"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>Co to jest Analizator Internetu? (Wersja zapoznawcza)
 
@@ -36,18 +36,18 @@ Możesz skonfigurować własny niestandardowy punkt końcowy lub wybrać jedną 
 W trakcie okresu zapoznawczego dostępne są następujące wstępnie skonfigurowane punkty końcowe: 
 
 * **Regiony platformy Azure**
-    * Brazylia Południowa
+    * Brazil South
     * Indie Środkowe
     * Środkowe stany USA
     * Azja Wschodnia
-    * Wschodnie stany USA
+    * East US
     * Japonia Zachodnia
     * Europa Północna
     * Północna Republika Południowej Afryki
-    * Azja Południowo-Wschodnia 
+    * Southeast Asia 
     * Północne Zjednoczone Emiraty Arabskie
     * Zachodnie Zjednoczone Królestwo  
-    * Europa Zachodnia
+    * West Europe
     * Zachodnie stany USA 
     * Zachodnie stany USA 2
 * **Wiele kombinacji regionów platformy Azure** 
@@ -90,7 +90,7 @@ Aby użyć narzędzia Internet Analyzer, skonfiguruj zasób analizatora internet
 
 Gdy użytkownik odwiedza aplikację sieci Web, klient JavaScript wybiera dwa punkty końcowe do mierzenia we wszystkich skonfigurowanych testach. Dla każdego punktu końcowego klient wykonuje pomiary _zimnej_ i _ciepłej_ . _Zimna_ miara wiąże się z dodatkowym opóźnieniem obok czystego opóźnienia sieci między użytkownikiem a punktem końcowym, takim jak rozpoznawanie nazw DNS, uzgadnianie połączenia TCP i negocjowanie protokołu SSL/TLS. Pomiar _ciepły_ następuje tuż po zakończeniu _zimnej_ pomiarów i korzystaniu z funkcji zarządzania połączeniami za pomocą nowoczesnej przeglądarki w celu uzyskania dokładnej miary opóźnienia. W przypadku obsługi przez przeglądarkę użytkownika interfejs API czasu zasobów W3C jest używany do dokładnego chronometrażu pomiaru. Obecnie do analizy są używane tylko miary ciepłego opóźnienia.
 
-![architektura](./media/ia-overview/architecture.png)
+![Diagram przedstawia użytkownika końcowego łączącego się z serwerem aplikacji z osadzonym klientem i dwoma punktami końcowymi w Internecie z kilku opcji. Użytkownik przekazuje pomiary do analizatora internetowego.](./media/ia-overview/architecture.png)
 
 
 ## <a name="scorecards"></a>Karty wyników 

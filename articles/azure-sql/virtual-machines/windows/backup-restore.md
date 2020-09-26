@@ -8,17 +8,17 @@ editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 6a03a91eeb9296e60aa147f97634a15e8d344209
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a4965c587cb2f42c8411d48af2417dd3fe3d5edb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293035"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360790"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Tworzenie kopii zapasowych i przywracanie SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,11 +35,11 @@ Poniższa tabela zawiera informacje dotyczące różnych opcji tworzenia kopii z
 |---|---|---|
 | [Automatyczne usługa Backup](#automated) | 2014<br/> 2016<br/> 2017 | Automatyczne tworzenie kopii zapasowych umożliwia planowanie regularnych kopii zapasowych dla wszystkich baz danych na maszynie wirtualnej SQL Server. Kopie zapasowe są przechowywane w usłudze Azure Storage przez maksymalnie 30 dni. Począwszy od SQL Server 2016, automatyczna kopia zapasowa v2 oferuje dodatkowe opcje, takie jak Konfigurowanie harmonogramu ręcznego oraz częstotliwość pełnych i dzienników kopii zapasowych. |
 | [Usługa Azure Backup dla maszyn wirtualnych SQL](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup zapewnia funkcję tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server na maszynach wirtualnych platformy Azure. Za pomocą tej usługi można centralnie zarządzać kopiami zapasowymi dla wielu serwerów i tysięcy baz danych. Bazy danych można przywrócić do określonego punktu w czasie w portalu. Oferuje to dostosowywalne zasady przechowywania, które mogą obsługiwać kopie zapasowe przez lata. |
-| [Ręczna kopia zapasowa](#manual) | Wszystkie | W zależności od używanej wersji SQL Server istnieją różne techniki ręcznego tworzenia kopii zapasowych i przywracania SQL Server na maszynie wirtualnej platformy Azure. W tym scenariuszu użytkownik jest odpowiedzialny za tworzenie kopii zapasowych baz danych oraz lokalizację magazynu oraz zarządzanie tymi kopiami zapasowymi. |
+| [Ręczna kopia zapasowa](#manual) | Wszystko | W zależności od używanej wersji SQL Server istnieją różne techniki ręcznego tworzenia kopii zapasowych i przywracania SQL Server na maszynie wirtualnej platformy Azure. W tym scenariuszu użytkownik jest odpowiedzialny za tworzenie kopii zapasowych baz danych oraz lokalizację magazynu oraz zarządzanie tymi kopiami zapasowymi. |
 
 W poniższych sekcjach opisano każdą opcję bardziej szczegółowo. Ostatnia sekcja tego artykułu zawiera podsumowanie w formie macierzy funkcji.
 
-## <a name="automated-backup"></a><a id="automated"></a>Automatyczna kopia zapasowa
+## <a name="automated-backup"></a><a id="automated"></a> Automatyczna kopia zapasowa
 
 Automatyczne kopie zapasowe zapewniają usługę automatycznego tworzenia kopii zapasowych dla SQL Server Standard i wersji Enterprise działających na maszynie wirtualnej z systemem Windows na platformie Azure. Ta usługa jest świadczona przez [SQL Server rozszerzenie agenta IaaS](sql-server-iaas-agent-extension-automate-management.md), które jest instalowane automatycznie na SQL Server obrazów maszyn wirtualnych z systemem Windows w Azure Portal.
 
@@ -58,7 +58,7 @@ Aby uzyskać więcej informacji na temat konfigurowania zautomatyzowanej kopii z
 - **SQL Server 2016/2017**: [Automatyczne kopie zapasowe v2 dla platformy Azure Virtual Machines](automated-backup.md)
 - **SQL Server 2014**: [Automatyczne kopie zapasowe dla SQL Server 2014 Virtual Machines](automated-backup-sql-2014.md)
 
-## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a>Azure Backup dla maszyn wirtualnych SQL
+## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a> Azure Backup dla maszyn wirtualnych SQL
 
 [Azure Backup](/azure/backup/) zapewnia funkcję tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server na maszynach wirtualnych platformy Azure. Wszystkie kopie zapasowe są przechowywane i zarządzane w magazynie Recovery Services. Istnieje kilka korzyści, które zapewnia to rozwiązanie, szczególnie w przypadku przedsiębiorstw:
 
@@ -79,7 +79,7 @@ Aby zapoznać się z krótkim omówieniem, jak to działa wraz z pokazem, Obejrz
 
 To Azure Backup rozwiązanie dla maszyn wirtualnych SQL jest ogólnie dostępne. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowej bazy danych SQL Server Database na platformie Azure](../../../backup/backup-azure-sql-database.md).
 
-## <a name="manual-backup"></a><a id="manual"></a>Ręczna kopia zapasowa
+## <a name="manual-backup"></a><a id="manual"></a> Ręczna kopia zapasowa
 
 Jeśli chcesz ręcznie zarządzać operacjami tworzenia kopii zapasowych i przywracania na maszynach wirtualnych SQL, istnieje kilka opcji w zależności od używanej wersji programu SQL Server. Aby zapoznać się z omówieniem tworzenia kopii zapasowych i przywracania, zobacz jeden z następujących artykułów w zależności od używanej wersji programu SQL Server:
 
@@ -129,23 +129,23 @@ Poniższa tabela zawiera podsumowanie możliwości poszczególnych opcji tworzen
 
 | Opcja | Automatyczne usługa Backup | Azure Backup dla SQL | Ręczna kopia zapasowa |
 |---|---|---|---|
-| Wymaga dodatkowej usługi platformy Azure |   | ![Tak](./media/backup-restore/yes.png) |   |
-| Konfigurowanie zasad tworzenia kopii zapasowych w Azure Portal | ![Yes](./media/backup-restore/yes.png) | ![Tak](./media/backup-restore/yes.png) |   |
-| Przywracanie baz danych w Azure Portal |   | ![Tak](./media/backup-restore/yes.png) |   |
-| Zarządzanie wieloma serwerami na jednym pulpicie nawigacyjnym |   | ![Tak](./media/backup-restore/yes.png) |   |
-| Przywracanie do określonego momentu | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Tak](./media/backup-restore/yes.png) |
-| 15-minutowy cel punktu odzyskiwania (RPO) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Tak](./media/backup-restore/yes.png) |
-| Krótkoterminowe zasady przechowywania kopii zapasowych (dni) | ![Yes](./media/backup-restore/yes.png) | ![Tak](./media/backup-restore/yes.png) |   |
-| Zasady długoterminowego przechowywania kopii zapasowych (miesiące, lata) |   | ![Tak](./media/backup-restore/yes.png) |   |
-| Wbudowana obsługa SQL Server zawsze włączona |   | ![Tak](./media/backup-restore/yes.png) |   |
-| Tworzenie kopii zapasowej na kontach usługi Azure Storage | ![Tak](./media/backup-restore/yes.png)Automatyczna | ![Tak](./media/backup-restore/yes.png)Automatyczna | ![Tak](./media/backup-restore/yes.png)(zarządzane przez klienta) |
-| Zarządzanie plikami magazynu i kopii zapasowych | | ![Tak](./media/backup-restore/yes.png) |  |
-| Tworzenie kopii zapasowych na dyskach dołączonych na maszynie wirtualnej |   |   | ![Tak](./media/backup-restore/yes.png) |
-| Centralne dostosowywalne raporty kopii zapasowych |   | ![Tak](./media/backup-restore/yes.png) |   |
-| Skonsolidowane alerty e-mail dotyczące niepowodzeń |   | ![Tak](./media/backup-restore/yes.png) |   |
-| Dostosowywanie monitorowania na podstawie dzienników Azure Monitor |   | ![Tak](./media/backup-restore/yes.png) |   |
-| Monitoruj zadania tworzenia kopii zapasowej za pomocą programu SSMS lub skryptów języka Transact-SQL | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Tak](./media/backup-restore/yes.png) |
-| Przywracanie baz danych za pomocą programu SSMS lub skryptów języka Transact-SQL | ![Yes](./media/backup-restore/yes.png) |   | ![Tak](./media/backup-restore/yes.png) |
+| Wymaga dodatkowej usługi platformy Azure |   | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |   |
+| Konfigurowanie zasad tworzenia kopii zapasowych w Azure Portal | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |   |
+| Przywracanie baz danych w Azure Portal |   | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |   |
+| Zarządzanie wieloma serwerami na jednym pulpicie nawigacyjnym |   | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |   |
+| Przywracanie do określonego momentu | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |
+| 15-minutowy cel punktu odzyskiwania (RPO) | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |
+| Krótkoterminowe zasady przechowywania kopii zapasowych (dni) | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |   |
+| Zasady długoterminowego przechowywania kopii zapasowych (miesiące, lata) |   | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |   |
+| Wbudowana obsługa SQL Server zawsze włączona |   | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |   |
+| Tworzenie kopii zapasowej na kontach usługi Azure Storage | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png)Automatyczna | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png)Automatyczna | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png)(zarządzane przez klienta) |
+| Zarządzanie plikami magazynu i kopii zapasowych | | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |  |
+| Tworzenie kopii zapasowych na dyskach dołączonych na maszynie wirtualnej |   |   | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |
+| Centralne dostosowywalne raporty kopii zapasowych |   | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |   |
+| Skonsolidowane alerty e-mail dotyczące niepowodzeń |   | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |   |
+| Dostosowywanie monitorowania na podstawie dzienników Azure Monitor |   | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |   |
+| Monitoruj zadania tworzenia kopii zapasowej za pomocą programu SSMS lub skryptów języka Transact-SQL | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |
+| Przywracanie baz danych za pomocą programu SSMS lub skryptów języka Transact-SQL | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |   | ![Zielony znacznik wyboru.](./media/backup-restore/yes.png) |
 
 ## <a name="next-steps"></a>Następne kroki
 

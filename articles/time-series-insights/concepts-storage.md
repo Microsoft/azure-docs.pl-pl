@@ -1,52 +1,72 @@
 ---
 title: Omówienie usługi Storage — Azure Time Series Insights Gen2 | Microsoft Docs
 description: Dowiedz się więcej na temat przechowywania danych w Azure Time Series Insights Gen2.
-author: esung22
-ms.author: elsung
-manager: diviso
+author: lyrana
+ms.author: lyhughes
+manager: deepakpalled
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: c05de0462dde2b09e0e01919dfc691a85df153fa
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: d8e3c7258a70902fe362ee73c2f366146484ce54
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483273"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287551"
 ---
 # <a name="data-storage"></a>Magazyn danych
 
-Podczas tworzenia środowiska Azure Time Series Insights Gen2 należy utworzyć dwa zasoby platformy Azure:
+W tym artykule opisano magazyn danych w Azure Time Series Insights Gen2. Obejmuje to ciepło i zimność, dostępność danych oraz najlepsze rozwiązania.
 
-* Środowisko Azure Time Series Insights Gen2, które można skonfigurować pod kątem magazynowania w pamięci podgrzanej.
-* Konto usługi Azure Storage na potrzeby magazynu zimnych danych.
+## <a name="provisioning"></a>Aprowizowanie
 
-Dane w magazynie ciepłym są dostępne tylko za pośrednictwem [interfejsów API zapytań szeregów czasowych](./time-series-insights-update-tsq.md) i [Eksploratora Azure Time Series Insights](./time-series-insights-update-explorer.md). Sklep ciepły będzie zawierał ostatnie dane w [okresie przechowywania](./time-series-insights-update-plan.md#the-preview-environment) wybranym podczas tworzenia środowiska Azure Time Series Insights Gen2.
+Podczas tworzenia środowiska Azure Time Series Insights Gen2 dostępne są następujące opcje:
 
-Azure Time Series Insights Gen2 zapisuje dane w chłodnym sklepie w usłudze Azure Blob Storage w [formacie pliku Parquet](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2 zarządza wyłącznie tym zimnym magazynem danych, ale jest dostępny do odczytu bezpośrednio jako standardowe pliki Parquet.
+* Chłodny magazyn danych:
+   * Utwórz nowy zasób usługi Azure Storage w ramach subskrypcji i regionu wybranego dla danego środowiska.
+   * Dołącz już istniejące konto usługi Azure Storage. Ta opcja jest dostępna tylko przez wdrożenie z [szablonu](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)Azure Resource Manager i nie jest widoczna w Azure Portal.
+* Magazyn danych ciepłych:
+   * Magazyn ciepły jest opcjonalny i można go włączyć lub wyłączyć w czasie aprowizacji lub po nim. Jeśli zdecydujesz się na włączenie sklepu w sieci w późniejszym czasie, a w chłodnym magazynie znajdują się już dane, zapoznaj się [z sekcją](concepts-storage.md#warm-store-behavior) poniżej, aby zrozumieć oczekiwane zachowanie. Czas przechowywania danych w sklepie ciepłym można skonfigurować od 7 do 31 dni. można go również dostosować w razie potrzeby.
+
+Gdy zdarzenie jest pozyskiwane, jest indeksowane w obu sklepach (jeśli są włączone) i w chłodnym magazynie.
+
+[![Magazyn — Omówienie](media/concepts-storage/pipeline-to-storage.png)](media/concepts-storage/pipeline-to-storage.png#lightbox)
+
 
 > [!WARNING]
 > Jako właściciel konta usługi Azure Blob Storage, na którym znajdują się dane w chłodnym sklepie, masz pełny dostęp do wszystkich danych na koncie. Ten dostęp obejmuje uprawnienia do zapisu i usuwania. Nie należy edytować ani usuwać danych Azure Time Series Insights zapisów Gen2, ponieważ może to spowodować utratę danych.
 
 ## <a name="data-availability"></a>Dostępność danych
 
-Azure Time Series Insights partycje Gen2 i indeksowanie danych w celu uzyskania optymalnej wydajności zapytań. Dane staną się dostępne do wykonywania zapytań z obu ciepłej (jeśli są włączone) i magazynu zimnego po jego indeksowaniu. Ilość danych, które są pozyskiwane, może mieć wpływ na tę dostępność.
+Azure Time Series Insights partycje Gen2 i indeksowanie danych w celu uzyskania optymalnej wydajności zapytań. Dane staną się dostępne do wykonywania zapytań z obu ciepłej (jeśli są włączone) i magazynu zimnego po jego indeksowaniu. Ilość danych, które są pozyskiwane, a szybkość przepływności na partycję może mieć wpływ na dostępność. Przejrzyj [ograniczenia przepływności](./concepts-streaming-ingress-throughput-limits.md) źródła zdarzeń i [najlepsze rozwiązania](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) w celu uzyskania najlepszej wydajności. Możesz również skonfigurować [alert](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) z opóźnieniem, aby otrzymywać powiadomienia o problemach z przetwarzaniem danych w środowisku.
 
 > [!IMPORTANT]
 > Zanim dane staną się dostępne, może wystąpić okres do 60 sekund. Jeśli wystąpi znaczący czas oczekiwania przekraczający 60 sekund, Prześlij bilet pomocy technicznej za pomocą Azure Portal.
 
-## <a name="azure-storage"></a>Azure Storage
+## <a name="warm-store"></a>Sklep ciepły
+
+Dane w magazynie ciepłym są dostępne tylko za pośrednictwem [interfejsów API zapytań szeregów czasowych](./time-series-insights-update-tsq.md), [Eksploratora TSI Azure Time Series Insights](./time-series-insights-update-explorer.md)lub [łącznika Power BI](./how-to-connect-power-bi.md). Zapytania magazynu w sieci ciepłej są bezpłatne i nie ma limitu przydziału, ale obowiązuje [limit 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) współbieżnych żądań.
+
+### <a name="warm-store-behavior"></a>Zachowanie magazynu ciepłego 
+
+* Po włączeniu wszystkie dane przesyłane strumieniowo do Twojego środowiska będą kierowane do magazynu ciepłego, niezależnie od sygnatury czasowej zdarzenia. Należy zauważyć, że potok pozyskiwania strumieniowego został skompilowany dla przesyłania strumieniowego niemal w czasie rzeczywistym i pozyskiwanie zdarzeń historycznych [nie jest obsługiwane](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
+* Okres przechowywania jest obliczany w oparciu o to, kiedy zdarzenie zostało zindeksowane w sklepie, a nie sygnatura czasowa zdarzenia. Oznacza to, że dane nie są już dostępne w sklepie ciepłym po upływie okresu przechowywania, nawet jeśli sygnatura czasowa zdarzenia jest w przyszłości.
+  - Przykład: zdarzenie z 10-dniowymi prognozami pogody jest pozyskiwane i indeksowane w kontenerze magazynu ciepłego skonfigurowanym z 7-dniowym okresem przechowywania. Po upływie 7 dni przewidywanie nie jest już dostępne w sklepie ciepłym, ale można je zbadać na zimno. 
+* Jeśli włączysz magazyn ciepły w istniejącym środowisku, które ma już ostatnie dane indeksowane w chłodnym magazynie, pamiętaj, że magazyn ciepły nie zostanie wypełniony ponownie przy użyciu tych danych.
+* Jeśli po prostu włączono sklep ciepły i występują problemy z wyświetlaniem najnowszych danych w Eksploratorze, można tymczasowo przełączać zapytania z magazynu w sieci w sieci:
+
+   [![Wyłącz zapytania ciepłe](media/concepts-storage/toggle-warm.png)](media/concepts-storage/toggle-warm.png#lightbox)
+
+## <a name="cold-store"></a>Chłodna składowa
 
 W tej sekcji opisano szczegóły usługi Azure Storage istotne dla Azure Time Series Insights Gen2.
 
 Aby uzyskać dokładny opis magazynu obiektów blob platformy Azure, Przeczytaj [wprowadzenie do magazynu obiektów BLOB](../storage/blobs/storage-blobs-introduction.md).
 
-### <a name="your-storage-account"></a>Twoje konto magazynu
-
-Po utworzeniu środowiska Azure Time Series Insights Gen2 konto usługi Azure Storage zostanie utworzone jako długoterminowy chłodny magazyn.  
+### <a name="your-cold-storage-account"></a>Twoje konto w chłodnym magazynie
 
 Azure Time Series Insights Gen2 zachowuje maksymalnie dwie kopie każdego zdarzenia na koncie usługi Azure Storage. Jedna kopia przechowuje zdarzenia uporządkowane według czasu pozyskiwania, które zawsze umożliwiają dostęp do zdarzeń w kolejności uporządkowanej według czasu. W miarę upływu czasu program Azure Time Series Insights Gen2 również tworzy kopię danych ponownie partycjonowaną w celu optymalizacji pod kątem wykonywania zapytań.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7b6fa2395e81089e8b4523929a4a7a583b0788a2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852297"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360773"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiowanie danych z punktu końcowego REST przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -47,7 +47,7 @@ W przypadku tego ogólnego łącznika REST obsługiwane są następujące funkcj
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -136,7 +136,7 @@ Ustaw właściwość **AuthenticationType** na wartość **AadServicePrincipal**
 }
 ```
 
-### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Korzystanie z tożsamości zarządzanych do uwierzytelniania zasobów platformy Azure
+### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Korzystanie z tożsamości zarządzanych do uwierzytelniania zasobów platformy Azure
 
 Ustaw właściwość **AuthenticationType** na wartość **ManagedServiceIdentity**. Oprócz ogólnych właściwości, które są opisane w poprzedniej sekcji, określ następujące właściwości:
 
@@ -404,13 +404,13 @@ Szablon definiuje dwa parametry:
 3. Wybierz pozycję **Użyj tego szablonu**.
     ![Użyj tego szablonu](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. Zostanie wyświetlony potok utworzony jak pokazano w następującym przykładzie: ![ potok](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. Zostanie wyświetlony potok utworzony, jak pokazano w poniższym przykładzie:  ![ zrzut ekranu przedstawia potok utworzony na podstawie szablonu.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. Wybierz aktywność **sieci Web** . W obszarze **Ustawienia**Określ odpowiedni **adres URL**, **metodę**, **nagłówki**i **treść** , aby pobrać token okaziciela OAuth z interfejsu API logowania usługi, z której chcesz skopiować dane. Symbol zastępczy w szablonie prezentuje przykład Azure Active Directory (AAD) OAuth. Uwaga uwierzytelnianie w usłudze AAD jest natywnie obsługiwane przez łącznik REST. Oto przykład dla przepływu OAuth. 
 
     | Właściwość | Opis |
     |:--- |:--- |:--- |
-    | Adres URL |Określ adres URL, z którego ma zostać pobrany token okaziciela OAuth. Przykładowo w przykładzie jest tohttps://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | Adres URL |Określ adres URL, z którego ma zostać pobrany token okaziciela OAuth. Przykładowo w przykładzie jest to https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Metoda | Metoda HTTP. Dozwolone wartości to **post** i **Get**. | 
     | Nagłówki | Nagłówek jest zdefiniowany przez użytkownika, który odwołuje się do jednej nazwy nagłówka w żądaniu HTTP. | 
     | Treść | Treść żądania HTTP. | 

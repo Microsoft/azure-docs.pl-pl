@@ -4,17 +4,17 @@ description: Zakresy szyfrowania zapewniają możliwość zarządzania szyfrowan
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 041b0bf57f57fd8ddd74c8330888d75e31aacc83
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326120"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Zakresy szyfrowania dla usługi BLOB Storage (wersja zapoznawcza)
 
@@ -22,7 +22,7 @@ Zakresy szyfrowania zapewniają możliwość zarządzania szyfrowaniem na poziom
 
 Domyślnie konto magazynu jest szyfrowane przy użyciu klucza, który jest objęty zakresem całego konta magazynu. Mając zakres szyfrowania, można określić, że co najmniej jeden kontener jest szyfrowany przy użyciu klucza, który jest objęty zakresem tylko tych kontenerów.
 
-Możesz użyć kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta przechowywanych w Azure Key Vault lub Key Vault zarządzanym modelu zabezpieczeń sprzętu (HSM) (wersja zapoznawcza), aby chronić i kontrolować dostęp do klucza, który szyfruje dane. Różne zakresy szyfrowania na tym samym koncie magazynu mogą korzystać z kluczy zarządzanych przez firmę Microsoft lub przez klienta.
+Możesz użyć kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta przechowywanych w Azure Key Vault, aby chronić i kontrolować dostęp do klucza, który szyfruje dane. Różne zakresy szyfrowania na tym samym koncie magazynu mogą korzystać z kluczy zarządzanych przez firmę Microsoft lub przez klienta.
 
 Po utworzeniu zakresu szyfrowania możesz określić ten zakres szyfrowania dla żądania, aby utworzyć kontener lub obiekt BLOB. Aby uzyskać więcej informacji na temat sposobu tworzenia zakresu szyfrowania, zobacz [Tworzenie zakresów szyfrowania i zarządzanie nimi (wersja zapoznawcza)](encryption-scope-manage.md).
 
@@ -50,7 +50,7 @@ Po wyłączeniu zakresu szyfrowania wszelkie kolejne operacje odczytu lub zapisu
 
 Po wyłączeniu zakresu szyfrowania nie są już naliczane opłaty. Wyłącz wszelkie zakresy szyfrowania, które nie są potrzebne, aby uniknąć niepotrzebnych opłat.
 
-Jeśli zakres szyfrowania jest chroniony przy użyciu kluczy zarządzanych przez klienta, można również usunąć skojarzony klucz w magazynie kluczy lub zarządzanym module HSM, aby wyłączyć zakres szyfrowania. Należy pamiętać, że klucze zarządzane przez klienta są chronione za pomocą nietrwałego usuwania i przeczyszczania ochrony w magazynie kluczy lub zarządzanym module HSM, a usunięty klucz podlega zachowaniem zdefiniowanym przez te właściwości. Aby uzyskać więcej informacji, zobacz jeden z następujących tematów w dokumentacji Azure Key Vault:
+Jeśli zakres szyfrowania jest chroniony przy użyciu kluczy zarządzanych przez klienta, można również usunąć skojarzony klucz w magazynie kluczy, aby wyłączyć zakres szyfrowania. Należy pamiętać, że klucze zarządzane przez klienta są chronione przez nietrwałe usuwanie i przeczyszczanie ochrony w magazynie kluczy, a usunięty klucz podlega zachowaniem zdefiniowanym przez te właściwości. Aby uzyskać więcej informacji, zobacz jeden z następujących tematów w dokumentacji Azure Key Vault:
 
 - [Jak używać nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/soft-delete-powershell.md)
 - [Jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/soft-delete-cli.md)
