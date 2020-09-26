@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: 164e5a8c107f445b376d26f9be7db92a7983b0d3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3957a9cde957c8e92806f10d39c949d73f20153e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73743079"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323026"
 ---
 # <a name="face-recognition-concepts"></a>Pojęcia dotyczące rozpoznawania
 
@@ -30,14 +30,14 @@ Operacje rozpoznawania używają głównie następujących struktur danych. Te o
 |DetectedFace| Ta reprezentacja pojedynczego kroju jest pobierana przez operację [wykrywania kroju](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md) . Jego identyfikator wygasa po upływie 24 godzin od jego utworzenia.|
 |PersistedFace| Gdy obiekty DetectedFace są dodawane do grupy, takiej jak FaceList lub osoba, stają się obiektami PersistedFace. Mogą być [pobierane](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) w dowolnym momencie i nie wygasają.|
 |[FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) lub [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)| Ta struktura danych jest asortymentową listą obiektów PersistedFace. FaceList ma unikatowy identyfikator, ciąg nazwy i opcjonalnie ciąg danych użytkownika.|
-|[Person (Osoba)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| Ta struktura danych jest listą obiektów PersistedFace, które należą do tej samej osoby. Ma unikatowy identyfikator, ciąg nazwy i opcjonalnie ciąg danych użytkownika.|
+|[Osoba](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)| Ta struktura danych jest listą obiektów PersistedFace, które należą do tej samej osoby. Ma unikatowy identyfikator, ciąg nazwy i opcjonalnie ciąg danych użytkownika.|
 |[Osoba](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) lub [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)| Ta struktura danych jest asortymentową listą obiektów osób. Ma unikatowy identyfikator, ciąg nazwy i opcjonalnie ciąg danych użytkownika. Aby można było użyć tej osoby, należy ją [przeszkolić](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) .|
 
 ## <a name="recognition-operations"></a>Operacje rozpoznawania
 
 W tej sekcji szczegółowo opisano, jak cztery operacje rozpoznawania używają opisanych wcześniej struktur danych. Aby uzyskać obszerny opis każdej operacji rozpoznawania, zobacz [Omówienie](../Overview.md).
 
-### <a name="verify"></a>Weryfikuj
+### <a name="verify"></a>Weryfikacja
 
 Operacja [verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) przyjmuje identyfikator kroju z DetectedFace lub PersistedFace oraz inny identyfikator lub obiekt osoby i określa, czy należą do tej samej osoby. W przypadku przekazania obiektu osoby można opcjonalnie przekazać osobę, do której należy ta osoba, aby zwiększyć wydajność.
 
@@ -45,7 +45,7 @@ Operacja [verify](https://westus.dev.cognitive.microsoft.com/docs/services/56387
 
 Operacja [Find podobne](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) Pobiera identyfikator klasy z DetectedFace lub PersistedFace oraz FaceList lub tablicę innych identyfikatorów. Za pomocą FaceList zwraca mniejszy FaceList twarzy, które są podobne do danej powierzchni. Z tablicą identyfikatorów funkcji, podobnie zwraca mniejszą tablicę.
 
-### <a name="group"></a>Grupa
+### <a name="group"></a>Group (Grupa)
 
 Operacja [grupy](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) pobiera tablicę identyfikatorów klasy z DetectedFace lub PersistedFace i zwraca te same identyfikatory pogrupowane w kilka mniejszych tablic. Każda tablica "Groups" zawiera identyfikatory czołowe, które wyglądają podobnie. Pojedyncza Tablica "messyGroup" zawiera identyfikatory czołowe, dla których nie znaleziono podobieństw.
 
@@ -69,6 +69,6 @@ Skorzystaj z poniższych wskazówek, aby upewnić się, że obrazy wejściowe za
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz już koncepcje rozpoznawania twarzy, Dowiedz się, jak napisać skrypt, który identyfikuje twarze w odniesieniu do przeszkolonej osoby.
+Teraz, gdy znasz już koncepcje rozpoznawania twarzy, napisz skrypt, który identyfikuje twarze w odniesieniu do przeszkolonej osoby.
 
-* [Zidentyfikuj twarze na obrazach](../Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+* [Przewodnik Szybki Start dotyczący biblioteki klienta](../Quickstarts/client-libraries.md)

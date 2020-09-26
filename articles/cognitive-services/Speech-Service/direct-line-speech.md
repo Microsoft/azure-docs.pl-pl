@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402391"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357645"
 ---
 # <a name="what-is-direct-line-speech"></a>Co to jest mowa Direct Line?
 
@@ -27,7 +27,7 @@ Funkcja bezpośrednie linie rozpoznawania mowy oferuje najwyższy poziom dostoso
 
 ## <a name="getting-started-with-direct-line-speech"></a>Wprowadzenie do bezpośredniej obsługi mowy w wierszu
 
-Pierwszym etapem tworzenia asystenta głosowego za pomocą polecenia Direct line Speech jest [uzyskanie klucza subskrypcji mowy](get-started.md), utworzenie nowego bot skojarzonego z tą subskrypcją i połączenie bot z kanałem mowy linii bezpośredniej.
+Pierwszym etapem tworzenia asystenta głosowego za pomocą polecenia Direct line Speech jest [uzyskanie klucza subskrypcji mowy](overview.md#try-the-speech-service-for-free), utworzenie nowego bot skojarzonego z tą subskrypcją i połączenie bot z kanałem mowy linii bezpośredniej.
 
    ![Diagram koncepcyjny przepływu usługi aranżacji mowy liniowej](media/voice-assistants/overview-directlinespeech.png "Przepływ kanału mowy")
 
@@ -60,11 +60,11 @@ Bezpośrednia obsługa mowy liniowej i skojarzonych z nią funkcji dla asystent�
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
 * [Zestaw SDK rozpoznawania mowy](speech-sdk-reference.md)
-* [Usługa Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](get-started.md)
+* [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](overview.md#try-the-speech-service-for-free)
 * [Pobieranie zestawu Speech SDK](speech-sdk.md)
 * [Tworzenie i wdrażanie podstawowego bota](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Pobierz rozwiązanie dla Asystenta wirtualnego i szablonu przedsiębiorstwa](https://github.com/Microsoft/AI)

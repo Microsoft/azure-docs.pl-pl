@@ -8,18 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 42738ff71432284a156d0dfbb1f6cf160cbf4032
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4ddafd9fbeda1752a782085244597aea3ccbdd2d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653255"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271906"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migruj dysk dziennika do programu Ultra Disk
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,7 +58,7 @@ Aby włączyć zgodność, wykonaj następujące kroki:
 
 ### <a name="attach-disk"></a>Dołącz dysk
 
-Użyj Azure Portal, aby dołączyć dysk Ultra do maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [dołączanie dysku Ultra Disk](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
+Użyj Azure Portal, aby dołączyć dysk Ultra do maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz [dołączanie Ultra Disk](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk).
 
 Po dołączeniu dysku, uruchom maszynę wirtualną za pomocą Azure Portal. 
 

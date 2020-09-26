@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 8a55ab9b6b87a379fbdebcead4467ec47507d67a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8853a153450a07105ed4bac13de0da6cea95ce2a
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356353"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Tworzenie ustawienia automatycznego skalowania dla zasobów platformy Azure na podstawie danych wydajności lub harmonogramu
 
@@ -27,7 +27,7 @@ W tym samouczku zostaną wykonane następujące czynności:
 > * Wyzwalanie akcji skalowania na zewnątrz i obserwowanie spadku liczby wystąpień
 > * Czyszczenie zasobów
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
@@ -46,7 +46,7 @@ Twoje zasoby powinny zostać aprowizowane w ciągu kilku minut. W pozostałej cz
 1. W okienku nawigacji po lewej stronie wybierz opcję **Monitor**. Po załadowaniu strony wybierz kartę **Automatyczne skalowanie**.
 2. Tutaj znajduje się lista zasobów w ramach Twojej subskrypcji, które obsługują automatyczne skalowanie. Zidentyfikuj plan usługi App Service, który został utworzony wcześniej w samouczku, i kliknij go.
 
-    ![Przechodzenie do ustawień automatycznego skalowania](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![Zrzut ekranu przedstawia Azure Portal z monitorem, a następnie automatycznie Skaluj zaznaczone.](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 3. W ustawieniu automatycznego skalowania kliknij przycisk **Włącz automatyczne skalowanie**.
 
@@ -59,7 +59,7 @@ Kilka następnych kroków pomoże Ci w takim wypełnieniu ekranu automatycznego 
 2. Upewnij się, że w profilu domyślnym opcja **Tryb skalowania** jest ustawiona na wartość „Skaluj do określonej liczby wystąpień”.
 3. Ustaw liczbę wystąpień na **1**. To ustawienie powoduje, że kiedy żaden inny profil nie jest aktywny (nie obowiązuje), profil domyślny przywraca wartość 1 dla liczby wystąpień.
 
-   ![Przechodzenie do ustawień automatycznego skalowania](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Zrzut ekranu przedstawia stronę ustawienia skalowania automatycznego o nazwie wprowadzonej dla ustawienia.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Tworzenie profilu cyklu
@@ -90,7 +90,7 @@ Kilka następnych kroków pomoże Ci w takim wypełnieniu ekranu automatycznego 
 
 6. Ustaw pozycję **Operacja** na wartość „Zwiększ liczbę o”, pozycję **Liczba wystąpień** na wartość „1” i pozycję **Czas ochładzania** na „5” minut.
 
-7. Kliknij przycisk **Dodaj**.
+7. Kliknij przycisk **Dodaj** .
 
 Ta reguła zapewnia, że jeśli aplikacja internetowa odbierze więcej niż 10 żądań w czasie nie dłuższym niż 5 minut, do Twojego planu usługi App Service zostanie dodane jedno wystąpienie na potrzeby zarządzania obciążeniem.
 
@@ -111,7 +111,7 @@ Zaleca się, aby wraz z regułą skalowania do wewnątrz zawsze istniała reguł
 
 6. Ustaw pozycję **Operacja** na wartość „Zmniejsz liczbę o”, pozycję **Liczba wystąpień** na wartość „1” i pozycję **Czas ochładzania** na „5” minut.
 
-7. Kliknij przycisk **Dodaj**.
+7. Kliknij przycisk **Dodaj** .
 
     ![Tworzenie reguły zmniejszania skali w poziomie](./media/tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
 
@@ -159,7 +159,7 @@ Warunek skalowania na zewnątrz w ustawieniu automatycznego skalowania jest wyzw
 
     ![Widok akcji skalowania na zewnątrz](./media/tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 1. W witrynie Azure Portal w menu po lewej stronie kliknij pozycję **Wszystkie zasoby**, a następnie wybierz aplikację internetową utworzoną w tym samouczku.
 

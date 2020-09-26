@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 583179c4678b43bef25174835ec2701d571b37b6
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3ceaa357150fe0c4d26eeedc6821761d2eb00106
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905654"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357968"
 ---
 # <a name="import-soap-api"></a>Importowanie interfejsu API protokołu SOAP
 
@@ -45,7 +45,7 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
 3. W obszarze **Specyfikacja WSDL** wprowadź adres URL, pod którym znajduje się Twój interfejs API protokołu SOAP.
 4. Przycisk radiowy **Przekazywanie protokołu SOAP** jest wybierany domyślnie. Ten wybór spowoduje, że interfejs API będzie uwidaczniany jako protokół SOAP. Użytkownik musi stosować reguły protokołu SOAP. Jeśli chcesz przekształcić interfejs API przy użyciu stylu REST, postępuj zgodnie z instrukcjami podanymi w temacie [Import a SOAP API and convert it to REST](restify-soap-api.md) (Importowanie interfejsu API protokołu SOAP i konwertowanie go do stylu REST).
 
-    ![Przekazywanie](./media/import-soap-api/pass-through.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Tworzenie z w S D L, w którym można wprowadzić specyfikację W S D L.](./media/import-soap-api/pass-through.png)
 5. Naciśnij klawisz Tab.
 
     Następujące pola są wypełniane przy użyciu informacji z interfejsu API protokołu SOAP: Nazwa wyświetlana, Nazwa, Opis.

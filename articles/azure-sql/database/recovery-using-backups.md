@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 069387b5c761d502d960d0284d156b4ee6431a55
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357016"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Odzyskiwanie przy użyciu zautomatyzowanych kopii zapasowych bazy danych — Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -87,17 +87,17 @@ Na ogół przywracana jest baza danych do wcześniejszego punktu na potrzeby odz
 
 Można odzyskać pojedynczą lub wystąpienie bazy danych do punktu w czasie z bloku przegląd bazy danych, która ma zostać przywrócona w Azure Portal.
 
-#### <a name="sql-database"></a>Baza danych SQL
+#### <a name="sql-database"></a>SQL Database
 
 Aby odzyskać bazę danych do punktu w czasie za pomocą Azure Portal, Otwórz stronę przegląd bazy danych i wybierz pozycję **Przywróć** na pasku narzędzi. Wybierz źródło kopii zapasowej, a następnie wybierz punkt kopii zapasowej do punktu w czasie, z którego zostanie utworzona nowa baza danych.
 
-  ![Zrzut ekranu przedstawiający Opcje przywracania bazy danych](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
+  ![Zrzut ekranu przedstawiający Opcje przywracania bazy danych dla SQL Database.](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>Wystąpienie zarządzane SQL
 
 Aby odzyskać bazę danych wystąpienia zarządzanego do punktu w czasie za pomocą Azure Portal, Otwórz stronę przegląd bazy danych i wybierz pozycję **Przywróć** na pasku narzędzi. Wybierz punkt w czasie, z którego zostanie utworzona nowa baza danych.
 
-  ![Zrzut ekranu przedstawiający Opcje przywracania bazy danych](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+  ![Zrzut ekranu przedstawiający Opcje przywracania bazy danych dla wystąpienia zarządzanego SQL.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
 > Aby programowo przywrócić bazę danych z kopii zapasowej, zobacz programowe [wykonywanie odzyskiwania przy użyciu zautomatyzowanych kopii zapasowych](recovery-using-backups.md).
@@ -113,7 +113,7 @@ Usuniętą bazę danych można przywrócić do czasu usunięcia lub do wcześnie
 
 Przywrócono usunięte bazy danych z Azure Portal z serwera lub zasobu wystąpienia zarządzanego.
 
-#### <a name="sql-database"></a>Baza danych SQL
+#### <a name="sql-database"></a>SQL Database
 
 Aby odzyskać usuniętą bazę danych do czasu usunięcia przy użyciu Azure Portal, Otwórz stronę przegląd serwera i wybierz pozycję **usunięte bazy danych**. Wybierz usuniętą bazę danych, którą chcesz przywrócić, a następnie wpisz nazwę nowej bazy danych, która zostanie utworzona z przywróconymi danymi z kopii zapasowej.
 
@@ -129,7 +129,7 @@ Aby odzyskać zarządzaną bazę danych przy użyciu Azure Portal, Otwórz stron
 
 Poniższe przykładowe skrypty służą do przywracania usuniętej bazy danych dla wystąpienia zarządzanego SQL Database lub SQL za pomocą programu PowerShell.
 
-#### <a name="sql-database"></a>Baza danych SQL
+#### <a name="sql-database"></a>SQL Database
 
 Przykładowy skrypt programu PowerShell przedstawiający sposób przywracania usuniętej bazy danych w Azure SQL Database można znaleźć w temacie [przywracanie bazy danych przy użyciu programu PowerShell](scripts/restore-database-powershell.md).
 
@@ -155,7 +155,7 @@ Przywracanie geograficzne jest domyślną opcją odzyskiwania, gdy baza danych j
 
 Z Azure Portal można utworzyć nową bazę danych wystąpienia pojedynczego lub zarządzanego i wybrać dostępną kopię zapasową przywracania geograficznego. Nowo utworzona baza danych zawiera dane kopii zapasowej przywróconej do lokalizacji geograficznej.
 
-#### <a name="sql-database"></a>Baza danych SQL
+#### <a name="sql-database"></a>SQL Database
 
 Aby przywrócić geograficzną pojedynczą bazę danych z Azure Portal w wybranym regionie i serwerze, wykonaj następujące kroki:
 
@@ -183,7 +183,7 @@ Ukończ proces tworzenia nowej bazy danych. Po utworzeniu bazy danych wystąpien
 
 ### <a name="geo-restore-by-using-powershell"></a>Przywracanie geograficzne przy użyciu programu PowerShell
 
-#### <a name="sql-database"></a>Baza danych SQL
+#### <a name="sql-database"></a>SQL Database
 
 Skrypt programu PowerShell pokazujący sposób wykonywania przywracania geograficznego dla pojedynczej bazy danych znajduje się w temacie [Używanie programu PowerShell do przywracania pojedynczej bazy danych do wcześniejszego punktu w czasie](scripts/restore-database-powershell.md).
 
@@ -212,7 +212,7 @@ Można również użyć Azure PowerShell lub interfejsu API REST do odzyskiwania
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez wystąpienia zarządzane SQL Database i SQL, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach Azure Resource Manager są dokładnie takie same.
 
-#### <a name="sql-database"></a>Baza danych SQL
+#### <a name="sql-database"></a>SQL Database
 
 Aby przywrócić bazę danych autonomiczną lub w puli, zobacz [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
@@ -247,7 +247,7 @@ Aby przywrócić bazę danych przy użyciu interfejsu API REST:
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-#### <a name="sql-database"></a>Baza danych SQL
+#### <a name="sql-database"></a>SQL Database
 
 Aby przywrócić bazę danych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [AZ SQL DB Restore](/cli/azure/sql/db#az-sql-db-restore).
 
@@ -261,7 +261,7 @@ Automatyczne kopie zapasowe chronią bazy danych przed błędami użytkowników 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd ciągłości działania firmy](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- [Omówienie ciągłości działania](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - [SQL Database zautomatyzowane kopie zapasowe](automated-backups-overview.md)
 - [Długoterminowe przechowywanie](long-term-retention-overview.md)
 - Aby dowiedzieć się więcej na temat szybszych opcji odzyskiwania, zobacz [aktywne replikacje geograficzne](active-geo-replication-overview.md) lub [grupy autopracy awaryjnej](auto-failover-group-overview.md).

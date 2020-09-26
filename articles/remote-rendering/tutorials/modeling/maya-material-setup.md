@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 43c11575be084354e4c9287b44b5847d4d086aff
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 56aa0d91372ac2d21a20f28b1044f0811c716b0c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084400"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358036"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>Samouczek: Konfigurowanie fizycznie opartych na materiałach renderowania w Maya
 
@@ -79,7 +79,7 @@ W programie Maya proces tworzenia wystąpień jest prosty.
 1. W oknie dialogowym **zduplikowane opcje specjalne** w polu **typ geometrii** wybierz opcję **wystąpienie** . 
 1. Wybierz pozycję **Duplikuj specjalne**.
 
-   ![Tworzenie wystąpienia](media/instancing.jpg)
+   ![Zrzut ekranu przedstawia okno Maya z otwartym oknem dialogowym zduplikowane opcje specjalne i z wybraną opcją Duplikuj specjalnie.](media/instancing.jpg)
 
 Ta akcja powoduje utworzenie wystąpienia obiektu. Można je przenosić, obracać i skalować niezależnie od elementów nadrzędnych i innych wystąpień tego elementu nadrzędnego. 
 

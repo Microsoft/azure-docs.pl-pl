@@ -1,14 +1,16 @@
 ---
 title: Rozszerzona aplikacja w czasie wykonywania — LUIS
 description: ''
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: c0f9d71f5d89d73d9cdce2a2f646859d8eba3adc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69e2608fb01ece81f555aae2f3d4a2e4a05cfc90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81538579"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322805"
 ---
 # <a name="extend-app-at-prediction-runtime"></a>Rozszerzona aplikacja w środowisku uruchomieniowym przewidywania
 
@@ -42,7 +44,7 @@ Weź pod uwagę pierwszy wypowiedź w rozmowie bot rozmowy, w której użytkowni
 
 `Send Hazem a new message`
 
-Żądanie od bot rozmowy do LUIS może przekazać informacje w treści wpisu, `Hazem` aby było ono bezpośrednio dopasowane jako jeden z kontaktów użytkownika.
+Żądanie od bot rozmowy do LUIS może przekazać informacje w treści wpisu, `Hazem` Aby było ono bezpośrednio dopasowane jako jeden z kontaktów użytkownika.
 
 ```json
     "externalEntities": [
@@ -66,7 +68,7 @@ Następny użytkownik wypowiedź do rozmowy bot używa bardziej niejasnego termi
 
 `Send him a calendar reminder for the party.`
 
-W tej części konwersacji wypowiedź używa `him` jako odwołania do. `Hazem` Konwersacja rozmówcy bot w treści wpisu można mapować `him` na wartość jednostki wyodrębnioną z pierwszego wypowiedź,. `Hazem`
+W tej części konwersacji wypowiedź używa `him` jako odwołania do `Hazem` . Konwersacja rozmówcy bot w treści wpisu można mapować `him` na wartość jednostki wyodrębnioną z pierwszego wypowiedź, `Hazem` .
 
 ```json
     "externalEntities": [
@@ -86,9 +88,9 @@ Odpowiedź przewidywania obejmuje tę jednostkę zewnętrzną, z innymi przewidz
 
 ### <a name="override-existing-model-predictions"></a>Zastąp istniejące przewidywania modelu
 
-Właściwość `preferExternalEntities` Options określa, że jeśli użytkownik wysyła jednostkę zewnętrzną, która pokrywa się z przewidywaną jednostką o tej samej nazwie, Luis wybiera jednostkę przekazaną lub jednostkę istniejącą w modelu.
+`preferExternalEntities`Właściwość Options określa, że jeśli użytkownik wysyła jednostkę zewnętrzną, która pokrywa się z przewidywaną jednostką o tej samej nazwie, Luis wybiera jednostkę przekazaną lub jednostkę istniejącą w modelu.
 
-Rozważmy na przykład zapytanie `today I'm free`. LUIS wykrywa `today` jako datetimeV2 z następującą odpowiedzią:
+Rozważmy na przykład zapytanie `today I'm free` . LUIS wykrywa `today` jako datetimeV2 z następującą odpowiedzią:
 
 ```JSON
 "datetimeV2": [
@@ -117,7 +119,7 @@ Jeśli użytkownik wyśle jednostkę zewnętrzną:
 }
 ```
 
-Jeśli `preferExternalEntities` jest ustawiona na `false`, Luis zwraca odpowiedź, tak jakby zewnętrzna jednostka nie została wysłana.
+Jeśli `preferExternalEntities` jest ustawiona na `false` , Luis zwraca odpowiedź, tak jakby zewnętrzna jednostka nie została wysłana.
 
 ```JSON
 "datetimeV2": [
@@ -133,7 +135,7 @@ Jeśli `preferExternalEntities` jest ustawiona na `false`, Luis zwraca odpowied�
 ]
 ```
 
-Jeśli `preferExternalEntities` jest ustawiona na `true`, Luis zwraca odpowiedź, w tym:
+Jeśli `preferExternalEntities` jest ustawiona na `true` , Luis zwraca odpowiedź, w tym:
 
 ```JSON
 "datetimeV2": [
@@ -151,7 +153,7 @@ _Opcjonalna_ `resolution` Właściwość zwraca w odpowiedzi predykcyjnej, co po
 
 Podstawowym celem jest rozszerzanie wstępnie utworzonych jednostek, ale nie jest to ograniczone do tego typu jednostki.
 
-`resolution` Właściwość może być liczbą, ciągiem, obiektem lub tablicą:
+`resolution`Właściwość może być liczbą, ciągiem, obiektem lub tablicą:
 
 * Dallas
 * {"text": "value"}
@@ -173,7 +175,7 @@ Jednostka listy może być pusta w aplikacji LUIS, ale musi istnieć. Jednostka 
 
 ### <a name="dynamic-list-json-request-body"></a>Treść żądania JSON listy dynamicznej
 
-Wyślij w następującej treści JSON, aby dodać nową podlistę z synonimami do listy i przewidzieć jednostkę listy dla tekstu, `LUIS`przy użyciu żądania przewidywania `POST` zapytania:
+Wyślij w następującej treści JSON, aby dodać nową podlistę z synonimami do listy i przewidzieć jednostkę listy dla tekstu, `LUIS` przy użyciu `POST` żądania przewidywania zapytania:
 
 ```JSON
 {

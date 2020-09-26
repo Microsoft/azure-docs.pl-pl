@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af8bd9a0420c90df4dea16fa8ebacbf4ea6494db
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 815dc0a90d79323fb88c98867b5540105a6fa8cc
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87488132"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356200"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Porządkowanie zdarzeń połączenia urządzenia pochodzących z usługi Azure IoT Hub przy użyciu usługi Azure Cosmos DB
 
@@ -227,13 +227,13 @@ W przepływie pracy aplikacji logiki warunki ułatwiają wykonywanie określonyc
 
 5. Wybierz pozycję **Dodaj nowy parametr**. W wyświetlonym menu rozwijanym zaznacz pola wyboru obok **klucza partycji** i **parametrów dla procedury składowanej**, a następnie kliknij dowolne miejsce na ekranie. Dodaje pole dla wartości klucza partycji i pola dla parametrów procedury składowanej.
 
-   ![Wypełnij akcję aplikacji logiki](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![Zrzut ekranu przedstawia element procedury składowanej Execute z wybranym nowym parametrem.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. Teraz wprowadź wartość i parametry klucza partycji, jak pokazano poniżej. Pamiętaj, aby umieścić w nawiasach i podwójne cudzysłowy, jak pokazano. Może być konieczne kliknięcie przycisku **Dodaj zawartość dynamiczną** w celu uzyskania prawidłowych wartości, których można użyć w tym miejscu.
 
-   ![Wypełnij akcję aplikacji logiki](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![Zrzut ekranu przedstawia element procedury składowanej Execute z wprowadzonymi parametrami.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
-7. Upewnij się, że w górnej części okienka znajduje się informacja **o każdej**z nich, w obszarze **Wybierz dane wyjściowe z poprzednich kroków**upewnij się, że jest wybrana **treść** .
+7. Upewnij się, że w górnej części okienka znajduje się informacja **o każdej**z nich, w obszarze **Wybierz dane wyjściowe z poprzednich kroków**upewnij się, że jest wybrana  **treść** .
 
    ![Wypełnij aplikację logiki dla — Each](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
 

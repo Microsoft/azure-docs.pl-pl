@@ -1,14 +1,16 @@
 ---
 title: 'Samouczek: testowanie wsadowe w celu znalezienia problemów — LUIS'
 description: W tym samouczku pokazano, jak za pomocą testów wsadowych sprawdzić poprawność jakości aplikacji Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2020
-ms.openlocfilehash: 09e5ebc9f80eb51175b13e601983690b6229b747
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 7dd181f8cd398dd683296b446028b398a9800b53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83681629"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298322"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Samouczek: zestawy danych testów wsadowych
 
@@ -138,7 +140,7 @@ W tym samouczku pokazano, jak uruchomić test i interpretować wyniki. Nie obejm
     * Dodaj bardziej pozytywne przykładowe wyrażenia długości
     * Przeglądanie bilansu przykładowej wyrażenia długości w ramach intencji
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [LUIS How to clean up resources](./includes/cleanup-resources-preview-portal.md)]
 

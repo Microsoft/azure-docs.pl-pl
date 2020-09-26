@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4413a987af7a4802366556fb86c0c55e7b401776
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539197"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356802"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Udostępnianie i katalogowanie nowych dzierżawców w aplikacji SaaS przy użyciu wielodostępnego podzielonej na fragmenty Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -169,7 +169,7 @@ Aby zrozumieć, w jaki sposób aplikacja Wingtip implementuje nowe udostępniani
 
 4. Po zatrzymaniu wykonywania skryptu w punkcie przerwania naciśnij klawisz **F11** , aby wkroczyć do kodu.
 
-   ![debugowanie](./media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![Zrzut ekranu pokazuje Windows PowerShell ISE z menu Debuguj otwarty i Wkrocz do zaznaczonego.](./media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. Śledź wykonywanie skryptu przy użyciu opcji menu **Debuguj** , **F10** i **F11**, aby przekroczyć lub użyć funkcji o nazwie.
 
@@ -237,7 +237,7 @@ Pełna lista dzierżawców i odpowiednia baza danych dla każdej z nich są dost
 - Nazwa dzierżawy jest przechowywana w tabeli dzierżawców.
 - Nazwa bazy danych jest przechowywana w tabelach zarządzania fragmentu.
 
-1. W SQL Server Management Studio (SSMS) Połącz się z serwerem dzierżawców w **katalogu-Mt. \<USER\> . Database.Windows.NET**, z logowaniem = **Developer**i hasłem = **P \@ ssword1**
+1. W SQL Server Management Studio (SSMS) Połącz się z serwerem dzierżawców w **katalogu-Mt. \<USER\> database.windows.net**, z identyfikatorem logowania = **Developer**i hasłem = **P \@ ssword1**
 
     ![Okno dialogowe połączenia programu SSMS](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
@@ -261,7 +261,7 @@ We wzorcu automatycznej aprowizacji dedykowana usługa aprowizacji jest używana
 
 Ten typ zautomatyzowanej usługi może być prosty lub skomplikowany. Na przykład Automatyzacja może obsłużyć obsługę w wielu lokalizacje geograficzneach i skonfigurować replikację geograficzną na potrzeby odzyskiwania po awarii. Ze wzorcem autoaprowizacji aplikacja kliencka lub skrypt wyśle żądanie aprowizacji do kolejki w celu przetworzenia przez usługę aprowizacji. Skrypt będzie następnie sondowany, aby wykryć zakończenie. Jeśli jest używane wstępne Inicjowanie obsługi, żądania byłyby obsługiwane szybko, podczas gdy usługa w tle zarządza zastępowaniem zastępujący bazy danych.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Biblioteka kliencka Elastic Database](elastic-database-client-library.md)

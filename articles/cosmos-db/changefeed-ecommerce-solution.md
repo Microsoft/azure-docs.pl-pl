@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: c9abc4dc89651eec7df635fb415314b2c12da3a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319766"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356370"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Użyj kanału informacyjnego zmiany Azure Cosmos DB, aby wizualizować analizę danych w czasie rzeczywistym
 
@@ -157,7 +157,7 @@ Po utworzeniu nowego dokumentu lub zmodyfikowaniu bieżącego dokumentu w konten
    * Zastąp tekst **nazwą kolekcji w tym miejscu** nazwą kolekcji. Jeśli wykonano wcześniejsze instrukcje, nazwa kolekcji to changefeedlabcollection.  
    * Zamień tekst **kolekcji DZIERŻAW tutaj** na nazwę kolekcji dzierżaw. Jeśli wykonano wcześniejsze instrukcje, nazwa kolekcji dzierżawy jest **dzierżawy**.  
    * Upewnij się, że w górnej części programu Visual Studio pole projekt startowy po lewej stronie zielonej strzałki ma wartość **ChangeFeedFunction**.  
-   * Wybierz pozycję **Rozpocznij** u góry strony, aby uruchomić program.  
+   * Wybierz pozycję **Rozpocznij**  u góry strony, aby uruchomić program.  
    * Można potwierdzić, że funkcja jest uruchomiona, gdy aplikacja konsoli mówi "uruchomiono hosta zadania".
 
 ## <a name="insert-data-into-azure-cosmos-db"></a>Wstaw dane do Azure Cosmos DB 
@@ -315,7 +315,7 @@ Power BI to pakiet narzędzi do analityki biznesowej, który pozwala analizować
 
    Oto jak wygląda przykładowy pulpit nawigacyjny z następującymi wykresami:
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="wizualizacje":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Zrzut ekranu przedstawia przykładowy pulpit nawigacyjny z wykresami o nazwie średnia cena elementów według akcji, unikatowych odwiedzających, przychodów i 5 najczęściej zakupionych elementów.":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcjonalne: Wizualizuj w witrynie handlu elektronicznego
 

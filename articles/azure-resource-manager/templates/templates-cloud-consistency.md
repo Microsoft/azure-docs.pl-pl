@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509760"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356889"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Opracowywanie szablonów ARM w celu zapewnienia spójności chmury
 
@@ -655,7 +655,7 @@ Jest to wyzwanie, aby śledzić wszystkie powiązane ustawienia, możliwości i 
 
 Na poniższej ilustracji przedstawiono typowy przykład procesu tworzenia zespołu przy użyciu zintegrowanego środowiska programistycznego (IDE). Na różnych etapach osi czasu są wykonywane różne typy testów. W tym przypadku dwaj deweloperzy pracują nad tym samym rozwiązaniem, ale ten scenariusz dotyczy jednak jednego dewelopera lub dużego zespołu. Każdy deweloper zazwyczaj tworzy lokalną kopię centralnego repozytorium, co umożliwia każdemu współdziałanie z lokalną kopią bez wpływania na innych użytkowników, którzy mogą pracować nad tymi samymi plikami.
 
-![Przepływ pracy](./media/templates-cloud-consistency/workflow.png)
+![Diagram przedstawia dwa zestawy testów jednostkowych i testów integracji równolegle na lokalnie I D E, które scalają w przepływie projektowania C/C D w testy jednostkowe, następnie testy integracji, a następnie test wdrożenia, a następnie wdrożenie.](./media/templates-cloud-consistency/workflow.png)
 
 Należy wziąć pod uwagę następujące wskazówki dotyczące testowania i automatyzacji:
 

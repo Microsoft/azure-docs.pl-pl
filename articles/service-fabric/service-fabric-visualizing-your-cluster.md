@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256258"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357220"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer
 
@@ -80,7 +80,7 @@ Na każdym poziomie drzewa okienko główne pokazuje odpowiednie informacje o el
 ### <a name="view-the-clusters-nodes"></a>Wyświetlanie węzłów klastra
 Widok węzła przedstawia fizyczny układ klastra. Dla danego węzła można sprawdzić, które aplikacje mają kod wdrożony w tym węźle. Dokładniej mówiąc, można zobaczyć, które repliki są obecnie uruchomione.
 
-## <a name="actions"></a>Działania
+## <a name="actions"></a>Akcje
 Service Fabric Explorer umożliwia szybkie wywoływanie akcji na węzłach, aplikacjach i usługach w ramach klastra.
 
 Na przykład aby usunąć wystąpienie aplikacji, wybierz aplikację z drzewa po lewej stronie, a następnie wybierz **Akcje**  >  **Usuń aplikację**.
@@ -106,7 +106,7 @@ Możesz również użyć Service Fabric Explorer, aby utworzyć wystąpienia apl
 ## <a name="event-store"></a>Magazyn zdarzeń
 EventStore to funkcja oferowana przez platformę, która zapewnia Service Fabric zdarzenia platformy dostępne w Service Fabric Explorer i za pomocą interfejsu API REST. Możesz zobaczyć widok migawki tego, co się dzieje w klastrze dla każdej jednostki, na przykład węzeł, usługa, aplikacja i zapytanie na podstawie czasu zdarzenia. Więcej informacji na temat EventStore można także znaleźć na stronie [Przegląd EventStore](service-fabric-diagnostics-eventstore.md).   
 
-![EventStore][sfx-eventstore]
+![Zrzut ekranu przedstawia okienko węzły z wybranymi ZDARZENIAmi.][sfx-eventstore]
 
 >[!NOTE]
 >Od Service Fabric wersja 6,4. EventStore nie jest domyślnie włączona i musi być włączona w szablonie Menedżera zasobów

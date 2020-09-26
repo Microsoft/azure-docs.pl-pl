@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platform
 description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby tworzyć kopie zapasowe maszyn wirtualnych przy użyciu Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 9b37f909fc8199975eb399fe5ca28ebb53ab2789
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cba224de3d8b223ebcc1ac4d2d8d569275b4e3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817935"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272251"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu Azure Backup Server
 
@@ -105,9 +105,9 @@ W przypadku oprogramowania VMware 6,7 jako protokołu komunikacyjnego włączono
 
 1. Kliknij prawym przyciskiem myszy protokół TLS. Plik REG i wybierz pozycję **Scal** lub **Otwórz** , aby dodać ustawienia do rejestru.
 
-## <a name="add-the-provisioning-ip-address-for-azure-vmware-solution-esxi-hosts-on-azure-backup-server"></a>Dodaj adres IP aprowizacji dla hostów rozwiązań VMware ESXi na platformie Azure na Azure Backup Server
+## <a name="add-the-provisioning-ip-address"></a>Dodawanie adresu IP aprowizacji 
 
-W trakcie okresu zapoznawczego rozwiązanie Azure VMware nie rozpoznaje hosta ESX z maszyny wirtualnej wdrożonej w sieci wirtualnej. Należy wykonać dodatkowe czynności, aby dodać wpis pliku hosta na Azure Backup Server maszynie wirtualnej.
+Rozwiązanie VMware firmy Azure nie rozpoznaje hosta ESX z maszyny wirtualnej wdrożonej w sieci wirtualnej. Należy wykonać dodatkowe czynności, aby dodać wpis pliku hosta na maszynie wirtualnej Azure Backup Server.
 
 ### <a name="identify-the-ip-address-for-esxi-hosts"></a>Zidentyfikuj adres IP dla hostów ESXi
 
@@ -144,7 +144,7 @@ W trakcie okresu zapoznawczego rozwiązanie Azure VMware nie rozpoznaje hosta ES
 
 1. W oknie dialogowym **Zarządzanie poświadczeniami** wybierz pozycję **Dodaj**.
 
-   ![Okno dialogowe Zarządzanie poświadczeniami Azure Backup Server](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
+   ![W oknie dialogowym Zarządzanie poświadczeniami wybierz pozycję Dodaj.](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
 1. W oknie dialogowym **Dodaj poświadczenia** wprowadź nazwę i opis nowego poświadczenia. Określ nazwę użytkownika i hasło zdefiniowane na serwerze VMware.
 
@@ -155,7 +155,7 @@ W trakcie okresu zapoznawczego rozwiązanie Azure VMware nie rozpoznaje hosta ES
 
 1. Wybierz pozycję **Dodaj** , aby dodać nowe poświadczenie.
 
-   ![Okno dialogowe Zarządzanie poświadczeniami Azure Backup Server](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
+   ![Zrzut ekranu Azure Backup Server przedstawia okno dialogowe Zarządzanie poświadczeniami z wyświetlonymi nowymi poświadczeniami.](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 ## <a name="add-the-vcenter-server-to-azure-backup-server"></a>Dodaj serwer vCenter do Azure Backup Server
 
@@ -192,7 +192,10 @@ W trakcie okresu zapoznawczego rozwiązanie Azure VMware nie rozpoznaje hosta ES
 
    ![Strona końcowa](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
 
-   Serwer vCenter powinien zostać wyświetlony na liście na **serwerze produkcyjnym** z typem jako **serwer VMware** i **stan agenta** jako **OK**. Jeśli widzisz **stan agenta** jako **nieznany**, wybierz pozycję **Odśwież**.
+   Serwer vCenter powinien zostać wyświetlony na liście na **serwerze produkcyjnym** z typem jako **serwer VMware** i **stan agenta** jako **OK**. 
+
+   >[!TIP]
+   >Jeśli widzisz **stan agenta** jako **nieznany**, wybierz pozycję **Odśwież**.
 
 ## <a name="configure-a-protection-group"></a>Konfigurowanie grupy ochrony
 
@@ -300,7 +303,7 @@ W konsola administratora Azure Backup Server istnieją dwa sposoby znajdowania m
 
 1. W konsola administratora Azure Backup Server wybierz widok **odzyskiwania** . 
 
-1. Za pomocą okienka **przeglądania** Przeglądaj lub Filtruj, aby znaleźć maszynę wirtualną, którą chcesz odzyskać. Po wybraniu maszyny wirtualnej lub folderu **punkty odzyskiwania dla** okienka wyświetla dostępne punkty odzyskiwania.
+1. W okienku **przeglądania** Przeglądaj lub Filtruj, aby znaleźć maszynę wirtualną, którą chcesz odzyskać. Po wybraniu maszyny wirtualnej lub folderu są wyświetlane dostępne punkty odzyskiwania.
 
    ![Dostępne punkty odzyskiwania](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
@@ -317,12 +320,13 @@ W konsola administratora Azure Backup Server istnieją dwa sposoby znajdowania m
 
    ![Kreator odzyskiwania, Przegląd strony wyboru odzyskiwania](../backup/media/restore-azure-backup-server-vmware/recovery-wizard.png)
 
-1. Wybierz pozycję **dalej** , aby przejść do ekranu **Określanie opcji odzyskiwania** . Wybierz ponownie przycisk **dalej** , aby przejść do ekranu **Wybieranie typu odzyskiwania** . 
+1. Wybierz pozycję **dalej** , aby przejść do ekranu **Określanie opcji odzyskiwania** . 
+1. Wybierz ponownie przycisk **dalej** , aby przejść do ekranu **Wybieranie typu odzyskiwania** . 
 
    > [!NOTE]
    > Obciążenia oprogramowania VMware nie obsługują włączania ograniczania przepustowości sieci.
 
-1. Na stronie **Wybierz typ odzyskiwania** wybierz, czy chcesz odzyskać do oryginalnego wystąpienia, czy nowej lokalizacji, a następnie wybierz przycisk **dalej**.
+1. Na stronie **Wybierz typ odzyskiwania** wybierz opcję Odzyskaj do oryginalnego wystąpienia lub nowej lokalizacji, a następnie wybierz przycisk **dalej**.
 
    - W przypadku wybrania opcji **Odzyskaj do oryginalnego wystąpienia**nie trzeba wprowadzać więcej opcji w kreatorze. Dane dla oryginalnego wystąpienia są używane.
    - Jeśli wybierzesz opcję **Odzyskaj jako maszynę wirtualną na dowolnym hoście**, na ekranie **określ miejsce docelowe** podaj informacje dotyczące **hosta ESXi**, **puli zasobów**, **folderu**i **ścieżki**.
@@ -342,7 +346,7 @@ Można przywrócić pojedyncze pliki z chronionego punktu odzyskiwania maszyny w
 
 1. W konsola administratora Azure Backup Server wybierz widok **odzyskiwania** .
 
-1. Za pomocą okienka **przeglądania** Przeglądaj lub Filtruj, aby znaleźć maszynę wirtualną, którą chcesz odzyskać. Po wybraniu maszyny wirtualnej lub folderu **punkty odzyskiwania dla** okienka wyświetla dostępne punkty odzyskiwania.
+1. W okienku **przeglądania** Przeglądaj lub Filtruj, aby znaleźć maszynę wirtualną, którą chcesz odzyskać. Po wybraniu maszyny wirtualnej lub folderu są wyświetlane dostępne punkty odzyskiwania.
 
    ![Dostępne punkty odzyskiwania](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 

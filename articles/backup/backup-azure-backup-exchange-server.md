@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć kopię zapasową serwera programu Excha
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 02d1cde7ab48aa951c47cfbfea29c90c3f53f768
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ee89af311619922fa6ca585381d70ca66955f36a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378393"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271651"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Tworzenie kopii zapasowych serwera programu Exchange do usługi Azure Backup przy użyciu programu System Center 2012 R2 DPM
 
@@ -38,8 +38,8 @@ Przed kontynuowaniem upewnij się, że spełniono wszystkie [wymagania wstępne]
 
 Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj następujące kroki:
 
-1. Upewnij się, że zapory są prawidłowo skonfigurowane. Zobacz [Configure firewall Exceptions for the Agent](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Zainstaluj agenta na serwerze programu Exchange, wybierając pozycję **zarządzanie > agenci > Zainstaluj** w Konsola administratora programu DPM. Szczegółowe instrukcje znajdują się w temacie [Install the DPM Protection Agent](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) .
+1. Upewnij się, że zapory są prawidłowo skonfigurowane. Zobacz [Configure firewall Exceptions for the Agent](/system-center/dpm/configure-firewall-settings-for-dpm).
+2. Zainstaluj agenta na serwerze programu Exchange, wybierając pozycję **zarządzanie > agenci > Zainstaluj** w Konsola administratora programu DPM. Szczegółowe instrukcje znajdują się w temacie [Install the DPM Protection Agent](/system-center/dpm/deploy-dpm-protection-agent) .
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Tworzenie grupy ochrony dla serwera programu Exchange
 
@@ -62,7 +62,7 @@ Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj nast
 
    * Chcę uzyskać krótkoterminową ochronę za pomocą dysku.
    * Chcę chronić w trybie online.
-6. Wybierz pozycję **Next** (Dalej).
+6. Wybierz opcję **Dalej**.
 7. Wybierz opcję **Uruchom program Eseutil, aby sprawdzić integralność danych** , jeśli chcesz sprawdzić integralność baz danych programu Exchange Server.
 
     Po wybraniu tej opcji sprawdzanie spójności kopii zapasowej zostanie uruchomione na serwerze programu DPM, aby uniknąć ruchu we/wy wygenerowanego przez uruchomienie polecenia **eseutil** na serwerze Exchange.
@@ -72,7 +72,7 @@ Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj nast
    > ![błąd Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Wybierz pozycję **Next** (Dalej).
+8. Wybierz opcję **Dalej**.
 9. Wybierz bazę danych **kopii zapasowej**, a następnie wybierz przycisk **dalej**.
 
    > [!NOTE]

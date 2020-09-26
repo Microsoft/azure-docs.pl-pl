@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
-ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357169"
 ---
 # <a name="agent-based-migration-architecture"></a>Architektura migracji z użyciem agentów
 
@@ -34,7 +34,7 @@ Migracja oparta na agencie służy do migrowania lokalnych maszyn wirtualnych VM
 
 Diagram ilustruje składniki związane z migracją opartą na agentach.
 
-![Architektura](./media/agent-based-replication-architecture/architecture.png)
+![Diagram przedstawia składniki dla migracji opartej na agencie, które objaśniono w tabeli.](./media/agent-based-replication-architecture/architecture.png)
 
 W tabeli zestawiono składniki używane do migracji opartej na agentach.
 
@@ -95,7 +95,7 @@ Użyj wartości w tej tabeli, aby ustalić, czy potrzebujesz dodatkowego serwera
 - Jeśli dzienny współczynnik zmian (tempo zmiany) przekracza 2 TB, wdróż dodatkowy serwer przetwarzania.
 - W przypadku replikowania więcej niż 200 maszyn należy wdrożyć dodatkowe urządzenie do replikacji.
 
-**Procesor CPU** | **Memory (Pamięć)** | **Wolne miejsce — buforowanie danych** | **Współczynnik zmian** | **Limity replikacji**
+**Procesor CPU** | **Pamięć** | **Wolne miejsce — buforowanie danych** | **Współczynnik zmian** | **Limity replikacji**
 --- | --- | --- | --- | ---
 8 procesorów wirtualnych vCPU (2 gniazda * 4 rdzenie \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB lub mniej | Maszyny < 100 
 12 procesorów wirtualnych vCPU (2 gniazda * 6 rdzeni \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB do 1 TB | 100-150 maszyn.

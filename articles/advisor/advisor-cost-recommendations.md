@@ -3,12 +3,12 @@ title: Zmniejsz koszty usługi przy użyciu Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować koszty wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: d234e89d0d042999805fae73d3df24c03d1027c9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 89bc72bcf3a19867341675f89cbc0a734d7996d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325848"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Obniżenie kosztów usługi przy użyciu Azure Advisor
 
@@ -20,7 +20,7 @@ Chociaż niektóre scenariusze aplikacji mogą powodować niskie użycie w proje
 
 Zalecane akcje są wyłączane lub zmieniane, w odróżnieniu od wartości ocenianego zasobu.
 
-Zaawansowany model oceny w usłudze Advisor uwzględnia wyłączenie maszyn wirtualnych, gdy obie te instrukcje są prawdziwe: 
+Zaawansowany model oceny w usłudze Advisor uwzględnia wyłączenie maszyn wirtualnych, gdy wszystkie te instrukcje są prawdziwe: 
 - P95th maksymalna wartość użycia procesora CPU jest mniejsza niż 3%. 
 - Wykorzystanie sieci jest mniejsze niż 2% w okresie siedmiu dni.
 - Wykorzystanie pamięci jest mniejsze niż wartości progowe

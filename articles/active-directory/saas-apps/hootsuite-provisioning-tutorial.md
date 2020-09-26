@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: a67d61c5a7c8861b1e4462586e1e4dca9149ab4f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4c040c6d5b8eb4041db3ffaaab58657a9f9c7da
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305464"
+ms.locfileid: "91358053"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie HootSuite na potrzeby automatycznego aprowizacji użytkowników
 
@@ -88,7 +88,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **poświadczenia administratora** wprowadź `https://platform.hootsuite.com/scim/v2` adres URL dzierżawy. Wprowadź długotrwałą wartość tokenu tajnego, która została pobrana wcześniej w **kroku 2**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą HootSuite. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi HootSuite ma uprawnienia administratora, a następnie spróbuj ponownie.
 
-    ![aprowizacji](./media/hootsuite-provisioning-tutorial/provisioning.png)
+    ![Zrzut ekranu przedstawia okno dialogowe poświadczenia administratora, w którym można wprowadzić dzierżawę U R L i wpis tajny.](./media/hootsuite-provisioning-tutorial/provisioning.png)
 
 6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
 
