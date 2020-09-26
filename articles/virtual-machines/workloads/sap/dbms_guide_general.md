@@ -4,23 +4,23 @@ description: Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DB
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: SAP, DBMS, Storage, Ultra Disk, Premium Storage
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/04/2018
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15c0368b2d0bd85f6fee65ffa2c9d6776d07f162
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4ac3a43776ee71716e618d7a1698aa1915d3d1b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331356"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -46,9 +46,8 @@ ms.locfileid: "88650619"
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Ten przewodnik jest częścią dokumentacji dotyczącej sposobu wdrażania i wdrażania oprogramowania SAP na Microsoft Azure. Przed przeczytaniem tego przewodnika Przeczytaj [Przewodnik planowania i implementacji][planning-guide]. Ten dokument zawiera opis aspektów wdrożenia ogólnych systemów DBMS związanych z systemem SAP na Microsoft Azure maszynach wirtualnych za pomocą funkcji infrastruktury platformy Azure jako usługi (IaaS).
+Ten przewodnik jest częścią dokumentacji dotyczącej sposobu wdrażania i wdrażania oprogramowania SAP na Microsoft Azure. Przed przeczytaniem tego przewodnika Przeczytaj [Przewodnik planowania i implementacji][planning-guide] oraz artykuły z przewodnikiem planowania. Ten dokument zawiera opis aspektów wdrożenia ogólnych systemów DBMS związanych z systemem SAP na Microsoft Azure maszynach wirtualnych za pomocą funkcji infrastruktury platformy Azure jako usługi (IaaS).
 
 Ten dokument uzupełnia dokumentację instalacji SAP i uwagi SAP, które reprezentują podstawowe zasoby dotyczące instalacji i wdrożeń oprogramowania SAP na określonych platformach.
 
@@ -109,49 +108,62 @@ Ogólnie rzecz biorąc instalacja i konfiguracja systemu Windows, Linux i DBMS j
 
 
 ## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Struktura magazynu maszyny wirtualnej na potrzeby wdrożeń RDBMS
-Aby postępować zgodnie z tym rozdziałem, przeczytaj i zapoznaj się z informacjami przedstawionymi w [tym rozdziale][deployment-guide-3] [przewodnika wdrażania][deployment-guide]. Przed przeczytaniem tego rozdziału należy zrozumieć i poznać różne serie maszyn wirtualnych oraz różnice między warstwami standardowa i Premium. 
+Aby postępować zgodnie z tym rozdziałem, przeczytaj i zapoznaj się z informacjami przedstawionymi w temacie:
 
-Aby dowiedzieć się więcej o usłudze Azure Storage dla maszyn wirtualnych platformy Azure, zobacz [wprowadzenie do dysków zarządzanych dla maszyn wirtualnych platformy Azure](../../managed-disks-overview.md).
+- [Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver](./planning-guide.md)
+- [Typy usługi Azure Storage dla obciążeń SAP](./planning-guide-storage.md)
+- [Jakie oprogramowanie SAP jest obsługiwane w przypadku wdrożeń platformy Azure](./sap-supported-product-on-azure.md)
+- [Obsługiwane scenariusze obciążenia SAP na maszynie wirtualnej na platformie Azure](./sap-planning-supported-configurations.md) 
 
-W konfiguracji podstawowej zwykle zalecamy strukturę wdrożenia, w której system operacyjny, DBMS i ostateczne pliki binarne SAP są oddzielone od plików bazy danych. Zalecamy, aby systemy SAP działające na maszynach wirtualnych platformy Azure miały podstawowy dysk VHD (lub dysk) zainstalowany z systemem operacyjnym, plikami wykonywalnymi systemu zarządzania bazami danych i plikami wykonywalnymi SAP. 
+Przed przeczytaniem tego rozdziału należy zrozumieć i poznać różne serie maszyn wirtualnych oraz różnice między warstwami standardowa i Premium. 
 
-Pliki danych i dziennika systemu DBMS są przechowywane w magazynie w warstwie Standardowa lub Premium Storage. Są one przechowywane na oddzielnych dyskach i dołączane jako dyski logiczne do oryginalnej maszyny wirtualnej obrazu systemu operacyjnego platformy Azure. W przypadku wdrożeń systemu Linux są udokumentowane różne zalecenia, szczególnie w przypadku SAP HANA.
+W przypadku magazynu blokowego platformy Azure użycie usługi Azure Managed disks jest zdecydowanie zalecane. Aby uzyskać szczegółowe informacje na temat usługi Azure Managed disks, przeczytaj artykuł [wprowadzenie do dysków zarządzanych dla maszyn wirtualnych platformy Azure](../../managed-disks-overview.md).
+
+W konfiguracji podstawowej zwykle zalecamy strukturę wdrożenia, w której system operacyjny, DBMS i ostateczne pliki binarne SAP są oddzielone od plików bazy danych. W przypadku zmiany wcześniejszych zaleceń zalecamy korzystanie z oddzielnych dysków platformy Azure dla:
+
+- System operacyjny (podstawowy dysk VHD lub wirtualny dysk twardy systemu operacyjnego)
+- Pliki wykonywalne systemu zarządzania bazami danych
+- Pliki wykonywalne SAP, takie jak/usr/SAP
+
+Konfiguracja, która oddziela te składniki na trzech różnych dyskach platformy Azure, może spowodować zwiększenie odporności, ponieważ nadmierne zapisy dziennika lub zrzutu za pomocą plików wykonywalnych systemu DBMS lub SAP nie zakłócają przydziałów dysku dysku system operacyjnego. 
+
+Pliki dziennika danych i transakcji/ponownego wykonywania w systemie DBMS są przechowywane na platformie Azure obsługiwanej przez magazyn blokowy lub Azure NetApp Files. Są one przechowywane na oddzielnych dyskach i dołączane jako dyski logiczne do oryginalnej maszyny wirtualnej obrazu systemu operacyjnego platformy Azure. W przypadku wdrożeń systemu Linux są udokumentowane różne zalecenia, szczególnie w przypadku SAP HANA. Zapoznaj się z artykułem [typy magazynów platformy Azure dla obciążeń SAP](./planning-guide-storage.md) , aby uzyskać informacje o możliwościach i obsłudze różnych typów magazynu dla danego scenariusza. 
 
 Podczas planowania układu dysku Znajdź najlepszą równowagę między tymi elementami:
 
 * Liczba plików danych.
 * Liczba dysków, które zawierają pliki.
-* Przydziały operacji we/wy jednego dysku.
-* Przepływność danych na dysk.
+* Przydziały operacji we/wy jednego dysku lub udziału NFS.
+* Przepływność danych na dysk lub udział NFS.
 * Liczba dodatkowych dysków danych możliwych dla rozmiaru maszyny wirtualnej.
-* Ogólna przepływność magazynu, która może być udostępniana przez maszynę wirtualną.
+* Ogólna przepustowość magazynu lub sieci możliwa do udostępnienia przez maszynę wirtualną.
 * Możliwe jest opóźnienie różnych typów magazynu platformy Azure.
 * Umowy SLA maszyny wirtualnej.
 
-Platforma Azure wymusza przydział operacji we/wy na dysk danych. Te przydziały różnią się w przypadku dysków hostowanych w usłudze Storage w warstwie Standardowa i Premium Storage. Opóźnienie we/wy różni się również między dwoma typami magazynów. Usługa Premium Storage zapewnia lepsze opóźnienia we/wy. 
+Platforma Azure wymusza przydział operacji we/wy na dysk danych lub udział NFS. Te przydziały różnią się w przypadku dysków hostowanych w różnych rozwiązaniach lub udziałach magazynu blokowego platformy Azure. Opóźnienie we/wy jest również różne dla różnych typów magazynów. 
 
-Każdy z różnych typów maszyn wirtualnych ma ograniczoną liczbę dysków z danymi, które można dołączyć. Inne ograniczenie polega na tym, że tylko niektóre typy maszyn wirtualnych mogą korzystać z magazynu Premium Storage. Zazwyczaj użytkownik zdecyduje się użyć określonego typu maszyny wirtualnej na podstawie wymagań procesora i pamięci. Można też uwzględnić wymagania operacji we/wy, opóźnienia i przepływności dysku, które zwykle są skalowane z liczbą dysków lub typem dysków magazynu w warstwie Premium. Liczba operacji we/wy na sekundę i przepływność do osiągnięcia przez każdy dysk może oznaczać rozmiar dysku, szczególnie w przypadku magazynu w warstwie Premium.
-
-> [!NOTE]
-> W przypadku wdrożeń systemu DBMS zalecamy korzystanie z usługi Premium Storage do dowolnych danych, dzienników transakcji lub plików ponawiania. Nie ma znaczenia, czy chcesz wdrożyć systemy produkcyjne lub nieprodukcyjne.
+Każdy z różnych typów maszyn wirtualnych ma ograniczoną liczbę dysków z danymi, które można dołączyć. Inne ograniczenie polega na tym, że tylko niektóre typy maszyn wirtualnych mogą korzystać z usługi Premium Storage. Zazwyczaj użytkownik zdecyduje się użyć określonego typu maszyny wirtualnej na podstawie wymagań procesora i pamięci. Można też uwzględnić wymagania operacji we/wy, opóźnienia i przepływności dysku, które zwykle są skalowane z liczbą dysków lub typem dysków magazynu w warstwie Premium. Liczba operacji we/wy na sekundę i przepływność do osiągnięcia przez każdy dysk może oznaczać rozmiar dysku, szczególnie w przypadku magazynu w warstwie Premium.
 
 > [!NOTE]
-> Aby skorzystać z unikatowej [umowy SLA dla jednej maszyny wirtualnej](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)platformy Azure, wszystkie dołączone dyski muszą być typu magazynu Premium, który obejmuje podstawowy dysk VHD.
+> W przypadku wdrożeń w systemie DBMS zalecamy korzystanie z usługi Azure Premium Storage, Ultra Disk lub Azure NetApp Files opartych na systemie plików NFS (przeznaczonych wyłącznie dla SAP HANA) dla dowolnych danych, dzienników transakcji lub plików ponawiania. Nie ma znaczenia, czy chcesz wdrożyć systemy produkcyjne lub nieprodukcyjne.
 
 > [!NOTE]
-> Hostowanie plików głównych baz danych, takich jak pliki danych i dziennika, z baz danych SAP na sprzęcie magazynu znajdujących się w wspólnie zlokalizowanych centrach danych innych firm sąsiadujących z centrami danych platformy Azure nie jest obsługiwane. W przypadku obciążeń SAP tylko magazyn reprezentowany jako natywna usługa platformy Azure jest obsługiwany dla plików dziennika danych i transakcji baz danych SAP.
+> Aby skorzystać z [umowy SLA dla jednej maszyny wirtualnej](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)platformy Azure, wszystkie dołączone dyski muszą być typu Azure Premium Storage lub Azure Ultra Disk, który obejmuje podstawowy dysk VHD (Azure Premium Storage).
 
-Umieszczanie plików bazy danych oraz plików dziennika i wykonaj ponownie oraz typu używanej usługi Azure Storage jest zdefiniowane przez operacje we/wy, opóźnienia i przepływność. Aby mieć wystarczającą liczbę operacji we/wy, może być konieczne użycie wielu dysków lub użycie większego dysku magazynu Premium Storage. W przypadku korzystania z wielu dysków należy skompilować pakiet oprogramowania na dyskach zawierających pliki danych lub pliki dziennika i wykonaj ponownie. W takich przypadkach liczba operacji we/wy na sekundę (umowy SLA) dysków magazynu w warstwie Premium lub maksymalna liczba operacji we/wy na sekundę dysków magazynu w warstwie Standardowa jest kumulowana dla zestawu.
+> [!NOTE]
+> Hostowanie plików głównych baz danych, takich jak pliki danych i dziennika, z baz danych SAP na sprzęcie magazynu znajdujących się w wspólnie zlokalizowanych centrach danych innych firm sąsiadujących z centrami danych platformy Azure nie jest obsługiwane. Magazyn udostępniony przez urządzenia działające na maszynach wirtualnych platformy Azure nie jest również obsługiwany w przypadku tego przypadku użycia. W przypadku obciążeń SAP DBMS tylko magazyn reprezentowany jako natywna usługa platformy Azure jest obsługiwany dla plików dziennika transakcji i baz danych SAP. Różne systemy DBMS mogą obsługiwać różne typy magazynów platformy Azure. Aby uzyskać więcej szczegółów, zobacz artykuł [typy magazynów platformy Azure dla obciążeń SAP](./planning-guide-storage.md)
 
-Jak już wspomniano, jeśli wymaganie IOPS nie przekroczy określonego wirtualnego dysku twardego, należy zrównoważyć liczbę operacji we/wy, które są potrzebne dla plików bazy danych w ramach wielu wirtualnych dysków twardych. Najprostszym sposobem na rozproszenie obciążenia IOPS między dyskami jest skompilowanie oprogramowania na różnych dyskach. Następnie należy umieścić kilka plików danych systemu SAP DBMS na jednostkach LUN używać miejsca z paska oprogramowania. Liczba dysków w rozłożonej jest obsługiwana przez żądania IOPs, wymagania dotyczące przepływności dysku i zapotrzebowania na wolumin.
+Umieszczanie plików bazy danych oraz plików dziennika i wykonaj ponownie oraz typu używanej usługi Azure Storage jest zdefiniowane przez operacje we/wy, opóźnienia i przepływność. W przypadku usługi Azure Premium Storage w celu osiągnięcia wystarczającej liczby operacji we/wy można wymusić użycie wielu dysków lub użyć większego dysku magazynu Premium Storage. W przypadku korzystania z wielu dysków należy skompilować pakiet oprogramowania na dyskach zawierających pliki danych lub pliki dziennika i wykonaj ponownie. W takich przypadkach liczba operacji we/wy na sekundę (umowy SLA) dysków magazynu w warstwie Premium lub maksymalna liczba operacji we/wy na sekundę dysków magazynu w warstwie Standardowa jest kumulowana dla zestawu.
+
+Jeśli wymaganie IOPS przekroczy wartość jednego wirtualnego dysku twardego, można zrównoważyć liczbę operacji we/wy, która jest wymagana dla plików bazy danych w ramach wielu wirtualnych dysków twardych. Najprostszym sposobem na rozproszenie obciążenia IOPS między dyskami jest skompilowanie oprogramowania na różnych dyskach. Następnie należy umieścić kilka plików danych systemu SAP DBMS na jednostkach LUN używać miejsca z paska oprogramowania. Liczba dysków w rozłożonej jest obsługiwana przez żądania IOPS, wymagania dotyczące przepływności dysku i zapotrzebowania na wolumin.
 
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Rozłożenie magazynu systemu Windows][Logo_Windows] Windows
 >
 > Zalecamy używanie funkcji miejsca do magazynowania systemu Windows do tworzenia zestawów rozłożonych w wielu wirtualnych dyskach twardych platformy Azure. Użyj co najmniej systemu Windows Server 2012 R2 lub Windows Server 2016.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Rozłożenie magazynu systemu Linux][Logo_Linux] Linux
 >
 > Tylko MDADM i Logical Volume Manager (LVM) są obsługiwane do kompilowania oprogramowania RAID w systemie Linux. Aby uzyskać więcej informacji, zobacz:
 >
@@ -162,6 +174,9 @@ Jak już wspomniano, jeśli wymaganie IOPS nie przekroczy określonego wirtualne
 
 ---
 
+W przypadku usługi Azure Ultra Disk rozłożenie nie jest konieczne, ponieważ można definiować operacje we/wy na dysku niezależnie od rozmiaru dysku.
+
+
 > [!NOTE]
 > Ponieważ usługa Azure Storage przechowuje trzy obrazy wirtualnych dysków twardych, nie ma sensu konfigurowania nadmiarowości podczas rozłożenia. Wystarczy tylko skonfigurować rozłożenie, aby zapewnić dystrybucję I/OS przy użyciu różnych wirtualnych dysków twardych.
 >
@@ -171,7 +186,7 @@ Konto usługi Azure Storage to konstrukcja administracyjna, która również pod
 
 W przypadku magazynu w warstwie Standardowa należy pamiętać, że istnieje limit liczby operacji we/wy na konto magazynu. Zapoznaj się z wierszem zawierającym **łączną liczbę żądań** w artykule dotyczące [skalowalności i wydajności usługi Azure Storage](../../../storage/common/scalability-targets-standard-account.md). Istnieje również początkowy limit liczby kont magazynu na subskrypcję platformy Azure. Równoważ wirtualne dyski twarde dla większych poziomów oprogramowania SAP na różnych kontach magazynu, aby uniknąć osiągnięcia limitów tych kont magazynu. To żmudnym działa, gdy mówisz kilka tysięcy maszyn wirtualnych z więcej niż tysiące dysków VHD.
 
-Ponieważ Używanie magazynu w warstwie Standardowa dla wdrożeń systemu DBMS w połączeniu z obciążeniem SAP nie jest zalecane, odwołania i zalecenia dotyczące magazynu w warstwie Standardowa są ograniczone do tego krótkiego [artykułu](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance)
+Nie zaleca się używania magazynu w warstwie Standardowa dla wdrożeń systemu DBMS w połączeniu z obciążeniem SAP. W związku z tym odwołania i zalecenia dotyczące magazynu w warstwie Standardowa są ograniczone do tego krótkiego [artykułu](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance)
 
 Aby uniknąć czynności administracyjnych planowania i wdrażania dysków VHD na różnych kontach usługi Azure Storage, firma Microsoft wprowadziła [Managed disks platformy Azure](https://azure.microsoft.com/services/managed-disks/) w 2017. Dyski zarządzane są dostępne dla magazynu w warstwie Standardowa i Premium Storage. Główne zalety dysków zarządzanych w porównaniu z niezarządzanymi dyskami są następujące:
 
@@ -180,7 +195,7 @@ Aby uniknąć czynności administracyjnych planowania i wdrażania dysków VHD n
 
 
 > [!IMPORTANT]
-> Mając na względzie zalety platformy Azure Managed Disks, zalecamy korzystanie z usługi Azure Managed Disks na potrzeby wdrożeń systemu DBMS i wdrożeń SAP.
+> Mając na względzie zalety platformy Azure Managed Disks, zdecydowanie zalecamy korzystanie z usługi Azure Managed Disks na potrzeby wdrożeń systemu DBMS i wdrożeń SAP.
 >
 
 Aby skonwertować z dysków niezarządzanych do usługi Managed disks, zobacz:
@@ -190,7 +205,7 @@ Aby skonwertować z dysków niezarządzanych do usługi Managed disks, zobacz:
 
 
 ### <a name="caching-for-vms-and-data-disks"></a><a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Buforowanie maszyn wirtualnych i dysków z danymi
-Podczas instalowania dysków na maszynach wirtualnych można wybrać, czy ruch we/wy między maszyną wirtualną a tymi dyskami znajdującymi się w usłudze Azure Storage jest buforowany. W przypadku magazynu w warstwie Standardowa i Premium używane są dwie różne technologie dla tego typu pamięci podręcznej.
+Podczas instalowania dysków na maszynach wirtualnych można wybrać, czy ruch we/wy między maszyną wirtualną a tymi dyskami znajdującymi się w usłudze Azure Storage jest buforowany.
 
 W następujących zaleceniach przyjęto założenie, że te cechy we/wy dla standardowego systemu DBMS:
 
@@ -208,7 +223,7 @@ W przypadku magazynu w warstwie Standardowa możliwe są następujące typy pami
 
 Aby uzyskać spójną i deterministyczną wydajność, ustaw buforowanie w magazynie w warstwie Standardowa dla wszystkich dysków, które zawierają pliki danych związanych z systemem DBMS, Rejestruj i wykonaj ponownie pliki, a następnie wybierz pozycję **Brak**. Buforowanie podstawowego wirtualnego dysku twardego może pozostać z wartością domyślną.
 
-W przypadku magazynu w warstwie Premium istnieją następujące opcje buforowania:
+W przypadku usługi Azure Premium Storage istnieją następujące opcje buforowania:
 
 * Brak
 * Odczyt
@@ -220,6 +235,8 @@ W przypadku magazynu w warstwie Premium zalecamy użycie **buforowania odczytu p
 
 W przypadku wdrożeń z serii M zalecamy używanie akcelerator zapisu platformy Azure do wdrożenia w systemie DBMS. Aby uzyskać szczegółowe informacje, ograniczenia i wdrożenie usługi Azure akcelerator zapisu, zobacz [włączanie akcelerator zapisu](../../how-to-enable-write-accelerator.md).
 
+W przypadku Ultra Disk i Azure NetApp Files nie są oferowane żadne opcje buforowania.
+
 
 ### <a name="azure-nonpersistent-disks"></a>Dyski nietrwałe platformy Azure
 Maszyny wirtualne platformy Azure oferują dyski nietrwałe po wdrożeniu maszyny wirtualnej. W przypadku ponownego uruchomienia maszyny wirtualnej cała zawartość na tych dyskach zostanie wyczyszczona. Ma to miejsce, że pliki danych i dziennik i wykonaj ponownie pliki baz danych nie powinny znajdować się na tych dyskach nieutrwalonych. Mogą istnieć wyjątki dla niektórych baz danych, w przypadku których te dyski nieutrwalone mogą być odpowiednie dla tempdb i tymczasowych tabel przewidzianych. Należy unikać używania tych dysków dla maszyn wirtualnych z serii A, ponieważ dyski nieutrwalone są ograniczone w przepływności z tą rodziną maszyn wirtualnych. 
@@ -227,11 +244,11 @@ Maszyny wirtualne platformy Azure oferują dyski nietrwałe po wdrożeniu maszyn
 Aby uzyskać więcej informacji, zobacz [opis dysku tymczasowego na maszynach wirtualnych z systemem Windows na platformie Azure](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines).
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Nieutrwalony dysk systemu Windows][Logo_Windows] Windows
 >
 > Dysk D na maszynie wirtualnej platformy Azure to nieutrwalony dysk, który jest obsługiwany przez niektóre dyski lokalne w węźle obliczeniowym platformy Azure. Ponieważ nie jest utrwalona, wszelkie zmiany wprowadzone do zawartości na dysku D są tracone po ponownym uruchomieniu maszyny wirtualnej. Zmiany obejmują zapisane pliki, katalogi, które zostały utworzone, oraz zainstalowane aplikacje.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Dysk Linuxnonpersisted][Logo_Linux] Linux
 >
 > Maszyny wirtualne platformy Azure z systemem Linux automatycznie instalują dysk w/mnt/Resource, który jest nieutrwalonym dyskiem z kopii zapasowej dysków lokalnych w węźle obliczeniowym platformy Azure. Ponieważ nie jest utrwalona, wszelkie zmiany wprowadzone w zawartości/mnt/Resource są tracone po ponownym uruchomieniu maszyny wirtualnej. Zmiany obejmują zapisane pliki, katalogi, które zostały utworzone, oraz zainstalowane aplikacje.
 >
@@ -247,7 +264,7 @@ Microsoft Azure Storage przechowuje podstawowy wirtualny dysk twardy z systemem 
 Istnieją inne metody nadmiarowości. Aby uzyskać więcej informacji, zobacz [Replikacja usługi Azure Storage](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
 > [!NOTE]
->Usługa Premium Storage jest zalecanym typem magazynu dla maszyn wirtualnych systemu DBMS i dysków, które przechowują bazę danych i pliki dziennika i wykonaj ponownie. Jedyną dostępną metodą nadmiarowości dla usługi Premium Storage jest LRS. W związku z tym należy skonfigurować metody bazy danych w celu włączenia replikacji danych bazy danych do innego regionu platformy Azure lub strefy dostępności. Metody bazy danych obejmują SQL Server zawsze włączone, Oracle Data Guard i HANA system Replication.
+> Azure Premium Storage, Ultra Disk i Azure NetApp Files (przeznaczone wyłącznie dla SAP HANA) są zalecanym typem magazynu dla maszyn wirtualnych systemu DBMS i dysków, które przechowują bazę danych i pliki dziennika i wykonaj ponownie. Jedyną dostępną metodą nadmiarowości dla tych typów magazynu jest LRS. W związku z tym należy skonfigurować metody bazy danych w celu włączenia replikacji danych bazy danych do innego regionu platformy Azure lub strefy dostępności. Metody bazy danych obejmują SQL Server zawsze włączone, Oracle Data Guard i HANA system Replication.
 
 
 > [!NOTE]
@@ -256,7 +273,7 @@ Istnieją inne metody nadmiarowości. Aby uzyskać więcej informacji, zobacz [R
 
 
 ## <a name="vm-node-resiliency"></a>Odporność węzła maszyny wirtualnej
-Platforma Azure oferuje kilka różnych umowy SLA dla maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz Najnowsza wersja [umowy SLA dla Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Ponieważ warstwa DBMS ma zwykle krytyczne znaczenie dla dostępności w systemie SAP, należy zapoznać się z zestawami dostępności, strefami dostępności i zdarzeniami konserwacji. Aby uzyskać więcej informacji na temat tych pojęć, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/manage-availability.md) i [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/manage-availability.md).
+Platforma Azure oferuje kilka różnych umowy SLA dla maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz Najnowsza wersja [umowy SLA dla Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Ponieważ warstwa DBMS ma krytyczne znaczenie dla dostępności w systemie SAP, należy zrozumieć zestawy dostępności, Strefy dostępności i zdarzenia konserwacji. Aby uzyskać więcej informacji na temat tych pojęć, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/manage-availability.md) i [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/manage-availability.md).
 
 Minimalnym zaleceniem dla produkcyjnych scenariuszy systemu DBMS z obciążeniem SAP jest:
 
@@ -276,7 +293,7 @@ W przypadku wdrożeń SAP w dużej skali należy skorzystać z strategii [wirtua
 Te najlepsze rozwiązania są wynikiem setek wdrożeń klientów:
 
 - Sieci wirtualne, w których wdrażana jest aplikacja SAP, nie mają dostępu do Internetu.
-- Maszyny wirtualne bazy danych działają w tej samej sieci wirtualnej co warstwa aplikacji.
+- Maszyny wirtualne bazy danych działają w tej samej sieci wirtualnej co warstwa aplikacji, oddzielone w innej podsieci od warstwy aplikacji SAP.
 - Maszyny wirtualne w sieci wirtualnej mają statyczną alokację prywatnego adresu IP. Aby uzyskać więcej informacji, zobacz [typy adresów IP i metody alokacji na platformie Azure](../../../virtual-network/public-ip-addresses.md).
 - Ograniczenia routingu do i z maszyn wirtualnych systemu DBMS *nie* są ustawiane za pomocą zapór zainstalowanych na lokalnych maszynach wirtualnych systemu DBMS. Zamiast tego Routing ruchu jest definiowany przy użyciu [sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../../virtual-network/security-overview.md).
 - Aby oddzielić ruch do maszyny wirtualnej systemu DBMS i go odizolować, przypisz do niej różne karty sieciowe. Każda karta sieciowa pobiera inny adres IP, a każda karta sieciowa jest przypisana do innej podsieci sieci wirtualnej. Każda podsieć ma inne reguły sieciowej grupy zabezpieczeń. Izolacja lub separacja ruchu sieciowego jest miarą routingu. Nie jest on używany do ustawiania przydziałów dla przepływności sieci.
@@ -286,7 +303,7 @@ Te najlepsze rozwiązania są wynikiem setek wdrożeń klientów:
 >
 
 
-> [!IMPORTANT]
+> [!WARNING]
 > Konfigurowanie [sieciowych urządzeń wirtualnych](https://azure.microsoft.com/solutions/network-appliances/) w ścieżce komunikacji między aplikacją SAP a warstwą DBMS systemu SAP NetWeaver-, Hybris-lub S/4HANA nie jest obsługiwane. To ograniczenie dotyczy przyczyn związanych z funkcjonalnością i wydajnością. Ścieżka komunikacji między warstwą aplikacji SAP a warstwą DBMS musi być jedną z nich. Ograniczenie nie obejmuje [grupy zabezpieczeń aplikacji (ASG) i reguł sieciowej grupy zabezpieczeń](../../../virtual-network/security-overview.md) , jeśli te reguły ASG i sieciowej grupy zabezpieczeń umożliwiają bezpośrednią ścieżkę komunikacji. 
 >
 > Inne scenariusze, w których nie są obsługiwane wirtualne urządzenia sieciowe, są następujące:
@@ -304,7 +321,7 @@ Te najlepsze rozwiązania są wynikiem setek wdrożeń klientów:
 >
 > Należy pamiętać, że ruch sieciowy między dwiema [równorzędnymi](../../../virtual-network/virtual-network-peering-overview.md) sieciami wirtualnymi platformy Azure podlega kosztom transferu. Duże ilości danych składające się z wielu terabajtów są wymieniane między warstwą aplikacji SAP a warstwą DBMS. W przypadku podzielenia między dwiema równorzędnymi sieciami wirtualnymi platformy Azure można zbierać istotne koszty.
 
-Użyj dwóch maszyn wirtualnych do wdrożenia produkcyjnego w systemie DBMS w ramach zestawu dostępności platformy Azure. Należy również użyć oddzielnego routingu dla warstwy aplikacji SAP oraz ruchu związanego z zarządzaniem i eksploatacją do dwóch maszyn wirtualnych systemu DBMS. Zobacz poniższy obraz:
+Użyj dwóch maszyn wirtualnych do wdrożenia produkcyjnego w systemie DBMS w ramach zestawu dostępności platformy Azure lub między dwoma Strefy dostępności platformy Azure. Należy również użyć oddzielnego routingu dla warstwy aplikacji SAP oraz ruchu związanego z zarządzaniem i eksploatacją do dwóch maszyn wirtualnych systemu DBMS. Zobacz poniższy obraz:
 
 ![Diagram dwóch maszyn wirtualnych w dwóch podsieciach](./media/virtual-machines-shared-sap-deployment-guide/general_two_dbms_two_subnets.PNG)
 
@@ -314,19 +331,13 @@ Używanie prywatnych wirtualnych adresów IP używanych w funkcjach, takich jak 
 
 Jeśli istnieje przejście w tryb failover węzła bazy danych, nie ma potrzeby ponownego skonfigurowania aplikacji SAP. Zamiast tego najpopularniejsze architektury aplikacji SAP łączą się ponownie z prywatnym wirtualnym adresem IP. Tymczasem moduł równoważenia obciążenia odbędzie się do trybu failover węzła, przekierowując ruch do prywatnego wirtualnego adresu IP do drugiego węzła.
 
-Platforma Azure oferuje dwie różne [jednostki SKU modułu równoważenia obciążenia](../../../load-balancer/load-balancer-overview.md): podstawową jednostkę SKU i standardową jednostkę SKU. Jeśli nie chcesz wdrażać między strefami dostępności platformy Azure, jednostka SKU usługi równoważenia obciążenia w warstwie Podstawowa działa prawidłowo.
+Platforma Azure oferuje dwie różne [jednostki SKU modułu równoważenia obciążenia](../../../load-balancer/load-balancer-overview.md): podstawową jednostkę SKU i standardową jednostkę SKU. W oparciu o zalety instalacji i funkcjonalności należy używać standardowej jednostki SKU modułu równoważenia obciążenia platformy Azure. Jedną z dużych zalet standardowej wersji usługi równoważenia obciążenia jest to, że ruch danych nie jest kierowany przez sam moduł równoważenia obciążenia.
 
-Czy ruch między maszynami wirtualnymi systemu DBMS a warstwą aplikacji SAP zawsze jest kierowany przez moduł równoważenia obciążenia przez cały czas? Odpowiedź zależy od konfiguracji modułu równoważenia obciążenia. 
+Przykład sposobu konfigurowania wewnętrznego modułu równoważenia obciążenia można znaleźć w artykule [Samouczek: Konfigurowanie grupy dostępności SQL Server na platformie Azure Virtual Machines ręcznie](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial#create-an-azure-load-balancer)
 
-W tej chwili ruch przychodzący do maszyny wirtualnej systemu DBMS jest zawsze kierowany przez moduł równoważenia obciążenia. Trasa ruchu wychodzącego z maszyny wirtualnej systemu DBMS do maszyny wirtualnej warstwy aplikacji zależy od konfiguracji modułu równoważenia obciążenia. 
+> [!NOTE]
+> Istnieją różnice w zachowaniu podstawowej i standardowej jednostki SKU związanej z dostępem do publicznych adresów IP. Sposób obejścia ograniczeń standardowej jednostki SKU w celu uzyskania dostępu do publicznych adresów IP został opisany w dokumencie [łączność publicznego punktu końcowego dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md)
 
-Moduł równoważenia obciążenia oferuje opcję DirectServerReturn. Jeśli ta opcja jest skonfigurowana, ruch kierowany z maszyny wirtualnej systemu DBMS do warstwy aplikacji SAP *nie* jest kierowany przez moduł równoważenia obciążenia. Zamiast tego przechodzi bezpośrednio do warstwy aplikacji. Jeśli DirectServerReturn nie jest skonfigurowany, ruch powrotny do warstwy aplikacji SAP jest kierowany przez moduł równoważenia obciążenia.
-
-Zalecamy skonfigurowanie DirectServerReturn w połączeniu z usługami równoważenia obciążenia, które są rozmieszczone między warstwą aplikacji SAP a warstwą DBMS. Ta konfiguracja zmniejsza opóźnienie sieci między dwiema warstwami.
-
-Aby zapoznać się z przykładem, jak skonfigurować tę konfigurację przy użyciu SQL Server zawsze włączone, zobacz [Konfigurowanie odbiornika ILB dla zawsze włączonych grup dostępności na platformie Azure](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
-
-W przypadku używania opublikowanych szablonów JSON usługi GitHub jako odniesienia do wdrożeń infrastruktury SAP na platformie Azure należy zbadać ten [szablon dla systemu SAP w warstwie 3](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md). W tym szablonie widoczne są również poprawne ustawienia modułu równoważenia obciążenia.
 
 ### <a name="azure-accelerated-networking"></a>Usługa Azure przyspieszone sieci
 Aby dodatkowo ograniczyć opóźnienie sieci między maszynami wirtualnymi platformy Azure, zalecamy wybranie [usługi Azure przyspieszonej sieci](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Należy jej używać podczas wdrażania maszyn wirtualnych platformy Azure dla obciążenia SAP, szczególnie w przypadku warstwy aplikacji SAP i warstwy SAP DBMS.
@@ -336,11 +347,11 @@ Aby dodatkowo ograniczyć opóźnienie sieci między maszynami wirtualnymi platf
 >
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Przyspieszona sieć systemu Windows][Logo_Windows] Windows
 >
 > Aby dowiedzieć się, jak wdrażać maszyny wirtualne przy użyciu przyspieszonej sieci dla systemu Windows, zobacz [Tworzenie maszyny wirtualnej z systemem Windows przy użyciu przyspieszonej sieci](../../../virtual-network/create-vm-accelerated-networking-powershell.md).
 >
-> ![Linux][Logo_Linux] Linux
+> ![System Linux — przyspieszone sieci][Logo_Linux] Linux
 >
 > Aby uzyskać więcej informacji na temat dystrybucji systemu Linux, zobacz [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu przyspieszonej sieci](../../../virtual-network/create-vm-accelerated-networking-cli.md).
 >

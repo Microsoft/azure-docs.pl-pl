@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71c470bd1bb71b55d6643ac6305a054f1c934948
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 88349e90102bf3b0e4dc2868d5f65d476aac51f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229043"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280372"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ustawianie list kontroli dostępu (ACL) rekursywnie dla Azure Data Lake Storage Gen2
 
@@ -55,7 +55,7 @@ Zainstaluj niezbędne biblioteki.
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Aby uaktualnić wersję programu PowerShell, zobacz [uaktualnianie istniejącego środowiska Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   Aby uaktualnić wersję programu PowerShell, zobacz [uaktualnianie istniejącego środowiska Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell)
     
 3. Zainstaluj najnowszą wersję modułu PowershellGet.
 
@@ -71,7 +71,7 @@ Zainstaluj niezbędne biblioteki.
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Aby uzyskać więcej informacji na temat sposobu instalowania modułów programu PowerShell, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   Aby uzyskać więcej informacji na temat sposobu instalowania modułów programu PowerShell, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -148,7 +148,7 @@ W poniższej tabeli przedstawiono każdą z obsługiwanych ról i ich możliwoś
 
 |Rola|Możliwość ustawienia listy ACL|
 |--|--|
-|[Właściciel danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Wszystkie katalogi i pliki na koncie.|
+|[Właściciel danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Wszystkie katalogi i pliki na koncie.|
 |[Współautor danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Tylko katalogi i pliki należące do podmiotu zabezpieczeń.|
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Opcja 2: uzyskiwanie autoryzacji przy użyciu klucza konta magazynu
@@ -178,7 +178,7 @@ Pobierz identyfikator klienta, klucz tajny klienta i identyfikator dzierżawy. A
 
 |Rola|Możliwość ustawienia listy ACL|
 |--|--|
-|[Właściciel danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Wszystkie katalogi i pliki na koncie.|
+|[Właściciel danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Wszystkie katalogi i pliki na koncie.|
 |[Współautor danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Tylko katalogi i pliki należące do podmiotu zabezpieczeń.|
 
 Ten przykład tworzy wystąpienie [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) przy użyciu identyfikatora klienta, klucza tajnego klienta i identyfikatora dzierżawy.  
@@ -233,7 +233,7 @@ Ten przykład tworzy wystąpienie **DataLakeServiceClient** przy użyciu identyf
 
 |Rola|Możliwość ustawienia listy ACL|
 |--|--|
-|[Właściciel danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Wszystkie katalogi i pliki na koncie.|
+|[Właściciel danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Wszystkie katalogi i pliki na koncie.|
 |[Współautor danych obiektu blob usługi Storage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Tylko katalogi i pliki należące do podmiotu zabezpieczeń.|
 
 ```python
@@ -279,7 +279,9 @@ except Exception as e:
 
 ## <a name="set-an-acl-recursively"></a>Ustawianie listy ACL rekursywnie
 
-Listy ACL można ustawiać cyklicznie.  
+Po *ustawieniu* listy ACL **zastąpi** całą listę kontroli dostępu, w tym wszystkie jej wpisy. Jeśli chcesz zmienić poziom uprawnień podmiotu zabezpieczeń lub dodać nowego podmiot zabezpieczeń do listy kontroli dostępu bez wpływu na inne istniejące wpisy, należy zamiast tego *zaktualizować* listę kontroli dostępu. Aby zaktualizować listę ACL zamiast zastępować, zobacz sekcję [aktualizowanie listy ACL rekursywnie](#update-an-acl-recursively) w tym artykule.   
+
+Ta sekcja zawiera przykłady dotyczące sposobu ustawiania listy ACL 
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -367,13 +369,17 @@ def set_permission_recursively():
 
 ## <a name="update-an-acl-recursively"></a>Aktualizowanie rekursywnie listy ACL
 
-Istnieje możliwość aktualizowania istniejącej listy ACL rekursywnie.
+Podczas *aktualizowania* listy kontroli dostępu należy zmodyfikować listę ACL zamiast zastępować listę kontroli dostępu. Na przykład można dodać nowego podmiot zabezpieczeń do listy kontroli dostępu bez wpływu na inne podmioty zabezpieczeń wymienione na liście ACL.  Aby zastąpić listę kontroli dostępu, zamiast aktualizować ją, zobacz sekcję [Ustawianie listy ACL rekursywnie](#set-an-acl-recursively) w tym artykule. 
+
+Aby zaktualizować listę kontroli dostępu, Utwórz nowy obiekt listy ACL z wpisem listy ACL, który chcesz zaktualizować, a następnie użyj tego obiektu w operacji aktualizowania listy ACL. Nie pobieraj istniejącej listy kontroli dostępu, po prostu podaj wpisy listy ACL do zaktualizowania.
+
+Ta sekcja zawiera przykłady dotyczące aktualizowania listy ACL.
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aktualizowanie listy ACL rekursywnie za pomocą polecenia cmdlet  **Update-AzDataLakeGen2AclRecursive** . 
 
-Ten przykład aktualizuje wpis listy ACL z uprawnieniami do zapisu.
+Ten przykład aktualizuje wpis listy ACL z uprawnieniami do zapisu. 
 
 ```powershell
 $filesystemName = "my-container"
@@ -445,7 +451,9 @@ def update_permission_recursively():
 
 ## <a name="remove-acl-entries-recursively"></a>Usuń rekursywnie wpisów listy ACL
 
-Co najmniej jeden wpis listy ACL można usunąć cyklicznie.
+Co najmniej jeden wpis listy ACL można usunąć cyklicznie. Aby usunąć wpis listy ACL, Utwórz nowy obiekt ACL dla wpisu listy ACL, który ma zostać usunięty, a następnie użyj tego obiektu w operacji usuwania listy ACL. Nie pobieraj istniejącej listy kontroli dostępu, po prostu podaj wpisy listy ACL do usunięcia. 
+
+Ta sekcja zawiera przykłady dotyczące usuwania listy ACL.
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

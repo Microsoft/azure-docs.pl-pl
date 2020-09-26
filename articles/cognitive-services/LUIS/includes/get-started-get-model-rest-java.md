@@ -5,16 +5,17 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.custom: devx-track-java
 ms.author: diberry
-ms.openlocfilehash: a18cee5d6bfa13d377aa6900b0ea4a35c9edf4e8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7734a24904a2fa33aaf6eacaf631c4b7830f9abf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87374948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303937"
 ---
 [Dokumentacja](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)  |  referencyjna [Przykład](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-model-with-rest/Model.java)
 
@@ -53,13 +54,13 @@ ms.locfileid: "87374948"
 
 1. Za pomocą wiersza polecenia w tym samym katalogu, w którym został utworzony `Model.java` plik, wprowadź następujące polecenie, aby skompilować plik Java:
 
-    * Jeśli używasz systemu Windows, użyj tego polecenia:`javac -cp ";lib/*" Model.java`
-    * Jeśli używasz macOS lub Linux, użyj tego polecenia:`javac -cp ":lib/*" Model.java`
+    * Jeśli używasz systemu Windows, użyj tego polecenia: `javac -cp ";lib/*" Model.java`
+    * Jeśli używasz macOS lub Linux, użyj tego polecenia: `javac -cp ":lib/*" Model.java`
 
 1. Uruchom aplikację Java z wiersza polecenia, wprowadzając następujący tekst w wierszu polecenia:
 
-    * Jeśli używasz systemu Windows, użyj tego polecenia:`java -cp ";lib/*" Model`
-    * Jeśli używasz macOS lub Linux, użyj tego polecenia:`java -cp ":lib/*" Model`
+    * Jeśli używasz systemu Windows, użyj tego polecenia: `java -cp ";lib/*" Model`
+    * Jeśli używasz macOS lub Linux, użyj tego polecenia: `java -cp ":lib/*" Model`
 
 1. Przejrzyj odpowiedź tworzenia:
 
@@ -152,7 +153,7 @@ ms.locfileid: "87374948"
     ]
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym przewodnikiem Szybki Start Usuń folder projektu z systemu plików.
 

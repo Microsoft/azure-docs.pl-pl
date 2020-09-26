@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z indeksu obiektów BLOB do zarządzania danymi i znajdowania ich w usłudze Azure Blob Storage
-description: Zobacz przykłady użycia tagów indeksu obiektów BLOB do kategoryzowania, zarządzania i wykonywania zapytań w celu odnajdywania obiektów BLOB.
+title: Używanie tagów indeksu obiektów BLOB do zarządzania danymi i znajdowania ich w usłudze Azure Blob Storage
+description: Zobacz przykłady użycia tagów indeksu obiektów BLOB do kategoryzowania i wykonywania zapytań dotyczących obiektów blob oraz zarządzania nimi.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 04/24/2020
@@ -9,18 +9,18 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adc510ef89a912e6d76949794aacbf130a8f066d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 41a21545939c5d15c8e2c4034a9648e98aa5a73e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280287"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Korzystanie z tagów indeksu obiektów BLOB (wersja zapoznawcza) w celu zarządzania danymi w usłudze Azure Blob Storage i znajdowania ich
 
 Tagi indeksu obiektów BLOB klasyfikują dane na koncie magazynu przy użyciu atrybutów tagów klucz-wartość. Tagi te są automatycznie indeksowane i uwidaczniane jako Queryable indeks wielowymiarowy, aby łatwo znajdować dane. W tym artykule pokazano, jak ustawiać, pobierać i znajdować dane przy użyciu tagów indeksu obiektów BLOB.
 
-Aby dowiedzieć się więcej na temat indeksu obiektów blob, zobacz temat [Zarządzanie danymi i znajdowanie ich w usłudze Azure Blob Storage przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
+Aby dowiedzieć się więcej na temat funkcji indeksu obiektów blob, zobacz temat [Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
 
 > [!NOTE]
 > Indeks obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępny w regionach **Kanada środkowa**, **Kanada Wschodnia**, **Francja środkowa** i **Francja Południowa** . Aby dowiedzieć się więcej na temat tej funkcji wraz z znanymi problemami i ograniczeniami, zobacz artykuł [Zarządzanie danymi na platformie Azure Blob Storage przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
@@ -86,7 +86,7 @@ static async Task BlobIndexTagsOnCreate()
           // Create an append blob
           AppendBlobClient appendBlobWithTags = container.GetAppendBlobClient("myAppendBlob0.logs");
 
-          // Blob Index tags to upload
+          // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
           {
@@ -139,7 +139,7 @@ static async Task BlobIndexTagsExample()
           AppendBlobClient appendBlob = container.GetAppendBlobClient("myAppendBlob1.logs");
           await appendBlob.CreateAsync();
 
-          // Set or Update Blob Index tags on existing blob
+          // Set or update blob index tags on existing blob
           Dictionary<string, string> tags = new Dictionary<string, string>
           {
               { "Project", "Contoso" },
@@ -148,7 +148,7 @@ static async Task BlobIndexTagsExample()
           };
           await appendBlob.SetTagsAsync(tags);
 
-          // Get Blob Index tags
+          // Get blob index tags
           Response<IDictionary<string, string>> tagsResponse = await appendBlob.GetTagsAsync();
           Console.WriteLine(appendBlob.Name);
           foreach (KeyValuePair<string, string> tag in tagsResponse.Value)
@@ -156,7 +156,7 @@ static async Task BlobIndexTagsExample()
               Console.WriteLine($"{tag.Key}={tag.Value}");
           }
 
-          // List Blobs with all options returned including Blob Index tags
+          // List blobs with all options returned including blob index tags
           await foreach (BlobItem blobItem in container.GetBlobsAsync(BlobTraits.All))
           {
               Console.WriteLine(Environment.NewLine + blobItem.Name);
@@ -166,7 +166,7 @@ static async Task BlobIndexTagsExample()
               }
           }
 
-          // Delete existing Blob Index tags by replacing all tags
+          // Delete existing blob index tags by replacing all tags
           Dictionary<string, string> noTags = new Dictionary<string, string>();
           await appendBlob.SetTagsAsync(noTags);
 
@@ -205,7 +205,7 @@ static async Task FindBlobsByTagsExample()
       BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
       BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
-      // Blob Index queries and selection
+      // Blob index queries and selection
       String singleEqualityQuery = @"""Archive"" = 'false'";
       String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
       String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
@@ -227,7 +227,7 @@ static async Task FindBlobsByTagsExample()
           AppendBlobClient appendBlobWithTags4 = container2.GetAppendBlobClient("myAppendBlob04.logs");
           AppendBlobClient appendBlobWithTags5 = container2.GetAppendBlobClient("myAppendBlob05.logs");
            
-          // Blob Index tags to upload
+          // Blob index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
           {
@@ -286,7 +286,7 @@ static async Task FindBlobsByTagsExample()
 
 3. Wybierz pozycję *Dodaj regułę* , a następnie wypełnij pola formularza zestawu akcji.
 
-4. Wybierz opcję Filtr zestaw, aby dodać opcjonalny filtr dla dopasowania prefiksu i dopasowania indeksu obiektów BLOB ![ Dodaj filtry tagów indeksu obiektów BLOB do zarządzania cyklem życia](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Wybierz opcję **Filtr** zestaw, aby dodać opcjonalny filtr dla dopasowania prefiksu i dopasowania indeksu obiektów BLOB ![ Dodaj filtry tagów indeksu obiektów BLOB do zarządzania cyklem życia](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
 
 5. Wybierz kolejno pozycje **Przegląd + Dodaj** , aby przejrzeć ![ regułę zarządzania cyklem życia ustawień reguły z przykładem filtru tagów indeksu obiektów BLOB](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
 
@@ -297,8 +297,7 @@ Zasady [zarządzania cyklem życia](storage-lifecycle-management-concepts.md) s�
 
 ---
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o indeksie obiektów BLOB. Zobacz temat [Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md )
-
-Dowiedz się więcej o zarządzaniu cyklem życia. Zobacz [Zarządzanie cyklem życia usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)
+ - Dowiedz się więcej o indeksie obiektów blob, zobacz artykuł [Zarządzanie i znajdowanie danych na platformie Azure Blob Storage przy użyciu indeksu obiektów BLOB](storage-manage-find-blobs.md )
+ - Dowiedz się więcej o zarządzaniu cyklem życia. Zobacz [Zarządzanie cyklem życia usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)

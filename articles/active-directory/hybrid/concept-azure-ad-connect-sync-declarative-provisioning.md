@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60246334"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313624"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect Sync: wyjaśnienie aprowizacji deklaracyjnej
 W tym temacie opisano model konfiguracji w Azure AD Connect. Model jest nazywany aprowizacji deklaratywnej i umożliwia łatwe wprowadzenie zmian w konfiguracji. Wiele czynności opisanych w tym temacie jest zaawansowana i nie jest wymagana w przypadku większości scenariuszy klientów.
@@ -29,11 +29,11 @@ W tym temacie opisano model konfiguracji w Azure AD Connect. Model jest nazywany
 ## <a name="overview"></a>Omówienie
 Inicjowanie aprowizacji polega na przetwarzaniu obiektów, które pochodzą z katalogu źródłowego połączonego, i określa sposób przekształcania obiektu i atrybutów ze źródła do obiektu docelowego. Obiekt jest przetwarzany w potoku synchronizacji, a potok jest taki sam dla reguł ruchu przychodzącego i wychodzącego. Reguła ruchu przychodzącego pochodzi z przestrzeni łącznika do Metaverse, a Reguła ruchu wychodzącego pochodzi z elementu Metaverse do obszaru łącznika.
 
-![Potok synchronizacji](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
+![Diagram przedstawiający przykład potoku synchronizacji.](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
 
 Potok ma kilka różnych modułów. Każdy z nich jest odpowiedzialny za jedną koncepcję w synchronizacji obiektów.
 
-![Potok synchronizacji](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
+![Diagram przedstawiający moduły w potoku.](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
 
 * Źródło, obiekt źródłowy
 * [Zakres](#scope), znajduje wszystkie reguły synchronizacji, które znajdują się w zakresie
@@ -44,7 +44,7 @@ Potok ma kilka różnych modułów. Każdy z nich jest odpowiedzialny za jedną 
 
 ## <a name="scope"></a>Zakres
 Moduł zakresu ocenia obiekt i określa reguły, które znajdują się w zakresie i powinny być zawarte w przetwarzaniu. W zależności od wartości atrybutów obiektu, różne reguły synchronizacji są oceniane jako należące do zakresu. Na przykład wyłączony użytkownik bez skrzynek pocztowych programu Exchange ma inne reguły niż włączony użytkownik ze skrzynką pocztową.  
-![Zakres](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Diagram pokazujący moduł zakresu dla obiektu.](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 Zakres jest definiowany jako grupy i klauzule. Klauzule znajdują się w grupie. Koniunkcja logiczna i jest używana między wszystkimi klauzulami w grupie. Na przykład (dział = IT i Country = Dania). Wartość logiczna OR jest używana między grupami.
 
@@ -78,7 +78,7 @@ Sprzężenia są zdefiniowane jako co najmniej jedna grupa. Wewnątrz grupy znaj
 Sprzężenia na tym obrazie są przetwarzane od góry do dołu. Pierwszy potok synchronizacji jest widoczny, jeśli istnieje dopasowanie w polu IDPracownika. W przeciwnym razie druga reguła widzi, czy nazwa konta może zostać użyta do łączenia się z obiektami. Jeśli to nie jest dopasowanie, trzecia i końcowa reguła jest bardziej rozmytym dopasowaniem przy użyciu nazwy użytkownika.
 
 Jeśli wszystkie reguły sprzężenia zostały ocenione i nie istnieje dokładnie jedno dopasowanie, **Typ łącza** na stronie **Opis** jest używany. Jeśli ta opcja jest ustawiona na wartość **Udostępnij**, zostanie utworzony nowy obiekt w obiekcie docelowym.  
-![Inicjowanie obsługi administracyjnej lub dołączanie](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
+![Zrzut ekranu, na którym jest otwarte menu rozwijane "typ łącza".](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
 
 Obiekt powinien mieć tylko jedną regułę z pojedynczą synchronizacją z regułami sprzężenia w zakresie. Jeśli istnieje wiele reguł synchronizacji, w których zdefiniowano element join, wystąpi błąd. Pierwszeństwo nie jest używane do rozwiązywania konfliktów sprzężeń. Obiekt musi mieć regułę sprzężenia w zakresie dla atrybutów do przepływu z tym samym kierunkiem ruchu przychodzącego/wychodzącego. Jeśli musisz przepływać atrybuty przychodzące i wychodzące do tego samego obiektu, musisz mieć regułę ruchu przychodzącego i wychodzącego z sprzężeniem.
 
@@ -101,7 +101,7 @@ Pole wyboru **Zastosuj raz** definiuje, że atrybut ma być ustawiane tylko wted
 ### <a name="merging-attribute-values"></a>Scalanie wartości atrybutów
 W polu przepływy atrybutu istnieje ustawienie umożliwiające ustalenie, czy atrybuty wielowartościowe mają być scalane z kilku różnych łączników. Wartość domyślna to **Update**, co oznacza, że reguła synchronizacji o najwyższym priorytecie powinna zostać wygrana.
 
-![Scalanie typów](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
+![Zrzut ekranu przedstawiający sekcję "Dodawanie przekształceń" z menu rozwijanym "typy scalania" otwarte.](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
 Istnieje również **scalanie** i **MergeCaseInsensitive**. Te opcje umożliwiają scalanie wartości z różnych źródeł. Na przykład może służyć do scalania elementu członkowskiego lub atrybutu proxyAddresses z kilku różnych lasów. W przypadku korzystania z tej opcji wszystkie reguły synchronizacji w zakresie dla obiektu muszą używać tego samego typu scalania. Nie można zdefiniować **aktualizacji** z jednego łącznika i **scalić** z innego. Jeśli spróbujesz, zostanie wyświetlony komunikat o błędzie.
 
@@ -146,7 +146,7 @@ Pierwszeństwo można definiować między łącznikami. Dzięki temu łączniki 
 
 ### <a name="multiple-objects-from-the-same-connector-space"></a>Wiele obiektów z tego samego łącznika
 Jeśli masz kilka obiektów w tym samym miejscu łącznika przyłączone do tego samego obiektu metaverse, należy dostosować pierwszeństwo. Jeśli kilka obiektów należy do tej samej reguły synchronizacji, aparat synchronizacji nie będzie w stanie określić pierwszeństwa. Jest niejednoznaczny, który obiekt źródłowy powinien współtworzyć wartość w magazynie Metaverse. Ta konfiguracja jest raportowana jako niejednoznaczna, nawet jeśli atrybuty w źródle mają tę samą wartość.  
-![Wiele obiektów przyłączonych do tego samego obiektu MV](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
+![Diagram, który pokazuje wiele obiektów przyłączonych do tego samego obiektu MV z przezroczystą czerwoną nakładką X. ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
 
 W tym scenariuszu należy zmienić zakres reguł synchronizacji, aby obiekty źródłowe miały różne reguły synchronizacji w zakresie. Pozwala to definiować różne pierwszeństwo.  
 ![Wiele obiektów przyłączonych do tego samego obiektu MV](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  

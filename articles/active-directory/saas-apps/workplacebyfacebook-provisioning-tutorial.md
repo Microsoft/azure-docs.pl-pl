@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Konfigurowanie miejsca pracy przez serwis Facebook w celu automatycznego aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Workplace by Facebook.
+description: Zapoznaj się z krokami, które należy wykonać w obu miejscach pracy przez serwis Facebook i Azure Active Directory (Azure AD), aby skonfigurować automatyczne Inicjowanie obsługi użytkowników.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ae13e062f50e1e8eefeaa886c67c636cf6230c18
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c72ca7cb521c5c7e7ed33e9a0539de0df252ac92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973872"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321904"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie miejsca pracy przez serwis Facebook w celu automatycznego aprowizacji użytkowników
 
@@ -81,11 +81,11 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
 
 3. Wybierz kartę **Aprowizacja**.
 
-    ![Karta Aprowizacja](common/provisioning.png)
+    ![Zrzut ekranu przedstawiający opcje zarządzania z opcją aprowizacji o nazwie out.](common/provisioning.png)
 
 4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    ![Karta Aprowizacja](common/provisioning-automatic.png)
+    ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
 5. W sekcji **poświadczenia administratora** kliknij pozycję **Autoryzuj**. Nastąpi przekierowanie do miejsca pracy przy użyciu strony autoryzacji w serwisie Facebook. Wprowadź miejsce pracy według nazwy użytkownika w usłudze Facebook i kliknij przycisk **Kontynuuj** . Kliknij pozycję **Testuj połączenie** , aby zapewnić, że usługa Azure AD może połączyć się z miejscem pracy przez serwis Facebook. Jeśli połączenie nie powiedzie się, upewnij się, że miejsce pracy przez konto w serwisie Facebook ma uprawnienia administratora, a następnie spróbuj ponownie.
 
@@ -166,7 +166,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 
 * 09/10/2020 — dodano obsługę atrybutów przedsiębiorstwa "dzielenie", "organizacja", "costCenter" i "employeeNumber". Dodano obsługę atrybutów niestandardowych "startDate", "auth_method" i "teraźniejszości"
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
