@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 00bca2d0c7e267bef8cd4a917463c5e7db159792
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937413"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304302"
 ---
 # <a name="camera-placement-guide"></a>Przewodnik umieszczania w aparacie
 
@@ -56,7 +56,7 @@ Ogólnie rzecz biorąc, aparaty fotograficzne należy zainstalować 12-14 metró
 
 ## <a name="camera-to-focal-point-distance"></a>Odległość między kamerą a punktem ogniskowym
 
-_Odległość między kamerą_ a punktem ogniskowym to odległość liniowa od punktu odniesienia (lub centralnego punktu orientacyjnego punktu zainteresowania) do aparatu.
+_Odległość między kamerą a punktem ogniskowym_ to odległość liniowa od punktu odniesienia (lub środka obrazu aparatu fotograficznego) do aparatu mierzonego na terenie.
 
 ![Odległość między kamerą a ogniskiem](./media/spatial-analysis/camera-focal-point.png)
 

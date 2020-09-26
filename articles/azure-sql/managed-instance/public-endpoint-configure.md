@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 498d00b4f6a0ca16d07663641a46f30109b39d5f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a9bf3fbf28d8ac525f2937812742e850a5427cc9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325066"
+ms.locfileid: "91360824"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Skonfiguruj publiczny punkt końcowy w wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ Ze względu na czułość danych w wystąpieniu zarządzanym, konfiguracja do w�
 1. Na stronie ustawienia **zabezpieczeń** wybierz kartę **Sieć wirtualna** .
 1. Na stronie Konfiguracja sieci wirtualnej wybierz pozycję **Włącz** , a następnie ikonę **Zapisz** , aby zaktualizować konfigurację.
 
-![mi-vnet-config.png](./media/public-endpoint-configure/mi-vnet-config.png)
+![Zrzut ekranu przedstawia stronę sieci wirtualnej wystąpienia zarządzanego SQL z włączonym publicznym punktem końcowym.](./media/public-endpoint-configure/mi-vnet-config.png)
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Włączanie publicznego punktu końcowego dla wystąpienia zarządzanego przy użyciu programu PowerShell
 
@@ -84,11 +84,11 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Jeśli strona Konfiguracja wystąpienia zarządzanego jest nadal otwarta, przejdź do karty **Przegląd** . W przeciwnym razie Wróć do zasobu **wystąpienia zarządzanego SQL** . Wybierz łącze **Sieć wirtualna/podsieć** , co spowoduje przejście do strony Konfiguracja sieci wirtualnej.
 
-    ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
+    ![Zrzut ekranu przedstawia stronę Konfiguracja sieci wirtualnej, na której można znaleźć wartość sieci wirtualnej/podsieci.](./media/public-endpoint-configure/mi-overview.png)
 
 1. Wybierz kartę **podsieci** w okienku Konfiguracja po lewej stronie sieci wirtualnej, a następnie zanotuj **grupę zabezpieczeń** dla wystąpienia zarządzanego.
 
-    ![mi-vnet-subnet.png](./media/public-endpoint-configure/mi-vnet-subnet.png)
+    ![Zrzut ekranu przedstawia kartę podsieć, w której można uzyskać grupę zabezpieczeń dla wystąpienia zarządzanego.](./media/public-endpoint-configure/mi-vnet-subnet.png)
 
 1. Wróć do grupy zasobów zawierającej wystąpienie zarządzane. Powinna zostać wyświetlona poprzednia nazwa **grupy zabezpieczeń sieci** . Wybierz nazwę, aby przejść do strony konfiguracji sieciowej grupy zabezpieczeń.
 
@@ -104,7 +104,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Akcja**     |Zezwalaj         |Zezwalaj na ruch przychodzący do wystąpienia zarządzanego za pomocą publicznego punktu końcowego |
     |**Priority**     |1300         |Upewnij się, że ta reguła ma wyższy priorytet niż reguła **deny_all_inbound** |
 
-    ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
+    ![Zrzut ekranu przedstawia reguły zabezpieczeń dla ruchu przychodzącego z nową regułą public_endpoint_inbound powyżej reguły deny_all_inbound.](./media/public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
     > Port 3342 jest używany dla połączeń publicznego punktu końcowego z wystąpieniem zarządzanym i nie można go zmienić w tym momencie.
@@ -114,7 +114,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 1. Przejdź do strony konfiguracji wystąpienia zarządzanego, która została włączona dla publicznego punktu końcowego. Wybierz kartę **Parametry połączenia** w obszarze Konfiguracja **ustawień** .
 1. Należy pamiętać, że nazwa hosta publicznego punktu końcowego jest w formacie <mi_name>. **Public**. <dns_zone>. Database.Windows.NET i że port używany do połączenia to 3342.
 
-    ![mi-public-endpoint-conn-string.png](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
+    ![Zrzut ekranu przedstawia parametry połączenia dla publicznych i prywatnych punktów końcowych.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

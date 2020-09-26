@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 596b18332fc490f72ad185699fc59bf4521eca69
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: e8f78d6031e57da42e1d69587aedca0763c9fec2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289076"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Używanie etykiet zapytań w Synapse SQL
 Zawarta w tym artykule są istotne porady dotyczące korzystania z etykiet zapytań w programie SQL Synapse.
@@ -34,7 +34,7 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Ostatni wiersz określa ciąg "My Query Label" w zapytaniu. Ten tag jest szczególnie przydatny, ponieważ etykieta jest w trakcie wykonywania zapytania przez widoków DMV. Wykonywanie zapytań dotyczących etykiet zapewnia mechanizm lokalizowania zapytań dotyczących problemów i ułatwia identyfikowanie postępu przez ELT uruchomienie.
+Ostatni wiersz określa ciąg "My Query Label" w zapytaniu. Ten tag jest przydatny, ponieważ etykieta jest w trakcie wykonywania zapytania przez widoków DMV. Wykonywanie zapytań dotyczących etykiet zapewnia mechanizm lokalizowania zapytań dotyczących problemów i ułatwia identyfikowanie postępu przez ELT uruchomienie.
 
 Dobre konwencje nazewnictwa są najbardziej przydatne. Na przykład uruchomienie etykiety z projektem, procedurą, INSTRUKCJą lub KOMENTARZEm jednoznacznie identyfikuje zapytanie między całym kodem w kontroli źródła.
 

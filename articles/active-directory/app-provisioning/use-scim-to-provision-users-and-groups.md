@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fc77d8cbb88385d9be65ccb8df80e922704640a4
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 59c899d2450e9d439426239384945258e8df694a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563809"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266653"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -53,7 +53,7 @@ Każda aplikacja wymaga innych atrybutów do utworzenia użytkownika lub grupy. 
 | Krok 1. określanie atrybutów wymaganych przez aplikację| Krok 2. mapowanie wymagań aplikacji na Standard scim Standard| Krok 3. Mapowanie atrybutów Standard scim do atrybutów usługi Azure AD|
 |--|--|--|
 |loginName|userName|userPrincipalName|
-|firstName|Nazwa. imię|givenName|
+|firstName|name.givenName|givenName|
 |lastName|Nazwa. lastName|lastName|
 |workMail|Wiadomości e-mail [Type EQ "Work"]. Value|Mail|
 |manager|manager|manager|
@@ -99,18 +99,18 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 | displayName |displayName |
 |IDPracownika|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|
 | Faks-numer telefonu |numer telefonu [typ EQ "Fax"]. wartość |
-| givenName |Nazwa. imię |
+| givenName |name.givenName |
 | Stanowiska |title |
-| mail (poczta) |wiadomości e-mail [Type EQ "Work"]. Value |
+| mail (poczta) |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager |
-| telefon komórkowy |numer telefonu [typ EQ "Mobile"]. Value |
+| telefon komórkowy |phoneNumbers[type eq "mobile"].value |
 | Pocztowy |addresss [Type EQ "Work"]. KodPocztowy |
 | Adresy serwera proxy |wiadomości e-mail [Type EQ "Other"]. Wartościami |
 | Physical-Delivery-OfficeName |adresy [Type EQ "Other"]. Poprawić |
 | streetAddress |adresy [typ EQ "Work"]. streetAddress |
-| surname |Nazwa. rodzina |
-| Numer telefonu |numer telefonu [typ EQ "Work"]. wartość |
+| surname |name.familyName |
+| Numer telefonu |phoneNumbers[type eq "work"].value |
 | User-PrincipalName |userName |
 
 
@@ -119,7 +119,7 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 | Grupa Azure Active Directory | urn: IETF: params: Standard scim: schematy: rdzeń: 2.0: Grupa |
 | --- | --- |
 | displayName |displayName |
-| mail (poczta) |wiadomości e-mail [Type EQ "Work"]. Value |
+| mail (poczta) |emails[type eq "work"].value |
 | mailNickname |displayName |
 | elementy członkowskie |elementy członkowskie |
 | Obiektu |externalId |
@@ -1193,7 +1193,7 @@ Specyfikacja Standard scim nie definiuje schematu specyficznego dla Standard sci
 |--|--|--|--|
 |Nazwa użytkownika i hasło (niezalecane lub obsługiwane przez usługę Azure AD)|Łatwa implementacja|Niezabezpieczone — [Twoje PA $ $Word nie ma znaczenia](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Obsługiwane w przypadku aplikacji galerii w przypadku wielkości liter. Nieobsługiwane w przypadku aplikacji innych niż Galeria.|
 |Token okaziciela o długim czasie życia|Tokeny długotrwałe nie wymagają obecności użytkownika. Administratorzy mogą łatwo używać podczas konfigurowania aprowizacji.|Tokeny długotrwałe mogą być trudne do udostępnienia administratorowi bez użycia niezabezpieczonych metod, takich jak poczta e-mail. |Obsługiwane w przypadku aplikacji Galeria i innych niż Galeria. |
-|Przyznanie kodu autoryzacji OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania.  Rzeczywisty użytkownik musi być obecny podczas wstępnej autoryzacji, co umożliwia dodanie poziomu odpowiedzialności. |Wymaga, aby użytkownik był obecny. Jeśli użytkownik opuści organizację, token jest nieprawidłowy, a autoryzacja będzie musiała zostać ukończona ponownie.|Obsługiwane w przypadku aplikacji galerii, ale nie aplikacji innych niż Galeria. Obsługa niegalerii znajduje się w naszej zaległości.|
+|Przyznanie kodu autoryzacji OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania.  Rzeczywisty użytkownik musi być obecny podczas wstępnej autoryzacji, co umożliwia dodanie poziomu odpowiedzialności. |Wymaga, aby użytkownik był obecny. Jeśli użytkownik opuści organizację, token jest nieprawidłowy, a autoryzacja będzie musiała zostać ukończona ponownie.|Obsługiwane w przypadku aplikacji galerii, ale nie aplikacji innych niż Galeria. Można jednak podać token dostępu w interfejsie użytkownika jako token tajny do celów testowania krótkoterminowego. Obsługa przyznawania kodu OAuth w przypadku braku galerii znajduje się w naszym zaległości.|
 |Przyznanie poświadczeń klienta OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania. Zarówno kod autoryzacji przydzielenia, jak i poświadczenia klienta umożliwiają tworzenie tego samego typu tokenu dostępu, więc przechodzenie między tymi metodami jest niewidoczne dla interfejsu API.  Inicjowanie obsługi może być całkowicie zautomatyzowane i nowe tokeny mogą być wymagane w trybie dyskretnym bez interakcji z użytkownikiem. ||Nieobsługiwane w przypadku aplikacji Galeria i innych niż Galeria. Pomoc techniczna znajduje się w naszej zaległości.|
 
 > [!NOTE]
@@ -1210,6 +1210,17 @@ Należy zauważyć, że uwierzytelnianie OAuth V1 nie jest obsługiwane ze wzgl�
 Najlepsze rozwiązania (zalecane, ale nie wymagane):
 * Obsługa wielu adresów URL przekierowań. Administratorzy mogą skonfigurować obsługę administracyjną zarówno z "portal.azure.com", jak i "aad.portal.azure.com". Obsługa wielu adresów URL przekierowania gwarantuje, że użytkownicy będą mogli autoryzować dostęp z dowolnego portalu.
 * Obsługa wielu wpisów tajnych w celu zapewnienia bezproblemowego odnawiania tajnego. 
+
+Kroki w przepływie przydzielenia kodu OAuth:
+1. Użytkownik loguje się do Azure Portal > aplikacji dla przedsiębiorstw > wybierz aplikację > aprowizacji > kliknij pozycję Autoryzuj.
+2. Azure Portal przekierowuje użytkownika do adresu URL autoryzacji (strona logowania dla aplikacji innej firmy).
+3. Administrator udostępnia poświadczenia aplikacji innej firmy. 
+4. Aplikacja innej firmy przekierowuje użytkownika z powrotem do Azure Portal i udostępnia kod dotacji 
+5. Usługi Azure AD Provisioning są wywołaniem adresu URL tokenu i udostępniają kod przydzielenia. Aplikacja innej firmy odpowiada za pomocą tokenu dostępu, tokenu odświeżania i daty wygaśnięcia
+6. Po rozpoczęciu cyklu aprowizacji usługa sprawdza, czy bieżący token dostępu jest prawidłowy i w razie potrzeby wymienia go z nowym tokenem. Token dostępu jest udostępniany w każdym żądaniu wykonywanym w aplikacji, a ważność żądania jest sprawdzana przed każdym żądaniem.
+
+> [!NOTE]
+> Chociaż nie jest możliwe skonfigurowanie uwierzytelniania OAuth w aplikacji spoza galerii, można ręcznie wygenerować token dostępu z serwera autoryzacji i dane wejściowe w polu token tajny aplikacji spoza galerii. Dzięki temu można sprawdzić zgodność serwera Standard scim z klientem usługi Azure AD Standard scim przed dołączeniem do galerii aplikacji, która obsługuje przyznanie kodu OAuth.  
 
 **Tokeny okaziciela OAuth o długim czasie trwania:** Jeśli aplikacja nie obsługuje przepływu przydzielenia kodu autoryzacji OAuth, można również wygenerować token okaziciela OAuth o długim czasie trwania, który może być używany przez administratora do skonfigurowania integracji aprowizacji. Token powinien być tymczasowy lub w przeciwnym razie zadanie aprowizacji zostanie poddane [kwarantannie](application-provisioning-quarantine-status.md) po wygaśnięciu tokenu. Token musi być poniżej rozmiarze 1 KB w rozmiarze.  
 

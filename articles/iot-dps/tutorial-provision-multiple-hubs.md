@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74976744"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316004"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Samouczek: Udostępnianie urządzeń w centrach IoT o zrównoważonym obciążeniu
 
-W tym samouczku przedstawiono sposób aprowizacji urządzeń w wielu centrach IoT Hub z równoważeniem obciążenia przy użyciu usługi Device Provisioning Service. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+W tym samouczku przedstawiono sposób aprowizacji urządzeń w wielu centrach IoT Hub z równoważeniem obciążenia przy użyciu usługi Device Provisioning Service. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Aprowizowanie drugiego urządzenia w drugim centrum IoT Hub za pomocą witryny Azure Portal 
@@ -67,8 +67,6 @@ Wykonaj następujące czynności, aby skonfigurować zasady alokacji:
 4. Na stronie **Dodawanie linku do centrum IoT Hub** użyj przycisków opcji, aby określić, czy połączone centrum IoT znajduje się w bieżącej subskrypcji, czy w innej subskrypcji. Następnie wybierz nazwę centrum IoT w polu **Centrum IoT**.
 5. Kliknij pozycję **Zapisz**.
 
-## <a name="next-steps"></a>Następne kroki
-
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
@@ -76,6 +74,8 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Dodawanie wpisu listy rejestracji na drugim urządzeniu
 > * Ustawianie zasad alokacji w usłudze Device Provisioning Service na **równomierną dystrybucję**
 > * Łączenie nowego centrum IoT z usługą Device Provisioning Service
+
+## <a name="next-steps"></a>Następne kroki
 
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md

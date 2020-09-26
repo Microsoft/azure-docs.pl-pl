@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: a5047e4e63f71c482cd1bcc98152ae35e10e94b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 407183837f7be01f5182ff0890426170da223161
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291643"
+ms.locfileid: "91363175"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Samouczek: Migrowanie bazy danych Oracle do Azure Database for PostgreSQL online przy użyciu usługi DMS (wersja zapoznawcza)
 
@@ -214,11 +214,11 @@ Jeśli utworzysz schemat PostgreSQL przy użyciu narzędzi takich jak ora2pg prz
 
 1. W przypadku tworzenia nowej bazy danych Oracle do Azure Database for PostgreSQL projekcie migracji zostanie wyświetlony monit o wybranie docelowego schematu i docelowego środowiska w kroku wybierz schematy. Wypełnij docelową bazę danych i schemat docelowy.
 
-   ![Wyświetlanie subskrypcji w portalu](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
+   ![Zrzut ekranu przedstawia mapowanie do docelowych baz danych.](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
 
 2. Ekran **Ustawienia migracji** przedstawia listę tabel w źródle danych Oracle. Azure Database Migration Service próbuje dopasować tabele w źródle i tabelach docelowych na podstawie nazwy tabeli. Jeśli istnieje wiele pasujących tabel docelowych z inną wielkością liter, można wybrać tabelę docelową do mapowania.
 
-    ![Wyświetlanie subskrypcji w portalu](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
+    ![Zrzut ekranu przedstawia ustawienia migracji.](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
 > Jeśli zachodzi potrzeba mapowania nazw tabel źródłowych do tabel o różnych nazwach, wiadomości e-mail [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) i możemy udostępnić skrypt służący do automatyzowania procesu.

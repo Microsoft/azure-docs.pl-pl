@@ -1,84 +1,191 @@
 ---
 title: Korzystanie z procedur składowanych
-description: Wskazówki dotyczące implementowania procedur składowanych w puli SQL Synapse (magazyn danych) do tworzenia rozwiązań.
+description: Wskazówki dotyczące wdrażania procedur składowanych w programie Synapse SQL na potrzeby tworzenia rozwiązań.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 294652a42d3b6a2468f024ce7ebdbdfc3615f9e1
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f2046614f3665a699d02c76210676fb32f99fc73
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288923"
 ---
-# <a name="use-stored-procedures-in-sql-pool"></a>Korzystanie z procedur składowanych w puli SQL
+# <a name="use-stored-procedures-in-synapse-sql"></a>Korzystanie z procedur składowanych w programie Synapse SQL
 
 Wskazówki dotyczące implementowania procedur składowanych w puli SQL Synapse (magazyn danych) do tworzenia rozwiązań.
 
 ## <a name="what-to-expect"></a>Czego oczekiwać
 
-Pula SQL obsługuje wiele funkcji T-SQL, które są używane w SQL Server. Co ważniejsze, dostępne są funkcje skalowania w poziomie, których można użyć w celu zmaksymalizowania wydajności rozwiązania.
+Program SQL Synapse obsługuje wiele funkcji T-SQL, które są używane w SQL Server. Co ważniejsze, dostępne są funkcje skalowania w poziomie, których można użyć w celu zmaksymalizowania wydajności rozwiązania.
 
-Jednak aby zachować skalę i wydajność puli SQL, istnieją także pewne funkcje i funkcje, które mają różnice zachowania i inne, które nie są obsługiwane.
+Aby zachować skalę i wydajność puli SQL, istnieją także pewne funkcje i funkcje, które mają różnice zachowania i inne, które nie są obsługiwane.
 
-## <a name="stored-procedures-in-sql-pool"></a>Procedury składowane w puli SQL
+## <a name="stored-procedures-in-synapse-sql"></a>Procedury składowane w Synapse SQL
 
-Procedury składowane to świetny sposób hermetyzowania kodu SQL; przechowywanie go blisko danych w magazynie danych. Procedury składowane ułatwiają deweloperom modularyzacji swoich rozwiązań poprzez hermetyzację kodu w jednostkach do zarządzania; zwiększenie możliwości ponownego wykorzystania kodu. Każda procedura składowana może również akceptować parametry, aby zapewnić im jeszcze większą elastyczność.
+Procedury składowane to doskonały sposób na hermetyzację kodu SQL i przechowywanie go w pobliżu danych w magazynie danych. Procedury składowane ułatwiają deweloperom modularyzacji swoich rozwiązań poprzez hermetyzację kodu w celu zarządzania jednostkami, co ułatwia lepsze wykorzystywanie kodu. Każda procedura składowana może również akceptować parametry, aby zapewnić im jeszcze większą elastyczność. W poniższym przykładzie można zobaczyć procedury, które usuwają obiekty zewnętrzne, jeśli istnieją w bazie danych:
 
-Pula SQL stanowi uproszczoną i udoskonaloną implementację procedury składowanej. Największą różnicą w porównaniu do SQL Server jest to, że procedura składowana nie jest wstępnie kompilowanym kodem. W przypadku magazynów danych czas kompilacji jest mały w porównaniu do czasu potrzebnego do uruchamiania zapytań dotyczących dużych ilości danych. Należy upewnić się, że kod procedury składowanej jest poprawnie zoptymalizowany pod kątem dużych zapytań. Celem jest oszczędność godzin, minut i sekund, a nie milisekund. W związku z tym bardziej pomocne jest, aby traktować procedury składowane jako kontenery dla logiki SQL.
+```sql
+CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
+AS BEGIN
+    IF (0 <> (SELECT COUNT(*) FROM sys.external_tables WHERE name = @name))
+    BEGIN
+        DECLARE @drop_stmt NVARCHAR(200) = N'DROP EXTERNAL TABLE ' + @name; 
+        EXEC sp_executesql @tsql = @drop_stmt;
+    END
+END
+GO
+CREATE PROCEDURE drop_external_file_format_if_exists @name SYSNAME
+AS BEGIN
+    IF (0 <> (SELECT COUNT(*) FROM sys.external_file_formats WHERE name = @name))
+    BEGIN
+        DECLARE @drop_stmt NVARCHAR(200) = N'DROP EXTERNAL FILE FORMAT ' + @name; 
+        EXEC sp_executesql @tsql = @drop_stmt;
+    END
+END
+GO
+CREATE PROCEDURE drop_external_data_source_if_exists @name SYSNAME
+AS BEGIN
+    IF (0 <> (SELECT COUNT(*) FROM sys.external_data_sources WHERE name = @name))
+    BEGIN
+        DECLARE @drop_stmt NVARCHAR(200) = N'DROP EXTERNAL DATA SOURCE ' + @name; 
+        EXEC sp_executesql @tsql = @drop_stmt;
+    END
+END
+```
 
-Gdy pula SQL wykonuje procedurę przechowywaną, instrukcje SQL są analizowane, tłumaczone i optymalizowane w czasie wykonywania. W trakcie tego procesu każda instrukcja jest konwertowana na zapytania rozproszone. Kod SQL, który jest wykonywany względem danych, różni się od przesłanego zapytania.
+Procedury te można wykonać przy użyciu `EXEC` instrukcji, gdzie można określić nazwę i parametry procedury:
+
+```sql
+EXEC drop_external_table_if_exists 'mytest';
+EXEC drop_external_file_format_if_exists 'mytest';
+EXEC drop_external_data_source_if_exists 'mytest';
+```
+
+Synapse SQL stanowi uproszczoną i udoskonaloną implementację procedury składowanej. Największą różnicą w porównaniu do SQL Server jest to, że procedura składowana nie jest wstępnie kompilowanym kodem. W przypadku magazynów danych czas kompilacji jest mały w porównaniu do czasu potrzebnego do uruchamiania zapytań dotyczących dużych ilości danych. Należy upewnić się, że kod procedury składowanej jest poprawnie zoptymalizowany pod kątem dużych zapytań. Celem jest oszczędność godzin, minut i sekund, a nie milisekund. W związku z tym bardziej pomocne jest, aby traktować procedury składowane jako kontenery dla logiki SQL.
+
+Gdy Synapse SQL wykonuje procedurę składowaną, instrukcje SQL są analizowane, tłumaczone i optymalizowane w czasie wykonywania. W trakcie tego procesu każda instrukcja jest konwertowana na zapytania rozproszone. Kod SQL, który jest wykonywany względem danych, różni się od przesłanego zapytania.
+
+## <a name="encapsulate-validation-rules"></a>Hermetyzowanie reguł walidacji
+
+Procedury składowane umożliwiają znalezienie logiki walidacji w pojedynczym module przechowywanym w usłudze SQL Database. W poniższym przykładzie można zobaczyć, jak sprawdzać wartości parametrów i zmieniać ich wartości domyślne.
+
+```sql
+CREATE PROCEDURE count_objects_by_date_created 
+                            @start_date DATETIME2,
+                            @end_date DATETIME2
+AS BEGIN 
+
+    IF( @start_date >= GETUTCDATE() )
+    BEGIN
+        THROW 51000, 'Invalid argument @start_date. Value should be in past.', 1;  
+    END
+
+    IF( @end_date IS NULL )
+    BEGIN
+        SET @end_date = GETUTCDATE();
+    END
+
+    IF( @start_date >= @end_date )
+    BEGIN
+        THROW 51000, 'Invalid argument @end_date. Value should be greater than @start_date.', 2;  
+    END
+
+    SELECT
+         year = YEAR(create_date),
+         month = MONTH(create_date),
+         objects_created = COUNT(*)
+    FROM
+        sys.objects
+    WHERE
+        create_date BETWEEN @start_date AND @end_date
+    GROUP BY
+        YEAR(create_date), MONTH(create_date);
+END
+```
+
+Logika w procedurze SQL sprawdzi parametry wejściowe, gdy procedura jest wywoływana.
+
+```sql
+
+EXEC count_objects_by_date_created '2020-08-01', '2020-09-01'
+
+EXEC count_objects_by_date_created '2020-08-01', NULL
+
+EXEC count_objects_by_date_created '2020-09-01', '2020-08-01'
+-- Error
+-- Invalid argument @end_date. Value should be greater than @start_date.
+
+EXEC count_objects_by_date_created '2120-09-01', NULL
+-- Error
+-- Invalid argument @start_date. Value should be in past.
+```
 
 ## <a name="nesting-stored-procedures"></a>Zagnieżdżanie procedur składowanych
 
 Gdy procedury składowane wywołują inne procedury składowane lub wykonują dynamiczną instrukcję SQL, wewnętrzna procedura składowana lub wywołanie kodu są określane jako zagnieżdżone.
+Przykładowa procedura zagnieżdżona jest pokazana w poniższym kodzie:
 
-Pula SQL obsługuje maksymalnie osiem poziomów zagnieżdżenia. Jest to nieco inne SQL Server. Poziom zagnieżdżenia w SQL Server to 32.
+```sql
+CREATE PROCEDURE clean_up @name SYSNAME
+AS BEGIN
+    EXEC drop_external_table_if_exists @name;
+    EXEC drop_external_file_format_if_exists @name;
+    EXEC drop_external_data_source_if_exists @name;
+END
+```
+
+Ta procedura akceptuje parametr reprezentujący nazwę, a następnie wywołuje inne procedury usuwania obiektów o tej nazwie.
+Synapse Pula SQL obsługuje maksymalnie osiem poziomów zagnieżdżenia. Ta funkcja jest nieco inna niż SQL Server. Poziom zagnieżdżenia w SQL Server to 32.
 
 Wywołanie procedury składowanej najwyższego poziomu jest równe zagnieżdżeniu poziomu 1.
 
 ```sql
-EXEC prc_nesting
+EXEC clean_up 'mytest'
 ```
 
 Jeśli procedura składowana wykonuje również inne wywołanie programu EXEC, poziom zagnieżdżenia zwiększy się do dwóch.
 
 ```sql
-CREATE PROCEDURE prc_nesting
+CREATE PROCEDURE clean_up @name SYSNAME
 AS
-EXEC prc_nesting_2  -- This call is nest level 2
+    EXEC drop_external_table_if_exists @name  -- This call is nest level 2
 GO
-EXEC prc_nesting
+EXEC clean_up 'mytest'  -- This call is nest level 1
 ```
 
 Jeśli druga procedura wykonuje następnie dynamiczny SQL, poziom zagnieżdżenia rośnie do trzech.
 
 ```sql
-CREATE PROCEDURE prc_nesting_2
-AS
-EXEC sp_executesql N'SELECT ''another nest level'''  -- This call is nest level 2
+CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
+AS BEGIN
+    /* See full code in the previous example */
+    EXEC sp_executesql @tsql = @drop_stmt;  -- This call is nest level 3
+END
 GO
-EXEC prc_nesting
+CREATE PROCEDURE clean_up @name SYSNAME
+AS
+    EXEC drop_external_table_if_exists @name  -- This call is nest level 2
+GO
+EXEC clean_up 'mytest'  -- This call is nest level 1
 ```
 
 > [!NOTE]
-> Pula SQL nie obsługuje obecnie programu [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Musisz śledzić poziom zagnieżdżenia. Jest mało prawdopodobne, aby przekroczyć limit ośmiu poziomów zagnieżdżenia, ale jeśli to zrobisz, musisz ponownie obsłużyć swój kod, aby dopasować poziomy zagnieżdżenia w ramach tego limitu.
+> Synapse SQL nie obsługuje obecnie [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Musisz śledzić poziom zagnieżdżenia. Jest mało prawdopodobne, aby przekroczyć limit ośmiu poziomów zagnieżdżenia, ale jeśli to zrobisz, musisz ponownie obsłużyć swój kod, aby dopasować poziomy zagnieżdżenia w ramach tego limitu.
 
 ## <a name="insertexecute"></a>INSERT..EXEUROCZE
 
-Pula SQL nie zezwala na używanie zestawu wyników procedury składowanej z instrukcją INSERT. Istnieje jednak alternatywna metoda, której można użyć. Aby zapoznać się z przykładem, zapoznaj się z artykułem dotyczącym [tabel tymczasowych](develop-tables-temporary.md).
+Synapse SQL nie zezwala na używanie zestawu wyników procedury składowanej z instrukcją INSERT. Istnieje alternatywne podejście, którego można użyć. Aby zapoznać się z przykładem, zapoznaj się z artykułem dotyczącym [tabel tymczasowych](develop-tables-temporary.md).
 
 ## <a name="limitations"></a>Ograniczenia
 
-Istnieją pewne aspekty procedur składowanych Transact-SQL, które nie są zaimplementowane w puli SQL.
-
-Są to:
+Istnieją pewne aspekty procedur składowanych Transact-SQL, które nie są zaimplementowane w Synapse SQL, takie jak:
 
 * tymczasowe procedury składowane
 * numerowane procedury składowane
@@ -88,7 +195,7 @@ Są to:
 * Opcja replikacji
 * parametry z wartościami przechowywanymi w tabeli
 * parametry tylko do odczytu
-* parametry domyślne
+* domyślne parametry (w puli aprowizacji)
 * konteksty wykonywania
 * return, instrukcja
 

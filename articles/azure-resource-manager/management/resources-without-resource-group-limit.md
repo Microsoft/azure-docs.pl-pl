@@ -2,13 +2,13 @@
 title: Zasoby bez limitu liczby 800
 description: Wyświetla listę typów zasobów platformy Azure, które mogą mieć więcej niż 800 wystąpień w grupie zasobów.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 6f7b45ec3691bc3a48d9aa3dfa072c1c68189007
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/21/2020
+ms.openlocfilehash: e7a15607b144f1d7916f310948f15dc28d76a205
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040756"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330761"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Zasoby nieograniczone do 800 wystąpień na grupę zasobów
 
@@ -16,12 +16,15 @@ Domyślnie można wdrożyć do 800 wystąpień typu zasobu w każdej grupie zaso
 
 W przypadku niektórych typów zasobów należy skontaktować się z pomocą techniczną, aby ograniczyć liczbę wystąpień 800. Te typy zasobów zostały wymienione w tym artykule.
 
+
 ## <a name="microsoftautomation"></a>Microsoft. Automation
 
 * automationAccounts
 
 ## <a name="microsoftazurestack"></a>Microsoft. AzureStack
 
+* edgeSubscriptions
+* linkedSubscriptions
 * rejestracje
 * rejestracje/customerSubscriptions
 * rejestracje/produkty
@@ -38,6 +41,7 @@ W przypadku niektórych typów zasobów należy skontaktować się z pomocą tec
 * Galerie/obrazy/wersje
 * images
 * Migawki
+* virtualMachineScaleSets — domyślnie ograniczone do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
 * virtualMachines
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
@@ -55,24 +59,29 @@ W przypadku niektórych typów zasobów należy skontaktować się z pomocą tec
 * rejestry/zadania
 * rejestry/elementy webhook
 
+## <a name="microsoftd365customerinsights"></a>Microsoft. D365CustomerInsights
+
+* Liczba
+
 ## <a name="microsoftdbformariadb"></a>Microsoft. DBforMariaDB
 
 * serwerem
 
 ## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
+* flexibleServers
 * serwerem
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL
 
+* flexibleServers
 * serverGroups
 * serwerem
 * serversv2
-* singleServers
 
 ## <a name="microsoftdevtestlab"></a>Microsoft. wspólny
 
-* harmonogramy — domyślnie ograniczone do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
+* Uruchamianie
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
 
@@ -104,6 +113,10 @@ W przypadku niektórych typów zasobów należy skontaktować się z pomocą tec
 
 * integrationAccounts
 * przebieg
+
+## <a name="microsoftmedia"></a>Microsoft. Media
+
+* MediaServices/liveEvents
 
 ## <a name="microsoftnetapp"></a>Microsoft. NetApp
 

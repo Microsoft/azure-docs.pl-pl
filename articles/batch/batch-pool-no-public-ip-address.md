@@ -1,29 +1,30 @@
 ---
-title: Utwórz pulę Azure Batch bez publicznych adresów IP
+title: Tworzenie puli usługi Azure Batch bez publicznych adresów IP
 description: Dowiedz się, jak utworzyć pulę bez publicznych adresów IP
 author: pkshultz
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 09/25/2020
 ms.author: peshultz
-ms.openlocfilehash: 30792314f5bffaf4d40fc4bf60a2706acdaad34b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: references_regions
+ms.openlocfilehash: 9b36c769c70792e47464c2704e1912dbb2d744dd
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962445"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367941"
 ---
-# <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Utwórz pulę Azure Batch bez publicznych adresów IP
+# <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Tworzenie puli usługi Azure Batch bez publicznych adresów IP
 
 Podczas tworzenia puli Azure Batch można udostępnić pulę konfiguracji maszyny wirtualnej bez publicznego adresu IP. W tym artykule wyjaśniono, jak skonfigurować pulę wsadową bez publicznych adresów IP.
 
 ## <a name="why-use-a-pool-without-public-ip-addresses"></a>Dlaczego warto używać puli bez publicznych adresów IP?
 
-Domyślnie wszystkie węzły obliczeniowe w puli konfiguracji Azure Batch maszyny wirtualnej mają przypisany publiczny adres IP. Ten adres jest używany przez usługę Batch do planowania zadań i komunikacji z węzłami obliczeniowymi, w tym dostęp wychodzący do Internetu. 
+Domyślnie wszystkie węzły obliczeniowe w puli konfiguracji Azure Batch maszyny wirtualnej mają przypisany publiczny adres IP. Ten adres jest używany przez usługę Batch do planowania zadań i komunikacji z węzłami obliczeniowymi, w tym dostęp wychodzący do Internetu.
 
 Aby ograniczyć dostęp do tych węzłów i zmniejszyć wykrywalność tych węzłów z Internetu, można zainicjować obsługę administracyjną puli bez publicznych adresów IP.
 
 > [!IMPORTANT]
-> Obsługa pul bez publicznych adresów IP w Azure Batch jest obecnie dostępna w publicznej wersji zapoznawczej w regionach zachodnie stany USA, Wschodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2, US Gov Wirginia i US Gov Arizona.
+> Obsługa pul bez publicznych adresów IP w Azure Batch jest obecnie publiczną wersją zapoznawczą dla wszystkich regionów z wyjątkiem Chiny Wschodnie, Chiny Wschodnie 2, Chiny Północne i Chiny Północne 2.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -33,7 +34,7 @@ Aby ograniczyć dostęp do tych węzłów i zmniejszyć wykrywalność tych węz
 - **Sieć wirtualna platformy Azure**. Jeśli tworzysz pulę w [sieci wirtualnej](batch-virtual-network.md), postępuj zgodnie z tymi wymaganiami i konfiguracjami. Aby przygotować sieć wirtualną z wyprzedzeniem z co najmniej jedną podsiecią, można użyć Azure Portal, Azure PowerShell, interfejsu wiersza polecenia (CLI) platformy Azure lub innych metod.
   - Sieć wirtualna musi znajdować się w tej samej subskrypcji i w tym samym regionie co konto usługi Batch użyte do utworzenia puli.
   - Podsieć określona dla puli musi mieć wystarczającą liczbę nieprzypisanych adresów IP do obsługi maszyn wirtualnych przeznaczony dla puli, czyli sumę właściwości puli `targetDedicatedNodes` i `targetLowPriorityNodes`. Jeśli podsieć nie ma wystarczającej liczby nieprzypisanych adresów IP, pula częściowo przydzieli węzły obliczeniowe, a następnie wystąpi błąd dotyczący zmiany rozmiaru.
-  - Należy wyłączyć usługę link prywatny i zasady sieciowe punktu końcowego. Można to zrobić za pomocą interfejsu wiersza polecenia platformy Azure:```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - Należy wyłączyć usługę link prywatny i zasady sieciowe punktu końcowego. Można to zrobić za pomocą interfejsu wiersza polecenia platformy Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
   
 > [!IMPORTANT]
 > W przypadku każdego węzła dedykowanych 100 lub o niskim priorytecie usługa Batch przydziela jedną usługę łącza prywatnego i jeden moduł równoważenia obciążenia. Te zasoby są ograniczone przez [limity zasobów](../azure-resource-manager/management/azure-subscription-service-limits.md) subskrypcji. W przypadku dużych pul może być konieczne [zażądanie zwiększenia limitu przydziału](batch-quota-limit.md#increase-a-quota) dla co najmniej jednego z tych zasobów. Ponadto nie należy stosować blokad zasobów do żadnych zasobów utworzonych w usłudze Batch, ponieważ uniemożliwia to Oczyszczanie zasobów w wyniku akcji inicjowanych przez użytkownika, takich jak usuwanie puli lub zmienianie rozmiarów na zero.
@@ -55,7 +56,7 @@ Aby ograniczyć dostęp do tych węzłów i zmniejszyć wykrywalność tych węz
 1. Opcjonalnie wybierz sieć wirtualną i podsieć, której chcesz użyć. Ta sieć wirtualna musi znajdować się w tej samej grupie zasobów co tworzona Pula.
 1. W polu **Typ aprowizacji adresów IP**wybierz pozycję **NoPublicIPAddresses**.
 
-![Ekran dodawania puli z wybraną pozycją NoPublicIPAddresses](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
+![Zrzut ekranu przedstawiający ekran Dodawanie puli z wybraną pozycją NoPublicIPAddresses.](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 
 ## <a name="use-the-batch-rest-api-to-create-a-pool-without-public-ip-addresses"></a>Korzystanie z interfejsu API REST usługi Batch w celu utworzenia puli bez publicznych adresów IP
 

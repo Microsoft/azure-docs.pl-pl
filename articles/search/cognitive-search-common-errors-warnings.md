@@ -7,13 +7,13 @@ author: amotley
 ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 142c6b4315eb1862dd116647f4396835c7286591
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/23/2020
+ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378359"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362818"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Rozwiązywanie problemów z typowymi błędami indeksatora i ostrzeżeniami w usłudze Azure Wyszukiwanie poznawcze
 
@@ -59,9 +59,9 @@ Indeksator ze źródłem danych obiektu BLOB nie mógł wyodrębnić zawartości
 
 | Przyczyna | Szczegóły/przykład | Rozwiązanie |
 | --- | --- | --- |
-| rozmiar obiektu BLOB przekracza limit. | Dokument jest `'150441598'` bajtów, który przekracza maksymalny rozmiar `'134217728'` bajtów na potrzeby wyodrębniania dokumentów dla bieżącej warstwy usług. | [Błędy indeksowania obiektów BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| Obiekt BLOB ma nieobsługiwany typ zawartości | Dokument zawiera nieobsługiwany typ zawartości `'image/png'` | [Błędy indeksowania obiektów BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| Obiekt BLOB jest zaszyfrowany | Nie można przetworzyć dokumentu — może on być zaszyfrowany lub chroniony hasłem. | Możesz pominąć obiekt BLOB za pomocą [ustawień obiektu BLOB](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
+| rozmiar obiektu BLOB przekracza limit. | Dokument jest `'150441598'` bajtów, który przekracza maksymalny rozmiar `'134217728'` bajtów na potrzeby wyodrębniania dokumentów dla bieżącej warstwy usług. | [Błędy indeksowania obiektów BLOB](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| Obiekt BLOB ma nieobsługiwany typ zawartości | Dokument zawiera nieobsługiwany typ zawartości `'image/png'` | [Błędy indeksowania obiektów BLOB](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| Obiekt BLOB jest zaszyfrowany | Nie można przetworzyć dokumentu — może on być zaszyfrowany lub chroniony hasłem. | Możesz pominąć obiekt BLOB za pomocą [ustawień obiektu BLOB](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex). |
 | problemy przejściowe | "Błąd przetwarzania obiektu BLOB: żądanie zostało przerwane: żądanie zostało anulowane." "Dokument przekroczył limit czasu podczas przetwarzania". | Sporadycznie występują nieoczekiwane problemy z łącznością. Spróbuj ponownie uruchomić dokument za pomocą indeksatora później. |
 
 <a name="could-not-parse-document"></a>
@@ -175,7 +175,7 @@ We wszystkich tych przypadkach należy zapoznać się z [obsługiwanymi typami d
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Błąd: nie można użyć zintegrowanych zasad śledzenia zmian, ponieważ tabela zawiera złożony klucz podstawowy
 
-Dotyczy to tabel SQL i zwykle ma miejsce, gdy klucz jest zdefiniowany jako klucz złożony lub, gdy tabela ma zdefiniowany unikatowy indeks klastrowany (jak w indeksie SQL, a nie indeks Azure Search). Głównym powodem jest to, że atrybut klucza jest modyfikowany jako złożony klucz podstawowy w przypadku [unikatowego indeksu klastrowanego](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). W takim przypadku upewnij się, że tabela SQL nie ma unikatowego indeksu klastrowanego lub że pole klucza zostało zamapowane na pole, które nie ma zduplikowanych wartości.
+Dotyczy to tabel SQL i zwykle ma miejsce, gdy klucz jest zdefiniowany jako klucz złożony lub, gdy tabela ma zdefiniowany unikatowy indeks klastrowany (jak w indeksie SQL, a nie indeks Azure Search). Głównym powodem jest to, że atrybut klucza jest modyfikowany jako złożony klucz podstawowy w przypadku [unikatowego indeksu klastrowanego](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described). W takim przypadku upewnij się, że tabela SQL nie ma unikatowego indeksu klastrowanego lub że pole klucza zostało zamapowane na pole, które nie ma zduplikowanych wartości.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 

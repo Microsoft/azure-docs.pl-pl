@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 09/09/2020
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 104ae91b59bc04fc3227585a55a744d500d6db29
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ed87c536c53ab1c07af05a7b8223901591c16e66
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649004"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332344"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu
 
@@ -84,7 +84,7 @@ Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Star
 | Język | Dostępna wersja | 
 |----------|------------------------|
 | Ruby     | [Wersja 2,1](ruby-sdk.md) | 
-| Przejdź       | [Wersja 2,1](go-sdk.md) | 
+| Go       | [Wersja 2,1](go-sdk.md) | 
 
 ::: zone-end
 

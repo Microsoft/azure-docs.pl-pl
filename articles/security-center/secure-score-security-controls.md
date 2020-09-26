@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b7cbba051dd0833a039d378cd73a59314c0221c8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268268"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Zabezpiecz ocenę w Azure Security Center
 
@@ -179,7 +179,7 @@ W poniższej tabeli wymieniono kontrolki zabezpieczeń w Azure Security Center. 
     <td class="tg-lboi"; width=55%>- Inspekcja w programie SQL Server powinna być włączona<br>- Dzienniki diagnostyczne w App Services powinny być włączone<br>- Dzienniki diagnostyczne w Azure Data Lake Store powinny być włączone<br>- Dzienniki diagnostyczne w Azure Stream Analytics powinny być włączone<br>- Należy włączyć dzienniki diagnostyczne na kontach wsadowych<br>- Dzienniki diagnostyczne w Data Lake Analytics powinny być włączone<br>- Dzienniki diagnostyczne w centrum zdarzeń powinny być włączone<br>- Dzienniki diagnostyczne w IoT Hub powinny być włączone<br>- Dzienniki diagnostyczne w Key Vault powinny być włączone<br>- Dzienniki diagnostyczne w Logic Apps powinny być włączone<br>- Dzienniki diagnostyczne w usłudze wyszukiwania powinny być włączone<br>- Dzienniki diagnostyczne w Service Bus powinny być włączone<br>- Dzienniki diagnostyczne w Virtual Machine Scale Sets powinny być włączone<br>- Reguły alertów metryk powinny być skonfigurowane na kontach wsadowych<br>- Ustawienia inspekcji SQL powinny mieć skonfigurowane grupy akcji do przechwytywania działań krytycznych<br>- Serwery SQL powinny być skonfigurowane z okresem przechowywania inspekcji większym niż 90 dni.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Włącz zaawansowaną ochronę przed zagrożeniami (maksymalny wynik 0)</p></strong>Ochrona przed zagrożeniami w Azure Security Center zapewnia kompleksową ochronę środowiska. Gdy Security Center wykryje zagrożenie w dowolnym obszarze środowiska, generuje alert. Te alerty opisują szczegóły zasobów, których to dotyczy, sugerowane kroki zaradcze, a w niektórych przypadkach opcja wyzwalająca aplikację logiki w odpowiedzi.<br>Każdy pakiet ochrony przed zagrożeniami jest oddzielną, opcjonalną ofertą, którą można włączyć przy użyciu odpowiedniego zalecenia w tej kontroli zabezpieczeń.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Dowiedz się więcej o ochronie przed zagrożeniami w programie Security Center</a>.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Włącz zaawansowaną ochronę przed zagrożeniami (maksymalny wynik 0)</p></strong>Opcjonalne Azure Security Center plany ochrony przed zagrożeniami w usłudze Azure Defender zapewniają kompleksowe zabezpieczenia dla danego środowiska. Gdy Security Center wykryje zagrożenie w dowolnym obszarze środowiska, generuje alert. Te alerty opisują szczegóły zasobów, których to dotyczy, sugerowane kroki zaradcze, a w niektórych przypadkach opcja wyzwalająca aplikację logiki w odpowiedzi.<br>Każdy plan usługi Azure Defender jest oddzielną, opcjonalną ofertą, którą można włączyć przy użyciu odpowiedniego zalecenia w tej kontroli zabezpieczeń.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Dowiedz się więcej o ochronie przed zagrożeniami w programie Security Center</a>.</td>
     <td class="tg-lboi"; width=55%>- Zaawansowane zabezpieczenia danych powinny być włączone na serwerach Azure SQL Database<br>- Zaawansowane zabezpieczenia danych powinny być włączone na serwerach SQL na maszynach<br>- Zaawansowana ochrona przed zagrożeniami powinna być włączona na Virtual Machines<br>- Zaawansowana ochrona przed zagrożeniami powinna być włączona w planach Azure App Service<br>- Zaawansowana ochrona przed zagrożeniami powinna być włączona na kontach usługi Azure Storage<br>- Zaawansowana ochrona przed zagrożeniami powinna być włączona w klastrach usługi Azure Kubernetes<br>- Zaawansowana ochrona przed zagrożeniami powinna być włączona w rejestrach Azure Container Registry<br>- Zaawansowana ochrona przed zagrożeniami powinna być włączona w magazynach Azure Key Vault</td>
   </tr>
   <tr>
@@ -197,14 +197,8 @@ W poniższej tabeli wymieniono kontrolki zabezpieczeń w Azure Security Center. 
 
 ## <a name="secure-score-faq"></a>Bezpieczna ocena — często zadawane pytania
 
-### <a name="why-has-my-secure-score-gone-down"></a>Dlaczego mój bezpieczny wskaźnik został usunięty?
-Security Center przełączono do rozszerzonego bezpiecznego wyniku, który obejmuje zmiany w sposobie obliczania wyniku. Teraz należy rozwiązać wszystkie zalecenia dotyczące zasobu, aby otrzymywać punkty. Wyniki również zostały zmienione na skalę 0-10.
-
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Czy w ramach kontroli zabezpieczeń są adresowane tylko trzy z czterech zaleceń, czy mój bezpieczny wynik zmieni się?
 Nie. Nie ulegnie zmianie, dopóki nie zostaną skorygowane wszystkie zalecenia dotyczące pojedynczego zasobu. Aby uzyskać maksymalny wynik kontrolki, należy skorygować wszystkie zalecenia dla wszystkich zasobów.
-
-### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>Czy poprzednie środowisko bezpiecznego wyniku jest nadal dostępne? 
-Nie. Przez czas, gdy są uruchamiane obok siebie, aby ułatwić przejście. Poprzedni model został już uznany za przestarzały. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Jeśli zalecenie nie dotyczy mnie i nie zostało wyłączone w zasadach, czy moja kontrola zabezpieczeń zostanie zrealizowana, a my zabezpieczony?
 Tak. Zalecamy wyłączenie zaleceń, gdy nie są one stosowane w danym środowisku. Aby uzyskać instrukcje dotyczące sposobu wyłączania określonego zalecenia, zobacz temat [wyłączanie zasad zabezpieczeń](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 022040f4fa7f70dd5fc7677ce969ee9acbe7bcbb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d89a5c951f2923f9e107dd2dabec7773f292fa02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886410"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290521"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
@@ -88,7 +88,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
     + Uaktualnione zależności AutoML: `scikit-learn` (teraz 0.22.1), `pandas` (teraz 0.25.1), `numpy` (teraz 1.18.2).
   + **Azure-contrib-automl-DNN — prognozowanie**
     + Uaktualnione zależności AutoML: `scikit-learn` (teraz 0.22.1), `pandas` (teraz 0.25.1), `numpy` (teraz 1.18.2).
-  + **azureml-contrib-fairness**
+  + **Uczenie maszynowe — contrib — sprawiedliwość**
     + Podaj krótki opis usługi Uczenie maszynowe contrib.
   + **azureml-contrib-pipeline-steps**
     + Dodano komunikat wskazujący, że ten pakiet jest przestarzały, a w zamian użytkownik powinien używać etapów z potokiem.
@@ -313,7 +313,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
     + Nie można już włączyć czyszczenia równoważenia klasy, jeśli użytkownik wyłączy cechowania.  
   + **Azure-contrib-itp**
     + Typ obliczania zestawu CmAk jest obsługiwany. Możesz dołączyć własny klaster AKS do obszaru roboczego na potrzeby zadania szkoleniowego.
-  + **azureml-contrib-notebook**
+  + **Azure — contrib — Notes**
     + Udoskonalenia dokumentacji dotyczącej pakietu Azure-contrib-Notes.
   + **azureml-contrib-pipeline-steps**
     + Udoskonalenia dokumentacji pakietu Azure-contrib--Pipeline-etaps.
@@ -401,9 +401,9 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
     + Udoskonalenia dokumentacji azureml-Core/Azure. Data
     + Rozwiązuje problem podczas pobierania konta magazynu przy użyciu polecenia HDFS getconf
     + Ulepszona dokumentacja register_azure_blob_container i register_azure_file_share
-  + **Azure — datadryfowanie**
+  + **azureml-datadrift**
     + Ulepszona implementacja do wyłączania i włączania monitorów dryfowania zestawu danych
-  + **Azure — interpretowanie**
+  + **azureml-interpret**
     + W wyjaśnieniu klient usuwa NaNs lub inf przed serializacji JSON przy przekazywaniu z artefaktów
     + Aktualizowanie do najnowszej wersji programu interpretuje społeczność, aby zwiększyć błędy pamięci dla globalnych wyjaśnień z wieloma funkcjami i klasami
     + Dodaj true_ys opcjonalny parametr do wyjaśnienia przekazywanie, aby włączyć dodatkowe funkcje w interfejsie użytkownika programu Studio
@@ -591,13 +591,13 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
     + Podczas tworzenia TabularDataset za pomocą `from_delimited_files` , można określić, czy puste wartości mają być ładowane jako None, czy jako pusty ciąg poprzez ustawienie argumentu logicznego `empty_as_string` .
     + Dodano obsługę zmiennoprzecinkową w stylu europejskim dla zestawów danych.
     + Ulepszono komunikaty o błędach podczas instalacji zestawu danych.
-  + **Azure — datadryfowanie**
+  + **azureml-datadrift**
     + Zapytanie o wyniki dryfowania danych z zestawu SDK miało usterkę nieodróżniającą minimalnej, maksymalnej i średniej metryk funkcji, co spowodowało zduplikowane wartości. Ta usterka została naprawiona przez umieszczenie prefiksu docelowej lub odniesienia do nazw metryk. Przed: zduplikowana minimalna, maksymalna, średnia. Po: target_min, target_max, target_mean, baseline_min, baseline_max, baseline_mean.
   + **azureml-dataprep**
     + Poprawa obsługi zapisów z ograniczonym środowiskiem Python w przypadku zapewnienia zależności .NET wymaganych do dostarczania danych.
     + Naprawiono tworzenie przepływu danych w pliku z wiodącymi pustymi rekordami.
     + Dodano opcje obsługi błędów dla `to_partition_iterator` podobnej do `to_pandas_dataframe` .
-  + **Azure — interpretowanie**
+  + **azureml-interpret**
     + Zmniejszono limity długości ścieżki, aby zmniejszyć prawdopodobieństwo przekroczenia limitu systemu Windows
     + Poprawka dla wyjaśnień rozrzedzonych utworzonych za pomocą narzędzia do demetrii przy użyciu wieloskładnikowego modelu.
   + **azureml-opendatasets**
@@ -899,7 +899,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
     + Profilowanie pojedynczego wystąpienia zostało naprawione w celu utworzenia rekomendacji i zostało udostępnione w podstawowym zestawie SDK.
     + Rozwiązano problem w aks.py _deploy
     + Sprawdza integralność przekazywanych modeli, aby uniknąć cichych awarii magazynu.
-  + **azureml-interpret**
+  + **Azure — interpretowanie**
     + dodano wyjątki w stylu programu Azure do interpretacji Azure
     + stała Serializacja DeepScoringExplainer dla modeli keras
   + **azureml-pipeline-core**
@@ -1259,7 +1259,7 @@ Azure Machine Learning jest teraz dostawcą zasobów dla Event Grid, można skon
   + [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift)
     + Przeniesiono z `azureml-contrib-datadrift` do `azureml-datadrift`
     + Dodano obsługę monitorowania zestawów danych szeregów czasowych dla dryfowania i innych środków statystycznych
-    + Nowe metody `create_from_model()` i `create_from_dataset()` [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) klasy. `create()`Metoda zostanie uznana za przestarzałą.
+    + Nowe metody `create_from_model()` i `create_from_dataset()` [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector%28class%29) klasy. `create()`Metoda zostanie uznana za przestarzałą.
     + Korekty wizualizacji w języku Python i interfejsie użytkownika w programie Azure Machine Learning Studio.
     + Obsługuj cotygodniowe i comiesięczne planowanie monitorów, a także codziennie dla monitorów zestawu danych.
     + Obsługa wypełniania metryk monitora danych w celu analizowania danych historycznych dla monitorów zestawu danych.
@@ -1362,9 +1362,9 @@ Azure Machine Learning jest teraz dostawcą zasobów dla Event Grid, można skon
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
     + Obsługa użycia środowiska do wdrażania modelu i aktualizacji usługi.
-  + **[Azure — datadryfowanie](https://docs.microsoft.com/python/api/azureml-datadrift)**
+  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-datadrift)**
     + Atrybut show klasy [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) nie obsługuje już opcjonalnego argumentu "with_details". Atrybut show będzie zawierał tylko współczynnik dryfu danych i udział danych w kolumnach funkcji.
-    + Zmiany zachowania funkcji DataDriftDetector [get_output] https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) :
+    + DataDriftDetector funkcja [get_output] Python/API/azureml-datadrift/Azure. datadryf. DataDriftDetector. DataDriftDetector # Get-Output-Start-Time-none--End-Time-none--Run-ID-None-) zmiany zachowania:
       + Start_time parametru wejściowego, end_time są opcjonalne zamiast obowiązkowe;
       + Wejście start_time i/lub end_time z określonym run_id w tym samym wywołaniu spowoduje wyjątek błędu wartości, ponieważ wykluczają się wzajemnie.
       + Według danych wejściowych start_time i/lub end_time zostaną zwrócone tylko wyniki zaplanowanego uruchomienia.
@@ -1458,7 +1458,7 @@ Karta eksperymenty w [nowym portalu obszaru roboczego](https://ml.azure.com) zos
     + Obsługiwane training_data, validation_data, label_column_name weight_column_name jako format danych wejściowych
     + Dodano komunikat o zaniechaniu dla explain_model () i retrieve_model_explanations ()
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
-    + Dodano [Notes](https://aka.ms/pl-modulestep) do opisywania [modułów](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module(class)), [ModuleVersion i [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
+    + Dodano [Notes](https://aka.ms/pl-modulestep) do opisywania [modułów](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module%28class%29), [ModuleVersion i [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
   + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + Dodano [RScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) do obsługi skryptu języka R za pośrednictwem potoku AML.
     + Stałe analizowanie parametrów metadanych w [AzureBatchStep, które spowodowały komunikat o błędzie "przypisanie dla identyfikatora subskrypcji parametru nie jest określone".

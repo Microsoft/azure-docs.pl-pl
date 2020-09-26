@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268231"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370181"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Instrukcje: Planowanie wdrożenia usługi Azure AD Join
 
@@ -184,7 +184,7 @@ Urządzenia przyłączone do usługi Azure AD nie obsługują aplikacji lokalnyc
 
 Podłączanie pulpitu zdalnego do urządzeń przyłączonych do usługi Azure AD wymaga, aby maszyna hosta była przyłączona do usługi Azure AD lub dołączona do hybrydowej usługi Azure AD. Pulpit zdalny z przyłączonych lub nienależących do systemu Windows urządzeń nie jest obsługiwany. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z zdalnym komputerem przyłączonym do usługi Azure AD](/windows/client-management/connect-to-remote-aadj-pc)
 
-Począwszy od systemu Windows 10 2004 Update, użytkownicy mogą ALO używać pulpitu zdalnego z zarejestrowanego urządzenia z systemem Windows 10 w usłudze Azure AD do urządzenia dołączonego do usługi Azure AD. 
+Począwszy od systemu Windows 10 2004 Update, użytkownicy mogą również używać pulpitu zdalnego z zarejestrowanego urządzenia z systemem Windows 10 w usłudze Azure AD do urządzenia dołączonego do usługi Azure Active Directory. 
 
 ## <a name="understand-your-provisioning-options"></a>Zapoznaj się z opcjami aprowizacji
 
@@ -198,11 +198,11 @@ Poniżej przedstawiono porównanie tych trzech metod
  
 | Element | Konfiguracja samoobsługowa | Windows Autopilot | Rejestrowanie zbiorcze |
 | --- | --- | --- | --- |
-| Wymagaj interakcji z użytkownikiem w celu skonfigurowania | Yes | Yes | Nie |
-| Wymaganie nakładu pracy IT | Nie | Yes | Tak |
+| Wymagaj interakcji z użytkownikiem w celu skonfigurowania | Tak | Tak | Nie |
+| Wymaganie nakładu pracy IT | Nie | Tak | Tak |
 | Stosowane przepływy | Ustawienia & OOBE | Tylko środowisko OOBE | Tylko środowisko OOBE |
 | Uprawnienia administratora lokalnego do użytkownika podstawowego | Tak, domyślnie | Konfigurowalne | Nie |
-| Wymagaj obsługi OEM urządzenia | Nie | Yes | Nie |
+| Wymagaj obsługi OEM urządzenia | Nie | Tak | Nie |
 | Obsługiwane wersje | 1511 + | 1709 + | 1703 + |
  
 Wybierz podejście do wdrożenia lub podejścia, przeglądając powyższą tabelę i zapoznaj się z poniższymi uwagami dotyczącymi przyjęcia obu rozwiązań:  

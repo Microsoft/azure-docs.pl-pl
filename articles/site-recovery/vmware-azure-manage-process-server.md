@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846570"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361396"
 ---
 # <a name="manage-process-servers"></a>Zarządzanie serwerami przetwarzania
 
@@ -41,11 +41,11 @@ Należy zrównoważyć obciążenie przez przeniesienie maszyn wirtualnych międ
 2. Kliknij serwer konfiguracji, z którym są zarejestrowane serwery przetwarzania.
 3. Kliknij serwer przetwarzania, dla którego chcesz równoważyć obciążenie ruchem.
 
-    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+    ![Zrzut ekranu przedstawia serwer przetwarzania, dla którego można równoważyć obciążenie ruchem.](media/vmware-azure-manage-process-server/LoadBalance.png)
 
 4. Kliknij pozycję **równoważenie obciążenia**i wybierz docelowy serwer przetwarzania, do którego chcesz przenieść maszyny. Następnie kliknij przycisk **OK** .
 
-    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+    ![Zrzut ekranu przedstawia okienko równoważenia obciążenia z wybranym docelowym serwerem przetwarzania.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
 2. Kliknij pozycję **Wybierz Maszyny**, a następnie wybierz maszyny, które chcesz przenieść z bieżącego do docelowego serwera przetwarzania. Szczegóły średniej zmiany danych są wyświetlane dla każdej maszyny wirtualnej. Następnie kliknij przycisk **OK**. 
 3. W magazynie Monitoruj postęp zadania w obszarze **monitorowanie**  >  **Site Recovery zadań**.
@@ -61,7 +61,7 @@ Przenieś całe obciążenie obsługiwane przez serwer przetwarzania na inny ser
 3. Kliknij serwer przetwarzania, z którego chcesz przełączyć obciążenie.
 4. Kliknij pozycję **przełącznik**, wybierz docelowy serwer przetwarzania, do którego chcesz przenieść obciążenie. Następnie kliknij przycisk **OK** .
 
-    ![Przełącznik](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![Zrzut ekranu przedstawia okienko Wybieranie docelowego serwera przetwarzania.](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. W magazynie Monitoruj postęp zadania w obszarze **monitorowanie**  >  **Site Recovery zadań**.
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 55b789363397945e01d02d76cb0e573660d18b67
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607501"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369913"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego
 
@@ -28,7 +28,7 @@ Możesz kontynuować działalność w centrum partnerskim:
 | Oferowanie funkcji publikowania i zarządzania ofertami | Twoje dane oferty zostały przeniesione z portal Cloud Partner do Centrum partnerskiego. Teraz będziesz uzyskiwać dostęp do ofert w centrum partnerskim, które oferują Ulepszone środowisko użytkownika i intuicyjny interfejs. Dowiedz się [, jak zaktualizować istniejącą ofertę w komercyjnej witrynie Marketplace](partner-center-portal/update-existing-offer.md). |
 | Dostępność ofert w portalu komercyjnym | Brak zmian. Jeśli Twoja oferta znajduje się na żywo na rynku komercyjnym, będzie ona nadal aktywna. |
 | Nowe zakupy i wdrożenia | Brak zmian. Klienci mogą nadal kupić i wdrażać oferty bez przerw. |
-| Wypłaty | Wszystkie zakupy i wdrożenia będą nadal wynagradzane jako normalne. Dowiedz się więcej [na temat uzyskiwania płatności na rynku komercyjnym](partner-center-portal/get-paid.md). |
+| Wypłaty | Wszystkie zakupy i wdrożenia będą nadal wynagradzane jako normalne. Dowiedz się więcej [na temat uzyskiwania płatności na rynku komercyjnym](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | Integracje interfejsów API z istniejącymi [interfejsami api Portal Cloud partner](cloud-partner-portal-api-overview.md) | Istniejące interfejsy API portal Cloud Partner są nadal obsługiwane i Twoje istniejące integracji nadal działają. Dowiedz się więcej na temat [obsługiwanych Portal Cloud partner interfejsów API REST?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
 | Analiza | Możesz kontynuować monitorowanie sprzedaży i ocenę wydajności oraz zoptymalizować oferty w komercyjnej witrynie Marketplace, wyświetlając analizę w centrum partnerskim. Istnieją różnice między sposobem wyświetlania raportów analizy w programie CPP i centrum partnerskim. Na przykład **Informacje o sprzedawcy** w programie CPP mają kartę **użycie & zamówienia** , która wyświetla dane dla ofert opartych na użyciu i nieopartych na użyciu, a w centrum partnerskim strona **Orders** ma osobną kartę dla ofert SaaS. Dowiedz się więcej o [uzyskiwaniu dostępu do raportów analitycznych dla komercyjnego portalu Marketplace w centrum partnerskim](partner-center-portal/analytics.md). |
 |||
@@ -162,7 +162,9 @@ Informacje podane wcześniej dla jednostek SKU na jednej stronie portal Cloud Pa
 - Strona konfigurowania planu
 - Strona aukcji planu
 - Zaplanuj stronę dostępności
-- Zaplanuj stronę konfiguracji technicznej, jak pokazano poniżej: ![ ! [ Zrzut ekranu przedstawia stronę konfiguracji technicznej Centrum partnerskiego.] (Media/CPP — często zadawane pytania/technical-configuration.png "zawiera stronę konfiguracji technicznej Centrum partnerskiego")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+- Zaplanuj stronę konfiguracji technicznej, jak pokazano poniżej:
+
+![! [Zrzut ekranu przedstawia stronę konfiguracji technicznej Centrum partnerskiego.] (Media/CPP — często zadawane pytania/technical-configuration.png "zawiera stronę konfiguracji technicznej Centrum partnerskiego")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Identyfikator oferty jest teraz pokazywany na pasku nawigacyjnym po lewej stronie oferty:
 

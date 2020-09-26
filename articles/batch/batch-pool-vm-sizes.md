@@ -2,14 +2,14 @@
 title: Wybierz rozmiary maszyn wirtualnych dla pul
 description: Jak wybierać dostępne rozmiary maszyn wirtualnych dla węzłów obliczeniowych w pulach Azure Batch
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9aef1fc21120401252d188b7373c6ce4139c71c4
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005138"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271311"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Wybieranie rozmiaru maszyny wirtualnej dla węzłów obliczeniowych w puli Azure Batch
 
@@ -37,11 +37,11 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie rozm
 | Dv3, Dsv3 | Wszystkie rozmiary |
 | Dav4<sup>1</sup> | Wszystkie rozmiary |
 | Dasv4<sup>1</sup> | Wszystkie rozmiary |
-| Ddv4, Ddsv4 |  Brak — nie jest jeszcze dostępna |
-| EV3, Esv3 | Wszystkie rozmiary, z wyjątkiem E64is_v3 i E64i_v3 |
+| Ddv4, Ddsv4 |  Wszystkie rozmiary |
+| EV3, Esv3 | Wszystkie rozmiary, z wyjątkiem E64is_v3 |
 | Eav4<sup>1</sup> | Wszystkie rozmiary |
 | Easv4<sup>1</sup> | Wszystkie rozmiary |
-| Edv4, Edsv4 |  Brak — nie jest jeszcze dostępna |
+| Edv4, Edsv4 |  Wszystkie rozmiary |
 | F, FS | Wszystkie rozmiary |
 | Fsv2 | Wszystkie rozmiary |
 | G, GS | Wszystkie rozmiary |
@@ -52,7 +52,7 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie rozm
 | Ls | Wszystkie rozmiary |
 | Lsv2<sup>1</sup> | Wszystkie rozmiary |
 | M<sup>1</sup> | Wszystkie rozmiary |
-| Mv2 | Brak — nie jest jeszcze dostępna |
+| Mv2<sup>1, 2</sup> | Wszystkie rozmiary |
 | NC | Wszystkie rozmiary |
 | NCv2<sup>1</sup> | Wszystkie rozmiary |
 | Seria NCV3<sup>1</sup> | Wszystkie rozmiary |
@@ -60,10 +60,15 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie rozm
 | NDv2<sup>1</sup> | Brak — nie jest jeszcze dostępna |
 | NV | Wszystkie rozmiary |
 | NVv3<sup>1</sup> | Wszystkie rozmiary |
-| NVv4 | Brak |
+| NVv4 | Brak — nie jest jeszcze dostępna |
 | SAP HANA | Brak |
 
-<sup>1</sup> te rozmiary maszyn wirtualnych można przydzielyć w pulach wsadowym w konfiguracji maszyny wirtualnej, ale należy utworzyć nowe konto wsadowe i zażądać [zwiększenia limitu przydziału](batch-quota-limit.md#increase-a-quota). To ograniczenie zostanie usunięte, gdy przydział vCPU na serię maszyn wirtualnych jest w pełni obsługiwany dla kont usługi Batch.
+<sup>1</sup> te serie maszyn wirtualnych można przydzielyć w pulach wsadowym w konfiguracji maszyny wirtualnej, ale należy utworzyć nowe konto w usłudze Batch i zażądać [zwiększenia limitu przydziału](batch-quota-limit.md#increase-a-quota). To ograniczenie zostanie usunięte, gdy przydział vCPU na serię maszyn wirtualnych jest w pełni obsługiwany dla kont usługi Batch.
+
+<sup>2</sup> te serie maszyn wirtualnych mogą być używane tylko z obrazami maszyn wirtualnych generacji 2.
+
+### <a name="using-generation-2-vm-images"></a>Używanie obrazów maszyn wirtualnych generacji 2
+Niektóre serie maszyn wirtualnych, takie jak [Mv2](../virtual-machines/mv2-series.md), mogą być używane tylko z [obrazami maszyn wirtualnych generacji 2](../virtual-machines/generation-2.md). Obrazy maszyn wirtualnych generacji 2 są określane jako wszystkie obrazy maszyn wirtualnych przy użyciu właściwości "SKU" konfiguracji ["elementu imagereference"](/rest/api/batchservice/pool/add#imagereference) ; ciąg "SKU" ma sufiks, taki jak "-G2" lub "-Gen2". Aby uzyskać listę obrazów maszyn wirtualnych obsługiwanych przez usługę Batch, w tym obrazów generacji 2, użyj interfejsu API ["list obsługiwanych obrazów"](/rest/api/batchservice/account/listsupportedimages) , [programu PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage)lub [wiersza polecenia platformy Azure](/cli/azure/batch/pool/supported-images).
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pule w konfiguracji usługi w chmurze
 

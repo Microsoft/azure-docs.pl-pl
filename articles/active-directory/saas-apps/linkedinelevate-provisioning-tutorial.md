@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: e49b35de5cce914edbd8db2ac0c0c8cccd5f811b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 429ccacea8eb4fd66336543615b11179af3e9276
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549776"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361588"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie podniesienia uprawnień w serwisie LinkedIn na potrzeby automatycznego aprowizacji użytkowników
 
@@ -23,7 +23,7 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać w r
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
+W scenariuszu opisanym w tym samouczku założono, że masz już następujące elementy:
 
 * Dzierżawa usługi Azure Active Directory
 * Podniesienie poziomu dzierżawy w serwisie LinkedIn
@@ -70,12 +70,12 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
     > [!NOTE]
     > Gdy nie włączono licencji autoassign, oznacza to, że synchronizowane są tylko dane użytkownika.
 
-    ![Podnoszenie poziomu aprowizacji w serwisie LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
+    ![Zrzut ekranu przedstawia ustawienia globalne centrum konta LinkedIn.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
 
     > [!NOTE]
     > Gdy jest włączone przypisanie autolicencji, należy zanotować wystąpienie aplikacji i typ licencji. Licencje są przypisywane w pierwszej kolejności, w pierwszej kolejności do momentu, aż zostaną wykonane wszystkie licencje.
 
-    ![Podnoszenie poziomu aprowizacji w serwisie LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
+    ![Zrzut ekranu przedstawia stronę instalatora S C I M.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
 5. Kliknij przycisk **Generuj token**. Token dostępu powinien zostać wyświetlony w polu **token dostępu** .
 
@@ -87,9 +87,9 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
 
 9. Wybierz wystąpienie podniesienia uprawnień do serwisu LinkedIn, a następnie wybierz kartę **Inicjowanie obsługi** .
 
-10. Ustaw **tryb aprowizacji** na **automatyczny**.
+10. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    ![Podnoszenie poziomu aprowizacji w serwisie LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
+    ![Zrzut ekranu przedstawia stronę podwyższanie poziomu udostępniania w serwisie LinkedIn.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
 11. Wypełnij następujące pola w obszarze **poświadczenia administratora** :
 
@@ -105,7 +105,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
 
 14. W sekcji **mapowania atrybutów** Przejrzyj atrybuty użytkowników i grup, które zostaną zsynchronizowane z usługi Azure AD w celu podniesienia uprawnień do serwisu LinkedIn. Należy zauważyć, że atrybuty wybrane jako **pasujące** właściwości będą używane w celu dopasowania do kont użytkowników i grup w serwisie LinkedIn podwyższanie poziomu dla operacji aktualizacji. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
 
-    ![Podnoszenie poziomu aprowizacji w serwisie LinkedIn](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
+    ![Zrzut ekranu przedstawia mapowania, w tym mapowania atrybutów.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
 15. Aby włączyć podwyższenie poziomu usługi Azure AD Provisioning w usłudze LinkedIn, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
@@ -117,5 +117,5 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

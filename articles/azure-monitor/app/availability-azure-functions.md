@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7c7aba1c1f091efa0ddd4417ef0a03f3f4ca4d36
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320633"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361011"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Tworzenie i uruchamianie niestandardowych testów dostępności przy użyciu Azure Functions
 
@@ -32,7 +32,7 @@ W tym artykule opisano sposób tworzenia funkcji platformy Azure z TrackAvailabi
 
             ![Wybieranie istniejącego zasobu Application Insights](media/availability-azure-functions/app-insights-resource.png)
 
-        - Wybieranie opcji **Recenzja + tworzenie**
+        - Wybierz pozycję **Przejrzyj i utwórz**
 - Jeśli nie masz jeszcze utworzonego zasobu Application Insights dla funkcji wyzwalanej przez czasomierz:
     - Domyślnie podczas tworzenia aplikacji Azure Functions zostanie utworzony zasób Application Insights.
     - Postępuj zgodnie z instrukcjami dotyczącymi sposobu [tworzenia zasobu Azure Functions i wyzwalanej funkcji timer](../../azure-functions/functions-create-scheduled-function.md) (Zatrzymaj przed oczyszczeniem).
@@ -183,7 +183,7 @@ Dzienników (analiz) można używać do wyświetlania wyników dostępności, za
 >![Wyniki dostępności](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![Zależności](media/availability-azure-functions/dependencies.png)
+>![Zrzut ekranu przedstawia nową kartę zapytania z zależnościami ograniczonymi do 50.](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
