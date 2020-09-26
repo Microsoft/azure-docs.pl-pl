@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: a58da8b11876d662173ae83de43d8ed74ab43e93
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 76e82a474d2575325b09e6e82c7319b22f451715
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118301"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256929"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph ze kątowej aplikacji jednostronicowej
 
@@ -267,8 +267,8 @@ W tym kodzie `scopes` zawiera zakresy wymagane do zwrócenia w tokenie dostępu 
 
 Na przykład:
 
-* `["user.read"]`dla Microsoft Graph
-* `["<Application ID URL>/scope"]`w przypadku niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` )
+* `["user.read"]` dla Microsoft Graph
+* `["<Application ID URL>/scope"]` w przypadku niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` )
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 

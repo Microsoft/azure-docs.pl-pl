@@ -11,12 +11,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c87a965c96920ea2ce90dae0333147338c99018a
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: f02ec2220827fbec8c981ab3a1859d633675a6f4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279146"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313267"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Samouczek: Integrowanie pojedynczego lasu usługi AD przy użyciu uwierzytelniania przekazywanego (PTA)
 
@@ -188,7 +188,7 @@ Teraz należy utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniz
 2. Wybierz **ikonę plusa (+)** i wyszukaj pozycję **Azure Active Directory**.
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
 4. Wybierz przycisk **Utwórz**.</br>
-![Tworzenie](media/tutorial-password-hash-sync/create1.png)</br>
+![Zrzut ekranu pokazujący sposób tworzenia dzierżawy usługi Azure AD.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz przycisk **Utwórz**. Spowoduje to utworzenie katalogu.
 6. Po zakończeniu kliknij link **tutaj**, aby zarządzać katalogiem.
 
@@ -196,10 +196,10 @@ Teraz należy utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniz
 Dzierżawa usługi Azure AD jest już gotowa. Utworzymy konto administratora globalnego.  To konto posłuży do utworzenia konta Azure AD Connector podczas instalacji programu Azure AD Connect.  Konto łącznika usługi Azure AD służy do zapisywania informacji w usłudze Azure AD.   Aby utworzyć konto administratora globalnego, wykonaj następujące czynności.
 
 1.  W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.</br>
-![Tworzenie](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Zrzut ekranu pokazujący opcję użytkownika wybraną w sekcji Zarządzanie, w której tworzysz administratora globalnego w usłudze Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Wybierz pozycję **Wszyscy użytkownicy**, a następnie pozycję **+ Nowy użytkownik**.
 3.  Podaj nazwę i nazwę użytkownika dla tego użytkownika. Będzie to administrator globalny dzierżawy. Zmień też **rolę Katalog** na **Administrator globalny**. Możesz również wyświetlić hasło tymczasowe. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.</br>
-![Tworzenie](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Zrzut ekranu pokazujący przycisk tworzenia wybierany podczas tworzenia administratora globalnego w usłudze Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Po zakończeniu otwórz nowe okno przeglądarki internetowej i zaloguj się na stronie myapps.microsoft.com przy użyciu nowego konta administratora globalnego oraz hasła tymczasowego.
 5. Zmień hasło administratora globalnego na inne, które zapamiętasz.
 
@@ -209,12 +209,12 @@ Istnieją już dzierżawa i administrator globalny. Teraz należy dodać domenę
 1. Ponownie w witrynie [Azure Portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) zamknij blok **Wszyscy użytkownicy**.
 2. Po lewej stronie wybierz pozycję **Nazwy domen niestandardowych**.
 3. Wybierz pozycję **Dodaj domenę niestandardową**.</br>
-![Niestandardowa](media/tutorial-federation/custom1.png)</br>
+![Zrzut ekranu, który pokazuje wyróżniony przycisk Dodaj domenę niestandardową.](media/tutorial-federation/custom1.png)</br>
 4. W obszarze **Nazwy domen niestandardowych** wprowadź w polu nazwę domeny niestandardowej, a następnie kliknij pozycję **Dodaj domenę**.
 5. Na ekranie nazwy domeny niestandardowej zostaną podane informacje o rekordzie TXT lub MX.  Te informacje należy dodać do informacji DNS rejestratora domeny w obszarze używanej domeny.  Należy więc przejść do witryny rejestratora domeny i wprowadzić informacje o rekordzie TXT lub MX w obszarze ustawień DNS dla tej domeny.  Umożliwi to platformie Azure zweryfikowanie domeny.  Oczekiwanie na zweryfikowanie domeny przez platformę Azure może potrwać do 24 godzin.  Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [dodawania domeny niestandardowej](../../active-directory/fundamentals/add-custom-domain.md).</br>
-![Niestandardowa](media/tutorial-federation/custom2.png)</br>
+![Zrzut ekranu pokazujący, w jaki sposób dodać informacje o TXT lub MX.](media/tutorial-federation/custom2.png)</br>
 6. Aby upewnić się, że została ona zweryfikowana, kliknij przycisk Weryfikuj.</br>
-![Niestandardowa](media/tutorial-federation/custom3.png)</br>
+![Zrzut ekranu pokazujący pomyślny komunikat weryfikacyjny po wybraniu opcji Weryfikuj.](media/tutorial-federation/custom3.png)</br>
 
 ## <a name="download-and-install-azure-ad-connect"></a>Pobieranie i instalowanie programu Azure AD Connect
 Nadszedł czas, aby pobrać i zainstalować program Azure AD Connect.  Po zainstalowaniu go przejdziemy przez konfigurację ekspresową.  Wykonaj następujące czynności:

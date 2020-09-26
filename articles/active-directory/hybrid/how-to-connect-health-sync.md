@@ -16,17 +16,17 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1e988bef3876fafdee4f7f6f109858e85d75d0
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: efb332cf8d5e34a435010a39a12b38f87cff5875
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278738"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313369"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorowanie synchronizacji usługi Azure AD Connect za pomocą programu Azure AD Connect Health
 Poniższa dokumentacja dotyczy monitorowania programu Azure AD Connect (synchronizacja) przy użyciu programu Azure AD Connect Health.  Aby uzyskać informacje na temat monitorowania usług AD FS za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD FS](how-to-connect-health-adfs.md). Ponadto, aby uzyskać informacje na temat monitorowania Usług domenowych Active Directory za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD DS](how-to-connect-health-adds.md).
 
-![Program Azure AD Connect Health do celów synchronizacji](./media/how-to-connect-health-sync/syncsnapshot.png)
+![Zrzut ekranu przedstawiający stronę Azure AD Connect Health do synchronizacji.](./media/how-to-connect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>Alerty dla programu Azure AD Connect Health do celów synchronizacji
 Sekcja Alerty programu Azure AD Connect Health do celów synchronizacji zawiera listę aktywnych alertów. Każdy alert zawiera istotne informacje, kroki do rozwiązania problemu i linki do powiązanej dokumentacji. Po wybraniu aktywnego lub rozwiązanego alertu pojawi się nowy blok z dodatkowymi informacjami, kroki, jakie można podjąć, aby rozwiązać alert, oraz linki do dodatkowej dokumentacji. Można również wyświetlić dane historyczne na temat alertów, które zostały rozwiązane w przeszłości.
@@ -40,11 +40,11 @@ Jeśli program Azure AD Connect NIE KORZYSTA z konfiguracji domyślnej (na przyk
 
 To ogranicza ocenę alertów przez usługę. Zobaczysz baner, który wskazuje na taki stan w witrynie Azure Portal w ramach usługi.
 
-![Program Azure AD Connect Health do celów synchronizacji](./media/how-to-connect-health-sync/banner.png)
+![Zrzut ekranu przedstawiający transparent alertu, który wskazuje, że Obliczanie alertu jest ograniczone. Zaktualizuj ustawienia, aby włączyć wszystkie alerty.](./media/how-to-connect-health-sync/banner.png)
 
 Możesz to zmienić, klikając pozycję „Ustawienia” i pozwalając agentowi programu Azure AD Connect Health, na przekazanie wszystkich dzienników błędów.
 
-![Program Azure AD Connect Health do celów synchronizacji](./media/how-to-connect-health-sync/banner2.png)
+![Zrzut ekranu przedstawiający opcję ustawień o nazwie out i sekcję Settings z opcją Zapisz i opcją ON o nazwie out.](./media/how-to-connect-health-sync/banner2.png)
 
 ## <a name="sync-insight"></a>Wgląd w szczegóły synchronizacji
 Administratorzy często chcą wiedzieć, ile czasu zajmie synchronizowanie zmian z usługą Azure AD oraz ile zmian jest wprowadzanych. Ta funkcja umożliwia łatwą wizualizację tych danych za pomocą poniższych wykresów:   
@@ -55,14 +55,14 @@ Administratorzy często chcą wiedzieć, ile czasu zajmie synchronizowanie zmian
 ### <a name="sync-latency"></a>Opóźnienie synchronizacji
 Ta funkcja prezentuje w sposób graficzny trend opóźnienia operacji synchronizacji (import, eksport itd.) dla łączników.  Zapewnia to szybki i łatwy sposób zrozumienia nie tylko opóźnień operacji (tym większych, im większy zestaw wprowadzanych zmian), ale także wykrycia anomalii w opóźnieniu, które mogą wymagać bliższego zbadania.
 
-![Opóźnienie synchronizacji](./media/how-to-connect-health-sync/synclatency02.png)
+![Zrzut ekranu przedstawiający opóźnienie profilu przebiegu z ostatnich 3 dni.](./media/how-to-connect-health-sync/synclatency02.png)
 
 Tylko opóźnienie operacji „Eksportuj” dla łącznika usługi Azure AD jest wyświetlane domyślnie.  Aby zobaczyć więcej operacji na łączniku lub aby wyświetlić operacje innych łączników, kliknij prawym przyciskiem myszy wykres i wybierz polecenie „Edytuj wykres” lub kliknij przycisk „Edytuj wykres opóźnienia”, a następnie wybierz określoną operację i łączniki.
 
 ### <a name="sync-object-changes"></a>Zmiany obiektu synchronizacji
 Ta funkcja prezentuje w sposób graficzny trend liczby zmian obliczanych i eksportowanych do usługi Azure AD.  Zebranie tych informacji z dzienników synchronizacji jest obecnie trudne.  Wykres umożliwia nie tylko łatwiejszy sposób monitorowania liczby zmian, jakie zachodzą w Twoim środowisku, ale także przedstawia w sposób czytelny i obrazowy pojawiające się błędy.
 
-![Opóźnienie synchronizacji](./media/how-to-connect-health-sync/syncobjectchanges02.png)
+![Zrzut ekranu przedstawiający dane statystyczne eksportowania do usługi Azure AD na podstawie grafu ostatnich 3 dni.](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
 ## <a name="object-level-synchronization-error-report"></a>Raport o błędach synchronizacji na poziomie obiektu
 Ta funkcja dostarcza raport o błędach synchronizacji, które mogą wystąpić podczas synchronizowania danych tożsamości między usługami Windows Server AD i Azure AD za pomocą programu Azure AD Connect.

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e31f5e6afb3b586cd8eb20db8d1ca34e95de86cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8aa45294de4ef644c20ef66b7163706dca9759d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356801"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313420"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: uaktualnianie z narzędzia DirSync
 Program Azure AD Connect zastępuje narzędzie DirSync. W tym temacie opisano sposoby uaktualniania z narzędzia DirSync. Czynności te nie zadziałają w przypadku aktualizowania z innej wersji programu Azure AD Connect lub z narzędzia Azure AD Sync.
@@ -100,10 +100,10 @@ Dodatkowe kroki są wymagane, jeśli:
    * Jeśli używasz programu SQL Server Express i masz mniej niż 50 000 obiektów, jest wyświetlany następujący ekran:  
      ![Analiza zakończona, wszystko gotowe do uaktualnienia narzędzia DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReady.png)
    * Jeśli na potrzeby narzędzia DirSync używasz pełnego programu SQL Server, zamiast tego ekranu zostanie wyświetlona następująca strona:  
-     ![Analiza zakończona, wszystko gotowe do uaktualnienia narzędzia DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
+     ![zrzut ekranu pokazujący istniejący używany serwer baz danych SQL.](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
      Zostaną wyświetlone informacje dotyczące istniejącego serwera bazy danych SQL Server używanego przez narzędzie DirSync. W razie potrzeby wprowadź odpowiednie zmiany. Kliknij przycisk **Dalej**, aby kontynuować instalację.
    * Jeśli masz więcej niż 50 000 obiektów, zostanie wyświetlony następujący ekran:  
-     ![Analiza zakończona, wszystko gotowe do uaktualnienia narzędzia DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
+     ![Zrzut ekranu pokazujący ekran wyświetlany, gdy masz więcej niż 50 000 obiektów do uaktualnienia.](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
      Aby przejść do uaktualnienia w miejscu, kliknij pole wyboru obok komunikatu: **Kontynuuj uaktualnianie narzędzia DirSync na tym komputerze.**
      Aby zamiast tego przeprowadzić [wdrożenie równoległe](#parallel-deployment), należy wyeksportować ustawienia konfiguracji narzędzia DirSync i przenieść konfigurację na nowy serwer.
 5. Wprowadź hasło do konta aktualnie używanego do łączenia się z usługą Azure AD. Musi to być konto używane aktualnie przez narzędzie DirSync.  
@@ -140,7 +140,7 @@ Jeśli masz mniej niż 50 000 obiektów, ale mimo to chcesz przeprowadzić wdro
 4. Z poziomu lokalizacji instalacji programu Azure AD Connect (domyślnie: C:\Program Files\Microsoft Azure Active Directory Connect) uruchom następujące polecenie: `AzureADConnect.exe /ForceExport`.
 5. Kliknij przycisk **Eksportuj ustawienia**. Po zainstalowaniu programu Azure AD Connect na osobnym serwerze te ustawienia są migrowane z bieżącego narzędzia DirSync do nowej instalacji programu Azure AD Connect.
 
-![Analiza zakończona](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
+![Zrzut ekranu pokazujący opcję eksportu ustawień migracji ustawień do nowej instalacji Azure AD Connect.](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
 
 Po pomyślnym wyeksportowaniu ustawień możesz zakończyć działanie kreatora instalacji programu Azure AD Connect na serwerze narzędzia DirSync. Przejdź do następnego kroku, aby zainstalować program Azure AD Connect na osobnym serwerze.
 
@@ -152,14 +152,14 @@ W przypadku instalowania programu Azure AD Connect na nowym serwerze domyślnym 
 3. Otwórz wiersz polecenia.
 4. Z poziomu lokalizacji instalacji programu Azure AD Connect (domyślnie: C:\Program Files\Microsoft Azure Active Directory Connect) uruchom następujące polecenie: `AzureADConnect.exe /migrate`.
    Zostanie uruchomiony kreator instalacji programu Azure AD Connect z wyświetlonym następującym ekranem:  
-   ![Wprowadzanie poświadczeń usługi Azure AD](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
+   ![Zrzut ekranu pokazujący lokalizację importowania pliku ustawień podczas uaktualniania.](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
 5. Wybierz plik ustawień wyeksportowany z narzędzia DirSync.
 6. Skonfiguruj opcje zaawansowane, takie jak:
    * Niestandardowa lokalizacja instalacji programu Azure AD Connect.
    * Istniejące wystąpienie programu SQL Server (domyślnie program Azure AD Connect instaluje program SQL Server 2012 Express). Nie używaj tego samego wystąpienia bazy danych, którego używa serwer narzędzia DirSync.
    * Konto usługi używane do połączenia z serwerem SQL (jeśli korzystasz ze zdalnej bazy danych programu SQL Server, musi to być konto usługi domeny).
      Na tym ekranie są dostępne następujące opcje:  
-     ![Wprowadzanie poświadczeń usługi Azure AD](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
+     ![Zrzut ekranu przedstawiający opcje konfiguracji zaawansowanej do uaktualnienia z narzędzia DirSync.](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. Kliknij przycisk **Dalej**.
 8. Na stronie **Wszystko gotowe do skonfigurowania** pozostaw zaznaczone pole wyboru **Uruchom proces synchronizacji, gdy tylko konfiguracja zostanie ukończona**. Serwer jest teraz w [trybie przejściowym](how-to-connect-sync-staging-server.md), więc zmiany nie są eksportowane do usługi Azure AD.
 9. Kliknij przycisk **Zainstaluj**.
@@ -204,7 +204,7 @@ Powinien zostać wyświetlony następujący ekran:
 * Wybierz pozycję **Konfigurowanie trybu przejściowego**.
 * Wyłącz tryb przejściowy, usuwając zaznaczenie pola wyboru **Włącz tryb przejściowy**.
 
-![Wprowadzanie poświadczeń usługi Azure AD](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
+![Zrzut ekranu przedstawiający opcję włączania trybu przejściowego.](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
 
 * Kliknij przycisk **dalej**
 * Na stronie potwierdzenia kliknij przycisk **Zainstaluj**.

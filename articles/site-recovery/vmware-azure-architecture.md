@@ -7,14 +7,14 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 217e3b9de7c9a46174c6ce6d1a3b151c904a7bf2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498956"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314117"
 ---
-# <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii oprogramowania VMware na platformę Azure
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii środowiska VMware na platformie Azure
 
 W tym artykule opisano architekturę i procesy używane podczas wdrażania replikacji odzyskiwania po awarii, trybu failover i odzyskiwania maszyn wirtualnych VMware między lokalną lokacją programu VMware i platformą Azure przy użyciu usługi [Azure Site Recovery](site-recovery-overview.md) .
 
@@ -45,14 +45,16 @@ Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowani
 
 | **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
-| Usługa Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Umożliwia zapisanie danych z maszyny wirtualnej na koncie magazynu pamięci podręcznej znajdującym się w regionie źródłowym. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Umożliwia autoryzację i uwierzytelnianie przy użyciu adresów URL usługi Site Recovery. |
 | Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Umożliwia komunikację między maszyną wirtualną a usługą Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Umożliwia maszynie wirtualnej zapisywanie danych monitorowania i danych diagnostycznych usługi Site Recovery. |
 
+Wyczerpująca lista adresów URL, które mają być listy dozwolonych do komunikacji między lokalną infrastrukturą Azure Site Recovery i usługami platformy Azure, znajduje się [w sekcji wymagania dotyczące sieci w artykule dotyczącym wymagań wstępnych](vmware-azure-deploy-configuration-server.md#prerequisites).
+
 ## <a name="replication-process"></a>Proces replikacji
 
-1. Po włączeniu replikacji dla maszyny wirtualnej rozpocznie się replikacja początkowa do usługi Azure Storage przy użyciu określonych zasad replikacji. Pamiętaj o następujących kwestiach:
+1. Po włączeniu replikacji dla maszyny wirtualnej rozpocznie się replikacja początkowa do usługi Azure Storage przy użyciu określonych zasad replikacji. . Weź pod uwagę następujące kwestie:
     - W przypadku maszyn wirtualnych VMware replikacja jest na poziomie bloku, blisko ciągłego, przy użyciu agenta usługi mobilności uruchomionego na maszynie wirtualnej.
     - Zostaną zastosowane wszystkie ustawienia zasad replikacji:
         - **Próg punktu odzyskiwania**. To ustawienie nie ma wpływu na replikację. Ułatwia to monitorowanie. Zostanie zgłoszone zdarzenie i opcjonalnie zostanie wysłana wiadomość e-mail, jeśli bieżący cel punktu odzyskiwania przekroczy określony limit progu.
@@ -82,6 +84,54 @@ Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowani
 5. Domyślnie ponowna synchronizacja jest zaplanowana do automatycznego uruchamiania poza godzinami pracy. Jeśli nie chcesz czekać na domyślną ponowną synchronizację poza godzinami, możesz ponownie zsynchronizować maszynę wirtualną ręcznie. W tym celu przejdź do Azure Portal, wybierz maszynę wirtualną > ponownie **zsynchronizuj**.
 6. Jeśli domyślna ponowna synchronizacja nie powiedzie się poza godzinami pracy, a wymagana jest ręczna interwencja, na konkretnym komputerze w Azure Portal zostanie wygenerowany błąd. Możesz rozwiązać ten problem i ręcznie wyzwolić ponowną synchronizację.
 7. Po ukończeniu ponownej synchronizacji replikacja zmian różnicowych zostanie wznowiona.
+
+## <a name="replication-policy"></a>Zasady replikacji 
+
+Po włączeniu replikacji maszyny wirtualnej platformy Azure domyślnie Site Recovery tworzy nowe zasady replikacji z ustawieniami domyślnymi podsumowywanymi w tabeli.
+
+**Ustawienie zasad** | **Szczegóły** | **Wartooć**
+--- | --- | ---
+**Przechowywanie punktów odzyskiwania** | Określa, jak długo Site Recovery zachowuje punkty odzyskiwania | 24 godziny
+**Częstotliwość migawek spójnych na poziomie aplikacji** | Jak często Site Recovery pobiera migawkę spójną na poziomie aplikacji. | Co cztery godziny
+
+### <a name="managing-replication-policies"></a>Zarządzanie zasadami replikacji
+
+Domyślnymi ustawieniami zasad replikacji można zarządzać i modyfikować w następujący sposób:
+- Ustawienia można modyfikować po włączeniu replikacji.
+- W każdej chwili można utworzyć zasady replikacji, a następnie zastosować je po włączeniu replikacji.
+
+### <a name="multi-vm-consistency"></a>Spójność między MASZYNami wirtualnymi
+
+Jeśli chcesz, aby maszyny wirtualne były replikowane ze sobą i w trybie failover współużytkowane punkty odzyskiwania spójne z awarią i aplikacjami, możesz zebrać je razem w grupie replikacji. Spójność wielu maszyn wirtualnych wpływa na wydajność obciążeń i powinna być używana tylko w przypadku maszyn wirtualnych korzystających z obciążeń, które wymagają spójności na wszystkich komputerach. 
+
+
+
+## <a name="snapshots-and-recovery-points"></a>Migawki i punkty odzyskiwania
+
+Punkty odzyskiwania są tworzone na podstawie migawek dysków maszyny wirtualnej wykonanych w określonym punkcie w czasie. Po przełączeniu maszyny wirtualnej w tryb failover należy użyć punktu odzyskiwania, aby przywrócić maszynę wirtualną w lokalizacji docelowej.
+
+W przypadku przełączenia w tryb failover zwykle chcemy upewnić się, że maszyna wirtualna nie ma uszkodzenia lub utracie danych, oraz że dane maszyny wirtualnej są spójne dla systemu operacyjnego i aplikacji uruchamianych na maszynie wirtualnej. Jest to zależne od typu wykonanych migawek.
+
+Site Recovery wykonuje migawki w następujący sposób:
+
+1. W przypadku wybrania dla nich częstotliwości w Site Recovery są domyślnie spójne migawki danych i migawki spójne z aplikacjami.
+2. Punkty odzyskiwania są tworzone na podstawie migawek i przechowywane zgodnie z ustawieniami przechowywania w zasadach replikacji.
+
+### <a name="consistency"></a>Spójność
+
+W poniższej tabeli objaśniono różne typy spójności.
+
+### <a name="crash-consistent"></a>Spójny na poziomie awarii
+
+**Opis** | **Szczegóły** | **Zalecenie**
+--- | --- | ---
+Migawka spójna pod kątem awarii przechwytuje dane znajdujące się na dysku podczas tworzenia migawki. Nie zawiera żadnych elementów w pamięci.<br/><br/> Zawiera odpowiednik danych na dysku, które mogą być obecne, jeśli maszyna wirtualna uległa awarii lub przewód zasilający został pobrany z serwera na chwilę, gdy migawka została wykonana.<br/><br/> Spójna awaria nie gwarantuje spójności danych dla systemu operacyjnego lub aplikacji na maszynie wirtualnej. | Site Recovery domyślnie tworzy punkty odzyskiwania spójne z awarią co pięć minut. Nie można zmodyfikować tego ustawienia.<br/><br/>  | Obecnie większość aplikacji może odzyskać z punktów spójnych z awarią.<br/><br/> Punkty odzyskiwania spójne z awarią są zwykle wystarczające do replikacji systemów operacyjnych i aplikacji, takich jak serwery DHCP i serwery wydruku.
+
+### <a name="app-consistent"></a>Spójna na poziomie aplikacji
+
+**Opis** | **Szczegóły** | **Zalecenie**
+--- | --- | ---
+Punkty odzyskiwania spójne z aplikacjami są tworzone na podstawie migawek spójnych na poziomie aplikacji.<br/><br/> Migawka spójna na poziomie aplikacji zawiera wszystkie informacje w migawce spójnej na poziomie awarii oraz wszystkie dane w pamięci i transakcjach w toku. | Migawki spójne z aplikacjami używają Usługa kopiowania woluminów w tle (VSS):<br/><br/>   1) Azure Site Recovery używa metody copy Only Backup (VSS_BT_COPY), która nie zmienia czasu wykonywania kopii zapasowej dziennika transakcji programu Microsoft SQL i numer sekwencyjny </br></br> 2) po zainicjowaniu migawki usługa VSS wykonuje na woluminie operację kopiowania na zapis (KROWy).<br/><br/>   3) przed wykonaniem KROWy usługa VSS informuje każdą aplikację na komputerze, że musi ona opróżnić dane rezydentne pamięci na dysk.<br/><br/>   4) usługa VSS umożliwia korzystanie z kopii zapasowej/odzyskiwania po awarii (w tym przypadku Site Recovery) w celu odczytania danych migawki i przejścia. | Migawki spójne z aplikacjami są wykonywane zgodnie z określoną częstotliwością. Ta częstotliwość powinna być zawsze mniejsza niż ustawiona dla zachowywania punktów odzyskiwania. Jeśli na przykład zachowasz punkty odzyskiwania przy użyciu domyślnego ustawienia przez 24 godziny, należy ustawić częstotliwość krótszą niż 24 godziny.<br/><br/>Są one bardziej skomplikowane i trwają dłużej niż w przypadku migawek spójnych na poziomie awarii.<br/><br/> Wpływają one na wydajność aplikacji uruchomionych na maszynie wirtualnej z włączoną obsługą replikacji. 
 
 ## <a name="failover-and-failback-process"></a>Proces pracy w trybie failover i podczas powrotu po awarii
 

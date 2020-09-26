@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 268cf61596366d451057861db1fa5ac2d35e87d0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662397"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313318"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronizacja tożsamości i odporność względem zduplikowanych atrybutów
 Odporność na zduplikowane atrybuty to funkcja w Azure Active Directory, która eliminuje liczbę problemów spowodowanych **przez** wartości **ProxyAddress** i protokołu SMTP podczas uruchamiania jednego z narzędzi do synchronizacji firmy Microsoft.
@@ -124,7 +124,7 @@ Aby przeszukać wiele ciągów, Użyj flagi **-ciągwyszukiwania** . Można go u
 ## <a name="microsoft-365-admin-center"></a>Centrum administracyjne platformy Microsoft 365
 Błędy synchronizacji katalogów można wyświetlić w centrum administracyjnym Microsoft 365. Raport w centrum administracyjnym Microsoft 365 wyświetla tylko obiekty **użytkownika** , które mają te błędy. Nie pokazuje informacji o konfliktach między **grupami** i **kontaktami**.
 
-![Aktywni użytkownicy](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Aktywni użytkownicy")
+![Zrzut ekranu pokazujący błędy synchronizacji katalogów w centrum administracyjnym Microsoft 365.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Aktywni użytkownicy")
 
 Aby uzyskać instrukcje dotyczące wyświetlania błędów synchronizacji katalogów w centrum administracyjnym Microsoft 365, zobacz [identyfikowanie błędów synchronizacji katalogów w Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
@@ -132,7 +132,7 @@ Aby uzyskać instrukcje dotyczące wyświetlania błędów synchronizacji katalo
 Gdy w nowym zachowaniu jest obsługiwany obiekt ze zduplikowanym konfliktem atrybutów, w wiadomości e-mail dotyczącej standardowego błędu synchronizacji tożsamości zostanie uwzględniona powiadomienie wysyłanego do kontaktu z powiadomieniem technicznym dla dzierżawy. Istnieje jednak ważna zmiana tego zachowania. W przeszłości informacje o zduplikowanym konflikcie atrybutu zostałyby uwzględnione w każdym kolejnym raporcie o błędach do momentu rozwiązania konfliktu. W przypadku tego nowego zachowania powiadomienia o błędzie dla danego konfliktu są wyświetlane tylko raz — w momencie, gdy atrybut powodujący konflikt zostanie poddany kwarantannie.
 
 Oto przykład powiadomienia e-mail dla konfliktu ProxyAddress:  
-    ![Aktywni użytkownicy](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Aktywni użytkownicy")  
+    ![Zrzut ekranu przedstawiający przykład powiadomienia e-mail o konflikcie ProxyAddress.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Aktywni użytkownicy")  
 
 ## <a name="resolving-conflicts"></a>Rozwiązywanie konfliktów
 Rozwiązywanie problemów z strategią i rozdzielczością taktykę dla tych błędów nie powinno różnić się od sposobu, w jaki zduplikowane błędy atrybutów zostały obsłużone w przeszłości. Jedyną różnicą jest to, że zadanie czasomierza jest wyczyszczone przez dzierżawcę po stronie usługi, aby automatycznie dodać ten atrybut do odpowiedniego obiektu po rozwiązaniu konfliktu.
@@ -174,7 +174,7 @@ Link do *procedury rozwiązywania tego problemu* jest niepoprawny:
 
 Powinno to wskazywać na [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency) .
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Synchronizacja Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)
 * [Zidentyfikuj błędy synchronizacji katalogów w Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
