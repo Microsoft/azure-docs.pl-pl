@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b020f633adc2e2286cc14b01c6d248fc2c1e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f34355f790b56c43c2e9fae7ce23b6344b4739d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759892"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362150"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Zagadnienia dotyczące zabezpieczeń dotyczące zdalnego uzyskiwania dostępu do aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -83,7 +83,7 @@ Aby zwiększyć bezpieczeństwo aplikacji publikowanych przez usługę Azure ser
 
 #### <a name="azure-ddos-protection-service"></a>Usługa Azure DDoS Protection
 
-Aplikacje publikowane za poorednictwem serwera proxy aplikacji są chronione przed atakami typu "odmowa usługi" (DDoS). **Azure DDoS Protection** to usługa oferowana przez platformę Azure do ochrony zasobów platformy Azure przed atakami typu "odmowa usługi". **Podstawowa** warstwa usług jest włączana automatycznie, zapewniając monitorowanie ruchu w czasie rzeczywistym i łagodzenie typowych ataków na poziomie sieci. Dostępna jest również warstwa **standardowa** , która oferuje dodatkowe możliwości ograniczania, które są dostosowane specjalnie do zasobów usługi Azure Virtual Network. Aby uzyskać szczegółowe informacje, zobacz [omówienie Azure DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Aplikacje publikowane za poorednictwem serwera proxy aplikacji są chronione przed atakami typu "odmowa usługi" (DDoS). **Azure DDoS Protection** to usługa oferowana przez platformę Azure do ochrony zasobów platformy Azure przed atakami typu "odmowa usługi". **Podstawowa** warstwa usług jest włączana automatycznie, zapewniając monitorowanie ruchu w czasie rzeczywistym i łagodzenie typowych ataków na poziomie sieci. Aby uzyskać szczegółowe informacje, zobacz [omówienie Azure DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>Kulisy
 

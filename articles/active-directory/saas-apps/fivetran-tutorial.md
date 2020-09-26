@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
-ms.openlocfilehash: 9cf8a76f74e6dda6ade98ea348f5401eab15c53e
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 9d6951456593c57f9def80990e582a5ff54cc5d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500853"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312628"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fivetran"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Fivetran
 
@@ -31,7 +31,7 @@ W tym samouczku dowiesz się, jak zintegrować usługę Fivetran z usługą Azur
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) Fivetran.
+* Konto Fivetran.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -96,7 +96,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-1. W sekcji **Konfigurowanie Fivetran** skopiuj odpowiednie adresy URL na podstawie wymagania.
+1. W sekcji **Konfigurowanie Fivetran** Skopiuj **adres URL logowania** i **Identyfikator usługi Azure AD** .
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -110,7 +110,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -126,7 +126,22 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-fivetran-sso"></a>Konfigurowanie logowania jednokrotnego Fivetran
 
-Aby skonfigurować Logowanie jednokrotne na stronie **Fivetran** , musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej Fivetran](mailto:support@fivetran.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+W tej sekcji skonfigurujesz Logowanie jednokrotne na stronie **Fivetran** .
+
+1. W innym oknie przeglądarki sieci Web Zaloguj się do konta Fivetran jako właściciel konta.
+1. Wybierz strzałkę w lewym górnym rogu okna, a następnie wybierz pozycję **Zarządzaj kontem** z listy rozwijanej.
+
+   ![Zrzut ekranu przedstawiający wybraną opcję menu Zarządzaj kontem.](media/fivetran-tutorial/fivetran-1.png)
+
+1. Przejdź do sekcji **Konfiguracja protokołu SAML** na stronie **Ustawienia** .
+
+   ![Zrzut ekranu, który pokazuje okienko konfiguracji SAML z wyróżnionymi opcjami konfiguracji.](media/fivetran-tutorial/fivetran-2.png)
+
+   1. W obszarze **Włącz uwierzytelnianie SAML**wybierz pozycję **włączone**.
+   1. W polu **adres URL logowania**wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
+   1. W obszarze **wystawcy**wklej wartość **identyfikatora usługi Azure AD**, która została skopiowana z Azure Portal.
+   1. Otwórz pobrany plik certyfikatu w edytorze tekstów, Skopiuj certyfikat do schowka, a następnie wklej go do pola tekstowego **certyfikat publiczny** .
+   1. Wybierz pozycję **Zapisz konfigurację**.
 
 ### <a name="create-fivetran-test-user"></a>Utwórz użytkownika testowego Fivetran
 

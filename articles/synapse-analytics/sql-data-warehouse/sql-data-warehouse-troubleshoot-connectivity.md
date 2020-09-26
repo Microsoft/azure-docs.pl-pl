@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 2edb3060437080e528d41d4af5f4affd4fbf3316
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010192"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362184"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Rozwiązywanie problemów z łącznością w puli SQL Synapse
 
@@ -34,13 +34,14 @@ W tym miejscu zostanie wyświetlony stan puli SQL. Jeśli usługa nie jest wyśw
 
 Jeśli Kondycja zasobów pokazuje, że wystąpienie puli SQL jest wstrzymane lub skalowane, postępuj zgodnie ze wskazówkami, aby wznowić wystąpienie.
 
-![Usługa wstrzymała ](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) dodatkowe informacje na temat Resource Health można znaleźć tutaj.
+![Zrzut ekranu przedstawia wystąpienie wstrzymania lub skalowania magazynu danych SQL.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+Dodatkowe informacje na temat Resource Health można znaleźć tutaj.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Sprawdzanie istnienia wstrzymania lub operacji skalowania
 
 Sprawdź Portal, aby sprawdzić, czy wystąpienie puli SQL jest wstrzymane lub skalowane.
 
-![Usługa została wstrzymana](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Zrzut ekranu pokazuje, jak sprawdzić, czy magazyn danych jest wstrzymany.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
 Jeśli zobaczysz, że usługa jest wstrzymana lub skalowania, sprawdź, czy nie jest ona wyświetlana w harmonogramie konserwacji. W portalu *dla puli SQL*zostanie wyświetlony wybrany harmonogram konserwacji.
 

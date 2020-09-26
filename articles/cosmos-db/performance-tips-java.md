@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d6aad3107acbeaa76f1cf7e5d9c631a2a5aa8b6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ac7879590424fa921425dcd077503733affeb634
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361751"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB synchronizacji Java SDK V2
 
@@ -65,14 +65,14 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
       DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
       ```
 
-      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Ilustracja zasad połączenia Azure Cosmos DB" border="false":::
+      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Diagram przedstawia zasady połączenia platformy Azure Cosmos D B." border="false":::
 
    <a id="same-region"></a>
 2. **Kolokacja klientów w tym samym regionie świadczenia usługi Azure na potrzeby wydajności**
 
     Jeśli to możliwe, należy umieścić dowolne aplikacje wywołujące Azure Cosmos DB w tym samym regionie, w którym znajduje się baza danych usługi Azure Cosmos. Dla przybliżonego porównania, wywołania do Azure Cosmos DB w tym samym regionie, kompletne w ciągu 1-2 MS, ale opóźnienie między zachodnim i wschodnim wybrzeżem Stanów Zjednoczonych to >50 ms. To opóźnienie może się różnić od żądania żądania w zależności od trasy wykonywanej przez żądanie, gdy przechodzi od klienta do granicy centrum danych platformy Azure. Najniższe możliwe opóźnienie jest realizowane przez zagwarantowanie, że aplikacja wywołująca znajduje się w tym samym regionie platformy Azure, co punkt końcowy Azure Cosmos DB aprowizacji. Aby uzyskać listę dostępnych regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services).
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Ilustracja zasad połączenia Azure Cosmos DB" border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Diagram przedstawia żądania i odpowiedzi w dwóch regionach, w których komputery łączą się z kontem Cosmos D B za pomocą usług warstwy środkowej." border="false":::
    
 ## <a name="sdk-usage"></a>Użycie zestawu SDK
 1. **Zainstaluj najnowszy zestaw SDK**

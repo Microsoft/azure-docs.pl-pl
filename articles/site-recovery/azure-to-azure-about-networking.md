@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: db4c3be7c79448e4cf0df39688959ae09a671dbd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527381"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361419"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informacje o sieci w usłudze odzyskiwania po awarii maszyny wirtualnej platformy Azure
 
@@ -82,11 +82,11 @@ Ten przykład pokazuje, jak skonfigurować reguły sieciowej grupy zabezpieczeń
 
 1. Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "Storage. Wschód" na sieciowej grupy zabezpieczeń, jak pokazano na poniższym zrzucie ekranu.
 
-      ![Magazyn — tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![Zrzut ekranu przedstawia Dodawanie reguły zabezpieczeń ruchu wychodzącego dla sieciowej grupy zabezpieczeń dla miejsca do magazynowania, wschód U S.](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "usługi azureactivedirectory" w sieciowej grupy zabezpieczeń, jak pokazano na poniższym zrzucie ekranu.
 
-      ![AAD — tag](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![Zrzut ekranu przedstawia Dodawanie reguły zabezpieczeń ruchu wychodzącego dla sieciowej grupy zabezpieczeń dla platformy Azure A D.](./media/azure-to-azure-about-networking/aad-tag.png)
 
 3. Podobnie jak w przypadku powyższych reguł zabezpieczeń, Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "EventHub. środkowe" w sieciowej grupy zabezpieczeń, który odpowiada lokalizacji docelowej. Pozwala to na dostęp do monitorowania Site Recovery.
 

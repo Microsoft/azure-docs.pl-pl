@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682011"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361538"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Błędy i ostrzeżenia dotyczące konwersji rysunków
 
@@ -35,9 +35,9 @@ Usługa konwersji nie może utworzyć funkcji mapy z nieprawidłowej jednostki i
 
 * Dwa obrazy poniżej pokazują przykłady wieloskładnikowych wielokątów.
 
-     ![Przykład samodzielnego wielokąta](./media/drawing-conversion-error-codes/geometry-warning-1.png)
+     ![Przykład samodzielnego wielokąta, przykładu.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![Przykład samodzielnego wielokąta](./media/drawing-conversion-error-codes/geometry-warning-2.png)
+     ![Przykład samodzielnego wielokątu, przykład dwa.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * Poniżej znajduje się obraz, który pokazuje niezamkniętą linię łamaną. Załóżmy, że warstwa obsługuje tylko zamkniętą geometrię.
 
@@ -225,7 +225,7 @@ Ostrzeżenie **partiallyOverlappingUnit** występuje, gdy rysunek zawiera geomet
 
 #### <a name="example-scenarios-partiallyoverlappingunit"></a>*Przykładowe scenariusze partiallyOverlappingUnit*
 
-Na poniższej ilustracji nakładająca się jednostka zostanie wyróżniona kolorem czerwonym. `UNIT110`i `HALLWAY` są odrzucane.
+Na poniższej ilustracji nakładająca się jednostka zostanie wyróżniona kolorem czerwonym. `UNIT110` i `HALLWAY` są odrzucane.
 
 ![Przykład nakładających się jednostek](./media/drawing-conversion-error-codes/partially-overlapping-unit.png)
 
@@ -350,7 +350,7 @@ Aby naprawić błąd **invalidUserData** , sprawdź, czy:
 Aby naprawić **dwgError**, sprawdź, czy _manifest.jsw_ pliku upewnij się, że:
 
 * Wszystkie pliki DWG w archiwum ZIP są prawidłowymi rysunkami formatu AutoCAD DWG, otwierają je w programie AutoCAD. Usuń lub Napraw wszystkie nieprawidłowe rysunki.
-* Lista plików DWG w _manifest.jsna_ dopasowuje się do plików DWG w archiwum zip.
+* Lista plików DWG w _manifest.jsna_  dopasowuje się do plików DWG w archiwum zip.
 
 ## <a name="manifest-errors"></a>Błędy manifestu
 
@@ -392,7 +392,7 @@ Błąd **missingManifest** jest spowodowany jedną z następujących przyczyn:
 
 Aby naprawić błąd **missingManifest** , upewnij się, że archiwum ma plik o nazwie _manifest.jsna_ poziomie głównym archiwum zip.
 
-### <a name="conflict"></a>**Konflikt**
+### <a name="conflict"></a>**kolizj**
 
 #### <a name="description-for-conflict"></a>*Opis konfliktu*
 

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1690d4b236fce53e033f08fa6825eefe6359d9e9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893177"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362218"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Omówienie izolacji i prywatności sieci wirtualnej
 
@@ -80,10 +80,20 @@ Aby uzyskać szczegółowe instrukcje dotyczące wykonywania tych kroków, zobac
 ### <a name="limitations"></a>Ograniczenia
 
 Zabezpieczanie obszaru roboczego i skojarzonych z nim zasobów w ramach sieci wirtualnej ma następujące ograniczenia:
-- Link prywatny obszaru roboczego jest dostępny tylko w następujących regionach: Wschodnie, westus2, southcentralus
-    - To ograniczenie nie ma zastosowania do skojarzonych zasobów. Na przykład możesz włączyć sieć wirtualną dla magazynu w dowolnym Azure Machine Learning regionie.
+- Link prywatny obszaru roboczego jest dostępny tylko w następujących regionach:
+    - **East US**
+    - **South Central US**
+    - **Zachodnie stany USA**
+    - **Zachodnie stany USA 2**
+    - **Kanada środkowa**
+    - **Southeast Asia**
+    - **Japan East**
+    - **Europa Północna**
+    - **Australia Wschodnia**
+    - **Południowe Zjednoczone Królestwo**
+    
+    To ograniczenie nie ma zastosowania do skojarzonych zasobów. Na przykład możesz włączyć sieć wirtualną dla magazynu w dowolnym Azure Machine Learning regionie.
 - Wszystkie zasoby muszą należeć do tej samej sieci wirtualnej. Jednak podsieci w tej samej sieci wirtualnej są dozwolone.
-- Niektóre funkcje programu Studio, takie jak projektant, AutoML, etykietowanie i profilowanie danych, nie mogą być używane z kontami magazynu skonfigurowanymi do korzystania z prywatnego punktu końcowego. Jeśli musisz użyć tych funkcji programu Studio, Użyj zamiast nich punktów końcowych usługi.
 
 ## <a name="secure-the-training-environment"></a>Zabezpiecz środowisko szkoleniowe
 
@@ -150,7 +160,7 @@ Chociaż Studio może uzyskać dostęp do danych na koncie magazynu skonfigurowa
 * Prześlij eksperyment AutoML.
 * Rozpocznij projekt etykietowania.
 
-Aby włączyć pełną funkcjonalność podczas korzystania z punktu końcowego usługi magazynu, zobacz Korzystanie z programu [Azure Machine Learning Studio w sieci wirtualnej](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Obecnie program Studio nie obsługuje prywatnych punktów końcowych magazynu.
+Aby włączyć pełną funkcjonalność podczas korzystania z punktu końcowego usługi magazynu, zobacz Korzystanie z programu [Azure Machine Learning Studio w sieci wirtualnej](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio obsługuje punkty końcowe usługi i prywatne punkty końcowe dla kont magazynu.
 
 ### <a name="limitations"></a>Ograniczenia
 - Studio nie może uzyskać dostępu do danych na kontach magazynu skonfigurowanych do używania prywatnych punktów końcowych. Aby uzyskać pełną funkcjonalność, należy użyć punktów końcowych usługi dla magazynu i użyć tożsamości zarządzanej.

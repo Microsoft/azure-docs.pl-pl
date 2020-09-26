@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf9e00e8acba241f1445977dcc53724b9981039f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 721389b557fde41b1461654b03299601e2384108
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361334"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików na platformie Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![Logo Windows.][Logo_Windows] Windows
 >
 
 Klaster pracy awaryjnej systemu Windows Server to podstawa instalacji oprogramowania SAP ASCS/SCS o wysokiej dostępności w systemie Windows.
@@ -137,7 +137,7 @@ Aby można było użyć udziału plików skalowalnego w poziomie, system musi sp
 * Aby zapewnić dobrą wydajność sieci między maszynami wirtualnymi, które są niezbędne do Bezpośrednie miejsca do magazynowania synchronizacji dysków, użyj typu maszyny wirtualnej z co najmniej przepustowością sieci "High".
     Aby uzyskać więcej informacji, zobacz specyfikacje [serii DSv2][dv2-series] i [ds][ds-series] .
 * Zalecamy zarezerwowanie pewnej nieprzypisanej pojemności w puli magazynów. Pozostawienie nieprzypisanej pojemności w puli magazynów powoduje, że miejsce na woluminy do naprawy "w miejscu" w przypadku awarii dysku. Zwiększa to bezpieczeństwo i wydajność danych.  Aby uzyskać więcej informacji, zobacz [Wybieranie rozmiaru woluminu][choosing-the-size-of-volumes-s2d].
-* Nie trzeba konfigurować wewnętrznego modułu równoważenia obciążenia platformy Azure dla nazwy sieciowej udziału plików skalowalnego w poziomie, na przykład dla programu \<SAP global host\> . Jest to realizowane w przypadku \<ASCS/SCS virtual host name\> wystąpienia SAP ASCS/SCS lub systemu DBMS. Udział plików skalowalny w poziomie skaluje obciążenie we wszystkich węzłach klastra. \<SAP global host\>używa lokalnego adresu IP dla wszystkich węzłów klastra.
+* Nie trzeba konfigurować wewnętrznego modułu równoważenia obciążenia platformy Azure dla nazwy sieciowej udziału plików skalowalnego w poziomie, na przykład dla programu \<SAP global host\> . Jest to realizowane w przypadku \<ASCS/SCS virtual host name\> wystąpienia SAP ASCS/SCS lub systemu DBMS. Udział plików skalowalny w poziomie skaluje obciążenie we wszystkich węzłach klastra. \<SAP global host\> używa lokalnego adresu IP dla wszystkich węzłów klastra.
 
 
 > [!IMPORTANT]

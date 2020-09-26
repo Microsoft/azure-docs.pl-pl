@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2791b62d8abb1ade199ae3eb72deaf4db56f3725
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603598"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361300"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące logowań w portalu Azure Active Directory
 
@@ -31,7 +31,7 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
 - **Działanie** 
     - **Logowania** — informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
     - **Dzienniki inspekcji**  -  [Dzienniki inspekcji](concept-audit-logs.md) zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzanych aplikacji i działań związanych z katalogiem.
-- **Bezpieczeństwo** 
+- **Zabezpieczenia** 
     - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
     - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
@@ -147,13 +147,13 @@ Najpierw Zawężanie danych raportowanych do poziomu, który się do Ciebie spra
 |Uwierzytelniony protokół SMTP| |Używany przez POP i klienta IMAP do wysyłania wiadomości e-mail.|
 |Automatyczne| |Używane przez klientów programu Outlook i EAS do znajdowania skrzynek pocztowych w usłudze Exchange Online i łączenia się z nimi.|
 |Exchange ActiveSync| |Ten filtr przedstawia wszystkie próby logowania, w przypadku których podjęto próbę wykonania protokołu EAS.|
-|Przeglądarka|![Znacznik wyboru](./media/concept-sign-ins/check.png)|Pokazuje wszystkie próby logowania od użytkowników przy użyciu przeglądarek sieci Web|
+|Przeglądarka|![Niebieski znacznik wyboru.](./media/concept-sign-ins/check.png)|Pokazuje wszystkie próby logowania od użytkowników przy użyciu przeglądarek sieci Web|
 |Exchange ActiveSync| | Pokazuje wszystkie próby logowania użytkowników z aplikacjami klienckimi przy użyciu programu Exchange ActiveSync w celu nawiązania połączenia z usługą Exchange Online|
 |Exchange Online PowerShell| |Służy do nawiązywania połączenia z usługą Exchange Online przy użyciu zdalnego programu PowerShell. Jeśli zablokujesz uwierzytelnianie podstawowe dla programu Exchange Online PowerShell, musisz użyć modułu programu PowerShell w usłudze Exchange Online, aby nawiązać połączenie. Aby uzyskać instrukcje, zobacz [nawiązywanie połączenia z programem Exchange Online PowerShell przy użyciu uwierzytelniania wieloskładnikowego](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Exchange Web Services| |Interfejs programowania używany przez program Outlook, program Outlook dla komputerów Mac i aplikacje innych firm.|
 |PROTOKOŁÓW| |Starsza wersja klienta poczty używającej protokołu IMAP do pobierania poczty e-mail.|
 |Interfejs MAPI przez HTTP| |Używany przez program Outlook 2010 i nowsze.|
-|Aplikacje mobilne i klienci stacjonarni|![Niebieski znacznik wyboru](./media/concept-sign-ins/check.png)|Pokazuje wszystkie próby logowania użytkowników korzystających z aplikacji mobilnych i klientów stacjonarnych.|
+|Aplikacje mobilne i klienci stacjonarni|![Niebieski znacznik wyboru.](./media/concept-sign-ins/check.png)|Pokazuje wszystkie próby logowania użytkowników korzystających z aplikacji mobilnych i klientów stacjonarnych.|
 |Książka adresowa w trybie offline| |Kopia kolekcji listy adresów, które są pobierane i używane przez program Outlook.|
 |Outlook w dowolnym miejscu (RPC przez HTTP)| |Używane w programie Outlook 2016 i jego wcześniejszych wersjach.|
 |Usługa programu Outlook| |Używany przez aplikację poczty i kalendarza dla systemu Windows 10.|
@@ -194,7 +194,7 @@ Najpierw Zawężanie danych raportowanych do poziomu, który się do Ciebie spra
 
 Kliknij opcję **Pobierz** , aby utworzyć plik CSV lub kod JSON z najnowszych rekordów 250 000. Rozpocznij od [pobrania danych logowania,](quickstart-download-sign-in-report.md) Jeśli chcesz korzystać z nich poza Azure Portal.  
 
-![Pobieranie](./media/concept-sign-ins/71.png "Pobieranie")
+![Pobieranie](./media/concept-sign-ins/71.png "Pobierz")
 
 > [!IMPORTANT]
 > Liczba rekordów, które można pobrać, jest ograniczona przez [zasady przechowywania raportów Azure Active Directory](reference-reports-data-retention.md).  

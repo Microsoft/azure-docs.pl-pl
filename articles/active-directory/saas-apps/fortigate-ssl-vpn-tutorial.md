@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: integracja SSO usługi Azure AD z usługą FortiGate SSL sieci VPN'
-description: W tym samouczku dowiesz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i sieci VPN FortiGate SSL.
+title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą FortiGate SSL sieci VPN | Microsoft Docs'
+description: Informacje o krokach, które należy wykonać, aby zintegrować sieci VPN FortiGate SSL z usługą Azure Active Directory (Azure AD).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe92218d6bb20274e916089c15df8c1f44c4fd6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 187903bfbf75ada45b9a539acd1157dfe730747a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986434"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331118"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą FortiGate SSL sieci VPN
 
@@ -94,16 +94,29 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
     > [!NOTE]
     > Te wartości są tylko wzorcami. Musisz użyć rzeczywistego **adresu URL logowania**, **identyfikatora**, **adresu URL odpowiedzi**i **adresu URL wylogowywania**. Aby uzyskać rzeczywiste wartości, skontaktuj się z [zespołem obsługi klienta sieci VPN FORTIGATE SSL](mailto:tac_amer@fortinet.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. FortiGate sieci VPN SSL oczekuje, że potwierdzenia SAML mają być w określonym formacie. W związku z tym należy dodać niestandardowe mapowania atrybutów do konfiguracji atrybutów tokenu SAML. Ten zrzut ekranu pokazuje domyślne atrybuty:
+1. Aplikacja sieci VPN FortiGate SSL oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
     ![Zrzut ekranu, na którym są wyświetlane domyślne atrybuty.](common/default-attributes.png)
 
-1. FortiGate SSL sieci VPN również oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. Te atrybuty są pokazane w poniższej tabeli. Są one również wstępnie wypełnione, ale można je przejrzeć, biorąc pod uwagę wymagania.
-    
-    | Nazwa |  Atrybut źródłowy|
-    | ------------ | --------- |
-    | nazwa użytkownika | user.userprincipalname |
-    | group | User. Groups |
+1. W poniższej tabeli przedstawiono dwa dodatkowe oświadczenia wymagane przez sieć VPN FortiGate SSL. Nazwy tych oświadczeń muszą być zgodne z nazwami użytymi w sekcji **Konfiguracja wiersza polecenia Fortigate** w tym samouczku. 
+
+   | Nazwa |  Atrybut źródłowy|
+   | ------------ | --------- |
+   | nazwa użytkownika | user.userprincipalname |
+   | group | User. Groups |
+   
+   Aby utworzyć te dodatkowe oświadczenia:
+   
+   1. Obok pozycji **atrybuty użytkownika & oświadczenia**wybierz pozycję **Edytuj**.
+   1. Wybierz pozycję **Dodaj nowe**zgłoszenie.
+   1. W obszarze **Nazwa wprowadź nazwę** **użytkownika**.
+   1. Dla **atrybutu Source**wybierz pozycję **User. userPrincipalName**.
+   1. Wybierz pozycję **Zapisz**.
+   1. Wybierz pozycję **Dodaj zgłoszenie do grupy**.
+   1. Wybierz pozycję **Wszystkie grupy**.
+   1. Seect **Dostosuj nazwę** pola wyboru.
+   1. W obszarze **Nazwa**wprowadź polecenie **Grupuj**.
+   1. Wybierz pozycję **Zapisz**.   
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz łącze **pobierania** obok pozycji **certyfikat (base64)** , aby pobrać certyfikat i zapisać go na komputerze:
 
@@ -251,7 +264,7 @@ Po wybraniu kafelka sieci VPN FortiGate SSL w panelu dostępu należy automatycz
 
 Firma Microsoft i FortiGate zaleca korzystanie z platformy Fortinet VPN Client, FortiClient w celu uzyskania najlepszego środowiska użytkownika końcowego.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Samouczki dotyczące integracji aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
