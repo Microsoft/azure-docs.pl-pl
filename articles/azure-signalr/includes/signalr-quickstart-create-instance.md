@@ -1,18 +1,18 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 author: anthonychu
 ms.service: signalr
 ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 0a228f6d8b4f72acd3783f27bf192fe6bd13f988
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f738daab7ddcf0403f546e7c9ffeaeccb66bc6b7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75392143"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355651"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Tworzenie wystąpienia usługi Azure SignalR Service
 
@@ -20,7 +20,7 @@ Twoja aplikacja nawiąże połączenie z wystąpieniem usługi SignalR na platfo
 
 1. Wybierz przycisk Nowy znajdujący się w lewym górnym rogu witryny Azure Portal. Na ekranie Nowy wpisz nazwę *SignalR Service* w polu wyszukiwania, a następnie naciśnij klawisz Enter.
 
-    ![Wyszukiwanie usługi SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-new.png)
+    ![Zrzut ekranu przedstawia wyszukiwanie usługi sygnalizującego w Azure Portal.](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-new.png)
 
 1. Wybierz pozycję **SignalR Service** w wynikach wyszukiwania, a następnie wybierz pozycję **Utwórz**.
 
@@ -36,7 +36,7 @@ Twoja aplikacja nawiąże połączenie z wystąpieniem usługi SignalR na platfo
     | **Liczba jednostek** |  Nie dotyczy | Liczba jednostek określa liczbę połączeń, które może akceptować wystąpienie usługi SignalR Service. Można to skonfigurować tylko w warstwie Standardowa. |
     | **Tryb usługi** |  Praca bezserwerowa | Do użytku z interfejsem API REST Azure Functions lub. |
 
-    ![Tworzenie usługi SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
+    ![Zrzut ekranu przedstawia kartę podstawy sygnałów z wartościami.](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
 1. Wybierz pozycję **Utwórz**, aby rozpocząć wdrażanie wystąpienia usługi SignalR Service.
 

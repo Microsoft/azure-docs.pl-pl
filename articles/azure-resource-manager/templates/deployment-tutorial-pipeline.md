@@ -4,12 +4,12 @@ description: Dowiedz się, jak ciągle kompilować, testować i wdrażać szablo
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892681"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333241"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines
 
@@ -121,13 +121,13 @@ Aby można było wykonać następną procedurę, wymagana jest organizacja DevOp
     ![Azure Resource Manager Azure DevOps Azure Pipelines tworzenia projektu DevOps platformy Azure](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-create-devops-project.png)
 
 1. Wybierz pozycję **Nowy projekt**. Jeśli nie masz żadnych projektów, Strona Tworzenie projektu zostanie otwarta automatycznie.
-1. Wprowadź następujące wartości:
+1. Podaj następujące wartości:
 
     * **Nazwa projektu**: Wprowadź nazwę projektu. Możesz użyć nazwy projektu, która została pobrana na początku samouczka.
     * **Kontrola wersji**: wybierz pozycję **git**. Może być konieczne rozszerzenie **Zaawansowane** , aby zobaczyć **kontrolę wersji**.
 
     Użyj wartości domyślnej dla innych właściwości.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 Utwórz połączenie usługi używane do wdrażania projektów na platformie Azure.
 
@@ -135,7 +135,7 @@ Utwórz połączenie usługi używane do wdrażania projektów na platformie Azu
 1. Wybierz pozycję **połączenia usługi** w obszarze **potoki**.
 1. Wybierz pozycję **nowe połączenie usługi**, wybierz pozycję **Azure Resource Manager**, a następnie wybierz pozycję **dalej**.
 1. Wybierz pozycję Nazwa **główna usługi**, a następnie wybierz pozycję **dalej**.
-1. Wprowadź następujące wartości:
+1. Podaj następujące wartości:
 
     * **Poziom zakresu**: Wybierz **subskrypcję**.
     * **Subskrypcja**: wybierz swoją subskrypcję.
@@ -165,7 +165,7 @@ Aby utworzyć potok z krokiem do wdrożenia szablonu:
 1. Przesuń kursor do wiersza po wykonaniu **kroków:**.
 1. Wybierz pozycję **Pokaż asystenta** po prawej stronie ekranu, aby otworzyć okienko **zadania** .
 1. Wybierz pozycję **wdrożenie szablonu ARM**.
-1. Wprowadź następujące wartości:
+1. Podaj następujące wartości:
 
     * **deploymentScope**: Wybierz **grupę zasobów**... Aby dowiedzieć się więcej o zakresach, zobacz sekcję [Deployment Scopes](deploy-rest.md#deployment-scope).
     * **Azure Resource Manager połączenie**: wybierz wcześniej utworzoną nazwę połączenia usługi.
@@ -180,7 +180,7 @@ Aby utworzyć potok z krokiem do wdrożenia szablonu:
     * **Tryb wdrożenia**: wybierz pozycję **przyrostowe**.
     * **Nazwa wdrożenia**: wprowadź **DeployPipelineTemplate**. Wybierz pozycję **Zaawansowane** , aby zobaczyć **nazwę wdrożenia**.
 
-    ![Azure Resource Manager krok Azure Pipelines usługi Azure DevOps](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    ![Zrzut ekranu przedstawia stronę wdrożenia szablonu ARM z wprowadzonymi wymaganymi wartościami.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
 
 1. Wybierz pozycję **Dodaj**.
 
@@ -188,7 +188,7 @@ Aby utworzyć potok z krokiem do wdrożenia szablonu:
 
     Plik yml powinien wyglądać podobnie do:
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines YAML](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![Zrzut ekranu przedstawia stronę przegląd z nowym potok zatytułowanym przegląd potoku YAML.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Wybierz polecenie **Zapisz i uruchom**.
 1. W okienku **Zapisz i uruchom** wybierz pozycję **Zapisz i uruchom** ponownie. Kopia pliku YAML jest zapisywana w połączonym repozytorium. Plik YAML można zobaczyć, przechodzenie do repozytorium.

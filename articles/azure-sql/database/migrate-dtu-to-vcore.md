@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 05/28/2020
-ms.openlocfilehash: 0193e7f7001fb8f63794a379c4d2b8e28abd5c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8c7671e655594456621e4489cb06191d820b134
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297872"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333158"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrowanie Azure SQL Database z modelu opartego na jednostkach DTU do modelu opartego na rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -167,10 +167,10 @@ W poniższej tabeli przedstawiono wskazówki dotyczące określonych scenariuszy
 
 |Bieżąca warstwa usługi|Docelowa warstwa usługi|Typ migracji|Akcje użytkownika|
 |---|---|---|---|
-|Standardowa (Standard)|Zastosowania ogólne|Linię|Można migrować w dowolnej kolejności, ale muszą one zapewnić odpowiednie rozmiary rdzeń wirtualny zgodnie z powyższym opisem|
+|Standardowa|Zastosowania ogólne|Linię|Można migrować w dowolnej kolejności, ale muszą one zapewnić odpowiednie rozmiary rdzeń wirtualny zgodnie z powyższym opisem|
 |Premium|Krytyczne dla działania firmy|Linię|Można migrować w dowolnej kolejności, ale muszą one zapewnić odpowiednie rozmiary rdzeń wirtualny zgodnie z powyższym opisem|
-|Standardowa (Standard)|Krytyczne dla działania firmy|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
-|Krytyczne dla działania firmy|Standardowa (Standard)|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
+|Standardowa|Krytyczne dla działania firmy|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
+|Krytyczne dla działania firmy|Standardowa|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
 |Premium|Zastosowania ogólne|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|
 |Zastosowania ogólne|Premium|Uaktualnienie|Najpierw należy przeprowadzić migrację pomocniczą|
 |Krytyczne dla działania firmy|Zastosowania ogólne|Zmiana na starszą lub mniej zaawansowaną wersję|Najpierw należy zmigrować podstawowe|

@@ -2,15 +2,15 @@
 title: Rozwiązywanie problemów dotyczących Update Management Azure Automation
 description: W tym artykule opisano sposób rozwiązywania problemów z Azure Automation Update Management.
 services: automation
-ms.date: 06/30/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26ce59c1d4ec8e3e2bf2096a4688b7639148410f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003358"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359243"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
@@ -65,9 +65,9 @@ Gdy zastąpiona aktualizacja nie ma zastosowania do 100%, należy zmienić stan 
 
 1. Na koncie usługi Automation wybierz pozycję **Update Management** , aby wyświetlić stan komputera. Zobacz [Wyświetlanie ocen aktualizacji](../update-management/update-mgmt-view-update-assessments.md).
 
-2. Sprawdź zastąpioną aktualizację, aby upewnić się, że nie ma jej na 100%. 
+2. Sprawdź zastąpioną aktualizację, aby upewnić się, że nie ma jej na 100%.
 
-3. Oznacz aktualizację jako odrzucony, o ile nie masz pytania dotyczącego aktualizacji. 
+3. Oznacz aktualizację jako odrzucony, o ile nie masz pytania dotyczącego aktualizacji.
 
 4. Wybierz pozycję **komputery** , a w kolumnie **zgodność** Wymuś ponowne skanowanie pod kątem zgodności. Zobacz [Zarządzanie aktualizacjami maszyn wirtualnych](../update-management/update-mgmt-manage-updates-for-vm.md).
 
@@ -112,9 +112,9 @@ Przyczyną tego problemu mogą być lokalne problemy z konfiguracją lub niepraw
    | summarize by Computer, Solutions
    ```
 
-4. Jeśli komputer nie jest widoczny w wynikach zapytania, nie został ostatnio zaewidencjonowany. Prawdopodobnie wystąpił problem z konfiguracją lokalną i należy [ponownie zainstalować agenta](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
+4. Jeśli komputer nie jest widoczny w wynikach zapytania, nie został ostatnio zaewidencjonowany. Prawdopodobnie wystąpił problem z konfiguracją lokalną i należy [ponownie zainstalować agenta](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Jeśli komputer jest wyświetlany w wynikach zapytania, sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../update-management/update-mgmt-scope-configuration.md) określa, które maszyny są skonfigurowane do Update Management. 
+5. Jeśli komputer jest wyświetlany w wynikach zapytania, sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../update-management/update-mgmt-scope-configuration.md) określa, które maszyny są skonfigurowane do Update Management.
 
 6. Jeśli Twoja maszyna jest wyświetlana w obszarze roboczym, ale nie w Update Management, musisz skonfigurować konfigurację zakresu, aby wskazać maszynę docelową. Aby dowiedzieć się, jak to zrobić, zobacz temat [Włączanie maszyn w obszarze roboczym](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
 
@@ -180,7 +180,7 @@ Jeśli subskrypcja nie jest skonfigurowana dla dostawcy zasobów usługi Automat
 
 1. W [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)uzyskaj dostęp do listy usług platformy Azure.
 
-2. Wybierz pozycję **wszystkie usługi**, a następnie wybierz pozycję **subskrypcje** w grupie usługi ogólne. 
+2. Wybierz pozycję **wszystkie usługi**, a następnie wybierz pozycję **subskrypcje** w grupie usługi ogólne.
 
 3. Znajdź subskrypcję zdefiniowaną w zakresie wdrożenia.
 
@@ -251,7 +251,7 @@ Wykonaj poniższe kroki, aby dowiedzieć się, czy zapytania działają prawidł
     | project id, location, name, tags
     ```
 
-2. Sprawdź, czy maszyny, których szukasz, są wyświetlane w wynikach zapytania. 
+2. Sprawdź, czy maszyny, których szukasz, są wyświetlane w wynikach zapytania.
 
 3. Jeśli komputery nie znajdują się na liście, prawdopodobnie wystąpił problem z filtrem wybranym w grupie dynamicznej. Dostosuj konfigurację grupy zgodnie z wymaganiami.
 
@@ -325,7 +325,7 @@ Jeśli używasz sklonowanego obrazu, różne nazwy komputerów mają taki sam id
 
 3. Uruchom, `Restart-Service HealthService` Aby ponownie uruchomić usługę kondycji. Ta operacja powoduje odtworzenie klucza i wygenerowanie nowego identyfikatora UUID.
 
-4. Jeśli takie podejście nie działa, najpierw należy uruchomić program Sysprep na obrazie, a następnie zainstalować MMA.
+4. Jeśli takie podejście nie działa, najpierw należy uruchomić program Sysprep na obrazie, a następnie zainstalować agenta Log Analytics dla systemu Windows.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Scenariusz: Wystąpił błąd połączonej subskrypcji podczas tworzenia wdrożenia aktualizacji dla maszyn w innej dzierżawie platformy Azure
 
@@ -343,7 +343,7 @@ Ten błąd występuje podczas tworzenia wdrożenia aktualizacji z maszynami wirt
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Aby zaplanowano te elementy, należy wykonać poniższe obejście. Aby utworzyć harmonogram, można użyć polecenia cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) z `ForUpdateConfiguration` parametrem. Następnie użyj polecenia cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) i przekaż maszyny w innej dzierżawie do `NonAzureComputer` parametru. Poniższy przykład pokazuje, jak to zrobić:
+Aby zaplanowano te elementy, należy wykonać poniższe obejście. Aby utworzyć harmonogram, można użyć polecenia cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) z `ForUpdateConfiguration` parametrem. Następnie użyj polecenia cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) i przekaż maszyny w innej dzierżawie do `NonAzureComputer` parametru. Poniższy przykład pokazuje, jak to zrobić:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -386,24 +386,15 @@ Ten błąd może mieć jedną z następujących przyczyn:
 * Komputer nie istnieje już.
 * Maszyna jest wyłączona i nieosiągalna.
 * Komputer ma problem z łącznością sieciową i w związku z tym hybrydowy proces roboczy na komputerze jest nieosiągalny.
-* Została zaktualizowana MMA, która zmieniła identyfikator komputera źródłowego.
+* Wystąpił problem z aktualizacją agenta Log Analytics, który zmienił identyfikator komputera źródłowego.
 * Działanie przebiegu aktualizacji zostało ograniczone, jeśli osiągnięto limit 200 zadań współbieżnych na koncie usługi Automation. Każde wdrożenie jest uznawane za zadanie, a każdy komputer w ramach wdrożenia aktualizacji liczy się jako zadanie. Wszystkie inne zadania usługi Automation lub wdrożenia, które są aktualnie uruchomione na koncie usługi Automation, są wliczane do współbieżnego limitu zadań.
 
 ### <a name="resolution"></a>Rozwiązanie
 
 W razie potrzeby użyj [grup dynamicznych](../update-management/update-mgmt-groups.md) do wdrożeń aktualizacji. Ponadto można wykonać następujące czynności.
 
-1. Sprawdź, czy maszyna nadal istnieje i jest osiągalna. 
-2. Jeśli maszyna nie istnieje, Edytuj wdrożenie i Usuń maszynę.
-3. Zapoznaj się z sekcją [Planowanie sieci](../update-management/update-mgmt-overview.md#ports) , aby uzyskać listę portów i adresów wymaganych do Update Management, a następnie sprawdź, czy maszyna spełnia te wymagania.
-4. Sprawdź łączność z hybrydowym procesem roboczym elementu Runbook za pomocą narzędzia do rozwiązywania problemów z agentem hybrydowego elementu Runbook. Aby dowiedzieć się więcej na temat narzędzia do rozwiązywania problemów, zobacz [Rozwiązywanie problemów z aktualizowaniem agentów](update-agent-issues.md).
-5. Uruchom następujące zapytanie w Log Analytics, aby znaleźć maszyny w środowisku, dla których identyfikator komputera źródłowego został zmieniony. Wyszukaj komputery mające taką samą `Computer` wartość, ale inną `SourceComputerId` wartość.
-
-   ```kusto
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
-
-6. Po znalezieniu odpowiednich maszyn Edytuj wdrożenia aktualizacji, które są przeznaczone dla tych maszyn, a następnie usuń je i odczytaj, aby `SourceComputerId` odzwierciedlały poprawną wartość.
+1. Sprawdź, czy komputer lub serwer spełnia [wymagania](../update-management/update-mgmt-overview.md#client-requirements).
+2. Sprawdź łączność z hybrydowym procesem roboczym elementu Runbook za pomocą narzędzia do rozwiązywania problemów z agentem hybrydowego elementu Runbook. Aby dowiedzieć się więcej na temat narzędzia do rozwiązywania problemów, zobacz [Rozwiązywanie problemów z aktualizowaniem agentów](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Scenariusz: aktualizacje są instalowane bez wdrożenia
 
@@ -466,7 +457,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ### <a name="cause"></a>Przyczyna
 
-Serwer proxy, Brama lub Zapora mogą blokować komunikację sieciową. 
+Serwer proxy, Brama lub Zapora mogą blokować komunikację sieciową.
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -603,7 +594,7 @@ Wdrażanie aktualizacji w systemie Linux według klasyfikacji („Aktualizacje k
 
 KB2267602 to [aktualizacja definicji usługi Windows Defender](https://www.microsoft.com/wdsi/definitions). Jest ona aktualizowana codziennie.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Jeśli nie widzisz swojego problemu lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną.
 

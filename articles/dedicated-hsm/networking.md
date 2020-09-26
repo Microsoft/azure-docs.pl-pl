@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359158"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Dedykowana sieć HSM platformy Azure
 
@@ -66,7 +66,7 @@ Wirtualna sieć prywatna typu lokacja-lokacja umożliwia bezpieczną komunikacj�
 
 Typowa architektura wdrażania dedykowanego modułu HSM rozpocznie się z użyciem pojedynczej sieci wirtualnej i odpowiedniej podsieci, w której są tworzone i inicjowane urządzenia HSM. W tym samym regionie mogły istnieć dodatkowe sieci wirtualne i podsieci dla składników aplikacji, które mogłyby korzystać z dedykowanego modułu HSM. Aby umożliwić komunikację między tymi sieciami, używamy Virtual Network komunikacji równorzędnej.
 
-### <a name="virtual-network-peering"></a>Wirtualne sieci równorzędne
+### <a name="virtual-network-peering"></a>Komunikacja równorzędna sieci wirtualnych
 
 Jeśli istnieje wiele sieci wirtualnych w regionie, który musi uzyskać dostęp do wszystkich zasobów, Virtual Network Komunikacja równorzędna może być używana do tworzenia bezpiecznych kanałów komunikacji między nimi.  Wirtualne sieci równorzędne nie tylko zapewniają bezpieczną komunikację, ale zapewniają również połączenia o małym opóźnieniu i dużej przepustowości między zasobami na platformie Azure.
 
@@ -83,7 +83,7 @@ W przypadku aplikacji rozproszonych globalnie lub dla regionalnych scenariuszy t
 > [!NOTE]
 > Globalna komunikacja równorzędna sieci wirtualnych nie jest dostępna w scenariuszach łączności między regionami z dedykowanymi sprzętowych modułów zabezpieczeńami w tej chwili, a zamiast tego należy użyć bramy sieci VPN. 
 
-![globalna sieć wirtualna](media/networking/global-vnet.png)
+![Diagram przedstawia dwa regiony połączone dwoma bramami V P N. Każdy region zawiera równorzędne sieci wirtualne.](media/networking/global-vnet.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

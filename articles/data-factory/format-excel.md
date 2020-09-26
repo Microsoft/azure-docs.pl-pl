@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 368b8d614ca77692e08a3cbe38132f5aff4eab91
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: dad1f9f232cb9d713af81f6aea57a4ffe651da19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061159"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331968"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format programu Excel w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -109,11 +109,12 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło pr
 | Nazwa                      | Opis                                                  | Wymagane | Dozwolone wartości                                            | Właściwość skryptu przepływu danych         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
 | Ścieżki symboli wieloznacznych           | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | nie       | Ciąg []                                                  | wildcardPaths                     |
-| Ścieżka katalogu głównego partycji       | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie       | Ciąg                                                    | partitionRootPath                 |
+| Ścieżka katalogu głównego partycji       | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie       | String                                                    | partitionRootPath                 |
 | Lista plików             | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie       | `true` lub `false`                                         | fileList                          |
-| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego       | nie       | Ciąg                                                    | rowUrlColumn                      |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego       | nie       | String                                                    | rowUrlColumn                      |
 | Po zakończeniu          | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie       | Usuń: `true` lub `false` <br> Przenieś `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
 | Filtruj według ostatniej modyfikacji   | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+| Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Przykład źródła
 

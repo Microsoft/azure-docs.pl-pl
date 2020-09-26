@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258e05b135195004fec628936bb458ea8f1dc7b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 98af7725e1929637228c6cadd7ee2dc856bd4e8b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419992"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331310"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Konfigurowanie alertów zabezpieczeń dla ról usługi Azure AD w Privileged Identity Management
 
@@ -52,7 +52,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Nis. |
+| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Użytkownicy, którym przypisano role uprzywilejowane, których nie potrzebują, zwiększają prawdopodobieństwo ataku. Łatwiejsze jest również, aby osoby atakujące pozostały niezauważalny w przypadku kont, które nie są aktywnie używane. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń ich z uprzywilejowanych ról, których nie potrzebują. |
 | **Zapobieganie** | Przypisywanie ról uprzywilejowanych tylko użytkownikom, którzy mają uzasadnienie biznesowe. </br>Zaplanuj regularne [przeglądy dostępu](pim-how-to-start-security-review.md) , aby upewnić się, że użytkownicy nadal potrzebują dostępu. |
@@ -64,7 +64,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Nis. |
+| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Bez uwierzytelniania wieloskładnikowego użytkownicy ze złamanymi zabezpieczeniami mogą aktywować uprzywilejowane role. |
 | **Jak naprawić?** | Przejrzyj listę ról i [Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) w przypadku każdej roli. |
 | **Zapobieganie** | [Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) dla każdej roli.  |
@@ -74,7 +74,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Nis. |
+| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Bieżąca organizacja usługi Azure AD nie ma Azure AD — wersja Premium P2. |
 | **Jak naprawić?** | Przejrzyj informacje o [wersjach usługi Azure AD](../fundamentals/active-directory-whatis.md). Uaktualnij do Azure AD — wersja Premium P2. |
 
@@ -103,43 +103,43 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Nis. |
+| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Administrator globalny jest najwyższą rolą uprzywilejowaną. W przypadku naruszenia zabezpieczeń administratora globalnego osoba atakująca uzyskuje dostęp do wszystkich swoich uprawnień, co stanowi zagrożenie dla całego systemu. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń wszystkie, które nie potrzebują absolutnie roli administratora globalnego. </br>Zamiast tego Przypisz do tych użytkowników niższych ról uprzywilejowanych. |
 | **Zapobieganie** | Przypisywanie użytkownikom najniższych ról, których potrzebują. |
 | **Akcja łagodzenia w portalu** | Usuwa konto z roli uprzywilejowanej. |
-| **Wyzwalacz** | Wyzwalane, jeśli spełnione są dwa różne kryteria, i można skonfigurować obie. Najpierw należy uzyskać określony próg dla administratorów globalnych. Sekunda, pewna część całkowitych przypisań ról musi być administratorami globalnymi. Jeśli spełniasz tylko jeden z tych pomiarów, alert nie zostanie wyświetlony. |
-| **Minimalna liczba administratorów globalnych** | To ustawienie określa liczbę administratorów globalnych z przedziału od 2 do 100, które należy wziąć pod uwagę za mało dla organizacji usługi Azure AD. |
+| **Wyzwalacz** | Wyzwalane, jeśli spełnione są dwa różne kryteria, i można skonfigurować obie. Najpierw należy uzyskać określony próg przypisań roli administratora globalnego. Sekunda, pewna część całkowitych przypisań ról musi być administratorami globalnymi. Jeśli spełniasz tylko jeden z tych pomiarów, alert nie zostanie wyświetlony. |
+| **Minimalna liczba administratorów globalnych** | To ustawienie określa liczbę przypisań roli administratora globalnego z przedziału od 2 do 100, które należy wziąć pod uwagę za mało dla organizacji usługi Azure AD. |
 | **Procent administratorów globalnych** | To ustawienie określa minimalny odsetek administratorów, którzy są administratorami globalnymi z przedziału od 0% do 100%, poniżej którego organizacja usługi Azure AD nie ma być DIP. |
 
 ### <a name="roles-are-being-activated-too-frequently"></a>Role są uaktywniane zbyt często
 
 | | |
 | --- | --- |
-| **Ważność** | Nis. |
+| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Wielokrotne aktywacje z tą samą uprzywilejowaną rolą przez tego samego użytkownika jest znakiem ataku. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i upewnij się, że [czas trwania aktywacji](pim-how-to-change-default-settings.md) dla roli uprzywilejowanej jest ustawiony wystarczająco długo, aby wykonywał zadania. |
 | **Zapobieganie** | Upewnij się, że [czas trwania aktywacji](pim-how-to-change-default-settings.md) dla ról uprzywilejowanych jest ustawiony na wystarczająco długi, aby użytkownicy mogli wykonywać swoje zadania.</br>[Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) dla ról uprzywilejowanych, które mają konta współużytkowane przez wielu administratorów. |
-| **Akcja łagodzenia w portalu** | Brak |
+| **Akcja łagodzenia w portalu** | Nie dotyczy |
 | **Wyzwalacz** | Wyzwalane, jeśli użytkownik aktywuje tę samą uprzywilejowaną rolę wiele razy w określonym przedziale czasu. Można skonfigurować zarówno okres, jak i liczbę aktywacji. |
 | **Przedział czasu odnawiania aktywacji** | To ustawienie określa liczbę dni, godzin, minut i sekund okresu, który ma być używany do śledzenia podejrzanych odnowień. |
 | **Liczba odnowień aktywacji** | To ustawienie określa liczbę aktywacji z przedziału od 2 do 100, przy której chcesz otrzymywać powiadomienia w wybranym okresie. To ustawienie można zmienić, przesuwając suwak lub wpisując liczbę w polu tekstowym. |
 
-## <a name="configure-security-alert-settings"></a>Konfigurowanie ustawień alertów zabezpieczeń
+## <a name="customize-security-alert-settings"></a>Dostosuj ustawienia alertów zabezpieczeń
 
-Na stronie Alerty przejdź do pozycji **Ustawienia**.
+Na stronie **alerty** wybierz pozycję **Ustawienia**.
 
 ![Strona alerty z wyróżnionymi ustawieniami](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
 Dostosuj ustawienia różnych alertów, aby współpracowały ze środowiskiem i celami zabezpieczeń.
 
-![Ustawianie strony alertu do włączania i konfigurowania ustawień](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+![Ustawianie strony alertu do włączania i konfigurowania ustawień](media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 # <a name="previous-version"></a>[Poprzednia wersja](#tab/previous)
 
-![Role usługi Azure AD — okienko alertów z listą alertów i ważnością](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Role usługi Azure AD — alert dotyczący wyświetlania i ważności](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
-## <a name="security-alerts"></a>Alerty zabezpieczeń
+## <a name="security-alert-details"></a>Szczegóły alertu zabezpieczeń
 
 W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usługi Azure AD, a także sposób naprawy i zapobiegania. Ważność ma następujące znaczenie:
 
@@ -151,7 +151,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Nis. |
+| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Użytkownicy, którym przypisano role uprzywilejowane, których nie potrzebują, zwiększają prawdopodobieństwo ataku. Łatwiejsze jest również, aby osoby atakujące pozostały niezauważalny w przypadku kont, które nie są aktywnie używane. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń ich z uprzywilejowanych ról, których nie potrzebują. |
 | **Zapobieganie** | Przypisywanie ról uprzywilejowanych tylko użytkownikom, którzy mają uzasadnienie biznesowe. </br>Zaplanuj regularne [przeglądy dostępu](pim-how-to-start-security-review.md) , aby upewnić się, że użytkownicy nadal potrzebują dostępu. |
@@ -163,7 +163,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Nis. |
+| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Bez uwierzytelniania wieloskładnikowego użytkownicy ze złamanymi zabezpieczeniami mogą aktywować uprzywilejowane role. |
 | **Jak naprawić?** | Przejrzyj listę ról i [Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) w przypadku każdej roli. |
 | **Zapobieganie** | [Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) dla każdej roli.  |
@@ -173,7 +173,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Nis. |
+| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Bieżąca organizacja usługi Azure AD nie ma Azure AD — wersja Premium P2. |
 | **Jak naprawić?** | Przejrzyj informacje o [wersjach usługi Azure AD](../fundamentals/active-directory-whatis.md). Uaktualnij do Azure AD — wersja Premium P2. |
 
@@ -202,7 +202,7 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Nis. |
+| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Administrator globalny jest najwyższą rolą uprzywilejowaną. W przypadku naruszenia zabezpieczeń administratora globalnego osoba atakująca uzyskuje dostęp do wszystkich swoich uprawnień, co stanowi zagrożenie dla całego systemu. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i Usuń wszystkie, które nie potrzebują absolutnie roli administratora globalnego. </br>Zamiast tego Przypisz do tych użytkowników niższych ról uprzywilejowanych. |
 | **Zapobieganie** | Przypisywanie użytkownikom najniższych ról, których potrzebują. |
@@ -215,11 +215,11 @@ W tej sekcji znajduje się lista wszystkich alertów zabezpieczeń dla ról usł
 
 | | |
 | --- | --- |
-| **Ważność** | Nis. |
+| **Ważność** | Niski |
 | **Dlaczego otrzymuję ten alert?** | Wielokrotne aktywacje z tą samą uprzywilejowaną rolą przez tego samego użytkownika jest znakiem ataku. |
 | **Jak naprawić?** | Przejrzyj użytkowników na liście i upewnij się, że [czas trwania aktywacji](pim-how-to-change-default-settings.md) dla roli uprzywilejowanej jest ustawiony wystarczająco długo, aby wykonywał zadania. |
 | **Zapobieganie** | Upewnij się, że [czas trwania aktywacji](pim-how-to-change-default-settings.md) dla ról uprzywilejowanych jest ustawiony na wystarczająco długi, aby użytkownicy mogli wykonywać swoje zadania.</br>[Wymagaj uwierzytelniania wieloskładnikowego](pim-how-to-change-default-settings.md) dla ról uprzywilejowanych, które mają konta współużytkowane przez wielu administratorów. |
-| **Akcja łagodzenia w portalu** | Brak |
+| **Akcja łagodzenia w portalu** | Nie dotyczy |
 | **Wyzwalacz** | Wyzwalane, jeśli użytkownik aktywuje tę samą uprzywilejowaną rolę wiele razy w określonym przedziale czasu. Można skonfigurować zarówno okres, jak i liczbę aktywacji. |
 | **Przedział czasu odnawiania aktywacji** | To ustawienie określa liczbę dni, godzin, minut i sekund okresu, który ma być używany do śledzenia podejrzanych odnowień. |
 | **Liczba odnowień aktywacji** | To ustawienie określa liczbę aktywacji z przedziału od 2 do 100, przy której chcesz otrzymywać powiadomienia w wybranym okresie. To ustawienie można zmienić, przesuwając suwak lub wpisując liczbę w polu tekstowym. |

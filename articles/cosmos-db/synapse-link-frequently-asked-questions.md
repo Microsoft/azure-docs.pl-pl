@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: b52c493a700cd258e1458b0127aa19cebc714822
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b5bf29969f8b6d54215e2b2f1a2d0b1587faad6f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891605"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332189"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
 
@@ -82,7 +82,7 @@ Magazyn analityczny jest magazynem tylko do odczytu w kontenerze usługi Azure C
 
 ### <a name="is-the-autosync-replication-from-transactional-store-to-the-analytical-store-asynchronous-or-synchronous-and-what-are-the-latencies"></a>Czy replikacja AutoSync z magazynu transakcyjnego do magazynu analitycznego odbywa się asynchronicznie czy synchronicznie i jakie są opóźnienia?
 
-Replikacja jest asynchroniczna i obecnie oczekiwane opóźnienie wynosi około 2 min.
+Opóźnienie autosynchronizacji jest zwykle w ciągu 2 minut. W przypadku udostępnionej bazy danych przepływności o dużej liczbie kontenerów czas oczekiwania na synchronizację poszczególnych kontenerów może być większy i potrwać do 5 minut. Chcielibyśmy dowiedzieć się więcej o tym, jak to opóźnienie pasuje do Twoich scenariuszy. W tym celu skontaktuj się z [zespołem Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 ### <a name="are-there-any-scenarios-where-the-items-from-the-transactional-store-are-not-automatically-propagated-to-the-analytical-store"></a>Czy istnieją jakieś scenariusze, w których elementy z magazynu transakcyjnego nie są automatycznie propagowane do magazynu analitycznego?
 
