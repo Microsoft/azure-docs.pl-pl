@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d7ed48354b3666a3ec544ffb66724bc605041c90
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3093996156a31d4a06f0d91dbca1bd00d58eacdb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330455"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .NET SDK usługi Azure Cosmos DB
 
@@ -109,6 +109,8 @@ To opóźnienie może mieć wiele przyczyn:
 
     > [!NOTE]
     > Aby zwiększyć wydajność, zalecamy przetwarzanie hosta Windows 64-bitowego. Zestaw SDK SQL zawiera natywną ServiceInterop.dll do analizy i optymalizowania zapytań lokalnie. ServiceInterop.dll jest obsługiwana tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiwanych platform, w których ServiceInterop.dll nie jest dostępna, do bramy zostanie nawiązane dodatkowe połączenie sieciowe w celu uzyskania zoptymalizowanego zapytania.
+
+Jeśli wystąpi następujący błąd: `Unable to load DLL 'Microsoft.Azure.Cosmos.ServiceInterop.dll' or one of its dependencies:` i używa systemu Windows, należy przeprowadzić uaktualnienie do najnowszej wersji systemu Windows.
 
 ## <a name="next-steps"></a>Następne kroki
 

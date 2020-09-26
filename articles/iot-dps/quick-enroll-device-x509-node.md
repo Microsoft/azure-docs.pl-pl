@@ -1,5 +1,5 @@
 ---
-title: Rejestrowanie urządzeń X. 509 w usłudze Azure Device Provisioning przy użyciu Node.js
+title: Szybki Start — rejestrowanie urządzeń X. 509 w usłudze Azure Device Provisioning przy użyciu Node.js
 description: W tym przewodniku Szybki start używane są rejestracje grupowe. W tym przewodniku szybki start nastąpi zarejestrowanie urządzeń X. 509 w usłudze Azure IoT Hub Device Provisioning Service (DPS) przy użyciu zestawu SDK usługi Node.js
 author: wesmc7777
 ms.author: wesmc
@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 0f6d18aa0ce4576db1618d17d8fb3866101f87b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: e1a7bb40e952f0437f0f8c168c48dc1d48b8cf94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330234"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Przewodnik Szybki start: rejestrowanie urządzeń X.509 w usłudze Device Provisioning Service przy użyciu środowiska Node.js
 
@@ -142,7 +142,7 @@ Grupa rejestracji steruje dostępem do usługi aprowizacji dla urządzeń, któr
 
     ![Właściwości rejestracji w portalu](./media/quick-enroll-device-x509-node/verify-enrollment-portal.png) 
  
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli planujesz Eksplorowanie przykładów usługi Node.js, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby platformy Azure utworzone w ramach tego przewodnika Szybki Start.
  
 1. Zamknij okno danych wyjściowych przykładu środowiska Node.js na swojej maszynie.
@@ -153,7 +153,7 @@ Jeśli planujesz Eksplorowanie przykładów usługi Node.js, nie czyść zasobó
 
 W tym przewodniku szybki start utworzono rejestrację grupy dla certyfikatu pośredniego lub głównego urzędu certyfikacji X. 509 przy użyciu IoT Hub Device Provisioning Service platformy Azure. Aby uzyskać dokładne informacje na temat aprowizowania urządzeń, przejdź do samouczka poświęconego konfiguracji usługi Device Provisioning Service w witrynie Azure portal. 
 
-Zapoznaj się również z [przykłademNode.js aprowizacji urządzeń](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
+Zapoznaj się również z [ przykłademNode.js aprowizacji urządzeń](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
  
 > [!div class="nextstepaction"]
 > [Samouczki dla usługi Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)

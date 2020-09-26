@@ -5,14 +5,14 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.custom: mvc, cli-validate, seodec18, devx-track-javascript
+ms.custom: mvc, cli-validate, seodec18, devx-track-js
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: a409af7468daf2ac9de731bcdba5e8f355422ddd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4fc79f8508f46f5003b99289d725b303feef78aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084589"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312043"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Samouczek: Tworzenie aplikacji Node.js i MongoDB na platformie Azure
 
@@ -99,7 +99,7 @@ Zignoruj ostrzeżenie config.domain. Po całkowitym załadowaniu aplikacji zosta
 --
 Środowisko deweloperskie MEAN.JS
 
-Środowisko: serwer programistyczny: http://0.0.0.0:3000 baza danych: wersja aplikacji MongoDB://localhost/Mean-dev: 0.5.0 MEAN.JS wersja: 0.5.0--
+Środowisko: serwer programistyczny:          http://0.0.0.0:3000 baza danych: wersja aplikacji MongoDB://localhost/Mean-dev: 0.5.0 MEAN.JS wersja: 0.5.0--
 </pre>
 
 W przeglądarce przejdź do adresu `http://localhost:3000`. Kliknij pozycję **Utwórz konto** w górnym menu i utwórz użytkownika testowego. 
@@ -259,7 +259,7 @@ W tym kroku wdrożysz aplikację Node.js połączoną z bazą danych MongoDB w u
 ::: zone-end
 
 <a name="create"></a>
-### <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
+### <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
 ::: zone pivot="platform-windows"  
 

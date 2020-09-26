@@ -1,5 +1,5 @@
 ---
-title: 'Rejestrowanie urządzenia X. 509 w usłudze Azure Device Provisioning przy użyciu języka C #'
+title: 'Szybki Start — rejestrowanie urządzenia X. 509 w usłudze Azure Device Provisioning przy użyciu języka C #'
 description: W tym przewodniku Szybki start używane są rejestracje grupowe. W tym przewodniku szybki start Zarejestruj urządzenia X. 509 w usłudze Azure IoT Hub Device Provisioning Service (DPS) przy użyciu języka C#.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 89d98cdf6f635cab3b85462adf5c6695f7c4482e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d8d6c9e2276b2368e09cdb0697a37e34dcf487b5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020936"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330268"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Przewodnik Szybki start: rejestrowanie urządzeń X.509 w usłudze Device Provisioning Service przy użyciu języka C#
 
@@ -189,7 +189,7 @@ Jeśli planujesz Eksplorowanie przykładu usługi C#, nie czyść zasobów utwor
 
 1. Z poziomu usługi Device Provisioning w Azure Portal wybierz pozycję **Certyfikaty**, wybierz certyfikat, który został przekazany do tego przewodnika Szybki Start, a następnie naciśnij klawisz **delete** w górnej części strony **Szczegóły certyfikatu**.  
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start utworzono grupę rejestracji dla certyfikatu pośredniego lub głównego urzędu certyfikacji X. 509 przy użyciu IoT Hub Device Provisioning Service platformy Azure. Aby uzyskać dokładne informacje na temat aprowizowania urządzeń, przejdź do samouczka poświęconego konfiguracji usługi Device Provisioning Service w witrynie Azure portal.
 

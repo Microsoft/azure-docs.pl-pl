@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom:
 - seo-lt-2019
 - seo-dt-2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 9a2e28439efaa1983c4deeff4c6746108fc28e4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a8ae9be983ecb0e6b50ef889525ae33726c2d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090709"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330336"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemy z migracją w trybie online & ograniczenia dotyczące usługi Azure DB dla programu MySQL z Azure Database Migration Service
 
@@ -127,7 +127,7 @@ Podczas próby przeprowadzenia migracji w trybie online z AWS RDS MySQL do Azure
   - Wszystkie DDLs partycji
   - Usuń tabelę
   - Zmień nazwę tabeli
-- Przy użyciu instrukcji *ALTER table <table_name> column_name <Dodawanie* kolumn do początku lub do środka tabeli nie jest obsługiwane. *<ALTER table table_name> Dodaj kolumnę <column_name>* dodaje kolumnę na końcu tabeli.
+- Przy użyciu instrukcji *ALTER table <table_name> column_name <Dodawanie * kolumn do początku lub do środka tabeli nie jest obsługiwane. *<ALTER table table_name> Dodaj kolumnę <column_name>* dodaje kolumnę na końcu tabeli.
 - Indeksy utworzone tylko w części danych kolumn nie są obsługiwane. Poniższa instrukcja to przykład, który tworzy indeks, używając tylko części danych kolumny:
 
     ``` 

@@ -6,20 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 8366c5b7a05b35891bcf87e446229357a5511359
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6949b2265e1b22d924b67d0d46e5b2f2bf9c23ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330404"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Użyj polecenia kubectl, aby uruchomić aplikację stanową Kubernetes przy użyciu PersistentVolume na urządzeniu Azure Stack EDGE Pro
 
 W tym artykule pokazano, jak wdrożyć aplikację stanową pojedynczego wystąpienia w programie Kubernetes przy użyciu PersistentVolume (PV) i wdrożenia. Wdrożenie używa `kubectl` poleceń w istniejącym klastrze Kubernetes i wdraża aplikację MySQL. 
 
 Ta procedura jest przeznaczona dla osób, które sprawdziły [Magazyn Kubernetes na urządzeniu Azure Stack EDGE Pro](azure-stack-edge-gpu-kubernetes-storage.md) i znają koncepcje [magazynu Kubernetes](https://kubernetes.io/docs/concepts/storage/).
+
+Azure Stack EDGE Pro obsługuje również uruchamianie kontenerów usługi Azure SQL Edge i można je wdrożyć w podobny sposób, jak w przypadku programu MySQL. Aby uzyskać więcej informacji, zobacz [Azure SQL Edge](../azure-sql-edge/overview.md).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne

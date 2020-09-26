@@ -1,24 +1,27 @@
 ---
 title: Uczenie głębokie a uczenie maszynowe
-titleSuffix: Azure
-description: Dowiedz się, jak głębokie uczenie odnosi się do uczenia maszynowego i sztucznej analizy. Uczenie głębokie jest używane w scenariuszach takich jak wykrywanie oszustw, rozpoznawanie głosu & rozpoznawania twarzy, analiza tonacji i prognozowanie szeregów czasowych.
+titleSuffix: Azure Machine Learning
+description: Dowiedz się, jak głębokie uczenie odnosi się do uczenia maszynowego i AI. W Azure Machine Learning używaj modeli uczenia głębokiego do wykrywania oszustw, wykrywania obiektów i nie tylko.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 03/05/2020
-ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/22/2020
+ms.custom: contperfq1
+ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905127"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330132"
 ---
-# <a name="deep-learning-vs-machine-learning"></a>Uczenie głębokie a uczenie maszynowe
+# <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Uczenie głębokie a uczenie maszynowe w Azure Machine Learning
 
-Ten artykuł pomaga porównać głębokie uczenie i uczenie maszynowe. Dowiesz się, jak te dwie koncepcje porównują i jak mieszczą się w szerszej kategorii sztucznej analizy. W tym artykule opisano również, jak można zastosować uczenie głębokie w rzeczywistych scenariuszach, takich jak wykrywanie oszustw, rozpoznawanie głosu i twarzy, analiza tonacji i prognozowanie szeregów czasowych.
+W tym artykule opisano uczenie głębokie i uczenie maszynowe oraz ich dopasowanie do szerszej kategorii sztucznej analizy. Dowiedz się więcej na temat rozwiązań do uczenia głębokiego, które możesz kompilować na Azure Machine Learning, takich jak wykrywanie oszustw, rozpoznawanie głosu i twarzy, analiza tonacji i prognozowanie szeregów czasowych.
+
+Aby uzyskać wskazówki dotyczące wybierania algorytmów dla rozwiązań, zobacz [arkusz Machine Learning Algorithm Ściągawka](algorithm-cheat-sheet.md).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Uczenie głębokie, uczenie maszynowe i AI
 
@@ -37,7 +40,7 @@ Rozważ następujące definicje, aby zrozumieć głębokie uczenie i uczenie mas
 
 - **Sztuczna inteligencja (AI)** to technika, która umożliwia komputerom naśladowanie analizy ludzkiej. Obejmuje to uczenie maszynowe. 
  
-Ważne jest zrozumienie relacji między AI, uczeniem maszynowym i uczeniem głębokiego. Uczenie maszynowe to sposób na osiągnięcie sztucznej analizy. Korzystając z technik uczenia maszynowego i uczenia głębokiego, można tworzyć systemy komputerowe i aplikacje, które wykonują zadania, które są często powiązane z inteligencją ludzką. Te zadania obejmują rozpoznawanie obrazu, rozpoznawanie mowy i tłumaczenie języka.
+Korzystając z technik uczenia maszynowego i uczenia głębokiego, można tworzyć systemy komputerowe i aplikacje, które wykonują zadania, które są często powiązane z inteligencją ludzką. Te zadania obejmują rozpoznawanie obrazu, rozpoznawanie mowy i tłumaczenie języka.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>Techniki uczenia głębokiego a uczenie maszynowe 
 
@@ -58,7 +61,7 @@ Poniższa tabela zawiera porównanie dwóch technik w bardziej szczegółowy spo
 
 Ze względu na sztuczną strukturę sieci neuronowych, głębokie uczenie programu Excel na identyfikowaniu wzorców w danych bez struktury, takich jak obrazy, dźwięk, wideo i tekst. Z tego powodu Szczegółowa nauka szybko przekształca wiele branż, takich jak opieka zdrowotna, energia, finanse i transport. Te branże teraz uznają tradycyjne procesy biznesowe. 
 
-Niektóre z najpopularniejszych aplikacji do uczenia głębokiego są opisane w poniższych akapitach.
+Niektóre z najpopularniejszych aplikacji do uczenia głębokiego są opisane w poniższych akapitach. W Azure Machine Learning można użyć modelu z kompilacji z platformy typu "open source" lub skompilować model przy użyciu dostępnych narzędzi.
 
 ### <a name="named-entity-recognition"></a>Rozpoznawanie jednostek nazwanych
 
@@ -69,6 +72,8 @@ Rozpoznawanie jednostek nazwanych to metoda uczenia głębokiego, która przyjmu
 Uczenie głębokie zostało zastosowane w wielu przypadkach użycia wykrywania obiektów. Wykrywanie obiektów obejmuje dwie części: klasyfikację obrazów, a następnie lokalizację obrazu. _Klasyfikacja_ obrazu identyfikuje obiekty obrazu, takie jak samochody lub osoby. Lokalizacja _obrazu zapewnia_ określoną lokalizację tych obiektów. 
 
 Wykrywanie obiektów jest już używane w branżach, takich jak gry, handel detaliczny, turystyka i samoobsługowe samochody.
+
+Dowiedz się, jak używać modelu klasyfikacji obrazów z platformy typu "open source" w Azure Machine Learning: [klasyfikowanie obrazów przy użyciu modelu Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generowanie podpisu obrazu
 
@@ -87,6 +92,8 @@ Dzięki odpowiedniej transformacji danych sieć neuronowych może zrozumieć syg
 Analiza tekstu oparta na metodach uczenia głębokiego polega na analizowaniu dużych ilości danych tekstowych (na przykład dokumentów medycznych lub przyjęć wydatków), rozpoznawaniu wzorców oraz tworzeniu zorganizowanych i zwięzłych informacji.
 
 Firmy wykorzystują głębokie uczenie do przeprowadzania analizy tekstu w celu wykrywania handlu niejawnego i zgodności z przepisami obowiązującymi w instytucji rządowych. Innym typowym przykładem jest oszustwo ubezpieczeniowe: Analiza tekstu często została użyta do przeanalizowania dużych ilości dokumentów w celu rozpoznania szans oszustw związanych z ubezpieczeniem. 
+
+Dowiedz się, jak używać modelu TensorFlow w Azure Machine Learning: [klasyfikowanie cyfr odręcznych przy użyciu modelu TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>Sztuczne sieci neuronowych
 
@@ -110,14 +117,8 @@ Sieci neuronowych splotowych są używane w takich obszarach jak rozpoznawanie w
 
 ## <a name="next-steps"></a>Następne kroki
 
-W poniższych artykułach pokazano, jak korzystać z technologii uczenia głębokiego w [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
-
-- [Klasyfikowanie odręcznych cyfr przy użyciu modelu TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+W poniższych artykułach przedstawiono więcej opcji korzystania z modeli uczenia głębokiego "open source" w [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
 
 - [Klasyfikowanie odręcznych cyfr przy użyciu TensorFlow szacowania i Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Klasyfikowanie obrazów przy użyciu modelu Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-
 - [Klasyfikowanie odręcznych cyfr przy użyciu modelu łańcucha](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
-
-Ponadto do wybierania algorytmów dla modelu służy [arkusz Machine Learning algorytm Ściągawka](algorithm-cheat-sheet.md) .
