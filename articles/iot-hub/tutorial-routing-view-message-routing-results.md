@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: fb86b25fc24ea505ae258cc44d5554a019723af6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ddba41acfcfe497059a661b701906cda0d4d77c6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019202"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398378"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Samouczek: część 2 — Wyświetlanie rozesłanych komunikatów
 
@@ -52,7 +52,7 @@ Kolejka usługi Service Bus jest używana do odbierania komunikatów oznaczonych
 
    ![Ekran Tworzenie aplikacji logiki](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   Wybierz pozycję **Utwórz**. Wdrożenie aplikacji może potrwać kilka minut.
+   Wybierz przycisk **Utwórz**. Wdrożenie aplikacji może potrwać kilka minut.
 
 2. Teraz przejdź do aplikacji logiki. Najprostszym sposobem, aby uzyskać dostęp do aplikacji logiki, jest wybranie **grup zasobów**, wybranie grupy zasobów (w tym samouczku jest używany program **ContosoResources**), a następnie wybierz aplikację logiki z listy zasobów. 
 
@@ -82,7 +82,7 @@ Kolejka usługi Service Bus jest używana do odbierania komunikatów oznaczonych
 
    ![Opcje usługi Office 365](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
-8. Zaloguj się do konta Office 365, aby skonfigurować połączenie. W przypadku przeprowadzenia tej operacji po prostu spróbuj ponownie. Podaj adresy e-mail adresatów wiadomości e-mail. Określ temat, a następnie wpisz treść wiadomości, którą ma zobaczyć adresat. Na potrzeby testowania wprowadź własny adres e-mail jako adresata.
+8. Zaloguj się do konta służbowego, aby skonfigurować połączenie. W przypadku przeprowadzenia tej operacji po prostu spróbuj ponownie. Podaj adresy e-mail adresatów wiadomości e-mail. Określ temat, a następnie wpisz treść wiadomości, którą ma zobaczyć adresat. Na potrzeby testowania wprowadź własny adres e-mail jako adresata.
 
    Wybierz pozycję **Dodaj zawartość dynamiczną** , aby wyświetlić zawartość z wiadomości, którą można uwzględnić. Wybierz pozycję **Zawartość** — będzie ona obejmować komunikat z wiadomości e-mail.
 
@@ -298,7 +298,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Możesz również usunąć liczbę wiadomości e-mail w skrzynce odbiorczej, które zostały wygenerowane przez aplikację logiki, gdy aplikacja urządzenia była uruchomiona.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym dwuczęściowym samouczku przedstawiono sposób używania routingu komunikatów do kierowania komunikatów IoT Hub do różnych miejsc docelowych, wykonując następujące zadania.  
 

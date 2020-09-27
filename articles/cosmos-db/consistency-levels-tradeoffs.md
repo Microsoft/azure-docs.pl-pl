@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82191740"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396012"
 ---
-# <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisy w zakresie spójności, dostępności i wydajności
+# <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Wady dotyczące opóźnień, dostępności i wydajności z różnymi Azure Cosmos DB poziomów spójności
 
 Rozproszone bazy danych polegające na replikacji do zapewnienia wysokiej dostępności, małych opóźnień lub obu tych charakterystyk muszą iść na pewne kompromisy. Te kompromisy dotyczą spójności odczytu wobec dostępności, opóźnienia i przepływności.
 
@@ -24,7 +24,7 @@ Azure Cosmos DB podejścia do spójności danych jako szeroki wybór. Takie pode
 - *Powiązana nieaktualność*
 - *Sesja*
 - *Spójny prefiks*
-- *Ostateczna*
+- *Ewentualn*
 
 Każdy poziom zapewnia kompromisy dostępności i wydajności i jest wspierany przez kompleksowe umowy SLA.
 
@@ -55,7 +55,7 @@ Dokładne opóźnienie czasu RTT to funkcja szybkości i topologii sieci platfor
 |**Powiązana nieaktualność**|Lokalna mniejszości|Większość lokalna|
 |**Sesja**|Pojedyncza replika (przy użyciu tokenu sesji)|Większość lokalna|
 |**Spójny prefiks**|Pojedyncza replika|Większość lokalna|
-|**Ostateczna**|Pojedyncza replika|Większość lokalna|
+|**Ewentualn**|Pojedyncza replika|Większość lokalna|
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Poziomy spójności i trwałość danych
 
@@ -63,7 +63,7 @@ W globalnie rozproszonym środowisku bazy danych istnieje bezpośrednia relacja 
 
 W poniższej tabeli zdefiniowano relacje między modelem spójności i trwałością danych w przypadku awarii całego regionu. Należy pamiętać, że w systemie rozproszonym, nawet ze silną spójnością, nie można mieć rozproszonej bazy danych z RPO i RTO zero ze względu na zakończenie theorem. Aby dowiedzieć się więcej na temat przyczyn, zobacz [poziomy spójności w Azure Cosmos DB](consistency-levels.md).
 
-|**Regiony**|**Tryb replikacji**|**Poziom spójności**|**CEL PUNKTU ODZYSKIWANIA**|**RTO**|
+|**Regiony**|**Tryb replikacji**|**Poziom spójności**|**Cel punktu odzyskiwania**|**Cel czasu odzyskiwania**|
 |---------|---------|---------|---------|---------|
 |1|Jeden lub wiele wzorców|Dowolny poziom spójności|< 240 minut|<1 tydzień|
 |>1|Pojedynczy wzorzec|Sesja, spójny prefiks, ostateczna|< 15 minut|< 15 minut|

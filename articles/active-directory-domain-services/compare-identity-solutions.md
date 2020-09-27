@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: af4ebcac38d4714b8a133087fe328b4d2f6c4872
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489592"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396369"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Porównaj Active Directory Domain Services samozarządzane, Azure Active Directory i zarządzane Azure Active Directory Domain Services
 
@@ -26,7 +26,7 @@ Chociaż trzy rozwiązania do obsługi tożsamości oparte na Active Directory k
 * **Active Directory Domain Services (AD DS)** — serwer LDAP (Lightweight Directory Access Protocol), który udostępnia kluczowe funkcje, takie jak tożsamość i uwierzytelnianie, zarządzanie obiektami komputera, zasady grupy i relacje zaufania.
     * AD DS jest centralnym składnikiem w wielu organizacjach z lokalnym środowiskiem INFORMATYCZNym, a także udostępnia podstawowe funkcje uwierzytelniania i zarządzania kontami użytkowników.
     * Aby uzyskać więcej informacji, zobacz [Active Directory Domain Services Omówienie w dokumentacji systemu Windows Server][overview-adds].
-* **Azure Active Directory (Azure AD)** — tożsamość oparta na chmurze i zarządzanie urządzeniami przenośnymi, które udostępniają usługi kont użytkowników i uwierzytelniania dla zasobów takich jak Office 365, Azure Portal lub aplikacje SaaS.
+* **Azure Active Directory (Azure AD)** — tożsamość oparta na chmurze i zarządzanie urządzeniami przenośnymi, które udostępniają usługi kont i uwierzytelniania użytkowników, takie jak Microsoft 365, Azure Portal lub aplikacje SaaS.
     * Usługę Azure AD można synchronizować z lokalnym środowiskiem AD DS w celu zapewnienia pojedynczej tożsamości użytkownikom, którzy działają natywnie w chmurze.
     * Aby uzyskać więcej informacji na temat usługi Azure AD, zobacz [co to jest Azure Active Directory?][whatis-azuread]
 * **Azure Active Directory Domain Services (Azure AD DS)** — oferuje zarządzane usługi domenowe z podzbiorem w pełni zgodnych tradycyjnych funkcji AD DS, takich jak przyłączanie do domeny, zasady grupy, LDAP i uwierzytelnianie Kerberos/NTLM.

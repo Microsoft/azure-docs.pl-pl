@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e25299c2ce5d31da8f3caa5b02ab8def816b31ee
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414772"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398224"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrowanie danych z usługi Amazon S3 do Azure Data Lake Storage Gen2
 
@@ -109,23 +109,23 @@ Szablon zawiera dwa parametry:
 
 3. Przejdź do szablonu " **Migrowanie danych historycznych z AWS S3 do Azure Data Lake Storage Gen2** . Wprowadź połączenia z tabelą formantów zewnętrznych, AWS S3 jako magazyny danych i Azure Data Lake Storage Gen2 jako magazyn docelowy. Należy pamiętać, że zewnętrzna tabela formantów i procedura składowana odnoszą się do tego samego połączenia.
 
-    ![Tworzenie nowego połączenia](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    ![Zrzut ekranu pokazujący dane historyczne migracji z AWS S3 do szablonu Azure Data Lake Storage Gen2.](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
 4. Wybierz pozycję **Użyj tego szablonu**.
 
-    ![Użyj tego szablonu](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
+    ![Zrzut ekranu, który podświetla przycisk Użyj tego szablonu.](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
     
 5. Zobaczysz 2 potoki i 3 zestawy danych, jak pokazano w następującym przykładzie:
 
-    ![Przeglądanie potoku](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
+    ![Zrzut ekranu pokazujący dwa potoki i trzy zestawy danych, które zostały utworzone przy użyciu szablonu.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
 6. Wybierz pozycję **Debuguj**, wprowadź **Parametry**, a następnie wybierz pozycję **Zakończ**.
 
-    ![Kliknij pozycję * * Debuguj * *](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    ![Zrzut ekranu pokazujący, gdzie wybrać opcję Debuguj i wprowadzić parametry przed wybraniem opcji Zakończ.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
 7. Zobaczysz wyniki podobne do poniższego przykładu:
 
-    ![Przejrzyj wynik](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
+    ![Zrzut ekranu pokazujący zwrócone wyniki.](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
 
 ### <a name="for-the-template-to-copy-changed-files-only-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Szablon do kopiowania zmienionych plików tylko z usługi Amazon S3 do Azure Data Lake Storage Gen2
@@ -192,7 +192,7 @@ Szablon zawiera dwa parametry:
 
 8. Wyniki z tabeli formantów można także sprawdzić za pomocą zapytania *"select * from s3_partition_delta_control_table"*, ale dane wyjściowe są podobne do następującego przykładu:
 
-    ![Przejrzyj wynik](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
+    ![Zrzut ekranu, który wyświetla wyniki z tabeli formantów po uruchomieniu zapytania.](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
     
 ## <a name="next-steps"></a>Następne kroki
 

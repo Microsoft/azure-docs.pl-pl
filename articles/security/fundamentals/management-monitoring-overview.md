@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7e6fe4f0db31687d402f960f2752fe021d3ec9d3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448361"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395774"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Omówienie zarządzania i monitorowania zabezpieczeń platformy Azure
 Ten artykuł zawiera omówienie funkcji zabezpieczeń i usług oferowanych przez platformę Azure w celu ułatwienia zarządzania i monitorowania usług Azure Cloud Services i Virtual Machines.
@@ -66,7 +66,7 @@ Więcej informacji:
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Możesz użyć usługi Azure ExpressRoute, aby zwiększyć możliwości sieci lokalnych do Microsoft Cloud za pośrednictwem dedykowanego połączenia prywatnego, które jest obsługiwane przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Azure, Office 365 i CRM Online. Połączenia mogą być następujące:
+Możesz użyć usługi Azure ExpressRoute, aby zwiększyć możliwości sieci lokalnych do Microsoft Cloud za pośrednictwem dedykowanego połączenia prywatnego, które jest obsługiwane przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Azure, Microsoft 365 i CRM Online. Połączenia mogą być następujące:
 
 * Sieć dowolna-dowolna (IP sieci VPN).
 * Sieć Ethernet typu punkt-punkt.

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: 8a615dc02b78993a18a86def9d8f496ba0bba922
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: f501b9f4215b9eeb48aa8bc80d492d55cf940404
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929707"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397389"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Samouczek: indeksowanie obiektów BLOB JSON z usługi Azure Storage przy użyciu interfejsu REST
 
@@ -54,7 +54,7 @@ Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasob�
 
 1. Wyszukaj *konto magazynu* i wybierz ofertę konta magazynu firmy Microsoft.
 
-   ![Utwórz konto magazynu](media/cognitive-search-tutorial-blob/storage-account.png "Utwórz konto magazynu")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Utwórz konto magazynu" border="false":::
 
 1. Na karcie podstawowe wymagane są następujące elementy. Zaakceptuj wartości domyślne dla wszystkich innych elementów.
 
@@ -76,11 +76,11 @@ Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasob�
 
 1. Po utworzeniu kontenera Otwórz go i wybierz pozycję **Przekaż** na pasku poleceń.
 
-   ![Przekaż na pasku poleceń](media/search-semi-structured-data/upload-command-bar.png "Przekaż na pasku poleceń")
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Przekaż na pasku poleceń" border="false":::
 
 1. Przejdź do folderu zawierającego pliki przykładowe. Zaznacz wszystkie z nich, a następnie kliknij przycisk **Przekaż**.
 
-   ![Przekazywanie plików](media/search-semi-structured-data/clinicalupload.png "Przekazywanie plików")
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Przekazywanie plików" border="false":::
 
 Po zakończeniu przekazywania pliki powinny pojawić się w podfolderze wewnątrz kontenera danych.
 
@@ -98,7 +98,7 @@ Wywołania interfejsu REST wymagają adresu URL usługi i klucza dostępu dla ka
 
 1. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
-![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Pobieranie punktu końcowego HTTP i klucza dostępu" border="false":::
 
 Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
@@ -110,7 +110,7 @@ Metody żądań dla każdego wywołania w tym samouczku są **ogłaszane** i **o
 
 W obszarze nagłówki ustaw wartość "Content-Type" na wartość `application/json` i ustaw `api-key` na klucz Admin API-Key usługi Azure wyszukiwanie poznawcze. Po ustawieniu nagłówków można używać ich dla każdego żądania w tym ćwiczeniu.
 
-  ![Adres URL i nagłówek żądania post](media/search-get-started-postman/postman-url.png "Adres URL i nagłówek żądania post")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Adres URL i nagłówek żądania post" border="false":::
 
 Identyfikatory URI muszą określać wersję interfejsu API i każde wywołanie powinno zwrócić **201**. Ogólnie dostępna wersja interfejsu API do korzystania z tablic JSON to `2020-06-30` .
 
@@ -315,11 +315,11 @@ Możesz rozpocząć wyszukiwanie zaraz po załadowaniu pierwszego dokumentu.
 
 1. Dodaj `$select` parametr zapytania, aby ograniczyć wyniki do mniejszej liczby pól: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true` .  W przypadku tego zapytania 100 dokumenty są zgodne, ale domyślnie usługa Azure Wyszukiwanie poznawcze zwraca wartość 50 w wynikach.
 
-   ![Zapytanie sparametryzowane](media/search-semi-structured-data/lastquery.png "Paramterized zapytanie")
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Zapytanie sparametryzowane" border="false":::
 
 1. Przykładem bardziej złożonej kwerendy może być `$filter=MinimumAge ge 30 and MaximumAge lt 75` Funkcja, która zwraca tylko wyniki, w przypadku których minimalny stopień ważności parametrów jest większy lub równy 30, a wartość maksymalna jest mniejsza niż 75. Zamień `$select` wyrażenie na `$filter` wyrażenie.
 
-   ![Wyszukiwanie częściowo ustrukturyzowane](media/search-semi-structured-data/metadatashort.png)
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Wyszukiwanie częściowo ustrukturyzowane" border="false":::
 
 Można również użyć operatorów logicznych (i, not) i operatorów porównania (EQ, ne, gt, lt, GE, Le). W porównaniach ciągów jest rozróżniana wielkość liter. Aby uzyskać więcej informacji i przykładów, zobacz [Tworzenie prostego zapytania](search-query-simple-examples.md).
 
@@ -340,7 +340,7 @@ W przypadku pomyślnego usunięcia jest zwracany kod stanu 204.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 

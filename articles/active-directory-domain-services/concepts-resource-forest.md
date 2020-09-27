@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88069c6ac90fce7e33cac6ed3c30accb18ded8bf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480411"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396403"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Koncepcje i funkcje lasu zasobów dla Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) oferuje środowisko logowania dla starszych, lokalnych aplikacji biznesowych. Użytkownicy, grupy i skróty haseł użytkowników lokalnych i w chmurze są synchronizowane z domeną zarządzaną platformy Azure AD DS. Te zsynchronizowane skróty haseł udostępniają użytkownikom pojedynczy zestaw poświadczeń, których mogą używać w lokalnych AD DS, Office 365 i Azure Active Directory.
+Azure Active Directory Domain Services (Azure AD DS) oferuje środowisko logowania dla starszych, lokalnych aplikacji biznesowych. Użytkownicy, grupy i skróty haseł użytkowników lokalnych i w chmurze są synchronizowane z domeną zarządzaną platformy Azure AD DS. Te zsynchronizowane skróty haseł udostępniają użytkownikom pojedynczy zestaw poświadczeń, które mogą być używane do lokalnego AD DS, Microsoft 365 i Azure Active Directory.
 
 Chociaż bezpieczeństwo i zapewnia dodatkowe korzyści z zabezpieczeń, niektóre organizacje nie mogą synchronizować tych skrótów haseł użytkowników z usługą Azure AD lub Azure AD DS. Użytkownicy w organizacji mogą nie znać hasła, ponieważ korzystają tylko z uwierzytelniania za pomocą kart inteligentnych. Te ograniczenia uniemożliwiają niektórym organizacjom korzystanie z usługi Azure AD DS w celu podnoszenia i przesunięcia lokalnych aplikacji klasycznych na platformę Azure.
 

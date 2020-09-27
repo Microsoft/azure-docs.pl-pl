@@ -1,5 +1,6 @@
 ---
-title: Konfigurowanie aplikacji sieci Web, która wywołuje interfejsy API sieci Web — Microsoft Identity platform | Azure
+title: Konfigurowanie aplikacji sieci Web, która wywołuje interfejsy API sieci Web | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak skonfigurować kod aplikacji sieci Web, która wywołuje interfejsy API sieci Web
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8827d413144d8bc6f00c3948a99be3ee3aa2264e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 27926c687871180da78930be8e0968febcd77869
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855444"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396318"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -33,7 +34,7 @@ Następujące biblioteki w bibliotece Microsoft Authentication Library (MSAL) ob
 
 | Biblioteka MSAL | Opis |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Obsługa platform .NET Framework i .NET Core. Nieobsługiwane są platforma uniwersalna systemu Windows (platformy UWP), Xamarin. iOS i Xamarin. Android, ponieważ te platformy są używane do tworzenia publicznych aplikacji klienckich. W przypadku ASP.NET Core aplikacji sieci Web i interfejsów API sieci Web MSAL.NET jest hermetyzowana w bibliotece wyższego poziomu o nazwie [Microsoft. Identity. Web](https://aka.ms/ms-identity-web)|
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Obsługa platform .NET Framework i .NET Core. Nieobsługiwane są platforma uniwersalna systemu Windows (platformy UWP), Xamarin. iOS i Xamarin. Android, ponieważ te platformy są używane do tworzenia publicznych aplikacji klienckich. <br/><br/>W przypadku ASP.NET Core aplikacji sieci Web i interfejsów API sieci Web MSAL.NET jest hermetyzowana w bibliotece wyższego poziomu o nazwie [Microsoft. Identity. Web](https://aka.ms/ms-identity-web). |
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> Biblioteka MSAL dla języka Python | Obsługa aplikacji sieci Web w języku Python. |
 | ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> Biblioteka MSAL dla języka Java | Obsługa aplikacji sieci Web w języku Java. |
 
@@ -41,32 +42,153 @@ Wybierz kartę dla interesującej platformy:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Aby umożliwić aplikacji sieci Web wywoływanie chronionych interfejsów API podczas korzystania z Microsoft. Identity. Web, należy tylko wywołać `AddWebAppCallsProtectedWebApi` i określić format serializacji pamięci podręcznej tokenu (na przykład pamięć podręczna tokenów w pamięci):
+## <a name="client-secrets-or-client-certificates"></a>Klucze tajne klienta lub certyfikaty klienta
 
-```C#
-// This method gets called by the runtime. Use this method to add services to the container.
-public void ConfigureServices(IServiceCollection services)
+Ponieważ aplikacja sieci Web wywołuje teraz podrzędny interfejs API sieci Web, należy podać klucz tajny klienta lub certyfikat klienta w *appsettings.js* pliku. Możesz również dodać sekcję, która określa:
+
+- Adres URL podrzędnego interfejsu API sieci Web
+- Zakresy wymagane do wywoływania interfejsu API
+
+W poniższym przykładzie `GraphBeta` sekcja określa te ustawienia.
+
+```JSON
 {
-    // more code here
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
 
-    services.AddMicrosoftIdentityWebAppAuthentication(Configuration,
-                                                      "AzureAd")
-            .EnableTokenAcquisitionToCallDownstreamApi(
-                    initialScopes: new string[] { "user.read" })
-                .AddInMemoryTokenCaches();
-
-    // more code here
+   // To call an API
+   "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
+   "ClientCertificates": [
+  ]
+ },
+ "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+    }
 }
 ```
 
-Jeśli chcesz poznać więcej informacji o pamięci podręcznej tokenów, zobacz [Opcje serializacji pamięci podręcznej tokenu](#token-cache)
+Zamiast klucza tajnego klienta można podać certyfikat klienta. Poniższy fragment kodu przedstawia użycie certyfikatu przechowywanego w Azure Key Vault.
+
+```JSON
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
+
+   // To call an API
+   "ClientCertificates": [
+      {
+        "SourceType": "KeyVault",
+        "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
+        "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
+      }
+   ]
+  },
+  "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+  }
+}
+```
+
+*Microsoft. Identity. Web* oferuje kilka sposobów opisywania certyfikatów, zarówno według konfiguracji, jak i kodu. Aby uzyskać szczegółowe informacje, zobacz [Microsoft. Identity. Web — używanie certyfikatów](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) w serwisie GitHub.
+
+## <a name="startupcs"></a>Startup.cs
+
+Aplikacja sieci Web będzie musiała uzyskać token dla podrzędnego interfejsu API. Należy ją określić, dodając `.EnableTokenAcquisitionToCallDownstreamApi()` wiersz po `.AddMicrosoftIdentityWebApi(Configuration)` . Ten wiersz `ITokenAcquisition` przedstawia usługę, której można użyć na stronie kontroler i akcje strony. Jednak jak widać w poniższych dwóch opcjach, można to zrobić dokładniej. Należy również wybrać implementację pamięci podręcznej tokenów, na przykład `.AddInMemoryTokenCaches()` w *Startup.cs*:
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+Zakresy przenoszone do `EnableTokenAcquisitionToCallDownstreamApi` są opcjonalne i umożliwiają aplikacji sieci Web zażądać zakresów i zgody użytkownika na te zakresy podczas logowania. Jeśli nie określisz zakresów, *firma Microsoft. Identity. Web* umożliwi korzystanie ze stopniowej zgody.
+
+Jeśli nie chcesz samodzielnie uzyskać tokenu, *firma Microsoft. Identity. Web* udostępnia dwa mechanizmy wywoływania internetowego interfejsu API z aplikacji sieci Web. Wybrana opcja zależy od tego, czy chcesz wywołać Microsoft Graph lub inny interfejs API.
+
+### <a name="option-1-call-microsoft-graph"></a>Opcja 1: Wywołaj Microsoft Graph
+
+Jeśli chcesz wywołać Microsoft Graph, *Microsoft. Identity. Web* umożliwia bezpośrednio korzystanie z programu `GraphServiceClient` (dostępnego w Microsoft Graph SDK) w akcjach interfejsu API. Aby uwidocznić Microsoft Graph:
+
+1. Dodaj pakiet NuGet [Microsoft. Identity. Web. MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) do projektu.
+1. Dodaj `.AddMicrosoftGraph()` po `.EnableTokenAcquisitionToCallDownstreamApi()` pliku *Startup.cs* . `.AddMicrosoftGraph()` ma kilka zastąpień. Użycie przesłonięcia, które przyjmuje sekcję konfiguracyjną jako parametr, staje się następujące:
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+                  .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+### <a name="option-2-call-a-downstream-web-api-other-than-microsoft-graph"></a>Opcja 2: wywoływanie podrzędnego interfejsu API sieci Web innego niż Microsoft Graph
+
+Aby wywołać internetowy interfejs API inny niż Microsoft Graph, *Microsoft. Identity. Web* udostępnia `.AddDownstreamWebApi()` , który żąda tokenów i wywołuje podrzędny interfejs API sieci Web.
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+                  .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+### <a name="summary"></a>Podsumowanie
+
+Podobnie jak w przypadku interfejsów API sieci Web, można wybrać różne implementacje pamięci podręcznej tokenów. Aby uzyskać szczegółowe informacje, zobacz [Microsoft. Identity. Web-Serialization](https://aka.ms/ms-id-web/token-cache-serialization) Detailing w serwisie GitHub.
+
+Na poniższej ilustracji przedstawiono różne możliwości *Microsoft. Identity. Web* i ich wpływ na plik *Startup.cs* :
+
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="Podczas tworzenia internetowego interfejsu API można wywoływać interfejs API podrzędny i implementacje pamięci podręcznej.":::
 
 > [!NOTE]
 > Aby w pełni zrozumieć przykłady kodu, należy zapoznać się z tematami [ASP.NET Core Fundamentals](/aspnet/core/fundamentals), a zwłaszcza z [iniekcją](/aspnet/core/fundamentals/dependency-injection) i [opcjami](/aspnet/core/fundamentals/configuration/options)zależności.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Ponieważ logowanie użytkownika jest delegowane do oprogramowania pośredniczącego Open ID Connect (OIDC), należy skorzystać z procesu OIDC. Sposób działania zależy od używanej platformy.
+Ponieważ logowanie użytkownika jest delegowane do oprogramowania pośredniczącego OpenID Connect Connect (OIDC), należy korzystać z procesu OIDC. Sposób działania zależy od używanej platformy.
 
 W przypadku usługi ASP.NET zasubskrybujesz zdarzenia oprogramowania OIDC pośredniczące:
 

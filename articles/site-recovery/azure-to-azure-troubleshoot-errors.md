@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083824"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397967"
 ---
-# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Rozwiązywanie problemów z replikacją maszyny wirtualnej z platformy Azure do platformy Azure
+# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Rozwiązywanie problemów z błędami z replikacją maszyny wirtualnej z platformy Azure do platformy Azure
 
 W tym artykule opisano sposób rozwiązywania typowych błędów w Azure Site Recovery podczas replikacji i odzyskiwania maszyn wirtualnych platformy Azure z jednego regionu do innego. Aby uzyskać więcej informacji o obsługiwanych konfiguracjach, zobacz [Macierz obsługi w celu replikowania maszyn wirtualnych platformy Azure](azure-to-azure-support-matrix.md).
 
@@ -197,11 +197,11 @@ Spróbuj uzyskać dostęp do serwera DNS z maszyny wirtualnej. Jeśli serwer DNS
 
 #### <a name="possible-cause"></a>Możliwa przyczyna
 
-Nie można nawiązać połączenia z uwierzytelnianiem pakietu Office 365 i punktami końcowymi tożsamości IP4.
+Nie można nawiązać połączenia w celu Microsoft 365nia punktów końcowych uwierzytelniania i tożsamości.
 
 #### <a name="fix-the-problem"></a>Rozwiązywanie problemu
 
-Azure Site Recovery wymagany dostęp do zakresów adresów IP pakietu Office 365 na potrzeby uwierzytelniania.
+Azure Site Recovery wymagany dostęp do Microsoft 365 zakresów adresów IP na potrzeby uwierzytelniania.
 Jeśli używasz zasad grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń) platformy Azure/serwera proxy zapory do kontrolowania łączności sieciowej wychodzącej na maszynie wirtualnej, upewnij się, że Azure Active Directory używasz [(AAD) tag usługi](../virtual-network/security-overview.md#service-tags) opartej na sieciowej grupy zabezpieczeń reguły, aby umożliwić dostęp do usługi AAD. Nie obsługujemy już reguł sieciowej grupy zabezpieczeń opartych na adresach IP.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Konfiguracja Site Recovery nie powiodła się (151197)
@@ -226,7 +226,7 @@ Niestandardowe ustawienia serwera proxy są nieprawidłowe, a Agent usługi mobi
 1. Jeśli wolisz ustawić tylko serwer proxy dla usługi mobilności, możesz podać szczegóły serwera proxy w _ProxyInfo. conf_ znajdujący się w:
 
    - System **Linux**:`/usr/local/InMage/config/`
-   - **System Windows**:`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+   - **System Windows**: `C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
 1. _ProxyInfo. conf_ powinna mieć ustawienia serwera proxy w następującym formacie _ini_ .
 

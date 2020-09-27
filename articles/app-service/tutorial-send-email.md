@@ -4,12 +4,12 @@ description: Dowiedz się, jak wywoływać procesy biznesowe z poziomu aplikacji
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5aa563e55c64893d57522dd1154a64c7e90a1690
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962200"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397440"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Samouczek: wysyłanie wiadomości e-mail i wywoływanie innych procesów biznesowych z App Service
 
@@ -84,7 +84,8 @@ Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. 
 1. W dolnej części okna projektanta kliknij pozycję **nowy krok**, wpisz **Gmail** w polu wyszukiwania akcje i Znajdź i wybierz pozycję **Wyślij wiadomość e-mail (wersja 2)**.
     
     > [!TIP]
-    > Można wyszukiwać inne typy integracji, takie jak SendGrid, MailChimp, Office 365 i SalesForce. Aby uzyskać więcej informacji, zobacz [dokumentację Logic Apps](../logic-apps/index.yml).
+    > Można wyszukiwać inne typy integracji, takie jak SendGrid, MailChimp, Microsoft 365 i SalesForce. Aby uzyskać więcej informacji, zobacz [dokumentację Logic Apps](../logic-apps/index.yml).
+
 1. W oknie dialogowym usługi **Gmail** wybierz pozycję **Zaloguj** się i zaloguj się na koncie usługi Gmail, z którego chcesz wysłać wiadomość e-mail.
 
     ![Zrzut ekranu przedstawiający okno dialogowe Gmail używane do logowania się do konta usługi Gmail, z którego chcesz wysłać wiadomość e-mail.](./media/tutorial-send-email/gmail-sign-in.png)

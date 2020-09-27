@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79409023"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397304"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure Data Catalog często zadawane pytania
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Data Catalog.
@@ -34,11 +34,11 @@ Data Catalog jest przeznaczona dla użytkowników technicznych i nietechnicznych
 Usługi Data Catalog są obecnie dostępne w następujących centrach danych:
 
 * Zachodnie stany USA
-* Wschodnie stany USA
-* Europa Zachodnia
+* East US
+* West Europe
 * Europa Północna
 * Australia Wschodnia
-* Azja Południowo-Wschodnia
+* Southeast Asia
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>Jakie są limity liczby zasobów danych?
 Bezpłatna wersja Data Catalog jest ograniczona do 5 000 zarejestrowanych zasobów danych.
@@ -55,7 +55,7 @@ Aby przesłać żądania funkcji i inne opinie, przejdź do [Data Catalog na for
 
 ## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Dlaczego otrzymuję *wykaz błędów już istnieje* podczas próby utworzenia nowego katalogu?
 
-Gdy kupisz pakiet Office 365 E5 z licencją Power BI Pro, firma Microsoft automatycznie utworzy katalog domyślny w regionie subskrypcji. Ten katalog używa bezpłatnej jednostki SKU. Licencja użytkownika pakietu Office 365/Power BI jest zarządzana na stronie administrowania pakietem Office 365. 
+Gdy kupisz pakiet Office 365 E5 z licencją Power BI Pro, firma Microsoft automatycznie utworzy katalog domyślny w regionie subskrypcji. Ten katalog używa bezpłatnej jednostki SKU. Licencja użytkownika pakietu Office 365/Power BI jest zarządzana na stronie Administracja. 
 
 Jednak ten typ wykazu danych nie ma **opcji administrator** i nie jest widoczny w **Azure Portal**. Nie można usunąć tego typu wykazu danych. Podobnie nie można zmienić nazwy wykazu danych i nie można przenieść go do innego regionu. 
 
@@ -75,7 +75,7 @@ Aby zarejestrować dane w Data Catalog:
 Określone właściwości różnią się od źródła danych do źródła danych, ale ogólnie rzecz biorąc, usługa publikowania Data Catalog wyodrębnia następujące informacje:
 
 * Nazwa zasobu
-* Typ elementu zawartości
+* Typ zasobu
 * Opis zasobu
 * Nazwy atrybutów/kolumn
 * Typy danych atrybut/kolumna

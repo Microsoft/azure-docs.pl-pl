@@ -3,12 +3,12 @@ title: Dołączanie klienta do usługi Azure Lighthouse
 description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, umożliwiając dostęp do zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 0b941c82c2ba0e98f524587f5ef4c4ecf86249eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e404c471990575460ccda3a26e7cdcb3ec1cf1d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336551"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396675"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
 
@@ -69,7 +69,7 @@ Aby ułatwić zarządzanie, zalecamy korzystanie z grup użytkowników usługi A
 Podczas definiowania autoryzacji należy przestrzegać zasad najniższych uprawnień, aby użytkownicy mieli tylko uprawnienia do wykonywania swoich zadań. Aby uzyskać wskazówki i informacje o obsługiwanych rolach, zobacz [dzierżawy, użytkowników i role w scenariuszach usługi Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 > [!IMPORTANT]
-> Aby można było dodać uprawnienia dla grupy usługi Azure AD, **typem grupy** musi być **zabezpieczenia** , a nie **Office 365**. Ta opcja jest wybierana podczas tworzenia grupy. Aby uzyskać więcej informacji, zobacz [Tworzenie podstawowej grupy i dodawanie członków w usłudze Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Aby można było dodać uprawnienia dla grupy usługi Azure AD, **Typ grupy** musi być ustawiony na **zabezpieczenia**. Ta opcja jest wybierana podczas tworzenia grupy. Aby uzyskać więcej informacji, zobacz [Tworzenie podstawowej grupy i dodawanie członków w usłudze Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Aby zdefiniować autoryzacje, musisz znać wartości identyfikatora dla każdego użytkownika, grupy użytkowników lub nazwy głównej usługi w dzierżawie dostawcy usług, do której chcesz udzielić dostępu. Wymagany jest również identyfikator definicji roli dla każdej wbudowanej roli, która ma zostać przypisana. Jeśli ich nie masz, możesz je pobrać, uruchamiając poniższe polecenia z poziomu dzierżawy dostawcy usług.
 

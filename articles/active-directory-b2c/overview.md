@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 61b6d5ea903d00519c58556bc99da7065741a6e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7126cd38a9d0f9ed0079a73e1235cb08a99bcbcf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184064"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396539"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Co to jest usługa Azure Active Directory B2C?
 
@@ -105,7 +105,7 @@ Kliknięcie przycisku **Utwórz** powoduje, Azure AD B2C przekierować użytkown
 
 Gdy klient wybierze jedną z opcji w obszarze **klienci biznesowa**, w witrynie sieci Web z systemem WoodGrove są dostępne różne zasady Azure AD B2C niż dla poszczególnych klientów.
 
-Te zasady przedstawiają użytkownikowi opcję użycia poświadczeń firmowych do rejestracji i logowania. W przykładzie WoodGrove użytkownicy są monitowani o zalogowanie się przy użyciu dowolnego konta Office 365 lub Azure AD. Te zasady używają [aplikacji usługi Azure AD z wieloma dzierżawcami](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) i `/common` punktu końcowego usługi azure AD do sfederować Azure AD B2C z dowolnym klientem pakietu Office 365 na świecie.
+Te zasady przedstawiają użytkownikowi opcję użycia poświadczeń firmowych do rejestracji i logowania. W przykładzie WoodGrove użytkownicy są monitowani o zalogowanie się przy użyciu dowolnego konta służbowego. Te zasady używają [aplikacji usługi Azure AD z wieloma dzierżawcami](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) i `/common` punktu końcowego usługi Azure ad do sfederować Azure AD B2C z dowolnym Microsoft 365 klientem na świecie.
 
 ### <a name="authenticate-partners"></a>Uwierzytelnianie partnerów
 

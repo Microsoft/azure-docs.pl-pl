@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6e2b3badcda872db3ddb1d237b813615a1332ad0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749611"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396335"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Zagadnienia dotyczące projektowania sieci wirtualnej i opcje konfiguracji Azure Active Directory Domain Services
 
@@ -115,6 +115,8 @@ Następujące reguły sieciowej grupy zabezpieczeń są wymagane dla domeny zarz
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Dowolne         | Zezwalaj  | Tak      | Zarządzanie domeną. |
 
 Tworzony jest standardowy moduł równoważenia obciążenia platformy Azure, który wymaga wprowadzenia tych reguł. Ta sieciowa Grupa zabezpieczeń zabezpiecza AD DS platformy Azure i jest wymagana do poprawnego działania domeny zarządzanej. Nie usuwaj tej sieciowej grupy zabezpieczeń. Usługa równoważenia obciążenia nie będzie działała prawidłowo.
+
+W razie potrzeby można [utworzyć wymaganą grupę zabezpieczeń sieci i reguły przy użyciu Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 > [!WARNING]
 > Nie edytuj ręcznie tych zasobów sieciowych i konfiguracji. W przypadku kojarzenia nieskonfigurowanej grupy zabezpieczeń sieci lub tabeli tras zdefiniowanych przez użytkownika z podsiecią, w której wdrożono domenę zarządzaną, możesz przerwać możliwość usługi i zarządzania domeną przez firmę Microsoft. Nieprzerwana synchronizacja dzierżawy usługi Azure AD i domeny zarządzanej.

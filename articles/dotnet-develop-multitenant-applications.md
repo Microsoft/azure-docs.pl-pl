@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 71114b6663d010437e5778d288eacf4e120b3da5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017706"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395978"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplikacje wielodostępne na platformie Azure
-Aplikacja wielodostępna jest udostępnionym zasobem, który umożliwia "użytkownikom w osobnych dzierżawcach" wyświetlanie aplikacji tak, jakby była własna. Typowym scenariuszem, który ogranicza się do aplikacji wielodostępnej, jest to, w której wszyscy użytkownicy aplikacji z różnych dzierżawców mogą chcieć dostosować środowisko użytkownika, ale w przeciwnym razie mają one te same podstawowe wymagania biznesowe. Przykładami dużych aplikacji wielodostępnych są pakiety Office 365, Outlook.com i visualstudio.com.
+Aplikacja wielodostępna jest udostępnionym zasobem, który umożliwia "użytkownikom w osobnych dzierżawcach" wyświetlanie aplikacji tak, jakby była własna. Typowym scenariuszem, który ogranicza się do aplikacji wielodostępnej, jest to, w której wszyscy użytkownicy aplikacji z różnych dzierżawców mogą chcieć dostosować środowisko użytkownika, ale w przeciwnym razie mają one te same podstawowe wymagania biznesowe. Przykłady dużych aplikacji wielodostępnych to Microsoft 365, Outlook.com i visualstudio.com.
 
 Z perspektywy dostawcy aplikacji korzyści płynące z wielu dzierżawców odnoszą się głównie do efektywności operacyjnej i ekonomicznej. Jedna wersja aplikacji może spełniać potrzeby wielu dzierżawców/klientów, co pozwala na konsolidację zadań administracyjnych, takich jak monitorowanie, dostrajanie wydajności, konserwacja oprogramowania i kopie zapasowe danych.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0cc54bcc23e354ae8cc807e63a0039286e295181
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1157a18954c30e1f1d93aa33dbea6104491b5353
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970956"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396455"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption w sieci izolowanej
 
@@ -43,7 +43,7 @@ Wszystkie ustawienia sieciowej grupy zabezpieczeń, które są stosowane, muszą
 
 W przypadku korzystania [z Azure Disk Encryption z usługą Azure AD (poprzednia wersja)](disk-encryption-overview-aad.md) [Biblioteka Azure Active Directory](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) będzie musiała zostać zainstalowana ręcznie dla wszystkich dystrybucje (oprócz pakietów odpowiednich dla dystrybucji, jak [wymieniono powyżej](#package-management)).
 
-Gdy szyfrowanie jest włączane przy użyciu [poświadczeń usługi Azure AD](disk-encryption-linux-aad.md), docelowa maszyna wirtualna musi zezwalać na połączenie z punktami końcowymi Azure Active Directory i Key Vault punktów końcowych. Bieżące punkty końcowe uwierzytelniania Azure Active Directory są obsługiwane w sekcjach 56 i 59 w dokumentacji [pakietu Office 365 adresy URL i zakresy adresów IP](/office365/enterprise/urls-and-ip-address-ranges) . Instrukcje Key Vault są dostępne w dokumentacji dotyczącej sposobu [uzyskiwania dostępu Azure Key Vault za zaporą](../../key-vault/general/access-behind-firewall.md).
+Gdy szyfrowanie jest włączane przy użyciu [poświadczeń usługi Azure AD](disk-encryption-linux-aad.md), docelowa maszyna wirtualna musi zezwalać na połączenie z punktami końcowymi Azure Active Directory i Key Vault punktów końcowych. Bieżące punkty końcowe uwierzytelniania Azure Active Directory są utrzymywane w sekcjach 56 i 59 [Microsoft 365 adresów URL i zakresów adresów IP](/microsoft-365/enterprise/urls-and-ip-address-ranges) . Instrukcje Key Vault są dostępne w dokumentacji dotyczącej sposobu [uzyskiwania dostępu Azure Key Vault za zaporą](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 

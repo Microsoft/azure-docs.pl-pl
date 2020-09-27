@@ -7,13 +7,13 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/22/2020
-ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290314"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397270"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Samouczek: Tworzenie niestandardowego analizatora dla numerów telefonów
 
@@ -59,7 +59,7 @@ Dla każdego żądania należy:
 
 1. Zamień na `<YOUR-ADMIN-API-KEY>` klucz podstawowy lub pomocniczy usługi wyszukiwania.
 
-  ![Adres URL i nagłówek żądania post](media/search-get-started-postman/postman-url.png "Adres URL i nagłówek żądania post")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Adres URL i nagłówek żądania post" border="false":::
 
 Jeśli nie znasz programu Poster, zobacz [Eksplorowanie interfejsów API REST platformy Azure wyszukiwanie poznawcze przy użyciu programu Poster](search-get-started-postman.md).
 
@@ -239,11 +239,11 @@ Analizatory składają się z trzech składników:
 
 Na poniższym diagramie można zobaczyć, jak te trzy składniki współpracują ze sobą, aby tokenize zdanie:
 
-  ![Diagram procesu analizatora służący do tokenize zdania](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Diagram procesu analizatora służący do tokenize zdania":::
 
 Tokeny te są następnie przechowywane w odwróconym indeksie, co umożliwia szybkie wyszukiwanie pełnotekstowe.  Odwrócony indeks umożliwia wyszukiwanie pełnotekstowe przez mapowanie wszystkich unikatowych terminów wyodrębnionych podczas analizy leksykalnej do dokumentów, w których występują. Na poniższym diagramie można zobaczyć przykład:
 
-  ![Przykładowy indeks odwrócony](media/tutorial-create-custom-analyzer/inverted-index-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Przykładowy indeks odwrócony":::
 
 Wszystkie wyszukiwania przechodzą do wyszukiwania warunków przechowywanych w odwróconym indeksie. Gdy użytkownik wystawia zapytanie:
 
@@ -251,7 +251,7 @@ Wszystkie wyszukiwania przechodzą do wyszukiwania warunków przechowywanych w o
 1. Odwrócony indeks jest następnie skanowany pod kątem dokumentów z pasującymi terminami.
 1. Na koniec pobrane dokumenty są klasyfikowane według [algorytmu podobieństwa](index-ranking-similarity.md).
 
-  ![Diagram podobieństwa klasyfikacji procesów analizatora](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Diagram podobieństwa klasyfikacji procesów analizatora":::
 
 Jeśli terminy zapytania nie pasują do warunków w indeksie odwróconym, wyniki nie zostaną zwrócone. Aby dowiedzieć się więcej o działaniu zapytań, zapoznaj się z artykułem dotyczącym [wyszukiwania pełnotekstowego](search-lucene-query-architecture.md).
 

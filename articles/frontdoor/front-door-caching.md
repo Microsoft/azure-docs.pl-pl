@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 221627a756c69d11ec5385b12970bb835d6a0a0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9279b3e77147449ae0ede0cc0b76e57f130c9a44
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318458"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398035"
 ---
 # <a name="caching-with-azure-front-door"></a>Buforowanie z usługami frontonu platformy Azure
 Poniższy dokument określa zachowanie dla drzwi z przodu z regułami routingu, które mają włączone buforowanie. Przód drzwi to nowoczesne Content Delivery Network (CDN) i tak, jak za pomocą funkcji przyspieszania witryn dynamicznych i równoważenia obciążenia, obsługuje również zachowania buforowania tak samo jak w przypadku innych sieci CDN.
@@ -83,7 +83,7 @@ Gdy żądanie dotyczące elementu zawartości określa kompresję, a żądanie s
 
 ## <a name="query-string-behavior"></a>Zachowanie ciągu zapytania
 Za pomocą przednich drzwi można kontrolować sposób, w jaki pliki są buforowane dla żądania sieci Web, które zawiera ciąg zapytania. W żądaniu sieci Web za pomocą ciągu zapytania ciąg zapytania jest częścią żądania, która występuje po znaku zapytania (?). Ciąg zapytania może zawierać co najmniej jedną parę klucz-wartość, w której nazwa pola i jego wartość są oddzielone znakiem równości (=). Każda para klucz-wartość jest oddzielona znakiem handlowego "i" (&). Na przykład `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Jeśli w ciągu zapytania żądania występuje więcej niż jedna para klucz-wartość, ich kolejność nie ma znaczenia.
-- **Ignoruj ciągi zapytań**: tryb domyślny. W tym trybie tylne drzwiczki przekazują ciągi zapytania od osoby żądającej do zaplecza pierwszego żądania i buforują element zawartości. Wszystkie kolejne żądania dla elementu zawartości, które są obsługiwane przez środowisko front-drzwi, ignorują ciągi zapytania do momentu wygaśnięcia pamięci podręcznej.
+- **Ignoruj ciągi zapytań**: w tym trybie tylne drzwiczki przekazują ciągi zapytania od osoby żądającej do zaplecza przy pierwszym żądaniu i buforują element zawartości. Wszystkie kolejne żądania dla elementu zawartości, które są obsługiwane przez środowisko front-drzwi, ignorują ciągi zapytania do momentu wygaśnięcia pamięci podręcznej.
 
 - **Buforuj każdy unikatowy adres URL**: w tym trybie każde żądanie z unikatowym adresem URL, łącznie z ciągiem zapytania, jest traktowane jako unikatowy element zawartości z własną pamięcią podręczną. Na przykład odpowiedź z zaplecza dla żądania `www.example.ashx?q=test1` jest buforowana w środowisku przednim i zwracana dla kolejnych pamięci podręcznych z tym samym ciągiem zapytania. Żądanie dla `www.example.ashx?q=test2` jest zapisywane w pamięci podręcznej jako osobny zasób z własnym ustawieniem czasu wygaśnięcia.
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: ecfb569f2791b674fe842e1c21cba972a8e9d2a7
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 61732f66aef58f5a9edcb9e095782e19e8aaffdd
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443011"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397219"
 ---
 # <a name="vpn-gateway-design"></a>Projekt VPN Gateway
 
@@ -77,7 +77,7 @@ Można utworzyć połączenie przy użyciu komunikacji równorzędnej sieci wirt
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (połączenie prywatne)
 
-Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można ustanowić połączenia z usługami Microsoft w chmurze, np. Microsoft Azure, Office 365 i CRM Online. Łączność może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub wirtualnego połączenia krzyżowego za pośrednictwem dostawcy łączności w ramach funkcji wspólnej lokalizacji.
+Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Microsoft Azure, Microsoft 365 i CRM Online. Łączność może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub wirtualnego połączenia krzyżowego za pośrednictwem dostawcy łączności w ramach funkcji wspólnej lokalizacji.
 
 Połączenia ExpressRoute nie odbywają się za pośrednictwem publicznego Internetu. Dzięki temu oferują one większą niezawodność i szybkość oraz mniejsze opóźnienia i lepsze zabezpieczenia niż typowe połączenia przez Internet.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4232f4cd39c3f6dd6efa0bf78959798ea842e2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676050"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397287"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Kontrolowanie aktualizacji z kontrolą konserwacji i Azure Portal
 
@@ -20,7 +20,7 @@ Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje
 
 ## <a name="create-a-maintenance-configuration"></a>Utwórz konfigurację konserwacji
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 
 1. Wyszukaj **konfiguracje konserwacji**.
 
@@ -76,7 +76,7 @@ Istnieją również dwa sposoby sprawdzenia, czy aktualizacje oczekują na konfi
 
 Można także sprawdzić określony host przy użyciu **Virtual Machines** lub właściwości dedykowanego hosta. 
 
-![Zrzut ekranu przedstawiający sposób sprawdzania konserwacji dla hosta](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
+![Zrzut ekranu pokazujący wyróżniony stan konserwacji.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
 
 ## <a name="apply-updates"></a>Stosowanie aktualizacji
 
@@ -94,7 +94,7 @@ Możesz sprawdzić postęp aktualizacji konfiguracji w konfiguracjach **konserwa
 
 Aby usunąć konfigurację, Otwórz szczegóły konfiguracji i kliknij przycisk **Usuń**.
 
-![Zrzut ekranu przedstawiający sposób sprawdzania konserwacji dla hosta](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
+![Zrzut ekranu pokazujący sposób usuwania konfiguracji.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
 
 
 ## <a name="next-steps"></a>Następne kroki

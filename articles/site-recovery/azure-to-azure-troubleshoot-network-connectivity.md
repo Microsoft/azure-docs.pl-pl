@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 8be0349bfff9ebc858d76928344039b6879d2b80
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357067"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398310"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Rozwiązywanie problemów z łącznością sieciową na platformie Azure na platformie Azure
 
@@ -51,16 +51,16 @@ Spróbuj uzyskać dostęp do serwera DNS z maszyny wirtualnej. Jeśli serwer DNS
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Konfiguracja Site Recovery nie powiodła się (151196)
 
 > [!NOTE]
-> Jeśli maszyny wirtualne znajdują się za **standardowym** wewnętrznym modułem równoważenia obciążenia, domyślnie nie będą miały dostępu do adresów IP pakietu Office 365, takich jak `login.microsoftonline.com` . Zmień go na **podstawowy** typ wewnętrznego modułu równoważenia obciążenia lub Utwórz dostęp wychodzący, jak wspomniano w artykule [Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usługa Load Balancer w warstwie Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
+> Jeśli maszyny wirtualne znajdują się za **standardowym** wewnętrznym modułem równoważenia obciążenia, domyślnie nie będą miały dostępu do Microsoft 365 adresów IP, takich jak `login.microsoftonline.com` . Zmień go na **podstawowy** typ wewnętrznego modułu równoważenia obciążenia lub Utwórz dostęp wychodzący, jak wspomniano w artykule [Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usługa Load Balancer w warstwie Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### <a name="possible-cause"></a>Możliwa przyczyna
 
-Nie można nawiązać połączenia z uwierzytelnianiem pakietu Office 365 i punktami końcowymi tożsamości IP4.
+Nie można nawiązać połączenia w celu Microsoft 365nia punktów końcowych uwierzytelniania i tożsamości.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-- Azure Site Recovery wymaga dostępu do zakresów adresów IP pakietu Office 365 na potrzeby uwierzytelniania.
-- Jeśli używasz zasad grupy zabezpieczeń (sieciowej grupy zabezpieczeń) platformy Azure/serwera proxy zapory do kontrolowania łączności sieciowej wychodzącej na maszynie wirtualnej, upewnij się, że zezwalasz na komunikację z zakresami adresów IP pakietu Office 365. Azure Active Directory utwórz sieciowej grupy zabezpieczeń regułę opartą na [tagu usług (Azure AD)](../virtual-network/security-overview.md#service-tags) , która umożliwia dostęp do wszystkich adresów IP odpowiadających usłudze Azure AD.
+- Azure Site Recovery wymaga dostępu do Microsoft 365 zakresów adresów IP na potrzeby uwierzytelniania.
+- Jeśli używasz zasad grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń) platformy Azure/serwera proxy zapory do kontrolowania łączności sieciowej wychodzącej na maszynie wirtualnej, upewnij się, że zezwalasz na komunikację z Microsoft 365 zakresami adresów IP. Azure Active Directory utwórz sieciowej grupy zabezpieczeń regułę opartą na [tagu usług (Azure AD)](../virtual-network/security-overview.md#service-tags) , która umożliwia dostęp do wszystkich adresów IP odpowiadających usłudze Azure AD.
 - Jeśli nowe adresy są dodawane do usługi Azure AD w przyszłości, należy utworzyć nowe reguły sieciowej grupy zabezpieczeń.
 
 ### <a name="example-nsg-configuration"></a>Przykładowa konfiguracja sieciowej grupy zabezpieczeń

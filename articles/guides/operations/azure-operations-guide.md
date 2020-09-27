@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832760"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397814"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Wprowadzenie do operatorów IT platformy Azure
 
@@ -68,7 +68,7 @@ Platforma Azure oferuje kilka ofert obliczeniowych PaaS, w tym Web Apps funkcję
 
 SaaS to oprogramowanie, które jest centralnie hostowane i zarządzane. Zwykle bazują na architekturze wielodostępnym — w przypadku wszystkich klientów jest używana jedna wersja aplikacji. Można ją skalować do wielu wystąpień, aby zapewnić najlepszą wydajność we wszystkich lokalizacjach. Oprogramowanie SaaS zazwyczaj jest licencjonowane w miesięcznej lub rocznej subskrypcji. Dostawcy oprogramowania SaaS są odpowiedzialni za wszystkie składniki stosu oprogramowania, co pozwala na zarządzanie usługami.
 
-Microsoft Office 365 to dobry przykład oferty SaaS. Subskrybenci zwracają miesięczną lub roczną opłatę za subskrypcję i otrzymują program Microsoft Exchange, Microsoft OneDrive i resztę pakietu Microsoft Office jako usługi. Subskrybenci zawsze uzyskują najnowszą wersję, a serwer Exchange jest zarządzany przez Ciebie. W porównaniu do instalowania i uaktualniania pakietu Office co roku jest to tańsze i wymaga mniejszego nakładu pracy.
+Microsoft 365 jest dobrym przykładem oferty SaaS. Subskrybenci zwracają miesięczną lub roczną opłatę za subskrypcję i otrzymują program Microsoft Exchange, Microsoft OneDrive i resztę pakietu Microsoft Office jako usługi. Subskrybenci zawsze uzyskują najnowszą wersję, a serwer Exchange jest zarządzany przez Ciebie. W porównaniu do instalowania i uaktualniania pakietu Office co roku jest to tańsze i wymaga mniejszego nakładu pracy.
 
 ## <a name="azure-services"></a>Usługi platformy Azure
 
@@ -156,7 +156,7 @@ Grupa zasobów platformy Azure to kontener, który zawiera powiązane zasoby dla
 
 Szablon Azure Resource Manager to plik JavaScript Object Notation (JSON), który definiuje co najmniej jeden zasób do wdrożenia w grupie zasobów. Definiuje również zależności między wdrożonymi zasobami. Szablony Menedżer zasobów zostały omówione bardziej szczegółowo w dalszej części tego przewodnika.
 
-### <a name="automation"></a>Automatyzacja
+### <a name="automation"></a>Automation
 
 Oprócz tworzenia i usuwania zasobów oraz zarządzania nimi przy użyciu Azure Portal można zautomatyzować te działania przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 

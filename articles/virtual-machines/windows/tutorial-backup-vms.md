@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b5b3d1240c621a1bcdc135825e70fe164452a428
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5dc41522add580b96e178328f47bd88fc1fbf052
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500399"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397066"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Samouczek: tworzenie kopii zapasowych i przywracanie plików dla maszyn wirtualnych z systemem Windows na platformie Azure
 
@@ -59,7 +59,7 @@ W tym przykładzie przedstawiono sposób odzyskiwania pliku obrazu używanego na
 
 1. Otwórz przeglądarkę i połącz się z adresem IP maszyny wirtualnej, aby wyświetlić domyślną stronę usług IIS.
 
-    ![Domyślna strona internetowa usług IIS](./media/tutorial-backup-vms/iis-working.png)
+    ![Zrzut ekranu pokazujący domyślną stronę sieci Web usług IIS.](./media/tutorial-backup-vms/iis-working.png)
 
 1. Nawiąż połączenie z maszyną wirtualną.
 1. Otwórz **Eksploratora plików** na maszynie wirtualnej, przejdź do folderu \inetpub\wwwroot i usuń plik **iisstart.png**.

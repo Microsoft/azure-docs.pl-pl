@@ -1,6 +1,6 @@
 ---
-title: Zwiększ wydajność dysku zarządzanego przez platformę Azure
-description: Informacje o warstwach wydajności dla dysków zarządzanych oraz o sposobie uaktualniania warstw wydajności dla dysków zarządzanych.
+title: Zmienianie wydajności usługi Azure Managed disks
+description: Informacje o warstwach wydajności dla dysków zarządzanych oraz o sposobie zmieniania warstw wydajności dla istniejących dysków zarządzanych.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 3d6b243ab517f3663f779d01569acf3d46ad8411
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7da500c3f18b7bf7057b0c5875bc9b39136a6483
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328126"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396590"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Warstwy wydajności dla dysków zarządzanych (wersja zapoznawcza)
 

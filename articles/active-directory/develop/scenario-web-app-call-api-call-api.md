@@ -1,5 +1,6 @@
 ---
-title: Wywoływanie interfejsu API sieci Web z aplikacji sieci Web — platforma tożsamości firmy Microsoft | Azure
+title: Wywoływanie interfejsu API sieci Web z aplikacji sieci Web | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak utworzyć aplikację sieci Web, która wywołuje interfejsy API sieci Web (wywołując chroniony internetowy interfejs API)
 services: active-directory
 author: jmprieur
@@ -8,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1e448f52f4e8c24dd8552cae873edac841e57fc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 815b1789c54d1ce505c16dc89e199d451ae9a588
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058433"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396131"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: wywoływanie interfejsu API sieci Web
 
-Teraz, gdy masz token, możesz wywołać chroniony internetowy interfejs API.
+Teraz, gdy masz token, możesz wywołać chroniony internetowy interfejs API. Zazwyczaj wywoływany jest podrzędny interfejs API z kontrolera lub stron aplikacji sieci Web.
 
 ## <a name="call-a-protected-web-api"></a>Wywoływanie chronionego internetowego interfejsu API
 
@@ -28,20 +29,103 @@ Wywoływanie chronionego internetowego interfejsu API zależy od języka i struk
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Oto uproszczony kod dla akcji `HomeController` . Ten kod pobiera token do wywołania Microsoft Graph. Dodano kod, aby pokazać, jak wywołać Microsoft Graph jako interfejs API REST. Adres URL Microsoft Graph interfejsu API jest dostępny w appsettings.jspliku i odczytywany w zmiennej o nazwie `webOptions` :
+Gdy korzystasz z *Microsoft. Identity. Web*, masz trzy opcje użycia na potrzeby wywoływania interfejsu API:
 
-```json
+- [Opcja 1: Wywołaj Microsoft Graph z zestawem SDK Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
+- [Opcja 2: wywoływanie podrzędnego interfejsu API sieci Web z klasą pomocnika](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Opcja 3: wywoływanie podrzędnego interfejsu API sieci Web bez klasy pomocnika](#option-3-call-a-downstream-web-api-without-the-helper-class)
+
+#### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Opcja 1: Wywołaj Microsoft Graph z zestawem SDK
+
+Chcesz wywołać Microsoft Graph. W tym scenariuszu dodano program `AddMicrosoftGraph` *Startup.cs* zgodnie z [konfiguracją kodu](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph)i można bezpośrednio wstrzyknąć do `GraphServiceClient` kontrolera lub konstruktora stronicowego do użycia w akcjach. Poniższa przykładowa strona Razor wyświetla zdjęcie zalogowanego użytkownika.
+
+```CSharp
+[Authorize]
+[AuthorizeForScopes(Scopes = new[] { "user.read" })]
+public class IndexModel : PageModel
 {
-  "AzureAd": {
-    "Instance": "https://login.microsoftonline.com/",
-    ...
-  },
-  ...
-  "GraphApiUrl": "https://graph.microsoft.com"
+ private readonly GraphServiceClient _graphServiceClient;
+
+ public IndexModel(GraphServiceClient graphServiceClient)
+ {
+    _graphServiceClient = graphServiceClient;
+ }
+
+ public async Task OnGet()
+ {
+  var user = await _graphServiceClient.Me.Request().GetAsync();
+  try
+  {
+   using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+   {
+    byte[] photoByte = ((MemoryStream)photoStream).ToArray();
+    ViewData["photo"] = Convert.ToBase64String(photoByte);
+   }
+   ViewData["name"] = user.DisplayName;
+  }
+  catch (Exception)
+  {
+   ViewData["photo"] = null;
+  }
+ }
 }
 ```
 
-```csharp
+#### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>Opcja 2: wywoływanie podrzędnego interfejsu API sieci Web z klasą pomocnika
+
+Chcesz wywołać internetowy interfejs API inny niż Microsoft Graph. W takim przypadku dodano program Startup.cs zgodnie `AddDownstreamWebApi` z *Startup.cs* [konfiguracją kodu](scenario-web-app-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)i można bezpośrednio wstrzyknąć `IDownstreamWebApi` usługę do kontrolera lub konstruktora stron i używać jej w akcjach:
+
+```CSharp
+[Authorize]
+[AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
+public class TodoListController : Controller
+{
+  private IDownstreamWebApi _downstreamWebApi;
+  private const string ServiceName = "TodoList";
+
+  public TodoListController(IDownstreamWebApi downstreamWebApi)
+  {
+    _downstreamWebApi = downstreamWebApi;
+  }
+
+  public async Task<ActionResult> Details(int id)
+  {
+    var value = await _downstreamWebApi.CallWebApiForUserAsync(
+      ServiceName,
+      options =>
+      {
+        options.RelativePath = $"me";
+      });
+      return View(value);
+  }
+}
+```
+
+`CallWebApiForUserAsync`Ma także jednoznacznie wpisane typy zastąpień, które umożliwiają bezpośrednie odbieranie obiektu. Na przykład następująca metoda odbiera `Todo` wystąpienie, które jest silnie wpisaną reprezentacją JSON zwróconego przez internetowy interfejs API.
+
+```CSharp
+    // GET: TodoList/Details/5
+    public async Task<ActionResult> Details(int id)
+    {
+        var value = await _downstreamWebApi.CallWebApiForUserAsync<object, Todo>(
+            ServiceName,
+            null,
+            options =>
+            {
+                options.HttpMethod = HttpMethod.Get;
+                options.RelativePath = $"api/todolist/{id}";
+            });
+        return View(value);
+    }
+   ```
+
+#### <a name="option-3-call-a-downstream-web-api-without-the-helper-class"></a>Opcja 3: wywoływanie podrzędnego interfejsu API sieci Web bez klasy pomocnika
+
+Użytkownik zdecydował się uzyskać token ręcznie przy użyciu `ITokenAcquisition` usługi, a teraz musisz użyć tokenu. W takim przypadku Poniższy kod kontynuuje przykładowy kod wyświetlany w [aplikacji sieci Web, która wywołuje interfejsy API sieci Web: uzyskuje token dla aplikacji](scenario-web-app-call-api-acquire-token.md). Kod jest wywoływany w akcjach kontrolerów aplikacji sieci Web.
+
+Po uzyskaniu tokenu Użyj go jako tokenu okaziciela do wywołania podrzędnego interfejsu API, w tym przypadku Microsoft Graph.
+
+ ```csharp
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
@@ -65,11 +149,10 @@ public async Task<IActionResult> Profile()
   return View();
 }
 ```
-
 > [!NOTE]
 > Tej samej zasady można użyć do wywołania dowolnego internetowego interfejsu API.
 >
-> Większość interfejsów API sieci Web platformy Azure udostępnia zestaw SDK, który upraszcza wywoływanie interfejsu API. Jest to również prawdziwe Microsoft Graph. W następnym artykule dowiesz się, gdzie znaleźć samouczek, który ilustruje użycie interfejsu API.
+> Większość interfejsów API sieci Web platformy Azure udostępnia zestaw SDK, który upraszcza wywoływanie interfejsu API, tak jak w przypadku Microsoft Graph. Zobacz, na przykład, [Utwórz aplikację sieci Web, która autoryzuje dostęp do usługi BLOB Storage w usłudze Azure AD](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=dotnet) , na przykład aplikację sieci Web używającą Microsoft. Identity. Web i korzystającą z zestawu SDK usługi Azure Storage.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -117,4 +200,4 @@ def graphcall():
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Przejście do środowiska produkcyjnego](scenario-web-app-call-api-production.md)
+> [Przenoszenie do środowiska produkcyjnego](scenario-web-app-call-api-production.md)

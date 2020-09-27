@@ -7,13 +7,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935028"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397372"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Wzorce projektowe dla wielodostępnych aplikacji SaaS i platformy Azure Wyszukiwanie poznawcze
 
@@ -41,7 +41,7 @@ Dodawanie i usuwanie partycji oraz replik umożliwia zwiększenie pojemności us
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Limity usługi i indeksu na platformie Azure Wyszukiwanie poznawcze
 Na platformie Azure Wyszukiwanie poznawcze istnieje kilka różnych [warstw cenowych](https://azure.microsoft.com/pricing/details/search/) , a każda z nich ma różne [limity i przydziały](search-limits-quotas-capacity.md). Niektóre z tych limitów znajdują się na poziomie usługi, a niektóre z nich znajdują się na poziomie indeksu, a niektóre z nich znajdują się na poziomie partycji.
 
-|  | Podstawowe | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | Podstawowy | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | **Maksymalna liczba replik na usługę** |3 |12 |12 |12 |12 |
 | **Maksymalna liczba partycji na usługę** |1 |12 |12 |12 |3 |
@@ -76,7 +76,8 @@ W przypadku scenariusza wielodostępnego Deweloper aplikacji korzysta z jednej l
 3. *Kombinacja obu:* Większe, bardziej aktywne dzierżawy są przypisane do dedykowanych usług, podczas gdy mniejsze dzierżawy są przypisane do poszczególnych indeksów w ramach usług udostępnionych.
 
 ## <a name="1-index-per-tenant"></a>1. indeks na dzierżawcę
-![Wskaźnik modelu indeksu na dzierżawcę](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="Wskaźnik modelu indeksu na dzierżawcę" border="false":::
 
 W modelu z indeksem na dzierżawcę wiele dzierżawców zajmuje jedną usługę Wyszukiwanie poznawcze platformy Azure, w której każdy dzierżawca ma swój własny indeks.
 
@@ -93,7 +94,8 @@ Usługa Azure Wyszukiwanie poznawcze umożliwia skalowanie zarówno pojedynczych
 Jeśli łączna liczba indeksów rośnie zbyt duże dla pojedynczej usługi, należy zastanowić się, aby zapewnić obsługę nowych dzierżawców. Jeśli indeksy muszą zostać przeniesione między usługami wyszukiwania po dodaniu nowych usług, dane z indeksu muszą zostać ręcznie skopiowane z jednego indeksu do drugiego, ponieważ usługa Azure Wyszukiwanie poznawcze nie zezwala na przenoszenie indeksu.
 
 ## <a name="2-service-per-tenant"></a>2. usługa na dzierżawcę
-![Broszura modelu usługi dla dzierżawców](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Broszura modelu usługi dla dzierżawców" border="false":::
 
 W architekturze usługi dla dzierżawy każdy dzierżawca ma własną usługę wyszukiwania.
 

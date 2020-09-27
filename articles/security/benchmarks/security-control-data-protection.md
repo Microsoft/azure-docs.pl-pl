@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f2162ee6df551e1bc64741229aec99d5e697fd29
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079000"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395995"
 ---
 # <a name="security-control-data-protection"></a>Kontrola zabezpieczeń: Ochrona danych
 
@@ -46,7 +46,7 @@ Zaimplementuj izolację przy użyciu osobnych subskrypcji i grup zarządzania dl
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.3 | 13,3 | Udostępniona |
+| 4.3 | 13,3 | Shared |
 
 Skorzystaj z rozwiązania innej firmy w witrynie Azure Marketplace w sieci obwodowej, które monitoruje do nieautoryzowanego transferu poufnych informacji i blokuje takie transfery podczas powiadamiania specjalistów ds. bezpieczeństwa informacji.
 
@@ -58,7 +58,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.4 | 14,4 | Udostępniona |
+| 4.4 | 14,4 | Shared |
 
 Szyfruj wszystkie poufne informacje podczas przesyłania. Upewnij się, że wszyscy klienci łączący się z zasobami platformy Azure mogą negocjować protokół TLS 1,2 lub nowszy.
 
@@ -70,11 +70,11 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.5 | 14,5 | Udostępniona |
+| 4.5 | 14,5 | Shared |
 
 Jeśli dla konkretnej usługi na platformie Azure nie jest dostępna żadna funkcja, użyj narzędzia do odnajdywania aktywnego innej firmy, aby zidentyfikować wszystkie informacje poufne przechowywane, przetwarzane lub przekazywane przez systemy technologiczne organizacji, w tym te znajdujące się w lokacji lub u dostawcy usług zdalnych, a także aktualizować spis informacji poufnych organizacji.
 
-Użyj Azure Information Protection, aby identyfikować poufne informacje w dokumentach pakietu Office 365.
+Użyj Azure Information Protection, aby identyfikować poufne informacje w Microsoft 365 dokumentach.
 
 Użyj usługi Azure SQL Information Protection, aby pomóc w klasyfikacji i etykietowania informacji przechowywanych w Azure SQL Database.
 
@@ -98,7 +98,7 @@ Aby kontrolować dostęp do danych i zasobów przy użyciu kontroli dostępu opa
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4,7 | 14,7 | Udostępniona |
+| 4.7 | 14,7 | Shared |
 
 Jeśli jest to wymagane na potrzeby zgodności zasobów obliczeniowych, zaimplementuj narzędzie innej firmy, takie jak automatyczne rozwiązanie do ochrony przed utratą danych oparte na hoście, aby wymusić kontrolę dostępu do danych nawet wtedy, gdy dane są kopiowane poza system.
 

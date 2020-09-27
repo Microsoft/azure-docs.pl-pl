@@ -1,19 +1,19 @@
 ---
-title: Poziomy spójności w Azure Cosmos DB
+title: Poziomy spójności w usłudze Azure Cosmos DB
 description: Azure Cosmos DB ma pięć poziomów spójności, co pomaga zrównoważyć spójność, dostępność i wady opóźnienia.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 5ba3fc70a2ccfbe342e222dbb475658629ec60a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 8f482c4fe6817c75079ceb98e981c846c395ad13
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851693"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396029"
 ---
-# <a name="consistency-levels-in-azure-cosmos-db"></a>Poziomy spójności w Azure Cosmos DB
+# <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Jakie są poziomy spójności w Azure Cosmos DB?
 
 Rozproszone bazy danych, które korzystają z replikacji w celu zapewnienia wysokiej dostępności, małych opóźnień lub obu, sprawiają zasadnicze kompromisy między spójnością odczytu a dostępnością, opóźnieniem i przepływności. Najbardziej komercyjnie dostępne bazy danych umożliwiają deweloperom wybór między dwoma ekstremalnymi modelami spójności: *silną* spójnością i spójnością *ostateczną* . Linearizability modelu silnej spójności jest standardem programowalności danych. Jednak dodaje cenę wyższego opóźnienia zapisu (w stanie stałym) i ograniczoną dostępność (podczas niepowodzeń). Z drugiej strony spójność ostateczna zapewnia wyższą dostępność i lepszą wydajność, ale utrudnia Programowanie aplikacji.
 
@@ -91,12 +91,12 @@ Poniższa ilustracja ilustruje spójność prefiksu spójności z notatkami muzy
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="wideo":::
 
-- **Ostateczne**: nie ma gwarancji porządkowania dla operacji odczytu. W przypadku braku jakichkolwiek dalszych zapisów repliki są ostatecznie zbieżne.  
+- **Ostateczne**: nie ma gwarancji porządkowania dla operacji odczytu. W przypadku braku jakichkolwiek dalszych zapisów repliki staną się ostatecznie zbieżne.  
 Spójność ostateczna to najsłaba forma spójności, ponieważ klient może odczytać wartości starsze niż te, które były wcześniej odczytywane. Spójność ostateczna jest idealnym miejscem, w którym aplikacja nie wymaga żadnych gwarancji związanych z porządkowaniem. Przykłady obejmują liczbę ponownych tweetów, polubień lub komentarzy niewielowątkowych. Na poniższej ilustracji przedstawiono spójność ostateczną z notatkami muzycznymi.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="wideo":::
 
-## <a name="additional-reading"></a>Dodatkowy odczyt
+## <a name="additional-reading"></a>Materiały uzupełniające
 
 Aby dowiedzieć się więcej na temat koncepcji spójności, przeczytaj następujące artykuły:
 

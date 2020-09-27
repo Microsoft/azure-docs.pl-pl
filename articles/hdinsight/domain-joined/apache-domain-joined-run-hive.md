@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202581"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397831"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurowanie zasad technologii Apache Hive w usłudze HDInsight przy użyciu pakietu Enterprise Security
 
@@ -22,7 +22,7 @@ Dowiedz się, jak skonfigurować zasady Apache Ranger dla Apache Hive. Korzystaj
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Klaster usługi HDInsight z pakiet Enterprise Security. Zobacz [Konfigurowanie klastrów usługi HDInsight przy użyciu protokołu ESP](apache-domain-joined-configure.md).
-* Stacja robocza z pakietem Office 2016, pakietem Office 2013 Professional Plus, usługą Office 365 Pro Plus, programem Excel 2013 Standalone lub pakietem Office 2010 Professional Plus.
+* Stacja robocza z Microsoft 365 aplikacjami dla przedsiębiorstw, Office 2016, Office 2013 Professional Plus, Excel 2013 Standalone lub Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Łączenie z interfejsem użytkownika administratora platformy Apache Ranger
 **Aby połączyć się z interfejsem użytkownika administratora platformy Ranger**
@@ -56,7 +56,7 @@ W tej sekcji utworzysz dwie zasady Ranger na potrzeby uzyskiwania dostępu do hi
     |---|---|
     |Policy Name (Nazwa zasad)|Read-hivesampletable-All|
     |Baza danych programu Hive|default|
-    |table|hivesampletable|
+    |table (stolik)|hivesampletable|
     |Kolumna Hive|*|
     |Select User (Wybierz użytkownika)|Użytkownik hiveuser1|
     |Uprawnienia|Wybierz|
@@ -74,7 +74,7 @@ W tej sekcji utworzysz dwie zasady Ranger na potrzeby uzyskiwania dostępu do hi
     |---|---|
     |Policy Name (Nazwa zasad)|Read-hivesampletable-devicemake|
     |Baza danych programu Hive|default|
-    |table|hivesampletable|
+    |table (stolik)|hivesampletable|
     |Kolumna Hive|ClientID, devicemake|
     |Select User (Wybierz użytkownika)|hiveuser2|
     |Uprawnienia|Wybierz|
@@ -88,11 +88,11 @@ Instrukcje można znaleźć w sekcji [Create Hive ODBC data source](../hadoop/ap
  | Data Source Name (Nazwa źródła danych) | Nadaj nazwę źródła danych. |
  | Host | Wprowadź CLUSTERNAME.azurehdinsight.net. np. myHDICluster.azurehdinsight.net. |
  | Port | Użyj portu **443**. (Ten port został zmieniony z 563 na 443). |
- | Baza danych | Użyj wartości **Default** (Domyślna). |
+ | baza danych | Użyj wartości **Default** (Domyślna). |
  | Hive Server Type (Typ serwera Hive) | Wybierz wartość **Hive Server 2**. |
  | Mechanism (Mechanizm) | Wybierz wartość **Azure HDInsight Service** (Usługa Azure HDInsight). |
  | HTTP Path (Ścieżka HTTP) | Pozostaw to pole puste. |
- | Nazwa użytkownika | Wprowadź polecenie hiveuser1@contoso158.onmicrosoft.com. Zaktualizuj nazwę domeny, jeśli jest inna. |
+ | Nazwa użytkownika | Wprowadź hiveuser1@contoso158.onmicrosoft.com. Zaktualizuj nazwę domeny, jeśli jest inna. |
  | Hasło | Wprowadź hasło użytkownika hiveuser1. |
 
 Pamiętaj o kliknięciu przycisku **Test** (Testuj) przed zapisaniem źródła danych.

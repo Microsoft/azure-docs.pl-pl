@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 07e5ce5cb6fee11e3f55ce808da51ccad59b9ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801363"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398582"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Korzystanie z przepływów pracy do integrowania aplikacji IoT Central platformy Azure z innymi usługami w chmurze
 
@@ -22,8 +22,8 @@ Można tworzyć reguły w IoT Central, które wyzwalają akcje, takie jak wysył
 
 Łącznik Azure IoT Central v3 na potrzeby automatyzacji i Azure Logic Apps pozwala tworzyć bardziej zaawansowane reguły automatyzacji operacji w IoT Central:
 
-- Gdy reguła jest uruchamiana w aplikacji IoT Central platformy Azure, może ona wyzwolić przepływ pracy w programie do automatyzacji lub Azure Logic Apps. Te przepływy pracy mogą uruchamiać akcje w innych usługach w chmurze, takich jak Office 365 lub usługa innej firmy.
-- Zdarzenie w innej usłudze w chmurze, takiej jak pakiet Office 365, może wyzwolić przepływ pracy w programie do automatyzacji lub Azure Logic Apps. Te przepływy pracy mogą uruchamiać akcje lub pobierać dane z aplikacji IoT Central.
+- Gdy reguła jest uruchamiana w aplikacji IoT Central platformy Azure, może ona wyzwolić przepływ pracy w programie do automatyzacji lub Azure Logic Apps. Te przepływy pracy mogą uruchamiać akcje w innych usługach w chmurze, takich jak Microsoft 365 lub usługa innej firmy.
+- Zdarzenie w innej usłudze w chmurze, takie jak Microsoft 365, może wyzwolić przepływ pracy w programie do automatyzacji lub Azure Logic Apps. Te przepływy pracy mogą uruchamiać akcje lub pobierać dane z aplikacji IoT Central.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -66,14 +66,14 @@ Aby dodać łącznik **Azure IoT Central v3 (wersja zapoznawcza** ) jako akcję 
 1. W obszarze Automatyzacja w programie w obszarze **Wybierz akcję** wybierz kartę **niestandardową** .
 1. Wyszukaj *IoT Central* i wybierz łącznik **usługi Azure IoT Central v3 — wersja zapoznawcza** .
 1. Na liście akcji wybierz akcję IoT Central, której chcesz użyć.
-1. W kroku akcja wykonaj konfigurację wybranej akcji. Następnie wybierz pozycję **Zapisz**.
+1. W kroku akcja wykonaj konfigurację wybranej akcji. Następnie wybierz przycisk **Zapisz**.
 
 Aby dodać łącznik **usługi Azure IoT Central v3 (wersja zapoznawcza** ) jako akcję w Azure Logic Apps:
 
 1. W **projektancie Logic Apps**, w panelu **Wybierz akcję** wybierz kartę **niestandardowa** .
 1. Wyszukaj *IoT Central*i wybierz łącznik **Azure IoT Central v3 — wersja zapoznawcza** .
 1. Na liście akcji wybierz akcję IoT Central, której chcesz użyć.
-1. W kroku akcja wykonaj konfigurację wybranej akcji. Następnie wybierz pozycję **Zapisz**.
+1. W kroku akcja wykonaj konfigurację wybranej akcji. Następnie wybierz przycisk **Zapisz**.
 
 :::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Znajdź łącznik Azure IoT Central v3 i wybierz akcję":::
 

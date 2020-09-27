@@ -7,20 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: adcd6aa2c232bf87dc82284acbe2815484660ca7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 49dc551039e0fd82ddb4374713c59fca2f493b62
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998564"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397950"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Samouczek: Tworzenie pierwszej aplikacji wyszukiwania przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak utworzyć interfejs sieci Web, aby wykonywać zapytania i przedstawić wyniki wyszukiwania w indeksie przy użyciu usługi Azure Wyszukiwanie poznawcze. Ten samouczek rozpoczyna się od istniejącego, hostowanego indeksu, dzięki czemu możesz skupić się na tworzeniu strony wyszukiwania. Indeks zawiera fikcyjne dane hotelu. Gdy masz stronę podstawową, możesz ją ulepszyć w kolejnych lekcjach w celu uwzględnienia stronicowania, aspektów i środowiska z wyprzedzeniem.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Konfigurowanie środowiska deweloperskiego
 > * Struktury danych modelu
@@ -42,7 +42,7 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
 
 To jedno wywołanie inicjuje wyszukiwanie danych platformy Azure i zwraca wyniki.
 
-![Wyszukiwanie "Pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
+:::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-pool.png" alt-text="Wyszukiwanie * Pool *" border="false":::
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -58,7 +58,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 1. Korzystając z programu Visual Studio, przejdź do, a następnie otwórz rozwiązanie dla strony Wyszukiwanie podstawowe, a następnie wybierz pozycję **Uruchom bez debugowania** (lub naciśnij klawisz F5).
 1. Wpisz słowa (na przykład "Wi-Fi", "widok", "słupek", "parking") i sprawdź wyniki.
 
-    ![Wyszukiwanie "Wi-Fi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Wyszukiwanie * Wi-Fi *" border="false":::
 
 Miejmy nadzieję ten projekt będzie działać bezproblemowo i masz uruchomioną aplikację platformy Azure. Wiele najważniejszych składników dla bardziej złożonych wyszukiwań znajduje się w tej aplikacji, więc dobrym pomysłem jest przechodzenie przez nią i ponowne utworzenie jej krok po kroku.
 
@@ -68,15 +68,15 @@ Aby utworzyć ten projekt od podstaw i w związku z tym pomóc w zwiększeniu po
 
 1. W programie Visual Studio 2017 lub nowszym wybierz pozycję **Nowy/projekt** , a następnie **ASP.NET Core aplikację sieci Web**. Nadaj projektowi nazwę, taką jak "FirstAzureSearchApp".
 
-    ![Tworzenie projektu w chmurze](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Tworzenie projektu w chmurze" border="false":::
 
 2. Po kliknięciu przycisku **OK** dla tego typu projektu zostanie nadany drugi zestaw opcji, które mają zastosowanie do tego projektu. Wybierz pozycję **aplikacja sieci Web (Model-View-Controller)**.
 
-    ![Tworzenie projektu MVC](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Tworzenie projektu MVC":::
 
 3. Następnie w menu **Narzędzia** wybierz pozycję **Menedżer pakietów NuGet** , a następnie **Zarządzaj pakietami NuGet dla rozwiązania.**... Istnieje jeden pakiet, który należy zainstalować. Wybierz kartę **Przeglądaj** , a następnie wpisz ciąg "Azure wyszukiwanie poznawcze" w polu wyszukiwania. Zainstaluj **program Microsoft. Azure. Search** , gdy zostanie wyświetlony na liście (w wersji 9.0.1 lub nowszej). Aby ukończyć instalację, należy kliknąć kilka dodatkowych okien dialogowych.
 
-    ![Dodawanie bibliotek platformy Azure przy użyciu narzędzia NuGet](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Dodawanie bibliotek platformy Azure przy użyciu narzędzia NuGet" border="false":::
 
 ### <a name="initialize-azure-cognitive-search"></a>Inicjowanie Wyszukiwanie poznawcze platformy Azure
 
@@ -93,7 +93,7 @@ Na potrzeby tego przykładu używamy publicznie dostępnych danych hotelowych. T
 
 2. Nie zrobiono jeszcze tego pliku, wybierz właściwości tego pliku i zmień ustawienie **Kopiuj do katalogu wyjściowego** na **Kopiuj, jeśli nowszy**.
 
-    ![Kopiowanie ustawień aplikacji do danych wyjściowych](./media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Kopiowanie ustawień aplikacji do danych wyjściowych" border="false":::
 
 ## <a name="model-data-structures"></a>Struktury danych modelu
 
@@ -513,11 +513,11 @@ Teraz sprawdźmy, czy aplikacja działa prawidłowo.
 
 1. Wybierz opcję **Debuguj/Rozpocznij bez debugowania** lub naciśnij klawisz F5. Jeśli poprawnie zakodowano elementy, zostanie wyświetlony początkowy widok indeksu.
 
-     ![Otwieranie aplikacji](./media/tutorial-csharp-create-first-app/azure-search-index.png)
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Otwieranie aplikacji" border="false":::
 
 2. Wprowadź tekst, taki jak "sekwencje" (lub dowolny tekst, który ma uwadze), a następnie kliknij ikonę wyszukiwania. Należy uzyskać pewne wyniki.
 
-     ![Wyszukiwanie "sekwencje"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Wyszukiwanie * sekwencje *" border="false":::
 
 3. Spróbuj wprowadzić ciąg "pięć gwiazdek". Zwróć uwagę, jak nie otrzymujesz żadnych wyników. Bardziej zaawansowane wyszukiwanie będzie traktować "pięć gwiazdek" jako synonim dla "możliwość zaprojektowania" i zwracać te wyniki. Użycie synonimów jest dostępne na platformie Azure Wyszukiwanie poznawcze, ale nie zajmiemy się tym w pierwszym samouczku.
  
@@ -533,7 +533,7 @@ Ważne jest, aby upewnić się, że nasze funkcje obsługi błędów działają 
 
 2. Uruchom aplikację, wprowadź "bar" jako szukany tekst, a następnie kliknij ikonę wyszukiwania. Wyjątek powinien spowodować wyświetlenie błędu.
 
-     ![Wymuś błąd](./media/tutorial-csharp-create-first-app/azure-search-error.png)
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Wymuś błąd" border="false":::
 
     > [!Important]
     > Jest uznawany za zagrożenie bezpieczeństwa, aby zwracały wewnętrzne numery błędów na stronach błędów. Jeśli aplikacja jest przeznaczona do użytku ogólnego, należy zapoznać się z bezpiecznymi i najlepszymi rozwiązaniami dotyczącymi tego, co należy zwrócić w przypadku wystąpienia błędu.
@@ -548,7 +548,7 @@ Rozważmy następujący wnioski z tego projektu:
 * Wywołania asynchroniczne powodują dodanie niewielkiej złożoności do kontrolera, ale najlepszym rozwiązaniem jest, jeśli zamierzasz opracowywać aplikacje wysokiej jakości.
 * Ta aplikacja wykonała proste wyszukiwanie tekstowe zdefiniowane przez co to jest konfiguracja w **searchParameters**. Jednak tę jedną klasę można wypełnić wieloma elementami członkowskimi, które dodają złożoności do wyszukiwania. Aby ta aplikacja była znacznie bardziej wydajna, nie trzeba wykonywać wielu dodatkowych czynności.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby zapewnić najlepsze środowisko użytkownika przy użyciu usługi Azure Wyszukiwanie poznawcze, musimy dodać więcej funkcji, szczególnie stronicowanie (przy użyciu numerów stron lub nieskończoność przewijania) oraz Autouzupełnianie/sugestie. Należy również rozważyć bardziej zaawansowane parametry wyszukiwania (na przykład geograficzne wyszukiwanie w hotelach w określonym promieniu danego punktu i porządkowanie wyników wyszukiwania).
 

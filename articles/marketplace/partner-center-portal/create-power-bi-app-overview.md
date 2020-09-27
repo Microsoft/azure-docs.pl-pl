@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: f3699892471a1535cda5fc182a4c9121fd3c250c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f34723bec6dc2212f8897eca849e6535d737fc8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317607"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397423"
 ---
 # <a name="power-bi-app-creation-overview"></a>Omówienie tworzenia aplikacji Power BI
 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób publikowania aplikacji Power BI w programie Micro
 Zalety publikowania na komercyjnej witrynie Marketplace:
 
 - Promuj swoją firmę przy użyciu marki Microsoft.
-- Może dotrzeć do ponad 100 000 000 użytkowników pakietu Office 365 i Dynamics 365 na AppSource i więcej niż 200 000 organizacje za pomocą witryny Azure Marketplace.
+- Może dotrzeć do ponad 100 000 000 Microsoft 365 i użytkowników usługi Dynamics 365 w AppSource i więcej niż 200 000 organizacje w witrynie Azure Marketplace.
 - Odbieraj wysokiej jakości potencjalni klienci z tych rynków.
 - Twoje usługi są promowane przez zespoły pól i telesprzedaży firmy Microsoft.
 
@@ -42,13 +42,13 @@ Oto podstawowe kroki publikowania:
 7. Po uzyskaniu certyfikatu zapoznaj się z aplikacją w środowisku testowym i zwolnij ją. Spowoduje to wyświetlenie listy w witrynie AppSource ("trafia na żywo").
 8. W Power BI Wyślij pakiet do środowiska produkcyjnego. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie wydaniem aplikacji Power BI](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Przejrzyj poniższe linki, które zawierają szablony, porady i przykłady.
 
 - [Tworzenie aplikacji Power BI](https://docs.microsoft.com/power-bi/service-template-apps-create)
 - [Porady dotyczące tworzenia aplikacji Power BI](https://docs.microsoft.com/power-bi/service-template-apps-tips)
-- [Samples](https://docs.microsoft.com/power-bi/service-template-apps-samples)
+- [Przykłady](https://docs.microsoft.com/power-bi/service-template-apps-samples)
 
 ## <a name="requirements"></a>Wymagania
 

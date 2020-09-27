@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85ce79644ead939eaeffa5cfffeb495da15e7fe5
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: e701ac8cee15a338c363ec2697e02e82bb4f4e68
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270669"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396437"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: często zadawane pytania
 
@@ -29,9 +29,9 @@ Istnieją dwie typowe przyczyny, dla których rozszerzenie usługi Azure AD nie 
 
 Usługa Azure AD i Azure AD B2C są oddzielnymi ofertami produktu i nie mogą współistnieć w tej samej dzierżawie. Dzierżawa usługi Azure AD reprezentuje organizację. Dzierżawca Azure AD B2C reprezentuje kolekcję tożsamości, które mają być używane z aplikacjami jednostek uzależnionych. Dodając **nowego dostawcę połączenia usługi OpenID Connect** w obszarze **Azure AD B2C > dostawców tożsamości** lub zasad niestandardowych, Azure AD B2C można SFEDEROWAĆ z usługą Azure AD, umożliwiając uwierzytelnianie pracowników w organizacji.
 
-### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Czy mogę użyć usługi Azure AD B2C, aby zapewnić logowanie społeczne (Facebook i Google +) do pakietu Office 365?
+### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-microsoft-365"></a>Czy mogę użyć usługi Azure AD B2C, aby zapewnić logowanie społeczne (Facebook i Google +) do Microsoft 365?
 
-Nie można użyć Azure AD B2C do uwierzytelniania użytkowników dla Microsoft Office 365. Usługa Azure AD to rozwiązanie firmy Microsoft do zarządzania dostępem pracowników do aplikacji SaaS i zawiera funkcje przeznaczone do tego celu, takie jak Licencjonowanie i dostęp warunkowy. Azure AD B2C zapewnia platformę zarządzania tożsamościami i dostępem do tworzenia aplikacji internetowych i mobilnych. Gdy Azure AD B2C jest skonfigurowany do sfederować dzierżawy usługi Azure AD, dzierżawa usługi Azure AD zarządza dostępem pracowników do aplikacji, które są zależne od Azure AD B2C.
+Nie można użyć Azure AD B2C do uwierzytelniania użytkowników dla Microsoft 365. Usługa Azure AD to rozwiązanie firmy Microsoft do zarządzania dostępem pracowników do aplikacji SaaS i zawiera funkcje przeznaczone do tego celu, takie jak Licencjonowanie i dostęp warunkowy. Azure AD B2C zapewnia platformę zarządzania tożsamościami i dostępem do tworzenia aplikacji internetowych i mobilnych. Gdy Azure AD B2C jest skonfigurowany do sfederować dzierżawy usługi Azure AD, dzierżawa usługi Azure AD zarządza dostępem pracowników do aplikacji, które są zależne od Azure AD B2C.
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Co to są konta lokalne w Azure AD B2C? Czym różnią się one od kont służbowych w usłudze Azure AD?
 

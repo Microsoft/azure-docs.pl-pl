@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 337deec076a25183a4dd866362c7dc55a485834d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224496"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397253"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Szyfrowanie danych magazynowanych platformy Azure
 
@@ -81,13 +81,13 @@ Klucze szyfrowania danych szyfrowane za pomocą kluczy szyfrowania kluczy są pr
 
 Usługi Microsoft Cloud są używane we wszystkich trzech modelach chmur: IaaS, PaaS, SaaS. Poniżej znajdują się przykłady ich dopasowania do poszczególnych modeli:
 
-- Usługi oprogramowania, określane jako oprogramowanie jako serwer lub SaaS, które mają aplikację dostarczoną przez chmurę, taką jak Office 365.
+- Usługi oprogramowania, określane jako oprogramowanie jako serwer lub SaaS, które zawierają aplikacje udostępniane przez chmurę, takie jak Microsoft 365.
 - Usługi platformy, do których klienci wykorzystują chmurę w swoich aplikacjach, przy użyciu chmury dla takich elementów jak Storage, Analytics i Service Bus.
 - Usługi infrastruktury lub infrastruktura jako usługa (IaaS), w której klienci wdrażają systemy operacyjne i aplikacje hostowane w chmurze i mogą korzystać z innych usług w chmurze.
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Szyfrowanie w spoczynku dla klientów SaaS
 
-Klienci korzystający z oprogramowania jako usługi (SaaS) zazwyczaj mają szyfrowanie włączone lub dostępne w każdej usłudze. Pakiet Office 365 ma kilka opcji umożliwiających klientom Weryfikowanie lub Włączanie szyfrowania w stanie spoczynku. Aby uzyskać informacje o usługach Office 365, zobacz [szyfrowanie w pakiecie Office 365](https://docs.microsoft.com/office365/securitycompliance/encryption).
+Klienci korzystający z oprogramowania jako usługi (SaaS) zazwyczaj mają szyfrowanie włączone lub dostępne w każdej usłudze. W Microsoft 365 dostępne są różne opcje umożliwiające klientom Weryfikowanie lub Włączanie szyfrowania w stanie spoczynku. Aby uzyskać informacje na temat usług Microsoft 365 Services, zobacz [szyfrowanie w programie Microsoft 365](/microsoft-365/compliance/encryption).
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Szyfrowanie w spoczynku dla klientów PaaS
 

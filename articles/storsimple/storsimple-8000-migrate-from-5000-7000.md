@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0fc18c6d67935889b0ba0c306dc326eca3b888f5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184299"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398190"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrowanie danych z serii StorSimple 5000-7000 do urządzenia z serii 8000
 
@@ -80,8 +80,8 @@ Przed rozpoczęciem migracji upewnij się, że:
 
     ![Sprawdź wersję oprogramowania na starszych urządzeniach](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * Jeśli na urządzeniu działającym na żywo nie jest uruchomiony program 2.1.1.518 lub nowszy, Uaktualnij system do wymaganej minimalnej wersji. Aby uzyskać szczegółowe instrukcje, zapoznaj się z artykułem [Uaktualnij system do wersji v 2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
-    * Jeśli używasz programu v 2.1.1.518, przejdź do interfejsu użytkownika sieci Web, aby sprawdzić, czy są jakieś powiadomienia o błędach przywracania rejestru. Jeśli przywracanie rejestru zakończyło się niepowodzeniem, uruchom przywracanie rejestru. Aby uzyskać więcej informacji, przejdź do jak [uruchomić przywracanie rejestru](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
+    * Jeśli na urządzeniu działającym na żywo nie jest uruchomiony program 2.1.1.518 lub nowszy, Uaktualnij system do wymaganej minimalnej wersji. Może być konieczne współdziałanie z pomoc techniczna firmy Microsoft, aby ułatwić wykonanie uaktualnienia.
+    * Jeśli używasz programu v 2.1.1.518, przejdź do interfejsu użytkownika sieci Web, aby sprawdzić, czy są jakieś powiadomienia o błędach przywracania rejestru. Jeśli przywracanie rejestru zakończyło się niepowodzeniem, uruchom przywracanie rejestru. Może być konieczne współdziałanie z pomoc techniczna firmy Microsoft, aby ułatwić przywrócenie rejestru.
     * Jeśli masz wyłączone urządzenie, na którym nie uruchomiono programu 2.1.1.518, wykonaj przejście w tryb failover na urządzenie zastępcze z systemem 2.1.1.518. Szczegółowe instrukcje znajdują się w dokumencie DR of 5000/7000 Series StorSimple.
     * Wykonaj kopię zapasową danych urządzenia, wykonując migawkę w chmurze.
     * Sprawdź inne aktywne zadania tworzenia kopii zapasowej uruchomione na urządzeniu źródłowym. Obejmuje to zadania na hoście konsoli ochrony danych StorSimple. Poczekaj na zakończenie bieżących zadań.
@@ -136,12 +136,12 @@ Wykonaj następujące kroki, aby zainstalować narzędzie do migracji StorSimple
     ```
 2. Edytuj wartości odpowiadające kluczom i Zamień na:
 
-    * `UserName`— Nazwa użytkownika, aby zalogować się do Azure Portal.
-    * `SubscriptionName and SubscriptionId`— Nazwa i Identyfikator subskrypcji platformy Azure. Na stronie docelowa usługi StorSimple Menedżer urządzeń w obszarze **Ogólne**kliknij pozycję **Właściwości**. Skopiuj nazwę subskrypcji i Identyfikator subskrypcji skojarzonej z usługą.
-    * `ResourceName`— Nazwa usługi StorSimple Menedżer urządzeń w Azure Portal. Podano również w obszarze właściwości usługi.
-    * `ResourceGroup`— Nazwa grupy zasobów skojarzonej z usługą StorSimple Menedżer urządzeń w Azure Portal. Podano również w obszarze właściwości usługi.
+    * `UserName` — Nazwa użytkownika, aby zalogować się do Azure Portal.
+    * `SubscriptionName and SubscriptionId` — Nazwa i Identyfikator subskrypcji platformy Azure. Na stronie docelowa usługi StorSimple Menedżer urządzeń w obszarze **Ogólne**kliknij pozycję **Właściwości**. Skopiuj nazwę subskrypcji i Identyfikator subskrypcji skojarzonej z usługą.
+    * `ResourceName` — Nazwa usługi StorSimple Menedżer urządzeń w Azure Portal. Podano również w obszarze właściwości usługi.
+    * `ResourceGroup` — Nazwa grupy zasobów skojarzonej z usługą StorSimple Menedżer urządzeń w Azure Portal. Podano również w obszarze właściwości usługi.
     ![Sprawdź właściwości usługi dla urządzenia docelowego](media/storsimple-8000-migrate-from-5000-7000/check-service-properties1.png)
-    * `TenantId`— Azure Active Directory identyfikator dzierżawy w Azure Portal. Zaloguj się do Microsoft Azure jako administrator. W Microsoft Azure Portal kliknij pozycję **Azure Active Directory**. W obszarze **Zarządzanie** kliknij przycisk **Właściwości**. Identyfikator dzierżawy jest wyświetlany w polu **Identyfikator katalogu** .
+    * `TenantId` — Azure Active Directory identyfikator dzierżawy w Azure Portal. Zaloguj się do Microsoft Azure jako administrator. W Microsoft Azure Portal kliknij pozycję **Azure Active Directory**. W obszarze **Zarządzanie** kliknij przycisk **Właściwości**. Identyfikator dzierżawy jest wyświetlany w polu **Identyfikator katalogu** .
     ![Sprawdź identyfikator dzierżawy dla Azure Active Directory](media/storsimple-8000-migrate-from-5000-7000/check-tenantid-aad.png)
 
 3.  Zapisz zmiany wprowadzone w pliku konfiguracji.

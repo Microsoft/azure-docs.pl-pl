@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 50ca6eacc7e75a3ff391401e7ced0e3583f1a285
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357577"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397763"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Zamiana mowy na tekst często zadawanych pytań
 
@@ -152,17 +152,17 @@ Odp **.: to**zależy od tego, jak różne słownictwo i frazy używane w aplikac
 
 Odp **.:** przekazanie listy wyrazów spowoduje dodanie wyrazów do słownika, ale nie uczy się, w jaki sposób wyrazy są zwykle używane. Dostarczając pełne lub częściowe wyrażenia długości (zdania lub frazy, które użytkownicy mogą powiedzieć), model języka może poznać nowe wyrazy i sposób ich użycia. Niestandardowy model języka jest dobry nie tylko w przypadku dodawania nowych słów do systemu, ale również do dostosowywania prawdopodobieństwa znanych wyrazów dla aplikacji. Zapewnienie pełnej wyrażenia długości pomaga lepiej poznać system.
 
-## <a name="tenant-model-custom-speech-with-office-365-data"></a>Model dzierżawców (Custom Speech z danymi pakietu Office 365)
+## <a name="tenant-model-custom-speech-with-microsoft-365-data"></a>Model dzierżawy (Custom Speech z danymi Microsoft 365)
 
 **P: jakie informacje znajdują się w modelu dzierżawców i jak zostało utworzone?**
 
-Odp **.:** Model dzierżawy jest tworzony przy użyciu [publicznych grup](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) wiadomości e-mail i dokumentów, które mogą być widoczne dla wszystkich użytkowników w organizacji.
+Odp **.:** Model dzierżawy jest tworzony przy użyciu [publicznych grup](https://support.microsoft.com/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) wiadomości e-mail i dokumentów, które mogą być widoczne dla wszystkich użytkowników w organizacji.
 
 **P: jakie środowiska mowy zostały ulepszone przez model dzierżawców?**
 
 Odp **.:** Gdy model dzierżawy jest włączony, tworzony i publikowany, służy do ulepszania rozpoznawania dla dowolnych aplikacji przedsiębiorstwa utworzonych przy użyciu usługi Speech. to również przekazywanie użytkownikowi tokenu usługi Azure AD wskazującego na członkostwo w przedsiębiorstwie.
 
-Funkcje mowy wbudowane w pakiet Office 365, takie jak dyktowanie i podpisy programu PowerPoint, nie ulegają zmianie podczas tworzenia modelu dzierżawców dla aplikacji usługi Speech.
+Funkcje mowy wbudowane w Microsoft 365, takie jak dyktowanie i podpisy programu PowerPoint, nie ulegają zmianie podczas tworzenia modelu dzierżawców dla aplikacji usługi Speech.
 
 ## <a name="next-steps"></a>Następne kroki
 

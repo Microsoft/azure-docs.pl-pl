@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 6ca03e56d49d26fcd34a25ce1e3734db65b19b65
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646833"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398018"
 ---
 # <a name="create-a-consulting-service-offer"></a>Tworzenie oferty usługi konsultingowej
 
@@ -25,7 +25,7 @@ Przed utworzeniem oferty zapoznaj się z wymaganiami wstępnymi dotyczącymi [wy
 Zalety publikowania na komercyjnej witrynie Marketplace:
 
 - Promuj swoją firmę przy użyciu marki Microsoft.
-- Może dotrzeć do ponad 100 000 000 użytkowników pakietu Office 365 i Dynamics 365 na AppSource i więcej niż 200 000 organizacje za pomocą witryny Azure Marketplace.
+- Może dotrzeć do ponad 100 000 000 Microsoft 365 i użytkowników usługi Dynamics 365 w AppSource i więcej niż 200 000 organizacje w witrynie Azure Marketplace.
 - Odbieraj wysokiej jakości potencjalni klienci z tych rynków.
 - Czy Twoje usługi są promowane przez zespoły pól i telesprzedaży firmy Microsoft
 

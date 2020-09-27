@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 12a187b29737ba9388d9b33ac8bcfedf1339c059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd8c2d68ae5c91f1319fba32ea0eb52ae389751a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253787"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398767"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Rozpocznij pracę z SQL Database dynamiczną maskowanie danych przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,20 +32,20 @@ W tym artykule pokazano, jak zaimplementować [Dynamiczne maskowanie danych](dyn
 2. Przejdź do strony Ustawienia w bazie danych, która zawiera poufne dane, które mają być maskowane.
 3. Kliknij blok **Dynamiczne maskowanie danych** w sekcji **zabezpieczenia** bazy danych.
 
-   ![Okienko nawigacji](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
+   ![Zrzut ekranu przedstawiający sekcję zabezpieczenia z wyróżnioną dynamiczną maską danych.](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
 
 4. Na stronie Konfiguracja **dynamicznego maskowania danych** mogą pojawić się pewne kolumny bazy danych, które zostały oflagowane przez aparat zaleceń w celu maskowania. Aby zaakceptować zalecenia, po prostu kliknij pozycję **Dodaj maskę** dla co najmniej jednej kolumny, a na podstawie domyślnego typu dla tej kolumny zostanie utworzona maska. Funkcję maskowania można zmienić, klikając regułę maskowania i edytując format pola maskowania w innym wybranym formacie. Kliknij przycisk **Zapisz** , aby zapisać ustawienia.
 
-    ![Okienko nawigacji](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
+    ![Zrzut ekranu przedstawiający stronę konfiguracji dynamicznego maskowania danych.](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
 
 5. Aby dodać maskę dla dowolnej kolumny w bazie danych, w górnej części strony Konfiguracja **dynamicznego maskowania danych** kliknij pozycję **Dodaj maskę** , aby otworzyć stronę **Dodawanie konfiguracji reguły maskowania** .
 
-    ![Okienko nawigacji](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
+    ![Zrzut ekranu przedstawiający stronę Dodawanie konfiguracji reguły maskowania.](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
 6. Wybierz **schemat**, **tabelę** i **kolumnę** , aby zdefiniować wyznaczono pole do maskowania.
 7. **Wybierz sposób maskowania** z listy kategorii poufne maskowanie danych.
 
-    ![Okienko nawigacji](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
+    ![Zrzut ekranu przedstawiający kategorie z maską danych poufnych w sekcji Wybierz sposób maskowania.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
 
 8. Kliknij przycisk **Dodaj** na stronie reguły maskowania danych, aby zaktualizować zestaw reguł maskowania w zasadach dynamicznego maskowania danych.
 9. Wpisz tożsamości użytkowników SQL lub Azure Active Directory (Azure AD), które mają być wykluczone z maskowania, i uzyskaj dostęp do niemaskowanych danych poufnych. Powinna to być rozdzielana średnikami lista użytkowników. Użytkownicy z uprawnieniami administratora mają zawsze dostęp do pierwotnych niemaskowanych danych.

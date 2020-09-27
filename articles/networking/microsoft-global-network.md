@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280906"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398393"
 ---
 # <a name="microsoft-global-network"></a>Globalna sieć firmy Microsoft
 
 Firma Microsoft jest właścicielem i obsługuje jedną z największych sieci szkieletowych na świecie. Ta globalna i rozbudowana architektura obejmująca ponad 160 000 kilometrów łączy nasze centra danych i klientów. 
  
-Codziennie klienci na całym świecie łączą i przekazują biliony żądań do Microsoft Azure, Bing, Dynamics 365, Office 365, XBox i wielu innych. Niezależnie od typu klienci oczekują natychmiastowej niezawodności i czasu reakcji z naszych usług. 
+Codziennie klienci na całym świecie łączą i przekazują biliony żądań do Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox i wielu innych. Niezależnie od typu klienci oczekują natychmiastowej niezawodności i czasu reakcji z naszych usług. 
  
 [Sieć globalna firmy Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) jest centralną częścią dostarczania doskonałego środowiska w chmurze. Dzięki połączeniu naszych [centrów danych](https://azure.microsoft.com/global-infrastructure/) firmy Microsoft w regionach platformy Azure w wysokości 54 i dużych oczkach, które są dostosowywane strategicznie na całym świecie, Nasza sieć globalna oferuje dostępność, pojemność i elastyczność, aby sprostać wymaganiom.
 

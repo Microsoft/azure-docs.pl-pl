@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 89282b0cc07f210e7bbf80503c9dbef5f97b13a2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891481"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397338"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Co to jest link usługi Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)?
 
@@ -104,7 +104,7 @@ Aby uzyskać więcej informacji o obsłudze środowiska uruchomieniowego usługi
 
 Łącze Synapse jest zalecane w następujących przypadkach:
 
-* Jeśli jesteś Azure Cosmos DB klientem i chcesz uruchamiać analizy, analizy biznesowej i uczenia maszynowego na danych operacyjnych. W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko analityczne bez wpływu na przepływność zainicjowaną przez magazyn transakcyjny. Przykład:
+* Jeśli jesteś Azure Cosmos DB klientem i chcesz uruchamiać analizy, analizy biznesowej i uczenia maszynowego na danych operacyjnych. W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko analityczne bez wpływu na przepływność zainicjowaną przez magazyn transakcyjny. Na przykład:
 
   * Jeśli używasz analizy lub analizy biznesowej Azure Cosmos DB danych operacyjnych bezpośrednio przy użyciu osobnych łączników, lub
 
@@ -116,7 +116,7 @@ W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko 
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Usługa Azure Synapse link jest obsługiwana Azure Cosmos DB dla interfejsu API SQL (Core) i interfejsu API Azure Cosmos DB dla MongoDB. Obsługa interfejs API Cassandra jest obecnie objęta testową wersją zapoznawczą. Aby zażądać dostępu do warunkowej wersji zapoznawczej, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+* Usługa Azure Synapse link jest obsługiwana Azure Cosmos DB dla interfejsu API SQL (Core) i interfejsu API Azure Cosmos DB dla MongoDB.
 
 * Obecnie magazyn analityczny można włączyć tylko dla nowych kontenerów. Aby używać magazynu analitycznego dla istniejących kontenerów, Migruj dane z istniejących kontenerów do nowych kontenerów za pomocą [narzędzi do migracji Azure Cosmos DB](cosmosdb-migrationchoices.md). Link Synapse można włączyć na nowych i istniejących kontach Azure Cosmos DB.
 

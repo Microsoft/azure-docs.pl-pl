@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4c39a24664d36e4a69a44b7fe06835572e0cfe75
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b07ed4589a54948ef87f516ac4bb97ef8492283e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329248"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398839"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrowanie do usługi Azure Virtual WAN
 
@@ -72,7 +72,7 @@ Podsumowanie:
 - Koncentratory zapewniają również zakończenie sieci VPN dla użytkowników mobilnych w wielu typach klientów korzystających z łączności OpenVPN z siecią globalnej siatki, co umożliwia dostęp do nie tylko aplikacji migrowanych do platformy Azure, ale również wszelkich zasobów pozostających w środowisku lokalnym.
 - Łączność z Internetem dla zasobów w sieci wirtualnej udostępnianych przez wirtualną sieć WAN platformy Azure.
 
-Łączność z Internetem dla witryn zdalnych zapewniana również przez wirtualną sieć WAN platformy Azure. Lokalne zagadnień internetowe obsługiwane przez integrację z partnerami w celu zoptymalizowania dostępu do usług SaaS, takich jak Office 365.
+Łączność z Internetem dla witryn zdalnych zapewniana również przez wirtualną sieć WAN platformy Azure. Lokalne zagadnień internetowe obsługiwane przez integrację partnerów w celu zoptymalizowanego dostępu do usług SaaS, takich jak Microsoft 365.
 
 ## <a name="migrate-to-virtual-wan"></a>Migrowanie do usługi Virtual WAN
 

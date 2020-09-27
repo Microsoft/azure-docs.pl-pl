@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8809b5fdce382b7c8f913823ca8e176226d5837b
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: b85f1d8bd7249ad26ff957a72a9cc7285158caba
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536178"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397729"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Role administratora klasycznej subskrypcji, role platformy Azure i role usługi Azure AD
 
@@ -122,12 +122,12 @@ Na wysokim poziomie role platformy Azure kontrolują uprawnienia do zarządzania
 
 Domyślnie role platformy Azure i role usługi Azure AD nie obejmują platformy Azure i usługi Azure AD. Jeśli jednak Administrator globalny Podnieś poziom dostępu, wybierając w Azure Portal przełącznik **Zarządzanie dostępem dla zasobów platformy Azure** , Administrator globalny otrzyma rolę [administratora dostępu użytkowników](built-in-roles.md#user-access-administrator) (rolę platformy Azure) we wszystkich subskrypcjach dla danej dzierżawy. Rola administratora dostępu użytkowników pozwala użytkownikom udzielać innym użytkownikom dostępu do zasobów platformy Azure. Ten przełącznik może być przydatny w odzyskaniu dostępu do subskrypcji. Aby uzyskać więcej informacji, zobacz [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami i grupami zarządzania platformy Azure](elevate-access-global-admin.md).
 
-Kilka ról usługi Azure AD obejmuje usługę Azure AD i Microsoft Office 365, takie jak role administratora globalnego i administratora użytkowników. Jeśli na przykład należysz do roli administratora globalnego, masz możliwości administratora globalnego w usłudze Azure AD oraz w usłudze Office 365 i możesz m.in. dokonywać zmian w programach Microsoft Exchange i Microsoft SharePoint. Jednak domyślnie administrator globalny nie ma dostępu do zasobów platformy Azure.
+Kilka ról usługi Azure AD obejmuje usługę Azure AD i Microsoft 365, takie jak role administratora globalnego i administratora. Na przykład jeśli jesteś członkiem roli administratora globalnego, masz uprawnienia administratora globalnego w usłudze Azure AD i Microsoft 365, takie jak wprowadzanie zmian w programie Microsoft Exchange i Microsoft SharePoint. Jednak domyślnie administrator globalny nie ma dostępu do zasobów platformy Azure.
 
 ![Role RBAC platformy Azure a usługi Azure AD](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?](overview.md)
-- [Uprawnienia ról administratorów w usłudze Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Uprawnienia roli administratora w usłudze Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [Klasyczni administratorzy subskrypcji platformy Azure](classic-administrators.md)

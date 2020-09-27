@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 236b69b1e10eb80b9c0a5e27b213eb3972209346
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 67eeb181f64f5924a90fd2c03e39e1be9887dd2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361045"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397168"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Sterowanie ruchem wychodzącym węzłów klastra w usłudze Azure Kubernetes Service (AKS)
 
@@ -205,10 +205,7 @@ Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów
 | `storage.googleapis.com` | **`HTTPS:443`** | Ten adres służy do ściągania obrazów Helm/do odczekania |
 
 
-### <a name="azure-policy-preview"></a>Azure Policy (wersja zapoznawcza)
-
-> [!CAUTION]
-> Niektóre z tych funkcji znajdują się w wersji zapoznawczej.  Sugestie przedstawione w tym artykule mogą ulec zmianie, gdy ta funkcja zostanie przeniesiona do publicznej wersji zapoznawczej i przyszłych etapów wydania.
+### <a name="azure-policy"></a>Azure Policy
 
 #### <a name="required-fqdn--application-rules"></a>Wymagana nazwa FQDN/reguły aplikacji 
 
@@ -219,7 +216,6 @@ Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane dla klastrów
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Ten adres jest używany do poprawnego działania Azure Policy. (obecnie w wersji zapoznawczej w AKS) |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Ten adres służy do ściągania wbudowanych zasad z usługi GitHub w celu zapewnienia prawidłowego działania Azure Policy. (obecnie w wersji zapoznawczej w AKS) |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy dodatek, który wysyła dane telemetryczne do punktu końcowego usługi Application Insights. |
-
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Ogranicz ruch wychodzący przy użyciu zapory platformy Azure
 

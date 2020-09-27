@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 27fec8b8b76bec4c5ac428258b1495fc1bef1abe
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3ae9c99187e54ae941cc5f96d144b6db8ec91980
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068970"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396505"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Włączanie Azure Active Directory Domain Services przy użyciu programu PowerShell
 
@@ -82,7 +82,7 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
-## <a name="create-supporting-azure-resources"></a>Tworzenie pomocniczych zasobów platformy Azure
+## <a name="create-network-resources"></a>Tworzenie zasobów sieciowych
 
 Najpierw Zarejestruj dostawcę zasobów Azure AD Domain Services za pomocą polecenia cmdlet [register-AzResourceProvider][Register-AzResourceProvider] :
 
@@ -108,12 +108,14 @@ Utwórz podsieci przy użyciu polecenia cmdlet [New-AzVirtualNetworkSubnetConfig
 
 ```powershell
 $VnetName = "myVnet"
+$SubnetName = "DomainServices"
 
-# Create the dedicated subnet for AAD Domain Services.
+# Create the dedicated subnet for Azure AD Domain Services.
 $AaddsSubnet = New-AzVirtualNetworkSubnetConfig `
-  -Name DomainServices `
+  -Name $SubnetName `
   -AddressPrefix 10.0.0.0/24
 
+# Create an additional subnet for your own VM workloads
 $WorkloadSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name Workloads `
   -AddressPrefix 10.0.1.0/24
@@ -125,6 +127,68 @@ $Vnet= New-AzVirtualNetwork `
   -Name $VnetName `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $AaddsSubnet,$WorkloadSubnet
+```
+
+### <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
+
+Aby zabezpieczyć porty wymagane dla domeny zarządzanej i zablokować cały ruch przychodzący, usługa Azure AD DS wymaga sieciowej grupy zabezpieczeń. [Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń)][nsg-overview] zawiera listę reguł, które zezwalają na ruch sieciowy w sieci wirtualnej platformy Azure lub odmawiają go. W usłudze Azure AD DS Grupa zabezpieczeń sieci działa jako dodatkowa warstwa ochrony, która blokuje dostęp do domeny zarządzanej. Aby wyświetlić wymagane porty, zobacz [sieciowe grupy zabezpieczeń i wymagane porty][network-ports].
+
+Następujące polecenia cmdlet programu PowerShell wykorzystują polecenie [New-AzNetworkSecurityRuleConfig][New-AzNetworkSecurityRuleConfig] do tworzenia reguł, a następnie tworzenia sieciowej grupy zabezpieczeń w programie [New-AzNetworkSecurityGroup][New-AzNetworkSecurityGroup] . Sieciowe grupy zabezpieczeń i reguły są następnie skojarzone z podsiecią sieci wirtualnej przy użyciu polecenia cmdlet [Set-AzVirtualNetworkSubnetConfig][Set-AzVirtualNetworkSubnetConfig] .
+
+```powershell
+$NSGName = "aaddsNSG"
+
+# Create a rule to allow inbound TCP port 443 traffic for synchronization with Azure AD
+$nsg101 = New-AzNetworkSecurityRuleConfig `
+    -Name AllowSyncWithAzureAD `
+    -Access Allow `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 101 `
+    -SourceAddressPrefix AzureActiveDirectoryDomainServices `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 443
+
+# Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
+$nsg201 = New-AzNetworkSecurityRuleConfig -Name AllowRD `
+    -Access Allow `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 201 `
+    -SourceAddressPrefix CorpNetSaw `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 3389
+
+# Create a rule to allow TCP port 5986 traffic for PowerShell remote management
+$nsg301 = New-AzNetworkSecurityRuleConfig -Name AllowPSRemoting `
+    -Access Allow `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 301 `
+    -SourceAddressPrefix AzureActiveDirectoryDomainServices `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 5986
+
+# Create the network security group and rules
+$nsg = New-AzNetworkSecurityGroup -Name $NSGName `
+    -ResourceGroupName $ResourceGroupName `
+    -Location $AzureLocation `
+    -SecurityRules $nsg101,$nsg201,$nsg301
+
+# Get the existing virtual network resource objects and information
+$vnet = Get-AzVirtualNetwork -Name $VnetName
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $SubnetName
+$addressPrefix = $subnet.AddressPrefix
+
+# Associate the network security group with the virtual network subnet
+Set-AzVirtualNetworkSubnetConfig -Name $SubnetName `
+    -VirtualNetwork $vnet `
+    -AddressPrefix $addressPrefix `
+    -NetworkSecurityGroup $nsg
+$vnet | Set-AzVirtualNetwork
 ```
 
 ## <a name="create-a-managed-domain"></a>Tworzenie domeny zarządzanej
@@ -155,8 +219,6 @@ Gdy Azure Portal pokazuje, że domena zarządzana zakończyła Inicjowanie obsł
 
 * Zaktualizuj ustawienia DNS dla sieci wirtualnej, aby maszyny wirtualne mogły znaleźć domenę zarządzaną do przyłączania do domeny lub uwierzytelniania.
     * Aby skonfigurować serwer DNS, wybierz domenę zarządzaną w portalu. W oknie **Przegląd** zostanie wyświetlony monit o automatyczne skonfigurowanie tych ustawień DNS.
-* Utwórz sieciową grupę zabezpieczeń, aby ograniczyć ruch w sieci wirtualnej dla domeny zarządzanej. Tworzony jest standardowy moduł równoważenia obciążenia platformy Azure, który wymaga wprowadzenia tych reguł. Ta sieciowa Grupa zabezpieczeń zabezpiecza AD DS platformy Azure i jest wymagana do poprawnego działania domeny zarządzanej.
-    * Aby utworzyć sieciową grupę zabezpieczeń i wymagane reguły, najpierw zainstaluj `New-AzureAddsNetworkSecurityGroup` skrypt za pomocą `Install-Script -Name New-AaddsNetworkSecurityGroup` polecenia, a następnie uruchom polecenie `New-AaddsNetworkSecurityGroup` . Dla Ciebie są tworzone wymagane reguły dla domeny zarządzanej.
 * [Włącz synchronizację haseł w usłudze Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) , aby użytkownicy końcowi mogli logować się do domeny zarządzanej przy użyciu swoich poświadczeń firmowych.
 
 ## <a name="complete-powershell-script"></a>Ukończ skrypt programu PowerShell
@@ -242,8 +304,6 @@ Gdy Azure Portal pokazuje, że domena zarządzana zakończyła Inicjowanie obsł
 
 * Zaktualizuj ustawienia DNS dla sieci wirtualnej, aby maszyny wirtualne mogły znaleźć domenę zarządzaną do przyłączania do domeny lub uwierzytelniania.
     * Aby skonfigurować serwer DNS, wybierz domenę zarządzaną w portalu. W oknie **Przegląd** zostanie wyświetlony monit o automatyczne skonfigurowanie tych ustawień DNS.
-* Utwórz sieciową grupę zabezpieczeń, aby ograniczyć ruch w sieci wirtualnej dla domeny zarządzanej. Tworzony jest standardowy moduł równoważenia obciążenia platformy Azure, który wymaga wprowadzenia tych reguł. Ta sieciowa Grupa zabezpieczeń zabezpiecza AD DS platformy Azure i jest wymagana do poprawnego działania domeny zarządzanej.
-    * Aby utworzyć sieciową grupę zabezpieczeń i wymagane reguły, najpierw zainstaluj `New-AzureAddsNetworkSecurityGroup` skrypt za pomocą `Install-Script -Name New-AaddsNetworkSecurityGroup` polecenia, a następnie uruchom polecenie `New-AaddsNetworkSecurityGroup` . Dla Ciebie są tworzone wymagane reguły dla domeny zarządzanej.
 * [Włącz synchronizację haseł w usłudze Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) , aby użytkownicy końcowi mogli logować się do domeny zarządzanej przy użyciu swoich poświadczeń firmowych.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -254,6 +314,8 @@ Aby wyświetlić domenę zarządzaną w działaniu, można [przyłączyć do dom
 [windows-join]: join-windows-vm.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-phs]: tutorial-configure-password-hash-sync.md
+[nsg-overview]: ../virtual-network/network-security-groups-overview.md
+[network-ports]: network-considerations.md#network-security-groups-and-required-ports
 
 <!-- EXTERNAL LINKS -->
 [Connect-AzAccount]: /powershell/module/Az.Accounts/Connect-AzAccount
@@ -270,3 +332,6 @@ Aby wyświetlić domenę zarządzaną w działaniu, można [przyłączyć do dom
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
 [cloud-shell]: ../cloud-shell/cloud-shell-windows-users.md
 [availability-zones]: ../availability-zones/az-overview.md
+[New-AzNetworkSecurityRuleConfig]: /powershell/module/az.network/new-aznetworksecurityruleconfig
+[New-AzNetworkSecurityGroup]: /powershell/module/az.network/new-aznetworksecuritygroup
+[Set-AzVirtualNetworkSubnetConfig]: /powershell/module/az.network/set-azvirtualnetworksubnetconfig

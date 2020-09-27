@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 8fba7245475c9873a3e2d3abeda4806d1376e7ca
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: be45292552a7ac62c7131c637b044edc477328e2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300038"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396794"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Szybki Start: Tworzenie usługi Azure Wyszukiwanie poznawcze poznawcze zestawu umiejętności w Azure Portal
 
@@ -50,7 +50,7 @@ W poniższych krokach skonfiguruj kontener obiektów BLOB w usłudze Azure Stora
 
 1. W kontenerze kliknij pozycję **Przekaż** , aby przekazać pliki przykładowe pobrane w pierwszym kroku. Należy zauważyć, że masz szeroką gamę typów zawartości, w tym obrazy i pliki aplikacji, które nie umożliwiają wyszukiwania pełnotekstowego w ich formatach natywnych.
 
-   ![Pliki źródłowe w usłudze Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Pliki źródłowe w usłudze Azure Blob Storage" border="false":::
 
 Teraz można przystąpić do przenoszenia Kreatora importu danych.
 
@@ -60,13 +60,13 @@ Teraz można przystąpić do przenoszenia Kreatora importu danych.
 
 1. [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) i na stronie Przegląd kliknij pozycję **Importuj dane** na pasku poleceń, aby skonfigurować wzbogacanie poznawcze w czterech krokach.
 
-   ![Polecenie importu danych](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="Polecenie importu danych" border="false":::
 
 ### <a name="step-1---create-a-data-source"></a>Krok 1. Tworzenie źródła danych
 
 1. W obszarze **Połącz z danymi**wybierz pozycję **Azure Blob Storage**, wybierz utworzone konto magazynu i kontener. Podaj nazwę źródła danych i użyj wartości domyślnych dla pozostałych ustawień. 
 
-   ![Konfiguracja obiektu blob platformy Azure](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Konfiguracja obiektu blob platformy Azure" border="false":::
 
     Przejdź do następnej strony.
 
@@ -76,7 +76,7 @@ Następnie skonfiguruj wzbogacanie AI, aby wywoływać OCR, analizę obrazów i 
 
 1. W tym przewodniku szybki start korzystamy z **bezpłatnego** zasobu Cognitive Services. Przykładowe dane składają się z 14 plików, więc w tym przewodniku szybki start wystarcza bezpłatny przydział 20 transakcji na Cognitive Services. 
 
-   ![Dołącz Cognitive Services Dołącz usługę podstawową](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Dołącz Cognitive Services Dołącz usługę podstawową" border="false":::
 
 1. Rozwiń pozycję **Dodaj wzbogacania** i dokonaj czterech zaznaczeń. 
 
@@ -86,7 +86,7 @@ Następnie skonfiguruj wzbogacanie AI, aby wywoływać OCR, analizę obrazów i 
 
    Wybierz pozycję Rozpoznawanie jednostek (ludzie, organizacje, lokalizacje) i analiza obrazu.
 
-   ![Dołącz Cognitive Services wybierz usługi dla zestawu umiejętności](media/cognitive-search-quickstart-blob/skillset.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="Dołącz Cognitive Services wybierz usługi dla zestawu umiejętności" border="false":::
 
    Przejdź do następnej strony.
 
@@ -102,9 +102,9 @@ W przypadku tego przewodnika Szybki start kreator wykonuje dobrą pracę, ustawi
 
 + Domyślne atrybuty są do **pobierania** i **wyszukiwania**. **Wyszukiwanie** umożliwia wyszukiwanie pełnotekstowe w polu. Pobieranie **oznacza,** że wartości pól mogą być zwracane w wynikach. W kreatorze przyjęto założenie, że chcesz, aby te pola oferowały możliwości pobierania i wyszukiwania, ponieważ zostały utworzone za pośrednictwem zestawu umiejętności.
 
-  ![Pola indeksu](media/cognitive-search-quickstart-blob/index-fields.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Pola indeksu" border="false":::
 
-Zwróć uwagę na przekreślenie i znak zapytania w atrybucie **Możliwość pobierania** obok pola `content`. W przypadku dokumentów obiektów blob z dużą ilością tekstu pole `content` zawiera większą część pliku, która może potencjalnie składać się z tysięcy wierszy. Takie pole jest nieporęczny w wynikach wyszukiwania i należy je wykluczyć dla tej wersji demonstracyjnej. 
+Zwróć uwagę na przekreślenie i znak zapytania w atrybucie możliwym do **pobierania** według `content` pola. W przypadku dokumentów obiektów blob z dużą ilością tekstu pole `content` zawiera większą część pliku, która może potencjalnie składać się z tysięcy wierszy. Takie pole jest nieporęczny w wynikach wyszukiwania i należy je wykluczyć dla tej wersji demonstracyjnej. 
 
 Jeśli jednak chcesz przekazać zawartość pliku do kodu klienta, upewnij się, że wybrano opcję **pobierania** . W przeciwnym razie Rozważ wyczyszczenie tego atrybutu w `content` przypadku, gdy wyodrębnione elementy (takie jak `people` ,, `organizations` `locations` i tak dalej) są wystarczające.
 
@@ -118,7 +118,7 @@ Indeksator jest procesem wysokiego poziomu sterującym procesem indeksowania. Ok
 
 1. Na stronie **indeksatora** można zaakceptować nazwę domyślną i kliknąć opcję harmonogramu **jednokrotnego** , aby natychmiast uruchomić ją. 
 
-   ![Definicja indeksatora](media/cognitive-search-quickstart-blob/indexer-def.png)
+   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Definicja indeksatora" border="false":::
 
 1. Kliknij przycisk **Prześlij**, aby utworzyć i od razu uruchomić indeksator.
 
@@ -126,7 +126,7 @@ Indeksator jest procesem wysokiego poziomu sterującym procesem indeksowania. Ok
 
 Indeksowanie umiejętności poznawcze trwa dłużej niż typowe indeksowanie tekstowe, w szczególności OCR i analiza obrazu. Aby monitorować postęp, przejdź do strony przegląd i kliknij pozycję **indeksatory** na środku strony.
 
-  ![Powiadomienie dotyczące usługi Azure Wyszukiwanie poznawcze](./media/cognitive-search-quickstart-blob/indexer-notification.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="Powiadomienie dotyczące usługi Azure Wyszukiwanie poznawcze" border="false":::
 
 Ostrzeżenia są zwykle nadawane szerokiemu zakresowi typów zawartości. Niektóre typy zawartości są nieprawidłowe dla pewnych umiejętności i niższych warstw, które często napotykają [limity indeksatora](search-limits-quotas-capacity.md#indexer-limits). Na przykład powiadomienia o obcięciu o 32 000 znaków są limitem indeksatora w warstwie Bezpłatna. Jeśli ten pokaz został uruchomiony w wyższej warstwie, wiele ostrzeżeń obcięcia wyjdzie.
 
@@ -134,11 +134,11 @@ Aby sprawdzić ostrzeżenia lub błędy, kliknij stan ostrzeżenia na liście in
 
 Na tej stronie kliknij ponownie pozycję stan ostrzeżenia, aby wyświetlić listę ostrzeżeń podobną do przedstawionego poniżej. 
 
-  ![Lista ostrzeżeń indeksatora](./media/cognitive-search-quickstart-blob/indexer-warnings.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-warnings.png" alt-text="Lista ostrzeżeń indeksatora" border="false":::
 
 Szczegóły są wyświetlane po kliknięciu określonego wiersza stanu. To ostrzeżenie oznacza, że scalanie zostało zatrzymane po osiągnięciu maksymalnego progu (ten konkretny plik PDF jest duży).
 
-  ![Szczegóły ostrzeżenia](./media/cognitive-search-quickstart-blob/warning-detail.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/warning-detail.png" alt-text="Szczegóły ostrzeżenia" border="false":::
 
 ## <a name="query-in-search-explorer"></a>Zapytanie w Eksploratorze wyszukiwania
 
@@ -157,7 +157,7 @@ Wyniki są zwracane w formacie JSON, który może być pełny i trudny do odczyt
 
 Ciągi zapytania są rozróżniane wielkości liter, więc jeśli zostanie wyświetlony komunikat "nieznany pole", sprawdź **pola** lub **definicję indeksu (JSON)** , aby zweryfikować nazwę i wielkość liter. 
 
-  ![Przykład Eksploratora wyszukiwania](./media/cognitive-search-quickstart-blob/search-explorer.png)
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Przykład Eksploratora wyszukiwania" border="false":::
 
 ## <a name="takeaways"></a>Wnioski
 
@@ -173,7 +173,7 @@ Na koniec nauczysz się, że można zweryfikować zawartość, badając indeks. 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

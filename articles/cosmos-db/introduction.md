@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: bfac783fcb8ce88977fc8d97f821a7350f57aab8
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 4e9d632880b792d16ffe752a55396c649c6688e5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118580"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398822"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB — Zapraszamy!
 
@@ -56,7 +56,7 @@ Przechowywanie schematu i indeksów bazy danych w programie — synchronizacja z
 
 ### <a name="battle-tested-database-service"></a>Gruntownie przetestowana usługa bazy danych
 
-Usługa Cosmos DB to podstawowa usługa na platformie Azure. W przypadku niemal dekady Cosmos DB był używany przez wiele produktów firmy Microsoft dla aplikacji o znaczeniu strategicznym na skalę globalną, w tym Skype, Xbox, Office 365, Azure i wielu innych. Obecnie Cosmos DB jest jednym z najszybszych rosnących usług na platformie Azure, używanych przez wielu klientów zewnętrznych i aplikacji o kluczowym znaczeniu, które wymagają elastycznego skalowania, globalnej dystrybucji gotowe, replikacji wielu wzorców dla małych opóźnień i wysokiej dostępności zarówno operacji odczytu, jak i zapisu.
+Cosmos DB to fundamentalna usługa na platformie Azure. Prawie dekada Cosmos DB była używana przez wiele produktów firmy Microsoft dla aplikacji o znaczeniu strategicznym na skalę globalną, w tym Skype, Xbox, Microsoft 365, Azure i wielu innych. Obecnie Cosmos DB jest jednym z najszybszych rosnących usług na platformie Azure, używanych przez wielu klientów zewnętrznych i aplikacji o kluczowym znaczeniu, które wymagają elastycznego skalowania, globalnej dystrybucji gotowe, replikacji wielu wzorców dla małych opóźnień i wysokiej dostępności zarówno operacji odczytu, jak i zapisu.
 
 ### <a name="ubiquitous-regional-presence"></a>Szeroka dostępność w regionach
 
@@ -64,7 +64,7 @@ Usługa Cosmos DB jest dostępna we wszystkich regionach świadczenia usługi Az
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>Gwarancja bezpieczeństwa i przeznaczenie dla przedsiębiorstw
 
-Usługa Cosmos DB jest certyfikowana dla [szerokiej gamy standardów zgodności](compliance.md). Ponadto wszystkie dane w usłudze Cosmos DB są szyfrowane podczas magazynowania i w ruchu. Usługa Cosmos DB zapewnia autoryzację na poziomie wiersza i jest zgodna z rygorystycznymi standardami zabezpieczeń.
+Cosmos DB jest certyfikowany dla [szerokiej gamy standardów zgodności](compliance.md). Ponadto wszystkie dane w usłudze Cosmos DB są szyfrowane podczas magazynowania i przesyłania. Usługa Cosmos DB zapewnia autoryzację na poziomie wiersza i przestrzeganie rygorystycznych standardów zabezpieczeń.
 
 ### <a name="significant-tco-savings"></a>Znaczne oszczędności całkowitego kosztu posiadania
 

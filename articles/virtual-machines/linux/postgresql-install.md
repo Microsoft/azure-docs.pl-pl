@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 321f6bd6324613967001139e365d96521217d50b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fdde7613627c9fec0694f3985f78cf10e52f59c2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87267255"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397100"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalowanie i Konfigurowanie PostgreSQL na platformie Azure
 PostgreSQL to zaawansowana baza danych open source podobna do Oracle i DB2. Obejmuje ona funkcje gotowe dla przedsiębiorstwa, takie jak Pełna zgodność ze standardami KWASowymi, niezawodne przetwarzanie transakcyjne i wielostronicowa kontrola współbieżności. Obsługuje ona również standardy, takie jak ANSI SQL i SQL/MED (w tym obce otoki danych dla systemów Oracle, MySQL, MongoDB i wielu innych). Jest wysoce rozszerzalny z obsługą ponad 12 języków proceduralnych, indeksów ĄTEK i dzienników, obsługi danych przestrzennych i wielu funkcji podobnej do NoSQL dla aplikacji opartych na kluczach JSON lub wartościowych.
@@ -164,7 +164,7 @@ Nawiąż połączenie z maszyną wirtualną z systemem Linux utworzoną za pomoc
 
     Powinny pojawić się następujące dane wyjściowe:
 
-![image (obraz)](./media/postgresql-install/no1.png)
+![Zrzut ekranu pokazujący dane wyjściowe po zainicjowaniu bazy danych.](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>Konfigurowanie PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -185,7 +185,7 @@ Zmodyfikuj dwie zmienne w pliku/etc/init.d/PostgreSQL. Prefiks jest ustawiany na
 # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 ```
 
-![image (obraz)](./media/postgresql-install/no2.png)
+![Zrzut ekranu pokazujący prefiks instalacji i katalog danych.](./media/postgresql-install/no2.png)
 
 Zmień plik w taki sposób, aby był on wykonywalny:
 
@@ -207,7 +207,7 @@ Sprawdź, czy punkt końcowy elementu PostgreSQL jest włączony:
 
 Powinny zostać wyświetlone następujące dane wyjściowe:
 
-![image (obraz)](./media/postgresql-install/no3.png)
+![Zrzut ekranu pokazujący punkt końcowy PostgreSQL jest włączony.](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Łączenie z bazą danych Postgres
 Ponownie Przełącz do Postgres użytkownika:
@@ -246,11 +246,11 @@ Teraz można skonfigurować tabelę z czterema kolumnami z następującymi nazwa
 
 Jeśli tabela została pomyślnie utworzona, powinny zostać wyświetlone następujące elementy:
 
-![image (obraz)](./media/postgresql-install/no4.png)
+![Zrzut ekranu pokazujący komunikat wyświetlany po pomyślnym utworzeniu tabeli.](./media/postgresql-install/no4.png)
 
 Możesz również sprawdzić strukturę tabeli przy użyciu następującego polecenia:
 
-![image (obraz)](./media/postgresql-install/no5.png)
+![Zrzut ekranu pokazujący polecenie sprawdzania struktury tabeli.](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>Dodawanie danych do tabeli
 Najpierw Wstaw informacje do wiersza:
@@ -261,7 +261,7 @@ INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Cassero
 
 Powinny być widoczne następujące dane wyjściowe:
 
-![image (obraz)](./media/postgresql-install/no6.png)
+![Zrzut ekranu pokazujący dodane informacje o wierszu.](./media/postgresql-install/no6.png)
 
 Możesz również dodać kilka więcej osób do tabeli. Poniżej przedstawiono niektóre opcje lub można utworzyć własne:
 
@@ -282,7 +282,7 @@ select * from potluck;
 
 Dane wyjściowe wyglądają następująco:
 
-![image (obraz)](./media/postgresql-install/no7.png)
+![Zrzut ekranu pokazujący dane wyjściowe polecenia służącego do wyświetlania tabeli.](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Usuwanie danych w tabeli
 Użyj następującego polecenia, aby usunąć dane w tabeli:

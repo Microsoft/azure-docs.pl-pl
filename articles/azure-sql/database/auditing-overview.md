@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a7edbbb50777cc2d91332260c9ebe72be042874b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333192"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396250"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -86,7 +86,7 @@ W poniższej sekcji opisano konfigurację inspekcji przy użyciu Azure Portal.
 2. Przejdź do opcji **Inspekcja** pod nagłówkiem zabezpieczenia w okienku **bazy danych SQL** lub **SQL Server** .
 3. Jeśli wolisz skonfigurować zasady inspekcji serwera, możesz wybrać łącze **Wyświetl ustawienia serwera** na stronie Inspekcja bazy danych. Następnie można wyświetlić lub zmodyfikować ustawienia inspekcji serwera. Zasady inspekcji serwera dotyczą wszystkich istniejących i nowo utworzonych baz danych na tym serwerze.
 
-    ![Okienko nawigacji](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
+    ![Zrzut ekranu pokazujący link Wyświetl ustawienia serwera wyróżniony na stronie Inspekcja bazy danych.](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
 
 4. Jeśli wolisz włączyć inspekcję na poziomie bazy danych, przełącz **inspekcję** na wartość **włączone**. Jeśli Inspekcja serwera jest włączona, inspekcja skonfigurowana dla bazy danych będzie istnieć równolegle z inspekcją serwera.
 
@@ -163,7 +163,7 @@ W przypadku wybrania opcji zapisania dzienników inspekcji na koncie usługi Azu
 
 - Użyj witryny [Azure Portal](https://portal.azure.com).  Otwórz odpowiednią bazę danych. W górnej części strony **Inspekcja** bazy danych kliknij pozycję **Wyświetl dzienniki inspekcji**.
 
-    ![Okienko nawigacji](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Zrzut ekranu pokazujący przycisk Wyświetl dzienniki inspekcji wyróżniony na stronie Inspekcja bazy danych.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
 
     **Rekordy inspekcji** są otwierane, z poziomu którego będziesz mieć możliwość wyświetlania dzienników.
 
@@ -171,14 +171,14 @@ W przypadku wybrania opcji zapisania dzienników inspekcji na koncie usługi Azu
   - Można przełączać się między rekordami inspekcji, które zostały utworzone przez *zasady inspekcji serwera* i *zasad inspekcji bazy danych* przez przełączenie **źródła inspekcji**.
   - Można wyświetlić tylko rekordy inspekcji powiązane z iniekcją SQL, zaznaczając pole wyboru  **Pokaż tylko rekordy inspekcji dla iniekcji kodu SQL** .
 
-       ![Okienko nawigacji]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
+       ![Zrzut ekranu przedstawiający opcje wyświetlania rekordów inspekcji.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
 - Użyj funkcji system **sys. fn_get_audit_file** (T-SQL), aby zwrócić dane dziennika inspekcji w formacie tabelarycznym. Aby uzyskać więcej informacji na temat korzystania z tej funkcji, zobacz [sys. fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Użyj **plików inspekcji scalania** w SQL Server Management Studio (począwszy od programu SSMS 17):
     1. Z menu programu SSMS wybierz pozycję **plik**  >  **Otwórz**  >  **pliki inspekcji scalania**.
 
-        ![Okienko nawigacji](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
+        ![Zrzut ekranu pokazujący opcję menu Scal pliki inspekcji.](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
     2. Zostanie otwarte okno dialogowe **Dodawanie plików inspekcji** . Wybierz jedną z opcji **dodawania** , aby wybrać, czy pliki inspekcji mają być scalane z dysku lokalnego, czy też zaimportować je z usługi Azure Storage. Musisz podać szczegóły i klucz konta usługi Azure Storage.
 
     3. Po dodaniu wszystkich plików do scalenia kliknij przycisk **OK** , aby ukończyć operację scalania.
@@ -218,7 +218,7 @@ W środowisku produkcyjnym można okresowo odświeżać klucze magazynu. Podczas
 
 1. Otwórz **szczegóły magazynu**. W polu **klucz dostępu do magazynu** wybierz pozycję **pomocniczy**, a następnie kliknij przycisk **OK**. Następnie kliknij pozycję **Zapisz** w górnej części strony Konfiguracja inspekcji.
 
-    ![Okienko nawigacji](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
+    ![Zrzut ekranu pokazujący proces wybierania klucza dostępu do magazynu pomocniczego.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Przejdź do strony Konfiguracja magazynu i ponownie Wygeneruj podstawowy klucz dostępu.
 
     ![Okienko nawigacji](./media/auditing-overview/6_auditing_get_started_regenerate_key.png)

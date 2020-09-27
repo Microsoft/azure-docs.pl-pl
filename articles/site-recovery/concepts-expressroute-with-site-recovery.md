@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 46db5f7d3e5d3844fb297e512d8d701e6da79de9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 68671a98c7703514af11de2f8c505110129fe713
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654314"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398650"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Usługa Azure ExpressRoute z Azure Site Recovery
 
-Usługa Microsoft Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz ustanowić połączenia z usługami firmy Microsoft w chmurze, np. Microsoft Azure, Office 365 i Dynamics 365.
+Usługa Microsoft Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz ustanowić połączenia z usługami firmy Microsoft w chmurze, np. Microsoft Azure, Microsoft 365 i Dynamics 365.
 
 W tym artykule opisano, jak można użyć usługi Azure ExpressRoute z Azure Site Recovery na potrzeby odzyskiwania po awarii i migracji.
 

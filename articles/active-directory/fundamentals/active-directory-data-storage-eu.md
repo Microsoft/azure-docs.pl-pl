@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc229b366a7816c861da665c73d6421e67545c6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985906"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395893"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Magazyn danych tożsamości dla klientów europejskich w Azure Active Directory
 Dane tożsamości są przechowywane w usłudze Azure AD w lokalizacji geograficznej na podstawie adresu dostarczonego przez organizację podczas subskrybowania usługi online firmy Microsoft, takiej jak Microsoft 365 i Azure. Aby uzyskać informacje o tym, gdzie są przechowywane dane tożsamości, możesz użyć sekcji [gdzie znajdują się Twoje dane?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Centrum zaufania Microsoft.
@@ -35,6 +35,10 @@ W przypadku usługi Azure Multi-Factor Authentication opartej na chmurze uwierzy
 * Żądania uwierzytelniania wieloskładnikowego używające kodów OATH pochodzących z centrów danych UE są weryfikowane w Unii Europejskiej.
 
 Aby uzyskać więcej informacji o tym, jakie informacje o użytkowniku są zbierane przez usługę Azure Serwer Multi-Factor Authentication (serwer MFA) i opartą na chmurze usługę Azure MFA, zobacz [zbieranie danych użytkownika w usłudze azure Multi-Factor Authentication](../authentication/howto-mfa-reporting-datacollection.md).
+
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Logowanie jednokrotne oparte na hasłach dla aplikacji dla przedsiębiorstw
+ 
+Jeśli klient utworzy nową aplikację dla przedsiębiorstw (za pośrednictwem galerii usługi Azure AD lub bez galerii) i włączy Logowanie jednokrotne oparte na hasłach, adres URL logowania aplikacji i niestandardowe pola logowania przechwytywania są przechowywane w Stany Zjednoczone. Aby uzyskać więcej informacji na temat tej funkcji, zapoznaj się z tematem [Konfigurowanie logowania jednokrotnego opartego na hasłach](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md) .
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 

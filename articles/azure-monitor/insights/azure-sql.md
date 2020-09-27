@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 663c852574667e45a39241575d6b50038495c33d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319592"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397083"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitoruj Azure SQL Database przy użyciu Azure SQL Analytics (wersja zapoznawcza)
 
@@ -90,11 +90,11 @@ Jeśli niektóre metryki lub dzienniki nie są przesyłane strumieniowo do Azure
 
 Po wybraniu Azure SQL Analytics kafelka bazy danych zostanie wyświetlony pulpit nawigacyjny monitorowanie.
 
-![Przegląd Azure SQL Analytics](./media/azure-sql/azure-sql-sol-overview.png)
+![Zrzut ekranu przedstawiający pulpit nawigacyjny monitorowania.](./media/azure-sql/azure-sql-sol-overview.png)
 
 Wybranie dowolnego kafelka spowoduje otwarcie raportu przechodzenia do szczegółów w określonej perspektywie. Po wybraniu perspektywy zostanie otwarty raport przechodzenia do szczegółów.
 
-![Limity czasu Azure SQL Analytics](./media/azure-sql/azure-sql-sol-metrics.png)
+![Zrzut ekranu, który pokazuje raport przechodzenia do szczegółów w określonej perspektywie.](./media/azure-sql/azure-sql-sol-metrics.png)
 
 Każda perspektywa w tym widoku zawiera podsumowania na poziomach subskrypcji, serwera, elastycznej puli i bazy danych. Ponadto każda perspektywa pokazuje perspektywę specyficzną dla raportu po prawej stronie. Wybieranie subskrypcji, serwera, puli lub bazy danych z listy kontynuuje przechodzenie do szczegółów.
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0e13d69b8d821267a993cd2ca9a3b6d0d686ccf9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e96db18993dbb18ebf51d0b30e9172901d10df5b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284554"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398276"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Znajdź i Zastosuj zalecenia dotyczące wydajności
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,7 +103,7 @@ Bazę danych można skonfigurować do automatycznego implementowania zaleceń. G
    ![Ustawienia usługi Advisor](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Wybierz akcje do zautomatyzowania:
 
-   ![Zalecane indeksy](./media/database-advisor-find-recommendations-portal/server.png)
+   ![Zrzut ekranu pokazujący, gdzie należy wybrać akcje do zautomatyzowania.](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > Należy pamiętać, że opcja **DROP_INDEX** nie jest obecnie zgodna z aplikacjami korzystającymi z przełączania partycji i wskazówek dotyczących indeksów.
@@ -139,7 +139,7 @@ Zastosowanie zalecenia może nie być chwilowo wykonywane. Portal zawiera szczeg
 
 Kliknij rekomendację w procesie z listy, aby wyświetlić więcej informacji:
 
-![Zalecane indeksy](./media/database-advisor-find-recommendations-portal/operations.png)
+![Zrzut ekranu przedstawiający listę zaleceń w procesie.](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>Cofanie zalecenia
 

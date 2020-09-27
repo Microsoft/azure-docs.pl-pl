@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a6cb3392aa83b2c02df621449a73f7cb68691ec6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a87181e7d1c776648781a2672dfd73ac2eaab1b2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608608"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396862"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Użyj Azure Data Box Heavy do migrowania zawartości udziału plików do usługi SharePoint Online
 
@@ -82,7 +82,7 @@ Aby uzyskać najlepszą wydajność i łączność, zalecamy utworzenie maszyny 
 1. Zaloguj się do Azure Portal, a następnie [Utwórz maszynę wirtualną](../virtual-machines/windows/quick-create-portal.md).
 2. [Zainstaluj udział plików platformy Azure na maszynie wirtualnej](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
 3. [Pobierz narzędzie do migracji programu SharePoint](https://spmtreleasescus.blob.core.windows.net/install/default.htm) i zainstaluj je na maszynie wirtualnej platformy Azure.
-4. Uruchom narzędzie do migracji programu SharePoint. Kliknij przycisk **Zaloguj** i wprowadź nazwę użytkownika i hasło do pakietu Office 365.
+4. Uruchom narzędzie do migracji programu SharePoint. Kliknij przycisk **Zaloguj** i wprowadź nazwę użytkownika oraz hasło do konta służbowego.
 5. Po wyświetleniu monitu, **gdzie są Twoje dane?** wybierz pozycję **udział plików**. Wprowadź ścieżkę do udziału plików platformy Azure, w którym znajdują się Twoje dane.
 6. Postępuj zgodnie z pozostałymi monitami, w tym z lokalizacją docelową. Aby uzyskać więcej informacji, zapoznaj się z [tematem jak używać narzędzia do migracji programu SharePoint](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 

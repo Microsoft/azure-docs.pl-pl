@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 4e64873cc2e7779c4d931018fd16bdca08596aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36673533fbbfc913f742a32bd20cde2b238e2143
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83757827"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397236"
 ---
-# <a name="azure-best-practices-for-network-security"></a>Najlepsze rozwiązania dotyczące platformy Azure dotyczące zabezpieczeń sieci
+# <a name="azure-best-practices-for-network-security"></a>Najlepsze rozwiązania dotyczące zabezpieczeń sieci na platformie Azure
 W tym artykule omówiono zbiór najlepszych rozwiązań dotyczących platformy Azure w celu zwiększenia bezpieczeństwa sieci. Te najlepsze rozwiązania wynikają z naszych rozwiązań związanych z obsługą sieci platformy Azure i klientami.
 
 Dla każdego z najlepszych rozwiązań w tym artykule wyjaśniono:
@@ -131,9 +131,9 @@ W wielu organizacjach została wybrana hybrydowa trasa IT. Dzięki hybrydowej IT
 W hybrydowym scenariuszu IT zwykle jest kilka typów łączności między lokalizacjami. Łączność między lokalizacjami pozwala firmie na łączenie sieci lokalnych z sieciami wirtualnymi platformy Azure. Dostępne są dwa rozwiązania łączności obejmującej wiele lokalizacji:
 
 * [Sieć VPN typu lokacja-lokacja](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Jest to zaufana, niezawodna i ustanowiona technologia, ale połączenie odbywa się za pośrednictwem Internetu. Przepustowość jest ograniczona do maksymalnie 1,25 GB/s. Sieci VPN typu lokacja-lokacja jest pożądaną opcją w niektórych scenariuszach.
-* **Azure ExpressRoute**. Zalecamy używanie [ExpressRoute](../../expressroute/expressroute-introduction.md) do połączeń obejmujących wiele lokalizacji. Usługa ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Azure, Office 365 i Dynamics 365. ExpressRoute to dedykowany link sieci WAN między lokalizacją lokalną lub dostawcą hostingu programu Microsoft Exchange. Ponieważ jest to połączenie odpływ, dane nie podróżują przez Internet, więc nie są narażone na potencjalne ryzyko związane z komunikacją internetową.
+* **Azure ExpressRoute**. Zalecamy używanie [ExpressRoute](../../expressroute/expressroute-introduction.md) do połączeń obejmujących wiele lokalizacji. Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Azure, Microsoft 365 i Dynamics 365. ExpressRoute to dedykowany link sieci WAN między lokalizacją lokalną lub dostawcą hostingu programu Microsoft Exchange. Ponieważ jest to połączenie odpływ, dane nie podróżują przez Internet, więc nie są narażone na potencjalne ryzyko związane z komunikacją internetową.
 
-Lokalizacja połączenia usługi ExpressRoute może wpłynąć na wydajność zapory, skalowalność, niezawodność i widoczność ruchu sieciowego. Należy określić, gdzie należy zakończyć ExpressRoute w istniejących sieciach (lokalnych). Dostępne możliwości:
+Lokalizacja połączenia usługi ExpressRoute może wpłynąć na wydajność zapory, skalowalność, niezawodność i widoczność ruchu sieciowego. Należy określić, gdzie należy zakończyć ExpressRoute w istniejących sieciach (lokalnych). Można:
 
 - Zakończ poza zaporą (model sieci obwodowej), jeśli potrzebujesz wglądu w ruch, jeśli chcesz kontynuować istniejącą sprawność izolowania centrów danych, lub jeśli nie masz wyłącznie zasobów ekstranetu na platformie Azure.
 - Przerwij wewnątrz zapory (model rozszerzenia sieci). Jest to domyślne zalecenie. We wszystkich innych przypadkach zalecamy traktowanie platformy Azure jako n-ty centrum danych.
@@ -200,7 +200,7 @@ Za pomocą punktów końcowych usługi sieci wirtualnej można zwiększyć prywa
 
 Punkty końcowe usługi oferują następujące korzyści:
 
-- **Lepsze zabezpieczenia zasobów usługi platformy Azure**: dzięki punktom końcowym zasoby usługi platformy Azure mogą być chronione w sieci wirtualnej. Zabezpieczenie zasobów usługi w sieci wirtualnej zapewnia większe bezpieczeństwo dzięki całkowitemu uniemożliwieniu dostępu do tych zasobów z publicznego Internetu i zezwolenie na ruch tylko z Twojej sieci wirtualnej.
+- **Lepsze zabezpieczenia zasobów usługi platformy Azure**: dzięki punktom końcowym zasoby usługi platformy Azure mogą być chronione w sieci wirtualnej. Zabezpieczenie zasobów usługi w sieci wirtualnej zapewnia większe bezpieczeństwo dzięki całkowitemu uniemożliwieniu dostępu do tych zasobów z publicznego Internetu i zezwoleniu na ruch tylko z Twojej sieci wirtualnej.
 - **Optymalny Routing ruchu usługi platformy Azure z sieci wirtualnej**: wszystkie trasy w sieci wirtualnej, które wymuszają ruch internetowy do urządzeń lokalnych i/lub wirtualnych, znane jako Wymuszone tunelowanie, wymuszają również ruch usługi platformy Azure w taki sam sposób jak ruch internetowy. Punkty końcowe usługi zapewniają optymalny routing ruchu platformy Azure.
 
   Punkty końcowe zawsze pobierają ruch bezpośrednio z sieci wirtualnej do usługi w sieci szkieletowej platformy Azure. Utrzymywanie ruchu w sieci szkieletowej platformy Azure umożliwia kontynuowanie inspekcji i monitorowania wychodzącego ruchu internetowego z sieci wirtualnych za pośrednictwem tunelowania wymuszonego bez wpływu na ruch usługi. Dowiedz się więcej na temat [tras zdefiniowanych przez użytkownika i wymuszonego tunelowania](../../virtual-network/virtual-networks-udr-overview.md).

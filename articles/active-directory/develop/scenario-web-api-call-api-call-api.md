@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b1582af2bbd97579852ead0d4462f80f3a50fe6a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9212e99ae317a3abec4bebfc7fb131c6774f8e4d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257150"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396199"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Internetowy interfejs API, który wywołuje interfejsy API sieci Web: wywoływanie interfejsu API
 
@@ -28,11 +28,11 @@ Po uzyskaniu tokenu można wywołać chroniony internetowy interfejs API. Zwykle
 
 Gdy korzystasz z *Microsoft. Identity. Web*, masz trzy scenariusze użycia:
 
-- [Microsoft Graph wywołania](#call-microsoft-graph)
-- [Wywoływanie internetowego interfejsu API innego niż Microsoft Graph](#call-web-api-other-than-microsoft-graph)
-- [Uzyskaj token ręcznie](#acquire-a-token-manually)
+- [Opcja 1: Wywołaj Microsoft Graph z zestawem SDK Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
+- [Opcja 2: wywoływanie podrzędnego interfejsu API sieci Web z klasą pomocnika](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Opcja 3: wywoływanie podrzędnego interfejsu API sieci Web bez klasy pomocnika](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
-#### <a name="call-microsoft-graph"></a>Microsoft Graph wywołania
+#### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Opcja 1: Wywołaj Microsoft Graph z zestawem SDK
 
 W tym scenariuszu dodano program `.AddMicrosoftGraph()` *Startup.cs* zgodnie z [konfiguracją kodu](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph)i można bezpośrednio wstrzyknąć do `GraphServiceClient` kontrolera lub konstruktora stronicowego do użycia w akcjach. Poniższa przykładowa strona Razor wyświetla zdjęcie zalogowanego użytkownika.
 
@@ -68,7 +68,7 @@ W tym scenariuszu dodano program `.AddMicrosoftGraph()` *Startup.cs* zgodnie z [
  }
 ```
 
-#### <a name="call-web-api-other-than-microsoft-graph"></a>Wywoływanie internetowego interfejsu API innego niż Microsoft Graph
+#### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>Opcja 2: wywoływanie podrzędnego interfejsu API sieci Web z klasą pomocnika
 
 W tym scenariuszu dodano program `.AddDownstreamWebApi()` *Startup.cs* zgodnie z [konfiguracją kodu](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)i można bezpośrednio wstrzyknąć `IDownstreamWebApi` usługę do kontrolera lub konstruktora stron i używać jej w akcjach:
 
@@ -115,7 +115,7 @@ W tym scenariuszu dodano program `.AddDownstreamWebApi()` *Startup.cs* zgodnie z
  }
 ```
 
-#### <a name="acquire-a-token-manually"></a>Uzyskaj token ręcznie
+#### <a name="option-3-call-a-downstream-web-api-without-the-helper-class"></a>Opcja 3: wywoływanie podrzędnego interfejsu API sieci Web bez klasy pomocnika
 
 Jeśli użytkownik zdecydował się uzyskać token ręcznie przy użyciu `ITokenAcquisition` usługi, należy użyć tokenu. W takim przypadku Poniższy kod kontynuuje przykładowy kod pokazywany w [interfejsie API sieci Web, który wywołuje interfejsy API sieci Web: uzyskuje token dla aplikacji](scenario-web-api-call-api-acquire-token.md). Kod jest wywoływany w akcjach kontrolerów interfejsu API. Wywołuje podrzędny interfejs API o nazwie *todolist*.
 

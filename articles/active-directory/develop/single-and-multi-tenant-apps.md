@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 09/24/2020
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: dfb9cb80bdcd2854a3ddd5b273806fbcdda916b0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 0868d87d977b15a552b04d5dbd6d19de6931f0ae
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705643"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395910"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Dzierżawa w Azure Active Directory
 
@@ -43,7 +43,7 @@ W Azure Portal można skonfigurować aplikację jako pojedynczą dzierżawę lub
 Tworzenie doskonałych aplikacji z wieloma dzierżawcami może być trudne z powodu liczby różnych zasad, które Administratorzy IT mogą ustawiać w swoich dzierżawcach. Jeśli zdecydujesz się na utworzenie aplikacji z wieloma dzierżawcami, postępuj zgodnie z następującymi najlepszymi rozwiązaniami:
 
 * Przetestuj aplikację w dzierżawie, która ma skonfigurowane [zasady dostępu warunkowego](../azuread-dev/conditional-access-dev-guide.md).
-* Postępuj zgodnie z zasadą najmniejszego dostępu użytkownika, aby upewnić się, że aplikacja żąda tylko wymaganych uprawnień. Unikaj żądania uprawnień, które wymagają zgody administratora, ponieważ może to uniemożliwić użytkownikom pozyskiwanie aplikacji w niektórych organizacjach. 
+* Postępuj zgodnie z zasadą najmniejszego dostępu użytkownika, aby upewnić się, że aplikacja żąda tylko wymaganych uprawnień. 
 * Podaj odpowiednie nazwy i opisy wszelkich uprawnień, które ujawniasz w ramach aplikacji. Dzięki temu użytkownicy i Administratorzy wiedzą, co zgadza się z użyciem interfejsów API aplikacji. Aby uzyskać więcej informacji, zobacz sekcję najlepsze rozwiązania w [podręczniku uprawnień](v2-permissions-and-consent.md).
 
 ## <a name="next-steps"></a>Następne kroki

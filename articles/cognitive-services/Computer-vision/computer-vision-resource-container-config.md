@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: a2469768c2207210e17035a67d4b05fb0cc6bb6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 28116a373b66aa5bfa6d3ebbf027c2db6d24ba5d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254180"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397134"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Konfigurowanie przetwarzanie obrazów kontenerów platformy Docker
 
@@ -33,10 +33,12 @@ Kontener ma również następujące ustawienia konfiguracji specyficzne dla kont
 
 |Wymagane|Ustawienie|Przeznaczenie|
 |--|--|--|
-|Nie|ReadEngineConfig:ResultExpirationPeriod|Okres ważności wyniku w godzinach. Wartość domyślna to 48 godzin. Ustawienie określa, kiedy system powinien czyścić wyniki rozpoznawania. Na przykład, jeśli `resultExpirationPeriod=1` system wyczyści wynik rozpoznawania 1 godzina po zakończeniu procesu. Jeśli `resultExpirationPeriod=0` system czyści wynik rozpoznawania po pobraniu wyniku.|
-|Nie|Pamięć podręczna: Redis|Włącza magazyn Redis do przechowywania wyników. Pamięć podręczna jest *wymagana* , jeśli wiele kontenerów odczytu jest umieszczonych za modułem równoważenia obciążenia.|
-|Nie|Kolejka: RabbitMQ|Umożliwia RabbitMQ do wysyłania zadań. Ustawienie jest przydatne, gdy wiele kontenerów odczytu jest umieszczonych za modułem równoważenia obciążenia.|
-|Nie|Magazyn::D ocumentStore:: MongoDB|Włącza MongoDB na potrzeby trwałego magazynu wyników.|
+|Nie|ReadEngineConfig:ResultExpirationPeriod| tylko kontenery w wersji 2.0. Okres ważności wyniku w godzinach. Wartość domyślna to 48 godzin. Ustawienie określa, kiedy system powinien czyścić wyniki rozpoznawania. Na przykład, jeśli `resultExpirationPeriod=1` system wyczyści wynik rozpoznawania 1 godzina po zakończeniu procesu. Jeśli `resultExpirationPeriod=0` system czyści wynik rozpoznawania po pobraniu wyniku.|
+|Nie|Pamięć podręczna: Redis| tylko kontenery w wersji 2.0. Włącza magazyn Redis do przechowywania wyników. Pamięć podręczna jest *wymagana* , jeśli wiele kontenerów odczytu jest umieszczonych za modułem równoważenia obciążenia.|
+|Nie|Kolejka: RabbitMQ|tylko kontenery w wersji 2.0. Umożliwia RabbitMQ do wysyłania zadań. Ustawienie jest przydatne, gdy wiele kontenerów odczytu jest umieszczonych za modułem równoważenia obciążenia.|
+|Nie|Kolejka: Azure: QueueVisibilityTimeoutInMilliseconds | tylko kontenery v3. x. Godzina, o której komunikat ma być niewidoczny w przypadku przetwarzania przez inny proces roboczy. |
+|Nie|Magazyn::D ocumentStore:: MongoDB|tylko kontenery w wersji 2.0. Włącza MongoDB na potrzeby trwałego magazynu wyników. |
+|Nie|Storage: ObjectStore: AzureBlob: ConnectionString| tylko kontenery v3. x. Parametry połączenia usługi Azure Blob Storage. |
 
 ## <a name="apikey-configuration-setting"></a>Ustawienie konfiguracji ApiKey
 
@@ -118,6 +120,30 @@ Zastąp ciąg {_argument_name_} własnymi wartościami:
 Poniższe przykłady platformy Docker dotyczą kontenera odczyt.
 
 
+# <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+
+### <a name="basic-example"></a>Przykład podstawowy
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
+
+### <a name="logging-example"></a>Przykład rejestrowania 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
 # <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
 
 ### <a name="basic-example"></a>Przykład podstawowy
@@ -141,13 +167,13 @@ ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
 ```
 
-# <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+# <a name="version-20-preview"></a>[Wersja 2,0-Preview](#tab/version-2)
 
 ### <a name="basic-example"></a>Przykład podstawowy
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -158,7 +184,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

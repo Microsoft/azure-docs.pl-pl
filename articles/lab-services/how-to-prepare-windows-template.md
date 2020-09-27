@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 5e1d772deb71e03311489ea61d012415860cbe54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445325"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396692"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Przewodnik konfigurowania komputera z szablonem systemu Windows w Azure Lab Services
 
@@ -61,7 +61,7 @@ Jeśli korzystasz z komputera, który nie używa Active Directory, użytkownicy 
 
 Jeśli maszyna wirtualna jest połączona z usługą Active Directory, możesz ustawić na komputerze szablonu Automatyczne monitowanie uczniów o przeniesienie znanych folderów do usługi OneDrive.  
 
-Musisz najpierw pobrać identyfikator dzierżawy pakietu Office.  Aby uzyskać więcej instrukcji, zobacz [Znajdź swój identyfikator dzierżawy pakietu Office 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  Identyfikator dzierżawy pakietu Office 365 można także uzyskać za pomocą następującego programu PowerShell.
+Musisz najpierw pobrać identyfikator organizacji.  Aby uzyskać więcej instrukcji, zobacz [Znajdowanie identyfikatora organizacji Microsoft 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  Identyfikator organizacji można także uzyskać, korzystając z następującego programu PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -71,7 +71,7 @@ $officeTenantID = Get-MSOLCompanyInformation |
     Select-Object -expand Guid
 ```
 
-Gdy masz swój identyfikator dzierżawy pakietu Office 365, Ustaw usługę OneDrive na monit o przeniesienie znanych folderów do usługi OneDrive przy użyciu następującego programu PowerShell.
+Gdy masz identyfikator organizacji, w usłudze OneDrive wpisz monit o przeniesienie znanych folderów do usługi OneDrive przy użyciu następującego programu PowerShell.
 
 ```powershell
 if ($officeTenantID -eq $null)
@@ -95,7 +95,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### <a name="silently-sign-in-users-to-onedrive"></a>Logowanie dyskretne użytkowników do usługi OneDrive
 
-Usługę OneDrive można skonfigurować do automatycznego logowania przy użyciu poświadczeń systemu Windows zalogowanego użytkownika.  Automatyczne logowanie jest przydatne w przypadku klas, w których student loguje się przy użyciu poświadczeń szkolnych pakietu Office 365.
+Usługę OneDrive można skonfigurować do automatycznego logowania przy użyciu poświadczeń systemu Windows zalogowanego użytkownika.  Automatyczne logowanie jest przydatne w przypadku klas, w których student loguje się przy użyciu swoich poświadczeń szkolnych.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -115,7 +115,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### <a name="set-the-maximum-size-of-a-file-that-to-be-download-automatically"></a>Ustaw maksymalny rozmiar pliku, który ma być pobierany automatycznie
 
-To ustawienie jest używane w połączeniu z dyskretnym logowaniem użytkowników do klienta synchronizacji usługi OneDrive z poświadczeniami systemu Windows na urządzeniach, na których nie włączono obsługi plików usługi OneDrive na żądanie. Każdy użytkownik, który ma OneDrive o rozmiarze większym niż określony próg (w MB) będzie monitowany o wybranie folderów, które chcą synchronizować, zanim klient synchronizacji z usługą OneDrive (OneDrive.exe) pobierze pliki.  W naszym przykładzie "1111-2222-3333-4444" jest identyfikator dzierżawy pakietu Office 365 i 0005000 ustawia próg 5 GB.
+To ustawienie jest używane w połączeniu z dyskretnym logowaniem użytkowników do klienta synchronizacji usługi OneDrive z poświadczeniami systemu Windows na urządzeniach, na których nie włączono obsługi plików usługi OneDrive na żądanie. Każdy użytkownik, który ma OneDrive o rozmiarze większym niż określony próg (w MB) będzie monitowany o wybranie folderów, które chcą synchronizować, zanim klient synchronizacji z usługą OneDrive (OneDrive.exe) pobierze pliki.  W naszym przykładzie "1111-2222-3333-4444" jest IDENTYFIKATORem organizacji i 0005000 ustawia próg 5 GB.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -124,23 +124,23 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
     -Name "1111-2222-3333-4444" -Value "0005000" -PropertyType DWORD
 ```
 
-## <a name="install-and-configure-microsoft-office-365"></a>Instalowanie i Konfigurowanie Microsoft Office 365
+## <a name="install-and-configure-microsoft-365"></a>Zainstaluj i skonfiguruj Microsoft 365
 
-### <a name="install-microsoft-office-365"></a>Zainstaluj Microsoft Office 365
+### <a name="install-microsoft-365"></a>Zainstaluj Microsoft 365
 
-Jeśli komputer szablonu wymaga pakietu Office, zalecamy instalację pakietu Office za pomocą [Narzędzia do wdrażania pakietu Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). Należy utworzyć plik konfiguracyjny wielokrotnego użytku przy użyciu [usługi konfiguracji klienta pakietu Office 365](https://config.office.com/) , aby wybrać architekturę, jakie funkcje będą potrzebne z pakietu Office i jak często aktualizacje.
+Jeśli komputer szablonu wymaga pakietu Office, zalecamy instalację pakietu Office za pomocą [Narzędzia do wdrażania pakietu Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117). Należy utworzyć plik konfiguracyjny wielokrotnego użytku za pomocą [Centrum administracyjnego Microsoft 365 aplikacje](https://config.office.com/) , aby wybrać architekturę, jakie funkcje będą potrzebne z pakietu Office i jak często aktualizacje.
 
-1. Przejdź do [usługi konfiguracji klienta pakietu Office 365](https://config.office.com/) i Pobierz własny plik konfiguracji.
+1. Przejdź do [Centrum administracyjnego aplikacji Microsoft 365 Apps](https://config.office.com/) i Pobierz własny plik konfiguracji.
 2. Pobierz [Narzędzie do wdrażania pakietu Office](https://www.microsoft.com/download/details.aspx?id=49117).  Pobrany plik będzie `setup.exe` .
 3. Uruchom `setup.exe /download configuration.xml` , aby pobrać składniki pakietu Office.
 4. Uruchom `setup.exe /configure configuration.xml` , aby zainstalować składniki pakietu Office.
 
-### <a name="change-the-microsoft-office-365-update-channel"></a>Zmienianie kanału aktualizacji Microsoft Office 365
+### <a name="change-the-microsoft-365-update-channel"></a>Zmienianie Microsoft 365 kanału aktualizacji
 
-Za pomocą narzędzia konfiguracji pakietu Office można ustawić, jak często pakiet Office otrzymuje aktualizacje. Jeśli jednak chcesz zmodyfikować częstotliwość otrzymywania aktualizacji przez pakiet Office po instalacji, możesz zmienić adres URL kanału aktualizacji. Adresy URL kanału aktualizacji można znaleźć w temacie [Zmienianie kanału usługi Office 365 ProPlus Update dla urządzeń w organizacji](https://docs.microsoft.com/deployoffice/change-update-channels). W poniższym przykładzie pokazano, jak ustawić pakiet Office 365 do korzystania z kanału aktualizacji miesięcznej.
+Za pomocą narzędzia konfiguracji pakietu Office można ustawić, jak często pakiet Office otrzymuje aktualizacje. Jeśli jednak chcesz zmodyfikować częstotliwość otrzymywania aktualizacji przez pakiet Office po instalacji, możesz zmienić adres URL kanału aktualizacji. Adresy URL kanału aktualizacji można znaleźć w temacie [Zmienianie kanału aktualizacji Microsoft 365 aplikacje dla urządzeń w organizacji](https://docs.microsoft.com/deployoffice/change-update-channels). W poniższym przykładzie pokazano, jak ustawić Microsoft 365 na korzystanie z kanału aktualizacji miesięcznej.
 
 ```powershell
-# Update to the Office 365 Monthly Channel
+# Update to the Microsoft 365 Monthly Channel
 Set-ItemProperty
     -Path "HKLM:\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl"
     -Name "CDNBaseUrl"
@@ -228,7 +228,7 @@ Zainstaluj inne aplikacje, które są często używane do uczenia się w aplikac
 
 ## <a name="conclusion"></a>Podsumowanie
 
-W tym artykule przedstawiono kroki opcjonalne umożliwiające przygotowanie maszyny wirtualnej szablonu systemu Windows dla efektywnej klasy.  Kroki obejmują zainstalowanie usługi OneDrive i zainstalowanie pakietu Office 365, zainstalowanie aktualizacji dla systemu Windows i zainstalowanie aktualizacji dla aplikacji Microsoft Store.  Omówiono również sposób ustawiania aktualizacji dla harmonogramu, który najlepiej sprawdza się w przypadku danej klasy.  
+W tym artykule przedstawiono kroki opcjonalne umożliwiające przygotowanie maszyny wirtualnej szablonu systemu Windows dla efektywnej klasy.  Kroki obejmują zainstalowanie usługi OneDrive i zainstalowanie Microsoft 365, zainstalowanie aktualizacji dla systemu Windows i zainstalowanie aktualizacji dla Microsoft Store aplikacji.  Omówiono również sposób ustawiania aktualizacji dla harmonogramu, który najlepiej sprawdza się w przypadku danej klasy.  
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z artykułem dotyczącym sposobu kontrolowania zachowania zamykania systemu Windows, aby ułatwić zarządzanie kosztami: [Przewodnik dotyczący kontrolowania zachowania zamykania systemu Windows](how-to-windows-shutdown.md)

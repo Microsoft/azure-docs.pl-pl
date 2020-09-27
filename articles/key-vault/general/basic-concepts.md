@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e0bb3c3f3a6a1a38f974acf361937928ad4e2cfd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983297"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398514"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault podstawowe pojęcia
 
@@ -23,7 +23,7 @@ Azure Key Vault to usługa w chmurze umożliwiająca bezpieczne przechowywanie i
 
 Oto inne ważne terminy:
 
-- **Dzierżawa** — dzierżawa to organizacja, która jest właścicielem konkretnego wystąpienia usług firmy Microsoft w chmurze i zarządza nim. Jest to najczęściej używane do odwoływania się do zestawu usług platformy Azure i pakietu Office 365 dla organizacji.
+- **Dzierżawa** — dzierżawa to organizacja, która jest właścicielem konkretnego wystąpienia usług firmy Microsoft w chmurze i zarządza nim. Jest najczęściej używany do odwoływania się do zestawu usług Azure i Microsoft 365 w organizacji.
 
 - **Właściciel magazynu** — właściciel magazynu może utworzyć magazyn kluczy, ma do niego pełny dostęp i kontrolę nad nim. Właściciel magazynu może też skonfigurować inspekcję, aby rejestrować, kto uzyskuje dostęp do wpisów tajnych i kluczy. Administratorzy mogą kontrolować cykl życia klucza. Mogą oni wdrażać nowe wersje klucza, tworzyć jego kopie zapasowe i wykonywać powiązane zadania.
 

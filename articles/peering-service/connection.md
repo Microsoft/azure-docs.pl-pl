@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: df337736a676c40f1345310afb9a2e685ddc1d5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0540fa9c7a29456aaf343adce83509b2d0e390e4
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84872022"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398924"
 ---
 # <a name="peering-service-connection"></a>Połączenie usługi Komunikacja równorzędna
 
@@ -29,7 +29,7 @@ Połączenie zazwyczaj odnosi się do zestawu informacji logicznych, identyfikuj
 Klient może nawiązać jedno połączenie lub wiele połączeń zgodnie z wymaganiami. Połączenie jest również używane jako jednostka zbierania danych telemetrycznych. Na przykład w celu wyboru alertów telemetrii klient musi zdefiniować połączenie, które będzie monitorowane.
 
 > [!Note]
-> Po zarejestrowaniu się w usłudze Komunikacja równorzędna analizujemy dane telemetryczne dla systemu Windows i pakietu Office 365 w celu zapewnienia pomiarów opóźnień dla wybranych prefiksów.
+> Po zarejestrowaniu się w usłudze Komunikacja równorzędna analizujemy dane telemetryczne dla systemu Windows i Microsoft 365, aby zapewnić pomiary opóźnienia dla wybranych prefiksów.
 >Aby uzyskać więcej informacji o telemetrii połączenia, zapoznaj się z danymi [telemetrycznymi połączenia usługi komunikacji równorzędnej](connection-telemetry.md).
 >
 
