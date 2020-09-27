@@ -7,18 +7,18 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 51f4c9a5748896eff9e9f3ae9719b2e7e7cdd4e7
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 247a5c89b52c6b58f2e1d04723f4f73b85aeb153
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607480"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400744"
 ---
 # <a name="cloud-solution-provider-program"></a>Program dostawcy rozwiązań w chmurze
 
 W tym artykule opisano sposób konfigurowania oferty w celu udostępnienia jej w programie Cloud Solution Provider (CSP). Oprócz publikowania ofert przy użyciu [komercyjnych sklepów online Marketplace](comparing-appsource-azure-marketplace.md)można także sprzedawać za pomocą programu CSP, aby dotrzeć do milionów wykwalifikowanych klientów firmy Microsoft obsługiwanych przez program.
 
-Można skonfigurować nowe lub istniejące oferty dla dostępności w programie CSP, co pozwala partnerom CSP sprzedawać Twoje produkty i tworzyć powiązane rozwiązania dla klientów.
+Można skonfigurować nowe lub istniejące oferty dla dostępności w programie CSP, co pozwala partnerom CSP sprzedawać produkty i tworzyć powiązane rozwiązania dla klientów.
 
 Wydawcy są odpowiedzialni za zapewnienie klientom końcowym pomocy technicznej w zakresie rozwiązywania problemów oraz udostępnienie mechanizmu partnerom w programie CSP i/lub klientom kontaktowania się z Tobą w celu uzyskania pomocy technicznej. Najlepszym rozwiązaniem jest zapewnienie partnerom w programie CSP obsługi dokumentacji, szkoleń i kondycji usługi/powiadomień o przestoju (stosownie do potrzeb), aby partnerzy w programie CSP mogli obsługiwać żądania pomocy technicznej warstwy 1 od klientów.  
 

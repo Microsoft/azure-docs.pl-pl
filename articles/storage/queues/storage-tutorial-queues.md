@@ -9,18 +9,18 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7474cfbd0182797bd62e97979e83e2aeb5244cbc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008798"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400574"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Samouczek: współpraca z kolejkami usługi Azure Storage na platformie .NET
 
 Usługa Azure queue storage implementuje kolejki oparte na chmurze, aby umożliwić komunikację między składnikami aplikacji rozproszonej. Każda kolejka przechowuje listę komunikatów, które mogą zostać dodane przez składnik nadawcy i przetworzone przez składnik odbiornika. W przypadku kolejki aplikacja może skalować się natychmiast w celu spełnienia wymagań. W tym artykule przedstawiono podstawowe kroki umożliwiające pracę z kolejką usługi Azure Storage.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -227,6 +227,8 @@ Utwórz nową metodę, aby pobrać komunikat z kolejki. Po pomyślnym odebraniu 
    # <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 
    Ta metoda odbiera komunikat z kolejki przez wywołanie [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), przekazanie 1 w pierwszym parametrze w celu pobrania tylko następnej wiadomości w kolejce. Po odebraniu wiadomości usuń ją z kolejki, wywołując [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
+
+   Gdy wiadomość jest wysyłana do kolejki z wersją zestawu SDK wcześniejszą niż V12, jest automatycznie zakodowana w formacie base64. Począwszy od V12, że funkcje zostały usunięte. Po pobraniu komunikatu przy użyciu zestawu V12 SDK nie jest automatycznie dekodowany algorytmem Base64. Musisz jawnie [zdekodować zawartość w formacie base64](/dotnet/api/system.convert.frombase64string) .
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
-ms.openlocfilehash: 973426c6d9d3a4c642e5f37aebe60acce54d581b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ade4a6b791a8aca963a056800bd8c58767aeb766
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326409"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400098"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -5098,7 +5098,7 @@ Usługa platformy Azure: [Cognitive Services](../cognitive-services/index.yml)
 
 ### <a name="microsoftmachinelearning"></a>Microsoft. MachineLearning
 
-Usługa platformy Azure: [Machine Learning Studio (klasyczny)](../machine-learning/studio/index.yml)
+Usługa platformy Azure: [Machine Learning Studio (klasyczny)](../machine-learning/classic/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
@@ -5242,36 +5242,6 @@ Usługa platformy Azure: [usługa Machine Learning](../machine-learning/index.ym
 > | Microsoft. MachineLearningServices/obszary robocze/usługi/AKS/ListKeys/akcja | Wyświetla listę kluczy dla usług AKS w obszarze roboczym Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/usługi/AKS/usuwanie | Usuwa usługi AKS w obszarze roboczym Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/usługi/AKS/Score/akcja | Wyniki usług AKS w obszarze roboczym Machine Learning Services |
-
-
-### <a name="microsoftmachinelearning"></a>Microsoft. MachineLearning
-
-Usługa platformy Azure: [Machine Learning Studio (klasyczny)](../machine-learning/classic/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | Akcja | Opis |
-> | --- | --- |
-> | Microsoft. MachineLearning/Register/Action | Rejestruje subskrypcję dostawcy zasobów usługi sieci Web Machine Learning i umożliwia tworzenie usług sieci Web. |
-> | Microsoft. MachineLearning/WebServices/Action | Tworzenie regionalnych właściwości usługi sieci Web dla obsługiwanych regionów |
-> | Microsoft. MachineLearning/commitmentPlans/odczyt | Przeczytaj dowolny plan zobowiązania Machine Learning |
-> | Microsoft. MachineLearning/commitmentPlans/Write | Utwórz lub zaktualizuj dowolny plan zobowiązania Machine Learning |
-> | Microsoft. MachineLearning/commitmentPlans/Delete | Usuń dowolny Machine Learning plan zobowiązania |
-> | Microsoft. MachineLearning/commitmentPlans/Join/Action | Dołącz dowolny plan zobowiązania Machine Learning |
-> | Microsoft. MachineLearning/commitmentPlans/commitmentAssociations/Read | Odczytaj wszystkie Machine Learning skojarzenie planu zobowiązania |
-> | Microsoft. MachineLearning/commitmentPlans/commitmentAssociations/Move/Action | Przenieś dowolne Machine Learning skojarzenie planu zobowiązania |
-> | Microsoft. MachineLearning/Locations/operationresults/Read | Pobierz wynik operacji Machine Learning |
-> | Microsoft. MachineLearning/Locations/operationsstatus/Read | Pobierz stan trwającej Machine Learning operacji |
-> | Microsoft. MachineLearning/Operations/Read | Pobierz operacje Machine Learning |
-> | Microsoft. MachineLearning/jednostki SKU/odczyt | Pobierz jednostki SKU planu zobowiązania Machine Learning |
-> | Microsoft. MachineLearning/WebServices/Read | Odczytaj dowolny Machine Learning usługę sieci Web |
-> | Microsoft. MachineLearning/WebServices/Write | Utwórz lub zaktualizuj dowolną Machine Learning usługę sieci Web |
-> | Microsoft. MachineLearning/WebServices/Delete | Usuń wszystkie Machine Learning usługę sieci Web |
-> | Microsoft. MachineLearning/WebServices/ListKeys/Read | Pobierz klucze do usługi sieci Web Machine Learning |
-> | Microsoft. MachineLearning/obszary robocze/odczyt | Odczytaj wszystkie Obszar roboczy usługi Machine Learning |
-> | Microsoft. MachineLearning/obszary robocze/zapis | Utwórz lub zaktualizuj dowolne Obszar roboczy usługi Machine Learning |
-> | Microsoft. MachineLearning/obszary robocze/usuwanie | Usuń wszystkie Obszar roboczy usługi Machine Learning |
-> | Microsoft. MachineLearning/obszary robocze/listworkspacekeys/akcja | Lista kluczy dla Obszar roboczy usługi Machine Learning |
-> | Microsoft. MachineLearning/obszary robocze/resyncstoragekeys/akcja | Ponowne synchronizowanie kluczy konta magazynu skonfigurowanego dla Obszar roboczy usługi Machine Learning |
 
 ## <a name="internet-of-things"></a>Internet rzeczy
 
@@ -8239,7 +8209,7 @@ Usługa platformy Azure: [Azure Policy](../governance/policy/overview.md), kontr
 > | Akcja | Opis |
 > | --- | --- |
 > | Microsoft. Authorization/elevateAccess/akcja | Przyznaje osobie wywołującej uprawnienia administratora dostępu użytkowników w zakresie dzierżawy |
-> | Microsoft. Authorization/classicAdministrators/Read | Odczytuje administratorów dla subskrypcji. |
+> | Microsoft. Authorization/classicAdministrators/Read | Odczytuje administratorów dla subskrypcji. Nie ma efektu, jeśli jest używany jako nonaruszone w roli niestandardowej. |
 > | Microsoft. Authorization/classicAdministrators/Write | Dodaj lub zmodyfikuj administratora do subskrypcji. |
 > | Microsoft. Authorization/classicAdministrators/Delete | Usuwa administratora z subskrypcji. |
 > | Microsoft. Authorization/classicAdministrators/operationstatuses/odczyt | Pobiera Stany operacji administratora subskrypcji. |

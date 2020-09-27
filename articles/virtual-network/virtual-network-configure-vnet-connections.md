@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: dddf402455292e19bf0fcda3c50d9ce10d5888d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f25e42b1785f83e0b93c346e260055247a4ab29d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71099056"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400710"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Konfigurowanie i weryfikowanie połączeń sieci wirtualnej lub sieci VPN
 
@@ -64,7 +64,7 @@ Aby sprawdzić konfigurację komunikacji równorzędnej, użyj następującej me
 
 ![Opcje sprawdzania konfiguracji komunikacji równorzędnej sieci wirtualnej](./media/virtual-network-configure-vnet-connections/4034496_en_1.png)
  
-Aby uzyskać Azure PowerShell, uruchom polecenie [Get-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?view=azurermps-4.1.0) w celu uzyskania komunikacji równorzędnej sieci wirtualnej. Przykład:
+Aby uzyskać Azure PowerShell, uruchom polecenie [Get-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?view=azurermps-4.1.0) w celu uzyskania komunikacji równorzędnej sieci wirtualnej. Oto przykład:
 
 ```
 PS C:\Users\User1> Get-AzureRmVirtualNetworkPeering -VirtualNetworkName Vnet10-01 -ResourceGroupName dev-vnets
@@ -182,7 +182,7 @@ Ten scenariusz jest obsługiwany, gdy protokół BGP jest włączony w sieci VPN
 
 ### <a name="configure-transit-routing-in-an-expressroute-connection"></a>Konfigurowanie routingu tranzytowego w ramach połączenia ExpressRoute
 
-Usługa Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem specjalnego połączenia prywatnego wspieranego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można ustanowić połączenia z usługami Microsoft w chmurze, np. Microsoft Azure, Office 365 i Dynamics 365. Aby uzyskać więcej informacji, zobacz [Omówienie usługi ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+Usługa Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem specjalnego połączenia prywatnego wspieranego przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz ustanowić połączenia z usługami firmy Microsoft w chmurze, np. Microsoft Azure, Microsoft 365 i Dynamics 365. Aby uzyskać więcej informacji, zobacz [Omówienie usługi ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![Połączenie prywatnej komunikacji równorzędnej ExpressRoute z sieciami wirtualnymi platformy Azure](./media/virtual-network-configure-vnet-connections/4034395_en_1.png)
 

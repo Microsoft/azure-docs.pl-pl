@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
-ms.openlocfilehash: da5100fafc98ae38809c93e9b3db5ef41c58766a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68789d3b8a4be51a381e95d6e6f840331b46b4e9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82863420"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400115"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Zdalna pomoc techniczna dla zapory platformy Azure
 
@@ -24,7 +24,7 @@ Korzystanie z zasad domowych wymaga wielu organizacji IT, aby zająć się funda
 
 ## <a name="azure-windows-virtual-desktop-support"></a>Obsługa pulpitu wirtualnego systemu Windows Azure
 
-Windows Virtual Desktop to kompleksowa usługa wirtualizacji pulpitu i aplikacji działająca na platformie Azure. Jest to jedyna Infrastruktura pulpitu wirtualnego (VDI), która oferuje uproszczone zarządzanie, wielosesyjne Windows 10, optymalizacje dla pakietu Office 365 ProPlus i obsługę środowisk Usługi pulpitu zdalnego (RDS). Możesz wdrażać i skalować komputery stacjonarne i aplikacje z systemem Windows na platformie Azure w ciągu kilku minut oraz korzystać z wbudowanych funkcji zabezpieczeń i zgodności. Pulpit wirtualny systemu Windows nie wymaga otwierania żadnego dostępu przychodzącego do sieci wirtualnej. Należy jednak zezwolić na zestaw wychodzących połączeń sieciowych dla maszyn wirtualnych z systemem Windows, które działają w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Korzystanie z zapory platformy Azure do ochrony wdrożeń pulpitów wirtualnych systemu Windows](protect-windows-virtual-desktop.md).
+Windows Virtual Desktop to kompleksowa usługa wirtualizacji pulpitu i aplikacji działająca na platformie Azure. Jest to jedyna Infrastruktura pulpitu wirtualnego (VDI), która oferuje uproszczone zarządzanie, wielosesyjne Windows 10, optymalizacje dla Microsoft 365 aplikacji dla przedsiębiorstw i obsługę środowisk Usługi pulpitu zdalnego (RDS). Możesz wdrażać i skalować komputery stacjonarne i aplikacje z systemem Windows na platformie Azure w ciągu kilku minut oraz korzystać z wbudowanych funkcji zabezpieczeń i zgodności. Pulpit wirtualny systemu Windows nie wymaga otwierania żadnego dostępu przychodzącego do sieci wirtualnej. Należy jednak zezwolić na zestaw wychodzących połączeń sieciowych dla maszyn wirtualnych z systemem Windows, które działają w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Korzystanie z zapory platformy Azure do ochrony wdrożeń pulpitów wirtualnych systemu Windows](protect-windows-virtual-desktop.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

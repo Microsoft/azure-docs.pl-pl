@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 78043e3d95a94d0e9be810164b31ef031234d620
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541026"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399605"
 ---
 # <a name="azure-advanced-threat-detection"></a>Zaawansowane wykrywanie zagrożeń na platformie Azure
 
@@ -64,13 +64,13 @@ Przykłady niektórych sposobów, w których usługa Azure Identity Protection, 
 
 ### <a name="azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management
 
-Za pomocą [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md)można zarządzać dostępem, kontrolować i monitorować je w organizacji. Ta funkcja obejmuje dostęp do zasobów w usłudze Azure AD i innych Usługi online firmy Microsoft, takich jak Office 365 lub Microsoft Intune.
+Za pomocą [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md)można zarządzać dostępem, kontrolować i monitorować je w organizacji. Ta funkcja obejmuje dostęp do zasobów w usłudze Azure AD i innych Usługi online firmy Microsoft, takich jak Microsoft 365 lub Microsoft Intune.
 
 ![Diagram Azure AD Privileged Identity Management](./media/threat-detection/azure-threat-detection-fig2.png)
 
 Program PIM ułatwia:
 
--   Otrzymuj alerty i raporty dotyczące administratorów usługi Azure AD oraz dostępu administracyjnego just-in-Time (JIT) do programu Microsoft Usługi online, takich jak Office 365 i Intune.
+-   Otrzymuj alerty i raporty dotyczące administratorów usługi Azure AD oraz dostępu administracyjnego just-in-Time (JIT) do programu Microsoft Usługi online, takich jak Microsoft 365 i Intune.
 
 -   Otrzymuj raporty o historii dostępu administratora i zmianach w przypisaniach administratorów.
 
@@ -155,7 +155,7 @@ Usługa Security Center wykorzystuje zaawansowane narzędzia analizy zabezpiecze
 
 Firma Microsoft ma dostęp do ogromnąej ilości globalnej analizy zagrożeń.
 
-Dane telemetryczne są przepływów z wielu źródeł, takich jak Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Zbrodnis Unit (DCU) i Microsoft Security Response Center (MSRC).
+Dane telemetryczne są przepływane z wielu źródeł, takich jak Azure, Microsoft 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Zbrodnis Unit (DCU) i Microsoft Security Response Center (MSRC).
 
 ![Wyniki analizy zagrożeń](./media/threat-detection/azure-threat-detection-fig10.jpg)
 
@@ -190,7 +190,7 @@ Oto niektóre przykłady:
 
 -   **Złośliwe skrypty programu PowerShell**: program PowerShell może być używany przez osoby atakujące do wykonywania złośliwego kodu na docelowych maszynach wirtualnych w różnych celach. Usługa Security Center sprawdza działanie programu PowerShell w poszukiwaniu dowodów na podejrzaną aktywność.
 
--   **Ataki wychodzące**: dla osób atakujących częstym celem są zasoby w chmurze, ponieważ mogą one być użyte do przeprowadzenia dodatkowych ataków. Naruszone maszyny wirtualne mogą na przykład służyć do uruchamiania ataków w postaci pełnego wymuszania na inne maszyny wirtualne, wysyłania spamu lub skanowania otwartych portów i innych urządzeń w Internecie. Dzięki zastosowaniu uczenia maszynowego do ruchu sieciowego usługa Security Center może wykryć, kiedy wychodząca komunikacja sieciowa przekracza normy. W przypadku wykrycia spamu Security Center również skorelowanie nietypowego ruchu poczty e-mail z analizą z pakietu Office 365, aby określić, czy wiadomość jest prawdopodobnie szkodliwa, czy też z powodu uzasadnionej kampanii poczty e-mail.
+-   **Ataki wychodzące**: dla osób atakujących częstym celem są zasoby w chmurze, ponieważ mogą one być użyte do przeprowadzenia dodatkowych ataków. Naruszone maszyny wirtualne mogą na przykład służyć do uruchamiania ataków w postaci pełnego wymuszania na inne maszyny wirtualne, wysyłania spamu lub skanowania otwartych portów i innych urządzeń w Internecie. Dzięki zastosowaniu uczenia maszynowego do ruchu sieciowego usługa Security Center może wykryć, kiedy wychodząca komunikacja sieciowa przekracza normy. W przypadku wykrycia spamu Security Center również skorelowanie nietypowego ruchu poczty e-mail z analizą z Microsoft 365, aby określić, czy wiadomość jest prawdopodobnie szkodliwa, czy też w wyniku prawdziwej kampanii poczty e-mail.
 
 ### <a name="anomaly-detection"></a>Wykrywanie anomalii
 
@@ -365,7 +365,7 @@ Przy zbieraniu danych z tych źródeł Cloud App Security uruchamia zaawansowan�
 
 ## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Zaawansowane możliwości wykrywania zagrożeń innych firm za pomocą witryny Azure Marketplace
 
-### <a name="web-application-firewall"></a>Zapora aplikacji internetowej
+### <a name="web-application-firewall"></a>Web Application Firewall
 
 Zapora aplikacji sieci Web sprawdza przychodzący ruch internetowy i blokuje iniekcje SQL, skrypty między lokacjami, operacje przekazywania złośliwego oprogramowania, ataki DDoS aplikacji oraz inne ataki, które są używane w aplikacjach sieci Web. Sprawdza także odpowiedzi z serwerów zaplecza sieci Web w celu zapobiegania utracie danych (DLP). Zintegrowany aparat kontroli dostępu umożliwia administratorom tworzenie szczegółowych zasad kontroli dostępu do uwierzytelniania, autoryzacji i ewidencjonowania aktywności (AAA), które zapewniają organizacjom silne uwierzytelnianie i kontrolę użytkownika.
 

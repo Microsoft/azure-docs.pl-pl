@@ -6,20 +6,17 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 8b413b82ceb148374bd89fd2baec7d4db13f54d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 512a103f5ac116f1f4eb18631cdc8e4a8b9380c9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329552"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399214"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Wolne dzienniki zapytań w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
 
 > [!IMPORTANT] 
 > Serwer elastyczny Azure Database for MySQL jest obecnie w publicznej wersji zapoznawczej.
-
-> [!NOTE]
-> Integracja z Azure Monitor ustawieniami diagnostycznymi w celu uzyskiwania dostępu do dzienników jest w trakcie wdrażania i pełna funkcjonalność będzie dostępna wkrótce.
 
 W Azure Database for MySQL elastycznym serwerze, długi dziennik zapytań jest dostępny dla użytkowników w celu skonfigurowania i uzyskania dostępu. Dzienniki wolnych zapytań są domyślnie wyłączone i można je włączyć, aby pomóc w identyfikowaniu wąskich gardeł wydajności podczas rozwiązywania problemów.
 
@@ -42,10 +39,7 @@ Więcej opisów parametrów dziennika wolnych zapytań można znaleźć w [dokum
 
 ## <a name="access-slow-query-logs"></a>Dostęp do dzienników wolnych zapytań
 
-> [!NOTE]
-> Integracja z Azure Monitor ustawieniami diagnostycznymi w celu uzyskiwania dostępu do dzienników jest w trakcie wdrażania i pełna funkcjonalność będzie dostępna wkrótce.
-
-Dzienniki wolnych zapytań są zintegrowane z ustawieniami diagnostycznymi Azure Monitor. Po włączeniu dzienników inspekcji na serwerze elastycznym MySQL można je emitować do Azure Monitor dzienników, Event Hubs lub Azure Storage. Aby dowiedzieć się więcej na temat ustawień diagnostycznych, zobacz [dokumentację dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md). Aby dowiedzieć się więcej na temat włączania ustawień diagnostycznych w Azure Portal, zobacz [artykuł poświęcony witrynie Portal dziennika wolnych zapytań](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
+Dzienniki wolnych zapytań są zintegrowane z ustawieniami diagnostycznymi Azure Monitor. Po włączeniu dzienników wolnych zapytań na serwerze elastycznym MySQL można je emitować do Azure Monitor dzienników, Event Hubs lub Azure Storage. Aby dowiedzieć się więcej na temat ustawień diagnostycznych, zobacz [dokumentację dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md). Aby dowiedzieć się więcej na temat włączania ustawień diagnostycznych w Azure Portal, zobacz [artykuł poświęcony witrynie Portal dziennika wolnych zapytań](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
 
 W poniższej tabeli opisano dane wyjściowe dziennika wolnych zapytań. W zależności od metody Output pola uwzględnione i kolejność ich wyświetlania mogą się różnić.
 

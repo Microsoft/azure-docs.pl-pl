@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1865d307e7b79e7e40b0e98f2dcfa2535b0313fd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08e6491e1d8d94e8e6e9112e5a19682018103325
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551711"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400353"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Samouczek: tworzenie kopii zapasowych i przywracanie plików dla maszyn wirtualnych z systemem Linux na platformie Azure
 
@@ -70,7 +70,7 @@ W tym przykładzie przedstawiono sposób odzyskiwania domyślnej strony internet
  
 1. Na komputerze lokalnym otwórz przeglądarkę internetową i wpisz publiczny adres IP maszyny wirtualnej, aby wyświetlić domyślną stronę internetową serwera nginx.
 
-    ![Domyślna strona internetowa serwera nginx](./media/tutorial-backup-vms/nginx-working.png)
+    ![Zrzut ekranu pokazujący domyślną stronę sieci Web Nginx.](./media/tutorial-backup-vms/nginx-working.png)
 
 1. Połącz się z maszyną wirtualną za pośrednictwem protokołu SSH.
 
@@ -86,7 +86,7 @@ W tym przykładzie przedstawiono sposób odzyskiwania domyślnej strony internet
     
 4. Na komputerze lokalnym odśwież przeglądarkę, naciskając klawisze CTRL + F5, aby zobaczyć, że domyślna strona serwera nginx została usunięta.
 
-    ![Domyślna strona internetowa serwera nginx](./media/tutorial-backup-vms/nginx-broken.png)
+    ![Zrzut ekranu pokazujący domyślną stronę Nginx.](./media/tutorial-backup-vms/nginx-broken.png)
     
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) na komputerze lokalnym.
 6. W menu po lewej stronie wybierz pozycję **Maszyny wirtualne**. 

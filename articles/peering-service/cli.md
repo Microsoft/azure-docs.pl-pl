@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
-ms.openlocfilehash: fbb9a6237aafe1c1b7c94d9dd23ad4c3665c0c73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef573817927cf732da3426d802f8f26e2e9cd4ec
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84872132"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399027"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Rejestrowanie połączenia usługi komunikacji równorzędnej za pomocą interfejsu wiersza polecenia platformy Azure
 
-Usługa komunikacji równorzędnej Azure to usługa sieciowa, która zwiększa łączność klienta z usługami w chmurze firmy Microsoft, takimi jak Office 365, Dynamics 365, SaaS (Software as a Service), Azure lub dowolnych usług firmy Microsoft dostępnych za pośrednictwem publicznej sieci Internet. W tym artykule dowiesz się, jak zarejestrować połączenie z usługą komunikacji równorzędnej za pomocą interfejsu wiersza polecenia platformy Azure.
+Usługa komunikacji równorzędnej Azure to usługa sieciowa, która zwiększa łączność klienta z usługami w chmurze firmy Microsoft, takimi jak Microsoft 365, Dynamics 365, oprogramowanie jako usługa (SaaS), Azure lub wszelkie usługi firmy Microsoft dostępne za pośrednictwem publicznej sieci Internet. W tym artykule dowiesz się, jak zarejestrować połączenie z usługą komunikacji równorzędnej za pomocą interfejsu wiersza polecenia platformy Azure.
 
 Jeśli nie masz subskrypcji platformy Azure, Utwórz [konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) teraz.
 

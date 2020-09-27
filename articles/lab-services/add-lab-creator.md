@@ -3,12 +3,12 @@ title: Dodaj użytkownika jako twórcę laboratorium w Azure Lab Services
 description: W tym artykule pokazano, jak dodać użytkownika do roli twórca laboratorium dla konta laboratorium w Azure Lab Services. Twórcy laboratorium mogą tworzyć laboratoria w ramach tego konta laboratorium.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34fbf9085f36d008607b648825585d3435cc2895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444288"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399486"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Dodaj twórców laboratorium do konta laboratorium w Azure Lab Services
 W tym artykule opisano sposób dodawania użytkowników jako twórców laboratorium do konta laboratorium w Azure Lab Services. Te zastosowania mogą następnie tworzyć laboratoria klas na koncie laboratorium. 
@@ -31,7 +31,7 @@ Aby przyznać nauczycielom uprawnienie do tworzenia laboratoriów na potrzeby za
 ## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>Dodawanie użytkownika innego niż konto Microsoft jako twórca laboratorium
 Aby dodać użytkownika jako twórcę laboratorium, należy użyć swoich kont e-mail. Mogą być używane następujące typy kont e-mail:
 
-- Konto e-mail, które jest dostarczane przez Azure Active Directory Office 365 (AAD). 
+- Konto e-mail, które jest udostępniane przez Azure Active Directory University (AAD).
 - Konto e-mail firmy Microsoft, takie jak `@outlook.com` , `@hotmail.com` , `@msn.com` lub `@live.com` .
 - Konto e-mail inne niż firmy Microsoft, na przykład udostępniane przez firmę Yahoo lub Google. Jednak te typy kont muszą być połączone z konto Microsoft.
 - Konto usługi GitHub. To konto musi być połączone z konto Microsoft.

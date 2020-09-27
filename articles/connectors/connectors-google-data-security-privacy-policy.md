@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: b82b79d076871b961d5c496bc70beac1b5067b2d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2a5204be638f108b40e431b148c9cb97788c4a52
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288105"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400761"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Zasady zabezpieczeń i ochrony danych dla łączników Google w Azure Logic Apps
 
@@ -40,7 +40,7 @@ W ramach tych zasad, jeśli używasz konta użytkownika usługi Gmail, możesz u
 
 * Usługi Google Services: Gmail, Kalendarz Google, kontakty Google, dysk Google, Arkusze Google i zadania Google
 
-* Zatwierdzone usługi firmy Microsoft: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive i SharePoint Online
+* Zatwierdzone usługi firmy Microsoft: Dynamics 365, Excel Online, Microsoft Teams, Microsoft 365, OneDrive i SharePoint Online
 
 * Łączniki dla źródeł danych zarządzanych przez klienta: FTP, RSS, SFTP, SMTP i SQL Server
 

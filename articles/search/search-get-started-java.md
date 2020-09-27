@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e9a2ff5d46557ddf8f5f62b456e8a3d54bf90c55
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 6be511029221e1f7bd1e58ad111503a43ee157fb
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290350"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400659"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w języku Java przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Wywołania usługi wymagają punktu końcowego adresu URL i klucza dostępu dla 
 
    Utwórz również klucz zapytania. Najlepszym rozwiązaniem jest wydawanie żądań zapytań z dostępem tylko do odczytu.
 
-![Pobieranie nazwy usługi i administratora oraz kluczy zapytań](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
 Każde żądanie wysyłane do usługi wymaga klucza interfejsu API. Prawidłowy klucz ustanawia relację zaufania dla danego żądania między aplikacją wysyłającą żądanie i usługą, która je obsługuje.
 
@@ -67,7 +67,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 1. Wybierz pozycję **Maven**.
 1. Na liście **zestaw SDK projektu** wybierz zestaw SDK języka Java 11.
 
-    ![Tworzenie projektu Maven](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Tworzenie projektu Maven" border="false":::
 
 1. Dla **identyfikatora GroupID** i **ArtifactId**wprowadź `AzureSearchQuickstart` .
 1. Zaakceptuj pozostałe wartości domyślne, aby otworzyć projekt.
@@ -78,7 +78,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 1. W oknie **Ustawienia** wybierz pozycję **kompilacja, wykonanie,**  >  **narzędzia kompilacji**wdrożenia  >  **Maven**  >  **Importowanie**.
 1. Zaznacz pole wyboru  **Importuj projekty Maven automatycznie** , a następnie kliknij przycisk **OK** , aby zamknąć okno. Wtyczki Maven i inne zależności będą teraz automatycznie synchronizowane podczas aktualizacji pliku pom.xml w następnym kroku.
 
-    ![Maven opcji importowania w ustawieniach IntelliJ](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Maven opcji importowania w ustawieniach IntelliJ" border="false":::
 
 1. Otwórz plik pom.xml i Zastąp jego zawartość następującymi szczegółami konfiguracji Maven. Obejmują one odwołania do [wtyczki exec Maven](https://www.mojohaus.org/exec-maven-plugin/) oraz interfejsu [API interfejsu JSON](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
@@ -140,7 +140,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
     Gdy skończysz, drzewo projektu powinno wyglądać jak na poniższej ilustracji.
 
-    ![Struktura katalogu projektu](media/search-get-started-java/java-quickstart-basic-code-tree.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Struktura katalogu projektu" border="false":::
 
 1. Kliknij przycisk **OK**, aby zamknąć okno.
 
@@ -373,10 +373,10 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 1. Sprawdź, czy projekt ma następującą strukturę.
 
-    ![Struktura katalogów i klasy projektu](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Struktura katalogów i klasy projektu" border="false":::
 
 1. Otwórz okno narzędzia **Maven** i wykonaj ten Maven cel: `verify exec:java` 
- ![ Wykonaj Maven cel: Verify exec: Java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
+ :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Wykonaj Maven cel: Verify exec: Java" border="false":::
 
 Po zakończeniu przetwarzania Wyszukaj komunikat o POWODZENIU kompilacji, po którym następuje kod zakończenia równy zero (0).
 
@@ -515,7 +515,7 @@ Definicja indeksu hoteli zawiera proste pola i jedno pole złożone. Przykładam
     
     `Description`Pole w tym indeksie używa opcjonalnej `analyzer` właściwości do przesłania domyślnego analizatora języka Lucene. W `Description_fr` polu jest używany francuski Analizator Lucene, `fr.lucene` ponieważ jest on przechowywany w języku francuskim. `Description`Używa opcjonalnego narzędzia Microsoft Language Analyzer en. Lucene. Aby dowiedzieć się więcej na temat analizatorów, zobacz [analizatory do przetwarzania tekstu na platformie Azure wyszukiwanie poznawcze](search-analyzers.md).
 
-1. Dodaj następujący kod do `SearchServiceClient` klasy. Te metody kompilują adresy URL usługi Azure Wyszukiwanie poznawcze REST, które tworzą i usuwają indeks, i określają, czy indeks istnieje. Metody również tworzą żądanie HTTP.
+1. Dodaj poniższy kod do klasy `SearchServiceClient`. Te metody kompilują adresy URL usługi Azure Wyszukiwanie poznawcze REST, które tworzą i usuwają indeks, i określają, czy indeks istnieje. Metody również tworzą żądanie HTTP.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -695,7 +695,7 @@ Definicja indeksu hoteli zawiera proste pola i jedno pole złożone. Przykładam
 
 Teraz, gdy załadowałeś dokumenty hoteli, możesz utworzyć zapytania wyszukiwania umożliwiające dostęp do danych hoteli.
 
-1. Dodaj następujący kod do `SearchServiceClient` klasy. Ten kod kompiluje adresy URL usługi Azure Wyszukiwanie poznawcze REST, aby przeszukać indeksowane dane i wydrukował wyniki wyszukiwania.
+1. Dodaj poniższy kod do klasy `SearchServiceClient`. Ten kod kompiluje adresy URL usługi Azure Wyszukiwanie poznawcze REST, aby przeszukać indeksowane dane i wydrukował wyniki wyszukiwania.
 
     `SearchOptions`Klasa i `createSearchOptions` Metoda pozwalają określić podzestaw dostępnych opcji zapytania interfejsu API REST platformy Azure wyszukiwanie poznawcze. Aby uzyskać więcej informacji na temat opcji zapytania interfejsu API REST, zobacz [Wyszukiwanie dokumentów (Azure wyszukiwanie POZNAWCZE REST API)](/rest/api/searchservice/search-documents).
 

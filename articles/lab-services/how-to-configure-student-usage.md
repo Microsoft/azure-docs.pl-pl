@@ -3,12 +3,12 @@ title: Skonfiguruj ustawienia użycia w obszarze laboratoria Azure Lab Services
 description: Dowiedz się, jak skonfigurować liczbę studentów dla laboratorium, zarejestrować je w laboratorium, kontrolować liczbę godzin, przez które mogą korzystać z maszyny wirtualnej, i nie tylko.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 229147891d1456d7b7b11fd5297755842d85e600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445954"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399673"
 ---
 # <a name="add-and-manage-lab-users"></a>Dodawanie użytkowników laboratorium i zarządzanie nimi
 
@@ -166,7 +166,7 @@ Aby ustawić dodatkowe przydziały, wykonaj następujące czynności:
 
 Aby dodać uczniów do laboratorium zajęć, użyj swoich kont e-mail. Studenci mogą mieć następujące typy kont e-mail:
 
-- Konto e-mail ucznia udostępniane przez wystąpienie Azure Active Directory University dla pakietu Office 365. 
+- Konto e-mail ucznia udostępniane przez wystąpienie Azure Active Directory University.
 - Konto e-mail w domenie firmy Microsoft, takie jak *Outlook.com*, *hotmail.com*, *MSN.com*lub *Live.com*.
 - Konto e-mail inne niż firmy Microsoft, na przykład udostępniane przez usługi Yahoo! lub Google. Jednak te typy kont muszą być połączone z konto Microsoft.
 - Konto usługi GitHub. To konto musi być połączone z konto Microsoft.

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b67de07777fa3f4f2b6190d8b003eb0495e66d15
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145701"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400489"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Wyodrębnij informacje w programie Excel przy użyciu analiza tekstu i automatyzacji 
 
@@ -37,7 +37,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 - Zasób analiza tekstu. Jeśli go nie masz, możesz go [utworzyć w Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) i skorzystać z warstwy Bezpłatna, aby ukończyć ten samouczek.
 - [Klucz i punkt końcowy](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) , który został wygenerowany dla Ciebie podczas rejestracji.
 - Arkusz kalkulacyjny zawierający problemy z dzierżawcą. Przykładowe dane są dostępne w serwisie GitHub
-- Pakiet Office 365 z usługą OneDrive dla firm.
+- Microsoft 365 z usługą OneDrive dla firm.
 
 ## <a name="add-the-excel-file-to-onedrive-for-business"></a>Dodawanie pliku programu Excel do usługi OneDrive dla firm
 
@@ -78,10 +78,10 @@ Dodaj następujące informacje do utworzonych zmiennych. Reprezentują one kolum
 
 | Akcja |Nazwa   | Typ | Wartość |
 |---------|---------|---|---|
-| Zainicjuj zmienną | var_person | String | Person (Osoba) |
+| Zainicjuj zmienną | var_person | String | Osoba |
 | Zainicjuj zmienną 2 | var_phone | String | Phone_Number |
 | Zainicjuj zmienną 3 | var_plumbing | String | nadmiar |
-| Zainicjuj zmienną 4 | var_other | String | inne | 
+| Zainicjuj zmienną 4 | var_other | String | other | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="Informacje zawarte w zmiennych przepływu":::
@@ -218,7 +218,7 @@ W **przypadku braku** warunku kliknij pozycję **Dodaj akcję**, a następnie wy
 
 ## <a name="test-the-workflow"></a>Testowanie przepływu pracy
 
-W prawym górnym rogu ekranu kliknij przycisk **Zapisz**, a następnie **Testuj**. Wybierz opcję **Chcę wykonać akcję wyzwalacza**. Kliknij przycisk **zapisz & test**, **Uruchom przepływ**, a następnie **gotowe**.
+W prawym górnym rogu ekranu kliknij przycisk **Zapisz**, a następnie **Testuj**. Wybierz opcję  **Chcę wykonać akcję wyzwalacza**. Kliknij przycisk **zapisz & test**, **Uruchom przepływ**, a następnie **gotowe**.
 
 Plik programu Excel zostanie zaktualizowany na koncie w usłudze OneDrive. Będzie wyglądać tak jak poniżej.
 

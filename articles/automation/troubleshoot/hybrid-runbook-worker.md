@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187204"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400421"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Rozwiązywanie problemów z hybrydowym procesem roboczym elementu runbook
 
@@ -234,11 +234,11 @@ Dzienniki są przechowywane lokalnie na każdym hybrydowym procesie roboczym w w
 
 Hybrydowe procesy robocze wysyłają [dane wyjściowe i komunikaty elementu Runbook](../automation-runbook-output-and-messages.md) do Azure Automation w taki sam sposób, jak zadania elementu Runbook działające w chmurze wysyłają dane wyjściowe i komunikaty. Możesz włączyć strumienie pełnych i postępów tak samo jak w przypadku elementów Runbook.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scenariusz: Orchestrator.Sandbox.exe nie może nawiązać połączenia z pakietem Office 365 przy użyciu serwera proxy
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>Scenariusz: Orchestrator.Sandbox.exe nie może nawiązać połączenia z Microsoft 365 za poorednictwem serwera proxy
 
 #### <a name="issue"></a>Problem
 
-Skrypt uruchomiony w hybrydowym procesie roboczym elementu Runbook systemu Windows nie może nawiązać połączenia zgodnie z oczekiwaniami z pakietem Office 365 w piaskownicy programu Orchestrator. Skrypt używa polecenia [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) w celu nawiązania połączenia. 
+Skrypt uruchomiony w hybrydowym procesie roboczym elementu Runbook systemu Windows nie może nawiązać połączenia zgodnie z oczekiwaniami, aby Microsoft 365 w piaskownicy programu Orchestrator. Skrypt używa polecenia [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) w celu nawiązania połączenia. 
 
 W przypadku dostosowania **Orchestrator.Sandbox.exe.config** , aby ustawić serwer proxy i listę pomijania, Piaskownica nadal nie będzie się poprawnie łączyć. Plik **Powershell_ise.exe.config** z tymi samymi ustawieniami serwera proxy i listy obejścia wygląda prawdopodobnie zgodnie z oczekiwaniami. Dzienniki Service Management Automation (SMA) i dzienniki programu PowerShell nie zawierają żadnych informacji dotyczących serwera proxy.
 

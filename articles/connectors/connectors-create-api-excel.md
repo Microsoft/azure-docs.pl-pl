@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 097db6683127b410e713be53e6de838cf7734ddc
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75445886"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400727"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Zarządzanie danymi w usłudze Excel Online za pomocą Azure Logic Apps
 
@@ -33,7 +33,7 @@ Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure L
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* [Konto usługi Office 365](https://www.office.com/) dla Twojego konta służbowego lub osobistego konto Microsoft
+* [Konto](https://www.office.com/) służbowe dla Twojego konta służbowego lub osobistego konto Microsoft
 
   Dane programu Excel mogą istnieć jako plik wartości rozdzielanych przecinkami (CSV) w folderze magazynu, na przykład w usłudze OneDrive. 
   Można również użyć tego samego pliku CSV z łącznikiem o [płaskim pliku](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
@@ -53,7 +53,7 @@ Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure L
    > [!NOTE]
    > Projektant aplikacji logiki nie może załadować tabel, które mają 100 lub więcej kolumn. Jeśli to możliwe, zmniejsz liczbę kolumn w zaznaczonej tabeli, aby projektant mógł załadować tabelę.
 
-1. Jeśli zostanie wyświetlony monit, zaloguj się do konta Office 365.
+1. Jeśli zostanie wyświetlony monit, zaloguj się do konta służbowego.
 
    Twoje poświadczenia autoryzują aplikację logiki, aby utworzyć połączenie z usługą Excel Online i uzyskać dostęp do danych.
 

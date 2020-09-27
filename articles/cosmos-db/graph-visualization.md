@@ -1,18 +1,18 @@
 ---
 title: Wizualizowanie danych grafu w Azure Cosmos DB interfejsie API Gremlin
 description: Dowiedz się, jak zintegrować dane grafu Azure Cosmos DB z rozwiązaniami do wizualizacji (Linkurious Enterprise, Cambridge Intelligence).
-author: luisbosquez
-ms.author: lbosq
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 07/02/2019
-ms.openlocfilehash: 9999dad15cd02577eda85c15b67b98780a27b4a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9850af3ea2365aa73d8b9f08b2e706c79062860
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261787"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400523"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Wizualizowanie danych grafu przechowywanych w interfejsie API Azure Cosmos DB Gremlin z rozwiązaniami do wizualizacji danych
 
@@ -46,7 +46,7 @@ Te zestawy narzędzi umożliwiają projektowanie wizualizacji grafów o wysokiej
 
 
 ## <a name="next-steps"></a>Następne kroki
- 
+
 - [Wypróbuj zestaw narzędzi](https://cambridge-intelligence.com/try/)
 - [Omówienie technologii wiersza](https://cambridge-intelligence.com/keylines/technology/)
 - [Przegląd technologii regrafu](https://cambridge-intelligence.com/regraph/technology/)

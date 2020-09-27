@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: c9483363dcf6b4a5c05d71daa75d680dd25b8308
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 54c14f1ef78694055c567ded0fdccede062605ba
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002676"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400319"
 ---
 # <a name="azure-identity-management-security-overview"></a>Omówienie zabezpieczeń usługi Azure Identity Management
 
@@ -54,7 +54,7 @@ Artykuł koncentruje się na następujących podstawowych możliwościach usług
 
 Logowanie jednokrotne oznacza, że można uzyskać dostęp do wszystkich aplikacji i zasobów potrzebnych do prowadzenia działalności, logując się tylko raz przy użyciu jednego konta użytkownika. Po zalogowaniu możesz uzyskać dostęp do wszystkich aplikacji, których potrzebujesz, bez konieczności uwierzytelniania (na przykład wpisz hasło).
 
-Wiele organizacji korzysta z aplikacji SaaS, takich jak Office 365, Box i Salesforce, aby zwiększyć produktywność użytkowników. W przeszłości pracownicy działu IT musieli indywidualnie utworzyć i zaktualizować konta użytkowników w każdej aplikacji SaaS, a użytkownicy musieli zapamiętać hasło dla każdej aplikacji SaaS.
+Wiele organizacji korzysta z aplikacji SaaS, takich jak Microsoft 365, Box i Salesforce, aby zwiększyć produktywność użytkowników. W przeszłości pracownicy działu IT musieli indywidualnie utworzyć i zaktualizować konta użytkowników w każdej aplikacji SaaS, a użytkownicy musieli zapamiętać hasło dla każdej aplikacji SaaS.
 
 Usługa Azure AD rozszerza lokalne środowiska Active Directory do chmury, umożliwiając użytkownikom używanie ich podstawowego konta organizacyjnego do logowania się nie tylko do urządzeń przyłączonych do domeny i zasobów firmy, ale także do wszystkich aplikacji sieci Web i SaaS potrzebnych do ich zadań.
 
@@ -63,7 +63,7 @@ Nie tylko użytkownicy, którzy nie muszą zarządzać wieloma zestawami nazw u�
 Więcej informacji:
 
 * [Przegląd rejestracji jednokrotnej](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Seria szybkiego startu w zarządzaniu aplikacjami](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## <a name="reverse-proxy"></a>Zwrotny serwer proxy
@@ -87,14 +87,14 @@ Więcej informacji:
 * [Co to jest usługa Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
 * [Jak działa usługa Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## <a name="azure-rbac"></a>Kontrola RBAC platformy Azure
+## <a name="azure-rbac"></a>Kontrola dostępu na podstawie ról platformy Azure
 
 Azure RBAC to system autoryzacji oparty na Azure Resource Manager, który zapewnia precyzyjne zarządzanie dostępem do zasobów na platformie Azure. Usługa Azure RBAC umożliwia precyzyjne sterowanie poziomem dostępu dostępnym dla użytkowników. Można na przykład ograniczyć użytkownika do zarządzania sieciami wirtualnymi i innym użytkownikom w celu zarządzania wszystkimi zasobami w grupie zasobów. Na platformie Azure można korzystać z kilku ról wbudowanych. Poniżej wymieniono cztery podstawowe role wbudowane. Pierwsze trzy są stosowane do wszystkich typów zasobów.
 
-- [Właściciel](/azure/role-based-access-control/built-in-roles#owner) — ma pełny dostęp do wszystkich zasobów, w tym prawo do delegowania dostępu do innych osób. 
-- [Współautor](/azure/role-based-access-control/built-in-roles#contributor) — można tworzyć wszystkie typy zasobów platformy Azure i zarządzać nimi, ale nie mogą przyznawać dostępu innym osobom.
+- [Właściciel](/azure/role-based-access-control/built-in-roles#owner) — ma pełny dostęp do wszystkich zasobów i jest uprawniony do udzielania dostępu innym osobom. 
+- [Współautor](/azure/role-based-access-control/built-in-roles#contributor) — może tworzyć wszystkie typy zasobów platformy Azure i zarządzać nimi, ale nie może udzielać dostępu innym osobom.
 - [Reader](/azure/role-based-access-control/built-in-roles#reader) — może wyświetlać istniejące zasoby platformy Azure.
-- [Administrator dostępu użytkowników](/azure/role-based-access-control/built-in-roles#user-access-administrator) — umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure.
+- [Administrator dostępu użytkowników](/azure/role-based-access-control/built-in-roles#user-access-administrator) — może zarządzać dostępem użytkowników do zasobów platformy Azure.
 
 Więcej informacji:
 
@@ -147,14 +147,14 @@ Więcej informacji:
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Za pomocą Azure AD Privileged Identity Management można zarządzać i monitorować uprzywilejowane tożsamości oraz uzyskiwać dostęp do zasobów w usłudze Azure AD, a także inne Usługi online firmy Microsoft, takie jak Office 365 i Microsoft Intune.
+Za pomocą Azure AD Privileged Identity Management można zarządzać, kontrolować i monitorować uprzywilejowane tożsamości oraz uzyskiwać dostęp do zasobów w usłudze Azure AD, a także inne Usługi online firmy Microsoft, takie jak Microsoft 365 i Microsoft Intune.
 
-Czasami użytkownicy muszą wykonywać operacje uprzywilejowane na platformie Azure lub w zasobach pakietu Office 365 lub w innych aplikacjach SaaS. Taka konieczność często oznacza, że organizacje muszą udzielić użytkownikom stałego uprzywilejowanego dostępu w usłudze Azure AD. Taki dostęp dotyczy zasobów hostowanych w chmurze, ponieważ organizacje nie mogą wystarczająco dobrze monitorować działania użytkowników z uprawnieniami administratora. Ponadto, jeśli naruszone zostanie konto użytkownika z dostępem uprzywilejowanym, oznacza to, że jedno naruszenie może mieć wpływ na ogólne zabezpieczenia chmury w organizacji. Azure AD Privileged Identity Management pomaga w ograniczeniu ryzyka.
+Czasami użytkownicy muszą wykonywać operacje uprzywilejowane na platformie Azure lub w ramach zasobów Microsoft 365 lub w innych aplikacjach SaaS. Taka konieczność często oznacza, że organizacje muszą udzielić użytkownikom stałego uprzywilejowanego dostępu w usłudze Azure AD. Taki dostęp dotyczy zasobów hostowanych w chmurze, ponieważ organizacje nie mogą wystarczająco dobrze monitorować działania użytkowników z uprawnieniami administratora. Ponadto, jeśli naruszone zostanie konto użytkownika z dostępem uprzywilejowanym, oznacza to, że jedno naruszenie może mieć wpływ na ogólne zabezpieczenia chmury w organizacji. Azure AD Privileged Identity Management pomaga w ograniczeniu ryzyka.
 
 Za pomocą Azure AD Privileged Identity Management można:
 
 * Zobacz, którzy użytkownicy są administratorami usługi Azure AD.
-* Włącz dostęp administracyjny do usług firmy Microsoft na żądanie, w trybie just-in-Time (JIT), takich jak Office 365 i Intune.
+* Włącz dostęp administracyjny do usług firmy Microsoft na żądanie, w trybie just-in-Time (JIT), takich jak Microsoft 365 i Intune.
 * Otrzymuj raporty o historii dostępu administratora i zmianach w przypisaniach administratorów.
 * Otrzymuj alerty dotyczące dostępu do roli uprzywilejowanej.
 
@@ -174,7 +174,7 @@ Więcej informacji:
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Hybrydowe zarządzanie tożsamościami/Azure AD Connect
 
-Rozwiązania firmy Microsoft do obsługi tożsamości obejmują zarówno funkcje lokalne, jak i chmurowe, tworząc jedną tożsamość użytkownika na potrzeby uwierzytelniania i autoryzacji w kontekście wszystkich zasobów, niezależnie od lokalizacji. Nazywamy to tożsamością hybrydową. Azure AD Connect to narzędzie firmy Microsoft, które umożliwia spełnienie wymagań związanych z tożsamością hybrydową. Dzięki temu użytkownicy mogą posługiwać się wspólną tożsamością dla usługi Office 365, platformy Azure i aplikacji SaaS zintegrowanych z usługą Azure AD. Oferuje ono następujące funkcje:
+Rozwiązania firmy Microsoft do obsługi tożsamości obejmują zarówno funkcje lokalne, jak i chmurowe, tworząc jedną tożsamość użytkownika na potrzeby uwierzytelniania i autoryzacji w kontekście wszystkich zasobów, niezależnie od lokalizacji. Nazywamy to tożsamością hybrydową. Azure AD Connect to narzędzie firmy Microsoft, które umożliwia spełnienie wymagań związanych z tożsamością hybrydową. Dzięki temu użytkownicy mogą posługiwać się wspólną tożsamością dla platformy Microsoft 365, platformy Azure i aplikacji SaaS zintegrowanych z usługą Azure AD. Oferuje ono następujące funkcje:
 
 * Synchronizacja
 * Integracja AD FS i Federacji

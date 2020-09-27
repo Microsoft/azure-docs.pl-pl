@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: f3a41fbd3cbd5b7c8eccfbea8833fdfedee97510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08c105bd8ae9b5e0667ef5279e6c9484c631bd48
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512405"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399044"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Usługa Azure Import/Export: często zadawane pytania
 
@@ -35,9 +35,9 @@ Tak. Usługa Azure Import/Export obsługuje importowanie do usługi Azure File S
 
 Tak. Usługa Azure Import/Export obsługuje subskrypcje dostawców rozwiązań w chmurze (CSP).
 
-### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-o365"></a>Czy mogę użyć usługi Azure Import/Export do kopiowania skrzynek pocztowych PST i danych programu SharePoint do usługi O365?
+### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-microsoft-365"></a>Czy mogę użyć usługi Azure Import/Export do kopiowania skrzynek pocztowych PST i danych programu SharePoint do Microsoft 365?
 
-Tak. Aby uzyskać więcej informacji, przejdź do obszaru [Importowanie plików PST lub danych programu SharePoint do pakietu Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
+Tak. Aby uzyskać więcej informacji, przejdź do [omówienia importowania plików pst w organizacji](/microsoft-365/compliance/importing-pst-files-to-office-365).
 
 ### <a name="can-i-use-the-azure-importexport-service-to-copy-my-backups-offline-to-the-azure-backup-service"></a>Czy mogę użyć usługi Azure Import/Export do kopiowania kopii zapasowych w tryb offline do usługi Azure Backup?
 

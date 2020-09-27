@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 0cb51cd224145e7fe359e2b14a87ed2b87b18c26
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: f331c62060b2d8a39a87bab95b00225f363b4a56
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563028"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400251"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorowanie łączności sieciowej z monitorem połączeń (wersja zapoznawcza)
 
@@ -30,7 +30,7 @@ Poniżej przedstawiono niektóre przypadki użycia monitora połączeń (wersja 
 
 - Maszyna wirtualna serwera frontonu sieci Web komunikuje się z maszyną wirtualną serwera bazy danych w aplikacji wielowarstwowej. Chcesz sprawdzić łączność sieciową między dwiema maszynami wirtualnymi.
 - Chcesz, aby maszyny wirtualne w regionie Wschodnie stany USA mogli wysyłać polecenia ping do maszyn wirtualnych w regionie Środkowe stany USA, a chcesz porównać opóźnienia sieci między regionami.
-- Masz wiele lokalnych witryn biurowych w Seattle, Waszyngton i w Ashburn, Wirginia. Twoje witryny pakietu Office łączą się z adresami URL pakietu Office 365. Dla użytkowników adresów URL pakietu Office 365 Porównaj opóźnienia między Seattle i Ashburn.
+- Masz wiele lokalnych witryn biurowych w Seattle, Waszyngton i w Ashburn, Wirginia. Witryny pakietu Office nawiązują połączenie z adresami URL Microsoft 365. Dla użytkowników Microsoft 365 adresów URL Porównaj opóźnienia między Seattle i Ashburn.
 - Aplikacja hybrydowa wymaga połączenia z punktem końcowym usługi Azure Storage. Lokacja lokalna i aplikacja platformy Azure nawiązują połączenie z tym samym punktem końcowym usługi Azure Storage. Chcesz porównać opóźnienia lokacji lokalnej z opóźnieniami aplikacji platformy Azure.
 - Chcesz sprawdzić łączność między konfiguracjami lokalnymi i maszynami wirtualnymi platformy Azure, które obsługują aplikację w chmurze.
 
@@ -87,7 +87,7 @@ Aby uzyskać więcej informacji, zobacz [włączanie Network Watcher](https://do
 
 Monitor połączeń monitoruje komunikację w regularnych odstępach czasu. Informuje o zmianach w zakresie osiągalności i opóźnień. Możesz również sprawdzić bieżącą i historyczną topologię sieci między agentami źródłowymi i docelowymi punktami końcowymi.
 
-Źródłami mogą być maszyny wirtualne platformy Azure lub maszyny lokalne z zainstalowanym agentem monitorowania. Docelowymi punktami końcowymi mogą być adresy URL pakietu Office 365, adresy URL Dynamics 365, niestandardowe adresy URL, identyfikatory zasobów maszyn wirtualnych platformy Azure, IPv4, IPv6, nazwy FQDN lub dowolna nazwa domeny.
+Źródłami mogą być maszyny wirtualne platformy Azure lub maszyny lokalne z zainstalowanym agentem monitorowania. Docelowymi punktami końcowymi mogą być Microsoft 365 adresów URL, Dynamics 365 adresów URL, niestandardowych adresów URL, identyfikatorów zasobów maszyn wirtualnych platformy Azure, adresów IPv4, IPv6, nazw FQDN lub dowolnych nazw domen.
 
 ### <a name="access-connection-monitor-preview"></a>Monitor połączenia dostępu (wersja zapoznawcza)
 

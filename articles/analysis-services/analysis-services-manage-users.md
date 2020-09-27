@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c44ac820349973240328fbb92dea14668b019a12
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926182"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400795"
 ---
 # <a name="authentication-and-user-permissions"></a>Uwierzytelnianie i uprawnienia użytkownika
 
@@ -28,13 +28,13 @@ Wszystkie aplikacje i narzędzia klienckie używają co najmniej jednej z Analys
 
 Wszystkie trzy biblioteki klienta obsługują zarówno przepływ interaktywny usługi Azure AD, jak i nieinteraktywne metody uwierzytelniania. W aplikacjach korzystających z AMOMD i MSOLAP można używać dwóch metod nieinteraktywnych, hasła Active Directory i Active Directory zintegrowanych metod uwierzytelniania. Te dwie metody nigdy nie powodują wyskakujących okien dialogowych.
 
-Aplikacje klienckie, takie jak program Excel i Power BI Desktop, oraz narzędzia, takie jak SSMS i Analysis Services projekty, dla programu Visual Studio instalują najnowsze wersje bibliotek po aktualizacji do najnowszej wersji. Power BI Desktop, SSMS i Analysis Services projekty są aktualizowane co miesiąc. Program Excel jest [aktualizowany przy użyciu pakietu Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Aktualizacje pakietu Office 365 są rzadziej, a niektóre organizacje korzystają z odroczonego kanału, co oznacza, że aktualizacje są odroczone do trzech miesięcy.
+Aplikacje klienckie, takie jak program Excel i Power BI Desktop, oraz narzędzia, takie jak SSMS i Analysis Services projekty, dla programu Visual Studio instalują najnowsze wersje bibliotek po aktualizacji do najnowszej wersji. Power BI Desktop, SSMS i Analysis Services projekty są aktualizowane co miesiąc. Program Excel jest [aktualizowany przy użyciu Microsoft 365](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Aktualizacje Microsoft 365 są rzadziej, a niektóre organizacje korzystają z odroczonego kanału, co oznacza, że aktualizacje są odroczone do trzech miesięcy.
 
 W zależności od używanej aplikacji lub narzędzia klienckiego typ uwierzytelniania oraz sposób logowania mogą się różnić. Każda aplikacja może obsługiwać różne funkcje do łączenia się z usługami w chmurze, takimi jak Azure Analysis Services.
 
 Power BI Desktop, Visual Studio i SSMS obsługują Active Directory uwierzytelnianie uniwersalne, interaktywną metodę, która również obsługuje usługę Azure Multi-Factor Authentication (MFA). Usługa Azure MFA pomaga w zabezpieczeniu dostępu do danych i aplikacji przy jednoczesnym zapewnieniu prostego procesu logowania. Zapewnia silne uwierzytelnianie z kilkoma opcjami weryfikacji (połączenie telefoniczne, wiadomość tekstowa, karty inteligentne z numerem PIN lub powiadomieniem aplikacji mobilnej). Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację. **Zalecane jest uwierzytelnianie uniwersalne**.
 
-Jeśli logujesz się do platformy Azure przy użyciu konta systemu Windows, a uwierzytelnianie uniwersalne nie jest wybrane lub jest niedostępne (Excel), jest wymagane [Active Directory Federation Services (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) . W przypadku federacji użytkownicy usługi Azure AD i Office 365 są uwierzytelniani przy użyciu poświadczeń lokalnych i mogą uzyskiwać dostęp do zasobów platformy Azure.
+Jeśli logujesz się do platformy Azure przy użyciu konta systemu Windows, a uwierzytelnianie uniwersalne nie jest wybrane lub jest niedostępne (Excel), jest wymagane [Active Directory Federation Services (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) . W przypadku federacji usługi Azure AD i Microsoft 365 są uwierzytelniani przy użyciu poświadczeń lokalnych i mogą uzyskiwać dostęp do zasobów platformy Azure.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 

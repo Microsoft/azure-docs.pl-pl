@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d702a3cca6a24819d2d184dc6df09153c9dcc860
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 01213cd4d04783d0d877b4565493f06fa3718f8d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281885"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399639"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Bezpieczne uruchamianie usługi zarządzania certyfikatami magazynu OPC
 
@@ -94,7 +94,7 @@ Wszystkie systemy muszą być stale monitorowane i aktualizowane przy użyciu na
 
 ### <a name="security-monitoring"></a>Monitorowanie zabezpieczeń
 
-Zasubskrybuj lub Zaimplementuj odpowiednie monitorowanie zabezpieczeń. Na przykład Zasubskrybuj centralne rozwiązanie do monitorowania (takie jak Azure Security Center lub rozwiązanie do monitorowania pakietu Office 365) i skonfiguruj je odpowiednio w celu zapewnienia, że zdarzenia zabezpieczeń są przesyłane do rozwiązania do monitorowania.
+Zasubskrybuj lub Zaimplementuj odpowiednie monitorowanie zabezpieczeń. Na przykład Zasubskrybuj centralne rozwiązanie do monitorowania (takie jak rozwiązanie Azure Security Center lub Microsoft 365 monitorowanie) i skonfiguruj je odpowiednio w celu zapewnienia, że zdarzenia zabezpieczeń są przesyłane do rozwiązania do monitorowania.
 
 > [!IMPORTANT]
 > Domyślnie usługa magazynu OPC jest wdrażana za pomocą [platformy Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) jako rozwiązanie do monitorowania. Dodawanie rozwiązania zabezpieczeń, takiego jak [Azure Security Center](https://azure.microsoft.com/services/security-center/) , jest zdecydowanie zalecane.

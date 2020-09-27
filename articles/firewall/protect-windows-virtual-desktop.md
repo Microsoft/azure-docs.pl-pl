@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: c725673281b564958bb081fb47fe51a0ad66bea2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae33d763bda49756e9f90a05feda5089b63ef28b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611139"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400166"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Ochrona wdrożeń pulpitów wirtualnych systemu Windows przy użyciu usługi Azure Firewall
 
@@ -61,7 +61,7 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 
 ## <a name="host-pool-outbound-access-to-the-internet"></a>Dostęp wychodzący puli hostów do Internetu
 
-W zależności od potrzeb organizacji warto włączyć bezpieczny wychodzący dostęp do Internetu dla użytkowników końcowych. W przypadkach, gdy lista dozwolonych miejsc docelowych jest dobrze zdefiniowana (na przykład [dostęp do pakietu Office 365](https://docs.microsoft.com/Office365/Enterprise/office-365-ip-web-service)), w celu skonfigurowania wymaganego dostępu można użyć aplikacji zapory platformy Azure i zasad sieciowych. To kieruje ruch użytkowników końcowych bezpośrednio do Internetu w celu uzyskania najlepszej wydajności.
+W zależności od potrzeb organizacji warto włączyć bezpieczny wychodzący dostęp do Internetu dla użytkowników końcowych. W przypadkach, gdy lista dozwolonych miejsc docelowych jest dobrze zdefiniowana (na przykład [Microsoft 365 Access](/microsoft-365/enterprise/microsoft-365-ip-web-service)), w celu skonfigurowania wymaganego dostępu można użyć aplikacji zapory platformy Azure i reguł sieci. To kieruje ruch użytkowników końcowych bezpośrednio do Internetu w celu uzyskania najlepszej wydajności.
 
 Jeśli chcesz odfiltrować ruch wychodzący z Internetu użytkownika przy użyciu istniejącej lokalnej bezpiecznej bramy sieci Web, możesz skonfigurować przeglądarki sieci Web lub inne aplikacje działające w puli hostów usług pulpitu wirtualnego systemu Windows z jawną konfiguracją serwera proxy. Na przykład zapoznaj się z tematem [jak korzystać z opcji wiersza polecenia przeglądarki Microsoft Edge, aby skonfigurować ustawienia serwera proxy](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings). Te ustawienia serwera proxy mają wpływ tylko na dostęp do Internetu użytkowników końcowych, co umożliwia wychodzący ruch platformy pulpitu wirtualnego systemu Windows bezpośrednio za pośrednictwem zapory platformy Azure.
 

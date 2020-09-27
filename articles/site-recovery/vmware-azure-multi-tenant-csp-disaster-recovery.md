@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 334cbef7460306ef2954881a1cab918573e1e371
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924584"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400642"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurowanie odzyskiwania po awarii oprogramowania VMware w środowisku wielodostępnym za pomocą programu Cloud Solution Provider (CSP)
 
-[Program CSP](https://partner.microsoft.com/cloud-solution-provider) wspiera lepsze historie dla usług w chmurze firmy Microsoft, w tym pakietów Office 365, Enterprise Mobility Suite i Microsoft Azure. W przypadku dostawcy usług kryptograficznych partnerzy są właścicielami kompleksowych relacji z klientami i stają się głównym punktem kontaktu z relacją. Partnerzy mogą wdrażać subskrypcje platformy Azure dla klientów i łączyć subskrypcje z własnymi dodanymi, dostosowanymi ofertami.
+[Program CSP](https://partner.microsoft.com/cloud-solution-provider) wspiera lepsze scenariusze dla usług w chmurze firmy Microsoft, w tym Microsoft 365, pakiet Enterprise Mobility Suite i Microsoft Azure. W przypadku dostawcy usług kryptograficznych partnerzy są właścicielami kompleksowych relacji z klientami i stają się głównym punktem kontaktu z relacją. Partnerzy mogą wdrażać subskrypcje platformy Azure dla klientów i łączyć subskrypcje z własnymi dodanymi, dostosowanymi ofertami.
 
 Za pomocą [Azure Site Recovery](site-recovery-overview.md), jako partnerzy mogą zarządzać odzyskiwaniem po awarii dla klientów bezpośrednio przez dostawcę usług kryptograficznych. Alternatywnie możesz użyć dostawcy usług kryptograficznych, aby skonfigurować środowiska Site Recovery i umożliwić klientom zarządzanie własnymi potrzebami odzyskiwania po awarii w sposób samoobsługowy. W obu scenariuszach partnerzy są kontaktami między Site Recovery i klientami. Partnerzy usługi mogą uzyskać relację z klientem i rozliczać klientów za Site Recovery użycie.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386150"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399809"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Pięć kroków związanych z zabezpieczaniem infrastruktury tożsamości
 
@@ -82,7 +82,7 @@ Możesz użyć [programu PowerShell, aby zapobiec wygaśnięciu haseł](../../ac
 Jeśli Twoja organizacja korzysta z rozwiązania do obsługi tożsamości hybrydowej z uwierzytelnianiem przekazującym lub federacyjnym, należy włączyć synchronizację skrótów haseł z następujących dwóch przyczyn:
 
 * Raport [Użytkownicy z ujawnionymi poświadczeniami](../../active-directory/reports-monitoring/concept-risk-events.md) w usłudze Azure AD Management ostrzega użytkownika o parach nazw i hasła, które zostały uwidocznione w "ciemnej sieci Web". Niezwykła ilość haseł jest wycieka za pośrednictwem wyłudzania informacji, złośliwego oprogramowania i ponownego użycia haseł w witrynach innych firm, które zostały później naruszone. Firma Microsoft odszuka wiele z tych nieujawnionych poświadczeń i poinformuje użytkownika, że w tym raporcie są one zgodne z poświadczeniami w organizacji, ale tylko w przypadku [włączenia synchronizacji skrótów haseł](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
-* W przypadku awarii lokalnej (na przykład w przypadku ataku z wykorzystaniem oprogramowania wymuszającego okup) można przełączyć się na używanie [uwierzytelniania w chmurze przy użyciu funkcji synchronizacji skrótów haseł](choose-ad-authn.md). Ta metoda uwierzytelniania kopii zapasowej umożliwi kontynuowanie dostępu do aplikacji skonfigurowanych do uwierzytelniania za pomocą Azure Active Directory, w tym pakietu Office 365. W takim przypadku pracownicy działu IT nie muszą korzystać z osobistych kont e-mail w celu udostępniania danych, dopóki nie zostanie rozwiązane lokalne przestoje.
+* W przypadku awarii lokalnej (na przykład w przypadku ataku z wykorzystaniem oprogramowania wymuszającego okup) można przełączyć się na używanie [uwierzytelniania w chmurze przy użyciu funkcji synchronizacji skrótów haseł](choose-ad-authn.md). Ta metoda uwierzytelniania kopii zapasowej umożliwi kontynuowanie dostępu do aplikacji skonfigurowanych do uwierzytelniania za pomocą Azure Active Directory, w tym Microsoft 365. W takim przypadku pracownicy działu IT nie muszą korzystać z osobistych kont e-mail w celu udostępniania danych, dopóki nie zostanie rozwiązane lokalne przestoje.
 
 Dowiedz się więcej o tym, jak działa [Synchronizacja skrótów haseł](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) .
 
@@ -193,7 +193,7 @@ Funkcja samoobsługowego resetowania haseł w usłudze Azure AD [(SSPR)](../../a
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementowanie dostępu do grup i aplikacji samoobsługowej
 
-Usługa Azure AD zapewnia użytkownikom innym niż administratorzy zarządzanie dostępem do zasobów przy użyciu grup zabezpieczeń, grup usługi Office 365, ról aplikacji i katalogów pakietów dostępu.  [Samoobsługowe zarządzanie grupami](../../active-directory/users-groups-roles/groups-self-service-management.md) pozwala właścicielom grup zarządzać własnymi grupami bez konieczności przypisywania roli administracyjnej. Użytkownicy mogą również tworzyć grupy pakietu Office 365 i zarządzać nimi bez polegania na administratorach do obsługi swoich żądań, a nieużywane grupy wygasną automatycznie.  [Zarządzanie prawami w usłudze Azure AD](../../active-directory/governance/entitlement-management-overview.md) umożliwia dalsze delegowanie i widoczność przy użyciu kompleksowych przepływów pracy żądań dostępu oraz automatyczne wygaśnięcie.  Można delegować do użytkowników niebędących administratorami możliwość konfigurowania własnych pakietów dostępu dla grup, zespołów, aplikacji i witryn usługi SharePoint Online, które są właścicielami, za pomocą zasad niestandardowych dla osób, które są wymagane do zatwierdzania dostępu, w tym konfigurowania menedżerów pracowników i partnerów firmy jako osób zatwierdzających.
+Usługa Azure AD zapewnia innym użytkownikom możliwość zarządzania dostępem do zasobów przy użyciu grup zabezpieczeń, grup Microsoft 365, ról aplikacji i wykazów pakietów dostępu.  [Samoobsługowe zarządzanie grupami](../../active-directory/users-groups-roles/groups-self-service-management.md) pozwala właścicielom grup zarządzać własnymi grupami bez konieczności przypisywania roli administracyjnej. Użytkownicy mogą również tworzyć grupy Microsoft 365 i zarządzać nimi bez polegania na administratorach do obsługi swoich żądań, a nieużywane grupy wygasną automatycznie.  [Zarządzanie prawami w usłudze Azure AD](../../active-directory/governance/entitlement-management-overview.md) umożliwia dalsze delegowanie i widoczność przy użyciu kompleksowych przepływów pracy żądań dostępu oraz automatyczne wygaśnięcie.  Można delegować do użytkowników niebędących administratorami możliwość konfigurowania własnych pakietów dostępu dla grup, zespołów, aplikacji i witryn usługi SharePoint Online, które są właścicielami, za pomocą zasad niestandardowych dla osób, które są wymagane do zatwierdzania dostępu, w tym konfigurowania menedżerów pracowników i partnerów firmy jako osób zatwierdzających.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Zaimplementuj przeglądy dostępu usługi Azure AD
 

@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 34da82510f96ef7bde65ceec397b048c941e3234
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563600"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399435"
 ---
 # <a name="what-are-security-partner-providers"></a>Kim są dostawcy partnerów w zakresie zabezpieczeń?
 
@@ -44,7 +44,7 @@ Obsługiwane są następujące scenariusze:
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Najlepsze rozwiązania dotyczące filtrowania ruchu internetowego w zabezpieczonych centrach wirtualnych
 
-Ruch internetowy zazwyczaj obejmuje ruch internetowy. Obejmuje to również ruch przeznaczony do aplikacji SaaS, takich jak Office 365 (O365) i publiczne usługi PaaS platformy Azure, takie jak Azure Storage, Azure SQL i tak dalej. Poniżej zawarto zalecenia dotyczące obsługi ruchu do tych usług:
+Ruch internetowy zazwyczaj obejmuje ruch internetowy. Obejmuje to również ruch kierowany do aplikacji SaaS, takich jak Microsoft 365 i publiczne usługi PaaS platformy Azure, takie jak Azure Storage, Azure SQL i tak dalej. Poniżej zawarto zalecenia dotyczące obsługi ruchu do tych usług:
 
 ### <a name="handling-azure-paas-traffic"></a>Obsługa ruchu usługi Azure PaaS
  
@@ -54,15 +54,15 @@ Ruch internetowy zazwyczaj obejmuje ruch internetowy. Obejmuje to również ruch
 
 ![Wszystkie scenariusze dla Menedżera zapory platformy Azure](media/trusted-security-partners/all-scenarios.png)
 
-## <a name="handling-office-365-o365-traffic"></a>Obsługa ruchu pakietu Office 365 (O365)
+## <a name="handling-microsoft-365-traffic"></a>Obsługa Microsoft 365 ruchu
 
-W przypadku scenariuszy rozproszonej globalnie rozgałęzień należy przekierować ruch pakietu Office 365 bezpośrednio w gałęzi przed wysłaniem pozostałego ruchu internetowego do usługi Azure Secure Hub.
+W przypadku scenariuszy rozdystrybuowanych globalnie rozgałęzień należy przekierować ruch Microsoft 365 bezpośrednio do gałęzi przed wysłaniem pozostałego ruchu internetowego do usługi Azure Secure Hub.
 
-W przypadku pakietu Office 365 opóźnienie sieci i wydajność mają kluczowe znaczenie dla pomyślnego środowiska użytkownika. Aby osiągnąć te cele dotyczące optymalnej wydajności i środowiska użytkownika, klienci muszą zaimplementować pakiet Office 365 Direct i lokalnych ucieczki przed rozważeniem routingu reszty ruchu internetowego za pośrednictwem platformy Azure.
+W przypadku Microsoft 365 opóźnienie sieci i wydajność mają kluczowe znaczenie dla pomyślnego środowiska użytkownika. Aby osiągnąć te cele dotyczące optymalnej wydajności i środowiska użytkownika, klienci muszą zaimplementować Microsoft 365 bezpośrednie i lokalne wyjścia przed uwzględnieniem routingu reszty ruchu internetowego za pośrednictwem platformy Azure.
 
-[Zasady łączności sieciowej z pakietem office 365](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) są wywoływane w przypadku połączeń sieciowych z pakietem Office 365, które mają być kierowane lokalnie z gałęzi użytkownika lub urządzenia przenośnego i bezpośrednio przez Internet do najbliższego punktu sieci firmy Microsoft.
+[Microsoft 365 zasady łączności sieciowej](/microsoft-365/enterprise/microsoft-365-network-connectivity-principles) umożliwiają nawiązywanie połączenia z usługą Key Microsoft 365 Networks, które mają być kierowane lokalnie z gałęzi użytkownika lub urządzenia przenośnego oraz bezpośrednio przez Internet do najbliższego punktu sieci firmy Microsoft.
 
-Ponadto połączenia pakietu Office 365 są szyfrowane w celu zachowania poufności i używania wydajnych protokołów ze względów wydajnościowych. To sprawia, że nie jest to praktyczne i ma wpływ na te połączenia z tradycyjnymi rozwiązaniami zabezpieczeń na poziomie sieci. Z tego względu zdecydowanie zalecamy, aby klienci wysyłali ruch pakietu Office 365 bezpośrednio z gałęzi przed wysłaniem reszty ruchu przez platformę Azure. Firma Microsoft współpracuje z kilkoma dostawcami rozwiązań SD-WAN, którzy integrują się z platformą Azure i pakietem Office 365 i ułatwiają klientom korzystanie z pakietu Office 365 Direct i lokalnego zagadnień internetowego. Aby uzyskać szczegółowe informacje, zobacz [Jak mogę ustawić moje zasady usługi O365 za pośrednictwem wirtualnej sieci WAN?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
+Ponadto Microsoft 365 połączenia są szyfrowane w celu zachowania poufności i używania wydajnych protokołów ze względów wydajnościowych. To sprawia, że nie jest to praktyczne i ma wpływ na te połączenia z tradycyjnymi rozwiązaniami zabezpieczeń na poziomie sieci. Z tego powodu zdecydowanie zaleca się, aby klienci wysyłali Microsoft 365 ruch bezpośrednio z gałęzi przed wysłaniem reszty ruchu przez platformę Azure. Firma Microsoft współpracuje z kilkoma dostawcami rozwiązań SD-WAN, którzy integrują się z platformą Azure i Microsoft 365 i ułatwiają klientom Włączanie Microsoft 365 bezpośrednich i lokalnych zagadnień internetowych. Aby uzyskać szczegółowe informacje, zobacz [co to jest Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

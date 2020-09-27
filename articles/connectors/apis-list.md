@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 4876c5cb0490a96d5a77da9ced83e1650e98379a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488834"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400812"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Łączniki dla usługi Azure Logic Apps
 
@@ -136,7 +136,7 @@ Logic Apps udostępnia te popularne standardowe łączniki do automatyzowania za
 | [![Azure Service Bus Azure Service Bus łącznika zarządzanego ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc] | Zarządzaj komunikatami asynchronicznymi, sesjami i subskrypcjami tematów przy użyciu najczęściej używanego łącznika w usłudze Logic Apps. |
 | [![SQL Server SQL Server łącznika zarządzanego ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Połącz się ze swoją SQL Server lokalną lub Azure SQL Database w chmurze, aby móc zarządzać rekordami, uruchamiać procedury składowane lub wykonywać zapytania. |
 | [![Azure Blob Storage łącznik zarządzany ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | Połącz się z kontem magazynu, aby można było tworzyć zawartość obiektów blob i zarządzać nią. |
-| [![Łącznik zarządzany programu Outlook pakietu Office 365 ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Połącz się z kontem e-mail pakietu Office 365, aby można było tworzyć wiadomości e-mail, zadania, zdarzenia kalendarza i spotkania, kontakty, żądania itp. oraz zarządzać nimi. |
+| [![Łącznik zarządzany programu Outlook pakietu Office 365 ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Połącz się z kontem służbowym poczty e-mail, aby móc tworzyć wiadomości e-mail, zadania, zdarzenia kalendarza i spotkania, kontakty, żądania itp. oraz zarządzać nimi. |
 | [![SFTP — SSH — łącznik zarządzany, ][sftp-ssh-icon]<br> **SFTP — SSH**][sftp-ssh-doc] | Łączenie z serwerami SFTP, do których można uzyskać dostęp z Internetu za pomocą protokołu SSH, aby można było korzystać z plików i folderów. |
 | [![Łącznik zarządzany usługi SharePoint Online ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Połącz się z usługą SharePoint Online, aby móc zarządzać plikami, załącznikami, folderami i innymi. |
 | [![Kolejki platformy Azure z łącznikiem zarządzanym Azure Queues ][azure-queues-icon]<br> ** <br> **][azure-queues-doc] | Połącz się z kontem usługi Azure Storage, aby móc tworzyć kolejki i wiadomości oraz zarządzać nimi. |
@@ -588,7 +588,7 @@ Mimo że tworzysz połączenia z poziomu aplikacji logiki, połączenia są oddz
 [instagram-doc]: ./connectors-create-api-instagram.md "Nawiązywanie połączenia z usługą usługi Instagram. Wyzwalacz lub działanie dotyczące zdarzeń"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Łączenie z usługą Mandrill w celu komunikowania się"
 [mysql-doc]: /connectors/mysql/ "Nawiąż połączenie z lokalną bazą danych MySQL, aby móc odczytywać i zapisywać dane"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Połącz się z kontem pakietu Office 365, aby móc wysyłać i odbierać wiadomości e-mail, zarządzać kalendarzem i kontaktami oraz nie tylko"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Połącz się z kontem służbowym, aby móc wysyłać i odbierać wiadomości e-mail, zarządzać kalendarzem i kontaktami oraz nie tylko"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Połącz się z osobistą usługą Microsoft OneDrive, aby można było przekazywać, usuwać, wyświetlać pliki i nie tylko"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Połącz się z firmową usługą Microsoft OneDrive, aby można było przekazywać, usuwać, wyświetlać listę plików i nie tylko"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Łączenie się z bazą danych Oracle, aby można było dodawać, wstawiać, usuwać wiersze i nie tylko"

@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: 6768da698838856582d29e9f302acae2bc6c28bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 74d83ecc240fa4b48421dbaa1c5cc9e62990655d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252225"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399452"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Co to jest usługa Azure Firewall Manager?
 
@@ -78,7 +78,7 @@ Menedżer zapory platformy Azure ma następujące znane problemy:
 
 |Problem  |Description  |Ograniczanie ryzyka  |
 |---------|---------|---------|
-|Dzielenie ruchu|Dzielenie pakietów Office 365 i Public PaaS na platformie Azure nie jest obecnie obsługiwane. W związku z tym wybranie dostawcy innej firmy dla usługi V2I lub B2I spowoduje również wysłanie wszystkich usług Azure Public PaaS i Office 365 przez usługę partnera.|Badanie podziału ruchu w centrum.
+|Dzielenie ruchu|Microsoft 365 i dzielenie ruchu publicznego PaaS platformy Azure nie jest obecnie obsługiwane. W związku z tym wybranie dostawcy innej firmy dla V2I lub B2I powoduje także wysłanie wszystkich publicznych usług PaaS i Microsoft 365 platformy Azure za pośrednictwem usługi partnerskiej.|Badanie podziału ruchu w centrum.
 |Jeden bezpieczny koncentrator wirtualny na region|Na region nie można mieć więcej niż jednego zabezpieczonego koncentratora wirtualnego.|Utwórz wiele wirtualnych sieci WAN w regionie.|
 |Zasady podstawowe muszą znajdować się w tym samym regionie co zasady lokalne|Utwórz wszystkie zasady lokalne w tym samym regionie co zasady podstawowe. Można nadal stosować zasady, które zostały utworzone w jednym regionie w zabezpieczonym centrum z innego regionu.|Badanie|
 |Filtrowanie ruchu między centrami w ramach bezpiecznych wdrożeń koncentratora wirtualnego|Zabezpieczonego koncentratora wirtualnego do zabezpieczonego filtrowania komunikacji koncentratora wirtualnego nie jest jeszcze obsługiwana. Jednak komunikacja między centrum a centrum nadal działa, jeśli Filtrowanie ruchu prywatnego za pośrednictwem zapory platformy Azure nie jest włączone.|Badanie|

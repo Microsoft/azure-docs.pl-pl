@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: 7438351aa9849e3110952043eff8f7d860b5b7de
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015836"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400693"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim
 
@@ -306,7 +306,7 @@ Aby uzyskać więcej informacji na temat zarządzania rolami i uprawnieniami w i
 
 ## <a name="manage-tenants"></a>Zarządzanie dzierżawcami
 
-Dzierżawa usługi Azure Active Directory (AD), nazywana również "kontem służbowym" w tej dokumentacji, stanowi reprezentację organizacji skonfigurowanej w Azure Portal i pomaga zarządzać określonym wystąpieniem usług w chmurze firmy Microsoft dla użytkowników wewnętrznych i zewnętrznych. Jeśli Twoja organizacja subskrybuje usługę firmy Microsoft w chmurze, taką jak Azure, Microsoft Intune lub Office 365, została dla Ciebie ustanowiona dzierżawa usługi Azure AD.
+Dzierżawa usługi Azure Active Directory (AD), nazywana również "kontem służbowym" w tej dokumentacji, stanowi reprezentację organizacji skonfigurowanej w Azure Portal i pomaga zarządzać określonym wystąpieniem usług w chmurze firmy Microsoft dla użytkowników wewnętrznych i zewnętrznych. Jeśli Twoja organizacja subskrybuje usługę firmy Microsoft w chmurze, taką jak Azure, Microsoft Intune lub Microsoft 365, została dla Ciebie ustanowiona dzierżawa usługi Azure AD.
 
 Można skonfigurować wiele dzierżawców do użycia z centrum partnerskim. Każdy użytkownik z rolą **Menedżera** na koncie Centrum partnerskiego będzie miał możliwość dodawania i usuwania dzierżaw usługi Azure AD z konta.  
 

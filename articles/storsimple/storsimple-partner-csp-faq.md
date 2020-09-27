@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: a6e5ae96d097dab9c416f7e1f737cf4fe8a62aea
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2f606a2ff036c6bc3b4e3c508632d48ae8d40f15
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279223"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400047"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple for Cloud Solutions Provider program: często zadawane pytania
 
@@ -40,10 +40,10 @@ Pytania i odpowiedzi są uporządkowane według następujących kategorii:
 
 Aby uzyskać więcej informacji, przejdź do [StorSimple w programie CSP](https://www.microsoft.com/en-us/server-cloud/products/storsimple/). 
 
-### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-office-365-and-enterprise-mobility-suite-ems"></a>StorSimple oparte na użyciu lub oparte na licencjach na stanowisko, takie jak pakiet Office 365 i pakiet Enterprise Mobility Suite (EMS)?
+### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-microsoft-365-and-enterprise-mobility-suite-ems"></a>StorSimple lub oparte na licencjach na stanowisko, takie jak Microsoft 365 i Enterprise Mobility Suite (EMS)?
 StorSimple jest usługą opartą na użyciu. Klienci, którzy nabywają macierz wirtualną StorSimple za pośrednictwem dostawcy usług kryptograficznych, zapłaciły za użycie macierzy wirtualnych i platformy Azure, rozliczani jako osobne elementy wiersza na rachunku dostawcy CSP. 
 
-### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-office-365-and-the-enterprise-mobility-suite"></a>Czy model biznesowy StorSimple działa podobnie jak w przypadku innych usług, takich jak pakiet Office 365 i pakiet Enterprise Mobility Suite? 
+### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-microsoft-365-and-the-enterprise-mobility-suite"></a>Czy model biznesowy StorSimple działa podobnie jak w przypadku innych usług, takich jak Microsoft 365 i pakiet Enterprise Mobility Suite? 
 Tak. Model jest modelem rabatu hurtowego, podobnie jak w przypadku innych usług opartych na użyciu platformy Azure. Rabat hurtowy dla StorSimple jest podobny do tego w przypadku innych usług platformy Azure. Ten model zapewnia naszym partnerom usług kryptograficznych możliwość sprzedaży większej ilości zasobów i dysku na platformie Azure za pośrednictwem macierzy wirtualnej StorSimple.  
 
 ### <a name="which-storsimple-skus-are-available-at-launch"></a>Które jednostki SKU StorSimple są dostępne podczas uruchamiania?

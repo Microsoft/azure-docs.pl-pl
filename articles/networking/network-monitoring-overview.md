@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e2d3f0b5abcd7a9dcd4f49c120353adacffcb31
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67672183"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399656"
 ---
 # <a name="network-monitoring-solutions"></a>Rozwiązania do monitorowania sieci 
 
@@ -65,7 +65,7 @@ NPM for ExpressRoute oferuje kompleksowe monitorowanie ExpressRoute dla prywatne
 * Wykrywanie topologii sieci z poziomu lokalnego w aplikacjach w chmurze
 * Planowanie pojemności, analiza wykorzystania przepustowości
 * Monitorowanie i generowanie alertów dla ścieżek podstawowych i pomocniczych
-* Monitorowanie łączności z usługami platformy Azure, takimi jak Office 365, Dynamics 365,... ponad ExpressRoute
+* Monitorowanie łączności z usługami platformy Azure, takimi jak Microsoft 365, Dynamics 365,... ponad ExpressRoute
 * Wykryj spadek wydajności łączności do sieci wirtualnych
 
 ![Mapa geograficzna pokazująca ruch między regionami](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -84,7 +84,7 @@ Dzięki monitorowaniu łączności usług możesz teraz testować dostęp do apl
 * Testowanie osiągalności aplikacji z wielu lokalizacji użytkowników na całym świecie
 * Określanie opóźnienia sieci i utraty pakietów dla aplikacji biznesowych i SaaSych
 * Określanie aktywnych miejsc w sieci, które mogą powodować niską wydajność aplikacji
-* Monitoruj dostęp do aplikacji pakietu Office 365 przy użyciu wbudowanych testów dla Microsoft Office 365, Dynamics 365, Skype dla firm i innych usług firmy Microsoft
+* Monitoruj możliwości Microsoft 365 aplikacji przy użyciu wbudowanych testów dla Microsoft 365, Dynamics 365, Skype dla firm i innych usług firmy Microsoft
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 

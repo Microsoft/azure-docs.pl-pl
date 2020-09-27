@@ -1,19 +1,19 @@
 ---
 title: Partycjonowanie danych w Azure Cosmos DB interfejsie API Gremlin
 description: Dowiedz się, jak używać wykresu partycjonowanego w Azure Cosmos DB. W tym artykule opisano również wymagania i najlepsze rozwiązania dotyczące wykresu partycjonowanego.
-author: luisbosquez
-ms.author: lbosq
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78c15da1ea9fe5f6307ce388e4d64d372e9eb8c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261770"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400506"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Używanie grafu podzielonego na partycje w usłudze Azure Cosmos DB
 
@@ -33,39 +33,39 @@ W poniższych wytycznych opisano sposób działania strategii partycjonowania w 
 
 - **Krawędzie będą przechowywane z wierzchołkiem źródła**. Inaczej mówiąc, dla każdego wierzchołka, jego klucz partycji definiuje, gdzie są przechowywane wraz z wychodzącymi krawędziami. Ta optymalizacja ma na celu uniknięcie zapytań między partycjami podczas korzystania z `out()` kardynalności w kwerendach grafu.
 
-- **Krawędzie zawierają odwołania do wierzchołków, do których prowadzą punkty**. Wszystkie krawędzie są przechowywane z kluczami partycji i identyfikatorami wierzchołków, do których się znajdują. To obliczenie sprawia, że wszystkie `out()` zapytania kierunku zawsze są zapytaniem partycjonowanym z podziałem na partycje, a nie z nieślepą kwerendą między partycjami. 
+- **Krawędzie zawierają odwołania do wierzchołków, do których prowadzą punkty**. Wszystkie krawędzie są przechowywane z kluczami partycji i identyfikatorami wierzchołków, do których się znajdują. To obliczenie sprawia, że wszystkie `out()` zapytania kierunku zawsze są zapytaniem partycjonowanym z podziałem na partycje, a nie z nieślepą kwerendą między partycjami.
 
 - **Zapytania programu Graph muszą określać klucz partycji**. Aby w pełni korzystać z partycjonowania poziomego w Azure Cosmos DB, należy określić klucz partycji w przypadku wybrania pojedynczego wierzchołka, gdy jest to możliwe. Poniżej przedstawiono zapytania dotyczące wybierania jednego lub wielu wierzchołków na wykresie partycjonowanym:
 
-    - `/id`i `/label` nie są obsługiwane jako klucze partycji dla kontenera w interfejsie API Gremlin.
+    - `/id` i `/label` nie są obsługiwane jako klucze partycji dla kontenera w interfejsie API Gremlin.
 
 
-    - Wybierz wierzchołek według identyfikatora, a następnie **za pomocą `.has()` kroku, aby określić właściwość klucza partycji**: 
-    
+    - Wybierz wierzchołek według identyfikatora, a następnie **za pomocą `.has()` kroku, aby określić właściwość klucza partycji**:
+
         ```java
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
-    - Wybieranie wierzchołka przez **określenie krotki, w tym wartości klucza partycji i identyfikatora**: 
-    
+
+    - Wybieranie wierzchołka przez **określenie krotki, w tym wartości klucza partycji i identyfikatora**:
+
         ```java
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - Określanie **tablicy spójnych wartości kluczy partycji i identyfikatorów**:
-    
+
         ```java
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
-    - Wybieranie zestawu wierzchołków z ich identyfikatorami i **określanie listy wartości kluczy partycji**: 
-    
+
+    - Wybieranie zestawu wierzchołków z ich identyfikatorami i **określanie listy wartości kluczy partycji**:
+
         ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
 
-    - Użycie **strategii partycji** na początku zapytania i określenie partycji dla zakresu pozostałej części zapytania Gremlin: 
-    
+    - Użycie **strategii partycji** na początku zapytania i określenie partycji dla zakresu pozostałej części zapytania Gremlin:
+
         ```java
         g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
         ```

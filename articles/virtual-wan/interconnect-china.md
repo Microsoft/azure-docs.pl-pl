@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: d95330c14e0d088bdee03c0edbc2eb9d1deb12cb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 83cc7757f31a631af755155b49c7c26753618426
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329231"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399112"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Łączenie z Chinami przy użyciu wirtualnej sieci WAN platformy Azure i bezpiecznego centrum
 
-W przypadku korzystania z popularnych motoryzacyjnych, produkcyjnych, branżowych i innych instytutów, takich jak ambasady, często jest pytania dotyczące ulepszania połączeń z Chiną. Te ulepszenia mają głównie zastosowanie Cloud Services takich jak pakiet Office 365, usługi globalne platformy Azure lub gałęzie połączeń w Chinach z szkieletem klientów.
+W przypadku korzystania z popularnych motoryzacyjnych, produkcyjnych, branżowych i innych instytutów, takich jak ambasady, często jest pytania dotyczące ulepszania połączeń z Chiną. Te ulepszenia są głównie istotne w przypadku używania Cloud Services takich jak Microsoft 365, usługi globalne platformy Azure lub gałęzie połączeń w Chinach ze szkieletem klientów.
 
 W większości przypadków klienci są zoptymalizowaniem z dużymi opóźnieniami, niską przepustowością, niestabilnym połączeniem i wysokim kosztem łączącym się z poza Chinami (na przykład Europa lub Stany Zjednoczone).
 
@@ -95,7 +95,7 @@ Na poniższym rysunku przedstawiono oba przykłady dla tego scenariusza.
 
 ![Global Reach](./media/interconnect-china/global.png)
 
-## <a name="secure-internet-breakout-for-office-365"></a><a name="secure"></a>Secure Internet zagadnień for Office 365
+## <a name="secure-internet-breakout-for-microsoft-365"></a><a name="secure"></a>Zabezpieczanie Internetu zagadnień Microsoft 365
 
 Innym zagadnieniem jest bezpieczeństwo sieci, a także rejestrowanie punktu wejścia między Chin i wirtualnego sieci WAN ze składnika szkieletu i szkieletem klienta. W większości przypadków istnieje potrzeba zagadnień się do Internetu w Hong Kongu, aby bezpośrednio uzyskać dostęp do sieci Microsoft Edge i z tego powodu serwery z drzwiami platformy Azure używane dla usług Microsoft 365.
 
@@ -109,7 +109,7 @@ Na poniższej ilustracji przedstawiono przykład tego scenariusza:
 
 W zależności od wyboru dotyczącego połączenia z Hongkong, ogólna architektura może ulec zmianie nieco. W tej sekcji przedstawiono trzy dostępne architektury w różnych kombinacjach z sieciami VPN lub SDWAN i/lub ExpressRoute.
 
-Wszystkie te opcje wykorzystują zabezpieczone Centrum sieci wirtualnej platformy Azure do bezpośredniej łączności M365 w Hong Kongu. Te architektury obsługują również wymagania dotyczące zgodności z [pakietem office 365 w ramach usługi wiele geograficznie](https://docs.microsoft.com/office365/enterprise/office-365-multi-geo) i utrzymujeją ten ruch blisko 365 najbliższej lokalizacji drzwi z przodu. W związku z tym również udoskonalenie użycia Microsoft 365 poza Chin.
+Wszystkie te opcje korzystają z bezpiecznego Centrum sieci wirtualnej platformy Azure w celu zapewnienia bezpośredniej łączności Microsoft 365 w Hong Kongu. Te architektury obsługują również wymagania dotyczące zgodności dla [Microsoft 365 wiele geograficznych](/microsoft-365/enterprise/microsoft-365-multi-geo) i utrzymujeją ten ruch blisko najbliższej lokalizacji drzwi platformy Azure. W związku z tym również udoskonalenie użycia Microsoft 365 poza Chin.
 
 W przypadku korzystania z wirtualnej sieci WAN platformy Azure razem z połączeniami internetowymi każde połączenie może korzystać z dodatkowych usług, takich jak [Microsoft Azure usług komunikacji równorzędnej (Maps)](https://docs.microsoft.com/azure/peering-service/about). MAPY zostały skompilowane w celu zoptymalizowania ruchu przychodzącego do sieci globalnej firmy Microsoft od innych dostawców usług internetowych innych firm.
 

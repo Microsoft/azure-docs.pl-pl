@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 373463ff9024ec3b657df6d141ed830142b23f2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033017"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400064"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -27,8 +27,8 @@ Przepustowość można zainicjować na poziomie kontenera lub na poziomie bazy d
 
 | Zasób | Limit domyślny |
 | --- | --- |
-| Maksymalna jednostek ru na kontener ([tryb aprowizacji dedykowanej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
-| Maksymalna liczba jednostek ru na bazę danych ([tryb aprowizacji udostępnionej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
+| Maksymalna jednostek ru na kontener ([tryb aprowizacji dedykowanej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md) |
+| Maksymalna liczba jednostek ru na bazę danych ([tryb aprowizacji udostępnionej przepustowości](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md) |
 | Maksymalna jednostek ru na (logiczne) partycji | 10 000 |
 | Maksymalny rozmiar magazynu na partycję wszystkie elementy na (logiczne) | 20 GB |
 | Maksymalna liczba różnych (logicznych) kluczy partycji | Nieograniczona liczba |
@@ -79,8 +79,8 @@ Możesz [zainicjować konto usługi Azure Cosmos i zarządzać](how-to-manage-da
 
 | Zasób | Limit domyślny |
 | --- | --- |
-| Maksymalna liczba kont bazy danych na subskrypcję | 50 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
-| Maksymalna liczba regionalnych trybu failover | Domyślnie 1 godzinę. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
+| Maksymalna liczba kont bazy danych na subskrypcję | 50 domyślnie. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md)|
+| Maksymalna liczba regionalnych trybu failover | Domyślnie 1 godzinę. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md)|
 
 > [!NOTE]
 > Regionalne przejścia w tryb failover mają zastosowanie tylko do jednego regionu zapisy konta. Konta zapisu w regionie wieloregionowym nie wymagają ani nie mają ograniczeń dotyczących zmiany regionu zapisu.
@@ -120,7 +120,7 @@ W zależności od używanego interfejsu API kontener usługi Azure Cosmos może 
 | Maksymalna liczba ścieżek na ograniczenie unikatowego klucza|16 <sup>*</sup>|
 | Maksymalna wartość czasu wygaśnięcia |2147483647|
 
-<sup>*</sup> Można zwiększyć dowolne z tych limitów kontenerów, kontaktując się z pomocą techniczną platformy Azure.
+<sup>*</sup> Można zwiększyć dowolne z tych limitów kontenerów, tworząc [support Request platformy Azure](create-support-request-quota-increase.md).
 
 ## <a name="per-item-limits"></a>Limity dla każdego elementu
 
@@ -160,7 +160,7 @@ Cosmos DB używa algorytmu HMAC do autoryzacji. Możesz użyć klucza głównego
 | --- | --- |
 | Maksymalny czas wygaśnięcia tokenu głównego | 15 minut  |
 | Minimalny czas wygaśnięcia tokenu zasobów | 10 min  |
-| Maksymalny czas wygaśnięcia tokenu zasobu | Domyślnie 24 h. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
+| Maksymalny czas wygaśnięcia tokenu zasobu | Domyślnie 24 h. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](create-support-request-quota-increase.md)|
 | Maksymalne przechylenie zegara na potrzeby autoryzacji tokenu| 15 minut |
 
 Cosmos DB obsługuje wykonywanie wyzwalaczy podczas operacji zapisu. Usługa obsługuje maksymalnie jednego wyzwalacza wstępnego i jednego wyzwalacza końcowego dla operacji zapisu.
@@ -202,7 +202,7 @@ Cosmos DB obsługuje wykonywanie zapytań względem elementów przy użyciu [ję
 | Maksymalna liczba wykluczonych ścieżek na kontener| 500 |
 | Maksymalna liczba właściwości w indeksie złożonym| 8 |
 
-<sup>*</sup> Możesz zwiększyć te limity zapytań SQL, kontaktując się z pomocą techniczną platformy Azure.
+<sup>*</sup> Możesz zwiększyć dowolny z tych limitów zapytań SQL, tworząc [support Request platformy Azure](create-support-request-quota-increase.md).
 
 ## <a name="mongodb-api-specific-limits"></a>Limity specyficzne dla interfejsu API MongoDB
 

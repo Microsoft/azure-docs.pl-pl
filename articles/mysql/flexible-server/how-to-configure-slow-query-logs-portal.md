@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 1a829f4e5f45394d9c5bbed0db9289727b816917
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a73a2bc82c7f4e77808f751bb8ba24adcacd2e31
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315035"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400387"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Konfigurowanie i uzyskiwanie dostępu do dzienników wolnych zapytań dla Azure Database for MySQL-elastyczny serwer przy użyciu Azure Portal
 
@@ -45,9 +45,6 @@ Na stronie **parametry serwera** możesz powrócić do listy dzienników, zamyka
 
 ## <a name="set-up-diagnostics"></a>Konfigurowanie diagnostyki
 
-> [!NOTE]
-> Integracja z Azure Monitor ustawieniami diagnostycznymi w celu uzyskiwania dostępu do dzienników jest w trakcie wdrażania i pełna funkcjonalność będzie dostępna wkrótce.
-
 Dzienniki wolnych zapytań są zintegrowane z Azure Monitor ustawień diagnostycznych, aby umożliwić potokom dzienników Azure Monitor dzienników, Event Hubs lub Azure Storage.
 
 1. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienia diagnostyczne**.
@@ -66,7 +63,7 @@ Dzienniki wolnych zapytań są zintegrowane z Azure Monitor ustawień diagnostyc
 
 1. Uzyskaj dostęp do dzienników wolnych zapytań, badając je w skonfigurowanych ujściach danych. Wyświetlenie dzienników może potrwać do 10 minut.
 
-Jeśli dzienniki zostały przekierowane do Azure Monitor dzienników (Log Analytics), zapoznaj się z [przykładowymi zapytaniami](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) , których można użyć do analizy. 
+Jeśli dzienniki zostały przekierowane do Azure Monitor dzienników (Log Analytics), zapoznaj się z [przykładowymi zapytaniami](concepts-slow-query-logs.md#analyze-logs-in-azure-monitor-logs) , których można użyć do analizy. 
 
 ## <a name="next-steps"></a>Następne kroki
 <!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->

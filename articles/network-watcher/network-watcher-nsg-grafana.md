@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: 4d07feb54a689c32e119d997275416a5dd8f0aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ec4b9343efab9ae501b2b3dcc606e6e3f5fe826
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725090"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399690"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Zarządzanie dziennikami przepływu sieciowych grup zabezpieczeń i analizowanie ich przy użyciu Network Watcher i Grafana
 
@@ -199,7 +199,7 @@ Teraz, po pomyślnym skonfigurowaniu Grafana do odczytu z indeksu ElasticSearch 
 
 Poniższy zrzut ekranu przedstawia wykres i wykres przedstawiający najlepsze przepływy i ich częstotliwość. Przepływy są również wyświetlane przez regułę sieciowej grupy zabezpieczeń i przepływy według decyzji. Grafana jest wysoce dostosowywalny, dlatego zaleca się tworzenie pulpitów nawigacyjnych zgodnie z określonymi potrzebami monitorowania. Poniższy przykład przedstawia typowy pulpit nawigacyjny:
 
-![Wykres pulpitu nawigacyjnego](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![Zrzut ekranu przedstawiający przykładową konfigurację grafu z przepływami, które są dzielone przez regułę sieciowej grupy zabezpieczeń.](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## <a name="conclusion"></a>Podsumowanie
 

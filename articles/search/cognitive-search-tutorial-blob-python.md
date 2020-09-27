@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/12/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 39891b69cdb8e7f392657514d255f5f85b3eba60
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9289002188373a91affb5829b4fd7b3de6cb152b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936031"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399860"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: używanie języków Python i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure
 
@@ -59,7 +59,7 @@ Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasob�
 
 1. Wyszukaj *konto magazynu* i wybierz ofertę konta magazynu firmy Microsoft.
 
-   ![Utwórz konto magazynu](media/cognitive-search-tutorial-blob/storage-account.png "Utwórz konto magazynu")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Utwórz konto magazynu" border="false":::
 
 1. Na karcie podstawowe wymagane są następujące elementy. Zaakceptuj wartości domyślne dla wszystkich innych elementów.
 
@@ -81,7 +81,7 @@ Jeśli to możliwe, Utwórz zarówno w tym samym regionie, jak i w grupie zasob�
 
 1. Wybierz pozycję *koło zębate-Search-demonstracyjny* , a następnie kliknij pozycję **Przekaż** , aby otworzyć folder, w którym zapisano pliki do pobrania. Zaznacz wszystkie pliki niebędące obrazami. Należy mieć 7 plików. Kliknij przycisk **OK** , aby przekazać.
 
-   ![Przekaż pliki przykładowe](media/cognitive-search-tutorial-blob/sample-files.png "Przekaż pliki przykładowe")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Przekaż pliki przykładowe" border="false":::
 
 1. Przed opuszczeniem usługi Azure Storage należy uzyskać parametry połączenia, aby można było sformułować połączenie w usłudze Azure Wyszukiwanie poznawcze. 
 
@@ -117,7 +117,7 @@ Tak jak w przypadku usługi Azure Blob Storage, poświęć chwilę na zebranie k
 
    Pobierz również klucz zapytania. Najlepszym rozwiązaniem jest wydawanie żądań zapytań z dostępem tylko do odczytu.
 
-   ![Pobieranie nazwy usługi i administratora oraz kluczy zapytań](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Pobieranie nazwy usługi i administratora oraz kluczy zapytań" border="false":::
 
 Wszystkie żądania wymagają klucza API-Key w nagłówku każdego żądania wysyłanego do usługi. Prawidłowy klucz ustanawia zaufanie dla każdego żądania, między aplikacją wysyłającą żądanie a usługą, która go obsługuje.
 
@@ -190,7 +190,7 @@ print(r.status_code)
 
 Na Azure Portal na stronie Pulpit nawigacyjny usługi wyszukiwania Sprawdź, czy na liście **źródła danych** jest wyświetlana wartość cogsrch-PR-DataSource. Kliknij przycisk **Odśwież** , aby zaktualizować stronę.
 
-![Kafelek źródła danych w portalu](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Kafelek źródła danych w portalu")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Kafelek źródła danych w portalu" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>Krok 2. Tworzenie elementu zestawu umiejętności
 
@@ -303,7 +303,7 @@ Każda umiejętność jest wykonywana dla zawartości dokumentu. Podczas przetwa
 
 Graficzna reprezentacja zestawu umiejętności jest przedstawiona poniżej.
 
-![Zrozumienie zestawu umiejętności](media/cognitive-search-tutorial-blob/skillset.png "Zrozumienie zestawu umiejętności")
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Zrozumienie zestawu umiejętności" border="false":::
 
 Wyniki mogą być mapowane na indeks, używany jako dane wejściowe do poziomu umiejętności podrzędnej, lub w obu przypadkach, podobnie jak w przypadku kodu języka. W indeksie kod języka jest przydatny do filtrowania. Kod języka jest używany jako dane wejściowe przez umiejętności analizy tekstu w celu określenia zasad podziału wyrazów przez reguły językowe.
 
@@ -472,11 +472,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 W odpowiedzi Monitoruj `"lastResult"` dla nich `"status"` `"endTime"` wartości i. Należy okresowo uruchamiać skrypt, aby sprawdzić stan. Po zakończeniu indeksatora stan zostanie ustawiony na "powodzenie", zostanie określona wartość "endTime", a odpowiedź będzie zawierać wszelkie błędy i ostrzeżenia, które wystąpiły podczas wzbogacania.
 
-![Utworzono indeksator](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "Utworzono indeksator")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Utworzono indeksator" border="false":::
 
 Ostrzeżenia często występują dla niektórych kombinacji plików źródłowych i umiejętności oraz nie zawsze wskazują istnienie problemu. Wiele ostrzeżeń jest niegroźnych. Na przykład w przypadku indeksowania pliku JPEG, który nie zawiera tekstu, na tym zrzucie ekranu zobaczysz ostrzeżenie.
 
-![Przykładowe ostrzeżenie indeksatora](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Przykładowe ostrzeżenie indeksatora")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Przykładowe ostrzeżenie indeksatora" border="false":::
 
 ## <a name="5---search"></a>5 — wyszukiwanie
 
@@ -493,7 +493,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Wyniki powinny wyglądać podobnie do poniższego przykładu. Zrzut ekranu przedstawia tylko część odpowiedzi.
 
-![Indeks zapytania dla wszystkich pól](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Zbadaj indeks dla wszystkich pól")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Indeks zapytania dla wszystkich pól" border="false":::
 
 Dane wyjściowe to schemat indeksu z nazwą, typem i atrybutami każdego pola.
 
@@ -508,7 +508,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Wyniki powinny wyglądać podobnie do poniższego przykładu. Zrzut ekranu przedstawia tylko część odpowiedzi.
 
-![Indeks zapytania dla zawartości organizacji](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Zbadaj indeks, aby zwrócić zawartość organizacji")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Indeks zapytania dla zawartości organizacji" border="false":::
 
 Powtórz dla dodatkowych pól: `content` , `languageCode` , `keyPhrases` i `organizations` w tym ćwiczeniu. Istnieje możliwość zwrócenia wielu pól za pomocą elementu `$select` używającego listy wartości rozdzielonych przecinkami.
 
@@ -522,7 +522,7 @@ W przypadku wczesnych eksperymentalnych etapów tworzenia najlepszym podejściem
 
 Możesz użyć portalu, aby usunąć indeksy, indeksatory, źródła danych i umiejętności. Po usunięciu indeksatora można opcjonalnie selektywnie usunąć indeks, zestawu umiejętności i źródło danych.
 
-![Usuwanie obiektów wyszukiwania](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Usuwanie obiektów wyszukiwania w portalu")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Usuwanie obiektów wyszukiwania w portalu" border="false":::
 
 Można je również usunąć za pomocą skryptu. Poniższy skrypt pokazuje, jak usunąć element zestawu umiejętności. 
 
@@ -545,7 +545,7 @@ Wreszcie zawiesz się, jak przetestować wyniki i zresetować system pod kątem 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 

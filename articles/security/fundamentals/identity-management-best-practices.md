@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: b354fda4d23d13b8defed4381335ab147bbece5d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 69aac7dff80b7c85212602f1c03957a117628737
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835905"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400336"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Identity Management i kontroli dostępu
 
@@ -229,7 +229,7 @@ Zabezpieczanie uprzywilejowanego dostępu jest najważniejszym pierwszym krokiem
 
 Konta uprzywilejowane to konta, które administrują systemami IT i zarządzają nimi. Osoby atakujące cybernetycznymi mogą uzyskać dostęp do danych i systemów organizacji. Aby zabezpieczyć uprzywilejowany dostęp, należy odizolować konta i systemy przed ryzykiem, które ma zostać ujawnione złośliwemu użytkownikowi.
 
-Zalecamy opracowanie i przestrzeganie planu w celu zabezpieczenia uprzywilejowanego dostępu przed osobami atakującymi cybernetycznymi. Aby uzyskać informacje na temat tworzenia szczegółowego planu zabezpieczania tożsamości i dostępu, które są zarządzane lub zgłaszane w usłudze Azure AD, Microsoft Azure, Office 365 i innych usług w chmurze, zapoznaj się z tematem [Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i w chmurze w usłudze Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
+Zalecamy opracowanie i przestrzeganie planu w celu zabezpieczenia uprzywilejowanego dostępu przed osobami atakującymi cybernetycznymi. Informacje o tworzeniu szczegółowego planu zabezpieczania tożsamości i dostępu, które są zarządzane lub zgłaszane w usłudze Azure AD, Microsoft Azure, Microsoft 365 i innych usługach w chmurze, można znaleźć w temacie [Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i w chmurze w usłudze Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
 
 Poniżej przedstawiono podsumowanie najlepszych rozwiązań w [zakresie zabezpieczania uprzywilejowanego dostępu dla wdrożeń hybrydowych i w chmurze w usłudze Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure):
 
@@ -240,7 +240,7 @@ Poniżej przedstawiono podsumowanie najlepszych rozwiązań w [zakresie zabezpie
 **Szczegóły**: Usuń wszystkie konta konsumentów z krytycznych ról administratora (na przykład konta Microsoft, takie jak hotmail.com, live.com i Outlook.com).
 
 **Najlepsze rozwiązanie**: Upewnij się, że wszystkie krytyczne role administratorów mają osobne konto do zadań administracyjnych, aby uniknąć wyłudzania informacji i innych ataków w celu naruszenia uprawnień administracyjnych.
-**Szczegóły**: Utwórz oddzielne konto administratora, któremu przypisano uprawnienia, które są konieczne do wykonania zadań administracyjnych. Zablokuj korzystanie z tych kont administracyjnych na potrzeby codziennych narzędzi zwiększających produktywność, takich jak Microsoft Office 365 e-mail lub dowolne przeglądanie sieci Web.
+**Szczegóły**: Utwórz oddzielne konto administratora, któremu przypisano uprawnienia, które są konieczne do wykonania zadań administracyjnych. Zablokuj korzystanie z tych kont administracyjnych na potrzeby codziennych narzędzi zwiększających produktywność, takich jak Microsoft 365 e-mail lub dowolne przeglądanie sieci Web.
 
 **Najlepsze rozwiązanie**: Identyfikowanie kont i określanie ich kategorii w rolach o wysokim poziomie uprawnień.   
 **Szczegóły**: po włączeniu Azure AD Privileged Identity Management Wyświetl użytkowników, którzy znajdują się w roli Administrator globalny, administrator ról uprzywilejowanych i inne role o wysokim poziomie uprawnień. Usuń wszystkie konta, które nie są już potrzebne w tych rolach, i Kategoryzuj pozostałe konta przypisane do ról administratora:
@@ -281,7 +281,7 @@ Wymagaj usługi Azure Multi-Factor Authentication podczas logowania dla wszystki
 **Szczegóły**: zawiera proces, który wyłącza lub usuwa konta administratorów, gdy pracownicy opuszczają organizację.
 
 **Najlepsze rozwiązanie**: regularne testowanie kont administratorów przy użyciu bieżących technik ataku.
-**Szczegóły**: Użyj symulatora ataków pakietu Office 365 lub oferty innej firmy, aby uruchomić realistyczne scenariusze ataków w organizacji. Może to pomóc w znalezieniu narażonych użytkowników przed rzeczywistym atakiem.
+**Szczegóły**: Użyj symulatora ataków Microsoft 365 lub oferty innej firmy, aby uruchomić realistyczne scenariusze ataków w organizacji. Może to pomóc w znalezieniu narażonych użytkowników przed rzeczywistym atakiem.
 
 **Najlepsze rozwiązanie**: należy podjąć kroki w celu ograniczenia najczęściej używanych technik ataków.  
 **Szczegóły**: [Zidentyfikuj konta Microsoft w rolach administracyjnych, które muszą zostać przełączone na konta](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts) służbowe  
@@ -294,11 +294,11 @@ Wymagaj usługi Azure Multi-Factor Authentication podczas logowania dla wszystki
 
 [Wymagaj Multi-Factor Authentication dla użytkowników we wszystkich uprzywilejowanych rolach, a także dla narażonych użytkowników](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
 
-[Uzyskaj wynik zabezpieczony przez pakiet Office 365 (Jeśli korzystasz z pakietu Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#obtain-your-office-365-secure-score-if-using-office-365)  
+[Uzyskaj Microsoft 365 zabezpieczonych wyników (Jeśli używasz Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#obtain-your-office-365-secure-score-if-using-office-365)  
 
-[Zapoznaj się ze wskazówkami dotyczącymi zabezpieczeń i zgodności pakietu Office 365 (Jeśli korzystasz z pakietu Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Zapoznaj się ze wskazówkami dotyczącymi zabezpieczeń Microsoft 365 (jeśli są używane Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
 
-[Skonfiguruj monitorowanie aktywności pakietu Office 365 (Jeśli korzystasz z pakietu Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#configure-office-365-activity-monitoring-if-using-office-365)  
+[Skonfiguruj monitorowanie działania Microsoft 365 (jeśli jest używany Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#configure-office-365-activity-monitoring-if-using-office-365)  
 
 [Ustalanie właścicieli planu reagowania na zdarzenia/sytuacje awaryjne](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#establish-incidentemergency-response-plan-owners)  
 

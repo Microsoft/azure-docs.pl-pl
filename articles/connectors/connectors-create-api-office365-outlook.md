@@ -7,16 +7,16 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9b10778e665675e9e033953e2a8b9df16dd636d3
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832981"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400778"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Zarządzanie pocztą e-mail, kontaktami i kalendarzami w programie Outlook usługi Office 365 przy użyciu usługi Azure Logic Apps
 
-Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika pakietu Office 365 Outlook](/connectors/office365connector/)można tworzyć zautomatyzowane zadania i przepływy pracy, które zarządzają kontem pakietu Office 365, tworząc Aplikacje logiki. Na przykład można zautomatyzować następujące zadania:
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika pakietu Office 365 Outlook](/connectors/office365connector/)można tworzyć automatyczne zadania i przepływy pracy służące do zarządzania kontem służbowym przez tworzenie aplikacji logiki. Na przykład można zautomatyzować następujące zadania:
 
 * Pobieranie, wysyłanie i odpowiadanie na wiadomości e-mail. 
 * Planowanie spotkań w kalendarzu.
@@ -31,9 +31,9 @@ Możesz użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykła
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* [Konto pakietu Office 365](https://www.office.com/)
+* [Konto służbowe](https://www.office.com/)
 
-* Aplikacja logiki, do której chcesz uzyskać dostęp do konta programu Outlook w usłudze Office 365. Aby uruchomić przepływ pracy przy użyciu wyzwalacza programu Outlook pakietu Office 365, musisz mieć [pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby dodać akcję programu Outlook pakietu Office 365 do przepływu pracy, aplikacja logiki musi już mieć wyzwalacz.
+* Aplikacja logiki, w której chcesz uzyskać dostęp do konta służbowego. Aby uruchomić przepływ pracy przy użyciu wyzwalacza programu Outlook pakietu Office 365, musisz mieć [pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby dodać akcję programu Outlook pakietu Office 365 do przepływu pracy, aplikacja logiki musi już mieć wyzwalacz.
 
 ## <a name="add-a-trigger"></a>Dodawanie wyzwalacza
 
@@ -45,7 +45,7 @@ Możesz użyć dowolnego wyzwalacza, aby uruchomić przepływ pracy, na przykła
    
    ![Wybierz wyzwalacz, aby uruchomić aplikację logiki](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj poświadczenia pakietu Office 365, aby aplikacja logiki mogła łączyć się z Twoim kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach wyzwalacza.
+1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj swoje poświadczenia służbowe, aby aplikacja logiki mogła połączyć się z Twoim kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach wyzwalacza.
 
    > [!NOTE]
    > Twoje połączenie nie wygasa, dopóki nie zostanie odwołane, nawet jeśli zmienisz poświadczenia logowania. Aby uzyskać więcej informacji, zobacz [konfigurowalne okresy istnienia tokenu w Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -78,7 +78,7 @@ Teraz Dodaj akcję, która jest uruchamiana po uruchomieniu wyzwalacza. Na przyk
 
    ![Wybierz akcję do uruchomienia w aplikacji logiki](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj poświadczenia pakietu Office 365, aby aplikacja logiki mogła łączyć się z Twoim kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach akcji.
+1. Jeśli zostanie wyświetlony monit o zalogowanie się, podaj swoje poświadczenia służbowe, aby aplikacja logiki mogła połączyć się z Twoim kontem. W przeciwnym razie, jeśli połączenie już istnieje, podaj informacje o właściwościach akcji.
 
    > [!NOTE]
    > Twoje połączenie nie wygasa, dopóki nie zostanie odwołane, nawet jeśli zmienisz poświadczenia logowania. Aby uzyskać więcej informacji, zobacz [konfigurowalne okresy istnienia tokenu w Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).

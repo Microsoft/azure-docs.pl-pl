@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 63adb5d6898fd467a0557aa147e54f814c167e72
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079574"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400138"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Słownik Microsoft Azure: Słownik terminologii w chmurze na platformie Azure
 
@@ -30,7 +30,7 @@ Słownik Microsoft Azure jest krótkim słownikiem terminologii w chmurze dla pl
 * [Warunki chmury obliczeniowej](https://azure.microsoft.com/overview/cloud-computing-dictionary/) — ogólne warunki chmury branżowej.
 
 ## <a name="account"></a>account
-Konto używane do uzyskiwania dostępu do subskrypcji platformy Azure i zarządzania nią. Często jest ono określane jako konto platformy Azure, chociaż może to być dowolne z nich: istniejąca, szkolna lub osobista konto Microsoft lub nazwa użytkownika i hasło pakietu Office 365. Możesz również utworzyć konto, aby zarządzać subskrypcją platformy Azure po zarejestrowaniu się w celu [korzystania z bezpłatnej wersji próbnej](https://azure.microsoft.com).  
+Konto używane do uzyskiwania dostępu do subskrypcji platformy Azure i zarządzania nią. Jest to często określane jako konto platformy Azure, ale konto może być dowolnym z nich: istniejącej pracy, szkoły lub konto Microsoft osobistej. Możesz również utworzyć konto, aby zarządzać subskrypcją platformy Azure po zarejestrowaniu się w celu [korzystania z bezpłatnej wersji próbnej](https://azure.microsoft.com).  
 Zobacz [Rejestrowanie się w celu uzyskania subskrypcji platformy Azure przy użyciu konta Microsoft 365](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) i [kont, których możesz użyć do zalogowania](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)się.
 
 ## <a name="api-app"></a>Aplikacja interfejsu API

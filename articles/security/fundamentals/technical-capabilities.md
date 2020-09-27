@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071595"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399537"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
 Ten artykuł zawiera wprowadzenie do usług zabezpieczeń na platformie Azure, które ułatwiają ochronę danych, zasobów i aplikacji w chmurze oraz zaspokajanie potrzeb firmy.
@@ -84,7 +84,7 @@ Poniżej przedstawiono podstawowe możliwości usługi Azure Identity Management
 
 Logowanie jednokrotne [(SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) oznacza możliwość uzyskania dostępu do wszystkich aplikacji i zasobów potrzebnych do prowadzenia działalności, logując się tylko raz przy użyciu jednego konta użytkownika. Po zalogowaniu możesz uzyskać dostęp do wszystkich aplikacji, których potrzebujesz, bez konieczności uwierzytelniania (na przykład wpisz hasło) drugi raz.
 
-Wiele organizacji korzysta z aplikacji SaaS (Software as a Service), takich jak Office 365, Box i Salesforce, na potrzeby produktywności użytkowników końcowych. W przeszłości pracownicy działu IT musieli indywidualnie utworzyć i zaktualizować konta użytkowników w każdej aplikacji SaaS, a użytkownicy musieli zapamiętać hasło dla każdej aplikacji SaaS.
+Wiele organizacji korzysta z aplikacji SaaS (Software as a Service), takich jak Microsoft 365, Box i Salesforce, na potrzeby produktywności użytkowników końcowych. W przeszłości pracownicy działu IT musieli indywidualnie utworzyć i zaktualizować konta użytkowników w każdej aplikacji SaaS, a użytkownicy musieli zapamiętać hasło dla każdej aplikacji SaaS.
 
 [Usługa Azure AD rozszerza Active Directory lokalne na chmurę](../../active-directory/manage-apps/what-is-single-sign-on.md), umożliwiając użytkownikom używanie ich podstawowych kont organizacyjnych do logowania się do urządzeń przyłączonych do domeny i zasobów firmy, ale także wszystkich aplikacji sieci Web i SaaS wymaganych dla ich zadań.
 
@@ -126,15 +126,15 @@ W połączeniu z rozwiązaniem do [zarządzania urządzeniami przenośnymi (MDM)
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Usługa [Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) umożliwia zarządzanie i monitorowanie uprzywilejowanych tożsamości oraz uzyskiwanie do nich dostępu do zasobów w usłudze Azure AD oraz innych usługi online, takich jak Office 365 lub Microsoft Intune.
+Usługa [Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) umożliwia zarządzanie i monitorowanie uprzywilejowanych tożsamości oraz dostęp do zasobów w usłudze Azure AD, a także innych usługi online takich jak Microsoft 365 lub Microsoft Intune.
 
-Czasami użytkownicy muszą wykonywać operacje uprzywilejowane na platformie Azure lub w zasobach pakietu Office 365 lub w innych aplikacjach SaaS. Często oznacza to, że organizacje muszą udzielić im stałego dostępu uprzywilejowanego w usłudze Azure AD. Jest to rosnące zagrożenie bezpieczeństwa dla zasobów hostowanych w chmurze, ponieważ organizacje nie mogą wystarczająco dobrze monitorować działania użytkowników z uprawnieniami administratora. Ponadto w przypadku naruszenia zabezpieczeń konta użytkownika z dostępem uprzywilejowanym może to mieć wpływ na ogólne zabezpieczenia chmury. Azure AD Privileged Identity Management pomaga rozwiązać ten problem.
+Czasami użytkownicy muszą wykonywać operacje uprzywilejowane na platformie Azure lub w ramach zasobów Microsoft 365 lub innych aplikacji SaaS. Często oznacza to, że organizacje muszą udzielić im stałego dostępu uprzywilejowanego w usłudze Azure AD. Jest to rosnące zagrożenie bezpieczeństwa dla zasobów hostowanych w chmurze, ponieważ organizacje nie mogą wystarczająco dobrze monitorować działania użytkowników z uprawnieniami administratora. Ponadto w przypadku naruszenia zabezpieczeń konta użytkownika z dostępem uprzywilejowanym może to mieć wpływ na ogólne zabezpieczenia chmury. Azure AD Privileged Identity Management pomaga rozwiązać ten problem.
 
 Azure AD Privileged Identity Management pozwala:
 
 - Zobacz, którzy użytkownicy są administratorami usługi Azure AD
 
-- Włączanie dostępu administracyjnego "just in Time" na żądanie do usług online firmy Microsoft, takich jak Office 365 i Intune
+- Włącz dostęp administracyjny "just in Time" na żądanie do usług online firmy Microsoft, takich jak Microsoft 365 i Intune
 
 - Pobierz raporty o historii dostępu administratora i zmianach w przypisaniach administratorów
 

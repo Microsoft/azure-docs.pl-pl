@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 548d4f90bd9632e4807547120ac1be589668e8fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84872036"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400183"
 ---
 # <a name="azure-peering-service-overview"></a>Omówienie usługi Komunikacja równorzędna Azure
 
-Usługa komunikacji równorzędnej Azure to usługa sieciowa, która zwiększa łączność klienta z usługami w chmurze firmy Microsoft, takimi jak Office 365, Dynamics 365, SaaS (Software as a Service), Azure lub dowolnych usług firmy Microsoft dostępnych za pośrednictwem publicznej sieci Internet. Firma Microsoft współpracuje z dostawcami usługodawców internetowych (ISP), internetowymi partnerami wymiany (IXPs) i zdefiniowanymi programowo dostawcami usług Cloud Interconnect (SDCI) w celu zapewnienia niezawodnej i wysoce wydajnej łączności publicznej z optymalnym routingiem od klienta do sieci firmy Microsoft.
+Usługa komunikacji równorzędnej Azure to usługa sieciowa, która zwiększa łączność klienta z usługami w chmurze firmy Microsoft, takimi jak Microsoft 365, Dynamics 365, oprogramowanie jako usługa (SaaS), Azure lub wszelkie usługi firmy Microsoft dostępne za pośrednictwem publicznej sieci Internet. Firma Microsoft współpracuje z dostawcami usługodawców internetowych (ISP), internetowymi partnerami wymiany (IXPs) i zdefiniowanymi programowo dostawcami usług Cloud Interconnect (SDCI) w celu zapewnienia niezawodnej i wysoce wydajnej łączności publicznej z optymalnym routingiem od klienta do sieci firmy Microsoft.
 
 Za pomocą usługi Komunikacja równorzędna klienci mogą wybrać dobrze połączonego dostawcę usług partnerskich w danym regionie. Łączność publiczna jest zoptymalizowana pod kątem wysokiej niezawodności i minimalnego opóźnienia z usług w chmurze do lokalizacji użytkownika końcowego.
 
@@ -50,7 +50,7 @@ Usługa komunikacji równorzędnej nie jest produktem do łączności prywatnej,
 
 ## <a name="background"></a>Tło
 
-Pakiet Office 365, Dynamics 365 i inne usługi Microsoft SaaS Services są hostowane w wielu centrach danych firmy Microsoft i można do nich uzyskać dostęp z dowolnej lokalizacji geograficznej. Sieć globalna firmy Microsoft zawiera lokalizacje punktu obecności (PoP) przeglądarki Microsoft Edge na całym świecie, w którym może się połączyć z użytkownikiem końcowym za pośrednictwem swoich dostawców usług. 
+Microsoft 365, Dynamics 365 i inne usługi Microsoft SaaS Services są hostowane w wielu centrach danych firmy Microsoft i można do nich uzyskać dostęp z dowolnej lokalizacji geograficznej. Sieć globalna firmy Microsoft zawiera lokalizacje punktu obecności (PoP) przeglądarki Microsoft Edge na całym świecie, w którym może się połączyć z użytkownikiem końcowym za pośrednictwem swoich dostawców usług. 
 
 Dostawcy usług firmy Microsoft i partnerów zapewniają, że ruch dla prefiksów zarejestrowanych przy użyciu połączenia z usługą komunikacji równorzędnej przechodzi i opuszcza najbliższe lokalizacje PoP przeglądarki Microsoft Edge w sieci globalnej firmy Microsoft. Firma Microsoft zapewnia, że ruch sieciowy pochodzący z prefiksów zarejestrowanych przy użyciu połączeń usług komunikacji równorzędnej przenosi najbliższe lokalizacje PoP przeglądarki Microsoft Edge w sieci globalnej firmy Microsoft.
 
