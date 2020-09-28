@@ -1,18 +1,18 @@
 ---
 title: Modelowanie danych programu Graph dla Azure Cosmos DB API Gremlin
 description: Dowiedz się, jak modelować bazę danych Graph przy użyciu interfejsu API Azure Cosmos DB Gremlin. W tym artykule opisano, kiedy należy używać bazy danych grafu i najlepszych rozwiązań do modelowania jednostek i relacji.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: lbosq
-ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: jasonh
+ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261821"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409769"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelowanie danych programu Graph dla Azure Cosmos DB API Gremlin
 
@@ -47,12 +47,12 @@ Poniżej przedstawiono najlepsze rozwiązania dotyczące właściwości w obiekt
 
 | Obiekt | Właściwość | Typ | Uwagi |
 | --- | --- | --- |  --- |
-| Wierzchołka | ID | String | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
-| Wierzchołka | label | String | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
+| Wierzchołka | ID (Identyfikator) | Ciąg | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
+| Wierzchołka | label | Ciąg | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
 | Wierzchołka | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdym wierzchołku. |
 | Wierzchołka | klucz partycji | Ciąg, wartość logiczna, numeryczna | Ta właściwość określa miejsce, w którym będą przechowywane wierzchołki i jej krawędzie wychodzące. Przeczytaj więcej na temat [partycjonowania grafów](graph-partitioning.md). |
-| Edge | ID | String | Unikatowo wymuszane na partycję. Automatycznie generowana domyślnie. Krawędzie zazwyczaj nie muszą być jednoznacznie pobierane przez identyfikator. |
-| Edge | label | String | Ta właściwość służy do definiowania typu relacji, które mają dwa wierzchołki. |
+| Edge | ID (Identyfikator) | Ciąg | Unikatowo wymuszane na partycję. Automatycznie generowana domyślnie. Krawędzie zazwyczaj nie muszą być jednoznacznie pobierane przez identyfikator. |
+| Edge | label | Ciąg | Ta właściwość służy do definiowania typu relacji, które mają dwa wierzchołki. |
 | Edge | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdej krawędzi. |
 
 > [!NOTE]

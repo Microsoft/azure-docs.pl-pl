@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 3180fa34b85c3ec5f7cb1d2d9da8c2e1b528bd69
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 5efcf944f5d22759f9d448da5862bcf1f19e2efe
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855791"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409565"
 ---
 # <a name="what-is-virtual-network-nat"></a>Co to jest Virtual Network translator adresów sieciowych?
 
@@ -32,7 +32,7 @@ Virtual Network NAT (translator adresów sieciowych) upraszcza połączenia z In
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Virtual Network translator adresów sieciowych">
+  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP (PIP) and an IP prefix." width="256" title="Virtual Network translator adresów sieciowych">
 </p>
 
 
@@ -51,11 +51,11 @@ Cały ruch wychodzący dla podsieci jest przetwarzany automatycznie przy użyciu
 
 Translator adresów sieciowych korzysta z "translacji adresów sieci (PNAT lub") i jest zalecany w przypadku większości obciążeń. Dynamiczne lub rozbieżne obciążenia mogą być łatwo dostosowane do alokacji przepływów wychodzących na żądanie. Unika się rozbudowanego wstępnego planowania, wstępnego przydzielania i ostatecznego udostępniania zasobów wychodzących. Zasoby portów protokołu przesyłania adresów sieciowych są udostępniane i dostępne we wszystkich podsieciach przy użyciu określonego zasobu bramy NAT i są udostępniane w razie konieczności.
 
-Publiczny adres IP dołączony do translatora adresów sieciowych zapewnia do 64 000 współbieżnych przepływów dla protokołów UDP i TCP. Możesz zacząć od pojedynczego adresu IP i skalować do 16 publicznych adresów IP.
+Publiczny adres IP dołączony do translatora adresów sieciowych zapewnia do 64 000 współbieżne przepływy odpowiednio dla protokołów UDP i TCP. Można zacząć od pojedynczego adresu IP i skalować do 16 adresów IP przy użyciu publicznych adresów IP lub publicznych prefiksów IP.  Zasób bramy NAT będzie używać wszystkich adresów IP skojarzonych z zasobem dla połączeń wychodzących ze wszystkich podsieci skonfigurowanych przy użyciu tego samego zasobu bramy NAT.
 
 Translator adresów sieciowych umożliwia tworzenie przepływów z sieci wirtualnej do Internetu. Ruch powrotny z Internetu jest dozwolony tylko w odpowiedzi na aktywny przepływ.
 
-W przeciwieństwie do wychodzącego ruchu przychodzącego modułu równoważenia obciążenia translator adresów sieciowych nie ma żadnych ograniczeń dotyczących tego, który prywatny adres IP wystąpienia maszyny wirtualnej może nakonywać połączeń wychodzących.  Dodatkowe konfiguracje protokołu IP mogą tworzyć wychodzące połączenie internetowe z translatorem adresów sieciowych.
+W przeciwieństwie do wychodzącego ruchu przychodzącego modułu równoważenia obciążenia translator adresów sieciowych nie ma żadnych ograniczeń dotyczących tego, który prywatny adres IP wystąpienia maszyny wirtualnej może nakonywać połączeń wychodzących.  Podstawowa i pomocnicza Konfiguracja adresu IP można utworzyć wychodzące połączenie internetowe z translatorem adresów sieciowych.
 
 ## <a name="coexistence-of-inbound-and-outbound"></a>Współistnienie ruchu przychodzącego i wychodzącego
 

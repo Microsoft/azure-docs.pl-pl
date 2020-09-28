@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 476b93400b69063590c12ed38037c0bf6c6d1714
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4723bce8f3721833ae80b233f7b346fe69363b0b
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281076"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409548"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Szybki Start: Wdrażanie maszyny wirtualnej do obliczania poufnej platformy Azure w Azure Portal
 
@@ -144,7 +144,7 @@ Aby uzyskać więcej informacji na temat nawiązywania połączenia z maszynami 
 > [!NOTE]
 > Jeśli w programie PuTTY zostanie wyświetlony alert dotyczący zabezpieczeń z informacją „server’s host key not cached in the registry” (klucz hosta serwera nie jest buforowany w rejestrze), wybierz jedną z następujących opcji. Jeśli host jest zaufany, wybierz pozycję **Yes** (Tak), aby dodać ten klucz do pamięci podręcznej programu PuTTy i kontynuować nawiązywanie połączenia. Jeśli chcesz nawiązać połączenie tylko raz, bez dodawania klucza do pamięci podręcznej, wybierz pozycję **No** (Nie). Jeśli host nie jest zaufany, wybierz pozycję **Cancel** (Anuluj), aby przerwać nawiązywanie połączenia.
 
-## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Instalowanie zestawu SDK open enklawy (zestaw SDK programu OE)<a id="Install"></a>
+## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Instalowanie zestawu SDK open enklawy (zestaw SDK programu OE) <a id="Install"></a>
 
 Postępuj zgodnie z instrukcjami krok po kroku, aby zainstalować [zestaw OE SDK](https://github.com/openenclave/openenclave) na maszynie wirtualnej z serii DCsv2, na której działa obraz Ubuntu 18,04 LTS Gen 2. 
 
@@ -189,7 +189,7 @@ sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-
 
 Zapoznaj się z tematem [Korzystanie z zestawu SDK open enklawy](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Linux_using_oe_sdk.md) w witrynie GitHub w celu sprawdzenia i użycia zainstalowanego zestawu SDK.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć. 
 
@@ -199,9 +199,7 @@ Wybierz grupę zasobów dla maszyny wirtualnej, a następnie wybierz pozycję **
 
 W tym przewodniku szybki start wdrożono poufną maszynę wirtualną i zainstalowano zestaw SDK open enklawy. Aby uzyskać więcej informacji na temat poufnego przetwarzania maszyn wirtualnych na platformie Azure, zobacz [rozwiązania na Virtual Machines](virtual-machine-solutions.md). 
 
-Jeśli wdrożono maszynę wirtualną z systemem Windows, Dowiedz się, jak tworzyć aplikacje za pomocą [przykładów zestawu SDK programu OE dla systemu Windows](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md) w witrynie GitHub. 
-
-Dowiedz się, jak tworzyć poufne aplikacje obliczeniowe w systemie Linux, kontynuując otwarte przykłady zestawu enklawy SDK dla systemu Linux w witrynie GitHub. 
+Dowiedz się, jak tworzyć poufne aplikacje obliczeniowe, kontynuując otwarte przykłady zestawu enklawy SDK w witrynie GitHub. 
 
 > [!div class="nextstepaction"]
-> [Kompilowanie przykładów Open enklawy SDK w systemie Linux](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)
+> [Kompilowanie przykładów zestawu SDK open enklawy](https://github.com/openenclave/openenclave/blob/master/samples/README.md)

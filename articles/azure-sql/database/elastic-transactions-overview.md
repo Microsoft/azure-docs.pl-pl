@@ -1,5 +1,5 @@
 ---
-title: Transakcje rozproszone w bazach danych w chmurze
+title: Transakcje rozproszone w bazach danych w chmurze (wersja zapoznawcza)
 description: Przegląd transakcji Elastic Database z Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c94234644fcefb70a40ba0b2c21e6e205be0e65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60f6863bbe051338308c30e22c6969d84670dc64
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829418"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409735"
 ---
-# <a name="distributed-transactions-across-cloud-databases"></a>Transakcje rozproszone w bazach danych w chmurze
+# <a name="distributed-transactions-across-cloud-databases-preview"></a>Transakcje rozproszone w bazach danych w chmurze (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Transakcje elastycznej bazy danych dla Azure SQL Database umożliwiają uruchamianie transakcji obejmujących kilka baz danych w programie SQL Database. Transakcje elastycznej bazy danych dla SQL Database są dostępne dla aplikacji platformy .NET przy użyciu programu ADO .NET i integrują się z znanym środowiskiem programistycznym korzystającym z klas [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Aby uzyskać bibliotekę, zobacz [.NET Framework 4.6.1 (Instalator sieci Web)](https://www.microsoft.com/download/details.aspx?id=49981).
+Transakcje elastycznej bazy danych dla Azure SQL Database umożliwiają uruchamianie transakcji obejmujących kilka baz danych w programie SQL Database. Transakcje Elastic Database dla SQL Database są dostępne dla aplikacji .NET przy użyciu programu ADO.NET i integrują się z znanym środowiskiem programistycznym korzystającym z klas [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Aby uzyskać bibliotekę, zobacz [.NET Framework 4.6.1 (Instalator sieci Web)](https://www.microsoft.com/download/details.aspx?id=49981).
 
 W środowisku lokalnym taki scenariusz zwykle wymaga uruchomionego programu Microsoft Distributed Transaction Coordinator (MSDTC). Ponieważ usługa MSDTC nie jest dostępna dla aplikacji platformy jako usługi na platformie Azure, możliwość skoordynowania transakcji rozproszonych została teraz zintegrowana bezpośrednio z SQL Database. Aplikacje mogą łączyć się z dowolnymi bazami danych w SQL Database do uruchamiania transakcji rozproszonych, a jedna z baz danych w sposób niewidoczny dla użytkownika koordynuje transakcję rozproszoną, jak pokazano na poniższej ilustracji.
 

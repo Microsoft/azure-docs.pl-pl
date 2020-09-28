@@ -6,25 +6,26 @@ ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 04/20/2019
+ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 8797d17ac439882415a9f5360fded28cb55484d5
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8c7d7f84e02cdd2cd4f53bc9eb42c78f936146ae
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050543"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408373"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Szybki Start: Tworzenie pokoju rozmów przy użyciu usługi ASP.NET i sygnalizującego
 
-Usługa Azure Signal based jest oparta na [sygnale dla ASP.NET Core 2,0](https://docs.microsoft.com/aspnet/core/signalr/introduction), który **nie** jest zgodny z 100% w przypadku sygnalizowania ASP.NET. Usługa sygnałów platformy Azure zaimplementował ASP.NET protokół danych sygnalizujący na podstawie najnowszych technologii ASP.NET Core. W przypadku korzystania z usługi Azure Signal Service dla sygnalizującego ASP.NET niektóre funkcje sygnałów ASP.NET nie są już obsługiwane, na przykład usługa Azure sygnalizująca nie powtarza komunikatów po ponownym nawiązaniu połączenia przez klienta. Ponadto nie są obsługiwane stałe transport ramek i JSONP. Niektóre zmiany kodu i poprawna wersja bibliotek zależnych są konieczne, aby aplikacja sygnalizująca ASP.NET działała z usługą sygnalizującej. 
+Usługa Azure Signal based jest oparta na [sygnale dla ASP.NET Core 2,1](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), który **nie** jest zgodny z 100% w przypadku sygnalizowania ASP.NET. Usługa sygnałów platformy Azure zaimplementował ASP.NET protokół danych sygnalizujący na podstawie najnowszych technologii ASP.NET Core. W przypadku korzystania z usługi Azure Signal Service dla sygnalizującego ASP.NET niektóre funkcje sygnałów ASP.NET nie są już obsługiwane, na przykład usługa Azure sygnalizująca nie powtarza komunikatów po ponownym nawiązaniu połączenia przez klienta. Ponadto nie są obsługiwane stałe transport ramek i JSONP. Niektóre zmiany kodu i poprawna wersja bibliotek zależnych są konieczne, aby aplikacja sygnalizująca ASP.NET działała z usługą sygnalizującej.
 
-Zapoznaj się z [dokumentem różnice wersji](https://docs.microsoft.com/aspnet/core/signalr/version-differences?view=aspnetcore-2.2) , aby zapoznać się z pełną listą porównania funkcji między sygnałem ASP.NET ASP.NET Core i modułem sygnalizującym.
+Zapoznaj się z [dokumentem różnice wersji](https://docs.microsoft.com/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1) , aby zapoznać się z pełną listą porównania funkcji między sygnałem ASP.NET ASP.NET Core i modułem sygnalizującym.
 
 W tym przewodniku szybki start dowiesz się, jak rozpocząć pracę z usługą ASP.NET i platformą Azure dla podobnej [aplikacji do pokoju rozmów](./signalr-quickstart-dotnet-core.md).
 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note-dotnet.md)]
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
@@ -71,7 +72,7 @@ W czasie, gdy usługa jest wdrażana, przejdźmy do pracy z kodem. Sklonuj [przy
 
 1. Zaznacz i skopiuj podstawowe parametry połączenia.
 
-1. Teraz ustaw parametry połączenia w pliku web.config.
+1. Teraz ustaw parametry połączenia w pliku *web.config* .
 
     ```xml
     <configuration>
@@ -82,7 +83,7 @@ W czasie, gdy usługa jest wdrażana, przejdźmy do pracy z kodem. Sklonuj [przy
     </configuration>
     ```
 
-1. W *Startup.cs*, zamiast wywoływania `MapSignalR()` , należy wywołać `MapAzureSignalR({your_applicationName})` i przekazać parametry połączenia, aby aplikacja łączyła się z usługą zamiast sygnałów hostingowych. Zamień `{YourApplicationName}` na nazwę aplikacji. Ta nazwa jest unikatową nazwą odróżniającą tę aplikację od innych aplikacji. Można użyć `this.GetType().FullName` jako wartości.
+1. W *Startup.cs*, zamiast wywoływania `MapSignalR()` , należy wywołać `MapAzureSignalR({YourApplicationName})` i przekazać parametry połączenia, aby aplikacja łączyła się z usługą zamiast sygnałów hostingowych. Zamień `{YourApplicationName}` na nazwę aplikacji. Ta nazwa jest unikatową nazwą odróżniającą tę aplikację od innych aplikacji. Można użyć `this.GetType().FullName` jako wartości.
 
     ```cs
     public void Configuration(IAppBuilder app)
@@ -103,24 +104,19 @@ W czasie, gdy usługa jest wdrażana, przejdźmy do pracy z kodem. Sklonuj [przy
     > [!NOTE]
     > W implementacji punkt końcowy `/signalr/negotiate` jest narażony na potrzeby negocjacji przez zestaw SDK usługi Azure Signal Service. Zostanie zwrócona specjalna odpowiedź dotycząca negocjacji, gdy klienci próbują nawiązać połączenie i przekierować klientów do punktu końcowego usługi zdefiniowanego w parametrach połączenia.
 
-1. Naciśnij klawisz **F5** , aby uruchomić projekt w trybie debugowania. Aplikacja jest uruchamiana lokalnie. Zamiast hostować środowisko uruchomieniowe sygnalizujące przez samą aplikację, teraz nawiązuje połączenie z usługą Azure Signal.
+1. Naciśnij klawisz <kbd>F5</kbd> , aby uruchomić projekt w trybie debugowania. Aplikacja jest uruchamiana lokalnie. Zamiast hostować środowisko uruchomieniowe sygnalizujące przez samą aplikację, teraz nawiązuje połączenie z usługą Azure Signal.
 
 [Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-
-
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne i grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. Jeśli zasoby do hostowania tego przykładu zostały utworzone wewnątrz istniejącej grupy zasobów zawierającej zasoby, które chcesz zachować, możesz usunąć każdy zasób oddzielnie z odpowiadającego mu bloku zamiast usuwać całą grupę zasobów.
-> 
-> 
 
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozycję **Grupy zasobów**.
 
 W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. W instrukcjach dla tego przewodnika Szybki start używana była grupa zasobów o nazwie *SignalRTestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
-   
 ![Usuń](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
@@ -135,4 +131,3 @@ W tym przewodniku szybki start utworzono nowy zasób usługi Azure Signal Servic
 > [Usługa sygnałów platformy Azure z ASP.NET Core](./signalr-quickstart-dotnet-core.md)
 
 [Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
-

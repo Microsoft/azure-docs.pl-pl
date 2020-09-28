@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: bac673f5c8c8d6a4e2b368938a0c08c893518022
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: b4d2b277eea85fb8a5c9eb733e5bfd64d66f392c
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171259"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91407830"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiowanie danych z i do programu Oracle przy użyciu Azure Data Factory
+
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Bieżąca wersja](connector-oracle.md)
@@ -71,7 +72,7 @@ Połączona usługa Oracle obsługuje następujące właściwości:
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type musi mieć wartość **Oracle**. | Tak |
-| Parametry połączenia | Określa informacje, które są konieczne do nawiązania połączenia z wystąpieniem Oracle Database. <br/>Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Zapoznaj się z poniższymi przykładami i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) , aby uzyskać więcej szczegółów. <br><br>**Obsługiwany typ połączenia**: możesz użyć **identyfikatora SID Oracle** lub **nazwy usługi Oracle** , aby zidentyfikować swoją bazę danych:<br>— Jeśli używasz identyfikatora SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>— Jeśli używasz nazwy usługi:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>Aby skorzystać z zaawansowanych opcji połączenia z natywnym oprogramowaniem Oracle, możesz dodać wpis w [pliku tnsnames. Plik ORA](http://www.orafaq.com/wiki/Tnsnames.ora) na serwerze Oracle i w połączonej usłudze Oracle ADF, wybierz, aby użyć typu połączenia nazwa usługi Oracle i skonfigurować odpowiednią nazwę usługi. | Tak |
+| Parametry połączenia | Określa informacje, które są konieczne do nawiązania połączenia z wystąpieniem Oracle Database. <br/>Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Zapoznaj się z poniższymi przykładami i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) , aby uzyskać więcej szczegółów. <br><br>**Obsługiwany typ połączenia**: możesz użyć **identyfikatora SID Oracle** lub **nazwy usługi Oracle** , aby zidentyfikować swoją bazę danych:<br>— Jeśli używasz identyfikatora SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>— Jeśli używasz nazwy usługi: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>Aby skorzystać z zaawansowanych opcji połączenia z natywnym oprogramowaniem Oracle, możesz dodać wpis w [pliku tnsnames. Plik ORA](http://www.orafaq.com/wiki/Tnsnames.ora) na serwerze Oracle i w połączonej usłudze Oracle ADF, wybierz, aby użyć typu połączenia nazwa usługi Oracle i skonfigurować odpowiednią nazwę usługi. | Tak |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 >[!TIP]
@@ -179,7 +180,7 @@ Aby skopiować dane z i do programu Oracle, należy ustawić Właściwość Type
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość `OracleTable` . | Tak |
 | schema | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
-| table | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
+| table (stolik) | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
 | tableName | Nazwa tabeli/widoku ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table` . | Nie dla źródła, tak dla ujścia |
 
 **Przykład:**
@@ -218,10 +219,10 @@ Aby skopiować dane z programu Oracle, należy ustawić typ źródła w działan
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość `OracleSource` . | Tak |
 | oracleReaderQuery | Użyj niestandardowego zapytania SQL, aby odczytać dane. Może to być na przykład `"SELECT * FROM MyTable"`.<br>Po włączeniu obciążenia partycjonowanego należy podłączyć wszystkie odpowiednie wbudowane parametry partycji w zapytaniu. Przykłady można znaleźć w sekcji [Kopiowanie równoległe z programu Oracle](#parallel-copy-from-oracle) . | Nie |
-| partitionOptions | Określa opcje partycjonowania danych używane do ładowania danych z programu Oracle. <br>Dozwolone wartości to **none** (wartość domyślna), **PhysicalPartitionsOfTable** i **DynamicRange**.<br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z bazy danych Oracle jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Nie |
+| partitionOptions | Określa opcje partycjonowania danych używane do ładowania danych z programu Oracle. <br>Dozwolone wartości to **none** (wartość domyślna), **PhysicalPartitionsOfTable**i **DynamicRange**.<br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z bazy danych Oracle jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Nie |
 | partitionSettings | Określ grupę ustawień partycjonowania danych. <br>Zastosuj, gdy opcja partycji nie jest `None` . | Nie |
 | partitionNames | Lista partycji fizycznych, które muszą zostać skopiowane. <br>Zastosuj, gdy opcja partycji to `PhysicalPartitionsOfTable` . Jeśli używasz zapytania do pobierania danych źródłowych, hak `?AdfTabularPartitionName` w klauzuli WHERE. Aby zapoznać się z przykładem, zobacz sekcję [copy Parallel from Oracle](#parallel-copy-from-oracle) . | Nie |
-| partitionColumnName | Określ nazwę kolumny źródłowej **w typie liczb całkowitych** , która będzie używana przez partycjonowanie zakresu do kopiowania równoległego. Jeśli nie zostanie określony, klucz podstawowy tabeli zostanie wykryty i użyty jako kolumna partycji. <br>Zastosuj, gdy opcja partycji to `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak `?AdfRangePartitionColumnName` w klauzuli WHERE. Aby zapoznać się z przykładem, zobacz sekcję [copy Parallel from Oracle](#parallel-copy-from-oracle) . | Nie |
+| partitionColumnName | Określ nazwę kolumny źródłowej **w typie liczb całkowitych** , która będzie używana przez partycjonowanie zakresu do kopiowania równoległego. Jeśli nie zostanie określony, klucz podstawowy tabeli zostanie wykryty i użyty jako kolumna partycji. <br>Zastosuj, gdy opcja partycji to `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak  `?AdfRangePartitionColumnName` w klauzuli WHERE. Aby zapoznać się z przykładem, zobacz sekcję [copy Parallel from Oracle](#parallel-copy-from-oracle) . | Nie |
 | partitionUpperBound | Maksymalna wartość kolumny partycji, w której mają zostać skopiowane dane. <br>Zastosuj, gdy opcja partycji to `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak `?AdfRangePartitionUpbound` w klauzuli WHERE. Aby zapoznać się z przykładem, zobacz sekcję [copy Parallel from Oracle](#parallel-copy-from-oracle) . | Nie |
 | partitionLowerBound | Minimalna wartość kolumny partycji, w której mają zostać skopiowane dane. <br>Zastosuj, gdy opcja partycji to `DynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak `?AdfRangePartitionLowbound` w klauzuli WHERE. Aby zapoznać się z przykładem, zobacz sekcję [copy Parallel from Oracle](#parallel-copy-from-oracle) . | Nie |
 
@@ -316,6 +317,9 @@ Zalecane jest włączenie kopiowania równoległego przy użyciu partycjonowania
 | Załaduj dużą ilość danych przy użyciu zapytania niestandardowego z partycjami fizycznymi. | **Opcja partycji**: partycje fizyczne tabeli.<br>**Zapytanie**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>` .<br>**Nazwa partycji**: Określ nazwy partycji, z których mają zostać skopiowane dane. Jeśli nie zostanie określony, Data Factory automatycznie wykrywa partycje fizyczne w tabeli określonej w zestawie danych Oracle.<br><br>Podczas wykonywania Data Factory zastępuje `?AdfTabularPartitionName` z rzeczywistą nazwą partycji i wysyła do firmy Oracle. |
 | Załaduj dużą ilość danych przy użyciu zapytania niestandardowego bez partycji fizycznych, jednocześnie z kolumną liczb całkowitych na potrzeby partycjonowania danych. | **Opcje partycji**: dynamiczna partycja zakresu.<br>**Zapytanie**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>` .<br>**Kolumna partycji**: określ kolumnę używaną do partycjonowania danych. Można podzielić na kolumny z typem danych Integer.<br>**Górna** granica partycji i **Dolna granica partycji**: Określ, czy chcesz filtrować względem kolumny partycji, aby pobierać dane tylko między niższym i górnym zakresem.<br><br>Podczas wykonywania Data Factory zamienia `?AdfRangePartitionColumnName` , `?AdfRangePartitionUpbound` , i `?AdfRangePartitionLowbound` z rzeczywistą nazwą kolumny i zakresem wartości dla każdej partycji i wysyła do firmy Oracle. <br>Na przykład jeśli kolumna partycji "ID" jest ustawiona z dolną granicą 1 i górną granicą 80, z kopią równoległą ustawioną na wartość 4, Data Factory pobiera dane przez 4 partycje. Ich identyfikatory należą do zakresu od [1, 20], [21, 40], [41, 60] i [61, 80]. |
 
+> [!TIP]
+> Podczas kopiowania danych z tabeli niepartycjonowanej, można użyć opcji partycji zakres dynamiczny, aby podzielić na kolumnę z liczbą całkowitą. Jeśli dane źródłowe nie mają tego typu kolumny, można wykorzystać funkcję [ORA_HASH]( https://docs.oracle.com/database/121/SQLRF/functions136.htm) w zapytaniu źródłowym, aby wygenerować kolumnę i użyć jej jako kolumny partycji.
+
 **Przykład: zapytanie z partycją fizyczną**
 
 ```json
@@ -355,25 +359,25 @@ Podczas kopiowania danych z programu i do programu Oracle są stosowane następu
 |:--- |:--- |
 | DOTYCZĄCE |Byte [] |
 | TWORZENIA |Byte []<br/>(obsługiwane tylko w systemach Oracle 10g i nowszych) |
-| DELIKATN |String |
-| OBIEKTÓW CLOB |String |
+| DELIKATN |Ciąg |
+| OBIEKTÓW CLOB |Ciąg |
 | DATE |DateTime |
 | FLOAT |Decimal, String (jeśli precyzja > 28) |
 | LICZBA CAŁKOWITA |Decimal, String (jeśli precyzja > 28) |
-| DŁUGO |String |
+| DŁUGO |Ciąg |
 | DŁUGI NIEPRZETWORZONY |Byte [] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |Ciąg |
+| NCLOB |Ciąg |
 | Liczba |Decimal, String (jeśli precyzja > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |Ciąg |
 | SUROWCÓW |Byte [] |
-| Właściwość |String |
+| Właściwość |Ciąg |
 | ZNACZNIK czasu |DateTime |
-| SYGNATURA CZASOWA Z LOKALNĄ STREFĄ CZASOWĄ |String |
-| SYGNATURA CZASOWA ZE STREFĄ CZASOWĄ |String |
+| SYGNATURA CZASOWA Z LOKALNĄ STREFĄ CZASOWĄ |Ciąg |
+| SYGNATURA CZASOWA ZE STREFĄ CZASOWĄ |Ciąg |
 | LICZBA CAŁKOWITA BEZ ZNAKU |Liczba |
-| VARCHAR2 |String |
-| XML |String |
+| VARCHAR2 |Ciąg |
+| XML |Ciąg |
 
 > [!NOTE]
 > Typy danych INTERWAŁu od roku do miesiąca oraz INTERWAŁu od dnia do sekundy nie są obsługiwane.

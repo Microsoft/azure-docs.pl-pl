@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: f8411176e0979bdb894983bcf866abd0e1109e21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 999be38e413288d2eb2f6342874e692972f300ad
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291673"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409718"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Zwiększanie limitu przydziału dla usługi Azure HDInsight
 
 Limity przydziału procesora CPU pomagają zapewnić, że użycie zasobów jest stosunkowo rozproszone między wszystkimi klientami w określonym regionie świadczenia usługi Azure. Jednak w niektórych przypadkach wymagania biznesowe mogą wymagać większej liczby zasobów klastra niż będzie to możliwe. W takich przypadkach można zażądać zwiększenia limitu przydziału procesora CPU w taki sposób, aby można było wdrożyć klastry spełniające wymagania dotyczące przetwarzania danych.
 
-Po osiągnięciu limitu przydziału nie można wdrażać nowych klastrów ani skalować istniejących klastrów przez dodanie kolejnych węzłów procesu roboczego. Jedynym limitem przydziału jest przydział rdzeni procesora CPU, który istnieje na poziomie regionu dla każdej subskrypcji. Na przykład subskrypcja może mieć 30 rdzeni procesora CPU w regionie Wschodnie stany USA, z innymi 30 rdzeni procesora CPU dozwolonych w Wschodnie stany USA 2.
+Po osiągnięciu limitu przydziału nie można wdrażać nowych klastrów ani skalować istniejących klastrów przez dodanie kolejnych węzłów procesu roboczego. Jedynym limitem przydziału jest przydział rdzeni procesora CPU, który istnieje na poziomie regionu dla każdej subskrypcji. Na przykład subskrypcja może mieć 30 rdzeni procesora CPU w regionie Wschodnie stany USA z innymi 30 rdzeniami procesora CPU w Wschodnie stany USA.
 
 ## <a name="gather-required-information"></a>Zbierz wymagane informacje
 

@@ -1,5 +1,5 @@
 ---
-title: Wykonywanie zapytania dotyczącego SQL Database przy użyciu edytora zapytań w Azure Portal
+title: Wykonywanie zapytania dotyczącego SQL Database przy użyciu edytora zapytań w Azure Portal (wersja zapoznawcza)
 description: Dowiedz się, jak używać edytora zapytań do uruchamiania zapytań Transact-SQL (T-SQL) względem bazy danych w Azure SQL Database.
 titleSuffix: Azure SQL Database
 keywords: Nawiązywanie połączenia z usługą SQL Database, tworzenie zapytań do bazy danych SQL, witryna Azure Portal, portal, Edytor zapytań
@@ -13,14 +13,14 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: sstein
 ms.date: 05/29/2020
-ms.openlocfilehash: 2b6a54c25430cd2c1e68c42571f0f9039449ce96
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4eb02c65a8ce486ea152863d8b6c6d0600280893
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335096"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409594"
 ---
-# <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>Szybki Start: Użyj edytora zapytań Azure Portal, aby wykonać zapytanie do Azure SQL Database
+# <a name="quickstart-use-the-azure-portals-query-editor-preview-to-query-an-azure-sql-database"></a>Szybki Start: korzystanie z edytora zapytań Azure Portal (wersja zapoznawcza) w celu zbadania Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Edytor zapytań jest narzędziem w Azure Portal do uruchamiania zapytań SQL dotyczących bazy danych w Azure SQL Database lub hurtowni danych w usłudze Azure Synapse Analytics. 
@@ -60,7 +60,7 @@ Mimo że logujesz się do portalu, nadal musisz podać poświadczenia, aby uzysk
 
     ![logowanie](./media/connect-query-portal/login-menu.png)
 
-2. Wybierz przycisk **OK**.
+2. Wybierz pozycję **OK**.
 
 
 ### <a name="connect-using-azure-active-directory"></a>Nawiązywanie połączenia przy użyciu usługi Azure Active Directory

@@ -1,22 +1,22 @@
 ---
 title: Kroki optymalizacji po migracji z interfejsem API Azure Cosmos DB dla MongoDB
 description: Ten dokument zawiera techniki optymalizacji po migracji z MongoDB do interfejsu APi usługi Mongo DB Azure Cosmos DB.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
-ms.author: lbosq
-ms.openlocfilehash: 93a9058dec66ffe2e1c7ad4b15d9bf4eba12c647
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.author: jasonh
+ms.openlocfilehash: f21aa30de2b2dfcf85e45c7ed4d5c485fe45eed7
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358529"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409701"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Kroki optymalizacji po migracji podczas korzystania z interfejsu API Azure Cosmos DB dla MongoDB
 
-Po przeprowadzeniu migracji danych przechowywanych w bazie danych MongoDB Azure Cosmos DB do interfejsu API programu MongoDB, można nawiązać połączenie z Azure Cosmos DB i zarządzać danymi. Ten przewodnik zawiera opis kroków, które należy wziąć pod uwagę po migracji. Zapoznaj się z samouczkiem dotyczącym migracji [MongoDB Azure Cosmos DB do interfejsu API usługi MongoDB](../dms/tutorial-mongodb-cosmos-db.md) w celu zaplanowania czynności związanych z migracją.
+Po przeprowadzeniu migracji danych przechowywanych w bazie danych MongoDB do interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB możesz nawiązać połączenie z usługą Azure Cosmos DB i zarządzać danymi. Ten przewodnik zawiera opis kroków, których wykonanie należy rozważyć po przeprowadzeniu migracji. Zapoznaj się z samouczkiem dotyczącym migracji [MongoDB Azure Cosmos DB do interfejsu API usługi MongoDB](../dms/tutorial-mongodb-cosmos-db.md) w celu zaplanowania czynności związanych z migracją.
 
 Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czynności:
 

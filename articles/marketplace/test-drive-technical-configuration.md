@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 9ba3d25a07e4d6c32bd14c315018f0d008032b73
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7d22226721d4fc09b4f5affc15047b6799ed0d19
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250491"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409480"
 ---
 # <a name="test-drive-technical-configuration"></a>Wersja testowa konfiguracji technicznej
 
@@ -30,7 +30,7 @@ Firma Microsoft może usunąć złożoność konfigurowania dysku testowego, udo
 
 - **Maksymalna liczba współbieżnych dysków testowych** (wymagane) — Ustaw maksymalną liczbę klientów, którzy mogą jednocześnie używać danego dysku testowego. Każdy użytkownik współbieżny będzie korzystał z licencji Dynamics 365, gdy test jest aktywny, więc upewnij się, że masz wystarczającą liczbę licencji na obsługę maksymalnego ustawionego limitu. Zalecana wartość to 3-5.
 
-- **Czas trwania dysku testowego** (wymagane) — wprowadź liczbę godzin aktywności dysku testowego. Po upływie tego czasu sesja zostanie zakończona i nie będzie już korzystać z jednej z Twoich licencji. Zalecamy użycie wartości 2-24 godzin w zależności od złożoności oferty. Ten czas trwania może być ustawiony tylko w ciągu całych godzin (na przykład "2" godziny jest prawidłowy; "1,5" nie jest). Użytkownik może zażądać nowej sesji, jeśli są one nieaktualne i chcą ponownie uzyskać dostęp do dysku testowego.
+- **Czas trwania dysku testowego** (wymagane) — wprowadź liczbę godzin aktywności dysku testowego (co najmniej jedną godzinę). Po upływie tego czasu sesja zostanie zakończona i nie będzie już korzystać z jednej z Twoich licencji. Zalecamy użycie wartości 2-24 godzin w zależności od złożoności oferty. Ten czas trwania może być ustawiony tylko w ciągu całych godzin (na przykład "2" godziny jest prawidłowy; "1,5" nie jest). Użytkownik może zażądać nowej sesji, jeśli są one nieaktualne i chcą ponownie uzyskać dostęp do dysku testowego.
 
 - **Adres URL wystąpienia** (wymagany) — adres URL, pod którym klient będzie rozpoczynać swój dysk testowy. Zwykle jest to adres URL wystąpienia usługi Dynamics 365 z uruchomioną aplikacją z zainstalowanymi przykładowymi danymi (na przykład `https://testdrive.crm.dynamics.com` ).
 
@@ -48,7 +48,7 @@ Ten typ dysku testowego nie jest hostowany przez firmę Microsoft. Służy do na
 
 - **Maksymalna liczba współbieżnych dysków testowych** (wymagane) — Ustaw maksymalną liczbę klientów, którzy mogą jednocześnie używać danego dysku testowego. Te stacje testowe są już wdrożone, umożliwiając klientom natychmiastowe uzyskiwanie dostępu do nich bez oczekiwania na wdrożenie.
 
-- **Czas trwania dysku testowego** (wymagane) — Wprowadź czas aktywności dysku testowego w ciągu kilku godzin. Po upływie tego czasu test kończy się automatycznie.
+- **Czas trwania dysku testowego** (wymagane) — wprowadź liczbę godzin aktywności dysku testowego (co najmniej jedną godzinę). Po upływie tego czasu test kończy się automatycznie.
 
 - **Nazwa grupy zasobów platformy Azure** (wymagana) — wprowadź nazwę [grupy zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md#resource-groups), w której jest zapisywany dysk testowy aplikacji logiki.
 

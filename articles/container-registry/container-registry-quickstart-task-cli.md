@@ -1,20 +1,20 @@
 ---
-title: Szybki Start — Tworzenie obrazu kontenera uruchamiania &
-description: Szybko uruchamiaj zadania z Azure Container Registry, aby kompilować i uruchamiać obraz kontenera platformy Docker na żądanie w chmurze.
+title: Szybki Start — Tworzenie obrazu kontenera na żądanie na platformie Azure
+description: Użyj poleceń Azure Container Registry, aby szybko kompilować, wypchnięciować i uruchamiać obraz kontenera Docker na żądanie w chmurze platformy Azure.
 ms.topic: quickstart
-ms.date: 01/31/2020
-ms.openlocfilehash: 610d82a0761f06338d04f0794d4141165d67d36c
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.date: 09/25/2020
+ms.openlocfilehash: 6c73eb8ec69014858299eb940036716eff646137
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753701"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409837"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Szybki Start: kompilowanie i uruchamianie obrazu kontenera za pomocą zadań Azure Container Registry
 
-W tym przewodniku szybki start użyjesz poleceń Azure Container Registry zadania, aby szybko kompilować, wypchnięciować i uruchamiać obraz kontenera platformy Docker w systemie Azure, pokazując, jak odciążać cykl programowania "pętla wewnętrzna" do chmury. [ACR Tasks][container-registry-tasks-overview] to zestaw funkcji w ramach Azure Container Registry, które ułatwiają zarządzanie obrazami kontenerów w ramach cyklu życia kontenera i ich modyfikowanie. 
+W tym przewodniku szybki start za pomocą poleceń [Azure Container Registry zadania][container-registry-tasks-overview] można szybko kompilować, wypchnięciować i uruchamiać obraz kontenera platformy Docker w systemie Azure bez lokalnej instalacji platformy Docker. ACR Tasks to zestaw funkcji w ramach Azure Container Registry, które ułatwiają zarządzanie obrazami kontenerów w ramach cyklu życia kontenera i ich modyfikowanie. Ten przykład pokazuje, jak odciążyć cykl programowania obrazów kontenera "wewnętrzna pętla" do chmury z kompilacjami na żądanie przy użyciu lokalnego pliku dockerfile. 
 
-Po tym przewodniku szybki start zapoznaj się z bardziej zaawansowanymi funkcjami zadań ACR. Zadania ACR umożliwiają automatyzowanie kompilacji obrazów na podstawie zatwierdzeń kodu lub aktualizacji obrazu podstawowego lub testowanie wielu kontenerów równolegle, między innymi scenariuszami. 
+Po tym przewodniku szybki start zapoznaj się z bardziej zaawansowanymi funkcjami zadań ACR przy użyciu [samouczków](container-registry-tutorial-quick-task.md). Zadania ACR umożliwiają automatyzowanie kompilacji obrazów na podstawie zatwierdzeń kodu lub aktualizacji obrazu podstawowego lub testowanie wielu kontenerów równolegle, między innymi scenariuszami. 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto][azure-account].
 
@@ -45,7 +45,7 @@ W tym przykładzie jest tworzony rejestr *podstawowy* , opcja zoptymalizowana po
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Kompilowanie i wypychanie obrazu z pliku dockerfile
 
-Teraz Użyj Azure Container Registry do kompilowania i wypychania obrazu. Najpierw Utwórz katalog roboczy, a następnie utwórz pliku dockerfile o nazwie *pliku dockerfile* z pojedynczym wierszem: `FROM hello-world` . Jest to prosty przykład, aby skompilować obraz kontenera systemu Linux z `hello-world` obrazu w usłudze Docker Hub. Możesz tworzyć własne obrazy pliku dockerfile i kompilacje dla innych platform. Jeśli pracujesz z powłoką bash, Utwórz pliku dockerfile za pomocą następującego polecenia:
+Teraz Użyj Azure Container Registry do kompilowania i wypychania obrazu. Najpierw utwórz lokalny katalog roboczy, a następnie utwórz pliku dockerfile o nazwie *pliku dockerfile* z pojedynczym wierszem: `FROM hello-world` . Jest to prosty przykład, aby skompilować obraz kontenera systemu Linux z `hello-world` obrazu w usłudze Docker Hub. Możesz tworzyć własne obrazy pliku dockerfile i kompilacje dla innych platform. Jeśli pracujesz z powłoką bash, Utwórz pliku dockerfile za pomocą następującego polecenia:
 
 ```bash
 echo FROM hello-world > Dockerfile

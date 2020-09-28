@@ -2,20 +2,20 @@
 title: Samouczek — Tworzenie szablonu wdrażania &
 description: Utwórz pierwszy szablon Azure Resource Manager. Samouczek zawiera informacje na temat składni pliku szablonu i sposobu wdrażania konta magazynu.
 author: mumian
-ms.date: 06/10/2020
+ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 124df19287062a7fc8a6b9cf8b9d32eb3863b581
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 6eb2cf792eb5a458bff8508bc21e1e0690e2e1f3
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069241"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409220"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM
 
-W tym samouczku przedstawiono Azure Resource Manager szablonów (ARM). Pokazuje, jak utworzyć początkowy szablon i wdrożyć go na platformie Azure. Poznasz strukturę szablonu i narzędzia potrzebne do pracy z szablonami. Ukończenie tego samouczka zajmuje około **12 minut** , ale rzeczywisty czas będzie różny w zależności od liczby narzędzi, które należy zainstalować.
+W tym samouczku przedstawiono Azure Resource Manager szablonów (szablony ARM). Pokazuje, jak utworzyć początkowy szablon i wdrożyć go na platformie Azure. Poznasz strukturę szablonu i narzędzia potrzebne do pracy z szablonami. Ukończenie tego samouczka zajmuje około **12 minut** , ale rzeczywisty czas będzie różny w zależności od liczby narzędzi, które należy zainstalować.
 
 Ten samouczek jest pierwszą częścią serii. W miarę postępów przez serię należy zmodyfikować początkowy szablon krok po kroku, dopóki nie zostaną zbadane wszystkie podstawowe części szablonu ARM. Elementy te są blokami konstrukcyjnymi dla znacznie bardziej złożonych szablonów. Mamy nadzieję, że na końcu serii masz pewność, że tworzysz własne szablony i chcesz zautomatyzować wdrożenia przy użyciu szablonów.
 
@@ -25,7 +25,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 ## <a name="get-tools"></a>Pobierz narzędzia
 
-Zacznijmy od zagwarantowania, że masz narzędzia potrzebne do tworzenia i wdrażania szablonów.
+Zacznijmy od zagwarantowania, że masz narzędzia potrzebne do tworzenia i wdrażania szablonów. Zainstaluj te narzędzia na komputerze lokalnym.
 
 ### <a name="editor"></a>Edytor
 

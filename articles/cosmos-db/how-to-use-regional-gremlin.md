@@ -1,19 +1,19 @@
 ---
 title: Regionalne punkty końcowe dla bazy danych programu Azure Cosmos DB Graph
 description: Dowiedz się, jak nawiązać połączenie z najbliższym punktem końcowym bazy danych grafu dla aplikacji
-author: luisbosquez
-ms.author: lbosq
+author: jasonwhowell
+ms.author: jasonh
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f9d46c2f5cce397c2aa6ebbcd38d7fbb5786412
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3dd7df738f49b14a16be8a9741fb2c82ed3bf97c
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997255"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409013"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Regionalne punkty końcowe dla konta programu Azure Cosmos DB Graph
 Baza danych programu Azure Cosmos DB Graph jest [dystrybuowana globalnie](distribute-data-globally.md) , dzięki czemu aplikacje mogą używać wielu punktów końcowych odczytu. Aplikacje, które wymagają dostępu do zapisu w wielu lokalizacjach, powinny umożliwiać obsługę [wielu wzorców](how-to-multi-master.md) .
@@ -109,7 +109,7 @@ foreach (string location in readLocations)
 }
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Jak zarządzać kontrolą konta bazy danych](how-to-manage-database-account.md) w Azure Cosmos DB
 * [Wysoka dostępność](high-availability.md) w Azure Cosmos DB
 * [Dystrybucja globalna z Azure Cosmos DBą pod okapem](global-dist-under-the-hood.md)

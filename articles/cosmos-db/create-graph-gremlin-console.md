@@ -1,18 +1,18 @@
 ---
 title: 'Zapytanie z interfejsem API usługi Azure Cosmos DB Gremlin przy użyciu konsoli TinkerPop Gremlin: samouczek'
 description: Przewodnik Szybki start usługi Azure Cosmos DB opisujący tworzenie wierzchołków, krawędzi i zapytań za pomocą interfejsu API języka Gremlin w usłudze Azure Cosmos DB.
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: e1ce632a04269704b498a69e1a0dd4fe72e00c87
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: jasonh
+ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543779"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409395"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Szybki start: Tworzenie elementów, wykonywanie zapytań i przechodzenie przez grafową bazę danych usługi Azure Cosmos DB przy użyciu konsoli Gremlin
 
@@ -27,7 +27,7 @@ ms.locfileid: "87543779"
 
 Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
 
-Ten przewodnik Szybki Start przedstawia sposób Azure Cosmos DB tworzenia konta [interfejsu API Gremlin](graph-introduction.md) , bazy danych i grafu (kontenera) przy użyciu Azure Portal, a następnie używania [konsoli Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) z platformy [Apache TinkerPop](https://tinkerpop.apache.org) do pracy z danymi interfejsu API programu Gremlin. W tym samouczku utworzysz wierzchołki i krawędzie oraz wykonasz względem nich zapytania, zaktualizujesz właściwość wierzchołka, przejdziesz graf i usuniesz wierzchołek.
+Ten przewodnik Szybki Start przedstawia sposób Azure Cosmos DB tworzenia konta [interfejsu API Gremlin](graph-introduction.md) , bazy danych i grafu (kontenera) przy użyciu Azure Portal, a następnie używania [konsoli Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) z platformy  [Apache TinkerPop](https://tinkerpop.apache.org) do pracy z danymi interfejsu API programu Gremlin. W tym samouczku utworzysz wierzchołki i krawędzie oraz wykonasz względem nich zapytania, zaktualizujesz właściwość wierzchołka, przejdziesz graf i usuniesz wierzchołek.
 
 :::image type="content" source="./media/create-graph-gremlin-console/gremlin-console.png" alt-text="Usługa Azure Cosmos DB w konsoli Apache Gremlin":::
 
@@ -98,7 +98,7 @@ Należy również zainstalować [konsolę Gremlin](https://tinkerpop.apache.org/
    > [!NOTE]
    > Jeśli nie uruchomisz polecenia `:remote console`, ale chcesz przekierować wszystkie polecenia konsoli na serwer zdalny, dodaj do polecenia prefiks `:>`, na przykład uruchom polecenie jako `:> g.V().count()`. Ten prefiks jest częścią polecenia i jest to ważne, gdy konsola Gremlin jest używana z usługą Azure Cosmos DB. Pominięcie tego prefiksu oznacza, że konsola ma wykonać polecenia lokalnie, często względem grafu w pamięci. Użycie tego prefiksu `:>` powoduje wykonanie polecenia zdalnego przez konsolę, w tym przypadku względem usługi Azure Cosmos DB (emulatora localhost lub wystąpienia platformy Azure).
 
-Doskonale! Teraz, po zakończeniu konfigurowania, zacznijmy uruchamianie poleceń konsoli.
+Świetnie! Teraz, po zakończeniu konfigurowania, zacznijmy uruchamianie poleceń konsoli.
 
 Wypróbujmy proste polecenie count(). Wpisz następujący tekst w wierszu polecenia konsoli:
 

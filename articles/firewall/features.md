@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: eb7cf1899b24ed225941f0a02040206504e6486b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16e128fd61c8b0aeae017e5298ae1d8aed6e97e9
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095584"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408511"
 ---
 # <a name="azure-firewall-features"></a>Funkcje usługi Azure Firewall
 
@@ -24,7 +24,7 @@ Zapora platformy Azure obejmuje następujące funkcje:
 
 - [Wbudowana wysoka dostępność](#built-in-high-availability)
 - [Strefy dostępności](#availability-zones)
-- [Skalowalność w chmurze bez ograniczeń](#unrestricted-cloud-scalability)
+- [Nieograniczona skalowalność chmury](#unrestricted-cloud-scalability)
 - [Reguły filtrowania w pełni kwalifikowanych nazw domen aplikacji](#application-fqdn-filtering-rules)
 - [Reguły filtrowania ruchu sieciowego](#network-traffic-filtering-rules)
 - [Tagi w pełni kwalifikowanych nazw domen](#fqdn-tags)
@@ -33,7 +33,7 @@ Zapora platformy Azure obejmuje następujące funkcje:
 - [Obsługa translacji adresów sieciowych źródła (SNAT) dla ruchu wychodzącego](#outbound-snat-support)
 - [Obsługa technologii DNAT dla ruchu przychodzącego](#inbound-dnat-support)
 - [Wiele publicznych adresów IP](#multiple-public-ip-addresses)
-- [Rejestrowanie w usłudze Azure Monitor](#azure-monitor-logging)
+- [Rejestrowanie Azure Monitor](#azure-monitor-logging)
 - [Wymuszone tunelowanie](#forced-tunneling)
 - [Certyfikaty](#certifications)
 
@@ -62,11 +62,11 @@ Usługa Azure Firewall umożliwia skalowanie bez ograniczeń, odpowiednio do zmi
 
 ## <a name="application-fqdn-filtering-rules"></a>Reguły filtrowania w pełni kwalifikowanych nazw domen aplikacji
 
-Możesz ograniczyć ruch wychodzący HTTP/S lub ruch usługi Azure SQL (wersja zapoznawcza) do określonej listy w pełni kwalifikowanych nazw domen (FQDN), w tym symboli wieloznacznych. Ta funkcja nie wymaga zakończenia protokołu TLS.
+Można ograniczyć ruch wychodzący HTTP/S lub ruch usługi Azure SQL do określonej listy w pełni kwalifikowanych nazw domen (FQDN), w tym symboli wieloznacznych. Ta funkcja nie wymaga zakończenia protokołu TLS.
 
 ## <a name="network-traffic-filtering-rules"></a>Reguły filtrowania ruchu sieciowego
 
-Można centralnie tworzyć reguły filtrowania sieci (*zezwalania* lub *blokowania*) na podstawie źródłowego i docelowego adresu IP, portu i protokołu. Usługa Azure Firewall jest w pełni stanowa, więc możesz rozróżniać autentyczne pakiety w ramach różnych typów połączeń. Reguły są wymuszane i rejestrowane w wielu subskrypcjach i sieciach wirtualnych.
+Można centralnie *utworzyć reguły* *filtrowania sieci dla* źródła i docelowego adresu IP, portu i protokołu. Usługa Azure Firewall jest w pełni stanowa, więc możesz rozróżniać autentyczne pakiety w ramach różnych typów połączeń. Reguły są wymuszane i rejestrowane w wielu subskrypcjach i sieciach wirtualnych.
 
 ## <a name="fqdn-tags"></a>Tagi w pełni kwalifikowanych nazw domen
 
@@ -78,7 +78,7 @@ Można centralnie tworzyć reguły filtrowania sieci (*zezwalania* lub *blokowan
 
 ## <a name="threat-intelligence"></a>Analiza zagrożeń
 
-Filtrowanie na podstawie [analizy zagrożeń](threat-intel.md)może być włączone, aby zapora mogła zgłaszać i odrzucać ruch z/do znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą ze źródła analizy zagrożeń firmy Microsoft.
+Filtrowanie na podstawie [analizy zagrożeń](threat-intel.md)może być włączone, aby zapora mogła zgłaszać i odrzucać ruch z/do znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą z kanału informacyjnego analizy zagrożeń firmy Microsoft.
 
 ## <a name="outbound-snat-support"></a>Obsługa translacji adresów sieciowych źródła (SNAT) dla ruchu wychodzącego
 
@@ -96,8 +96,8 @@ Za pomocą zapory można skojarzyć [wiele publicznych adresów IP](deploy-multi
 
 Dzięki temu można wykonać następujące scenariusze:
 
-- **DNAT** — wiele standardowych wystąpień portów można przetłumaczyć na serwery zaplecza. Na przykład jeśli masz dwa publiczne adresy IP, możesz przetłumaczyć port TCP 3389 (RDP) dla obu adresów IP.
-- Reportcy **adresów sieciowych** — dodatkowe porty są dostępne dla wychodzących połączeń z reportem adresów sieciowych, co zmniejsza prawdopodobieństwo wyczerpania portów dla tego elementu. W tej chwili Zapora platformy Azure losowo wybiera źródłowy publiczny adres IP, który ma być używany w połączeniu. Jeśli masz jakieś filtrowanie podrzędne w sieci, musisz zezwolić na wszystkie publiczne adresy IP skojarzone z zaporą. Rozważ użycie [prefiksu publicznego adresu IP](../virtual-network/public-ip-address-prefix.md) , aby uprościć tę konfigurację.
+- **DNAT** — wiele standardowych wystąpień portów można przetłumaczyć na serwery zaplecza. Jeśli na przykład masz dwa publiczne adresy IP, możesz wykonać translację portu TCP 3389 (RDP) dla obu adresów IP.
+- Reportcy **adresów sieciowych** — dodatkowe porty są dostępne dla wychodzących połączeń z reportem adresów sieciowych, co zmniejsza prawdopodobieństwo wyczerpania portów dla tego elementu. W tej chwili Zapora platformy Azure losowo wybiera źródłowy publiczny adres IP, który ma być używany w połączeniu. Jeśli w sieci występuje jakiekolwiek filtrowanie w kierunku do klienta, musisz zezwolić na wszystkie publiczne adresy IP skojarzone z zaporą. Rozważ użycie [prefiksu publicznego adresu IP](../virtual-network/public-ip-address-prefix.md) , aby uprościć tę konfigurację.
 
 ## <a name="azure-monitor-logging"></a>Rejestrowanie w usłudze Azure Monitor
 
