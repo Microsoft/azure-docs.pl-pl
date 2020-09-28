@@ -38,7 +38,7 @@ Zapisz i zamknij plik.
 
 Następnie skonfiguruj *serviceConfig.jsw* pliku, który ma zostać skopiowany do katalogu wyjściowego podczas kompilowania *SampleClientApp*. W tym celu kliknij prawym przyciskiem myszy *serviceConfig.jsw* pliku, a następnie wybierz polecenie *właściwości.* W Inspektorze *Właściwości* Zmień wartość właściwości *Kopiuj do katalogu wyjściowego* na *Kopiuj, jeśli nowszy*.
 
-:::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Fragment z okna programu Visual Studio z okienkiem Eksplorator rozwiązań z wyróżnioną serviceConfig.js, a okienko właściwości z właściwością "Kopiuj do katalogu wyjściowego" ma wartość "Kopiuj, jeśli nowszy"" border="false":::
+:::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Fragment z okna programu Visual Studio z okienkiem Eksplorator rozwiązań z wyróżnioną serviceConfig.js, a okienko właściwości z właściwością Kopiuj do katalogu wyjściowego ma wartość Kopiuj, jeśli nowszy" border="false":::
 
 Kontynuuj otwieranie projektu _**AdtE2ESample**_ w programie Visual Studio, aby nadal korzystać z niego w samouczku.
 
