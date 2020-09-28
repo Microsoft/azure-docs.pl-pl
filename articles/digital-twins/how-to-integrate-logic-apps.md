@@ -162,7 +162,7 @@ Następnie utworzysz aplikację logiki, która będzie używać nowego łącznik
 
 W [Azure Portal](https://portal.azure.com)Wyszukaj *Aplikacje logiki* na pasku wyszukiwania portalu. Wybranie tej opcji powinno spowodować przejście na stronę *Aplikacje logiki* . Naciśnij przycisk *Utwórz aplikację logiki* , aby utworzyć nową aplikację logiki.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Strona "Logic Apps" w Azure Portal. Naciśnij przycisk "Dodaj"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Strona Logic Apps w Azure Portal. Naciśnij przycisk Dodaj":::
 
 Na stronie *aplikacja logiki* poniżej wprowadź subskrypcję i grupę zasobów. Ponadto wybierz nazwę aplikacji logiki i wybierz lokalizację wdrożenia.
 
@@ -176,7 +176,7 @@ Nastąpi przekierowanie do strony wdrożenia aplikacji logiki. Po zakończeniu w
 
 W *projektancie Logic Apps*w obszarze *Rozpocznij ze wspólnym wyzwalaczem*wybierz pozycję _**cykl**_.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Strona "Logic Apps Designer" w Azure Portal. Zaznacz wokół typowego wyzwalacza "cykl"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Strona Logic Apps Designer w Azure Portal. Zaznacz wokół typowego wyzwalacza cyka":::
 
 Na poniższej stronie *projektanta Logic Apps* Zmień częstotliwość **cyklu** na *sekundę*, aby zdarzenie było wyzwalane co 3 sekundy. Dzięki temu będzie można łatwo zobaczyć wyniki później, bez konieczności oczekiwania.
 
@@ -184,7 +184,7 @@ Naciśnij pozycję *+ nowy krok*.
 
 Spowoduje to otwarcie pola *Wybierz akcję* . Przejdź do karty *niestandardowej* . Łącznik niestandardowy powinien być widoczny wcześniej w górnej części okna.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Tworzenie przepływu w projektancie Logic Apps w Azure Portal. W polu "Wybierz akcję" wybrana jest karta "niestandardowe". Łącznik niestandardowy użytkownika z wcześniejszych zostanie wyświetlony w polu z wyróżnionym wyróżnieniem.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Tworzenie przepływu w projektancie Logic Apps w Azure Portal. W polu Wybierz akcję wybrana jest karta niestandardowe. Łącznik niestandardowy użytkownika z wcześniejszych zostanie wyświetlony w polu z wyróżnionym wyróżnieniem.":::
 
 Wybierz go, aby wyświetlić listę interfejsów API zawartych w tym łączniku. Użyj paska wyszukiwania lub przewiń listę, aby zaznaczyć **DigitalTwins_Add**. (Jest to interfejs API używany w tym artykule, ale można również wybrać dowolny inny interfejs API jako prawidłowy wybór dla połączenia Logic Apps).
 
@@ -199,7 +199,7 @@ Naciśnij klawisz *Save* w projektancie Logic Apps.
 
 Możesz wybrać inne operacje, wybierając pozycję _+ nowy krok_ w tym samym oknie.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Zakończono widok aplikacji w łączniku aplikacji logiki. Pole DigitalTwinsAdd jest wypełnione wartościami opisanymi powyżej, łącznie z przykładową treścią poprawek JSON. Przycisk "Zapisz" dla okna jest wyróżniony.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Zakończono widok aplikacji w łączniku aplikacji logiki. Pole DigitalTwinsAdd jest wypełnione wartościami opisanymi powyżej, łącznie z przykładową treścią poprawek JSON. Przycisk Zapisz dla okna jest wyróżniony.":::
 
 ## <a name="query-twin-to-see-the-update"></a>Zapytanie bliźniaczye, aby zobaczyć aktualizację
 
