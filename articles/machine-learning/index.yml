@@ -11,22 +11,22 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 09/17/2020
+  ms.date: 09/21/2020
   ms.custom: contperfq1
-  ms.openlocfilehash: 4359f18e51dffa26f1bfc7fbe74f5f89dff7c56f
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 935476812e93a79be5e1cdb4d4d38a07d15e1935
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90900116"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91296590"
 landingContent:
 - title: 'Wprowadzenie: Najpierw kod'
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Wprowadzenie do zestawu Python SDK (dzień 1)
+    - text: Samouczek z wprowadzeniem (Python)
       url: tutorial-1st-experiment-sdk-setup-local.md
-    - text: Korzystanie z notesów Jupyter
+    - text: Korzystanie z samouczka dotyczącego notesów Jupyter Notebook
       url: tutorial-1st-experiment-sdk-setup.md
     - text: Wnioskowanie partii za pomocą potoków ML (Python)
       url: tutorial-pipeline-batch-scoring-classification.md

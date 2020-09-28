@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/27/2020
 ms.author: jingwang
-ms.openlocfilehash: f22380f65b91976e7696551ee0a65a5bf6dfd097
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 13a0966413519e56199cfce150d9dd7973d634ec
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334314"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404731"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Format Parquet w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,7 +79,7 @@ W sekcji *** \* ujścia \* *** działania kopiowania są obsługiwane następuj�
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **ParquetSink**. | Tak      |
+| typ          | Właściwość Type ujścia działania Copy musi być ustawiona na wartość **ParquetSink**. | Tak      |
 | formatSettings | Grupa właściwości. Zapoznaj się z tabelą **ustawień zapisu Parquet** poniżej. |    Nie      |
 | storeSettings | Grupa właściwości do zapisywania danych w magazynie danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia zapisu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
 
@@ -103,9 +103,9 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło Pa
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Format musi być `parquet` | tak | `parquet` | format |
 | Ścieżki symboli wieloznacznych | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | nie | Ciąg [] | wildcardPaths |
-| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie | String | partitionRootPath |
+| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie | Ciąg | partitionRootPath |
 | Lista plików | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie | `true` lub `false` | fileList |
-| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | nie | String | rowUrlColumn |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | nie | Ciąg | rowUrlColumn |
 | Po zakończeniu | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie | Usuń: `true` lub `false` <br> Przenieś `[<from>, <to>]` | purgeFiles <br> moveFiles |
 | Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie | Timestamp | modifiedAfter <br> modifiedBefore |
 | Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
@@ -127,7 +127,7 @@ source(allowSchemaDrift: true,
 
 ### <a name="sink-properties"></a>Właściwości ujścia
 
-Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło Parquet. Można edytować te właściwości na karcie **Opcje źródła** .
+Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia Parquet. Te właściwości można edytować na karcie **Ustawienia** .
 
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |

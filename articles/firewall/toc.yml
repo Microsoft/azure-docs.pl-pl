@@ -88,6 +88,8 @@
       href: firewall-diagnostics.md
     - name: Dzienniki usługi Azure Monitor
       href: log-analytics-samples.md
+    - name: Skoroszyt usługi Azure Firewall
+      href: firewall-workbook.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

@@ -277,19 +277,19 @@
     - name: Uzyskiwanie zapłaty
       items:
         - name: Uzyskiwanie zapłaty
-          href: partner-center-portal/get-paid.md
+          href: /partner-center/marketplace-get-paid?context=/azure/marketplace/context/context
         - name: Konfigurowanie konta do wypłaty i formularzy podatkowych
-          href: partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: 'Progi, metody i horyzonty czasowe płatności'
-          href: partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Omówienie podsumowania wypłat
-          href: partner-center-portal/payout-summary-overview.md
-        - name: Podsumowania wypłat
-          href: partner-center-portal/payout-summary.md
+          href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
+        - name: Progi i horyzonty czasowe płatności
+          href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
+        - name: Zestawienia wypłat
+          href: /partner-center/payout-statement?context=/azure/marketplace/context/context
         - name: Szczegóły zasad wypłat
-          href: partner-center-portal/payout-policy-details.md
+          href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
         - name: Szczegóły podatku
-          href: partner-center-portal/tax-details-paid-transactions.md
+          href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
+        - name: Wypłaty — często zadawane pytania
+          href: /partner-center/payout-faq?context=/azure/marketplace/context/context
     - name: Dokumentacja interfejsu CPP API
       items:
         - name: Omówienie

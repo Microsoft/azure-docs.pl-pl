@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: 01daf0af039a00f6a81b850b07cfcf6d901a7732
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 606d3c78e96491a92b2e09aa74801247369ba0ab
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284639"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403300"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Powiadomienia e-mail dotyczące dostrajania automatycznego
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -187,7 +187,7 @@ Aby zakończyć rozwiązanie, w ostatnim kroku Utwórz przepływ automatyzacji w
 
 - "**Azure Automation-Create Job**" — służy do wykonywania skryptu programu PowerShell w celu pobrania zaleceń dostrajania automatycznego w elemencie Runbook Azure Automation.
 - "**Azure Automation — Pobierz dane wyjściowe zadania**" — służy do pobierania danych wyjściowych z wykonanego skryptu programu PowerShell.
-- "**Office 365 Outlook — Wyślij wiadomość e-mail**" — służy do wysyłania wiadomości e-mail. Wiadomości e-mail są wysyłane przy użyciu konta Office 365 indywidualnego tworzenia przepływu.
+- "**Office 365 Outlook — Wyślij wiadomość e-mail**" — służy do wysyłania wiadomości e-mail. Wiadomości e-mail są wysyłane przy użyciu konta służbowego indywidualnego tworzenia przepływu.
 
 Aby dowiedzieć się więcej o możliwościach Microsoft Flow, zobacz [wprowadzenie do Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 

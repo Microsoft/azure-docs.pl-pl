@@ -115,6 +115,8 @@
           href: windows-stop-error-bad-system-config-info.md
         - name: Błąd zatrzymania systemu Windows — stan braku pamięci
           href: troubleshoot-windows-stop-error.md
+        - name: Błąd zatrzymania systemu Windows — przerwano proces systemowy
+          href: windows-stop-error-system-process-terminated.md
 - name: Nie można nawiązać połączenia z maszyną wirtualną
   items:
     - name: RDP

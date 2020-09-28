@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 6606391d7fd5c2419714531e1220d97fb29aea4d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76086dd7cccb042fdde3722b68b654343f2df012
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529594"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403589"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indeksowanie obiektów BLOB w celu utworzenia wielu dokumentów wyszukiwania
 Domyślnie indeksator obiektów BLOB będzie traktować zawartość obiektu BLOB jako pojedynczy dokument wyszukiwania. Niektóre wartości typu **analizowaniemode** obsługują scenariusze, w których pojedynczy obiekt BLOB może spowodować wielokrotne wyszukiwanie dokumentów. Różne typy **analizmode** , które umożliwiają Indeksatorowi wyodrębnienie więcej niż jednego dokumentu wyszukiwania z obiektu BLOB:
@@ -108,6 +108,9 @@ Jeśli chcesz skonfigurować jawne Mapowanie pól, upewnij się, że _sourceFiel
 
 > [!NOTE]
 > Podejście używane w celu `AzureSearch_DocumentKey` zapewnienia unikatowości dla wyodrębnionej jednostki może ulec zmianie, dlatego nie należy polegać na jej wartości dla potrzeb aplikacji.
+
+## <a name="help-us-make-azure-cognitive-search-better"></a>Pomóż nam ulepszyć platformę Azure Wyszukiwanie poznawcze
+Jeśli masz żądania funkcji lub pomysły dotyczące ulepszeń, podaj dane wejściowe w usłudze [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Jeśli potrzebujesz pomocy przy korzystaniu z istniejącej funkcji, Opublikuj pytanie na [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
 ## <a name="next-steps"></a>Następne kroki
 

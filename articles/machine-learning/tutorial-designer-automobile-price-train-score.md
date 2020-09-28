@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896695"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404922"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Samouczek: przewidywanie ceny za samochód przy użyciu narzędzia Projektant
 
@@ -75,7 +75,7 @@ Można ustawić **domyślny obiekt docelowy obliczeń** dla całego potoku, co s
     Jeśli masz już dostępny element docelowy obliczeń, możesz wybrać go do uruchomienia tego potoku.
 
     > [!NOTE]
-    > Projektant może uruchamiać eksperymenty szkoleniowe tylko na Azure Machine Learning obliczeniowych i Azure Machine Learning wystąpieniach obliczeniowych, ale nie będą wyświetlane inne obiekty docelowe obliczeń.
+    > Projektant może uruchamiać eksperymenty szkoleniowe dotyczące Azure Machine Learning obliczeń, ale inne elementy docelowe obliczeń nie będą wyświetlane.
 
 1. Wprowadź nazwę zasobu obliczeniowego.
 
@@ -303,7 +303,7 @@ Następujące statystyki są wyświetlane dla modelu:
 
 W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepszą jakość modelu. Mniejsza wartość wskazuje, że przewidywania są bliżej rzeczywistych wartości. Dla współczynnika wyznaczania wartość bliższej wartości to 1 (1,0), tym lepsze przewidywania.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Pomiń tę sekcję, jeśli chcesz kontynuować w części 2 samouczka [Wdrażanie modeli](tutorial-designer-automobile-price-deploy.md).
 

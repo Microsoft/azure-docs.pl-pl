@@ -24,6 +24,10 @@
     - name: Tworzenie usługi Private Link — szablon usługi Resource Manager
       displayName: Resource Manager
       href: create-private-link-service-template.md
+- name: Samouczki
+  items:
+    - name: Łączenie się z kontem magazynu
+      href: tutorial-private-endpoint-storage-portal.md
 - name: Pojęcia
   items:
     - name: Prywatny punkt końcowy
@@ -38,8 +42,6 @@
           href: security-baseline.md
 - name: Instrukcje
   items:
-    - name: Prywatne połączenie z kontem magazynu
-      href: create-private-endpoint-storage-portal.md
     - name: Prywatne połączenie z kontem usługi Cosmos DB
       href: create-private-endpoint-cosmosdb-portal.md
     - name: Prywatne połączenie z aplikacją internetową

@@ -2,13 +2,13 @@
 title: Zwiększ niezawodność aplikacji za pomocą usługi Advisor
 description: Użyj Azure Advisor, aby zapewnić i poprawić niezawodność wdrożeń na platformie Azure o kluczowym znaczeniu dla firmy.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 3e556f8bc672705e6c83daced2c82a884e3ddf46
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/27/2020
+ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264596"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405194"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Zwiększ niezawodność aplikacji przy użyciu Azure Advisor
 
@@ -109,6 +109,12 @@ Od 1 lipca 2020 nie będzie można tworzyć nowych klastrów Spark przy użyciu 
 ## <a name="enable-virtual-machine-replication"></a>Włącz replikację maszyn wirtualnych
 Maszyny wirtualne, które nie mają włączonej replikacji w innym regionie, nie są odporne na awarie regionalne. Replikowanie maszyn wirtualnych zmniejsza niekorzystny wpływ na działalność biznesową w trakcie awarii regionu platformy Azure. Program Advisor wykrywa maszyny wirtualne, na których replikacja nie jest włączona i zaleca włączenie tej funkcji. Po włączeniu replikacji, jeśli wystąpi awaria, można szybko przenieść maszyny wirtualne do zdalnego regionu platformy Azure. [Dowiedz się więcej o replikacji maszyny wirtualnej.](../site-recovery/azure-to-azure-quickstart.md)
 
+## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Uaktualnianie do najnowszej wersji agenta usługi Azure Connected Machine
+[Agent maszyny połączonej z platformą Azure](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) jest regularnie aktualizowany z poprawkami błędów, ulepszeniami stabilności i nowymi funkcjami. Zidentyfikowano zasoby, które nie działają w najnowszej wersji agenta maszynowego. zalecenie doradcy zasugeruje, aby uaktualnić agenta do najnowszej wersji w celu uzyskania najlepszego środowiska usługi Azure Arc.
+
+## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Nie Przesłoń nazwy hosta, aby zapewnić integralność witryny sieci Web
+Doradca zaleca się uniknięcie przesłaniania nazwy hosta podczas konfigurowania Application Gateway. Posiadanie innej domeny na frontonie Application Gateway niż ta, która jest używana do uzyskiwania dostępu do zaplecza, może potencjalnie prowadzić do uszkodzenia plików cookie lub przekierowań adresów URL. Należy zauważyć, że może to nie być przypadek we wszystkich sytuacjach i że pewne kategorie zamiarów (np. interfejs API REST) ogólnie są mniej wrażliwe na to. Upewnij się, że zaplecze może obsłużyć to lub zaktualizować konfigurację Application Gateway, tak aby nazwa hosta nie wymagała zastąpienia do zaplecza. W przypadku używania z App Service dołączać niestandardową nazwę domeny do aplikacji sieci Web i unikać używania *nazwy hosta. azurewebsites.NET do zaplecza.* [Dowiedz się więcej o domenie niestandardowej](https://aka.ms/appgw-advisor-usecustomdomain).
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Jak uzyskać dostęp do rekomendacji o wysokiej dostępności w usłudze Advisor
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie otwórz program [Advisor](https://aka.ms/azureadvisordashboard).
@@ -120,6 +126,7 @@ Maszyny wirtualne, które nie mają włączonej replikacji w innym regionie, nie
 Aby uzyskać więcej informacji na temat zaleceń klasyfikatora, zobacz:
 * [Wprowadzenie do usługi Advisor](advisor-overview.md)
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
+* [Ocena klasyfikatora](azure-advisor-score.md)
 * [Zalecenia usługi Advisor dotyczące kosztów](advisor-cost-recommendations.md)
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
 * [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)

@@ -4,12 +4,12 @@ description: Rozwiązywanie problemów z instalacją, rejestracją Azure Backup 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: d3b2ee87dda09fe1b5611d00ce567304aec33a6f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 09e5fe5da7e316257cbbdcb89074fe8a4bc692c0
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298375"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403011"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Rozwiązywanie problemów ze składnikiem Azure Backup Server
 
@@ -142,7 +142,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operacja | Szczegóły błędu | Obejście |
 | --- | --- | --- |
-| Konfigurowanie powiadomień e-mail przy użyciu konta Office 365 |Identyfikator błędu: 2013| **Przyczyna:**<br> Próba skorzystania z konta Office 365 <br>**Zalecana akcja:**<ol><li> Najpierw należy upewnić się, że na serwerze DPM skonfigurowano opcję "Zezwalaj na anonimowe przekazywanie na łączniku odbierającym". Aby uzyskać więcej informacji na temat sposobu konfigurowania tego elementu, zobacz [Zezwalanie na anonimowe przekazywanie w odniesieniu do łącznika odbioru](/exchange/mail-flow/connectors/allow-anonymous-relay).</li> <li> Jeśli nie możesz użyć wewnętrznego przekaźnika SMTP i skonfigurować go przy użyciu serwera pakietu Office 365, możesz skonfigurować usługi IIS jako przekaźnik. Skonfiguruj serwer programu DPM do [przekazywania protokołu SMTP do usługi O365 przy użyciu usług IIS](/exchange/mail-flow/test-smtp-with-telnet).<br><br>  Upewnij się, że używasz \@ formatu Domain.com użytkownika, a *nie* domena \ użytkownik<br><br><li>Wskaż program DPM, aby używał nazwy serwera lokalnego jako serwera SMTP, port 587. Następnie wskaż adres e-mail użytkownika, z którego powinny pochodzić wiadomości e-mail.<li> Nazwa użytkownika i hasło na stronie Instalatora SMTP programu DPM powinny dotyczyć konta domeny w domenie, w której znajduje się program DPM. </li><br> Gdy zmieniasz adres serwera SMTP, wprowadź zmiany w nowych ustawieniach, Zamknij pole ustawienia, a następnie otwórz je ponownie, aby upewnić się, że odzwierciedla nową wartość.  Po prostu zmiana i testowanie może nie zawsze spowodować, że nowe ustawienia zaczęły obowiązywać, dlatego testowanie w ten sposób jest najlepszym rozwiązaniem.<br><br>W dowolnym momencie w trakcie tego procesu można wyczyścić te ustawienia, zamykając konsolę programu DPM i edytując następujące klucze rejestru: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> delete SMTPPassword i SMTPUserName Keys**. Można je dodać z powrotem do interfejsu użytkownika po jego ponownym uruchomieniu.
+| Konfigurowanie powiadomień e-mail przy użyciu konta służbowego |Identyfikator błędu: 2013| **Przyczyna:**<br> Próba użycia konta służbowego <br>**Zalecana akcja:**<ol><li> Najpierw należy upewnić się, że na serwerze DPM skonfigurowano opcję "Zezwalaj na anonimowe przekazywanie na łączniku odbierającym". Aby uzyskać więcej informacji na temat sposobu konfigurowania tego elementu, zobacz [Zezwalanie na anonimowe przekazywanie w odniesieniu do łącznika odbioru](/exchange/mail-flow/connectors/allow-anonymous-relay).</li> <li> Jeśli nie możesz użyć wewnętrznego przekaźnika SMTP i skonfigurować go przy użyciu serwera pakietu Office 365, możesz skonfigurować usługi IIS jako przekaźnik. Skonfiguruj serwer programu DPM do [przekazywania protokołu SMTP do pakietu Office 365 przy użyciu usług IIS](/exchange/mail-flow/test-smtp-with-telnet).<br><br>  Upewnij się, że używasz \@ formatu Domain.com użytkownika, a *nie* domena \ użytkownik<br><br><li>Wskaż program DPM, aby używał nazwy serwera lokalnego jako serwera SMTP, port 587. Następnie wskaż adres e-mail użytkownika, z którego powinny pochodzić wiadomości e-mail.<li> Nazwa użytkownika i hasło na stronie Instalatora SMTP programu DPM powinny dotyczyć konta domeny w domenie, w której znajduje się program DPM. </li><br> Gdy zmieniasz adres serwera SMTP, wprowadź zmiany w nowych ustawieniach, Zamknij pole ustawienia, a następnie otwórz je ponownie, aby upewnić się, że odzwierciedla nową wartość.  Po prostu zmiana i testowanie może nie zawsze spowodować, że nowe ustawienia zaczęły obowiązywać, dlatego testowanie w ten sposób jest najlepszym rozwiązaniem.<br><br>W dowolnym momencie w trakcie tego procesu można wyczyścić te ustawienia, zamykając konsolę programu DPM i edytując następujące klucze rejestru: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> delete SMTPPassword i SMTPUserName Keys**. Można je dodać z powrotem do interfejsu użytkownika po jego ponownym uruchomieniu.
 
 ## <a name="common-issues"></a>Typowe problemy
 

@@ -55,7 +55,7 @@
           href: ./security-controls-policy.md
     - name: Networking
       href: concepts-network.md
-    - name: Magazyn
+    - name: Storage
       href: concepts-storage.md
     - name: Skalowanie
       href: concepts-scale.md
@@ -250,7 +250,7 @@
           href: control-kubeconfig-access.md
         - name: Zabezpieczanie ruchu związanego z zasobnikiem za pomocą zasad sieciowych
           href: use-network-policies.md
-        - name: Zabezpieczanie zasobników przy użyciu usługi Azure Policy (wersja zapoznawcza)
+        - name: Zabezpieczanie zasobników przy użyciu usługi Azure Policy
           href: use-pod-security-on-azure-policy.md
         - name: Używanie zasad zabezpieczeń zasobnika (wersja zapoznawcza)
           href: use-pod-security-policies.md

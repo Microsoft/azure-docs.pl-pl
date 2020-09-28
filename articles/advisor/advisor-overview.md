@@ -2,13 +2,13 @@
 title: Wprowadzenie do usługi Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować wdrożenia platformy Azure.
 ms.topic: article
-ms.date: 02/01/2019
-ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 09/27/2020
+ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654025"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405211"
 ---
 # <a name="introduction-to-azure-advisor"></a>Wprowadzenie do usługi Azure Advisor
 
@@ -68,7 +68,9 @@ Aby odłożyć lub odrzucić zalecenie, kliknij link **Odłożenie** . Możesz o
 Aby dowiedzieć się więcej na temat zaleceń klasyfikatora, zobacz:
 
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
+* [Ocena klasyfikatora](azure-advisor-score.md)
 * [Zalecenia dotyczące niezawodności usługi Advisor](advisor-high-availability-recommendations.md)
 * [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
 * [Zalecenia dotyczące kosztów usługi Advisor](advisor-cost-recommendations.md)
+* [Zalecenia dotyczące doskonałości operacyjnej klasyfikatora](advisor-operational-excellence-recommendations.md)

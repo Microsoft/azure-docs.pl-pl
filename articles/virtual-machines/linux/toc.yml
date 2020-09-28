@@ -362,6 +362,9 @@
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Stany i cykl życia
       href: ../states-lifecycle.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Wywołania PUT na potrzeby operacji tworzenia lub aktualizacji
+      href: ../put-calls-create-or-update.md
+      maintainContext: true
     - name: Monitorowanie
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Diagnostyka rozruchu
@@ -534,7 +537,7 @@
                 - name: Tworzenie maszyny wirtualnej na podstawie wersji obrazu
                   href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: Rozwiązywanie problemów z obrazami udostępnionymi
-              href: troubleshooting-shared-images.md
+              href: ../troubleshooting-shared-images.md
             - name: Używanie kluczy zarządzanych przez klienta
               displayName: 'SSE, CMK, encrypt'
               href: ../image-version-encryption.md
@@ -556,8 +559,8 @@
                   href: image-builder-permissions-powershell.md
             - name: Zadanie metodyki DevOps
               href: image-builder-devops-task.md
-            - name: Dokumentacja szablonu usługi Resource Manager
-              displayName: 'ARM,Resource Manager'
+            - name: Dokumentacja szablonu usługi Image Builder
+              displayName: json
               href: image-builder-json.md
             - name: Tworzenie dla galerii obrazów
               href: image-builder-gallery.md
@@ -617,6 +620,8 @@
               href: how-to-verify-encryption-status.md
             - name: Jak skonfigurować menedżera LVM mechanizmu RAID przy szyfrowaniu
               href: how-to-configure-lvm-raid-on-crypt.md
+            - name: Jak zmienić rozmiar zaszyfrowanych woluminów LVM
+              href: how-to-resize-encrypted-lvm.md
             - name: Rozwiązywanie problemów z szyfrowaniem dysków
               href: disk-encryption-troubleshooting.md
             - name: Często zadawane pytania o szyfrowanie dysków
@@ -849,7 +854,7 @@
         - name: Automatyczne skalowanie
           href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
         - name: Wysoka dostępność
-          href: manage-availability.md
+          href: ../manage-availability.md
         - name: Zmienianie zestawu dostępności
           href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Tworzenie grupy umieszczania w pobliżu

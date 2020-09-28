@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d86c6d8b67546aede86a3fc3c905f6feb40d92db
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045250"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403419"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Rozwiązywanie problemów z alertami Azure Monitor
 
@@ -61,7 +61,7 @@ Jeśli w witrynie Azure Portal widzisz wyzwolony alert, ale skonfigurowana dla n
     Sprawdź również następujące elementy:
 
    - Ustawienia spamu w kliencie poczty e-mail (takim jak Outlook lub Gmail)
-      - limity nadawcy/ustawienia spamu/ustawienia kwarantanny na serwerze poczty e-mail (takim jak Exchange, Office 365, G Suite)
+      - ustawienia limitów nadawcy/ustawień spamu/ustawień kwarantanny serwera poczty e-mail (na przykład Exchange, Microsoft 365, G-Suite)
       - Ustawienia urządzenia zabezpieczeń poczty e-mail (np. Barracuda, Cisco).
 
 1. **Czy przypadkowo Anulowano subskrypcję grupy akcji?**
@@ -203,7 +203,7 @@ Jeśli w portalu widzisz wyzwolony alert, ale powiązana reguła akcji nie zadzi
 
     Reguły akcji nie mają wpływu na alerty dotyczące kondycji usługi (usługa monitorowania = „Service Health”). 
 
-1. **Czy reguła akcji działała na Twoim alercie?** 
+1. **Czy reguła akcji działa względem Twojego alertu?** 
 
     Sprawdź, czy reguła akcji przetworzyła alert, klikając wyzwolony alert w portalu i przeglądając kartę historii.
 
@@ -216,7 +216,7 @@ Jeśli w portalu widzisz wyzwolony alert, ale powiązana reguła akcji nie zadzi
     ![Powtórzona akcja w wielu grupach akcji](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
  
 
-1. **Czy zakres reguł akcji i filtr pasuje do wygenerowanego alertu?** 
+1. **Czy zakres i filtr reguły akcji są zgodne z wygenerowanym alertem?** 
 
     Jeśli uważasz, że reguła akcji powinna zostać wyzwolona, ale nie została, lub że nie powinna zostać wyzwolona, a została wyzwolona, uważnie sprawdź zakres reguły akcji i warunki filtrowania w porównaniu z właściwościami wywołanego alertu. 
 

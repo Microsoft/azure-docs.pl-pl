@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f76d28018fdf55314593dabc44ef1e9a1dab9494
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321891"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403130"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Jak wyzwolić złożone akcje z alertami Azure Monitor
 
@@ -108,7 +108,7 @@ Ten proces jest podobny, jeśli chcesz, aby aplikacja logiki wykonywała inną a
 
     ![Akcje programu Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Akcje programu Microsoft Teams")
 
-12. Skonfiguruj akcję Microsoft Teams. **Projektant Logic Apps** prosi o uwierzytelnienie na koncie pakietu Office 365. Wybierz **Identyfikator zespołu** i **Identyfikator kanału** , do którego ma zostać wysłana wiadomość.
+12. Skonfiguruj akcję Microsoft Teams. **Projektant Logic Apps** prosi o uwierzytelnienie na koncie służbowym. Wybierz **Identyfikator zespołu** i **Identyfikator kanału** , do którego ma zostać wysłana wiadomość.
 
 13. Skonfiguruj komunikat przy użyciu kombinacji tekstu statycznego i odwołań do \<fields\> zawartości dynamicznej. Skopiuj i wklej następujący tekst do pola **Message** :
 

@@ -27,6 +27,8 @@
       href: roles.md
     - name: Zaawansowane wieloetapowe wykrywanie ataków
       href: fusion.md
+    - name: Korzystanie z własnej platformy uczenia maszynowego
+      href: bring-your-own-ml.md
     - name: Rozszerzanie usługi Azure Sentinel na obszary robocze i dzierżawy
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Identyfikowanie zaawansowanych zagrożeń za pomocą analizy UEBA
@@ -66,6 +68,8 @@
               href: connect-microsoft-defender-advanced-threat-protection.md
             - name: Usługa Microsoft Defender dla tożsamości (dawniej Azure ATP)
               href: connect-azure-atp.md
+            - name: Ochrona usługi Office 365 w usłudze Microsoft Defender (dawniej system Office 365 ATP)
+              href: connect-office-365-advanced-threat-protection.md
             - name: Azure DDoS Protection
               href: connect-azure-ddos-protection.md
             - name: Azure Firewall

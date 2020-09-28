@@ -197,6 +197,8 @@
       items:
         - name: Ustawianie lub edytowanie zasad
           href: set-edit-policies.md
+        - name: Debugowanie zasad
+          href: api-management-debug-policies.md
         - name: Wyrażenia zasad
           href: api-management-policy-expressions.md
         - name: Buforowanie niestandardowe
@@ -221,6 +223,8 @@
           href: api-management-cross-domain-policies.md
         - name: Zasady transformacji
           href: api-management-transformation-policies.md
+        - name: Zasady integracji środowiska Dapr (Distributed Application Runtime)
+          href: api-management-dapr-policies.md
     - name: Zarządzanie w produkcji
       items:
         - name: Eksportowanie interfejsów API na platformę Power Platform

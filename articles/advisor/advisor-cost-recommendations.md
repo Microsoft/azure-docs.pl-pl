@@ -2,13 +2,13 @@
 title: Zmniejsz koszty usługi przy użyciu Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować koszty wdrożeń platformy Azure.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 89bc72bcf3a19867341675f89cbc0a734d7996d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/27/2020
+ms.openlocfilehash: 7576ccb478a4f221ae7d7f68b14787f6f8bf7e88
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325848"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405228"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Obniżenie kosztów usługi przy użyciu Azure Advisor
 
@@ -111,6 +111,7 @@ Usługa Advisor identyfikuje zasoby, których obniżenie zasad dotyczących pami
 
 Aby dowiedzieć się więcej na temat zaleceń klasyfikatora, zobacz:
 * [Wprowadzenie do usługi Advisor](advisor-overview.md)
+* [Ocena klasyfikatora](azure-advisor-score.md)
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
 * [Zalecenia dotyczące wysokiej dostępności usługi Advisor](advisor-high-availability-recommendations.md)

@@ -9,6 +9,10 @@
   items:
     - name: Tworzenie usługi Front Door — portal
       href: quickstart-create-front-door.md
+    - name: Tworzenie usługi Front Door — PowerShell
+      href: quickstart-create-front-door-powershell.md
+    - name: Tworzenie usługi Front Door — interfejs wiersza polecenia
+      href: quickstart-create-front-door-cli.md
     - name: Tworzenie usługi Front Door — szablon usługi ARM
       href: quickstart-create-front-door-template.md
 - name: Samouczki

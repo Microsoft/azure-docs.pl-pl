@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 3aa42d6060ecdd93dd97438a025c4f5e4f05ac52
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 9e6b8511164cd7e9a855a70d9edba4ce6492c3a3
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531733"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404730"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Format ORC w Azure Data Factory
 
@@ -30,14 +30,15 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 | Właściwość         | Opis                                                  | Wymagane |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **Orc**. | Yes      |
-| location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . **Zobacz szczegóły w sekcji łącznik — > właściwości zestawu danych**. | Yes      |
+| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **Orc**. | Tak      |
+| location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . **Zobacz szczegóły w sekcji łącznik — > właściwości zestawu danych**. | Tak      |
+| compressionCodec         | Koder-dekoder kompresji do użycia podczas zapisywania w plikach ORC. Podczas odczytywania z plików ORC fabryki danych automatycznie określają koder-dekoder kompresji na podstawie metadanych pliku.<br>Obsługiwane typy to **none**, **zlib**, **przyciągion** (domyślne) i **LZO**. Uwaga Ta sama czynność kopiowania nie obsługuje LZO w przypadku plików ORC odczytu/zapisu. | Nie      |
 
 Poniżej znajduje się przykład zestawu danych ORC na platformie Azure Blob Storage:
 
 ```json
 {
-    "name": "ORCDataset",
+    "name": "OrcDataset",
     "properties": {
         "type": "Orc",
         "linkedServiceName": {
@@ -60,7 +61,6 @@ Pamiętaj o następujących kwestiach:
 
 * Złożone typy danych nie są obsługiwane (struktura, mapa, lista, Unia).
 * Biały znak w nazwie kolumny nie jest obsługiwany.
-* Plik ORC ma trzy [opcje związane z kompresją](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Usługa Data Factory obsługuje odczyt danych z pliku ORC w dowolnym z tych skompresowanych formatów. Do odczytywania danych używa kodera-dekodera kompresji z metadanych. Podczas zapisywania w pliku ORC usługa Data Factory wybiera natomiast opcję ZLIB, która jest domyślna dla formatu ORC. Obecnie nie ma możliwości zastąpienia tego zachowania.
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 
@@ -72,7 +72,7 @@ W sekcji *** \* Źródło \* *** działania kopiowania są obsługiwane następu
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **OrcSource**. | Yes      |
+| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **OrcSource**. | Tak      |
 | storeSettings | Grupa właściwości do odczytywania danych z magazynu danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia odczytu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
 
 ### <a name="orc-as-sink"></a>ORC jako ujścia
@@ -81,7 +81,7 @@ W sekcji *** \* ujścia \* *** działania kopiowania są obsługiwane następuj�
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **OrcSink**. | Yes      |
+| typ          | Właściwość Type ujścia działania Copy musi być ustawiona na wartość **OrcSink**. | Tak      |
 | formatSettings | Grupa właściwości. Zapoznaj się z tabelą **ustawień zapisu Orc** poniżej. |    Nie      |
 | storeSettings | Grupa właściwości do zapisywania danych w magazynie danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia zapisu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
 
@@ -89,9 +89,70 @@ Obsługiwane **Ustawienia zapisu Orc** w obszarze `formatSettings` :
 
 | Właściwość      | Opis                                                  | Wymagane                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Typ formatSettings musi być ustawiony na **OrcWriteSettings**. | Yes                                                   |
+| typ          | Typ formatSettings musi być ustawiony na **OrcWriteSettings**. | Tak                                                   |
 | maxRowsPerFile | Podczas zapisywania danych w folderze można wybrać opcję zapisu w wielu plikach i określić maksymalną liczbę wierszy na plik.  | Nie |
 | fileNamePrefix | Ma zastosowanie, gdy `maxRowsPerFile` jest skonfigurowany.<br> Określ prefiks nazwy pliku podczas zapisywania danych do wielu plików, co spowodowało następujący wzorzec: `<fileNamePrefix>_00000.<fileExtension>` . Jeśli nie zostanie określony, prefiks nazwy pliku zostanie wygenerowany automatycznie. Ta właściwość nie ma zastosowania, gdy źródło jest magazynem opartym na plikach lub [z magazynem danych z włączoną opcją partycji](copy-activity-performance-features.md).  | Nie |
+
+## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
+
+W mapowaniu przepływów danych można odczytywać i zapisywać w formacie ORC w następujących magazynach danych: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+
+Możesz wskazać, aby ORC pliki przy użyciu zestawu danych ORC lub przy użyciu [wbudowanego zestawu danych](data-flow-source.md#inline-datasets).
+
+### <a name="source-properties"></a>Właściwości źródła
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło ORC. Można edytować te właściwości na karcie **Opcje źródła** .
+
+W przypadku korzystania z wbudowanego zestawu danych zostaną wyświetlone dodatkowe ustawienia plików, które są takie same jak właściwości opisane w sekcji [Właściwości zestawu danych](#dataset-properties) .
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Format | Format musi być `orc` | tak | `orc` | format |
+| Ścieżki symboli wieloznacznych | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | nie | Ciąg [] | wildcardPaths |
+| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie | Ciąg | partitionRootPath |
+| Lista plików | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie | `true` lub `false` | fileList |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | nie | Ciąg | rowUrlColumn |
+| Po zakończeniu | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie | Usuń: `true` lub `false` <br> Przenieś `[<from>, <to>]` | purgeFiles <br> moveFiles |
+| Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie | Timestamp | modifiedAfter <br> modifiedBefore |
+| Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
+
+### <a name="source-example"></a>Przykład źródła
+
+Skojarzony skrypt przepływu danych w konfiguracji źródła ORC:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    rowUrlColumn: 'fileName',
+    format: 'orc') ~> OrcSource
+```
+
+### <a name="sink-properties"></a>Właściwości ujścia
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia ORC. Te właściwości można edytować na karcie **Ustawienia** .
+
+W przypadku korzystania z wbudowanego zestawu danych zostaną wyświetlone dodatkowe ustawienia plików, które są takie same jak właściwości opisane w sekcji [Właściwości zestawu danych](#dataset-properties) .
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Format | Format musi być `orc` | tak | `orc` | format |
+| Wyczyść folder | Jeśli folder docelowy został wyczyszczony przed zapisem | nie | `true` lub `false` | obciąć |
+| Opcja nazwy pliku | Format nazewnictwa zapisanych danych. Domyślnie jeden plik na partycję w formacie `part-#####-tid-<guid>` | nie | Wzorzec: ciąg <br> Na partycję: String [] <br> Jako dane w kolumnie: ciąg <br> Dane wyjściowe do pojedynczego pliku: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+
+### <a name="sink-example"></a>Przykład ujścia
+
+Skojarzony skrypt przepływu danych w konfiguracji ujścia ORC to:
+
+```
+OrcSource sink(
+    format: 'orc',
+    filePattern:'output[n].orc',
+    truncate: true,
+    allowSchemaDrift: true,
+    validateSchema: false,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> OrcSink
+```
 
 ## <a name="using-self-hosted-integration-runtime"></a>Korzystanie z Integration Runtime samoobsługowego
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 34e81076c27086ad838cca23de0e150a3c1b076c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798911"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403725"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor rozwiązanie na platformie Azure
 
@@ -28,7 +28,7 @@ Network Performance Monitor oferuje trzy szerokie możliwości:
 
 * [Monitor łączności usługi](network-performance-monitor-service-connectivity.md): możesz monitorować łączność od użytkowników do usług, których potrzebujesz, określić, jaka infrastruktura znajduje się w ścieżce, i określić, gdzie występują wąskie gardła sieci. Możesz dowiedzieć się więcej o awarii przed użytkownikami i zobaczyć dokładną lokalizację problemów w ścieżce sieci. 
 
-    Ta funkcja ułatwia wykonywanie testów opartych na protokole HTTP, HTTPS, TCP i ICMP, aby monitorować niemal w czasie rzeczywistym lub historycznie zapewnić dostępność i czas odpowiedzi usługi. Możesz również monitorować udział sieci w utracie i opóźnieniu pakietu. Za pomocą mapy topologii sieci można izolować spowolnienia sieci. W przypadku każdego przeskoku można zidentyfikować problemy występujące wzdłuż ścieżki sieciowej z węzła do usługi. Za pomocą wbudowanych testów można monitorować łączność sieciową z pakietem Office 365 i Dynamics CRM bez żadnej wstępnej konfiguracji. Dzięki tej możliwości można monitorować łączność sieciową z dowolnym punktem końcowym z obsługą protokołu TCP, takim jak websites, SaaS Applications, PaaS Applications i SQL Database.
+    Ta funkcja ułatwia wykonywanie testów opartych na protokole HTTP, HTTPS, TCP i ICMP, aby monitorować niemal w czasie rzeczywistym lub historycznie zapewnić dostępność i czas odpowiedzi usługi. Możesz również monitorować udział sieci w utracie i opóźnieniu pakietu. Za pomocą mapy topologii sieci można izolować spowolnienia sieci. W przypadku każdego przeskoku można zidentyfikować problemy występujące wzdłuż ścieżki sieciowej z węzła do usługi. Za pomocą wbudowanych testów można monitorować łączność sieciową z Microsoft 365 i Dynamics CRM bez żadnej wstępnej konfiguracji. Dzięki tej możliwości można monitorować łączność sieciową z dowolnym punktem końcowym z obsługą protokołu TCP, takim jak websites, SaaS Applications, PaaS Applications i SQL Database.
 
 * [Monitor ExpressRoute](network-performance-monitor-expressroute.md): monitorowanie kompleksowej łączności i wydajności między oddziałami i platformą Azure przy użyciu usługi Azure ExpressRoute.  
 
@@ -82,7 +82,7 @@ Użyj podstawowych procesów, aby zainstalować agentów na [komputerach z syste
 
     Aby monitorować łącze sieciowe, zainstaluj agentów na obu punktach końcowych tego łącza. Jeśli nie masz pewności co do topologii sieci, zainstaluj agentów na serwerach z krytycznymi obciążeniami, między którymi chcesz monitorować wydajność sieci. Na przykład jeśli chcesz monitorować połączenie sieciowe między serwerem sieci Web a serwerem z uruchomionym programem SQL, Zainstaluj agenta na obu serwerach. Agenci monitorują łączność sieciową (linki) między hostami, a nie samymi hostami. 
 
-* **Monitor łączności usługi**: zainstaluj agenta log Analytics w każdym węźle, z którego chcesz monitorować łączność sieciową do punktu końcowego usługi. Przykładem jest to, że chcesz monitorować łączność sieciową z pakietem Office 365 z witryn biur oznaczonych jako O1, O2 i O3. Zainstaluj agenta Log Analytics na co najmniej jednym węźle, każdy w O1, O2 i O3. 
+* **Monitor łączności usługi**: zainstaluj agenta log Analytics w każdym węźle, z którego chcesz monitorować łączność sieciową do punktu końcowego usługi. Przykładem jest to, że chcesz monitorować łączność sieciową w celu Microsoft 365 z witryn biur oznaczonych jako O1, O2 i O3. Zainstaluj agenta Log Analytics na co najmniej jednym węźle, każdy w O1, O2 i O3. 
 
 * **Monitor ExpressRoute**: Zainstaluj co najmniej jednego agenta log Analytics w sieci wirtualnej platformy Azure. Zainstaluj także co najmniej jednego agenta w podsieci lokalnej, który jest połączony za pomocą prywatnej komunikacji równorzędnej ExpressRoute.  
 
@@ -128,7 +128,7 @@ Network Performance Monitor używa transakcji syntetycznych do monitorowania wyd
 
    ![Widok monitora wydajności](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Monitor łączności usługi**: funkcja udostępnia wbudowane wstępnie skonfigurowane testy do monitorowania łączności sieciowej z pakietem Office 365 i Dynamics 365 od agentów. Wybierz usługi pakietu Office 365 i Dynamics 365, które chcesz monitorować, zaznaczając obok nich pola wyboru. Aby wybrać agentów, z których chcesz monitorować, wybierz pozycję **Dodaj agentów**. Jeśli nie chcesz używać tej funkcji lub chcesz ją skonfigurować później, nie wybieraj niczego i wybierz pozycję **zapisz & Kontynuuj**.
+   **Monitor łączności usługi**: funkcja udostępnia wbudowane wstępnie skonfigurowane testy do monitorowania łączności sieciowej z Microsoft 365 i Dynamics 365 od agentów. Wybierz usługi Microsoft 365 i Dynamics 365, które chcesz monitorować, zaznaczając obok siebie pola wyboru. Aby wybrać agentów, z których chcesz monitorować, wybierz pozycję **Dodaj agentów**. Jeśli nie chcesz używać tej funkcji lub chcesz ją skonfigurować później, nie wybieraj niczego i wybierz pozycję **zapisz & Kontynuuj**.
 
    ![Widok monitora łączności usług](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
@@ -286,7 +286,7 @@ Opłaty za powiadomienia są naliczone osobno zgodnie z [cennikiem za powiadomie
 
 Informacje o cenach są dostępne w [trybie online](network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Wyraź opinię 
+## <a name="provide-feedback"></a>Przekazywanie opinii 
 
 * **UserVoice:** Możesz publikować swoje pomysły dotyczące Network Performance Monitor funkcji, nad którymi chcesz, nad którymi pracujemy. Odwiedź [stronę usługi UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 

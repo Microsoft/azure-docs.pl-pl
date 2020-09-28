@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: b099a6ea706482e25b2c37a87cf0a24f2fe475bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a20a7966daff372cf5c0abc9b7b1dbbfd459838
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532119"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403242"
 ---
 # <a name="revisions-in-azure-api-management"></a>Poprawki w usłudze Azure API Management
 
@@ -38,7 +38,7 @@ Do każdej poprawki interfejsu API można uzyskać dostęp za pomocą specjalnie
 
 `https://apis.contoso.com/customers;rev=3?customerId=123`
 
-Domyślnie każda poprawka ma te same ustawienia zabezpieczeń co bieżąca wersja. Można celowo zmienić zasady dla określonej poprawki, jeśli chcesz mieć różne zabezpieczenia dla każdej poprawki. Na przykład możesz chcieć dodać [zasady listy dozwolonych IP](./api-management-access-restriction-policies.md#RestrictCallerIPs) , aby uniemożliwić zewnętrznym obiektom wywołującym dostęp do poprawki, która jest nadal w fazie projektowania.
+Domyślnie każda poprawka ma te same ustawienia zabezpieczeń co bieżąca wersja. Można celowo zmienić zasady dla określonej poprawki, jeśli chcesz mieć różne zabezpieczenia dla każdej poprawki. Na przykład możesz chcieć dodać [zasady filtrowania adresów IP](./api-management-access-restriction-policies.md#RestrictCallerIPs) , aby uniemożliwić zewnętrznym obiektom wywołującym dostęp do poprawki, która jest nadal w fazie projektowania.
 
 Poprawka może zostać przełączona w tryb offline, co sprawia, że jest ona niedostępna dla obiektów wywołujących, nawet jeśli próbują uzyskać dostęp do poprawki za pomocą adresu URL. Poprawkę można oznaczyć jako offline przy użyciu Azure Portal. Jeśli używasz programu PowerShell, możesz użyć `Set-AzApiManagementApiRevision` polecenia cmdlet i ustawić `Path` argument na `$null` .
 

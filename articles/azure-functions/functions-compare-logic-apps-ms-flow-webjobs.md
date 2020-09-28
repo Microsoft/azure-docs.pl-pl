@@ -4,12 +4,12 @@ description: 'Porównanie usług w chmurze firmy Microsoft, które są zoptymali
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 2e0d8f356ec8da900b4a38399ba94434c3b1b93d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 2c17b311811fd2cba46db379fcc766c04dd9d56d
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809973"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403079"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Wybieranie odpowiednich usług integracji i automatyzacji na platformie Azure
 
@@ -41,7 +41,7 @@ Poniższa tabela zawiera informacje o tym, czy Automatyzacja lub Logic Apps jest
 | **Narzędzie do projektowania** |Aplikacja w przeglądarce i aplikacja mobilna, tylko interfejs użytkownika |Aplikacja w przeglądarce i program [Visual Studio](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), dostępny [widok kodu](../logic-apps/logic-apps-author-definitions.md) |
 | **Zarządzanie cyklem życia aplikacji** |Projektowanie i testowanie w środowiskach nieprodukcyjnych, przenoszenie do środowiska produkcyjnego, gdy aplikacja jest gotowa |Usługa Azure DevOps: kontrola kodu źródłowego, testowanie, pomoc techniczna, automatyzacja oraz możliwości zarządzania w usłudze [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
 | **Środowisko administratora** |Zarządzanie środowiskami automatyzacji i zasadami ochrony przed utratą danych (DLP), śledzenie licencjonowania: [Centrum administracyjnego](https://admin.flow.microsoft.com) |Zarządzanie grupami zasobów, połączeniami, zarządzanie dostępem i rejestrowaniem: [Azure Portal](https://portal.azure.com) |
-| **Bezpieczeństwo** |Dzienniki inspekcji dotyczące zabezpieczeń i zgodności usługi Office 365, ochrona przed utratą danych, [szyfrowanie magazynowanych](https://wikipedia.org/wiki/Data_at_rest#Encryption) danych poufnych |Gwarancja bezpieczeństwa platformy Azure: [zabezpieczenia platformy Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [dzienniki inspekcji](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
+| **Zabezpieczenia** |Microsoft 365 dzienniki inspekcji zabezpieczeń, DLP, [szyfrowanie w spoczynku](https://wikipedia.org/wiki/Data_at_rest#Encryption) dla poufnych danych |Gwarancja bezpieczeństwa platformy Azure: [zabezpieczenia platformy Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [dzienniki inspekcji](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Porównanie usług Azure Functions i Azure Logic Apps
 

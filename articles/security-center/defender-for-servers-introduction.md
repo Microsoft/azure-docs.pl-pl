@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d0e75ab8a2e4d853fa2edc66174502dd3a7930e9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5e4244c0526dbac3bb8e9b2d3856eb01e1b2a2b7
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301673"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403501"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Wprowadzenie do usługi Azure Defender dla serwerów
 
@@ -41,7 +41,7 @@ Możliwości wykrywania zagrożeń i ochrony zapewniane w usłudze Azure Defende
 
 - Adaptacyjne kontrolki **aplikacji (AAC)** — funkcje adaptacyjnego sterowania aplikacjami to inteligentne i zautomatyzowane rozwiązanie służące do definiowania listy dozwolonych, znanych bezpiecznych aplikacji dla maszyn.
 
-    Po włączeniu i skonfigurowaniu adaptacyjnych kontrolek aplikacji otrzymasz alerty zabezpieczeń w przypadku uruchamiania aplikacji innych niż te, które zostały zdefiniowane jako bezpieczne. [Dowiedz się więcej](security-center-adaptive-network-hardening.md).
+    Po włączeniu i skonfigurowaniu adaptacyjnych kontrolek aplikacji otrzymasz alerty zabezpieczeń w przypadku uruchamiania aplikacji innych niż te, które zostały zdefiniowane jako bezpieczne. [Dowiedz się więcej](security-center-adaptive-application.md).
 
 - **Adaptacyjne ograniczanie sieci (Anh)** — stosowanie sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) do filtrowania ruchu do i z zasobów, usprawnia zabezpieczenia sieci stan. Nadal jednak mogą istnieć sytuacje, w których rzeczywisty ruch przepływający przez sieciowej grupy zabezpieczeń jest podzbiorem zdefiniowanych reguł sieciowej grupy zabezpieczeń. W takich przypadkach dalsze ulepszanie stan zabezpieczeń można osiągnąć przez zaostrzonie reguł sieciowej grupy zabezpieczeń na podstawie rzeczywistych wzorców ruchu.
 
@@ -58,7 +58,7 @@ Możliwości wykrywania zagrożeń i ochrony zapewniane w usłudze Azure Defende
 
 - **Wykrywanie ataków bez plików (tylko system Windows)** — ataki bez plików wprowadzają złośliwe ładunki do pamięci, aby uniknąć wykrywania technik skanowania opartych na dyskach. Ładunek osoby atakującej będzie nadal utrzymywać się w pamięci procesów objętych naruszeniem i wykonuje szeroką gamę złośliwych działań.
 
-  W przypadku wykrywania ataków bez plików, zautomatyzowane metody śledczej pamięci identyfikują narzędzia, techniki i zachowania ataku bez plików. To rozwiązanie okresowo skanuje maszynę w czasie wykonywania i wyodrębnia informacje bezpośrednio z pamięci procesów. Szczegółowe informacje dotyczące systemu Linux obejmują: 
+  W przypadku wykrywania ataków bez plików, zautomatyzowane metody śledczej pamięci identyfikują narzędzia, techniki i zachowania ataku bez plików. To rozwiązanie okresowo skanuje maszynę w czasie wykonywania i wyodrębnia informacje bezpośrednio z pamięci procesów. Szczegółowe informacje obejmują identyfikację: 
 
   - Dobrze znane zestawy narzędzi i oprogramowanie do wyszukiwania kryptograficznego 
 

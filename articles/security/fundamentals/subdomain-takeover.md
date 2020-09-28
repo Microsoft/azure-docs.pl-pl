@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: c0494fe39f8ae64ba65db4e3cd728069aa4a5052
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514615"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403215"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych
 
@@ -117,14 +117,7 @@ Jeśli jesteś administratorem globalnym dzierżawy organizacji, Podnieś poziom
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 
-Istnieją dwie wersje skryptu, oba mają te same parametry wejściowe i tworzą podobne dane wyjściowe:
-
-|Skrypt  |Informacje  |
-|---------|---------|
-|**Get-DanglingDnsRecordsPsCore.ps1**    |Tryb równoległy jest obsługiwany tylko w programie PowerShell w wersji 7 lub nowszej. w przeciwnym razie zostanie uruchomiony tryb szeregowy.|
-|**Get-DanglingDnsRecordsPsDesktop.ps1** |Obsługiwane tylko w przypadku programu PowerShell w wersji niższej niż 6, ponieważ ten skrypt używa [przepływu pracy systemu Windows](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
-
-Dowiedz się więcej i Pobierz skrypty programu PowerShell z witryny GitHub: https://aka.ms/DanglingDNSDomains .
+Dowiedz się więcej na temat skryptu programu PowerShell, **Get-DanglingDnsRecords.ps1**i Pobierz go z witryny GitHub: https://aka.ms/DanglingDNSDomains .
 
 ## <a name="remediate-dangling-dns-entries"></a>Koryguj wpisy DNS zawieszonego 
 

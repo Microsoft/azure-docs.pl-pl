@@ -4,7 +4,7 @@
       href: oracle-overview.md
     - name: Rozwiązania na maszynach wirtualnych platformy Azure
       href: oracle-vm-solutions.md
-    - name: Co to jest Oracle WebLogic Server na platformie Azure?
+    - name: Jakie rozwiązania umożliwiają uruchamianie serwera Oracle WebLogic Server w usłudze Azure Virtual Machines?
       href: oracle-weblogic.md
     - name: Rozwiązania z infrastrukturą OCI
       href: oracle-oci-overview.md

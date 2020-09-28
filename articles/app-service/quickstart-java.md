@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7f8e87b22e3d8f6e265789f910863b2790024cbf
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 4041623d1c6ae464afd20e3beff753fb89e0a350
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532413"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405075"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Szybki Start: Tworzenie aplikacji Java na Azure App Service
 
@@ -71,21 +71,24 @@ Proces wdrażania do Azure App Service będzie używać poświadczeń platformy 
 Uruchom poniższe polecenie Maven w celu skonfigurowania wdrożenia. To polecenie pomoże Ci skonfigurować App Service system operacyjny, wersję Java i wersję tomcat.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ```
 
 ::: zone pivot="platform-windows"
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Po wyświetleniu monitu wybierz pozycję **Windows** , wprowadzając ciąg `2` .
-2. Użyj domyślnej wersji języka Java 1,8, naciskając klawisz ENTER.
-3. Na koniec naciśnij klawisz Enter przy ostatnim monicie, aby potwierdzić wybrane opcje.
+1. Po wyświetleniu monitu z opcją **subskrypcji** wybierz odpowiednią pozycję, `Subscription` wprowadzając liczbę drukowania w wierszu.
+1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER.
+1. Po wyświetleniu monitu z opcją systemu **operacyjnego** wybierz pozycję **Windows** , wprowadzając polecenie `2` .
+1. Użyj domyślnej wersji języka Java 1,8, naciskając klawisz ENTER.
+1. Na koniec naciśnij klawisz Enter przy ostatnim monicie, aby potwierdzić wybrane opcje.
 
     Podsumowanie danych wyjściowych będzie wyglądać podobnie do przedstawionego poniżej fragmentu kodu.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
     Region : westeurope
@@ -106,7 +109,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Po wyświetleniu monitu wybierz pozycję **Windows** , wprowadzając ciąg `2` .
+1. Po wyświetleniu monitu z opcją **subskrypcji** wybierz odpowiednią pozycję, `Subscription` wprowadzając liczbę drukowania w wierszu.
+1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER.
+1. Po wyświetleniu monitu z opcją systemu **operacyjnego** wybierz pozycję **Windows** , wprowadzając polecenie `2` .
 1. Użyj domyślnej wersji języka Java 1,8, naciskając klawisz ENTER.
 1. Użyj domyślnego kontenera sieci Web, Tomcat 8,5, naciskając klawisz ENTER.
 1. Na koniec naciśnij klawisz Enter przy ostatnim monicie, aby potwierdzić wybrane opcje.
@@ -115,6 +120,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
     Region : westeurope
@@ -140,12 +146,15 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Po wyświetleniu monitu wybierz pozycję **Linux** , naciskając klawisz ENTER.
-2. Użyj domyślnej wersji języka Java 1,8, naciskając klawisz ENTER.
-3. Na koniec naciśnij klawisz Enter przy ostatnim monicie, aby potwierdzić wybrane opcje.
+1. Po wyświetleniu monitu z opcją **subskrypcji** wybierz odpowiednią pozycję, `Subscription` wprowadzając liczbę drukowania w wierszu.
+1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER.
+1. Po wyświetleniu monitu z opcją **systemu operacyjnego** wybierz pozycję **Linux** , naciskając klawisz ENTER.
+1. Użyj domyślnej wersji języka Java 1,8, naciskając klawisz ENTER.
+1. Na koniec naciśnij klawisz Enter przy ostatnim monicie, aby potwierdzić wybrane opcje.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
     Region : westeurope
@@ -165,13 +174,16 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Po wyświetleniu monitu wybierz pozycję **Linux** , naciskając klawisz ENTER.
+1. Po wyświetleniu monitu z opcją **subskrypcji** wybierz odpowiednią pozycję, `Subscription` wprowadzając liczbę drukowania w wierszu.
+1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER.
+1. Po wyświetleniu monitu z opcją **systemu operacyjnego** wybierz pozycję **Linux** , naciskając klawisz ENTER.
 1. Użyj domyślnej wersji języka Java 1,8, naciskając klawisz ENTER.
 1. Użyj domyślnego kontenera sieci Web, Tomcat 8,5, naciskając klawisz ENTER.
 1. Na koniec naciśnij klawisz Enter przy ostatnim monicie, aby potwierdzić wybrane opcje.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
     Region : westeurope
@@ -198,6 +210,7 @@ Konfiguracje dla App Service można modyfikować bezpośrednio w `pom.xml` razie
 Właściwość | Wymagane | Opis | Wersja
 ---|---|---|---
 `<schemaVersion>` | fałsz | Określ wersję schematu konfiguracji. Obsługiwane są następujące wartości: `v1` , `v2` . | 1.5.2
+`<subscriptionId>` | fałsz | Określ Identyfikator subskrypcji. | 0.1.0 +
 `<resourceGroup>` | true | Grupa zasobów platformy Azure dla aplikacji sieci Web. | 0.1.0 +
 `<appName>` | true | Nazwa aplikacji sieci Web. | 0.1.0 +
 `<region>` | true | Określa region, w którym będzie hostowana aplikacja sieci Web; wartość domyślna to **westeurope**. Wszystkie prawidłowe regiony w sekcji [Obsługiwane regiony](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . | 0.1.0 +

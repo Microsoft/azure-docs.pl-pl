@@ -40,6 +40,8 @@
       href: custom-event-to-eventhub.md
     - name: Zdarzenia usługi Container Registry
       href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Obsługiwanie zdarzeń usług Azure Communication Services
+      href: ../communication-services/quickstarts/telephony-sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Samouczki
   items:
     - name: Wysyłanie wiadomości e-mail po zmianie maszyny wirtualnej
@@ -112,6 +114,8 @@
               href: event-schema-app-service.md
             - name: Azure Blob Storage
               href: event-schema-blob-storage.md
+            - name: Usługi Azure Communication Services
+              href: event-schema-communication-services.md
             - name: Azure Container Registry
               href: event-schema-container-registry.md
             - name: Azure Event Hubs
@@ -214,7 +218,7 @@
       href: auth0-how-to.md
     - name: Odbieranie zdarzeń w punkcie końcowym HTTP
       href: receive-events.md
-    - name: Utracone wiadomości i ponawianie prób
+    - name: Ustawianie lokalizacji utraconych komunikatów i zasad ponawiania
       href: manage-event-delivery.md
     - name: Filtrowanie zdarzeń
       href: how-to-filter-events.md

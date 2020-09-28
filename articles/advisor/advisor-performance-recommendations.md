@@ -2,13 +2,13 @@
 title: Poprawianie wydajności aplikacji platformy Azure za pomocą usługi Advisor
 description: Użyj zaleceń dotyczących wydajności w Azure Advisor, aby zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 07/29/2020
+ms.openlocfilehash: 9625bb3b063234e9cadb20aacfcc5ca8a28b35cc
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651586"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405160"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
@@ -63,8 +63,6 @@ Program Advisor identyfikuje tabele, które nie mają aktualnych [statystyk tabe
 
 Analiza klasyfikatora może wskazywać, że aplikacja łącząca się z serwerem MySQL może nie zarządzać połączeniami efektywnie. Ten stan może prowadzić do niepotrzebnego zużycia zasobów i całkowitego opóźnienia aplikacji. Aby usprawnić zarządzanie połączeniami, zalecamy zmniejszenie liczby połączeń krótkoterminowych i wyeliminowanie niepotrzebnych połączeń bezczynnych. Te ulepszenia można wprowadzić, konfigurując pulę połączeń po stronie serwera, na przykład ProxySQL.
 
-## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>Zaktualizuj bieżącą wersję zestawu SDK zarządzania obliczeniami do najnowszej
-Klasyfikator identyfikuje subskrypcje, których operacje korzystają z nieaktualnych wersji zestawu SDK zarządzania obliczeniami. Może to mieć wpływ na bezpieczeństwo i wydajność obciążeń, a tym samym zaleca się przełączenie do najnowszej wersji zestawu SDK zarządzania COMPUTE. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Skalowanie w górę w celu zoptymalizowania użycia pamięci podręcznej w tabelach usługi Azure Synapse Analytics w celu zwiększenia wydajności zapytań
 
@@ -170,6 +168,14 @@ Analiza klasyfikatora wskazuje, że serwer MySQL może uwzględniać niepotrzebn
 ## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Rozpraszanie danych w ramach grupy zasobów, aby rozłożyć obciążenie między węzły
 Usługa Advisor identyfikuje grupy serwerów, w których dane nie zostały dystrybuowane, ale pozostają na koordynatorze. Na podstawie tego klasyfikatora zaleca się, aby w przypadku wszystkich korzyści z pełnego skalowania (Citus) rozpowszechniać dane w węzłach procesu roboczego dla grup serwerów. Poprawi to wydajność zapytań, wykorzystując zasób każdego węzła w grupie serwerów. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
+## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Ulepsz środowisko użytkownika i łączność, wdrażając maszyny wirtualne bliżej lokalizacji wdrożenia pulpitu wirtualnego systemu Windows
+Ustalono, że maszyny wirtualne znajdują się w regionie innym lub odległym od miejsca, z którego użytkownicy nawiązują połączenie przy użyciu usługi Windows Virtual Desktop (WVD). Może to prowadzić do wydłużonych czasów odpowiedzi połączenia i będzie mieć wpływ na ogólne środowisko użytkownika w usłudze WVD. Podczas tworzenia maszyn wirtualnych dla pul hostów należy próbować używać regionu znajdującego się bliżej użytkownika. Duża bliskość zapewnia stałe zadowolenie z usługi WVD oraz lepszą ogólną jakość środowiska. [Dowiedz się więcej o opóźnieniu połączenia w tym miejscu](https://docs.microsoft.com/azure/virtual-desktop/connection-latency).
+
+## <a name="upgrade-to-the-latest-version-of-the-immersive-reader-sdk"></a>Uaktualnianie do najnowszej wersji zestawu SDK czytnika immersyjnego
+Zidentyfikowaliśmy zasoby w ramach tej subskrypcji, które używają nieaktualnych wersji zestawu SDK czytnika immersyjnego. Najnowsza wersja zestawu SDK czytnika immersyjnego zawiera zaktualizowane zabezpieczenia, usprawnioną wydajność oraz rozszerzony zestaw funkcji do dostosowywania i ulepszanie środowiska integracji.
+Dowiedz się więcej na temat [zestawu SDK czytnika immersyjny](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+
+
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących wydajności w usłudze Advisor
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com), a następnie otwórz program [Advisor](https://aka.ms/azureadvisordashboard).
@@ -182,6 +188,7 @@ Aby dowiedzieć się więcej na temat zaleceń klasyfikatora, zobacz:
 
 * [Wprowadzenie do usługi Advisor](advisor-overview.md)
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
+* [Ocena klasyfikatora](azure-advisor-score.md)
 * [Zalecenia usługi Advisor dotyczące kosztów](advisor-cost-recommendations.md)
 * [Zalecenia dotyczące niezawodności usługi Advisor](advisor-high-availability-recommendations.md)
 * [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)

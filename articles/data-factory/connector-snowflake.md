@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 255fa9e058fdbb3b7edb73e75fd53f4a2490bfca
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023860"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405177"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Skopiuj i Przekształć dane w śniegu przy użyciu Azure Data Factory
 
@@ -357,7 +357,7 @@ Jeśli źródłowy magazyn danych i format spełniają kryteria opisane w tej se
 
 #### <a name="staged-copy-to-snowflake"></a>Kopia przygotowana do śniegu
 
-Gdy magazyn danych ujścia lub format nie jest natywnie zgodny z poleceniem COPY płatne w postaci śniegu, jak wspomniano w ostatniej sekcji, Włącz wbudowaną kopię etapową przy użyciu tymczasowego wystąpienia usługi Azure Blob Storage. Funkcja kopiowania etapowego zapewnia lepszą przepływność. Data Factory automatycznie konwertuje dane w celu spełnienia wymagań dotyczących formatu danych płatnych śniegu. Następnie wywołuje polecenie COPY, aby załadować dane do płatnych śniegów. Na koniec czyści dane tymczasowe z magazynu obiektów BLOB. Aby uzyskać szczegółowe informacje o kopiowaniu danych przy użyciu przemieszczania, zobacz [przygotowana kopia](copy-activity-performance-features.md#staged-copy) .
+Jeśli źródłowy magazyn danych lub format nie jest natywnie zgodny z poleceniem COPY płatne śnieg, jak wspomniano w ostatniej sekcji, Włącz wbudowaną kopię etapową przy użyciu tymczasowego wystąpienia magazynu obiektów blob platformy Azure. Funkcja kopiowania etapowego zapewnia lepszą przepływność. Data Factory automatycznie konwertuje dane w celu spełnienia wymagań dotyczących formatu danych płatnych śniegu. Następnie wywołuje polecenie COPY, aby załadować dane do płatnych śniegów. Na koniec czyści dane tymczasowe z magazynu obiektów BLOB. Aby uzyskać szczegółowe informacje o kopiowaniu danych przy użyciu przemieszczania, zobacz [przygotowana kopia](copy-activity-performance-features.md#staged-copy) .
 
 Aby użyć tej funkcji, Utwórz [połączoną usługę Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) , która odwołuje się do konta usługi Azure Storage jako tymczasowego przemieszczania. Następnie określ `enableStaging` właściwości i `stagingSettings` w działaniu kopiowania.
 
@@ -413,7 +413,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło ś
 
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Tabela | Jeśli wybierzesz opcję tabela jako dane wejściowe, przepływ danych pobierze wszystkie dane z tabeli określonej w zestawie danych płatnych śniegu lub w opcjach źródła przy użyciu wbudowanego zestawu danych. | Nie | Ciąg | *(tylko w przypadku wbudowanego zestawu danych)*<br>tableName<br>schemaName |
+| tabela | Jeśli wybierzesz opcję tabela jako dane wejściowe, przepływ danych pobierze wszystkie dane z tabeli określonej w zestawie danych płatnych śniegu lub w opcjach źródła przy użyciu wbudowanego zestawu danych. | Nie | Ciąg | *(tylko w przypadku wbudowanego zestawu danych)*<br>tableName<br>schemaName |
 | Zapytanie | Jeśli wybierzesz pozycję zapytanie jako dane wejściowe, wprowadź zapytanie w celu pobrania danych z płatnej. To ustawienie przesłania każdą tabelę wybraną w zestawie danych.<br>Jeśli nazwy schematu, tabeli i kolumn zawierają małe litery, należy pomniejszyć identyfikator obiektu w kwerendzie, np. `select * from "schema"."myTable"` . | Nie | Ciąg | query |
 
 #### <a name="snowflake-source-script-examples"></a>Przykłady skryptów źródłowych płatnych śniegów

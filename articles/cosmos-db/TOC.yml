@@ -21,6 +21,8 @@
           href: create-sql-api-dotnet.md
         - name: Aplikacja w języku Java
           href: create-sql-api-java.md
+        - name: Aplikacja rozwiązania Spring Data
+          href: create-sql-api-spring-data.md
         - name: Aplikacja platformy Node.js
           href: create-sql-api-nodejs.md
         - name: Aplikacja w języku Python
@@ -73,6 +75,8 @@
       href: sql-api-dotnet-v3sdk-samples.md
     - name: Przykłady zestawu Java SDK 4
       href: sql-api-java-sdk-samples.md
+    - name: Przykłady rozwiązania Spring Data 3
+      href: sql-api-spring-data-sdk-samples.md
     - name: Przykłady dla platformy Node.js
       href: sql-api-nodejs-samples.md
     - name: Przykłady w języku Python
@@ -1074,7 +1078,7 @@
               href: troubleshoot-not-found.md
             - name: Rozwiązywanie problemów z brakiem autoryzacji
               href: troubleshoot-unauthorized.md
-            - name: Dostępność zestawu SDK w środowiskach z wieloma regionami
+            - name: Problemy z dostępnością w środowiskach z wieloma regionami
               href: troubleshoot-sdk-availability.md
         - name: .NET
           items:
@@ -1118,6 +1122,8 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Wykonywanie zapytań za pomocą usługi Azure Synapse Spark
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Wykonywanie zapytań za pomocą usługi Synapse SQL Serverless
+          href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Korzystanie z usługi Power BI wraz z usługą Synapse Link
           href: synapse-link-power-bi.md
     - name: Wbudowana analiza przy użyciu platformy Apache Spark

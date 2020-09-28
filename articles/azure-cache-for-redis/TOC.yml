@@ -70,10 +70,14 @@
           href: cache-how-to-premium-clustering.md
         - name: Trwałość pamięci podręcznej dzięki funkcji trwałości danych Redis
           href: cache-how-to-premium-persistence.md
+        - name: Dodawanie kolejnych replik
+          href: cache-how-to-multi-replicas.md
         - name: Ochrona pamięci podręcznej przy użyciu sieci wirtualnej
           href: cache-how-to-premium-vnet.md
         - name: Prywatne połączenie z pamięcią podręczną
           href: cache-private-link.md
+        - name: Włączanie nadmiarowości strefowej
+          href: cache-how-to-zone-redundancy.md
         - name: Konfigurowanie replikacji geograficznej
           href: cache-how-to-geo-replication.md
         - name: Zapisywanie z użyciem pojemności zarezerwowanej

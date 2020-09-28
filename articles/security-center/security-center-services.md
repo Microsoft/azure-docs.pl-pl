@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: cece53544bfc8287f6ef542575d92b05032991f0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5be0b43de8265b2b337c024117ae8f424e4a3bc
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318045"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403496"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -42,12 +42,12 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 |[Adaptacyjne wzmocnienie zabezpieczeń sieci](security-center-adaptive-network-hardening.md)|✔|-|-|Tak|
 |[& raporty dotyczące pulpitu nawigacyjnego zgodności z przepisami](security-center-compliance-dashboard.md)|✔|✔|✔|Tak|
 |Zalecenia i ochrona przed zagrożeniami w kontenerach IaaS hostowanych przez platformę Docker|-|-|-|Tak|
-|Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: bezpłatnie<br><br>Nie na platformie Azure: tak|
+|Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
 |Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
 |[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
-|Ocena szyfrowania dysku|✔</br>(dla [obsługiwanych scenariuszy](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Bezpłatna|
-|Ocena luk w zabezpieczeniach innych firm|✔|-|-|Bezpłatna|
-|[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Bezpłatna|
+|Ocena szyfrowania dysku|✔</br>(dla [obsługiwanych scenariuszy](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nie|
+|Ocena luk w zabezpieczeniach innych firm|✔|-|-|Nie|
+|[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Nie|
 
 
 ### <a name="linux-machines"></a>[**Maszyny z systemem Linux**](#tab/features-linux)
@@ -66,12 +66,12 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 |[Adaptacyjne wzmocnienie zabezpieczeń sieci](security-center-adaptive-network-hardening.md)|✔|-|-|Tak|
 |[& raporty dotyczące pulpitu nawigacyjnego zgodności z przepisami](security-center-compliance-dashboard.md)|✔|✔|✔|Tak|
 |Zalecenia i ochrona przed zagrożeniami w kontenerach IaaS hostowanych przez platformę Docker|✔|✔|✔|Tak|
-|Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: bezpłatnie<br><br>Nie na platformie Azure: tak|
-|Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: bezpłatnie<br><br>Nie na platformie Azure: tak|
-|[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Bezpłatna|
-|Ocena szyfrowania dysku|✔</br>(dla [obsługiwanych scenariuszy](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Bezpłatna|
-|Ocena luk w zabezpieczeniach innych firm|✔|-|-|Bezpłatna|
-|[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Bezpłatna|
+|Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
+|Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: nie<br><br>Nie na platformie Azure: tak|
+|[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Nie|
+|Ocena szyfrowania dysku|✔</br>(dla [obsługiwanych scenariuszy](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nie|
+|Ocena luk w zabezpieczeniach innych firm|✔|-|-|Nie|
+|[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Nie|
 
 --- 
 

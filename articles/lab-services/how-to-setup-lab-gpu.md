@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: f41ad80e0e39d66020d039d6229a4b0fc62627f1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: abd182339719f19a521feed95f7cfbed6942b3e8
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286006"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404786"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurowanie laboratorium z maszynami wirtualnymi GPU
 
@@ -30,7 +30,7 @@ Zgodnie z opisem w poniższej tabeli *rozmiar procesora GPU* jest przeznaczony d
 
 | Rozmiar | Rdzenie | Pamięć RAM | Opis | 
 | ---- | ----- | --- | ----------- | 
-| Mały procesor GPU (obliczenia) | -&nbsp;6 &nbsp; rdzeni<br>-&nbsp;56 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z komputerów, takich jak sztuczna inteligencja (AI) i uczenie głębokie. |
+| Mały procesor GPU (obliczenia) | -&nbsp;6 &nbsp; rdzeni<br>-&nbsp;56 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z mocy obliczeniowej, takich jak sztuczna inteligencja (AI) i uczenie głębokie. |
 
 Rozmiary procesora GPU *wizualizacji* są przeznaczone dla aplikacji intensywnie korzystających z grafiki.  Na przykład [Typ klasy inżynieryjnej SolidWorks](./class-type-solidworks.md) pokazuje użycie **małego procesora GPU (wizualizacji)** .  Procesor GPU wizualizacji jest odpowiedni dla tego typu klasy, ponieważ uczniowie współpracują z środowiskiem projektowania (CAD) SOLIDWORKS 3W na potrzeby modelowania i wizualizacji obiektów stałych.
 
@@ -38,6 +38,9 @@ Rozmiary procesora GPU *wizualizacji* są przeznaczone dla aplikacji intensywnie
 | ---- | ----- | --- | ----------- | 
 | Mały procesor GPU (wizualizacja) | -&nbsp;6 &nbsp; rdzeni<br>-&nbsp;56 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania, który używa platform, takich jak OpenGL i DirectX. |
 | Średni procesor GPU (wizualizacja) | -&nbsp;12 &nbsp; rdzeni<br>-&nbsp;112 &nbsp; GB &nbsp; pamięci RAM  | [Standardowa_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier i kodowania, który używa platform, takich jak OpenGL i DirectX. |
+
+> [!NOTE]
+> Niektóre z tych rozmiarów maszyn wirtualnych mogą nie być widoczne na liście podczas tworzenia laboratorium zajęć. Lista jest wypełniana na podstawie bieżącej pojemności lokalizacji laboratorium. Jeśli twórca konta laboratorium [umożliwia twórcom laboratorium wybranie lokalizacji dla laboratorium](allow-lab-creator-pick-lab-location.md), możesz spróbować wybrać inną lokalizację dla laboratorium i sprawdzić, czy rozmiar maszyny wirtualnej jest dostępny. Aby uzyskać dostęp do maszyn wirtualnych, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/regions/services/?products=virtual-machines).
 
 ## <a name="ensure-that-the-appropriate-gpu-drivers-are-installed"></a>Upewnij się, że są zainstalowane odpowiednie sterowniki procesora GPU
 Aby skorzystać z możliwości procesora GPU maszyn wirtualnych laboratorium, upewnij się, że są zainstalowane odpowiednie sterowniki procesora GPU.  Po wybraniu rozmiaru maszyny wirtualnej procesora GPU w Kreatorze tworzenia laboratorium można wybrać opcję **Zainstaluj sterowniki procesora GPU** .  

@@ -81,12 +81,16 @@
       items:
         - name: Konfigurowanie szablonu urządzenia
           href: howto-set-up-template.md
+        - name: Jak używać właściwości
+          href: howto-use-properties.md
         - name: Przygotowywanie i łączenie zestawu Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Przygotowywanie i łączenie urządzenia RuuviTag
           href: howto-connect-ruuvi.md
         - name: Przygotowywanie i łączenie urządzenia Rigado Cascade 500
           href: howto-connect-rigado-cascade-500.md
+        - name: Łączenie urządzeń przy użyciu standardu X.509
+          href: how-to-connect-devices-x509.md
         - name: Łączenie innych chmur IoT
           href: howto-build-iotc-device-bridge.md
     - name: Zachowanie łączności

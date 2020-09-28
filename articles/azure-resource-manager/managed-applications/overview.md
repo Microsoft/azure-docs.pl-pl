@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: eb93321e0eb1b3d2dc7963f03715b1aedb4cfdcb
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377016"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403691"
 ---
 # <a name="azure-managed-applications-overview"></a>Omówienie usługi Azure Managed Applications
 
@@ -45,7 +45,7 @@ Wykaz usług to wewnętrzny katalog zatwierdzonych rozwiązań, przeznaczonych d
 
 Aby dowiedzieć się, jak opublikować aplikację zarządzaną w wykazie usług, zobacz [Tworzenie aplikacji w katalogu usług](publish-service-catalog-app.md).
 
-### <a name="marketplace"></a>Marketplace
+### <a name="marketplace"></a>Portal Marketplace
 
 Dostawcy, którzy oferują płatne usługi, mogą udostępniać aplikacje zarządzane w witrynie Azure Marketplace. Opublikowana aplikacja jest dostępna dla użytkowników spoza organizacji. Dzięki temu dostawcy usług zarządzanych (MSP), niezależni dostawcy oprogramowania (ISV) oraz integratorzy systemów (SI) mogą oferować swoje rozwiązania wszystkim klientom platformy Azure.
 
@@ -77,7 +77,7 @@ Usunięcie aplikacji zarządzanej powoduje również usunięcie zarządzanej gru
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Aby przeprowadzić inspekcję zarządzanej aplikacji, można zastosować [Azure Policy](../../governance/policy/overview.md) . Należy zastosować definicje zasad, aby upewnić się, że wdrożone wystąpienia aplikacji zarządzanej spełniają wymagania dotyczące danych i zabezpieczeń. Jeśli aplikacja wchodzi w interakcje z danymi poufnymi, upewnij się, że oceniono sposoby ochrony tych danych. Na przykład jeśli aplikacja współdziała z danymi z pakietu Office 365, Zastosuj definicję zasad, aby upewnić się, że szyfrowanie danych jest włączone.
+Aby przeprowadzić inspekcję zarządzanej aplikacji, można zastosować [Azure Policy](../../governance/policy/overview.md) . Należy zastosować definicje zasad, aby upewnić się, że wdrożone wystąpienia aplikacji zarządzanej spełniają wymagania dotyczące danych i zabezpieczeń. Jeśli aplikacja wchodzi w interakcje z danymi poufnymi, upewnij się, że oceniono sposoby ochrony tych danych. Na przykład jeśli aplikacja współdziała z danymi z Microsoft 365, Zastosuj definicję zasad, aby upewnić się, że szyfrowanie danych jest włączone.
 
 ## <a name="next-steps"></a>Następne kroki
 

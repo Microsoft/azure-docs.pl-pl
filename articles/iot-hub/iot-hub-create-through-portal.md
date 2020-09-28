@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 8f7555129f5f514d1954ac56cf87872a85ca91d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c7414728ab65258f73f80ee7fb303c7e6b961052
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326736"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404963"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Tworzenie Centrum IoT Hub przy użyciu Azure Portal
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób tworzenia centrów IoT i zarządzania nimi przy u
 
 Aby skorzystać z kroków opisanych w tym samouczku, potrzebna jest subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -78,7 +78,7 @@ Trasy to pierwsza karta w okienku routing wiadomości. Aby dodać nową trasę, 
 
 ![Zrzut ekranu przedstawiający Dodawanie nowej trasy](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-Nadaj nazwę centrum. Nazwa musi być unikatowa na liście tras dla tego centrum. 
+Nadaj nazwę trasie. Nazwa trasy musi być unikatowa na liście tras dla tego centrum. 
 
 W przypadku **punktu końcowego**można wybrać jeden z listy rozwijanej lub dodać nowy. W tym przykładzie konto magazynu i kontener są już dostępne. Aby dodać je jako punkt końcowy, kliknij przycisk +**Dodaj** obok listy rozwijanej punkt końcowy i wybierz pozycję **BLOB Storage**. Na poniższym ekranie przedstawiono, gdzie określono konto magazynu i kontener.
 
