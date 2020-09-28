@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: f9f5a8904ff8038b0747fa8f086bc9894971428c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 61240b6238b4653ff45985a8403534570cbf0773
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332358"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401064"
 ---
 <a name="HOLTop"></a>
 
@@ -180,7 +180,46 @@ W `main()` metodzie programu Wywołaj metodę uwierzytelniania w celu utworzenia
 > * Analiza tonacji zawiera opinię o analizie wyszukiwania, która jest opcjonalną flagą. 
 > * Wyszukiwanie opinii zawiera aspekty i poziom opinii tonacji. 
 
+Utwórz nową funkcję o nazwie `sentimentAnalysisExample()` , która przybiera wcześniej utworzoną klienta i Wywołaj `analyzeSentiment()` funkcję. Zwrócony `AnalyzeSentimentResult` obiekt będzie zawierać `documentSentiment` i `sentenceSentiments` Jeśli powodzenie, lub `errorMessage` Jeśli nie. 
+
+```java
+static void sentimentAnalysisExample(TextAnalyticsClient client)
+{
+    // The text that need be analyzed.
+    String text = "I had the best day of my life. I wish you were there with me.";
+
+    DocumentSentiment documentSentiment = client.analyzeSentiment(text);
+    System.out.printf(
+        "Recognized document sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
+        documentSentiment.getSentiment(),
+        documentSentiment.getConfidenceScores().getPositive(),
+        documentSentiment.getConfidenceScores().getNeutral(),
+        documentSentiment.getConfidenceScores().getNegative());
+
+    for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
+        System.out.printf(
+            "Recognized sentence sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
+            sentenceSentiment.getSentiment(),
+            sentenceSentiment.getConfidenceScores().getPositive(),
+            sentenceSentiment.getConfidenceScores().getNeutral(),
+            sentenceSentiment.getConfidenceScores().getNegative());
+        }
+    }
+}
+```
+
+### <a name="output"></a>Dane wyjściowe
+
+```console
+Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
+Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
+Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
+```
+
+### <a name="opinion-mining"></a>Wyszukiwanie opinii
+
 Aby przeprowadzić analizę tonacji z opinią wyszukiwania, Utwórz nową funkcję o nazwie, `sentimentAnalysisWithOpinionMiningExample()` która przyjmuje wcześniej utworzoną klienta i Wywołaj `analyzeSentiment()` funkcję z obiektem opcji ustawień `AnalyzeSentimentOptions` . Zwrócony `AnalyzeSentimentResult` obiekt będzie zawierać `documentSentiment` i `sentenceSentiments` Jeśli powodzenie, lub `errorMessage` Jeśli nie. 
+
 
 ```java
 static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)

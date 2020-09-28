@@ -1,5 +1,5 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 description: Uwzględnij plik tekstowy dla kontraktu Microsoft Commercial Marketplace Standard
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
@@ -9,12 +9,12 @@ ms.date: 01/22/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d899db8b5f6f3b7c0ccef4e44c814f1e126c626a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e1119cf5c40cdcb1fd598b85410ea9149a7cc146
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326679"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401078"
 ---
 Firma Microsoft udostępnia standardowy szablon kontraktu dla komercyjnej witryny Marketplace.
 
@@ -46,7 +46,7 @@ Istnieją dwa rodzaje zmian dostępnych dla komercyjnych wydawców portalu Marke
 **Niestandardowe warunki zmiany do standardowej umowy dotyczącej komercyjnego rynku firmy Microsoft**: Zacznij od wybrania pozycji **Dodaj niestandardowe warunki zmiany**. Dla każdej oferty możesz podać maksymalnie 10 niestandardowych postanowień.
 
 - **Niestandardowe warunki zmiany**: wprowadź niestandardowe warunki zmiany w polu niestandardowe warunki zmiany. W tym polu można wprowadzić nieograniczoną liczbę znaków. Tylko klienci z identyfikatorów dzierżawców, którzy określisz dla tych terminów niestandardowych, będą przedstawiani niestandardowe warunki zmiany w przepływie zakupu oferty w Azure Portal.  
-- **Identyfikatory dzierżawców** (wymagane): Każda Poprawka niestandardowa może być przeznaczona do maksymalnie 20 identyfikatorów dzierżawy. W przypadku dodania niestandardowej poprawki należy podać co najmniej jeden identyfikator dzierżawy. Identyfikator dzierżawy identyfikuje Twojego klienta na platformie Azure. Możesz polecić klienta dla tego identyfikatora i znaleźć go, przechodząc do portal.azure.com > Azure Active Directory > właściwości. Wartość identyfikatora katalogu to identyfikator dzierżawy (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy organizacji klienta przy użyciu adresu URL nazwy domeny, co [to jest mój Microsoft Azure i identyfikator dzierżawy pakietu Office 365?](https://www.whatismytenantid.com).
+- **Identyfikatory dzierżawców** (wymagane): Każda Poprawka niestandardowa może być przeznaczona do maksymalnie 20 identyfikatorów dzierżawy. W przypadku dodania niestandardowej poprawki należy podać co najmniej jeden identyfikator dzierżawy. Identyfikator dzierżawy identyfikuje Twojego klienta na platformie Azure. Możesz polecić klienta dla tego identyfikatora i znaleźć go, przechodząc do portal.azure.com > Azure Active Directory > właściwości. Wartość identyfikatora katalogu to identyfikator dzierżawy (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy organizacji klienta przy użyciu adresu URL nazwy domeny, który [ma Microsoft Azure i Microsoft 365 identyfikator dzierżawy?](https://www.whatismytenantid.com).
 - **Opis** (opcjonalnie): Opcjonalnie podaj przyjazny opis identyfikatora dzierżawy, który pomaga zidentyfikować klienta, którego celem jest zmiana.
 
 **Warunki i postanowienia**

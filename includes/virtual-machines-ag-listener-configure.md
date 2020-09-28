@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd635d4c0563c35979f8d85c33dfbde35f05f9e6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75468489"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401020"
 ---
 Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuchuje SQL Server grupy dostępności. Aby utworzyć odbiornik grupy dostępności, wykonaj następujące czynności:
 
@@ -30,7 +30,7 @@ Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuc
 
     b. W okienku **role** kliknij prawym przyciskiem myszy nazwę grupy dostępności, a następnie wybierz pozycję **Dodaj zasób**  >  **Klient punkt dostępu**.
 
-   ![Punkt dostępu klienta](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
+   ![Zrzut ekranu pokazujący opcję menu punkt dostępu klienta.](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
     c. W polu **Nazwa** Utwórz nazwę dla tego nowego odbiornika. 
    Nazwa nowego odbiornika to nazwa sieci używana przez aplikacje do łączenia się z bazami danych w grupie dostępności SQL Server.
@@ -50,7 +50,7 @@ Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuc
 
     c. W obszarze **adres IP**kliknij pozycję **statyczny adres IP**. Ustaw adres IP jako ten sam adres, który był używany podczas ustawiania adresu usługi równoważenia obciążenia na Azure Portal.
 
-   ![Zasób IP](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
+   ![Zrzut ekranu pokazujący miejsce ustawienia adresu IP.](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
     <!-----------------------I don't see this option on server 2016
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
@@ -64,7 +64,7 @@ Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuc
 
     c. Na karcie zależności Dodaj nazwę zasobu punktu dostępu klienta (odbiornika).
 
-   ![Zasób IP](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
+   ![Zrzut ekranu pokazujący, gdzie dodać nazwę na karcie zależności.](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
     d. Kliknij przycisk **OK**.
 
@@ -74,23 +74,23 @@ Odbiornik grupy dostępności jest adresem IP i nazwą sieci, na której nasłuc
 
     b. Na karcie **zasoby** kliknij prawym przyciskiem myszy zasób punktu dostępu klienta w obszarze **Nazwa serwera**, a następnie kliknij polecenie **Właściwości**. 
 
-   ![Zasób IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
+   ![Zrzut ekranu pokazujący opcję menu właściwości dla nazwy serwera.](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
     c. Kliknij kartę **zależności** . Sprawdź, czy adres IP jest zależnością. Jeśli tak nie jest, ustaw zależność od adresu IP. Jeśli na liście znajduje się wiele zasobów, sprawdź, czy adresy IP mają zależności lub, nie i. Kliknij przycisk **OK**. 
 
    ![Zasób IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
     >[!TIP]
-    >Można sprawdzić, czy zależności są prawidłowo skonfigurowane. W Menedżer klastra trybu failover przejdź do ról, kliknij prawym przyciskiem myszy grupę dostępności, kliknij polecenie **więcej akcji**, a następnie kliknij pozycję **Pokaż raport zależności**. Po poprawnym skonfigurowaniu zależności Grupa dostępności jest zależna od nazwy sieci, a nazwa sieci zależy od adresu IP. 
+    >Można sprawdzić, czy zależności są prawidłowo skonfigurowane. W Menedżer klastra trybu failover przejdź do ról, kliknij prawym przyciskiem myszy grupę dostępności, kliknij polecenie **więcej akcji**, a następnie kliknij pozycję  **Pokaż raport zależności**. Po poprawnym skonfigurowaniu zależności Grupa dostępności jest zależna od nazwy sieci, a nazwa sieci zależy od adresu IP. 
 
 
 1. <a name="setparam"></a>Ustaw parametry klastra w programie PowerShell.
 
    a. Skopiuj poniższy skrypt programu PowerShell do jednego z wystąpień SQL Server. Aktualizowanie zmiennych dla środowiska.
 
-   - `$ListenerILBIP`jest adresem IP utworzonym w module równoważenia obciążenia platformy Azure dla odbiornika grupy dostępności.
+   - `$ListenerILBIP` jest adresem IP utworzonym w module równoważenia obciążenia platformy Azure dla odbiornika grupy dostępności.
     
-   - `$ListenerProbePort`to port skonfigurowany w module równoważenia obciążenia platformy Azure dla odbiornika grupy dostępności.
+   - `$ListenerProbePort` to port skonfigurowany w module równoważenia obciążenia platformy Azure dla odbiornika grupy dostępności.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -122,9 +122,9 @@ W razie potrzeby powtórz powyższe kroki, aby ustawić parametry klastra dla ad
   
    a. Skopiuj poniższy skrypt programu PowerShell do jednego z wystąpień SQL Server. Aktualizowanie zmiennych dla środowiska.
 
-   - `$ClusterCoreIP`jest adresem IP utworzonym w module równoważenia obciążenia platformy Azure dla zasobu podstawowego klastra usługi WSFC. Różni się od adresu IP odbiornika grupy dostępności.
+   - `$ClusterCoreIP` jest adresem IP utworzonym w module równoważenia obciążenia platformy Azure dla zasobu podstawowego klastra usługi WSFC. Różni się od adresu IP odbiornika grupy dostępności.
 
-   - `$ClusterProbePort`to port skonfigurowany w module równoważenia obciążenia platformy Azure dla sondy kondycji usługi WSFC. Różni się od sondy odbiornika grupy dostępności.
+   - `$ClusterProbePort` to port skonfigurowany w module równoważenia obciążenia platformy Azure dla sondy kondycji usługi WSFC. Różni się od sondy odbiornika grupy dostępności.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)

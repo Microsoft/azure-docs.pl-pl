@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/27/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 8dbbdf16df62cd59e8a798fc547d8b171a6ee3e2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7e074bf898667bb0019d4147ec9abaea2c674d74
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332357"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400995"
 ---
 <a name="HOLTop"></a>
 
@@ -252,6 +252,8 @@ Document sentiment: Positive
         Negative score: 0.02
         Neutral score: 0.77
 ```
+
+### <a name="opinion-mining"></a>Wyszukiwanie opinii
 
 Utwórz nową funkcję o nazwie `SentimentAnalysisWithOpinionMiningExample()` , która pobiera klienta utworzonego wcześniej, i Wywołaj `AnalyzeSentimentBatch()` funkcję z `AdditionalSentimentAnalyses.OpinionMining` opcją. Zwrócony `AnalyzeSentimentResultCollection` obiekt będzie zawierać kolekcję, `AnalyzeSentimentResult` w której reprezentuje `Response<DocumentSentiment>` . Różnica między `SentimentAnalysis()` i `SentimentAnalysisWithOpinionMiningExample()` polega na tym, że ta ostatnia będzie zawierać `MinedOpinion` w każdym zdaniu, który pokazuje przeanalizowany aspekt i powiązane Opinie. Jeśli wystąpił błąd, wygeneruje `RequestFailedException` .
 

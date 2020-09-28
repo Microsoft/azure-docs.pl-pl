@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 08/29/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 12fc9da11469cd617154827232d430dc5cd4a94b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff9e83b9d03cfe80ae96e05201763d89956f0e39
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67182969"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401039"
 ---
-Usługa Office 365 powstała z myślą o bezpiecznym i niezawodnym dostępie przez Internet. W związku z tym dla pewnych scenariuszy zalecamy korzystanie z usługi ExpressRoute. Aby uzyskać informacje na temat otwierania usługi Office 365 przy użyciu usługi ExpressRoute, odwiedź stronę [Azure ExpressRoute for Office 365 (Usługa Azure ExpressRoute dla usługi Office 365)](https://aka.ms/ExpressRouteOffice365).
+Microsoft 365 został utworzony w celu bezpiecznego i niezawodnego dostępu za pośrednictwem Internetu. W związku z tym usługę ExpressRoute polecamy dla konkretnych scenariuszy. Aby uzyskać informacje o korzystaniu z programu ExpressRoute do uzyskiwania dostępu do Microsoft 365, odwiedź stronę [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
