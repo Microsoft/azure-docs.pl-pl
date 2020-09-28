@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8c6cb08f8236ab6164a71b710656951203be3d19
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ccc10327d4de4134dd15e0ed936f6b938cbe31dd
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314577"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403674"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -70,7 +70,7 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
-| [**Natywne usuwanie nietrwałego obiektu BLOB (wersja zapoznawcza)**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexers (Indeksatory) | Indeksator usługi Azure Blob Storage na platformie Azure Wyszukiwanie poznawcze będzie rozpoznawał obiekty blob w stanie nietrwałego usunięcia, a następnie usuwa odpowiedni dokument wyszukiwania podczas indeksowania. | Publiczna wersja zapoznawcza. </br> Użyj [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) i interfejs api REST 2019-05-06 — wersja zapoznawcza, za pomocą indeksatora uruchamiania dla źródła danych obiektów blob platformy Azure, które ma włączone natywnie "usuwanie nietrwałe". |
+| [**Natywne usuwanie nietrwałego obiektu BLOB (wersja zapoznawcza)**](search-howto-index-changed-deleted-blobs.md) | Indexers (Indeksatory) | Indeksator usługi Azure Blob Storage na platformie Azure Wyszukiwanie poznawcze będzie rozpoznawał obiekty blob w stanie nietrwałego usunięcia, a następnie usuwa odpowiedni dokument wyszukiwania podczas indeksowania. | Publiczna wersja zapoznawcza. </br> Użyj [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) i interfejs api REST 2019-05-06 — wersja zapoznawcza, za pomocą indeksatora uruchamiania dla źródła danych obiektów blob platformy Azure, które ma włączone natywnie "usuwanie nietrwałe". |
 | [**Interfejs API REST zarządzania (2020-03-13)**](/rest/api/searchmanagement/management-api-versions) | REST | Nowy stabilny interfejs API REST do tworzenia usługi wyszukiwania i zarządzania nią. Dodaje zaporę IP i obsługę linków prywatnych | Ogólnie dostępna. |
 
 ## <a name="february-2020"></a>Luty 2020 r.

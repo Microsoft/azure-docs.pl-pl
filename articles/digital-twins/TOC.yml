@@ -1,4 +1,4 @@
-- name: Azure Digital Twins
+- name: Dokumentacja usługi Azure Digital Twins
   href: index.yml
 - name: Omówienie
   items:
@@ -7,6 +7,7 @@
     - name: Różnice w stosunku do wcześniejszej wersji
       href: overview-differences.md
 - name: Szybki start
+  expanded: true
   items:
     - name: Zapoznawanie się z przykładowym scenariuszem
       href: quickstart-adt-explorer.md
@@ -162,6 +163,8 @@
               href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
             - name: JavaScript SDK — dokumentacja
               href: 'https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true'
+            - name: Java SDK — Maven
+              href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar'
     - name: Interfejs wiersza polecenia usługi Digital Twins
       items:
         - name: Dokumentacja interfejsu wiersza polecenia usługi Digital Twins
@@ -222,31 +225,3 @@
           href: 'https://azure.microsoft.com/pricing/details/digital-twins'
         - name: Regiony i dostępność
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
-- name: Powiązane
-  items:
-    - name: Rozwiązania
-      items:
-        - name: Akceleratory rozwiązań IoT
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: /azure/iot-central/core/overview-iot-central
-    - name: Usługi platformy
-      items:
-        - name: Usługa IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
-        - name: Usługa IoT Hub Device Provisioning
-          href: /azure/iot-dps
-        - name: Maps
-          href: /azure/azure-maps
-        - name: Zestawy SDK usług
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Rozwiązania brzegowe
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: Zestawy SDK urządzeń IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

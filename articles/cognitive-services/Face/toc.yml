@@ -13,7 +13,7 @@
       items:
         - name: Wykrywanie twarzy na obrazie
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp.md
             - name: cURL
               href: QuickStarts/curl.md
@@ -35,7 +35,7 @@
   items:
     - name: Korzystanie z zestawu SDK klienta
       items:
-        - name: 'C#'
+        - name: C#
           href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: Pojęcia
   items:
@@ -47,9 +47,7 @@
   items:
     - name: Wykrywanie twarzy
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Identyfikowanie twarzy
-      href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-    - name: Dodawanie twarzy
+    - name: Dodawanie twarzy do grupy
       href: Face-API-How-to-Topics/how-to-add-faces.md
     - name: Używanie atrybutu HeadPose
       href: Face-API-How-to-Topics/how-to-use-headpose.md

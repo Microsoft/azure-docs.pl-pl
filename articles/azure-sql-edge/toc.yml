@@ -46,8 +46,8 @@
           href: disconnected-deployment.md
         - name: Wdrażanie na platformie Kubernetes
           href: deploy-kubernetes.md
-        - name: Narzędzia SQL
-          href: 'https://docs.microsoft.com/en-us/sql/tools/overview-sql-tools?toc=/azure/azure-sql-edge/toc.json'
+        - name: Wdrażanie za pomocą programu Azure Data Studio
+          href: 'https://docs.microsoft.com/sql/azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json'
     - name: Uczenie maszynowe
       items:
         - name: Uczenie maszynowe i sztuczna inteligencja z użyciem formatu ONNX

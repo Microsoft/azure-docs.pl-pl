@@ -6,19 +6,47 @@
       href: expressroute-introduction.md
 - name: Szybki start
   items:
+    - name: Tworzenie obwodu usługi ExpressRoute — portal
+      href: expressroute-howto-circuit-portal-resource-manager.md
+    - name: Tworzenie obwodu usługi ExpressRoute — PowerShell
+      href: expressroute-howto-circuit-arm.md
+    - name: Tworzenie obwodu usługi ExpressRoute — interfejs wiersza polecenia
+      href: howto-circuit-cli.md
     - name: Tworzenie obwodu usługi ExpressRoute — szablon usługi ARM
       href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: Samouczki
   items:
-    - name: Tworzenie i modyfikowanie obwodu
-      href: expressroute-howto-circuit-portal-resource-manager.md
     - name: Tworzenie i modyfikowanie konfiguracji komunikacji równorzędnej
-      href: expressroute-howto-routing-portal-resource-manager.md
+      items:
+        - name: Azure Portal
+          href: expressroute-howto-routing-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-routing-arm.md
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: howto-routing-cli.md
+    - name: Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute
+      items:
+        - name: Azure Portal
+          href: expressroute-howto-add-gateway-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-add-gateway-resource-manager.md
     - name: Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
-      href: expressroute-howto-linkvnet-portal-resource-manager.md
+      items:
+        - name: Azure Portal
+          href: expressroute-howto-linkvnet-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-linkvnet-arm.md
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: howto-linkvnet-cli.md
     - name: Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft
-      href: how-to-routefilter-portal.md
+      items:
+        - name: Azure Portal
+          href: how-to-routefilter-portal.md
+        - name: Azure PowerShell
+          href: how-to-routefilter-powershell.md
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: how-to-routefilter-cli.md
 - name: Pojęcia
   items:
     - name: Praca zdalna
@@ -27,20 +55,24 @@
           href: ../networking/working-remotely-support.md?toc=%2fazure%2fexpressroute%2ftoc.json
         - name: Łączność hybrydowa dla użytkowników zdalnych
           href: work-remotely-support.md
-    - name: Modele łączności
-      href: expressroute-connectivity-models.md
+    - name: Przed rozpoczęciem korzystania z usługi ExpressRoute
+      items:
+        - name: Wymagania wstępne
+          href: expressroute-prerequisites.md
+        - name: Modele łączności
+          href: expressroute-connectivity-models.md
+        - name: Przepływy
+          href: expressroute-workflows.md
+        - name: Wymagania routingu
+          href: expressroute-routing.md
     - name: Lokalizacje i partnerzy
       items:
         - name: Dostawcy według lokalizacji
           href: expressroute-locations-providers.md
         - name: Lokalizacje według dostawcy
           href: expressroute-locations.md
-    - name: Wymagania wstępne
-      href: expressroute-prerequisites.md
-    - name: Przepływy
-      href: expressroute-workflows.md
-    - name: Wymagania routingu
-      href: expressroute-routing.md
+    - name: Usługa ExpressRoute — często zadawane pytania
+      href: expressroute-faqs.md
     - name: Obwody i komunikacja równorzędna
       items:
         - name: Informacje o obwodach i komunikacji równorzędnej
@@ -49,10 +81,8 @@
           href: about-upgrade-circuit-bandwidth.md
         - name: Przenoszenie obwodów z wersji klasycznej do usługi Resource Manager
           href: expressroute-move.md
-    - name: Protokół BFD działający za pośrednictwem usługi ExpressRoute
-      href: expressroute-bfd.md
-    - name: Wymagania funkcji QoS
-      href: expressroute-qos.md
+    - name: Informacje o bramach usługi ExpressRoute
+      href: expressroute-about-virtual-network-gateways.md
     - name: Informacje o usłudze ExpressRoute FastPath
       href: about-fastpath.md
     - name: Informacje o usłudze ExpressRoute Direct
@@ -61,28 +91,16 @@
       href: expressroute-global-reach.md
     - name: Informacje o szyfrowaniu w usłudze ExpressRoute
       href: expressroute-about-encryption.md
-    - name: Zabezpieczenia
-      items:
-        - name: Punkt odniesienia zabezpieczeń
-          href: security-baseline.md
-        - name: Atrybuty zabezpieczeń
-          href: expressroute-security-controls.md
-    - name: Informacje o bramach sieci wirtualnej
-      href: expressroute-about-virtual-network-gateways.md
     - name: Łączenie platformy Azure z chmurą publiczną
       href: expressroute-connect-azure-to-public-cloud.md
-    - name: Współdziałanie łączności z zapleczem
-      items:
-        - name: Wstęp i konfiguracja testu
-          href: ../networking/connectivty-interoperability-preface.md?toc=%2fazure%2fexpressroute%2ftoc.json
-        - name: Ustawienia konfiguracji testu
-          href: ../networking/connectivty-interoperability-configuration.md?toc=%2fazure%2fexpressroute%2ftoc.json
-        - name: Analiza płaszczyzny kontroli
-          href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
-        - name: Analiza płaszczyzny danych
-          href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Łączność między sieciami
       href: cross-network-connectivity.md
+    - name: Atrybuty zabezpieczeń
+      href: expressroute-security-controls.md
+    - name: Protokół BFD działający za pośrednictwem usługi ExpressRoute
+      href: expressroute-bfd.md
+    - name: Wymagania funkcji QoS
+      href: expressroute-qos.md
     - name: Wysoka dostępność — projektowanie
       href: designing-for-high-availability-with-expressroute.md
     - name: Odzyskiwanie po awarii — projektowanie
@@ -93,87 +111,24 @@
           href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Tworzenie i modyfikowanie obwodu
+    - name: Konfigurowanie funkcji ExpressRoute Direct
       items:
-        - name: Azure Portal
-          href: expressroute-howto-circuit-portal-resource-manager.md
-        - name: Azure PowerShell
-          href: expressroute-howto-circuit-arm.md
-        - name: Interfejs wiersza polecenia platformy Azure
-          href: howto-circuit-cli.md
-        - name: Szablon usługi Azure Resource Manager
-          displayName: 'ARM,resource manager template'
-          href: expressroute-howto-circuit-resource-manager-template.md
-    - name: Tworzenie i modyfikowanie konfiguracji komunikacji równorzędnej
-      items:
-        - name: Azure Portal
-          href: expressroute-howto-routing-portal-resource-manager.md
-        - name: Azure PowerShell
-          href: expressroute-howto-routing-arm.md
-        - name: Interfejs wiersza polecenia platformy Azure
-          href: howto-routing-cli.md
-    - name: Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
-      items:
-        - name: Azure Portal
-          href: expressroute-howto-linkvnet-portal-resource-manager.md
-        - name: Azure PowerShell
-          href: expressroute-howto-linkvnet-arm.md
-        - name: Interfejs wiersza polecenia platformy Azure
-          href: howto-linkvnet-cli.md
-    - name: Szyfrowanie ruchu przez obwody
-      items:
-        - name: Konfigurowanie sieci VPN typu lokacja-lokacja do komunikacji równorzędnej firmy Microsoft
-          href: site-to-site-vpn-over-microsoft-peering.md
-        - name: Konfigurowanie trybu transportu IPsec dla hostów z systemem Windows
-          href: expressroute-howto-ipsec-transport-private-windows.md
+        - name: Konfigurowanie usługi ExpressRoute Direct
+          items:
+            - name: Azure Portal
+              href: how-to-expressroute-direct-portal.md
+            - name: Azure PowerShell
+              href: expressroute-howto-erdirect.md
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: expressroute-howto-expressroute-direct-cli.md
+        - name: Konfigurowanie rozwiązania MACsec pod kątem portów usługi ExpressRoute Direct
+          href: expressroute-howto-macsec.md
     - name: Konfigurowanie usługi ExpressRoute Global Reach
       items:
         - name: Azure PowerShell
           href: expressroute-howto-set-global-reach.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: expressroute-howto-set-global-reach-cli.md
-    - name: Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute
-      items:
-        - name: Azure Portal
-          href: expressroute-howto-add-gateway-portal-resource-manager.md
-        - name: Azure PowerShell
-          href: expressroute-howto-add-gateway-resource-manager.md
-    - name: Konfigurowanie współistniejących połączeń usługi ExpressRoute i połączeń typu lokacja-lokacja
-      href: expressroute-howto-coexist-resource-manager.md
-    - name: Konfigurowanie usługi ExpressRoute Direct
-      items:
-        - name: Azure Portal
-          href: how-to-expressroute-direct-portal.md
-        - name: Azure PowerShell
-          href: expressroute-howto-erdirect.md
-        - name: Interfejs wiersza polecenia platformy Azure
-          href: expressroute-howto-expressroute-direct-cli.md
-    - name: Konfigurowanie rozwiązania MACsec pod kątem portów usługi ExpressRoute Direct
-      href: expressroute-howto-macsec.md
-    - name: Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft
-      items:
-        - name: Azure Portal
-          href: how-to-routefilter-portal.md
-        - name: Azure PowerShell
-          href: how-to-routefilter-powershell.md
-        - name: Interfejs wiersza polecenia platformy Azure
-          href: how-to-routefilter-cli.md
-    - name: Włączanie i wyłączanie komunikacji równorzędnych
-      href: expressroute-howto-reset-peering.md
-    - name: Przechodzenie z publicznej komunikacji równorzędnej do komunikacji równorzędnej firmy Microsoft
-      href: how-to-move-peering.md
-    - name: Przenoszenie obwodu z wersji klasycznej do usługi Resource Manager
-      href: expressroute-howto-move-arm.md
-    - name: Migrowanie skojarzonych sieci wirtualnych z wersji klasycznej do usługi Resource Manager
-      href: expressroute-migration-classic-resource-manager.md
-    - name: Tworzenie strefowo nadmiarowej bramy sieci wirtualnej w strefach dostępności platformy Azure
-      href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
-    - name: Konfigurowanie routera dla usługi ExpressRoute
-      items:
-        - name: Konfigurowanie routera
-          href: expressroute-config-samples-routing.md
-        - name: Przykłady konfiguracji routera pod kątem translatora adresów sieciowych
-          href: expressroute-config-samples-nat.md
     - name: Monitorowanie
       items:
         - name: 'Monitorowanie, metryki i alerty usługi ExpressRoute'
@@ -182,20 +137,32 @@
           href: how-to-npm.md
         - name: Konfigurowanie alertów niestandardowych do monitorowania anonsowanych tras
           href: how-to-custom-route-alert.md
-    - name: Klasyczne i starsze artykuły
+    - name: Zarządzanie komunikacjami równorzędnymi
       items:
-        - name: Modyfikowanie obwodu
-          href: expressroute-howto-circuit-classic.md
-        - name: Tworzenie i modyfikowanie konfiguracji komunikacji równorzędnej
-          href: expressroute-howto-routing-classic.md
-        - name: Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
-          href: expressroute-howto-linkvnet-classic.md
+        - name: Włączanie i wyłączanie komunikacji równorzędnych
+          href: expressroute-howto-reset-peering.md
+        - name: Przechodzenie z publicznej komunikacji równorzędnej do komunikacji równorzędnej firmy Microsoft
+          href: how-to-move-peering.md
+    - name: Szyfrowanie ruchu przez obwody
+      items:
+        - name: Konfigurowanie sieci VPN typu lokacja-lokacja do komunikacji równorzędnej firmy Microsoft
+          href: site-to-site-vpn-over-microsoft-peering.md
+        - name: Sieć VPN korzystająca z protokołu IPsec przez prywatną komunikację równorzędną
+          href: ../vpn-gateway/site-to-site-vpn-private-peering.md?toc=%2fazure%2fexpressroute%2ftoc.json
+        - name: Konfigurowanie trybu transportu IPsec dla hostów z systemem Windows
+          href: expressroute-howto-ipsec-transport-private-windows.md
+    - name: Nadmiarowość
+      items:
         - name: Konfigurowanie współistniejących połączeń usługi ExpressRoute i połączeń typu lokacja-lokacja
-          href: expressroute-howto-coexist-classic.md
-        - name: Dodawanie bramy do sieci wirtualnej
-          href: expressroute-howto-add-gateway-classic.md
-        - name: Tworzenie i modyfikowanie publicznej komunikacji równorzędnej
-          href: about-public-peering.md
+          href: expressroute-howto-coexist-resource-manager.md
+        - name: Tworzenie strefowo nadmiarowej bramy sieci wirtualnej w strefach dostępności platformy Azure
+          href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Przenoszenie z wersji klasycznej do usługi Resource Manager
+      items:
+        - name: Przenoszenie obwodu z wersji klasycznej do usługi Resource Manager
+          href: expressroute-howto-move-arm.md
+        - name: Migrowanie skojarzonych sieci wirtualnych z wersji klasycznej do usługi Resource Manager
+          href: expressroute-migration-classic-resource-manager.md
     - name: Najlepsze rozwiązania
       items:
         - name: Najlepsze rozwiązania z zakresu bezpieczeństwa sieci i usług w chmurze
@@ -233,8 +200,22 @@
       href: /azure/templates/microsoft.network/expressroutecircuits
 - name: Zasoby
   items:
-    - name: Usługa ExpressRoute — często zadawane pytania
-      href: expressroute-faqs.md
+    - name: Konfigurowanie routera dla usługi ExpressRoute
+      items:
+        - name: Konfigurowanie routera
+          href: expressroute-config-samples-routing.md
+        - name: Przykłady konfiguracji routera pod kątem translatora adresów sieciowych
+          href: expressroute-config-samples-nat.md
+    - name: Współdziałanie łączności z zapleczem
+      items:
+        - name: Wstęp i konfiguracja testu
+          href: ../networking/connectivty-interoperability-preface.md?toc=%2fazure%2fexpressroute%2ftoc.json
+        - name: Ustawienia konfiguracji testu
+          href: ../networking/connectivty-interoperability-configuration.md?toc=%2fazure%2fexpressroute%2ftoc.json
+        - name: Analiza płaszczyzny kontroli
+          href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
+        - name: Analiza płaszczyzny danych
+          href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Analizy przypadków
@@ -274,3 +255,19 @@
           href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/'
         - name: Konfigurowanie publicznej komunikacji równorzędnej dla obwodu
           href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/'
+    - name: Klasyczne i starsze artykuły
+      items:
+        - name: Modyfikowanie obwodu
+          href: expressroute-howto-circuit-classic.md
+        - name: Tworzenie i modyfikowanie konfiguracji komunikacji równorzędnej
+          href: expressroute-howto-routing-classic.md
+        - name: Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
+          href: expressroute-howto-linkvnet-classic.md
+        - name: Konfigurowanie współistniejących połączeń usługi ExpressRoute i połączeń typu lokacja-lokacja
+          href: expressroute-howto-coexist-classic.md
+        - name: Dodawanie bramy do sieci wirtualnej
+          href: expressroute-howto-add-gateway-classic.md
+        - name: Tworzenie i modyfikowanie publicznej komunikacji równorzędnej
+          href: about-public-peering.md
+    - name: Punkt odniesienia zabezpieczeń
+      href: security-baseline.md

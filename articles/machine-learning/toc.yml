@@ -15,19 +15,18 @@
 - name: Samouczki
   expanded: true
   items:
-    - name: Python (dzień 1)
+    - name: Python — dzień 1 — wprowadzenie
       expanded: true
       items:
         - name: 1. Konfigurowanie komputera lokalnego
           href: tutorial-1st-experiment-sdk-setup-local.md
-        - name: 2. Hello world
+        - name: 2. „Hello world”
           href: tutorial-1st-experiment-hello-world.md
         - name: 3. Szkolenie modelu
           href: tutorial-1st-experiment-sdk-train.md
         - name: 4. Dostarczanie własnych danych
           href: tutorial-1st-experiment-bring-data.md
     - name: Notesy programu Jupyter
-      expanded: true
       items:
         - name: Klasyfikacja obrazów (dane MNIST)
           items:
@@ -331,8 +330,13 @@
               displayName: parameter
               href: how-to-tune-hyperparameters.md
         - name: Praca z platformą MLflow
-          displayName: 'log, monitor, deploy, metrics, Databricks, model registry, register'
-          href: how-to-use-mlflow.md
+          items:
+            - name: Śledzenie eksperymentów za pomocą platformy MLflow
+              displayName: 'log, monitor, deploy, metrics,  model registry, register'
+              href: how-to-use-mlflow.md
+            - name: Śledzenie przebiegów usługi Azure Databricks za pomocą platformy MLflow
+              displayName: 'log, monitor, deploy, metrics, databricks'
+              href: how-to-use-mlflow-azure-databricks.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -552,6 +556,9 @@
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: Wyselekcjonowane środowiska
+      displayName: 'environments, curated environments'
+      href: resource-curated-environments.md
 - name: Zasoby
   items:
     - name: Informacje o wersji
@@ -578,6 +585,3 @@
     - name: Funkcje ułatwień dostępu projektanta
       displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
       href: designer-accessibility.md
-    - name: Wyselekcjonowane środowiska
-      displayName: 'environments, curated environments'
-      href: resource-curated-environments.md

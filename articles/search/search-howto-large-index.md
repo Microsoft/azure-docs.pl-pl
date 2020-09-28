@@ -7,13 +7,13 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: 80307c97464e61d7b7d338703de90d1199adc819
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 081f073fa4933d67604173d2169a7abdc3ac7c3f
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927021"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403572"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Jak indeksować duże zestawy danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -25,34 +25,37 @@ Te same techniki mają zastosowanie również do długotrwałych procesów. W sz
 
 W poniższych sekcjach opisano techniki indeksowania dużych ilości danych przy użyciu interfejsu API wypychania i indeksatorów.
 
-## <a name="push-api"></a>Interfejs API wypychania
+## <a name="use-the-push-api"></a>Korzystanie z interfejsu API wypychania
 
-Podczas wypychania danych do indeksu istnieje kilka najważniejszych zagadnień, które wpływają na szybkość indeksowania interfejsu API wypychania. Te czynniki zostały opisane w poniższej sekcji. 
+Podczas wypychania danych do indeksu przy użyciu [interfejsu API REST dodawania dokumentów](/rest/api/searchservice/addupdate-or-delete-documents) lub [metody index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index)istnieje kilka kluczowych zagadnień, które wpływają na szybkość indeksowania. Te czynniki opisano w poniższej sekcji, a zakres od ustawiania pojemności usługi na optymalizacje kodu.
 
-Oprócz informacji zawartych w tym artykule, możesz również skorzystać z przykładów kodu w [samouczku Optymalizacja szybkości indeksowania](tutorial-optimize-indexing-push-api.md) , aby dowiedzieć się więcej.
+Aby uzyskać więcej informacji i przykładów kodu, które ilustrują indeksowanie modelu wypychania, zobacz [Samouczek: Optymalizowanie szybkości indeksowania](tutorial-optimize-indexing-push-api.md).
 
-### <a name="service-tier-and-number-of-partitionsreplicas"></a>Warstwa usług i liczba partycji/replik
+### <a name="capacity-of-your-service"></a>Pojemność usługi
 
-Dodanie partycji lub zwiększenie warstwy usługi wyszukiwania spowoduje zwiększenie szybkości indeksowania.
+Pierwszym krokiem jest zapoznanie się z charakterystyką i [limitami](search-limits-quotas-capacity.md) warstwy, w której zainicjowano obsługę usługi. Jednym z kluczowych różnic między warstwami cenowymi jest rozmiar i szybkość partycji, która ma bezpośredni wpływ na szybkość indeksowania. Jeśli usługa wyszukiwania została zainicjowana w warstwie, która jest niewystarczająca do obciążania, uaktualnienie do nowej warstwy może być najłatwiejszym i najbardziej efektywnym rozwiązaniem w celu zwiększenia przepływności indeksowania.
 
-Dodanie dodatkowych replik może również zwiększyć szybkość indeksowania, ale nie jest to gwarantowane. Z drugiej strony, dodatkowe repliki spowodują zwiększenie woluminu zapytania, który może obsłużyć usługa wyszukiwania. Repliki są również kluczowym składnikiem do uzyskiwania [umowy SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Po spełnieniu warstwy, następnym krokiem może być zwiększenie liczby partycji. Alokację partycji można zmienić w dół po początkowym indeksie, aby zmniejszyć całkowity koszt działania usługi.
 
-Przed dodaniem partycji/replik lub uaktualnieniem do wyższego poziomu należy wziąć pod uwagę koszt pieniężny i czas alokacji. Dodawanie partycji może znacząco zwiększyć szybkość indeksowania, ale Dodawanie/usuwanie ich może zająć od 15 minut do kilku godzin. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [dostosowywania pojemności](search-capacity-planning.md).
+> [!NOTE]
+> Dodanie dodatkowych replik może również zwiększyć szybkość indeksowania, ale nie jest to gwarantowane. Z drugiej strony, dodatkowe repliki spowodują zwiększenie woluminu zapytania, który może obsłużyć usługa wyszukiwania. Repliki są również kluczowym składnikiem do uzyskiwania [umowy SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+>
+> Przed dodaniem partycji/replik lub uaktualnieniem do wyższego poziomu należy wziąć pod uwagę koszt pieniężny i czas alokacji. Dodawanie partycji może znacząco zwiększyć szybkość indeksowania, ale Dodawanie/usuwanie ich może zająć od 15 minut do kilku godzin. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [dostosowywania pojemności](search-capacity-planning.md).
+>
 
-### <a name="index-schema"></a>Schemat indeksu
+### <a name="review-index-schema"></a>Przegląd schematu indeksu
 
-Schemat indeksu odgrywa ważną rolę w indeksowaniu danych. Dodawanie pól i Dodawanie dodatkowych właściwości do tych pól (takich jak *Wyszukiwanie*, tworzenie *kroju*lub *filtrowanie*) zmniejsza szybkość indeksowania.
-
-Ogólnie rzecz biorąc, zalecamy Dodawanie dodatkowych właściwości do pól, jeśli zamierzasz ich używać.
+Schemat indeksu odgrywa ważną rolę w indeksowaniu danych. Im więcej pól i ustawionych przez siebie właściwości (takich jak *Wyszukiwanie*, tworzenie i *filtrowanie* *),* przyczyniają się do zwiększenia czasu indeksowania. Ogólnie rzecz biorąc należy tworzyć i określać pola, które są potrzebne w indeksie wyszukiwania.
 
 > [!NOTE]
 > Aby zachować rozmiar dokumentu w dół, Unikaj dodawania danych innych niż Queryable do indeksu. Obrazy i inne dane binarne nie są bezpośrednio przeszukiwane i nie powinny być przechowywane w indeksie. Aby zintegrować dane niequeryablene z wynikami wyszukiwania, należy zdefiniować pole, które nie jest możliwe do przeszukania, które przechowuje odwołanie do tego zasobu.
 
-### <a name="batch-size"></a>Rozmiar wsadu
+### <a name="check-the-batch-size"></a>Sprawdzanie rozmiaru partii
 
-Jednym z najprostszych mechanizmów indeksowania większego zestawu danych jest przesyłanie wielu dokumentów lub rekordów w jednym żądaniu. Tak długo, jak cały ładunek przekracza 16 MB, żądanie może obsłużyć do 1000 dokumentów w operacji ładowania zbiorczego. Te limity mają zastosowanie w przypadku korzystania z [interfejsu API REST dodawania dokumentów](/rest/api/searchservice/addupdate-or-delete-documents) lub [metody index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) w zestawie SDK platformy .NET. Dla obu interfejsów API w treści każdego żądania należy spakować 1000 dokumentów.
+Jednym z najprostszych mechanizmów indeksowania większego zestawu danych jest przesyłanie wielu dokumentów lub rekordów w jednym żądaniu. Tak długo, jak cały ładunek przekracza 16 MB, żądanie może obsłużyć do 1000 dokumentów w operacji ładowania zbiorczego. Te limity mają zastosowanie w przypadku korzystania z [interfejsu API REST dodawania dokumentów](/rest/api/searchservice/addupdate-or-delete-documents) lub [metody index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) w zestawie SDK platformy .NET. Dla obu interfejsów API w treści każdego żądania należy spakować 1000 dokumentów.
 
 Użycie partii do indeksowania dokumentów znacznie poprawi wydajność indeksowania. Określenie optymalnego rozmiaru partii danych jest kluczowym elementem optymalizacji szybkości indeksowania. Dwa podstawowe czynniki wpływające na optymalny rozmiar partii to:
+
 + Schemat indeksu
 + Rozmiar danych
 
@@ -79,7 +82,7 @@ Podczas narastania żądań, które powodują przeszukanie usługi wyszukiwania,
 + **503 Usługa niedostępna** — ten błąd oznacza, że system jest mocno obciążony i nie można w tej chwili przetworzyć Twojego żądania.
 + **207 o wielu stanach** — ten błąd oznacza, że niektóre dokumenty zostały wykonane pomyślnie, ale co najmniej jeden z nich nie powiódł się.
 
-### <a name="retry-strategy"></a>Strategia ponawiania prób 
+### <a name="retry-strategy"></a>Strategia ponawiania prób
 
 Jeśli wystąpi awaria, żądania powinny być ponawiane przy użyciu [strategii wycofywaniaego ponawiania prób](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
@@ -89,7 +92,7 @@ Zestaw .NET SDK platformy Azure Wyszukiwanie poznawcze automatycznie ponawia pr�
 
 Szybkość transferu danych w sieci może być czynnikiem ograniczającym podczas indeksowania danych. Indeksowanie danych z poziomu środowiska platformy Azure to prosty sposób przyspieszenia indeksowania.
 
-## <a name="indexers"></a>Indexers (Indeksatory)
+## <a name="use-indexers-pull-api"></a>Używanie indeksatorów (interfejs API ściągania)
 
 [Indeksatory](search-indexer-overview.md) służą do przeszukiwania obsługiwanych źródeł danych platformy Azure w celu wyszukania zawartości. Chociaż nie jest to przeznaczone do indeksowania na dużą skalę, kilka funkcji indeksatora jest szczególnie przydatne do obsługi większych zestawów danych:
 
@@ -100,7 +103,7 @@ Szybkość transferu danych w sieci może być czynnikiem ograniczającym podcza
 > [!NOTE]
 > Indeksatory są specyficzne dla źródła danych, więc użycie metody indeksatora jest możliwe tylko dla wybranych źródeł danych na platformie Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [BLOB Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
 
-### <a name="batch-size"></a>Rozmiar wsadu
+### <a name="check-the-batchsize-argument-on-create-indexer"></a>Sprawdź argument batchSize przy tworzeniu indeksatora
 
 Podobnie jak w przypadku interfejsu API wypychania, Indeksatory umożliwiają skonfigurowanie liczby elementów na partię. W przypadku indeksatorów opartych na [interfejsie API Rest tworzenia indeksatora](/rest/api/searchservice/Create-Indexer)można ustawić `batchSize` argument, aby dostosować to ustawienie, aby lepiej odpowiadało charakterystyce danych. 
 
@@ -112,7 +115,7 @@ Planowanie indeksatora to ważny mechanizm przetwarzania dużych zestawów danyc
 
 Zaplanowana funkcja indeksowania jest uruchamiana w określonych odstępach czasu, a zadanie zwykle kończy się przed wznowieniem przy następnym zaplanowanym interwale. Jeśli jednak przetwarzanie nie zakończy się w przedziale czasu, indeksator zostanie zatrzymany (ponieważ został uruchomiony poza czasem). Podczas następnego interwału przetwarzanie zostanie wznowione w miejscu, w którym zostało przerwane, a system śledzi miejsce wystąpienia. 
 
-W praktyce w przypadku obciążeń indeksu obejmujących kilka dni można umieścić indeksator w harmonogramie 24-godzinnym. Gdy indeksowanie zostanie wznowione dla następnego 24-godzinnego cyklu, zostanie ono ponownie uruchomione od ostatniego znanego dobrego dokumentu. Dzięki temu indeksator może współdziałać w sposób za pośrednictwem zaległości dokumentu w ciągu kilku dni do czasu przetworzenia wszystkich nieprzetworzonych dokumentów. Aby uzyskać więcej informacji na temat tego podejścia, zobacz [indeksowanie dużych zestawów danych w usłudze Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Aby uzyskać więcej informacji na temat ogólnych ustawień harmonogramów, zobacz [Tworzenie interfejsu API REST indeksatora](/rest/api/searchservice/Create-Indexer) lub zapoznaj [się z tematem planowanie indeksatorów dla usługi Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
+W praktyce w przypadku obciążeń indeksu obejmujących kilka dni można umieścić indeksator w harmonogramie 24-godzinnym. Gdy indeksowanie zostanie wznowione dla następnego 24-godzinnego cyklu, zostanie ono ponownie uruchomione od ostatniego znanego dobrego dokumentu. Dzięki temu indeksator może współdziałać w sposób za pośrednictwem zaległości dokumentu w ciągu kilku dni do czasu przetworzenia wszystkich nieprzetworzonych dokumentów. Aby uzyskać więcej informacji na temat ogólnych ustawień harmonogramów, zobacz [Tworzenie interfejsu API REST indeksatora](/rest/api/searchservice/Create-Indexer) lub zapoznaj [się z tematem planowanie indeksatorów dla usługi Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 

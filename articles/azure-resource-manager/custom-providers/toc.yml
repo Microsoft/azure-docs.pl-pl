@@ -9,6 +9,8 @@
   items:
     - name: Tworzenie niestandardowego dostawcy zasobów
       href: create-custom-provider.md
+    - name: Tworzenie niestandardowego dostawcy zasobów — Azure PowerShell
+      href: create-custom-provider-quickstart-powershell.md
 - name: Samouczki
   items:
     - name: Wprowadzenie do dostawców niestandardowych
@@ -45,6 +47,8 @@
       href: /rest/api/customproviders/
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/ext/custom-providers/custom-providers/
+    - name: Azure PowerShell
+      href: /powershell/module/Az.CustomProviders/
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

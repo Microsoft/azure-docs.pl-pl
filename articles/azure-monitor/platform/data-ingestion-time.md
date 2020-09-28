@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ced838d05ef9d8ca9f6c724d88fabdad010ed727
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666641"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403555"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Czas pozyskiwania danych dziennika w usłudze Azure Monitor
 Azure Monitor to usługa danych o dużej skali, która umożliwia tysiącom klientów wysyłanie terabajtów danych co miesiąc w coraz większej tempie. Często zadawane pytania dotyczące czasu potrzebnego do uzyskania danych dziennika stają się dostępne po ich zebraniu. W tym artykule wyjaśniono różne czynniki wpływające na to opóźnienie.
@@ -51,7 +51,7 @@ Po udostępnieniu w punkcie pozyskiwania danych do wykonywania zapytań zajmują
 ### <a name="management-solutions-collection"></a>Kolekcja rozwiązań do zarządzania
 Niektóre rozwiązania nie zbierają danych od agenta i mogą korzystać z metody kolekcji, która wprowadza dodatkowe opóźnienia. Niektóre rozwiązania zbierają dane w regularnych odstępach czasu bez próby zbierania danych w czasie niemal rzeczywistym. Określone przykłady obejmują następujące elementy:
 
-- Rozwiązanie pakietu Office 365 sonduje dzienniki aktywności przy użyciu interfejsu API działania zarządzania pakietem Office 365, który obecnie nie zapewnia niemal opóźnień opóźnienia w czasie rzeczywistym.
+- Microsoft 365 rozwiązanie sonduje dzienniki aktywności przy użyciu interfejsu API działania zarządzania, który obecnie nie zapewnia żadnych gwarancji opóźnienia w czasie niemal rzeczywistym.
 - Rozwiązania Windows Analytics (Update Compliance na przykład) dane są zbierane przez rozwiązanie z częstotliwością dzienną.
 
 Zapoznaj się z dokumentacją każdego rozwiązania, aby określić jego częstotliwość zbierania danych.

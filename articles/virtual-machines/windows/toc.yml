@@ -354,6 +354,9 @@
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Stany i cykl życia
       href: ../states-lifecycle.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Wywołania PUT na potrzeby operacji tworzenia lub aktualizacji
+      href: ../put-calls-create-or-update.md
+      maintainContext: true
     - name: Monitorowanie
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Diagnostyka rozruchu
@@ -373,7 +376,7 @@
             - name: PowerShell
               href: dedicated-hosts-powershell.md
             - name: Portal
-              href: dedicated-hosts-portal.md
+              href: ../dedicated-hosts-portal.md
         - name: Wdrażanie maszyn wirtualnych typu spot
           items:
             - name: Portal
@@ -499,7 +502,7 @@
                 - name: Tworzenie maszyny wirtualnej na podstawie wersji obrazu
                   href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: Rozwiązywanie problemów z obrazami udostępnionymi
-              href: troubleshooting-shared-images.md
+              href: ../troubleshooting-shared-images.md
             - name: Używanie kluczy zarządzanych przez klienta
               displayName: 'SSE, CMK, encrypt'
               href: ../image-version-encryption.md
@@ -510,7 +513,7 @@
             - name: Korzystanie z usługi Image Builder
               items:
                 - name: Interfejs wiersza polecenia
-                  href: ../linux/image-builder.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                  href: image-builder.md
                 - name: PowerShell
                   href: image-builder-powershell.md
             - name: Korzystanie z sieci wirtualnej
@@ -525,8 +528,8 @@
                   href: ../linux/image-builder-permissions-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Zadanie metodyki DevOps
               href: ../linux/image-builder-devops-task.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Dokumentacja szablonu usługi Resource Manager
-              displayName: Azure Resource Manager
+            - name: Dokumentacja szablonu usługi Image Builder
+              displayName: json
               href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Tworzenie dla galerii obrazów
               href: image-builder-gallery.md
@@ -535,7 +538,7 @@
             - name: Przechowywanie skryptów
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Rozwiązywanie problemów
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+              href: ../linux/image-builder-troubleshoot.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Znajdowanie obrazów i korzystanie z nich
           href: cli-ps-findimage.md
         - name: Informacje o planie zakupu
@@ -818,8 +821,9 @@
         - name: Zestawy skali maszyn wirtualnych
           href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Wysoka dostępność
-          href: manage-availability.md
+          href: ../manage-availability.md
         - name: Tworzenie grupy umieszczania w pobliżu
+          displayName: ppg aligned colocation co-location
           items:
             - name: Portal
               href: proximity-placement-groups-portal.md

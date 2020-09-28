@@ -145,6 +145,8 @@
       href: ../../network-watcher/security-baseline.md
     - name: Punkt odniesienia usługi Security Center
       href: ../../security-center/security-baseline.md
+    - name: Punkt odniesienia usługi Service Bus
+      href: ../../service-bus-messaging/security-baseline.md
     - name: Punkt odniesienia usługi Service Fabric
       href: ../../service-fabric/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Stream Analytics

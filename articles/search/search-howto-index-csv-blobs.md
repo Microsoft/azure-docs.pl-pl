@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 14846761535a77f28adbd0147d244817cb799d86
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f9c01e8e31e78c277a7a3ec1e5d8d0c32b58f8bc
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935844"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403657"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Jak indeksować obiekty blob w formacie CSV przy użyciu trybu analizowania delimitedText i indeksatorów obiektów BLOB na platformie Azure Wyszukiwanie poznawcze
 
@@ -49,7 +49,7 @@ Jeśli obiekty blob nie zawierają początkowego wiersza nagłówka, nagłówki 
 "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 ```
 
-Można dostosować znak ogranicznika przy użyciu `delimitedTextDelimiter` Ustawienia konfiguracji. Przykład:
+Można dostosować znak ogranicznika przy użyciu `delimitedTextDelimiter` Ustawienia konfiguracji. Na przykład:
 
 ```http
 "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
@@ -97,4 +97,4 @@ Indeksatora
 ```
 
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Pomóż nam ulepszyć platformę Azure Wyszukiwanie poznawcze
-Jeśli masz żądania funkcji lub pomysły dotyczące ulepszeń, podaj dane wejściowe w usłudze [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+Jeśli masz żądania funkcji lub pomysły dotyczące ulepszeń, podaj dane wejściowe w usłudze [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Jeśli potrzebujesz pomocy przy korzystaniu z istniejącej funkcji, Opublikuj pytanie na [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).

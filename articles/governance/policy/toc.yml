@@ -17,6 +17,9 @@
     - name: Przypisywanie zasad — program Azure PowerShell
       displayName: 'assign, compliance'
       href: ./assign-policy-powershell.md
+    - name: Przypisywanie zasad — język JavaScript
+      displayName: 'assign, compliance'
+      href: ./assign-policy-javascript.md
     - name: Przypisywanie zasad — język Python
       displayName: 'assign, compliance'
       href: ./assign-policy-python.md
@@ -112,10 +115,10 @@
       href: ./concepts/policy-as-code.md
     - name: Integracja z platformą Kubernetes
       items:
-        - name: Usługa Azure Policy dla platformy Kubernetes (wersja zapoznawcza)
+        - name: Azure Policy dla platformy Kubernetes
           displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
           href: ./concepts/policy-for-kubernetes.md
-        - name: Zabezpieczanie zasobników przy użyciu usługi Azure Policy (wersja zapoznawcza)
+        - name: Zabezpieczanie zasobników przy użyciu usługi Azure Policy
           displayName: 'aks, psp, rego, opa'
           href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Przeprowadzanie inspekcji maszyn wirtualnych przy użyciu konfiguracji gościa

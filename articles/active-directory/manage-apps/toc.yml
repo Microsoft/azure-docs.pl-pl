@@ -18,8 +18,10 @@
       href: add-application-portal-configure.md
     - name: Przypisywanie użytkowników do aplikacji
       href: add-application-portal-assign-users.md
-    - name: Konfigurowanie logowania jednokrotnego
+    - name: Konfigurowanie logowania jednokrotnego opartego na protokole SAML
       href: add-application-portal-setup-sso.md
+    - name: Konfigurowanie logowania jednokrotnego opartego na warstwie OIDC
+      href: add-application-portal-setup-oidc-sso.md
     - name: Usuwanie aplikacji
       href: delete-application-portal.md
 - name: Samouczki

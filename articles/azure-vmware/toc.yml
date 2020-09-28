@@ -20,8 +20,6 @@
       href: tutorial-nsx-t-network-segment.md
     - name: 7 — Komunikacja równorzędna środowiska lokalnego z chmurą prywatną
       href: tutorial-expressroute-global-reach-private-cloud.md
-    - name: 8 — Wdrażanie maszyny wirtualnej za pomocą biblioteki zawartości
-      href: tutorial-deploy-vm-content-library.md
 - name: Pojęcia
   items:
     - name: Chmury prywatne i klastry
@@ -36,6 +34,8 @@
       href: concepts-rbac.md
     - name: Uaktualnienia chmur prywatnych
       href: concepts-upgrades.md
+    - name: Monitorowanie i naprawa chmur prywatnych
+      href: concepts-monitor-repair-private-cloud.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Włączanie usługi Azure VMware Solution
@@ -48,6 +48,8 @@
       href: manage-dhcp.md
     - name: Odzyskiwanie po awarii
       href: disaster-recovery.md
+    - name: Wdrażanie maszyny wirtualnej za pomocą biblioteki zawartości
+      href: deploy-vm-content-library.md
     - name: Integracja z funkcjami macierzystymi platformy Azure
       items:
         - name: API Management
@@ -68,10 +70,16 @@
           href: deploy-traffic-manager-to-balance-avs-workloads.md
         - name: NetApp Files
           href: net-app-files.md
+    - name: Serwer GitHub Enterprise
+      href: github-enterprise-server.md
     - name: Rozwiązania VMware
       items:
         - name: Konfigurowanie operacji vRealize
           href: vrealize-operations-for-avs.md
+    - name: Ekosystem oprogramowania VMware
+      items:
+        - name: Rozwiązania do tworzenia kopii zapasowych maszyn wirtualnych
+          href: ecosystem-back-up-vms.md
 - name: Dokumentacja
   items: null
 - name: Zasoby

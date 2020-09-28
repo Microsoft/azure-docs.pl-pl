@@ -10,6 +10,8 @@
       href: event-hubs-capture-overview.md
     - name: Event Hubs — warstwa Dedykowana
       href: event-hubs-dedicated-overview.md
+    - name: Rejestr schematów platformy Azure w usłudze Event Hubs (wersja zapoznawcza)
+      href: schema-registry-overview.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -125,6 +127,8 @@
       maintainContext: true
 - name: Przewodniki z instrukcjami
   items:
+    - name: Tworzenie rejestru schematów
+      href: create-schema-registry.md
     - name: Move
       items:
         - name: Przenoszenie przestrzeni nazw do innego regionu
@@ -219,6 +223,8 @@
           href: troubleshoot-authentication-authorization.md
         - name: Przewodnik rozwiązywania problemów z platformą Kafka dotyczący usługi Event Hubs
           href: apache-kafka-troubleshooting-guide.md
+        - name: EventHubsException
+          href: exceptions-dotnet.md
         - name: Wyjątki platformy .NET
           href: event-hubs-messaging-exceptions.md
         - name: Wyjątki usługi Resource Manager

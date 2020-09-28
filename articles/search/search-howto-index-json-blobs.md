@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: c3aa813c671e9755b6ab65ba1e2967876bd170ca
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398344"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403640"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Jak indeksować obiekty blob w formacie JSON za pomocą indeksatora obiektów BLOB na platformie Azure Wyszukiwanie poznawcze
 
@@ -280,10 +280,10 @@ Tworzenie indeksatora w ramach importu danych wyzwalaczy usługi Azure Wyszukiwa
 
 Zestaw SDK platformy .NET ma pełną zgodność z interfejsem API REST. Zalecamy zapoznanie się z poprzednią sekcją interfejsu API REST, aby poznać koncepcje, przepływ pracy i wymagania. Następnie można zapoznać się z następującą dokumentacją interfejsu API platformy .NET, aby zaimplementować indeksator JSON w kodzie zarządzanym.
 
-+ [Microsoft. Azure. Search. models. DataSource](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft. Azure. Search. models. DataSourceType](/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft. Azure. Search. models. index](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft. Azure. Search. models. indeksator](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [Microsoft. Azure. Search. models. DataSource](/dotnet/api/microsoft.azure.search.models.datasource)
++ [Microsoft. Azure. Search. models. DataSourceType](/dotnet/api/microsoft.azure.search.models.datasourcetype) 
++ [Microsoft. Azure. Search. models. index](/dotnet/api/microsoft.azure.search.models.index) 
++ [Microsoft. Azure. Search. models. indeksator](/dotnet/api/microsoft.azure.search.models.indexer)
 
 <a name="parsing-modes"></a>
 
@@ -451,7 +451,9 @@ Można również odwoływać się do poszczególnych elementów tablicy przy uż
 > [!NOTE]
 > Jeśli nazwa pola źródłowego w ścieżce mapowania pola odwołuje się do właściwości, która nie istnieje w formacie JSON, to mapowanie jest pomijane bez błędu. Dzieje się tak, aby umożliwić obsługę dokumentów z innym schematem (który jest typowym przypadkiem użycia). Ponieważ nie ma weryfikacji, należy zadbać o uniknięcie literówki w specyfikacji mapowania pól.
 >
->
+
+## <a name="help-us-make-azure-cognitive-search-better"></a>Pomóż nam ulepszyć platformę Azure Wyszukiwanie poznawcze
+Jeśli masz żądania funkcji lub pomysły dotyczące ulepszeń, podaj dane wejściowe w usłudze [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Jeśli potrzebujesz pomocy przy korzystaniu z istniejącej funkcji, Opublikuj pytanie na [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
 ## <a name="see-also"></a>Zobacz też
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 255e5533dc19036624042a0b82116c4dc107d762
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 420ab87591e230592ec8f728c6acb155266b5912
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336228"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403530"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Kontrola zabezpieczeń v2: ładu i strategia
 
@@ -28,21 +28,21 @@ Zadbaj o to, aby udokumentować i komunikować się jasno strategię monitorowan
 
 Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dla następujących elementów: 
 
--   Standard klasyfikacji danych zgodny z ryzykiem biznesowym
+- Standard klasyfikacji danych zgodny z ryzykiem biznesowym
 
--   Organizacja zabezpieczeń wgląd w czynniki ryzyka i spis zasobów 
+- Organizacja zabezpieczeń wgląd w czynniki ryzyka i spis zasobów 
 
--   Zatwierdzenie przez organizację zabezpieczeń usług platformy Azure do użycia 
+- Zatwierdzenie przez organizację zabezpieczeń usług platformy Azure do użycia 
 
--   Bezpieczeństwo zasobów w ramach cyklu życia
+- Bezpieczeństwo zasobów w ramach cyklu życia
 
--   Wymagana strategia kontroli dostępu zgodnie z klasyfikacją danych organizacji
+- Wymagana strategia kontroli dostępu zgodnie z klasyfikacją danych organizacji
 
--   Korzystanie z funkcji ochrony danych natywnych i firmowych platformy Azure
+- Korzystanie z funkcji ochrony danych natywnych i firmowych platformy Azure
 
--   Wymagania dotyczące szyfrowania danych dla przypadków użycia w trakcie tranzytu i w czasie spoczynku
+- Wymagania dotyczące szyfrowania danych dla przypadków użycia w trakcie tranzytu i w czasie spoczynku
 
--   Odpowiednie standardy kryptograficzne
+- Odpowiednie standardy kryptograficzne
 
 Aby uzyskać więcej informacji, zobacz następujące odwołania:
 - [Zalecenie dotyczące architektury zabezpieczeń platformy Azure — magazyn, dane i szyfrowanie](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
@@ -51,9 +51,9 @@ Aby uzyskać więcej informacji, zobacz następujące odwołania:
 
 - [Środowisko wdrażania chmury — najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Test wydajności Azure Security — zarządzanie zasobami](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Test wydajności Azure Security — zarządzanie zasobami](security-controls-v2-asset-management.md)
 
-- [Test porównawczy zabezpieczeń platformy Azure — Ochrona danych](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Test porównawczy zabezpieczeń platformy Azure — Ochrona danych](security-controls-v2-data-protection.md)
 
 **Odpowiedzialność**: klient
 
@@ -93,7 +93,7 @@ Upewnij się, że strategia segmentacji jest zaimplementowana spójnie między t
 
 Nieustannie mierz i ograniczaj ryzyko dla poszczególnych zasobów i środowiska, w którym są hostowane. Ustalanie priorytetów zasobów o wysokiej wartości i wysoce narażonych obszarów ataków, takich jak opublikowane aplikacje, punkty danych przychodzących i wychodzących sieci, punkty końcowe użytkowników i administratorów itp.
 
-- [Azure Security test — stan i zarządzanie lukami w zabezpieczeniach](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security test — stan i zarządzanie lukami w zabezpieczeniach](security-controls-v2-posture-vulnerability-management.md)
 
 **Odpowiedzialność**: klient
 
@@ -131,23 +131,23 @@ Ustanów podejście zabezpieczeń sieci platformy Azure jako część ogólnej s
 
 Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dla następujących elementów: 
 
--   Scentralizowane zarządzanie siecią i odpowiedzialność w zakresie zabezpieczeń
+- Scentralizowane zarządzanie siecią i odpowiedzialność w zakresie zabezpieczeń
 
--   Model segmentacji sieci wirtualnej wyrównany do strategii segmentacji przedsiębiorstwa
+- Model segmentacji sieci wirtualnej wyrównany do strategii segmentacji przedsiębiorstwa
 
--   Strategia korygowania w różnych scenariuszach zagrożeń i ataków
+- Strategia korygowania w różnych scenariuszach zagrożeń i ataków
 
--   Strategia internetowa i dotycząca ruchu przychodzącego i wychodzącego
+- Strategia internetowa i dotycząca ruchu przychodzącego i wychodzącego
 
--   Strategia międzyłączności w chmurze hybrydowej i lokalnej
+- Strategia międzyłączności w chmurze hybrydowej i lokalnej
 
--   Aktualne artefakty zabezpieczeń sieci (np. diagramy sieciowe, Architektura sieci odniesienia)
+- Aktualne artefakty zabezpieczeń sieci (np. diagramy sieciowe, Architektura sieci odniesienia)
 
 Aby uzyskać więcej informacji, zobacz następujące odwołania:
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 11 — architektura. Pojedyncza ujednolicona strategia zabezpieczeń](https://aka.ms/AzSec11)
 
-- [Test porównawczy zabezpieczeń platformy Azure — Zabezpieczenia sieci](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Test porównawczy zabezpieczeń platformy Azure — Zabezpieczenia sieci](security-controls-v2-network-security.md)
 
 - [Omówienie zabezpieczeń sieci platformy Azure](../fundamentals/network-overview.md)
 
@@ -169,25 +169,25 @@ Ustanów rolę platformy Azure i dostęp uprzywilejowany jako część ogólnej 
 
 Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dla następujących elementów: 
 
--   Scentralizowany system tożsamości i uwierzytelniania oraz połączenie z innymi wewnętrznymi i zewnętrznymi systemami tożsamości
+- Scentralizowany system tożsamości i uwierzytelniania oraz połączenie z innymi wewnętrznymi i zewnętrznymi systemami tożsamości
 
--   Metody silnego uwierzytelniania w różnych przypadkach użycia i warunkach
+- Metody silnego uwierzytelniania w różnych przypadkach użycia i warunkach
 
--   Ochrona użytkowników z wysokim poziomem uprawnień
+- Ochrona użytkowników z wysokim poziomem uprawnień
 
--   Monitorowanie i obsługa nietypowych działań użytkowników  
+- Monitorowanie i obsługa nietypowych działań użytkowników  
 
--   Przegląd tożsamości i dostępu użytkownika oraz proces uzgadniania
+- Przegląd tożsamości i dostępu użytkownika oraz proces uzgadniania
 
 Aby uzyskać więcej informacji, zobacz następujące odwołania:
 
-- [Test porównawczy zabezpieczeń Azure — Zarządzanie tożsamościami](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Test porównawczy zabezpieczeń Azure — Zarządzanie tożsamościami](security-controls-v2-identity-management.md)
 
-- [Test porównawczy zabezpieczeń platformy Azure — uprzywilejowany dostęp](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Test porównawczy zabezpieczeń platformy Azure — uprzywilejowany dostęp](security-controls-v2-privileged-access.md)
 
 - [Najlepsze rozwiązanie dotyczące zabezpieczeń platformy Azure 11 — architektura. Pojedyncza ujednolicona strategia zabezpieczeń](https://aka.ms/AzSec11)
 
-- [Omówienie zabezpieczeń usługi Azure Identity Management](../fundamentals/identity-management-overview.md) 
+- [Omówienie zabezpieczeń usługi Azure Identity Management](../fundamentals/identity-management-overview.md)
 
 **Odpowiedzialność**: klient
 
@@ -205,26 +205,26 @@ Ustanów strategię rejestrowania i reagowania na zagrożenia, aby szybko wykryw
 
 Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dla następujących elementów: 
 
--   Rola i obowiązki organizacji operacji zabezpieczeń (SecOP) 
+- Rola i obowiązki organizacji operacji zabezpieczeń (SecOP) 
 
--   Dobrze zdefiniowany proces reagowania na zdarzenia z Instytutem NIST lub inną platformą branżową 
+- Dobrze zdefiniowany proces reagowania na zdarzenia z Instytutem NIST lub inną platformą branżową 
 
--   Przechwytywanie i przechowywanie dzienników w celu zapewnienia obsługi wykrywania zagrożeń, reagowania na zdarzenia i zgodności
+- Przechwytywanie i przechowywanie dzienników w celu zapewnienia obsługi wykrywania zagrożeń, reagowania na zdarzenia i zgodności
 
--   Scentralizowana widoczność i korelacja informacji dotyczących zagrożeń przy użyciu SIEM, natywnych możliwości platformy Azure i innych źródeł 
+- Scentralizowana widoczność i korelacja informacji dotyczących zagrożeń przy użyciu SIEM, natywnych możliwości platformy Azure i innych źródeł 
 
--   Plan komunikacji i powiadomień z klientami, dostawcami i zainteresowanymi stronami
+- Plan komunikacji i powiadomień z klientami, dostawcami i zainteresowanymi stronami
 
--   Używanie platform macierzystych i innych firm platformy Azure do obsługi zdarzeń, takich jak rejestrowanie i wykrywanie zagrożeń, dowodowych oraz korygowanie i eliminowanie ataków
+- Używanie platform macierzystych i innych firm platformy Azure do obsługi zdarzeń, takich jak rejestrowanie i wykrywanie zagrożeń, dowodowych oraz korygowanie i eliminowanie ataków
 
--   Procesy obsługi zdarzeń i działań po zdarzeniu, takie jak zdobyte doświadczenia i przechowywanie dowodów
+- Procesy obsługi zdarzeń i działań po zdarzeniu, takie jak zdobyte doświadczenia i przechowywanie dowodów
 
 Aby uzyskać więcej informacji, zobacz następujące odwołania:
-- [Test porównawczy zabezpieczeń platformy Azure — rejestrowanie i wykrywanie zagrożeń](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Test porównawczy zabezpieczeń platformy Azure — rejestrowanie i wykrywanie zagrożeń](security-controls-v2-logging-threat-detection.md)
 
-- [Test porównawczy zabezpieczeń platformy Azure — odpowiedź na zdarzenie](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Test porównawczy zabezpieczeń platformy Azure — odpowiedź na zdarzenie](security-controls-v2-incident-response.md)
 
-- [Azure Security Best Practice 4 — proces. Aktualizowanie procesów odpowiedzi na zdarzenia dla chmury](https://aka.ms/AzSec11)
+- [Azure Security Best Practice 4 — proces. Aktualizowanie procesów odpowiedzi na zdarzenia dla chmury](https://aka.ms/AzSec4)
 
 - [Przewodnik wdrażania platformy Azure, rejestrowania i podejmowania decyzji dotyczących raportowania](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
@@ -246,14 +246,14 @@ Utwórz strategię tworzenia kopii zapasowych i odzyskiwania na platformie Azure
 
 Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dla następujących elementów: 
 
--   Cel czasu odzyskiwania (RTO) i definicje celu punktu odzyskiwania (RPO) zgodnie z celami odporności firmy
+- Cel czasu odzyskiwania (RTO) i definicje celu punktu odzyskiwania (RPO) zgodnie z celami odporności firmy
 
--   Projektowanie nadmiarowości w aplikacjach i ustawieniach infrastruktury
+- Projektowanie nadmiarowości w aplikacjach i ustawieniach infrastruktury
 
--   Ochrona kopii zapasowych przy użyciu funkcji kontroli dostępu i szyfrowania danych
+- Ochrona kopii zapasowych przy użyciu funkcji kontroli dostępu i szyfrowania danych
 
 Aby uzyskać więcej informacji, zobacz następujące odwołania:
-- [Azure Security test — tworzenie kopii zapasowych i odzyskiwanie](/azure/security/benchmarks/security-benchmark-v2-backup-recovery)
+- [Azure Security test — tworzenie kopii zapasowych i odzyskiwanie](security-controls-v2-backup-recovery.md)
 
 - [Środowisko platformy Azure — tworzenie kopii zapasowych i odzyskiwanie po awarii dla aplikacji platformy Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
 

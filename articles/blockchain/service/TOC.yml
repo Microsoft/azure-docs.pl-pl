@@ -13,6 +13,8 @@
       href: create-member.md
     - name: Tworzenie elementu członkowskiego przy użyciu interfejsu wiersza polecenia
       href: create-member-cli.md
+    - name: Tworzenie elementu członkowskiego przy użyciu programu Azure PowerShell
+      href: create-member-powershell.md
     - name: Tworzenie elementu członkowskiego przy użyciu szablonu usługi Resource Manager
       displayName: Resource Manager
       href: create-member-template.md
@@ -81,7 +83,7 @@
     - name: Pomoc techniczna w społeczności
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
     - name: Pomoc techniczna w witrynie Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'
+      href: 'https://stackoverflow.com/questions/tagged/azure-blockchain-service'
     - name: Opinia dotycząca produktu
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
     - name: Cennik

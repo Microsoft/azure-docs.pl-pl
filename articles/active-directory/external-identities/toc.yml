@@ -2,11 +2,14 @@
   href: index.yml
   items:
     - name: Omówienie
+      expanded: true
       items:
         - name: Porównanie rozwiązań dla tożsamości zewnętrznych
           href: compare-with-b2c.md
         - name: Co to jest dostęp dla użytkowników-gości B2B?
           href: what-is-b2b.md
+        - name: Co to jest Azure AD B2C?
+          href: 'https://docs.microsoft.com/azure/active-directory-b2c/overview'
     - name: Przewodniki Szybki start
       items:
         - name: Dodawanie użytkowników-gości w portalu
@@ -15,15 +18,15 @@
           href: b2b-quickstart-invite-powershell.md
     - name: Samouczki
       items:
-        - name: Zapraszanie zbiorcze za pośrednictwem programu PowerShell
+        - name: Zbiorcze zapraszanie użytkowników-gości za pomocą programu PowerShell
           href: bulk-invite-powershell.md
-        - name: Zapraszanie zbiorcze za pośrednictwem portalu
+        - name: Zbiorcze zapraszanie użytkowników-gości za pomocą portalu
           href: tutorial-bulk-invite.md
-        - name: Wymuszanie uwierzytelniania wieloskładnikowego
+        - name: Wymuszanie uwierzytelniania wieloskładnikowego dla użytkowników-gości
           href: b2b-tutorial-require-mfa.md
-    - name: Samples
+    - name: Przykłady
       items:
-        - name: Przykłady rejestracji samoobsługowej
+        - name: Przykłady rejestracji samoobsługowej użytkownika-gościa
           href: code-samples-self-service-sign-up.md
         - name: Przykłady kodu i programu Azure PowerShell
           href: code-samples.md
@@ -63,9 +66,9 @@
     - name: Przewodniki z instrukcjami
       expanded: true
       items:
-        - name: Konfigurowanie udostępniania zewnętrznego
+        - name: Konfigurowanie ustawień współpracy zewnętrznej
           href: delegate-invitations.md
-        - name: Zapraszanie użytkowników B2B
+        - name: Zapraszanie gości
           items:
             - name: Administratorzy dodający użytkowników B2B
               href: add-users-administrator.md
@@ -91,7 +94,7 @@
               href: direct-federation-adfs.md
         - name: Uwierzytelnianie za pomocą jednorazowego kodu dostępu
           href: one-time-passcode.md
-        - name: Rejestracja samoobsługowa (wersja zapoznawcza)
+        - name: Rejestracja samoobsługowa dla użytkowników-gości (wersja zapoznawcza)
           items:
             - name: Dodawanie przepływu samoobsługowej rejestracji użytkowników
               href: self-service-sign-up-user-flow.md
@@ -103,7 +106,7 @@
               href: self-service-sign-up-add-api-connector.md
             - name: Dodawanie niestandardowego systemu zatwierdzania
               href: self-service-sign-up-add-approvals.md
-        - name: Zarządzanie kontami gościa
+        - name: Zarządzanie kontami użytkowników-gości
           items:
             - name: Dodawanie użytkownika B2B do roli
               href: add-guest-to-role.md
@@ -113,7 +116,7 @@
               href: user-properties.md
             - name: Aplikacje zintegrowane B2B dla usługi Azure AD
               href: configure-saas-apps.md
-        - name: Zarządzanie dostępem w organizacji hybrydowej
+        - name: Zarządzanie dostępem gości w organizacji hybrydowej
           items:
             - name: Udzielanie użytkownikom lokalnym dostępu do aplikacji w chmurze
               href: hybrid-on-premises-to-cloud.md

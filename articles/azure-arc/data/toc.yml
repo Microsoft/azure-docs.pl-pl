@@ -16,6 +16,8 @@
       href: connectivity.md
     - name: Konfiguracja usługi Storage
       href: storage-configuration.md
+    - name: Wskazówki dotyczące określania rozmiaru
+      href: sizing-guidance.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Instalowanie narzędzi
@@ -47,7 +49,7 @@
         - name: Tworzenie kontrolera danych (azdata)
           href: create-data-controller-using-azdata.md
         - name: Tworzenie kontrolera danych przy użyciu usługi Kubernetes
-          href: create-data-controller-using-k8s-native-tools.md
+          href: create-data-controller-using-kubernetes-native-tools.md
     - name: Typowe środowiska usług danych z obsługą usługi Azure Arc
       items:
         - name: Monitorowanie przy użyciu pulpitów nawigacyjnych (Azure Data Studio)
@@ -90,6 +92,8 @@
           href: create-postgresql-hyperscale-server-group.md
         - name: Tworzenie grupy serwerów Postgres w warstwie Hiperskala (Azure Data Studio)
           href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+        - name: Tworzenie grupy serwerów Postgres w warstwie Hiperskala — natywne narzędzia platformy Kubernetes
+          href: create-postgresql-hyperscale-server-group-kubernetes-native-tools.md
         - name: Connect
           href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
     - name: Pojęcia
@@ -148,6 +152,8 @@
           href: create-sql-managed-instance.md
         - name: Tworzenie usługi SQL Managed Instance (Azure Data Studio)
           href: create-sql-managed-instance-azure-data-studio.md
+        - name: Tworzenie przy użyciu narzędzi platformy Kubernetes
+          href: create-sql-managed-instance-using-kubernetes-native-tools.md
         - name: Connect
           href: connect-managed-instance.md
     - name: Porady

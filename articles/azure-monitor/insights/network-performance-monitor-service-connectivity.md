@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b7b6a7202392e083aaaa5cdc8adcf0c81cfb0e0d
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326107"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403708"
 ---
 # <a name="service-connectivity-monitor"></a>Monitorowanie łączności usług
 
@@ -19,8 +19,8 @@ Możesz użyć możliwości monitora łączności usług w [Network Performance 
 
 Za pomocą monitora łączności usług można wykonywać następujące funkcje: 
 
-- Monitoruj łączność sieciową z aplikacjami i usługami sieciowymi z wielu oddziałów lub lokalizacji. Aplikacje i usługi sieciowe obejmują pakiety Office 365, Dynamics CRM, wewnętrzne aplikacje biznesowe i bazy danych SQL.
-- Użyj wbudowanych testów do monitorowania łączności sieciowej z punktami końcowymi pakietu Office 365 i Dynamics 365. 
+- Monitoruj łączność sieciową z aplikacjami i usługami sieciowymi z wielu oddziałów lub lokalizacji. Aplikacje i usługi sieciowe obejmują Microsoft 365, Dynamics CRM, wewnętrzne aplikacje biznesowe i bazy danych SQL.
+- Użyj wbudowanych testów do monitorowania łączności sieciowej z punktami końcowymi Microsoft 365 i Dynamics 365. 
 - Określ czas odpowiedzi, opóźnienie sieci i utratę pakietów podczas nawiązywania połączenia z punktem końcowym.
 - Ustal, czy niska wydajność aplikacji jest spowodowana przez sieć lub z powodu problemu z zakończeniem działania dostawcy aplikacji.
 - Zidentyfikuj punkty przerwania w sieci, które mogą powodować niską wydajność aplikacji, wyświetlając czas opóźnienia spowodowany przez każdy przeskok mapy topologii.
@@ -29,7 +29,7 @@ Za pomocą monitora łączności usług można wykonywać następujące funkcje:
 ![Monitorowanie łączności usług](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
-## <a name="configuration"></a>Konfigurowanie 
+## <a name="configuration"></a>Konfiguracja 
 Aby otworzyć konfigurację Network Performance Monitor, Otwórz [rozwiązanie Network Performance Monitor](network-performance-monitor.md) i wybierz pozycję **Konfiguruj**.
 
 ![Konfigurowanie rozwiązania Network Performance Monitor](media/network-performance-monitor-service-endpoint/npm-configure-button.png)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 27926c687871180da78930be8e0968febcd77869
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: c8d68a17b3b991b88e02cf056dcb46da2debfa71
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396318"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403198"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -181,7 +181,7 @@ Podobnie jak w przypadku interfejsów API sieci Web, można wybrać różne impl
 
 Na poniższej ilustracji przedstawiono różne możliwości *Microsoft. Identity. Web* i ich wpływ na plik *Startup.cs* :
 
-:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="Podczas tworzenia internetowego interfejsu API można wywoływać interfejs API podrzędny i implementacje pamięci podręcznej.":::
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagram blokowy przedstawiający opcje konfiguracji usługi w kropce startowej C S na potrzeby wywoływania internetowego interfejsu API i określania implementacji pamięci podręcznej token":::
 
 > [!NOTE]
 > Aby w pełni zrozumieć przykłady kodu, należy zapoznać się z tematami [ASP.NET Core Fundamentals](/aspnet/core/fundamentals), a zwłaszcza z [iniekcją](/aspnet/core/fundamentals/dependency-injection) i [opcjami](/aspnet/core/fundamentals/configuration/options)zależności.

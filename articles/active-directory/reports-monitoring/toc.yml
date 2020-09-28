@@ -31,6 +31,8 @@
       href: plan-monitoring-and-reporting.md
     - name: Dzienniki inspekcji
       href: concept-audit-logs.md
+    - name: Nowe dzienniki logowania — wersja zapoznawcza
+      href: concept-all-sign-ins.md
     - name: Dzienniki logowania
       href: concept-sign-ins.md
     - name: Raport użycia i szczegółowych informacji

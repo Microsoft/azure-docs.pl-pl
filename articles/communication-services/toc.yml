@@ -82,7 +82,13 @@
   items:
     - name: Dokumentacja interfejsu API REST
       href: 'https://docs.microsoft.com/rest/api/azure/'
+    - name: Wywoływanie biblioteki (Android/Java)
+      href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
+    - name: Wywoływanie biblioteki (JS)
+      href: 'https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js'
+    - name: Wywoływanie biblioteki (iOS)
+      href: 'https://docs.microsoft.com/objectivec/communication-services/calling/'
 - name: Zasoby
   items:
     - name: Informacje o wersji
-      href: release-notes.md
+      href: 'https://github.com/Azure/Communication/blob/master/releasenotes/2020-September-22.md'
