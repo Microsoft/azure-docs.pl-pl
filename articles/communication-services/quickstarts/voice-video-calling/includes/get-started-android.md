@@ -28,15 +28,15 @@ W tym przewodniku szybki start dowiesz się, jak rozpocząć wywoływanie przy u
 
 W obszarze Android Studio wybierz pozycję Rozpocznij nowy Android Studio projekt.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Zrzut ekranu przedstawiający przycisk "Rozpocznij nowy projekt Android Studio" wybrany w Android Studio.":::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Zrzut ekranu przedstawiający przycisk Rozpocznij nowy projekt Android Studio wybrany w Android Studio.":::
 
 Wybierz szablon projektu "puste działanie" w obszarze "telefon i tablet".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Zrzut ekranu przedstawiający opcję "puste działanie" wybraną na ekranie szablonu projektu.":::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Zrzut ekranu przedstawiający opcję puste działanie wybraną na ekranie szablonu projektu.":::
 
 Wybierz minimalną bibliotekę klienta "API 26: Android 8,0 (OREO)" lub większą.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Zrzut ekranu przedstawiający opcję "puste działanie" wybraną na ekranie szablonu projektu 2.":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Zrzut ekranu przedstawiający opcję puste działanie wybraną na ekranie szablonu projektu 2.":::
 
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
