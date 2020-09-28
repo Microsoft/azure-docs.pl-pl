@@ -192,7 +192,7 @@ Aby Agent mógł znaleźć i połączyć się z przepływem, przepływ musi być
 
 1. Aby prawidłowo ustawić zmienną wejściową dla akcji QnA Maker, wybierz pozycję **Wybierz zmienną**, a następnie wybierz pozycję **bot. UnrecognizedTriggerPhrase**.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="Częściowy zrzut ekranu kanwy konwersacji w temacie "Wybieranie zmiennej wejściowej".":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="Częściowy zrzut ekranu kanwy konwersacji w temacie Wybieranie zmiennej wejściowej.":::
 
 
 1. Aby prawidłowo ustawić zmienną wyjściową dla akcji QnA Maker, w akcji **komunikat** wybierz pozycję **UnrecognizedTriggerPhrase**, a następnie wybierz ikonę, aby wstawić zmienną, `{x}` a następnie wybierz pozycję **FinalAnswer**.
