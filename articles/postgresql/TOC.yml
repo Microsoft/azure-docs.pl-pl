@@ -552,10 +552,6 @@
               href: concepts-hyperscale-choose-distribution-column.md
             - name: Kolokacja tabeli
               href: concepts-hyperscale-colocation.md
-            - name: Opcje konfiguracji
-              href: concepts-hyperscale-configuration-options.md
-            - name: Opłacanie wydajności rezerwowej z góry
-              href: concepts-hyperscale-reserved-pricing.md
         - name: Zabezpieczenia
           items:
             - name: Reguły zapory
@@ -577,6 +573,10 @@
           items:
             - name: Monitorowanie i dostrajanie
               href: concepts-hyperscale-monitoring.md
+        - name: Opcje konfiguracji
+          href: concepts-hyperscale-configuration-options.md
+        - name: Opłacanie wydajności rezerwowej z góry
+          href: concepts-hyperscale-reserved-pricing.md
         - name: Rozszerzenia PostgreSQL
           href: concepts-hyperscale-extensions.md
     - name: Dokumentacja interfejsu API
