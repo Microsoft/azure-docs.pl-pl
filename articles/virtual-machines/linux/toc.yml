@@ -311,8 +311,6 @@
           href: compute-benchmark-scores.md
     - name: Dystrybucje zatwierdzone
       href: endorsed-distros.md
-    - name: Dedykowane hosty
-      href: dedicated-hosts.md
     - name: Konserwacja i aktualizacje
       href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Przechowywanie na dysku
@@ -391,11 +389,12 @@
         - name: Kopiowanie lub klonowanie maszyny wirtualnej
           href: copy-vm.md
         - name: Korzystanie z dedykowanych hostów
+          href: ../dedicated-hosts.md
           items:
             - name: Interfejs wiersza polecenia
               href: dedicated-hosts-cli.md
             - name: Portal
-              href: dedicated-hosts-portal.md
+              href: ../dedicated-hosts-portal.md
         - name: Wdrażanie maszyn wirtualnych typu spot
           items:
             - name: Interfejs wiersza polecenia
@@ -858,6 +857,7 @@
         - name: Zmienianie zestawu dostępności
           href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Tworzenie grupy umieszczania w pobliżu
+          displayName: PPG aligned colocation co-location
           items:
             - name: Interfejs wiersza polecenia
               href: proximity-placement-groups.md

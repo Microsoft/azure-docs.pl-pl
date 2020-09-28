@@ -118,6 +118,8 @@
           href: ./security-controls-policy.md
         - name: Zabezpieczanie zasobów indeksatora
           href: search-indexer-securing-resources.md
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie indeksów i konstrukcji
